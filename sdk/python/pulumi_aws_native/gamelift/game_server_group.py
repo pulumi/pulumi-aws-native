@@ -38,6 +38,7 @@ class GameServerGroupArgs:
                  vpc_subnets: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a GameServerGroup resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['GameServerGroupInstanceDefinitionArgs']]] instance_definitions: A set of EC2 instance types to use when creating instances in the group.
         :param pulumi.Input[_builtins.str] role_arn: The Amazon Resource Name (ARN) for an IAM role that allows Amazon GameLift to access your EC2 Auto Scaling groups.
         :param pulumi.Input['GameServerGroupAutoScalingPolicyArgs'] auto_scaling_policy: Configuration settings to define a scaling policy for the Auto Scaling group that is optimized for game hosting. Updating this game server group property will not take effect for the created EC2 Auto Scaling group, please update the EC2 Auto Scaling group directly after creating the resource.
@@ -241,6 +242,7 @@ class GameServerGroup(pulumi.CustomResource):
         """
         The AWS::GameLift::GameServerGroup resource creates an Amazon GameLift (GameLift) GameServerGroup.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['GameServerGroupAutoScalingPolicyArgs', 'GameServerGroupAutoScalingPolicyArgsDict']] auto_scaling_policy: Configuration settings to define a scaling policy for the Auto Scaling group that is optimized for game hosting. Updating this game server group property will not take effect for the created EC2 Auto Scaling group, please update the EC2 Auto Scaling group directly after creating the resource.
@@ -264,6 +266,7 @@ class GameServerGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The AWS::GameLift::GameServerGroup resource creates an Amazon GameLift (GameLift) GameServerGroup.
+
 
         :param str resource_name: The name of the resource.
         :param GameServerGroupArgs args: The arguments to use to populate this resource's properties.

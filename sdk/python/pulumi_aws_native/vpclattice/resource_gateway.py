@@ -31,6 +31,7 @@ class ResourceGatewayArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a ResourceGateway resource.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: The ID of one or more subnets in which to create an endpoint network interface.
         :param pulumi.Input[_builtins.str] vpc_identifier: The ID of the VPC for the resource gateway.
         :param pulumi.Input['ResourceGatewayIpAddressType'] ip_address_type: The type of IP address used by the resource gateway.
@@ -154,6 +155,7 @@ class ResourceGateway(pulumi.CustomResource):
         """
         Creates a resource gateway for a service.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input['ResourceGatewayIpAddressType'] ip_address_type: The type of IP address used by the resource gateway.
@@ -172,6 +174,7 @@ class ResourceGateway(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Creates a resource gateway for a service.
+
 
         :param str resource_name: The name of the resource.
         :param ResourceGatewayArgs args: The arguments to use to populate this resource's properties.

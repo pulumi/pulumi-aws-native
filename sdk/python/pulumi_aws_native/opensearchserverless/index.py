@@ -28,6 +28,7 @@ class IndexArgs:
                  settings: Optional[pulumi.Input['IndexSettingsArgs']] = None):
         """
         The set of arguments for constructing a Index resource.
+
         :param pulumi.Input[_builtins.str] collection_endpoint: The endpoint for the collection.
         :param pulumi.Input[_builtins.str] index_name: The name of the OpenSearch Serverless index.
         :param pulumi.Input['MappingsPropertiesArgs'] mappings: Index Mappings
@@ -104,6 +105,7 @@ class Index(pulumi.CustomResource):
         """
         An OpenSearch Serverless index resource
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] collection_endpoint: The endpoint for the collection.
@@ -119,6 +121,7 @@ class Index(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An OpenSearch Serverless index resource
+
 
         :param str resource_name: The name of the resource.
         :param IndexArgs args: The arguments to use to populate this resource's properties.

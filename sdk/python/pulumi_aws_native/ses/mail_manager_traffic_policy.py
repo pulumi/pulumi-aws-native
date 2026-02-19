@@ -31,6 +31,7 @@ class MailManagerTrafficPolicyArgs:
                  traffic_policy_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a MailManagerTrafficPolicy resource.
+
         :param pulumi.Input['MailManagerTrafficPolicyAcceptAction'] default_action: Default action instructs the traﬃc policy to either Allow or Deny (block) messages that fall outside of (or not addressed by) the conditions of your policy statements
         :param pulumi.Input[Sequence[pulumi.Input['MailManagerTrafficPolicyPolicyStatementArgs']]] policy_statements: Conditional statements for filtering email traffic.
         :param pulumi.Input[_builtins.float] max_message_size_bytes: The maximum message size in bytes of email which is allowed in by this traffic policy—anything larger will be blocked.
@@ -126,6 +127,7 @@ class MailManagerTrafficPolicy(pulumi.CustomResource):
         """
         Definition of AWS::SES::MailManagerTrafficPolicy Resource Type
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input['MailManagerTrafficPolicyAcceptAction'] default_action: Default action instructs the traﬃc policy to either Allow or Deny (block) messages that fall outside of (or not addressed by) the conditions of your policy statements
@@ -144,6 +146,7 @@ class MailManagerTrafficPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of AWS::SES::MailManagerTrafficPolicy Resource Type
+
 
         :param str resource_name: The name of the resource.
         :param MailManagerTrafficPolicyArgs args: The arguments to use to populate this resource's properties.

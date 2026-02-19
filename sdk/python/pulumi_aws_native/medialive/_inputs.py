@@ -64,6 +64,7 @@ class ClusterInterfaceMappingArgs:
                  network_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Network mappings for the cluster
+
         :param pulumi.Input[_builtins.str] logical_interface_name: logical interface name, unique in the list
         :param pulumi.Input[_builtins.str] network_id: Network Id to be associated with the logical interface name, can be duplicated in list
         """
@@ -117,6 +118,7 @@ class ClusterNetworkSettingsArgs:
                  interface_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterInterfaceMappingArgs']]]] = None):
         """
         On premises settings which will have the interface network mappings and default Output logical interface
+
         :param pulumi.Input[_builtins.str] default_route: Default value if the customer does not define it in channel Output API
         :param pulumi.Input[Sequence[pulumi.Input['ClusterInterfaceMappingArgs']]] interface_mappings: Network mappings for the cluster
         """
@@ -165,6 +167,7 @@ class EventBridgeRuleTemplateTargetArgs:
                  arn: pulumi.Input[_builtins.str]):
         """
         The target to which to send matching events.
+
         :param pulumi.Input[_builtins.str] arn: Target ARNs must be either an SNS topic or CloudWatch log group.
         """
         pulumi.set(__self__, "arn", arn)
@@ -197,6 +200,7 @@ class MultiplexOutputDestinationMultiplexMediaConnectOutputDestinationSettingsPr
                  entitlement_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Multiplex MediaConnect output destination settings.
+
         :param pulumi.Input[_builtins.str] entitlement_arn: The MediaConnect entitlement ARN available as a Flow source.
         """
         if entitlement_arn is not None:
@@ -230,6 +234,7 @@ class MultiplexOutputDestinationArgs:
                  multiplex_media_connect_output_destination_settings: Optional[pulumi.Input['MultiplexOutputDestinationMultiplexMediaConnectOutputDestinationSettingsPropertiesArgs']] = None):
         """
         Multiplex MediaConnect output destination settings.
+
         :param pulumi.Input['MultiplexOutputDestinationMultiplexMediaConnectOutputDestinationSettingsPropertiesArgs'] multiplex_media_connect_output_destination_settings: Multiplex MediaConnect output destination settings.
         """
         if multiplex_media_connect_output_destination_settings is not None:
@@ -278,6 +283,7 @@ class MultiplexSettingsArgs:
                  transport_stream_reserved_bitrate: Optional[pulumi.Input[_builtins.int]] = None):
         """
         A key-value pair to associate with a resource.
+
         :param pulumi.Input[_builtins.int] transport_stream_bitrate: Transport stream bit rate.
         :param pulumi.Input[_builtins.int] transport_stream_id: Transport stream ID.
         :param pulumi.Input[_builtins.int] maximum_video_buffer_delay_milliseconds: Maximum video buffer delay in milliseconds.
@@ -541,6 +547,7 @@ class MultiplexprogramMultiplexProgramPipelineDetailArgs:
                  pipeline_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The current source for one of the pipelines in the multiplex.
+
         :param pulumi.Input[_builtins.str] active_channel_pipeline: Identifies the channel pipeline that is currently active for the pipeline (identified by PipelineId) in the multiplex.
         :param pulumi.Input[_builtins.str] pipeline_id: Identifies a specific pipeline in the multiplex.
         """
@@ -594,6 +601,7 @@ class MultiplexprogramMultiplexProgramServiceDescriptorArgs:
                  service_name: pulumi.Input[_builtins.str]):
         """
         Transport stream service descriptor configuration for the Multiplex program.
+
         :param pulumi.Input[_builtins.str] provider_name: Name of the provider.
         :param pulumi.Input[_builtins.str] service_name: Name of the service.
         """
@@ -655,6 +663,7 @@ class MultiplexprogramMultiplexProgramSettingsArgs:
                  video_settings: Optional[pulumi.Input['MultiplexprogramMultiplexVideoSettingsArgs']] = None):
         """
         Multiplex Program settings configuration.
+
         :param pulumi.Input[_builtins.int] program_number: Unique program number.
         :param pulumi.Input['MultiplexprogramPreferredChannelPipeline'] preferred_channel_pipeline: Indicates which pipeline is preferred by the multiplex for program ingest.
         :param pulumi.Input['MultiplexprogramMultiplexProgramServiceDescriptorArgs'] service_descriptor: Transport stream service descriptor configuration for the Multiplex program.
@@ -747,6 +756,7 @@ class NetworkIpPoolArgs:
                  cidr: Optional[pulumi.Input[_builtins.str]] = None):
         """
         IP address cidr pool
+
         :param pulumi.Input[_builtins.str] cidr: IP address cidr pool
         """
         if cidr is not None:

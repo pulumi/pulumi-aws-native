@@ -30,6 +30,7 @@ class SecurityGroupEgressInitArgs:
                  to_port: Optional[pulumi.Input[_builtins.int]] = None):
         """
         The set of arguments for constructing a SecurityGroupEgress resource.
+
         :param pulumi.Input[_builtins.str] group_id: The ID of the security group. You must specify either the security group ID or the security group name in the request. For security groups in a nondefault VPC, you must specify the security group ID.
         :param pulumi.Input[_builtins.str] ip_protocol: The IP protocol name (``tcp``, ``udp``, ``icmp``, ``icmpv6``) or number (see [Protocol Numbers](https://docs.aws.amazon.com/http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)).
                 Use ``-1`` to specify all protocols. When authorizing security group rules, specifying ``-1`` or a protocol number other than ``tcp``, ``udp``, ``icmp``, or ``icmpv6`` allows traffic on all ports, regardless of any port range you specify. For ``tcp``, ``udp``, and ``icmp``, you must specify a port range. For ``icmpv6``, the port range is optional; if you omit the port range, traffic for all types and codes is allowed.
@@ -205,6 +206,7 @@ class SecurityGroupEgress(pulumi.CustomResource):
          You must specify a protocol for each rule (for example, TCP). If the protocol is TCP or UDP, you must also specify a port or port range. If the protocol is ICMP or ICMPv6, you must also specify the ICMP/ICMPv6 type and code. To specify all types or all codes, use -1.
          Rule changes are propagated to instances associated with the security group as quickly as possible. However, a small delay might occur.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] cidr_ip: The IPv4 address range, in CIDR format.
@@ -237,6 +239,7 @@ class SecurityGroupEgress(pulumi.CustomResource):
          You must specify exactly one of the following destinations: an IPv4 address range, an IPv6 address range, a prefix list, or a security group.
          You must specify a protocol for each rule (for example, TCP). If the protocol is TCP or UDP, you must also specify a port or port range. If the protocol is ICMP or ICMPv6, you must also specify the ICMP/ICMPv6 type and code. To specify all types or all codes, use -1.
          Rule changes are propagated to instances associated with the security group as quickly as possible. However, a small delay might occur.
+
 
         :param str resource_name: The name of the resource.
         :param SecurityGroupEgressInitArgs args: The arguments to use to populate this resource's properties.

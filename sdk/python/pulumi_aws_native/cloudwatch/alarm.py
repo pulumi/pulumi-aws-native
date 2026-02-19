@@ -47,6 +47,7 @@ class AlarmArgs:
                  unit: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Alarm resource.
+
         :param pulumi.Input[_builtins.str] comparison_operator: The arithmetic operation to use when comparing the specified statistic and threshold. The specified statistic value is used as the first operand.
         :param pulumi.Input[_builtins.int] evaluation_periods: The number of periods over which data is compared to the specified threshold. If you are setting an alarm that requires that a number of consecutive data points be breaching to trigger the alarm, this value specifies that number. If you are setting an "M out of N" alarm, this value is the N, and ``DatapointsToAlarm`` is the M.
                 For more information, see [Evaluating an Alarm](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#alarm-evaluation) in the *User Guide*.
@@ -440,6 +441,7 @@ class Alarm(pulumi.CustomResource):
          When this operation creates an alarm, the alarm state is immediately set to ``INSUFFICIENT_DATA``. The alarm is then evaluated and its state is set appropriately. Any actions associated with the new state are then executed.
          When you update an existing alarm, its state is left unchanged, but the update completely overwrites the previous configuration of the alarm.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] actions_enabled: Indicates whether actions should be executed during any changes to the alarm state. The default is TRUE.
@@ -489,6 +491,7 @@ class Alarm(pulumi.CustomResource):
         The ``AWS::CloudWatch::Alarm`` type specifies an alarm and associates it with the specified metric or metric math expression.
          When this operation creates an alarm, the alarm state is immediately set to ``INSUFFICIENT_DATA``. The alarm is then evaluated and its state is set appropriately. Any actions associated with the new state are then executed.
          When you update an existing alarm, its state is left unchanged, but the update completely overwrites the previous configuration of the alarm.
+
 
         :param str resource_name: The name of the resource.
         :param AlarmArgs args: The arguments to use to populate this resource's properties.

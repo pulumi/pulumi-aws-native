@@ -25,6 +25,7 @@ class OptOutListArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a OptOutList resource.
+
         :param pulumi.Input[_builtins.str] opt_out_list_name: The name of the new OptOutList.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
@@ -70,6 +71,7 @@ class OptOutList(pulumi.CustomResource):
         """
         Resource Type definition for AWS::SMSVOICE::OptOutList
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] opt_out_list_name: The name of the new OptOutList.
@@ -83,6 +85,7 @@ class OptOutList(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::SMSVOICE::OptOutList
+
 
         :param str resource_name: The name of the resource.
         :param OptOutListArgs args: The arguments to use to populate this resource's properties.

@@ -35,6 +35,7 @@ class TemplateArgs:
                  version_description: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Template resource.
+
         :param pulumi.Input[_builtins.str] aws_account_id: The ID for the AWS account that the group is in. You use the ID for the AWS account that contains your Amazon Quick Sight account.
         :param pulumi.Input[_builtins.str] template_id: An ID for the template that you want to create. This template is unique per AWS Region ; in each AWS account.
         :param pulumi.Input[_builtins.str] name: A display name for the template.
@@ -194,6 +195,7 @@ class Template(pulumi.CustomResource):
         """
         Definition of the AWS::QuickSight::Template Resource Type.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] aws_account_id: The ID for the AWS account that the group is in. You use the ID for the AWS account that contains your Amazon Quick Sight account.
@@ -217,6 +219,7 @@ class Template(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of the AWS::QuickSight::Template Resource Type.
+
 
         :param str resource_name: The name of the resource.
         :param TemplateArgs args: The arguments to use to populate this resource's properties.

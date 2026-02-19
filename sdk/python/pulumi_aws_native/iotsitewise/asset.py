@@ -33,6 +33,7 @@ class AssetArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Asset resource.
+
         :param pulumi.Input[_builtins.str] asset_model_id: The ID of the asset model from which to create the asset.
         :param pulumi.Input[_builtins.str] asset_description: A description for the asset
         :param pulumi.Input[_builtins.str] asset_external_id: The External ID of the asset
@@ -161,6 +162,7 @@ class Asset(pulumi.CustomResource):
         """
         Resource schema for AWS::IoTSiteWise::Asset
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] asset_description: A description for the asset
@@ -181,6 +183,7 @@ class Asset(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource schema for AWS::IoTSiteWise::Asset
+
 
         :param str resource_name: The name of the resource.
         :param AssetArgs args: The arguments to use to populate this resource's properties.

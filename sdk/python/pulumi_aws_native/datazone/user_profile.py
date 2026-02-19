@@ -27,6 +27,7 @@ class UserProfileArgs:
                  user_type: Optional[pulumi.Input['UserProfileUserType']] = None):
         """
         The set of arguments for constructing a UserProfile resource.
+
         :param pulumi.Input[_builtins.str] domain_identifier: The identifier of the Amazon DataZone domain in which the user profile would be created.
         :param pulumi.Input[_builtins.str] user_identifier: The ID of the user.
         :param pulumi.Input['UserProfileStatus'] status: The status of the user profile.
@@ -102,6 +103,7 @@ class UserProfile(pulumi.CustomResource):
         """
         A user profile represents Amazon DataZone users. Amazon DataZone supports both IAM roles and SSO identities to interact with the Amazon DataZone Management Console and the data portal for different purposes. Domain administrators use IAM roles to perform the initial administrative domain-related work in the Amazon DataZone Management Console, including creating new Amazon DataZone domains, configuring metadata form types, and implementing policies. Data workers use their SSO corporate identities via Identity Center to log into the Amazon DataZone Data Portal and access projects where they have memberships.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] domain_identifier: The identifier of the Amazon DataZone domain in which the user profile would be created.
@@ -117,6 +119,7 @@ class UserProfile(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A user profile represents Amazon DataZone users. Amazon DataZone supports both IAM roles and SSO identities to interact with the Amazon DataZone Management Console and the data portal for different purposes. Domain administrators use IAM roles to perform the initial administrative domain-related work in the Amazon DataZone Management Console, including creating new Amazon DataZone domains, configuring metadata form types, and implementing policies. Data workers use their SSO corporate identities via Identity Center to log into the Amazon DataZone Data Portal and access projects where they have memberships.
+
 
         :param str resource_name: The name of the resource.
         :param UserProfileArgs args: The arguments to use to populate this resource's properties.

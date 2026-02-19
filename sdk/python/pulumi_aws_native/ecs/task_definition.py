@@ -44,6 +44,7 @@ class TaskDefinitionArgs:
                  volumes: Optional[pulumi.Input[Sequence[pulumi.Input['TaskDefinitionVolumeArgs']]]] = None):
         """
         The set of arguments for constructing a TaskDefinition resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['TaskDefinitionContainerDefinitionArgs']]] container_definitions: A list of container definitions in JSON format that describe the different containers that make up your task. For more information about container definition parameters and defaults, see [Amazon ECS Task Definitions](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_defintions.html) in the *Amazon Elastic Container Service Developer Guide*.
         :param pulumi.Input[_builtins.str] cpu: The number of ``cpu`` units used by the task. If you use the EC2 launch type, this field is optional. Any value can be used. If you use the Fargate launch type, this field is required. You must use one of the following values. The value that you choose determines your range of valid values for the ``memory`` parameter.
                 If you're using the EC2 launch type or the external launch type, this field is optional. Supported values are between ``128`` CPU units (``0.125`` vCPUs) and ``196608`` CPU units (``192`` vCPUs). 
@@ -609,6 +610,7 @@ class TaskDefinition(pulumi.CustomResource):
 
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['TaskDefinitionContainerDefinitionArgs', 'TaskDefinitionContainerDefinitionArgsDict']]]] container_definitions: A list of container definitions in JSON format that describe the different containers that make up your task. For more information about container definition parameters and defaults, see [Amazon ECS Task Definitions](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_defintions.html) in the *Amazon Elastic Container Service Developer Guide*.
@@ -860,6 +862,7 @@ class TaskDefinition(pulumi.CustomResource):
         pulumi.export("ecsTaskDefinition", ecs_task_definition_resource.id)
 
         ```
+
 
         :param str resource_name: The name of the resource.
         :param TaskDefinitionArgs args: The arguments to use to populate this resource's properties.

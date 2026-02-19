@@ -63,6 +63,7 @@ class AccessPointCreationInfoArgs:
         Required if the ``RootDirectory`` > ``Path`` specified does not exist. Specifies the POSIX IDs and permissions to apply to the access point's ``RootDirectory`` > ``Path``. If the access point root directory does not exist, EFS creates it with these settings when a client connects to the access point. When specifying ``CreationInfo``, you must include values for all properties. 
          Amazon EFS creates a root directory only if you have provided the CreationInfo: OwnUid, OwnGID, and permissions for the directory. If you do not provide this information, Amazon EFS does not create the root directory. If the root directory does not exist, attempts to mount using the access point will fail.
           If you do not provide ``CreationInfo`` and the specified ``RootDirectory`` does not exist, attempts to mount the file system using the access point will fail.
+
         :param pulumi.Input[_builtins.str] owner_gid: Specifies the POSIX group ID to apply to the ``RootDirectory``. Accepts values from 0 to 2^32 (4294967295).
         :param pulumi.Input[_builtins.str] owner_uid: Specifies the POSIX user ID to apply to the ``RootDirectory``. Accepts values from 0 to 2^32 (4294967295).
         :param pulumi.Input[_builtins.str] permissions: Specifies the POSIX permissions to apply to the ``RootDirectory``, in the format of an octal number representing the file's mode bits.
@@ -133,6 +134,7 @@ class AccessPointPosixUserArgs:
                  secondary_gids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The full POSIX identity, including the user ID, group ID, and any secondary group IDs, on the access point that is used for all file system operations performed by NFS clients using the access point.
+
         :param pulumi.Input[_builtins.str] gid: The POSIX group ID used for all file system operations using this access point.
         :param pulumi.Input[_builtins.str] uid: The POSIX user ID used for all file system operations using this access point.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] secondary_gids: Secondary POSIX group IDs used for all file system operations using this access point.
@@ -200,6 +202,7 @@ class AccessPointRootDirectoryArgs:
                  path: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Specifies the directory on the Amazon EFS file system that the access point provides access to. The access point exposes the specified file system path as the root directory of your file system to applications using the access point. NFS clients using the access point can only access data in the access point's ``RootDirectory`` and its subdirectories.
+
         :param pulumi.Input['AccessPointCreationInfoArgs'] creation_info: (Optional) Specifies the POSIX IDs and permissions to apply to the access point's ``RootDirectory``. If the ``RootDirectory`` > ``Path`` specified does not exist, EFS creates the root directory using the ``CreationInfo`` settings when a client connects to an access point. When specifying the ``CreationInfo``, you must provide values for all properties. 
                  If you do not provide ``CreationInfo`` and the specified ``RootDirectory`` > ``Path`` does not exist, attempts to mount the file system using the access point will fail.
         :param pulumi.Input[_builtins.str] path: Specifies the path on the EFS file system to expose as the root directory to NFS clients using the access point to access the EFS file system. A path can have up to four subdirectories. If the specified path does not exist, you are required to provide the ``CreationInfo``.
@@ -252,6 +255,7 @@ class FileSystemBackupPolicyArgs:
                  status: pulumi.Input['FileSystemBackupPolicyStatus']):
         """
         The backup policy turns automatic backups for the file system on or off.
+
         :param pulumi.Input['FileSystemBackupPolicyStatus'] status: Set the backup policy status for the file system.
                  +  *ENABLED* - Turns automatic backups on for the file system. 
                  +  *DISABLED* - Turns automatic backups off for the file system.
@@ -302,6 +306,7 @@ class FileSystemLifecyclePolicyArgs:
         Describes a policy used by Lifecycle management that specifies when to transition files into and out of the EFS storage classes. For more information, see [Managing file system storage](https://docs.aws.amazon.com/efs/latest/ug/lifecycle-management-efs.html).
            +  Each ``LifecyclePolicy`` object can have only a single transition. This means that in a request body, ``LifecyclePolicies`` must be structured as an array of ``LifecyclePolicy`` objects, one object for each transition, ``TransitionToIA``, ``TransitionToArchive``, ``TransitionToPrimaryStorageClass``.
           +  See the AWS::EFS::FileSystem examples for the correct ``LifecyclePolicy`` structure. Do not use the syntax shown on this page.
+
         :param pulumi.Input[_builtins.str] transition_to_archive: The number of days after files were last accessed in primary storage (the Standard storage class) at which to move them to Archive storage. Metadata operations such as listing the contents of a directory don't count as file access events.
         :param pulumi.Input[_builtins.str] transition_to_ia: The number of days after files were last accessed in primary storage (the Standard storage class) at which to move them to Infrequent Access (IA) storage. Metadata operations such as listing the contents of a directory don't count as file access events.
         :param pulumi.Input[_builtins.str] transition_to_primary_storage_class: Whether to move files back to primary (Standard) storage after they are accessed in IA or Archive storage. Metadata operations such as listing the contents of a directory don't count as file access events.
@@ -370,6 +375,7 @@ class FileSystemProtectionArgs:
                  replication_overwrite_protection: Optional[pulumi.Input['FileSystemProtectionReplicationOverwriteProtection']] = None):
         """
         Describes the protection on the file system.
+
         :param pulumi.Input['FileSystemProtectionReplicationOverwriteProtection'] replication_overwrite_protection: The status of the file system's replication overwrite protection.
                  +  ``ENABLED`` – The file system cannot be used as the destination file system in a replication configuration. The file system is writeable. Replication overwrite protection is ``ENABLED`` by default. 
                  +  ``DISABLED`` – The file system can be used as the destination file system in a replication configuration. The file system is read-only and can only be modified by EFS replication.
@@ -413,6 +419,7 @@ class FileSystemReplicationConfigurationArgs:
                  destinations: Optional[pulumi.Input[Sequence[pulumi.Input['FileSystemReplicationDestinationArgs']]]] = None):
         """
         Describes the replication configuration for a specific file system.
+
         :param pulumi.Input[Sequence[pulumi.Input['FileSystemReplicationDestinationArgs']]] destinations: An array of destination objects. Only one destination object is supported.
         """
         if destinations is not None:
@@ -479,6 +486,7 @@ class FileSystemReplicationDestinationArgs:
                  status_message: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Describes the destination file system in the replication configuration.
+
         :param pulumi.Input[_builtins.str] availability_zone_name: For One Zone file systems, the replication configuration must specify the Availability Zone in which the destination file system is located. 
                 Use the format ``us-east-1a`` to specify the Availability Zone. For more information about One Zone file systems, see [EFS file system types](https://docs.aws.amazon.com/efs/latest/ug/storage-classes.html) in the *Amazon EFS User Guide*.
                  One Zone file system type is not available in all Availability Zones in AWS-Regions where Amazon EFS is available.

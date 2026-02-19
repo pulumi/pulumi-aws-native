@@ -26,6 +26,7 @@ class SchedulingPolicyArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a SchedulingPolicy resource.
+
         :param pulumi.Input['SchedulingPolicyFairsharePolicyArgs'] fairshare_policy: The fair-share scheduling policy details.
         :param pulumi.Input[_builtins.str] name: Name of Scheduling Policy.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A key-value pair to associate with a resource.
@@ -87,6 +88,7 @@ class SchedulingPolicy(pulumi.CustomResource):
         """
         Resource Type definition for AWS::Batch::SchedulingPolicy
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['SchedulingPolicyFairsharePolicyArgs', 'SchedulingPolicyFairsharePolicyArgsDict']] fairshare_policy: The fair-share scheduling policy details.
@@ -101,6 +103,7 @@ class SchedulingPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::Batch::SchedulingPolicy
+
 
         :param str resource_name: The name of the resource.
         :param SchedulingPolicyArgs args: The arguments to use to populate this resource's properties.

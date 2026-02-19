@@ -36,6 +36,7 @@ class AddonArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Addon resource.
+
         :param pulumi.Input[_builtins.str] cluster_name: Name of Cluster
         :param pulumi.Input[_builtins.str] addon_name: Name of Addon
         :param pulumi.Input[_builtins.str] addon_version: Version of Addon
@@ -208,6 +209,7 @@ class Addon(pulumi.CustomResource):
         """
         Resource Schema for AWS::EKS::Addon
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] addon_name: Name of Addon
@@ -229,6 +231,7 @@ class Addon(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Schema for AWS::EKS::Addon
+
 
         :param str resource_name: The name of the resource.
         :param AddonArgs args: The arguments to use to populate this resource's properties.

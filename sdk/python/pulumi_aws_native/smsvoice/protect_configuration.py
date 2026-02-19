@@ -29,6 +29,7 @@ class ProtectConfigurationArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a ProtectConfiguration resource.
+
         :param pulumi.Input['ProtectConfigurationCountryRuleSetArgs'] country_rule_set: An array of CountryRule containing the rules for the NumberCapability.
         :param pulumi.Input[_builtins.bool] deletion_protection_enabled: When set to true deletion protection is enabled and protect configuration cannot be deleted. By default this is set to false.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
@@ -90,6 +91,7 @@ class ProtectConfiguration(pulumi.CustomResource):
         """
         Resource Type definition for AWS::SMSVOICE::ProtectConfiguration
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ProtectConfigurationCountryRuleSetArgs', 'ProtectConfigurationCountryRuleSetArgsDict']] country_rule_set: An array of CountryRule containing the rules for the NumberCapability.
@@ -104,6 +106,7 @@ class ProtectConfiguration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::SMSVOICE::ProtectConfiguration
+
 
         :param str resource_name: The name of the resource.
         :param ProtectConfigurationArgs args: The arguments to use to populate this resource's properties.

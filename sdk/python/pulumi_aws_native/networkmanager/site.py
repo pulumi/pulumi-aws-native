@@ -29,6 +29,7 @@ class SiteArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Site resource.
+
         :param pulumi.Input[_builtins.str] global_network_id: The ID of the global network.
         :param pulumi.Input[_builtins.str] description: The description of the site.
         :param pulumi.Input['SiteLocationArgs'] location: The location of the site.
@@ -105,6 +106,7 @@ class Site(pulumi.CustomResource):
         """
         The AWS::NetworkManager::Site type describes a site.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: The description of the site.
@@ -120,6 +122,7 @@ class Site(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The AWS::NetworkManager::Site type describes a site.
+
 
         :param str resource_name: The name of the resource.
         :param SiteArgs args: The arguments to use to populate this resource's properties.

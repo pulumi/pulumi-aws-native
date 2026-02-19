@@ -35,6 +35,7 @@ class ServiceArgs:
                  vpc_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Service resource.
+
         :param pulumi.Input[_builtins.str] application_identifier: The unique identifier of the application.
         :param pulumi.Input['ServiceEndpointType'] endpoint_type: The endpoint type of the service.
         :param pulumi.Input[_builtins.str] environment_identifier: The unique identifier of the environment.
@@ -189,6 +190,7 @@ class Service(pulumi.CustomResource):
         """
         Definition of AWS::RefactorSpaces::Service Resource Type
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] application_identifier: The unique identifier of the application.
@@ -209,6 +211,7 @@ class Service(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of AWS::RefactorSpaces::Service Resource Type
+
 
         :param str resource_name: The name of the resource.
         :param ServiceArgs args: The arguments to use to populate this resource's properties.

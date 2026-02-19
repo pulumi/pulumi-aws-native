@@ -1188,6 +1188,7 @@ class FrameworkControlControlScopeProperties(dict):
                  tags: Optional[Sequence['outputs.FrameworkTag']] = None):
         """
         The scope of a control. The control scope defines what the control will evaluate. Three examples of control scopes are: a specific backup plan, all backup plans with a specific tag, or all backup plans.
+
         :param Sequence[_builtins.str] compliance_resource_ids: The ID of the only AWS resource that you want your control scope to contain.
         :param Sequence[_builtins.str] compliance_resource_types: Describes whether the control scope includes one or more types of resources, such as `EFS` or `RDS`.
         :param Sequence['FrameworkTag'] tags: Describes whether the control scope includes resources with one or more tags. Each tag is a key-value pair.
@@ -1282,6 +1283,7 @@ class FrameworkTag(dict):
                  value: Optional[_builtins.str] = None):
         """
         A key-value pair to associate with a resource.
+
         :param _builtins.str key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         :param _builtins.str value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         """
@@ -1385,6 +1387,7 @@ class ReportDeliveryChannelProperties(dict):
                  s3_key_prefix: Optional[_builtins.str] = None):
         """
         A structure that contains information about where and how to deliver your reports, specifically your Amazon S3 bucket name, S3 key prefix, and the formats of your reports.
+
         :param _builtins.str s3_bucket_name: The unique name of the S3 bucket that receives your reports.
         :param Sequence[_builtins.str] formats: A list of the format of your reports: CSV, JSON, or both. If not specified, the default format is CSV.
         :param _builtins.str s3_key_prefix: The prefix for where AWS Backup Audit Manager delivers your reports to Amazon S3. The prefix is this part of the following path: s3://your-bucket-name/prefix/Backup/us-west-2/year/month/day/report-name. If not specified, there is no prefix.
@@ -1454,6 +1457,7 @@ class ReportSettingProperties(dict):
                  regions: Optional[Sequence[_builtins.str]] = None):
         """
         Identifies the report template for the report. Reports are built using a report template.
+
         :param _builtins.str report_template: Identifies the report template for the report. Reports are built using a report template. The report templates are: `BACKUP_JOB_REPORT | COPY_JOB_REPORT | RESTORE_JOB_REPORT`
         :param Sequence[_builtins.str] accounts: The list of AWS accounts that a report covers.
         :param Sequence[_builtins.str] framework_arns: The Amazon Resource Names (ARNs) of the frameworks a report covers.

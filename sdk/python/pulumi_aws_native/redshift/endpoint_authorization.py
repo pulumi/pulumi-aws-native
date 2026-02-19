@@ -25,6 +25,7 @@ class EndpointAuthorizationArgs:
                  vpc_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a EndpointAuthorization resource.
+
         :param pulumi.Input[_builtins.str] account: The target AWS account ID to grant or revoke access for.
         :param pulumi.Input[_builtins.str] cluster_identifier: The cluster identifier.
         :param pulumi.Input[_builtins.bool] force:  Indicates whether to force the revoke action. If true, the Redshift-managed VPC endpoints associated with the endpoint authorization are also deleted.
@@ -100,6 +101,7 @@ class EndpointAuthorization(pulumi.CustomResource):
         """
         Describes an endpoint authorization for authorizing Redshift-managed VPC endpoint access to a cluster across AWS accounts.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account: The target AWS account ID to grant or revoke access for.
@@ -115,6 +117,7 @@ class EndpointAuthorization(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Describes an endpoint authorization for authorizing Redshift-managed VPC endpoint access to a cluster across AWS accounts.
+
 
         :param str resource_name: The name of the resource.
         :param EndpointAuthorizationArgs args: The arguments to use to populate this resource's properties.

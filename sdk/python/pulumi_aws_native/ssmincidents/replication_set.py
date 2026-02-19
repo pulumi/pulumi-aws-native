@@ -28,6 +28,7 @@ class ReplicationSetArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a ReplicationSet resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['ReplicationSetReplicationRegionArgs']]] regions: The ReplicationSet configuration.
         :param pulumi.Input[_builtins.bool] deletion_protected: Determines if the replication set deletion protection is enabled or not. If deletion protection is enabled, you can't delete the last Region in the replication set.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags to apply to the replication set.
@@ -88,6 +89,7 @@ class ReplicationSet(pulumi.CustomResource):
         """
         Resource type definition for AWS::SSMIncidents::ReplicationSet
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] deletion_protected: Determines if the replication set deletion protection is enabled or not. If deletion protection is enabled, you can't delete the last Region in the replication set.
@@ -102,6 +104,7 @@ class ReplicationSet(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource type definition for AWS::SSMIncidents::ReplicationSet
+
 
         :param str resource_name: The name of the resource.
         :param ReplicationSetArgs args: The arguments to use to populate this resource's properties.

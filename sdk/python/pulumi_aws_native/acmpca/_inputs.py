@@ -93,6 +93,7 @@ class CertificateApiPassthroughArgs:
         """
         Contains X.509 certificate information to be placed in an issued certificate. An ``APIPassthrough`` or ``APICSRPassthrough`` template variant must be selected, or else this parameter is ignored. 
          If conflicting or duplicate certificate information is supplied from other sources, AWS Private CA applies [order of operation rules](https://docs.aws.amazon.com/privateca/latest/userguide/UsingTemplates.html#template-order-of-operations) to determine what information is used.
+
         :param pulumi.Input['CertificateExtensionsArgs'] extensions: Specifies X.509 extension information for a certificate.
         :param pulumi.Input['CertificateSubjectArgs'] subject: Contains information about the certificate subject. The Subject field in the certificate identifies the entity that owns or controls the public key in the certificate. The entity can be a user, computer, device, or service. The Subject must contain an X.500 distinguished name (DN). A DN is a sequence of relative distinguished names (RDNs). The RDNs are separated by commas in the certificate.
         """
@@ -267,6 +268,7 @@ class CertificateAuthorityCrlConfigurationArgs:
                  s3_object_acl: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Your certificate authority can create and maintain a certificate revocation list (CRL). A CRL contains information about certificates that have been revoked.
+
         :param pulumi.Input[_builtins.bool] enabled: Boolean value that specifies whether certificate revocation lists (CRLs) are enabled. You can use this value to enable certificate revocation for a new CA when you call the `CreateCertificateAuthority` operation or for an existing CA when you call the `UpdateCertificateAuthority` operation.
         :param pulumi.Input['CertificateAuthorityCrlDistributionPointExtensionConfigurationArgs'] crl_distribution_point_extension_configuration: Configures the default behavior of the CRL Distribution Point extension for certificates issued by your CA. If this field is not provided, then the CRL Distribution Point extension will be present and contain the default CRL URL.
         :param pulumi.Input[_builtins.str] crl_type: Specifies the type of CRL. This setting determines the maximum number of certificates that the certificate authority can issue and revoke. For more information, see [AWS Private CA quotas](https://docs.aws.amazon.com/general/latest/gr/pca.html#limits_pca) .
@@ -438,6 +440,7 @@ class CertificateAuthorityCrlDistributionPointExtensionConfigurationArgs:
                  omit_extension: pulumi.Input[_builtins.bool]):
         """
         Configures the default behavior of the CRL Distribution Point extension for certificates issued by your certificate authority
+
         :param pulumi.Input[_builtins.bool] omit_extension: Configures whether the CRL Distribution Point extension should be populated with the default URL to the CRL. If set to `true` , then the CDP extension will not be present in any certificates issued by that CA unless otherwise specified through CSR or API passthrough.
                
                > Only set this if you have another way to distribute the CRL Distribution Points for certificates issued by your CA, such as the Matter Distributed Compliance Ledger.
@@ -483,6 +486,7 @@ class CertificateAuthorityCsrExtensionsArgs:
                  subject_information_access: Optional[pulumi.Input[Sequence[pulumi.Input['CertificateAuthorityAccessDescriptionArgs']]]] = None):
         """
         Structure that contains CSR pass though extensions information.
+
         :param pulumi.Input['CertificateAuthorityKeyUsageArgs'] key_usage: Indicates the purpose of the certificate and of the key contained in the certificate.
         :param pulumi.Input[Sequence[pulumi.Input['CertificateAuthorityAccessDescriptionArgs']]] subject_information_access: For CA certificates, provides a path to additional information pertaining to the CA, such as revocation and policy. For more information, see [Subject Information Access](https://docs.aws.amazon.com/https://datatracker.ietf.org/doc/html/rfc5280#section-4.2.2.2) in RFC 5280.
         """
@@ -763,6 +767,7 @@ class CertificateAuthorityKeyUsageArgs:
                  non_repudiation: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Structure that contains X.509 KeyUsage information.
+
         :param pulumi.Input[_builtins.bool] crl_sign: Key can be used to sign CRLs.
         :param pulumi.Input[_builtins.bool] data_encipherment: Key can be used to decipher data.
         :param pulumi.Input[_builtins.bool] decipher_only: Key can be used only to decipher data.
@@ -923,6 +928,7 @@ class CertificateAuthorityOcspConfigurationArgs:
                  ocsp_custom_cname: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Helps to configure online certificate status protocol (OCSP) responder for your certificate authority
+
         :param pulumi.Input[_builtins.bool] enabled: Flag enabling use of the Online Certificate Status Protocol (OCSP) for validating certificate revocation status.
         :param pulumi.Input[_builtins.str] ocsp_custom_cname: By default, AWS Private CA injects an Amazon domain into certificates being validated by the Online Certificate Status Protocol (OCSP). A customer can alternatively use this object to define a CNAME specifying a customized OCSP domain.
                
@@ -1016,6 +1022,7 @@ class CertificateAuthorityRevocationConfigurationArgs:
                  ocsp_configuration: Optional[pulumi.Input['CertificateAuthorityOcspConfigurationArgs']] = None):
         """
         Certificate Authority revocation information.
+
         :param pulumi.Input['CertificateAuthorityCrlConfigurationArgs'] crl_configuration: Configuration of the certificate revocation list (CRL), if any, maintained by your private CA.
         :param pulumi.Input['CertificateAuthorityOcspConfigurationArgs'] ocsp_configuration: Configuration of Online Certificate Status Protocol (OCSP) support, if any, maintained by your private CA.
         """
@@ -1277,6 +1284,7 @@ class CertificateCustomAttributeArgs:
                  value: pulumi.Input[_builtins.str]):
         """
         Defines the X.500 relative distinguished name (RDN).
+
         :param pulumi.Input[_builtins.str] object_identifier: Specifies the object identifier (OID) of the attribute type of the relative distinguished name (RDN).
         :param pulumi.Input[_builtins.str] value: Specifies the attribute value of relative distinguished name (RDN).
         """
@@ -1335,6 +1343,7 @@ class CertificateCustomExtensionArgs:
         """
         Specifies the X.509 extension information for a certificate.
          Extensions present in ``CustomExtensions`` follow the ``ApiPassthrough``[template rules](https://docs.aws.amazon.com/privateca/latest/userguide/UsingTemplates.html#template-order-of-operations).
+
         :param pulumi.Input[_builtins.str] object_identifier: Specifies the object identifier (OID) of the X.509 extension. For more information, see the [Global OID reference database.](https://docs.aws.amazon.com/https://oidref.com/2.5.29)
         :param pulumi.Input[_builtins.str] value: Specifies the base64-encoded value of the X.509 extension.
         :param pulumi.Input[_builtins.bool] critical: Specifies the critical flag of the X.509 extension.
@@ -1401,6 +1410,7 @@ class CertificateEdiPartyNameArgs:
                  party_name: pulumi.Input[_builtins.str]):
         """
         Describes an Electronic Data Interchange (EDI) entity as described in as defined in [Subject Alternative Name](https://docs.aws.amazon.com/https://datatracker.ietf.org/doc/html/rfc5280) in RFC 5280.
+
         :param pulumi.Input[_builtins.str] name_assigner: Specifies the name assigner.
         :param pulumi.Input[_builtins.str] party_name: Specifies the party name.
         """
@@ -1452,6 +1462,7 @@ class CertificateExtendedKeyUsageArgs:
                  extended_key_usage_type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Specifies additional purposes for which the certified public key may be used other than basic purposes indicated in the ``KeyUsage`` extension.
+
         :param pulumi.Input[_builtins.str] extended_key_usage_object_identifier: Specifies a custom ``ExtendedKeyUsage`` with an object identifier (OID).
         :param pulumi.Input[_builtins.str] extended_key_usage_type: Specifies a standard ``ExtendedKeyUsage`` as defined as in [RFC 5280](https://docs.aws.amazon.com/https://datatracker.ietf.org/doc/html/rfc5280#section-4.2.1.12).
         """
@@ -1521,6 +1532,7 @@ class CertificateExtensionsArgs:
                  subject_alternative_names: Optional[pulumi.Input[Sequence[pulumi.Input['CertificateGeneralNameArgs']]]] = None):
         """
         Contains X.509 extension information for a certificate.
+
         :param pulumi.Input[Sequence[pulumi.Input['CertificatePolicyInformationArgs']]] certificate_policies: Contains a sequence of one or more policy information terms, each of which consists of an object identifier (OID) and optional qualifiers. For more information, see NIST's definition of [Object Identifier (OID)](https://docs.aws.amazon.com/https://csrc.nist.gov/glossary/term/Object_Identifier).
                 In an end-entity certificate, these terms indicate the policy under which the certificate was issued and the purposes for which it may be used. In a CA certificate, these terms limit the set of policies for certification paths that include this certificate.
         :param pulumi.Input[Sequence[pulumi.Input['CertificateCustomExtensionArgs']]] custom_extensions: Contains a sequence of one or more X.509 extensions, each of which consists of an object identifier (OID), a base64-encoded value, and the critical flag. For more information, see the [Global OID reference database.](https://docs.aws.amazon.com/https://oidref.com/2.5.29)
@@ -1651,6 +1663,7 @@ class CertificateGeneralNameArgs:
                  uniform_resource_identifier: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Describes an ASN.1 X.400 ``GeneralName`` as defined in [RFC 5280](https://docs.aws.amazon.com/https://datatracker.ietf.org/doc/html/rfc5280). Only one of the following naming options should be provided. Providing more than one option results in an ``InvalidArgsException`` error.
+
         :param pulumi.Input['CertificateSubjectArgs'] directory_name: Contains information about the certificate subject. The certificate can be one issued by your private certificate authority (CA) or it can be your private CA certificate. The Subject field in the certificate identifies the entity that owns or controls the public key in the certificate. The entity can be a user, computer, device, or service. The Subject must contain an X.500 distinguished name (DN). A DN is a sequence of relative distinguished names (RDNs). The RDNs are separated by commas in the certificate. The DN must be unique for each entity, but your private CA can issue more than one certificate with the same DN to the same entity.
         :param pulumi.Input[_builtins.str] dns_name: Represents ``GeneralName`` as a DNS name.
         :param pulumi.Input['CertificateEdiPartyNameArgs'] edi_party_name: Represents ``GeneralName`` as an ``EdiPartyName`` object.
@@ -1829,6 +1842,7 @@ class CertificateKeyUsageArgs:
                  non_repudiation: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Defines one or more purposes for which the key contained in the certificate can be used. Default value for each option is false.
+
         :param pulumi.Input[_builtins.bool] crl_sign: Key can be used to sign CRLs.
         :param pulumi.Input[_builtins.bool] data_encipherment: Key can be used to decipher data.
         :param pulumi.Input[_builtins.bool] decipher_only: Key can be used only to decipher data.
@@ -1987,6 +2001,7 @@ class CertificateOtherNameArgs:
                  value: pulumi.Input[_builtins.str]):
         """
         Defines a custom ASN.1 X.400 ``GeneralName`` using an object identifier (OID) and value. The OID must satisfy the regular expression shown below. For more information, see NIST's definition of [Object Identifier (OID)](https://docs.aws.amazon.com/https://csrc.nist.gov/glossary/term/Object_Identifier).
+
         :param pulumi.Input[_builtins.str] type_id: Specifies an OID.
         :param pulumi.Input[_builtins.str] value: Specifies an OID value.
         """
@@ -2038,6 +2053,7 @@ class CertificatePolicyInformationArgs:
                  policy_qualifiers: Optional[pulumi.Input[Sequence[pulumi.Input['CertificatePolicyQualifierInfoArgs']]]] = None):
         """
         Defines the X.509 ``CertificatePolicies`` extension.
+
         :param pulumi.Input[_builtins.str] cert_policy_id: Specifies the object identifier (OID) of the certificate policy under which the certificate was issued. For more information, see NIST's definition of [Object Identifier (OID)](https://docs.aws.amazon.com/https://csrc.nist.gov/glossary/term/Object_Identifier).
         :param pulumi.Input[Sequence[pulumi.Input['CertificatePolicyQualifierInfoArgs']]] policy_qualifiers: Modifies the given ``CertPolicyId`` with a qualifier. AWS Private CA supports the certification practice statement (CPS) qualifier.
         """
@@ -2090,6 +2106,7 @@ class CertificatePolicyQualifierInfoArgs:
                  qualifier: pulumi.Input['CertificateQualifierArgs']):
         """
         Modifies the ``CertPolicyId`` of a ``PolicyInformation`` object with a qualifier. AWS Private CA supports the certification practice statement (CPS) qualifier.
+
         :param pulumi.Input[_builtins.str] policy_qualifier_id: Identifies the qualifier modifying a ``CertPolicyId``.
         :param pulumi.Input['CertificateQualifierArgs'] qualifier: Defines the qualifier type. AWS Private CA supports the use of a URI for a CPS qualifier in this field.
         """
@@ -2136,6 +2153,7 @@ class CertificateQualifierArgs:
                  cps_uri: pulumi.Input[_builtins.str]):
         """
         Defines a ``PolicyInformation`` qualifier. AWS Private CA supports the [certification practice statement (CPS) qualifier](https://docs.aws.amazon.com/https://datatracker.ietf.org/doc/html/rfc5280#section-4.2.1.4) defined in RFC 5280.
+
         :param pulumi.Input[_builtins.str] cps_uri: Contains a pointer to a certification practice statement (CPS) published by the CA.
         """
         pulumi.set(__self__, "cps_uri", cps_uri)
@@ -2240,6 +2258,7 @@ class CertificateSubjectArgs:
                  title: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Contains information about the certificate subject. The ``Subject`` field in the certificate identifies the entity that owns or controls the public key in the certificate. The entity can be a user, computer, device, or service. The ``Subject``must contain an X.500 distinguished name (DN). A DN is a sequence of relative distinguished names (RDNs). The RDNs are separated by commas in the certificate.
+
         :param pulumi.Input[_builtins.str] common_name: For CA and end-entity certificates in a private PKI, the common name (CN) can be any string within the length limit.
                 Note: In publicly trusted certificates, the common name must be a fully qualified domain name (FQDN) associated with the certificate subject.
         :param pulumi.Input[_builtins.str] country: Two-digit code that specifies the country in which the certificate subject located.
@@ -2492,6 +2511,7 @@ class CertificateValidityArgs:
                  value: pulumi.Input[_builtins.float]):
         """
         Length of time for which the certificate issued by your private certificate authority (CA), or by the private CA itself, is valid in days, months, or years. You can issue a certificate by calling the ``IssueCertificate`` operation.
+
         :param pulumi.Input[_builtins.str] type: Specifies whether the ``Value`` parameter represents days, months, or years.
         :param pulumi.Input[_builtins.float] value: A long integer interpreted according to the value of ``Type``, below.
         """

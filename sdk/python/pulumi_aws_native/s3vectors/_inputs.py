@@ -46,6 +46,7 @@ class IndexEncryptionConfigurationArgs:
                  sse_type: Optional[pulumi.Input['IndexEncryptionConfigurationSseType']] = None):
         """
         The encryption configuration for the index.
+
         :param pulumi.Input[_builtins.str] kms_key_arn: AWS Key Management Service (KMS) customer managed key ID to use for the encryption configuration. This parameter is allowed if and only if sseType is set to aws:kms
         :param pulumi.Input['IndexEncryptionConfigurationSseType'] sse_type: Defines the server-side encryption type for index encryption configuration. Defaults to the parent vector bucket's encryption settings when unspecified.
         """
@@ -94,6 +95,7 @@ class IndexMetadataConfigurationArgs:
                  non_filterable_metadata_keys: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The metadata configuration for the vector index.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] non_filterable_metadata_keys: Non-filterable metadata keys allow you to enrich vectors with additional context during storage and retrieval. Unlike default metadata keys, these keys cannot be used as query filters. Non-filterable metadata keys can be retrieved but cannot be searched, queried, or filtered. You can access non-filterable metadata keys of your vectors after finding the vectors.
         """
         if non_filterable_metadata_keys is not None:
@@ -132,6 +134,7 @@ class VectorBucketEncryptionConfigurationArgs:
                  sse_type: Optional[pulumi.Input['VectorBucketEncryptionConfigurationSseType']] = None):
         """
         The encryption configuration for the vector bucket.
+
         :param pulumi.Input[_builtins.str] kms_key_arn: AWS Key Management Service (KMS) customer managed key ID to use for the encryption configuration. This parameter is allowed if and only if sseType is set to aws:kms
         :param pulumi.Input['VectorBucketEncryptionConfigurationSseType'] sse_type: The server-side encryption type to use for the encryption configuration of the vector bucket. By default, if you don't specify, all new vectors in Amazon S3 vector buckets use server-side encryption with Amazon S3 managed keys (SSE-S3), specifically AES256.
         """

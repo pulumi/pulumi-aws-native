@@ -31,6 +31,7 @@ class EnvironmentAccountConnectionArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a EnvironmentAccountConnection resource.
+
         :param pulumi.Input[_builtins.str] codebuild_role_arn: The Amazon Resource Name (ARN) of an IAM service role in the environment account. AWS Proton uses this role to provision infrastructure resources using CodeBuild-based provisioning in the associated environment account.
         :param pulumi.Input[_builtins.str] component_role_arn: The Amazon Resource Name (ARN) of the IAM service role that AWS Proton uses when provisioning directly defined components in the associated environment account. It determines the scope of infrastructure that a component can provision in the account.
         :param pulumi.Input[_builtins.str] environment_account_id: The environment account that's connected to the environment account connection.
@@ -160,6 +161,7 @@ class EnvironmentAccountConnection(pulumi.CustomResource):
         """
         Resource Schema describing various properties for AWS Proton Environment Account Connections resources.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] codebuild_role_arn: The Amazon Resource Name (ARN) of an IAM service role in the environment account. AWS Proton uses this role to provision infrastructure resources using CodeBuild-based provisioning in the associated environment account.
@@ -180,6 +182,7 @@ class EnvironmentAccountConnection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Schema describing various properties for AWS Proton Environment Account Connections resources.
+
 
         :param str resource_name: The name of the resource.
         :param EnvironmentAccountConnectionArgs args: The arguments to use to populate this resource's properties.

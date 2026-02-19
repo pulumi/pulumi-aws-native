@@ -27,6 +27,7 @@ class DiscovererArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Discoverer resource.
+
         :param pulumi.Input[_builtins.str] source_arn: The ARN of the event bus.
         :param pulumi.Input[_builtins.bool] cross_account: Defines whether event schemas from other accounts are discovered. Default is True.
         :param pulumi.Input[_builtins.str] description: A description for the discoverer.
@@ -116,6 +117,7 @@ class Discoverer(pulumi.CustomResource):
 
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] cross_account: Defines whether event schemas from other accounts are discovered. Default is True.
@@ -144,6 +146,7 @@ class Discoverer(pulumi.CustomResource):
             description="discover all custom schemas")
 
         ```
+
 
         :param str resource_name: The name of the resource.
         :param DiscovererArgs args: The arguments to use to populate this resource's properties.

@@ -38,6 +38,7 @@ class CloudFormationProvisionedProductArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a CloudFormationProvisionedProduct resource.
+
         :param pulumi.Input['CloudFormationProvisionedProductAcceptLanguage'] accept_language: The language code.
                
                - `jp` - Japanese
@@ -281,6 +282,7 @@ class CloudFormationProvisionedProduct(pulumi.CustomResource):
         """
         Resource Schema for AWS::ServiceCatalog::CloudFormationProvisionedProduct
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input['CloudFormationProvisionedProductAcceptLanguage'] accept_language: The language code.
@@ -323,6 +325,7 @@ class CloudFormationProvisionedProduct(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Schema for AWS::ServiceCatalog::CloudFormationProvisionedProduct
+
 
         :param str resource_name: The name of the resource.
         :param CloudFormationProvisionedProductArgs args: The arguments to use to populate this resource's properties.

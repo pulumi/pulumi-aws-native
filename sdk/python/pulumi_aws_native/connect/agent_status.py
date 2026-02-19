@@ -32,6 +32,7 @@ class AgentStatusArgs:
                  type: Optional[pulumi.Input['AgentStatusType']] = None):
         """
         The set of arguments for constructing a AgentStatus resource.
+
         :param pulumi.Input[_builtins.str] instance_arn: The identifier of the Amazon Connect instance.
         :param pulumi.Input['AgentStatusState'] state: The state of the status.
         :param pulumi.Input[_builtins.str] description: The description of the status.
@@ -171,6 +172,7 @@ class AgentStatus(pulumi.CustomResource):
         """
         Resource Type definition for AWS::Connect::AgentStatus
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: The description of the status.
@@ -190,6 +192,7 @@ class AgentStatus(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::Connect::AgentStatus
+
 
         :param str resource_name: The name of the resource.
         :param AgentStatusArgs args: The arguments to use to populate this resource's properties.

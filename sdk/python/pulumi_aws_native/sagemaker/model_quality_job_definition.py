@@ -37,6 +37,7 @@ class ModelQualityJobDefinitionArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]] = None):
         """
         The set of arguments for constructing a ModelQualityJobDefinition resource.
+
         :param pulumi.Input['ModelQualityJobDefinitionMonitoringResourcesArgs'] job_resources: Identifies the resources to deploy for a monitoring job.
         :param pulumi.Input['ModelQualityJobDefinitionModelQualityAppSpecificationArgs'] model_quality_app_specification: Container image configuration object for the monitoring job.
         :param pulumi.Input['ModelQualityJobDefinitionModelQualityJobInputArgs'] model_quality_job_input: A list of the inputs that are monitored. Currently endpoints are supported.
@@ -217,6 +218,7 @@ class ModelQualityJobDefinition(pulumi.CustomResource):
         """
         Resource Type definition for AWS::SageMaker::ModelQualityJobDefinition
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] job_definition_name: The name of the monitoring job definition.
@@ -238,6 +240,7 @@ class ModelQualityJobDefinition(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::SageMaker::ModelQualityJobDefinition
+
 
         :param str resource_name: The name of the resource.
         :param ModelQualityJobDefinitionArgs args: The arguments to use to populate this resource's properties.

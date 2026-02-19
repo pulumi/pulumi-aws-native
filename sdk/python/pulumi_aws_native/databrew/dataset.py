@@ -33,6 +33,7 @@ class DatasetArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Dataset resource.
+
         :param pulumi.Input['DatasetInputArgs'] input: Input
         :param pulumi.Input['DatasetFormat'] format: Dataset format
         :param pulumi.Input['DatasetFormatOptionsArgs'] format_options: Format options for dataset
@@ -184,6 +185,7 @@ class Dataset(pulumi.CustomResource):
 
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input['DatasetFormat'] format: Dataset format
@@ -229,6 +231,7 @@ class Dataset(pulumi.CustomResource):
             }])
 
         ```
+
 
         :param str resource_name: The name of the resource.
         :param DatasetArgs args: The arguments to use to populate this resource's properties.

@@ -26,6 +26,7 @@ class ResourceUpdateConstraintArgs:
                  description: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ResourceUpdateConstraint resource.
+
         :param pulumi.Input[_builtins.str] portfolio_id: The portfolio identifier
         :param pulumi.Input[_builtins.str] product_id: The product identifier
         :param pulumi.Input[_builtins.str] tag_update_on_provisioned_product: ALLOWED or NOT_ALLOWED, to permit or prevent changes to the tags on provisioned instances of the specified portfolio / product combination
@@ -116,6 +117,7 @@ class ResourceUpdateConstraint(pulumi.CustomResource):
         """
         Resource type definition for AWS::ServiceCatalog::ResourceUpdateConstraint
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] accept_language: The language code
@@ -132,6 +134,7 @@ class ResourceUpdateConstraint(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource type definition for AWS::ServiceCatalog::ResourceUpdateConstraint
+
 
         :param str resource_name: The name of the resource.
         :param ResourceUpdateConstraintArgs args: The arguments to use to populate this resource's properties.

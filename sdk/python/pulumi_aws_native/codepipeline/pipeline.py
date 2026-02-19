@@ -38,6 +38,7 @@ class PipelineArgs:
                  variables: Optional[pulumi.Input[Sequence[pulumi.Input['PipelineVariableDeclarationArgs']]]] = None):
         """
         The set of arguments for constructing a Pipeline resource.
+
         :param pulumi.Input[_builtins.str] role_arn: The Amazon Resource Name (ARN) for CodePipeline to use to either perform actions with no actionRoleArn, or to use to assume roles for actions with an actionRoleArn
         :param pulumi.Input[Sequence[pulumi.Input['PipelineStageDeclarationArgs']]] stages: Represents information about a stage and its definition.
         :param pulumi.Input['PipelineArtifactStoreArgs'] artifact_store: The S3 bucket where artifacts for the pipeline are stored.
@@ -241,6 +242,7 @@ class Pipeline(pulumi.CustomResource):
         """
         The AWS::CodePipeline::Pipeline resource creates a CodePipeline pipeline that describes how software changes go through a release process.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['PipelineArtifactStoreArgs', 'PipelineArtifactStoreArgsDict']] artifact_store: The S3 bucket where artifacts for the pipeline are stored.
@@ -264,6 +266,7 @@ class Pipeline(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The AWS::CodePipeline::Pipeline resource creates a CodePipeline pipeline that describes how software changes go through a release process.
+
 
         :param str resource_name: The name of the resource.
         :param PipelineArgs args: The arguments to use to populate this resource's properties.

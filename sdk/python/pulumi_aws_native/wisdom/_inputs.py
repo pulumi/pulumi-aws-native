@@ -1504,6 +1504,7 @@ class AiGuardrailAiGuardrailContentPolicyConfigArgs:
                  filters_config: pulumi.Input[Sequence[pulumi.Input['AiGuardrailGuardrailContentFilterConfigArgs']]]):
         """
         Content policy config for a guardrail.
+
         :param pulumi.Input[Sequence[pulumi.Input['AiGuardrailGuardrailContentFilterConfigArgs']]] filters_config: List of content filter configs in content policy.
         """
         pulumi.set(__self__, "filters_config", filters_config)
@@ -1536,6 +1537,7 @@ class AiGuardrailAiGuardrailContextualGroundingPolicyConfigArgs:
                  filters_config: pulumi.Input[Sequence[pulumi.Input['AiGuardrailGuardrailContextualGroundingFilterConfigArgs']]]):
         """
         Contextual grounding policy config for a guardrail.
+
         :param pulumi.Input[Sequence[pulumi.Input['AiGuardrailGuardrailContextualGroundingFilterConfigArgs']]] filters_config: List of contextual grounding filter configs.
         """
         pulumi.set(__self__, "filters_config", filters_config)
@@ -1573,6 +1575,7 @@ class AiGuardrailAiGuardrailSensitiveInformationPolicyConfigArgs:
                  regexes_config: Optional[pulumi.Input[Sequence[pulumi.Input['AiGuardrailGuardrailRegexConfigArgs']]]] = None):
         """
         Sensitive information policy config for a guardrail.
+
         :param pulumi.Input[Sequence[pulumi.Input['AiGuardrailGuardrailPiiEntityConfigArgs']]] pii_entities_config: List of entities.
         :param pulumi.Input[Sequence[pulumi.Input['AiGuardrailGuardrailRegexConfigArgs']]] regexes_config: List of regex.
         """
@@ -1621,6 +1624,7 @@ class AiGuardrailAiGuardrailTopicPolicyConfigArgs:
                  topics_config: pulumi.Input[Sequence[pulumi.Input['AiGuardrailGuardrailTopicConfigArgs']]]):
         """
         Topic policy config for a guardrail.
+
         :param pulumi.Input[Sequence[pulumi.Input['AiGuardrailGuardrailTopicConfigArgs']]] topics_config: List of topic configs in topic policy.
         """
         pulumi.set(__self__, "topics_config", topics_config)
@@ -1658,6 +1662,7 @@ class AiGuardrailAiGuardrailWordPolicyConfigArgs:
                  words_config: Optional[pulumi.Input[Sequence[pulumi.Input['AiGuardrailGuardrailWordConfigArgs']]]] = None):
         """
         Word policy config for a guardrail.
+
         :param pulumi.Input[Sequence[pulumi.Input['AiGuardrailGuardrailManagedWordsConfigArgs']]] managed_word_lists_config: A config for the list of managed words.
         :param pulumi.Input[Sequence[pulumi.Input['AiGuardrailGuardrailWordConfigArgs']]] words_config: List of custom word configs.
         """
@@ -1716,6 +1721,7 @@ class AiGuardrailGuardrailContentFilterConfigArgs:
                  type: pulumi.Input['AiGuardrailGuardrailContentFilterType']):
         """
         Content filter config in content policy.
+
         :param pulumi.Input['AiGuardrailGuardrailFilterStrength'] input_strength: The strength of the input for the guardrail content filter.
         :param pulumi.Input['AiGuardrailGuardrailFilterStrength'] output_strength: The output strength of the guardrail content filter.
         :param pulumi.Input['AiGuardrailGuardrailContentFilterType'] type: The type of the guardrail content filter.
@@ -1781,6 +1787,7 @@ class AiGuardrailGuardrailContextualGroundingFilterConfigArgs:
                  type: pulumi.Input['AiGuardrailGuardrailContextualGroundingFilterType']):
         """
         A config for grounding filter.
+
         :param pulumi.Input[_builtins.float] threshold: The threshold for this filter.
         :param pulumi.Input['AiGuardrailGuardrailContextualGroundingFilterType'] type: The type of this filter.
         """
@@ -1827,6 +1834,7 @@ class AiGuardrailGuardrailManagedWordsConfigArgs:
                  type: pulumi.Input['AiGuardrailGuardrailManagedWordsType']):
         """
         A managed words config.
+
         :param pulumi.Input['AiGuardrailGuardrailManagedWordsType'] type: The type of guardrail managed words.
         """
         pulumi.set(__self__, "type", type)
@@ -1981,6 +1989,7 @@ class AiGuardrailGuardrailPiiEntityConfigArgs:
                  type: pulumi.Input['AiGuardrailGuardrailPiiEntityType']):
         """
         Pii entity configuration.
+
         :param pulumi.Input['AiGuardrailGuardrailSensitiveInformationAction'] action: The action of guardrail PII entity configuration.
         :param pulumi.Input['AiGuardrailGuardrailPiiEntityType'] type: Configure AI Guardrail type when the PII entity is detected.
                
@@ -2276,6 +2285,7 @@ class AiGuardrailGuardrailRegexConfigArgs:
                  description: Optional[pulumi.Input[_builtins.str]] = None):
         """
         A regex configuration.
+
         :param pulumi.Input['AiGuardrailGuardrailSensitiveInformationAction'] action: The action of the guardrail regex configuration.
         :param pulumi.Input[_builtins.str] name: The regex name.
         :param pulumi.Input[_builtins.str] pattern: The regex pattern.
@@ -2366,6 +2376,7 @@ class AiGuardrailGuardrailTopicConfigArgs:
                  examples: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Topic config in topic policy.
+
         :param pulumi.Input[_builtins.str] definition: Definition of topic in topic policy
         :param pulumi.Input[_builtins.str] name: Name of topic in topic policy
         :param pulumi.Input['AiGuardrailGuardrailTopicType'] type: Type of topic in a policy.
@@ -2441,6 +2452,7 @@ class AiGuardrailGuardrailWordConfigArgs:
                  text: pulumi.Input[_builtins.str]):
         """
         A custom word config.
+
         :param pulumi.Input[_builtins.str] text: The custom word text.
         """
         pulumi.set(__self__, "text", text)
@@ -3305,6 +3317,7 @@ class MessageTemplateAgentAttributesArgs:
                  last_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The agent attributes that are used with the message template.
+
         :param pulumi.Input[_builtins.str] first_name: The agent’s first name as entered in their Amazon Connect user account.
         :param pulumi.Input[_builtins.str] last_name: The agent’s last name as entered in their Amazon Connect user account.
         """
@@ -3435,6 +3448,7 @@ class MessageTemplateAttributesArgs:
                  system_attributes: Optional[pulumi.Input['MessageTemplateSystemAttributesArgs']] = None):
         """
         An object that specifies the default values to use for variables in the message template. This object contains different categories of key-value pairs. Each key defines a variable or placeholder in the message template. The corresponding value defines the default value for that variable.
+
         :param pulumi.Input['MessageTemplateAgentAttributesArgs'] agent_attributes: The agent attributes that are used with the message template.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] custom_attributes: The custom attributes that are used with the message template.
         :param pulumi.Input['MessageTemplateCustomerProfileAttributesArgs'] customer_profile_attributes: The customer profile attributes that are used with the message template.
@@ -3513,6 +3527,7 @@ class MessageTemplateBodyContentProviderArgs:
                  content: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The container of message template body.
+
         :param pulumi.Input[_builtins.str] content: The content of the message template.
         """
         if content is not None:
@@ -3551,6 +3566,7 @@ class MessageTemplateContentArgs:
                  sms_message_template_content: Optional[pulumi.Input['MessageTemplateSmsMessageTemplateContentArgs']] = None):
         """
         The content of the message template.
+
         :param pulumi.Input['MessageTemplateEmailMessageTemplateContentArgs'] email_message_template_content: The content of the message template that applies to the email channel subtype.
         :param pulumi.Input['MessageTemplateSmsMessageTemplateContentArgs'] sms_message_template_content: The content of message template that applies to SMS channel subtype.
         """
@@ -3884,6 +3900,7 @@ class MessageTemplateCustomerProfileAttributesArgs:
                  state: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The customer profile attributes that are used with the message template.
+
         :param pulumi.Input[_builtins.str] account_number: A unique account number that you have given to the customer.
         :param pulumi.Input[_builtins.str] additional_information: Any additional information relevant to the customer's profile.
         :param pulumi.Input[_builtins.str] address1: The first line of a customer address.
@@ -4777,6 +4794,7 @@ class MessageTemplateEmailMessageTemplateContentBodyArgs:
                  plain_text: Optional[pulumi.Input['MessageTemplateBodyContentProviderArgs']] = None):
         """
         The body to use in email messages.
+
         :param pulumi.Input['MessageTemplateBodyContentProviderArgs'] html: The message body, in HTML format, to use in email messages that are based on the message template. We recommend using HTML format for email clients that render HTML content. You can include links, formatted text, and more in an HTML message.
         :param pulumi.Input['MessageTemplateBodyContentProviderArgs'] plain_text: The message body, in plain text format, to use in email messages that are based on the message template. We recommend using plain text format for email clients that don't render HTML content and clients that are connected to high-latency networks, such as mobile devices.
         """
@@ -4835,6 +4853,7 @@ class MessageTemplateEmailMessageTemplateContentArgs:
                  subject: pulumi.Input[_builtins.str]):
         """
         The content of message template that applies to email channel subtype.
+
         :param pulumi.Input['MessageTemplateEmailMessageTemplateContentBodyArgs'] body: The body to use in email messages.
         :param pulumi.Input[Sequence[pulumi.Input['MessageTemplateEmailMessageTemplateHeaderArgs']]] headers: The email headers to include in email messages.
         :param pulumi.Input[_builtins.str] subject: The subject line, or title, to use in email messages.
@@ -4900,6 +4919,7 @@ class MessageTemplateEmailMessageTemplateHeaderArgs:
                  value: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The email header to include in email messages.
+
         :param pulumi.Input[_builtins.str] name: The name of the email header.
         :param pulumi.Input[_builtins.str] value: The value of the email header.
         """
@@ -4953,6 +4973,7 @@ class MessageTemplateGroupingConfigurationArgs:
                  values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
         """
         The configuration information of the user groups that the message template is accessible to.
+
         :param pulumi.Input[_builtins.str] criteria: The criteria used for grouping Amazon Q in Connect users.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: The list of values that define different groups of Amazon Q in Connect users.
         """
@@ -4999,6 +5020,7 @@ class MessageTemplateSmsMessageTemplateContentBodyArgs:
                  plain_text: Optional[pulumi.Input['MessageTemplateBodyContentProviderArgs']] = None):
         """
         The body to use in SMS messages.
+
         :param pulumi.Input['MessageTemplateBodyContentProviderArgs'] plain_text: The message body to use in SMS messages.
         """
         if plain_text is not None:
@@ -5032,6 +5054,7 @@ class MessageTemplateSmsMessageTemplateContentArgs:
                  body: pulumi.Input['MessageTemplateSmsMessageTemplateContentBodyArgs']):
         """
         The content of message template that applies to SMS channel subtype.
+
         :param pulumi.Input['MessageTemplateSmsMessageTemplateContentBodyArgs'] body: The body to use in SMS messages.
         """
         pulumi.set(__self__, "body", body)
@@ -5074,6 +5097,7 @@ class MessageTemplateSystemAttributesArgs:
                  system_endpoint: Optional[pulumi.Input['MessageTemplateSystemEndpointAttributesArgs']] = None):
         """
         The system attributes that are used with the message template.
+
         :param pulumi.Input['MessageTemplateSystemEndpointAttributesArgs'] customer_endpoint: The CustomerEndpoint attribute.
         :param pulumi.Input[_builtins.str] name: The name of the task.
         :param pulumi.Input['MessageTemplateSystemEndpointAttributesArgs'] system_endpoint: The SystemEndpoint attribute.
@@ -5137,6 +5161,7 @@ class MessageTemplateSystemEndpointAttributesArgs:
                  address: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The system endpoint attributes that are used with the message template.
+
         :param pulumi.Input[_builtins.str] address: The customer's phone number if used with customerEndpoint, or the number the customer dialed to call your contact center if used with systemEndpoint.
         """
         if address is not None:
@@ -5170,6 +5195,7 @@ class QuickResponseContentProviderArgs:
                  content: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The container of quick response content.
+
         :param pulumi.Input[_builtins.str] content: The content of the quick response.
         """
         if content is not None:
@@ -5208,6 +5234,7 @@ class QuickResponseGroupingConfigurationArgs:
                  values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
         """
         The configuration information of the user groups that the quick response is accessible to.
+
         :param pulumi.Input[_builtins.str] criteria: The criteria used for grouping Amazon Q in Connect users.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: The list of values that define different groups of Amazon Q in Connect users.
         """

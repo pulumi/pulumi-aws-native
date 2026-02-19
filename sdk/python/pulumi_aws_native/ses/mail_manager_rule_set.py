@@ -29,6 +29,7 @@ class MailManagerRuleSetArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a MailManagerRuleSet resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['MailManagerRuleSetRuleArgs']]] rules: Conditional rules that are evaluated for determining actions on email.
         :param pulumi.Input[_builtins.str] rule_set_name: A user-friendly name for the rule set.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags used to organize, track, or control access for the resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.
@@ -89,6 +90,7 @@ class MailManagerRuleSet(pulumi.CustomResource):
         """
         Definition of AWS::SES::MailManagerRuleSet Resource Type
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] rule_set_name: A user-friendly name for the rule set.
@@ -103,6 +105,7 @@ class MailManagerRuleSet(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of AWS::SES::MailManagerRuleSet Resource Type
+
 
         :param str resource_name: The name of the resource.
         :param MailManagerRuleSetArgs args: The arguments to use to populate this resource's properties.

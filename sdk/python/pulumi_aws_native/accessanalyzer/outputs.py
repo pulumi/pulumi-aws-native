@@ -57,6 +57,7 @@ class AnalyzerAnalysisRuleCriteria(dict):
                  resource_tags: Optional[Sequence[Sequence['outputs.AnalyzerTag']]] = None):
         """
         The criteria for an analysis rule for an analyzer.
+
         :param Sequence[_builtins.str] account_ids: A list of AWS account IDs to apply to the analysis rule criteria. The accounts cannot include the organization analyzer owner account. Account IDs can only be applied to the analysis rule criteria for organization-level analyzers.
         :param Sequence[Sequence['AnalyzerTag']] resource_tags: An array of key-value pairs to match for your resources. You can use the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
                
@@ -117,6 +118,7 @@ class AnalyzerArchiveRule(dict):
                  rule_name: _builtins.str):
         """
         An Access Analyzer archive rule. Archive rules automatically archive new findings that meet the criteria you define when you create the rule.
+
         :param Sequence['AnalyzerFilter'] filter: The criteria for the rule.
         :param _builtins.str rule_name: The archive rule name
         """
@@ -169,6 +171,7 @@ class AnalyzerConfigurationProperties(dict):
                  unused_access_configuration: Optional['outputs.AnalyzerUnusedAccessConfiguration'] = None):
         """
         The configuration for the analyzer
+
         :param 'AnalyzerInternalAccessConfiguration' internal_access_configuration: Specifies the configuration of an internal access analyzer for an AWS organization or account. This configuration determines how the analyzer evaluates access within your AWS environment.
         :param 'AnalyzerUnusedAccessConfiguration' unused_access_configuration: Specifies the configuration of an unused access analyzer for an AWS organization or account.
         """
@@ -292,6 +295,7 @@ class AnalyzerInternalAccessAnalysisRuleCriteria(dict):
                  resource_types: Optional[Sequence[_builtins.str]] = None):
         """
         The criteria for an analysis rule for an internal access analyzer.
+
         :param Sequence[_builtins.str] account_ids: A list of AWS account IDs to apply to the internal access analysis rule criteria. Account IDs can only be applied to the analysis rule criteria for organization-level analyzers and cannot include the organization owner account.
         :param Sequence[_builtins.str] resource_arns: A list of resource ARNs to apply to the internal access analysis rule criteria. The analyzer will only generate findings for resources that match these ARNs.
         :param Sequence[_builtins.str] resource_types: A list of resource types to apply to the internal access analysis rule criteria. The analyzer will only generate findings for resources of these types.
@@ -354,6 +358,7 @@ class AnalyzerInternalAccessConfiguration(dict):
                  internal_access_analysis_rule: Optional['outputs.AnalyzerInternalAccessConfigurationInternalAccessAnalysisRuleProperties'] = None):
         """
         Specifies the configuration of an internal access analyzer for an AWS organization or account. This configuration determines how the analyzer evaluates internal access within your AWS environment.
+
         :param 'AnalyzerInternalAccessConfigurationInternalAccessAnalysisRuleProperties' internal_access_analysis_rule: Contains information about analysis rules for the internal access analyzer. Analysis rules determine which entities will generate findings based on the criteria you define when you create the rule.
         """
         if internal_access_analysis_rule is not None:
@@ -377,6 +382,7 @@ class AnalyzerInternalAccessConfigurationInternalAccessAnalysisRuleProperties(di
                  inclusions: Optional[Sequence['outputs.AnalyzerInternalAccessAnalysisRuleCriteria']] = None):
         """
         Contains information about analysis rules for the internal access analyzer. Analysis rules determine which entities will generate findings based on the criteria you define when you create the rule.
+
         :param Sequence['AnalyzerInternalAccessAnalysisRuleCriteria'] inclusions: A list of rules for the internal access analyzer containing criteria to include in analysis. Only resources that meet the rule criteria will generate findings.
         """
         if inclusions is not None:
@@ -401,6 +407,7 @@ class AnalyzerTag(dict):
                  value: Optional[_builtins.str] = None):
         """
         A key-value pair to associate with a resource.
+
         :param _builtins.str key: The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
         :param _builtins.str value: The value for the tag. You can specify a value that is 0 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
         """
@@ -454,6 +461,7 @@ class AnalyzerUnusedAccessConfiguration(dict):
                  unused_access_age: Optional[_builtins.int] = None):
         """
         The Configuration for Unused Access Analyzer
+
         :param 'AnalyzerUnusedAccessConfigurationAnalysisRuleProperties' analysis_rule: Contains information about rules for the analyzer.
         :param _builtins.int unused_access_age: The specified access age in days for which to generate findings for unused access. For example, if you specify 90 days, the analyzer will generate findings for IAM entities within the accounts of the selected organization for any access that hasn't been used in 90 or more days since the analyzer's last scan. You can choose a value between 1 and 365 days.
         """
@@ -488,6 +496,7 @@ class AnalyzerUnusedAccessConfigurationAnalysisRuleProperties(dict):
                  exclusions: Optional[Sequence['outputs.AnalyzerAnalysisRuleCriteria']] = None):
         """
         Contains information about rules for the analyzer.
+
         :param Sequence['AnalyzerAnalysisRuleCriteria'] exclusions: A list of rules for the analyzer containing criteria to exclude from analysis. Entities that meet the rule criteria will not generate findings.
         """
         if exclusions is not None:

@@ -39,6 +39,7 @@ class WorkspaceAssertionAttributes(dict):
                  role: Optional[_builtins.str] = None):
         """
         Maps Grafana friendly names to the IdPs SAML attributes.
+
         :param _builtins.str email: Name of the attribute within the SAML assert to use as the users email in Grafana.
         :param _builtins.str groups: Name of the attribute within the SAML assert to use as the users groups in Grafana.
         :param _builtins.str login: Name of the attribute within the SAML assert to use as the users login handle in Grafana.
@@ -118,6 +119,7 @@ class WorkspaceIdpMetadata(dict):
                  xml: Optional[_builtins.str] = None):
         """
         IdP Metadata used to configure SAML authentication in Grafana.
+
         :param _builtins.str url: URL that vends the IdPs metadata.
         :param _builtins.str xml: XML blob of the IdPs metadata.
         """
@@ -172,6 +174,7 @@ class WorkspaceNetworkAccessControl(dict):
                  vpce_ids: Optional[Sequence[_builtins.str]] = None):
         """
         The configuration settings for Network Access Control.
+
         :param Sequence[_builtins.str] prefix_list_ids: The list of prefix list IDs. A prefix list is a list of CIDR ranges of IP addresses. The IP addresses specified are allowed to access your workspace. If the list is not included in the configuration then no IP addresses will be allowed to access the workspace.
         :param Sequence[_builtins.str] vpce_ids: The list of Amazon VPC endpoint IDs for the workspace. If a NetworkAccessConfiguration is specified then only VPC endpoints specified here will be allowed to access the workspace.
         """
@@ -207,6 +210,7 @@ class WorkspaceRoleValues(dict):
                  editor: Optional[Sequence[_builtins.str]] = None):
         """
         Maps SAML roles to the Grafana Editor and Admin roles.
+
         :param Sequence[_builtins.str] admin: List of SAML roles which will be mapped into the Grafana Admin role.
         :param Sequence[_builtins.str] editor: List of SAML roles which will be mapped into the Grafana Editor role.
         """
@@ -270,6 +274,7 @@ class WorkspaceSamlConfiguration(dict):
                  role_values: Optional['outputs.WorkspaceRoleValues'] = None):
         """
         SAML configuration data associated with an AMG workspace.
+
         :param 'WorkspaceIdpMetadata' idp_metadata: A structure containing the identity provider (IdP) metadata used to integrate the identity provider with this workspace.
         :param Sequence[_builtins.str] allowed_organizations: List of SAML organizations allowed to access Grafana.
         :param 'WorkspaceAssertionAttributes' assertion_attributes: A structure that defines which attributes in the SAML assertion are to be used to define information about the users authenticated by that IdP to use the workspace.
@@ -356,6 +361,7 @@ class WorkspaceVpcConfiguration(dict):
                  subnet_ids: Sequence[_builtins.str]):
         """
         The configuration settings for an Amazon VPC that contains data sources for your Grafana workspace to connect to.
+
         :param Sequence[_builtins.str] security_group_ids: The list of Amazon EC2 security group IDs attached to the Amazon VPC for your Grafana workspace to connect.
         :param Sequence[_builtins.str] subnet_ids: The list of Amazon EC2 subnet IDs created in the Amazon VPC for your Grafana workspace to connect.
         """

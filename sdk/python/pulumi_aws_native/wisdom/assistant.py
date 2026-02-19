@@ -31,6 +31,7 @@ class AssistantArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]] = None):
         """
         The set of arguments for constructing a Assistant resource.
+
         :param pulumi.Input['AssistantType'] type: The type of assistant.
         :param pulumi.Input[_builtins.str] description: The description of the assistant.
         :param pulumi.Input[_builtins.str] name: The name of the assistant.
@@ -123,6 +124,7 @@ class Assistant(pulumi.CustomResource):
         """
         Definition of AWS::Wisdom::Assistant Resource Type
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: The description of the assistant.
@@ -139,6 +141,7 @@ class Assistant(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of AWS::Wisdom::Assistant Resource Type
+
 
         :param str resource_name: The name of the resource.
         :param AssistantArgs args: The arguments to use to populate this resource's properties.

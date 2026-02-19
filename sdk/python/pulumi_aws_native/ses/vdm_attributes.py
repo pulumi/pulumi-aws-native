@@ -25,6 +25,7 @@ class VdmAttributesArgs:
                  guardian_attributes: Optional[pulumi.Input['VdmAttributesGuardianAttributesArgs']] = None):
         """
         The set of arguments for constructing a VdmAttributes resource.
+
         :param pulumi.Input['VdmAttributesDashboardAttributesArgs'] dashboard_attributes: Specifies additional settings for your VDM configuration as applicable to the Dashboard.
         :param pulumi.Input['VdmAttributesGuardianAttributesArgs'] guardian_attributes: Specifies additional settings for your VDM configuration as applicable to the Guardian.
         """
@@ -70,6 +71,7 @@ class VdmAttributes(pulumi.CustomResource):
         """
         Resource Type definition for AWS::SES::VdmAttributes
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['VdmAttributesDashboardAttributesArgs', 'VdmAttributesDashboardAttributesArgsDict']] dashboard_attributes: Specifies additional settings for your VDM configuration as applicable to the Dashboard.
@@ -83,6 +85,7 @@ class VdmAttributes(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::SES::VdmAttributes
+
 
         :param str resource_name: The name of the resource.
         :param VdmAttributesArgs args: The arguments to use to populate this resource's properties.

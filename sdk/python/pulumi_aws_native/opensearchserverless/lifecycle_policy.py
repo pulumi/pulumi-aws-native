@@ -26,6 +26,7 @@ class LifecyclePolicyArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a LifecyclePolicy resource.
+
         :param pulumi.Input[_builtins.str] policy: The JSON policy document that is the content for the policy
         :param pulumi.Input['LifecyclePolicyType'] type: The type of lifecycle policy.
         :param pulumi.Input[_builtins.str] description: The description of the policy
@@ -101,6 +102,7 @@ class LifecyclePolicy(pulumi.CustomResource):
         """
         Amazon OpenSearchServerless lifecycle policy resource
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: The description of the policy
@@ -116,6 +118,7 @@ class LifecyclePolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Amazon OpenSearchServerless lifecycle policy resource
+
 
         :param str resource_name: The name of the resource.
         :param LifecyclePolicyArgs args: The arguments to use to populate this resource's properties.

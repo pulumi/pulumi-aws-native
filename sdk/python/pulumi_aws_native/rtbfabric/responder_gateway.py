@@ -36,6 +36,7 @@ class ResponderGatewayArgs:
                  trust_store_configuration: Optional[pulumi.Input['ResponderGatewayTrustStoreConfigurationArgs']] = None):
         """
         The set of arguments for constructing a ResponderGateway resource.
+
         :param pulumi.Input[_builtins.int] port: The networking port to use.
         :param pulumi.Input['ResponderGatewayProtocol'] protocol: The networking protocol to use.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: The unique identifiers of the security groups.
@@ -204,6 +205,7 @@ class ResponderGateway(pulumi.CustomResource):
         """
         Resource Type definition for AWS::RTBFabric::ResponderGateway Resource Type
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: An optional description for the responder gateway.
@@ -225,6 +227,7 @@ class ResponderGateway(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::RTBFabric::ResponderGateway Resource Type
+
 
         :param str resource_name: The name of the resource.
         :param ResponderGatewayArgs args: The arguments to use to populate this resource's properties.

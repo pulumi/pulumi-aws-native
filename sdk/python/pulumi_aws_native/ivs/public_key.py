@@ -26,6 +26,7 @@ class PublicKeyArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a PublicKey resource.
+
         :param pulumi.Input[_builtins.str] name: Name of the public key to be imported. The value does not need to be unique.
         :param pulumi.Input[_builtins.str] public_key_material: The public portion of a customer-generated key pair. This field is required to create the AWS::IVS::PublicKey resource.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A list of key-value pairs that contain metadata for the asset model.
@@ -87,6 +88,7 @@ class PublicKey(pulumi.CustomResource):
         """
         Resource Type definition for AWS::IVS::PublicKey
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: Name of the public key to be imported. The value does not need to be unique.
@@ -101,6 +103,7 @@ class PublicKey(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::IVS::PublicKey
+
 
         :param str resource_name: The name of the resource.
         :param PublicKeyArgs args: The arguments to use to populate this resource's properties.

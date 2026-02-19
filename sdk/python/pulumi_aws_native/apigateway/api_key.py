@@ -33,6 +33,7 @@ class ApiKeyArgs:
                  value: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ApiKey resource.
+
         :param pulumi.Input[_builtins.str] customer_id: An AWS Marketplace customer identifier, when integrating with the AWS SaaS Marketplace.
         :param pulumi.Input[_builtins.str] description: The description of the ApiKey.
         :param pulumi.Input[_builtins.bool] enabled: Specifies whether the ApiKey can be used by callers.
@@ -210,6 +211,7 @@ class ApiKey(pulumi.CustomResource):
 
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] customer_id: An AWS Marketplace customer identifier, when integrating with the AWS SaaS Marketplace.
@@ -264,6 +266,7 @@ class ApiKey(pulumi.CustomResource):
             name=api_key_name)
 
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ApiKeyArgs args: The arguments to use to populate this resource's properties.

@@ -38,6 +38,7 @@ class ExperimentArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Experiment resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['ExperimentMetricGoalObjectArgs']]] metric_goals: An array of structures that defines the metrics used for the experiment, and whether a higher or lower value for each metric is the goal. You can use up to three metrics in an experiment.
         :param pulumi.Input['ExperimentOnlineAbConfigObjectArgs'] online_ab_config: A structure that contains the configuration of which variation to use as the "control" version. The "control" version is used for comparison with other variations. This structure also specifies how much experiment traffic is allocated to each variation.
         :param pulumi.Input[_builtins.str] project: The name or the ARN of the project where this experiment is to be created.
@@ -247,6 +248,7 @@ class Experiment(pulumi.CustomResource):
         """
         Resource Type definition for AWS::Evidently::Experiment.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: An optional description of the experiment.
@@ -274,6 +276,7 @@ class Experiment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::Evidently::Experiment.
+
 
         :param str resource_name: The name of the resource.
         :param ExperimentArgs args: The arguments to use to populate this resource's properties.

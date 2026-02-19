@@ -30,6 +30,7 @@ class ClusterArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Cluster resource.
+
         :param pulumi.Input['NetworkingPropertiesArgs'] networking: The networking configuration for the cluster's control plane.
         :param pulumi.Input['SchedulerPropertiesArgs'] scheduler: The cluster management and job scheduling software associated with the cluster.
         :param pulumi.Input['ClusterSize'] size: The size of the cluster.
@@ -136,6 +137,7 @@ class Cluster(pulumi.CustomResource):
         """
         AWS::PCS::Cluster resource creates an AWS PCS cluster.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: The name that identifies the cluster.
@@ -153,6 +155,7 @@ class Cluster(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         AWS::PCS::Cluster resource creates an AWS PCS cluster.
+
 
         :param str resource_name: The name of the resource.
         :param ClusterArgs args: The arguments to use to populate this resource's properties.

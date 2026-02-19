@@ -27,6 +27,7 @@ class ComponentVersionArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ComponentVersion resource.
+
         :param pulumi.Input[_builtins.str] inline_recipe: The recipe to use to create the component. The recipe defines the component's metadata, parameters, dependencies, lifecycle, artifacts, and platform compatibility.
                
                You must specify either `InlineRecipe` or `LambdaFunction` .
@@ -110,6 +111,7 @@ class ComponentVersion(pulumi.CustomResource):
         """
         Resource for Greengrass component version.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] inline_recipe: The recipe to use to create the component. The recipe defines the component's metadata, parameters, dependencies, lifecycle, artifacts, and platform compatibility.
@@ -135,6 +137,7 @@ class ComponentVersion(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource for Greengrass component version.
+
 
         :param str resource_name: The name of the resource.
         :param ComponentVersionArgs args: The arguments to use to populate this resource's properties.

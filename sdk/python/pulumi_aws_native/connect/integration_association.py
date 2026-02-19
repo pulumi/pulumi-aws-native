@@ -25,6 +25,7 @@ class IntegrationAssociationArgs:
                  integration_type: pulumi.Input['IntegrationAssociationIntegrationType']):
         """
         The set of arguments for constructing a IntegrationAssociation resource.
+
         :param pulumi.Input[_builtins.str] instance_id: The Amazon Resource Name (ARN) of the instance.
                
                *Minimum* : `1`
@@ -141,6 +142,7 @@ class IntegrationAssociation(pulumi.CustomResource):
 
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] instance_id: The Amazon Resource Name (ARN) of the instance.
@@ -203,6 +205,7 @@ class IntegrationAssociation(pulumi.CustomResource):
             integration_arn="arn:aws:lambda:region-name:aws-account-id:function:function-arn")
 
         ```
+
 
         :param str resource_name: The name of the resource.
         :param IntegrationAssociationArgs args: The arguments to use to populate this resource's properties.

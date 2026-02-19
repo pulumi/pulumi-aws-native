@@ -100,6 +100,7 @@ class RecordingConfigurationDestinationConfiguration(dict):
                  s3: Optional['outputs.RecordingConfigurationS3DestinationConfiguration'] = None):
         """
         Recording Destination Configuration.
+
         :param 'RecordingConfigurationS3DestinationConfiguration' s3: An S3 destination configuration where recorded videos will be stored. See the [S3DestinationConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivs-recordingconfiguration-s3destinationconfiguration.html) property type for more information.
         """
         if s3 is not None:
@@ -141,6 +142,7 @@ class RecordingConfigurationRenditionConfiguration(dict):
                  renditions: Optional[Sequence['RecordingConfigurationRenditionConfigurationRenditionsItem']] = None):
         """
         Rendition Configuration describes which renditions should be recorded for a stream.
+
         :param 'RecordingConfigurationRenditionConfigurationRenditionSelection' rendition_selection: Resolution Selection indicates which set of renditions are recorded for a stream.
         :param Sequence['RecordingConfigurationRenditionConfigurationRenditionsItem'] renditions: Renditions indicates which renditions are recorded for a stream.
         """
@@ -192,6 +194,7 @@ class RecordingConfigurationS3DestinationConfiguration(dict):
                  bucket_name: _builtins.str):
         """
         Recording S3 Destination Configuration.
+
         :param _builtins.str bucket_name: Location (S3 bucket name) where recorded videos will be stored.
         """
         pulumi.set(__self__, "bucket_name", bucket_name)
@@ -236,6 +239,7 @@ class RecordingConfigurationThumbnailConfiguration(dict):
                  target_interval_seconds: Optional[_builtins.int] = None):
         """
         Recording Thumbnail Configuration.
+
         :param 'RecordingConfigurationThumbnailConfigurationRecordingMode' recording_mode: Thumbnail Recording Mode, which determines whether thumbnails are recorded at an interval or are disabled.
         :param 'RecordingConfigurationThumbnailConfigurationResolution' resolution: Resolution indicates the desired resolution of recorded thumbnails.
         :param Sequence['RecordingConfigurationThumbnailConfigurationStorageItem'] storage: Storage indicates the format in which thumbnails are recorded.
@@ -321,6 +325,7 @@ class StageAutoParticipantRecordingConfiguration(dict):
                  thumbnail_configuration: Optional['outputs.StageThumbnailConfiguration'] = None):
         """
         Configuration object for individual participant recording, to attach to the new stage.
+
         :param _builtins.str storage_configuration_arn: ARN of the StorageConfiguration resource to use for individual participant recording.
         :param 'StageHlsConfiguration' hls_configuration: HLS configuration object for individual participant recording.
         :param Sequence['StageAutoParticipantRecordingConfigurationMediaTypesItem'] media_types: Types of media to be recorded. Default: AUDIO_VIDEO.
@@ -404,6 +409,7 @@ class StageHlsConfiguration(dict):
                  participant_recording_hls_configuration: Optional['outputs.StageParticipantRecordingHlsConfiguration'] = None):
         """
         HLS configuration object for individual participant recording.
+
         :param 'StageParticipantRecordingHlsConfiguration' participant_recording_hls_configuration: Object specifying a configuration of participant HLS recordings for individual participant recording.
         """
         if participant_recording_hls_configuration is not None:
@@ -444,6 +450,7 @@ class StageParticipantRecordingHlsConfiguration(dict):
                  target_segment_duration_seconds: Optional[_builtins.int] = None):
         """
         An object representing a configuration of participant HLS recordings for individual participant recording.
+
         :param _builtins.int target_segment_duration_seconds: Defines the target duration for recorded segments generated when recording a stage participant. Segments may have durations longer than the specified value when needed to ensure each segment begins with a keyframe. Default: 6.
         """
         if target_segment_duration_seconds is not None:
@@ -484,6 +491,7 @@ class StageThumbnailConfiguration(dict):
                  participant_thumbnail_configuration: Optional['outputs.StageThumbnailConfigurationParticipantThumbnailConfigurationProperties'] = None):
         """
         A complex type that allows you to enable/disable the recording of thumbnails for individual participant recording and modify the interval at which thumbnails are generated for the live session.
+
         :param 'StageThumbnailConfigurationParticipantThumbnailConfigurationProperties' participant_thumbnail_configuration: An object representing a configuration of thumbnails for recorded video from an individual participant.
         """
         if participant_thumbnail_configuration is not None:
@@ -528,6 +536,7 @@ class StageThumbnailConfigurationParticipantThumbnailConfigurationProperties(dic
                  target_interval_seconds: Optional[_builtins.int] = None):
         """
         An object representing a configuration of thumbnails for recorded video from an individual participant.
+
         :param 'StageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesRecordingMode' recording_mode: Thumbnail recording mode. Default: DISABLED.
         :param Sequence['StageThumbnailConfigurationParticipantThumbnailConfigurationPropertiesStorageItem'] storage: Indicates the format in which thumbnails are recorded. SEQUENTIAL records all generated thumbnails in a serial manner, to the media/thumbnails/high directory. LATEST saves the latest thumbnail in media/latest_thumbnail/high/thumb.jpg and overwrites it at the interval specified by targetIntervalSeconds. You can enable both SEQUENTIAL and LATEST. Default: SEQUENTIAL.
         :param _builtins.int target_interval_seconds: The targeted thumbnail-generation interval in seconds. This is configurable only if recordingMode is INTERVAL. Default: 60.
@@ -590,6 +599,7 @@ class StorageConfigurationS3StorageConfiguration(dict):
                  bucket_name: _builtins.str):
         """
         A complex type that describes an S3 location where recorded videos will be stored.
+
         :param _builtins.str bucket_name: Location (S3 bucket name) where recorded videos will be stored. Note that the StorageConfiguration and S3 bucket must be in the same region as the Composition.
         """
         pulumi.set(__self__, "bucket_name", bucket_name)
@@ -615,6 +625,7 @@ class VideoProperties(dict):
                  width: Optional[_builtins.int] = None):
         """
         Video configuration. Default: video resolution 1280x720, bitrate 2500 kbps, 30 fps
+
         :param _builtins.int bitrate: Bitrate for generated output, in bps. Default: 2500000.
         :param _builtins.float framerate: Video frame rate, in fps. Default: 30.
         :param _builtins.int height: Video-resolution height. This must be an even number. Note that the maximum value is determined by width times height, such that the maximum total pixels is 2073600 (1920x1080 or 1080x1920). Default: 720.

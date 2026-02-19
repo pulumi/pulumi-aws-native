@@ -26,6 +26,7 @@ class WorkloadIdentityArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a WorkloadIdentity resource.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_resource_oauth2_return_urls: The list of allowed OAuth2 return URLs for resources associated with this workload identity.
         :param pulumi.Input[_builtins.str] name: The name of the workload identity. The name must be unique within your account.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
@@ -87,6 +88,7 @@ class WorkloadIdentity(pulumi.CustomResource):
         """
         Definition of AWS::BedrockAgentCore::WorkloadIdentity Resource Type
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_resource_oauth2_return_urls: The list of allowed OAuth2 return URLs for resources associated with this workload identity.
@@ -101,6 +103,7 @@ class WorkloadIdentity(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of AWS::BedrockAgentCore::WorkloadIdentity Resource Type
+
 
         :param str resource_name: The name of the resource.
         :param WorkloadIdentityArgs args: The arguments to use to populate this resource's properties.

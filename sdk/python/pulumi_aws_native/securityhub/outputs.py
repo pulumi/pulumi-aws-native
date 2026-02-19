@@ -95,6 +95,7 @@ class AutomationRuleDateFilter(dict):
                  start: Optional[_builtins.str] = None):
         """
         A date filter for querying findings.
+
         :param 'AutomationRuleDateRange' date_range: A date range for the date filter.
         :param _builtins.str end: A timestamp that provides the end date for the date filter.
                 For more information about the validation and formatting of timestamp fields in ASHlong, see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps).
@@ -145,6 +146,7 @@ class AutomationRuleDateRange(dict):
                  value: _builtins.float):
         """
         A date range for the date filter.
+
         :param 'AutomationRuleDateRangeUnit' unit: A date range unit for the date filter.
         :param _builtins.float value: A date range value for the date filter.
         """
@@ -179,6 +181,7 @@ class AutomationRuleMapFilter(dict):
                  value: _builtins.str):
         """
         A map filter for filtering ASHlong findings. Each map filter provides the field to check for, the value to check for, and the comparison operator.
+
         :param 'AutomationRuleMapFilterComparison' comparison: The condition to apply to the key value when filtering Security Hub findings with a map filter.
                 To search for values that have the filter value, use one of the following comparison operators:
                  +  To search for values that include the filter value, use ``CONTAINS``. For example, for the ``ResourceTags`` field, the filter ``Department CONTAINS Security`` matches findings that include the value ``Security`` for the ``Department`` tag. In the same example, a finding with a value of ``Security team`` for the ``Department`` tag is a match.
@@ -265,6 +268,7 @@ class AutomationRuleNoteUpdate(dict):
                  updated_by: _builtins.str):
         """
         The updated note.
+
         :param _builtins.str text: The updated note text.
         :param _builtins.str updated_by: The principal that updated the note.
         """
@@ -299,6 +303,7 @@ class AutomationRuleNumberFilter(dict):
                  lte: Optional[_builtins.float] = None):
         """
         A number filter for querying findings.
+
         :param _builtins.float eq: The equal-to condition to be applied to a single field when querying for findings.
         :param _builtins.float gte: The greater-than-equal condition to be applied to a single field when querying for findings.
         :param _builtins.float lte: The less-than-equal condition to be applied to a single field when querying for findings.
@@ -362,6 +367,7 @@ class AutomationRuleRelatedFinding(dict):
                  product_arn: _builtins.str):
         """
         Provides details about a list of findings that the current finding relates to.
+
         :param _builtins.str id: The product-generated identifier for a related finding. 
                  Array Members: Minimum number of 1 item. Maximum number of 20 items.
         :param _builtins.str product_arn: The Amazon Resource Name (ARN) for the product that generated a related finding.
@@ -398,6 +404,7 @@ class AutomationRuleSeverityUpdate(dict):
                  product: Optional[_builtins.float] = None):
         """
         Updates to the severity information for a finding.
+
         :param 'AutomationRuleSeverityUpdateLabel' label: The severity value of the finding. The allowed values are the following.
                  +  ``INFORMATIONAL`` - No issue was found.
                  +  ``LOW`` - The issue does not require action on its own.
@@ -466,6 +473,7 @@ class AutomationRuleStringFilter(dict):
                  value: _builtins.str):
         """
         A string filter for filtering ASHlong findings.
+
         :param 'AutomationRuleStringFilterComparison' comparison: The condition to apply to a string value when filtering Security Hub findings.
                 To search for values that have the filter value, use one of the following comparison operators:
                  +  To search for values that include the filter value, use ``CONTAINS``. For example, the filter ``Title CONTAINS CloudFront`` matches findings that have a ``Title`` that includes the string CloudFront.
@@ -561,6 +569,7 @@ class AutomationRuleV2AutomationRulesActionV2(dict):
                  finding_fields_update: Optional['outputs.AutomationRuleV2AutomationRulesFindingFieldsUpdateV2'] = None):
         """
         Allows you to configure automated responses
+
         :param 'AutomationRuleV2AutomationRulesActionV2Type' type: The category of action to be executed by the automation rule
         :param 'AutomationRuleV2ExternalIntegrationConfiguration' external_integration_configuration: The settings for integrating automation rule actions with external systems or service.
         :param 'AutomationRuleV2AutomationRulesFindingFieldsUpdateV2' finding_fields_update: Specifies that the automation rule action is an update to a finding field.
@@ -626,6 +635,7 @@ class AutomationRuleV2AutomationRulesFindingFieldsUpdateV2(dict):
                  status_id: Optional[_builtins.int] = None):
         """
         The changes to be applied to fields in a security finding when an automation rule is triggered
+
         :param _builtins.str comment: Notes or contextual information for findings that are modified by the automation rule
         :param _builtins.int severity_id: The severity level to be assigned to findings that match the automation rule criteria
         :param _builtins.int status_id: The status to be applied to findings that match automation rule criteria
@@ -671,6 +681,7 @@ class AutomationRuleV2BooleanFilter(dict):
                  value: _builtins.bool):
         """
         Boolean filter for querying findings
+
         :param _builtins.bool value: The value of the boolean
         """
         pulumi.set(__self__, "value", value)
@@ -723,6 +734,7 @@ class AutomationRuleV2CompositeFilter(dict):
                  string_filters: Optional[Sequence['outputs.AutomationRuleV2OcsfStringFilter']] = None):
         """
         Enables the creation of filtering criteria for security findings
+
         :param Sequence['AutomationRuleV2OcsfBooleanFilter'] boolean_filters: Enables filtering based on boolean field values
         :param Sequence['AutomationRuleV2OcsfDateFilter'] date_filters: Enables filtering based on date and timestamp fields
         :param Sequence['AutomationRuleV2OcsfMapFilter'] map_filters: Enables filtering based on map field value
@@ -818,6 +830,7 @@ class AutomationRuleV2Criteria(dict):
                  ocsf_finding_criteria: Optional['outputs.AutomationRuleV2OcsfFindingFilters'] = None):
         """
         Defines the parameters and conditions used to evaluate and filter security findings
+
         :param 'AutomationRuleV2OcsfFindingFilters' ocsf_finding_criteria: The filtering conditions that align with OCSF standards.
         """
         if ocsf_finding_criteria is not None:
@@ -860,6 +873,7 @@ class AutomationRuleV2DateFilter(dict):
                  start: Optional[_builtins.str] = None):
         """
         A date filter for querying findings
+
         :param 'AutomationRuleV2DateRange' date_range: A date range for the date filter.
         :param _builtins.str end: A timestamp that provides the end date for the date filter.
                
@@ -914,6 +928,7 @@ class AutomationRuleV2DateRange(dict):
                  value: _builtins.float):
         """
         A date range for the date filter
+
         :param 'AutomationRuleV2DateRangeUnit' unit: A date range unit for the date filter
         :param _builtins.float value: A date range value for the date filter
         """
@@ -963,6 +978,7 @@ class AutomationRuleV2ExternalIntegrationConfiguration(dict):
                  connector_arn: Optional[_builtins.str] = None):
         """
         The settings for integrating automation rule actions with external systems or service
+
         :param _builtins.str connector_arn: The ARN of the connector that establishes the integration
         """
         if connector_arn is not None:
@@ -988,6 +1004,7 @@ class AutomationRuleV2MapFilter(dict):
                  value: _builtins.str):
         """
         A map filter for filtering findings
+
         :param 'AutomationRuleV2MapFilterComparison' comparison: The condition to apply to the key value when filtering findings with a map filter
         :param _builtins.str key: The key of the map filter
         :param _builtins.str value: The value for the key in the map filter
@@ -1032,6 +1049,7 @@ class AutomationRuleV2NumberFilter(dict):
                  lte: Optional[_builtins.float] = None):
         """
         A number filter for querying findings
+
         :param _builtins.float eq: The equal-to condition to be applied to a single field when querying for findings
         :param _builtins.float gte: The greater-than-equal condition to be applied to a single field when querying for findings
         :param _builtins.float lte: The less-than-equal condition to be applied to a single field when querying for findings
@@ -1095,6 +1113,7 @@ class AutomationRuleV2OcsfBooleanFilter(dict):
                  filter: 'outputs.AutomationRuleV2BooleanFilter'):
         """
         Enables filtering of security findings based on boolean field values in OCSF
+
         :param 'AutomationRuleV2OcsfBooleanFilterFieldName' field_name: The name of the field
         :param 'AutomationRuleV2BooleanFilter' filter: Enables filtering of security findings based on boolean field values in OCSF.
         """
@@ -1145,6 +1164,7 @@ class AutomationRuleV2OcsfDateFilter(dict):
                  filter: 'outputs.AutomationRuleV2DateFilter'):
         """
         Enables filtering of security findings based on date and timestamp fields in OCSF
+
         :param 'AutomationRuleV2OcsfDateFilterFieldName' field_name: The name of the field
         :param 'AutomationRuleV2DateFilter' filter: Enables filtering of security findings based on date and timestamp fields in OCSF.
         """
@@ -1197,6 +1217,7 @@ class AutomationRuleV2OcsfFindingFilters(dict):
                  composite_operator: Optional['AutomationRuleV2AllowedOperators'] = None):
         """
         The filtering conditions that align with OCSF standards
+
         :param Sequence['AutomationRuleV2CompositeFilter'] composite_filters: Enables the creation of complex filtering conditions by combining filter
         :param 'AutomationRuleV2AllowedOperators' composite_operator: The logical operators used to combine the filtering on multiple `CompositeFilters` .
         """
@@ -1249,6 +1270,7 @@ class AutomationRuleV2OcsfMapFilter(dict):
                  filter: 'outputs.AutomationRuleV2MapFilter'):
         """
         Enables filtering of security findings based on map field values in OCSF
+
         :param 'AutomationRuleV2OcsfMapFilterFieldName' field_name: The name of the field
         :param 'AutomationRuleV2MapFilter' filter: Enables filtering of security findings based on map field values in OCSF.
         """
@@ -1299,6 +1321,7 @@ class AutomationRuleV2OcsfNumberFilter(dict):
                  filter: 'outputs.AutomationRuleV2NumberFilter'):
         """
         Enables filtering of security findings based on numerical field values in OCSF
+
         :param 'AutomationRuleV2OcsfNumberFilterFieldName' field_name: The name of the field
         :param 'AutomationRuleV2NumberFilter' filter: Enables filtering of security findings based on numerical field values in OCSF.
         """
@@ -1349,6 +1372,7 @@ class AutomationRuleV2OcsfStringFilter(dict):
                  filter: 'outputs.AutomationRuleV2StringFilter'):
         """
         Enables filtering of security findings based on string field values in OCSF
+
         :param 'AutomationRuleV2OcsfStringField' field_name: The name of the field.
         :param 'AutomationRuleV2StringFilter' filter: Enables filtering of security findings based on string field values in OCSF.
         """
@@ -1382,6 +1406,7 @@ class AutomationRuleV2StringFilter(dict):
                  value: _builtins.str):
         """
         A string filter for filtering findings
+
         :param 'AutomationRuleV2StringFilterComparison' comparison: The condition to apply to a string value when filtering findings
         :param _builtins.str value: The string filter value
         """
@@ -1414,6 +1439,7 @@ class AutomationRuleWorkflowUpdate(dict):
                  status: 'AutomationRuleWorkflowUpdateStatus'):
         """
         Used to update information about the investigation into the finding.
+
         :param 'AutomationRuleWorkflowUpdateStatus' status: The status of the investigation into the finding. The workflow status is specific to an individual finding. It does not affect the generation of new findings. For example, setting the workflow status to ``SUPPRESSED`` or ``RESOLVED`` does not prevent a new finding for the same issue.
                 The allowed values are the following.
                  +  ``NEW`` - The initial state of a finding, before it is reviewed.
@@ -1472,6 +1498,7 @@ class AutomationRulesAction(dict):
                  type: 'AutomationRulesActionType'):
         """
         One or more actions that ASHlong takes when a finding matches the defined criteria of a rule.
+
         :param 'AutomationRulesFindingFieldsUpdate' finding_fields_update: Specifies that the automation rule action is an update to a finding field.
         :param 'AutomationRulesActionType' type: Specifies the type of action that Security Hub takes when a finding matches the defined criteria of a rule.
         """
@@ -1533,6 +1560,7 @@ class AutomationRulesFindingFieldsUpdate(dict):
                  workflow: Optional['outputs.AutomationRuleWorkflowUpdate'] = None):
         """
         Identifies the finding fields that the automation rule action updates when a finding matches the defined criteria.
+
         :param _builtins.int confidence: The rule action updates the ``Confidence`` field of a finding.
         :param _builtins.int criticality: The rule action updates the ``Criticality`` field of a finding.
         :param 'AutomationRuleNoteUpdate' note: The rule action will update the ``Note`` field of a finding.
@@ -1751,6 +1779,7 @@ class AutomationRulesFindingFilters(dict):
                  workflow_status: Optional[Sequence['outputs.AutomationRuleStringFilter']] = None):
         """
         The criteria that determine which findings a rule applies to.
+
         :param Sequence['AutomationRuleStringFilter'] aws_account_id: The AWS-account ID in which a finding was generated.
                  Array Members: Minimum number of 1 item. Maximum number of 100 items.
         :param Sequence['AutomationRuleStringFilter'] company_name: The name of the company for the product that generated the finding. For control-based findings, the company is AWS. 
@@ -2246,6 +2275,7 @@ class ConfigurationPolicyParameterConfiguration(dict):
                  value: Optional['outputs.ConfigurationPolicyParameterValue'] = None):
         """
         An object that provides the current value of a security control parameter and identifies whether it has been customized.
+
         :param 'ConfigurationPolicyParameterConfigurationValueType' value_type: Identifies whether a control parameter uses a custom user-defined value or subscribes to the default AWS Security Hub behavior.
         """
         pulumi.set(__self__, "value_type", value_type)
@@ -2303,6 +2333,7 @@ class ConfigurationPolicyParameterValue(dict):
                  string_list: Optional[Sequence[_builtins.str]] = None):
         """
         An object that includes the data type of a security control parameter and its current value.
+
         :param _builtins.bool boolean: A control parameter that is a boolean.
         :param _builtins.float double: A control parameter that is a double.
         :param _builtins.str enum: A control parameter that is an enum.
@@ -2420,6 +2451,7 @@ class ConfigurationPolicyPolicy(dict):
                  security_hub: Optional['outputs.ConfigurationPolicySecurityHubPolicy'] = None):
         """
         An object that defines how Security Hub is configured.
+
         :param 'ConfigurationPolicySecurityHubPolicy' security_hub: The AWS service that the configuration policy applies to.
         """
         if security_hub is not None:
@@ -2461,6 +2493,7 @@ class ConfigurationPolicySecurityControlCustomParameter(dict):
                  security_control_id: Optional[_builtins.str] = None):
         """
         An object of security control and control parameter value that are included in a configuration policy.
+
         :param Mapping[str, 'ConfigurationPolicyParameterConfiguration'] parameters: An object that specifies parameter values for a control in a configuration policy.
         :param _builtins.str security_control_id: The ID of the security control.
         """
@@ -2518,6 +2551,7 @@ class ConfigurationPolicySecurityControlsConfiguration(dict):
                  security_control_custom_parameters: Optional[Sequence['outputs.ConfigurationPolicySecurityControlCustomParameter']] = None):
         """
         An object that defines which security controls are enabled in an AWS Security Hub configuration policy.
+
         :param Sequence[_builtins.str] disabled_security_control_identifiers: A list of security controls that are disabled in the configuration policy
         :param Sequence[_builtins.str] enabled_security_control_identifiers: A list of security controls that are enabled in the configuration policy.
         :param Sequence['ConfigurationPolicySecurityControlCustomParameter'] security_control_custom_parameters: A list of security controls and control parameter values that are included in a configuration policy.
@@ -2586,6 +2620,7 @@ class ConfigurationPolicySecurityHubPolicy(dict):
                  service_enabled: Optional[_builtins.bool] = None):
         """
         An object that defines how AWS Security Hub is configured.
+
         :param Sequence[_builtins.str] enabled_standard_identifiers: A list that defines which security standards are enabled in the configuration policy.
         :param 'ConfigurationPolicySecurityControlsConfiguration' security_controls_configuration: An object that defines which security controls are enabled in the configuration policy. The enablement status of a control is aligned across all of the enabled standards in an account.
                
@@ -2955,6 +2990,7 @@ class InsightAwsSecurityFindingFilters(dict):
                  workflow_status: Optional[Sequence['outputs.InsightStringFilter']] = None):
         """
         A collection of filters that are applied to all active findings aggregated by AWS Security Hub.
+
         :param Sequence['InsightStringFilter'] aws_account_id: The AWS account ID in which a finding is generated.
         :param Sequence['InsightStringFilter'] aws_account_name: The name of the AWS account in which a finding is generated.
         :param Sequence['InsightStringFilter'] company_name: The name of the findings provider (company) that owns the solution (product) that generates findings.
@@ -4111,6 +4147,7 @@ class InsightBooleanFilter(dict):
                  value: _builtins.bool):
         """
         Boolean filter for querying findings.
+
         :param _builtins.bool value: The value of the boolean.
         """
         pulumi.set(__self__, "value", value)
@@ -4152,6 +4189,7 @@ class InsightDateFilter(dict):
                  start: Optional[_builtins.str] = None):
         """
         A date filter for querying findings.
+
         :param 'InsightDateRange' date_range: A date range for the date filter.
         :param _builtins.str end: A timestamp that provides the end date for the date filter.
                
@@ -4206,6 +4244,7 @@ class InsightDateRange(dict):
                  value: _builtins.float):
         """
         A date range for the date filter.
+
         :param 'InsightDateRangeUnit' unit: A date range unit for the date filter.
         :param _builtins.float value: A date range value for the date filter.
         """
@@ -4238,6 +4277,7 @@ class InsightIpFilter(dict):
                  cidr: _builtins.str):
         """
         The IP filter for querying findings.
+
         :param _builtins.str cidr: A finding's CIDR value.
         """
         pulumi.set(__self__, "cidr", cidr)
@@ -4260,6 +4300,7 @@ class InsightKeywordFilter(dict):
                  value: _builtins.str):
         """
         A keyword filter for querying findings.
+
         :param _builtins.str value: A value for the keyword.
         """
         pulumi.set(__self__, "value", value)
@@ -4284,6 +4325,7 @@ class InsightMapFilter(dict):
                  value: _builtins.str):
         """
         A map filter for filtering AWS Security Hub findings.
+
         :param 'InsightMapFilterComparison' comparison: The condition to apply to the key value when filtering Security Hub findings with a map filter.
         :param _builtins.str key: The key of the map filter. For example, for `ResourceTags` , `Key` identifies the name of the tag. For `UserDefinedFields` , `Key` is the name of the field.
         :param _builtins.str value: The value for the key in the map filter. Filter values are case sensitive. For example, one of the values for a tag called `Department` might be `Security` . If you provide `security` as the filter value, then there's no match.
@@ -4328,6 +4370,7 @@ class InsightNumberFilter(dict):
                  lte: Optional[_builtins.float] = None):
         """
         A number filter for querying findings.
+
         :param _builtins.float eq: The equal-to condition to be applied to a single field when querying for findings.
         :param _builtins.float gte: The greater-than-equal condition to be applied to a single field when querying for findings.
         :param _builtins.float lte: The less-than-equal condition to be applied to a single field when querying for findings.
@@ -4374,6 +4417,7 @@ class InsightStringFilter(dict):
                  value: _builtins.str):
         """
         A string filter for filtering AWS Security Hub findings.
+
         :param 'InsightStringFilterComparison' comparison: The condition to apply to a string value when filtering Security Hub CSPM findings.
                
                To search for values that have the filter value, use one of the following comparison operators:
@@ -4661,6 +4705,7 @@ class StandardsControl(dict):
                  reason: Optional[_builtins.str] = None):
         """
         Provides details about an individual security control. For a list of ASH controls, see [controls reference](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-controls-reference.html) in the *User Guide*.
+
         :param _builtins.str standards_control_arn: The Amazon Resource Name (ARN) of the control.
         :param _builtins.str reason: A user-defined reason for changing a control's enablement status in a specified standard. If you are disabling a control, then this property is required.
         """

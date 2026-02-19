@@ -29,6 +29,7 @@ class SnapshotArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]] = None):
         """
         The set of arguments for constructing a Snapshot resource.
+
         :param pulumi.Input[_builtins.str] namespace_name: The namespace the snapshot is associated with.
         :param pulumi.Input[_builtins.int] retention_period: The retention period of the snapshot.
         :param pulumi.Input[_builtins.str] snapshot_name: The name of the snapshot.
@@ -106,6 +107,7 @@ class Snapshot(pulumi.CustomResource):
         """
         Resource Type definition for AWS::RedshiftServerless::Snapshot Resource Type.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] namespace_name: The namespace the snapshot is associated with.
@@ -121,6 +123,7 @@ class Snapshot(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::RedshiftServerless::Snapshot Resource Type.
+
 
         :param str resource_name: The name of the resource.
         :param SnapshotArgs args: The arguments to use to populate this resource's properties.

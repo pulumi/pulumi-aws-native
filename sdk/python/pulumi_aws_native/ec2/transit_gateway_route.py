@@ -25,6 +25,7 @@ class TransitGatewayRouteArgs:
                  transit_gateway_attachment_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a TransitGatewayRoute resource.
+
         :param pulumi.Input[_builtins.str] destination_cidr_block: The CIDR range used for destination matches. Routing decisions are based on the most specific match.
         :param pulumi.Input[_builtins.str] transit_gateway_route_table_id: The ID of transit gateway route table.
         :param pulumi.Input[_builtins.bool] blackhole: Indicates whether to drop traffic that matches this route.
@@ -100,6 +101,7 @@ class TransitGatewayRoute(pulumi.CustomResource):
         """
         Resource Type definition for AWS::EC2::TransitGatewayRoute
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] blackhole: Indicates whether to drop traffic that matches this route.
@@ -115,6 +117,7 @@ class TransitGatewayRoute(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::EC2::TransitGatewayRoute
+
 
         :param str resource_name: The name of the resource.
         :param TransitGatewayRouteArgs args: The arguments to use to populate this resource's properties.

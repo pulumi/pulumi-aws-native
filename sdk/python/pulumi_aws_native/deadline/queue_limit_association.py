@@ -24,6 +24,7 @@ class QueueLimitAssociationArgs:
                  queue_id: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a QueueLimitAssociation resource.
+
         :param pulumi.Input[_builtins.str] farm_id: The unique identifier of the farm that contains the queue-limit association.
         :param pulumi.Input[_builtins.str] limit_id: The unique identifier of the limit in the association.
         :param pulumi.Input[_builtins.str] queue_id: The unique identifier of the queue in the association.
@@ -82,6 +83,7 @@ class QueueLimitAssociation(pulumi.CustomResource):
         """
         Definition of AWS::Deadline::QueueLimitAssociation Resource Type
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] farm_id: The unique identifier of the farm that contains the queue-limit association.
@@ -96,6 +98,7 @@ class QueueLimitAssociation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of AWS::Deadline::QueueLimitAssociation Resource Type
+
 
         :param str resource_name: The name of the resource.
         :param QueueLimitAssociationArgs args: The arguments to use to populate this resource's properties.

@@ -32,6 +32,7 @@ class LoadBalancerArgs:
                  tls_policy_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a LoadBalancer resource.
+
         :param pulumi.Input[_builtins.int] instance_port: The instance port where you're creating your load balancer.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] attached_instances: The names of the instances attached to the load balancer.
         :param pulumi.Input[_builtins.str] health_check_path: The path you provided to perform the load balancer health check. If you didn't specify a health check path, Lightsail uses the root path of your website (e.g., "/").
@@ -188,6 +189,7 @@ class LoadBalancer(pulumi.CustomResource):
         """
         Resource Type definition for AWS::Lightsail::LoadBalancer
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] attached_instances: The names of the instances attached to the load balancer.
@@ -208,6 +210,7 @@ class LoadBalancer(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::Lightsail::LoadBalancer
+
 
         :param str resource_name: The name of the resource.
         :param LoadBalancerArgs args: The arguments to use to populate this resource's properties.

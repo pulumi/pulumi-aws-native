@@ -73,6 +73,7 @@ class ScheduleAwsVpcConfigurationArgs:
                  security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         This structure specifies the VPC subnets and security groups for the task, and whether a public IP address is to be used. This structure is relevant only for ECS tasks that use the awsvpc network mode.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnets: Specifies the subnets associated with the task. These subnets must all be in the same VPC. You can specify as many as 16 subnets.
         :param pulumi.Input['ScheduleAssignPublicIp'] assign_public_ip: Specifies whether the task's elastic network interface receives a public IP address. You can specify `ENABLED` only when `LaunchType` in `EcsParameters` is set to `FARGATE` .
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_groups: Specifies the security groups associated with the task. These security groups must all be in the same VPC. You can specify as many as five security groups. If you do not specify a security group, the default security group for the VPC is used.
@@ -145,6 +146,7 @@ class ScheduleCapacityProviderStrategyItemArgs:
                  weight: Optional[pulumi.Input[_builtins.float]] = None):
         """
         The details of a capacity provider strategy.
+
         :param pulumi.Input[_builtins.str] capacity_provider: The short name of the capacity provider.
         :param pulumi.Input[_builtins.float] base: The base value designates how many tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined. If no value is specified, the default value of 0 is used.
         :param pulumi.Input[_builtins.float] weight: The weight value designates the relative percentage of the total number of tasks launched that should use the specified capacity provider. The weight value is taken into consideration after the base value, if defined, is satisfied.
@@ -207,6 +209,7 @@ class ScheduleDeadLetterConfigArgs:
                  arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         A DeadLetterConfig object that contains information about a dead-letter queue configuration.
+
         :param pulumi.Input[_builtins.str] arn: The ARN of the SQS queue specified as the target for the dead-letter queue.
         """
         if arn is not None:
@@ -305,6 +308,7 @@ class ScheduleEcsParametersArgs:
                  task_count: Optional[pulumi.Input[_builtins.float]] = None):
         """
         The custom parameters to be used when the target is an Amazon ECS task.
+
         :param pulumi.Input[_builtins.str] task_definition_arn: The ARN of the task definition to use if the event target is an Amazon ECS task.
         :param pulumi.Input[Sequence[pulumi.Input['ScheduleCapacityProviderStrategyItemArgs']]] capacity_provider_strategy: The capacity provider strategy to use for the task.
         :param pulumi.Input[_builtins.bool] enable_ecs_managed_tags: Specifies whether to enable Amazon ECS managed tags for the task. For more information, see Tagging Your Amazon ECS Resources in the Amazon Elastic Container Service Developer Guide.
@@ -537,6 +541,7 @@ class ScheduleEventBridgeParametersArgs:
                  source: pulumi.Input[_builtins.str]):
         """
         EventBridge PutEvent predefined target type.
+
         :param pulumi.Input[_builtins.str] detail_type: Free-form string, with a maximum of 128 characters, used to decide what fields to expect in the event detail.
         :param pulumi.Input[_builtins.str] source: The source of the event.
         """
@@ -590,6 +595,7 @@ class ScheduleFlexibleTimeWindowArgs:
                  maximum_window_in_minutes: Optional[pulumi.Input[_builtins.float]] = None):
         """
         Flexible time window allows configuration of a window within which a schedule can be invoked
+
         :param pulumi.Input['ScheduleFlexibleTimeWindowMode'] mode: Determines whether the schedule is invoked within a flexible time window. You must use quotation marks when you specify this value in your JSON or YAML template.
                
                *Allowed Values* : `"OFF"` | `"FLEXIBLE"`
@@ -641,6 +647,7 @@ class ScheduleKinesisParametersArgs:
                  partition_key: pulumi.Input[_builtins.str]):
         """
         The custom parameter you can use to control the shard to which EventBridge Scheduler sends the event.
+
         :param pulumi.Input[_builtins.str] partition_key: The custom parameter used as the Kinesis partition key. For more information, see Amazon Kinesis Streams Key Concepts in the Amazon Kinesis Streams Developer Guide.
         """
         pulumi.set(__self__, "partition_key", partition_key)
@@ -673,6 +680,7 @@ class ScheduleNetworkConfigurationArgs:
                  awsvpc_configuration: Optional[pulumi.Input['ScheduleAwsVpcConfigurationArgs']] = None):
         """
         This structure specifies the network configuration for an ECS task.
+
         :param pulumi.Input['ScheduleAwsVpcConfigurationArgs'] awsvpc_configuration: Specifies the Amazon VPC subnets and security groups for the task, and whether a public IP address is to be used. This structure is relevant only for ECS tasks that use the awsvpc network mode.
         """
         if awsvpc_configuration is not None:
@@ -711,6 +719,7 @@ class SchedulePlacementConstraintArgs:
                  type: Optional[pulumi.Input['SchedulePlacementConstraintType']] = None):
         """
         An object representing a constraint on task placement.
+
         :param pulumi.Input[_builtins.str] expression: A cluster query language expression to apply to the constraint. You cannot specify an expression if the constraint type is distinctInstance. To learn more, see Cluster Query Language in the Amazon Elastic Container Service Developer Guide.
         :param pulumi.Input['SchedulePlacementConstraintType'] type: The type of constraint. Use `distinctInstance` to ensure that each task in a particular group is running on a different container instance. Use `memberOf` to restrict the selection to a group of valid candidates.
         """
@@ -764,6 +773,7 @@ class SchedulePlacementStrategyArgs:
                  type: Optional[pulumi.Input['SchedulePlacementStrategyType']] = None):
         """
         The task placement strategy for a task or service.
+
         :param pulumi.Input[_builtins.str] field: The field to apply the placement strategy against. For the spread placement strategy, valid values are instanceId (or host, which has the same effect), or any platform or custom attribute that is applied to a container instance, such as attribute:ecs.availability-zone. For the binpack placement strategy, valid values are cpu and memory. For the random placement strategy, this field is not used.
         :param pulumi.Input['SchedulePlacementStrategyType'] type: The type of placement strategy. The random placement strategy randomly places tasks on available candidates. The spread placement strategy spreads placement across available candidates evenly based on the field parameter. The binpack strategy places tasks on available candidates that have the least available amount of the resource that is specified with the field parameter. For example, if you binpack on memory, a task is placed on the instance with the least amount of remaining memory (but still enough to run the task).
         """
@@ -817,6 +827,7 @@ class ScheduleRetryPolicyArgs:
                  maximum_retry_attempts: Optional[pulumi.Input[_builtins.float]] = None):
         """
         A RetryPolicy object that includes information about the retry policy settings.
+
         :param pulumi.Input[_builtins.float] maximum_event_age_in_seconds: The maximum amount of time, in seconds, to continue to make retry attempts.
         :param pulumi.Input[_builtins.float] maximum_retry_attempts: The maximum number of retry attempts to make before the request fails. Retry attempts with exponential backoff continue until either the maximum number of attempts is made or until the duration of the MaximumEventAgeInSeconds is reached.
         """
@@ -865,6 +876,7 @@ class ScheduleSageMakerPipelineParametersArgs:
                  pipeline_parameter_list: Optional[pulumi.Input[Sequence[pulumi.Input['ScheduleSageMakerPipelineParameterArgs']]]] = None):
         """
         These are custom parameters to use when the target is a SageMaker Model Building Pipeline that starts based on AWS EventBridge Scheduler schedules.
+
         :param pulumi.Input[Sequence[pulumi.Input['ScheduleSageMakerPipelineParameterArgs']]] pipeline_parameter_list: List of Parameter names and values for SageMaker Model Building Pipeline execution.
         """
         if pipeline_parameter_list is not None:
@@ -903,6 +915,7 @@ class ScheduleSageMakerPipelineParameterArgs:
                  value: pulumi.Input[_builtins.str]):
         """
         Name/Value pair of a parameter to start execution of a SageMaker Model Building Pipeline.
+
         :param pulumi.Input[_builtins.str] name: Name of parameter to start execution of a SageMaker Model Building Pipeline.
         :param pulumi.Input[_builtins.str] value: Value of parameter to start execution of a SageMaker Model Building Pipeline.
         """
@@ -949,6 +962,7 @@ class ScheduleSqsParametersArgs:
                  message_group_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Contains the message group ID to use when the target is a FIFO queue. If you specify an SQS FIFO queue as a target, the queue must have content-based deduplication enabled.
+
         :param pulumi.Input[_builtins.str] message_group_id: The FIFO message group ID to use as the target.
         """
         if message_group_id is not None:
@@ -1027,6 +1041,7 @@ class ScheduleTargetArgs:
                  sqs_parameters: Optional[pulumi.Input['ScheduleSqsParametersArgs']] = None):
         """
         The schedule target.
+
         :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the target.
         :param pulumi.Input[_builtins.str] role_arn: The Amazon Resource Name (ARN) of the IAM role to be used for this target when the schedule is triggered.
         :param pulumi.Input['ScheduleDeadLetterConfigArgs'] dead_letter_config: An object that contains information about an Amazon SQS queue that EventBridge Scheduler uses as a dead-letter queue for your schedule. If specified, EventBridge Scheduler delivers failed events that could not be successfully delivered to a target to the queue.

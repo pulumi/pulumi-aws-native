@@ -35,6 +35,7 @@ class MissionProfileArgs:
                  telemetry_sink_config_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a MissionProfile resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['MissionProfileDataflowEdgeArgs']]] dataflow_edges: A list containing lists of config ARNs. Each list of config ARNs is an edge, with a "from" config and a "to" config.
         :param pulumi.Input[_builtins.int] minimum_viable_contact_duration_seconds: Visibilities with shorter duration than the specified minimum viable contact duration will be ignored when searching for available contacts.
         :param pulumi.Input[_builtins.str] tracking_config_arn: The ARN of a tracking config objects that defines how to track the satellite through the sky during a contact.
@@ -255,6 +256,7 @@ class MissionProfile(pulumi.CustomResource):
 
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.int] contact_post_pass_duration_seconds: Post-pass time needed after the contact.
@@ -326,6 +328,7 @@ class MissionProfile(pulumi.CustomResource):
             ])
 
         ```
+
 
         :param str resource_name: The name of the resource.
         :param MissionProfileArgs args: The arguments to use to populate this resource's properties.

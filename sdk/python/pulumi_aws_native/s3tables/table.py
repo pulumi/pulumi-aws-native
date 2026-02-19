@@ -36,6 +36,7 @@ class TableArgs:
                  without_metadata: Optional[pulumi.Input['TableWithoutMetadata']] = None):
         """
         The set of arguments for constructing a Table resource.
+
         :param pulumi.Input[_builtins.str] namespace: The name of the namespace.
         :param pulumi.Input['TableOpenTableFormat'] open_table_format: The format of the table.
         :param pulumi.Input[_builtins.str] table_bucket_arn: The Amazon Resource Name (ARN) of the table bucket to create the table in.
@@ -206,6 +207,7 @@ class Table(pulumi.CustomResource):
         """
         Resource Type definition for AWS::S3Tables::Table
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['TableCompactionArgs', 'TableCompactionArgsDict']] compaction: Contains details about the compaction settings for an Iceberg table.
@@ -227,6 +229,7 @@ class Table(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::S3Tables::Table
+
 
         :param str resource_name: The name of the resource.
         :param TableArgs args: The arguments to use to populate this resource's properties.

@@ -47,6 +47,7 @@ class ConnectivityInfoPropertiesArgs:
                  private_route_server_peerings: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
         """
         The connectivity configuration for the environment. Amazon EVS requires that you specify two route server peer IDs. During environment creation, the route server endpoints peer with the NSX uplink VLAN for connectivity to the NSX overlay network.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] private_route_server_peerings: The unique IDs for private route server peers.
         """
         pulumi.set(__self__, "private_route_server_peerings", private_route_server_peerings)
@@ -274,6 +275,7 @@ class InitialVlansPropertiesArgs:
                  is_hcx_public: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The initial Vlan configuration only required upon creation. Modification after creation will have no effect
+
         :param pulumi.Input['EnvironmentInitialVlanInfoArgs'] edge_v_tep: The edge VTEP VLAN subnet. This VLAN subnet manages traffic flowing between the internal network and external networks, including internet access and other site connections.
         :param pulumi.Input['EnvironmentInitialVlanInfoArgs'] expansion_vlan1: An additional VLAN subnet that can be used to extend VCF capabilities once configured. For example, you can configure an expansion VLAN subnet to use NSX Federation for centralized management and synchronization of multiple NSX deployments across different locations.
         :param pulumi.Input['EnvironmentInitialVlanInfoArgs'] expansion_vlan2: An additional VLAN subnet that can be used to extend VCF capabilities once configured. For example, you can configure an expansion VLAN subnet to use NSX Federation for centralized management and synchronization of multiple NSX deployments across different locations.
@@ -479,6 +481,7 @@ class LicenseInfoPropertiesArgs:
                  vsan_key: pulumi.Input[_builtins.str]):
         """
         The license information for an EVS environment
+
         :param pulumi.Input[_builtins.str] solution_key: The VCF solution key. This license unlocks VMware VCF product features, including vSphere, NSX, SDDC Manager, and vCenter Server. The VCF solution key must cover a minimum of 256 cores.
         :param pulumi.Input[_builtins.str] vsan_key: The VSAN license key. This license unlocks vSAN features. The vSAN license key must provide at least 110 TiB of vSAN capacity.
         """
@@ -525,6 +528,7 @@ class ServiceAccessSecurityGroupsPropertiesArgs:
                  security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The security groups that allow traffic between the Amazon EVS control plane and your VPC for service access. If a security group is not specified, Amazon EVS uses the default security group in your account for service access.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_groups: The security groups that allow service access.
         """
         if security_groups is not None:
@@ -602,6 +606,7 @@ class VcfHostnamesPropertiesArgs:
         The DNS hostnames to be used by the VCF management appliances in your environment.
 
         For environment creation to be successful, each hostname entry must resolve to a domain name that you've registered in your DNS service of choice and configured in the DHCP option set of your VPC. DNS hostnames cannot be changed after environment creation has started.
+
         :param pulumi.Input[_builtins.str] cloud_builder: The hostname for VMware Cloud Builder.
         :param pulumi.Input[_builtins.str] nsx: The VMware NSX hostname.
         :param pulumi.Input[_builtins.str] nsx_edge1: The hostname for the first NSX Edge node.

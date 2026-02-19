@@ -34,6 +34,7 @@ class ConfigurationSetArgs:
                  vdm_options: Optional[pulumi.Input['ConfigurationSetVdmOptionsArgs']] = None):
         """
         The set of arguments for constructing a ConfigurationSet resource.
+
         :param pulumi.Input['ConfigurationSetDeliveryOptionsArgs'] delivery_options: Specifies the name of the dedicated IP pool to associate with the configuration set and whether messages that use the configuration set are required to use Transport Layer Security (TLS).
         :param pulumi.Input[_builtins.str] name: The name of the configuration set.
         :param pulumi.Input['ConfigurationSetReputationOptionsArgs'] reputation_options: An object that defines whether or not Amazon SES collects reputation metrics for the emails that you send that use the configuration set.
@@ -303,6 +304,7 @@ class ConfigurationSet(pulumi.CustomResource):
 
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ConfigurationSetDeliveryOptionsArgs', 'ConfigurationSetDeliveryOptionsArgsDict']] delivery_options: Specifies the name of the dedicated IP pool to associate with the configuration set and whether messages that use the configuration set are required to use Transport Layer Security (TLS).
@@ -438,6 +440,7 @@ class ConfigurationSet(pulumi.CustomResource):
             })
 
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ConfigurationSetArgs args: The arguments to use to populate this resource's properties.

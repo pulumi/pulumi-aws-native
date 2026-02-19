@@ -26,6 +26,7 @@ class RegistryScanningConfigurationArgs:
                  scan_type: pulumi.Input['RegistryScanningConfigurationScanType']):
         """
         The set of arguments for constructing a RegistryScanningConfiguration resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['RegistryScanningConfigurationScanningRuleArgs']]] rules: The scanning rules associated with the registry.
         :param pulumi.Input['RegistryScanningConfigurationScanType'] scan_type: The type of scanning configured for the registry.
         """
@@ -69,6 +70,7 @@ class RegistryScanningConfiguration(pulumi.CustomResource):
         """
         The scanning configuration for a private registry.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['RegistryScanningConfigurationScanningRuleArgs', 'RegistryScanningConfigurationScanningRuleArgsDict']]]] rules: The scanning rules associated with the registry.
@@ -82,6 +84,7 @@ class RegistryScanningConfiguration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The scanning configuration for a private registry.
+
 
         :param str resource_name: The name of the resource.
         :param RegistryScanningConfigurationArgs args: The arguments to use to populate this resource's properties.

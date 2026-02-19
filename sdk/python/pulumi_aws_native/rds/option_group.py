@@ -31,6 +31,7 @@ class OptionGroupArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a OptionGroup resource.
+
         :param pulumi.Input[_builtins.str] engine_name: Specifies the name of the engine that this option group should be associated with.
                 Valid Values: 
                  +   ``mariadb`` 
@@ -177,6 +178,7 @@ class OptionGroup(pulumi.CustomResource):
         """
         The ``AWS::RDS::OptionGroup`` resource creates or updates an option group, to enable and configure features that are specific to a particular DB engine.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] engine_name: Specifies the name of the engine that this option group should be associated with.
@@ -214,6 +216,7 @@ class OptionGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The ``AWS::RDS::OptionGroup`` resource creates or updates an option group, to enable and configure features that are specific to a particular DB engine.
+
 
         :param str resource_name: The name of the resource.
         :param OptionGroupArgs args: The arguments to use to populate this resource's properties.

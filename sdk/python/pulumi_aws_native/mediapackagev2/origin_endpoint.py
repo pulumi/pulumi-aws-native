@@ -39,6 +39,7 @@ class OriginEndpointArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a OriginEndpoint resource.
+
         :param pulumi.Input[_builtins.str] channel_group_name: The name of the channel group associated with the origin endpoint configuration.
         :param pulumi.Input[_builtins.str] channel_name: The channel name associated with the origin endpoint.
         :param pulumi.Input['OriginEndpointContainerType'] container_type: The container type associated with the origin endpoint configuration.
@@ -257,6 +258,7 @@ class OriginEndpoint(pulumi.CustomResource):
         """
         <p>Represents an origin endpoint that is associated with a channel, offering a dynamically repackaged version of its content through various streaming media protocols. The content can be efficiently disseminated to end-users via a Content Delivery Network (CDN), like Amazon CloudFront.</p>
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] channel_group_name: The name of the channel group associated with the origin endpoint configuration.
@@ -281,6 +283,7 @@ class OriginEndpoint(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         <p>Represents an origin endpoint that is associated with a channel, offering a dynamically repackaged version of its content through various streaming media protocols. The content can be efficiently disseminated to end-users via a Content Delivery Network (CDN), like Amazon CloudFront.</p>
+
 
         :param str resource_name: The name of the resource.
         :param OriginEndpointArgs args: The arguments to use to populate this resource's properties.

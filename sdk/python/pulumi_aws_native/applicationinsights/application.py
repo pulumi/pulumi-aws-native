@@ -38,6 +38,7 @@ class ApplicationArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Application resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group.
         :param pulumi.Input[_builtins.bool] attach_missing_permission: If set to true, the managed policies for SSM and CW will be attached to the instance roles if they are missing
         :param pulumi.Input[_builtins.bool] auto_configuration_enabled: If set to true, application will be configured with recommended monitoring configuration.
@@ -242,6 +243,7 @@ class Application(pulumi.CustomResource):
         """
         Resource Type definition for AWS::ApplicationInsights::Application
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] attach_missing_permission: If set to true, the managed policies for SSM and CW will be attached to the instance roles if they are missing
@@ -265,6 +267,7 @@ class Application(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::ApplicationInsights::Application
+
 
         :param str resource_name: The name of the resource.
         :param ApplicationArgs args: The arguments to use to populate this resource's properties.

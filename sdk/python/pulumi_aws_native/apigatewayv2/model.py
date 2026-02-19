@@ -26,6 +26,7 @@ class ModelArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Model resource.
+
         :param pulumi.Input[_builtins.str] api_id: The API identifier.
         :param Any schema: The schema for the model. For application/json models, this should be JSON schema draft 4 model.
                
@@ -121,6 +122,7 @@ class Model(pulumi.CustomResource):
         """
         The ``AWS::ApiGatewayV2::Model`` resource updates data model for a WebSocket API. For more information, see [Model Selection Expressions](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-model-selection-expressions) in the *API Gateway Developer Guide*.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] api_id: The API identifier.
@@ -139,6 +141,7 @@ class Model(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The ``AWS::ApiGatewayV2::Model`` resource updates data model for a WebSocket API. For more information, see [Model Selection Expressions](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-model-selection-expressions) in the *API Gateway Developer Guide*.
+
 
         :param str resource_name: The name of the resource.
         :param ModelArgs args: The arguments to use to populate this resource's properties.

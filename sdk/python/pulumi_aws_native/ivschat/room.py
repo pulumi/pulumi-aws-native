@@ -32,6 +32,7 @@ class RoomArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Room resource.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] logging_configuration_identifiers: Array of logging configuration identifiers attached to the room.
         :param pulumi.Input[_builtins.int] maximum_message_length: The maximum number of characters in a single message.
         :param pulumi.Input[_builtins.int] maximum_message_rate_per_second: The maximum number of messages per second that can be sent to the room.
@@ -175,6 +176,7 @@ class Room(pulumi.CustomResource):
 
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] logging_configuration_identifiers: Array of logging configuration identifiers attached to the room.
@@ -226,6 +228,7 @@ class Room(pulumi.CustomResource):
         pulumi.export("roomId", room.id)
 
         ```
+
 
         :param str resource_name: The name of the resource.
         :param RoomArgs args: The arguments to use to populate this resource's properties.

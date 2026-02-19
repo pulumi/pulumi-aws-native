@@ -37,6 +37,7 @@ class TaskTemplateArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a TaskTemplate resource.
+
         :param pulumi.Input[_builtins.str] instance_arn: The identifier (arn) of the instance.
         :param pulumi.Input[_builtins.str] client_token: A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.
         :param pulumi.Input['ConstraintsPropertiesArgs'] constraints: The constraints for the task template
@@ -225,6 +226,7 @@ class TaskTemplate(pulumi.CustomResource):
         """
         Resource Type definition for AWS::Connect::TaskTemplate.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] client_token: A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.
@@ -247,6 +249,7 @@ class TaskTemplate(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::Connect::TaskTemplate.
+
 
         :param str resource_name: The name of the resource.
         :param TaskTemplateArgs args: The arguments to use to populate this resource's properties.

@@ -37,6 +37,7 @@ class TransformerArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Transformer resource.
+
         :param pulumi.Input['TransformerStatus'] status: Returns the state of the newly created transformer. The transformer can be either `active` or `inactive` . For the transformer to be used in a capability, its status must `active` .
         :param pulumi.Input['TransformerInputConversionArgs'] input_conversion: Returns a structure that contains the format options for the transformation.
         :param pulumi.Input['TransformerMappingArgs'] mapping: Returns the structure that contains the mapping template and its language (either XSLT or JSONATA).
@@ -217,6 +218,7 @@ class Transformer(pulumi.CustomResource):
         """
         Definition of AWS::B2BI::Transformer Resource Type
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['TransformerInputConversionArgs', 'TransformerInputConversionArgsDict']] input_conversion: Returns a structure that contains the format options for the transformation.
@@ -237,6 +239,7 @@ class Transformer(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of AWS::B2BI::Transformer Resource Type
+
 
         :param str resource_name: The name of the resource.
         :param TransformerArgs args: The arguments to use to populate this resource's properties.

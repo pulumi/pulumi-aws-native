@@ -23,6 +23,7 @@ class NotificationChannelArgs:
                  sns_topic_arn: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a NotificationChannel resource.
+
         :param pulumi.Input[_builtins.str] sns_role_name: The Amazon Resource Name (ARN) of the IAM role that allows Amazon  to record AWS Firewall Manager activity.
         :param pulumi.Input[_builtins.str] sns_topic_arn: The Amazon Resource Name (ARN) of the SNS topic that collects notifications from AWS Firewall Manager .
         """
@@ -66,6 +67,7 @@ class NotificationChannel(pulumi.CustomResource):
         """
         Designates the IAM role and Amazon Simple Notification Service (SNS) topic that AWS Firewall Manager uses to record SNS logs.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] sns_role_name: The Amazon Resource Name (ARN) of the IAM role that allows Amazon  to record AWS Firewall Manager activity.
@@ -79,6 +81,7 @@ class NotificationChannel(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Designates the IAM role and Amazon Simple Notification Service (SNS) topic that AWS Firewall Manager uses to record SNS logs.
+
 
         :param str resource_name: The name of the resource.
         :param NotificationChannelArgs args: The arguments to use to populate this resource's properties.

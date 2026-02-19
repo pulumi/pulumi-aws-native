@@ -35,6 +35,7 @@ class RuleArgs:
                  targets: Optional[pulumi.Input[Sequence[pulumi.Input['RuleTargetArgs']]]] = None):
         """
         The set of arguments for constructing a Rule resource.
+
         :param pulumi.Input[_builtins.str] description: The description of the rule.
         :param pulumi.Input[_builtins.str] event_bus_name: The name or ARN of the event bus associated with the rule. If you omit this, the default event bus is used.
         :param Any event_pattern: The event pattern of the rule. For more information, see Events and Event Patterns in the Amazon EventBridge User Guide.
@@ -244,6 +245,7 @@ class Rule(pulumi.CustomResource):
 
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: The description of the rule.
@@ -313,6 +315,7 @@ class Rule(pulumi.CustomResource):
             }])
 
         ```
+
 
         :param str resource_name: The name of the resource.
         :param RuleArgs args: The arguments to use to populate this resource's properties.

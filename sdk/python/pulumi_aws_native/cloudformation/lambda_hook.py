@@ -32,6 +32,7 @@ class LambdaHookArgs:
                  target_filters: Optional[pulumi.Input[Union['TargetFilters0PropertiesArgs', 'TargetFilters1PropertiesArgs']]] = None):
         """
         The set of arguments for constructing a LambdaHook resource.
+
         :param pulumi.Input[_builtins.str] alias: The typename alias for the hook.
         :param pulumi.Input[_builtins.str] execution_role: The execution role ARN assumed by Hooks to invoke Lambda.
         :param pulumi.Input['LambdaHookFailureMode'] failure_mode: Attribute to specify CloudFormation behavior on hook failure.
@@ -167,6 +168,7 @@ class LambdaHook(pulumi.CustomResource):
         """
         This is a CloudFormation resource for the first-party AWS::Hooks::LambdaHook.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] alias: The typename alias for the hook.
@@ -186,6 +188,7 @@ class LambdaHook(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         This is a CloudFormation resource for the first-party AWS::Hooks::LambdaHook.
+
 
         :param str resource_name: The name of the resource.
         :param LambdaHookArgs args: The arguments to use to populate this resource's properties.

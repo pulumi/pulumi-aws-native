@@ -28,6 +28,7 @@ class SimulationArgs:
                  snapshot_s3_location: Optional[pulumi.Input['SimulationS3LocationArgs']] = None):
         """
         The set of arguments for constructing a Simulation resource.
+
         :param pulumi.Input[_builtins.str] role_arn: Role ARN.
         :param pulumi.Input[_builtins.str] maximum_duration: The maximum running time of the simulation.
         :param pulumi.Input[_builtins.str] name: The name of the simulation.
@@ -292,6 +293,7 @@ class Simulation(pulumi.CustomResource):
 
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] maximum_duration: The maximum running time of the simulation.
@@ -472,6 +474,7 @@ class Simulation(pulumi.CustomResource):
             })
 
         ```
+
 
         :param str resource_name: The name of the resource.
         :param SimulationArgs args: The arguments to use to populate this resource's properties.

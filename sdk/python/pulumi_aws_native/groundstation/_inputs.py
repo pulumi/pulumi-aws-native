@@ -1095,6 +1095,7 @@ class DataflowEndpointGroupAwsGroundStationAgentEndpointArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Information about AwsGroundStationAgentEndpoint.
+
         :param pulumi.Input['DataflowEndpointGroupAgentStatus'] agent_status: The status of AgentEndpoint.
         :param pulumi.Input['DataflowEndpointGroupAuditResults'] audit_results: The results of the audit.
         :param pulumi.Input['DataflowEndpointGroupConnectionDetailsArgs'] egress_address: The egress address of AgentEndpoint.
@@ -1193,6 +1194,7 @@ class DataflowEndpointGroupConnectionDetailsArgs:
                  socket_address: Optional[pulumi.Input['DataflowEndpointGroupSocketAddressArgs']] = None):
         """
         Egress address of AgentEndpoint with an optional mtu.
+
         :param pulumi.Input[_builtins.int] mtu: Maximum transmission unit (MTU) size in bytes of a dataflow endpoint.
         :param pulumi.Input['DataflowEndpointGroupSocketAddressArgs'] socket_address: A socket address.
         """
@@ -1390,6 +1392,7 @@ class DataflowEndpointGroupIntegerRangeArgs:
                  minimum: Optional[pulumi.Input[_builtins.int]] = None):
         """
         An integer range that has a minimum and maximum value.
+
         :param pulumi.Input[_builtins.int] maximum: A maximum value.
         :param pulumi.Input[_builtins.int] minimum: A minimum value.
         """
@@ -1443,6 +1446,7 @@ class DataflowEndpointGroupRangedConnectionDetailsArgs:
                  socket_address: Optional[pulumi.Input['DataflowEndpointGroupRangedSocketAddressArgs']] = None):
         """
         Ingress address of AgentEndpoint with a port range and an optional mtu.
+
         :param pulumi.Input[_builtins.int] mtu: Maximum transmission unit (MTU) size in bytes of a dataflow endpoint.
         :param pulumi.Input['DataflowEndpointGroupRangedSocketAddressArgs'] socket_address: A ranged socket address.
         """
@@ -1496,6 +1500,7 @@ class DataflowEndpointGroupRangedSocketAddressArgs:
                  port_range: Optional[pulumi.Input['DataflowEndpointGroupIntegerRangeArgs']] = None):
         """
         A socket address with a port range.
+
         :param pulumi.Input[_builtins.str] name: IPv4 socket address.
         :param pulumi.Input['DataflowEndpointGroupIntegerRangeArgs'] port_range: Port range of a socket address.
         """
@@ -1673,6 +1678,7 @@ class DataflowEndpointGroupV2ConnectionDetailsArgs:
                  mtu: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Socket address of an uplink or downlink agent endpoint with an optional mtu.
+
         :param pulumi.Input['DataflowEndpointGroupV2SocketAddressArgs'] socket_address: A socket address.
         :param pulumi.Input[_builtins.int] mtu: Maximum transmission unit (MTU) size in bytes of a dataflow endpoint.
         """
@@ -1774,6 +1780,7 @@ class DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointArgs:
                  name: pulumi.Input[_builtins.str]):
         """
         Information about DownlinkAwsGroundStationAgentEndpoint used for create
+
         :param pulumi.Input['DataflowEndpointGroupV2DownlinkDataflowDetailsArgs'] dataflow_details: Dataflow details for the downlink endpoint
         :param pulumi.Input[_builtins.str] name: Downlink dataflow endpoint name
         """
@@ -1825,6 +1832,7 @@ class DataflowEndpointGroupV2DownlinkConnectionDetailsArgs:
                  egress_address_and_port: pulumi.Input['DataflowEndpointGroupV2ConnectionDetailsArgs']):
         """
         Connection details for downlink, from ground station to agent, and customer to agent
+
         :param pulumi.Input['DataflowEndpointGroupV2RangedConnectionDetailsArgs'] agent_ip_and_port_address: Agent IP and port address for the downlink connection.
         :param pulumi.Input['DataflowEndpointGroupV2ConnectionDetailsArgs'] egress_address_and_port: Egress address and port for the downlink connection.
         """
@@ -1871,6 +1879,7 @@ class DataflowEndpointGroupV2DownlinkDataflowDetailsArgs:
                  agent_connection_details: Optional[pulumi.Input['DataflowEndpointGroupV2DownlinkConnectionDetailsArgs']] = None):
         """
         Dataflow details for downlink
+
         :param pulumi.Input['DataflowEndpointGroupV2DownlinkConnectionDetailsArgs'] agent_connection_details: Downlink connection details for customer to Agent and Agent to Ground Station
         """
         if agent_connection_details is not None:
@@ -1909,6 +1918,7 @@ class DataflowEndpointGroupV2IntegerRangeArgs:
                  minimum: pulumi.Input[_builtins.int]):
         """
         An integer range that has a minimum and maximum value.
+
         :param pulumi.Input[_builtins.int] maximum: A maximum value.
         :param pulumi.Input[_builtins.int] minimum: A minimum value.
         """
@@ -1960,6 +1970,7 @@ class DataflowEndpointGroupV2RangedConnectionDetailsArgs:
                  mtu: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Socket address of an uplink or downlink agent endpoint with a port range and an optional mtu.
+
         :param pulumi.Input['DataflowEndpointGroupV2RangedSocketAddressArgs'] socket_address: A ranged socket address.
         :param pulumi.Input[_builtins.int] mtu: Maximum transmission unit (MTU) size in bytes of a dataflow endpoint.
         """
@@ -2012,6 +2023,7 @@ class DataflowEndpointGroupV2RangedSocketAddressArgs:
                  port_range: pulumi.Input['DataflowEndpointGroupV2IntegerRangeArgs']):
         """
         A socket address with a port range.
+
         :param pulumi.Input[_builtins.str] name: IPv4 socket address.
         :param pulumi.Input['DataflowEndpointGroupV2IntegerRangeArgs'] port_range: Port range of a socket address.
         """
@@ -2110,6 +2122,7 @@ class DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointArgs:
                  name: pulumi.Input[_builtins.str]):
         """
         Information about UplinkAwsGroundStationAgentEndpoint used for create
+
         :param pulumi.Input['DataflowEndpointGroupV2UplinkDataflowDetailsArgs'] dataflow_details: Dataflow details for the uplink endpoint
         :param pulumi.Input[_builtins.str] name: Uplink dataflow endpoint name
         """
@@ -2161,6 +2174,7 @@ class DataflowEndpointGroupV2UplinkConnectionDetailsArgs:
                  ingress_address_and_port: pulumi.Input['DataflowEndpointGroupV2ConnectionDetailsArgs']):
         """
         Connection details for uplink, from ground station to agent, and customer to agent
+
         :param pulumi.Input['DataflowEndpointGroupV2RangedConnectionDetailsArgs'] agent_ip_and_port_address: Agent IP and port address for the uplink connection.
         :param pulumi.Input['DataflowEndpointGroupV2ConnectionDetailsArgs'] ingress_address_and_port: Ingress address and port for the uplink connection.
         """
@@ -2207,6 +2221,7 @@ class DataflowEndpointGroupV2UplinkDataflowDetailsArgs:
                  agent_connection_details: Optional[pulumi.Input['DataflowEndpointGroupV2UplinkConnectionDetailsArgs']] = None):
         """
         Dataflow details for uplink
+
         :param pulumi.Input['DataflowEndpointGroupV2UplinkConnectionDetailsArgs'] agent_connection_details: Uplink connection details for customer to Agent and Agent to Ground Station
         """
         if agent_connection_details is not None:

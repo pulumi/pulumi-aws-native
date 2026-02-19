@@ -26,6 +26,7 @@ class PromptVersionArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a PromptVersion resource.
+
         :param pulumi.Input[_builtins.str] prompt_arn: ARN of a prompt resource possibly with a version
         :param pulumi.Input[_builtins.str] description: Description for a prompt version resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags attached to the prompt version and their values.
@@ -86,6 +87,7 @@ class PromptVersion(pulumi.CustomResource):
         """
         Definition of AWS::Bedrock::PromptVersion Resource Type
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: Description for a prompt version resource.
@@ -100,6 +102,7 @@ class PromptVersion(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of AWS::Bedrock::PromptVersion Resource Type
+
 
         :param str resource_name: The name of the resource.
         :param PromptVersionArgs args: The arguments to use to populate this resource's properties.

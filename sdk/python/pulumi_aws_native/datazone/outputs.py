@@ -165,6 +165,7 @@ class ConnectionAmazonQPropertiesInput(dict):
                  profile_arn: Optional[_builtins.str] = None):
         """
         Amazon Q properties of the connection.
+
         :param _builtins.str auth_mode: The authentication mode of the connection's AmazonQ properties
         :param _builtins.bool is_enabled: Specifies whether Amazon Q is enabled for the connection
         """
@@ -399,6 +400,7 @@ class ConnectionAwsLocation(dict):
                  iam_connection_id: Optional[_builtins.str] = None):
         """
         AWS Location of project
+
         :param _builtins.str access_role: The access role of a connection.
         :param _builtins.str aws_account_id: The account ID of a connection.
         :param _builtins.str aws_region: The Region of a connection.
@@ -850,6 +852,7 @@ class ConnectionMlflowPropertiesInput(dict):
                  tracking_server_arn: Optional[_builtins.str] = None):
         """
         MLflow Properties Input
+
         :param _builtins.str tracking_server_arn: The ARN of the MLflow tracking server
         """
         if tracking_server_arn is not None:
@@ -1602,6 +1605,7 @@ class ConnectionS3PropertiesInput(dict):
                  s3_access_grant_location_id: Optional[_builtins.str] = None):
         """
         S3 Properties Input
+
         :param _builtins.str s3_uri: The Amazon S3 URI that's part of the Amazon S3 properties of a connection.
         :param _builtins.str s3_access_grant_location_id: The Amazon S3 Access Grant location ID that's part of the Amazon S3 properties of a connection.
         """
@@ -2048,6 +2052,7 @@ class DataSourceFormInput(dict):
                  type_revision: Optional[_builtins.str] = None):
         """
         The details of a metadata form.
+
         :param _builtins.str form_name: The name of the metadata form.
         :param _builtins.str content: The content of the metadata form.
         :param _builtins.str type_identifier: The ID of the metadata form type.
@@ -2197,6 +2202,7 @@ class DataSourceRecommendationConfiguration(dict):
                  enable_business_name_generation: Optional[_builtins.bool] = None):
         """
         The recommendation to be updated as part of the UpdateDataSource action.
+
         :param _builtins.bool enable_business_name_generation: Specifies whether automatic business name generation is to be enabled or not as part of the recommendation configuration.
         """
         if enable_business_name_generation is not None:
@@ -2237,6 +2243,7 @@ class DataSourceRedshiftClusterStorage(dict):
                  cluster_name: _builtins.str):
         """
         The name of an Amazon Redshift cluster.
+
         :param _builtins.str cluster_name: The name of an Amazon Redshift cluster.
         """
         pulumi.set(__self__, "cluster_name", cluster_name)
@@ -2276,6 +2283,7 @@ class DataSourceRedshiftCredentialConfiguration(dict):
                  secret_manager_arn: _builtins.str):
         """
         The ARN of a secret manager for an Amazon Redshift cluster.
+
         :param _builtins.str secret_manager_arn: The ARN of a secret manager for an Amazon Redshift cluster.
         """
         pulumi.set(__self__, "secret_manager_arn", secret_manager_arn)
@@ -2324,6 +2332,7 @@ class DataSourceRedshiftRunConfigurationInput(dict):
                  redshift_storage: Optional[Any] = None):
         """
         The configuration details of the Amazon Redshift data source.
+
         :param _builtins.str data_access_role: The data access role included in the configuration details of the Amazon Redshift data source.
         :param 'DataSourceRedshiftCredentialConfiguration' redshift_credential_configuration: The details of the credentials required to access an Amazon Redshift cluster.
         :param Union['DataSourceRedshiftStorage0Properties', 'DataSourceRedshiftStorage1Properties'] redshift_storage: The details of the Amazon Redshift storage as part of the configuration of an Amazon Redshift data source run.
@@ -2392,6 +2401,7 @@ class DataSourceRedshiftServerlessStorage(dict):
                  workgroup_name: _builtins.str):
         """
         The details of the Amazon Redshift Serverless workgroup storage.
+
         :param _builtins.str workgroup_name: The name of the Amazon Redshift Serverless workgroup.
         """
         pulumi.set(__self__, "workgroup_name", workgroup_name)
@@ -2507,6 +2517,7 @@ class DataSourceRelationalFilterConfiguration(dict):
                  schema_name: Optional[_builtins.str] = None):
         """
         The relational filter configuration for the data source.
+
         :param _builtins.str database_name: The database name specified in the relational filter configuration for the data source.
         :param Sequence['DataSourceFilterExpression'] filter_expressions: The filter expressions specified in the relational filter configuration for the data source.
         :param _builtins.str schema_name: The schema name specified in the relational filter configuration for the data source.
@@ -2568,6 +2579,7 @@ class DataSourceSageMakerRunConfigurationInput(dict):
                  tracking_assets: Mapping[str, Any]):
         """
         The configuration details of the Amazon SageMaker data source.
+
         :param Mapping[str, Any] tracking_assets: The tracking assets of the Amazon SageMaker run.
         """
         pulumi.set(__self__, "tracking_assets", tracking_assets)
@@ -2591,6 +2603,7 @@ class DataSourceScheduleConfiguration(dict):
                  timezone: Optional[_builtins.str] = None):
         """
         The schedule of the data source runs.
+
         :param _builtins.str schedule: The schedule of the data source runs.
         :param _builtins.str timezone: The timezone of the data source run.
         """
@@ -2646,6 +2659,7 @@ class DomainSingleSignOn(dict):
                  user_assignment: Optional['DomainUserAssignment'] = None):
         """
         The single-sign on configuration of the Amazon DataZone domain.
+
         :param _builtins.str idc_instance_arn: The ARN of the IDC instance.
         :param 'DomainAuthType' type: The type of single sign-on in Amazon DataZone.
         :param 'DomainUserAssignment' user_assignment: The single sign-on user assignment in Amazon DataZone.
@@ -2691,6 +2705,7 @@ class EnvironmentActionsAwsConsoleLinkParameters(dict):
                  uri: Optional[_builtins.str] = None):
         """
         The parameters of the console link specified as part of the environment action
+
         :param _builtins.str uri: The URI of the console link specified as part of the environment action.
         """
         if uri is not None:
@@ -2815,6 +2830,7 @@ class EnvironmentParameter(dict):
                  value: Optional[_builtins.str] = None):
         """
         The parameter details of an environment.
+
         :param _builtins.str name: The name of an environment parameter.
         :param _builtins.str value: The value of an environment parameter.
         """
@@ -2850,6 +2866,7 @@ class EnvironmentProfileEnvironmentParameter(dict):
                  value: Optional[_builtins.str] = None):
         """
         The parameter details of an environment profile.
+
         :param _builtins.str name: The name of an environment profile parameter.
         :param _builtins.str value: The value of an environment profile parameter.
         """
@@ -4471,6 +4488,7 @@ class SubscriptionTargetForm(dict):
                  form_name: _builtins.str):
         """
         The details of the subscription target configuration.
+
         :param _builtins.str content: The content of the subscription target configuration.
         :param _builtins.str form_name: The form name included in the subscription target configuration.
         """
@@ -4527,6 +4545,7 @@ class UserProfileIamUserProfileDetails(dict):
                  arn: Optional[_builtins.str] = None):
         """
         The details of the IAM User Profile.
+
         :param _builtins.str arn: The ARN of the IAM User Profile.
         """
         if arn is not None:
@@ -4571,6 +4590,7 @@ class UserProfileSsoUserProfileDetails(dict):
                  username: Optional[_builtins.str] = None):
         """
         The details of the SSO User Profile.
+
         :param _builtins.str first_name: The First Name of the IAM User Profile.
         :param _builtins.str last_name: The Last Name of the IAM User Profile.
         :param _builtins.str username: The username of the SSO User Profile.

@@ -23,6 +23,7 @@ class BatchScramSecretArgs:
                  secret_arn_list: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a BatchScramSecret resource.
+
         :param pulumi.Input[_builtins.str] cluster_arn: The Amazon Resource Name (ARN) that uniquely identifies the cluster.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] secret_arn_list: List of Amazon Resource Name (ARN)s of Secrets Manager secrets.
         """
@@ -67,6 +68,7 @@ class BatchScramSecret(pulumi.CustomResource):
         """
         Resource Type definition for AWS::MSK::BatchScramSecret
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] cluster_arn: The Amazon Resource Name (ARN) that uniquely identifies the cluster.
@@ -80,6 +82,7 @@ class BatchScramSecret(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::MSK::BatchScramSecret
+
 
         :param str resource_name: The name of the resource.
         :param BatchScramSecretArgs args: The arguments to use to populate this resource's properties.

@@ -32,6 +32,7 @@ class PipelineArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Pipeline resource.
+
         :param pulumi.Input[Union['PipelineDefinition0PropertiesArgs', 'PipelineDefinition1PropertiesArgs']] pipeline_definition: The definition of the pipeline. This can be either a JSON string or an Amazon S3 location.
         :param pulumi.Input[_builtins.str] role_arn: Role Arn
         :param pulumi.Input['ParallelismConfigurationPropertiesArgs'] parallelism_configuration: The parallelism configuration applied to the pipeline.
@@ -192,6 +193,7 @@ class Pipeline(pulumi.CustomResource):
 
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ParallelismConfigurationPropertiesArgs', 'ParallelismConfigurationPropertiesArgsDict']] parallelism_configuration: The parallelism configuration applied to the pipeline.
@@ -247,6 +249,7 @@ class Pipeline(pulumi.CustomResource):
             role_arn="arn:aws:iam::<account-id>:root")
 
         ```
+
 
         :param str resource_name: The name of the resource.
         :param PipelineArgs args: The arguments to use to populate this resource's properties.

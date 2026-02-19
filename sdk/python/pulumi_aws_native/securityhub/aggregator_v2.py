@@ -25,6 +25,7 @@ class AggregatorV2Args:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a AggregatorV2 resource.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] linked_regions: The list of included Regions
         :param pulumi.Input['AggregatorV2RegionLinkingMode'] region_linking_mode: Indicates to link a list of included Regions
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A list of key-value pairs to be applied to the AggregatorV2.
@@ -84,6 +85,7 @@ class AggregatorV2(pulumi.CustomResource):
         """
         The AWS::SecurityHub::AggregatorV2 resource represents the AWS Security Hub AggregatorV2 in your account. One aggregatorv2 resource is created for each account in non opt-in region in which you configure region linking mode.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] linked_regions: The list of included Regions
@@ -98,6 +100,7 @@ class AggregatorV2(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The AWS::SecurityHub::AggregatorV2 resource represents the AWS Security Hub AggregatorV2 in your account. One aggregatorv2 resource is created for each account in non opt-in region in which you configure region linking mode.
+
 
         :param str resource_name: The name of the resource.
         :param AggregatorV2Args args: The arguments to use to populate this resource's properties.

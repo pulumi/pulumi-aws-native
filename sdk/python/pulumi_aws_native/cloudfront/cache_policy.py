@@ -24,6 +24,7 @@ class CachePolicyArgs:
                  cache_policy_config: pulumi.Input['CachePolicyConfigArgs']):
         """
         The set of arguments for constructing a CachePolicy resource.
+
         :param pulumi.Input['CachePolicyConfigArgs'] cache_policy_config: The cache policy configuration.
         """
         pulumi.set(__self__, "cache_policy_config", cache_policy_config)
@@ -57,6 +58,7 @@ class CachePolicy(pulumi.CustomResource):
 
          The headers, cookies, and query strings that are included in the cache key are also included in requests that CloudFront sends to the origin. CloudFront sends a request when it can't find a valid object in its cache that matches the request's cache key. If you want to send values to the origin but *not* include them in the cache key, use ``OriginRequestPolicy``.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['CachePolicyConfigArgs', 'CachePolicyConfigArgsDict']] cache_policy_config: The cache policy configuration.
@@ -74,6 +76,7 @@ class CachePolicy(pulumi.CustomResource):
           +  The default, minimum, and maximum time to live (TTL) values that you want objects to stay in the CloudFront cache.
 
          The headers, cookies, and query strings that are included in the cache key are also included in requests that CloudFront sends to the origin. CloudFront sends a request when it can't find a valid object in its cache that matches the request's cache key. If you want to send values to the origin but *not* include them in the cache key, use ``OriginRequestPolicy``.
+
 
         :param str resource_name: The name of the resource.
         :param CachePolicyArgs args: The arguments to use to populate this resource's properties.

@@ -37,6 +37,7 @@ class CrawlerArgs:
                  tags: Optional[Any] = None):
         """
         The set of arguments for constructing a Crawler resource.
+
         :param pulumi.Input[_builtins.str] role: The Amazon Resource Name (ARN) of an IAM role that's used to access customer resources, such as Amazon Simple Storage Service (Amazon S3) data.
         :param pulumi.Input['CrawlerTargetsArgs'] targets: A collection of targets to crawl.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] classifiers: A list of UTF-8 strings that specify the names of custom classifiers that are associated with the crawler.
@@ -280,6 +281,7 @@ class Crawler(pulumi.CustomResource):
         """
         Resource Type definition for AWS::Glue::Crawler
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] classifiers: A list of UTF-8 strings that specify the names of custom classifiers that are associated with the crawler.
@@ -309,6 +311,7 @@ class Crawler(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::Glue::Crawler
+
 
         :param str resource_name: The name of the resource.
         :param CrawlerArgs args: The arguments to use to populate this resource's properties.

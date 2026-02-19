@@ -33,6 +33,7 @@ class StreamArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Stream resource.
+
         :param pulumi.Input[_builtins.int] data_retention_in_hours: The number of hours till which Kinesis Video will retain the data in the stream
         :param pulumi.Input[_builtins.str] device_name: The name of the device that is writing to the stream.
         :param pulumi.Input[_builtins.str] kms_key_id: AWS KMS key ID that Kinesis Video Streams uses to encrypt stream data.
@@ -158,6 +159,7 @@ class Stream(pulumi.CustomResource):
         """
         Resource Type Definition for AWS::KinesisVideo::Stream
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.int] data_retention_in_hours: The number of hours till which Kinesis Video will retain the data in the stream
@@ -176,6 +178,7 @@ class Stream(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type Definition for AWS::KinesisVideo::Stream
+
 
         :param str resource_name: The name of the resource.
         :param StreamArgs args: The arguments to use to populate this resource's properties.

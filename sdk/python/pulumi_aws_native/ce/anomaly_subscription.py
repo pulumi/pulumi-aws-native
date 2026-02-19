@@ -33,6 +33,7 @@ class AnomalySubscriptionArgs:
                  threshold_expression: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a AnomalySubscription resource.
+
         :param pulumi.Input['AnomalySubscriptionFrequency'] frequency: The frequency at which anomaly reports are sent over email. 
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] monitor_arn_list: A list of cost anomaly monitors.
         :param pulumi.Input[Sequence[pulumi.Input['AnomalySubscriptionSubscriberArgs']]] subscribers: A list of subscriber
@@ -259,6 +260,7 @@ class AnomalySubscription(pulumi.CustomResource):
 
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input['AnomalySubscriptionFrequency'] frequency: The frequency at which anomaly reports are sent over email. 
@@ -381,6 +383,7 @@ class AnomalySubscription(pulumi.CustomResource):
             }])
 
         ```
+
 
         :param str resource_name: The name of the resource.
         :param AnomalySubscriptionArgs args: The arguments to use to populate this resource's properties.

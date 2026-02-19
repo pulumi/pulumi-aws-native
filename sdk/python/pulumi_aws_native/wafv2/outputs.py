@@ -238,6 +238,7 @@ class LoggingConfigurationConditionActionConditionProperties(dict):
                  action: 'LoggingConfigurationConditionActionConditionPropertiesAction'):
         """
         A single action condition.
+
         :param 'LoggingConfigurationConditionActionConditionPropertiesAction' action: Logic to apply to the filtering conditions. You can specify that, in order to satisfy the filter, a log must match all conditions or must match at least one condition.
         """
         pulumi.set(__self__, "action", action)
@@ -277,6 +278,7 @@ class LoggingConfigurationConditionLabelNameConditionProperties(dict):
                  label_name: _builtins.str):
         """
         A single label name condition.
+
         :param _builtins.str label_name: The label name that a log record must contain in order to meet the condition. This must be a fully qualified label name. Fully qualified labels have a prefix, optional namespaces, and label name. The prefix identifies the rule group or web ACL context of the rule that added the label. 
         """
         pulumi.set(__self__, "label_name", label_name)
@@ -323,6 +325,7 @@ class LoggingConfigurationFieldToMatch(dict):
                  uri_path: Optional[Any] = None):
         """
         A key-value pair to associate with a resource.
+
         :param Any method: Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform. 
         :param Any query_string: Inspect the query string. This is the part of a URL that appears after a ? character, if any. 
         :param 'LoggingConfigurationFieldToMatchSingleHeaderProperties' single_header: Inspect a single header. Provide the name of the header to inspect, for example, User-Agent or Referer. This setting isn't case sensitive.
@@ -379,6 +382,7 @@ class LoggingConfigurationFieldToMatchSingleHeaderProperties(dict):
                  name: _builtins.str):
         """
         Inspect a single header. Provide the name of the header to inspect, for example, User-Agent or Referer. This setting isn't case sensitive.
+
         :param _builtins.str name: The name of the query header to inspect.
         """
         pulumi.set(__self__, "name", name)
@@ -459,6 +463,7 @@ class LoggingFilterProperties(dict):
                  filters: Sequence['outputs.LoggingConfigurationFilter']):
         """
         Filtering that specifies which web requests are kept in the logs and which are dropped. You can filter on the rule action and on the web request labels that were applied by matching rules during web ACL evaluation.
+
         :param 'LoggingConfigurationLoggingFilterPropertiesDefaultBehavior' default_behavior: Default handling for logs that don't match any of the specified filtering conditions.
         :param Sequence['LoggingConfigurationFilter'] filters: The filters that you want to apply to the logs.
         """
@@ -508,6 +513,7 @@ class RuleGroupAllowAction(dict):
                  custom_request_handling: Optional['outputs.RuleGroupCustomRequestHandling'] = None):
         """
         Allow traffic towards application.
+
         :param 'RuleGroupCustomRequestHandling' custom_request_handling: Defines custom handling for the web request.
                
                For information about customizing web requests and responses, see [Customizing web requests and responses in AWS WAF](https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html) in the *AWS WAF Developer Guide* .
@@ -620,6 +626,7 @@ class RuleGroupBlockAction(dict):
                  custom_response: Optional['outputs.RuleGroupCustomResponse'] = None):
         """
         Block traffic towards application.
+
         :param 'RuleGroupCustomResponse' custom_response: Defines a custom response for the web request.
                
                For information about customizing web requests and responses, see [Customizing web requests and responses in AWS WAF](https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html) in the *AWS WAF Developer Guide* .
@@ -664,6 +671,7 @@ class RuleGroupBody(dict):
                  oversize_handling: Optional['RuleGroupOversizeHandling'] = None):
         """
         The body of a web request. This immediately follows the request headers.
+
         :param 'RuleGroupOversizeHandling' oversize_handling: What AWS WAF should do if the body is larger than AWS WAF can inspect.
                
                AWS WAF does not support inspecting the entire contents of the web request body if the body exceeds the limit for the resource type. When a web request body is larger than the limit, the underlying host service only forwards the contents that are within the limit to AWS WAF for inspection.
@@ -748,6 +756,7 @@ class RuleGroupByteMatchStatement(dict):
                  search_string_base64: Optional[_builtins.str] = None):
         """
         Byte Match statement.
+
         :param 'RuleGroupFieldToMatch' field_to_match: The part of the web request that you want AWS WAF to inspect.
         :param 'RuleGroupPositionalConstraint' positional_constraint: The area within the portion of the web request that you want AWS WAF to search for `SearchString` . Valid values include the following:
                
@@ -891,6 +900,7 @@ class RuleGroupCaptchaAction(dict):
                  custom_request_handling: Optional['outputs.RuleGroupCustomRequestHandling'] = None):
         """
         Checks valid token exists with request.
+
         :param 'RuleGroupCustomRequestHandling' custom_request_handling: Defines custom handling for the web request, used when the `CAPTCHA` inspection determines that the request's token is valid and unexpired.
                
                For information about customizing web requests and responses, see [Customizing web requests and responses in AWS WAF](https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html) in the *AWS WAF Developer Guide* .
@@ -971,6 +981,7 @@ class RuleGroupChallengeAction(dict):
                  custom_request_handling: Optional['outputs.RuleGroupCustomRequestHandling'] = None):
         """
         Checks that the request has a valid token with an unexpired challenge timestamp and, if not, returns a browser challenge to the client.
+
         :param 'RuleGroupCustomRequestHandling' custom_request_handling: Defines custom handling for the web request, used when the challenge inspection determines that the request's token is valid and unexpired.
                
                For information about customizing web requests and responses, see [Customizing web requests and responses in AWS WAF](https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html) in the *AWS WAF Developer Guide* .
@@ -1055,6 +1066,7 @@ class RuleGroupCookieMatchPattern(dict):
                  included_cookies: Optional[Sequence[_builtins.str]] = None):
         """
         The pattern to look for in the request cookies.
+
         :param Any all: Inspect all parts of the web request cookies.
         :param Sequence[_builtins.str] excluded_cookies: Inspect only the cookies whose keys don't match any of the strings specified here.
         :param Sequence[_builtins.str] included_cookies: Inspect only the cookies that have a key that matches one of the strings specified here.
@@ -1123,6 +1135,7 @@ class RuleGroupCookies(dict):
                  oversize_handling: 'RuleGroupOversizeHandling'):
         """
         Includes cookies of a web request.
+
         :param 'RuleGroupCookieMatchPattern' match_pattern: The filter to use to identify the subset of cookies to inspect in a web request.
                
                You must specify exactly one setting: either `All` , `IncludedCookies` , or `ExcludedCookies` .
@@ -1206,6 +1219,7 @@ class RuleGroupCountAction(dict):
                  custom_request_handling: Optional['outputs.RuleGroupCustomRequestHandling'] = None):
         """
         Count traffic towards application.
+
         :param 'RuleGroupCustomRequestHandling' custom_request_handling: Defines custom handling for the web request.
                
                For information about customizing web requests and responses, see [Customizing web requests and responses in AWS WAF](https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html) in the *AWS WAF Developer Guide* .
@@ -1234,6 +1248,7 @@ class RuleGroupCustomHttpHeader(dict):
                  value: _builtins.str):
         """
         HTTP header.
+
         :param _builtins.str name: The name of the custom header.
                
                For custom request header insertion, when AWS WAF inserts the header into the request, it prefixes this name `x-amzn-waf-` , to avoid confusion with the headers that are already in the request. For example, for the header name `sample` , AWS WAF inserts the header `x-amzn-waf-sample` .
@@ -1287,6 +1302,7 @@ class RuleGroupCustomRequestHandling(dict):
                  insert_headers: Sequence['outputs.RuleGroupCustomHttpHeader']):
         """
         Custom request handling.
+
         :param Sequence['RuleGroupCustomHttpHeader'] insert_headers: Collection of HTTP headers.
         """
         pulumi.set(__self__, "insert_headers", insert_headers)
@@ -1332,6 +1348,7 @@ class RuleGroupCustomResponse(dict):
                  response_headers: Optional[Sequence['outputs.RuleGroupCustomHttpHeader']] = None):
         """
         Custom response.
+
         :param _builtins.int response_code: The HTTP status code to return to the client.
                
                For a list of status codes that you can use in your custom responses, see [Supported status codes for custom response](https://docs.aws.amazon.com/waf/latest/developerguide/customizing-the-response-status-codes.html) in the *AWS WAF Developer Guide* .
@@ -1398,6 +1415,7 @@ class RuleGroupCustomResponseBody(dict):
                  content_type: 'RuleGroupResponseContentType'):
         """
         Custom response body.
+
         :param _builtins.str content: The payload of the custom response.
                
                You can use JSON escape strings in JSON content. To do this, you must specify JSON content in the `ContentType` setting.
@@ -1486,6 +1504,7 @@ class RuleGroupFieldToMatch(dict):
                  uri_path: Optional[Any] = None):
         """
         Field of the request to match.
+
         :param Any all_query_arguments: All query arguments of a web request.
         :param 'RuleGroupBody' body: Inspect the request body as plain text. The request body immediately follows the request headers. This is the part of a request that contains any additional data that you want to send to your web server as the HTTP request body, such as data from a form.
                
@@ -1913,6 +1932,7 @@ class RuleGroupHeaderMatchPattern(dict):
                  included_headers: Optional[Sequence[_builtins.str]] = None):
         """
         The pattern to look for in the request headers.
+
         :param Any all: Inspect all parts of the web request headers.
         :param Sequence[_builtins.str] excluded_headers: Inspect only the headers whose keys don't match any of the strings specified here.
         :param Sequence[_builtins.str] included_headers: Inspect only the headers that have a key that matches one of the strings specified here.
@@ -2016,6 +2036,7 @@ class RuleGroupHeaders(dict):
                  oversize_handling: 'RuleGroupOversizeHandling'):
         """
         Includes headers of a web request.
+
         :param 'RuleGroupHeaderMatchPattern' match_pattern: The filter to use to identify the subset of headers to inspect in a web request.
                
                You must specify exactly one setting: either `All` , `IncludedHeaders` , or `ExcludedHeaders` .
@@ -2278,6 +2299,7 @@ class RuleGroupJa3Fingerprint(dict):
                  fallback_behavior: 'RuleGroupJa3FingerprintFallbackBehavior'):
         """
         Includes the JA3 fingerprint of a web request.
+
         :param 'RuleGroupJa3FingerprintFallbackBehavior' fallback_behavior: The match status to assign to the web request if the request doesn't have a JA3 fingerprint.
                
                You can specify the following fallback behaviors:
@@ -2327,6 +2349,7 @@ class RuleGroupJa4Fingerprint(dict):
                  fallback_behavior: 'RuleGroupJa4FingerprintFallbackBehavior'):
         """
         Includes the JA4 fingerprint of a web request.
+
         :param 'RuleGroupJa4FingerprintFallbackBehavior' fallback_behavior: The match status to assign to the web request if the request doesn't have a JA4 fingerprint.
                
                You can specify the following fallback behaviors:
@@ -2385,6 +2408,7 @@ class RuleGroupJsonBody(dict):
                  oversize_handling: Optional['RuleGroupOversizeHandling'] = None):
         """
         Inspect the request body as JSON. The request body immediately follows the request headers.
+
         :param 'RuleGroupJsonMatchPattern' match_pattern: The patterns to look for in the JSON body. AWS WAF inspects the results of these pattern matches against the rule inspection criteria.
         :param 'RuleGroupJsonMatchScope' match_scope: The parts of the JSON to match against using the `MatchPattern` . If you specify `ALL` , AWS WAF matches against keys and values.
                
@@ -2509,6 +2533,7 @@ class RuleGroupJsonMatchPattern(dict):
                  included_paths: Optional[Sequence[_builtins.str]] = None):
         """
         The pattern to look for in the JSON body.
+
         :param Any all: Inspect all parts of the web request's JSON body.
         :param Sequence[_builtins.str] included_paths: Match only the specified include paths. See also `MatchScope` in the `JsonBody` `FieldToMatch` specification.
                
@@ -2875,6 +2900,7 @@ class RuleGroupRateBasedStatementCustomKey(dict):
                  uri_path: Optional['outputs.RuleGroupRateLimitUriPath'] = None):
         """
         Specifies a single custom aggregate key for a rate-base rule.
+
         :param 'RuleGroupRateLimitAsn' asn: Use an Autonomous System Number (ASN) derived from the request's originating or forwarded IP address as an aggregate key. Each distinct ASN contributes to the aggregation instance.
         :param 'RuleGroupRateLimitCookie' cookie: Use the value of a cookie in the request as an aggregate key. Each distinct value in the cookie contributes to the aggregation instance. If you use a single cookie as your custom key, then each value fully defines an aggregation instance.
         :param 'RuleGroupRateLimitForwardedIp' forwarded_ip: Use the first IP address in an HTTP header as an aggregate key. Each distinct forwarded IP address contributes to the aggregation instance.
@@ -3069,6 +3095,7 @@ class RuleGroupRateLimitCookie(dict):
                  text_transformations: Sequence['outputs.RuleGroupTextTransformation']):
         """
         Specifies a cookie as an aggregate key for a rate-based rule.
+
         :param _builtins.str name: The name of the cookie to use.
         :param Sequence['RuleGroupTextTransformation'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. Text transformations are used in rule match statements, to transform the `FieldToMatch` request component before inspecting it, and they're used in rate-based rule statements, to transform request components before using them as custom aggregation keys. If you specify one or more transformations to apply, AWS WAF performs all transformations on the specified content, starting from the lowest priority setting, and then uses the transformed component contents.
         """
@@ -3131,6 +3158,7 @@ class RuleGroupRateLimitHeader(dict):
                  text_transformations: Sequence['outputs.RuleGroupTextTransformation']):
         """
         Specifies a header as an aggregate key for a rate-based rule.
+
         :param _builtins.str name: The name of the header to use.
         :param Sequence['RuleGroupTextTransformation'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. Text transformations are used in rule match statements, to transform the `FieldToMatch` request component before inspecting it, and they're used in rate-based rule statements, to transform request components before using them as custom aggregation keys. If you specify one or more transformations to apply, AWS WAF performs all transformations on the specified content, starting from the lowest priority setting, and then uses the transformed component contents.
         """
@@ -3204,6 +3232,7 @@ class RuleGroupRateLimitJa3Fingerprint(dict):
                  fallback_behavior: 'RuleGroupRateLimitJa3FingerprintFallbackBehavior'):
         """
         Specifies the request's JA3 fingerprint as an aggregate key for a rate-based rule.
+
         :param 'RuleGroupRateLimitJa3FingerprintFallbackBehavior' fallback_behavior: The match status to assign to the web request if there is insufficient TSL Client Hello information to compute the JA3 fingerprint.
                
                You can specify the following fallback behaviors:
@@ -3253,6 +3282,7 @@ class RuleGroupRateLimitJa4Fingerprint(dict):
                  fallback_behavior: 'RuleGroupRateLimitJa4FingerprintFallbackBehavior'):
         """
         Specifies the request's JA4 fingerprint as an aggregate key for a rate-based rule.
+
         :param 'RuleGroupRateLimitJa4FingerprintFallbackBehavior' fallback_behavior: The match status to assign to the web request if there is insufficient TSL Client Hello information to compute the JA4 fingerprint.
                
                You can specify the following fallback behaviors:
@@ -3285,6 +3315,7 @@ class RuleGroupRateLimitLabelNamespace(dict):
                  namespace: _builtins.str):
         """
         Specifies a label namespace to use as an aggregate key for a rate-based rule.
+
         :param _builtins.str namespace: The namespace to use for aggregation.
         """
         pulumi.set(__self__, "namespace", namespace)
@@ -3325,6 +3356,7 @@ class RuleGroupRateLimitQueryArgument(dict):
                  text_transformations: Sequence['outputs.RuleGroupTextTransformation']):
         """
         Specifies a query argument in the request as an aggregate key for a rate-based rule.
+
         :param _builtins.str name: The name of the query argument to use.
         :param Sequence['RuleGroupTextTransformation'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. Text transformations are used in rule match statements, to transform the `FieldToMatch` request component before inspecting it, and they're used in rate-based rule statements, to transform request components before using them as custom aggregation keys. If you specify one or more transformations to apply, AWS WAF performs all transformations on the specified content, starting from the lowest priority setting, and then uses the transformed component contents.
         """
@@ -3374,6 +3406,7 @@ class RuleGroupRateLimitQueryString(dict):
                  text_transformations: Sequence['outputs.RuleGroupTextTransformation']):
         """
         Specifies the request's query string as an aggregate key for a rate-based rule.
+
         :param Sequence['RuleGroupTextTransformation'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. Text transformations are used in rule match statements, to transform the `FieldToMatch` request component before inspecting it, and they're used in rate-based rule statements, to transform request components before using them as custom aggregation keys. If you specify one or more transformations to apply, AWS WAF performs all transformations on the specified content, starting from the lowest priority setting, and then uses the transformed component contents.
         """
         pulumi.set(__self__, "text_transformations", text_transformations)
@@ -3413,6 +3446,7 @@ class RuleGroupRateLimitUriPath(dict):
                  text_transformations: Sequence['outputs.RuleGroupTextTransformation']):
         """
         Specifies the request's URI Path as an aggregate key for a rate-based rule.
+
         :param Sequence['RuleGroupTextTransformation'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. Text transformations are used in rule match statements, to transform the `FieldToMatch` request component before inspecting it, and they're used in rate-based rule statements, to transform request components before using them as custom aggregation keys. If you specify one or more transformations to apply, AWS WAF performs all transformations on the specified content, starting from the lowest priority setting, and then uses the transformed component contents.
         """
         pulumi.set(__self__, "text_transformations", text_transformations)
@@ -3585,6 +3619,7 @@ class RuleGroupRule(dict):
                  rule_labels: Optional[Sequence['outputs.RuleGroupLabel']] = None):
         """
         Rule of RuleGroup that contains condition and action.
+
         :param _builtins.str name: The name of the rule.
                
                If you change the name of a `Rule` after you create it and you want the rule's metric name to reflect the change, update the metric name in the rule's `VisibilityConfig` settings. AWS WAF doesn't automatically update the metric name when you update the rule name.
@@ -3693,6 +3728,7 @@ class RuleGroupRuleAction(dict):
                  count: Optional['outputs.RuleGroupCountAction'] = None):
         """
         Action taken when Rule matches its condition.
+
         :param 'RuleGroupAllowAction' allow: Instructs AWS WAF to allow the web request.
         :param 'RuleGroupBlockAction' block: Instructs AWS WAF to block the web request.
         :param 'RuleGroupCaptchaAction' captcha: Specifies that AWS WAF should run a `CAPTCHA` check against the request:
@@ -3810,6 +3846,7 @@ class RuleGroupSizeConstraintStatement(dict):
                  text_transformations: Sequence['outputs.RuleGroupTextTransformation']):
         """
         Size Constraint statement.
+
         :param 'RuleGroupSizeConstraintStatementComparisonOperator' comparison_operator: The operator to use to compare the request part to the size setting.
         :param 'RuleGroupFieldToMatch' field_to_match: The part of the web request that you want AWS WAF to inspect.
         :param _builtins.float size: The size, in byte, to compare to the request part, after any transformations.
@@ -3885,6 +3922,7 @@ class RuleGroupSqliMatchStatement(dict):
                  sensitivity_level: Optional['RuleGroupSensitivityLevel'] = None):
         """
         Sqli Match Statement.
+
         :param 'RuleGroupFieldToMatch' field_to_match: The part of the web request that you want AWS WAF to inspect.
         :param Sequence['RuleGroupTextTransformation'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. If you specify one or more transformations in a rule statement, AWS WAF performs all transformations on the content of the request component identified by `FieldToMatch` , starting from the lowest priority setting, before inspecting the content for a match.
         :param 'RuleGroupSensitivityLevel' sensitivity_level: The sensitivity that you want AWS WAF to use to inspect for SQL injection attacks.
@@ -3996,6 +4034,7 @@ class RuleGroupStatement(dict):
                  xss_match_statement: Optional['outputs.RuleGroupXssMatchStatement'] = None):
         """
         First level statement that contains conditions, such as ByteMatch, SizeConstraint, etc
+
         :param 'RuleGroupAndStatement' and_statement: A logical rule statement used to combine other rule statements with AND logic. You provide more than one `Statement` within the `AndStatement` .
         :param 'RuleGroupAsnMatchStatement' asn_match_statement: A rule statement that inspects web traffic based on the Autonomous System Number (ASN) associated with the request's IP address.
                
@@ -4291,6 +4330,7 @@ class RuleGroupTextTransformation(dict):
                  type: 'RuleGroupTextTransformationType'):
         """
         Text Transformation on the Search String before match.
+
         :param _builtins.int priority: Sets the relative processing order for multiple transformations. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content. The priorities don't need to be consecutive, but they must all be different.
         :param 'RuleGroupTextTransformationType' type: For detailed descriptions of each of the transformation types, see [Text transformations](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-transformation.html) in the *AWS WAF Developer Guide* .
         """
@@ -4340,6 +4380,7 @@ class RuleGroupUriFragment(dict):
                  fallback_behavior: Optional['RuleGroupUriFragmentFallbackBehavior'] = None):
         """
         The path component of the URI Fragment. This is the part of a web request that identifies a fragment uri, for example, /abcd#introduction
+
         :param 'RuleGroupUriFragmentFallbackBehavior' fallback_behavior: What AWS WAF should do if it fails to completely parse the JSON body. The options are the following:
                
                - `EVALUATE_AS_STRING` - Inspect the body as plain text. AWS WAF applies the text transformations and inspection criteria that you defined for the JSON inspection to the body text string.
@@ -4406,6 +4447,7 @@ class RuleGroupVisibilityConfig(dict):
                  sampled_requests_enabled: _builtins.bool):
         """
         Visibility Metric of the RuleGroup.
+
         :param _builtins.bool cloud_watch_metrics_enabled: Indicates whether the associated resource sends metrics to Amazon CloudWatch. For the list of available metrics, see [AWS WAF Metrics](https://docs.aws.amazon.com/waf/latest/developerguide/monitoring-cloudwatch.html#waf-metrics) in the *AWS WAF Developer Guide* .
                
                For web ACLs, the metrics are for web requests that have the web ACL default action applied. AWS WAF applies the default action to web requests that pass the inspection of all rules in the web ACL without being either allowed or blocked. For more information,
@@ -4482,6 +4524,7 @@ class RuleGroupXssMatchStatement(dict):
                  text_transformations: Sequence['outputs.RuleGroupTextTransformation']):
         """
         Xss Match Statement.
+
         :param 'RuleGroupFieldToMatch' field_to_match: The part of the web request that you want AWS WAF to inspect.
         :param Sequence['RuleGroupTextTransformation'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. If you specify one or more transformations in a rule statement, AWS WAF performs all transformations on the content of the request component identified by `FieldToMatch` , starting from the lowest priority setting, before inspecting the content for a match.
         """
@@ -4531,6 +4574,7 @@ class WebAclAllowAction(dict):
                  custom_request_handling: Optional['outputs.WebAclCustomRequestHandling'] = None):
         """
         Allow traffic towards application.
+
         :param 'WebAclCustomRequestHandling' custom_request_handling: Defines custom handling for the web request.
                
                For information about customizing web requests and responses, see [Customizing web requests and responses in AWS WAF](https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html) in the *AWS WAF Developer Guide* .
@@ -4601,6 +4645,7 @@ class WebAclApplicationConfig(dict):
                  attributes: Sequence['outputs.WebAclApplicationAttribute']):
         """
         Configures the ability for the WAF; console to store and retrieve application attributes during the webacl; creation process. Application attributes help WAF; give recommendations for protection packs.
+
         :param Sequence['WebAclApplicationAttribute'] attributes: Contains the attribute name and a list of values for that attribute.
         """
         pulumi.set(__self__, "attributes", attributes)
@@ -4690,6 +4735,7 @@ class WebAclAssociationConfig(dict):
                  request_body: Optional[Mapping[str, 'outputs.WebAclRequestBodyAssociatedResourceTypeConfig']] = None):
         """
         AssociationConfig for body inspection
+
         :param Mapping[str, 'WebAclRequestBodyAssociatedResourceTypeConfig'] request_body: Customizes the maximum size of the request body that your protected CloudFront, API Gateway, Amazon Cognito, App Runner, and Verified Access resources forward to AWS WAF for inspection. The default size is 16 KB (16,384 bytes). You can change the setting for any of the available resource types.
                
                > You are charged additional fees when your protected resources forward body sizes that are larger than the default. For more information, see [AWS WAF Pricing](https://docs.aws.amazon.com/waf/pricing/) . 
@@ -4754,6 +4800,7 @@ class WebAclAwsManagedRulesAcfpRuleSet(dict):
                  response_inspection: Optional['outputs.WebAclResponseInspection'] = None):
         """
         Configures how to use the Account creation fraud prevention managed rule group in the web ACL
+
         :param _builtins.str creation_path: The path of the account creation endpoint for your application. This is the page on your website that accepts the completed registration form for a new user. This page must accept `POST` requests.
                
                For example, for the URL `https://example.com/web/newaccount` , you would provide the path `/web/newaccount` . Account creation page paths that start with the path that you provide are considered a match. For example `/web/newaccount` matches the account creation paths `/web/newaccount` , `/web/newaccount/` , `/web/newaccountPage` , and `/web/newaccount/thisPage` , but doesn't match the path `/home/web/newaccount` or `/website/newaccount` .
@@ -4858,6 +4905,7 @@ class WebAclAwsManagedRulesAntiDDoSRuleSet(dict):
                  sensitivity_to_block: Optional['WebAclSensitivityToAct'] = None):
         """
         Configures how to use the AntiDDOS AWS managed rule group in the web ACL
+
         :param 'WebAclClientSideActionConfig' client_side_action_config: Configures the request handling that's applied by the managed rule group rules `ChallengeAllDuringEvent` and `ChallengeDDoSRequests` during a distributed denial of service (DDoS) attack.
         :param 'WebAclSensitivityToAct' sensitivity_to_block: The sensitivity that the rule group rule `DDoSRequests` uses when matching against the DDoS suspicion labeling on a request. The managed rule group adds the labeling during DDoS events, before the `DDoSRequests` rule runs.
                
@@ -4933,6 +4981,7 @@ class WebAclAwsManagedRulesAtpRuleSet(dict):
                  response_inspection: Optional['outputs.WebAclResponseInspection'] = None):
         """
         Configures how to use the Account Takeover Prevention managed rule group in the web ACL
+
         :param _builtins.str login_path: The path of the login endpoint for your application. For example, for the URL `https://example.com/web/login` , you would provide the path `/web/login` . Login paths that start with the path that you provide are considered a match. For example `/web/login` matches the login paths `/web/login` , `/web/login/` , `/web/loginPage` , and `/web/login/thisPage` , but doesn't match the login path `/home/web/login` or `/website/login` .
                
                The rule group inspects only HTTP `POST` requests to your specified login endpoint.
@@ -5020,6 +5069,7 @@ class WebAclAwsManagedRulesBotControlRuleSet(dict):
                  enable_machine_learning: Optional[_builtins.bool] = None):
         """
         Configures how to use the Bot Control managed rule group in the web ACL
+
         :param 'WebAclAwsManagedRulesBotControlRuleSetInspectionLevel' inspection_level: The inspection level to use for the Bot Control rule group. The common level is the least expensive. The targeted level includes all common level rules and adds rules with more advanced inspection criteria. For details, see [AWS WAF Bot Control rule group](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html) in the *AWS WAF Developer Guide* .
         :param _builtins.bool enable_machine_learning: Applies only to the targeted inspection level.
                
@@ -5084,6 +5134,7 @@ class WebAclBlockAction(dict):
                  custom_response: Optional['outputs.WebAclCustomResponse'] = None):
         """
         Block traffic towards application.
+
         :param 'WebAclCustomResponse' custom_response: Defines a custom response for the web request.
                
                For information about customizing web requests and responses, see [Customizing web requests and responses in AWS WAF](https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html) in the *AWS WAF Developer Guide* .
@@ -5128,6 +5179,7 @@ class WebAclBody(dict):
                  oversize_handling: Optional['WebAclOversizeHandling'] = None):
         """
         The body of a web request. This immediately follows the request headers.
+
         :param 'WebAclOversizeHandling' oversize_handling: What AWS WAF should do if the body is larger than AWS WAF can inspect.
                
                AWS WAF does not support inspecting the entire contents of the web request body if the body exceeds the limit for the resource type. When a web request body is larger than the limit, the underlying host service only forwards the contents that are within the limit to AWS WAF for inspection.
@@ -5212,6 +5264,7 @@ class WebAclByteMatchStatement(dict):
                  search_string_base64: Optional[_builtins.str] = None):
         """
         Byte Match statement.
+
         :param 'WebAclFieldToMatch' field_to_match: The part of the web request that you want AWS WAF to inspect.
         :param 'WebAclPositionalConstraint' positional_constraint: The area within the portion of the web request that you want AWS WAF to search for `SearchString` . Valid values include the following:
                
@@ -5355,6 +5408,7 @@ class WebAclCaptchaAction(dict):
                  custom_request_handling: Optional['outputs.WebAclCustomRequestHandling'] = None):
         """
         Checks valid token exists with request.
+
         :param 'WebAclCustomRequestHandling' custom_request_handling: Defines custom handling for the web request, used when the `CAPTCHA` inspection determines that the request's token is valid and unexpired.
                
                For information about customizing web requests and responses, see [Customizing web requests and responses in AWS WAF](https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html) in the *AWS WAF Developer Guide* .
@@ -5435,6 +5489,7 @@ class WebAclChallengeAction(dict):
                  custom_request_handling: Optional['outputs.WebAclCustomRequestHandling'] = None):
         """
         Checks that the request has a valid token with an unexpired challenge timestamp and, if not, returns a browser challenge to the client.
+
         :param 'WebAclCustomRequestHandling' custom_request_handling: Defines custom handling for the web request, used when the challenge inspection determines that the request's token is valid and unexpired.
                
                For information about customizing web requests and responses, see [Customizing web requests and responses in AWS WAF](https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html) in the [AWS WAF developer guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html) .
@@ -5519,6 +5574,7 @@ class WebAclClientSideAction(dict):
                  sensitivity: Optional['WebAclSensitivityToAct'] = None):
         """
         Client side action config for AntiDDOS AMR.
+
         :param 'WebAclUsageOfAction' usage_of_action: Determines whether to use the `AWSManagedRulesAntiDDoSRuleSet` rules `ChallengeAllDuringEvent` and `ChallengeDDoSRequests` in the rule group evaluation and the related label `awswaf:managed:aws:anti-ddos:challengeable-request` .
                
                - If usage is enabled:
@@ -5627,6 +5683,7 @@ class WebAclClientSideActionConfig(dict):
                  challenge: 'outputs.WebAclClientSideAction'):
         """
         Client side action config for AntiDDOS AMR.
+
         :param 'WebAclClientSideAction' challenge: Configuration for the use of the `AWSManagedRulesAntiDDoSRuleSet` rules `ChallengeAllDuringEvent` and `ChallengeDDoSRequests` .
                
                > This setting isn't related to the configuration of the `Challenge` action itself. It only configures the use of the two anti-DDoS rules named here. 
@@ -5678,6 +5735,7 @@ class WebAclCookieMatchPattern(dict):
                  included_cookies: Optional[Sequence[_builtins.str]] = None):
         """
         The pattern to look for in the request cookies.
+
         :param Any all: Inspect all parts of the web request cookies.
         :param Sequence[_builtins.str] excluded_cookies: Inspect only the cookies whose keys don't match any of the strings specified here.
         :param Sequence[_builtins.str] included_cookies: Inspect only the cookies that have a key that matches one of the strings specified here.
@@ -5746,6 +5804,7 @@ class WebAclCookies(dict):
                  oversize_handling: 'WebAclOversizeHandling'):
         """
         Includes cookies of a web request.
+
         :param 'WebAclCookieMatchPattern' match_pattern: The filter to use to identify the subset of cookies to inspect in a web request.
                
                You must specify exactly one setting: either `All` , `IncludedCookies` , or `ExcludedCookies` .
@@ -5829,6 +5888,7 @@ class WebAclCountAction(dict):
                  custom_request_handling: Optional['outputs.WebAclCustomRequestHandling'] = None):
         """
         Allow traffic towards application.
+
         :param 'WebAclCustomRequestHandling' custom_request_handling: Defines custom handling for the web request.
                
                For information about customizing web requests and responses, see [Customizing web requests and responses in AWS WAF](https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html) in the *AWS WAF Developer Guide* .
@@ -5857,6 +5917,7 @@ class WebAclCustomHttpHeader(dict):
                  value: _builtins.str):
         """
         HTTP header.
+
         :param _builtins.str name: The name of the custom header.
                
                For custom request header insertion, when AWS WAF inserts the header into the request, it prefixes this name `x-amzn-waf-` , to avoid confusion with the headers that are already in the request. For example, for the header name `sample` , AWS WAF inserts the header `x-amzn-waf-sample` .
@@ -5910,6 +5971,7 @@ class WebAclCustomRequestHandling(dict):
                  insert_headers: Sequence['outputs.WebAclCustomHttpHeader']):
         """
         Custom request handling.
+
         :param Sequence['WebAclCustomHttpHeader'] insert_headers: Collection of HTTP headers.
         """
         pulumi.set(__self__, "insert_headers", insert_headers)
@@ -5955,6 +6017,7 @@ class WebAclCustomResponse(dict):
                  response_headers: Optional[Sequence['outputs.WebAclCustomHttpHeader']] = None):
         """
         Custom response.
+
         :param _builtins.int response_code: The HTTP status code to return to the client.
                
                For a list of status codes that you can use in your custom responses, see [Supported status codes for custom response](https://docs.aws.amazon.com/waf/latest/developerguide/customizing-the-response-status-codes.html) in the *AWS WAF Developer Guide* .
@@ -6021,6 +6084,7 @@ class WebAclCustomResponseBody(dict):
                  content_type: 'WebAclResponseContentType'):
         """
         Custom response body.
+
         :param _builtins.str content: The payload of the custom response.
                
                You can use JSON escape strings in JSON content. To do this, you must specify JSON content in the `ContentType` setting.
@@ -6151,6 +6215,7 @@ class WebAclDefaultAction(dict):
                  block: Optional['outputs.WebAclBlockAction'] = None):
         """
         Default Action WebACL will take against ingress traffic when there is no matching Rule.
+
         :param 'WebAclAllowAction' allow: Specifies that AWS WAF should allow requests by default.
         :param 'WebAclBlockAction' block: Specifies that AWS WAF should block requests by default.
         """
@@ -6185,6 +6250,7 @@ class WebAclExcludedRule(dict):
                  name: _builtins.str):
         """
         Excluded Rule in the RuleGroup or ManagedRuleGroup will not be evaluated.
+
         :param _builtins.str name: The name of the rule whose action you want to override to `Count` .
         """
         pulumi.set(__self__, "name", name)
@@ -6285,6 +6351,7 @@ class WebAclFieldToMatch(dict):
                  uri_path: Optional[Any] = None):
         """
         Field of the request to match.
+
         :param Any all_query_arguments: All query arguments of a web request.
         :param 'WebAclBody' body: Inspect the request body as plain text. The request body immediately follows the request headers. This is the part of a request that contains any additional data that you want to send to your web server as the HTTP request body, such as data from a form.
                
@@ -6587,6 +6654,7 @@ class WebAclFieldToProtect(dict):
                  field_keys: Optional[Sequence[_builtins.str]] = None):
         """
         Field in log to protect.
+
         :param 'WebAclFieldToProtectFieldType' field_type: Field type to protect
         :param Sequence[_builtins.str] field_keys: List of field keys to protect
         """
@@ -6765,6 +6833,7 @@ class WebAclHeaderMatchPattern(dict):
                  included_headers: Optional[Sequence[_builtins.str]] = None):
         """
         The pattern to look for in the request headers.
+
         :param Any all: Inspect all parts of the web request headers.
         :param Sequence[_builtins.str] excluded_headers: Inspect only the headers whose keys don't match any of the strings specified here.
         :param Sequence[_builtins.str] included_headers: Inspect only the headers that have a key that matches one of the strings specified here.
@@ -6868,6 +6937,7 @@ class WebAclHeaders(dict):
                  oversize_handling: 'WebAclOversizeHandling'):
         """
         Includes headers of a web request.
+
         :param 'WebAclHeaderMatchPattern' match_pattern: The filter to use to identify the subset of headers to inspect in a web request.
                
                You must specify exactly one setting: either `All` , `IncludedHeaders` , or `ExcludedHeaders` .
@@ -7130,6 +7200,7 @@ class WebAclJa3Fingerprint(dict):
                  fallback_behavior: 'WebAclJa3FingerprintFallbackBehavior'):
         """
         Includes the JA3 fingerprint of a web request.
+
         :param 'WebAclJa3FingerprintFallbackBehavior' fallback_behavior: The match status to assign to the web request if the request doesn't have a JA3 fingerprint.
                
                You can specify the following fallback behaviors:
@@ -7179,6 +7250,7 @@ class WebAclJa4Fingerprint(dict):
                  fallback_behavior: 'WebAclJa4FingerprintFallbackBehavior'):
         """
         Includes the JA4 fingerprint of a web request.
+
         :param 'WebAclJa4FingerprintFallbackBehavior' fallback_behavior: The match status to assign to the web request if the request doesn't have a JA4 fingerprint.
                
                You can specify the following fallback behaviors:
@@ -7237,6 +7309,7 @@ class WebAclJsonBody(dict):
                  oversize_handling: Optional['WebAclOversizeHandling'] = None):
         """
         Inspect the request body as JSON. The request body immediately follows the request headers.
+
         :param 'WebAclJsonMatchPattern' match_pattern: The patterns to look for in the JSON body. AWS WAF inspects the results of these pattern matches against the rule inspection criteria.
         :param 'WebAclJsonMatchScope' match_scope: The parts of the JSON to match against using the `MatchPattern` . If you specify `ALL` , AWS WAF matches against keys and values.
                
@@ -7361,6 +7434,7 @@ class WebAclJsonMatchPattern(dict):
                  included_paths: Optional[Sequence[_builtins.str]] = None):
         """
         The pattern to look for in the JSON body.
+
         :param Any all: Inspect all parts of the web request's JSON body.
         :param Sequence[_builtins.str] included_paths: Match only the specified include paths. See also `MatchScope` in the `JsonBody` `FieldToMatch` specification.
                
@@ -7502,6 +7576,7 @@ class WebAclManagedRuleGroupConfig(dict):
                  username_field: Optional['outputs.WebAclFieldIdentifier'] = None):
         """
         ManagedRuleGroupConfig.
+
         :param 'WebAclAwsManagedRulesAcfpRuleSet' aws_managed_rules_acfp_rule_set: Additional configuration for using the account creation fraud prevention (ACFP) managed rule group, `AWSManagedRulesACFPRuleSet` . Use this to provide account creation request information to the rule group. For web ACLs that protect CloudFront distributions, use this to also provide the information about how your distribution responds to account creation requests.
                
                For information about using the ACFP managed rule group, see [AWS WAF Fraud Control account creation fraud prevention (ACFP) rule group](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-acfp.html) and [AWS WAF Fraud Control account creation fraud prevention (ACFP)](https://docs.aws.amazon.com/waf/latest/developerguide/waf-acfp.html) in the *AWS WAF Developer Guide* .
@@ -7771,6 +7846,7 @@ class WebAclOnSourceDDoSProtectionConfig(dict):
                  alb_low_reputation_mode: 'WebAclOnSourceDDoSProtectionConfigAlbLowReputationMode'):
         """
         Configures the options for on-source DDoS protection provided by supported resource type.
+
         :param 'WebAclOnSourceDDoSProtectionConfigAlbLowReputationMode' alb_low_reputation_mode: The level of DDoS protection that applies to web ACLs associated with Application Load Balancers. `ACTIVE_UNDER_DDOS` protection is enabled by default whenever a web ACL is associated with an Application Load Balancer. In the event that an Application Load Balancer experiences high-load conditions or suspected DDoS attacks, the `ACTIVE_UNDER_DDOS` protection automatically rate limits traffic from known low reputation sources without disrupting Application Load Balancer availability. `ALWAYS_ON` protection provides constant, always-on monitoring of known low reputation sources for suspected DDoS attacks. While this provides a higher level of protection, there may be potential impacts on legitimate traffic.
         """
         pulumi.set(__self__, "alb_low_reputation_mode", alb_low_reputation_mode)
@@ -7812,6 +7888,7 @@ class WebAclOverrideAction(dict):
                  none: Optional[Any] = None):
         """
         Override a RuleGroup or ManagedRuleGroup behavior. This can only be applied to Rule that has RuleGroupReferenceStatement or ManagedRuleGroupReferenceStatement.
+
         :param Any count: Count traffic towards application.
         :param Any none: Keep the RuleGroup or ManagedRuleGroup behavior as is.
         """
@@ -8054,6 +8131,7 @@ class WebAclRateBasedStatementCustomKey(dict):
                  uri_path: Optional['outputs.WebAclRateLimitUriPath'] = None):
         """
         Specifies a single custom aggregate key for a rate-base rule.
+
         :param 'WebAclRateLimitAsn' asn: Use an Autonomous System Number (ASN) derived from the request's originating or forwarded IP address as an aggregate key. Each distinct ASN contributes to the aggregation instance.
         :param 'WebAclRateLimitCookie' cookie: Use the value of a cookie in the request as an aggregate key. Each distinct value in the cookie contributes to the aggregation instance. If you use a single cookie as your custom key, then each value fully defines an aggregation instance.
         :param 'WebAclRateLimitForwardedIp' forwarded_ip: Use the first IP address in an HTTP header as an aggregate key. Each distinct forwarded IP address contributes to the aggregation instance.
@@ -8248,6 +8326,7 @@ class WebAclRateLimitCookie(dict):
                  text_transformations: Sequence['outputs.WebAclTextTransformation']):
         """
         Specifies a cookie as an aggregate key for a rate-based rule.
+
         :param _builtins.str name: The name of the cookie to use.
         :param Sequence['WebAclTextTransformation'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. Text transformations are used in rule match statements, to transform the `FieldToMatch` request component before inspecting it, and they're used in rate-based rule statements, to transform request components before using them as custom aggregation keys. If you specify one or more transformations to apply, AWS WAF performs all transformations on the specified content, starting from the lowest priority setting, and then uses the transformed component contents.
         """
@@ -8310,6 +8389,7 @@ class WebAclRateLimitHeader(dict):
                  text_transformations: Sequence['outputs.WebAclTextTransformation']):
         """
         Specifies a header as an aggregate key for a rate-based rule.
+
         :param _builtins.str name: The name of the header to use.
         :param Sequence['WebAclTextTransformation'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. Text transformations are used in rule match statements, to transform the `FieldToMatch` request component before inspecting it, and they're used in rate-based rule statements, to transform request components before using them as custom aggregation keys. If you specify one or more transformations to apply, AWS WAF performs all transformations on the specified content, starting from the lowest priority setting, and then uses the transformed component contents.
         """
@@ -8383,6 +8463,7 @@ class WebAclRateLimitJa3Fingerprint(dict):
                  fallback_behavior: 'WebAclRateLimitJa3FingerprintFallbackBehavior'):
         """
         Specifies the request's JA3 fingerprint as an aggregate key for a rate-based rule.
+
         :param 'WebAclRateLimitJa3FingerprintFallbackBehavior' fallback_behavior: The match status to assign to the web request if there is insufficient TSL Client Hello information to compute the JA3 fingerprint.
                
                You can specify the following fallback behaviors:
@@ -8432,6 +8513,7 @@ class WebAclRateLimitJa4Fingerprint(dict):
                  fallback_behavior: 'WebAclRateLimitJa4FingerprintFallbackBehavior'):
         """
         Specifies the request's JA4 fingerprint as an aggregate key for a rate-based rule.
+
         :param 'WebAclRateLimitJa4FingerprintFallbackBehavior' fallback_behavior: The match status to assign to the web request if there is insufficient TSL Client Hello information to compute the JA4 fingerprint.
                
                You can specify the following fallback behaviors:
@@ -8464,6 +8546,7 @@ class WebAclRateLimitLabelNamespace(dict):
                  namespace: _builtins.str):
         """
         Specifies a label namespace to use as an aggregate key for a rate-based rule.
+
         :param _builtins.str namespace: The namespace to use for aggregation.
         """
         pulumi.set(__self__, "namespace", namespace)
@@ -8504,6 +8587,7 @@ class WebAclRateLimitQueryArgument(dict):
                  text_transformations: Sequence['outputs.WebAclTextTransformation']):
         """
         Specifies a query argument in the request as an aggregate key for a rate-based rule.
+
         :param _builtins.str name: The name of the query argument to use.
         :param Sequence['WebAclTextTransformation'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. Text transformations are used in rule match statements, to transform the `FieldToMatch` request component before inspecting it, and they're used in rate-based rule statements, to transform request components before using them as custom aggregation keys. If you specify one or more transformations to apply, AWS WAF performs all transformations on the specified content, starting from the lowest priority setting, and then uses the transformed component contents.
         """
@@ -8553,6 +8637,7 @@ class WebAclRateLimitQueryString(dict):
                  text_transformations: Sequence['outputs.WebAclTextTransformation']):
         """
         Specifies the request's query string as an aggregate key for a rate-based rule.
+
         :param Sequence['WebAclTextTransformation'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. Text transformations are used in rule match statements, to transform the `FieldToMatch` request component before inspecting it, and they're used in rate-based rule statements, to transform request components before using them as custom aggregation keys. If you specify one or more transformations to apply, AWS WAF performs all transformations on the specified content, starting from the lowest priority setting, and then uses the transformed component contents.
         """
         pulumi.set(__self__, "text_transformations", text_transformations)
@@ -8592,6 +8677,7 @@ class WebAclRateLimitUriPath(dict):
                  text_transformations: Sequence['outputs.WebAclTextTransformation']):
         """
         Specifies the request's URI Path as an aggregate key for a rate-based rule.
+
         :param Sequence['WebAclTextTransformation'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. Text transformations are used in rule match statements, to transform the `FieldToMatch` request component before inspecting it, and they're used in rate-based rule statements, to transform request components before using them as custom aggregation keys. If you specify one or more transformations to apply, AWS WAF performs all transformations on the specified content, starting from the lowest priority setting, and then uses the transformed component contents.
         """
         pulumi.set(__self__, "text_transformations", text_transformations)
@@ -8787,6 +8873,7 @@ class WebAclRequestBodyAssociatedResourceTypeConfig(dict):
                  default_size_inspection_limit: 'WebAclSizeInspectionLimit'):
         """
         Configures the inspection size in the request body.
+
         :param 'WebAclSizeInspectionLimit' default_size_inspection_limit: Specifies the maximum size of the web request body component that an associated CloudFront, API Gateway, Amazon Cognito, App Runner, or Verified Access resource should send to AWS WAF for inspection. This applies to statements in the web ACL that inspect the body or JSON body.
                
                Default: `16 KB (16,384 bytes)`
@@ -8836,6 +8923,7 @@ class WebAclRequestInspection(dict):
                  username_field: 'outputs.WebAclFieldIdentifier'):
         """
         Configures the inspection of login requests
+
         :param 'WebAclFieldIdentifier' password_field: The name of the field in the request payload that contains your customer's password.
                
                How you specify this depends on the request inspection payload type.
@@ -8946,6 +9034,7 @@ class WebAclRequestInspectionAcfp(dict):
                  username_field: Optional['outputs.WebAclFieldIdentifier'] = None):
         """
         Configures the inspection of sign-up requests
+
         :param 'WebAclRequestInspectionAcfpPayloadType' payload_type: The payload type for your account creation endpoint, either JSON or form encoded.
         :param Sequence['WebAclFieldIdentifier'] address_fields: The names of the fields in the request payload that contain your customer's primary physical address.
                
@@ -9143,6 +9232,7 @@ class WebAclResponseInspection(dict):
                  status_code: Optional['outputs.WebAclResponseInspectionStatusCode'] = None):
         """
         Configures the inspection of login responses
+
         :param 'WebAclResponseInspectionBodyContains' body_contains: Configures inspection of the response body for success and failure indicators. AWS WAF can inspect the first 65,536 bytes (64 KB) of the response body.
         :param 'WebAclResponseInspectionHeader' header: Configures inspection of the response header for success and failure indicators.
         :param 'WebAclResponseInspectionJson' json: Configures inspection of the response JSON for success and failure indicators. AWS WAF can inspect the first 65,536 bytes (64 KB) of the response JSON.
@@ -9219,6 +9309,7 @@ class WebAclResponseInspectionBodyContains(dict):
                  success_strings: Sequence[_builtins.str]):
         """
         Response body contents that indicate success or failure of a login request
+
         :param Sequence[_builtins.str] failure_strings: Strings in the body of the response that indicate a failed login or account creation attempt. To be counted as a failure, the string can be anywhere in the body and must be an exact match, including case. Each string must be unique among the success and failure strings.
                
                JSON example: `"FailureStrings": [ "Request failed" ]`
@@ -9280,6 +9371,7 @@ class WebAclResponseInspectionHeader(dict):
                  success_values: Sequence[_builtins.str]):
         """
         Response headers that indicate success or failure of a login request
+
         :param Sequence[_builtins.str] failure_values: Values in the response header with the specified name that indicate a failed login or account creation attempt. To be counted as a failure, the value must be an exact match, including case. Each value must be unique among the success and failure values.
                
                JSON examples: `"FailureValues": [ "LoginFailed", "Failed login" ]` and `"FailureValues": [ "AccountCreationFailed" ]`
@@ -9355,6 +9447,7 @@ class WebAclResponseInspectionJson(dict):
                  success_values: Sequence[_builtins.str]):
         """
         Response JSON that indicate success or failure of a login request
+
         :param Sequence[_builtins.str] failure_values: Values for the specified identifier in the response JSON that indicate a failed login or account creation attempt. To be counted as a failure, the value must be an exact match, including case. Each value must be unique among the success and failure values.
                
                JSON example: `"FailureValues": [ "False", "Failed" ]`
@@ -9429,6 +9522,7 @@ class WebAclResponseInspectionStatusCode(dict):
                  success_codes: Sequence[_builtins.int]):
         """
         Response status codes that indicate success or failure of a login request
+
         :param Sequence[_builtins.int] failure_codes: Status codes in the response that indicate a failed login or account creation attempt. To be counted as a failure, the response status code must match one of these. Each code must be unique among the success and failure status codes.
                
                JSON example: `"FailureCodes": [ 400, 404 ]`
@@ -9502,6 +9596,7 @@ class WebAclRule(dict):
                  rule_labels: Optional[Sequence['outputs.WebAclLabel']] = None):
         """
         Rule of WebACL that contains condition and action.
+
         :param _builtins.str name: The name of the rule.
                
                If you change the name of a `Rule` after you create it and you want the rule's metric name to reflect the change, update the metric name in the rule's `VisibilityConfig` settings. AWS WAF doesn't automatically update the metric name when you update the rule name.
@@ -9649,6 +9744,7 @@ class WebAclRuleAction(dict):
                  count: Optional['outputs.WebAclCountAction'] = None):
         """
         Action taken when Rule matches its condition.
+
         :param 'WebAclAllowAction' allow: Instructs AWS WAF to allow the web request.
         :param 'WebAclBlockAction' block: Instructs AWS WAF to block the web request.
         :param 'WebAclCaptchaAction' captcha: Specifies that AWS WAF should run a `CAPTCHA` check against the request:
@@ -9760,6 +9856,7 @@ class WebAclRuleActionOverride(dict):
                  name: _builtins.str):
         """
         Action override for rules in the rule group.
+
         :param 'WebAclRuleAction' action_to_use: The override action to use, in place of the configured action of the rule in the rule group.
         :param _builtins.str name: The name of the rule to override.
         """
@@ -9881,6 +9978,7 @@ class WebAclSizeConstraintStatement(dict):
                  text_transformations: Sequence['outputs.WebAclTextTransformation']):
         """
         Size Constraint statement.
+
         :param 'WebAclSizeConstraintStatementComparisonOperator' comparison_operator: The operator to use to compare the request part to the size setting.
         :param 'WebAclFieldToMatch' field_to_match: The part of the web request that you want AWS WAF to inspect.
         :param _builtins.float size: The size, in byte, to compare to the request part, after any transformations.
@@ -9956,6 +10054,7 @@ class WebAclSqliMatchStatement(dict):
                  sensitivity_level: Optional['WebAclSensitivityLevel'] = None):
         """
         Sqli Match Statement.
+
         :param 'WebAclFieldToMatch' field_to_match: The part of the web request that you want AWS WAF to inspect.
         :param Sequence['WebAclTextTransformation'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. If you specify one or more transformations in a rule statement, AWS WAF performs all transformations on the content of the request component identified by `FieldToMatch` , starting from the lowest priority setting, before inspecting the content for a match.
         :param 'WebAclSensitivityLevel' sensitivity_level: The sensitivity that you want AWS WAF to use to inspect for SQL injection attacks.
@@ -10073,6 +10172,7 @@ class WebAclStatement(dict):
                  xss_match_statement: Optional['outputs.WebAclXssMatchStatement'] = None):
         """
         First level statement that contains conditions, such as ByteMatch, SizeConstraint, etc
+
         :param 'WebAclAndStatement' and_statement: A logical rule statement used to combine other rule statements with AND logic. You provide more than one `Statement` within the `AndStatement` .
         :param 'WebAclAsnMatchStatement' asn_match_statement: A rule statement that inspects web traffic based on the Autonomous System Number (ASN) associated with the request's IP address.
                
@@ -10402,6 +10502,7 @@ class WebAclTextTransformation(dict):
                  type: 'WebAclTextTransformationType'):
         """
         Text Transformation on the Search String before match.
+
         :param _builtins.int priority: Sets the relative processing order for multiple transformations. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content. The priorities don't need to be consecutive, but they must all be different.
         :param 'WebAclTextTransformationType' type: For detailed descriptions of each of the transformation types, see [Text transformations](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-transformation.html) in the *AWS WAF Developer Guide* .
         """
@@ -10451,6 +10552,7 @@ class WebAclUriFragment(dict):
                  fallback_behavior: Optional['WebAclUriFragmentFallbackBehavior'] = None):
         """
         The path component of the URI Fragment. This is the part of a web request that identifies a fragment uri, for example, /abcd#introduction
+
         :param 'WebAclUriFragmentFallbackBehavior' fallback_behavior: What AWS WAF should do if it fails to completely parse the JSON body. The options are the following:
                
                - `EVALUATE_AS_STRING` - Inspect the body as plain text. AWS WAF applies the text transformations and inspection criteria that you defined for the JSON inspection to the body text string.
@@ -10517,6 +10619,7 @@ class WebAclVisibilityConfig(dict):
                  sampled_requests_enabled: _builtins.bool):
         """
         Visibility Metric of the WebACL.
+
         :param _builtins.bool cloud_watch_metrics_enabled: Indicates whether the associated resource sends metrics to Amazon CloudWatch. For the list of available metrics, see [AWS WAF Metrics](https://docs.aws.amazon.com/waf/latest/developerguide/monitoring-cloudwatch.html#waf-metrics) in the *AWS WAF Developer Guide* .
                
                For web ACLs, the metrics are for web requests that have the web ACL default action applied. AWS WAF applies the default action to web requests that pass the inspection of all rules in the web ACL without being either allowed or blocked. For more information,
@@ -10593,6 +10696,7 @@ class WebAclXssMatchStatement(dict):
                  text_transformations: Sequence['outputs.WebAclTextTransformation']):
         """
         Xss Match Statement.
+
         :param 'WebAclFieldToMatch' field_to_match: The part of the web request that you want AWS WAF to inspect.
         :param Sequence['WebAclTextTransformation'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. If you specify one or more transformations in a rule statement, AWS WAF performs all transformations on the content of the request component identified by `FieldToMatch` , starting from the lowest priority setting, before inspecting the content for a match.
         """

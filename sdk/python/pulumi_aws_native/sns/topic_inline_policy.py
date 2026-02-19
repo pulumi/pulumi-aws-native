@@ -23,6 +23,7 @@ class TopicInlinePolicyArgs:
                  topic_arn: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a TopicInlinePolicy resource.
+
         :param Any policy_document: A policy document that contains permissions to add to the specified SNS topics.
                
                Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SNS::TopicInlinePolicy` for more information about the expected schema for this property.
@@ -70,6 +71,7 @@ class TopicInlinePolicy(pulumi.CustomResource):
         """
         Schema for AWS::SNS::TopicInlinePolicy
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param Any policy_document: A policy document that contains permissions to add to the specified SNS topics.
@@ -85,6 +87,7 @@ class TopicInlinePolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Schema for AWS::SNS::TopicInlinePolicy
+
 
         :param str resource_name: The name of the resource.
         :param TopicInlinePolicyArgs args: The arguments to use to populate this resource's properties.

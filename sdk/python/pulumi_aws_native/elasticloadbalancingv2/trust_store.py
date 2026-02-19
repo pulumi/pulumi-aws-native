@@ -28,6 +28,7 @@ class TrustStoreArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a TrustStore resource.
+
         :param pulumi.Input[_builtins.str] ca_certificates_bundle_s3_bucket: The name of the S3 bucket to fetch the CA certificate bundle from.
         :param pulumi.Input[_builtins.str] ca_certificates_bundle_s3_key: The name of the S3 object to fetch the CA certificate bundle from.
         :param pulumi.Input[_builtins.str] ca_certificates_bundle_s3_object_version: The version of the S3 bucket that contains the CA certificate bundle.
@@ -121,6 +122,7 @@ class TrustStore(pulumi.CustomResource):
         """
         Resource Type definition for AWS::ElasticLoadBalancingV2::TrustStore
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] ca_certificates_bundle_s3_bucket: The name of the S3 bucket to fetch the CA certificate bundle from.
@@ -137,6 +139,7 @@ class TrustStore(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::ElasticLoadBalancingV2::TrustStore
+
 
         :param str resource_name: The name of the resource.
         :param TrustStoreArgs args: The arguments to use to populate this resource's properties.

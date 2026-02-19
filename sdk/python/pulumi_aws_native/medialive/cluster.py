@@ -31,6 +31,7 @@ class ClusterArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Cluster resource.
+
         :param pulumi.Input[_builtins.str] instance_role_arn: The IAM role your nodes will use.
         :param pulumi.Input[_builtins.str] name: The user-specified name of the Cluster to be created.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A collection of key-value pairs.
@@ -116,6 +117,7 @@ class Cluster(pulumi.CustomResource):
         """
         Definition of AWS::MediaLive::Cluster Resource Type
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] instance_role_arn: The IAM role your nodes will use.
@@ -130,6 +132,7 @@ class Cluster(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of AWS::MediaLive::Cluster Resource Type
+
 
         :param str resource_name: The name of the resource.
         :param ClusterArgs args: The arguments to use to populate this resource's properties.

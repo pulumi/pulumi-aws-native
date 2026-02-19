@@ -28,6 +28,7 @@ class TransitGatewayConnectArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a TransitGatewayConnect resource.
+
         :param pulumi.Input['TransitGatewayConnectOptionsArgs'] options: The Connect attachment options.
         :param pulumi.Input[_builtins.str] transport_transit_gateway_attachment_id: The ID of the attachment from which the Connect attachment was created.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags for the attachment.
@@ -87,6 +88,7 @@ class TransitGatewayConnect(pulumi.CustomResource):
         """
         The AWS::EC2::TransitGatewayConnect type
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['TransitGatewayConnectOptionsArgs', 'TransitGatewayConnectOptionsArgsDict']] options: The Connect attachment options.
@@ -101,6 +103,7 @@ class TransitGatewayConnect(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The AWS::EC2::TransitGatewayConnect type
+
 
         :param str resource_name: The name of the resource.
         :param TransitGatewayConnectArgs args: The arguments to use to populate this resource's properties.

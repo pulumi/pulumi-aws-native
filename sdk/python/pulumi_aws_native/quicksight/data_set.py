@@ -48,6 +48,7 @@ class DataSetArgs:
                  use_as: Optional[pulumi.Input['DataSetUseAs']] = None):
         """
         The set of arguments for constructing a DataSet resource.
+
         :param pulumi.Input[_builtins.str] aws_account_id: The AWS account ID.
         :param pulumi.Input[Sequence[pulumi.Input['DataSetColumnGroupArgs']]] column_groups: <p>Groupings of columns that work together in certain Quick Suite features. Currently, only geospatial hierarchy is supported.</p>
         :param pulumi.Input[Sequence[pulumi.Input['DataSetColumnLevelPermissionRuleArgs']]] column_level_permission_rules: <p>A set of one or more definitions of a <code>
@@ -405,6 +406,7 @@ class DataSet(pulumi.CustomResource):
         """
         Definition of the AWS::QuickSight::DataSet Resource Type.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] aws_account_id: The AWS account ID.
@@ -437,6 +439,7 @@ class DataSet(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of the AWS::QuickSight::DataSet Resource Type.
+
 
         :param str resource_name: The name of the resource.
         :param DataSetArgs args: The arguments to use to populate this resource's properties.

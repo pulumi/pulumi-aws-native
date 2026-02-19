@@ -26,6 +26,7 @@ class MultiRegionAccessPointArgs:
                  public_access_block_configuration: Optional[pulumi.Input['MultiRegionAccessPointPublicAccessBlockConfigurationArgs']] = None):
         """
         The set of arguments for constructing a MultiRegionAccessPoint resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['MultiRegionAccessPointRegionArgs']]] regions: The list of buckets that you want to associate this Multi Region Access Point with.
         :param pulumi.Input[_builtins.str] name: The name you want to assign to this Multi Region Access Point.
         :param pulumi.Input['MultiRegionAccessPointPublicAccessBlockConfigurationArgs'] public_access_block_configuration: The PublicAccessBlock configuration that you want to apply to this Multi Region Access Point. You can enable the configuration options in any combination. For more information about when Amazon S3 considers a bucket or object public, see https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html#access-control-block-public-access-policy-status 'The Meaning of Public' in the Amazon Simple Storage Service Developer Guide.
@@ -86,6 +87,7 @@ class MultiRegionAccessPoint(pulumi.CustomResource):
         """
         AWS::S3::MultiRegionAccessPoint is an Amazon S3 resource type that dynamically routes S3 requests to easily satisfy geographic compliance requirements based on customer-defined routing policies.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: The name you want to assign to this Multi Region Access Point.
@@ -100,6 +102,7 @@ class MultiRegionAccessPoint(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         AWS::S3::MultiRegionAccessPoint is an Amazon S3 resource type that dynamically routes S3 requests to easily satisfy geographic compliance requirements based on customer-defined routing policies.
+
 
         :param str resource_name: The name of the resource.
         :param MultiRegionAccessPointArgs args: The arguments to use to populate this resource's properties.

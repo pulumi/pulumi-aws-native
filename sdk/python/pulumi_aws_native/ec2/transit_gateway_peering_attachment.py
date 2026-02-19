@@ -29,6 +29,7 @@ class TransitGatewayPeeringAttachmentArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a TransitGatewayPeeringAttachment resource.
+
         :param pulumi.Input[_builtins.str] peer_account_id: The ID of the peer account
         :param pulumi.Input[_builtins.str] peer_region: Peer Region
         :param pulumi.Input[_builtins.str] peer_transit_gateway_id: The ID of the peer transit gateway.
@@ -118,6 +119,7 @@ class TransitGatewayPeeringAttachment(pulumi.CustomResource):
         """
         The AWS::EC2::TransitGatewayPeeringAttachment type
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] peer_account_id: The ID of the peer account
@@ -134,6 +136,7 @@ class TransitGatewayPeeringAttachment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The AWS::EC2::TransitGatewayPeeringAttachment type
+
 
         :param str resource_name: The name of the resource.
         :param TransitGatewayPeeringAttachmentArgs args: The arguments to use to populate this resource's properties.

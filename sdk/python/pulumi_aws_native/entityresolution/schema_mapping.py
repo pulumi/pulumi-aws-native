@@ -30,6 +30,7 @@ class SchemaMappingArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a SchemaMapping resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['SchemaMappingSchemaInputAttributeArgs']]] mapped_input_fields: The SchemaMapping attributes input
         :param pulumi.Input[_builtins.str] schema_name: The name of the SchemaMapping
         :param pulumi.Input[_builtins.str] description: The description of the SchemaMapping
@@ -105,6 +106,7 @@ class SchemaMapping(pulumi.CustomResource):
         """
         SchemaMapping defined in AWS Entity Resolution service
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: The description of the SchemaMapping
@@ -120,6 +122,7 @@ class SchemaMapping(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         SchemaMapping defined in AWS Entity Resolution service
+
 
         :param str resource_name: The name of the resource.
         :param SchemaMappingArgs args: The arguments to use to populate this resource's properties.

@@ -23,6 +23,7 @@ class VpcEndpointServicePermissionsArgs:
                  allowed_principals: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a VpcEndpointServicePermissions resource.
+
         :param pulumi.Input[_builtins.str] service_id: The ID of the service.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_principals: The Amazon Resource Names (ARN) of one or more principals (for example, users, IAM roles, and AWS accounts ). Permissions are granted to the principals in this list. To grant permissions to all principals, specify an asterisk (*). Permissions are revoked for principals not in this list. If the list is empty, then all permissions are revoked.
         """
@@ -67,6 +68,7 @@ class VpcEndpointServicePermissions(pulumi.CustomResource):
         """
         Resource Type definition for AWS::EC2::VPCEndpointServicePermissions
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_principals: The Amazon Resource Names (ARN) of one or more principals (for example, users, IAM roles, and AWS accounts ). Permissions are granted to the principals in this list. To grant permissions to all principals, specify an asterisk (*). Permissions are revoked for principals not in this list. If the list is empty, then all permissions are revoked.
@@ -80,6 +82,7 @@ class VpcEndpointServicePermissions(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::EC2::VPCEndpointServicePermissions
+
 
         :param str resource_name: The name of the resource.
         :param VpcEndpointServicePermissionsArgs args: The arguments to use to populate this resource's properties.

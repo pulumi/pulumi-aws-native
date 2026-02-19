@@ -36,6 +36,7 @@ class PlanArgs:
                  triggers: Optional[pulumi.Input[Sequence[pulumi.Input['PlanTriggerArgs']]]] = None):
         """
         The set of arguments for constructing a Plan resource.
+
         :param pulumi.Input[_builtins.str] execution_role: The execution role for a plan.
         :param pulumi.Input['PlanRecoveryApproach'] recovery_approach: The recovery approach for a Region switch plan, which can be active/active (activeActive) or active/passive (activePassive).
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] regions: The AWS Regions for a plan.
@@ -233,6 +234,7 @@ class Plan(pulumi.CustomResource):
         """
         Represents a plan that specifies Regions, IAM roles, and workflows of logic required to perform the desired change to your multi-Region application
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[Union['PlanAssociatedAlarmArgs', 'PlanAssociatedAlarmArgsDict']]]] associated_alarms: The associated application health alarms for a plan.
@@ -255,6 +257,7 @@ class Plan(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Represents a plan that specifies Regions, IAM roles, and workflows of logic required to perform the desired change to your multi-Region application
+
 
         :param str resource_name: The name of the resource.
         :param PlanArgs args: The arguments to use to populate this resource's properties.

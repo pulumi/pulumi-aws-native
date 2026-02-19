@@ -24,6 +24,7 @@ class PrimaryTaskSetArgs:
                  task_set_id: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a PrimaryTaskSet resource.
+
         :param pulumi.Input[_builtins.str] cluster: The short name or full Amazon Resource Name (ARN) of the cluster that hosts the service to create the task set in.
         :param pulumi.Input[_builtins.str] service: The short name or full Amazon Resource Name (ARN) of the service to create the task set in.
         :param pulumi.Input[_builtins.str] task_set_id: The ID or full Amazon Resource Name (ARN) of the task set.
@@ -82,6 +83,7 @@ class PrimaryTaskSet(pulumi.CustomResource):
         """
         A pseudo-resource that manages which of your ECS task sets is primary.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] cluster: The short name or full Amazon Resource Name (ARN) of the cluster that hosts the service to create the task set in.
@@ -96,6 +98,7 @@ class PrimaryTaskSet(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A pseudo-resource that manages which of your ECS task sets is primary.
+
 
         :param str resource_name: The name of the resource.
         :param PrimaryTaskSetArgs args: The arguments to use to populate this resource's properties.

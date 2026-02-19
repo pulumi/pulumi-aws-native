@@ -28,6 +28,7 @@ class DatabaseSnapshotArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a DatabaseSnapshot resource.
+
         :param pulumi.Input[_builtins.str] relational_database_name: The name of the database on which to base your new snapshot.
         :param pulumi.Input[_builtins.str] relational_database_snapshot_name: The name for your new database snapshot.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
@@ -87,6 +88,7 @@ class DatabaseSnapshot(pulumi.CustomResource):
         """
         Resource Type definition for AWS::Lightsail::DatabaseSnapshot
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] relational_database_name: The name of the database on which to base your new snapshot.
@@ -101,6 +103,7 @@ class DatabaseSnapshot(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::Lightsail::DatabaseSnapshot
+
 
         :param str resource_name: The name of the resource.
         :param DatabaseSnapshotArgs args: The arguments to use to populate this resource's properties.

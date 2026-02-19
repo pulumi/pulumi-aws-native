@@ -323,6 +323,7 @@ class BridgeFailoverConfigArgs:
                  state: Optional[pulumi.Input['BridgeFailoverConfigStateEnum']] = None):
         """
         The settings for source failover.
+
         :param pulumi.Input['BridgeFailoverModeEnum'] failover_mode: The type of failover you choose for this flow. FAILOVER allows switching between different streams.
         :param pulumi.Input['BridgeSourcePriorityArgs'] source_priority: The priority you want to assign to a source. You can have a primary stream and a backup stream or two equally prioritized streams.
         :param pulumi.Input['BridgeFailoverConfigStateEnum'] state: The state of source failover on the flow. If the state is inactive, the flow can have only one source. If the state is active, the flow can have one or two sources.
@@ -395,6 +396,7 @@ class BridgeFlowSourceArgs:
                  flow_vpc_interface_attachment: Optional[pulumi.Input['BridgeVpcInterfaceAttachmentArgs']] = None):
         """
         The source of the bridge. A flow source originates in MediaConnect as an existing cloud flow.
+
         :param pulumi.Input[_builtins.str] flow_arn: The ARN of the cloud flow used as a source of this bridge.
         :param pulumi.Input[_builtins.str] name: The name of the flow source.
         :param pulumi.Input['BridgeVpcInterfaceAttachmentArgs'] flow_vpc_interface_attachment: The name of the VPC interface attachment to use for this source.
@@ -503,6 +505,7 @@ class BridgeMulticastSourceSettingsArgs:
                  multicast_source_ip: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The settings related to the multicast source.
+
         :param pulumi.Input[_builtins.str] multicast_source_ip: The IP address of the source for source-specific multicast (SSM).
         """
         if multicast_source_ip is not None:
@@ -561,6 +564,7 @@ class BridgeNetworkOutputArgs:
                  ttl: pulumi.Input[_builtins.int]):
         """
         The output of the bridge. A network output is delivered to your premises.
+
         :param pulumi.Input[_builtins.str] ip_address: The network output IP Address.
         :param pulumi.Input[_builtins.str] name: The network output name.
         :param pulumi.Input[_builtins.str] network_name: The network output's gateway network name.
@@ -688,6 +692,7 @@ class BridgeNetworkSourceArgs:
                  multicast_source_settings: Optional[pulumi.Input['BridgeMulticastSourceSettingsArgs']] = None):
         """
         The source of the bridge. A network source originates at your premises.
+
         :param pulumi.Input[_builtins.str] multicast_ip: The network source multicast IP.
         :param pulumi.Input[_builtins.str] name: The name of the network source.
         :param pulumi.Input[_builtins.str] network_name: The network source's gateway network name.
@@ -811,6 +816,7 @@ class BridgeOutputResourceBridgeNetworkOutputArgs:
                  ttl: pulumi.Input[_builtins.int]):
         """
         The output of the bridge. A network output is delivered to your premises.
+
         :param pulumi.Input[_builtins.str] ip_address: The network output IP Address.
         :param pulumi.Input[_builtins.str] network_name: The network output's gateway network name.
         :param pulumi.Input[_builtins.int] port: The network output port.
@@ -899,6 +905,7 @@ class BridgeOutputArgs:
                  network_output: Optional[pulumi.Input['BridgeNetworkOutputArgs']] = None):
         """
         The output of the bridge.
+
         :param pulumi.Input['BridgeNetworkOutputArgs'] network_output: The output of the bridge. A network output is delivered to your premises.
         """
         if network_output is not None:
@@ -937,6 +944,7 @@ class BridgeSourceBridgeFlowSourceArgs:
                  flow_vpc_interface_attachment: Optional[pulumi.Input['BridgeSourceVpcInterfaceAttachmentArgs']] = None):
         """
         The source of the bridge. A flow source originates in MediaConnect as an existing cloud flow.
+
         :param pulumi.Input[_builtins.str] flow_arn: The ARN of the cloud flow used as a source of this bridge.
         :param pulumi.Input['BridgeSourceVpcInterfaceAttachmentArgs'] flow_vpc_interface_attachment: The name of the VPC interface attachment to use for this source.
         """
@@ -1004,6 +1012,7 @@ class BridgeSourceBridgeNetworkSourceArgs:
                  multicast_source_settings: Optional[pulumi.Input['BridgeSourceMulticastSourceSettingsArgs']] = None):
         """
         The source of the bridge. A network source originates at your premises.
+
         :param pulumi.Input[_builtins.str] multicast_ip: The network source multicast IP.
         :param pulumi.Input[_builtins.str] network_name: The network source's gateway network name.
         :param pulumi.Input[_builtins.int] port: The network source port.
@@ -1093,6 +1102,7 @@ class BridgeSourceMulticastSourceSettingsArgs:
                  multicast_source_ip: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The settings related to the multicast source.
+
         :param pulumi.Input[_builtins.str] multicast_source_ip: The IP address of the source for source-specific multicast (SSM).
         """
         if multicast_source_ip is not None:
@@ -1126,6 +1136,7 @@ class BridgeSourcePriorityArgs:
                  primary_source: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The priority you want to assign to a source. You can have a primary stream and a backup stream or two equally prioritized streams.
+
         :param pulumi.Input[_builtins.str] primary_source: The name of the source you choose as the primary source for this flow.
         """
         if primary_source is not None:
@@ -1159,6 +1170,7 @@ class BridgeSourceVpcInterfaceAttachmentArgs:
                  vpc_interface_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The settings for attaching a VPC interface to an resource.
+
         :param pulumi.Input[_builtins.str] vpc_interface_name: The name of the VPC interface to use for this resource.
         """
         if vpc_interface_name is not None:
@@ -1197,6 +1209,7 @@ class BridgeSourceArgs:
                  network_source: Optional[pulumi.Input['BridgeNetworkSourceArgs']] = None):
         """
         The bridge's source.
+
         :param pulumi.Input['BridgeFlowSourceArgs'] flow_source: The source of the bridge. A flow source originates in MediaConnect as an existing cloud flow.
         :param pulumi.Input['BridgeNetworkSourceArgs'] network_source: The source of the bridge. A network source originates at your premises.
         """
@@ -1245,6 +1258,7 @@ class BridgeVpcInterfaceAttachmentArgs:
                  vpc_interface_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The settings for attaching a VPC interface to an resource.
+
         :param pulumi.Input[_builtins.str] vpc_interface_name: The name of the VPC interface to use for this resource.
         """
         if vpc_interface_name is not None:
@@ -1278,6 +1292,7 @@ class FlowAudioMonitoringSettingArgs:
                  silent_audio: Optional[pulumi.Input['FlowSilentAudioArgs']] = None):
         """
         Specifies the configuration for audio stream metrics monitoring.
+
         :param pulumi.Input['FlowSilentAudioArgs'] silent_audio: Detects periods of silence.
         """
         if silent_audio is not None:
@@ -1331,6 +1346,7 @@ class FlowBlackFramesArgs:
                  threshold_seconds: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Configures settings for the BlackFrames metric.
+
         :param pulumi.Input['FlowBlackFramesState'] state: Indicates whether the BlackFrames metric is enabled or disabled.
         :param pulumi.Input[_builtins.int] threshold_seconds: Specifies the number of consecutive seconds of black frames that triggers an event or alert.
         """
@@ -1419,6 +1435,7 @@ class FlowEncryptionArgs:
                  url: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Information about the encryption of the flow.
+
         :param pulumi.Input[_builtins.str] role_arn: The ARN of the role that you created during setup (when you set up AWS Elemental MediaConnect as a trusted entity).
         :param pulumi.Input['FlowEncryptionAlgorithm'] algorithm: The type of algorithm that is used for the encryption (such as aes128, aes192, or aes256).
         :param pulumi.Input[_builtins.str] constant_initialization_vector: A 128-bit, 16-byte hex value represented by a 32-character string, to be used with the key for encrypting content. This parameter is not valid for static key encryption.
@@ -1611,6 +1628,7 @@ class FlowEntitlementEncryptionArgs:
                  url: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Information about the encryption of the flow.
+
         :param pulumi.Input['FlowEntitlementEncryptionAlgorithm'] algorithm: The type of algorithm that is used for the encryption (such as aes128, aes192, or aes256).
         :param pulumi.Input[_builtins.str] role_arn: The ARN of the role that you created during setup (when you set up AWS Elemental MediaConnect as a trusted entity).
         :param pulumi.Input[_builtins.str] constant_initialization_vector: A 128-bit, 16-byte hex value represented by a 32-character string, to be used with the key for encrypting content. This parameter is not valid for static key encryption.
@@ -1762,6 +1780,7 @@ class FlowFailoverConfigSourcePriorityPropertiesArgs:
                  primary_source: pulumi.Input[_builtins.str]):
         """
         The priority you want to assign to a source. You can have a primary stream and a backup stream or two equally prioritized streams.
+
         :param pulumi.Input[_builtins.str] primary_source: The name of the source you choose as the primary source for this flow.
         """
         pulumi.set(__self__, "primary_source", primary_source)
@@ -1809,6 +1828,7 @@ class FlowFailoverConfigArgs:
                  state: Optional[pulumi.Input['FlowFailoverConfigState']] = None):
         """
         The settings for source failover
+
         :param pulumi.Input['FlowFailoverConfigFailoverMode'] failover_mode: The type of failover you choose for this flow. MERGE combines the source streams into a single stream, allowing graceful recovery from any single-source loss. FAILOVER allows switching between different streams.
         :param pulumi.Input[_builtins.int] recovery_window: Search window time to look for dash-7 packets
         :param pulumi.Input['FlowFailoverConfigSourcePriorityPropertiesArgs'] source_priority: The priority you want to assign to a source. You can have a primary stream and a backup stream or two equally prioritized streams.
@@ -1917,6 +1937,7 @@ class FlowFmtpArgs:
                  tcs: Optional[pulumi.Input['FlowFmtpTcs']] = None):
         """
         A set of parameters that define the media stream.
+
         :param pulumi.Input[_builtins.str] channel_order: The format of the audio channel.
         :param pulumi.Input['FlowFmtpColorimetry'] colorimetry: The format used for the representation of color.
         :param pulumi.Input[_builtins.str] exact_framerate: The frame rate for the video stream, in frames/second. For example: 60000/1001.
@@ -2045,6 +2066,7 @@ class FlowFrozenFramesArgs:
                  threshold_seconds: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Configures settings for the FrozenFrames metric.
+
         :param pulumi.Input['FlowFrozenFramesState'] state: Indicates whether the FrozenFrames metric is enabled or disabled.
         :param pulumi.Input[_builtins.int] threshold_seconds: Specifies the number of consecutive seconds of a static image that triggers an event or alert.
         """
@@ -2098,6 +2120,7 @@ class FlowGatewayBridgeSourceArgs:
                  vpc_interface_attachment: Optional[pulumi.Input['FlowVpcInterfaceAttachmentArgs']] = None):
         """
         The source configuration for cloud flows receiving a stream from a bridge.
+
         :param pulumi.Input[_builtins.str] bridge_arn: The ARN of the bridge feeding this flow.
         :param pulumi.Input['FlowVpcInterfaceAttachmentArgs'] vpc_interface_attachment: The name of the VPC interface attachment to use for this bridge source.
         """
@@ -2150,6 +2173,7 @@ class FlowInputConfigurationArgs:
                  interface: pulumi.Input['FlowInterfaceArgs']):
         """
         The transport parameters associated with an incoming media stream.
+
         :param pulumi.Input[_builtins.int] input_port: The port that the flow listens on for an incoming media stream.
         :param pulumi.Input['FlowInterfaceArgs'] interface: The VPC interface where the media stream comes in from.
         """
@@ -2196,6 +2220,7 @@ class FlowInterfaceArgs:
                  name: pulumi.Input[_builtins.str]):
         """
         The VPC interface that you want to use for the media stream associated with the output.
+
         :param pulumi.Input[_builtins.str] name: The name of the VPC interface that you want to use for the media stream associated with the output.
         """
         pulumi.set(__self__, "name", name)
@@ -2233,6 +2258,7 @@ class FlowMaintenanceArgs:
                  maintenance_start_hour: pulumi.Input[_builtins.str]):
         """
         The maintenance setting of a flow.
+
         :param pulumi.Input['FlowMaintenanceMaintenanceDay'] maintenance_day: A day of a week when the maintenance will happen. Use Monday/Tuesday/Wednesday/Thursday/Friday/Saturday/Sunday.
         :param pulumi.Input[_builtins.str] maintenance_start_hour: UTC time when the maintenance will happen. Use 24-hour HH:MM format. Minutes must be 00. Example: 13:00. The default value is 02:00.
         """
@@ -2284,6 +2310,7 @@ class FlowMediaStreamAttributesArgs:
                  lang: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Attributes that are related to the media stream.
+
         :param pulumi.Input['FlowFmtpArgs'] fmtp: A set of parameters that define the media stream.
         :param pulumi.Input[_builtins.str] lang: The audio language, in a format that is recognized by the receiver.
         """
@@ -2342,6 +2369,7 @@ class FlowMediaStreamSourceConfigurationArgs:
                  input_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['FlowInputConfigurationArgs']]]] = None):
         """
         The media stream that is associated with the source, and the parameters for that association.
+
         :param pulumi.Input['FlowMediaStreamSourceConfigurationEncodingName'] encoding_name: The format that was used to encode the data. For ancillary data streams, set the encoding name to smpte291. For audio streams, set the encoding name to pcm. For video, 2110 streams, set the encoding name to raw. For video, JPEG XS streams, set the encoding name to jxsv.
         :param pulumi.Input[_builtins.str] media_stream_name: A name that helps you distinguish one media stream from another.
         :param pulumi.Input[Sequence[pulumi.Input['FlowInputConfigurationArgs']]] input_configurations: The media streams that you want to associate with the source.
@@ -2438,6 +2466,7 @@ class FlowMediaStreamArgs:
                  video_format: Optional[pulumi.Input['FlowMediaStreamVideoFormat']] = None):
         """
         A single track or stream of media that contains video, audio, or ancillary data. After you add a media stream to a flow, you can associate it with sources and outputs on that flow, as long as they use the CDI protocol or the ST 2110 JPEG XS protocol. Each source or output can consist of one or many media streams.
+
         :param pulumi.Input[_builtins.int] media_stream_id: A unique identifier for the media stream.
         :param pulumi.Input[_builtins.str] media_stream_name: A name that helps you distinguish one media stream from another.
         :param pulumi.Input['FlowMediaStreamMediaStreamType'] media_stream_type: The type of media stream.
@@ -2583,6 +2612,7 @@ class FlowNdiConfigArgs:
                  ndi_state: Optional[pulumi.Input['FlowNdiConfigNdiState']] = None):
         """
         Specifies the configuration settings for NDI outputs. Required when the flow includes NDI outputs.
+
         :param pulumi.Input[_builtins.str] machine_name: A prefix for the names of the NDI sources that the flow creates. If a custom name isn't specified, MediaConnect generates a unique 12-character ID as the prefix.
         :param pulumi.Input[Sequence[pulumi.Input['FlowNdiDiscoveryServerConfigArgs']]] ndi_discovery_servers: A list of up to three NDI discovery server configurations. While not required by the API, this configuration is necessary for NDI functionality to work properly.
         :param pulumi.Input['FlowNdiConfigNdiState'] ndi_state: A setting that controls whether NDI outputs can be used in the flow. Must be ENABLED to add NDI outputs. Default is DISABLED.
@@ -2656,6 +2686,7 @@ class FlowNdiDiscoveryServerConfigArgs:
                  discovery_server_port: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Specifies the configuration settings for individual NDI discovery servers. A maximum of 3 servers is allowed.
+
         :param pulumi.Input[_builtins.str] discovery_server_address: The unique network address of the NDI discovery server.
         :param pulumi.Input[_builtins.str] vpc_interface_adapter: The identifier for the Virtual Private Cloud (VPC) network interface used by the flow.
         :param pulumi.Input[_builtins.int] discovery_server_port: The port for the NDI discovery server. Defaults to 5959 if a custom port isn't specified.
@@ -2742,6 +2773,7 @@ class FlowOutputDestinationConfigurationArgs:
                  interface: pulumi.Input['FlowOutputInterfaceArgs']):
         """
         The definition of a media stream that is associated with the output.
+
         :param pulumi.Input[_builtins.str] destination_ip: The IP address where contents of the media stream will be sent.
         :param pulumi.Input[_builtins.int] destination_port: The port to use when the content of the media stream is distributed to the output.
         :param pulumi.Input['FlowOutputInterfaceArgs'] interface: The VPC interface that is used for the media stream associated with the output.
@@ -2807,6 +2839,7 @@ class FlowOutputEncodingParametersArgs:
                  encoder_profile: Optional[pulumi.Input['FlowOutputEncodingParametersEncoderProfile']] = None):
         """
         A collection of parameters that determine how MediaConnect will convert the content. These fields only apply to outputs on flows that have a CDI source.
+
         :param pulumi.Input[_builtins.float] compression_factor: A value that is used to calculate compression for an output. The bitrate of the output is calculated as follows: Output bitrate = (1 / compressionFactor) * (source bitrate) This property only applies to outputs that use the ST 2110 JPEG XS protocol, with a flow source that uses the CDI protocol. Valid values are in the range of 3.0 to 10.0, inclusive.
         :param pulumi.Input['FlowOutputEncodingParametersEncoderProfile'] encoder_profile: A setting on the encoder that drives compression settings. This property only applies to video media streams associated with outputs that use the ST 2110 JPEG XS protocol, with a flow source that uses the CDI protocol.
         """
@@ -2869,6 +2902,7 @@ class FlowOutputEncryptionArgs:
                  key_type: Optional[pulumi.Input['FlowOutputEncryptionKeyType']] = None):
         """
         Information about the encryption of the flow.
+
         :param pulumi.Input[_builtins.str] role_arn: The ARN of the role that you created during setup (when you set up AWS Elemental MediaConnect as a trusted entity).
         :param pulumi.Input[_builtins.str] secret_arn:  The ARN of the secret that you created in AWS Secrets Manager to store the encryption key. This parameter is required for static key encryption and is not valid for SPEKE encryption.
         :param pulumi.Input['FlowOutputEncryptionAlgorithm'] algorithm: The type of algorithm that is used for the encryption (such as aes128, aes192, or aes256).
@@ -3033,6 +3067,7 @@ class FlowOutputInterfaceArgs:
                  name: pulumi.Input[_builtins.str]):
         """
         The VPC interface that you want to use for the media stream associated with the output.
+
         :param pulumi.Input[_builtins.str] name: The name of the VPC interface that you want to use for the media stream associated with the output.
         """
         pulumi.set(__self__, "name", name)
@@ -3080,6 +3115,7 @@ class FlowOutputMediaStreamOutputConfigurationArgs:
                  encoding_parameters: Optional[pulumi.Input['FlowOutputEncodingParametersArgs']] = None):
         """
         The media stream that is associated with the output, and the parameters for that association.
+
         :param pulumi.Input['FlowOutputMediaStreamOutputConfigurationEncodingName'] encoding_name: The format that will be used to encode the data. For ancillary data streams, set the encoding name to smpte291. For audio streams, set the encoding name to pcm. For video streams on sources or outputs that use the CDI protocol, set the encoding name to raw. For video streams on sources or outputs that use the ST 2110 JPEG XS protocol, set the encoding name to jxsv.
         :param pulumi.Input[_builtins.str] media_stream_name: A name that helps you distinguish one media stream from another.
         :param pulumi.Input[Sequence[pulumi.Input['FlowOutputDestinationConfigurationArgs']]] destination_configurations: The media streams that you want to associate with the output.
@@ -3161,6 +3197,7 @@ class FlowOutputSecretsManagerEncryptionKeyConfigurationArgs:
                  secret_arn: pulumi.Input[_builtins.str]):
         """
         The configuration settings for transit encryption of a flow output using AWS Secrets Manager, including the secret ARN and role ARN.
+
         :param pulumi.Input[_builtins.str] role_arn: The ARN of the IAM role used for transit encryption to the router input using AWS Secrets Manager.
         :param pulumi.Input[_builtins.str] secret_arn: The ARN of the AWS Secrets Manager secret used for transit encryption to the router input.
         """
@@ -3207,6 +3244,7 @@ class FlowOutputVpcInterfaceAttachmentArgs:
                  vpc_interface_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The settings for attaching a VPC interface to an output.
+
         :param pulumi.Input[_builtins.str] vpc_interface_name: The name of the VPC interface to use for this output.
         """
         if vpc_interface_name is not None:
@@ -3245,6 +3283,7 @@ class FlowSecretsManagerEncryptionKeyConfigurationArgs:
                  secret_arn: pulumi.Input[_builtins.str]):
         """
         The configuration settings for transit encryption of a flow source using AWS Secrets Manager, including the secret ARN and role ARN.
+
         :param pulumi.Input[_builtins.str] role_arn: The ARN of the IAM role used for transit encryption from the router output using AWS Secrets Manager.
         :param pulumi.Input[_builtins.str] secret_arn: The ARN of the AWS Secrets Manager secret used for transit encryption from the router output.
         """
@@ -3296,6 +3335,7 @@ class FlowSilentAudioArgs:
                  threshold_seconds: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Configures settings for the SilentAudio metric.
+
         :param pulumi.Input['FlowSilentAudioState'] state: Indicates whether the SilentAudio metric is enabled or disabled.
         :param pulumi.Input[_builtins.int] threshold_seconds: Specifies the number of consecutive seconds of silence that triggers an event or alert.
         """
@@ -3384,6 +3424,7 @@ class FlowSourceEncryptionArgs:
                  url: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Information about the encryption of the flow.
+
         :param pulumi.Input[_builtins.str] role_arn: The ARN of the role that you created during setup (when you set up AWS Elemental MediaConnect as a trusted entity).
         :param pulumi.Input['FlowSourceEncryptionAlgorithm'] algorithm: The type of algorithm that is used for the encryption (such as aes128, aes192, or aes256).
         :param pulumi.Input[_builtins.str] constant_initialization_vector: A 128-bit, 16-byte hex value represented by a 32-character string, to be used with the key for encrypting content. This parameter is not valid for static key encryption.
@@ -3541,6 +3582,7 @@ class FlowSourceGatewayBridgeSourceArgs:
                  vpc_interface_attachment: Optional[pulumi.Input['FlowSourceVpcInterfaceAttachmentArgs']] = None):
         """
         The source configuration for cloud flows receiving a stream from a bridge.
+
         :param pulumi.Input[_builtins.str] bridge_arn: The ARN of the bridge feeding this flow.
         :param pulumi.Input['FlowSourceVpcInterfaceAttachmentArgs'] vpc_interface_attachment: The name of the VPC interface attachment to use for this bridge source.
         """
@@ -3603,6 +3645,7 @@ class FlowSourceMonitoringConfigArgs:
                  video_monitoring_settings: Optional[pulumi.Input[Sequence[pulumi.Input['FlowVideoMonitoringSettingArgs']]]] = None):
         """
         The settings for source monitoring.
+
         :param pulumi.Input[Sequence[pulumi.Input['FlowAudioMonitoringSettingArgs']]] audio_monitoring_settings: Contains the settings for audio stream metrics monitoring.
         :param pulumi.Input['FlowSourceMonitoringConfigContentQualityAnalysisState'] content_quality_analysis_state: Indicates whether content quality analysis is enabled or disabled.
         :param pulumi.Input['FlowSourceMonitoringConfigThumbnailState'] thumbnail_state: The state of thumbnail monitoring.
@@ -3681,6 +3724,7 @@ class FlowSourceVpcInterfaceAttachmentArgs:
                  vpc_interface_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The settings for attaching a VPC interface to an resource.
+
         :param pulumi.Input[_builtins.str] vpc_interface_name: The name of the VPC interface to use for this resource.
         """
         if vpc_interface_name is not None:
@@ -3829,6 +3873,7 @@ class FlowSourceArgs:
                  whitelist_cidr: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The settings for the source of the flow.
+
         :param pulumi.Input['FlowEncryptionArgs'] decryption: The type of decryption that is used on the content ingested from this source.
         :param pulumi.Input[_builtins.str] description: A description for the source. This value is not used or seen outside of the current AWS Elemental MediaConnect account.
         :param pulumi.Input[_builtins.str] entitlement_arn: The ARN of the entitlement that allows you to subscribe to content that comes from another AWS account. The entitlement is set by the content originator and the ARN is generated as part of the originator's flow.
@@ -4300,6 +4345,7 @@ class FlowVideoMonitoringSettingArgs:
                  frozen_frames: Optional[pulumi.Input['FlowFrozenFramesArgs']] = None):
         """
         Specifies the configuration for video stream metrics monitoring.
+
         :param pulumi.Input['FlowBlackFramesArgs'] black_frames: Detects video frames that are black.
         :param pulumi.Input['FlowFrozenFramesArgs'] frozen_frames: Detects video frames that have not changed.
         """
@@ -4348,6 +4394,7 @@ class FlowVpcInterfaceAttachmentArgs:
                  vpc_interface_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The settings for attaching a VPC interface to an resource.
+
         :param pulumi.Input[_builtins.str] vpc_interface_name: The name of the VPC interface to use for this resource.
         """
         if vpc_interface_name is not None:
@@ -4406,6 +4453,7 @@ class FlowVpcInterfaceArgs:
                  network_interface_type: Optional[pulumi.Input['FlowVpcInterfaceNetworkInterfaceType']] = None):
         """
         The details of a VPC interface.
+
         :param pulumi.Input[_builtins.str] name: Immutable and has to be a unique against other VpcInterfaces in this Flow.
         :param pulumi.Input[_builtins.str] role_arn: Role Arn MediaConnect can assume to create ENIs in customer's account.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: Security Group IDs to be used on ENI.
@@ -4515,6 +4563,7 @@ class GatewayNetworkArgs:
                  name: pulumi.Input[_builtins.str]):
         """
         The network settings for a gateway.
+
         :param pulumi.Input[_builtins.str] cidr_block: A unique IP address range to use for this network. These IP addresses should be in the form of a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16.
         :param pulumi.Input[_builtins.str] name: The name of the network. This name is used to reference the network and must be unique among networks in this gateway.
         """
@@ -4703,6 +4752,7 @@ class RouterInputFailoverRouterInputConfigurationArgs:
                  primary_source_index: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Configuration settings for a failover router input that allows switching between two input sources.
+
         :param pulumi.Input[_builtins.str] network_interface_arn: The ARN of the network interface to use for this failover router input.
         :param pulumi.Input[Sequence[pulumi.Input[Union['RouterInputFailoverRouterInputProtocolConfiguration0PropertiesArgs', 'RouterInputFailoverRouterInputProtocolConfiguration1PropertiesArgs', 'RouterInputFailoverRouterInputProtocolConfiguration2PropertiesArgs', 'RouterInputFailoverRouterInputProtocolConfiguration3PropertiesArgs']]]] protocol_configurations: A list of exactly two protocol configurations for the failover input sources. Both must use the same protocol type.
         :param pulumi.Input[_builtins.int] primary_source_index: The index (0 or 1) that specifies which source in the protocol configurations list is currently active. Used to control which of the two failover sources is currently selected. This field is ignored when sourcePriorityMode is set to NO_PRIORITY
@@ -5019,6 +5069,7 @@ class RouterInputMediaConnectFlowRouterInputConfigurationArgs:
                  flow_output_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Configuration settings for connecting a router input to a flow output.
+
         :param pulumi.Input[_builtins.str] flow_arn: The ARN of the flow to connect to.
         :param pulumi.Input[_builtins.str] flow_output_arn: The ARN of the flow output to connect to this router input.
         """
@@ -5087,6 +5138,7 @@ class RouterInputMergeRouterInputConfigurationArgs:
                  protocol_configurations: pulumi.Input[Sequence[pulumi.Input[Union['RouterInputMergeRouterInputProtocolConfiguration0PropertiesArgs', 'RouterInputMergeRouterInputProtocolConfiguration1PropertiesArgs']]]]):
         """
         Configuration settings for a merge router input that combines two input sources.
+
         :param pulumi.Input[_builtins.int] merge_recovery_window_milliseconds: The time window in milliseconds for merging the two input sources.
         :param pulumi.Input[_builtins.str] network_interface_arn: The ARN of the network interface to use for this merge router input.
         :param pulumi.Input[Sequence[pulumi.Input[Union['RouterInputMergeRouterInputProtocolConfiguration0PropertiesArgs', 'RouterInputMergeRouterInputProtocolConfiguration1PropertiesArgs']]]] protocol_configurations: A list of exactly two protocol configurations for the merge input sources. Both must use the same protocol type.
@@ -5199,6 +5251,7 @@ class RouterInputPreferredDayTimeMaintenanceConfigurationArgs:
                  time: pulumi.Input[_builtins.str]):
         """
         Configuration for preferred day and time maintenance settings.
+
         :param pulumi.Input[_builtins.str] time: The preferred time for maintenance operations.
         """
         pulumi.set(__self__, "day", day)
@@ -5346,6 +5399,7 @@ class RouterInputRistRouterInputConfigurationArgs:
                  recovery_latency_milliseconds: pulumi.Input[_builtins.int]):
         """
         The configuration settings for a router input using the RIST (Reliable Internet Stream Transport) protocol, including the port and recovery latency.
+
         :param pulumi.Input[_builtins.int] port: The port number used for the RIST protocol in the router input configuration.
         :param pulumi.Input[_builtins.int] recovery_latency_milliseconds: The recovery latency in milliseconds for the RIST protocol in the router input configuration.
         """
@@ -5394,6 +5448,7 @@ class RouterInputRtpRouterInputConfigurationArgs:
                  forward_error_correction: Optional[pulumi.Input['RouterInputForwardErrorCorrectionState']] = None):
         """
         The configuration settings for a Router Input using the RTP (Real-Time Transport Protocol) protocol, including the port and forward error correction state.
+
         :param pulumi.Input[_builtins.int] port: The port number used for the RTP protocol in the router input configuration.
         """
         pulumi.set(__self__, "port", port)
@@ -5442,6 +5497,7 @@ class RouterInputSecretsManagerEncryptionKeyConfigurationArgs:
                  secret_arn: pulumi.Input[_builtins.str]):
         """
         The configuration settings for transit encryption using AWS Secrets Manager, including the secret ARN and role ARN.
+
         :param pulumi.Input[_builtins.str] role_arn: The ARN of the IAM role assumed by MediaConnect to access the AWS Secrets Manager secret.
         :param pulumi.Input[_builtins.str] secret_arn: The ARN of the AWS Secrets Manager secret used for transit encryption.
         """
@@ -5505,6 +5561,7 @@ class RouterInputSrtCallerRouterInputConfigurationArgs:
                  stream_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The configuration settings for a router input using the SRT (Secure Reliable Transport) protocol in caller mode, including the source address and port, minimum latency, stream ID, and decryption key configuration.
+
         :param pulumi.Input[_builtins.int] minimum_latency_milliseconds: The minimum latency in milliseconds for the SRT protocol in caller mode.
         :param pulumi.Input[_builtins.str] source_address: The source IP address for the SRT protocol in caller mode.
         :param pulumi.Input[_builtins.int] source_port: The source port number for the SRT protocol in caller mode.
@@ -5623,6 +5680,7 @@ class RouterInputSrtListenerRouterInputConfigurationArgs:
                  decryption_configuration: Optional[pulumi.Input['RouterInputSrtDecryptionConfigurationArgs']] = None):
         """
         The configuration settings for a router input using the SRT (Secure Reliable Transport) protocol in listener mode, including the port, minimum latency, and decryption key configuration.
+
         :param pulumi.Input[_builtins.int] minimum_latency_milliseconds: The minimum latency in milliseconds for the SRT protocol in listener mode.
         :param pulumi.Input[_builtins.int] port: The port number for the SRT protocol in listener mode.
         """
@@ -5684,6 +5742,7 @@ class RouterInputStandardRouterInputConfigurationArgs:
                  protocol: Optional[pulumi.Input['RouterInputProtocol']] = None):
         """
         The configuration settings for a standard router input, including the protocol, protocol-specific configuration, network interface, and availability zone.
+
         :param pulumi.Input[_builtins.str] network_interface_arn: The Amazon Resource Name (ARN) of the network interface associated with the standard router input.
         """
         pulumi.set(__self__, "network_interface_arn", network_interface_arn)
@@ -5875,6 +5934,7 @@ class RouterNetworkInterfacePublicRouterNetworkInterfaceConfigurationArgs:
                  allow_rules: pulumi.Input[Sequence[pulumi.Input['RouterNetworkInterfacePublicRouterNetworkInterfaceRuleArgs']]]):
         """
         The configuration settings for a public router network interface, including the list of allowed CIDR blocks.
+
         :param pulumi.Input[Sequence[pulumi.Input['RouterNetworkInterfacePublicRouterNetworkInterfaceRuleArgs']]] allow_rules: The list of allowed CIDR blocks for the public router network interface.
         """
         pulumi.set(__self__, "allow_rules", allow_rules)
@@ -5907,6 +5967,7 @@ class RouterNetworkInterfacePublicRouterNetworkInterfaceRuleArgs:
                  cidr: pulumi.Input[_builtins.str]):
         """
         A rule that allows a specific CIDR block to access the public router network interface.
+
         :param pulumi.Input[_builtins.str] cidr: The CIDR block that is allowed to access the public router network interface.
         """
         pulumi.set(__self__, "cidr", cidr)
@@ -5944,6 +6005,7 @@ class RouterNetworkInterfaceVpcRouterNetworkInterfaceConfigurationArgs:
                  subnet_id: pulumi.Input[_builtins.str]):
         """
         The configuration settings for a router network interface within a VPC, including the security group IDs and subnet ID.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: The IDs of the security groups to associate with the router network interface within the VPC.
         :param pulumi.Input[_builtins.str] subnet_id: The ID of the subnet within the VPC to associate the router network interface with.
         """
@@ -6165,6 +6227,7 @@ class RouterOutputResourceMediaConnectFlowRouterOutputConfigurationArgs:
                  flow_source_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Configuration settings for connecting a router output to a MediaConnect flow source.
+
         :param pulumi.Input[_builtins.str] flow_arn: The ARN of the flow to connect to this router output.
         :param pulumi.Input[_builtins.str] flow_source_arn: The ARN of the flow source to connect to this router output.
         """
@@ -6227,6 +6290,7 @@ class RouterOutputResourceMediaLiveInputRouterOutputConfigurationArgs:
                  media_live_pipeline_id: Optional[pulumi.Input['RouterOutputResourceMediaLiveInputPipelineId']] = None):
         """
         Configuration settings for connecting a router output to a MediaLive input.
+
         :param pulumi.Input[_builtins.str] media_live_input_arn: The ARN of the MediaLive input to connect to this router output.
         """
         pulumi.set(__self__, "destination_transit_encryption", destination_transit_encryption)
@@ -6371,6 +6435,7 @@ class RouterOutputResourcePreferredDayTimeMaintenanceConfigurationArgs:
                  time: pulumi.Input[_builtins.str]):
         """
         Configuration for preferred day and time maintenance settings.
+
         :param pulumi.Input[_builtins.str] time: The preferred time for maintenance operations.
         """
         pulumi.set(__self__, "day", day)
@@ -6418,6 +6483,7 @@ class RouterOutputResourceRistRouterOutputConfigurationArgs:
                  destination_port: pulumi.Input[_builtins.int]):
         """
         The configuration settings for a router output using the RIST (Reliable Internet Stream Transport) protocol, including the destination address and port.
+
         :param pulumi.Input[_builtins.str] destination_address: The destination IP address for the RIST protocol in the router output configuration.
         :param pulumi.Input[_builtins.int] destination_port: The destination port number for the RIST protocol in the router output configuration.
         """
@@ -6646,6 +6712,7 @@ class RouterOutputResourceRtpRouterOutputConfigurationArgs:
                  forward_error_correction: Optional[pulumi.Input['RouterOutputResourceForwardErrorCorrectionState']] = None):
         """
         The configuration settings for a router output using the RTP (Real-Time Transport Protocol) protocol, including the destination address and port, and forward error correction state.
+
         :param pulumi.Input[_builtins.str] destination_address: The destination IP address for the RTP protocol in the router output configuration.
         :param pulumi.Input[_builtins.int] destination_port: The destination port number for the RTP protocol in the router output configuration.
         """
@@ -6708,6 +6775,7 @@ class RouterOutputResourceSecretsManagerEncryptionKeyConfigurationArgs:
                  secret_arn: pulumi.Input[_builtins.str]):
         """
         The configuration settings for transit encryption using AWS Secrets Manager, including the secret ARN and role ARN.
+
         :param pulumi.Input[_builtins.str] role_arn: The ARN of the IAM role assumed by MediaConnect to access the AWS Secrets Manager secret.
         :param pulumi.Input[_builtins.str] secret_arn: The ARN of the AWS Secrets Manager secret used for transit encryption.
         """
@@ -6771,6 +6839,7 @@ class RouterOutputResourceSrtCallerRouterOutputConfigurationArgs:
                  stream_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The configuration settings for a router output using the SRT (Secure Reliable Transport) protocol in caller mode, including the destination address and port, minimum latency, stream ID, and encryption key configuration.
+
         :param pulumi.Input[_builtins.str] destination_address: The destination IP address for the SRT protocol in caller mode.
         :param pulumi.Input[_builtins.int] destination_port: The destination port number for the SRT protocol in caller mode.
         :param pulumi.Input[_builtins.int] minimum_latency_milliseconds: The minimum latency in milliseconds for the SRT protocol in caller mode.
@@ -6889,6 +6958,7 @@ class RouterOutputResourceSrtListenerRouterOutputConfigurationArgs:
                  encryption_configuration: Optional[pulumi.Input['RouterOutputResourceSrtEncryptionConfigurationArgs']] = None):
         """
         The configuration settings for a router output using the SRT (Secure Reliable Transport) protocol in listener mode, including the port, minimum latency, and encryption key configuration.
+
         :param pulumi.Input[_builtins.int] minimum_latency_milliseconds: The minimum latency in milliseconds for the SRT protocol in listener mode.
         :param pulumi.Input[_builtins.int] port: The port number for the SRT protocol in listener mode.
         """
@@ -6950,6 +7020,7 @@ class RouterOutputResourceStandardRouterOutputConfigurationArgs:
                  protocol: Optional[pulumi.Input['RouterOutputResourceRouterOutputProtocol']] = None):
         """
         The configuration settings for a standard router output, including the protocol, protocol-specific configuration, network interface, and availability zone.
+
         :param pulumi.Input[_builtins.str] network_interface_arn: The Amazon Resource Name (ARN) of the network interface associated with the standard router output.
         """
         pulumi.set(__self__, "network_interface_arn", network_interface_arn)

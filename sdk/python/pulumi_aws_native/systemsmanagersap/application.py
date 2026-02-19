@@ -35,6 +35,7 @@ class ApplicationArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Application resource.
+
         :param pulumi.Input[_builtins.str] application_id: The ID of the application.
         :param pulumi.Input['ApplicationType'] application_type: The type of the application.
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationComponentInfoArgs']]] components_info: This is an optional parameter for component details to which the SAP ABAP application is attached, such as Web Dispatcher.
@@ -190,6 +191,7 @@ class Application(pulumi.CustomResource):
         """
         Resource schema for AWS::SystemsManagerSAP::Application
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] application_id: The ID of the application.
@@ -210,6 +212,7 @@ class Application(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource schema for AWS::SystemsManagerSAP::Application
+
 
         :param str resource_name: The name of the resource.
         :param ApplicationArgs args: The arguments to use to populate this resource's properties.

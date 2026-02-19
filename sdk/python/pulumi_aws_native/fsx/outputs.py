@@ -41,6 +41,7 @@ class DataRepositoryAssociationAutoExportPolicy(dict):
                  events: Sequence['DataRepositoryAssociationEventType']):
         """
         Specifies the type of updated objects (new, changed, deleted) that will be automatically exported from your file system to the linked S3 bucket.
+
         :param Sequence['DataRepositoryAssociationEventType'] events: The `AutoExportPolicy` can have the following event values:
                
                - `NEW` - New files and directories are automatically exported to the data repository as they are added to the file system.
@@ -75,6 +76,7 @@ class DataRepositoryAssociationAutoImportPolicy(dict):
                  events: Sequence['DataRepositoryAssociationEventType']):
         """
         Specifies the type of updated objects (new, changed, deleted) that will be automatically imported from the linked S3 bucket to your file system.
+
         :param Sequence['DataRepositoryAssociationEventType'] events: The `AutoImportPolicy` can have the following event values:
                
                - `NEW` - Amazon FSx automatically imports metadata of files added to the linked S3 bucket that do not currently exist in the FSx file system.
@@ -129,6 +131,7 @@ class DataRepositoryAssociationS3(dict):
                  auto_import_policy: Optional['outputs.DataRepositoryAssociationAutoImportPolicy'] = None):
         """
         The configuration for an Amazon S3 data repository linked to an Amazon FSx Lustre file system with a data repository association. The configuration defines which file events (new, changed, or deleted files or directories) are automatically imported from the linked data repository to the file system or automatically exported from the file system to the data repository.
+
         :param 'DataRepositoryAssociationAutoExportPolicy' auto_export_policy: Describes a data repository association's automatic export policy. The `AutoExportPolicy` defines the types of updated objects on the file system that will be automatically exported to the data repository. As you create, modify, or delete files, Amazon FSx for Lustre automatically exports the defined changes asynchronously once your application finishes modifying the file.
                
                The `AutoExportPolicy` is only supported on Amazon FSx for Lustre file systems with a data repository association.

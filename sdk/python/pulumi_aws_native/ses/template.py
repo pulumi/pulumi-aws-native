@@ -27,6 +27,7 @@ class TemplateInitArgs:
                  template: Optional[pulumi.Input['TemplateArgs']] = None):
         """
         The set of arguments for constructing a Template resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags (keys and values) associated with the email template.
         :param pulumi.Input['TemplateArgs'] template: The content of the email, composed of a subject line and either an HTML part or a text-only part.
         """
@@ -112,6 +113,7 @@ class Template(pulumi.CustomResource):
 
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags (keys and values) associated with the email template.
@@ -165,6 +167,7 @@ class Template(pulumi.CustomResource):
         })
 
         ```
+
 
         :param str resource_name: The name of the resource.
         :param TemplateInitArgs args: The arguments to use to populate this resource's properties.

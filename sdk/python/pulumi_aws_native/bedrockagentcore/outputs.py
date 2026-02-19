@@ -133,6 +133,7 @@ class BrowserCustomBrowserNetworkConfiguration(dict):
                  vpc_config: Optional['outputs.BrowserCustomVpcConfig'] = None):
         """
         Network configuration for browser
+
         :param 'BrowserCustomBrowserNetworkMode' network_mode: The network mode.
         """
         pulumi.set(__self__, "network_mode", network_mode)
@@ -199,6 +200,7 @@ class BrowserCustomRecordingConfig(dict):
                  s3_location: Optional['outputs.BrowserCustomS3Location'] = None):
         """
         Recording configuration for browser
+
         :param _builtins.bool enabled: The recording configuration for a browser. This structure defines how browser sessions are recorded.
         :param 'BrowserCustomS3Location' s3_location: The S3 location.
         """
@@ -234,6 +236,7 @@ class BrowserCustomS3Location(dict):
                  prefix: _builtins.str):
         """
         S3 Location Configuration
+
         :param _builtins.str bucket: The S3 location bucket name.
         :param _builtins.str prefix: The S3 location object prefix.
         """
@@ -328,6 +331,7 @@ class CodeInterpreterCustomCodeInterpreterNetworkConfiguration(dict):
                  vpc_config: Optional['outputs.CodeInterpreterCustomVpcConfig'] = None):
         """
         Network configuration for code interpreter
+
         :param 'CodeInterpreterCustomCodeInterpreterNetworkMode' network_mode: The network mode.
         """
         pulumi.set(__self__, "network_mode", network_mode)
@@ -3125,6 +3129,7 @@ class RuntimeAuthorizerConfiguration(dict):
                  custom_jwt_authorizer: Optional['outputs.RuntimeCustomJwtAuthorizerConfiguration'] = None):
         """
         Configuration for the authorizer
+
         :param 'RuntimeCustomJwtAuthorizerConfiguration' custom_jwt_authorizer: Represents inbound authorization configuration options used to authenticate incoming requests.
         """
         if custom_jwt_authorizer is not None:
@@ -3423,6 +3428,7 @@ class RuntimeCustomJwtAuthorizerConfiguration(dict):
                  custom_claims: Optional[Sequence['outputs.RuntimeCustomClaimValidationType']] = None):
         """
         Configuration for custom JWT authorizer
+
         :param _builtins.str discovery_url: The configuration authorization.
         :param Sequence[_builtins.str] allowed_audience: Represents inbound authorization configuration options used to authenticate incoming requests.
         :param Sequence[_builtins.str] allowed_clients: Represents individual client IDs that are validated in the incoming JWT token validation process.
@@ -3501,6 +3507,7 @@ class RuntimeLifecycleConfiguration(dict):
                  max_lifetime: Optional[_builtins.int] = None):
         """
         Configuration for managing the lifecycle of runtime sessions and resources
+
         :param _builtins.int idle_runtime_session_timeout: Timeout in seconds for idle runtime sessions
         :param _builtins.int max_lifetime: Maximum lifetime in seconds for runtime sessions
         """
@@ -3635,6 +3642,7 @@ class RuntimeS3Location(dict):
                  version_id: Optional[_builtins.str] = None):
         """
         S3 Location Configuration
+
         :param _builtins.str bucket: S3 bucket name
         :param _builtins.str prefix: S3 object key prefix
         :param _builtins.str version_id: S3 object version ID
@@ -3737,6 +3745,7 @@ class RuntimeWorkloadIdentityDetails(dict):
                  workload_identity_arn: _builtins.str):
         """
         Configuration for workload identity
+
         :param _builtins.str workload_identity_arn: The Amazon Resource Name (ARN) for the workload identity.
         """
         pulumi.set(__self__, "workload_identity_arn", workload_identity_arn)

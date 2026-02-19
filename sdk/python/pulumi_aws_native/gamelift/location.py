@@ -25,6 +25,7 @@ class LocationArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Location resource.
+
         :param pulumi.Input[_builtins.str] location_name: A descriptive name for the custom location.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
@@ -70,6 +71,7 @@ class Location(pulumi.CustomResource):
         """
         The AWS::GameLift::Location resource creates an Amazon GameLift (GameLift) custom location.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] location_name: A descriptive name for the custom location.
@@ -83,6 +85,7 @@ class Location(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The AWS::GameLift::Location resource creates an Amazon GameLift (GameLift) custom location.
+
 
         :param str resource_name: The name of the resource.
         :param LocationArgs args: The arguments to use to populate this resource's properties.

@@ -26,6 +26,7 @@ class PlanArgs:
                  stages: Optional[pulumi.Input[Sequence[pulumi.Input['PlanStageArgs']]]] = None):
         """
         The set of arguments for constructing a Plan resource.
+
         :param pulumi.Input[_builtins.str] contact_id: Contact ID for the AWS SSM Incident Manager Contact to associate the plan.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] rotation_ids: Rotation Ids to associate with Oncall Contact for engagement.
         :param pulumi.Input[Sequence[pulumi.Input['PlanStageArgs']]] stages: The stages that an escalation plan or engagement plan engages contacts and contact methods in.
@@ -87,6 +88,7 @@ class Plan(pulumi.CustomResource):
         """
         Engagement Plan for a SSM Incident Manager Contact.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] contact_id: Contact ID for the AWS SSM Incident Manager Contact to associate the plan.
@@ -101,6 +103,7 @@ class Plan(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Engagement Plan for a SSM Incident Manager Contact.
+
 
         :param str resource_name: The name of the resource.
         :param PlanArgs args: The arguments to use to populate this resource's properties.

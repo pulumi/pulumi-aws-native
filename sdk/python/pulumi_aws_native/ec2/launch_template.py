@@ -28,6 +28,7 @@ class LaunchTemplateArgs:
                  version_description: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a LaunchTemplate resource.
+
         :param pulumi.Input['LaunchTemplateDataArgs'] launch_template_data: The information for the launch template.
         :param pulumi.Input[_builtins.str] launch_template_name: A name for the launch template.
         :param pulumi.Input[Sequence[pulumi.Input['LaunchTemplateTagSpecificationArgs']]] tag_specifications: The tags to apply to the launch template on creation. To tag the launch template, the resource type must be ``launch-template``.
@@ -112,6 +113,7 @@ class LaunchTemplate(pulumi.CustomResource):
          A launch template can contain some or all of the configuration information to launch an instance. When you launch an instance using a launch template, instance properties that are not specified in the launch template use default values, except the ``ImageId`` property, which has no default value. If you do not specify an AMI ID for the launch template ``ImageId`` property, you must specify an AMI ID for the instance ``ImageId`` property.
          For more information, see [Launch an instance from a launch template](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html) in the *Amazon EC2 User Guide*.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['LaunchTemplateDataArgs', 'LaunchTemplateDataArgsDict']] launch_template_data: The information for the launch template.
@@ -134,6 +136,7 @@ class LaunchTemplate(pulumi.CustomResource):
 
          A launch template can contain some or all of the configuration information to launch an instance. When you launch an instance using a launch template, instance properties that are not specified in the launch template use default values, except the ``ImageId`` property, which has no default value. If you do not specify an AMI ID for the launch template ``ImageId`` property, you must specify an AMI ID for the instance ``ImageId`` property.
          For more information, see [Launch an instance from a launch template](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html) in the *Amazon EC2 User Guide*.
+
 
         :param str resource_name: The name of the resource.
         :param LaunchTemplateArgs args: The arguments to use to populate this resource's properties.

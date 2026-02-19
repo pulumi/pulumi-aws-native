@@ -32,6 +32,7 @@ class UserProfileArgs:
                  user_settings: Optional[pulumi.Input['UserProfileUserSettingsArgs']] = None):
         """
         The set of arguments for constructing a UserProfile resource.
+
         :param pulumi.Input[_builtins.str] domain_id: The ID of the associated Domain.
         :param pulumi.Input[_builtins.str] single_sign_on_user_identifier: A specifier for the type of value specified in SingleSignOnUserValue. Currently, the only supported value is "UserName". If the Domain's AuthMode is SSO, this field is required. If the Domain's AuthMode is not SSO, this field cannot be specified.
         :param pulumi.Input[_builtins.str] single_sign_on_user_value: The username of the associated AWS Single Sign-On User for this UserProfile. If the Domain's AuthMode is SSO, this field is required, and must match a valid username of a user in your directory. If the Domain's AuthMode is not SSO, this field cannot be specified.
@@ -140,6 +141,7 @@ class UserProfile(pulumi.CustomResource):
         """
         Resource Type definition for AWS::SageMaker::UserProfile
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] domain_id: The ID of the associated Domain.
@@ -157,6 +159,7 @@ class UserProfile(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::SageMaker::UserProfile
+
 
         :param str resource_name: The name of the resource.
         :param UserProfileArgs args: The arguments to use to populate this resource's properties.

@@ -38,6 +38,7 @@ class FleetArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Fleet resource.
+
         :param pulumi.Input[_builtins.int] base_capacity: The initial number of machines allocated to the compute ﬂeet, which deﬁnes the number of builds that can run in parallel.
         :param pulumi.Input['FleetComputeConfigurationArgs'] compute_configuration: The compute configuration of the compute fleet. This is only required if `computeType` is set to `ATTRIBUTE_BASED_COMPUTE` or `CUSTOM_INSTANCE_TYPE` .
         :param pulumi.Input['FleetComputeType'] compute_type: Information about the compute resources the compute fleet uses. Available values include:
@@ -337,6 +338,7 @@ class Fleet(pulumi.CustomResource):
         """
         Resource Type definition for AWS::CodeBuild::Fleet
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.int] base_capacity: The initial number of machines allocated to the compute ﬂeet, which deﬁnes the number of builds that can run in parallel.
@@ -407,6 +409,7 @@ class Fleet(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::CodeBuild::Fleet
+
 
         :param str resource_name: The name of the resource.
         :param FleetArgs args: The arguments to use to populate this resource's properties.

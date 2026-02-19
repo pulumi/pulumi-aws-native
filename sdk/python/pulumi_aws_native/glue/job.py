@@ -47,6 +47,7 @@ class JobArgs:
                  worker_type: Optional[pulumi.Input['JobWorkerType']] = None):
         """
         The set of arguments for constructing a Job resource.
+
         :param pulumi.Input['JobCommandArgs'] command: The code that executes a job.
         :param pulumi.Input[_builtins.str] role: The name or Amazon Resource Name (ARN) of the IAM role associated with this job.
         :param pulumi.Input[_builtins.float] allocated_capacity: The number of capacity units that are allocated to this job.
@@ -438,6 +439,7 @@ class Job(pulumi.CustomResource):
         """
         Resource Type definition for AWS::Glue::Job
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.float] allocated_capacity: The number of capacity units that are allocated to this job.
@@ -478,6 +480,7 @@ class Job(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::Glue::Job
+
 
         :param str resource_name: The name of the resource.
         :param JobArgs args: The arguments to use to populate this resource's properties.

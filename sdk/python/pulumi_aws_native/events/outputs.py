@@ -576,6 +576,7 @@ class DeadLetterConfigProperties(dict):
                  arn: Optional[_builtins.str] = None):
         """
         Dead Letter Queue for the event bus.
+
         :param _builtins.str arn: The ARN of the SQS queue specified as the target for the dead-letter queue.
         """
         if arn is not None:
@@ -765,6 +766,7 @@ class EventBusPolicyCondition(dict):
                  value: Optional[_builtins.str] = None):
         """
         This parameter enables you to limit the permission to accounts that fulfill a certain condition, such as being a member of a certain AWS organization.
+
         :param _builtins.str key: Specifies the value for the key. Currently, this must be the ID of the organization.
         :param _builtins.str type: Specifies the type of condition. Currently the only supported value is StringEquals.
         :param _builtins.str value: Specifies the key for the condition. Currently the only supported key is aws:PrincipalOrgID.
@@ -827,6 +829,7 @@ class InvocationConnectivityParametersProperties(dict):
                  resource_parameters: 'outputs.ConnectionResourceParameters'):
         """
         The private resource the HTTP request will be sent to.
+
         :param 'ConnectionResourceParameters' resource_parameters: The parameters for EventBridge to use when invoking the resource endpoint.
         """
         pulumi.set(__self__, "resource_parameters", resource_parameters)
@@ -867,6 +870,7 @@ class LogConfigProperties(dict):
                  level: Optional['EventBusLogConfigPropertiesLevel'] = None):
         """
         The logging configuration settings for vended logs.
+
         :param 'EventBusLogConfigPropertiesIncludeDetail' include_detail: Configures whether or not to include event detail, input transformer details, target properties, and target input in the applicable log messages.
         :param 'EventBusLogConfigPropertiesLevel' level: Configures the log level of the EventBus and determines which log messages are sent to Ingestion Hub for delivery.
         """

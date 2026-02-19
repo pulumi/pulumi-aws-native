@@ -37,6 +37,7 @@ class EnvironmentArgs:
                  version_label: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Environment resource.
+
         :param pulumi.Input[_builtins.str] application_name: The name of the application that is associated with this environment.
         :param pulumi.Input[_builtins.str] cname_prefix: If specified, the environment attempts to use this value as the prefix for the CNAME in your Elastic Beanstalk environment URL. If not specified, the CNAME is generated automatically by appending a random alphanumeric string to the environment name.
         :param pulumi.Input[_builtins.str] description: Your description for this environment.
@@ -241,6 +242,7 @@ class Environment(pulumi.CustomResource):
         """
         Resource Type definition for AWS::ElasticBeanstalk::Environment
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] application_name: The name of the application that is associated with this environment.
@@ -264,6 +266,7 @@ class Environment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::ElasticBeanstalk::Environment
+
 
         :param str resource_name: The name of the resource.
         :param EnvironmentArgs args: The arguments to use to populate this resource's properties.

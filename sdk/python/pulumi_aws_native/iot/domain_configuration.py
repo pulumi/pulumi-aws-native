@@ -39,6 +39,7 @@ class DomainConfigurationArgs:
                  validation_certificate_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a DomainConfiguration resource.
+
         :param pulumi.Input['DomainConfigurationApplicationProtocol'] application_protocol: An enumerated string that speciﬁes the application-layer protocol.
         :param pulumi.Input['DomainConfigurationAuthenticationType'] authentication_type: An enumerated string that speciﬁes the authentication type.
         :param pulumi.Input['DomainConfigurationAuthorizerConfigArgs'] authorizer_config: An object that specifies the authorization service for a domain.
@@ -284,6 +285,7 @@ class DomainConfiguration(pulumi.CustomResource):
         """
         Create and manage a Domain Configuration
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input['DomainConfigurationApplicationProtocol'] application_protocol: An enumerated string that speciﬁes the application-layer protocol.
@@ -320,6 +322,7 @@ class DomainConfiguration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Create and manage a Domain Configuration
+
 
         :param str resource_name: The name of the resource.
         :param DomainConfigurationArgs args: The arguments to use to populate this resource's properties.

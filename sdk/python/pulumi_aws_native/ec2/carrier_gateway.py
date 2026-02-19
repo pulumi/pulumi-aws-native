@@ -25,6 +25,7 @@ class CarrierGatewayArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a CarrierGateway resource.
+
         :param pulumi.Input[_builtins.str] vpc_id: The ID of the VPC.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags for the carrier gateway.
         """
@@ -69,6 +70,7 @@ class CarrierGateway(pulumi.CustomResource):
         """
         Resource Type definition for Carrier Gateway which describes the Carrier Gateway resource
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags for the carrier gateway.
@@ -82,6 +84,7 @@ class CarrierGateway(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for Carrier Gateway which describes the Carrier Gateway resource
+
 
         :param str resource_name: The name of the resource.
         :param CarrierGatewayArgs args: The arguments to use to populate this resource's properties.

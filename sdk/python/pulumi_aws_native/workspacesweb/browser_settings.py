@@ -31,6 +31,7 @@ class BrowserSettingsArgs:
                  web_content_filtering_policy: Optional[pulumi.Input['BrowserSettingsWebContentFilteringPolicyArgs']] = None):
         """
         The set of arguments for constructing a BrowserSettings resource.
+
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] additional_encryption_context: Additional encryption context of the browser settings.
         :param pulumi.Input[_builtins.str] browser_policy: A JSON string containing Chrome Enterprise policies that will be applied to all streaming sessions.
         :param pulumi.Input[_builtins.str] customer_managed_key: The custom managed key of the browser settings.
@@ -128,6 +129,7 @@ class BrowserSettings(pulumi.CustomResource):
         """
         Definition of AWS::WorkSpacesWeb::BrowserSettings Resource Type
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] additional_encryption_context: Additional encryption context of the browser settings.
@@ -146,6 +148,7 @@ class BrowserSettings(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of AWS::WorkSpacesWeb::BrowserSettings Resource Type
+
 
         :param str resource_name: The name of the resource.
         :param BrowserSettingsArgs args: The arguments to use to populate this resource's properties.

@@ -26,6 +26,7 @@ class GroupMembershipArgs:
                  member_id: pulumi.Input['GroupMembershipMemberIdArgs']):
         """
         The set of arguments for constructing a GroupMembership resource.
+
         :param pulumi.Input[_builtins.str] group_id: The unique identifier for a group in the identity store.
         :param pulumi.Input[_builtins.str] identity_store_id: The globally unique identifier for the identity store.
         :param pulumi.Input['GroupMembershipMemberIdArgs'] member_id: An object containing the identifier of a group member.
@@ -84,6 +85,7 @@ class GroupMembership(pulumi.CustomResource):
         """
         Resource Type Definition for AWS:IdentityStore::GroupMembership
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] group_id: The unique identifier for a group in the identity store.
@@ -98,6 +100,7 @@ class GroupMembership(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type Definition for AWS:IdentityStore::GroupMembership
+
 
         :param str resource_name: The name of the resource.
         :param GroupMembershipArgs args: The arguments to use to populate this resource's properties.

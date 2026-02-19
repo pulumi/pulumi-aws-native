@@ -31,6 +31,7 @@ class ParameterArgs:
                  tier: Optional[pulumi.Input['ParameterTier']] = None):
         """
         The set of arguments for constructing a Parameter resource.
+
         :param pulumi.Input['ParameterType'] type: The type of parameter.
                  Parameters of type ``SecureString`` are not supported by CFNlong.
         :param pulumi.Input[_builtins.str] value: The parameter value.
@@ -301,6 +302,7 @@ class Parameter(pulumi.CustomResource):
 
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] allowed_pattern: A regular expression used to validate the parameter value. For example, for ``String`` types with values restricted to numbers, you can specify the following: ``AllowedPattern=^\\d+$``
@@ -431,6 +433,7 @@ class Parameter(pulumi.CustomResource):
             })
 
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ParameterArgs args: The arguments to use to populate this resource's properties.

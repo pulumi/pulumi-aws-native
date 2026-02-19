@@ -23,6 +23,7 @@ class VpnConnectionRouteArgs:
                  vpn_connection_id: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a VpnConnectionRoute resource.
+
         :param pulumi.Input[_builtins.str] destination_cidr_block: The CIDR block associated with the local subnet of the customer network.
         :param pulumi.Input[_builtins.str] vpn_connection_id: The ID of the VPN connection.
         """
@@ -67,6 +68,7 @@ class VpnConnectionRoute(pulumi.CustomResource):
         Specifies a static route for a VPN connection between an existing virtual private gateway and a VPN customer gateway. The static route allows traffic to be routed from the virtual private gateway to the VPN customer gateway.
          For more information, see [](https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html) in the *User Guide*.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] destination_cidr_block: The CIDR block associated with the local subnet of the customer network.
@@ -81,6 +83,7 @@ class VpnConnectionRoute(pulumi.CustomResource):
         """
         Specifies a static route for a VPN connection between an existing virtual private gateway and a VPN customer gateway. The static route allows traffic to be routed from the virtual private gateway to the VPN customer gateway.
          For more information, see [](https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html) in the *User Guide*.
+
 
         :param str resource_name: The name of the resource.
         :param VpnConnectionRouteArgs args: The arguments to use to populate this resource's properties.

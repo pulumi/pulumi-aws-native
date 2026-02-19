@@ -30,6 +30,7 @@ class CustomVerificationEmailTemplateArgs:
                  template_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a CustomVerificationEmailTemplate resource.
+
         :param pulumi.Input[_builtins.str] failure_redirection_url: The URL that the recipient of the verification email is sent to if his or her address is not successfully verified.
         :param pulumi.Input[_builtins.str] from_email_address: The email address that the custom verification email is sent from.
         :param pulumi.Input[_builtins.str] success_redirection_url: The URL that the recipient of the verification email is sent to if his or her address is successfully verified.
@@ -150,6 +151,7 @@ class CustomVerificationEmailTemplate(pulumi.CustomResource):
         """
         Resource Type definition for AWS::SES::CustomVerificationEmailTemplate.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] failure_redirection_url: The URL that the recipient of the verification email is sent to if his or her address is not successfully verified.
@@ -168,6 +170,7 @@ class CustomVerificationEmailTemplate(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::SES::CustomVerificationEmailTemplate.
+
 
         :param str resource_name: The name of the resource.
         :param CustomVerificationEmailTemplateArgs args: The arguments to use to populate this resource's properties.

@@ -32,6 +32,7 @@ class WorkflowArgs:
                  uri: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Workflow resource.
+
         :param pulumi.Input['WorkflowType'] type: The type of the workflow denotes whether the workflow is used to build, test, or distribute.
         :param pulumi.Input[_builtins.str] version: The version of the workflow.
         :param pulumi.Input[_builtins.str] change_description: The change description of the workflow.
@@ -187,6 +188,7 @@ class Workflow(pulumi.CustomResource):
         """
         Resource schema for AWS::ImageBuilder::Workflow
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] change_description: The change description of the workflow.
@@ -207,6 +209,7 @@ class Workflow(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource schema for AWS::ImageBuilder::Workflow
+
 
         :param str resource_name: The name of the resource.
         :param WorkflowArgs args: The arguments to use to populate this resource's properties.

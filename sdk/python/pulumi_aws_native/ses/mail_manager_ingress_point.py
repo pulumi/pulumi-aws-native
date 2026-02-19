@@ -34,6 +34,7 @@ class MailManagerIngressPointArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a MailManagerIngressPoint resource.
+
         :param pulumi.Input[_builtins.str] rule_set_id: The identifier of an existing rule set that you attach to an ingress endpoint resource.
         :param pulumi.Input[_builtins.str] traffic_policy_id: The identifier of an existing traffic policy that you attach to an ingress endpoint resource.
         :param pulumi.Input['MailManagerIngressPointIngressPointType'] type: The type of the ingress endpoint to create.
@@ -172,6 +173,7 @@ class MailManagerIngressPoint(pulumi.CustomResource):
         """
         Definition of AWS::SES::MailManagerIngressPoint Resource Type
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union[Union['MailManagerIngressPointIngressPointConfiguration0PropertiesArgs', 'MailManagerIngressPointIngressPointConfiguration0PropertiesArgsDict'], Union['MailManagerIngressPointIngressPointConfiguration1PropertiesArgs', 'MailManagerIngressPointIngressPointConfiguration1PropertiesArgsDict']]] ingress_point_configuration: The configuration of the ingress endpoint resource.
@@ -191,6 +193,7 @@ class MailManagerIngressPoint(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of AWS::SES::MailManagerIngressPoint Resource Type
+
 
         :param str resource_name: The name of the resource.
         :param MailManagerIngressPointArgs args: The arguments to use to populate this resource's properties.

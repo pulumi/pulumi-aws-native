@@ -28,6 +28,7 @@ class DbParameterGroupArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a DbParameterGroup resource.
+
         :param pulumi.Input[_builtins.str] description: Provides the customer-specified description for this DB parameter group.
         :param pulumi.Input[_builtins.str] family: The DB parameter group family name. A DB parameter group can be associated with one and only one DB parameter group family, and can be applied only to a DB instance running a database engine and engine version compatible with that DB parameter group family.
                 To list all of the available parameter group families for a DB engine, use the following command:
@@ -185,6 +186,7 @@ class DbParameterGroup(pulumi.CustomResource):
          For information about configuring parameters for Amazon Aurora DB instances, see [Working with parameter groups](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_WorkingWithParamGroups.html) in the *Amazon Aurora User Guide*.
           Applying a parameter group to a DB instance may require the DB instance to reboot, resulting in a database outage for the duration of the reboot.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] db_parameter_group_name: The name of the DB parameter group.
@@ -236,6 +238,7 @@ class DbParameterGroup(pulumi.CustomResource):
          For information about configuring parameters for Amazon RDS DB instances, see [Working with parameter groups](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_WorkingWithParamGroups.html) in the *Amazon RDS User Guide*.
          For information about configuring parameters for Amazon Aurora DB instances, see [Working with parameter groups](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_WorkingWithParamGroups.html) in the *Amazon Aurora User Guide*.
           Applying a parameter group to a DB instance may require the DB instance to reboot, resulting in a database outage for the duration of the reboot.
+
 
         :param str resource_name: The name of the resource.
         :param DbParameterGroupArgs args: The arguments to use to populate this resource's properties.

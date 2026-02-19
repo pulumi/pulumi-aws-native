@@ -36,6 +36,7 @@ class ReplicationConfigArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a ReplicationConfig resource.
+
         :param pulumi.Input['ReplicationConfigComputeConfigArgs'] compute_config: Configuration parameters for provisioning an AWS DMS Serverless replication.
         :param pulumi.Input[_builtins.str] replication_config_identifier: A unique identifier of replication configuration
         :param pulumi.Input['ReplicationConfigReplicationType'] replication_type: The type of AWS DMS Serverless replication to provision using this replication configuration
@@ -215,6 +216,7 @@ class ReplicationConfig(pulumi.CustomResource):
         """
         A replication configuration that you later provide to configure and start a AWS DMS Serverless replication
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ReplicationConfigComputeConfigArgs', 'ReplicationConfigComputeConfigArgsDict']] compute_config: Configuration parameters for provisioning an AWS DMS Serverless replication.
@@ -242,6 +244,7 @@ class ReplicationConfig(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A replication configuration that you later provide to configure and start a AWS DMS Serverless replication
+
 
         :param str resource_name: The name of the resource.
         :param ReplicationConfigArgs args: The arguments to use to populate this resource's properties.

@@ -155,6 +155,7 @@ class ListenerActionArgs:
                  target_group_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Specifies an action for a listener rule.
+
         :param pulumi.Input[_builtins.str] type: The type of action.
         :param pulumi.Input['ListenerAuthenticateCognitoConfigArgs'] authenticate_cognito_config: [HTTPS listeners] Information for using Amazon Cognito to authenticate users. Specify only when ``Type`` is ``authenticate-cognito``.
         :param pulumi.Input['ListenerAuthenticateOidcConfigArgs'] authenticate_oidc_config: [HTTPS listeners] Information about an identity provider that is compliant with OpenID Connect (OIDC). Specify only when ``Type`` is ``authenticate-oidc``.
@@ -337,6 +338,7 @@ class ListenerAttributeArgs:
                  value: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Information about a listener attribute.
+
         :param pulumi.Input[_builtins.str] key: The name of the attribute.
                 The following attribute is supported by Network Load Balancers, and Gateway Load Balancers.
                  +  ``tcp.idle_timeout.seconds`` - The tcp idle timeout value, in seconds. The valid range is 60-6000 seconds. The default is 350 seconds.
@@ -470,6 +472,7 @@ class ListenerAuthenticateCognitoConfigArgs:
                  session_timeout: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Specifies information required when integrating with Amazon Cognito to authenticate users.
+
         :param pulumi.Input[_builtins.str] user_pool_arn: The Amazon Resource Name (ARN) of the Amazon Cognito user pool.
         :param pulumi.Input[_builtins.str] user_pool_client_id: The ID of the Amazon Cognito user pool client.
         :param pulumi.Input[_builtins.str] user_pool_domain: The domain prefix or fully-qualified domain name of the Amazon Cognito user pool.
@@ -672,6 +675,7 @@ class ListenerAuthenticateOidcConfigArgs:
                  use_existing_client_secret: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Specifies information required using an identity provide (IdP) that is compliant with OpenID Connect (OIDC) to authenticate users.
+
         :param pulumi.Input[_builtins.str] authorization_endpoint: The authorization endpoint of the IdP. This must be a full URL, including the HTTPS protocol, the domain, and the path.
         :param pulumi.Input[_builtins.str] client_id: The OAuth 2.0 client identifier.
         :param pulumi.Input[_builtins.str] issuer: The OIDC issuer identifier of the IdP. This must be a full URL, including the HTTPS protocol, the domain, and the path.
@@ -873,6 +877,7 @@ class ListenerCertificateArgs:
                  certificate_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Specifies an SSL server certificate to use as the default certificate for a secure listener.
+
         :param pulumi.Input[_builtins.str] certificate_arn: The Amazon Resource Name (ARN) of the certificate.
         """
         if certificate_arn is not None:
@@ -917,6 +922,7 @@ class ListenerFixedResponseConfigArgs:
                  message_body: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Specifies information required when returning a custom HTTP response.
+
         :param pulumi.Input[_builtins.str] status_code: The HTTP response code (2XX, 4XX, or 5XX).
         :param pulumi.Input[_builtins.str] content_type: The content type.
                 Valid Values: text/plain | text/css | text/html | application/javascript | application/json
@@ -988,6 +994,7 @@ class ListenerForwardConfigArgs:
         """
         Information for creating an action that distributes requests among multiple target groups. Specify only when ``Type`` is ``forward``.
          If you specify both ``ForwardConfig`` and ``TargetGroupArn``, you can specify only one target group using ``ForwardConfig`` and it must be the same target group specified in ``TargetGroupArn``.
+
         :param pulumi.Input['ListenerTargetGroupStickinessConfigArgs'] target_group_stickiness_config: Information about the target group stickiness for a rule.
         :param pulumi.Input[Sequence[pulumi.Input['ListenerTargetGroupTupleArgs']]] target_groups: Information about how traffic will be distributed between multiple target groups in a forward rule.
         """
@@ -1046,6 +1053,7 @@ class ListenerJwtValidationActionAdditionalClaimArgs:
                  values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
         """
         Information about an additional claim to validate.
+
         :param pulumi.Input[_builtins.str] format: The format of the claim value.
         :param pulumi.Input[_builtins.str] name: The name of the claim. You can't specify ``exp``, ``iss``, ``nbf``, or ``iat`` because we validate them by default.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: The claim value. The maximum size of the list is 10. Each value can be up to 256 characters in length. If the format is ``space-separated-values``, the values can't include spaces.
@@ -1165,6 +1173,7 @@ class ListenerMutualAuthenticationArgs:
                  trust_store_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The mutual authentication configuration information.
+
         :param pulumi.Input[_builtins.str] advertise_trust_store_ca_names: Indicates whether trust store CA certificate names are advertised.
         :param pulumi.Input[_builtins.bool] ignore_client_certificate_expiry: Indicates whether expired client certificates are ignored.
         :param pulumi.Input[_builtins.str] mode: The client certificate handling method. Options are ``off``, ``passthrough`` or ``verify``. The default value is ``off``.
@@ -1286,6 +1295,7 @@ class ListenerRedirectConfigArgs:
           +  #{query}
           
          For example, you can change the path to "/new/#{path}", the hostname to "example.#{host}", or the query to "#{query}&value=xyz".
+
         :param pulumi.Input[_builtins.str] status_code: The HTTP redirect code. The redirect is either permanent (HTTP 301) or temporary (HTTP 302).
         :param pulumi.Input[_builtins.str] host: The hostname. This component is not percent-encoded. The hostname can contain #{host}.
         :param pulumi.Input[_builtins.str] path: The absolute path, starting with the leading "/". This component is not percent-encoded. The path can contain #{host}, #{path}, and #{port}.
@@ -1434,6 +1444,7 @@ class ListenerRuleActionArgs:
                  target_group_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Specifies an action for a listener rule.
+
         :param pulumi.Input[_builtins.str] type: The type of action.
         :param pulumi.Input['ListenerRuleAuthenticateCognitoConfigArgs'] authenticate_cognito_config: [HTTPS listeners] Information for using Amazon Cognito to authenticate users. Specify only when ``Type`` is ``authenticate-cognito``.
         :param pulumi.Input['ListenerRuleAuthenticateOidcConfigArgs'] authenticate_oidc_config: [HTTPS listeners] Information about an identity provider that is compliant with OpenID Connect (OIDC). Specify only when ``Type`` is ``authenticate-oidc``.
@@ -1627,6 +1638,7 @@ class ListenerRuleAuthenticateCognitoConfigArgs:
                  session_timeout: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Specifies information required when integrating with Amazon Cognito to authenticate users.
+
         :param pulumi.Input[_builtins.str] user_pool_arn: The Amazon Resource Name (ARN) of the Amazon Cognito user pool.
         :param pulumi.Input[_builtins.str] user_pool_client_id: The ID of the Amazon Cognito user pool client.
         :param pulumi.Input[_builtins.str] user_pool_domain: The domain prefix or fully-qualified domain name of the Amazon Cognito user pool.
@@ -1829,6 +1841,7 @@ class ListenerRuleAuthenticateOidcConfigArgs:
                  use_existing_client_secret: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Specifies information required using an identity provide (IdP) that is compliant with OpenID Connect (OIDC) to authenticate users.
+
         :param pulumi.Input[_builtins.str] authorization_endpoint: The authorization endpoint of the IdP. This must be a full URL, including the HTTPS protocol, the domain, and the path.
         :param pulumi.Input[_builtins.str] client_id: The OAuth 2.0 client identifier.
         :param pulumi.Input[_builtins.str] issuer: The OIDC issuer identifier of the IdP. This must be a full URL, including the HTTPS protocol, the domain, and the path.
@@ -2041,6 +2054,7 @@ class ListenerRuleFixedResponseConfigArgs:
                  message_body: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Specifies information required when returning a custom HTTP response.
+
         :param pulumi.Input[_builtins.str] status_code: The HTTP response code (2XX, 4XX, or 5XX).
         :param pulumi.Input[_builtins.str] content_type: The content type.
                 Valid Values: text/plain | text/css | text/html | application/javascript | application/json
@@ -2112,6 +2126,7 @@ class ListenerRuleForwardConfigArgs:
         """
         Information for creating an action that distributes requests among multiple target groups. Specify only when ``Type`` is ``forward``.
          If you specify both ``ForwardConfig`` and ``TargetGroupArn``, you can specify only one target group using ``ForwardConfig`` and it must be the same target group specified in ``TargetGroupArn``.
+
         :param pulumi.Input['ListenerRuleTargetGroupStickinessConfigArgs'] target_group_stickiness_config: Information about the target group stickiness for a rule.
         :param pulumi.Input[Sequence[pulumi.Input['ListenerRuleTargetGroupTupleArgs']]] target_groups: Information about how traffic will be distributed between multiple target groups in a forward rule.
         """
@@ -2163,6 +2178,7 @@ class ListenerRuleHostHeaderConfigArgs:
                  values: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Information about a host header condition.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: The host names. The maximum length of each string is 128 characters. The comparison is case insensitive. The following wildcard characters are supported: * (matches 0 or more characters) and ? (matches exactly 1 character). You must include at least one "." character. You can include only alphabetical characters after the final "." character.
                 If you specify multiple strings, the condition is satisfied if one of the strings matches the host name.
         """
@@ -2220,6 +2236,7 @@ class ListenerRuleHttpHeaderConfigArgs:
         """
         Information about an HTTP header condition.
          There is a set of standard HTTP header fields. You can also define custom HTTP header fields.
+
         :param pulumi.Input[_builtins.str] http_header_name: The name of the HTTP header field. The maximum size is 40 characters. The header name is case insensitive. The allowed characters are specified by RFC 7230. Wildcards are not supported.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: The strings to compare against the value of the HTTP header. The maximum length of each string is 128 characters. The comparison strings are case insensitive. The following wildcard characters are supported: * (matches 0 or more characters) and ? (matches exactly 1 character).
                 If the same header appears multiple times in the request, we search them in order until a match is found.
@@ -2286,6 +2303,7 @@ class ListenerRuleHttpRequestMethodConfigArgs:
         """
         Information about an HTTP method condition.
          HTTP defines a set of request methods, also referred to as HTTP verbs. For more information, see the [HTTP Method Registry](https://docs.aws.amazon.com/https://www.iana.org/assignments/http-methods/http-methods.xhtml). You can also define custom HTTP methods.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: The name of the request method. The maximum length is 40 characters. The allowed characters are A-Z, hyphen (-), and underscore (_). The comparison is case sensitive. Wildcards are not supported; therefore, the method name must be an exact match.
                 If you specify multiple strings, the condition is satisfied if one of the strings matches the HTTP request method. We recommend that you route GET and HEAD requests in the same way, because the response to a HEAD request may be cached.
         """
@@ -2331,6 +2349,7 @@ class ListenerRuleJwtValidationActionAdditionalClaimArgs:
                  values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
         """
         Information about an additional claim to validate.
+
         :param pulumi.Input[_builtins.str] format: The format of the claim value.
         :param pulumi.Input[_builtins.str] name: The name of the claim. You can't specify ``exp``, ``iss``, ``nbf``, or ``iat`` because we validate them by default.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: The claim value. The maximum size of the list is 10. Each value can be up to 256 characters in length. If the format is ``space-separated-values``, the values can't include spaces.
@@ -2438,6 +2457,7 @@ class ListenerRulePathPatternConfigArgs:
                  values: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Information about a path pattern condition.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: The path patterns to compare against the request URL. The maximum size of each string is 128 characters. The comparison is case sensitive. The following wildcard characters are supported: * (matches 0 or more characters) and ? (matches exactly 1 character).
                 If you specify multiple strings, the condition is satisfied if one of them matches the request URL. The path pattern is compared only to the path of the URL, not to its query string.
         """
@@ -2487,6 +2507,7 @@ class ListenerRuleQueryStringConfigArgs:
         """
         Information about a query string condition.
          The query string component of a URI starts after the first '?' character and is terminated by either a '#' character or the end of the URI. A typical query string contains key/value pairs separated by '&' characters. The allowed characters are specified by RFC 3986. Any character can be percentage encoded.
+
         :param pulumi.Input[Sequence[pulumi.Input['ListenerRuleQueryStringKeyValueArgs']]] values: The key/value pairs or values to find in the query string. The maximum length of each string is 128 characters. The comparison is case insensitive. The following wildcard characters are supported: * (matches 0 or more characters) and ? (matches exactly 1 character). To search for a literal '*' or '?' character in a query string, you must escape these characters in ``Values`` using a '\\' character.
                 If you specify multiple key/value pairs or values, the condition is satisfied if one of them is found in the query string.
         """
@@ -2527,6 +2548,7 @@ class ListenerRuleQueryStringKeyValueArgs:
                  value: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Information about a key/value pair.
+
         :param pulumi.Input[_builtins.str] key: The key. You can omit the key.
         :param pulumi.Input[_builtins.str] value: The value.
         """
@@ -2618,6 +2640,7 @@ class ListenerRuleRedirectConfigArgs:
           +  #{query}
           
          For example, you can change the path to "/new/#{path}", the hostname to "example.#{host}", or the query to "#{query}&value=xyz".
+
         :param pulumi.Input[_builtins.str] status_code: The HTTP redirect code. The redirect is either permanent (HTTP 301) or temporary (HTTP 302).
         :param pulumi.Input[_builtins.str] host: The hostname. This component is not percent-encoded. The hostname can contain #{host}.
         :param pulumi.Input[_builtins.str] path: The absolute path, starting with the leading "/". This component is not percent-encoded. The path can contain #{host}, #{path}, and #{port}.
@@ -2749,6 +2772,7 @@ class ListenerRuleRewriteConfigArgs:
                  replace: pulumi.Input[_builtins.str]):
         """
         Information about a rewrite transform. This transform matches a pattern and replaces it with the specified string.
+
         :param pulumi.Input[_builtins.str] regex: The regular expression to match in the input string. The maximum length of the string is 1,024 characters.
         :param pulumi.Input[_builtins.str] replace: The replacement string to use when rewriting the matched input. The maximum length of the string is 1,024 characters. You can specify capture groups in the regular expression (for example, $1 and $2).
         """
@@ -2853,6 +2877,7 @@ class ListenerRuleRuleConditionArgs:
                  values: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Specifies a condition for a listener rule.
+
         :param pulumi.Input[_builtins.str] field: The field in the HTTP request. The following are the possible values:
                  +   ``http-header`` 
                  +   ``http-request-method`` 
@@ -3045,6 +3070,7 @@ class ListenerRuleSourceIpConfigArgs:
         """
         Information about a source IP condition.
          You can use this condition to route based on the IP address of the source that connects to the load balancer. If a client is behind a proxy, this is the IP address of the proxy not the IP address of the client.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: The source IP addresses, in CIDR format. You can use both IPv4 and IPv6 addresses. Wildcards are not supported.
                 If you specify multiple addresses, the condition is satisfied if the source IP address of the request matches one of the CIDR blocks. This condition is not satisfied by the addresses in the X-Forwarded-For header.
         """
@@ -3085,6 +3111,7 @@ class ListenerRuleTargetGroupStickinessConfigArgs:
                  enabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Information about the target group stickiness for a rule.
+
         :param pulumi.Input[_builtins.int] duration_seconds: [Application Load Balancers] The time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days). You must specify this value when enabling target group stickiness.
         :param pulumi.Input[_builtins.bool] enabled: Indicates whether target group stickiness is enabled.
         """
@@ -3138,6 +3165,7 @@ class ListenerRuleTargetGroupTupleArgs:
                  weight: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Information about how traffic will be distributed between multiple target groups in a forward rule.
+
         :param pulumi.Input[_builtins.str] target_group_arn: The Amazon Resource Name (ARN) of the target group.
         :param pulumi.Input[_builtins.int] weight: The weight. The range is 0 to 999.
         """
@@ -3236,6 +3264,7 @@ class ListenerTargetGroupStickinessConfigArgs:
                  enabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Information about the target group stickiness for a rule.
+
         :param pulumi.Input[_builtins.int] duration_seconds: [Application Load Balancers] The time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days). You must specify this value when enabling target group stickiness.
         :param pulumi.Input[_builtins.bool] enabled: Indicates whether target group stickiness is enabled.
         """
@@ -3289,6 +3318,7 @@ class ListenerTargetGroupTupleArgs:
                  weight: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Information about how traffic will be distributed between multiple target groups in a forward rule.
+
         :param pulumi.Input[_builtins.str] target_group_arn: The Amazon Resource Name (ARN) of the target group.
         :param pulumi.Input[_builtins.int] weight: The weight. The range is 0 to 999.
         """
@@ -3378,6 +3408,7 @@ class LoadBalancerAttributeArgs:
                  value: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Specifies an attribute for an Application Load Balancer, a Network Load Balancer, or a Gateway Load Balancer.
+
         :param pulumi.Input[_builtins.str] key: The name of the attribute.
                 The following attributes are supported by all load balancers:
                  +  ``deletion_protection.enabled`` - Indicates whether deletion protection is enabled. The value is ``true`` or ``false``. The default is ``false``.
@@ -3498,6 +3529,7 @@ class LoadBalancerMinimumLoadBalancerCapacityArgs:
                  capacity_units: pulumi.Input[_builtins.int]):
         """
         The minimum capacity for a load balancer.
+
         :param pulumi.Input[_builtins.int] capacity_units: The number of capacity units.
         """
         pulumi.set(__self__, "capacity_units", capacity_units)
@@ -3550,6 +3582,7 @@ class LoadBalancerSubnetMappingArgs:
                  source_nat_ipv6_prefix: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Specifies a subnet for a load balancer.
+
         :param pulumi.Input[_builtins.str] subnet_id: The ID of the subnet.
         :param pulumi.Input[_builtins.str] allocation_id: [Network Load Balancers] The allocation ID of the Elastic IP address for an internet-facing load balancer.
         :param pulumi.Input[_builtins.str] i_pv6_address: [Network Load Balancers] The IPv6 address.

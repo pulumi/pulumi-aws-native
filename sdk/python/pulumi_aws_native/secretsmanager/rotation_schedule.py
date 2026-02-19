@@ -30,6 +30,7 @@ class RotationScheduleArgs:
                  rotation_rules: Optional[pulumi.Input['RotationScheduleRotationRulesArgs']] = None):
         """
         The set of arguments for constructing a RotationSchedule resource.
+
         :param pulumi.Input[_builtins.str] secret_id: The ARN or name of the secret to rotate.
         :param pulumi.Input[Sequence[pulumi.Input['RotationScheduleExternalSecretRotationMetadataItemArgs']]] external_secret_rotation_metadata: The list of metadata needed to successfully rotate a managed external secret.
         :param pulumi.Input[_builtins.str] external_secret_rotation_role_arn: The ARN of the IAM role that is used by Secrets Manager to rotate a managed external secret.
@@ -154,6 +155,7 @@ class RotationSchedule(pulumi.CustomResource):
         """
         Resource Type definition for AWS::SecretsManager::RotationSchedule
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['RotationScheduleExternalSecretRotationMetadataItemArgs', 'RotationScheduleExternalSecretRotationMetadataItemArgsDict']]]] external_secret_rotation_metadata: The list of metadata needed to successfully rotate a managed external secret.
@@ -172,6 +174,7 @@ class RotationSchedule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::SecretsManager::RotationSchedule
+
 
         :param str resource_name: The name of the resource.
         :param RotationScheduleArgs args: The arguments to use to populate this resource's properties.

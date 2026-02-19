@@ -37,6 +37,7 @@ class PipelineArgs:
                  vpc_options: Optional[pulumi.Input['PipelineVpcOptionsArgs']] = None):
         """
         The set of arguments for constructing a Pipeline resource.
+
         :param pulumi.Input[_builtins.int] max_units: The maximum pipeline capacity, in Ingestion OpenSearch Compute Units (OCUs).
         :param pulumi.Input[_builtins.int] min_units: The minimum pipeline capacity, in Ingestion OpenSearch Compute Units (OCUs).
         :param pulumi.Input[_builtins.str] pipeline_configuration_body: The Data Prepper pipeline configuration.
@@ -219,6 +220,7 @@ class Pipeline(pulumi.CustomResource):
         """
         An OpenSearch Ingestion Service Data Prepper pipeline running Data Prepper.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['PipelineBufferOptionsArgs', 'PipelineBufferOptionsArgsDict']] buffer_options: Options that specify the configuration of a persistent buffer. To configure how OpenSearch Ingestion encrypts this data, set the `EncryptionAtRestOptions` . For more information, see [Persistent buffering](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/osis-features-overview.html#persistent-buffering) .
@@ -240,6 +242,7 @@ class Pipeline(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An OpenSearch Ingestion Service Data Prepper pipeline running Data Prepper.
+
 
         :param str resource_name: The name of the resource.
         :param PipelineArgs args: The arguments to use to populate this resource's properties.

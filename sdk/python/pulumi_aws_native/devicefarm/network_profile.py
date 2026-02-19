@@ -35,6 +35,7 @@ class NetworkProfileArgs:
                  uplink_loss_percent: Optional[pulumi.Input[_builtins.int]] = None):
         """
         The set of arguments for constructing a NetworkProfile resource.
+
         :param pulumi.Input[_builtins.str] project_arn: The Amazon Resource Name (ARN) of the specified project.
         :param pulumi.Input[_builtins.str] description: The description of the network profile.
         :param pulumi.Input[_builtins.int] downlink_bandwidth_bits: The data throughput rate in bits per second, as an integer from 0 to 104857600.
@@ -243,6 +244,7 @@ class NetworkProfile(pulumi.CustomResource):
         """
         Resource Type definition for a Device Farm Network Profile
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: The description of the network profile.
@@ -268,6 +270,7 @@ class NetworkProfile(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for a Device Farm Network Profile
+
 
         :param str resource_name: The name of the resource.
         :param NetworkProfileArgs args: The arguments to use to populate this resource's properties.

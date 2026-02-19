@@ -34,6 +34,7 @@ class BotAliasArgs:
                  sentiment_analysis_settings: Optional[pulumi.Input['SentimentAnalysisSettingsPropertiesArgs']] = None):
         """
         The set of arguments for constructing a BotAlias resource.
+
         :param pulumi.Input[_builtins.str] bot_id: The unique identifier of the bot.
         :param pulumi.Input[Sequence[pulumi.Input['BotAliasLocaleSettingsItemArgs']]] bot_alias_locale_settings: Specifies settings that are unique to a locale. For example, you can use different Lambda function depending on the bot's locale.
         :param pulumi.Input[_builtins.str] bot_alias_name: The name of the bot alias.
@@ -174,6 +175,7 @@ class BotAlias(pulumi.CustomResource):
         """
         Resource Type definition for a Bot Alias, which enables you to change the version of a bot without updating applications that use the bot
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['BotAliasLocaleSettingsItemArgs', 'BotAliasLocaleSettingsItemArgsDict']]]] bot_alias_locale_settings: Specifies settings that are unique to a locale. For example, you can use different Lambda function depending on the bot's locale.
@@ -193,6 +195,7 @@ class BotAlias(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for a Bot Alias, which enables you to change the version of a bot without updating applications that use the bot
+
 
         :param str resource_name: The name of the resource.
         :param BotAliasArgs args: The arguments to use to populate this resource's properties.

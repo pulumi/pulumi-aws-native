@@ -27,6 +27,7 @@ class LocationFSxLustreArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a LocationFSxLustre resource.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_arns: The ARNs of the security groups that are to use to configure the FSx for Lustre file system.
         :param pulumi.Input[_builtins.str] fsx_filesystem_arn: The Amazon Resource Name (ARN) for the FSx for Lustre file system.
         :param pulumi.Input[_builtins.str] subdirectory: A subdirectory in the location's path.
@@ -129,6 +130,7 @@ class LocationFSxLustre(pulumi.CustomResource):
 
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] fsx_filesystem_arn: The Amazon Resource Name (ARN) for the FSx for Lustre file system.
@@ -170,6 +172,7 @@ class LocationFSxLustre(pulumi.CustomResource):
             subdirectory="/MySubdirectory")
 
         ```
+
 
         :param str resource_name: The name of the resource.
         :param LocationFSxLustreArgs args: The arguments to use to populate this resource's properties.

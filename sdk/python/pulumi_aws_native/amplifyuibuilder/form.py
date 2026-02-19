@@ -36,6 +36,7 @@ class FormArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Form resource.
+
         :param pulumi.Input[_builtins.str] app_id: The unique ID of the Amplify app associated with the form.
         :param pulumi.Input['FormCtaArgs'] cta: The `FormCTA` object that stores the call to action configuration for the form.
         :param pulumi.Input['FormDataTypeConfigArgs'] data_type: The type of data source to use to create the form.
@@ -241,6 +242,7 @@ class Form(pulumi.CustomResource):
         """
         Definition of AWS::AmplifyUIBuilder::Form Resource Type
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] app_id: The unique ID of the Amplify app associated with the form.
@@ -264,6 +266,7 @@ class Form(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of AWS::AmplifyUIBuilder::Form Resource Type
+
 
         :param str resource_name: The name of the resource.
         :param FormArgs args: The arguments to use to populate this resource's properties.

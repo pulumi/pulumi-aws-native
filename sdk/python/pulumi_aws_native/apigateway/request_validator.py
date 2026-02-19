@@ -25,6 +25,7 @@ class RequestValidatorArgs:
                  validate_request_parameters: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a RequestValidator resource.
+
         :param pulumi.Input[_builtins.str] rest_api_id: The string identifier of the associated RestApi.
         :param pulumi.Input[_builtins.str] name: The name of this RequestValidator
         :param pulumi.Input[_builtins.bool] validate_request_body: A Boolean flag to indicate whether to validate a request body according to the configured Model schema.
@@ -101,6 +102,7 @@ class RequestValidator(pulumi.CustomResource):
         """
         The ``AWS::ApiGateway::RequestValidator`` resource sets up basic validation rules for incoming requests to your API. For more information, see [Enable Basic Request Validation for an API in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-method-request-validation.html) in the *API Gateway Developer Guide*.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: The name of this RequestValidator
@@ -116,6 +118,7 @@ class RequestValidator(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The ``AWS::ApiGateway::RequestValidator`` resource sets up basic validation rules for incoming requests to your API. For more information, see [Enable Basic Request Validation for an API in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-method-request-validation.html) in the *API Gateway Developer Guide*.
+
 
         :param str resource_name: The name of the resource.
         :param RequestValidatorArgs args: The arguments to use to populate this resource's properties.

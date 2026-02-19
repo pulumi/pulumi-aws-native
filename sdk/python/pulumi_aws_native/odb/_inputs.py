@@ -70,6 +70,7 @@ class CloudAutonomousVmClusterMaintenanceWindowArgs:
                  weeks_of_month: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None):
         """
         The scheduling details for the maintenance window. Patching and system updates take place during the maintenance window.
+
         :param pulumi.Input[Sequence[pulumi.Input['CloudAutonomousVmClusterMaintenanceWindowDaysOfWeekItem']]] days_of_week: The days of the week when maintenance can be performed.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] hours_of_day: The hours of the day when maintenance can be performed.
         :param pulumi.Input[_builtins.int] lead_time_in_weeks: The lead time in weeks before the maintenance window.
@@ -178,6 +179,7 @@ class CloudExadataInfrastructureCustomerContactArgs:
                  email: Optional[pulumi.Input[_builtins.str]] = None):
         """
         A contact to receive notification from Oracle about maintenance updates for a specific Exadata infrastructure.
+
         :param pulumi.Input[_builtins.str] email: The email address of the contact.
         """
         if email is not None:
@@ -251,6 +253,7 @@ class CloudExadataInfrastructureMaintenanceWindowArgs:
                  weeks_of_month: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None):
         """
         The scheduling details for the maintenance window. Patching and system updates take place during the maintenance window.
+
         :param pulumi.Input[_builtins.int] custom_action_timeout_in_mins: The timeout duration for custom actions in minutes.
         :param pulumi.Input[Sequence[pulumi.Input['CloudExadataInfrastructureMaintenanceWindowDaysOfWeekItem']]] days_of_week: The days of the week when maintenance can be performed.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] hours_of_day: The hours of the day when maintenance can be performed.
@@ -414,6 +417,7 @@ class CloudVmClusterDataCollectionOptionsArgs:
                  is_incident_logs_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Information about the data collection options enabled for a VM cluster.
+
         :param pulumi.Input[_builtins.bool] is_diagnostics_events_enabled: Indicates whether diagnostic collection is enabled for the VM cluster.
         :param pulumi.Input[_builtins.bool] is_health_monitoring_enabled: Indicates whether health monitoring is enabled for the VM cluster.
         :param pulumi.Input[_builtins.bool] is_incident_logs_enabled: Indicates whether incident logs are enabled for the cloud VM cluster.
@@ -549,6 +553,7 @@ class CloudVmClusterDbNodeArgs:
                  vnic_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         A DbNode is a virtual machine that hosts Oracle database instances and provides access to shared storage servers within a VM Cluster
+
         :param pulumi.Input[_builtins.str] db_server_id: The unique identifier of the database server that's associated with the DB node.
         :param pulumi.Input[_builtins.str] backup_ip_id: The Oracle Cloud ID (OCID) of the backup IP address that's associated with the DB node.
         :param pulumi.Input[_builtins.str] backup_vnic2_id: The OCID of the second backup virtual network interface card (VNIC) for the DB node.
@@ -807,6 +812,7 @@ class CloudVmClusterTagArgs:
                  value: Optional[pulumi.Input[_builtins.str]] = None):
         """
         A key-value pair to associate with a resource.
+
         :param pulumi.Input[_builtins.str] key: The key name of the tag. You can specify a value that's 1 to 128 Unicode characters in length and can't be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., :, /, =, +, @, -, and ".
         :param pulumi.Input[_builtins.str] value: The value for the tag. You can specify a value that's 1 to 256 characters in length. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         """

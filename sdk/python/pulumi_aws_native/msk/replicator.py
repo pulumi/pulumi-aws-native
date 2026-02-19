@@ -32,6 +32,7 @@ class ReplicatorArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Replicator resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['ReplicatorKafkaClusterArgs']]] kafka_clusters: Specifies a list of Kafka clusters which are targets of the replicator.
         :param pulumi.Input[Sequence[pulumi.Input['ReplicatorReplicationInfoArgs']]] replication_info_list: A list of replication configurations, where each configuration targets a given source cluster to target cluster replication flow.
         :param pulumi.Input[_builtins.str] service_execution_role_arn: The Amazon Resource Name (ARN) of the IAM role used by the replicator to access external resources.
@@ -138,6 +139,7 @@ class Replicator(pulumi.CustomResource):
         """
         Resource Type definition for AWS::MSK::Replicator
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: A summary description of the replicator.
@@ -155,6 +157,7 @@ class Replicator(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::MSK::Replicator
+
 
         :param str resource_name: The name of the resource.
         :param ReplicatorArgs args: The arguments to use to populate this resource's properties.

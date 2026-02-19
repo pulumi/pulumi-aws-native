@@ -30,6 +30,7 @@ class VodSourceArgs:
                  vod_source_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a VodSource resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['VodSourceHttpPackageConfigurationArgs']]] http_package_configurations: <p>A list of HTTP package configuration parameters for this VOD source.</p>
         :param pulumi.Input[_builtins.str] source_location_name: The name of the source location that the VOD source is associated with.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags to assign to the VOD source.
@@ -105,6 +106,7 @@ class VodSource(pulumi.CustomResource):
         """
         Definition of AWS::MediaTailor::VodSource Resource Type
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['VodSourceHttpPackageConfigurationArgs', 'VodSourceHttpPackageConfigurationArgsDict']]]] http_package_configurations: <p>A list of HTTP package configuration parameters for this VOD source.</p>
@@ -120,6 +122,7 @@ class VodSource(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of AWS::MediaTailor::VodSource Resource Type
+
 
         :param str resource_name: The name of the resource.
         :param VodSourceArgs args: The arguments to use to populate this resource's properties.

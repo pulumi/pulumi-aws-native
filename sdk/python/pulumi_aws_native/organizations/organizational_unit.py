@@ -26,6 +26,7 @@ class OrganizationalUnitArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a OrganizationalUnit resource.
+
         :param pulumi.Input[_builtins.str] parent_id: The unique identifier (ID) of the parent root or OU that you want to create the new OU in.
         :param pulumi.Input[_builtins.str] name: The friendly name of this OU.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A list of tags that you want to attach to the newly created OU.
@@ -146,6 +147,7 @@ class OrganizationalUnit(pulumi.CustomResource):
 
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: The friendly name of this OU.
@@ -220,6 +222,7 @@ class OrganizationalUnit(pulumi.CustomResource):
             parent_id=parent_ou.id)
 
         ```
+
 
         :param str resource_name: The name of the resource.
         :param OrganizationalUnitArgs args: The arguments to use to populate this resource's properties.

@@ -30,6 +30,7 @@ class EventBridgeRuleTemplateArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a EventBridgeRuleTemplate resource.
+
         :param pulumi.Input['EventBridgeRuleTemplateEventType'] event_type: The type of event to match with the rule.
         :param pulumi.Input[_builtins.str] description: A resource's optional description.
         :param pulumi.Input[Sequence[pulumi.Input['EventBridgeRuleTemplateTargetArgs']]] event_targets: Placeholder documentation for __listOfEventBridgeRuleTemplateTarget
@@ -134,6 +135,7 @@ class EventBridgeRuleTemplate(pulumi.CustomResource):
         """
         Definition of AWS::MediaLive::EventBridgeRuleTemplate Resource Type
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: A resource's optional description.
@@ -150,6 +152,7 @@ class EventBridgeRuleTemplate(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of AWS::MediaLive::EventBridgeRuleTemplate Resource Type
+
 
         :param str resource_name: The name of the resource.
         :param EventBridgeRuleTemplateArgs args: The arguments to use to populate this resource's properties.

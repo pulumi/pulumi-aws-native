@@ -43,6 +43,7 @@ class ApplicationArgs:
                  worker_type_specifications: Optional[pulumi.Input[Mapping[str, pulumi.Input['ApplicationWorkerTypeSpecificationInputArgs']]]] = None):
         """
         The set of arguments for constructing a Application resource.
+
         :param pulumi.Input[_builtins.str] release_label: EMR release label.
         :param pulumi.Input[_builtins.str] type: The type of the application
         :param pulumi.Input['ApplicationArchitecture'] architecture: The CPU architecture of an application.
@@ -326,6 +327,7 @@ class Application(pulumi.CustomResource):
         """
         Resource schema for AWS::EMRServerless::Application Type
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input['ApplicationArchitecture'] architecture: The CPU architecture of an application.
@@ -354,6 +356,7 @@ class Application(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource schema for AWS::EMRServerless::Application Type
+
 
         :param str resource_name: The name of the resource.
         :param ApplicationArgs args: The arguments to use to populate this resource's properties.

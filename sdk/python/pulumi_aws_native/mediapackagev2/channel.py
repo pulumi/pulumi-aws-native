@@ -33,6 +33,7 @@ class ChannelArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Channel resource.
+
         :param pulumi.Input[_builtins.str] channel_group_name: The name of the channel group associated with the channel configuration.
         :param pulumi.Input[_builtins.str] channel_name: The name of the channel.
         :param pulumi.Input[_builtins.str] description: <p>Enter any descriptive text that helps you to identify the channel.</p>
@@ -163,6 +164,7 @@ class Channel(pulumi.CustomResource):
         """
         <p>Represents an entry point into AWS Elemental MediaPackage for an ABR video content stream sent from an upstream encoder such as AWS Elemental MediaLive. The channel continuously analyzes the content that it receives and prepares it to be distributed to consumers via one or more origin endpoints.</p>
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] channel_group_name: The name of the channel group associated with the channel configuration.
@@ -185,6 +187,7 @@ class Channel(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         <p>Represents an entry point into AWS Elemental MediaPackage for an ABR video content stream sent from an upstream encoder such as AWS Elemental MediaLive. The channel continuously analyzes the content that it receives and prepares it to be distributed to consumers via one or more origin endpoints.</p>
+
 
         :param str resource_name: The name of the resource.
         :param ChannelArgs args: The arguments to use to populate this resource's properties.

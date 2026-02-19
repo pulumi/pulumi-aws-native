@@ -32,6 +32,7 @@ class ProjectArgs:
                  user_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['ProjectEnvironmentConfigurationUserParameterArgs']]]] = None):
         """
         The set of arguments for constructing a Project resource.
+
         :param pulumi.Input[_builtins.str] domain_identifier: The ID of the Amazon DataZone domain in which this project is created.
         :param pulumi.Input[_builtins.str] description: The description of the Amazon DataZone project.
         :param pulumi.Input[_builtins.str] domain_unit_id: The ID of the domain unit.
@@ -172,6 +173,7 @@ class Project(pulumi.CustomResource):
         """
         Amazon DataZone projects are business use case–based groupings of people, assets (data), and tools used to simplify access to the AWS analytics.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: The description of the Amazon DataZone project.
@@ -191,6 +193,7 @@ class Project(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Amazon DataZone projects are business use case–based groupings of people, assets (data), and tools used to simplify access to the AWS analytics.
+
 
         :param str resource_name: The name of the resource.
         :param ProjectArgs args: The arguments to use to populate this resource's properties.

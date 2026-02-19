@@ -34,6 +34,7 @@ class SimpleAdArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a SimpleAd resource.
+
         :param pulumi.Input[_builtins.str] size: The size of the directory.
         :param pulumi.Input['SimpleAdVpcSettingsArgs'] vpc_settings: VPC settings of the Simple AD directory server in AWS.
         :param pulumi.Input[_builtins.bool] create_alias: The name of the configuration set.
@@ -185,6 +186,7 @@ class SimpleAd(pulumi.CustomResource):
         """
         Resource Type definition for AWS::DirectoryService::SimpleAD
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] create_alias: The name of the configuration set.
@@ -204,6 +206,7 @@ class SimpleAd(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::DirectoryService::SimpleAD
+
 
         :param str resource_name: The name of the resource.
         :param SimpleAdArgs args: The arguments to use to populate this resource's properties.

@@ -34,6 +34,7 @@ class FlowArgs:
                  vpc_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input['FlowVpcInterfaceArgs']]]] = None):
         """
         The set of arguments for constructing a Flow resource.
+
         :param pulumi.Input['FlowSourceArgs'] source: The source of the flow.
         :param pulumi.Input[_builtins.str] availability_zone: The Availability Zone that you want to create the flow in. These options are limited to the Availability Zones within the current AWS.
         :param pulumi.Input['FlowSize'] flow_size: Determines the processing capacity and feature set of the flow. Set this optional parameter to LARGE if you want to enable NDI outputs on the flow.
@@ -206,6 +207,7 @@ class Flow(pulumi.CustomResource):
         """
         Resource schema for AWS::MediaConnect::Flow
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] availability_zone: The Availability Zone that you want to create the flow in. These options are limited to the Availability Zones within the current AWS.
@@ -227,6 +229,7 @@ class Flow(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource schema for AWS::MediaConnect::Flow
+
 
         :param str resource_name: The name of the resource.
         :param FlowArgs args: The arguments to use to populate this resource's properties.

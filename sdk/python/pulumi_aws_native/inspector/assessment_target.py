@@ -23,6 +23,7 @@ class AssessmentTargetArgs:
                  resource_group_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a AssessmentTarget resource.
+
         :param pulumi.Input[_builtins.str] assessment_target_name: The name of the Amazon Inspector assessment target. The name must be unique within the AWS account .
         :param pulumi.Input[_builtins.str] resource_group_arn: The ARN that specifies the resource group that is used to create the assessment target. If `resourceGroupArn` is not specified, all EC2 instances in the current AWS account and Region are included in the assessment target.
         """
@@ -68,6 +69,7 @@ class AssessmentTarget(pulumi.CustomResource):
         """
         Resource Type definition for AWS::Inspector::AssessmentTarget
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] assessment_target_name: The name of the Amazon Inspector assessment target. The name must be unique within the AWS account .
@@ -81,6 +83,7 @@ class AssessmentTarget(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::Inspector::AssessmentTarget
+
 
         :param str resource_name: The name of the resource.
         :param AssessmentTargetArgs args: The arguments to use to populate this resource's properties.

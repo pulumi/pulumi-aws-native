@@ -42,6 +42,7 @@ class WorkflowArgs:
                  workflow_bucket_owner_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Workflow resource.
+
         :param pulumi.Input['WorkflowContainerRegistryMapArgs'] container_registry_map: Use a container registry map to specify mappings between the ECR private repository and one or more upstream registries. For more information, see [Container images](https://docs.aws.amazon.com/omics/latest/dev/workflows-ecr.html) in the *AWS HealthOmics User Guide* .
         :param pulumi.Input['WorkflowDefinitionRepositoryArgs'] definition_repository: Contains information about a source code repository that hosts the workflow definition files.
         :param pulumi.Input[_builtins.str] definition_uri: The URI of a definition for the workflow.
@@ -331,6 +332,7 @@ class Workflow(pulumi.CustomResource):
         """
         Definition of AWS::Omics::Workflow Resource Type
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['WorkflowContainerRegistryMapArgs', 'WorkflowContainerRegistryMapArgsDict']] container_registry_map: Use a container registry map to specify mappings between the ECR private repository and one or more upstream registries. For more information, see [Container images](https://docs.aws.amazon.com/omics/latest/dev/workflows-ecr.html) in the *AWS HealthOmics User Guide* .
@@ -357,6 +359,7 @@ class Workflow(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of AWS::Omics::Workflow Resource Type
+
 
         :param str resource_name: The name of the resource.
         :param WorkflowArgs args: The arguments to use to populate this resource's properties.

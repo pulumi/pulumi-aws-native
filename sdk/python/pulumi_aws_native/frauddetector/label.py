@@ -26,6 +26,7 @@ class LabelArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Label resource.
+
         :param pulumi.Input[_builtins.str] description: The label description.
         :param pulumi.Input[_builtins.str] name: The name of the label.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: Tags associated with this label.
@@ -87,6 +88,7 @@ class Label(pulumi.CustomResource):
         """
         An label for fraud detector.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: The label description.
@@ -101,6 +103,7 @@ class Label(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An label for fraud detector.
+
 
         :param str resource_name: The name of the resource.
         :param LabelArgs args: The arguments to use to populate this resource's properties.

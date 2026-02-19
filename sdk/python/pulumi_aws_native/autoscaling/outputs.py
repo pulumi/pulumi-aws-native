@@ -81,6 +81,7 @@ class AutoScalingGroupAcceleratorCountRequest(dict):
                  min: Optional[_builtins.int] = None):
         """
         ``AcceleratorCountRequest`` is a property of the ``InstanceRequirements`` property of the [AWS::AutoScaling::AutoScalingGroup LaunchTemplateOverrides](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplateoverrides.html) property type that describes the minimum and maximum number of accelerators for an instance type.
+
         :param _builtins.int max: The maximum value.
         :param _builtins.int min: The minimum value.
         """
@@ -116,6 +117,7 @@ class AutoScalingGroupAcceleratorTotalMemoryMiBRequest(dict):
                  min: Optional[_builtins.int] = None):
         """
         ``AcceleratorTotalMemoryMiBRequest`` is a property of the ``InstanceRequirements`` property of the [AWS::AutoScaling::AutoScalingGroup LaunchTemplateOverrides](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplateoverrides.html) property type that describes the minimum and maximum total memory size for the accelerators for an instance type, in MiB.
+
         :param _builtins.int max: The memory maximum in MiB.
         :param _builtins.int min: The memory minimum in MiB.
         """
@@ -167,6 +169,7 @@ class AutoScalingGroupAvailabilityZoneDistribution(dict):
                  capacity_distribution_strategy: Optional['AutoScalingGroupAvailabilityZoneDistributionCapacityDistributionStrategy'] = None):
         """
         ``AvailabilityZoneDistribution`` is a property of the [AWS::AutoScaling::AutoScalingGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-autoscalinggroup.html) resource.
+
         :param 'AutoScalingGroupAvailabilityZoneDistributionCapacityDistributionStrategy' capacity_distribution_strategy: If launches fail in an Availability Zone, the following strategies are available. The default is ``balanced-best-effort``. 
                  +  ``balanced-only`` - If launches fail in an Availability Zone, Auto Scaling will continue to attempt to launch in the unhealthy zone to preserve a balanced distribution.
                  +  ``balanced-best-effort`` - If launches fail in an Availability Zone, Auto Scaling will attempt to launch in another healthy Availability Zone instead.
@@ -214,6 +217,7 @@ class AutoScalingGroupAvailabilityZoneImpairmentPolicy(dict):
                  zonal_shift_enabled: _builtins.bool):
         """
         Describes an Availability Zone impairment policy.
+
         :param 'AutoScalingGroupAvailabilityZoneImpairmentPolicyImpairedZoneHealthCheckBehavior' impaired_zone_health_check_behavior: Specifies the health check behavior for the impaired Availability Zone in an active zonal shift. If you select ``Replace unhealthy``, instances that appear unhealthy will be replaced in all Availability Zones. If you select ``Ignore unhealthy``, instances will not be replaced in the Availability Zone with the active zonal shift. For more information, see [Auto Scaling group zonal shift](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-zonal-shift.html) in the *Amazon EC2 Auto Scaling User Guide*.
         :param _builtins.bool zonal_shift_enabled: If ``true``, enable zonal shift for your Auto Scaling group.
         """
@@ -247,6 +251,7 @@ class AutoScalingGroupBaselineEbsBandwidthMbpsRequest(dict):
                  min: Optional[_builtins.int] = None):
         """
         ``BaselineEbsBandwidthMbpsRequest`` is a property of the ``InstanceRequirements`` property of the [AWS::AutoScaling::AutoScalingGroup LaunchTemplateOverrides](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplateoverrides.html) property type that describes the minimum and maximum baseline bandwidth performance for an instance type, in Mbps.
+
         :param _builtins.int max: The maximum value in Mbps.
         :param _builtins.int min: The minimum value in Mbps.
         """
@@ -283,6 +288,7 @@ class AutoScalingGroupBaselinePerformanceFactorsRequest(dict):
         """
         The baseline performance to consider, using an instance family as a baseline reference. The instance family establishes the lowest acceptable level of performance. Auto Scaling uses this baseline to guide instance type selection, but there is no guarantee that the selected instance types will always exceed the baseline for every application. 
          Currently, this parameter only supports CPU performance as a baseline performance factor. For example, specifying ``c6i`` uses the CPU performance of the ``c6i`` family as the baseline reference.
+
         :param 'AutoScalingGroupCpuPerformanceFactorRequest' cpu: The CPU performance to consider, using an instance family as the baseline reference.
         """
         if cpu is not None:
@@ -326,6 +332,7 @@ class AutoScalingGroupCapacityReservationSpecification(dict):
                  capacity_reservation_target: Optional['outputs.AutoScalingGroupCapacityReservationTarget'] = None):
         """
         Describes the Capacity Reservation preference and targeting options. If you specify ``open`` or ``none`` for ``CapacityReservationPreference``, do not specify a ``CapacityReservationTarget``.
+
         :param _builtins.str capacity_reservation_preference: The capacity reservation preference. The following options are available: 
                  +  ``capacity-reservations-only`` - Auto Scaling will only launch instances into a Capacity Reservation or Capacity Reservation resource group. If capacity isn't available, instances will fail to launch.
                  +  ``capacity-reservations-first`` - Auto Scaling will try to launch instances into a Capacity Reservation or Capacity Reservation resource group first. If capacity isn't available, instances will run in On-Demand capacity.
@@ -387,6 +394,7 @@ class AutoScalingGroupCapacityReservationTarget(dict):
                  capacity_reservation_resource_group_arns: Optional[Sequence[_builtins.str]] = None):
         """
         The target for the Capacity Reservation. Specify Capacity Reservations IDs or Capacity Reservation resource group ARNs.
+
         :param Sequence[_builtins.str] capacity_reservation_ids: The Capacity Reservation IDs to launch instances into.
         :param Sequence[_builtins.str] capacity_reservation_resource_group_arns: The resource group ARNs of the Capacity Reservation to launch instances into.
         """
@@ -421,6 +429,7 @@ class AutoScalingGroupCpuPerformanceFactorRequest(dict):
                  references: Optional[Sequence['outputs.AutoScalingGroupPerformanceFactorReferenceRequest']] = None):
         """
         The CPU performance to consider, using an instance family as the baseline reference.
+
         :param Sequence['AutoScalingGroupPerformanceFactorReferenceRequest'] references: Specify an instance family to use as the baseline reference for CPU performance. All instance types that match your specified attributes will be compared against the CPU performance of the referenced instance family, regardless of CPU manufacturer or architecture differences. 
                  Currently only one instance family can be specified in the list.
         """
@@ -465,6 +474,7 @@ class AutoScalingGroupInstanceLifecyclePolicy(dict):
         """
         The instance lifecycle policy for the Auto Scaling group. This policy controls instance behavior when an instance transitions through its lifecycle states. Configure retention triggers to specify when instances should move to a ``Retained`` state instead of automatic termination. 
          For more information, see [Control instance retention with instance lifecycle policies](https://docs.aws.amazon.com/autoscaling/ec2/userguide/instance-lifecycle-policy.html) in the *Amazon EC2 Auto Scaling User Guide*.
+
         :param 'AutoScalingGroupRetentionTriggers' retention_triggers: Specifies the conditions that trigger instance retention behavior. These triggers determine when instances should move to a ``Retained`` state instead of automatic termination. This allows you to maintain control over instance management when lifecycles transition and operations fail.
         """
         if retention_triggers is not None:
@@ -510,6 +520,7 @@ class AutoScalingGroupInstanceMaintenancePolicy(dict):
         """
         ``InstanceMaintenancePolicy`` is a property of the [AWS::AutoScaling::AutoScalingGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-autoscalinggroup.html) resource.
          For more information, see [Instance maintenance policies](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-instance-maintenance-policy.html) in the *Amazon EC2 Auto Scaling User Guide*.
+
         :param _builtins.int max_healthy_percentage: Specifies the upper threshold as a percentage of the desired capacity of the Auto Scaling group. It represents the maximum percentage of the group that can be in service and healthy, or pending, to support your workload when replacing instances. Value range is 100 to 200. To clear a previously set value, specify a value of ``-1``.
                 Both ``MinHealthyPercentage`` and ``MaxHealthyPercentage`` must be specified, and the difference between them cannot be greater than 100. A large range increases the number of instances that can be replaced at the same time.
         :param _builtins.int min_healthy_percentage: Specifies the lower threshold as a percentage of the desired capacity of the Auto Scaling group. It represents the minimum percentage of the group to keep in service, healthy, and ready to use to support your workload when replacing instances. Value range is 0 to 100. To clear a previously set value, specify a value of ``-1``.
@@ -653,6 +664,7 @@ class AutoScalingGroupInstanceRequirements(dict):
           For an example template, see [Configure Amazon EC2 Auto Scaling resources](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/quickref-ec2-auto-scaling.html).
          For more information, see [Creating an Auto Scaling group using attribute-based instance type selection](https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-asg-instance-type-requirements.html) in the *Amazon EC2 Auto Scaling User Guide*. For help determining which instance types match your attributes before you apply them to your Auto Scaling group, see [Preview instance types with specified attributes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.html#ec2fleet-get-instance-types-from-instance-requirements) in the *Amazon EC2 User Guide for Linux Instances*.
          ``InstanceRequirements`` is a property of the ``LaunchTemplateOverrides`` property of the [AWS::AutoScaling::AutoScalingGroup LaunchTemplate](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplate.html) property type.
+
         :param 'AutoScalingGroupMemoryMiBRequest' memory_mi_b: The minimum and maximum instance memory size for an instance type, in MiB.
         :param 'AutoScalingGroupVCpuCountRequest' v_cpu_count: The minimum and maximum number of vCPUs for an instance type.
         :param 'AutoScalingGroupAcceleratorCountRequest' accelerator_count: The minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips) for an instance type.
@@ -1102,6 +1114,7 @@ class AutoScalingGroupInstancesDistribution(dict):
         Use this structure to specify the distribution of On-Demand Instances and Spot Instances and the allocation strategies used to fulfill On-Demand and Spot capacities for a mixed instances policy.
          For more information, see [Auto Scaling groups with multiple instance types and purchase options](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-mixed-instances-groups.html) in the *Amazon EC2 Auto Scaling User Guide*.
          ``InstancesDistribution`` is a property of the [AWS::AutoScaling::AutoScalingGroup MixedInstancesPolicy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-mixedinstancespolicy.html) property type.
+
         :param _builtins.str on_demand_allocation_strategy: The allocation strategy to apply to your On-Demand Instances when they are launched. Possible instance types are determined by the launch template overrides that you specify.
                 The following lists the valid values:
                  + lowest-price Uses price to determine which instance types are the highest priority, launching the lowest priced instance types within an Availability Zone first. This is the default value for Auto Scaling groups that specify InstanceRequirements. + prioritized You set the order of instance types for the launch template overrides from highest to lowest priority (from first to last in the list). Amazon EC2 Auto Scaling launches your highest priority instance types first. If all your On-Demand capacity cannot be fulfilled using your highest priority instance type, then Amazon EC2 Auto Scaling launches the remaining capacity using the second priority instance type, and so on. This is the default value for Auto Scaling groups that don't specify InstanceRequirements and cannot be used for groups that do.
@@ -1224,6 +1237,7 @@ class AutoScalingGroupLaunchTemplate(dict):
         """
         Use this structure to specify the launch templates and instance types (overrides) for a mixed instances policy.
          ``LaunchTemplate`` is a property of the [AWS::AutoScaling::AutoScalingGroup MixedInstancesPolicy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-mixedinstancespolicy.html) property type.
+
         :param 'AutoScalingGroupLaunchTemplateSpecification' launch_template_specification: The launch template.
         :param Sequence['AutoScalingGroupLaunchTemplateOverrides'] overrides: Any properties that you specify override the same properties in the launch template.
         """
@@ -1298,6 +1312,7 @@ class AutoScalingGroupLaunchTemplateOverrides(dict):
          Specify the instance types that you want, or define your instance requirements instead and let Amazon EC2 Auto Scaling provision the available instance types that meet your requirements. This can provide Amazon EC2 Auto Scaling with a larger selection of instance types to choose from when fulfilling Spot and On-Demand capacities. You can view which instance types are matched before you apply the instance requirements to your Auto Scaling group.
          After you define your instance requirements, you don't have to keep updating these settings to get new EC2 instance types automatically. Amazon EC2 Auto Scaling uses the instance requirements of the Auto Scaling group to determine whether a new EC2 instance type can be used.
          ``LaunchTemplateOverrides`` is a property of the [AWS::AutoScaling::AutoScalingGroup LaunchTemplate](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplate.html) property type.
+
         :param _builtins.str image_id: The ID of the Amazon Machine Image (AMI) to use for instances launched with this override. When using Instance Refresh with ``ReplaceRootVolume`` strategy, this specifies the AMI for root volume replacement operations. 
                  For ``ReplaceRootVolume`` operations: 
                  +  All overrides in the ``MixedInstancesPolicy`` must specify an ImageId
@@ -1420,6 +1435,7 @@ class AutoScalingGroupLaunchTemplateSpecification(dict):
          ``LaunchTemplateSpecification`` is property of the [AWS::AutoScaling::AutoScalingGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-autoscalinggroup.html) resource. It is also a property of the [AWS::AutoScaling::AutoScalingGroup LaunchTemplate](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplate.html) and [AWS::AutoScaling::AutoScalingGroup LaunchTemplateOverrides](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplateoverrides.html) property types.
          For information about creating a launch template, see [AWS::EC2::LaunchTemplate](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-launchtemplate.html) and [Create a launch template for an Auto Scaling group](https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-launch-template.html) in the *Amazon EC2 Auto Scaling User Guide*.
          For examples of launch templates, see [Create launch templates](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/quickref-ec2-launch-templates.html).
+
         :param _builtins.str version: The version number of the launch template.
                 Specifying ``$Latest`` or ``$Default`` for the template version number is not supported. However, you can specify ``LatestVersionNumber`` or ``DefaultVersionNumber`` using the ``Fn::GetAtt`` intrinsic function. For more information, see [Fn::GetAtt](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-getatt.html).
                  For an example of using the ``Fn::GetAtt`` function, see the [Examples](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-autoscalinggroup.html#aws-resource-autoscaling-autoscalinggroup--examples) section of the ``AWS::AutoScaling::AutoScalingGroup`` resource.
@@ -1509,6 +1525,7 @@ class AutoScalingGroupLifecycleHookSpecification(dict):
         """
         ``LifecycleHookSpecification`` specifies a lifecycle hook for the ``LifecycleHookSpecificationList`` property of the [AWS::AutoScaling::AutoScalingGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-autoscalinggroup.html) resource. A lifecycle hook specifies actions to perform when Amazon EC2 Auto Scaling launches or terminates instances. 
          For more information, see [Amazon EC2 Auto Scaling lifecycle hooks](https://docs.aws.amazon.com/autoscaling/ec2/userguide/lifecycle-hooks.html) in the *Amazon EC2 Auto Scaling User Guide*. You can find a sample template snippet in the [Examples](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-as-lifecyclehook.html#aws-resource-as-lifecyclehook--examples) section of the ``AWS::AutoScaling::LifecycleHook`` resource.
+
         :param _builtins.str lifecycle_hook_name: The name of the lifecycle hook.
         :param _builtins.str lifecycle_transition: The lifecycle transition. For Auto Scaling groups, there are two major lifecycle transitions.
                  +  To create a lifecycle hook for scale-out events, specify ``autoscaling:EC2_INSTANCE_LAUNCHING``.
@@ -1605,6 +1622,7 @@ class AutoScalingGroupMemoryGiBPerVCpuRequest(dict):
                  min: Optional[_builtins.float] = None):
         """
         ``MemoryGiBPerVCpuRequest`` is a property of the ``InstanceRequirements`` property of the [AWS::AutoScaling::AutoScalingGroup LaunchTemplateOverrides](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplateoverrides.html) property type that describes the minimum and maximum amount of memory per vCPU for an instance type, in GiB.
+
         :param _builtins.float max: The memory maximum in GiB.
         :param _builtins.float min: The memory minimum in GiB.
         """
@@ -1640,6 +1658,7 @@ class AutoScalingGroupMemoryMiBRequest(dict):
                  min: Optional[_builtins.int] = None):
         """
         ``MemoryMiBRequest`` is a property of the ``InstanceRequirements`` property of the [AWS::AutoScaling::AutoScalingGroup LaunchTemplateOverrides](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplateoverrides.html) property type that describes the minimum and maximum instance memory size for an instance type, in MiB.
+
         :param _builtins.int max: The memory maximum in MiB.
         :param _builtins.int min: The memory minimum in MiB.
         """
@@ -1677,6 +1696,7 @@ class AutoScalingGroupMetricsCollection(dict):
         """
         ``MetricsCollection`` is a property of the [AWS::AutoScaling::AutoScalingGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-autoscalinggroup.html) resource that describes the group metrics that an Amazon EC2 Auto Scaling group sends to Amazon CloudWatch. These metrics describe the group rather than any of its instances. 
          For more information, see [Monitor CloudWatch metrics for your Auto Scaling groups and instances](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-instance-monitoring.html) in the *Amazon EC2 Auto Scaling User Guide*. You can find a sample template snippet in the [Examples](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-autoscalinggroup.html#aws-resource-autoscaling-autoscalinggroup--examples) section of the ``AWS::AutoScaling::AutoScalingGroup`` resource.
+
         :param _builtins.str granularity: The frequency at which Amazon EC2 Auto Scaling sends aggregated data to CloudWatch. The only valid value is ``1Minute``.
         :param Sequence[_builtins.str] metrics: Identifies the metrics to enable.
                 You can specify one or more of the following metrics:
@@ -1794,6 +1814,7 @@ class AutoScalingGroupMixedInstancesPolicy(dict):
           
          When a Spot Instance is terminated, Amazon EC2 Auto Scaling group attempts to launch a replacement instance to maintain the desired capacity for the group. 
          ``MixedInstancesPolicy`` is a property of the [AWS::AutoScaling::AutoScalingGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-autoscalinggroup.html) resource.
+
         :param 'AutoScalingGroupLaunchTemplate' launch_template: One or more launch templates and the instance types (overrides) that are used to launch EC2 instances to fulfill On-Demand and Spot capacities.
         :param 'AutoScalingGroupInstancesDistribution' instances_distribution: The instances distribution.
         """
@@ -1830,6 +1851,7 @@ class AutoScalingGroupNetworkBandwidthGbpsRequest(dict):
         """
         ``NetworkBandwidthGbpsRequest`` is a property of the ``InstanceRequirements`` property of the [AWS::AutoScaling::AutoScalingGroup LaunchTemplateOverrides](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplateoverrides.html) property type that describes the minimum and maximum network bandwidth for an instance type, in Gbps.
           Setting the minimum bandwidth does not guarantee that your instance will achieve the minimum bandwidth. Amazon EC2 will identify instance types that support the specified minimum bandwidth, but the actual bandwidth of your instance might go below the specified minimum at times. For more information, see [Available instance bandwidth](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-network-bandwidth.html#available-instance-bandwidth) in the *Amazon EC2 User Guide for Linux Instances*.
+
         :param _builtins.float max: The maximum amount of network bandwidth, in gigabits per second (Gbps).
         :param _builtins.float min: The minimum amount of network bandwidth, in gigabits per second (Gbps).
         """
@@ -1865,6 +1887,7 @@ class AutoScalingGroupNetworkInterfaceCountRequest(dict):
                  min: Optional[_builtins.int] = None):
         """
         ``NetworkInterfaceCountRequest`` is a property of the ``InstanceRequirements`` property of the [AWS::AutoScaling::AutoScalingGroup LaunchTemplateOverrides](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplateoverrides.html) property type that describes the minimum and maximum number of network interfaces for an instance type.
+
         :param _builtins.int max: The maximum number of network interfaces.
         :param _builtins.int min: The minimum number of network interfaces.
         """
@@ -1923,6 +1946,7 @@ class AutoScalingGroupNotificationConfiguration(dict):
         A structure that specifies an Amazon SNS notification configuration for the ``NotificationConfigurations`` property of the [AWS::AutoScaling::AutoScalingGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-autoscalinggroup.html) resource.
          For an example template snippet, see [Configure Amazon EC2 Auto Scaling resources](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/quickref-ec2-auto-scaling.html).
          For more information, see [Get Amazon SNS notifications when your Auto Scaling group scales](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ASGettingNotifications.html) in the *Amazon EC2 Auto Scaling User Guide*.
+
         :param Sequence[_builtins.str] topic_arn: The Amazon Resource Name (ARN) of the Amazon SNS topic.
         :param Sequence[_builtins.str] notification_types: A list of event types that send a notification. Event types can include any of the following types. 
                 *Allowed values*:
@@ -1987,6 +2011,7 @@ class AutoScalingGroupPerformanceFactorReferenceRequest(dict):
         """
         Specify an instance family to use as the baseline reference for CPU performance. All instance types that All instance types that match your specified attributes will be compared against the CPU performance of the referenced instance family, regardless of CPU manufacturer or architecture differences. 
           Currently only one instance family can be specified in the list.
+
         :param _builtins.str instance_family: The instance family to use as a baseline reference. 
                  Make sure that you specify the correct value for the instance family. The instance family is everything before the period (.) in the instance type name. For example, in the instance ``c6i.large``, the instance family is ``c6i``, not ``c6``. For more information, see [Amazon EC2 instance type naming conventions](https://docs.aws.amazon.com/ec2/latest/instancetypes/instance-type-names.html) in *Amazon EC2 Instance Types*.
                  The following instance types are *not supported* for performance protection.
@@ -2053,6 +2078,7 @@ class AutoScalingGroupRetentionTriggers(dict):
                  terminate_hook_abandon: Optional[_builtins.str] = None):
         """
         Defines the specific triggers that cause instances to be retained in a Retained state rather than terminated. Each trigger corresponds to a different failure scenario during the instance lifecycle. This allows fine-grained control over when to preserve instances for manual intervention.
+
         :param _builtins.str terminate_hook_abandon: Specifies the action when a termination lifecycle hook is abandoned due to failure, timeout, or explicit abandonment (calling CompleteLifecycleAction). 
                  Set to ``retain`` to move instances to a retained state. Set to ``terminate`` for default termination behavior. 
                  Retained instances don't count toward desired capacity and remain until you call ``TerminateInstanceInAutoScalingGroup``.
@@ -2109,6 +2135,7 @@ class AutoScalingGroupTagProperty(dict):
           +  aws:cloudformation:stack-name
           +  aws:cloudformation:stack-id
           +  aws:cloudformation:logical-id
+
         :param _builtins.str key: The tag key.
         :param _builtins.bool propagate_at_launch: Set to ``true`` if you want CloudFormation to copy the tag to EC2 instances that are launched as part of the Auto Scaling group. Set to ``false`` if you want the tag attached only to the Auto Scaling group and not copied to any instances launched as part of the Auto Scaling group.
         :param _builtins.str value: The tag value.
@@ -2152,6 +2179,7 @@ class AutoScalingGroupTotalLocalStorageGbRequest(dict):
                  min: Optional[_builtins.float] = None):
         """
         ``TotalLocalStorageGBRequest`` is a property of the ``InstanceRequirements`` property of the [AWS::AutoScaling::AutoScalingGroup LaunchTemplateOverrides](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplateoverrides.html) property type that describes the minimum and maximum total local storage size for an instance type, in GB.
+
         :param _builtins.float max: The storage maximum in GB.
         :param _builtins.float min: The storage minimum in GB.
         """
@@ -2187,6 +2215,7 @@ class AutoScalingGroupTrafficSourceIdentifier(dict):
                  type: _builtins.str):
         """
         Identifying information for a traffic source.
+
         :param _builtins.str identifier: Identifies the traffic source.
                 For Application Load Balancers, Gateway Load Balancers, Network Load Balancers, and VPC Lattice, this will be the Amazon Resource Name (ARN) for a target group in this account and Region. For Classic Load Balancers, this will be the name of the Classic Load Balancer in this account and Region.
                 For example: 
@@ -2248,6 +2277,7 @@ class AutoScalingGroupVCpuCountRequest(dict):
                  min: Optional[_builtins.int] = None):
         """
         ``VCpuCountRequest`` is a property of the ``InstanceRequirements`` property of the [AWS::AutoScaling::AutoScalingGroup LaunchTemplateOverrides](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplateoverrides.html) property type that describes the minimum and maximum number of vCPUs for an instance type.
+
         :param _builtins.int max: The maximum number of vCPUs.
         :param _builtins.int min: The minimum number of vCPUs.
         """
@@ -2311,6 +2341,7 @@ class LaunchConfigurationBlockDevice(dict):
                  volume_type: Optional[_builtins.str] = None):
         """
         BlockDevice is a subproperty of BlockDeviceMapping that describes an Amazon EBS volume.
+
         :param _builtins.bool delete_on_termination: Indicates whether the volume is deleted on instance termination. 
         :param _builtins.bool encrypted: Specifies whether the volume should be encrypted. 
         :param _builtins.int iops: The number of input/output (I/O) operations per second (IOPS) to provision for the volume. 
@@ -2424,6 +2455,7 @@ class LaunchConfigurationBlockDeviceMapping(dict):
                  virtual_name: Optional[_builtins.str] = None):
         """
         BlockDeviceMapping is a property of AWS::AutoScaling::LaunchConfiguration that describes a block device mapping for an Auto Scaling group.
+
         :param _builtins.str device_name: The device name exposed to the EC2 instance (for example, /dev/sdh or xvdh). 
         :param 'LaunchConfigurationBlockDevice' ebs: Parameters used to automatically set up EBS volumes when an instance is launched.
         :param _builtins.bool no_device: Setting this value to true suppresses the specified device included in the block device mapping of the AMI.
@@ -2502,6 +2534,7 @@ class LaunchConfigurationMetadataOptions(dict):
                  http_tokens: Optional[_builtins.str] = None):
         """
         MetadataOptions is a property of AWS::AutoScaling::LaunchConfiguration that describes metadata options for the instances.
+
         :param _builtins.str http_endpoint: This parameter enables or disables the HTTP metadata endpoint on your instances.
         :param _builtins.int http_put_response_hop_limit: The desired HTTP PUT response hop limit for instance metadata requests.
         :param _builtins.str http_tokens: The state of token usage for your instance metadata requests.

@@ -29,6 +29,7 @@ class SchemaArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Schema resource.
+
         :param pulumi.Input[_builtins.str] content: The source of the schema definition.
         :param pulumi.Input[_builtins.str] registry_name: The name of the schema registry.
         :param pulumi.Input[_builtins.str] type: The type of schema. Valid types include OpenApi3 and JSONSchemaDraft4.
@@ -151,6 +152,7 @@ class Schema(pulumi.CustomResource):
 
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] content: The source of the schema definition.
@@ -184,6 +186,7 @@ class Schema(pulumi.CustomResource):
             content="{   \\"openapi\\": \\"3.0.0\\",   \\"info\\": {     \\"version\\": \\"1.0.0\\",     \\"title\\": \\"StepFunctionsExecutionStatusChange\\"   },   \\"paths\\":{},   \\"components\\": {     \\"schemas\\": {       \\"StepFunctionsExecutionStatusChange\\": {         \\"type\\": \\"object\\",         \\"required\\": [ \\"output\\", \\"input\\", \\"executionArn\\", \\"name\\", \\"stateMachineArn\\", \\"startDate\\", \\"stopDate\\", \\"status\\" ],         \\"properties\\": {           \\"output\\": {\\"type\\": \\"string\\",\\"nullable\\": true},           \\"input\\": {\\"type\\": \\"string\\"},           \\"executionArn\\": {\\"type\\": \\"string\\"},           \\"name\\": {\\"type\\": \\"string\\"},           \\"stateMachineArn\\": {\\"type\\": \\"string\\"},           \\"startDate\\": {\\"type\\": \\"integer\\",\\"format\\": \\"int64\\"},           \\"stopDate\\": {\\"type\\": \\"integer\\",\\"format\\": \\"int64\\",\\"nullable\\": true},           \\"status\\": {\\"type\\": \\"string\\",\\"enum\\": [ \\"FAILED\\", \\"RUNNING\\", \\"SUCCEEDED\\", \\"ABORTED\\" ]}         }       }     }   } }")
 
         ```
+
 
         :param str resource_name: The name of the resource.
         :param SchemaArgs args: The arguments to use to populate this resource's properties.

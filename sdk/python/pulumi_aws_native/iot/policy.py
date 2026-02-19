@@ -26,6 +26,7 @@ class PolicyArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Policy resource.
+
         :param Any policy_document: The JSON document that describes the policy.
                
                Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::IoT::Policy` for more information about the expected schema for this property.
@@ -86,6 +87,7 @@ class Policy(pulumi.CustomResource):
         """
         Resource Type definition for AWS::IoT::Policy
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param Any policy_document: The JSON document that describes the policy.
@@ -101,6 +103,7 @@ class Policy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::IoT::Policy
+
 
         :param str resource_name: The name of the resource.
         :param PolicyArgs args: The arguments to use to populate this resource's properties.

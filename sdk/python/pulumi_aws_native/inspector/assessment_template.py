@@ -28,6 +28,7 @@ class AssessmentTemplateArgs:
                  user_attributes_for_findings: Optional[pulumi.Input[Sequence[pulumi.Input['AssessmentTemplateTagArgs']]]] = None):
         """
         The set of arguments for constructing a AssessmentTemplate resource.
+
         :param pulumi.Input[_builtins.str] assessment_target_arn: The ARN of the assessment target to be included in the assessment template.
         :param pulumi.Input[_builtins.int] duration_in_seconds: The duration of the assessment run in seconds.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] rules_package_arns: The ARNs of the rules packages that you want to use in the assessment template.
@@ -118,6 +119,7 @@ class AssessmentTemplate(pulumi.CustomResource):
         """
         Resource Type definition for AWS::Inspector::AssessmentTemplate
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] assessment_target_arn: The ARN of the assessment target to be included in the assessment template.
@@ -134,6 +136,7 @@ class AssessmentTemplate(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::Inspector::AssessmentTemplate
+
 
         :param str resource_name: The name of the resource.
         :param AssessmentTemplateArgs args: The arguments to use to populate this resource's properties.

@@ -32,6 +32,7 @@ class EventTypeArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a EventType resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['EventTypeEntityTypeArgs']]] entity_types: The event type entity types.
         :param pulumi.Input[Sequence[pulumi.Input['EventTypeEventVariableArgs']]] event_variables: The event type event variables.
         :param pulumi.Input[Sequence[pulumi.Input['EventTypeLabelArgs']]] labels: The event type labels.
@@ -138,6 +139,7 @@ class EventType(pulumi.CustomResource):
         """
         A resource schema for an EventType in Amazon Fraud Detector.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: The description of the event type.
@@ -155,6 +157,7 @@ class EventType(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A resource schema for an EventType in Amazon Fraud Detector.
+
 
         :param str resource_name: The name of the resource.
         :param EventTypeArgs args: The arguments to use to populate this resource's properties.

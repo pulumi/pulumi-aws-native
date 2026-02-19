@@ -79,6 +79,7 @@ class CustomActionTypeArtifactDetails(dict):
                  minimum_count: _builtins.int):
         """
         Returns information about the details of an artifact.
+
         :param _builtins.int maximum_count: The maximum number of artifacts allowed for the action type.
         :param _builtins.int minimum_count: The minimum number of artifacts allowed for the action type.
         """
@@ -117,6 +118,7 @@ class CustomActionTypeConfigurationProperties(dict):
                  type: Optional[_builtins.str] = None):
         """
         The configuration properties for the custom action.
+
         :param _builtins.bool key: Whether the configuration property is a key.
         :param _builtins.str name: The name of the action configuration property.
         :param _builtins.bool required: Whether the configuration property is a required value.
@@ -228,6 +230,7 @@ class CustomActionTypeSettings(dict):
                  third_party_configuration_url: Optional[_builtins.str] = None):
         """
         Settings is a property of the AWS::CodePipeline::CustomActionType resource that provides URLs that users can access to view information about the CodePipeline custom action. 
+
         :param _builtins.str entity_url_template: The URL returned to the AWS CodePipeline console that provides a deep link to the resources of the external system, such as the configuration page for an AWS CodeDeploy deployment group. This link is provided as part of the action display in the pipeline. 
         :param _builtins.str execution_url_template: The URL returned to the AWS CodePipeline console that contains a link to the top-level landing page for the external system, such as the console page for AWS CodeDeploy. This link is shown on the pipeline view page in the AWS CodePipeline console and provides a link to the execution entity of the external action. 
         :param _builtins.str revision_url_template: The URL returned to the AWS CodePipeline console that contains a link to the page where customers can update or change the configuration of the external action. 
@@ -327,6 +330,7 @@ class PipelineActionDeclaration(dict):
                  timeout_in_minutes: Optional[_builtins.int] = None):
         """
         Represents information about an action declaration.
+
         :param 'PipelineActionTypeId' action_type_id: Specifies the action type and the provider of the action.
         :param _builtins.str name: The action declaration's name.
         :param Sequence[_builtins.str] commands: The shell commands to run with your compute action in CodePipeline.
@@ -487,6 +491,7 @@ class PipelineActionTypeId(dict):
                  version: _builtins.str):
         """
         Represents information about an action type.
+
         :param 'PipelineActionTypeIdCategory' category: A category defines what kind of action can be taken in the stage, and constrains the provider type for the action. Valid categories are limited to one of the values below.
         :param _builtins.str owner: The creator of the action being called. There are three valid values for the Owner field in the action category section within your pipeline structure: AWS, ThirdParty, and Custom.
         :param _builtins.str provider: The provider of the service being called by the action. Valid providers are determined by the action category. For example, an action in the Deploy category type might have a provider of CodeDeploy, which would be specified as CodeDeploy.
@@ -558,6 +563,7 @@ class PipelineArtifactStore(dict):
                  encryption_key: Optional['outputs.PipelineEncryptionKey'] = None):
         """
         The S3 bucket where artifacts for the pipeline are stored.
+
         :param _builtins.str location: The S3 bucket used for storing the artifacts for a pipeline. You can specify the name of an S3 bucket but not a folder in the bucket. A folder to contain the pipeline artifacts is created for you based on the name of the pipeline. You can use any S3 bucket in the same AWS Region as the pipeline to store your pipeline artifacts.
         :param 'PipelineArtifactStoreType' type: The type of the artifact store, such as S3.
         :param 'PipelineEncryptionKey' encryption_key: The encryption key used to encrypt the data in the artifact store, such as an AWS Key Management Service ( AWS KMS) key. If this is undefined, the default key for Amazon S3 is used. To see an example artifact store encryption key field, see the example structure here: [AWS::CodePipeline::Pipeline](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codepipeline-pipeline.html) .
@@ -619,6 +625,7 @@ class PipelineArtifactStoreMap(dict):
                  region: _builtins.str):
         """
         A mapping of artifactStore objects and their corresponding AWS Regions. There must be an artifact store for the pipeline Region and for each cross-region action in the pipeline.
+
         :param 'PipelineArtifactStore' artifact_store: Represents information about the S3 bucket where artifacts are stored for the pipeline.
                
                > You must include either `artifactStore` or `artifactStores` in your pipeline, but you cannot use both. If you create a cross-region action in your pipeline, you must use `artifactStores` .
@@ -655,6 +662,7 @@ class PipelineBeforeEntryConditions(dict):
                  conditions: Optional[Sequence['outputs.PipelineCondition']] = None):
         """
         The configuration that specifies the rules to run before stage starts.
+
         :param Sequence['PipelineCondition'] conditions: The conditions that are configured as entry conditions.
         """
         if conditions is not None:
@@ -679,6 +687,7 @@ class PipelineBlockerDeclaration(dict):
                  type: 'PipelineBlockerDeclarationType'):
         """
         Reserved for future use.
+
         :param _builtins.str name: Reserved for future use.
         :param 'PipelineBlockerDeclarationType' type: Reserved for future use.
         """
@@ -712,6 +721,7 @@ class PipelineCondition(dict):
                  rules: Optional[Sequence['outputs.PipelineRuleDeclaration']] = None):
         """
         Represents information about condition.
+
         :param _builtins.str result: The specified result for when the failure conditions are met, such as rolling back the stage
         :param Sequence['PipelineRuleDeclaration'] rules: The rules that make up the condition.
         """
@@ -747,6 +757,7 @@ class PipelineEncryptionKey(dict):
                  type: _builtins.str):
         """
         Represents information about the key used to encrypt data in the artifact store, such as an AWS Key Management Service (AWS KMS) key
+
         :param _builtins.str id: The ID used to identify the key. For an AWS KMS key, you can use the key ID, the key ARN, or the alias ARN.
         :param _builtins.str type: The type of encryption key, such as an AWS KMS key. When creating or updating a pipeline, the value must be set to 'KMS'.
         """
@@ -781,6 +792,7 @@ class PipelineEnvironmentVariable(dict):
                  type: Optional['PipelineEnvironmentVariableType'] = None):
         """
         Represents information about the environment variable of an action.
+
         :param _builtins.str name: The name of the environment variable.
         :param _builtins.str value: The value of the environment variable.
         :param 'PipelineEnvironmentVariableType' type: The type of the environment variable.
@@ -843,6 +855,7 @@ class PipelineFailureConditions(dict):
                  retry_configuration: Optional['outputs.PipelineFailureConditionsRetryConfigurationProperties'] = None):
         """
         The configuration that specifies the result, such as rollback, to occur upon stage failure
+
         :param Sequence['PipelineCondition'] conditions: The conditions that are configured as failure conditions. For more information about conditions, see [Stage conditions](https://docs.aws.amazon.com/codepipeline/latest/userguide/stage-conditions.html) and [How do stage conditions work?](https://docs.aws.amazon.com/codepipeline/latest/userguide/concepts-how-it-works-conditions.html) .
         :param 'PipelineFailureConditionsResult' result: The specified result for when the failure conditions are met, such as rolling back the stage
         :param 'PipelineFailureConditionsRetryConfigurationProperties' retry_configuration: The configuration that specifies the retry configuration for a stage
@@ -905,6 +918,7 @@ class PipelineFailureConditionsRetryConfigurationProperties(dict):
                  retry_mode: Optional['PipelineFailureConditionsRetryConfigurationPropertiesRetryMode'] = None):
         """
         The configuration that specifies the retry configuration for a stage
+
         :param 'PipelineFailureConditionsRetryConfigurationPropertiesRetryMode' retry_mode: The specified retry mode type for the given stage. FAILED_ACTIONS will retry only the failed actions. ALL_ACTIONS will retry both failed and successful
         """
         if retry_mode is not None:
@@ -929,6 +943,7 @@ class PipelineGitBranchFilterCriteria(dict):
                  includes: Optional[Sequence[_builtins.str]] = None):
         """
         The Git repository branches specified as filter criteria to start the pipeline.
+
         :param Sequence[_builtins.str] excludes: The list of patterns of Git branches that, when a commit is pushed, are to be excluded from starting the pipeline.
         :param Sequence[_builtins.str] includes: The list of patterns of Git branches that, when a commit is pushed, are to be included as criteria that starts the pipeline.
         """
@@ -984,6 +999,7 @@ class PipelineGitConfiguration(dict):
                  push: Optional[Sequence['outputs.PipelineGitPushFilter']] = None):
         """
         A type of trigger configuration for Git-based source actions.
+
         :param _builtins.str source_action_name: The name of the pipeline source action where the trigger configuration, such as Git tags, is specified. The trigger configuration will start the pipeline upon the specified change only.
         :param Sequence['PipelineGitPullRequestFilter'] pull_request: The field where the repository event that will start the pipeline is specified as pull requests.
         :param Sequence['PipelineGitPushFilter'] push: The field where the repository event that will start the pipeline, such as pushing Git tags, is specified with details.
@@ -1029,6 +1045,7 @@ class PipelineGitFilePathFilterCriteria(dict):
                  includes: Optional[Sequence[_builtins.str]] = None):
         """
         The Git repository file paths specified as filter criteria to start the pipeline.
+
         :param Sequence[_builtins.str] excludes: The list of patterns of Git repository file paths that, when a commit is pushed, are to be excluded from starting the pipeline.
         :param Sequence[_builtins.str] includes: The list of patterns of Git repository file paths that, when a commit is pushed, are to be included as criteria that starts the pipeline.
         """
@@ -1082,6 +1099,7 @@ class PipelineGitPullRequestFilter(dict):
                  file_paths: Optional['outputs.PipelineGitFilePathFilterCriteria'] = None):
         """
         The event criteria for the pull request trigger configuration, such as the lists of branches or file paths to include and exclude.
+
         :param 'PipelineGitBranchFilterCriteria' branches: The field that specifies to filter on branches for the pull request trigger configuration.
         :param Sequence[_builtins.str] events: The field that specifies which pull request events to filter on (opened, updated, closed) for the trigger configuration.
         :param 'PipelineGitFilePathFilterCriteria' file_paths: The field that specifies to filter on file paths for the pull request trigger configuration.
@@ -1146,6 +1164,7 @@ class PipelineGitPushFilter(dict):
                  tags: Optional['outputs.PipelineGitTagFilterCriteria'] = None):
         """
         The event criteria that specify when a specified repository event will start the pipeline for the specified trigger configuration, such as the lists of Git tags to include and exclude.
+
         :param 'PipelineGitBranchFilterCriteria' branches: The field that specifies to filter on branches for the push trigger configuration.
         :param 'PipelineGitFilePathFilterCriteria' file_paths: The field that specifies to filter on file paths for the push trigger configuration.
         :param 'PipelineGitTagFilterCriteria' tags: The field that contains the details for the Git tags trigger configuration.
@@ -1192,6 +1211,7 @@ class PipelineGitTagFilterCriteria(dict):
                  includes: Optional[Sequence[_builtins.str]] = None):
         """
         The Git tags specified as filter criteria for whether a Git tag repository event will start the pipeline.
+
         :param Sequence[_builtins.str] excludes: The list of patterns of Git tags that, when pushed, are to be excluded from starting the pipeline.
         :param Sequence[_builtins.str] includes: The list of patterns of Git tags that, when pushed, are to be included as criteria that starts the pipeline.
         """
@@ -1226,6 +1246,7 @@ class PipelineInputArtifact(dict):
                  name: _builtins.str):
         """
         Represents information about an artifact to be worked on, such as a test or build artifact.
+
         :param _builtins.str name: The name of the artifact to be worked on (for example, "My App").
         """
         pulumi.set(__self__, "name", name)
@@ -1249,6 +1270,7 @@ class PipelineOutputArtifact(dict):
                  files: Optional[Sequence[_builtins.str]] = None):
         """
         Represents information about the output of an action.
+
         :param _builtins.str name: The name of the output of an artifact, such as "My App".
         :param Sequence[_builtins.str] files: The files that you want to associate with the output artifact that will be exported from the compute action.
         """
@@ -1309,6 +1331,7 @@ class PipelineRuleDeclaration(dict):
                  rule_type_id: Optional['outputs.PipelineRuleTypeId'] = None):
         """
         Represents information about condition.
+
         :param Sequence[_builtins.str] commands: The shell commands to run with your compute action in CodePipeline.
         :param Any configuration: The rule's configuration. These are key-value pairs that specify input values for a rule.
         :param Sequence['PipelineInputArtifact'] input_artifacts: The input artifacts fields for the rule, such as specifying an input file for the rule.
@@ -1401,6 +1424,7 @@ class PipelineRuleTypeId(dict):
                  version: Optional[_builtins.str] = None):
         """
         Represents information about a rule type.
+
         :param _builtins.str category: A category for the provider type for the rule.
         :param _builtins.str owner: The creator of the rule being called. Only AWS is supported.
         :param _builtins.str provider: The provider of the service being called by the rule.
@@ -1483,6 +1507,7 @@ class PipelineStageDeclaration(dict):
                  on_success: Optional['outputs.PipelineSuccessConditions'] = None):
         """
         Represents information about a stage and its definition.
+
         :param Sequence['PipelineActionDeclaration'] actions: The actions included in a stage.
         :param _builtins.str name: The name of the stage.
         :param 'PipelineBeforeEntryConditions' before_entry: The method to use before stage runs.
@@ -1577,6 +1602,7 @@ class PipelineStageTransition(dict):
                  stage_name: _builtins.str):
         """
         The name of the pipeline in which you want to disable the flow of artifacts from one stage to another.
+
         :param _builtins.str reason: The reason given to the user that a stage is disabled, such as waiting for manual approval or manual tests. This message is displayed in the pipeline console UI.
         :param _builtins.str stage_name: The name of the stage where you want to disable the inbound or outbound transition of artifacts.
         """
@@ -1609,6 +1635,7 @@ class PipelineSuccessConditions(dict):
                  conditions: Optional[Sequence['outputs.PipelineCondition']] = None):
         """
         The configuration that specifies the result, such as rollback, to occur upon stage failure
+
         :param Sequence['PipelineCondition'] conditions: The conditions that are success conditions.
         """
         if conditions is not None:
@@ -1652,6 +1679,7 @@ class PipelineTriggerDeclaration(dict):
                  git_configuration: Optional['outputs.PipelineGitConfiguration'] = None):
         """
         Represents information about the specified trigger configuration, such as the filter criteria and the source stage for the action that contains the trigger.
+
         :param 'PipelineTriggerDeclarationProviderType' provider_type: The source provider for the event, such as connections configured for a repository with Git tags, for the specified trigger configuration.
         :param 'PipelineGitConfiguration' git_configuration: Provides the filter criteria and the source stage for the repository event that starts the pipeline, such as Git tags.
         """
@@ -1704,6 +1732,7 @@ class PipelineVariableDeclaration(dict):
                  description: Optional[_builtins.str] = None):
         """
         A variable declared at the pipeline level.
+
         :param _builtins.str name: The name of a pipeline-level variable.
         :param _builtins.str default_value: The value of a pipeline-level variable.
         :param _builtins.str description: The description of a pipeline-level variable. It's used to add additional context about the variable, and not being used at time when pipeline executes.
@@ -1768,6 +1797,7 @@ class WebhookAuthConfiguration(dict):
                  secret_token: Optional[_builtins.str] = None):
         """
         Properties that configure the authentication applied to incoming webhook trigger requests
+
         :param _builtins.str allowed_ip_range: The property used to configure acceptance of webhooks in an IP address range. For IP, only the AllowedIPRange property must be set. This property must be set to a valid CIDR range.
         :param _builtins.str secret_token: The property used to configure GitHub authentication. For GITHUB_HMAC, only the SecretToken property must be set.
         """
@@ -1822,6 +1852,7 @@ class WebhookFilterRule(dict):
                  match_equals: Optional[_builtins.str] = None):
         """
         A list of rules applied to the body/payload sent in the POST request to a webhook URL. All defined rules must pass for the request to be accepted and the pipeline started.
+
         :param _builtins.str json_path: A JsonPath expression that is applied to the body/payload of the webhook. The value selected by the JsonPath expression must match the value specified in the MatchEquals field. Otherwise, the request is ignored.
         :param _builtins.str match_equals: The value selected by the JsonPath expression must match what is supplied in the MatchEquals field. Otherwise, the request is ignored.
         """

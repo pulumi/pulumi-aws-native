@@ -25,6 +25,7 @@ class BasePathMappingV2Args:
                  stage: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a BasePathMappingV2 resource.
+
         :param pulumi.Input[_builtins.str] domain_name_arn: The Arn of an AWS::ApiGateway::DomainNameV2 resource.
         :param pulumi.Input[_builtins.str] rest_api_id: The ID of the API.
         :param pulumi.Input[_builtins.str] base_path: The base path name that callers of the API must provide in the URL after the domain name.
@@ -100,6 +101,7 @@ class BasePathMappingV2(pulumi.CustomResource):
         """
         Resource Type definition for AWS::ApiGateway::BasePathMappingV2
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] base_path: The base path name that callers of the API must provide in the URL after the domain name.
@@ -115,6 +117,7 @@ class BasePathMappingV2(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::ApiGateway::BasePathMappingV2
+
 
         :param str resource_name: The name of the resource.
         :param BasePathMappingV2Args args: The arguments to use to populate this resource's properties.

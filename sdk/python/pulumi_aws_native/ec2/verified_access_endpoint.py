@@ -41,6 +41,7 @@ class VerifiedAccessEndpointArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a VerifiedAccessEndpoint resource.
+
         :param pulumi.Input[_builtins.str] attachment_type: The type of attachment used to provide connectivity between the AWS Verified Access endpoint and the application.
         :param pulumi.Input[_builtins.str] endpoint_type: The type of AWS Verified Access endpoint. Incoming application requests will be sent to an IP address, load balancer or a network interface depending on the endpoint type specified.The type of AWS Verified Access endpoint. Incoming application requests will be sent to an IP address, load balancer or a network interface depending on the endpoint type specified.
         :param pulumi.Input[_builtins.str] verified_access_group_id: The ID of the AWS Verified Access group.
@@ -307,6 +308,7 @@ class VerifiedAccessEndpoint(pulumi.CustomResource):
         """
         The AWS::EC2::VerifiedAccessEndpoint resource creates an AWS EC2 Verified Access Endpoint.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] application_domain: The DNS name for users to reach your application.
@@ -334,6 +336,7 @@ class VerifiedAccessEndpoint(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The AWS::EC2::VerifiedAccessEndpoint resource creates an AWS EC2 Verified Access Endpoint.
+
 
         :param str resource_name: The name of the resource.
         :param VerifiedAccessEndpointArgs args: The arguments to use to populate this resource's properties.

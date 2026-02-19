@@ -1535,6 +1535,7 @@ class AiGuardrailAiGuardrailContentPolicyConfig(dict):
                  filters_config: Sequence['outputs.AiGuardrailGuardrailContentFilterConfig']):
         """
         Content policy config for a guardrail.
+
         :param Sequence['AiGuardrailGuardrailContentFilterConfig'] filters_config: List of content filter configs in content policy.
         """
         pulumi.set(__self__, "filters_config", filters_config)
@@ -1574,6 +1575,7 @@ class AiGuardrailAiGuardrailContextualGroundingPolicyConfig(dict):
                  filters_config: Sequence['outputs.AiGuardrailGuardrailContextualGroundingFilterConfig']):
         """
         Contextual grounding policy config for a guardrail.
+
         :param Sequence['AiGuardrailGuardrailContextualGroundingFilterConfig'] filters_config: List of contextual grounding filter configs.
         """
         pulumi.set(__self__, "filters_config", filters_config)
@@ -1616,6 +1618,7 @@ class AiGuardrailAiGuardrailSensitiveInformationPolicyConfig(dict):
                  regexes_config: Optional[Sequence['outputs.AiGuardrailGuardrailRegexConfig']] = None):
         """
         Sensitive information policy config for a guardrail.
+
         :param Sequence['AiGuardrailGuardrailPiiEntityConfig'] pii_entities_config: List of entities.
         :param Sequence['AiGuardrailGuardrailRegexConfig'] regexes_config: List of regex.
         """
@@ -1667,6 +1670,7 @@ class AiGuardrailAiGuardrailTopicPolicyConfig(dict):
                  topics_config: Sequence['outputs.AiGuardrailGuardrailTopicConfig']):
         """
         Topic policy config for a guardrail.
+
         :param Sequence['AiGuardrailGuardrailTopicConfig'] topics_config: List of topic configs in topic policy.
         """
         pulumi.set(__self__, "topics_config", topics_config)
@@ -1709,6 +1713,7 @@ class AiGuardrailAiGuardrailWordPolicyConfig(dict):
                  words_config: Optional[Sequence['outputs.AiGuardrailGuardrailWordConfig']] = None):
         """
         Word policy config for a guardrail.
+
         :param Sequence['AiGuardrailGuardrailManagedWordsConfig'] managed_word_lists_config: A config for the list of managed words.
         :param Sequence['AiGuardrailGuardrailWordConfig'] words_config: List of custom word configs.
         """
@@ -1764,6 +1769,7 @@ class AiGuardrailGuardrailContentFilterConfig(dict):
                  type: 'AiGuardrailGuardrailContentFilterType'):
         """
         Content filter config in content policy.
+
         :param 'AiGuardrailGuardrailFilterStrength' input_strength: The strength of the input for the guardrail content filter.
         :param 'AiGuardrailGuardrailFilterStrength' output_strength: The output strength of the guardrail content filter.
         :param 'AiGuardrailGuardrailContentFilterType' type: The type of the guardrail content filter.
@@ -1807,6 +1813,7 @@ class AiGuardrailGuardrailContextualGroundingFilterConfig(dict):
                  type: 'AiGuardrailGuardrailContextualGroundingFilterType'):
         """
         A config for grounding filter.
+
         :param _builtins.float threshold: The threshold for this filter.
         :param 'AiGuardrailGuardrailContextualGroundingFilterType' type: The type of this filter.
         """
@@ -1839,6 +1846,7 @@ class AiGuardrailGuardrailManagedWordsConfig(dict):
                  type: 'AiGuardrailGuardrailManagedWordsType'):
         """
         A managed words config.
+
         :param 'AiGuardrailGuardrailManagedWordsType' type: The type of guardrail managed words.
         """
         pulumi.set(__self__, "type", type)
@@ -1862,6 +1870,7 @@ class AiGuardrailGuardrailPiiEntityConfig(dict):
                  type: 'AiGuardrailGuardrailPiiEntityType'):
         """
         Pii entity configuration.
+
         :param 'AiGuardrailGuardrailSensitiveInformationAction' action: The action of guardrail PII entity configuration.
         :param 'AiGuardrailGuardrailPiiEntityType' type: Configure AI Guardrail type when the PII entity is detected.
                
@@ -2131,6 +2140,7 @@ class AiGuardrailGuardrailRegexConfig(dict):
                  description: Optional[_builtins.str] = None):
         """
         A regex configuration.
+
         :param 'AiGuardrailGuardrailSensitiveInformationAction' action: The action of the guardrail regex configuration.
         :param _builtins.str name: The regex name.
         :param _builtins.str pattern: The regex pattern.
@@ -2187,6 +2197,7 @@ class AiGuardrailGuardrailTopicConfig(dict):
                  examples: Optional[Sequence[_builtins.str]] = None):
         """
         Topic config in topic policy.
+
         :param _builtins.str definition: Definition of topic in topic policy
         :param _builtins.str name: Name of topic in topic policy
         :param 'AiGuardrailGuardrailTopicType' type: Type of topic in a policy.
@@ -2240,6 +2251,7 @@ class AiGuardrailGuardrailWordConfig(dict):
                  text: _builtins.str):
         """
         A custom word config.
+
         :param _builtins.str text: The custom word text.
         """
         pulumi.set(__self__, "text", text)
@@ -3214,6 +3226,7 @@ class MessageTemplateAgentAttributes(dict):
                  last_name: Optional[_builtins.str] = None):
         """
         The agent attributes that are used with the message template.
+
         :param _builtins.str first_name: The agent’s first name as entered in their Amazon Connect user account.
         :param _builtins.str last_name: The agent’s last name as entered in their Amazon Connect user account.
         """
@@ -3336,6 +3349,7 @@ class MessageTemplateAttributes(dict):
                  system_attributes: Optional['outputs.MessageTemplateSystemAttributes'] = None):
         """
         An object that specifies the default values to use for variables in the message template. This object contains different categories of key-value pairs. Each key defines a variable or placeholder in the message template. The corresponding value defines the default value for that variable.
+
         :param 'MessageTemplateAgentAttributes' agent_attributes: The agent attributes that are used with the message template.
         :param Mapping[str, _builtins.str] custom_attributes: The custom attributes that are used with the message template.
         :param 'MessageTemplateCustomerProfileAttributes' customer_profile_attributes: The customer profile attributes that are used with the message template.
@@ -3392,6 +3406,7 @@ class MessageTemplateBodyContentProvider(dict):
                  content: Optional[_builtins.str] = None):
         """
         The container of message template body.
+
         :param _builtins.str content: The content of the message template.
         """
         if content is not None:
@@ -3435,6 +3450,7 @@ class MessageTemplateContent(dict):
                  sms_message_template_content: Optional['outputs.MessageTemplateSmsMessageTemplateContent'] = None):
         """
         The content of the message template.
+
         :param 'MessageTemplateEmailMessageTemplateContent' email_message_template_content: The content of the message template that applies to the email channel subtype.
         :param 'MessageTemplateSmsMessageTemplateContent' sms_message_template_content: The content of message template that applies to SMS channel subtype.
         """
@@ -3635,6 +3651,7 @@ class MessageTemplateCustomerProfileAttributes(dict):
                  state: Optional[_builtins.str] = None):
         """
         The customer profile attributes that are used with the message template.
+
         :param _builtins.str account_number: A unique account number that you have given to the customer.
         :param _builtins.str additional_information: Any additional information relevant to the customer's profile.
         :param _builtins.str address1: The first line of a customer address.
@@ -4287,6 +4304,7 @@ class MessageTemplateEmailMessageTemplateContent(dict):
                  subject: _builtins.str):
         """
         The content of message template that applies to email channel subtype.
+
         :param 'MessageTemplateEmailMessageTemplateContentBody' body: The body to use in email messages.
         :param Sequence['MessageTemplateEmailMessageTemplateHeader'] headers: The email headers to include in email messages.
         :param _builtins.str subject: The subject line, or title, to use in email messages.
@@ -4347,6 +4365,7 @@ class MessageTemplateEmailMessageTemplateContentBody(dict):
                  plain_text: Optional['outputs.MessageTemplateBodyContentProvider'] = None):
         """
         The body to use in email messages.
+
         :param 'MessageTemplateBodyContentProvider' html: The message body, in HTML format, to use in email messages that are based on the message template. We recommend using HTML format for email clients that render HTML content. You can include links, formatted text, and more in an HTML message.
         :param 'MessageTemplateBodyContentProvider' plain_text: The message body, in plain text format, to use in email messages that are based on the message template. We recommend using plain text format for email clients that don't render HTML content and clients that are connected to high-latency networks, such as mobile devices.
         """
@@ -4382,6 +4401,7 @@ class MessageTemplateEmailMessageTemplateHeader(dict):
                  value: Optional[_builtins.str] = None):
         """
         The email header to include in email messages.
+
         :param _builtins.str name: The name of the email header.
         :param _builtins.str value: The value of the email header.
         """
@@ -4417,6 +4437,7 @@ class MessageTemplateGroupingConfiguration(dict):
                  values: Sequence[_builtins.str]):
         """
         The configuration information of the user groups that the message template is accessible to.
+
         :param _builtins.str criteria: The criteria used for grouping Amazon Q in Connect users.
         :param Sequence[_builtins.str] values: The list of values that define different groups of Amazon Q in Connect users.
         """
@@ -4449,6 +4470,7 @@ class MessageTemplateSmsMessageTemplateContent(dict):
                  body: 'outputs.MessageTemplateSmsMessageTemplateContentBody'):
         """
         The content of message template that applies to SMS channel subtype.
+
         :param 'MessageTemplateSmsMessageTemplateContentBody' body: The body to use in SMS messages.
         """
         pulumi.set(__self__, "body", body)
@@ -4488,6 +4510,7 @@ class MessageTemplateSmsMessageTemplateContentBody(dict):
                  plain_text: Optional['outputs.MessageTemplateBodyContentProvider'] = None):
         """
         The body to use in SMS messages.
+
         :param 'MessageTemplateBodyContentProvider' plain_text: The message body to use in SMS messages.
         """
         if plain_text is not None:
@@ -4532,6 +4555,7 @@ class MessageTemplateSystemAttributes(dict):
                  system_endpoint: Optional['outputs.MessageTemplateSystemEndpointAttributes'] = None):
         """
         The system attributes that are used with the message template.
+
         :param 'MessageTemplateSystemEndpointAttributes' customer_endpoint: The CustomerEndpoint attribute.
         :param _builtins.str name: The name of the task.
         :param 'MessageTemplateSystemEndpointAttributes' system_endpoint: The SystemEndpoint attribute.
@@ -4577,6 +4601,7 @@ class MessageTemplateSystemEndpointAttributes(dict):
                  address: Optional[_builtins.str] = None):
         """
         The system endpoint attributes that are used with the message template.
+
         :param _builtins.str address: The customer's phone number if used with customerEndpoint, or the number the customer dialed to call your contact center if used with systemEndpoint.
         """
         if address is not None:
@@ -4600,6 +4625,7 @@ class QuickResponseContentProvider(dict):
                  content: Optional[_builtins.str] = None):
         """
         The container of quick response content.
+
         :param _builtins.str content: The content of the quick response.
         """
         if content is not None:
@@ -4641,6 +4667,7 @@ class QuickResponseContents(dict):
                  plain_text: Optional['outputs.QuickResponseContentProvider'] = None):
         """
         The content of the quick response stored in different media types.
+
         :param 'QuickResponseContentProvider' markdown: The quick response content in markdown format.
         :param 'QuickResponseContentProvider' plain_text: The quick response content in plaintext format.
         """
@@ -4676,6 +4703,7 @@ class QuickResponseGroupingConfiguration(dict):
                  values: Sequence[_builtins.str]):
         """
         The configuration information of the user groups that the quick response is accessible to.
+
         :param _builtins.str criteria: The criteria used for grouping Amazon Q in Connect users.
         :param Sequence[_builtins.str] values: The list of values that define different groups of Amazon Q in Connect users.
         """

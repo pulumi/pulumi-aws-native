@@ -34,6 +34,7 @@ class SecurityProfileArgs:
                  target_arns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a SecurityProfile resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['SecurityProfileMetricToRetainArgs']]] additional_metrics_to_retain_v2: A list of metrics whose data is retained (stored). By default, data is retained for any metric used in the profile's behaviors, but it is also retained for any metric specified here.
         :param pulumi.Input[Mapping[str, pulumi.Input['SecurityProfileAlertTargetArgs']]] alert_targets: Specifies the destinations to which alerts are sent.
         :param pulumi.Input[Sequence[pulumi.Input['SecurityProfileBehaviorArgs']]] behaviors: Specifies the behaviors that, when violated by a device (thing), cause an alert.
@@ -175,6 +176,7 @@ class SecurityProfile(pulumi.CustomResource):
         """
         A security profile defines a set of expected behaviors for devices in your account.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['SecurityProfileMetricToRetainArgs', 'SecurityProfileMetricToRetainArgsDict']]]] additional_metrics_to_retain_v2: A list of metrics whose data is retained (stored). By default, data is retained for any metric used in the profile's behaviors, but it is also retained for any metric specified here.
@@ -194,6 +196,7 @@ class SecurityProfile(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A security profile defines a set of expected behaviors for devices in your account.
+
 
         :param str resource_name: The name of the resource.
         :param SecurityProfileArgs args: The arguments to use to populate this resource's properties.

@@ -30,6 +30,7 @@ class BlueprintArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Blueprint resource.
+
         :param Any schema: Schema of the blueprint
                
                Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Bedrock::Blueprint` for more information about the expected schema for this property.
@@ -141,6 +142,7 @@ class Blueprint(pulumi.CustomResource):
         """
         Definition of AWS::Bedrock::Blueprint Resource Type
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] blueprint_name: Name of the Blueprint
@@ -160,6 +162,7 @@ class Blueprint(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of AWS::Bedrock::Blueprint Resource Type
+
 
         :param str resource_name: The name of the resource.
         :param BlueprintArgs args: The arguments to use to populate this resource's properties.

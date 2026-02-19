@@ -53,6 +53,7 @@ class PipelineBufferOptions(dict):
                  persistent_buffer_enabled: _builtins.bool):
         """
         Key-value pairs to configure buffering.
+
         :param _builtins.bool persistent_buffer_enabled: Whether persistent buffering should be enabled.
         """
         pulumi.set(__self__, "persistent_buffer_enabled", persistent_buffer_enabled)
@@ -92,6 +93,7 @@ class PipelineEncryptionAtRestOptions(dict):
                  kms_key_arn: _builtins.str):
         """
         Key-value pairs to configure encryption at rest.
+
         :param _builtins.str kms_key_arn: The KMS key to use for encrypting data. By default an AWS owned key is used
         """
         pulumi.set(__self__, "kms_key_arn", kms_key_arn)
@@ -134,6 +136,7 @@ class PipelineLogPublishingOptions(dict):
                  is_logging_enabled: Optional[_builtins.bool] = None):
         """
         Key-value pairs to configure log publishing.
+
         :param 'PipelineLogPublishingOptionsCloudWatchLogDestinationProperties' cloud_watch_log_destination: The destination for OpenSearch Ingestion Service logs sent to Amazon CloudWatch.
         :param _builtins.bool is_logging_enabled: Whether logs should be published.
         """
@@ -238,6 +241,7 @@ class PipelineVpcEndpoint(dict):
                  vpc_options: Optional['outputs.PipelineVpcOptions'] = None):
         """
         An OpenSearch Ingestion Service-managed VPC endpoint that will access one or more pipelines.
+
         :param _builtins.str vpc_endpoint_id: The unique identifier of the endpoint.
         :param _builtins.str vpc_id: The ID for your VPC. AWS Privatelink generates this value when you create a VPC.
         :param 'PipelineVpcOptions' vpc_options: Information about the VPC, including associated subnets and security groups.
@@ -309,6 +313,7 @@ class PipelineVpcOptions(dict):
                  vpc_endpoint_management: Optional['PipelineVpcOptionsVpcEndpointManagement'] = None):
         """
         Container for the values required to configure VPC access for the pipeline. If you don't specify these values, OpenSearch Ingestion Service creates the pipeline with a public endpoint.
+
         :param Sequence[_builtins.str] subnet_ids: A list of subnet IDs associated with the VPC endpoint.
         :param Sequence[_builtins.str] security_group_ids: A list of security groups associated with the VPC endpoint.
         :param 'PipelineVpcOptionsVpcAttachmentOptionsProperties' vpc_attachment_options: Options for attaching a VPC to the pipeline.
@@ -384,6 +389,7 @@ class PipelineVpcOptionsVpcAttachmentOptionsProperties(dict):
                  cidr_block: _builtins.str):
         """
         Options for attaching a VPC to the pipeline.
+
         :param _builtins.bool attach_to_vpc: Whether the pipeline should be attached to the provided VPC
         :param _builtins.str cidr_block: The CIDR block to be reserved for OpenSearch Ingestion to create elastic network interfaces (ENIs).
         """

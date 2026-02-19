@@ -31,6 +31,7 @@ class MultiplexArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Multiplex resource.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] availability_zones: A list of availability zones for the multiplex.
         :param pulumi.Input['MultiplexSettingsArgs'] multiplex_settings: Configuration for a multiplex event.
         :param pulumi.Input[Sequence[pulumi.Input['MultiplexOutputDestinationArgs']]] destinations: A list of the multiplex output destinations.
@@ -122,6 +123,7 @@ class Multiplex(pulumi.CustomResource):
         """
         Resource schema for AWS::MediaLive::Multiplex
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] availability_zones: A list of availability zones for the multiplex.
@@ -138,6 +140,7 @@ class Multiplex(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource schema for AWS::MediaLive::Multiplex
+
 
         :param str resource_name: The name of the resource.
         :param MultiplexArgs args: The arguments to use to populate this resource's properties.

@@ -26,6 +26,7 @@ class PolicyArgs:
                  policy_store_id: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a Policy resource.
+
         :param pulumi.Input[Union['PolicyDefinition0PropertiesArgs', 'PolicyDefinition1PropertiesArgs']] definition: Specifies the policy type and content to use for the new or updated policy. The definition structure must include either a `Static` or a `TemplateLinked` element.
         :param pulumi.Input[_builtins.str] policy_store_id: Specifies the `PolicyStoreId` of the policy store you want to store the policy in.
         """
@@ -123,6 +124,7 @@ class Policy(pulumi.CustomResource):
 
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union[Union['PolicyDefinition0PropertiesArgs', 'PolicyDefinition0PropertiesArgsDict'], Union['PolicyDefinition1PropertiesArgs', 'PolicyDefinition1PropertiesArgsDict']]] definition: Specifies the policy type and content to use for the new or updated policy. The definition structure must include either a `Static` or a `TemplateLinked` element.
@@ -190,6 +192,7 @@ class Policy(pulumi.CustomResource):
         pulumi.export("policyId", template_linked_policy.policy_id)
 
         ```
+
 
         :param str resource_name: The name of the resource.
         :param PolicyArgs args: The arguments to use to populate this resource's properties.

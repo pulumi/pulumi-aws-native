@@ -34,6 +34,7 @@ class MultiRegionClusterArgs:
                  update_strategy: Optional[pulumi.Input['MultiRegionClusterUpdateStrategy']] = None):
         """
         The set of arguments for constructing a MultiRegionCluster resource.
+
         :param pulumi.Input[_builtins.str] node_type: The compute and memory capacity of the nodes in the multi region cluster.
         :param pulumi.Input[_builtins.str] description: Description of the multi region cluster.
         :param pulumi.Input[_builtins.str] engine: The engine type used by the multi region cluster.
@@ -210,6 +211,7 @@ class MultiRegionCluster(pulumi.CustomResource):
         """
         The AWS::MemoryDB::Multi Region Cluster resource creates an Amazon MemoryDB Multi Region Cluster.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: Description of the multi region cluster.
@@ -233,6 +235,7 @@ class MultiRegionCluster(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The AWS::MemoryDB::Multi Region Cluster resource creates an Amazon MemoryDB Multi Region Cluster.
+
 
         :param str resource_name: The name of the resource.
         :param MultiRegionClusterArgs args: The arguments to use to populate this resource's properties.

@@ -64,6 +64,7 @@ class ApplicationAlarm(dict):
                  severity: Optional['ApplicationAlarmSeverity'] = None):
         """
         A CloudWatch alarm to be monitored for the component.
+
         :param _builtins.str alarm_name: The name of the CloudWatch alarm to be monitored for the component.
         :param 'ApplicationAlarmSeverity' severity: Indicates the degree of outage when the alarm goes off.
         """
@@ -114,6 +115,7 @@ class ApplicationAlarmMetric(dict):
                  alarm_metric_name: _builtins.str):
         """
         A metric to be monitored for the component.
+
         :param _builtins.str alarm_metric_name: The name of the metric to be monitored for the component.
         """
         pulumi.set(__self__, "alarm_metric_name", alarm_metric_name)
@@ -156,6 +158,7 @@ class ApplicationComponentConfiguration(dict):
                  sub_component_type_configurations: Optional[Sequence['outputs.ApplicationSubComponentTypeConfiguration']] = None):
         """
         The configuration settings of the component.
+
         :param 'ApplicationConfigurationDetails' configuration_details: The configuration settings
         :param Sequence['ApplicationSubComponentTypeConfiguration'] sub_component_type_configurations: Sub component configurations of the component.
         """
@@ -220,6 +223,7 @@ class ApplicationComponentMonitoringSetting(dict):
                  default_overwrite_component_configuration: Optional['outputs.ApplicationComponentConfiguration'] = None):
         """
         The monitoring setting of the component.
+
         :param 'ApplicationComponentMonitoringSettingComponentConfigurationMode' component_configuration_mode: The component monitoring configuration mode.
         :param _builtins.str tier: The tier of the application component.
         :param _builtins.str component_arn: The ARN of the compnonent.
@@ -334,6 +338,7 @@ class ApplicationConfigurationDetails(dict):
                  windows_events: Optional[Sequence['outputs.ApplicationWindowsEvent']] = None):
         """
         The configuration settings.
+
         :param Sequence['ApplicationAlarmMetric'] alarm_metrics: A list of metrics to monitor for the component.
         :param Sequence['ApplicationAlarm'] alarms: A list of alarms to monitor for the component.
         :param 'ApplicationHaClusterPrometheusExporter' ha_cluster_prometheus_exporter: The HA cluster Prometheus Exporter settings.
@@ -476,6 +481,7 @@ class ApplicationCustomComponent(dict):
                  resource_list: Sequence[_builtins.str]):
         """
         The custom grouped component.
+
         :param _builtins.str component_name: The name of the component.
         :param Sequence[_builtins.str] resource_list: The list of resource ARNs that belong to the component.
         """
@@ -525,6 +531,7 @@ class ApplicationHaClusterPrometheusExporter(dict):
                  prometheus_port: Optional[_builtins.str] = None):
         """
         The HA cluster Prometheus Exporter settings.
+
         :param _builtins.str prometheus_port: Prometheus exporter port.
         """
         if prometheus_port is not None:
@@ -575,6 +582,7 @@ class ApplicationHanaPrometheusExporter(dict):
                  prometheus_port: Optional[_builtins.str] = None):
         """
         The HANA DB Prometheus Exporter settings.
+
         :param _builtins.bool agree_to_install_hanadb_client: A flag which indicates agreeing to install SAP HANA DB client.
         :param _builtins.str hana_port: The HANA DB port.
         :param _builtins.str hana_secret_name: The secret name which manages the HANA DB credentials e.g. {
@@ -665,6 +673,7 @@ class ApplicationJmxPrometheusExporter(dict):
                  prometheus_port: Optional[_builtins.str] = None):
         """
         The JMX Prometheus Exporter settings.
+
         :param _builtins.str host_port: Java agent host port
         :param _builtins.str jmxurl: JMX service URL.
         :param _builtins.str prometheus_port: Prometheus exporter port.
@@ -737,6 +746,7 @@ class ApplicationLog(dict):
                  pattern_set: Optional[_builtins.str] = None):
         """
         A log to be monitored for the component.
+
         :param _builtins.str log_type: The log type decides the log patterns against which Application Insights analyzes the log.
         :param 'ApplicationLogEncoding' encoding: The type of encoding of the logs to be monitored.
         :param _builtins.str log_group_name: The CloudWatch log group name to be associated to the monitored log.
@@ -822,6 +832,7 @@ class ApplicationLogPattern(dict):
                  rank: _builtins.int):
         """
         The log pattern.
+
         :param _builtins.str pattern: The log pattern.
         :param _builtins.str pattern_name: The name of the log pattern.
         :param _builtins.int rank: Rank of the log pattern.
@@ -884,6 +895,7 @@ class ApplicationLogPatternSet(dict):
                  pattern_set_name: _builtins.str):
         """
         The log pattern set.
+
         :param Sequence['ApplicationLogPattern'] log_patterns: The log patterns of a set.
         :param _builtins.str pattern_set_name: The name of the log pattern set.
         """
@@ -937,6 +949,7 @@ class ApplicationNetWeaverPrometheusExporter(dict):
                  prometheus_port: Optional[_builtins.str] = None):
         """
         The NetWeaver Prometheus Exporter Settings.
+
         :param Sequence[_builtins.str] instance_numbers: SAP instance numbers for ASCS, ERS, and App Servers.
         :param _builtins.str sapsid: SAP NetWeaver SID.
         :param _builtins.str prometheus_port: Prometheus exporter port.
@@ -1000,6 +1013,7 @@ class ApplicationProcess(dict):
                  process_name: _builtins.str):
         """
         A process to be monitored for the component.
+
         :param Sequence['ApplicationAlarmMetric'] alarm_metrics: A list of metrics to monitor for the component.
         :param _builtins.str process_name: The name of the process to be monitored for the component.
         """
@@ -1052,6 +1066,7 @@ class ApplicationSqlServerPrometheusExporter(dict):
                  sql_secret_name: _builtins.str):
         """
         The SQL prometheus exporter settings.
+
         :param _builtins.str prometheus_port: Prometheus exporter port.
         :param _builtins.str sql_secret_name: Secret name which managers SQL exporter connection. e.g. {"data_source_name": "sqlserver://<USERNAME>:<PASSWORD>@localhost:1433"}
         """
@@ -1106,6 +1121,7 @@ class ApplicationSubComponentConfigurationDetails(dict):
                  windows_events: Optional[Sequence['outputs.ApplicationWindowsEvent']] = None):
         """
         The configuration settings of sub components.
+
         :param Sequence['ApplicationAlarmMetric'] alarm_metrics: A list of metrics to monitor for the component.
         :param Sequence['ApplicationLog'] logs: A list of logs to monitor for the component.
         :param Sequence['ApplicationProcess'] processes: A list of processes to monitor for the component. Only Windows EC2 instances can have a processes section.
@@ -1182,6 +1198,7 @@ class ApplicationSubComponentTypeConfiguration(dict):
                  sub_component_type: 'ApplicationSubComponentTypeConfigurationSubComponentType'):
         """
         One type sub component configurations for the component.
+
         :param 'ApplicationSubComponentConfigurationDetails' sub_component_configuration_details: The configuration settings of sub components.
         :param 'ApplicationSubComponentTypeConfigurationSubComponentType' sub_component_type: The sub component type.
         """
@@ -1240,6 +1257,7 @@ class ApplicationWindowsEvent(dict):
                  pattern_set: Optional[_builtins.str] = None):
         """
         A Windows Event to be monitored for the component.
+
         :param Sequence['ApplicationEventLevel'] event_levels: The levels of event to log. 
         :param _builtins.str event_name: The type of Windows Events to log.
         :param _builtins.str log_group_name: The CloudWatch log group name to be associated to the monitored log.

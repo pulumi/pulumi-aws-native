@@ -32,6 +32,7 @@ class NetworkAnalyzerConfigurationArgs:
                  wireless_gateways: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a NetworkAnalyzerConfiguration resource.
+
         :param pulumi.Input[_builtins.str] description: The description of the new resource
         :param pulumi.Input[_builtins.str] name: Name of the network analyzer configuration
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
@@ -141,6 +142,7 @@ class NetworkAnalyzerConfiguration(pulumi.CustomResource):
         """
         Create and manage NetworkAnalyzerConfiguration resource.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: The description of the new resource
@@ -158,6 +160,7 @@ class NetworkAnalyzerConfiguration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Create and manage NetworkAnalyzerConfiguration resource.
+
 
         :param str resource_name: The name of the resource.
         :param NetworkAnalyzerConfigurationArgs args: The arguments to use to populate this resource's properties.

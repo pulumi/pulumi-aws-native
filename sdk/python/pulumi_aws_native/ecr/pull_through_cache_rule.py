@@ -27,6 +27,7 @@ class PullThroughCacheRuleArgs:
                  upstream_repository_prefix: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a PullThroughCacheRule resource.
+
         :param pulumi.Input[_builtins.str] credential_arn: The ARN of the Secrets Manager secret associated with the pull through cache rule.
         :param pulumi.Input[_builtins.str] custom_role_arn: The ARN of the IAM role associated with the pull through cache rule.
         :param pulumi.Input[_builtins.str] ecr_repository_prefix: The Amazon ECR repository prefix associated with the pull through cache rule.
@@ -160,6 +161,7 @@ class PullThroughCacheRule(pulumi.CustomResource):
 
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] credential_arn: The ARN of the Secrets Manager secret associated with the pull through cache rule.
@@ -201,6 +203,7 @@ class PullThroughCacheRule(pulumi.CustomResource):
             upstream_registry_url="public.ecr.aws")
 
         ```
+
 
         :param str resource_name: The name of the resource.
         :param PullThroughCacheRuleArgs args: The arguments to use to populate this resource's properties.

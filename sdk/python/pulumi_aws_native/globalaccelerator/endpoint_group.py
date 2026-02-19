@@ -34,6 +34,7 @@ class EndpointGroupArgs:
                  traffic_dial_percentage: Optional[pulumi.Input[_builtins.float]] = None):
         """
         The set of arguments for constructing a EndpointGroup resource.
+
         :param pulumi.Input[_builtins.str] endpoint_group_region: The name of the AWS Region where the endpoint group is located
         :param pulumi.Input[_builtins.str] listener_arn: The Amazon Resource Name (ARN) of the listener
         :param pulumi.Input[Sequence[pulumi.Input['EndpointGroupEndpointConfigurationArgs']]] endpoint_configurations: The list of endpoint objects.
@@ -205,6 +206,7 @@ class EndpointGroup(pulumi.CustomResource):
         """
         Resource Type definition for AWS::GlobalAccelerator::EndpointGroup
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['EndpointGroupEndpointConfigurationArgs', 'EndpointGroupEndpointConfigurationArgsDict']]]] endpoint_configurations: The list of endpoint objects.
@@ -226,6 +228,7 @@ class EndpointGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::GlobalAccelerator::EndpointGroup
+
 
         :param str resource_name: The name of the resource.
         :param EndpointGroupArgs args: The arguments to use to populate this resource's properties.

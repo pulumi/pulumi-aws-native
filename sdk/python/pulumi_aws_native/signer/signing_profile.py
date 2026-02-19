@@ -30,6 +30,7 @@ class SigningProfileArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a SigningProfile resource.
+
         :param pulumi.Input['SigningProfilePlatformId'] platform_id: The ID of the target signing platform.
         :param pulumi.Input[_builtins.str] profile_name: A name for the signing profile. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the signing profile name. 
         :param pulumi.Input['SigningProfileSignatureValidityPeriodArgs'] signature_validity_period: Signature validity period of the profile.
@@ -106,6 +107,7 @@ class SigningProfile(pulumi.CustomResource):
         """
         A signing profile is a signing template that can be used to carry out a pre-defined signing job.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input['SigningProfilePlatformId'] platform_id: The ID of the target signing platform.
@@ -121,6 +123,7 @@ class SigningProfile(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A signing profile is a signing template that can be used to carry out a pre-defined signing job.
+
 
         :param str resource_name: The name of the resource.
         :param SigningProfileArgs args: The arguments to use to populate this resource's properties.

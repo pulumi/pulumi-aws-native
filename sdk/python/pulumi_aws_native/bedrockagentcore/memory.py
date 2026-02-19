@@ -31,6 +31,7 @@ class MemoryArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Memory resource.
+
         :param pulumi.Input[_builtins.int] event_expiry_duration: Duration in days until memory events expire
         :param pulumi.Input[_builtins.str] encryption_key_arn: The memory encryption key Amazon Resource Name (ARN).
         :param pulumi.Input[_builtins.str] memory_execution_role_arn: The memory role ARN.
@@ -151,6 +152,7 @@ class Memory(pulumi.CustomResource):
         """
         Resource Type definition for AWS::BedrockAgentCore::Memory
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] encryption_key_arn: The memory encryption key Amazon Resource Name (ARN).
@@ -168,6 +170,7 @@ class Memory(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::BedrockAgentCore::Memory
+
 
         :param str resource_name: The name of the resource.
         :param MemoryArgs args: The arguments to use to populate this resource's properties.

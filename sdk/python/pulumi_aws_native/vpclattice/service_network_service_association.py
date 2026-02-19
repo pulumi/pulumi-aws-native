@@ -30,6 +30,7 @@ class ServiceNetworkServiceAssociationArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a ServiceNetworkServiceAssociation resource.
+
         :param pulumi.Input['ServiceNetworkServiceAssociationDnsEntryArgs'] dns_entry: The DNS information of the service.
         :param pulumi.Input[_builtins.str] service_identifier: The ID or ARN of the service.
         :param pulumi.Input[_builtins.str] service_network_identifier: The ID or ARN of the service network. You must use an ARN if the resources are in different accounts.
@@ -107,6 +108,7 @@ class ServiceNetworkServiceAssociation(pulumi.CustomResource):
         """
         Associates a service with a service network.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ServiceNetworkServiceAssociationDnsEntryArgs', 'ServiceNetworkServiceAssociationDnsEntryArgsDict']] dns_entry: The DNS information of the service.
@@ -122,6 +124,7 @@ class ServiceNetworkServiceAssociation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Associates a service with a service network.
+
 
         :param str resource_name: The name of the resource.
         :param ServiceNetworkServiceAssociationArgs args: The arguments to use to populate this resource's properties.

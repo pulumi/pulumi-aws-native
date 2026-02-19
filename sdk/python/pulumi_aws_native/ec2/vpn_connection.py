@@ -44,6 +44,7 @@ class VpnConnectionArgs:
                  vpn_tunnel_options_specifications: Optional[pulumi.Input[Sequence[pulumi.Input['VpnConnectionVpnTunnelOptionsSpecificationArgs']]]] = None):
         """
         The set of arguments for constructing a VpnConnection resource.
+
         :param pulumi.Input[_builtins.str] customer_gateway_id: The ID of the customer gateway at your end of the VPN connection.
         :param pulumi.Input[_builtins.str] type: The type of VPN connection.
         :param pulumi.Input[_builtins.bool] enable_acceleration: Indicate whether to enable acceleration for the VPN connection.
@@ -370,6 +371,7 @@ class VpnConnection(pulumi.CustomResource):
          To specify a VPN connection between a virtual private gateway and customer gateway, use the ``VpnGatewayId`` and ``CustomerGatewayId`` properties.
          For more information, see [](https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html) in the *User Guide*.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] customer_gateway_id: The ID of the customer gateway at your end of the VPN connection.
@@ -414,6 +416,7 @@ class VpnConnection(pulumi.CustomResource):
          To specify a VPN connection between a transit gateway and customer gateway, use the ``TransitGatewayId`` and ``CustomerGatewayId`` properties.
          To specify a VPN connection between a virtual private gateway and customer gateway, use the ``VpnGatewayId`` and ``CustomerGatewayId`` properties.
          For more information, see [](https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html) in the *User Guide*.
+
 
         :param str resource_name: The name of the resource.
         :param VpnConnectionArgs args: The arguments to use to populate this resource's properties.

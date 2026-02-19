@@ -37,6 +37,7 @@ class DataQualityJobDefinitionArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]] = None):
         """
         The set of arguments for constructing a DataQualityJobDefinition resource.
+
         :param pulumi.Input['DataQualityJobDefinitionDataQualityAppSpecificationArgs'] data_quality_app_specification: Specifies the container that runs the monitoring job.
         :param pulumi.Input['DataQualityJobDefinitionDataQualityJobInputArgs'] data_quality_job_input: A list of inputs for the monitoring job. Currently endpoints are supported as monitoring inputs.
         :param pulumi.Input['DataQualityJobDefinitionMonitoringOutputConfigArgs'] data_quality_job_output_config: The output configuration for monitoring jobs.
@@ -217,6 +218,7 @@ class DataQualityJobDefinition(pulumi.CustomResource):
         """
         Resource Type definition for AWS::SageMaker::DataQualityJobDefinition
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['DataQualityJobDefinitionDataQualityAppSpecificationArgs', 'DataQualityJobDefinitionDataQualityAppSpecificationArgsDict']] data_quality_app_specification: Specifies the container that runs the monitoring job.
@@ -238,6 +240,7 @@ class DataQualityJobDefinition(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::SageMaker::DataQualityJobDefinition
+
 
         :param str resource_name: The name of the resource.
         :param DataQualityJobDefinitionArgs args: The arguments to use to populate this resource's properties.

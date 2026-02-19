@@ -25,6 +25,7 @@ class LayerVersionPermissionArgs:
                  organization_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a LayerVersionPermission resource.
+
         :param pulumi.Input[_builtins.str] action: The API action that grants access to the layer.
         :param pulumi.Input[_builtins.str] layer_version_arn: The name or Amazon Resource Name (ARN) of the layer.
         :param pulumi.Input[_builtins.str] principal: An account ID, or * to grant layer usage permission to all accounts in an organization, or all AWS accounts (if organizationId is not specified).
@@ -99,6 +100,7 @@ class LayerVersionPermission(pulumi.CustomResource):
         """
         Schema for Lambda LayerVersionPermission
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] action: The API action that grants access to the layer.
@@ -114,6 +116,7 @@ class LayerVersionPermission(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Schema for Lambda LayerVersionPermission
+
 
         :param str resource_name: The name of the resource.
         :param LayerVersionPermissionArgs args: The arguments to use to populate this resource's properties.

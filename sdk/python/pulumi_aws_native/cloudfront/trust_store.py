@@ -29,6 +29,7 @@ class TrustStoreArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a TrustStore resource.
+
         :param pulumi.Input['TrustStoreCaCertificatesBundleSourceArgs'] ca_certificates_bundle_source: A CA certificates bundle source.
         :param pulumi.Input[_builtins.str] name: A unique name to identify the trust store
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: Key-value pairs for resource tagging
@@ -90,6 +91,7 @@ class TrustStore(pulumi.CustomResource):
         """
         Resource Type definition for AWS::CloudFront::TrustStore. TrustStores contain CA certificates for mTLS authentication and can be associated with CloudFront distributions.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['TrustStoreCaCertificatesBundleSourceArgs', 'TrustStoreCaCertificatesBundleSourceArgsDict']] ca_certificates_bundle_source: A CA certificates bundle source.
@@ -104,6 +106,7 @@ class TrustStore(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::CloudFront::TrustStore. TrustStores contain CA certificates for mTLS authentication and can be associated with CloudFront distributions.
+
 
         :param str resource_name: The name of the resource.
         :param TrustStoreArgs args: The arguments to use to populate this resource's properties.

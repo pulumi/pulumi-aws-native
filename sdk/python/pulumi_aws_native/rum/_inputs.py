@@ -92,6 +92,7 @@ class AppMonitorConfigurationArgs:
                  telemetries: Optional[pulumi.Input[Sequence[pulumi.Input['AppMonitorTelemetry']]]] = None):
         """
         AppMonitor configuration
+
         :param pulumi.Input[_builtins.bool] allow_cookies: If you set this to true, the RUM web client sets two cookies, a session cookie and a user cookie. The cookies allow the RUM web client to collect data relating to the number of users an application has and the behavior of the application across a sequence of events. Cookies are stored in the top-level domain of the current page.
         :param pulumi.Input[_builtins.bool] enable_x_ray: If you set this to true, RUM enables xray tracing for the user sessions that RUM samples. RUM adds an xray trace header to allowed HTTP requests. It also records an xray segment for allowed HTTP requests. You can see traces and segments from these user sessions in the xray console and the CW ServiceLens console.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] excluded_pages: A list of URLs in your website or application to exclude from RUM data collection. You can't include both ExcludedPages and IncludedPages in the same operation.
@@ -260,6 +261,7 @@ class AppMonitorCustomEventsArgs:
                  status: Optional[pulumi.Input['AppMonitorCustomEventsStatus']] = None):
         """
         AppMonitor custom events configuration
+
         :param pulumi.Input['AppMonitorCustomEventsStatus'] status: Indicates whether AppMonitor accepts custom events.
         """
         if status is not None:
@@ -298,6 +300,7 @@ class AppMonitorDeobfuscationConfigurationJavaScriptSourceMapsPropertiesArgs:
                  s3_uri: Optional[pulumi.Input[_builtins.str]] = None):
         """
         A structure that contains the configuration for how an app monitor can unminify JavaScript error stack traces using source maps.
+
         :param pulumi.Input['AppMonitorDeobfuscationConfigurationJavaScriptSourceMapsPropertiesStatus'] status: Specifies whether JavaScript error stack traces should be unminified for this app monitor. The default is for JavaScript error stack trace unminification to be DISABLED
         :param pulumi.Input[_builtins.str] s3_uri: The S3Uri of the bucket or folder that stores the source map files. It is required if status is ENABLED.
         """
@@ -345,6 +348,7 @@ class AppMonitorDeobfuscationConfigurationArgs:
                  java_script_source_maps: Optional[pulumi.Input['AppMonitorDeobfuscationConfigurationJavaScriptSourceMapsPropertiesArgs']] = None):
         """
         A structure that contains the configuration for how an app monitor can deobfuscate stack traces.
+
         :param pulumi.Input['AppMonitorDeobfuscationConfigurationJavaScriptSourceMapsPropertiesArgs'] java_script_source_maps: A structure that contains the configuration for how an app monitor can unminify JavaScript error stack traces using source maps.
         """
         if java_script_source_maps is not None:
@@ -503,6 +507,7 @@ class AppMonitorMetricDefinitionArgs:
                  value_key: Optional[pulumi.Input[_builtins.str]] = None):
         """
         A single metric definition
+
         :param pulumi.Input[_builtins.str] name: The name for the metric that is defined in this structure. For extended metrics, valid values are the following:
                
                PerformanceNavigationDuration
@@ -829,6 +834,7 @@ class AppMonitorMetricDestinationArgs:
                  metric_definitions: Optional[pulumi.Input[Sequence[pulumi.Input['AppMonitorMetricDefinitionArgs']]]] = None):
         """
         An structure which defines the destination and the metrics that you want to send.
+
         :param pulumi.Input['AppMonitorMetricDestinationDestination'] destination: Defines the destination to send the metrics to. Valid values are CloudWatch and Evidently. Note: Evidently has been discontinued and is no longer supported - requests with Evidently will be rejected.
         :param pulumi.Input[_builtins.str] destination_arn: Evidently has been discontinued and therefore this is no longer an acceptable field. If Destination is CloudWatch, do not use this parameter. 
                
@@ -921,6 +927,7 @@ class AppMonitorResourcePolicyArgs:
                  policy_revision_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         A structure that defines resource policy attached to your app monitor.
+
         :param pulumi.Input[_builtins.str] policy_document: The JSON to use as the resource policy. The document can be up to 4 KB in size. 
         :param pulumi.Input[_builtins.str] policy_revision_id: A string value that you can use to conditionally update your policy. You can provide the revision ID of your existing policy to make mutating requests against that policy. 
                

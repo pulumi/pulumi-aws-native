@@ -33,6 +33,7 @@ class ResolverRuleArgs:
                  target_ips: Optional[pulumi.Input[Sequence[pulumi.Input['ResolverRuleTargetAddressArgs']]]] = None):
         """
         The set of arguments for constructing a ResolverRule resource.
+
         :param pulumi.Input['ResolverRuleRuleType'] rule_type: When you want to forward DNS queries for specified domain name to resolvers on your network, specify FORWARD. When you have a forwarding rule to forward DNS queries for a domain to your network and you want Resolver to process queries for a subdomain of that domain, specify SYSTEM.
         :param pulumi.Input[_builtins.str] delegation_record: The name server domain for queries to be delegated to if a query matches the delegation record.
         :param pulumi.Input[_builtins.str] domain_name: DNS queries for this domain name are forwarded to the IP addresses that are specified in TargetIps
@@ -157,6 +158,7 @@ class ResolverRule(pulumi.CustomResource):
         """
         Resource Type definition for AWS::Route53Resolver::ResolverRule
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] delegation_record: The name server domain for queries to be delegated to if a query matches the delegation record.
@@ -175,6 +177,7 @@ class ResolverRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::Route53Resolver::ResolverRule
+
 
         :param str resource_name: The name of the resource.
         :param ResolverRuleArgs args: The arguments to use to populate this resource's properties.

@@ -30,6 +30,7 @@ class OrganizationConformancePackArgs:
                  template_s3_uri: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a OrganizationConformancePack resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['OrganizationConformancePackConformancePackInputParameterArgs']]] conformance_pack_input_parameters: A list of ConformancePackInputParameter objects.
         :param pulumi.Input[_builtins.str] delivery_s3_bucket: AWS Config stores intermediate files while processing conformance pack template.
         :param pulumi.Input[_builtins.str] delivery_s3_key_prefix: The prefix for the delivery S3 bucket.
@@ -181,6 +182,7 @@ class OrganizationConformancePack(pulumi.CustomResource):
 
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['OrganizationConformancePackConformancePackInputParameterArgs', 'OrganizationConformancePackConformancePackInputParameterArgsDict']]]] conformance_pack_input_parameters: A list of ConformancePackInputParameter objects.
@@ -225,6 +227,7 @@ class OrganizationConformancePack(pulumi.CustomResource):
             template_s3_uri="s3://bucketname/prefix")
 
         ```
+
 
         :param str resource_name: The name of the resource.
         :param OrganizationConformancePackArgs args: The arguments to use to populate this resource's properties.

@@ -24,6 +24,7 @@ class ResolverRuleAssociationArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ResolverRuleAssociation resource.
+
         :param pulumi.Input[_builtins.str] resolver_rule_id: The ID of the Resolver rule that you associated with the VPC that is specified by ``VPCId``.
         :param pulumi.Input[_builtins.str] vpc_id: The ID of the VPC that you associated the Resolver rule with.
         :param pulumi.Input[_builtins.str] name: The name of an association between a Resolver rule and a VPC.
@@ -85,6 +86,7 @@ class ResolverRuleAssociation(pulumi.CustomResource):
         """
         In the response to an [AssociateResolverRule](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_AssociateResolverRule.html), [DisassociateResolverRule](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_DisassociateResolverRule.html), or [ListResolverRuleAssociations](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_ListResolverRuleAssociations.html) request, provides information about an association between a resolver rule and a VPC. The association determines which DNS queries that originate in the VPC are forwarded to your network.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: The name of an association between a Resolver rule and a VPC.
@@ -100,6 +102,7 @@ class ResolverRuleAssociation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         In the response to an [AssociateResolverRule](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_AssociateResolverRule.html), [DisassociateResolverRule](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_DisassociateResolverRule.html), or [ListResolverRuleAssociations](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_ListResolverRuleAssociations.html) request, provides information about an association between a resolver rule and a VPC. The association determines which DNS queries that originate in the VPC are forwarded to your network.
+
 
         :param str resource_name: The name of the resource.
         :param ResolverRuleAssociationArgs args: The arguments to use to populate this resource's properties.

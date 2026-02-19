@@ -23,6 +23,7 @@ class RouteServerAssociationArgs:
                  vpc_id: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a RouteServerAssociation resource.
+
         :param pulumi.Input[_builtins.str] route_server_id: Route Server ID
         :param pulumi.Input[_builtins.str] vpc_id: VPC ID
         """
@@ -66,6 +67,7 @@ class RouteServerAssociation(pulumi.CustomResource):
         """
         VPC Route Server Association
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] route_server_id: Route Server ID
@@ -79,6 +81,7 @@ class RouteServerAssociation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         VPC Route Server Association
+
 
         :param str resource_name: The name of the resource.
         :param RouteServerAssociationArgs args: The arguments to use to populate this resource's properties.

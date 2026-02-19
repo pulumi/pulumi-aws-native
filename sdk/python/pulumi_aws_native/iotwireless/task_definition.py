@@ -32,6 +32,7 @@ class TaskDefinitionArgs:
                  update: Optional[pulumi.Input['TaskDefinitionUpdateWirelessGatewayTaskCreateArgs']] = None):
         """
         The set of arguments for constructing a TaskDefinition resource.
+
         :param pulumi.Input[_builtins.bool] auto_create_tasks: Whether to automatically create tasks using this task definition for all gateways with the specified current version. If false, the task must me created by calling CreateWirelessGatewayTask.
         :param pulumi.Input['TaskDefinitionLoRaWanUpdateGatewayTaskEntryArgs'] lo_ra_wan_update_gateway_task_entry: The list of task definitions.
         :param pulumi.Input[_builtins.str] name: The name of the new resource.
@@ -140,6 +141,7 @@ class TaskDefinition(pulumi.CustomResource):
         """
         Creates a gateway task definition.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] auto_create_tasks: Whether to automatically create tasks using this task definition for all gateways with the specified current version. If false, the task must me created by calling CreateWirelessGatewayTask.
@@ -157,6 +159,7 @@ class TaskDefinition(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Creates a gateway task definition.
+
 
         :param str resource_name: The name of the resource.
         :param TaskDefinitionArgs args: The arguments to use to populate this resource's properties.

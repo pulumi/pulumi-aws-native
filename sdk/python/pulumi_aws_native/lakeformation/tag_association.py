@@ -25,6 +25,7 @@ class TagAssociationArgs:
                  resource: pulumi.Input['TagAssociationResourceArgs']):
         """
         The set of arguments for constructing a TagAssociation resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['TagAssociationLfTagPairArgs']]] lf_tags: List of Lake Formation Tags to associate with the Lake Formation Resource
         :param pulumi.Input['TagAssociationResourceArgs'] resource: Resource to tag with the Lake Formation Tags
         """
@@ -68,6 +69,7 @@ class TagAssociation(pulumi.CustomResource):
         """
         A resource schema representing a Lake Formation Tag Association. While tag associations are not explicit Lake Formation resources, this CloudFormation resource can be used to associate tags with Lake Formation entities.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['TagAssociationLfTagPairArgs', 'TagAssociationLfTagPairArgsDict']]]] lf_tags: List of Lake Formation Tags to associate with the Lake Formation Resource
@@ -81,6 +83,7 @@ class TagAssociation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A resource schema representing a Lake Formation Tag Association. While tag associations are not explicit Lake Formation resources, this CloudFormation resource can be used to associate tags with Lake Formation entities.
+
 
         :param str resource_name: The name of the resource.
         :param TagAssociationArgs args: The arguments to use to populate this resource's properties.

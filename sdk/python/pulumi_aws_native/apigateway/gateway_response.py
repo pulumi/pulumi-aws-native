@@ -26,6 +26,7 @@ class GatewayResponseArgs:
                  status_code: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a GatewayResponse resource.
+
         :param pulumi.Input[_builtins.str] response_type: The response type of the associated GatewayResponse.
         :param pulumi.Input[_builtins.str] rest_api_id: The string identifier of the associated RestApi.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] response_parameters: Response parameters (paths, query strings and headers) of the GatewayResponse as a string-to-string map of key-value pairs.
@@ -117,6 +118,7 @@ class GatewayResponse(pulumi.CustomResource):
         """
         The ``AWS::ApiGateway::GatewayResponse`` resource creates a gateway response for your API. When you delete a stack containing this resource, your custom gateway responses are reset. For more information, see [API Gateway Responses](https://docs.aws.amazon.com/apigateway/latest/developerguide/customize-gateway-responses.html#api-gateway-gatewayResponse-definition) in the *API Gateway Developer Guide*.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] response_parameters: Response parameters (paths, query strings and headers) of the GatewayResponse as a string-to-string map of key-value pairs.
@@ -133,6 +135,7 @@ class GatewayResponse(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The ``AWS::ApiGateway::GatewayResponse`` resource creates a gateway response for your API. When you delete a stack containing this resource, your custom gateway responses are reset. For more information, see [API Gateway Responses](https://docs.aws.amazon.com/apigateway/latest/developerguide/customize-gateway-responses.html#api-gateway-gatewayResponse-definition) in the *API Gateway Developer Guide*.
+
 
         :param str resource_name: The name of the resource.
         :param GatewayResponseArgs args: The arguments to use to populate this resource's properties.

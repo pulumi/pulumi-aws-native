@@ -39,6 +39,7 @@ class GuardrailArgs:
                  word_policy_config: Optional[pulumi.Input['GuardrailWordPolicyConfigArgs']] = None):
         """
         The set of arguments for constructing a Guardrail resource.
+
         :param pulumi.Input[_builtins.str] blocked_input_messaging: Messaging for when violations are detected in text
         :param pulumi.Input[_builtins.str] blocked_outputs_messaging: Messaging for when violations are detected in text
         :param pulumi.Input['GuardrailAutomatedReasoningPolicyConfigArgs'] automated_reasoning_policy_config: Configuration settings for integrating Automated Reasoning policies with Amazon Bedrock Guardrails.
@@ -258,6 +259,7 @@ class Guardrail(pulumi.CustomResource):
         """
         Definition of AWS::Bedrock::Guardrail Resource Type
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['GuardrailAutomatedReasoningPolicyConfigArgs', 'GuardrailAutomatedReasoningPolicyConfigArgsDict']] automated_reasoning_policy_config: Configuration settings for integrating Automated Reasoning policies with Amazon Bedrock Guardrails.
@@ -283,6 +285,7 @@ class Guardrail(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of AWS::Bedrock::Guardrail Resource Type
+
 
         :param str resource_name: The name of the resource.
         :param GuardrailArgs args: The arguments to use to populate this resource's properties.

@@ -34,6 +34,7 @@ class RuleArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Rule resource.
+
         :param pulumi.Input['RuleResourceType'] resource_type: The resource type retained by the retention rule.
         :param pulumi.Input['RuleRetentionPeriodArgs'] retention_period: Information about the retention period for which the retention rule is to retain resources.
         :param pulumi.Input[_builtins.str] description: The description of the retention rule.
@@ -173,6 +174,7 @@ class Rule(pulumi.CustomResource):
         """
         Resource Type definition for AWS::Rbin::Rule
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: The description of the retention rule.
@@ -192,6 +194,7 @@ class Rule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::Rbin::Rule
+
 
         :param str resource_name: The name of the resource.
         :param RuleArgs args: The arguments to use to populate this resource's properties.

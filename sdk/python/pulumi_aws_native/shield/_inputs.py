@@ -51,6 +51,7 @@ class ProactiveEngagementEmergencyContactArgs:
                  phone_number: Optional[pulumi.Input[_builtins.str]] = None):
         """
         An emergency contact is used by Shield Response Team (SRT) to contact you for escalations to the SRT and to initiate proactive customer support. An emergency contact requires an email address.
+
         :param pulumi.Input[_builtins.str] email_address: The email address for the contact.
         :param pulumi.Input[_builtins.str] contact_notes: Additional notes regarding the contact.
         :param pulumi.Input[_builtins.str] phone_number: The phone number for the contact
@@ -114,6 +115,7 @@ class ProtectionApplicationLayerAutomaticResponseConfigurationAction0PropertiesA
                  count: Optional[Any] = None):
         """
         Specifies the action setting that Shield Advanced should use in the AWS WAF rules that it creates on behalf of the protected resource in response to DDoS attacks. You specify this as part of the configuration for the automatic application layer DDoS mitigation feature, when you enable or update automatic mitigation. Shield Advanced creates the AWS WAF rules in a Shield Advanced-managed rule group, inside the web ACL that you have associated with the resource.
+
         :param Any count: Specifies that Shield Advanced should configure its AWS WAF rules with the AWS WAF `Count` action.
                You must specify exactly one action, either `Block` or `Count`.
         """
@@ -150,6 +152,7 @@ class ProtectionApplicationLayerAutomaticResponseConfigurationAction1PropertiesA
                  block: Optional[Any] = None):
         """
         Specifies the action setting that Shield Advanced should use in the AWS WAF rules that it creates on behalf of the protected resource in response to DDoS attacks. You specify this as part of the configuration for the automatic application layer DDoS mitigation feature, when you enable or update automatic mitigation. Shield Advanced creates the AWS WAF rules in a Shield Advanced-managed rule group, inside the web ACL that you have associated with the resource.
+
         :param Any block: Specifies that Shield Advanced should configure its AWS WAF rules with the AWS WAF `Block` action.
                You must specify exactly one action, either `Block` or `Count`.
         """
@@ -190,6 +193,7 @@ class ProtectionApplicationLayerAutomaticResponseConfigurationArgs:
                  status: pulumi.Input['ProtectionApplicationLayerAutomaticResponseConfigurationStatus']):
         """
         The automatic application layer DDoS mitigation settings for a Protection. This configuration determines whether Shield Advanced automatically manages rules in the web ACL in order to respond to application layer events that Shield Advanced determines to be DDoS attacks.
+
         :param pulumi.Input[Union['ProtectionApplicationLayerAutomaticResponseConfigurationAction0PropertiesArgs', 'ProtectionApplicationLayerAutomaticResponseConfigurationAction1PropertiesArgs']] action: Specifies the action setting that Shield Advanced should use in the AWS WAF rules that it creates on behalf of the protected resource in response to DDoS attacks. You specify this as part of the configuration for the automatic application layer DDoS mitigation feature, when you enable or update automatic mitigation. Shield Advanced creates the AWS WAF rules in a Shield Advanced-managed rule group, inside the web ACL that you have associated with the resource.
         :param pulumi.Input['ProtectionApplicationLayerAutomaticResponseConfigurationStatus'] status: Indicates whether automatic application layer DDoS mitigation is enabled for the protection.
         """

@@ -34,6 +34,7 @@ class InstanceProfileArgs:
                  vpc_security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a InstanceProfile resource.
+
         :param pulumi.Input[_builtins.str] availability_zone: The property describes an availability zone of the instance profile.
         :param pulumi.Input[_builtins.str] description: The optional description of the instance profile.
         :param pulumi.Input[_builtins.str] instance_profile_identifier: The property describes an identifier for the instance profile. It is used for describing/deleting/modifying. Can be name/arn
@@ -207,6 +208,7 @@ class InstanceProfile(pulumi.CustomResource):
         """
         Resource schema for AWS::DMS::InstanceProfile.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] availability_zone: The property describes an availability zone of the instance profile.
@@ -228,6 +230,7 @@ class InstanceProfile(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource schema for AWS::DMS::InstanceProfile.
+
 
         :param str resource_name: The name of the resource.
         :param InstanceProfileArgs args: The arguments to use to populate this resource's properties.

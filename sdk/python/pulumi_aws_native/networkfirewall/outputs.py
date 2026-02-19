@@ -2113,6 +2113,7 @@ class SummaryConfigurationProperties(dict):
 
         - The `RuleOptions` specified in `SummaryConfiguration`
         - Rule metadata organization preferences
+
         :param Sequence['RuleGroupSummaryRuleOption'] rule_options: Specifies the selected rule options returned by `DescribeRuleGroupSummary` .
         """
         if rule_options is not None:

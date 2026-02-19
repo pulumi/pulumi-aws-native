@@ -67,6 +67,7 @@ class ConnectorApacheKafkaCluster(dict):
                  vpc: 'outputs.ConnectorVpc'):
         """
         Details of how to connect to an Apache Kafka cluster.
+
         :param _builtins.str bootstrap_servers: The bootstrap servers string of the Apache Kafka cluster.
         :param 'ConnectorVpc' vpc: Details of an Amazon VPC which has network connectivity to the Apache Kafka cluster.
         """
@@ -128,6 +129,7 @@ class ConnectorAutoScaling(dict):
                  scale_out_policy: 'outputs.ConnectorScaleOutPolicy'):
         """
         Details about auto scaling of a connector.
+
         :param _builtins.int max_worker_count: The maximum number of workers for a connector.
         :param _builtins.int mcu_count: Specifies how many MSK Connect Units (MCU) as the minimum scaling unit.
         :param _builtins.int min_worker_count: The minimum number of workers for a connector.
@@ -210,6 +212,7 @@ class ConnectorCapacity(dict):
                  provisioned_capacity: Optional['outputs.ConnectorProvisionedCapacity'] = None):
         """
         Information about the capacity allocated to the connector.
+
         :param 'ConnectorAutoScaling' auto_scaling: Information about the auto scaling parameters for the connector.
         :param 'ConnectorProvisionedCapacity' provisioned_capacity: Details about a fixed capacity allocated to a connector.
         """
@@ -262,6 +265,7 @@ class ConnectorCloudWatchLogsLogDelivery(dict):
                  log_group: Optional[_builtins.str] = None):
         """
         Details about delivering logs to Amazon CloudWatch Logs.
+
         :param _builtins.bool enabled: Specifies whether the logs get sent to the specified CloudWatch Logs destination.
         :param _builtins.str log_group: The CloudWatch log group that is the destination for log delivery.
         """
@@ -313,6 +317,7 @@ class ConnectorCustomPlugin(dict):
                  revision: _builtins.int):
         """
         Details about a custom plugin.
+
         :param _builtins.str custom_plugin_arn: The Amazon Resource Name (ARN) of the custom plugin to use.
         :param _builtins.int revision: The revision of the custom plugin to use.
         """
@@ -363,6 +368,7 @@ class ConnectorFirehoseLogDelivery(dict):
                  delivery_stream: Optional[_builtins.str] = None):
         """
         Details about delivering logs to Amazon Kinesis Data Firehose.
+
         :param _builtins.bool enabled: Specifies whether the logs get sent to the specified Kinesis Data Firehose delivery stream.
         :param _builtins.str delivery_stream: The Kinesis Data Firehose delivery stream that is the destination for log delivery.
         """
@@ -413,6 +419,7 @@ class ConnectorKafkaCluster(dict):
                  apache_kafka_cluster: 'outputs.ConnectorApacheKafkaCluster'):
         """
         Details of how to connect to the Kafka cluster.
+
         :param 'ConnectorApacheKafkaCluster' apache_kafka_cluster: The Apache Kafka cluster to which the connector is connected.
         """
         pulumi.set(__self__, "apache_kafka_cluster", apache_kafka_cluster)
@@ -452,6 +459,7 @@ class ConnectorKafkaClusterClientAuthentication(dict):
                  authentication_type: 'ConnectorKafkaClusterClientAuthenticationType'):
         """
         Details of the client authentication used by the Kafka cluster.
+
         :param 'ConnectorKafkaClusterClientAuthenticationType' authentication_type: The type of client authentication used to connect to the Apache Kafka cluster. Value NONE means that no client authentication is used.
         """
         pulumi.set(__self__, "authentication_type", authentication_type)
@@ -491,6 +499,7 @@ class ConnectorKafkaClusterEncryptionInTransit(dict):
                  encryption_type: 'ConnectorKafkaClusterEncryptionInTransitType'):
         """
         Details of encryption in transit to the Kafka cluster.
+
         :param 'ConnectorKafkaClusterEncryptionInTransitType' encryption_type: The type of encryption in transit to the Apache Kafka cluster.
         """
         pulumi.set(__self__, "encryption_type", encryption_type)
@@ -530,6 +539,7 @@ class ConnectorLogDelivery(dict):
                  worker_log_delivery: 'outputs.ConnectorWorkerLogDelivery'):
         """
         Details of what logs are delivered and where they are delivered.
+
         :param 'ConnectorWorkerLogDelivery' worker_log_delivery: The workers can send worker logs to different destination types. This configuration specifies the details of these destinations.
         """
         pulumi.set(__self__, "worker_log_delivery", worker_log_delivery)
@@ -569,6 +579,7 @@ class ConnectorPlugin(dict):
                  custom_plugin: 'outputs.ConnectorCustomPlugin'):
         """
         Details about a Kafka Connect plugin which will be used with the connector.
+
         :param 'ConnectorCustomPlugin' custom_plugin: Details about a custom plugin.
         """
         pulumi.set(__self__, "custom_plugin", custom_plugin)
@@ -611,6 +622,7 @@ class ConnectorProvisionedCapacity(dict):
                  mcu_count: Optional[_builtins.int] = None):
         """
         Details about a fixed capacity allocated to a connector.
+
         :param _builtins.int worker_count: Number of workers for a connector.
         :param _builtins.int mcu_count: Specifies how many MSK Connect Units (MCU) are allocated to the connector.
         """
@@ -646,6 +658,7 @@ class ConnectorS3LogDelivery(dict):
                  prefix: Optional[_builtins.str] = None):
         """
         Details about delivering logs to Amazon S3.
+
         :param _builtins.bool enabled: Specifies whether the logs get sent to the specified Amazon S3 destination.
         :param _builtins.str bucket: The name of the S3 bucket that is the destination for log delivery.
         :param _builtins.str prefix: The S3 prefix that is the destination for log delivery.
@@ -707,6 +720,7 @@ class ConnectorScaleInPolicy(dict):
                  cpu_utilization_percentage: _builtins.int):
         """
         Information about the scale in policy of the connector.
+
         :param _builtins.int cpu_utilization_percentage: Specifies the CPU utilization percentage threshold at which connector scale in should trigger.
         """
         pulumi.set(__self__, "cpu_utilization_percentage", cpu_utilization_percentage)
@@ -746,6 +760,7 @@ class ConnectorScaleOutPolicy(dict):
                  cpu_utilization_percentage: _builtins.int):
         """
         Information about the scale out policy of the connector.
+
         :param _builtins.int cpu_utilization_percentage: Specifies the CPU utilization percentage threshold at which connector scale out should trigger.
         """
         pulumi.set(__self__, "cpu_utilization_percentage", cpu_utilization_percentage)
@@ -786,6 +801,7 @@ class ConnectorVpc(dict):
                  subnets: Sequence[_builtins.str]):
         """
         Information about a VPC used with the connector.
+
         :param Sequence[_builtins.str] security_groups: The AWS security groups to associate with the elastic network interfaces in order to specify what the connector has access to.
         :param Sequence[_builtins.str] subnets: The list of subnets to connect to in the virtual private cloud (VPC). AWS creates elastic network interfaces inside these subnets.
         """
@@ -836,6 +852,7 @@ class ConnectorWorkerConfiguration(dict):
                  worker_configuration_arn: _builtins.str):
         """
         Specifies the worker configuration to use with the connector.
+
         :param _builtins.int revision: The revision of the worker configuration to use.
         :param _builtins.str worker_configuration_arn: The Amazon Resource Name (ARN) of the worker configuration to use.
         """
@@ -887,6 +904,7 @@ class ConnectorWorkerLogDelivery(dict):
                  s3: Optional['outputs.ConnectorS3LogDelivery'] = None):
         """
         Specifies where worker logs are delivered.
+
         :param 'ConnectorCloudWatchLogsLogDelivery' cloud_watch_logs: Details about delivering logs to Amazon CloudWatch Logs.
         :param 'ConnectorFirehoseLogDelivery' firehose: Details about delivering logs to Amazon Kinesis Data Firehose.
         :param 'ConnectorS3LogDelivery' s3: Details about delivering logs to Amazon S3.
@@ -952,6 +970,7 @@ class CustomPluginFileDescription(dict):
                  file_size: Optional[_builtins.int] = None):
         """
         Details about the custom plugin file.
+
         :param _builtins.str file_md5: The hex-encoded MD5 checksum of the custom plugin file. You can use it to validate the file.
         :param _builtins.int file_size: The size in bytes of the custom plugin file. You can use it to validate the file.
         """
@@ -1003,6 +1022,7 @@ class CustomPluginLocation(dict):
                  s3_location: 'outputs.CustomPluginS3Location'):
         """
         Information about the location of a custom plugin.
+
         :param 'CustomPluginS3Location' s3_location: The S3 bucket Amazon Resource Name (ARN), file key, and object version of the plugin file stored in Amazon S3.
         """
         pulumi.set(__self__, "s3_location", s3_location)
@@ -1048,6 +1068,7 @@ class CustomPluginS3Location(dict):
                  object_version: Optional[_builtins.str] = None):
         """
         The S3 bucket Amazon Resource Name (ARN), file key, and object version of the plugin file stored in Amazon S3.
+
         :param _builtins.str bucket_arn: The Amazon Resource Name (ARN) of an S3 bucket.
         :param _builtins.str file_key: The file key for an object in an S3 bucket.
         :param _builtins.str object_version: The version of an object in an S3 bucket.

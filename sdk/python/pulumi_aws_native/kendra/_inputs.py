@@ -2388,6 +2388,7 @@ class DataSourceS3DataSourceConfigurationArgs:
                  inclusion_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         S3 data source configuration
+
         :param pulumi.Input[_builtins.str] bucket_name: The name of the bucket that contains the documents.
         :param pulumi.Input['DataSourceAccessControlListConfigurationArgs'] access_control_list_configuration: Provides the path to the S3 bucket that contains the user context filtering files for the data source. For the format of the file, see [Access control for S3 data sources](https://docs.aws.amazon.com/kendra/latest/dg/s3-acl.html) .
         :param pulumi.Input['DataSourceDocumentsMetadataConfigurationArgs'] documents_metadata_configuration: Specifies document metadata files that contain information such as the document access control information, source URI, document author, and custom attributes. Each metadata file contains metadata about a single document.
@@ -3678,6 +3679,7 @@ class DataSourceSharePointConfigurationArgs:
                  vpc_configuration: Optional[pulumi.Input['DataSourceVpcConfigurationArgs']] = None):
         """
         SharePoint configuration
+
         :param pulumi.Input[_builtins.str] secret_arn: The Amazon Resource Name (ARN) of an AWS Secrets Manager secret that contains the user name and password required to connect to the SharePoint instance. For more information, see [Microsoft SharePoint](https://docs.aws.amazon.com/kendra/latest/dg/data-source-sharepoint.html) .
         :param pulumi.Input['DataSourceSharePointConfigurationSharePointVersion'] share_point_version: The version of Microsoft SharePoint that you use.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] urls: The Microsoft SharePoint site URLs for the documents you want to index.

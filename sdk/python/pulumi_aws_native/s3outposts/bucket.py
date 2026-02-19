@@ -30,6 +30,7 @@ class BucketArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Bucket resource.
+
         :param pulumi.Input[_builtins.str] outpost_id: The id of the customer outpost on which the bucket resides.
         :param pulumi.Input[_builtins.str] bucket_name: A name for the bucket.
         :param pulumi.Input['BucketLifecycleConfigurationArgs'] lifecycle_configuration: Rules that define how Amazon S3Outposts manages objects during their lifetime.
@@ -106,6 +107,7 @@ class Bucket(pulumi.CustomResource):
         """
         Resource Type Definition for AWS::S3Outposts::Bucket
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] bucket_name: A name for the bucket.
@@ -121,6 +123,7 @@ class Bucket(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type Definition for AWS::S3Outposts::Bucket
+
 
         :param str resource_name: The name of the resource.
         :param BucketArgs args: The arguments to use to populate this resource's properties.

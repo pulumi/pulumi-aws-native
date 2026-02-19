@@ -37,6 +37,7 @@ class MethodArgs:
                  request_validator_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Method resource.
+
         :param pulumi.Input[_builtins.str] http_method: The method's HTTP verb.
         :param pulumi.Input[_builtins.str] resource_id: The Resource identifier for the MethodResponse resource.
         :param pulumi.Input[_builtins.str] rest_api_id: The string identifier of the associated RestApi.
@@ -257,6 +258,7 @@ class Method(pulumi.CustomResource):
         """
         The ``AWS::ApiGateway::Method`` resource creates API Gateway methods that define the parameters and body that clients must send in their requests.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] api_key_required: A boolean flag specifying whether a valid ApiKey is required to invoke this method.
@@ -282,6 +284,7 @@ class Method(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The ``AWS::ApiGateway::Method`` resource creates API Gateway methods that define the parameters and body that clients must send in their requests.
+
 
         :param str resource_name: The name of the resource.
         :param MethodArgs args: The arguments to use to populate this resource's properties.

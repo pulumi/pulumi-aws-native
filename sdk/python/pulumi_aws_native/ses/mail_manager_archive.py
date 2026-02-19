@@ -30,6 +30,7 @@ class MailManagerArchiveArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a MailManagerArchive resource.
+
         :param pulumi.Input[_builtins.str] archive_name: A unique name for the new archive.
         :param pulumi.Input[_builtins.str] kms_key_arn: The Amazon Resource Name (ARN) of the KMS key for encrypting emails in the archive.
         :param pulumi.Input['MailManagerArchiveArchiveRetentionPropertiesArgs'] retention: The period for retaining emails in the archive before automatic deletion.
@@ -107,6 +108,7 @@ class MailManagerArchive(pulumi.CustomResource):
         """
         Definition of AWS::SES::MailManagerArchive Resource Type
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] archive_name: A unique name for the new archive.
@@ -122,6 +124,7 @@ class MailManagerArchive(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of AWS::SES::MailManagerArchive Resource Type
+
 
         :param str resource_name: The name of the resource.
         :param MailManagerArchiveArgs args: The arguments to use to populate this resource's properties.

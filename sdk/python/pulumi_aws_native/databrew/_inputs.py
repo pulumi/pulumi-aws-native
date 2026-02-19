@@ -134,6 +134,7 @@ class DatasetCsvOptionsArgs:
                  header_row: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Csv options
+
         :param pulumi.Input[_builtins.str] delimiter: A single character that specifies the delimiter being used in the CSV file.
         :param pulumi.Input[_builtins.bool] header_row: A variable that specifies whether the first row in the file is parsed as the header. If this value is false, column names are auto-generated.
         """
@@ -616,6 +617,7 @@ class DatasetFilterValueArgs:
                  value_reference: pulumi.Input[_builtins.str]):
         """
         A key-value pair to associate expression variable names with their values
+
         :param pulumi.Input[_builtins.str] value: The value to be associated with the substitution variable.
         :param pulumi.Input[_builtins.str] value_reference: Variable name
         """
@@ -672,6 +674,7 @@ class DatasetFormatOptionsArgs:
                  json: Optional[pulumi.Input['DatasetJsonOptionsArgs']] = None):
         """
         Format options for dataset
+
         :param pulumi.Input['DatasetCsvOptionsArgs'] csv: Options that define how CSV input is to be interpreted by DataBrew.
         :param pulumi.Input['DatasetExcelOptionsArgs'] excel: Options that define how Excel input is to be interpreted by DataBrew.
         :param pulumi.Input['DatasetJsonOptionsArgs'] json: Options that define how JSON input is to be interpreted by DataBrew.
@@ -750,6 +753,7 @@ class DatasetInputArgs:
                  s3_input_definition: Optional[pulumi.Input['DatasetS3LocationArgs']] = None):
         """
         Input
+
         :param pulumi.Input['DatasetDataCatalogInputDefinitionArgs'] data_catalog_input_definition: The AWS Glue Data Catalog parameters for the data.
         :param pulumi.Input['DatasetDatabaseInputDefinitionArgs'] database_input_definition: Connection information for dataset input files stored in a database.
         :param pulumi.Input['DatasetMetadataArgs'] metadata: Contains additional resource information needed for specific datasets.
@@ -828,6 +832,7 @@ class DatasetJsonOptionsArgs:
                  multi_line: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Json options
+
         :param pulumi.Input[_builtins.bool] multi_line: A value that specifies whether JSON input contains embedded new line characters.
         """
         if multi_line is not None:
@@ -1007,6 +1012,7 @@ class DatasetPathOptionsArgs:
                  parameters: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetPathParameterArgs']]]] = None):
         """
         Path options for dataset
+
         :param pulumi.Input['DatasetFilesLimitArgs'] files_limit: If provided, this structure imposes a limit on a number of files that should be selected.
         :param pulumi.Input['DatasetFilterExpressionArgs'] last_modified_date_condition: If provided, this structure defines a date range for matching Amazon S3 objects based on their LastModifiedDate attribute in Amazon S3 .
         :param pulumi.Input[Sequence[pulumi.Input['DatasetPathParameterArgs']]] parameters: A structure that maps names of parameters used in the Amazon S3 path of a dataset to their definitions.
@@ -1075,6 +1081,7 @@ class DatasetPathParameterArgs:
                  path_parameter_name: pulumi.Input[_builtins.str]):
         """
         A key-value pair to associate dataset parameter name with its definition.
+
         :param pulumi.Input['DatasetParameterArgs'] dataset_parameter: The path parameter definition.
         :param pulumi.Input[_builtins.str] path_parameter_name: The name of the path parameter.
         """
@@ -1131,6 +1138,7 @@ class DatasetS3LocationArgs:
                  key: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input location
+
         :param pulumi.Input[_builtins.str] bucket: The Amazon S3 bucket name.
         :param pulumi.Input[_builtins.str] bucket_owner: The AWS account ID of the bucket owner.
         :param pulumi.Input[_builtins.str] key: The unique name of the object in the bucket.
@@ -1318,6 +1326,7 @@ class JobCsvOutputOptionsArgs:
                  delimiter: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Output Csv options
+
         :param pulumi.Input[_builtins.str] delimiter: A single character that specifies the delimiter used to create CSV job output.
         """
         if delimiter is not None:
@@ -1707,6 +1716,7 @@ class JobOutputFormatOptionsArgs:
                  csv: Optional[pulumi.Input['JobCsvOutputOptionsArgs']] = None):
         """
         Format options for job Output
+
         :param pulumi.Input['JobCsvOutputOptionsArgs'] csv: Represents a set of options that define the structure of comma-separated value (CSV) job output.
         """
         if csv is not None:
@@ -1747,6 +1757,7 @@ class JobOutputLocationArgs:
                  key: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Output location
+
         :param pulumi.Input[_builtins.str] bucket: The Amazon S3 bucket name.
         :param pulumi.Input[_builtins.str] key: The unique name of the object in the bucket.
         """
@@ -2100,6 +2111,7 @@ class JobS3LocationArgs:
                  key: Optional[pulumi.Input[_builtins.str]] = None):
         """
         S3 Output location
+
         :param pulumi.Input[_builtins.str] bucket: The Amazon S3 bucket name.
         :param pulumi.Input[_builtins.str] bucket_owner: The AWS account ID of the bucket owner.
         :param pulumi.Input[_builtins.str] key: The unique name of the object in the bucket.
@@ -2200,6 +2212,7 @@ class JobSampleArgs:
                  size: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Job Sample
+
         :param pulumi.Input['JobSampleMode'] mode: A value that determines whether the profile job is run on the entire dataset or a specified number of rows. This value must be one of the following:
                
                - FULL_DATASET - The profile job is run on the entire dataset.
@@ -2359,6 +2372,7 @@ class JobValidationConfigurationArgs:
                  validation_mode: Optional[pulumi.Input['JobValidationMode']] = None):
         """
         Configuration to attach Rulesets to the job
+
         :param pulumi.Input[_builtins.str] ruleset_arn: Arn of the Ruleset
         :param pulumi.Input['JobValidationMode'] validation_mode: Mode of data quality validation. Default mode is "CHECK_ALL" which verifies all rules defined in the selected ruleset.
         """
@@ -2512,6 +2526,7 @@ class RecipeConditionExpressionArgs:
                  value: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Condition expressions applied to the step action
+
         :param pulumi.Input[_builtins.str] condition: Input condition to be applied to the target column
         :param pulumi.Input[_builtins.str] target_column: Name of the target column
         :param pulumi.Input[_builtins.str] value: Value of the condition
@@ -4153,6 +4168,7 @@ class RulesetColumnSelectorArgs:
                  regex: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Selector of a column from a dataset for profile job configuration. One selector includes either a column name or a regular expression
+
         :param pulumi.Input[_builtins.str] name: The name of a column from a dataset
         :param pulumi.Input[_builtins.str] regex: A regular expression for selecting a column from a dataset
         """
@@ -4226,6 +4242,7 @@ class RulesetRuleArgs:
                  threshold: Optional[pulumi.Input['RulesetThresholdArgs']] = None):
         """
         Data quality rule for a target resource (dataset)
+
         :param pulumi.Input[_builtins.str] check_expression: The expression which includes column references, condition names followed by variable references, possibly grouped and combined with other conditions. For example, `(:col1 starts_with :prefix1 or :col1 starts_with :prefix2) and (:col1 ends_with :suffix1 or :col1 ends_with :suffix2)` . Column and value references are substitution variables that should start with the ':' symbol. Depending on the context, substitution variables' values can be either an actual value or a column name. These values are defined in the SubstitutionMap. If a CheckExpression starts with a column reference, then ColumnSelectors in the rule should be null. If ColumnSelectors has been defined, then there should be no columnn reference in the left side of a condition, for example, `is_between :val1 and :val2` .
         :param pulumi.Input[_builtins.str] name: Name of the rule
         :param pulumi.Input[Sequence[pulumi.Input['RulesetColumnSelectorArgs']]] column_selectors: List of column selectors. Selectors can be used to select columns using a name or regular expression from the dataset. Rule will be applied to selected columns.
@@ -4337,6 +4354,7 @@ class RulesetSubstitutionValueArgs:
                  value_reference: pulumi.Input[_builtins.str]):
         """
         A key-value pair to associate expression's substitution variable names with their values
+
         :param pulumi.Input[_builtins.str] value: Value or column name
         :param pulumi.Input[_builtins.str] value_reference: Variable name
         """

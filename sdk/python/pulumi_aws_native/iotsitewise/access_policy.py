@@ -26,6 +26,7 @@ class AccessPolicyArgs:
                  access_policy_resource: pulumi.Input['AccessPolicyResourceArgs']):
         """
         The set of arguments for constructing a AccessPolicy resource.
+
         :param pulumi.Input['AccessPolicyIdentityArgs'] access_policy_identity: The identity for this access policy. Choose either a user or a group but not both.
         :param pulumi.Input[_builtins.str] access_policy_permission: The permission level for this access policy. Valid values are ADMINISTRATOR or VIEWER.
         :param pulumi.Input['AccessPolicyResourceArgs'] access_policy_resource: The AWS IoT SiteWise Monitor resource for this access policy. Choose either portal or project but not both.
@@ -84,6 +85,7 @@ class AccessPolicy(pulumi.CustomResource):
         """
         Resource schema for AWS::IoTSiteWise::AccessPolicy
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['AccessPolicyIdentityArgs', 'AccessPolicyIdentityArgsDict']] access_policy_identity: The identity for this access policy. Choose either a user or a group but not both.
@@ -98,6 +100,7 @@ class AccessPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource schema for AWS::IoTSiteWise::AccessPolicy
+
 
         :param str resource_name: The name of the resource.
         :param AccessPolicyArgs args: The arguments to use to populate this resource's properties.

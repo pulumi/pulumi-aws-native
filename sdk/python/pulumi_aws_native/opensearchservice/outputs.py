@@ -60,6 +60,7 @@ class ApplicationAppConfig(dict):
                  value: _builtins.str):
         """
         A key-value pair of AppConfig
+
         :param 'ApplicationAppConfigType' key: The configuration key
         :param _builtins.str value: The configuration value.
         """
@@ -112,6 +113,7 @@ class ApplicationDataSource(dict):
                  data_source_description: Optional[_builtins.str] = None):
         """
         Datasource arn and description
+
         :param Any data_source_arn: The ARN of the data source.
         :param _builtins.str data_source_description: Description of the data source.
         """
@@ -956,6 +958,7 @@ class DomainIdentityCenterOptions(dict):
                  subject_key: Optional['DomainSubjectKeyIdcType'] = None):
         """
         Options for configuring Identity Center
+
         :param _builtins.bool enabled_api_access: Whether Identity Center is enabled.
         :param _builtins.str identity_center_application_arn: The ARN of the Identity Center application.
         :param _builtins.str identity_center_instance_arn: The ARN of the Identity Center instance.
@@ -1945,6 +1948,7 @@ class IamIdentityCenterOptionsProperties(dict):
                  iam_role_for_identity_center_application_arn: Optional[_builtins.str] = None):
         """
         Options for configuring IAM Identity Center
+
         :param _builtins.bool enabled: Whether IAM Identity Center is enabled.
         :param Any iam_identity_center_instance_arn: The ARN of the IAM Identity Center instance.
         :param _builtins.str iam_role_for_identity_center_application_arn: The ARN of the IAM role for Identity Center application.

@@ -27,6 +27,7 @@ class ParameterGroupArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a ParameterGroup resource.
+
         :param pulumi.Input[_builtins.str] cache_parameter_group_family: The name of the cache parameter group family that this cache parameter group is compatible with.
         :param pulumi.Input[_builtins.str] description: The description for this cache parameter group.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] properties: A comma-delimited list of parameter name/value pairs. For more information see ModifyCacheParameterGroup in the Amazon ElastiCache API Reference Guide.
@@ -102,6 +103,7 @@ class ParameterGroup(pulumi.CustomResource):
         """
         Resource Type definition for AWS::ElastiCache::ParameterGroup
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] cache_parameter_group_family: The name of the cache parameter group family that this cache parameter group is compatible with.
@@ -117,6 +119,7 @@ class ParameterGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::ElastiCache::ParameterGroup
+
 
         :param str resource_name: The name of the resource.
         :param ParameterGroupArgs args: The arguments to use to populate this resource's properties.

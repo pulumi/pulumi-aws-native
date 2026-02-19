@@ -36,6 +36,7 @@ class ChannelArgs:
                  type: Optional[pulumi.Input['ChannelType']] = None):
         """
         The set of arguments for constructing a Channel resource.
+
         :param pulumi.Input[_builtins.bool] authorized: Whether the channel is authorized.
         :param pulumi.Input['ChannelContainerFormat'] container_format: Indicates which content-packaging format is used (MPEG-TS or fMP4). If multitrackInputConfiguration is specified and enabled is true, then containerFormat is required and must be set to FRAGMENTED_MP4. Otherwise, containerFormat may be set to TS or FRAGMENTED_MP4. Default: TS.
         :param pulumi.Input[_builtins.bool] insecure_ingest: Whether the channel allows insecure ingest.
@@ -261,6 +262,7 @@ class Channel(pulumi.CustomResource):
 
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] authorized: Whether the channel is authorized.
@@ -334,6 +336,7 @@ class Channel(pulumi.CustomResource):
         pulumi.export("streamKeyArn", stream_key.id)
 
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ChannelArgs args: The arguments to use to populate this resource's properties.

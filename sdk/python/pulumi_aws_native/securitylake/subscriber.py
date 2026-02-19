@@ -33,6 +33,7 @@ class SubscriberArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Subscriber resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['SubscriberAccessTypesItem']]] access_types: You can choose to notify subscribers of new objects with an Amazon Simple Queue Service (Amazon SQS) queue or through messaging to an HTTPS endpoint provided by the subscriber.
                
                Subscribers can consume data by directly querying AWS Lake Formation tables in your Amazon S3 bucket through services like Amazon Athena. This subscription type is defined as `LAKEFORMATION` .
@@ -158,6 +159,7 @@ class Subscriber(pulumi.CustomResource):
         """
         Resource Type definition for AWS::SecurityLake::Subscriber
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input['SubscriberAccessTypesItem']]] access_types: You can choose to notify subscribers of new objects with an Amazon Simple Queue Service (Amazon SQS) queue or through messaging to an HTTPS endpoint provided by the subscriber.
@@ -178,6 +180,7 @@ class Subscriber(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::SecurityLake::Subscriber
+
 
         :param str resource_name: The name of the resource.
         :param SubscriberArgs args: The arguments to use to populate this resource's properties.

@@ -31,6 +31,7 @@ class RestoreTestingSelectionArgs:
                  validation_window_hours: Optional[pulumi.Input[_builtins.int]] = None):
         """
         The set of arguments for constructing a RestoreTestingSelection resource.
+
         :param pulumi.Input[_builtins.str] iam_role_arn: The Amazon Resource Name (ARN) of the IAM role that AWS Backup uses to create the target resource; for example: `arn:aws:iam::123456789012:role/S3Access` .
         :param pulumi.Input[_builtins.str] protected_resource_type: The type of AWS resource included in a resource testing selection; for example, an Amazon EBS volume or an Amazon RDS database.
         :param pulumi.Input[_builtins.str] restore_testing_plan_name: Unique string that is the name of the restore testing plan.
@@ -181,6 +182,7 @@ class RestoreTestingSelection(pulumi.CustomResource):
         """
         Resource Type definition for AWS::Backup::RestoreTestingSelection
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] iam_role_arn: The Amazon Resource Name (ARN) of the IAM role that AWS Backup uses to create the target resource; for example: `arn:aws:iam::123456789012:role/S3Access` .
@@ -206,6 +208,7 @@ class RestoreTestingSelection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::Backup::RestoreTestingSelection
+
 
         :param str resource_name: The name of the resource.
         :param RestoreTestingSelectionArgs args: The arguments to use to populate this resource's properties.

@@ -79,6 +79,7 @@ class AssetEgressEndpoint(dict):
                  url: _builtins.str):
         """
         The endpoint URL used to access an Asset using one PackagingConfiguration.
+
         :param _builtins.str packaging_configuration_id: The ID of the PackagingConfiguration being applied to the Asset.
         :param _builtins.str url: The URL of the parent manifest for the repackaged Asset.
         """
@@ -128,6 +129,7 @@ class ChannelHlsIngest(dict):
                  ingest_endpoints: Optional[Sequence['outputs.ChannelIngestEndpoint']] = None):
         """
         An HTTP Live Streaming (HLS) ingest resource configuration.
+
         :param Sequence['ChannelIngestEndpoint'] ingest_endpoints: A list of endpoints to which the source stream should be sent.
         """
         if ingest_endpoints is not None:
@@ -154,6 +156,7 @@ class ChannelIngestEndpoint(dict):
                  username: _builtins.str):
         """
         An endpoint for ingesting source content for a Channel.
+
         :param _builtins.str id: The system generated unique identifier for the IngestEndpoint
         :param _builtins.str password: The system generated password for ingest authentication.
         :param _builtins.str url: The ingest URL to which the source stream should be sent.
@@ -262,6 +265,7 @@ class OriginEndpointAuthorization(dict):
                  secrets_role_arn: _builtins.str):
         """
         CDN Authorization credentials
+
         :param _builtins.str cdn_identifier_secret: The Amazon Resource Name (ARN) for the secret in Secrets Manager that your Content Distribution Network (CDN) uses for authorization to access your endpoint.
         :param _builtins.str secrets_role_arn: The Amazon Resource Name (ARN) for the IAM role that allows MediaPackage to communicate with AWS Secrets Manager.
         """
@@ -320,6 +324,7 @@ class OriginEndpointCmafEncryption(dict):
                  key_rotation_interval_seconds: Optional[_builtins.int] = None):
         """
         A Common Media Application Format (CMAF) encryption configuration.
+
         :param 'OriginEndpointSpekeKeyProvider' speke_key_provider: Parameters for the SPEKE key provider.
         :param _builtins.str constant_initialization_vector: An optional 128-bit, 16-byte hex value represented by a 32-character string, used in conjunction with the key for encrypting blocks. If you don't specify a value, then MediaPackage creates the constant initialization vector (IV).
         :param 'OriginEndpointCmafEncryptionEncryptionMethod' encryption_method: The encryption method used
@@ -402,6 +407,7 @@ class OriginEndpointCmafPackage(dict):
                  stream_selection: Optional['outputs.OriginEndpointStreamSelection'] = None):
         """
         A Common Media Application Format (CMAF) packaging configuration.
+
         :param 'OriginEndpointCmafEncryption' encryption: Parameters for encrypting content.
         :param Sequence['OriginEndpointHlsManifest'] hls_manifests: A list of HLS manifest configurations
         :param _builtins.int segment_duration_seconds: Duration (in seconds) of each segment. Actual segments will be rounded to the nearest multiple of the source segment duration.
@@ -489,6 +495,7 @@ class OriginEndpointDashEncryption(dict):
                  key_rotation_interval_seconds: Optional[_builtins.int] = None):
         """
         A Dynamic Adaptive Streaming over HTTP (DASH) encryption configuration.
+
         :param 'OriginEndpointSpekeKeyProvider' speke_key_provider: Parameters for the SPEKE key provider.
         :param _builtins.int key_rotation_interval_seconds: Time (in seconds) between each encryption key rotation.
         """
@@ -580,6 +587,7 @@ class OriginEndpointDashPackage(dict):
                  utc_timing_uri: Optional[_builtins.str] = None):
         """
         A Dynamic Adaptive Streaming over HTTP (DASH) packaging configuration.
+
         :param Sequence['OriginEndpointDashPackageAdTriggersItem'] ad_triggers: A list of SCTE-35 message types that are treated as ad markers in the output.  If empty, no ad markers are output.  Specify multiple items to create ad markers for all of the included message types.
         :param 'OriginEndpointAdsOnDeliveryRestrictions' ads_on_delivery_restrictions: The flags on SCTE-35 segmentation descriptors that have to be present for AWS Elemental MediaPackage to insert ad markers in the output manifest. For information about SCTE-35 in AWS Elemental MediaPackage , see [SCTE-35 Message Options in AWS Elemental MediaPackage](https://docs.aws.amazon.com/mediapackage/latest/ug/scte.html) .
         :param 'OriginEndpointDashEncryption' encryption: Parameters for encrypting content.
@@ -788,6 +796,7 @@ class OriginEndpointEncryptionContractConfiguration(dict):
                  preset_speke20_video: 'OriginEndpointEncryptionContractConfigurationPresetSpeke20Video'):
         """
         The configuration to use for encrypting one or more content tracks separately for endpoints that use SPEKE 2.0.
+
         :param 'OriginEndpointEncryptionContractConfigurationPresetSpeke20Audio' preset_speke20_audio: A collection of audio encryption presets.
         :param 'OriginEndpointEncryptionContractConfigurationPresetSpeke20Video' preset_speke20_video: A collection of video encryption presets.
         """
@@ -849,6 +858,7 @@ class OriginEndpointHlsEncryption(dict):
                  repeat_ext_x_key: Optional[_builtins.bool] = None):
         """
         An HTTP Live Streaming (HLS) encryption configuration.
+
         :param 'OriginEndpointSpekeKeyProvider' speke_key_provider: Parameters for the SPEKE key provider.
         :param _builtins.str constant_initialization_vector: A constant initialization vector for encryption (optional). When not specified the initialization vector will be periodically rotated.
         :param 'OriginEndpointHlsEncryptionEncryptionMethod' encryption_method: The encryption method to use.
@@ -955,6 +965,7 @@ class OriginEndpointHlsManifest(dict):
                  url: Optional[_builtins.str] = None):
         """
         A HTTP Live Streaming (HLS) manifest configuration.
+
         :param _builtins.str id: The ID of the manifest. The ID must be unique within the OriginEndpoint and it cannot be changed after it is created.
         :param 'OriginEndpointHlsManifestAdMarkers' ad_markers: This setting controls how ad markers are included in the packaged OriginEndpoint. "NONE" will omit all SCTE-35 ad markers from the output. "PASSTHROUGH" causes the manifest to contain a copy of the SCTE-35 ad markers (comments) taken directly from the input HTTP Live Streaming (HLS) manifest. "SCTE35_ENHANCED" generates ad markers and blackout tags based on SCTE-35 messages in the input source. "DATERANGE" inserts EXT-X-DATERANGE tags to signal ad and program transition events in HLS and CMAF manifests. For this option, you must set a programDateTimeIntervalSeconds value that is greater than 0.
         :param Sequence['OriginEndpointHlsManifestAdTriggersItem'] ad_triggers: A list of SCTE-35 message types that are treated as ad markers in the output.  If empty, no ad markers are output.  Specify multiple items to create ad markers for all of the included message types.
@@ -1124,6 +1135,7 @@ class OriginEndpointHlsPackage(dict):
                  use_audio_rendition_group: Optional[_builtins.bool] = None):
         """
         An HTTP Live Streaming (HLS) packaging configuration.
+
         :param 'OriginEndpointHlsPackageAdMarkers' ad_markers: This setting controls how ad markers are included in the packaged OriginEndpoint. "NONE" will omit all SCTE-35 ad markers from the output. "PASSTHROUGH" causes the manifest to contain a copy of the SCTE-35 ad markers (comments) taken directly from the input HTTP Live Streaming (HLS) manifest. "SCTE35_ENHANCED" generates ad markers and blackout tags based on SCTE-35 messages in the input source. "DATERANGE" inserts EXT-X-DATERANGE tags to signal ad and program transition events in HLS and CMAF manifests. For this option, you must set a programDateTimeIntervalSeconds value that is greater than 0.
         :param Sequence['OriginEndpointHlsPackageAdTriggersItem'] ad_triggers: A list of SCTE-35 message types that are treated as ad markers in the output.  If empty, no ad markers are output.  Specify multiple items to create ad markers for all of the included message types.
         :param 'OriginEndpointAdsOnDeliveryRestrictions' ads_on_delivery_restrictions: The flags on SCTE-35 segmentation descriptors that have to be present for AWS Elemental MediaPackage to insert ad markers in the output manifest. For information about SCTE-35 in AWS Elemental MediaPackage , see [SCTE-35 Message Options in AWS Elemental MediaPackage](https://docs.aws.amazon.com/mediapackage/latest/ug/scte.html) .
@@ -1285,6 +1297,7 @@ class OriginEndpointMssEncryption(dict):
                  speke_key_provider: 'outputs.OriginEndpointSpekeKeyProvider'):
         """
         A Microsoft Smooth Streaming (MSS) encryption configuration.
+
         :param 'OriginEndpointSpekeKeyProvider' speke_key_provider: Parameters for the SPEKE key provider.
         """
         pulumi.set(__self__, "speke_key_provider", speke_key_provider)
@@ -1331,6 +1344,7 @@ class OriginEndpointMssPackage(dict):
                  stream_selection: Optional['outputs.OriginEndpointStreamSelection'] = None):
         """
         A Microsoft Smooth Streaming (MSS) packaging configuration.
+
         :param 'OriginEndpointMssEncryption' encryption: Parameters for encrypting content.
         :param _builtins.int manifest_window_seconds: The time window (in seconds) contained in each manifest.
         :param _builtins.int segment_duration_seconds: The duration (in seconds) of each segment.
@@ -1417,6 +1431,7 @@ class OriginEndpointSpekeKeyProvider(dict):
                  encryption_contract_configuration: Optional['outputs.OriginEndpointEncryptionContractConfiguration'] = None):
         """
         A configuration for accessing an external Secure Packager and Encoder Key Exchange (SPEKE) service that will provide encryption keys.
+
         :param _builtins.str resource_id: The resource ID to include in key requests.
         :param _builtins.str role_arn: An Amazon Resource Name (ARN) of an IAM role that AWS Elemental MediaPackage will assume when accessing the key provider service.
         :param Sequence[_builtins.str] system_ids: The system IDs to include in key requests.
@@ -1514,6 +1529,7 @@ class OriginEndpointStreamSelection(dict):
                  stream_order: Optional['OriginEndpointStreamSelectionStreamOrder'] = None):
         """
         A StreamSelection configuration.
+
         :param _builtins.int max_video_bits_per_second: The maximum video bitrate (bps) to include in output.
         :param _builtins.int min_video_bits_per_second: The minimum video bitrate (bps) to include in output.
         :param 'OriginEndpointStreamSelectionStreamOrder' stream_order: A directive that determines the order of streams in the output.
@@ -1576,6 +1592,7 @@ class PackagingConfigurationCmafEncryption(dict):
                  speke_key_provider: 'outputs.PackagingConfigurationSpekeKeyProvider'):
         """
         A CMAF encryption configuration.
+
         :param 'PackagingConfigurationSpekeKeyProvider' speke_key_provider: Parameters for the SPEKE key provider.
         """
         pulumi.set(__self__, "speke_key_provider", speke_key_provider)
@@ -1622,6 +1639,7 @@ class PackagingConfigurationCmafPackage(dict):
                  segment_duration_seconds: Optional[_builtins.int] = None):
         """
         A CMAF packaging configuration.
+
         :param Sequence['PackagingConfigurationHlsManifest'] hls_manifests: A list of HLS manifest configurations.
         :param 'PackagingConfigurationCmafEncryption' encryption: Parameters for encrypting content.
         :param _builtins.bool include_encoder_configuration_in_segments: When includeEncoderConfigurationInSegments is set to true, MediaPackage places your encoder's Sequence Parameter Set (SPS), Picture Parameter Set (PPS), and Video Parameter Set (VPS) metadata in every video segment instead of in the init fragment. This lets you use different SPS/PPS/VPS settings for your assets during content playback.
@@ -1694,6 +1712,7 @@ class PackagingConfigurationDashEncryption(dict):
                  speke_key_provider: 'outputs.PackagingConfigurationSpekeKeyProvider'):
         """
         A Dynamic Adaptive Streaming over HTTP (DASH) encryption configuration.
+
         :param 'PackagingConfigurationSpekeKeyProvider' speke_key_provider: Parameters for the SPEKE key provider.
         """
         pulumi.set(__self__, "speke_key_provider", speke_key_provider)
@@ -1746,6 +1765,7 @@ class PackagingConfigurationDashManifest(dict):
                  stream_selection: Optional['outputs.PackagingConfigurationStreamSelection'] = None):
         """
         A DASH manifest configuration.
+
         :param 'PackagingConfigurationDashManifestManifestLayout' manifest_layout: Determines the position of some tags in the Media Presentation Description (MPD). When set to FULL, elements like SegmentTemplate and ContentProtection are included in each Representation. When set to COMPACT, duplicate elements are combined and presented at the AdaptationSet level.
         :param _builtins.str manifest_name: A short string that's appended to the end of the endpoint URL to create a unique path to this packaging configuration.
         :param _builtins.int min_buffer_time_seconds: Minimum duration (in seconds) that a player will buffer media before starting the presentation.
@@ -1857,6 +1877,7 @@ class PackagingConfigurationDashPackage(dict):
                  segment_template_format: Optional['PackagingConfigurationDashPackageSegmentTemplateFormat'] = None):
         """
         A Dynamic Adaptive Streaming over HTTP (DASH) packaging configuration.
+
         :param Sequence['PackagingConfigurationDashManifest'] dash_manifests: A list of DASH manifest configurations.
         :param 'PackagingConfigurationDashEncryption' encryption: Parameters for encrypting content.
         :param _builtins.bool include_encoder_configuration_in_segments: When includeEncoderConfigurationInSegments is set to true, MediaPackage places your encoder's Sequence Parameter Set (SPS), Picture Parameter Set (PPS), and Video Parameter Set (VPS) metadata in every video segment instead of in the init fragment. This lets you use different SPS/PPS/VPS settings for your assets during content playback.
@@ -1965,6 +1986,7 @@ class PackagingConfigurationEncryptionContractConfiguration(dict):
                  preset_speke20_video: 'PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Video'):
         """
         The configuration to use for encrypting one or more content tracks separately for endpoints that use SPEKE 2.0.
+
         :param 'PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Audio' preset_speke20_audio: A collection of audio encryption presets.
         :param 'PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Video' preset_speke20_video: A collection of video encryption presets.
         """
@@ -2020,6 +2042,7 @@ class PackagingConfigurationHlsEncryption(dict):
                  encryption_method: Optional['PackagingConfigurationHlsEncryptionEncryptionMethod'] = None):
         """
         An HTTP Live Streaming (HLS) encryption configuration.
+
         :param 'PackagingConfigurationSpekeKeyProvider' speke_key_provider: Parameters for the SPEKE key provider.
         :param _builtins.str constant_initialization_vector: An HTTP Live Streaming (HLS) encryption configuration.
         :param 'PackagingConfigurationHlsEncryptionEncryptionMethod' encryption_method: The encryption method to use.
@@ -2096,6 +2119,7 @@ class PackagingConfigurationHlsManifest(dict):
                  stream_selection: Optional['outputs.PackagingConfigurationStreamSelection'] = None):
         """
         An HTTP Live Streaming (HLS) manifest configuration.
+
         :param 'PackagingConfigurationHlsManifestAdMarkers' ad_markers: This setting controls how ad markers are included in the packaged OriginEndpoint. "NONE" will omit all SCTE-35 ad markers from the output. "PASSTHROUGH" causes the manifest to contain a copy of the SCTE-35 ad markers (comments) taken directly from the input HTTP Live Streaming (HLS) manifest. "SCTE35_ENHANCED" generates ad markers and blackout tags based on SCTE-35 messages in the input source.
         :param _builtins.bool include_iframe_only_stream: When enabled, an I-Frame only stream will be included in the output.
         :param _builtins.str manifest_name: A short string that's appended to the end of the endpoint URL to create a unique path to this packaging configuration.
@@ -2201,6 +2225,7 @@ class PackagingConfigurationHlsPackage(dict):
                  use_audio_rendition_group: Optional[_builtins.bool] = None):
         """
         An HTTP Live Streaming (HLS) packaging configuration.
+
         :param Sequence['PackagingConfigurationHlsManifest'] hls_manifests: A list of HLS manifest configurations.
         :param 'PackagingConfigurationHlsEncryption' encryption: Parameters for encrypting content.
         :param _builtins.bool include_dvb_subtitles: When enabled, MediaPackage passes through digital video broadcasting (DVB) subtitles into the output.
@@ -2284,6 +2309,7 @@ class PackagingConfigurationMssEncryption(dict):
                  speke_key_provider: 'outputs.PackagingConfigurationSpekeKeyProvider'):
         """
         A CMAF encryption configuration.
+
         :param 'PackagingConfigurationSpekeKeyProvider' speke_key_provider: Parameters for the SPEKE key provider.
         """
         pulumi.set(__self__, "speke_key_provider", speke_key_provider)
@@ -2326,6 +2352,7 @@ class PackagingConfigurationMssManifest(dict):
                  stream_selection: Optional['outputs.PackagingConfigurationStreamSelection'] = None):
         """
         A Microsoft Smooth Streaming (MSS) manifest configuration.
+
         :param _builtins.str manifest_name: A short string that's appended to the end of the endpoint URL to create a unique path to this packaging configuration.
         :param 'PackagingConfigurationStreamSelection' stream_selection: Video bitrate limitations for outputs from this packaging configuration.
         """
@@ -2381,6 +2408,7 @@ class PackagingConfigurationMssPackage(dict):
                  segment_duration_seconds: Optional[_builtins.int] = None):
         """
         A Microsoft Smooth Streaming (MSS) PackagingConfiguration.
+
         :param Sequence['PackagingConfigurationMssManifest'] mss_manifests: A list of MSS manifest configurations.
         :param 'PackagingConfigurationMssEncryption' encryption: Parameters for encrypting content.
         :param _builtins.int segment_duration_seconds: Duration (in seconds) of each fragment. Actual fragments are rounded to the nearest multiple of the source fragment duration.
@@ -2449,6 +2477,7 @@ class PackagingConfigurationSpekeKeyProvider(dict):
                  encryption_contract_configuration: Optional['outputs.PackagingConfigurationEncryptionContractConfiguration'] = None):
         """
         A configuration for accessing an external Secure Packager and Encoder Key Exchange (SPEKE) service that will provide encryption keys.
+
         :param _builtins.str role_arn: The ARN for the IAM role that's granted by the key provider to provide access to the key provider API. Valid format: arn:aws:iam::{accountID}:role/{name}
         :param Sequence[_builtins.str] system_ids: The system IDs to include in key requests.
         :param _builtins.str url: The URL of the external key provider service.
@@ -2525,6 +2554,7 @@ class PackagingConfigurationStreamSelection(dict):
                  stream_order: Optional['PackagingConfigurationStreamSelectionStreamOrder'] = None):
         """
         A StreamSelection configuration.
+
         :param _builtins.int max_video_bits_per_second: The maximum video bitrate (bps) to include in output.
         :param _builtins.int min_video_bits_per_second: The minimum video bitrate (bps) to include in output.
         :param 'PackagingConfigurationStreamSelectionStreamOrder' stream_order: A directive that determines the order of streams in the output.

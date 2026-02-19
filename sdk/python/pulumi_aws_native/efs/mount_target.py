@@ -28,6 +28,7 @@ class MountTargetArgs:
                  ipv6_address: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a MountTarget resource.
+
         :param pulumi.Input[_builtins.str] file_system_id: The ID of the file system for which to create the mount target.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_groups: VPC security group IDs, of the form ``sg-xxxxxxxx``. These must be for the same VPC as the subnet specified. The maximum number of security groups depends on account quota. For more information, see [Amazon VPC Quotas](https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html) in the *Amazon VPC User Guide* (see the *Security Groups* table). If you don't specify a security group, then Amazon EFS uses the default security group for the subnet's VPC.
         :param pulumi.Input[_builtins.str] subnet_id: The ID of the subnet to add the mount target in. For One Zone file systems, use the subnet that is associated with the file system's Availability Zone. The subnet type must be the same type as the ``IpAddressType``.
@@ -136,6 +137,7 @@ class MountTarget(pulumi.CustomResource):
         """
         The ``AWS::EFS::MountTarget`` resource is an Amazon EFS resource that creates a mount target for an EFS file system. You can then mount the file system on Amazon EC2 instances or other resources by using the mount target.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] file_system_id: The ID of the file system for which to create the mount target.
@@ -154,6 +156,7 @@ class MountTarget(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The ``AWS::EFS::MountTarget`` resource is an Amazon EFS resource that creates a mount target for an EFS file system. You can then mount the file system on Amazon EC2 instances or other resources by using the mount target.
+
 
         :param str resource_name: The name of the resource.
         :param MountTargetArgs args: The arguments to use to populate this resource's properties.

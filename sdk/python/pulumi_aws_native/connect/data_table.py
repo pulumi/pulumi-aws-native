@@ -32,6 +32,7 @@ class DataTableArgs:
                  value_lock_level: Optional[pulumi.Input['DataTableValueLockLevel']] = None):
         """
         The set of arguments for constructing a DataTable resource.
+
         :param pulumi.Input[_builtins.str] description: The description of the Data Table.
         :param pulumi.Input[_builtins.str] instance_arn: The identifier of the Amazon Connect instance.
         :param pulumi.Input[_builtins.str] name: The name of the Data Table
@@ -157,6 +158,7 @@ class DataTable(pulumi.CustomResource):
         """
         Resource Type definition for AWS::Connect::DataTable
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: The description of the Data Table.
@@ -175,6 +177,7 @@ class DataTable(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::Connect::DataTable
+
 
         :param str resource_name: The name of the resource.
         :param DataTableArgs args: The arguments to use to populate this resource's properties.

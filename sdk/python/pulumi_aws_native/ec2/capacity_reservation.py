@@ -38,6 +38,7 @@ class CapacityReservationArgs:
                  unused_reservation_billing_owner_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a CapacityReservation resource.
+
         :param pulumi.Input[_builtins.int] instance_count: The number of instances for which to reserve capacity.
                
                > You can request future-dated Capacity Reservations for an instance count with a minimum of 32 vCPUs. For example, if you request a future-dated Capacity Reservation for `m5.xlarge` instances, you must request at least 8 instances ( *8 * m5.xlarge = 32 vCPUs* ). 
@@ -354,6 +355,7 @@ class CapacityReservation(pulumi.CustomResource):
         """
         Resource Type definition for AWS::EC2::CapacityReservation
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] availability_zone: The Availability Zone in which to create the Capacity Reservation.
@@ -413,6 +415,7 @@ class CapacityReservation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::EC2::CapacityReservation
+
 
         :param str resource_name: The name of the resource.
         :param CapacityReservationArgs args: The arguments to use to populate this resource's properties.

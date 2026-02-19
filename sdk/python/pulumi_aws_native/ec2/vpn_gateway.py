@@ -26,6 +26,7 @@ class VpnGatewayArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a VpnGateway resource.
+
         :param pulumi.Input[_builtins.str] type: The type of VPN connection the virtual private gateway supports.
         :param pulumi.Input[_builtins.int] amazon_side_asn: The private Autonomous System Number (ASN) for the Amazon side of a BGP session.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: Any tags assigned to the virtual private gateway.
@@ -87,6 +88,7 @@ class VpnGateway(pulumi.CustomResource):
         Specifies a virtual private gateway. A virtual private gateway is the endpoint on the VPC side of your VPN connection. You can create a virtual private gateway before creating the VPC itself.
          For more information, see [](https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html) in the *User Guide*.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.int] amazon_side_asn: The private Autonomous System Number (ASN) for the Amazon side of a BGP session.
@@ -102,6 +104,7 @@ class VpnGateway(pulumi.CustomResource):
         """
         Specifies a virtual private gateway. A virtual private gateway is the endpoint on the VPC side of your VPN connection. You can create a virtual private gateway before creating the VPC itself.
          For more information, see [](https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html) in the *User Guide*.
+
 
         :param str resource_name: The name of the resource.
         :param VpnGatewayArgs args: The arguments to use to populate this resource's properties.

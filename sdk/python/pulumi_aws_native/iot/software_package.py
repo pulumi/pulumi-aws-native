@@ -26,6 +26,7 @@ class SoftwarePackageArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a SoftwarePackage resource.
+
         :param pulumi.Input[_builtins.str] description: A summary of the package being created. This can be used to outline the package's contents or purpose.
         :param pulumi.Input[_builtins.str] package_name: The name of the new software package.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
@@ -87,6 +88,7 @@ class SoftwarePackage(pulumi.CustomResource):
         """
         resource definition
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: A summary of the package being created. This can be used to outline the package's contents or purpose.
@@ -101,6 +103,7 @@ class SoftwarePackage(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         resource definition
+
 
         :param str resource_name: The name of the resource.
         :param SoftwarePackageArgs args: The arguments to use to populate this resource's properties.

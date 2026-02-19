@@ -37,6 +37,7 @@ class MaintenanceWindowTaskArgs:
                  task_parameters: Optional[Any] = None):
         """
         The set of arguments for constructing a MaintenanceWindowTask resource.
+
         :param pulumi.Input[_builtins.int] priority: The priority of the task in the maintenance window. The lower the number, the higher the priority. Tasks that have the same priority are scheduled in parallel.
         :param pulumi.Input[_builtins.str] task_arn: The resource that the task uses during execution.
         :param pulumi.Input[_builtins.str] task_type: The type of task.
@@ -320,6 +321,7 @@ class MaintenanceWindowTask(pulumi.CustomResource):
 
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] cutoff_behavior: The specification for whether tasks should continue to run after the cutoff time specified in the maintenance windows is reached.
@@ -393,6 +395,7 @@ class MaintenanceWindowTask(pulumi.CustomResource):
             name="UpdateLambdaTaskEXAMPLE")
 
         ```
+
 
         :param str resource_name: The name of the resource.
         :param MaintenanceWindowTaskArgs args: The arguments to use to populate this resource's properties.

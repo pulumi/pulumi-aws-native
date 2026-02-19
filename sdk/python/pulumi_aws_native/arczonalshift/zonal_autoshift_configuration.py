@@ -27,6 +27,7 @@ class ZonalAutoshiftConfigurationArgs:
                  zonal_autoshift_status: Optional[pulumi.Input['ZonalAutoshiftConfigurationZonalAutoshiftStatus']] = None):
         """
         The set of arguments for constructing a ZonalAutoshiftConfiguration resource.
+
         :param pulumi.Input['ZonalAutoshiftConfigurationPracticeRunConfigurationArgs'] practice_run_configuration: A practice run configuration for a resource includes the Amazon CloudWatch alarms that you've specified for a practice run, as well as any blocked dates or blocked windows for the practice run. When a resource has a practice run configuration, ARC shifts traffic for the resource weekly for practice runs.
                
                Practice runs are required for zonal autoshift. The zonal shifts that ARC starts for practice runs help you to ensure that shifting away traffic from an Availability Zone during an autoshift is safe for your application.
@@ -100,6 +101,7 @@ class ZonalAutoshiftConfiguration(pulumi.CustomResource):
         """
         Definition of AWS::ARCZonalShift::ZonalAutoshiftConfiguration Resource Type
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ZonalAutoshiftConfigurationPracticeRunConfigurationArgs', 'ZonalAutoshiftConfigurationPracticeRunConfigurationArgsDict']] practice_run_configuration: A practice run configuration for a resource includes the Amazon CloudWatch alarms that you've specified for a practice run, as well as any blocked dates or blocked windows for the practice run. When a resource has a practice run configuration, ARC shifts traffic for the resource weekly for practice runs.
@@ -120,6 +122,7 @@ class ZonalAutoshiftConfiguration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of AWS::ARCZonalShift::ZonalAutoshiftConfiguration Resource Type
+
 
         :param str resource_name: The name of the resource.
         :param ZonalAutoshiftConfigurationArgs args: The arguments to use to populate this resource's properties.

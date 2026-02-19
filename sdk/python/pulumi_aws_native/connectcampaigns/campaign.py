@@ -30,6 +30,7 @@ class CampaignArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Campaign resource.
+
         :param pulumi.Input[_builtins.str] connect_instance_arn: Amazon Connect Instance Arn
         :param pulumi.Input['CampaignDialerConfigArgs'] dialer_config: Contains information about the dialer configuration.
         :param pulumi.Input['CampaignOutboundCallConfigArgs'] outbound_call_config: Contains information about the outbound call configuration.
@@ -120,6 +121,7 @@ class Campaign(pulumi.CustomResource):
         """
         Definition of AWS::ConnectCampaigns::Campaign Resource Type
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] connect_instance_arn: Amazon Connect Instance Arn
@@ -136,6 +138,7 @@ class Campaign(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of AWS::ConnectCampaigns::Campaign Resource Type
+
 
         :param str resource_name: The name of the resource.
         :param CampaignArgs args: The arguments to use to populate this resource's properties.

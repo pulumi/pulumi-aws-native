@@ -31,6 +31,7 @@ class SolutionArgs:
                  solution_config: Optional[pulumi.Input['SolutionConfigArgs']] = None):
         """
         The set of arguments for constructing a Solution resource.
+
         :param pulumi.Input[_builtins.str] dataset_group_arn: The ARN of the dataset group that provides the training data.
         :param pulumi.Input[_builtins.str] event_type: When your have multiple event types (using an EVENT_TYPE schema field), this parameter specifies which event type (for example, 'click' or 'like') is used for training the model. If you do not provide an eventType, Amazon Personalize will use all interactions for training with equal weight regardless of type.
         :param pulumi.Input[_builtins.str] name: The name for the solution
@@ -187,6 +188,7 @@ class Solution(pulumi.CustomResource):
 
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] dataset_group_arn: The ARN of the dataset group that provides the training data.
@@ -237,6 +239,7 @@ class Solution(pulumi.CustomResource):
             })
 
         ```
+
 
         :param str resource_name: The name of the resource.
         :param SolutionArgs args: The arguments to use to populate this resource's properties.

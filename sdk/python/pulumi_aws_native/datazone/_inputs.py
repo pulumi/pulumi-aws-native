@@ -260,6 +260,7 @@ class ConnectionAmazonQPropertiesInputArgs:
                  profile_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Amazon Q properties of the connection.
+
         :param pulumi.Input[_builtins.str] auth_mode: The authentication mode of the connection's AmazonQ properties
         :param pulumi.Input[_builtins.bool] is_enabled: Specifies whether Amazon Q is enabled for the connection
         """
@@ -489,6 +490,7 @@ class ConnectionAwsLocationArgs:
                  iam_connection_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         AWS Location of project
+
         :param pulumi.Input[_builtins.str] access_role: The access role of a connection.
         :param pulumi.Input[_builtins.str] aws_account_id: The account ID of a connection.
         :param pulumi.Input[_builtins.str] aws_region: The Region of a connection.
@@ -943,6 +945,7 @@ class ConnectionMlflowPropertiesInputArgs:
                  tracking_server_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         MLflow Properties Input
+
         :param pulumi.Input[_builtins.str] tracking_server_arn: The ARN of the MLflow tracking server
         """
         if tracking_server_arn is not None:
@@ -1572,6 +1575,7 @@ class ConnectionS3PropertiesInputArgs:
                  s3_access_grant_location_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         S3 Properties Input
+
         :param pulumi.Input[_builtins.str] s3_uri: The Amazon S3 URI that's part of the Amazon S3 properties of a connection.
         :param pulumi.Input[_builtins.str] s3_access_grant_location_id: The Amazon S3 Access Grant location ID that's part of the Amazon S3 properties of a connection.
         """
@@ -2046,6 +2050,7 @@ class DataSourceFormInputArgs:
                  type_revision: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The details of a metadata form.
+
         :param pulumi.Input[_builtins.str] form_name: The name of the metadata form.
         :param pulumi.Input[_builtins.str] content: The content of the metadata form.
         :param pulumi.Input[_builtins.str] type_identifier: The ID of the metadata form type.
@@ -2211,6 +2216,7 @@ class DataSourceRecommendationConfigurationArgs:
                  enable_business_name_generation: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The recommendation to be updated as part of the UpdateDataSource action.
+
         :param pulumi.Input[_builtins.bool] enable_business_name_generation: Specifies whether automatic business name generation is to be enabled or not as part of the recommendation configuration.
         """
         if enable_business_name_generation is not None:
@@ -2244,6 +2250,7 @@ class DataSourceRedshiftClusterStorageArgs:
                  cluster_name: pulumi.Input[_builtins.str]):
         """
         The name of an Amazon Redshift cluster.
+
         :param pulumi.Input[_builtins.str] cluster_name: The name of an Amazon Redshift cluster.
         """
         pulumi.set(__self__, "cluster_name", cluster_name)
@@ -2276,6 +2283,7 @@ class DataSourceRedshiftCredentialConfigurationArgs:
                  secret_manager_arn: pulumi.Input[_builtins.str]):
         """
         The ARN of a secret manager for an Amazon Redshift cluster.
+
         :param pulumi.Input[_builtins.str] secret_manager_arn: The ARN of a secret manager for an Amazon Redshift cluster.
         """
         pulumi.set(__self__, "secret_manager_arn", secret_manager_arn)
@@ -2320,6 +2328,7 @@ class DataSourceRedshiftRunConfigurationInputArgs:
                  redshift_storage: Optional[pulumi.Input[Union['DataSourceRedshiftStorage0PropertiesArgs', 'DataSourceRedshiftStorage1PropertiesArgs']]] = None):
         """
         The configuration details of the Amazon Redshift data source.
+
         :param pulumi.Input[_builtins.str] data_access_role: The data access role included in the configuration details of the Amazon Redshift data source.
         :param pulumi.Input['DataSourceRedshiftCredentialConfigurationArgs'] redshift_credential_configuration: The details of the credentials required to access an Amazon Redshift cluster.
         :param pulumi.Input[Union['DataSourceRedshiftStorage0PropertiesArgs', 'DataSourceRedshiftStorage1PropertiesArgs']] redshift_storage: The details of the Amazon Redshift storage as part of the configuration of an Amazon Redshift data source run.
@@ -2393,6 +2402,7 @@ class DataSourceRedshiftServerlessStorageArgs:
                  workgroup_name: pulumi.Input[_builtins.str]):
         """
         The details of the Amazon Redshift Serverless workgroup storage.
+
         :param pulumi.Input[_builtins.str] workgroup_name: The name of the Amazon Redshift Serverless workgroup.
         """
         pulumi.set(__self__, "workgroup_name", workgroup_name)
@@ -2485,6 +2495,7 @@ class DataSourceRelationalFilterConfigurationArgs:
                  schema_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The relational filter configuration for the data source.
+
         :param pulumi.Input[_builtins.str] database_name: The database name specified in the relational filter configuration for the data source.
         :param pulumi.Input[Sequence[pulumi.Input['DataSourceFilterExpressionArgs']]] filter_expressions: The filter expressions specified in the relational filter configuration for the data source.
         :param pulumi.Input[_builtins.str] schema_name: The schema name specified in the relational filter configuration for the data source.
@@ -2547,6 +2558,7 @@ class DataSourceSageMakerRunConfigurationInputArgs:
                  tracking_assets: pulumi.Input[Mapping[str, Any]]):
         """
         The configuration details of the Amazon SageMaker data source.
+
         :param pulumi.Input[Mapping[str, Any]] tracking_assets: The tracking assets of the Amazon SageMaker run.
         """
         pulumi.set(__self__, "tracking_assets", tracking_assets)
@@ -2584,6 +2596,7 @@ class DataSourceScheduleConfigurationArgs:
                  timezone: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The schedule of the data source runs.
+
         :param pulumi.Input[_builtins.str] schedule: The schedule of the data source runs.
         :param pulumi.Input[_builtins.str] timezone: The timezone of the data source run.
         """
@@ -2642,6 +2655,7 @@ class DomainSingleSignOnArgs:
                  user_assignment: Optional[pulumi.Input['DomainUserAssignment']] = None):
         """
         The single-sign on configuration of the Amazon DataZone domain.
+
         :param pulumi.Input[_builtins.str] idc_instance_arn: The ARN of the IDC instance.
         :param pulumi.Input['DomainAuthType'] type: The type of single sign-on in Amazon DataZone.
         :param pulumi.Input['DomainUserAssignment'] user_assignment: The single sign-on user assignment in Amazon DataZone.
@@ -2705,6 +2719,7 @@ class EnvironmentActionsAwsConsoleLinkParametersArgs:
                  uri: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The parameters of the console link specified as part of the environment action
+
         :param pulumi.Input[_builtins.str] uri: The URI of the console link specified as part of the environment action.
         """
         if uri is not None:
@@ -2844,6 +2859,7 @@ class EnvironmentParameterArgs:
                  value: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The parameter details of an environment.
+
         :param pulumi.Input[_builtins.str] name: The name of an environment parameter.
         :param pulumi.Input[_builtins.str] value: The value of an environment parameter.
         """
@@ -2897,6 +2913,7 @@ class EnvironmentProfileEnvironmentParameterArgs:
                  value: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The parameter details of an environment profile.
+
         :param pulumi.Input[_builtins.str] name: The name of an environment profile parameter.
         :param pulumi.Input[_builtins.str] value: The value of an environment profile parameter.
         """
@@ -4302,6 +4319,7 @@ class SubscriptionTargetFormArgs:
                  form_name: pulumi.Input[_builtins.str]):
         """
         The details of the subscription target configuration.
+
         :param pulumi.Input[_builtins.str] content: The content of the subscription target configuration.
         :param pulumi.Input[_builtins.str] form_name: The form name included in the subscription target configuration.
         """

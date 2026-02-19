@@ -30,6 +30,7 @@ class NetworkInsightsAnalysisArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a NetworkInsightsAnalysis resource.
+
         :param pulumi.Input[_builtins.str] network_insights_path_id: The ID of the path.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] additional_accounts: The member accounts that contain resources that the path can traverse.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] filter_in_arns: The Amazon Resource Names (ARN) of the resources that the path must traverse.
@@ -122,6 +123,7 @@ class NetworkInsightsAnalysis(pulumi.CustomResource):
         """
         Resource schema for AWS::EC2::NetworkInsightsAnalysis
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] additional_accounts: The member accounts that contain resources that the path can traverse.
@@ -138,6 +140,7 @@ class NetworkInsightsAnalysis(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource schema for AWS::EC2::NetworkInsightsAnalysis
+
 
         :param str resource_name: The name of the resource.
         :param NetworkInsightsAnalysisArgs args: The arguments to use to populate this resource's properties.

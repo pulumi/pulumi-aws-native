@@ -23,6 +23,7 @@ class TrackerConsumerArgs:
                  tracker_name: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a TrackerConsumer resource.
+
         :param pulumi.Input[_builtins.str] consumer_arn: The Amazon Resource Name (ARN) for the geofence collection to be associated to tracker resource. Used when you need to specify a resource across all AWS .
                
                - Format example: `arn:aws:geo:region:account-id:geofence-collection/ExampleGeofenceCollectionConsumer`
@@ -82,6 +83,7 @@ class TrackerConsumer(pulumi.CustomResource):
         """
         Definition of AWS::Location::TrackerConsumer Resource Type
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] consumer_arn: The Amazon Resource Name (ARN) for the geofence collection to be associated to tracker resource. Used when you need to specify a resource across all AWS .
@@ -103,6 +105,7 @@ class TrackerConsumer(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of AWS::Location::TrackerConsumer Resource Type
+
 
         :param str resource_name: The name of the resource.
         :param TrackerConsumerArgs args: The arguments to use to populate this resource's properties.

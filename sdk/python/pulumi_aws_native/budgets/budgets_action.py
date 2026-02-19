@@ -35,6 +35,7 @@ class BudgetsActionArgs:
                  resource_tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a BudgetsAction resource.
+
         :param pulumi.Input['BudgetsActionActionThresholdArgs'] action_threshold: The trigger threshold of the action.
         :param pulumi.Input['BudgetsActionActionType'] action_type: The type of action. This defines the type of tasks that can be carried out by this action. This field also determines the format for definition.
         :param pulumi.Input[_builtins.str] budget_name: A string that represents the budget name. ":" and "\\" characters aren't allowed.
@@ -185,6 +186,7 @@ class BudgetsAction(pulumi.CustomResource):
         """
         An example resource schema demonstrating some basic constructs and validation rules.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['BudgetsActionActionThresholdArgs', 'BudgetsActionActionThresholdArgsDict']] action_threshold: The trigger threshold of the action.
@@ -205,6 +207,7 @@ class BudgetsAction(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An example resource schema demonstrating some basic constructs and validation rules.
+
 
         :param str resource_name: The name of the resource.
         :param BudgetsActionArgs args: The arguments to use to populate this resource's properties.

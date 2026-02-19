@@ -28,6 +28,7 @@ class DistributionConfigurationArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a DistributionConfiguration resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['DistributionConfigurationDistributionArgs']]] distributions: The distributions of the distribution configuration.
         :param pulumi.Input[_builtins.str] description: The description of the distribution configuration.
         :param pulumi.Input[_builtins.str] name: The name of the distribution configuration.
@@ -104,6 +105,7 @@ class DistributionConfiguration(pulumi.CustomResource):
         """
         Resource schema for AWS::ImageBuilder::DistributionConfiguration
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: The description of the distribution configuration.
@@ -119,6 +121,7 @@ class DistributionConfiguration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource schema for AWS::ImageBuilder::DistributionConfiguration
+
 
         :param str resource_name: The name of the resource.
         :param DistributionConfigurationArgs args: The arguments to use to populate this resource's properties.

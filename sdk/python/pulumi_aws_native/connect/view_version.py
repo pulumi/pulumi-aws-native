@@ -24,6 +24,7 @@ class ViewVersionArgs:
                  view_content_sha256: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ViewVersion resource.
+
         :param pulumi.Input[_builtins.str] view_arn: The Amazon Resource Name (ARN) of the view for which a version is being created.
         :param pulumi.Input[_builtins.str] version_description: The description for the view version.
         :param pulumi.Input[_builtins.str] view_content_sha256: The view content hash to be checked.
@@ -84,6 +85,7 @@ class ViewVersion(pulumi.CustomResource):
         """
         Resource Type definition for AWS::Connect::ViewVersion
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] version_description: The description for the view version.
@@ -98,6 +100,7 @@ class ViewVersion(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::Connect::ViewVersion
+
 
         :param str resource_name: The name of the resource.
         :param ViewVersionArgs args: The arguments to use to populate this resource's properties.

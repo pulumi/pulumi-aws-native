@@ -31,6 +31,7 @@ class DeploymentArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Deployment resource.
+
         :param pulumi.Input[_builtins.str] target_arn: The ARN of the target AWS IoT thing or thing group.
         :param pulumi.Input[Mapping[str, pulumi.Input['DeploymentComponentDeploymentSpecificationArgs']]] components: The components to deploy. This is a dictionary, where each key is the name of a component, and each key's value is the version and configuration to deploy for that component.
         :param pulumi.Input[_builtins.str] deployment_name: The name of the deployment.
@@ -169,6 +170,7 @@ class Deployment(pulumi.CustomResource):
         """
         Resource for Greengrass V2 deployment.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[Union['DeploymentComponentDeploymentSpecificationArgs', 'DeploymentComponentDeploymentSpecificationArgsDict']]]] components: The components to deploy. This is a dictionary, where each key is the name of a component, and each key's value is the version and configuration to deploy for that component.
@@ -194,6 +196,7 @@ class Deployment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource for Greengrass V2 deployment.
+
 
         :param str resource_name: The name of the resource.
         :param DeploymentArgs args: The arguments to use to populate this resource's properties.

@@ -29,6 +29,7 @@ class RequesterGatewayArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a RequesterGateway resource.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: The unique identifiers of the security groups.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: The unique identifiers of the subnets.
         :param pulumi.Input[_builtins.str] vpc_id: The unique identifier of the Virtual Private Cloud (VPC).
@@ -119,6 +120,7 @@ class RequesterGateway(pulumi.CustomResource):
         """
         Resource Type definition for AWS::RTBFabric::RequesterGateway Resource Type.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: An optional description for the requester gateway.
@@ -135,6 +137,7 @@ class RequesterGateway(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::RTBFabric::RequesterGateway Resource Type.
+
 
         :param str resource_name: The name of the resource.
         :param RequesterGatewayArgs args: The arguments to use to populate this resource's properties.

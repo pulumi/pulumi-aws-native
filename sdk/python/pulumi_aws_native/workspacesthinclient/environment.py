@@ -36,6 +36,7 @@ class EnvironmentArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Environment resource.
+
         :param pulumi.Input[_builtins.str] desktop_arn: The Amazon Resource Name (ARN) of the desktop to stream from Amazon WorkSpaces, WorkSpaces Web, or AppStream 2.0.
         :param pulumi.Input[_builtins.str] desired_software_set_id: The ID of the software set to apply.
         :param pulumi.Input[_builtins.str] desktop_endpoint: The URL for the identity provider login (only for environments that use AppStream 2.0).
@@ -208,6 +209,7 @@ class Environment(pulumi.CustomResource):
         """
         Resource type definition for AWS::WorkSpacesThinClient::Environment.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] desired_software_set_id: The ID of the software set to apply.
@@ -229,6 +231,7 @@ class Environment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource type definition for AWS::WorkSpacesThinClient::Environment.
+
 
         :param str resource_name: The name of the resource.
         :param EnvironmentArgs args: The arguments to use to populate this resource's properties.

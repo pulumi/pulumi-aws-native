@@ -28,6 +28,7 @@ class PackageVersionArgs:
                  updated_latest_patch_version: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a PackageVersion resource.
+
         :param pulumi.Input[_builtins.str] package_id: A package ID.
         :param pulumi.Input[_builtins.str] package_version: A package version.
         :param pulumi.Input[_builtins.str] patch_version: A patch version.
@@ -134,6 +135,7 @@ class PackageVersion(pulumi.CustomResource):
         """
         Registers a package version.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] mark_latest: Whether to mark the new version as the latest version.
@@ -151,6 +153,7 @@ class PackageVersion(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Registers a package version.
+
 
         :param str resource_name: The name of the resource.
         :param PackageVersionArgs args: The arguments to use to populate this resource's properties.

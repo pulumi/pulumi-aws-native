@@ -30,6 +30,7 @@ class TlsInspectionConfigurationArgs:
                  tls_inspection_configuration_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a TlsInspectionConfiguration resource.
+
         :param pulumi.Input['TlsInspectionConfigurationTlsInspectionConfigurationArgs'] tls_inspection_configuration: The object that defines a TLS inspection configuration. AWS Network Firewall uses TLS inspection configurations to decrypt your firewall's inbound and outbound SSL/TLS traffic. After decryption, AWS Network Firewall inspects the traffic according to your firewall policy's stateful rules, and then re-encrypts it before sending it to its destination. You can enable inspection of your firewall's inbound traffic, outbound traffic, or both. To use TLS inspection with your firewall, you must first import or provision certificates using Certificate Manager , create a TLS inspection configuration, add that configuration to a new firewall policy, and then associate that policy with your firewall. For more information about using TLS inspection configurations, see [Inspecting SSL/TLS traffic with TLS inspection configurations](https://docs.aws.amazon.com/network-firewall/latest/developerguide/tls-inspection.html) in the *AWS Network Firewall Developer Guide* .
         :param pulumi.Input[_builtins.str] description: A description of the TLS inspection configuration.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The key:value pairs to associate with the resource.
@@ -106,6 +107,7 @@ class TlsInspectionConfiguration(pulumi.CustomResource):
         """
         Resource type definition for AWS::NetworkFirewall::TLSInspectionConfiguration
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: A description of the TLS inspection configuration.
@@ -121,6 +123,7 @@ class TlsInspectionConfiguration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource type definition for AWS::NetworkFirewall::TLSInspectionConfiguration
+
 
         :param str resource_name: The name of the resource.
         :param TlsInspectionConfigurationArgs args: The arguments to use to populate this resource's properties.

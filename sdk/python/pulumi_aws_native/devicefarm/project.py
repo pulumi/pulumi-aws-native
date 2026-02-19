@@ -31,6 +31,7 @@ class ProjectArgs:
                  vpc_config: Optional[pulumi.Input['ProjectVpcConfigArgs']] = None):
         """
         The set of arguments for constructing a Project resource.
+
         :param pulumi.Input[_builtins.int] default_job_timeout_minutes: Sets the execution timeout value (in minutes) for a project. All test runs in this project use the specified execution timeout value unless overridden when scheduling a run.
         :param pulumi.Input[_builtins.str] name: The project's name.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags to add to the resource. A tag is an array of key-value pairs. Tag keys can have a maximum character length of 128 characters. Tag values can have a maximum length of 256 characters.
@@ -132,6 +133,7 @@ class Project(pulumi.CustomResource):
         """
         Resource Type definition for a Device Farm Project
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.int] default_job_timeout_minutes: Sets the execution timeout value (in minutes) for a project. All test runs in this project use the specified execution timeout value unless overridden when scheduling a run.
@@ -147,6 +149,7 @@ class Project(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for a Device Farm Project
+
 
         :param str resource_name: The name of the resource.
         :param ProjectArgs args: The arguments to use to populate this resource's properties.

@@ -39,6 +39,7 @@ class TopicArgs:
                  tracing_config: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Topic resource.
+
         :param Any archive_policy: The archive policy determines the number of days SNS retains messages. You can set a retention period from 1 to 365 days.
                
                Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SNS::Topic` for more information about the expected schema for this property.
@@ -390,6 +391,7 @@ class Topic(pulumi.CustomResource):
 
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param Any archive_policy: The archive policy determines the number of days SNS retains messages. You can set a retention period from 1 to 365 days.
@@ -522,6 +524,7 @@ class Topic(pulumi.CustomResource):
             })
 
         ```
+
 
         :param str resource_name: The name of the resource.
         :param TopicArgs args: The arguments to use to populate this resource's properties.

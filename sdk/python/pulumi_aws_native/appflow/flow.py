@@ -36,6 +36,7 @@ class FlowArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Flow resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['FlowDestinationFlowConfigArgs']]] destination_flow_config_list: List of Destination connectors of the flow.
         :param pulumi.Input['FlowSourceFlowConfigArgs'] source_flow_config: Configurations of Source connector of the flow.
         :param pulumi.Input[Sequence[pulumi.Input['FlowTaskArgs']]] tasks: List of tasks for the flow.
@@ -382,6 +383,7 @@ class Flow(pulumi.CustomResource):
 
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: Description of the flow.
@@ -580,6 +582,7 @@ class Flow(pulumi.CustomResource):
             ])
 
         ```
+
 
         :param str resource_name: The name of the resource.
         :param FlowArgs args: The arguments to use to populate this resource's properties.

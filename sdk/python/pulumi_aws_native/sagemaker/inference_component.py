@@ -34,6 +34,7 @@ class InferenceComponentArgs:
                  variant_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a InferenceComponent resource.
+
         :param pulumi.Input[_builtins.str] endpoint_name: The name of the endpoint that hosts the inference component.
         :param pulumi.Input['InferenceComponentDeploymentConfigArgs'] deployment_config: The deployment configuration for an endpoint, which contains the desired deployment strategy and rollback configurations.
         :param pulumi.Input[_builtins.str] endpoint_arn: The Amazon Resource Name (ARN) of the endpoint that hosts the inference component.
@@ -161,6 +162,7 @@ class InferenceComponent(pulumi.CustomResource):
         """
         Resource Type definition for AWS::SageMaker::InferenceComponent
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['InferenceComponentDeploymentConfigArgs', 'InferenceComponentDeploymentConfigArgsDict']] deployment_config: The deployment configuration for an endpoint, which contains the desired deployment strategy and rollback configurations.
@@ -177,6 +179,7 @@ class InferenceComponent(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::SageMaker::InferenceComponent
+
 
         :param str resource_name: The name of the resource.
         :param InferenceComponentArgs args: The arguments to use to populate this resource's properties.

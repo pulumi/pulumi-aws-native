@@ -25,6 +25,7 @@ class NetworkPerformanceMetricSubscriptionArgs:
                  statistic: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a NetworkPerformanceMetricSubscription resource.
+
         :param pulumi.Input[_builtins.str] destination: The target Region or Availability Zone for the metric to subscribe to.
         :param pulumi.Input[_builtins.str] metric: The metric type to subscribe to.
         :param pulumi.Input[_builtins.str] source: The starting Region or Availability Zone for metric to subscribe to.
@@ -98,6 +99,7 @@ class NetworkPerformanceMetricSubscription(pulumi.CustomResource):
         """
         Resource Type definition for AWS::EC2::NetworkPerformanceMetricSubscription
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] destination: The target Region or Availability Zone for the metric to subscribe to.
@@ -113,6 +115,7 @@ class NetworkPerformanceMetricSubscription(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::EC2::NetworkPerformanceMetricSubscription
+
 
         :param str resource_name: The name of the resource.
         :param NetworkPerformanceMetricSubscriptionArgs args: The arguments to use to populate this resource's properties.

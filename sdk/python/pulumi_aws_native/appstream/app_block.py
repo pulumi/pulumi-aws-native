@@ -31,6 +31,7 @@ class AppBlockArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AppBlockTag0PropertiesArgs', 'AppBlockTag1PropertiesArgs']]]]] = None):
         """
         The set of arguments for constructing a AppBlock resource.
+
         :param pulumi.Input['AppBlockS3LocationArgs'] source_s3_location: The source S3 location of the app block.
         :param pulumi.Input[_builtins.str] description: The description of the app block.
         :param pulumi.Input[_builtins.str] display_name: The display name of the app block.
@@ -175,6 +176,7 @@ class AppBlock(pulumi.CustomResource):
         """
         Resource Type definition for AWS::AppStream::AppBlock
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: The description of the app block.
@@ -196,6 +198,7 @@ class AppBlock(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::AppStream::AppBlock
+
 
         :param str resource_name: The name of the resource.
         :param AppBlockArgs args: The arguments to use to populate this resource's properties.

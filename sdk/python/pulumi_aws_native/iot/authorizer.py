@@ -32,6 +32,7 @@ class AuthorizerArgs:
                  token_signing_public_keys: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Authorizer resource.
+
         :param pulumi.Input[_builtins.str] authorizer_function_arn: The authorizer's Lambda function ARN.
         :param pulumi.Input[_builtins.str] authorizer_name: The authorizer name.
         :param pulumi.Input[_builtins.bool] enable_caching_for_http: When `true` , the result from the authorizer's Lambda function is cached for clients that use persistent HTTP connections. The results are cached for the time specified by the Lambda function in `refreshAfterInSeconds` . This value doesn't affect authorization of clients that use MQTT connections.
@@ -188,6 +189,7 @@ class Authorizer(pulumi.CustomResource):
         """
         Creates an authorizer.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] authorizer_function_arn: The authorizer's Lambda function ARN.
@@ -215,6 +217,7 @@ class Authorizer(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Creates an authorizer.
+
 
         :param str resource_name: The name of the resource.
         :param AuthorizerArgs args: The arguments to use to populate this resource's properties.

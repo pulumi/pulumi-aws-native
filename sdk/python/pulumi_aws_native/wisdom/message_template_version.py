@@ -23,6 +23,7 @@ class MessageTemplateVersionArgs:
                  message_template_content_sha256: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a MessageTemplateVersion resource.
+
         :param pulumi.Input[_builtins.str] message_template_arn: The unqualified Amazon Resource Name (ARN) of the message template.
         :param pulumi.Input[_builtins.str] message_template_content_sha256: The content SHA256 of the message template.
         """
@@ -67,6 +68,7 @@ class MessageTemplateVersion(pulumi.CustomResource):
         """
         A version for the specified customer-managed message template within the specified knowledge base.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] message_template_arn: The unqualified Amazon Resource Name (ARN) of the message template.
@@ -80,6 +82,7 @@ class MessageTemplateVersion(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A version for the specified customer-managed message template within the specified knowledge base.
+
 
         :param str resource_name: The name of the resource.
         :param MessageTemplateVersionArgs args: The arguments to use to populate this resource's properties.

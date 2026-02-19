@@ -204,6 +204,7 @@ class AccessPointVpcConfigurationArgs:
                  vpc_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The Virtual Private Cloud (VPC) configuration for a bucket access point.
+
         :param pulumi.Input[_builtins.str] vpc_id: If this field is specified, this access point will only allow connections from the specified VPC ID.
         """
         if vpc_id is not None:
@@ -237,6 +238,7 @@ class DirectoryBucketAbortIncompleteMultipartUploadArgs:
                  days_after_initiation: pulumi.Input[_builtins.int]):
         """
         Specifies the days since the initiation of an incomplete multipart upload that Amazon S3 will wait before permanently removing all parts of the upload.
+
         :param pulumi.Input[_builtins.int] days_after_initiation: Specifies the number of days after which Amazon S3 aborts an incomplete multipart upload.
         """
         pulumi.set(__self__, "days_after_initiation", days_after_initiation)
@@ -269,6 +271,7 @@ class DirectoryBucketBucketEncryptionArgs:
                  server_side_encryption_configuration: pulumi.Input[Sequence[pulumi.Input['DirectoryBucketServerSideEncryptionRuleArgs']]]):
         """
         Specifies default encryption for a bucket using server-side encryption with Amazon S3 managed keys (SSE-S3) or AWS KMS keys (SSE-KMS).
+
         :param pulumi.Input[Sequence[pulumi.Input['DirectoryBucketServerSideEncryptionRuleArgs']]] server_side_encryption_configuration: Specifies the default server-side-encryption configuration.
         """
         pulumi.set(__self__, "server_side_encryption_configuration", server_side_encryption_configuration)
@@ -361,6 +364,7 @@ class DirectoryBucketRuleArgs:
                  prefix: Optional[pulumi.Input[_builtins.str]] = None):
         """
         You must specify at least one of the following properties: AbortIncompleteMultipartUpload, or ExpirationInDays.
+
         :param pulumi.Input['DirectoryBucketRuleStatus'] status: If `Enabled` , the rule is currently being applied. If `Disabled` , the rule is not currently being applied.
         :param pulumi.Input['DirectoryBucketAbortIncompleteMultipartUploadArgs'] abort_incomplete_multipart_upload: Specifies the days since the initiation of an incomplete multipart upload that Amazon S3 will wait before permanently removing all parts of the upload.
         :param pulumi.Input[_builtins.int] expiration_in_days: Indicates the number of days after creation when objects are deleted from Amazon S3 and Amazon S3 Glacier. If you specify an expiration and transition time, you must use the same time unit for both properties (either in days or by date). The expiration time must also be later than the transition time.
@@ -494,6 +498,7 @@ class DirectoryBucketServerSideEncryptionByDefaultArgs:
                  kms_master_key_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Specifies the default server-side encryption to apply to new objects in the bucket. If a PUT Object request doesn't specify any server-side encryption, this default encryption will be applied.
+
         :param pulumi.Input['DirectoryBucketServerSideEncryptionByDefaultSseAlgorithm'] sse_algorithm: Server-side encryption algorithm to use for the default encryption.
                
                > For directory buckets, there are only two supported values for server-side encryption: `AES256` and `aws:kms` .
@@ -550,6 +555,7 @@ class DirectoryBucketServerSideEncryptionRuleArgs:
                  server_side_encryption_by_default: Optional[pulumi.Input['DirectoryBucketServerSideEncryptionByDefaultArgs']] = None):
         """
         Specifies the default server-side encryption configuration.
+
         :param pulumi.Input[_builtins.bool] bucket_key_enabled: Specifies whether Amazon S3 should use an S3 Bucket Key with server-side encryption using KMS (SSE-KMS) for new objects in the bucket. Existing objects are not affected. Amazon S3 Express One Zone uses an S3 Bucket Key with SSE-KMS and S3 Bucket Key cannot be disabled. It's only allowed to set the BucketKeyEnabled element to true.
         :param pulumi.Input['DirectoryBucketServerSideEncryptionByDefaultArgs'] server_side_encryption_by_default: Specifies the default server-side encryption to apply to new objects in the bucket. If a PUT Object request doesn't specify any server-side encryption, this default encryption will be applied.
         """

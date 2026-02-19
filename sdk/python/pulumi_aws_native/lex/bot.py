@@ -39,6 +39,7 @@ class BotArgs:
                  test_bot_alias_tags: Optional[pulumi.Input[Sequence[pulumi.Input['BotTagArgs']]]] = None):
         """
         The set of arguments for constructing a Bot resource.
+
         :param pulumi.Input['DataPrivacyPropertiesArgs'] data_privacy: By default, data stored by Amazon Lex is encrypted. The `DataPrivacy` structure provides settings that determine how Amazon Lex handles special cases of securing the data for your bot.
         :param pulumi.Input[_builtins.int] idle_session_ttl_in_seconds: The time, in seconds, that Amazon Lex should keep information about a user's conversation with the bot.
                
@@ -257,6 +258,7 @@ class Bot(pulumi.CustomResource):
         """
         Resource Type definition for an Amazon Lex conversational bot performing automated tasks such as ordering a pizza, booking a hotel, and so on.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] auto_build_bot_locales: Indicates whether Amazon Lex V2 should automatically build the locales for the bot after a change.
@@ -283,6 +285,7 @@ class Bot(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for an Amazon Lex conversational bot performing automated tasks such as ordering a pizza, booking a hotel, and so on.
+
 
         :param str resource_name: The name of the resource.
         :param BotArgs args: The arguments to use to populate this resource's properties.

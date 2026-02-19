@@ -25,6 +25,7 @@ class RouteTableArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a RouteTable resource.
+
         :param pulumi.Input[_builtins.str] vpc_id: The ID of the VPC.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: Any tags assigned to the route table.
         """
@@ -70,6 +71,7 @@ class RouteTable(pulumi.CustomResource):
         Specifies a route table for the specified VPC. After you create a route table, you can add routes and associate the table with a subnet.
          For more information, see [Route tables](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html) in the *Amazon VPC User Guide*.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Any tags assigned to the route table.
@@ -84,6 +86,7 @@ class RouteTable(pulumi.CustomResource):
         """
         Specifies a route table for the specified VPC. After you create a route table, you can add routes and associate the table with a subnet.
          For more information, see [Route tables](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html) in the *Amazon VPC User Guide*.
+
 
         :param str resource_name: The name of the resource.
         :param RouteTableArgs args: The arguments to use to populate this resource's properties.

@@ -1656,6 +1656,7 @@ class ReplicatorAmazonMskClusterArgs:
                  msk_cluster_arn: pulumi.Input[_builtins.str]):
         """
         Details of an Amazon MSK cluster.
+
         :param pulumi.Input[_builtins.str] msk_cluster_arn: The ARN of an Amazon MSK cluster.
         """
         pulumi.set(__self__, "msk_cluster_arn", msk_cluster_arn)
@@ -1703,6 +1704,7 @@ class ReplicatorConsumerGroupReplicationArgs:
                  synchronise_consumer_group_offsets: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Configuration relating to consumer group replication.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] consumer_groups_to_replicate: List of regular expression patterns indicating the consumer groups to copy.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] consumer_groups_to_exclude: List of regular expression patterns indicating the consumer groups that should not be replicated.
         :param pulumi.Input[_builtins.bool] detect_and_copy_new_consumer_groups: Whether to periodically check for new consumer groups.
@@ -1785,6 +1787,7 @@ class ReplicatorKafkaClusterClientVpcConfigArgs:
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Details of an Amazon VPC which has network connectivity to the Kafka cluster.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: The list of subnets to connect to in the virtual private cloud (VPC). AWS creates elastic network interfaces inside these subnets.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: The AWS security groups to associate with the elastic network interfaces in order to specify what the replicator has access to. If a security group is not specified, the default security group associated with the VPC is used.
         """
@@ -1837,6 +1840,7 @@ class ReplicatorKafkaClusterArgs:
                  vpc_config: pulumi.Input['ReplicatorKafkaClusterClientVpcConfigArgs']):
         """
         Details of a Kafka cluster for replication.
+
         :param pulumi.Input['ReplicatorAmazonMskClusterArgs'] amazon_msk_cluster: Details of an Amazon MSK cluster. Exactly one of AmazonMskCluster is required.
         :param pulumi.Input['ReplicatorKafkaClusterClientVpcConfigArgs'] vpc_config: Details of an Amazon VPC which has network connectivity to the Apache Kafka cluster.
         """
@@ -1903,6 +1907,7 @@ class ReplicatorReplicationInfoArgs:
                  topic_replication: pulumi.Input['ReplicatorTopicReplicationArgs']):
         """
         Specifies configuration for replication between a source and target Kafka cluster.
+
         :param pulumi.Input['ReplicatorConsumerGroupReplicationArgs'] consumer_group_replication: Configuration relating to consumer group replication.
         :param pulumi.Input[_builtins.str] source_kafka_cluster_arn: Amazon Resource Name of the source Kafka cluster.
         :param pulumi.Input['ReplicatorReplicationInfoTargetCompressionType'] target_compression_type: The type of compression to use writing records to target Kafka cluster.
@@ -1991,6 +1996,7 @@ class ReplicatorReplicationStartingPositionArgs:
                  type: Optional[pulumi.Input['ReplicatorReplicationStartingPositionType']] = None):
         """
         Configuration for specifying the position in the topics to start replicating from.
+
         :param pulumi.Input['ReplicatorReplicationStartingPositionType'] type: The type of replication starting position.
         """
         if type is not None:
@@ -2024,6 +2030,7 @@ class ReplicatorReplicationTopicNameConfigurationArgs:
                  type: Optional[pulumi.Input['ReplicatorReplicationTopicNameConfigurationType']] = None):
         """
         Configuration for specifying replicated topic names should be the same as their corresponding upstream topics or prefixed with source cluster alias.
+
         :param pulumi.Input['ReplicatorReplicationTopicNameConfigurationType'] type: The type of replication topic name configuration, identical to upstream topic name or prefixed with source cluster alias.
         """
         if type is not None:

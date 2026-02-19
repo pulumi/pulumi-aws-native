@@ -23,6 +23,7 @@ class WebAclAssociationArgs:
                  web_acl_arn: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a WebAclAssociation resource.
+
         :param pulumi.Input[_builtins.str] resource_arn: The Amazon Resource Name (ARN) of the resource to associate with the web ACL.
                
                The ARN must be in one of the following formats:
@@ -86,6 +87,7 @@ class WebAclAssociation(pulumi.CustomResource):
         """
         Associates WebACL to Application Load Balancer, CloudFront or API Gateway.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] resource_arn: The Amazon Resource Name (ARN) of the resource to associate with the web ACL.
@@ -109,6 +111,7 @@ class WebAclAssociation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Associates WebACL to Application Load Balancer, CloudFront or API Gateway.
+
 
         :param str resource_name: The name of the resource.
         :param WebAclAssociationArgs args: The arguments to use to populate this resource's properties.

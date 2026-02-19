@@ -26,6 +26,7 @@ class IpamResourceDiscoveryAssociationArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a IpamResourceDiscoveryAssociation resource.
+
         :param pulumi.Input[_builtins.str] ipam_id: The Id of the IPAM this Resource Discovery is associated to.
         :param pulumi.Input[_builtins.str] ipam_resource_discovery_id: The Amazon Resource Name (ARN) of the IPAM Resource Discovery Association.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
@@ -85,6 +86,7 @@ class IpamResourceDiscoveryAssociation(pulumi.CustomResource):
         """
         Resource Schema of AWS::EC2::IPAMResourceDiscoveryAssociation Type
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] ipam_id: The Id of the IPAM this Resource Discovery is associated to.
@@ -99,6 +101,7 @@ class IpamResourceDiscoveryAssociation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Schema of AWS::EC2::IPAMResourceDiscoveryAssociation Type
+
 
         :param str resource_name: The name of the resource.
         :param IpamResourceDiscoveryAssociationArgs args: The arguments to use to populate this resource's properties.

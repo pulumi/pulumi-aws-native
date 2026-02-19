@@ -31,6 +31,7 @@ class RulesetArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Ruleset resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['RulesetRuleArgs']]] rules: List of the data quality rules in the ruleset
         :param pulumi.Input[_builtins.str] target_arn: Arn of the target resource (dataset) to apply the ruleset to
         :param pulumi.Input[_builtins.str] description: Description of the Ruleset
@@ -126,6 +127,7 @@ class Ruleset(pulumi.CustomResource):
         """
         Resource schema for AWS::DataBrew::Ruleset.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: Description of the Ruleset
@@ -144,6 +146,7 @@ class Ruleset(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource schema for AWS::DataBrew::Ruleset.
+
 
         :param str resource_name: The name of the resource.
         :param RulesetArgs args: The arguments to use to populate this resource's properties.

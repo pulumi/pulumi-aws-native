@@ -28,6 +28,7 @@ class LicenseEndpointArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a LicenseEndpoint resource.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: The identifier of the Amazon EC2 security group that controls access to the license endpoint.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: Identifies the VPC subnets that can connect to a license endpoint.
         :param pulumi.Input[_builtins.str] vpc_id: The VPC (virtual private cloud) ID associated with the license endpoint.
@@ -102,6 +103,7 @@ class LicenseEndpoint(pulumi.CustomResource):
         """
         Definition of AWS::Deadline::LicenseEndpoint Resource Type
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: The identifier of the Amazon EC2 security group that controls access to the license endpoint.
@@ -117,6 +119,7 @@ class LicenseEndpoint(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of AWS::Deadline::LicenseEndpoint Resource Type
+
 
         :param str resource_name: The name of the resource.
         :param LicenseEndpointArgs args: The arguments to use to populate this resource's properties.

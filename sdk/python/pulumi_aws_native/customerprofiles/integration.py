@@ -33,6 +33,7 @@ class IntegrationArgs:
                  uri: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Integration resource.
+
         :param pulumi.Input[_builtins.str] domain_name: The unique name of the domain.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] event_trigger_names: A list of unique names for active event triggers associated with the integration.
         :param pulumi.Input['IntegrationFlowDefinitionArgs'] flow_definition: The configuration that controls how Customer Profiles retrieves data from the source.
@@ -157,6 +158,7 @@ class Integration(pulumi.CustomResource):
         """
         The resource schema for creating an Amazon Connect Customer Profiles Integration.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] domain_name: The unique name of the domain.
@@ -175,6 +177,7 @@ class Integration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The resource schema for creating an Amazon Connect Customer Profiles Integration.
+
 
         :param str resource_name: The name of the resource.
         :param IntegrationArgs args: The arguments to use to populate this resource's properties.

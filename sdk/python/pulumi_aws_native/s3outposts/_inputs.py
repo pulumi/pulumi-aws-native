@@ -78,6 +78,7 @@ class BucketAbortIncompleteMultipartUploadArgs:
                  days_after_initiation: pulumi.Input[_builtins.int]):
         """
         Specifies the days since the initiation of an incomplete multipart upload that Amazon S3Outposts will wait before permanently removing all parts of the upload.
+
         :param pulumi.Input[_builtins.int] days_after_initiation: Specifies the number of days after which Amazon S3Outposts aborts an incomplete multipart upload.
         """
         pulumi.set(__self__, "days_after_initiation", days_after_initiation)
@@ -233,6 +234,7 @@ class BucketRuleFilterPropertiesArgs:
                  tag: Optional[pulumi.Input['BucketFilterTagArgs']] = None):
         """
         The container for the filter of the lifecycle rule.
+
         :param pulumi.Input['BucketFilterAndOperatorPropertiesArgs'] and_operator: The container for the AND condition for the lifecycle rule. A combination of Prefix and 1 or more Tags OR a minimum of 2 or more tags.
         :param pulumi.Input[_builtins.str] prefix: Object key prefix that identifies one or more objects to which this rule applies.
         :param pulumi.Input['BucketFilterTagArgs'] tag: Specifies a tag used to identify a subset of objects for an Amazon S3Outposts bucket.
@@ -321,6 +323,7 @@ class BucketRuleArgs:
                  status: Optional[pulumi.Input['BucketRuleStatus']] = None):
         """
         Specifies lifecycle rules for an Amazon S3Outposts bucket. You must specify at least one of the following: AbortIncompleteMultipartUpload, ExpirationDate, ExpirationInDays.
+
         :param pulumi.Input['BucketAbortIncompleteMultipartUploadArgs'] abort_incomplete_multipart_upload: Specifies a lifecycle rule that stops incomplete multipart uploads to an Amazon S3Outposts bucket.
         :param pulumi.Input[_builtins.str] expiration_date: Indicates when objects are deleted from Amazon S3Outposts. The date value must be in ISO 8601 format. The time is always midnight UTC.
         :param pulumi.Input[_builtins.int] expiration_in_days: Indicates the number of days after creation when objects are deleted from Amazon S3Outposts.

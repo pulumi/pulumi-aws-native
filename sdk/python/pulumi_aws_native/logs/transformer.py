@@ -26,6 +26,7 @@ class TransformerArgs:
                  transformer_config: pulumi.Input[Sequence[pulumi.Input['TransformerProcessorArgs']]]):
         """
         The set of arguments for constructing a Transformer resource.
+
         :param pulumi.Input[_builtins.str] log_group_identifier: Existing log group that you want to associate with this transformer.
         :param pulumi.Input[Sequence[pulumi.Input['TransformerProcessorArgs']]] transformer_config: List of processors in a transformer
         """
@@ -69,6 +70,7 @@ class Transformer(pulumi.CustomResource):
         """
         Specifies a transformer on the log group to transform logs into consistent structured and information rich format.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] log_group_identifier: Existing log group that you want to associate with this transformer.
@@ -82,6 +84,7 @@ class Transformer(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Specifies a transformer on the log group to transform logs into consistent structured and information rich format.
+
 
         :param str resource_name: The name of the resource.
         :param TransformerArgs args: The arguments to use to populate this resource's properties.

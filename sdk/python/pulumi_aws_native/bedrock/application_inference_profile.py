@@ -30,6 +30,7 @@ class ApplicationInferenceProfileArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a ApplicationInferenceProfile resource.
+
         :param pulumi.Input[_builtins.str] description: Description of the inference profile
         :param pulumi.Input[_builtins.str] inference_profile_name: The name of the inference profile.
         :param pulumi.Input['ApplicationInferenceProfileInferenceProfileModelSourcePropertiesArgs'] model_source: Contains configurations for the inference profile to copy as the resource.
@@ -107,6 +108,7 @@ class ApplicationInferenceProfile(pulumi.CustomResource):
         """
         Definition of AWS::Bedrock::ApplicationInferenceProfile Resource Type
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: Description of the inference profile
@@ -122,6 +124,7 @@ class ApplicationInferenceProfile(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of AWS::Bedrock::ApplicationInferenceProfile Resource Type
+
 
         :param str resource_name: The name of the resource.
         :param ApplicationInferenceProfileArgs args: The arguments to use to populate this resource's properties.

@@ -45,6 +45,7 @@ class DeploymentGroupArgs:
                  trigger_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentGroupTriggerConfigArgs']]]] = None):
         """
         The set of arguments for constructing a DeploymentGroup resource.
+
         :param pulumi.Input[_builtins.str] application_name: The name of an existing CodeDeploy application to associate this deployment group with.
         :param pulumi.Input[_builtins.str] service_role_arn: A service role Amazon Resource Name (ARN) that grants CodeDeploy permission to make calls to AWS services on your behalf. For more information, see 'Create a Service Role for AWS CodeDeploy' in the AWS CodeDeploy User Guide.
         :param pulumi.Input['DeploymentGroupAlarmConfigurationArgs'] alarm_configuration: Information about the Amazon CloudWatch alarms that are associated with the deployment group.
@@ -376,6 +377,7 @@ class DeploymentGroup(pulumi.CustomResource):
         """
         Resource type definition for AWS::CodeDeploy::DeploymentGroup
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['DeploymentGroupAlarmConfigurationArgs', 'DeploymentGroupAlarmConfigurationArgsDict']] alarm_configuration: Information about the Amazon CloudWatch alarms that are associated with the deployment group.
@@ -407,6 +409,7 @@ class DeploymentGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource type definition for AWS::CodeDeploy::DeploymentGroup
+
 
         :param str resource_name: The name of the resource.
         :param DeploymentGroupArgs args: The arguments to use to populate this resource's properties.

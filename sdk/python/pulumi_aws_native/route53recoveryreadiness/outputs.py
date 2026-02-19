@@ -61,6 +61,7 @@ class ResourceSetDnsTargetResource(dict):
                  target_resource: Optional['outputs.ResourceSetTargetResource'] = None):
         """
         A component for DNS/routing control readiness checks.
+
         :param _builtins.str domain_name: The domain name that acts as an ingress point to a portion of the customer application.
         :param _builtins.str hosted_zone_arn: The hosted zone Amazon Resource Name (ARN) that contains the DNS record with the provided name of the target resource.
         :param _builtins.str record_set_id: The Route 53 record set ID that will uniquely identify a DNS record, given a name and a type.
@@ -128,6 +129,7 @@ class ResourceSetNlbResource(dict):
                  arn: Optional[_builtins.str] = None):
         """
         The Network Load Balancer resource that a DNS target resource points to.
+
         :param _builtins.str arn: A Network Load Balancer resource Amazon Resource Name (ARN).
         """
         if arn is not None:
@@ -171,6 +173,7 @@ class ResourceSetR53ResourceRecord(dict):
                  record_set_id: Optional[_builtins.str] = None):
         """
         The Route 53 resource that a DNS target resource record points to.
+
         :param _builtins.str domain_name: The DNS target domain name.
         :param _builtins.str record_set_id: The Resource Record set id.
         """
@@ -231,6 +234,7 @@ class ResourceSetResource(dict):
                  resource_arn: Optional[_builtins.str] = None):
         """
         The resource element of a ResourceSet
+
         :param _builtins.str component_id: The component identifier of the resource, generated when DNS target resource is used.
         :param 'ResourceSetDnsTargetResource' dns_target_resource: A component for DNS/routing control readiness checks. This is a required setting when `ResourceSet` `ResourceSetType` is set to `AWS::Route53RecoveryReadiness::DNSTargetResource` . Do not set it for any other `ResourceSetType` setting.
         :param Sequence[_builtins.str] readiness_scopes: A list of recovery group Amazon Resource Names (ARNs) and cell ARNs that this resource is contained within.
@@ -307,6 +311,7 @@ class ResourceSetTargetResource(dict):
                  r53_resource: Optional['outputs.ResourceSetR53ResourceRecord'] = None):
         """
         The target resource that the Route 53 record points to.
+
         :param 'ResourceSetNlbResource' nlb_resource: The Network Load Balancer resource that a DNS target resource points to.
         :param 'ResourceSetR53ResourceRecord' r53_resource: The Route 53 resource that a DNS target resource record points to.
         """

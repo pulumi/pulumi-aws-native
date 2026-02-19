@@ -46,6 +46,7 @@ class BrokerArgs:
                  users: Optional[pulumi.Input[Sequence[pulumi.Input['BrokerUserArgs']]]] = None):
         """
         The set of arguments for constructing a Broker resource.
+
         :param pulumi.Input[Union['BrokerDeploymentMode', _builtins.str]] deployment_mode: Required. The broker's deployment mode.
         :param pulumi.Input[Union['BrokerEngineType', _builtins.str]] engine_type: Required. The type of broker engine. Currently, Amazon MQ supports `ACTIVEMQ` and `RABBITMQ` .
         :param pulumi.Input[_builtins.str] host_instance_type: Required. The broker's instance type.
@@ -545,6 +546,7 @@ class Broker(pulumi.CustomResource):
 
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] authentication_strategy: Optional. The authentication strategy used to secure the broker. The default is `SIMPLE` .
@@ -734,6 +736,7 @@ class Broker(pulumi.CustomResource):
             }])
 
         ```
+
 
         :param str resource_name: The name of the resource.
         :param BrokerArgs args: The arguments to use to populate this resource's properties.

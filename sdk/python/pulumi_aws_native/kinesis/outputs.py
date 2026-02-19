@@ -50,6 +50,7 @@ class StreamEncryption(dict):
                  key_id: _builtins.str):
         """
         When specified, enables or updates server-side encryption using an AWS KMS key for a specified stream. Removing this property from your stack template and updating your stack disables encryption.
+
         :param 'StreamEncryptionEncryptionType' encryption_type: The encryption type to use. The only valid value is KMS. 
         :param _builtins.str key_id: The GUID for the customer-managed AWS KMS key to use for encryption. This value can be a globally unique identifier, a fully specified Amazon Resource Name (ARN) to either an alias or a key, or an alias name prefixed by "alias/".You can also use a master key owned by Kinesis Data Streams by specifying the alias aws/kinesis.
         """
@@ -99,6 +100,7 @@ class StreamModeDetails(dict):
                  stream_mode: 'StreamModeDetailsStreamMode'):
         """
         When specified, enables or updates the mode of stream. Default is PROVISIONED.
+
         :param 'StreamModeDetailsStreamMode' stream_mode: The mode of the stream
         """
         pulumi.set(__self__, "stream_mode", stream_mode)
@@ -141,6 +143,7 @@ class StreamWarmThroughputObject(dict):
                  target_mi_bps: Optional[_builtins.int] = None):
         """
         Warm throughput configuration details for the stream. Only present for ON_DEMAND streams.
+
         :param _builtins.int current_mi_bps: Current warm throughput in MiB/s
         :param _builtins.int target_mi_bps: Target warm throughput in MiB/s that a customer can write to a stream at any given time
         """

@@ -604,6 +604,7 @@ class DetectorModel(dict):
                  arn: Optional[_builtins.str] = None):
         """
         A model to associate with a detector.
+
         :param _builtins.str arn: The ARN of the model.
         """
         if arn is not None:

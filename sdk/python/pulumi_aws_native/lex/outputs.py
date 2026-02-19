@@ -354,6 +354,7 @@ class BotAliasConversationLogSettings(dict):
                  text_log_settings: Optional[Sequence['outputs.BotAliasTextLogSetting']] = None):
         """
         Contains information about code hooks that Amazon Lex calls during a conversation.
+
         :param Sequence['BotAliasAudioLogSetting'] audio_log_settings: The Amazon S3 settings for logging audio to an S3 bucket.
         :param Sequence['BotAliasTextLogSetting'] text_log_settings: The Amazon CloudWatch Logs settings for logging text and metadata.
         """
@@ -408,6 +409,7 @@ class BotAliasLambdaCodeHook(dict):
                  lambda_arn: _builtins.str):
         """
         Contains information about code hooks that Amazon Lex calls during a conversation.
+
         :param _builtins.str code_hook_interface_version: The version of the request-response that you want Amazon Lex to use to invoke your Lambda function.
         :param _builtins.str lambda_arn: The Amazon Resource Name (ARN) of the Lambda function.
         """
@@ -458,6 +460,7 @@ class BotAliasLocaleSettings(dict):
                  code_hook_specification: Optional['outputs.BotAliasCodeHookSpecification'] = None):
         """
         You can use this parameter to specify a specific Lambda function to run different functions in different locales.
+
         :param _builtins.bool enabled: Whether the Lambda code hook is enabled
         """
         pulumi.set(__self__, "enabled", enabled)
@@ -507,6 +510,7 @@ class BotAliasLocaleSettingsItem(dict):
                  locale_id: _builtins.str):
         """
         A locale setting in alias
+
         :param _builtins.str locale_id: A string used to identify the locale
         """
         pulumi.set(__self__, "bot_alias_locale_setting", bot_alias_locale_setting)
@@ -558,6 +562,7 @@ class BotAliasS3BucketLogDestination(dict):
                  kms_key_arn: Optional[_builtins.str] = None):
         """
         Specifies an Amazon S3 bucket for logging audio conversations
+
         :param _builtins.str log_prefix: The Amazon S3 key of the deployment package.
         :param _builtins.str s3_bucket_arn: The Amazon Resource Name (ARN) of an Amazon S3 bucket where audio log files are stored.
         :param _builtins.str kms_key_arn: The Amazon Resource Name (ARN) of an AWS Key Management Service (KMS) key for encrypting audio log files stored in an S3 bucket.
@@ -6586,6 +6591,7 @@ class DataPrivacyProperties(dict):
                  child_directed: _builtins.bool):
         """
         By default, data stored by Amazon Lex is encrypted. The `DataPrivacy` structure provides settings that determine how Amazon Lex handles special cases of securing the data for your bot.
+
         :param _builtins.bool child_directed: For each Amazon Lex bot created with the Amazon Lex Model Building Service, you must specify whether your use of Amazon Lex is related to a website, program, or other application that is directed or targeted, in whole or in part, to children under age 13 and subject to the Children's Online Privacy Protection Act (COPPA) by specifying `true` or `false` in the `childDirected` field. By specifying `true` in the `childDirected` field, you confirm that your use of Amazon Lex *is* related to a website, program, or other application that is directed or targeted, in whole or in part, to children under age 13 and subject to COPPA. By specifying `false` in the `childDirected` field, you confirm that your use of Amazon Lex *is not* related to a website, program, or other application that is directed or targeted, in whole or in part, to children under age 13 and subject to COPPA. You may not specify a default value for the `childDirected` field that does not accurately reflect whether your use of Amazon Lex is related to a website, program, or other application that is directed or targeted, in whole or in part, to children under age 13 and subject to COPPA. If your use of Amazon Lex relates to a website, program, or other application that is directed in whole or in part, to children under age 13, you must obtain any required verifiable parental consent under COPPA. For information regarding the use of Amazon Lex in connection with websites, programs, or other applications that are directed or targeted, in whole or in part, to children under age 13, see the [Amazon Lex FAQ](https://docs.aws.amazon.com/lex/faqs#data-security) .
         """
         pulumi.set(__self__, "child_directed", child_directed)
@@ -6649,6 +6655,7 @@ class SentimentAnalysisSettingsProperties(dict):
                  detect_sentiment: _builtins.bool):
         """
         Determines whether Amazon Lex will use Amazon Comprehend to detect the sentiment of user utterances.
+
         :param _builtins.bool detect_sentiment: Enable to call Amazon Comprehend for Sentiment natively within Lex
         """
         pulumi.set(__self__, "detect_sentiment", detect_sentiment)

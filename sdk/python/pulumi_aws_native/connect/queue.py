@@ -36,6 +36,7 @@ class QueueArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Queue resource.
+
         :param pulumi.Input[_builtins.str] hours_of_operation_arn: The identifier for the hours of operation.
         :param pulumi.Input[_builtins.str] instance_arn: The identifier of the Amazon Connect instance.
         :param pulumi.Input[_builtins.str] description: The description of the queue.
@@ -207,6 +208,7 @@ class Queue(pulumi.CustomResource):
         """
         Resource Type definition for AWS::Connect::Queue
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: The description of the queue.
@@ -228,6 +230,7 @@ class Queue(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::Connect::Queue
+
 
         :param str resource_name: The name of the resource.
         :param QueueArgs args: The arguments to use to populate this resource's properties.

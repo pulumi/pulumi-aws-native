@@ -37,6 +37,7 @@ class IdentityPoolArgs:
                  supported_login_providers: Optional[Any] = None):
         """
         The set of arguments for constructing a IdentityPool resource.
+
         :param pulumi.Input[_builtins.bool] allow_unauthenticated_identities: Specifies whether the identity pool supports unauthenticated logins.
         :param pulumi.Input[_builtins.bool] allow_classic_flow: Enables the Basic (Classic) authentication flow.
         :param Any cognito_events: The events to configure.
@@ -269,6 +270,7 @@ class IdentityPool(pulumi.CustomResource):
         """
         Resource Type definition for AWS::Cognito::IdentityPool
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] allow_classic_flow: Enables the Basic (Classic) authentication flow.
@@ -306,6 +308,7 @@ class IdentityPool(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::Cognito::IdentityPool
+
 
         :param str resource_name: The name of the resource.
         :param IdentityPoolArgs args: The arguments to use to populate this resource's properties.

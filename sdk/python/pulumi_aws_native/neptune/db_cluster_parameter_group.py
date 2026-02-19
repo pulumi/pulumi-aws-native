@@ -28,6 +28,7 @@ class DbClusterParameterGroupArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a DbClusterParameterGroup resource.
+
         :param pulumi.Input[_builtins.str] description: Provides the customer-specified description for this DB cluster parameter group.
         :param pulumi.Input[_builtins.str] family: Must be neptune1 for engine versions prior to 1.2.0.0, or neptune1.2 for engine version 1.2.0.0 and higher.
         :param Any parameters: An array of parameters to be modified. A maximum of 20 parameters can be modified in a single request.
@@ -122,6 +123,7 @@ class DbClusterParameterGroup(pulumi.CustomResource):
         """
         The AWS::Neptune::DBClusterParameterGroup resource creates a new Amazon Neptune DB cluster parameter group
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: Provides the customer-specified description for this DB cluster parameter group.
@@ -140,6 +142,7 @@ class DbClusterParameterGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The AWS::Neptune::DBClusterParameterGroup resource creates a new Amazon Neptune DB cluster parameter group
+
 
         :param str resource_name: The name of the resource.
         :param DbClusterParameterGroupArgs args: The arguments to use to populate this resource's properties.

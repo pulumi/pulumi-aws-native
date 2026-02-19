@@ -29,6 +29,7 @@ class RouteCalculatorArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a RouteCalculator resource.
+
         :param pulumi.Input[_builtins.str] data_source: Specifies the data provider of traffic and road network data.
                
                > This field is case-sensitive. Enter the valid values as shown. For example, entering `HERE` returns an error. 
@@ -161,6 +162,7 @@ class RouteCalculator(pulumi.CustomResource):
         """
         Definition of AWS::Location::RouteCalculator Resource Type
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] calculator_name: The name of the route calculator resource.
@@ -197,6 +199,7 @@ class RouteCalculator(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of AWS::Location::RouteCalculator Resource Type
+
 
         :param str resource_name: The name of the resource.
         :param RouteCalculatorArgs args: The arguments to use to populate this resource's properties.

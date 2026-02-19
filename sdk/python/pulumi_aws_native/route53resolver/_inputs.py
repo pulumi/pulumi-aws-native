@@ -94,6 +94,7 @@ class FirewallRuleGroupFirewallRuleArgs:
                  qtype: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Firewall Rule associating the Rule Group to a Domain List
+
         :param pulumi.Input['FirewallRuleGroupFirewallRuleAction'] action: Rule Action
         :param pulumi.Input[_builtins.int] priority: Rule Priority
         :param pulumi.Input['FirewallRuleGroupFirewallRuleBlockOverrideDnsType'] block_override_dns_type: BlockOverrideDnsType

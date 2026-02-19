@@ -30,6 +30,7 @@ class EndpointArgs:
                  role_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Endpoint resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['EndpointEventBusArgs']]] event_buses: The event buses being used by the endpoint.
                
                *Exactly* : `2`
@@ -208,6 +209,7 @@ class Endpoint(pulumi.CustomResource):
 
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: A description for the endpoint.
@@ -294,6 +296,7 @@ class Endpoint(pulumi.CustomResource):
         pulumi.export("sampleEndpointName", sample_endpoint.id)
 
         ```
+
 
         :param str resource_name: The name of the resource.
         :param EndpointArgs args: The arguments to use to populate this resource's properties.

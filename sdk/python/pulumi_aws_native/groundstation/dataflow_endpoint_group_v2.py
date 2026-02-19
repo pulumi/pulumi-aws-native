@@ -30,6 +30,7 @@ class DataflowEndpointGroupV2Args:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a DataflowEndpointGroupV2 resource.
+
         :param pulumi.Input[_builtins.int] contact_post_pass_duration_seconds: Amount of time, in seconds, after a contact ends that the Ground Station Dataflow Endpoint Group will be in a POSTPASS state. A Ground Station Dataflow Endpoint Group State Change event will be emitted when the Dataflow Endpoint Group enters and exits the POSTPASS state.
         :param pulumi.Input[_builtins.int] contact_pre_pass_duration_seconds: Amount of time, in seconds, before a contact starts that the Ground Station Dataflow Endpoint Group will be in a PREPASS state. A Ground Station Dataflow Endpoint Group State Change event will be emitted when the Dataflow Endpoint Group enters and exits the PREPASS state.
         :param pulumi.Input[Sequence[pulumi.Input['DataflowEndpointGroupV2CreateEndpointDetailsArgs']]] endpoints: List of endpoints for the dataflow endpoint group.
@@ -107,6 +108,7 @@ class DataflowEndpointGroupV2(pulumi.CustomResource):
         """
         Resource Type definition for AWS Ground Station DataflowEndpointGroupV2
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.int] contact_post_pass_duration_seconds: Amount of time, in seconds, after a contact ends that the Ground Station Dataflow Endpoint Group will be in a POSTPASS state. A Ground Station Dataflow Endpoint Group State Change event will be emitted when the Dataflow Endpoint Group enters and exits the POSTPASS state.
@@ -122,6 +124,7 @@ class DataflowEndpointGroupV2(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS Ground Station DataflowEndpointGroupV2
+
 
         :param str resource_name: The name of the resource.
         :param DataflowEndpointGroupV2Args args: The arguments to use to populate this resource's properties.

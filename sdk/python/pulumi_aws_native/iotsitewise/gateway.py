@@ -31,6 +31,7 @@ class GatewayArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Gateway resource.
+
         :param pulumi.Input['GatewayPlatformArgs'] gateway_platform: The gateway's platform. You can only specify one platform in a gateway.
         :param pulumi.Input[Sequence[pulumi.Input['GatewayCapabilitySummaryArgs']]] gateway_capability_summaries: A list of gateway capability summaries that each contain a namespace and status.
         :param pulumi.Input[_builtins.str] gateway_name: A unique, friendly name for the gateway.
@@ -123,6 +124,7 @@ class Gateway(pulumi.CustomResource):
         """
         Resource schema for AWS::IoTSiteWise::Gateway
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['GatewayCapabilitySummaryArgs', 'GatewayCapabilitySummaryArgsDict']]]] gateway_capability_summaries: A list of gateway capability summaries that each contain a namespace and status.
@@ -139,6 +141,7 @@ class Gateway(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource schema for AWS::IoTSiteWise::Gateway
+
 
         :param str resource_name: The name of the resource.
         :param GatewayArgs args: The arguments to use to populate this resource's properties.

@@ -33,6 +33,7 @@ class LinkArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Link resource.
+
         :param pulumi.Input[_builtins.str] gateway_id: The unique identifier of the gateway.
         :param pulumi.Input['LinkLogSettingsArgs'] link_log_settings: Settings for the application logs.
         :param pulumi.Input[_builtins.str] peer_gateway_id: The unique identifier of the peer gateway.
@@ -151,6 +152,7 @@ class Link(pulumi.CustomResource):
         """
         Resource Type definition for AWS::RTBFabric::Link Resource Type
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] gateway_id: The unique identifier of the gateway.
@@ -168,6 +170,7 @@ class Link(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::RTBFabric::Link Resource Type
+
 
         :param str resource_name: The name of the resource.
         :param LinkArgs args: The arguments to use to populate this resource's properties.

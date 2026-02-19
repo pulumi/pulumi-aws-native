@@ -57,6 +57,7 @@ class DataLakeEncryptionConfiguration(dict):
                  kms_key_id: Optional[_builtins.str] = None):
         """
         Provides encryption details of Amazon Security Lake object.
+
         :param _builtins.str kms_key_id: The id of KMS encryption key used by Amazon Security Lake to encrypt the Security Lake object.
         """
         if kms_key_id is not None:
@@ -80,6 +81,7 @@ class DataLakeExpiration(dict):
                  days: Optional[_builtins.int] = None):
         """
         Provides data expiration details of Amazon Security Lake object.
+
         :param _builtins.int days: The number of days before data expires in the Amazon Security Lake object.
         """
         if days is not None:
@@ -104,6 +106,7 @@ class DataLakeLifecycleConfiguration(dict):
                  transitions: Optional[Sequence['outputs.DataLakeTransitions']] = None):
         """
         Provides lifecycle details of Amazon Security Lake object.
+
         :param 'DataLakeExpiration' expiration: Provides data expiration details of the Amazon Security Lake object.
         :param Sequence['DataLakeTransitions'] transitions: Provides data storage transition details of Amazon Security Lake object.
         """
@@ -156,6 +159,7 @@ class DataLakeReplicationConfiguration(dict):
                  role_arn: Optional[_builtins.str] = None):
         """
         Provides replication details of Amazon Security Lake object.
+
         :param Sequence[_builtins.str] regions: Specifies one or more centralized rollup Regions. The AWS Region specified in the region parameter of the `CreateDataLake` or `UpdateDataLake` operations contributes data to the rollup Region or Regions specified in this parameter.
                
                Replication enables automatic, asynchronous copying of objects across Amazon S3 buckets. S3 buckets that are configured for object replication can be owned by the same AWS account or by different accounts. You can replicate objects to a single destination bucket or to multiple destination buckets. The destination buckets can be in different Regions or within the same Region as the source bucket.
@@ -262,6 +266,7 @@ class SubscriberAwsLogSource(dict):
                  source_version: Optional[_builtins.str] = None):
         """
         Amazon Security Lake supports log and event collection for natively supported AWS services.
+
         :param _builtins.str source_name: The name for a AWS source. This must be a Regionally unique value.
         :param _builtins.str source_version: The version for a AWS source. This must be a Regionally unique value.
         """
@@ -364,6 +369,7 @@ class SubscriberIdentityProperties(dict):
                  principal: _builtins.str):
         """
         The AWS identity used to access your data.
+
         :param _builtins.str external_id: The external ID used to establish trust relationship with the AWS identity.
         :param _builtins.str principal: The AWS identity principal.
         """
@@ -423,6 +429,7 @@ class SubscriberNotificationHttpsNotificationConfiguration(dict):
                  http_method: Optional['SubscriberNotificationHttpsNotificationConfigurationHttpMethod'] = None):
         """
         The configuration for HTTPS subscriber notification.
+
         :param _builtins.str endpoint: The subscription endpoint in Security Lake.
         :param _builtins.str target_role_arn: The Amazon Resource Name (ARN) of the EventBridge API destinations IAM role that you created.
         :param _builtins.str authorization_api_key_name: The key name for the notification subscription.

@@ -2455,6 +2455,7 @@ class SummaryConfigurationPropertiesArgs:
 
         - The `RuleOptions` specified in `SummaryConfiguration`
         - Rule metadata organization preferences
+
         :param pulumi.Input[Sequence[pulumi.Input['RuleGroupSummaryRuleOption']]] rule_options: Specifies the selected rule options returned by `DescribeRuleGroupSummary` .
         """
         if rule_options is not None:

@@ -28,6 +28,7 @@ class EntitlementArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Entitlement resource.
+
         :param pulumi.Input[_builtins.str] app_visibility: Specifies whether to entitle all apps or only selected apps.
         :param pulumi.Input[Sequence[pulumi.Input['EntitlementAttributeArgs']]] attributes: The attributes of the entitlement.
         :param pulumi.Input[_builtins.str] stack_name: The name of the stack.
@@ -118,6 +119,7 @@ class Entitlement(pulumi.CustomResource):
         """
         Resource Type definition for AWS::AppStream::Entitlement
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] app_visibility: Specifies whether to entitle all apps or only selected apps.
@@ -134,6 +136,7 @@ class Entitlement(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::AppStream::Entitlement
+
 
         :param str resource_name: The name of the resource.
         :param EntitlementArgs args: The arguments to use to populate this resource's properties.

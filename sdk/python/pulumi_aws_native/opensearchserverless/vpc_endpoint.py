@@ -25,6 +25,7 @@ class VpcEndpointArgs:
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a VpcEndpoint resource.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: The ID of one or more subnets in which to create an endpoint network interface
         :param pulumi.Input[_builtins.str] vpc_id: The ID of the VPC in which the endpoint will be used.
         :param pulumi.Input[_builtins.str] name: The name of the VPC Endpoint
@@ -128,6 +129,7 @@ class VpcEndpoint(pulumi.CustomResource):
 
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: The name of the VPC Endpoint
@@ -171,6 +173,7 @@ class VpcEndpoint(pulumi.CustomResource):
             security_group_ids=["sg-03843b03f369eb245"])
 
         ```
+
 
         :param str resource_name: The name of the resource.
         :param VpcEndpointArgs args: The arguments to use to populate this resource's properties.

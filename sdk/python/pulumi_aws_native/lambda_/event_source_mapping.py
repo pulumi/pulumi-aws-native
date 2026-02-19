@@ -54,6 +54,7 @@ class EventSourceMappingArgs:
                  tumbling_window_in_seconds: Optional[pulumi.Input[_builtins.int]] = None):
         """
         The set of arguments for constructing a EventSourceMapping resource.
+
         :param pulumi.Input[_builtins.str] function_name: The name or ARN of the Lambda function.
                  **Name formats**
                 +  *Function name* – ``MyFunction``.
@@ -584,6 +585,7 @@ class EventSourceMapping(pulumi.CustomResource):
           +   [Configuring Self-Managed Apache Kafka as an event source](https://docs.aws.amazon.com/lambda/latest/dg/kafka-smaa.html)
           +   [Configuring Amazon DocumentDB as an event source](https://docs.aws.amazon.com/lambda/latest/dg/with-documentdb.html)
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['EventSourceMappingAmazonManagedKafkaEventSourceConfigArgs', 'EventSourceMappingAmazonManagedKafkaEventSourceConfigArgsDict']] amazon_managed_kafka_event_source_config: Specific configuration settings for an Amazon Managed Streaming for Apache Kafka (Amazon MSK) event source.
@@ -662,6 +664,7 @@ class EventSourceMapping(pulumi.CustomResource):
           +   [Configuring MSK as an event source](https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html)
           +   [Configuring Self-Managed Apache Kafka as an event source](https://docs.aws.amazon.com/lambda/latest/dg/kafka-smaa.html)
           +   [Configuring Amazon DocumentDB as an event source](https://docs.aws.amazon.com/lambda/latest/dg/with-documentdb.html)
+
 
         :param str resource_name: The name of the resource.
         :param EventSourceMappingArgs args: The arguments to use to populate this resource's properties.

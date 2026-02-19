@@ -26,6 +26,7 @@ class DedicatedIpPoolArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a DedicatedIpPool resource.
+
         :param pulumi.Input[_builtins.str] pool_name: The name of the dedicated IP pool.
         :param pulumi.Input[_builtins.str] scaling_mode: Specifies whether the dedicated IP pool is managed or not. The default value is STANDARD.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags (keys and values) associated with the dedicated IP pool.
@@ -87,6 +88,7 @@ class DedicatedIpPool(pulumi.CustomResource):
         """
         Resource Type definition for AWS::SES::DedicatedIpPool
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] pool_name: The name of the dedicated IP pool.
@@ -101,6 +103,7 @@ class DedicatedIpPool(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::SES::DedicatedIpPool
+
 
         :param str resource_name: The name of the resource.
         :param DedicatedIpPoolArgs args: The arguments to use to populate this resource's properties.

@@ -36,6 +36,7 @@ class RouterInputArgs:
                  transit_encryption: Optional[pulumi.Input['RouterInputTransitEncryptionArgs']] = None):
         """
         The set of arguments for constructing a RouterInput resource.
+
         :param pulumi.Input[_builtins.int] maximum_bitrate: The maximum bitrate for the router input.
         :param pulumi.Input['RouterInputRoutingScope'] routing_scope: Indicates whether the router input is configured for Regional or global routing.
         :param pulumi.Input['RouterInputTier'] tier: The tier level of the router input.
@@ -201,6 +202,7 @@ class RouterInput(pulumi.CustomResource):
         """
         Represents a router input in AWS Elemental MediaConnect that is used to ingest content to be transmitted to router outputs
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] availability_zone: The Availability Zone where you want to create the router input. This must be a valid Availability Zone for the region specified by regionName, or the current region if no regionName is provided.
@@ -221,6 +223,7 @@ class RouterInput(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Represents a router input in AWS Elemental MediaConnect that is used to ingest content to be transmitted to router outputs
+
 
         :param str resource_name: The name of the resource.
         :param RouterInputArgs args: The arguments to use to populate this resource's properties.

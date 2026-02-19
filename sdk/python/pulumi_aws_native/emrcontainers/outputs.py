@@ -494,6 +494,7 @@ class SecurityConfigurationContainerProvider(dict):
                  info: Optional['outputs.SecurityConfigurationContainerInfo'] = None):
         """
         Container provider information.
+
         :param _builtins.str id: The container provider ID.
         :param 'SecurityConfigurationContainerProviderType' type: The container provider type.
         """
@@ -589,6 +590,7 @@ class SecurityConfigurationEksInfo(dict):
                  namespace: Optional[_builtins.str] = None):
         """
         EKS information.
+
         :param _builtins.str namespace: The EKS namespace.
         """
         if namespace is not None:
@@ -675,6 +677,7 @@ class SecurityConfigurationIamConfiguration(dict):
                  system_role: Optional[_builtins.str] = None):
         """
         IAM configuration.
+
         :param _builtins.str system_role: The system role ARN.
         """
         if system_role is not None:
@@ -721,6 +724,7 @@ class SecurityConfigurationIdentityCenterConfiguration(dict):
                  identity_center_instance_arn: Optional[_builtins.str] = None):
         """
         Identity Center configuration.
+
         :param _builtins.bool enable_identity_center: Whether to enable Identity Center integration.
         :param _builtins.bool identity_center_application_assignment_required: Whether Identity Center application assignment is required.
         :param _builtins.str identity_center_instance_arn: The ARN of the Identity Center instance.
@@ -828,6 +832,7 @@ class SecurityConfigurationLakeFormationConfiguration(dict):
                  secure_namespace_info: Optional['outputs.SecurityConfigurationSecureNamespaceInfo'] = None):
         """
         Lake Formation configuration.
+
         :param _builtins.str authorized_session_tag_value: The session tag to authorize Lake Formation access.
         :param _builtins.bool query_access_control_enabled: Whether query access control is enabled.
         :param _builtins.str query_engine_role_arn: The ARN of the query engine role.
@@ -900,6 +905,7 @@ class SecurityConfigurationLocalDiskEncryptionConfiguration(dict):
                  encryption_key_provider_type: Optional['SecurityConfigurationLocalDiskEncryptionConfigurationEncryptionKeyProviderType'] = None):
         """
         Local disk encryption configuration.
+
         :param _builtins.str aws_kms_key_id: The AWS KMS key ID.
         :param 'SecurityConfigurationLocalDiskEncryptionConfigurationEncryptionKeyProviderType' encryption_key_provider_type: The encryption key provider type.
         """
@@ -954,6 +960,7 @@ class SecurityConfigurationS3EncryptionConfiguration(dict):
                  kms_key_id: Optional[_builtins.str] = None):
         """
         S3 encryption configuration.
+
         :param 'SecurityConfigurationS3EncryptionConfigurationEncryptionOption' encryption_option: The S3 encryption option.
         :param _builtins.str kms_key_id: The KMS key ID for encryption.
         """
@@ -1006,6 +1013,7 @@ class SecurityConfigurationSecureNamespaceInfo(dict):
                  namespace: Optional[_builtins.str] = None):
         """
         Secure namespace information for Lake Formation.
+
         :param _builtins.str cluster_id: The ID of the cluster.
         :param _builtins.str namespace: The namespace.
         """
@@ -1063,6 +1071,7 @@ class SecurityConfigurationTlsCertificateConfiguration(dict):
                  public_key_secret_arn: Optional[_builtins.str] = None):
         """
         TLS certificate configuration for in-transit encryption.
+
         :param 'SecurityConfigurationTlsCertificateConfigurationCertificateProviderType' certificate_provider_type: The certificate provider type.
         :param _builtins.str private_key_secret_arn: The ARN of the secret containing the private key.
         :param _builtins.str public_key_secret_arn: The ARN of the secret containing the public key.

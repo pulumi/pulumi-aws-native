@@ -24,6 +24,7 @@ class MasterArgs:
                  invitation_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Master resource.
+
         :param pulumi.Input[_builtins.str] detector_id: Unique ID of the detector of the GuardDuty member account.
         :param pulumi.Input[_builtins.str] master_id: ID of the account used as the master account.
         :param pulumi.Input[_builtins.str] invitation_id: Value used to validate the master account to the member account.
@@ -83,6 +84,7 @@ class Master(pulumi.CustomResource):
         """
         GuardDuty Master resource schema
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] detector_id: Unique ID of the detector of the GuardDuty member account.
@@ -97,6 +99,7 @@ class Master(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         GuardDuty Master resource schema
+
 
         :param str resource_name: The name of the resource.
         :param MasterArgs args: The arguments to use to populate this resource's properties.

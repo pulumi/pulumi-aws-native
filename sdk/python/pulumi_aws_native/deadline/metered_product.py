@@ -23,6 +23,7 @@ class MeteredProductArgs:
                  product_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a MeteredProduct resource.
+
         :param pulumi.Input[_builtins.str] license_endpoint_id: The Amazon EC2 identifier of the license endpoint.
         :param pulumi.Input[_builtins.str] product_id: The product ID.
         """
@@ -68,6 +69,7 @@ class MeteredProduct(pulumi.CustomResource):
         """
         Definition of AWS::Deadline::MeteredProduct Resource Type
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] license_endpoint_id: The Amazon EC2 identifier of the license endpoint.
@@ -81,6 +83,7 @@ class MeteredProduct(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of AWS::Deadline::MeteredProduct Resource Type
+
 
         :param str resource_name: The name of the resource.
         :param MeteredProductArgs args: The arguments to use to populate this resource's properties.

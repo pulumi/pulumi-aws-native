@@ -32,6 +32,7 @@ class VerifiedAccessInstanceArgs:
                  verified_access_trust_providers: Optional[pulumi.Input[Sequence[pulumi.Input['VerifiedAccessInstanceVerifiedAccessTrustProviderArgs']]]] = None):
         """
         The set of arguments for constructing a VerifiedAccessInstance resource.
+
         :param pulumi.Input[_builtins.str] cidr_endpoints_custom_sub_domain: Introduce CidrEndpointsCustomSubDomain property to represent the domain (say, ava.my-company.com)
         :param pulumi.Input[_builtins.str] description: A description for the AWS Verified Access instance.
         :param pulumi.Input[_builtins.bool] fips_enabled: Indicates whether FIPS is enabled
@@ -157,6 +158,7 @@ class VerifiedAccessInstance(pulumi.CustomResource):
         """
         The AWS::EC2::VerifiedAccessInstance resource creates an AWS EC2 Verified Access Instance.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] cidr_endpoints_custom_sub_domain: Introduce CidrEndpointsCustomSubDomain property to represent the domain (say, ava.my-company.com)
@@ -175,6 +177,7 @@ class VerifiedAccessInstance(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The AWS::EC2::VerifiedAccessInstance resource creates an AWS EC2 Verified Access Instance.
+
 
         :param str resource_name: The name of the resource.
         :param VerifiedAccessInstanceArgs args: The arguments to use to populate this resource's properties.

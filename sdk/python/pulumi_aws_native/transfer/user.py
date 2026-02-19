@@ -36,6 +36,7 @@ class UserArgs:
                  user_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a User resource.
+
         :param pulumi.Input[_builtins.str] role: The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that controls your users' access to your Amazon S3 bucket or Amazon EFS file system. The policies attached to this role determine the level of access that you want to provide your users when transferring files into and out of your Amazon S3 bucket or Amazon EFS file system. The IAM role should also contain a trust relationship that allows the server to access your resources when servicing your users' transfer requests.
         :param pulumi.Input[_builtins.str] server_id: A system-assigned unique identifier for a server instance. This is the specific server that you added your user to.
         :param pulumi.Input[_builtins.str] home_directory: The landing directory (folder) for a user when they log in to the server using the client.
@@ -251,6 +252,7 @@ class User(pulumi.CustomResource):
         """
         Definition of AWS::Transfer::User Resource Type
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] home_directory: The landing directory (folder) for a user when they log in to the server using the client.
@@ -294,6 +296,7 @@ class User(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of AWS::Transfer::User Resource Type
+
 
         :param str resource_name: The name of the resource.
         :param UserArgs args: The arguments to use to populate this resource's properties.

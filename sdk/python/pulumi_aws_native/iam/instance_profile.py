@@ -24,6 +24,7 @@ class InstanceProfileArgs:
                  path: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a InstanceProfile resource.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] roles: The name of the role to associate with the instance profile. Only one role can be assigned to an EC2 instance at a time, and all applications on the instance share the same role and permissions.
         :param pulumi.Input[_builtins.str] instance_profile_name: The name of the instance profile to create.
                 This parameter allows (through its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex)) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
@@ -141,6 +142,7 @@ class InstanceProfile(pulumi.CustomResource):
 
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] instance_profile_name: The name of the instance profile to create.
@@ -209,6 +211,7 @@ class InstanceProfile(pulumi.CustomResource):
             })
 
         ```
+
 
         :param str resource_name: The name of the resource.
         :param InstanceProfileArgs args: The arguments to use to populate this resource's properties.

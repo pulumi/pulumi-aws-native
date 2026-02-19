@@ -45,6 +45,7 @@ class StreamStorageConfiguration(dict):
                  default_storage_tier: Optional['StreamStorageConfigurationDefaultStorageTier'] = None):
         """
         Configuration for the storage tier of the Kinesis Video Stream.
+
         :param 'StreamStorageConfigurationDefaultStorageTier' default_storage_tier: The storage tier for the Kinesis Video Stream. Determines the storage class used for stream data.
         """
         if default_storage_tier is not None:

@@ -26,6 +26,7 @@ class MatchmakingRuleSetArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a MatchmakingRuleSet resource.
+
         :param pulumi.Input[_builtins.str] rule_set_body: A collection of matchmaking rules, formatted as a JSON string.
         :param pulumi.Input[_builtins.str] name: A unique identifier for the matchmaking rule set.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
@@ -121,6 +122,7 @@ class MatchmakingRuleSet(pulumi.CustomResource):
 
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: A unique identifier for the matchmaking rule set.
@@ -170,6 +172,7 @@ class MatchmakingRuleSet(pulumi.CustomResource):
             rule_set_body="{\\"name\\": \\"MyMatchmakingRuleSet\\",\\"ruleLanguageVersion\\": \\"1.0\\", \\"teams\\": [{\\"name\\": \\"MyTeam\\",\\"minPlayers\\": 1,\\"maxPlayers\\": 20}]}")
 
         ```
+
 
         :param str resource_name: The name of the resource.
         :param MatchmakingRuleSetArgs args: The arguments to use to populate this resource's properties.

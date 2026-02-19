@@ -27,6 +27,7 @@ class TrafficMirrorFilterArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a TrafficMirrorFilter resource.
+
         :param pulumi.Input[_builtins.str] description: The description of a traffic mirror filter.
         :param pulumi.Input[Sequence[pulumi.Input['TrafficMirrorFilterTrafficMirrorNetworkService']]] network_services: The network service that is associated with the traffic mirror filter.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags for a traffic mirror filter.
@@ -88,6 +89,7 @@ class TrafficMirrorFilter(pulumi.CustomResource):
         """
         Resource schema for AWS::EC2::TrafficMirrorFilter
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: The description of a traffic mirror filter.
@@ -102,6 +104,7 @@ class TrafficMirrorFilter(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource schema for AWS::EC2::TrafficMirrorFilter
+
 
         :param str resource_name: The name of the resource.
         :param TrafficMirrorFilterArgs args: The arguments to use to populate this resource's properties.

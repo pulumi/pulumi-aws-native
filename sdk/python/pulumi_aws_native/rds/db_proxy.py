@@ -39,6 +39,7 @@ class DbProxyArgs:
                  vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a DbProxy resource.
+
         :param pulumi.Input['DbProxyEngineFamily'] engine_family: The kinds of databases that the proxy can connect to.
         :param pulumi.Input[_builtins.str] role_arn: The Amazon Resource Name (ARN) of the IAM role that the proxy uses to access secrets in AWS Secrets Manager.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] vpc_subnet_ids: VPC subnet IDs to associate with the new proxy.
@@ -257,6 +258,7 @@ class DbProxy(pulumi.CustomResource):
         """
         Resource schema for AWS::RDS::DBProxy
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['DbProxyAuthFormatArgs', 'DbProxyAuthFormatArgsDict']]]] auth: The authorization mechanism that the proxy uses.
@@ -281,6 +283,7 @@ class DbProxy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource schema for AWS::RDS::DBProxy
+
 
         :param str resource_name: The name of the resource.
         :param DbProxyArgs args: The arguments to use to populate this resource's properties.

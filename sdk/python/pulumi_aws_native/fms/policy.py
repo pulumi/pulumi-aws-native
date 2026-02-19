@@ -41,6 +41,7 @@ class PolicyArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Policy resource.
+
         :param pulumi.Input[_builtins.bool] exclude_resource_tags: Used only when tags are specified in the `ResourceTags` property. If this property is `True` , resources with the specified tags are not in scope of the policy. If it's `False` , only resources with the specified tags are in scope of the policy.
         :param pulumi.Input[_builtins.bool] remediation_enabled: Indicates if the policy should be automatically applied to new resources.
         :param pulumi.Input['PolicySecurityServicePolicyDataArgs'] security_service_policy_data: Details about the security service that is being used to protect the resources.
@@ -553,6 +554,7 @@ class Policy(pulumi.CustomResource):
         """
         Creates an AWS Firewall Manager policy.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] delete_all_policy_resources: Used when deleting a policy. If `true` , Firewall Manager performs cleanup according to the policy type.
@@ -710,6 +712,7 @@ class Policy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Creates an AWS Firewall Manager policy.
+
 
         :param str resource_name: The name of the resource.
         :param PolicyArgs args: The arguments to use to populate this resource's properties.

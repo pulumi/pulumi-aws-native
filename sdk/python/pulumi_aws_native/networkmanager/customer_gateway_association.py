@@ -25,6 +25,7 @@ class CustomerGatewayAssociationArgs:
                  link_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a CustomerGatewayAssociation resource.
+
         :param pulumi.Input[_builtins.str] customer_gateway_arn: The Amazon Resource Name (ARN) of the customer gateway.
         :param pulumi.Input[_builtins.str] device_id: The ID of the device
         :param pulumi.Input[_builtins.str] global_network_id: The ID of the global network.
@@ -99,6 +100,7 @@ class CustomerGatewayAssociation(pulumi.CustomResource):
         """
         The AWS::NetworkManager::CustomerGatewayAssociation type associates a customer gateway with a device and optionally, with a link.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] customer_gateway_arn: The Amazon Resource Name (ARN) of the customer gateway.
@@ -114,6 +116,7 @@ class CustomerGatewayAssociation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The AWS::NetworkManager::CustomerGatewayAssociation type associates a customer gateway with a device and optionally, with a link.
+
 
         :param str resource_name: The name of the resource.
         :param CustomerGatewayAssociationArgs args: The arguments to use to populate this resource's properties.

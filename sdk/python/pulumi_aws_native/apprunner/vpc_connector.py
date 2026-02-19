@@ -27,6 +27,7 @@ class VpcConnectorArgs:
                  vpc_connector_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a VpcConnector resource.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnets: A list of IDs of subnets that App Runner should use when it associates your service with a custom Amazon VPC. Specify IDs of subnets of a single Amazon VPC. App Runner determines the Amazon VPC from the subnets you specify.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_groups: A list of IDs of security groups that App Runner should use for access to AWS resources under the specified subnets. If not specified, App Runner uses the default security group of the Amazon VPC. The default security group allows all outbound traffic.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]] tags: A list of metadata items that you can associate with your VPC connector resource. A tag is a key-value pair.
@@ -103,6 +104,7 @@ class VpcConnector(pulumi.CustomResource):
         """
         The AWS::AppRunner::VpcConnector resource specifies an App Runner VpcConnector.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_groups: A list of IDs of security groups that App Runner should use for access to AWS resources under the specified subnets. If not specified, App Runner uses the default security group of the Amazon VPC. The default security group allows all outbound traffic.
@@ -118,6 +120,7 @@ class VpcConnector(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The AWS::AppRunner::VpcConnector resource specifies an App Runner VpcConnector.
+
 
         :param str resource_name: The name of the resource.
         :param VpcConnectorArgs args: The arguments to use to populate this resource's properties.

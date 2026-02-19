@@ -31,6 +31,7 @@ class TrustAnchorArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a TrustAnchor resource.
+
         :param pulumi.Input['TrustAnchorSourceArgs'] source: The trust anchor type and its related certificate data.
         :param pulumi.Input[_builtins.bool] enabled: Indicates whether the trust anchor is enabled.
         :param pulumi.Input[_builtins.str] name: The name of the trust anchor.
@@ -123,6 +124,7 @@ class TrustAnchor(pulumi.CustomResource):
         """
         Definition of AWS::RolesAnywhere::TrustAnchor Resource Type.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] enabled: Indicates whether the trust anchor is enabled.
@@ -139,6 +141,7 @@ class TrustAnchor(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of AWS::RolesAnywhere::TrustAnchor Resource Type.
+
 
         :param str resource_name: The name of the resource.
         :param TrustAnchorArgs args: The arguments to use to populate this resource's properties.

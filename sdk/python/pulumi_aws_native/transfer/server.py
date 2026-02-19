@@ -43,6 +43,7 @@ class ServerArgs:
                  workflow_details: Optional[pulumi.Input['ServerWorkflowDetailsArgs']] = None):
         """
         The set of arguments for constructing a Server resource.
+
         :param pulumi.Input[_builtins.str] certificate: The Amazon Resource Name (ARN) of the Certificate Manager (ACM) certificate. Required when `Protocols` is set to `FTPS` .
                
                To request a new public certificate, see [Request a public certificate](https://docs.aws.amazon.com/acm/latest/userguide/gs-acm-request-public.html) in the *Certificate Manager User Guide* .
@@ -672,6 +673,7 @@ class Server(pulumi.CustomResource):
 
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] certificate: The Amazon Resource Name (ARN) of the Certificate Manager (ACM) certificate. Required when `Protocols` is set to `FTPS` .
@@ -966,6 +968,7 @@ class Server(pulumi.CustomResource):
         })
 
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ServerArgs args: The arguments to use to populate this resource's properties.

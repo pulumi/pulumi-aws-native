@@ -53,6 +53,7 @@ class UserPoolArgs:
                  web_authn_user_verification: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a UserPool resource.
+
         :param pulumi.Input['UserPoolAccountRecoverySettingArgs'] account_recovery_setting: The available verified method a user can use to recover their password when they call `ForgotPassword` . You can use this setting to define a preferred method when a user has more than one method available. With this setting, SMS doesn't qualify for a valid password recovery mechanism if the user also has SMS multi-factor authentication (MFA) activated. In the absence of this setting, Amazon Cognito uses the legacy behavior to determine the recovery method where SMS is preferred through email.
         :param pulumi.Input['UserPoolAdminCreateUserConfigArgs'] admin_create_user_config: The settings for administrator creation of users in a user pool. Contains settings for allowing user sign-up, customizing invitation messages to new users, and the amount of time before temporary passwords expire.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] alias_attributes: Attributes supported as an alias for this user pool. For more information about alias attributes, see [Customizing sign-in attributes](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html#user-pool-settings-aliases) .
@@ -582,6 +583,7 @@ class UserPool(pulumi.CustomResource):
         """
         Definition of AWS::Cognito::UserPool Resource Type
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['UserPoolAccountRecoverySettingArgs', 'UserPoolAccountRecoverySettingArgsDict']] account_recovery_setting: The available verified method a user can use to recover their password when they call `ForgotPassword` . You can use this setting to define a preferred method when a user has more than one method available. With this setting, SMS doesn't qualify for a valid password recovery mechanism if the user also has SMS multi-factor authentication (MFA) activated. In the absence of this setting, Amazon Cognito uses the legacy behavior to determine the recovery method where SMS is preferred through email.
@@ -650,6 +652,7 @@ class UserPool(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of AWS::Cognito::UserPool Resource Type
+
 
         :param str resource_name: The name of the resource.
         :param UserPoolArgs args: The arguments to use to populate this resource's properties.

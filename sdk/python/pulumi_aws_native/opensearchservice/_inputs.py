@@ -98,6 +98,7 @@ class ApplicationAppConfigArgs:
                  value: pulumi.Input[_builtins.str]):
         """
         A key-value pair of AppConfig
+
         :param pulumi.Input['ApplicationAppConfigType'] key: The configuration key
         :param pulumi.Input[_builtins.str] value: The configuration value.
         """
@@ -149,6 +150,7 @@ class ApplicationDataSourceArgs:
                  data_source_description: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Datasource arn and description
+
         :param Any data_source_arn: The ARN of the data source.
         :param pulumi.Input[_builtins.str] data_source_description: Description of the data source.
         """
@@ -1171,6 +1173,7 @@ class DomainIdentityCenterOptionsArgs:
                  subject_key: Optional[pulumi.Input['DomainSubjectKeyIdcType']] = None):
         """
         Options for configuring Identity Center
+
         :param pulumi.Input[_builtins.bool] enabled_api_access: Whether Identity Center is enabled.
         :param pulumi.Input[_builtins.str] identity_center_application_arn: The ARN of the Identity Center application.
         :param pulumi.Input[_builtins.str] identity_center_instance_arn: The ARN of the Identity Center instance.
@@ -2135,6 +2138,7 @@ class IamIdentityCenterOptionsPropertiesArgs:
                  iam_role_for_identity_center_application_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Options for configuring IAM Identity Center
+
         :param pulumi.Input[_builtins.bool] enabled: Whether IAM Identity Center is enabled.
         :param Any iam_identity_center_instance_arn: The ARN of the IAM Identity Center instance.
         :param pulumi.Input[_builtins.str] iam_role_for_identity_center_application_arn: The ARN of the IAM role for Identity Center application.

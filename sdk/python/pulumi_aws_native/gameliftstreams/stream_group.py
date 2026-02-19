@@ -28,6 +28,7 @@ class StreamGroupArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a StreamGroup resource.
+
         :param pulumi.Input[_builtins.str] description: A descriptive label for the stream group.
         :param pulumi.Input[Sequence[pulumi.Input['StreamGroupLocationConfigurationArgs']]] location_configurations: A set of one or more locations and the streaming capacity for each location. One of the locations MUST be your primary location, which is the AWS Region where you are specifying this resource.
         :param pulumi.Input[_builtins.str] stream_class: The target stream quality for sessions that are hosted in this stream group. Set a stream class that is appropriate to the type of content that you're streaming. Stream class determines the type of computing resources Amazon GameLift Streams uses and impacts the cost of streaming. The following options are available:
@@ -280,6 +281,7 @@ class StreamGroup(pulumi.CustomResource):
         """
         Definition of AWS::GameLiftStreams::StreamGroup Resource Type
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['StreamGroupDefaultApplicationArgs', 'StreamGroupDefaultApplicationArgsDict']] default_application: Object that identifies the Amazon GameLift Streams application to stream with this stream group.
@@ -377,6 +379,7 @@ class StreamGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of AWS::GameLiftStreams::StreamGroup Resource Type
+
 
         :param str resource_name: The name of the resource.
         :param StreamGroupArgs args: The arguments to use to populate this resource's properties.

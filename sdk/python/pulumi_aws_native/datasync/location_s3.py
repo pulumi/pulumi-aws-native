@@ -31,6 +31,7 @@ class LocationS3Args:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a LocationS3 resource.
+
         :param pulumi.Input['LocationS3s3ConfigArgs'] s3_config: The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that is used to access an Amazon S3 bucket.
                
                For detailed information about using such a role, see [Creating a Location for Amazon S3](https://docs.aws.amazon.com/datasync/latest/userguide/working-with-locations.html#create-s3-location) in the *AWS DataSync User Guide* .
@@ -159,6 +160,7 @@ class LocationS3(pulumi.CustomResource):
 
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] s3_bucket_arn: The Amazon Resource Name (ARN) of the Amazon S3 bucket.
@@ -209,6 +211,7 @@ class LocationS3(pulumi.CustomResource):
             subdirectory="/MyFolder")
 
         ```
+
 
         :param str resource_name: The name of the resource.
         :param LocationS3Args args: The arguments to use to populate this resource's properties.

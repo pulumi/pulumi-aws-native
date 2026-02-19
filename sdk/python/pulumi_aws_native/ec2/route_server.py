@@ -29,6 +29,7 @@ class RouteServerArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a RouteServer resource.
+
         :param pulumi.Input[_builtins.int] amazon_side_asn: The Amazon-side ASN of the Route Server.
         :param pulumi.Input['RouteServerPersistRoutes'] persist_routes: Whether to enable persistent routes
         :param pulumi.Input[_builtins.int] persist_routes_duration: The duration of persistent routes in minutes
@@ -121,6 +122,7 @@ class RouteServer(pulumi.CustomResource):
         """
         VPC Route Server
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.int] amazon_side_asn: The Amazon-side ASN of the Route Server.
@@ -137,6 +139,7 @@ class RouteServer(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         VPC Route Server
+
 
         :param str resource_name: The name of the resource.
         :param RouteServerArgs args: The arguments to use to populate this resource's properties.

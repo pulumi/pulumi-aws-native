@@ -32,6 +32,7 @@ class VpcEndpointServiceArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a VpcEndpointService resource.
+
         :param pulumi.Input[_builtins.bool] acceptance_required: Indicates whether requests from service consumers to create an endpoint to your service must be accepted.
         :param pulumi.Input[_builtins.bool] contributor_insights_enabled: Indicates whether to enable the built-in Contributor Insights rules provided by AWS PrivateLink .
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] gateway_load_balancer_arns: The Amazon Resource Names (ARNs) of the Gateway Load Balancers.
@@ -173,6 +174,7 @@ class VpcEndpointService(pulumi.CustomResource):
         """
         Resource Type definition for AWS::EC2::VPCEndpointService
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] acceptance_required: Indicates whether requests from service consumers to create an endpoint to your service must be accepted.
@@ -192,6 +194,7 @@ class VpcEndpointService(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::EC2::VPCEndpointService
+
 
         :param str resource_name: The name of the resource.
         :param VpcEndpointServiceArgs args: The arguments to use to populate this resource's properties.

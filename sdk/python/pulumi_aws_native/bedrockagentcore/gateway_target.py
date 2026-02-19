@@ -30,6 +30,7 @@ class GatewayTargetArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a GatewayTarget resource.
+
         :param pulumi.Input['GatewayTargetTargetConfigurationPropertiesArgs'] target_configuration: The target configuration for the Smithy model target.
         :param pulumi.Input[Sequence[pulumi.Input['GatewayTargetCredentialProviderConfigurationArgs']]] credential_provider_configurations: The OAuth credential provider configuration.
         :param pulumi.Input[_builtins.str] description: The description for the gateway target.
@@ -134,6 +135,7 @@ class GatewayTarget(pulumi.CustomResource):
         """
         Resource Type definition for AWS::BedrockAgentCore::GatewayTarget
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['GatewayTargetCredentialProviderConfigurationArgs', 'GatewayTargetCredentialProviderConfigurationArgsDict']]]] credential_provider_configurations: The OAuth credential provider configuration.
@@ -150,6 +152,7 @@ class GatewayTarget(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::BedrockAgentCore::GatewayTarget
+
 
         :param str resource_name: The name of the resource.
         :param GatewayTargetArgs args: The arguments to use to populate this resource's properties.

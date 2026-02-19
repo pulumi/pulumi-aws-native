@@ -24,6 +24,7 @@ class VpcGatewayAttachmentArgs:
                  vpn_gateway_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a VpcGatewayAttachment resource.
+
         :param pulumi.Input[_builtins.str] vpc_id: The ID of the VPC.
         :param pulumi.Input[_builtins.str] internet_gateway_id: The ID of the internet gateway. You must specify either InternetGatewayId or VpnGatewayId, but not both.
         :param pulumi.Input[_builtins.str] vpn_gateway_id: The ID of the virtual private gateway. You must specify either InternetGatewayId or VpnGatewayId, but not both.
@@ -84,6 +85,7 @@ class VpcGatewayAttachment(pulumi.CustomResource):
         """
         Resource Type definition for AWS::EC2::VPCGatewayAttachment
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] internet_gateway_id: The ID of the internet gateway. You must specify either InternetGatewayId or VpnGatewayId, but not both.
@@ -98,6 +100,7 @@ class VpcGatewayAttachment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::EC2::VPCGatewayAttachment
+
 
         :param str resource_name: The name of the resource.
         :param VpcGatewayAttachmentArgs args: The arguments to use to populate this resource's properties.

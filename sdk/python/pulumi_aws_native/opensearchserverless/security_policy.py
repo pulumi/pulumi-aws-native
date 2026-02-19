@@ -26,6 +26,7 @@ class SecurityPolicyArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a SecurityPolicy resource.
+
         :param pulumi.Input[_builtins.str] policy: The JSON policy document that is the content for the policy
         :param pulumi.Input['SecurityPolicyType'] type: The type of security policy. Can be either `encryption` or `network` .
         :param pulumi.Input[_builtins.str] description: The description of the policy
@@ -155,6 +156,7 @@ class SecurityPolicy(pulumi.CustomResource):
 
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: The description of the policy
@@ -224,6 +226,7 @@ class SecurityPolicy(pulumi.CustomResource):
             policy="[{\\"Rules\\":[{\\"ResourceType\\":\\"collection\\",\\"Resource\\":[\\"collection/logs*\\"]}, {\\"ResourceType\\":\\"dashboard\\",\\"Resource\\":[\\"collection/logs*\\"]}],\\"AllowFromPublic\\":true}]")
 
         ```
+
 
         :param str resource_name: The name of the resource.
         :param SecurityPolicyArgs args: The arguments to use to populate this resource's properties.

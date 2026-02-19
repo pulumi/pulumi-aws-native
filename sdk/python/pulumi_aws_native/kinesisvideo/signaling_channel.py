@@ -28,6 +28,7 @@ class SignalingChannelArgs:
                  type: Optional[pulumi.Input['SignalingChannelType']] = None):
         """
         The set of arguments for constructing a SignalingChannel resource.
+
         :param pulumi.Input[_builtins.int] message_ttl_seconds: The period of time a signaling channel retains undelivered messages before they are discarded.
         :param pulumi.Input[_builtins.str] name: The name of the Kinesis Video Signaling Channel.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
@@ -105,6 +106,7 @@ class SignalingChannel(pulumi.CustomResource):
         """
         Resource Type Definition for AWS::KinesisVideo::SignalingChannel
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.int] message_ttl_seconds: The period of time a signaling channel retains undelivered messages before they are discarded.
@@ -120,6 +122,7 @@ class SignalingChannel(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type Definition for AWS::KinesisVideo::SignalingChannel
+
 
         :param str resource_name: The name of the resource.
         :param SignalingChannelArgs args: The arguments to use to populate this resource's properties.

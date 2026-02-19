@@ -29,6 +29,7 @@ class EnvironmentActionsArgs:
                  parameters: Optional[pulumi.Input['EnvironmentActionsAwsConsoleLinkParametersArgs']] = None):
         """
         The set of arguments for constructing a EnvironmentActions resource.
+
         :param pulumi.Input[_builtins.str] description: The description of the Amazon DataZone environment action.
         :param pulumi.Input[_builtins.str] domain_identifier: The identifier of the Amazon DataZone domain in which the environment would be created.
         :param pulumi.Input[_builtins.str] environment_identifier: The identifier of the Amazon DataZone environment in which the action is taking place
@@ -138,6 +139,7 @@ class EnvironmentActions(pulumi.CustomResource):
         """
         Definition of AWS::DataZone::EnvironmentActions Resource Type
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: The description of the Amazon DataZone environment action.
@@ -155,6 +157,7 @@ class EnvironmentActions(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of AWS::DataZone::EnvironmentActions Resource Type
+
 
         :param str resource_name: The name of the resource.
         :param EnvironmentActionsArgs args: The arguments to use to populate this resource's properties.

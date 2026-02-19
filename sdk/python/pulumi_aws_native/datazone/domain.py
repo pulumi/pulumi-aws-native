@@ -34,6 +34,7 @@ class DomainArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Domain resource.
+
         :param pulumi.Input[_builtins.str] domain_execution_role: The domain execution role that is created when an Amazon DataZone domain is created. The domain execution role is created in the AWS account that houses the Amazon DataZone domain.
         :param pulumi.Input[_builtins.str] description: The description of the Amazon DataZone domain.
         :param pulumi.Input['DomainVersion'] domain_version: The version of the domain.
@@ -174,6 +175,7 @@ class Domain(pulumi.CustomResource):
         """
         A domain is an organizing entity for connecting together assets, users, and their projects
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: The description of the Amazon DataZone domain.
@@ -193,6 +195,7 @@ class Domain(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A domain is an organizing entity for connecting together assets, users, and their projects
+
 
         :param str resource_name: The name of the resource.
         :param DomainArgs args: The arguments to use to populate this resource's properties.

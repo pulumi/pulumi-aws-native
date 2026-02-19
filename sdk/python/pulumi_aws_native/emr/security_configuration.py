@@ -23,6 +23,7 @@ class SecurityConfigurationArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a SecurityConfiguration resource.
+
         :param Any security_configuration: The security configuration details in JSON format.
                
                Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::EMR::SecurityConfiguration` for more information about the expected schema for this property.
@@ -71,6 +72,7 @@ class SecurityConfiguration(pulumi.CustomResource):
         """
         Use a SecurityConfiguration resource to configure data encryption, Kerberos authentication, and Amazon S3 authorization for EMRFS.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: The name of the security configuration.
@@ -86,6 +88,7 @@ class SecurityConfiguration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Use a SecurityConfiguration resource to configure data encryption, Kerberos authentication, and Amazon S3 authorization for EMRFS.
+
 
         :param str resource_name: The name of the resource.
         :param SecurityConfigurationArgs args: The arguments to use to populate this resource's properties.

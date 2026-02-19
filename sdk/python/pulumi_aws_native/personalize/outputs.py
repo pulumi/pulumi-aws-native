@@ -68,6 +68,7 @@ class DatasetImportJob(dict):
                  role_arn: Optional[_builtins.str] = None):
         """
         Initial DatasetImportJob for the created dataset
+
         :param 'DatasetImportJobDataSourceProperties' data_source: The Amazon S3 bucket that contains the training data to import.
         :param _builtins.str dataset_arn: The ARN of the dataset that receives the imported data
         :param _builtins.str dataset_import_job_arn: The ARN of the dataset import job
@@ -152,6 +153,7 @@ class DatasetImportJobDataSourceProperties(dict):
                  data_location: Optional[_builtins.str] = None):
         """
         The Amazon S3 bucket that contains the training data to import.
+
         :param _builtins.str data_location: The path to the Amazon S3 bucket where the data that you want to upload to your dataset is stored.
         """
         if data_location is not None:
@@ -176,6 +178,7 @@ class SolutionCategoricalHyperParameterRange(dict):
                  values: Optional[Sequence[_builtins.str]] = None):
         """
         Provides the name and values of a Categorical hyperparameter.
+
         :param _builtins.str name: The name of the hyperparameter.
         :param Sequence[_builtins.str] values: A list of the categories for the hyperparameter.
         """
@@ -239,6 +242,7 @@ class SolutionConfig(dict):
                  hpo_config: Optional['outputs.SolutionConfigHpoConfigProperties'] = None):
         """
         The configuration to use with the solution. When performAutoML is set to true, Amazon Personalize only evaluates the autoMLConfig section of the solution configuration.
+
         :param Mapping[str, _builtins.str] algorithm_hyper_parameters: Lists the hyperparameter names and ranges.
         :param 'SolutionConfigAutoMlConfigProperties' auto_ml_config: The AutoMLConfig object containing a list of recipes to search when AutoML is performed.
         :param _builtins.str event_value_threshold: Only events with a value greater than or equal to this threshold are used for training a model.
@@ -326,6 +330,7 @@ class SolutionConfigAutoMlConfigProperties(dict):
                  recipe_list: Optional[Sequence[_builtins.str]] = None):
         """
         The AutoMLConfig object containing a list of recipes to search when AutoML is performed.
+
         :param _builtins.str metric_name: The metric to optimize.
         :param Sequence[_builtins.str] recipe_list: The list of candidate recipes.
         """
@@ -383,6 +388,7 @@ class SolutionConfigHpoConfigProperties(dict):
                  hpo_resource_config: Optional['outputs.SolutionConfigHpoConfigPropertiesHpoResourceConfigProperties'] = None):
         """
         Describes the properties for hyperparameter optimization (HPO)
+
         :param 'SolutionConfigHpoConfigPropertiesAlgorithmHyperParameterRangesProperties' algorithm_hyper_parameter_ranges: The hyperparameters and their allowable ranges
         :param 'SolutionConfigHpoConfigPropertiesHpoObjectiveProperties' hpo_objective: The metric to optimize during HPO.
         :param 'SolutionConfigHpoConfigPropertiesHpoResourceConfigProperties' hpo_resource_config: Describes the resource configuration for hyperparameter optimization (HPO).
@@ -451,6 +457,7 @@ class SolutionConfigHpoConfigPropertiesAlgorithmHyperParameterRangesProperties(d
                  integer_hyper_parameter_ranges: Optional[Sequence['outputs.SolutionIntegerHyperParameterRange']] = None):
         """
         The hyperparameters and their allowable ranges
+
         :param Sequence['SolutionCategoricalHyperParameterRange'] categorical_hyper_parameter_ranges: The categorical hyperparameters and their ranges.
         :param Sequence['SolutionContinuousHyperParameterRange'] continuous_hyper_parameter_ranges: The continuous hyperparameters and their ranges.
         :param Sequence['SolutionIntegerHyperParameterRange'] integer_hyper_parameter_ranges: The integer hyperparameters and their ranges.
@@ -517,6 +524,7 @@ class SolutionConfigHpoConfigPropertiesHpoObjectiveProperties(dict):
                  type: Optional['SolutionConfigHpoConfigPropertiesHpoObjectivePropertiesType'] = None):
         """
         The metric to optimize during HPO.
+
         :param _builtins.str metric_name: The name of the metric
         :param _builtins.str metric_regex: A regular expression for finding the metric in the training job logs.
         :param 'SolutionConfigHpoConfigPropertiesHpoObjectivePropertiesType' type: The type of the metric. Valid values are Maximize and Minimize.
@@ -582,6 +590,7 @@ class SolutionConfigHpoConfigPropertiesHpoResourceConfigProperties(dict):
                  max_parallel_training_jobs: Optional[_builtins.str] = None):
         """
         Describes the resource configuration for hyperparameter optimization (HPO).
+
         :param _builtins.str max_number_of_training_jobs: The maximum number of training jobs when you create a solution version. The maximum value for maxNumberOfTrainingJobs is 40.
         :param _builtins.str max_parallel_training_jobs: The maximum number of parallel training jobs when you create a solution version. The maximum value for maxParallelTrainingJobs is 10.
         """
@@ -637,6 +646,7 @@ class SolutionContinuousHyperParameterRange(dict):
                  name: Optional[_builtins.str] = None):
         """
         Provides the name and range of a continuous hyperparameter.
+
         :param _builtins.float max_value: The maximum allowable value for the hyperparameter.
         :param _builtins.float min_value: The minimum allowable value for the hyperparameter.
         :param _builtins.str name: The name of the hyperparameter.
@@ -703,6 +713,7 @@ class SolutionIntegerHyperParameterRange(dict):
                  name: Optional[_builtins.str] = None):
         """
         Provides the name and range of an integer-valued hyperparameter.
+
         :param _builtins.int max_value: The maximum allowable value for the hyperparameter.
         :param _builtins.int min_value: The minimum allowable value for the hyperparameter.
         :param _builtins.str name: The name of the hyperparameter.

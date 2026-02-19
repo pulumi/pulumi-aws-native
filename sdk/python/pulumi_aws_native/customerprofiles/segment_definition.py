@@ -33,6 +33,7 @@ class SegmentDefinitionArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a SegmentDefinition resource.
+
         :param pulumi.Input[_builtins.str] display_name: The display name of the segment definition.
         :param pulumi.Input[_builtins.str] domain_name: The unique name of the domain.
         :param pulumi.Input[_builtins.str] description: The description of the segment definition.
@@ -156,6 +157,7 @@ class SegmentDefinition(pulumi.CustomResource):
         """
         A segment definition resource of Amazon Connect Customer Profiles
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: The description of the segment definition.
@@ -174,6 +176,7 @@ class SegmentDefinition(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A segment definition resource of Amazon Connect Customer Profiles
+
 
         :param str resource_name: The name of the resource.
         :param SegmentDefinitionArgs args: The arguments to use to populate this resource's properties.

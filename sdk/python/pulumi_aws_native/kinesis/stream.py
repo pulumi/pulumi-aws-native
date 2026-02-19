@@ -35,6 +35,7 @@ class StreamArgs:
                  warm_throughput_mi_bps: Optional[pulumi.Input[_builtins.int]] = None):
         """
         The set of arguments for constructing a Stream resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['StreamEnhancedMetric']]] desired_shard_level_metrics: The final list of shard-level metrics
         :param pulumi.Input[_builtins.int] max_record_size_in_ki_b: Maximum size of a data record in KiB allowed to be put into Kinesis stream.
         :param pulumi.Input[_builtins.str] name: The name of the Kinesis stream.
@@ -192,6 +193,7 @@ class Stream(pulumi.CustomResource):
         """
         Resource Type definition for AWS::Kinesis::Stream
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input['StreamEnhancedMetric']]] desired_shard_level_metrics: The final list of shard-level metrics
@@ -212,6 +214,7 @@ class Stream(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::Kinesis::Stream
+
 
         :param str resource_name: The name of the resource.
         :param StreamArgs args: The arguments to use to populate this resource's properties.

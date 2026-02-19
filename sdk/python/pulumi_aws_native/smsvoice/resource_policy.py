@@ -23,6 +23,7 @@ class ResourcePolicyArgs:
                  resource_arn: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a ResourcePolicy resource.
+
         :param Any policy_document: The JSON formatted resource-based policy to attach.
                
                Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SMSVOICE::ResourcePolicy` for more information about the expected schema for this property.
@@ -70,6 +71,7 @@ class ResourcePolicy(pulumi.CustomResource):
         """
         Resource Type definition for AWS::SMSVOICE::ResourcePolicy
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param Any policy_document: The JSON formatted resource-based policy to attach.
@@ -85,6 +87,7 @@ class ResourcePolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::SMSVOICE::ResourcePolicy
+
 
         :param str resource_name: The name of the resource.
         :param ResourcePolicyArgs args: The arguments to use to populate this resource's properties.

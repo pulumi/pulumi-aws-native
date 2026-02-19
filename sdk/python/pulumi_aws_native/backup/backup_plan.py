@@ -26,6 +26,7 @@ class BackupPlanArgs:
                  backup_plan_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a BackupPlan resource.
+
         :param pulumi.Input['BackupPlanResourceTypeArgs'] backup_plan: Uniquely identifies the backup plan to be associated with the selection of resources.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] backup_plan_tags: The tags to assign to the backup plan.
         """
@@ -70,6 +71,7 @@ class BackupPlan(pulumi.CustomResource):
         """
         Resource Type definition for AWS::Backup::BackupPlan
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['BackupPlanResourceTypeArgs', 'BackupPlanResourceTypeArgsDict']] backup_plan: Uniquely identifies the backup plan to be associated with the selection of resources.
@@ -83,6 +85,7 @@ class BackupPlan(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::Backup::BackupPlan
+
 
         :param str resource_name: The name of the resource.
         :param BackupPlanArgs args: The arguments to use to populate this resource's properties.

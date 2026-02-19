@@ -42,6 +42,7 @@ class BranchArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Branch resource.
+
         :param pulumi.Input[_builtins.str] app_id: The unique ID for an Amplify app.
         :param pulumi.Input['BranchBackendArgs'] backend: The backend for a `Branch` of an Amplify app. Use for a backend created from an CloudFormation stack.
                
@@ -342,6 +343,7 @@ class Branch(pulumi.CustomResource):
         """
         The AWS::Amplify::Branch resource creates a new branch within an app.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] app_id: The unique ID for an Amplify app.
@@ -385,6 +387,7 @@ class Branch(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The AWS::Amplify::Branch resource creates a new branch within an app.
+
 
         :param str resource_name: The name of the resource.
         :param BranchArgs args: The arguments to use to populate this resource's properties.

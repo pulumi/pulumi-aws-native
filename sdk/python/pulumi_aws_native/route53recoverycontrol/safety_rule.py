@@ -32,6 +32,7 @@ class SafetyRuleArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a SafetyRule resource.
+
         :param pulumi.Input['SafetyRuleAssertionRuleArgs'] assertion_rule: An assertion rule enforces that, when you change a routing control state, that the criteria that you set in the rule configuration is met. Otherwise, the change to the routing control is not accepted. For example, the criteria might be that at least one routing control state is `On` after the transaction so that traffic continues to flow to at least one cell for the application. This ensures that you avoid a fail-open scenario.
         :param pulumi.Input[_builtins.str] control_panel_arn: The Amazon Resource Name (ARN) of the control panel.
         :param pulumi.Input['SafetyRuleGatingRuleArgs'] gating_rule: A gating rule verifies that a gating routing control or set of gating routing controls, evaluates as true, based on a rule configuration that you specify, which allows a set of routing control state changes to complete.
@@ -145,6 +146,7 @@ class SafetyRule(pulumi.CustomResource):
         """
         Resource schema for AWS Route53 Recovery Control basic constructs and validation rules.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['SafetyRuleAssertionRuleArgs', 'SafetyRuleAssertionRuleArgsDict']] assertion_rule: An assertion rule enforces that, when you change a routing control state, that the criteria that you set in the rule configuration is met. Otherwise, the change to the routing control is not accepted. For example, the criteria might be that at least one routing control state is `On` after the transaction so that traffic continues to flow to at least one cell for the application. This ensures that you avoid a fail-open scenario.
@@ -164,6 +166,7 @@ class SafetyRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource schema for AWS Route53 Recovery Control basic constructs and validation rules.
+
 
         :param str resource_name: The name of the resource.
         :param SafetyRuleArgs args: The arguments to use to populate this resource's properties.

@@ -33,6 +33,7 @@ class MonitoringScheduleArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a MonitoringSchedule resource.
+
         :param pulumi.Input['MonitoringScheduleConfigArgs'] monitoring_schedule_config: The configuration object that specifies the monitoring schedule and defines the monitoring job.
         :param pulumi.Input[_builtins.str] endpoint_name: The name of the endpoint using the monitoring schedule.
         :param pulumi.Input[_builtins.str] failure_reason: Contains the reason a monitoring job failed, if it failed.
@@ -157,6 +158,7 @@ class MonitoringSchedule(pulumi.CustomResource):
         """
         Resource Type definition for AWS::SageMaker::MonitoringSchedule
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] endpoint_name: The name of the endpoint using the monitoring schedule.
@@ -175,6 +177,7 @@ class MonitoringSchedule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::SageMaker::MonitoringSchedule
+
 
         :param str resource_name: The name of the resource.
         :param MonitoringScheduleArgs args: The arguments to use to populate this resource's properties.

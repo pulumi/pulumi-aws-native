@@ -27,6 +27,7 @@ class LocalGatewayVirtualInterfaceGroupArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a LocalGatewayVirtualInterfaceGroup resource.
+
         :param pulumi.Input[_builtins.str] local_gateway_id: The ID of the local gateway
         :param pulumi.Input[_builtins.int] local_bgp_asn: The Autonomous System Number(ASN) for the local Border Gateway Protocol (BGP)
         :param pulumi.Input[_builtins.int] local_bgp_asn_extended: The extended 32-bit ASN for the local BGP configuration
@@ -103,6 +104,7 @@ class LocalGatewayVirtualInterfaceGroup(pulumi.CustomResource):
         """
         Resource Type definition for LocalGatewayVirtualInterfaceGroup which describes a group of LocalGateway VirtualInterfaces
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.int] local_bgp_asn: The Autonomous System Number(ASN) for the local Border Gateway Protocol (BGP)
@@ -118,6 +120,7 @@ class LocalGatewayVirtualInterfaceGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for LocalGatewayVirtualInterfaceGroup which describes a group of LocalGateway VirtualInterfaces
+
 
         :param str resource_name: The name of the resource.
         :param LocalGatewayVirtualInterfaceGroupArgs args: The arguments to use to populate this resource's properties.

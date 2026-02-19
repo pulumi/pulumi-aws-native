@@ -25,6 +25,7 @@ class NotificationChannelArgs:
                  config: pulumi.Input['NotificationChannelConfigArgs']):
         """
         The set of arguments for constructing a NotificationChannel resource.
+
         :param pulumi.Input['NotificationChannelConfigArgs'] config: A `NotificationChannelConfig` object that contains information about configured notification channels.
         """
         pulumi.set(__self__, "config", config)
@@ -115,6 +116,7 @@ class NotificationChannel(pulumi.CustomResource):
 
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['NotificationChannelConfigArgs', 'NotificationChannelConfigArgsDict']] config: A `NotificationChannelConfig` object that contains information about configured notification channels.
@@ -189,6 +191,7 @@ class NotificationChannel(pulumi.CustomResource):
         })
 
         ```
+
 
         :param str resource_name: The name of the resource.
         :param NotificationChannelArgs args: The arguments to use to populate this resource's properties.

@@ -63,6 +63,7 @@ class EnvironmentFederationParameters(dict):
                  saml_metadata_url: Optional[_builtins.str] = None):
         """
         Additional parameters to identify Federation mode
+
         :param _builtins.str application_call_back_url: SAML metadata URL to link with the Environment
         :param Sequence['EnvironmentFederationParametersAttributeMapItemProperties'] attribute_map: Attribute map for SAML configuration
         :param _builtins.str federation_provider_name: Federation provider name to link with the Environment
@@ -195,6 +196,7 @@ class EnvironmentSuperuserParameters(dict):
                  last_name: Optional[_builtins.str] = None):
         """
         Parameters of the first Superuser for the FinSpace Environment
+
         :param _builtins.str email_address: Email address
         :param _builtins.str first_name: First name
         :param _builtins.str last_name: Last name

@@ -28,6 +28,7 @@ class DashboardArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Dashboard resource.
+
         :param pulumi.Input[_builtins.str] dashboard_definition: The dashboard definition specified in a JSON literal.
         :param pulumi.Input[_builtins.str] dashboard_description: A description for the dashboard.
         :param pulumi.Input[_builtins.str] dashboard_name: A friendly name for the dashboard.
@@ -119,6 +120,7 @@ class Dashboard(pulumi.CustomResource):
         """
         Resource schema for AWS::IoTSiteWise::Dashboard
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] dashboard_definition: The dashboard definition specified in a JSON literal.
@@ -135,6 +137,7 @@ class Dashboard(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource schema for AWS::IoTSiteWise::Dashboard
+
 
         :param str resource_name: The name of the resource.
         :param DashboardArgs args: The arguments to use to populate this resource's properties.

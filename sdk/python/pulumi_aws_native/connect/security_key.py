@@ -23,6 +23,7 @@ class SecurityKeyArgs:
                  key: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a SecurityKey resource.
+
         :param pulumi.Input[_builtins.str] instance_id: The Amazon Resource Name (ARN) of the instance.
                
                *Minimum* : `1`
@@ -99,6 +100,7 @@ class SecurityKey(pulumi.CustomResource):
 
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] instance_id: The Amazon Resource Name (ARN) of the instance.
@@ -135,6 +137,7 @@ class SecurityKey(pulumi.CustomResource):
             key="valid-pem-key")
 
         ```
+
 
         :param str resource_name: The name of the resource.
         :param SecurityKeyArgs args: The arguments to use to populate this resource's properties.

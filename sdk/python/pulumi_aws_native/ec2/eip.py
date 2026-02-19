@@ -31,6 +31,7 @@ class EipArgs:
                  transfer_address: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Eip resource.
+
         :param pulumi.Input[_builtins.str] address: An Elastic IP address or a carrier IP address in a Wavelength Zone.
         :param pulumi.Input[_builtins.str] domain: The network (``vpc``).
                 If you define an Elastic IP address and associate it with a VPC that is defined in the same template, you must declare a dependency on the VPC-gateway attachment by using the [DependsOn Attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html) on this resource.
@@ -184,6 +185,7 @@ class Eip(pulumi.CustomResource):
          You can allocate an Elastic IP address from an address pool owned by AWS or from an address pool created from a public IPv4 address range that you have brought to AWS for use with your AWS resources using bring your own IP addresses (BYOIP). For more information, see [Bring Your Own IP Addresses (BYOIP)](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-byoip.html) in the *Amazon EC2 User Guide*.
          For more information, see [Elastic IP Addresses](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html) in the *Amazon EC2 User Guide*.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] address: An Elastic IP address or a carrier IP address in a Wavelength Zone.
@@ -210,6 +212,7 @@ class Eip(pulumi.CustomResource):
         Specifies an Elastic IP (EIP) address and can, optionally, associate it with an Amazon EC2 instance.
          You can allocate an Elastic IP address from an address pool owned by AWS or from an address pool created from a public IPv4 address range that you have brought to AWS for use with your AWS resources using bring your own IP addresses (BYOIP). For more information, see [Bring Your Own IP Addresses (BYOIP)](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-byoip.html) in the *Amazon EC2 User Guide*.
          For more information, see [Elastic IP Addresses](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html) in the *Amazon EC2 User Guide*.
+
 
         :param str resource_name: The name of the resource.
         :param EipArgs args: The arguments to use to populate this resource's properties.

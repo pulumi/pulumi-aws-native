@@ -27,6 +27,7 @@ class CertificateArgs:
                  certificate_signing_request: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Certificate resource.
+
         :param pulumi.Input['CertificateStatus'] status: The status of the certificate.
                
                Valid values are ACTIVE, INACTIVE, REVOKED, PENDING_TRANSFER, and PENDING_ACTIVATION.
@@ -135,6 +136,7 @@ class Certificate(pulumi.CustomResource):
         """
         Use the AWS::IoT::Certificate resource to declare an AWS IoT X.509 certificate.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] ca_certificate_pem: The CA certificate used to sign the device certificate being registered, not available when CertificateMode is SNI_ONLY.
@@ -159,6 +161,7 @@ class Certificate(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Use the AWS::IoT::Certificate resource to declare an AWS IoT X.509 certificate.
+
 
         :param str resource_name: The name of the resource.
         :param CertificateArgs args: The arguments to use to populate this resource's properties.

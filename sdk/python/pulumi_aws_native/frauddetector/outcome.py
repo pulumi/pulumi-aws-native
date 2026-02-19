@@ -26,6 +26,7 @@ class OutcomeArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Outcome resource.
+
         :param pulumi.Input[_builtins.str] description: The outcome description.
         :param pulumi.Input[_builtins.str] name: The name of the outcome.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: Tags associated with this outcome.
@@ -87,6 +88,7 @@ class Outcome(pulumi.CustomResource):
         """
         An outcome for rule evaluation.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: The outcome description.
@@ -101,6 +103,7 @@ class Outcome(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An outcome for rule evaluation.
+
 
         :param str resource_name: The name of the resource.
         :param OutcomeArgs args: The arguments to use to populate this resource's properties.

@@ -154,6 +154,7 @@ class CalculatedAttributeDefinitionAttributeDetailsArgs:
                  expression: pulumi.Input[_builtins.str]):
         """
         Mathematical expression and a list of attribute items specified in that expression.
+
         :param pulumi.Input[Sequence[pulumi.Input['CalculatedAttributeDefinitionAttributeItemArgs']]] attributes: Mathematical expression and a list of attribute items specified in that expression.
         :param pulumi.Input[_builtins.str] expression: Mathematical expression that is performed on attribute items provided in the attribute list. Each element in the expression should follow the structure of \\"{ObjectTypeName.AttributeName}\\".
         """
@@ -235,6 +236,7 @@ class CalculatedAttributeDefinitionConditionsArgs:
                  threshold: Optional[pulumi.Input['CalculatedAttributeDefinitionThresholdArgs']] = None):
         """
         The conditions including range, object count, and threshold for the calculated attribute.
+
         :param pulumi.Input[_builtins.int] object_count: The number of profile objects used for the calculated attribute.
         :param pulumi.Input['CalculatedAttributeDefinitionRangeArgs'] range: The relative time period over which data is included in the aggregation.
         :param pulumi.Input['CalculatedAttributeDefinitionThresholdArgs'] threshold: The threshold for the calculated attribute.
@@ -318,6 +320,7 @@ class CalculatedAttributeDefinitionRangeArgs:
                  value_range: Optional[pulumi.Input['CalculatedAttributeDefinitionValueRangeArgs']] = None):
         """
         The relative time period over which data is included in the aggregation.
+
         :param pulumi.Input['CalculatedAttributeDefinitionRangeUnit'] unit: The unit of time.
         :param pulumi.Input[_builtins.str] timestamp_format: The format the timestamp field in your JSON object is specified. This value should be one of EPOCHMILLI or ISO_8601. E.g. if your object type is MyType and source JSON is {"generatedAt": {"timestamp": "2001-07-04T12:08:56.235Z"}}, then TimestampFormat should be "ISO_8601".
         :param pulumi.Input[_builtins.str] timestamp_source: An expression specifying the field in your JSON object from which the date should be parsed. The expression should follow the structure of \\"{ObjectTypeName.<Location of timestamp field in JSON pointer format>}\\". E.g. if your object type is MyType and source JSON is {"generatedAt": {"timestamp": "1737587945945"}}, then TimestampSource should be "{MyType.generatedAt.timestamp}".
@@ -415,6 +418,7 @@ class CalculatedAttributeDefinitionThresholdArgs:
                  value: pulumi.Input[_builtins.str]):
         """
         The threshold for the calculated attribute.
+
         :param pulumi.Input['CalculatedAttributeDefinitionThresholdOperator'] operator: The operator of the threshold.
         :param pulumi.Input[_builtins.str] value: The value of the threshold.
         """
@@ -466,6 +470,7 @@ class CalculatedAttributeDefinitionValueRangeArgs:
                  start: pulumi.Input[_builtins.int]):
         """
         A structure specifying the endpoints of the relative time period over which data is included in the aggregation.
+
         :param pulumi.Input[_builtins.int] end: The ending point for this range. Positive numbers indicate how many days in the past data should be included, and negative numbers indicate how many days in the future.
         :param pulumi.Input[_builtins.int] start: The starting point for this range. Positive numbers indicate how many days in the past data should be included, and negative numbers indicate how many days in the future.
         """
@@ -527,6 +532,7 @@ class DomainAttributeTypesSelectorArgs:
                  phone_number: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Configures information about the AttributeTypesSelector where the rule-based identity resolution uses to match profiles.
+
         :param pulumi.Input['DomainAttributeTypesSelectorAttributeMatchingModel'] attribute_matching_model: Configures the AttributeMatchingModel, you can either choose ONE_TO_ONE or MANY_TO_MANY.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] address: The Address type. You can choose from Address, BusinessAddress, MaillingAddress, and ShippingAddress. You only can use the Address type in the MatchingRule. For example, if you want to match profile based on BusinessAddress.City or MaillingAddress.City, you need to choose the BusinessAddress and the MaillingAddress to represent the Address type and specify the Address.City on the matching rule.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] email_address: The Email type. You can choose from EmailAddress, BusinessEmailAddress and PersonalEmailAddress. You only can use the EmailAddress type in the MatchingRule. For example, if you want to match profile based on PersonalEmailAddress or BusinessEmailAddress, you need to choose the PersonalEmailAddress and the BusinessEmailAddress to represent the EmailAddress type and only specify the EmailAddress on the matching rule.
@@ -619,6 +625,7 @@ class DomainAutoMergingArgs:
                  min_allowed_confidence_score_for_merging: Optional[pulumi.Input[_builtins.float]] = None):
         """
         Configuration information about the auto-merging process.
+
         :param pulumi.Input[_builtins.bool] enabled: The flag that enables the auto-merging of duplicate profiles.
         :param pulumi.Input['DomainConflictResolutionArgs'] conflict_resolution: Determines how the auto-merging process should resolve conflicts between different profiles. For example, if Profile A and Profile B have the same `FirstName` and `LastName` , `ConflictResolution` specifies which `EmailAddress` should be used.
         :param pulumi.Input['DomainConsolidationArgs'] consolidation: A list of matching attributes that represent matching criteria. If two profiles meet at least one of the requirements in the matching attributes list, they will be merged.
@@ -701,6 +708,7 @@ class DomainConflictResolutionArgs:
                  source_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         How the auto-merging process should resolve conflicts between different profiles. For example, if Profile A and Profile B have the same FirstName and LastName (and that is the matching criteria), which EmailAddress should be used? 
+
         :param pulumi.Input['DomainConflictResolutionConflictResolvingModel'] conflict_resolving_model: How the auto-merging process should resolve conflicts between different profiles.
         :param pulumi.Input[_builtins.str] source_name: The ObjectType name that is used to resolve profile merging conflicts when choosing SOURCE as the ConflictResolvingModel.
         """
@@ -748,6 +756,7 @@ class DomainConsolidationArgs:
                  matching_attributes_list: pulumi.Input[Sequence[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]]):
         """
         A list of matching attributes that represent matching criteria. If two profiles meet at least one of the requirements in the matching attributes list, they will be merged.
+
         :param pulumi.Input[Sequence[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]] matching_attributes_list: A list of matching criteria.
         """
         pulumi.set(__self__, "matching_attributes_list", matching_attributes_list)
@@ -782,6 +791,7 @@ class DomainDataStoreArgs:
                  readiness: Optional[pulumi.Input['DomainReadinessArgs']] = None):
         """
         Configuration and status of the data store for the domain.
+
         :param pulumi.Input[_builtins.bool] enabled: Whether the data store is enabled.
         """
         if enabled is not None:
@@ -857,6 +867,7 @@ class DomainJobScheduleArgs:
                  time: pulumi.Input[_builtins.str]):
         """
         The day and time when do you want to start the Identity Resolution Job every week.
+
         :param pulumi.Input['DomainJobScheduleDayOfTheWeek'] day_of_the_week: The day when the Identity Resolution Job should run every week.
         :param pulumi.Input[_builtins.str] time: The time when the Identity Resolution Job should run every week.
         """
@@ -903,6 +914,7 @@ class DomainMatchingRuleArgs:
                  rule: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
         """
         Specifies how does the rule-based matching process should match profiles.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] rule: A single rule level of the `MatchRules` . Configures how the rule-based matching process should match profiles.
         """
         pulumi.set(__self__, "rule", rule)
@@ -950,6 +962,7 @@ class DomainMatchingArgs:
                  job_schedule: Optional[pulumi.Input['DomainJobScheduleArgs']] = None):
         """
         The process of matching duplicate profiles. If Matching = true, Amazon Connect Customer Profiles starts a weekly batch process called Identity Resolution Job. If you do not specify a date and time for Identity Resolution Job to run, by default it runs every Saturday at 12AM UTC to detect duplicate profiles in your domains. After the Identity Resolution Job completes, use the GetMatches API to return and review the results. Or, if you have configured ExportingConfig in the MatchingRequest, you can download the results from S3.
+
         :param pulumi.Input[_builtins.bool] enabled: The flag that enables the matching process of duplicate profiles.
         :param pulumi.Input['DomainAutoMergingArgs'] auto_merging: Configuration information about the auto-merging process.
         :param pulumi.Input['DomainExportingConfigArgs'] exporting_config: The S3 location where Identity Resolution Jobs write result files.
@@ -1032,6 +1045,7 @@ class DomainReadinessArgs:
                  progress_percentage: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Progress information for data store setup.
+
         :param pulumi.Input[_builtins.str] message: A message describing the current progress.
         :param pulumi.Input[_builtins.int] progress_percentage: The percentage of progress completed.
         """
@@ -1115,6 +1129,7 @@ class DomainRuleBasedMatchingArgs:
                  status: Optional[pulumi.Input['DomainRuleBasedMatchingStatus']] = None):
         """
         The process of matching duplicate profiles using the Rule-Based matching. If RuleBasedMatching = true, Amazon Connect Customer Profiles will start to match and merge your profiles according to your configuration in the RuleBasedMatchingRequest. You can use the ListRuleBasedMatches and GetSimilarProfiles API to return and review the results. Also, if you have configured ExportingConfig in the RuleBasedMatchingRequest, you can download the results from S3.
+
         :param pulumi.Input[_builtins.bool] enabled: The flag that enables the rule-based matching process of duplicate profiles.
         :param pulumi.Input['DomainAttributeTypesSelectorArgs'] attribute_types_selector: Configures information about the `AttributeTypesSelector` where the rule-based identity resolution uses to match profiles.
         :param pulumi.Input['DomainConflictResolutionArgs'] conflict_resolution: Determines how the auto-merging process should resolve conflicts between different profiles. For example, if Profile A and Profile B have the same `FirstName` and `LastName` , `ConflictResolution` specifies which `EmailAddress` should be used.
@@ -1257,6 +1272,7 @@ class DomainS3ExportingConfigArgs:
                  s3_key_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The S3 location where Identity Resolution Jobs write result files.
+
         :param pulumi.Input[_builtins.str] s3_bucket_name: The name of the S3 bucket where Identity Resolution Jobs write result files.
         :param pulumi.Input[_builtins.str] s3_key_name: The S3 key name of the location where Identity Resolution Jobs write result files.
         """
@@ -1371,6 +1387,7 @@ class EventTriggerLimitsArgs:
                  periods: Optional[pulumi.Input[Sequence[pulumi.Input['EventTriggerPeriodArgs']]]] = None):
         """
         Defines limits controlling whether an event triggers the destination, based on ingestion latency and the number of invocations per profile over specific time periods.
+
         :param pulumi.Input[_builtins.int] event_expiration: Specifies that an event will only trigger the destination if it is processed within a certain latency period.
         :param pulumi.Input[Sequence[pulumi.Input['EventTriggerPeriodArgs']]] periods: A list of time periods during which the limits apply.
         """
@@ -1434,6 +1451,7 @@ class EventTriggerObjectAttributeArgs:
                  source: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The criteria that a specific object attribute must meet to trigger the destination.
+
         :param pulumi.Input['EventTriggerObjectAttributeComparisonOperator'] comparison_operator: The operator used to compare an attribute against a list of values.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: A list of attribute values used for comparison.
         :param pulumi.Input[_builtins.str] field_name: A field defined within an object type.
@@ -1525,6 +1543,7 @@ class EventTriggerPeriodArgs:
                  unlimited: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Defines a limit and the time period during which it is enforced.
+
         :param pulumi.Input['EventTriggerPeriodUnit'] unit: The unit of time.
         :param pulumi.Input[_builtins.int] value: The amount of time of the specified unit.
         :param pulumi.Input[_builtins.int] max_invocations_per_profile: The maximum allowed number of destination invocations per profile.
@@ -2744,6 +2763,7 @@ class ObjectTypeFieldArgs:
                  target: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Represents a field in a ProfileObjectType.
+
         :param pulumi.Input['ObjectTypeFieldContentType'] content_type: The content type of the field. Used for determining equality when searching.
         :param pulumi.Input[_builtins.str] source: A field of a ProfileObject. For example: _source.FirstName, where "_source" is a ProfileObjectType of a Zendesk user and "FirstName" is a field in that ObjectType.
         :param pulumi.Input[_builtins.str] target: The location of the data in the standard ProfileObject model. For example: _profile.Address.PostalCode.
@@ -2861,6 +2881,7 @@ class ObjectTypeKeyArgs:
                  standard_identifiers: Optional[pulumi.Input[Sequence[pulumi.Input['ObjectTypeKeyStandardIdentifiersItem']]]] = None):
         """
         An object that defines the Key element of a ProfileObject. A Key is a special element that can be used to search for a customer profile.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] field_names: The reference for the key name of the fields map. 
         :param pulumi.Input[Sequence[pulumi.Input['ObjectTypeKeyStandardIdentifiersItem']]] standard_identifiers: The types of keys that a ProfileObject can have. Each ProfileObject can have only 1 UNIQUE key but multiple PROFILE keys. PROFILE means that this key can be used to tie an object to a PROFILE. UNIQUE means that it can be used to uniquely identify an object. If a key a is marked as SECONDARY, it will be used to search for profiles after all other PROFILE keys have been searched. A LOOKUP_ONLY key is only used to match a profile but is not persisted to be used for searching of the profile. A NEW_ONLY key is only used if the profile does not already exist before the object is ingested, otherwise it is only used for matching objects to profiles.
         """
@@ -3253,6 +3274,7 @@ class SegmentDefinitionGroupArgs:
                  type: Optional[pulumi.Input['SegmentDefinitionIncludeOptions']] = None):
         """
         An array that defines the set of segment criteria to evaluate when handling segment groups for the segment.
+
         :param pulumi.Input[Sequence[pulumi.Input[Union['SegmentDefinitionDimension0PropertiesArgs', 'SegmentDefinitionDimension1PropertiesArgs']]]] dimensions: Defines the attributes to segment on.
         :param pulumi.Input[Sequence[pulumi.Input['SegmentDefinitionSourceSegmentArgs']]] source_segments: Defines the starting source of data.
         :param pulumi.Input['SegmentDefinitionIncludeOptions'] source_type: Defines how to interact with the source data.
@@ -3714,6 +3736,7 @@ class SegmentDefinitionRangeOverrideArgs:
                  end: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Defines the range to be applied to the calculated attribute definition.
+
         :param pulumi.Input[_builtins.int] start: The starting point for this overridden range. Positive numbers indicate how many days in the past data should be included, and negative numbers indicate how many days in the future.
         :param pulumi.Input['SegmentDefinitionRangeOverrideUnit'] unit: The unit to be applied to the range.
         :param pulumi.Input[_builtins.int] end: The ending point for this overridden range. Positive numbers indicate how many days in the past data should be included, and negative numbers indicate how many days in the future.
@@ -3824,6 +3847,7 @@ class SegmentDefinitionSourceSegmentArgs:
                  segment_definition_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The base segment to build the segment on.
+
         :param pulumi.Input[_builtins.str] segment_definition_name: The name of the source segment.
         """
         if segment_definition_name is not None:

@@ -22,6 +22,7 @@ class AccountAliasArgs:
                  account_alias: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a AccountAlias resource.
+
         :param pulumi.Input[_builtins.str] account_alias: An account alias associated with a customer's account.
         """
         pulumi.set(__self__, "account_alias", account_alias)
@@ -50,6 +51,7 @@ class AccountAlias(pulumi.CustomResource):
         """
         An AWS Support App resource that creates, updates, reads, and deletes a customer's account alias.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_alias: An account alias associated with a customer's account.
@@ -62,6 +64,7 @@ class AccountAlias(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An AWS Support App resource that creates, updates, reads, and deletes a customer's account alias.
+
 
         :param str resource_name: The name of the resource.
         :param AccountAliasArgs args: The arguments to use to populate this resource's properties.

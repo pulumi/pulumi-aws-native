@@ -47,6 +47,7 @@ class CloudVmClusterArgs:
                  time_zone: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a CloudVmCluster resource.
+
         :param pulumi.Input[_builtins.str] cloud_exadata_infrastructure_id: The unique identifier of the Exadata infrastructure that this VM cluster belongs to.
         :param pulumi.Input[_builtins.str] cluster_name: The name of the Grid Infrastructure (GI) cluster.
         :param pulumi.Input[_builtins.int] cpu_core_count: The number of CPU cores enabled on the VM cluster.
@@ -396,6 +397,7 @@ class CloudVmCluster(pulumi.CustomResource):
         """
         The AWS::ODB::CloudVmCluster resource creates a Cloud VM Cluster
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] cloud_exadata_infrastructure_id: The unique identifier of the Exadata infrastructure that this VM cluster belongs to.
@@ -428,6 +430,7 @@ class CloudVmCluster(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The AWS::ODB::CloudVmCluster resource creates a Cloud VM Cluster
+
 
         :param str resource_name: The name of the resource.
         :param CloudVmClusterArgs args: The arguments to use to populate this resource's properties.

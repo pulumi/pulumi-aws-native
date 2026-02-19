@@ -665,6 +665,7 @@ class AppImageConfigCodeEditorAppImageConfigArgs:
                  container_config: Optional[pulumi.Input['AppImageConfigContainerConfigArgs']] = None):
         """
         The configuration for the kernels in a SageMaker image running as a CodeEditor app.
+
         :param pulumi.Input['AppImageConfigContainerConfigArgs'] container_config: The container configuration for a SageMaker image.
         """
         if container_config is not None:
@@ -708,6 +709,7 @@ class AppImageConfigContainerConfigArgs:
                  container_environment_variables: Optional[pulumi.Input[Sequence[pulumi.Input['AppImageConfigCustomImageContainerEnvironmentVariableArgs']]]] = None):
         """
         The container configuration for a SageMaker image.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] container_arguments: A list of arguments to apply to the container.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] container_entrypoint: The custom entry point to use on container.
         :param pulumi.Input[Sequence[pulumi.Input['AppImageConfigCustomImageContainerEnvironmentVariableArgs']]] container_environment_variables: A list of variables to apply to the custom container.
@@ -828,6 +830,7 @@ class AppImageConfigFileSystemConfigArgs:
                  mount_path: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The Amazon Elastic File System (EFS) storage configuration for a SageMaker image.
+
         :param pulumi.Input[_builtins.int] default_gid: The default POSIX group ID (GID). If not specified, defaults to 100.
         :param pulumi.Input[_builtins.int] default_uid: The default POSIX user ID (UID). If not specified, defaults to 1000.
         :param pulumi.Input[_builtins.str] mount_path: The path within the image to mount the user's EFS home directory. The directory should be empty. If not specified, defaults to /home/sagemaker-user.
@@ -891,6 +894,7 @@ class AppImageConfigJupyterLabAppImageConfigArgs:
                  container_config: Optional[pulumi.Input['AppImageConfigContainerConfigArgs']] = None):
         """
         The configuration for the kernels in a SageMaker image running as a JupyterLab app.
+
         :param pulumi.Input['AppImageConfigContainerConfigArgs'] container_config: The container configuration for a SageMaker image.
         """
         if container_config is not None:
@@ -929,6 +933,7 @@ class AppImageConfigKernelGatewayImageConfigArgs:
                  file_system_config: Optional[pulumi.Input['AppImageConfigFileSystemConfigArgs']] = None):
         """
         The configuration for the file system and kernels in a SageMaker image running as a KernelGateway app.
+
         :param pulumi.Input[Sequence[pulumi.Input['AppImageConfigKernelSpecArgs']]] kernel_specs: The specification of the Jupyter kernels in the image.
         :param pulumi.Input['AppImageConfigFileSystemConfigArgs'] file_system_config: The Amazon Elastic File System (EFS) storage configuration for a SageMaker image.
         """
@@ -1113,6 +1118,7 @@ class ClusterAlarmDetailsArgs:
                  alarm_name: pulumi.Input[_builtins.str]):
         """
         The details of the alarm to monitor during the AMI update.
+
         :param pulumi.Input[_builtins.str] alarm_name: The name of the alarm.
         """
         pulumi.set(__self__, "alarm_name", alarm_name)
@@ -1150,6 +1156,7 @@ class ClusterAutoScalingConfigArgs:
                  auto_scaler_type: Optional[pulumi.Input['ClusterAutoScalingConfigAutoScalerType']] = None):
         """
         Configuration for cluster auto-scaling
+
         :param pulumi.Input['ClusterAutoScalingConfigMode'] mode: The auto-scaling mode for the cluster
         :param pulumi.Input['ClusterAutoScalingConfigAutoScalerType'] auto_scaler_type: The type of auto-scaler to use
         """
@@ -1241,6 +1248,7 @@ class ClusterCapacitySizeConfigArgs:
                  value: pulumi.Input[_builtins.int]):
         """
         The configuration of the size measurements of the AMI update. Using this configuration, you can specify whether SageMaker should update your instance group by an amount or percentage of instances.
+
         :param pulumi.Input[_builtins.str] type: Specifies whether SageMaker should process the update by amount or percentage of instances.
         :param pulumi.Input[_builtins.int] value: Specifies the amount or percentage of instances SageMaker updates at a time.
         """
@@ -1291,6 +1299,7 @@ class ClusterDeploymentConfigArgs:
                  wait_interval_in_seconds: Optional[pulumi.Input[_builtins.int]] = None):
         """
         The configuration to use when updating the AMI versions.
+
         :param pulumi.Input[_builtins.int] wait_interval_in_seconds: The duration in seconds that SageMaker waits before updating more instances in the cluster.
         """
         if auto_rollback_configuration is not None:
@@ -1377,6 +1386,7 @@ class ClusterFSxLustreConfigArgs:
                  size_in_gi_b: pulumi.Input[_builtins.int]):
         """
         Configuration settings for an Amazon FSx for Lustre file system to be used with the cluster.
+
         :param pulumi.Input[_builtins.int] per_unit_storage_throughput: The throughput capacity of the FSx for Lustre file system, measured in MB/s per TiB of storage.
         :param pulumi.Input[_builtins.int] size_in_gi_b: The storage capacity of the FSx for Lustre file system, specified in gibibytes (GiB).
         """
@@ -1467,6 +1477,7 @@ class ClusterInstanceGroupArgs:
                  training_plan_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Details of an instance group in a SageMaker HyperPod cluster.
+
         :param pulumi.Input[_builtins.int] instance_count: The number of instances you specified to add to the instance group of a SageMaker HyperPod cluster.
         :param pulumi.Input[_builtins.int] current_count: The number of instances that are currently in the instance group of a SageMaker HyperPod cluster.
         :param pulumi.Input[_builtins.int] min_instance_count: The minimum number of instances required for the instance group to be InService. MinInstanceCount must be less than or equal to InstanceCount.
@@ -1751,6 +1762,7 @@ class ClusterKubernetesTaintArgs:
                  value: Optional[pulumi.Input[_builtins.str]] = None):
         """
         A Kubernetes taint to apply to cluster nodes.
+
         :param pulumi.Input['ClusterKubernetesTaintEffect'] effect: The effect of the taint.
         :param pulumi.Input[_builtins.str] key: The key of the taint.
         :param pulumi.Input[_builtins.str] value: The value of the taint.
@@ -1817,6 +1829,7 @@ class ClusterLifeCycleConfigArgs:
                  source_s3_uri: pulumi.Input[_builtins.str]):
         """
         The lifecycle configuration for a SageMaker HyperPod cluster.
+
         :param pulumi.Input[_builtins.str] on_create: The file name of the entrypoint script of lifecycle scripts under SourceS3Uri. This entrypoint script runs during cluster creation.
         :param pulumi.Input[_builtins.str] source_s3_uri: An Amazon S3 bucket path where your lifecycle scripts are stored.
         """
@@ -1922,6 +1935,7 @@ class ClusterRestrictedInstanceGroupArgs:
                  training_plan_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Details of a restricted instance group in a SageMaker HyperPod cluster.
+
         :param pulumi.Input[_builtins.int] instance_count: The number of instances you specified to add to the restricted instance group of a SageMaker HyperPod cluster.
         :param pulumi.Input[_builtins.int] current_count: The number of instances that are currently in the restricted instance group of a SageMaker HyperPod cluster.
         :param pulumi.Input[_builtins.int] threads_per_core: The number you specified to TreadsPerCore in CreateCluster for enabling or disabling multithreading. For instance types that support multithreading, you can specify 1 for disabling multithreading and 2 for enabling multithreading.
@@ -2112,6 +2126,7 @@ class ClusterScheduledUpdateConfigArgs:
                  deployment_config: Optional[pulumi.Input['ClusterDeploymentConfigArgs']] = None):
         """
         The configuration object of the schedule that SageMaker follows when updating the AMI.
+
         :param pulumi.Input[_builtins.str] schedule_expression: A cron expression that specifies the schedule that SageMaker follows when updating the AMI.
         """
         pulumi.set(__self__, "schedule_expression", schedule_expression)
@@ -2160,6 +2175,7 @@ class ClusterSlurmConfigArgs:
                  partition_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Slurm configuration for the instance group.
+
         :param pulumi.Input['ClusterSlurmConfigNodeType'] node_type: The type of Slurm node for this instance group.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] partition_names: The Slurm partitions that this instance group belongs to. Maximum of 1 partition.
         """
@@ -2227,6 +2243,7 @@ class ClusterTieredStorageConfigArgs:
                  instance_memory_allocation_percentage: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Configuration for tiered storage in the SageMaker HyperPod cluster.
+
         :param pulumi.Input['ClusterTieredStorageConfigMode'] mode: The mode of tiered storage.
         :param pulumi.Input[_builtins.int] instance_memory_allocation_percentage: The percentage of instance memory to allocate for tiered storage.
         """
@@ -2279,6 +2296,7 @@ class ClusterVpcConfigArgs:
                  subnets: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
         """
         Specifies an Amazon Virtual Private Cloud (VPC) that your SageMaker jobs, hosted models, and compute resources have access to. You can control access to and from your resources by configuring a VPC.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: The VPC security group IDs, in the form sg-xxxxxxxx. Specify the security groups for the VPC that is specified in the Subnets field.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnets: The ID of the subnets in the VPC to which you want to connect your training job or model.
         """
@@ -2350,6 +2368,7 @@ class DataQualityJobDefinitionBatchTransformInputArgs:
                  s3_input_mode: Optional[pulumi.Input['DataQualityJobDefinitionBatchTransformInputS3InputMode']] = None):
         """
         The batch transform input for a monitoring job.
+
         :param pulumi.Input[_builtins.str] data_captured_destination_s3_uri: A URI that identifies the Amazon S3 storage location where Batch Transform Job captures data.
         :param pulumi.Input['DataQualityJobDefinitionDatasetFormatArgs'] dataset_format: The dataset format for your batch transform job.
         :param pulumi.Input[_builtins.str] local_path: Path to the filesystem where the endpoint data is available to the container.
@@ -2470,6 +2489,7 @@ class DataQualityJobDefinitionClusterConfigArgs:
                  volume_kms_key_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Configuration for the cluster used to run model monitoring jobs.
+
         :param pulumi.Input[_builtins.int] instance_count: The number of ML compute instances to use in the model monitoring job. For distributed processing jobs, specify a value greater than 1. The default value is 1.
         :param pulumi.Input[_builtins.str] instance_type: The ML compute instance type for the processing job.
         :param pulumi.Input[_builtins.int] volume_size_in_gb: The size of the ML storage volume, in gigabytes, that you want to provision. You must specify sufficient ML storage for your scenario.
@@ -2545,6 +2565,7 @@ class DataQualityJobDefinitionConstraintsResourceArgs:
                  s3_uri: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The baseline constraints resource for a monitoring job.
+
         :param pulumi.Input[_builtins.str] s3_uri: The Amazon S3 URI for baseline constraint file in Amazon S3 that the current monitoring job should validated against.
         """
         if s3_uri is not None:
@@ -2578,6 +2599,7 @@ class DataQualityJobDefinitionCsvArgs:
                  header: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The CSV format
+
         :param pulumi.Input[_builtins.bool] header: A boolean flag indicating if given CSV has header
         """
         if header is not None:
@@ -2636,6 +2658,7 @@ class DataQualityJobDefinitionDataQualityAppSpecificationArgs:
                  record_preprocessor_source_uri: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Container image configuration object for the monitoring job.
+
         :param pulumi.Input[_builtins.str] image_uri: The container image to be run by the monitoring job.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] container_arguments: An array of arguments for the container used to run the monitoring job.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] container_entrypoint: Specifies the entrypoint for a container used to run the monitoring job.
@@ -2753,6 +2776,7 @@ class DataQualityJobDefinitionDataQualityBaselineConfigArgs:
                  statistics_resource: Optional[pulumi.Input['DataQualityJobDefinitionStatisticsResourceArgs']] = None):
         """
         Baseline configuration used to validate that the data conforms to the specified constraints and statistics.
+
         :param pulumi.Input[_builtins.str] baselining_job_name: The name of the job that performs baselining for the data quality monitoring job.
         :param pulumi.Input['DataQualityJobDefinitionConstraintsResourceArgs'] constraints_resource: The constraints resource for a monitoring job.
         :param pulumi.Input['DataQualityJobDefinitionStatisticsResourceArgs'] statistics_resource: Configuration for monitoring constraints and monitoring statistics. These baseline resources are compared against the results of the current job from the series of jobs scheduled to collect data periodically.
@@ -2821,6 +2845,7 @@ class DataQualityJobDefinitionDataQualityJobInputArgs:
                  endpoint_input: Optional[pulumi.Input['DataQualityJobDefinitionEndpointInputArgs']] = None):
         """
         The inputs for a monitoring job.
+
         :param pulumi.Input['DataQualityJobDefinitionBatchTransformInputArgs'] batch_transform_input: Input object for the batch transform job.
         :param pulumi.Input['DataQualityJobDefinitionEndpointInputArgs'] endpoint_input: Input object for the endpoint
         """
@@ -2941,6 +2966,7 @@ class DataQualityJobDefinitionEndpointInputArgs:
                  s3_input_mode: Optional[pulumi.Input['DataQualityJobDefinitionEndpointInputS3InputMode']] = None):
         """
         The endpoint for a monitoring job.
+
         :param pulumi.Input[_builtins.str] endpoint_name: An endpoint in customer's account which has enabled `DataCaptureConfig` enabled.
         :param pulumi.Input[_builtins.str] local_path: Path to the filesystem where the endpoint data is available to the container.
         :param pulumi.Input[_builtins.str] exclude_features_attribute: Indexes or names of the features to be excluded from analysis
@@ -3032,6 +3058,7 @@ class DataQualityJobDefinitionJsonArgs:
                  line: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The Json format
+
         :param pulumi.Input[_builtins.bool] line: A boolean flag indicating if it is JSON line format
         """
         if line is not None:
@@ -3070,6 +3097,7 @@ class DataQualityJobDefinitionMonitoringOutputConfigArgs:
                  kms_key_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The output configuration for monitoring jobs.
+
         :param pulumi.Input[Sequence[pulumi.Input['DataQualityJobDefinitionMonitoringOutputArgs']]] monitoring_outputs: Monitoring outputs for monitoring jobs. This is where the output of the periodic monitoring jobs is uploaded.
         :param pulumi.Input[_builtins.str] kms_key_id: The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
         """
@@ -3117,6 +3145,7 @@ class DataQualityJobDefinitionMonitoringOutputArgs:
                  s3_output: pulumi.Input['DataQualityJobDefinitionS3OutputArgs']):
         """
         The output object for a monitoring job.
+
         :param pulumi.Input['DataQualityJobDefinitionS3OutputArgs'] s3_output: The Amazon S3 storage location where the results of a monitoring job are saved.
         """
         pulumi.set(__self__, "s3_output", s3_output)
@@ -3149,6 +3178,7 @@ class DataQualityJobDefinitionMonitoringResourcesArgs:
                  cluster_config: pulumi.Input['DataQualityJobDefinitionClusterConfigArgs']):
         """
         Identifies the resources to deploy for a monitoring job.
+
         :param pulumi.Input['DataQualityJobDefinitionClusterConfigArgs'] cluster_config: The configuration for the cluster resources used to run the processing job.
         """
         pulumi.set(__self__, "cluster_config", cluster_config)
@@ -3191,6 +3221,7 @@ class DataQualityJobDefinitionNetworkConfigArgs:
                  vpc_config: Optional[pulumi.Input['DataQualityJobDefinitionVpcConfigArgs']] = None):
         """
         Networking options for a job, such as network traffic encryption between containers, whether to allow inbound and outbound network calls to and from containers, and the VPC subnets and security groups to use for VPC-enabled jobs.
+
         :param pulumi.Input[_builtins.bool] enable_inter_container_traffic_encryption: Whether to encrypt all communications between distributed processing jobs. Choose True to encrypt communications. Encryption provides greater security for distributed processing jobs, but the processing might take longer.
         :param pulumi.Input[_builtins.bool] enable_network_isolation: Whether to allow inbound and outbound network calls to and from the containers used for the processing job.
         :param pulumi.Input['DataQualityJobDefinitionVpcConfigArgs'] vpc_config: Specifies a VPC that your training jobs and hosted models have access to. Control access to and from your training and model containers by configuring the VPC.
@@ -3264,6 +3295,7 @@ class DataQualityJobDefinitionS3OutputArgs:
                  s3_upload_mode: Optional[pulumi.Input['DataQualityJobDefinitionS3OutputS3UploadMode']] = None):
         """
         Information about where and how to store the results of a monitoring job.
+
         :param pulumi.Input[_builtins.str] local_path: The local path to the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job. LocalPath is an absolute path for the output data.
         :param pulumi.Input[_builtins.str] s3_uri: A URI that identifies the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job.
         :param pulumi.Input['DataQualityJobDefinitionS3OutputS3UploadMode'] s3_upload_mode: Whether to upload the results of the monitoring job continuously or after the job completes.
@@ -3325,6 +3357,7 @@ class DataQualityJobDefinitionStatisticsResourceArgs:
                  s3_uri: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The baseline statistics resource for a monitoring job.
+
         :param pulumi.Input[_builtins.str] s3_uri: The Amazon S3 URI for the baseline statistics file in Amazon S3 that the current monitoring job should be validated against.
         """
         if s3_uri is not None:
@@ -3358,6 +3391,7 @@ class DataQualityJobDefinitionStoppingConditionArgs:
                  max_runtime_in_seconds: pulumi.Input[_builtins.int]):
         """
         Specifies a time limit for how long the monitoring job is allowed to run.
+
         :param pulumi.Input[_builtins.int] max_runtime_in_seconds: The maximum runtime allowed in seconds.
         """
         pulumi.set(__self__, "max_runtime_in_seconds", max_runtime_in_seconds)
@@ -3395,6 +3429,7 @@ class DataQualityJobDefinitionVpcConfigArgs:
                  subnets: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
         """
         Specifies a VPC that your training jobs and hosted models have access to. Control access to and from your training and model containers by configuring the VPC.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: The VPC security group IDs, in the form sg-xxxxxxxx. Specify the security groups for the VPC that is specified in the Subnets field.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnets: The ID of the subnets in the VPC to which you want to connect to your monitoring jobs.
         """
@@ -3499,6 +3534,7 @@ class DeviceArgs:
                  iot_thing_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Edge device you want to create
+
         :param pulumi.Input[_builtins.str] device_name: The name of the device
         :param pulumi.Input[_builtins.str] description: Description of the device
         :param pulumi.Input[_builtins.str] iot_thing_name: AWS Internet of Things (IoT) object name.
@@ -3610,6 +3646,7 @@ class DomainCodeEditorAppSettingsArgs:
                  lifecycle_config_arns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The CodeEditor app settings.
+
         :param pulumi.Input['DomainAppLifecycleManagementArgs'] app_lifecycle_management: Settings that are used to configure and manage the lifecycle of CodeEditor applications.
         :param pulumi.Input[_builtins.str] built_in_lifecycle_config_arn: The lifecycle configuration that runs before the default lifecycle configuration.
         :param pulumi.Input[Sequence[pulumi.Input['DomainCustomImageArgs']]] custom_images: A list of custom images for use for CodeEditor apps.
@@ -3810,6 +3847,7 @@ class DomainCustomImageArgs:
                  image_version_number: Optional[pulumi.Input[_builtins.int]] = None):
         """
         A custom SageMaker image.
+
         :param pulumi.Input[_builtins.str] app_image_config_name: The Name of the AppImageConfig.
         :param pulumi.Input[_builtins.str] image_name: The name of the CustomImage. Must be unique to your account.
         :param pulumi.Input[_builtins.int] image_version_number: The version number of the CustomImage.
@@ -3923,6 +3961,7 @@ class DomainDefaultEbsStorageSettingsArgs:
                  maximum_ebs_volume_size_in_gb: pulumi.Input[_builtins.int]):
         """
         Properties related to the Amazon Elastic Block Store volume. Must be provided if storage type is Amazon EBS and must not be provided if storage type is not Amazon EBS
+
         :param pulumi.Input[_builtins.int] default_ebs_volume_size_in_gb: Default size of the Amazon EBS volume in Gb
         :param pulumi.Input[_builtins.int] maximum_ebs_volume_size_in_gb: Maximum size of the Amazon EBS volume in Gb. Must be greater than or equal to the DefaultEbsVolumeSizeInGb.
         """
@@ -4004,6 +4043,7 @@ class DomainDefaultSpaceSettingsArgs:
                  space_storage_settings: Optional[pulumi.Input['DomainDefaultSpaceStorageSettingsArgs']] = None):
         """
         A collection of settings that apply to spaces of Amazon SageMaker Studio. These settings are specified when the Create/Update Domain API is called.
+
         :param pulumi.Input[_builtins.str] execution_role: The execution role for the space.
         :param pulumi.Input[Sequence[pulumi.Input['DomainCustomFileSystemConfigArgs']]] custom_file_system_configs: The settings for assigning a custom file system to a domain. Permitted users can access this file system in Amazon SageMaker AI Studio.
         :param pulumi.Input['DomainCustomPosixUserConfigArgs'] custom_posix_user_config: The Jupyter lab's custom posix user configurations.
@@ -4141,6 +4181,7 @@ class DomainDefaultSpaceStorageSettingsArgs:
                  default_ebs_storage_settings: Optional[pulumi.Input['DomainDefaultEbsStorageSettingsArgs']] = None):
         """
         Default storage settings for a space.
+
         :param pulumi.Input['DomainDefaultEbsStorageSettingsArgs'] default_ebs_storage_settings: The default EBS storage settings for a space.
         """
         if default_ebs_storage_settings is not None:
@@ -4179,6 +4220,7 @@ class DomainDockerSettingsArgs:
                  vpc_only_trusted_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         A collection of settings that are required to start docker-proxy server.
+
         :param pulumi.Input['DomainDockerSettingsEnableDockerAccess'] enable_docker_access: The flag to enable/disable docker-proxy server
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] vpc_only_trusted_accounts: A list of account id's that would be used to pull images from in VpcOnly mode
         """
@@ -4486,6 +4528,7 @@ class DomainJupyterLabAppSettingsArgs:
                  lifecycle_config_arns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The JupyterLab app settings.
+
         :param pulumi.Input['DomainAppLifecycleManagementArgs'] app_lifecycle_management: Indicates whether idle shutdown is activated for JupyterLab applications.
         :param pulumi.Input[_builtins.str] built_in_lifecycle_config_arn: The lifecycle configuration that runs before the default lifecycle configuration.
         :param pulumi.Input[Sequence[pulumi.Input['DomainCodeRepositoryArgs']]] code_repositories: A list of CodeRepositories available for use with JupyterLab apps.
@@ -4599,6 +4642,7 @@ class DomainJupyterServerAppSettingsArgs:
                  lifecycle_config_arns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The JupyterServer app settings.
+
         :param pulumi.Input['DomainResourceSpecArgs'] default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the JupyterServer app.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] lifecycle_config_arns: A list of LifecycleConfigArns available for use with JupyterServer apps.
         """
@@ -4657,6 +4701,7 @@ class DomainKernelGatewayAppSettingsArgs:
                  lifecycle_config_arns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The kernel gateway app settings.
+
         :param pulumi.Input[Sequence[pulumi.Input['DomainCustomImageArgs']]] custom_images: A list of custom SageMaker images that are configured to run as a KernelGateway app.
         :param pulumi.Input['DomainResourceSpecArgs'] default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the KernelGateway app.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] lifecycle_config_arns: A list of LifecycleConfigArns available for use with KernelGateway apps.
@@ -4725,6 +4770,7 @@ class DomainRSessionAppSettingsArgs:
                  default_resource_spec: Optional[pulumi.Input['DomainResourceSpecArgs']] = None):
         """
         A collection of settings that apply to an RSessionGateway app.
+
         :param pulumi.Input[Sequence[pulumi.Input['DomainCustomImageArgs']]] custom_images: A list of custom SageMaker images that are configured to run as a KernelGateway app.
         :param pulumi.Input['DomainResourceSpecArgs'] default_resource_spec: Specifies the ARNs of a SageMaker image and SageMaker image version, and the instance type that the version runs on.
         """
@@ -4778,6 +4824,7 @@ class DomainRStudioServerProAppSettingsArgs:
                  user_group: Optional[pulumi.Input['DomainRStudioServerProAppSettingsUserGroup']] = None):
         """
         A collection of settings that configure user interaction with the RStudioServerPro app.
+
         :param pulumi.Input['DomainRStudioServerProAppSettingsAccessStatus'] access_status: Indicates whether the current user has access to the RStudioServerPro app.
         :param pulumi.Input['DomainRStudioServerProAppSettingsUserGroup'] user_group: The level of permissions that the user has within the RStudioServerPro app. This value defaults to User. The Admin value allows the user access to the RStudio Administrative Dashboard.
         """
@@ -4841,6 +4888,7 @@ class DomainRStudioServerProDomainSettingsArgs:
                  r_studio_package_manager_url: Optional[pulumi.Input[_builtins.str]] = None):
         """
         A collection of settings that update the current configuration for the RStudioServerPro Domain-level app.
+
         :param pulumi.Input[_builtins.str] domain_execution_role_arn: The ARN of the execution role for the RStudioServerPro Domain-level app.
         :param pulumi.Input['DomainResourceSpecArgs'] default_resource_spec: A collection that defines the default `InstanceType` , `SageMakerImageArn` , and `SageMakerImageVersionArn` for the Domain.
         :param pulumi.Input[_builtins.str] r_studio_connect_url: A URL pointing to an RStudio Connect server.
@@ -5093,6 +5141,7 @@ class DomainSettingsArgs:
                  unified_studio_settings: Optional[pulumi.Input['DomainUnifiedStudioSettingsArgs']] = None):
         """
         A collection of Domain settings.
+
         :param pulumi.Input['DomainDockerSettingsArgs'] docker_settings: A collection of settings that configure the domain's Docker interaction.
         :param pulumi.Input['DomainSettingsExecutionRoleIdentityConfig'] execution_role_identity_config: The configuration for attaching a SageMaker user profile name to the execution role as a sts:SourceIdentity key.
         :param pulumi.Input['DomainIpAddressType'] ip_address_type: The IP address type for the domain. Specify `ipv4` for IPv4-only connectivity or `dualstack` for both IPv4 and IPv6 connectivity. When you specify `dualstack` , the subnet must support IPv6 CIDR blocks. If not specified, defaults to `ipv4` .
@@ -5211,6 +5260,7 @@ class DomainSharingSettingsArgs:
                  s3_output_path: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Specifies options when sharing an Amazon SageMaker Studio notebook. These settings are specified as part of DefaultUserSettings when the CreateDomain API is called, and as part of UserSettings when the CreateUserProfile API is called.
+
         :param pulumi.Input['DomainSharingSettingsNotebookOutputOption'] notebook_output_option: Whether to include the notebook cell output when sharing the notebook. The default is Disabled.
         :param pulumi.Input[_builtins.str] s3_kms_key_id: When NotebookOutputOption is Allowed, the AWS Key Management Service (KMS) encryption key ID used to encrypt the notebook cell output in the Amazon S3 bucket.
         :param pulumi.Input[_builtins.str] s3_output_path: When NotebookOutputOption is Allowed, the Amazon S3 bucket used to store the shared notebook snapshots.
@@ -5289,6 +5339,7 @@ class DomainStudioWebPortalSettingsArgs:
                  hidden_sage_maker_image_version_aliases: Optional[pulumi.Input[Sequence[pulumi.Input['DomainHiddenSageMakerImageArgs']]]] = None):
         """
         Studio settings. If these settings are applied on a user level, they take priority over the settings applied on a domain level.
+
         :param pulumi.Input[Sequence[pulumi.Input['DomainAppType']]] hidden_app_types: Applications supported in Studio that are hidden from the Studio left navigation pane.
         :param pulumi.Input[Sequence[pulumi.Input['DomainAppInstanceType']]] hidden_instance_types: The instance types you are hiding from the Studio user interface.
         :param pulumi.Input[Sequence[pulumi.Input['DomainMlTools']]] hidden_ml_tools: The machine learning tools that are hidden from the Studio left navigation pane.
@@ -5402,6 +5453,7 @@ class DomainUnifiedStudioSettingsArgs:
                  studio_web_portal_access: Optional[pulumi.Input['DomainUnifiedStudioSettingsStudioWebPortalAccess']] = None):
         """
         A collection of settings that apply to an Amazon SageMaker AI domain when you use it in Amazon SageMaker Unified Studio.
+
         :param pulumi.Input[_builtins.str] domain_account_id: The ID of the AWS account that has the Amazon SageMaker Unified Studio domain. The default value, if you don't specify an ID, is the ID of the account that has the Amazon SageMaker AI domain.
         :param pulumi.Input[_builtins.str] domain_id: The ID of the Amazon SageMaker Unified Studio domain associated with this domain.
         :param pulumi.Input[_builtins.str] domain_region: The AWS Region where the domain is located in Amazon SageMaker Unified Studio. The default value, if you don't specify a Region, is the Region where the Amazon SageMaker AI domain is located.
@@ -5620,6 +5672,7 @@ class DomainUserSettingsArgs:
                  studio_web_portal_settings: Optional[pulumi.Input['DomainStudioWebPortalSettingsArgs']] = None):
         """
         A collection of settings that apply to users of Amazon SageMaker Studio. These settings are specified when the CreateUserProfile API is called, and as DefaultUserSettings when the CreateDomain API is called.
+
         :param pulumi.Input[_builtins.str] execution_role: The execution role for the user.
         :param pulumi.Input['DomainUserSettingsAutoMountHomeEfs'] auto_mount_home_efs: Indicates whether auto-mounting of an EFS volume is supported for the user profile. 
         :param pulumi.Input['DomainCodeEditorAppSettingsArgs'] code_editor_app_settings: The Code Editor application settings.
@@ -6691,6 +6744,7 @@ class FeatureGroupTtlDurationArgs:
                  value: Optional[pulumi.Input[_builtins.int]] = None):
         """
         TTL configuration of the feature group
+
         :param pulumi.Input['FeatureGroupUnit'] unit: `TtlDuration` time unit.
         :param pulumi.Input[_builtins.int] value: `TtlDuration` time value.
         """
@@ -6794,6 +6848,7 @@ class InferenceComponentCapacitySizeArgs:
                  value: pulumi.Input[_builtins.int]):
         """
         Capacity size configuration for the inference component
+
         :param pulumi.Input['InferenceComponentCapacitySizeType'] type: Specifies the endpoint capacity type.
                
                - **COPY_COUNT** - The endpoint activates based on the number of inference component copies.
@@ -7088,6 +7143,7 @@ class InferenceComponentDeploymentConfigArgs:
                  rolling_update_policy: Optional[pulumi.Input['InferenceComponentRollingUpdatePolicyArgs']] = None):
         """
         The deployment config for the inference component
+
         :param pulumi.Input['InferenceComponentRollingUpdatePolicyArgs'] rolling_update_policy: Specifies a rolling deployment strategy for updating a SageMaker AI endpoint.
         """
         if auto_rollback_configuration is not None:
@@ -7147,6 +7203,7 @@ class InferenceComponentRollingUpdatePolicyArgs:
                  wait_interval_in_seconds: Optional[pulumi.Input[_builtins.int]] = None):
         """
         The rolling update policy for the inference component
+
         :param pulumi.Input['InferenceComponentCapacitySizeArgs'] maximum_batch_size: The batch size for each rolling step in the deployment process. For each step, SageMaker AI provisions capacity on the new endpoint fleet, routes traffic to that fleet, and terminates capacity on the old endpoint fleet. The value must be between 5% to 50% of the copy count of the inference component.
         :param pulumi.Input[_builtins.int] maximum_execution_timeout_in_seconds: The time limit for the total deployment. Exceeding this limit causes a timeout.
         :param pulumi.Input['InferenceComponentCapacitySizeArgs'] rollback_maximum_batch_size: The batch size for a rollback to the old endpoint fleet. If this field is absent, the value is set to the default, which is 100% of the total capacity. When the default is used, SageMaker AI provisions the entire capacity of the old fleet at once during rollback.
@@ -7229,6 +7286,7 @@ class InferenceComponentRuntimeConfigArgs:
                  desired_copy_count: Optional[pulumi.Input[_builtins.int]] = None):
         """
         The runtime config for the inference component
+
         :param pulumi.Input[_builtins.int] copy_count: The number of runtime copies of the model container to deploy with the inference component. Each copy can serve inference requests.
         """
         if copy_count is not None:
@@ -7312,6 +7370,7 @@ class InferenceComponentSpecificationArgs:
                  startup_parameters: Optional[pulumi.Input['InferenceComponentStartupParametersArgs']] = None):
         """
         The specification for the inference component
+
         :param pulumi.Input[_builtins.str] base_inference_component_name: The name of an existing inference component that is to contain the inference component that you're creating with your request.
                
                Specify this parameter only if your request is meant to create an adapter inference component. An adapter inference component contains the path to an adapter model. The purpose of the adapter model is to tailor the inference output of a base foundation model, which is hosted by the base inference component. The adapter inference component uses the compute resources that you assigned to the base inference component.
@@ -7475,6 +7534,7 @@ class InferenceExperimentCaptureContentTypeHeaderArgs:
                  json_content_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Configuration specifying how to treat different headers. If no headers are specified SageMaker will by default base64 encode when capturing the data.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] csv_content_types: The list of all content type headers that SageMaker will treat as CSV and capture accordingly.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] json_content_types: The list of all content type headers that SageMaker will treat as JSON and capture accordingly.
         """
@@ -7533,6 +7593,7 @@ class InferenceExperimentDataStorageConfigArgs:
                  kms_key: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The Amazon S3 location and configuration for storing inference request and response data.
+
         :param pulumi.Input[_builtins.str] destination: The Amazon S3 bucket where the inference request and response data is stored.
         :param pulumi.Input['InferenceExperimentCaptureContentTypeHeaderArgs'] content_type: Configuration specifying how to treat different headers. If no headers are specified SageMaker will by default base64 encode when capturing the data.
         :param pulumi.Input[_builtins.str] kms_key: The AWS Key Management Service key that Amazon SageMaker uses to encrypt captured data at rest using Amazon S3 server-side encryption.
@@ -7600,6 +7661,7 @@ class InferenceExperimentModelInfrastructureConfigArgs:
                  real_time_inference_config: pulumi.Input['InferenceExperimentRealTimeInferenceConfigArgs']):
         """
         The configuration for the infrastructure that the model will be deployed to.
+
         :param pulumi.Input['InferenceExperimentModelInfrastructureConfigInfrastructureType'] infrastructure_type: The type of the inference experiment that you want to run.
         :param pulumi.Input['InferenceExperimentRealTimeInferenceConfigArgs'] real_time_inference_config: The infrastructure configuration for deploying the model to real-time inference.
         """
@@ -7656,6 +7718,7 @@ class InferenceExperimentModelVariantConfigArgs:
                  variant_name: pulumi.Input[_builtins.str]):
         """
         Contains information about the deployment options of a model.
+
         :param pulumi.Input['InferenceExperimentModelInfrastructureConfigArgs'] infrastructure_config: The configuration for the infrastructure that the model will be deployed to.
         :param pulumi.Input[_builtins.str] model_name: The name of the Amazon SageMaker Model entity.
         :param pulumi.Input[_builtins.str] variant_name: The name of the variant.
@@ -7721,6 +7784,7 @@ class InferenceExperimentRealTimeInferenceConfigArgs:
                  instance_type: pulumi.Input[_builtins.str]):
         """
         The infrastructure configuration for deploying the model to a real-time inference endpoint.
+
         :param pulumi.Input[_builtins.int] instance_count: The number of instances of the type specified by InstanceType.
         :param pulumi.Input[_builtins.str] instance_type: The instance type the model is deployed to.
         """
@@ -7772,6 +7836,7 @@ class InferenceExperimentScheduleArgs:
                  start_time: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The duration for which you want the inference experiment to run.
+
         :param pulumi.Input[_builtins.str] end_time: The timestamp at which the inference experiment ended or will end.
         :param pulumi.Input[_builtins.str] start_time: The timestamp at which the inference experiment started or will start.
         """
@@ -7825,6 +7890,7 @@ class InferenceExperimentShadowModeConfigArgs:
                  source_model_variant_name: pulumi.Input[_builtins.str]):
         """
         The configuration of ShadowMode inference experiment type. Use this field to specify a production variant which takes all the inference requests, and a shadow variant to which Amazon SageMaker replicates a percentage of the inference requests. For the shadow variant also specify the percentage of requests that Amazon SageMaker replicates.
+
         :param pulumi.Input[Sequence[pulumi.Input['InferenceExperimentShadowModelVariantConfigArgs']]] shadow_model_variants: List of shadow variant configurations.
         :param pulumi.Input[_builtins.str] source_model_variant_name: The name of the production variant, which takes all the inference requests.
         """
@@ -7876,6 +7942,7 @@ class InferenceExperimentShadowModelVariantConfigArgs:
                  shadow_model_variant_name: pulumi.Input[_builtins.str]):
         """
         The name and sampling percentage of a shadow variant.
+
         :param pulumi.Input[_builtins.int] sampling_percentage: The percentage of inference requests that Amazon SageMaker replicates from the production variant to the shadow variant.
         :param pulumi.Input[_builtins.str] shadow_model_variant_name: The name of the shadow variant.
         """
@@ -7972,6 +8039,7 @@ class ModelBiasJobDefinitionBatchTransformInputArgs:
                  start_time_offset: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The batch transform input for a monitoring job.
+
         :param pulumi.Input[_builtins.str] data_captured_destination_s3_uri: A URI that identifies the Amazon S3 storage location where Batch Transform Job captures data.
         :param pulumi.Input['ModelBiasJobDefinitionDatasetFormatArgs'] dataset_format: The dataset format for your batch transform job.
         :param pulumi.Input[_builtins.str] local_path: Path to the filesystem where the endpoint data is available to the container.
@@ -8167,6 +8235,7 @@ class ModelBiasJobDefinitionClusterConfigArgs:
                  volume_kms_key_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Configuration for the cluster used to run model monitoring jobs.
+
         :param pulumi.Input[_builtins.int] instance_count: The number of ML compute instances to use in the model monitoring job. For distributed processing jobs, specify a value greater than 1. The default value is 1.
         :param pulumi.Input[_builtins.str] instance_type: The ML compute instance type for the processing job.
         :param pulumi.Input[_builtins.int] volume_size_in_gb: The size of the ML storage volume, in gigabytes, that you want to provision. You must specify sufficient ML storage for your scenario.
@@ -8242,6 +8311,7 @@ class ModelBiasJobDefinitionConstraintsResourceArgs:
                  s3_uri: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The baseline constraints resource for a monitoring job.
+
         :param pulumi.Input[_builtins.str] s3_uri: The Amazon S3 URI for baseline constraint file in Amazon S3 that the current monitoring job should validated against.
         """
         if s3_uri is not None:
@@ -8275,6 +8345,7 @@ class ModelBiasJobDefinitionCsvArgs:
                  header: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The CSV format
+
         :param pulumi.Input[_builtins.bool] header: A boolean flag indicating if given CSV has header
         """
         if header is not None:
@@ -8405,6 +8476,7 @@ class ModelBiasJobDefinitionEndpointInputArgs:
                  start_time_offset: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The endpoint for a monitoring job.
+
         :param pulumi.Input[_builtins.str] endpoint_name: An endpoint in customer's account which has enabled `DataCaptureConfig` enabled.
         :param pulumi.Input[_builtins.str] local_path: Path to the filesystem where the endpoint data is available to the container.
         :param pulumi.Input[_builtins.str] end_time_offset: Monitoring end time offset, e.g. PT0H
@@ -8571,6 +8643,7 @@ class ModelBiasJobDefinitionJsonArgs:
                  line: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The Json format
+
         :param pulumi.Input[_builtins.bool] line: A boolean flag indicating if it is JSON line format
         """
         if line is not None:
@@ -8614,6 +8687,7 @@ class ModelBiasJobDefinitionModelBiasAppSpecificationArgs:
                  environment: Optional[Any] = None):
         """
         Container image configuration object for the monitoring job.
+
         :param pulumi.Input[_builtins.str] config_uri: The S3 URI to an analysis configuration file
         :param pulumi.Input[_builtins.str] image_uri: The container image to be run by the monitoring job.
         :param Any environment: Sets the environment variables in the Docker container
@@ -8680,6 +8754,7 @@ class ModelBiasJobDefinitionModelBiasBaselineConfigArgs:
                  constraints_resource: Optional[pulumi.Input['ModelBiasJobDefinitionConstraintsResourceArgs']] = None):
         """
         Baseline configuration used to validate that the data conforms to the specified constraints and statistics.
+
         :param pulumi.Input[_builtins.str] baselining_job_name: The name of the baseline model bias job.
         :param pulumi.Input['ModelBiasJobDefinitionConstraintsResourceArgs'] constraints_resource: The constraints resource for a monitoring job.
         """
@@ -8738,6 +8813,7 @@ class ModelBiasJobDefinitionModelBiasJobInputArgs:
                  endpoint_input: Optional[pulumi.Input['ModelBiasJobDefinitionEndpointInputArgs']] = None):
         """
         The inputs for a monitoring job.
+
         :param pulumi.Input['ModelBiasJobDefinitionMonitoringGroundTruthS3InputArgs'] ground_truth_s3_input: Location of ground truth labels to use in model bias job.
         :param pulumi.Input['ModelBiasJobDefinitionBatchTransformInputArgs'] batch_transform_input: Input object for the batch transform job.
         :param pulumi.Input['ModelBiasJobDefinitionEndpointInputArgs'] endpoint_input: Input object for the endpoint
@@ -8800,6 +8876,7 @@ class ModelBiasJobDefinitionMonitoringGroundTruthS3InputArgs:
                  s3_uri: pulumi.Input[_builtins.str]):
         """
         Ground truth input provided in S3 
+
         :param pulumi.Input[_builtins.str] s3_uri: A URI that identifies the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job.
         """
         pulumi.set(__self__, "s3_uri", s3_uri)
@@ -8837,6 +8914,7 @@ class ModelBiasJobDefinitionMonitoringOutputConfigArgs:
                  kms_key_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The output configuration for monitoring jobs.
+
         :param pulumi.Input[Sequence[pulumi.Input['ModelBiasJobDefinitionMonitoringOutputArgs']]] monitoring_outputs: Monitoring outputs for monitoring jobs. This is where the output of the periodic monitoring jobs is uploaded.
         :param pulumi.Input[_builtins.str] kms_key_id: The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
         """
@@ -8884,6 +8962,7 @@ class ModelBiasJobDefinitionMonitoringOutputArgs:
                  s3_output: pulumi.Input['ModelBiasJobDefinitionS3OutputArgs']):
         """
         The output object for a monitoring job.
+
         :param pulumi.Input['ModelBiasJobDefinitionS3OutputArgs'] s3_output: The Amazon S3 storage location where the results of a monitoring job are saved.
         """
         pulumi.set(__self__, "s3_output", s3_output)
@@ -8916,6 +8995,7 @@ class ModelBiasJobDefinitionMonitoringResourcesArgs:
                  cluster_config: pulumi.Input['ModelBiasJobDefinitionClusterConfigArgs']):
         """
         Identifies the resources to deploy for a monitoring job.
+
         :param pulumi.Input['ModelBiasJobDefinitionClusterConfigArgs'] cluster_config: The configuration for the cluster resources used to run the processing job.
         """
         pulumi.set(__self__, "cluster_config", cluster_config)
@@ -8958,6 +9038,7 @@ class ModelBiasJobDefinitionNetworkConfigArgs:
                  vpc_config: Optional[pulumi.Input['ModelBiasJobDefinitionVpcConfigArgs']] = None):
         """
         Networking options for a job, such as network traffic encryption between containers, whether to allow inbound and outbound network calls to and from containers, and the VPC subnets and security groups to use for VPC-enabled jobs.
+
         :param pulumi.Input[_builtins.bool] enable_inter_container_traffic_encryption: Whether to encrypt all communications between distributed processing jobs. Choose True to encrypt communications. Encryption provides greater security for distributed processing jobs, but the processing might take longer.
         :param pulumi.Input[_builtins.bool] enable_network_isolation: Whether to allow inbound and outbound network calls to and from the containers used for the processing job.
         :param pulumi.Input['ModelBiasJobDefinitionVpcConfigArgs'] vpc_config: Specifies a VPC that your training jobs and hosted models have access to. Control access to and from your training and model containers by configuring the VPC.
@@ -9031,6 +9112,7 @@ class ModelBiasJobDefinitionS3OutputArgs:
                  s3_upload_mode: Optional[pulumi.Input['ModelBiasJobDefinitionS3OutputS3UploadMode']] = None):
         """
         Information about where and how to store the results of a monitoring job.
+
         :param pulumi.Input[_builtins.str] local_path: The local path to the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job. LocalPath is an absolute path for the output data.
         :param pulumi.Input[_builtins.str] s3_uri: A URI that identifies the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job.
         :param pulumi.Input['ModelBiasJobDefinitionS3OutputS3UploadMode'] s3_upload_mode: Whether to upload the results of the monitoring job continuously or after the job completes.
@@ -9092,6 +9174,7 @@ class ModelBiasJobDefinitionStoppingConditionArgs:
                  max_runtime_in_seconds: pulumi.Input[_builtins.int]):
         """
         Specifies a time limit for how long the monitoring job is allowed to run.
+
         :param pulumi.Input[_builtins.int] max_runtime_in_seconds: The maximum runtime allowed in seconds.
         """
         pulumi.set(__self__, "max_runtime_in_seconds", max_runtime_in_seconds)
@@ -9129,6 +9212,7 @@ class ModelBiasJobDefinitionVpcConfigArgs:
                  subnets: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
         """
         Specifies a VPC that your training jobs and hosted models have access to. Control access to and from your training and model containers by configuring the VPC.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: The VPC security group IDs, in the form sg-xxxxxxxx. Specify the security groups for the VPC that is specified in the Subnets field.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnets: The ID of the subnets in the VPC to which you want to connect to your monitoring jobs.
         """
@@ -9336,6 +9420,7 @@ class ModelCardBusinessDetailsArgs:
                  line_of_business: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Business details.
+
         :param pulumi.Input[_builtins.str] business_problem: What business problem does the model solve?
         :param pulumi.Input[_builtins.str] business_stakeholders: Business stakeholders.
         :param pulumi.Input[_builtins.str] line_of_business: Line of business.
@@ -9494,6 +9579,7 @@ class ModelCardContentArgs:
                  training_details: Optional[pulumi.Input['ModelCardTrainingDetailsArgs']] = None):
         """
         The content of the model card.
+
         :param pulumi.Input['ModelCardAdditionalInformationArgs'] additional_information: Additional information about the model.
         :param pulumi.Input['ModelCardBusinessDetailsArgs'] business_details: Information about how the model supports business goals.
         :param pulumi.Input[Sequence[pulumi.Input['ModelCardEvaluationDetailArgs']]] evaluation_details: An overview about the model's evaluation.
@@ -9623,6 +9709,7 @@ class ModelCardEvaluationDetailArgs:
                  metric_groups: Optional[pulumi.Input[Sequence[pulumi.Input['ModelCardMetricGroupArgs']]]] = None):
         """
         item of evaluation details
+
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] metadata: additional attributes associated with the evaluation results.
         """
         pulumi.set(__self__, "name", name)
@@ -9763,6 +9850,7 @@ class ModelCardIntendedUsesArgs:
                  risk_rating: Optional[pulumi.Input['ModelCardRiskRating']] = None):
         """
         Intended usage of model.
+
         :param pulumi.Input[_builtins.str] explanations_for_risk_rating: An explanation of why your organization categorizes the model with its risk rating.
         :param pulumi.Input[_builtins.str] factors_affecting_model_efficiency: Factors affecting model efficacy.
         :param pulumi.Input[_builtins.str] intended_uses: intended use cases.
@@ -10073,6 +10161,7 @@ class ModelCardModelOverviewInferenceEnvironmentPropertiesArgs:
                  container_image: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Overview about the inference.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] container_image: SageMaker inference image uri.
         """
         if container_image is not None:
@@ -10151,6 +10240,7 @@ class ModelCardModelOverviewArgs:
                  problem_type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Overview about the model.
+
         :param pulumi.Input[_builtins.str] algorithm_type: Algorithm used to solve the problem.
         :param pulumi.Input['ModelCardModelOverviewInferenceEnvironmentPropertiesArgs'] inference_environment: Overview about the inference.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] model_artifact: Location of the model artifact.
@@ -10408,6 +10498,7 @@ class ModelCardModelPackageDetailsArgs:
                  task: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Metadata information related to model package version
+
         :param pulumi.Input[_builtins.str] approval_description: A description provided for the model approval
         :param pulumi.Input['ModelCardModelPackageCreatorArgs'] created_by: Information about the user who created model package.
         :param pulumi.Input[_builtins.str] domain: The machine learning domain of the model package you specified. Common machine learning domains include computer vision and natural language processing.
@@ -10678,6 +10769,7 @@ class ModelCardObjectiveFunctionArgs:
                  notes: Optional[pulumi.Input[_builtins.str]] = None):
         """
         the objective function the model will optimize for.
+
         :param pulumi.Input['ModelCardObjectiveFunctionFunctionPropertiesArgs'] function: objective function that training job is optimized for.
         :param pulumi.Input[_builtins.str] notes: Notes about the object function, including other considerations for possible objective functions.
         """
@@ -10726,6 +10818,7 @@ class ModelCardSecurityConfigArgs:
                  kms_key_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         An optional Key Management Service key to encrypt, decrypt, and re-encrypt model card content for regulated workloads with highly sensitive data.
+
 
 
         :param pulumi.Input[_builtins.str] kms_key_id: A Key Management Service key ID to use for encrypting a model card.
@@ -10941,6 +11034,7 @@ class ModelCardTrainingDetailsTrainingJobDetailsPropertiesArgs:
                  user_provided_training_metrics: Optional[pulumi.Input[Sequence[pulumi.Input['ModelCardTrainingMetricArgs']]]] = None):
         """
         Details about any associated training jobs.
+
         :param pulumi.Input[_builtins.str] training_arn: SageMaker Training job arn.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] training_datasets: Location of the model datasets.
         """
@@ -11054,6 +11148,7 @@ class ModelCardTrainingDetailsArgs:
                  training_observations: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Overview about the training.
+
         :param pulumi.Input['ModelCardObjectiveFunctionArgs'] objective_function: The function that is optimized during model training.
         :param pulumi.Input['ModelCardTrainingDetailsTrainingJobDetailsPropertiesArgs'] training_job_details: Details about any associated training jobs.
         :param pulumi.Input[_builtins.str] training_observations: Any observations about training.
@@ -11122,6 +11217,7 @@ class ModelCardTrainingHyperParameterArgs:
                  value: pulumi.Input[_builtins.str]):
         """
         training hyper parameter
+
         :param pulumi.Input[_builtins.str] name: The name of the hyper parameter.
         :param pulumi.Input[_builtins.str] value: The value specified for the hyper parameter.
         """
@@ -11178,6 +11274,7 @@ class ModelCardTrainingMetricArgs:
                  notes: Optional[pulumi.Input[_builtins.str]] = None):
         """
         training metric data.
+
         :param pulumi.Input[_builtins.str] name: The name of the result from the SageMaker AI training job.
         :param pulumi.Input[_builtins.float] value: The value of a result from the SageMaker AI training job.
         :param pulumi.Input[_builtins.str] notes: Any additional notes describing the result of the training job.
@@ -11249,6 +11346,7 @@ class ModelCardUserContextArgs:
                  user_profile_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Information about the user who created or modified an experiment, trial, trial component, lineage group, project, or model card.
+
         :param pulumi.Input[_builtins.str] domain_id: The domain associated with the user.
         :param pulumi.Input[_builtins.str] user_profile_arn: The Amazon Resource Name (ARN) of the user's profile.
         :param pulumi.Input[_builtins.str] user_profile_name: The name of the user's profile.
@@ -11347,6 +11445,7 @@ class ModelExplainabilityJobDefinitionBatchTransformInputArgs:
                  s3_input_mode: Optional[pulumi.Input['ModelExplainabilityJobDefinitionBatchTransformInputS3InputMode']] = None):
         """
         The batch transform input for a monitoring job.
+
         :param pulumi.Input[_builtins.str] data_captured_destination_s3_uri: A URI that identifies the Amazon S3 storage location where Batch Transform Job captures data.
         :param pulumi.Input['ModelExplainabilityJobDefinitionDatasetFormatArgs'] dataset_format: The dataset format for your batch transform job.
         :param pulumi.Input[_builtins.str] local_path: Path to the filesystem where the endpoint data is available to the container.
@@ -11497,6 +11596,7 @@ class ModelExplainabilityJobDefinitionClusterConfigArgs:
                  volume_kms_key_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Configuration for the cluster used to run model monitoring jobs.
+
         :param pulumi.Input[_builtins.int] instance_count: The number of ML compute instances to use in the model monitoring job. For distributed processing jobs, specify a value greater than 1. The default value is 1.
         :param pulumi.Input[_builtins.str] instance_type: The ML compute instance type for the processing job.
         :param pulumi.Input[_builtins.int] volume_size_in_gb: The size of the ML storage volume, in gigabytes, that you want to provision. You must specify sufficient ML storage for your scenario.
@@ -11572,6 +11672,7 @@ class ModelExplainabilityJobDefinitionConstraintsResourceArgs:
                  s3_uri: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The baseline constraints resource for a monitoring job.
+
         :param pulumi.Input[_builtins.str] s3_uri: The Amazon S3 URI for baseline constraint file in Amazon S3 that the current monitoring job should validated against.
         """
         if s3_uri is not None:
@@ -11605,6 +11706,7 @@ class ModelExplainabilityJobDefinitionCsvArgs:
                  header: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The CSV format
+
         :param pulumi.Input[_builtins.bool] header: A boolean flag indicating if given CSV has header
         """
         if header is not None:
@@ -11720,6 +11822,7 @@ class ModelExplainabilityJobDefinitionEndpointInputArgs:
                  s3_input_mode: Optional[pulumi.Input['ModelExplainabilityJobDefinitionEndpointInputS3InputMode']] = None):
         """
         The endpoint for a monitoring job.
+
         :param pulumi.Input[_builtins.str] endpoint_name: An endpoint in customer's account which has enabled `DataCaptureConfig` enabled.
         :param pulumi.Input[_builtins.str] local_path: Path to the filesystem where the endpoint data is available to the container.
         :param pulumi.Input[_builtins.str] features_attribute: JSONpath to locate features in JSONlines dataset
@@ -11841,6 +11944,7 @@ class ModelExplainabilityJobDefinitionJsonArgs:
                  line: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The Json format
+
         :param pulumi.Input[_builtins.bool] line: A boolean flag indicating if it is JSON line format
         """
         if line is not None:
@@ -11884,6 +11988,7 @@ class ModelExplainabilityJobDefinitionModelExplainabilityAppSpecificationArgs:
                  environment: Optional[Any] = None):
         """
         Container image configuration object for the monitoring job.
+
         :param pulumi.Input[_builtins.str] config_uri: The S3 URI to an analysis configuration file
         :param pulumi.Input[_builtins.str] image_uri: The container image to be run by the monitoring job.
         :param Any environment: Sets the environment variables in the Docker container
@@ -11950,6 +12055,7 @@ class ModelExplainabilityJobDefinitionModelExplainabilityBaselineConfigArgs:
                  constraints_resource: Optional[pulumi.Input['ModelExplainabilityJobDefinitionConstraintsResourceArgs']] = None):
         """
         Baseline configuration used to validate that the data conforms to the specified constraints and statistics.
+
         :param pulumi.Input[_builtins.str] baselining_job_name: The name of the baseline model explainability job.
         :param pulumi.Input['ModelExplainabilityJobDefinitionConstraintsResourceArgs'] constraints_resource: The constraints resource for a model explainability job.
         """
@@ -12003,6 +12109,7 @@ class ModelExplainabilityJobDefinitionModelExplainabilityJobInputArgs:
                  endpoint_input: Optional[pulumi.Input['ModelExplainabilityJobDefinitionEndpointInputArgs']] = None):
         """
         The inputs for a monitoring job.
+
         :param pulumi.Input['ModelExplainabilityJobDefinitionBatchTransformInputArgs'] batch_transform_input: Input object for the batch transform job.
         :param pulumi.Input['ModelExplainabilityJobDefinitionEndpointInputArgs'] endpoint_input: Input object for the endpoint
         """
@@ -12056,6 +12163,7 @@ class ModelExplainabilityJobDefinitionMonitoringOutputConfigArgs:
                  kms_key_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The output configuration for monitoring jobs.
+
         :param pulumi.Input[Sequence[pulumi.Input['ModelExplainabilityJobDefinitionMonitoringOutputArgs']]] monitoring_outputs: Monitoring outputs for monitoring jobs. This is where the output of the periodic monitoring jobs is uploaded.
         :param pulumi.Input[_builtins.str] kms_key_id: The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
         """
@@ -12103,6 +12211,7 @@ class ModelExplainabilityJobDefinitionMonitoringOutputArgs:
                  s3_output: pulumi.Input['ModelExplainabilityJobDefinitionS3OutputArgs']):
         """
         The output object for a monitoring job.
+
         :param pulumi.Input['ModelExplainabilityJobDefinitionS3OutputArgs'] s3_output: The Amazon S3 storage location where the results of a monitoring job are saved.
         """
         pulumi.set(__self__, "s3_output", s3_output)
@@ -12135,6 +12244,7 @@ class ModelExplainabilityJobDefinitionMonitoringResourcesArgs:
                  cluster_config: pulumi.Input['ModelExplainabilityJobDefinitionClusterConfigArgs']):
         """
         Identifies the resources to deploy for a monitoring job.
+
         :param pulumi.Input['ModelExplainabilityJobDefinitionClusterConfigArgs'] cluster_config: The configuration for the cluster resources used to run the processing job.
         """
         pulumi.set(__self__, "cluster_config", cluster_config)
@@ -12177,6 +12287,7 @@ class ModelExplainabilityJobDefinitionNetworkConfigArgs:
                  vpc_config: Optional[pulumi.Input['ModelExplainabilityJobDefinitionVpcConfigArgs']] = None):
         """
         Networking options for a job, such as network traffic encryption between containers, whether to allow inbound and outbound network calls to and from containers, and the VPC subnets and security groups to use for VPC-enabled jobs.
+
         :param pulumi.Input[_builtins.bool] enable_inter_container_traffic_encryption: Whether to encrypt all communications between distributed processing jobs. Choose True to encrypt communications. Encryption provides greater security for distributed processing jobs, but the processing might take longer.
         :param pulumi.Input[_builtins.bool] enable_network_isolation: Whether to allow inbound and outbound network calls to and from the containers used for the processing job.
         :param pulumi.Input['ModelExplainabilityJobDefinitionVpcConfigArgs'] vpc_config: Specifies a VPC that your training jobs and hosted models have access to. Control access to and from your training and model containers by configuring the VPC.
@@ -12250,6 +12361,7 @@ class ModelExplainabilityJobDefinitionS3OutputArgs:
                  s3_upload_mode: Optional[pulumi.Input['ModelExplainabilityJobDefinitionS3OutputS3UploadMode']] = None):
         """
         Information about where and how to store the results of a monitoring job.
+
         :param pulumi.Input[_builtins.str] local_path: The local path to the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job. LocalPath is an absolute path for the output data.
         :param pulumi.Input[_builtins.str] s3_uri: A URI that identifies the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job.
         :param pulumi.Input['ModelExplainabilityJobDefinitionS3OutputS3UploadMode'] s3_upload_mode: Whether to upload the results of the monitoring job continuously or after the job completes.
@@ -12311,6 +12423,7 @@ class ModelExplainabilityJobDefinitionStoppingConditionArgs:
                  max_runtime_in_seconds: pulumi.Input[_builtins.int]):
         """
         Specifies a time limit for how long the monitoring job is allowed to run.
+
         :param pulumi.Input[_builtins.int] max_runtime_in_seconds: The maximum runtime allowed in seconds.
         """
         pulumi.set(__self__, "max_runtime_in_seconds", max_runtime_in_seconds)
@@ -12348,6 +12461,7 @@ class ModelExplainabilityJobDefinitionVpcConfigArgs:
                  subnets: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
         """
         Specifies a VPC that your training jobs and hosted models have access to. Control access to and from your training and model containers by configuring the VPC.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: The VPC security group IDs, in the form sg-xxxxxxxx. Specify the security groups for the VPC that is specified in the Subnets field.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnets: The ID of the subnets in the VPC to which you want to connect to your monitoring jobs.
         """
@@ -12424,6 +12538,7 @@ class ModelPackageAdditionalInferenceSpecificationDefinitionArgs:
                  supported_transform_instance_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Additional Inference Specification specifies details about inference jobs that can be run with models based on this model package.AdditionalInferenceSpecifications can be added to existing model packages using AdditionalInferenceSpecificationsToAdd.
+
         :param pulumi.Input[Sequence[pulumi.Input['ModelPackageContainerDefinitionArgs']]] containers: The Amazon ECR registry path of the Docker image that contains the inference code.
         :param pulumi.Input[_builtins.str] name: A unique name to identify the additional inference specification. The name must be unique within the list of your additional inference specifications for a particular model package.
         :param pulumi.Input[_builtins.str] description: A description of the additional Inference specification.
@@ -12555,6 +12670,7 @@ class ModelPackageBiasArgs:
                  report: Optional[pulumi.Input['ModelPackageMetricsSourceArgs']] = None):
         """
         Contains bias metrics for a model.
+
         :param pulumi.Input['ModelPackageMetricsSourceArgs'] post_training_report: The post-training bias report for a model.
         :param pulumi.Input['ModelPackageMetricsSourceArgs'] pre_training_report: The pre-training bias report for a model.
         :param pulumi.Input['ModelPackageMetricsSourceArgs'] report: The bias report for a model
@@ -12682,6 +12798,7 @@ class ModelPackageContainerDefinitionArgs:
                  nearest_model_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Describes the Docker container for the model package.
+
         :param pulumi.Input[_builtins.str] image: The Amazon EC2 Container Registry (Amazon ECR) path where inference code is stored.
         :param pulumi.Input[_builtins.str] container_hostname: The DNS host name for the Docker container.
         :param pulumi.Input[_builtins.str] framework: The machine learning framework of the model package container image.
@@ -12852,6 +12969,7 @@ class ModelPackageDataSourceArgs:
                  s3_data_source: pulumi.Input['ModelPackageS3DataSourceArgs']):
         """
         Describes the input source of a transform job and the way the transform job consumes it.
+
         :param pulumi.Input['ModelPackageS3DataSourceArgs'] s3_data_source: The S3 location of the data source that is associated with a channel.
         """
         pulumi.set(__self__, "s3_data_source", s3_data_source)
@@ -12899,6 +13017,7 @@ class ModelPackageDriftCheckBaselinesArgs:
                  model_quality: Optional[pulumi.Input['ModelPackageDriftCheckModelQualityArgs']] = None):
         """
         Represents the drift check baselines that can be used when the model monitor is set using the model package.
+
         :param pulumi.Input['ModelPackageDriftCheckBiasArgs'] bias: Represents the drift check bias baselines that can be used when the model monitor is set using the model package.
         :param pulumi.Input['ModelPackageDriftCheckExplainabilityArgs'] explainability: Represents the drift check explainability baselines that can be used when the model monitor is set using the model package.
         :param pulumi.Input['ModelPackageDriftCheckModelDataQualityArgs'] model_data_quality: Represents the drift check model data quality baselines that can be used when the model monitor is set using the model package.
@@ -12987,6 +13106,7 @@ class ModelPackageDriftCheckBiasArgs:
                  pre_training_constraints: Optional[pulumi.Input['ModelPackageMetricsSourceArgs']] = None):
         """
         Represents the drift check bias baselines that can be used when the model monitor is set using the model package.
+
         :param pulumi.Input['ModelPackageFileSourceArgs'] config_file: The bias config file for a model.
         :param pulumi.Input['ModelPackageMetricsSourceArgs'] post_training_constraints: The post-training constraints.
         :param pulumi.Input['ModelPackageMetricsSourceArgs'] pre_training_constraints: The pre-training constraints.
@@ -13055,6 +13175,7 @@ class ModelPackageDriftCheckExplainabilityArgs:
                  constraints: Optional[pulumi.Input['ModelPackageMetricsSourceArgs']] = None):
         """
         Contains explainability metrics for a model.
+
         :param pulumi.Input['ModelPackageFileSourceArgs'] config_file: The explainability config file for the model.
         :param pulumi.Input['ModelPackageMetricsSourceArgs'] constraints: The drift check explainability constraints.
         """
@@ -13108,6 +13229,7 @@ class ModelPackageDriftCheckModelDataQualityArgs:
                  statistics: Optional[pulumi.Input['ModelPackageMetricsSourceArgs']] = None):
         """
         Represents the drift check data quality baselines that can be used when the model monitor is set using the model package.
+
         :param pulumi.Input['ModelPackageMetricsSourceArgs'] constraints: The drift check model data quality constraints.
         :param pulumi.Input['ModelPackageMetricsSourceArgs'] statistics: The drift check model data quality statistics.
         """
@@ -13161,6 +13283,7 @@ class ModelPackageDriftCheckModelQualityArgs:
                  statistics: Optional[pulumi.Input['ModelPackageMetricsSourceArgs']] = None):
         """
         Represents the drift check model quality baselines that can be used when the model monitor is set using the model package.
+
         :param pulumi.Input['ModelPackageMetricsSourceArgs'] constraints: The drift check model quality constraints.
         :param pulumi.Input['ModelPackageMetricsSourceArgs'] statistics: The drift check model quality statistics.
         """
@@ -13224,6 +13347,7 @@ class ModelPackageExplainabilityArgs:
                  report: Optional[pulumi.Input['ModelPackageMetricsSourceArgs']] = None):
         """
         Contains explainability metrics for a model.
+
         :param pulumi.Input['ModelPackageMetricsSourceArgs'] report: The explainability report for a model.
         """
         if report is not None:
@@ -13267,6 +13391,7 @@ class ModelPackageFileSourceArgs:
                  content_type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Represents a File Source Object.
+
         :param pulumi.Input[_builtins.str] s3_uri: The Amazon S3 URI for the file source.
         :param pulumi.Input[_builtins.str] content_digest: The digest of the file source.
         :param pulumi.Input[_builtins.str] content_type: The type of content stored in the file source.
@@ -13349,6 +13474,7 @@ class ModelPackageInferenceSpecificationArgs:
                  supported_transform_instance_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Details about inference jobs that can be run with models based on this model package.
+
         :param pulumi.Input[Sequence[pulumi.Input['ModelPackageContainerDefinitionArgs']]] containers: The Amazon ECR registry path of the Docker image that contains the inference code.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] supported_content_types: The supported MIME types for the input data.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] supported_response_mime_types: The supported MIME types for the output data.
@@ -13454,6 +13580,7 @@ class ModelPackageMetadataPropertiesArgs:
                  repository: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Metadata properties of the tracking entity, trial, or trial component.
+
         :param pulumi.Input[_builtins.str] commit_id: The commit ID.
         :param pulumi.Input[_builtins.str] generated_by: The entity this entity was generated by.
         :param pulumi.Input[_builtins.str] project_id: The project ID metadata.
@@ -13542,6 +13669,7 @@ class ModelPackageMetricsSourceArgs:
                  content_digest: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Represents a Metric Source Object.
+
         :param pulumi.Input[_builtins.str] content_type: The type of content stored in the metric source.
         :param pulumi.Input[_builtins.str] s3_uri: The Amazon S3 URI for the metric source.
         :param pulumi.Input[_builtins.str] content_digest: The digest of the metric source.
@@ -13603,6 +13731,7 @@ class ModelPackageModelAccessConfigArgs:
                  accept_eula: pulumi.Input[_builtins.bool]):
         """
         Specifies the access configuration file for the ML model.
+
         :param pulumi.Input[_builtins.bool] accept_eula: Specifies agreement to the model end-user license agreement (EULA).
         """
         pulumi.set(__self__, "accept_eula", accept_eula)
@@ -13640,6 +13769,7 @@ class ModelPackageModelCardArgs:
                  model_card_status: pulumi.Input['ModelPackageModelCardModelCardStatus']):
         """
         The model card associated with the model package.
+
         :param pulumi.Input[_builtins.str] model_card_content: The content of the model card.
         :param pulumi.Input['ModelPackageModelCardModelCardStatus'] model_card_status: The approval status of the model card within your organization.
         """
@@ -13691,6 +13821,7 @@ class ModelPackageModelDataQualityArgs:
                  statistics: Optional[pulumi.Input['ModelPackageMetricsSourceArgs']] = None):
         """
         Metrics that measure the quality of the input data for a model.
+
         :param pulumi.Input['ModelPackageMetricsSourceArgs'] constraints: Data quality constraints for a model.
         :param pulumi.Input['ModelPackageMetricsSourceArgs'] statistics: Data quality statistics for a model.
         """
@@ -13780,6 +13911,7 @@ class ModelPackageModelMetricsArgs:
                  model_quality: Optional[pulumi.Input['ModelPackageModelQualityArgs']] = None):
         """
         A structure that contains model metrics reports.
+
         :param pulumi.Input['ModelPackageBiasArgs'] bias: Metrics that measure bias in a model.
         :param pulumi.Input['ModelPackageExplainabilityArgs'] explainability: Metrics that help explain a model.
         :param pulumi.Input['ModelPackageModelDataQualityArgs'] model_data_quality: Metrics that measure the quality of the input data for a model.
@@ -13863,6 +13995,7 @@ class ModelPackageModelQualityArgs:
                  statistics: Optional[pulumi.Input['ModelPackageMetricsSourceArgs']] = None):
         """
         Metrics that measure the quality of a model.
+
         :param pulumi.Input['ModelPackageMetricsSourceArgs'] constraints: Model quality constraints.
         :param pulumi.Input['ModelPackageMetricsSourceArgs'] statistics: Model quality statistics.
         """
@@ -13916,6 +14049,7 @@ class ModelPackageS3DataSourceArgs:
                  s3_uri: pulumi.Input[_builtins.str]):
         """
         Describes the S3 data source.
+
         :param pulumi.Input['ModelPackageS3DataSourceS3DataType'] s3_data_type: The S3 Data Source Type
         :param pulumi.Input[_builtins.str] s3_uri: Depending on the value specified for the S3DataType, identifies either a key name prefix or a manifest.
         """
@@ -13974,6 +14108,7 @@ class ModelPackageS3ModelDataSourceArgs:
                  model_access_config: Optional[pulumi.Input['ModelPackageModelAccessConfigArgs']] = None):
         """
         Specifies the S3 location of ML model data to deploy.
+
         :param pulumi.Input['ModelPackageS3ModelDataSourceCompressionType'] compression_type: Specifies how the ML model data is prepared.
         :param pulumi.Input['ModelPackageS3ModelDataSourceS3DataType'] s3_data_type: Specifies the type of ML model data to deploy.
         :param pulumi.Input[_builtins.str] s3_uri: Specifies the S3 path of ML model data to deploy.
@@ -14045,6 +14180,7 @@ class ModelPackageSecurityConfigArgs:
                  kms_key_id: pulumi.Input[_builtins.str]):
         """
         An optional AWS Key Management Service key to encrypt, decrypt, and re-encrypt model package information for regulated workloads with highly sensitive data.
+
         :param pulumi.Input[_builtins.str] kms_key_id: The AWS KMS Key ID (KMSKeyId) used for encryption of model package information.
         """
         pulumi.set(__self__, "kms_key_id", kms_key_id)
@@ -14077,6 +14213,7 @@ class ModelPackageSourceAlgorithmSpecificationArgs:
                  source_algorithms: pulumi.Input[Sequence[pulumi.Input['ModelPackageSourceAlgorithmArgs']]]):
         """
         Details about the algorithm that was used to create the model package.
+
         :param pulumi.Input[Sequence[pulumi.Input['ModelPackageSourceAlgorithmArgs']]] source_algorithms: A list of algorithms that were used to create a model package.
         """
         pulumi.set(__self__, "source_algorithms", source_algorithms)
@@ -14114,6 +14251,7 @@ class ModelPackageSourceAlgorithmArgs:
                  model_data_url: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Specifies an algorithm that was used to create the model package. The algorithm must be either an algorithm resource in your Amazon SageMaker account or an algorithm in AWS Marketplace that you are subscribed to.
+
         :param pulumi.Input[_builtins.str] algorithm_name: The name of an algorithm that was used to create the model package. The algorithm must be either an algorithm resource in your Amazon SageMaker account or an algorithm in AWS Marketplace that you are subscribed to.
         :param pulumi.Input[_builtins.str] model_data_url: The Amazon S3 path where the model artifacts, which result from model training, are stored. This path must point to a single gzip compressed tar archive (.tar.gz suffix).
         """
@@ -14161,6 +14299,7 @@ class ModelPackageStatusDetailsArgs:
                  validation_statuses: Optional[pulumi.Input[Sequence[pulumi.Input['ModelPackageStatusItemArgs']]]] = None):
         """
         Details about the current status of the model package.
+
         :param pulumi.Input[Sequence[pulumi.Input['ModelPackageStatusItemArgs']]] validation_statuses: The validation status of the model package.
         """
         if validation_statuses is not None:
@@ -14204,6 +14343,7 @@ class ModelPackageStatusItemArgs:
                  failure_reason: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Represents the overall status of a model package.
+
         :param pulumi.Input[_builtins.str] name: The name of the model package for which the overall status is being reported.
         :param pulumi.Input['ModelPackageStatusItemStatus'] status: The current status.
         :param pulumi.Input[_builtins.str] failure_reason: If the overall status is Failed, the reason for the failure.
@@ -14280,6 +14420,7 @@ class ModelPackageTransformInputArgs:
                  split_type: Optional[pulumi.Input['ModelPackageTransformInputSplitType']] = None):
         """
         Describes the input source of a transform job and the way the transform job consumes it.
+
         :param pulumi.Input['ModelPackageDataSourceArgs'] data_source: Describes the location of the channel data, which is, the S3 location of the input data that the model can consume.
         :param pulumi.Input['ModelPackageTransformInputCompressionType'] compression_type: If your transform data is compressed, specify the compression type. Amazon SageMaker automatically decompresses the data for the transform job accordingly. The default value is None.
         :param pulumi.Input[_builtins.str] content_type: The multipurpose internet mail extension (MIME) type of the data. Amazon SageMaker uses the MIME type with each http call to transfer data to the transform job.
@@ -14387,6 +14528,7 @@ class ModelPackageTransformJobDefinitionArgs:
                  max_payload_in_mb: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Defines the input needed to run a transform job using the inference specification specified in the algorithm.
+
         :param pulumi.Input['ModelPackageTransformInputArgs'] transform_input: A description of the input source and the way the transform job consumes it.
         :param pulumi.Input['ModelPackageTransformOutputArgs'] transform_output: Identifies the Amazon S3 location where you want Amazon SageMaker to save the results from the transform job.
         :param pulumi.Input['ModelPackageTransformResourcesArgs'] transform_resources: Identifies the ML compute instances for the transform job.
@@ -14522,6 +14664,7 @@ class ModelPackageTransformOutputArgs:
                  kms_key_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Describes the results of a transform job.
+
         :param pulumi.Input[_builtins.str] s3_output_path: The Amazon S3 path where you want Amazon SageMaker to store the results of the transform job.
         :param pulumi.Input[_builtins.str] accept: The MIME type used to specify the output data. Amazon SageMaker uses the MIME type with each http call to transfer data from the transform job.
         :param pulumi.Input['ModelPackageTransformOutputAssembleWith'] assemble_with: Defines how to assemble the results of the transform job as a single S3 object.
@@ -14609,6 +14752,7 @@ class ModelPackageTransformResourcesArgs:
                  volume_kms_key_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Describes the resources, including ML instance types and ML instance count, to use for transform job.
+
         :param pulumi.Input[_builtins.int] instance_count: The number of ML compute instances to use in the transform job. For distributed transform jobs, specify a value greater than 1. The default value is 1.
         :param pulumi.Input[_builtins.str] instance_type: The ML compute instance type for the transform job.
         :param pulumi.Input[_builtins.str] volume_kms_key_id: The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt model data on the storage volume attached to the ML compute instance(s) that run the batch transform job.
@@ -14675,6 +14819,7 @@ class ModelPackageValidationProfileArgs:
                  transform_job_definition: pulumi.Input['ModelPackageTransformJobDefinitionArgs']):
         """
         Contains data, such as the inputs and targeted instance types that are used in the process of validating the model package.
+
         :param pulumi.Input[_builtins.str] profile_name: The name of the profile for the model package.
         :param pulumi.Input['ModelPackageTransformJobDefinitionArgs'] transform_job_definition: The `TransformJobDefinition` object that describes the transform job used for the validation of the model package.
         """
@@ -14726,6 +14871,7 @@ class ModelPackageValidationSpecificationArgs:
                  validation_role: pulumi.Input[_builtins.str]):
         """
         Specifies configurations for one or more transform jobs that Amazon SageMaker runs to test the model package.
+
         :param pulumi.Input[Sequence[pulumi.Input['ModelPackageValidationProfileArgs']]] validation_profiles: An array of `ModelPackageValidationProfile` objects, each of which specifies a batch transform job that SageMaker runs to validate your model package.
         :param pulumi.Input[_builtins.str] validation_role: The IAM roles to be used for the validation of the model package.
         """
@@ -14817,6 +14963,7 @@ class ModelQualityJobDefinitionBatchTransformInputArgs:
                  start_time_offset: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The batch transform input for a monitoring job.
+
         :param pulumi.Input[_builtins.str] data_captured_destination_s3_uri: A URI that identifies the Amazon S3 storage location where Batch Transform Job captures data.
         :param pulumi.Input['ModelQualityJobDefinitionDatasetFormatArgs'] dataset_format: The dataset format for your batch transform job.
         :param pulumi.Input[_builtins.str] local_path: Path to the filesystem where the endpoint data is available to the container.
@@ -14997,6 +15144,7 @@ class ModelQualityJobDefinitionClusterConfigArgs:
                  volume_kms_key_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Configuration for the cluster used to run model monitoring jobs.
+
         :param pulumi.Input[_builtins.int] instance_count: The number of ML compute instances to use in the model monitoring job. For distributed processing jobs, specify a value greater than 1. The default value is 1.
         :param pulumi.Input[_builtins.str] instance_type: The ML compute instance type for the processing job.
         :param pulumi.Input[_builtins.int] volume_size_in_gb: The size of the ML storage volume, in gigabytes, that you want to provision. You must specify sufficient ML storage for your scenario.
@@ -15072,6 +15220,7 @@ class ModelQualityJobDefinitionConstraintsResourceArgs:
                  s3_uri: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The baseline constraints resource for a monitoring job.
+
         :param pulumi.Input[_builtins.str] s3_uri: The Amazon S3 URI for baseline constraint file in Amazon S3 that the current monitoring job should validated against.
         """
         if s3_uri is not None:
@@ -15105,6 +15254,7 @@ class ModelQualityJobDefinitionCsvArgs:
                  header: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The CSV format
+
         :param pulumi.Input[_builtins.bool] header: A boolean flag indicating if given CSV has header
         """
         if header is not None:
@@ -15230,6 +15380,7 @@ class ModelQualityJobDefinitionEndpointInputArgs:
                  start_time_offset: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The endpoint for a monitoring job.
+
         :param pulumi.Input[_builtins.str] endpoint_name: An endpoint in customer's account which has enabled `DataCaptureConfig` enabled.
         :param pulumi.Input[_builtins.str] local_path: Path to the filesystem where the endpoint data is available to the container.
         :param pulumi.Input[_builtins.str] end_time_offset: Monitoring end time offset, e.g. PT0H
@@ -15381,6 +15532,7 @@ class ModelQualityJobDefinitionJsonArgs:
                  line: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The Json format
+
         :param pulumi.Input[_builtins.bool] line: A boolean flag indicating if it is JSON line format
         """
         if line is not None:
@@ -15444,6 +15596,7 @@ class ModelQualityJobDefinitionModelQualityAppSpecificationArgs:
                  record_preprocessor_source_uri: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Container image configuration object for the monitoring job.
+
         :param pulumi.Input[_builtins.str] image_uri: The container image to be run by the monitoring job.
         :param pulumi.Input['ModelQualityJobDefinitionProblemType'] problem_type: The machine learning problem type of the model that the monitoring job monitors.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] container_arguments: An array of arguments for the container used to run the monitoring job.
@@ -15570,6 +15723,7 @@ class ModelQualityJobDefinitionModelQualityBaselineConfigArgs:
                  constraints_resource: Optional[pulumi.Input['ModelQualityJobDefinitionConstraintsResourceArgs']] = None):
         """
         Baseline configuration used to validate that the data conforms to the specified constraints and statistics.
+
         :param pulumi.Input[_builtins.str] baselining_job_name: The name of the job that performs baselining for the monitoring job.
         :param pulumi.Input['ModelQualityJobDefinitionConstraintsResourceArgs'] constraints_resource: The constraints resource for a monitoring job.
         """
@@ -15628,6 +15782,7 @@ class ModelQualityJobDefinitionModelQualityJobInputArgs:
                  endpoint_input: Optional[pulumi.Input['ModelQualityJobDefinitionEndpointInputArgs']] = None):
         """
         The inputs for a monitoring job.
+
         :param pulumi.Input['ModelQualityJobDefinitionMonitoringGroundTruthS3InputArgs'] ground_truth_s3_input: The ground truth label provided for the model.
         :param pulumi.Input['ModelQualityJobDefinitionBatchTransformInputArgs'] batch_transform_input: Input object for the batch transform job.
         :param pulumi.Input['ModelQualityJobDefinitionEndpointInputArgs'] endpoint_input: Input object for the endpoint
@@ -15690,6 +15845,7 @@ class ModelQualityJobDefinitionMonitoringGroundTruthS3InputArgs:
                  s3_uri: pulumi.Input[_builtins.str]):
         """
         Ground truth input provided in S3 
+
         :param pulumi.Input[_builtins.str] s3_uri: A URI that identifies the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job.
         """
         pulumi.set(__self__, "s3_uri", s3_uri)
@@ -15727,6 +15883,7 @@ class ModelQualityJobDefinitionMonitoringOutputConfigArgs:
                  kms_key_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The output configuration for monitoring jobs.
+
         :param pulumi.Input[Sequence[pulumi.Input['ModelQualityJobDefinitionMonitoringOutputArgs']]] monitoring_outputs: Monitoring outputs for monitoring jobs. This is where the output of the periodic monitoring jobs is uploaded.
         :param pulumi.Input[_builtins.str] kms_key_id: The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
         """
@@ -15774,6 +15931,7 @@ class ModelQualityJobDefinitionMonitoringOutputArgs:
                  s3_output: pulumi.Input['ModelQualityJobDefinitionS3OutputArgs']):
         """
         The output object for a monitoring job.
+
         :param pulumi.Input['ModelQualityJobDefinitionS3OutputArgs'] s3_output: The Amazon S3 storage location where the results of a monitoring job are saved.
         """
         pulumi.set(__self__, "s3_output", s3_output)
@@ -15806,6 +15964,7 @@ class ModelQualityJobDefinitionMonitoringResourcesArgs:
                  cluster_config: pulumi.Input['ModelQualityJobDefinitionClusterConfigArgs']):
         """
         Identifies the resources to deploy for a monitoring job.
+
         :param pulumi.Input['ModelQualityJobDefinitionClusterConfigArgs'] cluster_config: The configuration for the cluster resources used to run the processing job.
         """
         pulumi.set(__self__, "cluster_config", cluster_config)
@@ -15848,6 +16007,7 @@ class ModelQualityJobDefinitionNetworkConfigArgs:
                  vpc_config: Optional[pulumi.Input['ModelQualityJobDefinitionVpcConfigArgs']] = None):
         """
         Networking options for a job, such as network traffic encryption between containers, whether to allow inbound and outbound network calls to and from containers, and the VPC subnets and security groups to use for VPC-enabled jobs.
+
         :param pulumi.Input[_builtins.bool] enable_inter_container_traffic_encryption: Whether to encrypt all communications between distributed processing jobs. Choose True to encrypt communications. Encryption provides greater security for distributed processing jobs, but the processing might take longer.
         :param pulumi.Input[_builtins.bool] enable_network_isolation: Whether to allow inbound and outbound network calls to and from the containers used for the processing job.
         :param pulumi.Input['ModelQualityJobDefinitionVpcConfigArgs'] vpc_config: Specifies a VPC that your training jobs and hosted models have access to. Control access to and from your training and model containers by configuring the VPC.
@@ -15921,6 +16081,7 @@ class ModelQualityJobDefinitionS3OutputArgs:
                  s3_upload_mode: Optional[pulumi.Input['ModelQualityJobDefinitionS3OutputS3UploadMode']] = None):
         """
         Information about where and how to store the results of a monitoring job.
+
         :param pulumi.Input[_builtins.str] local_path: The local path to the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job. LocalPath is an absolute path for the output data.
         :param pulumi.Input[_builtins.str] s3_uri: A URI that identifies the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job.
         :param pulumi.Input['ModelQualityJobDefinitionS3OutputS3UploadMode'] s3_upload_mode: Whether to upload the results of the monitoring job continuously or after the job completes.
@@ -15982,6 +16143,7 @@ class ModelQualityJobDefinitionStoppingConditionArgs:
                  max_runtime_in_seconds: pulumi.Input[_builtins.int]):
         """
         Specifies a time limit for how long the monitoring job is allowed to run.
+
         :param pulumi.Input[_builtins.int] max_runtime_in_seconds: The maximum runtime allowed in seconds.
         """
         pulumi.set(__self__, "max_runtime_in_seconds", max_runtime_in_seconds)
@@ -16019,6 +16181,7 @@ class ModelQualityJobDefinitionVpcConfigArgs:
                  subnets: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
         """
         Specifies a VPC that your training jobs and hosted models have access to. Control access to and from your training and model containers by configuring the VPC.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: The VPC security group IDs, in the form sg-xxxxxxxx. Specify the security groups for the VPC that is specified in the Subnets field.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnets: The ID of the subnets in the VPC to which you want to connect to your monitoring jobs.
         """
@@ -16070,6 +16233,7 @@ class MonitoringScheduleBaselineConfigArgs:
                  statistics_resource: Optional[pulumi.Input['MonitoringScheduleStatisticsResourceArgs']] = None):
         """
         Baseline configuration used to validate that the data conforms to the specified constraints and statistics.
+
         :param pulumi.Input['MonitoringScheduleConstraintsResourceArgs'] constraints_resource: The Amazon S3 URI for the constraints resource.
         :param pulumi.Input['MonitoringScheduleStatisticsResourceArgs'] statistics_resource: The baseline statistics file in Amazon S3 that the current monitoring job should be validated against.
         """
@@ -16140,6 +16304,7 @@ class MonitoringScheduleBatchTransformInputArgs:
                  s3_input_mode: Optional[pulumi.Input['MonitoringScheduleBatchTransformInputS3InputMode']] = None):
         """
         The batch transform input for a monitoring job.
+
         :param pulumi.Input[_builtins.str] data_captured_destination_s3_uri: A URI that identifies the Amazon S3 storage location where Batch Transform Job captures data.
         :param pulumi.Input[_builtins.str] local_path: Path to the filesystem where the endpoint data is available to the container.
         :param pulumi.Input[_builtins.str] exclude_features_attribute: Indexes or names of the features to be excluded from analysis
@@ -16256,6 +16421,7 @@ class MonitoringScheduleClusterConfigArgs:
                  volume_kms_key_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Configuration for the cluster used to run model monitoring jobs.
+
         :param pulumi.Input[_builtins.int] instance_count: The number of ML compute instances to use in the model monitoring job. For distributed processing jobs, specify a value greater than 1. The default value is 1.
         :param pulumi.Input[_builtins.str] instance_type: The ML compute instance type for the processing job.
         :param pulumi.Input[_builtins.int] volume_size_in_gb: The size of the ML storage volume, in gigabytes, that you want to provision. You must specify sufficient ML storage for your scenario.
@@ -16346,6 +16512,7 @@ class MonitoringScheduleConfigArgs:
                  schedule_config: Optional[pulumi.Input['MonitoringScheduleScheduleConfigArgs']] = None):
         """
         The configuration object that specifies the monitoring schedule and defines the monitoring job.
+
         :param pulumi.Input['MonitoringScheduleMonitoringJobDefinitionArgs'] monitoring_job_definition: Defines the monitoring job.
         :param pulumi.Input[_builtins.str] monitoring_job_definition_name: Name of the job definition
         :param pulumi.Input['MonitoringScheduleMonitoringType'] monitoring_type: The type of the monitoring job definition to schedule.
@@ -16424,6 +16591,7 @@ class MonitoringScheduleConstraintsResourceArgs:
                  s3_uri: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The baseline constraints resource for a monitoring job.
+
         :param pulumi.Input[_builtins.str] s3_uri: The Amazon S3 URI for baseline constraint file in Amazon S3 that the current monitoring job should validated against.
         """
         if s3_uri is not None:
@@ -16457,6 +16625,7 @@ class MonitoringScheduleCsvArgs:
                  header: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The CSV format
+
         :param pulumi.Input[_builtins.bool] header: A boolean flag indicating if given CSV has header
         """
         if header is not None:
@@ -16559,6 +16728,7 @@ class MonitoringScheduleEndpointInputArgs:
                  s3_input_mode: Optional[pulumi.Input['MonitoringScheduleEndpointInputS3InputMode']] = None):
         """
         The endpoint for a monitoring job.
+
         :param pulumi.Input[_builtins.str] local_path: Path to the filesystem where the endpoint data is available to the container.
         :param pulumi.Input[_builtins.str] exclude_features_attribute: Indexes or names of the features to be excluded from analysis
         :param pulumi.Input['MonitoringScheduleEndpointInputS3DataDistributionType'] s3_data_distribution_type: Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
@@ -16646,6 +16816,7 @@ class MonitoringScheduleJsonArgs:
                  line: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The Json format
+
         :param pulumi.Input[_builtins.bool] line: A boolean flag indicating if it is JSON line format
         """
         if line is not None:
@@ -16699,6 +16870,7 @@ class MonitoringScheduleMonitoringAppSpecificationArgs:
                  record_preprocessor_source_uri: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Container image configuration object for the monitoring job.
+
         :param pulumi.Input[_builtins.str] image_uri: The container image to be run by the monitoring job.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] container_arguments: An array of arguments for the container used to run the monitoring job.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] container_entrypoint: Specifies the entrypoint for a container used to run the monitoring job.
@@ -16826,6 +16998,7 @@ class MonitoringScheduleMonitoringExecutionSummaryArgs:
                  processing_job_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Summary of information about monitoring job
+
         :param pulumi.Input[_builtins.str] creation_time: The time at which the monitoring job was created.
         :param pulumi.Input[_builtins.str] last_modified_time: A timestamp that indicates the last time the monitoring job was modified.
         :param pulumi.Input['MonitoringScheduleMonitoringExecutionSummaryMonitoringExecutionStatus'] monitoring_execution_status: The status of the monitoring job.
@@ -17038,6 +17211,7 @@ class MonitoringScheduleMonitoringJobDefinitionArgs:
                  stopping_condition: Optional[pulumi.Input['MonitoringScheduleStoppingConditionArgs']] = None):
         """
         Defines the monitoring job.
+
         :param pulumi.Input['MonitoringScheduleMonitoringAppSpecificationArgs'] monitoring_app_specification: Configures the monitoring job to run a specified Docker container image.
         :param pulumi.Input[Sequence[pulumi.Input['MonitoringScheduleMonitoringInputArgs']]] monitoring_inputs: The array of inputs for the monitoring job. Currently we support monitoring an Amazon SageMaker AI Endpoint.
         :param pulumi.Input['MonitoringScheduleMonitoringOutputConfigArgs'] monitoring_output_config: The array of outputs from the monitoring job to be uploaded to Amazon S3.
@@ -17191,6 +17365,7 @@ class MonitoringScheduleMonitoringOutputConfigArgs:
                  kms_key_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The output configuration for monitoring jobs.
+
         :param pulumi.Input[Sequence[pulumi.Input['MonitoringScheduleMonitoringOutputArgs']]] monitoring_outputs: Monitoring outputs for monitoring jobs. This is where the output of the periodic monitoring jobs is uploaded.
         :param pulumi.Input[_builtins.str] kms_key_id: The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
         """
@@ -17238,6 +17413,7 @@ class MonitoringScheduleMonitoringOutputArgs:
                  s3_output: pulumi.Input['MonitoringScheduleS3OutputArgs']):
         """
         The output object for a monitoring job.
+
         :param pulumi.Input['MonitoringScheduleS3OutputArgs'] s3_output: The Amazon S3 storage location where the results of a monitoring job are saved.
         """
         pulumi.set(__self__, "s3_output", s3_output)
@@ -17270,6 +17446,7 @@ class MonitoringScheduleMonitoringResourcesArgs:
                  cluster_config: pulumi.Input['MonitoringScheduleClusterConfigArgs']):
         """
         Identifies the resources to deploy for a monitoring job.
+
         :param pulumi.Input['MonitoringScheduleClusterConfigArgs'] cluster_config: The configuration for the cluster resources used to run the processing job.
         """
         pulumi.set(__self__, "cluster_config", cluster_config)
@@ -17312,6 +17489,7 @@ class MonitoringScheduleNetworkConfigArgs:
                  vpc_config: Optional[pulumi.Input['MonitoringScheduleVpcConfigArgs']] = None):
         """
         Networking options for a job, such as network traffic encryption between containers, whether to allow inbound and outbound network calls to and from containers, and the VPC subnets and security groups to use for VPC-enabled jobs.
+
         :param pulumi.Input[_builtins.bool] enable_inter_container_traffic_encryption: Whether to encrypt all communications between distributed processing jobs. Choose True to encrypt communications. Encryption provides greater security for distributed processing jobs, but the processing might take longer.
         :param pulumi.Input[_builtins.bool] enable_network_isolation: Whether to allow inbound and outbound network calls to and from the containers used for the processing job.
         :param pulumi.Input['MonitoringScheduleVpcConfigArgs'] vpc_config: Specifies a VPC that your training jobs and hosted models have access to. Control access to and from your training and model containers by configuring the VPC. For more information, see [Protect Endpoints by Using an Amazon Virtual Private Cloud](https://docs.aws.amazon.com/sagemaker/latest/dg/host-vpc.html) and [Protect Training Jobs by Using an Amazon Virtual Private Cloud](https://docs.aws.amazon.com/sagemaker/latest/dg/train-vpc.html) .
@@ -17385,6 +17563,7 @@ class MonitoringScheduleS3OutputArgs:
                  s3_upload_mode: Optional[pulumi.Input['MonitoringScheduleS3OutputS3UploadMode']] = None):
         """
         Information about where and how to store the results of a monitoring job.
+
         :param pulumi.Input[_builtins.str] local_path: The local path to the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job. LocalPath is an absolute path for the output data.
         :param pulumi.Input[_builtins.str] s3_uri: A URI that identifies the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job.
         :param pulumi.Input['MonitoringScheduleS3OutputS3UploadMode'] s3_upload_mode: Whether to upload the results of the monitoring job continuously or after the job completes.
@@ -17456,6 +17635,7 @@ class MonitoringScheduleScheduleConfigArgs:
                  data_analysis_start_time: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Configuration details about the monitoring schedule.
+
         :param pulumi.Input[_builtins.str] schedule_expression: A cron expression or 'NOW' that describes details about the monitoring schedule.
         :param pulumi.Input[_builtins.str] data_analysis_end_time: Data Analysis end time, e.g. PT0H
         :param pulumi.Input[_builtins.str] data_analysis_start_time: Data Analysis start time, e.g. -PT1H
@@ -17518,6 +17698,7 @@ class MonitoringScheduleStatisticsResourceArgs:
                  s3_uri: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The baseline statistics resource for a monitoring job.
+
         :param pulumi.Input[_builtins.str] s3_uri: The Amazon S3 URI for the baseline statistics file in Amazon S3 that the current monitoring job should be validated against.
         """
         if s3_uri is not None:
@@ -17551,6 +17732,7 @@ class MonitoringScheduleStoppingConditionArgs:
                  max_runtime_in_seconds: pulumi.Input[_builtins.int]):
         """
         Specifies a time limit for how long the monitoring job is allowed to run.
+
         :param pulumi.Input[_builtins.int] max_runtime_in_seconds: The maximum runtime allowed in seconds.
         """
         pulumi.set(__self__, "max_runtime_in_seconds", max_runtime_in_seconds)
@@ -17588,6 +17770,7 @@ class MonitoringScheduleVpcConfigArgs:
                  subnets: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
         """
         Specifies a VPC that your training jobs and hosted models have access to. Control access to and from your training and model containers by configuring the VPC.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: The VPC security group IDs, in the form sg-xxxxxxxx. Specify the security groups for the VPC that is specified in the Subnets field.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnets: The ID of the subnets in the VPC to which you want to connect to your monitoring jobs.
         """
@@ -17651,6 +17834,7 @@ class OfflineStoreConfigPropertiesArgs:
                  table_format: Optional[pulumi.Input['FeatureGroupTableFormat']] = None):
         """
         The configuration of an `OfflineStore` .
+
         :param pulumi.Input['FeatureGroupS3StorageConfigArgs'] s3_storage_config: The Amazon Simple Storage (Amazon S3) location of `OfflineStore` .
         :param pulumi.Input['FeatureGroupDataCatalogConfigArgs'] data_catalog_config: The meta data of the Glue table that is autogenerated when an `OfflineStore` is created.
         :param pulumi.Input[_builtins.bool] disable_glue_table_creation: Set to `True` to disable the automatic creation of an AWS Glue table when configuring an `OfflineStore` . If set to `False` , Feature Store will name the `OfflineStore` Glue table following [Athena's naming recommendations](https://docs.aws.amazon.com/athena/latest/ug/tables-databases-columns-names.html) .
@@ -17752,6 +17936,7 @@ class OnlineStoreConfigPropertiesArgs:
                  ttl_duration: Optional[pulumi.Input['FeatureGroupTtlDurationArgs']] = None):
         """
         The configuration of an `OnlineStore` .
+
         :param pulumi.Input[_builtins.bool] enable_online_store: Turn `OnlineStore` off by specifying `False` for the `EnableOnlineStore` flag. Turn `OnlineStore` on by specifying `True` for the `EnableOnlineStore` flag.
                
                The default value is `False` .
@@ -17840,6 +18025,7 @@ class ParallelismConfigurationPropertiesArgs:
                  max_parallel_execution_steps: pulumi.Input[_builtins.int]):
         """
         The parallelism configuration applied to the pipeline.
+
         :param pulumi.Input[_builtins.int] max_parallel_execution_steps: Maximum parallel execution steps
         """
         pulumi.set(__self__, "max_parallel_execution_steps", max_parallel_execution_steps)
@@ -17877,6 +18063,7 @@ class PartnerAppConfigArgs:
                  arguments: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         A collection of configuration settings for the PartnerApp.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] admin_users: A list of users with administrator privileges for the PartnerApp.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] arguments: A list of arguments to pass to the PartnerApp.
         """
@@ -17925,6 +18112,7 @@ class PartnerAppMaintenanceConfigArgs:
                  maintenance_window_start: pulumi.Input[_builtins.str]):
         """
         A collection of settings that specify the maintenance schedule for the PartnerApp.
+
         :param pulumi.Input[_builtins.str] maintenance_window_start: The maintenance window start day and time for the PartnerApp.
         """
         pulumi.set(__self__, "maintenance_window_start", maintenance_window_start)
@@ -17957,6 +18145,7 @@ class PipelineDefinition0PropertiesArgs:
                  pipeline_definition_body: pulumi.Input[_builtins.str]):
         """
         The definition of the pipeline. This can be either a JSON string or an Amazon S3 location.
+
         :param pulumi.Input[_builtins.str] pipeline_definition_body: A specification that defines the pipeline in JSON format.
         """
         pulumi.set(__self__, "pipeline_definition_body", pipeline_definition_body)
@@ -18111,6 +18300,7 @@ class ProcessingJobAppSpecificationArgs:
                  container_entrypoint: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Configures the processing job to run a specified Docker container image.
+
         :param pulumi.Input[_builtins.str] image_uri: The container image to be run by the processing job.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] container_arguments: The arguments for a container used to run a processing job.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] container_entrypoint: The entrypoint for a container used to run a processing job.
@@ -18208,6 +18398,7 @@ class ProcessingJobAthenaDatasetDefinitionArgs:
                  work_group: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Configuration for Athena Dataset Definition input.
+
         :param pulumi.Input[_builtins.str] catalog: The name of the data catalog used in Athena query execution.
         :param pulumi.Input[_builtins.str] database: The name of the database used in the Athena query execution.
         :param pulumi.Input['ProcessingJobAthenaDatasetDefinitionOutputFormat'] output_format: The data storage format for Athena query results.
@@ -18356,6 +18547,7 @@ class ProcessingJobClusterConfigArgs:
                  volume_kms_key_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Configuration for the cluster used to run a processing job.
+
         :param pulumi.Input[_builtins.int] instance_count: The number of ML compute instances to use in the processing job. For distributed processing jobs, specify a value greater than 1. The default value is 1.
         :param pulumi.Input['ProcessingJobClusterConfigInstanceType'] instance_type: The ML compute instance type for the processing job.
         :param pulumi.Input[_builtins.int] volume_size_in_gb: The size of the ML storage volume in gigabytes that you want to provision. You must specify sufficient ML storage for your scenario.
@@ -18451,6 +18643,7 @@ class ProcessingJobDatasetDefinitionArgs:
                  redshift_dataset_definition: Optional[pulumi.Input['ProcessingJobRedshiftDatasetDefinitionArgs']] = None):
         """
         Configuration for Dataset Definition inputs. The Dataset Definition input must specify exactly one of either `AthenaDatasetDefinition` or `RedshiftDatasetDefinition` types.
+
         :param pulumi.Input['ProcessingJobAthenaDatasetDefinitionArgs'] athena_dataset_definition: Configuration for Athena Dataset Definition input.
         :param pulumi.Input['ProcessingJobDatasetDefinitionDataDistributionType'] data_distribution_type: Whether the generated dataset is FullyReplicated or ShardedByS3Key (default).
         :param pulumi.Input['ProcessingJobDatasetDefinitionInputMode'] input_mode: Whether to use File or Pipe input mode. In File (default) mode, Amazon SageMaker copies the data from the input source onto the local Amazon Elastic Block Store (Amazon EBS) volumes before starting your training algorithm. This is the most commonly used input mode. In Pipe mode, Amazon SageMaker streams input data from the source directly to your algorithm without using the EBS volume.
@@ -18574,6 +18767,7 @@ class ProcessingJobExperimentConfigArgs:
                  trial_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Associates a SageMaker job as a trial component with an experiment and trial.
+
         :param pulumi.Input[_builtins.str] experiment_name: The name of an existing experiment to associate with the trial component.
         :param pulumi.Input[_builtins.str] run_name: The name of the experiment run to associate with the trial component.
         :param pulumi.Input[_builtins.str] trial_component_display_name: The display name for the trial component. If this key isn't specified, the display name is the trial component name.
@@ -18652,6 +18846,7 @@ class ProcessingJobFeatureStoreOutputArgs:
                  feature_group_name: pulumi.Input[_builtins.str]):
         """
         Configuration for processing job outputs in Amazon SageMaker Feature Store.
+
         :param pulumi.Input[_builtins.str] feature_group_name: The name of the Amazon SageMaker FeatureGroup to use as the destination for processing job output. Note that your processing script is responsible for putting records into your Feature Store.
         """
         pulumi.set(__self__, "feature_group_name", feature_group_name)
@@ -18694,6 +18889,7 @@ class ProcessingJobNetworkConfigArgs:
                  vpc_config: Optional[pulumi.Input['ProcessingJobVpcConfigArgs']] = None):
         """
         Networking options for a job, such as network traffic encryption between containers, whether to allow inbound and outbound network calls to and from containers, and the VPC subnets and security groups to use for VPC-enabled jobs.
+
         :param pulumi.Input[_builtins.bool] enable_inter_container_traffic_encryption: Whether to encrypt all communications between distributed processing jobs. Choose True to encrypt communications. Encryption provides greater security for distributed processing jobs, but the processing might take longer.
         :param pulumi.Input[_builtins.bool] enable_network_isolation: Whether to allow inbound and outbound network calls to and from the containers used for the processing job.
         :param pulumi.Input['ProcessingJobVpcConfigArgs'] vpc_config: Specifies an Amazon Virtual Private Cloud (VPC) that your SageMaker jobs, hosted models, and compute resources have access to. You can control access to and from your resources by configuring a VPC. For more information, see [Give SageMaker Access to Resources in your Amazon VPC](https://docs.aws.amazon.com/sagemaker/latest/dg/infrastructure-give-access.html) .
@@ -18772,6 +18968,7 @@ class ProcessingJobProcessingInputsObjectArgs:
                  s3_input: Optional[pulumi.Input['ProcessingJobS3InputArgs']] = None):
         """
         The inputs for a processing job. The processing input must specify exactly one of either S3Input or DatasetDefinition types.
+
         :param pulumi.Input[_builtins.str] input_name: The name for the processing job input.
         :param pulumi.Input[_builtins.bool] app_managed: When True, input operations such as data download are managed natively by the processing job application. When False (default), input operations are managed by Amazon SageMaker.
         :param pulumi.Input['ProcessingJobDatasetDefinitionArgs'] dataset_definition: Configuration for Dataset Definition inputs. The Dataset Definition input must specify exactly one of either `AthenaDatasetDefinition` or `RedshiftDatasetDefinition` types.
@@ -18854,6 +19051,7 @@ class ProcessingJobProcessingOutputConfigArgs:
                  kms_key_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Configuration for uploading output from the processing container.
+
         :param pulumi.Input[Sequence[pulumi.Input['ProcessingJobProcessingOutputsObjectArgs']]] outputs: An array of outputs configuring the data to upload from the processing container.
         :param pulumi.Input[_builtins.str] kms_key_id: The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt the processing job output. KmsKeyId can be an ID of a KMS key, ARN of a KMS key, or alias of a KMS key. The KmsKeyId is applied to all outputs.
         """
@@ -18916,6 +19114,7 @@ class ProcessingJobProcessingOutputsObjectArgs:
                  s3_output: Optional[pulumi.Input['ProcessingJobS3OutputArgs']] = None):
         """
         Describes the results of a processing job. The processing output must specify exactly one of either S3Output or FeatureStoreOutput types.
+
         :param pulumi.Input[_builtins.str] output_name: The name for the processing job output.
         :param pulumi.Input[_builtins.bool] app_managed: When True, output operations such as data upload are managed natively by the processing job application. When False (default), output operations are managed by Amazon SageMaker.
         :param pulumi.Input['ProcessingJobFeatureStoreOutputArgs'] feature_store_output: Configuration for processing job outputs in Amazon SageMaker Feature Store.
@@ -18993,6 +19192,7 @@ class ProcessingJobProcessingResourcesArgs:
                  cluster_config: pulumi.Input['ProcessingJobClusterConfigArgs']):
         """
         Identifies the resources, ML compute instances, and ML storage volumes to deploy for a processing job. In distributed training, you specify more than one instance.
+
         :param pulumi.Input['ProcessingJobClusterConfigArgs'] cluster_config: The configuration for the resources in a cluster used to run the processing job.
         """
         pulumi.set(__self__, "cluster_config", cluster_config)
@@ -19065,6 +19265,7 @@ class ProcessingJobRedshiftDatasetDefinitionArgs:
                  output_compression: Optional[pulumi.Input['ProcessingJobRedshiftDatasetDefinitionOutputCompression']] = None):
         """
         Configuration for Redshift Dataset Definition input.
+
         :param pulumi.Input[_builtins.str] cluster_id: The Redshift cluster Identifier.
         :param pulumi.Input[_builtins.str] cluster_role_arn: The IAM role attached to your Redshift cluster that Amazon SageMaker uses to generate datasets.
         :param pulumi.Input[_builtins.str] database: The name of the Redshift database used in Redshift query execution.
@@ -19236,6 +19437,7 @@ class ProcessingJobS3InputArgs:
                  s3_input_mode: Optional[pulumi.Input['ProcessingJobS3InputS3InputMode']] = None):
         """
         Configuration for downloading input data from Amazon S3 into the processing container.
+
         :param pulumi.Input['ProcessingJobS3InputS3DataType'] s3_data_type: Whether you use an S3Prefix or a ManifestFile for the data type. If you choose S3Prefix, S3Uri identifies a key name prefix. Amazon SageMaker uses all objects with the specified key name prefix for the processing job. If you choose ManifestFile, S3Uri identifies an object that is a manifest file containing a list of object keys that you want Amazon SageMaker to use for the processing job.
         :param pulumi.Input[_builtins.str] s3_uri: The URI of the Amazon S3 prefix Amazon SageMaker downloads data required to run a processing job.
         :param pulumi.Input[_builtins.str] local_path: The local path in your container where you want Amazon SageMaker to write input data to. `LocalPath` is an absolute path to the input data and must begin with `/opt/ml/processing/`. LocalPath is a required parameter when `AppManaged` is `False` (default).
@@ -19352,6 +19554,7 @@ class ProcessingJobS3OutputArgs:
                  local_path: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Configuration for uploading output data to Amazon S3 from the processing container.
+
         :param pulumi.Input['ProcessingJobS3OutputS3UploadMode'] s3_upload_mode: Whether to upload the results of the processing job continuously or after the job completes.
         :param pulumi.Input[_builtins.str] s3_uri: A URI that identifies the Amazon S3 bucket where you want Amazon SageMaker to save the results of a processing job.
         :param pulumi.Input[_builtins.str] local_path: The local path of a directory where you want Amazon SageMaker to upload its contents to Amazon S3. LocalPath is an absolute path to a directory containing output files. This directory will be created by the platform and exist when your container's entrypoint is invoked.
@@ -19413,6 +19616,7 @@ class ProcessingJobStoppingConditionArgs:
                  max_runtime_in_seconds: pulumi.Input[_builtins.int]):
         """
         Configures conditions under which the processing job should be stopped, such as how long the processing job has been running. After the condition is met, the processing job is stopped.
+
         :param pulumi.Input[_builtins.int] max_runtime_in_seconds: Specifies the maximum runtime in seconds.
         """
         pulumi.set(__self__, "max_runtime_in_seconds", max_runtime_in_seconds)
@@ -19450,6 +19654,7 @@ class ProcessingJobVpcConfigArgs:
                  subnets: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
         """
         Specifies an Amazon Virtual Private Cloud (VPC) that your SageMaker jobs, hosted models, and compute resources have access to. You can control access to and from your resources by configuring a VPC. For more information, see https://docs.aws.amazon.com/sagemaker/latest/dg/infrastructure-give-access.html
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: The VPC security group IDs, in the form 'sg-xxxxxxxx'. Specify the security groups for the VPC that is specified in the 'Subnets' field.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnets: The ID of the subnets in the VPC to which you want to connect your training job or model. For information about the availability of specific instance types, see https://docs.aws.amazon.com/sagemaker/latest/dg/regions-quotas.html
         """
@@ -19558,6 +19763,7 @@ class ProjectCfnTemplateProviderDetailArgs:
                  role_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         CloudFormation template provider details for a SageMaker project.
+
         :param pulumi.Input[_builtins.str] template_name: The name of the template used for the project.
         :param pulumi.Input[_builtins.str] template_url: The URL of the CloudFormation template.
         :param pulumi.Input[Sequence[pulumi.Input['ProjectCfnStackParameterArgs']]] parameters: An array of CloudFormation stack parameters.
@@ -19639,6 +19845,7 @@ class ProjectProvisioningParameterArgs:
                  value: pulumi.Input[_builtins.str]):
         """
         Information about a parameter used to provision a product.
+
         :param pulumi.Input[_builtins.str] key: The parameter key.
         :param pulumi.Input[_builtins.str] value: The parameter value.
         """
@@ -19685,6 +19892,7 @@ class ProjectTemplateProviderDetailArgs:
                  cfn_template_provider_detail: Optional[pulumi.Input['ProjectCfnTemplateProviderDetailArgs']] = None):
         """
         Details about the template provider for the SageMaker project.
+
         :param pulumi.Input['ProjectCfnTemplateProviderDetailArgs'] cfn_template_provider_detail: Details about a CloudFormation template provider configuration and associated provisioning information.
         """
         if cfn_template_provider_detail is not None:
@@ -19729,6 +19937,7 @@ class ServiceCatalogProvisionedProductDetailsPropertiesArgs:
                  provisioned_product_status_message: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Provisioned ServiceCatalog  Details
+
         :param pulumi.Input[_builtins.str] provisioned_product_id: The ID of the provisioned product.
         :param pulumi.Input[_builtins.str] provisioned_product_status_message: The current status of the product.
                
@@ -19804,6 +20013,7 @@ class ServiceCatalogProvisioningDetailsPropertiesArgs:
                  provisioning_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['ProjectProvisioningParameterArgs']]]] = None):
         """
         Input ServiceCatalog Provisioning Details
+
         :param pulumi.Input[_builtins.str] product_id: The ID of the product to provision.
         :param pulumi.Input[_builtins.str] path_id: The path identifier of the product. This value is optional if the product has a default path, and required if the product has more than one path.
         :param pulumi.Input[_builtins.str] provisioning_artifact_id: The ID of the provisioning artifact.
@@ -19915,6 +20125,7 @@ class SpaceCodeEditorAppSettingsArgs:
                  default_resource_spec: Optional[pulumi.Input['SpaceResourceSpecArgs']] = None):
         """
         The CodeEditor app settings.
+
         :param pulumi.Input['SpaceAppLifecycleManagementArgs'] app_lifecycle_management: Settings that are used to configure and manage the lifecycle of CodeEditor applications in a space.
         :param pulumi.Input['SpaceResourceSpecArgs'] default_resource_spec: Specifies the ARNs of a SageMaker image and SageMaker image version, and the instance type that the version runs on.
         """
@@ -20047,6 +20258,7 @@ class SpaceCustomImageArgs:
                  image_version_number: Optional[pulumi.Input[_builtins.int]] = None):
         """
         A custom SageMaker image.
+
         :param pulumi.Input[_builtins.str] app_image_config_name: The Name of the AppImageConfig.
         :param pulumi.Input[_builtins.str] image_name: The name of the CustomImage. Must be unique to your account.
         :param pulumi.Input[_builtins.int] image_version_number: The version number of the CustomImage.
@@ -20108,6 +20320,7 @@ class SpaceEbsStorageSettingsArgs:
                  ebs_volume_size_in_gb: pulumi.Input[_builtins.int]):
         """
         Properties related to the space's Amazon Elastic Block Store volume.
+
         :param pulumi.Input[_builtins.int] ebs_volume_size_in_gb: Size of the Amazon EBS volume in Gb
         """
         pulumi.set(__self__, "ebs_volume_size_in_gb", ebs_volume_size_in_gb)
@@ -20217,6 +20430,7 @@ class SpaceJupyterLabAppSettingsArgs:
                  default_resource_spec: Optional[pulumi.Input['SpaceResourceSpecArgs']] = None):
         """
         The JupyterServer app settings.
+
         :param pulumi.Input['SpaceAppLifecycleManagementArgs'] app_lifecycle_management: Settings that are used to configure and manage the lifecycle of JupyterLab applications in a space.
         :param pulumi.Input[Sequence[pulumi.Input['SpaceCodeRepositoryArgs']]] code_repositories: A list of CodeRepositories available for use with JupyterLab apps.
         :param pulumi.Input['SpaceResourceSpecArgs'] default_resource_spec: Specifies the ARNs of a SageMaker image and SageMaker image version, and the instance type that the version runs on.
@@ -20285,6 +20499,7 @@ class SpaceJupyterServerAppSettingsArgs:
                  lifecycle_config_arns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The JupyterServer app settings.
+
         :param pulumi.Input['SpaceResourceSpecArgs'] default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the default SageMaker AI image used by the JupyterServer app. If you use the `LifecycleConfigArns` parameter, then this parameter is also required.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] lifecycle_config_arns: A list of LifecycleConfigArns available for use with JupyterServer apps.
         """
@@ -20343,6 +20558,7 @@ class SpaceKernelGatewayAppSettingsArgs:
                  lifecycle_config_arns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The kernel gateway app settings.
+
         :param pulumi.Input[Sequence[pulumi.Input['SpaceCustomImageArgs']]] custom_images: A list of custom SageMaker images that are configured to run as a KernelGateway app.
         :param pulumi.Input['SpaceResourceSpecArgs'] default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the KernelGateway app.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] lifecycle_config_arns: A list of LifecycleConfigArns available for use with KernelGateway apps.
@@ -20585,6 +20801,7 @@ class SpaceSettingsArgs:
                  space_storage_settings: Optional[pulumi.Input['SpaceStorageSettingsArgs']] = None):
         """
         A collection of settings that apply to spaces of Amazon SageMaker Studio. These settings are specified when the CreateSpace API is called.
+
         :param pulumi.Input['SpaceAppType'] app_type: The type of app created within the space.
                
                If using the [UpdateSpace](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UpdateSpace.html) API, you can't change the app type of your space by specifying a different value for this field.
@@ -20848,6 +21065,7 @@ class UserProfileCodeEditorAppSettingsArgs:
                  lifecycle_config_arns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The CodeEditor app settings.
+
         :param pulumi.Input['UserProfileAppLifecycleManagementArgs'] app_lifecycle_management: Settings that are used to configure and manage the lifecycle of CodeEditor applications.
         :param pulumi.Input[_builtins.str] built_in_lifecycle_config_arn: The lifecycle configuration that runs before the default lifecycle configuration.
         :param pulumi.Input[Sequence[pulumi.Input['UserProfileCustomImageArgs']]] custom_images: A list of custom images for use for CodeEditor apps.
@@ -21048,6 +21266,7 @@ class UserProfileCustomImageArgs:
                  image_version_number: Optional[pulumi.Input[_builtins.int]] = None):
         """
         A custom SageMaker image.
+
         :param pulumi.Input[_builtins.str] app_image_config_name: The Name of the AppImageConfig.
         :param pulumi.Input[_builtins.str] image_name: The name of the CustomImage. Must be unique to your account.
         :param pulumi.Input[_builtins.int] image_version_number: The version number of the CustomImage.
@@ -21161,6 +21380,7 @@ class UserProfileDefaultEbsStorageSettingsArgs:
                  maximum_ebs_volume_size_in_gb: pulumi.Input[_builtins.int]):
         """
         Properties related to the Amazon Elastic Block Store volume.
+
         :param pulumi.Input[_builtins.int] default_ebs_volume_size_in_gb: Default size of the Amazon EBS volume in Gb
         :param pulumi.Input[_builtins.int] maximum_ebs_volume_size_in_gb: Maximum size of the Amazon EBS volume in Gb. Must be greater than or equal to the DefaultEbsVolumeSizeInGb.
         """
@@ -21207,6 +21427,7 @@ class UserProfileDefaultSpaceStorageSettingsArgs:
                  default_ebs_storage_settings: Optional[pulumi.Input['UserProfileDefaultEbsStorageSettingsArgs']] = None):
         """
         Default storage settings for a space.
+
         :param pulumi.Input['UserProfileDefaultEbsStorageSettingsArgs'] default_ebs_storage_settings: The default EBS storage settings for a space.
         """
         if default_ebs_storage_settings is not None:
@@ -21499,6 +21720,7 @@ class UserProfileJupyterLabAppSettingsArgs:
                  lifecycle_config_arns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The JupyterLab app settings.
+
         :param pulumi.Input['UserProfileAppLifecycleManagementArgs'] app_lifecycle_management: Indicates whether idle shutdown is activated for JupyterLab applications.
         :param pulumi.Input[_builtins.str] built_in_lifecycle_config_arn: The lifecycle configuration that runs before the default lifecycle configuration.
         :param pulumi.Input[Sequence[pulumi.Input['UserProfileCodeRepositoryArgs']]] code_repositories: A list of CodeRepositories available for use with JupyterLab apps.
@@ -21612,6 +21834,7 @@ class UserProfileJupyterServerAppSettingsArgs:
                  lifecycle_config_arns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The JupyterServer app settings.
+
         :param pulumi.Input['UserProfileResourceSpecArgs'] default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the JupyterServer app.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] lifecycle_config_arns: A list of LifecycleConfigArns available for use with JupyterServer apps.
         """
@@ -21670,6 +21893,7 @@ class UserProfileKernelGatewayAppSettingsArgs:
                  lifecycle_config_arns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The kernel gateway app settings.
+
         :param pulumi.Input[Sequence[pulumi.Input['UserProfileCustomImageArgs']]] custom_images: A list of custom SageMaker images that are configured to run as a KernelGateway app.
         :param pulumi.Input['UserProfileResourceSpecArgs'] default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the KernelGateway app.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] lifecycle_config_arns: A list of LifecycleConfigArns available for use with KernelGateway apps.
@@ -21738,6 +21962,7 @@ class UserProfileRStudioServerProAppSettingsArgs:
                  user_group: Optional[pulumi.Input['UserProfileRStudioServerProAppSettingsUserGroup']] = None):
         """
         A collection of settings that configure user interaction with the RStudioServerPro app.
+
         :param pulumi.Input['UserProfileRStudioServerProAppSettingsAccessStatus'] access_status: Indicates whether the current user has access to the RStudioServerPro app.
         :param pulumi.Input['UserProfileRStudioServerProAppSettingsUserGroup'] user_group: The level of permissions that the user has within the RStudioServerPro app. This value defaults to User. The Admin value allows the user access to the RStudio Administrative Dashboard.
         """
@@ -21946,6 +22171,7 @@ class UserProfileSharingSettingsArgs:
                  s3_output_path: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Specifies options when sharing an Amazon SageMaker Studio notebook. These settings are specified as part of DefaultUserSettings when the CreateDomain API is called, and as part of UserSettings when the CreateUserProfile API is called.
+
         :param pulumi.Input['UserProfileSharingSettingsNotebookOutputOption'] notebook_output_option: Whether to include the notebook cell output when sharing the notebook. The default is Disabled.
         :param pulumi.Input[_builtins.str] s3_kms_key_id: When NotebookOutputOption is Allowed, the AWS Key Management Service (KMS) encryption key ID used to encrypt the notebook cell output in the Amazon S3 bucket.
         :param pulumi.Input[_builtins.str] s3_output_path: When NotebookOutputOption is Allowed, the Amazon S3 bucket used to store the shared notebook snapshots.
@@ -22024,6 +22250,7 @@ class UserProfileStudioWebPortalSettingsArgs:
                  hidden_sage_maker_image_version_aliases: Optional[pulumi.Input[Sequence[pulumi.Input['UserProfileHiddenSageMakerImageArgs']]]] = None):
         """
         Studio settings. If these settings are applied on a user level, they take priority over the settings applied on a domain level.
+
         :param pulumi.Input[Sequence[pulumi.Input['UserProfileAppType']]] hidden_app_types: Applications supported in Studio that are hidden from the Studio left navigation pane.
         :param pulumi.Input[Sequence[pulumi.Input['UserProfileAppInstanceType']]] hidden_instance_types: The instance types you are hiding from the Studio user interface.
         :param pulumi.Input[Sequence[pulumi.Input['UserProfileMlTools']]] hidden_ml_tools: The machine learning tools that are hidden from the Studio left navigation pane.
@@ -22182,6 +22409,7 @@ class UserProfileUserSettingsArgs:
                  studio_web_portal_settings: Optional[pulumi.Input['UserProfileStudioWebPortalSettingsArgs']] = None):
         """
         A collection of settings that apply to users of Amazon SageMaker Studio. These settings are specified when the CreateUserProfile API is called, and as DefaultUserSettings when the CreateDomain API is called.
+
         :param pulumi.Input['UserProfileUserSettingsAutoMountHomeEfs'] auto_mount_home_efs: Indicates whether auto-mounting of an EFS volume is supported for the user profile. 
         :param pulumi.Input['UserProfileCodeEditorAppSettingsArgs'] code_editor_app_settings: The Code Editor application settings.
                

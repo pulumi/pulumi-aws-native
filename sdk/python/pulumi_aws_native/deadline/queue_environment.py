@@ -27,6 +27,7 @@ class QueueEnvironmentArgs:
                  template_type: pulumi.Input['QueueEnvironmentEnvironmentTemplateType']):
         """
         The set of arguments for constructing a QueueEnvironment resource.
+
         :param pulumi.Input[_builtins.str] farm_id: The identifier assigned to the farm that contains the queue.
         :param pulumi.Input[_builtins.int] priority: The queue environment's priority.
         :param pulumi.Input[_builtins.str] queue_id: The unique identifier of the queue that contains the environment.
@@ -115,6 +116,7 @@ class QueueEnvironment(pulumi.CustomResource):
         """
         Definition of AWS::Deadline::QueueEnvironment Resource Type
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] farm_id: The identifier assigned to the farm that contains the queue.
@@ -131,6 +133,7 @@ class QueueEnvironment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of AWS::Deadline::QueueEnvironment Resource Type
+
 
         :param str resource_name: The name of the resource.
         :param QueueEnvironmentArgs args: The arguments to use to populate this resource's properties.

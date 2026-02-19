@@ -25,6 +25,7 @@ class ResourceCollectionArgs:
                  resource_collection_filter: pulumi.Input['ResourceCollectionFilterArgs']):
         """
         The set of arguments for constructing a ResourceCollection resource.
+
         :param pulumi.Input['ResourceCollectionFilterArgs'] resource_collection_filter: Information about a filter used to specify which AWS resources are analyzed for anomalous behavior by DevOps Guru.
         """
         pulumi.set(__self__, "resource_collection_filter", resource_collection_filter)
@@ -113,6 +114,7 @@ class ResourceCollection(pulumi.CustomResource):
 
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ResourceCollectionFilterArgs', 'ResourceCollectionFilterArgsDict']] resource_collection_filter: Information about a filter used to specify which AWS resources are analyzed for anomalous behavior by DevOps Guru.
@@ -185,6 +187,7 @@ class ResourceCollection(pulumi.CustomResource):
         })
 
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ResourceCollectionArgs args: The arguments to use to populate this resource's properties.

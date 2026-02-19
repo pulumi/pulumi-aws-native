@@ -32,6 +32,7 @@ class MlflowTrackingServerArgs:
                  weekly_maintenance_window_start: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a MlflowTrackingServer resource.
+
         :param pulumi.Input[_builtins.str] artifact_store_uri: The Amazon S3 URI for MLFlow Tracking Server artifacts.
         :param pulumi.Input[_builtins.str] role_arn: The Amazon Resource Name (ARN) of an IAM role that enables Amazon SageMaker to perform tasks on behalf of the customer.
         :param pulumi.Input[_builtins.bool] automatic_model_registration: A flag to enable Automatic SageMaker Model Registration.
@@ -171,6 +172,7 @@ class MlflowTrackingServer(pulumi.CustomResource):
         """
         Resource Type definition for AWS::SageMaker::MlflowTrackingServer
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] artifact_store_uri: The Amazon S3 URI for MLFlow Tracking Server artifacts.
@@ -190,6 +192,7 @@ class MlflowTrackingServer(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::SageMaker::MlflowTrackingServer
+
 
         :param str resource_name: The name of the resource.
         :param MlflowTrackingServerArgs args: The arguments to use to populate this resource's properties.

@@ -34,6 +34,7 @@ class CertificateAuthorityArgs:
                  usage_mode: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a CertificateAuthority resource.
+
         :param pulumi.Input[_builtins.str] key_algorithm: Public key algorithm and size, in bits, of the key pair that your CA creates when it issues a certificate.
         :param pulumi.Input[_builtins.str] signing_algorithm: Algorithm your CA uses to sign certificate requests.
         :param pulumi.Input['CertificateAuthoritySubjectArgs'] subject: Structure that contains X.500 distinguished name information for your CA.
@@ -366,6 +367,7 @@ class CertificateAuthority(pulumi.CustomResource):
 
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['CertificateAuthorityCsrExtensionsArgs', 'CertificateAuthorityCsrExtensionsArgsDict']] csr_extensions: Structure that contains CSR pass through extension information used by the CreateCertificateAuthority action.
@@ -565,6 +567,7 @@ class CertificateAuthority(pulumi.CustomResource):
         pulumi.export("certificateArn", end_entity_certificate.arn)
 
         ```
+
 
         :param str resource_name: The name of the resource.
         :param CertificateAuthorityArgs args: The arguments to use to populate this resource's properties.

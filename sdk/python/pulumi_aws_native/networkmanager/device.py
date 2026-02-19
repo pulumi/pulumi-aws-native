@@ -35,6 +35,7 @@ class DeviceArgs:
                  vendor: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Device resource.
+
         :param pulumi.Input[_builtins.str] global_network_id: The ID of the global network.
         :param pulumi.Input['DeviceAwsLocationArgs'] aws_location: The Amazon Web Services location of the device, if applicable.
         :param pulumi.Input[_builtins.str] description: The description of the device.
@@ -207,6 +208,7 @@ class Device(pulumi.CustomResource):
         """
         The AWS::NetworkManager::Device type describes a device.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['DeviceAwsLocationArgs', 'DeviceAwsLocationArgsDict']] aws_location: The Amazon Web Services location of the device, if applicable.
@@ -228,6 +230,7 @@ class Device(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The AWS::NetworkManager::Device type describes a device.
+
 
         :param str resource_name: The name of the resource.
         :param DeviceArgs args: The arguments to use to populate this resource's properties.

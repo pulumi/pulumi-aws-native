@@ -26,6 +26,7 @@ class TransitGatewayMeteringPolicyArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a TransitGatewayMeteringPolicy resource.
+
         :param pulumi.Input[_builtins.str] transit_gateway_id: The Id of transit gateway
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] middlebox_attachment_ids: Middle box attachment Ids
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags assigned to the transit gateway metering policy.
@@ -86,6 +87,7 @@ class TransitGatewayMeteringPolicy(pulumi.CustomResource):
         """
         AWS::EC2::TransitGatewayMeteringPolicy Resource Definition
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] middlebox_attachment_ids: Middle box attachment Ids
@@ -100,6 +102,7 @@ class TransitGatewayMeteringPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         AWS::EC2::TransitGatewayMeteringPolicy Resource Definition
+
 
         :param str resource_name: The name of the resource.
         :param TransitGatewayMeteringPolicyArgs args: The arguments to use to populate this resource's properties.

@@ -50,6 +50,7 @@ class CampaignAgentlessDialerConfig(dict):
                  dialing_capacity: Optional[_builtins.float] = None):
         """
         Agentless Dialer config
+
         :param _builtins.float dialing_capacity: Allocates dialing capacity for this campaign between multiple active campaigns.
         """
         if dialing_capacity is not None:
@@ -93,6 +94,7 @@ class CampaignAnswerMachineDetectionConfig(dict):
                  await_answer_machine_prompt: Optional[_builtins.bool] = None):
         """
         The configuration used for answering machine detection during outbound calls
+
         :param _builtins.bool enable_answer_machine_detection: Flag to decided whether outbound calls should have answering machine detection enabled or not
         :param _builtins.bool await_answer_machine_prompt: Enables detection of prompts (e.g., beep after after a voicemail greeting)
         """
@@ -149,6 +151,7 @@ class CampaignDialerConfig(dict):
                  progressive_dialer_config: Optional['outputs.CampaignProgressiveDialerConfig'] = None):
         """
         The possible types of dialer config parameters
+
         :param 'CampaignAgentlessDialerConfig' agentless_dialer_config: The configuration of the agentless dialer.
         :param 'CampaignPredictiveDialerConfig' predictive_dialer_config: The configuration of the predictive dialer.
         :param 'CampaignProgressiveDialerConfig' progressive_dialer_config: The configuration of the progressive dialer.
@@ -220,6 +223,7 @@ class CampaignOutboundCallConfig(dict):
                  connect_source_phone_number: Optional[_builtins.str] = None):
         """
         The configuration used for outbound calls.
+
         :param _builtins.str connect_contact_flow_arn: The identifier of the contact flow for the outbound call.
         :param 'CampaignAnswerMachineDetectionConfig' answer_machine_detection_config: Whether answering machine detection has been enabled.
         :param _builtins.str connect_queue_arn: The queue for the call. If you specify a queue, the phone displayed for caller ID is the phone number specified in the queue. If you do not specify a queue, the queue defined in the contact flow is used. If you do not specify a queue, you must specify a source phone number.
@@ -295,6 +299,7 @@ class CampaignPredictiveDialerConfig(dict):
                  dialing_capacity: Optional[_builtins.float] = None):
         """
         Predictive Dialer config
+
         :param _builtins.float bandwidth_allocation: The bandwidth allocation of a queue resource.
         :param _builtins.float dialing_capacity: Allocates dialing capacity for this campaign between multiple active campaigns.
         """
@@ -348,6 +353,7 @@ class CampaignProgressiveDialerConfig(dict):
                  dialing_capacity: Optional[_builtins.float] = None):
         """
         Progressive Dialer config
+
         :param _builtins.float bandwidth_allocation: The bandwidth allocation of a queue resource.
         :param _builtins.float dialing_capacity: Allocates dialing capacity for this campaign between multiple active campaigns.
         """

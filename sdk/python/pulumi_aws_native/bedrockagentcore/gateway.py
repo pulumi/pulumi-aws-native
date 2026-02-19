@@ -35,6 +35,7 @@ class GatewayArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Gateway resource.
+
         :param pulumi.Input['GatewayAuthorizerType'] authorizer_type: The authorizer type for the gateway.
         :param pulumi.Input['GatewayProtocolType'] protocol_type: The protocol type for the gateway target.
         :param pulumi.Input[_builtins.str] description: The description for the gateway.
@@ -209,6 +210,7 @@ class Gateway(pulumi.CustomResource):
         """
         Definition of AWS::BedrockAgentCore::Gateway Resource Type
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input['GatewayAuthorizerType'] authorizer_type: The authorizer type for the gateway.
@@ -228,6 +230,7 @@ class Gateway(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of AWS::BedrockAgentCore::Gateway Resource Type
+
 
         :param str resource_name: The name of the resource.
         :param GatewayArgs args: The arguments to use to populate this resource's properties.

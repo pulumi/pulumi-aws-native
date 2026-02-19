@@ -25,6 +25,7 @@ class ApplicationAssignmentArgs:
                  principal_type: pulumi.Input['ApplicationAssignmentPrincipalType']):
         """
         The set of arguments for constructing a ApplicationAssignment resource.
+
         :param pulumi.Input[_builtins.str] application_arn: The ARN of the application.
         :param pulumi.Input[_builtins.str] principal_id: An identifier for an object in IAM Identity Center, such as a user or group
         :param pulumi.Input['ApplicationAssignmentPrincipalType'] principal_type: The entity type for which the assignment will be created.
@@ -83,6 +84,7 @@ class ApplicationAssignment(pulumi.CustomResource):
         """
         Resource Type definition for SSO application access grant to a user or group.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] application_arn: The ARN of the application.
@@ -97,6 +99,7 @@ class ApplicationAssignment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for SSO application access grant to a user or group.
+
 
         :param str resource_name: The name of the resource.
         :param ApplicationAssignmentArgs args: The arguments to use to populate this resource's properties.

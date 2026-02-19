@@ -28,6 +28,7 @@ class ListArgs:
                  variable_type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a List resource.
+
         :param pulumi.Input[_builtins.str] description: The description of the list.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] elements: The elements in this list.
         :param pulumi.Input[_builtins.str] name: The name of the list.
@@ -121,6 +122,7 @@ class List(pulumi.CustomResource):
         """
         A resource schema for a List in Amazon Fraud Detector.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: The description of the list.
@@ -137,6 +139,7 @@ class List(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A resource schema for a List in Amazon Fraud Detector.
+
 
         :param str resource_name: The name of the resource.
         :param ListArgs args: The arguments to use to populate this resource's properties.

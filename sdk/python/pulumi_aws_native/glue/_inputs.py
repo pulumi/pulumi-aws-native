@@ -123,6 +123,7 @@ class CrawlerCatalogTargetArgs:
                  tables: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Specifies an AWS Glue Data Catalog target.
+
         :param pulumi.Input[_builtins.str] connection_name: The name of the connection for an Amazon S3-backed Data Catalog table to be a target of the crawl when using a Catalog connection type paired with a NETWORK Connection type.
         :param pulumi.Input[_builtins.str] database_name: The name of the database to be synchronized.
         :param pulumi.Input[_builtins.str] dlq_event_queue_arn: A valid Amazon dead-letter SQS ARN. For example, arn:aws:sqs:region:account:deadLetterQueue.
@@ -231,6 +232,7 @@ class CrawlerDeltaTargetArgs:
                  write_manifest: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Specifies a Delta data store to crawl one or more Delta tables.
+
         :param pulumi.Input[_builtins.str] connection_name: The name of the connection to use to connect to the Delta table target.
         :param pulumi.Input[_builtins.bool] create_native_delta_table: Specifies whether the crawler will create native tables, to allow integration with query engines that support querying of the Delta transaction log directly.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] delta_tables: A list of the Amazon S3 paths to the Delta tables.
@@ -321,6 +323,7 @@ class CrawlerDynamoDbTargetArgs:
                  scan_rate: Optional[pulumi.Input[_builtins.float]] = None):
         """
         Specifies an Amazon DynamoDB table to crawl.
+
         :param pulumi.Input[_builtins.str] path: The name of the DynamoDB table to crawl.
         :param pulumi.Input[_builtins.bool] scan_all: Indicates whether to scan all the records, or to sample rows from the table. Scanning all the records can take a long time when the table is not a high throughput table. A value of true means to scan all records, while a value of false means to sample the records. If no value is specified, the value defaults to true.
         :param pulumi.Input[_builtins.float] scan_rate: The percentage of the configured read capacity units to use by the AWS Glue crawler. Read capacity units is a term defined by DynamoDB, and is a numeric value that acts as rate limiter for the number of reads that can be performed on that table per second.
@@ -403,6 +406,7 @@ class CrawlerHudiTargetArgs:
                  paths: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Specifies Apache Hudi data store targets.
+
         :param pulumi.Input[_builtins.str] connection_name: The name of the connection to use to connect to the Hudi target.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] exclusions: A list of global patterns used to exclude from the crawl.
         :param pulumi.Input[_builtins.int] maximum_traversal_depth: The maximum depth of Amazon S3 paths that the crawler can traverse to discover the Hudi metadata folder in your Amazon S3 path. Used to limit the crawler run time.
@@ -496,6 +500,7 @@ class CrawlerIcebergTargetArgs:
                  paths: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Specifies Apache Iceberg data store targets.
+
         :param pulumi.Input[_builtins.str] connection_name: The name of the connection to use to connect to the Iceberg target.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] exclusions: A list of global patterns used to exclude from the crawl.
         :param pulumi.Input[_builtins.int] maximum_traversal_depth: The maximum depth of Amazon S3 paths that the crawler can traverse to discover the Iceberg metadata folder in your Amazon S3 path. Used to limit the crawler run time.
@@ -591,6 +596,7 @@ class CrawlerJdbcTargetArgs:
                  path: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Specifies a JDBC data store to crawl.
+
         :param pulumi.Input[_builtins.str] connection_name: The name of the connection to use to connect to the JDBC target.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] enable_additional_metadata: Specify a value of RAWTYPES or COMMENTS to enable additional metadata in table responses. RAWTYPES provides the native-level datatype. COMMENTS provides comments associated with a column or table in the database.
                
@@ -678,6 +684,7 @@ class CrawlerLakeFormationConfigurationArgs:
                  use_lake_formation_credentials: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Specifies AWS Lake Formation configuration settings for the crawler
+
         :param pulumi.Input[_builtins.str] account_id: Required for cross account crawls. For same account crawls as the target data, this can be left as null.
         :param pulumi.Input[_builtins.bool] use_lake_formation_credentials: Specifies whether to use AWS Lake Formation credentials for the crawler instead of the IAM role credentials.
         """
@@ -731,6 +738,7 @@ class CrawlerMongoDbTargetArgs:
                  path: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Specifies an Amazon DocumentDB or MongoDB data store to crawl.
+
         :param pulumi.Input[_builtins.str] connection_name: The name of the connection to use to connect to the Amazon DocumentDB or MongoDB target.
         :param pulumi.Input[_builtins.str] path: The path of the Amazon DocumentDB or MongoDB target (database/collection).
         """
@@ -779,6 +787,7 @@ class CrawlerRecrawlPolicyArgs:
                  recrawl_behavior: Optional[pulumi.Input[_builtins.str]] = None):
         """
         When crawling an Amazon S3 data source after the first crawl is complete, specifies whether to crawl the entire dataset again or to crawl only folders that were added since the last crawler run. For more information, see Incremental Crawls in AWS Glue in the developer guide.
+
         :param pulumi.Input[_builtins.str] recrawl_behavior: Specifies whether to crawl the entire dataset again or to crawl only folders that were added since the last crawler run. A value of CRAWL_EVERYTHING specifies crawling the entire dataset again. A value of CRAWL_NEW_FOLDERS_ONLY specifies crawling only folders that were added since the last crawler run. A value of CRAWL_EVENT_MODE specifies crawling only the changes identified by Amazon S3 events.
         """
         if recrawl_behavior is not None:
@@ -837,6 +846,7 @@ class CrawlerS3TargetArgs:
                  sample_size: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Specifies a data store in Amazon Simple Storage Service (Amazon S3).
+
         :param pulumi.Input[_builtins.str] connection_name: The name of a connection which allows a job or crawler to access data in Amazon S3 within an Amazon Virtual Private Cloud environment (Amazon VPC).
         :param pulumi.Input[_builtins.str] dlq_event_queue_arn: A valid Amazon dead-letter SQS ARN. For example, arn:aws:sqs:region:account:deadLetterQueue.
         :param pulumi.Input[_builtins.str] event_queue_arn: A valid Amazon SQS ARN. For example, arn:aws:sqs:region:account:sqs.
@@ -945,6 +955,7 @@ class CrawlerScheduleArgs:
                  schedule_expression: Optional[pulumi.Input[_builtins.str]] = None):
         """
         A scheduling object using a cron statement to schedule an event.
+
         :param pulumi.Input[_builtins.str] schedule_expression: A cron expression used to specify the schedule. For more information, see Time-Based Schedules for Jobs and Crawlers. For example, to run something every day at 12:15 UTC, specify cron(15 12 * * ? *).
         """
         if schedule_expression is not None:
@@ -983,6 +994,7 @@ class CrawlerSchemaChangePolicyArgs:
                  update_behavior: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The policy that specifies update and delete behaviors for the crawler. The policy tells the crawler what to do in the event that it detects a change in a table that already exists in the customer's database at the time of the crawl. The SchemaChangePolicy does not affect whether or how new tables and partitions are added. New tables and partitions are always created regardless of the SchemaChangePolicy on a crawler. The SchemaChangePolicy consists of two components, UpdateBehavior and DeleteBehavior.
+
         :param pulumi.Input[_builtins.str] delete_behavior: The deletion behavior when the crawler finds a deleted object. A value of LOG specifies that if a table or partition is found to no longer exist, do not delete it, only log that it was found to no longer exist. A value of DELETE_FROM_DATABASE specifies that if a table or partition is found to have been removed, delete it from the database. A value of DEPRECATE_IN_DATABASE specifies that if a table has been found to no longer exist, to add a property to the table that says 'DEPRECATED' and includes a timestamp with the time of deprecation.
         :param pulumi.Input[_builtins.str] update_behavior: The update behavior when the crawler finds a changed schema. A value of LOG specifies that if a table or a partition already exists, and a change is detected, do not update it, only log that a change was detected. Add new tables and new partitions (including on existing tables). A value of UPDATE_IN_DATABASE specifies that if a table or partition already exists, and a change is detected, update it. Add new tables and partitions.
         """
@@ -1066,6 +1078,7 @@ class CrawlerTargetsArgs:
                  s3_targets: Optional[pulumi.Input[Sequence[pulumi.Input['CrawlerS3TargetArgs']]]] = None):
         """
         Specifies data stores to crawl.
+
         :param pulumi.Input[Sequence[pulumi.Input['CrawlerCatalogTargetArgs']]] catalog_targets: Specifies AWS Glue Data Catalog targets.
         :param pulumi.Input[Sequence[pulumi.Input['CrawlerDeltaTargetArgs']]] delta_targets: Specifies an array of Delta data store targets.
         :param pulumi.Input[Sequence[pulumi.Input['CrawlerDynamoDbTargetArgs']]] dynamo_db_targets: Specifies Amazon DynamoDB targets.
@@ -1204,6 +1217,7 @@ class DatabaseDataLakePrincipalArgs:
                  data_lake_principal_identifier: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The AWS Lake Formation principal.
+
         :param pulumi.Input[_builtins.str] data_lake_principal_identifier: An identifier for the AWS Lake Formation principal.
         """
         if data_lake_principal_identifier is not None:
@@ -1242,6 +1256,7 @@ class DatabaseFederatedDatabaseArgs:
                  identifier: Optional[pulumi.Input[_builtins.str]] = None):
         """
         A FederatedDatabase structure that references an entity outside the AWS Glue Data Catalog.
+
         :param pulumi.Input[_builtins.str] connection_name: The name of the connection to the external metastore.
         :param pulumi.Input[_builtins.str] identifier: A unique identifier for the federated database.
         """
@@ -1300,6 +1315,7 @@ class DatabaseIdentifierArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         A structure that describes a target database for resource linking.
+
         :param pulumi.Input[_builtins.str] catalog_id: The ID of the Data Catalog in which the database resides.
         :param pulumi.Input[_builtins.str] database_name: The name of the catalog database.
         :param pulumi.Input[_builtins.str] region: Region of the target database.
@@ -1393,6 +1409,7 @@ class DatabaseInputArgs:
                  target_database: Optional[pulumi.Input['DatabaseIdentifierArgs']] = None):
         """
         The structure used to create or update a database.
+
         :param pulumi.Input[Sequence[pulumi.Input['DatabasePrincipalPrivilegesArgs']]] create_table_default_permissions: Creates a set of default permissions on the table for principals. Used by AWS Lake Formation. Not used in the normal course of AWS Glue operations.
         :param pulumi.Input[_builtins.str] description: A description of the database.
         :param pulumi.Input['DatabaseFederatedDatabaseArgs'] federated_database: A FederatedDatabase structure that references an entity outside the AWS Glue Data Catalog.
@@ -1521,6 +1538,7 @@ class DatabasePrincipalPrivilegesArgs:
                  principal: Optional[pulumi.Input['DatabaseDataLakePrincipalArgs']] = None):
         """
         The permissions granted to a principal.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] permissions: The permissions that are granted to the principal.
         :param pulumi.Input['DatabaseDataLakePrincipalArgs'] principal: The principal who is granted permissions.
         """
@@ -1579,6 +1597,7 @@ class IntegrationConfigArgs:
                  source_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The configuration settings for the integration.
+
         :param pulumi.Input[_builtins.bool] continuous_sync: Enables continuous synchronization for on-demand data extractions.
         :param pulumi.Input[_builtins.str] refresh_interval: Specifies the frequency at which CDC (Change Data Capture) pulls or incremental loads should occur.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] source_properties: A collection of key-value pairs that specify additional properties for the integration source. These properties provide configuration options that can be used to customize the behavior of the ODB source during data integration operations.
@@ -1823,6 +1842,7 @@ class SchemaRegistryArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Identifier for the registry which the schema is part of.
+
         :param pulumi.Input[_builtins.str] arn: Amazon Resource Name for the Registry.
         :param pulumi.Input[_builtins.str] name: Name of the registry in which the schema will be created.
         """
@@ -1881,6 +1901,7 @@ class SchemaVersionSchemaArgs:
                  schema_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Identifier for the schema where the schema version will be created.
+
         :param pulumi.Input[_builtins.str] registry_name: Name of the registry to identify where the Schema is located.
         :param pulumi.Input[_builtins.str] schema_arn: Amazon Resource Name for the Schema. This attribute can be used to uniquely represent the Schema.
         :param pulumi.Input[_builtins.str] schema_name: Name of the schema. This parameter requires RegistryName to be provided.
@@ -1949,6 +1970,7 @@ class SchemaVersionArgs:
                  version_number: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Specify checkpoint version for update. This is only required to update the Compatibility.
+
         :param pulumi.Input[_builtins.bool] is_latest: Indicates if the latest version needs to be updated.
         :param pulumi.Input[_builtins.int] version_number: Indicates the version number in the schema to update.
         """
@@ -1997,6 +2019,7 @@ class SourceProcessingPropertiesPropertiesArgs:
                  role_arn: pulumi.Input[_builtins.str]):
         """
         The resource properties associated with the integration source.
+
         :param pulumi.Input[_builtins.str] role_arn: The IAM role to access the Glue connection.
         """
         pulumi.set(__self__, "role_arn", role_arn)
@@ -2044,6 +2067,7 @@ class TargetProcessingPropertiesPropertiesArgs:
                  kms_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The resource properties associated with the integration target.
+
         :param pulumi.Input[_builtins.str] role_arn: The IAM role to access the Glue database.
         :param pulumi.Input[_builtins.str] connection_name: The Glue network connection to configure the Glue job running in the customer VPC.
         :param pulumi.Input[_builtins.str] event_bus_arn: The ARN of an Eventbridge event bus to receive the integration status notification.
@@ -2146,6 +2170,7 @@ class TriggerActionArgs:
                  timeout: Optional[pulumi.Input[_builtins.int]] = None):
         """
         The actions initiated by this trigger.
+
         :param Any arguments: The job arguments used when this trigger fires. For this job run, they replace the default arguments set in the job definition itself.
         :param pulumi.Input[_builtins.str] crawler_name: The name of the crawler to be used with this action.
         :param pulumi.Input[_builtins.str] job_name: The name of a job to be executed.
@@ -2274,6 +2299,7 @@ class TriggerConditionArgs:
                  state: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Defines a condition under which a trigger fires.
+
         :param pulumi.Input[_builtins.str] crawl_state: The state of the crawler to which this condition applies.
         :param pulumi.Input[_builtins.str] crawler_name: The name of the crawler to which this condition applies.
         :param pulumi.Input[_builtins.str] job_name: The name of the job whose JobRuns this condition applies to, and on which this trigger waits.
@@ -2372,6 +2398,7 @@ class TriggerEventBatchingConditionArgs:
                  batch_window: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Batch condition that must be met (specified number of events received or batch time window expired) before EventBridge event trigger fires.
+
         :param pulumi.Input[_builtins.int] batch_size: Number of events that must be received from Amazon EventBridge before EventBridge event trigger fires.
         :param pulumi.Input[_builtins.int] batch_window: Window of time in seconds after which EventBridge event trigger fires. Window starts when first event is received.
         """
@@ -2419,6 +2446,7 @@ class TriggerNotificationPropertyArgs:
                  notify_delay_after: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Specifies configuration properties of a job run notification.
+
         :param pulumi.Input[_builtins.int] notify_delay_after: After a job run starts, the number of minutes to wait before sending a job run delay notification
         """
         if notify_delay_after is not None:
@@ -2457,6 +2485,7 @@ class TriggerPredicateArgs:
                  logical: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The predicate of this trigger, which defines when it will fire.
+
         :param pulumi.Input[Sequence[pulumi.Input['TriggerConditionArgs']]] conditions: A list of the conditions that determine when the trigger will fire.
         :param pulumi.Input[_builtins.str] logical: An optional field if only one condition is listed. If multiple conditions are listed, then this field is required.
         """

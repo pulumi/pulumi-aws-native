@@ -31,6 +31,7 @@ class CustomActionArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a CustomAction resource.
+
         :param pulumi.Input['CustomActionDefinitionArgs'] definition: The definition of the command to run when invoked as an alias or as an action button.
         :param pulumi.Input[_builtins.str] action_name: The name of the custom action. This name is included in the Amazon Resource Name (ARN).
         :param pulumi.Input[_builtins.str] alias_name: The name used to invoke this action in a chat channel. For example, `@Amazon Q run my-alias` .
@@ -123,6 +124,7 @@ class CustomAction(pulumi.CustomResource):
         """
         Definition of AWS::Chatbot::CustomAction Resource Type
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] action_name: The name of the custom action. This name is included in the Amazon Resource Name (ARN).
@@ -139,6 +141,7 @@ class CustomAction(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of AWS::Chatbot::CustomAction Resource Type
+
 
         :param str resource_name: The name of the resource.
         :param CustomActionArgs args: The arguments to use to populate this resource's properties.

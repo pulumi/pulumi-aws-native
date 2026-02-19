@@ -31,6 +31,7 @@ class TargetGroupArgs:
                  targets: Optional[pulumi.Input[Sequence[pulumi.Input['TargetGroupTargetArgs']]]] = None):
         """
         The set of arguments for constructing a TargetGroup resource.
+
         :param pulumi.Input['TargetGroupType'] type: The type of target group.
         :param pulumi.Input['TargetGroupConfigArgs'] config: The target group configuration.
         :param pulumi.Input[_builtins.str] name: The name of the target group. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
@@ -127,6 +128,7 @@ class TargetGroup(pulumi.CustomResource):
         """
         A target group is a collection of targets, or compute resources, that run your application or service. A target group can only be used by a single service.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['TargetGroupConfigArgs', 'TargetGroupConfigArgsDict']] config: The target group configuration.
@@ -145,6 +147,7 @@ class TargetGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A target group is a collection of targets, or compute resources, that run your application or service. A target group can only be used by a single service.
+
 
         :param str resource_name: The name of the resource.
         :param TargetGroupArgs args: The arguments to use to populate this resource's properties.

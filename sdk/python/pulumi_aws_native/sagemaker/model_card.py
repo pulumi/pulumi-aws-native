@@ -33,6 +33,7 @@ class ModelCardArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a ModelCard resource.
+
         :param pulumi.Input['ModelCardContentArgs'] content: The content of the model card. Content uses the [model card JSON schema](https://docs.aws.amazon.com/sagemaker/latest/dg/model-cards.html#model-cards-json-schema) .
         :param pulumi.Input['ModelCardStatus'] model_card_status: The approval status of the model card within your organization. Different organizations might have different criteria for model card review and approval.
         :param pulumi.Input['ModelCardUserContextArgs'] created_by: Information about the user who created or modified an experiment, trial, trial component, lineage group, project, or model card.
@@ -156,6 +157,7 @@ class ModelCard(pulumi.CustomResource):
         """
         Resource Type definition for AWS::SageMaker::ModelCard.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ModelCardContentArgs', 'ModelCardContentArgsDict']] content: The content of the model card. Content uses the [model card JSON schema](https://docs.aws.amazon.com/sagemaker/latest/dg/model-cards.html#model-cards-json-schema) .
@@ -174,6 +176,7 @@ class ModelCard(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::SageMaker::ModelCard.
+
 
         :param str resource_name: The name of the resource.
         :param ModelCardArgs args: The arguments to use to populate this resource's properties.

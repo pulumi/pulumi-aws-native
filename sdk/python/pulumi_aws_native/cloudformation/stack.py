@@ -40,6 +40,7 @@ class StackArgs:
                  timeout_in_minutes: Optional[pulumi.Input[_builtins.int]] = None):
         """
         The set of arguments for constructing a Stack resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['StackCapabilitiesItem']]] capabilities: In some cases, you must explicitly acknowledge that your stack template contains certain capabilities in order for CloudFormation to create the stack.
                
                - `CAPABILITY_IAM` and `CAPABILITY_NAMED_IAM`
@@ -407,6 +408,7 @@ class Stack(pulumi.CustomResource):
         """
         The AWS::CloudFormation::Stack resource nests a stack as a resource in a top-level template.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input['StackCapabilitiesItem']]] capabilities: In some cases, you must explicitly acknowledge that your stack template contains certain capabilities in order for CloudFormation to create the stack.
@@ -490,6 +492,7 @@ class Stack(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The AWS::CloudFormation::Stack resource nests a stack as a resource in a top-level template.
+
 
         :param str resource_name: The name of the resource.
         :param StackArgs args: The arguments to use to populate this resource's properties.

@@ -32,6 +32,7 @@ class FhirDatastoreArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a FhirDatastore resource.
+
         :param pulumi.Input['FhirDatastoreDatastoreTypeVersion'] datastore_type_version: The FHIR release version supported by the data store. Current support is for version `R4` .
         :param pulumi.Input[_builtins.str] datastore_name: The data store name (user-generated).
         :param pulumi.Input['FhirDatastoreIdentityProviderConfigurationArgs'] identity_provider_configuration: The identity provider configuration selected when the data store was created.
@@ -144,6 +145,7 @@ class FhirDatastore(pulumi.CustomResource):
         """
         HealthLake FHIR Datastore
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] datastore_name: The data store name (user-generated).
@@ -163,6 +165,7 @@ class FhirDatastore(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         HealthLake FHIR Datastore
+
 
         :param str resource_name: The name of the resource.
         :param FhirDatastoreArgs args: The arguments to use to populate this resource's properties.

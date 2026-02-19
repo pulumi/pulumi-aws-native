@@ -159,6 +159,7 @@ class DataFilterExpressionPropertiesArgs:
                  time_range: Optional[pulumi.Input['DataFilterExpressionPropertiesTimeRangePropertiesArgs']] = None):
         """
         See [Expression](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_billing_Expression.html) . Billing view only supports `LINKED_ACCOUNT` and `Tags` .
+
         :param pulumi.Input['DataFilterExpressionPropertiesDimensionsPropertiesArgs'] dimensions: The specific `Dimension` to use for `Expression` .
         :param pulumi.Input['DataFilterExpressionPropertiesTagsPropertiesArgs'] tags: The specific `Tag` to use for `Expression` .
         """

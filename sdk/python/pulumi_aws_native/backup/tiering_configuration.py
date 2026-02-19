@@ -86,6 +86,7 @@ class TieringConfiguration(pulumi.CustomResource):
         """
         Resource Type definition for AWS::Backup::TieringConfiguration
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
@@ -97,6 +98,7 @@ class TieringConfiguration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::Backup::TieringConfiguration
+
 
         :param str resource_name: The name of the resource.
         :param TieringConfigurationArgs args: The arguments to use to populate this resource's properties.

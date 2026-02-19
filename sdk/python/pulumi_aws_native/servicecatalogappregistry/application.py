@@ -24,6 +24,7 @@ class ApplicationArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Application resource.
+
         :param pulumi.Input[_builtins.str] description: The description of the application. 
         :param pulumi.Input[_builtins.str] name: The name of the application. 
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value pairs you can use to associate with the application.
@@ -85,6 +86,7 @@ class Application(pulumi.CustomResource):
         """
         Resource Schema for AWS::ServiceCatalogAppRegistry::Application
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: The description of the application. 
@@ -99,6 +101,7 @@ class Application(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Schema for AWS::ServiceCatalogAppRegistry::Application
+
 
         :param str resource_name: The name of the resource.
         :param ApplicationArgs args: The arguments to use to populate this resource's properties.

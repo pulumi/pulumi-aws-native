@@ -32,6 +32,7 @@ class ProjectArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Project resource.
+
         :param pulumi.Input[_builtins.str] dataset_name: Dataset name
         :param pulumi.Input[_builtins.str] recipe_name: Recipe name
         :param pulumi.Input[_builtins.str] role_arn: Role arn
@@ -178,6 +179,7 @@ class Project(pulumi.CustomResource):
 
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] dataset_name: Dataset name
@@ -235,6 +237,7 @@ class Project(pulumi.CustomResource):
             }])
 
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ProjectArgs args: The arguments to use to populate this resource's properties.

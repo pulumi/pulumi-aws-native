@@ -37,6 +37,7 @@ class CloudExadataInfrastructureArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a CloudExadataInfrastructure resource.
+
         :param pulumi.Input[_builtins.str] availability_zone: The name of the Availability Zone (AZ) where the Exadata infrastructure is located.
         :param pulumi.Input[_builtins.str] availability_zone_id: The AZ ID of the AZ where the Exadata infrastructure is located.
         :param pulumi.Input[_builtins.int] compute_count: The number of database servers for the Exadata infrastructure.
@@ -226,6 +227,7 @@ class CloudExadataInfrastructure(pulumi.CustomResource):
         """
         The AWS::ODB::CloudExadataInfrastructure resource creates an Exadata Infrastructure
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] availability_zone: The name of the Availability Zone (AZ) where the Exadata infrastructure is located.
@@ -248,6 +250,7 @@ class CloudExadataInfrastructure(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The AWS::ODB::CloudExadataInfrastructure resource creates an Exadata Infrastructure
+
 
         :param str resource_name: The name of the resource.
         :param CloudExadataInfrastructureArgs args: The arguments to use to populate this resource's properties.

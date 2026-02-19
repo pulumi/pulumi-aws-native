@@ -34,6 +34,7 @@ class MembershipArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Membership resource.
+
         :param pulumi.Input[_builtins.str] collaboration_identifier: The unique ID for the associated collaboration.
         :param pulumi.Input['MembershipQueryLogStatus'] query_log_status: An indicator as to whether query logging has been enabled or disabled for the membership.
                
@@ -177,6 +178,7 @@ class Membership(pulumi.CustomResource):
         """
         Represents an AWS account that is a part of a collaboration
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] collaboration_identifier: The unique ID for the associated collaboration.
@@ -199,6 +201,7 @@ class Membership(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Represents an AWS account that is a part of a collaboration
+
 
         :param str resource_name: The name of the resource.
         :param MembershipArgs args: The arguments to use to populate this resource's properties.

@@ -33,6 +33,7 @@ class PackageGroupArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a PackageGroup resource.
+
         :param pulumi.Input[_builtins.str] domain_name: The name of the domain that contains the package group.
         :param pulumi.Input[_builtins.str] pattern: The package group pattern that is used to gather packages.
         :param pulumi.Input[_builtins.str] contact_info: The contact info of the package group.
@@ -156,6 +157,7 @@ class PackageGroup(pulumi.CustomResource):
         """
         The resource schema to create a CodeArtifact package group.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] contact_info: The contact info of the package group.
@@ -174,6 +176,7 @@ class PackageGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The resource schema to create a CodeArtifact package group.
+
 
         :param str resource_name: The name of the resource.
         :param PackageGroupArgs args: The arguments to use to populate this resource's properties.

@@ -28,6 +28,7 @@ class HealthCheckArgs:
                  health_check_tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a HealthCheck resource.
+
         :param pulumi.Input['HealthCheckConfigPropertiesArgs'] health_check_config: A complex type that contains information about the health check.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] health_check_tags: An array of key-value pairs to apply to this resource.
         """
@@ -72,6 +73,7 @@ class HealthCheck(pulumi.CustomResource):
         """
         Resource schema for AWS::Route53::HealthCheck.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['HealthCheckConfigPropertiesArgs', 'HealthCheckConfigPropertiesArgsDict']] health_check_config: A complex type that contains information about the health check.
@@ -85,6 +87,7 @@ class HealthCheck(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource schema for AWS::Route53::HealthCheck.
+
 
         :param str resource_name: The name of the resource.
         :param HealthCheckArgs args: The arguments to use to populate this resource's properties.

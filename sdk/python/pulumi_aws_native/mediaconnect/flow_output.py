@@ -44,6 +44,7 @@ class FlowOutputArgs:
                  vpc_interface_attachment: Optional[pulumi.Input['FlowOutputVpcInterfaceAttachmentArgs']] = None):
         """
         The set of arguments for constructing a FlowOutput resource.
+
         :param pulumi.Input[_builtins.str] flow_arn: The Amazon Resource Name (ARN), a unique identifier for any AWS resource, of the flow.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] cidr_allow_list: The range of IP addresses that should be allowed to initiate output requests to this flow. These IP addresses should be in the form of a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16.
         :param pulumi.Input[_builtins.str] description: A description of the output.
@@ -372,6 +373,7 @@ class FlowOutput(pulumi.CustomResource):
         """
         Resource schema for AWS::MediaConnect::FlowOutput
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] cidr_allow_list: The range of IP addresses that should be allowed to initiate output requests to this flow. These IP addresses should be in the form of a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16.
@@ -402,6 +404,7 @@ class FlowOutput(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource schema for AWS::MediaConnect::FlowOutput
+
 
         :param str resource_name: The name of the resource.
         :param FlowOutputArgs args: The arguments to use to populate this resource's properties.

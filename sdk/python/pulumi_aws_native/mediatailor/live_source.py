@@ -30,6 +30,7 @@ class LiveSourceArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a LiveSource resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['LiveSourceHttpPackageConfigurationArgs']]] http_package_configurations: <p>A list of HTTP package configuration parameters for this live source.</p>
         :param pulumi.Input[_builtins.str] source_location_name: The name of the source location.
         :param pulumi.Input[_builtins.str] live_source_name: The name that's used to refer to a live source.
@@ -105,6 +106,7 @@ class LiveSource(pulumi.CustomResource):
         """
         Definition of AWS::MediaTailor::LiveSource Resource Type
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['LiveSourceHttpPackageConfigurationArgs', 'LiveSourceHttpPackageConfigurationArgsDict']]]] http_package_configurations: <p>A list of HTTP package configuration parameters for this live source.</p>
@@ -120,6 +122,7 @@ class LiveSource(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of AWS::MediaTailor::LiveSource Resource Type
+
 
         :param str resource_name: The name of the resource.
         :param LiveSourceArgs args: The arguments to use to populate this resource's properties.

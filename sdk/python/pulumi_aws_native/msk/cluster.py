@@ -37,6 +37,7 @@ class ClusterArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Cluster resource.
+
         :param pulumi.Input['ClusterBrokerNodeGroupInfoArgs'] broker_node_group_info: Information about the broker nodes in the cluster.
         :param pulumi.Input[_builtins.str] kafka_version: The version of Apache Kafka. You can use Amazon MSK to create clusters that use [supported Apache Kafka versions](https://docs.aws.amazon.com/msk/latest/developerguide/supported-kafka-versions.html) .
         :param pulumi.Input[_builtins.int] number_of_broker_nodes: The number of broker nodes in the cluster.
@@ -251,6 +252,7 @@ class Cluster(pulumi.CustomResource):
         """
         Resource Type definition for AWS::MSK::Cluster
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ClusterBrokerNodeGroupInfoArgs', 'ClusterBrokerNodeGroupInfoArgsDict']] broker_node_group_info: Information about the broker nodes in the cluster.
@@ -274,6 +276,7 @@ class Cluster(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::MSK::Cluster
+
 
         :param str resource_name: The name of the resource.
         :param ClusterArgs args: The arguments to use to populate this resource's properties.

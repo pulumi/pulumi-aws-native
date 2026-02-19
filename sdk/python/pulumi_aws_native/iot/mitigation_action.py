@@ -30,6 +30,7 @@ class MitigationActionArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a MitigationAction resource.
+
         :param pulumi.Input['MitigationActionActionParamsArgs'] action_params: The set of parameters for this mitigation action. The parameters vary, depending on the kind of action you apply.
         :param pulumi.Input[_builtins.str] role_arn: The IAM role ARN used to apply this mitigation action.
         :param pulumi.Input[_builtins.str] action_name: A unique identifier for the mitigation action.
@@ -105,6 +106,7 @@ class MitigationAction(pulumi.CustomResource):
         """
         Mitigation actions can be used to take actions to mitigate issues that were found in an Audit finding or Detect violation.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] action_name: A unique identifier for the mitigation action.
@@ -120,6 +122,7 @@ class MitigationAction(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Mitigation actions can be used to take actions to mitigate issues that were found in an Audit finding or Detect violation.
+
 
         :param str resource_name: The name of the resource.
         :param MitigationActionArgs args: The arguments to use to populate this resource's properties.

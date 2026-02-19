@@ -28,6 +28,7 @@ class ResourceSetArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a ResourceSet resource.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] resource_type_list: Determines the resources that can be associated to the resource set. Depending on your setting for max results and the number of resource sets, a single call might not return the full list.
         :param pulumi.Input[_builtins.str] description: A description of the resource set.
         :param pulumi.Input[_builtins.str] name: The descriptive name of the resource set. You can't change the name of a resource set after you create it.
@@ -112,6 +113,7 @@ class ResourceSet(pulumi.CustomResource):
         """
         Creates an AWS Firewall Manager resource set.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: A description of the resource set.
@@ -126,6 +128,7 @@ class ResourceSet(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Creates an AWS Firewall Manager resource set.
+
 
         :param str resource_name: The name of the resource.
         :param ResourceSetArgs args: The arguments to use to populate this resource's properties.

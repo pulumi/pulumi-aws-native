@@ -93,6 +93,7 @@ class CampaignAnswerMachineDetectionConfig(dict):
                  await_answer_machine_prompt: Optional[_builtins.bool] = None):
         """
         The configuration used for answering machine detection during outbound calls
+
         :param _builtins.bool enable_answer_machine_detection: Flag to decided whether outbound calls should have answering machine detection enabled or not
         :param _builtins.bool await_answer_machine_prompt: Enables detection of prompts (e.g., beep after after a voicemail greeting)
         """
@@ -146,6 +147,7 @@ class CampaignChannelSubtypeConfig(dict):
                  whats_app: Optional['outputs.CampaignWhatsAppChannelSubtypeConfig'] = None):
         """
         The possible types of channel subtype config parameters
+
         :param 'CampaignEmailChannelSubtypeConfig' email: The configuration of the email channel subtype.
         :param 'CampaignSmsChannelSubtypeConfig' sms: The configuration of the SMS channel subtype.
         :param 'CampaignTelephonyChannelSubtypeConfig' telephony: The configuration of the telephony channel subtype.
@@ -268,6 +270,7 @@ class CampaignCommunicationLimits(dict):
                  communication_limit_list: Optional[Sequence['outputs.CampaignCommunicationLimit']] = None):
         """
         Communication limits
+
         :param Sequence['CampaignCommunicationLimit'] communication_limit_list: The list of CommunicationLimits.
         """
         if communication_limit_list is not None:
@@ -311,6 +314,7 @@ class CampaignCommunicationLimitsConfig(dict):
                  instance_limits_handling: Optional['CampaignInstanceLimitsHandling'] = None):
         """
         Communication limits config
+
         :param 'CampaignCommunicationLimits' all_channels_subtypes: The CommunicationLimits that apply to all channel subtypes defined in an outbound campaign.
         :param 'CampaignInstanceLimitsHandling' instance_limits_handling: Opt-in or Opt-out from instance-level limits.
         """
@@ -368,6 +372,7 @@ class CampaignCommunicationTimeConfig(dict):
                  whats_app: Optional['outputs.CampaignTimeWindow'] = None):
         """
         Campaign communication time config
+
         :param 'CampaignLocalTimeZoneConfig' local_time_zone_config: The local timezone configuration.
         :param 'CampaignTimeWindow' email: The communication time configuration for the email channel subtype.
         :param 'CampaignTimeWindow' sms: The communication time configuration for the SMS channel subtype.
@@ -482,6 +487,7 @@ class CampaignEmailChannelSubtypeConfig(dict):
                  capacity: Optional[_builtins.float] = None):
         """
         Email Channel Subtype config
+
         :param 'CampaignEmailOutboundConfig' default_outbound_config: The default email outbound configuration of an outbound campaign.
         :param 'CampaignEmailOutboundMode' outbound_mode: The outbound mode for email of an outbound campaign.
         :param _builtins.float capacity: The allocation of email capacity between multiple running outbound campaigns.
@@ -548,6 +554,7 @@ class CampaignEmailOutboundConfig(dict):
                  source_email_address_display_name: Optional[_builtins.str] = None):
         """
         Default Email outbound config
+
         :param _builtins.str connect_source_email_address: The Amazon Connect source email address.
         :param _builtins.str wisdom_template_arn: The Amazon Resource Name (ARN) of the Amazon Q in Connect template.
         :param _builtins.str source_email_address_display_name: The display name for the Amazon Connect source email address.
@@ -608,6 +615,7 @@ class CampaignEmailOutboundMode(dict):
                  agentless_config: Optional['outputs.CampaignAgentlessConfig'] = None):
         """
         Email Outbound Mode
+
         :param 'CampaignAgentlessConfig' agentless_config: The agentless outbound mode configuration for email.
         """
         if agentless_config is not None:
@@ -648,6 +656,7 @@ class CampaignEventTrigger(dict):
                  customer_profiles_domain_arn: Optional[_builtins.str] = None):
         """
         The event trigger of the campaign
+
         :param _builtins.str customer_profiles_domain_arn: The Amazon Resource Name (ARN) of the Customer Profiles domain.
         """
         if customer_profiles_domain_arn is not None:
@@ -691,6 +700,7 @@ class CampaignLocalTimeZoneConfig(dict):
                  local_time_zone_detection: Optional[Sequence['CampaignLocalTimeZoneDetectionType']] = None):
         """
         Local time zone config
+
         :param _builtins.str default_time_zone: The timezone to use for all recipients.
         :param Sequence['CampaignLocalTimeZoneDetectionType'] local_time_zone_detection: Detects methods for the recipient's timezone.
         """
@@ -742,6 +752,7 @@ class CampaignOpenHours(dict):
                  daily_hours: Sequence['outputs.CampaignDailyHour']):
         """
         Open Hours config
+
         :param Sequence['CampaignDailyHour'] daily_hours: The daily hours configuration.
         """
         pulumi.set(__self__, "daily_hours", daily_hours)
@@ -781,6 +792,7 @@ class CampaignPredictiveConfig(dict):
                  bandwidth_allocation: _builtins.float):
         """
         Predictive config
+
         :param _builtins.float bandwidth_allocation: Bandwidth allocation for the predictive outbound mode.
         """
         pulumi.set(__self__, "bandwidth_allocation", bandwidth_allocation)
@@ -826,6 +838,7 @@ class CampaignPreviewConfig(dict):
                  agent_actions: Optional[Sequence['CampaignAgentAction']] = None):
         """
         Preview config
+
         :param _builtins.float bandwidth_allocation: Bandwidth allocation for the preview outbound mode.
         :param 'CampaignTimeoutConfig' timeout_config: Countdown timer configuration for preview outbound mode.
         :param Sequence['CampaignAgentAction'] agent_actions: Agent actions for the preview outbound mode.
@@ -886,6 +899,7 @@ class CampaignProgressiveConfig(dict):
                  bandwidth_allocation: _builtins.float):
         """
         Progressive config
+
         :param _builtins.float bandwidth_allocation: Bandwidth allocation for the progressive outbound mode.
         """
         pulumi.set(__self__, "bandwidth_allocation", bandwidth_allocation)
@@ -929,6 +943,7 @@ class CampaignRestrictedPeriod(dict):
                  name: Optional[_builtins.str] = None):
         """
         Restricted period
+
         :param _builtins.str name: The name of a restricted period
         """
         pulumi.set(__self__, "end_date", end_date)
@@ -981,6 +996,7 @@ class CampaignRestrictedPeriods(dict):
                  restricted_period_list: Optional[Sequence['outputs.CampaignRestrictedPeriod']] = None):
         """
         Restricted period config
+
         :param Sequence['CampaignRestrictedPeriod'] restricted_period_list: The restricted period list.
         """
         if restricted_period_list is not None:
@@ -1027,6 +1043,7 @@ class CampaignSchedule(dict):
                  refresh_frequency: Optional[_builtins.str] = None):
         """
         Campaign schedule
+
         :param _builtins.str end_time: The end time of the schedule in UTC.
         :param _builtins.str start_time: The start time of the schedule in UTC.
         :param _builtins.str refresh_frequency: The refresh frequency of the campaign.
@@ -1091,6 +1108,7 @@ class CampaignSmsChannelSubtypeConfig(dict):
                  capacity: Optional[_builtins.float] = None):
         """
         SMS Channel Subtype config
+
         :param 'CampaignSmsOutboundConfig' default_outbound_config: The default SMS outbound configuration of an outbound campaign.
         :param 'CampaignSmsOutboundMode' outbound_mode: The outbound mode of SMS for an outbound campaign.
         :param _builtins.float capacity: The allocation of SMS capacity between multiple running outbound campaigns.
@@ -1154,6 +1172,7 @@ class CampaignSmsOutboundConfig(dict):
                  wisdom_template_arn: _builtins.str):
         """
         Default SMS outbound config
+
         :param _builtins.str connect_source_phone_number_arn: The Amazon Resource Name (ARN) of the Amazon Connect source SMS phone number.
         :param _builtins.str wisdom_template_arn: The Amazon Resource Name (ARN) of the Amazon Q in Connect template.
         """
@@ -1203,6 +1222,7 @@ class CampaignSmsOutboundMode(dict):
                  agentless_config: Optional['outputs.CampaignAgentlessConfig'] = None):
         """
         SMS Outbound Mode
+
         :param 'CampaignAgentlessConfig' agentless_config: Contains agentless outbound mode configuration.
         """
         if agentless_config is not None:
@@ -1246,6 +1266,7 @@ class CampaignSource(dict):
                  event_trigger: Optional['outputs.CampaignEventTrigger'] = None):
         """
         The possible source of the campaign
+
         :param _builtins.str customer_profiles_segment_arn: The Amazon Resource Name (ARN) of the Customer Profiles segment.
         :param 'CampaignEventTrigger' event_trigger: The event trigger of the campaign.
         """
@@ -1304,6 +1325,7 @@ class CampaignTelephonyChannelSubtypeConfig(dict):
                  connect_queue_id: Optional[_builtins.str] = None):
         """
         Telephony Channel Subtype config
+
         :param 'CampaignTelephonyOutboundConfig' default_outbound_config: The default telephony outbound configuration of an outbound campaign.
         :param 'CampaignTelephonyOutboundMode' outbound_mode: The outbound mode of telephony for an outbound campaign.
         :param _builtins.float capacity: The allocation of telephony capacity between multiple running outbound campaigns.
@@ -1384,6 +1406,7 @@ class CampaignTelephonyOutboundConfig(dict):
                  ring_timeout: Optional[_builtins.int] = None):
         """
         Default Telephone Outbound config
+
         :param _builtins.str connect_contact_flow_id: The identifier of the published Amazon Connect contact flow.
         :param 'CampaignAnswerMachineDetectionConfig' answer_machine_detection_config: The answering machine detection configuration.
         :param _builtins.str connect_source_phone_number: The Amazon Connect source phone number.
@@ -1465,6 +1488,7 @@ class CampaignTelephonyOutboundMode(dict):
                  progressive_config: Optional['outputs.CampaignProgressiveConfig'] = None):
         """
         Telephony Outbound Mode
+
         :param 'CampaignAgentlessConfig' agentless_config: The agentless outbound mode configuration for telephony.
         :param 'CampaignPredictiveConfig' predictive_config: Contains predictive outbound mode configuration.
         :param 'CampaignPreviewConfig' preview_config: Contains preview outbound mode configuration.
@@ -1585,6 +1609,7 @@ class CampaignTimeWindow(dict):
                  restricted_periods: Optional['outputs.CampaignRestrictedPeriods'] = None):
         """
         Time window config
+
         :param 'CampaignOpenHours' open_hours: The open hours configuration.
         :param 'CampaignRestrictedPeriods' restricted_periods: The restricted periods configuration.
         """
@@ -1635,6 +1660,7 @@ class CampaignTimeoutConfig(dict):
                  duration_in_seconds: Optional[_builtins.int] = None):
         """
         Timeout Config for preview contacts
+
         :param _builtins.int duration_in_seconds: Duration in seconds for the countdown timer.
         """
         if duration_in_seconds is not None:
@@ -1679,6 +1705,7 @@ class CampaignWhatsAppChannelSubtypeConfig(dict):
                  capacity: Optional[_builtins.float] = None):
         """
         WhatsApp Channel Subtype config
+
         :param 'CampaignWhatsAppOutboundConfig' default_outbound_config: The default WhatsApp outbound configuration of an outbound campaign.
         :param 'CampaignWhatsAppOutboundMode' outbound_mode: The outbound mode for WhatsApp of an outbound campaign.
         :param _builtins.float capacity: The allocation of WhatsApp capacity between multiple running outbound campaigns.
@@ -1742,6 +1769,7 @@ class CampaignWhatsAppOutboundConfig(dict):
                  wisdom_template_arn: _builtins.str):
         """
         Default WhatsApp outbound config
+
         :param _builtins.str connect_source_phone_number_arn: The Amazon Resource Name (ARN) of the Amazon Connect source WhatsApp phone number.
         :param _builtins.str wisdom_template_arn: The Amazon Resource Name (ARN) of the Amazon Q in Connect template.
         """

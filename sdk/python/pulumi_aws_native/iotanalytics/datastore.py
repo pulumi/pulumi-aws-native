@@ -31,6 +31,7 @@ class DatastoreArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Datastore resource.
+
         :param pulumi.Input[_builtins.str] datastore_name: The name of the data store.
         :param pulumi.Input['DatastorePartitionsArgs'] datastore_partitions: Information about the partition dimensions in a data store.
         :param pulumi.Input['DatastoreStorageArgs'] datastore_storage: Where data store data is stored.
@@ -220,6 +221,7 @@ class Datastore(pulumi.CustomResource):
 
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] datastore_name: The name of the data store.
@@ -311,6 +313,7 @@ class Datastore(pulumi.CustomResource):
             ])
 
         ```
+
 
         :param str resource_name: The name of the resource.
         :param DatastoreArgs args: The arguments to use to populate this resource's properties.

@@ -25,6 +25,7 @@ class ClientCertificateArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a ClientCertificate resource.
+
         :param pulumi.Input[_builtins.str] description: The description of the client certificate.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The collection of tags. Each tag element is associated with a given resource.
         """
@@ -70,6 +71,7 @@ class ClientCertificate(pulumi.CustomResource):
         """
         The ``AWS::ApiGateway::ClientCertificate`` resource creates a client certificate that API Gateway uses to configure client-side SSL authentication for sending requests to the integration endpoint.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: The description of the client certificate.
@@ -83,6 +85,7 @@ class ClientCertificate(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The ``AWS::ApiGateway::ClientCertificate`` resource creates a client certificate that API Gateway uses to configure client-side SSL authentication for sending requests to the integration endpoint.
+
 
         :param str resource_name: The name of the resource.
         :param ClientCertificateArgs args: The arguments to use to populate this resource's properties.

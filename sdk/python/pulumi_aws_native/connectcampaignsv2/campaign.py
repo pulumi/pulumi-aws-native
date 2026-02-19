@@ -36,6 +36,7 @@ class CampaignArgs:
                  type: Optional[pulumi.Input['CampaignType']] = None):
         """
         The set of arguments for constructing a Campaign resource.
+
         :param pulumi.Input[_builtins.str] connect_instance_id: The identifier of the Amazon Connect instance. You can find the `instanceId` in the ARN of the instance.
         :param pulumi.Input['CampaignChannelSubtypeConfigArgs'] channel_subtype_config: Contains channel subtype configuration for an outbound campaign.
         :param pulumi.Input['CampaignCommunicationLimitsConfigArgs'] communication_limits_override: Communication limits configuration for an outbound campaign.
@@ -208,6 +209,7 @@ class Campaign(pulumi.CustomResource):
         """
         Definition of AWS::ConnectCampaignsV2::Campaign Resource Type
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['CampaignChannelSubtypeConfigArgs', 'CampaignChannelSubtypeConfigArgsDict']] channel_subtype_config: Contains channel subtype configuration for an outbound campaign.
@@ -229,6 +231,7 @@ class Campaign(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of AWS::ConnectCampaignsV2::Campaign Resource Type
+
 
         :param str resource_name: The name of the resource.
         :param CampaignArgs args: The arguments to use to populate this resource's properties.

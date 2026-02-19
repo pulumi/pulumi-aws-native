@@ -24,6 +24,7 @@ class CloudWatchAlarmTemplateGroupArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a CloudWatchAlarmTemplateGroup resource.
+
         :param pulumi.Input[_builtins.str] description: A resource's optional description.
         :param pulumi.Input[_builtins.str] name: A resource's name. Names must be unique within the scope of a resource type in a specific region.
         """
@@ -81,6 +82,7 @@ class CloudWatchAlarmTemplateGroup(pulumi.CustomResource):
         """
         Definition of AWS::MediaLive::CloudWatchAlarmTemplateGroup Resource Type
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: A resource's optional description.
@@ -94,6 +96,7 @@ class CloudWatchAlarmTemplateGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of AWS::MediaLive::CloudWatchAlarmTemplateGroup Resource Type
+
 
         :param str resource_name: The name of the resource.
         :param CloudWatchAlarmTemplateGroupArgs args: The arguments to use to populate this resource's properties.

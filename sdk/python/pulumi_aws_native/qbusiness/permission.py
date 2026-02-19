@@ -29,6 +29,7 @@ class PermissionArgs:
                  conditions: Optional[pulumi.Input[Sequence[pulumi.Input['PermissionConditionArgs']]]] = None):
         """
         The set of arguments for constructing a Permission resource.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] actions: The list of Amazon Q Business actions that the ISV is allowed to perform.
         :param pulumi.Input[_builtins.str] application_id: The unique identifier of the Amazon Q Business application.
         :param pulumi.Input[_builtins.str] principal: Provides user and group information used for filtering documents to use for generating Amazon Q Business conversation responses.
@@ -114,6 +115,7 @@ class Permission(pulumi.CustomResource):
         """
         Definition of AWS::QBusiness::Permission Resource Type
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] actions: The list of Amazon Q Business actions that the ISV is allowed to perform.
@@ -129,6 +131,7 @@ class Permission(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of AWS::QBusiness::Permission Resource Type
+
 
         :param str resource_name: The name of the resource.
         :param PermissionArgs args: The arguments to use to populate this resource's properties.

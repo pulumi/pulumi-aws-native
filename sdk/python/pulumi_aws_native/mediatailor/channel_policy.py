@@ -23,6 +23,7 @@ class ChannelPolicyArgs:
                  policy: Any):
         """
         The set of arguments for constructing a ChannelPolicy resource.
+
         :param pulumi.Input[_builtins.str] channel_name: The name of the channel associated with this Channel Policy.
         :param Any policy: <p>The IAM policy for the channel. IAM policies are used to control access to your channel.</p>
                
@@ -70,6 +71,7 @@ class ChannelPolicy(pulumi.CustomResource):
         """
         Definition of AWS::MediaTailor::ChannelPolicy Resource Type
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] channel_name: The name of the channel associated with this Channel Policy.
@@ -85,6 +87,7 @@ class ChannelPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of AWS::MediaTailor::ChannelPolicy Resource Type
+
 
         :param str resource_name: The name of the resource.
         :param ChannelPolicyArgs args: The arguments to use to populate this resource's properties.

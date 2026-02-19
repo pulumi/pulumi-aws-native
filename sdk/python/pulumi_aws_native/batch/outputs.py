@@ -5264,6 +5264,7 @@ class SchedulingPolicyFairsharePolicy(dict):
                  share_distribution: Optional[Sequence['outputs.SchedulingPolicyShareAttributes']] = None):
         """
         Fair Share Policy for the Job Queue.
+
         :param _builtins.float compute_reservation: A value used to reserve some of the available maximum vCPU for share identifiers that aren't already used.
                
                The reserved ratio is `( *computeReservation* /100)^ *ActiveFairShares*` where `*ActiveFairShares*` is the number of active share identifiers.

@@ -29,6 +29,7 @@ class NetworkInterfaceAttachmentArgs:
                  ena_srd_specification: Optional[pulumi.Input['NetworkInterfaceAttachmentEnaSrdSpecificationArgs']] = None):
         """
         The set of arguments for constructing a NetworkInterfaceAttachment resource.
+
         :param pulumi.Input[_builtins.str] device_index: The network interface's position in the attachment order. For example, the first attached network interface has a ``DeviceIndex`` of 0.
         :param pulumi.Input[_builtins.str] instance_id: The ID of the instance to which you will attach the ENI.
         :param pulumi.Input[_builtins.str] network_interface_id: The ID of the ENI that you want to attach.
@@ -135,6 +136,7 @@ class NetworkInterfaceAttachment(pulumi.CustomResource):
         """
         Attaches an elastic network interface (ENI) to an Amazon EC2 instance. You can use this resource type to attach additional network interfaces to an instance without interruption.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] delete_on_termination: Whether to delete the network interface when the instance terminates. By default, this value is set to ``true``.
@@ -152,6 +154,7 @@ class NetworkInterfaceAttachment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Attaches an elastic network interface (ENI) to an Amazon EC2 instance. You can use this resource type to attach additional network interfaces to an instance without interruption.
+
 
         :param str resource_name: The name of the resource.
         :param NetworkInterfaceAttachmentArgs args: The arguments to use to populate this resource's properties.

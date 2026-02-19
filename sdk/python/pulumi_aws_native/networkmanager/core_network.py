@@ -28,6 +28,7 @@ class CoreNetworkArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a CoreNetwork resource.
+
         :param pulumi.Input[_builtins.str] global_network_id: The ID of the global network that your core network is a part of.
         :param pulumi.Input[_builtins.str] description: The description of core network
         :param Any policy_document: Live policy document for the core network, you must provide PolicyDocument in Json Format
@@ -108,6 +109,7 @@ class CoreNetwork(pulumi.CustomResource):
         """
         AWS::NetworkManager::CoreNetwork Resource Type Definition.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: The description of core network
@@ -125,6 +127,7 @@ class CoreNetwork(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         AWS::NetworkManager::CoreNetwork Resource Type Definition.
+
 
         :param str resource_name: The name of the resource.
         :param CoreNetworkArgs args: The arguments to use to populate this resource's properties.

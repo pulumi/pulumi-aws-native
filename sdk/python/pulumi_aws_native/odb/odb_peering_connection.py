@@ -28,6 +28,7 @@ class OdbPeeringConnectionArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a OdbPeeringConnection resource.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] additional_peer_network_cidrs: The additional CIDR blocks for the ODB peering connection.
         :param pulumi.Input[_builtins.str] display_name: The name of the ODB peering connection.
         :param pulumi.Input[_builtins.str] odb_network_id: The unique identifier of the ODB network.
@@ -121,6 +122,7 @@ class OdbPeeringConnection(pulumi.CustomResource):
         """
         Resource Type definition for AWS::ODB::OdbPeeringConnection.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] additional_peer_network_cidrs: The additional CIDR blocks for the ODB peering connection.
@@ -137,6 +139,7 @@ class OdbPeeringConnection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::ODB::OdbPeeringConnection.
+
 
         :param str resource_name: The name of the resource.
         :param OdbPeeringConnectionArgs args: The arguments to use to populate this resource's properties.

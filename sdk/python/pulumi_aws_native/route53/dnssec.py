@@ -22,6 +22,7 @@ class DnssecArgs:
                  hosted_zone_id: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a Dnssec resource.
+
         :param pulumi.Input[_builtins.str] hosted_zone_id: The unique string (ID) used to identify a hosted zone.
         """
         pulumi.set(__self__, "hosted_zone_id", hosted_zone_id)
@@ -50,6 +51,7 @@ class Dnssec(pulumi.CustomResource):
         """
         Resource used to control (enable/disable) DNSSEC in a specific hosted zone.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] hosted_zone_id: The unique string (ID) used to identify a hosted zone.
@@ -62,6 +64,7 @@ class Dnssec(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource used to control (enable/disable) DNSSEC in a specific hosted zone.
+
 
         :param str resource_name: The name of the resource.
         :param DnssecArgs args: The arguments to use to populate this resource's properties.

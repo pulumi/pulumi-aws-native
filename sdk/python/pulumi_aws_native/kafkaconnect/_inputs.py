@@ -78,6 +78,7 @@ class ConnectorApacheKafkaClusterArgs:
                  vpc: pulumi.Input['ConnectorVpcArgs']):
         """
         Details of how to connect to an Apache Kafka cluster.
+
         :param pulumi.Input[_builtins.str] bootstrap_servers: The bootstrap servers string of the Apache Kafka cluster.
         :param pulumi.Input['ConnectorVpcArgs'] vpc: Details of an Amazon VPC which has network connectivity to the Apache Kafka cluster.
         """
@@ -144,6 +145,7 @@ class ConnectorAutoScalingArgs:
                  scale_out_policy: pulumi.Input['ConnectorScaleOutPolicyArgs']):
         """
         Details about auto scaling of a connector.
+
         :param pulumi.Input[_builtins.int] max_worker_count: The maximum number of workers for a connector.
         :param pulumi.Input[_builtins.int] mcu_count: Specifies how many MSK Connect Units (MCU) as the minimum scaling unit.
         :param pulumi.Input[_builtins.int] min_worker_count: The minimum number of workers for a connector.
@@ -237,6 +239,7 @@ class ConnectorCapacityArgs:
                  provisioned_capacity: Optional[pulumi.Input['ConnectorProvisionedCapacityArgs']] = None):
         """
         Information about the capacity allocated to the connector.
+
         :param pulumi.Input['ConnectorAutoScalingArgs'] auto_scaling: Information about the auto scaling parameters for the connector.
         :param pulumi.Input['ConnectorProvisionedCapacityArgs'] provisioned_capacity: Details about a fixed capacity allocated to a connector.
         """
@@ -290,6 +293,7 @@ class ConnectorCloudWatchLogsLogDeliveryArgs:
                  log_group: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Details about delivering logs to Amazon CloudWatch Logs.
+
         :param pulumi.Input[_builtins.bool] enabled: Specifies whether the logs get sent to the specified CloudWatch Logs destination.
         :param pulumi.Input[_builtins.str] log_group: The CloudWatch log group that is the destination for log delivery.
         """
@@ -342,6 +346,7 @@ class ConnectorCustomPluginArgs:
                  revision: pulumi.Input[_builtins.int]):
         """
         Details about a custom plugin.
+
         :param pulumi.Input[_builtins.str] custom_plugin_arn: The Amazon Resource Name (ARN) of the custom plugin to use.
         :param pulumi.Input[_builtins.int] revision: The revision of the custom plugin to use.
         """
@@ -393,6 +398,7 @@ class ConnectorFirehoseLogDeliveryArgs:
                  delivery_stream: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Details about delivering logs to Amazon Kinesis Data Firehose.
+
         :param pulumi.Input[_builtins.bool] enabled: Specifies whether the logs get sent to the specified Kinesis Data Firehose delivery stream.
         :param pulumi.Input[_builtins.str] delivery_stream: The Kinesis Data Firehose delivery stream that is the destination for log delivery.
         """
@@ -440,6 +446,7 @@ class ConnectorKafkaClusterClientAuthenticationArgs:
                  authentication_type: pulumi.Input['ConnectorKafkaClusterClientAuthenticationType']):
         """
         Details of the client authentication used by the Kafka cluster.
+
         :param pulumi.Input['ConnectorKafkaClusterClientAuthenticationType'] authentication_type: The type of client authentication used to connect to the Apache Kafka cluster. Value NONE means that no client authentication is used.
         """
         pulumi.set(__self__, "authentication_type", authentication_type)
@@ -472,6 +479,7 @@ class ConnectorKafkaClusterEncryptionInTransitArgs:
                  encryption_type: pulumi.Input['ConnectorKafkaClusterEncryptionInTransitType']):
         """
         Details of encryption in transit to the Kafka cluster.
+
         :param pulumi.Input['ConnectorKafkaClusterEncryptionInTransitType'] encryption_type: The type of encryption in transit to the Apache Kafka cluster.
         """
         pulumi.set(__self__, "encryption_type", encryption_type)
@@ -504,6 +512,7 @@ class ConnectorKafkaClusterArgs:
                  apache_kafka_cluster: pulumi.Input['ConnectorApacheKafkaClusterArgs']):
         """
         Details of how to connect to the Kafka cluster.
+
         :param pulumi.Input['ConnectorApacheKafkaClusterArgs'] apache_kafka_cluster: The Apache Kafka cluster to which the connector is connected.
         """
         pulumi.set(__self__, "apache_kafka_cluster", apache_kafka_cluster)
@@ -536,6 +545,7 @@ class ConnectorLogDeliveryArgs:
                  worker_log_delivery: pulumi.Input['ConnectorWorkerLogDeliveryArgs']):
         """
         Details of what logs are delivered and where they are delivered.
+
         :param pulumi.Input['ConnectorWorkerLogDeliveryArgs'] worker_log_delivery: The workers can send worker logs to different destination types. This configuration specifies the details of these destinations.
         """
         pulumi.set(__self__, "worker_log_delivery", worker_log_delivery)
@@ -568,6 +578,7 @@ class ConnectorPluginArgs:
                  custom_plugin: pulumi.Input['ConnectorCustomPluginArgs']):
         """
         Details about a Kafka Connect plugin which will be used with the connector.
+
         :param pulumi.Input['ConnectorCustomPluginArgs'] custom_plugin: Details about a custom plugin.
         """
         pulumi.set(__self__, "custom_plugin", custom_plugin)
@@ -605,6 +616,7 @@ class ConnectorProvisionedCapacityArgs:
                  mcu_count: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Details about a fixed capacity allocated to a connector.
+
         :param pulumi.Input[_builtins.int] worker_count: Number of workers for a connector.
         :param pulumi.Input[_builtins.int] mcu_count: Specifies how many MSK Connect Units (MCU) are allocated to the connector.
         """
@@ -662,6 +674,7 @@ class ConnectorS3LogDeliveryArgs:
                  prefix: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Details about delivering logs to Amazon S3.
+
         :param pulumi.Input[_builtins.bool] enabled: Specifies whether the logs get sent to the specified Amazon S3 destination.
         :param pulumi.Input[_builtins.str] bucket: The name of the S3 bucket that is the destination for log delivery.
         :param pulumi.Input[_builtins.str] prefix: The S3 prefix that is the destination for log delivery.
@@ -724,6 +737,7 @@ class ConnectorScaleInPolicyArgs:
                  cpu_utilization_percentage: pulumi.Input[_builtins.int]):
         """
         Information about the scale in policy of the connector.
+
         :param pulumi.Input[_builtins.int] cpu_utilization_percentage: Specifies the CPU utilization percentage threshold at which connector scale in should trigger.
         """
         pulumi.set(__self__, "cpu_utilization_percentage", cpu_utilization_percentage)
@@ -756,6 +770,7 @@ class ConnectorScaleOutPolicyArgs:
                  cpu_utilization_percentage: pulumi.Input[_builtins.int]):
         """
         Information about the scale out policy of the connector.
+
         :param pulumi.Input[_builtins.int] cpu_utilization_percentage: Specifies the CPU utilization percentage threshold at which connector scale out should trigger.
         """
         pulumi.set(__self__, "cpu_utilization_percentage", cpu_utilization_percentage)
@@ -793,6 +808,7 @@ class ConnectorVpcArgs:
                  subnets: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
         """
         Information about a VPC used with the connector.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_groups: The AWS security groups to associate with the elastic network interfaces in order to specify what the connector has access to.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnets: The list of subnets to connect to in the virtual private cloud (VPC). AWS creates elastic network interfaces inside these subnets.
         """
@@ -844,6 +860,7 @@ class ConnectorWorkerConfigurationArgs:
                  worker_configuration_arn: pulumi.Input[_builtins.str]):
         """
         Specifies the worker configuration to use with the connector.
+
         :param pulumi.Input[_builtins.int] revision: The revision of the worker configuration to use.
         :param pulumi.Input[_builtins.str] worker_configuration_arn: The Amazon Resource Name (ARN) of the worker configuration to use.
         """
@@ -900,6 +917,7 @@ class ConnectorWorkerLogDeliveryArgs:
                  s3: Optional[pulumi.Input['ConnectorS3LogDeliveryArgs']] = None):
         """
         Specifies where worker logs are delivered.
+
         :param pulumi.Input['ConnectorCloudWatchLogsLogDeliveryArgs'] cloud_watch_logs: Details about delivering logs to Amazon CloudWatch Logs.
         :param pulumi.Input['ConnectorFirehoseLogDeliveryArgs'] firehose: Details about delivering logs to Amazon Kinesis Data Firehose.
         :param pulumi.Input['ConnectorS3LogDeliveryArgs'] s3: Details about delivering logs to Amazon S3.
@@ -963,6 +981,7 @@ class CustomPluginLocationArgs:
                  s3_location: pulumi.Input['CustomPluginS3LocationArgs']):
         """
         Information about the location of a custom plugin.
+
         :param pulumi.Input['CustomPluginS3LocationArgs'] s3_location: The S3 bucket Amazon Resource Name (ARN), file key, and object version of the plugin file stored in Amazon S3.
         """
         pulumi.set(__self__, "s3_location", s3_location)
@@ -1005,6 +1024,7 @@ class CustomPluginS3LocationArgs:
                  object_version: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The S3 bucket Amazon Resource Name (ARN), file key, and object version of the plugin file stored in Amazon S3.
+
         :param pulumi.Input[_builtins.str] bucket_arn: The Amazon Resource Name (ARN) of an S3 bucket.
         :param pulumi.Input[_builtins.str] file_key: The file key for an object in an S3 bucket.
         :param pulumi.Input[_builtins.str] object_version: The version of an object in an S3 bucket.

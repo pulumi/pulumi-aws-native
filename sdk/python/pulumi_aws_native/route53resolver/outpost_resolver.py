@@ -29,6 +29,7 @@ class OutpostResolverArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a OutpostResolver resource.
+
         :param pulumi.Input[_builtins.str] outpost_arn: The Outpost ARN.
         :param pulumi.Input[_builtins.str] preferred_instance_type: The OutpostResolver instance type.
         :param pulumi.Input[_builtins.int] instance_count: The number of OutpostResolvers.
@@ -120,6 +121,7 @@ class OutpostResolver(pulumi.CustomResource):
         """
         Resource schema for AWS::Route53Resolver::OutpostResolver.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.int] instance_count: The number of OutpostResolvers.
@@ -136,6 +138,7 @@ class OutpostResolver(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource schema for AWS::Route53Resolver::OutpostResolver.
+
 
         :param str resource_name: The name of the resource.
         :param OutpostResolverArgs args: The arguments to use to populate this resource's properties.

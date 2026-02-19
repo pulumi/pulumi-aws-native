@@ -23,6 +23,7 @@ class AliasArgs:
                  alias_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Alias resource.
+
         :param pulumi.Input[_builtins.str] target_key_id: Associates the alias with the specified [](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk). The KMS key must be in the same AWS-account and Region.
                 A valid key ID is required. If you supply a null or empty string value, this operation returns an error.
                 For help finding the key ID and ARN, see [Finding the key ID and ARN](https://docs.aws.amazon.com/kms/latest/developerguide/viewing-keys.html#find-cmk-id-arn) in the *Developer Guide*.
@@ -97,6 +98,7 @@ class Alias(pulumi.CustomResource):
           *Regions*
          KMS CloudFormation resources are available in all AWS-Regions in which KMS and CFN are supported.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] alias_name: Specifies the alias name. This value must begin with ``alias/`` followed by a name, such as ``alias/ExampleAlias``. 
@@ -130,6 +132,7 @@ class Alias(pulumi.CustomResource):
 
           *Regions*
          KMS CloudFormation resources are available in all AWS-Regions in which KMS and CFN are supported.
+
 
         :param str resource_name: The name of the resource.
         :param AliasArgs args: The arguments to use to populate this resource's properties.

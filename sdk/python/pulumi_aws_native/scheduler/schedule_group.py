@@ -26,6 +26,7 @@ class ScheduleGroupArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a ScheduleGroup resource.
+
         :param pulumi.Input[_builtins.str] name: The name of the schedule group.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The list of tags to associate with the schedule group.
         """
@@ -71,6 +72,7 @@ class ScheduleGroup(pulumi.CustomResource):
         """
         Definition of AWS::Scheduler::ScheduleGroup Resource Type
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: The name of the schedule group.
@@ -84,6 +86,7 @@ class ScheduleGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of AWS::Scheduler::ScheduleGroup Resource Type
+
 
         :param str resource_name: The name of the resource.
         :param ScheduleGroupArgs args: The arguments to use to populate this resource's properties.

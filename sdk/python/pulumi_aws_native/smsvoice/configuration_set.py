@@ -31,6 +31,7 @@ class ConfigurationSetArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a ConfigurationSet resource.
+
         :param pulumi.Input[_builtins.str] configuration_set_name: The name to use for the configuration set.
         :param pulumi.Input[_builtins.str] default_sender_id: The default sender ID to set for the ConfigurationSet.
         :param pulumi.Input[Sequence[pulumi.Input['ConfigurationSetEventDestinationArgs']]] event_destinations: An event destination is a location where you send message events.
@@ -140,6 +141,7 @@ class ConfigurationSet(pulumi.CustomResource):
         """
         Resource Type definition for AWS::SMSVOICE::ConfigurationSet
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] configuration_set_name: The name to use for the configuration set.
@@ -157,6 +159,7 @@ class ConfigurationSet(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::SMSVOICE::ConfigurationSet
+
 
         :param str resource_name: The name of the resource.
         :param ConfigurationSetArgs args: The arguments to use to populate this resource's properties.

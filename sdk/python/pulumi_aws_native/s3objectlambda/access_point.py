@@ -25,6 +25,7 @@ class AccessPointArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a AccessPoint resource.
+
         :param pulumi.Input['AccessPointObjectLambdaConfigurationArgs'] object_lambda_configuration: The Object lambda Access Point Configuration that configures transformations to be applied on the objects on specified S3 Actions
         :param pulumi.Input[_builtins.str] name: The name you want to assign to this Object lambda Access Point.
         """
@@ -69,6 +70,7 @@ class AccessPoint(pulumi.CustomResource):
         """
         The AWS::S3ObjectLambda::AccessPoint resource is an Amazon S3ObjectLambda resource type that you can use to add computation to S3 actions
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: The name you want to assign to this Object lambda Access Point.
@@ -82,6 +84,7 @@ class AccessPoint(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The AWS::S3ObjectLambda::AccessPoint resource is an Amazon S3ObjectLambda resource type that you can use to add computation to S3 actions
+
 
         :param str resource_name: The name of the resource.
         :param AccessPointArgs args: The arguments to use to populate this resource's properties.

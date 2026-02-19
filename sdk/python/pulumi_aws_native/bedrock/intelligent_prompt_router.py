@@ -32,6 +32,7 @@ class IntelligentPromptRouterArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a IntelligentPromptRouter resource.
+
         :param pulumi.Input['IntelligentPromptRouterPromptRouterTargetModelArgs'] fallback_model: The default model to use when the routing criteria is not met.
         :param pulumi.Input[Sequence[pulumi.Input['IntelligentPromptRouterPromptRouterTargetModelArgs']]] models: List of model configuration
         :param pulumi.Input['IntelligentPromptRouterRoutingCriteriaArgs'] routing_criteria: Routing criteria for a prompt router.
@@ -138,6 +139,7 @@ class IntelligentPromptRouter(pulumi.CustomResource):
         """
         Definition of AWS::Bedrock::IntelligentPromptRouter Resource Type
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: Description of the Prompt Router.
@@ -155,6 +157,7 @@ class IntelligentPromptRouter(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of AWS::Bedrock::IntelligentPromptRouter Resource Type
+
 
         :param str resource_name: The name of the resource.
         :param IntelligentPromptRouterArgs args: The arguments to use to populate this resource's properties.

@@ -30,6 +30,7 @@ class PhoneNumberArgs:
                  type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a PhoneNumber resource.
+
         :param pulumi.Input[_builtins.str] target_arn: The ARN of the target the phone number is claimed to.
         :param pulumi.Input[_builtins.str] country_code: The phone number country code.
         :param pulumi.Input[_builtins.str] description: The description of the phone number.
@@ -154,6 +155,7 @@ class PhoneNumber(pulumi.CustomResource):
         """
         Resource Type definition for AWS::Connect::PhoneNumber
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] country_code: The phone number country code.
@@ -172,6 +174,7 @@ class PhoneNumber(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::Connect::PhoneNumber
+
 
         :param str resource_name: The name of the resource.
         :param PhoneNumberArgs args: The arguments to use to populate this resource's properties.

@@ -50,6 +50,7 @@ class DbClusterArgs:
                  vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a DbCluster resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['DbClusterDbClusterRoleArgs']]] associated_roles: Provides a list of the AWS Identity and Access Management (IAM) roles that are associated with the DB cluster. IAM roles that are associated with a DB cluster grant permission for the DB cluster to access other AWS services on your behalf.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] availability_zones: Provides the list of EC2 Availability Zones that instances in the DB cluster can be created in.
         :param pulumi.Input[_builtins.int] backup_retention_period: Specifies the number of days for which automatic DB snapshots are retained.
@@ -527,6 +528,7 @@ class DbCluster(pulumi.CustomResource):
         """
         The AWS::Neptune::DBCluster resource creates an Amazon Neptune DB cluster.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['DbClusterDbClusterRoleArgs', 'DbClusterDbClusterRoleArgsDict']]]] associated_roles: Provides a list of the AWS Identity and Access Management (IAM) roles that are associated with the DB cluster. IAM roles that are associated with a DB cluster grant permission for the DB cluster to access other AWS services on your behalf.
@@ -595,6 +597,7 @@ class DbCluster(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The AWS::Neptune::DBCluster resource creates an Amazon Neptune DB cluster.
+
 
         :param str resource_name: The name of the resource.
         :param DbClusterArgs args: The arguments to use to populate this resource's properties.

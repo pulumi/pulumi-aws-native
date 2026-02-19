@@ -35,6 +35,7 @@ class RoutingProfileArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a RoutingProfile resource.
+
         :param pulumi.Input[_builtins.str] default_outbound_queue_arn: The identifier of the default outbound queue for this routing profile.
         :param pulumi.Input[_builtins.str] description: The description of the routing profile.
         :param pulumi.Input[_builtins.str] instance_arn: The identifier of the Amazon Connect instance.
@@ -188,6 +189,7 @@ class RoutingProfile(pulumi.CustomResource):
         """
         Resource Type definition for AWS::Connect::RoutingProfile
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input['RoutingProfileAgentAvailabilityTimer'] agent_availability_timer: Whether agents with this routing profile will have their routing order calculated based on longest idle time or time since their last inbound contact.
@@ -208,6 +210,7 @@ class RoutingProfile(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::Connect::RoutingProfile
+
 
         :param str resource_name: The name of the resource.
         :param RoutingProfileArgs args: The arguments to use to populate this resource's properties.

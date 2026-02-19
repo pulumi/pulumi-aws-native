@@ -35,6 +35,7 @@ class ComputeEnvironmentArgs:
                  update_policy: Optional[pulumi.Input['ComputeEnvironmentUpdatePolicyArgs']] = None):
         """
         The set of arguments for constructing a ComputeEnvironment resource.
+
         :param pulumi.Input[_builtins.str] type: The type of the compute environment: `MANAGED` or `UNMANAGED` . For more information, see [Compute Environments](https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html) in the *AWS Batch User Guide* .
         :param pulumi.Input[_builtins.str] compute_environment_name: The name for your compute environment. It can be up to 128 characters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
         :param pulumi.Input['ComputeEnvironmentComputeResourcesArgs'] compute_resources: The ComputeResources property type specifies details of the compute resources managed by the compute environment. This parameter is required for managed compute environments. For more information, see [Compute Environments](https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html) in the ** .
@@ -267,6 +268,7 @@ class ComputeEnvironment(pulumi.CustomResource):
         """
         Resource Type definition for AWS::Batch::ComputeEnvironment
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] compute_environment_name: The name for your compute environment. It can be up to 128 characters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
@@ -311,6 +313,7 @@ class ComputeEnvironment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::Batch::ComputeEnvironment
+
 
         :param str resource_name: The name of the resource.
         :param ComputeEnvironmentArgs args: The arguments to use to populate this resource's properties.

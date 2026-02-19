@@ -33,6 +33,7 @@ class AccessEntryArgs:
                  username: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a AccessEntry resource.
+
         :param pulumi.Input[_builtins.str] cluster_name: The cluster that the access entry is created for.
         :param pulumi.Input[_builtins.str] principal_arn: The principal ARN that the access entry is created for.
         :param pulumi.Input[Sequence[pulumi.Input['AccessEntryAccessPolicyArgs']]] access_policies: An array of access policies that are associated with the access entry.
@@ -156,6 +157,7 @@ class AccessEntry(pulumi.CustomResource):
         """
         An object representing an Amazon EKS AccessEntry.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['AccessEntryAccessPolicyArgs', 'AccessEntryAccessPolicyArgsDict']]]] access_policies: An array of access policies that are associated with the access entry.
@@ -174,6 +176,7 @@ class AccessEntry(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An object representing an Amazon EKS AccessEntry.
+
 
         :param str resource_name: The name of the resource.
         :param AccessEntryArgs args: The arguments to use to populate this resource's properties.

@@ -36,6 +36,7 @@ class DataSourceArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a DataSource resource.
+
         :param pulumi.Input[_builtins.str] index_id: The identifier of the index you want to use with the data source connector.
         :param pulumi.Input['DataSourceType'] type: The type of the data source.
         :param pulumi.Input['DataSourceCustomDocumentEnrichmentConfigurationArgs'] custom_document_enrichment_configuration: Configuration information for altering document metadata and content during the document ingestion process.
@@ -223,6 +224,7 @@ class DataSource(pulumi.CustomResource):
         """
         Kendra DataSource
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['DataSourceCustomDocumentEnrichmentConfigurationArgs', 'DataSourceCustomDocumentEnrichmentConfigurationArgsDict']] custom_document_enrichment_configuration: Configuration information for altering document metadata and content during the document ingestion process.
@@ -252,6 +254,7 @@ class DataSource(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Kendra DataSource
+
 
         :param str resource_name: The name of the resource.
         :param DataSourceArgs args: The arguments to use to populate this resource's properties.

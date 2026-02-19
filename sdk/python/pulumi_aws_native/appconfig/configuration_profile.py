@@ -36,6 +36,7 @@ class ConfigurationProfileArgs:
                  validators: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationProfileValidatorsArgs']]]] = None):
         """
         The set of arguments for constructing a ConfigurationProfile resource.
+
         :param pulumi.Input[_builtins.str] application_id: The application ID.
         :param pulumi.Input[_builtins.str] location_uri: A URI to locate the configuration. You can specify the AWS AppConfig hosted configuration store, Systems Manager (SSM) document, an SSM Parameter Store parameter, or an Amazon S3 object.
         :param pulumi.Input['ConfigurationProfileDeletionProtectionCheck'] deletion_protection_check: On resource deletion this controls whether the Deletion Protection check should be applied, bypassed, or (the default) whether the behavior should be controlled by the account-level Deletion Protection setting. See https://docs.aws.amazon.com/appconfig/latest/userguide/deletion-protection.html
@@ -207,6 +208,7 @@ class ConfigurationProfile(pulumi.CustomResource):
         """
         An example resource schema demonstrating some basic constructs and validation rules.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] application_id: The application ID.
@@ -228,6 +230,7 @@ class ConfigurationProfile(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An example resource schema demonstrating some basic constructs and validation rules.
+
 
         :param str resource_name: The name of the resource.
         :param ConfigurationProfileArgs args: The arguments to use to populate this resource's properties.

@@ -30,6 +30,7 @@ class ReportPlanArgs:
                  report_plan_tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a ReportPlan resource.
+
         :param pulumi.Input['ReportDeliveryChannelPropertiesArgs'] report_delivery_channel: A structure that contains information about where and how to deliver your reports, specifically your Amazon S3 bucket name, S3 key prefix, and the formats of your reports.
         :param pulumi.Input['ReportSettingPropertiesArgs'] report_setting: Identifies the report template for the report. Reports are built using a report template.
         :param pulumi.Input[_builtins.str] report_plan_description: An optional description of the report plan with a maximum of 1,024 characters.
@@ -121,6 +122,7 @@ class ReportPlan(pulumi.CustomResource):
         """
         Contains detailed information about a report plan in AWS Backup Audit Manager.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ReportDeliveryChannelPropertiesArgs', 'ReportDeliveryChannelPropertiesArgsDict']] report_delivery_channel: A structure that contains information about where and how to deliver your reports, specifically your Amazon S3 bucket name, S3 key prefix, and the formats of your reports.
@@ -137,6 +139,7 @@ class ReportPlan(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Contains detailed information about a report plan in AWS Backup Audit Manager.
+
 
         :param str resource_name: The name of the resource.
         :param ReportPlanArgs args: The arguments to use to populate this resource's properties.

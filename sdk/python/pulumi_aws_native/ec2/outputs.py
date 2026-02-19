@@ -676,6 +676,7 @@ class CpuOptionsProperties(dict):
                  threads_per_core: Optional[_builtins.int] = None):
         """
         The CPU options for the instance.
+
         :param _builtins.int core_count: The number of CPU cores for the instance.
         :param _builtins.int threads_per_core: The number of threads per CPU core.
         """
@@ -727,6 +728,7 @@ class CreditSpecificationProperties(dict):
                  cpu_credits: Optional[_builtins.str] = None):
         """
         The credit option for CPU usage of the burstable performance instance. Valid values are standard and unlimited.
+
         :param _builtins.str cpu_credits: The credit option for CPU usage of the instance.
                
                Valid values: `standard` | `unlimited`
@@ -781,6 +783,7 @@ class DestinationOptionsProperties(dict):
                  per_hour_partition: _builtins.bool):
         """
         The destination options.
+
         :param 'FlowLogDestinationOptionsPropertiesFileFormat' file_format: The format for the flow log. The default is `plain-text` .
         :param _builtins.bool hive_compatible_partitions: Indicates whether to use Hive-compatible prefixes for flow logs stored in Amazon S3. The default is `false` .
         :param _builtins.bool per_hour_partition: Indicates whether to partition the flow log per hour. This reduces the cost and response time for queries. The default is `false` .
@@ -3289,6 +3292,7 @@ class EnclaveOptionsProperties(dict):
                  enabled: Optional[_builtins.bool] = None):
         """
         Indicates whether the instance is enabled for AWS Nitro Enclaves.
+
         :param _builtins.bool enabled: If this parameter is set to true, the instance is enabled for AWS Nitro Enclaves; otherwise, it is not enabled for AWS Nitro Enclaves.
         """
         if enabled is not None:
@@ -3312,6 +3316,7 @@ class HibernationOptionsProperties(dict):
                  configured: Optional[_builtins.bool] = None):
         """
         Indicates whether an instance is enabled for hibernation.
+
         :param _builtins.bool configured: If you set this parameter to true, your instance is enabled for hibernation.
         """
         if configured is not None:
@@ -3639,6 +3644,7 @@ class InstanceEnaSrdSpecification(dict):
                  ena_srd_udp_specification: Optional['outputs.InstanceEnaSrdUdpSpecification'] = None):
         """
         Specifies the ENA Express settings for the network interface that's attached to the instance.
+
         :param _builtins.bool ena_srd_enabled: Specifies whether ENA Express is enabled for the network interface when you launch an instance.
         :param 'InstanceEnaSrdUdpSpecification' ena_srd_udp_specification: Configures ENA Express for UDP network traffic.
         """
@@ -3690,6 +3696,7 @@ class InstanceEnaSrdUdpSpecification(dict):
                  ena_srd_udp_enabled: Optional[_builtins.bool] = None):
         """
         Contains ENA Express settings for UDP network traffic for the network interface that's attached to the instance.
+
         :param _builtins.bool ena_srd_udp_enabled: Indicates whether UDP traffic uses ENA Express for your instance.
         """
         if ena_srd_udp_enabled is not None:
@@ -4312,6 +4319,7 @@ class InstanceState(dict):
                  name: Optional[_builtins.str] = None):
         """
         The current state of the instance
+
         :param _builtins.str code: The state of the instance as a 16-bit unsigned integer.
         :param _builtins.str name: The current state of the instance.
         """
@@ -4409,6 +4417,7 @@ class IpamOperatingRegion(dict):
                  region_name: _builtins.str):
         """
         The regions IPAM is enabled for. Allows pools to be created in these regions, as well as enabling monitoring
+
         :param _builtins.str region_name: The name of the region.
         """
         pulumi.set(__self__, "region_name", region_name)
@@ -4448,6 +4457,7 @@ class IpamOrganizationalUnitExclusion(dict):
                  organizations_entity_path: _builtins.str):
         """
         If your IPAM is integrated with AWS Organizations and you add an organizational unit (OU) exclusion, IPAM will not manage the IP addresses in accounts in that OU exclusion.
+
         :param _builtins.str organizations_entity_path: An AWS Organizations entity path. Build the path for the OU(s) using AWS Organizations IDs separated by a '/'. Include all child OUs by ending the path with '/*'.
         """
         pulumi.set(__self__, "organizations_entity_path", organizations_entity_path)
@@ -4470,6 +4480,7 @@ class IpamPoolProvisionedCidr(dict):
                  cidr: _builtins.str):
         """
         An address space to be inserted into this pool. All allocations must be made from this address space.
+
         :param _builtins.str cidr: The CIDR provisioned to the IPAM pool. A CIDR is a representation of an IP address and its associated network mask (or netmask) and refers to a range of IP addresses. An IPv4 CIDR example is `10.24.34.0/23` . An IPv6 CIDR example is `2001:DB8::/32` .
         """
         pulumi.set(__self__, "cidr", cidr)
@@ -4518,6 +4529,7 @@ class IpamPoolSourceResource(dict):
                  resource_type: _builtins.str):
         """
         The resource associated with this pool's space. Depending on the ResourceType, setting a SourceResource changes which space can be provisioned in this pool and which types of resources can receive allocations
+
         :param _builtins.str resource_id: The source resource ID.
         :param _builtins.str resource_owner: The source resource owner.
         :param _builtins.str resource_region: The source resource Region.
@@ -4571,6 +4583,7 @@ class IpamPoolTag(dict):
                  value: _builtins.str):
         """
         A key-value pair to associate with a resource.
+
         :param _builtins.str key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         :param _builtins.str value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         """
@@ -4630,6 +4643,7 @@ class IpamPrefixListResolverRule(dict):
                  static_cidr: Optional[_builtins.str] = None):
         """
         CIDR selection rules define the business logic for selecting CIDRs from IPAM.  If a CIDR matches any of the rules, it will be included. If a rule has multiple conditions, the CIDR has to match every condition of that rule. You can create a prefix list resolver without rules, but you'll need to add at least one rule before it can actually automate your prefix list updates.
+
         :param 'IpamPrefixListResolverRuleRuleType' rule_type: There are three rule types: (1) Static CIDR: A fixed list of CIDRs that don't change (like a manual list replicated across Regions). (2) IPAM pool CIDR: CIDRs from specific IPAM pools (like all CIDRs from your IPAM production pool).  (3) IPAM resource CIDR: CIDRs for AWS resources like VPCs, subnets, and EIPs within a specific IPAM scope.
         :param Sequence['IpamPrefixListResolverRuleCondition'] conditions: Two of the rule types allow you to add conditions to the rules. (1) For IPAM Pool CIDR rules, you can specify an ipamPoolId; if not specified, the rule will apply to all IPAM Pool CIDRs in the scope.  (2) For IPAM Resource CIDR rules, you can specify resourceId, resourceOwner, resourceRegion, cidr, or resourceTag.
         :param _builtins.str ipam_scope_id: This rule will only match resources that are in this IPAM Scope.
@@ -4727,6 +4741,7 @@ class IpamPrefixListResolverRuleCondition(dict):
                  resource_tag: Optional['outputs.IpamPrefixListResolverTag'] = None):
         """
         Two of the rule types allow you to add conditions to the rules. (1) For IPAM Pool CIDR rules, you can specify an ipamPoolId; if not specified, the rule will apply to all IPAM Pool CIDRs in the scope.  (2) For IPAM Resource CIDR rules, you can specify resourceId, resourceOwner, resourceRegion, cidr, or resourceTag.
+
         :param _builtins.str cidr: Condition for the IPAM Resource CIDR rule type.  CIDR (like 10.24.34.0/23).
         :param _builtins.str ipam_pool_id: Condition for the IPAM Pool CIDR rule type.  If not chosen, the resolver applies to all IPAM Pool CIDRs in the scope.
         :param 'IpamPrefixListResolverRuleConditionOperation' operation: Equals, Not equals, or Subnet Of.  The subnet-of operation only applies to cidr conditions.
@@ -4817,6 +4832,7 @@ class IpamPrefixListResolverTag(dict):
                  value: _builtins.str):
         """
         A key-value pair to associate with a resource.
+
         :param _builtins.str key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         :param _builtins.str value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         """
@@ -4866,6 +4882,7 @@ class IpamResourceDiscoveryIpamOperatingRegion(dict):
                  region_name: _builtins.str):
         """
         The regions IPAM Resource Discovery is enabled for. Allows for monitoring.
+
         :param _builtins.str region_name: The name of the region.
         """
         pulumi.set(__self__, "region_name", region_name)
@@ -4905,6 +4922,7 @@ class IpamResourceDiscoveryOrganizationalUnitExclusion(dict):
                  organizations_entity_path: _builtins.str):
         """
         If your IPAM is integrated with AWS Organizations and you add an organizational unit (OU) exclusion, IPAM will not manage the IP addresses in accounts in that OU exclusion.
+
         :param _builtins.str organizations_entity_path: An AWS Organizations entity path. Build the path for the OU(s) using AWS Organizations IDs separated by a '/'. Include all child OUs by ending the path with '/*'.
         """
         pulumi.set(__self__, "organizations_entity_path", organizations_entity_path)
@@ -4947,6 +4965,7 @@ class IpamScopeExternalAuthorityConfiguration(dict):
                  ipam_scope_external_authority_type: 'IpamScopeExternalAuthorityConfigurationIpamScopeExternalAuthorityType'):
         """
         External service configuration to connect your AWS IPAM scope.
+
         :param _builtins.str external_resource_identifier: Resource identifier of the scope in the external service connecting to your AWS IPAM scope.
         :param 'IpamScopeExternalAuthorityConfigurationIpamScopeExternalAuthorityType' ipam_scope_external_authority_type: An external service connecting to your AWS IPAM scope.
         """
@@ -4980,6 +4999,7 @@ class LaunchTemplateAcceleratorCount(dict):
                  min: Optional[_builtins.int] = None):
         """
         The minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips) on an instance.
+
         :param _builtins.int max: The maximum number of accelerators. To specify no maximum limit, omit this parameter. To exclude accelerator-enabled instance types, set ``Max`` to ``0``.
         :param _builtins.int min: The minimum number of accelerators. To specify no minimum limit, omit this parameter.
         """
@@ -5015,6 +5035,7 @@ class LaunchTemplateAcceleratorTotalMemoryMiB(dict):
                  min: Optional[_builtins.int] = None):
         """
         The minimum and maximum amount of total accelerator memory, in MiB.
+
         :param _builtins.int max: The maximum amount of accelerator memory, in MiB. To specify no maximum limit, omit this parameter.
         :param _builtins.int min: The minimum amount of accelerator memory, in MiB. To specify no minimum limit, omit this parameter.
         """
@@ -5050,6 +5071,7 @@ class LaunchTemplateBaselineEbsBandwidthMbps(dict):
                  min: Optional[_builtins.int] = None):
         """
         The minimum and maximum baseline bandwidth to Amazon EBS, in Mbps. For more information, see [Amazon EBS–optimized instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-optimized.html) in the *Amazon EC2 User Guide*.
+
         :param _builtins.int max: The maximum baseline bandwidth, in Mbps. To specify no maximum limit, omit this parameter.
         :param _builtins.int min: The minimum baseline bandwidth, in Mbps. To specify no minimum limit, omit this parameter.
         """
@@ -5086,6 +5108,7 @@ class LaunchTemplateBaselinePerformanceFactors(dict):
         """
         The baseline performance to consider, using an instance family as a baseline reference. The instance family establishes the lowest acceptable level of performance. Amazon EC2 uses this baseline to guide instance type selection, but there is no guarantee that the selected instance types will always exceed the baseline for every application.
          Currently, this parameter only supports CPU performance as a baseline performance factor. For example, specifying ``c6i`` would use the CPU performance of the ``c6i`` family as the baseline reference.
+
         :param 'LaunchTemplateCpu' cpu: The CPU performance to consider, using an instance family as the baseline reference.
         """
         if cpu is not None:
@@ -5135,6 +5158,7 @@ class LaunchTemplateBlockDeviceMapping(dict):
         """
         Specifies a block device mapping for a launch template. You must specify ``DeviceName`` plus exactly one of the following properties: ``Ebs``, ``NoDevice``, or ``VirtualName``.
          ``BlockDeviceMapping`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
+
         :param _builtins.str device_name: The device name (for example, /dev/sdh or xvdh).
         :param 'LaunchTemplateEbs' ebs: Parameters used to automatically set up EBS volumes when the instance is launched.
         :param _builtins.str no_device: To omit the device from the block device mapping, specify an empty string.
@@ -5213,6 +5237,7 @@ class LaunchTemplateCapacityReservationSpecification(dict):
         """
         Specifies an instance's Capacity Reservation targeting option. You can specify only one option at a time.
          ``CapacityReservationSpecification`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
+
         :param _builtins.str capacity_reservation_preference: Indicates the instance's Capacity Reservation preferences. Possible preferences include:
                  +  ``capacity-reservations-only`` - The instance will only run in a Capacity Reservation or Capacity Reservation group. If capacity isn't available, the instance will fail to launch.
                  +  ``open`` - The instance can run in any ``open`` Capacity Reservation that has matching attributes (instance type, platform, Availability Zone, tenancy).
@@ -5275,6 +5300,7 @@ class LaunchTemplateCapacityReservationTarget(dict):
         """
         Specifies a target Capacity Reservation.
          ``CapacityReservationTarget`` is a property of the [Amazon EC2 LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html) property type.
+
         :param _builtins.str capacity_reservation_id: The ID of the Capacity Reservation in which to run the instance.
         :param _builtins.str capacity_reservation_resource_group_arn: The ARN of the Capacity Reservation resource group in which to run the instance.
         """
@@ -5332,6 +5358,7 @@ class LaunchTemplateConnectionTrackingSpecification(dict):
                  udp_timeout: Optional[_builtins.int] = None):
         """
         A security group connection tracking specification that enables you to set the idle timeout for connection tracking on an Elastic network interface. For more information, see [Connection tracking timeouts](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-connection-tracking.html#connection-tracking-timeouts) in the *Amazon EC2 User Guide*.
+
         :param _builtins.int tcp_established_timeout: Timeout (in seconds) for idle TCP connections in an established state. Min: 60 seconds. Max: 432000 seconds (5 days). Default: 432000 seconds. Recommended: Less than 432000 seconds.
         :param _builtins.int udp_stream_timeout: Timeout (in seconds) for idle UDP flows classified as streams which have seen more than one request-response transaction. Min: 60 seconds. Max: 180 seconds (3 minutes). Default: 180 seconds.
         :param _builtins.int udp_timeout: Timeout (in seconds) for idle UDP flows that have seen traffic only in a single direction or a single request-response transaction. Min: 30 seconds. Max: 60 seconds. Default: 30 seconds.
@@ -5377,6 +5404,7 @@ class LaunchTemplateCpu(dict):
                  references: Optional[Sequence['outputs.LaunchTemplateReference']] = None):
         """
         Specifies the CPU performance to consider when using an instance family as the baseline reference.
+
         :param Sequence['LaunchTemplateReference'] references: The instance family to use as the baseline reference for CPU performance. All instance types that match your specified attributes are compared against the CPU performance of the referenced instance family, regardless of CPU manufacturer or architecture differences.
         """
         if references is not None:
@@ -5425,6 +5453,7 @@ class LaunchTemplateCpuOptions(dict):
         """
         Specifies the CPU options for an instance. For more information, see [Optimize CPU options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) in the *User Guide*.
          ``CpuOptions`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
+
         :param 'LaunchTemplateCpuOptionsAmdSevSnp' amd_sev_snp: Indicates whether to enable the instance for AMD SEV-SNP. AMD SEV-SNP is supported with M6a, R6a, and C6a instance types only. For more information, see [AMD SEV-SNP for Amazon EC2 instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/sev-snp.html).
         :param _builtins.int core_count: The number of CPU cores for the instance.
         :param _builtins.int threads_per_core: The number of threads per CPU core. To disable multithreading for the instance, specify a value of ``1``. Otherwise, specify the default value of ``2``.
@@ -5489,6 +5518,7 @@ class LaunchTemplateCreditSpecification(dict):
         """
         Specifies the credit option for CPU usage of a T2, T3, or T3a instance.
          ``CreditSpecification`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
+
         :param _builtins.str cpu_credits: The credit option for CPU usage of a T instance.
                 Valid values: ``standard`` | ``unlimited``
         """
@@ -5616,6 +5646,7 @@ class LaunchTemplateData(dict):
         """
         The information to include in the launch template.
           You must specify at least one parameter for the launch template data.
+
         :param Sequence['LaunchTemplateBlockDeviceMapping'] block_device_mappings: The block device mapping.
         :param 'LaunchTemplateCapacityReservationSpecification' capacity_reservation_specification: The Capacity Reservation targeting option. If you do not specify this parameter, the instance's Capacity Reservation preference defaults to ``open``, which enables it to run in any open Capacity Reservation that has matching attributes (instance type, platform, Availability Zone).
         :param 'LaunchTemplateCpuOptions' cpu_options: The CPU options for the instance. For more information, see [CPU options for Amazon EC2 instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) in the *Amazon EC2 User Guide*.
@@ -6050,6 +6081,7 @@ class LaunchTemplateEbs(dict):
         """
         Parameters for a block device for an EBS volume in an Amazon EC2 launch template.
          ``Ebs`` is a property of [AWS::EC2::LaunchTemplate BlockDeviceMapping](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-blockdevicemapping.html).
+
         :param _builtins.bool delete_on_termination: Indicates whether the EBS volume is deleted on instance termination.
         :param _builtins.bool encrypted: Indicates whether the EBS volume is encrypted. Encrypted volumes can only be attached to instances that support Amazon EBS encryption. If you are creating a volume from a snapshot, you can't specify an encryption value.
         :param _builtins.int iops: The number of I/O operations per second (IOPS). For ``gp3``, ``io1``, and ``io2`` volumes, this represents the number of IOPS that are provisioned for the volume. For ``gp2`` volumes, this represents the baseline performance of the volume and the rate at which the volume accumulates I/O credits for bursting.
@@ -6232,6 +6264,7 @@ class LaunchTemplateEnaSrdSpecification(dict):
         """
         ENA Express uses AWS Scalable Reliable Datagram (SRD) technology to increase the maximum bandwidth used per stream and minimize tail latency of network traffic between EC2 instances. With ENA Express, you can communicate between two EC2 instances in the same subnet within the same account, or in different accounts. Both sending and receiving instances must have ENA Express enabled.
          To improve the reliability of network packet delivery, ENA Express reorders network packets on the receiving end by default. However, some UDP-based applications are designed to handle network packets that are out of order to reduce the overhead for packet delivery at the network layer. When ENA Express is enabled, you can specify whether UDP network traffic uses it.
+
         :param _builtins.bool ena_srd_enabled: Indicates whether ENA Express is enabled for the network interface.
         :param 'LaunchTemplateEnaSrdUdpSpecification' ena_srd_udp_specification: Configures ENA Express for UDP network traffic.
         """
@@ -6283,6 +6316,7 @@ class LaunchTemplateEnaSrdUdpSpecification(dict):
                  ena_srd_udp_enabled: Optional[_builtins.bool] = None):
         """
         ENA Express is compatible with both TCP and UDP transport protocols. When it's enabled, TCP traffic automatically uses it. However, some UDP-based applications are designed to handle network packets that are out of order, without a need for retransmission, such as live video broadcasting or other near-real-time applications. For UDP traffic, you can specify whether to use ENA Express, based on your application environment needs.
+
         :param _builtins.bool ena_srd_udp_enabled: Indicates whether UDP traffic to and from the instance uses ENA Express. To specify this setting, you must first enable ENA Express.
         """
         if ena_srd_udp_enabled is not None:
@@ -6306,6 +6340,7 @@ class LaunchTemplateEnclaveOptions(dict):
                  enabled: Optional[_builtins.bool] = None):
         """
         Indicates whether the instance is enabled for AWS Nitro Enclaves.
+
         :param _builtins.bool enabled: If this parameter is set to ``true``, the instance is enabled for AWS Nitro Enclaves; otherwise, it is not enabled for AWS Nitro Enclaves.
         """
         if enabled is not None:
@@ -6331,6 +6366,7 @@ class LaunchTemplateHibernationOptions(dict):
         """
         Specifies whether your instance is configured for hibernation. This parameter is valid only if the instance meets the [hibernation prerequisites](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html#hibernating-prerequisites). For more information, see [Hibernate Your Instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html) in the *Amazon EC2 User Guide*.
          ``HibernationOptions`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
+
         :param _builtins.bool configured: If you set this parameter to ``true``, the instance is enabled for hibernation.
                 Default: ``false``
         """
@@ -6361,6 +6397,7 @@ class LaunchTemplateIamInstanceProfile(dict):
         Specifies an IAM instance profile, which is a container for an IAM role for your instance. You can use an IAM role to distribute your AWS credentials to your instances.
          If you are creating the launch template for use with an ASlong group, you can specify either the name or the ARN of the instance profile, but not both.
          ``IamInstanceProfile`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
+
         :param _builtins.str arn: The Amazon Resource Name (ARN) of the instance profile.
         :param _builtins.str name: The name of the instance profile.
         """
@@ -6417,6 +6454,7 @@ class LaunchTemplateInstanceMarketOptions(dict):
         """
         Specifies the market (purchasing) option for an instance.
          ``InstanceMarketOptions`` is a property of the [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
+
         :param _builtins.str market_type: The market type.
         :param 'LaunchTemplateSpotOptions' spot_options: The options for Spot Instances.
         """
@@ -6558,6 +6596,7 @@ class LaunchTemplateInstanceRequirements(dict):
           If you specify ``InstanceRequirements``, you can't specify ``InstanceType``.
          Attribute-based instance type selection is only supported when using Auto Scaling groups, EC2 Fleet, and Spot Fleet to launch instances. If you plan to use the launch template in the [launch instance wizard](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-instance-wizard.html), or with the [RunInstances](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html) API or [AWS::EC2::Instance](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html)AWS CloudFormation resource, you can't specify ``InstanceRequirements``.
           For more information, see [Specify attributes for instance type selection for EC2 Fleet or Spot Fleet](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.html) and [Spot placement score](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-placement-score.html) in the *Amazon EC2 User Guide*.
+
         :param 'LaunchTemplateAcceleratorCount' accelerator_count: The minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips) on an instance.
                 To exclude accelerator-enabled instance types, set ``Max`` to ``0``.
                 Default: No minimum or maximum limits
@@ -7036,6 +7075,7 @@ class LaunchTemplateIpv4PrefixSpecification(dict):
         """
         Specifies an IPv4 prefix for a network interface.
          ``Ipv4PrefixSpecification`` is a property of [AWS::EC2::LaunchTemplate NetworkInterface](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html).
+
         :param _builtins.str ipv4_prefix: The IPv4 prefix. For information, see [Assigning prefixes to network interfaces](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-prefix-eni.html) in the *Amazon EC2 User Guide*.
         """
         if ipv4_prefix is not None:
@@ -7078,6 +7118,7 @@ class LaunchTemplateIpv6Add(dict):
         """
         Specifies an IPv6 address in an Amazon EC2 launch template.
          ``Ipv6Add`` is a property of [AWS::EC2::LaunchTemplate NetworkInterface](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html).
+
         :param _builtins.str ipv6_address: One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet. You can't use this option if you're specifying a number of IPv6 addresses.
         """
         if ipv6_address is not None:
@@ -7120,6 +7161,7 @@ class LaunchTemplateIpv6PrefixSpecification(dict):
         """
         Specifies an IPv6 prefix for a network interface.
          ``Ipv6PrefixSpecification`` is a property of [AWS::EC2::LaunchTemplate NetworkInterface](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html).
+
         :param _builtins.str ipv6_prefix: The IPv6 prefix.
         """
         if ipv6_prefix is not None:
@@ -7162,6 +7204,7 @@ class LaunchTemplateLicenseSpecification(dict):
         """
         Specifies a license configuration for an instance.
          ``LicenseSpecification`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
+
         :param _builtins.str license_configuration_arn: The Amazon Resource Name (ARN) of the license configuration.
         """
         if license_configuration_arn is not None:
@@ -7202,6 +7245,7 @@ class LaunchTemplateMaintenanceOptions(dict):
                  auto_recovery: Optional[_builtins.str] = None):
         """
         The maintenance options of your instance.
+
         :param _builtins.str auto_recovery: Disables the automatic recovery behavior of your instance or sets it to default.
         """
         if auto_recovery is not None:
@@ -7226,6 +7270,7 @@ class LaunchTemplateMemoryGiBPerVCpu(dict):
                  min: Optional[_builtins.float] = None):
         """
         The minimum and maximum amount of memory per vCPU, in GiB.
+
         :param _builtins.float max: The maximum amount of memory per vCPU, in GiB. To specify no maximum limit, omit this parameter.
         :param _builtins.float min: The minimum amount of memory per vCPU, in GiB. To specify no minimum limit, omit this parameter.
         """
@@ -7261,6 +7306,7 @@ class LaunchTemplateMemoryMiB(dict):
                  min: Optional[_builtins.int] = None):
         """
         The minimum and maximum amount of memory, in MiB.
+
         :param _builtins.int max: The maximum amount of memory, in MiB. To specify no maximum limit, omit this parameter.
         :param _builtins.int min: The minimum amount of memory, in MiB. To specify no minimum limit, specify ``0``.
         """
@@ -7326,6 +7372,7 @@ class LaunchTemplateMetadataOptions(dict):
         """
         The metadata options for the instance. For more information, see [Instance metadata and user data](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html) in the *Amazon EC2 User Guide*.
          ``MetadataOptions`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
+
         :param _builtins.str http_endpoint: Enables or disables the HTTP metadata endpoint on your instances. If the parameter is not specified, the default state is ``enabled``.
                  If you specify a value of ``disabled``, you will not be able to access your instance metadata.
         :param _builtins.str http_protocol_ipv6: Enables or disables the IPv6 endpoint for the instance metadata service.
@@ -7413,6 +7460,7 @@ class LaunchTemplateMonitoring(dict):
         """
         Specifies whether detailed monitoring is enabled for an instance. For more information about detailed monitoring, see [Enable or turn off detailed monitoring for your instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-cloudwatch-new.html) in the *User Guide*.
          ``Monitoring`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
+
         :param _builtins.bool enabled: Specify ``true`` to enable detailed monitoring. Otherwise, basic monitoring is enabled.
         """
         if enabled is not None:
@@ -7439,6 +7487,7 @@ class LaunchTemplateNetworkBandwidthGbps(dict):
         """
         The minimum and maximum amount of network bandwidth, in gigabits per second (Gbps).
           Setting the minimum bandwidth does not guarantee that your instance will achieve the minimum bandwidth. Amazon EC2 will identify instance types that support the specified minimum bandwidth, but the actual bandwidth of your instance might go below the specified minimum at times. For more information, see [Available instance bandwidth](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-network-bandwidth.html#available-instance-bandwidth) in the *Amazon EC2 User Guide*.
+
         :param _builtins.float max: The maximum amount of network bandwidth, in Gbps. To specify no maximum limit, omit this parameter.
         :param _builtins.float min: The minimum amount of network bandwidth, in Gbps. If this parameter is not specified, there is no minimum limit.
         """
@@ -7554,6 +7603,7 @@ class LaunchTemplateNetworkInterface(dict):
         """
         Specifies the parameters for a network interface.
          ``NetworkInterface`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
+
         :param _builtins.bool associate_carrier_ip_address: Associates a Carrier IP address with eth0 for a new network interface.
                 Use this option when you launch an instance in a Wavelength Zone and want to associate a Carrier IP address with the network interface. For more information about Carrier IP addresses, see [Carrier IP addresses](https://docs.aws.amazon.com/wavelength/latest/developerguide/how-wavelengths-work.html#provider-owned-ip) in the *Developer Guide*.
         :param _builtins.bool associate_public_ip_address: Associates a public IPv4 address with eth0 for a new network interface.
@@ -7832,6 +7882,7 @@ class LaunchTemplateNetworkInterfaceCount(dict):
                  min: Optional[_builtins.int] = None):
         """
         The minimum and maximum number of network interfaces.
+
         :param _builtins.int max: The maximum number of network interfaces. To specify no maximum limit, omit this parameter.
         :param _builtins.int min: The minimum number of network interfaces. To specify no minimum limit, omit this parameter.
         """
@@ -7883,6 +7934,7 @@ class LaunchTemplateNetworkPerformanceOptions(dict):
                  bandwidth_weighting: Optional[_builtins.str] = None):
         """
         Contains settings for the network performance options for the instance.
+
         :param _builtins.str bandwidth_weighting: Specify the bandwidth weighting option to boost the associated type of baseline bandwidth, as follows:
                  + default This option uses the standard bandwidth configuration for your instance type. + vpc-1 This option boosts your networking baseline bandwidth and reduces your EBS baseline bandwidth. + ebs-1 This option boosts your EBS baseline bandwidth and reduces your networking baseline bandwidth.
         """
@@ -7947,6 +7999,7 @@ class LaunchTemplatePlacement(dict):
         """
         Specifies the placement of an instance.
          ``Placement`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
+
         :param _builtins.str affinity: The affinity setting for an instance on a Dedicated Host.
         :param _builtins.str availability_zone: The Availability Zone for the instance.
                 Either ``AvailabilityZone`` or ``AvailabilityZoneId`` can be specified, but not both
@@ -8083,6 +8136,7 @@ class LaunchTemplatePrivateDnsNameOptions(dict):
                  hostname_type: Optional[_builtins.str] = None):
         """
         The hostname type for EC2 instances launched into this subnet and how DNS A and AAAA record queries should be handled. For more information, see [Amazon EC2 instance hostname types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-naming.html) in the *User Guide*.
+
         :param _builtins.bool enable_resource_name_dns_a_record: Indicates whether to respond to DNS queries for instance hostnames with DNS A records.
         :param _builtins.bool enable_resource_name_dns_aaaa_record: Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA records.
         :param _builtins.str hostname_type: The type of hostname for EC2 instances. For IPv4 only subnets, an instance DNS name must be based on the instance IPv4 address. For IPv6 only subnets, an instance DNS name must be based on the instance ID. For dual-stack subnets, you can specify whether DNS names use the instance IPv4 address or the instance ID. For more information, see [Amazon EC2 instance hostname types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-naming.html) in the *User Guide*.
@@ -8148,6 +8202,7 @@ class LaunchTemplatePrivateIpAdd(dict):
         """
         Specifies a secondary private IPv4 address for a network interface.
          ``PrivateIpAdd`` is a property of [AWS::EC2::LaunchTemplate NetworkInterface](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html).
+
         :param _builtins.bool primary: Indicates whether the private IPv4 address is the primary private IPv4 address. Only one IPv4 address can be designated as primary.
         :param _builtins.str private_ip_address: The private IPv4 address.
         """
@@ -8199,6 +8254,7 @@ class LaunchTemplateReference(dict):
                  instance_family: Optional[_builtins.str] = None):
         """
         Specifies an instance family to use as the baseline reference for CPU performance.
+
         :param _builtins.str instance_family: The instance family to use as a baseline reference.
                  Ensure that you specify the correct value for the instance family. The instance family is everything before the period (``.``) in the instance type name. For example, in the instance type ``c6i.large``, the instance family is ``c6i``, not ``c6``. For more information, see [Amazon EC2 instance type naming conventions](https://docs.aws.amazon.com/ec2/latest/instancetypes/instance-type-names.html) in *Amazon EC2 Instance Types*.
                  The following instance families are *not supported* for performance protection:
@@ -8277,6 +8333,7 @@ class LaunchTemplateSpotOptions(dict):
         """
         Specifies options for Spot Instances.
          ``SpotOptions`` is a property of [AWS::EC2::LaunchTemplate InstanceMarketOptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-instancemarketoptions.html).
+
         :param _builtins.int block_duration_minutes: Deprecated.
         :param _builtins.str instance_interruption_behavior: The behavior when a Spot Instance is interrupted. The default is ``terminate``.
         :param _builtins.str max_price: The maximum hourly price you're willing to pay for a Spot Instance. We do not recommend using this parameter because it can lead to increased interruptions. If you do not specify this parameter, you will pay the current Spot price. If you do specify this parameter, it must be more than USD $0.001. Specifying a value below USD $0.001 will result in an ``InvalidParameterValue`` error message when the launch template is used to launch an instance.
@@ -8357,6 +8414,7 @@ class LaunchTemplateTag(dict):
                  value: _builtins.str):
         """
         Specifies a tag. For more information, see [Resource tags](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).
+
         :param _builtins.str key: The tag key.
         :param _builtins.str value: The tag value.
         """
@@ -8411,6 +8469,7 @@ class LaunchTemplateTagSpecification(dict):
         Specifies the tags to apply to the launch template during creation.
          To specify the tags for the resources that are created during instance launch, use [AWS::EC2::LaunchTemplate TagSpecification](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-tagspecification.html).
          ``LaunchTemplateTagSpecification`` is a property of [AWS::EC2::LaunchTemplate](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-launchtemplate.html).
+
         :param _builtins.str resource_type: The type of resource. To tag a launch template, ``ResourceType`` must be ``launch-template``.
         :param Sequence['LaunchTemplateTag'] tags: The tags for the resource.
         """
@@ -8446,6 +8505,7 @@ class LaunchTemplateTotalLocalStorageGb(dict):
                  min: Optional[_builtins.float] = None):
         """
         The minimum and maximum amount of total local storage, in GB.
+
         :param _builtins.float max: The maximum amount of total local storage, in GB. To specify no maximum limit, omit this parameter.
         :param _builtins.float min: The minimum amount of total local storage, in GB. To specify no minimum limit, omit this parameter.
         """
@@ -8481,6 +8541,7 @@ class LaunchTemplateVCpuCount(dict):
                  min: Optional[_builtins.int] = None):
         """
         The minimum and maximum number of vCPUs.
+
         :param _builtins.int max: The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
         :param _builtins.int min: The minimum number of vCPUs. To specify no minimum limit, specify ``0``.
         """
@@ -8542,6 +8603,7 @@ class NatGatewayAvailabilityZoneAddress(dict):
         For regional NAT gateways only: The configuration specifying which Elastic IP address (EIP) to use for handling outbound NAT traffic from a specific Availability Zone. 
          A regional NAT gateway is a single NAT Gateway that works across multiple availability zones (AZs) in your VPC, providing redundancy, scalability and availability across all the AZs in a Region.
          For more information, see [Regional NAT gateways for automatic multi-AZ expansion](https://docs.aws.amazon.com/vpc/latest/userguide/nat-gateways-regional.html) in the *Amazon VPC User Guide*.
+
         :param Sequence[_builtins.str] allocation_ids: The allocation IDs of the Elastic IP addresses (EIPs) to be used for handling outbound NAT traffic in this specific Availability Zone.
         :param _builtins.str availability_zone: For regional NAT gateways only: The Availability Zone where this specific NAT gateway configuration will be active. Each AZ in a regional NAT gateway has its own configuration to handle outbound NAT traffic from that AZ. 
                 A regional NAT gateway is a single NAT Gateway that works across multiple availability zones (AZs) in your VPC, providing redundancy, scalability and availability across all the AZs in a Region.
@@ -10955,6 +11017,7 @@ class NetworkInterfaceAttachmentEnaSrdSpecification(dict):
         """
         ENA Express uses AWS Scalable Reliable Datagram (SRD) technology to increase the maximum bandwidth used per stream and minimize tail latency of network traffic between EC2 instances. With ENA Express, you can communicate between two EC2 instances in the same subnet within the same account, or in different accounts. Both sending and receiving instances must have ENA Express enabled.
          To improve the reliability of network packet delivery, ENA Express reorders network packets on the receiving end by default. However, some UDP-based applications are designed to handle network packets that are out of order to reduce the overhead for packet delivery at the network layer. When ENA Express is enabled, you can specify whether UDP network traffic uses it.
+
         :param _builtins.bool ena_srd_enabled: Indicates whether ENA Express is enabled for the network interface.
         :param 'NetworkInterfaceAttachmentEnaSrdSpecificationEnaSrdUdpSpecificationProperties' ena_srd_udp_specification: Configures ENA Express for UDP network traffic.
         """
@@ -11266,6 +11329,7 @@ class NetworkInterfacePublicIpDnsNameOptions(dict):
                  public_ipv6_dns_name: Optional[_builtins.str] = None):
         """
         Describes the public hostname type options, including public hostname type, IPv4-enabled public hostname, IPv6-enabled public hostname, and dual-stack public hostname.
+
         :param _builtins.str dns_hostname_type: The public hostname type. For more information, see [EC2 instance hostnames, DNS names, and domains](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-naming.html) in the *Amazon EC2 User Guide* .
         :param _builtins.str public_dual_stack_dns_name: A dual-stack public hostname for a network interface. Requests from within the VPC resolve to both the private IPv4 address and the IPv6 Global Unicast Address of the network interface. Requests from the internet resolve to both the public IPv4 and the IPv6 GUA address of the network interface.
         :param _builtins.str public_ipv4_dns_name: An IPv4-enabled public hostname for a network interface. Requests from within the VPC resolve to the private primary IPv4 address of the network interface. Requests from the internet resolve to the public IPv4 address of the network interface.
@@ -11348,6 +11412,7 @@ class OptionsProperties(dict):
                  security_group_referencing_support: Optional[_builtins.str] = None):
         """
         The options for the transit gateway vpc attachment.
+
         :param _builtins.str appliance_mode_support: Indicates whether to enable Ipv6 Support for Vpc Attachment. Valid Values: enable | disable
         :param _builtins.str dns_support: Indicates whether to enable DNS Support for Vpc Attachment. Valid Values: enable | disable
         :param _builtins.str ipv6_support: Indicates whether to enable Ipv6 Support for Vpc Attachment. Valid Values: enable | disable
@@ -11469,6 +11534,7 @@ class PrivateDnsNameOptionsOnLaunchProperties(dict):
           +  EnableResourceNameDnsAAAARecord (true | false)
           +  EnableResourceNameDnsARecord (true | false)
           +  HostnameType (ip-name | resource-name)
+
         :param _builtins.bool enable_resource_name_dns_a_record: Indicates whether to respond to DNS queries for instance hostnames with DNS A records.
         :param _builtins.bool enable_resource_name_dns_aaaa_record: Indicates whether to respond to DNS queries for instance hostname with DNS AAAA records.
         :param _builtins.str hostname_type: The type of hostname for EC2 instances. For IPv4 only subnets, an instance DNS name must be based on the instance IPv4 address. For IPv6 only subnets, an instance DNS name must be based on the instance ID. For dual-stack subnets, you can specify whether DNS names use the instance IPv4 address or the instance ID.
@@ -11534,6 +11600,7 @@ class RouteServerPeerBgpOptions(dict):
                  peer_liveness_detection: Optional['RouteServerPeerBgpOptionsPeerLivenessDetection'] = None):
         """
         BGP Options
+
         :param _builtins.int peer_asn: BGP ASN of the Route Server Peer
         :param 'RouteServerPeerBgpOptionsPeerLivenessDetection' peer_liveness_detection: BGP Liveness Detection
         """
@@ -14972,6 +15039,7 @@ class SseSpecificationProperties(dict):
                  kms_key_arn: Optional[_builtins.str] = None):
         """
         The configuration options for customer provided KMS encryption.
+
         :param _builtins.bool customer_managed_key_enabled: Whether to encrypt the policy with the provided key or disable encryption
         :param _builtins.str kms_key_arn: KMS Key Arn used to encrypt the group policy
         """
@@ -15026,6 +15094,7 @@ class TagSpecification(dict):
         """
         Specifies the tags to apply to resources that are created during instance launch.
          ``TagSpecification`` is a property type of [TagSpecifications](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-tagspecifications). [TagSpecifications](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-tagspecifications) is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
+
         :param _builtins.str resource_type: The type of resource to tag. You can specify tags for the following resource types only: ``instance`` | ``volume`` | ``network-interface`` | ``spot-instances-request``. If the instance does not include the resource type that you specify, the instance launch fails. For example, not all instance types include a volume.
                 To tag a resource after it has been created, see [CreateTags](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html).
         :param Sequence['LaunchTemplateTag'] tags: The tags to apply to the resource.
@@ -15362,6 +15431,7 @@ class VerifiedAccessEndpointCidrOptions(dict):
                  subnet_ids: Optional[Sequence[_builtins.str]] = None):
         """
         The options for cidr type endpoint.
+
         :param _builtins.str cidr: The IP address range, in CIDR notation.
         :param Sequence['VerifiedAccessEndpointPortRange'] port_ranges: The list of port range.
         :param _builtins.str protocol: The IP protocol.
@@ -15443,6 +15513,7 @@ class VerifiedAccessEndpointLoadBalancerOptions(dict):
                  subnet_ids: Optional[Sequence[_builtins.str]] = None):
         """
         The load balancer details if creating the AWS Verified Access endpoint as load-balancertype.
+
         :param _builtins.str load_balancer_arn: The ARN of the load balancer.
         :param _builtins.int port: The IP port number.
         :param Sequence['VerifiedAccessEndpointPortRange'] port_ranges: The list of port range.
@@ -15532,6 +15603,7 @@ class VerifiedAccessEndpointNetworkInterfaceOptions(dict):
                  protocol: Optional[_builtins.str] = None):
         """
         The options for network-interface type endpoint.
+
         :param _builtins.str network_interface_id: The ID of the network interface.
         :param _builtins.int port: The IP port number.
         :param Sequence['VerifiedAccessEndpointPortRange'] port_ranges: The list of port ranges.
@@ -15608,6 +15680,7 @@ class VerifiedAccessEndpointPortRange(dict):
                  to_port: Optional[_builtins.int] = None):
         """
         The IP port range.
+
         :param _builtins.int from_port: The first port in the range.
         :param _builtins.int to_port: The last port in the range.
         """
@@ -15673,6 +15746,7 @@ class VerifiedAccessEndpointRdsOptions(dict):
                  subnet_ids: Optional[Sequence[_builtins.str]] = None):
         """
         The options for rds type endpoint.
+
         :param _builtins.int port: The IP port number.
         :param _builtins.str protocol: The IP protocol.
         :param _builtins.str rds_db_cluster_arn: The ARN of the RDS DB cluster.
@@ -15782,6 +15856,7 @@ class VerifiedAccessEndpointSseSpecification(dict):
                  kms_key_arn: Optional[_builtins.str] = None):
         """
         The configuration options for customer provided KMS encryption.
+
         :param _builtins.bool customer_managed_key_enabled: Whether to encrypt the policy with the provided key or disable encryption
         :param _builtins.str kms_key_arn: KMS Key Arn used to encrypt the group policy
         """
@@ -15836,6 +15911,7 @@ class VerifiedAccessGroupSseSpecification(dict):
                  kms_key_arn: Optional[_builtins.str] = None):
         """
         The configuration options for customer provided KMS encryption.
+
         :param _builtins.bool customer_managed_key_enabled: Whether to encrypt the policy with the provided key or disable encryption
         :param _builtins.str kms_key_arn: KMS Key Arn used to encrypt the group policy
         """
@@ -15897,6 +15973,7 @@ class VerifiedAccessInstanceVerifiedAccessLogs(dict):
                  s3: Optional['outputs.VerifiedAccessInstanceVerifiedAccessLogsS3Properties'] = None):
         """
         The configuration options for AWS Verified Access instances.
+
         :param 'VerifiedAccessInstanceVerifiedAccessLogsCloudWatchLogsProperties' cloud_watch_logs: Sends Verified Access logs to CloudWatch Logs.
         :param _builtins.bool include_trust_context: Include claims from trust providers in Verified Access logs.
         :param 'VerifiedAccessInstanceVerifiedAccessLogsKinesisDataFirehoseProperties' kinesis_data_firehose: Sends Verified Access logs to Kinesis.
@@ -15982,6 +16059,7 @@ class VerifiedAccessInstanceVerifiedAccessLogsCloudWatchLogsProperties(dict):
                  log_group: Optional[_builtins.str] = None):
         """
         Sends Verified Access logs to CloudWatch Logs.
+
         :param _builtins.bool enabled: Indicates whether logging is enabled.
         :param _builtins.str log_group: The ID of the CloudWatch Logs log group.
         """
@@ -16034,6 +16112,7 @@ class VerifiedAccessInstanceVerifiedAccessLogsKinesisDataFirehoseProperties(dict
                  enabled: Optional[_builtins.bool] = None):
         """
         Sends Verified Access logs to Kinesis.
+
         :param _builtins.str delivery_stream: The ID of the delivery stream.
         :param _builtins.bool enabled: Indicates whether logging is enabled.
         """
@@ -16090,6 +16169,7 @@ class VerifiedAccessInstanceVerifiedAccessLogsS3Properties(dict):
                  prefix: Optional[_builtins.str] = None):
         """
         Sends Verified Access logs to Amazon S3.
+
         :param _builtins.str bucket_name: The bucket name.
         :param _builtins.str bucket_owner: The ID of the AWS account that owns the Amazon S3 bucket.
         :param _builtins.bool enabled: Indicates whether logging is enabled.
@@ -16173,6 +16253,7 @@ class VerifiedAccessInstanceVerifiedAccessTrustProvider(dict):
                  verified_access_trust_provider_id: Optional[_builtins.str] = None):
         """
         A Verified Access Trust Provider.
+
         :param _builtins.str description: The description of trust provider.
         :param _builtins.str device_trust_provider_type: The type of device-based trust provider.
         :param _builtins.str trust_provider_type: The type of trust provider (user- or device-based).
@@ -16260,6 +16341,7 @@ class VerifiedAccessTrustProviderDeviceOptions(dict):
                  tenant_id: Optional[_builtins.str] = None):
         """
         The options for device identity based trust providers.
+
         :param _builtins.str public_signing_key_url: URL Verified Access will use to verify authenticity of the device tokens.
         :param _builtins.str tenant_id: The ID of the tenant application with the device-identity provider.
         """
@@ -16328,6 +16410,7 @@ class VerifiedAccessTrustProviderNativeApplicationOidcOptions(dict):
                  user_info_endpoint: Optional[_builtins.str] = None):
         """
         The OpenID Connect details for an oidc -type, user-identity based trust provider for L4.
+
         :param _builtins.str authorization_endpoint: The OIDC authorization endpoint.
         :param _builtins.str client_id: The client identifier.
         :param _builtins.str client_secret: The client secret.
@@ -16459,6 +16542,7 @@ class VerifiedAccessTrustProviderOidcOptions(dict):
                  user_info_endpoint: Optional[_builtins.str] = None):
         """
         The OpenID Connect details for an oidc -type, user-identity based trust provider.
+
         :param _builtins.str authorization_endpoint: The OIDC authorization endpoint.
         :param _builtins.str client_id: The client identifier.
         :param _builtins.str client_secret: The client secret.
@@ -16756,6 +16840,7 @@ class VpcEndpointDnsOptionsSpecification(dict):
                  private_dns_specified_domains: Optional[Sequence[_builtins.str]] = None):
         """
         Describes the DNS options for an endpoint.
+
         :param 'VpcEndpointDnsOptionsSpecificationDnsRecordIpType' dns_record_ip_type: The DNS records created for the endpoint.
         :param 'VpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpoint' private_dns_only_for_inbound_resolver_endpoint: Indicates whether to enable private DNS only for inbound endpoints. This option is available only for services that support both gateway and interface endpoints. It routes traffic that originates from the VPC to the gateway endpoint and traffic that originates from on-premises to the interface endpoint.
         :param 'VpcEndpointDnsOptionsSpecificationPrivateDnsPreference' private_dns_preference: The preference for which private domains have a private hosted zone created for and associated with the specified VPC. Only supported when private DNS is enabled and when the VPC endpoint type is ServiceNetwork or Resource.
@@ -16844,6 +16929,7 @@ class VpnConnectionCloudwatchLogOptionsSpecification(dict):
                  log_output_format: Optional['VpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormat'] = None):
         """
         Options for sending VPN tunnel logs to CloudWatch.
+
         :param _builtins.bool bgp_log_enabled: Specifies whether to enable BGP logging for the VPN connection. Default value is ``False``.
                 Valid values: ``True`` | ``False``
         :param _builtins.str bgp_log_group_arn: The Amazon Resource Name (ARN) of the CloudWatch log group where BGP logs will be sent.
@@ -16930,6 +17016,7 @@ class VpnConnectionIkeVersionsRequestListValue(dict):
                  value: Optional['VpnConnectionIkeVersionsRequestListValueValue'] = None):
         """
         The IKE version that is permitted for the VPN tunnel.
+
         :param 'VpnConnectionIkeVersionsRequestListValueValue' value: The IKE version.
         """
         if value is not None:
@@ -16953,6 +17040,7 @@ class VpnConnectionPhase1EncryptionAlgorithmsRequestListValue(dict):
                  value: Optional['VpnConnectionPhase1EncryptionAlgorithmsRequestListValueValue'] = None):
         """
         Specifies the encryption algorithm for the VPN tunnel for phase 1 IKE negotiations.
+
         :param 'VpnConnectionPhase1EncryptionAlgorithmsRequestListValueValue' value: The value for the encryption algorithm.
         """
         if value is not None:
@@ -16976,6 +17064,7 @@ class VpnConnectionPhase1IntegrityAlgorithmsRequestListValue(dict):
                  value: Optional['VpnConnectionPhase1IntegrityAlgorithmsRequestListValueValue'] = None):
         """
         Specifies the integrity algorithm for the VPN tunnel for phase 1 IKE negotiations.
+
         :param 'VpnConnectionPhase1IntegrityAlgorithmsRequestListValueValue' value: The value for the integrity algorithm.
         """
         if value is not None:
@@ -16999,6 +17088,7 @@ class VpnConnectionPhase1dhGroupNumbersRequestListValue(dict):
                  value: Optional[_builtins.int] = None):
         """
         Specifies a Diffie-Hellman group number for the VPN tunnel for phase 1 IKE negotiations.
+
         :param _builtins.int value: The Diffie-Hellmann group number.
         """
         if value is not None:
@@ -17022,6 +17112,7 @@ class VpnConnectionPhase2EncryptionAlgorithmsRequestListValue(dict):
                  value: Optional['VpnConnectionPhase2EncryptionAlgorithmsRequestListValueValue'] = None):
         """
         Specifies the encryption algorithm for the VPN tunnel for phase 2 IKE negotiations.
+
         :param 'VpnConnectionPhase2EncryptionAlgorithmsRequestListValueValue' value: The encryption algorithm.
         """
         if value is not None:
@@ -17045,6 +17136,7 @@ class VpnConnectionPhase2IntegrityAlgorithmsRequestListValue(dict):
                  value: Optional['VpnConnectionPhase2IntegrityAlgorithmsRequestListValueValue'] = None):
         """
         Specifies the integrity algorithm for the VPN tunnel for phase 2 IKE negotiations.
+
         :param 'VpnConnectionPhase2IntegrityAlgorithmsRequestListValueValue' value: The integrity algorithm.
         """
         if value is not None:
@@ -17068,6 +17160,7 @@ class VpnConnectionPhase2dhGroupNumbersRequestListValue(dict):
                  value: Optional[_builtins.int] = None):
         """
         Specifies a Diffie-Hellman group number for the VPN tunnel for phase 2 IKE negotiations.
+
         :param _builtins.int value: The Diffie-Hellmann group number.
         """
         if value is not None:
@@ -17108,6 +17201,7 @@ class VpnConnectionVpnTunnelLogOptionsSpecification(dict):
                  cloudwatch_log_options: Optional['outputs.VpnConnectionCloudwatchLogOptionsSpecification'] = None):
         """
         Options for logging VPN tunnel activity.
+
         :param 'VpnConnectionCloudwatchLogOptionsSpecification' cloudwatch_log_options: Options for sending VPN tunnel logs to CloudWatch.
         """
         if cloudwatch_log_options is not None:
@@ -17205,6 +17299,7 @@ class VpnConnectionVpnTunnelOptionsSpecification(dict):
                  tunnel_inside_ipv6_cidr: Optional[_builtins.str] = None):
         """
         The tunnel options for a single VPN tunnel.
+
         :param 'VpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutAction' dpd_timeout_action: The action to take after DPD timeout occurs. Specify ``restart`` to restart the IKE initiation. Specify ``clear`` to end the IKE session.
                 Valid Values: ``clear`` | ``none`` | ``restart``
                 Default: ``clear``

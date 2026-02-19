@@ -38,6 +38,7 @@ class ObjectTypeArgs:
                  template_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ObjectType resource.
+
         :param pulumi.Input[_builtins.str] description: Description of the profile object type.
         :param pulumi.Input[_builtins.str] domain_name: The unique name of the domain.
         :param pulumi.Input[_builtins.bool] allow_profile_creation: Indicates whether a profile should be created when data is received.
@@ -241,6 +242,7 @@ class ObjectType(pulumi.CustomResource):
         """
         An ObjectType resource of Amazon Connect Customer Profiles
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] allow_profile_creation: Indicates whether a profile should be created when data is received.
@@ -264,6 +266,7 @@ class ObjectType(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An ObjectType resource of Amazon Connect Customer Profiles
+
 
         :param str resource_name: The name of the resource.
         :param ObjectTypeArgs args: The arguments to use to populate this resource's properties.

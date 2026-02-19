@@ -31,6 +31,7 @@ class ContactArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Contact resource.
+
         :param pulumi.Input[_builtins.str] alias: Alias of the contact. String value with 20 to 256 characters. Only alphabetical, numeric characters, dash, or underscore allowed.
         :param pulumi.Input[_builtins.str] display_name: Name of the contact. String value with 3 to 256 characters. Only alphabetical, space, numeric characters, dash, or underscore allowed.
         :param pulumi.Input['ContactType'] type: Contact type, which specify type of contact. Currently supported values: "PERSONAL", "SHARED", "OTHER".
@@ -117,6 +118,7 @@ class Contact(pulumi.CustomResource):
         """
         Resource Type definition for AWS::SSMContacts::Contact
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] alias: Alias of the contact. String value with 20 to 256 characters. Only alphabetical, numeric characters, dash, or underscore allowed.
@@ -132,6 +134,7 @@ class Contact(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::SSMContacts::Contact
+
 
         :param str resource_name: The name of the resource.
         :param ContactArgs args: The arguments to use to populate this resource's properties.

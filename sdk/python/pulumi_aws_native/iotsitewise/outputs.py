@@ -60,6 +60,7 @@ class AccessPolicyIamRole(dict):
                  arn: Optional[_builtins.str] = None):
         """
         Contains information for an IAM role identity in an access policy.
+
         :param _builtins.str arn: The ARN of the IAM role.
         """
         if arn is not None:
@@ -83,6 +84,7 @@ class AccessPolicyIamUser(dict):
                  arn: Optional[_builtins.str] = None):
         """
         Contains information for an IAM user identity in an access policy.
+
         :param _builtins.str arn: The ARN of the IAM user.
         """
         if arn is not None:
@@ -127,6 +129,7 @@ class AccessPolicyIdentity(dict):
                  user: Optional['outputs.AccessPolicyUser'] = None):
         """
         The identity for this access policy. Choose either an SSO user or group or an IAM user or role.
+
         :param 'AccessPolicyIamRole' iam_role: An IAM role identity.
         :param 'AccessPolicyIamUser' iam_user: An IAM user identity.
         :param 'AccessPolicyUser' user: An IAM Identity Center user identity.
@@ -172,6 +175,7 @@ class AccessPolicyPortal(dict):
                  id: Optional[_builtins.str] = None):
         """
         A portal resource.
+
         :param _builtins.str id: The ID of the portal.
         """
         if id is not None:
@@ -195,6 +199,7 @@ class AccessPolicyProject(dict):
                  id: Optional[_builtins.str] = None):
         """
         A project resource.
+
         :param _builtins.str id: The ID of the project.
         """
         if id is not None:
@@ -219,6 +224,7 @@ class AccessPolicyResource(dict):
                  project: Optional['outputs.AccessPolicyProject'] = None):
         """
         The AWS IoT SiteWise Monitor resource for this access policy. Choose either portal or project but not both.
+
         :param 'AccessPolicyPortal' portal: Identifies an AWS IoT SiteWise Monitor portal.
         :param 'AccessPolicyProject' project: Identifies a specific AWS IoT SiteWise Monitor project.
         """
@@ -253,6 +259,7 @@ class AccessPolicyUser(dict):
                  id: Optional[_builtins.str] = None):
         """
         Contains information for a user identity in an access policy.
+
         :param _builtins.str id: The AWS SSO ID of the user.
         """
         if id is not None:
@@ -296,6 +303,7 @@ class AlarmsProperties(dict):
                  notification_lambda_arn: Optional[_builtins.str] = None):
         """
         Contains the configuration information of an alarm created in an AWS IoT SiteWise Monitor portal. You can use the alarm to monitor an asset property and get notified when the asset property value is outside a specified range.
+
         :param _builtins.str alarm_role_arn: The ARN of the IAM role that allows the alarm to perform actions and access AWS resources and services, such as AWS IoT Events.
         :param _builtins.str notification_lambda_arn: The ARN of the AWS Lambda function that manages alarm notifications. For more information, see Managing alarm notifications in the AWS IoT Events Developer Guide.
         """
@@ -354,6 +362,7 @@ class AssetHierarchy(dict):
                  logical_id: Optional[_builtins.str] = None):
         """
         A hierarchy specifies allowed parent/child asset relationships.
+
         :param _builtins.str child_asset_id: The ID of the child asset to be associated.
         :param _builtins.str external_id: String-friendly customer provided external ID
         :param _builtins.str id: Customer provided actual UUID for property
@@ -476,6 +485,7 @@ class AssetModelCompositeModel(dict):
                  path: Optional[Sequence[_builtins.str]] = None):
         """
         Contains a composite model definition in an asset model. This composite model definition is applied to all assets created from the asset model.
+
         :param _builtins.str name: A unique, friendly name for the asset composite model.
         :param _builtins.str type: The type of the composite model. For alarm composite models, this type is AWS/ALARM
         :param _builtins.str composed_asset_model_id: The component model ID for which the composite model is composed of
@@ -608,6 +618,7 @@ class AssetModelEnforcedAssetModelInterfacePropertyMapping(dict):
                  asset_model_property_logical_id: Optional[_builtins.str] = None):
         """
         Contains information about enforced interface property and asset model property
+
         :param _builtins.str interface_asset_model_property_external_id: The external ID of the enforced interface property
         :param _builtins.str asset_model_property_external_id: The external ID of the enforced asset model property
         :param _builtins.str asset_model_property_logical_id: The logical ID of the enforced asset model property
@@ -672,6 +683,7 @@ class AssetModelEnforcedAssetModelInterfaceRelationship(dict):
                  property_mappings: Optional[Sequence['outputs.AssetModelEnforcedAssetModelInterfacePropertyMapping']] = None):
         """
         Contains information about enforced interface hierarchy and asset model hierarchy
+
         :param _builtins.str interface_asset_model_id: The ID of the interface that is enforced to the asset model
         :param Sequence['AssetModelEnforcedAssetModelInterfacePropertyMapping'] property_mappings: Contains information about enforced interface property and asset model property
         """
@@ -760,6 +772,7 @@ class AssetModelHierarchy(dict):
                  logical_id: Optional[_builtins.str] = None):
         """
         Contains information about an asset model hierarchy.
+
         :param _builtins.str child_asset_model_id: The ID of the asset model. All assets in this hierarchy must be instances of the child AssetModelId asset model.
         :param _builtins.str name: The name of the asset model hierarchy.
         :param _builtins.str external_id: Customer provided external ID for hierarchy
@@ -865,6 +878,7 @@ class AssetModelMetricWindow(dict):
                  tumbling: Optional['outputs.AssetModelTumblingWindow'] = None):
         """
         Contains a time interval window used for data aggregate computations (for example, average, sum, count, and so on).
+
         :param 'AssetModelTumblingWindow' tumbling: The tumbling time interval window.
         """
         if tumbling is not None:
@@ -918,6 +932,7 @@ class AssetModelProperty(dict):
                  unit: Optional[_builtins.str] = None):
         """
         Contains information about an asset model property.
+
         :param 'AssetModelDataType' data_type: The data type of the asset model property.
         :param _builtins.str name: The name of the asset model property.
         :param 'AssetModelPropertyType' type: The property type
@@ -1015,6 +1030,7 @@ class AssetModelPropertyPathDefinition(dict):
                  name: _builtins.str):
         """
         The definition for property path which is used to reference properties in transforms/metrics
+
         :param _builtins.str name: The name of the property
         """
         pulumi.set(__self__, "name", name)
@@ -1057,6 +1073,7 @@ class AssetModelPropertyType(dict):
                  transform: Optional['outputs.AssetModelTransform'] = None):
         """
         Contains a property type, which can be one of attribute, measurement, metric, or transform.
+
         :param 'AssetModelTypeName' type_name: The type of property type, which can be one of `Attribute` , `Measurement` , `Metric` , or `Transform` .
         :param 'AssetModelAttribute' attribute: Specifies an asset attribute property. An attribute generally contains static information, such as the serial number of an [IIoT](https://docs.aws.amazon.com/https://en.wikipedia.org/wiki/Internet_of_things#Industrial_applications) wind turbine.
         :param 'AssetModelMetric' metric: Specifies an asset metric property. A metric contains a mathematical expression that uses aggregate functions to process all input data points over a time interval and output a single data point, such as to calculate the average hourly temperature.
@@ -1142,6 +1159,7 @@ class AssetModelTumblingWindow(dict):
                  offset: Optional[_builtins.str] = None):
         """
         Contains a tumbling window, which is a repeating fixed-sized, non-overlapping, and contiguous time interval. This window is used in metric and aggregation computations.
+
         :param _builtins.str interval: The time interval for the tumbling window. The interval time must be between 1 minute and 1 week.
                
                AWS IoT SiteWise computes the `1w` interval the end of Sunday at midnight each week (UTC), the `1d` interval at the end of each day at midnight (UTC), the `1h` interval at the end of each hour, and so on.
@@ -1377,6 +1395,7 @@ class AssetProperty(dict):
                  unit: Optional[_builtins.str] = None):
         """
         The asset property's definition, alias, unit, and notification state.
+
         :param _builtins.str alias: The property alias that identifies the property.
         :param _builtins.str external_id: String-friendly customer provided external ID
         :param _builtins.str id: Customer provided actual UUID for property
@@ -1604,6 +1623,7 @@ class GatewayCapabilitySummary(dict):
                  capability_configuration: Optional[_builtins.str] = None):
         """
         Contains a summary of a gateway capability configuration.
+
         :param _builtins.str capability_namespace: The namespace of the capability configuration. For example, if you configure OPC UA sources for an MQTT-enabled gateway, your OPC-UA capability configuration has the namespace `iotsitewise:opcuacollector:3` .
         :param _builtins.str capability_configuration: The JSON document that defines the configuration for the gateway capability. For more information, see [Configuring data sources (CLI)](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/configure-sources.html#configure-source-cli) in the *AWS IoT SiteWise User Guide* .
         """
@@ -1657,6 +1677,7 @@ class GatewayGreengrassV2(dict):
                  core_device_operating_system: Optional['GatewayGreengrassV2CoreDeviceOperatingSystem'] = None):
         """
         Contains the CoreDeviceThingName of AWS IoT Greengrass Group V2 that the gateway runs on.
+
         :param _builtins.str core_device_thing_name: The name of the CoreDevice in GreenGrass V2.
         :param 'GatewayGreengrassV2CoreDeviceOperatingSystem' core_device_operating_system: The operating system of the core device in AWS IoT Greengrass V2.
         """
@@ -1710,6 +1731,7 @@ class GatewayPlatform(dict):
                  siemens_ie: Optional['outputs.GatewaySiemensIe'] = None):
         """
         Contains a gateway's platform information.
+
         :param 'GatewayGreengrassV2' greengrass_v2: A gateway that runs on AWS IoT Greengrass V2.
         :param 'GatewaySiemensIe' siemens_ie: A gateway that runs on Siemens Industrial Edge.
         """
@@ -1761,6 +1783,7 @@ class GatewaySiemensIe(dict):
                  iot_core_thing_name: _builtins.str):
         """
         Contains the IotCoreThingName of AWS IoT Thing that the gateway runs on.
+
         :param _builtins.str iot_core_thing_name: The name of the IoT Core Thing.
         """
         pulumi.set(__self__, "iot_core_thing_name", iot_core_thing_name)
@@ -1800,6 +1823,7 @@ class PortalTypeEntry(dict):
                  portal_tools: Sequence[_builtins.str]):
         """
         Container associated a certain PortalType.
+
         :param Sequence[_builtins.str] portal_tools: The array of tools associated with the specified portal type. The possible values are `ASSISTANT` and `DASHBOARD` .
         """
         pulumi.set(__self__, "portal_tools", portal_tools)

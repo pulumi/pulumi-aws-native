@@ -26,6 +26,7 @@ class ApplicationVersionArgs:
                  description: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ApplicationVersion resource.
+
         :param pulumi.Input[_builtins.str] application_name: The name of the Elastic Beanstalk application that is associated with this application version. 
         :param pulumi.Input['ApplicationVersionSourceBundleArgs'] source_bundle: The Amazon S3 bucket and key that identify the location of the source bundle for this version. 
         :param pulumi.Input[_builtins.str] description: A description of this application version.
@@ -85,6 +86,7 @@ class ApplicationVersion(pulumi.CustomResource):
         """
         Resource Type definition for AWS::ElasticBeanstalk::ApplicationVersion
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] application_name: The name of the Elastic Beanstalk application that is associated with this application version. 
@@ -99,6 +101,7 @@ class ApplicationVersion(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::ElasticBeanstalk::ApplicationVersion
+
 
         :param str resource_name: The name of the resource.
         :param ApplicationVersionArgs args: The arguments to use to populate this resource's properties.

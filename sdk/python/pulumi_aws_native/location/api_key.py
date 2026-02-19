@@ -33,6 +33,7 @@ class ApiKeyArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a ApiKey resource.
+
         :param pulumi.Input['ApiKeyRestrictionsArgs'] restrictions: The API key restrictions for the API key resource.
         :param pulumi.Input[_builtins.str] description: Updates the description for the API key resource.
         :param pulumi.Input[_builtins.str] expire_time: The optional timestamp for when the API key resource will expire in [ISO 8601 format](https://docs.aws.amazon.com/https://www.iso.org/iso-8601-date-and-time-format.html) .
@@ -195,6 +196,7 @@ class ApiKey(pulumi.CustomResource):
         """
         Definition of AWS::Location::APIKey Resource Type
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: Updates the description for the API key resource.
@@ -225,6 +227,7 @@ class ApiKey(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of AWS::Location::APIKey Resource Type
+
 
         :param str resource_name: The name of the resource.
         :param ApiKeyArgs args: The arguments to use to populate this resource's properties.

@@ -28,6 +28,7 @@ class AutoScalingConfigurationArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]] = None):
         """
         The set of arguments for constructing a AutoScalingConfiguration resource.
+
         :param pulumi.Input[_builtins.str] auto_scaling_configuration_name: The customer-provided auto scaling configuration name.  When you use it for the first time in an AWS Region, App Runner creates revision number 1 of this name. When you use the same name in subsequent calls, App Runner creates incremental revisions of the configuration. The auto scaling configuration name can be used in multiple revisions of a configuration.
         :param pulumi.Input[_builtins.int] max_concurrency: The maximum number of concurrent requests that an instance processes. If the number of concurrent requests exceeds this limit, App Runner scales the service up to use more instances to process the requests.
         :param pulumi.Input[_builtins.int] max_size: The maximum number of instances that an App Runner service scales up to. At most MaxSize instances actively serve traffic for your service.
@@ -121,6 +122,7 @@ class AutoScalingConfiguration(pulumi.CustomResource):
         """
         Describes an AWS App Runner automatic configuration resource that enables automatic scaling of instances used to process web requests. You can share an auto scaling configuration across multiple services.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] auto_scaling_configuration_name: The customer-provided auto scaling configuration name.  When you use it for the first time in an AWS Region, App Runner creates revision number 1 of this name. When you use the same name in subsequent calls, App Runner creates incremental revisions of the configuration. The auto scaling configuration name can be used in multiple revisions of a configuration.
@@ -137,6 +139,7 @@ class AutoScalingConfiguration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Describes an AWS App Runner automatic configuration resource that enables automatic scaling of instances used to process web requests. You can share an auto scaling configuration across multiple services.
+
 
         :param str resource_name: The name of the resource.
         :param AutoScalingConfigurationArgs args: The arguments to use to populate this resource's properties.

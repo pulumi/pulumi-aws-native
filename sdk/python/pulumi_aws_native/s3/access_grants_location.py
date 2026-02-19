@@ -26,6 +26,7 @@ class AccessGrantsLocationArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]] = None):
         """
         The set of arguments for constructing a AccessGrantsLocation resource.
+
         :param pulumi.Input[_builtins.str] iam_role_arn: The Amazon Resource Name (ARN) of the access grant location's associated IAM role.
         :param pulumi.Input[_builtins.str] location_scope: Descriptor for where the location actually points
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]] tags: The AWS resource tags that you are adding to the S3 Access Grants location. Each tag is a label consisting of a user-defined key and value. Tags can help you manage, identify, organize, search for, and filter resources.
@@ -85,6 +86,7 @@ class AccessGrantsLocation(pulumi.CustomResource):
         """
         The AWS::S3::AccessGrantsLocation resource is an Amazon S3 resource type hosted in an access grants instance which can be the target of S3 access grants.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] iam_role_arn: The Amazon Resource Name (ARN) of the access grant location's associated IAM role.
@@ -99,6 +101,7 @@ class AccessGrantsLocation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The AWS::S3::AccessGrantsLocation resource is an Amazon S3 resource type hosted in an access grants instance which can be the target of S3 access grants.
+
 
         :param str resource_name: The name of the resource.
         :param AccessGrantsLocationArgs args: The arguments to use to populate this resource's properties.

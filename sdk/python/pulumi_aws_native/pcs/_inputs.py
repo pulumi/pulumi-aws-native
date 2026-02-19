@@ -51,6 +51,7 @@ class ComputeNodeGroupInstanceConfigArgs:
                  instance_type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         An EC2 instance configuration AWS PCS uses to launch compute nodes.
+
         :param pulumi.Input[_builtins.str] instance_type: The EC2 instance type that AWS PCS can provision in the compute node group.
         """
         if instance_type is not None:
@@ -89,6 +90,7 @@ class CustomLaunchTemplatePropertiesArgs:
                  template_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         An Amazon EC2 launch template AWS PCS uses to launch compute nodes.
+
         :param pulumi.Input[_builtins.str] version: The version of the EC2 launch template to use to provision instances.
         :param pulumi.Input[_builtins.str] template_id: The ID of the EC2 launch template to use to provision instances.
         """
@@ -146,6 +148,7 @@ class NetworkingPropertiesArgs:
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The networking configuration for the cluster's control plane.
+
         :param pulumi.Input['ClusterNetworkingPropertiesNetworkType'] network_type: The IP of the cluster (IPV4 or IPV6)
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: The list of security group IDs associated with the Elastic Network Interface (ENI) created in subnets.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: The list of subnet IDs where AWS PCS creates an Elastic Network Interface (ENI) to enable communication between managed controllers and AWS PCS resources. The subnet must have an available IP address, cannot reside in AWS Outposts, AWS Wavelength, or an AWS Local Zone. AWS PCS currently supports only 1 subnet in this list.
@@ -209,6 +212,7 @@ class QueueComputeNodeGroupConfigurationArgs:
                  compute_node_group_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The compute node group configuration for a queue.
+
         :param pulumi.Input[_builtins.str] compute_node_group_id: The compute node group ID for the compute node group configuration.
         """
         if compute_node_group_id is not None:
@@ -247,6 +251,7 @@ class QueueSlurmCustomSettingArgs:
                  parameter_value: pulumi.Input[_builtins.str]):
         """
         Additional settings that directly map to Slurm settings.
+
         :param pulumi.Input[_builtins.str] parameter_name: AWS PCS supports configuration of the Slurm parameters for queues:.
         :param pulumi.Input[_builtins.str] parameter_value: The value for the configured Slurm setting.
         """
@@ -298,6 +303,7 @@ class ScalingConfigurationPropertiesArgs:
                  min_instance_count: pulumi.Input[_builtins.int]):
         """
         Specifies the boundaries of the compute node group auto scaling.
+
         :param pulumi.Input[_builtins.int] max_instance_count: The upper bound of the number of instances allowed in the compute fleet.
         :param pulumi.Input[_builtins.int] min_instance_count: The lower bound of the number of instances allowed in the compute fleet.
         """
@@ -349,6 +355,7 @@ class SchedulerPropertiesArgs:
                  version: pulumi.Input[_builtins.str]):
         """
         The cluster management and job scheduling software associated with the cluster.
+
         :param pulumi.Input['ClusterSchedulerPropertiesType'] type: The software AWS PCS uses to manage cluster scaling and job scheduling.
         :param pulumi.Input[_builtins.str] version: The version of the specified scheduling software that AWS PCS uses to manage cluster scaling and job scheduling.
         """
@@ -395,6 +402,7 @@ class SlurmConfigurationPropertiesArgs:
                  slurm_custom_settings: Optional[pulumi.Input[Sequence[pulumi.Input['QueueSlurmCustomSettingArgs']]]] = None):
         """
         The Slurm configuration for the queue.
+
         :param pulumi.Input[Sequence[pulumi.Input['QueueSlurmCustomSettingArgs']]] slurm_custom_settings: Custom Slurm parameters that directly map to Slurm configuration settings.
         """
         if slurm_custom_settings is not None:
@@ -428,6 +436,7 @@ class SpotOptionsPropertiesArgs:
                  allocation_strategy: Optional[pulumi.Input['ComputeNodeGroupSpotOptionsPropertiesAllocationStrategy']] = None):
         """
         Additional configuration when you specify SPOT as the purchase option.
+
         :param pulumi.Input['ComputeNodeGroupSpotOptionsPropertiesAllocationStrategy'] allocation_strategy: The Amazon EC2 allocation strategy AWS PCS uses to provision EC2 instances. AWS PCS supports lowest price, capacity optimized, and price capacity optimized. If you don't provide this option, it defaults to price capacity optimized.
         """
         if allocation_strategy is not None:

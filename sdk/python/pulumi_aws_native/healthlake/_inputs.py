@@ -56,6 +56,7 @@ class FhirDatastoreIdentityProviderConfigurationArgs:
                  metadata: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The identity provider configuration for the datastore
+
         :param pulumi.Input['FhirDatastoreIdentityProviderConfigurationAuthorizationStrategy'] authorization_strategy: Type of Authorization Strategy. The two types of supported Authorization strategies are SMART_ON_FHIR_V1 and AWS_AUTH.
         :param pulumi.Input[_builtins.bool] fine_grained_authorization_enabled: Flag to indicate if fine-grained authorization will be enabled for the datastore
         :param pulumi.Input[_builtins.str] idp_lambda_arn: The Amazon Resource Name (ARN) of the Lambda function that will be used to decode the access token created by the authorization server.
@@ -138,6 +139,7 @@ class FhirDatastoreKmsEncryptionConfigArgs:
                  kms_key_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The customer-managed-key (CMK) used when creating a Data Store. If a customer owned key is not specified, an AWS owned key will be used for encryption.
+
         :param pulumi.Input['FhirDatastoreKmsEncryptionConfigCmkType'] cmk_type: The type of customer-managed-key (CMK) used for encryption. The two types of supported CMKs are customer owned CMKs and AWS owned CMKs.
         :param pulumi.Input[_builtins.str] kms_key_id: The KMS encryption key id/alias used to encrypt the Data Store contents at rest.
         """
@@ -185,6 +187,7 @@ class FhirDatastorePreloadDataConfigArgs:
                  preload_data_type: pulumi.Input['FhirDatastorePreloadDataConfigPreloadDataType']):
         """
         The preloaded data configuration for the Data Store. Only data preloaded from Synthea is supported.
+
         :param pulumi.Input['FhirDatastorePreloadDataConfigPreloadDataType'] preload_data_type: The type of preloaded data. Only Synthea preloaded data is supported.
         """
         pulumi.set(__self__, "preload_data_type", preload_data_type)
@@ -217,6 +220,7 @@ class FhirDatastoreSseConfigurationArgs:
                  kms_encryption_config: pulumi.Input['FhirDatastoreKmsEncryptionConfigArgs']):
         """
         The server-side encryption key configuration for a customer provided encryption key.
+
         :param pulumi.Input['FhirDatastoreKmsEncryptionConfigArgs'] kms_encryption_config: The server-side encryption key configuration for a customer provided encryption key.
         """
         pulumi.set(__self__, "kms_encryption_config", kms_encryption_config)

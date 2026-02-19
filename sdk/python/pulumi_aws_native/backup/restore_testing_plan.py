@@ -32,6 +32,7 @@ class RestoreTestingPlanArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a RestoreTestingPlan resource.
+
         :param pulumi.Input['RestoreTestingPlanRestoreTestingRecoveryPointSelectionArgs'] recovery_point_selection: The specified criteria to assign a set of resources, such as recovery point types or backup vaults.
         :param pulumi.Input[_builtins.str] schedule_expression: A CRON expression in specified timezone when a restore testing plan is executed. When no CRON expression is provided, AWS Backup will use the default expression `cron(0 5 ? * * *)` .
         :param pulumi.Input[_builtins.str] restore_testing_plan_name: The RestoreTestingPlanName is a unique string that is the name of the restore testing plan. This cannot be changed after creation, and it must consist of only alphanumeric characters and underscores.
@@ -143,6 +144,7 @@ class RestoreTestingPlan(pulumi.CustomResource):
         """
         Definition of AWS::Backup::RestoreTestingPlan Resource Type
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['RestoreTestingPlanRestoreTestingRecoveryPointSelectionArgs', 'RestoreTestingPlanRestoreTestingRecoveryPointSelectionArgsDict']] recovery_point_selection: The specified criteria to assign a set of resources, such as recovery point types or backup vaults.
@@ -162,6 +164,7 @@ class RestoreTestingPlan(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of AWS::Backup::RestoreTestingPlan Resource Type
+
 
         :param str resource_name: The name of the resource.
         :param RestoreTestingPlanArgs args: The arguments to use to populate this resource's properties.

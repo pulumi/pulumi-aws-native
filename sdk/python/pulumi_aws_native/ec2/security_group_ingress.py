@@ -33,6 +33,7 @@ class SecurityGroupIngressInitArgs:
                  to_port: Optional[pulumi.Input[_builtins.int]] = None):
         """
         The set of arguments for constructing a SecurityGroupIngress resource.
+
         :param pulumi.Input[_builtins.str] ip_protocol: The IP protocol name (tcp, udp, icmp, icmpv6) or number (see Protocol Numbers).
                
                [VPC only] Use -1 to specify all protocols. When authorizing security group rules, specifying -1 or a protocol number other than tcp, udp, icmp, or icmpv6 allows traffic on all ports, regardless of any port range you specify. For tcp, udp, and icmp, you must specify a port range. For icmpv6, the port range is optional; if you omit the port range, traffic for all types and codes is allowed.
@@ -261,6 +262,7 @@ class SecurityGroupIngress(pulumi.CustomResource):
         """
         Resource Type definition for AWS::EC2::SecurityGroupIngress
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] cidr_ip: The IPv4 ranges
@@ -296,6 +298,7 @@ class SecurityGroupIngress(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::EC2::SecurityGroupIngress
+
 
         :param str resource_name: The name of the resource.
         :param SecurityGroupIngressInitArgs args: The arguments to use to populate this resource's properties.

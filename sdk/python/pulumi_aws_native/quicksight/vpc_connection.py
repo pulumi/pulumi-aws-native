@@ -34,6 +34,7 @@ class VpcConnectionArgs:
                  vpc_connection_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a VpcConnection resource.
+
         :param pulumi.Input['VpcConnectionVpcConnectionAvailabilityStatus'] availability_status: The availability status of the VPC connection.
         :param pulumi.Input[_builtins.str] aws_account_id: The AWS account ID of the account where you want to create a new VPC connection.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dns_resolvers: A list of IP addresses of DNS resolver endpoints for the VPC connection.
@@ -191,6 +192,7 @@ class VpcConnection(pulumi.CustomResource):
         """
         Definition of the AWS::QuickSight::VPCConnection Resource Type.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input['VpcConnectionVpcConnectionAvailabilityStatus'] availability_status: The availability status of the VPC connection.
@@ -211,6 +213,7 @@ class VpcConnection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of the AWS::QuickSight::VPCConnection Resource Type.
+
 
         :param str resource_name: The name of the resource.
         :param VpcConnectionArgs args: The arguments to use to populate this resource's properties.

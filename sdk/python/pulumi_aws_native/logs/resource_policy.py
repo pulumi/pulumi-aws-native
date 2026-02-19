@@ -23,6 +23,7 @@ class ResourcePolicyArgs:
                  policy_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ResourcePolicy resource.
+
         :param pulumi.Input[_builtins.str] policy_document: The policy document
         :param pulumi.Input[_builtins.str] policy_name: A name for resource policy
         """
@@ -67,6 +68,7 @@ class ResourcePolicy(pulumi.CustomResource):
         """
         The resource schema for AWSLogs ResourcePolicy
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] policy_document: The policy document
@@ -80,6 +82,7 @@ class ResourcePolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The resource schema for AWSLogs ResourcePolicy
+
 
         :param str resource_name: The name of the resource.
         :param ResourcePolicyArgs args: The arguments to use to populate this resource's properties.

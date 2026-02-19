@@ -36,6 +36,7 @@ class PortalArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Portal resource.
+
         :param pulumi.Input[_builtins.str] portal_contact_email: The AWS administrator's contact email address.
         :param pulumi.Input[_builtins.str] role_arn: The ARN of a service role that allows the portal's users to access your AWS IoT SiteWise resources on your behalf.
         :param pulumi.Input['AlarmsPropertiesArgs'] alarms: Contains the configuration information of an alarm created in an AWS IoT SiteWise Monitor portal. You can use the alarm to monitor an asset property and get notified when the asset property value is outside a specified range.
@@ -203,6 +204,7 @@ class Portal(pulumi.CustomResource):
         """
         Resource schema for AWS::IoTSiteWise::Portal
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['AlarmsPropertiesArgs', 'AlarmsPropertiesArgsDict']] alarms: Contains the configuration information of an alarm created in an AWS IoT SiteWise Monitor portal. You can use the alarm to monitor an asset property and get notified when the asset property value is outside a specified range.
@@ -223,6 +225,7 @@ class Portal(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource schema for AWS::IoTSiteWise::Portal
+
 
         :param str resource_name: The name of the resource.
         :param PortalArgs args: The arguments to use to populate this resource's properties.

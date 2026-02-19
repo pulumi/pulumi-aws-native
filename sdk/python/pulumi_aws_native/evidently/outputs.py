@@ -987,6 +987,7 @@ class ProjectDataDeliveryObject(dict):
                  s3: Optional['outputs.ProjectS3Destination'] = None):
         """
         Destinations for data.
+
         :param _builtins.str log_group: If the project stores evaluation events in CloudWatch Logs , this structure stores the log group name.
         :param 'ProjectS3Destination' s3: If the project stores evaluation events in an Amazon S3 bucket, this structure stores the bucket name and bucket prefix.
         """

@@ -24,6 +24,7 @@ class ChannelPolicyArgs:
                  policy: Any):
         """
         The set of arguments for constructing a ChannelPolicy resource.
+
         :param pulumi.Input[_builtins.str] channel_group_name: The name of the channel group associated with the channel policy.
         :param pulumi.Input[_builtins.str] channel_name: The name of the channel associated with the channel policy.
         :param Any policy: The policy associated with the channel.
@@ -86,6 +87,7 @@ class ChannelPolicy(pulumi.CustomResource):
         """
         <p>Represents a resource-based policy that allows or denies access to a channel.</p>
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] channel_group_name: The name of the channel group associated with the channel policy.
@@ -102,6 +104,7 @@ class ChannelPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         <p>Represents a resource-based policy that allows or denies access to a channel.</p>
+
 
         :param str resource_name: The name of the resource.
         :param ChannelPolicyArgs args: The arguments to use to populate this resource's properties.

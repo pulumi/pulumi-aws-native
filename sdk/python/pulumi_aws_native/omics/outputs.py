@@ -225,6 +225,7 @@ class ReferenceStoreSseConfig(dict):
                  key_arn: Optional[_builtins.str] = None):
         """
         Server-side encryption (SSE) settings for a store.
+
         :param 'ReferenceStoreEncryptionType' type: The encryption type.
         :param _builtins.str key_arn: An encryption key ARN.
         """
@@ -276,6 +277,7 @@ class SequenceStoreSseConfig(dict):
                  key_arn: Optional[_builtins.str] = None):
         """
         Server-side encryption (SSE) settings for a store.
+
         :param 'SequenceStoreEncryptionType' type: The encryption type.
         :param _builtins.str key_arn: An encryption key ARN.
         """

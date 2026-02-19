@@ -31,6 +31,7 @@ class PrivacyBudgetTemplateArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a PrivacyBudgetTemplate resource.
+
         :param pulumi.Input['PrivacyBudgetTemplateAutoRefresh'] auto_refresh: How often the privacy budget refreshes.
                
                > If you plan to regularly bring new data into the collaboration, use `CALENDAR_MONTH` to automatically get a new privacy budget for the collaboration every calendar month. Choosing this option allows arbitrary amounts of information to be revealed about rows of the data when repeatedly queried across refreshes. Avoid choosing this if the same rows will be repeatedly queried between privacy budget refreshes.
@@ -124,6 +125,7 @@ class PrivacyBudgetTemplate(pulumi.CustomResource):
         """
         Represents a privacy budget within a collaboration
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input['PrivacyBudgetTemplateAutoRefresh'] auto_refresh: How often the privacy budget refreshes.
@@ -142,6 +144,7 @@ class PrivacyBudgetTemplate(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Represents a privacy budget within a collaboration
+
 
         :param str resource_name: The name of the resource.
         :param PrivacyBudgetTemplateArgs args: The arguments to use to populate this resource's properties.

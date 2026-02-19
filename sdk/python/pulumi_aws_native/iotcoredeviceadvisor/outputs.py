@@ -56,6 +56,7 @@ class SuiteDefinitionConfigurationProperties(dict):
                  suite_definition_name: Optional[_builtins.str] = None):
         """
         Gets the suite definition configuration.
+
         :param _builtins.str device_permission_role_arn: Gets the device permission ARN. This is a required parameter.
         :param _builtins.str root_group: Gets the test suite root group. This is a required parameter. For updating or creating the latest qualification suite, if `intendedForQualification` is set to true, `rootGroup` can be an empty string. If `intendedForQualification` is false, `rootGroup` cannot be an empty string. If `rootGroup` is empty, and `intendedForQualification` is set to true, all the qualification tests are included, and the configuration is default.
                

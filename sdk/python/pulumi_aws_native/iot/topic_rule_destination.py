@@ -27,6 +27,7 @@ class TopicRuleDestinationArgs:
                  vpc_properties: Optional[pulumi.Input['TopicRuleDestinationVpcDestinationPropertiesArgs']] = None):
         """
         The set of arguments for constructing a TopicRuleDestination resource.
+
         :param pulumi.Input['TopicRuleDestinationHttpUrlDestinationSummaryArgs'] http_url_properties: HTTP URL destination properties.
         :param pulumi.Input['TopicRuleDestinationStatus'] status: The status of the TopicRuleDestination.
         :param pulumi.Input['TopicRuleDestinationVpcDestinationPropertiesArgs'] vpc_properties: VPC destination properties.
@@ -88,6 +89,7 @@ class TopicRuleDestination(pulumi.CustomResource):
         """
         Resource Type definition for AWS::IoT::TopicRuleDestination
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['TopicRuleDestinationHttpUrlDestinationSummaryArgs', 'TopicRuleDestinationHttpUrlDestinationSummaryArgsDict']] http_url_properties: HTTP URL destination properties.
@@ -102,6 +104,7 @@ class TopicRuleDestination(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::IoT::TopicRuleDestination
+
 
         :param str resource_name: The name of the resource.
         :param TopicRuleDestinationArgs args: The arguments to use to populate this resource's properties.

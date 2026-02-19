@@ -35,6 +35,7 @@ class RouteArgs:
                  target: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Route resource.
+
         :param pulumi.Input[_builtins.str] api_id: The API identifier.
         :param pulumi.Input[_builtins.str] route_key: The route key for the route. For HTTP APIs, the route key can be either ``$default``, or a combination of an HTTP method and resource path, for example, ``GET /pets``.
         :param pulumi.Input[_builtins.bool] api_key_required: Specifies whether an API key is required for the route. Supported only for WebSocket APIs.
@@ -242,6 +243,7 @@ class Route(pulumi.CustomResource):
         """
         The ``AWS::ApiGatewayV2::Route`` resource creates a route for an API.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] api_id: The API identifier.
@@ -267,6 +269,7 @@ class Route(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The ``AWS::ApiGatewayV2::Route`` resource creates a route for an API.
+
 
         :param str resource_name: The name of the resource.
         :param RouteArgs args: The arguments to use to populate this resource's properties.

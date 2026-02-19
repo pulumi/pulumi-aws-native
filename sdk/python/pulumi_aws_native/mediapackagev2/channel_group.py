@@ -26,6 +26,7 @@ class ChannelGroupArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a ChannelGroup resource.
+
         :param pulumi.Input[_builtins.str] channel_group_name: The name of the channel group.
         :param pulumi.Input[_builtins.str] description: <p>Enter any descriptive text that helps you to identify the channel group.</p>
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags associated with the channel group.
@@ -87,6 +88,7 @@ class ChannelGroup(pulumi.CustomResource):
         """
         <p>Represents a channel group that facilitates the grouping of multiple channels.</p>
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] channel_group_name: The name of the channel group.
@@ -101,6 +103,7 @@ class ChannelGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         <p>Represents a channel group that facilitates the grouping of multiple channels.</p>
+
 
         :param str resource_name: The name of the resource.
         :param ChannelGroupArgs args: The arguments to use to populate this resource's properties.
