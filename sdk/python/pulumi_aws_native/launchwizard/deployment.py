@@ -29,6 +29,7 @@ class DeploymentArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Deployment resource.
+
         :param pulumi.Input[_builtins.str] deployment_pattern_name: Workload deployment pattern name
         :param pulumi.Input[_builtins.str] workload_name: Workload Name for LaunchWizard deployment
         :param pulumi.Input[_builtins.str] name: Name of LaunchWizard deployment
@@ -120,6 +121,7 @@ class Deployment(pulumi.CustomResource):
         """
         Definition of AWS::LaunchWizard::Deployment Resource Type
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] deployment_pattern_name: Workload deployment pattern name
@@ -136,6 +138,7 @@ class Deployment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of AWS::LaunchWizard::Deployment Resource Type
+
 
         :param str resource_name: The name of the resource.
         :param DeploymentArgs args: The arguments to use to populate this resource's properties.

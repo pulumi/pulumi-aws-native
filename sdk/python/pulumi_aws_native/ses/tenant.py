@@ -28,6 +28,7 @@ class TenantArgs:
                  tenant_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Tenant resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['TenantResourceAssociationArgs']]] resource_associations: The list of resources to associate with the tenant.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags (keys and values) associated with the tenant.
         :param pulumi.Input[_builtins.str] tenant_name: The name of the tenant.
@@ -89,6 +90,7 @@ class Tenant(pulumi.CustomResource):
         """
         Resource Type definition for AWS::SES::Tenant
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['TenantResourceAssociationArgs', 'TenantResourceAssociationArgsDict']]]] resource_associations: The list of resources to associate with the tenant.
@@ -103,6 +105,7 @@ class Tenant(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::SES::Tenant
+
 
         :param str resource_name: The name of the resource.
         :param TenantArgs args: The arguments to use to populate this resource's properties.

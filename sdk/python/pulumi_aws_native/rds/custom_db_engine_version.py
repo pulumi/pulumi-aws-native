@@ -36,6 +36,7 @@ class CustomDbEngineVersionArgs:
                  use_aws_provided_latest_image: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a CustomDbEngineVersion resource.
+
         :param pulumi.Input[_builtins.str] engine: The database engine to use for your custom engine version (CEV).
                 Valid values:
                  +   ``custom-oracle-ee`` 
@@ -259,6 +260,7 @@ class CustomDbEngineVersion(pulumi.CustomResource):
         """
         Creates a custom DB engine version (CEV).
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] database_installation_files_s3_bucket_name: The name of an Amazon S3 bucket that contains database installation files for your CEV. For example, a valid bucket name is ``my-custom-installation-files``.
@@ -292,6 +294,7 @@ class CustomDbEngineVersion(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Creates a custom DB engine version (CEV).
+
 
         :param str resource_name: The name of the resource.
         :param CustomDbEngineVersionArgs args: The arguments to use to populate this resource's properties.

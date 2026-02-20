@@ -29,6 +29,7 @@ class TemplateArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Template resource.
+
         :param pulumi.Input[_builtins.str] connector_arn: The Amazon Resource Name (ARN) that was returned when you called [CreateConnector](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateConnector.html) .
         :param pulumi.Input[Union['TemplateDefinition0PropertiesArgs', 'TemplateDefinition1PropertiesArgs', 'TemplateDefinition2PropertiesArgs']] definition: Template configuration to define the information included in certificates. Define certificate validity and renewal periods, certificate request handling and enrollment options, key usage extensions, application policies, and cryptography settings.
         :param pulumi.Input[_builtins.str] name: Name of the templates. Template names must be unique.
@@ -120,6 +121,7 @@ class Template(pulumi.CustomResource):
         """
         Represents a template that defines certificate configurations, both for issuance and client handling
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] connector_arn: The Amazon Resource Name (ARN) that was returned when you called [CreateConnector](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateConnector.html) .
@@ -136,6 +138,7 @@ class Template(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Represents a template that defines certificate configurations, both for issuance and client handling
+
 
         :param str resource_name: The name of the resource.
         :param TemplateArgs args: The arguments to use to populate this resource's properties.

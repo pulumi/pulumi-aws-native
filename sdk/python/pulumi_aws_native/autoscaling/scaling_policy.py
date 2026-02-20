@@ -34,6 +34,7 @@ class ScalingPolicyArgs:
                  target_tracking_configuration: Optional[pulumi.Input['ScalingPolicyTargetTrackingConfigurationArgs']] = None):
         """
         The set of arguments for constructing a ScalingPolicy resource.
+
         :param pulumi.Input[_builtins.str] auto_scaling_group_name: The name of the Auto Scaling group.
         :param pulumi.Input[_builtins.str] adjustment_type: Specifies how the scaling adjustment is interpreted. The valid values are ChangeInCapacity, ExactCapacity, and PercentChangeInCapacity.
         :param pulumi.Input[_builtins.str] cooldown: The duration of the policy's cooldown period, in seconds. When a cooldown period is specified here, it overrides the default cooldown period defined for the Auto Scaling group.
@@ -222,6 +223,7 @@ class ScalingPolicy(pulumi.CustomResource):
         """
         The AWS::AutoScaling::ScalingPolicy resource specifies an Amazon EC2 Auto Scaling scaling policy so that the Auto Scaling group can scale the number of instances available for your application.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] adjustment_type: Specifies how the scaling adjustment is interpreted. The valid values are ChangeInCapacity, ExactCapacity, and PercentChangeInCapacity.
@@ -244,6 +246,7 @@ class ScalingPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The AWS::AutoScaling::ScalingPolicy resource specifies an Amazon EC2 Auto Scaling scaling policy so that the Auto Scaling group can scale the number of instances available for your application.
+
 
         :param str resource_name: The name of the resource.
         :param ScalingPolicyArgs args: The arguments to use to populate this resource's properties.

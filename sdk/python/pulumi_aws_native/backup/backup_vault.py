@@ -29,6 +29,7 @@ class BackupVaultArgs:
                  notifications: Optional[pulumi.Input['BackupVaultNotificationObjectTypeArgs']] = None):
         """
         The set of arguments for constructing a BackupVault resource.
+
         :param Any access_policy: A resource-based policy that is used to manage access permissions on the target backup vault.
                
                Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Backup::BackupVault` for more information about the expected schema for this property.
@@ -146,6 +147,7 @@ class BackupVault(pulumi.CustomResource):
         """
         Resource Type definition for AWS::Backup::BackupVault
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param Any access_policy: A resource-based policy that is used to manage access permissions on the target backup vault.
@@ -167,6 +169,7 @@ class BackupVault(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::Backup::BackupVault
+
 
         :param str resource_name: The name of the resource.
         :param BackupVaultArgs args: The arguments to use to populate this resource's properties.

@@ -26,6 +26,7 @@ class NamedQueryArgs:
                  work_group: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a NamedQuery resource.
+
         :param pulumi.Input[_builtins.str] database: The database to which the query belongs.
         :param pulumi.Input[_builtins.str] query_string: The contents of the query with all query statements.
         :param pulumi.Input[_builtins.str] description: The query description.
@@ -145,6 +146,7 @@ class NamedQuery(pulumi.CustomResource):
 
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] database: The database to which the query belongs.
@@ -189,6 +191,7 @@ class NamedQuery(pulumi.CustomResource):
             query_string="SELECT workflowname, AVG(activitytaskstarted) AS AverageWorkflow FROM swfmetadata WHERE year='17' AND GROUP BY workflowname ORDER BY AverageWorkflow DESC LIMIT 10")
 
         ```
+
 
         :param str resource_name: The name of the resource.
         :param NamedQueryArgs args: The arguments to use to populate this resource's properties.

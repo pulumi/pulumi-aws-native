@@ -46,6 +46,7 @@ class CanaryArgs:
                  vpc_config: Optional[pulumi.Input['CanaryVpcConfigArgs']] = None):
         """
         The set of arguments for constructing a Canary resource.
+
         :param pulumi.Input[_builtins.str] artifact_s3_location: Provide the s3 bucket output location for test results
         :param pulumi.Input['CanaryCodeArgs'] code: Provide the canary script source
         :param pulumi.Input[_builtins.str] execution_role_arn: Lambda Execution role used to run your canaries
@@ -461,6 +462,7 @@ class Canary(pulumi.CustomResource):
 
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['CanaryArtifactConfigArgs', 'CanaryArtifactConfigArgsDict']] artifact_config: Provide artifact configuration
@@ -579,6 +581,7 @@ class Canary(pulumi.CustomResource):
             start_canary_after_creation=False)
 
         ```
+
 
         :param str resource_name: The name of the resource.
         :param CanaryArgs args: The arguments to use to populate this resource's properties.

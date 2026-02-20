@@ -23,6 +23,7 @@ class ServicePrincipalNameArgs:
                  directory_registration_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ServicePrincipalName resource.
+
         :param pulumi.Input[_builtins.str] connector_arn: The Amazon Resource Name (ARN) that was returned when you called [CreateConnector.html](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateConnector.html) .
         :param pulumi.Input[_builtins.str] directory_registration_arn: The Amazon Resource Name (ARN) that was returned when you called [CreateDirectoryRegistration](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateDirectoryRegistration.html) .
         """
@@ -68,6 +69,7 @@ class ServicePrincipalName(pulumi.CustomResource):
         """
         Definition of AWS::PCAConnectorAD::ServicePrincipalName Resource Type
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] connector_arn: The Amazon Resource Name (ARN) that was returned when you called [CreateConnector.html](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateConnector.html) .
@@ -81,6 +83,7 @@ class ServicePrincipalName(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of AWS::PCAConnectorAD::ServicePrincipalName Resource Type
+
 
         :param str resource_name: The name of the resource.
         :param ServicePrincipalNameArgs args: The arguments to use to populate this resource's properties.

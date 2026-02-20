@@ -39,6 +39,7 @@ class InferenceExperimentArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a InferenceExperiment resource.
+
         :param pulumi.Input[_builtins.str] endpoint_name: The name of the endpoint.
         :param pulumi.Input[Sequence[pulumi.Input['InferenceExperimentModelVariantConfigArgs']]] model_variants: An array of ModelVariantConfig objects. Each ModelVariantConfig object in the array describes the infrastructure configuration for the corresponding variant.
         :param pulumi.Input[_builtins.str] role_arn: The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can assume to access model artifacts and container images, and manage Amazon SageMaker Inference endpoints for model deployment.
@@ -260,6 +261,7 @@ class InferenceExperiment(pulumi.CustomResource):
         """
         Resource Type definition for AWS::SageMaker::InferenceExperiment
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['InferenceExperimentDataStorageConfigArgs', 'InferenceExperimentDataStorageConfigArgsDict']] data_storage_config: The Amazon S3 location and configuration for storing inference request and response data.
@@ -286,6 +288,7 @@ class InferenceExperiment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::SageMaker::InferenceExperiment
+
 
         :param str resource_name: The name of the resource.
         :param InferenceExperimentArgs args: The arguments to use to populate this resource's properties.

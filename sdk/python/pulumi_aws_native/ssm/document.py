@@ -36,6 +36,7 @@ class DocumentArgs:
                  version_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Document resource.
+
         :param Any content: The content for the Systems Manager document in JSON, YAML or String format.
                
                Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SSM::Document` for more information about the expected schema for this property.
@@ -357,6 +358,7 @@ class Document(pulumi.CustomResource):
 
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['DocumentAttachmentsSourceArgs', 'DocumentAttachmentsSourceArgsDict']]]] attachments: A list of key and value pairs that describe attachments to a version of a document.
@@ -525,6 +527,7 @@ class Document(pulumi.CustomResource):
             document_format=aws_native.ssm.DocumentFormat.TEXT)
 
         ```
+
 
         :param str resource_name: The name of the resource.
         :param DocumentArgs args: The arguments to use to populate this resource's properties.

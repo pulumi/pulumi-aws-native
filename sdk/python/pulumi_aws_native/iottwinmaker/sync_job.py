@@ -25,6 +25,7 @@ class SyncJobArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a SyncJob resource.
+
         :param pulumi.Input[_builtins.str] sync_role: The IAM Role that execute SyncJob.
         :param pulumi.Input[_builtins.str] sync_source: The source of the SyncJob.
         :param pulumi.Input[_builtins.str] workspace_id: The ID of the workspace.
@@ -99,6 +100,7 @@ class SyncJob(pulumi.CustomResource):
         """
         Resource schema for AWS::IoTTwinMaker::SyncJob
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] sync_role: The IAM Role that execute SyncJob.
@@ -114,6 +116,7 @@ class SyncJob(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource schema for AWS::IoTTwinMaker::SyncJob
+
 
         :param str resource_name: The name of the resource.
         :param SyncJobArgs args: The arguments to use to populate this resource's properties.

@@ -27,6 +27,7 @@ class UserHierarchyGroupArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a UserHierarchyGroup resource.
+
         :param pulumi.Input[_builtins.str] instance_arn: The identifier of the Amazon Connect instance.
         :param pulumi.Input[_builtins.str] name: The name of the user hierarchy group.
         :param pulumi.Input[_builtins.str] parent_group_arn: The Amazon Resource Name (ARN) for the parent user hierarchy group.
@@ -103,6 +104,7 @@ class UserHierarchyGroup(pulumi.CustomResource):
         """
         Resource Type definition for AWS::Connect::UserHierarchyGroup
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] instance_arn: The identifier of the Amazon Connect instance.
@@ -118,6 +120,7 @@ class UserHierarchyGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::Connect::UserHierarchyGroup
+
 
         :param str resource_name: The name of the resource.
         :param UserHierarchyGroupArgs args: The arguments to use to populate this resource's properties.

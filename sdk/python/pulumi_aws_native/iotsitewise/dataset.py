@@ -30,6 +30,7 @@ class DatasetArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Dataset resource.
+
         :param pulumi.Input['DatasetSourceArgs'] dataset_source: The data source for the dataset.
         :param pulumi.Input[_builtins.str] dataset_description: A description about the dataset, and its functionality.
         :param pulumi.Input[_builtins.str] dataset_name: The name of the dataset.
@@ -106,6 +107,7 @@ class Dataset(pulumi.CustomResource):
         """
         Resource schema for AWS::IoTSiteWise::Dataset.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] dataset_description: A description about the dataset, and its functionality.
@@ -121,6 +123,7 @@ class Dataset(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource schema for AWS::IoTSiteWise::Dataset.
+
 
         :param str resource_name: The name of the resource.
         :param DatasetArgs args: The arguments to use to populate this resource's properties.

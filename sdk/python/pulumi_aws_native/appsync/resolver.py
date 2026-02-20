@@ -41,6 +41,7 @@ class ResolverArgs:
                  sync_config: Optional[pulumi.Input['ResolverSyncConfigArgs']] = None):
         """
         The set of arguments for constructing a Resolver resource.
+
         :param pulumi.Input[_builtins.str] api_id: The APSYlong GraphQL API to which you want to attach this resolver.
         :param pulumi.Input[_builtins.str] field_name: The GraphQL field on a type that invokes the resolver.
         :param pulumi.Input[_builtins.str] type_name: The GraphQL type that invokes this resolver.
@@ -355,6 +356,7 @@ class Resolver(pulumi.CustomResource):
 
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] api_id: The APSYlong GraphQL API to which you want to attach this resolver.
@@ -412,6 +414,7 @@ class Resolver(pulumi.CustomResource):
             response_mapping_template_s3_location=response_mapping_template_s3_location_input)
 
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ResolverArgs args: The arguments to use to populate this resource's properties.

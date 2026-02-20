@@ -44,6 +44,7 @@ class NetworkInterfaceArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a NetworkInterface resource.
+
         :param pulumi.Input[_builtins.str] subnet_id: The ID of the subnet to associate with the network interface.
         :param pulumi.Input['NetworkInterfaceConnectionTrackingSpecificationArgs'] connection_tracking_specification: A connection tracking specification for the network interface.
         :param pulumi.Input[_builtins.str] description: A description for the network interface.
@@ -344,6 +345,7 @@ class NetworkInterface(pulumi.CustomResource):
         """
         The AWS::EC2::NetworkInterface resource creates network interface
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['NetworkInterfaceConnectionTrackingSpecificationArgs', 'NetworkInterfaceConnectionTrackingSpecificationArgsDict']] connection_tracking_specification: A connection tracking specification for the network interface.
@@ -373,6 +375,7 @@ class NetworkInterface(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The AWS::EC2::NetworkInterface resource creates network interface
+
 
         :param str resource_name: The name of the resource.
         :param NetworkInterfaceArgs args: The arguments to use to populate this resource's properties.

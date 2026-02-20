@@ -32,6 +32,7 @@ class FindingsFilterArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a FindingsFilter resource.
+
         :param pulumi.Input['FindingsFilterFindingCriteriaArgs'] finding_criteria: Findings filter criteria.
         :param pulumi.Input['FindingsFilterFindingFilterAction'] action: Findings filter action.
         :param pulumi.Input[_builtins.str] description: Findings filter description
@@ -140,6 +141,7 @@ class FindingsFilter(pulumi.CustomResource):
         """
         Macie FindingsFilter resource schema.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input['FindingsFilterFindingFilterAction'] action: Findings filter action.
@@ -157,6 +159,7 @@ class FindingsFilter(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Macie FindingsFilter resource schema.
+
 
         :param str resource_name: The name of the resource.
         :param FindingsFilterArgs args: The arguments to use to populate this resource's properties.

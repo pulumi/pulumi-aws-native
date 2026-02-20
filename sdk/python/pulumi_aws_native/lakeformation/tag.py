@@ -24,6 +24,7 @@ class TagArgs:
                  catalog_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Tag resource.
+
         :param pulumi.Input[_builtins.str] tag_key: The key-name for the LF-tag.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] tag_values: A list of possible values an attribute can take.
         :param pulumi.Input[_builtins.str] catalog_id: The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
@@ -83,6 +84,7 @@ class Tag(pulumi.CustomResource):
         """
         A resource schema representing a Lake Formation Tag.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] catalog_id: The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
@@ -97,6 +99,7 @@ class Tag(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A resource schema representing a Lake Formation Tag.
+
 
         :param str resource_name: The name of the resource.
         :param TagArgs args: The arguments to use to populate this resource's properties.

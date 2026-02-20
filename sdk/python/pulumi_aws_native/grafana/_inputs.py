@@ -70,6 +70,7 @@ class WorkspaceAssertionAttributesArgs:
                  role: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Maps Grafana friendly names to the IdPs SAML attributes.
+
         :param pulumi.Input[_builtins.str] email: Name of the attribute within the SAML assert to use as the users email in Grafana.
         :param pulumi.Input[_builtins.str] groups: Name of the attribute within the SAML assert to use as the users groups in Grafana.
         :param pulumi.Input[_builtins.str] login: Name of the attribute within the SAML assert to use as the users login handle in Grafana.
@@ -183,6 +184,7 @@ class WorkspaceIdpMetadataArgs:
                  xml: Optional[pulumi.Input[_builtins.str]] = None):
         """
         IdP Metadata used to configure SAML authentication in Grafana.
+
         :param pulumi.Input[_builtins.str] url: URL that vends the IdPs metadata.
         :param pulumi.Input[_builtins.str] xml: XML blob of the IdPs metadata.
         """
@@ -236,6 +238,7 @@ class WorkspaceNetworkAccessControlArgs:
                  vpce_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The configuration settings for Network Access Control.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] prefix_list_ids: The list of prefix list IDs. A prefix list is a list of CIDR ranges of IP addresses. The IP addresses specified are allowed to access your workspace. If the list is not included in the configuration then no IP addresses will be allowed to access the workspace.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] vpce_ids: The list of Amazon VPC endpoint IDs for the workspace. If a NetworkAccessConfiguration is specified then only VPC endpoints specified here will be allowed to access the workspace.
         """
@@ -289,6 +292,7 @@ class WorkspaceRoleValuesArgs:
                  editor: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Maps SAML roles to the Grafana Editor and Admin roles.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] admin: List of SAML roles which will be mapped into the Grafana Admin role.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] editor: List of SAML roles which will be mapped into the Grafana Editor role.
         """
@@ -357,6 +361,7 @@ class WorkspaceSamlConfigurationArgs:
                  role_values: Optional[pulumi.Input['WorkspaceRoleValuesArgs']] = None):
         """
         SAML configuration data associated with an AMG workspace.
+
         :param pulumi.Input['WorkspaceIdpMetadataArgs'] idp_metadata: A structure containing the identity provider (IdP) metadata used to integrate the identity provider with this workspace.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_organizations: List of SAML organizations allowed to access Grafana.
         :param pulumi.Input['WorkspaceAssertionAttributesArgs'] assertion_attributes: A structure that defines which attributes in the SAML assertion are to be used to define information about the users authenticated by that IdP to use the workspace.
@@ -454,6 +459,7 @@ class WorkspaceVpcConfigurationArgs:
                  subnet_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
         """
         The configuration settings for an Amazon VPC that contains data sources for your Grafana workspace to connect to.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: The list of Amazon EC2 security group IDs attached to the Amazon VPC for your Grafana workspace to connect.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: The list of Amazon EC2 subnet IDs created in the Amazon VPC for your Grafana workspace to connect.
         """

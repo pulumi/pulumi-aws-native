@@ -33,6 +33,7 @@ class CapabilityArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Capability resource.
+
         :param pulumi.Input[_builtins.str] cluster_name: The name of the EKS cluster where you want to create the capability.
         :param pulumi.Input['CapabilityDeletePropagationPolicy'] delete_propagation_policy: Specifies how Kubernetes resources managed by the capability should be handled when the capability is deleted. Currently, the only supported value is RETAIN which retains all Kubernetes resources managed by the capability when the capability is deleted.
         :param pulumi.Input[_builtins.str] role_arn: The Amazon Resource Name (ARN) of the IAM role that the capability uses to interact with AWS services. This role must have a trust policy that allows the EKS service principal to assume it, and it must have the necessary permissions for the capability type you're creating.
@@ -154,6 +155,7 @@ class Capability(pulumi.CustomResource):
         """
         Resource Type definition for EKS Capability.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] capability_name: A unique name for the capability. The name must be unique within your cluster and can contain alphanumeric characters, hyphens, and underscores.
@@ -172,6 +174,7 @@ class Capability(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for EKS Capability.
+
 
         :param str resource_name: The name of the resource.
         :param CapabilityArgs args: The arguments to use to populate this resource's properties.

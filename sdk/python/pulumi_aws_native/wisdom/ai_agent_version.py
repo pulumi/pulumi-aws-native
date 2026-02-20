@@ -24,6 +24,7 @@ class AiAgentVersionArgs:
                  modified_time_seconds: Optional[pulumi.Input[_builtins.float]] = None):
         """
         The set of arguments for constructing a AiAgentVersion resource.
+
         :param pulumi.Input[_builtins.str] ai_agent_id: The identifier of the AI Agent.
         :param pulumi.Input[_builtins.float] modified_time_seconds: The time the AI Agent version was last modified in seconds.
         """
@@ -79,6 +80,7 @@ class AiAgentVersion(pulumi.CustomResource):
         """
         Definition of AWS::Wisdom::AIAgentVersion Resource Type
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] ai_agent_id: The identifier of the AI Agent.
@@ -92,6 +94,7 @@ class AiAgentVersion(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of AWS::Wisdom::AIAgentVersion Resource Type
+
 
         :param str resource_name: The name of the resource.
         :param AiAgentVersionArgs args: The arguments to use to populate this resource's properties.

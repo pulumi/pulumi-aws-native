@@ -35,6 +35,7 @@ class DataAutomationProjectArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a DataAutomationProject resource.
+
         :param pulumi.Input['DataAutomationProjectCustomOutputConfigurationArgs'] custom_output_configuration: Blueprints to apply to objects processed by the project.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] kms_encryption_context: KMS encryption context
         :param pulumi.Input[_builtins.str] kms_key_id: KMS key identifier
@@ -192,6 +193,7 @@ class DataAutomationProject(pulumi.CustomResource):
         """
         Definition of AWS::Bedrock::DataAutomationProject Resource Type
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['DataAutomationProjectCustomOutputConfigurationArgs', 'DataAutomationProjectCustomOutputConfigurationArgsDict']] custom_output_configuration: Blueprints to apply to objects processed by the project.
@@ -212,6 +214,7 @@ class DataAutomationProject(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of AWS::Bedrock::DataAutomationProject Resource Type
+
 
         :param str resource_name: The name of the resource.
         :param DataAutomationProjectArgs args: The arguments to use to populate this resource's properties.

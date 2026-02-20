@@ -26,6 +26,7 @@ class TypeArgs:
                  type_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Type resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['TypeFieldArgs']]] fields: Field definitions of the User-Defined Type
         :param pulumi.Input[_builtins.str] keyspace_name: Name of the Keyspace which contains the User-Defined Type.
         :param pulumi.Input[_builtins.str] type_name: Name of the User-Defined Type.
@@ -85,6 +86,7 @@ class Type(pulumi.CustomResource):
         """
         Resource schema for AWS::Cassandra::Type
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['TypeFieldArgs', 'TypeFieldArgsDict']]]] fields: Field definitions of the User-Defined Type
@@ -99,6 +101,7 @@ class Type(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource schema for AWS::Cassandra::Type
+
 
         :param str resource_name: The name of the resource.
         :param TypeArgs args: The arguments to use to populate this resource's properties.

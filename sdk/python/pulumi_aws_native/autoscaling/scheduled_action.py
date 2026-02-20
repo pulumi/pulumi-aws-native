@@ -29,6 +29,7 @@ class ScheduledActionArgs:
                  time_zone: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ScheduledAction resource.
+
         :param pulumi.Input[_builtins.str] auto_scaling_group_name: The name of the Auto Scaling group.
         :param pulumi.Input[_builtins.int] desired_capacity: The desired capacity is the initial capacity of the Auto Scaling group after the scheduled action runs and the capacity it attempts to maintain.
         :param pulumi.Input[_builtins.str] end_time: The latest scheduled start time to return. If scheduled action names are provided, this parameter is ignored.
@@ -169,6 +170,7 @@ class ScheduledAction(pulumi.CustomResource):
         """
         The AWS::AutoScaling::ScheduledAction resource specifies an Amazon EC2 Auto Scaling scheduled action so that the Auto Scaling group can change the number of instances available for your application in response to predictable load changes.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] auto_scaling_group_name: The name of the Auto Scaling group.
@@ -188,6 +190,7 @@ class ScheduledAction(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The AWS::AutoScaling::ScheduledAction resource specifies an Amazon EC2 Auto Scaling scheduled action so that the Auto Scaling group can change the number of instances available for your application in response to predictable load changes.
+
 
         :param str resource_name: The name of the resource.
         :param ScheduledActionArgs args: The arguments to use to populate this resource's properties.

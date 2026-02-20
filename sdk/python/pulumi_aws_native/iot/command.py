@@ -40,6 +40,7 @@ class CommandArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Command resource.
+
         :param pulumi.Input[_builtins.str] command_id: The unique identifier for the command.
         :param pulumi.Input[_builtins.str] created_at: The date and time when the command was created.
         :param pulumi.Input[_builtins.bool] deprecated: A flag indicating whether the command is deprecated.
@@ -276,6 +277,7 @@ class Command(pulumi.CustomResource):
         """
         Represents the resource definition of AWS IoT Command.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] command_id: The unique identifier for the command.
@@ -301,6 +303,7 @@ class Command(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Represents the resource definition of AWS IoT Command.
+
 
         :param str resource_name: The name of the resource.
         :param CommandArgs args: The arguments to use to populate this resource's properties.

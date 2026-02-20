@@ -32,6 +32,7 @@ class ServiceArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Service resource.
+
         :param pulumi.Input['ServiceAuthType'] auth_type: The type of IAM policy.
                
                - `NONE` : The resource does not use an IAM policy. This is the default.
@@ -151,6 +152,7 @@ class Service(pulumi.CustomResource):
         """
         A service is any software application that can run on instances containers, or serverless functions within an account or virtual private cloud (VPC).
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input['ServiceAuthType'] auth_type: The type of IAM policy.
@@ -173,6 +175,7 @@ class Service(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A service is any software application that can run on instances containers, or serverless functions within an account or virtual private cloud (VPC).
+
 
         :param str resource_name: The name of the resource.
         :param ServiceArgs args: The arguments to use to populate this resource's properties.

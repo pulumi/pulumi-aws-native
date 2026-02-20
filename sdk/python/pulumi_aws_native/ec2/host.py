@@ -32,6 +32,7 @@ class HostArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Host resource.
+
         :param pulumi.Input[_builtins.str] availability_zone: The Availability Zone in which to allocate the Dedicated Host.
         :param pulumi.Input[_builtins.str] asset_id: The ID of the Outpost hardware asset.
         :param pulumi.Input[_builtins.str] auto_placement: Indicates whether the host accepts any untargeted instance launches that match its instance type configuration, or if it only accepts Host tenancy instance launches that specify its unique host ID.
@@ -188,6 +189,7 @@ class Host(pulumi.CustomResource):
         """
         Resource Type definition for AWS::EC2::Host
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] asset_id: The ID of the Outpost hardware asset.
@@ -208,6 +210,7 @@ class Host(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::EC2::Host
+
 
         :param str resource_name: The name of the resource.
         :param HostArgs args: The arguments to use to populate this resource's properties.

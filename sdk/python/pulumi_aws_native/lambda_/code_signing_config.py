@@ -30,6 +30,7 @@ class CodeSigningConfigArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a CodeSigningConfig resource.
+
         :param pulumi.Input['CodeSigningConfigAllowedPublishersArgs'] allowed_publishers: When the CodeSigningConfig is later on attached to a function, the function code will be expected to be signed by profiles from this list
         :param pulumi.Input['CodeSigningConfigCodeSigningPoliciesArgs'] code_signing_policies: Policies to control how to act if a signature is invalid
         :param pulumi.Input[_builtins.str] description: A description of the CodeSigningConfig
@@ -106,6 +107,7 @@ class CodeSigningConfig(pulumi.CustomResource):
         """
         Resource Type definition for AWS::Lambda::CodeSigningConfig.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['CodeSigningConfigAllowedPublishersArgs', 'CodeSigningConfigAllowedPublishersArgsDict']] allowed_publishers: When the CodeSigningConfig is later on attached to a function, the function code will be expected to be signed by profiles from this list
@@ -121,6 +123,7 @@ class CodeSigningConfig(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::Lambda::CodeSigningConfig.
+
 
         :param str resource_name: The name of the resource.
         :param CodeSigningConfigArgs args: The arguments to use to populate this resource's properties.

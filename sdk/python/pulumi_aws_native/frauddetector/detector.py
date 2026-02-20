@@ -34,6 +34,7 @@ class DetectorArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Detector resource.
+
         :param pulumi.Input[_builtins.str] detector_id: The ID of the detector
         :param pulumi.Input['DetectorEventTypeArgs'] event_type: The event type to associate this detector with.
         :param pulumi.Input[Sequence[pulumi.Input['DetectorRuleArgs']]] rules: The rules to include in the detector version.
@@ -188,6 +189,7 @@ class Detector(pulumi.CustomResource):
         """
         A resource schema for a Detector in Amazon Fraud Detector.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['DetectorModelArgs', 'DetectorModelArgsDict']]]] associated_models: The models to associate with this detector.
@@ -215,6 +217,7 @@ class Detector(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A resource schema for a Detector in Amazon Fraud Detector.
+
 
         :param str resource_name: The name of the resource.
         :param DetectorArgs args: The arguments to use to populate this resource's properties.

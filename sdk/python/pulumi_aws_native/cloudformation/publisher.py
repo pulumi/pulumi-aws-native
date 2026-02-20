@@ -24,6 +24,7 @@ class PublisherArgs:
                  connection_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Publisher resource.
+
         :param pulumi.Input[_builtins.bool] accept_terms_and_conditions: Whether you accept the terms and conditions for publishing extensions in the CloudFormation registry. You must accept the terms and conditions in order to publish public extensions to the CloudFormation registry. The terms and conditions can be found at https://cloudformation-registry-documents.s3.amazonaws.com/Terms_and_Conditions_for_AWS_CloudFormation_Registry_Publishers.pdf
         :param pulumi.Input[_builtins.str] connection_arn: If you are using a Bitbucket or GitHub account for identity verification, the Amazon Resource Name (ARN) for your connection to that account.
         """
@@ -68,6 +69,7 @@ class Publisher(pulumi.CustomResource):
         """
         Register as a publisher in the CloudFormation Registry.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] accept_terms_and_conditions: Whether you accept the terms and conditions for publishing extensions in the CloudFormation registry. You must accept the terms and conditions in order to publish public extensions to the CloudFormation registry. The terms and conditions can be found at https://cloudformation-registry-documents.s3.amazonaws.com/Terms_and_Conditions_for_AWS_CloudFormation_Registry_Publishers.pdf
@@ -81,6 +83,7 @@ class Publisher(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Register as a publisher in the CloudFormation Registry.
+
 
         :param str resource_name: The name of the resource.
         :param PublisherArgs args: The arguments to use to populate this resource's properties.

@@ -39,6 +39,7 @@ class JobTemplateArgs:
                  timeout_config: Optional[pulumi.Input['TimeoutConfigPropertiesArgs']] = None):
         """
         The set of arguments for constructing a JobTemplate resource.
+
         :param pulumi.Input[_builtins.str] description: A description of the Job Template.
         :param pulumi.Input[_builtins.str] job_template_id: A unique identifier for the job template. We recommend using a UUID. Alpha-numeric characters, "-", and "_" are valid for use here.
         :param pulumi.Input['AbortConfigPropertiesArgs'] abort_config: The criteria that determine when and how a job abort takes place.
@@ -262,6 +263,7 @@ class JobTemplate(pulumi.CustomResource):
         """
         Resource Type definition for AWS::IoT::JobTemplate. Job templates enable you to preconfigure jobs so that you can deploy them to multiple sets of target devices.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['AbortConfigPropertiesArgs', 'AbortConfigPropertiesArgsDict']] abort_config: The criteria that determine when and how a job abort takes place.
@@ -288,6 +290,7 @@ class JobTemplate(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::IoT::JobTemplate. Job templates enable you to preconfigure jobs so that you can deploy them to multiple sets of target devices.
+
 
         :param str resource_name: The name of the resource.
         :param JobTemplateArgs args: The arguments to use to populate this resource's properties.

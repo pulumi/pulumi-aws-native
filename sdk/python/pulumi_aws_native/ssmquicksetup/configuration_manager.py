@@ -28,6 +28,7 @@ class ConfigurationManagerArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ConfigurationManager resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['ConfigurationManagerConfigurationDefinitionArgs']]] configuration_definitions: The definition of the Quick Setup configuration that the configuration manager deploys.
         :param pulumi.Input[_builtins.str] description: The description of the configuration.
         :param pulumi.Input[_builtins.str] name: The name of the configuration
@@ -104,6 +105,7 @@ class ConfigurationManager(pulumi.CustomResource):
         """
         Definition of AWS::SSMQuickSetup::ConfigurationManager Resource Type
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ConfigurationManagerConfigurationDefinitionArgs', 'ConfigurationManagerConfigurationDefinitionArgsDict']]]] configuration_definitions: The definition of the Quick Setup configuration that the configuration manager deploys.
@@ -119,6 +121,7 @@ class ConfigurationManager(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of AWS::SSMQuickSetup::ConfigurationManager Resource Type
+
 
         :param str resource_name: The name of the resource.
         :param ConfigurationManagerArgs args: The arguments to use to populate this resource's properties.

@@ -35,6 +35,7 @@ class ApplicationArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Application resource.
+
         :param pulumi.Input[_builtins.str] runtime_environment: The runtime environment for the application.
         :param pulumi.Input[_builtins.str] service_execution_role: Specifies the IAM role that the application uses to access external resources.
         :param pulumi.Input['ApplicationConfigurationArgs'] application_configuration: Use this parameter to configure the application.
@@ -190,6 +191,7 @@ class Application(pulumi.CustomResource):
         """
         Creates an Amazon Kinesis Data Analytics application. For information about creating a Kinesis Data Analytics application, see [Creating an Application](https://docs.aws.amazon.com/kinesisanalytics/latest/java/getting-started.html).
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ApplicationConfigurationArgs', 'ApplicationConfigurationArgsDict']] application_configuration: Use this parameter to configure the application.
@@ -210,6 +212,7 @@ class Application(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Creates an Amazon Kinesis Data Analytics application. For information about creating a Kinesis Data Analytics application, see [Creating an Application](https://docs.aws.amazon.com/kinesisanalytics/latest/java/getting-started.html).
+
 
         :param str resource_name: The name of the resource.
         :param ApplicationArgs args: The arguments to use to populate this resource's properties.

@@ -46,6 +46,7 @@ class JobArgs:
                  validation_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['JobValidationConfigurationArgs']]]] = None):
         """
         The set of arguments for constructing a Job resource.
+
         :param pulumi.Input[_builtins.str] role_arn: Role arn
         :param pulumi.Input['JobType'] type: Job type
         :param pulumi.Input[Sequence[pulumi.Input['JobDataCatalogOutputArgs']]] data_catalog_outputs: One or more artifacts that represent the AWS Glue Data Catalog output from running the job.
@@ -403,6 +404,7 @@ class Job(pulumi.CustomResource):
 
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['JobDataCatalogOutputArgs', 'JobDataCatalogOutputArgsDict']]]] data_catalog_outputs: One or more artifacts that represent the AWS Glue Data Catalog output from running the job.
@@ -460,6 +462,7 @@ class Job(pulumi.CustomResource):
             }])
 
         ```
+
 
         :param str resource_name: The name of the resource.
         :param JobArgs args: The arguments to use to populate this resource's properties.

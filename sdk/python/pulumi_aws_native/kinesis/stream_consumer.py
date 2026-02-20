@@ -26,6 +26,7 @@ class StreamConsumerArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]] = None):
         """
         The set of arguments for constructing a StreamConsumer resource.
+
         :param pulumi.Input[_builtins.str] stream_arn: The Amazon resource name (ARN) of the Kinesis data stream that you want to register the consumer with.
         :param pulumi.Input[_builtins.str] consumer_name: The name of the Kinesis Stream Consumer. For a given Kinesis data stream, each consumer must have a unique name. However, consumer names don't have to be unique across data streams.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]] tags: An arbitrary set of tags (key–value pairs) to associate with the Kinesis consumer.
@@ -86,6 +87,7 @@ class StreamConsumer(pulumi.CustomResource):
         """
         Resource Type definition for AWS::Kinesis::StreamConsumer
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] consumer_name: The name of the Kinesis Stream Consumer. For a given Kinesis data stream, each consumer must have a unique name. However, consumer names don't have to be unique across data streams.
@@ -100,6 +102,7 @@ class StreamConsumer(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::Kinesis::StreamConsumer
+
 
         :param str resource_name: The name of the resource.
         :param StreamConsumerArgs args: The arguments to use to populate this resource's properties.

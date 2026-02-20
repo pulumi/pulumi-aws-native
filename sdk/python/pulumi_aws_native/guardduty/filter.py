@@ -32,6 +32,7 @@ class FilterArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Filter resource.
+
         :param pulumi.Input[_builtins.str] detector_id: The detector ID associated with the GuardDuty account for which you want to create a filter.
                
                To find the `detectorId` in the current Region, see the
@@ -169,6 +170,7 @@ class Filter(pulumi.CustomResource):
         """
         Resource Type definition for AWS::GuardDuty::Filter
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] action: Specifies the action that is to be applied to the findings that match the filter.
@@ -194,6 +196,7 @@ class Filter(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::GuardDuty::Filter
+
 
         :param str resource_name: The name of the resource.
         :param FilterArgs args: The arguments to use to populate this resource's properties.

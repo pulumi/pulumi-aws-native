@@ -30,6 +30,7 @@ class ServiceTemplateArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a ServiceTemplate resource.
+
         :param pulumi.Input[_builtins.str] description: <p>A description of the service template.</p>
         :param pulumi.Input[_builtins.str] display_name: <p>The name of the service template as displayed in the developer interface.</p>
         :param pulumi.Input[_builtins.str] encryption_key: <p>A customer provided encryption key that's used to encrypt data.</p>
@@ -143,6 +144,7 @@ class ServiceTemplate(pulumi.CustomResource):
         """
         Definition of AWS::Proton::ServiceTemplate Resource Type
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: <p>A description of the service template.</p>
@@ -162,6 +164,7 @@ class ServiceTemplate(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of AWS::Proton::ServiceTemplate Resource Type
+
 
         :param str resource_name: The name of the resource.
         :param ServiceTemplateArgs args: The arguments to use to populate this resource's properties.

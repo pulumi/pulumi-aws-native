@@ -34,6 +34,7 @@ class SchemaArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Schema resource.
+
         :param pulumi.Input['SchemaCompatibility'] compatibility: Compatibility setting for the schema.
         :param pulumi.Input['SchemaDataFormat'] data_format: Data format name to use for the schema. Accepted values: 'AVRO', 'JSON', 'PROTOBUF'
         :param pulumi.Input['SchemaVersionArgs'] checkpoint_version: Specify the `VersionNumber` or the `IsLatest` for setting the checkpoint for the schema. This is only required for updating a checkpoint.
@@ -173,6 +174,7 @@ class Schema(pulumi.CustomResource):
         """
         This resource represents a schema of Glue Schema Registry.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['SchemaVersionArgs', 'SchemaVersionArgsDict']] checkpoint_version: Specify the `VersionNumber` or the `IsLatest` for setting the checkpoint for the schema. This is only required for updating a checkpoint.
@@ -192,6 +194,7 @@ class Schema(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         This resource represents a schema of Glue Schema Registry.
+
 
         :param str resource_name: The name of the resource.
         :param SchemaArgs args: The arguments to use to populate this resource's properties.

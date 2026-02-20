@@ -28,6 +28,7 @@ class VpcConnectionArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a VpcConnection resource.
+
         :param pulumi.Input['VpcConnectionAuthentication'] authentication: The type of private link authentication.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] client_subnets: The list of subnets in the client VPC to connect to.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_groups: The security groups to attach to the ENIs for the broker nodes.
@@ -132,6 +133,7 @@ class VpcConnection(pulumi.CustomResource):
         """
         Resource Type definition for AWS::MSK::VpcConnection
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input['VpcConnectionAuthentication'] authentication: The type of private link authentication.
@@ -149,6 +151,7 @@ class VpcConnection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::MSK::VpcConnection
+
 
         :param str resource_name: The name of the resource.
         :param VpcConnectionArgs args: The arguments to use to populate this resource's properties.

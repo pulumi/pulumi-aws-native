@@ -29,6 +29,7 @@ class ServiceActionArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ServiceAction resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['ServiceActionDefinitionParameterArgs']]] definition: A map that defines the self-service action.
         :param pulumi.Input['ServiceActionDefinitionType'] definition_type: The self-service action definition type. For example, `SSM_AUTOMATION` .
         :param pulumi.Input['ServiceActionAcceptLanguage'] accept_language: The language code.
@@ -128,6 +129,7 @@ class ServiceAction(pulumi.CustomResource):
         """
         Resource Schema for AWS::ServiceCatalog::ServiceAction
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input['ServiceActionAcceptLanguage'] accept_language: The language code.
@@ -148,6 +150,7 @@ class ServiceAction(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Schema for AWS::ServiceCatalog::ServiceAction
+
 
         :param str resource_name: The name of the resource.
         :param ServiceActionArgs args: The arguments to use to populate this resource's properties.

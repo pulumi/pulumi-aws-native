@@ -24,6 +24,7 @@ class AiGuardrailVersionArgs:
                  modified_time_seconds: Optional[pulumi.Input[_builtins.float]] = None):
         """
         The set of arguments for constructing a AiGuardrailVersion resource.
+
         :param pulumi.Input[_builtins.str] ai_guardrail_id: The ID of the AI guardrail version.
         :param pulumi.Input[_builtins.str] assistant_id: The ID of the AI guardrail version assistant.
         :param pulumi.Input[_builtins.float] modified_time_seconds: The modified time of the AI guardrail version in seconds.
@@ -83,6 +84,7 @@ class AiGuardrailVersion(pulumi.CustomResource):
         """
         Definition of AWS::Wisdom::AIGuardrailVersion Resource Type
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] ai_guardrail_id: The ID of the AI guardrail version.
@@ -97,6 +99,7 @@ class AiGuardrailVersion(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of AWS::Wisdom::AIGuardrailVersion Resource Type
+
 
         :param str resource_name: The name of the resource.
         :param AiGuardrailVersionArgs args: The arguments to use to populate this resource's properties.

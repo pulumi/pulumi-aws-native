@@ -30,6 +30,7 @@ class GrantArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Grant resource.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_operations: Allowed operations for the grant.
         :param pulumi.Input[_builtins.str] grant_name: Name for the created Grant.
         :param pulumi.Input[_builtins.str] home_region: Home region for the created grant.
@@ -167,6 +168,7 @@ class Grant(pulumi.CustomResource):
         """
         An example resource schema demonstrating some basic constructs and validation rules.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_operations: Allowed operations for the grant.
@@ -191,6 +193,7 @@ class Grant(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An example resource schema demonstrating some basic constructs and validation rules.
+
 
         :param str resource_name: The name of the resource.
         :param GrantArgs args: The arguments to use to populate this resource's properties.

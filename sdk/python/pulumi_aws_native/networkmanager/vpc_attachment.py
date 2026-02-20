@@ -33,6 +33,7 @@ class VpcAttachmentArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a VpcAttachment resource.
+
         :param pulumi.Input[_builtins.str] core_network_id: The ID of a core network for the VPC attachment.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_arns: Subnet Arn list
         :param pulumi.Input[_builtins.str] vpc_arn: The ARN of the VPC.
@@ -171,6 +172,7 @@ class VpcAttachment(pulumi.CustomResource):
         """
         AWS::NetworkManager::VpcAttachment Resoruce Type
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] core_network_id: The ID of a core network for the VPC attachment.
@@ -190,6 +192,7 @@ class VpcAttachment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         AWS::NetworkManager::VpcAttachment Resoruce Type
+
 
         :param str resource_name: The name of the resource.
         :param VpcAttachmentArgs args: The arguments to use to populate this resource's properties.

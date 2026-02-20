@@ -1367,6 +1367,7 @@ class TraceContentPropertiesArgs:
                  wireless_device_frame_info: Optional[pulumi.Input['NetworkAnalyzerConfigurationWirelessDeviceFrameInfo']] = None):
         """
         Trace content for your wireless gateway and wireless device resources
+
         :param pulumi.Input['NetworkAnalyzerConfigurationLogLevel'] log_level: The log level for a log message. The log levels can be disabled, or set to `ERROR` to display less verbose logs containing only error information, or to `INFO` for more detailed logs
         :param pulumi.Input['NetworkAnalyzerConfigurationWirelessDeviceFrameInfo'] wireless_device_frame_info: `FrameInfo` of your wireless device resources for the trace content. Use FrameInfo to debug the communication between your LoRaWAN end devices and the network server.
         """
@@ -1519,6 +1520,7 @@ class WirelessDeviceApplicationArgs:
                  type: Optional[pulumi.Input['WirelessDeviceApplicationType']] = None):
         """
         LoRaWAN application configuration, which can be used to perform geolocation.
+
         :param pulumi.Input[_builtins.str] destination_name: The name of the position data destination that describes the AWS IoT rule that processes the device's position data for use by AWS IoT Core for LoRaWAN.
         :param pulumi.Input[_builtins.int] f_port: The Fport value.
         :param pulumi.Input['WirelessDeviceApplicationType'] type: Application type, which can be specified to obtain real-time position information of your LoRaWAN device.

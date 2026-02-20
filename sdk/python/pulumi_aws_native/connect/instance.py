@@ -31,6 +31,7 @@ class InstanceArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Instance resource.
+
         :param pulumi.Input['InstanceAttributesArgs'] attributes: The attributes for the instance.
         :param pulumi.Input['InstanceIdentityManagementType'] identity_management_type: Specifies the type of directory integration for new instance.
         :param pulumi.Input[_builtins.str] directory_id: Existing directoryId user wants to map to the new Connect instance.
@@ -122,6 +123,7 @@ class Instance(pulumi.CustomResource):
         """
         Resource Type definition for AWS::Connect::Instance
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['InstanceAttributesArgs', 'InstanceAttributesArgsDict']] attributes: The attributes for the instance.
@@ -138,6 +140,7 @@ class Instance(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::Connect::Instance
+
 
         :param str resource_name: The name of the resource.
         :param InstanceArgs args: The arguments to use to populate this resource's properties.

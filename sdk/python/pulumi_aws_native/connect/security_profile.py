@@ -37,6 +37,7 @@ class SecurityProfileArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a SecurityProfile resource.
+
         :param pulumi.Input[_builtins.str] instance_arn: The identifier of the Amazon Connect instance.
         :param pulumi.Input[_builtins.str] allowed_access_control_hierarchy_group_id: The identifier of the hierarchy group that a security profile uses to restrict access to resources in Amazon Connect.
         :param pulumi.Input[Sequence[pulumi.Input['SecurityProfileTagArgs']]] allowed_access_control_tags: The list of tags that a security profile uses to restrict access to resources in Amazon Connect.
@@ -225,6 +226,7 @@ class SecurityProfile(pulumi.CustomResource):
         """
         Resource Type definition for AWS::Connect::SecurityProfile
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] allowed_access_control_hierarchy_group_id: The identifier of the hierarchy group that a security profile uses to restrict access to resources in Amazon Connect.
@@ -247,6 +249,7 @@ class SecurityProfile(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::Connect::SecurityProfile
+
 
         :param str resource_name: The name of the resource.
         :param SecurityProfileArgs args: The arguments to use to populate this resource's properties.

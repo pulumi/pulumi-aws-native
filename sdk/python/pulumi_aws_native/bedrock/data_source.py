@@ -31,6 +31,7 @@ class DataSourceArgs:
                  vector_ingestion_configuration: Optional[pulumi.Input['DataSourceVectorIngestionConfigurationArgs']] = None):
         """
         The set of arguments for constructing a DataSource resource.
+
         :param pulumi.Input['DataSourceConfigurationArgs'] data_source_configuration: The connection configuration for the data source.
         :param pulumi.Input[_builtins.str] knowledge_base_id: The unique identifier of the knowledge base to which to add the data source.
         :param pulumi.Input['DataSourceDataDeletionPolicy'] data_deletion_policy: The data deletion policy for the data source.
@@ -154,6 +155,7 @@ class DataSource(pulumi.CustomResource):
         """
         Definition of AWS::Bedrock::DataSource Resource Type
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input['DataSourceDataDeletionPolicy'] data_deletion_policy: The data deletion policy for the data source.
@@ -172,6 +174,7 @@ class DataSource(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of AWS::Bedrock::DataSource Resource Type
+
 
         :param str resource_name: The name of the resource.
         :param DataSourceArgs args: The arguments to use to populate this resource's properties.

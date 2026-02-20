@@ -25,6 +25,7 @@ class SigningConfigurationArgs:
                  rules: pulumi.Input[Sequence[pulumi.Input['SigningConfigurationRuleArgs']]]):
         """
         The set of arguments for constructing a SigningConfiguration resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['SigningConfigurationRuleArgs']]] rules: Array of signing rules that define which repositories should be signed and with which signing profiles.
         """
         pulumi.set(__self__, "rules", rules)
@@ -53,6 +54,7 @@ class SigningConfiguration(pulumi.CustomResource):
         """
         The AWS::ECR::SigningConfiguration resource creates or updates the signing configuration for an Amazon ECR registry.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['SigningConfigurationRuleArgs', 'SigningConfigurationRuleArgsDict']]]] rules: Array of signing rules that define which repositories should be signed and with which signing profiles.
@@ -65,6 +67,7 @@ class SigningConfiguration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The AWS::ECR::SigningConfiguration resource creates or updates the signing configuration for an Amazon ECR registry.
+
 
         :param str resource_name: The name of the resource.
         :param SigningConfigurationArgs args: The arguments to use to populate this resource's properties.

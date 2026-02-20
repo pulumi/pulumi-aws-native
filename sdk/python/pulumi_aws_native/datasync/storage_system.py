@@ -33,6 +33,7 @@ class StorageSystemArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a StorageSystem resource.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] agent_arns: The ARN of the DataSync agent that connects to and reads from the on-premises storage system's management interface.
         :param pulumi.Input['StorageSystemSystemType'] system_type: The type of on-premises storage system that DataSync Discovery will analyze.
         :param pulumi.Input[_builtins.str] cloud_watch_log_group_arn: The ARN of the Amazon CloudWatch log group used to monitor and log discovery job events.
@@ -147,6 +148,7 @@ class StorageSystem(pulumi.CustomResource):
         """
         Resource schema for AWS::DataSync::StorageSystem.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] agent_arns: The ARN of the DataSync agent that connects to and reads from the on-premises storage system's management interface.
@@ -163,6 +165,7 @@ class StorageSystem(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource schema for AWS::DataSync::StorageSystem.
+
 
         :param str resource_name: The name of the resource.
         :param StorageSystemArgs args: The arguments to use to populate this resource's properties.

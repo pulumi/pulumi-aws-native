@@ -41,6 +41,7 @@ class LocationSmbArgs:
                  user: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a LocationSmb resource.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] agent_arns: The Amazon Resource Names (ARNs) of agents to use for a Simple Message Block (SMB) location.
         :param pulumi.Input['LocationSmbAuthenticationType'] authentication_type: The authentication mode used to determine identity of user.
         :param pulumi.Input['LocationSmbCmkSecretConfigArgs'] cmk_secret_config: Specifies configuration information for a DataSync-managed secret, such as an authentication token, secret key, password, or Kerberos keytab that DataSync uses to access a specific storage location, with a customer-managed AWS KMS key .
@@ -301,6 +302,7 @@ class LocationSmb(pulumi.CustomResource):
         """
         Resource Type definition for AWS::DataSync::LocationSMB.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] agent_arns: The Amazon Resource Names (ARNs) of agents to use for a Simple Message Block (SMB) location.
@@ -331,6 +333,7 @@ class LocationSmb(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::DataSync::LocationSMB.
+
 
         :param str resource_name: The name of the resource.
         :param LocationSmbArgs args: The arguments to use to populate this resource's properties.

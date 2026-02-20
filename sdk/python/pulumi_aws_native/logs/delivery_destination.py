@@ -31,6 +31,7 @@ class DeliveryDestinationArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a DeliveryDestination resource.
+
         :param pulumi.Input['DeliveryDestinationDestinationPolicyArgs'] delivery_destination_policy: IAM policy that grants permissions to CloudWatch Logs to deliver logs cross-account to a specified destination in this account.
                
                The policy must be in JSON string format.
@@ -150,6 +151,7 @@ class DeliveryDestination(pulumi.CustomResource):
 
         A delivery destination is an AWS resource that represents an AWS service that logs can be sent to CloudWatch Logs, Amazon S3, are supported as Kinesis Data Firehose delivery destinations.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['DeliveryDestinationDestinationPolicyArgs', 'DeliveryDestinationDestinationPolicyArgsDict']] delivery_destination_policy: IAM policy that grants permissions to CloudWatch Logs to deliver logs cross-account to a specified destination in this account.
@@ -173,6 +175,7 @@ class DeliveryDestination(pulumi.CustomResource):
         This structure contains information about one delivery destination in your account.
 
         A delivery destination is an AWS resource that represents an AWS service that logs can be sent to CloudWatch Logs, Amazon S3, are supported as Kinesis Data Firehose delivery destinations.
+
 
         :param str resource_name: The name of the resource.
         :param DeliveryDestinationArgs args: The arguments to use to populate this resource's properties.

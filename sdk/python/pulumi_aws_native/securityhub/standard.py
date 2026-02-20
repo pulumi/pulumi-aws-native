@@ -25,6 +25,7 @@ class StandardArgs:
                  disabled_standards_controls: Optional[pulumi.Input[Sequence[pulumi.Input['StandardsControlArgs']]]] = None):
         """
         The set of arguments for constructing a Standard resource.
+
         :param pulumi.Input[_builtins.str] standards_arn: The ARN of the standard that you want to enable. To view a list of available ASH standards and their ARNs, use the [DescribeStandards](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_DescribeStandards.html) API operation.
         :param pulumi.Input[Sequence[pulumi.Input['StandardsControlArgs']]] disabled_standards_controls: Specifies which controls are to be disabled in a standard. 
                 *Maximum*: ``100``
@@ -73,6 +74,7 @@ class Standard(pulumi.CustomResource):
          You must create a separate ``AWS::SecurityHub::Standard`` resource for each standard that you want to enable.
          For more information about ASH standards, see [standards reference](https://docs.aws.amazon.com/securityhub/latest/userguide/standards-reference.html) in the *User Guide*.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['StandardsControlArgs', 'StandardsControlArgsDict']]]] disabled_standards_controls: Specifies which controls are to be disabled in a standard. 
@@ -89,6 +91,7 @@ class Standard(pulumi.CustomResource):
         The ``AWS::SecurityHub::Standard`` resource specifies the enablement of a security standard. The standard is identified by the ``StandardsArn`` property. To view a list of ASH standards and their Amazon Resource Names (ARNs), use the [DescribeStandards](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_DescribeStandards.html) API operation.
          You must create a separate ``AWS::SecurityHub::Standard`` resource for each standard that you want to enable.
          For more information about ASH standards, see [standards reference](https://docs.aws.amazon.com/securityhub/latest/userguide/standards-reference.html) in the *User Guide*.
+
 
         :param str resource_name: The name of the resource.
         :param StandardArgs args: The arguments to use to populate this resource's properties.

@@ -25,6 +25,7 @@ class BackupSelectionArgs:
                  backup_selection: pulumi.Input['BackupSelectionResourceTypeArgs']):
         """
         The set of arguments for constructing a BackupSelection resource.
+
         :param pulumi.Input[_builtins.str] backup_plan_id: Uniquely identifies a backup plan.
         :param pulumi.Input['BackupSelectionResourceTypeArgs'] backup_selection: Specifies the body of a request to assign a set of resources to a backup plan.
                
@@ -72,6 +73,7 @@ class BackupSelection(pulumi.CustomResource):
         """
         Resource Type definition for AWS::Backup::BackupSelection
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] backup_plan_id: Uniquely identifies a backup plan.
@@ -87,6 +89,7 @@ class BackupSelection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::Backup::BackupSelection
+
 
         :param str resource_name: The name of the resource.
         :param BackupSelectionArgs args: The arguments to use to populate this resource's properties.

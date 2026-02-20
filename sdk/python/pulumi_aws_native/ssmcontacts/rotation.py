@@ -32,6 +32,7 @@ class RotationArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Rotation resource.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] contact_ids: Members of the rotation
         :param pulumi.Input['RotationRecurrenceSettingsArgs'] recurrence: Information about the rule that specifies when shift team members rotate.
         :param pulumi.Input[_builtins.str] start_time: Start time of the first shift of Oncall Schedule
@@ -137,6 +138,7 @@ class Rotation(pulumi.CustomResource):
         """
         Resource Type definition for AWS::SSMContacts::Rotation.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] contact_ids: Members of the rotation
@@ -154,6 +156,7 @@ class Rotation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::SSMContacts::Rotation.
+
 
         :param str resource_name: The name of the resource.
         :param RotationArgs args: The arguments to use to populate this resource's properties.

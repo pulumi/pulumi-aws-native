@@ -95,6 +95,7 @@ class EncryptionConfigPropertiesArgs:
                  role_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         A Key Management Service (KMS) key and the Identity and Access Management (IAM) role that Amazon Forecast can assume to access the key.
+
         :param pulumi.Input[_builtins.str] kms_key_arn: The Amazon Resource Name (ARN) of the KMS key.
         :param pulumi.Input[_builtins.str] role_arn: The ARN of the IAM role that Amazon Forecast can assume to access the AWS  key.
                
@@ -147,6 +148,7 @@ class SchemaPropertiesArgs:
                  attributes: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetAttributesItemPropertiesArgs']]]] = None):
         """
         The schema for the dataset. The schema attributes and their order must match the fields in your data. The dataset `Domain` and `DatasetType` that you choose determine the minimum required fields in your training data. For information about the required fields for a specific dataset domain and type, see [Dataset Domains and Dataset Types](https://docs.aws.amazon.com/forecast/latest/dg/howitworks-domains-ds-types.html) .
+
         :param pulumi.Input[Sequence[pulumi.Input['DatasetAttributesItemPropertiesArgs']]] attributes: An array of attributes specifying the name and type of each field in a dataset.
         """
         if attributes is not None:

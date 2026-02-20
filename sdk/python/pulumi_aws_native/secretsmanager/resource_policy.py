@@ -24,6 +24,7 @@ class ResourcePolicyArgs:
                  block_public_policy: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a ResourcePolicy resource.
+
         :param Any resource_policy: A JSON-formatted string for an AWS resource-based policy.
                
                Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SecretsManager::ResourcePolicy` for more information about the expected schema for this property.
@@ -87,6 +88,7 @@ class ResourcePolicy(pulumi.CustomResource):
         """
         Resource Type definition for AWS::SecretsManager::ResourcePolicy
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] block_public_policy: Specifies whether to block resource-based policies that allow broad access to the secret.
@@ -103,6 +105,7 @@ class ResourcePolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::SecretsManager::ResourcePolicy
+
 
         :param str resource_name: The name of the resource.
         :param ResourcePolicyArgs args: The arguments to use to populate this resource's properties.

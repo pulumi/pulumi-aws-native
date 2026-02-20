@@ -33,6 +33,7 @@ class AccessGrantArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]] = None):
         """
         The set of arguments for constructing a AccessGrant resource.
+
         :param pulumi.Input[_builtins.str] access_grants_location_id: The custom S3 location to be accessed by the grantee
         :param pulumi.Input['AccessGrantGranteeArgs'] grantee: The principal who will be granted permission to access S3.
         :param pulumi.Input['AccessGrantPermission'] permission: The level of access to be afforded to the grantee
@@ -155,6 +156,7 @@ class AccessGrant(pulumi.CustomResource):
         """
         The AWS::S3::AccessGrant resource is an Amazon S3 resource type representing permissions to a specific S3 bucket or prefix hosted in an S3 Access Grants instance.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['AccessGrantsLocationConfigurationArgs', 'AccessGrantsLocationConfigurationArgsDict']] access_grants_location_configuration: The configuration options of the grant location, which is the S3 path to the data to which you are granting access.
@@ -173,6 +175,7 @@ class AccessGrant(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The AWS::S3::AccessGrant resource is an Amazon S3 resource type representing permissions to a specific S3 bucket or prefix hosted in an S3 Access Grants instance.
+
 
         :param str resource_name: The name of the resource.
         :param AccessGrantArgs args: The arguments to use to populate this resource's properties.

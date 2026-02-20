@@ -32,6 +32,7 @@ class PlaceIndexArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a PlaceIndex resource.
+
         :param pulumi.Input[_builtins.str] data_source: Specifies the geospatial data provider for the new place index.
                
                > This field is case-sensitive. Enter the valid values as shown. For example, entering `HERE` returns an error. 
@@ -180,6 +181,7 @@ class PlaceIndex(pulumi.CustomResource):
         """
         Definition of AWS::Location::PlaceIndex Resource Type
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] data_source: Specifies the geospatial data provider for the new place index.
@@ -217,6 +219,7 @@ class PlaceIndex(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of AWS::Location::PlaceIndex Resource Type
+
 
         :param str resource_name: The name of the resource.
         :param PlaceIndexArgs args: The arguments to use to populate this resource's properties.

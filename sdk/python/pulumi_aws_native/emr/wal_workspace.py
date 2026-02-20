@@ -25,6 +25,7 @@ class WalWorkspaceArgs:
                  wal_workspace_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a WalWorkspace resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
         :param pulumi.Input[_builtins.str] wal_workspace_name: The name of the emrwal container
         """
@@ -70,6 +71,7 @@ class WalWorkspace(pulumi.CustomResource):
         """
         Resource schema for AWS::EMR::WALWorkspace Type
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
@@ -83,6 +85,7 @@ class WalWorkspace(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource schema for AWS::EMR::WALWorkspace Type
+
 
         :param str resource_name: The name of the resource.
         :param WalWorkspaceArgs args: The arguments to use to populate this resource's properties.

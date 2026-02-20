@@ -29,6 +29,7 @@ class InputArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Input resource.
+
         :param pulumi.Input['InputDefinitionArgs'] input_definition: The definition of the input.
         :param pulumi.Input[_builtins.str] input_description: A brief description of the input.
         :param pulumi.Input[_builtins.str] input_name: The name of the input.
@@ -151,6 +152,7 @@ class Input(pulumi.CustomResource):
 
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['InputDefinitionArgs', 'InputDefinitionArgsDict']] input_definition: The definition of the input.
@@ -211,6 +213,7 @@ class Input(pulumi.CustomResource):
             })
 
         ```
+
 
         :param str resource_name: The name of the resource.
         :param InputArgs args: The arguments to use to populate this resource's properties.

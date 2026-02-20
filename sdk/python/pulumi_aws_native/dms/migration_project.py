@@ -37,6 +37,7 @@ class MigrationProjectArgs:
                  transformation_rules: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a MigrationProject resource.
+
         :param pulumi.Input[_builtins.str] description: The optional description of the migration project.
         :param pulumi.Input[_builtins.str] instance_profile_arn: The property describes an instance profile arn for the migration project. For read
         :param pulumi.Input[_builtins.str] instance_profile_identifier: The property describes an instance profile identifier for the migration project. For create
@@ -242,6 +243,7 @@ class MigrationProject(pulumi.CustomResource):
         """
         Resource schema for AWS::DMS::MigrationProject
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: The optional description of the migration project.
@@ -265,6 +267,7 @@ class MigrationProject(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource schema for AWS::DMS::MigrationProject
+
 
         :param str resource_name: The name of the resource.
         :param MigrationProjectArgs args: The arguments to use to populate this resource's properties.

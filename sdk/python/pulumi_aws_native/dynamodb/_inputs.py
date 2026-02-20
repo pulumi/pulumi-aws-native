@@ -1831,6 +1831,7 @@ class TableAttributeDefinitionArgs:
                  attribute_type: pulumi.Input[_builtins.str]):
         """
         Represents an attribute for describing the schema for the table and indexes.
+
         :param pulumi.Input[_builtins.str] attribute_name: A name for the attribute.
         :param pulumi.Input[_builtins.str] attribute_type: The data type for the attribute, where:
                  +  ``S`` - the attribute is of type String
@@ -1888,6 +1889,7 @@ class TableContributorInsightsSpecificationArgs:
                  mode: Optional[pulumi.Input['TableContributorInsightsSpecificationMode']] = None):
         """
         Configures contributor insights settings for a table or one of its indexes.
+
         :param pulumi.Input[_builtins.bool] enabled: Indicates whether CloudWatch Contributor Insights are to be enabled (true) or disabled (false).
         :param pulumi.Input['TableContributorInsightsSpecificationMode'] mode: Specifies the CloudWatch Contributor Insights mode for a table. Valid values are ``ACCESSED_AND_THROTTLED_KEYS`` (tracks all access and throttled events) or ``THROTTLED_KEYS`` (tracks only throttled events). This setting determines what type of contributor insights data is collected for the table.
         """
@@ -1940,6 +1942,7 @@ class TableCsvArgs:
                  header_list: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The options for imported source files in CSV format. The values are Delimiter and HeaderList.
+
         :param pulumi.Input[_builtins.str] delimiter: The delimiter used for separating items in the CSV file being imported.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] header_list: List of the headers used to specify a common header for all source CSV files being imported. If this field is specified then the first line of each CSV file is treated as data instead of the header. If this field is not specified the the first line of each CSV file is treated as the header.
         """
@@ -2024,6 +2027,7 @@ class TableGlobalSecondaryIndexArgs:
                  warm_throughput: Optional[pulumi.Input['TableWarmThroughputArgs']] = None):
         """
         Represents the properties of a global secondary index.
+
         :param pulumi.Input[_builtins.str] index_name: The name of the global secondary index. The name must be unique among all other indexes on this table.
         :param pulumi.Input[Sequence[pulumi.Input['TableKeySchemaArgs']]] key_schema: The complete key schema for a global secondary index, which consists of one or more pairs of attribute names and key types:
                  +  ``HASH`` - partition key
@@ -2171,6 +2175,7 @@ class TableImportSourceSpecificationArgs:
                  input_format_options: Optional[pulumi.Input['TableInputFormatOptionsArgs']] = None):
         """
         Specifies the properties of data being imported from the S3 bucket source to the table.
+
         :param pulumi.Input[_builtins.str] input_format: The format of the source data. Valid values for ``ImportFormat`` are ``CSV``, ``DYNAMODB_JSON`` or ``ION``.
         :param pulumi.Input['TableS3BucketSourceArgs'] s3_bucket_source: The S3 bucket that provides the source for the import.
         :param pulumi.Input[_builtins.str] input_compression_type: Type of compression to be used on the input coming from the imported table.
@@ -2247,6 +2252,7 @@ class TableInputFormatOptionsArgs:
                  csv: Optional[pulumi.Input['TableCsvArgs']] = None):
         """
         The format options for the data that was imported into the target table. There is one value, CsvOption.
+
         :param pulumi.Input['TableCsvArgs'] csv: The options for imported source files in CSV format. The values are Delimiter and HeaderList.
         """
         if csv is not None:
@@ -2294,6 +2300,7 @@ class TableKeySchemaArgs:
         Represents *a single element* of a key schema. A key schema specifies the attributes that make up the primary key of a table, or the key attributes of an index.
          A ``KeySchemaElement`` represents exactly one attribute of the primary key. For example, a simple primary key would be represented by one ``KeySchemaElement`` (for the partition key). A composite primary key would require one ``KeySchemaElement`` for the partition key, and another ``KeySchemaElement`` for the sort key.
          A ``KeySchemaElement`` must be a scalar, top-level attribute (not a nested attribute). The data type must be one of String, Number, or Binary. The attribute cannot be nested within a List or a Map.
+
         :param pulumi.Input[_builtins.str] attribute_name: The name of a key attribute.
         :param pulumi.Input[_builtins.str] key_type: The role that this key attribute will assume:
                  +  ``HASH`` - partition key
@@ -2356,6 +2363,7 @@ class TableKinesisStreamSpecificationArgs:
                  approximate_creation_date_time_precision: Optional[pulumi.Input['TableKinesisStreamSpecificationApproximateCreationDateTimePrecision']] = None):
         """
         The Kinesis Data Streams configuration for the specified table.
+
         :param pulumi.Input[_builtins.str] stream_arn: The ARN for a specific Kinesis data stream.
                 Length Constraints: Minimum length of 37. Maximum length of 1024.
         :param pulumi.Input['TableKinesisStreamSpecificationApproximateCreationDateTimePrecision'] approximate_creation_date_time_precision: The precision for the time and date that the stream was created.
@@ -2420,6 +2428,7 @@ class TableLocalSecondaryIndexArgs:
                  projection: pulumi.Input['TableProjectionArgs']):
         """
         Represents the properties of a local secondary index. A local secondary index can only be created when its parent table is created.
+
         :param pulumi.Input[_builtins.str] index_name: The name of the local secondary index. The name must be unique among all other indexes on this table.
         :param pulumi.Input[Sequence[pulumi.Input['TableKeySchemaArgs']]] key_schema: The complete key schema for the local secondary index, consisting of one or more pairs of attribute names and key types:
                  +  ``HASH`` - partition key
@@ -2497,6 +2506,7 @@ class TableOnDemandThroughputArgs:
                  max_write_request_units: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Sets the maximum number of read and write units for the specified on-demand table. If you use this property, you must specify ``MaxReadRequestUnits``, ``MaxWriteRequestUnits``, or both.
+
         :param pulumi.Input[_builtins.int] max_read_request_units: Maximum number of read request units for the specified table.
                 To specify a maximum ``OnDemandThroughput`` on your table, set the value of ``MaxReadRequestUnits`` as greater than or equal to 1. To remove the maximum ``OnDemandThroughput`` that is currently set on your table, set the value of ``MaxReadRequestUnits`` to -1.
         :param pulumi.Input[_builtins.int] max_write_request_units: Maximum number of write request units for the specified table.
@@ -2554,6 +2564,7 @@ class TablePointInTimeRecoverySpecificationArgs:
                  recovery_period_in_days: Optional[pulumi.Input[_builtins.int]] = None):
         """
         The settings used to enable point in time recovery.
+
         :param pulumi.Input[_builtins.bool] point_in_time_recovery_enabled: Indicates whether point in time recovery is enabled (true) or disabled (false) on the table.
         :param pulumi.Input[_builtins.int] recovery_period_in_days: The number of preceding days for which continuous backups are taken and maintained. Your table data is only recoverable to any point-in-time from within the configured recovery period. This parameter is optional. If no value is provided, the value will default to 35.
         """
@@ -2613,6 +2624,7 @@ class TableProjectionArgs:
                  projection_type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Represents attributes that are copied (projected) from the table into an index. These are in addition to the primary key attributes and index key attributes, which are automatically projected.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] non_key_attributes: Represents the non-key attribute names which will be projected into the index.
                 For global and local secondary indexes, the total count of ``NonKeyAttributes`` summed across all of the secondary indexes, must not exceed 100. If you project the same attribute into two different indexes, this counts as two distinct attributes when determining the total. This limit only applies when you specify the ProjectionType of ``INCLUDE``. You still can specify the ProjectionType of ``ALL`` to project all attributes from the source table, even if the table has more than 100 attributes.
         :param pulumi.Input[_builtins.str] projection_type: The set of attributes that are projected into the index:
@@ -2680,6 +2692,7 @@ class TableProvisionedThroughputArgs:
                  write_capacity_units: pulumi.Input[_builtins.int]):
         """
         Throughput for the specified table, which consists of values for ``ReadCapacityUnits`` and ``WriteCapacityUnits``. For more information about the contents of a provisioned throughput structure, see [Table ProvisionedThroughput](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_ProvisionedThroughput.html).
+
         :param pulumi.Input[_builtins.int] read_capacity_units: The maximum number of strongly consistent reads consumed per second before DynamoDB returns a ``ThrottlingException``. For more information, see [Specifying Read and Write Requirements](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughput.html) in the *Amazon DynamoDB Developer Guide*.
                 If read/write capacity mode is ``PAY_PER_REQUEST`` the value is set to 0.
         :param pulumi.Input[_builtins.int] write_capacity_units: The maximum number of writes consumed per second before DynamoDB returns a ``ThrottlingException``. For more information, see [Specifying Read and Write Requirements](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughput.html) in the *Amazon DynamoDB Developer Guide*.
@@ -2748,6 +2761,7 @@ class TableResourcePolicyArgs:
          Conversely, say that your template doesn’t contain a resource-based policy, but you add a policy outside of the template. This policy won’t be removed from DDB as long as you don’t add it to the template. When you add a policy to the template and update the stack, the existing policy in DDB will be updated to match the one defined in the template.
           
          For a full list of all considerations, see [Resource-based policy considerations](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/rbac-considerations.html).
+
         :param Any policy_document: A resource-based policy document that contains permissions to add to the specified DDB table, index, or both. In a CFNshort template, you can provide the policy in JSON or YAML format because CFNshort converts YAML to JSON before submitting it to DDB. For more information about resource-based policies, see [Using resource-based policies for](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/access-control-resource-based.html) and [Resource-based policy examples](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/rbac-examples.html).
         """
         pulumi.set(__self__, "policy_document", policy_document)
@@ -2790,6 +2804,7 @@ class TableS3BucketSourceArgs:
                  s3_key_prefix: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The S3 bucket that is being imported from.
+
         :param pulumi.Input[_builtins.str] s3_bucket: The S3 bucket that is being imported from.
         :param pulumi.Input[_builtins.str] s3_bucket_owner: The account number of the S3 bucket that is being imported from. If the bucket is owned by the requester this is optional.
         :param pulumi.Input[_builtins.str] s3_key_prefix: The key prefix shared by all S3 Objects that are being imported.
@@ -2863,6 +2878,7 @@ class TableSseSpecificationArgs:
                  sse_type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Represents the settings used to enable server-side encryption.
+
         :param pulumi.Input[_builtins.bool] sse_enabled: Indicates whether server-side encryption is done using an AWS managed key or an AWS owned key. If enabled (true), server-side encryption type is set to ``KMS`` and an AWS managed key is used (KMS charges apply). If disabled (false) or not specified, server-side encryption is set to AWS owned key.
         :param pulumi.Input[_builtins.str] kms_master_key_id: The KMS key that should be used for the KMS encryption. To specify a key, use its key ID, Amazon Resource Name (ARN), alias name, or alias ARN. Note that you should only provide this parameter if the key is different from the default DynamoDB key ``alias/aws/dynamodb``.
         :param pulumi.Input[_builtins.str] sse_type: Server-side encryption type. The only supported value is:
@@ -2938,6 +2954,7 @@ class TableStreamSpecificationArgs:
                  resource_policy: Optional[pulumi.Input['TableResourcePolicyArgs']] = None):
         """
         Represents the DynamoDB Streams configuration for a table in DynamoDB.
+
         :param pulumi.Input[_builtins.str] stream_view_type: When an item in the table is modified, ``StreamViewType`` determines what information is written to the stream for this table. Valid values for ``StreamViewType`` are:
                  +  ``KEYS_ONLY`` - Only the key attributes of the modified item are written to the stream.
                  +  ``NEW_IMAGE`` - The entire item, as it appears after it was modified, is written to the stream.
@@ -3004,6 +3021,7 @@ class TableTimeToLiveSpecificationArgs:
                  attribute_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Represents the settings used to enable or disable Time to Live (TTL) for the specified table.
+
         :param pulumi.Input[_builtins.bool] enabled: Indicates whether TTL is to be enabled (true) or disabled (false) on the table.
         :param pulumi.Input[_builtins.str] attribute_name: The name of the TTL attribute used to store the expiration time for items in the table.
                   +  The ``AttributeName`` property is required when enabling the TTL, or when TTL is already enabled.
@@ -3060,6 +3078,7 @@ class TableWarmThroughputArgs:
                  write_units_per_second: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Provides visibility into the number of read and write operations your table or secondary index can instantaneously support. The settings can be modified using the ``UpdateTable`` operation to meet the throughput requirements of an upcoming peak event.
+
         :param pulumi.Input[_builtins.int] read_units_per_second: Represents the number of read operations your base table can instantaneously support.
         :param pulumi.Input[_builtins.int] write_units_per_second: Represents the number of write operations your base table can instantaneously support.
         """

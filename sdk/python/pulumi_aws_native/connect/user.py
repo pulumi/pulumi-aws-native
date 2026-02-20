@@ -42,6 +42,7 @@ class UserArgs:
                  voice_enhancement_configs: Optional[pulumi.Input[Sequence[pulumi.Input['UserVoiceEnhancementConfigArgs']]]] = None):
         """
         The set of arguments for constructing a User resource.
+
         :param pulumi.Input[_builtins.str] instance_arn: The identifier of the Amazon Connect instance.
         :param pulumi.Input[_builtins.str] routing_profile_arn: The identifier of the routing profile for the user.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_profile_arns: One or more security profile arns for the user
@@ -308,6 +309,7 @@ class User(pulumi.CustomResource):
         """
         Resource Type definition for AWS::Connect::User
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['UserAfterContactWorkConfigPerChannelArgs', 'UserAfterContactWorkConfigPerChannelArgsDict']]]] after_contact_work_configs: After Contact Work configurations of a user.
@@ -335,6 +337,7 @@ class User(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::Connect::User
+
 
         :param str resource_name: The name of the resource.
         :param UserArgs args: The arguments to use to populate this resource's properties.

@@ -28,6 +28,7 @@ class ExtensionAssociationArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a ExtensionAssociation resource.
+
         :param pulumi.Input[_builtins.str] extension_identifier: The name, the ID, or the Amazon Resource Name (ARN) of the extension.
         :param pulumi.Input[_builtins.int] extension_version_number: The version number of the extension. If not specified, AWS AppConfig uses the maximum version of the extension.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] parameters: The parameter names and values defined in the extensions. Extension parameters marked `Required` must be entered for this field.
@@ -121,6 +122,7 @@ class ExtensionAssociation(pulumi.CustomResource):
         """
         An example resource schema demonstrating some basic constructs and validation rules.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] extension_identifier: The name, the ID, or the Amazon Resource Name (ARN) of the extension.
@@ -137,6 +139,7 @@ class ExtensionAssociation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An example resource schema demonstrating some basic constructs and validation rules.
+
 
         :param str resource_name: The name of the resource.
         :param ExtensionAssociationArgs args: The arguments to use to populate this resource's properties.

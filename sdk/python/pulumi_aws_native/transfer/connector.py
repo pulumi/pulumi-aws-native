@@ -35,6 +35,7 @@ class ConnectorArgs:
                  url: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Connector resource.
+
         :param pulumi.Input[_builtins.str] access_role: Specifies the access role for the connector.
         :param pulumi.Input['As2ConfigPropertiesArgs'] as2_config: Configuration for an AS2 connector.
         :param pulumi.Input['ConnectorEgressConfigArgs'] egress_config: Egress configuration for the connector.
@@ -191,6 +192,7 @@ class Connector(pulumi.CustomResource):
         """
         Resource Type definition for AWS::Transfer::Connector
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] access_role: Specifies the access role for the connector.
@@ -211,6 +213,7 @@ class Connector(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::Transfer::Connector
+
 
         :param str resource_name: The name of the resource.
         :param ConnectorArgs args: The arguments to use to populate this resource's properties.

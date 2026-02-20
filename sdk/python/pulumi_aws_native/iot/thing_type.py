@@ -30,6 +30,7 @@ class ThingTypeArgs:
                  thing_type_properties: Optional[pulumi.Input['ThingTypePropertiesPropertiesArgs']] = None):
         """
         The set of arguments for constructing a ThingType resource.
+
         :param pulumi.Input[_builtins.bool] deprecate_thing_type: Deprecates a thing type. You can not associate new things with deprecated thing type.
                
                Requires permission to access the [DeprecateThingType](https://docs.aws.amazon.com//service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions) action.
@@ -111,6 +112,7 @@ class ThingType(pulumi.CustomResource):
         """
         Resource Type definition for AWS::IoT::ThingType
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] deprecate_thing_type: Deprecates a thing type. You can not associate new things with deprecated thing type.
@@ -128,6 +130,7 @@ class ThingType(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::IoT::ThingType
+
 
         :param str resource_name: The name of the resource.
         :param ThingTypeArgs args: The arguments to use to populate this resource's properties.

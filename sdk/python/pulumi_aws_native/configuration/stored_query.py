@@ -27,6 +27,7 @@ class StoredQueryArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a StoredQuery resource.
+
         :param pulumi.Input[_builtins.str] query_expression: The expression of the query. For example, `SELECT resourceId, resourceType, supplementaryConfiguration.BucketVersioningConfiguration.status WHERE resourceType = 'AWS::S3::Bucket' AND supplementaryConfiguration.BucketVersioningConfiguration.status = 'Off'.`
         :param pulumi.Input[_builtins.str] query_description: A unique description for the query.
         :param pulumi.Input[_builtins.str] query_name: The name of the query.
@@ -103,6 +104,7 @@ class StoredQuery(pulumi.CustomResource):
         """
         Resource Type definition for AWS::Config::StoredQuery
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] query_description: A unique description for the query.
@@ -118,6 +120,7 @@ class StoredQuery(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::Config::StoredQuery
+
 
         :param str resource_name: The name of the resource.
         :param StoredQueryArgs args: The arguments to use to populate this resource's properties.

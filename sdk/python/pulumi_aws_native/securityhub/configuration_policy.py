@@ -28,6 +28,7 @@ class ConfigurationPolicyArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ConfigurationPolicy resource.
+
         :param pulumi.Input['ConfigurationPolicyPolicyArgs'] configuration_policy: An object that defines how AWS Security Hub CSPM is configured. It includes whether Security Hub CSPM is enabled or disabled, a list of enabled security standards, a list of enabled or disabled security controls, and a list of custom parameter values for specified controls. If you provide a list of security controls that are enabled in the configuration policy, Security Hub CSPM disables all other controls (including newly released controls). If you provide a list of security controls that are disabled in the configuration policy, Security Hub CSPM enables all other controls (including newly released controls).
         :param pulumi.Input[_builtins.str] description: The description of the configuration policy.
         :param pulumi.Input[_builtins.str] name: The name of the configuration policy.
@@ -104,6 +105,7 @@ class ConfigurationPolicy(pulumi.CustomResource):
         """
         The AWS::SecurityHub::ConfigurationPolicy resource represents the Central Configuration Policy in your account.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ConfigurationPolicyPolicyArgs', 'ConfigurationPolicyPolicyArgsDict']] configuration_policy: An object that defines how AWS Security Hub CSPM is configured. It includes whether Security Hub CSPM is enabled or disabled, a list of enabled security standards, a list of enabled or disabled security controls, and a list of custom parameter values for specified controls. If you provide a list of security controls that are enabled in the configuration policy, Security Hub CSPM disables all other controls (including newly released controls). If you provide a list of security controls that are disabled in the configuration policy, Security Hub CSPM enables all other controls (including newly released controls).
@@ -119,6 +121,7 @@ class ConfigurationPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The AWS::SecurityHub::ConfigurationPolicy resource represents the Central Configuration Policy in your account.
+
 
         :param str resource_name: The name of the resource.
         :param ConfigurationPolicyArgs args: The arguments to use to populate this resource's properties.

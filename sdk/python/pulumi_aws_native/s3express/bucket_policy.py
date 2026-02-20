@@ -23,6 +23,7 @@ class BucketPolicyArgs:
                  policy_document: Any):
         """
         The set of arguments for constructing a BucketPolicy resource.
+
         :param pulumi.Input[_builtins.str] bucket: The name of the S3 directory bucket to which the policy applies.
         :param Any policy_document: A policy document containing permissions to add to the specified bucket. In IAM, you must provide policy documents in JSON format. However, in CloudFormation you can provide the policy in JSON or YAML format because CloudFormation converts YAML to JSON before submitting it to IAM.
                
@@ -70,6 +71,7 @@ class BucketPolicy(pulumi.CustomResource):
         """
         Resource Type definition for AWS::S3Express::BucketPolicy.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] bucket: The name of the S3 directory bucket to which the policy applies.
@@ -85,6 +87,7 @@ class BucketPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::S3Express::BucketPolicy.
+
 
         :param str resource_name: The name of the resource.
         :param BucketPolicyArgs args: The arguments to use to populate this resource's properties.

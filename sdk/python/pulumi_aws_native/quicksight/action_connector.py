@@ -153,6 +153,7 @@ class ActionConnector(pulumi.CustomResource):
         """
         Definition of the AWS::QuickSight::ActionConnector Resource Type.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
@@ -164,6 +165,7 @@ class ActionConnector(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of the AWS::QuickSight::ActionConnector Resource Type.
+
 
         :param str resource_name: The name of the resource.
         :param ActionConnectorArgs args: The arguments to use to populate this resource's properties.

@@ -25,6 +25,7 @@ class SchemaArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Schema resource.
+
         :param pulumi.Input[_builtins.str] schema: A schema in Avro JSON format.
         :param pulumi.Input['SchemaDomain'] domain: The domain of a Domain dataset group.
         :param pulumi.Input[_builtins.str] name: Name for the schema.
@@ -109,6 +110,7 @@ class Schema(pulumi.CustomResource):
 
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input['SchemaDomain'] domain: The domain of a Domain dataset group.
@@ -147,6 +149,7 @@ class Schema(pulumi.CustomResource):
             schema="{\\"type\\": \\"record\\",\\"name\\": \\"Interactions\\", \\"namespace\\": \\"com.amazonaws.personalize.schema\\", \\"fields\\": [ { \\"name\\": \\"USER_ID\\", \\"type\\": \\"string\\" }, { \\"name\\": \\"ITEM_ID\\", \\"type\\": \\"string\\" }, { \\"name\\": \\"TIMESTAMP\\", \\"type\\": \\"long\\"}], \\"version\\": \\"1.0\\"}")
 
         ```
+
 
         :param str resource_name: The name of the resource.
         :param SchemaArgs args: The arguments to use to populate this resource's properties.

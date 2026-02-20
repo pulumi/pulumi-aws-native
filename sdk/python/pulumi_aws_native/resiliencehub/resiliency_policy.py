@@ -30,6 +30,7 @@ class ResiliencyPolicyArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ResiliencyPolicy resource.
+
         :param pulumi.Input['ResiliencyPolicyPolicyMapArgs'] policy: The resiliency policy.
         :param pulumi.Input['ResiliencyPolicyTier'] tier: Resiliency Policy Tier.
         :param pulumi.Input['ResiliencyPolicyDataLocationConstraint'] data_location_constraint: Data Location Constraint of the Policy.
@@ -137,6 +138,7 @@ class ResiliencyPolicy(pulumi.CustomResource):
         """
         Resource Type Definition for Resiliency Policy.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input['ResiliencyPolicyDataLocationConstraint'] data_location_constraint: Data Location Constraint of the Policy.
@@ -154,6 +156,7 @@ class ResiliencyPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type Definition for Resiliency Policy.
+
 
         :param str resource_name: The name of the resource.
         :param ResiliencyPolicyArgs args: The arguments to use to populate this resource's properties.

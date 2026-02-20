@@ -26,6 +26,7 @@ class DataTableRecordArgs:
                  instance_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a DataTableRecord resource.
+
         :param pulumi.Input[_builtins.str] data_table_arn: The Amazon Resource Name (ARN) for the data table. Does not include version aliases.
         :param pulumi.Input[_builtins.str] instance_arn: The Amazon Resource Name (ARN) of the instance.
         """
@@ -83,6 +84,7 @@ class DataTableRecord(pulumi.CustomResource):
         """
         Resource Type definition for AWS::Connect::DataTableRecord
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] data_table_arn: The Amazon Resource Name (ARN) for the data table. Does not include version aliases.
@@ -96,6 +98,7 @@ class DataTableRecord(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::Connect::DataTableRecord
+
 
         :param str resource_name: The name of the resource.
         :param DataTableRecordArgs args: The arguments to use to populate this resource's properties.

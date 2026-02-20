@@ -30,6 +30,7 @@ class AgentArgs:
                  vpc_endpoint_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Agent resource.
+
         :param pulumi.Input[_builtins.str] activation_key: Activation key of the Agent.
         :param pulumi.Input[_builtins.str] agent_name: The name configured for the agent. Text reference used to identify the agent in the console.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_arns: The ARNs of the security group used to protect your data transfer task subnets.
@@ -163,6 +164,7 @@ class Agent(pulumi.CustomResource):
 
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] activation_key: Activation key of the Agent.
@@ -204,6 +206,7 @@ class Agent(pulumi.CustomResource):
             agent_name="MyAgent")
 
         ```
+
 
         :param str resource_name: The name of the resource.
         :param AgentArgs args: The arguments to use to populate this resource's properties.

@@ -22,6 +22,7 @@ class RegistryPolicyArgs:
                  policy_text: Any):
         """
         The set of arguments for constructing a RegistryPolicy resource.
+
         :param Any policy_text: The JSON policy text for your registry.
                
                Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ECR::RegistryPolicy` for more information about the expected schema for this property.
@@ -80,6 +81,7 @@ class RegistryPolicy(pulumi.CustomResource):
 
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param Any policy_text: The JSON policy text for your registry.
@@ -120,6 +122,7 @@ class RegistryPolicy(pulumi.CustomResource):
         })
 
         ```
+
 
         :param str resource_name: The name of the resource.
         :param RegistryPolicyArgs args: The arguments to use to populate this resource's properties.

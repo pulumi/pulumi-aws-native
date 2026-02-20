@@ -90,6 +90,7 @@ class CalculatedAttributeDefinitionAttributeDetails(dict):
                  expression: _builtins.str):
         """
         Mathematical expression and a list of attribute items specified in that expression.
+
         :param Sequence['CalculatedAttributeDefinitionAttributeItem'] attributes: Mathematical expression and a list of attribute items specified in that expression.
         :param _builtins.str expression: Mathematical expression that is performed on attribute items provided in the attribute list. Each element in the expression should follow the structure of \\"{ObjectTypeName.AttributeName}\\".
         """
@@ -159,6 +160,7 @@ class CalculatedAttributeDefinitionConditions(dict):
                  threshold: Optional['outputs.CalculatedAttributeDefinitionThreshold'] = None):
         """
         The conditions including range, object count, and threshold for the calculated attribute.
+
         :param _builtins.int object_count: The number of profile objects used for the calculated attribute.
         :param 'CalculatedAttributeDefinitionRange' range: The relative time period over which data is included in the aggregation.
         :param 'CalculatedAttributeDefinitionThreshold' threshold: The threshold for the calculated attribute.
@@ -229,6 +231,7 @@ class CalculatedAttributeDefinitionRange(dict):
                  value_range: Optional['outputs.CalculatedAttributeDefinitionValueRange'] = None):
         """
         The relative time period over which data is included in the aggregation.
+
         :param 'CalculatedAttributeDefinitionRangeUnit' unit: The unit of time.
         :param _builtins.str timestamp_format: The format the timestamp field in your JSON object is specified. This value should be one of EPOCHMILLI or ISO_8601. E.g. if your object type is MyType and source JSON is {"generatedAt": {"timestamp": "2001-07-04T12:08:56.235Z"}}, then TimestampFormat should be "ISO_8601".
         :param _builtins.str timestamp_source: An expression specifying the field in your JSON object from which the date should be parsed. The expression should follow the structure of \\"{ObjectTypeName.<Location of timestamp field in JSON pointer format>}\\". E.g. if your object type is MyType and source JSON is {"generatedAt": {"timestamp": "1737587945945"}}, then TimestampSource should be "{MyType.generatedAt.timestamp}".
@@ -313,6 +316,7 @@ class CalculatedAttributeDefinitionReadiness(dict):
                  progress_percentage: Optional[_builtins.int] = None):
         """
         The readiness status of the calculated attribute.
+
         :param _builtins.str message: Any information pertaining to the status of the calculated attribute if required.
         :param _builtins.int progress_percentage: The progress percentage for including historical data in your calculated attribute.
         """
@@ -348,6 +352,7 @@ class CalculatedAttributeDefinitionThreshold(dict):
                  value: _builtins.str):
         """
         The threshold for the calculated attribute.
+
         :param 'CalculatedAttributeDefinitionThresholdOperator' operator: The operator of the threshold.
         :param _builtins.str value: The value of the threshold.
         """
@@ -381,6 +386,7 @@ class CalculatedAttributeDefinitionValueRange(dict):
                  start: _builtins.int):
         """
         A structure specifying the endpoints of the relative time period over which data is included in the aggregation.
+
         :param _builtins.int end: The ending point for this range. Positive numbers indicate how many days in the past data should be included, and negative numbers indicate how many days in the future.
         :param _builtins.int start: The starting point for this range. Positive numbers indicate how many days in the past data should be included, and negative numbers indicate how many days in the future.
         """
@@ -414,6 +420,7 @@ class DestinationDetailsProperties(dict):
                  uri: _builtins.str):
         """
         Details regarding the Kinesis stream.
+
         :param 'EventStreamStatus' status: The status of enabling the Kinesis stream as a destination for export.
         :param _builtins.str uri: The StreamARN of the destination to deliver profile events to. For example, arn:aws:kinesis:region:account-id:stream/stream-name.
         """
@@ -470,6 +477,7 @@ class DomainAttributeTypesSelector(dict):
                  phone_number: Optional[Sequence[_builtins.str]] = None):
         """
         Configures information about the AttributeTypesSelector where the rule-based identity resolution uses to match profiles.
+
         :param 'DomainAttributeTypesSelectorAttributeMatchingModel' attribute_matching_model: Configures the AttributeMatchingModel, you can either choose ONE_TO_ONE or MANY_TO_MANY.
         :param Sequence[_builtins.str] address: The Address type. You can choose from Address, BusinessAddress, MaillingAddress, and ShippingAddress. You only can use the Address type in the MatchingRule. For example, if you want to match profile based on BusinessAddress.City or MaillingAddress.City, you need to choose the BusinessAddress and the MaillingAddress to represent the Address type and specify the Address.City on the matching rule.
         :param Sequence[_builtins.str] email_address: The Email type. You can choose from EmailAddress, BusinessEmailAddress and PersonalEmailAddress. You only can use the EmailAddress type in the MatchingRule. For example, if you want to match profile based on PersonalEmailAddress or BusinessEmailAddress, you need to choose the PersonalEmailAddress and the BusinessEmailAddress to represent the EmailAddress type and only specify the EmailAddress on the matching rule.
@@ -547,6 +555,7 @@ class DomainAutoMerging(dict):
                  min_allowed_confidence_score_for_merging: Optional[_builtins.float] = None):
         """
         Configuration information about the auto-merging process.
+
         :param _builtins.bool enabled: The flag that enables the auto-merging of duplicate profiles.
         :param 'DomainConflictResolution' conflict_resolution: Determines how the auto-merging process should resolve conflicts between different profiles. For example, if Profile A and Profile B have the same `FirstName` and `LastName` , `ConflictResolution` specifies which `EmailAddress` should be used.
         :param 'DomainConsolidation' consolidation: A list of matching attributes that represent matching criteria. If two profiles meet at least one of the requirements in the matching attributes list, they will be merged.
@@ -622,6 +631,7 @@ class DomainConflictResolution(dict):
                  source_name: Optional[_builtins.str] = None):
         """
         How the auto-merging process should resolve conflicts between different profiles. For example, if Profile A and Profile B have the same FirstName and LastName (and that is the matching criteria), which EmailAddress should be used? 
+
         :param 'DomainConflictResolutionConflictResolvingModel' conflict_resolving_model: How the auto-merging process should resolve conflicts between different profiles.
         :param _builtins.str source_name: The ObjectType name that is used to resolve profile merging conflicts when choosing SOURCE as the ConflictResolvingModel.
         """
@@ -672,6 +682,7 @@ class DomainConsolidation(dict):
                  matching_attributes_list: Sequence[Sequence[_builtins.str]]):
         """
         A list of matching attributes that represent matching criteria. If two profiles meet at least one of the requirements in the matching attributes list, they will be merged.
+
         :param Sequence[Sequence[_builtins.str]] matching_attributes_list: A list of matching criteria.
         """
         pulumi.set(__self__, "matching_attributes_list", matching_attributes_list)
@@ -695,6 +706,7 @@ class DomainDataStore(dict):
                  readiness: Optional['outputs.DomainReadiness'] = None):
         """
         Configuration and status of the data store for the domain.
+
         :param _builtins.bool enabled: Whether the data store is enabled.
         """
         if enabled is not None:
@@ -779,6 +791,7 @@ class DomainJobSchedule(dict):
                  time: _builtins.str):
         """
         The day and time when do you want to start the Identity Resolution Job every week.
+
         :param 'DomainJobScheduleDayOfTheWeek' day_of_the_week: The day when the Identity Resolution Job should run every week.
         :param _builtins.str time: The time when the Identity Resolution Job should run every week.
         """
@@ -835,6 +848,7 @@ class DomainMatching(dict):
                  job_schedule: Optional['outputs.DomainJobSchedule'] = None):
         """
         The process of matching duplicate profiles. If Matching = true, Amazon Connect Customer Profiles starts a weekly batch process called Identity Resolution Job. If you do not specify a date and time for Identity Resolution Job to run, by default it runs every Saturday at 12AM UTC to detect duplicate profiles in your domains. After the Identity Resolution Job completes, use the GetMatches API to return and review the results. Or, if you have configured ExportingConfig in the MatchingRequest, you can download the results from S3.
+
         :param _builtins.bool enabled: The flag that enables the matching process of duplicate profiles.
         :param 'DomainAutoMerging' auto_merging: Configuration information about the auto-merging process.
         :param 'DomainExportingConfig' exporting_config: The S3 location where Identity Resolution Jobs write result files.
@@ -890,6 +904,7 @@ class DomainMatchingRule(dict):
                  rule: Sequence[_builtins.str]):
         """
         Specifies how does the rule-based matching process should match profiles.
+
         :param Sequence[_builtins.str] rule: A single rule level of the `MatchRules` . Configures how the rule-based matching process should match profiles.
         """
         pulumi.set(__self__, "rule", rule)
@@ -930,6 +945,7 @@ class DomainReadiness(dict):
                  progress_percentage: Optional[_builtins.int] = None):
         """
         Progress information for data store setup.
+
         :param _builtins.str message: A message describing the current progress.
         :param _builtins.int progress_percentage: The percentage of progress completed.
         """
@@ -998,6 +1014,7 @@ class DomainRuleBasedMatching(dict):
                  status: Optional['DomainRuleBasedMatchingStatus'] = None):
         """
         The process of matching duplicate profiles using the Rule-Based matching. If RuleBasedMatching = true, Amazon Connect Customer Profiles will start to match and merge your profiles according to your configuration in the RuleBasedMatchingRequest. You can use the ListRuleBasedMatches and GetSimilarProfiles API to return and review the results. Also, if you have configured ExportingConfig in the RuleBasedMatchingRequest, you can download the results from S3.
+
         :param _builtins.bool enabled: The flag that enables the rule-based matching process of duplicate profiles.
         :param 'DomainAttributeTypesSelector' attribute_types_selector: Configures information about the `AttributeTypesSelector` where the rule-based identity resolution uses to match profiles.
         :param 'DomainConflictResolution' conflict_resolution: Determines how the auto-merging process should resolve conflicts between different profiles. For example, if Profile A and Profile B have the same `FirstName` and `LastName` , `ConflictResolution` specifies which `EmailAddress` should be used.
@@ -1117,6 +1134,7 @@ class DomainS3ExportingConfig(dict):
                  s3_key_name: Optional[_builtins.str] = None):
         """
         The S3 location where Identity Resolution Jobs write result files.
+
         :param _builtins.str s3_bucket_name: The name of the S3 bucket where Identity Resolution Jobs write result files.
         :param _builtins.str s3_key_name: The S3 key name of the location where Identity Resolution Jobs write result files.
         """
@@ -1176,6 +1194,7 @@ class DomainStats(dict):
                  total_size: Optional[_builtins.float] = None):
         """
         Usage-specific statistics about the domain.
+
         :param _builtins.float metering_profile_count: The number of profiles that you are currently paying for in the domain. If you have more than 100 objects associated with a single profile, that profile counts as two profiles. If you have more than 200 objects, that profile counts as three, and so on.
         :param _builtins.float object_count: The total number of objects in domain.
         :param _builtins.float profile_count: The total number of profiles currently in the domain.
@@ -1329,6 +1348,7 @@ class EventTriggerLimits(dict):
                  periods: Optional[Sequence['outputs.EventTriggerPeriod']] = None):
         """
         Defines limits controlling whether an event triggers the destination, based on ingestion latency and the number of invocations per profile over specific time periods.
+
         :param _builtins.int event_expiration: Specifies that an event will only trigger the destination if it is processed within a certain latency period.
         :param Sequence['EventTriggerPeriod'] periods: A list of time periods during which the limits apply.
         """
@@ -1385,6 +1405,7 @@ class EventTriggerObjectAttribute(dict):
                  source: Optional[_builtins.str] = None):
         """
         The criteria that a specific object attribute must meet to trigger the destination.
+
         :param 'EventTriggerObjectAttributeComparisonOperator' comparison_operator: The operator used to compare an attribute against a list of values.
         :param Sequence[_builtins.str] values: A list of attribute values used for comparison.
         :param _builtins.str field_name: A field defined within an object type.
@@ -1459,6 +1480,7 @@ class EventTriggerPeriod(dict):
                  unlimited: Optional[_builtins.bool] = None):
         """
         Defines a limit and the time period during which it is enforced.
+
         :param 'EventTriggerPeriodUnit' unit: The unit of time.
         :param _builtins.int value: The amount of time of the specified unit.
         :param _builtins.int max_invocations_per_profile: The maximum allowed number of destination invocations per profile.
@@ -2423,6 +2445,7 @@ class ObjectTypeField(dict):
                  target: Optional[_builtins.str] = None):
         """
         Represents a field in a ProfileObjectType.
+
         :param 'ObjectTypeFieldContentType' content_type: The content type of the field. Used for determining equality when searching.
         :param _builtins.str source: A field of a ProfileObject. For example: _source.FirstName, where "_source" is a ProfileObjectType of a Zendesk user and "FirstName" is a field in that ObjectType.
         :param _builtins.str target: The location of the data in the standard ProfileObject model. For example: _profile.Address.PostalCode.
@@ -2536,6 +2559,7 @@ class ObjectTypeKey(dict):
                  standard_identifiers: Optional[Sequence['ObjectTypeKeyStandardIdentifiersItem']] = None):
         """
         An object that defines the Key element of a ProfileObject. A Key is a special element that can be used to search for a customer profile.
+
         :param Sequence[_builtins.str] field_names: The reference for the key name of the fields map. 
         :param Sequence['ObjectTypeKeyStandardIdentifiersItem'] standard_identifiers: The types of keys that a ProfileObject can have. Each ProfileObject can have only 1 UNIQUE key but multiple PROFILE keys. PROFILE means that this key can be used to tie an object to a PROFILE. UNIQUE means that it can be used to uniquely identify an object. If a key a is marked as SECONDARY, it will be used to search for profiles after all other PROFILE keys have been searched. A LOOKUP_ONLY key is only used to match a profile but is not persisted to be used for searching of the profile. A NEW_ONLY key is only used if the profile does not already exist before the object is ingested, otherwise it is only used for matching objects to profiles.
         """
@@ -2984,6 +3008,7 @@ class SegmentDefinitionGroup(dict):
                  type: Optional['SegmentDefinitionIncludeOptions'] = None):
         """
         An array that defines the set of segment criteria to evaluate when handling segment groups for the segment.
+
         :param Sequence[Union['SegmentDefinitionDimension0Properties', 'SegmentDefinitionDimension1Properties']] dimensions: Defines the attributes to segment on.
         :param Sequence['SegmentDefinitionSourceSegment'] source_segments: Defines the starting source of data.
         :param 'SegmentDefinitionIncludeOptions' source_type: Defines how to interact with the source data.
@@ -3368,6 +3393,7 @@ class SegmentDefinitionRangeOverride(dict):
                  end: Optional[_builtins.int] = None):
         """
         Defines the range to be applied to the calculated attribute definition.
+
         :param _builtins.int start: The starting point for this overridden range. Positive numbers indicate how many days in the past data should be included, and negative numbers indicate how many days in the future.
         :param 'SegmentDefinitionRangeOverrideUnit' unit: The unit to be applied to the range.
         :param _builtins.int end: The ending point for this overridden range. Positive numbers indicate how many days in the past data should be included, and negative numbers indicate how many days in the future.
@@ -3459,6 +3485,7 @@ class SegmentDefinitionSourceSegment(dict):
                  segment_definition_name: Optional[_builtins.str] = None):
         """
         The base segment to build the segment on.
+
         :param _builtins.str segment_definition_name: The name of the source segment.
         """
         if segment_definition_name is not None:

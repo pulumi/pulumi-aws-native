@@ -29,6 +29,7 @@ class EnabledControlArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a EnabledControl resource.
+
         :param pulumi.Input[_builtins.str] control_identifier: Arn of the control.
         :param pulumi.Input[_builtins.str] target_identifier: Arn for Organizational unit to which the control needs to be applied
         :param pulumi.Input[Sequence[pulumi.Input['EnabledControlParameterArgs']]] parameters: Parameters to configure the enabled control behavior.
@@ -128,6 +129,7 @@ class EnabledControl(pulumi.CustomResource):
 
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] control_identifier: Arn of the control.
@@ -167,6 +169,7 @@ class EnabledControl(pulumi.CustomResource):
             target_identifier="arn:aws:organizations::01234567890:ou/o-EXAMPLE/ou-zzxx-zzx0zzz2")
 
         ```
+
 
         :param str resource_name: The name of the resource.
         :param EnabledControlArgs args: The arguments to use to populate this resource's properties.

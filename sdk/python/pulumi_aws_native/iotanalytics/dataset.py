@@ -34,6 +34,7 @@ class DatasetArgs:
                  versioning_configuration: Optional[pulumi.Input['DatasetVersioningConfigurationArgs']] = None):
         """
         The set of arguments for constructing a Dataset resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['DatasetActionArgs']]] actions: The `DatasetAction` objects that automatically create the dataset contents.
         :param pulumi.Input[Sequence[pulumi.Input['DatasetContentDeliveryRuleArgs']]] content_delivery_rules: When dataset contents are created they are delivered to destinations specified here.
         :param pulumi.Input[_builtins.str] dataset_name: The name of the dataset.
@@ -304,6 +305,7 @@ class Dataset(pulumi.CustomResource):
 
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['DatasetActionArgs', 'DatasetActionArgsDict']]]] actions: The `DatasetAction` objects that automatically create the dataset contents.
@@ -451,6 +453,7 @@ class Dataset(pulumi.CustomResource):
             ])
 
         ```
+
 
         :param str resource_name: The name of the resource.
         :param DatasetArgs args: The arguments to use to populate this resource's properties.

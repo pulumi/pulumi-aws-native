@@ -41,6 +41,7 @@ class WorkspaceArgs:
                  vpc_configuration: Optional[pulumi.Input['WorkspaceVpcConfigurationArgs']] = None):
         """
         The set of arguments for constructing a Workspace resource.
+
         :param pulumi.Input['WorkspaceAccountAccessType'] account_access_type: Specifies whether the workspace can access AWS resources in this AWS account only, or whether it can also access AWS resources in other accounts in the same organization. If this is `ORGANIZATION` , the `OrganizationalUnits` parameter specifies which organizational units the workspace can access.
         :param pulumi.Input[Sequence[pulumi.Input['WorkspaceAuthenticationProviderTypes']]] authentication_providers: List of authentication providers to enable.
         :param pulumi.Input['WorkspacePermissionType'] permission_type: If this is `SERVICE_MANAGED` , and the workplace was created through the Amazon Managed Grafana console, then Amazon Managed Grafana automatically creates the IAM roles and provisions the permissions that the workspace needs to use AWS data sources and notification channels.
@@ -339,6 +340,7 @@ class Workspace(pulumi.CustomResource):
         """
         Definition of AWS::Grafana::Workspace Resource Type
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input['WorkspaceAccountAccessType'] account_access_type: Specifies whether the workspace can access AWS resources in this AWS account only, or whether it can also access AWS resources in other accounts in the same organization. If this is `ORGANIZATION` , the `OrganizationalUnits` parameter specifies which organizational units the workspace can access.
@@ -375,6 +377,7 @@ class Workspace(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of AWS::Grafana::Workspace Resource Type
+
 
         :param str resource_name: The name of the resource.
         :param WorkspaceArgs args: The arguments to use to populate this resource's properties.

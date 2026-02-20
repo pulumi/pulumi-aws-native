@@ -28,6 +28,7 @@ class TrafficMirrorTargetArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a TrafficMirrorTarget resource.
+
         :param pulumi.Input[_builtins.str] description: The description of the Traffic Mirror target.
         :param pulumi.Input[_builtins.str] gateway_load_balancer_endpoint_id: The ID of the Gateway Load Balancer endpoint.
         :param pulumi.Input[_builtins.str] network_interface_id: The network interface ID that is associated with the target.
@@ -121,6 +122,7 @@ class TrafficMirrorTarget(pulumi.CustomResource):
         """
         The description of the Traffic Mirror target.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: The description of the Traffic Mirror target.
@@ -137,6 +139,7 @@ class TrafficMirrorTarget(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The description of the Traffic Mirror target.
+
 
         :param str resource_name: The name of the resource.
         :param TrafficMirrorTargetArgs args: The arguments to use to populate this resource's properties.

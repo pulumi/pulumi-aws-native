@@ -30,6 +30,7 @@ class AllowListArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a AllowList resource.
+
         :param pulumi.Input['AllowListCriteriaArgs'] criteria: AllowList criteria.
         :param pulumi.Input[_builtins.str] description: Description of AllowList.
         :param pulumi.Input[_builtins.str] name: Name of AllowList.
@@ -106,6 +107,7 @@ class AllowList(pulumi.CustomResource):
         """
         Macie AllowList resource schema
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['AllowListCriteriaArgs', 'AllowListCriteriaArgsDict']] criteria: AllowList criteria.
@@ -121,6 +123,7 @@ class AllowList(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Macie AllowList resource schema
+
 
         :param str resource_name: The name of the resource.
         :param AllowListArgs args: The arguments to use to populate this resource's properties.

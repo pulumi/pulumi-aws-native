@@ -39,6 +39,7 @@ class DataSourceArgs:
                  vpc_connection_properties: Optional[pulumi.Input['DataSourceVpcConnectionPropertiesArgs']] = None):
         """
         The set of arguments for constructing a DataSource resource.
+
         :param pulumi.Input['DataSourceType'] type: The type of the data source. To return a list of all data sources, use `ListDataSources` .
                
                Use `AMAZON_ELASTICSEARCH` for Amazon OpenSearch Service.
@@ -275,6 +276,7 @@ class DataSource(pulumi.CustomResource):
         """
         Definition of the AWS::QuickSight::DataSource Resource Type.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['DataSourceParametersArgs', 'DataSourceParametersArgsDict']]]] alternate_data_source_parameters: <p>A set of alternate data source parameters that you want to share for the credentials
@@ -308,6 +310,7 @@ class DataSource(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of the AWS::QuickSight::DataSource Resource Type.
+
 
         :param str resource_name: The name of the resource.
         :param DataSourceArgs args: The arguments to use to populate this resource's properties.

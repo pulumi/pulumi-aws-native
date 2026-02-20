@@ -56,6 +56,7 @@ class ChannelIngestEndpoint(dict):
                  url: Optional[_builtins.str] = None):
         """
         <p>The ingest domain URL where the source stream should be sent.</p>
+
         :param _builtins.str id: <p>The system-generated unique identifier for the IngestEndpoint.</p>
         :param _builtins.str url: <p>The ingest domain URL where the source stream should be sent.</p>
         """
@@ -110,6 +111,7 @@ class ChannelInputSwitchConfiguration(dict):
                  preferred_input: Optional[_builtins.int] = None):
         """
         <p>The configuration for input switching based on the media quality confidence score (MQCS) as provided from AWS Elemental MediaLive.</p>
+
         :param _builtins.bool mqcs_input_switching: <p>When true, AWS Elemental MediaPackage performs input switching based on the MQCS. Default is true. This setting is valid only when <code>InputType</code> is <code>CMAF</code>.</p>
         :param _builtins.int preferred_input: For CMAF inputs, indicates which input MediaPackage should prefer when both inputs have equal MQCS scores. Select `1` to prefer the first ingest endpoint, or `2` to prefer the second ingest endpoint. If you don't specify a preferred input, MediaPackage uses its default switching behavior when MQCS scores are equal.
         """
@@ -161,6 +163,7 @@ class ChannelOutputHeaderConfiguration(dict):
                  publish_mqcs: Optional[_builtins.bool] = None):
         """
         <p>The settings for what common media server data (CMSD) headers AWS Elemental MediaPackage includes in responses to the CDN.</p>
+
         :param _builtins.bool publish_mqcs: <p>When true, AWS Elemental MediaPackage includes the MQCS in responses to the CDN. This setting is valid only when <code>InputType</code> is <code>CMAF</code>.</p>
         """
         if publish_mqcs is not None:
@@ -208,6 +211,7 @@ class OriginEndpointDashBaseUrl(dict):
                  service_location: Optional[_builtins.str] = None):
         """
         <p>The base URLs to use for retrieving segments. You can specify multiple locations and indicate the priority and weight for when each should be used, for use in mutli-CDN workflows.</p>
+
         :param _builtins.str url: <p>A source location for segments.</p>
         :param _builtins.int dvb_priority: <p>For use with DVB-DASH profiles only. The priority of this location for servings segments. The lower the number, the higher the priority.</p>
         :param _builtins.int dvb_weight: <p>For use with DVB-DASH profiles only. The weighting for source locations that have the same priority. </p>
@@ -284,6 +288,7 @@ class OriginEndpointDashDvbFontDownload(dict):
                  url: Optional[_builtins.str] = None):
         """
         <p>For use with DVB-DASH profiles only. The settings for font downloads that you want Elemental MediaPackage to pass through to the manifest.</p>
+
         :param _builtins.str font_family: <p>The <code>fontFamily</code> name for subtitles, as described in <a href="https://tech.ebu.ch/publications/tech3380">EBU-TT-D Subtitling Distribution Format</a>. </p>
         :param _builtins.str mime_type: <p>The <code>mimeType</code> of the resource that's at the font download URL.</p> <p>For information about font MIME types, see the <a href="https://dvb.org/wp-content/uploads/2021/06/A168r4_MPEG-DASH-Profile-for-Transport-of-ISO-BMFF-Based-DVB-Services_Draft-ts_103-285-v140_November_2021.pdf">MPEG-DASH Profile for Transport of ISO BMFF Based DVB Services over IP Based Networks</a> document. </p>
         :param _builtins.str url: <p>The URL for downloading fonts for subtitles.</p>
@@ -347,6 +352,7 @@ class OriginEndpointDashDvbMetricsReporting(dict):
                  probability: Optional[_builtins.int] = None):
         """
         <p>For use with DVB-DASH profiles only. The settings for error reporting from the playback device that you want Elemental MediaPackage to pass through to the manifest.</p>
+
         :param _builtins.str reporting_url: <p>The URL where playback devices send error reports.</p>
         :param _builtins.int probability: <p>The number of playback devices per 1000 that will send error reports to the reporting URL. This represents the probability that a playback device will be a reporting player for this session.</p>
         """
@@ -400,6 +406,7 @@ class OriginEndpointDashDvbSettings(dict):
                  font_download: Optional['outputs.OriginEndpointDashDvbFontDownload'] = None):
         """
         <p>For endpoints that use the DVB-DASH profile only. The font download and error reporting information that you want MediaPackage to pass through to the manifest.</p>
+
         :param Sequence['OriginEndpointDashDvbMetricsReporting'] error_metrics: <p>Playback device error reporting settings.</p>
         :param 'OriginEndpointDashDvbFontDownload' font_download: Subtitle font settings.
         """
@@ -495,6 +502,7 @@ class OriginEndpointDashManifestConfiguration(dict):
                  utc_timing: Optional['outputs.OriginEndpointDashUtcTiming'] = None):
         """
         <p>Retrieve the DASH manifest configuration.</p>
+
         :param _builtins.str manifest_name: <p>A short string that's appended to the endpoint URL. The manifest name creates a unique path to this endpoint. If you don't enter a value, MediaPackage uses the default manifest name, index. </p>
         :param Sequence['OriginEndpointDashBaseUrl'] base_urls: <p>The base URL to use for retrieving segments.</p>
         :param 'OriginEndpointDashCompactness' compactness: The layout of the DASH manifest that MediaPackage produces. `STANDARD` indicates a default manifest, which is compacted. `NONE` indicates a full manifest.
@@ -728,6 +736,7 @@ class OriginEndpointDashProgramInformation(dict):
                  title: Optional[_builtins.str] = None):
         """
         <p>Details about the content that you want MediaPackage to pass through in the manifest to the playback device.</p>
+
         :param _builtins.str copyright: <p>A copyright statement about the content.</p>
         :param _builtins.str language_code: <p>The language code for this manifest.</p>
         :param _builtins.str more_information_url: <p>An absolute URL that contains more information about this content.</p>
@@ -812,6 +821,7 @@ class OriginEndpointDashSubtitleConfiguration(dict):
                  ttml_configuration: Optional['outputs.OriginEndpointDashTtmlConfiguration'] = None):
         """
         <p>The configuration for DASH subtitles.</p>
+
         :param 'OriginEndpointDashTtmlConfiguration' ttml_configuration: Settings for TTML subtitles.
         """
         if ttml_configuration is not None:
@@ -852,6 +862,7 @@ class OriginEndpointDashTtmlConfiguration(dict):
                  ttml_profile: 'OriginEndpointDashTtmlProfile'):
         """
         <p>The settings for TTML subtitles.</p>
+
         :param 'OriginEndpointDashTtmlProfile' ttml_profile: The profile that MediaPackage uses when signaling subtitles in the manifest. `IMSC` is the default profile. `EBU-TT-D` produces subtitles that are compliant with the EBU-TT-D TTML profile. MediaPackage passes through subtitle styles to the manifest. For more information about EBU-TT-D subtitles, see [EBU-TT-D Subtitling Distribution Format](https://docs.aws.amazon.com/https://tech.ebu.ch/publications/tech3380) .
         """
         pulumi.set(__self__, "ttml_profile", ttml_profile)
@@ -894,6 +905,7 @@ class OriginEndpointDashUtcTiming(dict):
                  timing_source: Optional[_builtins.str] = None):
         """
         <p>Determines the type of UTC timing included in the DASH Media Presentation Description (MPD).</p>
+
         :param 'OriginEndpointDashUtcTimingMode' timing_mode: The UTC timing mode.
         :param _builtins.str timing_source: <p>The the method that the player uses to synchronize to coordinated universal time (UTC) wall clock time.</p>
         """
@@ -957,6 +969,7 @@ class OriginEndpointEncryption(dict):
                  key_rotation_interval_seconds: Optional[_builtins.int] = None):
         """
         <p>The parameters for encrypting content.</p>
+
         :param 'OriginEndpointEncryptionMethod' encryption_method: The encryption method to use.
         :param 'OriginEndpointSpekeKeyProvider' speke_key_provider: The SPEKE key provider to use for encryption.
         :param _builtins.bool cmaf_exclude_segment_drm_metadata: <p>Excludes SEIG and SGPD boxes from segment metadata in CMAF containers.</p> <p>When set to <code>true</code>, MediaPackage omits these DRM metadata boxes from CMAF segments, which can improve compatibility with certain devices and players that don't support these boxes.</p> <p>Important considerations:</p> <ul> <li> <p>This setting only affects CMAF container formats</p> </li> <li> <p>Key rotation can still be handled through media playlist signaling</p> </li> <li> <p>PSSH and TENC boxes remain unaffected</p> </li> <li> <p>Default behavior is preserved when this setting is disabled</p> </li> </ul> <p>Valid values: <code>true</code> | <code>false</code> </p> <p>Default: <code>false</code> </p>
@@ -1042,6 +1055,7 @@ class OriginEndpointEncryptionContractConfiguration(dict):
                  preset_speke20_video: 'OriginEndpointPresetSpeke20Video'):
         """
         <p>Configure one or more content encryption keys for your endpoints that use SPEKE Version 2.0. The encryption contract defines which content keys are used to encrypt the audio and video tracks in your stream. To configure the encryption contract, specify which audio and video encryption presets to use.</p>
+
         :param 'OriginEndpointPresetSpeke20Audio' preset_speke20_audio: A collection of audio encryption presets.
                
                Value description:
@@ -1143,6 +1157,7 @@ class OriginEndpointEncryptionMethod(dict):
                  ts_encryption_method: Optional['OriginEndpointTsEncryptionMethod'] = None):
         """
         <p>The encryption type.</p>
+
         :param 'OriginEndpointCmafEncryptionMethod' cmaf_encryption_method: The encryption method to use.
         :param 'OriginEndpointIsmEncryptionMethod' ism_encryption_method: The encryption method used for Microsoft Smooth Streaming (MSS) content. This specifies how the MSS segments are encrypted to protect the content during delivery to client players.
         :param 'OriginEndpointTsEncryptionMethod' ts_encryption_method: The encryption method to use.
@@ -1216,6 +1231,7 @@ class OriginEndpointFilterConfiguration(dict):
                  time_delay_seconds: Optional[_builtins.int] = None):
         """
         <p>Filter configuration includes settings for manifest filtering, start and end times, and time delay that apply to all of your egress requests for this manifest. </p>
+
         :param _builtins.str clip_start_time: <p>Optionally specify the clip start time for all of your manifest egress requests. When you include clip start time, note that you cannot use clip start time query parameters for this manifest's endpoint URL.</p>
         :param _builtins.str drm_settings: <p>Optionally specify one or more DRM settings for all of your manifest egress requests. When you include a DRM setting, note that you cannot use an identical DRM setting query parameter for this manifest's endpoint URL.</p>
         :param _builtins.str end: <p>Optionally specify the end time for all of your manifest egress requests. When you include end time, note that you cannot use end time query parameters for this manifest's endpoint URL.</p>
@@ -1311,6 +1327,7 @@ class OriginEndpointForceEndpointErrorConfiguration(dict):
                  endpoint_error_conditions: Optional[Sequence['OriginEndpointEndpointErrorCondition']] = None):
         """
         <p>The failover settings for the endpoint.</p>
+
         :param Sequence['OriginEndpointEndpointErrorCondition'] endpoint_error_conditions: <p>The failover conditions for the endpoint. The options are:</p> <ul> <li> <p> <code>STALE_MANIFEST</code> - The manifest stalled and there are no new segments or parts.</p> </li> <li> <p> <code>INCOMPLETE_MANIFEST</code> - There is a gap in the manifest.</p> </li> <li> <p> <code>MISSING_DRM_KEY</code> - Key rotation is enabled but we're unable to fetch the key for the current key period.</p> </li> <li> <p> <code>SLATE_INPUT</code> - The segments which contain slate content are considered to be missing content.</p> </li> </ul>
         """
         if endpoint_error_conditions is not None:
@@ -1373,6 +1390,7 @@ class OriginEndpointHlsManifestConfiguration(dict):
                  url_encode_child_manifest: Optional[_builtins.bool] = None):
         """
         <p>Retrieve the HTTP live streaming (HLS) manifest configuration.</p>
+
         :param _builtins.str manifest_name: <p>A short short string that's appended to the endpoint URL. The manifest name creates a unique path to this endpoint. If you don't enter a value, MediaPackage uses the default manifest name, index. MediaPackage automatically inserts the format extension, such as .m3u8. You can't use the same manifest name if you use HLS manifest and low-latency HLS manifest. The manifestName on the HLSManifest object overrides the manifestName you provided on the originEndpoint object.</p>
         :param _builtins.str child_manifest_name: <p>A short string that's appended to the endpoint URL. The child manifest name creates a unique path to this endpoint. If you don't enter a value, MediaPackage uses the default child manifest name, index_1. The manifestName on the HLSManifest object overrides the manifestName you provided on the originEndpoint object.</p>
         :param 'OriginEndpointFilterConfiguration' filter_configuration: Filter configuration includes settings for manifest filtering, start and end times, and time delay that apply to all of your egress requests for this manifest.
@@ -1522,6 +1540,7 @@ class OriginEndpointLowLatencyHlsManifestConfiguration(dict):
                  url_encode_child_manifest: Optional[_builtins.bool] = None):
         """
         <p>Retrieve the low-latency HTTP live streaming (HLS) manifest configuration.</p>
+
         :param _builtins.str manifest_name: <p>A short short string that's appended to the endpoint URL. The manifest name creates a unique path to this endpoint. If you don't enter a value, MediaPackage uses the default manifest name, index. MediaPackage automatically inserts the format extension, such as .m3u8. You can't use the same manifest name if you use HLS manifest and low-latency HLS manifest. The manifestName on the HLSManifest object overrides the manifestName you provided on the originEndpoint object.</p>
         :param _builtins.str child_manifest_name: <p>A short string that's appended to the endpoint URL. The child manifest name creates a unique path to this endpoint. If you don't enter a value, MediaPackage uses the default child manifest name, index_1. The manifestName on the HLSManifest object overrides the manifestName you provided on the originEndpoint object.</p>
         :param 'OriginEndpointFilterConfiguration' filter_configuration: Filter configuration includes settings for manifest filtering, start and end times, and time delay that apply to all of your egress requests for this manifest.
@@ -1658,6 +1677,7 @@ class OriginEndpointMssManifestConfiguration(dict):
                  manifest_window_seconds: Optional[_builtins.int] = None):
         """
         <p>Configuration details for a Microsoft Smooth Streaming (MSS) manifest associated with an origin endpoint. This includes all the settings and properties that define how the MSS content is packaged and delivered.</p>
+
         :param _builtins.str manifest_name: <p>The name of the MSS manifest. This name is appended to the origin endpoint URL to create the unique path for accessing this specific MSS manifest.</p>
         :param _builtins.int manifest_window_seconds: <p>The duration (in seconds) of the manifest window. This represents the total amount of content available in the manifest at any given time.</p>
         """
@@ -1773,6 +1793,7 @@ class OriginEndpointScte(dict):
                  scte_in_segments: Optional['OriginEndpointScteInSegments'] = None):
         """
         <p>The SCTE configuration.</p>
+
         :param Sequence['OriginEndpointScteFilter'] scte_filter: <p>The SCTE-35 message types that you want to be treated as ad markers in the output.</p>
         :param 'OriginEndpointScteInSegments' scte_in_segments: Controls whether SCTE-35 messages are included in segment files.
                
@@ -1834,6 +1855,7 @@ class OriginEndpointScteDash(dict):
                  ad_marker_dash: Optional['OriginEndpointAdMarkerDash'] = None):
         """
         <p>The SCTE configuration.</p>
+
         :param 'OriginEndpointAdMarkerDash' ad_marker_dash: Choose how ad markers are included in the packaged content. If you include ad markers in the content stream in your upstream encoders, then you need to inform MediaPackage what to do with the ad markers in the output.
                
                Value description:
@@ -1884,6 +1906,7 @@ class OriginEndpointScteHls(dict):
                  ad_marker_hls: Optional['OriginEndpointAdMarkerHls'] = None):
         """
         <p>The SCTE configuration.</p>
+
         :param 'OriginEndpointAdMarkerHls' ad_marker_hls: The SCTE-35 HLS ad-marker configuration.
         """
         if ad_marker_hls is not None:
@@ -1938,6 +1961,7 @@ class OriginEndpointSegment(dict):
                  ts_use_audio_rendition_group: Optional[_builtins.bool] = None):
         """
         <p>The segment configuration, including the segment name, duration, and other configuration values.</p>
+
         :param 'OriginEndpointEncryption' encryption: Whether to use encryption for the segment.
         :param _builtins.bool include_iframe_only_streams: <p>When selected, the stream set includes an additional I-frame only stream, along with the other tracks. If false, this extra stream is not included. MediaPackage generates an I-frame only stream from the first rendition in the manifest. The service inserts EXT-I-FRAMES-ONLY tags in the output manifest, and then generates and includes an I-frames only playlist in the stream. This playlist permits player functionality like fast forward and rewind.</p>
         :param 'OriginEndpointScte' scte: The SCTE-35 configuration associated with the segment.
@@ -2057,6 +2081,7 @@ class OriginEndpointSpekeKeyProvider(dict):
                  certificate_arn: Optional[_builtins.str] = None):
         """
         <p>The parameters for the SPEKE key provider.</p>
+
         :param Sequence['OriginEndpointDrmSystem'] drm_systems: <p>The DRM solution provider you're using to protect your content during distribution.</p>
         :param 'OriginEndpointEncryptionContractConfiguration' encryption_contract_configuration: The encryption contract configuration associated with the SPEKE key provider.
         :param _builtins.str resource_id: <p>The unique identifier for the content. The service sends this to the key server to identify the current endpoint. How unique you make this depends on how fine-grained you want access controls to be. The service does not permit you to use the same ID for two simultaneous encryption processes. The resource ID is also known as the content ID.</p> <p>The following example shows a resource ID: <code>MovieNight20171126093045</code> </p>
@@ -2148,6 +2173,7 @@ class OriginEndpointStartTag(dict):
                  precise: Optional[_builtins.bool] = None):
         """
         <p>To insert an EXT-X-START tag in your HLS playlist, specify a StartTag configuration object with a valid TimeOffset. When you do, you can also optionally specify whether to include a PRECISE value in the EXT-X-START tag.</p>
+
         :param _builtins.float time_offset: <p>Specify the value for TIME-OFFSET within your EXT-X-START tag. Enter a signed floating point value which, if positive, must be less than the configured manifest duration minus three times the configured segment target duration. If negative, the absolute value must be larger than three times the configured segment target duration, and the absolute value must be smaller than the configured manifest duration.</p>
         :param _builtins.bool precise: <p>Specify the value for PRECISE within your EXT-X-START tag. Leave blank, or choose false, to use the default value NO. Choose yes to use the value YES.</p>
         """

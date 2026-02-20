@@ -27,6 +27,7 @@ class ConnectionAliasArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]] = None):
         """
         The set of arguments for constructing a ConnectionAlias resource.
+
         :param pulumi.Input[_builtins.str] connection_string: The connection string specified for the connection alias. The connection string must be in the form of a fully qualified domain name (FQDN), such as `www.example.com` .
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]] tags: The tags to associate with the connection alias.
         """
@@ -71,6 +72,7 @@ class ConnectionAlias(pulumi.CustomResource):
         """
         Resource Type definition for AWS::WorkSpaces::ConnectionAlias
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] connection_string: The connection string specified for the connection alias. The connection string must be in the form of a fully qualified domain name (FQDN), such as `www.example.com` .
@@ -84,6 +86,7 @@ class ConnectionAlias(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::WorkSpaces::ConnectionAlias
+
 
         :param str resource_name: The name of the resource.
         :param ConnectionAliasArgs args: The arguments to use to populate this resource's properties.

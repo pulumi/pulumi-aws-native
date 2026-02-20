@@ -25,6 +25,7 @@ class ResourceAssociationArgs:
                  resource_type: pulumi.Input['ResourceAssociationResourceType']):
         """
         The set of arguments for constructing a ResourceAssociation resource.
+
         :param pulumi.Input[_builtins.str] application: The name or the Id of the Application.
         :param pulumi.Input[_builtins.str] resource: The name or the Id of the Resource.
         :param pulumi.Input['ResourceAssociationResourceType'] resource_type: The type of the CFN Resource for now it's enum CFN_STACK.
@@ -83,6 +84,7 @@ class ResourceAssociation(pulumi.CustomResource):
         """
         Resource Schema for AWS::ServiceCatalogAppRegistry::ResourceAssociation
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] application: The name or the Id of the Application.
@@ -97,6 +99,7 @@ class ResourceAssociation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Schema for AWS::ServiceCatalogAppRegistry::ResourceAssociation
+
 
         :param str resource_name: The name of the resource.
         :param ResourceAssociationArgs args: The arguments to use to populate this resource's properties.

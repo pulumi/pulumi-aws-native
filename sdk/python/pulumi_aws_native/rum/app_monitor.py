@@ -36,6 +36,7 @@ class AppMonitorArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a AppMonitor resource.
+
         :param pulumi.Input['AppMonitorConfigurationArgs'] app_monitor_configuration: A structure that contains much of the configuration data for the app monitor. If you are using Amazon Cognito for authorization, you must include this structure in your request, and it must include the ID of the Amazon Cognito identity pool to use for authorization. If you don't include `AppMonitorConfiguration` , you must set up your own authorization method. For more information, see [Authorize your application to send data to AWS](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-RUM-get-started-authorization.html) .
                
                If you omit this argument, the sample rate used for CloudWatch RUM is set to 10% of the user sessions.
@@ -225,6 +226,7 @@ class AppMonitor(pulumi.CustomResource):
         """
         Resource Type definition for AWS::RUM::AppMonitor
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['AppMonitorConfigurationArgs', 'AppMonitorConfigurationArgsDict']] app_monitor_configuration: A structure that contains much of the configuration data for the app monitor. If you are using Amazon Cognito for authorization, you must include this structure in your request, and it must include the ID of the Amazon Cognito identity pool to use for authorization. If you don't include `AppMonitorConfiguration` , you must set up your own authorization method. For more information, see [Authorize your application to send data to AWS](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-RUM-get-started-authorization.html) .
@@ -255,6 +257,7 @@ class AppMonitor(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::RUM::AppMonitor
+
 
         :param str resource_name: The name of the resource.
         :param AppMonitorArgs args: The arguments to use to populate this resource's properties.

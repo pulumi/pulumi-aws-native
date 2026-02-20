@@ -23,6 +23,7 @@ class GuardrailVersionArgs:
                  description: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a GuardrailVersion resource.
+
         :param pulumi.Input[_builtins.str] guardrail_identifier: Identifier (GuardrailId or GuardrailArn) for the guardrail
         :param pulumi.Input[_builtins.str] description: Description of the Guardrail version
         """
@@ -67,6 +68,7 @@ class GuardrailVersion(pulumi.CustomResource):
         """
         Definition of AWS::Bedrock::GuardrailVersion Resource Type
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: Description of the Guardrail version
@@ -80,6 +82,7 @@ class GuardrailVersion(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of AWS::Bedrock::GuardrailVersion Resource Type
+
 
         :param str resource_name: The name of the resource.
         :param GuardrailVersionArgs args: The arguments to use to populate this resource's properties.

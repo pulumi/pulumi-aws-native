@@ -35,6 +35,7 @@ class FuotaTaskArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a FuotaTask resource.
+
         :param pulumi.Input[_builtins.str] firmware_update_image: FUOTA task firmware update image binary S3 link
         :param pulumi.Input[_builtins.str] firmware_update_role: FUOTA task firmware IAM role for reading S3
         :param pulumi.Input['FuotaTaskLoRaWanArgs'] lo_ra_wan: FUOTA task LoRaWAN
@@ -205,6 +206,7 @@ class FuotaTask(pulumi.CustomResource):
         """
         Create and manage FUOTA tasks.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] associate_multicast_group: Multicast group to associate. Only for update request.
@@ -226,6 +228,7 @@ class FuotaTask(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Create and manage FUOTA tasks.
+
 
         :param str resource_name: The name of the resource.
         :param FuotaTaskArgs args: The arguments to use to populate this resource's properties.

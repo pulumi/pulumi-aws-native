@@ -34,6 +34,7 @@ class FolderArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Folder resource.
+
         :param pulumi.Input[_builtins.str] aws_account_id: The ID for the AWS account where you want to create the folder.
         :param pulumi.Input[_builtins.str] folder_id: The ID of the folder.
         :param pulumi.Input['FolderType'] folder_type: The type of folder it is.
@@ -179,6 +180,7 @@ class Folder(pulumi.CustomResource):
         """
         Definition of the AWS::QuickSight::Folder Resource Type.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] aws_account_id: The ID for the AWS account where you want to create the folder.
@@ -200,6 +202,7 @@ class Folder(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of the AWS::QuickSight::Folder Resource Type.
+
 
         :param str resource_name: The name of the resource.
         :param FolderArgs args: The arguments to use to populate this resource's properties.

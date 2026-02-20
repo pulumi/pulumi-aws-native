@@ -52,6 +52,7 @@ class ModelPackageArgs:
                  validation_specification: Optional[pulumi.Input['ModelPackageValidationSpecificationArgs']] = None):
         """
         The set of arguments for constructing a ModelPackage resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['ModelPackageAdditionalInferenceSpecificationDefinitionArgs']]] additional_inference_specifications: An array of additional Inference Specification objects.
         :param pulumi.Input[Sequence[pulumi.Input['ModelPackageAdditionalInferenceSpecificationDefinitionArgs']]] additional_inference_specifications_to_add: An array of additional Inference Specification objects to be added to the existing array. The total number of additional Inference Specification objects cannot exceed 15. Each additional Inference Specification object specifies artifacts based on this model package that can be used on inference endpoints. Generally used with SageMaker Neo to store the compiled artifacts.
         :param pulumi.Input[_builtins.str] approval_description: A description provided when the model approval is set.
@@ -491,6 +492,7 @@ class ModelPackage(pulumi.CustomResource):
         """
         Resource Type definition for AWS::SageMaker::ModelPackage
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ModelPackageAdditionalInferenceSpecificationDefinitionArgs', 'ModelPackageAdditionalInferenceSpecificationDefinitionArgsDict']]]] additional_inference_specifications: An array of additional Inference Specification objects.
@@ -534,6 +536,7 @@ class ModelPackage(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::SageMaker::ModelPackage
+
 
         :param str resource_name: The name of the resource.
         :param ModelPackageArgs args: The arguments to use to populate this resource's properties.

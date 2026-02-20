@@ -77,6 +77,7 @@ class DataCellsFilterColumnWildcardArgs:
                  excluded_column_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         An object representing the Data Cells Filter's Columns. Either Column Names or a Wildcard is required.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] excluded_column_names: A list of column names to be excluded from the Data Cells Filter.
         """
         if excluded_column_names is not None:
@@ -115,6 +116,7 @@ class DataCellsFilterRowFilterArgs:
                  filter_expression: Optional[pulumi.Input[_builtins.str]] = None):
         """
         An object representing the Data Cells Filter's Row Filter. Either a Filter Expression or a Wildcard is required.
+
         :param Any all_rows_wildcard: An empty object representing a row wildcard.
         :param pulumi.Input[_builtins.str] filter_expression: A PartiQL predicate.
         """
@@ -172,6 +174,7 @@ class PrincipalPermissionsColumnWildcardArgs:
                  excluded_column_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         A wildcard object, consisting of an optional list of excluded column names or indexes.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] excluded_column_names: Excludes column names. Any column with this name will be excluded.
         """
         if excluded_column_names is not None:
@@ -220,6 +223,7 @@ class PrincipalPermissionsDataCellsFilterResourceArgs:
                  table_name: pulumi.Input[_builtins.str]):
         """
         A structure that describes certain columns on certain rows.
+
         :param pulumi.Input[_builtins.str] database_name: A database in the GLUDC.
         :param pulumi.Input[_builtins.str] name: The name given by the user to the data filter cell.
         :param pulumi.Input[_builtins.str] table_catalog_id: The ID of the catalog to which the table belongs.
@@ -294,6 +298,7 @@ class PrincipalPermissionsDataLakePrincipalArgs:
                  data_lake_principal_identifier: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The LFlong principal.
+
         :param pulumi.Input[_builtins.str] data_lake_principal_identifier: An identifier for the LFlong principal.
         """
         if data_lake_principal_identifier is not None:
@@ -332,6 +337,7 @@ class PrincipalPermissionsDataLocationResourceArgs:
                  resource_arn: pulumi.Input[_builtins.str]):
         """
         A structure for a data location object where permissions are granted or revoked.
+
         :param pulumi.Input[_builtins.str] catalog_id: The identifier for the GLUDC where the location is registered with LFlong.
         :param pulumi.Input[_builtins.str] resource_arn: The Amazon Resource Name (ARN) that uniquely identifies the data location resource.
         """
@@ -383,6 +389,7 @@ class PrincipalPermissionsDatabaseResourceArgs:
                  name: pulumi.Input[_builtins.str]):
         """
         A structure for the database object.
+
         :param pulumi.Input[_builtins.str] catalog_id: The identifier for the Data Catalog. By default, it is the account ID of the caller.
         :param pulumi.Input[_builtins.str] name: The name of the database resource. Unique to the Data Catalog.
         """
@@ -439,6 +446,7 @@ class PrincipalPermissionsLfTagKeyResourceArgs:
                  tag_values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
         """
         A structure containing an LF-tag key and values for a resource.
+
         :param pulumi.Input[_builtins.str] catalog_id: The identifier for the GLUDC where the location is registered with GLUDC.
         :param pulumi.Input[_builtins.str] tag_key: The key-name for the LF-tag.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] tag_values: A list of possible values for the corresponding ``TagKey`` of an LF-tag key-value pair.
@@ -511,6 +519,7 @@ class PrincipalPermissionsLfTagPolicyResourceArgs:
         """
         A list of LF-tag conditions that define a resource's LF-tag policy.
          A structure that allows an admin to grant user permissions on certain conditions. For example, granting a role access to all columns that do not have the LF-tag 'PII' in tables that have the LF-tag 'Prod'.
+
         :param pulumi.Input[_builtins.str] catalog_id: The identifier for the GLUDC. The GLUDC is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your LFlong environment.
         :param pulumi.Input[Sequence[pulumi.Input['PrincipalPermissionsLfTagArgs']]] expression: A list of LF-tag conditions that apply to the resource's LF-tag policy.
         :param pulumi.Input['PrincipalPermissionsResourceType'] resource_type: The resource type for which the LF-tag policy applies.
@@ -576,6 +585,7 @@ class PrincipalPermissionsLfTagArgs:
                  tag_values: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The LF-tag key and values attached to a resource.
+
         :param pulumi.Input[_builtins.str] tag_key: The key-name for the LF-tag.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] tag_values: A list of possible values of the corresponding ``TagKey`` of an LF-tag key-value pair.
         """
@@ -659,6 +669,7 @@ class PrincipalPermissionsResourceArgs:
                  table_with_columns: Optional[pulumi.Input['PrincipalPermissionsTableWithColumnsResourceArgs']] = None):
         """
         A structure for the resource.
+
         :param pulumi.Input['PrincipalPermissionsCatalogResourceArgs'] catalog: The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your LFlong environment.
         :param pulumi.Input['PrincipalPermissionsDataCellsFilterResourceArgs'] data_cells_filter: A data cell filter.
         :param pulumi.Input['PrincipalPermissionsDataLocationResourceArgs'] data_location: The location of an Amazon S3 path where permissions are granted or revoked.
@@ -813,6 +824,7 @@ class PrincipalPermissionsTableResourceArgs:
                  table_wildcard: Optional[pulumi.Input['PrincipalPermissionsTableWildcardArgs']] = None):
         """
         A structure for the table object. A table is a metadata definition that represents your data. You can Grant and Revoke table privileges to a principal.
+
         :param pulumi.Input[_builtins.str] catalog_id: The identifier for the Data Catalog. By default, it is the account ID of the caller.
         :param pulumi.Input[_builtins.str] database_name: The name of the database for the table. Unique to a Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database privileges to a principal.
         :param pulumi.Input[_builtins.str] name: The name of the table.
@@ -922,6 +934,7 @@ class PrincipalPermissionsTableWithColumnsResourceArgs:
         """
         A structure for a table with columns object. This object is only used when granting a SELECT permission.
          This object must take a value for at least one of ``ColumnsNames``, ``ColumnsIndexes``, or ``ColumnsWildcard``.
+
         :param pulumi.Input[_builtins.str] catalog_id: The identifier for the GLUDC where the location is registered with LFlong.
         :param pulumi.Input[_builtins.str] database_name: The name of the database for the table with columns resource. Unique to the Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database privileges to a principal.
         :param pulumi.Input[_builtins.str] name: The name of the table resource. A table is a metadata definition that represents your data. You can Grant and Revoke table privileges to a principal.

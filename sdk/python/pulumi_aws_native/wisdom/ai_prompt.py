@@ -33,6 +33,7 @@ class AiPromptArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a AiPrompt resource.
+
         :param pulumi.Input['AiPromptAiPromptApiFormat'] api_format: The API format used for this AI Prompt.
         :param pulumi.Input[_builtins.str] model_id: The identifier of the model used for this AI Prompt. The following model Ids are supported:
                
@@ -221,6 +222,7 @@ class AiPrompt(pulumi.CustomResource):
         """
         Definition of AWS::Wisdom::AIPrompt Resource Type
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input['AiPromptAiPromptApiFormat'] api_format: The API format used for this AI Prompt.
@@ -259,6 +261,7 @@ class AiPrompt(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of AWS::Wisdom::AIPrompt Resource Type
+
 
         :param str resource_name: The name of the resource.
         :param AiPromptArgs args: The arguments to use to populate this resource's properties.

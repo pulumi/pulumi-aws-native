@@ -30,6 +30,7 @@ class NetworkArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Network resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['NetworkIpPoolArgs']]] ip_pools: The list of IP address cidr pools for the network
         :param pulumi.Input[_builtins.str] name: The user-specified name of the Network to be created.
         :param pulumi.Input[Sequence[pulumi.Input['NetworkRouteArgs']]] routes: The routes for the network
@@ -106,6 +107,7 @@ class Network(pulumi.CustomResource):
         """
         Resource schema for AWS::MediaLive::Network.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['NetworkIpPoolArgs', 'NetworkIpPoolArgsDict']]]] ip_pools: The list of IP address cidr pools for the network
@@ -121,6 +123,7 @@ class Network(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource schema for AWS::MediaLive::Network.
+
 
         :param str resource_name: The name of the resource.
         :param NetworkArgs args: The arguments to use to populate this resource's properties.

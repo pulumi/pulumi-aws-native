@@ -37,6 +37,7 @@ class DataSourceArgs:
                  schedule: Optional[pulumi.Input['DataSourceScheduleConfigurationArgs']] = None):
         """
         The set of arguments for constructing a DataSource resource.
+
         :param pulumi.Input[_builtins.str] domain_identifier: The ID of the Amazon DataZone domain where the data source is created.
         :param pulumi.Input[_builtins.str] project_identifier: The identifier of the Amazon DataZone project in which you want to add the data source.
         :param pulumi.Input[_builtins.str] type: The type of the data source.
@@ -255,6 +256,7 @@ class DataSource(pulumi.CustomResource):
         """
         A data source is used to import technical metadata of assets (data) from the source databases or data warehouses into Amazon DataZone.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['DataSourceFormInputArgs', 'DataSourceFormInputArgsDict']]]] asset_forms_input: The metadata forms that are to be attached to the assets that this data source works with.
@@ -279,6 +281,7 @@ class DataSource(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A data source is used to import technical metadata of assets (data) from the source databases or data warehouses into Amazon DataZone.
+
 
         :param str resource_name: The name of the resource.
         :param DataSourceArgs args: The arguments to use to populate this resource's properties.

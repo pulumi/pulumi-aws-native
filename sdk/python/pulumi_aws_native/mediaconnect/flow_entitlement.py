@@ -31,6 +31,7 @@ class FlowEntitlementArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a FlowEntitlement resource.
+
         :param pulumi.Input[_builtins.str] description: A description of the entitlement.
         :param pulumi.Input[_builtins.str] flow_arn: The ARN of the flow.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subscribers: The AWS account IDs that you want to share your content with. The receiving accounts (subscribers) will be allowed to create their own flow using your content as the source.
@@ -153,6 +154,7 @@ class FlowEntitlement(pulumi.CustomResource):
         """
         Resource schema for AWS::MediaConnect::FlowEntitlement
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.int] data_transfer_subscriber_fee_percent: Percentage from 0-100 of the data transfer cost to be billed to the subscriber.
@@ -171,6 +173,7 @@ class FlowEntitlement(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource schema for AWS::MediaConnect::FlowEntitlement
+
 
         :param str resource_name: The name of the resource.
         :param FlowEntitlementArgs args: The arguments to use to populate this resource's properties.

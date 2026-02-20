@@ -25,6 +25,7 @@ class ConfigurationSetEventDestinationArgs:
                  event_destination: pulumi.Input['ConfigurationSetEventDestinationEventDestinationArgs']):
         """
         The set of arguments for constructing a ConfigurationSetEventDestination resource.
+
         :param pulumi.Input[_builtins.str] configuration_set_name: The name of the configuration set that contains the event destination.
         :param pulumi.Input['ConfigurationSetEventDestinationEventDestinationArgs'] event_destination: The event destination object.
         """
@@ -68,6 +69,7 @@ class ConfigurationSetEventDestination(pulumi.CustomResource):
         """
         Resource Type definition for AWS::SES::ConfigurationSetEventDestination
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] configuration_set_name: The name of the configuration set that contains the event destination.
@@ -81,6 +83,7 @@ class ConfigurationSetEventDestination(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::SES::ConfigurationSetEventDestination
+
 
         :param str resource_name: The name of the resource.
         :param ConfigurationSetEventDestinationArgs args: The arguments to use to populate this resource's properties.

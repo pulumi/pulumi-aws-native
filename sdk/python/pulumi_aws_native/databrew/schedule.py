@@ -27,6 +27,7 @@ class ScheduleArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Schedule resource.
+
         :param pulumi.Input[_builtins.str] cron_expression: Schedule cron
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] job_names: A list of jobs to be run, according to the schedule.
         :param pulumi.Input[_builtins.str] name: Schedule Name
@@ -121,6 +122,7 @@ class Schedule(pulumi.CustomResource):
 
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] cron_expression: Schedule cron
@@ -154,6 +156,7 @@ class Schedule(pulumi.CustomResource):
             }])
 
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ScheduleArgs args: The arguments to use to populate this resource's properties.

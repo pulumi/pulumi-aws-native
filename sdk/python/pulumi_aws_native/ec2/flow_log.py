@@ -38,6 +38,7 @@ class FlowLogArgs:
                  traffic_type: Optional[pulumi.Input['FlowLogTrafficType']] = None):
         """
         The set of arguments for constructing a FlowLog resource.
+
         :param pulumi.Input[_builtins.str] resource_id: The ID of the subnet, network interface, or VPC for which you want to create a flow log.
         :param pulumi.Input['FlowLogResourceType'] resource_type: The type of resource for which to create the flow log. For example, if you specified a VPC ID for the ResourceId property, specify VPC for this property.
         :param pulumi.Input[_builtins.str] deliver_cross_account_role: The ARN of the IAM role that allows Amazon EC2 to publish flow logs across accounts.
@@ -241,6 +242,7 @@ class FlowLog(pulumi.CustomResource):
         """
         Specifies a VPC flow log, which enables you to capture IP traffic for a specific network interface, subnet, or VPC.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] deliver_cross_account_role: The ARN of the IAM role that allows Amazon EC2 to publish flow logs across accounts.
@@ -264,6 +266,7 @@ class FlowLog(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Specifies a VPC flow log, which enables you to capture IP traffic for a specific network interface, subnet, or VPC.
+
 
         :param str resource_name: The name of the resource.
         :param FlowLogArgs args: The arguments to use to populate this resource's properties.

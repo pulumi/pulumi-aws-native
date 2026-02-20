@@ -32,6 +32,7 @@ class WirelessGatewayArgs:
                  thing_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a WirelessGateway resource.
+
         :param pulumi.Input['WirelessGatewayLoRaWanGatewayArgs'] lo_ra_wan: The combination of Package, Station and Model which represents the version of the LoRaWAN Wireless Gateway.
         :param pulumi.Input[_builtins.str] description: Description of Wireless Gateway.
         :param pulumi.Input[_builtins.str] last_uplink_received_at: The date and time when the most recent uplink was received.
@@ -156,6 +157,7 @@ class WirelessGateway(pulumi.CustomResource):
         """
         Create and manage wireless gateways, including LoRa gateways.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: Description of Wireless Gateway.
@@ -174,6 +176,7 @@ class WirelessGateway(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Create and manage wireless gateways, including LoRa gateways.
+
 
         :param str resource_name: The name of the resource.
         :param WirelessGatewayArgs args: The arguments to use to populate this resource's properties.

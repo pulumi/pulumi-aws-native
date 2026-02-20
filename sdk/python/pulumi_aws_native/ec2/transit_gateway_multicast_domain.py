@@ -28,6 +28,7 @@ class TransitGatewayMulticastDomainArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a TransitGatewayMulticastDomain resource.
+
         :param pulumi.Input[_builtins.str] transit_gateway_id: The ID of the transit gateway.
         :param pulumi.Input['OptionsPropertiesArgs'] options: The options for the transit gateway multicast domain.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags for the transit gateway multicast domain.
@@ -88,6 +89,7 @@ class TransitGatewayMulticastDomain(pulumi.CustomResource):
         """
         The AWS::EC2::TransitGatewayMulticastDomain type
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['OptionsPropertiesArgs', 'OptionsPropertiesArgsDict']] options: The options for the transit gateway multicast domain.
@@ -102,6 +104,7 @@ class TransitGatewayMulticastDomain(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The AWS::EC2::TransitGatewayMulticastDomain type
+
 
         :param str resource_name: The name of the resource.
         :param TransitGatewayMulticastDomainArgs args: The arguments to use to populate this resource's properties.

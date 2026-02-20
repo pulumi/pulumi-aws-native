@@ -38,6 +38,7 @@ class DocumentClassifierArgs:
                  vpc_config: Optional[pulumi.Input['DocumentClassifierVpcConfigArgs']] = None):
         """
         The set of arguments for constructing a DocumentClassifier resource.
+
         :param pulumi.Input[_builtins.str] data_access_role_arn: The Amazon Resource Name (ARN) of the IAM role that grants Amazon Comprehend read access to your input data.
         :param pulumi.Input['DocumentClassifierInputDataConfigArgs'] input_data_config: Specifies the format and location of the input data for the job.
         :param pulumi.Input['DocumentClassifierLanguageCode'] language_code: The language of the input documents. You can specify any of the languages supported by Amazon Comprehend. All documents must be in the same language.
@@ -268,6 +269,7 @@ class DocumentClassifier(pulumi.CustomResource):
         """
         Document Classifier enables training document classifier models.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] data_access_role_arn: The Amazon Resource Name (ARN) of the IAM role that grants Amazon Comprehend read access to your input data.
@@ -305,6 +307,7 @@ class DocumentClassifier(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Document Classifier enables training document classifier models.
+
 
         :param str resource_name: The name of the resource.
         :param DocumentClassifierArgs args: The arguments to use to populate this resource's properties.

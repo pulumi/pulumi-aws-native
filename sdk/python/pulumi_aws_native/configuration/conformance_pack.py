@@ -30,6 +30,7 @@ class ConformancePackArgs:
                  template_ssm_document_details: Optional[pulumi.Input['TemplateSsmDocumentDetailsPropertiesArgs']] = None):
         """
         The set of arguments for constructing a ConformancePack resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['ConformancePackInputParameterArgs']]] conformance_pack_input_parameters: A list of ConformancePackInputParameter objects.
         :param pulumi.Input[_builtins.str] conformance_pack_name: Name of the conformance pack which will be assigned as the unique identifier.
         :param pulumi.Input[_builtins.str] delivery_s3_bucket: AWS Config stores intermediate files while processing conformance pack template.
@@ -181,6 +182,7 @@ class ConformancePack(pulumi.CustomResource):
 
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ConformancePackInputParameterArgs', 'ConformancePackInputParameterArgsDict']]]] conformance_pack_input_parameters: A list of ConformancePackInputParameter objects.
@@ -225,6 +227,7 @@ class ConformancePack(pulumi.CustomResource):
             template_s3_uri="s3://bucketname/prefix")
 
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ConformancePackArgs args: The arguments to use to populate this resource's properties.

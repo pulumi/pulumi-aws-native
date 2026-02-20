@@ -27,6 +27,7 @@ class RuleGroupsNamespaceArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a RuleGroupsNamespace resource.
+
         :param pulumi.Input[_builtins.str] data: The RuleGroupsNamespace data.
         :param pulumi.Input[_builtins.str] workspace: Required to identify a specific APS Workspace associated with this RuleGroupsNamespace.
         :param pulumi.Input[_builtins.str] name: The RuleGroupsNamespace name.
@@ -102,6 +103,7 @@ class RuleGroupsNamespace(pulumi.CustomResource):
         """
         RuleGroupsNamespace schema for cloudformation.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] data: The RuleGroupsNamespace data.
@@ -117,6 +119,7 @@ class RuleGroupsNamespace(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         RuleGroupsNamespace schema for cloudformation.
+
 
         :param str resource_name: The name of the resource.
         :param RuleGroupsNamespaceArgs args: The arguments to use to populate this resource's properties.

@@ -30,6 +30,7 @@ class FormTypeArgs:
                  status: Optional[pulumi.Input['FormTypeStatus']] = None):
         """
         The set of arguments for constructing a FormType resource.
+
         :param pulumi.Input[_builtins.str] domain_identifier: The ID of the Amazon DataZone domain in which this metadata form type is created.
         :param pulumi.Input['FormTypeModelArgs'] model: The model of this Amazon DataZone metadata form type.
         :param pulumi.Input[_builtins.str] owning_project_identifier: The ID of the Amazon DataZone project that owns this metadata form type.
@@ -136,6 +137,7 @@ class FormType(pulumi.CustomResource):
         """
         Create and manage form types in Amazon Datazone
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: The description of this Amazon DataZone metadata form type.
@@ -153,6 +155,7 @@ class FormType(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Create and manage form types in Amazon Datazone
+
 
         :param str resource_name: The name of the resource.
         :param FormTypeArgs args: The arguments to use to populate this resource's properties.

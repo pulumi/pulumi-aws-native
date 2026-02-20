@@ -27,6 +27,7 @@ class InstanceSnapshotArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a InstanceSnapshot resource.
+
         :param pulumi.Input[_builtins.str] instance_name: The instance from which the snapshot was created.
         :param pulumi.Input[_builtins.str] instance_snapshot_name: The name of the snapshot.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
@@ -87,6 +88,7 @@ class InstanceSnapshot(pulumi.CustomResource):
         """
         Resource Type definition for AWS::Lightsail::InstanceSnapshot
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] instance_name: The instance from which the snapshot was created.
@@ -101,6 +103,7 @@ class InstanceSnapshot(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::Lightsail::InstanceSnapshot
+
 
         :param str resource_name: The name of the resource.
         :param InstanceSnapshotArgs args: The arguments to use to populate this resource's properties.

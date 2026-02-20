@@ -32,6 +32,7 @@ class RecordingConfigurationArgs:
                  thumbnail_configuration: Optional[pulumi.Input['RecordingConfigurationThumbnailConfigurationArgs']] = None):
         """
         The set of arguments for constructing a RecordingConfiguration resource.
+
         :param pulumi.Input['RecordingConfigurationDestinationConfigurationArgs'] destination_configuration: A destination configuration describes an S3 bucket where recorded video will be stored. See the DestinationConfiguration property type for more information.
         :param pulumi.Input[_builtins.str] name: Recording Configuration Name.
         :param pulumi.Input[_builtins.int] recording_reconnect_window_seconds: Recording Reconnect Window Seconds. (0 means disabled)
@@ -140,6 +141,7 @@ class RecordingConfiguration(pulumi.CustomResource):
         """
         Resource Type definition for AWS::IVS::RecordingConfiguration
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['RecordingConfigurationDestinationConfigurationArgs', 'RecordingConfigurationDestinationConfigurationArgsDict']] destination_configuration: A destination configuration describes an S3 bucket where recorded video will be stored. See the DestinationConfiguration property type for more information.
@@ -157,6 +159,7 @@ class RecordingConfiguration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::IVS::RecordingConfiguration
+
 
         :param str resource_name: The name of the resource.
         :param RecordingConfigurationArgs args: The arguments to use to populate this resource's properties.

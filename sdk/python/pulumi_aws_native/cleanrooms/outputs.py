@@ -2874,6 +2874,7 @@ class ParametersProperties(dict):
                  users_noise_per_query: Optional[_builtins.int] = None):
         """
         Specifies the epsilon and noise parameters for the privacy budget template.
+
         :param _builtins.int epsilon: The epsilon value that you want to use.
         :param _builtins.int users_noise_per_query: Noise added per query is measured in terms of the number of users whose contributions you want to obscure. This value governs the rate at which the privacy budget is depleted.
         """

@@ -87,6 +87,7 @@ class AccessPointObjectLambdaConfigurationArgs:
                  cloud_watch_metrics_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Configuration to be applied to this Object lambda Access Point. It specifies Supporting Access Point, Transformation Configurations. Customers can also set if they like to enable Cloudwatch metrics for accesses to this Object lambda Access Point. Default setting for Cloudwatch metrics is disable.
+
         :param pulumi.Input[_builtins.str] supporting_access_point: Standard access point associated with the Object Lambda Access Point.
         :param pulumi.Input[Sequence[pulumi.Input['AccessPointTransformationConfigurationArgs']]] transformation_configurations: A container for transformation configurations for an Object Lambda Access Point.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_features: A container for allowed features. Valid inputs are `GetObject-Range` , `GetObject-PartNumber` , `HeadObject-Range` , and `HeadObject-PartNumber` .
@@ -193,6 +194,7 @@ class AccessPointTransformationConfigurationArgs:
                  content_transformation: pulumi.Input['AccessPointTransformationConfigurationContentTransformationPropertiesArgs']):
         """
         Configuration to define what content transformation will be applied on which S3 Action.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] actions: A container for the action of an Object Lambda Access Point configuration. Valid inputs are `GetObject` , `HeadObject` , `ListObject` , and `ListObjectV2` .
         :param pulumi.Input['AccessPointTransformationConfigurationContentTransformationPropertiesArgs'] content_transformation: A container for the content transformation of an Object Lambda Access Point configuration. Can include the FunctionArn and FunctionPayload. For more information, see [AwsLambdaTransformation](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_AwsLambdaTransformation.html) in the *Amazon S3 API Reference* .
         """

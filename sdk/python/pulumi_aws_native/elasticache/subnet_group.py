@@ -27,6 +27,7 @@ class SubnetGroupArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a SubnetGroup resource.
+
         :param pulumi.Input[_builtins.str] description: The description for the cache subnet group.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: The EC2 subnet IDs for the cache subnet group.
         :param pulumi.Input[_builtins.str] cache_subnet_group_name: The name for the cache subnet group. This value is stored as a lowercase string.
@@ -102,6 +103,7 @@ class SubnetGroup(pulumi.CustomResource):
         """
         Resource Type definition for AWS::ElastiCache::SubnetGroup
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] cache_subnet_group_name: The name for the cache subnet group. This value is stored as a lowercase string.
@@ -117,6 +119,7 @@ class SubnetGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::ElastiCache::SubnetGroup
+
 
         :param str resource_name: The name of the resource.
         :param SubnetGroupArgs args: The arguments to use to populate this resource's properties.

@@ -34,6 +34,7 @@ class MatchingWorkflowArgs:
                  workflow_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a MatchingWorkflow resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['MatchingWorkflowInputSourceArgs']]] input_source_config: A list of `InputSource` objects, which have the fields `InputSourceARN` and `SchemaName` .
         :param pulumi.Input[Sequence[pulumi.Input['MatchingWorkflowOutputSourceArgs']]] output_source_config: A list of `OutputSource` objects, each of which contains fields `outputS3Path` , `applyNormalization` , `KMSArn` , and `output` .
         :param pulumi.Input['MatchingWorkflowResolutionTechniquesArgs'] resolution_techniques: An object which defines the `resolutionType` and the `ruleBasedProperties` .
@@ -175,6 +176,7 @@ class MatchingWorkflow(pulumi.CustomResource):
         """
         MatchingWorkflow defined in AWS Entity Resolution service
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: The description of the MatchingWorkflow
@@ -196,6 +198,7 @@ class MatchingWorkflow(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         MatchingWorkflow defined in AWS Entity Resolution service
+
 
         :param str resource_name: The name of the resource.
         :param MatchingWorkflowArgs args: The arguments to use to populate this resource's properties.

@@ -29,6 +29,7 @@ class RouteResponseArgs:
                  response_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['RouteResponseParameterConstraintsArgs']]]] = None):
         """
         The set of arguments for constructing a RouteResponse resource.
+
         :param pulumi.Input[_builtins.str] api_id: The API identifier.
         :param pulumi.Input[_builtins.str] route_id: The route ID.
         :param pulumi.Input[_builtins.str] route_response_key: The route response key.
@@ -139,6 +140,7 @@ class RouteResponse(pulumi.CustomResource):
         """
         The ``AWS::ApiGatewayV2::RouteResponse`` resource creates a route response for a WebSocket API. For more information, see [Set up Route Responses for a WebSocket API in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-route-response.html) in the *API Gateway Developer Guide*.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] api_id: The API identifier.
@@ -158,6 +160,7 @@ class RouteResponse(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The ``AWS::ApiGatewayV2::RouteResponse`` resource creates a route response for a WebSocket API. For more information, see [Set up Route Responses for a WebSocket API in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-route-response.html) in the *API Gateway Developer Guide*.
+
 
         :param str resource_name: The name of the resource.
         :param RouteResponseArgs args: The arguments to use to populate this resource's properties.

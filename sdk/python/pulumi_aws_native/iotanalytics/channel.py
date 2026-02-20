@@ -29,6 +29,7 @@ class ChannelArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Channel resource.
+
         :param pulumi.Input[_builtins.str] channel_name: The name of the channel.
         :param pulumi.Input['ChannelStorageArgs'] channel_storage: Where channel data is stored.
         :param pulumi.Input['ChannelRetentionPeriodArgs'] retention_period: How long, in days, message data is kept for the channel.
@@ -178,6 +179,7 @@ class Channel(pulumi.CustomResource):
 
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] channel_name: The name of the channel.
@@ -263,6 +265,7 @@ class Channel(pulumi.CustomResource):
             ])
 
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ChannelArgs args: The arguments to use to populate this resource's properties.

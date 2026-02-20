@@ -36,6 +36,7 @@ class IndexArgs:
                  user_token_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['IndexUserTokenConfigurationArgs']]]] = None):
         """
         The set of arguments for constructing a Index resource.
+
         :param pulumi.Input['IndexEdition'] edition: Indicates whether the index is a Enterprise Edition index, a Developer Edition index, or a GenAI Enterprise Edition index.
         :param pulumi.Input[_builtins.str] role_arn: An IAM role that gives Amazon Kendra permissions to access your Amazon CloudWatch logs and metrics. This is also the role used when you use the [BatchPutDocument](https://docs.aws.amazon.com/kendra/latest/dg/BatchPutDocument.html) operation to index documents from an Amazon S3 bucket.
         :param pulumi.Input['IndexCapacityUnitsConfigurationArgs'] capacity_units: Capacity units
@@ -223,6 +224,7 @@ class Index(pulumi.CustomResource):
         """
         A Kendra index
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['IndexCapacityUnitsConfigurationArgs', 'IndexCapacityUnitsConfigurationArgsDict']] capacity_units: Capacity units
@@ -252,6 +254,7 @@ class Index(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A Kendra index
+
 
         :param str resource_name: The name of the resource.
         :param IndexArgs args: The arguments to use to populate this resource's properties.

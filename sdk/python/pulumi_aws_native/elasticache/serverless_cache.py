@@ -42,6 +42,7 @@ class ServerlessCacheArgs:
                  user_group_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ServerlessCache resource.
+
         :param pulumi.Input[_builtins.str] engine: The engine name of the Serverless Cache.
         :param pulumi.Input['ServerlessCacheCacheUsageLimitsArgs'] cache_usage_limits: The cache usage limit for the serverless cache.
         :param pulumi.Input[_builtins.str] daily_snapshot_time: The daily time range (in UTC) during which the service takes automatic snapshot of the Serverless Cache.
@@ -310,6 +311,7 @@ class ServerlessCache(pulumi.CustomResource):
         """
         The AWS::ElastiCache::ServerlessCache resource creates an Amazon ElastiCache Serverless Cache.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ServerlessCacheCacheUsageLimitsArgs', 'ServerlessCacheCacheUsageLimitsArgsDict']] cache_usage_limits: The cache usage limit for the serverless cache.
@@ -337,6 +339,7 @@ class ServerlessCache(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The AWS::ElastiCache::ServerlessCache resource creates an Amazon ElastiCache Serverless Cache.
+
 
         :param str resource_name: The name of the resource.
         :param ServerlessCacheArgs args: The arguments to use to populate this resource's properties.

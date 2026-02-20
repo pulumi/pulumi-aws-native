@@ -25,6 +25,7 @@ class SchemaVersionInitArgs:
                  schema_definition: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a SchemaVersion resource.
+
         :param pulumi.Input['SchemaVersionSchemaArgs'] schema: The schema that includes the schema version.
         :param pulumi.Input[_builtins.str] schema_definition: Complete definition of the schema in plain-text.
         """
@@ -68,6 +69,7 @@ class SchemaVersion(pulumi.CustomResource):
         """
         This resource represents an individual schema version of a schema defined in Glue Schema Registry.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['SchemaVersionSchemaArgs', 'SchemaVersionSchemaArgsDict']] schema: The schema that includes the schema version.
@@ -81,6 +83,7 @@ class SchemaVersion(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         This resource represents an individual schema version of a schema defined in Glue Schema Registry.
+
 
         :param str resource_name: The name of the resource.
         :param SchemaVersionInitArgs args: The arguments to use to populate this resource's properties.

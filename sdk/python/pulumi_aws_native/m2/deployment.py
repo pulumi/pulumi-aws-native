@@ -24,6 +24,7 @@ class DeploymentArgs:
                  environment_id: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a Deployment resource.
+
         :param pulumi.Input[_builtins.str] application_id: The application ID.
         :param pulumi.Input[_builtins.int] application_version: The version number of the application to deploy
         :param pulumi.Input[_builtins.str] environment_id: The environment ID.
@@ -82,6 +83,7 @@ class Deployment(pulumi.CustomResource):
         """
         Represents a deployment resource of an AWS Mainframe Modernization (M2) application to a specified environment
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] application_id: The application ID.
@@ -96,6 +98,7 @@ class Deployment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Represents a deployment resource of an AWS Mainframe Modernization (M2) application to a specified environment
+
 
         :param str resource_name: The name of the resource.
         :param DeploymentArgs args: The arguments to use to populate this resource's properties.

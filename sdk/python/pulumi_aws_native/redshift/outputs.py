@@ -232,6 +232,7 @@ class EndpointAccessNetworkInterface(dict):
                  subnet_id: Optional[_builtins.str] = None):
         """
         Describes a network interface.
+
         :param _builtins.str availability_zone: The Availability Zone.
         :param _builtins.str network_interface_id: The network interface identifier.
         :param _builtins.str private_ip_address: The IPv4 address of the network interface within the subnet.
@@ -306,6 +307,7 @@ class EndpointAccessVpcSecurityGroup(dict):
                  vpc_security_group_id: Optional[_builtins.str] = None):
         """
         Describes the members of a VPC security group.
+
         :param _builtins.str status: The status of the VPC security group.
         :param _builtins.str vpc_security_group_id: The identifier of the VPC security group.
         """
@@ -369,6 +371,7 @@ class VpcEndpointProperties(dict):
                  vpc_id: Optional[_builtins.str] = None):
         """
         The connection endpoint for connecting to an Amazon Redshift cluster through the proxy.
+
         :param Sequence['EndpointAccessNetworkInterface'] network_interfaces: One or more network interfaces of the endpoint. Also known as an interface endpoint.
         :param _builtins.str vpc_endpoint_id: The connection endpoint ID for connecting an Amazon Redshift cluster through the proxy.
         :param _builtins.str vpc_id: The VPC identifier that the endpoint is associated.

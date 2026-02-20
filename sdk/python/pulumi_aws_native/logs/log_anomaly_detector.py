@@ -29,6 +29,7 @@ class LogAnomalyDetectorArgs:
                  log_group_arn_list: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a LogAnomalyDetector resource.
+
         :param pulumi.Input[_builtins.str] account_id: Account ID for owner of detector
         :param pulumi.Input[_builtins.float] anomaly_visibility_time: The number of days to have visibility on an anomaly. After this time period has elapsed for an anomaly, it will be automatically baselined and the anomaly detector will treat new occurrences of a similar anomaly as normal. Therefore, if you do not correct the cause of an anomaly during the time period specified in `AnomalyVisibilityTime` , it will be considered normal going forward and will not be detected as an anomaly.
         :param pulumi.Input[_builtins.str] detector_name: Name of detector
@@ -154,6 +155,7 @@ class LogAnomalyDetector(pulumi.CustomResource):
         """
         The AWS::Logs::LogAnomalyDetector resource specifies a CloudWatch Logs LogAnomalyDetector.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_id: Account ID for owner of detector
@@ -172,6 +174,7 @@ class LogAnomalyDetector(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The AWS::Logs::LogAnomalyDetector resource specifies a CloudWatch Logs LogAnomalyDetector.
+
 
         :param str resource_name: The name of the resource.
         :param LogAnomalyDetectorArgs args: The arguments to use to populate this resource's properties.

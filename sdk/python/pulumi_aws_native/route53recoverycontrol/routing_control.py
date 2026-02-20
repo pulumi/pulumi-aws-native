@@ -25,6 +25,7 @@ class RoutingControlArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a RoutingControl resource.
+
         :param pulumi.Input[_builtins.str] cluster_arn: Arn associated with Control Panel
         :param pulumi.Input[_builtins.str] control_panel_arn: The Amazon Resource Name (ARN) of the control panel.
         :param pulumi.Input[_builtins.str] name: The name of the routing control. You can use any non-white space character in the name.
@@ -86,6 +87,7 @@ class RoutingControl(pulumi.CustomResource):
         """
         AWS Route53 Recovery Control Routing Control resource schema .
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] cluster_arn: Arn associated with Control Panel
@@ -100,6 +102,7 @@ class RoutingControl(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         AWS Route53 Recovery Control Routing Control resource schema .
+
 
         :param str resource_name: The name of the resource.
         :param RoutingControlArgs args: The arguments to use to populate this resource's properties.

@@ -29,6 +29,7 @@ class GroupArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Group resource.
+
         :param pulumi.Input[_builtins.str] filter_expression: The filter expression defining criteria by which to group traces.
         :param pulumi.Input[_builtins.str] group_name: The case-sensitive name of the new group. Names must be unique.
         :param pulumi.Input['GroupInsightsConfigurationArgs'] insights_configuration: The structure containing configurations related to insights.
@@ -144,6 +145,7 @@ class Group(pulumi.CustomResource):
 
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] filter_expression: The filter expression defining criteria by which to group traces.
@@ -194,6 +196,7 @@ class Group(pulumi.CustomResource):
             })
 
         ```
+
 
         :param str resource_name: The name of the resource.
         :param GroupArgs args: The arguments to use to populate this resource's properties.

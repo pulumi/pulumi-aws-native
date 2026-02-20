@@ -25,6 +25,7 @@ class CidrCollectionArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a CidrCollection resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['CidrCollectionLocationArgs']]] locations: A complex type that contains information about the list of CIDR locations.
         :param pulumi.Input[_builtins.str] name: A unique name for the CIDR collection.
         """
@@ -70,6 +71,7 @@ class CidrCollection(pulumi.CustomResource):
         """
         Resource Type definition for AWS::Route53::CidrCollection.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['CidrCollectionLocationArgs', 'CidrCollectionLocationArgsDict']]]] locations: A complex type that contains information about the list of CIDR locations.
@@ -83,6 +85,7 @@ class CidrCollection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::Route53::CidrCollection.
+
 
         :param str resource_name: The name of the resource.
         :param CidrCollectionArgs args: The arguments to use to populate this resource's properties.

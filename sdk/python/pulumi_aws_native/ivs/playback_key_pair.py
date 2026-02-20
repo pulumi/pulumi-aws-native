@@ -26,6 +26,7 @@ class PlaybackKeyPairArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a PlaybackKeyPair resource.
+
         :param pulumi.Input[_builtins.str] name: An arbitrary string (a nickname) assigned to a playback key pair that helps the customer identify that resource. The value does not need to be unique.
         :param pulumi.Input[_builtins.str] public_key_material: The public portion of a customer-generated key pair. This field is required to create the AWS::IVS::PlaybackKeyPair resource.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A list of key-value pairs that contain metadata for the asset model.
@@ -133,6 +134,7 @@ class PlaybackKeyPair(pulumi.CustomResource):
 
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: An arbitrary string (a nickname) assigned to a playback key pair that helps the customer identify that resource. The value does not need to be unique.
@@ -193,6 +195,7 @@ class PlaybackKeyPair(pulumi.CustomResource):
         pulumi.export("playbackKeyPairFingerprint", playback_key_pair.fingerprint)
 
         ```
+
 
         :param str resource_name: The name of the resource.
         :param PlaybackKeyPairArgs args: The arguments to use to populate this resource's properties.

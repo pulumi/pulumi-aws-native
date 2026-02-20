@@ -59,6 +59,7 @@ class ReplicationSetRegionConfiguration(dict):
                  sse_kms_key_id: _builtins.str):
         """
         The ReplicationSet regional configuration.
+
         :param _builtins.str sse_kms_key_id: The AWS Key Management Service key ID or Key Alias to use to encrypt your replication set.
         """
         pulumi.set(__self__, "sse_kms_key_id", sse_kms_key_id)
@@ -144,6 +145,7 @@ class ResponsePlanAction(dict):
                  ssm_automation: Optional['outputs.ResponsePlanSsmAutomation'] = None):
         """
         The automation configuration to launch.
+
         :param 'ResponsePlanSsmAutomation' ssm_automation: Details about the Systems Manager automation document that will be used as a runbook during an incident.
         """
         if ssm_automation is not None:
@@ -184,6 +186,7 @@ class ResponsePlanChatChannel(dict):
                  chatbot_sns: Optional[Sequence[_builtins.str]] = None):
         """
         The chat channel configuration.
+
         :param Sequence[_builtins.str] chatbot_sns: The Amazon  targets that  uses to notify the chat channel of updates to an incident. You can also make updates to the incident through the chat channel by using the Amazon  topics
         """
         if chatbot_sns is not None:
@@ -208,6 +211,7 @@ class ResponsePlanDynamicSsmParameter(dict):
                  value: 'outputs.ResponsePlanDynamicSsmParameterValue'):
         """
         A parameter with a dynamic value to set when starting the SSM automation document.
+
         :param _builtins.str key: The key parameter to use when running the Systems Manager Automation runbook.
         :param 'ResponsePlanDynamicSsmParameterValue' value: The dynamic parameter value.
         """
@@ -240,6 +244,7 @@ class ResponsePlanDynamicSsmParameterValue(dict):
                  variable: Optional['ResponsePlanVariableType'] = None):
         """
         Value of the dynamic parameter to set when starting the SSM automation document.
+
         :param 'ResponsePlanVariableType' variable: Variable dynamic parameters. A parameter value is determined when an incident is created.
         """
         if variable is not None:
@@ -289,6 +294,7 @@ class ResponsePlanIncidentTemplate(dict):
                  summary: Optional[_builtins.str] = None):
         """
         The incident template configuration.
+
         :param _builtins.int impact: The impact value.
         :param _builtins.str title: The title string.
         :param _builtins.str dedupe_string: The deduplication string.
@@ -418,6 +424,7 @@ class ResponsePlanNotificationTargetItem(dict):
                  sns_topic_arn: Optional[_builtins.str] = None):
         """
         A notification target.
+
         :param _builtins.str sns_topic_arn: The Amazon Resource Name (ARN) of the Amazon  topic.
         """
         if sns_topic_arn is not None:
@@ -462,6 +469,7 @@ class ResponsePlanPagerDutyConfiguration(dict):
                  secret_id: _builtins.str):
         """
         The pagerDuty configuration to use when starting the incident.
+
         :param _builtins.str name: The name of the pagerDuty configuration.
         :param 'ResponsePlanPagerDutyIncidentConfiguration' pager_duty_incident_configuration: Details about the PagerDuty service associated with the configuration.
         :param _builtins.str secret_id: The AWS secrets manager secretId storing the pagerDuty token.
@@ -521,6 +529,7 @@ class ResponsePlanPagerDutyIncidentConfiguration(dict):
                  service_id: _builtins.str):
         """
         The pagerDuty incident configuration.
+
         :param _builtins.str service_id: The pagerDuty serviceId.
         """
         pulumi.set(__self__, "service_id", service_id)
@@ -573,6 +582,7 @@ class ResponsePlanSsmAutomation(dict):
                  target_account: Optional['ResponsePlanSsmAutomationTargetAccount'] = None):
         """
         The configuration to use when starting the SSM automation document.
+
         :param _builtins.str document_name: The document name to use when starting the SSM automation document.
         :param _builtins.str role_arn: The role ARN to use when starting the SSM automation document.
         :param _builtins.str document_version: The version of the document to use when starting the SSM automation document.
@@ -650,6 +660,7 @@ class ResponsePlanSsmParameter(dict):
                  values: Sequence[_builtins.str]):
         """
         A parameter to set when starting the SSM automation document.
+
         :param _builtins.str key: The key parameter to use when running the Automation runbook.
         :param Sequence[_builtins.str] values: The value parameter to use when running the Automation runbook.
         """
@@ -683,6 +694,7 @@ class ResponsePlanTag(dict):
                  value: _builtins.str):
         """
         A key-value pair to tag a resource.
+
         :param _builtins.str key: The tag key.
         :param _builtins.str value: The tag value.
         """

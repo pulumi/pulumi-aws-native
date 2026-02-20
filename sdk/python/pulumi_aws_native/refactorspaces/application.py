@@ -32,6 +32,7 @@ class ApplicationArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Application resource.
+
         :param pulumi.Input[_builtins.str] environment_identifier: The unique identifier of the environment.
         :param pulumi.Input['ApplicationProxyType'] proxy_type: The proxy type of the proxy created within the application.
         :param pulumi.Input[_builtins.str] vpc_id: The ID of the virtual private cloud (VPC).
@@ -138,6 +139,7 @@ class Application(pulumi.CustomResource):
         """
         Definition of AWS::RefactorSpaces::Application Resource Type
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ApplicationApiGatewayProxyInputArgs', 'ApplicationApiGatewayProxyInputArgsDict']] api_gateway_proxy: The endpoint URL of the Amazon API Gateway proxy.
@@ -155,6 +157,7 @@ class Application(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of AWS::RefactorSpaces::Application Resource Type
+
 
         :param str resource_name: The name of the resource.
         :param ApplicationArgs args: The arguments to use to populate this resource's properties.

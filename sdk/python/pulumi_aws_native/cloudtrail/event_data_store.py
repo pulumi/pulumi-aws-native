@@ -42,6 +42,7 @@ class EventDataStoreArgs:
                  termination_protection_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a EventDataStore resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['EventDataStoreAdvancedEventSelectorArgs']]] advanced_event_selectors: The advanced event selectors that were used to select events for the data store.
         :param pulumi.Input[_builtins.str] billing_mode: The mode that the event data store will use to charge for event storage.
         :param pulumi.Input[Sequence[pulumi.Input['EventDataStoreContextKeySelectorArgs']]] context_key_selectors: An array that enriches event records in an existing event data store by including additional information specified in individual ContexKeySelector entries. If you add ContextKeySelectors, you must set MaxEventSize to Large.
@@ -311,6 +312,7 @@ class EventDataStore(pulumi.CustomResource):
         """
         A storage lake of event data against which you can run complex SQL-based queries. An event data store can include events that you have logged on your account from the last 7 to 2557 or 3653 days (about seven or ten years) depending on the selected BillingMode.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['EventDataStoreAdvancedEventSelectorArgs', 'EventDataStoreAdvancedEventSelectorArgsDict']]]] advanced_event_selectors: The advanced event selectors that were used to select events for the data store.
@@ -338,6 +340,7 @@ class EventDataStore(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A storage lake of event data against which you can run complex SQL-based queries. An event data store can include events that you have logged on your account from the last 7 to 2557 or 3653 days (about seven or ten years) depending on the selected BillingMode.
+
 
         :param str resource_name: The name of the resource.
         :param EventDataStoreArgs args: The arguments to use to populate this resource's properties.

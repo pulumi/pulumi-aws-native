@@ -36,6 +36,7 @@ class Ec2FleetArgs:
                  valid_until: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Ec2Fleet resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['Ec2FleetFleetLaunchTemplateConfigRequestArgs']]] launch_template_configs: The configuration for the EC2 Fleet.
         :param pulumi.Input['Ec2FleetTargetCapacitySpecificationRequestArgs'] target_capacity_specification: The number of units to request.
         :param pulumi.Input[_builtins.str] context: Reserved.
@@ -263,6 +264,7 @@ class Ec2Fleet(pulumi.CustomResource):
         """
         Resource Type definition for AWS::EC2::EC2Fleet
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] context: Reserved.
@@ -298,6 +300,7 @@ class Ec2Fleet(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::EC2::EC2Fleet
+
 
         :param str resource_name: The name of the resource.
         :param Ec2FleetArgs args: The arguments to use to populate this resource's properties.

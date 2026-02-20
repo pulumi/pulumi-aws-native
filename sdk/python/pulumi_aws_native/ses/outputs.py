@@ -150,6 +150,7 @@ class ConfigurationSetArchivingOptions(dict):
                  archive_arn: Optional[_builtins.str] = None):
         """
         An object that defines a MailManager archive that is used to preserve emails that you send using the configuration set.
+
         :param _builtins.str archive_arn: The ARN of the MailManager archive to associate with the configuration set.
         """
         if archive_arn is not None:
@@ -190,6 +191,7 @@ class ConfigurationSetDashboardOptions(dict):
                  engagement_metrics: _builtins.str):
         """
         Preferences regarding the Dashboard feature.
+
         :param _builtins.str engagement_metrics: Whether emails sent with this configuration set have engagement tracking enabled.
         """
         pulumi.set(__self__, "engagement_metrics", engagement_metrics)
@@ -235,6 +237,7 @@ class ConfigurationSetDeliveryOptions(dict):
                  tls_policy: Optional[_builtins.str] = None):
         """
         An object that defines the dedicated IP pool that is used to send emails that you send using the configuration set.
+
         :param _builtins.float max_delivery_seconds: Specifies the maximum time until which SES will retry sending emails
         :param _builtins.str sending_pool_name: The name of the dedicated IP pool to associate with the configuration set.
         :param _builtins.str tls_policy: Specifies whether messages that use the configuration set are required to use Transport Layer Security (TLS). If the value is Require , messages are only delivered if a TLS connection can be established. If the value is Optional , messages can be delivered in plain text if a TLS connection can't be established.
@@ -297,6 +300,7 @@ class ConfigurationSetEventDestinationCloudWatchDestination(dict):
                  dimension_configurations: Optional[Sequence['outputs.ConfigurationSetEventDestinationDimensionConfiguration']] = None):
         """
         An object that contains the names, default values, and sources of the dimensions associated with an Amazon CloudWatch event destination.
+
         :param Sequence['ConfigurationSetEventDestinationDimensionConfiguration'] dimension_configurations: A list of dimensions upon which to categorize your emails when you publish email sending events to Amazon CloudWatch.
         """
         if dimension_configurations is not None:
@@ -343,6 +347,7 @@ class ConfigurationSetEventDestinationDimensionConfiguration(dict):
                  dimension_value_source: _builtins.str):
         """
         A list of dimensions upon which to categorize your emails when you publish email sending events to Amazon CloudWatch.
+
         :param _builtins.str default_dimension_value: The default value of the dimension that is published to Amazon CloudWatch if you do not provide the value of the dimension when you send an email.
         :param _builtins.str dimension_name: The name of an Amazon CloudWatch dimension associated with an email sending metric.
         :param _builtins.str dimension_value_source: The place where Amazon SES finds the value of a dimension to publish to Amazon CloudWatch. To use the message tags that you specify using an X-SES-MESSAGE-TAGS header or a parameter to the SendEmail/SendRawEmail API, specify messageTag. To use your own email headers, specify emailHeader. To put a custom tag on any link included in your email, specify linkTag.
@@ -402,6 +407,7 @@ class ConfigurationSetEventDestinationEventBridgeDestination(dict):
                  event_bus_arn: _builtins.str):
         """
         An object that contains Event bus ARN associated with the event bridge destination.
+
         :param _builtins.str event_bus_arn: The Amazon Resource Name (ARN) of the Amazon EventBridge bus to publish email events to. Only the default bus is supported.
         """
         pulumi.set(__self__, "event_bus_arn", event_bus_arn)
@@ -559,6 +565,7 @@ class ConfigurationSetEventDestinationKinesisFirehoseDestination(dict):
                  iam_role_arn: _builtins.str):
         """
         An object that contains the delivery stream ARN and the IAM role ARN associated with an Amazon Kinesis Firehose event destination.
+
         :param _builtins.str delivery_stream_arn: The ARN of the Amazon Kinesis Firehose stream that email sending events should be published to.
         :param _builtins.str iam_role_arn: The ARN of the IAM role under which Amazon SES publishes email sending events to the Amazon Kinesis Firehose stream.
         """
@@ -608,6 +615,7 @@ class ConfigurationSetEventDestinationSnsDestination(dict):
                  topic_arn: _builtins.str):
         """
         An object that contains SNS topic ARN associated event destination.
+
         :param _builtins.str topic_arn: The ARN of the Amazon SNS topic for email sending events. You can find the ARN of a topic by using the [ListTopics](https://docs.aws.amazon.com/sns/latest/api/API_ListTopics.html) Amazon SNS operation.
                
                For more information about Amazon SNS topics, see the [Amazon SNS Developer Guide](https://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html) .
@@ -651,6 +659,7 @@ class ConfigurationSetGuardianOptions(dict):
                  optimized_shared_delivery: _builtins.str):
         """
         Preferences regarding the Guardian feature.
+
         :param _builtins.str optimized_shared_delivery: Whether emails sent with this configuration set have optimized delivery algorithm enabled.
         """
         pulumi.set(__self__, "optimized_shared_delivery", optimized_shared_delivery)
@@ -690,6 +699,7 @@ class ConfigurationSetReputationOptions(dict):
                  reputation_metrics_enabled: Optional[_builtins.bool] = None):
         """
         An object that defines whether or not Amazon SES collects reputation metrics for the emails that you send that use the configuration set.
+
         :param _builtins.bool reputation_metrics_enabled: If true , tracking of reputation metrics is enabled for the configuration set. If false , tracking of reputation metrics is disabled for the configuration set.
         """
         if reputation_metrics_enabled is not None:
@@ -730,6 +740,7 @@ class ConfigurationSetSendingOptions(dict):
                  sending_enabled: Optional[_builtins.bool] = None):
         """
         An object that defines whether or not Amazon SES can send email that you send using the configuration set.
+
         :param _builtins.bool sending_enabled: If `true` , email sending is enabled for the configuration set. If `false` , email sending is disabled for the configuration set.
         """
         if sending_enabled is not None:
@@ -773,6 +784,7 @@ class ConfigurationSetSuppressionOptions(dict):
                  validation_options: Optional['outputs.ConfigurationSetSuppressionOptionsValidationOptionsProperties'] = None):
         """
         An object that contains information about the suppression list preferences for your account.
+
         :param Sequence[_builtins.str] suppressed_reasons: A list that contains the reasons that email addresses are automatically added to the suppression list for your account.
         :param 'ConfigurationSetSuppressionOptionsValidationOptionsProperties' validation_options: An object that contains information about the validation options for your account.
         """
@@ -824,6 +836,7 @@ class ConfigurationSetSuppressionOptionsValidationOptionsProperties(dict):
                  condition_threshold: 'outputs.ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdProperties'):
         """
         An object that contains information about the validation options for your account.
+
         :param 'ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdProperties' condition_threshold: The condition threshold settings for suppression validation.
         """
         pulumi.set(__self__, "condition_threshold", condition_threshold)
@@ -866,6 +879,7 @@ class ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThre
                  overall_confidence_threshold: Optional['outputs.ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesOverallConfidenceThresholdProperties'] = None):
         """
         The condition threshold settings for suppression validation.
+
         :param _builtins.str condition_threshold_enabled: Whether the condition threshold is enabled or disabled.
         :param 'ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesOverallConfidenceThresholdProperties' overall_confidence_threshold: The overall confidence threshold settings.
         """
@@ -916,6 +930,7 @@ class ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThre
                  confidence_verdict_threshold: _builtins.str):
         """
         The overall confidence threshold settings.
+
         :param _builtins.str confidence_verdict_threshold: The confidence verdict threshold level.
         """
         pulumi.set(__self__, "confidence_verdict_threshold", confidence_verdict_threshold)
@@ -958,6 +973,7 @@ class ConfigurationSetTrackingOptions(dict):
                  https_policy: Optional[_builtins.str] = None):
         """
         An object that defines the open and click tracking options for emails that you send using the configuration set.
+
         :param _builtins.str custom_redirect_domain: The domain to use for tracking open and click events.
         :param _builtins.str https_policy: The https policy to use for tracking open and click events.
         """
@@ -1012,6 +1028,7 @@ class ConfigurationSetVdmOptions(dict):
                  guardian_options: Optional['outputs.ConfigurationSetGuardianOptions'] = None):
         """
         An object that contains Virtual Deliverability Manager (VDM) settings for this configuration set.
+
         :param 'ConfigurationSetDashboardOptions' dashboard_options: Specifies additional settings for your VDM configuration as applicable to the Dashboard.
         :param 'ConfigurationSetGuardianOptions' guardian_options: Specifies additional settings for your VDM configuration as applicable to the Guardian.
         """
@@ -1136,6 +1153,7 @@ class EmailIdentityConfigurationSetAttributes(dict):
                  configuration_set_name: Optional[_builtins.str] = None):
         """
         Used to associate a configuration set with an email identity.
+
         :param _builtins.str configuration_set_name: The configuration set to use by default when sending from this identity. Note that any configuration set defined in the email sending request takes precedence.
         """
         if configuration_set_name is not None:
@@ -1176,6 +1194,7 @@ class EmailIdentityDkimAttributes(dict):
                  signing_enabled: Optional[_builtins.bool] = None):
         """
         Used to enable or disable DKIM authentication for an email identity.
+
         :param _builtins.bool signing_enabled: Sets the DKIM signing configuration for the identity. When you set this value true, then the messages that are sent from the identity are signed using DKIM. If you set this value to false, your messages are sent without DKIM signing.
         """
         if signing_enabled is not None:
@@ -1222,6 +1241,7 @@ class EmailIdentityDkimSigningAttributes(dict):
                  next_signing_key_length: Optional[_builtins.str] = None):
         """
         If your request includes this object, Amazon SES configures the identity to use Bring Your Own DKIM (BYODKIM) for DKIM authentication purposes, or, configures the key length to be used for Easy DKIM.
+
         :param _builtins.str domain_signing_private_key: [Bring Your Own DKIM] A private key that's used to generate a DKIM signature. The private key must use 1024 or 2048-bit RSA encryption, and must be encoded using base64 encoding.
         :param _builtins.str domain_signing_selector: [Bring Your Own DKIM] A string that's used to identify a public key in the DNS configuration for a domain.
         :param _builtins.str next_signing_key_length: [Easy DKIM] The key length of the future DKIM key pair to be generated. This can be changed at most once per day.
@@ -1284,6 +1304,7 @@ class EmailIdentityFeedbackAttributes(dict):
                  email_forwarding_enabled: Optional[_builtins.bool] = None):
         """
         Used to enable or disable feedback forwarding for an identity.
+
         :param _builtins.bool email_forwarding_enabled: If the value is true, you receive email notifications when bounce or complaint events occur
         """
         if email_forwarding_enabled is not None:
@@ -1327,6 +1348,7 @@ class EmailIdentityMailFromAttributes(dict):
                  mail_from_domain: Optional[_builtins.str] = None):
         """
         Used to enable or disable the custom Mail-From domain configuration for an email identity.
+
         :param _builtins.str behavior_on_mx_failure: The action to take if the required MX record isn't found when you send an email. When you set this value to UseDefaultValue , the mail is sent using amazonses.com as the MAIL FROM domain. When you set this value to RejectMessage , the Amazon SES API v2 returns a MailFromDomainNotVerified error, and doesn't attempt to deliver the email.
         :param _builtins.str mail_from_domain: The custom MAIL FROM domain that you want the verified identity to use
         """
@@ -3371,6 +3393,7 @@ class MultiRegionEndpointDetails(dict):
                  route_details: Sequence['outputs.MultiRegionEndpointRouteDetailsItemProperties']):
         """
         Contains details of a multi-region endpoint (global-endpoint) being created.
+
         :param Sequence['MultiRegionEndpointRouteDetailsItemProperties'] route_details: A list of route configuration details. Must contain exactly one route configuration.
         """
         pulumi.set(__self__, "route_details", route_details)
@@ -3431,6 +3454,7 @@ class Template(dict):
                  text_part: Optional[_builtins.str] = None):
         """
         The content of the email, composed of a subject line, an HTML part, and a text-only part
+
         :param _builtins.str subject_part: The subject line of the email.
         :param _builtins.str html_part: The HTML body of the email.
         :param _builtins.str template_name: The name of the template.
@@ -3503,6 +3527,7 @@ class TenantResourceAssociation(dict):
                  resource_arn: _builtins.str):
         """
         The resource to associate with the tenant
+
         :param _builtins.str resource_arn: The ARN of the resource to associate with the tenant
         """
         pulumi.set(__self__, "resource_arn", resource_arn)
@@ -3542,6 +3567,7 @@ class VdmAttributesDashboardAttributes(dict):
                  engagement_metrics: Optional[_builtins.str] = None):
         """
         Preferences regarding the Dashboard feature.
+
         :param _builtins.str engagement_metrics: Whether emails sent from this account have engagement tracking enabled.
         """
         if engagement_metrics is not None:
@@ -3582,6 +3608,7 @@ class VdmAttributesGuardianAttributes(dict):
                  optimized_shared_delivery: Optional[_builtins.str] = None):
         """
         Preferences regarding the Guardian feature.
+
         :param _builtins.str optimized_shared_delivery: Whether emails sent from this account have optimized delivery algorithm enabled.
         """
         if optimized_shared_delivery is not None:

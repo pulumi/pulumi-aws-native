@@ -61,6 +61,7 @@ class RegistryScanningConfigurationRepositoryFilter(dict):
                  filter_type: 'RegistryScanningConfigurationFilterType'):
         """
         The filter settings used with image replication. Specifying a repository filter to a replication rule provides a method for controlling which repositories in a private registry are replicated. If no filters are added, the contents of all repositories are replicated.
+
         :param _builtins.str filter: The filter to use when scanning.
         :param 'RegistryScanningConfigurationFilterType' filter_type: The type associated with the filter.
         """
@@ -113,6 +114,7 @@ class RegistryScanningConfigurationScanningRule(dict):
                  scan_frequency: 'RegistryScanningConfigurationScanFrequency'):
         """
         The scanning rules associated with the registry.
+
         :param Sequence['RegistryScanningConfigurationRepositoryFilter'] repository_filters: The details of a scanning repository filter. For more information on how to use filters, see [Using filters](https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-scanning.html#image-scanning-filters) in the *Amazon Elastic Container Registry User Guide*.
         :param 'RegistryScanningConfigurationScanFrequency' scan_frequency: The frequency that scans are performed at for a private registry. When the ``ENHANCED`` scan type is specified, the supported scan frequencies are ``CONTINUOUS_SCAN`` and ``SCAN_ON_PUSH``. When the ``BASIC`` scan type is specified, the ``SCAN_ON_PUSH`` scan frequency is supported. If scan on push is not specified, then the ``MANUAL`` scan frequency is set by default.
         """
@@ -145,6 +147,7 @@ class ReplicationConfiguration(dict):
                  rules: Sequence['outputs.ReplicationConfigurationReplicationRule']):
         """
         The replication configuration for a registry.
+
         :param Sequence['ReplicationConfigurationReplicationRule'] rules: An array of objects representing the replication destinations and repository filters for a replication configuration.
         """
         pulumi.set(__self__, "rules", rules)
@@ -185,6 +188,7 @@ class ReplicationConfigurationReplicationDestination(dict):
                  registry_id: _builtins.str):
         """
         An array of objects representing the destination for a replication rule.
+
         :param _builtins.str region: The Region to replicate to.
         :param _builtins.str registry_id: The AWS account ID of the Amazon ECR private registry to replicate to. When configuring cross-Region replication within your own registry, specify your own account ID.
         """
@@ -235,6 +239,7 @@ class ReplicationConfigurationReplicationRule(dict):
                  repository_filters: Optional[Sequence['outputs.ReplicationConfigurationRepositoryFilter']] = None):
         """
         An array of objects representing the replication destinations and repository filters for a replication configuration.
+
         :param Sequence['ReplicationConfigurationReplicationDestination'] destinations: An array of objects representing the destination for a replication rule.
         :param Sequence['ReplicationConfigurationRepositoryFilter'] repository_filters: An array of objects representing the filters for a replication rule. Specifying a repository filter for a replication rule provides a method for controlling which repositories in a private registry are replicated.
         """
@@ -286,6 +291,7 @@ class ReplicationConfigurationRepositoryFilter(dict):
                  filter_type: 'ReplicationConfigurationFilterType'):
         """
         The filter settings used with image replication. Specifying a repository filter to a replication rule provides a method for controlling which repositories in a private registry are replicated. If no filters are added, the contents of all repositories are replicated.
+
         :param _builtins.str filter: The repository filter details. When the ``PREFIX_MATCH`` filter type is specified, this value is required and should be the repository name prefix to configure replication for.
         :param 'ReplicationConfigurationFilterType' filter_type: The repository filter type. The only supported value is ``PREFIX_MATCH``, which is a repository name prefix specified with the ``filter`` parameter.
         """
@@ -342,6 +348,7 @@ class RepositoryCreationTemplateEncryptionConfiguration(dict):
         The encryption configuration for the repository. This determines how the contents of your repository are encrypted at rest.
          By default, when no encryption configuration is set or the ``AES256`` encryption type is used, Amazon ECR uses server-side encryption with Amazon S3-managed encryption keys which encrypts your data at rest using an AES256 encryption algorithm. This does not require any action on your part.
          For more control over the encryption of the contents of your repository, you can use server-side encryption with KMSlong key stored in KMSlong (KMS) to encrypt your images. For more information, see [Amazon ECR encryption at rest](https://docs.aws.amazon.com/AmazonECR/latest/userguide/encryption-at-rest.html) in the *Amazon Elastic Container Registry User Guide*.
+
         :param 'RepositoryCreationTemplateEncryptionType' encryption_type: The encryption type to use.
                 If you use the ``KMS`` encryption type, the contents of the repository will be encrypted using server-side encryption with KMSlong key stored in KMS. When you use KMS to encrypt your data, you can either use the default AWS managed KMS key for Amazon ECR, or specify your own KMS key, which you already created.
                 If you use the ``KMS_DSSE`` encryption type, the contents of the repository will be encrypted with two layers of encryption using server-side encryption with the KMS Management Service key stored in KMS. Similar to the ``KMS`` encryption type, you can either use the default AWS managed KMS key for Amazon ECR, or specify your own KMS key, which you've already created. 
@@ -428,6 +435,7 @@ class RepositoryCreationTemplateTag(dict):
                  value: _builtins.str):
         """
         The metadata to apply to a resource to help you categorize and organize them. Each tag consists of a key and a value, both of which you define. Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum length of 256 characters.
+
         :param _builtins.str key: One part of a key-value pair that make up a tag. A ``key`` is a general label that acts like a category for more specific tag values.
         :param _builtins.str value: A ``value`` acts as a descriptor within a tag category (key).
         """
@@ -484,6 +492,7 @@ class RepositoryEncryptionConfiguration(dict):
         The encryption configuration for the repository. This determines how the contents of your repository are encrypted at rest.
          By default, when no encryption configuration is set or the ``AES256`` encryption type is used, Amazon ECR uses server-side encryption with Amazon S3-managed encryption keys which encrypts your data at rest using an AES256 encryption algorithm. This does not require any action on your part.
          For more control over the encryption of the contents of your repository, you can use server-side encryption with KMSlong key stored in KMSlong (KMS) to encrypt your images. For more information, see [Amazon ECR encryption at rest](https://docs.aws.amazon.com/AmazonECR/latest/userguide/encryption-at-rest.html) in the *Amazon Elastic Container Registry User Guide*.
+
         :param 'RepositoryEncryptionType' encryption_type: The encryption type to use.
                
                If you use the `KMS` encryption type, the contents of the repository will be encrypted using server-side encryption with AWS Key Management Service key stored in AWS  . When you use AWS  to encrypt your data, you can either use the default AWS managed AWS  key for Amazon ECR, or specify your own AWS  key, which you already created.
@@ -550,6 +559,7 @@ class RepositoryImageScanningConfiguration(dict):
                  scan_on_push: Optional[_builtins.bool] = None):
         """
         The image scanning configuration for a repository.
+
         :param _builtins.bool scan_on_push: The setting that determines whether images are scanned after being pushed to a repository. If set to ``true``, images will be scanned after being pushed. If this parameter is not specified, it will default to ``false`` and images will not be scanned unless a scan is manually started.
         """
         if scan_on_push is not None:
@@ -637,6 +647,7 @@ class RepositoryLifecyclePolicy(dict):
                  registry_id: Optional[_builtins.str] = None):
         """
         The ``LifecyclePolicy`` property type specifies a lifecycle policy. For information about lifecycle policy syntax, see [Lifecycle policy template](https://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html) in the *Amazon ECR User Guide*.
+
         :param _builtins.str lifecycle_policy_text: The JSON repository policy text to apply to the repository.
         :param _builtins.str registry_id: The AWS account ID associated with the registry that contains the repository. If you do
                 not specify a registry, the default registry is assumed.
@@ -691,6 +702,7 @@ class SigningConfigurationRepositoryFilter(dict):
                  filter_type: 'SigningConfigurationFilterType'):
         """
         An array of objects representing the details of a repository filter.
+
         :param _builtins.str filter: The filter value used to match repository names. When using `WILDCARD_MATCH` , the `*` character matches any sequence of characters.
                
                Examples:

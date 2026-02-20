@@ -23,6 +23,7 @@ class DelegatedAdminArgs:
                  admin_account_id: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a DelegatedAdmin resource.
+
         :param pulumi.Input[_builtins.str] admin_account_id: The AWS-account identifier of the account to designate as the Security Hub administrator account.
         """
         pulumi.set(__self__, "admin_account_id", admin_account_id)
@@ -54,6 +55,7 @@ class DelegatedAdmin(pulumi.CustomResource):
          To designate multiple delegated administrators in different organizations and AWS-Regions, we recommend using [mappings](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/mappings-section-structure.html).
          Tags aren't supported for this resource.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] admin_account_id: The AWS-account identifier of the account to designate as the Security Hub administrator account.
@@ -69,6 +71,7 @@ class DelegatedAdmin(pulumi.CustomResource):
          To change the delegated administrator account, remove the current delegated administrator account, and then designate the new account.
          To designate multiple delegated administrators in different organizations and AWS-Regions, we recommend using [mappings](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/mappings-section-structure.html).
          Tags aren't supported for this resource.
+
 
         :param str resource_name: The name of the resource.
         :param DelegatedAdminArgs args: The arguments to use to populate this resource's properties.

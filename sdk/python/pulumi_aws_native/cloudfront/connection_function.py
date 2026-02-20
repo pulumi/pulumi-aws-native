@@ -31,6 +31,7 @@ class ConnectionFunctionArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a ConnectionFunction resource.
+
         :param pulumi.Input[_builtins.str] connection_function_code: The code for the connection function.
         :param pulumi.Input['ConnectionFunctionConfigArgs'] connection_function_config: Contains configuration information about a CloudFront function.
         :param pulumi.Input[_builtins.bool] auto_publish: A flag that determines whether to automatically publish the function to the `LIVE` stage when it’s created. To automatically publish to the `LIVE` stage, set this property to `true` .
@@ -122,6 +123,7 @@ class ConnectionFunction(pulumi.CustomResource):
         """
         Resource Type definition for AWS::CloudFront::ConnectionFunction
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] auto_publish: A flag that determines whether to automatically publish the function to the `LIVE` stage when it’s created. To automatically publish to the `LIVE` stage, set this property to `true` .
@@ -138,6 +140,7 @@ class ConnectionFunction(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::CloudFront::ConnectionFunction
+
 
         :param str resource_name: The name of the resource.
         :param ConnectionFunctionArgs args: The arguments to use to populate this resource's properties.

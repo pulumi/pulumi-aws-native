@@ -38,6 +38,7 @@ class ComponentArgs:
                  variants: Optional[pulumi.Input[Sequence[pulumi.Input['ComponentVariantArgs']]]] = None):
         """
         The set of arguments for constructing a Component resource.
+
         :param pulumi.Input[_builtins.str] app_id: The unique ID of the Amplify app associated with the component.
         :param pulumi.Input[Mapping[str, pulumi.Input['ComponentBindingPropertiesValueArgs']]] binding_properties: The information to connect a component's properties to data at runtime. You can't specify `tags` as a valid property for `bindingProperties` .
         :param pulumi.Input[Sequence[pulumi.Input['ComponentChildArgs']]] children: A list of the component's `ComponentChild` instances.
@@ -275,6 +276,7 @@ class Component(pulumi.CustomResource):
         """
         Definition of AWS::AmplifyUIBuilder::Component Resource Type
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] app_id: The unique ID of the Amplify app associated with the component.
@@ -300,6 +302,7 @@ class Component(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of AWS::AmplifyUIBuilder::Component Resource Type
+
 
         :param str resource_name: The name of the resource.
         :param ComponentArgs args: The arguments to use to populate this resource's properties.

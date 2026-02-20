@@ -25,6 +25,7 @@ class FlowVersionArgs:
                  description: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a FlowVersion resource.
+
         :param pulumi.Input[_builtins.str] flow_arn: Arn representation of the Flow
         :param pulumi.Input[_builtins.str] description: Description of the flow version
         """
@@ -69,6 +70,7 @@ class FlowVersion(pulumi.CustomResource):
         """
         Definition of AWS::Bedrock::FlowVersion Resource Type
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: Description of the flow version
@@ -82,6 +84,7 @@ class FlowVersion(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of AWS::Bedrock::FlowVersion Resource Type
+
 
         :param str resource_name: The name of the resource.
         :param FlowVersionArgs args: The arguments to use to populate this resource's properties.

@@ -39,6 +39,7 @@ class LocationHdfsArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a LocationHdfs resource.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] agent_arns: ARN(s) of the agent(s) to use for an HDFS location.
         :param pulumi.Input['LocationHdfsAuthenticationType'] authentication_type: The authentication mode used to determine identity of user.
         :param pulumi.Input[Sequence[pulumi.Input['LocationHdfsNameNodeArgs']]] name_nodes: An array of Name Node(s) of the HDFS location.
@@ -257,6 +258,7 @@ class LocationHdfs(pulumi.CustomResource):
         """
         Resource schema for AWS::DataSync::LocationHDFS.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] agent_arns: ARN(s) of the agent(s) to use for an HDFS location.
@@ -281,6 +283,7 @@ class LocationHdfs(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource schema for AWS::DataSync::LocationHDFS.
+
 
         :param str resource_name: The name of the resource.
         :param LocationHdfsArgs args: The arguments to use to populate this resource's properties.

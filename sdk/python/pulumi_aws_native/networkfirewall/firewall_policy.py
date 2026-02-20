@@ -30,6 +30,7 @@ class FirewallPolicyInitArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a FirewallPolicy resource.
+
         :param pulumi.Input['FirewallPolicyArgs'] firewall_policy: The traffic filtering behavior of a firewall policy, defined in a collection of stateless and stateful rule groups and other settings.
         :param pulumi.Input[_builtins.str] description: A description of the firewall policy.
         :param pulumi.Input[_builtins.str] firewall_policy_name: The descriptive name of the firewall policy. You can't change the name of a firewall policy after you create it.
@@ -110,6 +111,7 @@ class FirewallPolicy(pulumi.CustomResource):
         """
         Resource type definition for AWS::NetworkFirewall::FirewallPolicy
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: A description of the firewall policy.
@@ -127,6 +129,7 @@ class FirewallPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource type definition for AWS::NetworkFirewall::FirewallPolicy
+
 
         :param str resource_name: The name of the resource.
         :param FirewallPolicyInitArgs args: The arguments to use to populate this resource's properties.

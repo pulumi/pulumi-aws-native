@@ -24,6 +24,7 @@ class ResourcePolicyArgs:
                  policy_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ResourcePolicy resource.
+
         :param pulumi.Input[_builtins.str] policy_document: The resource policy document, which can be up to 5kb in size.
         :param pulumi.Input[_builtins.bool] bypass_policy_lockout_check: A flag to indicate whether to bypass the resource policy lockout safety check
         :param pulumi.Input[_builtins.str] policy_name: The name of the resource policy. Must be unique within a specific AWS account.
@@ -110,6 +111,7 @@ class ResourcePolicy(pulumi.CustomResource):
 
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] bypass_policy_lockout_check: A flag to indicate whether to bypass the resource policy lockout safety check
@@ -150,6 +152,7 @@ class ResourcePolicy(pulumi.CustomResource):
             policy_name="MySNSActiveTracingPolicy")
 
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ResourcePolicyArgs args: The arguments to use to populate this resource's properties.

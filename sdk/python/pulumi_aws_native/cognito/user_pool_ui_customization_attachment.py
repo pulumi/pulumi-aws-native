@@ -24,6 +24,7 @@ class UserPoolUiCustomizationAttachmentArgs:
                  css: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a UserPoolUiCustomizationAttachment resource.
+
         :param pulumi.Input[_builtins.str] client_id: The app client ID for your UI customization. When this value isn't present, the customization applies to all user pool app clients that don't have client-level settings..
         :param pulumi.Input[_builtins.str] user_pool_id: The ID of the user pool where you want to apply branding to the classic hosted UI.
         :param pulumi.Input[_builtins.str] css: A plaintext CSS file that contains the custom fields that you want to apply to your user pool or app client. To download a template, go to the Amazon Cognito console. Navigate to your user pool *App clients* tab, select *Login pages* , edit *Hosted UI (classic) style* , and select the link to `CSS template.css` .
@@ -83,6 +84,7 @@ class UserPoolUiCustomizationAttachment(pulumi.CustomResource):
         """
         Resource Type definition for AWS::Cognito::UserPoolUICustomizationAttachment
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] client_id: The app client ID for your UI customization. When this value isn't present, the customization applies to all user pool app clients that don't have client-level settings..
@@ -97,6 +99,7 @@ class UserPoolUiCustomizationAttachment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::Cognito::UserPoolUICustomizationAttachment
+
 
         :param str resource_name: The name of the resource.
         :param UserPoolUiCustomizationAttachmentArgs args: The arguments to use to populate this resource's properties.

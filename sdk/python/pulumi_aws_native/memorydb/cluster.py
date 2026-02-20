@@ -55,6 +55,7 @@ class ClusterArgs:
                  tls_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a Cluster resource.
+
         :param pulumi.Input[_builtins.str] acl_name: The name of the Access Control List to associate with the cluster.
         :param pulumi.Input[_builtins.str] node_type: The compute and memory capacity of the nodes in the cluster.
         :param pulumi.Input[_builtins.bool] auto_minor_version_upgrade: A flag that enables automatic minor version upgrade when set to true.
@@ -538,6 +539,7 @@ class Cluster(pulumi.CustomResource):
         """
         The AWS::MemoryDB::Cluster resource creates an Amazon MemoryDB Cluster.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] acl_name: The name of the Access Control List to associate with the cluster.
@@ -582,6 +584,7 @@ class Cluster(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The AWS::MemoryDB::Cluster resource creates an Amazon MemoryDB Cluster.
+
 
         :param str resource_name: The name of the resource.
         :param ClusterArgs args: The arguments to use to populate this resource's properties.

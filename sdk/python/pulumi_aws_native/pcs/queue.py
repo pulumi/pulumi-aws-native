@@ -29,6 +29,7 @@ class QueueArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Queue resource.
+
         :param pulumi.Input[_builtins.str] cluster_id: The ID of the cluster of the queue.
         :param pulumi.Input[Sequence[pulumi.Input['QueueComputeNodeGroupConfigurationArgs']]] compute_node_group_configurations: The list of compute node group configurations associated with the queue. Queues assign jobs to associated compute node groups.
         :param pulumi.Input[_builtins.str] name: The name that identifies the queue.
@@ -121,6 +122,7 @@ class Queue(pulumi.CustomResource):
         """
         AWS::PCS::Queue resource creates an AWS PCS queue.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] cluster_id: The ID of the cluster of the queue.
@@ -137,6 +139,7 @@ class Queue(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         AWS::PCS::Queue resource creates an AWS PCS queue.
+
 
         :param str resource_name: The name of the resource.
         :param QueueArgs args: The arguments to use to populate this resource's properties.

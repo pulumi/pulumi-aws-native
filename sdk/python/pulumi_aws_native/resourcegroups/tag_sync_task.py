@@ -26,6 +26,7 @@ class TagSyncTaskArgs:
                  tag_value: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a TagSyncTask resource.
+
         :param pulumi.Input[_builtins.str] group: The Amazon resource name (ARN) or name of the application group for which you want to create a tag-sync task
         :param pulumi.Input[_builtins.str] role_arn: The Amazon resource name (ARN) of the role assumed by the service to tag and untag resources on your behalf.
         :param pulumi.Input[_builtins.str] tag_key: The tag key. Resources tagged with this tag key-value pair will be added to the application. If a resource with this tag is later untagged, the tag-sync task removes the resource from the application.
@@ -99,6 +100,7 @@ class TagSyncTask(pulumi.CustomResource):
         """
         Schema for ResourceGroups::TagSyncTask
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] group: The Amazon resource name (ARN) or name of the application group for which you want to create a tag-sync task
@@ -114,6 +116,7 @@ class TagSyncTask(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Schema for ResourceGroups::TagSyncTask
+
 
         :param str resource_name: The name of the resource.
         :param TagSyncTaskArgs args: The arguments to use to populate this resource's properties.

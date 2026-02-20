@@ -38,6 +38,7 @@ class MonitorArgs:
                  traffic_percentage_to_monitor: Optional[pulumi.Input[_builtins.int]] = None):
         """
         The set of arguments for constructing a Monitor resource.
+
         :param pulumi.Input['MonitorHealthEventsConfigArgs'] health_events_config: A complex type with the configuration information that determines the threshold and other conditions for when Internet Monitor creates a health event for an overall performance or availability issue, across an application's geographies.
                
                Defines the percentages, for overall performance scores and availability scores for an application, that are the thresholds for when Internet Monitor creates a health event. You can override the defaults to set a custom threshold for overall performance or availability scores, or both.
@@ -287,6 +288,7 @@ class Monitor(pulumi.CustomResource):
         """
         Represents a monitor, which defines the monitoring boundaries for measurements that Internet Monitor publishes information about for an application
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['MonitorHealthEventsConfigArgs', 'MonitorHealthEventsConfigArgsDict']] health_events_config: A complex type with the configuration information that determines the threshold and other conditions for when Internet Monitor creates a health event for an overall performance or availability issue, across an application's geographies.
@@ -332,6 +334,7 @@ class Monitor(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Represents a monitor, which defines the monitoring boundaries for measurements that Internet Monitor publishes information about for an application
+
 
         :param str resource_name: The name of the resource.
         :param MonitorArgs args: The arguments to use to populate this resource's properties.

@@ -27,6 +27,7 @@ class InsightArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Insight resource.
+
         :param pulumi.Input['InsightAwsSecurityFindingFiltersArgs'] filters: One or more attributes used to filter the findings included in the insight
         :param pulumi.Input[_builtins.str] group_by_attribute: The grouping attribute for the insight's findings
         :param pulumi.Input[_builtins.str] name: The name of a Security Hub insight
@@ -86,6 +87,7 @@ class Insight(pulumi.CustomResource):
         """
         The AWS::SecurityHub::Insight resource represents the AWS Security Hub Insight in your account. An AWS Security Hub insight is a collection of related findings.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['InsightAwsSecurityFindingFiltersArgs', 'InsightAwsSecurityFindingFiltersArgsDict']] filters: One or more attributes used to filter the findings included in the insight
@@ -100,6 +102,7 @@ class Insight(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The AWS::SecurityHub::Insight resource represents the AWS Security Hub Insight in your account. An AWS Security Hub insight is a collection of related findings.
+
 
         :param str resource_name: The name of the resource.
         :param InsightArgs args: The arguments to use to populate this resource's properties.

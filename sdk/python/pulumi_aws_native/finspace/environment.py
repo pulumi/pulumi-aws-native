@@ -34,6 +34,7 @@ class EnvironmentArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]] = None):
         """
         The set of arguments for constructing a Environment resource.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] data_bundles: ARNs of FinSpace Data Bundles to install
         :param pulumi.Input[_builtins.str] description: Description of the Environment
         :param pulumi.Input['EnvironmentFederationMode'] federation_mode: Federation mode used with the Environment
@@ -201,6 +202,7 @@ class Environment(pulumi.CustomResource):
 
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] data_bundles: ARNs of FinSpace Data Bundles to install
@@ -246,6 +248,7 @@ class Environment(pulumi.CustomResource):
             federation_mode=aws_native.finspace.EnvironmentFederationMode.LOCAL)
 
         ```
+
 
         :param str resource_name: The name of the resource.
         :param EnvironmentArgs args: The arguments to use to populate this resource's properties.

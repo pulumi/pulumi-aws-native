@@ -25,6 +25,7 @@ class PortfolioPrincipalAssociationArgs:
                  principal_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a PortfolioPrincipalAssociation resource.
+
         :param pulumi.Input[_builtins.str] principal_type: The principal type. The supported value is IAM if you use a fully defined Amazon Resource Name (ARN), or IAM_PATTERN if you use an ARN with no accountID, with or without wildcard characters.
         :param pulumi.Input[_builtins.str] accept_language: The language code.
         :param pulumi.Input[_builtins.str] portfolio_id: The portfolio identifier.
@@ -101,6 +102,7 @@ class PortfolioPrincipalAssociation(pulumi.CustomResource):
         """
         Resource Type definition for AWS::ServiceCatalog::PortfolioPrincipalAssociation
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] accept_language: The language code.
@@ -116,6 +118,7 @@ class PortfolioPrincipalAssociation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::ServiceCatalog::PortfolioPrincipalAssociation
+
 
         :param str resource_name: The name of the resource.
         :param PortfolioPrincipalAssociationArgs args: The arguments to use to populate this resource's properties.

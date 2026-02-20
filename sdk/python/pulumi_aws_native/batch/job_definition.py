@@ -38,6 +38,7 @@ class JobDefinitionArgs:
                  timeout: Optional[pulumi.Input['JobDefinitionJobTimeoutArgs']] = None):
         """
         The set of arguments for constructing a JobDefinition resource.
+
         :param pulumi.Input[_builtins.str] type: The type of job definition. For more information about multi-node parallel jobs, see [Creating a multi-node parallel job definition](https://docs.aws.amazon.com/batch/latest/userguide/multi-node-job-def.html) in the *AWS Batch User Guide* .
                
                - If the value is `container` , then one of the following is required: `containerProperties` , `ecsProperties` , or `eksProperties` .
@@ -304,6 +305,7 @@ class JobDefinition(pulumi.CustomResource):
         """
         Resource Type definition for AWS::Batch::JobDefinition
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['JobDefinitionConsumableResourcePropertiesArgs', 'JobDefinitionConsumableResourcePropertiesArgsDict']] consumable_resource_properties: Contains a list of consumable resources required by the job.
@@ -337,6 +339,7 @@ class JobDefinition(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::Batch::JobDefinition
+
 
         :param str resource_name: The name of the resource.
         :param JobDefinitionArgs args: The arguments to use to populate this resource's properties.

@@ -141,6 +141,7 @@ class CaseRuleBooleanOperands(dict):
                  result: _builtins.bool):
         """
         Boolean operands for a condition.
+
         :param _builtins.bool result: The value of the outer rule if the condition evaluates to true.
         """
         pulumi.set(__self__, "operand_one", operand_one)
@@ -241,6 +242,7 @@ class CaseRuleHiddenCaseRule(dict):
                  default_value: _builtins.bool):
         """
         Hidden rule type, used to indicate whether a field is hidden
+
         :param Sequence[Union['CaseRuleBooleanCondition0Properties', 'CaseRuleBooleanCondition1Properties']] conditions: List of conditions for the hidden rule; the first condition to evaluate to true dictates the value of the rule
         :param _builtins.bool default_value: The value of the rule (i.e. whether the field is hidden) should none of the conditions evaluate to true
         """
@@ -290,6 +292,7 @@ class CaseRuleOperandOneProperties(dict):
                  field_id: _builtins.str):
         """
         The left hand operand in the condition.
+
         :param _builtins.str field_id: The field ID this operand should take the value of.
         """
         pulumi.set(__self__, "field_id", field_id)
@@ -329,6 +332,7 @@ class CaseRuleOperandTwo0Properties(dict):
                  string_value: _builtins.str):
         """
         The right hand operand in the condition.
+
         :param _builtins.str string_value: A string value to compare against the field value in the condition evaluation.
         """
         pulumi.set(__self__, "string_value", string_value)
@@ -368,6 +372,7 @@ class CaseRuleOperandTwo1Properties(dict):
                  boolean_value: _builtins.bool):
         """
         The right hand operand in the condition.
+
         :param _builtins.bool boolean_value: A boolean value to compare against the field value in the condition evaluation.
         """
         pulumi.set(__self__, "boolean_value", boolean_value)
@@ -407,6 +412,7 @@ class CaseRuleOperandTwo2Properties(dict):
                  double_value: _builtins.float):
         """
         The right hand operand in the condition.
+
         :param _builtins.float double_value: A numeric value to compare against the field value in the condition evaluation.
         """
         pulumi.set(__self__, "double_value", double_value)
@@ -482,6 +488,7 @@ class CaseRuleRequiredCaseRule(dict):
                  default_value: _builtins.bool):
         """
         A required rule type, used to indicate whether a field is required.
+
         :param Sequence[Union['CaseRuleBooleanCondition0Properties', 'CaseRuleBooleanCondition1Properties']] conditions: An ordered list of boolean conditions that determine when the field should be required. Conditions are evaluated in order, and the first condition that evaluates to true determines whether the field is required, overriding the default value.
         :param _builtins.bool default_value: The default required state for the field when none of the specified conditions are met. If true, the field is required by default; if false, the field is optional by default.
         """
@@ -579,6 +586,7 @@ class LayoutFieldGroup(dict):
                  name: Optional[_builtins.str] = None):
         """
         Consists of a group of fields and associated properties.
+
         :param Sequence['LayoutFieldItem'] fields: An ordered list of fields to display in this group. The order determines the sequence in which fields appear in the agent interface. Each field is referenced by its unique field ID.
         :param _builtins.str name: A descriptive name for the field group. Helps organize related fields together in the layout interface.
         """
@@ -612,6 +620,7 @@ class LayoutFieldItem(dict):
                  id: _builtins.str):
         """
         Field specific properties.
+
         :param _builtins.str id: The unique identifier of a field.
         """
         pulumi.set(__self__, "id", id)
@@ -669,6 +678,7 @@ class LayoutSections(dict):
                  sections: Optional[Sequence['outputs.LayoutSectionProperties']] = None):
         """
         Sections within a panel or tab of the page layout.
+
         :param Sequence['LayoutSectionProperties'] sections: Defines the sections within a panel or tab. Contains field groups that organize related fields together.
         """
         if sections is not None:
@@ -709,6 +719,7 @@ class TemplateLayoutConfiguration(dict):
                  default_layout: Optional[_builtins.str] = None):
         """
         Specifies the default layout to use when displaying cases created from this template. The layout determines which fields are visible and their arrangement in the agent interface.
+
         :param _builtins.str default_layout: The unique identifier of a layout.
         """
         if default_layout is not None:
@@ -749,6 +760,7 @@ class TemplateRequiredField(dict):
                  field_id: _builtins.str):
         """
         Wrapper object containing a field identifier
+
         :param _builtins.str field_id: The unique identifier of a field.
         """
         pulumi.set(__self__, "field_id", field_id)
@@ -791,6 +803,7 @@ class TemplateRule(dict):
                  field_id: Optional[_builtins.str] = None):
         """
         Links a case rule to a specific field within this template. When specified, the rule's conditions will be evaluated for the associated field, controlling behavior like required status, visibility, or available options.
+
         :param _builtins.str case_rule_id: The unique identifier of a case rule.
         :param _builtins.str field_id: The ID of the field that this rule applies to.
         """

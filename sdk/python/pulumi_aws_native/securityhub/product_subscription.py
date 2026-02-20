@@ -22,6 +22,7 @@ class ProductSubscriptionArgs:
                  product_arn: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a ProductSubscription resource.
+
         :param pulumi.Input[_builtins.str] product_arn: The generic ARN of the product being subscribed to
         """
         pulumi.set(__self__, "product_arn", product_arn)
@@ -50,6 +51,7 @@ class ProductSubscription(pulumi.CustomResource):
         """
         The AWS::SecurityHub::ProductSubscription resource represents a subscription to a service that is allowed to generate findings for your Security Hub account. One product subscription resource is created for each product enabled.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] product_arn: The generic ARN of the product being subscribed to
@@ -62,6 +64,7 @@ class ProductSubscription(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The AWS::SecurityHub::ProductSubscription resource represents a subscription to a service that is allowed to generate findings for your Security Hub account. One product subscription resource is created for each product enabled.
+
 
         :param str resource_name: The name of the resource.
         :param ProductSubscriptionArgs args: The arguments to use to populate this resource's properties.

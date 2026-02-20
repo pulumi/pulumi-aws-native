@@ -25,6 +25,7 @@ class IdentityPoolPrincipalTagArgs:
                  use_defaults: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a IdentityPoolPrincipalTag resource.
+
         :param pulumi.Input[_builtins.str] identity_pool_id: The identity pool that you want to associate with this principal tag map.
         :param pulumi.Input[_builtins.str] identity_provider_name: The identity pool identity provider (IdP) that you want to associate with this principal tag map.
         :param Any principal_tags: A JSON-formatted list of user claims and the principal tags that you want to associate with them. When Amazon Cognito requests credentials, it sets the value of the principal tag to the value of the user's claim.
@@ -104,6 +105,7 @@ class IdentityPoolPrincipalTag(pulumi.CustomResource):
         """
         Resource Type definition for AWS::Cognito::IdentityPoolPrincipalTag
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] identity_pool_id: The identity pool that you want to associate with this principal tag map.
@@ -121,6 +123,7 @@ class IdentityPoolPrincipalTag(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::Cognito::IdentityPoolPrincipalTag
+
 
         :param str resource_name: The name of the resource.
         :param IdentityPoolPrincipalTagArgs args: The arguments to use to populate this resource's properties.

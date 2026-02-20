@@ -33,6 +33,7 @@ class GlobalClusterArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a GlobalCluster resource.
+
         :param pulumi.Input[_builtins.bool] deletion_protection: The deletion protection setting for the new global database. The global database can't be deleted when deletion protection is enabled.
         :param pulumi.Input['GlobalClusterEngine'] engine: The name of the database engine to be used for this DB cluster. Valid Values: aurora (for MySQL 5.6-compatible Aurora), aurora-mysql (for MySQL 5.7-compatible Aurora).
                If you specify the SourceDBClusterIdentifier property, don't specify this property. The value is inherited from the cluster.
@@ -178,6 +179,7 @@ class GlobalCluster(pulumi.CustomResource):
         """
         Resource Type definition for AWS::RDS::GlobalCluster
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] deletion_protection: The deletion protection setting for the new global database. The global database can't be deleted when deletion protection is enabled.
@@ -199,6 +201,7 @@ class GlobalCluster(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::RDS::GlobalCluster
+
 
         :param str resource_name: The name of the resource.
         :param GlobalClusterArgs args: The arguments to use to populate this resource's properties.

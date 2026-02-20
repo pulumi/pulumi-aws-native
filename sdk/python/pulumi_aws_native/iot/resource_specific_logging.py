@@ -25,6 +25,7 @@ class ResourceSpecificLoggingArgs:
                  target_type: pulumi.Input['ResourceSpecificLoggingTargetType']):
         """
         The set of arguments for constructing a ResourceSpecificLogging resource.
+
         :param pulumi.Input['ResourceSpecificLoggingLogLevel'] log_level: The log level for a specific target. Valid values are: ERROR, WARN, INFO, DEBUG, or DISABLED.
         :param pulumi.Input[_builtins.str] target_name: The target name.
         :param pulumi.Input['ResourceSpecificLoggingTargetType'] target_type: The target type. Value must be THING_GROUP, CLIENT_ID, SOURCE_IP, PRINCIPAL_ID, or EVENT_TYPE.
@@ -83,6 +84,7 @@ class ResourceSpecificLogging(pulumi.CustomResource):
         """
         Resource-specific logging allows you to specify a logging level for a specific thing group.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input['ResourceSpecificLoggingLogLevel'] log_level: The log level for a specific target. Valid values are: ERROR, WARN, INFO, DEBUG, or DISABLED.
@@ -97,6 +99,7 @@ class ResourceSpecificLogging(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource-specific logging allows you to specify a logging level for a specific thing group.
+
 
         :param str resource_name: The name of the resource.
         :param ResourceSpecificLoggingArgs args: The arguments to use to populate this resource's properties.

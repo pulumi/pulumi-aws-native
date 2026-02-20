@@ -35,6 +35,7 @@ class CalculatedAttributeDefinitionArgs:
                  use_historical_data: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a CalculatedAttributeDefinition resource.
+
         :param pulumi.Input['CalculatedAttributeDefinitionAttributeDetailsArgs'] attribute_details: Mathematical expression and a list of attribute items specified in that expression.
         :param pulumi.Input[_builtins.str] calculated_attribute_name: The name of an attribute defined in a profile object type.
         :param pulumi.Input[_builtins.str] domain_name: The unique name of the domain.
@@ -188,6 +189,7 @@ class CalculatedAttributeDefinition(pulumi.CustomResource):
         """
         A calculated attribute definition for Customer Profiles
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['CalculatedAttributeDefinitionAttributeDetailsArgs', 'CalculatedAttributeDefinitionAttributeDetailsArgsDict']] attribute_details: Mathematical expression and a list of attribute items specified in that expression.
@@ -208,6 +210,7 @@ class CalculatedAttributeDefinition(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A calculated attribute definition for Customer Profiles
+
 
         :param str resource_name: The name of the resource.
         :param CalculatedAttributeDefinitionArgs args: The arguments to use to populate this resource's properties.

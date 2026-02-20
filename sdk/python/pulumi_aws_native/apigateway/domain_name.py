@@ -36,6 +36,7 @@ class DomainNameArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a DomainName resource.
+
         :param pulumi.Input[_builtins.str] certificate_arn: The reference to an AWS -managed certificate that will be used by edge-optimized endpoint or private endpoint for this domain name. Certificate Manager is the only supported source.
         :param pulumi.Input[_builtins.str] domain_name: The custom domain name as an API host name, for example, `my-api.example.com` .
         :param pulumi.Input[_builtins.str] endpoint_access_mode: The endpoint access mode for your DomainName.
@@ -253,6 +254,7 @@ class DomainName(pulumi.CustomResource):
 
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] certificate_arn: The reference to an AWS -managed certificate that will be used by edge-optimized endpoint or private endpoint for this domain name. Certificate Manager is the only supported source.
@@ -318,6 +320,7 @@ class DomainName(pulumi.CustomResource):
         pulumi.export("domainName", my_domain_name.id)
 
         ```
+
 
         :param str resource_name: The name of the resource.
         :param DomainNameArgs args: The arguments to use to populate this resource's properties.

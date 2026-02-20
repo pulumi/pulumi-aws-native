@@ -24,6 +24,7 @@ class QueueFleetAssociationArgs:
                  queue_id: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a QueueFleetAssociation resource.
+
         :param pulumi.Input[_builtins.str] farm_id: The identifier of the farm that contains the queue and the fleet.
         :param pulumi.Input[_builtins.str] fleet_id: The fleet ID.
         :param pulumi.Input[_builtins.str] queue_id: The queue ID.
@@ -82,6 +83,7 @@ class QueueFleetAssociation(pulumi.CustomResource):
         """
         Definition of AWS::Deadline::QueueFleetAssociation Resource Type
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] farm_id: The identifier of the farm that contains the queue and the fleet.
@@ -96,6 +98,7 @@ class QueueFleetAssociation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of AWS::Deadline::QueueFleetAssociation Resource Type
+
 
         :param str resource_name: The name of the resource.
         :param QueueFleetAssociationArgs args: The arguments to use to populate this resource's properties.

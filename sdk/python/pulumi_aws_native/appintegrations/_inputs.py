@@ -169,6 +169,7 @@ class ApplicationSourceConfigPropertiesArgs:
                  external_url_config: pulumi.Input['ApplicationExternalUrlConfigArgs']):
         """
         Application source config
+
         :param pulumi.Input['ApplicationExternalUrlConfigArgs'] external_url_config: The external URL source for the application.
         """
         pulumi.set(__self__, "external_url_config", external_url_config)
@@ -206,6 +207,7 @@ class DataIntegrationFileConfigurationArgs:
                  filters: Optional[pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]]] = None):
         """
         The configuration for what files should be pulled from the source.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] folders: Identifiers for the source folders to pull all files from recursively.
         :param pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]] filters: Restrictions for what files should be pulled from the source.
         """

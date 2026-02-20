@@ -29,6 +29,7 @@ class ExtensionResourceArgs:
                  write_only: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ExtensionResource resource.
+
         :param pulumi.Input[Mapping[str, Any]] properties: Property bag containing the properties for the resource. These should be defined using the casing expected by the CloudControl API as these values are sent exact as provided.
         :param pulumi.Input[_builtins.str] type: CloudFormation type name. This has three parts, each separated by two colons. For AWS resources this starts with `AWS::` e.g. `AWS::Logs::LogGroup`. Third party resources should use a namespace prefix e.g. `MyCompany::MyService::MyResource`.
         :param pulumi.Input['AutoNamingArgs'] auto_naming: Optional auto-naming specification for the resource.
@@ -158,6 +159,7 @@ class ExtensionResource(pulumi.CustomResource):
         """
         A special resource that enables deploying CloudFormation Extensions (third-party resources). An extension has to be pre-registered in your AWS account in order to use this resource.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['AutoNamingArgs', 'AutoNamingArgsDict']] auto_naming: Optional auto-naming specification for the resource.
@@ -179,6 +181,7 @@ class ExtensionResource(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A special resource that enables deploying CloudFormation Extensions (third-party resources). An extension has to be pre-registered in your AWS account in order to use this resource.
+
 
         :param str resource_name: The name of the resource.
         :param ExtensionResourceArgs args: The arguments to use to populate this resource's properties.

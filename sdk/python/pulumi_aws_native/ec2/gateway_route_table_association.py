@@ -23,6 +23,7 @@ class GatewayRouteTableAssociationArgs:
                  route_table_id: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a GatewayRouteTableAssociation resource.
+
         :param pulumi.Input[_builtins.str] gateway_id: The ID of the gateway.
         :param pulumi.Input[_builtins.str] route_table_id: The ID of the route table.
         """
@@ -66,6 +67,7 @@ class GatewayRouteTableAssociation(pulumi.CustomResource):
         """
         Associates a gateway with a route table. The gateway and route table must be in the same VPC. This association causes the incoming traffic to the gateway to be routed according to the routes in the route table.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] gateway_id: The ID of the gateway.
@@ -79,6 +81,7 @@ class GatewayRouteTableAssociation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Associates a gateway with a route table. The gateway and route table must be in the same VPC. This association causes the incoming traffic to the gateway to be routed according to the routes in the route table.
+
 
         :param str resource_name: The name of the resource.
         :param GatewayRouteTableAssociationArgs args: The arguments to use to populate this resource's properties.

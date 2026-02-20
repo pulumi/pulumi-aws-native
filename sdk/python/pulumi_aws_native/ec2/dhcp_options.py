@@ -30,6 +30,7 @@ class DhcpOptionsArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a DhcpOptions resource.
+
         :param pulumi.Input[_builtins.str] domain_name: This value is used to complete unqualified DNS hostnames.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] domain_name_servers: The IPv4 addresses of up to four domain name servers, or AmazonProvidedDNS.
         :param pulumi.Input[_builtins.int] ipv6_address_preferred_lease_time: The preferred Lease Time for ipV6 address in seconds.
@@ -155,6 +156,7 @@ class DhcpOptions(pulumi.CustomResource):
         """
         Resource Type definition for AWS::EC2::DHCPOptions
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] domain_name: This value is used to complete unqualified DNS hostnames.
@@ -173,6 +175,7 @@ class DhcpOptions(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::EC2::DHCPOptions
+
 
         :param str resource_name: The name of the resource.
         :param DhcpOptionsArgs args: The arguments to use to populate this resource's properties.

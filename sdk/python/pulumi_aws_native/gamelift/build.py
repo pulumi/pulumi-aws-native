@@ -32,6 +32,7 @@ class BuildArgs:
                  version: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Build resource.
+
         :param pulumi.Input[_builtins.str] name: A descriptive label that is associated with a build. Build names do not need to be unique.
         :param pulumi.Input['BuildOperatingSystem'] operating_system: The operating system that the game server binaries are built to run on. This value determines the type of fleet resources that you can use for this build. If your game build contains multiple executables, they all must run on the same operating system. If an operating system is not specified when creating a build, Amazon GameLift uses the default value (WINDOWS_2012). This value cannot be changed later.
         :param pulumi.Input[_builtins.str] server_sdk_version: A server SDK version you used when integrating your game server build with Amazon GameLift. By default Amazon GameLift sets this value to 4.0.2.
@@ -141,6 +142,7 @@ class Build(pulumi.CustomResource):
         """
         Resource Type definition for AWS::GameLift::Build
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: A descriptive label that is associated with a build. Build names do not need to be unique.
@@ -158,6 +160,7 @@ class Build(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::GameLift::Build
+
 
         :param str resource_name: The name of the resource.
         :param BuildArgs args: The arguments to use to populate this resource's properties.

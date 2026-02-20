@@ -29,6 +29,7 @@ class PrincipalPermissionsArgs:
                  catalog: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a PrincipalPermissions resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['PrincipalPermissionsPermission']]] permissions: The permissions granted or revoked.
         :param pulumi.Input[Sequence[pulumi.Input['PrincipalPermissionsPermission']]] permissions_with_grant_option: Indicates the ability to grant permissions (as a subset of permissions granted).
         :param pulumi.Input['PrincipalPermissionsDataLakePrincipalArgs'] principal: The principal to be granted a permission.
@@ -118,6 +119,7 @@ class PrincipalPermissions(pulumi.CustomResource):
         """
         The ``AWS::LakeFormation::PrincipalPermissions`` resource represents the permissions that a principal has on a GLUDC resource (such as GLUlong databases or GLUlong tables). When you create a ``PrincipalPermissions`` resource, the permissions are granted via the LFlong``GrantPermissions`` API operation. When you delete a ``PrincipalPermissions`` resource, the permissions on principal-resource pair are revoked via the LFlong``RevokePermissions`` API operation.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] catalog: The identifier for the GLUDC. By default, the account ID. The GLUDC is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
@@ -134,6 +136,7 @@ class PrincipalPermissions(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The ``AWS::LakeFormation::PrincipalPermissions`` resource represents the permissions that a principal has on a GLUDC resource (such as GLUlong databases or GLUlong tables). When you create a ``PrincipalPermissions`` resource, the permissions are granted via the LFlong``GrantPermissions`` API operation. When you delete a ``PrincipalPermissions`` resource, the permissions on principal-resource pair are revoked via the LFlong``RevokePermissions`` API operation.
+
 
         :param str resource_name: The name of the resource.
         :param PrincipalPermissionsArgs args: The arguments to use to populate this resource's properties.

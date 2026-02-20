@@ -54,6 +54,7 @@ class NotificationChannelConfigArgs:
                  sns: Optional[pulumi.Input['NotificationChannelSnsChannelConfigArgs']] = None):
         """
         Information about notification channels you have configured with DevOps Guru.
+
         :param pulumi.Input['NotificationChannelNotificationFilterConfigArgs'] filters: The filter configurations for the Amazon SNS notification topic you use with DevOps Guru. If you do not provide filter configurations, the default configurations are to receive notifications for all message types of `High` or `Medium` severity.
         :param pulumi.Input['NotificationChannelSnsChannelConfigArgs'] sns: Information about a notification channel configured in DevOps Guru to send notifications when insights are created.
                
@@ -115,6 +116,7 @@ class NotificationChannelNotificationFilterConfigArgs:
                  severities: Optional[pulumi.Input[Sequence[pulumi.Input['NotificationChannelInsightSeverity']]]] = None):
         """
         Information about filters of a notification channel configured in DevOpsGuru to filter for insights.
+
         :param pulumi.Input[Sequence[pulumi.Input['NotificationChannelNotificationMessageType']]] message_types: The events that you want to receive notifications for. For example, you can choose to receive notifications only when the severity level is upgraded or a new insight is created.
         :param pulumi.Input[Sequence[pulumi.Input['NotificationChannelInsightSeverity']]] severities: The severity levels that you want to receive notifications for. For example, you can choose to receive notifications only for insights with `HIGH` and `MEDIUM` severity levels. For more information, see [Understanding insight severities](https://docs.aws.amazon.com/devops-guru/latest/userguide/working-with-insights.html#understanding-insights-severities) .
         """
@@ -163,6 +165,7 @@ class NotificationChannelSnsChannelConfigArgs:
                  topic_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Information about a notification channel configured in DevOps Guru to send notifications when insights are created.
+
         :param pulumi.Input[_builtins.str] topic_arn: The Amazon Resource Name (ARN) of an Amazon Simple Notification Service topic.
         """
         if topic_arn is not None:
@@ -196,6 +199,7 @@ class ResourceCollectionCloudFormationCollectionFilterArgs:
                  stack_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         CloudFormation resource for DevOps Guru to monitor
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] stack_names: An array of CloudFormation stack names.
         """
         if stack_names is not None:
@@ -245,6 +249,7 @@ class ResourceCollectionFilterArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceCollectionTagCollectionArgs']]]] = None):
         """
         Information about a filter used to specify which AWS resources are analyzed for anomalous behavior by DevOps Guru.
+
         :param pulumi.Input['ResourceCollectionCloudFormationCollectionFilterArgs'] cloud_formation: Information about AWS CloudFormation stacks. You can use up to 1000 stacks to specify which AWS resources in your account to analyze. For more information, see [Stacks](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacks.html) in the *AWS CloudFormation User Guide* .
         :param pulumi.Input[Sequence[pulumi.Input['ResourceCollectionTagCollectionArgs']]] tags: The AWS tags used to filter the resources in the resource collection.
                
@@ -320,6 +325,7 @@ class ResourceCollectionTagCollectionArgs:
                  tag_values: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Tagged resource for DevOps Guru to monitor
+
         :param pulumi.Input[_builtins.str] app_boundary_key: A Tag key for DevOps Guru app boundary.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] tag_values: Tag values of DevOps Guru app boundary.
         """

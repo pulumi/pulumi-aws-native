@@ -29,6 +29,7 @@ class StageArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Stage resource.
+
         :param pulumi.Input['StageAutoParticipantRecordingConfigurationArgs'] auto_participant_recording_configuration: Configuration object for individual participant recording.
         :param pulumi.Input[_builtins.str] name: Stage name
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
@@ -90,6 +91,7 @@ class Stage(pulumi.CustomResource):
         """
         Resource Type definition for AWS::IVS::Stage.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['StageAutoParticipantRecordingConfigurationArgs', 'StageAutoParticipantRecordingConfigurationArgsDict']] auto_participant_recording_configuration: Configuration object for individual participant recording.
@@ -104,6 +106,7 @@ class Stage(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::IVS::Stage.
+
 
         :param str resource_name: The name of the resource.
         :param StageArgs args: The arguments to use to populate this resource's properties.

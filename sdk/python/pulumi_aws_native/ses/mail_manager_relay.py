@@ -30,6 +30,7 @@ class MailManagerRelayArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a MailManagerRelay resource.
+
         :param pulumi.Input[Union['MailManagerRelayRelayAuthentication0PropertiesArgs', 'MailManagerRelayRelayAuthentication1PropertiesArgs']] authentication: Authentication for the relay destination server—specify the secretARN where the SMTP credentials are stored.
         :param pulumi.Input[_builtins.str] server_name: The destination relay server address.
         :param pulumi.Input[_builtins.float] server_port: The destination relay server port.
@@ -120,6 +121,7 @@ class MailManagerRelay(pulumi.CustomResource):
         """
         Definition of AWS::SES::MailManagerRelay Resource Type
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union[Union['MailManagerRelayRelayAuthentication0PropertiesArgs', 'MailManagerRelayRelayAuthentication0PropertiesArgsDict'], Union['MailManagerRelayRelayAuthentication1PropertiesArgs', 'MailManagerRelayRelayAuthentication1PropertiesArgsDict']]] authentication: Authentication for the relay destination server—specify the secretARN where the SMTP credentials are stored.
@@ -136,6 +138,7 @@ class MailManagerRelay(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of AWS::SES::MailManagerRelay Resource Type
+
 
         :param str resource_name: The name of the resource.
         :param MailManagerRelayArgs args: The arguments to use to populate this resource's properties.

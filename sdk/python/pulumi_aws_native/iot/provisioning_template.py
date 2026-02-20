@@ -34,6 +34,7 @@ class ProvisioningTemplateArgs:
                  template_type: Optional[pulumi.Input['ProvisioningTemplateTemplateType']] = None):
         """
         The set of arguments for constructing a ProvisioningTemplate resource.
+
         :param pulumi.Input[_builtins.str] provisioning_role_arn: The role ARN for the role associated with the fleet provisioning template. This IoT role grants permission to provision a device.
         :param pulumi.Input[_builtins.str] template_body: The JSON formatted contents of the fleet provisioning template version.
         :param pulumi.Input[_builtins.str] description: The description of the fleet provisioning template.
@@ -173,6 +174,7 @@ class ProvisioningTemplate(pulumi.CustomResource):
         """
         Creates a fleet provisioning template.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: The description of the fleet provisioning template.
@@ -192,6 +194,7 @@ class ProvisioningTemplate(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Creates a fleet provisioning template.
+
 
         :param str resource_name: The name of the resource.
         :param ProvisioningTemplateArgs args: The arguments to use to populate this resource's properties.

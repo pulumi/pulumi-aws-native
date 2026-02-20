@@ -28,6 +28,7 @@ class UserPoolRiskConfigurationAttachmentArgs:
                  risk_exception_configuration: Optional[pulumi.Input['UserPoolRiskConfigurationAttachmentRiskExceptionConfigurationTypeArgs']] = None):
         """
         The set of arguments for constructing a UserPoolRiskConfigurationAttachment resource.
+
         :param pulumi.Input[_builtins.str] client_id: The app client where this configuration is applied. When this parameter isn't present, the risk configuration applies to all user pool app clients that don't have client-level settings.
         :param pulumi.Input[_builtins.str] user_pool_id: The ID of the user pool that has the risk configuration applied.
         :param pulumi.Input['UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationTypeArgs'] account_takeover_risk_configuration: The settings for automated responses and notification templates for adaptive authentication with threat protection.
@@ -119,6 +120,7 @@ class UserPoolRiskConfigurationAttachment(pulumi.CustomResource):
         """
         Resource Type definition for AWS::Cognito::UserPoolRiskConfigurationAttachment
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationTypeArgs', 'UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationTypeArgsDict']] account_takeover_risk_configuration: The settings for automated responses and notification templates for adaptive authentication with threat protection.
@@ -135,6 +137,7 @@ class UserPoolRiskConfigurationAttachment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::Cognito::UserPoolRiskConfigurationAttachment
+
 
         :param str resource_name: The name of the resource.
         :param UserPoolRiskConfigurationAttachmentArgs args: The arguments to use to populate this resource's properties.

@@ -33,6 +33,7 @@ class IndexArgs:
                  type: Optional[pulumi.Input['IndexType']] = None):
         """
         The set of arguments for constructing a Index resource.
+
         :param pulumi.Input[_builtins.str] application_id: The identifier of the Amazon Q Business application using the index.
         :param pulumi.Input[_builtins.str] display_name: The name of the index.
         :param pulumi.Input['IndexCapacityConfigurationArgs'] capacity_configuration: The capacity units you want to provision for your index. You can add and remove capacity to fit your usage needs.
@@ -160,6 +161,7 @@ class Index(pulumi.CustomResource):
         """
         Definition of AWS::QBusiness::Index Resource Type
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] application_id: The identifier of the Amazon Q Business application using the index.
@@ -180,6 +182,7 @@ class Index(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of AWS::QBusiness::Index Resource Type
+
 
         :param str resource_name: The name of the resource.
         :param IndexArgs args: The arguments to use to populate this resource's properties.

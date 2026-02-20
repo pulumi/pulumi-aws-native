@@ -45,6 +45,7 @@ class TargetGroupArgs:
                  vpc_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a TargetGroup resource.
+
         :param pulumi.Input[_builtins.bool] health_check_enabled: Indicates whether health checks are enabled. If the target type is lambda, health checks are disabled by default but can be enabled. If the target type is instance, ip, or alb, health checks are always enabled and cannot be disabled.
         :param pulumi.Input[_builtins.int] health_check_interval_seconds: The approximate amount of time, in seconds, between health checks of an individual target.
         :param pulumi.Input[_builtins.str] health_check_path: [HTTP/HTTPS health checks] The destination for health checks on the targets. [HTTP1 or HTTP2 protocol version] The ping path. The default is /. [GRPC protocol version] The path of a custom health check method with the format /package.service/method. The default is /AWS.ALB/healthcheck.
@@ -378,6 +379,7 @@ class TargetGroup(pulumi.CustomResource):
         """
         Resource Type definition for AWS::ElasticLoadBalancingV2::TargetGroup
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] health_check_enabled: Indicates whether health checks are enabled. If the target type is lambda, health checks are disabled by default but can be enabled. If the target type is instance, ip, or alb, health checks are always enabled and cannot be disabled.
@@ -409,6 +411,7 @@ class TargetGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::ElasticLoadBalancingV2::TargetGroup
+
 
         :param str resource_name: The name of the resource.
         :param TargetGroupArgs args: The arguments to use to populate this resource's properties.

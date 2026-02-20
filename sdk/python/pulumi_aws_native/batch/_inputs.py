@@ -6733,6 +6733,7 @@ class SchedulingPolicyFairsharePolicyArgs:
                  share_distribution: Optional[pulumi.Input[Sequence[pulumi.Input['SchedulingPolicyShareAttributesArgs']]]] = None):
         """
         Fair Share Policy for the Job Queue.
+
         :param pulumi.Input[_builtins.float] compute_reservation: A value used to reserve some of the available maximum vCPU for share identifiers that aren't already used.
                
                The reserved ratio is `( *computeReservation* /100)^ *ActiveFairShares*` where `*ActiveFairShares*` is the number of active share identifiers.

@@ -29,6 +29,7 @@ class ThemeArgs:
                  values: Optional[pulumi.Input[Sequence[pulumi.Input['ThemeValuesArgs']]]] = None):
         """
         The set of arguments for constructing a Theme resource.
+
         :param pulumi.Input[_builtins.str] app_id: The unique ID for the Amplify app associated with the theme.
         :param pulumi.Input[_builtins.str] environment_name: The name of the backend environment that is a part of the Amplify app.
         :param pulumi.Input[_builtins.str] name: The name of the theme.
@@ -138,6 +139,7 @@ class Theme(pulumi.CustomResource):
         """
         Definition of AWS::AmplifyUIBuilder::Theme Resource Type
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] app_id: The unique ID for the Amplify app associated with the theme.
@@ -155,6 +157,7 @@ class Theme(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of AWS::AmplifyUIBuilder::Theme Resource Type
+
 
         :param str resource_name: The name of the resource.
         :param ThemeArgs args: The arguments to use to populate this resource's properties.

@@ -219,6 +219,7 @@ class ReferenceStoreSseConfigArgs:
                  key_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Server-side encryption (SSE) settings for a store.
+
         :param pulumi.Input['ReferenceStoreEncryptionType'] type: The encryption type.
         :param pulumi.Input[_builtins.str] key_arn: An encryption key ARN.
         """
@@ -271,6 +272,7 @@ class SequenceStoreSseConfigArgs:
                  key_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Server-side encryption (SSE) settings for a store.
+
         :param pulumi.Input['SequenceStoreEncryptionType'] type: The encryption type.
         :param pulumi.Input[_builtins.str] key_arn: An encryption key ARN.
         """

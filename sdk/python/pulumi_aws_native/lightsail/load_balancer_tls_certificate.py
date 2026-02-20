@@ -27,6 +27,7 @@ class LoadBalancerTlsCertificateArgs:
                  is_attached: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a LoadBalancerTlsCertificate resource.
+
         :param pulumi.Input[_builtins.str] certificate_domain_name: The domain name (e.g., example.com ) for your SSL/TLS certificate.
         :param pulumi.Input[_builtins.str] load_balancer_name: The name of your load balancer.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] certificate_alternative_names: An array of strings listing alternative domains and subdomains for your SSL/TLS certificate.
@@ -134,6 +135,7 @@ class LoadBalancerTlsCertificate(pulumi.CustomResource):
         """
         Resource Type definition for AWS::Lightsail::LoadBalancerTlsCertificate
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] certificate_alternative_names: An array of strings listing alternative domains and subdomains for your SSL/TLS certificate.
@@ -151,6 +153,7 @@ class LoadBalancerTlsCertificate(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::Lightsail::LoadBalancerTlsCertificate
+
 
         :param str resource_name: The name of the resource.
         :param LoadBalancerTlsCertificateArgs args: The arguments to use to populate this resource's properties.

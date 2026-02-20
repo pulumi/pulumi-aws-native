@@ -37,6 +37,7 @@ class ImageArgs:
                  workflows: Optional[pulumi.Input[Sequence[pulumi.Input['ImageWorkflowConfigurationArgs']]]] = None):
         """
         The set of arguments for constructing a Image resource.
+
         :param pulumi.Input[_builtins.str] container_recipe_arn: The Amazon Resource Name (ARN) of the container recipe that defines how images are configured and tested.
         :param pulumi.Input['ImageDeletionSettingsArgs'] deletion_settings: The deletion settings of the image, indicating whether to delete the underlying resources in addition to the image.
         :param pulumi.Input[_builtins.str] distribution_configuration_arn: The Amazon Resource Name (ARN) of the distribution configuration.
@@ -258,6 +259,7 @@ class Image(pulumi.CustomResource):
         """
         Resource schema for AWS::ImageBuilder::Image
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] container_recipe_arn: The Amazon Resource Name (ARN) of the container recipe that defines how images are configured and tested.
@@ -282,6 +284,7 @@ class Image(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource schema for AWS::ImageBuilder::Image
+
 
         :param str resource_name: The name of the resource.
         :param ImageArgs args: The arguments to use to populate this resource's properties.

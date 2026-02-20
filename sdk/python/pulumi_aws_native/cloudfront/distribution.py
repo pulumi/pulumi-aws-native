@@ -28,6 +28,7 @@ class DistributionArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Distribution resource.
+
         :param pulumi.Input['DistributionConfigArgs'] distribution_config: The distribution's configuration.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A complex type that contains zero or more ``Tag`` elements.
         """
@@ -72,6 +73,7 @@ class Distribution(pulumi.CustomResource):
         """
         A distribution tells CloudFront where you want content to be delivered from, and the details about how to track and manage content delivery.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['DistributionConfigArgs', 'DistributionConfigArgsDict']] distribution_config: The distribution's configuration.
@@ -85,6 +87,7 @@ class Distribution(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A distribution tells CloudFront where you want content to be delivered from, and the details about how to track and manage content delivery.
+
 
         :param str resource_name: The name of the resource.
         :param DistributionArgs args: The arguments to use to populate this resource's properties.

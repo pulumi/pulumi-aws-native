@@ -30,6 +30,7 @@ class SecurityConfigurationArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a SecurityConfiguration resource.
+
         :param pulumi.Input['SecurityConfigurationDataArgs'] security_configuration_data: Security configuration input for the security configuration.
         :param pulumi.Input['SecurityConfigurationContainerProviderArgs'] container_provider: Container provider for the security configuration.
         :param pulumi.Input[_builtins.str] name: The name of the security configuration.
@@ -106,6 +107,7 @@ class SecurityConfiguration(pulumi.CustomResource):
         """
         Resource Schema of AWS::EMRContainers::SecurityConfiguration Type
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['SecurityConfigurationContainerProviderArgs', 'SecurityConfigurationContainerProviderArgsDict']] container_provider: Container provider for the security configuration.
@@ -121,6 +123,7 @@ class SecurityConfiguration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Schema of AWS::EMRContainers::SecurityConfiguration Type
+
 
         :param str resource_name: The name of the resource.
         :param SecurityConfigurationArgs args: The arguments to use to populate this resource's properties.

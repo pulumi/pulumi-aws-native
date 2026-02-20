@@ -25,6 +25,7 @@ class AttributeGroupArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a AttributeGroup resource.
+
         :param Any attributes: A nested object in a JSON or YAML template that supports arbitrary definitions. Represents the attributes in an attribute group that describes an application and its components.
                
                Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ServiceCatalogAppRegistry::AttributeGroup` for more information about the expected schema for this property.
@@ -105,6 +106,7 @@ class AttributeGroup(pulumi.CustomResource):
         """
         Resource Schema for AWS::ServiceCatalogAppRegistry::AttributeGroup.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param Any attributes: A nested object in a JSON or YAML template that supports arbitrary definitions. Represents the attributes in an attribute group that describes an application and its components.
@@ -122,6 +124,7 @@ class AttributeGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Schema for AWS::ServiceCatalogAppRegistry::AttributeGroup.
+
 
         :param str resource_name: The name of the resource.
         :param AttributeGroupArgs args: The arguments to use to populate this resource's properties.

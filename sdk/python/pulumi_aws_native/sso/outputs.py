@@ -53,6 +53,7 @@ class ApplicationPortalOptionsConfiguration(dict):
                  visibility: Optional['ApplicationPortalOptionsConfigurationVisibility'] = None):
         """
         A structure that describes the options for the access portal associated with an application
+
         :param 'ApplicationSignInOptions' sign_in_options: A structure that describes the sign-in options for the access portal
         :param 'ApplicationPortalOptionsConfigurationVisibility' visibility: Indicates whether this application is visible in the access portal
         """
@@ -105,6 +106,7 @@ class ApplicationSignInOptions(dict):
                  application_url: Optional[_builtins.str] = None):
         """
         A structure that describes the sign-in options for an application portal
+
         :param 'ApplicationSignInOptionsOrigin' origin: This determines how IAM Identity Center navigates the user to the target application
         :param _builtins.str application_url: The URL that accepts authentication requests for an application, this is a required parameter if the Origin parameter is APPLICATION
         """

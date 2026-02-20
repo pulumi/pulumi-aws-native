@@ -32,6 +32,7 @@ class ResourceDataSyncArgs:
                  sync_type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ResourceDataSync resource.
+
         :param pulumi.Input[_builtins.str] bucket_name: The name of the S3 bucket where the aggregated data is stored.
         :param pulumi.Input[_builtins.str] bucket_prefix: An Amazon S3 prefix for the bucket.
         :param pulumi.Input[_builtins.str] bucket_region: The AWS Region with the S3 bucket targeted by the resource data sync.
@@ -345,6 +346,7 @@ class ResourceDataSync(pulumi.CustomResource):
 
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] bucket_name: The name of the S3 bucket where the aggregated data is stored.
@@ -521,6 +523,7 @@ class ResourceDataSync(pulumi.CustomResource):
             })
 
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ResourceDataSyncArgs args: The arguments to use to populate this resource's properties.

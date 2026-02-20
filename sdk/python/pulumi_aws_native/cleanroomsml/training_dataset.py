@@ -31,6 +31,7 @@ class TrainingDatasetArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a TrainingDataset resource.
+
         :param pulumi.Input[_builtins.str] role_arn: The ARN of the IAM role that Clean Rooms ML can assume to read the data referred to in the `dataSource` field of each dataset.
                
                Passing a role across accounts is not allowed. If you pass a role that isn't in your account, you get an `AccessDeniedException` error.
@@ -126,6 +127,7 @@ class TrainingDataset(pulumi.CustomResource):
         """
         Definition of AWS::CleanRoomsML::TrainingDataset Resource Type
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: The description of the training dataset.
@@ -144,6 +146,7 @@ class TrainingDataset(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of AWS::CleanRoomsML::TrainingDataset Resource Type
+
 
         :param str resource_name: The name of the resource.
         :param TrainingDatasetArgs args: The arguments to use to populate this resource's properties.

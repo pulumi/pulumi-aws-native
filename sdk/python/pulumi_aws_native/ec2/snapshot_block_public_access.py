@@ -23,6 +23,7 @@ class SnapshotBlockPublicAccessArgs:
                  state: pulumi.Input['SnapshotBlockPublicAccessState']):
         """
         The set of arguments for constructing a SnapshotBlockPublicAccess resource.
+
         :param pulumi.Input['SnapshotBlockPublicAccessState'] state: The state of EBS Snapshot Block Public Access.
         """
         pulumi.set(__self__, "state", state)
@@ -51,6 +52,7 @@ class SnapshotBlockPublicAccess(pulumi.CustomResource):
         """
         Resource Type definition for AWS::EC2::SnapshotBlockPublicAccess
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input['SnapshotBlockPublicAccessState'] state: The state of EBS Snapshot Block Public Access.
@@ -63,6 +65,7 @@ class SnapshotBlockPublicAccess(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::EC2::SnapshotBlockPublicAccess
+
 
         :param str resource_name: The name of the resource.
         :param SnapshotBlockPublicAccessArgs args: The arguments to use to populate this resource's properties.

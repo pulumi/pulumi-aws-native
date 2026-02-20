@@ -28,6 +28,7 @@ class ServiceEnvironmentArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ServiceEnvironment resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['ServiceEnvironmentCapacityLimitArgs']]] capacity_limits: The capacity limits for the service environment. This defines the maximum resources that can be used by service jobs in this environment.
         :param pulumi.Input[_builtins.str] service_environment_type: The type of service environment. For SageMaker Training jobs, this value is `SAGEMAKER_TRAINING` .
         :param pulumi.Input[_builtins.str] service_environment_name: The name of the service environment.
@@ -119,6 +120,7 @@ class ServiceEnvironment(pulumi.CustomResource):
         """
         Resource Type definition for AWS::Batch::ServiceEnvironment
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ServiceEnvironmentCapacityLimitArgs', 'ServiceEnvironmentCapacityLimitArgsDict']]]] capacity_limits: The capacity limits for the service environment. This defines the maximum resources that can be used by service jobs in this environment.
@@ -135,6 +137,7 @@ class ServiceEnvironment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::Batch::ServiceEnvironment
+
 
         :param str resource_name: The name of the resource.
         :param ServiceEnvironmentArgs args: The arguments to use to populate this resource's properties.

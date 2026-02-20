@@ -30,6 +30,7 @@ class ManagedLoginBrandingArgs:
                  use_cognito_provided_values: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a ManagedLoginBranding resource.
+
         :param pulumi.Input[_builtins.str] user_pool_id: The user pool where the branding style is assigned.
         :param pulumi.Input[Sequence[pulumi.Input['ManagedLoginBrandingAssetTypeArgs']]] assets: An array of image files that you want to apply to roles like backgrounds, logos, and icons. Each object must also indicate whether it is for dark mode, light mode, or browser-adaptive mode.
         :param pulumi.Input[_builtins.str] client_id: The app client that you want to assign the branding style to. Each style is linked to an app client until you delete it.
@@ -160,6 +161,7 @@ class ManagedLoginBranding(pulumi.CustomResource):
         """
         Resource Type definition for AWS::Cognito::ManagedLoginBranding
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ManagedLoginBrandingAssetTypeArgs', 'ManagedLoginBrandingAssetTypeArgsDict']]]] assets: An array of image files that you want to apply to roles like backgrounds, logos, and icons. Each object must also indicate whether it is for dark mode, light mode, or browser-adaptive mode.
@@ -188,6 +190,7 @@ class ManagedLoginBranding(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::Cognito::ManagedLoginBranding
+
 
         :param str resource_name: The name of the resource.
         :param ManagedLoginBrandingArgs args: The arguments to use to populate this resource's properties.

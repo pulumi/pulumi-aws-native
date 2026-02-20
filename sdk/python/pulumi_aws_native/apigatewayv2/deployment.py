@@ -24,6 +24,7 @@ class DeploymentArgs:
                  stage_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Deployment resource.
+
         :param pulumi.Input[_builtins.str] api_id: The API identifier.
         :param pulumi.Input[_builtins.str] description: The description for the deployment resource.
         :param pulumi.Input[_builtins.str] stage_name: The name of an existing stage to associate with the deployment.
@@ -84,6 +85,7 @@ class Deployment(pulumi.CustomResource):
         """
         The ``AWS::ApiGatewayV2::Deployment`` resource creates a deployment for an API.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] api_id: The API identifier.
@@ -98,6 +100,7 @@ class Deployment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The ``AWS::ApiGatewayV2::Deployment`` resource creates a deployment for an API.
+
 
         :param str resource_name: The name of the resource.
         :param DeploymentArgs args: The arguments to use to populate this resource's properties.

@@ -39,6 +39,7 @@ class ResourceConfigurationArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a ResourceConfiguration resource.
+
         :param pulumi.Input['ResourceConfigurationType'] resource_configuration_type: The type of resource configuration. A resource configuration can be one of the following types:
                
                - *SINGLE* - A single resource.
@@ -277,6 +278,7 @@ class ResourceConfiguration(pulumi.CustomResource):
         """
         VpcLattice ResourceConfiguration CFN resource
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] allow_association_to_sharable_service_network: Specifies whether the resource configuration can be associated with a sharable service network.
@@ -310,6 +312,7 @@ class ResourceConfiguration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         VpcLattice ResourceConfiguration CFN resource
+
 
         :param str resource_name: The name of the resource.
         :param ResourceConfigurationArgs args: The arguments to use to populate this resource's properties.

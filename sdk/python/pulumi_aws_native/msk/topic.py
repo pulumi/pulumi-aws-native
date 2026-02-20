@@ -26,6 +26,7 @@ class TopicArgs:
                  topic_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Topic resource.
+
         :param pulumi.Input[_builtins.str] cluster_arn: The Amazon Resource Name (ARN) of the MSK cluster
         :param pulumi.Input[_builtins.int] partition_count: The number of partitions for the topic
         :param pulumi.Input[_builtins.int] replication_factor: The replication factor for the topic
@@ -116,6 +117,7 @@ class Topic(pulumi.CustomResource):
         """
         Resource Type definition for AWS::MSK::Topic
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] cluster_arn: The Amazon Resource Name (ARN) of the MSK cluster
@@ -132,6 +134,7 @@ class Topic(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::MSK::Topic
+
 
         :param str resource_name: The name of the resource.
         :param TopicArgs args: The arguments to use to populate this resource's properties.

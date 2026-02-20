@@ -25,6 +25,7 @@ class TablePolicyArgs:
                  table_arn: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a TablePolicy resource.
+
         :param pulumi.Input['TablePolicyResourcePolicyArgs'] resource_policy: The `JSON` that defines the policy.
         :param pulumi.Input[_builtins.str] table_arn: The Amazon Resource Name (ARN) of the table.
         """
@@ -68,6 +69,7 @@ class TablePolicy(pulumi.CustomResource):
         """
         Resource Type definition for AWS::S3Tables::TablePolicy
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['TablePolicyResourcePolicyArgs', 'TablePolicyResourcePolicyArgsDict']] resource_policy: The `JSON` that defines the policy.
@@ -81,6 +83,7 @@ class TablePolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::S3Tables::TablePolicy
+
 
         :param str resource_name: The name of the resource.
         :param TablePolicyArgs args: The arguments to use to populate this resource's properties.

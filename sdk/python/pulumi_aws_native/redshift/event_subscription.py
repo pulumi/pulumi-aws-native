@@ -32,6 +32,7 @@ class EventSubscriptionArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a EventSubscription resource.
+
         :param pulumi.Input[_builtins.bool] enabled: A boolean value; set to true to activate the subscription, and set to false to create the subscription but not activate it.
         :param pulumi.Input[Sequence[pulumi.Input['EventSubscriptionEventCategoriesItem']]] event_categories: Specifies the Amazon Redshift event categories to be published by the event notification subscription.
         :param pulumi.Input['EventSubscriptionSeverity'] severity: Specifies the Amazon Redshift event severity to be published by the event notification subscription.
@@ -173,6 +174,7 @@ class EventSubscription(pulumi.CustomResource):
         """
         The `AWS::Redshift::EventSubscription` resource creates an Amazon Redshift Event Subscription.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] enabled: A boolean value; set to true to activate the subscription, and set to false to create the subscription but not activate it.
@@ -192,6 +194,7 @@ class EventSubscription(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The `AWS::Redshift::EventSubscription` resource creates an Amazon Redshift Event Subscription.
+
 
         :param str resource_name: The name of the resource.
         :param EventSubscriptionArgs args: The arguments to use to populate this resource's properties.

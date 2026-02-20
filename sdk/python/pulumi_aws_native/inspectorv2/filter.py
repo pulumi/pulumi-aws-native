@@ -29,6 +29,7 @@ class FilterArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Filter resource.
+
         :param pulumi.Input['FilterAction'] filter_action: Findings filter action.
         :param pulumi.Input['FilterCriteriaArgs'] filter_criteria: Findings filter criteria.
         :param pulumi.Input[_builtins.str] description: Findings filter description.
@@ -120,6 +121,7 @@ class Filter(pulumi.CustomResource):
         """
         Inspector Filter resource schema
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: Findings filter description.
@@ -136,6 +138,7 @@ class Filter(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Inspector Filter resource schema
+
 
         :param str resource_name: The name of the resource.
         :param FilterArgs args: The arguments to use to populate this resource's properties.

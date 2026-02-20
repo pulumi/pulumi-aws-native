@@ -47,6 +47,7 @@ class TransactionSearchConfig(pulumi.CustomResource):
         """
         This schema provides construct and validation rules for AWS-XRay TransactionSearchConfig resource parameters.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
@@ -58,6 +59,7 @@ class TransactionSearchConfig(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         This schema provides construct and validation rules for AWS-XRay TransactionSearchConfig resource parameters.
+
 
         :param str resource_name: The name of the resource.
         :param TransactionSearchConfigArgs args: The arguments to use to populate this resource's properties.

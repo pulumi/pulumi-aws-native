@@ -51,6 +51,7 @@ class DataFilterExpressionProperties(dict):
                  time_range: Optional['outputs.DataFilterExpressionPropertiesTimeRangeProperties'] = None):
         """
         See [Expression](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_billing_Expression.html) . Billing view only supports `LINKED_ACCOUNT` and `Tags` .
+
         :param 'DataFilterExpressionPropertiesDimensionsProperties' dimensions: The specific `Dimension` to use for `Expression` .
         :param 'DataFilterExpressionPropertiesTagsProperties' tags: The specific `Tag` to use for `Expression` .
         """

@@ -28,6 +28,7 @@ class PolicyStatementArgs:
                  principal: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a PolicyStatement resource.
+
         :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the resource that will be accessed by the principal.
         :param pulumi.Input[_builtins.str] statement_id: A statement identifier that differentiates the statement from others in the same policy.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] action: The action that the principal can use on the resource.
@@ -143,6 +144,7 @@ class PolicyStatement(pulumi.CustomResource):
         """
         Policy Statement defined in AWS Entity Resolution Service
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] action: The action that the principal can use on the resource.
@@ -164,6 +166,7 @@ class PolicyStatement(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Policy Statement defined in AWS Entity Resolution Service
+
 
         :param str resource_name: The name of the resource.
         :param PolicyStatementArgs args: The arguments to use to populate this resource's properties.

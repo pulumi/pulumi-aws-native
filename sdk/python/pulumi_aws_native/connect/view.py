@@ -29,6 +29,7 @@ class ViewArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a View resource.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] actions: The actions of the view in an array.
         :param pulumi.Input[_builtins.str] instance_arn: The Amazon Resource Name (ARN) of the instance.
         :param Any template: The template of the view as JSON.
@@ -139,6 +140,7 @@ class View(pulumi.CustomResource):
         """
         Resource Type definition for AWS::Connect::View
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] actions: The actions of the view in an array.
@@ -158,6 +160,7 @@ class View(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::Connect::View
+
 
         :param str resource_name: The name of the resource.
         :param ViewArgs args: The arguments to use to populate this resource's properties.

@@ -38,6 +38,7 @@ class ExpressGatewayServiceArgs:
                  task_role_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ExpressGatewayService resource.
+
         :param pulumi.Input[_builtins.str] execution_role_arn: The ARN of the task execution role for the service revision.
         :param pulumi.Input[_builtins.str] infrastructure_role_arn: The ARN of the infrastructure role that manages AWS resources for the Express service.
         :param pulumi.Input['ExpressGatewayServiceExpressGatewayContainerArgs'] primary_container: The primary container configuration for this service revision.
@@ -240,6 +241,7 @@ class ExpressGatewayService(pulumi.CustomResource):
         """
         Resource Type definition for AWS::ECS::ExpressGatewayService
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] cluster: The short name or full ARN of the cluster that hosts the Express service.
@@ -263,6 +265,7 @@ class ExpressGatewayService(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::ECS::ExpressGatewayService
+
 
         :param str resource_name: The name of the resource.
         :param ExpressGatewayServiceArgs args: The arguments to use to populate this resource's properties.

@@ -26,6 +26,7 @@ class AggregationAuthorizationArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a AggregationAuthorization resource.
+
         :param pulumi.Input[_builtins.str] authorized_account_id: The 12-digit account ID of the account authorized to aggregate data.
         :param pulumi.Input[_builtins.str] authorized_aws_region: The region authorized to collect aggregated data.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags for the AggregationAuthorization.
@@ -85,6 +86,7 @@ class AggregationAuthorization(pulumi.CustomResource):
         """
         Resource Type definition for AWS::Config::AggregationAuthorization
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] authorized_account_id: The 12-digit account ID of the account authorized to aggregate data.
@@ -99,6 +101,7 @@ class AggregationAuthorization(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::Config::AggregationAuthorization
+
 
         :param str resource_name: The name of the resource.
         :param AggregationAuthorizationArgs args: The arguments to use to populate this resource's properties.

@@ -30,6 +30,7 @@ class EndpointArgs:
                  failed_reason: Optional[pulumi.Input['EndpointFailedReasonArgs']] = None):
         """
         The set of arguments for constructing a Endpoint resource.
+
         :param pulumi.Input[_builtins.str] outpost_id: The id of the customer outpost on which the bucket resides.
         :param pulumi.Input[_builtins.str] security_group_id: The ID of the security group to use with the endpoint.
         :param pulumi.Input[_builtins.str] subnet_id: The ID of the subnet in the selected VPC. The subnet must belong to the Outpost.
@@ -136,6 +137,7 @@ class Endpoint(pulumi.CustomResource):
         """
         Resource Type Definition for AWS::S3Outposts::Endpoint
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input['EndpointAccessType'] access_type: The type of access for the on-premise network connectivity for the Outpost endpoint. To access endpoint from an on-premises network, you must specify the access type and provide the customer owned Ipv4 pool.
@@ -153,6 +155,7 @@ class Endpoint(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type Definition for AWS::S3Outposts::Endpoint
+
 
         :param str resource_name: The name of the resource.
         :param EndpointArgs args: The arguments to use to populate this resource's properties.

@@ -28,6 +28,7 @@ class TermsArgs:
                  terms_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Terms resource.
+
         :param pulumi.Input['TermsEnforcementType'] enforcement: This parameter is reserved for future use and currently accepts one value.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] links: A map of URLs to languages. For each localized language that will view the requested `TermsName` , assign a URL. A selection of `cognito:default` displays for all languages that don't have a language-specific URL.
                
@@ -137,6 +138,7 @@ class Terms(pulumi.CustomResource):
         """
         Resource Type definition for AWS::Cognito::Terms
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] client_id: The ID of the app client that the terms documents are assigned to.
@@ -156,6 +158,7 @@ class Terms(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::Cognito::Terms
+
 
         :param str resource_name: The name of the resource.
         :param TermsArgs args: The arguments to use to populate this resource's properties.

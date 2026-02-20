@@ -26,6 +26,7 @@ class EipAssociationArgs:
                  private_ip_address: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a EipAssociation resource.
+
         :param pulumi.Input[_builtins.str] allocation_id: The allocation ID. This is required.
         :param pulumi.Input[_builtins.str] instance_id: The ID of the instance. The instance must have exactly one attached network interface. You can specify either the instance ID or the network interface ID, but not both.
         :param pulumi.Input[_builtins.str] network_interface_id: The ID of the network interface. If the instance has more than one network interface, you must specify a network interface ID.
@@ -118,6 +119,7 @@ class EipAssociation(pulumi.CustomResource):
         Associates an Elastic IP address with an instance or a network interface. Before you can use an Elastic IP address, you must allocate it to your account. For more information about working with Elastic IP addresses, see [Elastic IP address concepts and rules](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-eips.html#vpc-eip-overview).
          You must specify ``AllocationId`` and either ``InstanceId``, ``NetworkInterfaceId``, or ``PrivateIpAddress``.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] allocation_id: The allocation ID. This is required.
@@ -135,6 +137,7 @@ class EipAssociation(pulumi.CustomResource):
         """
         Associates an Elastic IP address with an instance or a network interface. Before you can use an Elastic IP address, you must allocate it to your account. For more information about working with Elastic IP addresses, see [Elastic IP address concepts and rules](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-eips.html#vpc-eip-overview).
          You must specify ``AllocationId`` and either ``InstanceId``, ``NetworkInterfaceId``, or ``PrivateIpAddress``.
+
 
         :param str resource_name: The name of the resource.
         :param EipAssociationArgs args: The arguments to use to populate this resource's properties.

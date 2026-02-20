@@ -27,6 +27,7 @@ class UserPoolResourceServerArgs:
                  scopes: Optional[pulumi.Input[Sequence[pulumi.Input['UserPoolResourceServerResourceServerScopeTypeArgs']]]] = None):
         """
         The set of arguments for constructing a UserPoolResourceServer resource.
+
         :param pulumi.Input[_builtins.str] identifier: A unique resource server identifier for the resource server. The identifier can be an API friendly name like `solar-system-data` . You can also set an API URL like `https://solar-system-data-api.example.com` as your identifier.
                
                Amazon Cognito represents scopes in the access token in the format `$resource-server-identifier/$scope` . Longer scope-identifier strings increase the size of your access tokens.
@@ -106,6 +107,7 @@ class UserPoolResourceServer(pulumi.CustomResource):
         """
         Resource Type definition for AWS::Cognito::UserPoolResourceServer
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] identifier: A unique resource server identifier for the resource server. The identifier can be an API friendly name like `solar-system-data` . You can also set an API URL like `https://solar-system-data-api.example.com` as your identifier.
@@ -123,6 +125,7 @@ class UserPoolResourceServer(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::Cognito::UserPoolResourceServer
+
 
         :param str resource_name: The name of the resource.
         :param UserPoolResourceServerArgs args: The arguments to use to populate this resource's properties.

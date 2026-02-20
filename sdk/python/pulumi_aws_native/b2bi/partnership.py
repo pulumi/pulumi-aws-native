@@ -33,6 +33,7 @@ class PartnershipArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Partnership resource.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] capabilities: Returns one or more capabilities associated with this partnership.
         :param pulumi.Input[_builtins.str] email: Specifies the email address associated with this trading partner.
         :param pulumi.Input[_builtins.str] profile_id: Returns the unique, system-generated identifier for the profile connected to this partnership.
@@ -155,6 +156,7 @@ class Partnership(pulumi.CustomResource):
         """
         Definition of AWS::B2BI::Partnership Resource Type
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] capabilities: Returns one or more capabilities associated with this partnership.
@@ -173,6 +175,7 @@ class Partnership(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of AWS::B2BI::Partnership Resource Type
+
 
         :param str resource_name: The name of the resource.
         :param PartnershipArgs args: The arguments to use to populate this resource's properties.

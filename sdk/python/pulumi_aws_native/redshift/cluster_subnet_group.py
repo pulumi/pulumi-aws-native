@@ -26,6 +26,7 @@ class ClusterSubnetGroupArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a ClusterSubnetGroup resource.
+
         :param pulumi.Input[_builtins.str] description: The description of the parameter group.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: The list of VPC subnet IDs
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The list of tags for the cluster parameter group.
@@ -85,6 +86,7 @@ class ClusterSubnetGroup(pulumi.CustomResource):
         """
         Resource Type definition for AWS::Redshift::ClusterSubnetGroup. Specifies an Amazon Redshift subnet group.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: The description of the parameter group.
@@ -99,6 +101,7 @@ class ClusterSubnetGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::Redshift::ClusterSubnetGroup. Specifies an Amazon Redshift subnet group.
+
 
         :param str resource_name: The name of the resource.
         :param ClusterSubnetGroupArgs args: The arguments to use to populate this resource's properties.

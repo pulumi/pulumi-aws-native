@@ -30,6 +30,7 @@ class AppImageConfigArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a AppImageConfig resource.
+
         :param pulumi.Input[_builtins.str] app_image_config_name: The Name of the AppImageConfig.
         :param pulumi.Input['AppImageConfigCodeEditorAppImageConfigArgs'] code_editor_app_image_config: The CodeEditorAppImageConfig.
         :param pulumi.Input['AppImageConfigJupyterLabAppImageConfigArgs'] jupyter_lab_app_image_config: The JupyterLabAppImageConfig.
@@ -123,6 +124,7 @@ class AppImageConfig(pulumi.CustomResource):
         """
         Resource Type definition for AWS::SageMaker::AppImageConfig
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] app_image_config_name: The Name of the AppImageConfig.
@@ -139,6 +141,7 @@ class AppImageConfig(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::SageMaker::AppImageConfig
+
 
         :param str resource_name: The name of the resource.
         :param AppImageConfigArgs args: The arguments to use to populate this resource's properties.

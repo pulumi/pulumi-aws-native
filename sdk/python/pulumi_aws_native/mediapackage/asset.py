@@ -32,6 +32,7 @@ class AssetArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]] = None):
         """
         The set of arguments for constructing a Asset resource.
+
         :param pulumi.Input[_builtins.str] aws_id: The unique identifier for the Asset.
         :param pulumi.Input[_builtins.str] packaging_group_id: The ID of the PackagingGroup for the Asset.
         :param pulumi.Input[_builtins.str] source_arn: ARN of the source object in S3.
@@ -153,6 +154,7 @@ class Asset(pulumi.CustomResource):
         """
         Resource schema for AWS::MediaPackage::Asset
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] aws_id: The unique identifier for the Asset.
@@ -171,6 +173,7 @@ class Asset(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource schema for AWS::MediaPackage::Asset
+
 
         :param str resource_name: The name of the resource.
         :param AssetArgs args: The arguments to use to populate this resource's properties.

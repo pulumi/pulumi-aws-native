@@ -28,6 +28,7 @@ class EncoderConfigurationArgs:
                  video: Optional[pulumi.Input['VideoPropertiesArgs']] = None):
         """
         The set of arguments for constructing a EncoderConfiguration resource.
+
         :param pulumi.Input[_builtins.str] name: Encoder configuration name.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
         :param pulumi.Input['VideoPropertiesArgs'] video: Video configuration. Default: video resolution 1280x720, bitrate 2500 kbps, 30 fps
@@ -89,6 +90,7 @@ class EncoderConfiguration(pulumi.CustomResource):
         """
         Resource Type definition for AWS::IVS::EncoderConfiguration.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: Encoder configuration name.
@@ -103,6 +105,7 @@ class EncoderConfiguration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::IVS::EncoderConfiguration.
+
 
         :param str resource_name: The name of the resource.
         :param EncoderConfigurationArgs args: The arguments to use to populate this resource's properties.

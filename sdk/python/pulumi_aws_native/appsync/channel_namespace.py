@@ -34,6 +34,7 @@ class ChannelNamespaceArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a ChannelNamespace resource.
+
         :param pulumi.Input[_builtins.str] api_id: AppSync Api Id that this Channel Namespace belongs to.
         :param pulumi.Input[_builtins.str] code_handlers: The event handler functions that run custom business logic to process published events and subscribe requests.
         :param pulumi.Input[_builtins.str] code_s3_location: The Amazon S3 endpoint where the code is located.
@@ -174,6 +175,7 @@ class ChannelNamespace(pulumi.CustomResource):
         """
         Resource schema for AppSync ChannelNamespace
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] api_id: AppSync Api Id that this Channel Namespace belongs to.
@@ -193,6 +195,7 @@ class ChannelNamespace(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource schema for AppSync ChannelNamespace
+
 
         :param str resource_name: The name of the resource.
         :param ChannelNamespaceArgs args: The arguments to use to populate this resource's properties.

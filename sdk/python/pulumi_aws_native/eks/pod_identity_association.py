@@ -31,6 +31,7 @@ class PodIdentityAssociationArgs:
                  target_role_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a PodIdentityAssociation resource.
+
         :param pulumi.Input[_builtins.str] cluster_name: The cluster that the pod identity association is created for.
         :param pulumi.Input[_builtins.str] namespace: The Kubernetes namespace that the pod identity association is created for.
         :param pulumi.Input[_builtins.str] role_arn: The IAM role ARN that the pod identity association is created for.
@@ -168,6 +169,7 @@ class PodIdentityAssociation(pulumi.CustomResource):
         """
         An object representing an Amazon EKS PodIdentityAssociation.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] cluster_name: The cluster that the pod identity association is created for.
@@ -187,6 +189,7 @@ class PodIdentityAssociation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An object representing an Amazon EKS PodIdentityAssociation.
+
 
         :param str resource_name: The name of the resource.
         :param PodIdentityAssociationArgs args: The arguments to use to populate this resource's properties.

@@ -43,6 +43,7 @@ class ChannelDestination(dict):
                  type: 'ChannelDestinationType'):
         """
         The resource that receives events arriving from a channel.
+
         :param _builtins.str location: The ARN of a resource that receives events from a channel.
         :param 'ChannelDestinationType' type: The type of destination for events arriving from a channel.
         """
@@ -94,6 +95,7 @@ class DashboardRefreshSchedule(dict):
                  time_of_day: Optional[_builtins.str] = None):
         """
         Configures the automatic refresh schedule for the dashboard. Includes the frequency unit (DAYS or HOURS) and value, as well as the status (ENABLED or DISABLED) of the refresh schedule.
+
         :param 'DashboardRefreshScheduleFrequencyProperties' frequency: The frequency at which you want the dashboard refreshed.
         :param 'DashboardRefreshScheduleStatus' status: The status of the schedule. Supported values are ENABLED and DISABLED.
         :param _builtins.str time_of_day: StartTime of the automatic schedule refresh.
@@ -140,6 +142,7 @@ class DashboardRefreshScheduleFrequencyProperties(dict):
                  value: _builtins.int):
         """
         The frequency at which you want the dashboard refreshed.
+
         :param 'DashboardRefreshScheduleFrequencyPropertiesUnit' unit: The frequency unit. Supported values are HOURS and DAYS.
         :param _builtins.int value: The frequency value.
         """
@@ -195,6 +198,7 @@ class DashboardWidget(dict):
                  view_properties: Optional[Mapping[str, _builtins.str]] = None):
         """
         The dashboard widget
+
         :param _builtins.str query_statement: The SQL query statement on one or more event data stores.
         :param Sequence[_builtins.str] query_parameters: The placeholder keys in the QueryStatement. For example: $StartTime$, $EndTime$, $Period$.
         :param Mapping[str, _builtins.str] view_properties: The view properties of the widget.
@@ -257,6 +261,7 @@ class EventDataStoreAdvancedEventSelector(dict):
                  name: Optional[_builtins.str] = None):
         """
         Advanced event selectors let you create fine-grained selectors for the following AWS CloudTrail event record ﬁelds. They help you control costs by logging only those events that are important to you.
+
         :param Sequence['EventDataStoreAdvancedFieldSelector'] field_selectors: Contains all selector statements in an advanced event selector.
         :param _builtins.str name: An optional, descriptive name for an advanced event selector, such as "Log data events for only two S3 buckets".
         """
@@ -321,6 +326,7 @@ class EventDataStoreAdvancedFieldSelector(dict):
                  starts_with: Optional[Sequence[_builtins.str]] = None):
         """
         A single selector statement in an advanced event selector.
+
         :param _builtins.str field: A field in an event record on which to filter events to be logged. Supported fields include readOnly, eventCategory, eventSource (for management events), eventName, resources.type, and resources.ARN.
         :param Sequence[_builtins.str] ends_with: An operator that includes events that match the last few characters of the event record field specified as the value of Field.
         :param Sequence[_builtins.str] equals: An operator that includes events that match the exact value of the event record field specified as the value of Field. This is the only valid operator that you can use with the readOnly, eventCategory, and resources.type fields.
@@ -410,6 +416,7 @@ class EventDataStoreContextKeySelector(dict):
                  type: 'EventDataStoreContextKeySelectorType'):
         """
         An object that contains information types to be included in CloudTrail enriched events.
+
         :param Sequence[_builtins.str] equals: An operator that includes events that match the exact value of the event record field specified in Type.
         :param 'EventDataStoreContextKeySelectorType' type: Specifies the type of the event record field in ContextKeySelector. Valid values include RequestContext, TagContext.
         """
@@ -459,6 +466,7 @@ class EventDataStoreInsightSelector(dict):
                  insight_type: Optional[_builtins.str] = None):
         """
         A string that contains Insights types that are logged on an event data store.
+
         :param _builtins.str insight_type: The type of Insights to log on an event data store.
         """
         if insight_type is not None:
@@ -500,6 +508,7 @@ class TrailAdvancedEventSelector(dict):
                  name: Optional[_builtins.str] = None):
         """
         Advanced event selectors let you create fine-grained selectors for the following AWS CloudTrail event record fields. They help you control costs by logging only those events that are important to you.
+
         :param Sequence['TrailAdvancedFieldSelector'] field_selectors: Contains all selector statements in an advanced event selector.
         :param _builtins.str name: An optional, descriptive name for an advanced event selector, such as "Log data events for only two S3 buckets".
         """
@@ -564,6 +573,7 @@ class TrailAdvancedFieldSelector(dict):
                  starts_with: Optional[Sequence[_builtins.str]] = None):
         """
         A single selector statement in an advanced event selector.
+
         :param _builtins.str field: A field in an event record on which to filter events to be logged. Supported fields include readOnly, eventCategory, eventSource (for management events), eventName, resources.type, and resources.ARN.
         :param Sequence[_builtins.str] ends_with: An operator that includes events that match the last few characters of the event record field specified as the value of Field.
         :param Sequence[_builtins.str] equals: An operator that includes events that match the exact value of the event record field specified as the value of Field. This is the only valid operator that you can use with the readOnly, eventCategory, and resources.type fields.
@@ -670,6 +680,7 @@ class TrailAggregationConfiguration(dict):
                  templates: Sequence['TrailTemplate']):
         """
         Configure to add aggregation rules to aggregate CloudTrail Events.
+
         :param 'TrailAggregationConfigurationEventCategory' event_category: The category of events to be aggregated.
         :param Sequence['TrailTemplate'] templates: Contains all templates in an aggregation configuration.
         """
@@ -703,6 +714,7 @@ class TrailDataResource(dict):
                  values: Optional[Sequence[_builtins.str]] = None):
         """
         CloudTrail supports data event logging for Amazon S3 objects and AWS Lambda functions. You can specify up to 250 resources for an individual event selector, but the total number of data resources cannot exceed 250 across all event selectors in a trail. This limit does not apply if you configure resource logging for all data events.
+
         :param _builtins.str type: The resource type in which you want to log data events. You can specify AWS::S3::Object or AWS::Lambda::Function resources.
         :param Sequence[_builtins.str] values: An array of Amazon Resource Name (ARN) strings or partial ARN strings for the specified objects.
         """
@@ -762,6 +774,7 @@ class TrailEventSelector(dict):
                  read_write_type: Optional['TrailEventSelectorReadWriteType'] = None):
         """
         The type of email sending events to publish to the event destination.
+
         :param Sequence['TrailDataResource'] data_resources: CloudTrail supports data event logging for Amazon S3 objects in standard S3 buckets, AWS Lambda functions, and Amazon DynamoDB tables with basic event selectors. You can specify up to 250 resources for an individual event selector, but the total number of data resources cannot exceed 250 across all event selectors in a trail. This limit does not apply if you configure resource logging for all data events.
                
                For more information, see [Data Events](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html) and [Limits in AWS CloudTrail](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/WhatIsCloudTrail-Limits.html) in the *AWS CloudTrail User Guide* .
@@ -846,6 +859,7 @@ class TrailInsightSelector(dict):
                  insight_type: Optional[_builtins.str] = None):
         """
         A string that contains insight types that are logged on a trail.
+
         :param Sequence['TrailSourceEventCategory'] event_categories: The categories of events for which to log insights. By default, insights are logged for management events only.
         :param _builtins.str insight_type: The type of insight to log on a trail.
         """

@@ -64,6 +64,7 @@ class TableBucketEncryptionConfiguration(dict):
                  sse_algorithm: Optional['TableBucketEncryptionConfigurationSseAlgorithm'] = None):
         """
         Specifies encryption settings for the table bucket
+
         :param _builtins.str kms_key_arn: ARN of the KMS key to use for encryption
         :param 'TableBucketEncryptionConfigurationSseAlgorithm' sse_algorithm: Server-side encryption algorithm
         """
@@ -98,6 +99,7 @@ class TableBucketMetricsConfiguration(dict):
                  status: Optional['TableBucketMetricsConfigurationStatus'] = None):
         """
         Settings governing the Metric configuration for the table bucket.
+
         :param 'TableBucketMetricsConfigurationStatus' status: Indicates whether Metrics are enabled.
         """
         if status is not None:
@@ -150,6 +152,7 @@ class TableBucketStorageClassConfiguration(dict):
                  storage_class: Optional['TableBucketStorageClassConfigurationStorageClass'] = None):
         """
         Specifies storage class settings for the table bucket
+
         :param 'TableBucketStorageClassConfigurationStorageClass' storage_class: The storage class for the table bucket
         """
         if storage_class is not None:
@@ -194,6 +197,7 @@ class TableBucketUnreferencedFileRemoval(dict):
                  unreferenced_days: Optional[_builtins.int] = None):
         """
         Settings governing the Unreferenced File Removal maintenance action. Unreferenced file removal identifies and deletes all objects that are not referenced by any table snapshots.
+
         :param _builtins.int noncurrent_days: S3 permanently deletes noncurrent objects after the number of days specified by the NoncurrentDays property.
         :param 'TableBucketUnreferencedFileRemovalStatus' status: Indicates whether the Unreferenced File Removal maintenance action is enabled.
         :param _builtins.int unreferenced_days: For any object not referenced by your table and older than the UnreferencedDays property, S3 creates a delete marker and marks the object version as noncurrent.
@@ -257,6 +261,7 @@ class TableCompaction(dict):
                  target_file_size_mb: Optional[_builtins.int] = None):
         """
         Settings governing the Compaction maintenance action. Contains details about the compaction settings for an Iceberg table.
+
         :param 'TableCompactionStatus' status: Indicates whether the Compaction maintenance action is enabled.
         :param _builtins.int target_file_size_mb: The target file size for the table in MB.
         """
@@ -317,6 +322,7 @@ class TableIcebergMetadata(dict):
                  table_properties: Optional[Mapping[str, _builtins.str]] = None):
         """
         Contains details about the metadata for an Iceberg table.
+
         :param 'TableIcebergSchema' iceberg_schema: The schema for an Iceberg table.
         """
         pulumi.set(__self__, "iceberg_schema", iceberg_schema)
@@ -382,6 +388,7 @@ class TableIcebergPartitionField(dict):
                  field_id: Optional[_builtins.int] = None):
         """
         A partition field specification for an Iceberg table
+
         :param _builtins.str name: The name of the partition field
         :param _builtins.int source_id: The source column ID to partition on
         :param _builtins.str transform: The partition transform function (identity, bucket[N], truncate[N], year, month, day, hour)
@@ -453,6 +460,7 @@ class TableIcebergPartitionSpec(dict):
                  spec_id: Optional[_builtins.int] = None):
         """
         Partition specification for an Iceberg table
+
         :param Sequence['TableIcebergPartitionField'] fields: List of partition fields
         :param _builtins.int spec_id: The partition spec ID (defaults to 0 if not specified)
         """
@@ -503,6 +511,7 @@ class TableIcebergSchema(dict):
                  schema_field_list: Sequence['outputs.TableSchemaField']):
         """
         Contains details about the schema for an Iceberg table
+
         :param Sequence['TableSchemaField'] schema_field_list: The schema fields for the table
         """
         pulumi.set(__self__, "schema_field_list", schema_field_list)
@@ -547,6 +556,7 @@ class TableIcebergSortField(dict):
                  transform: _builtins.str):
         """
         A sort field specification for an Iceberg table
+
         :param 'TableIcebergSortFieldDirection' direction: Sort direction (asc or desc)
         :param 'TableIcebergSortFieldNullOrder' null_order: Null value ordering (nulls-first or nulls-last)
         :param _builtins.int source_id: The source column ID to sort on
@@ -617,6 +627,7 @@ class TableIcebergSortOrder(dict):
                  order_id: Optional[_builtins.int] = None):
         """
         Sort order specification for an Iceberg table
+
         :param Sequence['TableIcebergSortField'] fields: List of sort fields
         :param _builtins.int order_id: The sort order ID (defaults to 1 if not specified, 0 is reserved for unsorted)
         """
@@ -665,6 +676,7 @@ class TableSchemaField(dict):
                  required: Optional[_builtins.bool] = None):
         """
         Contains details about the schema for an Iceberg table
+
         :param _builtins.str name: The name of the field
         :param _builtins.str type: The field type
         :param _builtins.int id: The unique identifier for the field
@@ -740,6 +752,7 @@ class TableSnapshotManagement(dict):
                  status: Optional['TableSnapshotManagementStatus'] = None):
         """
         Contains details about the snapshot management settings for an Iceberg table. A snapshot is expired when it exceeds MinSnapshotsToKeep and MaxSnapshotAgeHours.
+
         :param _builtins.int max_snapshot_age_hours: The maximum age of a snapshot before it can be expired.
         :param _builtins.int min_snapshots_to_keep: The minimum number of snapshots to keep.
         :param 'TableSnapshotManagementStatus' status: Indicates whether the SnapshotManagement maintenance action is enabled.
@@ -802,6 +815,7 @@ class TableStorageClassConfiguration(dict):
                  storage_class: Optional['TableStorageClassConfigurationStorageClass'] = None):
         """
         Specifies storage class settings for the table
+
         :param 'TableStorageClassConfigurationStorageClass' storage_class: The storage class for the table
         """
         if storage_class is not None:

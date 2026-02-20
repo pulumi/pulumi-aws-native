@@ -35,6 +35,7 @@ class AlarmModelArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a AlarmModel resource.
+
         :param pulumi.Input['AlarmModelAlarmRuleArgs'] alarm_rule: Defines when your alarm is invoked.
         :param pulumi.Input[_builtins.str] role_arn: The ARN of the IAM role that allows the alarm to perform actions and access AWS resources. For more information, see [Amazon Resource Names (ARNs)](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *General Reference*.
         :param pulumi.Input['AlarmModelAlarmCapabilitiesArgs'] alarm_capabilities: Contains the configuration information of alarm state changes.
@@ -192,6 +193,7 @@ class AlarmModel(pulumi.CustomResource):
         """
         Represents an alarm model to monitor an ITE input attribute. You can use the alarm to get notified when the value is outside a specified range. For more information, see [Create an alarm model](https://docs.aws.amazon.com/iotevents/latest/developerguide/create-alarms.html) in the *Developer Guide*.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['AlarmModelAlarmCapabilitiesArgs', 'AlarmModelAlarmCapabilitiesArgsDict']] alarm_capabilities: Contains the configuration information of alarm state changes.
@@ -213,6 +215,7 @@ class AlarmModel(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Represents an alarm model to monitor an ITE input attribute. You can use the alarm to get notified when the value is outside a specified range. For more information, see [Create an alarm model](https://docs.aws.amazon.com/iotevents/latest/developerguide/create-alarms.html) in the *Developer Guide*.
+
 
         :param str resource_name: The name of the resource.
         :param AlarmModelArgs args: The arguments to use to populate this resource's properties.

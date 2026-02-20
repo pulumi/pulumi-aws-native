@@ -29,6 +29,7 @@ class IntegrationResourcePropertyArgs:
                  target_processing_properties: Optional[pulumi.Input['TargetProcessingPropertiesPropertiesArgs']] = None):
         """
         The set of arguments for constructing a IntegrationResourceProperty resource.
+
         :param pulumi.Input[_builtins.str] resource_arn: The connection ARN of the source, or the database ARN of the target.
         :param pulumi.Input['SourceProcessingPropertiesPropertiesArgs'] source_processing_properties: The resource properties associated with the integration source.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
@@ -105,6 +106,7 @@ class IntegrationResourceProperty(pulumi.CustomResource):
         """
         Resource Type definition for AWS::Glue::IntegrationResourceProperty
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] resource_arn: The connection ARN of the source, or the database ARN of the target.
@@ -120,6 +122,7 @@ class IntegrationResourceProperty(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::Glue::IntegrationResourceProperty
+
 
         :param str resource_name: The name of the resource.
         :param IntegrationResourcePropertyArgs args: The arguments to use to populate this resource's properties.

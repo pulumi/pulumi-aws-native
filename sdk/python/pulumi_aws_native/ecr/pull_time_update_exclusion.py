@@ -22,6 +22,7 @@ class PullTimeUpdateExclusionArgs:
                  principal_arn: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a PullTimeUpdateExclusion resource.
+
         :param pulumi.Input[_builtins.str] principal_arn: The ARN of the IAM principal to remove from the pull time update exclusion list.
         """
         pulumi.set(__self__, "principal_arn", principal_arn)
@@ -50,6 +51,7 @@ class PullTimeUpdateExclusion(pulumi.CustomResource):
         """
         The ARN of the IAM principal to remove from the pull time update exclusion list.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] principal_arn: The ARN of the IAM principal to remove from the pull time update exclusion list.
@@ -62,6 +64,7 @@ class PullTimeUpdateExclusion(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The ARN of the IAM principal to remove from the pull time update exclusion list.
+
 
         :param str resource_name: The name of the resource.
         :param PullTimeUpdateExclusionArgs args: The arguments to use to populate this resource's properties.

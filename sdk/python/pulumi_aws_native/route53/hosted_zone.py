@@ -31,6 +31,7 @@ class HostedZoneArgs:
                  vpcs: Optional[pulumi.Input[Sequence[pulumi.Input['HostedZoneVpcArgs']]]] = None):
         """
         The set of arguments for constructing a HostedZone resource.
+
         :param pulumi.Input['HostedZoneConfigArgs'] hosted_zone_config: A complex type that contains an optional comment.
                 If you don't want to specify a comment, omit the ``HostedZoneConfig`` and ``Comment`` elements.
         :param pulumi.Input['HostedZoneFeaturesArgs'] hosted_zone_features: The features configuration for the hosted zone, including accelerated recovery settings and status information.
@@ -177,6 +178,7 @@ class HostedZone(pulumi.CustomResource):
 
          For more information, see [Access Management](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *General Reference*.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['HostedZoneConfigArgs', 'HostedZoneConfigArgsDict']] hosted_zone_config: A complex type that contains an optional comment.
@@ -220,6 +222,7 @@ class HostedZone(pulumi.CustomResource):
           +  ``aws-us-gov`` - govcloud-us-region
 
          For more information, see [Access Management](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *General Reference*.
+
 
         :param str resource_name: The name of the resource.
         :param HostedZoneArgs args: The arguments to use to populate this resource's properties.

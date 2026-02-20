@@ -32,6 +32,7 @@ class DirectoryBucketArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a DirectoryBucket resource.
+
         :param pulumi.Input['DirectoryBucketDataRedundancy'] data_redundancy: Specifies the number of Availability Zone or Local Zone that's used for redundancy for the bucket.
         :param pulumi.Input[_builtins.str] location_name: Specifies the Zone ID of the Availability Zone or Local Zone where the directory bucket will be created. An example Availability Zone ID value is 'use1-az5'.
         :param pulumi.Input['DirectoryBucketBucketEncryptionArgs'] bucket_encryption: Specifies default encryption for a bucket using server-side encryption with Amazon S3 managed keys (SSE-S3) or AWS KMS keys (SSE-KMS). For information about default encryption for directory buckets, see [Setting and monitoring default encryption for directory buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-bucket-encryption.html) in the *Amazon S3 User Guide* .
@@ -139,6 +140,7 @@ class DirectoryBucket(pulumi.CustomResource):
         """
         Resource Type definition for AWS::S3Express::DirectoryBucket.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['DirectoryBucketBucketEncryptionArgs', 'DirectoryBucketBucketEncryptionArgsDict']] bucket_encryption: Specifies default encryption for a bucket using server-side encryption with Amazon S3 managed keys (SSE-S3) or AWS KMS keys (SSE-KMS). For information about default encryption for directory buckets, see [Setting and monitoring default encryption for directory buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-bucket-encryption.html) in the *Amazon S3 User Guide* .
@@ -156,6 +158,7 @@ class DirectoryBucket(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::S3Express::DirectoryBucket.
+
 
         :param str resource_name: The name of the resource.
         :param DirectoryBucketArgs args: The arguments to use to populate this resource's properties.

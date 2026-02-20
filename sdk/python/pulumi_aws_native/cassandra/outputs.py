@@ -133,6 +133,7 @@ class TableAutoScalingSetting(dict):
                  scaling_policy: Optional['outputs.TableScalingPolicy'] = None):
         """
         Represents configuration for auto scaling.
+
         :param _builtins.bool auto_scaling_disabled: This optional parameter enables auto scaling for the table if set to `false` .
         :param _builtins.int maximum_units: Manage costs by specifying the maximum amount of throughput to provision. The value must be between 1 and the max throughput per second quota for your account (40,000 by default).
         :param _builtins.int minimum_units: The minimum level of throughput the table should always be ready to support. The value must be between 1 and the max throughput per second quota for your account (40,000 by default).
@@ -209,6 +210,7 @@ class TableAutoScalingSpecification(dict):
                  write_capacity_auto_scaling: Optional['outputs.TableAutoScalingSetting'] = None):
         """
         Represents the read and write settings used for AutoScaling.
+
         :param 'TableAutoScalingSetting' read_capacity_auto_scaling: The auto scaling settings for the table's read capacity.
         :param 'TableAutoScalingSetting' write_capacity_auto_scaling: The auto scaling settings for the table's write capacity.
         """
@@ -323,6 +325,7 @@ class TableCdcSpecification(dict):
                  view_type: Optional['TableCdcViewType'] = None):
         """
         Represents the CDC configuration for the table
+
         :param 'TableCdcStatus' status: The status of the CDC stream. You can enable or disable a stream for a table.
         :param Sequence['TableTag'] tags: An array of key-value pairs to apply to the CDC stream resource
         :param 'TableCdcViewType' view_type: The view type specifies the changes Amazon Keyspaces records for each changed row in the stream. After you create the stream, you can't make changes to this selection.
@@ -502,6 +505,7 @@ class TableEncryptionSpecification(dict):
                  kms_key_identifier: Optional[_builtins.str] = None):
         """
         Represents the settings used to enable server-side encryption
+
         :param 'TableEncryptionType' encryption_type: The encryption at rest options for the table.
                
                - *AWS owned key* (default) - `AWS_OWNED_KMS_KEY`
@@ -569,6 +573,7 @@ class TableProvisionedThroughput(dict):
                  write_capacity_units: _builtins.int):
         """
         Throughput for the specified table, which consists of values for ReadCapacityUnits and WriteCapacityUnits
+
         :param _builtins.int read_capacity_units: The amount of read capacity that's provisioned for the table. For more information, see [Read/write capacity mode](https://docs.aws.amazon.com/keyspaces/latest/devguide/ReadWriteCapacityMode.html) in the *Amazon Keyspaces Developer Guide* .
         :param _builtins.int write_capacity_units: The amount of write capacity that's provisioned for the table. For more information, see [Read/write capacity mode](https://docs.aws.amazon.com/keyspaces/latest/devguide/ReadWriteCapacityMode.html) in the *Amazon Keyspaces Developer Guide* .
         """
@@ -622,6 +627,7 @@ class TableReplicaSpecification(dict):
                  read_capacity_units: Optional[_builtins.int] = None):
         """
         Represents replica specifications.
+
         :param _builtins.str region: The AWS Region.
         :param 'TableAutoScalingSetting' read_capacity_auto_scaling: The read capacity auto scaling settings for the multi-Region table in the specified AWS Region.
         :param _builtins.int read_capacity_units: The provisioned read capacity units for the multi-Region table in the specified AWS Region.
@@ -683,6 +689,7 @@ class TableScalingPolicy(dict):
                  target_tracking_scaling_policy_configuration: Optional['outputs.TableTargetTrackingScalingPolicyConfiguration'] = None):
         """
         Represents scaling policy.
+
         :param 'TableTargetTrackingScalingPolicyConfiguration' target_tracking_scaling_policy_configuration: The auto scaling policy that scales a table based on the ratio of consumed to provisioned capacity.
         """
         if target_tracking_scaling_policy_configuration is not None:
@@ -707,6 +714,7 @@ class TableTag(dict):
                  value: _builtins.str):
         """
         A key-value pair to apply to the resource
+
         :param _builtins.str key: The key of the tag. Tag keys are case sensitive. Each Amazon Keyspaces resource can only have up to one tag with the same key. If you try to add an existing tag (same key), the existing tag value will be updated to the new value.
         :param _builtins.str value: The value of the tag. Tag values are case-sensitive and can be null.
         """
@@ -765,6 +773,7 @@ class TableTargetTrackingScalingPolicyConfiguration(dict):
                  scale_out_cooldown: Optional[_builtins.int] = None):
         """
         Represents configuration for target tracking scaling policy.
+
         :param _builtins.int target_value: Specifies the target value for the target tracking auto scaling policy.
                
                Amazon Keyspaces auto scaling scales up capacity automatically when traffic exceeds this target utilization rate, and then back down when it falls below the target. This ensures that the ratio of consumed capacity to provisioned capacity stays at or near this value. You define `targetValue` as a percentage. An `integer` between 20 and 90.

@@ -76,6 +76,7 @@ class LogDeliveryConfigurationPropertiesS3ConfigurationPropertiesArgs:
                  enabled: pulumi.Input[_builtins.bool]):
         """
         S3 configuration for sending logs to customer account from the InfluxDB instance.
+
         :param pulumi.Input[_builtins.str] bucket_name: The bucket name for logs to be sent from the InfluxDB instance
         :param pulumi.Input[_builtins.bool] enabled: Specifies whether logging to customer specified bucket is enabled.
         """
@@ -122,6 +123,7 @@ class LogDeliveryConfigurationPropertiesArgs:
                  s3_configuration: pulumi.Input['LogDeliveryConfigurationPropertiesS3ConfigurationPropertiesArgs']):
         """
         Configuration for sending logs to customer account from the InfluxDB instance.
+
         :param pulumi.Input['LogDeliveryConfigurationPropertiesS3ConfigurationPropertiesArgs'] s3_configuration: S3 configuration for sending logs to customer account from the InfluxDB instance.
         """
         pulumi.set(__self__, "s3_configuration", s3_configuration)
@@ -169,6 +171,7 @@ class MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPro
                  object_key_prefix: Optional[pulumi.Input[_builtins.str]] = None):
         """
         S3 configuration for location to store rejections from magnetic store writes
+
         :param pulumi.Input[_builtins.str] bucket_name: The bucket name used to store the data.
         :param pulumi.Input[_builtins.str] encryption_option: Either SSE_KMS or SSE_S3.
         :param pulumi.Input[_builtins.str] kms_key_id: Must be provided if SSE_KMS is specified as the encryption option
@@ -245,6 +248,7 @@ class MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPro
                  s3_configuration: Optional[pulumi.Input['MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationPropertiesArgs']] = None):
         """
         Location to store information about records that were asynchronously rejected during magnetic store writes.
+
         :param pulumi.Input['MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationPropertiesArgs'] s3_configuration: S3 configuration for location to store rejections from magnetic store writes
         """
         if s3_configuration is not None:
@@ -283,6 +287,7 @@ class MagneticStoreWritePropertiesPropertiesArgs:
                  magnetic_store_rejected_data_location: Optional[pulumi.Input['MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesArgs']] = None):
         """
         The properties that determine whether magnetic store writes are enabled.
+
         :param pulumi.Input[_builtins.bool] enable_magnetic_store_writes: Boolean flag indicating whether magnetic store writes are enabled.
         :param pulumi.Input['MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesArgs'] magnetic_store_rejected_data_location: Location to store information about records that were asynchronously rejected during magnetic store writes.
         """
@@ -335,6 +340,7 @@ class RetentionPropertiesPropertiesArgs:
                  memory_store_retention_period_in_hours: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The retention duration of the memory store and the magnetic store.
+
         :param pulumi.Input[_builtins.str] magnetic_store_retention_period_in_days: The duration for which data must be stored in the magnetic store.
         :param pulumi.Input[_builtins.str] memory_store_retention_period_in_hours: The duration for which data must be stored in the memory store.
         """
@@ -420,6 +426,7 @@ class ScheduledQueryErrorReportConfigurationArgs:
                  s3_configuration: pulumi.Input['ScheduledQueryS3ConfigurationArgs']):
         """
         Configuration for error reporting. Error reports will be generated when a problem is encountered when writing the query results.
+
         :param pulumi.Input['ScheduledQueryS3ConfigurationArgs'] s3_configuration: The S3 configuration for the error reports.
         """
         pulumi.set(__self__, "s3_configuration", s3_configuration)
@@ -584,6 +591,7 @@ class ScheduledQueryMultiMeasureMappingsArgs:
                  target_multi_measure_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Only one of MixedMeasureMappings or MultiMeasureMappings is to be provided. MultiMeasureMappings can be used to ingest data as multi measures in the derived table.
+
         :param pulumi.Input[Sequence[pulumi.Input['ScheduledQueryMultiMeasureAttributeMappingArgs']]] multi_measure_attribute_mappings: Required. Attribute mappings to be used for mapping query results to ingest data for multi-measure attributes.
         :param pulumi.Input[_builtins.str] target_multi_measure_name: The name of the target multi-measure name in the derived table. This input is required when measureNameColumn is not provided. If MeasureNameColumn is provided, then value from that column will be used as multi-measure name.
         """
@@ -631,6 +639,7 @@ class ScheduledQueryNotificationConfigurationArgs:
                  sns_configuration: pulumi.Input['ScheduledQuerySnsConfigurationArgs']):
         """
         Notification configuration for the scheduled query. A notification is sent by Timestream when a query run finishes, when the state is updated or when you delete it.
+
         :param pulumi.Input['ScheduledQuerySnsConfigurationArgs'] sns_configuration: Details on SNS configuration.
         """
         pulumi.set(__self__, "sns_configuration", sns_configuration)
@@ -673,6 +682,7 @@ class ScheduledQueryS3ConfigurationArgs:
                  object_key_prefix: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Details on S3 location for error reports that result from running a query.
+
         :param pulumi.Input[_builtins.str] bucket_name: Name of the S3 bucket under which error reports will be created.
         :param pulumi.Input['ScheduledQueryEncryptionOption'] encryption_option: Encryption at rest options for the error reports. If no encryption option is specified, Timestream will choose SSE_S3 as default.
         :param pulumi.Input[_builtins.str] object_key_prefix: Prefix for the error report key. Timestream by default adds the following prefix to the error report path.
@@ -735,6 +745,7 @@ class ScheduledQueryScheduleConfigurationArgs:
                  schedule_expression: pulumi.Input[_builtins.str]):
         """
         Configuration for when the scheduled query is executed.
+
         :param pulumi.Input[_builtins.str] schedule_expression: An expression that denotes when to trigger the scheduled query run. This can be a cron expression or a rate expression.
         """
         pulumi.set(__self__, "schedule_expression", schedule_expression)
@@ -767,6 +778,7 @@ class ScheduledQuerySnsConfigurationArgs:
                  topic_arn: pulumi.Input[_builtins.str]):
         """
         SNS configuration for notification upon scheduled query execution.
+
         :param pulumi.Input[_builtins.str] topic_arn: SNS topic ARN that the scheduled query status notifications will be sent to.
         """
         pulumi.set(__self__, "topic_arn", topic_arn)
@@ -799,6 +811,7 @@ class ScheduledQueryTargetConfigurationArgs:
                  timestream_configuration: pulumi.Input['ScheduledQueryTimestreamConfigurationArgs']):
         """
         Configuration of target store where scheduled query results are written to.
+
         :param pulumi.Input['ScheduledQueryTimestreamConfigurationArgs'] timestream_configuration: Configuration needed to write data into the Timestream database and table.
         """
         pulumi.set(__self__, "timestream_configuration", timestream_configuration)
@@ -861,6 +874,7 @@ class ScheduledQueryTimestreamConfigurationArgs:
                  multi_measure_mappings: Optional[pulumi.Input['ScheduledQueryMultiMeasureMappingsArgs']] = None):
         """
         Configuration needed to write data into the Timestream database and table.
+
         :param pulumi.Input[_builtins.str] database_name: Name of Timestream database to which the query result will be written.
         :param pulumi.Input[Sequence[pulumi.Input['ScheduledQueryDimensionMappingArgs']]] dimension_mappings: This is to allow mapping column(s) from the query result to the dimension in the destination table.
         :param pulumi.Input[_builtins.str] table_name: Name of Timestream table that the query result will be written to. The table should be within the same database that is provided in Timestream configuration.
@@ -980,6 +994,7 @@ class SchemaPropertiesArgs:
                  composite_partition_key: Optional[pulumi.Input[Sequence[pulumi.Input['TablePartitionKeyArgs']]]] = None):
         """
         A Schema specifies the expected data model of the table.
+
         :param pulumi.Input[Sequence[pulumi.Input['TablePartitionKeyArgs']]] composite_partition_key: A non-empty list of partition keys defining the attributes used to partition the table data. The order of the list determines the partition hierarchy. The name and type of each partition key as well as the partition key order cannot be changed after the table is created. However, the enforcement level of each partition key can be changed.
         """
         if composite_partition_key is not None:

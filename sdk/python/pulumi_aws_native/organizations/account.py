@@ -29,6 +29,7 @@ class AccountArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Account resource.
+
         :param pulumi.Input[_builtins.str] email: The email address of the owner to assign to the new member account.
         :param pulumi.Input[_builtins.str] account_name: The friendly name of the member account.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] parent_ids: List of parent nodes for the member account. Currently only one parent at a time is supported. Default is root.
@@ -121,6 +122,7 @@ class Account(pulumi.CustomResource):
         """
         You can use AWS::Organizations::Account to manage accounts in organization.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_name: The friendly name of the member account.
@@ -137,6 +139,7 @@ class Account(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         You can use AWS::Organizations::Account to manage accounts in organization.
+
 
         :param str resource_name: The name of the resource.
         :param AccountArgs args: The arguments to use to populate this resource's properties.

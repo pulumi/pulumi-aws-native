@@ -30,6 +30,7 @@ class CertificateArgs:
                  validity_not_before: Optional[pulumi.Input['CertificateValidityArgs']] = None):
         """
         The set of arguments for constructing a Certificate resource.
+
         :param pulumi.Input[_builtins.str] certificate_authority_arn: The Amazon Resource Name (ARN) for the private CA issues the certificate.
         :param pulumi.Input[_builtins.str] certificate_signing_request: The certificate signing request (CSR) for the certificate.
         :param pulumi.Input[_builtins.str] signing_algorithm: The name of the algorithm that will be used to sign the certificate to be issued. 
@@ -161,6 +162,7 @@ class Certificate(pulumi.CustomResource):
         """
         The ``AWS::ACMPCA::Certificate`` resource is used to issue a certificate using your private certificate authority. For more information, see the [IssueCertificate](https://docs.aws.amazon.com/privateca/latest/APIReference/API_IssueCertificate.html) action.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['CertificateApiPassthroughArgs', 'CertificateApiPassthroughArgsDict']] api_passthrough: Specifies X.509 certificate information to be included in the issued certificate. An ``APIPassthrough`` or ``APICSRPassthrough`` template variant must be selected, or else this parameter is ignored.
@@ -184,6 +186,7 @@ class Certificate(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The ``AWS::ACMPCA::Certificate`` resource is used to issue a certificate using your private certificate authority. For more information, see the [IssueCertificate](https://docs.aws.amazon.com/privateca/latest/APIReference/API_IssueCertificate.html) action.
+
 
         :param str resource_name: The name of the resource.
         :param CertificateArgs args: The arguments to use to populate this resource's properties.

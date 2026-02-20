@@ -24,6 +24,7 @@ class InternetGatewayArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a InternetGateway resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: Any tags to assign to the internet gateway.
         """
         if tags is not None:
@@ -67,6 +68,7 @@ class InternetGateway(pulumi.CustomResource):
 
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Any tags to assign to the internet gateway.
@@ -93,6 +95,7 @@ class InternetGateway(pulumi.CustomResource):
         }])
 
         ```
+
 
         :param str resource_name: The name of the resource.
         :param InternetGatewayArgs args: The arguments to use to populate this resource's properties.

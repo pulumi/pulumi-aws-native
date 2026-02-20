@@ -32,6 +32,7 @@ class LifecyclePolicyArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a LifecyclePolicy resource.
+
         :param pulumi.Input[_builtins.str] execution_role: The execution role of the lifecycle policy.
         :param pulumi.Input[Sequence[pulumi.Input['LifecyclePolicyPolicyDetailArgs']]] policy_details: The policy details of the lifecycle policy.
         :param pulumi.Input['LifecyclePolicyResourceSelectionArgs'] resource_selection: The resource selection of the lifecycle policy.
@@ -169,6 +170,7 @@ class LifecyclePolicy(pulumi.CustomResource):
         """
         Resource schema for AWS::ImageBuilder::LifecyclePolicy
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: The description of the lifecycle policy.
@@ -188,6 +190,7 @@ class LifecyclePolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource schema for AWS::ImageBuilder::LifecyclePolicy
+
 
         :param str resource_name: The name of the resource.
         :param LifecyclePolicyArgs args: The arguments to use to populate this resource's properties.

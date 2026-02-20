@@ -31,6 +31,7 @@ class BillingViewArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a BillingView resource.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] source_views: An array of strings that define the billing view's source.
         :param pulumi.Input['DataFilterExpressionPropertiesArgs'] data_filter_expression: See [Expression](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_billing_Expression.html) . Billing view only supports `LINKED_ACCOUNT` and `Tags` .
         :param pulumi.Input[_builtins.str] description: The description of the billing view.
@@ -123,6 +124,7 @@ class BillingView(pulumi.CustomResource):
         """
         A billing view is a container of cost & usage metadata.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['DataFilterExpressionPropertiesArgs', 'DataFilterExpressionPropertiesArgsDict']] data_filter_expression: See [Expression](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_billing_Expression.html) . Billing view only supports `LINKED_ACCOUNT` and `Tags` .
@@ -139,6 +141,7 @@ class BillingView(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A billing view is a container of cost & usage metadata.
+
 
         :param str resource_name: The name of the resource.
         :param BillingViewArgs args: The arguments to use to populate this resource's properties.

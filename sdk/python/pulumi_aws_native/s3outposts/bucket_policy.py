@@ -23,6 +23,7 @@ class BucketPolicyArgs:
                  policy_document: Any):
         """
         The set of arguments for constructing a BucketPolicy resource.
+
         :param pulumi.Input[_builtins.str] bucket: The Amazon Resource Name (ARN) of the specified bucket.
         :param Any policy_document: A policy document containing permissions to add to the specified bucket.
                
@@ -70,6 +71,7 @@ class BucketPolicy(pulumi.CustomResource):
         """
         Resource Type Definition for AWS::S3Outposts::BucketPolicy
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] bucket: The Amazon Resource Name (ARN) of the specified bucket.
@@ -85,6 +87,7 @@ class BucketPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type Definition for AWS::S3Outposts::BucketPolicy
+
 
         :param str resource_name: The name of the resource.
         :param BucketPolicyArgs args: The arguments to use to populate this resource's properties.

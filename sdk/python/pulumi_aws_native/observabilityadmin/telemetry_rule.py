@@ -29,6 +29,7 @@ class TelemetryRuleInitArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a TelemetryRule resource.
+
         :param pulumi.Input['TelemetryRuleArgs'] rule: Retrieves the details of a specific telemetry rule in your account.
         :param pulumi.Input[_builtins.str] rule_name: The name of the telemetry rule
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource
@@ -89,6 +90,7 @@ class TelemetryRule(pulumi.CustomResource):
         """
         The AWS::ObservabilityAdmin::TelemetryRule resource defines a CloudWatch Observability Admin Telemetry Rule.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['TelemetryRuleArgs', 'TelemetryRuleArgsDict']] rule: Retrieves the details of a specific telemetry rule in your account.
@@ -103,6 +105,7 @@ class TelemetryRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The AWS::ObservabilityAdmin::TelemetryRule resource defines a CloudWatch Observability Admin Telemetry Rule.
+
 
         :param str resource_name: The name of the resource.
         :param TelemetryRuleInitArgs args: The arguments to use to populate this resource's properties.

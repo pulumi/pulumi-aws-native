@@ -24,6 +24,7 @@ class TagOptionArgs:
                  active: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a TagOption resource.
+
         :param pulumi.Input[_builtins.str] key: The TagOption key.
         :param pulumi.Input[_builtins.str] value: The TagOption value.
         :param pulumi.Input[_builtins.bool] active: The TagOption active state.
@@ -83,6 +84,7 @@ class TagOption(pulumi.CustomResource):
         """
         Resource type definition for AWS::ServiceCatalog::TagOption
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] active: The TagOption active state.
@@ -97,6 +99,7 @@ class TagOption(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource type definition for AWS::ServiceCatalog::TagOption
+
 
         :param str resource_name: The name of the resource.
         :param TagOptionArgs args: The arguments to use to populate this resource's properties.

@@ -61,6 +61,7 @@ class ReplicationSetRegionConfigurationArgs:
                  sse_kms_key_id: pulumi.Input[_builtins.str]):
         """
         The ReplicationSet regional configuration.
+
         :param pulumi.Input[_builtins.str] sse_kms_key_id: The AWS Key Management Service key ID or Key Alias to use to encrypt your replication set.
         """
         pulumi.set(__self__, "sse_kms_key_id", sse_kms_key_id)
@@ -132,6 +133,7 @@ class ResponsePlanActionArgs:
                  ssm_automation: Optional[pulumi.Input['ResponsePlanSsmAutomationArgs']] = None):
         """
         The automation configuration to launch.
+
         :param pulumi.Input['ResponsePlanSsmAutomationArgs'] ssm_automation: Details about the Systems Manager automation document that will be used as a runbook during an incident.
         """
         if ssm_automation is not None:
@@ -165,6 +167,7 @@ class ResponsePlanChatChannelArgs:
                  chatbot_sns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The chat channel configuration.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] chatbot_sns: The Amazon  targets that  uses to notify the chat channel of updates to an incident. You can also make updates to the incident through the chat channel by using the Amazon  topics
         """
         if chatbot_sns is not None:
@@ -198,6 +201,7 @@ class ResponsePlanDynamicSsmParameterValueArgs:
                  variable: Optional[pulumi.Input['ResponsePlanVariableType']] = None):
         """
         Value of the dynamic parameter to set when starting the SSM automation document.
+
         :param pulumi.Input['ResponsePlanVariableType'] variable: Variable dynamic parameters. A parameter value is determined when an incident is created.
         """
         if variable is not None:
@@ -236,6 +240,7 @@ class ResponsePlanDynamicSsmParameterArgs:
                  value: pulumi.Input['ResponsePlanDynamicSsmParameterValueArgs']):
         """
         A parameter with a dynamic value to set when starting the SSM automation document.
+
         :param pulumi.Input[_builtins.str] key: The key parameter to use when running the Systems Manager Automation runbook.
         :param pulumi.Input['ResponsePlanDynamicSsmParameterValueArgs'] value: The dynamic parameter value.
         """
@@ -307,6 +312,7 @@ class ResponsePlanIncidentTemplateArgs:
                  summary: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The incident template configuration.
+
         :param pulumi.Input[_builtins.int] impact: The impact value.
         :param pulumi.Input[_builtins.str] title: The title string.
         :param pulumi.Input[_builtins.str] dedupe_string: The deduplication string.
@@ -442,6 +448,7 @@ class ResponsePlanNotificationTargetItemArgs:
                  sns_topic_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         A notification target.
+
         :param pulumi.Input[_builtins.str] sns_topic_arn: The Amazon Resource Name (ARN) of the Amazon  topic.
         """
         if sns_topic_arn is not None:
@@ -485,6 +492,7 @@ class ResponsePlanPagerDutyConfigurationArgs:
                  secret_id: pulumi.Input[_builtins.str]):
         """
         The pagerDuty configuration to use when starting the incident.
+
         :param pulumi.Input[_builtins.str] name: The name of the pagerDuty configuration.
         :param pulumi.Input['ResponsePlanPagerDutyIncidentConfigurationArgs'] pager_duty_incident_configuration: Details about the PagerDuty service associated with the configuration.
         :param pulumi.Input[_builtins.str] secret_id: The AWS secrets manager secretId storing the pagerDuty token.
@@ -545,6 +553,7 @@ class ResponsePlanPagerDutyIncidentConfigurationArgs:
                  service_id: pulumi.Input[_builtins.str]):
         """
         The pagerDuty incident configuration.
+
         :param pulumi.Input[_builtins.str] service_id: The pagerDuty serviceId.
         """
         pulumi.set(__self__, "service_id", service_id)
@@ -602,6 +611,7 @@ class ResponsePlanSsmAutomationArgs:
                  target_account: Optional[pulumi.Input['ResponsePlanSsmAutomationTargetAccount']] = None):
         """
         The configuration to use when starting the SSM automation document.
+
         :param pulumi.Input[_builtins.str] document_name: The document name to use when starting the SSM automation document.
         :param pulumi.Input[_builtins.str] role_arn: The role ARN to use when starting the SSM automation document.
         :param pulumi.Input[_builtins.str] document_version: The version of the document to use when starting the SSM automation document.
@@ -713,6 +723,7 @@ class ResponsePlanSsmParameterArgs:
                  values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
         """
         A parameter to set when starting the SSM automation document.
+
         :param pulumi.Input[_builtins.str] key: The key parameter to use when running the Automation runbook.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: The value parameter to use when running the Automation runbook.
         """
@@ -764,6 +775,7 @@ class ResponsePlanTagArgs:
                  value: pulumi.Input[_builtins.str]):
         """
         A key-value pair to tag a resource.
+
         :param pulumi.Input[_builtins.str] key: The tag key.
         :param pulumi.Input[_builtins.str] value: The tag value.
         """

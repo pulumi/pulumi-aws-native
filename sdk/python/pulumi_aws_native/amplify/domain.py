@@ -31,6 +31,7 @@ class DomainArgs:
                  enable_auto_sub_domain: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a Domain resource.
+
         :param pulumi.Input[_builtins.str] app_id: The unique ID for an Amplify app.
         :param pulumi.Input[Sequence[pulumi.Input['DomainSubDomainSettingArgs']]] sub_domain_settings: The setting for the subdomain.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] auto_sub_domain_creation_patterns: Sets the branch patterns for automatic subdomain creation.
@@ -154,6 +155,7 @@ class Domain(pulumi.CustomResource):
         """
         The AWS::Amplify::Domain resource allows you to connect a custom domain to your app.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] app_id: The unique ID for an Amplify app.
@@ -172,6 +174,7 @@ class Domain(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The AWS::Amplify::Domain resource allows you to connect a custom domain to your app.
+
 
         :param str resource_name: The name of the resource.
         :param DomainArgs args: The arguments to use to populate this resource's properties.

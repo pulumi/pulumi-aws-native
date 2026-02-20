@@ -31,6 +31,7 @@ class ProjectProfileArgs:
                  use_default_configurations: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a ProjectProfile resource.
+
         :param pulumi.Input[_builtins.str] description: The description of the project profile.
         :param pulumi.Input[_builtins.str] domain_identifier: A domain ID of the project profile.
         :param pulumi.Input[_builtins.str] domain_unit_identifier: A domain unit ID of the project profile.
@@ -152,6 +153,7 @@ class ProjectProfile(pulumi.CustomResource):
         """
         Definition of AWS::DataZone::ProjectProfile Resource Type
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: The description of the project profile.
@@ -169,6 +171,7 @@ class ProjectProfile(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of AWS::DataZone::ProjectProfile Resource Type
+
 
         :param str resource_name: The name of the resource.
         :param ProjectProfileArgs args: The arguments to use to populate this resource's properties.

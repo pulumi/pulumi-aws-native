@@ -27,6 +27,7 @@ class ApplicationArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Application resource.
+
         :param pulumi.Input[_builtins.str] role_arn: The ARN of the role that the web application assumes when it interacts with AWS IoT Core. For more info on configuring this attribute, see https://docs.aws.amazon.com/iot/latest/apireference/API_iotfleethub_CreateApplication.html#API_iotfleethub_CreateApplication_RequestSyntax
         :param pulumi.Input[_builtins.str] application_description: Application Description, should be between 1 and 2048 characters.
         :param pulumi.Input[_builtins.str] application_name: Application Name, should be between 1 and 256 characters.
@@ -103,6 +104,7 @@ class Application(pulumi.CustomResource):
         """
         Resource schema for AWS::IoTFleetHub::Application
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] application_description: Application Description, should be between 1 and 2048 characters.
@@ -118,6 +120,7 @@ class Application(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource schema for AWS::IoTFleetHub::Application
+
 
         :param str resource_name: The name of the resource.
         :param ApplicationArgs args: The arguments to use to populate this resource's properties.

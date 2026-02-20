@@ -33,6 +33,7 @@ class SecretArgs:
                  type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Secret resource.
+
         :param pulumi.Input[_builtins.str] description: The description of the secret.
         :param pulumi.Input['SecretGenerateSecretStringArgs'] generate_secret_string: A structure that specifies how to generate a password to encrypt and store in the secret. To include a specific string in the secret, use ``SecretString`` instead. If you omit both ``GenerateSecretString`` and ``SecretString``, you create an empty secret. When you make a change to this property, a new secret version is created.
                 We recommend that you specify the maximum length and include every character type that the system you are generating a password for can support.
@@ -269,6 +270,7 @@ class Secret(pulumi.CustomResource):
 
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: The description of the secret.
@@ -365,6 +367,7 @@ class Secret(pulumi.CustomResource):
             target_type="AWS::Redshift::Cluster")
 
         ```
+
 
         :param str resource_name: The name of the resource.
         :param SecretArgs args: The arguments to use to populate this resource's properties.

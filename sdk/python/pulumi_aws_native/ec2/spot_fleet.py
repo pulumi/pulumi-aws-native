@@ -28,6 +28,7 @@ class SpotFleetArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a SpotFleet resource.
+
         :param pulumi.Input['SpotFleetRequestConfigDataArgs'] spot_fleet_request_config_data: Describes the configuration of a Spot Fleet request.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags to specify in SpotFleetRequestConfigData
         """
@@ -72,6 +73,7 @@ class SpotFleet(pulumi.CustomResource):
         """
         Resource Type definition for AWS::EC2::SpotFleet
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['SpotFleetRequestConfigDataArgs', 'SpotFleetRequestConfigDataArgsDict']] spot_fleet_request_config_data: Describes the configuration of a Spot Fleet request.
@@ -85,6 +87,7 @@ class SpotFleet(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::EC2::SpotFleet
+
 
         :param str resource_name: The name of the resource.
         :param SpotFleetArgs args: The arguments to use to populate this resource's properties.

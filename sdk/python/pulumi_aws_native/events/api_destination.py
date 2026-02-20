@@ -28,6 +28,7 @@ class ApiDestinationArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ApiDestination resource.
+
         :param pulumi.Input[_builtins.str] connection_arn: The arn of the connection.
         :param pulumi.Input['ApiDestinationHttpMethod'] http_method: The method to use for the request to the HTTP invocation endpoint.
         :param pulumi.Input[_builtins.str] invocation_endpoint: Url endpoint to invoke.
@@ -134,6 +135,7 @@ class ApiDestination(pulumi.CustomResource):
         """
         Resource Type definition for AWS::Events::ApiDestination.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] connection_arn: The arn of the connection.
@@ -151,6 +153,7 @@ class ApiDestination(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::Events::ApiDestination.
+
 
         :param str resource_name: The name of the resource.
         :param ApiDestinationArgs args: The arguments to use to populate this resource's properties.

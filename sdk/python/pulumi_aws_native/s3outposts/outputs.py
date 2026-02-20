@@ -90,6 +90,7 @@ class BucketAbortIncompleteMultipartUpload(dict):
                  days_after_initiation: _builtins.int):
         """
         Specifies the days since the initiation of an incomplete multipart upload that Amazon S3Outposts will wait before permanently removing all parts of the upload.
+
         :param _builtins.int days_after_initiation: Specifies the number of days after which Amazon S3Outposts aborts an incomplete multipart upload.
         """
         pulumi.set(__self__, "days_after_initiation", days_after_initiation)
@@ -211,6 +212,7 @@ class BucketRule(dict):
                  status: Optional['BucketRuleStatus'] = None):
         """
         Specifies lifecycle rules for an Amazon S3Outposts bucket. You must specify at least one of the following: AbortIncompleteMultipartUpload, ExpirationDate, ExpirationInDays.
+
         :param 'BucketAbortIncompleteMultipartUpload' abort_incomplete_multipart_upload: Specifies a lifecycle rule that stops incomplete multipart uploads to an Amazon S3Outposts bucket.
         :param _builtins.str expiration_date: Indicates when objects are deleted from Amazon S3Outposts. The date value must be in ISO 8601 format. The time is always midnight UTC.
         :param _builtins.int expiration_in_days: Indicates the number of days after creation when objects are deleted from Amazon S3Outposts.
@@ -308,6 +310,7 @@ class BucketRuleFilterProperties(dict):
                  tag: Optional['outputs.BucketFilterTag'] = None):
         """
         The container for the filter of the lifecycle rule.
+
         :param 'BucketFilterAndOperatorProperties' and_operator: The container for the AND condition for the lifecycle rule. A combination of Prefix and 1 or more Tags OR a minimum of 2 or more tags.
         :param _builtins.str prefix: Object key prefix that identifies one or more objects to which this rule applies.
         :param 'BucketFilterTag' tag: Specifies a tag used to identify a subset of objects for an Amazon S3Outposts bucket.
@@ -418,6 +421,7 @@ class EndpointNetworkInterface(dict):
                  network_interface_id: _builtins.str):
         """
         The container for the network interface.
+
         :param _builtins.str network_interface_id: The ID for the network interface.
         """
         pulumi.set(__self__, "network_interface_id", network_interface_id)

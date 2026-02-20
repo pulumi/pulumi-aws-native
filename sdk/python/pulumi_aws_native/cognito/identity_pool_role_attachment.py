@@ -26,6 +26,7 @@ class IdentityPoolRoleAttachmentArgs:
                  roles: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a IdentityPoolRoleAttachment resource.
+
         :param pulumi.Input[_builtins.str] identity_pool_id: An identity pool ID in the format `REGION:GUID` .
         :param pulumi.Input[Mapping[str, pulumi.Input['IdentityPoolRoleAttachmentRoleMappingArgs']]] role_mappings: How users for a specific identity provider are mapped to roles. This is a string to the `RoleMapping` object map. The string identifies the identity provider. For example: `graph.facebook.com` or `cognito-idp.us-east-1.amazonaws.com/us-east-1_abcdefghi:app_client_id` .
                
@@ -94,6 +95,7 @@ class IdentityPoolRoleAttachment(pulumi.CustomResource):
         """
         Resource Type definition for AWS::Cognito::IdentityPoolRoleAttachment
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] identity_pool_id: An identity pool ID in the format `REGION:GUID` .
@@ -112,6 +114,7 @@ class IdentityPoolRoleAttachment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::Cognito::IdentityPoolRoleAttachment
+
 
         :param str resource_name: The name of the resource.
         :param IdentityPoolRoleAttachmentArgs args: The arguments to use to populate this resource's properties.

@@ -31,6 +31,7 @@ class IdentityProviderConfigArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a IdentityProviderConfig resource.
+
         :param pulumi.Input[_builtins.str] cluster_name: The name of the identity provider configuration.
         :param pulumi.Input['IdentityProviderConfigType'] type: The type of the identity provider configuration.
         :param pulumi.Input[_builtins.str] identity_provider_config_name: The name of the OIDC provider configuration.
@@ -122,6 +123,7 @@ class IdentityProviderConfig(pulumi.CustomResource):
         """
         An object representing an Amazon EKS IdentityProviderConfig.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] cluster_name: The name of the identity provider configuration.
@@ -138,6 +140,7 @@ class IdentityProviderConfig(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An object representing an Amazon EKS IdentityProviderConfig.
+
 
         :param str resource_name: The name of the resource.
         :param IdentityProviderConfigArgs args: The arguments to use to populate this resource's properties.

@@ -26,6 +26,7 @@ class LaunchTemplateConstraintArgs:
                  description: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a LaunchTemplateConstraint resource.
+
         :param pulumi.Input[_builtins.str] portfolio_id: The portfolio identifier.
         :param pulumi.Input[_builtins.str] product_id: The product identifier.
         :param pulumi.Input[_builtins.str] rules: A json encoded string of the template constraint rules
@@ -116,6 +117,7 @@ class LaunchTemplateConstraint(pulumi.CustomResource):
         """
         Resource Type definition for AWS::ServiceCatalog::LaunchTemplateConstraint
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] accept_language: The language code.
@@ -132,6 +134,7 @@ class LaunchTemplateConstraint(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::ServiceCatalog::LaunchTemplateConstraint
+
 
         :param str resource_name: The name of the resource.
         :param LaunchTemplateConstraintArgs args: The arguments to use to populate this resource's properties.

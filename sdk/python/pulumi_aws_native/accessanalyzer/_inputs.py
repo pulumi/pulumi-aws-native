@@ -61,6 +61,7 @@ class AnalyzerAnalysisRuleCriteriaArgs:
                  resource_tags: Optional[pulumi.Input[Sequence[pulumi.Input[Sequence[pulumi.Input['AnalyzerTagArgs']]]]]] = None):
         """
         The criteria for an analysis rule for an analyzer.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] account_ids: A list of AWS account IDs to apply to the analysis rule criteria. The accounts cannot include the organization analyzer owner account. Account IDs can only be applied to the analysis rule criteria for organization-level analyzers.
         :param pulumi.Input[Sequence[pulumi.Input[Sequence[pulumi.Input['AnalyzerTagArgs']]]]] resource_tags: An array of key-value pairs to match for your resources. You can use the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
                
@@ -122,6 +123,7 @@ class AnalyzerArchiveRuleArgs:
                  rule_name: pulumi.Input[_builtins.str]):
         """
         An Access Analyzer archive rule. Archive rules automatically archive new findings that meet the criteria you define when you create the rule.
+
         :param pulumi.Input[Sequence[pulumi.Input['AnalyzerFilterArgs']]] filter: The criteria for the rule.
         :param pulumi.Input[_builtins.str] rule_name: The archive rule name
         """
@@ -173,6 +175,7 @@ class AnalyzerConfigurationPropertiesArgs:
                  unused_access_configuration: Optional[pulumi.Input['AnalyzerUnusedAccessConfigurationArgs']] = None):
         """
         The configuration for the analyzer
+
         :param pulumi.Input['AnalyzerInternalAccessConfigurationArgs'] internal_access_configuration: Specifies the configuration of an internal access analyzer for an AWS organization or account. This configuration determines how the analyzer evaluates access within your AWS environment.
         :param pulumi.Input['AnalyzerUnusedAccessConfigurationArgs'] unused_access_configuration: Specifies the configuration of an unused access analyzer for an AWS organization or account.
         """
@@ -339,6 +342,7 @@ class AnalyzerInternalAccessAnalysisRuleCriteriaArgs:
                  resource_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The criteria for an analysis rule for an internal access analyzer.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] account_ids: A list of AWS account IDs to apply to the internal access analysis rule criteria. Account IDs can only be applied to the analysis rule criteria for organization-level analyzers and cannot include the organization owner account.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] resource_arns: A list of resource ARNs to apply to the internal access analysis rule criteria. The analyzer will only generate findings for resources that match these ARNs.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] resource_types: A list of resource types to apply to the internal access analysis rule criteria. The analyzer will only generate findings for resources of these types.
@@ -402,6 +406,7 @@ class AnalyzerInternalAccessConfigurationInternalAccessAnalysisRulePropertiesArg
                  inclusions: Optional[pulumi.Input[Sequence[pulumi.Input['AnalyzerInternalAccessAnalysisRuleCriteriaArgs']]]] = None):
         """
         Contains information about analysis rules for the internal access analyzer. Analysis rules determine which entities will generate findings based on the criteria you define when you create the rule.
+
         :param pulumi.Input[Sequence[pulumi.Input['AnalyzerInternalAccessAnalysisRuleCriteriaArgs']]] inclusions: A list of rules for the internal access analyzer containing criteria to include in analysis. Only resources that meet the rule criteria will generate findings.
         """
         if inclusions is not None:
@@ -435,6 +440,7 @@ class AnalyzerInternalAccessConfigurationArgs:
                  internal_access_analysis_rule: Optional[pulumi.Input['AnalyzerInternalAccessConfigurationInternalAccessAnalysisRulePropertiesArgs']] = None):
         """
         Specifies the configuration of an internal access analyzer for an AWS organization or account. This configuration determines how the analyzer evaluates internal access within your AWS environment.
+
         :param pulumi.Input['AnalyzerInternalAccessConfigurationInternalAccessAnalysisRulePropertiesArgs'] internal_access_analysis_rule: Contains information about analysis rules for the internal access analyzer. Analysis rules determine which entities will generate findings based on the criteria you define when you create the rule.
         """
         if internal_access_analysis_rule is not None:
@@ -473,6 +479,7 @@ class AnalyzerTagArgs:
                  value: Optional[pulumi.Input[_builtins.str]] = None):
         """
         A key-value pair to associate with a resource.
+
         :param pulumi.Input[_builtins.str] key: The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
         :param pulumi.Input[_builtins.str] value: The value for the tag. You can specify a value that is 0 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
         """
@@ -520,6 +527,7 @@ class AnalyzerUnusedAccessConfigurationAnalysisRulePropertiesArgs:
                  exclusions: Optional[pulumi.Input[Sequence[pulumi.Input['AnalyzerAnalysisRuleCriteriaArgs']]]] = None):
         """
         Contains information about rules for the analyzer.
+
         :param pulumi.Input[Sequence[pulumi.Input['AnalyzerAnalysisRuleCriteriaArgs']]] exclusions: A list of rules for the analyzer containing criteria to exclude from analysis. Entities that meet the rule criteria will not generate findings.
         """
         if exclusions is not None:
@@ -558,6 +566,7 @@ class AnalyzerUnusedAccessConfigurationArgs:
                  unused_access_age: Optional[pulumi.Input[_builtins.int]] = None):
         """
         The Configuration for Unused Access Analyzer
+
         :param pulumi.Input['AnalyzerUnusedAccessConfigurationAnalysisRulePropertiesArgs'] analysis_rule: Contains information about rules for the analyzer.
         :param pulumi.Input[_builtins.int] unused_access_age: The specified access age in days for which to generate findings for unused access. For example, if you specify 90 days, the analyzer will generate findings for IAM entities within the accounts of the selected organization for any access that hasn't been used in 90 or more days since the analyzer's last scan. You can choose a value between 1 and 365 days.
         """

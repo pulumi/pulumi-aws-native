@@ -26,6 +26,7 @@ class WorkspaceArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Workspace resource.
+
         :param pulumi.Input[_builtins.str] role: The ARN of the execution role associated with the workspace.
         :param pulumi.Input[_builtins.str] s3_location: The ARN of the S3 bucket where resources associated with the workspace are stored.
         :param pulumi.Input[_builtins.str] workspace_id: The ID of the workspace.
@@ -116,6 +117,7 @@ class Workspace(pulumi.CustomResource):
         """
         Resource schema for AWS::IoTTwinMaker::Workspace
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: The description of the workspace.
@@ -132,6 +134,7 @@ class Workspace(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource schema for AWS::IoTTwinMaker::Workspace
+
 
         :param str resource_name: The name of the resource.
         :param WorkspaceArgs args: The arguments to use to populate this resource's properties.

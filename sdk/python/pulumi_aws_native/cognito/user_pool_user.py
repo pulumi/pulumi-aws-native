@@ -31,6 +31,7 @@ class UserPoolUserArgs:
                  validation_data: Optional[pulumi.Input[Sequence[pulumi.Input['UserPoolUserAttributeTypeArgs']]]] = None):
         """
         The set of arguments for constructing a UserPoolUser resource.
+
         :param pulumi.Input[_builtins.str] user_pool_id: The ID of the user pool where you want to create a user.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] client_metadata: A map of custom key-value pairs that you can provide as input for any custom workflows that this action triggers. You create custom workflows by assigning AWS Lambda functions to user pool triggers.
                
@@ -237,6 +238,7 @@ class UserPoolUser(pulumi.CustomResource):
         """
         Resource Type definition for AWS::Cognito::UserPoolUser
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] client_metadata: A map of custom key-value pairs that you can provide as input for any custom workflows that this action triggers. You create custom workflows by assigning AWS Lambda functions to user pool triggers.
@@ -289,6 +291,7 @@ class UserPoolUser(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::Cognito::UserPoolUser
+
 
         :param str resource_name: The name of the resource.
         :param UserPoolUserArgs args: The arguments to use to populate this resource's properties.

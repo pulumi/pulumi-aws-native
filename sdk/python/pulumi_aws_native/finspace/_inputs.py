@@ -113,6 +113,7 @@ class EnvironmentFederationParametersArgs:
                  saml_metadata_url: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Additional parameters to identify Federation mode
+
         :param pulumi.Input[_builtins.str] application_call_back_url: SAML metadata URL to link with the Environment
         :param pulumi.Input[Sequence[pulumi.Input['EnvironmentFederationParametersAttributeMapItemPropertiesArgs']]] attribute_map: Attribute map for SAML configuration
         :param pulumi.Input[_builtins.str] federation_provider_name: Federation provider name to link with the Environment
@@ -231,6 +232,7 @@ class EnvironmentSuperuserParametersArgs:
                  last_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Parameters of the first Superuser for the FinSpace Environment
+
         :param pulumi.Input[_builtins.str] email_address: Email address
         :param pulumi.Input[_builtins.str] first_name: First name
         :param pulumi.Input[_builtins.str] last_name: Last name

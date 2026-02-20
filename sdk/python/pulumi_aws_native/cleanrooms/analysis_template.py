@@ -37,6 +37,7 @@ class AnalysisTemplateArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a AnalysisTemplate resource.
+
         :param pulumi.Input['AnalysisTemplateFormat'] format: The format of the analysis template.
         :param pulumi.Input[_builtins.str] membership_identifier: The identifier for a membership resource.
         :param pulumi.Input[Union['AnalysisTemplateAnalysisSource0PropertiesArgs', 'AnalysisTemplateAnalysisSource1PropertiesArgs']] source: The source of the analysis template.
@@ -223,6 +224,7 @@ class AnalysisTemplate(pulumi.CustomResource):
         """
         Represents a stored analysis within a collaboration
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['AnalysisTemplateAnalysisParameterArgs', 'AnalysisTemplateAnalysisParameterArgsDict']]]] analysis_parameters: The member who can query can provide this placeholder for a literal data value in an analysis template
@@ -245,6 +247,7 @@ class AnalysisTemplate(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Represents a stored analysis within a collaboration
+
 
         :param str resource_name: The name of the resource.
         :param AnalysisTemplateArgs args: The arguments to use to populate this resource's properties.

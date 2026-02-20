@@ -30,6 +30,7 @@ class VpcPeeringConnectionArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a VpcPeeringConnection resource.
+
         :param pulumi.Input[_builtins.str] peer_vpc_id: The ID of the VPC with which you are creating the VPC peering connection. You must specify this parameter in the request.
         :param pulumi.Input[_builtins.str] vpc_id: The ID of the VPC.
         :param pulumi.Input[_builtins.str] assume_role_region: The Region code to use when calling Security Token Service (STS) to assume the PeerRoleArn, if provided.
@@ -153,6 +154,7 @@ class VpcPeeringConnection(pulumi.CustomResource):
         """
         Resource Type definition for AWS::EC2::VPCPeeringConnection
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] assume_role_region: The Region code to use when calling Security Token Service (STS) to assume the PeerRoleArn, if provided.
@@ -171,6 +173,7 @@ class VpcPeeringConnection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::EC2::VPCPeeringConnection
+
 
         :param str resource_name: The name of the resource.
         :param VpcPeeringConnectionArgs args: The arguments to use to populate this resource's properties.

@@ -35,6 +35,7 @@ class PoolArgs:
                  two_way: Optional[pulumi.Input['TwoWayPropertiesArgs']] = None):
         """
         The set of arguments for constructing a Pool resource.
+
         :param pulumi.Input['MandatoryKeywordsPropertiesArgs'] mandatory_keywords: A keyword is a word that you can search for on a particular phone number or pool. It is also a specific word or phrase that an end user can send to your number to elicit a response, such as an informational message or a special offer. When your number receives a message that begins with a keyword, AWS End User Messaging SMS and Voice responds with a customizable message. Keywords "HELP" and "STOP" are mandatory keywords
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] origination_identities: The origination identity to use such as a PhoneNumberId, PhoneNumberArn, SenderId or SenderIdArn and it's IsoCountryCode.
         :param pulumi.Input[_builtins.bool] deletion_protection_enabled: When set to true the pool can't be deleted. By default this is set to false.
@@ -190,6 +191,7 @@ class Pool(pulumi.CustomResource):
         """
         Resource Type definition for AWS::SMSVOICE::Pool
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] deletion_protection_enabled: When set to true the pool can't be deleted. By default this is set to false.
@@ -210,6 +212,7 @@ class Pool(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::SMSVOICE::Pool
+
 
         :param str resource_name: The name of the resource.
         :param PoolArgs args: The arguments to use to populate this resource's properties.

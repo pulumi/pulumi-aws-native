@@ -23,6 +23,7 @@ class LogStreamArgs:
                  log_stream_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a LogStream resource.
+
         :param pulumi.Input[_builtins.str] log_group_name: The name of the log group where the log stream is created.
         :param pulumi.Input[_builtins.str] log_stream_name: The name of the log stream. The name must be unique wihtin the log group.
         """
@@ -67,6 +68,7 @@ class LogStream(pulumi.CustomResource):
         """
         Resource Type definition for AWS::Logs::LogStream
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] log_group_name: The name of the log group where the log stream is created.
@@ -80,6 +82,7 @@ class LogStream(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::Logs::LogStream
+
 
         :param str resource_name: The name of the resource.
         :param LogStreamArgs args: The arguments to use to populate this resource's properties.

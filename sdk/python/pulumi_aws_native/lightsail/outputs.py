@@ -73,6 +73,7 @@ class BucketAccessRules(dict):
                  get_object: Optional[_builtins.str] = None):
         """
         An object that sets the public accessibility of objects in the specified bucket.
+
         :param _builtins.bool allow_public_overrides: A Boolean value that indicates whether the access control list (ACL) permissions that are applied to individual objects override the getObject option that is currently specified.
         :param _builtins.str get_object: Specifies the anonymous access to all objects in a bucket.
         """
@@ -128,6 +129,7 @@ class Container(dict):
                  ports: Optional[Sequence['outputs.ContainerPortInfo']] = None):
         """
         Describes the settings of a container that will be launched, or that is launched, to an Amazon Lightsail container service.
+
         :param Sequence[_builtins.str] command: The launch command for the container.
         :param _builtins.str container_name: The name of the container.
         :param Sequence['ContainerEnvironmentVariable'] environment: The environment variables of the container.
@@ -256,6 +258,7 @@ class ContainerHealthCheckConfig(dict):
                  unhealthy_threshold: Optional[_builtins.int] = None):
         """
         Describes the health check configuration of an Amazon Lightsail container service.
+
         :param _builtins.int healthy_threshold: The number of consecutive health checks successes required before moving the container to the Healthy state. The default value is 2.
         :param _builtins.int interval_seconds: The approximate interval, in seconds, between health checks of an individual container. You can specify between 5 and 300 seconds. The default value is 5.
         :param _builtins.str path: The path on the container on which to perform the health check. The default value is /.
@@ -386,6 +389,7 @@ class ContainerPrivateRegistryAccess(dict):
                  ecr_image_puller_role: Optional['outputs.ContainerPrivateRegistryAccessEcrImagePullerRoleProperties'] = None):
         """
         An object to describe the configuration for the container service to access private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories.
+
         :param 'ContainerPrivateRegistryAccessEcrImagePullerRoleProperties' ecr_image_puller_role: An object to describe a request to activate or deactivate the role that you can use to grant an Amazon Lightsail container service access to Amazon Elastic Container Registry (Amazon ECR) private repositories.
         """
         if ecr_image_puller_role is not None:
@@ -429,6 +433,7 @@ class ContainerPrivateRegistryAccessEcrImagePullerRoleProperties(dict):
                  principal_arn: Optional[_builtins.str] = None):
         """
         An object to describe a request to activate or deactivate the role that you can use to grant an Amazon Lightsail container service access to Amazon Elastic Container Registry (Amazon ECR) private repositories.
+
         :param _builtins.bool is_active: A Boolean value that indicates whether to activate the role.
         :param _builtins.str principal_arn: The Amazon Resource Name (ARN) of the role, if it is activated.
         """
@@ -483,6 +488,7 @@ class ContainerPublicDomainName(dict):
                  domain_names: Optional[Sequence[_builtins.str]] = None):
         """
         The public domain name to use with the container service, such as example.com and www.example.com.
+
         :param _builtins.str certificate_name: The name of the certificate for the public domains.
         :param Sequence[_builtins.str] domain_names: An object that describes the configuration for the containers of the deployment.
         """
@@ -540,6 +546,7 @@ class ContainerPublicEndpoint(dict):
                  health_check_config: Optional['outputs.ContainerHealthCheckConfig'] = None):
         """
         Describes the settings of a public endpoint for an Amazon Lightsail container service.
+
         :param _builtins.str container_name: The name of the container for the endpoint.
         :param _builtins.int container_port: The port of the container to which traffic is forwarded to.
         :param 'ContainerHealthCheckConfig' health_check_config: An object that describes the health check configuration of the container.
@@ -603,6 +610,7 @@ class ContainerServiceDeployment(dict):
                  public_endpoint: Optional['outputs.ContainerPublicEndpoint'] = None):
         """
         Describes a container deployment configuration of an Amazon Lightsail container service.
+
         :param Sequence['Container'] containers: An object that describes the configuration for the containers of the deployment.
         :param 'ContainerPublicEndpoint' public_endpoint: An object that describes the endpoint of the deployment.
         """
@@ -673,6 +681,7 @@ class DatabaseRelationalDatabaseParameter(dict):
                  parameter_value: Optional[_builtins.str] = None):
         """
         Describes the parameters of the database.
+
         :param _builtins.str allowed_values: Specifies the valid range of values for the parameter.
         :param _builtins.str apply_method: Indicates when parameter updates are applied. Can be immediate or pending-reboot.
         :param _builtins.str apply_type: Specifies the engine-specific parameter type.
@@ -794,6 +803,7 @@ class DiskAddOn(dict):
                  status: Optional['DiskAddOnStatus'] = None):
         """
         A addon associate with a resource.
+
         :param _builtins.str add_on_type: The add-on type
         :param 'DiskAutoSnapshotAddOn' auto_snapshot_add_on_request: The parameters for the automatic snapshot add-on, such as the daily time when an automatic snapshot will be created.
         :param 'DiskAddOnStatus' status: Status of the Addon
@@ -855,6 +865,7 @@ class DiskAutoSnapshotAddOn(dict):
                  snapshot_time_of_day: Optional[_builtins.str] = None):
         """
         An object that represents additional parameters when enabling or modifying the automatic snapshot add-on
+
         :param _builtins.str snapshot_time_of_day: The daily time when an automatic snapshot will be created.
         """
         if snapshot_time_of_day is not None:
@@ -898,6 +909,7 @@ class DiskLocation(dict):
                  region_name: Optional[_builtins.str] = None):
         """
         Location of a resource.
+
         :param _builtins.str availability_zone: The Availability Zone in which to create your disk. Use the following format: us-east-2a (case sensitive). Be sure to add the include Availability Zones parameter to your request.
         :param _builtins.str region_name: The Region Name in which to create your disk.
         """
@@ -953,6 +965,7 @@ class InstanceAddOn(dict):
                  status: Optional['InstanceAddOnStatus'] = None):
         """
         A addon associate with a resource.
+
         :param _builtins.str add_on_type: The add-on type
         :param 'InstanceAutoSnapshotAddOn' auto_snapshot_add_on_request: The parameters for the automatic snapshot add-on, such as the daily time when an automatic snapshot will be created.
         :param 'InstanceAddOnStatus' status: Status of the Addon
@@ -1014,6 +1027,7 @@ class InstanceAutoSnapshotAddOn(dict):
                  snapshot_time_of_day: Optional[_builtins.str] = None):
         """
         An object that represents additional parameters when enabling or modifying the automatic snapshot add-on
+
         :param _builtins.str snapshot_time_of_day: The daily time when an automatic snapshot will be created.
         """
         if snapshot_time_of_day is not None:
@@ -1068,6 +1082,7 @@ class InstanceDisk(dict):
                  size_in_gb: Optional[_builtins.str] = None):
         """
         Disk associated with the Instance.
+
         :param _builtins.str disk_name: The names to use for your new Lightsail disk.
         :param _builtins.str path: Path of the disk attached to the instance.
         :param _builtins.str attached_to: Instance attached to the disk.
@@ -1176,6 +1191,7 @@ class InstanceHardware(dict):
                  ram_size_in_gb: Optional[_builtins.int] = None):
         """
         Hardware of the Instance.
+
         :param _builtins.int cpu_count: CPU count of the Instance.
         :param Sequence['InstanceDisk'] disks: Disks attached to the Instance.
         :param _builtins.int ram_size_in_gb: RAM Size of the Instance.
@@ -1241,6 +1257,7 @@ class InstanceLocation(dict):
                  region_name: Optional[_builtins.str] = None):
         """
         Location of a resource.
+
         :param _builtins.str availability_zone: The Availability Zone in which to create your instance. Use the following format: us-east-2a (case sensitive). Be sure to add the include Availability Zones parameter to your request.
         :param _builtins.str region_name: The Region Name in which to create your instance.
         """
@@ -1292,6 +1309,7 @@ class InstanceMonthlyTransfer(dict):
                  gb_per_month_allocated: Optional[_builtins.str] = None):
         """
         Monthly Transfer of the Instance.
+
         :param _builtins.str gb_per_month_allocated: GbPerMonthAllocated of the Instance.
         """
         if gb_per_month_allocated is not None:
@@ -1333,6 +1351,7 @@ class InstanceNetworking(dict):
                  monthly_transfer: Optional['outputs.InstanceMonthlyTransfer'] = None):
         """
         Networking of the Instance.
+
         :param Sequence['InstancePort'] ports: Ports to the Instance.
         :param 'InstanceMonthlyTransfer' monthly_transfer: The monthly amount of data transfer, in GB, allocated for the instance
         """
@@ -1406,6 +1425,7 @@ class InstancePort(dict):
                  to_port: Optional[_builtins.int] = None):
         """
         Port of the Instance.
+
         :param _builtins.str access_direction: Access Direction for Protocol of the Instance(inbound/outbound).
         :param _builtins.str access_from: Access From Protocol of the Instance.
         :param _builtins.str access_type: Access Type Protocol of the Instance.
@@ -1570,6 +1590,7 @@ class InstanceSnapshotLocation(dict):
                  region_name: Optional[_builtins.str] = None):
         """
         The region name and Availability Zone where you created the snapshot.
+
         :param _builtins.str availability_zone: The Availability Zone. Follows the format us-east-2a (case-sensitive).
         :param _builtins.str region_name: The AWS Region name.
         """
@@ -1605,6 +1626,7 @@ class InstanceState(dict):
                  name: Optional[_builtins.str] = None):
         """
         Current State of the Instance.
+
         :param _builtins.int code: Status code of the Instance.
         :param _builtins.str name: Status code of the Instance.
         """
@@ -1659,6 +1681,7 @@ class LocationProperties(dict):
                  region_name: Optional[_builtins.str] = None):
         """
         The AWS Region and Availability Zone where the disk snapshot was created.
+
         :param _builtins.str availability_zone: The Availability Zone where the disk snapshot was created.
         :param _builtins.str region_name: The AWS Region where the disk snapshot was created.
         """

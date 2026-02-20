@@ -33,6 +33,7 @@ class RuleArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Rule resource.
+
         :param pulumi.Input['RuleActionsArgs'] actions: A list of actions to be run when the rule is triggered.
         :param pulumi.Input[_builtins.str] function: The conditions of the rule.
         :param pulumi.Input[_builtins.str] instance_arn: The Amazon Resource Name (ARN) of the instance.
@@ -155,6 +156,7 @@ class Rule(pulumi.CustomResource):
         """
         Creates a rule for the specified CON instance.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['RuleActionsArgs', 'RuleActionsArgsDict']] actions: A list of actions to be run when the rule is triggered.
@@ -174,6 +176,7 @@ class Rule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Creates a rule for the specified CON instance.
+
 
         :param str resource_name: The name of the resource.
         :param RuleArgs args: The arguments to use to populate this resource's properties.

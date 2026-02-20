@@ -23,6 +23,7 @@ class NamespaceArgs:
                  table_bucket_arn: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a Namespace resource.
+
         :param pulumi.Input[_builtins.str] namespace: The name of the namespace.
         :param pulumi.Input[_builtins.str] table_bucket_arn: The Amazon Resource Name (ARN) of the table bucket to create the namespace in.
         """
@@ -66,6 +67,7 @@ class Namespace(pulumi.CustomResource):
         """
         Resource Type definition for AWS::S3Tables::Namespace
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] namespace: The name of the namespace.
@@ -79,6 +81,7 @@ class Namespace(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::S3Tables::Namespace
+
 
         :param str resource_name: The name of the resource.
         :param NamespaceArgs args: The arguments to use to populate this resource's properties.

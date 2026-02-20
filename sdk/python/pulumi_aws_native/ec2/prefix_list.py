@@ -31,6 +31,7 @@ class PrefixListArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a PrefixList resource.
+
         :param pulumi.Input['PrefixListAddressFamily'] address_family: Ip Version of Prefix List.
         :param pulumi.Input[Sequence[pulumi.Input['PrefixListEntryArgs']]] entries: Entries of Prefix List.
         :param pulumi.Input[_builtins.int] max_entries: Max Entries of Prefix List.
@@ -177,6 +178,7 @@ class PrefixList(pulumi.CustomResource):
 
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input['PrefixListAddressFamily'] address_family: Ip Version of Prefix List.
@@ -247,6 +249,7 @@ class PrefixList(pulumi.CustomResource):
             }])
 
         ```
+
 
         :param str resource_name: The name of the resource.
         :param PrefixListArgs args: The arguments to use to populate this resource's properties.

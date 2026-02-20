@@ -37,6 +37,7 @@ class EvaluationFormArgs:
                  target_configuration: Optional[pulumi.Input['EvaluationFormTargetConfigurationArgs']] = None):
         """
         The set of arguments for constructing a EvaluationForm resource.
+
         :param pulumi.Input[_builtins.str] instance_arn: The identifier of the Amazon Connect instance.
         :param pulumi.Input[Sequence[pulumi.Input['EvaluationFormBaseItemArgs']]] items: Items that are part of the evaluation form. The total number of sections and questions must not exceed 100 each. Questions must be contained in a section.
                 *Minimum size*: 1
@@ -226,6 +227,7 @@ class EvaluationForm(pulumi.CustomResource):
         """
         Creates an evaluation form for the specified CON instance.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['EvaluationFormAutoEvaluationConfigurationArgs', 'EvaluationFormAutoEvaluationConfigurationArgsDict']] auto_evaluation_configuration: The automatic evaluation configuration of an evaluation form.
@@ -251,6 +253,7 @@ class EvaluationForm(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Creates an evaluation form for the specified CON instance.
+
 
         :param str resource_name: The name of the resource.
         :param EvaluationFormArgs args: The arguments to use to populate this resource's properties.

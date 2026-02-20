@@ -26,6 +26,7 @@ class KeySigningKeyArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a KeySigningKey resource.
+
         :param pulumi.Input[_builtins.str] hosted_zone_id: The unique string (ID) used to identify a hosted zone.
         :param pulumi.Input[_builtins.str] key_management_service_arn: The Amazon resource name (ARN) for a customer managed key (CMK) in AWS Key Management Service (KMS). The KeyManagementServiceArn must be unique for each key signing key (KSK) in a single hosted zone.
         :param pulumi.Input['KeySigningKeyStatus'] status: A string specifying the initial status of the key signing key (KSK). You can set the value to ACTIVE or INACTIVE.
@@ -100,6 +101,7 @@ class KeySigningKey(pulumi.CustomResource):
         """
         Represents a key signing key (KSK) associated with a hosted zone. You can only have two KSKs per hosted zone.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] hosted_zone_id: The unique string (ID) used to identify a hosted zone.
@@ -115,6 +117,7 @@ class KeySigningKey(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Represents a key signing key (KSK) associated with a hosted zone. You can only have two KSKs per hosted zone.
+
 
         :param str resource_name: The name of the resource.
         :param KeySigningKeyArgs args: The arguments to use to populate this resource's properties.

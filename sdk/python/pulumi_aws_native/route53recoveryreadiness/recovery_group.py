@@ -26,6 +26,7 @@ class RecoveryGroupArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a RecoveryGroup resource.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] cells: A list of the cell Amazon Resource Names (ARNs) in the recovery group.
         :param pulumi.Input[_builtins.str] recovery_group_name: The name of the recovery group to create.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A collection of tags associated with a resource.
@@ -87,6 +88,7 @@ class RecoveryGroup(pulumi.CustomResource):
         """
         AWS Route53 Recovery Readiness Recovery Group Schema and API specifications.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] cells: A list of the cell Amazon Resource Names (ARNs) in the recovery group.
@@ -101,6 +103,7 @@ class RecoveryGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         AWS Route53 Recovery Readiness Recovery Group Schema and API specifications.
+
 
         :param str resource_name: The name of the resource.
         :param RecoveryGroupArgs args: The arguments to use to populate this resource's properties.

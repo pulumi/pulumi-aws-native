@@ -26,6 +26,7 @@ class QueryDefinitionArgs:
                  query_language: Optional[pulumi.Input['QueryDefinitionQueryLanguage']] = None):
         """
         The set of arguments for constructing a QueryDefinition resource.
+
         :param pulumi.Input[_builtins.str] query_string: The query string to use for this definition
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] log_group_names: Optionally define specific log groups as part of your query definition
         :param pulumi.Input[_builtins.str] name: A name for the saved query definition
@@ -102,6 +103,7 @@ class QueryDefinition(pulumi.CustomResource):
         """
         The resource schema for AWSLogs QueryDefinition
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] log_group_names: Optionally define specific log groups as part of your query definition
@@ -117,6 +119,7 @@ class QueryDefinition(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The resource schema for AWSLogs QueryDefinition
+
 
         :param str resource_name: The name of the resource.
         :param QueryDefinitionArgs args: The arguments to use to populate this resource's properties.

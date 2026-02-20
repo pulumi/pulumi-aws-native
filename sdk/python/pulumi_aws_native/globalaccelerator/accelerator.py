@@ -29,6 +29,7 @@ class AcceleratorArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Accelerator resource.
+
         :param pulumi.Input[_builtins.bool] enabled: Indicates whether an accelerator is enabled. The value is true or false.
         :param pulumi.Input['AcceleratorIpAddressType'] ip_address_type: IP Address type.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ip_addresses: The IP addresses from BYOIP Prefix pool.
@@ -126,6 +127,7 @@ class Accelerator(pulumi.CustomResource):
         """
         Resource Type definition for AWS::GlobalAccelerator::Accelerator
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] enabled: Indicates whether an accelerator is enabled. The value is true or false.
@@ -144,6 +146,7 @@ class Accelerator(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::GlobalAccelerator::Accelerator
+
 
         :param str resource_name: The name of the resource.
         :param AcceleratorArgs args: The arguments to use to populate this resource's properties.

@@ -41,6 +41,7 @@ class IntegrationArgs:
                  tls_config: Optional[pulumi.Input['IntegrationTlsConfigArgs']] = None):
         """
         The set of arguments for constructing a Integration resource.
+
         :param pulumi.Input[_builtins.str] api_id: The API identifier.
         :param pulumi.Input[_builtins.str] integration_type: The integration type of an integration.
         :param pulumi.Input[_builtins.str] connection_id: The ID of the VPC link for a private integration. Supported only for HTTP APIs.
@@ -340,6 +341,7 @@ class Integration(pulumi.CustomResource):
         """
         Resource Type definition for AWS::ApiGatewayV2::Integration
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] api_id: The API identifier.
@@ -369,6 +371,7 @@ class Integration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::ApiGatewayV2::Integration
+
 
         :param str resource_name: The name of the resource.
         :param IntegrationArgs args: The arguments to use to populate this resource's properties.

@@ -36,6 +36,7 @@ class FeatureGroupArgs:
                  throughput_config: Optional[pulumi.Input['FeatureGroupThroughputConfigArgs']] = None):
         """
         The set of arguments for constructing a FeatureGroup resource.
+
         :param pulumi.Input[_builtins.str] event_time_feature_name: The Event Time Feature Name.
         :param pulumi.Input[Sequence[pulumi.Input['FeatureGroupFeatureDefinitionArgs']]] feature_definitions: An Array of Feature Definition
         :param pulumi.Input[_builtins.str] record_identifier_feature_name: The Record Identifier Feature Name.
@@ -210,6 +211,7 @@ class FeatureGroup(pulumi.CustomResource):
         """
         Resource Type definition for AWS::SageMaker::FeatureGroup
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: Description about the FeatureGroup.
@@ -233,6 +235,7 @@ class FeatureGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::SageMaker::FeatureGroup
+
 
         :param str resource_name: The name of the resource.
         :param FeatureGroupArgs args: The arguments to use to populate this resource's properties.

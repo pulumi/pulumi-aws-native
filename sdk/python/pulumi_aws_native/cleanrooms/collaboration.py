@@ -41,6 +41,7 @@ class CollaborationArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Collaboration resource.
+
         :param pulumi.Input[_builtins.str] creator_display_name: A display name of the collaboration creator.
         :param pulumi.Input[_builtins.str] description: A description of the collaboration provided by the collaboration owner.
         :param pulumi.Input['CollaborationQueryLogStatus'] query_log_status: An indicator as to whether query logging has been enabled or disabled for the collaboration.
@@ -303,6 +304,7 @@ class Collaboration(pulumi.CustomResource):
         """
         Represents a collaboration between AWS accounts that allows for secure data collaboration
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input['CollaborationSupportedS3Region']]] allowed_result_regions: The AWS Regions where collaboration query results can be stored. Returns the list of Region identifiers that were specified when the collaboration was created. This list is used to enforce regional storage policies and compliance requirements.
@@ -336,6 +338,7 @@ class Collaboration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Represents a collaboration between AWS accounts that allows for secure data collaboration
+
 
         :param str resource_name: The name of the resource.
         :param CollaborationArgs args: The arguments to use to populate this resource's properties.

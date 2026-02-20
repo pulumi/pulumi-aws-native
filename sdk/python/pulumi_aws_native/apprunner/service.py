@@ -35,6 +35,7 @@ class ServiceArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]] = None):
         """
         The set of arguments for constructing a Service resource.
+
         :param pulumi.Input['ServiceSourceConfigurationArgs'] source_configuration: The source to deploy to the App Runner service. It can be a code or an image repository.
         :param pulumi.Input[_builtins.str] auto_scaling_configuration_arn: Autoscaling configuration ARN
         :param pulumi.Input['ServiceEncryptionConfigurationArgs'] encryption_configuration: An optional custom encryption key that App Runner uses to encrypt the copy of your source repository that it maintains and your service logs. By default, App Runner uses an AWS managed key .
@@ -191,6 +192,7 @@ class Service(pulumi.CustomResource):
         """
         The AWS::AppRunner::Service resource specifies an AppRunner Service.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] auto_scaling_configuration_arn: Autoscaling configuration ARN
@@ -211,6 +213,7 @@ class Service(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The AWS::AppRunner::Service resource specifies an AppRunner Service.
+
 
         :param str resource_name: The name of the resource.
         :param ServiceArgs args: The arguments to use to populate this resource's properties.

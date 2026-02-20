@@ -37,6 +37,7 @@ class DataSourceArgs:
                  service_role_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a DataSource resource.
+
         :param pulumi.Input[_builtins.str] api_id: Unique AWS AppSync GraphQL API identifier where this data source will be created.
         :param pulumi.Input[_builtins.str] type: The type of the data source.
         :param pulumi.Input[_builtins.str] description: The description of the data source.
@@ -310,6 +311,7 @@ class DataSource(pulumi.CustomResource):
 
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] api_id: Unique AWS AppSync GraphQL API identifier where this data source will be created.
@@ -385,6 +387,7 @@ class DataSource(pulumi.CustomResource):
             })
 
         ```
+
 
         :param str resource_name: The name of the resource.
         :param DataSourceArgs args: The arguments to use to populate this resource's properties.

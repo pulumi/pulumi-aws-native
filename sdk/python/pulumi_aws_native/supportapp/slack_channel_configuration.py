@@ -30,6 +30,7 @@ class SlackChannelConfigurationArgs:
                  notify_on_resolve_case: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a SlackChannelConfiguration resource.
+
         :param pulumi.Input[_builtins.str] channel_id: The channel ID in Slack, which identifies a channel within a workspace.
         :param pulumi.Input[_builtins.str] channel_role_arn: The Amazon Resource Name (ARN) of an IAM role that grants the AWS Support App access to perform operations for AWS services.
         :param pulumi.Input['SlackChannelConfigurationNotifyOnCaseSeverity'] notify_on_case_severity: The severity level of a support case that a customer wants to get notified for.
@@ -227,6 +228,7 @@ class SlackChannelConfiguration(pulumi.CustomResource):
 
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] channel_id: The channel ID in Slack, which identifies a channel within a workspace.
@@ -306,6 +308,7 @@ class SlackChannelConfiguration(pulumi.CustomResource):
             channel_role_arn=aws_support_slack_app_cfn_role.arn)
 
         ```
+
 
         :param str resource_name: The name of the resource.
         :param SlackChannelConfigurationArgs args: The arguments to use to populate this resource's properties.

@@ -33,6 +33,7 @@ class ImageVersionArgs:
                  vendor_guidance: Optional[pulumi.Input['ImageVersionVendorGuidance']] = None):
         """
         The set of arguments for constructing a ImageVersion resource.
+
         :param pulumi.Input[_builtins.str] base_image: The container image that the SageMaker image version is based on.
         :param pulumi.Input[_builtins.str] image_name: The name of the parent image.
                
@@ -192,6 +193,7 @@ class ImageVersion(pulumi.CustomResource):
         """
         Resource Type definition for AWS::SageMaker::ImageVersion
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] base_image: The container image that the SageMaker image version is based on.
@@ -209,6 +211,7 @@ class ImageVersion(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::SageMaker::ImageVersion
+
 
         :param str resource_name: The name of the resource.
         :param ImageVersionArgs args: The arguments to use to populate this resource's properties.

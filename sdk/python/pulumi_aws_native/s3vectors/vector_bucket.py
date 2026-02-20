@@ -29,6 +29,7 @@ class VectorBucketArgs:
                  vector_bucket_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a VectorBucket resource.
+
         :param pulumi.Input['VectorBucketEncryptionConfigurationArgs'] encryption_configuration: The encryption configuration for the vector bucket.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: User tags (key-value pairs) to associate with the vector bucket.
         :param pulumi.Input[_builtins.str] vector_bucket_name: A name for the vector bucket. The bucket name must contain only lowercase letters, numbers, and hyphens (-). The bucket name must be unique in the same AWS account for each AWS Region. If you don't specify a name, AWS CloudFormation generates a unique ID and uses that ID for the bucket name.
@@ -98,6 +99,7 @@ class VectorBucket(pulumi.CustomResource):
         """
         Resource Type definition for AWS::S3Vectors::VectorBucket
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['VectorBucketEncryptionConfigurationArgs', 'VectorBucketEncryptionConfigurationArgsDict']] encryption_configuration: The encryption configuration for the vector bucket.
@@ -116,6 +118,7 @@ class VectorBucket(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::S3Vectors::VectorBucket
+
 
         :param str resource_name: The name of the resource.
         :param VectorBucketArgs args: The arguments to use to populate this resource's properties.

@@ -33,6 +33,7 @@ class SamlProviderArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a SamlProvider resource.
+
         :param pulumi.Input[_builtins.str] add_private_key: The private key from your external identity provider
         :param pulumi.Input['SamlProviderAssertionEncryptionMode'] assertion_encryption_mode: The encryption setting for the SAML provider
         :param pulumi.Input[_builtins.str] name: The name of the provider to create.
@@ -170,6 +171,7 @@ class SamlProvider(pulumi.CustomResource):
         """
         Resource Type definition for AWS::IAM::SAMLProvider
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] add_private_key: The private key from your external identity provider
@@ -194,6 +196,7 @@ class SamlProvider(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::IAM::SAMLProvider
+
 
         :param str resource_name: The name of the resource.
         :param SamlProviderArgs args: The arguments to use to populate this resource's properties.

@@ -41,6 +41,7 @@ class StackSetArgs:
                  template_url: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a StackSet resource.
+
         :param pulumi.Input['StackSetPermissionModel'] permission_model: Describes how the IAM roles required for stack set operations are created. By default, SELF-MANAGED is specified.
         :param pulumi.Input[_builtins.str] administration_role_arn: The Amazon Resource Number (ARN) of the IAM role to use to create this stack set. Specify an IAM role only if you are using customized administrator roles to control which users or groups can manage specific stack sets within the same administrator account.
         :param pulumi.Input['StackSetAutoDeploymentArgs'] auto_deployment: Describes whether StackSets automatically deploys to AWS Organizations accounts that are added to the target organization or organizational unit (OU). Specify only if PermissionModel is SERVICE_MANAGED.
@@ -293,6 +294,7 @@ class StackSet(pulumi.CustomResource):
         """
         StackSet as a resource provides one-click experience for provisioning a StackSet and StackInstances
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] administration_role_arn: The Amazon Resource Number (ARN) of the IAM role to use to create this stack set. Specify an IAM role only if you are using customized administrator roles to control which users or groups can manage specific stack sets within the same administrator account.
@@ -319,6 +321,7 @@ class StackSet(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         StackSet as a resource provides one-click experience for provisioning a StackSet and StackInstances
+
 
         :param str resource_name: The name of the resource.
         :param StackSetArgs args: The arguments to use to populate this resource's properties.

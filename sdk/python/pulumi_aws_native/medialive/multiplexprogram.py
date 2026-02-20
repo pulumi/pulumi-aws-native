@@ -30,6 +30,7 @@ class MultiplexprogramArgs:
                  program_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Multiplexprogram resource.
+
         :param pulumi.Input[_builtins.str] multiplex_id: The ID of the multiplex that the program belongs to.
         :param pulumi.Input['MultiplexprogramMultiplexProgramSettingsArgs'] multiplex_program_settings: The settings for this multiplex program.
         :param pulumi.Input['MultiplexprogramMultiplexProgramPacketIdentifiersMapArgs'] packet_identifiers_map: The packet identifier map for this multiplex program.
@@ -139,6 +140,7 @@ class Multiplexprogram(pulumi.CustomResource):
         """
         Resource schema for AWS::MediaLive::Multiplexprogram
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] multiplex_id: The ID of the multiplex that the program belongs to.
@@ -156,6 +158,7 @@ class Multiplexprogram(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource schema for AWS::MediaLive::Multiplexprogram
+
 
         :param str resource_name: The name of the resource.
         :param MultiplexprogramArgs args: The arguments to use to populate this resource's properties.

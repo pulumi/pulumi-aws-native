@@ -41,6 +41,7 @@ class StudioArgs:
                  user_role: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Studio resource.
+
         :param pulumi.Input['StudioAuthMode'] auth_mode: Specifies whether the Studio authenticates users using single sign-on (SSO) or IAM. Amazon EMR Studio currently only supports SSO authentication.
         :param pulumi.Input[_builtins.str] default_s3_location: The default Amazon S3 location to back up EMR Studio Workspaces and notebook files. A Studio user can select an alternative Amazon S3 location when creating a Workspace.
         :param pulumi.Input[_builtins.str] engine_security_group_id: The ID of the Amazon EMR Studio Engine security group. The Engine security group allows inbound network traffic from the Workspace security group, and it must be in the same VPC specified by VpcId.
@@ -319,6 +320,7 @@ class Studio(pulumi.CustomResource):
         """
         Resource schema for AWS::EMR::Studio
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input['StudioAuthMode'] auth_mode: Specifies whether the Studio authenticates users using single sign-on (SSO) or IAM. Amazon EMR Studio currently only supports SSO authentication.
@@ -347,6 +349,7 @@ class Studio(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource schema for AWS::EMR::Studio
+
 
         :param str resource_name: The name of the resource.
         :param StudioArgs args: The arguments to use to populate this resource's properties.

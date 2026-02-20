@@ -35,6 +35,7 @@ class RuntimeArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Runtime resource.
+
         :param pulumi.Input['RuntimeAgentRuntimeArtifactArgs'] agent_runtime_artifact: The artifact of the agent
         :param pulumi.Input[_builtins.str] agent_runtime_name: Name for a resource
         :param pulumi.Input['RuntimeNetworkConfigurationArgs'] network_configuration: Network access configuration for the Agent
@@ -220,6 +221,7 @@ class Runtime(pulumi.CustomResource):
         """
         Resource Type definition for AWS::BedrockAgentCore::Runtime
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['RuntimeAgentRuntimeArtifactArgs', 'RuntimeAgentRuntimeArtifactArgsDict']] agent_runtime_artifact: The artifact of the agent
@@ -242,6 +244,7 @@ class Runtime(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::BedrockAgentCore::Runtime
+
 
         :param str resource_name: The name of the resource.
         :param RuntimeArgs args: The arguments to use to populate this resource's properties.

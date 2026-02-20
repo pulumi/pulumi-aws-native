@@ -34,6 +34,7 @@ class SoftwarePackageVersionArgs:
                  version_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a SoftwarePackageVersion resource.
+
         :param pulumi.Input[_builtins.str] package_name: The name of the associated software package.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] attributes: Metadata that can be used to define a package version’s configuration. For example, the S3 file location, configuration options that are being sent to the device or fleet.
                
@@ -170,6 +171,7 @@ class SoftwarePackageVersion(pulumi.CustomResource):
         """
         resource definition
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] attributes: Metadata that can be used to define a package version’s configuration. For example, the S3 file location, configuration options that are being sent to the device or fleet.
@@ -189,6 +191,7 @@ class SoftwarePackageVersion(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         resource definition
+
 
         :param str resource_name: The name of the resource.
         :param SoftwarePackageVersionArgs args: The arguments to use to populate this resource's properties.

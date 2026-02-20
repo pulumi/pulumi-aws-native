@@ -44,6 +44,7 @@ class CampaignAgentlessDialerConfigArgs:
                  dialing_capacity: Optional[pulumi.Input[_builtins.float]] = None):
         """
         Agentless Dialer config
+
         :param pulumi.Input[_builtins.float] dialing_capacity: Allocates dialing capacity for this campaign between multiple active campaigns.
         """
         if dialing_capacity is not None:
@@ -82,6 +83,7 @@ class CampaignAnswerMachineDetectionConfigArgs:
                  await_answer_machine_prompt: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The configuration used for answering machine detection during outbound calls
+
         :param pulumi.Input[_builtins.bool] enable_answer_machine_detection: Flag to decided whether outbound calls should have answering machine detection enabled or not
         :param pulumi.Input[_builtins.bool] await_answer_machine_prompt: Enables detection of prompts (e.g., beep after after a voicemail greeting)
         """
@@ -139,6 +141,7 @@ class CampaignDialerConfigArgs:
                  progressive_dialer_config: Optional[pulumi.Input['CampaignProgressiveDialerConfigArgs']] = None):
         """
         The possible types of dialer config parameters
+
         :param pulumi.Input['CampaignAgentlessDialerConfigArgs'] agentless_dialer_config: The configuration of the agentless dialer.
         :param pulumi.Input['CampaignPredictiveDialerConfigArgs'] predictive_dialer_config: The configuration of the predictive dialer.
         :param pulumi.Input['CampaignProgressiveDialerConfigArgs'] progressive_dialer_config: The configuration of the progressive dialer.
@@ -217,6 +220,7 @@ class CampaignOutboundCallConfigArgs:
                  connect_source_phone_number: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The configuration used for outbound calls.
+
         :param pulumi.Input[_builtins.str] connect_contact_flow_arn: The identifier of the contact flow for the outbound call.
         :param pulumi.Input['CampaignAnswerMachineDetectionConfigArgs'] answer_machine_detection_config: Whether answering machine detection has been enabled.
         :param pulumi.Input[_builtins.str] connect_queue_arn: The queue for the call. If you specify a queue, the phone displayed for caller ID is the phone number specified in the queue. If you do not specify a queue, the queue defined in the contact flow is used. If you do not specify a queue, you must specify a source phone number.
@@ -299,6 +303,7 @@ class CampaignPredictiveDialerConfigArgs:
                  dialing_capacity: Optional[pulumi.Input[_builtins.float]] = None):
         """
         Predictive Dialer config
+
         :param pulumi.Input[_builtins.float] bandwidth_allocation: The bandwidth allocation of a queue resource.
         :param pulumi.Input[_builtins.float] dialing_capacity: Allocates dialing capacity for this campaign between multiple active campaigns.
         """
@@ -351,6 +356,7 @@ class CampaignProgressiveDialerConfigArgs:
                  dialing_capacity: Optional[pulumi.Input[_builtins.float]] = None):
         """
         Progressive Dialer config
+
         :param pulumi.Input[_builtins.float] bandwidth_allocation: The bandwidth allocation of a queue resource.
         :param pulumi.Input[_builtins.float] dialing_capacity: Allocates dialing capacity for this campaign between multiple active campaigns.
         """

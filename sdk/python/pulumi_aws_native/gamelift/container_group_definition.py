@@ -36,6 +36,7 @@ class ContainerGroupDefinitionArgs:
                  version_description: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ContainerGroupDefinition resource.
+
         :param pulumi.Input['ContainerGroupDefinitionOperatingSystem'] operating_system: The operating system of the container group
         :param pulumi.Input[_builtins.int] total_memory_limit_mebibytes: The total memory limit of container groups following this definition in MiB
         :param pulumi.Input[_builtins.float] total_vcpu_limit: The total amount of virtual CPUs on the container group definition
@@ -206,6 +207,7 @@ class ContainerGroupDefinition(pulumi.CustomResource):
         """
         The AWS::GameLift::ContainerGroupDefinition resource creates an Amazon GameLift container group definition.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input['ContainerGroupDefinitionContainerGroupType'] container_group_type: The scope of the container group
@@ -227,6 +229,7 @@ class ContainerGroupDefinition(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The AWS::GameLift::ContainerGroupDefinition resource creates an Amazon GameLift container group definition.
+
 
         :param str resource_name: The name of the resource.
         :param ContainerGroupDefinitionArgs args: The arguments to use to populate this resource's properties.

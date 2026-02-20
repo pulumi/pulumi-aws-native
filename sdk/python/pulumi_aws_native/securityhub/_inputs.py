@@ -141,6 +141,7 @@ class AutomationRuleDateFilterArgs:
                  start: Optional[pulumi.Input[_builtins.str]] = None):
         """
         A date filter for querying findings.
+
         :param pulumi.Input['AutomationRuleDateRangeArgs'] date_range: A date range for the date filter.
         :param pulumi.Input[_builtins.str] end: A timestamp that provides the end date for the date filter.
                 For more information about the validation and formatting of timestamp fields in ASHlong, see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps).
@@ -213,6 +214,7 @@ class AutomationRuleDateRangeArgs:
                  value: pulumi.Input[_builtins.float]):
         """
         A date range for the date filter.
+
         :param pulumi.Input['AutomationRuleDateRangeUnit'] unit: A date range unit for the date filter.
         :param pulumi.Input[_builtins.float] value: A date range value for the date filter.
         """
@@ -282,6 +284,7 @@ class AutomationRuleMapFilterArgs:
                  value: pulumi.Input[_builtins.str]):
         """
         A map filter for filtering ASHlong findings. Each map filter provides the field to check for, the value to check for, and the comparison operator.
+
         :param pulumi.Input['AutomationRuleMapFilterComparison'] comparison: The condition to apply to the key value when filtering Security Hub findings with a map filter.
                 To search for values that have the filter value, use one of the following comparison operators:
                  +  To search for values that include the filter value, use ``CONTAINS``. For example, for the ``ResourceTags`` field, the filter ``Department CONTAINS Security`` matches findings that include the value ``Security`` for the ``Department`` tag. In the same example, a finding with a value of ``Security team`` for the ``Department`` tag is a match.
@@ -373,6 +376,7 @@ class AutomationRuleNoteUpdateArgs:
                  updated_by: pulumi.Input[_builtins.str]):
         """
         The updated note.
+
         :param pulumi.Input[_builtins.str] text: The updated note text.
         :param pulumi.Input[_builtins.str] updated_by: The principal that updated the note.
         """
@@ -429,6 +433,7 @@ class AutomationRuleNumberFilterArgs:
                  lte: Optional[pulumi.Input[_builtins.float]] = None):
         """
         A number filter for querying findings.
+
         :param pulumi.Input[_builtins.float] eq: The equal-to condition to be applied to a single field when querying for findings.
         :param pulumi.Input[_builtins.float] gte: The greater-than-equal condition to be applied to a single field when querying for findings.
         :param pulumi.Input[_builtins.float] lte: The less-than-equal condition to be applied to a single field when querying for findings.
@@ -498,6 +503,7 @@ class AutomationRuleRelatedFindingArgs:
                  product_arn: pulumi.Input[_builtins.str]):
         """
         Provides details about a list of findings that the current finding relates to.
+
         :param pulumi.Input[_builtins.str] id: The product-generated identifier for a related finding. 
                  Array Members: Minimum number of 1 item. Maximum number of 20 items.
         :param pulumi.Input[_builtins.str] product_arn: The Amazon Resource Name (ARN) for the product that generated a related finding.
@@ -567,6 +573,7 @@ class AutomationRuleSeverityUpdateArgs:
                  product: Optional[pulumi.Input[_builtins.float]] = None):
         """
         Updates to the severity information for a finding.
+
         :param pulumi.Input['AutomationRuleSeverityUpdateLabel'] label: The severity value of the finding. The allowed values are the following.
                  +  ``INFORMATIONAL`` - No issue was found.
                  +  ``LOW`` - The issue does not require action on its own.
@@ -678,6 +685,7 @@ class AutomationRuleStringFilterArgs:
                  value: pulumi.Input[_builtins.str]):
         """
         A string filter for filtering ASHlong findings.
+
         :param pulumi.Input['AutomationRuleStringFilterComparison'] comparison: The condition to apply to a string value when filtering Security Hub findings.
                 To search for values that have the filter value, use one of the following comparison operators:
                  +  To search for values that include the filter value, use ``CONTAINS``. For example, the filter ``Title CONTAINS CloudFront`` matches findings that have a ``Title`` that includes the string CloudFront.
@@ -776,6 +784,7 @@ class AutomationRuleV2AutomationRulesActionV2Args:
                  finding_fields_update: Optional[pulumi.Input['AutomationRuleV2AutomationRulesFindingFieldsUpdateV2Args']] = None):
         """
         Allows you to configure automated responses
+
         :param pulumi.Input['AutomationRuleV2AutomationRulesActionV2Type'] type: The category of action to be executed by the automation rule
         :param pulumi.Input['AutomationRuleV2ExternalIntegrationConfigurationArgs'] external_integration_configuration: The settings for integrating automation rule actions with external systems or service.
         :param pulumi.Input['AutomationRuleV2AutomationRulesFindingFieldsUpdateV2Args'] finding_fields_update: Specifies that the automation rule action is an update to a finding field.
@@ -848,6 +857,7 @@ class AutomationRuleV2AutomationRulesFindingFieldsUpdateV2Args:
                  status_id: Optional[pulumi.Input[_builtins.int]] = None):
         """
         The changes to be applied to fields in a security finding when an automation rule is triggered
+
         :param pulumi.Input[_builtins.str] comment: Notes or contextual information for findings that are modified by the automation rule
         :param pulumi.Input[_builtins.int] severity_id: The severity level to be assigned to findings that match the automation rule criteria
         :param pulumi.Input[_builtins.int] status_id: The status to be applied to findings that match automation rule criteria
@@ -911,6 +921,7 @@ class AutomationRuleV2BooleanFilterArgs:
                  value: pulumi.Input[_builtins.bool]):
         """
         Boolean filter for querying findings
+
         :param pulumi.Input[_builtins.bool] value: The value of the boolean
         """
         pulumi.set(__self__, "value", value)
@@ -968,6 +979,7 @@ class AutomationRuleV2CompositeFilterArgs:
                  string_filters: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleV2OcsfStringFilterArgs']]]] = None):
         """
         Enables the creation of filtering criteria for security findings
+
         :param pulumi.Input[Sequence[pulumi.Input['AutomationRuleV2OcsfBooleanFilterArgs']]] boolean_filters: Enables filtering based on boolean field values
         :param pulumi.Input[Sequence[pulumi.Input['AutomationRuleV2OcsfDateFilterArgs']]] date_filters: Enables filtering based on date and timestamp fields
         :param pulumi.Input[Sequence[pulumi.Input['AutomationRuleV2OcsfMapFilterArgs']]] map_filters: Enables filtering based on map field value
@@ -1076,6 +1088,7 @@ class AutomationRuleV2CriteriaArgs:
                  ocsf_finding_criteria: Optional[pulumi.Input['AutomationRuleV2OcsfFindingFiltersArgs']] = None):
         """
         Defines the parameters and conditions used to evaluate and filter security findings
+
         :param pulumi.Input['AutomationRuleV2OcsfFindingFiltersArgs'] ocsf_finding_criteria: The filtering conditions that align with OCSF standards.
         """
         if ocsf_finding_criteria is not None:
@@ -1123,6 +1136,7 @@ class AutomationRuleV2DateFilterArgs:
                  start: Optional[pulumi.Input[_builtins.str]] = None):
         """
         A date filter for querying findings
+
         :param pulumi.Input['AutomationRuleV2DateRangeArgs'] date_range: A date range for the date filter.
         :param pulumi.Input[_builtins.str] end: A timestamp that provides the end date for the date filter.
                
@@ -1199,6 +1213,7 @@ class AutomationRuleV2DateRangeArgs:
                  value: pulumi.Input[_builtins.float]):
         """
         A date range for the date filter
+
         :param pulumi.Input['AutomationRuleV2DateRangeUnit'] unit: A date range unit for the date filter
         :param pulumi.Input[_builtins.float] value: A date range value for the date filter
         """
@@ -1245,6 +1260,7 @@ class AutomationRuleV2ExternalIntegrationConfigurationArgs:
                  connector_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The settings for integrating automation rule actions with external systems or service
+
         :param pulumi.Input[_builtins.str] connector_arn: The ARN of the connector that establishes the integration
         """
         if connector_arn is not None:
@@ -1288,6 +1304,7 @@ class AutomationRuleV2MapFilterArgs:
                  value: pulumi.Input[_builtins.str]):
         """
         A map filter for filtering findings
+
         :param pulumi.Input['AutomationRuleV2MapFilterComparison'] comparison: The condition to apply to the key value when filtering findings with a map filter
         :param pulumi.Input[_builtins.str] key: The key of the map filter
         :param pulumi.Input[_builtins.str] value: The value for the key in the map filter
@@ -1358,6 +1375,7 @@ class AutomationRuleV2NumberFilterArgs:
                  lte: Optional[pulumi.Input[_builtins.float]] = None):
         """
         A number filter for querying findings
+
         :param pulumi.Input[_builtins.float] eq: The equal-to condition to be applied to a single field when querying for findings
         :param pulumi.Input[_builtins.float] gte: The greater-than-equal condition to be applied to a single field when querying for findings
         :param pulumi.Input[_builtins.float] lte: The less-than-equal condition to be applied to a single field when querying for findings
@@ -1426,6 +1444,7 @@ class AutomationRuleV2OcsfBooleanFilterArgs:
                  filter: pulumi.Input['AutomationRuleV2BooleanFilterArgs']):
         """
         Enables filtering of security findings based on boolean field values in OCSF
+
         :param pulumi.Input['AutomationRuleV2OcsfBooleanFilterFieldName'] field_name: The name of the field
         :param pulumi.Input['AutomationRuleV2BooleanFilterArgs'] filter: Enables filtering of security findings based on boolean field values in OCSF.
         """
@@ -1477,6 +1496,7 @@ class AutomationRuleV2OcsfDateFilterArgs:
                  filter: pulumi.Input['AutomationRuleV2DateFilterArgs']):
         """
         Enables filtering of security findings based on date and timestamp fields in OCSF
+
         :param pulumi.Input['AutomationRuleV2OcsfDateFilterFieldName'] field_name: The name of the field
         :param pulumi.Input['AutomationRuleV2DateFilterArgs'] filter: Enables filtering of security findings based on date and timestamp fields in OCSF.
         """
@@ -1528,6 +1548,7 @@ class AutomationRuleV2OcsfFindingFiltersArgs:
                  composite_operator: Optional[pulumi.Input['AutomationRuleV2AllowedOperators']] = None):
         """
         The filtering conditions that align with OCSF standards
+
         :param pulumi.Input[Sequence[pulumi.Input['AutomationRuleV2CompositeFilterArgs']]] composite_filters: Enables the creation of complex filtering conditions by combining filter
         :param pulumi.Input['AutomationRuleV2AllowedOperators'] composite_operator: The logical operators used to combine the filtering on multiple `CompositeFilters` .
         """
@@ -1581,6 +1602,7 @@ class AutomationRuleV2OcsfMapFilterArgs:
                  filter: pulumi.Input['AutomationRuleV2MapFilterArgs']):
         """
         Enables filtering of security findings based on map field values in OCSF
+
         :param pulumi.Input['AutomationRuleV2OcsfMapFilterFieldName'] field_name: The name of the field
         :param pulumi.Input['AutomationRuleV2MapFilterArgs'] filter: Enables filtering of security findings based on map field values in OCSF.
         """
@@ -1632,6 +1654,7 @@ class AutomationRuleV2OcsfNumberFilterArgs:
                  filter: pulumi.Input['AutomationRuleV2NumberFilterArgs']):
         """
         Enables filtering of security findings based on numerical field values in OCSF
+
         :param pulumi.Input['AutomationRuleV2OcsfNumberFilterFieldName'] field_name: The name of the field
         :param pulumi.Input['AutomationRuleV2NumberFilterArgs'] filter: Enables filtering of security findings based on numerical field values in OCSF.
         """
@@ -1683,6 +1706,7 @@ class AutomationRuleV2OcsfStringFilterArgs:
                  filter: pulumi.Input['AutomationRuleV2StringFilterArgs']):
         """
         Enables filtering of security findings based on string field values in OCSF
+
         :param pulumi.Input['AutomationRuleV2OcsfStringField'] field_name: The name of the field.
         :param pulumi.Input['AutomationRuleV2StringFilterArgs'] filter: Enables filtering of security findings based on string field values in OCSF.
         """
@@ -1734,6 +1758,7 @@ class AutomationRuleV2StringFilterArgs:
                  value: pulumi.Input[_builtins.str]):
         """
         A string filter for filtering findings
+
         :param pulumi.Input['AutomationRuleV2StringFilterComparison'] comparison: The condition to apply to a string value when filtering findings
         :param pulumi.Input[_builtins.str] value: The string filter value
         """
@@ -1789,6 +1814,7 @@ class AutomationRuleWorkflowUpdateArgs:
                  status: pulumi.Input['AutomationRuleWorkflowUpdateStatus']):
         """
         Used to update information about the investigation into the finding.
+
         :param pulumi.Input['AutomationRuleWorkflowUpdateStatus'] status: The status of the investigation into the finding. The workflow status is specific to an individual finding. It does not affect the generation of new findings. For example, setting the workflow status to ``SUPPRESSED`` or ``RESOLVED`` does not prevent a new finding for the same issue.
                 The allowed values are the following.
                  +  ``NEW`` - The initial state of a finding, before it is reviewed.
@@ -1844,6 +1870,7 @@ class AutomationRulesActionArgs:
                  type: pulumi.Input['AutomationRulesActionType']):
         """
         One or more actions that ASHlong takes when a finding matches the defined criteria of a rule.
+
         :param pulumi.Input['AutomationRulesFindingFieldsUpdateArgs'] finding_fields_update: Specifies that the automation rule action is an update to a finding field.
         :param pulumi.Input['AutomationRulesActionType'] type: Specifies the type of action that Security Hub takes when a finding matches the defined criteria of a rule.
         """
@@ -1930,6 +1957,7 @@ class AutomationRulesFindingFieldsUpdateArgs:
                  workflow: Optional[pulumi.Input['AutomationRuleWorkflowUpdateArgs']] = None):
         """
         Identifies the finding fields that the automation rule action updates when a finding matches the defined criteria.
+
         :param pulumi.Input[_builtins.int] confidence: The rule action updates the ``Confidence`` field of a finding.
         :param pulumi.Input[_builtins.int] criticality: The rule action updates the ``Criticality`` field of a finding.
         :param pulumi.Input['AutomationRuleNoteUpdateArgs'] note: The rule action will update the ``Note`` field of a finding.
@@ -2293,6 +2321,7 @@ class AutomationRulesFindingFiltersArgs:
                  workflow_status: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringFilterArgs']]]] = None):
         """
         The criteria that determine which findings a rule applies to.
+
         :param pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringFilterArgs']]] aws_account_id: The AWS-account ID in which a finding was generated.
                  Array Members: Minimum number of 1 item. Maximum number of 100 items.
         :param pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringFilterArgs']]] company_name: The name of the company for the product that generated the finding. For control-based findings, the company is AWS. 
@@ -2918,6 +2947,7 @@ class ConfigurationPolicyParameterConfigurationArgs:
                  value: Optional[pulumi.Input['ConfigurationPolicyParameterValueArgs']] = None):
         """
         An object that provides the current value of a security control parameter and identifies whether it has been customized.
+
         :param pulumi.Input['ConfigurationPolicyParameterConfigurationValueType'] value_type: Identifies whether a control parameter uses a custom user-defined value or subscribes to the default AWS Security Hub behavior.
         """
         pulumi.set(__self__, "value_type", value_type)
@@ -2996,6 +3026,7 @@ class ConfigurationPolicyParameterValueArgs:
                  string_list: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         An object that includes the data type of a security control parameter and its current value.
+
         :param pulumi.Input[_builtins.bool] boolean: A control parameter that is a boolean.
         :param pulumi.Input[_builtins.float] double: A control parameter that is a double.
         :param pulumi.Input[_builtins.str] enum: A control parameter that is an enum.
@@ -3134,6 +3165,7 @@ class ConfigurationPolicyPolicyArgs:
                  security_hub: Optional[pulumi.Input['ConfigurationPolicySecurityHubPolicyArgs']] = None):
         """
         An object that defines how Security Hub is configured.
+
         :param pulumi.Input['ConfigurationPolicySecurityHubPolicyArgs'] security_hub: The AWS service that the configuration policy applies to.
         """
         if security_hub is not None:
@@ -3172,6 +3204,7 @@ class ConfigurationPolicySecurityControlCustomParameterArgs:
                  security_control_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         An object of security control and control parameter value that are included in a configuration policy.
+
         :param pulumi.Input[Mapping[str, pulumi.Input['ConfigurationPolicyParameterConfigurationArgs']]] parameters: An object that specifies parameter values for a control in a configuration policy.
         :param pulumi.Input[_builtins.str] security_control_id: The ID of the security control.
         """
@@ -3230,6 +3263,7 @@ class ConfigurationPolicySecurityControlsConfigurationArgs:
                  security_control_custom_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationPolicySecurityControlCustomParameterArgs']]]] = None):
         """
         An object that defines which security controls are enabled in an AWS Security Hub configuration policy.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] disabled_security_control_identifiers: A list of security controls that are disabled in the configuration policy
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] enabled_security_control_identifiers: A list of security controls that are enabled in the configuration policy.
         :param pulumi.Input[Sequence[pulumi.Input['ConfigurationPolicySecurityControlCustomParameterArgs']]] security_control_custom_parameters: A list of security controls and control parameter values that are included in a configuration policy.
@@ -3305,6 +3339,7 @@ class ConfigurationPolicySecurityHubPolicyArgs:
                  service_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         An object that defines how AWS Security Hub is configured.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] enabled_standard_identifiers: A list that defines which security standards are enabled in the configuration policy.
         :param pulumi.Input['ConfigurationPolicySecurityControlsConfigurationArgs'] security_controls_configuration: An object that defines which security controls are enabled in the configuration policy. The enablement status of a control is aligned across all of the enabled standards in an account.
                
@@ -3902,6 +3937,7 @@ class InsightAwsSecurityFindingFiltersArgs:
                  workflow_status: Optional[pulumi.Input[Sequence[pulumi.Input['InsightStringFilterArgs']]]] = None):
         """
         A collection of filters that are applied to all active findings aggregated by AWS Security Hub.
+
         :param pulumi.Input[Sequence[pulumi.Input['InsightStringFilterArgs']]] aws_account_id: The AWS account ID in which a finding is generated.
         :param pulumi.Input[Sequence[pulumi.Input['InsightStringFilterArgs']]] aws_account_name: The name of the AWS account in which a finding is generated.
         :param pulumi.Input[Sequence[pulumi.Input['InsightStringFilterArgs']]] company_name: The name of the findings provider (company) that owns the solution (product) that generates findings.
@@ -5480,6 +5516,7 @@ class InsightBooleanFilterArgs:
                  value: pulumi.Input[_builtins.bool]):
         """
         Boolean filter for querying findings.
+
         :param pulumi.Input[_builtins.bool] value: The value of the boolean.
         """
         pulumi.set(__self__, "value", value)
@@ -5526,6 +5563,7 @@ class InsightDateFilterArgs:
                  start: Optional[pulumi.Input[_builtins.str]] = None):
         """
         A date filter for querying findings.
+
         :param pulumi.Input['InsightDateRangeArgs'] date_range: A date range for the date filter.
         :param pulumi.Input[_builtins.str] end: A timestamp that provides the end date for the date filter.
                
@@ -5602,6 +5640,7 @@ class InsightDateRangeArgs:
                  value: pulumi.Input[_builtins.float]):
         """
         A date range for the date filter.
+
         :param pulumi.Input['InsightDateRangeUnit'] unit: A date range unit for the date filter.
         :param pulumi.Input[_builtins.float] value: A date range value for the date filter.
         """
@@ -5648,6 +5687,7 @@ class InsightIpFilterArgs:
                  cidr: pulumi.Input[_builtins.str]):
         """
         The IP filter for querying findings.
+
         :param pulumi.Input[_builtins.str] cidr: A finding's CIDR value.
         """
         pulumi.set(__self__, "cidr", cidr)
@@ -5680,6 +5720,7 @@ class InsightKeywordFilterArgs:
                  value: pulumi.Input[_builtins.str]):
         """
         A keyword filter for querying findings.
+
         :param pulumi.Input[_builtins.str] value: A value for the keyword.
         """
         pulumi.set(__self__, "value", value)
@@ -5722,6 +5763,7 @@ class InsightMapFilterArgs:
                  value: pulumi.Input[_builtins.str]):
         """
         A map filter for filtering AWS Security Hub findings.
+
         :param pulumi.Input['InsightMapFilterComparison'] comparison: The condition to apply to the key value when filtering Security Hub findings with a map filter.
         :param pulumi.Input[_builtins.str] key: The key of the map filter. For example, for `ResourceTags` , `Key` identifies the name of the tag. For `UserDefinedFields` , `Key` is the name of the field.
         :param pulumi.Input[_builtins.str] value: The value for the key in the map filter. Filter values are case sensitive. For example, one of the values for a tag called `Department` might be `Security` . If you provide `security` as the filter value, then there's no match.
@@ -5792,6 +5834,7 @@ class InsightNumberFilterArgs:
                  lte: Optional[pulumi.Input[_builtins.float]] = None):
         """
         A number filter for querying findings.
+
         :param pulumi.Input[_builtins.float] eq: The equal-to condition to be applied to a single field when querying for findings.
         :param pulumi.Input[_builtins.float] gte: The greater-than-equal condition to be applied to a single field when querying for findings.
         :param pulumi.Input[_builtins.float] lte: The less-than-equal condition to be applied to a single field when querying for findings.
@@ -5889,6 +5932,7 @@ class InsightStringFilterArgs:
                  value: pulumi.Input[_builtins.str]):
         """
         A string filter for filtering AWS Security Hub findings.
+
         :param pulumi.Input['InsightStringFilterComparison'] comparison: The condition to apply to a string value when filtering Security Hub CSPM findings.
                
                To search for values that have the filter value, use one of the following comparison operators:
@@ -6227,6 +6271,7 @@ class StandardsControlArgs:
                  reason: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Provides details about an individual security control. For a list of ASH controls, see [controls reference](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-controls-reference.html) in the *User Guide*.
+
         :param pulumi.Input[_builtins.str] standards_control_arn: The Amazon Resource Name (ARN) of the control.
         :param pulumi.Input[_builtins.str] reason: A user-defined reason for changing a control's enablement status in a specified standard. If you are disabling a control, then this property is required.
         """

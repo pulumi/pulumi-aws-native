@@ -23,6 +23,7 @@ class ResourcePolicyArgs:
                  workspace_arn: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a ResourcePolicy resource.
+
         :param pulumi.Input[_builtins.str] policy_document: The JSON to use as the Resource-based Policy.
         :param pulumi.Input[_builtins.str] workspace_arn: The Arn of an APS Workspace that the PolicyDocument will be attached to.
         """
@@ -66,6 +67,7 @@ class ResourcePolicy(pulumi.CustomResource):
         """
         Resource Type definition for AWS::APS::ResourcePolicy
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] policy_document: The JSON to use as the Resource-based Policy.
@@ -79,6 +81,7 @@ class ResourcePolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::APS::ResourcePolicy
+
 
         :param str resource_name: The name of the resource.
         :param ResourcePolicyArgs args: The arguments to use to populate this resource's properties.

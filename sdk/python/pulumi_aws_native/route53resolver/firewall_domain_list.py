@@ -28,6 +28,7 @@ class FirewallDomainListArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a FirewallDomainList resource.
+
         :param pulumi.Input[_builtins.str] domain_file_url: S3 URL to import domains from.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] domains: A list of the domain lists that you have defined.
         :param pulumi.Input[_builtins.str] name: FirewallDomainListName
@@ -105,6 +106,7 @@ class FirewallDomainList(pulumi.CustomResource):
         """
         Resource schema for AWS::Route53Resolver::FirewallDomainList.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] domain_file_url: S3 URL to import domains from.
@@ -120,6 +122,7 @@ class FirewallDomainList(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource schema for AWS::Route53Resolver::FirewallDomainList.
+
 
         :param str resource_name: The name of the resource.
         :param FirewallDomainListArgs args: The arguments to use to populate this resource's properties.

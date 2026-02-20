@@ -29,6 +29,7 @@ class VirtualClusterArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a VirtualCluster resource.
+
         :param pulumi.Input['VirtualClusterContainerProviderArgs'] container_provider: Container provider of the virtual cluster.
         :param pulumi.Input[_builtins.str] name: Name of the virtual cluster.
         :param pulumi.Input[_builtins.str] security_configuration_id: The ID of the security configuration.
@@ -155,6 +156,7 @@ class VirtualCluster(pulumi.CustomResource):
 
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['VirtualClusterContainerProviderArgs', 'VirtualClusterContainerProviderArgsDict']] container_provider: Container provider of the virtual cluster.
@@ -220,6 +222,7 @@ class VirtualCluster(pulumi.CustomResource):
         pulumi.export("primaryId", test_virtual_cluster.id)
 
         ```
+
 
         :param str resource_name: The name of the resource.
         :param VirtualClusterArgs args: The arguments to use to populate this resource's properties.

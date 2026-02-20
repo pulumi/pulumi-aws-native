@@ -26,6 +26,7 @@ class ProactiveEngagementArgs:
                  proactive_engagement_status: pulumi.Input['ProactiveEngagementStatus']):
         """
         The set of arguments for constructing a ProactiveEngagement resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['ProactiveEngagementEmergencyContactArgs']]] emergency_contact_list: A list of email addresses and phone numbers that the Shield Response Team (SRT) can use to contact you for escalations to the SRT and to initiate proactive customer support.
                To enable proactive engagement, the contact list must include at least one phone number.
         :param pulumi.Input['ProactiveEngagementStatus'] proactive_engagement_status: If `ENABLED`, the Shield Response Team (SRT) will use email and phone to notify contacts about escalations to the SRT and to initiate proactive customer support.
@@ -73,6 +74,7 @@ class ProactiveEngagement(pulumi.CustomResource):
         """
         Authorizes the Shield Response Team (SRT) to use email and phone to notify contacts about escalations to the SRT and to initiate proactive customer support.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ProactiveEngagementEmergencyContactArgs', 'ProactiveEngagementEmergencyContactArgsDict']]]] emergency_contact_list: A list of email addresses and phone numbers that the Shield Response Team (SRT) can use to contact you for escalations to the SRT and to initiate proactive customer support.
@@ -88,6 +90,7 @@ class ProactiveEngagement(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Authorizes the Shield Response Team (SRT) to use email and phone to notify contacts about escalations to the SRT and to initiate proactive customer support.
+
 
         :param str resource_name: The name of the resource.
         :param ProactiveEngagementArgs args: The arguments to use to populate this resource's properties.

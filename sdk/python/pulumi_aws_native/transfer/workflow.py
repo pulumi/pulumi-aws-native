@@ -30,6 +30,7 @@ class WorkflowArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Workflow resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['WorkflowStepArgs']]] steps: Specifies the details for the steps that are in the specified workflow.
         :param pulumi.Input[_builtins.str] description: A textual description for the workflow.
         :param pulumi.Input[Sequence[pulumi.Input['WorkflowStepArgs']]] on_exception_steps: Specifies the steps (actions) to take if any errors are encountered during execution of the workflow.
@@ -106,6 +107,7 @@ class Workflow(pulumi.CustomResource):
         """
         Resource Type definition for AWS::Transfer::Workflow
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: A textual description for the workflow.
@@ -121,6 +123,7 @@ class Workflow(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::Transfer::Workflow
+
 
         :param str resource_name: The name of the resource.
         :param WorkflowArgs args: The arguments to use to populate this resource's properties.

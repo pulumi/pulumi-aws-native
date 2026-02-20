@@ -41,6 +41,7 @@ class DashboardArgs:
                  version_description: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Dashboard resource.
+
         :param pulumi.Input[_builtins.str] aws_account_id: The ID of the AWS account where you want to create the dashboard.
         :param pulumi.Input[_builtins.str] dashboard_id: The ID for the dashboard, also added to the IAM policy.
         :param pulumi.Input['DashboardPublishOptionsArgs'] dashboard_publish_options: Options for publishing the dashboard when you create it:
@@ -306,6 +307,7 @@ class Dashboard(pulumi.CustomResource):
         """
         Definition of the AWS::QuickSight::Dashboard Resource Type.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] aws_account_id: The ID of the AWS account where you want to create the dashboard.
@@ -341,6 +343,7 @@ class Dashboard(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of the AWS::QuickSight::Dashboard Resource Type.
+
 
         :param str resource_name: The name of the resource.
         :param DashboardArgs args: The arguments to use to populate this resource's properties.

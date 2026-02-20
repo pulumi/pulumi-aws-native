@@ -67,6 +67,7 @@ class DataCellsFilterColumnWildcard(dict):
                  excluded_column_names: Optional[Sequence[_builtins.str]] = None):
         """
         An object representing the Data Cells Filter's Columns. Either Column Names or a Wildcard is required.
+
         :param Sequence[_builtins.str] excluded_column_names: A list of column names to be excluded from the Data Cells Filter.
         """
         if excluded_column_names is not None:
@@ -110,6 +111,7 @@ class DataCellsFilterRowFilter(dict):
                  filter_expression: Optional[_builtins.str] = None):
         """
         An object representing the Data Cells Filter's Row Filter. Either a Filter Expression or a Wildcard is required.
+
         :param Any all_rows_wildcard: An empty object representing a row wildcard.
         :param _builtins.str filter_expression: A PartiQL predicate.
         """
@@ -167,6 +169,7 @@ class PrincipalPermissionsColumnWildcard(dict):
                  excluded_column_names: Optional[Sequence[_builtins.str]] = None):
         """
         A wildcard object, consisting of an optional list of excluded column names or indexes.
+
         :param Sequence[_builtins.str] excluded_column_names: Excludes column names. Any column with this name will be excluded.
         """
         if excluded_column_names is not None:
@@ -214,6 +217,7 @@ class PrincipalPermissionsDataCellsFilterResource(dict):
                  table_name: _builtins.str):
         """
         A structure that describes certain columns on certain rows.
+
         :param _builtins.str database_name: A database in the GLUDC.
         :param _builtins.str name: The name given by the user to the data filter cell.
         :param _builtins.str table_catalog_id: The ID of the catalog to which the table belongs.
@@ -283,6 +287,7 @@ class PrincipalPermissionsDataLakePrincipal(dict):
                  data_lake_principal_identifier: Optional[_builtins.str] = None):
         """
         The LFlong principal.
+
         :param _builtins.str data_lake_principal_identifier: An identifier for the LFlong principal.
         """
         if data_lake_principal_identifier is not None:
@@ -326,6 +331,7 @@ class PrincipalPermissionsDataLocationResource(dict):
                  resource_arn: _builtins.str):
         """
         A structure for a data location object where permissions are granted or revoked.
+
         :param _builtins.str catalog_id: The identifier for the GLUDC where the location is registered with LFlong.
         :param _builtins.str resource_arn: The Amazon Resource Name (ARN) that uniquely identifies the data location resource.
         """
@@ -376,6 +382,7 @@ class PrincipalPermissionsDatabaseResource(dict):
                  name: _builtins.str):
         """
         A structure for the database object.
+
         :param _builtins.str catalog_id: The identifier for the Data Catalog. By default, it is the account ID of the caller.
         :param _builtins.str name: The name of the database resource. Unique to the Data Catalog.
         """
@@ -428,6 +435,7 @@ class PrincipalPermissionsLfTag(dict):
                  tag_values: Optional[Sequence[_builtins.str]] = None):
         """
         The LF-tag key and values attached to a resource.
+
         :param _builtins.str tag_key: The key-name for the LF-tag.
         :param Sequence[_builtins.str] tag_values: A list of possible values of the corresponding ``TagKey`` of an LF-tag key-value pair.
         """
@@ -485,6 +493,7 @@ class PrincipalPermissionsLfTagKeyResource(dict):
                  tag_values: Sequence[_builtins.str]):
         """
         A structure containing an LF-tag key and values for a resource.
+
         :param _builtins.str catalog_id: The identifier for the GLUDC where the location is registered with GLUDC.
         :param _builtins.str tag_key: The key-name for the LF-tag.
         :param Sequence[_builtins.str] tag_values: A list of possible values for the corresponding ``TagKey`` of an LF-tag key-value pair.
@@ -550,6 +559,7 @@ class PrincipalPermissionsLfTagPolicyResource(dict):
         """
         A list of LF-tag conditions that define a resource's LF-tag policy.
          A structure that allows an admin to grant user permissions on certain conditions. For example, granting a role access to all columns that do not have the LF-tag 'PII' in tables that have the LF-tag 'Prod'.
+
         :param _builtins.str catalog_id: The identifier for the GLUDC. The GLUDC is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your LFlong environment.
         :param Sequence['PrincipalPermissionsLfTag'] expression: A list of LF-tag conditions that apply to the resource's LF-tag policy.
         :param 'PrincipalPermissionsResourceType' resource_type: The resource type for which the LF-tag policy applies.
@@ -624,6 +634,7 @@ class PrincipalPermissionsResource(dict):
                  table_with_columns: Optional['outputs.PrincipalPermissionsTableWithColumnsResource'] = None):
         """
         A structure for the resource.
+
         :param 'PrincipalPermissionsCatalogResource' catalog: The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your LFlong environment.
         :param 'PrincipalPermissionsDataCellsFilterResource' data_cells_filter: A data cell filter.
         :param 'PrincipalPermissionsDataLocationResource' data_location: The location of an Amazon S3 path where permissions are granted or revoked.
@@ -748,6 +759,7 @@ class PrincipalPermissionsTableResource(dict):
                  table_wildcard: Optional['outputs.PrincipalPermissionsTableWildcard'] = None):
         """
         A structure for the table object. A table is a metadata definition that represents your data. You can Grant and Revoke table privileges to a principal.
+
         :param _builtins.str catalog_id: The identifier for the Data Catalog. By default, it is the account ID of the caller.
         :param _builtins.str database_name: The name of the database for the table. Unique to a Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database privileges to a principal.
         :param _builtins.str name: The name of the table.
@@ -839,6 +851,7 @@ class PrincipalPermissionsTableWithColumnsResource(dict):
         """
         A structure for a table with columns object. This object is only used when granting a SELECT permission.
          This object must take a value for at least one of ``ColumnsNames``, ``ColumnsIndexes``, or ``ColumnsWildcard``.
+
         :param _builtins.str catalog_id: The identifier for the GLUDC where the location is registered with LFlong.
         :param _builtins.str database_name: The name of the database for the table with columns resource. Unique to the Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database privileges to a principal.
         :param _builtins.str name: The name of the table resource. A table is a metadata definition that represents your data. You can Grant and Revoke table privileges to a principal.

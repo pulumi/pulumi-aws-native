@@ -66,6 +66,7 @@ class ClusterEndpoint(dict):
                  public_ip_address: Optional[_builtins.str] = None):
         """
         An endpoint available for interaction with the scheduler.
+
         :param _builtins.str port: The endpoint's connection port number.
         :param _builtins.str private_ip_address: The endpoint's private IP address.
         :param 'ClusterEndpointType' type: Indicates the type of endpoint running at the specific IP address.
@@ -131,6 +132,7 @@ class ClusterErrorInfo(dict):
                  message: Optional[_builtins.str] = None):
         """
         An error that occurred during resource provisioning.
+
         :param _builtins.str code: The short-form error code.
         :param _builtins.str message: The detailed error information.
         """
@@ -166,6 +168,7 @@ class ComputeNodeGroupErrorInfo(dict):
                  message: Optional[_builtins.str] = None):
         """
         An error that occurred during resource provisioning.
+
         :param _builtins.str code: The short-form error code.
         :param _builtins.str message: The detailed error information.
         """
@@ -217,6 +220,7 @@ class ComputeNodeGroupInstanceConfig(dict):
                  instance_type: Optional[_builtins.str] = None):
         """
         An EC2 instance configuration AWS PCS uses to launch compute nodes.
+
         :param _builtins.str instance_type: The EC2 instance type that AWS PCS can provision in the compute node group.
         """
         if instance_type is not None:
@@ -258,6 +262,7 @@ class CustomLaunchTemplateProperties(dict):
                  template_id: Optional[_builtins.str] = None):
         """
         An Amazon EC2 launch template AWS PCS uses to launch compute nodes.
+
         :param _builtins.str version: The version of the EC2 launch template to use to provision instances.
         :param _builtins.str template_id: The ID of the EC2 launch template to use to provision instances.
         """
@@ -314,6 +319,7 @@ class NetworkingProperties(dict):
                  subnet_ids: Optional[Sequence[_builtins.str]] = None):
         """
         The networking configuration for the cluster's control plane.
+
         :param 'ClusterNetworkingPropertiesNetworkType' network_type: The IP of the cluster (IPV4 or IPV6)
         :param Sequence[_builtins.str] security_group_ids: The list of security group IDs associated with the Elastic Network Interface (ENI) created in subnets.
         :param Sequence[_builtins.str] subnet_ids: The list of subnet IDs where AWS PCS creates an Elastic Network Interface (ENI) to enable communication between managed controllers and AWS PCS resources. The subnet must have an available IP address, cannot reside in AWS Outposts, AWS Wavelength, or an AWS Local Zone. AWS PCS currently supports only 1 subnet in this list.
@@ -376,6 +382,7 @@ class QueueComputeNodeGroupConfiguration(dict):
                  compute_node_group_id: Optional[_builtins.str] = None):
         """
         The compute node group configuration for a queue.
+
         :param _builtins.str compute_node_group_id: The compute node group ID for the compute node group configuration.
         """
         if compute_node_group_id is not None:
@@ -400,6 +407,7 @@ class QueueErrorInfo(dict):
                  message: Optional[_builtins.str] = None):
         """
         An error that occurred during resource provisioning.
+
         :param _builtins.str code: The short-form error code.
         :param _builtins.str message: The detailed error information.
         """
@@ -454,6 +462,7 @@ class QueueSlurmCustomSetting(dict):
                  parameter_value: _builtins.str):
         """
         Additional settings that directly map to Slurm settings.
+
         :param _builtins.str parameter_name: AWS PCS supports configuration of the Slurm parameters for queues:.
         :param _builtins.str parameter_value: The value for the configured Slurm setting.
         """
@@ -506,6 +515,7 @@ class ScalingConfigurationProperties(dict):
                  min_instance_count: _builtins.int):
         """
         Specifies the boundaries of the compute node group auto scaling.
+
         :param _builtins.int max_instance_count: The upper bound of the number of instances allowed in the compute fleet.
         :param _builtins.int min_instance_count: The lower bound of the number of instances allowed in the compute fleet.
         """
@@ -539,6 +549,7 @@ class SchedulerProperties(dict):
                  version: _builtins.str):
         """
         The cluster management and job scheduling software associated with the cluster.
+
         :param 'ClusterSchedulerPropertiesType' type: The software AWS PCS uses to manage cluster scaling and job scheduling.
         :param _builtins.str version: The version of the specified scheduling software that AWS PCS uses to manage cluster scaling and job scheduling.
         """
@@ -588,6 +599,7 @@ class SlurmConfigurationProperties(dict):
                  slurm_custom_settings: Optional[Sequence['outputs.QueueSlurmCustomSetting']] = None):
         """
         The Slurm configuration for the queue.
+
         :param Sequence['QueueSlurmCustomSetting'] slurm_custom_settings: Custom Slurm parameters that directly map to Slurm configuration settings.
         """
         if slurm_custom_settings is not None:
@@ -628,6 +640,7 @@ class SpotOptionsProperties(dict):
                  allocation_strategy: Optional['ComputeNodeGroupSpotOptionsPropertiesAllocationStrategy'] = None):
         """
         Additional configuration when you specify SPOT as the purchase option.
+
         :param 'ComputeNodeGroupSpotOptionsPropertiesAllocationStrategy' allocation_strategy: The Amazon EC2 allocation strategy AWS PCS uses to provision EC2 instances. AWS PCS supports lowest price, capacity optimized, and price capacity optimized. If you don't provide this option, it defaults to price capacity optimized.
         """
         if allocation_strategy is not None:

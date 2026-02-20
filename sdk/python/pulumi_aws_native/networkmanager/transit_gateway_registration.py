@@ -23,6 +23,7 @@ class TransitGatewayRegistrationArgs:
                  transit_gateway_arn: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a TransitGatewayRegistration resource.
+
         :param pulumi.Input[_builtins.str] global_network_id: The ID of the global network.
         :param pulumi.Input[_builtins.str] transit_gateway_arn: The Amazon Resource Name (ARN) of the transit gateway.
         """
@@ -66,6 +67,7 @@ class TransitGatewayRegistration(pulumi.CustomResource):
         """
         The AWS::NetworkManager::TransitGatewayRegistration type registers a transit gateway in your global network. The transit gateway can be in any AWS Region, but it must be owned by the same AWS account that owns the global network. You cannot register a transit gateway in more than one global network.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] global_network_id: The ID of the global network.
@@ -79,6 +81,7 @@ class TransitGatewayRegistration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The AWS::NetworkManager::TransitGatewayRegistration type registers a transit gateway in your global network. The transit gateway can be in any AWS Region, but it must be owned by the same AWS account that owns the global network. You cannot register a transit gateway in more than one global network.
+
 
         :param str resource_name: The name of the resource.
         :param TransitGatewayRegistrationArgs args: The arguments to use to populate this resource's properties.

@@ -32,6 +32,7 @@ class WebhookArgs:
                  target_pipeline_version: Optional[pulumi.Input[_builtins.int]] = None):
         """
         The set of arguments for constructing a Webhook resource.
+
         :param pulumi.Input['WebhookAuthentication'] authentication: Supported options are GITHUB_HMAC, IP, and UNAUTHENTICATED.
         :param pulumi.Input['WebhookAuthConfigurationArgs'] authentication_configuration: Properties that configure the authentication applied to incoming webhook trigger requests
         :param pulumi.Input[Sequence[pulumi.Input['WebhookFilterRuleArgs']]] filters: A list of rules applied to the body/payload sent in the POST request to a webhook URL
@@ -168,6 +169,7 @@ class Webhook(pulumi.CustomResource):
         """
         Resource Type definition for AWS::CodePipeline::Webhook
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input['WebhookAuthentication'] authentication: Supported options are GITHUB_HMAC, IP, and UNAUTHENTICATED.
@@ -187,6 +189,7 @@ class Webhook(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::CodePipeline::Webhook
+
 
         :param str resource_name: The name of the resource.
         :param WebhookArgs args: The arguments to use to populate this resource's properties.

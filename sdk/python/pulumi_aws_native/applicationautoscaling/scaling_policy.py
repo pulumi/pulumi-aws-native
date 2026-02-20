@@ -32,6 +32,7 @@ class ScalingPolicyArgs:
                  target_tracking_scaling_policy_configuration: Optional[pulumi.Input['ScalingPolicyTargetTrackingScalingPolicyConfigurationArgs']] = None):
         """
         The set of arguments for constructing a ScalingPolicy resource.
+
         :param pulumi.Input[_builtins.str] policy_type: The scaling policy type.
                 The following policy types are supported: 
                 ``TargetTrackingScaling``—Not supported for Amazon EMR
@@ -289,6 +290,7 @@ class ScalingPolicy(pulumi.CustomResource):
         The ``AWS::ApplicationAutoScaling::ScalingPolicy`` resource defines a scaling policy that Application Auto Scaling uses to adjust the capacity of a scalable target.
          For more information, see [Target tracking scaling policies](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-target-tracking.html) and [Step scaling policies](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-step-scaling-policies.html) in the *Application Auto Scaling User Guide*.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] policy_name: The name of the scaling policy.
@@ -360,6 +362,7 @@ class ScalingPolicy(pulumi.CustomResource):
         """
         The ``AWS::ApplicationAutoScaling::ScalingPolicy`` resource defines a scaling policy that Application Auto Scaling uses to adjust the capacity of a scalable target.
          For more information, see [Target tracking scaling policies](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-target-tracking.html) and [Step scaling policies](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-step-scaling-policies.html) in the *Application Auto Scaling User Guide*.
+
 
         :param str resource_name: The name of the resource.
         :param ScalingPolicyArgs args: The arguments to use to populate this resource's properties.

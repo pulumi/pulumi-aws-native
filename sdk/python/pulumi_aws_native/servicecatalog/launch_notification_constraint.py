@@ -26,6 +26,7 @@ class LaunchNotificationConstraintArgs:
                  description: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a LaunchNotificationConstraint resource.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] notification_arns: The notification ARNs.
         :param pulumi.Input[_builtins.str] portfolio_id: The portfolio identifier.
         :param pulumi.Input[_builtins.str] product_id: The product identifier.
@@ -122,6 +123,7 @@ class LaunchNotificationConstraint(pulumi.CustomResource):
         """
         Resource Type definition for AWS::ServiceCatalog::LaunchNotificationConstraint
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] accept_language: The language code.
@@ -141,6 +143,7 @@ class LaunchNotificationConstraint(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::ServiceCatalog::LaunchNotificationConstraint
+
 
         :param str resource_name: The name of the resource.
         :param LaunchNotificationConstraintArgs args: The arguments to use to populate this resource's properties.

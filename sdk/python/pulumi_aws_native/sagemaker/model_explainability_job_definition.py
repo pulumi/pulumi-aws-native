@@ -37,6 +37,7 @@ class ModelExplainabilityJobDefinitionArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]] = None):
         """
         The set of arguments for constructing a ModelExplainabilityJobDefinition resource.
+
         :param pulumi.Input['ModelExplainabilityJobDefinitionMonitoringResourcesArgs'] job_resources: Identifies the resources to deploy for a monitoring job.
         :param pulumi.Input['ModelExplainabilityJobDefinitionModelExplainabilityAppSpecificationArgs'] model_explainability_app_specification: Configures the model explainability job to run a specified Docker container image.
         :param pulumi.Input['ModelExplainabilityJobDefinitionModelExplainabilityJobInputArgs'] model_explainability_job_input: Inputs for the model explainability job.
@@ -217,6 +218,7 @@ class ModelExplainabilityJobDefinition(pulumi.CustomResource):
         """
         Resource Type definition for AWS::SageMaker::ModelExplainabilityJobDefinition
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] job_definition_name: The name of the model explainability job definition. The name must be unique within an AWS Region in the AWS account.
@@ -238,6 +240,7 @@ class ModelExplainabilityJobDefinition(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::SageMaker::ModelExplainabilityJobDefinition
+
 
         :param str resource_name: The name of the resource.
         :param ModelExplainabilityJobDefinitionArgs args: The arguments to use to populate this resource's properties.

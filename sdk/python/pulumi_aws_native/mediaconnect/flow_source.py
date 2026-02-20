@@ -42,6 +42,7 @@ class FlowSourceInitArgs:
                  whitelist_cidr: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a FlowSource resource.
+
         :param pulumi.Input[_builtins.str] description: A description for the source. This value is not used or seen outside of the current AWS Elemental MediaConnect account.
         :param pulumi.Input['FlowSourceEncryptionArgs'] decryption: The type of encryption that is used on the content ingested from this source.
         :param pulumi.Input[_builtins.str] entitlement_arn: The ARN of the entitlement that allows you to subscribe to content that comes from another AWS account. The entitlement is set by the content originator and the ARN is generated as part of the originator's flow.
@@ -342,6 +343,7 @@ class FlowSource(pulumi.CustomResource):
         """
         Resource schema for AWS::MediaConnect::FlowSource
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['FlowSourceEncryptionArgs', 'FlowSourceEncryptionArgsDict']] decryption: The type of encryption that is used on the content ingested from this source.
@@ -371,6 +373,7 @@ class FlowSource(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource schema for AWS::MediaConnect::FlowSource
+
 
         :param str resource_name: The name of the resource.
         :param FlowSourceInitArgs args: The arguments to use to populate this resource's properties.

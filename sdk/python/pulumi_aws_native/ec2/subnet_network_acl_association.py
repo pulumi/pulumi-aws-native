@@ -23,6 +23,7 @@ class SubnetNetworkAclAssociationArgs:
                  subnet_id: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a SubnetNetworkAclAssociation resource.
+
         :param pulumi.Input[_builtins.str] network_acl_id: The ID of the network ACL
         :param pulumi.Input[_builtins.str] subnet_id: The ID of the subnet
         """
@@ -66,6 +67,7 @@ class SubnetNetworkAclAssociation(pulumi.CustomResource):
         """
         Resource Type definition for AWS::EC2::SubnetNetworkAclAssociation
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] network_acl_id: The ID of the network ACL
@@ -79,6 +81,7 @@ class SubnetNetworkAclAssociation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::EC2::SubnetNetworkAclAssociation
+
 
         :param str resource_name: The name of the resource.
         :param SubnetNetworkAclAssociationArgs args: The arguments to use to populate this resource's properties.

@@ -38,6 +38,7 @@ class ComplianceProperties(dict):
                  type: Optional[_builtins.str] = None):
         """
         Indicates whether an AWS resource or CC rule is compliant and provides the number of contributors that affect the compliance.
+
         :param _builtins.str type: Compliance type determined by the Config rule
         """
         if type is not None:
@@ -84,6 +85,7 @@ class ConfigRuleCustomPolicyDetails(dict):
                  policy_text: Optional[_builtins.str] = None):
         """
         Provides the CustomPolicyDetails, the rule owner (```` for managed rules, ``CUSTOM_POLICY`` for Custom Policy rules, and ``CUSTOM_LAMBDA`` for Custom Lambda rules), the rule identifier, and the events that cause the evaluation of your AWS resources.
+
         :param _builtins.bool enable_debug_log_delivery: The boolean expression for enabling debug logging for your CC Custom Policy rule. The default value is ``false``.
         :param _builtins.str policy_runtime: The runtime system for your CC Custom Policy rule. Guard is a policy-as-code language that allows you to write policies that are enforced by CC Custom Policy rules. For more information about Guard, see the [Guard GitHub Repository](https://docs.aws.amazon.com/https://github.com/aws-cloudformation/cloudformation-guard).
         :param _builtins.str policy_text: The policy definition containing the logic for your CC Custom Policy rule.
@@ -129,6 +131,7 @@ class ConfigRuleEvaluationModeConfiguration(dict):
                  mode: Optional[_builtins.str] = None):
         """
         The configuration object for CC rule evaluation mode. The supported valid values are Detective or Proactive.
+
         :param _builtins.str mode: The mode of an evaluation. The valid values are Detective or Proactive.
         """
         if mode is not None:
@@ -178,6 +181,7 @@ class ConfigRuleScope(dict):
                  tag_value: Optional[_builtins.str] = None):
         """
         Defines which resources trigger an evaluation for an CC rule. The scope can include one or more resource types, a combination of a tag key and value, or a combination of one resource type and one resource ID. Specify a scope to constrain which resources trigger an evaluation for a rule. Otherwise, evaluations for the rule are triggered when any resource in your recording group changes in configuration.
+
         :param _builtins.str compliance_resource_id: The ID of the only AWS resource that you want to trigger an evaluation for the rule. If you specify a resource ID, you must specify one resource type for ``ComplianceResourceTypes``.
         :param Sequence[_builtins.str] compliance_resource_types: The resource types of only those AWS resources that you want to trigger an evaluation for the rule. You can only specify one type if you also specify a resource ID for ``ComplianceResourceId``.
         :param _builtins.str tag_key: The tag key that is applied to only those AWS resources that you want to trigger an evaluation for the rule.
@@ -258,6 +262,7 @@ class ConfigRuleSource(dict):
                  source_identifier: Optional[_builtins.str] = None):
         """
         Provides the CustomPolicyDetails, the rule owner (```` for managed rules, ``CUSTOM_POLICY`` for Custom Policy rules, and ``CUSTOM_LAMBDA`` for Custom Lambda rules), the rule identifier, and the events that cause the evaluation of your AWS resources.
+
         :param _builtins.str owner: Indicates whether AWS or the customer owns and manages the CC rule.
                  CC Managed Rules are predefined rules owned by AWS. For more information, see [Managed Rules](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html) in the *developer guide*.
                  CC Custom Rules are rules that you can develop either with Guard (``CUSTOM_POLICY``) or LAMlong (``CUSTOM_LAMBDA``). For more information, see [Custom Rules](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_develop-rules.html) in the *developer guide*.
@@ -346,6 +351,7 @@ class ConfigRuleSourceDetail(dict):
                  maximum_execution_frequency: Optional[_builtins.str] = None):
         """
         Provides the source and the message types that trigger CC to evaluate your AWS resources against a rule. It also provides the frequency with which you want CC to run evaluations for the rule if the trigger type is periodic. You can specify the parameter values for ``SourceDetail`` only for custom rules.
+
         :param _builtins.str event_source: The source of the event, such as an AWS service, that triggers CC to evaluate your AWS resources.
         :param _builtins.str message_type: The type of notification that triggers CC to run an evaluation for a rule. You can specify the following notification types:
                  +   ``ConfigurationItemChangeNotification`` - Triggers an evaluation when CC delivers a configuration item as a result of a resource change.
@@ -551,6 +557,7 @@ class ConformancePackInputParameter(dict):
                  parameter_value: _builtins.str):
         """
         Input parameters in the form of key-value pairs for the conformance pack.
+
         :param _builtins.str parameter_name: One part of a key-value pair.
         :param _builtins.str parameter_value: Another part of the key-value pair.
         """
@@ -603,6 +610,7 @@ class OrganizationConformancePackConformancePackInputParameter(dict):
                  parameter_value: _builtins.str):
         """
         Input parameters in the form of key-value pairs for the conformance pack.
+
         :param _builtins.str parameter_name: One part of a key-value pair.
         :param _builtins.str parameter_value: One part of a key-value pair.
         """
@@ -655,6 +663,7 @@ class TemplateSsmDocumentDetailsProperties(dict):
                  document_version: Optional[_builtins.str] = None):
         """
         The TemplateSSMDocumentDetails object contains the name of the SSM document and the version of the SSM document.
+
         :param _builtins.str document_name: The name or Amazon Resource Name (ARN) of the SSM document to use to create a conformance pack. If you use the document name, AWS Config checks only your account and AWS Region for the SSM document.
         :param _builtins.str document_version: The version of the SSM document to use to create a conformance pack. By default, AWS Config uses the latest version.
                

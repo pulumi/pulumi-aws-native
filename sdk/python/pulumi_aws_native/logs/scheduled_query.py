@@ -217,6 +217,7 @@ class ScheduledQuery(pulumi.CustomResource):
         """
         Creates a new Scheduled Query that allows you to define a Logs Insights query that will run on a schedule and configure actions to take with the query results.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
@@ -228,6 +229,7 @@ class ScheduledQuery(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Creates a new Scheduled Query that allows you to define a Logs Insights query that will run on a schedule and configure actions to take with the query results.
+
 
         :param str resource_name: The name of the resource.
         :param ScheduledQueryArgs args: The arguments to use to populate this resource's properties.

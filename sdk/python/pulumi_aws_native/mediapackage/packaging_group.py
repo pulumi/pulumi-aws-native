@@ -29,6 +29,7 @@ class PackagingGroupArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]] = None):
         """
         The set of arguments for constructing a PackagingGroup resource.
+
         :param pulumi.Input[_builtins.str] aws_id: The ID of the PackagingGroup.
         :param pulumi.Input['PackagingGroupAuthorizationArgs'] authorization: CDN Authorization
         :param pulumi.Input['PackagingGroupLogConfigurationArgs'] egress_access_logs: The configuration parameters for egress access logging.
@@ -105,6 +106,7 @@ class PackagingGroup(pulumi.CustomResource):
         """
         Resource schema for AWS::MediaPackage::PackagingGroup
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['PackagingGroupAuthorizationArgs', 'PackagingGroupAuthorizationArgsDict']] authorization: CDN Authorization
@@ -120,6 +122,7 @@ class PackagingGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource schema for AWS::MediaPackage::PackagingGroup
+
 
         :param str resource_name: The name of the resource.
         :param PackagingGroupArgs args: The arguments to use to populate this resource's properties.

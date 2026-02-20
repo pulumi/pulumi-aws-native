@@ -31,6 +31,7 @@ class VariableArgs:
                  variable_type: Optional[pulumi.Input['VariableType']] = None):
         """
         The set of arguments for constructing a Variable resource.
+
         :param pulumi.Input['VariableDataSource'] data_source: The source of the data.
         :param pulumi.Input['VariableDataType'] data_type: The data type.
         :param pulumi.Input[_builtins.str] default_value: The default value for the variable when no value is received.
@@ -153,6 +154,7 @@ class Variable(pulumi.CustomResource):
         """
         A resource schema for a Variable in Amazon Fraud Detector.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input['VariableDataSource'] data_source: The source of the data.
@@ -171,6 +173,7 @@ class Variable(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A resource schema for a Variable in Amazon Fraud Detector.
+
 
         :param str resource_name: The name of the resource.
         :param VariableArgs args: The arguments to use to populate this resource's properties.

@@ -25,6 +25,7 @@ class PolicyAssociationArgs:
                  target_type: pulumi.Input['PolicyAssociationTargetType']):
         """
         The set of arguments for constructing a PolicyAssociation resource.
+
         :param pulumi.Input[_builtins.str] configuration_policy_id: The universally unique identifier (UUID) of the configuration policy or a value of SELF_MANAGED_SECURITY_HUB for a self-managed configuration
         :param pulumi.Input[_builtins.str] target_id: The identifier of the target account, organizational unit, or the root
         :param pulumi.Input['PolicyAssociationTargetType'] target_type: Indicates whether the target is an AWS account, organizational unit, or the organization root
@@ -83,6 +84,7 @@ class PolicyAssociation(pulumi.CustomResource):
         """
         The AWS::SecurityHub::PolicyAssociation resource represents the AWS Security Hub Central Configuration Policy associations in your Target. Only the AWS Security Hub delegated administrator can create the resouce from the home region.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] configuration_policy_id: The universally unique identifier (UUID) of the configuration policy or a value of SELF_MANAGED_SECURITY_HUB for a self-managed configuration
@@ -97,6 +99,7 @@ class PolicyAssociation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The AWS::SecurityHub::PolicyAssociation resource represents the AWS Security Hub Central Configuration Policy associations in your Target. Only the AWS Security Hub delegated administrator can create the resouce from the home region.
+
 
         :param str resource_name: The name of the resource.
         :param PolicyAssociationArgs args: The arguments to use to populate this resource's properties.

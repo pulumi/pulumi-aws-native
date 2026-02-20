@@ -32,6 +32,7 @@ class ApplicationArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Application resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationAppConfigArgs']]] app_configs: List of application configurations.
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationDataSourceArgs']]] data_sources: List of data sources.
         :param pulumi.Input[_builtins.str] endpoint: The endpoint for the application.
@@ -141,6 +142,7 @@ class Application(pulumi.CustomResource):
         """
         Amazon OpenSearchService application resource
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ApplicationAppConfigArgs', 'ApplicationAppConfigArgsDict']]]] app_configs: List of application configurations.
@@ -158,6 +160,7 @@ class Application(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Amazon OpenSearchService application resource
+
 
         :param str resource_name: The name of the resource.
         :param ApplicationArgs args: The arguments to use to populate this resource's properties.

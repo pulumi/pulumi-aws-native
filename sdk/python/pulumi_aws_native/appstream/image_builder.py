@@ -38,6 +38,7 @@ class ImageBuilderArgs:
                  vpc_config: Optional[pulumi.Input['ImageBuilderVpcConfigArgs']] = None):
         """
         The set of arguments for constructing a ImageBuilder resource.
+
         :param pulumi.Input[_builtins.str] instance_type: The instance type to use when launching the image builder. The following instance types are available:
                
                - stream.standard.small
@@ -364,6 +365,7 @@ class ImageBuilder(pulumi.CustomResource):
         """
         Resource Type definition for AWS::AppStream::ImageBuilder
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ImageBuilderAccessEndpointArgs', 'ImageBuilderAccessEndpointArgsDict']]]] access_endpoints: The list of virtual private cloud (VPC) interface endpoint objects. Administrators can connect to the image builder only through the specified endpoints.
@@ -441,6 +443,7 @@ class ImageBuilder(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::AppStream::ImageBuilder
+
 
         :param str resource_name: The name of the resource.
         :param ImageBuilderArgs args: The arguments to use to populate this resource's properties.

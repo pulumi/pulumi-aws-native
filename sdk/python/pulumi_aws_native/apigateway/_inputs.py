@@ -82,6 +82,7 @@ class ApiKeyStageKeyArgs:
                  stage_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         ``StageKey`` is a property of the [AWS::ApiGateway::ApiKey](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-apikey.html) resource that specifies the stage to associate with the API key. This association allows only clients with the key to make requests to methods in that stage.
+
         :param pulumi.Input[_builtins.str] rest_api_id: The string identifier of the associated RestApi.
         :param pulumi.Input[_builtins.str] stage_name: The stage name associated with the stage key.
         """
@@ -137,6 +138,7 @@ class DeploymentAccessLogSettingArgs:
         """
         The ``AccessLogSetting`` property type specifies settings for logging access in this stage.
          ``AccessLogSetting`` is a property of the [StageDescription](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html) property type.
+
         :param pulumi.Input[_builtins.str] destination_arn: The Amazon Resource Name (ARN) of the CloudWatch Logs log group or Kinesis Data Firehose delivery stream to receive access logs. If you specify a Kinesis Data Firehose delivery stream, the stream name must begin with `amazon-apigateway-` .
         :param pulumi.Input[_builtins.str] format: A single line format of the access logs of data, as specified by selected $context variables. The format must include at least `$context.requestId` .
         """
@@ -195,6 +197,7 @@ class DeploymentCanarySettingsArgs:
                  use_stage_cache: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The ``DeploymentCanarySettings`` property type specifies settings for the canary deployment.
+
         :param pulumi.Input[_builtins.float] percent_traffic: The percentage (0.0-100.0) of traffic routed to the canary deployment.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] stage_variable_overrides: A stage variable overrides used for the canary release deployment. They can override existing stage variables or add new stage variables for the canary release deployment. These stage variables are represented as a string-to-string map between stage variable names and their values.
         :param pulumi.Input[_builtins.bool] use_stage_cache: A Boolean flag to indicate whether the canary release deployment uses the stage cache or not.
@@ -270,6 +273,7 @@ class DeploymentCanarySettingArgs:
         """
         The ``CanarySetting`` property type specifies settings for the canary deployment in this stage.
          ``CanarySetting`` is a property of the [StageDescription](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html) property type.
+
         :param pulumi.Input[_builtins.float] percent_traffic: The percent (0-100) of traffic diverted to a canary deployment.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] stage_variable_overrides: Stage variables overridden for a canary release deployment, including new stage variables introduced in the canary. These stage variables are represented as a string-to-string map between stage variable names and their values.
         :param pulumi.Input[_builtins.bool] use_stage_cache: A Boolean flag to indicate whether the canary deployment uses the stage cache or not.
@@ -380,6 +384,7 @@ class DeploymentMethodSettingArgs:
         """
         The ``MethodSetting`` property type configures settings for all methods in a stage.
          The ``MethodSettings`` property of the [Amazon API Gateway Deployment StageDescription](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html) property type contains a list of ``MethodSetting`` property types.
+
         :param pulumi.Input[_builtins.bool] cache_data_encrypted: Specifies whether the cached responses are encrypted.
         :param pulumi.Input[_builtins.int] cache_ttl_in_seconds: Specifies the time to live (TTL), in seconds, for cached responses. The higher the TTL, the longer the response will be cached.
         :param pulumi.Input[_builtins.bool] caching_enabled: Specifies whether responses should be cached and returned for requests. A cache cluster must be enabled on the stage for responses to be cached.
@@ -639,6 +644,7 @@ class DeploymentStageDescriptionArgs:
                  variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         ``StageDescription`` is a property of the [AWS::ApiGateway::Deployment](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-deployment.html) resource that configures a deployment stage.
+
         :param pulumi.Input['DeploymentAccessLogSettingArgs'] access_log_setting: Specifies settings for logging access in this stage.
         :param pulumi.Input[_builtins.bool] cache_cluster_enabled: Specifies whether a cache cluster is enabled for the stage. To activate a method-level cache, set `CachingEnabled` to `true` for a method.
         :param pulumi.Input[_builtins.str] cache_cluster_size: The size of the stage's cache cluster. For more information, see [cacheClusterSize](https://docs.aws.amazon.com/apigateway/latest/api/API_CreateStage.html#apigw-CreateStage-request-cacheClusterSize) in the *API Gateway API Reference*.
@@ -951,6 +957,7 @@ class DeploymentTagArgs:
         """
         An array of key-value pairs to apply to this resource.
          For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).
+
         :param pulumi.Input[_builtins.str] key: A string you can use to assign a value. The combination of tag keys and values can help you organize and categorize your resources.
         :param pulumi.Input[_builtins.str] value: The value for the specified tag key.
         """
@@ -1019,6 +1026,7 @@ class DocumentationPartLocationArgs:
         """
         The ``Location`` property specifies the location of the Amazon API Gateway API entity that the documentation applies to. ``Location`` is a property of the [AWS::ApiGateway::DocumentationPart](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-documentationpart.html) resource.
           For more information about each property, including constraints and valid values, see [DocumentationPart](https://docs.aws.amazon.com/apigateway/latest/api/API_DocumentationPartLocation.html) in the *Amazon API Gateway REST API Reference*.
+
         :param pulumi.Input[_builtins.str] method: The HTTP verb of a method. It is a valid field for the API entity types of `METHOD` , `PATH_PARAMETER` , `QUERY_PARAMETER` , `REQUEST_HEADER` , `REQUEST_BODY` , `RESPONSE` , `RESPONSE_HEADER` , and `RESPONSE_BODY` . The default value is `*` for any method. When an applicable child entity inherits the content of an entity of the same type with more general specifications of the other `location` attributes, the child entity's `method` attribute must match that of the parent entity exactly.
         :param pulumi.Input[_builtins.str] name: The name of the targeted API entity. It is a valid and required field for the API entity types of `AUTHORIZER` , `MODEL` , `PATH_PARAMETER` , `QUERY_PARAMETER` , `REQUEST_HEADER` , `REQUEST_BODY` and `RESPONSE_HEADER` . It is an invalid field for any other entity type.
         :param pulumi.Input[_builtins.str] path: The URL path of the target. It is a valid field for the API entity types of `RESOURCE` , `METHOD` , `PATH_PARAMETER` , `QUERY_PARAMETER` , `REQUEST_HEADER` , `REQUEST_BODY` , `RESPONSE` , `RESPONSE_HEADER` , and `RESPONSE_BODY` . The default value is `/` for the root resource. When an applicable child entity inherits the content of another entity of the same type with more general specifications of the other `location` attributes, the child entity's `path` attribute must match that of the parent entity as a prefix.
@@ -1119,6 +1127,7 @@ class DomainNameEndpointConfigurationArgs:
         """
         The ``EndpointConfiguration`` property type specifies the endpoint types and IP address types of an Amazon API Gateway domain name.
          ``EndpointConfiguration`` is a property of the [AWS::ApiGateway::DomainName](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html) resource.
+
         :param pulumi.Input[_builtins.str] ip_address_type: The IP address types that can invoke this DomainName. Use `ipv4` to allow only IPv4 addresses to invoke this DomainName, or use `dualstack` to allow both IPv4 and IPv6 addresses to invoke this DomainName. For the `PRIVATE` endpoint type, only `dualstack` is supported.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] types: A list of endpoint types of an API (RestApi) or its custom domain name (DomainName). For an edge-optimized API and its custom domain name, the endpoint type is `"EDGE"` . For a regional API and its custom domain name, the endpoint type is `REGIONAL` . For a private API, the endpoint type is `PRIVATE` .
         """
@@ -1287,6 +1296,7 @@ class MethodIntegrationResponseArgs:
                  selection_pattern: Optional[pulumi.Input[_builtins.str]] = None):
         """
         ``IntegrationResponse`` is a property of the [Amazon API Gateway Method Integration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-integration.html) property type that specifies the response that API Gateway sends after a method's backend finishes processing a request.
+
         :param pulumi.Input[_builtins.str] status_code: Specifies the status code that is used to map the integration response to an existing MethodResponse.
         :param pulumi.Input['MethodIntegrationResponseContentHandling'] content_handling: Specifies how to handle response payload content type conversions. Supported values are `CONVERT_TO_BINARY` and `CONVERT_TO_TEXT` , with the following behaviors:
                
@@ -1464,6 +1474,7 @@ class MethodIntegrationArgs:
                  uri: Optional[pulumi.Input[_builtins.str]] = None):
         """
         ``Integration`` is a property of the [AWS::ApiGateway::Method](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-method.html) resource that specifies information about the target backend that a method calls.
+
         :param pulumi.Input['MethodIntegrationType'] type: Specifies an API method integration type. The valid value is one of the following:
                
                For the HTTP and HTTP proxy integrations, each integration can specify a protocol ( `http/https` ), port and path. Standard 80 and 443 ports are supported as well as custom ports above 1024. An HTTP or HTTP proxy integration with a `connectionType` of `VPC_LINK` is referred to as a private integration and uses a VpcLink to connect API Gateway to a network load balancer of a VPC.
@@ -1813,6 +1824,7 @@ class RestApiEndpointConfigurationArgs:
         """
         The ``EndpointConfiguration`` property type specifies the endpoint types and IP address types of a REST API.
          ``EndpointConfiguration`` is a property of the [AWS::ApiGateway::RestApi](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-restapi.html) resource.
+
         :param pulumi.Input[_builtins.str] ip_address_type: The IP address types that can invoke an API (RestApi). Use `ipv4` to allow only IPv4 addresses to invoke an API, or use `dualstack` to allow both IPv4 and IPv6 addresses to invoke an API. For the `PRIVATE` endpoint type, only `dualstack` is supported.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] types: A list of endpoint types of an API (RestApi) or its custom domain name (DomainName). For an edge-optimized API and its custom domain name, the endpoint type is `"EDGE"` . For a regional API and its custom domain name, the endpoint type is `REGIONAL` . For a private API, the endpoint type is `PRIVATE` .
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] vpc_endpoint_ids: A list of VpcEndpointIds of an API (RestApi) against which to create Route53 ALIASes. It is only supported for `PRIVATE` endpoint type.
@@ -1893,6 +1905,7 @@ class RestApiS3LocationArgs:
         """
         ``S3Location`` is a property of the [AWS::ApiGateway::RestApi](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-restapi.html) resource that specifies the Amazon S3 location of a OpenAPI (formerly Swagger) file that defines a set of RESTful APIs in JSON or YAML.
           On January 1, 2016, the Swagger Specification was donated to the [OpenAPI initiative](https://docs.aws.amazon.com/https://www.openapis.org/), becoming the foundation of the OpenAPI Specification.
+
         :param pulumi.Input[_builtins.str] bucket: The name of the S3 bucket where the OpenAPI file is stored.
         :param pulumi.Input[_builtins.str] e_tag: The Amazon S3 ETag (a file checksum) of the OpenAPI file. If you don't specify a value, API Gateway skips ETag validation of your OpenAPI file.
         :param pulumi.Input[_builtins.str] key: The file name of the OpenAPI file (Amazon S3 object name).
@@ -1978,6 +1991,7 @@ class StageAccessLogSettingArgs:
         """
         The ``AccessLogSetting`` property type specifies settings for logging access in this stage.
          ``AccessLogSetting`` is a property of the [AWS::ApiGateway::Stage](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-stage.html) resource.
+
         :param pulumi.Input[_builtins.str] destination_arn: The Amazon Resource Name (ARN) of the CloudWatch Logs log group or Kinesis Data Firehose delivery stream to receive access logs. If you specify a Kinesis Data Firehose delivery stream, the stream name must begin with ``amazon-apigateway-``. This parameter is required to enable access logging.
         :param pulumi.Input[_builtins.str] format: A single line format of the access logs of data, as specified by selected [$context variables](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-mapping-template-reference.html#context-variable-reference). The format must include at least ``$context.requestId``. This parameter is required to enable access logging.
         """
@@ -2162,6 +2176,7 @@ class StageMethodSettingArgs:
         """
         The ``MethodSetting`` property type configures settings for all methods in a stage.
          The ``MethodSettings`` property of the ``AWS::ApiGateway::Stage`` resource contains a list of ``MethodSetting`` property types.
+
         :param pulumi.Input[_builtins.bool] cache_data_encrypted: Specifies whether the cached responses are encrypted.
         :param pulumi.Input[_builtins.int] cache_ttl_in_seconds: Specifies the time to live (TTL), in seconds, for cached responses. The higher the TTL, the longer the response will be cached.
         :param pulumi.Input[_builtins.bool] caching_enabled: Specifies whether responses should be cached and returned for requests. A cache cluster must be enabled on the stage for responses to be cached.
@@ -2411,6 +2426,7 @@ class UsagePlanQuotaSettingsArgs:
         """
         ``QuotaSettings`` is a property of the [AWS::ApiGateway::UsagePlan](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplan.html) resource that specifies a target for the maximum number of requests users can make to your REST APIs.
          In some cases clients can exceed the targets that you set. Don’t rely on usage plans to control costs. Consider using [](https://docs.aws.amazon.com/cost-management/latest/userguide/budgets-managing-costs.html) to monitor costs and [](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html) to manage API requests.
+
         :param pulumi.Input[_builtins.int] limit: The target maximum number of requests that can be made in a given time period.
         :param pulumi.Input[_builtins.int] offset: The number of requests subtracted from the given limit in the initial time period.
         :param pulumi.Input[_builtins.str] period: The time period in which the limit applies. Valid values are "DAY", "WEEK" or "MONTH".

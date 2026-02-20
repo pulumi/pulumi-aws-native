@@ -32,6 +32,7 @@ class EmailIdentityArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a EmailIdentity resource.
+
         :param pulumi.Input[_builtins.str] email_identity: The email address or domain to verify.
         :param pulumi.Input['EmailIdentityConfigurationSetAttributesArgs'] configuration_set_attributes: Used to associate a configuration set with an email identity.
         :param pulumi.Input['EmailIdentityDkimAttributesArgs'] dkim_attributes: An object that contains information about the DKIM attributes for the identity.
@@ -160,6 +161,7 @@ class EmailIdentity(pulumi.CustomResource):
         """
         Resource Type definition for AWS::SES::EmailIdentity
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['EmailIdentityConfigurationSetAttributesArgs', 'EmailIdentityConfigurationSetAttributesArgsDict']] configuration_set_attributes: Used to associate a configuration set with an email identity.
@@ -180,6 +182,7 @@ class EmailIdentity(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::SES::EmailIdentity
+
 
         :param str resource_name: The name of the resource.
         :param EmailIdentityArgs args: The arguments to use to populate this resource's properties.

@@ -362,6 +362,7 @@ class AppImageConfigCodeEditorAppImageConfig(dict):
                  container_config: Optional['outputs.AppImageConfigContainerConfig'] = None):
         """
         The configuration for the kernels in a SageMaker image running as a CodeEditor app.
+
         :param 'AppImageConfigContainerConfig' container_config: The container configuration for a SageMaker image.
         """
         if container_config is not None:
@@ -408,6 +409,7 @@ class AppImageConfigContainerConfig(dict):
                  container_environment_variables: Optional[Sequence['outputs.AppImageConfigCustomImageContainerEnvironmentVariable']] = None):
         """
         The container configuration for a SageMaker image.
+
         :param Sequence[_builtins.str] container_arguments: A list of arguments to apply to the container.
         :param Sequence[_builtins.str] container_entrypoint: The custom entry point to use on container.
         :param Sequence['AppImageConfigCustomImageContainerEnvironmentVariable'] container_environment_variables: A list of variables to apply to the custom container.
@@ -505,6 +507,7 @@ class AppImageConfigFileSystemConfig(dict):
                  mount_path: Optional[_builtins.str] = None):
         """
         The Amazon Elastic File System (EFS) storage configuration for a SageMaker image.
+
         :param _builtins.int default_gid: The default POSIX group ID (GID). If not specified, defaults to 100.
         :param _builtins.int default_uid: The default POSIX user ID (UID). If not specified, defaults to 1000.
         :param _builtins.str mount_path: The path within the image to mount the user's EFS home directory. The directory should be empty. If not specified, defaults to /home/sagemaker-user.
@@ -567,6 +570,7 @@ class AppImageConfigJupyterLabAppImageConfig(dict):
                  container_config: Optional['outputs.AppImageConfigContainerConfig'] = None):
         """
         The configuration for the kernels in a SageMaker image running as a JupyterLab app.
+
         :param 'AppImageConfigContainerConfig' container_config: The container configuration for a SageMaker image.
         """
         if container_config is not None:
@@ -610,6 +614,7 @@ class AppImageConfigKernelGatewayImageConfig(dict):
                  file_system_config: Optional['outputs.AppImageConfigFileSystemConfig'] = None):
         """
         The configuration for the file system and kernels in a SageMaker image running as a KernelGateway app.
+
         :param Sequence['AppImageConfigKernelSpec'] kernel_specs: The specification of the Jupyter kernels in the image.
         :param 'AppImageConfigFileSystemConfig' file_system_config: The Amazon Elastic File System (EFS) storage configuration for a SageMaker image.
         """
@@ -785,6 +790,7 @@ class ClusterAlarmDetails(dict):
                  alarm_name: _builtins.str):
         """
         The details of the alarm to monitor during the AMI update.
+
         :param _builtins.str alarm_name: The name of the alarm.
         """
         pulumi.set(__self__, "alarm_name", alarm_name)
@@ -825,6 +831,7 @@ class ClusterAutoScalingConfig(dict):
                  auto_scaler_type: Optional['ClusterAutoScalingConfigAutoScalerType'] = None):
         """
         Configuration for cluster auto-scaling
+
         :param 'ClusterAutoScalingConfigMode' mode: The auto-scaling mode for the cluster
         :param 'ClusterAutoScalingConfigAutoScalerType' auto_scaler_type: The type of auto-scaler to use
         """
@@ -903,6 +910,7 @@ class ClusterCapacitySizeConfig(dict):
                  value: _builtins.int):
         """
         The configuration of the size measurements of the AMI update. Using this configuration, you can specify whether SageMaker should update your instance group by an amount or percentage of instances.
+
         :param _builtins.str type: Specifies whether SageMaker should process the update by amount or percentage of instances.
         :param _builtins.int value: Specifies the amount or percentage of instances SageMaker updates at a time.
         """
@@ -958,6 +966,7 @@ class ClusterDeploymentConfig(dict):
                  wait_interval_in_seconds: Optional[_builtins.int] = None):
         """
         The configuration to use when updating the AMI versions.
+
         :param _builtins.int wait_interval_in_seconds: The duration in seconds that SageMaker waits before updating more instances in the cluster.
         """
         if auto_rollback_configuration is not None:
@@ -1051,6 +1060,7 @@ class ClusterFSxLustreConfig(dict):
                  size_in_gi_b: _builtins.int):
         """
         Configuration settings for an Amazon FSx for Lustre file system to be used with the cluster.
+
         :param _builtins.int per_unit_storage_throughput: The throughput capacity of the FSx for Lustre file system, measured in MB/s per TiB of storage.
         :param _builtins.int size_in_gi_b: The storage capacity of the FSx for Lustre file system, specified in gibibytes (GiB).
         """
@@ -1148,6 +1158,7 @@ class ClusterInstanceGroup(dict):
                  training_plan_arn: Optional[_builtins.str] = None):
         """
         Details of an instance group in a SageMaker HyperPod cluster.
+
         :param _builtins.int instance_count: The number of instances you specified to add to the instance group of a SageMaker HyperPod cluster.
         :param _builtins.int current_count: The number of instances that are currently in the instance group of a SageMaker HyperPod cluster.
         :param _builtins.int min_instance_count: The minimum number of instances required for the instance group to be InService. MinInstanceCount must be less than or equal to InstanceCount.
@@ -1335,6 +1346,7 @@ class ClusterKubernetesTaint(dict):
                  value: Optional[_builtins.str] = None):
         """
         A Kubernetes taint to apply to cluster nodes.
+
         :param 'ClusterKubernetesTaintEffect' effect: The effect of the taint.
         :param _builtins.str key: The key of the taint.
         :param _builtins.str value: The value of the taint.
@@ -1398,6 +1410,7 @@ class ClusterLifeCycleConfig(dict):
                  source_s3_uri: _builtins.str):
         """
         The lifecycle configuration for a SageMaker HyperPod cluster.
+
         :param _builtins.str on_create: The file name of the entrypoint script of lifecycle scripts under SourceS3Uri. This entrypoint script runs during cluster creation.
         :param _builtins.str source_s3_uri: An Amazon S3 bucket path where your lifecycle scripts are stored.
         """
@@ -1501,6 +1514,7 @@ class ClusterRestrictedInstanceGroup(dict):
                  training_plan_arn: Optional[_builtins.str] = None):
         """
         Details of a restricted instance group in a SageMaker HyperPod cluster.
+
         :param _builtins.int instance_count: The number of instances you specified to add to the restricted instance group of a SageMaker HyperPod cluster.
         :param _builtins.int current_count: The number of instances that are currently in the restricted instance group of a SageMaker HyperPod cluster.
         :param _builtins.int threads_per_core: The number you specified to TreadsPerCore in CreateCluster for enabling or disabling multithreading. For instance types that support multithreading, you can specify 1 for disabling multithreading and 2 for enabling multithreading.
@@ -1666,6 +1680,7 @@ class ClusterScheduledUpdateConfig(dict):
                  deployment_config: Optional['outputs.ClusterDeploymentConfig'] = None):
         """
         The configuration object of the schedule that SageMaker follows when updating the AMI.
+
         :param _builtins.str schedule_expression: A cron expression that specifies the schedule that SageMaker follows when updating the AMI.
         """
         pulumi.set(__self__, "schedule_expression", schedule_expression)
@@ -1715,6 +1730,7 @@ class ClusterSlurmConfig(dict):
                  partition_names: Optional[Sequence[_builtins.str]] = None):
         """
         Slurm configuration for the instance group.
+
         :param 'ClusterSlurmConfigNodeType' node_type: The type of Slurm node for this instance group.
         :param Sequence[_builtins.str] partition_names: The Slurm partitions that this instance group belongs to. Maximum of 1 partition.
         """
@@ -1778,6 +1794,7 @@ class ClusterTieredStorageConfig(dict):
                  instance_memory_allocation_percentage: Optional[_builtins.int] = None):
         """
         Configuration for tiered storage in the SageMaker HyperPod cluster.
+
         :param 'ClusterTieredStorageConfigMode' mode: The mode of tiered storage.
         :param _builtins.int instance_memory_allocation_percentage: The percentage of instance memory to allocate for tiered storage.
         """
@@ -1829,6 +1846,7 @@ class ClusterVpcConfig(dict):
                  subnets: Sequence[_builtins.str]):
         """
         Specifies an Amazon Virtual Private Cloud (VPC) that your SageMaker jobs, hosted models, and compute resources have access to. You can control access to and from your resources by configuring a VPC.
+
         :param Sequence[_builtins.str] security_group_ids: The VPC security group IDs, in the form sg-xxxxxxxx. Specify the security groups for the VPC that is specified in the Subnets field.
         :param Sequence[_builtins.str] subnets: The ID of the subnets in the VPC to which you want to connect your training job or model.
         """
@@ -1893,6 +1911,7 @@ class DataQualityJobDefinitionBatchTransformInput(dict):
                  s3_input_mode: Optional['DataQualityJobDefinitionBatchTransformInputS3InputMode'] = None):
         """
         The batch transform input for a monitoring job.
+
         :param _builtins.str data_captured_destination_s3_uri: A URI that identifies the Amazon S3 storage location where Batch Transform Job captures data.
         :param 'DataQualityJobDefinitionDatasetFormat' dataset_format: The dataset format for your batch transform job.
         :param _builtins.str local_path: Path to the filesystem where the endpoint data is available to the container.
@@ -1994,6 +2013,7 @@ class DataQualityJobDefinitionClusterConfig(dict):
                  volume_kms_key_id: Optional[_builtins.str] = None):
         """
         Configuration for the cluster used to run model monitoring jobs.
+
         :param _builtins.int instance_count: The number of ML compute instances to use in the model monitoring job. For distributed processing jobs, specify a value greater than 1. The default value is 1.
         :param _builtins.str instance_type: The ML compute instance type for the processing job.
         :param _builtins.int volume_size_in_gb: The size of the ML storage volume, in gigabytes, that you want to provision. You must specify sufficient ML storage for your scenario.
@@ -2064,6 +2084,7 @@ class DataQualityJobDefinitionConstraintsResource(dict):
                  s3_uri: Optional[_builtins.str] = None):
         """
         The baseline constraints resource for a monitoring job.
+
         :param _builtins.str s3_uri: The Amazon S3 URI for baseline constraint file in Amazon S3 that the current monitoring job should validated against.
         """
         if s3_uri is not None:
@@ -2087,6 +2108,7 @@ class DataQualityJobDefinitionCsv(dict):
                  header: Optional[_builtins.bool] = None):
         """
         The CSV format
+
         :param _builtins.bool header: A boolean flag indicating if given CSV has header
         """
         if header is not None:
@@ -2140,6 +2162,7 @@ class DataQualityJobDefinitionDataQualityAppSpecification(dict):
                  record_preprocessor_source_uri: Optional[_builtins.str] = None):
         """
         Container image configuration object for the monitoring job.
+
         :param _builtins.str image_uri: The container image to be run by the monitoring job.
         :param Sequence[_builtins.str] container_arguments: An array of arguments for the container used to run the monitoring job.
         :param Sequence[_builtins.str] container_entrypoint: Specifies the entrypoint for a container used to run the monitoring job.
@@ -2240,6 +2263,7 @@ class DataQualityJobDefinitionDataQualityBaselineConfig(dict):
                  statistics_resource: Optional['outputs.DataQualityJobDefinitionStatisticsResource'] = None):
         """
         Baseline configuration used to validate that the data conforms to the specified constraints and statistics.
+
         :param _builtins.str baselining_job_name: The name of the job that performs baselining for the data quality monitoring job.
         :param 'DataQualityJobDefinitionConstraintsResource' constraints_resource: The constraints resource for a monitoring job.
         :param 'DataQualityJobDefinitionStatisticsResource' statistics_resource: Configuration for monitoring constraints and monitoring statistics. These baseline resources are compared against the results of the current job from the series of jobs scheduled to collect data periodically.
@@ -2305,6 +2329,7 @@ class DataQualityJobDefinitionDataQualityJobInput(dict):
                  endpoint_input: Optional['outputs.DataQualityJobDefinitionEndpointInput'] = None):
         """
         The inputs for a monitoring job.
+
         :param 'DataQualityJobDefinitionBatchTransformInput' batch_transform_input: Input object for the batch transform job.
         :param 'DataQualityJobDefinitionEndpointInput' endpoint_input: Input object for the endpoint
         """
@@ -2403,6 +2428,7 @@ class DataQualityJobDefinitionEndpointInput(dict):
                  s3_input_mode: Optional['DataQualityJobDefinitionEndpointInputS3InputMode'] = None):
         """
         The endpoint for a monitoring job.
+
         :param _builtins.str endpoint_name: An endpoint in customer's account which has enabled `DataCaptureConfig` enabled.
         :param _builtins.str local_path: Path to the filesystem where the endpoint data is available to the container.
         :param _builtins.str exclude_features_attribute: Indexes or names of the features to be excluded from analysis
@@ -2468,6 +2494,7 @@ class DataQualityJobDefinitionJson(dict):
                  line: Optional[_builtins.bool] = None):
         """
         The Json format
+
         :param _builtins.bool line: A boolean flag indicating if it is JSON line format
         """
         if line is not None:
@@ -2508,6 +2535,7 @@ class DataQualityJobDefinitionMonitoringOutput(dict):
                  s3_output: 'outputs.DataQualityJobDefinitionS3Output'):
         """
         The output object for a monitoring job.
+
         :param 'DataQualityJobDefinitionS3Output' s3_output: The Amazon S3 storage location where the results of a monitoring job are saved.
         """
         pulumi.set(__self__, "s3_output", s3_output)
@@ -2550,6 +2578,7 @@ class DataQualityJobDefinitionMonitoringOutputConfig(dict):
                  kms_key_id: Optional[_builtins.str] = None):
         """
         The output configuration for monitoring jobs.
+
         :param Sequence['DataQualityJobDefinitionMonitoringOutput'] monitoring_outputs: Monitoring outputs for monitoring jobs. This is where the output of the periodic monitoring jobs is uploaded.
         :param _builtins.str kms_key_id: The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
         """
@@ -2600,6 +2629,7 @@ class DataQualityJobDefinitionMonitoringResources(dict):
                  cluster_config: 'outputs.DataQualityJobDefinitionClusterConfig'):
         """
         Identifies the resources to deploy for a monitoring job.
+
         :param 'DataQualityJobDefinitionClusterConfig' cluster_config: The configuration for the cluster resources used to run the processing job.
         """
         pulumi.set(__self__, "cluster_config", cluster_config)
@@ -2645,6 +2675,7 @@ class DataQualityJobDefinitionNetworkConfig(dict):
                  vpc_config: Optional['outputs.DataQualityJobDefinitionVpcConfig'] = None):
         """
         Networking options for a job, such as network traffic encryption between containers, whether to allow inbound and outbound network calls to and from containers, and the VPC subnets and security groups to use for VPC-enabled jobs.
+
         :param _builtins.bool enable_inter_container_traffic_encryption: Whether to encrypt all communications between distributed processing jobs. Choose True to encrypt communications. Encryption provides greater security for distributed processing jobs, but the processing might take longer.
         :param _builtins.bool enable_network_isolation: Whether to allow inbound and outbound network calls to and from the containers used for the processing job.
         :param 'DataQualityJobDefinitionVpcConfig' vpc_config: Specifies a VPC that your training jobs and hosted models have access to. Control access to and from your training and model containers by configuring the VPC.
@@ -2713,6 +2744,7 @@ class DataQualityJobDefinitionS3Output(dict):
                  s3_upload_mode: Optional['DataQualityJobDefinitionS3OutputS3UploadMode'] = None):
         """
         Information about where and how to store the results of a monitoring job.
+
         :param _builtins.str local_path: The local path to the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job. LocalPath is an absolute path for the output data.
         :param _builtins.str s3_uri: A URI that identifies the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job.
         :param 'DataQualityJobDefinitionS3OutputS3UploadMode' s3_upload_mode: Whether to upload the results of the monitoring job continuously or after the job completes.
@@ -2773,6 +2805,7 @@ class DataQualityJobDefinitionStatisticsResource(dict):
                  s3_uri: Optional[_builtins.str] = None):
         """
         The baseline statistics resource for a monitoring job.
+
         :param _builtins.str s3_uri: The Amazon S3 URI for the baseline statistics file in Amazon S3 that the current monitoring job should be validated against.
         """
         if s3_uri is not None:
@@ -2813,6 +2846,7 @@ class DataQualityJobDefinitionStoppingCondition(dict):
                  max_runtime_in_seconds: _builtins.int):
         """
         Specifies a time limit for how long the monitoring job is allowed to run.
+
         :param _builtins.int max_runtime_in_seconds: The maximum runtime allowed in seconds.
         """
         pulumi.set(__self__, "max_runtime_in_seconds", max_runtime_in_seconds)
@@ -2853,6 +2887,7 @@ class DataQualityJobDefinitionVpcConfig(dict):
                  subnets: Sequence[_builtins.str]):
         """
         Specifies a VPC that your training jobs and hosted models have access to. Control access to and from your training and model containers by configuring the VPC.
+
         :param Sequence[_builtins.str] security_group_ids: The VPC security group IDs, in the form sg-xxxxxxxx. Specify the security groups for the VPC that is specified in the Subnets field.
         :param Sequence[_builtins.str] subnets: The ID of the subnets in the VPC to which you want to connect to your monitoring jobs.
         """
@@ -2906,6 +2941,7 @@ class Device(dict):
                  iot_thing_name: Optional[_builtins.str] = None):
         """
         Edge device you want to create
+
         :param _builtins.str device_name: The name of the device
         :param _builtins.str description: Description of the device
         :param _builtins.str iot_thing_name: AWS Internet of Things (IoT) object name.
@@ -3064,6 +3100,7 @@ class DomainCodeEditorAppSettings(dict):
                  lifecycle_config_arns: Optional[Sequence[_builtins.str]] = None):
         """
         The CodeEditor app settings.
+
         :param 'DomainAppLifecycleManagement' app_lifecycle_management: Settings that are used to configure and manage the lifecycle of CodeEditor applications.
         :param _builtins.str built_in_lifecycle_config_arn: The lifecycle configuration that runs before the default lifecycle configuration.
         :param Sequence['DomainCustomImage'] custom_images: A list of custom images for use for CodeEditor apps.
@@ -3253,6 +3290,7 @@ class DomainCustomImage(dict):
                  image_version_number: Optional[_builtins.int] = None):
         """
         A custom SageMaker image.
+
         :param _builtins.str app_image_config_name: The Name of the AppImageConfig.
         :param _builtins.str image_name: The name of the CustomImage. Must be unique to your account.
         :param _builtins.int image_version_number: The version number of the CustomImage.
@@ -3345,6 +3383,7 @@ class DomainDefaultEbsStorageSettings(dict):
                  maximum_ebs_volume_size_in_gb: _builtins.int):
         """
         Properties related to the Amazon Elastic Block Store volume. Must be provided if storage type is Amazon EBS and must not be provided if storage type is not Amazon EBS
+
         :param _builtins.int default_ebs_volume_size_in_gb: Default size of the Amazon EBS volume in Gb
         :param _builtins.int maximum_ebs_volume_size_in_gb: Maximum size of the Amazon EBS volume in Gb. Must be greater than or equal to the DefaultEbsVolumeSizeInGb.
         """
@@ -3415,6 +3454,7 @@ class DomainDefaultSpaceSettings(dict):
                  space_storage_settings: Optional['outputs.DomainDefaultSpaceStorageSettings'] = None):
         """
         A collection of settings that apply to spaces of Amazon SageMaker Studio. These settings are specified when the Create/Update Domain API is called.
+
         :param _builtins.str execution_role: The execution role for the space.
         :param Sequence['DomainCustomFileSystemConfig'] custom_file_system_configs: The settings for assigning a custom file system to a domain. Permitted users can access this file system in Amazon SageMaker AI Studio.
         :param 'DomainCustomPosixUserConfig' custom_posix_user_config: The Jupyter lab's custom posix user configurations.
@@ -3531,6 +3571,7 @@ class DomainDefaultSpaceStorageSettings(dict):
                  default_ebs_storage_settings: Optional['outputs.DomainDefaultEbsStorageSettings'] = None):
         """
         Default storage settings for a space.
+
         :param 'DomainDefaultEbsStorageSettings' default_ebs_storage_settings: The default EBS storage settings for a space.
         """
         if default_ebs_storage_settings is not None:
@@ -3574,6 +3615,7 @@ class DomainDockerSettings(dict):
                  vpc_only_trusted_accounts: Optional[Sequence[_builtins.str]] = None):
         """
         A collection of settings that are required to start docker-proxy server.
+
         :param 'DomainDockerSettingsEnableDockerAccess' enable_docker_access: The flag to enable/disable docker-proxy server
         :param Sequence[_builtins.str] vpc_only_trusted_accounts: A list of account id's that would be used to pull images from in VpcOnly mode
         """
@@ -3866,6 +3908,7 @@ class DomainJupyterLabAppSettings(dict):
                  lifecycle_config_arns: Optional[Sequence[_builtins.str]] = None):
         """
         The JupyterLab app settings.
+
         :param 'DomainAppLifecycleManagement' app_lifecycle_management: Indicates whether idle shutdown is activated for JupyterLab applications.
         :param _builtins.str built_in_lifecycle_config_arn: The lifecycle configuration that runs before the default lifecycle configuration.
         :param Sequence['DomainCodeRepository'] code_repositories: A list of CodeRepositories available for use with JupyterLab apps.
@@ -3964,6 +4007,7 @@ class DomainJupyterServerAppSettings(dict):
                  lifecycle_config_arns: Optional[Sequence[_builtins.str]] = None):
         """
         The JupyterServer app settings.
+
         :param 'DomainResourceSpec' default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the JupyterServer app.
         :param Sequence[_builtins.str] lifecycle_config_arns: A list of LifecycleConfigArns available for use with JupyterServer apps.
         """
@@ -4021,6 +4065,7 @@ class DomainKernelGatewayAppSettings(dict):
                  lifecycle_config_arns: Optional[Sequence[_builtins.str]] = None):
         """
         The kernel gateway app settings.
+
         :param Sequence['DomainCustomImage'] custom_images: A list of custom SageMaker images that are configured to run as a KernelGateway app.
         :param 'DomainResourceSpec' default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the KernelGateway app.
         :param Sequence[_builtins.str] lifecycle_config_arns: A list of LifecycleConfigArns available for use with KernelGateway apps.
@@ -4086,6 +4131,7 @@ class DomainRSessionAppSettings(dict):
                  default_resource_spec: Optional['outputs.DomainResourceSpec'] = None):
         """
         A collection of settings that apply to an RSessionGateway app.
+
         :param Sequence['DomainCustomImage'] custom_images: A list of custom SageMaker images that are configured to run as a KernelGateway app.
         :param 'DomainResourceSpec' default_resource_spec: Specifies the ARNs of a SageMaker image and SageMaker image version, and the instance type that the version runs on.
         """
@@ -4140,6 +4186,7 @@ class DomainRStudioServerProAppSettings(dict):
                  user_group: Optional['DomainRStudioServerProAppSettingsUserGroup'] = None):
         """
         A collection of settings that configure user interaction with the RStudioServerPro app.
+
         :param 'DomainRStudioServerProAppSettingsAccessStatus' access_status: Indicates whether the current user has access to the RStudioServerPro app.
         :param 'DomainRStudioServerProAppSettingsUserGroup' user_group: The level of permissions that the user has within the RStudioServerPro app. This value defaults to User. The Admin value allows the user access to the RStudio Administrative Dashboard.
         """
@@ -4200,6 +4247,7 @@ class DomainRStudioServerProDomainSettings(dict):
                  r_studio_package_manager_url: Optional[_builtins.str] = None):
         """
         A collection of settings that update the current configuration for the RStudioServerPro Domain-level app.
+
         :param _builtins.str domain_execution_role_arn: The ARN of the execution role for the RStudioServerPro Domain-level app.
         :param 'DomainResourceSpec' default_resource_spec: A collection that defines the default `InstanceType` , `SageMakerImageArn` , and `SageMakerImageVersionArn` for the Domain.
         :param _builtins.str r_studio_connect_url: A URL pointing to an RStudio Connect server.
@@ -4423,6 +4471,7 @@ class DomainSettings(dict):
                  unified_studio_settings: Optional['outputs.DomainUnifiedStudioSettings'] = None):
         """
         A collection of Domain settings.
+
         :param 'DomainDockerSettings' docker_settings: A collection of settings that configure the domain's Docker interaction.
         :param 'DomainSettingsExecutionRoleIdentityConfig' execution_role_identity_config: The configuration for attaching a SageMaker user profile name to the execution role as a sts:SourceIdentity key.
         :param 'DomainIpAddressType' ip_address_type: The IP address type for the domain. Specify `ipv4` for IPv4-only connectivity or `dualstack` for both IPv4 and IPv6 connectivity. When you specify `dualstack` , the subnet must support IPv6 CIDR blocks. If not specified, defaults to `ipv4` .
@@ -4524,6 +4573,7 @@ class DomainSharingSettings(dict):
                  s3_output_path: Optional[_builtins.str] = None):
         """
         Specifies options when sharing an Amazon SageMaker Studio notebook. These settings are specified as part of DefaultUserSettings when the CreateDomain API is called, and as part of UserSettings when the CreateUserProfile API is called.
+
         :param 'DomainSharingSettingsNotebookOutputOption' notebook_output_option: Whether to include the notebook cell output when sharing the notebook. The default is Disabled.
         :param _builtins.str s3_kms_key_id: When NotebookOutputOption is Allowed, the AWS Key Management Service (KMS) encryption key ID used to encrypt the notebook cell output in the Amazon S3 bucket.
         :param _builtins.str s3_output_path: When NotebookOutputOption is Allowed, the Amazon S3 bucket used to store the shared notebook snapshots.
@@ -4595,6 +4645,7 @@ class DomainStudioWebPortalSettings(dict):
                  hidden_sage_maker_image_version_aliases: Optional[Sequence['outputs.DomainHiddenSageMakerImage']] = None):
         """
         Studio settings. If these settings are applied on a user level, they take priority over the settings applied on a domain level.
+
         :param Sequence['DomainAppType'] hidden_app_types: Applications supported in Studio that are hidden from the Studio left navigation pane.
         :param Sequence['DomainAppInstanceType'] hidden_instance_types: The instance types you are hiding from the Studio user interface.
         :param Sequence['DomainMlTools'] hidden_ml_tools: The machine learning tools that are hidden from the Studio left navigation pane.
@@ -4686,6 +4737,7 @@ class DomainUnifiedStudioSettings(dict):
                  studio_web_portal_access: Optional['DomainUnifiedStudioSettingsStudioWebPortalAccess'] = None):
         """
         A collection of settings that apply to an Amazon SageMaker AI domain when you use it in Amazon SageMaker Unified Studio.
+
         :param _builtins.str domain_account_id: The ID of the AWS account that has the Amazon SageMaker Unified Studio domain. The default value, if you don't specify an ID, is the ID of the account that has the Amazon SageMaker AI domain.
         :param _builtins.str domain_id: The ID of the Amazon SageMaker Unified Studio domain associated with this domain.
         :param _builtins.str domain_region: The AWS Region where the domain is located in Amazon SageMaker Unified Studio. The default value, if you don't specify a Region, is the Region where the Amazon SageMaker AI domain is located.
@@ -4847,6 +4899,7 @@ class DomainUserSettings(dict):
                  studio_web_portal_settings: Optional['outputs.DomainStudioWebPortalSettings'] = None):
         """
         A collection of settings that apply to users of Amazon SageMaker Studio. These settings are specified when the CreateUserProfile API is called, and as DefaultUserSettings when the CreateDomain API is called.
+
         :param _builtins.str execution_role: The execution role for the user.
         :param 'DomainUserSettingsAutoMountHomeEfs' auto_mount_home_efs: Indicates whether auto-mounting of an EFS volume is supported for the user profile. 
         :param 'DomainCodeEditorAppSettings' code_editor_app_settings: The Code Editor application settings.
@@ -5762,6 +5815,7 @@ class FeatureGroupTtlDuration(dict):
                  value: Optional[_builtins.int] = None):
         """
         TTL configuration of the feature group
+
         :param 'FeatureGroupUnit' unit: `TtlDuration` time unit.
         :param _builtins.int value: `TtlDuration` time value.
         """
@@ -5844,6 +5898,7 @@ class InferenceComponentCapacitySize(dict):
                  value: _builtins.int):
         """
         Capacity size configuration for the inference component
+
         :param 'InferenceComponentCapacitySizeType' type: Specifies the endpoint capacity type.
                
                - **COPY_COUNT** - The endpoint activates based on the number of inference component copies.
@@ -6114,6 +6169,7 @@ class InferenceComponentDeploymentConfig(dict):
                  rolling_update_policy: Optional['outputs.InferenceComponentRollingUpdatePolicy'] = None):
         """
         The deployment config for the inference component
+
         :param 'InferenceComponentRollingUpdatePolicy' rolling_update_policy: Specifies a rolling deployment strategy for updating a SageMaker AI endpoint.
         """
         if auto_rollback_configuration is not None:
@@ -6170,6 +6226,7 @@ class InferenceComponentRollingUpdatePolicy(dict):
                  wait_interval_in_seconds: Optional[_builtins.int] = None):
         """
         The rolling update policy for the inference component
+
         :param 'InferenceComponentCapacitySize' maximum_batch_size: The batch size for each rolling step in the deployment process. For each step, SageMaker AI provisions capacity on the new endpoint fleet, routes traffic to that fleet, and terminates capacity on the old endpoint fleet. The value must be between 5% to 50% of the copy count of the inference component.
         :param _builtins.int maximum_execution_timeout_in_seconds: The time limit for the total deployment. Exceeding this limit causes a timeout.
         :param 'InferenceComponentCapacitySize' rollback_maximum_batch_size: The batch size for a rollback to the old endpoint fleet. If this field is absent, the value is set to the default, which is 100% of the total capacity. When the default is used, SageMaker AI provisions the entire capacity of the old fleet at once during rollback.
@@ -6249,6 +6306,7 @@ class InferenceComponentRuntimeConfig(dict):
                  desired_copy_count: Optional[_builtins.int] = None):
         """
         The runtime config for the inference component
+
         :param _builtins.int copy_count: The number of runtime copies of the model container to deploy with the inference component. Each copy can serve inference requests.
         """
         if copy_count is not None:
@@ -6313,6 +6371,7 @@ class InferenceComponentSpecification(dict):
                  startup_parameters: Optional['outputs.InferenceComponentStartupParameters'] = None):
         """
         The specification for the inference component
+
         :param _builtins.str base_inference_component_name: The name of an existing inference component that is to contain the inference component that you're creating with your request.
                
                Specify this parameter only if your request is meant to create an adapter inference component. An adapter inference component contains the path to an adapter model. The purpose of the adapter model is to tailor the inference output of a base foundation model, which is hosted by the base inference component. The adapter inference component uses the compute resources that you assigned to the base inference component.
@@ -6466,6 +6525,7 @@ class InferenceExperimentCaptureContentTypeHeader(dict):
                  json_content_types: Optional[Sequence[_builtins.str]] = None):
         """
         Configuration specifying how to treat different headers. If no headers are specified SageMaker will by default base64 encode when capturing the data.
+
         :param Sequence[_builtins.str] csv_content_types: The list of all content type headers that SageMaker will treat as CSV and capture accordingly.
         :param Sequence[_builtins.str] json_content_types: The list of all content type headers that SageMaker will treat as JSON and capture accordingly.
         """
@@ -6521,6 +6581,7 @@ class InferenceExperimentDataStorageConfig(dict):
                  kms_key: Optional[_builtins.str] = None):
         """
         The Amazon S3 location and configuration for storing inference request and response data.
+
         :param _builtins.str destination: The Amazon S3 bucket where the inference request and response data is stored.
         :param 'InferenceExperimentCaptureContentTypeHeader' content_type: Configuration specifying how to treat different headers. If no headers are specified SageMaker will by default base64 encode when capturing the data.
         :param _builtins.str kms_key: The AWS Key Management Service key that Amazon SageMaker uses to encrypt captured data at rest using Amazon S3 server-side encryption.
@@ -6588,6 +6649,7 @@ class InferenceExperimentEndpointMetadata(dict):
                  endpoint_status: Optional['InferenceExperimentEndpointMetadataEndpointStatus'] = None):
         """
         The metadata of the endpoint on which the inference experiment ran.
+
         :param _builtins.str endpoint_name: The name of the endpoint.
         :param _builtins.str endpoint_config_name: The name of the endpoint configuration.
         :param 'InferenceExperimentEndpointMetadataEndpointStatus' endpoint_status: The status of the endpoint. For possible values of the status of an endpoint.
@@ -6652,6 +6714,7 @@ class InferenceExperimentModelInfrastructureConfig(dict):
                  real_time_inference_config: 'outputs.InferenceExperimentRealTimeInferenceConfig'):
         """
         The configuration for the infrastructure that the model will be deployed to.
+
         :param 'InferenceExperimentModelInfrastructureConfigInfrastructureType' infrastructure_type: The type of the inference experiment that you want to run.
         :param 'InferenceExperimentRealTimeInferenceConfig' real_time_inference_config: The infrastructure configuration for deploying the model to real-time inference.
         """
@@ -6707,6 +6770,7 @@ class InferenceExperimentModelVariantConfig(dict):
                  variant_name: _builtins.str):
         """
         Contains information about the deployment options of a model.
+
         :param 'InferenceExperimentModelInfrastructureConfig' infrastructure_config: The configuration for the infrastructure that the model will be deployed to.
         :param _builtins.str model_name: The name of the Amazon SageMaker Model entity.
         :param _builtins.str variant_name: The name of the variant.
@@ -6769,6 +6833,7 @@ class InferenceExperimentRealTimeInferenceConfig(dict):
                  instance_type: _builtins.str):
         """
         The infrastructure configuration for deploying the model to a real-time inference endpoint.
+
         :param _builtins.int instance_count: The number of instances of the type specified by InstanceType.
         :param _builtins.str instance_type: The instance type the model is deployed to.
         """
@@ -6821,6 +6886,7 @@ class InferenceExperimentSchedule(dict):
                  start_time: Optional[_builtins.str] = None):
         """
         The duration for which you want the inference experiment to run.
+
         :param _builtins.str end_time: The timestamp at which the inference experiment ended or will end.
         :param _builtins.str start_time: The timestamp at which the inference experiment started or will start.
         """
@@ -6875,6 +6941,7 @@ class InferenceExperimentShadowModeConfig(dict):
                  source_model_variant_name: _builtins.str):
         """
         The configuration of ShadowMode inference experiment type. Use this field to specify a production variant which takes all the inference requests, and a shadow variant to which Amazon SageMaker replicates a percentage of the inference requests. For the shadow variant also specify the percentage of requests that Amazon SageMaker replicates.
+
         :param Sequence['InferenceExperimentShadowModelVariantConfig'] shadow_model_variants: List of shadow variant configurations.
         :param _builtins.str source_model_variant_name: The name of the production variant, which takes all the inference requests.
         """
@@ -6927,6 +6994,7 @@ class InferenceExperimentShadowModelVariantConfig(dict):
                  shadow_model_variant_name: _builtins.str):
         """
         The name and sampling percentage of a shadow variant.
+
         :param _builtins.int sampling_percentage: The percentage of inference requests that Amazon SageMaker replicates from the production variant to the shadow variant.
         :param _builtins.str shadow_model_variant_name: The name of the shadow variant.
         """
@@ -7006,6 +7074,7 @@ class ModelBiasJobDefinitionBatchTransformInput(dict):
                  start_time_offset: Optional[_builtins.str] = None):
         """
         The batch transform input for a monitoring job.
+
         :param _builtins.str data_captured_destination_s3_uri: A URI that identifies the Amazon S3 storage location where Batch Transform Job captures data.
         :param 'ModelBiasJobDefinitionDatasetFormat' dataset_format: The dataset format for your batch transform job.
         :param _builtins.str local_path: Path to the filesystem where the endpoint data is available to the container.
@@ -7162,6 +7231,7 @@ class ModelBiasJobDefinitionClusterConfig(dict):
                  volume_kms_key_id: Optional[_builtins.str] = None):
         """
         Configuration for the cluster used to run model monitoring jobs.
+
         :param _builtins.int instance_count: The number of ML compute instances to use in the model monitoring job. For distributed processing jobs, specify a value greater than 1. The default value is 1.
         :param _builtins.str instance_type: The ML compute instance type for the processing job.
         :param _builtins.int volume_size_in_gb: The size of the ML storage volume, in gigabytes, that you want to provision. You must specify sufficient ML storage for your scenario.
@@ -7232,6 +7302,7 @@ class ModelBiasJobDefinitionConstraintsResource(dict):
                  s3_uri: Optional[_builtins.str] = None):
         """
         The baseline constraints resource for a monitoring job.
+
         :param _builtins.str s3_uri: The Amazon S3 URI for baseline constraint file in Amazon S3 that the current monitoring job should validated against.
         """
         if s3_uri is not None:
@@ -7255,6 +7326,7 @@ class ModelBiasJobDefinitionCsv(dict):
                  header: Optional[_builtins.bool] = None):
         """
         The CSV format
+
         :param _builtins.bool header: A boolean flag indicating if given CSV has header
         """
         if header is not None:
@@ -7357,6 +7429,7 @@ class ModelBiasJobDefinitionEndpointInput(dict):
                  start_time_offset: Optional[_builtins.str] = None):
         """
         The endpoint for a monitoring job.
+
         :param _builtins.str endpoint_name: An endpoint in customer's account which has enabled `DataCaptureConfig` enabled.
         :param _builtins.str local_path: Path to the filesystem where the endpoint data is available to the container.
         :param _builtins.str end_time_offset: Monitoring end time offset, e.g. PT0H
@@ -7477,6 +7550,7 @@ class ModelBiasJobDefinitionJson(dict):
                  line: Optional[_builtins.bool] = None):
         """
         The Json format
+
         :param _builtins.bool line: A boolean flag indicating if it is JSON line format
         """
         if line is not None:
@@ -7521,6 +7595,7 @@ class ModelBiasJobDefinitionModelBiasAppSpecification(dict):
                  environment: Optional[Any] = None):
         """
         Container image configuration object for the monitoring job.
+
         :param _builtins.str config_uri: The S3 URI to an analysis configuration file
         :param _builtins.str image_uri: The container image to be run by the monitoring job.
         :param Any environment: Sets the environment variables in the Docker container
@@ -7584,6 +7659,7 @@ class ModelBiasJobDefinitionModelBiasBaselineConfig(dict):
                  constraints_resource: Optional['outputs.ModelBiasJobDefinitionConstraintsResource'] = None):
         """
         Baseline configuration used to validate that the data conforms to the specified constraints and statistics.
+
         :param _builtins.str baselining_job_name: The name of the baseline model bias job.
         :param 'ModelBiasJobDefinitionConstraintsResource' constraints_resource: The constraints resource for a monitoring job.
         """
@@ -7641,6 +7717,7 @@ class ModelBiasJobDefinitionModelBiasJobInput(dict):
                  endpoint_input: Optional['outputs.ModelBiasJobDefinitionEndpointInput'] = None):
         """
         The inputs for a monitoring job.
+
         :param 'ModelBiasJobDefinitionMonitoringGroundTruthS3Input' ground_truth_s3_input: Location of ground truth labels to use in model bias job.
         :param 'ModelBiasJobDefinitionBatchTransformInput' batch_transform_input: Input object for the batch transform job.
         :param 'ModelBiasJobDefinitionEndpointInput' endpoint_input: Input object for the endpoint
@@ -7702,6 +7779,7 @@ class ModelBiasJobDefinitionMonitoringGroundTruthS3Input(dict):
                  s3_uri: _builtins.str):
         """
         Ground truth input provided in S3 
+
         :param _builtins.str s3_uri: A URI that identifies the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job.
         """
         pulumi.set(__self__, "s3_uri", s3_uri)
@@ -7741,6 +7819,7 @@ class ModelBiasJobDefinitionMonitoringOutput(dict):
                  s3_output: 'outputs.ModelBiasJobDefinitionS3Output'):
         """
         The output object for a monitoring job.
+
         :param 'ModelBiasJobDefinitionS3Output' s3_output: The Amazon S3 storage location where the results of a monitoring job are saved.
         """
         pulumi.set(__self__, "s3_output", s3_output)
@@ -7783,6 +7862,7 @@ class ModelBiasJobDefinitionMonitoringOutputConfig(dict):
                  kms_key_id: Optional[_builtins.str] = None):
         """
         The output configuration for monitoring jobs.
+
         :param Sequence['ModelBiasJobDefinitionMonitoringOutput'] monitoring_outputs: Monitoring outputs for monitoring jobs. This is where the output of the periodic monitoring jobs is uploaded.
         :param _builtins.str kms_key_id: The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
         """
@@ -7833,6 +7913,7 @@ class ModelBiasJobDefinitionMonitoringResources(dict):
                  cluster_config: 'outputs.ModelBiasJobDefinitionClusterConfig'):
         """
         Identifies the resources to deploy for a monitoring job.
+
         :param 'ModelBiasJobDefinitionClusterConfig' cluster_config: The configuration for the cluster resources used to run the processing job.
         """
         pulumi.set(__self__, "cluster_config", cluster_config)
@@ -7878,6 +7959,7 @@ class ModelBiasJobDefinitionNetworkConfig(dict):
                  vpc_config: Optional['outputs.ModelBiasJobDefinitionVpcConfig'] = None):
         """
         Networking options for a job, such as network traffic encryption between containers, whether to allow inbound and outbound network calls to and from containers, and the VPC subnets and security groups to use for VPC-enabled jobs.
+
         :param _builtins.bool enable_inter_container_traffic_encryption: Whether to encrypt all communications between distributed processing jobs. Choose True to encrypt communications. Encryption provides greater security for distributed processing jobs, but the processing might take longer.
         :param _builtins.bool enable_network_isolation: Whether to allow inbound and outbound network calls to and from the containers used for the processing job.
         :param 'ModelBiasJobDefinitionVpcConfig' vpc_config: Specifies a VPC that your training jobs and hosted models have access to. Control access to and from your training and model containers by configuring the VPC.
@@ -7946,6 +8028,7 @@ class ModelBiasJobDefinitionS3Output(dict):
                  s3_upload_mode: Optional['ModelBiasJobDefinitionS3OutputS3UploadMode'] = None):
         """
         Information about where and how to store the results of a monitoring job.
+
         :param _builtins.str local_path: The local path to the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job. LocalPath is an absolute path for the output data.
         :param _builtins.str s3_uri: A URI that identifies the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job.
         :param 'ModelBiasJobDefinitionS3OutputS3UploadMode' s3_upload_mode: Whether to upload the results of the monitoring job continuously or after the job completes.
@@ -8006,6 +8089,7 @@ class ModelBiasJobDefinitionStoppingCondition(dict):
                  max_runtime_in_seconds: _builtins.int):
         """
         Specifies a time limit for how long the monitoring job is allowed to run.
+
         :param _builtins.int max_runtime_in_seconds: The maximum runtime allowed in seconds.
         """
         pulumi.set(__self__, "max_runtime_in_seconds", max_runtime_in_seconds)
@@ -8046,6 +8130,7 @@ class ModelBiasJobDefinitionVpcConfig(dict):
                  subnets: Sequence[_builtins.str]):
         """
         Specifies a VPC that your training jobs and hosted models have access to. Control access to and from your training and model containers by configuring the VPC.
+
         :param Sequence[_builtins.str] security_group_ids: The VPC security group IDs, in the form sg-xxxxxxxx. Specify the security groups for the VPC that is specified in the Subnets field.
         :param Sequence[_builtins.str] subnets: The ID of the subnets in the VPC to which you want to connect to your monitoring jobs.
         """
@@ -8234,6 +8319,7 @@ class ModelCardBusinessDetails(dict):
                  line_of_business: Optional[_builtins.str] = None):
         """
         Business details.
+
         :param _builtins.str business_problem: What business problem does the model solve?
         :param _builtins.str business_stakeholders: Business stakeholders.
         :param _builtins.str line_of_business: Line of business.
@@ -8375,6 +8461,7 @@ class ModelCardContent(dict):
                  training_details: Optional['outputs.ModelCardTrainingDetails'] = None):
         """
         The content of the model card.
+
         :param 'ModelCardAdditionalInformation' additional_information: Additional information about the model.
         :param 'ModelCardBusinessDetails' business_details: Information about how the model supports business goals.
         :param Sequence['ModelCardEvaluationDetail'] evaluation_details: An overview about the model's evaluation.
@@ -8486,6 +8573,7 @@ class ModelCardEvaluationDetail(dict):
                  metric_groups: Optional[Sequence['outputs.ModelCardMetricGroup']] = None):
         """
         item of evaluation details
+
         :param Mapping[str, _builtins.str] metadata: additional attributes associated with the evaluation results.
         """
         pulumi.set(__self__, "name", name)
@@ -8590,6 +8678,7 @@ class ModelCardIntendedUses(dict):
                  risk_rating: Optional['ModelCardRiskRating'] = None):
         """
         Intended usage of model.
+
         :param _builtins.str explanations_for_risk_rating: An explanation of why your organization categorizes the model with its risk rating.
         :param _builtins.str factors_affecting_model_efficiency: Factors affecting model efficacy.
         :param _builtins.str intended_uses: intended use cases.
@@ -8897,6 +8986,7 @@ class ModelCardModelOverview(dict):
                  problem_type: Optional[_builtins.str] = None):
         """
         Overview about the model.
+
         :param _builtins.str algorithm_type: Algorithm used to solve the problem.
         :param 'ModelCardModelOverviewInferenceEnvironmentProperties' inference_environment: Overview about the inference.
         :param Sequence[_builtins.str] model_artifact: Location of the model artifact.
@@ -9036,6 +9126,7 @@ class ModelCardModelOverviewInferenceEnvironmentProperties(dict):
                  container_image: Optional[Sequence[_builtins.str]] = None):
         """
         Overview about the inference.
+
         :param Sequence[_builtins.str] container_image: SageMaker inference image uri.
         """
         if container_image is not None:
@@ -9144,6 +9235,7 @@ class ModelCardModelPackageDetails(dict):
                  task: Optional[_builtins.str] = None):
         """
         Metadata information related to model package version
+
         :param _builtins.str approval_description: A description provided for the model approval
         :param 'ModelCardModelPackageCreator' created_by: Information about the user who created model package.
         :param _builtins.str domain: The machine learning domain of the model package you specified. Common machine learning domains include computer vision and natural language processing.
@@ -9300,6 +9392,7 @@ class ModelCardObjectiveFunction(dict):
                  notes: Optional[_builtins.str] = None):
         """
         the objective function the model will optimize for.
+
         :param 'ModelCardObjectiveFunctionFunctionProperties' function: objective function that training job is optimized for.
         :param _builtins.str notes: Notes about the object function, including other considerations for possible objective functions.
         """
@@ -9386,6 +9479,7 @@ class ModelCardSecurityConfig(dict):
                  kms_key_id: Optional[_builtins.str] = None):
         """
         An optional Key Management Service key to encrypt, decrypt, and re-encrypt model card content for regulated workloads with highly sensitive data.
+
 
 
         :param _builtins.str kms_key_id: A Key Management Service key ID to use for encrypting a model card.
@@ -9558,6 +9652,7 @@ class ModelCardTrainingDetails(dict):
                  training_observations: Optional[_builtins.str] = None):
         """
         Overview about the training.
+
         :param 'ModelCardObjectiveFunction' objective_function: The function that is optimized during model training.
         :param 'ModelCardTrainingDetailsTrainingJobDetailsProperties' training_job_details: Details about any associated training jobs.
         :param _builtins.str training_observations: Any observations about training.
@@ -9638,6 +9733,7 @@ class ModelCardTrainingDetailsTrainingJobDetailsProperties(dict):
                  user_provided_training_metrics: Optional[Sequence['outputs.ModelCardTrainingMetric']] = None):
         """
         Details about any associated training jobs.
+
         :param _builtins.str training_arn: SageMaker Training job arn.
         :param Sequence[_builtins.str] training_datasets: Location of the model datasets.
         """
@@ -9744,6 +9840,7 @@ class ModelCardTrainingHyperParameter(dict):
                  value: _builtins.str):
         """
         training hyper parameter
+
         :param _builtins.str name: The name of the hyper parameter.
         :param _builtins.str value: The value specified for the hyper parameter.
         """
@@ -9778,6 +9875,7 @@ class ModelCardTrainingMetric(dict):
                  notes: Optional[_builtins.str] = None):
         """
         training metric data.
+
         :param _builtins.str name: The name of the result from the SageMaker AI training job.
         :param _builtins.float value: The value of a result from the SageMaker AI training job.
         :param _builtins.str notes: Any additional notes describing the result of the training job.
@@ -9844,6 +9942,7 @@ class ModelCardUserContext(dict):
                  user_profile_name: Optional[_builtins.str] = None):
         """
         Information about the user who created or modified an experiment, trial, trial component, lineage group, project, or model card.
+
         :param _builtins.str domain_id: The domain associated with the user.
         :param _builtins.str user_profile_arn: The Amazon Resource Name (ARN) of the user's profile.
         :param _builtins.str user_profile_name: The name of the user's profile.
@@ -9927,6 +10026,7 @@ class ModelExplainabilityJobDefinitionBatchTransformInput(dict):
                  s3_input_mode: Optional['ModelExplainabilityJobDefinitionBatchTransformInputS3InputMode'] = None):
         """
         The batch transform input for a monitoring job.
+
         :param _builtins.str data_captured_destination_s3_uri: A URI that identifies the Amazon S3 storage location where Batch Transform Job captures data.
         :param 'ModelExplainabilityJobDefinitionDatasetFormat' dataset_format: The dataset format for your batch transform job.
         :param _builtins.str local_path: Path to the filesystem where the endpoint data is available to the container.
@@ -10050,6 +10150,7 @@ class ModelExplainabilityJobDefinitionClusterConfig(dict):
                  volume_kms_key_id: Optional[_builtins.str] = None):
         """
         Configuration for the cluster used to run model monitoring jobs.
+
         :param _builtins.int instance_count: The number of ML compute instances to use in the model monitoring job. For distributed processing jobs, specify a value greater than 1. The default value is 1.
         :param _builtins.str instance_type: The ML compute instance type for the processing job.
         :param _builtins.int volume_size_in_gb: The size of the ML storage volume, in gigabytes, that you want to provision. You must specify sufficient ML storage for your scenario.
@@ -10120,6 +10221,7 @@ class ModelExplainabilityJobDefinitionConstraintsResource(dict):
                  s3_uri: Optional[_builtins.str] = None):
         """
         The baseline constraints resource for a monitoring job.
+
         :param _builtins.str s3_uri: The Amazon S3 URI for baseline constraint file in Amazon S3 that the current monitoring job should validated against.
         """
         if s3_uri is not None:
@@ -10143,6 +10245,7 @@ class ModelExplainabilityJobDefinitionCsv(dict):
                  header: Optional[_builtins.bool] = None):
         """
         The CSV format
+
         :param _builtins.bool header: A boolean flag indicating if given CSV has header
         """
         if header is not None:
@@ -10236,6 +10339,7 @@ class ModelExplainabilityJobDefinitionEndpointInput(dict):
                  s3_input_mode: Optional['ModelExplainabilityJobDefinitionEndpointInputS3InputMode'] = None):
         """
         The endpoint for a monitoring job.
+
         :param _builtins.str endpoint_name: An endpoint in customer's account which has enabled `DataCaptureConfig` enabled.
         :param _builtins.str local_path: Path to the filesystem where the endpoint data is available to the container.
         :param _builtins.str features_attribute: JSONpath to locate features in JSONlines dataset
@@ -10323,6 +10427,7 @@ class ModelExplainabilityJobDefinitionJson(dict):
                  line: Optional[_builtins.bool] = None):
         """
         The Json format
+
         :param _builtins.bool line: A boolean flag indicating if it is JSON line format
         """
         if line is not None:
@@ -10367,6 +10472,7 @@ class ModelExplainabilityJobDefinitionModelExplainabilityAppSpecification(dict):
                  environment: Optional[Any] = None):
         """
         Container image configuration object for the monitoring job.
+
         :param _builtins.str config_uri: The S3 URI to an analysis configuration file
         :param _builtins.str image_uri: The container image to be run by the monitoring job.
         :param Any environment: Sets the environment variables in the Docker container
@@ -10430,6 +10536,7 @@ class ModelExplainabilityJobDefinitionModelExplainabilityBaselineConfig(dict):
                  constraints_resource: Optional['outputs.ModelExplainabilityJobDefinitionConstraintsResource'] = None):
         """
         Baseline configuration used to validate that the data conforms to the specified constraints and statistics.
+
         :param _builtins.str baselining_job_name: The name of the baseline model explainability job.
         :param 'ModelExplainabilityJobDefinitionConstraintsResource' constraints_resource: The constraints resource for a model explainability job.
         """
@@ -10484,6 +10591,7 @@ class ModelExplainabilityJobDefinitionModelExplainabilityJobInput(dict):
                  endpoint_input: Optional['outputs.ModelExplainabilityJobDefinitionEndpointInput'] = None):
         """
         The inputs for a monitoring job.
+
         :param 'ModelExplainabilityJobDefinitionBatchTransformInput' batch_transform_input: Input object for the batch transform job.
         :param 'ModelExplainabilityJobDefinitionEndpointInput' endpoint_input: Input object for the endpoint
         """
@@ -10535,6 +10643,7 @@ class ModelExplainabilityJobDefinitionMonitoringOutput(dict):
                  s3_output: 'outputs.ModelExplainabilityJobDefinitionS3Output'):
         """
         The output object for a monitoring job.
+
         :param 'ModelExplainabilityJobDefinitionS3Output' s3_output: The Amazon S3 storage location where the results of a monitoring job are saved.
         """
         pulumi.set(__self__, "s3_output", s3_output)
@@ -10577,6 +10686,7 @@ class ModelExplainabilityJobDefinitionMonitoringOutputConfig(dict):
                  kms_key_id: Optional[_builtins.str] = None):
         """
         The output configuration for monitoring jobs.
+
         :param Sequence['ModelExplainabilityJobDefinitionMonitoringOutput'] monitoring_outputs: Monitoring outputs for monitoring jobs. This is where the output of the periodic monitoring jobs is uploaded.
         :param _builtins.str kms_key_id: The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
         """
@@ -10627,6 +10737,7 @@ class ModelExplainabilityJobDefinitionMonitoringResources(dict):
                  cluster_config: 'outputs.ModelExplainabilityJobDefinitionClusterConfig'):
         """
         Identifies the resources to deploy for a monitoring job.
+
         :param 'ModelExplainabilityJobDefinitionClusterConfig' cluster_config: The configuration for the cluster resources used to run the processing job.
         """
         pulumi.set(__self__, "cluster_config", cluster_config)
@@ -10672,6 +10783,7 @@ class ModelExplainabilityJobDefinitionNetworkConfig(dict):
                  vpc_config: Optional['outputs.ModelExplainabilityJobDefinitionVpcConfig'] = None):
         """
         Networking options for a job, such as network traffic encryption between containers, whether to allow inbound and outbound network calls to and from containers, and the VPC subnets and security groups to use for VPC-enabled jobs.
+
         :param _builtins.bool enable_inter_container_traffic_encryption: Whether to encrypt all communications between distributed processing jobs. Choose True to encrypt communications. Encryption provides greater security for distributed processing jobs, but the processing might take longer.
         :param _builtins.bool enable_network_isolation: Whether to allow inbound and outbound network calls to and from the containers used for the processing job.
         :param 'ModelExplainabilityJobDefinitionVpcConfig' vpc_config: Specifies a VPC that your training jobs and hosted models have access to. Control access to and from your training and model containers by configuring the VPC.
@@ -10740,6 +10852,7 @@ class ModelExplainabilityJobDefinitionS3Output(dict):
                  s3_upload_mode: Optional['ModelExplainabilityJobDefinitionS3OutputS3UploadMode'] = None):
         """
         Information about where and how to store the results of a monitoring job.
+
         :param _builtins.str local_path: The local path to the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job. LocalPath is an absolute path for the output data.
         :param _builtins.str s3_uri: A URI that identifies the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job.
         :param 'ModelExplainabilityJobDefinitionS3OutputS3UploadMode' s3_upload_mode: Whether to upload the results of the monitoring job continuously or after the job completes.
@@ -10800,6 +10913,7 @@ class ModelExplainabilityJobDefinitionStoppingCondition(dict):
                  max_runtime_in_seconds: _builtins.int):
         """
         Specifies a time limit for how long the monitoring job is allowed to run.
+
         :param _builtins.int max_runtime_in_seconds: The maximum runtime allowed in seconds.
         """
         pulumi.set(__self__, "max_runtime_in_seconds", max_runtime_in_seconds)
@@ -10840,6 +10954,7 @@ class ModelExplainabilityJobDefinitionVpcConfig(dict):
                  subnets: Sequence[_builtins.str]):
         """
         Specifies a VPC that your training jobs and hosted models have access to. Control access to and from your training and model containers by configuring the VPC.
+
         :param Sequence[_builtins.str] security_group_ids: The VPC security group IDs, in the form sg-xxxxxxxx. Specify the security groups for the VPC that is specified in the Subnets field.
         :param Sequence[_builtins.str] subnets: The ID of the subnets in the VPC to which you want to connect to your monitoring jobs.
         """
@@ -10901,6 +11016,7 @@ class ModelPackageAdditionalInferenceSpecificationDefinition(dict):
                  supported_transform_instance_types: Optional[Sequence[_builtins.str]] = None):
         """
         Additional Inference Specification specifies details about inference jobs that can be run with models based on this model package.AdditionalInferenceSpecifications can be added to existing model packages using AdditionalInferenceSpecificationsToAdd.
+
         :param Sequence['ModelPackageContainerDefinition'] containers: The Amazon ECR registry path of the Docker image that contains the inference code.
         :param _builtins.str name: A unique name to identify the additional inference specification. The name must be unique within the list of your additional inference specifications for a particular model package.
         :param _builtins.str description: A description of the additional Inference specification.
@@ -11009,6 +11125,7 @@ class ModelPackageBias(dict):
                  report: Optional['outputs.ModelPackageMetricsSource'] = None):
         """
         Contains bias metrics for a model.
+
         :param 'ModelPackageMetricsSource' post_training_report: The post-training bias report for a model.
         :param 'ModelPackageMetricsSource' pre_training_report: The pre-training bias report for a model.
         :param 'ModelPackageMetricsSource' report: The bias report for a model
@@ -11092,6 +11209,7 @@ class ModelPackageContainerDefinition(dict):
                  nearest_model_name: Optional[_builtins.str] = None):
         """
         Describes the Docker container for the model package.
+
         :param _builtins.str image: The Amazon EC2 Container Registry (Amazon ECR) path where inference code is stored.
         :param _builtins.str container_hostname: The DNS host name for the Docker container.
         :param _builtins.str framework: The machine learning framework of the model package container image.
@@ -11265,6 +11383,7 @@ class ModelPackageDataSource(dict):
                  s3_data_source: 'outputs.ModelPackageS3DataSource'):
         """
         Describes the input source of a transform job and the way the transform job consumes it.
+
         :param 'ModelPackageS3DataSource' s3_data_source: The S3 location of the data source that is associated with a channel.
         """
         pulumi.set(__self__, "s3_data_source", s3_data_source)
@@ -11309,6 +11428,7 @@ class ModelPackageDriftCheckBaselines(dict):
                  model_quality: Optional['outputs.ModelPackageDriftCheckModelQuality'] = None):
         """
         Represents the drift check baselines that can be used when the model monitor is set using the model package.
+
         :param 'ModelPackageDriftCheckBias' bias: Represents the drift check bias baselines that can be used when the model monitor is set using the model package.
         :param 'ModelPackageDriftCheckExplainability' explainability: Represents the drift check explainability baselines that can be used when the model monitor is set using the model package.
         :param 'ModelPackageDriftCheckModelDataQuality' model_data_quality: Represents the drift check model data quality baselines that can be used when the model monitor is set using the model package.
@@ -11388,6 +11508,7 @@ class ModelPackageDriftCheckBias(dict):
                  pre_training_constraints: Optional['outputs.ModelPackageMetricsSource'] = None):
         """
         Represents the drift check bias baselines that can be used when the model monitor is set using the model package.
+
         :param 'ModelPackageFileSource' config_file: The bias config file for a model.
         :param 'ModelPackageMetricsSource' post_training_constraints: The post-training constraints.
         :param 'ModelPackageMetricsSource' pre_training_constraints: The pre-training constraints.
@@ -11451,6 +11572,7 @@ class ModelPackageDriftCheckExplainability(dict):
                  constraints: Optional['outputs.ModelPackageMetricsSource'] = None):
         """
         Contains explainability metrics for a model.
+
         :param 'ModelPackageFileSource' config_file: The explainability config file for the model.
         :param 'ModelPackageMetricsSource' constraints: The drift check explainability constraints.
         """
@@ -11486,6 +11608,7 @@ class ModelPackageDriftCheckModelDataQuality(dict):
                  statistics: Optional['outputs.ModelPackageMetricsSource'] = None):
         """
         Represents the drift check data quality baselines that can be used when the model monitor is set using the model package.
+
         :param 'ModelPackageMetricsSource' constraints: The drift check model data quality constraints.
         :param 'ModelPackageMetricsSource' statistics: The drift check model data quality statistics.
         """
@@ -11521,6 +11644,7 @@ class ModelPackageDriftCheckModelQuality(dict):
                  statistics: Optional['outputs.ModelPackageMetricsSource'] = None):
         """
         Represents the drift check model quality baselines that can be used when the model monitor is set using the model package.
+
         :param 'ModelPackageMetricsSource' constraints: The drift check model quality constraints.
         :param 'ModelPackageMetricsSource' statistics: The drift check model quality statistics.
         """
@@ -11567,6 +11691,7 @@ class ModelPackageExplainability(dict):
                  report: Optional['outputs.ModelPackageMetricsSource'] = None):
         """
         Contains explainability metrics for a model.
+
         :param 'ModelPackageMetricsSource' report: The explainability report for a model.
         """
         if report is not None:
@@ -11613,6 +11738,7 @@ class ModelPackageFileSource(dict):
                  content_type: Optional[_builtins.str] = None):
         """
         Represents a File Source Object.
+
         :param _builtins.str s3_uri: The Amazon S3 URI for the file source.
         :param _builtins.str content_digest: The digest of the file source.
         :param _builtins.str content_type: The type of content stored in the file source.
@@ -11684,6 +11810,7 @@ class ModelPackageInferenceSpecification(dict):
                  supported_transform_instance_types: Optional[Sequence[_builtins.str]] = None):
         """
         Details about inference jobs that can be run with models based on this model package.
+
         :param Sequence['ModelPackageContainerDefinition'] containers: The Amazon ECR registry path of the Docker image that contains the inference code.
         :param Sequence[_builtins.str] supported_content_types: The supported MIME types for the input data.
         :param Sequence[_builtins.str] supported_response_mime_types: The supported MIME types for the output data.
@@ -11772,6 +11899,7 @@ class ModelPackageMetadataProperties(dict):
                  repository: Optional[_builtins.str] = None):
         """
         Metadata properties of the tracking entity, trial, or trial component.
+
         :param _builtins.str commit_id: The commit ID.
         :param _builtins.str generated_by: The entity this entity was generated by.
         :param _builtins.str project_id: The project ID metadata.
@@ -11851,6 +11979,7 @@ class ModelPackageMetricsSource(dict):
                  content_digest: Optional[_builtins.str] = None):
         """
         Represents a Metric Source Object.
+
         :param _builtins.str content_type: The type of content stored in the metric source.
         :param _builtins.str s3_uri: The Amazon S3 URI for the metric source.
         :param _builtins.str content_digest: The digest of the metric source.
@@ -11911,6 +12040,7 @@ class ModelPackageModelAccessConfig(dict):
                  accept_eula: _builtins.bool):
         """
         Specifies the access configuration file for the ML model.
+
         :param _builtins.bool accept_eula: Specifies agreement to the model end-user license agreement (EULA).
         """
         pulumi.set(__self__, "accept_eula", accept_eula)
@@ -11953,6 +12083,7 @@ class ModelPackageModelCard(dict):
                  model_card_status: 'ModelPackageModelCardModelCardStatus'):
         """
         The model card associated with the model package.
+
         :param _builtins.str model_card_content: The content of the model card.
         :param 'ModelPackageModelCardModelCardStatus' model_card_status: The approval status of the model card within your organization.
         """
@@ -11986,6 +12117,7 @@ class ModelPackageModelDataQuality(dict):
                  statistics: Optional['outputs.ModelPackageMetricsSource'] = None):
         """
         Metrics that measure the quality of the input data for a model.
+
         :param 'ModelPackageMetricsSource' constraints: Data quality constraints for a model.
         :param 'ModelPackageMetricsSource' statistics: Data quality statistics for a model.
         """
@@ -12078,6 +12210,7 @@ class ModelPackageModelMetrics(dict):
                  model_quality: Optional['outputs.ModelPackageModelQuality'] = None):
         """
         A structure that contains model metrics reports.
+
         :param 'ModelPackageBias' bias: Metrics that measure bias in a model.
         :param 'ModelPackageExplainability' explainability: Metrics that help explain a model.
         :param 'ModelPackageModelDataQuality' model_data_quality: Metrics that measure the quality of the input data for a model.
@@ -12135,6 +12268,7 @@ class ModelPackageModelQuality(dict):
                  statistics: Optional['outputs.ModelPackageMetricsSource'] = None):
         """
         Metrics that measure the quality of a model.
+
         :param 'ModelPackageMetricsSource' constraints: Model quality constraints.
         :param 'ModelPackageMetricsSource' statistics: Model quality statistics.
         """
@@ -12189,6 +12323,7 @@ class ModelPackageS3DataSource(dict):
                  s3_uri: _builtins.str):
         """
         Describes the S3 data source.
+
         :param 'ModelPackageS3DataSourceS3DataType' s3_data_type: The S3 Data Source Type
         :param _builtins.str s3_uri: Depending on the value specified for the S3DataType, identifies either a key name prefix or a manifest.
         """
@@ -12247,6 +12382,7 @@ class ModelPackageS3ModelDataSource(dict):
                  model_access_config: Optional['outputs.ModelPackageModelAccessConfig'] = None):
         """
         Specifies the S3 location of ML model data to deploy.
+
         :param 'ModelPackageS3ModelDataSourceCompressionType' compression_type: Specifies how the ML model data is prepared.
         :param 'ModelPackageS3ModelDataSourceS3DataType' s3_data_type: Specifies the type of ML model data to deploy.
         :param _builtins.str s3_uri: Specifies the S3 path of ML model data to deploy.
@@ -12313,6 +12449,7 @@ class ModelPackageSecurityConfig(dict):
                  kms_key_id: _builtins.str):
         """
         An optional AWS Key Management Service key to encrypt, decrypt, and re-encrypt model package information for regulated workloads with highly sensitive data.
+
         :param _builtins.str kms_key_id: The AWS KMS Key ID (KMSKeyId) used for encryption of model package information.
         """
         pulumi.set(__self__, "kms_key_id", kms_key_id)
@@ -12355,6 +12492,7 @@ class ModelPackageSourceAlgorithm(dict):
                  model_data_url: Optional[_builtins.str] = None):
         """
         Specifies an algorithm that was used to create the model package. The algorithm must be either an algorithm resource in your Amazon SageMaker account or an algorithm in AWS Marketplace that you are subscribed to.
+
         :param _builtins.str algorithm_name: The name of an algorithm that was used to create the model package. The algorithm must be either an algorithm resource in your Amazon SageMaker account or an algorithm in AWS Marketplace that you are subscribed to.
         :param _builtins.str model_data_url: The Amazon S3 path where the model artifacts, which result from model training, are stored. This path must point to a single gzip compressed tar archive (.tar.gz suffix).
         """
@@ -12405,6 +12543,7 @@ class ModelPackageSourceAlgorithmSpecification(dict):
                  source_algorithms: Sequence['outputs.ModelPackageSourceAlgorithm']):
         """
         Details about the algorithm that was used to create the model package.
+
         :param Sequence['ModelPackageSourceAlgorithm'] source_algorithms: A list of algorithms that were used to create a model package.
         """
         pulumi.set(__self__, "source_algorithms", source_algorithms)
@@ -12444,6 +12583,7 @@ class ModelPackageStatusDetails(dict):
                  validation_statuses: Optional[Sequence['outputs.ModelPackageStatusItem']] = None):
         """
         Details about the current status of the model package.
+
         :param Sequence['ModelPackageStatusItem'] validation_statuses: The validation status of the model package.
         """
         if validation_statuses is not None:
@@ -12486,6 +12626,7 @@ class ModelPackageStatusItem(dict):
                  failure_reason: Optional[_builtins.str] = None):
         """
         Represents the overall status of a model package.
+
         :param _builtins.str name: The name of the model package for which the overall status is being reported.
         :param 'ModelPackageStatusItemStatus' status: The current status.
         :param _builtins.str failure_reason: If the overall status is Failed, the reason for the failure.
@@ -12555,6 +12696,7 @@ class ModelPackageTransformInput(dict):
                  split_type: Optional['ModelPackageTransformInputSplitType'] = None):
         """
         Describes the input source of a transform job and the way the transform job consumes it.
+
         :param 'ModelPackageDataSource' data_source: Describes the location of the channel data, which is, the S3 location of the input data that the model can consume.
         :param 'ModelPackageTransformInputCompressionType' compression_type: If your transform data is compressed, specify the compression type. Amazon SageMaker automatically decompresses the data for the transform job accordingly. The default value is None.
         :param _builtins.str content_type: The multipurpose internet mail extension (MIME) type of the data. Amazon SageMaker uses the MIME type with each http call to transfer data to the transform job.
@@ -12643,6 +12785,7 @@ class ModelPackageTransformJobDefinition(dict):
                  max_payload_in_mb: Optional[_builtins.int] = None):
         """
         Defines the input needed to run a transform job using the inference specification specified in the algorithm.
+
         :param 'ModelPackageTransformInput' transform_input: A description of the input source and the way the transform job consumes it.
         :param 'ModelPackageTransformOutput' transform_output: Identifies the Amazon S3 location where you want Amazon SageMaker to save the results from the transform job.
         :param 'ModelPackageTransformResources' transform_resources: Identifies the ML compute instances for the transform job.
@@ -12753,6 +12896,7 @@ class ModelPackageTransformOutput(dict):
                  kms_key_id: Optional[_builtins.str] = None):
         """
         Describes the results of a transform job.
+
         :param _builtins.str s3_output_path: The Amazon S3 path where you want Amazon SageMaker to store the results of the transform job.
         :param _builtins.str accept: The MIME type used to specify the output data. Amazon SageMaker uses the MIME type with each http call to transfer data from the transform job.
         :param 'ModelPackageTransformOutputAssembleWith' assemble_with: Defines how to assemble the results of the transform job as a single S3 object.
@@ -12831,6 +12975,7 @@ class ModelPackageTransformResources(dict):
                  volume_kms_key_id: Optional[_builtins.str] = None):
         """
         Describes the resources, including ML instance types and ML instance count, to use for transform job.
+
         :param _builtins.int instance_count: The number of ML compute instances to use in the transform job. For distributed transform jobs, specify a value greater than 1. The default value is 1.
         :param _builtins.str instance_type: The ML compute instance type for the transform job.
         :param _builtins.str volume_kms_key_id: The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt model data on the storage volume attached to the ML compute instance(s) that run the batch transform job.
@@ -12894,6 +13039,7 @@ class ModelPackageValidationProfile(dict):
                  transform_job_definition: 'outputs.ModelPackageTransformJobDefinition'):
         """
         Contains data, such as the inputs and targeted instance types that are used in the process of validating the model package.
+
         :param _builtins.str profile_name: The name of the profile for the model package.
         :param 'ModelPackageTransformJobDefinition' transform_job_definition: The `TransformJobDefinition` object that describes the transform job used for the validation of the model package.
         """
@@ -12946,6 +13092,7 @@ class ModelPackageValidationSpecification(dict):
                  validation_role: _builtins.str):
         """
         Specifies configurations for one or more transform jobs that Amazon SageMaker runs to test the model package.
+
         :param Sequence['ModelPackageValidationProfile'] validation_profiles: An array of `ModelPackageValidationProfile` objects, each of which specifies a batch transform job that SageMaker runs to validate your model package.
         :param _builtins.str validation_role: The IAM roles to be used for the validation of the model package.
         """
@@ -13022,6 +13169,7 @@ class ModelQualityJobDefinitionBatchTransformInput(dict):
                  start_time_offset: Optional[_builtins.str] = None):
         """
         The batch transform input for a monitoring job.
+
         :param _builtins.str data_captured_destination_s3_uri: A URI that identifies the Amazon S3 storage location where Batch Transform Job captures data.
         :param 'ModelQualityJobDefinitionDatasetFormat' dataset_format: The dataset format for your batch transform job.
         :param _builtins.str local_path: Path to the filesystem where the endpoint data is available to the container.
@@ -13167,6 +13315,7 @@ class ModelQualityJobDefinitionClusterConfig(dict):
                  volume_kms_key_id: Optional[_builtins.str] = None):
         """
         Configuration for the cluster used to run model monitoring jobs.
+
         :param _builtins.int instance_count: The number of ML compute instances to use in the model monitoring job. For distributed processing jobs, specify a value greater than 1. The default value is 1.
         :param _builtins.str instance_type: The ML compute instance type for the processing job.
         :param _builtins.int volume_size_in_gb: The size of the ML storage volume, in gigabytes, that you want to provision. You must specify sufficient ML storage for your scenario.
@@ -13237,6 +13386,7 @@ class ModelQualityJobDefinitionConstraintsResource(dict):
                  s3_uri: Optional[_builtins.str] = None):
         """
         The baseline constraints resource for a monitoring job.
+
         :param _builtins.str s3_uri: The Amazon S3 URI for baseline constraint file in Amazon S3 that the current monitoring job should validated against.
         """
         if s3_uri is not None:
@@ -13260,6 +13410,7 @@ class ModelQualityJobDefinitionCsv(dict):
                  header: Optional[_builtins.bool] = None):
         """
         The CSV format
+
         :param _builtins.bool header: A boolean flag indicating if given CSV has header
         """
         if header is not None:
@@ -13359,6 +13510,7 @@ class ModelQualityJobDefinitionEndpointInput(dict):
                  start_time_offset: Optional[_builtins.str] = None):
         """
         The endpoint for a monitoring job.
+
         :param _builtins.str endpoint_name: An endpoint in customer's account which has enabled `DataCaptureConfig` enabled.
         :param _builtins.str local_path: Path to the filesystem where the endpoint data is available to the container.
         :param _builtins.str end_time_offset: Monitoring end time offset, e.g. PT0H
@@ -13468,6 +13620,7 @@ class ModelQualityJobDefinitionJson(dict):
                  line: Optional[_builtins.bool] = None):
         """
         The Json format
+
         :param _builtins.bool line: A boolean flag indicating if it is JSON line format
         """
         if line is not None:
@@ -13524,6 +13677,7 @@ class ModelQualityJobDefinitionModelQualityAppSpecification(dict):
                  record_preprocessor_source_uri: Optional[_builtins.str] = None):
         """
         Container image configuration object for the monitoring job.
+
         :param _builtins.str image_uri: The container image to be run by the monitoring job.
         :param 'ModelQualityJobDefinitionProblemType' problem_type: The machine learning problem type of the model that the monitoring job monitors.
         :param Sequence[_builtins.str] container_arguments: An array of arguments for the container used to run the monitoring job.
@@ -13631,6 +13785,7 @@ class ModelQualityJobDefinitionModelQualityBaselineConfig(dict):
                  constraints_resource: Optional['outputs.ModelQualityJobDefinitionConstraintsResource'] = None):
         """
         Baseline configuration used to validate that the data conforms to the specified constraints and statistics.
+
         :param _builtins.str baselining_job_name: The name of the job that performs baselining for the monitoring job.
         :param 'ModelQualityJobDefinitionConstraintsResource' constraints_resource: The constraints resource for a monitoring job.
         """
@@ -13688,6 +13843,7 @@ class ModelQualityJobDefinitionModelQualityJobInput(dict):
                  endpoint_input: Optional['outputs.ModelQualityJobDefinitionEndpointInput'] = None):
         """
         The inputs for a monitoring job.
+
         :param 'ModelQualityJobDefinitionMonitoringGroundTruthS3Input' ground_truth_s3_input: The ground truth label provided for the model.
         :param 'ModelQualityJobDefinitionBatchTransformInput' batch_transform_input: Input object for the batch transform job.
         :param 'ModelQualityJobDefinitionEndpointInput' endpoint_input: Input object for the endpoint
@@ -13749,6 +13905,7 @@ class ModelQualityJobDefinitionMonitoringGroundTruthS3Input(dict):
                  s3_uri: _builtins.str):
         """
         Ground truth input provided in S3 
+
         :param _builtins.str s3_uri: A URI that identifies the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job.
         """
         pulumi.set(__self__, "s3_uri", s3_uri)
@@ -13788,6 +13945,7 @@ class ModelQualityJobDefinitionMonitoringOutput(dict):
                  s3_output: 'outputs.ModelQualityJobDefinitionS3Output'):
         """
         The output object for a monitoring job.
+
         :param 'ModelQualityJobDefinitionS3Output' s3_output: The Amazon S3 storage location where the results of a monitoring job are saved.
         """
         pulumi.set(__self__, "s3_output", s3_output)
@@ -13830,6 +13988,7 @@ class ModelQualityJobDefinitionMonitoringOutputConfig(dict):
                  kms_key_id: Optional[_builtins.str] = None):
         """
         The output configuration for monitoring jobs.
+
         :param Sequence['ModelQualityJobDefinitionMonitoringOutput'] monitoring_outputs: Monitoring outputs for monitoring jobs. This is where the output of the periodic monitoring jobs is uploaded.
         :param _builtins.str kms_key_id: The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
         """
@@ -13880,6 +14039,7 @@ class ModelQualityJobDefinitionMonitoringResources(dict):
                  cluster_config: 'outputs.ModelQualityJobDefinitionClusterConfig'):
         """
         Identifies the resources to deploy for a monitoring job.
+
         :param 'ModelQualityJobDefinitionClusterConfig' cluster_config: The configuration for the cluster resources used to run the processing job.
         """
         pulumi.set(__self__, "cluster_config", cluster_config)
@@ -13925,6 +14085,7 @@ class ModelQualityJobDefinitionNetworkConfig(dict):
                  vpc_config: Optional['outputs.ModelQualityJobDefinitionVpcConfig'] = None):
         """
         Networking options for a job, such as network traffic encryption between containers, whether to allow inbound and outbound network calls to and from containers, and the VPC subnets and security groups to use for VPC-enabled jobs.
+
         :param _builtins.bool enable_inter_container_traffic_encryption: Whether to encrypt all communications between distributed processing jobs. Choose True to encrypt communications. Encryption provides greater security for distributed processing jobs, but the processing might take longer.
         :param _builtins.bool enable_network_isolation: Whether to allow inbound and outbound network calls to and from the containers used for the processing job.
         :param 'ModelQualityJobDefinitionVpcConfig' vpc_config: Specifies a VPC that your training jobs and hosted models have access to. Control access to and from your training and model containers by configuring the VPC.
@@ -13993,6 +14154,7 @@ class ModelQualityJobDefinitionS3Output(dict):
                  s3_upload_mode: Optional['ModelQualityJobDefinitionS3OutputS3UploadMode'] = None):
         """
         Information about where and how to store the results of a monitoring job.
+
         :param _builtins.str local_path: The local path to the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job. LocalPath is an absolute path for the output data.
         :param _builtins.str s3_uri: A URI that identifies the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job.
         :param 'ModelQualityJobDefinitionS3OutputS3UploadMode' s3_upload_mode: Whether to upload the results of the monitoring job continuously or after the job completes.
@@ -14053,6 +14215,7 @@ class ModelQualityJobDefinitionStoppingCondition(dict):
                  max_runtime_in_seconds: _builtins.int):
         """
         Specifies a time limit for how long the monitoring job is allowed to run.
+
         :param _builtins.int max_runtime_in_seconds: The maximum runtime allowed in seconds.
         """
         pulumi.set(__self__, "max_runtime_in_seconds", max_runtime_in_seconds)
@@ -14093,6 +14256,7 @@ class ModelQualityJobDefinitionVpcConfig(dict):
                  subnets: Sequence[_builtins.str]):
         """
         Specifies a VPC that your training jobs and hosted models have access to. Control access to and from your training and model containers by configuring the VPC.
+
         :param Sequence[_builtins.str] security_group_ids: The VPC security group IDs, in the form sg-xxxxxxxx. Specify the security groups for the VPC that is specified in the Subnets field.
         :param Sequence[_builtins.str] subnets: The ID of the subnets in the VPC to which you want to connect to your monitoring jobs.
         """
@@ -14145,6 +14309,7 @@ class MonitoringScheduleBaselineConfig(dict):
                  statistics_resource: Optional['outputs.MonitoringScheduleStatisticsResource'] = None):
         """
         Baseline configuration used to validate that the data conforms to the specified constraints and statistics.
+
         :param 'MonitoringScheduleConstraintsResource' constraints_resource: The Amazon S3 URI for the constraints resource.
         :param 'MonitoringScheduleStatisticsResource' statistics_resource: The baseline statistics file in Amazon S3 that the current monitoring job should be validated against.
         """
@@ -14211,6 +14376,7 @@ class MonitoringScheduleBatchTransformInput(dict):
                  s3_input_mode: Optional['MonitoringScheduleBatchTransformInputS3InputMode'] = None):
         """
         The batch transform input for a monitoring job.
+
         :param _builtins.str data_captured_destination_s3_uri: A URI that identifies the Amazon S3 storage location where Batch Transform Job captures data.
         :param _builtins.str local_path: Path to the filesystem where the endpoint data is available to the container.
         :param _builtins.str exclude_features_attribute: Indexes or names of the features to be excluded from analysis
@@ -14308,6 +14474,7 @@ class MonitoringScheduleClusterConfig(dict):
                  volume_kms_key_id: Optional[_builtins.str] = None):
         """
         Configuration for the cluster used to run model monitoring jobs.
+
         :param _builtins.int instance_count: The number of ML compute instances to use in the model monitoring job. For distributed processing jobs, specify a value greater than 1. The default value is 1.
         :param _builtins.str instance_type: The ML compute instance type for the processing job.
         :param _builtins.int volume_size_in_gb: The size of the ML storage volume, in gigabytes, that you want to provision. You must specify sufficient ML storage for your scenario.
@@ -14387,6 +14554,7 @@ class MonitoringScheduleConfig(dict):
                  schedule_config: Optional['outputs.MonitoringScheduleScheduleConfig'] = None):
         """
         The configuration object that specifies the monitoring schedule and defines the monitoring job.
+
         :param 'MonitoringScheduleMonitoringJobDefinition' monitoring_job_definition: Defines the monitoring job.
         :param _builtins.str monitoring_job_definition_name: Name of the job definition
         :param 'MonitoringScheduleMonitoringType' monitoring_type: The type of the monitoring job definition to schedule.
@@ -14460,6 +14628,7 @@ class MonitoringScheduleConstraintsResource(dict):
                  s3_uri: Optional[_builtins.str] = None):
         """
         The baseline constraints resource for a monitoring job.
+
         :param _builtins.str s3_uri: The Amazon S3 URI for baseline constraint file in Amazon S3 that the current monitoring job should validated against.
         """
         if s3_uri is not None:
@@ -14483,6 +14652,7 @@ class MonitoringScheduleCsv(dict):
                  header: Optional[_builtins.bool] = None):
         """
         The CSV format
+
         :param _builtins.bool header: A boolean flag indicating if given CSV has header
         """
         if header is not None:
@@ -14570,6 +14740,7 @@ class MonitoringScheduleEndpointInput(dict):
                  s3_input_mode: Optional['MonitoringScheduleEndpointInputS3InputMode'] = None):
         """
         The endpoint for a monitoring job.
+
         :param _builtins.str local_path: Path to the filesystem where the endpoint data is available to the container.
         :param _builtins.str exclude_features_attribute: Indexes or names of the features to be excluded from analysis
         :param 'MonitoringScheduleEndpointInputS3DataDistributionType' s3_data_distribution_type: Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
@@ -14631,6 +14802,7 @@ class MonitoringScheduleJson(dict):
                  line: Optional[_builtins.bool] = None):
         """
         The Json format
+
         :param _builtins.bool line: A boolean flag indicating if it is JSON line format
         """
         if line is not None:
@@ -14683,6 +14855,7 @@ class MonitoringScheduleMonitoringAppSpecification(dict):
                  record_preprocessor_source_uri: Optional[_builtins.str] = None):
         """
         Container image configuration object for the monitoring job.
+
         :param _builtins.str image_uri: The container image to be run by the monitoring job.
         :param Sequence[_builtins.str] container_arguments: An array of arguments for the container used to run the monitoring job.
         :param Sequence[_builtins.str] container_entrypoint: Specifies the entrypoint for a container used to run the monitoring job.
@@ -14787,6 +14960,7 @@ class MonitoringScheduleMonitoringExecutionSummary(dict):
                  processing_job_arn: Optional[_builtins.str] = None):
         """
         Summary of information about monitoring job
+
         :param _builtins.str creation_time: The time at which the monitoring job was created.
         :param _builtins.str last_modified_time: A timestamp that indicates the last time the monitoring job was modified.
         :param 'MonitoringScheduleMonitoringExecutionSummaryMonitoringExecutionStatus' monitoring_execution_status: The status of the monitoring job.
@@ -14967,6 +15141,7 @@ class MonitoringScheduleMonitoringJobDefinition(dict):
                  stopping_condition: Optional['outputs.MonitoringScheduleStoppingCondition'] = None):
         """
         Defines the monitoring job.
+
         :param 'MonitoringScheduleMonitoringAppSpecification' monitoring_app_specification: Configures the monitoring job to run a specified Docker container image.
         :param Sequence['MonitoringScheduleMonitoringInput'] monitoring_inputs: The array of inputs for the monitoring job. Currently we support monitoring an Amazon SageMaker AI Endpoint.
         :param 'MonitoringScheduleMonitoringOutputConfig' monitoring_output_config: The array of outputs from the monitoring job to be uploaded to Amazon S3.
@@ -15090,6 +15265,7 @@ class MonitoringScheduleMonitoringOutput(dict):
                  s3_output: 'outputs.MonitoringScheduleS3Output'):
         """
         The output object for a monitoring job.
+
         :param 'MonitoringScheduleS3Output' s3_output: The Amazon S3 storage location where the results of a monitoring job are saved.
         """
         pulumi.set(__self__, "s3_output", s3_output)
@@ -15132,6 +15308,7 @@ class MonitoringScheduleMonitoringOutputConfig(dict):
                  kms_key_id: Optional[_builtins.str] = None):
         """
         The output configuration for monitoring jobs.
+
         :param Sequence['MonitoringScheduleMonitoringOutput'] monitoring_outputs: Monitoring outputs for monitoring jobs. This is where the output of the periodic monitoring jobs is uploaded.
         :param _builtins.str kms_key_id: The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
         """
@@ -15182,6 +15359,7 @@ class MonitoringScheduleMonitoringResources(dict):
                  cluster_config: 'outputs.MonitoringScheduleClusterConfig'):
         """
         Identifies the resources to deploy for a monitoring job.
+
         :param 'MonitoringScheduleClusterConfig' cluster_config: The configuration for the cluster resources used to run the processing job.
         """
         pulumi.set(__self__, "cluster_config", cluster_config)
@@ -15227,6 +15405,7 @@ class MonitoringScheduleNetworkConfig(dict):
                  vpc_config: Optional['outputs.MonitoringScheduleVpcConfig'] = None):
         """
         Networking options for a job, such as network traffic encryption between containers, whether to allow inbound and outbound network calls to and from containers, and the VPC subnets and security groups to use for VPC-enabled jobs.
+
         :param _builtins.bool enable_inter_container_traffic_encryption: Whether to encrypt all communications between distributed processing jobs. Choose True to encrypt communications. Encryption provides greater security for distributed processing jobs, but the processing might take longer.
         :param _builtins.bool enable_network_isolation: Whether to allow inbound and outbound network calls to and from the containers used for the processing job.
         :param 'MonitoringScheduleVpcConfig' vpc_config: Specifies a VPC that your training jobs and hosted models have access to. Control access to and from your training and model containers by configuring the VPC. For more information, see [Protect Endpoints by Using an Amazon Virtual Private Cloud](https://docs.aws.amazon.com/sagemaker/latest/dg/host-vpc.html) and [Protect Training Jobs by Using an Amazon Virtual Private Cloud](https://docs.aws.amazon.com/sagemaker/latest/dg/train-vpc.html) .
@@ -15295,6 +15474,7 @@ class MonitoringScheduleS3Output(dict):
                  s3_upload_mode: Optional['MonitoringScheduleS3OutputS3UploadMode'] = None):
         """
         Information about where and how to store the results of a monitoring job.
+
         :param _builtins.str local_path: The local path to the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job. LocalPath is an absolute path for the output data.
         :param _builtins.str s3_uri: A URI that identifies the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job.
         :param 'MonitoringScheduleS3OutputS3UploadMode' s3_upload_mode: Whether to upload the results of the monitoring job continuously or after the job completes.
@@ -15361,6 +15541,7 @@ class MonitoringScheduleScheduleConfig(dict):
                  data_analysis_start_time: Optional[_builtins.str] = None):
         """
         Configuration details about the monitoring schedule.
+
         :param _builtins.str schedule_expression: A cron expression or 'NOW' that describes details about the monitoring schedule.
         :param _builtins.str data_analysis_end_time: Data Analysis end time, e.g. PT0H
         :param _builtins.str data_analysis_start_time: Data Analysis start time, e.g. -PT1H
@@ -15422,6 +15603,7 @@ class MonitoringScheduleStatisticsResource(dict):
                  s3_uri: Optional[_builtins.str] = None):
         """
         The baseline statistics resource for a monitoring job.
+
         :param _builtins.str s3_uri: The Amazon S3 URI for the baseline statistics file in Amazon S3 that the current monitoring job should be validated against.
         """
         if s3_uri is not None:
@@ -15462,6 +15644,7 @@ class MonitoringScheduleStoppingCondition(dict):
                  max_runtime_in_seconds: _builtins.int):
         """
         Specifies a time limit for how long the monitoring job is allowed to run.
+
         :param _builtins.int max_runtime_in_seconds: The maximum runtime allowed in seconds.
         """
         pulumi.set(__self__, "max_runtime_in_seconds", max_runtime_in_seconds)
@@ -15502,6 +15685,7 @@ class MonitoringScheduleVpcConfig(dict):
                  subnets: Sequence[_builtins.str]):
         """
         Specifies a VPC that your training jobs and hosted models have access to. Control access to and from your training and model containers by configuring the VPC.
+
         :param Sequence[_builtins.str] security_group_ids: The VPC security group IDs, in the form sg-xxxxxxxx. Specify the security groups for the VPC that is specified in the Subnets field.
         :param Sequence[_builtins.str] subnets: The ID of the subnets in the VPC to which you want to connect to your monitoring jobs.
         """
@@ -15560,6 +15744,7 @@ class OfflineStoreConfigProperties(dict):
                  table_format: Optional['FeatureGroupTableFormat'] = None):
         """
         The configuration of an `OfflineStore` .
+
         :param 'FeatureGroupS3StorageConfig' s3_storage_config: The Amazon Simple Storage (Amazon S3) location of `OfflineStore` .
         :param 'FeatureGroupDataCatalogConfig' data_catalog_config: The meta data of the Glue table that is autogenerated when an `OfflineStore` is created.
         :param _builtins.bool disable_glue_table_creation: Set to `True` to disable the automatic creation of an AWS Glue table when configuring an `OfflineStore` . If set to `False` , Feature Store will name the `OfflineStore` Glue table following [Athena's naming recommendations](https://docs.aws.amazon.com/athena/latest/ug/tables-databases-columns-names.html) .
@@ -15645,6 +15830,7 @@ class OnlineStoreConfigProperties(dict):
                  ttl_duration: Optional['outputs.FeatureGroupTtlDuration'] = None):
         """
         The configuration of an `OnlineStore` .
+
         :param _builtins.bool enable_online_store: Turn `OnlineStore` off by specifying `False` for the `EnableOnlineStore` flag. Turn `OnlineStore` on by specifying `True` for the `EnableOnlineStore` flag.
                
                The default value is `False` .
@@ -15728,6 +15914,7 @@ class ParallelismConfigurationProperties(dict):
                  max_parallel_execution_steps: _builtins.int):
         """
         The parallelism configuration applied to the pipeline.
+
         :param _builtins.int max_parallel_execution_steps: Maximum parallel execution steps
         """
         pulumi.set(__self__, "max_parallel_execution_steps", max_parallel_execution_steps)
@@ -15768,6 +15955,7 @@ class PartnerAppConfig(dict):
                  arguments: Optional[Mapping[str, _builtins.str]] = None):
         """
         A collection of configuration settings for the PartnerApp.
+
         :param Sequence[_builtins.str] admin_users: A list of users with administrator privileges for the PartnerApp.
         :param Mapping[str, _builtins.str] arguments: A list of arguments to pass to the PartnerApp.
         """
@@ -15819,6 +16007,7 @@ class PartnerAppMaintenanceConfig(dict):
                  maintenance_window_start: _builtins.str):
         """
         A collection of settings that specify the maintenance schedule for the PartnerApp.
+
         :param _builtins.str maintenance_window_start: The maintenance window start day and time for the PartnerApp.
         """
         pulumi.set(__self__, "maintenance_window_start", maintenance_window_start)
@@ -15858,6 +16047,7 @@ class PipelineDefinition0Properties(dict):
                  pipeline_definition_body: _builtins.str):
         """
         The definition of the pipeline. This can be either a JSON string or an Amazon S3 location.
+
         :param _builtins.str pipeline_definition_body: A specification that defines the pipeline in JSON format.
         """
         pulumi.set(__self__, "pipeline_definition_body", pipeline_definition_body)
@@ -16008,6 +16198,7 @@ class ProcessingJobAppSpecification(dict):
                  container_entrypoint: Optional[Sequence[_builtins.str]] = None):
         """
         Configures the processing job to run a specified Docker container image.
+
         :param _builtins.str image_uri: The container image to be run by the processing job.
         :param Sequence[_builtins.str] container_arguments: The arguments for a container used to run a processing job.
         :param Sequence[_builtins.str] container_entrypoint: The entrypoint for a container used to run a processing job.
@@ -16086,6 +16277,7 @@ class ProcessingJobAthenaDatasetDefinition(dict):
                  work_group: Optional[_builtins.str] = None):
         """
         Configuration for Athena Dataset Definition input.
+
         :param _builtins.str catalog: The name of the data catalog used in Athena query execution.
         :param _builtins.str database: The name of the database used in the Athena query execution.
         :param 'ProcessingJobAthenaDatasetDefinitionOutputFormat' output_format: The data storage format for Athena query results.
@@ -16207,6 +16399,7 @@ class ProcessingJobClusterConfig(dict):
                  volume_kms_key_id: Optional[_builtins.str] = None):
         """
         Configuration for the cluster used to run a processing job.
+
         :param _builtins.int instance_count: The number of ML compute instances to use in the processing job. For distributed processing jobs, specify a value greater than 1. The default value is 1.
         :param 'ProcessingJobClusterConfigInstanceType' instance_type: The ML compute instance type for the processing job.
         :param _builtins.int volume_size_in_gb: The size of the ML storage volume in gigabytes that you want to provision. You must specify sufficient ML storage for your scenario.
@@ -16289,6 +16482,7 @@ class ProcessingJobDatasetDefinition(dict):
                  redshift_dataset_definition: Optional['outputs.ProcessingJobRedshiftDatasetDefinition'] = None):
         """
         Configuration for Dataset Definition inputs. The Dataset Definition input must specify exactly one of either `AthenaDatasetDefinition` or `RedshiftDatasetDefinition` types.
+
         :param 'ProcessingJobAthenaDatasetDefinition' athena_dataset_definition: Configuration for Athena Dataset Definition input.
         :param 'ProcessingJobDatasetDefinitionDataDistributionType' data_distribution_type: Whether the generated dataset is FullyReplicated or ShardedByS3Key (default).
         :param 'ProcessingJobDatasetDefinitionInputMode' input_mode: Whether to use File or Pipe input mode. In File (default) mode, Amazon SageMaker copies the data from the input source onto the local Amazon Elastic Block Store (Amazon EBS) volumes before starting your training algorithm. This is the most commonly used input mode. In Pipe mode, Amazon SageMaker streams input data from the source directly to your algorithm without using the EBS volume.
@@ -16394,6 +16588,7 @@ class ProcessingJobExperimentConfig(dict):
                  trial_name: Optional[_builtins.str] = None):
         """
         Associates a SageMaker job as a trial component with an experiment and trial.
+
         :param _builtins.str experiment_name: The name of an existing experiment to associate with the trial component.
         :param _builtins.str run_name: The name of the experiment run to associate with the trial component.
         :param _builtins.str trial_component_display_name: The display name for the trial component. If this key isn't specified, the display name is the trial component name.
@@ -16467,6 +16662,7 @@ class ProcessingJobFeatureStoreOutput(dict):
                  feature_group_name: _builtins.str):
         """
         Configuration for processing job outputs in Amazon SageMaker Feature Store.
+
         :param _builtins.str feature_group_name: The name of the Amazon SageMaker FeatureGroup to use as the destination for processing job output. Note that your processing script is responsible for putting records into your Feature Store.
         """
         pulumi.set(__self__, "feature_group_name", feature_group_name)
@@ -16512,6 +16708,7 @@ class ProcessingJobNetworkConfig(dict):
                  vpc_config: Optional['outputs.ProcessingJobVpcConfig'] = None):
         """
         Networking options for a job, such as network traffic encryption between containers, whether to allow inbound and outbound network calls to and from containers, and the VPC subnets and security groups to use for VPC-enabled jobs.
+
         :param _builtins.bool enable_inter_container_traffic_encryption: Whether to encrypt all communications between distributed processing jobs. Choose True to encrypt communications. Encryption provides greater security for distributed processing jobs, but the processing might take longer.
         :param _builtins.bool enable_network_isolation: Whether to allow inbound and outbound network calls to and from the containers used for the processing job.
         :param 'ProcessingJobVpcConfig' vpc_config: Specifies an Amazon Virtual Private Cloud (VPC) that your SageMaker jobs, hosted models, and compute resources have access to. You can control access to and from your resources by configuring a VPC. For more information, see [Give SageMaker Access to Resources in your Amazon VPC](https://docs.aws.amazon.com/sagemaker/latest/dg/infrastructure-give-access.html) .
@@ -16583,6 +16780,7 @@ class ProcessingJobProcessingInputsObject(dict):
                  s3_input: Optional['outputs.ProcessingJobS3Input'] = None):
         """
         The inputs for a processing job. The processing input must specify exactly one of either S3Input or DatasetDefinition types.
+
         :param _builtins.str input_name: The name for the processing job input.
         :param _builtins.bool app_managed: When True, input operations such as data download are managed natively by the processing job application. When False (default), input operations are managed by Amazon SageMaker.
         :param 'ProcessingJobDatasetDefinition' dataset_definition: Configuration for Dataset Definition inputs. The Dataset Definition input must specify exactly one of either `AthenaDatasetDefinition` or `RedshiftDatasetDefinition` types.
@@ -16656,6 +16854,7 @@ class ProcessingJobProcessingOutputConfig(dict):
                  kms_key_id: Optional[_builtins.str] = None):
         """
         Configuration for uploading output from the processing container.
+
         :param Sequence['ProcessingJobProcessingOutputsObject'] outputs: An array of outputs configuring the data to upload from the processing container.
         :param _builtins.str kms_key_id: The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt the processing job output. KmsKeyId can be an ID of a KMS key, ARN of a KMS key, or alias of a KMS key. The KmsKeyId is applied to all outputs.
         """
@@ -16715,6 +16914,7 @@ class ProcessingJobProcessingOutputsObject(dict):
                  s3_output: Optional['outputs.ProcessingJobS3Output'] = None):
         """
         Describes the results of a processing job. The processing output must specify exactly one of either S3Output or FeatureStoreOutput types.
+
         :param _builtins.str output_name: The name for the processing job output.
         :param _builtins.bool app_managed: When True, output operations such as data upload are managed natively by the processing job application. When False (default), output operations are managed by Amazon SageMaker.
         :param 'ProcessingJobFeatureStoreOutput' feature_store_output: Configuration for processing job outputs in Amazon SageMaker Feature Store.
@@ -16787,6 +16987,7 @@ class ProcessingJobProcessingResources(dict):
                  cluster_config: 'outputs.ProcessingJobClusterConfig'):
         """
         Identifies the resources, ML compute instances, and ML storage volumes to deploy for a processing job. In distributed training, you specify more than one instance.
+
         :param 'ProcessingJobClusterConfig' cluster_config: The configuration for the resources in a cluster used to run the processing job.
         """
         pulumi.set(__self__, "cluster_config", cluster_config)
@@ -16848,6 +17049,7 @@ class ProcessingJobRedshiftDatasetDefinition(dict):
                  output_compression: Optional['ProcessingJobRedshiftDatasetDefinitionOutputCompression'] = None):
         """
         Configuration for Redshift Dataset Definition input.
+
         :param _builtins.str cluster_id: The Redshift cluster Identifier.
         :param _builtins.str cluster_role_arn: The IAM role attached to your Redshift cluster that Amazon SageMaker uses to generate datasets.
         :param _builtins.str database: The name of the Redshift database used in Redshift query execution.
@@ -16984,6 +17186,7 @@ class ProcessingJobS3Input(dict):
                  s3_input_mode: Optional['ProcessingJobS3InputS3InputMode'] = None):
         """
         Configuration for downloading input data from Amazon S3 into the processing container.
+
         :param 'ProcessingJobS3InputS3DataType' s3_data_type: Whether you use an S3Prefix or a ManifestFile for the data type. If you choose S3Prefix, S3Uri identifies a key name prefix. Amazon SageMaker uses all objects with the specified key name prefix for the processing job. If you choose ManifestFile, S3Uri identifies an object that is a manifest file containing a list of object keys that you want Amazon SageMaker to use for the processing job.
         :param _builtins.str s3_uri: The URI of the Amazon S3 prefix Amazon SageMaker downloads data required to run a processing job.
         :param _builtins.str local_path: The local path in your container where you want Amazon SageMaker to write input data to. `LocalPath` is an absolute path to the input data and must begin with `/opt/ml/processing/`. LocalPath is a required parameter when `AppManaged` is `False` (default).
@@ -17083,6 +17286,7 @@ class ProcessingJobS3Output(dict):
                  local_path: Optional[_builtins.str] = None):
         """
         Configuration for uploading output data to Amazon S3 from the processing container.
+
         :param 'ProcessingJobS3OutputS3UploadMode' s3_upload_mode: Whether to upload the results of the processing job continuously or after the job completes.
         :param _builtins.str s3_uri: A URI that identifies the Amazon S3 bucket where you want Amazon SageMaker to save the results of a processing job.
         :param _builtins.str local_path: The local path of a directory where you want Amazon SageMaker to upload its contents to Amazon S3. LocalPath is an absolute path to a directory containing output files. This directory will be created by the platform and exist when your container's entrypoint is invoked.
@@ -17143,6 +17347,7 @@ class ProcessingJobStoppingCondition(dict):
                  max_runtime_in_seconds: _builtins.int):
         """
         Configures conditions under which the processing job should be stopped, such as how long the processing job has been running. After the condition is met, the processing job is stopped.
+
         :param _builtins.int max_runtime_in_seconds: Specifies the maximum runtime in seconds.
         """
         pulumi.set(__self__, "max_runtime_in_seconds", max_runtime_in_seconds)
@@ -17183,6 +17388,7 @@ class ProcessingJobVpcConfig(dict):
                  subnets: Sequence[_builtins.str]):
         """
         Specifies an Amazon Virtual Private Cloud (VPC) that your SageMaker jobs, hosted models, and compute resources have access to. You can control access to and from your resources by configuring a VPC. For more information, see https://docs.aws.amazon.com/sagemaker/latest/dg/infrastructure-give-access.html
+
         :param Sequence[_builtins.str] security_group_ids: The VPC security group IDs, in the form 'sg-xxxxxxxx'. Specify the security groups for the VPC that is specified in the 'Subnets' field.
         :param Sequence[_builtins.str] subnets: The ID of the subnets in the VPC to which you want to connect your training job or model. For information about the availability of specific instance types, see https://docs.aws.amazon.com/sagemaker/latest/dg/regions-quotas.html
         """
@@ -17268,6 +17474,7 @@ class ProjectCfnTemplateProviderDetail(dict):
                  role_arn: Optional[_builtins.str] = None):
         """
         CloudFormation template provider details for a SageMaker project.
+
         :param _builtins.str template_name: The name of the template used for the project.
         :param _builtins.str template_url: The URL of the CloudFormation template.
         :param Sequence['ProjectCfnStackParameter'] parameters: An array of CloudFormation stack parameters.
@@ -17323,6 +17530,7 @@ class ProjectProvisioningParameter(dict):
                  value: _builtins.str):
         """
         Information about a parameter used to provision a product.
+
         :param _builtins.str key: The parameter key.
         :param _builtins.str value: The parameter value.
         """
@@ -17372,6 +17580,7 @@ class ProjectTemplateProviderDetail(dict):
                  cfn_template_provider_detail: Optional['outputs.ProjectCfnTemplateProviderDetail'] = None):
         """
         Details about the template provider for the SageMaker project.
+
         :param 'ProjectCfnTemplateProviderDetail' cfn_template_provider_detail: Details about a CloudFormation template provider configuration and associated provisioning information.
         """
         if cfn_template_provider_detail is not None:
@@ -17415,6 +17624,7 @@ class ServiceCatalogProvisionedProductDetailsProperties(dict):
                  provisioned_product_status_message: Optional[_builtins.str] = None):
         """
         Provisioned ServiceCatalog  Details
+
         :param _builtins.str provisioned_product_id: The ID of the provisioned product.
         :param _builtins.str provisioned_product_status_message: The current status of the product.
                
@@ -17487,6 +17697,7 @@ class ServiceCatalogProvisioningDetailsProperties(dict):
                  provisioning_parameters: Optional[Sequence['outputs.ProjectProvisioningParameter']] = None):
         """
         Input ServiceCatalog Provisioning Details
+
         :param _builtins.str product_id: The ID of the product to provision.
         :param _builtins.str path_id: The path identifier of the product. This value is optional if the product has a default path, and required if the product has more than one path.
         :param _builtins.str provisioning_artifact_id: The ID of the provisioning artifact.
@@ -17598,6 +17809,7 @@ class SpaceCodeEditorAppSettings(dict):
                  default_resource_spec: Optional['outputs.SpaceResourceSpec'] = None):
         """
         The CodeEditor app settings.
+
         :param 'SpaceAppLifecycleManagement' app_lifecycle_management: Settings that are used to configure and manage the lifecycle of CodeEditor applications in a space.
         :param 'SpaceResourceSpec' default_resource_spec: Specifies the ARNs of a SageMaker image and SageMaker image version, and the instance type that the version runs on.
         """
@@ -17740,6 +17952,7 @@ class SpaceCustomImage(dict):
                  image_version_number: Optional[_builtins.int] = None):
         """
         A custom SageMaker image.
+
         :param _builtins.str app_image_config_name: The Name of the AppImageConfig.
         :param _builtins.str image_name: The name of the CustomImage. Must be unique to your account.
         :param _builtins.int image_version_number: The version number of the CustomImage.
@@ -17800,6 +18013,7 @@ class SpaceEbsStorageSettings(dict):
                  ebs_volume_size_in_gb: _builtins.int):
         """
         Properties related to the space's Amazon Elastic Block Store volume.
+
         :param _builtins.int ebs_volume_size_in_gb: Size of the Amazon EBS volume in Gb
         """
         pulumi.set(__self__, "ebs_volume_size_in_gb", ebs_volume_size_in_gb)
@@ -17939,6 +18153,7 @@ class SpaceJupyterLabAppSettings(dict):
                  default_resource_spec: Optional['outputs.SpaceResourceSpec'] = None):
         """
         The JupyterServer app settings.
+
         :param 'SpaceAppLifecycleManagement' app_lifecycle_management: Settings that are used to configure and manage the lifecycle of JupyterLab applications in a space.
         :param Sequence['SpaceCodeRepository'] code_repositories: A list of CodeRepositories available for use with JupyterLab apps.
         :param 'SpaceResourceSpec' default_resource_spec: Specifies the ARNs of a SageMaker image and SageMaker image version, and the instance type that the version runs on.
@@ -18004,6 +18219,7 @@ class SpaceJupyterServerAppSettings(dict):
                  lifecycle_config_arns: Optional[Sequence[_builtins.str]] = None):
         """
         The JupyterServer app settings.
+
         :param 'SpaceResourceSpec' default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the default SageMaker AI image used by the JupyterServer app. If you use the `LifecycleConfigArns` parameter, then this parameter is also required.
         :param Sequence[_builtins.str] lifecycle_config_arns: A list of LifecycleConfigArns available for use with JupyterServer apps.
         """
@@ -18061,6 +18277,7 @@ class SpaceKernelGatewayAppSettings(dict):
                  lifecycle_config_arns: Optional[Sequence[_builtins.str]] = None):
         """
         The kernel gateway app settings.
+
         :param Sequence['SpaceCustomImage'] custom_images: A list of custom SageMaker images that are configured to run as a KernelGateway app.
         :param 'SpaceResourceSpec' default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the KernelGateway app.
         :param Sequence[_builtins.str] lifecycle_config_arns: A list of LifecycleConfigArns available for use with KernelGateway apps.
@@ -18290,6 +18507,7 @@ class SpaceSettings(dict):
                  space_storage_settings: Optional['outputs.SpaceStorageSettings'] = None):
         """
         A collection of settings that apply to spaces of Amazon SageMaker Studio. These settings are specified when the CreateSpace API is called.
+
         :param 'SpaceAppType' app_type: The type of app created within the space.
                
                If using the [UpdateSpace](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UpdateSpace.html) API, you can't change the app type of your space by specifying a different value for this field.
@@ -18541,6 +18759,7 @@ class UserProfileCodeEditorAppSettings(dict):
                  lifecycle_config_arns: Optional[Sequence[_builtins.str]] = None):
         """
         The CodeEditor app settings.
+
         :param 'UserProfileAppLifecycleManagement' app_lifecycle_management: Settings that are used to configure and manage the lifecycle of CodeEditor applications.
         :param _builtins.str built_in_lifecycle_config_arn: The lifecycle configuration that runs before the default lifecycle configuration.
         :param Sequence['UserProfileCustomImage'] custom_images: A list of custom images for use for CodeEditor apps.
@@ -18730,6 +18949,7 @@ class UserProfileCustomImage(dict):
                  image_version_number: Optional[_builtins.int] = None):
         """
         A custom SageMaker image.
+
         :param _builtins.str app_image_config_name: The Name of the AppImageConfig.
         :param _builtins.str image_name: The name of the CustomImage. Must be unique to your account.
         :param _builtins.int image_version_number: The version number of the CustomImage.
@@ -18822,6 +19042,7 @@ class UserProfileDefaultEbsStorageSettings(dict):
                  maximum_ebs_volume_size_in_gb: _builtins.int):
         """
         Properties related to the Amazon Elastic Block Store volume.
+
         :param _builtins.int default_ebs_volume_size_in_gb: Default size of the Amazon EBS volume in Gb
         :param _builtins.int maximum_ebs_volume_size_in_gb: Maximum size of the Amazon EBS volume in Gb. Must be greater than or equal to the DefaultEbsVolumeSizeInGb.
         """
@@ -18871,6 +19092,7 @@ class UserProfileDefaultSpaceStorageSettings(dict):
                  default_ebs_storage_settings: Optional['outputs.UserProfileDefaultEbsStorageSettings'] = None):
         """
         Default storage settings for a space.
+
         :param 'UserProfileDefaultEbsStorageSettings' default_ebs_storage_settings: The default EBS storage settings for a space.
         """
         if default_ebs_storage_settings is not None:
@@ -19152,6 +19374,7 @@ class UserProfileJupyterLabAppSettings(dict):
                  lifecycle_config_arns: Optional[Sequence[_builtins.str]] = None):
         """
         The JupyterLab app settings.
+
         :param 'UserProfileAppLifecycleManagement' app_lifecycle_management: Indicates whether idle shutdown is activated for JupyterLab applications.
         :param _builtins.str built_in_lifecycle_config_arn: The lifecycle configuration that runs before the default lifecycle configuration.
         :param Sequence['UserProfileCodeRepository'] code_repositories: A list of CodeRepositories available for use with JupyterLab apps.
@@ -19250,6 +19473,7 @@ class UserProfileJupyterServerAppSettings(dict):
                  lifecycle_config_arns: Optional[Sequence[_builtins.str]] = None):
         """
         The JupyterServer app settings.
+
         :param 'UserProfileResourceSpec' default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the JupyterServer app.
         :param Sequence[_builtins.str] lifecycle_config_arns: A list of LifecycleConfigArns available for use with JupyterServer apps.
         """
@@ -19307,6 +19531,7 @@ class UserProfileKernelGatewayAppSettings(dict):
                  lifecycle_config_arns: Optional[Sequence[_builtins.str]] = None):
         """
         The kernel gateway app settings.
+
         :param Sequence['UserProfileCustomImage'] custom_images: A list of custom SageMaker images that are configured to run as a KernelGateway app.
         :param 'UserProfileResourceSpec' default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the KernelGateway app.
         :param Sequence[_builtins.str] lifecycle_config_arns: A list of LifecycleConfigArns available for use with KernelGateway apps.
@@ -19372,6 +19597,7 @@ class UserProfileRStudioServerProAppSettings(dict):
                  user_group: Optional['UserProfileRStudioServerProAppSettingsUserGroup'] = None):
         """
         A collection of settings that configure user interaction with the RStudioServerPro app.
+
         :param 'UserProfileRStudioServerProAppSettingsAccessStatus' access_status: Indicates whether the current user has access to the RStudioServerPro app.
         :param 'UserProfileRStudioServerProAppSettingsUserGroup' user_group: The level of permissions that the user has within the RStudioServerPro app. This value defaults to User. The Admin value allows the user access to the RStudio Administrative Dashboard.
         """
@@ -19565,6 +19791,7 @@ class UserProfileSharingSettings(dict):
                  s3_output_path: Optional[_builtins.str] = None):
         """
         Specifies options when sharing an Amazon SageMaker Studio notebook. These settings are specified as part of DefaultUserSettings when the CreateDomain API is called, and as part of UserSettings when the CreateUserProfile API is called.
+
         :param 'UserProfileSharingSettingsNotebookOutputOption' notebook_output_option: Whether to include the notebook cell output when sharing the notebook. The default is Disabled.
         :param _builtins.str s3_kms_key_id: When NotebookOutputOption is Allowed, the AWS Key Management Service (KMS) encryption key ID used to encrypt the notebook cell output in the Amazon S3 bucket.
         :param _builtins.str s3_output_path: When NotebookOutputOption is Allowed, the Amazon S3 bucket used to store the shared notebook snapshots.
@@ -19636,6 +19863,7 @@ class UserProfileStudioWebPortalSettings(dict):
                  hidden_sage_maker_image_version_aliases: Optional[Sequence['outputs.UserProfileHiddenSageMakerImage']] = None):
         """
         Studio settings. If these settings are applied on a user level, they take priority over the settings applied on a domain level.
+
         :param Sequence['UserProfileAppType'] hidden_app_types: Applications supported in Studio that are hidden from the Studio left navigation pane.
         :param Sequence['UserProfileAppInstanceType'] hidden_instance_types: The instance types you are hiding from the Studio user interface.
         :param Sequence['UserProfileMlTools'] hidden_ml_tools: The machine learning tools that are hidden from the Studio left navigation pane.
@@ -19751,6 +19979,7 @@ class UserProfileUserSettings(dict):
                  studio_web_portal_settings: Optional['outputs.UserProfileStudioWebPortalSettings'] = None):
         """
         A collection of settings that apply to users of Amazon SageMaker Studio. These settings are specified when the CreateUserProfile API is called, and as DefaultUserSettings when the CreateDomain API is called.
+
         :param 'UserProfileUserSettingsAutoMountHomeEfs' auto_mount_home_efs: Indicates whether auto-mounting of an EFS volume is supported for the user profile. 
         :param 'UserProfileCodeEditorAppSettings' code_editor_app_settings: The Code Editor application settings.
                

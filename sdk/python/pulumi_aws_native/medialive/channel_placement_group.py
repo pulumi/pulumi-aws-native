@@ -28,6 +28,7 @@ class ChannelPlacementGroupArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a ChannelPlacementGroup resource.
+
         :param pulumi.Input[_builtins.str] cluster_id: The ID of the cluster the node is on.
         :param pulumi.Input[_builtins.str] name: The name of the channel placement group.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] nodes: List of nodes added to the channel placement group
@@ -105,6 +106,7 @@ class ChannelPlacementGroup(pulumi.CustomResource):
         """
         Definition of AWS::MediaLive::ChannelPlacementGroup Resource Type
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] cluster_id: The ID of the cluster the node is on.
@@ -120,6 +122,7 @@ class ChannelPlacementGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of AWS::MediaLive::ChannelPlacementGroup Resource Type
+
 
         :param str resource_name: The name of the resource.
         :param ChannelPlacementGroupArgs args: The arguments to use to populate this resource's properties.

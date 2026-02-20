@@ -40,6 +40,7 @@ class PortalArgs:
                  user_settings_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Portal resource.
+
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] additional_encryption_context: The additional encryption context of the portal.
         :param pulumi.Input['PortalAuthenticationType'] authentication_type: The type of authentication integration points used when signing into the web portal. Defaults to `Standard` .
                
@@ -333,6 +334,7 @@ class Portal(pulumi.CustomResource):
         """
         Definition of AWS::WorkSpacesWeb::Portal Resource Type
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] additional_encryption_context: The additional encryption context of the portal.
@@ -373,6 +375,7 @@ class Portal(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of AWS::WorkSpacesWeb::Portal Resource Type
+
 
         :param str resource_name: The name of the resource.
         :param PortalArgs args: The arguments to use to populate this resource's properties.

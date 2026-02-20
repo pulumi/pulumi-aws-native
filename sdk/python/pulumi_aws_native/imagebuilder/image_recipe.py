@@ -34,6 +34,7 @@ class ImageRecipeArgs:
                  working_directory: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ImageRecipe resource.
+
         :param pulumi.Input[_builtins.str] parent_image: The parent image of the image recipe.
         :param pulumi.Input[_builtins.str] version: The version of the image recipe.
         :param pulumi.Input['ImageRecipeAdditionalInstanceConfigurationArgs'] additional_instance_configuration: Specify additional settings and launch scripts for your build instances.
@@ -205,6 +206,7 @@ class ImageRecipe(pulumi.CustomResource):
         """
         Resource schema for AWS::ImageBuilder::ImageRecipe
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ImageRecipeAdditionalInstanceConfigurationArgs', 'ImageRecipeAdditionalInstanceConfigurationArgsDict']] additional_instance_configuration: Specify additional settings and launch scripts for your build instances.
@@ -226,6 +228,7 @@ class ImageRecipe(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource schema for AWS::ImageBuilder::ImageRecipe
+
 
         :param str resource_name: The name of the resource.
         :param ImageRecipeArgs args: The arguments to use to populate this resource's properties.

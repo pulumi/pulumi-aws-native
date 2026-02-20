@@ -37,6 +37,7 @@ class EnvironmentArgs:
                  user_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentParameterArgs']]]] = None):
         """
         The set of arguments for constructing a Environment resource.
+
         :param pulumi.Input[_builtins.str] domain_identifier: The identifier of the Amazon DataZone domain in which the environment would be created.
         :param pulumi.Input[_builtins.str] project_identifier: The ID of the Amazon DataZone project in which the environment would be created.
         :param pulumi.Input[_builtins.int] deployment_order: The deployment order for the environment.
@@ -256,6 +257,7 @@ class Environment(pulumi.CustomResource):
         """
         Definition of AWS::DataZone::Environment Resource Type
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.int] deployment_order: The deployment order for the environment.
@@ -280,6 +282,7 @@ class Environment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of AWS::DataZone::Environment Resource Type
+
 
         :param str resource_name: The name of the resource.
         :param EnvironmentArgs args: The arguments to use to populate this resource's properties.

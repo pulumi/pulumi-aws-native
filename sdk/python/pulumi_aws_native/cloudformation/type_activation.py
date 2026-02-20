@@ -34,6 +34,7 @@ class TypeActivationArgs:
                  version_bump: Optional[pulumi.Input['TypeActivationVersionBump']] = None):
         """
         The set of arguments for constructing a TypeActivation resource.
+
         :param pulumi.Input[_builtins.bool] auto_update: Whether to automatically update the extension in this account and region when a new minor version is published by the extension publisher. Major versions released by the publisher must be manually updated.
         :param pulumi.Input[_builtins.str] execution_role_arn: The Amazon Resource Name (ARN) of the IAM execution role to use to register the type. If your resource type calls AWS APIs in any of its handlers, you must create an IAM execution role that includes the necessary permissions to call those AWS APIs, and provision that execution role in your account. CloudFormation then assumes that execution role to provide your resource type with the appropriate credentials.
         :param pulumi.Input['TypeActivationLoggingConfigArgs'] logging_config: Specifies logging configuration information for a type.
@@ -211,6 +212,7 @@ class TypeActivation(pulumi.CustomResource):
         """
         Enable a resource that has been published in the CloudFormation Registry.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] auto_update: Whether to automatically update the extension in this account and region when a new minor version is published by the extension publisher. Major versions released by the publisher must be manually updated.
@@ -234,6 +236,7 @@ class TypeActivation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Enable a resource that has been published in the CloudFormation Registry.
+
 
         :param str resource_name: The name of the resource.
         :param TypeActivationArgs args: The arguments to use to populate this resource's properties.

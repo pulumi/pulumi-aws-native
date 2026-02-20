@@ -30,6 +30,7 @@ class ThingGroupArgs:
                  thing_group_properties: Optional[pulumi.Input['ThingGroupPropertiesPropertiesArgs']] = None):
         """
         The set of arguments for constructing a ThingGroup resource.
+
         :param pulumi.Input[_builtins.str] parent_group_name: The parent thing group name.
                
                A Dynamic Thing Group does not have `parentGroupName` defined.
@@ -131,6 +132,7 @@ class ThingGroup(pulumi.CustomResource):
         """
         Resource Type definition for AWS::IoT::ThingGroup
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] parent_group_name: The parent thing group name.
@@ -151,6 +153,7 @@ class ThingGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::IoT::ThingGroup
+
 
         :param str resource_name: The name of the resource.
         :param ThingGroupArgs args: The arguments to use to populate this resource's properties.

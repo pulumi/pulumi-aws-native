@@ -30,6 +30,7 @@ class S3TableIntegrationArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a S3TableIntegration resource.
+
         :param pulumi.Input['S3TableIntegrationEncryptionConfigArgs'] encryption: Defines the encryption configuration for S3 Table integrations, including the encryption algorithm and KMS key settings.
         :param pulumi.Input[_builtins.str] role_arn: The ARN of the role used to access the S3 Table Integration
         :param pulumi.Input[Sequence[pulumi.Input['S3TableIntegrationLogSourceArgs']]] log_sources: The CloudWatch Logs data sources to associate with the S3 Table Integration
@@ -105,6 +106,7 @@ class S3TableIntegration(pulumi.CustomResource):
         """
         Resource Type definition for a CloudWatch Observability Admin S3 Table Integration.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['S3TableIntegrationEncryptionConfigArgs', 'S3TableIntegrationEncryptionConfigArgsDict']] encryption: Defines the encryption configuration for S3 Table integrations, including the encryption algorithm and KMS key settings.
@@ -120,6 +122,7 @@ class S3TableIntegration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for a CloudWatch Observability Admin S3 Table Integration.
+
 
         :param str resource_name: The name of the resource.
         :param S3TableIntegrationArgs args: The arguments to use to populate this resource's properties.

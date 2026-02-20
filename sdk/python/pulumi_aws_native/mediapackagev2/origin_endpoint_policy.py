@@ -28,6 +28,7 @@ class OriginEndpointPolicyArgs:
                  cdn_auth_configuration: Optional[pulumi.Input['OriginEndpointPolicyCdnAuthConfigurationArgs']] = None):
         """
         The set of arguments for constructing a OriginEndpointPolicy resource.
+
         :param pulumi.Input[_builtins.str] channel_group_name: The name of the channel group associated with the origin endpoint policy.
         :param pulumi.Input[_builtins.str] channel_name: The channel name associated with the origin endpoint policy.
         :param pulumi.Input[_builtins.str] origin_endpoint_name: The name of the origin endpoint associated with the origin endpoint policy.
@@ -121,6 +122,7 @@ class OriginEndpointPolicy(pulumi.CustomResource):
         """
         <p>Represents a resource policy that allows or denies access to an origin endpoint.</p>
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['OriginEndpointPolicyCdnAuthConfigurationArgs', 'OriginEndpointPolicyCdnAuthConfigurationArgsDict']] cdn_auth_configuration: The settings to enable CDN authorization headers in MediaPackage.
@@ -139,6 +141,7 @@ class OriginEndpointPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         <p>Represents a resource policy that allows or denies access to an origin endpoint.</p>
+
 
         :param str resource_name: The name of the resource.
         :param OriginEndpointPolicyArgs args: The arguments to use to populate this resource's properties.

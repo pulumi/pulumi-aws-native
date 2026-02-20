@@ -23,6 +23,7 @@ class TransitGatewayRouteTablePropagationArgs:
                  transit_gateway_route_table_id: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a TransitGatewayRouteTablePropagation resource.
+
         :param pulumi.Input[_builtins.str] transit_gateway_attachment_id: The ID of transit gateway attachment.
         :param pulumi.Input[_builtins.str] transit_gateway_route_table_id: The ID of transit gateway route table.
         """
@@ -66,6 +67,7 @@ class TransitGatewayRouteTablePropagation(pulumi.CustomResource):
         """
         AWS::EC2::TransitGatewayRouteTablePropagation Type
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] transit_gateway_attachment_id: The ID of transit gateway attachment.
@@ -79,6 +81,7 @@ class TransitGatewayRouteTablePropagation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         AWS::EC2::TransitGatewayRouteTablePropagation Type
+
 
         :param str resource_name: The name of the resource.
         :param TransitGatewayRouteTablePropagationArgs args: The arguments to use to populate this resource's properties.

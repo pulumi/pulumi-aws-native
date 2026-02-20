@@ -25,6 +25,7 @@ class LifecycleAutomationArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a LifecycleAutomation resource.
+
         :param pulumi.Input[_builtins.str] automation_document: The name of the Automation document to execute
         :param pulumi.Input[Mapping[str, Any]] automation_parameters: A map of key-value parameters passed to the Automation document during execution. Each parameter name maps to a list of values, even for single values. Parameters can include configuration-specific values for your automation workflow.
         :param pulumi.Input[_builtins.str] resource_key: A unique identifier used for generating a unique logical ID for the custom resource
@@ -99,6 +100,7 @@ class LifecycleAutomation(pulumi.CustomResource):
         """
         Resource Type definition for AWS::SSMQuickSetup::LifecycleAutomation that executes SSM Automation documents in response to CloudFormation lifecycle events.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] automation_document: The name of the Automation document to execute
@@ -114,6 +116,7 @@ class LifecycleAutomation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::SSMQuickSetup::LifecycleAutomation that executes SSM Automation documents in response to CloudFormation lifecycle events.
+
 
         :param str resource_name: The name of the resource.
         :param LifecycleAutomationArgs args: The arguments to use to populate this resource's properties.

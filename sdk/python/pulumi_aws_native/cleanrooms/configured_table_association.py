@@ -33,6 +33,7 @@ class ConfiguredTableAssociationArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a ConfiguredTableAssociation resource.
+
         :param pulumi.Input[_builtins.str] configured_table_identifier: A unique identifier for the configured table to be associated to. Currently accepts a configured table ID.
         :param pulumi.Input[_builtins.str] membership_identifier: The unique ID for the membership this configured table association belongs to.
         :param pulumi.Input[_builtins.str] role_arn: The service will assume this role to access catalog metadata and query the table.
@@ -155,6 +156,7 @@ class ConfiguredTableAssociation(pulumi.CustomResource):
         """
         Represents a table that can be queried within a collaboration
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ConfiguredTableAssociationAnalysisRuleArgs', 'ConfiguredTableAssociationAnalysisRuleArgsDict']]]] configured_table_association_analysis_rules: An analysis rule for a configured table association. This analysis rule specifies how data from the table can be used within its associated collaboration. In the console, the `ConfiguredTableAssociationAnalysisRule` is referred to as the *collaboration analysis rule* .
@@ -173,6 +175,7 @@ class ConfiguredTableAssociation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Represents a table that can be queried within a collaboration
+
 
         :param str resource_name: The name of the resource.
         :param ConfiguredTableAssociationArgs args: The arguments to use to populate this resource's properties.

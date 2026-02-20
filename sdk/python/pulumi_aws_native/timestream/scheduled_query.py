@@ -36,6 +36,7 @@ class ScheduledQueryArgs:
                  target_configuration: Optional[pulumi.Input['ScheduledQueryTargetConfigurationArgs']] = None):
         """
         The set of arguments for constructing a ScheduledQuery resource.
+
         :param pulumi.Input['ScheduledQueryErrorReportConfigurationArgs'] error_report_configuration: Configuration for error reporting. Error reports will be generated when a problem is encountered when writing the query results.
         :param pulumi.Input['ScheduledQueryNotificationConfigurationArgs'] notification_configuration: Notification configuration for the scheduled query. A notification is sent by Timestream when a query run finishes, when the state is updated or when you delete it.
         :param pulumi.Input[_builtins.str] query_string: The query string to run. Parameter names can be specified in the query string `@` character followed by an identifier. The named Parameter `@scheduled_runtime` is reserved and can be used in the query to get the time at which the query is scheduled to run.
@@ -218,6 +219,7 @@ class ScheduledQuery(pulumi.CustomResource):
         """
         The AWS::Timestream::ScheduledQuery resource creates a Timestream Scheduled Query.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] client_token: Using a ClientToken makes the call to CreateScheduledQuery idempotent, in other words, making the same request repeatedly will produce the same result. Making multiple identical CreateScheduledQuery requests has the same effect as making a single request.
@@ -246,6 +248,7 @@ class ScheduledQuery(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The AWS::Timestream::ScheduledQuery resource creates a Timestream Scheduled Query.
+
 
         :param str resource_name: The name of the resource.
         :param ScheduledQueryArgs args: The arguments to use to populate this resource's properties.

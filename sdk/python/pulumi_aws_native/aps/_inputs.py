@@ -151,6 +151,7 @@ class AnomalyDetectorLabelArgs:
                  value: pulumi.Input[_builtins.str]):
         """
         A key-value pair to provide meta-data and multi-dimensional data analysis for filtering and aggregation.
+
         :param pulumi.Input[_builtins.str] key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         :param pulumi.Input[_builtins.str] value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         """
@@ -350,6 +351,7 @@ class ScraperCloudWatchLogDestinationArgs:
                  log_group_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Represents a cloudwatch logs destination for scraper logging
+
         :param pulumi.Input[_builtins.str] log_group_arn: ARN of the CloudWatch log group
         """
         if log_group_arn is not None:
@@ -460,6 +462,7 @@ class ScraperDestinationAmpConfigurationPropertiesArgs:
                  workspace_arn: pulumi.Input[_builtins.str]):
         """
         Configuration for Amazon Managed Prometheus metrics destination
+
         :param pulumi.Input[_builtins.str] workspace_arn: ARN of an Amazon Managed Prometheus workspace
         """
         pulumi.set(__self__, "workspace_arn", workspace_arn)
@@ -492,6 +495,7 @@ class ScraperDestinationArgs:
                  amp_configuration: Optional[pulumi.Input['ScraperDestinationAmpConfigurationPropertiesArgs']] = None):
         """
         Scraper metrics destination
+
         :param pulumi.Input['ScraperDestinationAmpConfigurationPropertiesArgs'] amp_configuration: Configuration for Amazon Managed Prometheus metrics destination
         """
         if amp_configuration is not None:
@@ -562,6 +566,7 @@ class ScraperLoggingDestinationArgs:
                  cloud_watch_logs: Optional[pulumi.Input['ScraperCloudWatchLogDestinationArgs']] = None):
         """
         Destination for scraper logging
+
         :param pulumi.Input['ScraperCloudWatchLogDestinationArgs'] cloud_watch_logs: The CloudWatch Logs configuration for the scraper logging destination.
         """
         if cloud_watch_logs is not None:
@@ -600,6 +605,7 @@ class ScraperRoleConfigurationArgs:
                  target_role_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Role configuration
+
         :param pulumi.Input[_builtins.str] source_role_arn: IAM Role in source account
         :param pulumi.Input[_builtins.str] target_role_arn: IAM Role in the target account
         """
@@ -648,6 +654,7 @@ class ScraperScrapeConfigurationArgs:
                  configuration_blob: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Scraper configuration
+
         :param pulumi.Input[_builtins.str] configuration_blob: Prometheus compatible scrape configuration in base64 encoded blob format
         """
         if configuration_blob is not None:
@@ -691,6 +698,7 @@ class ScraperSourceEksConfigurationPropertiesArgs:
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Configuration for EKS metrics source
+
         :param pulumi.Input[_builtins.str] cluster_arn: ARN of an EKS cluster
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: List of subnet IDs
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: List of security group IDs
@@ -757,6 +765,7 @@ class ScraperSourceVpcConfigurationPropertiesArgs:
                  subnet_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
         """
         Configuration for VPC metrics source
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: List of security group IDs
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: List of subnet IDs
         """
@@ -808,6 +817,7 @@ class ScraperSourceArgs:
                  vpc_configuration: Optional[pulumi.Input['ScraperSourceVpcConfigurationPropertiesArgs']] = None):
         """
         Scraper metrics source
+
         :param pulumi.Input['ScraperSourceEksConfigurationPropertiesArgs'] eks_configuration: Configuration for EKS metrics source
         :param pulumi.Input['ScraperSourceVpcConfigurationPropertiesArgs'] vpc_configuration: Configuration for VPC metrics source
         """
@@ -856,6 +866,7 @@ class WorkspaceCloudWatchLogDestinationArgs:
                  log_group_arn: pulumi.Input[_builtins.str]):
         """
         Represents a cloudwatch logs destination for query logging
+
         :param pulumi.Input[_builtins.str] log_group_arn: The ARN of the CloudWatch Logs log group
         """
         pulumi.set(__self__, "log_group_arn", log_group_arn)
@@ -893,6 +904,7 @@ class WorkspaceConfigurationArgs:
                  retention_period_in_days: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Workspace configuration
+
         :param pulumi.Input[Sequence[pulumi.Input['WorkspaceLimitsPerLabelSetArgs']]] limits_per_label_sets: An array of label set and associated limits
         :param pulumi.Input[_builtins.int] retention_period_in_days: How many days that metrics are retained in the workspace
         """
@@ -946,6 +958,7 @@ class WorkspaceLabelArgs:
                  value: pulumi.Input[_builtins.str]):
         """
         Series label
+
         :param pulumi.Input[_builtins.str] name: Name of the label
         :param pulumi.Input[_builtins.str] value: Value of the label
         """
@@ -992,6 +1005,7 @@ class WorkspaceLimitsPerLabelSetEntryArgs:
                  max_series: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Limits that can be applied to a label set
+
         :param pulumi.Input[_builtins.int] max_series: The maximum number of active series that can be ingested for this label set
         """
         if max_series is not None:
@@ -1030,6 +1044,7 @@ class WorkspaceLimitsPerLabelSetArgs:
                  limits: pulumi.Input['WorkspaceLimitsPerLabelSetEntryArgs']):
         """
         Label set and its associated limits
+
         :param pulumi.Input[Sequence[pulumi.Input['WorkspaceLabelArgs']]] label_set: An array of series labels
         :param pulumi.Input['WorkspaceLimitsPerLabelSetEntryArgs'] limits: This structure contains the information about the limits that apply to time series that match this label set.
         """
@@ -1076,6 +1091,7 @@ class WorkspaceLoggingConfigurationArgs:
                  log_group_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Logging configuration
+
         :param pulumi.Input[_builtins.str] log_group_arn: CloudWatch log group ARN
         """
         if log_group_arn is not None:
@@ -1114,6 +1130,7 @@ class WorkspaceLoggingDestinationArgs:
                  filters: pulumi.Input['WorkspaceLoggingFilterArgs']):
         """
         Destinations for query logging
+
         :param pulumi.Input['WorkspaceCloudWatchLogDestinationArgs'] cloud_watch_logs: Configuration details for logging to CloudWatch Logs.
         :param pulumi.Input['WorkspaceLoggingFilterArgs'] filters: Filtering criteria that determine which queries are logged.
         """
@@ -1160,6 +1177,7 @@ class WorkspaceLoggingFilterArgs:
                  qsp_threshold: pulumi.Input[_builtins.int]):
         """
         Filters for logging
+
         :param pulumi.Input[_builtins.int] qsp_threshold: Query logs with QSP above this limit are vended
         """
         pulumi.set(__self__, "qsp_threshold", qsp_threshold)
@@ -1192,6 +1210,7 @@ class WorkspaceQueryLoggingConfigurationArgs:
                  destinations: pulumi.Input[Sequence[pulumi.Input['WorkspaceLoggingDestinationArgs']]]):
         """
         Query logging configuration
+
         :param pulumi.Input[Sequence[pulumi.Input['WorkspaceLoggingDestinationArgs']]] destinations: The destinations configuration for query logging
         """
         pulumi.set(__self__, "destinations", destinations)

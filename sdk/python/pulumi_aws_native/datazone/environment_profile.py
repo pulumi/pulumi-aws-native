@@ -31,6 +31,7 @@ class EnvironmentProfileArgs:
                  user_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentProfileEnvironmentParameterArgs']]]] = None):
         """
         The set of arguments for constructing a EnvironmentProfile resource.
+
         :param pulumi.Input[_builtins.str] aws_account_id: The AWS account in which the Amazon DataZone environment is created.
         :param pulumi.Input[_builtins.str] aws_account_region: The AWS region in which this environment profile is created.
         :param pulumi.Input[_builtins.str] domain_identifier: The ID of the Amazon DataZone domain in which this environment profile is created.
@@ -167,6 +168,7 @@ class EnvironmentProfile(pulumi.CustomResource):
         """
         AWS Datazone Environment Profile is pre-configured set of resources and blueprints that provide reusable templates for creating environments.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] aws_account_id: The AWS account in which the Amazon DataZone environment is created.
@@ -186,6 +188,7 @@ class EnvironmentProfile(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         AWS Datazone Environment Profile is pre-configured set of resources and blueprints that provide reusable templates for creating environments.
+
 
         :param str resource_name: The name of the resource.
         :param EnvironmentProfileArgs args: The arguments to use to populate this resource's properties.

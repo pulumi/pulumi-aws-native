@@ -29,6 +29,7 @@ class LayerVersionArgs:
                  license_info: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a LayerVersion resource.
+
         :param pulumi.Input['LayerVersionContentArgs'] content: The function layer archive.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] compatible_architectures: A list of compatible instruction set architectures.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] compatible_runtimes: A list of compatible function runtimes. Used for filtering with ListLayers and ListLayerVersions.
@@ -137,6 +138,7 @@ class LayerVersion(pulumi.CustomResource):
         """
         Resource Type definition for AWS::Lambda::LayerVersion
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] compatible_architectures: A list of compatible instruction set architectures.
@@ -154,6 +156,7 @@ class LayerVersion(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::Lambda::LayerVersion
+
 
         :param str resource_name: The name of the resource.
         :param LayerVersionArgs args: The arguments to use to populate this resource's properties.

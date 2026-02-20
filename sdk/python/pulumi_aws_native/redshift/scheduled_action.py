@@ -32,6 +32,7 @@ class ScheduledActionArgs:
                  target_action: Optional[pulumi.Input['ScheduledActionTypeArgs']] = None):
         """
         The set of arguments for constructing a ScheduledAction resource.
+
         :param pulumi.Input[_builtins.bool] enable: If true, the schedule is enabled. If false, the scheduled action does not trigger.
         :param pulumi.Input[_builtins.str] end_time: The end time in UTC of the scheduled action. After this time, the scheduled action does not trigger.
         :param pulumi.Input[_builtins.str] iam_role: The IAM role to assume to run the target action.
@@ -173,6 +174,7 @@ class ScheduledAction(pulumi.CustomResource):
         """
         The `AWS::Redshift::ScheduledAction` resource creates an Amazon Redshift Scheduled Action.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] enable: If true, the schedule is enabled. If false, the scheduled action does not trigger.
@@ -192,6 +194,7 @@ class ScheduledAction(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The `AWS::Redshift::ScheduledAction` resource creates an Amazon Redshift Scheduled Action.
+
 
         :param str resource_name: The name of the resource.
         :param ScheduledActionArgs args: The arguments to use to populate this resource's properties.

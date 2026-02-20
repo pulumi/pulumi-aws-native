@@ -24,6 +24,7 @@ class IndexArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Index resource.
+
         :param pulumi.Input['IndexType'] type: Specifies the type of the index in this Region. For information about the aggregator index and how it differs from a local index, see [Turning on cross-Region search by creating an aggregator index](https://docs.aws.amazon.com/resource-explorer/latest/userguide/manage-aggregator-region.html) in the *AWS Resource Explorer User Guide.* .
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: The specified tags are attached to only the index created in this AWS Region . The tags don't attach to any of the resources listed in the index.
         """
@@ -96,6 +97,7 @@ class Index(pulumi.CustomResource):
 
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: The specified tags are attached to only the index created in this AWS Region . The tags don't attach to any of the resources listed in the index.
@@ -137,6 +139,7 @@ class Index(pulumi.CustomResource):
             })
 
         ```
+
 
         :param str resource_name: The name of the resource.
         :param IndexArgs args: The arguments to use to populate this resource's properties.

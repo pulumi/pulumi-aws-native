@@ -25,6 +25,7 @@ class UserHierarchyStructureArgs:
                  user_hierarchy_structure: Optional[pulumi.Input['UserHierarchyStructurePropertiesArgs']] = None):
         """
         The set of arguments for constructing a UserHierarchyStructure resource.
+
         :param pulumi.Input[_builtins.str] instance_arn: The identifier of the Amazon Connect instance.
         :param pulumi.Input['UserHierarchyStructurePropertiesArgs'] user_hierarchy_structure: Information about the hierarchy structure.
         """
@@ -69,6 +70,7 @@ class UserHierarchyStructure(pulumi.CustomResource):
         """
         Resource Type definition for AWS::Connect::UserHierarchyStructure
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] instance_arn: The identifier of the Amazon Connect instance.
@@ -82,6 +84,7 @@ class UserHierarchyStructure(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::Connect::UserHierarchyStructure
+
 
         :param str resource_name: The name of the resource.
         :param UserHierarchyStructureArgs args: The arguments to use to populate this resource's properties.

@@ -111,6 +111,7 @@ class AnomalyDetectorLabel(dict):
                  value: _builtins.str):
         """
         A key-value pair to provide meta-data and multi-dimensional data analysis for filtering and aggregation.
+
         :param _builtins.str key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         :param _builtins.str value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         """
@@ -295,6 +296,7 @@ class ScraperCloudWatchLogDestination(dict):
                  log_group_arn: Optional[_builtins.str] = None):
         """
         Represents a cloudwatch logs destination for scraper logging
+
         :param _builtins.str log_group_arn: ARN of the CloudWatch log group
         """
         if log_group_arn is not None:
@@ -384,6 +386,7 @@ class ScraperDestination(dict):
                  amp_configuration: Optional['outputs.ScraperDestinationAmpConfigurationProperties'] = None):
         """
         Scraper metrics destination
+
         :param 'ScraperDestinationAmpConfigurationProperties' amp_configuration: Configuration for Amazon Managed Prometheus metrics destination
         """
         if amp_configuration is not None:
@@ -424,6 +427,7 @@ class ScraperDestinationAmpConfigurationProperties(dict):
                  workspace_arn: _builtins.str):
         """
         Configuration for Amazon Managed Prometheus metrics destination
+
         :param _builtins.str workspace_arn: ARN of an Amazon Managed Prometheus workspace
         """
         pulumi.set(__self__, "workspace_arn", workspace_arn)
@@ -507,6 +511,7 @@ class ScraperLoggingDestination(dict):
                  cloud_watch_logs: Optional['outputs.ScraperCloudWatchLogDestination'] = None):
         """
         Destination for scraper logging
+
         :param 'ScraperCloudWatchLogDestination' cloud_watch_logs: The CloudWatch Logs configuration for the scraper logging destination.
         """
         if cloud_watch_logs is not None:
@@ -550,6 +555,7 @@ class ScraperRoleConfiguration(dict):
                  target_role_arn: Optional[_builtins.str] = None):
         """
         Role configuration
+
         :param _builtins.str source_role_arn: IAM Role in source account
         :param _builtins.str target_role_arn: IAM Role in the target account
         """
@@ -601,6 +607,7 @@ class ScraperScrapeConfiguration(dict):
                  configuration_blob: Optional[_builtins.str] = None):
         """
         Scraper configuration
+
         :param _builtins.str configuration_blob: Prometheus compatible scrape configuration in base64 encoded blob format
         """
         if configuration_blob is not None:
@@ -644,6 +651,7 @@ class ScraperSource(dict):
                  vpc_configuration: Optional['outputs.ScraperSourceVpcConfigurationProperties'] = None):
         """
         Scraper metrics source
+
         :param 'ScraperSourceEksConfigurationProperties' eks_configuration: Configuration for EKS metrics source
         :param 'ScraperSourceVpcConfigurationProperties' vpc_configuration: Configuration for VPC metrics source
         """
@@ -701,6 +709,7 @@ class ScraperSourceEksConfigurationProperties(dict):
                  security_group_ids: Optional[Sequence[_builtins.str]] = None):
         """
         Configuration for EKS metrics source
+
         :param _builtins.str cluster_arn: ARN of an EKS cluster
         :param Sequence[_builtins.str] subnet_ids: List of subnet IDs
         :param Sequence[_builtins.str] security_group_ids: List of security group IDs
@@ -764,6 +773,7 @@ class ScraperSourceVpcConfigurationProperties(dict):
                  subnet_ids: Sequence[_builtins.str]):
         """
         Configuration for VPC metrics source
+
         :param Sequence[_builtins.str] security_group_ids: List of security group IDs
         :param Sequence[_builtins.str] subnet_ids: List of subnet IDs
         """
@@ -813,6 +823,7 @@ class WorkspaceCloudWatchLogDestination(dict):
                  log_group_arn: _builtins.str):
         """
         Represents a cloudwatch logs destination for query logging
+
         :param _builtins.str log_group_arn: The ARN of the CloudWatch Logs log group
         """
         pulumi.set(__self__, "log_group_arn", log_group_arn)
@@ -855,6 +866,7 @@ class WorkspaceConfiguration(dict):
                  retention_period_in_days: Optional[_builtins.int] = None):
         """
         Workspace configuration
+
         :param Sequence['WorkspaceLimitsPerLabelSet'] limits_per_label_sets: An array of label set and associated limits
         :param _builtins.int retention_period_in_days: How many days that metrics are retained in the workspace
         """
@@ -890,6 +902,7 @@ class WorkspaceLabel(dict):
                  value: _builtins.str):
         """
         Series label
+
         :param _builtins.str name: Name of the label
         :param _builtins.str value: Value of the label
         """
@@ -940,6 +953,7 @@ class WorkspaceLimitsPerLabelSet(dict):
                  limits: 'outputs.WorkspaceLimitsPerLabelSetEntry'):
         """
         Label set and its associated limits
+
         :param Sequence['WorkspaceLabel'] label_set: An array of series labels
         :param 'WorkspaceLimitsPerLabelSetEntry' limits: This structure contains the information about the limits that apply to time series that match this label set.
         """
@@ -989,6 +1003,7 @@ class WorkspaceLimitsPerLabelSetEntry(dict):
                  max_series: Optional[_builtins.int] = None):
         """
         Limits that can be applied to a label set
+
         :param _builtins.int max_series: The maximum number of active series that can be ingested for this label set
         """
         if max_series is not None:
@@ -1029,6 +1044,7 @@ class WorkspaceLoggingConfiguration(dict):
                  log_group_arn: Optional[_builtins.str] = None):
         """
         Logging configuration
+
         :param _builtins.str log_group_arn: CloudWatch log group ARN
         """
         if log_group_arn is not None:
@@ -1070,6 +1086,7 @@ class WorkspaceLoggingDestination(dict):
                  filters: 'outputs.WorkspaceLoggingFilter'):
         """
         Destinations for query logging
+
         :param 'WorkspaceCloudWatchLogDestination' cloud_watch_logs: Configuration details for logging to CloudWatch Logs.
         :param 'WorkspaceLoggingFilter' filters: Filtering criteria that determine which queries are logged.
         """
@@ -1119,6 +1136,7 @@ class WorkspaceLoggingFilter(dict):
                  qsp_threshold: _builtins.int):
         """
         Filters for logging
+
         :param _builtins.int qsp_threshold: Query logs with QSP above this limit are vended
         """
         pulumi.set(__self__, "qsp_threshold", qsp_threshold)
@@ -1141,6 +1159,7 @@ class WorkspaceQueryLoggingConfiguration(dict):
                  destinations: Sequence['outputs.WorkspaceLoggingDestination']):
         """
         Query logging configuration
+
         :param Sequence['WorkspaceLoggingDestination'] destinations: The destinations configuration for query logging
         """
         pulumi.set(__self__, "destinations", destinations)

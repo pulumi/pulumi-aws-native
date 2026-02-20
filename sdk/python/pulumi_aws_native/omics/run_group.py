@@ -27,6 +27,7 @@ class RunGroupArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a RunGroup resource.
+
         :param pulumi.Input[_builtins.float] max_cpus: The group's maximum CPU count setting.
         :param pulumi.Input[_builtins.float] max_duration: The group's maximum duration setting in minutes.
         :param pulumi.Input[_builtins.float] max_gpus: The maximum GPUs that can be used by a run group.
@@ -136,6 +137,7 @@ class RunGroup(pulumi.CustomResource):
         """
         Definition of AWS::Omics::RunGroup Resource Type
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.float] max_cpus: The group's maximum CPU count setting.
@@ -153,6 +155,7 @@ class RunGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of AWS::Omics::RunGroup Resource Type
+
 
         :param str resource_name: The name of the resource.
         :param RunGroupArgs args: The arguments to use to populate this resource's properties.

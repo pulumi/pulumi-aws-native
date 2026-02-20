@@ -33,6 +33,7 @@ class DevicePoolRule(dict):
                  value: Optional[_builtins.str] = None):
         """
         Represents a condition for a device pool.
+
         :param 'DevicePoolRuleAttribute' attribute: The rule's stringified attribute.
         :param 'DevicePoolRuleOperator' operator: Specifies how Device Farm compares the rule's attribute to the value.
         :param _builtins.str value: The rule's value.
@@ -120,6 +121,7 @@ class ProjectVpcConfig(dict):
                  vpc_id: _builtins.str):
         """
         The VPC security groups and subnets that are attached to a project
+
         :param Sequence[_builtins.str] security_group_ids: An array of security group Ids in your Amazon VPC
         :param Sequence[_builtins.str] subnet_ids: A array of subnet IDs in your Amazon VPC.
         :param _builtins.str vpc_id: The ID of the Amazon VPC
@@ -185,6 +187,7 @@ class TestGridProjectVpcConfig(dict):
                  vpc_id: _builtins.str):
         """
         The VPC security groups and subnets that are attached to a TestGrid project.
+
         :param Sequence[_builtins.str] security_group_ids: A list of VPC security group IDs in your Amazon VPC.
         :param Sequence[_builtins.str] subnet_ids: A list of VPC subnet IDs in your Amazon VPC.
         :param _builtins.str vpc_id: A list of VPC IDs.

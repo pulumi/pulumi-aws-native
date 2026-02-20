@@ -38,6 +38,7 @@ class TaskArgs:
                  task_report_config: Optional[pulumi.Input['TaskReportConfigArgs']] = None):
         """
         The set of arguments for constructing a Task resource.
+
         :param pulumi.Input[_builtins.str] destination_location_arn: The ARN of an AWS storage resource's location.
         :param pulumi.Input[_builtins.str] source_location_arn: The ARN of the source location for the task.
         :param pulumi.Input[_builtins.str] cloud_watch_log_group_arn: The ARN of the Amazon CloudWatch log group that is used to monitor and log events in the task.
@@ -265,6 +266,7 @@ class Task(pulumi.CustomResource):
 
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] cloud_watch_log_group_arn: The ARN of the Amazon CloudWatch log group that is used to monitor and log events in the task.
@@ -312,6 +314,7 @@ class Task(pulumi.CustomResource):
             destination_location_arn="arn:aws:datasync:us-east-2:111222333444:location/loc-18ec8bcgd437d61t4")
 
         ```
+
 
         :param str resource_name: The name of the resource.
         :param TaskArgs args: The arguments to use to populate this resource's properties.
