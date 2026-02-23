@@ -41,6 +41,9 @@ export class VolumeAttachment extends pulumi.CustomResource {
      * The device name (for example, ``/dev/sdh`` or ``xvdh``).
      */
     declare public readonly device: pulumi.Output<string | undefined>;
+    /**
+     * The index of the EBS card. Some instance types support multiple EBS cards. The default EBS card index is 0.
+     */
     declare public readonly ebsCardIndex: pulumi.Output<number | undefined>;
     /**
      * The ID of the instance to which the volume attaches. This value can be a reference to an [AWS::EC2::Instance](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html) resource, or it can be the physical ID of an existing EC2 instance.
@@ -93,6 +96,9 @@ export interface VolumeAttachmentArgs {
      * The device name (for example, ``/dev/sdh`` or ``xvdh``).
      */
     device?: pulumi.Input<string>;
+    /**
+     * The index of the EBS card. Some instance types support multiple EBS cards. The default EBS card index is 0.
+     */
     ebsCardIndex?: pulumi.Input<number>;
     /**
      * The ID of the instance to which the volume attaches. This value can be a reference to an [AWS::EC2::Instance](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html) resource, or it can be the physical ID of an existing EC2 instance.

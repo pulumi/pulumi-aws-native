@@ -40,13 +40,13 @@ type LookupAutomationRuleResult struct {
 	Criteria *AutomationRulesFindingFilters `pulumi:"criteria"`
 	// A description of the rule.
 	Description *string `pulumi:"description"`
-	// Specifies whether a rule is the last to be applied with respect to a finding that matches the rule criteria. This is useful when a finding matches the criteria for multiple rules, and each rule has different actions. If a rule is terminal, Security Hub applies the rule action to a finding that matches the rule criteria and doesn't evaluate other rules for the finding. By default, a rule isn't terminal.
+	// Specifies whether a rule is the last to be applied with respect to a finding that matches the rule criteria. This is useful when a finding matches the criteria for multiple rules, and each rule has different actions. If a rule is terminal, Security Hub CSPM applies the rule action to a finding that matches the rule criteria and doesn't evaluate other rules for the finding. By default, a rule isn't terminal.
 	IsTerminal *bool `pulumi:"isTerminal"`
 	// The Amazon Resource Name (ARN) of the automation rule that you create. For example, `arn:aws:securityhub:us-east-1:123456789012:automation-rule/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111` .
 	RuleArn *string `pulumi:"ruleArn"`
 	// The name of the rule.
 	RuleName *string `pulumi:"ruleName"`
-	// An integer ranging from 1 to 1000 that represents the order in which the rule action is applied to findings. Security Hub applies rules with lower values for this parameter first.
+	// An integer ranging from 1 to 1000 that represents the order in which the rule action is applied to findings. Security Hub CSPM applies rules with lower values for this parameter first.
 	RuleOrder *int `pulumi:"ruleOrder"`
 	// Whether the rule is active after it is created. If this parameter is equal to ``ENABLED``, ASH applies the rule to findings and finding updates after the rule is created.
 	RuleStatus *AutomationRuleRuleStatus `pulumi:"ruleStatus"`
@@ -117,7 +117,7 @@ func (o LookupAutomationRuleResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAutomationRuleResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Specifies whether a rule is the last to be applied with respect to a finding that matches the rule criteria. This is useful when a finding matches the criteria for multiple rules, and each rule has different actions. If a rule is terminal, Security Hub applies the rule action to a finding that matches the rule criteria and doesn't evaluate other rules for the finding. By default, a rule isn't terminal.
+// Specifies whether a rule is the last to be applied with respect to a finding that matches the rule criteria. This is useful when a finding matches the criteria for multiple rules, and each rule has different actions. If a rule is terminal, Security Hub CSPM applies the rule action to a finding that matches the rule criteria and doesn't evaluate other rules for the finding. By default, a rule isn't terminal.
 func (o LookupAutomationRuleResultOutput) IsTerminal() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupAutomationRuleResult) *bool { return v.IsTerminal }).(pulumi.BoolPtrOutput)
 }
@@ -132,7 +132,7 @@ func (o LookupAutomationRuleResultOutput) RuleName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAutomationRuleResult) *string { return v.RuleName }).(pulumi.StringPtrOutput)
 }
 
-// An integer ranging from 1 to 1000 that represents the order in which the rule action is applied to findings. Security Hub applies rules with lower values for this parameter first.
+// An integer ranging from 1 to 1000 that represents the order in which the rule action is applied to findings. Security Hub CSPM applies rules with lower values for this parameter first.
 func (o LookupAutomationRuleResultOutput) RuleOrder() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LookupAutomationRuleResult) *int { return v.RuleOrder }).(pulumi.IntPtrOutput)
 }

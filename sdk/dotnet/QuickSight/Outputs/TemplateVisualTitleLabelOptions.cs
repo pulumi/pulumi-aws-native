@@ -20,13 +20,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// <summary>
         /// The visibility of the title label.
         /// </summary>
-        public readonly object? Visibility;
+        public readonly Pulumi.AwsNative.QuickSight.TemplateVisibility? Visibility;
 
         [OutputConstructor]
         private TemplateVisualTitleLabelOptions(
             Outputs.TemplateShortFormatText? formatText,
 
-            object? visibility)
+            Pulumi.AwsNative.QuickSight.TemplateVisibility? visibility)
         {
             FormatText = formatText;
             Visibility = visibility;

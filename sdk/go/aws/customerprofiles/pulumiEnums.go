@@ -3126,6 +3126,172 @@ func (in *integrationScheduledTriggerPropertiesDataPullModePtr) ToIntegrationSch
 	return pulumi.ToOutputWithContext(ctx, in).(IntegrationScheduledTriggerPropertiesDataPullModePtrOutput)
 }
 
+// Scope of the integration, such as 'PROFILE' or 'DOMAIN'
+type IntegrationScope string
+
+const (
+	IntegrationScopeProfile = IntegrationScope("PROFILE")
+	IntegrationScopeDomain  = IntegrationScope("DOMAIN")
+)
+
+func (IntegrationScope) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationScope)(nil)).Elem()
+}
+
+func (e IntegrationScope) ToIntegrationScopeOutput() IntegrationScopeOutput {
+	return pulumi.ToOutput(e).(IntegrationScopeOutput)
+}
+
+func (e IntegrationScope) ToIntegrationScopeOutputWithContext(ctx context.Context) IntegrationScopeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(IntegrationScopeOutput)
+}
+
+func (e IntegrationScope) ToIntegrationScopePtrOutput() IntegrationScopePtrOutput {
+	return e.ToIntegrationScopePtrOutputWithContext(context.Background())
+}
+
+func (e IntegrationScope) ToIntegrationScopePtrOutputWithContext(ctx context.Context) IntegrationScopePtrOutput {
+	return IntegrationScope(e).ToIntegrationScopeOutputWithContext(ctx).ToIntegrationScopePtrOutputWithContext(ctx)
+}
+
+func (e IntegrationScope) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e IntegrationScope) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e IntegrationScope) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e IntegrationScope) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type IntegrationScopeOutput struct{ *pulumi.OutputState }
+
+func (IntegrationScopeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationScope)(nil)).Elem()
+}
+
+func (o IntegrationScopeOutput) ToIntegrationScopeOutput() IntegrationScopeOutput {
+	return o
+}
+
+func (o IntegrationScopeOutput) ToIntegrationScopeOutputWithContext(ctx context.Context) IntegrationScopeOutput {
+	return o
+}
+
+func (o IntegrationScopeOutput) ToIntegrationScopePtrOutput() IntegrationScopePtrOutput {
+	return o.ToIntegrationScopePtrOutputWithContext(context.Background())
+}
+
+func (o IntegrationScopeOutput) ToIntegrationScopePtrOutputWithContext(ctx context.Context) IntegrationScopePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IntegrationScope) *IntegrationScope {
+		return &v
+	}).(IntegrationScopePtrOutput)
+}
+
+func (o IntegrationScopeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o IntegrationScopeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e IntegrationScope) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o IntegrationScopeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o IntegrationScopeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e IntegrationScope) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type IntegrationScopePtrOutput struct{ *pulumi.OutputState }
+
+func (IntegrationScopePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntegrationScope)(nil)).Elem()
+}
+
+func (o IntegrationScopePtrOutput) ToIntegrationScopePtrOutput() IntegrationScopePtrOutput {
+	return o
+}
+
+func (o IntegrationScopePtrOutput) ToIntegrationScopePtrOutputWithContext(ctx context.Context) IntegrationScopePtrOutput {
+	return o
+}
+
+func (o IntegrationScopePtrOutput) Elem() IntegrationScopeOutput {
+	return o.ApplyT(func(v *IntegrationScope) IntegrationScope {
+		if v != nil {
+			return *v
+		}
+		var ret IntegrationScope
+		return ret
+	}).(IntegrationScopeOutput)
+}
+
+func (o IntegrationScopePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o IntegrationScopePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *IntegrationScope) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// IntegrationScopeInput is an input type that accepts values of the IntegrationScope enum
+// A concrete instance of `IntegrationScopeInput` can be one of the following:
+//
+//	IntegrationScopeProfile
+//	IntegrationScopeDomain
+type IntegrationScopeInput interface {
+	pulumi.Input
+
+	ToIntegrationScopeOutput() IntegrationScopeOutput
+	ToIntegrationScopeOutputWithContext(context.Context) IntegrationScopeOutput
+}
+
+var integrationScopePtrType = reflect.TypeOf((**IntegrationScope)(nil)).Elem()
+
+type IntegrationScopePtrInput interface {
+	pulumi.Input
+
+	ToIntegrationScopePtrOutput() IntegrationScopePtrOutput
+	ToIntegrationScopePtrOutputWithContext(context.Context) IntegrationScopePtrOutput
+}
+
+type integrationScopePtr string
+
+func IntegrationScopePtr(v string) IntegrationScopePtrInput {
+	return (*integrationScopePtr)(&v)
+}
+
+func (*integrationScopePtr) ElementType() reflect.Type {
+	return integrationScopePtrType
+}
+
+func (in *integrationScopePtr) ToIntegrationScopePtrOutput() IntegrationScopePtrOutput {
+	return pulumi.ToOutput(in).(IntegrationScopePtrOutput)
+}
+
+func (in *integrationScopePtr) ToIntegrationScopePtrOutputWithContext(ctx context.Context) IntegrationScopePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(IntegrationScopePtrOutput)
+}
+
 type IntegrationServiceNowConnectorOperator string
 
 const (
@@ -5645,6 +5811,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationSalesforceConnectorOperatorPtrInput)(nil)).Elem(), IntegrationSalesforceConnectorOperator("PROJECTION"))
 	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationScheduledTriggerPropertiesDataPullModeInput)(nil)).Elem(), IntegrationScheduledTriggerPropertiesDataPullMode("Incremental"))
 	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationScheduledTriggerPropertiesDataPullModePtrInput)(nil)).Elem(), IntegrationScheduledTriggerPropertiesDataPullMode("Incremental"))
+	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationScopeInput)(nil)).Elem(), IntegrationScope("PROFILE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationScopePtrInput)(nil)).Elem(), IntegrationScope("PROFILE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationServiceNowConnectorOperatorInput)(nil)).Elem(), IntegrationServiceNowConnectorOperator("PROJECTION"))
 	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationServiceNowConnectorOperatorPtrInput)(nil)).Elem(), IntegrationServiceNowConnectorOperator("PROJECTION"))
 	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationTaskTypeInput)(nil)).Elem(), IntegrationTaskType("Arithmetic"))
@@ -5711,6 +5879,8 @@ func init() {
 	pulumi.RegisterOutputType(IntegrationSalesforceConnectorOperatorPtrOutput{})
 	pulumi.RegisterOutputType(IntegrationScheduledTriggerPropertiesDataPullModeOutput{})
 	pulumi.RegisterOutputType(IntegrationScheduledTriggerPropertiesDataPullModePtrOutput{})
+	pulumi.RegisterOutputType(IntegrationScopeOutput{})
+	pulumi.RegisterOutputType(IntegrationScopePtrOutput{})
 	pulumi.RegisterOutputType(IntegrationServiceNowConnectorOperatorOutput{})
 	pulumi.RegisterOutputType(IntegrationServiceNowConnectorOperatorPtrOutput{})
 	pulumi.RegisterOutputType(IntegrationTaskTypeOutput{})

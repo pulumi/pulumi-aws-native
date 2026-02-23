@@ -3827,7 +3827,7 @@ func (o FunctionSnapStartResponseOptimizationStatusPtrOutput) ToStringPtrOutputW
 	}).(pulumi.StringPtrOutput)
 }
 
-// Determines how your Lambda function isolates execution environments between tenants.
+// Tenant isolation mode allows for invocation to be sent to a corresponding execution environment dedicated to a specific tenant ID.
 type FunctionTenancyConfigTenantIsolationMode string
 
 const (

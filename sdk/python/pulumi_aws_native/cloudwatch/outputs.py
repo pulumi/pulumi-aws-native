@@ -14,6 +14,7 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from ._enums import *
 
 __all__ = [
     'AlarmDimension',
@@ -23,6 +24,9 @@ __all__ = [
     'MetricStreamFilter',
     'MetricStreamStatisticsConfiguration',
     'MetricStreamStatisticsMetric',
+    'MuteTargetsProperties',
+    'RuleProperties',
+    'RulePropertiesScheduleProperties',
 ]
 
 @pulumi.output_type
@@ -466,5 +470,111 @@ class MetricStreamStatisticsMetric(dict):
         The namespace of the metric.
         """
         return pulumi.get(self, "namespace")
+
+
+@pulumi.output_type
+class MuteTargetsProperties(dict):
+    """
+    Targets to be muted
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "alarmNames":
+            suggest = "alarm_names"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MuteTargetsProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MuteTargetsProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MuteTargetsProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 alarm_names: Sequence[_builtins.str]):
+        """
+        Targets to be muted
+        :param Sequence[_builtins.str] alarm_names: The alarm names to be mute by the AlarmMuteRule
+        """
+        pulumi.set(__self__, "alarm_names", alarm_names)
+
+    @_builtins.property
+    @pulumi.getter(name="alarmNames")
+    def alarm_names(self) -> Sequence[_builtins.str]:
+        """
+        The alarm names to be mute by the AlarmMuteRule
+        """
+        return pulumi.get(self, "alarm_names")
+
+
+@pulumi.output_type
+class RuleProperties(dict):
+    """
+    The rule for the mute
+    """
+    def __init__(__self__, *,
+                 schedule: 'outputs.RulePropertiesScheduleProperties'):
+        """
+        The rule for the mute
+        :param 'RulePropertiesScheduleProperties' schedule: Schedule for the mute to be active
+        """
+        pulumi.set(__self__, "schedule", schedule)
+
+    @_builtins.property
+    @pulumi.getter
+    def schedule(self) -> 'outputs.RulePropertiesScheduleProperties':
+        """
+        Schedule for the mute to be active
+        """
+        return pulumi.get(self, "schedule")
+
+
+@pulumi.output_type
+class RulePropertiesScheduleProperties(dict):
+    """
+    Schedule for the mute to be active
+    """
+    def __init__(__self__, *,
+                 duration: _builtins.str,
+                 expression: _builtins.str,
+                 timezone: Optional[_builtins.str] = None):
+        """
+        Schedule for the mute to be active
+        :param _builtins.str duration: The duration of the schedule when it triggers
+        :param _builtins.str expression: The expression of the schedule
+        :param _builtins.str timezone: The timezone of the schedule
+        """
+        pulumi.set(__self__, "duration", duration)
+        pulumi.set(__self__, "expression", expression)
+        if timezone is not None:
+            pulumi.set(__self__, "timezone", timezone)
+
+    @_builtins.property
+    @pulumi.getter
+    def duration(self) -> _builtins.str:
+        """
+        The duration of the schedule when it triggers
+        """
+        return pulumi.get(self, "duration")
+
+    @_builtins.property
+    @pulumi.getter
+    def expression(self) -> _builtins.str:
+        """
+        The expression of the schedule
+        """
+        return pulumi.get(self, "expression")
+
+    @_builtins.property
+    @pulumi.getter
+    def timezone(self) -> Optional[_builtins.str]:
+        """
+        The timezone of the schedule
+        """
+        return pulumi.get(self, "timezone")
 
 

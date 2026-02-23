@@ -3507,6 +3507,13 @@ export const TemplateVerticalTextAlignment = {
 
 export type TemplateVerticalTextAlignment = (typeof TemplateVerticalTextAlignment)[keyof typeof TemplateVerticalTextAlignment];
 
+export const TemplateVisibility = {
+    Hidden: "HIDDEN",
+    Visible: "VISIBLE",
+} as const;
+
+export type TemplateVisibility = (typeof TemplateVisibility)[keyof typeof TemplateVisibility];
+
 export const TemplateVisualCustomActionTrigger = {
     DataPointClick: "DATA_POINT_CLICK",
     DataPointMenu: "DATA_POINT_MENU",

@@ -41,6 +41,8 @@ type LookupIntegrationResult struct {
 	ObjectTypeName *string `pulumi:"objectTypeName"`
 	// The mapping between 3rd party event types and ObjectType names
 	ObjectTypeNames []IntegrationObjectTypeMapping `pulumi:"objectTypeNames"`
+	// Scope of the integration, such as 'PROFILE' or 'DOMAIN'
+	Scope *IntegrationScope `pulumi:"scope"`
 	// The tags (keys and values) associated with the integration
 	Tags []aws.Tag `pulumi:"tags"`
 }
@@ -102,6 +104,11 @@ func (o LookupIntegrationResultOutput) ObjectTypeName() pulumi.StringPtrOutput {
 // The mapping between 3rd party event types and ObjectType names
 func (o LookupIntegrationResultOutput) ObjectTypeNames() IntegrationObjectTypeMappingArrayOutput {
 	return o.ApplyT(func(v LookupIntegrationResult) []IntegrationObjectTypeMapping { return v.ObjectTypeNames }).(IntegrationObjectTypeMappingArrayOutput)
+}
+
+// Scope of the integration, such as 'PROFILE' or 'DOMAIN'
+func (o LookupIntegrationResultOutput) Scope() IntegrationScopePtrOutput {
+	return o.ApplyT(func(v LookupIntegrationResult) *IntegrationScope { return v.Scope }).(IntegrationScopePtrOutput)
 }
 
 // The tags (keys and values) associated with the integration

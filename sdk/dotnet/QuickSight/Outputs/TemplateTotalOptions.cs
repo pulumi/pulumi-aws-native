@@ -36,7 +36,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// <summary>
         /// The visibility configuration for the total cells.
         /// </summary>
-        public readonly object? TotalsVisibility;
+        public readonly Pulumi.AwsNative.QuickSight.TemplateVisibility? TotalsVisibility;
 
         [OutputConstructor]
         private TemplateTotalOptions(
@@ -50,7 +50,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 
             Outputs.TemplateTableCellStyle? totalCellStyle,
 
-            object? totalsVisibility)
+            Pulumi.AwsNative.QuickSight.TemplateVisibility? totalsVisibility)
         {
             CustomLabel = customLabel;
             Placement = placement;

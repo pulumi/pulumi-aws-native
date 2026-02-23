@@ -423,6 +423,7 @@ __all__ = [
     'TemplateValidationStrategyMode',
     'TemplateValueWhenUnsetOption',
     'TemplateVerticalTextAlignment',
+    'TemplateVisibility',
     'TemplateVisualCustomActionTrigger',
     'TemplateWidgetStatus',
     'TemplateWordCloudCloudLayout',
@@ -3546,6 +3547,12 @@ class TemplateVerticalTextAlignment(_builtins.str, Enum):
     MIDDLE = "MIDDLE"
     BOTTOM = "BOTTOM"
     AUTO = "AUTO"
+
+
+@pulumi.type_token("aws-native:quicksight:TemplateVisibility")
+class TemplateVisibility(_builtins.str, Enum):
+    HIDDEN = "HIDDEN"
+    VISIBLE = "VISIBLE"
 
 
 @pulumi.type_token("aws-native:quicksight:TemplateVisualCustomActionTrigger")

@@ -20,13 +20,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// <summary>
         /// The visibility configuration of info icon label options.
         /// </summary>
-        public readonly object? Visibility;
+        public readonly Pulumi.AwsNative.QuickSight.TemplateVisibility? Visibility;
 
         [OutputConstructor]
         private TemplateSheetControlInfoIconLabelOptions(
             string? infoIconText,
 
-            object? visibility)
+            Pulumi.AwsNative.QuickSight.TemplateVisibility? visibility)
         {
             InfoIconText = infoIconText;
             Visibility = visibility;

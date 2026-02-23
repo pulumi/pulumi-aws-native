@@ -69377,6 +69377,171 @@ func (in *templateVerticalTextAlignmentPtr) ToTemplateVerticalTextAlignmentPtrOu
 	return pulumi.ToOutputWithContext(ctx, in).(TemplateVerticalTextAlignmentPtrOutput)
 }
 
+type TemplateVisibility string
+
+const (
+	TemplateVisibilityHidden  = TemplateVisibility("HIDDEN")
+	TemplateVisibilityVisible = TemplateVisibility("VISIBLE")
+)
+
+func (TemplateVisibility) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateVisibility)(nil)).Elem()
+}
+
+func (e TemplateVisibility) ToTemplateVisibilityOutput() TemplateVisibilityOutput {
+	return pulumi.ToOutput(e).(TemplateVisibilityOutput)
+}
+
+func (e TemplateVisibility) ToTemplateVisibilityOutputWithContext(ctx context.Context) TemplateVisibilityOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(TemplateVisibilityOutput)
+}
+
+func (e TemplateVisibility) ToTemplateVisibilityPtrOutput() TemplateVisibilityPtrOutput {
+	return e.ToTemplateVisibilityPtrOutputWithContext(context.Background())
+}
+
+func (e TemplateVisibility) ToTemplateVisibilityPtrOutputWithContext(ctx context.Context) TemplateVisibilityPtrOutput {
+	return TemplateVisibility(e).ToTemplateVisibilityOutputWithContext(ctx).ToTemplateVisibilityPtrOutputWithContext(ctx)
+}
+
+func (e TemplateVisibility) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TemplateVisibility) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TemplateVisibility) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e TemplateVisibility) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type TemplateVisibilityOutput struct{ *pulumi.OutputState }
+
+func (TemplateVisibilityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateVisibility)(nil)).Elem()
+}
+
+func (o TemplateVisibilityOutput) ToTemplateVisibilityOutput() TemplateVisibilityOutput {
+	return o
+}
+
+func (o TemplateVisibilityOutput) ToTemplateVisibilityOutputWithContext(ctx context.Context) TemplateVisibilityOutput {
+	return o
+}
+
+func (o TemplateVisibilityOutput) ToTemplateVisibilityPtrOutput() TemplateVisibilityPtrOutput {
+	return o.ToTemplateVisibilityPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateVisibilityOutput) ToTemplateVisibilityPtrOutputWithContext(ctx context.Context) TemplateVisibilityPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateVisibility) *TemplateVisibility {
+		return &v
+	}).(TemplateVisibilityPtrOutput)
+}
+
+func (o TemplateVisibilityOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o TemplateVisibilityOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TemplateVisibility) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o TemplateVisibilityOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateVisibilityOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TemplateVisibility) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type TemplateVisibilityPtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateVisibilityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateVisibility)(nil)).Elem()
+}
+
+func (o TemplateVisibilityPtrOutput) ToTemplateVisibilityPtrOutput() TemplateVisibilityPtrOutput {
+	return o
+}
+
+func (o TemplateVisibilityPtrOutput) ToTemplateVisibilityPtrOutputWithContext(ctx context.Context) TemplateVisibilityPtrOutput {
+	return o
+}
+
+func (o TemplateVisibilityPtrOutput) Elem() TemplateVisibilityOutput {
+	return o.ApplyT(func(v *TemplateVisibility) TemplateVisibility {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateVisibility
+		return ret
+	}).(TemplateVisibilityOutput)
+}
+
+func (o TemplateVisibilityPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateVisibilityPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *TemplateVisibility) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// TemplateVisibilityInput is an input type that accepts values of the TemplateVisibility enum
+// A concrete instance of `TemplateVisibilityInput` can be one of the following:
+//
+//	TemplateVisibilityHidden
+//	TemplateVisibilityVisible
+type TemplateVisibilityInput interface {
+	pulumi.Input
+
+	ToTemplateVisibilityOutput() TemplateVisibilityOutput
+	ToTemplateVisibilityOutputWithContext(context.Context) TemplateVisibilityOutput
+}
+
+var templateVisibilityPtrType = reflect.TypeOf((**TemplateVisibility)(nil)).Elem()
+
+type TemplateVisibilityPtrInput interface {
+	pulumi.Input
+
+	ToTemplateVisibilityPtrOutput() TemplateVisibilityPtrOutput
+	ToTemplateVisibilityPtrOutputWithContext(context.Context) TemplateVisibilityPtrOutput
+}
+
+type templateVisibilityPtr string
+
+func TemplateVisibilityPtr(v string) TemplateVisibilityPtrInput {
+	return (*templateVisibilityPtr)(&v)
+}
+
+func (*templateVisibilityPtr) ElementType() reflect.Type {
+	return templateVisibilityPtrType
+}
+
+func (in *templateVisibilityPtr) ToTemplateVisibilityPtrOutput() TemplateVisibilityPtrOutput {
+	return pulumi.ToOutput(in).(TemplateVisibilityPtrOutput)
+}
+
+func (in *templateVisibilityPtr) ToTemplateVisibilityPtrOutputWithContext(ctx context.Context) TemplateVisibilityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(TemplateVisibilityPtrOutput)
+}
+
 type TemplateVisualCustomActionTrigger string
 
 const (
@@ -75475,6 +75640,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateValueWhenUnsetOptionPtrInput)(nil)).Elem(), TemplateValueWhenUnsetOption("RECOMMENDED_VALUE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateVerticalTextAlignmentInput)(nil)).Elem(), TemplateVerticalTextAlignment("TOP"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateVerticalTextAlignmentPtrInput)(nil)).Elem(), TemplateVerticalTextAlignment("TOP"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateVisibilityInput)(nil)).Elem(), TemplateVisibility("HIDDEN"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateVisibilityPtrInput)(nil)).Elem(), TemplateVisibility("HIDDEN"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateVisualCustomActionTriggerInput)(nil)).Elem(), TemplateVisualCustomActionTrigger("DATA_POINT_CLICK"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateVisualCustomActionTriggerPtrInput)(nil)).Elem(), TemplateVisualCustomActionTrigger("DATA_POINT_CLICK"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateWidgetStatusInput)(nil)).Elem(), TemplateWidgetStatus("ENABLED"))
@@ -76365,6 +76532,8 @@ func init() {
 	pulumi.RegisterOutputType(TemplateValueWhenUnsetOptionPtrOutput{})
 	pulumi.RegisterOutputType(TemplateVerticalTextAlignmentOutput{})
 	pulumi.RegisterOutputType(TemplateVerticalTextAlignmentPtrOutput{})
+	pulumi.RegisterOutputType(TemplateVisibilityOutput{})
+	pulumi.RegisterOutputType(TemplateVisibilityPtrOutput{})
 	pulumi.RegisterOutputType(TemplateVisualCustomActionTriggerOutput{})
 	pulumi.RegisterOutputType(TemplateVisualCustomActionTriggerPtrOutput{})
 	pulumi.RegisterOutputType(TemplateWidgetStatusOutput{})

@@ -21,8 +21,9 @@ type VolumeAttachment struct {
 	pulumi.CustomResourceState
 
 	// The device name (for example, ``/dev/sdh`` or ``xvdh``).
-	Device       pulumi.StringPtrOutput `pulumi:"device"`
-	EbsCardIndex pulumi.IntPtrOutput    `pulumi:"ebsCardIndex"`
+	Device pulumi.StringPtrOutput `pulumi:"device"`
+	// The index of the EBS card. Some instance types support multiple EBS cards. The default EBS card index is 0.
+	EbsCardIndex pulumi.IntPtrOutput `pulumi:"ebsCardIndex"`
 	// The ID of the instance to which the volume attaches. This value can be a reference to an [AWS::EC2::Instance](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html) resource, or it can be the physical ID of an existing EC2 instance.
 	InstanceId pulumi.StringOutput `pulumi:"instanceId"`
 	// The ID of the Amazon EBS volume. The volume and instance must be within the same Availability Zone. This value can be a reference to an [AWS::EC2::Volume](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ebs-volume.html) resource, or it can be the volume ID of an existing Amazon EBS volume.
@@ -83,8 +84,9 @@ func (VolumeAttachmentState) ElementType() reflect.Type {
 
 type volumeAttachmentArgs struct {
 	// The device name (for example, ``/dev/sdh`` or ``xvdh``).
-	Device       *string `pulumi:"device"`
-	EbsCardIndex *int    `pulumi:"ebsCardIndex"`
+	Device *string `pulumi:"device"`
+	// The index of the EBS card. Some instance types support multiple EBS cards. The default EBS card index is 0.
+	EbsCardIndex *int `pulumi:"ebsCardIndex"`
 	// The ID of the instance to which the volume attaches. This value can be a reference to an [AWS::EC2::Instance](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html) resource, or it can be the physical ID of an existing EC2 instance.
 	InstanceId string `pulumi:"instanceId"`
 	// The ID of the Amazon EBS volume. The volume and instance must be within the same Availability Zone. This value can be a reference to an [AWS::EC2::Volume](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ebs-volume.html) resource, or it can be the volume ID of an existing Amazon EBS volume.
@@ -94,7 +96,8 @@ type volumeAttachmentArgs struct {
 // The set of arguments for constructing a VolumeAttachment resource.
 type VolumeAttachmentArgs struct {
 	// The device name (for example, ``/dev/sdh`` or ``xvdh``).
-	Device       pulumi.StringPtrInput
+	Device pulumi.StringPtrInput
+	// The index of the EBS card. Some instance types support multiple EBS cards. The default EBS card index is 0.
 	EbsCardIndex pulumi.IntPtrInput
 	// The ID of the instance to which the volume attaches. This value can be a reference to an [AWS::EC2::Instance](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html) resource, or it can be the physical ID of an existing EC2 instance.
 	InstanceId pulumi.StringInput
@@ -144,6 +147,7 @@ func (o VolumeAttachmentOutput) Device() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VolumeAttachment) pulumi.StringPtrOutput { return v.Device }).(pulumi.StringPtrOutput)
 }
 
+// The index of the EBS card. Some instance types support multiple EBS cards. The default EBS card index is 0.
 func (o VolumeAttachmentOutput) EbsCardIndex() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *VolumeAttachment) pulumi.IntPtrOutput { return v.EbsCardIndex }).(pulumi.IntPtrOutput)
 }

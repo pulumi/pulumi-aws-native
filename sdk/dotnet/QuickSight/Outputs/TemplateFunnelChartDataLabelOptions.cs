@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// <summary>
         /// The visibility of the category labels within the data labels.
         /// </summary>
-        public readonly object? CategoryLabelVisibility;
+        public readonly Pulumi.AwsNative.QuickSight.TemplateVisibility? CategoryLabelVisibility;
         /// <summary>
         /// The color of the data label text.
         /// </summary>
@@ -34,7 +34,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// <summary>
         /// The visibility of the measure labels within the data labels.
         /// </summary>
-        public readonly object? MeasureLabelVisibility;
+        public readonly Pulumi.AwsNative.QuickSight.TemplateVisibility? MeasureLabelVisibility;
         /// <summary>
         /// Determines the positioning of the data label relative to a section of the funnel.
         /// </summary>
@@ -42,11 +42,11 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// <summary>
         /// The visibility option that determines if data labels are displayed.
         /// </summary>
-        public readonly object? Visibility;
+        public readonly Pulumi.AwsNative.QuickSight.TemplateVisibility? Visibility;
 
         [OutputConstructor]
         private TemplateFunnelChartDataLabelOptions(
-            object? categoryLabelVisibility,
+            Pulumi.AwsNative.QuickSight.TemplateVisibility? categoryLabelVisibility,
 
             string? labelColor,
 
@@ -54,11 +54,11 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 
             Pulumi.AwsNative.QuickSight.TemplateFunnelChartMeasureDataLabelStyle? measureDataLabelStyle,
 
-            object? measureLabelVisibility,
+            Pulumi.AwsNative.QuickSight.TemplateVisibility? measureLabelVisibility,
 
             Pulumi.AwsNative.QuickSight.TemplateDataLabelPosition? position,
 
-            object? visibility)
+            Pulumi.AwsNative.QuickSight.TemplateVisibility? visibility)
         {
             CategoryLabelVisibility = categoryLabelVisibility;
             LabelColor = labelColor;

@@ -28,7 +28,7 @@ export interface GetHostResult {
     /**
      * Indicates whether the host accepts any untargeted instance launches that match its instance type configuration, or if it only accepts Host tenancy instance launches that specify its unique host ID.
      */
-    readonly autoPlacement?: string;
+    readonly autoPlacement?: enums.ec2.HostAutoPlacement;
     /**
      * ID of the host created.
      */
@@ -36,11 +36,11 @@ export interface GetHostResult {
     /**
      * Automatically allocates a new dedicated host and moves your instances on to it if a degradation is detected on your current host.
      */
-    readonly hostMaintenance?: string;
+    readonly hostMaintenance?: enums.ec2.HostMaintenance;
     /**
      * Indicates whether to enable or disable host recovery for the Dedicated Host. Host recovery is disabled by default.
      */
-    readonly hostRecovery?: string;
+    readonly hostRecovery?: enums.ec2.HostRecovery;
     /**
      * Any tags assigned to the Host.
      */

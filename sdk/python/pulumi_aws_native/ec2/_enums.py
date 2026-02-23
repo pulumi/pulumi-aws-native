@@ -34,6 +34,9 @@ __all__ = [
     'FlowLogLogDestinationType',
     'FlowLogResourceType',
     'FlowLogTrafficType',
+    'HostAutoPlacement',
+    'HostMaintenance',
+    'HostRecovery',
     'InstanceAffinity',
     'InstanceMetadataOptionsHttpEndpoint',
     'InstanceMetadataOptionsHttpProtocolIpv6',
@@ -478,6 +481,33 @@ class FlowLogTrafficType(_builtins.str, Enum):
     ACCEPT = "ACCEPT"
     ALL = "ALL"
     REJECT = "REJECT"
+
+
+@pulumi.type_token("aws-native:ec2:HostAutoPlacement")
+class HostAutoPlacement(_builtins.str, Enum):
+    """
+    Indicates whether the host accepts any untargeted instance launches that match its instance type configuration, or if it only accepts Host tenancy instance launches that specify its unique host ID.
+    """
+    ON = "on"
+    OFF = "off"
+
+
+@pulumi.type_token("aws-native:ec2:HostMaintenance")
+class HostMaintenance(_builtins.str, Enum):
+    """
+    Automatically allocates a new dedicated host and moves your instances on to it if a degradation is detected on your current host.
+    """
+    ON = "on"
+    OFF = "off"
+
+
+@pulumi.type_token("aws-native:ec2:HostRecovery")
+class HostRecovery(_builtins.str, Enum):
+    """
+    Indicates whether to enable or disable host recovery for the Dedicated Host. Host recovery is disabled by default.
+    """
+    ON = "on"
+    OFF = "off"
 
 
 @pulumi.type_token("aws-native:ec2:InstanceAffinity")

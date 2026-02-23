@@ -300,7 +300,7 @@ func (o AutomationRuleDateRangePtrOutput) Value() pulumi.Float64PtrOutput {
 
 // A map filter for filtering ASHlong findings. Each map filter provides the field to check for, the value to check for, and the comparison operator.
 type AutomationRuleMapFilter struct {
-	// The condition to apply to the key value when filtering Security Hub findings with a map filter.
+	// The condition to apply to the key value when filtering Security Hub CSPM findings with a map filter.
 	//  To search for values that have the filter value, use one of the following comparison operators:
 	//   +  To search for values that include the filter value, use ``CONTAINS``. For example, for the ``ResourceTags`` field, the filter ``Department CONTAINS Security`` matches findings that include the value ``Security`` for the ``Department`` tag. In the same example, a finding with a value of ``Security team`` for the ``Department`` tag is a match.
 	//   +  To search for values that exactly match the filter value, use ``EQUALS``. For example, for the ``ResourceTags`` field, the filter ``Department EQUALS Security`` matches findings that have the value ``Security`` for the ``Department`` tag.
@@ -334,7 +334,7 @@ type AutomationRuleMapFilterInput interface {
 
 // A map filter for filtering ASHlong findings. Each map filter provides the field to check for, the value to check for, and the comparison operator.
 type AutomationRuleMapFilterArgs struct {
-	// The condition to apply to the key value when filtering Security Hub findings with a map filter.
+	// The condition to apply to the key value when filtering Security Hub CSPM findings with a map filter.
 	//  To search for values that have the filter value, use one of the following comparison operators:
 	//   +  To search for values that include the filter value, use ``CONTAINS``. For example, for the ``ResourceTags`` field, the filter ``Department CONTAINS Security`` matches findings that include the value ``Security`` for the ``Department`` tag. In the same example, a finding with a value of ``Security team`` for the ``Department`` tag is a match.
 	//   +  To search for values that exactly match the filter value, use ``EQUALS``. For example, for the ``ResourceTags`` field, the filter ``Department EQUALS Security`` matches findings that have the value ``Security`` for the ``Department`` tag.
@@ -407,7 +407,7 @@ func (o AutomationRuleMapFilterOutput) ToAutomationRuleMapFilterOutputWithContex
 	return o
 }
 
-// The condition to apply to the key value when filtering Security Hub findings with a map filter.
+// The condition to apply to the key value when filtering Security Hub CSPM findings with a map filter.
 //
 //	To search for values that have the filter value, use one of the following comparison operators:
 //	 +  To search for values that include the filter value, use ``CONTAINS``. For example, for the ``ResourceTags`` field, the filter ``Department CONTAINS Security`` matches findings that include the value ``Security`` for the ``Department`` tag. In the same example, a finding with a value of ``Security team`` for the ``Department`` tag is a match.
@@ -1072,7 +1072,7 @@ func (o AutomationRuleSeverityUpdatePtrOutput) Product() pulumi.Float64PtrOutput
 
 // A string filter for filtering ASHlong findings.
 type AutomationRuleStringFilter struct {
-	// The condition to apply to a string value when filtering Security Hub findings.
+	// The condition to apply to a string value when filtering Security Hub CSPM findings.
 	//  To search for values that have the filter value, use one of the following comparison operators:
 	//   +  To search for values that include the filter value, use ``CONTAINS``. For example, the filter ``Title CONTAINS CloudFront`` matches findings that have a ``Title`` that includes the string CloudFront.
 	//   +  To search for values that exactly match the filter value, use ``EQUALS``. For example, the filter ``AwsAccountId EQUALS 123456789012`` only matches findings that have an account ID of ``123456789012``.
@@ -1086,8 +1086,8 @@ type AutomationRuleStringFilter struct {
 	//
 	//  ``NOT_CONTAINS``, ``NOT_EQUALS``, and ``PREFIX_NOT_EQUALS`` filters on the same field are joined by ``AND``. A finding matches only if it matches all of those filters. For example, the filters ``Title NOT_CONTAINS CloudFront AND Title NOT_CONTAINS CloudWatch`` match a finding that excludes both ``CloudFront`` and ``CloudWatch`` in the title.
 	//  You can’t have both a ``CONTAINS`` filter and a ``NOT_CONTAINS`` filter on the same field. Similarly, you can't provide both an ``EQUALS`` filter and a ``NOT_EQUALS`` or ``PREFIX_NOT_EQUALS`` filter on the same field. Combining filters in this way returns an error. ``CONTAINS`` filters can only be used with other ``CONTAINS`` filters. ``NOT_CONTAINS`` filters can only be used with other ``NOT_CONTAINS`` filters.
-	//  You can combine ``PREFIX`` filters with ``NOT_EQUALS`` or ``PREFIX_NOT_EQUALS`` filters for the same field. Security Hub first processes the ``PREFIX`` filters, and then the ``NOT_EQUALS`` or ``PREFIX_NOT_EQUALS`` filters.
-	//  For example, for the following filters, Security Hub first identifies findings that have resource types that start with either ``AwsIam`` or ``AwsEc2``. It then excludes findings that have a resource type of ``AwsIamPolicy`` and findings that have a resource type of ``AwsEc2NetworkInterface``.
+	//  You can combine ``PREFIX`` filters with ``NOT_EQUALS`` or ``PREFIX_NOT_EQUALS`` filters for the same field. Security Hub CSPM first processes the ``PREFIX`` filters, and then the ``NOT_EQUALS`` or ``PREFIX_NOT_EQUALS`` filters.
+	//  For example, for the following filters, Security Hub CSPM first identifies findings that have resource types that start with either ``AwsIam`` or ``AwsEc2``. It then excludes findings that have a resource type of ``AwsIamPolicy`` and findings that have a resource type of ``AwsEc2NetworkInterface``.
 	//   +   ``ResourceType PREFIX AwsIam``
 	//   +   ``ResourceType PREFIX AwsEc2``
 	//   +   ``ResourceType NOT_EQUALS AwsIamPolicy``
@@ -1095,7 +1095,7 @@ type AutomationRuleStringFilter struct {
 	//
 	//  ``CONTAINS`` and ``NOT_CONTAINS`` operators can be used only with automation rules V1. ``CONTAINS_WORD`` operator is only supported in ``GetFindingsV2``, ``GetFindingStatisticsV2``, ``GetResourcesV2``, and ``GetResourceStatisticsV2`` APIs. For more information, see [Automation rules](https://docs.aws.amazon.com/securityhub/latest/userguide/automation-rules.html) in the *User Guide*.
 	Comparison AutomationRuleStringFilterComparison `pulumi:"comparison"`
-	// The string filter value. Filter values are case sensitive. For example, the product name for control-based findings is ``Security Hub``. If you provide ``security hub`` as the filter value, there's no match.
+	// The string filter value. Filter values are case sensitive. For example, the product name for control-based findings is ``Security Hub CSPM``. If you provide ``security hub`` as the filter value, there's no match.
 	Value string `pulumi:"value"`
 }
 
@@ -1112,7 +1112,7 @@ type AutomationRuleStringFilterInput interface {
 
 // A string filter for filtering ASHlong findings.
 type AutomationRuleStringFilterArgs struct {
-	// The condition to apply to a string value when filtering Security Hub findings.
+	// The condition to apply to a string value when filtering Security Hub CSPM findings.
 	//  To search for values that have the filter value, use one of the following comparison operators:
 	//   +  To search for values that include the filter value, use ``CONTAINS``. For example, the filter ``Title CONTAINS CloudFront`` matches findings that have a ``Title`` that includes the string CloudFront.
 	//   +  To search for values that exactly match the filter value, use ``EQUALS``. For example, the filter ``AwsAccountId EQUALS 123456789012`` only matches findings that have an account ID of ``123456789012``.
@@ -1126,8 +1126,8 @@ type AutomationRuleStringFilterArgs struct {
 	//
 	//  ``NOT_CONTAINS``, ``NOT_EQUALS``, and ``PREFIX_NOT_EQUALS`` filters on the same field are joined by ``AND``. A finding matches only if it matches all of those filters. For example, the filters ``Title NOT_CONTAINS CloudFront AND Title NOT_CONTAINS CloudWatch`` match a finding that excludes both ``CloudFront`` and ``CloudWatch`` in the title.
 	//  You can’t have both a ``CONTAINS`` filter and a ``NOT_CONTAINS`` filter on the same field. Similarly, you can't provide both an ``EQUALS`` filter and a ``NOT_EQUALS`` or ``PREFIX_NOT_EQUALS`` filter on the same field. Combining filters in this way returns an error. ``CONTAINS`` filters can only be used with other ``CONTAINS`` filters. ``NOT_CONTAINS`` filters can only be used with other ``NOT_CONTAINS`` filters.
-	//  You can combine ``PREFIX`` filters with ``NOT_EQUALS`` or ``PREFIX_NOT_EQUALS`` filters for the same field. Security Hub first processes the ``PREFIX`` filters, and then the ``NOT_EQUALS`` or ``PREFIX_NOT_EQUALS`` filters.
-	//  For example, for the following filters, Security Hub first identifies findings that have resource types that start with either ``AwsIam`` or ``AwsEc2``. It then excludes findings that have a resource type of ``AwsIamPolicy`` and findings that have a resource type of ``AwsEc2NetworkInterface``.
+	//  You can combine ``PREFIX`` filters with ``NOT_EQUALS`` or ``PREFIX_NOT_EQUALS`` filters for the same field. Security Hub CSPM first processes the ``PREFIX`` filters, and then the ``NOT_EQUALS`` or ``PREFIX_NOT_EQUALS`` filters.
+	//  For example, for the following filters, Security Hub CSPM first identifies findings that have resource types that start with either ``AwsIam`` or ``AwsEc2``. It then excludes findings that have a resource type of ``AwsIamPolicy`` and findings that have a resource type of ``AwsEc2NetworkInterface``.
 	//   +   ``ResourceType PREFIX AwsIam``
 	//   +   ``ResourceType PREFIX AwsEc2``
 	//   +   ``ResourceType NOT_EQUALS AwsIamPolicy``
@@ -1135,7 +1135,7 @@ type AutomationRuleStringFilterArgs struct {
 	//
 	//  ``CONTAINS`` and ``NOT_CONTAINS`` operators can be used only with automation rules V1. ``CONTAINS_WORD`` operator is only supported in ``GetFindingsV2``, ``GetFindingStatisticsV2``, ``GetResourcesV2``, and ``GetResourceStatisticsV2`` APIs. For more information, see [Automation rules](https://docs.aws.amazon.com/securityhub/latest/userguide/automation-rules.html) in the *User Guide*.
 	Comparison AutomationRuleStringFilterComparisonInput `pulumi:"comparison"`
-	// The string filter value. Filter values are case sensitive. For example, the product name for control-based findings is ``Security Hub``. If you provide ``security hub`` as the filter value, there's no match.
+	// The string filter value. Filter values are case sensitive. For example, the product name for control-based findings is ``Security Hub CSPM``. If you provide ``security hub`` as the filter value, there's no match.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -1191,7 +1191,7 @@ func (o AutomationRuleStringFilterOutput) ToAutomationRuleStringFilterOutputWith
 	return o
 }
 
-// The condition to apply to a string value when filtering Security Hub findings.
+// The condition to apply to a string value when filtering Security Hub CSPM findings.
 //
 //	To search for values that have the filter value, use one of the following comparison operators:
 //	 +  To search for values that include the filter value, use ``CONTAINS``. For example, the filter ``Title CONTAINS CloudFront`` matches findings that have a ``Title`` that includes the string CloudFront.
@@ -1206,8 +1206,8 @@ func (o AutomationRuleStringFilterOutput) ToAutomationRuleStringFilterOutputWith
 //
 //	``NOT_CONTAINS``, ``NOT_EQUALS``, and ``PREFIX_NOT_EQUALS`` filters on the same field are joined by ``AND``. A finding matches only if it matches all of those filters. For example, the filters ``Title NOT_CONTAINS CloudFront AND Title NOT_CONTAINS CloudWatch`` match a finding that excludes both ``CloudFront`` and ``CloudWatch`` in the title.
 //	You can’t have both a ``CONTAINS`` filter and a ``NOT_CONTAINS`` filter on the same field. Similarly, you can't provide both an ``EQUALS`` filter and a ``NOT_EQUALS`` or ``PREFIX_NOT_EQUALS`` filter on the same field. Combining filters in this way returns an error. ``CONTAINS`` filters can only be used with other ``CONTAINS`` filters. ``NOT_CONTAINS`` filters can only be used with other ``NOT_CONTAINS`` filters.
-//	You can combine ``PREFIX`` filters with ``NOT_EQUALS`` or ``PREFIX_NOT_EQUALS`` filters for the same field. Security Hub first processes the ``PREFIX`` filters, and then the ``NOT_EQUALS`` or ``PREFIX_NOT_EQUALS`` filters.
-//	For example, for the following filters, Security Hub first identifies findings that have resource types that start with either ``AwsIam`` or ``AwsEc2``. It then excludes findings that have a resource type of ``AwsIamPolicy`` and findings that have a resource type of ``AwsEc2NetworkInterface``.
+//	You can combine ``PREFIX`` filters with ``NOT_EQUALS`` or ``PREFIX_NOT_EQUALS`` filters for the same field. Security Hub CSPM first processes the ``PREFIX`` filters, and then the ``NOT_EQUALS`` or ``PREFIX_NOT_EQUALS`` filters.
+//	For example, for the following filters, Security Hub CSPM first identifies findings that have resource types that start with either ``AwsIam`` or ``AwsEc2``. It then excludes findings that have a resource type of ``AwsIamPolicy`` and findings that have a resource type of ``AwsEc2NetworkInterface``.
 //	 +   ``ResourceType PREFIX AwsIam``
 //	 +   ``ResourceType PREFIX AwsEc2``
 //	 +   ``ResourceType NOT_EQUALS AwsIamPolicy``
@@ -1218,7 +1218,7 @@ func (o AutomationRuleStringFilterOutput) Comparison() AutomationRuleStringFilte
 	return o.ApplyT(func(v AutomationRuleStringFilter) AutomationRuleStringFilterComparison { return v.Comparison }).(AutomationRuleStringFilterComparisonOutput)
 }
 
-// The string filter value. Filter values are case sensitive. For example, the product name for control-based findings is “Security Hub“. If you provide “security hub“ as the filter value, there's no match.
+// The string filter value. Filter values are case sensitive. For example, the product name for control-based findings is “Security Hub CSPM“. If you provide “security hub“ as the filter value, there's no match.
 func (o AutomationRuleStringFilterOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v AutomationRuleStringFilter) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -3143,7 +3143,7 @@ type AutomationRuleWorkflowUpdate struct {
 	// The status of the investigation into the finding. The workflow status is specific to an individual finding. It does not affect the generation of new findings. For example, setting the workflow status to ``SUPPRESSED`` or ``RESOLVED`` does not prevent a new finding for the same issue.
 	//  The allowed values are the following.
 	//   +  ``NEW`` - The initial state of a finding, before it is reviewed.
-	//  Security Hub also resets ``WorkFlowStatus`` from ``NOTIFIED`` or ``RESOLVED`` to ``NEW`` in the following cases:
+	//  Security Hub CSPM also resets ``WorkFlowStatus`` from ``NOTIFIED`` or ``RESOLVED`` to ``NEW`` in the following cases:
 	//   +  The record state changes from ``ARCHIVED`` to ``ACTIVE``.
 	//   +  The compliance status changes from ``PASSED`` to either ``WARNING``, ``FAILED``, or ``NOT_AVAILABLE``.
 	//
@@ -3169,7 +3169,7 @@ type AutomationRuleWorkflowUpdateArgs struct {
 	// The status of the investigation into the finding. The workflow status is specific to an individual finding. It does not affect the generation of new findings. For example, setting the workflow status to ``SUPPRESSED`` or ``RESOLVED`` does not prevent a new finding for the same issue.
 	//  The allowed values are the following.
 	//   +  ``NEW`` - The initial state of a finding, before it is reviewed.
-	//  Security Hub also resets ``WorkFlowStatus`` from ``NOTIFIED`` or ``RESOLVED`` to ``NEW`` in the following cases:
+	//  Security Hub CSPM also resets ``WorkFlowStatus`` from ``NOTIFIED`` or ``RESOLVED`` to ``NEW`` in the following cases:
 	//   +  The record state changes from ``ARCHIVED`` to ``ACTIVE``.
 	//   +  The compliance status changes from ``PASSED`` to either ``WARNING``, ``FAILED``, or ``NOT_AVAILABLE``.
 	//
@@ -3261,7 +3261,7 @@ func (o AutomationRuleWorkflowUpdateOutput) ToAutomationRuleWorkflowUpdatePtrOut
 //
 //	The allowed values are the following.
 //	 +  ``NEW`` - The initial state of a finding, before it is reviewed.
-//	Security Hub also resets ``WorkFlowStatus`` from ``NOTIFIED`` or ``RESOLVED`` to ``NEW`` in the following cases:
+//	Security Hub CSPM also resets ``WorkFlowStatus`` from ``NOTIFIED`` or ``RESOLVED`` to ``NEW`` in the following cases:
 //	 +  The record state changes from ``ARCHIVED`` to ``ACTIVE``.
 //	 +  The compliance status changes from ``PASSED`` to either ``WARNING``, ``FAILED``, or ``NOT_AVAILABLE``.
 //
@@ -3300,7 +3300,7 @@ func (o AutomationRuleWorkflowUpdatePtrOutput) Elem() AutomationRuleWorkflowUpda
 //
 //	The allowed values are the following.
 //	 +  ``NEW`` - The initial state of a finding, before it is reviewed.
-//	Security Hub also resets ``WorkFlowStatus`` from ``NOTIFIED`` or ``RESOLVED`` to ``NEW`` in the following cases:
+//	Security Hub CSPM also resets ``WorkFlowStatus`` from ``NOTIFIED`` or ``RESOLVED`` to ``NEW`` in the following cases:
 //	 +  The record state changes from ``ARCHIVED`` to ``ACTIVE``.
 //	 +  The compliance status changes from ``PASSED`` to either ``WARNING``, ``FAILED``, or ``NOT_AVAILABLE``.
 //
@@ -3320,7 +3320,7 @@ func (o AutomationRuleWorkflowUpdatePtrOutput) Status() AutomationRuleWorkflowUp
 type AutomationRulesAction struct {
 	// Specifies that the automation rule action is an update to a finding field.
 	FindingFieldsUpdate AutomationRulesFindingFieldsUpdate `pulumi:"findingFieldsUpdate"`
-	// Specifies the type of action that Security Hub takes when a finding matches the defined criteria of a rule.
+	// Specifies the type of action that Security Hub CSPM takes when a finding matches the defined criteria of a rule.
 	Type AutomationRulesActionType `pulumi:"type"`
 }
 
@@ -3339,7 +3339,7 @@ type AutomationRulesActionInput interface {
 type AutomationRulesActionArgs struct {
 	// Specifies that the automation rule action is an update to a finding field.
 	FindingFieldsUpdate AutomationRulesFindingFieldsUpdateInput `pulumi:"findingFieldsUpdate"`
-	// Specifies the type of action that Security Hub takes when a finding matches the defined criteria of a rule.
+	// Specifies the type of action that Security Hub CSPM takes when a finding matches the defined criteria of a rule.
 	Type AutomationRulesActionTypeInput `pulumi:"type"`
 }
 
@@ -3400,7 +3400,7 @@ func (o AutomationRulesActionOutput) FindingFieldsUpdate() AutomationRulesFindin
 	return o.ApplyT(func(v AutomationRulesAction) AutomationRulesFindingFieldsUpdate { return v.FindingFieldsUpdate }).(AutomationRulesFindingFieldsUpdateOutput)
 }
 
-// Specifies the type of action that Security Hub takes when a finding matches the defined criteria of a rule.
+// Specifies the type of action that Security Hub CSPM takes when a finding matches the defined criteria of a rule.
 func (o AutomationRulesActionOutput) Type() AutomationRulesActionTypeOutput {
 	return o.ApplyT(func(v AutomationRulesAction) AutomationRulesActionType { return v.Type }).(AutomationRulesActionTypeOutput)
 }
@@ -3608,10 +3608,10 @@ type AutomationRulesFindingFilters struct {
 	// The principal that created a note.
 	//   Array Members: Minimum number of 1 item. Maximum number of 20 items.
 	NoteUpdatedBy []AutomationRuleStringFilter `pulumi:"noteUpdatedBy"`
-	// The Amazon Resource Name (ARN) for a third-party product that generated a finding in Security Hub.
+	// The Amazon Resource Name (ARN) for a third-party product that generated a finding in Security Hub CSPM.
 	//   Array Members: Minimum number of 1 item. Maximum number of 20 items.
 	ProductArn []AutomationRuleStringFilter `pulumi:"productArn"`
-	// Provides the name of the product that generated the finding. For control-based findings, the product name is Security Hub.
+	// Provides the name of the product that generated the finding. For control-based findings, the product name is Security Hub CSPM.
 	//   Array Members: Minimum number of 1 item. Maximum number of 20 items.
 	ProductName []AutomationRuleStringFilter `pulumi:"productName"`
 	// Provides the current state of a finding.
@@ -3733,10 +3733,10 @@ type AutomationRulesFindingFiltersArgs struct {
 	// The principal that created a note.
 	//   Array Members: Minimum number of 1 item. Maximum number of 20 items.
 	NoteUpdatedBy AutomationRuleStringFilterArrayInput `pulumi:"noteUpdatedBy"`
-	// The Amazon Resource Name (ARN) for a third-party product that generated a finding in Security Hub.
+	// The Amazon Resource Name (ARN) for a third-party product that generated a finding in Security Hub CSPM.
 	//   Array Members: Minimum number of 1 item. Maximum number of 20 items.
 	ProductArn AutomationRuleStringFilterArrayInput `pulumi:"productArn"`
-	// Provides the name of the product that generated the finding. For control-based findings, the product name is Security Hub.
+	// Provides the name of the product that generated the finding. For control-based findings, the product name is Security Hub CSPM.
 	//   Array Members: Minimum number of 1 item. Maximum number of 20 items.
 	ProductName AutomationRuleStringFilterArrayInput `pulumi:"productName"`
 	// Provides the current state of a finding.
@@ -3940,14 +3940,14 @@ func (o AutomationRulesFindingFiltersOutput) NoteUpdatedBy() AutomationRuleStrin
 	return o.ApplyT(func(v AutomationRulesFindingFilters) []AutomationRuleStringFilter { return v.NoteUpdatedBy }).(AutomationRuleStringFilterArrayOutput)
 }
 
-// The Amazon Resource Name (ARN) for a third-party product that generated a finding in Security Hub.
+// The Amazon Resource Name (ARN) for a third-party product that generated a finding in Security Hub CSPM.
 //
 //	Array Members: Minimum number of 1 item. Maximum number of 20 items.
 func (o AutomationRulesFindingFiltersOutput) ProductArn() AutomationRuleStringFilterArrayOutput {
 	return o.ApplyT(func(v AutomationRulesFindingFilters) []AutomationRuleStringFilter { return v.ProductArn }).(AutomationRuleStringFilterArrayOutput)
 }
 
-// Provides the name of the product that generated the finding. For control-based findings, the product name is Security Hub.
+// Provides the name of the product that generated the finding. For control-based findings, the product name is Security Hub CSPM.
 //
 //	Array Members: Minimum number of 1 item. Maximum number of 20 items.
 func (o AutomationRulesFindingFiltersOutput) ProductName() AutomationRuleStringFilterArrayOutput {
@@ -4294,7 +4294,7 @@ func (o AutomationRulesFindingFiltersPtrOutput) NoteUpdatedBy() AutomationRuleSt
 	}).(AutomationRuleStringFilterArrayOutput)
 }
 
-// The Amazon Resource Name (ARN) for a third-party product that generated a finding in Security Hub.
+// The Amazon Resource Name (ARN) for a third-party product that generated a finding in Security Hub CSPM.
 //
 //	Array Members: Minimum number of 1 item. Maximum number of 20 items.
 func (o AutomationRulesFindingFiltersPtrOutput) ProductArn() AutomationRuleStringFilterArrayOutput {
@@ -4306,7 +4306,7 @@ func (o AutomationRulesFindingFiltersPtrOutput) ProductArn() AutomationRuleStrin
 	}).(AutomationRuleStringFilterArrayOutput)
 }
 
-// Provides the name of the product that generated the finding. For control-based findings, the product name is Security Hub.
+// Provides the name of the product that generated the finding. For control-based findings, the product name is Security Hub CSPM.
 //
 //	Array Members: Minimum number of 1 item. Maximum number of 20 items.
 func (o AutomationRulesFindingFiltersPtrOutput) ProductName() AutomationRuleStringFilterArrayOutput {

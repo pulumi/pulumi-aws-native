@@ -87,6 +87,9 @@ export class AutoScalingGroup extends pulumi.CustomResource {
      *   Default: None
      */
     declare public readonly defaultInstanceWarmup: pulumi.Output<number | undefined>;
+    /**
+     * The deletion protection setting for the Auto Scaling group.
+     */
     declare public readonly deletionProtection: pulumi.Output<string | undefined>;
     /**
      * The desired capacity is the initial capacity of the Auto Scaling group at the time of its creation and the capacity it attempts to maintain. It can scale beyond this capacity if you configure automatic scaling.
@@ -358,6 +361,9 @@ export interface AutoScalingGroupArgs {
      *   Default: None
      */
     defaultInstanceWarmup?: pulumi.Input<number>;
+    /**
+     * The deletion protection setting for the Auto Scaling group.
+     */
     deletionProtection?: pulumi.Input<string>;
     /**
      * The desired capacity is the initial capacity of the Auto Scaling group at the time of its creation and the capacity it attempts to maintain. It can scale beyond this capacity if you configure automatic scaling.

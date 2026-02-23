@@ -678,6 +678,37 @@ namespace Pulumi.AwsNative.CustomerProfiles
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// Scope of the integration, such as 'PROFILE' or 'DOMAIN'
+    /// </summary>
+    [EnumType]
+    public readonly struct IntegrationScope : IEquatable<IntegrationScope>
+    {
+        private readonly string _value;
+
+        private IntegrationScope(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static IntegrationScope Profile { get; } = new IntegrationScope("PROFILE");
+        public static IntegrationScope Domain { get; } = new IntegrationScope("DOMAIN");
+
+        public static bool operator ==(IntegrationScope left, IntegrationScope right) => left.Equals(right);
+        public static bool operator !=(IntegrationScope left, IntegrationScope right) => !left.Equals(right);
+
+        public static explicit operator string(IntegrationScope value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is IntegrationScope other && Equals(other);
+        public bool Equals(IntegrationScope other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     [EnumType]
     public readonly struct IntegrationServiceNowConnectorOperator : IEquatable<IntegrationServiceNowConnectorOperator>
     {

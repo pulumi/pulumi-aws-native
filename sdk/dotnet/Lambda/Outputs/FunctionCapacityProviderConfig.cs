@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Lambda.Outputs
 {
 
+    /// <summary>
+    /// Configuration for the capacity provider that manages compute resources for Lambda functions.
+    /// </summary>
     [OutputType]
     public sealed class FunctionCapacityProviderConfig
     {

@@ -9,9 +9,11 @@ import typing
 from ._enums import *
 from .database import *
 from .get_database import *
+from .get_influx_db_cluster import *
 from .get_influx_db_instance import *
 from .get_scheduled_query import *
 from .get_table import *
+from .influx_db_cluster import *
 from .influx_db_instance import *
 from .scheduled_query import *
 from .table import *

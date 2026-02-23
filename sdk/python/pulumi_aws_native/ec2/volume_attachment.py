@@ -28,6 +28,7 @@ class VolumeAttachmentArgs:
         :param pulumi.Input[_builtins.str] instance_id: The ID of the instance to which the volume attaches. This value can be a reference to an [AWS::EC2::Instance](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html) resource, or it can be the physical ID of an existing EC2 instance.
         :param pulumi.Input[_builtins.str] volume_id: The ID of the Amazon EBS volume. The volume and instance must be within the same Availability Zone. This value can be a reference to an [AWS::EC2::Volume](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ebs-volume.html) resource, or it can be the volume ID of an existing Amazon EBS volume.
         :param pulumi.Input[_builtins.str] device: The device name (for example, ``/dev/sdh`` or ``xvdh``).
+        :param pulumi.Input[_builtins.int] ebs_card_index: The index of the EBS card. Some instance types support multiple EBS cards. The default EBS card index is 0.
         """
         pulumi.set(__self__, "instance_id", instance_id)
         pulumi.set(__self__, "volume_id", volume_id)
@@ -75,6 +76,9 @@ class VolumeAttachmentArgs:
     @_builtins.property
     @pulumi.getter(name="ebsCardIndex")
     def ebs_card_index(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        The index of the EBS card. Some instance types support multiple EBS cards. The default EBS card index is 0.
+        """
         return pulumi.get(self, "ebs_card_index")
 
     @ebs_card_index.setter
@@ -102,6 +106,7 @@ class VolumeAttachment(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] device: The device name (for example, ``/dev/sdh`` or ``xvdh``).
+        :param pulumi.Input[_builtins.int] ebs_card_index: The index of the EBS card. Some instance types support multiple EBS cards. The default EBS card index is 0.
         :param pulumi.Input[_builtins.str] instance_id: The ID of the instance to which the volume attaches. This value can be a reference to an [AWS::EC2::Instance](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html) resource, or it can be the physical ID of an existing EC2 instance.
         :param pulumi.Input[_builtins.str] volume_id: The ID of the Amazon EBS volume. The volume and instance must be within the same Availability Zone. This value can be a reference to an [AWS::EC2::Volume](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ebs-volume.html) resource, or it can be the volume ID of an existing Amazon EBS volume.
         """
@@ -194,6 +199,9 @@ class VolumeAttachment(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="ebsCardIndex")
     def ebs_card_index(self) -> pulumi.Output[Optional[_builtins.int]]:
+        """
+        The index of the EBS card. Some instance types support multiple EBS cards. The default EBS card index is 0.
+        """
         return pulumi.get(self, "ebs_card_index")
 
     @_builtins.property

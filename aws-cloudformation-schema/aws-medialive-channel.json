@@ -13,6 +13,13 @@
     "InputSpecification" : {
       "$ref" : "#/definitions/InputSpecification"
     },
+    "ChannelSecurityGroups" : {
+      "type" : "array",
+      "uniqueItems" : false,
+      "items" : {
+        "type" : "string"
+      }
+    },
     "Destinations" : {
       "type" : "array",
       "uniqueItems" : false,
@@ -1760,6 +1767,12 @@
       "type" : "object",
       "additionalProperties" : false,
       "properties" : {
+        "ConnectionMode" : {
+          "type" : "string"
+        },
+        "ListenerPort" : {
+          "type" : "integer"
+        },
         "StreamId" : {
           "type" : "string"
         },
@@ -3364,17 +3377,38 @@
         "TimecodeBurninSettings" : {
           "$ref" : "#/definitions/TimecodeBurninSettings"
         },
-        "ColorSpaceSettings" : {
-          "$ref" : "#/definitions/Av1ColorSpaceSettings"
-        },
-        "SpatialAq" : {
-          "type" : "string"
-        },
         "TemporalAq" : {
           "type" : "string"
         },
         "QvbrQualityLevel" : {
           "type" : "integer"
+        },
+        "FramerateNumerator" : {
+          "type" : "integer"
+        },
+        "BitDepth" : {
+          "type" : "string"
+        },
+        "MinBitrate" : {
+          "type" : "integer"
+        },
+        "MinIInterval" : {
+          "type" : "integer"
+        },
+        "SceneChangeDetect" : {
+          "type" : "string"
+        },
+        "FramerateDenominator" : {
+          "type" : "integer"
+        },
+        "GopSize" : {
+          "type" : "number"
+        },
+        "ColorSpaceSettings" : {
+          "$ref" : "#/definitions/Av1ColorSpaceSettings"
+        },
+        "SpatialAq" : {
+          "type" : "string"
         },
         "ParDenominator" : {
           "type" : "integer"
@@ -3384,9 +3418,6 @@
         },
         "GopSizeUnits" : {
           "type" : "string"
-        },
-        "FramerateNumerator" : {
-          "type" : "integer"
         },
         "AfdSignaling" : {
           "type" : "string"
@@ -3403,20 +3434,8 @@
         "BufSize" : {
           "type" : "integer"
         },
-        "MinBitrate" : {
-          "type" : "integer"
-        },
         "TimecodeInsertion" : {
           "type" : "string"
-        },
-        "MinIInterval" : {
-          "type" : "integer"
-        },
-        "SceneChangeDetect" : {
-          "type" : "string"
-        },
-        "FramerateDenominator" : {
-          "type" : "integer"
         },
         "LookAheadRateControl" : {
           "type" : "string"
@@ -3426,9 +3445,6 @@
         },
         "MaxBitrate" : {
           "type" : "integer"
-        },
-        "GopSize" : {
-          "type" : "number"
         }
       }
     },

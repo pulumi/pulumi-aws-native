@@ -16,10 +16,10 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// <summary>
         /// The visibility of the minimum label.
         /// </summary>
-        public readonly object? Visibility;
+        public readonly Pulumi.AwsNative.QuickSight.TemplateVisibility? Visibility;
 
         [OutputConstructor]
-        private TemplateMinimumLabelType(object? visibility)
+        private TemplateMinimumLabelType(Pulumi.AwsNative.QuickSight.TemplateVisibility? visibility)
         {
             Visibility = visibility;
         }

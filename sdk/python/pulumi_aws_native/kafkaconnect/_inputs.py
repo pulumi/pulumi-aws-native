@@ -133,6 +133,10 @@ class ConnectorAutoScalingArgsDict(TypedDict):
     """
     The sacle-out policy for the connector.
     """
+    max_autoscaling_task_count: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The maximum number of tasks allocated to the connector during autoscaling operations.
+    """
 
 @pulumi.input_type
 class ConnectorAutoScalingArgs:
@@ -141,7 +145,8 @@ class ConnectorAutoScalingArgs:
                  mcu_count: pulumi.Input[_builtins.int],
                  min_worker_count: pulumi.Input[_builtins.int],
                  scale_in_policy: pulumi.Input['ConnectorScaleInPolicyArgs'],
-                 scale_out_policy: pulumi.Input['ConnectorScaleOutPolicyArgs']):
+                 scale_out_policy: pulumi.Input['ConnectorScaleOutPolicyArgs'],
+                 max_autoscaling_task_count: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Details about auto scaling of a connector.
         :param pulumi.Input[_builtins.int] max_worker_count: The maximum number of workers for a connector.
@@ -149,12 +154,15 @@ class ConnectorAutoScalingArgs:
         :param pulumi.Input[_builtins.int] min_worker_count: The minimum number of workers for a connector.
         :param pulumi.Input['ConnectorScaleInPolicyArgs'] scale_in_policy: The sacle-in policy for the connector.
         :param pulumi.Input['ConnectorScaleOutPolicyArgs'] scale_out_policy: The sacle-out policy for the connector.
+        :param pulumi.Input[_builtins.int] max_autoscaling_task_count: The maximum number of tasks allocated to the connector during autoscaling operations.
         """
         pulumi.set(__self__, "max_worker_count", max_worker_count)
         pulumi.set(__self__, "mcu_count", mcu_count)
         pulumi.set(__self__, "min_worker_count", min_worker_count)
         pulumi.set(__self__, "scale_in_policy", scale_in_policy)
         pulumi.set(__self__, "scale_out_policy", scale_out_policy)
+        if max_autoscaling_task_count is not None:
+            pulumi.set(__self__, "max_autoscaling_task_count", max_autoscaling_task_count)
 
     @_builtins.property
     @pulumi.getter(name="maxWorkerCount")
@@ -215,6 +223,18 @@ class ConnectorAutoScalingArgs:
     @scale_out_policy.setter
     def scale_out_policy(self, value: pulumi.Input['ConnectorScaleOutPolicyArgs']):
         pulumi.set(self, "scale_out_policy", value)
+
+    @_builtins.property
+    @pulumi.getter(name="maxAutoscalingTaskCount")
+    def max_autoscaling_task_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        The maximum number of tasks allocated to the connector during autoscaling operations.
+        """
+        return pulumi.get(self, "max_autoscaling_task_count")
+
+    @max_autoscaling_task_count.setter
+    def max_autoscaling_task_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "max_autoscaling_task_count", value)
 
 
 class ConnectorCapacityArgsDict(TypedDict):

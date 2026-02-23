@@ -17,6 +17,10 @@ namespace Pulumi.AwsNative.KafkaConnect.Outputs
     public sealed class ConnectorAutoScaling
     {
         /// <summary>
+        /// The maximum number of tasks allocated to the connector during autoscaling operations.
+        /// </summary>
+        public readonly int? MaxAutoscalingTaskCount;
+        /// <summary>
         /// The maximum number of workers for a connector.
         /// </summary>
         public readonly int MaxWorkerCount;
@@ -39,6 +43,8 @@ namespace Pulumi.AwsNative.KafkaConnect.Outputs
 
         [OutputConstructor]
         private ConnectorAutoScaling(
+            int? maxAutoscalingTaskCount,
+
             int maxWorkerCount,
 
             int mcuCount,
@@ -49,6 +55,7 @@ namespace Pulumi.AwsNative.KafkaConnect.Outputs
 
             Outputs.ConnectorScaleOutPolicy scaleOutPolicy)
         {
+            MaxAutoscalingTaskCount = maxAutoscalingTaskCount;
             MaxWorkerCount = maxWorkerCount;
             McuCount = mcuCount;
             MinWorkerCount = minWorkerCount;

@@ -23,7 +23,7 @@ class DelegatedAdminArgs:
                  admin_account_id: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a DelegatedAdmin resource.
-        :param pulumi.Input[_builtins.str] admin_account_id: The AWS-account identifier of the account to designate as the Security Hub administrator account.
+        :param pulumi.Input[_builtins.str] admin_account_id: The AWS-account identifier of the account to designate as the Security Hub CSPM administrator account.
         """
         pulumi.set(__self__, "admin_account_id", admin_account_id)
 
@@ -31,7 +31,7 @@ class DelegatedAdminArgs:
     @pulumi.getter(name="adminAccountId")
     def admin_account_id(self) -> pulumi.Input[_builtins.str]:
         """
-        The AWS-account identifier of the account to designate as the Security Hub administrator account.
+        The AWS-account identifier of the account to designate as the Security Hub CSPM administrator account.
         """
         return pulumi.get(self, "admin_account_id")
 
@@ -56,7 +56,7 @@ class DelegatedAdmin(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] admin_account_id: The AWS-account identifier of the account to designate as the Security Hub administrator account.
+        :param pulumi.Input[_builtins.str] admin_account_id: The AWS-account identifier of the account to designate as the Security Hub CSPM administrator account.
         """
         ...
     @overload
@@ -133,7 +133,7 @@ class DelegatedAdmin(pulumi.CustomResource):
     @pulumi.getter(name="adminAccountId")
     def admin_account_id(self) -> pulumi.Output[_builtins.str]:
         """
-        The AWS-account identifier of the account to designate as the Security Hub administrator account.
+        The AWS-account identifier of the account to designate as the Security Hub CSPM administrator account.
         """
         return pulumi.get(self, "admin_account_id")
 

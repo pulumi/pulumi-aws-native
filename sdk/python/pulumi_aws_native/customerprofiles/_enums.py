@@ -26,6 +26,7 @@ __all__ = [
     'IntegrationS3ConnectorOperator',
     'IntegrationSalesforceConnectorOperator',
     'IntegrationScheduledTriggerPropertiesDataPullMode',
+    'IntegrationScope',
     'IntegrationServiceNowConnectorOperator',
     'IntegrationTaskType',
     'IntegrationTriggerType',
@@ -294,6 +295,15 @@ class IntegrationScheduledTriggerPropertiesDataPullMode(_builtins.str, Enum):
     """
     INCREMENTAL = "Incremental"
     COMPLETE = "Complete"
+
+
+@pulumi.type_token("aws-native:customerprofiles:IntegrationScope")
+class IntegrationScope(_builtins.str, Enum):
+    """
+    Scope of the integration, such as 'PROFILE' or 'DOMAIN'
+    """
+    PROFILE = "PROFILE"
+    DOMAIN = "DOMAIN"
 
 
 @pulumi.type_token("aws-native:customerprofiles:IntegrationServiceNowConnectorOperator")

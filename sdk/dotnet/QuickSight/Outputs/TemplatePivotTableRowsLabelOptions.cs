@@ -20,13 +20,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// <summary>
         /// The visibility of the rows label.
         /// </summary>
-        public readonly object? Visibility;
+        public readonly Pulumi.AwsNative.QuickSight.TemplateVisibility? Visibility;
 
         [OutputConstructor]
         private TemplatePivotTableRowsLabelOptions(
             string? customLabel,
 
-            object? visibility)
+            Pulumi.AwsNative.QuickSight.TemplateVisibility? visibility)
         {
             CustomLabel = customLabel;
             Visibility = visibility;

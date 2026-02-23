@@ -716,13 +716,13 @@ type AutomationRule struct {
 	Criteria AutomationRulesFindingFiltersOutput `pulumi:"criteria"`
 	// A description of the rule.
 	Description pulumi.StringOutput `pulumi:"description"`
-	// Specifies whether a rule is the last to be applied with respect to a finding that matches the rule criteria. This is useful when a finding matches the criteria for multiple rules, and each rule has different actions. If a rule is terminal, Security Hub applies the rule action to a finding that matches the rule criteria and doesn't evaluate other rules for the finding. By default, a rule isn't terminal.
+	// Specifies whether a rule is the last to be applied with respect to a finding that matches the rule criteria. This is useful when a finding matches the criteria for multiple rules, and each rule has different actions. If a rule is terminal, Security Hub CSPM applies the rule action to a finding that matches the rule criteria and doesn't evaluate other rules for the finding. By default, a rule isn't terminal.
 	IsTerminal pulumi.BoolPtrOutput `pulumi:"isTerminal"`
 	// The Amazon Resource Name (ARN) of the automation rule that you create. For example, `arn:aws:securityhub:us-east-1:123456789012:automation-rule/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111` .
 	RuleArn pulumi.StringOutput `pulumi:"ruleArn"`
 	// The name of the rule.
 	RuleName pulumi.StringOutput `pulumi:"ruleName"`
-	// An integer ranging from 1 to 1000 that represents the order in which the rule action is applied to findings. Security Hub applies rules with lower values for this parameter first.
+	// An integer ranging from 1 to 1000 that represents the order in which the rule action is applied to findings. Security Hub CSPM applies rules with lower values for this parameter first.
 	RuleOrder pulumi.IntOutput `pulumi:"ruleOrder"`
 	// Whether the rule is active after it is created. If this parameter is equal to ``ENABLED``, ASH applies the rule to findings and finding updates after the rule is created.
 	RuleStatus AutomationRuleRuleStatusPtrOutput `pulumi:"ruleStatus"`
@@ -792,11 +792,11 @@ type automationRuleArgs struct {
 	Criteria AutomationRulesFindingFilters `pulumi:"criteria"`
 	// A description of the rule.
 	Description string `pulumi:"description"`
-	// Specifies whether a rule is the last to be applied with respect to a finding that matches the rule criteria. This is useful when a finding matches the criteria for multiple rules, and each rule has different actions. If a rule is terminal, Security Hub applies the rule action to a finding that matches the rule criteria and doesn't evaluate other rules for the finding. By default, a rule isn't terminal.
+	// Specifies whether a rule is the last to be applied with respect to a finding that matches the rule criteria. This is useful when a finding matches the criteria for multiple rules, and each rule has different actions. If a rule is terminal, Security Hub CSPM applies the rule action to a finding that matches the rule criteria and doesn't evaluate other rules for the finding. By default, a rule isn't terminal.
 	IsTerminal *bool `pulumi:"isTerminal"`
 	// The name of the rule.
 	RuleName *string `pulumi:"ruleName"`
-	// An integer ranging from 1 to 1000 that represents the order in which the rule action is applied to findings. Security Hub applies rules with lower values for this parameter first.
+	// An integer ranging from 1 to 1000 that represents the order in which the rule action is applied to findings. Security Hub CSPM applies rules with lower values for this parameter first.
 	RuleOrder int `pulumi:"ruleOrder"`
 	// Whether the rule is active after it is created. If this parameter is equal to ``ENABLED``, ASH applies the rule to findings and finding updates after the rule is created.
 	RuleStatus *AutomationRuleRuleStatus `pulumi:"ruleStatus"`
@@ -812,11 +812,11 @@ type AutomationRuleArgs struct {
 	Criteria AutomationRulesFindingFiltersInput
 	// A description of the rule.
 	Description pulumi.StringInput
-	// Specifies whether a rule is the last to be applied with respect to a finding that matches the rule criteria. This is useful when a finding matches the criteria for multiple rules, and each rule has different actions. If a rule is terminal, Security Hub applies the rule action to a finding that matches the rule criteria and doesn't evaluate other rules for the finding. By default, a rule isn't terminal.
+	// Specifies whether a rule is the last to be applied with respect to a finding that matches the rule criteria. This is useful when a finding matches the criteria for multiple rules, and each rule has different actions. If a rule is terminal, Security Hub CSPM applies the rule action to a finding that matches the rule criteria and doesn't evaluate other rules for the finding. By default, a rule isn't terminal.
 	IsTerminal pulumi.BoolPtrInput
 	// The name of the rule.
 	RuleName pulumi.StringPtrInput
-	// An integer ranging from 1 to 1000 that represents the order in which the rule action is applied to findings. Security Hub applies rules with lower values for this parameter first.
+	// An integer ranging from 1 to 1000 that represents the order in which the rule action is applied to findings. Security Hub CSPM applies rules with lower values for this parameter first.
 	RuleOrder pulumi.IntInput
 	// Whether the rule is active after it is created. If this parameter is equal to ``ENABLED``, ASH applies the rule to findings and finding updates after the rule is created.
 	RuleStatus AutomationRuleRuleStatusPtrInput
@@ -888,7 +888,7 @@ func (o AutomationRuleOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v *AutomationRule) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
 }
 
-// Specifies whether a rule is the last to be applied with respect to a finding that matches the rule criteria. This is useful when a finding matches the criteria for multiple rules, and each rule has different actions. If a rule is terminal, Security Hub applies the rule action to a finding that matches the rule criteria and doesn't evaluate other rules for the finding. By default, a rule isn't terminal.
+// Specifies whether a rule is the last to be applied with respect to a finding that matches the rule criteria. This is useful when a finding matches the criteria for multiple rules, and each rule has different actions. If a rule is terminal, Security Hub CSPM applies the rule action to a finding that matches the rule criteria and doesn't evaluate other rules for the finding. By default, a rule isn't terminal.
 func (o AutomationRuleOutput) IsTerminal() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AutomationRule) pulumi.BoolPtrOutput { return v.IsTerminal }).(pulumi.BoolPtrOutput)
 }
@@ -903,7 +903,7 @@ func (o AutomationRuleOutput) RuleName() pulumi.StringOutput {
 	return o.ApplyT(func(v *AutomationRule) pulumi.StringOutput { return v.RuleName }).(pulumi.StringOutput)
 }
 
-// An integer ranging from 1 to 1000 that represents the order in which the rule action is applied to findings. Security Hub applies rules with lower values for this parameter first.
+// An integer ranging from 1 to 1000 that represents the order in which the rule action is applied to findings. Security Hub CSPM applies rules with lower values for this parameter first.
 func (o AutomationRuleOutput) RuleOrder() pulumi.IntOutput {
 	return o.ApplyT(func(v *AutomationRule) pulumi.IntOutput { return v.RuleOrder }).(pulumi.IntOutput)
 }

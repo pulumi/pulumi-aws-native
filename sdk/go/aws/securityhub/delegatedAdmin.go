@@ -20,7 +20,7 @@ import (
 type DelegatedAdmin struct {
 	pulumi.CustomResourceState
 
-	// The AWS-account identifier of the account to designate as the Security Hub administrator account.
+	// The AWS-account identifier of the account to designate as the Security Hub CSPM administrator account.
 	AdminAccountId pulumi.StringOutput `pulumi:"adminAccountId"`
 	// The ID of the delegated Security Hub CSPM administrator account, in the format of `accountID/Region` .
 	DelegatedAdminIdentifier pulumi.StringOutput `pulumi:"delegatedAdminIdentifier"`
@@ -75,13 +75,13 @@ func (DelegatedAdminState) ElementType() reflect.Type {
 }
 
 type delegatedAdminArgs struct {
-	// The AWS-account identifier of the account to designate as the Security Hub administrator account.
+	// The AWS-account identifier of the account to designate as the Security Hub CSPM administrator account.
 	AdminAccountId string `pulumi:"adminAccountId"`
 }
 
 // The set of arguments for constructing a DelegatedAdmin resource.
 type DelegatedAdminArgs struct {
-	// The AWS-account identifier of the account to designate as the Security Hub administrator account.
+	// The AWS-account identifier of the account to designate as the Security Hub CSPM administrator account.
 	AdminAccountId pulumi.StringInput
 }
 
@@ -122,7 +122,7 @@ func (o DelegatedAdminOutput) ToDelegatedAdminOutputWithContext(ctx context.Cont
 	return o
 }
 
-// The AWS-account identifier of the account to designate as the Security Hub administrator account.
+// The AWS-account identifier of the account to designate as the Security Hub CSPM administrator account.
 func (o DelegatedAdminOutput) AdminAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *DelegatedAdmin) pulumi.StringOutput { return v.AdminAccountId }).(pulumi.StringOutput)
 }

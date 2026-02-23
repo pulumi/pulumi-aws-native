@@ -10,11 +10,14 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Lambda.Outputs
 {
 
+    /// <summary>
+    /// Specifies the tenant isolation mode configuration for a Lambda function. This allows you to configure specific tenant isolation strategies for your function invocations. Tenant isolation configuration cannot be modified after function creation.
+    /// </summary>
     [OutputType]
     public sealed class FunctionTenancyConfig
     {
         /// <summary>
-        /// Determines how your Lambda function isolates execution environments between tenants.
+        /// Tenant isolation mode allows for invocation to be sent to a corresponding execution environment dedicated to a specific tenant ID.
         /// </summary>
         public readonly Pulumi.AwsNative.Lambda.FunctionTenancyConfigTenantIsolationMode TenantIsolationMode;
 

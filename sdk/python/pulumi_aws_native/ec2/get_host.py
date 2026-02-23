@@ -14,6 +14,7 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from .. import outputs as _root_outputs
+from ._enums import *
 
 __all__ = [
     'GetHostResult',
@@ -43,7 +44,7 @@ class GetHostResult:
 
     @_builtins.property
     @pulumi.getter(name="autoPlacement")
-    def auto_placement(self) -> Optional[_builtins.str]:
+    def auto_placement(self) -> Optional['HostAutoPlacement']:
         """
         Indicates whether the host accepts any untargeted instance launches that match its instance type configuration, or if it only accepts Host tenancy instance launches that specify its unique host ID.
         """
@@ -59,7 +60,7 @@ class GetHostResult:
 
     @_builtins.property
     @pulumi.getter(name="hostMaintenance")
-    def host_maintenance(self) -> Optional[_builtins.str]:
+    def host_maintenance(self) -> Optional['HostMaintenance']:
         """
         Automatically allocates a new dedicated host and moves your instances on to it if a degradation is detected on your current host.
         """
@@ -67,7 +68,7 @@ class GetHostResult:
 
     @_builtins.property
     @pulumi.getter(name="hostRecovery")
-    def host_recovery(self) -> Optional[_builtins.str]:
+    def host_recovery(self) -> Optional['HostRecovery']:
         """
         Indicates whether to enable or disable host recovery for the Dedicated Host. Host recovery is disabled by default.
         """

@@ -22,7 +22,7 @@ namespace Pulumi.AwsNative.SecurityHub.Inputs
         public Input<Inputs.AutomationRulesFindingFieldsUpdateArgs> FindingFieldsUpdate { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the type of action that Security Hub takes when a finding matches the defined criteria of a rule.
+        /// Specifies the type of action that Security Hub CSPM takes when a finding matches the defined criteria of a rule.
         /// </summary>
         [Input("type", required: true)]
         public Input<Pulumi.AwsNative.SecurityHub.AutomationRulesActionType> Type { get; set; } = null!;

@@ -51,6 +51,10 @@ export interface GetIntegrationResult {
      */
     readonly objectTypeNames?: outputs.customerprofiles.IntegrationObjectTypeMapping[];
     /**
+     * Scope of the integration, such as 'PROFILE' or 'DOMAIN'
+     */
+    readonly scope?: enums.customerprofiles.IntegrationScope;
+    /**
      * The tags (keys and values) associated with the integration
      */
     readonly tags?: outputs.Tag[];

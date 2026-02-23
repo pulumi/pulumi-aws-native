@@ -271,7 +271,7 @@ class FunctionSnapStartResponseOptimizationStatus(_builtins.str, Enum):
 @pulumi.type_token("aws-native:lambda:FunctionTenancyConfigTenantIsolationMode")
 class FunctionTenancyConfigTenantIsolationMode(_builtins.str, Enum):
     """
-    Determines how your Lambda function isolates execution environments between tenants.
+    Tenant isolation mode allows for invocation to be sent to a corresponding execution environment dedicated to a specific tenant ID.
     """
     PER_TENANT = "PER_TENANT"
 

@@ -12249,6 +12249,34 @@ namespace Pulumi.AwsNative.QuickSight
     }
 
     [EnumType]
+    public readonly struct TemplateVisibility : IEquatable<TemplateVisibility>
+    {
+        private readonly string _value;
+
+        private TemplateVisibility(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TemplateVisibility Hidden { get; } = new TemplateVisibility("HIDDEN");
+        public static TemplateVisibility Visible { get; } = new TemplateVisibility("VISIBLE");
+
+        public static bool operator ==(TemplateVisibility left, TemplateVisibility right) => left.Equals(right);
+        public static bool operator !=(TemplateVisibility left, TemplateVisibility right) => !left.Equals(right);
+
+        public static explicit operator string(TemplateVisibility value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TemplateVisibility other && Equals(other);
+        public bool Equals(TemplateVisibility other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct TemplateVisualCustomActionTrigger : IEquatable<TemplateVisualCustomActionTrigger>
     {
         private readonly string _value;

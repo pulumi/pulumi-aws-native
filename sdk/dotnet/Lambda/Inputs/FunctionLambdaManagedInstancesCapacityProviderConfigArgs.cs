@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Lambda.Inputs
 {
 
+    /// <summary>
+    /// Configuration for Lambda-managed instances used by the capacity provider.
+    /// </summary>
     public sealed class FunctionLambdaManagedInstancesCapacityProviderConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
@@ -25,7 +28,7 @@ namespace Pulumi.AwsNative.Lambda.Inputs
         public Input<double>? ExecutionEnvironmentMemoryGiBPerVCpu { get; set; }
 
         /// <summary>
-        /// The maximum number of concurrent execution environments that can run on each compute instance.
+        /// The maximum number of concurrent executions that can run on each execution environment.
         /// </summary>
         [Input("perExecutionEnvironmentMaxConcurrency")]
         public Input<int>? PerExecutionEnvironmentMaxConcurrency { get; set; }

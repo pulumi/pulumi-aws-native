@@ -24,6 +24,9 @@ namespace Pulumi.AwsNative.Ec2
         [Output("device")]
         public Output<string?> Device { get; private set; } = null!;
 
+        /// <summary>
+        /// The index of the EBS card. Some instance types support multiple EBS cards. The default EBS card index is 0.
+        /// </summary>
         [Output("ebsCardIndex")]
         public Output<int?> EbsCardIndex { get; private set; } = null!;
 
@@ -97,6 +100,9 @@ namespace Pulumi.AwsNative.Ec2
         [Input("device")]
         public Input<string>? Device { get; set; }
 
+        /// <summary>
+        /// The index of the EBS card. Some instance types support multiple EBS cards. The default EBS card index is 0.
+        /// </summary>
         [Input("ebsCardIndex")]
         public Input<int>? EbsCardIndex { get; set; }
 

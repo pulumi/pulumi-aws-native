@@ -16,11 +16,11 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// <summary>
         /// Determines the visibility of all data points of the box plot.
         /// </summary>
-        public readonly object? AllDataPointsVisibility;
+        public readonly Pulumi.AwsNative.QuickSight.TemplateVisibility? AllDataPointsVisibility;
         /// <summary>
         /// Determines the visibility of the outlier in a box plot.
         /// </summary>
-        public readonly object? OutlierVisibility;
+        public readonly Pulumi.AwsNative.QuickSight.TemplateVisibility? OutlierVisibility;
         /// <summary>
         /// The style options of the box plot.
         /// </summary>
@@ -28,9 +28,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 
         [OutputConstructor]
         private TemplateBoxPlotOptions(
-            object? allDataPointsVisibility,
+            Pulumi.AwsNative.QuickSight.TemplateVisibility? allDataPointsVisibility,
 
-            object? outlierVisibility,
+            Pulumi.AwsNative.QuickSight.TemplateVisibility? outlierVisibility,
 
             Outputs.TemplateBoxPlotStyleOptions? styleOptions)
         {

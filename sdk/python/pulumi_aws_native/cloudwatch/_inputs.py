@@ -13,6 +13,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from ._enums import *
 
 __all__ = [
     'AlarmDimensionArgs',
@@ -29,6 +30,12 @@ __all__ = [
     'MetricStreamStatisticsConfigurationArgsDict',
     'MetricStreamStatisticsMetricArgs',
     'MetricStreamStatisticsMetricArgsDict',
+    'MuteTargetsPropertiesArgs',
+    'MuteTargetsPropertiesArgsDict',
+    'RulePropertiesSchedulePropertiesArgs',
+    'RulePropertiesSchedulePropertiesArgsDict',
+    'RulePropertiesArgs',
+    'RulePropertiesArgsDict',
 ]
 
 class AlarmDimensionArgsDict(TypedDict):
@@ -580,5 +587,140 @@ class MetricStreamStatisticsMetricArgs:
     @namespace.setter
     def namespace(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "namespace", value)
+
+
+class MuteTargetsPropertiesArgsDict(TypedDict):
+    """
+    Targets to be muted
+    """
+    alarm_names: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    The alarm names to be mute by the AlarmMuteRule
+    """
+
+@pulumi.input_type
+class MuteTargetsPropertiesArgs:
+    def __init__(__self__, *,
+                 alarm_names: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        """
+        Targets to be muted
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] alarm_names: The alarm names to be mute by the AlarmMuteRule
+        """
+        pulumi.set(__self__, "alarm_names", alarm_names)
+
+    @_builtins.property
+    @pulumi.getter(name="alarmNames")
+    def alarm_names(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        """
+        The alarm names to be mute by the AlarmMuteRule
+        """
+        return pulumi.get(self, "alarm_names")
+
+    @alarm_names.setter
+    def alarm_names(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "alarm_names", value)
+
+
+class RulePropertiesSchedulePropertiesArgsDict(TypedDict):
+    """
+    Schedule for the mute to be active
+    """
+    duration: pulumi.Input[_builtins.str]
+    """
+    The duration of the schedule when it triggers
+    """
+    expression: pulumi.Input[_builtins.str]
+    """
+    The expression of the schedule
+    """
+    timezone: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The timezone of the schedule
+    """
+
+@pulumi.input_type
+class RulePropertiesSchedulePropertiesArgs:
+    def __init__(__self__, *,
+                 duration: pulumi.Input[_builtins.str],
+                 expression: pulumi.Input[_builtins.str],
+                 timezone: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        Schedule for the mute to be active
+        :param pulumi.Input[_builtins.str] duration: The duration of the schedule when it triggers
+        :param pulumi.Input[_builtins.str] expression: The expression of the schedule
+        :param pulumi.Input[_builtins.str] timezone: The timezone of the schedule
+        """
+        pulumi.set(__self__, "duration", duration)
+        pulumi.set(__self__, "expression", expression)
+        if timezone is not None:
+            pulumi.set(__self__, "timezone", timezone)
+
+    @_builtins.property
+    @pulumi.getter
+    def duration(self) -> pulumi.Input[_builtins.str]:
+        """
+        The duration of the schedule when it triggers
+        """
+        return pulumi.get(self, "duration")
+
+    @duration.setter
+    def duration(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "duration", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def expression(self) -> pulumi.Input[_builtins.str]:
+        """
+        The expression of the schedule
+        """
+        return pulumi.get(self, "expression")
+
+    @expression.setter
+    def expression(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "expression", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def timezone(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The timezone of the schedule
+        """
+        return pulumi.get(self, "timezone")
+
+    @timezone.setter
+    def timezone(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "timezone", value)
+
+
+class RulePropertiesArgsDict(TypedDict):
+    """
+    The rule for the mute
+    """
+    schedule: pulumi.Input['RulePropertiesSchedulePropertiesArgsDict']
+    """
+    Schedule for the mute to be active
+    """
+
+@pulumi.input_type
+class RulePropertiesArgs:
+    def __init__(__self__, *,
+                 schedule: pulumi.Input['RulePropertiesSchedulePropertiesArgs']):
+        """
+        The rule for the mute
+        :param pulumi.Input['RulePropertiesSchedulePropertiesArgs'] schedule: Schedule for the mute to be active
+        """
+        pulumi.set(__self__, "schedule", schedule)
+
+    @_builtins.property
+    @pulumi.getter
+    def schedule(self) -> pulumi.Input['RulePropertiesSchedulePropertiesArgs']:
+        """
+        Schedule for the mute to be active
+        """
+        return pulumi.get(self, "schedule")
+
+    @schedule.setter
+    def schedule(self, value: pulumi.Input['RulePropertiesSchedulePropertiesArgs']):
+        pulumi.set(self, "schedule", value)
 
 

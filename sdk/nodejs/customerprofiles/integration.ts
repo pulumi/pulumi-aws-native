@@ -66,6 +66,10 @@ export class Integration extends pulumi.CustomResource {
      */
     declare public readonly objectTypeNames: pulumi.Output<outputs.customerprofiles.IntegrationObjectTypeMapping[] | undefined>;
     /**
+     * Scope of the integration, such as 'PROFILE' or 'DOMAIN'
+     */
+    declare public readonly scope: pulumi.Output<enums.customerprofiles.IntegrationScope | undefined>;
+    /**
      * The tags (keys and values) associated with the integration
      */
     declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
@@ -93,6 +97,7 @@ export class Integration extends pulumi.CustomResource {
             resourceInputs["flowDefinition"] = args?.flowDefinition;
             resourceInputs["objectTypeName"] = args?.objectTypeName;
             resourceInputs["objectTypeNames"] = args?.objectTypeNames;
+            resourceInputs["scope"] = args?.scope;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["uri"] = args?.uri;
             resourceInputs["createdAt"] = undefined /*out*/;
@@ -105,6 +110,7 @@ export class Integration extends pulumi.CustomResource {
             resourceInputs["lastUpdatedAt"] = undefined /*out*/;
             resourceInputs["objectTypeName"] = undefined /*out*/;
             resourceInputs["objectTypeNames"] = undefined /*out*/;
+            resourceInputs["scope"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["uri"] = undefined /*out*/;
         }
@@ -139,6 +145,10 @@ export interface IntegrationArgs {
      * The mapping between 3rd party event types and ObjectType names
      */
     objectTypeNames?: pulumi.Input<pulumi.Input<inputs.customerprofiles.IntegrationObjectTypeMappingArgs>[]>;
+    /**
+     * Scope of the integration, such as 'PROFILE' or 'DOMAIN'
+     */
+    scope?: pulumi.Input<enums.customerprofiles.IntegrationScope>;
     /**
      * The tags (keys and values) associated with the integration
      */

@@ -20,7 +20,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// <summary>
         /// The visibility setting of a pivot table's collapsed row dimension fields. If the value of this structure is `HIDDEN` , all collapsed columns in a pivot table are automatically hidden. The default value is `VISIBLE` .
         /// </summary>
-        public readonly object? CollapsedRowDimensionsVisibility;
+        public readonly Pulumi.AwsNative.QuickSight.TemplateVisibility? CollapsedRowDimensionsVisibility;
         /// <summary>
         /// The table cell style of the column header.
         /// </summary>
@@ -28,7 +28,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// <summary>
         /// The visibility of the column names.
         /// </summary>
-        public readonly object? ColumnNamesVisibility;
+        public readonly Pulumi.AwsNative.QuickSight.TemplateVisibility? ColumnNamesVisibility;
         /// <summary>
         /// String based length that is composed of value and unit in px
         /// </summary>
@@ -63,21 +63,21 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// <summary>
         /// The visibility of the single metric options.
         /// </summary>
-        public readonly object? SingleMetricVisibility;
+        public readonly Pulumi.AwsNative.QuickSight.TemplateVisibility? SingleMetricVisibility;
         /// <summary>
         /// Determines the visibility of the pivot table.
         /// </summary>
-        public readonly object? ToggleButtonsVisibility;
+        public readonly Pulumi.AwsNative.QuickSight.TemplateVisibility? ToggleButtonsVisibility;
 
         [OutputConstructor]
         private TemplatePivotTableOptions(
             Outputs.TemplateTableCellStyle? cellStyle,
 
-            object? collapsedRowDimensionsVisibility,
+            Pulumi.AwsNative.QuickSight.TemplateVisibility? collapsedRowDimensionsVisibility,
 
             Outputs.TemplateTableCellStyle? columnHeaderStyle,
 
-            object? columnNamesVisibility,
+            Pulumi.AwsNative.QuickSight.TemplateVisibility? columnNamesVisibility,
 
             string? defaultCellWidth,
 
@@ -93,9 +93,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 
             Pulumi.AwsNative.QuickSight.TemplatePivotTableRowsLayout? rowsLayout,
 
-            object? singleMetricVisibility,
+            Pulumi.AwsNative.QuickSight.TemplateVisibility? singleMetricVisibility,
 
-            object? toggleButtonsVisibility)
+            Pulumi.AwsNative.QuickSight.TemplateVisibility? toggleButtonsVisibility)
         {
             CellStyle = cellStyle;
             CollapsedRowDimensionsVisibility = collapsedRowDimensionsVisibility;

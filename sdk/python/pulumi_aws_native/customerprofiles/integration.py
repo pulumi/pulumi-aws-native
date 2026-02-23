@@ -29,6 +29,7 @@ class IntegrationArgs:
                  flow_definition: Optional[pulumi.Input['IntegrationFlowDefinitionArgs']] = None,
                  object_type_name: Optional[pulumi.Input[_builtins.str]] = None,
                  object_type_names: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationObjectTypeMappingArgs']]]] = None,
+                 scope: Optional[pulumi.Input['IntegrationScope']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
                  uri: Optional[pulumi.Input[_builtins.str]] = None):
         """
@@ -38,6 +39,7 @@ class IntegrationArgs:
         :param pulumi.Input['IntegrationFlowDefinitionArgs'] flow_definition: The configuration that controls how Customer Profiles retrieves data from the source.
         :param pulumi.Input[_builtins.str] object_type_name: The name of the ObjectType defined for the 3rd party data in Profile Service
         :param pulumi.Input[Sequence[pulumi.Input['IntegrationObjectTypeMappingArgs']]] object_type_names: The mapping between 3rd party event types and ObjectType names
+        :param pulumi.Input['IntegrationScope'] scope: Scope of the integration, such as 'PROFILE' or 'DOMAIN'
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags (keys and values) associated with the integration
         :param pulumi.Input[_builtins.str] uri: The URI of the S3 bucket or any other type of data source.
         """
@@ -50,6 +52,8 @@ class IntegrationArgs:
             pulumi.set(__self__, "object_type_name", object_type_name)
         if object_type_names is not None:
             pulumi.set(__self__, "object_type_names", object_type_names)
+        if scope is not None:
+            pulumi.set(__self__, "scope", scope)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if uri is not None:
@@ -117,6 +121,18 @@ class IntegrationArgs:
 
     @_builtins.property
     @pulumi.getter
+    def scope(self) -> Optional[pulumi.Input['IntegrationScope']]:
+        """
+        Scope of the integration, such as 'PROFILE' or 'DOMAIN'
+        """
+        return pulumi.get(self, "scope")
+
+    @scope.setter
+    def scope(self, value: Optional[pulumi.Input['IntegrationScope']]):
+        pulumi.set(self, "scope", value)
+
+    @_builtins.property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         The tags (keys and values) associated with the integration
@@ -151,6 +167,7 @@ class Integration(pulumi.CustomResource):
                  flow_definition: Optional[pulumi.Input[Union['IntegrationFlowDefinitionArgs', 'IntegrationFlowDefinitionArgsDict']]] = None,
                  object_type_name: Optional[pulumi.Input[_builtins.str]] = None,
                  object_type_names: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IntegrationObjectTypeMappingArgs', 'IntegrationObjectTypeMappingArgsDict']]]]] = None,
+                 scope: Optional[pulumi.Input['IntegrationScope']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  uri: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
@@ -164,6 +181,7 @@ class Integration(pulumi.CustomResource):
         :param pulumi.Input[Union['IntegrationFlowDefinitionArgs', 'IntegrationFlowDefinitionArgsDict']] flow_definition: The configuration that controls how Customer Profiles retrieves data from the source.
         :param pulumi.Input[_builtins.str] object_type_name: The name of the ObjectType defined for the 3rd party data in Profile Service
         :param pulumi.Input[Sequence[pulumi.Input[Union['IntegrationObjectTypeMappingArgs', 'IntegrationObjectTypeMappingArgsDict']]]] object_type_names: The mapping between 3rd party event types and ObjectType names
+        :param pulumi.Input['IntegrationScope'] scope: Scope of the integration, such as 'PROFILE' or 'DOMAIN'
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags (keys and values) associated with the integration
         :param pulumi.Input[_builtins.str] uri: The URI of the S3 bucket or any other type of data source.
         """
@@ -196,6 +214,7 @@ class Integration(pulumi.CustomResource):
                  flow_definition: Optional[pulumi.Input[Union['IntegrationFlowDefinitionArgs', 'IntegrationFlowDefinitionArgsDict']]] = None,
                  object_type_name: Optional[pulumi.Input[_builtins.str]] = None,
                  object_type_names: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IntegrationObjectTypeMappingArgs', 'IntegrationObjectTypeMappingArgsDict']]]]] = None,
+                 scope: Optional[pulumi.Input['IntegrationScope']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  uri: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
@@ -214,6 +233,7 @@ class Integration(pulumi.CustomResource):
             __props__.__dict__["flow_definition"] = flow_definition
             __props__.__dict__["object_type_name"] = object_type_name
             __props__.__dict__["object_type_names"] = object_type_names
+            __props__.__dict__["scope"] = scope
             __props__.__dict__["tags"] = tags
             __props__.__dict__["uri"] = uri
             __props__.__dict__["created_at"] = None
@@ -249,6 +269,7 @@ class Integration(pulumi.CustomResource):
         __props__.__dict__["last_updated_at"] = None
         __props__.__dict__["object_type_name"] = None
         __props__.__dict__["object_type_names"] = None
+        __props__.__dict__["scope"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["uri"] = None
         return Integration(resource_name, opts=opts, __props__=__props__)
@@ -308,6 +329,14 @@ class Integration(pulumi.CustomResource):
         The mapping between 3rd party event types and ObjectType names
         """
         return pulumi.get(self, "object_type_names")
+
+    @_builtins.property
+    @pulumi.getter
+    def scope(self) -> pulumi.Output[Optional['IntegrationScope']]:
+        """
+        Scope of the integration, such as 'PROFILE' or 'DOMAIN'
+        """
+        return pulumi.get(self, "scope")
 
     @_builtins.property
     @pulumi.getter

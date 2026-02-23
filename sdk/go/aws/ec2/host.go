@@ -20,15 +20,15 @@ type Host struct {
 	// The ID of the Outpost hardware asset.
 	AssetId pulumi.StringPtrOutput `pulumi:"assetId"`
 	// Indicates whether the host accepts any untargeted instance launches that match its instance type configuration, or if it only accepts Host tenancy instance launches that specify its unique host ID.
-	AutoPlacement pulumi.StringPtrOutput `pulumi:"autoPlacement"`
+	AutoPlacement HostAutoPlacementPtrOutput `pulumi:"autoPlacement"`
 	// The Availability Zone in which to allocate the Dedicated Host.
 	AvailabilityZone pulumi.StringOutput `pulumi:"availabilityZone"`
 	// ID of the host created.
 	HostId pulumi.StringOutput `pulumi:"hostId"`
 	// Automatically allocates a new dedicated host and moves your instances on to it if a degradation is detected on your current host.
-	HostMaintenance pulumi.StringPtrOutput `pulumi:"hostMaintenance"`
+	HostMaintenance HostMaintenancePtrOutput `pulumi:"hostMaintenance"`
 	// Indicates whether to enable or disable host recovery for the Dedicated Host. Host recovery is disabled by default.
-	HostRecovery pulumi.StringPtrOutput `pulumi:"hostRecovery"`
+	HostRecovery HostRecoveryPtrOutput `pulumi:"hostRecovery"`
 	// Specifies the instance family to be supported by the Dedicated Hosts. If you specify an instance family, the Dedicated Hosts support multiple instance types within that instance family.
 	InstanceFamily pulumi.StringPtrOutput `pulumi:"instanceFamily"`
 	// Specifies the instance type to be supported by the Dedicated Hosts. If you specify an instance type, the Dedicated Hosts support instances of the specified instance type only.
@@ -93,13 +93,13 @@ type hostArgs struct {
 	// The ID of the Outpost hardware asset.
 	AssetId *string `pulumi:"assetId"`
 	// Indicates whether the host accepts any untargeted instance launches that match its instance type configuration, or if it only accepts Host tenancy instance launches that specify its unique host ID.
-	AutoPlacement *string `pulumi:"autoPlacement"`
+	AutoPlacement *HostAutoPlacement `pulumi:"autoPlacement"`
 	// The Availability Zone in which to allocate the Dedicated Host.
 	AvailabilityZone string `pulumi:"availabilityZone"`
 	// Automatically allocates a new dedicated host and moves your instances on to it if a degradation is detected on your current host.
-	HostMaintenance *string `pulumi:"hostMaintenance"`
+	HostMaintenance *HostMaintenance `pulumi:"hostMaintenance"`
 	// Indicates whether to enable or disable host recovery for the Dedicated Host. Host recovery is disabled by default.
-	HostRecovery *string `pulumi:"hostRecovery"`
+	HostRecovery *HostRecovery `pulumi:"hostRecovery"`
 	// Specifies the instance family to be supported by the Dedicated Hosts. If you specify an instance family, the Dedicated Hosts support multiple instance types within that instance family.
 	InstanceFamily *string `pulumi:"instanceFamily"`
 	// Specifies the instance type to be supported by the Dedicated Hosts. If you specify an instance type, the Dedicated Hosts support instances of the specified instance type only.
@@ -115,13 +115,13 @@ type HostArgs struct {
 	// The ID of the Outpost hardware asset.
 	AssetId pulumi.StringPtrInput
 	// Indicates whether the host accepts any untargeted instance launches that match its instance type configuration, or if it only accepts Host tenancy instance launches that specify its unique host ID.
-	AutoPlacement pulumi.StringPtrInput
+	AutoPlacement HostAutoPlacementPtrInput
 	// The Availability Zone in which to allocate the Dedicated Host.
 	AvailabilityZone pulumi.StringInput
 	// Automatically allocates a new dedicated host and moves your instances on to it if a degradation is detected on your current host.
-	HostMaintenance pulumi.StringPtrInput
+	HostMaintenance HostMaintenancePtrInput
 	// Indicates whether to enable or disable host recovery for the Dedicated Host. Host recovery is disabled by default.
-	HostRecovery pulumi.StringPtrInput
+	HostRecovery HostRecoveryPtrInput
 	// Specifies the instance family to be supported by the Dedicated Hosts. If you specify an instance family, the Dedicated Hosts support multiple instance types within that instance family.
 	InstanceFamily pulumi.StringPtrInput
 	// Specifies the instance type to be supported by the Dedicated Hosts. If you specify an instance type, the Dedicated Hosts support instances of the specified instance type only.
@@ -175,8 +175,8 @@ func (o HostOutput) AssetId() pulumi.StringPtrOutput {
 }
 
 // Indicates whether the host accepts any untargeted instance launches that match its instance type configuration, or if it only accepts Host tenancy instance launches that specify its unique host ID.
-func (o HostOutput) AutoPlacement() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Host) pulumi.StringPtrOutput { return v.AutoPlacement }).(pulumi.StringPtrOutput)
+func (o HostOutput) AutoPlacement() HostAutoPlacementPtrOutput {
+	return o.ApplyT(func(v *Host) HostAutoPlacementPtrOutput { return v.AutoPlacement }).(HostAutoPlacementPtrOutput)
 }
 
 // The Availability Zone in which to allocate the Dedicated Host.
@@ -190,13 +190,13 @@ func (o HostOutput) HostId() pulumi.StringOutput {
 }
 
 // Automatically allocates a new dedicated host and moves your instances on to it if a degradation is detected on your current host.
-func (o HostOutput) HostMaintenance() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Host) pulumi.StringPtrOutput { return v.HostMaintenance }).(pulumi.StringPtrOutput)
+func (o HostOutput) HostMaintenance() HostMaintenancePtrOutput {
+	return o.ApplyT(func(v *Host) HostMaintenancePtrOutput { return v.HostMaintenance }).(HostMaintenancePtrOutput)
 }
 
 // Indicates whether to enable or disable host recovery for the Dedicated Host. Host recovery is disabled by default.
-func (o HostOutput) HostRecovery() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Host) pulumi.StringPtrOutput { return v.HostRecovery }).(pulumi.StringPtrOutput)
+func (o HostOutput) HostRecovery() HostRecoveryPtrOutput {
+	return o.ApplyT(func(v *Host) HostRecoveryPtrOutput { return v.HostRecovery }).(HostRecoveryPtrOutput)
 }
 
 // Specifies the instance family to be supported by the Dedicated Hosts. If you specify an instance family, the Dedicated Hosts support multiple instance types within that instance family.

@@ -63,7 +63,7 @@ class AutomationRuleDateRangeUnit(_builtins.str, Enum):
 @pulumi.type_token("aws-native:securityhub:AutomationRuleMapFilterComparison")
 class AutomationRuleMapFilterComparison(_builtins.str, Enum):
     """
-    The condition to apply to the key value when filtering Security Hub findings with a map filter.
+    The condition to apply to the key value when filtering Security Hub CSPM findings with a map filter.
      To search for values that have the filter value, use one of the following comparison operators:
       +  To search for values that include the filter value, use ``CONTAINS``. For example, for the ``ResourceTags`` field, the filter ``Department CONTAINS Security`` matches findings that include the value ``Security`` for the ``Department`` tag. In the same example, a finding with a value of ``Security team`` for the ``Department`` tag is a match.
       +  To search for values that exactly match the filter value, use ``EQUALS``. For example, for the ``ResourceTags`` field, the filter ``Department EQUALS Security`` matches findings that have the value ``Security`` for the ``Department`` tag.
@@ -265,7 +265,7 @@ class AutomationRuleWorkflowUpdateStatus(_builtins.str, Enum):
     The status of the investigation into the finding. The workflow status is specific to an individual finding. It does not affect the generation of new findings. For example, setting the workflow status to ``SUPPRESSED`` or ``RESOLVED`` does not prevent a new finding for the same issue.
      The allowed values are the following.
       +  ``NEW`` - The initial state of a finding, before it is reviewed.
-     Security Hub also resets ``WorkFlowStatus`` from ``NOTIFIED`` or ``RESOLVED`` to ``NEW`` in the following cases:
+     Security Hub CSPM also resets ``WorkFlowStatus`` from ``NOTIFIED`` or ``RESOLVED`` to ``NEW`` in the following cases:
       +  The record state changes from ``ARCHIVED`` to ``ACTIVE``.
       +  The compliance status changes from ``PASSED`` to either ``WARNING``, ``FAILED``, or ``NOT_AVAILABLE``.
       
@@ -282,7 +282,7 @@ class AutomationRuleWorkflowUpdateStatus(_builtins.str, Enum):
 @pulumi.type_token("aws-native:securityhub:AutomationRulesActionType")
 class AutomationRulesActionType(_builtins.str, Enum):
     """
-    Specifies the type of action that Security Hub takes when a finding matches the defined criteria of a rule.
+    Specifies the type of action that Security Hub CSPM takes when a finding matches the defined criteria of a rule.
     """
     FINDING_FIELDS_UPDATE = "FINDING_FIELDS_UPDATE"
 

@@ -24,7 +24,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// <summary>
         /// Determines the visibility of the thousands separator.
         /// </summary>
-        public readonly object? Visibility;
+        public readonly Pulumi.AwsNative.QuickSight.TemplateVisibility? Visibility;
 
         [OutputConstructor]
         private TemplateThousandSeparatorOptions(
@@ -32,7 +32,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 
             Pulumi.AwsNative.QuickSight.TemplateNumericSeparatorSymbol? symbol,
 
-            object? visibility)
+            Pulumi.AwsNative.QuickSight.TemplateVisibility? visibility)
         {
             GroupingStyle = groupingStyle;
             Symbol = symbol;

@@ -31,6 +31,8 @@ type Integration struct {
 	ObjectTypeName pulumi.StringPtrOutput `pulumi:"objectTypeName"`
 	// The mapping between 3rd party event types and ObjectType names
 	ObjectTypeNames IntegrationObjectTypeMappingArrayOutput `pulumi:"objectTypeNames"`
+	// Scope of the integration, such as 'PROFILE' or 'DOMAIN'
+	Scope IntegrationScopePtrOutput `pulumi:"scope"`
 	// The tags (keys and values) associated with the integration
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// The URI of the S3 bucket or any other type of data source.
@@ -95,6 +97,8 @@ type integrationArgs struct {
 	ObjectTypeName *string `pulumi:"objectTypeName"`
 	// The mapping between 3rd party event types and ObjectType names
 	ObjectTypeNames []IntegrationObjectTypeMapping `pulumi:"objectTypeNames"`
+	// Scope of the integration, such as 'PROFILE' or 'DOMAIN'
+	Scope *IntegrationScope `pulumi:"scope"`
 	// The tags (keys and values) associated with the integration
 	Tags []aws.Tag `pulumi:"tags"`
 	// The URI of the S3 bucket or any other type of data source.
@@ -113,6 +117,8 @@ type IntegrationArgs struct {
 	ObjectTypeName pulumi.StringPtrInput
 	// The mapping between 3rd party event types and ObjectType names
 	ObjectTypeNames IntegrationObjectTypeMappingArrayInput
+	// Scope of the integration, such as 'PROFILE' or 'DOMAIN'
+	Scope IntegrationScopePtrInput
 	// The tags (keys and values) associated with the integration
 	Tags aws.TagArrayInput
 	// The URI of the S3 bucket or any other type of data source.
@@ -189,6 +195,11 @@ func (o IntegrationOutput) ObjectTypeName() pulumi.StringPtrOutput {
 // The mapping between 3rd party event types and ObjectType names
 func (o IntegrationOutput) ObjectTypeNames() IntegrationObjectTypeMappingArrayOutput {
 	return o.ApplyT(func(v *Integration) IntegrationObjectTypeMappingArrayOutput { return v.ObjectTypeNames }).(IntegrationObjectTypeMappingArrayOutput)
+}
+
+// Scope of the integration, such as 'PROFILE' or 'DOMAIN'
+func (o IntegrationOutput) Scope() IntegrationScopePtrOutput {
+	return o.ApplyT(func(v *Integration) IntegrationScopePtrOutput { return v.Scope }).(IntegrationScopePtrOutput)
 }
 
 // The tags (keys and values) associated with the integration

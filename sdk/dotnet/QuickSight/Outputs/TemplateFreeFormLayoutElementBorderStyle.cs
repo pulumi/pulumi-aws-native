@@ -20,13 +20,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// <summary>
         /// The border visibility of a free-form layout element.
         /// </summary>
-        public readonly object? Visibility;
+        public readonly Pulumi.AwsNative.QuickSight.TemplateVisibility? Visibility;
 
         [OutputConstructor]
         private TemplateFreeFormLayoutElementBorderStyle(
             string? color,
 
-            object? visibility)
+            Pulumi.AwsNative.QuickSight.TemplateVisibility? visibility)
         {
             Color = color;
             Visibility = visibility;

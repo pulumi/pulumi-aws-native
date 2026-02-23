@@ -64,7 +64,7 @@ export interface GetFunctionResult {
      */
     readonly description?: string;
     /**
-     * Configuration settings for [durable functions](https://docs.aws.amazon.com/lambda/latest/dg/durable-functions.html) , including execution timeout and retention period for execution history.
+     * Configuration settings for [durable functions](https://docs.aws.amazon.com/lambda/latest/dg/durable-functions.html), including execution timeout and retention period for execution history.
      */
     readonly durableConfig?: outputs.lambda.FunctionDurableConfig;
     /**

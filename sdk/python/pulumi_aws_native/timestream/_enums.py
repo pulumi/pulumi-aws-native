@@ -7,6 +7,13 @@ import pulumi
 from enum import Enum
 
 __all__ = [
+    'InfluxDbClusterDbInstanceType',
+    'InfluxDbClusterDbStorageType',
+    'InfluxDbClusterDeploymentType',
+    'InfluxDbClusterEngineType',
+    'InfluxDbClusterFailoverMode',
+    'InfluxDbClusterNetworkType',
+    'InfluxDbClusterStatus',
     'InfluxDbInstanceDbInstanceType',
     'InfluxDbInstanceDbStorageType',
     'InfluxDbInstanceDeploymentType',
@@ -19,6 +26,86 @@ __all__ = [
     'TablePartitionKeyEnforcementLevel',
     'TablePartitionKeyType',
 ]
+
+
+@pulumi.type_token("aws-native:timestream:InfluxDbClusterDbInstanceType")
+class InfluxDbClusterDbInstanceType(_builtins.str, Enum):
+    """
+    The compute instance of the InfluxDB cluster.
+    """
+    DB_INFLUX_MEDIUM = "db.influx.medium"
+    DB_INFLUX_LARGE = "db.influx.large"
+    DB_INFLUX_XLARGE = "db.influx.xlarge"
+    DB_INFLUX2XLARGE = "db.influx.2xlarge"
+    DB_INFLUX4XLARGE = "db.influx.4xlarge"
+    DB_INFLUX8XLARGE = "db.influx.8xlarge"
+    DB_INFLUX12XLARGE = "db.influx.12xlarge"
+    DB_INFLUX16XLARGE = "db.influx.16xlarge"
+    DB_INFLUX24XLARGE = "db.influx.24xlarge"
+
+
+@pulumi.type_token("aws-native:timestream:InfluxDbClusterDbStorageType")
+class InfluxDbClusterDbStorageType(_builtins.str, Enum):
+    """
+    The storage type of the InfluxDB cluster.
+    """
+    INFLUX_IO_INCLUDED_T1 = "InfluxIOIncludedT1"
+    INFLUX_IO_INCLUDED_T2 = "InfluxIOIncludedT2"
+    INFLUX_IO_INCLUDED_T3 = "InfluxIOIncludedT3"
+
+
+@pulumi.type_token("aws-native:timestream:InfluxDbClusterDeploymentType")
+class InfluxDbClusterDeploymentType(_builtins.str, Enum):
+    """
+    Deployment type of the InfluxDB cluster.
+    """
+    MULTI_NODE_READ_REPLICAS = "MULTI_NODE_READ_REPLICAS"
+
+
+@pulumi.type_token("aws-native:timestream:InfluxDbClusterEngineType")
+class InfluxDbClusterEngineType(_builtins.str, Enum):
+    """
+    The engine type for the InfluxDB cluster.
+    """
+    INFLUXDB_V2 = "INFLUXDB_V2"
+    INFLUXDB_V3_CORE = "INFLUXDB_V3_CORE"
+    INFLUXDB_V3_ENTERPRISE = "INFLUXDB_V3_ENTERPRISE"
+
+
+@pulumi.type_token("aws-native:timestream:InfluxDbClusterFailoverMode")
+class InfluxDbClusterFailoverMode(_builtins.str, Enum):
+    """
+    Failover mode of the InfluxDB cluster.
+    """
+    AUTOMATIC = "AUTOMATIC"
+    NO_FAILOVER = "NO_FAILOVER"
+
+
+@pulumi.type_token("aws-native:timestream:InfluxDbClusterNetworkType")
+class InfluxDbClusterNetworkType(_builtins.str, Enum):
+    """
+    Network type of the InfluxDB cluster.
+    """
+    IPV4 = "IPV4"
+    DUAL = "DUAL"
+
+
+@pulumi.type_token("aws-native:timestream:InfluxDbClusterStatus")
+class InfluxDbClusterStatus(_builtins.str, Enum):
+    """
+    Status of the InfluxDB cluster.
+    """
+    CREATING = "CREATING"
+    UPDATING = "UPDATING"
+    UPDATING_INSTANCE_TYPE = "UPDATING_INSTANCE_TYPE"
+    MAINTENANCE = "MAINTENANCE"
+    DELETING = "DELETING"
+    AVAILABLE = "AVAILABLE"
+    REBOOTING = "REBOOTING"
+    REBOOT_FAILED = "REBOOT_FAILED"
+    PARTIALLY_AVAILABLE = "PARTIALLY_AVAILABLE"
+    FAILED = "FAILED"
+    DELETED = "DELETED"
 
 
 @pulumi.type_token("aws-native:timestream:InfluxDbInstanceDbInstanceType")

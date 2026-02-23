@@ -34,7 +34,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// <summary>
         /// Determines whether or not the legend is visible.
         /// </summary>
-        public readonly object? Visibility;
+        public readonly Pulumi.AwsNative.QuickSight.TemplateVisibility? Visibility;
         /// <summary>
         /// String based length that is composed of value and unit in px
         /// </summary>
@@ -50,7 +50,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 
             Outputs.TemplateFontConfiguration? valueFontConfiguration,
 
-            object? visibility,
+            Pulumi.AwsNative.QuickSight.TemplateVisibility? visibility,
 
             string? width)
         {

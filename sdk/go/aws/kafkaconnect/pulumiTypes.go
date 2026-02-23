@@ -79,6 +79,8 @@ func (o ConnectorApacheKafkaClusterOutput) Vpc() ConnectorVpcOutput {
 
 // Details about auto scaling of a connector.
 type ConnectorAutoScaling struct {
+	// The maximum number of tasks allocated to the connector during autoscaling operations.
+	MaxAutoscalingTaskCount *int `pulumi:"maxAutoscalingTaskCount"`
 	// The maximum number of workers for a connector.
 	MaxWorkerCount int `pulumi:"maxWorkerCount"`
 	// Specifies how many MSK Connect Units (MCU) as the minimum scaling unit.
@@ -104,6 +106,8 @@ type ConnectorAutoScalingInput interface {
 
 // Details about auto scaling of a connector.
 type ConnectorAutoScalingArgs struct {
+	// The maximum number of tasks allocated to the connector during autoscaling operations.
+	MaxAutoscalingTaskCount pulumi.IntPtrInput `pulumi:"maxAutoscalingTaskCount"`
 	// The maximum number of workers for a connector.
 	MaxWorkerCount pulumi.IntInput `pulumi:"maxWorkerCount"`
 	// Specifies how many MSK Connect Units (MCU) as the minimum scaling unit.
@@ -194,6 +198,11 @@ func (o ConnectorAutoScalingOutput) ToConnectorAutoScalingPtrOutputWithContext(c
 	}).(ConnectorAutoScalingPtrOutput)
 }
 
+// The maximum number of tasks allocated to the connector during autoscaling operations.
+func (o ConnectorAutoScalingOutput) MaxAutoscalingTaskCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ConnectorAutoScaling) *int { return v.MaxAutoscalingTaskCount }).(pulumi.IntPtrOutput)
+}
+
 // The maximum number of workers for a connector.
 func (o ConnectorAutoScalingOutput) MaxWorkerCount() pulumi.IntOutput {
 	return o.ApplyT(func(v ConnectorAutoScaling) int { return v.MaxWorkerCount }).(pulumi.IntOutput)
@@ -241,6 +250,16 @@ func (o ConnectorAutoScalingPtrOutput) Elem() ConnectorAutoScalingOutput {
 		var ret ConnectorAutoScaling
 		return ret
 	}).(ConnectorAutoScalingOutput)
+}
+
+// The maximum number of tasks allocated to the connector during autoscaling operations.
+func (o ConnectorAutoScalingPtrOutput) MaxAutoscalingTaskCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ConnectorAutoScaling) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxAutoscalingTaskCount
+	}).(pulumi.IntPtrOutput)
 }
 
 // The maximum number of workers for a connector.

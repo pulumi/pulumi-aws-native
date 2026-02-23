@@ -35,8 +35,8 @@ class AutomationRuleArgs:
         :param pulumi.Input[Sequence[pulumi.Input['AutomationRulesActionArgs']]] actions: One or more actions to update finding fields if a finding matches the conditions specified in ``Criteria``.
         :param pulumi.Input['AutomationRulesFindingFiltersArgs'] criteria: A set of [Security Finding Format (ASFF)](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-findings-format.html) finding field attributes and corresponding expected values that ASH uses to filter findings. If a rule is enabled and a finding matches the criteria specified in this parameter, ASH applies the rule action to the finding.
         :param pulumi.Input[_builtins.str] description: A description of the rule.
-        :param pulumi.Input[_builtins.int] rule_order: An integer ranging from 1 to 1000 that represents the order in which the rule action is applied to findings. Security Hub applies rules with lower values for this parameter first.
-        :param pulumi.Input[_builtins.bool] is_terminal: Specifies whether a rule is the last to be applied with respect to a finding that matches the rule criteria. This is useful when a finding matches the criteria for multiple rules, and each rule has different actions. If a rule is terminal, Security Hub applies the rule action to a finding that matches the rule criteria and doesn't evaluate other rules for the finding. By default, a rule isn't terminal.
+        :param pulumi.Input[_builtins.int] rule_order: An integer ranging from 1 to 1000 that represents the order in which the rule action is applied to findings. Security Hub CSPM applies rules with lower values for this parameter first.
+        :param pulumi.Input[_builtins.bool] is_terminal: Specifies whether a rule is the last to be applied with respect to a finding that matches the rule criteria. This is useful when a finding matches the criteria for multiple rules, and each rule has different actions. If a rule is terminal, Security Hub CSPM applies the rule action to a finding that matches the rule criteria and doesn't evaluate other rules for the finding. By default, a rule isn't terminal.
         :param pulumi.Input[_builtins.str] rule_name: The name of the rule.
         :param pulumi.Input['AutomationRuleRuleStatus'] rule_status: Whether the rule is active after it is created. If this parameter is equal to ``ENABLED``, ASH applies the rule to findings and finding updates after the rule is created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: User-defined tags associated with an automation rule.
@@ -94,7 +94,7 @@ class AutomationRuleArgs:
     @pulumi.getter(name="ruleOrder")
     def rule_order(self) -> pulumi.Input[_builtins.int]:
         """
-        An integer ranging from 1 to 1000 that represents the order in which the rule action is applied to findings. Security Hub applies rules with lower values for this parameter first.
+        An integer ranging from 1 to 1000 that represents the order in which the rule action is applied to findings. Security Hub CSPM applies rules with lower values for this parameter first.
         """
         return pulumi.get(self, "rule_order")
 
@@ -106,7 +106,7 @@ class AutomationRuleArgs:
     @pulumi.getter(name="isTerminal")
     def is_terminal(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        Specifies whether a rule is the last to be applied with respect to a finding that matches the rule criteria. This is useful when a finding matches the criteria for multiple rules, and each rule has different actions. If a rule is terminal, Security Hub applies the rule action to a finding that matches the rule criteria and doesn't evaluate other rules for the finding. By default, a rule isn't terminal.
+        Specifies whether a rule is the last to be applied with respect to a finding that matches the rule criteria. This is useful when a finding matches the criteria for multiple rules, and each rule has different actions. If a rule is terminal, Security Hub CSPM applies the rule action to a finding that matches the rule criteria and doesn't evaluate other rules for the finding. By default, a rule isn't terminal.
         """
         return pulumi.get(self, "is_terminal")
 
@@ -732,9 +732,9 @@ class AutomationRule(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['AutomationRulesActionArgs', 'AutomationRulesActionArgsDict']]]] actions: One or more actions to update finding fields if a finding matches the conditions specified in ``Criteria``.
         :param pulumi.Input[Union['AutomationRulesFindingFiltersArgs', 'AutomationRulesFindingFiltersArgsDict']] criteria: A set of [Security Finding Format (ASFF)](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-findings-format.html) finding field attributes and corresponding expected values that ASH uses to filter findings. If a rule is enabled and a finding matches the criteria specified in this parameter, ASH applies the rule action to the finding.
         :param pulumi.Input[_builtins.str] description: A description of the rule.
-        :param pulumi.Input[_builtins.bool] is_terminal: Specifies whether a rule is the last to be applied with respect to a finding that matches the rule criteria. This is useful when a finding matches the criteria for multiple rules, and each rule has different actions. If a rule is terminal, Security Hub applies the rule action to a finding that matches the rule criteria and doesn't evaluate other rules for the finding. By default, a rule isn't terminal.
+        :param pulumi.Input[_builtins.bool] is_terminal: Specifies whether a rule is the last to be applied with respect to a finding that matches the rule criteria. This is useful when a finding matches the criteria for multiple rules, and each rule has different actions. If a rule is terminal, Security Hub CSPM applies the rule action to a finding that matches the rule criteria and doesn't evaluate other rules for the finding. By default, a rule isn't terminal.
         :param pulumi.Input[_builtins.str] rule_name: The name of the rule.
-        :param pulumi.Input[_builtins.int] rule_order: An integer ranging from 1 to 1000 that represents the order in which the rule action is applied to findings. Security Hub applies rules with lower values for this parameter first.
+        :param pulumi.Input[_builtins.int] rule_order: An integer ranging from 1 to 1000 that represents the order in which the rule action is applied to findings. Security Hub CSPM applies rules with lower values for this parameter first.
         :param pulumi.Input['AutomationRuleRuleStatus'] rule_status: Whether the rule is active after it is created. If this parameter is equal to ``ENABLED``, ASH applies the rule to findings and finding updates after the rule is created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: User-defined tags associated with an automation rule.
         """
@@ -1439,7 +1439,7 @@ class AutomationRule(pulumi.CustomResource):
     @pulumi.getter(name="isTerminal")
     def is_terminal(self) -> pulumi.Output[Optional[_builtins.bool]]:
         """
-        Specifies whether a rule is the last to be applied with respect to a finding that matches the rule criteria. This is useful when a finding matches the criteria for multiple rules, and each rule has different actions. If a rule is terminal, Security Hub applies the rule action to a finding that matches the rule criteria and doesn't evaluate other rules for the finding. By default, a rule isn't terminal.
+        Specifies whether a rule is the last to be applied with respect to a finding that matches the rule criteria. This is useful when a finding matches the criteria for multiple rules, and each rule has different actions. If a rule is terminal, Security Hub CSPM applies the rule action to a finding that matches the rule criteria and doesn't evaluate other rules for the finding. By default, a rule isn't terminal.
         """
         return pulumi.get(self, "is_terminal")
 
@@ -1463,7 +1463,7 @@ class AutomationRule(pulumi.CustomResource):
     @pulumi.getter(name="ruleOrder")
     def rule_order(self) -> pulumi.Output[_builtins.int]:
         """
-        An integer ranging from 1 to 1000 that represents the order in which the rule action is applied to findings. Security Hub applies rules with lower values for this parameter first.
+        An integer ranging from 1 to 1000 that represents the order in which the rule action is applied to findings. Security Hub CSPM applies rules with lower values for this parameter first.
         """
         return pulumi.get(self, "rule_order")
 

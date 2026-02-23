@@ -338,7 +338,7 @@ func (in *automationRuleDateRangeUnitPtr) ToAutomationRuleDateRangeUnitPtrOutput
 	return pulumi.ToOutputWithContext(ctx, in).(AutomationRuleDateRangeUnitPtrOutput)
 }
 
-// The condition to apply to the key value when filtering Security Hub findings with a map filter.
+// The condition to apply to the key value when filtering Security Hub CSPM findings with a map filter.
 //
 //	To search for values that have the filter value, use one of the following comparison operators:
 //	 +  To search for values that include the filter value, use ``CONTAINS``. For example, for the ``ResourceTags`` field, the filter ``Department CONTAINS Security`` matches findings that include the value ``Security`` for the ``Department`` tag. In the same example, a finding with a value of ``Security team`` for the ``Department`` tag is a match.
@@ -2943,7 +2943,7 @@ func (in *automationRuleV2StringFilterComparisonPtr) ToAutomationRuleV2StringFil
 //
 //	The allowed values are the following.
 //	 +  ``NEW`` - The initial state of a finding, before it is reviewed.
-//	Security Hub also resets ``WorkFlowStatus`` from ``NOTIFIED`` or ``RESOLVED`` to ``NEW`` in the following cases:
+//	Security Hub CSPM also resets ``WorkFlowStatus`` from ``NOTIFIED`` or ``RESOLVED`` to ``NEW`` in the following cases:
 //	 +  The record state changes from ``ARCHIVED`` to ``ACTIVE``.
 //	 +  The compliance status changes from ``PASSED`` to either ``WARNING``, ``FAILED``, or ``NOT_AVAILABLE``.
 //
@@ -3119,7 +3119,7 @@ func (in *automationRuleWorkflowUpdateStatusPtr) ToAutomationRuleWorkflowUpdateS
 	return pulumi.ToOutputWithContext(ctx, in).(AutomationRuleWorkflowUpdateStatusPtrOutput)
 }
 
-// Specifies the type of action that Security Hub takes when a finding matches the defined criteria of a rule.
+// Specifies the type of action that Security Hub CSPM takes when a finding matches the defined criteria of a rule.
 type AutomationRulesActionType string
 
 const (

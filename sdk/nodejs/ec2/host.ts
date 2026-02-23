@@ -44,7 +44,7 @@ export class Host extends pulumi.CustomResource {
     /**
      * Indicates whether the host accepts any untargeted instance launches that match its instance type configuration, or if it only accepts Host tenancy instance launches that specify its unique host ID.
      */
-    declare public readonly autoPlacement: pulumi.Output<string | undefined>;
+    declare public readonly autoPlacement: pulumi.Output<enums.ec2.HostAutoPlacement | undefined>;
     /**
      * The Availability Zone in which to allocate the Dedicated Host.
      */
@@ -56,11 +56,11 @@ export class Host extends pulumi.CustomResource {
     /**
      * Automatically allocates a new dedicated host and moves your instances on to it if a degradation is detected on your current host.
      */
-    declare public readonly hostMaintenance: pulumi.Output<string | undefined>;
+    declare public readonly hostMaintenance: pulumi.Output<enums.ec2.HostMaintenance | undefined>;
     /**
      * Indicates whether to enable or disable host recovery for the Dedicated Host. Host recovery is disabled by default.
      */
-    declare public readonly hostRecovery: pulumi.Output<string | undefined>;
+    declare public readonly hostRecovery: pulumi.Output<enums.ec2.HostRecovery | undefined>;
     /**
      * Specifies the instance family to be supported by the Dedicated Hosts. If you specify an instance family, the Dedicated Hosts support multiple instance types within that instance family.
      */
@@ -132,7 +132,7 @@ export interface HostArgs {
     /**
      * Indicates whether the host accepts any untargeted instance launches that match its instance type configuration, or if it only accepts Host tenancy instance launches that specify its unique host ID.
      */
-    autoPlacement?: pulumi.Input<string>;
+    autoPlacement?: pulumi.Input<enums.ec2.HostAutoPlacement>;
     /**
      * The Availability Zone in which to allocate the Dedicated Host.
      */
@@ -140,11 +140,11 @@ export interface HostArgs {
     /**
      * Automatically allocates a new dedicated host and moves your instances on to it if a degradation is detected on your current host.
      */
-    hostMaintenance?: pulumi.Input<string>;
+    hostMaintenance?: pulumi.Input<enums.ec2.HostMaintenance>;
     /**
      * Indicates whether to enable or disable host recovery for the Dedicated Host. Host recovery is disabled by default.
      */
-    hostRecovery?: pulumi.Input<string>;
+    hostRecovery?: pulumi.Input<enums.ec2.HostRecovery>;
     /**
      * Specifies the instance family to be supported by the Dedicated Hosts. If you specify an instance family, the Dedicated Hosts support multiple instance types within that instance family.
      */

@@ -20,13 +20,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// <summary>
         /// The visibility of the tooltip.
         /// </summary>
-        public readonly object? Visibility;
+        public readonly Pulumi.AwsNative.QuickSight.TemplateVisibility? Visibility;
 
         [OutputConstructor]
         private TemplateSheetImageTooltipConfiguration(
             Outputs.TemplateSheetImageTooltipText? tooltipText,
 
-            object? visibility)
+            Pulumi.AwsNative.QuickSight.TemplateVisibility? visibility)
         {
             TooltipText = tooltipText;
             Visibility = visibility;

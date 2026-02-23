@@ -58,6 +58,12 @@ namespace Pulumi.AwsNative.CustomerProfiles
         public Output<ImmutableArray<Outputs.IntegrationObjectTypeMapping>> ObjectTypeNames { get; private set; } = null!;
 
         /// <summary>
+        /// Scope of the integration, such as 'PROFILE' or 'DOMAIN'
+        /// </summary>
+        [Output("scope")]
+        public Output<Pulumi.AwsNative.CustomerProfiles.IntegrationScope?> Scope { get; private set; } = null!;
+
+        /// <summary>
         /// The tags (keys and values) associated with the integration
         /// </summary>
         [Output("tags")]
@@ -160,6 +166,12 @@ namespace Pulumi.AwsNative.CustomerProfiles
             get => _objectTypeNames ?? (_objectTypeNames = new InputList<Inputs.IntegrationObjectTypeMappingArgs>());
             set => _objectTypeNames = value;
         }
+
+        /// <summary>
+        /// Scope of the integration, such as 'PROFILE' or 'DOMAIN'
+        /// </summary>
+        [Input("scope")]
+        public Input<Pulumi.AwsNative.CustomerProfiles.IntegrationScope>? Scope { get; set; }
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;

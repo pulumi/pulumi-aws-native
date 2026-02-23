@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "aws-native:cloudwatch:Alarm":
 		r = &Alarm{}
+	case "aws-native:cloudwatch:AlarmMuteRule":
+		r = &AlarmMuteRule{}
 	case "aws-native:cloudwatch:CompositeAlarm":
 		r = &CompositeAlarm{}
 	case "aws-native:cloudwatch:Dashboard":

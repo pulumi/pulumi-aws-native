@@ -19,10 +19,10 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// - `VISIBLE`
         /// - `HIDDEN`
         /// </summary>
-        public readonly object? Visibility;
+        public readonly Pulumi.AwsNative.QuickSight.TemplateVisibility? Visibility;
 
         [OutputConstructor]
-        private TemplateSheetElementConfigurationOverrides(object? visibility)
+        private TemplateSheetElementConfigurationOverrides(Pulumi.AwsNative.QuickSight.TemplateVisibility? visibility)
         {
             Visibility = visibility;
         }

@@ -16,10 +16,10 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// <summary>
         /// The visibility configuration of the search options in a list control.
         /// </summary>
-        public readonly object? Visibility;
+        public readonly Pulumi.AwsNative.QuickSight.TemplateVisibility? Visibility;
 
         [OutputConstructor]
-        private TemplateListControlSearchOptions(object? visibility)
+        private TemplateListControlSearchOptions(Pulumi.AwsNative.QuickSight.TemplateVisibility? visibility)
         {
             Visibility = visibility;
         }

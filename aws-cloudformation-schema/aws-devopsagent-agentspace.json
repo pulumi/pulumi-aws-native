@@ -2,7 +2,62 @@
   "typeName" : "AWS::DevOpsAgent::AgentSpace",
   "description" : "Resource Type definition for AWS::DevOpsAgent::AgentSpace",
   "sourceUrl" : "https://github.com/aws-cloudformation/aws-cloudformation-rpdk.git",
-  "definitions" : { },
+  "definitions" : {
+    "OperatorApp" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "Iam" : {
+          "$ref" : "#/definitions/IamAuthConfiguration"
+        },
+        "Idc" : {
+          "$ref" : "#/definitions/IdcAuthConfiguration"
+        }
+      }
+    },
+    "IamAuthConfiguration" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "OperatorAppRoleArn" : {
+          "type" : "string"
+        },
+        "CreatedAt" : {
+          "type" : "string",
+          "format" : "date-time"
+        },
+        "UpdatedAt" : {
+          "type" : "string",
+          "format" : "date-time"
+        }
+      },
+      "required" : [ "OperatorAppRoleArn" ]
+    },
+    "IdcAuthConfiguration" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "OperatorAppRoleArn" : {
+          "type" : "string"
+        },
+        "IdcInstanceArn" : {
+          "type" : "string"
+        },
+        "IdcApplicationArn" : {
+          "type" : "string"
+        },
+        "CreatedAt" : {
+          "type" : "string",
+          "format" : "date-time"
+        },
+        "UpdatedAt" : {
+          "type" : "string",
+          "format" : "date-time"
+        }
+      },
+      "required" : [ "OperatorAppRoleArn", "IdcInstanceArn" ]
+    }
+  },
   "properties" : {
     "AgentSpaceId" : {
       "description" : "The unique identifier of the AgentSpace",
@@ -21,6 +76,9 @@
       "type" : "string",
       "minLength" : 1,
       "maxLength" : 1000
+    },
+    "OperatorApp" : {
+      "$ref" : "#/definitions/OperatorApp"
     },
     "CreatedAt" : {
       "description" : "The timestamp when the resource was created.",
@@ -42,20 +100,20 @@
     "taggable" : false
   },
   "required" : [ "Name" ],
-  "readOnlyProperties" : [ "/properties/AgentSpaceId", "/properties/CreatedAt", "/properties/UpdatedAt", "/properties/Arn" ],
+  "readOnlyProperties" : [ "/properties/AgentSpaceId", "/properties/CreatedAt", "/properties/UpdatedAt", "/properties/Arn", "/properties/OperatorApp/Iam/CreatedAt", "/properties/OperatorApp/Iam/UpdatedAt", "/properties/OperatorApp/Idc/IdcApplicationArn", "/properties/OperatorApp/Idc/CreatedAt", "/properties/OperatorApp/Idc/UpdatedAt" ],
   "primaryIdentifier" : [ "/properties/AgentSpaceId" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "aidevops:CreateAgentSpace", "aidevops:GetAgentSpace" ]
+      "permissions" : [ "aidevops:CreateAgentSpace", "aidevops:GetAgentSpace", "aidevops:EnableOperatorApp", "aidevops:GetOperatorAppTeams", "iam:PassRole", "sso:CreateApplication", "sso:DeleteApplication", "sso:PutApplicationAccessScope", "sso:PutApplicationGrant", "sso:PutApplicationAuthenticationMethod", "sso:PutApplicationAssignmentConfiguration", "sso:DeleteApplicationAccessScope", "sso:DeleteApplicationAuthenticationMethod", "sso:DeleteApplicationGrant" ]
     },
     "read" : {
-      "permissions" : [ "aidevops:GetAgentSpace" ]
+      "permissions" : [ "aidevops:GetAgentSpace", "aidevops:GetOperatorAppTeams" ]
     },
     "update" : {
-      "permissions" : [ "aidevops:UpdateAgentSpace", "aidevops:GetAgentSpace" ]
+      "permissions" : [ "aidevops:UpdateAgentSpace", "aidevops:GetAgentSpace", "aidevops:EnableOperatorApp", "aidevops:DisableOperatorApp", "aidevops:GetOperatorAppTeams", "iam:PassRole", "sso:CreateApplication", "sso:DeleteApplication", "sso:PutApplicationAccessScope", "sso:PutApplicationGrant", "sso:PutApplicationAuthenticationMethod", "sso:PutApplicationAssignmentConfiguration", "sso:DeleteApplicationAccessScope", "sso:DeleteApplicationAuthenticationMethod", "sso:DeleteApplicationGrant" ]
     },
     "delete" : {
-      "permissions" : [ "aidevops:DeleteAgentSpace", "aidevops:GetAgentSpace" ]
+      "permissions" : [ "aidevops:DeleteAgentSpace", "aidevops:GetAgentSpace", "aidevops:DisableOperatorApp", "sso:DeleteApplication", "sso:DeleteApplicationAccessScope", "sso:DeleteApplicationAuthenticationMethod", "sso:DeleteApplicationGrant" ]
     },
     "list" : {
       "permissions" : [ "aidevops:ListAgentSpaces" ]

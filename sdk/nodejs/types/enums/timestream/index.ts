@@ -2,6 +2,93 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const InfluxDbClusterDbInstanceType = {
+    DbInfluxMedium: "db.influx.medium",
+    DbInfluxLarge: "db.influx.large",
+    DbInfluxXlarge: "db.influx.xlarge",
+    DbInflux2xlarge: "db.influx.2xlarge",
+    DbInflux4xlarge: "db.influx.4xlarge",
+    DbInflux8xlarge: "db.influx.8xlarge",
+    DbInflux12xlarge: "db.influx.12xlarge",
+    DbInflux16xlarge: "db.influx.16xlarge",
+    DbInflux24xlarge: "db.influx.24xlarge",
+} as const;
+
+/**
+ * The compute instance of the InfluxDB cluster.
+ */
+export type InfluxDbClusterDbInstanceType = (typeof InfluxDbClusterDbInstanceType)[keyof typeof InfluxDbClusterDbInstanceType];
+
+export const InfluxDbClusterDbStorageType = {
+    InfluxIoIncludedT1: "InfluxIOIncludedT1",
+    InfluxIoIncludedT2: "InfluxIOIncludedT2",
+    InfluxIoIncludedT3: "InfluxIOIncludedT3",
+} as const;
+
+/**
+ * The storage type of the InfluxDB cluster.
+ */
+export type InfluxDbClusterDbStorageType = (typeof InfluxDbClusterDbStorageType)[keyof typeof InfluxDbClusterDbStorageType];
+
+export const InfluxDbClusterDeploymentType = {
+    MultiNodeReadReplicas: "MULTI_NODE_READ_REPLICAS",
+} as const;
+
+/**
+ * Deployment type of the InfluxDB cluster.
+ */
+export type InfluxDbClusterDeploymentType = (typeof InfluxDbClusterDeploymentType)[keyof typeof InfluxDbClusterDeploymentType];
+
+export const InfluxDbClusterEngineType = {
+    InfluxdbV2: "INFLUXDB_V2",
+    InfluxdbV3Core: "INFLUXDB_V3_CORE",
+    InfluxdbV3Enterprise: "INFLUXDB_V3_ENTERPRISE",
+} as const;
+
+/**
+ * The engine type for the InfluxDB cluster.
+ */
+export type InfluxDbClusterEngineType = (typeof InfluxDbClusterEngineType)[keyof typeof InfluxDbClusterEngineType];
+
+export const InfluxDbClusterFailoverMode = {
+    Automatic: "AUTOMATIC",
+    NoFailover: "NO_FAILOVER",
+} as const;
+
+/**
+ * Failover mode of the InfluxDB cluster.
+ */
+export type InfluxDbClusterFailoverMode = (typeof InfluxDbClusterFailoverMode)[keyof typeof InfluxDbClusterFailoverMode];
+
+export const InfluxDbClusterNetworkType = {
+    Ipv4: "IPV4",
+    Dual: "DUAL",
+} as const;
+
+/**
+ * Network type of the InfluxDB cluster.
+ */
+export type InfluxDbClusterNetworkType = (typeof InfluxDbClusterNetworkType)[keyof typeof InfluxDbClusterNetworkType];
+
+export const InfluxDbClusterStatus = {
+    Creating: "CREATING",
+    Updating: "UPDATING",
+    UpdatingInstanceType: "UPDATING_INSTANCE_TYPE",
+    Maintenance: "MAINTENANCE",
+    Deleting: "DELETING",
+    Available: "AVAILABLE",
+    Rebooting: "REBOOTING",
+    RebootFailed: "REBOOT_FAILED",
+    PartiallyAvailable: "PARTIALLY_AVAILABLE",
+    Failed: "FAILED",
+    Deleted: "DELETED",
+} as const;
+
+/**
+ * Status of the InfluxDB cluster.
+ */
+export type InfluxDbClusterStatus = (typeof InfluxDbClusterStatus)[keyof typeof InfluxDbClusterStatus];
+
 export const InfluxDbInstanceDbInstanceType = {
     DbInfluxMedium: "db.influx.medium",
     DbInfluxLarge: "db.influx.large",
