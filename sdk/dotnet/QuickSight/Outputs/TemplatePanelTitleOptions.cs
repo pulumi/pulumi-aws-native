@@ -21,7 +21,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// <summary>
         /// Determines whether or not panel titles are displayed.
         /// </summary>
-        public readonly object? Visibility;
+        public readonly Pulumi.AwsNative.QuickSight.TemplateVisibility? Visibility;
 
         [OutputConstructor]
         private TemplatePanelTitleOptions(
@@ -29,7 +29,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 
             Pulumi.AwsNative.QuickSight.TemplateHorizontalTextAlignment? horizontalTextAlignment,
 
-            object? visibility)
+            Pulumi.AwsNative.QuickSight.TemplateVisibility? visibility)
         {
             FontConfiguration = fontConfiguration;
             HorizontalTextAlignment = horizontalTextAlignment;

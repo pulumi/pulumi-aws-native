@@ -129,6 +129,10 @@
           "description" : "Specifies how many MSK Connect Units (MCU) as the minimum scaling unit.",
           "type" : "integer",
           "enum" : [ 1, 2, 4, 8 ]
+        },
+        "MaxAutoscalingTaskCount" : {
+          "description" : "The maximum number of tasks allocated to the connector during autoscaling operations.",
+          "type" : "integer"
         }
       },
       "required" : [ "MaxWorkerCount", "MinWorkerCount", "ScaleInPolicy", "ScaleOutPolicy", "McuCount" ]

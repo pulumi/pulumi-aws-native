@@ -1543,6 +1543,9 @@ class EventSourceMappingSourceAccessConfigurationArgs:
 
 
 class FunctionCapacityProviderConfigArgsDict(TypedDict):
+    """
+    Configuration for the capacity provider that manages compute resources for Lambda functions.
+    """
     lambda_managed_instances_capacity_provider_config: pulumi.Input['FunctionLambdaManagedInstancesCapacityProviderConfigArgsDict']
     """
     Configuration for Lambda-managed instances used by the capacity provider.
@@ -1553,6 +1556,7 @@ class FunctionCapacityProviderConfigArgs:
     def __init__(__self__, *,
                  lambda_managed_instances_capacity_provider_config: pulumi.Input['FunctionLambdaManagedInstancesCapacityProviderConfigArgs']):
         """
+        Configuration for the capacity provider that manages compute resources for Lambda functions.
         :param pulumi.Input['FunctionLambdaManagedInstancesCapacityProviderConfigArgs'] lambda_managed_instances_capacity_provider_config: Configuration for Lambda-managed instances used by the capacity provider.
         """
         pulumi.set(__self__, "lambda_managed_instances_capacity_provider_config", lambda_managed_instances_capacity_provider_config)
@@ -1573,7 +1577,7 @@ class FunctionCapacityProviderConfigArgs:
 class FunctionCodeArgsDict(TypedDict):
     """
     The [deployment package](https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-package.html) for a Lambda function. To deploy a function defined as a container image, you specify the location of a container image in the Amazon ECR registry. For a .zip file deployment package, you can specify the location of an object in Amazon S3. For Node.js and Python functions, you can specify the function code inline in the template.
-      When you specify source code inline for a Node.js function, the ``index`` file that CFN creates uses the extension ``.js``. This means that LAM treats the file as a CommonJS module. ES modules aren't supported for inline functions.
+      When you specify source code inline for a Node.js function, the ``index`` file that CFN creates uses the extension ``.js``. This means that Node.js treats the file as a CommonJS module.
       Changes to a deployment package in Amazon S3 or a container image in ECR are not detected automatically during stack updates. To update the function code, change the object key or version in the template.
     """
     image_uri: NotRequired[pulumi.Input[_builtins.str]]
@@ -1599,7 +1603,8 @@ class FunctionCodeArgsDict(TypedDict):
     zip_file: NotRequired[pulumi.Input[_builtins.str]]
     """
     (Node.js and Python) The source code of your Lambda function. If you include your function source inline with this parameter, CFN places it in a file named ``index`` and zips it to create a [deployment package](https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-package.html). This zip file cannot exceed 4MB. For the ``Handler`` property, the first part of the handler identifier must be ``index``. For example, ``index.handler``.
-      When you specify source code inline for a Node.js function, the ``index`` file that CFN creates uses the extension ``.js``. This means that LAM treats the file as a CommonJS module. ES modules aren't supported for inline functions.
+      When you specify source code inline for a Node.js function, the ``index`` file that CFN creates uses the extension ``.js``. This means that Node.js treats the file as a CommonJS module.
+     When using Node.js 24 or later, Node.js can automatically detect if a ``.js`` file should be treated as CommonJS or as an ES module. To enable auto-detection, add the ``--experimental-detect-module`` flag to the ``NODE_OPTIONS`` environment variable. For more information, see [Experimental Node.js features](https://docs.aws.amazon.com//lambda/latest/dg/lambda-nodejs.html#nodejs-experimental-features).
        For JSON, you must escape quotes and special characters such as newline (``\\n``) with a backslash.
      If you specify a function that interacts with an AWS CloudFormation custom resource, you don't have to write your own functions to send responses to the custom resource that invoked the function. AWS CloudFormation provides a response module ([cfn-response](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-lambda-function-code-cfnresponsemodule.html)) that simplifies sending responses. See [Using Lambda with CloudFormation](https://docs.aws.amazon.com/lambda/latest/dg/services-cloudformation.html) for details.
     """
@@ -1615,7 +1620,7 @@ class FunctionCodeArgs:
                  zip_file: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The [deployment package](https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-package.html) for a Lambda function. To deploy a function defined as a container image, you specify the location of a container image in the Amazon ECR registry. For a .zip file deployment package, you can specify the location of an object in Amazon S3. For Node.js and Python functions, you can specify the function code inline in the template.
-          When you specify source code inline for a Node.js function, the ``index`` file that CFN creates uses the extension ``.js``. This means that LAM treats the file as a CommonJS module. ES modules aren't supported for inline functions.
+          When you specify source code inline for a Node.js function, the ``index`` file that CFN creates uses the extension ``.js``. This means that Node.js treats the file as a CommonJS module.
           Changes to a deployment package in Amazon S3 or a container image in ECR are not detected automatically during stack updates. To update the function code, change the object key or version in the template.
         :param pulumi.Input[_builtins.str] image_uri: URI of a [container image](https://docs.aws.amazon.com/lambda/latest/dg/lambda-images.html) in the Amazon ECR registry.
         :param pulumi.Input[_builtins.str] s3_bucket: An Amazon S3 bucket in the same AWS-Region as your function. The bucket can be in a different AWS-account.
@@ -1623,7 +1628,8 @@ class FunctionCodeArgs:
         :param pulumi.Input[_builtins.str] s3_object_version: For versioned objects, the version of the deployment package object to use.
         :param pulumi.Input[_builtins.str] source_kms_key_arn: The ARN of the KMSlong (KMS) customer managed key that's used to encrypt your function's .zip deployment package. If you don't provide a customer managed key, Lambda uses an [owned key](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-owned-cmk).
         :param pulumi.Input[_builtins.str] zip_file: (Node.js and Python) The source code of your Lambda function. If you include your function source inline with this parameter, CFN places it in a file named ``index`` and zips it to create a [deployment package](https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-package.html). This zip file cannot exceed 4MB. For the ``Handler`` property, the first part of the handler identifier must be ``index``. For example, ``index.handler``.
-                 When you specify source code inline for a Node.js function, the ``index`` file that CFN creates uses the extension ``.js``. This means that LAM treats the file as a CommonJS module. ES modules aren't supported for inline functions.
+                 When you specify source code inline for a Node.js function, the ``index`` file that CFN creates uses the extension ``.js``. This means that Node.js treats the file as a CommonJS module.
+                When using Node.js 24 or later, Node.js can automatically detect if a ``.js`` file should be treated as CommonJS or as an ES module. To enable auto-detection, add the ``--experimental-detect-module`` flag to the ``NODE_OPTIONS`` environment variable. For more information, see [Experimental Node.js features](https://docs.aws.amazon.com//lambda/latest/dg/lambda-nodejs.html#nodejs-experimental-features).
                   For JSON, you must escape quotes and special characters such as newline (``\\n``) with a backslash.
                 If you specify a function that interacts with an AWS CloudFormation custom resource, you don't have to write your own functions to send responses to the custom resource that invoked the function. AWS CloudFormation provides a response module ([cfn-response](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-lambda-function-code-cfnresponsemodule.html)) that simplifies sending responses. See [Using Lambda with CloudFormation](https://docs.aws.amazon.com/lambda/latest/dg/services-cloudformation.html) for details.
         """
@@ -1705,7 +1711,8 @@ class FunctionCodeArgs:
     def zip_file(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         (Node.js and Python) The source code of your Lambda function. If you include your function source inline with this parameter, CFN places it in a file named ``index`` and zips it to create a [deployment package](https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-package.html). This zip file cannot exceed 4MB. For the ``Handler`` property, the first part of the handler identifier must be ``index``. For example, ``index.handler``.
-          When you specify source code inline for a Node.js function, the ``index`` file that CFN creates uses the extension ``.js``. This means that LAM treats the file as a CommonJS module. ES modules aren't supported for inline functions.
+          When you specify source code inline for a Node.js function, the ``index`` file that CFN creates uses the extension ``.js``. This means that Node.js treats the file as a CommonJS module.
+         When using Node.js 24 or later, Node.js can automatically detect if a ``.js`` file should be treated as CommonJS or as an ES module. To enable auto-detection, add the ``--experimental-detect-module`` flag to the ``NODE_OPTIONS`` environment variable. For more information, see [Experimental Node.js features](https://docs.aws.amazon.com//lambda/latest/dg/lambda-nodejs.html#nodejs-experimental-features).
            For JSON, you must escape quotes and special characters such as newline (``\\n``) with a backslash.
          If you specify a function that interacts with an AWS CloudFormation custom resource, you don't have to write your own functions to send responses to the custom resource that invoked the function. AWS CloudFormation provides a response module ([cfn-response](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-lambda-function-code-cfnresponsemodule.html)) that simplifies sending responses. See [Using Lambda with CloudFormation](https://docs.aws.amazon.com/lambda/latest/dg/services-cloudformation.html) for details.
         """
@@ -1750,13 +1757,16 @@ class FunctionDeadLetterConfigArgs:
 
 
 class FunctionDurableConfigArgsDict(TypedDict):
+    """
+    Configuration settings for [durable functions](https://docs.aws.amazon.com/lambda/latest/dg/durable-functions.html), including execution timeout and retention period for execution history.
+    """
     execution_timeout: pulumi.Input[_builtins.int]
     """
-    The amount of time (in seconds) that Lambda allows a durable function to run before stopping it. The maximum is one 366-day year or 31,622,400 seconds.
+    The maximum time (in seconds) that a durable execution can run before timing out. This timeout applies to the entire durable execution, not individual function invocations.
     """
     retention_period_in_days: NotRequired[pulumi.Input[_builtins.int]]
     """
-    The number of days after a durable execution is closed that Lambda retains its history, from one to 90 days. The default is 14 days.
+    The number of days to retain execution history after a durable execution completes. After this period, execution history is no longer available through the GetDurableExecutionHistory API.
     """
 
 @pulumi.input_type
@@ -1765,8 +1775,9 @@ class FunctionDurableConfigArgs:
                  execution_timeout: pulumi.Input[_builtins.int],
                  retention_period_in_days: Optional[pulumi.Input[_builtins.int]] = None):
         """
-        :param pulumi.Input[_builtins.int] execution_timeout: The amount of time (in seconds) that Lambda allows a durable function to run before stopping it. The maximum is one 366-day year or 31,622,400 seconds.
-        :param pulumi.Input[_builtins.int] retention_period_in_days: The number of days after a durable execution is closed that Lambda retains its history, from one to 90 days. The default is 14 days.
+        Configuration settings for [durable functions](https://docs.aws.amazon.com/lambda/latest/dg/durable-functions.html), including execution timeout and retention period for execution history.
+        :param pulumi.Input[_builtins.int] execution_timeout: The maximum time (in seconds) that a durable execution can run before timing out. This timeout applies to the entire durable execution, not individual function invocations.
+        :param pulumi.Input[_builtins.int] retention_period_in_days: The number of days to retain execution history after a durable execution completes. After this period, execution history is no longer available through the GetDurableExecutionHistory API.
         """
         pulumi.set(__self__, "execution_timeout", execution_timeout)
         if retention_period_in_days is not None:
@@ -1776,7 +1787,7 @@ class FunctionDurableConfigArgs:
     @pulumi.getter(name="executionTimeout")
     def execution_timeout(self) -> pulumi.Input[_builtins.int]:
         """
-        The amount of time (in seconds) that Lambda allows a durable function to run before stopping it. The maximum is one 366-day year or 31,622,400 seconds.
+        The maximum time (in seconds) that a durable execution can run before timing out. This timeout applies to the entire durable execution, not individual function invocations.
         """
         return pulumi.get(self, "execution_timeout")
 
@@ -1788,7 +1799,7 @@ class FunctionDurableConfigArgs:
     @pulumi.getter(name="retentionPeriodInDays")
     def retention_period_in_days(self) -> Optional[pulumi.Input[_builtins.int]]:
         """
-        The number of days after a durable execution is closed that Lambda retains its history, from one to 90 days. The default is 14 days.
+        The number of days to retain execution history after a durable execution completes. After this period, execution history is no longer available through the GetDurableExecutionHistory API.
         """
         return pulumi.get(self, "retention_period_in_days")
 
@@ -1990,6 +2001,9 @@ class FunctionImageConfigArgs:
 
 
 class FunctionLambdaManagedInstancesCapacityProviderConfigArgsDict(TypedDict):
+    """
+    Configuration for Lambda-managed instances used by the capacity provider.
+    """
     capacity_provider_arn: pulumi.Input[_builtins.str]
     """
     The Amazon Resource Name (ARN) of the capacity provider.
@@ -2000,7 +2014,7 @@ class FunctionLambdaManagedInstancesCapacityProviderConfigArgsDict(TypedDict):
     """
     per_execution_environment_max_concurrency: NotRequired[pulumi.Input[_builtins.int]]
     """
-    The maximum number of concurrent execution environments that can run on each compute instance.
+    The maximum number of concurrent executions that can run on each execution environment.
     """
 
 @pulumi.input_type
@@ -2010,9 +2024,10 @@ class FunctionLambdaManagedInstancesCapacityProviderConfigArgs:
                  execution_environment_memory_gi_b_per_v_cpu: Optional[pulumi.Input[_builtins.float]] = None,
                  per_execution_environment_max_concurrency: Optional[pulumi.Input[_builtins.int]] = None):
         """
+        Configuration for Lambda-managed instances used by the capacity provider.
         :param pulumi.Input[_builtins.str] capacity_provider_arn: The Amazon Resource Name (ARN) of the capacity provider.
         :param pulumi.Input[_builtins.float] execution_environment_memory_gi_b_per_v_cpu: The amount of memory in GiB allocated per vCPU for execution environments.
-        :param pulumi.Input[_builtins.int] per_execution_environment_max_concurrency: The maximum number of concurrent execution environments that can run on each compute instance.
+        :param pulumi.Input[_builtins.int] per_execution_environment_max_concurrency: The maximum number of concurrent executions that can run on each execution environment.
         """
         pulumi.set(__self__, "capacity_provider_arn", capacity_provider_arn)
         if execution_environment_memory_gi_b_per_v_cpu is not None:
@@ -2048,7 +2063,7 @@ class FunctionLambdaManagedInstancesCapacityProviderConfigArgs:
     @pulumi.getter(name="perExecutionEnvironmentMaxConcurrency")
     def per_execution_environment_max_concurrency(self) -> Optional[pulumi.Input[_builtins.int]]:
         """
-        The maximum number of concurrent execution environments that can run on each compute instance.
+        The maximum number of concurrent executions that can run on each execution environment.
         """
         return pulumi.get(self, "per_execution_environment_max_concurrency")
 
@@ -2221,6 +2236,9 @@ class FunctionRuntimeManagementConfigArgs:
 
 
 class FunctionScalingConfigArgsDict(TypedDict):
+    """
+    Configuration that defines the scaling behavior for a Lambda Managed Instances function, including the minimum and maximum number of execution environments that can be provisioned.
+    """
     max_execution_environments: NotRequired[pulumi.Input[_builtins.int]]
     """
     The maximum number of execution environments that can be provisioned for the function.
@@ -2236,6 +2254,7 @@ class FunctionScalingConfigArgs:
                  max_execution_environments: Optional[pulumi.Input[_builtins.int]] = None,
                  min_execution_environments: Optional[pulumi.Input[_builtins.int]] = None):
         """
+        Configuration that defines the scaling behavior for a Lambda Managed Instances function, including the minimum and maximum number of execution environments that can be provisioned.
         :param pulumi.Input[_builtins.int] max_execution_environments: The maximum number of execution environments that can be provisioned for the function.
         :param pulumi.Input[_builtins.int] min_execution_environments: The minimum number of execution environments to maintain for the function.
         """
@@ -2302,9 +2321,12 @@ class FunctionSnapStartArgs:
 
 
 class FunctionTenancyConfigArgsDict(TypedDict):
+    """
+    Specifies the tenant isolation mode configuration for a Lambda function. This allows you to configure specific tenant isolation strategies for your function invocations. Tenant isolation configuration cannot be modified after function creation.
+    """
     tenant_isolation_mode: pulumi.Input['FunctionTenancyConfigTenantIsolationMode']
     """
-    Determines how your Lambda function isolates execution environments between tenants.
+    Tenant isolation mode allows for invocation to be sent to a corresponding execution environment dedicated to a specific tenant ID.
     """
 
 @pulumi.input_type
@@ -2312,7 +2334,8 @@ class FunctionTenancyConfigArgs:
     def __init__(__self__, *,
                  tenant_isolation_mode: pulumi.Input['FunctionTenancyConfigTenantIsolationMode']):
         """
-        :param pulumi.Input['FunctionTenancyConfigTenantIsolationMode'] tenant_isolation_mode: Determines how your Lambda function isolates execution environments between tenants.
+        Specifies the tenant isolation mode configuration for a Lambda function. This allows you to configure specific tenant isolation strategies for your function invocations. Tenant isolation configuration cannot be modified after function creation.
+        :param pulumi.Input['FunctionTenancyConfigTenantIsolationMode'] tenant_isolation_mode: Tenant isolation mode allows for invocation to be sent to a corresponding execution environment dedicated to a specific tenant ID.
         """
         pulumi.set(__self__, "tenant_isolation_mode", tenant_isolation_mode)
 
@@ -2320,7 +2343,7 @@ class FunctionTenancyConfigArgs:
     @pulumi.getter(name="tenantIsolationMode")
     def tenant_isolation_mode(self) -> pulumi.Input['FunctionTenancyConfigTenantIsolationMode']:
         """
-        Determines how your Lambda function isolates execution environments between tenants.
+        Tenant isolation mode allows for invocation to be sent to a corresponding execution environment dedicated to a specific tenant ID.
         """
         return pulumi.get(self, "tenant_isolation_mode")
 

@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.SecurityHub.Inputs
     public sealed class AutomationRuleStringFilterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The condition to apply to a string value when filtering Security Hub findings.
+        /// The condition to apply to a string value when filtering Security Hub CSPM findings.
         ///  To search for values that have the filter value, use one of the following comparison operators:
         ///   +  To search for values that include the filter value, use ``CONTAINS``. For example, the filter ``Title CONTAINS CloudFront`` matches findings that have a ``Title`` that includes the string CloudFront.
         ///   +  To search for values that exactly match the filter value, use ``EQUALS``. For example, the filter ``AwsAccountId EQUALS 123456789012`` only matches findings that have an account ID of ``123456789012``.
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.SecurityHub.Inputs
         ///   
         ///  ``NOT_CONTAINS``, ``NOT_EQUALS``, and ``PREFIX_NOT_EQUALS`` filters on the same field are joined by ``AND``. A finding matches only if it matches all of those filters. For example, the filters ``Title NOT_CONTAINS CloudFront AND Title NOT_CONTAINS CloudWatch`` match a finding that excludes both ``CloudFront`` and ``CloudWatch`` in the title.
         ///  You can’t have both a ``CONTAINS`` filter and a ``NOT_CONTAINS`` filter on the same field. Similarly, you can't provide both an ``EQUALS`` filter and a ``NOT_EQUALS`` or ``PREFIX_NOT_EQUALS`` filter on the same field. Combining filters in this way returns an error. ``CONTAINS`` filters can only be used with other ``CONTAINS`` filters. ``NOT_CONTAINS`` filters can only be used with other ``NOT_CONTAINS`` filters. 
-        ///  You can combine ``PREFIX`` filters with ``NOT_EQUALS`` or ``PREFIX_NOT_EQUALS`` filters for the same field. Security Hub first processes the ``PREFIX`` filters, and then the ``NOT_EQUALS`` or ``PREFIX_NOT_EQUALS`` filters.
-        ///  For example, for the following filters, Security Hub first identifies findings that have resource types that start with either ``AwsIam`` or ``AwsEc2``. It then excludes findings that have a resource type of ``AwsIamPolicy`` and findings that have a resource type of ``AwsEc2NetworkInterface``.
+        ///  You can combine ``PREFIX`` filters with ``NOT_EQUALS`` or ``PREFIX_NOT_EQUALS`` filters for the same field. Security Hub CSPM first processes the ``PREFIX`` filters, and then the ``NOT_EQUALS`` or ``PREFIX_NOT_EQUALS`` filters.
+        ///  For example, for the following filters, Security Hub CSPM first identifies findings that have resource types that start with either ``AwsIam`` or ``AwsEc2``. It then excludes findings that have a resource type of ``AwsIamPolicy`` and findings that have a resource type of ``AwsEc2NetworkInterface``.
         ///   +   ``ResourceType PREFIX AwsIam`` 
         ///   +   ``ResourceType PREFIX AwsEc2`` 
         ///   +   ``ResourceType NOT_EQUALS AwsIamPolicy`` 
@@ -43,7 +43,7 @@ namespace Pulumi.AwsNative.SecurityHub.Inputs
         public Input<Pulumi.AwsNative.SecurityHub.AutomationRuleStringFilterComparison> Comparison { get; set; } = null!;
 
         /// <summary>
-        /// The string filter value. Filter values are case sensitive. For example, the product name for control-based findings is ``Security Hub``. If you provide ``security hub`` as the filter value, there's no match.
+        /// The string filter value. Filter values are case sensitive. For example, the product name for control-based findings is ``Security Hub CSPM``. If you provide ``security hub`` as the filter value, there's no match.
         /// </summary>
         [Input("value", required: true)]
         public Input<string> Value { get; set; } = null!;

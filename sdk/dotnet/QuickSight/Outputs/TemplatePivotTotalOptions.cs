@@ -40,7 +40,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// <summary>
         /// The visibility configuration for the total cells.
         /// </summary>
-        public readonly object? TotalsVisibility;
+        public readonly Pulumi.AwsNative.QuickSight.TemplateVisibility? TotalsVisibility;
         /// <summary>
         /// The cell styling options for the totals of value cells.
         /// </summary>
@@ -60,7 +60,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 
             Outputs.TemplateTableCellStyle? totalCellStyle,
 
-            object? totalsVisibility,
+            Pulumi.AwsNative.QuickSight.TemplateVisibility? totalsVisibility,
 
             Outputs.TemplateTableCellStyle? valueCellStyle)
         {

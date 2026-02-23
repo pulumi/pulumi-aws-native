@@ -24,7 +24,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// <summary>
         /// The visibility of the data label.
         /// </summary>
-        public readonly object? Visibility;
+        public readonly Pulumi.AwsNative.QuickSight.TemplateVisibility? Visibility;
 
         [OutputConstructor]
         private TemplateDataPathLabelType(
@@ -32,7 +32,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 
             string? fieldValue,
 
-            object? visibility)
+            Pulumi.AwsNative.QuickSight.TemplateVisibility? visibility)
         {
             FieldId = fieldId;
             FieldValue = fieldValue;

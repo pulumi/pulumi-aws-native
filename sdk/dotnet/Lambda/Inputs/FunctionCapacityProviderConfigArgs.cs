@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Lambda.Inputs
 {
 
+    /// <summary>
+    /// Configuration for the capacity provider that manages compute resources for Lambda functions.
+    /// </summary>
     public sealed class FunctionCapacityProviderConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>

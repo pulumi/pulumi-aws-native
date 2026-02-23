@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.SecurityHub
     public partial class DelegatedAdmin : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The AWS-account identifier of the account to designate as the Security Hub administrator account.
+        /// The AWS-account identifier of the account to designate as the Security Hub CSPM administrator account.
         /// </summary>
         [Output("adminAccountId")]
         public Output<string> AdminAccountId { get; private set; } = null!;
@@ -86,7 +86,7 @@ namespace Pulumi.AwsNative.SecurityHub
     public sealed class DelegatedAdminArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The AWS-account identifier of the account to designate as the Security Hub administrator account.
+        /// The AWS-account identifier of the account to designate as the Security Hub CSPM administrator account.
         /// </summary>
         [Input("adminAccountId", required: true)]
         public Input<string> AdminAccountId { get; set; } = null!;

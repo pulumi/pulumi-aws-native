@@ -41,7 +41,7 @@ export class DelegatedAdmin extends pulumi.CustomResource {
     }
 
     /**
-     * The AWS-account identifier of the account to designate as the Security Hub administrator account.
+     * The AWS-account identifier of the account to designate as the Security Hub CSPM administrator account.
      */
     declare public readonly adminAccountId: pulumi.Output<string>;
     /**
@@ -87,7 +87,7 @@ export class DelegatedAdmin extends pulumi.CustomResource {
  */
 export interface DelegatedAdminArgs {
     /**
-     * The AWS-account identifier of the account to designate as the Security Hub administrator account.
+     * The AWS-account identifier of the account to designate as the Security Hub CSPM administrator account.
      */
     adminAccountId: pulumi.Input<string>;
 }

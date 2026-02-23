@@ -85,6 +85,9 @@ namespace Pulumi.AwsNative.AutoScaling
         [Output("defaultInstanceWarmup")]
         public Output<int?> DefaultInstanceWarmup { get; private set; } = null!;
 
+        /// <summary>
+        /// The deletion protection setting for the Auto Scaling group.
+        /// </summary>
         [Output("deletionProtection")]
         public Output<string?> DeletionProtection { get; private set; } = null!;
 
@@ -379,6 +382,9 @@ namespace Pulumi.AwsNative.AutoScaling
         [Input("defaultInstanceWarmup")]
         public Input<int>? DefaultInstanceWarmup { get; set; }
 
+        /// <summary>
+        /// The deletion protection setting for the Auto Scaling group.
+        /// </summary>
         [Input("deletionProtection")]
         public Input<string>? DeletionProtection { get; set; }
 

@@ -20,7 +20,7 @@ namespace Pulumi.AwsNative.SecurityHub.Outputs
         /// The status of the investigation into the finding. The workflow status is specific to an individual finding. It does not affect the generation of new findings. For example, setting the workflow status to ``SUPPRESSED`` or ``RESOLVED`` does not prevent a new finding for the same issue.
         ///  The allowed values are the following.
         ///   +  ``NEW`` - The initial state of a finding, before it is reviewed.
-        ///  Security Hub also resets ``WorkFlowStatus`` from ``NOTIFIED`` or ``RESOLVED`` to ``NEW`` in the following cases:
+        ///  Security Hub CSPM also resets ``WorkFlowStatus`` from ``NOTIFIED`` or ``RESOLVED`` to ``NEW`` in the following cases:
         ///   +  The record state changes from ``ARCHIVED`` to ``ACTIVE``.
         ///   +  The compliance status changes from ``PASSED`` to either ``WARNING``, ``FAILED``, or ``NOT_AVAILABLE``.
         ///   

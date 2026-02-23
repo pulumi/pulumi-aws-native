@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// <summary>
         /// The visibility of the data zoom scroll bar.
         /// </summary>
-        public readonly object? Visibility;
+        public readonly Pulumi.AwsNative.QuickSight.TemplateVisibility? Visibility;
         /// <summary>
         /// The visibility range for the data zoom scroll bar.
         /// </summary>
@@ -24,7 +24,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 
         [OutputConstructor]
         private TemplateScrollBarOptions(
-            object? visibility,
+            Pulumi.AwsNative.QuickSight.TemplateVisibility? visibility,
 
             Outputs.TemplateVisibleRangeOptions? visibleRange)
         {

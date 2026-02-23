@@ -212,6 +212,9 @@ class GetAutoScalingGroupResult:
     @_builtins.property
     @pulumi.getter(name="deletionProtection")
     def deletion_protection(self) -> Optional[_builtins.str]:
+        """
+        The deletion protection setting for the Auto Scaling group.
+        """
         return pulumi.get(self, "deletion_protection")
 
     @_builtins.property

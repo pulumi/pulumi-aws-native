@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// <summary>
         /// Determines whether or not the axis line is visible.
         /// </summary>
-        public readonly object? AxisLineVisibility;
+        public readonly Pulumi.AwsNative.QuickSight.TemplateVisibility? AxisLineVisibility;
         /// <summary>
         /// String based length that is composed of value and unit in px
         /// </summary>
@@ -28,7 +28,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// <summary>
         /// Determines whether or not the grid line is visible.
         /// </summary>
-        public readonly object? GridLineVisibility;
+        public readonly Pulumi.AwsNative.QuickSight.TemplateVisibility? GridLineVisibility;
         /// <summary>
         /// The scroll bar options for an axis.
         /// </summary>
@@ -40,13 +40,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 
         [OutputConstructor]
         private TemplateAxisDisplayOptions(
-            object? axisLineVisibility,
+            Pulumi.AwsNative.QuickSight.TemplateVisibility? axisLineVisibility,
 
             string? axisOffset,
 
             Outputs.TemplateAxisDataOptions? dataOptions,
 
-            object? gridLineVisibility,
+            Pulumi.AwsNative.QuickSight.TemplateVisibility? gridLineVisibility,
 
             Outputs.TemplateScrollBarOptions? scrollbarOptions,
 

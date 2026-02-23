@@ -963,6 +963,99 @@ namespace Pulumi.AwsNative.Ec2
     }
 
     /// <summary>
+    /// Indicates whether the host accepts any untargeted instance launches that match its instance type configuration, or if it only accepts Host tenancy instance launches that specify its unique host ID.
+    /// </summary>
+    [EnumType]
+    public readonly struct HostAutoPlacement : IEquatable<HostAutoPlacement>
+    {
+        private readonly string _value;
+
+        private HostAutoPlacement(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static HostAutoPlacement On { get; } = new HostAutoPlacement("on");
+        public static HostAutoPlacement Off { get; } = new HostAutoPlacement("off");
+
+        public static bool operator ==(HostAutoPlacement left, HostAutoPlacement right) => left.Equals(right);
+        public static bool operator !=(HostAutoPlacement left, HostAutoPlacement right) => !left.Equals(right);
+
+        public static explicit operator string(HostAutoPlacement value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is HostAutoPlacement other && Equals(other);
+        public bool Equals(HostAutoPlacement other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Automatically allocates a new dedicated host and moves your instances on to it if a degradation is detected on your current host.
+    /// </summary>
+    [EnumType]
+    public readonly struct HostMaintenance : IEquatable<HostMaintenance>
+    {
+        private readonly string _value;
+
+        private HostMaintenance(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static HostMaintenance On { get; } = new HostMaintenance("on");
+        public static HostMaintenance Off { get; } = new HostMaintenance("off");
+
+        public static bool operator ==(HostMaintenance left, HostMaintenance right) => left.Equals(right);
+        public static bool operator !=(HostMaintenance left, HostMaintenance right) => !left.Equals(right);
+
+        public static explicit operator string(HostMaintenance value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is HostMaintenance other && Equals(other);
+        public bool Equals(HostMaintenance other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Indicates whether to enable or disable host recovery for the Dedicated Host. Host recovery is disabled by default.
+    /// </summary>
+    [EnumType]
+    public readonly struct HostRecovery : IEquatable<HostRecovery>
+    {
+        private readonly string _value;
+
+        private HostRecovery(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static HostRecovery On { get; } = new HostRecovery("on");
+        public static HostRecovery Off { get; } = new HostRecovery("off");
+
+        public static bool operator ==(HostRecovery left, HostRecovery right) => left.Equals(right);
+        public static bool operator !=(HostRecovery left, HostRecovery right) => !left.Equals(right);
+
+        public static explicit operator string(HostRecovery value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is HostRecovery other && Equals(other);
+        public bool Equals(HostRecovery other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Indicates whether the instance is associated with a dedicated host. If you want the instance to always restart on the same host on which it was launched, specify host. If you want the instance to restart on any available host, but try to launch onto the last host it ran on (on a best-effort basis), specify default.
     /// </summary>
     [EnumType]

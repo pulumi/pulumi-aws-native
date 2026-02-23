@@ -390,6 +390,36 @@ export const FlowLogTrafficType = {
  */
 export type FlowLogTrafficType = (typeof FlowLogTrafficType)[keyof typeof FlowLogTrafficType];
 
+export const HostAutoPlacement = {
+    On: "on",
+    Off: "off",
+} as const;
+
+/**
+ * Indicates whether the host accepts any untargeted instance launches that match its instance type configuration, or if it only accepts Host tenancy instance launches that specify its unique host ID.
+ */
+export type HostAutoPlacement = (typeof HostAutoPlacement)[keyof typeof HostAutoPlacement];
+
+export const HostMaintenance = {
+    On: "on",
+    Off: "off",
+} as const;
+
+/**
+ * Automatically allocates a new dedicated host and moves your instances on to it if a degradation is detected on your current host.
+ */
+export type HostMaintenance = (typeof HostMaintenance)[keyof typeof HostMaintenance];
+
+export const HostRecovery = {
+    On: "on",
+    Off: "off",
+} as const;
+
+/**
+ * Indicates whether to enable or disable host recovery for the Dedicated Host. Host recovery is disabled by default.
+ */
+export type HostRecovery = (typeof HostRecovery)[keyof typeof HostRecovery];
+
 export const InstanceAffinity = {
     Default: "default",
     Host: "host",

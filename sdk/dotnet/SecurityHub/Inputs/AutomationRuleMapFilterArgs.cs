@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.SecurityHub.Inputs
     public sealed class AutomationRuleMapFilterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The condition to apply to the key value when filtering Security Hub findings with a map filter.
+        /// The condition to apply to the key value when filtering Security Hub CSPM findings with a map filter.
         ///  To search for values that have the filter value, use one of the following comparison operators:
         ///   +  To search for values that include the filter value, use ``CONTAINS``. For example, for the ``ResourceTags`` field, the filter ``Department CONTAINS Security`` matches findings that include the value ``Security`` for the ``Department`` tag. In the same example, a finding with a value of ``Security team`` for the ``Department`` tag is a match.
         ///   +  To search for values that exactly match the filter value, use ``EQUALS``. For example, for the ``ResourceTags`` field, the filter ``Department EQUALS Security`` matches findings that have the value ``Security`` for the ``Department`` tag.

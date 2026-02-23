@@ -250,7 +250,7 @@ class AutomationRuleMapFilterArgsDict(TypedDict):
     """
     comparison: pulumi.Input['AutomationRuleMapFilterComparison']
     """
-    The condition to apply to the key value when filtering Security Hub findings with a map filter.
+    The condition to apply to the key value when filtering Security Hub CSPM findings with a map filter.
      To search for values that have the filter value, use one of the following comparison operators:
       +  To search for values that include the filter value, use ``CONTAINS``. For example, for the ``ResourceTags`` field, the filter ``Department CONTAINS Security`` matches findings that include the value ``Security`` for the ``Department`` tag. In the same example, a finding with a value of ``Security team`` for the ``Department`` tag is a match.
       +  To search for values that exactly match the filter value, use ``EQUALS``. For example, for the ``ResourceTags`` field, the filter ``Department EQUALS Security`` matches findings that have the value ``Security`` for the ``Department`` tag.
@@ -282,7 +282,7 @@ class AutomationRuleMapFilterArgs:
                  value: pulumi.Input[_builtins.str]):
         """
         A map filter for filtering ASHlong findings. Each map filter provides the field to check for, the value to check for, and the comparison operator.
-        :param pulumi.Input['AutomationRuleMapFilterComparison'] comparison: The condition to apply to the key value when filtering Security Hub findings with a map filter.
+        :param pulumi.Input['AutomationRuleMapFilterComparison'] comparison: The condition to apply to the key value when filtering Security Hub CSPM findings with a map filter.
                 To search for values that have the filter value, use one of the following comparison operators:
                  +  To search for values that include the filter value, use ``CONTAINS``. For example, for the ``ResourceTags`` field, the filter ``Department CONTAINS Security`` matches findings that include the value ``Security`` for the ``Department`` tag. In the same example, a finding with a value of ``Security team`` for the ``Department`` tag is a match.
                  +  To search for values that exactly match the filter value, use ``EQUALS``. For example, for the ``ResourceTags`` field, the filter ``Department EQUALS Security`` matches findings that have the value ``Security`` for the ``Department`` tag.
@@ -307,7 +307,7 @@ class AutomationRuleMapFilterArgs:
     @pulumi.getter
     def comparison(self) -> pulumi.Input['AutomationRuleMapFilterComparison']:
         """
-        The condition to apply to the key value when filtering Security Hub findings with a map filter.
+        The condition to apply to the key value when filtering Security Hub CSPM findings with a map filter.
          To search for values that have the filter value, use one of the following comparison operators:
           +  To search for values that include the filter value, use ``CONTAINS``. For example, for the ``ResourceTags`` field, the filter ``Department CONTAINS Security`` matches findings that include the value ``Security`` for the ``Department`` tag. In the same example, a finding with a value of ``Security team`` for the ``Department`` tag is a match.
           +  To search for values that exactly match the filter value, use ``EQUALS``. For example, for the ``ResourceTags`` field, the filter ``Department EQUALS Security`` matches findings that have the value ``Security`` for the ``Department`` tag.
@@ -643,7 +643,7 @@ class AutomationRuleStringFilterArgsDict(TypedDict):
     """
     comparison: pulumi.Input['AutomationRuleStringFilterComparison']
     """
-    The condition to apply to a string value when filtering Security Hub findings.
+    The condition to apply to a string value when filtering Security Hub CSPM findings.
      To search for values that have the filter value, use one of the following comparison operators:
       +  To search for values that include the filter value, use ``CONTAINS``. For example, the filter ``Title CONTAINS CloudFront`` matches findings that have a ``Title`` that includes the string CloudFront.
       +  To search for values that exactly match the filter value, use ``EQUALS``. For example, the filter ``AwsAccountId EQUALS 123456789012`` only matches findings that have an account ID of ``123456789012``.
@@ -657,8 +657,8 @@ class AutomationRuleStringFilterArgsDict(TypedDict):
       
      ``NOT_CONTAINS``, ``NOT_EQUALS``, and ``PREFIX_NOT_EQUALS`` filters on the same field are joined by ``AND``. A finding matches only if it matches all of those filters. For example, the filters ``Title NOT_CONTAINS CloudFront AND Title NOT_CONTAINS CloudWatch`` match a finding that excludes both ``CloudFront`` and ``CloudWatch`` in the title.
      You can’t have both a ``CONTAINS`` filter and a ``NOT_CONTAINS`` filter on the same field. Similarly, you can't provide both an ``EQUALS`` filter and a ``NOT_EQUALS`` or ``PREFIX_NOT_EQUALS`` filter on the same field. Combining filters in this way returns an error. ``CONTAINS`` filters can only be used with other ``CONTAINS`` filters. ``NOT_CONTAINS`` filters can only be used with other ``NOT_CONTAINS`` filters. 
-     You can combine ``PREFIX`` filters with ``NOT_EQUALS`` or ``PREFIX_NOT_EQUALS`` filters for the same field. Security Hub first processes the ``PREFIX`` filters, and then the ``NOT_EQUALS`` or ``PREFIX_NOT_EQUALS`` filters.
-     For example, for the following filters, Security Hub first identifies findings that have resource types that start with either ``AwsIam`` or ``AwsEc2``. It then excludes findings that have a resource type of ``AwsIamPolicy`` and findings that have a resource type of ``AwsEc2NetworkInterface``.
+     You can combine ``PREFIX`` filters with ``NOT_EQUALS`` or ``PREFIX_NOT_EQUALS`` filters for the same field. Security Hub CSPM first processes the ``PREFIX`` filters, and then the ``NOT_EQUALS`` or ``PREFIX_NOT_EQUALS`` filters.
+     For example, for the following filters, Security Hub CSPM first identifies findings that have resource types that start with either ``AwsIam`` or ``AwsEc2``. It then excludes findings that have a resource type of ``AwsIamPolicy`` and findings that have a resource type of ``AwsEc2NetworkInterface``.
       +   ``ResourceType PREFIX AwsIam`` 
       +   ``ResourceType PREFIX AwsEc2`` 
       +   ``ResourceType NOT_EQUALS AwsIamPolicy`` 
@@ -668,7 +668,7 @@ class AutomationRuleStringFilterArgsDict(TypedDict):
     """
     value: pulumi.Input[_builtins.str]
     """
-    The string filter value. Filter values are case sensitive. For example, the product name for control-based findings is ``Security Hub``. If you provide ``security hub`` as the filter value, there's no match.
+    The string filter value. Filter values are case sensitive. For example, the product name for control-based findings is ``Security Hub CSPM``. If you provide ``security hub`` as the filter value, there's no match.
     """
 
 @pulumi.input_type
@@ -678,7 +678,7 @@ class AutomationRuleStringFilterArgs:
                  value: pulumi.Input[_builtins.str]):
         """
         A string filter for filtering ASHlong findings.
-        :param pulumi.Input['AutomationRuleStringFilterComparison'] comparison: The condition to apply to a string value when filtering Security Hub findings.
+        :param pulumi.Input['AutomationRuleStringFilterComparison'] comparison: The condition to apply to a string value when filtering Security Hub CSPM findings.
                 To search for values that have the filter value, use one of the following comparison operators:
                  +  To search for values that include the filter value, use ``CONTAINS``. For example, the filter ``Title CONTAINS CloudFront`` matches findings that have a ``Title`` that includes the string CloudFront.
                  +  To search for values that exactly match the filter value, use ``EQUALS``. For example, the filter ``AwsAccountId EQUALS 123456789012`` only matches findings that have an account ID of ``123456789012``.
@@ -692,15 +692,15 @@ class AutomationRuleStringFilterArgs:
                  
                 ``NOT_CONTAINS``, ``NOT_EQUALS``, and ``PREFIX_NOT_EQUALS`` filters on the same field are joined by ``AND``. A finding matches only if it matches all of those filters. For example, the filters ``Title NOT_CONTAINS CloudFront AND Title NOT_CONTAINS CloudWatch`` match a finding that excludes both ``CloudFront`` and ``CloudWatch`` in the title.
                 You can’t have both a ``CONTAINS`` filter and a ``NOT_CONTAINS`` filter on the same field. Similarly, you can't provide both an ``EQUALS`` filter and a ``NOT_EQUALS`` or ``PREFIX_NOT_EQUALS`` filter on the same field. Combining filters in this way returns an error. ``CONTAINS`` filters can only be used with other ``CONTAINS`` filters. ``NOT_CONTAINS`` filters can only be used with other ``NOT_CONTAINS`` filters. 
-                You can combine ``PREFIX`` filters with ``NOT_EQUALS`` or ``PREFIX_NOT_EQUALS`` filters for the same field. Security Hub first processes the ``PREFIX`` filters, and then the ``NOT_EQUALS`` or ``PREFIX_NOT_EQUALS`` filters.
-                For example, for the following filters, Security Hub first identifies findings that have resource types that start with either ``AwsIam`` or ``AwsEc2``. It then excludes findings that have a resource type of ``AwsIamPolicy`` and findings that have a resource type of ``AwsEc2NetworkInterface``.
+                You can combine ``PREFIX`` filters with ``NOT_EQUALS`` or ``PREFIX_NOT_EQUALS`` filters for the same field. Security Hub CSPM first processes the ``PREFIX`` filters, and then the ``NOT_EQUALS`` or ``PREFIX_NOT_EQUALS`` filters.
+                For example, for the following filters, Security Hub CSPM first identifies findings that have resource types that start with either ``AwsIam`` or ``AwsEc2``. It then excludes findings that have a resource type of ``AwsIamPolicy`` and findings that have a resource type of ``AwsEc2NetworkInterface``.
                  +   ``ResourceType PREFIX AwsIam`` 
                  +   ``ResourceType PREFIX AwsEc2`` 
                  +   ``ResourceType NOT_EQUALS AwsIamPolicy`` 
                  +   ``ResourceType NOT_EQUALS AwsEc2NetworkInterface`` 
                  
                 ``CONTAINS`` and ``NOT_CONTAINS`` operators can be used only with automation rules V1. ``CONTAINS_WORD`` operator is only supported in ``GetFindingsV2``, ``GetFindingStatisticsV2``, ``GetResourcesV2``, and ``GetResourceStatisticsV2`` APIs. For more information, see [Automation rules](https://docs.aws.amazon.com/securityhub/latest/userguide/automation-rules.html) in the *User Guide*.
-        :param pulumi.Input[_builtins.str] value: The string filter value. Filter values are case sensitive. For example, the product name for control-based findings is ``Security Hub``. If you provide ``security hub`` as the filter value, there's no match.
+        :param pulumi.Input[_builtins.str] value: The string filter value. Filter values are case sensitive. For example, the product name for control-based findings is ``Security Hub CSPM``. If you provide ``security hub`` as the filter value, there's no match.
         """
         pulumi.set(__self__, "comparison", comparison)
         pulumi.set(__self__, "value", value)
@@ -709,7 +709,7 @@ class AutomationRuleStringFilterArgs:
     @pulumi.getter
     def comparison(self) -> pulumi.Input['AutomationRuleStringFilterComparison']:
         """
-        The condition to apply to a string value when filtering Security Hub findings.
+        The condition to apply to a string value when filtering Security Hub CSPM findings.
          To search for values that have the filter value, use one of the following comparison operators:
           +  To search for values that include the filter value, use ``CONTAINS``. For example, the filter ``Title CONTAINS CloudFront`` matches findings that have a ``Title`` that includes the string CloudFront.
           +  To search for values that exactly match the filter value, use ``EQUALS``. For example, the filter ``AwsAccountId EQUALS 123456789012`` only matches findings that have an account ID of ``123456789012``.
@@ -723,8 +723,8 @@ class AutomationRuleStringFilterArgs:
           
          ``NOT_CONTAINS``, ``NOT_EQUALS``, and ``PREFIX_NOT_EQUALS`` filters on the same field are joined by ``AND``. A finding matches only if it matches all of those filters. For example, the filters ``Title NOT_CONTAINS CloudFront AND Title NOT_CONTAINS CloudWatch`` match a finding that excludes both ``CloudFront`` and ``CloudWatch`` in the title.
          You can’t have both a ``CONTAINS`` filter and a ``NOT_CONTAINS`` filter on the same field. Similarly, you can't provide both an ``EQUALS`` filter and a ``NOT_EQUALS`` or ``PREFIX_NOT_EQUALS`` filter on the same field. Combining filters in this way returns an error. ``CONTAINS`` filters can only be used with other ``CONTAINS`` filters. ``NOT_CONTAINS`` filters can only be used with other ``NOT_CONTAINS`` filters. 
-         You can combine ``PREFIX`` filters with ``NOT_EQUALS`` or ``PREFIX_NOT_EQUALS`` filters for the same field. Security Hub first processes the ``PREFIX`` filters, and then the ``NOT_EQUALS`` or ``PREFIX_NOT_EQUALS`` filters.
-         For example, for the following filters, Security Hub first identifies findings that have resource types that start with either ``AwsIam`` or ``AwsEc2``. It then excludes findings that have a resource type of ``AwsIamPolicy`` and findings that have a resource type of ``AwsEc2NetworkInterface``.
+         You can combine ``PREFIX`` filters with ``NOT_EQUALS`` or ``PREFIX_NOT_EQUALS`` filters for the same field. Security Hub CSPM first processes the ``PREFIX`` filters, and then the ``NOT_EQUALS`` or ``PREFIX_NOT_EQUALS`` filters.
+         For example, for the following filters, Security Hub CSPM first identifies findings that have resource types that start with either ``AwsIam`` or ``AwsEc2``. It then excludes findings that have a resource type of ``AwsIamPolicy`` and findings that have a resource type of ``AwsEc2NetworkInterface``.
           +   ``ResourceType PREFIX AwsIam`` 
           +   ``ResourceType PREFIX AwsEc2`` 
           +   ``ResourceType NOT_EQUALS AwsIamPolicy`` 
@@ -742,7 +742,7 @@ class AutomationRuleStringFilterArgs:
     @pulumi.getter
     def value(self) -> pulumi.Input[_builtins.str]:
         """
-        The string filter value. Filter values are case sensitive. For example, the product name for control-based findings is ``Security Hub``. If you provide ``security hub`` as the filter value, there's no match.
+        The string filter value. Filter values are case sensitive. For example, the product name for control-based findings is ``Security Hub CSPM``. If you provide ``security hub`` as the filter value, there's no match.
         """
         return pulumi.get(self, "value")
 
@@ -1774,7 +1774,7 @@ class AutomationRuleWorkflowUpdateArgsDict(TypedDict):
     The status of the investigation into the finding. The workflow status is specific to an individual finding. It does not affect the generation of new findings. For example, setting the workflow status to ``SUPPRESSED`` or ``RESOLVED`` does not prevent a new finding for the same issue.
      The allowed values are the following.
       +  ``NEW`` - The initial state of a finding, before it is reviewed.
-     Security Hub also resets ``WorkFlowStatus`` from ``NOTIFIED`` or ``RESOLVED`` to ``NEW`` in the following cases:
+     Security Hub CSPM also resets ``WorkFlowStatus`` from ``NOTIFIED`` or ``RESOLVED`` to ``NEW`` in the following cases:
       +  The record state changes from ``ARCHIVED`` to ``ACTIVE``.
       +  The compliance status changes from ``PASSED`` to either ``WARNING``, ``FAILED``, or ``NOT_AVAILABLE``.
       
@@ -1792,7 +1792,7 @@ class AutomationRuleWorkflowUpdateArgs:
         :param pulumi.Input['AutomationRuleWorkflowUpdateStatus'] status: The status of the investigation into the finding. The workflow status is specific to an individual finding. It does not affect the generation of new findings. For example, setting the workflow status to ``SUPPRESSED`` or ``RESOLVED`` does not prevent a new finding for the same issue.
                 The allowed values are the following.
                  +  ``NEW`` - The initial state of a finding, before it is reviewed.
-                Security Hub also resets ``WorkFlowStatus`` from ``NOTIFIED`` or ``RESOLVED`` to ``NEW`` in the following cases:
+                Security Hub CSPM also resets ``WorkFlowStatus`` from ``NOTIFIED`` or ``RESOLVED`` to ``NEW`` in the following cases:
                  +  The record state changes from ``ARCHIVED`` to ``ACTIVE``.
                  +  The compliance status changes from ``PASSED`` to either ``WARNING``, ``FAILED``, or ``NOT_AVAILABLE``.
                  
@@ -1809,7 +1809,7 @@ class AutomationRuleWorkflowUpdateArgs:
         The status of the investigation into the finding. The workflow status is specific to an individual finding. It does not affect the generation of new findings. For example, setting the workflow status to ``SUPPRESSED`` or ``RESOLVED`` does not prevent a new finding for the same issue.
          The allowed values are the following.
           +  ``NEW`` - The initial state of a finding, before it is reviewed.
-         Security Hub also resets ``WorkFlowStatus`` from ``NOTIFIED`` or ``RESOLVED`` to ``NEW`` in the following cases:
+         Security Hub CSPM also resets ``WorkFlowStatus`` from ``NOTIFIED`` or ``RESOLVED`` to ``NEW`` in the following cases:
           +  The record state changes from ``ARCHIVED`` to ``ACTIVE``.
           +  The compliance status changes from ``PASSED`` to either ``WARNING``, ``FAILED``, or ``NOT_AVAILABLE``.
           
@@ -1834,7 +1834,7 @@ class AutomationRulesActionArgsDict(TypedDict):
     """
     type: pulumi.Input['AutomationRulesActionType']
     """
-    Specifies the type of action that Security Hub takes when a finding matches the defined criteria of a rule.
+    Specifies the type of action that Security Hub CSPM takes when a finding matches the defined criteria of a rule.
     """
 
 @pulumi.input_type
@@ -1845,7 +1845,7 @@ class AutomationRulesActionArgs:
         """
         One or more actions that ASHlong takes when a finding matches the defined criteria of a rule.
         :param pulumi.Input['AutomationRulesFindingFieldsUpdateArgs'] finding_fields_update: Specifies that the automation rule action is an update to a finding field.
-        :param pulumi.Input['AutomationRulesActionType'] type: Specifies the type of action that Security Hub takes when a finding matches the defined criteria of a rule.
+        :param pulumi.Input['AutomationRulesActionType'] type: Specifies the type of action that Security Hub CSPM takes when a finding matches the defined criteria of a rule.
         """
         pulumi.set(__self__, "finding_fields_update", finding_fields_update)
         pulumi.set(__self__, "type", type)
@@ -1866,7 +1866,7 @@ class AutomationRulesActionArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input['AutomationRulesActionType']:
         """
-        Specifies the type of action that Security Hub takes when a finding matches the defined criteria of a rule.
+        Specifies the type of action that Security Hub CSPM takes when a finding matches the defined criteria of a rule.
         """
         return pulumi.get(self, "type")
 
@@ -2158,12 +2158,12 @@ class AutomationRulesFindingFiltersArgsDict(TypedDict):
     """
     product_arn: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringFilterArgsDict']]]]
     """
-    The Amazon Resource Name (ARN) for a third-party product that generated a finding in Security Hub. 
+    The Amazon Resource Name (ARN) for a third-party product that generated a finding in Security Hub CSPM. 
       Array Members: Minimum number of 1 item. Maximum number of 20 items.
     """
     product_name: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringFilterArgsDict']]]]
     """
-    Provides the name of the product that generated the finding. For control-based findings, the product name is Security Hub. 
+    Provides the name of the product that generated the finding. For control-based findings, the product name is Security Hub CSPM. 
       Array Members: Minimum number of 1 item. Maximum number of 20 items.
     """
     record_state: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringFilterArgsDict']]]]
@@ -2329,9 +2329,9 @@ class AutomationRulesFindingFiltersArgs:
                  Array Members: Minimum number of 1 item. Maximum number of 20 items.
         :param pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringFilterArgs']]] note_updated_by: The principal that created a note. 
                  Array Members: Minimum number of 1 item. Maximum number of 20 items.
-        :param pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringFilterArgs']]] product_arn: The Amazon Resource Name (ARN) for a third-party product that generated a finding in Security Hub. 
+        :param pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringFilterArgs']]] product_arn: The Amazon Resource Name (ARN) for a third-party product that generated a finding in Security Hub CSPM. 
                  Array Members: Minimum number of 1 item. Maximum number of 20 items.
-        :param pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringFilterArgs']]] product_name: Provides the name of the product that generated the finding. For control-based findings, the product name is Security Hub. 
+        :param pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringFilterArgs']]] product_name: Provides the name of the product that generated the finding. For control-based findings, the product name is Security Hub CSPM. 
                  Array Members: Minimum number of 1 item. Maximum number of 20 items.
         :param pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringFilterArgs']]] record_state: Provides the current state of a finding. 
                  Array Members: Minimum number of 1 item. Maximum number of 20 items.
@@ -2656,7 +2656,7 @@ class AutomationRulesFindingFiltersArgs:
     @pulumi.getter(name="productArn")
     def product_arn(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringFilterArgs']]]]:
         """
-        The Amazon Resource Name (ARN) for a third-party product that generated a finding in Security Hub. 
+        The Amazon Resource Name (ARN) for a third-party product that generated a finding in Security Hub CSPM. 
           Array Members: Minimum number of 1 item. Maximum number of 20 items.
         """
         return pulumi.get(self, "product_arn")
@@ -2669,7 +2669,7 @@ class AutomationRulesFindingFiltersArgs:
     @pulumi.getter(name="productName")
     def product_name(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringFilterArgs']]]]:
         """
-        Provides the name of the product that generated the finding. For control-based findings, the product name is Security Hub. 
+        Provides the name of the product that generated the finding. For control-based findings, the product name is Security Hub CSPM. 
           Array Members: Minimum number of 1 item. Maximum number of 20 items.
         """
         return pulumi.get(self, "product_name")

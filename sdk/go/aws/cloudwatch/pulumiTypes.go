@@ -702,6 +702,14 @@ func (o AlarmMetricStatPtrOutput) Unit() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// A key-value pair to associate with a resource.
+type AlarmMuteRuleTag struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value string `pulumi:"value"`
+}
+
 // One of the key-value pairs associated with the alarm. Tags can help you organize and categorize your resources.
 type AlarmTag struct {
 	// A string that you can use to assign a value. The combination of tag keys and values can help you organize and categorize your resources.
@@ -1053,6 +1061,362 @@ type MetricStreamTag struct {
 	Value string `pulumi:"value"`
 }
 
+// Targets to be muted
+type MuteTargetsProperties struct {
+	// The alarm names to be mute by the AlarmMuteRule
+	AlarmNames []string `pulumi:"alarmNames"`
+}
+
+// MuteTargetsPropertiesInput is an input type that accepts MuteTargetsPropertiesArgs and MuteTargetsPropertiesOutput values.
+// You can construct a concrete instance of `MuteTargetsPropertiesInput` via:
+//
+//	MuteTargetsPropertiesArgs{...}
+type MuteTargetsPropertiesInput interface {
+	pulumi.Input
+
+	ToMuteTargetsPropertiesOutput() MuteTargetsPropertiesOutput
+	ToMuteTargetsPropertiesOutputWithContext(context.Context) MuteTargetsPropertiesOutput
+}
+
+// Targets to be muted
+type MuteTargetsPropertiesArgs struct {
+	// The alarm names to be mute by the AlarmMuteRule
+	AlarmNames pulumi.StringArrayInput `pulumi:"alarmNames"`
+}
+
+func (MuteTargetsPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MuteTargetsProperties)(nil)).Elem()
+}
+
+func (i MuteTargetsPropertiesArgs) ToMuteTargetsPropertiesOutput() MuteTargetsPropertiesOutput {
+	return i.ToMuteTargetsPropertiesOutputWithContext(context.Background())
+}
+
+func (i MuteTargetsPropertiesArgs) ToMuteTargetsPropertiesOutputWithContext(ctx context.Context) MuteTargetsPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MuteTargetsPropertiesOutput)
+}
+
+func (i MuteTargetsPropertiesArgs) ToMuteTargetsPropertiesPtrOutput() MuteTargetsPropertiesPtrOutput {
+	return i.ToMuteTargetsPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i MuteTargetsPropertiesArgs) ToMuteTargetsPropertiesPtrOutputWithContext(ctx context.Context) MuteTargetsPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MuteTargetsPropertiesOutput).ToMuteTargetsPropertiesPtrOutputWithContext(ctx)
+}
+
+// MuteTargetsPropertiesPtrInput is an input type that accepts MuteTargetsPropertiesArgs, MuteTargetsPropertiesPtr and MuteTargetsPropertiesPtrOutput values.
+// You can construct a concrete instance of `MuteTargetsPropertiesPtrInput` via:
+//
+//	        MuteTargetsPropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type MuteTargetsPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToMuteTargetsPropertiesPtrOutput() MuteTargetsPropertiesPtrOutput
+	ToMuteTargetsPropertiesPtrOutputWithContext(context.Context) MuteTargetsPropertiesPtrOutput
+}
+
+type muteTargetsPropertiesPtrType MuteTargetsPropertiesArgs
+
+func MuteTargetsPropertiesPtr(v *MuteTargetsPropertiesArgs) MuteTargetsPropertiesPtrInput {
+	return (*muteTargetsPropertiesPtrType)(v)
+}
+
+func (*muteTargetsPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MuteTargetsProperties)(nil)).Elem()
+}
+
+func (i *muteTargetsPropertiesPtrType) ToMuteTargetsPropertiesPtrOutput() MuteTargetsPropertiesPtrOutput {
+	return i.ToMuteTargetsPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *muteTargetsPropertiesPtrType) ToMuteTargetsPropertiesPtrOutputWithContext(ctx context.Context) MuteTargetsPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MuteTargetsPropertiesPtrOutput)
+}
+
+// Targets to be muted
+type MuteTargetsPropertiesOutput struct{ *pulumi.OutputState }
+
+func (MuteTargetsPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MuteTargetsProperties)(nil)).Elem()
+}
+
+func (o MuteTargetsPropertiesOutput) ToMuteTargetsPropertiesOutput() MuteTargetsPropertiesOutput {
+	return o
+}
+
+func (o MuteTargetsPropertiesOutput) ToMuteTargetsPropertiesOutputWithContext(ctx context.Context) MuteTargetsPropertiesOutput {
+	return o
+}
+
+func (o MuteTargetsPropertiesOutput) ToMuteTargetsPropertiesPtrOutput() MuteTargetsPropertiesPtrOutput {
+	return o.ToMuteTargetsPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o MuteTargetsPropertiesOutput) ToMuteTargetsPropertiesPtrOutputWithContext(ctx context.Context) MuteTargetsPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MuteTargetsProperties) *MuteTargetsProperties {
+		return &v
+	}).(MuteTargetsPropertiesPtrOutput)
+}
+
+// The alarm names to be mute by the AlarmMuteRule
+func (o MuteTargetsPropertiesOutput) AlarmNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v MuteTargetsProperties) []string { return v.AlarmNames }).(pulumi.StringArrayOutput)
+}
+
+type MuteTargetsPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (MuteTargetsPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MuteTargetsProperties)(nil)).Elem()
+}
+
+func (o MuteTargetsPropertiesPtrOutput) ToMuteTargetsPropertiesPtrOutput() MuteTargetsPropertiesPtrOutput {
+	return o
+}
+
+func (o MuteTargetsPropertiesPtrOutput) ToMuteTargetsPropertiesPtrOutputWithContext(ctx context.Context) MuteTargetsPropertiesPtrOutput {
+	return o
+}
+
+func (o MuteTargetsPropertiesPtrOutput) Elem() MuteTargetsPropertiesOutput {
+	return o.ApplyT(func(v *MuteTargetsProperties) MuteTargetsProperties {
+		if v != nil {
+			return *v
+		}
+		var ret MuteTargetsProperties
+		return ret
+	}).(MuteTargetsPropertiesOutput)
+}
+
+// The alarm names to be mute by the AlarmMuteRule
+func (o MuteTargetsPropertiesPtrOutput) AlarmNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *MuteTargetsProperties) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AlarmNames
+	}).(pulumi.StringArrayOutput)
+}
+
+// The rule for the mute
+type RuleProperties struct {
+	// Schedule for the mute to be active
+	Schedule RulePropertiesScheduleProperties `pulumi:"schedule"`
+}
+
+// RulePropertiesInput is an input type that accepts RulePropertiesArgs and RulePropertiesOutput values.
+// You can construct a concrete instance of `RulePropertiesInput` via:
+//
+//	RulePropertiesArgs{...}
+type RulePropertiesInput interface {
+	pulumi.Input
+
+	ToRulePropertiesOutput() RulePropertiesOutput
+	ToRulePropertiesOutputWithContext(context.Context) RulePropertiesOutput
+}
+
+// The rule for the mute
+type RulePropertiesArgs struct {
+	// Schedule for the mute to be active
+	Schedule RulePropertiesSchedulePropertiesInput `pulumi:"schedule"`
+}
+
+func (RulePropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleProperties)(nil)).Elem()
+}
+
+func (i RulePropertiesArgs) ToRulePropertiesOutput() RulePropertiesOutput {
+	return i.ToRulePropertiesOutputWithContext(context.Background())
+}
+
+func (i RulePropertiesArgs) ToRulePropertiesOutputWithContext(ctx context.Context) RulePropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RulePropertiesOutput)
+}
+
+// The rule for the mute
+type RulePropertiesOutput struct{ *pulumi.OutputState }
+
+func (RulePropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleProperties)(nil)).Elem()
+}
+
+func (o RulePropertiesOutput) ToRulePropertiesOutput() RulePropertiesOutput {
+	return o
+}
+
+func (o RulePropertiesOutput) ToRulePropertiesOutputWithContext(ctx context.Context) RulePropertiesOutput {
+	return o
+}
+
+// Schedule for the mute to be active
+func (o RulePropertiesOutput) Schedule() RulePropertiesSchedulePropertiesOutput {
+	return o.ApplyT(func(v RuleProperties) RulePropertiesScheduleProperties { return v.Schedule }).(RulePropertiesSchedulePropertiesOutput)
+}
+
+type RulePropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (RulePropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleProperties)(nil)).Elem()
+}
+
+func (o RulePropertiesPtrOutput) ToRulePropertiesPtrOutput() RulePropertiesPtrOutput {
+	return o
+}
+
+func (o RulePropertiesPtrOutput) ToRulePropertiesPtrOutputWithContext(ctx context.Context) RulePropertiesPtrOutput {
+	return o
+}
+
+func (o RulePropertiesPtrOutput) Elem() RulePropertiesOutput {
+	return o.ApplyT(func(v *RuleProperties) RuleProperties {
+		if v != nil {
+			return *v
+		}
+		var ret RuleProperties
+		return ret
+	}).(RulePropertiesOutput)
+}
+
+// Schedule for the mute to be active
+func (o RulePropertiesPtrOutput) Schedule() RulePropertiesSchedulePropertiesPtrOutput {
+	return o.ApplyT(func(v *RuleProperties) *RulePropertiesScheduleProperties {
+		if v == nil {
+			return nil
+		}
+		return &v.Schedule
+	}).(RulePropertiesSchedulePropertiesPtrOutput)
+}
+
+// Schedule for the mute to be active
+type RulePropertiesScheduleProperties struct {
+	// The duration of the schedule when it triggers
+	Duration string `pulumi:"duration"`
+	// The expression of the schedule
+	Expression string `pulumi:"expression"`
+	// The timezone of the schedule
+	Timezone *string `pulumi:"timezone"`
+}
+
+// RulePropertiesSchedulePropertiesInput is an input type that accepts RulePropertiesSchedulePropertiesArgs and RulePropertiesSchedulePropertiesOutput values.
+// You can construct a concrete instance of `RulePropertiesSchedulePropertiesInput` via:
+//
+//	RulePropertiesSchedulePropertiesArgs{...}
+type RulePropertiesSchedulePropertiesInput interface {
+	pulumi.Input
+
+	ToRulePropertiesSchedulePropertiesOutput() RulePropertiesSchedulePropertiesOutput
+	ToRulePropertiesSchedulePropertiesOutputWithContext(context.Context) RulePropertiesSchedulePropertiesOutput
+}
+
+// Schedule for the mute to be active
+type RulePropertiesSchedulePropertiesArgs struct {
+	// The duration of the schedule when it triggers
+	Duration pulumi.StringInput `pulumi:"duration"`
+	// The expression of the schedule
+	Expression pulumi.StringInput `pulumi:"expression"`
+	// The timezone of the schedule
+	Timezone pulumi.StringPtrInput `pulumi:"timezone"`
+}
+
+func (RulePropertiesSchedulePropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RulePropertiesScheduleProperties)(nil)).Elem()
+}
+
+func (i RulePropertiesSchedulePropertiesArgs) ToRulePropertiesSchedulePropertiesOutput() RulePropertiesSchedulePropertiesOutput {
+	return i.ToRulePropertiesSchedulePropertiesOutputWithContext(context.Background())
+}
+
+func (i RulePropertiesSchedulePropertiesArgs) ToRulePropertiesSchedulePropertiesOutputWithContext(ctx context.Context) RulePropertiesSchedulePropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RulePropertiesSchedulePropertiesOutput)
+}
+
+// Schedule for the mute to be active
+type RulePropertiesSchedulePropertiesOutput struct{ *pulumi.OutputState }
+
+func (RulePropertiesSchedulePropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RulePropertiesScheduleProperties)(nil)).Elem()
+}
+
+func (o RulePropertiesSchedulePropertiesOutput) ToRulePropertiesSchedulePropertiesOutput() RulePropertiesSchedulePropertiesOutput {
+	return o
+}
+
+func (o RulePropertiesSchedulePropertiesOutput) ToRulePropertiesSchedulePropertiesOutputWithContext(ctx context.Context) RulePropertiesSchedulePropertiesOutput {
+	return o
+}
+
+// The duration of the schedule when it triggers
+func (o RulePropertiesSchedulePropertiesOutput) Duration() pulumi.StringOutput {
+	return o.ApplyT(func(v RulePropertiesScheduleProperties) string { return v.Duration }).(pulumi.StringOutput)
+}
+
+// The expression of the schedule
+func (o RulePropertiesSchedulePropertiesOutput) Expression() pulumi.StringOutput {
+	return o.ApplyT(func(v RulePropertiesScheduleProperties) string { return v.Expression }).(pulumi.StringOutput)
+}
+
+// The timezone of the schedule
+func (o RulePropertiesSchedulePropertiesOutput) Timezone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RulePropertiesScheduleProperties) *string { return v.Timezone }).(pulumi.StringPtrOutput)
+}
+
+type RulePropertiesSchedulePropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (RulePropertiesSchedulePropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RulePropertiesScheduleProperties)(nil)).Elem()
+}
+
+func (o RulePropertiesSchedulePropertiesPtrOutput) ToRulePropertiesSchedulePropertiesPtrOutput() RulePropertiesSchedulePropertiesPtrOutput {
+	return o
+}
+
+func (o RulePropertiesSchedulePropertiesPtrOutput) ToRulePropertiesSchedulePropertiesPtrOutputWithContext(ctx context.Context) RulePropertiesSchedulePropertiesPtrOutput {
+	return o
+}
+
+func (o RulePropertiesSchedulePropertiesPtrOutput) Elem() RulePropertiesSchedulePropertiesOutput {
+	return o.ApplyT(func(v *RulePropertiesScheduleProperties) RulePropertiesScheduleProperties {
+		if v != nil {
+			return *v
+		}
+		var ret RulePropertiesScheduleProperties
+		return ret
+	}).(RulePropertiesSchedulePropertiesOutput)
+}
+
+// The duration of the schedule when it triggers
+func (o RulePropertiesSchedulePropertiesPtrOutput) Duration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RulePropertiesScheduleProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Duration
+	}).(pulumi.StringPtrOutput)
+}
+
+// The expression of the schedule
+func (o RulePropertiesSchedulePropertiesPtrOutput) Expression() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RulePropertiesScheduleProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Expression
+	}).(pulumi.StringPtrOutput)
+}
+
+// The timezone of the schedule
+func (o RulePropertiesSchedulePropertiesPtrOutput) Timezone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RulePropertiesScheduleProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Timezone
+	}).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AlarmDimensionInput)(nil)).Elem(), AlarmDimensionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AlarmDimensionArrayInput)(nil)).Elem(), AlarmDimensionArray{})
@@ -1068,6 +1432,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MetricStreamStatisticsConfigurationArrayInput)(nil)).Elem(), MetricStreamStatisticsConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MetricStreamStatisticsMetricInput)(nil)).Elem(), MetricStreamStatisticsMetricArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MetricStreamStatisticsMetricArrayInput)(nil)).Elem(), MetricStreamStatisticsMetricArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MuteTargetsPropertiesInput)(nil)).Elem(), MuteTargetsPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MuteTargetsPropertiesPtrInput)(nil)).Elem(), MuteTargetsPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RulePropertiesInput)(nil)).Elem(), RulePropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RulePropertiesSchedulePropertiesInput)(nil)).Elem(), RulePropertiesSchedulePropertiesArgs{})
 	pulumi.RegisterOutputType(AlarmDimensionOutput{})
 	pulumi.RegisterOutputType(AlarmDimensionArrayOutput{})
 	pulumi.RegisterOutputType(AlarmMetricOutput{})
@@ -1082,4 +1450,10 @@ func init() {
 	pulumi.RegisterOutputType(MetricStreamStatisticsConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(MetricStreamStatisticsMetricOutput{})
 	pulumi.RegisterOutputType(MetricStreamStatisticsMetricArrayOutput{})
+	pulumi.RegisterOutputType(MuteTargetsPropertiesOutput{})
+	pulumi.RegisterOutputType(MuteTargetsPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(RulePropertiesOutput{})
+	pulumi.RegisterOutputType(RulePropertiesPtrOutput{})
+	pulumi.RegisterOutputType(RulePropertiesSchedulePropertiesOutput{})
+	pulumi.RegisterOutputType(RulePropertiesSchedulePropertiesPtrOutput{})
 }

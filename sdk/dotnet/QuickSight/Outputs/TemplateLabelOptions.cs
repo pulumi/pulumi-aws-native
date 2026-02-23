@@ -24,7 +24,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// <summary>
         /// Determines whether or not the label is visible.
         /// </summary>
-        public readonly object? Visibility;
+        public readonly Pulumi.AwsNative.QuickSight.TemplateVisibility? Visibility;
 
         [OutputConstructor]
         private TemplateLabelOptions(
@@ -32,7 +32,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 
             Outputs.TemplateFontConfiguration? fontConfiguration,
 
-            object? visibility)
+            Pulumi.AwsNative.QuickSight.TemplateVisibility? visibility)
         {
             CustomLabel = customLabel;
             FontConfiguration = fontConfiguration;

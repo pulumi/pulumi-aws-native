@@ -117,6 +117,9 @@ namespace Pulumi.AwsNative.AutoScaling
         ///   Default: None
         /// </summary>
         public readonly int? DefaultInstanceWarmup;
+        /// <summary>
+        /// The deletion protection setting for the Auto Scaling group.
+        /// </summary>
         public readonly string? DeletionProtection;
         /// <summary>
         /// The desired capacity is the initial capacity of the Auto Scaling group at the time of its creation and the capacity it attempts to maintain. It can scale beyond this capacity if you configure automatic scaling.

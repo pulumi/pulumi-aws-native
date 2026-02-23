@@ -217,6 +217,7 @@ AWS::CloudTrail::EventDataStore
 AWS::CloudTrail::ResourcePolicy
 AWS::CloudTrail::Trail
 AWS::CloudWatch::Alarm
+AWS::CloudWatch::AlarmMuteRule
 AWS::CloudWatch::CompositeAlarm
 AWS::CloudWatch::Dashboard
 AWS::CloudWatch::MetricStream
@@ -1233,6 +1234,7 @@ AWS::Synthetics::Canary
 AWS::Synthetics::Group
 AWS::SystemsManagerSAP::Application
 AWS::Timestream::Database
+AWS::Timestream::InfluxDBCluster
 AWS::Timestream::InfluxDBInstance
 AWS::Timestream::ScheduledQuery
 AWS::Timestream::Table
@@ -1398,6 +1400,7 @@ MongoDB::Atlas::DatabaseUser
 MongoDB::Atlas::EncryptionAtRest
 MongoDB::Atlas::FederatedDatabaseInstance
 MongoDB::Atlas::FederatedQueryLimit
+MongoDB::Atlas::FederatedSettingsIdentityProvider
 MongoDB::Atlas::FederatedSettingsOrgRoleMapping
 MongoDB::Atlas::FlexCluster
 MongoDB::Atlas::GlobalClusterConfig
@@ -1425,6 +1428,9 @@ MongoDB::Atlas::ServerlessInstance
 MongoDB::Atlas::ServerlessPrivateEndpoint
 MongoDB::Atlas::StreamConnection
 MongoDB::Atlas::StreamInstance
+MongoDB::Atlas::StreamPrivatelinkEndpoint
+MongoDB::Atlas::StreamProcessor
+MongoDB::Atlas::StreamWorkspace
 MongoDB::Atlas::Teams
 MongoDB::Atlas::ThirdPartyIntegration
 MongoDB::Atlas::Trigger

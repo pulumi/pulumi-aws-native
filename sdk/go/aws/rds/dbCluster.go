@@ -280,10 +280,8 @@ type DbCluster struct {
 	PerformanceInsightsRetentionPeriod pulumi.IntPtrOutput `pulumi:"performanceInsightsRetentionPeriod"`
 	// The port number on which the DB instances in the DB cluster accept connections.
 	//  Default:
-	//   +  When ``EngineMode`` is ``provisioned``, ``3306`` (for both Aurora MySQL and Aurora PostgreSQL)
-	//   +  When ``EngineMode`` is ``serverless``:
-	//   +  ``3306`` when ``Engine`` is ``aurora`` or ``aurora-mysql``
-	//   +  ``5432`` when ``Engine`` is ``aurora-postgresql``
+	//   +  RDS for MySQL and Aurora MySQL - ``3306``
+	//   +  RDS for PostgreSQL and Aurora PostgreSQL - ``5432``
 	//
 	//   The ``No interruption`` on update behavior only applies to DB clusters. If you are updating a DB instance, see [Port](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-port) for the AWS::RDS::DBInstance resource.
 	//   Valid for: Aurora DB clusters and Multi-AZ DB clusters
@@ -716,10 +714,8 @@ type dbClusterArgs struct {
 	PerformanceInsightsRetentionPeriod *int `pulumi:"performanceInsightsRetentionPeriod"`
 	// The port number on which the DB instances in the DB cluster accept connections.
 	//  Default:
-	//   +  When ``EngineMode`` is ``provisioned``, ``3306`` (for both Aurora MySQL and Aurora PostgreSQL)
-	//   +  When ``EngineMode`` is ``serverless``:
-	//   +  ``3306`` when ``Engine`` is ``aurora`` or ``aurora-mysql``
-	//   +  ``5432`` when ``Engine`` is ``aurora-postgresql``
+	//   +  RDS for MySQL and Aurora MySQL - ``3306``
+	//   +  RDS for PostgreSQL and Aurora PostgreSQL - ``5432``
 	//
 	//   The ``No interruption`` on update behavior only applies to DB clusters. If you are updating a DB instance, see [Port](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-port) for the AWS::RDS::DBInstance resource.
 	//   Valid for: Aurora DB clusters and Multi-AZ DB clusters
@@ -1089,10 +1085,8 @@ type DbClusterArgs struct {
 	PerformanceInsightsRetentionPeriod pulumi.IntPtrInput
 	// The port number on which the DB instances in the DB cluster accept connections.
 	//  Default:
-	//   +  When ``EngineMode`` is ``provisioned``, ``3306`` (for both Aurora MySQL and Aurora PostgreSQL)
-	//   +  When ``EngineMode`` is ``serverless``:
-	//   +  ``3306`` when ``Engine`` is ``aurora`` or ``aurora-mysql``
-	//   +  ``5432`` when ``Engine`` is ``aurora-postgresql``
+	//   +  RDS for MySQL and Aurora MySQL - ``3306``
+	//   +  RDS for PostgreSQL and Aurora PostgreSQL - ``5432``
 	//
 	//   The ``No interruption`` on update behavior only applies to DB clusters. If you are updating a DB instance, see [Port](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-port) for the AWS::RDS::DBInstance resource.
 	//   Valid for: Aurora DB clusters and Multi-AZ DB clusters
@@ -1682,10 +1676,8 @@ func (o DbClusterOutput) PerformanceInsightsRetentionPeriod() pulumi.IntPtrOutpu
 // The port number on which the DB instances in the DB cluster accept connections.
 //
 //	Default:
-//	 +  When ``EngineMode`` is ``provisioned``, ``3306`` (for both Aurora MySQL and Aurora PostgreSQL)
-//	 +  When ``EngineMode`` is ``serverless``:
-//	 +  ``3306`` when ``Engine`` is ``aurora`` or ``aurora-mysql``
-//	 +  ``5432`` when ``Engine`` is ``aurora-postgresql``
+//	 +  RDS for MySQL and Aurora MySQL - ``3306``
+//	 +  RDS for PostgreSQL and Aurora PostgreSQL - ``5432``
 //
 //	 The ``No interruption`` on update behavior only applies to DB clusters. If you are updating a DB instance, see [Port](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-port) for the AWS::RDS::DBInstance resource.
 //	 Valid for: Aurora DB clusters and Multi-AZ DB clusters

@@ -259,7 +259,7 @@ export const FunctionTenancyConfigTenantIsolationMode = {
 } as const;
 
 /**
- * Determines how your Lambda function isolates execution environments between tenants.
+ * Tenant isolation mode allows for invocation to be sent to a corresponding execution environment dedicated to a specific tenant ID.
  */
 export type FunctionTenancyConfigTenantIsolationMode = (typeof FunctionTenancyConfigTenantIsolationMode)[keyof typeof FunctionTenancyConfigTenantIsolationMode];
 

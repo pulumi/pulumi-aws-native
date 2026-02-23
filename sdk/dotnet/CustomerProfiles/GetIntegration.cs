@@ -96,6 +96,10 @@ namespace Pulumi.AwsNative.CustomerProfiles
         /// </summary>
         public readonly ImmutableArray<Outputs.IntegrationObjectTypeMapping> ObjectTypeNames;
         /// <summary>
+        /// Scope of the integration, such as 'PROFILE' or 'DOMAIN'
+        /// </summary>
+        public readonly Pulumi.AwsNative.CustomerProfiles.IntegrationScope? Scope;
+        /// <summary>
         /// The tags (keys and values) associated with the integration
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
@@ -112,6 +116,8 @@ namespace Pulumi.AwsNative.CustomerProfiles
 
             ImmutableArray<Outputs.IntegrationObjectTypeMapping> objectTypeNames,
 
+            Pulumi.AwsNative.CustomerProfiles.IntegrationScope? scope,
+
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             CreatedAt = createdAt;
@@ -119,6 +125,7 @@ namespace Pulumi.AwsNative.CustomerProfiles
             LastUpdatedAt = lastUpdatedAt;
             ObjectTypeName = objectTypeName;
             ObjectTypeNames = objectTypeNames;
+            Scope = scope;
             Tags = tags;
         }
     }

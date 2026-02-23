@@ -21,7 +21,7 @@ namespace Pulumi.AwsNative.SecurityHub.Outputs
         /// </summary>
         public readonly Outputs.AutomationRulesFindingFieldsUpdate FindingFieldsUpdate;
         /// <summary>
-        /// Specifies the type of action that Security Hub takes when a finding matches the defined criteria of a rule.
+        /// Specifies the type of action that Security Hub CSPM takes when a finding matches the defined criteria of a rule.
         /// </summary>
         public readonly Pulumi.AwsNative.SecurityHub.AutomationRulesActionType Type;
 

@@ -4194,6 +4194,7 @@ type EventSourceMappingTag struct {
 	Value *string `pulumi:"value"`
 }
 
+// Configuration for the capacity provider that manages compute resources for Lambda functions.
 type FunctionCapacityProviderConfig struct {
 	// Configuration for Lambda-managed instances used by the capacity provider.
 	LambdaManagedInstancesCapacityProviderConfig FunctionLambdaManagedInstancesCapacityProviderConfig `pulumi:"lambdaManagedInstancesCapacityProviderConfig"`
@@ -4210,6 +4211,7 @@ type FunctionCapacityProviderConfigInput interface {
 	ToFunctionCapacityProviderConfigOutputWithContext(context.Context) FunctionCapacityProviderConfigOutput
 }
 
+// Configuration for the capacity provider that manages compute resources for Lambda functions.
 type FunctionCapacityProviderConfigArgs struct {
 	// Configuration for Lambda-managed instances used by the capacity provider.
 	LambdaManagedInstancesCapacityProviderConfig FunctionLambdaManagedInstancesCapacityProviderConfigInput `pulumi:"lambdaManagedInstancesCapacityProviderConfig"`
@@ -4268,6 +4270,7 @@ func (i *functionCapacityProviderConfigPtrType) ToFunctionCapacityProviderConfig
 	return pulumi.ToOutputWithContext(ctx, i).(FunctionCapacityProviderConfigPtrOutput)
 }
 
+// Configuration for the capacity provider that manages compute resources for Lambda functions.
 type FunctionCapacityProviderConfigOutput struct{ *pulumi.OutputState }
 
 func (FunctionCapacityProviderConfigOutput) ElementType() reflect.Type {
@@ -4335,7 +4338,7 @@ func (o FunctionCapacityProviderConfigPtrOutput) LambdaManagedInstancesCapacityP
 
 // The [deployment package](https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-package.html) for a Lambda function. To deploy a function defined as a container image, you specify the location of a container image in the Amazon ECR registry. For a .zip file deployment package, you can specify the location of an object in Amazon S3. For Node.js and Python functions, you can specify the function code inline in the template.
 //
-//	When you specify source code inline for a Node.js function, the ``index`` file that CFN creates uses the extension ``.js``. This means that LAM treats the file as a CommonJS module. ES modules aren't supported for inline functions.
+//	When you specify source code inline for a Node.js function, the ``index`` file that CFN creates uses the extension ``.js``. This means that Node.js treats the file as a CommonJS module.
 //	Changes to a deployment package in Amazon S3 or a container image in ECR are not detected automatically during stack updates. To update the function code, change the object key or version in the template.
 type FunctionCode struct {
 	// URI of a [container image](https://docs.aws.amazon.com/lambda/latest/dg/lambda-images.html) in the Amazon ECR registry.
@@ -4349,7 +4352,8 @@ type FunctionCode struct {
 	// The ARN of the KMSlong (KMS) customer managed key that's used to encrypt your function's .zip deployment package. If you don't provide a customer managed key, Lambda uses an [owned key](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-owned-cmk).
 	SourceKmsKeyArn *string `pulumi:"sourceKmsKeyArn"`
 	// (Node.js and Python) The source code of your Lambda function. If you include your function source inline with this parameter, CFN places it in a file named ``index`` and zips it to create a [deployment package](https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-package.html). This zip file cannot exceed 4MB. For the ``Handler`` property, the first part of the handler identifier must be ``index``. For example, ``index.handler``.
-	//   When you specify source code inline for a Node.js function, the ``index`` file that CFN creates uses the extension ``.js``. This means that LAM treats the file as a CommonJS module. ES modules aren't supported for inline functions.
+	//   When you specify source code inline for a Node.js function, the ``index`` file that CFN creates uses the extension ``.js``. This means that Node.js treats the file as a CommonJS module.
+	//  When using Node.js 24 or later, Node.js can automatically detect if a ``.js`` file should be treated as CommonJS or as an ES module. To enable auto-detection, add the ``--experimental-detect-module`` flag to the ``NODE_OPTIONS`` environment variable. For more information, see [Experimental Node.js features](https://docs.aws.amazon.com//lambda/latest/dg/lambda-nodejs.html#nodejs-experimental-features).
 	//    For JSON, you must escape quotes and special characters such as newline (``\n``) with a backslash.
 	//  If you specify a function that interacts with an AWS CloudFormation custom resource, you don't have to write your own functions to send responses to the custom resource that invoked the function. AWS CloudFormation provides a response module ([cfn-response](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-lambda-function-code-cfnresponsemodule.html)) that simplifies sending responses. See [Using Lambda with CloudFormation](https://docs.aws.amazon.com/lambda/latest/dg/services-cloudformation.html) for details.
 	ZipFile *string `pulumi:"zipFile"`
@@ -4368,7 +4372,7 @@ type FunctionCodeInput interface {
 
 // The [deployment package](https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-package.html) for a Lambda function. To deploy a function defined as a container image, you specify the location of a container image in the Amazon ECR registry. For a .zip file deployment package, you can specify the location of an object in Amazon S3. For Node.js and Python functions, you can specify the function code inline in the template.
 //
-//	When you specify source code inline for a Node.js function, the ``index`` file that CFN creates uses the extension ``.js``. This means that LAM treats the file as a CommonJS module. ES modules aren't supported for inline functions.
+//	When you specify source code inline for a Node.js function, the ``index`` file that CFN creates uses the extension ``.js``. This means that Node.js treats the file as a CommonJS module.
 //	Changes to a deployment package in Amazon S3 or a container image in ECR are not detected automatically during stack updates. To update the function code, change the object key or version in the template.
 type FunctionCodeArgs struct {
 	// URI of a [container image](https://docs.aws.amazon.com/lambda/latest/dg/lambda-images.html) in the Amazon ECR registry.
@@ -4382,7 +4386,8 @@ type FunctionCodeArgs struct {
 	// The ARN of the KMSlong (KMS) customer managed key that's used to encrypt your function's .zip deployment package. If you don't provide a customer managed key, Lambda uses an [owned key](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-owned-cmk).
 	SourceKmsKeyArn pulumi.StringPtrInput `pulumi:"sourceKmsKeyArn"`
 	// (Node.js and Python) The source code of your Lambda function. If you include your function source inline with this parameter, CFN places it in a file named ``index`` and zips it to create a [deployment package](https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-package.html). This zip file cannot exceed 4MB. For the ``Handler`` property, the first part of the handler identifier must be ``index``. For example, ``index.handler``.
-	//   When you specify source code inline for a Node.js function, the ``index`` file that CFN creates uses the extension ``.js``. This means that LAM treats the file as a CommonJS module. ES modules aren't supported for inline functions.
+	//   When you specify source code inline for a Node.js function, the ``index`` file that CFN creates uses the extension ``.js``. This means that Node.js treats the file as a CommonJS module.
+	//  When using Node.js 24 or later, Node.js can automatically detect if a ``.js`` file should be treated as CommonJS or as an ES module. To enable auto-detection, add the ``--experimental-detect-module`` flag to the ``NODE_OPTIONS`` environment variable. For more information, see [Experimental Node.js features](https://docs.aws.amazon.com//lambda/latest/dg/lambda-nodejs.html#nodejs-experimental-features).
 	//    For JSON, you must escape quotes and special characters such as newline (``\n``) with a backslash.
 	//  If you specify a function that interacts with an AWS CloudFormation custom resource, you don't have to write your own functions to send responses to the custom resource that invoked the function. AWS CloudFormation provides a response module ([cfn-response](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-lambda-function-code-cfnresponsemodule.html)) that simplifies sending responses. See [Using Lambda with CloudFormation](https://docs.aws.amazon.com/lambda/latest/dg/services-cloudformation.html) for details.
 	ZipFile pulumi.StringPtrInput `pulumi:"zipFile"`
@@ -4402,7 +4407,7 @@ func (i FunctionCodeArgs) ToFunctionCodeOutputWithContext(ctx context.Context) F
 
 // The [deployment package](https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-package.html) for a Lambda function. To deploy a function defined as a container image, you specify the location of a container image in the Amazon ECR registry. For a .zip file deployment package, you can specify the location of an object in Amazon S3. For Node.js and Python functions, you can specify the function code inline in the template.
 //
-//	When you specify source code inline for a Node.js function, the ``index`` file that CFN creates uses the extension ``.js``. This means that LAM treats the file as a CommonJS module. ES modules aren't supported for inline functions.
+//	When you specify source code inline for a Node.js function, the ``index`` file that CFN creates uses the extension ``.js``. This means that Node.js treats the file as a CommonJS module.
 //	Changes to a deployment package in Amazon S3 or a container image in ECR are not detected automatically during stack updates. To update the function code, change the object key or version in the template.
 type FunctionCodeOutput struct{ *pulumi.OutputState }
 
@@ -4445,7 +4450,8 @@ func (o FunctionCodeOutput) SourceKmsKeyArn() pulumi.StringPtrOutput {
 
 // (Node.js and Python) The source code of your Lambda function. If you include your function source inline with this parameter, CFN places it in a file named “index“ and zips it to create a [deployment package](https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-package.html). This zip file cannot exceed 4MB. For the “Handler“ property, the first part of the handler identifier must be “index“. For example, “index.handler“.
 //
-//	 When you specify source code inline for a Node.js function, the ``index`` file that CFN creates uses the extension ``.js``. This means that LAM treats the file as a CommonJS module. ES modules aren't supported for inline functions.
+//	 When you specify source code inline for a Node.js function, the ``index`` file that CFN creates uses the extension ``.js``. This means that Node.js treats the file as a CommonJS module.
+//	When using Node.js 24 or later, Node.js can automatically detect if a ``.js`` file should be treated as CommonJS or as an ES module. To enable auto-detection, add the ``--experimental-detect-module`` flag to the ``NODE_OPTIONS`` environment variable. For more information, see [Experimental Node.js features](https://docs.aws.amazon.com//lambda/latest/dg/lambda-nodejs.html#nodejs-experimental-features).
 //	  For JSON, you must escape quotes and special characters such as newline (``\n``) with a backslash.
 //	If you specify a function that interacts with an AWS CloudFormation custom resource, you don't have to write your own functions to send responses to the custom resource that invoked the function. AWS CloudFormation provides a response module ([cfn-response](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-lambda-function-code-cfnresponsemodule.html)) that simplifies sending responses. See [Using Lambda with CloudFormation](https://docs.aws.amazon.com/lambda/latest/dg/services-cloudformation.html) for details.
 func (o FunctionCodeOutput) ZipFile() pulumi.StringPtrOutput {
@@ -4528,7 +4534,8 @@ func (o FunctionCodePtrOutput) SourceKmsKeyArn() pulumi.StringPtrOutput {
 
 // (Node.js and Python) The source code of your Lambda function. If you include your function source inline with this parameter, CFN places it in a file named “index“ and zips it to create a [deployment package](https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-package.html). This zip file cannot exceed 4MB. For the “Handler“ property, the first part of the handler identifier must be “index“. For example, “index.handler“.
 //
-//	 When you specify source code inline for a Node.js function, the ``index`` file that CFN creates uses the extension ``.js``. This means that LAM treats the file as a CommonJS module. ES modules aren't supported for inline functions.
+//	 When you specify source code inline for a Node.js function, the ``index`` file that CFN creates uses the extension ``.js``. This means that Node.js treats the file as a CommonJS module.
+//	When using Node.js 24 or later, Node.js can automatically detect if a ``.js`` file should be treated as CommonJS or as an ES module. To enable auto-detection, add the ``--experimental-detect-module`` flag to the ``NODE_OPTIONS`` environment variable. For more information, see [Experimental Node.js features](https://docs.aws.amazon.com//lambda/latest/dg/lambda-nodejs.html#nodejs-experimental-features).
 //	  For JSON, you must escape quotes and special characters such as newline (``\n``) with a backslash.
 //	If you specify a function that interacts with an AWS CloudFormation custom resource, you don't have to write your own functions to send responses to the custom resource that invoked the function. AWS CloudFormation provides a response module ([cfn-response](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-lambda-function-code-cfnresponsemodule.html)) that simplifies sending responses. See [Using Lambda with CloudFormation](https://docs.aws.amazon.com/lambda/latest/dg/services-cloudformation.html) for details.
 func (o FunctionCodePtrOutput) ZipFile() pulumi.StringPtrOutput {
@@ -4680,10 +4687,11 @@ func (o FunctionDeadLetterConfigPtrOutput) TargetArn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Configuration settings for [durable functions](https://docs.aws.amazon.com/lambda/latest/dg/durable-functions.html), including execution timeout and retention period for execution history.
 type FunctionDurableConfig struct {
-	// The amount of time (in seconds) that Lambda allows a durable function to run before stopping it. The maximum is one 366-day year or 31,622,400 seconds.
+	// The maximum time (in seconds) that a durable execution can run before timing out. This timeout applies to the entire durable execution, not individual function invocations.
 	ExecutionTimeout int `pulumi:"executionTimeout"`
-	// The number of days after a durable execution is closed that Lambda retains its history, from one to 90 days. The default is 14 days.
+	// The number of days to retain execution history after a durable execution completes. After this period, execution history is no longer available through the GetDurableExecutionHistory API.
 	RetentionPeriodInDays *int `pulumi:"retentionPeriodInDays"`
 }
 
@@ -4698,10 +4706,11 @@ type FunctionDurableConfigInput interface {
 	ToFunctionDurableConfigOutputWithContext(context.Context) FunctionDurableConfigOutput
 }
 
+// Configuration settings for [durable functions](https://docs.aws.amazon.com/lambda/latest/dg/durable-functions.html), including execution timeout and retention period for execution history.
 type FunctionDurableConfigArgs struct {
-	// The amount of time (in seconds) that Lambda allows a durable function to run before stopping it. The maximum is one 366-day year or 31,622,400 seconds.
+	// The maximum time (in seconds) that a durable execution can run before timing out. This timeout applies to the entire durable execution, not individual function invocations.
 	ExecutionTimeout pulumi.IntInput `pulumi:"executionTimeout"`
-	// The number of days after a durable execution is closed that Lambda retains its history, from one to 90 days. The default is 14 days.
+	// The number of days to retain execution history after a durable execution completes. After this period, execution history is no longer available through the GetDurableExecutionHistory API.
 	RetentionPeriodInDays pulumi.IntPtrInput `pulumi:"retentionPeriodInDays"`
 }
 
@@ -4758,6 +4767,7 @@ func (i *functionDurableConfigPtrType) ToFunctionDurableConfigPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(FunctionDurableConfigPtrOutput)
 }
 
+// Configuration settings for [durable functions](https://docs.aws.amazon.com/lambda/latest/dg/durable-functions.html), including execution timeout and retention period for execution history.
 type FunctionDurableConfigOutput struct{ *pulumi.OutputState }
 
 func (FunctionDurableConfigOutput) ElementType() reflect.Type {
@@ -4782,12 +4792,12 @@ func (o FunctionDurableConfigOutput) ToFunctionDurableConfigPtrOutputWithContext
 	}).(FunctionDurableConfigPtrOutput)
 }
 
-// The amount of time (in seconds) that Lambda allows a durable function to run before stopping it. The maximum is one 366-day year or 31,622,400 seconds.
+// The maximum time (in seconds) that a durable execution can run before timing out. This timeout applies to the entire durable execution, not individual function invocations.
 func (o FunctionDurableConfigOutput) ExecutionTimeout() pulumi.IntOutput {
 	return o.ApplyT(func(v FunctionDurableConfig) int { return v.ExecutionTimeout }).(pulumi.IntOutput)
 }
 
-// The number of days after a durable execution is closed that Lambda retains its history, from one to 90 days. The default is 14 days.
+// The number of days to retain execution history after a durable execution completes. After this period, execution history is no longer available through the GetDurableExecutionHistory API.
 func (o FunctionDurableConfigOutput) RetentionPeriodInDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v FunctionDurableConfig) *int { return v.RetentionPeriodInDays }).(pulumi.IntPtrOutput)
 }
@@ -4816,7 +4826,7 @@ func (o FunctionDurableConfigPtrOutput) Elem() FunctionDurableConfigOutput {
 	}).(FunctionDurableConfigOutput)
 }
 
-// The amount of time (in seconds) that Lambda allows a durable function to run before stopping it. The maximum is one 366-day year or 31,622,400 seconds.
+// The maximum time (in seconds) that a durable execution can run before timing out. This timeout applies to the entire durable execution, not individual function invocations.
 func (o FunctionDurableConfigPtrOutput) ExecutionTimeout() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *FunctionDurableConfig) *int {
 		if v == nil {
@@ -4826,7 +4836,7 @@ func (o FunctionDurableConfigPtrOutput) ExecutionTimeout() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// The number of days after a durable execution is closed that Lambda retains its history, from one to 90 days. The default is 14 days.
+// The number of days to retain execution history after a durable execution completes. After this period, execution history is no longer available through the GetDurableExecutionHistory API.
 func (o FunctionDurableConfigPtrOutput) RetentionPeriodInDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *FunctionDurableConfig) *int {
 		if v == nil {
@@ -5409,12 +5419,13 @@ func (o FunctionImageConfigPtrOutput) WorkingDirectory() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
+// Configuration for Lambda-managed instances used by the capacity provider.
 type FunctionLambdaManagedInstancesCapacityProviderConfig struct {
 	// The Amazon Resource Name (ARN) of the capacity provider.
 	CapacityProviderArn string `pulumi:"capacityProviderArn"`
 	// The amount of memory in GiB allocated per vCPU for execution environments.
 	ExecutionEnvironmentMemoryGiBPerVCpu *float64 `pulumi:"executionEnvironmentMemoryGiBPerVCpu"`
-	// The maximum number of concurrent execution environments that can run on each compute instance.
+	// The maximum number of concurrent executions that can run on each execution environment.
 	PerExecutionEnvironmentMaxConcurrency *int `pulumi:"perExecutionEnvironmentMaxConcurrency"`
 }
 
@@ -5429,12 +5440,13 @@ type FunctionLambdaManagedInstancesCapacityProviderConfigInput interface {
 	ToFunctionLambdaManagedInstancesCapacityProviderConfigOutputWithContext(context.Context) FunctionLambdaManagedInstancesCapacityProviderConfigOutput
 }
 
+// Configuration for Lambda-managed instances used by the capacity provider.
 type FunctionLambdaManagedInstancesCapacityProviderConfigArgs struct {
 	// The Amazon Resource Name (ARN) of the capacity provider.
 	CapacityProviderArn pulumi.StringInput `pulumi:"capacityProviderArn"`
 	// The amount of memory in GiB allocated per vCPU for execution environments.
 	ExecutionEnvironmentMemoryGiBPerVCpu pulumi.Float64PtrInput `pulumi:"executionEnvironmentMemoryGiBPerVCpu"`
-	// The maximum number of concurrent execution environments that can run on each compute instance.
+	// The maximum number of concurrent executions that can run on each execution environment.
 	PerExecutionEnvironmentMaxConcurrency pulumi.IntPtrInput `pulumi:"perExecutionEnvironmentMaxConcurrency"`
 }
 
@@ -5491,6 +5503,7 @@ func (i *functionLambdaManagedInstancesCapacityProviderConfigPtrType) ToFunction
 	return pulumi.ToOutputWithContext(ctx, i).(FunctionLambdaManagedInstancesCapacityProviderConfigPtrOutput)
 }
 
+// Configuration for Lambda-managed instances used by the capacity provider.
 type FunctionLambdaManagedInstancesCapacityProviderConfigOutput struct{ *pulumi.OutputState }
 
 func (FunctionLambdaManagedInstancesCapacityProviderConfigOutput) ElementType() reflect.Type {
@@ -5527,7 +5540,7 @@ func (o FunctionLambdaManagedInstancesCapacityProviderConfigOutput) ExecutionEnv
 	}).(pulumi.Float64PtrOutput)
 }
 
-// The maximum number of concurrent execution environments that can run on each compute instance.
+// The maximum number of concurrent executions that can run on each execution environment.
 func (o FunctionLambdaManagedInstancesCapacityProviderConfigOutput) PerExecutionEnvironmentMaxConcurrency() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v FunctionLambdaManagedInstancesCapacityProviderConfig) *int {
 		return v.PerExecutionEnvironmentMaxConcurrency
@@ -5578,7 +5591,7 @@ func (o FunctionLambdaManagedInstancesCapacityProviderConfigPtrOutput) Execution
 	}).(pulumi.Float64PtrOutput)
 }
 
-// The maximum number of concurrent execution environments that can run on each compute instance.
+// The maximum number of concurrent executions that can run on each execution environment.
 func (o FunctionLambdaManagedInstancesCapacityProviderConfigPtrOutput) PerExecutionEnvironmentMaxConcurrency() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *FunctionLambdaManagedInstancesCapacityProviderConfig) *int {
 		if v == nil {
@@ -5978,6 +5991,7 @@ func (o FunctionRuntimeManagementConfigPtrOutput) UpdateRuntimeOn() FunctionRunt
 	}).(FunctionRuntimeManagementConfigUpdateRuntimeOnPtrOutput)
 }
 
+// Configuration that defines the scaling behavior for a Lambda Managed Instances function, including the minimum and maximum number of execution environments that can be provisioned.
 type FunctionScalingConfig struct {
 	// The maximum number of execution environments that can be provisioned for the function.
 	MaxExecutionEnvironments *int `pulumi:"maxExecutionEnvironments"`
@@ -5996,6 +6010,7 @@ type FunctionScalingConfigInput interface {
 	ToFunctionScalingConfigOutputWithContext(context.Context) FunctionScalingConfigOutput
 }
 
+// Configuration that defines the scaling behavior for a Lambda Managed Instances function, including the minimum and maximum number of execution environments that can be provisioned.
 type FunctionScalingConfigArgs struct {
 	// The maximum number of execution environments that can be provisioned for the function.
 	MaxExecutionEnvironments pulumi.IntPtrInput `pulumi:"maxExecutionEnvironments"`
@@ -6056,6 +6071,7 @@ func (i *functionScalingConfigPtrType) ToFunctionScalingConfigPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(FunctionScalingConfigPtrOutput)
 }
 
+// Configuration that defines the scaling behavior for a Lambda Managed Instances function, including the minimum and maximum number of execution environments that can be provisioned.
 type FunctionScalingConfigOutput struct{ *pulumi.OutputState }
 
 func (FunctionScalingConfigOutput) ElementType() reflect.Type {
@@ -6361,8 +6377,9 @@ type FunctionTag struct {
 	Value *string `pulumi:"value"`
 }
 
+// Specifies the tenant isolation mode configuration for a Lambda function. This allows you to configure specific tenant isolation strategies for your function invocations. Tenant isolation configuration cannot be modified after function creation.
 type FunctionTenancyConfig struct {
-	// Determines how your Lambda function isolates execution environments between tenants.
+	// Tenant isolation mode allows for invocation to be sent to a corresponding execution environment dedicated to a specific tenant ID.
 	TenantIsolationMode FunctionTenancyConfigTenantIsolationMode `pulumi:"tenantIsolationMode"`
 }
 
@@ -6377,8 +6394,9 @@ type FunctionTenancyConfigInput interface {
 	ToFunctionTenancyConfigOutputWithContext(context.Context) FunctionTenancyConfigOutput
 }
 
+// Specifies the tenant isolation mode configuration for a Lambda function. This allows you to configure specific tenant isolation strategies for your function invocations. Tenant isolation configuration cannot be modified after function creation.
 type FunctionTenancyConfigArgs struct {
-	// Determines how your Lambda function isolates execution environments between tenants.
+	// Tenant isolation mode allows for invocation to be sent to a corresponding execution environment dedicated to a specific tenant ID.
 	TenantIsolationMode FunctionTenancyConfigTenantIsolationModeInput `pulumi:"tenantIsolationMode"`
 }
 
@@ -6435,6 +6453,7 @@ func (i *functionTenancyConfigPtrType) ToFunctionTenancyConfigPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(FunctionTenancyConfigPtrOutput)
 }
 
+// Specifies the tenant isolation mode configuration for a Lambda function. This allows you to configure specific tenant isolation strategies for your function invocations. Tenant isolation configuration cannot be modified after function creation.
 type FunctionTenancyConfigOutput struct{ *pulumi.OutputState }
 
 func (FunctionTenancyConfigOutput) ElementType() reflect.Type {
@@ -6459,7 +6478,7 @@ func (o FunctionTenancyConfigOutput) ToFunctionTenancyConfigPtrOutputWithContext
 	}).(FunctionTenancyConfigPtrOutput)
 }
 
-// Determines how your Lambda function isolates execution environments between tenants.
+// Tenant isolation mode allows for invocation to be sent to a corresponding execution environment dedicated to a specific tenant ID.
 func (o FunctionTenancyConfigOutput) TenantIsolationMode() FunctionTenancyConfigTenantIsolationModeOutput {
 	return o.ApplyT(func(v FunctionTenancyConfig) FunctionTenancyConfigTenantIsolationMode { return v.TenantIsolationMode }).(FunctionTenancyConfigTenantIsolationModeOutput)
 }
@@ -6488,7 +6507,7 @@ func (o FunctionTenancyConfigPtrOutput) Elem() FunctionTenancyConfigOutput {
 	}).(FunctionTenancyConfigOutput)
 }
 
-// Determines how your Lambda function isolates execution environments between tenants.
+// Tenant isolation mode allows for invocation to be sent to a corresponding execution environment dedicated to a specific tenant ID.
 func (o FunctionTenancyConfigPtrOutput) TenantIsolationMode() FunctionTenancyConfigTenantIsolationModePtrOutput {
 	return o.ApplyT(func(v *FunctionTenancyConfig) *FunctionTenancyConfigTenantIsolationMode {
 		if v == nil {

@@ -291,7 +291,7 @@ export class Function extends pulumi.CustomResource {
      */
     declare public readonly description: pulumi.Output<string | undefined>;
     /**
-     * Configuration settings for [durable functions](https://docs.aws.amazon.com/lambda/latest/dg/durable-functions.html) , including execution timeout and retention period for execution history.
+     * Configuration settings for [durable functions](https://docs.aws.amazon.com/lambda/latest/dg/durable-functions.html), including execution timeout and retention period for execution history.
      */
     declare public readonly durableConfig: pulumi.Output<outputs.lambda.FunctionDurableConfig | undefined>;
     /**
@@ -526,7 +526,7 @@ export interface FunctionArgs {
      */
     description?: pulumi.Input<string>;
     /**
-     * Configuration settings for [durable functions](https://docs.aws.amazon.com/lambda/latest/dg/durable-functions.html) , including execution timeout and retention period for execution history.
+     * Configuration settings for [durable functions](https://docs.aws.amazon.com/lambda/latest/dg/durable-functions.html), including execution timeout and retention period for execution history.
      */
     durableConfig?: pulumi.Input<inputs.lambda.FunctionDurableConfigArgs>;
     /**

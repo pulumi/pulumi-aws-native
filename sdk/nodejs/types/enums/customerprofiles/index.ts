@@ -274,6 +274,16 @@ export const IntegrationScheduledTriggerPropertiesDataPullMode = {
  */
 export type IntegrationScheduledTriggerPropertiesDataPullMode = (typeof IntegrationScheduledTriggerPropertiesDataPullMode)[keyof typeof IntegrationScheduledTriggerPropertiesDataPullMode];
 
+export const IntegrationScope = {
+    Profile: "PROFILE",
+    Domain: "DOMAIN",
+} as const;
+
+/**
+ * Scope of the integration, such as 'PROFILE' or 'DOMAIN'
+ */
+export type IntegrationScope = (typeof IntegrationScope)[keyof typeof IntegrationScope];
+
 export const IntegrationServiceNowConnectorOperator = {
     Projection: "PROJECTION",
     LessThan: "LESS_THAN",

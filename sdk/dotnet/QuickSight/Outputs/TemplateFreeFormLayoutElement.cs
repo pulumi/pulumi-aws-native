@@ -48,7 +48,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// <summary>
         /// The visibility of an element within a free-form layout.
         /// </summary>
-        public readonly object? Visibility;
+        public readonly Pulumi.AwsNative.QuickSight.TemplateVisibility? Visibility;
         /// <summary>
         /// String based length that is composed of value and unit in px
         /// </summary>
@@ -80,7 +80,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 
             Outputs.TemplateFreeFormLayoutElementBorderStyle? selectedBorderStyle,
 
-            object? visibility,
+            Pulumi.AwsNative.QuickSight.TemplateVisibility? visibility,
 
             string width,
 

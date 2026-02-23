@@ -101,12 +101,12 @@ namespace Pulumi.AwsNative.SecurityHub.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.AutomationRuleStringFilter> NoteUpdatedBy;
         /// <summary>
-        /// The Amazon Resource Name (ARN) for a third-party product that generated a finding in Security Hub. 
+        /// The Amazon Resource Name (ARN) for a third-party product that generated a finding in Security Hub CSPM. 
         ///   Array Members: Minimum number of 1 item. Maximum number of 20 items.
         /// </summary>
         public readonly ImmutableArray<Outputs.AutomationRuleStringFilter> ProductArn;
         /// <summary>
-        /// Provides the name of the product that generated the finding. For control-based findings, the product name is Security Hub. 
+        /// Provides the name of the product that generated the finding. For control-based findings, the product name is Security Hub CSPM. 
         ///   Array Members: Minimum number of 1 item. Maximum number of 20 items.
         /// </summary>
         public readonly ImmutableArray<Outputs.AutomationRuleStringFilter> ProductName;

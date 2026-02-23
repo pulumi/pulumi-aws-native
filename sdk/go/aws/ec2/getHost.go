@@ -30,13 +30,13 @@ type LookupHostArgs struct {
 
 type LookupHostResult struct {
 	// Indicates whether the host accepts any untargeted instance launches that match its instance type configuration, or if it only accepts Host tenancy instance launches that specify its unique host ID.
-	AutoPlacement *string `pulumi:"autoPlacement"`
+	AutoPlacement *HostAutoPlacement `pulumi:"autoPlacement"`
 	// ID of the host created.
 	HostId *string `pulumi:"hostId"`
 	// Automatically allocates a new dedicated host and moves your instances on to it if a degradation is detected on your current host.
-	HostMaintenance *string `pulumi:"hostMaintenance"`
+	HostMaintenance *HostMaintenance `pulumi:"hostMaintenance"`
 	// Indicates whether to enable or disable host recovery for the Dedicated Host. Host recovery is disabled by default.
-	HostRecovery *string `pulumi:"hostRecovery"`
+	HostRecovery *HostRecovery `pulumi:"hostRecovery"`
 	// Any tags assigned to the Host.
 	Tags []aws.Tag `pulumi:"tags"`
 }
@@ -74,8 +74,8 @@ func (o LookupHostResultOutput) ToLookupHostResultOutputWithContext(ctx context.
 }
 
 // Indicates whether the host accepts any untargeted instance launches that match its instance type configuration, or if it only accepts Host tenancy instance launches that specify its unique host ID.
-func (o LookupHostResultOutput) AutoPlacement() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupHostResult) *string { return v.AutoPlacement }).(pulumi.StringPtrOutput)
+func (o LookupHostResultOutput) AutoPlacement() HostAutoPlacementPtrOutput {
+	return o.ApplyT(func(v LookupHostResult) *HostAutoPlacement { return v.AutoPlacement }).(HostAutoPlacementPtrOutput)
 }
 
 // ID of the host created.
@@ -84,13 +84,13 @@ func (o LookupHostResultOutput) HostId() pulumi.StringPtrOutput {
 }
 
 // Automatically allocates a new dedicated host and moves your instances on to it if a degradation is detected on your current host.
-func (o LookupHostResultOutput) HostMaintenance() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupHostResult) *string { return v.HostMaintenance }).(pulumi.StringPtrOutput)
+func (o LookupHostResultOutput) HostMaintenance() HostMaintenancePtrOutput {
+	return o.ApplyT(func(v LookupHostResult) *HostMaintenance { return v.HostMaintenance }).(HostMaintenancePtrOutput)
 }
 
 // Indicates whether to enable or disable host recovery for the Dedicated Host. Host recovery is disabled by default.
-func (o LookupHostResultOutput) HostRecovery() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupHostResult) *string { return v.HostRecovery }).(pulumi.StringPtrOutput)
+func (o LookupHostResultOutput) HostRecovery() HostRecoveryPtrOutput {
+	return o.ApplyT(func(v LookupHostResult) *HostRecovery { return v.HostRecovery }).(HostRecoveryPtrOutput)
 }
 
 // Any tags assigned to the Host.

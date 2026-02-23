@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// <summary>
         /// Determines the visibility of the colors of alternatign bands in a radar chart.
         /// </summary>
-        public readonly object? AlternateBandColorsVisibility;
+        public readonly Pulumi.AwsNative.QuickSight.TemplateVisibility? AlternateBandColorsVisibility;
         /// <summary>
         /// The color of the even-numbered alternate bands of a radar chart.
         /// </summary>
@@ -80,7 +80,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 
         [OutputConstructor]
         private TemplateRadarChartConfiguration(
-            object? alternateBandColorsVisibility,
+            Pulumi.AwsNative.QuickSight.TemplateVisibility? alternateBandColorsVisibility,
 
             string? alternateBandEvenColor,
 

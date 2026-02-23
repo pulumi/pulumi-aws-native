@@ -369,7 +369,7 @@ namespace Pulumi.AwsNative.Lambda
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration settings for [durable functions](https://docs.aws.amazon.com/lambda/latest/dg/durable-functions.html) , including execution timeout and retention period for execution history.
+        /// Configuration settings for [durable functions](https://docs.aws.amazon.com/lambda/latest/dg/durable-functions.html), including execution timeout and retention period for execution history.
         /// </summary>
         [Output("durableConfig")]
         public Output<Outputs.FunctionDurableConfig?> DurableConfig { get; private set; } = null!;
@@ -628,7 +628,7 @@ namespace Pulumi.AwsNative.Lambda
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Configuration settings for [durable functions](https://docs.aws.amazon.com/lambda/latest/dg/durable-functions.html) , including execution timeout and retention period for execution history.
+        /// Configuration settings for [durable functions](https://docs.aws.amazon.com/lambda/latest/dg/durable-functions.html), including execution timeout and retention period for execution history.
         /// </summary>
         [Input("durableConfig")]
         public Input<Inputs.FunctionDurableConfigArgs>? DurableConfig { get; set; }

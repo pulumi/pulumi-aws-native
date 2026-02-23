@@ -10,6 +10,1042 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// The compute instance of the InfluxDB cluster.
+type InfluxDbClusterDbInstanceType string
+
+const (
+	InfluxDbClusterDbInstanceTypeDbInfluxMedium   = InfluxDbClusterDbInstanceType("db.influx.medium")
+	InfluxDbClusterDbInstanceTypeDbInfluxLarge    = InfluxDbClusterDbInstanceType("db.influx.large")
+	InfluxDbClusterDbInstanceTypeDbInfluxXlarge   = InfluxDbClusterDbInstanceType("db.influx.xlarge")
+	InfluxDbClusterDbInstanceTypeDbInflux2xlarge  = InfluxDbClusterDbInstanceType("db.influx.2xlarge")
+	InfluxDbClusterDbInstanceTypeDbInflux4xlarge  = InfluxDbClusterDbInstanceType("db.influx.4xlarge")
+	InfluxDbClusterDbInstanceTypeDbInflux8xlarge  = InfluxDbClusterDbInstanceType("db.influx.8xlarge")
+	InfluxDbClusterDbInstanceTypeDbInflux12xlarge = InfluxDbClusterDbInstanceType("db.influx.12xlarge")
+	InfluxDbClusterDbInstanceTypeDbInflux16xlarge = InfluxDbClusterDbInstanceType("db.influx.16xlarge")
+	InfluxDbClusterDbInstanceTypeDbInflux24xlarge = InfluxDbClusterDbInstanceType("db.influx.24xlarge")
+)
+
+func (InfluxDbClusterDbInstanceType) ElementType() reflect.Type {
+	return reflect.TypeOf((*InfluxDbClusterDbInstanceType)(nil)).Elem()
+}
+
+func (e InfluxDbClusterDbInstanceType) ToInfluxDbClusterDbInstanceTypeOutput() InfluxDbClusterDbInstanceTypeOutput {
+	return pulumi.ToOutput(e).(InfluxDbClusterDbInstanceTypeOutput)
+}
+
+func (e InfluxDbClusterDbInstanceType) ToInfluxDbClusterDbInstanceTypeOutputWithContext(ctx context.Context) InfluxDbClusterDbInstanceTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(InfluxDbClusterDbInstanceTypeOutput)
+}
+
+func (e InfluxDbClusterDbInstanceType) ToInfluxDbClusterDbInstanceTypePtrOutput() InfluxDbClusterDbInstanceTypePtrOutput {
+	return e.ToInfluxDbClusterDbInstanceTypePtrOutputWithContext(context.Background())
+}
+
+func (e InfluxDbClusterDbInstanceType) ToInfluxDbClusterDbInstanceTypePtrOutputWithContext(ctx context.Context) InfluxDbClusterDbInstanceTypePtrOutput {
+	return InfluxDbClusterDbInstanceType(e).ToInfluxDbClusterDbInstanceTypeOutputWithContext(ctx).ToInfluxDbClusterDbInstanceTypePtrOutputWithContext(ctx)
+}
+
+func (e InfluxDbClusterDbInstanceType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e InfluxDbClusterDbInstanceType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e InfluxDbClusterDbInstanceType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e InfluxDbClusterDbInstanceType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type InfluxDbClusterDbInstanceTypeOutput struct{ *pulumi.OutputState }
+
+func (InfluxDbClusterDbInstanceTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InfluxDbClusterDbInstanceType)(nil)).Elem()
+}
+
+func (o InfluxDbClusterDbInstanceTypeOutput) ToInfluxDbClusterDbInstanceTypeOutput() InfluxDbClusterDbInstanceTypeOutput {
+	return o
+}
+
+func (o InfluxDbClusterDbInstanceTypeOutput) ToInfluxDbClusterDbInstanceTypeOutputWithContext(ctx context.Context) InfluxDbClusterDbInstanceTypeOutput {
+	return o
+}
+
+func (o InfluxDbClusterDbInstanceTypeOutput) ToInfluxDbClusterDbInstanceTypePtrOutput() InfluxDbClusterDbInstanceTypePtrOutput {
+	return o.ToInfluxDbClusterDbInstanceTypePtrOutputWithContext(context.Background())
+}
+
+func (o InfluxDbClusterDbInstanceTypeOutput) ToInfluxDbClusterDbInstanceTypePtrOutputWithContext(ctx context.Context) InfluxDbClusterDbInstanceTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InfluxDbClusterDbInstanceType) *InfluxDbClusterDbInstanceType {
+		return &v
+	}).(InfluxDbClusterDbInstanceTypePtrOutput)
+}
+
+func (o InfluxDbClusterDbInstanceTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o InfluxDbClusterDbInstanceTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e InfluxDbClusterDbInstanceType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o InfluxDbClusterDbInstanceTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o InfluxDbClusterDbInstanceTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e InfluxDbClusterDbInstanceType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type InfluxDbClusterDbInstanceTypePtrOutput struct{ *pulumi.OutputState }
+
+func (InfluxDbClusterDbInstanceTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InfluxDbClusterDbInstanceType)(nil)).Elem()
+}
+
+func (o InfluxDbClusterDbInstanceTypePtrOutput) ToInfluxDbClusterDbInstanceTypePtrOutput() InfluxDbClusterDbInstanceTypePtrOutput {
+	return o
+}
+
+func (o InfluxDbClusterDbInstanceTypePtrOutput) ToInfluxDbClusterDbInstanceTypePtrOutputWithContext(ctx context.Context) InfluxDbClusterDbInstanceTypePtrOutput {
+	return o
+}
+
+func (o InfluxDbClusterDbInstanceTypePtrOutput) Elem() InfluxDbClusterDbInstanceTypeOutput {
+	return o.ApplyT(func(v *InfluxDbClusterDbInstanceType) InfluxDbClusterDbInstanceType {
+		if v != nil {
+			return *v
+		}
+		var ret InfluxDbClusterDbInstanceType
+		return ret
+	}).(InfluxDbClusterDbInstanceTypeOutput)
+}
+
+func (o InfluxDbClusterDbInstanceTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o InfluxDbClusterDbInstanceTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *InfluxDbClusterDbInstanceType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// InfluxDbClusterDbInstanceTypeInput is an input type that accepts values of the InfluxDbClusterDbInstanceType enum
+// A concrete instance of `InfluxDbClusterDbInstanceTypeInput` can be one of the following:
+//
+//	InfluxDbClusterDbInstanceTypeDbInfluxMedium
+//	InfluxDbClusterDbInstanceTypeDbInfluxLarge
+//	InfluxDbClusterDbInstanceTypeDbInfluxXlarge
+//	InfluxDbClusterDbInstanceTypeDbInflux2xlarge
+//	InfluxDbClusterDbInstanceTypeDbInflux4xlarge
+//	InfluxDbClusterDbInstanceTypeDbInflux8xlarge
+//	InfluxDbClusterDbInstanceTypeDbInflux12xlarge
+//	InfluxDbClusterDbInstanceTypeDbInflux16xlarge
+//	InfluxDbClusterDbInstanceTypeDbInflux24xlarge
+type InfluxDbClusterDbInstanceTypeInput interface {
+	pulumi.Input
+
+	ToInfluxDbClusterDbInstanceTypeOutput() InfluxDbClusterDbInstanceTypeOutput
+	ToInfluxDbClusterDbInstanceTypeOutputWithContext(context.Context) InfluxDbClusterDbInstanceTypeOutput
+}
+
+var influxDbClusterDbInstanceTypePtrType = reflect.TypeOf((**InfluxDbClusterDbInstanceType)(nil)).Elem()
+
+type InfluxDbClusterDbInstanceTypePtrInput interface {
+	pulumi.Input
+
+	ToInfluxDbClusterDbInstanceTypePtrOutput() InfluxDbClusterDbInstanceTypePtrOutput
+	ToInfluxDbClusterDbInstanceTypePtrOutputWithContext(context.Context) InfluxDbClusterDbInstanceTypePtrOutput
+}
+
+type influxDbClusterDbInstanceTypePtr string
+
+func InfluxDbClusterDbInstanceTypePtr(v string) InfluxDbClusterDbInstanceTypePtrInput {
+	return (*influxDbClusterDbInstanceTypePtr)(&v)
+}
+
+func (*influxDbClusterDbInstanceTypePtr) ElementType() reflect.Type {
+	return influxDbClusterDbInstanceTypePtrType
+}
+
+func (in *influxDbClusterDbInstanceTypePtr) ToInfluxDbClusterDbInstanceTypePtrOutput() InfluxDbClusterDbInstanceTypePtrOutput {
+	return pulumi.ToOutput(in).(InfluxDbClusterDbInstanceTypePtrOutput)
+}
+
+func (in *influxDbClusterDbInstanceTypePtr) ToInfluxDbClusterDbInstanceTypePtrOutputWithContext(ctx context.Context) InfluxDbClusterDbInstanceTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(InfluxDbClusterDbInstanceTypePtrOutput)
+}
+
+// The storage type of the InfluxDB cluster.
+type InfluxDbClusterDbStorageType string
+
+const (
+	InfluxDbClusterDbStorageTypeInfluxIoIncludedT1 = InfluxDbClusterDbStorageType("InfluxIOIncludedT1")
+	InfluxDbClusterDbStorageTypeInfluxIoIncludedT2 = InfluxDbClusterDbStorageType("InfluxIOIncludedT2")
+	InfluxDbClusterDbStorageTypeInfluxIoIncludedT3 = InfluxDbClusterDbStorageType("InfluxIOIncludedT3")
+)
+
+func (InfluxDbClusterDbStorageType) ElementType() reflect.Type {
+	return reflect.TypeOf((*InfluxDbClusterDbStorageType)(nil)).Elem()
+}
+
+func (e InfluxDbClusterDbStorageType) ToInfluxDbClusterDbStorageTypeOutput() InfluxDbClusterDbStorageTypeOutput {
+	return pulumi.ToOutput(e).(InfluxDbClusterDbStorageTypeOutput)
+}
+
+func (e InfluxDbClusterDbStorageType) ToInfluxDbClusterDbStorageTypeOutputWithContext(ctx context.Context) InfluxDbClusterDbStorageTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(InfluxDbClusterDbStorageTypeOutput)
+}
+
+func (e InfluxDbClusterDbStorageType) ToInfluxDbClusterDbStorageTypePtrOutput() InfluxDbClusterDbStorageTypePtrOutput {
+	return e.ToInfluxDbClusterDbStorageTypePtrOutputWithContext(context.Background())
+}
+
+func (e InfluxDbClusterDbStorageType) ToInfluxDbClusterDbStorageTypePtrOutputWithContext(ctx context.Context) InfluxDbClusterDbStorageTypePtrOutput {
+	return InfluxDbClusterDbStorageType(e).ToInfluxDbClusterDbStorageTypeOutputWithContext(ctx).ToInfluxDbClusterDbStorageTypePtrOutputWithContext(ctx)
+}
+
+func (e InfluxDbClusterDbStorageType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e InfluxDbClusterDbStorageType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e InfluxDbClusterDbStorageType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e InfluxDbClusterDbStorageType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type InfluxDbClusterDbStorageTypeOutput struct{ *pulumi.OutputState }
+
+func (InfluxDbClusterDbStorageTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InfluxDbClusterDbStorageType)(nil)).Elem()
+}
+
+func (o InfluxDbClusterDbStorageTypeOutput) ToInfluxDbClusterDbStorageTypeOutput() InfluxDbClusterDbStorageTypeOutput {
+	return o
+}
+
+func (o InfluxDbClusterDbStorageTypeOutput) ToInfluxDbClusterDbStorageTypeOutputWithContext(ctx context.Context) InfluxDbClusterDbStorageTypeOutput {
+	return o
+}
+
+func (o InfluxDbClusterDbStorageTypeOutput) ToInfluxDbClusterDbStorageTypePtrOutput() InfluxDbClusterDbStorageTypePtrOutput {
+	return o.ToInfluxDbClusterDbStorageTypePtrOutputWithContext(context.Background())
+}
+
+func (o InfluxDbClusterDbStorageTypeOutput) ToInfluxDbClusterDbStorageTypePtrOutputWithContext(ctx context.Context) InfluxDbClusterDbStorageTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InfluxDbClusterDbStorageType) *InfluxDbClusterDbStorageType {
+		return &v
+	}).(InfluxDbClusterDbStorageTypePtrOutput)
+}
+
+func (o InfluxDbClusterDbStorageTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o InfluxDbClusterDbStorageTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e InfluxDbClusterDbStorageType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o InfluxDbClusterDbStorageTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o InfluxDbClusterDbStorageTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e InfluxDbClusterDbStorageType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type InfluxDbClusterDbStorageTypePtrOutput struct{ *pulumi.OutputState }
+
+func (InfluxDbClusterDbStorageTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InfluxDbClusterDbStorageType)(nil)).Elem()
+}
+
+func (o InfluxDbClusterDbStorageTypePtrOutput) ToInfluxDbClusterDbStorageTypePtrOutput() InfluxDbClusterDbStorageTypePtrOutput {
+	return o
+}
+
+func (o InfluxDbClusterDbStorageTypePtrOutput) ToInfluxDbClusterDbStorageTypePtrOutputWithContext(ctx context.Context) InfluxDbClusterDbStorageTypePtrOutput {
+	return o
+}
+
+func (o InfluxDbClusterDbStorageTypePtrOutput) Elem() InfluxDbClusterDbStorageTypeOutput {
+	return o.ApplyT(func(v *InfluxDbClusterDbStorageType) InfluxDbClusterDbStorageType {
+		if v != nil {
+			return *v
+		}
+		var ret InfluxDbClusterDbStorageType
+		return ret
+	}).(InfluxDbClusterDbStorageTypeOutput)
+}
+
+func (o InfluxDbClusterDbStorageTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o InfluxDbClusterDbStorageTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *InfluxDbClusterDbStorageType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// InfluxDbClusterDbStorageTypeInput is an input type that accepts values of the InfluxDbClusterDbStorageType enum
+// A concrete instance of `InfluxDbClusterDbStorageTypeInput` can be one of the following:
+//
+//	InfluxDbClusterDbStorageTypeInfluxIoIncludedT1
+//	InfluxDbClusterDbStorageTypeInfluxIoIncludedT2
+//	InfluxDbClusterDbStorageTypeInfluxIoIncludedT3
+type InfluxDbClusterDbStorageTypeInput interface {
+	pulumi.Input
+
+	ToInfluxDbClusterDbStorageTypeOutput() InfluxDbClusterDbStorageTypeOutput
+	ToInfluxDbClusterDbStorageTypeOutputWithContext(context.Context) InfluxDbClusterDbStorageTypeOutput
+}
+
+var influxDbClusterDbStorageTypePtrType = reflect.TypeOf((**InfluxDbClusterDbStorageType)(nil)).Elem()
+
+type InfluxDbClusterDbStorageTypePtrInput interface {
+	pulumi.Input
+
+	ToInfluxDbClusterDbStorageTypePtrOutput() InfluxDbClusterDbStorageTypePtrOutput
+	ToInfluxDbClusterDbStorageTypePtrOutputWithContext(context.Context) InfluxDbClusterDbStorageTypePtrOutput
+}
+
+type influxDbClusterDbStorageTypePtr string
+
+func InfluxDbClusterDbStorageTypePtr(v string) InfluxDbClusterDbStorageTypePtrInput {
+	return (*influxDbClusterDbStorageTypePtr)(&v)
+}
+
+func (*influxDbClusterDbStorageTypePtr) ElementType() reflect.Type {
+	return influxDbClusterDbStorageTypePtrType
+}
+
+func (in *influxDbClusterDbStorageTypePtr) ToInfluxDbClusterDbStorageTypePtrOutput() InfluxDbClusterDbStorageTypePtrOutput {
+	return pulumi.ToOutput(in).(InfluxDbClusterDbStorageTypePtrOutput)
+}
+
+func (in *influxDbClusterDbStorageTypePtr) ToInfluxDbClusterDbStorageTypePtrOutputWithContext(ctx context.Context) InfluxDbClusterDbStorageTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(InfluxDbClusterDbStorageTypePtrOutput)
+}
+
+// Deployment type of the InfluxDB cluster.
+type InfluxDbClusterDeploymentType string
+
+const (
+	InfluxDbClusterDeploymentTypeMultiNodeReadReplicas = InfluxDbClusterDeploymentType("MULTI_NODE_READ_REPLICAS")
+)
+
+func (InfluxDbClusterDeploymentType) ElementType() reflect.Type {
+	return reflect.TypeOf((*InfluxDbClusterDeploymentType)(nil)).Elem()
+}
+
+func (e InfluxDbClusterDeploymentType) ToInfluxDbClusterDeploymentTypeOutput() InfluxDbClusterDeploymentTypeOutput {
+	return pulumi.ToOutput(e).(InfluxDbClusterDeploymentTypeOutput)
+}
+
+func (e InfluxDbClusterDeploymentType) ToInfluxDbClusterDeploymentTypeOutputWithContext(ctx context.Context) InfluxDbClusterDeploymentTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(InfluxDbClusterDeploymentTypeOutput)
+}
+
+func (e InfluxDbClusterDeploymentType) ToInfluxDbClusterDeploymentTypePtrOutput() InfluxDbClusterDeploymentTypePtrOutput {
+	return e.ToInfluxDbClusterDeploymentTypePtrOutputWithContext(context.Background())
+}
+
+func (e InfluxDbClusterDeploymentType) ToInfluxDbClusterDeploymentTypePtrOutputWithContext(ctx context.Context) InfluxDbClusterDeploymentTypePtrOutput {
+	return InfluxDbClusterDeploymentType(e).ToInfluxDbClusterDeploymentTypeOutputWithContext(ctx).ToInfluxDbClusterDeploymentTypePtrOutputWithContext(ctx)
+}
+
+func (e InfluxDbClusterDeploymentType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e InfluxDbClusterDeploymentType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e InfluxDbClusterDeploymentType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e InfluxDbClusterDeploymentType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type InfluxDbClusterDeploymentTypeOutput struct{ *pulumi.OutputState }
+
+func (InfluxDbClusterDeploymentTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InfluxDbClusterDeploymentType)(nil)).Elem()
+}
+
+func (o InfluxDbClusterDeploymentTypeOutput) ToInfluxDbClusterDeploymentTypeOutput() InfluxDbClusterDeploymentTypeOutput {
+	return o
+}
+
+func (o InfluxDbClusterDeploymentTypeOutput) ToInfluxDbClusterDeploymentTypeOutputWithContext(ctx context.Context) InfluxDbClusterDeploymentTypeOutput {
+	return o
+}
+
+func (o InfluxDbClusterDeploymentTypeOutput) ToInfluxDbClusterDeploymentTypePtrOutput() InfluxDbClusterDeploymentTypePtrOutput {
+	return o.ToInfluxDbClusterDeploymentTypePtrOutputWithContext(context.Background())
+}
+
+func (o InfluxDbClusterDeploymentTypeOutput) ToInfluxDbClusterDeploymentTypePtrOutputWithContext(ctx context.Context) InfluxDbClusterDeploymentTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InfluxDbClusterDeploymentType) *InfluxDbClusterDeploymentType {
+		return &v
+	}).(InfluxDbClusterDeploymentTypePtrOutput)
+}
+
+func (o InfluxDbClusterDeploymentTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o InfluxDbClusterDeploymentTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e InfluxDbClusterDeploymentType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o InfluxDbClusterDeploymentTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o InfluxDbClusterDeploymentTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e InfluxDbClusterDeploymentType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type InfluxDbClusterDeploymentTypePtrOutput struct{ *pulumi.OutputState }
+
+func (InfluxDbClusterDeploymentTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InfluxDbClusterDeploymentType)(nil)).Elem()
+}
+
+func (o InfluxDbClusterDeploymentTypePtrOutput) ToInfluxDbClusterDeploymentTypePtrOutput() InfluxDbClusterDeploymentTypePtrOutput {
+	return o
+}
+
+func (o InfluxDbClusterDeploymentTypePtrOutput) ToInfluxDbClusterDeploymentTypePtrOutputWithContext(ctx context.Context) InfluxDbClusterDeploymentTypePtrOutput {
+	return o
+}
+
+func (o InfluxDbClusterDeploymentTypePtrOutput) Elem() InfluxDbClusterDeploymentTypeOutput {
+	return o.ApplyT(func(v *InfluxDbClusterDeploymentType) InfluxDbClusterDeploymentType {
+		if v != nil {
+			return *v
+		}
+		var ret InfluxDbClusterDeploymentType
+		return ret
+	}).(InfluxDbClusterDeploymentTypeOutput)
+}
+
+func (o InfluxDbClusterDeploymentTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o InfluxDbClusterDeploymentTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *InfluxDbClusterDeploymentType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// InfluxDbClusterDeploymentTypeInput is an input type that accepts values of the InfluxDbClusterDeploymentType enum
+// A concrete instance of `InfluxDbClusterDeploymentTypeInput` can be one of the following:
+//
+//	InfluxDbClusterDeploymentTypeMultiNodeReadReplicas
+type InfluxDbClusterDeploymentTypeInput interface {
+	pulumi.Input
+
+	ToInfluxDbClusterDeploymentTypeOutput() InfluxDbClusterDeploymentTypeOutput
+	ToInfluxDbClusterDeploymentTypeOutputWithContext(context.Context) InfluxDbClusterDeploymentTypeOutput
+}
+
+var influxDbClusterDeploymentTypePtrType = reflect.TypeOf((**InfluxDbClusterDeploymentType)(nil)).Elem()
+
+type InfluxDbClusterDeploymentTypePtrInput interface {
+	pulumi.Input
+
+	ToInfluxDbClusterDeploymentTypePtrOutput() InfluxDbClusterDeploymentTypePtrOutput
+	ToInfluxDbClusterDeploymentTypePtrOutputWithContext(context.Context) InfluxDbClusterDeploymentTypePtrOutput
+}
+
+type influxDbClusterDeploymentTypePtr string
+
+func InfluxDbClusterDeploymentTypePtr(v string) InfluxDbClusterDeploymentTypePtrInput {
+	return (*influxDbClusterDeploymentTypePtr)(&v)
+}
+
+func (*influxDbClusterDeploymentTypePtr) ElementType() reflect.Type {
+	return influxDbClusterDeploymentTypePtrType
+}
+
+func (in *influxDbClusterDeploymentTypePtr) ToInfluxDbClusterDeploymentTypePtrOutput() InfluxDbClusterDeploymentTypePtrOutput {
+	return pulumi.ToOutput(in).(InfluxDbClusterDeploymentTypePtrOutput)
+}
+
+func (in *influxDbClusterDeploymentTypePtr) ToInfluxDbClusterDeploymentTypePtrOutputWithContext(ctx context.Context) InfluxDbClusterDeploymentTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(InfluxDbClusterDeploymentTypePtrOutput)
+}
+
+// The engine type for the InfluxDB cluster.
+type InfluxDbClusterEngineType string
+
+const (
+	InfluxDbClusterEngineTypeInfluxdbV2           = InfluxDbClusterEngineType("INFLUXDB_V2")
+	InfluxDbClusterEngineTypeInfluxdbV3Core       = InfluxDbClusterEngineType("INFLUXDB_V3_CORE")
+	InfluxDbClusterEngineTypeInfluxdbV3Enterprise = InfluxDbClusterEngineType("INFLUXDB_V3_ENTERPRISE")
+)
+
+type InfluxDbClusterEngineTypeOutput struct{ *pulumi.OutputState }
+
+func (InfluxDbClusterEngineTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InfluxDbClusterEngineType)(nil)).Elem()
+}
+
+func (o InfluxDbClusterEngineTypeOutput) ToInfluxDbClusterEngineTypeOutput() InfluxDbClusterEngineTypeOutput {
+	return o
+}
+
+func (o InfluxDbClusterEngineTypeOutput) ToInfluxDbClusterEngineTypeOutputWithContext(ctx context.Context) InfluxDbClusterEngineTypeOutput {
+	return o
+}
+
+func (o InfluxDbClusterEngineTypeOutput) ToInfluxDbClusterEngineTypePtrOutput() InfluxDbClusterEngineTypePtrOutput {
+	return o.ToInfluxDbClusterEngineTypePtrOutputWithContext(context.Background())
+}
+
+func (o InfluxDbClusterEngineTypeOutput) ToInfluxDbClusterEngineTypePtrOutputWithContext(ctx context.Context) InfluxDbClusterEngineTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InfluxDbClusterEngineType) *InfluxDbClusterEngineType {
+		return &v
+	}).(InfluxDbClusterEngineTypePtrOutput)
+}
+
+func (o InfluxDbClusterEngineTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o InfluxDbClusterEngineTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e InfluxDbClusterEngineType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o InfluxDbClusterEngineTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o InfluxDbClusterEngineTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e InfluxDbClusterEngineType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type InfluxDbClusterEngineTypePtrOutput struct{ *pulumi.OutputState }
+
+func (InfluxDbClusterEngineTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InfluxDbClusterEngineType)(nil)).Elem()
+}
+
+func (o InfluxDbClusterEngineTypePtrOutput) ToInfluxDbClusterEngineTypePtrOutput() InfluxDbClusterEngineTypePtrOutput {
+	return o
+}
+
+func (o InfluxDbClusterEngineTypePtrOutput) ToInfluxDbClusterEngineTypePtrOutputWithContext(ctx context.Context) InfluxDbClusterEngineTypePtrOutput {
+	return o
+}
+
+func (o InfluxDbClusterEngineTypePtrOutput) Elem() InfluxDbClusterEngineTypeOutput {
+	return o.ApplyT(func(v *InfluxDbClusterEngineType) InfluxDbClusterEngineType {
+		if v != nil {
+			return *v
+		}
+		var ret InfluxDbClusterEngineType
+		return ret
+	}).(InfluxDbClusterEngineTypeOutput)
+}
+
+func (o InfluxDbClusterEngineTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o InfluxDbClusterEngineTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *InfluxDbClusterEngineType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// Failover mode of the InfluxDB cluster.
+type InfluxDbClusterFailoverMode string
+
+const (
+	InfluxDbClusterFailoverModeAutomatic  = InfluxDbClusterFailoverMode("AUTOMATIC")
+	InfluxDbClusterFailoverModeNoFailover = InfluxDbClusterFailoverMode("NO_FAILOVER")
+)
+
+func (InfluxDbClusterFailoverMode) ElementType() reflect.Type {
+	return reflect.TypeOf((*InfluxDbClusterFailoverMode)(nil)).Elem()
+}
+
+func (e InfluxDbClusterFailoverMode) ToInfluxDbClusterFailoverModeOutput() InfluxDbClusterFailoverModeOutput {
+	return pulumi.ToOutput(e).(InfluxDbClusterFailoverModeOutput)
+}
+
+func (e InfluxDbClusterFailoverMode) ToInfluxDbClusterFailoverModeOutputWithContext(ctx context.Context) InfluxDbClusterFailoverModeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(InfluxDbClusterFailoverModeOutput)
+}
+
+func (e InfluxDbClusterFailoverMode) ToInfluxDbClusterFailoverModePtrOutput() InfluxDbClusterFailoverModePtrOutput {
+	return e.ToInfluxDbClusterFailoverModePtrOutputWithContext(context.Background())
+}
+
+func (e InfluxDbClusterFailoverMode) ToInfluxDbClusterFailoverModePtrOutputWithContext(ctx context.Context) InfluxDbClusterFailoverModePtrOutput {
+	return InfluxDbClusterFailoverMode(e).ToInfluxDbClusterFailoverModeOutputWithContext(ctx).ToInfluxDbClusterFailoverModePtrOutputWithContext(ctx)
+}
+
+func (e InfluxDbClusterFailoverMode) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e InfluxDbClusterFailoverMode) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e InfluxDbClusterFailoverMode) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e InfluxDbClusterFailoverMode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type InfluxDbClusterFailoverModeOutput struct{ *pulumi.OutputState }
+
+func (InfluxDbClusterFailoverModeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InfluxDbClusterFailoverMode)(nil)).Elem()
+}
+
+func (o InfluxDbClusterFailoverModeOutput) ToInfluxDbClusterFailoverModeOutput() InfluxDbClusterFailoverModeOutput {
+	return o
+}
+
+func (o InfluxDbClusterFailoverModeOutput) ToInfluxDbClusterFailoverModeOutputWithContext(ctx context.Context) InfluxDbClusterFailoverModeOutput {
+	return o
+}
+
+func (o InfluxDbClusterFailoverModeOutput) ToInfluxDbClusterFailoverModePtrOutput() InfluxDbClusterFailoverModePtrOutput {
+	return o.ToInfluxDbClusterFailoverModePtrOutputWithContext(context.Background())
+}
+
+func (o InfluxDbClusterFailoverModeOutput) ToInfluxDbClusterFailoverModePtrOutputWithContext(ctx context.Context) InfluxDbClusterFailoverModePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InfluxDbClusterFailoverMode) *InfluxDbClusterFailoverMode {
+		return &v
+	}).(InfluxDbClusterFailoverModePtrOutput)
+}
+
+func (o InfluxDbClusterFailoverModeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o InfluxDbClusterFailoverModeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e InfluxDbClusterFailoverMode) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o InfluxDbClusterFailoverModeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o InfluxDbClusterFailoverModeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e InfluxDbClusterFailoverMode) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type InfluxDbClusterFailoverModePtrOutput struct{ *pulumi.OutputState }
+
+func (InfluxDbClusterFailoverModePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InfluxDbClusterFailoverMode)(nil)).Elem()
+}
+
+func (o InfluxDbClusterFailoverModePtrOutput) ToInfluxDbClusterFailoverModePtrOutput() InfluxDbClusterFailoverModePtrOutput {
+	return o
+}
+
+func (o InfluxDbClusterFailoverModePtrOutput) ToInfluxDbClusterFailoverModePtrOutputWithContext(ctx context.Context) InfluxDbClusterFailoverModePtrOutput {
+	return o
+}
+
+func (o InfluxDbClusterFailoverModePtrOutput) Elem() InfluxDbClusterFailoverModeOutput {
+	return o.ApplyT(func(v *InfluxDbClusterFailoverMode) InfluxDbClusterFailoverMode {
+		if v != nil {
+			return *v
+		}
+		var ret InfluxDbClusterFailoverMode
+		return ret
+	}).(InfluxDbClusterFailoverModeOutput)
+}
+
+func (o InfluxDbClusterFailoverModePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o InfluxDbClusterFailoverModePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *InfluxDbClusterFailoverMode) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// InfluxDbClusterFailoverModeInput is an input type that accepts values of the InfluxDbClusterFailoverMode enum
+// A concrete instance of `InfluxDbClusterFailoverModeInput` can be one of the following:
+//
+//	InfluxDbClusterFailoverModeAutomatic
+//	InfluxDbClusterFailoverModeNoFailover
+type InfluxDbClusterFailoverModeInput interface {
+	pulumi.Input
+
+	ToInfluxDbClusterFailoverModeOutput() InfluxDbClusterFailoverModeOutput
+	ToInfluxDbClusterFailoverModeOutputWithContext(context.Context) InfluxDbClusterFailoverModeOutput
+}
+
+var influxDbClusterFailoverModePtrType = reflect.TypeOf((**InfluxDbClusterFailoverMode)(nil)).Elem()
+
+type InfluxDbClusterFailoverModePtrInput interface {
+	pulumi.Input
+
+	ToInfluxDbClusterFailoverModePtrOutput() InfluxDbClusterFailoverModePtrOutput
+	ToInfluxDbClusterFailoverModePtrOutputWithContext(context.Context) InfluxDbClusterFailoverModePtrOutput
+}
+
+type influxDbClusterFailoverModePtr string
+
+func InfluxDbClusterFailoverModePtr(v string) InfluxDbClusterFailoverModePtrInput {
+	return (*influxDbClusterFailoverModePtr)(&v)
+}
+
+func (*influxDbClusterFailoverModePtr) ElementType() reflect.Type {
+	return influxDbClusterFailoverModePtrType
+}
+
+func (in *influxDbClusterFailoverModePtr) ToInfluxDbClusterFailoverModePtrOutput() InfluxDbClusterFailoverModePtrOutput {
+	return pulumi.ToOutput(in).(InfluxDbClusterFailoverModePtrOutput)
+}
+
+func (in *influxDbClusterFailoverModePtr) ToInfluxDbClusterFailoverModePtrOutputWithContext(ctx context.Context) InfluxDbClusterFailoverModePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(InfluxDbClusterFailoverModePtrOutput)
+}
+
+// Network type of the InfluxDB cluster.
+type InfluxDbClusterNetworkType string
+
+const (
+	InfluxDbClusterNetworkTypeIpv4 = InfluxDbClusterNetworkType("IPV4")
+	InfluxDbClusterNetworkTypeDual = InfluxDbClusterNetworkType("DUAL")
+)
+
+func (InfluxDbClusterNetworkType) ElementType() reflect.Type {
+	return reflect.TypeOf((*InfluxDbClusterNetworkType)(nil)).Elem()
+}
+
+func (e InfluxDbClusterNetworkType) ToInfluxDbClusterNetworkTypeOutput() InfluxDbClusterNetworkTypeOutput {
+	return pulumi.ToOutput(e).(InfluxDbClusterNetworkTypeOutput)
+}
+
+func (e InfluxDbClusterNetworkType) ToInfluxDbClusterNetworkTypeOutputWithContext(ctx context.Context) InfluxDbClusterNetworkTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(InfluxDbClusterNetworkTypeOutput)
+}
+
+func (e InfluxDbClusterNetworkType) ToInfluxDbClusterNetworkTypePtrOutput() InfluxDbClusterNetworkTypePtrOutput {
+	return e.ToInfluxDbClusterNetworkTypePtrOutputWithContext(context.Background())
+}
+
+func (e InfluxDbClusterNetworkType) ToInfluxDbClusterNetworkTypePtrOutputWithContext(ctx context.Context) InfluxDbClusterNetworkTypePtrOutput {
+	return InfluxDbClusterNetworkType(e).ToInfluxDbClusterNetworkTypeOutputWithContext(ctx).ToInfluxDbClusterNetworkTypePtrOutputWithContext(ctx)
+}
+
+func (e InfluxDbClusterNetworkType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e InfluxDbClusterNetworkType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e InfluxDbClusterNetworkType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e InfluxDbClusterNetworkType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type InfluxDbClusterNetworkTypeOutput struct{ *pulumi.OutputState }
+
+func (InfluxDbClusterNetworkTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InfluxDbClusterNetworkType)(nil)).Elem()
+}
+
+func (o InfluxDbClusterNetworkTypeOutput) ToInfluxDbClusterNetworkTypeOutput() InfluxDbClusterNetworkTypeOutput {
+	return o
+}
+
+func (o InfluxDbClusterNetworkTypeOutput) ToInfluxDbClusterNetworkTypeOutputWithContext(ctx context.Context) InfluxDbClusterNetworkTypeOutput {
+	return o
+}
+
+func (o InfluxDbClusterNetworkTypeOutput) ToInfluxDbClusterNetworkTypePtrOutput() InfluxDbClusterNetworkTypePtrOutput {
+	return o.ToInfluxDbClusterNetworkTypePtrOutputWithContext(context.Background())
+}
+
+func (o InfluxDbClusterNetworkTypeOutput) ToInfluxDbClusterNetworkTypePtrOutputWithContext(ctx context.Context) InfluxDbClusterNetworkTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InfluxDbClusterNetworkType) *InfluxDbClusterNetworkType {
+		return &v
+	}).(InfluxDbClusterNetworkTypePtrOutput)
+}
+
+func (o InfluxDbClusterNetworkTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o InfluxDbClusterNetworkTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e InfluxDbClusterNetworkType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o InfluxDbClusterNetworkTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o InfluxDbClusterNetworkTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e InfluxDbClusterNetworkType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type InfluxDbClusterNetworkTypePtrOutput struct{ *pulumi.OutputState }
+
+func (InfluxDbClusterNetworkTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InfluxDbClusterNetworkType)(nil)).Elem()
+}
+
+func (o InfluxDbClusterNetworkTypePtrOutput) ToInfluxDbClusterNetworkTypePtrOutput() InfluxDbClusterNetworkTypePtrOutput {
+	return o
+}
+
+func (o InfluxDbClusterNetworkTypePtrOutput) ToInfluxDbClusterNetworkTypePtrOutputWithContext(ctx context.Context) InfluxDbClusterNetworkTypePtrOutput {
+	return o
+}
+
+func (o InfluxDbClusterNetworkTypePtrOutput) Elem() InfluxDbClusterNetworkTypeOutput {
+	return o.ApplyT(func(v *InfluxDbClusterNetworkType) InfluxDbClusterNetworkType {
+		if v != nil {
+			return *v
+		}
+		var ret InfluxDbClusterNetworkType
+		return ret
+	}).(InfluxDbClusterNetworkTypeOutput)
+}
+
+func (o InfluxDbClusterNetworkTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o InfluxDbClusterNetworkTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *InfluxDbClusterNetworkType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// InfluxDbClusterNetworkTypeInput is an input type that accepts values of the InfluxDbClusterNetworkType enum
+// A concrete instance of `InfluxDbClusterNetworkTypeInput` can be one of the following:
+//
+//	InfluxDbClusterNetworkTypeIpv4
+//	InfluxDbClusterNetworkTypeDual
+type InfluxDbClusterNetworkTypeInput interface {
+	pulumi.Input
+
+	ToInfluxDbClusterNetworkTypeOutput() InfluxDbClusterNetworkTypeOutput
+	ToInfluxDbClusterNetworkTypeOutputWithContext(context.Context) InfluxDbClusterNetworkTypeOutput
+}
+
+var influxDbClusterNetworkTypePtrType = reflect.TypeOf((**InfluxDbClusterNetworkType)(nil)).Elem()
+
+type InfluxDbClusterNetworkTypePtrInput interface {
+	pulumi.Input
+
+	ToInfluxDbClusterNetworkTypePtrOutput() InfluxDbClusterNetworkTypePtrOutput
+	ToInfluxDbClusterNetworkTypePtrOutputWithContext(context.Context) InfluxDbClusterNetworkTypePtrOutput
+}
+
+type influxDbClusterNetworkTypePtr string
+
+func InfluxDbClusterNetworkTypePtr(v string) InfluxDbClusterNetworkTypePtrInput {
+	return (*influxDbClusterNetworkTypePtr)(&v)
+}
+
+func (*influxDbClusterNetworkTypePtr) ElementType() reflect.Type {
+	return influxDbClusterNetworkTypePtrType
+}
+
+func (in *influxDbClusterNetworkTypePtr) ToInfluxDbClusterNetworkTypePtrOutput() InfluxDbClusterNetworkTypePtrOutput {
+	return pulumi.ToOutput(in).(InfluxDbClusterNetworkTypePtrOutput)
+}
+
+func (in *influxDbClusterNetworkTypePtr) ToInfluxDbClusterNetworkTypePtrOutputWithContext(ctx context.Context) InfluxDbClusterNetworkTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(InfluxDbClusterNetworkTypePtrOutput)
+}
+
+// Status of the InfluxDB cluster.
+type InfluxDbClusterStatus string
+
+const (
+	InfluxDbClusterStatusCreating             = InfluxDbClusterStatus("CREATING")
+	InfluxDbClusterStatusUpdating             = InfluxDbClusterStatus("UPDATING")
+	InfluxDbClusterStatusUpdatingInstanceType = InfluxDbClusterStatus("UPDATING_INSTANCE_TYPE")
+	InfluxDbClusterStatusMaintenance          = InfluxDbClusterStatus("MAINTENANCE")
+	InfluxDbClusterStatusDeleting             = InfluxDbClusterStatus("DELETING")
+	InfluxDbClusterStatusAvailable            = InfluxDbClusterStatus("AVAILABLE")
+	InfluxDbClusterStatusRebooting            = InfluxDbClusterStatus("REBOOTING")
+	InfluxDbClusterStatusRebootFailed         = InfluxDbClusterStatus("REBOOT_FAILED")
+	InfluxDbClusterStatusPartiallyAvailable   = InfluxDbClusterStatus("PARTIALLY_AVAILABLE")
+	InfluxDbClusterStatusFailed               = InfluxDbClusterStatus("FAILED")
+	InfluxDbClusterStatusDeleted              = InfluxDbClusterStatus("DELETED")
+)
+
+type InfluxDbClusterStatusOutput struct{ *pulumi.OutputState }
+
+func (InfluxDbClusterStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InfluxDbClusterStatus)(nil)).Elem()
+}
+
+func (o InfluxDbClusterStatusOutput) ToInfluxDbClusterStatusOutput() InfluxDbClusterStatusOutput {
+	return o
+}
+
+func (o InfluxDbClusterStatusOutput) ToInfluxDbClusterStatusOutputWithContext(ctx context.Context) InfluxDbClusterStatusOutput {
+	return o
+}
+
+func (o InfluxDbClusterStatusOutput) ToInfluxDbClusterStatusPtrOutput() InfluxDbClusterStatusPtrOutput {
+	return o.ToInfluxDbClusterStatusPtrOutputWithContext(context.Background())
+}
+
+func (o InfluxDbClusterStatusOutput) ToInfluxDbClusterStatusPtrOutputWithContext(ctx context.Context) InfluxDbClusterStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InfluxDbClusterStatus) *InfluxDbClusterStatus {
+		return &v
+	}).(InfluxDbClusterStatusPtrOutput)
+}
+
+func (o InfluxDbClusterStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o InfluxDbClusterStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e InfluxDbClusterStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o InfluxDbClusterStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o InfluxDbClusterStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e InfluxDbClusterStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type InfluxDbClusterStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (InfluxDbClusterStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InfluxDbClusterStatus)(nil)).Elem()
+}
+
+func (o InfluxDbClusterStatusPtrOutput) ToInfluxDbClusterStatusPtrOutput() InfluxDbClusterStatusPtrOutput {
+	return o
+}
+
+func (o InfluxDbClusterStatusPtrOutput) ToInfluxDbClusterStatusPtrOutputWithContext(ctx context.Context) InfluxDbClusterStatusPtrOutput {
+	return o
+}
+
+func (o InfluxDbClusterStatusPtrOutput) Elem() InfluxDbClusterStatusOutput {
+	return o.ApplyT(func(v *InfluxDbClusterStatus) InfluxDbClusterStatus {
+		if v != nil {
+			return *v
+		}
+		var ret InfluxDbClusterStatus
+		return ret
+	}).(InfluxDbClusterStatusOutput)
+}
+
+func (o InfluxDbClusterStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o InfluxDbClusterStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *InfluxDbClusterStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
 // The compute instance of the InfluxDB instance.
 type InfluxDbInstanceDbInstanceType string
 
@@ -1798,6 +2834,16 @@ func (in *tablePartitionKeyTypePtr) ToTablePartitionKeyTypePtrOutputWithContext(
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*InfluxDbClusterDbInstanceTypeInput)(nil)).Elem(), InfluxDbClusterDbInstanceType("db.influx.medium"))
+	pulumi.RegisterInputType(reflect.TypeOf((*InfluxDbClusterDbInstanceTypePtrInput)(nil)).Elem(), InfluxDbClusterDbInstanceType("db.influx.medium"))
+	pulumi.RegisterInputType(reflect.TypeOf((*InfluxDbClusterDbStorageTypeInput)(nil)).Elem(), InfluxDbClusterDbStorageType("InfluxIOIncludedT1"))
+	pulumi.RegisterInputType(reflect.TypeOf((*InfluxDbClusterDbStorageTypePtrInput)(nil)).Elem(), InfluxDbClusterDbStorageType("InfluxIOIncludedT1"))
+	pulumi.RegisterInputType(reflect.TypeOf((*InfluxDbClusterDeploymentTypeInput)(nil)).Elem(), InfluxDbClusterDeploymentType("MULTI_NODE_READ_REPLICAS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*InfluxDbClusterDeploymentTypePtrInput)(nil)).Elem(), InfluxDbClusterDeploymentType("MULTI_NODE_READ_REPLICAS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*InfluxDbClusterFailoverModeInput)(nil)).Elem(), InfluxDbClusterFailoverMode("AUTOMATIC"))
+	pulumi.RegisterInputType(reflect.TypeOf((*InfluxDbClusterFailoverModePtrInput)(nil)).Elem(), InfluxDbClusterFailoverMode("AUTOMATIC"))
+	pulumi.RegisterInputType(reflect.TypeOf((*InfluxDbClusterNetworkTypeInput)(nil)).Elem(), InfluxDbClusterNetworkType("IPV4"))
+	pulumi.RegisterInputType(reflect.TypeOf((*InfluxDbClusterNetworkTypePtrInput)(nil)).Elem(), InfluxDbClusterNetworkType("IPV4"))
 	pulumi.RegisterInputType(reflect.TypeOf((*InfluxDbInstanceDbInstanceTypeInput)(nil)).Elem(), InfluxDbInstanceDbInstanceType("db.influx.medium"))
 	pulumi.RegisterInputType(reflect.TypeOf((*InfluxDbInstanceDbInstanceTypePtrInput)(nil)).Elem(), InfluxDbInstanceDbInstanceType("db.influx.medium"))
 	pulumi.RegisterInputType(reflect.TypeOf((*InfluxDbInstanceDbStorageTypeInput)(nil)).Elem(), InfluxDbInstanceDbStorageType("InfluxIOIncludedT1"))
@@ -1818,6 +2864,20 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TablePartitionKeyEnforcementLevelPtrInput)(nil)).Elem(), TablePartitionKeyEnforcementLevel("REQUIRED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TablePartitionKeyTypeInput)(nil)).Elem(), TablePartitionKeyType("DIMENSION"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TablePartitionKeyTypePtrInput)(nil)).Elem(), TablePartitionKeyType("DIMENSION"))
+	pulumi.RegisterOutputType(InfluxDbClusterDbInstanceTypeOutput{})
+	pulumi.RegisterOutputType(InfluxDbClusterDbInstanceTypePtrOutput{})
+	pulumi.RegisterOutputType(InfluxDbClusterDbStorageTypeOutput{})
+	pulumi.RegisterOutputType(InfluxDbClusterDbStorageTypePtrOutput{})
+	pulumi.RegisterOutputType(InfluxDbClusterDeploymentTypeOutput{})
+	pulumi.RegisterOutputType(InfluxDbClusterDeploymentTypePtrOutput{})
+	pulumi.RegisterOutputType(InfluxDbClusterEngineTypeOutput{})
+	pulumi.RegisterOutputType(InfluxDbClusterEngineTypePtrOutput{})
+	pulumi.RegisterOutputType(InfluxDbClusterFailoverModeOutput{})
+	pulumi.RegisterOutputType(InfluxDbClusterFailoverModePtrOutput{})
+	pulumi.RegisterOutputType(InfluxDbClusterNetworkTypeOutput{})
+	pulumi.RegisterOutputType(InfluxDbClusterNetworkTypePtrOutput{})
+	pulumi.RegisterOutputType(InfluxDbClusterStatusOutput{})
+	pulumi.RegisterOutputType(InfluxDbClusterStatusPtrOutput{})
 	pulumi.RegisterOutputType(InfluxDbInstanceDbInstanceTypeOutput{})
 	pulumi.RegisterOutputType(InfluxDbInstanceDbInstanceTypePtrOutput{})
 	pulumi.RegisterOutputType(InfluxDbInstanceDbStorageTypeOutput{})

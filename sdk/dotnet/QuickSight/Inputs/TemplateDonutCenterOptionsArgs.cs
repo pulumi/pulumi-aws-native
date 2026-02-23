@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         /// Determines the visibility of the label in a donut chart. In the Quick Sight console, this option is called `'Show total'` .
         /// </summary>
         [Input("labelVisibility")]
-        public Input<object>? LabelVisibility { get; set; }
+        public Input<Pulumi.AwsNative.QuickSight.TemplateVisibility>? LabelVisibility { get; set; }
 
         public TemplateDonutCenterOptionsArgs()
         {

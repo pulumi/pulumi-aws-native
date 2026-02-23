@@ -109,7 +109,7 @@ class GetAutomationRuleResult:
     @pulumi.getter(name="isTerminal")
     def is_terminal(self) -> Optional[_builtins.bool]:
         """
-        Specifies whether a rule is the last to be applied with respect to a finding that matches the rule criteria. This is useful when a finding matches the criteria for multiple rules, and each rule has different actions. If a rule is terminal, Security Hub applies the rule action to a finding that matches the rule criteria and doesn't evaluate other rules for the finding. By default, a rule isn't terminal.
+        Specifies whether a rule is the last to be applied with respect to a finding that matches the rule criteria. This is useful when a finding matches the criteria for multiple rules, and each rule has different actions. If a rule is terminal, Security Hub CSPM applies the rule action to a finding that matches the rule criteria and doesn't evaluate other rules for the finding. By default, a rule isn't terminal.
         """
         return pulumi.get(self, "is_terminal")
 
@@ -133,7 +133,7 @@ class GetAutomationRuleResult:
     @pulumi.getter(name="ruleOrder")
     def rule_order(self) -> Optional[_builtins.int]:
         """
-        An integer ranging from 1 to 1000 that represents the order in which the rule action is applied to findings. Security Hub applies rules with lower values for this parameter first.
+        An integer ranging from 1 to 1000 that represents the order in which the rule action is applied to findings. Security Hub CSPM applies rules with lower values for this parameter first.
         """
         return pulumi.get(self, "rule_order")
 

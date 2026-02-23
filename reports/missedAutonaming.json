@@ -3093,6 +3093,10 @@
         },
         "description": "The mapping between 3rd party event types and ObjectType names"
       },
+      "scope": {
+        "$ref": "#/types/aws-native:customerprofiles:IntegrationScope",
+        "description": "Scope of the integration, such as 'PROFILE' or 'DOMAIN'"
+      },
       "tags": {
         "type": "array",
         "items": {
@@ -4764,7 +4768,7 @@
         "description": "The ID of the Outpost hardware asset."
       },
       "autoPlacement": {
-        "type": "string",
+        "$ref": "#/types/aws-native:ec2:HostAutoPlacement",
         "description": "Indicates whether the host accepts any untargeted instance launches that match its instance type configuration, or if it only accepts Host tenancy instance launches that specify its unique host ID."
       },
       "availabilityZone": {
@@ -4772,11 +4776,11 @@
         "description": "The Availability Zone in which to allocate the Dedicated Host."
       },
       "hostMaintenance": {
-        "type": "string",
+        "$ref": "#/types/aws-native:ec2:HostMaintenance",
         "description": "Automatically allocates a new dedicated host and moves your instances on to it if a degradation is detected on your current host."
       },
       "hostRecovery": {
-        "type": "string",
+        "$ref": "#/types/aws-native:ec2:HostRecovery",
         "description": "Indicates whether to enable or disable host recovery for the Dedicated Host. Host recovery is disabled by default."
       },
       "instanceFamily": {
@@ -7141,7 +7145,8 @@
         "description": "The device name (for example, ``/dev/sdh`` or ``xvdh``)."
       },
       "ebsCardIndex": {
-        "type": "integer"
+        "type": "integer",
+        "description": "The index of the EBS card. Some instance types support multiple EBS cards. The default EBS card index is 0."
       },
       "instanceId": {
         "type": "string",
@@ -13136,7 +13141,7 @@
       },
       "port": {
         "type": "integer",
-        "description": "The port number on which the DB instances in the DB cluster accept connections.\n Default:\n  +  When ``EngineMode`` is ``provisioned``, ``3306`` (for both Aurora MySQL and Aurora PostgreSQL)\n  +  When ``EngineMode`` is ``serverless``:\n  +  ``3306`` when ``Engine`` is ``aurora`` or ``aurora-mysql``\n  +  ``5432`` when ``Engine`` is ``aurora-postgresql``\n  \n  \n  The ``No interruption`` on update behavior only applies to DB clusters. If you are updating a DB instance, see [Port](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-port) for the AWS::RDS::DBInstance resource.\n  Valid for: Aurora DB clusters and Multi-AZ DB clusters"
+        "description": "The port number on which the DB instances in the DB cluster accept connections.\n Default:\n  +  RDS for MySQL and Aurora MySQL - ``3306``\n  +  RDS for PostgreSQL and Aurora PostgreSQL - ``5432``\n  \n  The ``No interruption`` on update behavior only applies to DB clusters. If you are updating a DB instance, see [Port](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-port) for the AWS::RDS::DBInstance resource.\n  Valid for: Aurora DB clusters and Multi-AZ DB clusters"
       },
       "preferredBackupWindow": {
         "type": "string",
@@ -14760,7 +14765,7 @@
     "properties": {
       "adminAccountId": {
         "type": "string",
-        "description": "The AWS-account identifier of the account to designate as the Security Hub administrator account."
+        "description": "The AWS-account identifier of the account to designate as the Security Hub CSPM administrator account."
       }
     }
   },

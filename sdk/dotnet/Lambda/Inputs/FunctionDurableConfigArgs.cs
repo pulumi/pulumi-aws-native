@@ -10,16 +10,19 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Lambda.Inputs
 {
 
+    /// <summary>
+    /// Configuration settings for [durable functions](https://docs.aws.amazon.com/lambda/latest/dg/durable-functions.html), including execution timeout and retention period for execution history.
+    /// </summary>
     public sealed class FunctionDurableConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The amount of time (in seconds) that Lambda allows a durable function to run before stopping it. The maximum is one 366-day year or 31,622,400 seconds.
+        /// The maximum time (in seconds) that a durable execution can run before timing out. This timeout applies to the entire durable execution, not individual function invocations.
         /// </summary>
         [Input("executionTimeout", required: true)]
         public Input<int> ExecutionTimeout { get; set; } = null!;
 
         /// <summary>
-        /// The number of days after a durable execution is closed that Lambda retains its history, from one to 90 days. The default is 14 days.
+        /// The number of days to retain execution history after a durable execution completes. After this period, execution history is no longer available through the GetDurableExecutionHistory API.
         /// </summary>
         [Input("retentionPeriodInDays")]
         public Input<int>? RetentionPeriodInDays { get; set; }

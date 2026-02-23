@@ -34,7 +34,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// <summary>
         /// Configuration option that determines whether to show the markers in the series.
         /// </summary>
-        public readonly object? MarkerVisibility;
+        public readonly Pulumi.AwsNative.QuickSight.TemplateVisibility? MarkerVisibility;
 
         [OutputConstructor]
         private TemplateLineChartMarkerStyleSettings(
@@ -44,7 +44,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 
             string? markerSize,
 
-            object? markerVisibility)
+            Pulumi.AwsNative.QuickSight.TemplateVisibility? markerVisibility)
         {
             MarkerColor = markerColor;
             MarkerShape = markerShape;

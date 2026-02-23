@@ -382,7 +382,7 @@ type Function struct {
 	DeadLetterConfig FunctionDeadLetterConfigPtrOutput `pulumi:"deadLetterConfig"`
 	// A description of the function.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Configuration settings for [durable functions](https://docs.aws.amazon.com/lambda/latest/dg/durable-functions.html) , including execution timeout and retention period for execution history.
+	// Configuration settings for [durable functions](https://docs.aws.amazon.com/lambda/latest/dg/durable-functions.html), including execution timeout and retention period for execution history.
 	DurableConfig FunctionDurableConfigPtrOutput `pulumi:"durableConfig"`
 	// Environment variables that are accessible from function code during execution.
 	Environment FunctionEnvironmentPtrOutput `pulumi:"environment"`
@@ -514,7 +514,7 @@ type functionArgs struct {
 	DeadLetterConfig *FunctionDeadLetterConfig `pulumi:"deadLetterConfig"`
 	// A description of the function.
 	Description *string `pulumi:"description"`
-	// Configuration settings for [durable functions](https://docs.aws.amazon.com/lambda/latest/dg/durable-functions.html) , including execution timeout and retention period for execution history.
+	// Configuration settings for [durable functions](https://docs.aws.amazon.com/lambda/latest/dg/durable-functions.html), including execution timeout and retention period for execution history.
 	DurableConfig *FunctionDurableConfig `pulumi:"durableConfig"`
 	// Environment variables that are accessible from function code during execution.
 	Environment *FunctionEnvironment `pulumi:"environment"`
@@ -595,7 +595,7 @@ type FunctionArgs struct {
 	DeadLetterConfig FunctionDeadLetterConfigPtrInput
 	// A description of the function.
 	Description pulumi.StringPtrInput
-	// Configuration settings for [durable functions](https://docs.aws.amazon.com/lambda/latest/dg/durable-functions.html) , including execution timeout and retention period for execution history.
+	// Configuration settings for [durable functions](https://docs.aws.amazon.com/lambda/latest/dg/durable-functions.html), including execution timeout and retention period for execution history.
 	DurableConfig FunctionDurableConfigPtrInput
 	// Environment variables that are accessible from function code during execution.
 	Environment FunctionEnvironmentPtrInput
@@ -734,7 +734,7 @@ func (o FunctionOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Function) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Configuration settings for [durable functions](https://docs.aws.amazon.com/lambda/latest/dg/durable-functions.html) , including execution timeout and retention period for execution history.
+// Configuration settings for [durable functions](https://docs.aws.amazon.com/lambda/latest/dg/durable-functions.html), including execution timeout and retention period for execution history.
 func (o FunctionOutput) DurableConfig() FunctionDurableConfigPtrOutput {
 	return o.ApplyT(func(v *Function) FunctionDurableConfigPtrOutput { return v.DurableConfig }).(FunctionDurableConfigPtrOutput)
 }

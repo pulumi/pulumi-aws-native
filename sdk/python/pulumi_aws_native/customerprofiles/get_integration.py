@@ -15,6 +15,7 @@ else:
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
+from ._enums import *
 
 __all__ = [
     'GetIntegrationResult',
@@ -25,7 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetIntegrationResult:
-    def __init__(__self__, created_at=None, event_trigger_names=None, last_updated_at=None, object_type_name=None, object_type_names=None, tags=None):
+    def __init__(__self__, created_at=None, event_trigger_names=None, last_updated_at=None, object_type_name=None, object_type_names=None, scope=None, tags=None):
         if created_at and not isinstance(created_at, str):
             raise TypeError("Expected argument 'created_at' to be a str")
         pulumi.set(__self__, "created_at", created_at)
@@ -41,6 +42,9 @@ class GetIntegrationResult:
         if object_type_names and not isinstance(object_type_names, list):
             raise TypeError("Expected argument 'object_type_names' to be a list")
         pulumi.set(__self__, "object_type_names", object_type_names)
+        if scope and not isinstance(scope, str):
+            raise TypeError("Expected argument 'scope' to be a str")
+        pulumi.set(__self__, "scope", scope)
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
@@ -87,6 +91,14 @@ class GetIntegrationResult:
 
     @_builtins.property
     @pulumi.getter
+    def scope(self) -> Optional['IntegrationScope']:
+        """
+        Scope of the integration, such as 'PROFILE' or 'DOMAIN'
+        """
+        return pulumi.get(self, "scope")
+
+    @_builtins.property
+    @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
         """
         The tags (keys and values) associated with the integration
@@ -105,6 +117,7 @@ class AwaitableGetIntegrationResult(GetIntegrationResult):
             last_updated_at=self.last_updated_at,
             object_type_name=self.object_type_name,
             object_type_names=self.object_type_names,
+            scope=self.scope,
             tags=self.tags)
 
 
@@ -130,6 +143,7 @@ def get_integration(domain_name: Optional[_builtins.str] = None,
         last_updated_at=pulumi.get(__ret__, 'last_updated_at'),
         object_type_name=pulumi.get(__ret__, 'object_type_name'),
         object_type_names=pulumi.get(__ret__, 'object_type_names'),
+        scope=pulumi.get(__ret__, 'scope'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_integration_output(domain_name: Optional[pulumi.Input[_builtins.str]] = None,
                            uri: Optional[pulumi.Input[_builtins.str]] = None,
@@ -152,4 +166,5 @@ def get_integration_output(domain_name: Optional[pulumi.Input[_builtins.str]] = 
         last_updated_at=pulumi.get(__response__, 'last_updated_at'),
         object_type_name=pulumi.get(__response__, 'object_type_name'),
         object_type_names=pulumi.get(__response__, 'object_type_names'),
+        scope=pulumi.get(__response__, 'scope'),
         tags=pulumi.get(__response__, 'tags')))

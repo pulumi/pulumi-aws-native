@@ -16,10 +16,10 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// <summary>
         /// Determines whether or not missing dates are displayed.
         /// </summary>
-        public readonly object? MissingDateVisibility;
+        public readonly Pulumi.AwsNative.QuickSight.TemplateVisibility? MissingDateVisibility;
 
         [OutputConstructor]
-        private TemplateDateAxisOptions(object? missingDateVisibility)
+        private TemplateDateAxisOptions(Pulumi.AwsNative.QuickSight.TemplateVisibility? missingDateVisibility)
         {
             MissingDateVisibility = missingDateVisibility;
         }

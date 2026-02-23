@@ -66,7 +66,7 @@ namespace Pulumi.AwsNative.Ec2
         /// <summary>
         /// Indicates whether the host accepts any untargeted instance launches that match its instance type configuration, or if it only accepts Host tenancy instance launches that specify its unique host ID.
         /// </summary>
-        public readonly string? AutoPlacement;
+        public readonly Pulumi.AwsNative.Ec2.HostAutoPlacement? AutoPlacement;
         /// <summary>
         /// ID of the host created.
         /// </summary>
@@ -74,11 +74,11 @@ namespace Pulumi.AwsNative.Ec2
         /// <summary>
         /// Automatically allocates a new dedicated host and moves your instances on to it if a degradation is detected on your current host.
         /// </summary>
-        public readonly string? HostMaintenance;
+        public readonly Pulumi.AwsNative.Ec2.HostMaintenance? HostMaintenance;
         /// <summary>
         /// Indicates whether to enable or disable host recovery for the Dedicated Host. Host recovery is disabled by default.
         /// </summary>
-        public readonly string? HostRecovery;
+        public readonly Pulumi.AwsNative.Ec2.HostRecovery? HostRecovery;
         /// <summary>
         /// Any tags assigned to the Host.
         /// </summary>
@@ -86,13 +86,13 @@ namespace Pulumi.AwsNative.Ec2
 
         [OutputConstructor]
         private GetHostResult(
-            string? autoPlacement,
+            Pulumi.AwsNative.Ec2.HostAutoPlacement? autoPlacement,
 
             string? hostId,
 
-            string? hostMaintenance,
+            Pulumi.AwsNative.Ec2.HostMaintenance? hostMaintenance,
 
-            string? hostRecovery,
+            Pulumi.AwsNative.Ec2.HostRecovery? hostRecovery,
 
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {

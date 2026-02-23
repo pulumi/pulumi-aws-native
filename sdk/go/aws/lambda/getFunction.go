@@ -54,7 +54,7 @@ type LookupFunctionResult struct {
 	DeadLetterConfig *FunctionDeadLetterConfig `pulumi:"deadLetterConfig"`
 	// A description of the function.
 	Description *string `pulumi:"description"`
-	// Configuration settings for [durable functions](https://docs.aws.amazon.com/lambda/latest/dg/durable-functions.html) , including execution timeout and retention period for execution history.
+	// Configuration settings for [durable functions](https://docs.aws.amazon.com/lambda/latest/dg/durable-functions.html), including execution timeout and retention period for execution history.
 	DurableConfig *FunctionDurableConfig `pulumi:"durableConfig"`
 	// Environment variables that are accessible from function code during execution.
 	Environment *FunctionEnvironment `pulumi:"environment"`
@@ -180,7 +180,7 @@ func (o LookupFunctionResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupFunctionResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Configuration settings for [durable functions](https://docs.aws.amazon.com/lambda/latest/dg/durable-functions.html) , including execution timeout and retention period for execution history.
+// Configuration settings for [durable functions](https://docs.aws.amazon.com/lambda/latest/dg/durable-functions.html), including execution timeout and retention period for execution history.
 func (o LookupFunctionResultOutput) DurableConfig() FunctionDurableConfigPtrOutput {
 	return o.ApplyT(func(v LookupFunctionResult) *FunctionDurableConfig { return v.DurableConfig }).(FunctionDurableConfigPtrOutput)
 }

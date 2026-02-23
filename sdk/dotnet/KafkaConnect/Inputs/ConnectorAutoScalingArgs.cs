@@ -16,6 +16,12 @@ namespace Pulumi.AwsNative.KafkaConnect.Inputs
     public sealed class ConnectorAutoScalingArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The maximum number of tasks allocated to the connector during autoscaling operations.
+        /// </summary>
+        [Input("maxAutoscalingTaskCount")]
+        public Input<int>? MaxAutoscalingTaskCount { get; set; }
+
+        /// <summary>
         /// The maximum number of workers for a connector.
         /// </summary>
         [Input("maxWorkerCount", required: true)]

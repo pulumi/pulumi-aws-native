@@ -1254,6 +1254,7 @@ _utilities.register(
   "fqn": "pulumi_aws_native.cloudwatch",
   "classes": {
    "aws-native:cloudwatch:Alarm": "Alarm",
+   "aws-native:cloudwatch:AlarmMuteRule": "AlarmMuteRule",
    "aws-native:cloudwatch:CompositeAlarm": "CompositeAlarm",
    "aws-native:cloudwatch:Dashboard": "Dashboard",
    "aws-native:cloudwatch:MetricStream": "MetricStream"
@@ -3555,6 +3556,7 @@ _utilities.register(
   "fqn": "pulumi_aws_native.timestream",
   "classes": {
    "aws-native:timestream:Database": "Database",
+   "aws-native:timestream:InfluxDbCluster": "InfluxDbCluster",
    "aws-native:timestream:InfluxDbInstance": "InfluxDbInstance",
    "aws-native:timestream:ScheduledQuery": "ScheduledQuery",
    "aws-native:timestream:Table": "Table"

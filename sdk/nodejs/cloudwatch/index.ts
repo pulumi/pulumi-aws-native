@@ -10,6 +10,11 @@ export type Alarm = import("./alarm").Alarm;
 export const Alarm: typeof import("./alarm").Alarm = null as any;
 utilities.lazyLoad(exports, ["Alarm"], () => require("./alarm"));
 
+export { AlarmMuteRuleArgs } from "./alarmMuteRule";
+export type AlarmMuteRule = import("./alarmMuteRule").AlarmMuteRule;
+export const AlarmMuteRule: typeof import("./alarmMuteRule").AlarmMuteRule = null as any;
+utilities.lazyLoad(exports, ["AlarmMuteRule"], () => require("./alarmMuteRule"));
+
 export { CompositeAlarmArgs } from "./compositeAlarm";
 export type CompositeAlarm = import("./compositeAlarm").CompositeAlarm;
 export const CompositeAlarm: typeof import("./compositeAlarm").CompositeAlarm = null as any;
@@ -24,6 +29,11 @@ export { GetAlarmArgs, GetAlarmResult, GetAlarmOutputArgs } from "./getAlarm";
 export const getAlarm: typeof import("./getAlarm").getAlarm = null as any;
 export const getAlarmOutput: typeof import("./getAlarm").getAlarmOutput = null as any;
 utilities.lazyLoad(exports, ["getAlarm","getAlarmOutput"], () => require("./getAlarm"));
+
+export { GetAlarmMuteRuleArgs, GetAlarmMuteRuleResult, GetAlarmMuteRuleOutputArgs } from "./getAlarmMuteRule";
+export const getAlarmMuteRule: typeof import("./getAlarmMuteRule").getAlarmMuteRule = null as any;
+export const getAlarmMuteRuleOutput: typeof import("./getAlarmMuteRule").getAlarmMuteRuleOutput = null as any;
+utilities.lazyLoad(exports, ["getAlarmMuteRule","getAlarmMuteRuleOutput"], () => require("./getAlarmMuteRule"));
 
 export { GetCompositeAlarmArgs, GetCompositeAlarmResult, GetCompositeAlarmOutputArgs } from "./getCompositeAlarm";
 export const getCompositeAlarm: typeof import("./getCompositeAlarm").getCompositeAlarm = null as any;
@@ -46,12 +56,17 @@ export const MetricStream: typeof import("./metricStream").MetricStream = null a
 utilities.lazyLoad(exports, ["MetricStream"], () => require("./metricStream"));
 
 
+// Export enums:
+export * from "../types/enums/cloudwatch";
+
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
             case "aws-native:cloudwatch:Alarm":
                 return new Alarm(name, <any>undefined, { urn })
+            case "aws-native:cloudwatch:AlarmMuteRule":
+                return new AlarmMuteRule(name, <any>undefined, { urn })
             case "aws-native:cloudwatch:CompositeAlarm":
                 return new CompositeAlarm(name, <any>undefined, { urn })
             case "aws-native:cloudwatch:Dashboard":

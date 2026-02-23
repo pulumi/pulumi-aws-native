@@ -20,7 +20,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// <summary>
         /// Determines whether or not a background for each small multiples panel is rendered.
         /// </summary>
-        public readonly object? BackgroundVisibility;
+        public readonly Pulumi.AwsNative.QuickSight.TemplateVisibility? BackgroundVisibility;
         /// <summary>
         /// Sets the line color of panel borders.
         /// </summary>
@@ -36,7 +36,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// <summary>
         /// Determines whether or not each panel displays a border.
         /// </summary>
-        public readonly object? BorderVisibility;
+        public readonly Pulumi.AwsNative.QuickSight.TemplateVisibility? BorderVisibility;
         /// <summary>
         /// String based length that is composed of value and unit in px
         /// </summary>
@@ -44,7 +44,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// <summary>
         /// Determines whether or not negative space between sibling panels is rendered.
         /// </summary>
-        public readonly object? GutterVisibility;
+        public readonly Pulumi.AwsNative.QuickSight.TemplateVisibility? GutterVisibility;
         /// <summary>
         /// Configures the title display within each small multiples panel.
         /// </summary>
@@ -54,7 +54,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         private TemplatePanelConfiguration(
             string? backgroundColor,
 
-            object? backgroundVisibility,
+            Pulumi.AwsNative.QuickSight.TemplateVisibility? backgroundVisibility,
 
             string? borderColor,
 
@@ -62,11 +62,11 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 
             string? borderThickness,
 
-            object? borderVisibility,
+            Pulumi.AwsNative.QuickSight.TemplateVisibility? borderVisibility,
 
             string? gutterSpacing,
 
-            object? gutterVisibility,
+            Pulumi.AwsNative.QuickSight.TemplateVisibility? gutterVisibility,
 
             Outputs.TemplatePanelTitleOptions? title)
         {
