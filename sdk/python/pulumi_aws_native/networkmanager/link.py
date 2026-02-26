@@ -32,6 +32,7 @@ class LinkArgs:
                  type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Link resource.
+
         :param pulumi.Input['LinkBandwidthArgs'] bandwidth: The Bandwidth for the link.
         :param pulumi.Input[_builtins.str] global_network_id: The ID of the global network.
         :param pulumi.Input[_builtins.str] site_id: The ID of the site
@@ -154,6 +155,7 @@ class Link(pulumi.CustomResource):
         """
         The AWS::NetworkManager::Link type describes a link.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['LinkBandwidthArgs', 'LinkBandwidthArgsDict']] bandwidth: The Bandwidth for the link.
@@ -172,6 +174,7 @@ class Link(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The AWS::NetworkManager::Link type describes a link.
+
 
         :param str resource_name: The name of the resource.
         :param LinkArgs args: The arguments to use to populate this resource's properties.

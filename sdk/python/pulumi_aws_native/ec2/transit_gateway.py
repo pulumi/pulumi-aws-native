@@ -38,6 +38,7 @@ class TransitGatewayArgs:
                  vpn_ecmp_support: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a TransitGateway resource.
+
         :param pulumi.Input[_builtins.int] amazon_side_asn: A private Autonomous System Number (ASN) for the Amazon side of a BGP session. The range is 64512 to 65534 for 16-bit ASNs. The default is 64512.
         :param pulumi.Input[_builtins.str] association_default_route_table_id: The ID of the default association route table.
         :param pulumi.Input[_builtins.str] auto_accept_shared_attachments: Enable or disable automatic acceptance of attachment requests. Disabled by default.
@@ -279,6 +280,7 @@ class TransitGateway(pulumi.CustomResource):
         """
         Resource Type definition for AWS::EC2::TransitGateway
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.int] amazon_side_asn: A private Autonomous System Number (ASN) for the Amazon side of a BGP session. The range is 64512 to 65534 for 16-bit ASNs. The default is 64512.
@@ -306,6 +308,7 @@ class TransitGateway(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::EC2::TransitGateway
+
 
         :param str resource_name: The name of the resource.
         :param TransitGatewayArgs args: The arguments to use to populate this resource's properties.

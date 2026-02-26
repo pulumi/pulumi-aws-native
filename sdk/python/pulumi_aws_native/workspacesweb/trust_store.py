@@ -25,6 +25,7 @@ class TrustStoreArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a TrustStore resource.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] certificate_list: A list of CA certificates to be added to the trust store.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags to add to the trust store. A tag is a key-value pair.
         """
@@ -69,6 +70,7 @@ class TrustStore(pulumi.CustomResource):
         """
         Definition of AWS::WorkSpacesWeb::TrustStore Resource Type
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] certificate_list: A list of CA certificates to be added to the trust store.
@@ -82,6 +84,7 @@ class TrustStore(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of AWS::WorkSpacesWeb::TrustStore Resource Type
+
 
         :param str resource_name: The name of the resource.
         :param TrustStoreArgs args: The arguments to use to populate this resource's properties.

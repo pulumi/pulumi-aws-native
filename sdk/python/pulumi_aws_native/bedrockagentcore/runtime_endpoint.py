@@ -27,6 +27,7 @@ class RuntimeEndpointArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a RuntimeEndpoint resource.
+
         :param pulumi.Input[_builtins.str] agent_runtime_id: The ID of the parent Agent Runtime (required for creation)
         :param pulumi.Input[_builtins.str] agent_runtime_version: The version of the AgentCore Runtime to use for the endpoint.
         :param pulumi.Input[_builtins.str] description: The description of the AgentCore Runtime endpoint.
@@ -119,6 +120,7 @@ class RuntimeEndpoint(pulumi.CustomResource):
         """
         Resource definition for AWS::BedrockAgentCore::RuntimeEndpoint
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] agent_runtime_id: The ID of the parent Agent Runtime (required for creation)
@@ -135,6 +137,7 @@ class RuntimeEndpoint(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource definition for AWS::BedrockAgentCore::RuntimeEndpoint
+
 
         :param str resource_name: The name of the resource.
         :param RuntimeEndpointArgs args: The arguments to use to populate this resource's properties.

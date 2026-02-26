@@ -35,6 +35,7 @@ class CloudWatchAlarmTemplateArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a CloudWatchAlarmTemplate resource.
+
         :param pulumi.Input['CloudWatchAlarmTemplateComparisonOperator'] comparison_operator: The comparison operator used to compare the specified statistic and the threshold.
         :param pulumi.Input[_builtins.float] evaluation_periods: The number of periods over which data is compared to the specified threshold.
         :param pulumi.Input[_builtins.str] metric_name: The name of the metric associated with the alarm. Must be compatible with targetResourceType.
@@ -244,6 +245,7 @@ class CloudWatchAlarmTemplate(pulumi.CustomResource):
         """
         Definition of AWS::MediaLive::CloudWatchAlarmTemplate Resource Type
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input['CloudWatchAlarmTemplateComparisonOperator'] comparison_operator: The comparison operator used to compare the specified statistic and the threshold.
@@ -267,6 +269,7 @@ class CloudWatchAlarmTemplate(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of AWS::MediaLive::CloudWatchAlarmTemplate Resource Type
+
 
         :param str resource_name: The name of the resource.
         :param CloudWatchAlarmTemplateArgs args: The arguments to use to populate this resource's properties.

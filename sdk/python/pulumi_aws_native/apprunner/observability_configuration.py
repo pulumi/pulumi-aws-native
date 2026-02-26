@@ -29,6 +29,7 @@ class ObservabilityConfigurationArgs:
                  trace_configuration: Optional[pulumi.Input['ObservabilityConfigurationTraceConfigurationArgs']] = None):
         """
         The set of arguments for constructing a ObservabilityConfiguration resource.
+
         :param pulumi.Input[_builtins.str] observability_configuration_name: A name for the observability configuration. When you use it for the first time in an AWS Region, App Runner creates revision number 1 of this name. When you use the same name in subsequent calls, App Runner creates incremental revisions of the configuration.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]] tags: A list of metadata items that you can associate with your observability configuration resource. A tag is a key-value pair.
         :param pulumi.Input['ObservabilityConfigurationTraceConfigurationArgs'] trace_configuration: The configuration of the tracing feature within this observability configuration. If you don't specify it, App Runner doesn't enable tracing.
@@ -90,6 +91,7 @@ class ObservabilityConfiguration(pulumi.CustomResource):
         """
         The AWS::AppRunner::ObservabilityConfiguration resource  is an AWS App Runner resource type that specifies an App Runner observability configuration
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] observability_configuration_name: A name for the observability configuration. When you use it for the first time in an AWS Region, App Runner creates revision number 1 of this name. When you use the same name in subsequent calls, App Runner creates incremental revisions of the configuration.
@@ -104,6 +106,7 @@ class ObservabilityConfiguration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The AWS::AppRunner::ObservabilityConfiguration resource  is an AWS App Runner resource type that specifies an App Runner observability configuration
+
 
         :param str resource_name: The name of the resource.
         :param ObservabilityConfigurationArgs args: The arguments to use to populate this resource's properties.

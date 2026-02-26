@@ -37,6 +37,7 @@ class ModelBiasJobDefinitionArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]] = None):
         """
         The set of arguments for constructing a ModelBiasJobDefinition resource.
+
         :param pulumi.Input['ModelBiasJobDefinitionMonitoringResourcesArgs'] job_resources: Identifies the resources to deploy for a monitoring job.
         :param pulumi.Input['ModelBiasJobDefinitionModelBiasAppSpecificationArgs'] model_bias_app_specification: Configures the model bias job to run a specified Docker container image.
         :param pulumi.Input['ModelBiasJobDefinitionModelBiasJobInputArgs'] model_bias_job_input: Inputs for the model bias job.
@@ -217,6 +218,7 @@ class ModelBiasJobDefinition(pulumi.CustomResource):
         """
         Resource Type definition for AWS::SageMaker::ModelBiasJobDefinition
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] job_definition_name: The name of the bias job definition. The name must be unique within an AWS Region in the AWS account.
@@ -238,6 +240,7 @@ class ModelBiasJobDefinition(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::SageMaker::ModelBiasJobDefinition
+
 
         :param str resource_name: The name of the resource.
         :param ModelBiasJobDefinitionArgs args: The arguments to use to populate this resource's properties.

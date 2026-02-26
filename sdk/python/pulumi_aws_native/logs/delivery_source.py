@@ -27,6 +27,7 @@ class DeliverySourceArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a DeliverySource resource.
+
         :param pulumi.Input[_builtins.str] log_type: The type of logs being delivered. Only mandatory when the resourceArn could match more than one. In such a case, the error message will contain all the possible options.
         :param pulumi.Input[_builtins.str] name: The unique name of the Log source.
         :param pulumi.Input[_builtins.str] resource_arn: The ARN of the resource that will be sending the logs.
@@ -106,6 +107,7 @@ class DeliverySource(pulumi.CustomResource):
 
         Only some AWS services support being configured as a delivery source. These services are listed as Supported [V2 Permissions] in the table at [Enabling logging from AWS services](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.html).
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] log_type: The type of logs being delivered. Only mandatory when the resourceArn could match more than one. In such a case, the error message will contain all the possible options.
@@ -123,6 +125,7 @@ class DeliverySource(pulumi.CustomResource):
          A delivery source is an AWS resource that sends logs to an AWS destination. The destination can be CloudWatch Logs, Amazon S3, or Kinesis Data Firehose.
 
         Only some AWS services support being configured as a delivery source. These services are listed as Supported [V2 Permissions] in the table at [Enabling logging from AWS services](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.html).
+
 
         :param str resource_name: The name of the resource.
         :param DeliverySourceArgs args: The arguments to use to populate this resource's properties.

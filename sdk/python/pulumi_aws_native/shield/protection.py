@@ -31,6 +31,7 @@ class ProtectionArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Protection resource.
+
         :param pulumi.Input[_builtins.str] resource_arn: The ARN (Amazon Resource Name) of the resource to be protected.
         :param pulumi.Input['ProtectionApplicationLayerAutomaticResponseConfigurationArgs'] application_layer_automatic_response_configuration: The automatic application layer DDoS mitigation settings for the protection. This configuration determines whether Shield Advanced automatically manages rules in the web ACL in order to respond to application layer events that Shield Advanced determines to be DDoS attacks.
                
@@ -127,6 +128,7 @@ class Protection(pulumi.CustomResource):
         """
         Enables AWS Shield Advanced for a specific AWS resource. The resource can be an Amazon CloudFront distribution, Amazon Route 53 hosted zone, AWS Global Accelerator standard accelerator, Elastic IP Address, Application Load Balancer, or a Classic Load Balancer. You can protect Amazon EC2 instances and Network Load Balancers by association with protected Amazon EC2 Elastic IP addresses.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ProtectionApplicationLayerAutomaticResponseConfigurationArgs', 'ProtectionApplicationLayerAutomaticResponseConfigurationArgsDict']] application_layer_automatic_response_configuration: The automatic application layer DDoS mitigation settings for the protection. This configuration determines whether Shield Advanced automatically manages rules in the web ACL in order to respond to application layer events that Shield Advanced determines to be DDoS attacks.
@@ -145,6 +147,7 @@ class Protection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Enables AWS Shield Advanced for a specific AWS resource. The resource can be an Amazon CloudFront distribution, Amazon Route 53 hosted zone, AWS Global Accelerator standard accelerator, Elastic IP Address, Application Load Balancer, or a Classic Load Balancer. You can protect Amazon EC2 instances and Network Load Balancers by association with protected Amazon EC2 Elastic IP addresses.
+
 
         :param str resource_name: The name of the resource.
         :param ProtectionArgs args: The arguments to use to populate this resource's properties.

@@ -30,6 +30,7 @@ class CaseRuleArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a CaseRule resource.
+
         :param pulumi.Input[Union['CaseRuleDetails0PropertiesArgs', 'CaseRuleDetails1PropertiesArgs']] rule: Represents what rule type should take place, under what conditions.
         :param pulumi.Input[_builtins.str] description: A description explaining the purpose and behavior of this case rule. Helps administrators understand when and why this rule applies to case fields.
         :param pulumi.Input[_builtins.str] domain_id: The unique identifier of the Cases domain.
@@ -122,6 +123,7 @@ class CaseRule(pulumi.CustomResource):
         """
         A case rule. In the Amazon Connect admin website, case rules are known as case field conditions. Case rules are used to define the situations under which fields should have certain effects (such as required).
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: A description explaining the purpose and behavior of this case rule. Helps administrators understand when and why this rule applies to case fields.
@@ -138,6 +140,7 @@ class CaseRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A case rule. In the Amazon Connect admin website, case rules are known as case field conditions. Case rules are used to define the situations under which fields should have certain effects (such as required).
+
 
         :param str resource_name: The name of the resource.
         :param CaseRuleArgs args: The arguments to use to populate this resource's properties.

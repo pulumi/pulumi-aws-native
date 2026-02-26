@@ -27,6 +27,7 @@ class ConnectorArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Connector resource.
+
         :param pulumi.Input[_builtins.str] certificate_authority_arn: The Amazon Resource Name (ARN) of the certificate authority associated with the connector.
         :param pulumi.Input['ConnectorMobileDeviceManagementArgs'] mobile_device_management: Contains settings relevant to the mobile device management system that you chose for the connector. If you didn't configure `MobileDeviceManagement` , then the connector is for general-purpose use and this object is empty.
         """
@@ -83,6 +84,7 @@ class Connector(pulumi.CustomResource):
         """
         Represents a Connector that allows certificate issuance through Simple Certificate Enrollment Protocol (SCEP)
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] certificate_authority_arn: The Amazon Resource Name (ARN) of the certificate authority associated with the connector.
@@ -96,6 +98,7 @@ class Connector(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Represents a Connector that allows certificate issuance through Simple Certificate Enrollment Protocol (SCEP)
+
 
         :param str resource_name: The name of the resource.
         :param ConnectorArgs args: The arguments to use to populate this resource's properties.

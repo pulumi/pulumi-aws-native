@@ -28,6 +28,7 @@ class TemplateGroupAccessControlEntryArgs:
                  template_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a TemplateGroupAccessControlEntry resource.
+
         :param pulumi.Input['TemplateGroupAccessControlEntryAccessRightsArgs'] access_rights: Permissions to allow or deny an Active Directory group to enroll or autoenroll certificates issued against a template.
         :param pulumi.Input[_builtins.str] group_display_name: Name of the Active Directory group. This name does not need to match the group name in Active Directory.
         :param pulumi.Input[_builtins.str] group_security_identifier: Security identifier (SID) of the group object from Active Directory. The SID starts with "S-".
@@ -103,6 +104,7 @@ class TemplateGroupAccessControlEntry(pulumi.CustomResource):
         """
         Definition of AWS::PCAConnectorAD::TemplateGroupAccessControlEntry Resource Type
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['TemplateGroupAccessControlEntryAccessRightsArgs', 'TemplateGroupAccessControlEntryAccessRightsArgsDict']] access_rights: Permissions to allow or deny an Active Directory group to enroll or autoenroll certificates issued against a template.
@@ -118,6 +120,7 @@ class TemplateGroupAccessControlEntry(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of AWS::PCAConnectorAD::TemplateGroupAccessControlEntry Resource Type
+
 
         :param str resource_name: The name of the resource.
         :param TemplateGroupAccessControlEntryArgs args: The arguments to use to populate this resource's properties.

@@ -34,6 +34,7 @@ class DataMigrationArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a DataMigration resource.
+
         :param pulumi.Input['DataMigrationType'] data_migration_type: The property describes the type of migration.
         :param pulumi.Input[_builtins.str] migration_project_identifier: The property describes an identifier for the migration project. It is used for describing/deleting/modifying can be name/arn
         :param pulumi.Input[_builtins.str] service_access_role_arn: The property describes Amazon Resource Name (ARN) of the service access role.
@@ -172,6 +173,7 @@ class DataMigration(pulumi.CustomResource):
         """
         Resource schema for AWS::DMS::DataMigration.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] data_migration_identifier: The property describes an ARN of the data migration.
@@ -191,6 +193,7 @@ class DataMigration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource schema for AWS::DMS::DataMigration.
+
 
         :param str resource_name: The name of the resource.
         :param DataMigrationArgs args: The arguments to use to populate this resource's properties.

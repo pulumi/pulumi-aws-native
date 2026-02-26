@@ -29,6 +29,7 @@ class KeyValueStoreArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a KeyValueStore resource.
+
         :param pulumi.Input[_builtins.str] comment: A comment for the key value store.
         :param pulumi.Input['KeyValueStoreImportSourceArgs'] import_source: The import source for the key value store.
         :param pulumi.Input[_builtins.str] name: The name of the key value store.
@@ -102,6 +103,7 @@ class KeyValueStore(pulumi.CustomResource):
         """
         The key value store. Use this to separate data from function code, allowing you to update data without having to publish a new version of a function. The key value store holds keys and their corresponding values.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] comment: A comment for the key value store.
@@ -116,6 +118,7 @@ class KeyValueStore(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The key value store. Use this to separate data from function code, allowing you to update data without having to publish a new version of a function. The key value store holds keys and their corresponding values.
+
 
         :param str resource_name: The name of the resource.
         :param KeyValueStoreArgs args: The arguments to use to populate this resource's properties.

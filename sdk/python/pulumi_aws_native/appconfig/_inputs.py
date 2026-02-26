@@ -48,6 +48,7 @@ class ConfigurationProfileValidatorsArgs:
                  type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         A list of methods for validating the configuration.
+
         :param pulumi.Input[_builtins.str] content: Either the JSON Schema content or the Amazon Resource Name (ARN) of an Lambda function.
         :param pulumi.Input[_builtins.str] type: AWS AppConfig supports validators of type JSON_SCHEMA and LAMBDA.
         """
@@ -170,6 +171,7 @@ class EnvironmentMonitorArgs:
                  alarm_role_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Amazon CloudWatch alarm to monitor during the deployment process.
+
         :param pulumi.Input[_builtins.str] alarm_arn: Amazon Resource Name (ARN) of the Amazon CloudWatch alarm.
         :param pulumi.Input[_builtins.str] alarm_role_arn: ARN of an AWS Identity and Access Management (IAM) role for AWS AppConfig to monitor AlarmArn.
         """
@@ -232,6 +234,7 @@ class ExtensionActionArgs:
                  role_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         An action for an extension to take at a specific action point.
+
         :param pulumi.Input[_builtins.str] name: The name of the extension action.
         :param pulumi.Input[_builtins.str] uri: The URI of the extension action.
         :param pulumi.Input[_builtins.str] description: The description of the extension Action.
@@ -312,6 +315,7 @@ class ExtensionParameterArgs:
                  dynamic: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         A parameter for the extension to send to a specific action.
+
         :param pulumi.Input[_builtins.str] description: The description of the extension Parameter.
         """
         pulumi.set(__self__, "required", required)

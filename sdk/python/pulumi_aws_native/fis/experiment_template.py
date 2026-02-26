@@ -33,6 +33,7 @@ class ExperimentTemplateArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ExperimentTemplate resource.
+
         :param pulumi.Input[_builtins.str] description: The description for the experiment template.
         :param pulumi.Input[_builtins.str] role_arn: The Amazon Resource Name (ARN) of an IAM role.
         :param pulumi.Input[Sequence[pulumi.Input['ExperimentTemplateStopConditionArgs']]] stop_conditions: The stop conditions for the experiment.
@@ -252,6 +253,7 @@ class ExperimentTemplate(pulumi.CustomResource):
 
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[Union['ExperimentTemplateActionArgs', 'ExperimentTemplateActionArgsDict']]]] actions: The actions for the experiment.
@@ -338,6 +340,7 @@ class ExperimentTemplate(pulumi.CustomResource):
             role_arn=fis_role.arn)
 
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ExperimentTemplateArgs args: The arguments to use to populate this resource's properties.

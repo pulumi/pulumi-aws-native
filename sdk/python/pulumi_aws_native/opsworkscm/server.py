@@ -46,6 +46,7 @@ class ServerArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Server resource.
+
         :param pulumi.Input[_builtins.str] instance_profile_arn: The ARN of the instance profile that your Amazon EC2 instances use.
         :param pulumi.Input[_builtins.str] instance_type: The Amazon EC2 instance type to use. For example, `m5.large` .
         :param pulumi.Input[_builtins.str] service_role_arn: The service role that the AWS OpsWorks CM service backend uses to work with your account.
@@ -516,6 +517,7 @@ class Server(pulumi.CustomResource):
 
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] associate_public_ip_address: Associate a public IP address with a server that you are launching. Valid values are `true` or `false` . The default value is `true` .
@@ -634,6 +636,7 @@ class Server(pulumi.CustomResource):
         pulumi.export("endpoint", my_chef_server.endpoint)
 
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ServerArgs args: The arguments to use to populate this resource's properties.

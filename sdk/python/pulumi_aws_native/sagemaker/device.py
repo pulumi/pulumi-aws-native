@@ -28,6 +28,7 @@ class DeviceInitArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Device resource.
+
         :param pulumi.Input[_builtins.str] device_fleet_name: The name of the edge device fleet
         :param pulumi.Input['DeviceArgs'] device: The Edge Device you want to register against a device fleet
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: Associate tags with the resource
@@ -88,6 +89,7 @@ class Device(pulumi.CustomResource):
         """
         Resource schema for AWS::SageMaker::Device
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['DeviceArgs', 'DeviceArgsDict']] device: The Edge Device you want to register against a device fleet
@@ -102,6 +104,7 @@ class Device(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource schema for AWS::SageMaker::Device
+
 
         :param str resource_name: The name of the resource.
         :param DeviceInitArgs args: The arguments to use to populate this resource's properties.

@@ -32,6 +32,7 @@ class StreamArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Stream resource.
+
         :param pulumi.Input[_builtins.str] inclusive_start_time: The inclusive start date and time from which to start streaming journal data. This parameter must be in `ISO 8601` date and time format and in Universal Coordinated Time (UTC). For example: `2019-06-13T21:36:34Z` .
                
                The `InclusiveStartTime` cannot be in the future and must be before `ExclusiveEndTime` .
@@ -219,6 +220,7 @@ class Stream(pulumi.CustomResource):
 
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] exclusive_end_time: The exclusive date and time that specifies when the stream ends. If you don't define this parameter, the stream runs indefinitely until you cancel it.
@@ -293,6 +295,7 @@ class Stream(pulumi.CustomResource):
             }])
 
         ```
+
 
         :param str resource_name: The name of the resource.
         :param StreamArgs args: The arguments to use to populate this resource's properties.

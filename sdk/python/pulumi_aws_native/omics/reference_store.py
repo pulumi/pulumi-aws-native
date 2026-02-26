@@ -28,6 +28,7 @@ class ReferenceStoreArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ReferenceStore resource.
+
         :param pulumi.Input[_builtins.str] description: A description for the store.
         :param pulumi.Input[_builtins.str] name: A name for the store.
         :param pulumi.Input['ReferenceStoreSseConfigArgs'] sse_config: Server-side encryption (SSE) settings for the store.
@@ -105,6 +106,7 @@ class ReferenceStore(pulumi.CustomResource):
         """
         Definition of AWS::Omics::ReferenceStore Resource Type
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: A description for the store.
@@ -120,6 +122,7 @@ class ReferenceStore(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of AWS::Omics::ReferenceStore Resource Type
+
 
         :param str resource_name: The name of the resource.
         :param ReferenceStoreArgs args: The arguments to use to populate this resource's properties.

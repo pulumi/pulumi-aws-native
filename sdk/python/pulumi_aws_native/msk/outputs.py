@@ -1388,6 +1388,7 @@ class ReplicatorAmazonMskCluster(dict):
                  msk_cluster_arn: _builtins.str):
         """
         Details of an Amazon MSK cluster.
+
         :param _builtins.str msk_cluster_arn: The ARN of an Amazon MSK cluster.
         """
         pulumi.set(__self__, "msk_cluster_arn", msk_cluster_arn)
@@ -1436,6 +1437,7 @@ class ReplicatorConsumerGroupReplication(dict):
                  synchronise_consumer_group_offsets: Optional[_builtins.bool] = None):
         """
         Configuration relating to consumer group replication.
+
         :param Sequence[_builtins.str] consumer_groups_to_replicate: List of regular expression patterns indicating the consumer groups to copy.
         :param Sequence[_builtins.str] consumer_groups_to_exclude: List of regular expression patterns indicating the consumer groups that should not be replicated.
         :param _builtins.bool detect_and_copy_new_consumer_groups: Whether to periodically check for new consumer groups.
@@ -1511,6 +1513,7 @@ class ReplicatorKafkaCluster(dict):
                  vpc_config: 'outputs.ReplicatorKafkaClusterClientVpcConfig'):
         """
         Details of a Kafka cluster for replication.
+
         :param 'ReplicatorAmazonMskCluster' amazon_msk_cluster: Details of an Amazon MSK cluster. Exactly one of AmazonMskCluster is required.
         :param 'ReplicatorKafkaClusterClientVpcConfig' vpc_config: Details of an Amazon VPC which has network connectivity to the Apache Kafka cluster.
         """
@@ -1563,6 +1566,7 @@ class ReplicatorKafkaClusterClientVpcConfig(dict):
                  security_group_ids: Optional[Sequence[_builtins.str]] = None):
         """
         Details of an Amazon VPC which has network connectivity to the Kafka cluster.
+
         :param Sequence[_builtins.str] subnet_ids: The list of subnets to connect to in the virtual private cloud (VPC). AWS creates elastic network interfaces inside these subnets.
         :param Sequence[_builtins.str] security_group_ids: The AWS security groups to associate with the elastic network interfaces in order to specify what the replicator has access to. If a security group is not specified, the default security group associated with the VPC is used.
         """
@@ -1625,6 +1629,7 @@ class ReplicatorReplicationInfo(dict):
                  topic_replication: 'outputs.ReplicatorTopicReplication'):
         """
         Specifies configuration for replication between a source and target Kafka cluster.
+
         :param 'ReplicatorConsumerGroupReplication' consumer_group_replication: Configuration relating to consumer group replication.
         :param _builtins.str source_kafka_cluster_arn: Amazon Resource Name of the source Kafka cluster.
         :param 'ReplicatorReplicationInfoTargetCompressionType' target_compression_type: The type of compression to use writing records to target Kafka cluster.
@@ -1687,6 +1692,7 @@ class ReplicatorReplicationStartingPosition(dict):
                  type: Optional['ReplicatorReplicationStartingPositionType'] = None):
         """
         Configuration for specifying the position in the topics to start replicating from.
+
         :param 'ReplicatorReplicationStartingPositionType' type: The type of replication starting position.
         """
         if type is not None:
@@ -1710,6 +1716,7 @@ class ReplicatorReplicationTopicNameConfiguration(dict):
                  type: Optional['ReplicatorReplicationTopicNameConfigurationType'] = None):
         """
         Configuration for specifying replicated topic names should be the same as their corresponding upstream topics or prefixed with source cluster alias.
+
         :param 'ReplicatorReplicationTopicNameConfigurationType' type: The type of replication topic name configuration, identical to upstream topic name or prefixed with source cluster alias.
         """
         if type is not None:

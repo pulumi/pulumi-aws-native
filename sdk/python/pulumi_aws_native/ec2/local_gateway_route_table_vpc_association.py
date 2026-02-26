@@ -26,6 +26,7 @@ class LocalGatewayRouteTableVpcAssociationArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a LocalGatewayRouteTableVpcAssociation resource.
+
         :param pulumi.Input[_builtins.str] local_gateway_route_table_id: The ID of the local gateway route table.
         :param pulumi.Input[_builtins.str] vpc_id: The ID of the VPC.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags for the association.
@@ -85,6 +86,7 @@ class LocalGatewayRouteTableVpcAssociation(pulumi.CustomResource):
         """
         Resource Type definition for Local Gateway Route Table VPC Association which describes an association between a local gateway route table and a VPC.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] local_gateway_route_table_id: The ID of the local gateway route table.
@@ -99,6 +101,7 @@ class LocalGatewayRouteTableVpcAssociation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for Local Gateway Route Table VPC Association which describes an association between a local gateway route table and a VPC.
+
 
         :param str resource_name: The name of the resource.
         :param LocalGatewayRouteTableVpcAssociationArgs args: The arguments to use to populate this resource's properties.

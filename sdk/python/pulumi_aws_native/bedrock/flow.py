@@ -34,6 +34,7 @@ class FlowArgs:
                  test_alias_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Flow resource.
+
         :param pulumi.Input[_builtins.str] execution_role_arn: ARN of a IAM role
         :param pulumi.Input[_builtins.str] customer_encryption_key_arn: A KMS key ARN
         :param pulumi.Input['FlowDefinitionArgs'] definition: The definition of the nodes and connections between the nodes in the flow.
@@ -212,6 +213,7 @@ class Flow(pulumi.CustomResource):
         """
         Definition of AWS::Bedrock::Flow Resource Type
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] customer_encryption_key_arn: A KMS key ARN
@@ -237,6 +239,7 @@ class Flow(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of AWS::Bedrock::Flow Resource Type
+
 
         :param str resource_name: The name of the resource.
         :param FlowArgs args: The arguments to use to populate this resource's properties.

@@ -32,6 +32,7 @@ class CertificateArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Certificate resource.
+
         :param pulumi.Input[_builtins.str] certificate: Specifies the certificate body to be imported.
         :param pulumi.Input['CertificateUsage'] usage: Specifies the usage type for the certificate.
         :param pulumi.Input[_builtins.str] active_date: Specifies the active date for the certificate.
@@ -171,6 +172,7 @@ class Certificate(pulumi.CustomResource):
         """
         Resource Type definition for AWS::Transfer::Certificate
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] active_date: Specifies the active date for the certificate.
@@ -190,6 +192,7 @@ class Certificate(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::Transfer::Certificate
+
 
         :param str resource_name: The name of the resource.
         :param CertificateArgs args: The arguments to use to populate this resource's properties.

@@ -29,6 +29,7 @@ class AgentAliasArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a AgentAlias resource.
+
         :param pulumi.Input[_builtins.str] agent_id: Identifier for a resource.
         :param pulumi.Input[_builtins.str] agent_alias_name: Name for a resource.
         :param pulumi.Input[_builtins.str] description: Description of the Resource.
@@ -127,6 +128,7 @@ class AgentAlias(pulumi.CustomResource):
         """
         Definition of AWS::Bedrock::AgentAlias Resource Type
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] agent_alias_name: Name for a resource.
@@ -146,6 +148,7 @@ class AgentAlias(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of AWS::Bedrock::AgentAlias Resource Type
+
 
         :param str resource_name: The name of the resource.
         :param AgentAliasArgs args: The arguments to use to populate this resource's properties.

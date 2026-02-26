@@ -27,6 +27,7 @@ class BridgeOutputResourceArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a BridgeOutputResource resource.
+
         :param pulumi.Input[_builtins.str] bridge_arn: The Amazon Resource Number (ARN) of the bridge.
         :param pulumi.Input['BridgeOutputResourceBridgeNetworkOutputArgs'] network_output: The output of the bridge.
         :param pulumi.Input[_builtins.str] name: The network output name.
@@ -86,6 +87,7 @@ class BridgeOutputResource(pulumi.CustomResource):
         """
         Resource schema for AWS::MediaConnect::BridgeOutput
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] bridge_arn: The Amazon Resource Number (ARN) of the bridge.
@@ -100,6 +102,7 @@ class BridgeOutputResource(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource schema for AWS::MediaConnect::BridgeOutput
+
 
         :param str resource_name: The name of the resource.
         :param BridgeOutputResourceArgs args: The arguments to use to populate this resource's properties.

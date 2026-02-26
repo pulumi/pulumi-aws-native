@@ -40,6 +40,7 @@ class VpcEndpointArgs:
                  vpc_endpoint_type: Optional[pulumi.Input['VpcEndpointType']] = None):
         """
         The set of arguments for constructing a VpcEndpoint resource.
+
         :param pulumi.Input[_builtins.str] vpc_id: The ID of the VPC.
         :param pulumi.Input['VpcEndpointDnsOptionsSpecificationArgs'] dns_options: Describes the DNS options for an endpoint.
         :param pulumi.Input['VpcEndpointIpAddressType'] ip_address_type: The supported IP address types.
@@ -298,6 +299,7 @@ class VpcEndpoint(pulumi.CustomResource):
 
         An endpoint of type `GatewayLoadBalancer` provides private connectivity between your VPC and virtual appliances from a service provider.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['VpcEndpointDnsOptionsSpecificationArgs', 'VpcEndpointDnsOptionsSpecificationArgsDict']] dns_options: Describes the DNS options for an endpoint.
@@ -337,6 +339,7 @@ class VpcEndpoint(pulumi.CustomResource):
         An endpoint of type `gateway` serves as a target for a route in your route table for traffic destined for Amazon S3 or DynamoDB . You can specify an endpoint policy for the endpoint, which controls access to the service from your VPC. You can also specify the VPC route tables that use the endpoint. For more information about connectivity to Amazon S3 , see [Why can't I connect to an S3 bucket using a gateway VPC endpoint?](https://docs.aws.amazon.com/premiumsupport/knowledge-center/connect-s3-vpc-endpoint)
 
         An endpoint of type `GatewayLoadBalancer` provides private connectivity between your VPC and virtual appliances from a service provider.
+
 
         :param str resource_name: The name of the resource.
         :param VpcEndpointArgs args: The arguments to use to populate this resource's properties.

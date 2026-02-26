@@ -24,6 +24,7 @@ class PreferencesArgs:
                  connection_recording_preferences: Optional[pulumi.Input['ConnectionRecordingPreferencesPropertiesArgs']] = None):
         """
         The set of arguments for constructing a Preferences resource.
+
         :param pulumi.Input['ConnectionRecordingPreferencesPropertiesArgs'] connection_recording_preferences: The set of preferences used for recording RDP connections in the requesting AWS account and AWS Region. This includes details such as which S3 bucket recordings are stored in.
         """
         if connection_recording_preferences is not None:
@@ -53,6 +54,7 @@ class Preferences(pulumi.CustomResource):
         """
         Definition of AWS::SSMGuiConnect::Preferences Resource Type
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ConnectionRecordingPreferencesPropertiesArgs', 'ConnectionRecordingPreferencesPropertiesArgsDict']] connection_recording_preferences: The set of preferences used for recording RDP connections in the requesting AWS account and AWS Region. This includes details such as which S3 bucket recordings are stored in.
@@ -65,6 +67,7 @@ class Preferences(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of AWS::SSMGuiConnect::Preferences Resource Type
+
 
         :param str resource_name: The name of the resource.
         :param PreferencesArgs args: The arguments to use to populate this resource's properties.

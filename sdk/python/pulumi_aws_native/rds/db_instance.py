@@ -109,6 +109,7 @@ class DbInstanceArgs:
                  vpc_security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a DbInstance resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['DbInstanceAdditionalStorageVolumeArgs']]] additional_storage_volumes: The additional storage volumes associated with the DB instance. RDS supports additional storage volumes for RDS for Oracle and RDS for SQL Server.
         :param pulumi.Input[_builtins.str] allocated_storage: The amount of storage in gibibytes (GiB) to be initially allocated for the database instance.
                  If any value is set in the ``Iops`` parameter, ``AllocatedStorage`` must be at least 100 GiB, which corresponds to the minimum Iops value of 1,000. If you increase the ``Iops`` value (in 1,000 IOPS increments), then you must also increase the ``AllocatedStorage`` value (in 100-GiB increments). 
@@ -2382,6 +2383,7 @@ class DbInstance(pulumi.CustomResource):
 
           For more information, see [DeletionPolicy Attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html).
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['DbInstanceAdditionalStorageVolumeArgs', 'DbInstanceAdditionalStorageVolumeArgsDict']]]] additional_storage_volumes: The additional storage volumes associated with the DB instance. RDS supports additional storage volumes for RDS for Oracle and RDS for SQL Server.
@@ -2954,6 +2956,7 @@ class DbInstance(pulumi.CustomResource):
           2.   For ``AWS::RDS::DBInstance`` resources that do specify the ``DBClusterIdentifier`` property, AWS CloudFormation deletes the DB instance.
 
           For more information, see [DeletionPolicy Attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html).
+
 
         :param str resource_name: The name of the resource.
         :param DbInstanceArgs args: The arguments to use to populate this resource's properties.

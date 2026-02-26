@@ -31,6 +31,7 @@ class VpcCidrBlockArgs:
                  ipv6_pool: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a VpcCidrBlock resource.
+
         :param pulumi.Input[_builtins.str] vpc_id: The ID of the VPC.
         :param pulumi.Input[_builtins.bool] amazon_provided_ipv6_cidr_block: Requests an Amazon-provided IPv6 CIDR block with a /56 prefix length for the VPC. You cannot specify the range of IPv6 addresses, or the size of the CIDR block.
         :param pulumi.Input[_builtins.str] cidr_block: An IPv4 CIDR block to associate with the VPC.
@@ -203,6 +204,7 @@ class VpcCidrBlock(pulumi.CustomResource):
         """
         Resource Type definition for AWS::EC2::VPCCidrBlock
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] amazon_provided_ipv6_cidr_block: Requests an Amazon-provided IPv6 CIDR block with a /56 prefix length for the VPC. You cannot specify the range of IPv6 addresses, or the size of the CIDR block.
@@ -224,6 +226,7 @@ class VpcCidrBlock(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::EC2::VPCCidrBlock
+
 
         :param str resource_name: The name of the resource.
         :param VpcCidrBlockArgs args: The arguments to use to populate this resource's properties.

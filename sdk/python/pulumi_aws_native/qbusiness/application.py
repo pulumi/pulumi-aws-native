@@ -40,6 +40,7 @@ class ApplicationArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Application resource.
+
         :param pulumi.Input[_builtins.str] display_name: The name of the Amazon Q Business application.
         :param pulumi.Input['ApplicationAttachmentsConfigurationArgs'] attachments_configuration: Configuration information for the file upload during chat feature.
         :param pulumi.Input['ApplicationAutoSubscriptionConfigurationArgs'] auto_subscription_configuration: Subscription configuration information for an Amazon Q Business application using IAM identity federation for user management.
@@ -280,6 +281,7 @@ class Application(pulumi.CustomResource):
         """
         Definition of AWS::QBusiness::Application Resource Type
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ApplicationAttachmentsConfigurationArgs', 'ApplicationAttachmentsConfigurationArgsDict']] attachments_configuration: Configuration information for the file upload during chat feature.
@@ -307,6 +309,7 @@ class Application(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of AWS::QBusiness::Application Resource Type
+
 
         :param str resource_name: The name of the resource.
         :param ApplicationArgs args: The arguments to use to populate this resource's properties.

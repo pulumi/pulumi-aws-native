@@ -30,6 +30,7 @@ class ApiArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Api resource.
+
         :param pulumi.Input['ApiEventConfigArgs'] event_config: Describes the authorization configuration for connections, message publishing, message subscriptions, and logging for an Event API.
         :param pulumi.Input[_builtins.str] name: The name of the `Api` .
         :param pulumi.Input[_builtins.str] owner_contact: The owner contact information for an API resource.
@@ -111,6 +112,7 @@ class Api(pulumi.CustomResource):
         """
         Resource schema for AppSync Api
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ApiEventConfigArgs', 'ApiEventConfigArgsDict']] event_config: Describes the authorization configuration for connections, message publishing, message subscriptions, and logging for an Event API.
@@ -128,6 +130,7 @@ class Api(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource schema for AppSync Api
+
 
         :param str resource_name: The name of the resource.
         :param ApiArgs args: The arguments to use to populate this resource's properties.

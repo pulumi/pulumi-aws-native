@@ -30,6 +30,7 @@ class ScriptArgs:
                  version: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Script resource.
+
         :param pulumi.Input['ScriptS3LocationArgs'] storage_location: The location of the Amazon S3 bucket where a zipped file containing your Realtime scripts is stored. The storage location must specify the Amazon S3 bucket name, the zip file name (the "key"), and a role ARN that allows Amazon GameLift to access the Amazon S3 storage location. The S3 bucket must be in the same Region where you want to create a new script. By default, Amazon GameLift uploads the latest version of the zip file; if you have S3 object versioning turned on, you can use the ObjectVersion parameter to specify an earlier version.
         :param pulumi.Input[_builtins.str] name: A descriptive label that is associated with a script. Script names do not need to be unique.
         :param pulumi.Input[_builtins.str] node_js_version: The Node.js version used for execution of the Realtime script.
@@ -122,6 +123,7 @@ class Script(pulumi.CustomResource):
         """
         The AWS::GameLift::Script resource creates a new script record for your Realtime Servers script. Realtime scripts are JavaScript that provide configuration settings and optional custom game logic for your game. The script is deployed when you create a Realtime Servers fleet to host your game sessions. Script logic is executed during an active game session.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: A descriptive label that is associated with a script. Script names do not need to be unique.
@@ -138,6 +140,7 @@ class Script(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The AWS::GameLift::Script resource creates a new script record for your Realtime Servers script. Realtime scripts are JavaScript that provide configuration settings and optional custom game logic for your game. The script is deployed when you create a Realtime Servers fleet to host your game sessions. Script logic is executed during an active game session.
+
 
         :param str resource_name: The name of the resource.
         :param ScriptArgs args: The arguments to use to populate this resource's properties.

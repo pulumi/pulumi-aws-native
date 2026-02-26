@@ -24,6 +24,7 @@ class SecurityGroupVpcAssociationArgs:
                  vpc_id: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a SecurityGroupVpcAssociation resource.
+
         :param pulumi.Input[_builtins.str] group_id: The group ID of the specified security group.
         :param pulumi.Input[_builtins.str] vpc_id: The ID of the VPC in the security group vpc association.
         """
@@ -67,6 +68,7 @@ class SecurityGroupVpcAssociation(pulumi.CustomResource):
         """
         Resource type definition for the AWS::EC2::SecurityGroupVpcAssociation resource
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] group_id: The group ID of the specified security group.
@@ -80,6 +82,7 @@ class SecurityGroupVpcAssociation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource type definition for the AWS::EC2::SecurityGroupVpcAssociation resource
+
 
         :param str resource_name: The name of the resource.
         :param SecurityGroupVpcAssociationArgs args: The arguments to use to populate this resource's properties.

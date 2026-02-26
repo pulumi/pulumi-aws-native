@@ -36,6 +36,7 @@ class QueueArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Queue resource.
+
         :param pulumi.Input[_builtins.str] display_name: The display name of the queue summary to update.
                
                > This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
@@ -215,6 +216,7 @@ class Queue(pulumi.CustomResource):
         """
         Definition of AWS::Deadline::Queue Resource Type
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_storage_profile_ids: The identifiers of the storage profiles that this queue can use to share assets between workers using different operating systems.
@@ -240,6 +242,7 @@ class Queue(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of AWS::Deadline::Queue Resource Type
+
 
         :param str resource_name: The name of the resource.
         :param QueueArgs args: The arguments to use to populate this resource's properties.

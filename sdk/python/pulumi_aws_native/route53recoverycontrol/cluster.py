@@ -28,6 +28,7 @@ class ClusterArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]] = None):
         """
         The set of arguments for constructing a Cluster resource.
+
         :param pulumi.Input[_builtins.str] name: Name of a Cluster. You can use any non-white space character in the name
         :param pulumi.Input['ClusterNetworkType'] network_type: Cluster supports IPv4 endpoints and Dual-stack IPv4 and IPv6 endpoints. NetworkType can be IPV4 or DUALSTACK.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]] tags: A collection of tags associated with a resource
@@ -89,6 +90,7 @@ class Cluster(pulumi.CustomResource):
         """
         AWS Route53 Recovery Control Cluster resource schema
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: Name of a Cluster. You can use any non-white space character in the name
@@ -103,6 +105,7 @@ class Cluster(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         AWS Route53 Recovery Control Cluster resource schema
+
 
         :param str resource_name: The name of the resource.
         :param ClusterArgs args: The arguments to use to populate this resource's properties.

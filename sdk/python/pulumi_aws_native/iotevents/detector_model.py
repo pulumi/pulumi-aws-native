@@ -33,6 +33,7 @@ class DetectorModelArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a DetectorModel resource.
+
         :param pulumi.Input['DetectorModelDefinitionArgs'] detector_model_definition: Information that defines how a detector operates.
         :param pulumi.Input[_builtins.str] role_arn: The ARN of the role that grants permission to ITE to perform its operations.
         :param pulumi.Input[_builtins.str] detector_model_description: A brief description of the detector model.
@@ -164,6 +165,7 @@ class DetectorModel(pulumi.CustomResource):
          If you attempt to update a detector model using CFN and the update does not succeed, the system may, in some cases, restore the original detector model. When this occurs, the detector model's version is incremented twice (for example, from version 1 to version 3) and the detector instances are reset.
          Also, be aware that if you attempt to update several detector models at once using CFN, some updates may succeed and others fail. In this case, the effects on each detector model's detector instances and version number depend on whether the update succeeded or failed, with the results as stated.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['DetectorModelDefinitionArgs', 'DetectorModelDefinitionArgsDict']] detector_model_definition: Information that defines how a detector operates.
@@ -188,6 +190,7 @@ class DetectorModel(pulumi.CustomResource):
          When you successfully update a detector model (using the ITE console, ITE API or CLI commands, or CFN) the version number of the detector model is incremented. (A detector model with version number 1 before the update has version number 2 after the update succeeds.)
          If you attempt to update a detector model using CFN and the update does not succeed, the system may, in some cases, restore the original detector model. When this occurs, the detector model's version is incremented twice (for example, from version 1 to version 3) and the detector instances are reset.
          Also, be aware that if you attempt to update several detector models at once using CFN, some updates may succeed and others fail. In this case, the effects on each detector model's detector instances and version number depend on whether the update succeeded or failed, with the results as stated.
+
 
         :param str resource_name: The name of the resource.
         :param DetectorModelArgs args: The arguments to use to populate this resource's properties.

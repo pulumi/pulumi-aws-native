@@ -32,6 +32,7 @@ class DataCatalogArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a DataCatalog resource.
+
         :param pulumi.Input['DataCatalogType'] type: The type of data catalog to create: LAMBDA for a federated catalog, GLUE for AWS Glue Catalog, or HIVE for an external hive metastore. FEDERATED is a federated catalog for which Athena creates the connection and the Lambda function for you based on the parameters that you pass.
         :param pulumi.Input[_builtins.str] connection_type: The type of connection for a FEDERATED data catalog
         :param pulumi.Input[_builtins.str] description: A description of the data catalog to be created. 
@@ -224,6 +225,7 @@ class DataCatalog(pulumi.CustomResource):
 
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] connection_type: The type of connection for a FEDERATED data catalog
@@ -295,6 +297,7 @@ class DataCatalog(pulumi.CustomResource):
             })
 
         ```
+
 
         :param str resource_name: The name of the resource.
         :param DataCatalogArgs args: The arguments to use to populate this resource's properties.

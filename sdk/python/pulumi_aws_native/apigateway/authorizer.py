@@ -31,6 +31,7 @@ class AuthorizerArgs:
                  provider_arns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Authorizer resource.
+
         :param pulumi.Input[_builtins.str] rest_api_id: The string identifier of the associated RestApi.
         :param pulumi.Input[_builtins.str] type: The authorizer type. Valid values are `TOKEN` for a Lambda function using a single authorization token submitted in a custom header, `REQUEST` for a Lambda function using incoming request parameters, and `COGNITO_USER_POOLS` for using an Amazon Cognito user pool.
         :param pulumi.Input[_builtins.str] auth_type: Optional customer-defined field, used in OpenAPI imports and exports without functional impact.
@@ -202,6 +203,7 @@ class Authorizer(pulumi.CustomResource):
         """
         The ``AWS::ApiGateway::Authorizer`` resource creates an authorization layer that API Gateway activates for methods that have authorization enabled. API Gateway activates the authorizer when a client calls those methods.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] auth_type: Optional customer-defined field, used in OpenAPI imports and exports without functional impact.
@@ -223,6 +225,7 @@ class Authorizer(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The ``AWS::ApiGateway::Authorizer`` resource creates an authorization layer that API Gateway activates for methods that have authorization enabled. API Gateway activates the authorizer when a client calls those methods.
+
 
         :param str resource_name: The name of the resource.
         :param AuthorizerArgs args: The arguments to use to populate this resource's properties.

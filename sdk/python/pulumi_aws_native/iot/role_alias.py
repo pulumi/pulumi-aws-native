@@ -27,6 +27,7 @@ class RoleAliasArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a RoleAlias resource.
+
         :param pulumi.Input[_builtins.str] role_arn: The role ARN.
         :param pulumi.Input[_builtins.int] credential_duration_seconds: The number of seconds for which the credential is valid.
         :param pulumi.Input[_builtins.str] role_alias: The role alias.
@@ -107,6 +108,7 @@ class RoleAlias(pulumi.CustomResource):
         """
         Use the AWS::IoT::RoleAlias resource to declare an AWS IoT RoleAlias.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.int] credential_duration_seconds: The number of seconds for which the credential is valid.
@@ -124,6 +126,7 @@ class RoleAlias(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Use the AWS::IoT::RoleAlias resource to declare an AWS IoT RoleAlias.
+
 
         :param str resource_name: The name of the resource.
         :param RoleAliasArgs args: The arguments to use to populate this resource's properties.

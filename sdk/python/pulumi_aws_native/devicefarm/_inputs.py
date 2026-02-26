@@ -51,6 +51,7 @@ class DevicePoolRuleArgs:
                  value: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Represents a condition for a device pool.
+
         :param pulumi.Input['DevicePoolRuleAttribute'] attribute: The rule's stringified attribute.
         :param pulumi.Input['DevicePoolRuleOperator'] operator: Specifies how Device Farm compares the rule's attribute to the value.
         :param pulumi.Input[_builtins.str] value: The rule's value.
@@ -155,6 +156,7 @@ class ProjectVpcConfigArgs:
                  vpc_id: pulumi.Input[_builtins.str]):
         """
         The VPC security groups and subnets that are attached to a project
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: An array of security group Ids in your Amazon VPC
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: A array of subnet IDs in your Amazon VPC.
         :param pulumi.Input[_builtins.str] vpc_id: The ID of the Amazon VPC
@@ -227,6 +229,7 @@ class TestGridProjectVpcConfigArgs:
                  vpc_id: pulumi.Input[_builtins.str]):
         """
         The VPC security groups and subnets that are attached to a TestGrid project.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: A list of VPC security group IDs in your Amazon VPC.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: A list of VPC subnet IDs in your Amazon VPC.
         :param pulumi.Input[_builtins.str] vpc_id: A list of VPC IDs.

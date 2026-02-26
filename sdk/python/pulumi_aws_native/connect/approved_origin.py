@@ -23,6 +23,7 @@ class ApprovedOriginArgs:
                  origin: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a ApprovedOrigin resource.
+
         :param pulumi.Input[_builtins.str] instance_id: The Amazon Resource Name (ARN) of the instance.
                
                *Minimum* : `1`
@@ -91,6 +92,7 @@ class ApprovedOrigin(pulumi.CustomResource):
 
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] instance_id: The Amazon Resource Name (ARN) of the instance.
@@ -123,6 +125,7 @@ class ApprovedOrigin(pulumi.CustomResource):
             origin="https://aws.amazon.com")
 
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ApprovedOriginArgs args: The arguments to use to populate this resource's properties.

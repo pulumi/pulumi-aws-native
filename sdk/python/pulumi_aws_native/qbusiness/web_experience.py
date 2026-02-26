@@ -37,6 +37,7 @@ class WebExperienceArgs:
                  welcome_message: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a WebExperience resource.
+
         :param pulumi.Input[_builtins.str] application_id: The identifier of the Amazon Q Business web experience.
         :param pulumi.Input['WebExperienceBrowserExtensionConfigurationArgs'] browser_extension_configuration: The container for browser extension configuration for an Amazon Q Business web experience.
         :param pulumi.Input['WebExperienceCustomizationConfigurationArgs'] customization_configuration: Contains the configuration information to customize the logo, font, and color of an Amazon Q Business web experience with individual files for each property or a CSS file for them all.
@@ -233,6 +234,7 @@ class WebExperience(pulumi.CustomResource):
         """
         Definition of AWS::QBusiness::WebExperience Resource Type
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] application_id: The identifier of the Amazon Q Business web experience.
@@ -259,6 +261,7 @@ class WebExperience(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of AWS::QBusiness::WebExperience Resource Type
+
 
         :param str resource_name: The name of the resource.
         :param WebExperienceArgs args: The arguments to use to populate this resource's properties.

@@ -24,6 +24,7 @@ class ResourceDefaultVersionArgs:
                  version_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ResourceDefaultVersion resource.
+
         :param pulumi.Input[_builtins.str] type_name: The name of the type being registered.
                
                We recommend that type names adhere to the following pattern: company_or_organization::service::type.
@@ -89,6 +90,7 @@ class ResourceDefaultVersion(pulumi.CustomResource):
         """
         The default version of a resource that has been registered in the CloudFormation Registry.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] type_name: The name of the type being registered.
@@ -105,6 +107,7 @@ class ResourceDefaultVersion(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The default version of a resource that has been registered in the CloudFormation Registry.
+
 
         :param str resource_name: The name of the resource.
         :param ResourceDefaultVersionArgs args: The arguments to use to populate this resource's properties.

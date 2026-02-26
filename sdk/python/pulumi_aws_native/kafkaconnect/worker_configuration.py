@@ -27,6 +27,7 @@ class WorkerConfigurationArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a WorkerConfiguration resource.
+
         :param pulumi.Input[_builtins.str] properties_file_content: Base64 encoded contents of connect-distributed.properties file.
         :param pulumi.Input[_builtins.str] description: A summary description of the worker configuration.
         :param pulumi.Input[_builtins.str] name: The name of the worker configuration.
@@ -103,6 +104,7 @@ class WorkerConfiguration(pulumi.CustomResource):
         """
         The configuration of the workers, which are the processes that run the connector logic.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: A summary description of the worker configuration.
@@ -118,6 +120,7 @@ class WorkerConfiguration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The configuration of the workers, which are the processes that run the connector logic.
+
 
         :param str resource_name: The name of the resource.
         :param WorkerConfigurationArgs args: The arguments to use to populate this resource's properties.

@@ -60,6 +60,7 @@ class EnvironmentLoggingConfiguration(dict):
                  worker_logs: Optional['outputs.EnvironmentModuleLoggingConfiguration'] = None):
         """
         Logging configuration for the environment.
+
         :param 'EnvironmentModuleLoggingConfiguration' dag_processing_logs: Defines the processing logs sent to CloudWatch Logs and the logging level to send.
         :param 'EnvironmentModuleLoggingConfiguration' scheduler_logs: Defines the scheduler logs sent to CloudWatch Logs and the logging level to send.
         :param 'EnvironmentModuleLoggingConfiguration' task_logs: Defines the task logs sent to CloudWatch Logs and the logging level to send.
@@ -148,6 +149,7 @@ class EnvironmentModuleLoggingConfiguration(dict):
                  log_level: Optional['EnvironmentLoggingLevel'] = None):
         """
         Logging configuration for a specific airflow component.
+
         :param _builtins.str cloud_watch_log_group_arn: The ARN of the CloudWatch Logs log group for each type of Apache Airflow log type that you have enabled.
                
                > `CloudWatchLogGroupArn` is available only as a return value, accessible when specified as an attribute in the [`Fn:GetAtt`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#aws-resource-mwaa-environment-return-values) intrinsic function. Any value you provide for `CloudWatchLogGroupArn` is discarded by Amazon MWAA.
@@ -217,6 +219,7 @@ class EnvironmentNetworkConfiguration(dict):
                  subnet_ids: Optional[Sequence[_builtins.str]] = None):
         """
         Configures the network resources of the environment.
+
         :param Sequence[_builtins.str] security_group_ids: A list of security groups to use for the environment.
         :param Sequence[_builtins.str] subnet_ids: A list of subnets to use for the environment. These must be private subnets, in the same VPC, in two different availability zones.
         """

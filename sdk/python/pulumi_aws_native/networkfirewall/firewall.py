@@ -39,6 +39,7 @@ class FirewallArgs:
                  vpc_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Firewall resource.
+
         :param pulumi.Input[_builtins.str] firewall_policy_arn: The Amazon Resource Name (ARN) of the firewall policy.
                
                The relationship of firewall to firewall policy is many to one. Each firewall requires one firewall policy association, and you can use the same firewall policy for multiple firewalls.
@@ -275,6 +276,7 @@ class Firewall(pulumi.CustomResource):
         """
         Resource type definition for AWS::NetworkFirewall::Firewall
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] availability_zone_change_protection: A setting indicating whether the firewall is protected against changes to its Availability Zone configuration. When set to `TRUE` , you must first disable this protection before adding or removing Availability Zones.
@@ -307,6 +309,7 @@ class Firewall(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource type definition for AWS::NetworkFirewall::Firewall
+
 
         :param str resource_name: The name of the resource.
         :param FirewallArgs args: The arguments to use to populate this resource's properties.

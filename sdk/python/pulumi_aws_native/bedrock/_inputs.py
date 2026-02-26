@@ -567,6 +567,7 @@ class AgentActionGroupExecutor0PropertiesArgs:
                  lambda_: pulumi.Input[_builtins.str]):
         """
         Type of Executors for an Action Group
+
         :param pulumi.Input[_builtins.str] lambda_: ARN of a Lambda.
         """
         pulumi.set(__self__, "lambda_", lambda_)
@@ -661,6 +662,7 @@ class AgentActionGroupArgs:
                  skip_resource_in_use_check_on_delete: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Contains the information of an Agent Action Group
+
         :param pulumi.Input[_builtins.str] action_group_name: Name of the action group
         :param pulumi.Input[Union['AgentActionGroupExecutor0PropertiesArgs', 'AgentActionGroupExecutor1PropertiesArgs']] action_group_executor: The Amazon Resource Name (ARN) of the Lambda function containing the business logic that is carried out upon invoking the action or the custom control method for handling the information elicited from the user.
         :param pulumi.Input['AgentActionGroupState'] action_group_state: Specifies whether the action group is available for the agent to invoke or not when sending an [InvokeAgent](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html) request.
@@ -817,6 +819,7 @@ class AgentAliasRoutingConfigurationListItemArgs:
                  agent_version: pulumi.Input[_builtins.str]):
         """
         Details about the routing configuration for an Agent alias.
+
         :param pulumi.Input[_builtins.str] agent_version: Agent Version.
         """
         pulumi.set(__self__, "agent_version", agent_version)
@@ -874,6 +877,7 @@ class AgentApiSchema1PropertiesArgs:
                  payload: pulumi.Input[_builtins.str]):
         """
         Contains information about the API Schema for the Action Group
+
         :param pulumi.Input[_builtins.str] payload: String OpenAPI Payload
         """
         pulumi.set(__self__, "payload", payload)
@@ -906,6 +910,7 @@ class AgentCollaboratorAgentDescriptorPropertiesArgs:
                  alias_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Agent descriptor for agent collaborator
+
         :param pulumi.Input[_builtins.str] alias_arn: Alias ARN for agent descriptor
         """
         if alias_arn is not None:
@@ -954,6 +959,7 @@ class AgentCollaboratorArgs:
                  relay_conversation_history: Optional[pulumi.Input['AgentRelayConversationHistory']] = None):
         """
         Agent Collaborator
+
         :param pulumi.Input['AgentCollaboratorAgentDescriptorPropertiesArgs'] agent_descriptor: Agent descriptor for agent collaborator
         :param pulumi.Input[_builtins.str] collaboration_instruction: Agent collaborator instruction
         :param pulumi.Input[_builtins.str] collaborator_name: Agent collaborator name
@@ -1029,6 +1035,7 @@ class AgentCustomOrchestrationArgs:
                  executor: Optional[pulumi.Input['AgentOrchestrationExecutorArgs']] = None):
         """
         Structure for custom orchestration
+
         :param pulumi.Input['AgentOrchestrationExecutorArgs'] executor: The structure of the executor invoking the actions in custom orchestration.
         """
         if executor is not None:
@@ -1062,6 +1069,7 @@ class AgentFunctionSchemaArgs:
                  functions: pulumi.Input[Sequence[pulumi.Input['AgentFunctionArgs']]]):
         """
         Schema of Functions
+
         :param pulumi.Input[Sequence[pulumi.Input['AgentFunctionArgs']]] functions: List of Function definitions
         """
         pulumi.set(__self__, "functions", functions)
@@ -1109,6 +1117,7 @@ class AgentFunctionArgs:
                  require_confirmation: Optional[pulumi.Input['AgentRequireConfirmation']] = None):
         """
         Function definition
+
         :param pulumi.Input[_builtins.str] name: Name for a resource.
         :param pulumi.Input[_builtins.str] description: Description of function
         :param pulumi.Input[Mapping[str, pulumi.Input['AgentParameterDetailArgs']]] parameters: The parameters that the agent elicits from the user to fulfill the function.
@@ -1191,6 +1200,7 @@ class AgentGuardrailConfigurationArgs:
                  guardrail_version: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Configuration for a guardrail.
+
         :param pulumi.Input[_builtins.str] guardrail_identifier: Identifier for the guardrail, could be the id or the arn
         :param pulumi.Input[_builtins.str] guardrail_version: Version of the guardrail
         """
@@ -1259,6 +1269,7 @@ class AgentInferenceConfigurationArgs:
                  top_p: Optional[pulumi.Input[_builtins.float]] = None):
         """
         Configuration for inference in prompt configuration
+
         :param pulumi.Input[_builtins.float] maximum_length: Maximum length of output
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] stop_sequences: List of stop sequences
         :param pulumi.Input[_builtins.float] temperature: Controls randomness, higher values increase diversity
@@ -1362,6 +1373,7 @@ class AgentKnowledgeBaseArgs:
                  knowledge_base_state: Optional[pulumi.Input['AgentKnowledgeBaseState']] = None):
         """
         Agent Knowledge Base
+
         :param pulumi.Input[_builtins.str] description: Description of the Resource.
         :param pulumi.Input[_builtins.str] knowledge_base_id: Identifier for a resource.
         :param pulumi.Input['AgentKnowledgeBaseState'] knowledge_base_state: Specifies whether to use the knowledge base or not when sending an [InvokeAgent](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html) request.
@@ -1433,6 +1445,7 @@ class AgentMemoryConfigurationArgs:
                  storage_days: Optional[pulumi.Input[_builtins.float]] = None):
         """
         Configuration for memory storage
+
         :param pulumi.Input[Sequence[pulumi.Input['AgentMemoryType']]] enabled_memory_types: The type of memory that is stored.
         :param pulumi.Input['AgentSessionSummaryConfigurationArgs'] session_summary_configuration: Contains the configuration for SESSION_SUMMARY memory type enabled for the agent.
         :param pulumi.Input[_builtins.float] storage_days: Maximum number of days to store session details
@@ -1496,6 +1509,7 @@ class AgentOrchestrationExecutorArgs:
                  lambda_: pulumi.Input[_builtins.str]):
         """
         Types of executors for custom orchestration strategy
+
         :param pulumi.Input[_builtins.str] lambda_: ARN of a Lambda.
         """
         pulumi.set(__self__, "lambda_", lambda_)
@@ -1538,6 +1552,7 @@ class AgentParameterDetailArgs:
                  required: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Parameter detail
+
         :param pulumi.Input['AgentType'] type: The data type of the parameter.
         :param pulumi.Input[_builtins.str] description: Description of function parameter.
         :param pulumi.Input[_builtins.bool] required: Information about if a parameter is required for function call. Default to false.
@@ -1642,6 +1657,7 @@ class AgentPromptConfigurationArgs:
                  prompt_type: Optional[pulumi.Input['AgentPromptType']] = None):
         """
         BasePromptConfiguration per Prompt Type.
+
         :param pulumi.Input['AgentAdditionalModelRequestFieldsArgs'] additional_model_request_fields: If the Converse or ConverseStream operations support the model, `additionalModelRequestFields` contains additional inference parameters, beyond the base set of inference parameters in the `inferenceConfiguration` field.
                
                For more information, see [Inference request parameters and response fields for foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html) .
@@ -1799,6 +1815,7 @@ class AgentPromptOverrideConfigurationArgs:
                  override_lambda: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Configuration for prompt override.
+
         :param pulumi.Input[Sequence[pulumi.Input['AgentPromptConfigurationArgs']]] prompt_configurations: List of BasePromptConfiguration
         :param pulumi.Input[_builtins.str] override_lambda: ARN of a Lambda.
         """
@@ -1851,6 +1868,7 @@ class AgentS3IdentifierArgs:
                  s3_object_key: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The identifier for the S3 resource.
+
         :param pulumi.Input[_builtins.str] s3_bucket_name: A bucket in S3.
         :param pulumi.Input[_builtins.str] s3_object_key: A object key in S3.
         """
@@ -1899,6 +1917,7 @@ class AgentSessionSummaryConfigurationArgs:
                  max_recent_sessions: Optional[pulumi.Input[_builtins.float]] = None):
         """
         Configuration for Session Summarization
+
         :param pulumi.Input[_builtins.float] max_recent_sessions: Maximum number of Sessions to Summarize
         """
         if max_recent_sessions is not None:
@@ -1933,6 +1952,7 @@ class ApplicationInferenceProfileInferenceProfileModelSourcePropertiesArgs:
                  copy_from: pulumi.Input[_builtins.str]):
         """
         Various ways to encode a list of models in a CreateInferenceProfile request
+
         :param pulumi.Input[_builtins.str] copy_from: Source arns for a custom inference profile to copy its regional load balancing config from. This
                can either be a foundation model or predefined inference profile ARN.
         """
@@ -2760,6 +2780,7 @@ class DataAutomationProjectCustomOutputConfigurationArgs:
                  blueprints: Optional[pulumi.Input[Sequence[pulumi.Input['DataAutomationProjectBlueprintItemArgs']]]] = None):
         """
         Custom output configuration
+
         :param pulumi.Input[Sequence[pulumi.Input['DataAutomationProjectBlueprintItemArgs']]] blueprints: A list of blueprints.
         """
         if blueprints is not None:
@@ -3480,6 +3501,7 @@ class DataAutomationProjectModalityRoutingConfigurationArgs:
                  png: Optional[pulumi.Input['DataAutomationProjectDesiredModality']] = None):
         """
         Modality routing configuration
+
         :param pulumi.Input['DataAutomationProjectDesiredModality'] jpeg: Sets whether JPEG files are routed to document or image processing.
         :param pulumi.Input['DataAutomationProjectDesiredModality'] mov: Sets whether MOV files are routed to audio or video processing.
         :param pulumi.Input['DataAutomationProjectDesiredModality'] mp4: Sets whether MP4 files are routed to audio or video processing.
@@ -3578,6 +3600,7 @@ class DataAutomationProjectOverrideConfigurationArgs:
                  video: Optional[pulumi.Input['DataAutomationProjectVideoOverrideConfigurationArgs']] = None):
         """
         Override configuration
+
         :param pulumi.Input['DataAutomationProjectAudioOverrideConfigurationArgs'] audio: This element declares whether your project will process audio files.
         :param pulumi.Input['DataAutomationProjectDocumentOverrideConfigurationArgs'] document: Additional settings for a project.
         :param pulumi.Input['DataAutomationProjectImageOverrideConfigurationArgs'] image: This element declares whether your project will process image files.
@@ -3861,6 +3884,7 @@ class DataAutomationProjectStandardOutputConfigurationArgs:
                  video: Optional[pulumi.Input['DataAutomationProjectVideoStandardOutputConfigurationArgs']] = None):
         """
         Standard output configuration
+
         :param pulumi.Input['DataAutomationProjectAudioStandardOutputConfigurationArgs'] audio: Settings for processing audio.
         :param pulumi.Input['DataAutomationProjectDocumentStandardOutputConfigurationArgs'] document: Settings for processing documents.
         :param pulumi.Input['DataAutomationProjectImageStandardOutputConfigurationArgs'] image: Settings for processing images.
@@ -4257,6 +4281,7 @@ class DataSourceBedrockDataAutomationConfigurationArgs:
                  parsing_modality: Optional[pulumi.Input['DataSourceParsingModality']] = None):
         """
         Settings for a Bedrock Data Automation used to parse documents for a data source.
+
         :param pulumi.Input['DataSourceParsingModality'] parsing_modality: Specifies whether to enable parsing of multimodal data, including both text and/or images.
         """
         if parsing_modality is not None:
@@ -4300,6 +4325,7 @@ class DataSourceBedrockFoundationModelConfigurationArgs:
                  parsing_prompt: Optional[pulumi.Input['DataSourceParsingPromptArgs']] = None):
         """
         Settings for a foundation model used to parse documents for a data source.
+
         :param pulumi.Input[_builtins.str] model_arn: The ARN of the foundation model to use for parsing.
         :param pulumi.Input['DataSourceParsingModality'] parsing_modality: Specifies whether to enable parsing of multimodal data, including both text and/or images.
         :param pulumi.Input['DataSourceParsingPromptArgs'] parsing_prompt: Instructions for interpreting the contents of a document.
@@ -4367,6 +4393,7 @@ class DataSourceBedrockFoundationModelContextEnrichmentConfigurationArgs:
                  model_arn: pulumi.Input[_builtins.str]):
         """
         Bedrock Foundation Model configuration to be used for Context Enrichment.
+
         :param pulumi.Input['DataSourceEnrichmentStrategyConfigurationArgs'] enrichment_strategy_configuration: The enrichment stategy used to provide additional context. For example, Neptune GraphRAG uses Amazon Bedrock foundation models to perform chunk entity extraction.
         :param pulumi.Input[_builtins.str] model_arn: The Amazon Resource Name (ARN) of the model used to create vector embeddings for the knowledge base.
         """
@@ -4433,6 +4460,7 @@ class DataSourceChunkingConfigurationArgs:
                  semantic_chunking_configuration: Optional[pulumi.Input['DataSourceSemanticChunkingConfigurationArgs']] = None):
         """
         Details about how to chunk the documents in the data source. A chunk refers to an excerpt from a data source that is returned when the knowledge base that it belongs to is queried.
+
         :param pulumi.Input['DataSourceChunkingStrategy'] chunking_strategy: Knowledge base can split your source data into chunks. A *chunk* refers to an excerpt from a data source that is returned when the knowledge base that it belongs to is queried. You have the following options for chunking your data. If you opt for `NONE` , then you may want to pre-process your files by splitting them up such that each file corresponds to a chunk.
                
                - `FIXED_SIZE` – Amazon Bedrock splits your source data into chunks of the approximate size that you set in the `fixedSizeChunkingConfiguration` .
@@ -4553,6 +4581,7 @@ class DataSourceConfigurationArgs:
                  web_configuration: Optional[pulumi.Input['DataSourceWebDataSourceConfigurationArgs']] = None):
         """
         Specifies a raw data source location to ingest.
+
         :param pulumi.Input['DataSourceType'] type: The type of data source.
         :param pulumi.Input['DataSourceConfluenceDataSourceConfigurationArgs'] confluence_configuration: The configuration information to connect to Confluence as your data source.
                
@@ -4676,6 +4705,7 @@ class DataSourceConfluenceCrawlerConfigurationArgs:
                  filter_configuration: Optional[pulumi.Input['DataSourceCrawlFilterConfigurationArgs']] = None):
         """
         The configuration of the Confluence content. For example, configuring specific types of Confluence content.
+
         :param pulumi.Input['DataSourceCrawlFilterConfigurationArgs'] filter_configuration: The configuration of filtering the Confluence content. For example, configuring regular expression patterns to include or exclude certain content.
         """
         if filter_configuration is not None:
@@ -4714,6 +4744,7 @@ class DataSourceConfluenceDataSourceConfigurationArgs:
                  crawler_configuration: Optional[pulumi.Input['DataSourceConfluenceCrawlerConfigurationArgs']] = None):
         """
         The configuration information to connect to Confluence as your data source.
+
         :param pulumi.Input['DataSourceConfluenceSourceConfigurationArgs'] source_configuration: The endpoint information to connect to your Confluence data source.
         :param pulumi.Input['DataSourceConfluenceCrawlerConfigurationArgs'] crawler_configuration: The configuration of the Confluence content. For example, configuring specific types of Confluence content.
         """
@@ -4776,6 +4807,7 @@ class DataSourceConfluenceSourceConfigurationArgs:
                  host_url: pulumi.Input[_builtins.str]):
         """
         The endpoint information to connect to your Confluence data source.
+
         :param pulumi.Input['DataSourceConfluenceSourceConfigurationAuthType'] auth_type: The supported authentication type to authenticate and connect to your Confluence instance.
         :param pulumi.Input[_builtins.str] credentials_secret_arn: The Amazon Resource Name of an AWS Secrets Manager secret that stores your authentication credentials for your Confluence instance URL. For more information on the key-value pairs that must be included in your secret, depending on your authentication type, see Confluence connection configuration.
         :param pulumi.Input['DataSourceConfluenceSourceConfigurationHostType'] host_type: The supported host type, whether online/cloud or server/on-premises.
@@ -4855,6 +4887,7 @@ class DataSourceContextEnrichmentConfigurationArgs:
                  bedrock_foundation_model_configuration: Optional[pulumi.Input['DataSourceBedrockFoundationModelContextEnrichmentConfigurationArgs']] = None):
         """
         Additional Enrichment Configuration for example when using GraphRag.
+
         :param pulumi.Input['DataSourceContextEnrichmentType'] type: The method used for context enrichment. It must be Amazon Bedrock foundation models.
         :param pulumi.Input['DataSourceBedrockFoundationModelContextEnrichmentConfigurationArgs'] bedrock_foundation_model_configuration: The configuration of the Amazon Bedrock foundation model used for context enrichment.
         """
@@ -4907,6 +4940,7 @@ class DataSourceCrawlFilterConfigurationArgs:
                  pattern_object_filter: Optional[pulumi.Input['DataSourcePatternObjectFilterConfigurationArgs']] = None):
         """
         The type of filtering that you want to apply to certain objects or content of the data source. For example, the PATTERN type is regular expression patterns you can apply to filter your content.
+
         :param pulumi.Input['DataSourceCrawlFilterConfigurationType'] type: The crawl filter type.
         :param pulumi.Input['DataSourcePatternObjectFilterConfigurationArgs'] pattern_object_filter: The configuration of filtering certain objects or content types of the data source.
         """
@@ -4959,6 +4993,7 @@ class DataSourceCustomTransformationConfigurationArgs:
                  transformations: pulumi.Input[Sequence[pulumi.Input['DataSourceTransformationArgs']]]):
         """
         Settings for customizing steps in the data source content ingestion pipeline.
+
         :param pulumi.Input['DataSourceIntermediateStorageArgs'] intermediate_storage: An S3 bucket path for input and output objects.
         :param pulumi.Input[Sequence[pulumi.Input['DataSourceTransformationArgs']]] transformations: A list of Lambda functions that process documents.
         """
@@ -5005,6 +5040,7 @@ class DataSourceEnrichmentStrategyConfigurationArgs:
                  method: pulumi.Input['DataSourceEnrichmentStrategyMethod']):
         """
         Strategy to be used when using Bedrock Foundation Model for Context Enrichment.
+
         :param pulumi.Input['DataSourceEnrichmentStrategyMethod'] method: The method used for the context enrichment strategy.
         """
         pulumi.set(__self__, "method", method)
@@ -5042,6 +5078,7 @@ class DataSourceFixedSizeChunkingConfigurationArgs:
                  overlap_percentage: pulumi.Input[_builtins.int]):
         """
         Configurations for when you choose fixed-size chunking. If you set the chunkingStrategy as NONE, exclude this field.
+
         :param pulumi.Input[_builtins.int] max_tokens: The maximum number of tokens to include in a chunk.
         :param pulumi.Input[_builtins.int] overlap_percentage: The percentage of overlap between adjacent chunks of a data source.
         """
@@ -5093,6 +5130,7 @@ class DataSourceHierarchicalChunkingConfigurationArgs:
                  overlap_tokens: pulumi.Input[_builtins.int]):
         """
         Configurations for when you choose hierarchical chunking. If you set the chunkingStrategy as NONE, exclude this field.
+
         :param pulumi.Input[Sequence[pulumi.Input['DataSourceHierarchicalChunkingLevelConfigurationArgs']]] level_configurations: Token settings for each layer.
         :param pulumi.Input[_builtins.int] overlap_tokens: The number of tokens to repeat across chunks in the same layer.
         """
@@ -5139,6 +5177,7 @@ class DataSourceHierarchicalChunkingLevelConfigurationArgs:
                  max_tokens: pulumi.Input[_builtins.int]):
         """
         Token settings for a layer in a hierarchical chunking configuration.
+
         :param pulumi.Input[_builtins.int] max_tokens: The maximum number of tokens that a chunk can contain in this layer.
         """
         pulumi.set(__self__, "max_tokens", max_tokens)
@@ -5171,6 +5210,7 @@ class DataSourceIntermediateStorageArgs:
                  s3_location: pulumi.Input['DataSourceS3LocationArgs']):
         """
         A location for storing content from data sources temporarily as it is processed by custom components in the ingestion pipeline.
+
         :param pulumi.Input['DataSourceS3LocationArgs'] s3_location: An S3 bucket path.
         """
         pulumi.set(__self__, "s3_location", s3_location)
@@ -5213,6 +5253,7 @@ class DataSourceParsingConfigurationArgs:
                  bedrock_foundation_model_configuration: Optional[pulumi.Input['DataSourceBedrockFoundationModelConfigurationArgs']] = None):
         """
         Settings for parsing document contents
+
         :param pulumi.Input['DataSourceParsingStrategy'] parsing_strategy: The parsing strategy for the data source.
         :param pulumi.Input['DataSourceBedrockDataAutomationConfigurationArgs'] bedrock_data_automation_configuration: If you specify `BEDROCK_DATA_AUTOMATION` as the parsing strategy for ingesting your data source, use this object to modify configurations for using the Amazon Bedrock Data Automation parser.
         :param pulumi.Input['DataSourceBedrockFoundationModelConfigurationArgs'] bedrock_foundation_model_configuration: If you specify `BEDROCK_FOUNDATION_MODEL` as the parsing strategy for ingesting your data source, use this object to modify configurations for using a foundation model to parse documents.
@@ -5275,6 +5316,7 @@ class DataSourceParsingPromptArgs:
                  parsing_prompt_text: pulumi.Input[_builtins.str]):
         """
         Instructions for interpreting the contents of a document.
+
         :param pulumi.Input[_builtins.str] parsing_prompt_text: Instructions for interpreting the contents of a document.
         """
         pulumi.set(__self__, "parsing_prompt_text", parsing_prompt_text)
@@ -5307,6 +5349,7 @@ class DataSourcePatternObjectFilterConfigurationArgs:
                  filters: pulumi.Input[Sequence[pulumi.Input['DataSourcePatternObjectFilterArgs']]]):
         """
         The configuration of specific filters applied to your data source content. You can filter out or include certain content.
+
         :param pulumi.Input[Sequence[pulumi.Input['DataSourcePatternObjectFilterArgs']]] filters: The configuration of specific filters applied to your data source content. You can filter out or include certain content.
         """
         pulumi.set(__self__, "filters", filters)
@@ -5343,6 +5386,7 @@ class DataSourcePatternObjectFilterArgs:
                  inclusion_filters: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The specific filters applied to your data source content. You can filter out or include certain content.
+
         :param pulumi.Input[_builtins.str] object_type: The supported object type or content type of the data source.
         """
         pulumi.set(__self__, "object_type", object_type)
@@ -5407,6 +5451,7 @@ class DataSourceS3DataSourceConfigurationArgs:
                  inclusion_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The configuration information to connect to Amazon S3 as your data source.
+
         :param pulumi.Input[_builtins.str] bucket_arn: The ARN of the bucket that contains the data source.
         :param pulumi.Input[_builtins.str] bucket_owner_account_id: The account ID for the owner of the S3 bucket.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] inclusion_prefixes: A list of S3 prefixes that define the object containing the data sources.
@@ -5469,6 +5514,7 @@ class DataSourceS3LocationArgs:
                  uri: pulumi.Input[_builtins.str]):
         """
         An Amazon S3 location.
+
         :param pulumi.Input[_builtins.str] uri: The location's URI
         """
         pulumi.set(__self__, "uri", uri)
@@ -5501,6 +5547,7 @@ class DataSourceSalesforceCrawlerConfigurationArgs:
                  filter_configuration: Optional[pulumi.Input['DataSourceCrawlFilterConfigurationArgs']] = None):
         """
         The configuration of filtering the Salesforce content. For example, configuring regular expression patterns to include or exclude certain content.
+
         :param pulumi.Input['DataSourceCrawlFilterConfigurationArgs'] filter_configuration: The configuration of filtering the Salesforce content. For example, configuring regular expression patterns to include or exclude certain content.
         """
         if filter_configuration is not None:
@@ -5539,6 +5586,7 @@ class DataSourceSalesforceDataSourceConfigurationArgs:
                  crawler_configuration: Optional[pulumi.Input['DataSourceSalesforceCrawlerConfigurationArgs']] = None):
         """
         The configuration information to connect to Salesforce as your data source.
+
         :param pulumi.Input['DataSourceSalesforceSourceConfigurationArgs'] source_configuration: The endpoint information to connect to your Salesforce data source.
         :param pulumi.Input['DataSourceSalesforceCrawlerConfigurationArgs'] crawler_configuration: The configuration of the Salesforce content. For example, configuring specific types of Salesforce content.
         """
@@ -5596,6 +5644,7 @@ class DataSourceSalesforceSourceConfigurationArgs:
                  host_url: pulumi.Input[_builtins.str]):
         """
         The endpoint information to connect to your Salesforce data source.
+
         :param pulumi.Input['DataSourceSalesforceSourceConfigurationAuthType'] auth_type: The supported authentication type to authenticate and connect to your Salesforce instance.
         :param pulumi.Input[_builtins.str] credentials_secret_arn: The Amazon Resource Name of an AWS Secrets Manager secret that stores your authentication credentials for your Salesforce instance URL. For more information on the key-value pairs that must be included in your secret, depending on your authentication type, see Salesforce connection configuration.
         :param pulumi.Input[_builtins.str] host_url: The Salesforce host URL or instance URL.
@@ -5656,6 +5705,7 @@ class DataSourceSeedUrlArgs:
                  url: pulumi.Input[_builtins.str]):
         """
         A seed url object.
+
         :param pulumi.Input[_builtins.str] url: A web url.
         """
         pulumi.set(__self__, "url", url)
@@ -5698,6 +5748,7 @@ class DataSourceSemanticChunkingConfigurationArgs:
                  max_tokens: pulumi.Input[_builtins.int]):
         """
         Configurations for when you choose semantic chunking. If you set the chunkingStrategy as NONE, exclude this field.
+
         :param pulumi.Input[_builtins.int] breakpoint_percentile_threshold: The dissimilarity threshold for splitting chunks.
         :param pulumi.Input[_builtins.int] buffer_size: The buffer size.
         :param pulumi.Input[_builtins.int] max_tokens: The maximum number of tokens that a chunk can contain.
@@ -5758,6 +5809,7 @@ class DataSourceServerSideEncryptionConfigurationArgs:
                  kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Contains details about the server-side encryption for the data source.
+
         :param pulumi.Input[_builtins.str] kms_key_arn: The ARN of the AWS KMS key used to encrypt the resource.
         """
         if kms_key_arn is not None:
@@ -5791,6 +5843,7 @@ class DataSourceSharePointCrawlerConfigurationArgs:
                  filter_configuration: Optional[pulumi.Input['DataSourceCrawlFilterConfigurationArgs']] = None):
         """
         The configuration of the SharePoint content. For example, configuring specific types of SharePoint content.
+
         :param pulumi.Input['DataSourceCrawlFilterConfigurationArgs'] filter_configuration: The configuration of filtering the SharePoint content. For example, configuring regular expression patterns to include or exclude certain content.
         """
         if filter_configuration is not None:
@@ -5829,6 +5882,7 @@ class DataSourceSharePointDataSourceConfigurationArgs:
                  crawler_configuration: Optional[pulumi.Input['DataSourceSharePointCrawlerConfigurationArgs']] = None):
         """
         The configuration information to connect to SharePoint as your data source.
+
         :param pulumi.Input['DataSourceSharePointSourceConfigurationArgs'] source_configuration: The endpoint information to connect to your SharePoint data source.
         :param pulumi.Input['DataSourceSharePointCrawlerConfigurationArgs'] crawler_configuration: The configuration of the SharePoint content. For example, configuring specific types of SharePoint content.
         """
@@ -5901,6 +5955,7 @@ class DataSourceSharePointSourceConfigurationArgs:
                  tenant_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The endpoint information to connect to your SharePoint data source.
+
         :param pulumi.Input['DataSourceSharePointSourceConfigurationAuthType'] auth_type: The supported authentication type to authenticate and connect to your SharePoint site/sites.
         :param pulumi.Input[_builtins.str] credentials_secret_arn: The Amazon Resource Name of an AWS Secrets Manager secret that stores your authentication credentials for your SharePoint site/sites. For more information on the key-value pairs that must be included in your secret, depending on your authentication type, see SharePoint connection configuration.
         :param pulumi.Input[_builtins.str] domain: The domain of your SharePoint instance or site URL/URLs.
@@ -6004,6 +6059,7 @@ class DataSourceTransformationFunctionArgs:
                  transformation_lambda_configuration: pulumi.Input['DataSourceTransformationLambdaConfigurationArgs']):
         """
         A Lambda function that processes documents.
+
         :param pulumi.Input['DataSourceTransformationLambdaConfigurationArgs'] transformation_lambda_configuration: The Lambda function.
         """
         pulumi.set(__self__, "transformation_lambda_configuration", transformation_lambda_configuration)
@@ -6036,6 +6092,7 @@ class DataSourceTransformationLambdaConfigurationArgs:
                  lambda_arn: pulumi.Input[_builtins.str]):
         """
         A Lambda function that processes documents.
+
         :param pulumi.Input[_builtins.str] lambda_arn: The function's ARN identifier.
         """
         pulumi.set(__self__, "lambda_arn", lambda_arn)
@@ -6073,6 +6130,7 @@ class DataSourceTransformationArgs:
                  transformation_function: pulumi.Input['DataSourceTransformationFunctionArgs']):
         """
         A Lambda function that processes documents.
+
         :param pulumi.Input['DataSourceTransformationStepToApply'] step_to_apply: When the service applies the transformation.
         :param pulumi.Input['DataSourceTransformationFunctionArgs'] transformation_function: A Lambda function that processes documents.
         """
@@ -6119,6 +6177,7 @@ class DataSourceUrlConfigurationArgs:
                  seed_urls: pulumi.Input[Sequence[pulumi.Input['DataSourceSeedUrlArgs']]]):
         """
         A url configuration.
+
         :param pulumi.Input[Sequence[pulumi.Input['DataSourceSeedUrlArgs']]] seed_urls: One or more seed or starting point URLs.
         """
         pulumi.set(__self__, "seed_urls", seed_urls)
@@ -6166,6 +6225,7 @@ class DataSourceVectorIngestionConfigurationArgs:
                  parsing_configuration: Optional[pulumi.Input['DataSourceParsingConfigurationArgs']] = None):
         """
         Details about how to chunk the documents in the data source. A chunk refers to an excerpt from a data source that is returned when the knowledge base that it belongs to is queried.
+
         :param pulumi.Input['DataSourceChunkingConfigurationArgs'] chunking_configuration: Details about how to chunk the documents in the data source. A *chunk* refers to an excerpt from a data source that is returned when the knowledge base that it belongs to is queried.
         :param pulumi.Input['DataSourceContextEnrichmentConfigurationArgs'] context_enrichment_configuration: The context enrichment configuration used for ingestion of the data into the vector store.
         :param pulumi.Input['DataSourceCustomTransformationConfigurationArgs'] custom_transformation_configuration: A custom document transformer for parsed data source documents.
@@ -6271,6 +6331,7 @@ class DataSourceWebCrawlerConfigurationArgs:
                  user_agent_header: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Configuration for the web crawler.
+
         :param pulumi.Input['DataSourceWebCrawlerLimitsArgs'] crawler_limits: The configuration of crawl limits for the web URLs.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] exclusion_filters: A list of one or more exclusion regular expression patterns to exclude certain URLs. If you specify an inclusion and exclusion filter/pattern and both match a URL, the exclusion filter takes precedence and the web content of the URL isn’t crawled.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] inclusion_filters: A list of one or more inclusion regular expression patterns to include certain URLs. If you specify an inclusion and exclusion filter/pattern and both match a URL, the exclusion filter takes precedence and the web content of the URL isn’t crawled.
@@ -6388,6 +6449,7 @@ class DataSourceWebCrawlerLimitsArgs:
                  rate_limit: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Limit settings for the web crawler.
+
         :param pulumi.Input[_builtins.int] max_pages: Maximum number of pages the crawler can crawl.
         :param pulumi.Input[_builtins.int] rate_limit: Rate of web URLs retrieved per minute.
         """
@@ -6441,6 +6503,7 @@ class DataSourceWebDataSourceConfigurationArgs:
                  crawler_configuration: Optional[pulumi.Input['DataSourceWebCrawlerConfigurationArgs']] = None):
         """
         Configures a web data source location.
+
         :param pulumi.Input['DataSourceWebSourceConfigurationArgs'] source_configuration: The source configuration details for the web data source.
         :param pulumi.Input['DataSourceWebCrawlerConfigurationArgs'] crawler_configuration: The Web Crawler configuration details for the web data source.
         """
@@ -6488,6 +6551,7 @@ class DataSourceWebSourceConfigurationArgs:
                  url_configuration: pulumi.Input['DataSourceUrlConfigurationArgs']):
         """
         A web source configuration.
+
         :param pulumi.Input['DataSourceUrlConfigurationArgs'] url_configuration: The configuration of the URL/URLs.
         """
         pulumi.set(__self__, "url_configuration", url_configuration)
@@ -6529,6 +6593,7 @@ class FlowAgentFlowNodeConfigurationArgs:
                  agent_alias_arn: pulumi.Input[_builtins.str]):
         """
         Agent flow node configuration
+
         :param pulumi.Input[_builtins.str] agent_alias_arn: Arn representation of the Agent Alias.
         """
         pulumi.set(__self__, "agent_alias_arn", agent_alias_arn)
@@ -6618,6 +6683,7 @@ class FlowAliasRoutingConfigurationListItemArgs:
                  flow_version: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Details about the routing configuration for a Flow alias.
+
         :param pulumi.Input[_builtins.str] flow_version: Version.
         """
         if flow_version is not None:
@@ -6666,6 +6732,7 @@ class FlowConditionFlowNodeConfigurationArgs:
                  conditions: pulumi.Input[Sequence[pulumi.Input['FlowConditionArgs']]]):
         """
         Condition flow node configuration
+
         :param pulumi.Input[Sequence[pulumi.Input['FlowConditionArgs']]] conditions: List of conditions in a condition node
         """
         pulumi.set(__self__, "conditions", conditions)
@@ -6698,6 +6765,7 @@ class FlowConditionalConnectionConfigurationArgs:
                  condition: pulumi.Input[_builtins.str]):
         """
         Conditional connection configuration
+
         :param pulumi.Input[_builtins.str] condition: Name of a condition in a flow
         """
         pulumi.set(__self__, "condition", condition)
@@ -6735,6 +6803,7 @@ class FlowConditionArgs:
                  expression: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Condition branch for a condition node
+
         :param pulumi.Input[_builtins.str] name: Name of a condition in a flow
         :param pulumi.Input[_builtins.str] expression: Expression for a condition in a flow
         """
@@ -6852,6 +6921,7 @@ class FlowConnectionArgs:
                  configuration: Optional[pulumi.Input[Union['FlowConnectionConfiguration0PropertiesArgs', 'FlowConnectionConfiguration1PropertiesArgs']]] = None):
         """
         Flow connection
+
         :param pulumi.Input[_builtins.str] name: Name of a connection in a flow
         :param pulumi.Input[_builtins.str] source: Name of a node in a flow
         :param pulumi.Input[_builtins.str] target: Name of a node in a flow
@@ -6946,6 +7016,7 @@ class FlowDataConnectionConfigurationArgs:
                  target_input: pulumi.Input[_builtins.str]):
         """
         Data connection configuration
+
         :param pulumi.Input[_builtins.str] source_output: Name of a node output in a flow
         :param pulumi.Input[_builtins.str] target_input: Name of a node input in a flow
         """
@@ -6997,6 +7068,7 @@ class FlowDefinitionArgs:
                  nodes: Optional[pulumi.Input[Sequence[pulumi.Input['FlowNodeArgs']]]] = None):
         """
         Flow definition
+
         :param pulumi.Input[Sequence[pulumi.Input['FlowConnectionArgs']]] connections: List of connections
         :param pulumi.Input[Sequence[pulumi.Input['FlowNodeArgs']]] nodes: List of nodes in a flow
         """
@@ -7045,6 +7117,7 @@ class FlowFieldForRerankingArgs:
                  field_name: pulumi.Input[_builtins.str]):
         """
         Field name for reranking
+
         :param pulumi.Input[_builtins.str] field_name: Field name for reranking
         """
         pulumi.set(__self__, "field_name", field_name)
@@ -7082,6 +7155,7 @@ class FlowGuardrailConfigurationArgs:
                  guardrail_version: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Configuration for a guardrail
+
         :param pulumi.Input[_builtins.str] guardrail_identifier: Identifier for the guardrail, could be the id or the arn
         :param pulumi.Input[_builtins.str] guardrail_version: Version of the guardrail
         """
@@ -7132,6 +7206,7 @@ class FlowInlineCodeFlowNodeConfigurationArgs:
                  language: pulumi.Input['FlowSupportedLanguages']):
         """
         Inline code config strucuture, contains code configs
+
         :param pulumi.Input[_builtins.str] code: The inline code entered by customers. max size is 5MB.
         """
         pulumi.set(__self__, "code", code)
@@ -7224,6 +7299,7 @@ class FlowKnowledgeBaseFlowNodeConfigurationArgs:
                  reranking_configuration: Optional[pulumi.Input['FlowVectorSearchRerankingConfigurationArgs']] = None):
         """
         Knowledge base flow node configuration
+
         :param pulumi.Input[_builtins.str] knowledge_base_id: Identifier of the KnowledgeBase
         :param pulumi.Input[_builtins.str] model_id: ARN or Id of a Bedrock Foundational Model or Inference Profile, or the ARN of a imported model, or a provisioned throughput ARN for custom models.
         :param pulumi.Input[_builtins.float] number_of_results: Number Of Results to Retrieve
@@ -7425,6 +7501,7 @@ class FlowLambdaFunctionFlowNodeConfigurationArgs:
                  lambda_arn: pulumi.Input[_builtins.str]):
         """
         Lambda function flow node configuration
+
         :param pulumi.Input[_builtins.str] lambda_arn: ARN of a Lambda.
         """
         pulumi.set(__self__, "lambda_arn", lambda_arn)
@@ -7462,6 +7539,7 @@ class FlowLexFlowNodeConfigurationArgs:
                  locale_id: pulumi.Input[_builtins.str]):
         """
         Lex flow node configuration
+
         :param pulumi.Input[_builtins.str] bot_alias_arn: ARN of a Lex bot alias
         :param pulumi.Input[_builtins.str] locale_id: Lex bot locale id
         """
@@ -7510,6 +7588,7 @@ class FlowLoopControllerFlowNodeConfigurationArgs:
                  max_iterations: Optional[pulumi.Input[_builtins.float]] = None):
         """
         Configuration for the LoopController node, which manages loop execution
+
         :param pulumi.Input[_builtins.float] max_iterations: Maximum number of iterations the loop can perform
         """
         pulumi.set(__self__, "continue_condition", continue_condition)
@@ -8044,6 +8123,7 @@ class FlowNodeInputArgs:
                  category: Optional[pulumi.Input['FlowNodeInputCategory']] = None):
         """
         Input to a node in a flow
+
         :param pulumi.Input[_builtins.str] expression: Expression for a node input in a flow
         :param pulumi.Input[_builtins.str] name: Name of a node input in a flow
         :param pulumi.Input['FlowNodeIoDataType'] type: Specifies the data type of the input. If the input doesn't match this type at runtime, a validation error will be thrown.
@@ -8132,6 +8212,7 @@ class FlowNodeOutputArgs:
                  type: pulumi.Input['FlowNodeIoDataType']):
         """
         Output of a node in a flow
+
         :param pulumi.Input[_builtins.str] name: Name of a node output in a flow
         :param pulumi.Input['FlowNodeIoDataType'] type: The data type of the output. If the output doesn't match this type at runtime, a validation error will be thrown.
         """
@@ -8198,6 +8279,7 @@ class FlowNodeArgs:
                  outputs: Optional[pulumi.Input[Sequence[pulumi.Input['FlowNodeOutputArgs']]]] = None):
         """
         Internal mixin for flow node
+
         :param pulumi.Input[_builtins.str] name: Name of a node in a flow
         :param pulumi.Input['FlowNodeType'] type: The type of node. This value must match the name of the key that you provide in the configuration you provide in the `FlowNodeConfiguration` field.
         :param pulumi.Input[Union['FlowNodeConfiguration0PropertiesArgs', 'FlowNodeConfiguration1PropertiesArgs', 'FlowNodeConfiguration2PropertiesArgs', 'FlowNodeConfiguration3PropertiesArgs', 'FlowNodeConfiguration4PropertiesArgs', 'FlowNodeConfiguration5PropertiesArgs', 'FlowNodeConfiguration6PropertiesArgs', 'FlowNodeConfiguration7PropertiesArgs', 'FlowNodeConfiguration8PropertiesArgs', 'FlowNodeConfiguration9PropertiesArgs', 'FlowNodeConfiguration10PropertiesArgs', 'FlowNodeConfiguration11PropertiesArgs', 'FlowNodeConfiguration12PropertiesArgs', 'FlowNodeConfiguration13PropertiesArgs', 'FlowNodeConfiguration14PropertiesArgs', 'FlowNodeConfiguration15PropertiesArgs']] configuration: Contains configurations for the node.
@@ -8368,6 +8450,7 @@ class FlowPromptFlowNodeInlineConfigurationArgs:
                  inference_configuration: Optional[pulumi.Input['FlowPromptInferenceConfigurationPropertiesArgs']] = None):
         """
         Inline prompt configuration for prompt node
+
         :param pulumi.Input[_builtins.str] model_id: ARN or Id of a Bedrock Foundational Model or Inference Profile, or the ARN of a imported model, or a provisioned throughput ARN for custom models.
         """
         pulumi.set(__self__, "model_id", model_id)
@@ -8431,6 +8514,7 @@ class FlowPromptFlowNodeResourceConfigurationArgs:
                  prompt_arn: pulumi.Input[_builtins.str]):
         """
         Resource prompt configuration for prompt node
+
         :param pulumi.Input[_builtins.str] prompt_arn: ARN of a prompt resource possibly with a version
         """
         pulumi.set(__self__, "prompt_arn", prompt_arn)
@@ -8538,6 +8622,7 @@ class FlowPromptInputVariableArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input variable
+
         :param pulumi.Input[_builtins.str] name: Name for an input variable
         """
         if name is not None:
@@ -8586,6 +8671,7 @@ class FlowPromptModelInferenceConfigurationArgs:
                  top_p: Optional[pulumi.Input[_builtins.float]] = None):
         """
         Prompt model inference configuration
+
         :param pulumi.Input[_builtins.float] max_tokens: Maximum length of output
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] stop_sequences: List of stop sequences
         :param pulumi.Input[_builtins.float] temperature: Controls randomness, higher values increase diversity
@@ -8764,6 +8850,7 @@ class FlowRetrievalFlowNodeS3ConfigurationArgs:
                  bucket_name: pulumi.Input[_builtins.str]):
         """
         s3 Retrieval configuration for Retrieval node
+
         :param pulumi.Input[_builtins.str] bucket_name: bucket name of an s3 that will be used for Retrieval flow node configuration
         """
         pulumi.set(__self__, "bucket_name", bucket_name)
@@ -8832,6 +8919,7 @@ class FlowS3LocationArgs:
                  version: Optional[pulumi.Input[_builtins.str]] = None):
         """
         A bucket, key and optional version pointing to an S3 object containing a UTF-8 encoded JSON string Definition with the same schema as the Definition property of this resource
+
         :param pulumi.Input[_builtins.str] bucket: A bucket in S3
         :param pulumi.Input[_builtins.str] key: A object key in S3
         :param pulumi.Input[_builtins.str] version: The version of the the S3 object to use
@@ -8918,6 +9006,7 @@ class FlowStorageFlowNodeS3ConfigurationArgs:
                  bucket_name: pulumi.Input[_builtins.str]):
         """
         s3 storage configuration for storage node
+
         :param pulumi.Input[_builtins.str] bucket_name: bucket name of an s3 that will be used for storage flow node configuration
         """
         pulumi.set(__self__, "bucket_name", bucket_name)
@@ -8981,6 +9070,7 @@ class FlowTextPromptTemplateConfigurationArgs:
                  input_variables: Optional[pulumi.Input[Sequence[pulumi.Input['FlowPromptInputVariableArgs']]]] = None):
         """
         Configuration for text prompt template
+
         :param pulumi.Input[_builtins.str] text: Prompt content for String prompt template
         :param pulumi.Input[Sequence[pulumi.Input['FlowPromptInputVariableArgs']]] input_variables: List of input variables
         """
@@ -9151,6 +9241,7 @@ class GuardrailAutomatedReasoningPolicyConfigArgs:
                  confidence_threshold: Optional[pulumi.Input[_builtins.float]] = None):
         """
         Optional configuration for integrating Automated Reasoning policies with the guardrail.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] policies: The list of Automated Reasoning policy ARNs to include in the guardrail configuration
         :param pulumi.Input[_builtins.float] confidence_threshold: The confidence threshold for triggering guardrail actions based on Automated Reasoning policy violations.
         """
@@ -9244,6 +9335,7 @@ class GuardrailContentFilterConfigArgs:
                  output_modalities: Optional[pulumi.Input[Sequence[pulumi.Input['GuardrailModality']]]] = None):
         """
         Content filter config in content policy.
+
         :param pulumi.Input['GuardrailFilterStrength'] input_strength: The strength of the content filter to apply to prompts. As you increase the filter strength, the likelihood of filtering harmful content increases and the probability of seeing harmful content in your application reduces.
         :param pulumi.Input['GuardrailFilterStrength'] output_strength: The strength of the content filter to apply to model responses. As you increase the filter strength, the likelihood of filtering harmful content increases and the probability of seeing harmful content in your application reduces.
         :param pulumi.Input['GuardrailContentFilterType'] type: The harmful category that the content filter is applied to.
@@ -9436,6 +9528,7 @@ class GuardrailContentPolicyConfigArgs:
                  content_filters_tier_config: Optional[pulumi.Input['GuardrailContentPolicyConfigContentFiltersTierConfigPropertiesArgs']] = None):
         """
         Content policy config for a guardrail.
+
         :param pulumi.Input[Sequence[pulumi.Input['GuardrailContentFilterConfigArgs']]] filters_config: List of content filter configs in content policy.
         :param pulumi.Input['GuardrailContentPolicyConfigContentFiltersTierConfigPropertiesArgs'] content_filters_tier_config: Guardrail tier config for content policy
         """
@@ -9501,6 +9594,7 @@ class GuardrailContextualGroundingFilterConfigArgs:
                  enabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         A config for grounding filter.
+
         :param pulumi.Input[_builtins.float] threshold: The threshold for this filter.
         :param pulumi.Input['GuardrailContextualGroundingFilterType'] type: The filter details for the guardrails contextual grounding filter.
         :param pulumi.Input['GuardrailContextualGroundingAction'] action: Specifies the action to take when content fails the contextual grounding evaluation. Supported values include:
@@ -9583,6 +9677,7 @@ class GuardrailContextualGroundingPolicyConfigArgs:
                  filters_config: pulumi.Input[Sequence[pulumi.Input['GuardrailContextualGroundingFilterConfigArgs']]]):
         """
         Contextual grounding policy config for a guardrail.
+
         :param pulumi.Input[Sequence[pulumi.Input['GuardrailContextualGroundingFilterConfigArgs']]] filters_config: List of contextual grounding filter configs.
         """
         pulumi.set(__self__, "filters_config", filters_config)
@@ -9615,6 +9710,7 @@ class GuardrailCrossRegionConfigArgs:
                  guardrail_profile_arn: pulumi.Input[_builtins.str]):
         """
         The system-defined guardrail profile that you’re using with your guardrail
+
         :param pulumi.Input[_builtins.str] guardrail_profile_arn: The Amazon Resource Name (ARN) of the guardrail profile
         """
         pulumi.set(__self__, "guardrail_profile_arn", guardrail_profile_arn)
@@ -9673,6 +9769,7 @@ class GuardrailManagedWordsConfigArgs:
                  output_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         A managed words config.
+
         :param pulumi.Input['GuardrailManagedWordsType'] type: The managed word type to configure for the guardrail.
         :param pulumi.Input['GuardrailWordAction'] input_action: Specifies the action to take when harmful content is detected in the input. Supported values include:
                
@@ -9927,6 +10024,7 @@ class GuardrailPiiEntityConfigArgs:
                  output_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Pii entity configuration.
+
         :param pulumi.Input['GuardrailSensitiveInformationAction'] action: Configure guardrail action when the PII entity is detected.
         :param pulumi.Input['GuardrailPiiEntityType'] type: Configure guardrail type when the PII entity is detected.
                
@@ -10324,6 +10422,7 @@ class GuardrailRegexConfigArgs:
                  output_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         A regex configuration.
+
         :param pulumi.Input['GuardrailSensitiveInformationAction'] action: The guardrail action to configure when matching regular expression is detected.
         :param pulumi.Input[_builtins.str] name: The regex name.
         :param pulumi.Input[_builtins.str] pattern: The regex pattern.
@@ -10476,6 +10575,7 @@ class GuardrailSensitiveInformationPolicyConfigArgs:
                  regexes_config: Optional[pulumi.Input[Sequence[pulumi.Input['GuardrailRegexConfigArgs']]]] = None):
         """
         Sensitive information policy config for a guardrail.
+
         :param pulumi.Input[Sequence[pulumi.Input['GuardrailPiiEntityConfigArgs']]] pii_entities_config: List of entities.
         :param pulumi.Input[Sequence[pulumi.Input['GuardrailRegexConfigArgs']]] regexes_config: List of regex.
         """
@@ -10565,6 +10665,7 @@ class GuardrailTopicConfigArgs:
                  output_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Topic config in topic policy.
+
         :param pulumi.Input[_builtins.str] definition: Definition of topic in topic policy
         :param pulumi.Input[_builtins.str] name: Name of topic in topic policy
         :param pulumi.Input['GuardrailTopicType'] type: Specifies to deny the topic.
@@ -10742,6 +10843,7 @@ class GuardrailTopicPolicyConfigArgs:
                  topics_tier_config: Optional[pulumi.Input['GuardrailTopicPolicyConfigTopicsTierConfigPropertiesArgs']] = None):
         """
         Topic policy config for a guardrail.
+
         :param pulumi.Input[Sequence[pulumi.Input['GuardrailTopicConfigArgs']]] topics_config: List of topic configs in topic policy.
         :param pulumi.Input['GuardrailTopicPolicyConfigTopicsTierConfigPropertiesArgs'] topics_tier_config: Guardrail tier config for topic policy
         """
@@ -10815,6 +10917,7 @@ class GuardrailWordConfigArgs:
                  output_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         A custom word config.
+
         :param pulumi.Input[_builtins.str] text: The custom word text.
         :param pulumi.Input['GuardrailWordAction'] input_action: Specifies the action to take when harmful content is detected in the input. Supported values include:
                
@@ -10924,6 +11027,7 @@ class GuardrailWordPolicyConfigArgs:
                  words_config: Optional[pulumi.Input[Sequence[pulumi.Input['GuardrailWordConfigArgs']]]] = None):
         """
         Word policy config for a guardrail.
+
         :param pulumi.Input[Sequence[pulumi.Input['GuardrailManagedWordsConfigArgs']]] managed_word_lists_config: A config for the list of managed words.
         :param pulumi.Input[Sequence[pulumi.Input['GuardrailWordConfigArgs']]] words_config: List of custom word configs.
         """
@@ -10972,6 +11076,7 @@ class IntelligentPromptRouterPromptRouterTargetModelArgs:
                  model_arn: pulumi.Input[_builtins.str]):
         """
         Model configuration
+
         :param pulumi.Input[_builtins.str] model_arn: Arn of underlying model which are added in the Prompt Router.
         """
         pulumi.set(__self__, "model_arn", model_arn)
@@ -11004,6 +11109,7 @@ class IntelligentPromptRouterRoutingCriteriaArgs:
                  response_quality_difference: pulumi.Input[_builtins.float]):
         """
         Represents the criteria used for routing requests.
+
         :param pulumi.Input[_builtins.float] response_quality_difference: The criteria's response quality difference.
         """
         pulumi.set(__self__, "response_quality_difference", response_quality_difference)
@@ -11101,6 +11207,7 @@ class KnowledgeBaseBedrockEmbeddingModelConfigurationArgs:
                  video: Optional[pulumi.Input[Sequence[pulumi.Input['KnowledgeBaseVideoConfigurationArgs']]]] = None):
         """
         The vector configuration details for the Bedrock embeddings model.
+
         :param pulumi.Input[Sequence[pulumi.Input['KnowledgeBaseAudioConfigurationArgs']]] audio: Configuration settings for processing audio content in multimodal knowledge bases.
         :param pulumi.Input[_builtins.int] dimensions: The dimensions details for the vector configuration used on the Bedrock embeddings model.
         :param pulumi.Input['KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataType'] embedding_data_type: The data type for the vectors when using a model to convert text into vector embeddings.
@@ -11194,6 +11301,7 @@ class KnowledgeBaseConfigurationArgs:
                  vector_knowledge_base_configuration: Optional[pulumi.Input['KnowledgeBaseVectorKnowledgeBaseConfigurationArgs']] = None):
         """
         Contains details about the embeddings model used for the knowledge base.
+
         :param pulumi.Input['KnowledgeBaseType'] type: The type of data that the data source is converted into for the knowledge base.
         :param pulumi.Input['KnowledgeBaseKendraKnowledgeBaseConfigurationArgs'] kendra_knowledge_base_configuration: Settings for an Amazon Kendra knowledge base.
         :param pulumi.Input['KnowledgeBaseSqlKnowledgeBaseConfigurationArgs'] sql_knowledge_base_configuration: Specifies configurations for a knowledge base connected to an SQL database.
@@ -11308,6 +11416,7 @@ class KnowledgeBaseEmbeddingModelConfigurationArgs:
                  bedrock_embedding_model_configuration: Optional[pulumi.Input['KnowledgeBaseBedrockEmbeddingModelConfigurationArgs']] = None):
         """
         The embeddings model configuration details for the vector model used in Knowledge Base.
+
         :param pulumi.Input['KnowledgeBaseBedrockEmbeddingModelConfigurationArgs'] bedrock_embedding_model_configuration: The vector configuration details on the Bedrock embeddings model.
         """
         if bedrock_embedding_model_configuration is not None:
@@ -11341,6 +11450,7 @@ class KnowledgeBaseKendraKnowledgeBaseConfigurationArgs:
                  kendra_index_arn: pulumi.Input[_builtins.str]):
         """
         Configurations for a Kendra knowledge base
+
         :param pulumi.Input[_builtins.str] kendra_index_arn: The ARN of the Amazon Kendra index.
         """
         pulumi.set(__self__, "kendra_index_arn", kendra_index_arn)
@@ -11408,6 +11518,7 @@ class KnowledgeBaseMongoDbAtlasConfigurationArgs:
                  text_index_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Contains the storage configuration of the knowledge base in MongoDb Atlas Cloud.
+
         :param pulumi.Input[_builtins.str] collection_name: Name of the collection within MongoDB Atlas.
         :param pulumi.Input[_builtins.str] credentials_secret_arn: The ARN of the secret that you created in AWS Secrets Manager that is linked to your Amazon Mongo database.
         :param pulumi.Input[_builtins.str] database_name: Name of the database within MongoDB Atlas.
@@ -11550,6 +11661,7 @@ class KnowledgeBaseMongoDbAtlasFieldMappingArgs:
                  vector_field: pulumi.Input[_builtins.str]):
         """
         Contains the names of the fields to which to map information about the vector store.
+
         :param pulumi.Input[_builtins.str] metadata_field: The name of the field in which Amazon Bedrock stores metadata about the vector store.
         :param pulumi.Input[_builtins.str] text_field: The name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
         :param pulumi.Input[_builtins.str] vector_field: The name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.
@@ -11615,6 +11727,7 @@ class KnowledgeBaseNeptuneAnalyticsConfigurationArgs:
                  graph_arn: pulumi.Input[_builtins.str]):
         """
         Contains the configurations to use Neptune Analytics as Vector Store.
+
         :param pulumi.Input['KnowledgeBaseNeptuneAnalyticsFieldMappingArgs'] field_mapping: Contains the names of the fields to which to map information about the vector store.
         :param pulumi.Input[_builtins.str] graph_arn: ARN for Neptune Analytics graph database.
         """
@@ -11666,6 +11779,7 @@ class KnowledgeBaseNeptuneAnalyticsFieldMappingArgs:
                  text_field: pulumi.Input[_builtins.str]):
         """
         A mapping of Bedrock Knowledge Base fields to Neptune Analytics fields.
+
         :param pulumi.Input[_builtins.str] metadata_field: The name of the field in which Amazon Bedrock stores metadata about the vector store.
         :param pulumi.Input[_builtins.str] text_field: The name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
         """
@@ -11727,6 +11841,7 @@ class KnowledgeBaseOpenSearchManagedClusterConfigurationArgs:
                  vector_index_name: pulumi.Input[_builtins.str]):
         """
         Contains the storage configuration of the knowledge base in Amazon OpenSearch Service.
+
         :param pulumi.Input[_builtins.str] domain_arn: The Amazon Resource Name (ARN) of the OpenSearch domain.
         :param pulumi.Input[_builtins.str] domain_endpoint: The endpoint URL the OpenSearch domain.
         :param pulumi.Input['KnowledgeBaseOpenSearchManagedClusterFieldMappingArgs'] field_mapping: Contains the names of the fields to which to map information about the vector store.
@@ -11811,6 +11926,7 @@ class KnowledgeBaseOpenSearchManagedClusterFieldMappingArgs:
                  vector_field: pulumi.Input[_builtins.str]):
         """
         A mapping of Bedrock Knowledge Base fields to OpenSearch Managed Cluster field names
+
         :param pulumi.Input[_builtins.str] metadata_field: The name of the field in which Amazon Bedrock stores metadata about the vector store.
         :param pulumi.Input[_builtins.str] text_field: The name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
         :param pulumi.Input[_builtins.str] vector_field: The name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.
@@ -11881,6 +11997,7 @@ class KnowledgeBaseOpenSearchServerlessConfigurationArgs:
                  vector_index_name: pulumi.Input[_builtins.str]):
         """
         Contains the storage configuration of the knowledge base in Amazon OpenSearch Service.
+
         :param pulumi.Input[_builtins.str] collection_arn: The ARN of the OpenSearch Service vector store.
         :param pulumi.Input['KnowledgeBaseOpenSearchServerlessFieldMappingArgs'] field_mapping: Contains the names of the fields to which to map information about the vector store.
         :param pulumi.Input[_builtins.str] vector_index_name: The name of the vector store.
@@ -11951,6 +12068,7 @@ class KnowledgeBaseOpenSearchServerlessFieldMappingArgs:
                  vector_field: pulumi.Input[_builtins.str]):
         """
         A mapping of Bedrock Knowledge Base fields to OpenSearch Serverless field names
+
         :param pulumi.Input[_builtins.str] metadata_field: The name of the field in which Amazon Bedrock stores metadata about the vector store.
         :param pulumi.Input[_builtins.str] text_field: The name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
         :param pulumi.Input[_builtins.str] vector_field: The name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.
@@ -12026,6 +12144,7 @@ class KnowledgeBasePineconeConfigurationArgs:
                  namespace: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Contains the storage configuration of the knowledge base in Pinecone.
+
         :param pulumi.Input[_builtins.str] connection_string: The endpoint URL for your index management page.
         :param pulumi.Input[_builtins.str] credentials_secret_arn: The ARN of the secret that you created in AWS Secrets Manager that is linked to your Pinecone API key.
         :param pulumi.Input['KnowledgeBasePineconeFieldMappingArgs'] field_mapping: Contains the names of the fields to which to map information about the vector store.
@@ -12106,6 +12225,7 @@ class KnowledgeBasePineconeFieldMappingArgs:
                  text_field: pulumi.Input[_builtins.str]):
         """
         Contains the names of the fields to which to map information about the vector store.
+
         :param pulumi.Input[_builtins.str] metadata_field: The name of the field in which Amazon Bedrock stores metadata about the vector store.
         :param pulumi.Input[_builtins.str] text_field: The name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
         """
@@ -12209,6 +12329,7 @@ class KnowledgeBaseQueryGenerationConfigurationArgs:
                  generation_context: Optional[pulumi.Input['KnowledgeBaseQueryGenerationContextArgs']] = None):
         """
         Configurations for generating Redshift engine queries
+
         :param pulumi.Input[_builtins.int] execution_timeout_seconds: The time after which query generation will time out.
         :param pulumi.Input['KnowledgeBaseQueryGenerationContextArgs'] generation_context: Specifies configurations for context to use during query generation.
         """
@@ -12262,6 +12383,7 @@ class KnowledgeBaseQueryGenerationContextArgs:
                  tables: Optional[pulumi.Input[Sequence[pulumi.Input['KnowledgeBaseQueryGenerationTableArgs']]]] = None):
         """
         Context used to improve query generation
+
         :param pulumi.Input[Sequence[pulumi.Input['KnowledgeBaseCuratedQueryArgs']]] curated_queries: An array of objects, each of which defines information about example queries to help the query engine generate appropriate SQL queries.
         :param pulumi.Input[Sequence[pulumi.Input['KnowledgeBaseQueryGenerationTableArgs']]] tables: An array of objects, each of which defines information about a table in the database.
         """
@@ -12394,6 +12516,7 @@ class KnowledgeBaseRdsConfigurationArgs:
                  table_name: pulumi.Input[_builtins.str]):
         """
         Contains details about the storage configuration of the knowledge base in Amazon RDS. For more information, see Create a vector index in Amazon RDS.
+
         :param pulumi.Input[_builtins.str] credentials_secret_arn: The ARN of the secret that you created in AWS Secrets Manager that is linked to your Amazon RDS database.
         :param pulumi.Input[_builtins.str] database_name: The name of your Amazon RDS database.
         :param pulumi.Input['KnowledgeBaseRdsFieldMappingArgs'] field_mapping: Contains the names of the fields to which to map information about the vector store.
@@ -12502,6 +12625,7 @@ class KnowledgeBaseRdsFieldMappingArgs:
                  custom_metadata_field: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Contains the names of the fields to which to map information about the vector store.
+
         :param pulumi.Input[_builtins.str] metadata_field: The name of the field in which Amazon Bedrock stores metadata about the vector store.
         :param pulumi.Input[_builtins.str] primary_key_field: The name of the field in which Amazon Bedrock stores the ID for each entry.
         :param pulumi.Input[_builtins.str] text_field: The name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
@@ -12601,6 +12725,7 @@ class KnowledgeBaseRedshiftConfigurationArgs:
                  query_generation_configuration: Optional[pulumi.Input['KnowledgeBaseQueryGenerationConfigurationArgs']] = None):
         """
         Configurations for a Redshift knowledge base
+
         :param pulumi.Input['KnowledgeBaseRedshiftQueryEngineConfigurationArgs'] query_engine_configuration: Specifies configurations for an Amazon Redshift query engine.
         :param pulumi.Input[Sequence[pulumi.Input['KnowledgeBaseRedshiftQueryEngineStorageConfigurationArgs']]] storage_configurations: Specifies configurations for Amazon Redshift database storage.
         :param pulumi.Input['KnowledgeBaseQueryGenerationConfigurationArgs'] query_generation_configuration: Specifies configurations for generating queries.
@@ -12672,6 +12797,7 @@ class KnowledgeBaseRedshiftProvisionedAuthConfigurationArgs:
                  username_password_secret_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Configurations for Redshift query engine provisioned auth setup
+
         :param pulumi.Input['KnowledgeBaseRedshiftProvisionedAuthType'] type: The type of authentication to use.
         :param pulumi.Input[_builtins.str] database_user: Redshift database user
         :param pulumi.Input[_builtins.str] username_password_secret_arn: The ARN of an Secrets Manager secret for authentication.
@@ -12739,6 +12865,7 @@ class KnowledgeBaseRedshiftProvisionedConfigurationArgs:
                  cluster_identifier: pulumi.Input[_builtins.str]):
         """
         Configurations for provisioned Redshift query engine
+
         :param pulumi.Input['KnowledgeBaseRedshiftProvisionedAuthConfigurationArgs'] auth_configuration: Specifies configurations for authentication to Amazon Redshift.
         :param pulumi.Input[_builtins.str] cluster_identifier: The ID of the Amazon Redshift cluster.
         """
@@ -12820,6 +12947,7 @@ class KnowledgeBaseRedshiftQueryEngineConfigurationArgs:
                  serverless_configuration: Optional[pulumi.Input['KnowledgeBaseRedshiftServerlessConfigurationArgs']] = None):
         """
         Configurations for Redshift query engine
+
         :param pulumi.Input['KnowledgeBaseRedshiftQueryEngineType'] type: The type of query engine.
         :param pulumi.Input['KnowledgeBaseRedshiftProvisionedConfigurationArgs'] provisioned_configuration: Specifies configurations for a provisioned Amazon Redshift query engine.
         :param pulumi.Input['KnowledgeBaseRedshiftServerlessConfigurationArgs'] serverless_configuration: Specifies configurations for a serverless Amazon Redshift query engine.
@@ -12963,6 +13091,7 @@ class KnowledgeBaseRedshiftServerlessAuthConfigurationArgs:
                  username_password_secret_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Configurations for Redshift query engine serverless auth setup
+
         :param pulumi.Input['KnowledgeBaseRedshiftServerlessAuthType'] type: The type of authentication to use.
         :param pulumi.Input[_builtins.str] username_password_secret_arn: The ARN of an Secrets Manager secret for authentication.
         """
@@ -13015,6 +13144,7 @@ class KnowledgeBaseRedshiftServerlessConfigurationArgs:
                  workgroup_arn: pulumi.Input[_builtins.str]):
         """
         Configurations for serverless Redshift query engine
+
         :param pulumi.Input['KnowledgeBaseRedshiftServerlessAuthConfigurationArgs'] auth_configuration: Specifies configurations for authentication to an Amazon Redshift provisioned data warehouse.
         :param pulumi.Input[_builtins.str] workgroup_arn: The ARN of the Amazon Redshift workgroup.
         """
@@ -13061,6 +13191,7 @@ class KnowledgeBaseS3LocationArgs:
                  uri: pulumi.Input[_builtins.str]):
         """
         An Amazon S3 location.
+
         :param pulumi.Input[_builtins.str] uri: The location's URI
         """
         pulumi.set(__self__, "uri", uri)
@@ -13103,6 +13234,7 @@ class KnowledgeBaseS3VectorsConfigurationArgs:
                  vector_bucket_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Contains the storage configuration of the knowledge base for S3 vectors.
+
         :param pulumi.Input[_builtins.str] index_arn: The Amazon Resource Name (ARN) of the vector index used for the knowledge base. This ARN identifies the specific vector index resource within Amazon Bedrock.
         :param pulumi.Input[_builtins.str] index_name: The name of the vector index used for the knowledge base. This name identifies the vector index within the Amazon Bedrock service.
         :param pulumi.Input[_builtins.str] vector_bucket_arn: The Amazon Resource Name (ARN) of the S3 bucket where vector embeddings are stored. This bucket contains the vector data used by the knowledge base.
@@ -13171,6 +13303,7 @@ class KnowledgeBaseSqlKnowledgeBaseConfigurationArgs:
                  redshift_configuration: Optional[pulumi.Input['KnowledgeBaseRedshiftConfigurationArgs']] = None):
         """
         Configurations for a SQL knowledge base
+
         :param pulumi.Input['KnowledgeBaseQueryEngineType'] type: The type of SQL database to connect to the knowledge base.
         :param pulumi.Input['KnowledgeBaseRedshiftConfigurationArgs'] redshift_configuration: Specifies configurations for a knowledge base connected to an Amazon Redshift database.
         """
@@ -13253,6 +13386,7 @@ class KnowledgeBaseStorageConfigurationArgs:
                  s3_vectors_configuration: Optional[pulumi.Input['KnowledgeBaseS3VectorsConfigurationArgs']] = None):
         """
         The vector store service in which the knowledge base is stored.
+
         :param pulumi.Input['KnowledgeBaseStorageType'] type: The vector store service in which the knowledge base is stored.
         :param pulumi.Input['KnowledgeBaseMongoDbAtlasConfigurationArgs'] mongo_db_atlas_configuration: Contains the storage configuration of the knowledge base in MongoDB Atlas.
         :param pulumi.Input['KnowledgeBaseNeptuneAnalyticsConfigurationArgs'] neptune_analytics_configuration: Contains details about the Neptune Analytics configuration of the knowledge base in Amazon Neptune. For more information, see [Create a vector index in Amazon Neptune Analytics.](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup-neptune.html) .
@@ -13463,6 +13597,7 @@ class KnowledgeBaseVectorKnowledgeBaseConfigurationArgs:
                  supplemental_data_storage_configuration: Optional[pulumi.Input['KnowledgeBaseSupplementalDataStorageConfigurationArgs']] = None):
         """
         Contains details about the model used to create vector embeddings for the knowledge base.
+
         :param pulumi.Input[_builtins.str] embedding_model_arn: The ARN of the model used to create vector embeddings for the knowledge base.
         :param pulumi.Input['KnowledgeBaseEmbeddingModelConfigurationArgs'] embedding_model_configuration: The embeddings model configuration details for the vector model used in Knowledge Base.
         :param pulumi.Input['KnowledgeBaseSupplementalDataStorageConfigurationArgs'] supplemental_data_storage_configuration: If you include multimodal data from your data source, use this object to specify configurations for the storage location of the images extracted from your documents. These images can be retrieved and returned to the end user. They can also be used in generation when using [RetrieveAndGenerate](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_RetrieveAndGenerate.html) .
@@ -13590,6 +13725,7 @@ class PromptAgentResourceArgs:
                  agent_identifier: pulumi.Input[_builtins.str]):
         """
         Target Agent to invoke with Prompt
+
         :param pulumi.Input[_builtins.str] agent_identifier: Arn representation of the Agent Alias.
         """
         pulumi.set(__self__, "agent_identifier", agent_identifier)
@@ -13689,6 +13825,7 @@ class PromptChatPromptTemplateConfigurationArgs:
                  tool_configuration: Optional[pulumi.Input['PromptToolConfigurationArgs']] = None):
         """
         Configuration for chat prompt template
+
         :param pulumi.Input[Sequence[pulumi.Input['PromptMessageArgs']]] messages: List of messages for chat prompt template
         :param pulumi.Input[Sequence[pulumi.Input['PromptInputVariableArgs']]] input_variables: List of input variables
         :param pulumi.Input[Sequence[pulumi.Input[Union['PromptSystemContentBlock0PropertiesArgs', 'PromptSystemContentBlock1PropertiesArgs']]]] system: Configuration for chat prompt template
@@ -13762,6 +13899,7 @@ class PromptContentBlock0PropertiesArgs:
                  text: pulumi.Input[_builtins.str]):
         """
         Configuration for chat prompt template
+
         :param pulumi.Input[_builtins.str] text: Configuration for chat prompt template
         """
         pulumi.set(__self__, "text", text)
@@ -13869,6 +14007,7 @@ class PromptInputVariableArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input variable
+
         :param pulumi.Input[_builtins.str] name: Name for an input variable
         """
         if name is not None:
@@ -13904,6 +14043,7 @@ class PromptMessageArgs:
                  role: pulumi.Input['PromptConversationRole']):
         """
         Chat prompt Message
+
         :param pulumi.Input[Sequence[pulumi.Input[Union['PromptContentBlock0PropertiesArgs', 'PromptContentBlock1PropertiesArgs']]]] content: List of Content Blocks
         """
         pulumi.set(__self__, "content", content)
@@ -13998,6 +14138,7 @@ class PromptModelInferenceConfigurationArgs:
                  top_p: Optional[pulumi.Input[_builtins.float]] = None):
         """
         Prompt model inference configuration
+
         :param pulumi.Input[_builtins.float] max_tokens: Maximum length of output
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] stop_sequences: List of stop sequences
         :param pulumi.Input[_builtins.float] temperature: Controls randomness, higher values increase diversity
@@ -14076,6 +14217,7 @@ class PromptSpecificToolChoiceArgs:
                  name: pulumi.Input[_builtins.str]):
         """
         Specific Tool choice
+
         :param pulumi.Input[_builtins.str] name: Tool name
         """
         pulumi.set(__self__, "name", name)
@@ -14108,6 +14250,7 @@ class PromptSystemContentBlock0PropertiesArgs:
                  text: pulumi.Input[_builtins.str]):
         """
         Configuration for chat prompt template
+
         :param pulumi.Input[_builtins.str] text: Configuration for chat prompt template
         """
         pulumi.set(__self__, "text", text)
@@ -14224,6 +14367,7 @@ class PromptTextPromptTemplateConfigurationArgs:
                  text_s3_location: Optional[pulumi.Input['PromptTextS3LocationArgs']] = None):
         """
         Configuration for text prompt template
+
         :param pulumi.Input[Sequence[pulumi.Input['PromptInputVariableArgs']]] input_variables: List of input variables
         :param pulumi.Input[_builtins.str] text: Prompt content for String prompt template
         """
@@ -14304,6 +14448,7 @@ class PromptTextS3LocationArgs:
                  version: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The identifier for the S3 resource.
+
         :param pulumi.Input[_builtins.str] bucket: A bucket in S3
         :param pulumi.Input[_builtins.str] key: A object key in S3
         :param pulumi.Input[_builtins.str] version: The version of the the S3 object to use
@@ -14492,6 +14637,7 @@ class PromptToolConfigurationArgs:
                  tool_choice: Optional[pulumi.Input[Union['PromptToolChoice0PropertiesArgs', 'PromptToolChoice1PropertiesArgs', 'PromptToolChoice2PropertiesArgs']]] = None):
         """
         Tool configuration
+
         :param pulumi.Input[Sequence[pulumi.Input[Union['PromptTool0PropertiesArgs', 'PromptTool1PropertiesArgs']]]] tools: List of Tools
         """
         pulumi.set(__self__, "tools", tools)
@@ -14564,6 +14710,7 @@ class PromptToolSpecificationArgs:
                  description: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Tool specification
+
         :param pulumi.Input[_builtins.str] name: Tool name
         """
         pulumi.set(__self__, "input_schema", input_schema)
@@ -14652,6 +14799,7 @@ class PromptVariantArgs:
                  model_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Prompt variant
+
         :param pulumi.Input[_builtins.str] name: Name for a variant.
         :param pulumi.Input[Union['PromptTemplateConfiguration0PropertiesArgs', 'PromptTemplateConfiguration1PropertiesArgs']] template_configuration: Contains configurations for the prompt template.
         :param pulumi.Input['PromptTemplateType'] template_type: The type of prompt template to use.

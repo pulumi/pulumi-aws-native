@@ -119,6 +119,7 @@ class ServiceLevelObjectiveBurnRateConfigurationArgs:
         This object defines the length of the look-back window used to calculate one burn rate metric for this SLO. The burn rate measures how fast the service is consuming the error budget, relative to the attainment goal of the SLO. A burn rate of exactly 1 indicates that the SLO goal will be met exactly.
         For example, if you specify 60 as the number of minutes in the look-back window, the burn rate is calculated as the following:
         burn rate = error rate over the look-back window / (1 - attainment goal percentage)
+
         :param pulumi.Input[_builtins.int] look_back_window_minutes: The number of minutes to use as the look-back window.
         """
         pulumi.set(__self__, "look_back_window_minutes", look_back_window_minutes)
@@ -162,6 +163,7 @@ class ServiceLevelObjectiveCalendarIntervalArgs:
                  start_time: pulumi.Input[_builtins.int]):
         """
         If the interval for this service level objective is a calendar interval, this structure contains the interval specifications.
+
         :param pulumi.Input[_builtins.int] duration: Specifies the duration of each calendar interval. For example, if `Duration` is `1` and `DurationUnit` is `MONTH` , each interval is one month, aligned with the calendar.
         :param pulumi.Input['ServiceLevelObjectiveDurationUnit'] duration_unit: Specifies the calendar interval unit.
         :param pulumi.Input[_builtins.int] start_time: Epoch time in seconds you want the first interval to start. Be sure to choose a time that configures the intervals the way that you want. For example, if you want weekly intervals starting on Mondays at 6 a.m., be sure to specify a start time that is a Monday at 6 a.m.
@@ -235,6 +237,7 @@ class ServiceLevelObjectiveDependencyConfigArgs:
                  dependency_operation_name: pulumi.Input[_builtins.str]):
         """
         Configuration for identifying a dependency and its operation
+
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] dependency_key_attributes: If this SLO is related to a metric collected by Application Signals, you must use this field to specify which dependency the SLO metric is related to.
                
                - `Type` designates the type of object this is.
@@ -298,6 +301,7 @@ class ServiceLevelObjectiveDimensionArgs:
                  value: pulumi.Input[_builtins.str]):
         """
         A dimension is a name/value pair that is part of the identity of a metric. Because dimensions are part of the unique identifier for a metric, whenever you add a unique name/value pair to one of your metrics, you are creating a new variation of that metric. For example, many Amazon EC2 metrics publish `InstanceId` as a dimension name, and the actual instance ID as the value for that dimension. You can assign up to 30 dimensions to a metric.
+
         :param pulumi.Input[_builtins.str] name: The name of the dimension. Dimension names must contain only ASCII characters, must include at least one non-whitespace character, and cannot start with a colon (:). ASCII control characters are not supported as part of dimension names.
         :param pulumi.Input[_builtins.str] value: The value of the dimension. Dimension values must contain only ASCII characters and must include at least one non-whitespace character. ASCII control characters are not supported as part of dimension values
         """
@@ -353,6 +357,7 @@ class ServiceLevelObjectiveExclusionWindowArgs:
                  start_time: Optional[pulumi.Input[_builtins.str]] = None):
         """
         This object defines a time exclusion window for this SLO. The time exclusion window is used to exclude breaching data points from affecting attainment rate, error budget, and burn rate metrics.
+
         :param pulumi.Input[_builtins.str] reason: An optional reason for scheduling this time exclusion window. Default is 'No reason'.
         :param pulumi.Input[_builtins.str] start_time: The time you want the exclusion window to start at. Note that time exclusion windows can only be scheduled in the future, not the past.
         """
@@ -435,6 +440,7 @@ class ServiceLevelObjectiveGoalArgs:
                  warning_threshold: Optional[pulumi.Input[_builtins.float]] = None):
         """
         A structure that contains the attributes that determine the goal of the SLO. This includes the time period for evaluation and the attainment threshold.
+
         :param pulumi.Input[_builtins.float] attainment_goal: The threshold that determines if the goal is being met. An attainment goal is the ratio of good periods that meet the threshold requirements to the total periods within the interval. For example, an attainment goal of 99.9% means that within your interval, you are targeting 99.9% of the periods to be in healthy state.
                If you omit this parameter, 99 is used to represent 99% as the attainment goal.
         :param pulumi.Input['ServiceLevelObjectiveIntervalArgs'] interval: The time period used to evaluate the SLO. It can be either a calendar interval or rolling interval.
@@ -511,6 +517,7 @@ class ServiceLevelObjectiveIntervalArgs:
         """
         The time period used to evaluate the SLO. It can be either a calendar interval or rolling interval.
         If you omit this parameter, a rolling interval of 7 days is used.
+
         :param pulumi.Input['ServiceLevelObjectiveCalendarIntervalArgs'] calendar_interval: If the interval is a calendar interval, this structure contains the interval specifications.
         :param pulumi.Input['ServiceLevelObjectiveRollingIntervalArgs'] rolling_interval: If the interval is a rolling interval, this structure contains the interval specifications.
         """
@@ -581,6 +588,7 @@ class ServiceLevelObjectiveMetricDataQueryArgs:
         """
         Use this structure to define a metric or metric math expression that you want to use as for a service level objective.
         Each `MetricDataQuery` in the `MetricDataQueries` array specifies either a metric to retrieve, or a metric math expression to be performed on retrieved metrics. A single `MetricDataQueries` array can include as many as 20 `MetricDataQuery` structures in the array. The 20 structures can include as many as 10 structures that contain a `MetricStat` parameter to retrieve a metric, and as many as 10 structures that contain the `Expression` parameter to perform a math expression. Of those Expression structures, exactly one must have true as the value for `ReturnData`. The result of this expression used for the SLO.
+
         :param pulumi.Input[_builtins.str] id: A short name used to tie this object to the results in the response.
         :param pulumi.Input[_builtins.str] account_id: The ID of the account where the metrics are located, if this is a cross-account alarm.
         :param pulumi.Input[_builtins.str] expression: The math expression to be performed on the returned data.
@@ -685,6 +693,7 @@ class ServiceLevelObjectiveMetricStatArgs:
                  unit: Optional[pulumi.Input[_builtins.str]] = None):
         """
         A metric to be used directly for the SLO, or to be used in the math expression that will be used for the SLO. Within one MetricDataQuery object, you must specify either Expression or MetricStat but not both.
+
         :param pulumi.Input[_builtins.int] period: The granularity, in seconds, to be used for the metric.
         :param pulumi.Input[_builtins.str] stat: The statistic to use for comparison to the threshold. It can be any CloudWatch statistic or extended statistic.
         :param pulumi.Input[_builtins.str] unit: If you omit Unit then all data that was collected with any unit is returned, along with the corresponding units that were specified when the data was reported to CloudWatch. If you specify a unit, the operation returns only data that was collected with that unit specified. If you specify a unit that does not match the data collected, the results of the operation are null. CloudWatch does not perform unit conversions.
@@ -766,6 +775,7 @@ class ServiceLevelObjectiveMetricArgs:
                  namespace: Optional[pulumi.Input[_builtins.str]] = None):
         """
         This structure defines the metric used for a service level indicator, including the metric name, namespace, and dimensions.
+
         :param pulumi.Input[Sequence[pulumi.Input['ServiceLevelObjectiveDimensionArgs']]] dimensions: An array of one or more dimensions to use to define the metric that you want to use.
         :param pulumi.Input[_builtins.str] metric_name: The name of the metric to use.
         :param pulumi.Input[_builtins.str] namespace: The namespace of the metric.
@@ -834,6 +844,7 @@ class ServiceLevelObjectiveMonitoredRequestCountMetricArgs:
                  good_count_metric: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceLevelObjectiveMetricDataQueryArgs']]]] = None):
         """
         This structure defines the metric that is used as the "good request" or "bad request" value for a request-based SLO. This value observed for the metric defined in `TotalRequestCountMetric` is divided by the number found for `MonitoredRequestCountMetric` to determine the percentage of successful requests that this SLO tracks.
+
         :param pulumi.Input[Sequence[pulumi.Input['ServiceLevelObjectiveMetricDataQueryArgs']]] bad_count_metric: If you want to count "bad requests" to determine the percentage of successful requests for this request-based SLO, specify the metric to use as "bad requests" in this structure.
         :param pulumi.Input[Sequence[pulumi.Input['ServiceLevelObjectiveMetricDataQueryArgs']]] good_count_metric: If you want to count "good requests" to determine the percentage of successful requests for this request-based SLO, specify the metric to use as "good requests" in this structure.
         """
@@ -882,6 +893,7 @@ class ServiceLevelObjectiveRecurrenceRuleArgs:
                  expression: pulumi.Input[_builtins.str]):
         """
         This object defines how often to repeat a time exclusion window.
+
         :param pulumi.Input[_builtins.str] expression: A cron or rate expression denoting how often to repeat this exclusion window.
         """
         pulumi.set(__self__, "expression", expression)
@@ -946,6 +958,7 @@ class ServiceLevelObjectiveRequestBasedSliMetricArgs:
                  total_request_count_metric: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceLevelObjectiveMetricDataQueryArgs']]]] = None):
         """
         This structure contains the information about the metric that is used for a request-based SLO.
+
         :param pulumi.Input['ServiceLevelObjectiveDependencyConfigArgs'] dependency_config: Identifies the dependency using the `DependencyKeyAttributes` and `DependencyOperationName` .
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] key_attributes: This is a string-to-string map that contains information about the type of object that this SLO is related to. It can include the following fields.
                
@@ -1078,6 +1091,7 @@ class ServiceLevelObjectiveRequestBasedSliArgs:
                  metric_threshold: Optional[pulumi.Input[_builtins.float]] = None):
         """
         This structure contains information about the performance metric that a request-based SLO monitors.
+
         :param pulumi.Input['ServiceLevelObjectiveRequestBasedSliMetricArgs'] request_based_sli_metric: A structure that contains information about the metric that the SLO monitors.
         :param pulumi.Input['ServiceLevelObjectiveRequestBasedSliComparisonOperator'] comparison_operator: The arithmetic operation used when comparing the specified metric to the threshold.
         :param pulumi.Input[_builtins.float] metric_threshold: The value that the SLI metric is compared to.
@@ -1145,6 +1159,7 @@ class ServiceLevelObjectiveRollingIntervalArgs:
                  duration_unit: pulumi.Input['ServiceLevelObjectiveDurationUnit']):
         """
         If the interval is a calendar interval, this structure contains the interval specifications.
+
         :param pulumi.Input[_builtins.int] duration: Specifies the duration of each rolling interval. For example, if `Duration` is `7` and `DurationUnit` is `DAY` , each rolling interval is seven days.
         :param pulumi.Input['ServiceLevelObjectiveDurationUnit'] duration_unit: Specifies the rolling interval unit.
         """
@@ -1229,6 +1244,7 @@ class ServiceLevelObjectiveSliMetricArgs:
                  statistic: Optional[pulumi.Input[_builtins.str]] = None):
         """
         A structure that contains information about the metric that the SLO monitors.
+
         :param pulumi.Input['ServiceLevelObjectiveDependencyConfigArgs'] dependency_config: Identifies the dependency using the `DependencyKeyAttributes` and `DependencyOperationName` .
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] key_attributes: If this SLO is related to a metric collected by Application Signals, you must use this field to specify which service the SLO metric is related to. To do so, you must specify at least the `Type` , `Name` , and `Environment` attributes.
                
@@ -1378,6 +1394,7 @@ class ServiceLevelObjectiveSliArgs:
                  sli_metric: pulumi.Input['ServiceLevelObjectiveSliMetricArgs']):
         """
         This structure contains information about the performance metric that an SLO monitors.
+
         :param pulumi.Input['ServiceLevelObjectiveSliComparisonOperator'] comparison_operator: The arithmetic operation used when comparing the specified metric to the threshold.
         :param pulumi.Input[_builtins.float] metric_threshold: The value that the SLI metric is compared to.
         :param pulumi.Input['ServiceLevelObjectiveSliMetricArgs'] sli_metric: Use this structure to specify the metric to be used for the SLO.

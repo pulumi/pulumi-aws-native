@@ -38,6 +38,7 @@ class CloudFormationProductArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a CloudFormationProduct resource.
+
         :param pulumi.Input[_builtins.str] owner: The owner of the product.
         :param pulumi.Input[_builtins.str] accept_language: The language code.
                
@@ -272,6 +273,7 @@ class CloudFormationProduct(pulumi.CustomResource):
         """
         Resource Type definition for AWS::ServiceCatalog::CloudFormationProduct
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] accept_language: The language code.
@@ -303,6 +305,7 @@ class CloudFormationProduct(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::ServiceCatalog::CloudFormationProduct
+
 
         :param str resource_name: The name of the resource.
         :param CloudFormationProductArgs args: The arguments to use to populate this resource's properties.

@@ -26,6 +26,7 @@ class LimitArgs:
                  description: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Limit resource.
+
         :param pulumi.Input[_builtins.str] amount_requirement_name: The value that you specify as the `name` in the `amounts` field of the `hostRequirements` in a step of a job template to declare the limit requirement.
         :param pulumi.Input[_builtins.str] display_name: The name of the limit used in lists to identify the limit.
                
@@ -127,6 +128,7 @@ class Limit(pulumi.CustomResource):
         """
         Definition of AWS::Deadline::Limit Resource Type
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] amount_requirement_name: The value that you specify as the `name` in the `amounts` field of the `hostRequirements` in a step of a job template to declare the limit requirement.
@@ -149,6 +151,7 @@ class Limit(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of AWS::Deadline::Limit Resource Type
+
 
         :param str resource_name: The name of the resource.
         :param LimitArgs args: The arguments to use to populate this resource's properties.

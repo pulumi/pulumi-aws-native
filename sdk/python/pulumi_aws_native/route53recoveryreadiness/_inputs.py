@@ -62,6 +62,7 @@ class ResourceSetDnsTargetResourceArgs:
                  target_resource: Optional[pulumi.Input['ResourceSetTargetResourceArgs']] = None):
         """
         A component for DNS/routing control readiness checks.
+
         :param pulumi.Input[_builtins.str] domain_name: The domain name that acts as an ingress point to a portion of the customer application.
         :param pulumi.Input[_builtins.str] hosted_zone_arn: The hosted zone Amazon Resource Name (ARN) that contains the DNS record with the provided name of the target resource.
         :param pulumi.Input[_builtins.str] record_set_id: The Route 53 record set ID that will uniquely identify a DNS record, given a name and a type.
@@ -155,6 +156,7 @@ class ResourceSetNlbResourceArgs:
                  arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The Network Load Balancer resource that a DNS target resource points to.
+
         :param pulumi.Input[_builtins.str] arn: A Network Load Balancer resource Amazon Resource Name (ARN).
         """
         if arn is not None:
@@ -193,6 +195,7 @@ class ResourceSetR53ResourceRecordArgs:
                  record_set_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The Route 53 resource that a DNS target resource record points to.
+
         :param pulumi.Input[_builtins.str] domain_name: The DNS target domain name.
         :param pulumi.Input[_builtins.str] record_set_id: The Resource Record set id.
         """
@@ -256,6 +259,7 @@ class ResourceSetResourceArgs:
                  resource_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The resource element of a ResourceSet
+
         :param pulumi.Input[_builtins.str] component_id: The component identifier of the resource, generated when DNS target resource is used.
         :param pulumi.Input['ResourceSetDnsTargetResourceArgs'] dns_target_resource: A component for DNS/routing control readiness checks. This is a required setting when `ResourceSet` `ResourceSetType` is set to `AWS::Route53RecoveryReadiness::DNSTargetResource` . Do not set it for any other `ResourceSetType` setting.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] readiness_scopes: A list of recovery group Amazon Resource Names (ARNs) and cell ARNs that this resource is contained within.
@@ -339,6 +343,7 @@ class ResourceSetTargetResourceArgs:
                  r53_resource: Optional[pulumi.Input['ResourceSetR53ResourceRecordArgs']] = None):
         """
         The target resource that the Route 53 record points to.
+
         :param pulumi.Input['ResourceSetNlbResourceArgs'] nlb_resource: The Network Load Balancer resource that a DNS target resource points to.
         :param pulumi.Input['ResourceSetR53ResourceRecordArgs'] r53_resource: The Route 53 resource that a DNS target resource record points to.
         """

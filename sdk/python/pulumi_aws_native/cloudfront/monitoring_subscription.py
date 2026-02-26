@@ -26,6 +26,7 @@ class MonitoringSubscriptionInitArgs:
                  monitoring_subscription: pulumi.Input['MonitoringSubscriptionArgs']):
         """
         The set of arguments for constructing a MonitoringSubscription resource.
+
         :param pulumi.Input[_builtins.str] distribution_id: The ID of the distribution that you are enabling metrics for.
         :param pulumi.Input['MonitoringSubscriptionArgs'] monitoring_subscription: A subscription configuration for additional CloudWatch metrics.
         """
@@ -69,6 +70,7 @@ class MonitoringSubscription(pulumi.CustomResource):
         """
         A monitoring subscription. This structure contains information about whether additional CloudWatch metrics are enabled for a given CloudFront distribution.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] distribution_id: The ID of the distribution that you are enabling metrics for.
@@ -82,6 +84,7 @@ class MonitoringSubscription(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A monitoring subscription. This structure contains information about whether additional CloudWatch metrics are enabled for a given CloudFront distribution.
+
 
         :param str resource_name: The name of the resource.
         :param MonitoringSubscriptionInitArgs args: The arguments to use to populate this resource's properties.

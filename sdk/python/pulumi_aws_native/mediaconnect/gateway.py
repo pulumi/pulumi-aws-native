@@ -27,6 +27,7 @@ class GatewayArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Gateway resource.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] egress_cidr_blocks: The range of IP addresses that contribute content or initiate output requests for flows communicating with this gateway. These IP addresses should be in the form of a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16.
         :param pulumi.Input[Sequence[pulumi.Input['GatewayNetworkArgs']]] networks: The list of networks in the gateway.
         :param pulumi.Input[_builtins.str] name: The name of the gateway. This name can not be modified after the gateway is created.
@@ -86,6 +87,7 @@ class Gateway(pulumi.CustomResource):
         """
         Resource schema for AWS::MediaConnect::Gateway
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] egress_cidr_blocks: The range of IP addresses that contribute content or initiate output requests for flows communicating with this gateway. These IP addresses should be in the form of a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16.
@@ -100,6 +102,7 @@ class Gateway(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource schema for AWS::MediaConnect::Gateway
+
 
         :param str resource_name: The name of the resource.
         :param GatewayArgs args: The arguments to use to populate this resource's properties.

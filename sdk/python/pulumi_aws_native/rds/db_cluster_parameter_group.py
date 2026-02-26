@@ -28,6 +28,7 @@ class DbClusterParameterGroupArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a DbClusterParameterGroup resource.
+
         :param pulumi.Input[_builtins.str] description: The description for the DB cluster parameter group.
         :param pulumi.Input[_builtins.str] family: The DB cluster parameter group family name. A DB cluster parameter group can be associated with one and only one DB cluster parameter group family, and can be applied only to a DB cluster running a database engine and engine version compatible with that DB cluster parameter group family.
                  *Aurora MySQL* 
@@ -169,6 +170,7 @@ class DbClusterParameterGroup(pulumi.CustomResource):
           If you apply a parameter group to a DB cluster, then its DB instances might need to reboot. This can result in an outage while the DB instances are rebooting.
          If you apply a change to parameter group associated with a stopped DB cluster, then the updated stack waits until the DB cluster is started.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] db_cluster_parameter_group_name: The name of the DB cluster parameter group.
@@ -212,6 +214,7 @@ class DbClusterParameterGroup(pulumi.CustomResource):
          For information about configuring parameters for Amazon Aurora DB clusters, see [Working with parameter groups](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_WorkingWithParamGroups.html) in the *Amazon Aurora User Guide*.
           If you apply a parameter group to a DB cluster, then its DB instances might need to reboot. This can result in an outage while the DB instances are rebooting.
          If you apply a change to parameter group associated with a stopped DB cluster, then the updated stack waits until the DB cluster is started.
+
 
         :param str resource_name: The name of the resource.
         :param DbClusterParameterGroupArgs args: The arguments to use to populate this resource's properties.

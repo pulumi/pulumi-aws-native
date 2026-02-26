@@ -148,6 +148,7 @@ class AbortConfigProperties(dict):
                  criteria_list: Sequence['outputs.JobTemplateAbortCriteria']):
         """
         The criteria that determine when and how a job abort takes place.
+
         :param Sequence['JobTemplateAbortCriteria'] criteria_list: The list of criteria that determine when and how to abort the job.
         """
         pulumi.set(__self__, "criteria_list", criteria_list)
@@ -170,6 +171,7 @@ class AccountAuditConfigurationAuditCheckConfiguration(dict):
                  enabled: Optional[_builtins.bool] = None):
         """
         The configuration for a specific audit check.
+
         :param _builtins.bool enabled: True if the check is enabled.
         """
         if enabled is not None:
@@ -258,6 +260,7 @@ class AccountAuditConfigurationAuditCheckConfigurations(dict):
                  unauthenticated_cognito_role_overly_permissive_check: Optional['outputs.AccountAuditConfigurationAuditCheckConfiguration'] = None):
         """
         Specifies which audit checks are enabled and disabled for this account.
+
         :param 'AccountAuditConfigurationAuditCheckConfiguration' authenticated_cognito_role_overly_permissive_check: Checks the permissiveness of an authenticated Amazon Cognito identity pool role. For this check, AWS IoT Device Defender audits all Amazon Cognito identity pools that have been used to connect to the AWS IoT message broker during the 31 days before the audit is performed.
         :param 'AccountAuditConfigurationAuditCheckConfiguration' ca_certificate_expiring_check: Checks if a CA certificate is expiring. This check applies to CA certificates expiring within 30 days or that have expired.
         :param 'AccountAuditConfigurationAuditCheckConfiguration' ca_certificate_key_quality_check: Checks the quality of the CA certificate key. The quality checks if the key is in a valid format, not expired, and if the key meets a minimum required size. This check applies to CA certificates that are `ACTIVE` or `PENDING_TRANSFER` .
@@ -519,6 +522,7 @@ class AccountAuditConfigurationAuditNotificationTargetConfigurations(dict):
                  sns: Optional['outputs.AccountAuditConfigurationAuditNotificationTarget'] = None):
         """
         Information about the targets to which audit notifications are sent.
+
         :param 'AccountAuditConfigurationAuditNotificationTarget' sns: The `Sns` notification target.
         """
         if sns is not None:
@@ -559,6 +563,7 @@ class AccountAuditConfigurationCertAgeCheckCustomConfiguration(dict):
                  cert_age_threshold_in_days: Optional[_builtins.str] = None):
         """
         A structure containing the configName and corresponding configValue for configuring audit checks.
+
         :param _builtins.str cert_age_threshold_in_days: The number of days that defines when a device certificate is considered to have aged. The check will report a finding if a certificate has been active for a number of days greater than or equal to this threshold value.
         """
         if cert_age_threshold_in_days is not None:
@@ -599,6 +604,7 @@ class AccountAuditConfigurationCertExpirationCheckCustomConfiguration(dict):
                  cert_expiration_threshold_in_days: Optional[_builtins.str] = None):
         """
         A structure containing the configName and corresponding configValue for configuring audit checks.
+
         :param _builtins.str cert_expiration_threshold_in_days: The number of days before expiration that defines when a device certificate is considered to be approaching expiration. The check will report a finding if a certificate will expire within this number of days.
         """
         if cert_expiration_threshold_in_days is not None:
@@ -623,6 +629,7 @@ class AccountAuditConfigurationDeviceCertAgeAuditCheckConfiguration(dict):
                  enabled: Optional[_builtins.bool] = None):
         """
         A structure containing the configName and corresponding configValue for configuring DeviceCertAgeCheck.
+
         :param 'AccountAuditConfigurationCertAgeCheckCustomConfiguration' configuration: Configuration settings for the device certificate age check, including the threshold in days for certificate age. This configuration is of type `CertAgeCheckCustomConfiguration` .
         :param _builtins.bool enabled: True if the check is enabled.
         """
@@ -658,6 +665,7 @@ class AccountAuditConfigurationDeviceCertExpirationAuditCheckConfiguration(dict)
                  enabled: Optional[_builtins.bool] = None):
         """
         A structure containing the configName and corresponding configValue for configuring DeviceCertExpirationCheck.
+
         :param 'AccountAuditConfigurationCertExpirationCheckCustomConfiguration' configuration: Configuration settings for the device certificate expiration check, including the threshold in days before expiration. This configuration is of type `CertExpirationCheckCustomConfiguration`
         :param _builtins.bool enabled: True if the check is enabled.
         """
@@ -709,6 +717,7 @@ class BillingGroupPropertiesProperties(dict):
                  billing_group_description: Optional[_builtins.str] = None):
         """
         The properties of the billing group.
+
         :param _builtins.str billing_group_description: The description of the billing group.
         """
         if billing_group_description is not None:
@@ -1457,6 +1466,7 @@ class FleetMetricAggregationType(dict):
                  values: Sequence[_builtins.str]):
         """
         Aggregation types supported by Fleet Indexing
+
         :param _builtins.str name: Fleet Indexing aggregation type names such as Statistics, Percentiles and Cardinality
         :param Sequence[_builtins.str] values: Fleet Indexing aggregation type values
         """
@@ -1506,6 +1516,7 @@ class JobExecutionsRetryConfigProperties(dict):
                  retry_criteria_list: Optional[Sequence['outputs.JobTemplateRetryCriteria']] = None):
         """
         Allows you to create the criteria to retry a job.
+
         :param Sequence['JobTemplateRetryCriteria'] retry_criteria_list: The list of criteria that determines how many retries are allowed for each failure type for a job.
         """
         if retry_criteria_list is not None:
@@ -1549,6 +1560,7 @@ class JobExecutionsRolloutConfigProperties(dict):
                  maximum_per_minute: Optional[_builtins.int] = None):
         """
         Allows you to create a staged rollout of a job.
+
         :param 'JobTemplateExponentialRolloutRate' exponential_rollout_rate: The rate of increase for a job rollout. This parameter allows you to define an exponential rate for a job rollout.
         :param _builtins.int maximum_per_minute: The maximum number of things that will be notified of a pending job, per minute. This parameter allows you to create a staged rollout.
         """
@@ -1607,6 +1619,7 @@ class JobTemplateAbortCriteria(dict):
                  threshold_percentage: _builtins.float):
         """
         The criteria that determine when and how a job abort takes place.
+
         :param 'JobTemplateAction' action: The type of job action to take to initiate the job abort.
         :param 'JobTemplateFailureType' failure_type: The type of job execution failures that can initiate a job abort.
         :param _builtins.int min_number_of_executed_things: The minimum number of things which must receive job execution notifications before the job can be aborted.
@@ -1682,6 +1695,7 @@ class JobTemplateExponentialRolloutRate(dict):
                  rate_increase_criteria: 'outputs.JobTemplateRateIncreaseCriteria'):
         """
         Allows you to create an exponential rate of rollout for a job.
+
         :param _builtins.int base_rate_per_minute: The minimum number of things that will be notified of a pending job, per minute at the start of job rollout. This parameter allows you to define the initial rate of rollout.
         :param _builtins.float increment_factor: The exponential factor to increase the rate of rollout for a job.
         :param 'JobTemplateRateIncreaseCriteria' rate_increase_criteria: The criteria to initiate the increase in rate of rollout for a job.
@@ -1744,6 +1758,7 @@ class JobTemplateMaintenanceWindow(dict):
                  start_time: Optional[_builtins.str] = None):
         """
         Specifies a start time and duration for a scheduled Job.
+
         :param _builtins.int duration_in_minutes: Displays the duration of the next maintenance window.
         :param _builtins.str start_time: Displays the start time of the next maintenance window.
         """
@@ -1848,6 +1863,7 @@ class JobTemplateRetryCriteria(dict):
                  number_of_retries: Optional[_builtins.int] = None):
         """
         Specifies how many times a failure type should be retried.
+
         :param 'JobTemplateJobRetryFailureType' failure_type: The type of job execution failures that can initiate a job retry.
         :param _builtins.int number_of_retries: The number of retries allowed for a failure type for the job.
         """
@@ -1905,6 +1921,7 @@ class LoggingEventConfiguration(dict):
                  log_level: Optional['LoggingEventConfigurationLogLevel'] = None):
         """
         Configuration for event-based logging that specifies which event types to log and their logging settings. Used for account-level logging overrides.
+
         :param _builtins.str event_type: The type of event to log. These include event types like Connect, Publish, and Disconnect.
         :param _builtins.str log_destination: CloudWatch Log Group for event-based logging. Specifies where log events should be sent. The log destination for event-based logging overrides default Log Group for the specified event type and applies to all resources associated with that event.
         :param 'LoggingEventConfigurationLogLevel' log_level: The logging level for the specified event type. Determines the verbosity of log messages generated for this event type.
@@ -1969,6 +1986,7 @@ class MetricsExportConfigProperties(dict):
                  role_arn: _builtins.str):
         """
         A structure containing the mqtt topic for metrics export.
+
         :param _builtins.str mqtt_topic: The topic for metrics export.
         :param _builtins.str role_arn: The ARN of the role that grants permission to publish to mqtt topic.
         """
@@ -2033,6 +2051,7 @@ class MitigationActionActionParams(dict):
                  update_device_certificate_params: Optional['outputs.MitigationActionUpdateDeviceCertificateParams'] = None):
         """
         The set of parameters for this mitigation action. You can specify only one type of parameter (in other words, you can apply only one action for each defined mitigation action).
+
         :param 'MitigationActionAddThingsToThingGroupParams' add_things_to_thing_group_params: Specifies the group to which you want to add the devices.
         :param 'MitigationActionEnableIoTLoggingParams' enable_io_t_logging_params: Specifies the logging level and the role with permissions for logging. You cannot specify a logging level of `DISABLED` .
         :param 'MitigationActionPublishFindingToSnsParams' publish_finding_to_sns_params: Specifies the topic to which the finding should be published.
@@ -2131,6 +2150,7 @@ class MitigationActionAddThingsToThingGroupParams(dict):
                  override_dynamic_groups: Optional[_builtins.bool] = None):
         """
         Parameters to define a mitigation action that moves devices associated with a certificate to one or more specified thing groups, typically for quarantine.
+
         :param Sequence[_builtins.str] thing_group_names: The list of groups to which you want to add the things that triggered the mitigation action.
         :param _builtins.bool override_dynamic_groups: Specifies if this mitigation action can move the things that triggered the mitigation action out of one or more dynamic thing groups.
         """
@@ -2184,6 +2204,7 @@ class MitigationActionEnableIoTLoggingParams(dict):
                  role_arn_for_logging: _builtins.str):
         """
         Parameters to define a mitigation action that enables AWS IoT logging at a specified level of detail.
+
         :param 'MitigationActionEnableIoTLoggingParamsLogLevel' log_level:  Specifies which types of information are logged.
         :param _builtins.str role_arn_for_logging:  The ARN of the IAM role used for logging.
         """
@@ -2233,6 +2254,7 @@ class MitigationActionPublishFindingToSnsParams(dict):
                  topic_arn: _builtins.str):
         """
         Parameters, to define a mitigation action that publishes findings to Amazon SNS. You can implement your own custom actions in response to the Amazon SNS messages.
+
         :param _builtins.str topic_arn: The ARN of the topic to which you want to publish the findings.
         """
         pulumi.set(__self__, "topic_arn", topic_arn)
@@ -2272,6 +2294,7 @@ class MitigationActionReplaceDefaultPolicyVersionParams(dict):
                  template_name: 'MitigationActionReplaceDefaultPolicyVersionParamsTemplateName'):
         """
         Parameters to define a mitigation action that adds a blank policy to restrict permissions.
+
         :param 'MitigationActionReplaceDefaultPolicyVersionParamsTemplateName' template_name: The name of the template to be applied. The only supported value is `BLANK_POLICY` .
         """
         pulumi.set(__self__, "template_name", template_name)
@@ -2294,6 +2317,7 @@ class MitigationActionUpdateCaCertificateParams(dict):
                  action: 'MitigationActionUpdateCaCertificateParamsAction'):
         """
         Parameters to define a mitigation action that changes the state of the CA certificate to inactive.
+
         :param 'MitigationActionUpdateCaCertificateParamsAction' action: The action that you want to apply to the CA certificate. The only supported value is `DEACTIVATE` .
         """
         pulumi.set(__self__, "action", action)
@@ -2316,6 +2340,7 @@ class MitigationActionUpdateDeviceCertificateParams(dict):
                  action: 'MitigationActionUpdateDeviceCertificateParamsAction'):
         """
         Parameters to define a mitigation action that changes the state of the device certificate to inactive.
+
         :param 'MitigationActionUpdateDeviceCertificateParamsAction' action: The action that you want to apply to the device certificate. The only supported value is `DEACTIVATE` .
         """
         pulumi.set(__self__, "action", action)
@@ -2358,6 +2383,7 @@ class PresignedUrlConfigProperties(dict):
                  expires_in_sec: Optional[_builtins.int] = None):
         """
         Configuration for pre-signed S3 URLs.
+
         :param _builtins.str role_arn: The ARN of an IAM role that grants grants permission to download files from the S3 bucket where the job data/updates are stored. The role must also grant permission for IoT to download the files.
                
                > For information about addressing the confused deputy problem, see [cross-service confused deputy prevention](https://docs.aws.amazon.com/iot/latest/developerguide/cross-service-confused-deputy-prevention.html) in the *AWS IoT Core developer guide* .
@@ -2465,6 +2491,7 @@ class SecurityProfileAlertTarget(dict):
                  role_arn: _builtins.str):
         """
         A structure containing the alert target ARN and the role ARN.
+
         :param _builtins.str alert_target_arn: The ARN of the notification target to which alerts are sent.
         :param _builtins.str role_arn: The ARN of the role that grants permission to send alerts to the notification target.
         """
@@ -2523,6 +2550,7 @@ class SecurityProfileBehavior(dict):
                  suppress_alerts: Optional[_builtins.bool] = None):
         """
         A security profile behavior.
+
         :param _builtins.str name: The name for the behavior.
         :param 'SecurityProfileBehaviorCriteria' criteria: The criteria that determine if a device is behaving normally in regard to the `metric` .
                
@@ -2637,6 +2665,7 @@ class SecurityProfileBehaviorCriteria(dict):
                  value: Optional['outputs.SecurityProfileMetricValue'] = None):
         """
         The criteria by which the behavior is determined to be normal.
+
         :param 'SecurityProfileBehaviorCriteriaComparisonOperator' comparison_operator: The operator that relates the thing measured (metric) to the criteria (containing a value or statisticalThreshold).
         :param _builtins.int consecutive_datapoints_to_alarm: If a device is in violation of the behavior for the specified number of consecutive datapoints, an alarm occurs. If not specified, the default is 1.
         :param _builtins.int consecutive_datapoints_to_clear: If an alarm has occurred and the offending device is no longer in violation of the behavior for the specified number of consecutive datapoints, the alarm is cleared. If not specified, the default is 1.
@@ -2743,6 +2772,7 @@ class SecurityProfileMachineLearningDetectionConfig(dict):
                  confidence_level: Optional['SecurityProfileMachineLearningDetectionConfigConfidenceLevel'] = None):
         """
         The configuration of an ML Detect Security Profile.
+
         :param 'SecurityProfileMachineLearningDetectionConfigConfidenceLevel' confidence_level: The sensitivity of anomalous behavior evaluation. Can be Low, Medium, or High.
         """
         if confidence_level is not None:
@@ -2784,6 +2814,7 @@ class SecurityProfileMetricDimension(dict):
                  operator: Optional['SecurityProfileMetricDimensionOperator'] = None):
         """
         The dimension of a metric.
+
         :param _builtins.str dimension_name: A unique identifier for the dimension.
         :param 'SecurityProfileMetricDimensionOperator' operator: Defines how the dimensionValues of a dimension are interpreted.
         """
@@ -2838,6 +2869,7 @@ class SecurityProfileMetricToRetain(dict):
                  metric_dimension: Optional['outputs.SecurityProfileMetricDimension'] = None):
         """
         The metric you want to retain. Dimensions are optional.
+
         :param _builtins.str metric: What is measured by the behavior.
         :param _builtins.bool export_metric: The value indicates exporting metrics related to the `MetricToRetain` when it's true.
         :param 'SecurityProfileMetricDimension' metric_dimension: The dimension of the metric.
@@ -2887,6 +2919,7 @@ class SecurityProfileMetricValue(dict):
                  strings: Optional[Sequence[_builtins.str]] = None):
         """
         The value to be compared with the metric.
+
         :param Sequence[_builtins.str] cidrs: If the ComparisonOperator calls for a set of CIDRs, use this to specify that set to be compared with the metric.
         :param _builtins.str count: If the ComparisonOperator calls for a numeric value, use this to specify that (integer) numeric value to be compared with the metric.
         :param _builtins.float number: The numeral value of a metric.
@@ -2965,6 +2998,7 @@ class SecurityProfileStatisticalThreshold(dict):
                  statistic: Optional['SecurityProfileStatisticalThresholdStatistic'] = None):
         """
         A statistical ranking (percentile) which indicates a threshold value by which a behavior is determined to be in compliance or in violation of the behavior.
+
         :param 'SecurityProfileStatisticalThresholdStatistic' statistic: The percentile which resolves to a threshold value by which compliance with a behavior is determined
         """
         if statistic is not None:
@@ -3025,6 +3059,7 @@ class SoftwarePackageVersionS3Location(dict):
                  version: _builtins.str):
         """
         The Amazon S3 location
+
         :param _builtins.str bucket: The S3 bucket
         :param _builtins.str key: The S3 key
         :param _builtins.str version: The S3 version
@@ -3168,6 +3203,7 @@ class ThingGroupPropertiesProperties(dict):
                  thing_group_description: Optional[_builtins.str] = None):
         """
         Thing group properties.
+
         :param 'ThingGroupAttributePayload' attribute_payload: The thing group attributes in JSON format.
         :param _builtins.str thing_group_description: The thing group description.
         """
@@ -3288,6 +3324,7 @@ class ThingTypePropertiesProperties(dict):
                  thing_type_description: Optional[_builtins.str] = None):
         """
         The thing type properties for the thing type to create. It contains information about the new thing type including a description, a list of searchable thing attribute names, and a list of propagating attributes. After a thing type is created, you can only update `Mqtt5Configuration` .
+
         :param 'ThingTypePropertiesPropertiesMqtt5ConfigurationProperties' mqtt5_configuration: The configuration to add user-defined properties to enrich MQTT 5 messages.
         :param Sequence[_builtins.str] searchable_attributes: A list of searchable thing attribute names.
         :param _builtins.str thing_type_description: The description of the thing type.
@@ -3386,6 +3423,7 @@ class TimeoutConfigProperties(dict):
                  in_progress_timeout_in_minutes: _builtins.int):
         """
         Specifies the amount of time each device has to finish its execution of the job.
+
         :param _builtins.int in_progress_timeout_in_minutes: Specifies the amount of time, in minutes, this device has to finish execution of this job. The timeout interval can be anywhere between 1 minute and 7 days (1 to 10080 minutes). The in progress timer can't be updated and will apply to all job executions for the job. Whenever a job execution remains in the IN_PROGRESS status for longer than this interval, the job execution will fail and switch to the terminal `TIMED_OUT` status.
         """
         pulumi.set(__self__, "in_progress_timeout_in_minutes", in_progress_timeout_in_minutes)

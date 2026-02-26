@@ -28,6 +28,7 @@ class ProjectMembershipArgs:
                  project_identifier: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a ProjectMembership resource.
+
         :param pulumi.Input['ProjectMembershipUserDesignation'] designation: The designated role of a project member.
         :param pulumi.Input[_builtins.str] domain_identifier: The ID of the Amazon DataZone domain in which project membership is created.
         :param pulumi.Input[Union['ProjectMembershipMember0PropertiesArgs', 'ProjectMembershipMember1PropertiesArgs']] member: The details about a project member.
@@ -101,6 +102,7 @@ class ProjectMembership(pulumi.CustomResource):
         """
         Definition of AWS::DataZone::ProjectMembership Resource Type
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input['ProjectMembershipUserDesignation'] designation: The designated role of a project member.
@@ -116,6 +118,7 @@ class ProjectMembership(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of AWS::DataZone::ProjectMembership Resource Type
+
 
         :param str resource_name: The name of the resource.
         :param ProjectMembershipArgs args: The arguments to use to populate this resource's properties.

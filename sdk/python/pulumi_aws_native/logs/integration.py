@@ -27,6 +27,7 @@ class IntegrationArgs:
                  integration_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Integration resource.
+
         :param pulumi.Input['IntegrationType'] integration_type: The type of the Integration.
         :param pulumi.Input['ResourceConfigPropertiesArgs'] resource_config: OpenSearchResourceConfig for the given Integration
         :param pulumi.Input[_builtins.str] integration_name: User provided identifier for integration, unique to the user account.
@@ -86,6 +87,7 @@ class Integration(pulumi.CustomResource):
         """
         Resource Schema for Logs Integration Resource
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] integration_name: User provided identifier for integration, unique to the user account.
@@ -100,6 +102,7 @@ class Integration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Schema for Logs Integration Resource
+
 
         :param str resource_name: The name of the resource.
         :param IntegrationArgs args: The arguments to use to populate this resource's properties.

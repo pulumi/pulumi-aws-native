@@ -27,6 +27,7 @@ class SubnetGroupArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a SubnetGroup resource.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: A list of VPC subnet IDs for the subnet group.
         :param pulumi.Input[_builtins.str] description: An optional description of the subnet group.
         :param pulumi.Input[_builtins.str] subnet_group_name: The name of the subnet group. This value must be unique as it also serves as the subnet group identifier.
@@ -103,6 +104,7 @@ class SubnetGroup(pulumi.CustomResource):
         """
         The AWS::MemoryDB::SubnetGroup resource creates an Amazon MemoryDB Subnet Group.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: An optional description of the subnet group.
@@ -118,6 +120,7 @@ class SubnetGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The AWS::MemoryDB::SubnetGroup resource creates an Amazon MemoryDB Subnet Group.
+
 
         :param str resource_name: The name of the resource.
         :param SubnetGroupArgs args: The arguments to use to populate this resource's properties.

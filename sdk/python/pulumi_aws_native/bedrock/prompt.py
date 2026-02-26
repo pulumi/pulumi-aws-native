@@ -30,6 +30,7 @@ class PromptArgs:
                  variants: Optional[pulumi.Input[Sequence[pulumi.Input['PromptVariantArgs']]]] = None):
         """
         The set of arguments for constructing a Prompt resource.
+
         :param pulumi.Input[_builtins.str] customer_encryption_key_arn: A KMS key ARN
         :param pulumi.Input[_builtins.str] default_variant: Name for a variant.
         :param pulumi.Input[_builtins.str] description: Name for a prompt resource.
@@ -145,6 +146,7 @@ class Prompt(pulumi.CustomResource):
         """
         Definition of AWS::Bedrock::Prompt Resource Type
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] customer_encryption_key_arn: A KMS key ARN
@@ -165,6 +167,7 @@ class Prompt(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of AWS::Bedrock::Prompt Resource Type
+
 
         :param str resource_name: The name of the resource.
         :param PromptArgs args: The arguments to use to populate this resource's properties.

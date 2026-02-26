@@ -43,6 +43,7 @@ class ContainerFleetArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a ContainerFleet resource.
+
         :param pulumi.Input[_builtins.str] fleet_role_arn: A unique identifier for an AWS IAM role that manages access to your AWS services. Create a role or look up a role's ARN from the IAM dashboard in the AWS Management Console.
         :param pulumi.Input['ContainerFleetBillingType'] billing_type: Indicates whether to use On-Demand instances or Spot instances for this fleet. If empty, the default is ON_DEMAND. Both categories of instances use identical hardware and configurations based on the instance type selected for this fleet.
         :param pulumi.Input['ContainerFleetDeploymentConfigurationArgs'] deployment_configuration: Set of rules for processing a deployment for a container fleet update.
@@ -331,6 +332,7 @@ class ContainerFleet(pulumi.CustomResource):
         """
         The AWS::GameLift::ContainerFleet resource creates an Amazon GameLift (GameLift) container fleet to host game servers.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input['ContainerFleetBillingType'] billing_type: Indicates whether to use On-Demand instances or Spot instances for this fleet. If empty, the default is ON_DEMAND. Both categories of instances use identical hardware and configurations based on the instance type selected for this fleet.
@@ -362,6 +364,7 @@ class ContainerFleet(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The AWS::GameLift::ContainerFleet resource creates an Amazon GameLift (GameLift) container fleet to host game servers.
+
 
         :param str resource_name: The name of the resource.
         :param ContainerFleetArgs args: The arguments to use to populate this resource's properties.

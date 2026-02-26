@@ -35,6 +35,7 @@ class RepositoryArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Repository resource.
+
         :param pulumi.Input[_builtins.bool] empty_on_delete: If true, deleting the repository force deletes the contents of the repository. If false, the repository must be empty before attempting to delete it.
         :param pulumi.Input['RepositoryEncryptionConfigurationArgs'] encryption_configuration: The encryption configuration for the repository. This determines how the contents of your repository are encrypted at rest.
         :param pulumi.Input['RepositoryImageScanningConfigurationArgs'] image_scanning_configuration: The ``imageScanningConfiguration`` parameter is being deprecated, in favor of specifying the image scanning configuration at the registry level. For more information, see ``PutRegistryScanningConfiguration``.
@@ -242,6 +243,7 @@ class Repository(pulumi.CustomResource):
 
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] empty_on_delete: If true, deleting the repository force deletes the contents of the repository. If false, the repository must be empty before attempting to delete it.
@@ -307,6 +309,7 @@ class Repository(pulumi.CustomResource):
         pulumi.export("arn", my_repository.arn)
 
         ```
+
 
         :param str resource_name: The name of the resource.
         :param RepositoryArgs args: The arguments to use to populate this resource's properties.

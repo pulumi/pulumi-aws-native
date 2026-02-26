@@ -284,6 +284,7 @@ class AttributeConfigurationPropertiesArgs:
                  is_read_only: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Custom metadata associated to a Predefined attribute that controls how the attribute behaves when used by upstream services.
+
         :param pulumi.Input[_builtins.bool] enable_value_validation_on_association: Enables customers to enforce strict validation on the specific values that this predefined attribute can hold.
         :param pulumi.Input[_builtins.bool] is_read_only: Allows the predefined attribute to show up and be managed in the Amazon Connect UI.
         """
@@ -342,6 +343,7 @@ class ConstraintsPropertiesArgs:
                  required_fields: Optional[pulumi.Input[Sequence[pulumi.Input['TaskTemplateRequiredFieldInfoArgs']]]] = None):
         """
         The constraints for the task template
+
         :param pulumi.Input[Sequence[pulumi.Input['TaskTemplateInvisibleFieldInfoArgs']]] invisible_fields: Lists the fields that are invisible to agents.
         :param pulumi.Input[Sequence[pulumi.Input['TaskTemplateReadOnlyFieldInfoArgs']]] read_only_fields: Lists the fields that are read-only to agents, and cannot be edited.
         :param pulumi.Input[Sequence[pulumi.Input['TaskTemplateRequiredFieldInfoArgs']]] required_fields: Lists the fields that are required to be filled by agents.
@@ -470,6 +472,7 @@ class EmailAddressAliasConfigurationArgs:
                  email_address_arn: pulumi.Input[_builtins.str]):
         """
         Configuration for an email address alias
+
         :param pulumi.Input[_builtins.str] email_address_arn: The identifier of the email address alias
         """
         pulumi.set(__self__, "email_address_arn", email_address_arn)
@@ -528,6 +531,7 @@ class EvaluationFormAutomaticFailConfigurationArgs:
                  target_section: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Information about automatic fail configuration for an evaluation form.
+
         :param pulumi.Input[_builtins.str] target_section: The referenceId of the target section for auto failure.
         """
         if target_section is not None:
@@ -561,6 +565,7 @@ class EvaluationFormBaseItemArgs:
                  section: pulumi.Input['EvaluationFormSectionArgs']):
         """
         An item at the root level. All items must be sections.
+
         :param pulumi.Input['EvaluationFormSectionArgs'] section: A subsection or inner section of an item.
         """
         pulumi.set(__self__, "section", section)
@@ -717,6 +722,7 @@ class EvaluationFormItemEnablementConditionOperandArgs:
                  expression: Optional[pulumi.Input['EvaluationFormItemEnablementExpressionArgs']] = None):
         """
         An operand of the enablement condition.
+
         :param pulumi.Input['EvaluationFormItemEnablementExpressionArgs'] expression: An expression of the enablement condition.
         """
         if expression is not None:
@@ -755,6 +761,7 @@ class EvaluationFormItemEnablementConditionArgs:
                  operator: Optional[pulumi.Input['EvaluationFormItemEnablementConditionOperator']] = None):
         """
         A condition for item enablement.
+
         :param pulumi.Input[Sequence[pulumi.Input['EvaluationFormItemEnablementConditionOperandArgs']]] operands: Operands of the enablement condition.
         :param pulumi.Input['EvaluationFormItemEnablementConditionOperator'] operator: The operator to be used to be applied to operands if more than one provided.
         """
@@ -812,6 +819,7 @@ class EvaluationFormItemEnablementConfigurationArgs:
                  default_action: Optional[pulumi.Input['EvaluationFormItemEnablementConfigurationDefaultAction']] = None):
         """
         An item enablement configuration.
+
         :param pulumi.Input['EvaluationFormItemEnablementConfigurationAction'] action: An enablement action that if condition is satisfied.
         :param pulumi.Input['EvaluationFormItemEnablementConditionArgs'] condition: A condition for item enablement configuration.
         :param pulumi.Input['EvaluationFormItemEnablementConfigurationDefaultAction'] default_action: An enablement action that if condition is not satisfied.
@@ -883,6 +891,7 @@ class EvaluationFormItemEnablementExpressionArgs:
                  values: pulumi.Input[Sequence[pulumi.Input['EvaluationFormItemEnablementSourceValueArgs']]]):
         """
         An expression that defines a basic building block of conditional enablement.
+
         :param pulumi.Input['EvaluationFormItemEnablementExpressionComparator'] comparator: A comparator to be used against list of values.
         :param pulumi.Input['EvaluationFormItemEnablementSourceArgs'] source: A source item of enablement expression.
         :param pulumi.Input[Sequence[pulumi.Input['EvaluationFormItemEnablementSourceValueArgs']]] values: A list of values from source item.
@@ -948,6 +957,7 @@ class EvaluationFormItemEnablementSourceValueArgs:
                  type: Optional[pulumi.Input['EvaluationFormItemEnablementSourceValueType']] = None):
         """
         An enablement expression source value.
+
         :param pulumi.Input[_builtins.str] ref_id: A referenceId of the source value.
         :param pulumi.Input['EvaluationFormItemEnablementSourceValueType'] type: A type of source item value.
         """
@@ -1001,6 +1011,7 @@ class EvaluationFormItemEnablementSourceArgs:
                  ref_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         An enablement expression source item.
+
         :param pulumi.Input['EvaluationFormItemEnablementSourceType'] type: A type of source item.
         :param pulumi.Input[_builtins.str] ref_id: A referenceId of the source item.
         """
@@ -1053,6 +1064,7 @@ class EvaluationFormItemArgs:
                  section: Optional[pulumi.Input['EvaluationFormSectionArgs']] = None):
         """
         Items that are part of the evaluation form. The total number of sections and questions must not exceed 100 each. Questions must be contained in a section.
+
         :param pulumi.Input['EvaluationFormQuestionArgs'] question: The information of the question.
         :param pulumi.Input['EvaluationFormSectionArgs'] section: The information of the section.
         """
@@ -1101,6 +1113,7 @@ class EvaluationFormLanguageConfigurationArgs:
                  form_language: Optional[pulumi.Input['EvaluationFormLanguageConfigurationFormLanguage']] = None):
         """
         Language configuration for an evaluation form.
+
         :param pulumi.Input['EvaluationFormLanguageConfigurationFormLanguage'] form_language: The language for the evaluation form.
         """
         if form_language is not None:
@@ -1134,6 +1147,7 @@ class EvaluationFormMultiSelectQuestionAutomationOptionArgs:
                  rule_category: pulumi.Input['EvaluationFormMultiSelectQuestionRuleCategoryAutomationArgs']):
         """
         An automation option for a multi-select question.
+
         :param pulumi.Input['EvaluationFormMultiSelectQuestionRuleCategoryAutomationArgs'] rule_category: Rule category configuration for this automation option.
         """
         pulumi.set(__self__, "rule_category", rule_category)
@@ -1173,6 +1187,7 @@ class EvaluationFormMultiSelectQuestionAutomationArgs:
                  default_option_ref_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Automation configuration for multi-select questions.
+
         :param pulumi.Input[Sequence[pulumi.Input['EvaluationFormMultiSelectQuestionAutomationOptionArgs']]] options: Automation options for the multi-select question.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] default_option_ref_ids: Reference IDs of default options.
         """
@@ -1236,6 +1251,7 @@ class EvaluationFormMultiSelectQuestionOptionArgs:
                  text: pulumi.Input[_builtins.str]):
         """
         An option for a multi-select question in an evaluation form.
+
         :param pulumi.Input[_builtins.str] ref_id: Reference identifier for this option.
         :param pulumi.Input[_builtins.str] text: Display text for this option.
         """
@@ -1292,6 +1308,7 @@ class EvaluationFormMultiSelectQuestionPropertiesArgs:
                  display_as: Optional[pulumi.Input['EvaluationFormMultiSelectQuestionPropertiesDisplayAs']] = None):
         """
         Properties for a multi-select question in an evaluation form.
+
         :param pulumi.Input[Sequence[pulumi.Input['EvaluationFormMultiSelectQuestionOptionArgs']]] options: Options available for this multi-select question.
         :param pulumi.Input['EvaluationFormMultiSelectQuestionAutomationArgs'] automation: Automation configuration for this multi-select question.
         :param pulumi.Input['EvaluationFormMultiSelectQuestionPropertiesDisplayAs'] display_as: Display format for the multi-select question.
@@ -1364,6 +1381,7 @@ class EvaluationFormMultiSelectQuestionRuleCategoryAutomationArgs:
                  option_ref_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
         """
         Automation rule for multi-select questions based on rule categories.
+
         :param pulumi.Input[_builtins.str] category: The category name for this automation rule.
         :param pulumi.Input['EvaluationFormMultiSelectQuestionRuleCategoryAutomationCondition'] condition: The condition for this automation rule.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] option_ref_ids: Reference IDs of options for this automation rule.
@@ -1429,6 +1447,7 @@ class EvaluationFormNumericQuestionAutomationArgs:
                  property_value: Optional[pulumi.Input['EvaluationFormNumericQuestionPropertyValueAutomationArgs']] = None):
         """
         Information about the automation configuration in numeric questions.
+
         :param pulumi.Input['EvaluationFormQuestionAutomationAnswerSourceArgs'] answer_source: A source of automation answer for numeric question.
         :param pulumi.Input['EvaluationFormNumericQuestionPropertyValueAutomationArgs'] property_value: The property value of the automation.
         """
@@ -1499,6 +1518,7 @@ class EvaluationFormNumericQuestionOptionArgs:
                  score: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Information about the option range used for scoring in numeric questions.
+
         :param pulumi.Input[_builtins.int] max_value: The maximum answer value of the range option.
         :param pulumi.Input[_builtins.int] min_value: The minimum answer value of the range option.
         :param pulumi.Input[_builtins.bool] automatic_fail: The flag to mark the option as automatic fail. If an automatic fail answer is provided, the overall evaluation gets a score of 0.
@@ -1609,6 +1629,7 @@ class EvaluationFormNumericQuestionPropertiesArgs:
                  options: Optional[pulumi.Input[Sequence[pulumi.Input['EvaluationFormNumericQuestionOptionArgs']]]] = None):
         """
         Information about properties for a numeric question in an evaluation form.
+
         :param pulumi.Input[_builtins.int] max_value: The maximum answer value.
         :param pulumi.Input[_builtins.int] min_value: The minimum answer value.
         :param pulumi.Input['EvaluationFormNumericQuestionAutomationArgs'] automation: The automation properties of the numeric question.
@@ -1685,6 +1706,7 @@ class EvaluationFormNumericQuestionPropertyValueAutomationArgs:
                  label: pulumi.Input['EvaluationFormNumericQuestionPropertyValueAutomationLabel']):
         """
         Information about the property value used in automation of a numeric questions.
+
         :param pulumi.Input['EvaluationFormNumericQuestionPropertyValueAutomationLabel'] label: The property label of the automation.
         """
         pulumi.set(__self__, "label", label)
@@ -1717,6 +1739,7 @@ class EvaluationFormQuestionAutomationAnswerSourceArgs:
                  source_type: pulumi.Input['EvaluationFormQuestionAutomationAnswerSourceSourceType']):
         """
         A question automation answer.
+
         :param pulumi.Input['EvaluationFormQuestionAutomationAnswerSourceSourceType'] source_type: The automation answer source type.
         """
         pulumi.set(__self__, "source_type", source_type)
@@ -1764,6 +1787,7 @@ class EvaluationFormQuestionTypePropertiesArgs:
                  text: Optional[pulumi.Input['EvaluationFormTextQuestionPropertiesArgs']] = None):
         """
         Information about properties for a question in an evaluation form. The question type properties must be either for a numeric question or a single select question.
+
         :param pulumi.Input['EvaluationFormMultiSelectQuestionPropertiesArgs'] multi_select: Properties for multi-select question types.
         :param pulumi.Input['EvaluationFormNumericQuestionPropertiesArgs'] numeric: The properties of the numeric question.
         :param pulumi.Input['EvaluationFormSingleSelectQuestionPropertiesArgs'] single_select: The properties of the numeric question.
@@ -1883,6 +1907,7 @@ class EvaluationFormQuestionArgs:
                  weight: Optional[pulumi.Input[_builtins.float]] = None):
         """
         Information about a question from an evaluation form.
+
         :param pulumi.Input['EvaluationFormQuestionQuestionType'] question_type: The type of the question.
                 *Allowed values*: ``NUMERIC`` | ``SINGLESELECT`` | ``TEXT``
         :param pulumi.Input[_builtins.str] ref_id: The identifier of the question. An identifier must be unique within the evaluation form.
@@ -2037,6 +2062,7 @@ class EvaluationFormScoringStrategyArgs:
                  status: pulumi.Input['EvaluationFormScoringStrategyStatus']):
         """
         A scoring strategy of the evaluation form.
+
         :param pulumi.Input['EvaluationFormScoringStrategyMode'] mode: The scoring mode of the evaluation form.
                 *Allowed values*: ``QUESTION_ONLY`` | ``SECTION_ONLY``
         :param pulumi.Input['EvaluationFormScoringStrategyStatus'] status: The scoring status of the evaluation form.
@@ -2112,6 +2138,7 @@ class EvaluationFormSectionArgs:
                  weight: Optional[pulumi.Input[_builtins.float]] = None):
         """
         Information about a section from an evaluation form. A section can contain sections and/or questions. Evaluation forms can only contain sections and subsections (two level nesting).
+
         :param pulumi.Input[_builtins.str] ref_id: The identifier of the section. An identifier must be unique within the evaluation form.
                 *Length Constraints*: Minimum length of 1. Maximum length of 40.
         :param pulumi.Input[_builtins.str] title: The title of the section.
@@ -2213,6 +2240,7 @@ class EvaluationFormSingleSelectQuestionAutomationOptionArgs:
                  rule_category: pulumi.Input['EvaluationFormSingleSelectQuestionRuleCategoryAutomationArgs']):
         """
         The automation options of the single select question.
+
         :param pulumi.Input['EvaluationFormSingleSelectQuestionRuleCategoryAutomationArgs'] rule_category: The automation option based on a rule category for the single select question.
         """
         pulumi.set(__self__, "rule_category", rule_category)
@@ -2258,6 +2286,7 @@ class EvaluationFormSingleSelectQuestionAutomationArgs:
                  default_option_ref_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Information about the automation configuration in single select questions. Automation options are evaluated in order, and the first matched option is applied. If no automation option matches, and there is a default option, then the default option is applied.
+
         :param pulumi.Input[Sequence[pulumi.Input['EvaluationFormSingleSelectQuestionAutomationOptionArgs']]] options: The automation options of the single select question.
                 *Minimum*: 1
                 *Maximum*: 20
@@ -2350,6 +2379,7 @@ class EvaluationFormSingleSelectQuestionOptionArgs:
                  score: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Information about the automation configuration in single select questions.
+
         :param pulumi.Input[_builtins.str] ref_id: The identifier of the answer option. An identifier must be unique within the question.
                 *Length Constraints*: Minimum length of 1. Maximum length of 40.
         :param pulumi.Input[_builtins.str] text: The title of the answer option.
@@ -2462,6 +2492,7 @@ class EvaluationFormSingleSelectQuestionPropertiesArgs:
                  display_as: Optional[pulumi.Input['EvaluationFormSingleSelectQuestionPropertiesDisplayAs']] = None):
         """
         Information about the options in single select questions.
+
         :param pulumi.Input[Sequence[pulumi.Input['EvaluationFormSingleSelectQuestionOptionArgs']]] options: The answer options of the single select question.
                 *Minimum*: 2
                 *Maximum*: 256
@@ -2547,6 +2578,7 @@ class EvaluationFormSingleSelectQuestionRuleCategoryAutomationArgs:
         """
         Information about the automation option based on a rule category for a single select question.
          *Length Constraints*: Minimum length of 1. Maximum length of 50.
+
         :param pulumi.Input[_builtins.str] category: The category name, as defined in Rules.
                 *Minimum*: 1
                 *Maximum*: 50
@@ -2617,6 +2649,7 @@ class EvaluationFormTargetConfigurationArgs:
                  contact_interaction_type: pulumi.Input['EvaluationFormTargetConfigurationContactInteractionType']):
         """
         Configuration that specifies the target for an evaluation form.
+
         :param pulumi.Input['EvaluationFormTargetConfigurationContactInteractionType'] contact_interaction_type: The contact interaction type for this evaluation form.
         """
         pulumi.set(__self__, "contact_interaction_type", contact_interaction_type)
@@ -2649,6 +2682,7 @@ class EvaluationFormTextQuestionAutomationArgs:
                  answer_source: Optional[pulumi.Input['EvaluationFormQuestionAutomationAnswerSourceArgs']] = None):
         """
         Information about the automation configuration in text questions.
+
         :param pulumi.Input['EvaluationFormQuestionAutomationAnswerSourceArgs'] answer_source: Automation answer source.
         """
         if answer_source is not None:
@@ -2682,6 +2716,7 @@ class EvaluationFormTextQuestionPropertiesArgs:
                  automation: Optional[pulumi.Input['EvaluationFormTextQuestionAutomationArgs']] = None):
         """
         Information about properties for a text question in an evaluation form.
+
         :param pulumi.Input['EvaluationFormTextQuestionAutomationArgs'] automation: The automation properties of the text question.
         """
         if automation is not None:
@@ -2715,6 +2750,7 @@ class ExternalInvocationConfigurationPropertiesArgs:
                  enabled: pulumi.Input[_builtins.bool]):
         """
         Defines the external invocation configuration of the flow module resource
+
         :param pulumi.Input[_builtins.bool] enabled: Enable external invocation.
         """
         pulumi.set(__self__, "enabled", enabled)
@@ -2776,6 +2812,7 @@ class GranularAccessControlConfigurationPropertiesArgs:
                  data_table_access_control_configuration: Optional[pulumi.Input['SecurityProfileDataTableAccessControlConfigurationArgs']] = None):
         """
         The granular access control configuration for the security profile, including data table permissions.
+
         :param pulumi.Input['SecurityProfileDataTableAccessControlConfigurationArgs'] data_table_access_control_configuration: The access control configuration for data tables.
         """
         if data_table_access_control_configuration is not None:
@@ -2819,6 +2856,7 @@ class HoursOfOperationConfigArgs:
                  start_time: pulumi.Input['HoursOfOperationTimeSliceArgs']):
         """
         Contains information about the hours of operation.
+
         :param pulumi.Input['HoursOfOperationConfigDay'] day: The day that the hours of operation applies to.
         :param pulumi.Input['HoursOfOperationTimeSliceArgs'] end_time: The end time that your contact center closes.
         :param pulumi.Input['HoursOfOperationTimeSliceArgs'] start_time: The start time that your contact center opens.
@@ -2889,6 +2927,7 @@ class HoursOfOperationOverrideConfigArgs:
                  start_time: pulumi.Input['HoursOfOperationOverrideTimeSliceArgs']):
         """
         Contains information about the hours of operation override.
+
         :param pulumi.Input['HoursOfOperationOverrideConfigDay'] day: The day that the hours of operation override applies to.
         :param pulumi.Input['HoursOfOperationOverrideTimeSliceArgs'] end_time: The new end time that your contact center closes for the overriden days.
         :param pulumi.Input['HoursOfOperationOverrideTimeSliceArgs'] start_time: The new start time that your contact center opens for the overriden days.
@@ -2954,6 +2993,7 @@ class HoursOfOperationOverrideTimeSliceArgs:
                  minutes: pulumi.Input[_builtins.int]):
         """
         The start time or end time for an an hours of operation override.
+
         :param pulumi.Input[_builtins.int] hours: The hours.
         :param pulumi.Input[_builtins.int] minutes: The minutes.
         """
@@ -3020,6 +3060,7 @@ class HoursOfOperationOverrideArgs:
                  recurrence_config: Optional[pulumi.Input['HoursOfOperationRecurrenceConfigArgs']] = None):
         """
         Overrides attached to the hours of operation.
+
         :param pulumi.Input[_builtins.str] effective_from: The date from which the hours of operation override would be effective.
         :param pulumi.Input[_builtins.str] effective_till: The date until the hours of operation override is effective.
         :param pulumi.Input[_builtins.str] hours_of_operation_override_id: The identifier for the hours of operation override.
@@ -3242,6 +3283,7 @@ class HoursOfOperationTimeSliceArgs:
                  minutes: pulumi.Input[_builtins.int]):
         """
         The start time or end time for an hours of operation.
+
         :param pulumi.Input[_builtins.int] hours: The hours.
         :param pulumi.Input[_builtins.int] minutes: The minutes.
         """
@@ -3293,6 +3335,7 @@ class HoursOfOperationsIdentifierArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Identifier for hours of operation.
+
         :param pulumi.Input[_builtins.str] id: The identifier for the hours of operation.
         :param pulumi.Input[_builtins.str] name: The name of the hours of operation.
         """
@@ -3936,6 +3979,7 @@ class QueueOutboundCallerConfigArgs:
                  outbound_flow_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The outbound caller ID name, number, and outbound whisper flow.
+
         :param pulumi.Input[_builtins.str] outbound_caller_id_name: The caller ID name.
         :param pulumi.Input[_builtins.str] outbound_caller_id_number_arn: The Amazon Resource Name (ARN) of the outbound caller ID number.
                
@@ -4003,6 +4047,7 @@ class QueueOutboundEmailConfigArgs:
                  outbound_email_address_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The outbound email address ID.
+
         :param pulumi.Input[_builtins.str] outbound_email_address_id: The identifier of the email address.
         """
         if outbound_email_address_id is not None:
@@ -4051,6 +4096,7 @@ class QuickConnectConfigArgs:
                  user_config: Optional[pulumi.Input['QuickConnectUserQuickConnectConfigArgs']] = None):
         """
         Configuration settings for the quick connect.
+
         :param pulumi.Input['QuickConnectType'] quick_connect_type: The type of quick connect. In the Amazon Connect console, when you create a quick connect, you are prompted to assign one of the following types: Agent (USER), External (PHONE_NUMBER), or Queue (QUEUE).
         :param pulumi.Input['QuickConnectPhoneNumberQuickConnectConfigArgs'] phone_config: The phone configuration. This is required only if QuickConnectType is PHONE_NUMBER.
         :param pulumi.Input['QuickConnectQueueQuickConnectConfigArgs'] queue_config: The queue configuration. This is required only if QuickConnectType is QUEUE.
@@ -4128,6 +4174,7 @@ class QuickConnectPhoneNumberQuickConnectConfigArgs:
                  phone_number: pulumi.Input[_builtins.str]):
         """
         The phone configuration. This is required only if QuickConnectType is PHONE_NUMBER.
+
         :param pulumi.Input[_builtins.str] phone_number: The phone number in E.164 format.
         """
         pulumi.set(__self__, "phone_number", phone_number)
@@ -4165,6 +4212,7 @@ class QuickConnectQueueQuickConnectConfigArgs:
                  queue_arn: pulumi.Input[_builtins.str]):
         """
         The queue configuration. This is required only if QuickConnectType is QUEUE.
+
         :param pulumi.Input[_builtins.str] contact_flow_arn: The Amazon Resource Name (ARN) of the flow.
         :param pulumi.Input[_builtins.str] queue_arn: The Amazon Resource Name (ARN) of the queue.
         """
@@ -4216,6 +4264,7 @@ class QuickConnectUserQuickConnectConfigArgs:
                  user_arn: pulumi.Input[_builtins.str]):
         """
         The user configuration. This is required only if QuickConnectType is USER.
+
         :param pulumi.Input[_builtins.str] contact_flow_arn: The Amazon Resource Name (ARN) of the flow.
         :param pulumi.Input[_builtins.str] user_arn: The Amazon Resource Name (ARN) of the user.
         """
@@ -4262,6 +4311,7 @@ class RoutingProfileCrossChannelBehaviorArgs:
                  behavior_type: pulumi.Input['RoutingProfileBehaviorType']):
         """
         Defines the cross-channel routing behavior that allows an agent working on a contact in one channel to be offered a contact from a different channel.
+
         :param pulumi.Input['RoutingProfileBehaviorType'] behavior_type: Specifies the other channels that can be routed to an agent handling their current channel.
         """
         pulumi.set(__self__, "behavior_type", behavior_type)
@@ -4294,6 +4344,7 @@ class RoutingProfileManualAssignmentQueueConfigArgs:
                  queue_reference: pulumi.Input['RoutingProfileQueueReferenceArgs']):
         """
         Contains information about the manual assignment queue and channel
+
         :param pulumi.Input['RoutingProfileQueueReferenceArgs'] queue_reference: Contains information about a queue resource.
         """
         pulumi.set(__self__, "queue_reference", queue_reference)
@@ -4342,6 +4393,7 @@ class RoutingProfileMediaConcurrencyArgs:
                  cross_channel_behavior: Optional[pulumi.Input['RoutingProfileCrossChannelBehaviorArgs']] = None):
         """
         Contains information about which channels are supported, and how many contacts an agent can have on a channel simultaneously.
+
         :param pulumi.Input['RoutingProfileChannel'] channel: The channels that agents can handle in the Contact Control Panel (CCP).
         :param pulumi.Input[_builtins.int] concurrency: The number of contacts an agent can have on a channel simultaneously.
                
@@ -4425,6 +4477,7 @@ class RoutingProfileQueueConfigArgs:
                  queue_reference: pulumi.Input['RoutingProfileQueueReferenceArgs']):
         """
         Contains information about the queue and channel for which priority and delay can be set.
+
         :param pulumi.Input[_builtins.int] delay: The delay, in seconds, a contact should be in the queue before they are routed to an available agent. For more information, see [Queues: priority and delay](https://docs.aws.amazon.com/connect/latest/adminguide/concepts-routing-profiles-priority.html) in the *Amazon Connect Administrator Guide* .
         :param pulumi.Input[_builtins.int] priority: The order in which contacts are to be handled for the queue. For more information, see [Queues: priority and delay](https://docs.aws.amazon.com/connect/latest/adminguide/concepts-routing-profiles-priority.html) .
         :param pulumi.Input['RoutingProfileQueueReferenceArgs'] queue_reference: Contains information about a queue resource.
@@ -4490,6 +4543,7 @@ class RoutingProfileQueueReferenceArgs:
                  queue_arn: pulumi.Input[_builtins.str]):
         """
         Contains the channel and queue identifier for a routing profile.
+
         :param pulumi.Input['RoutingProfileChannel'] channel: The channels agents can handle in the Contact Control Panel (CCP) for this routing profile.
         :param pulumi.Input[_builtins.str] queue_arn: The Amazon Resource Name (ARN) of the queue.
         """
@@ -4559,6 +4613,7 @@ class RuleActionsArgs:
                  update_case_actions: Optional[pulumi.Input[Sequence[pulumi.Input['RuleUpdateCaseActionArgs']]]] = None):
         """
         A list of actions to be run when the rule is triggered.
+
         :param pulumi.Input[Sequence[pulumi.Input['RuleAssignContactCategoryActionArgs']]] assign_contact_category_actions: Information about the contact category action. The syntax can be empty, for example, ``{}``.
         :param pulumi.Input[Sequence[pulumi.Input['RuleEventBridgeActionArgs']]] event_bridge_actions: Information about the EV action.
         :param pulumi.Input[Sequence[pulumi.Input['RuleSendNotificationActionArgs']]] send_notification_actions: Information about the send notification action.
@@ -4742,6 +4797,7 @@ class RuleEventBridgeActionArgs:
                  name: pulumi.Input[_builtins.str]):
         """
         The EV action definition.
+
         :param pulumi.Input[_builtins.str] name: The name.
         """
         pulumi.set(__self__, "name", name)
@@ -4875,6 +4931,7 @@ class RuleNotificationRecipientTypeArgs:
                  user_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The type of notification recipient.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] user_arns: The Amazon Resource Name (ARN) of the user account.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] user_tags: The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }. CON users with the specified tags will be notified.
         """
@@ -4929,6 +4986,7 @@ class RuleReferenceArgs:
                  value: pulumi.Input[_builtins.str]):
         """
         Information about the reference when the ``referenceType`` is ``URL``. Otherwise, null. (Supports variable injection in the ``Value`` field.)
+
         :param pulumi.Input['RuleReferenceType'] type: The type of the reference. ``DATE`` must be of type Epoch timestamp. 
                 *Allowed values*: ``URL`` | ``ATTACHMENT`` | ``NUMBER`` | ``STRING`` | ``DATE`` | ``EMAIL``
         :param pulumi.Input[_builtins.str] value: A valid value for the reference. For example, for a URL reference, a formatted URL that is displayed to an agent in the Contact Control Panel (CCP).
@@ -4999,6 +5057,7 @@ class RuleSendNotificationActionArgs:
                  subject: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Information about the send notification action.
+
         :param pulumi.Input[_builtins.str] content: Notification content. Supports variable injection. For more information, see [JSONPath reference](https://docs.aws.amazon.com/connect/latest/adminguide/contact-lens-variable-injection.html) in the *Administrators Guide*.
         :param pulumi.Input['RuleSendNotificationActionContentType'] content_type: Content type format.
                 *Allowed value*: ``PLAIN_TEXT``
@@ -5126,6 +5185,7 @@ class RuleTaskActionArgs:
                  references: Optional[pulumi.Input[Mapping[str, pulumi.Input['RuleReferenceArgs']]]] = None):
         """
         Information about the task action. This field is required if ``TriggerEventSource`` is one of the following values: ``OnZendeskTicketCreate`` | ``OnZendeskTicketStatusUpdate`` | ``OnSalesforceCaseCreate``
+
         :param pulumi.Input[_builtins.str] contact_flow_arn: The Amazon Resource Name (ARN) of the flow.
         :param pulumi.Input[_builtins.str] name: The name. Supports variable injection. For more information, see [JSONPath reference](https://docs.aws.amazon.com/connect/latest/adminguide/contact-lens-variable-injection.html) in the *Administrators Guide*.
         :param pulumi.Input[_builtins.str] description: The description. Supports variable injection. For more information, see [JSONPath reference](https://docs.aws.amazon.com/connect/latest/adminguide/contact-lens-variable-injection.html) in the *Administrators Guide*.
@@ -5207,6 +5267,7 @@ class RuleTriggerEventSourceArgs:
                  integration_association_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The name of the event source.
+
         :param pulumi.Input['RuleTriggerEventSourceEventSourceName'] event_source_name: The name of the event source.
         :param pulumi.Input[_builtins.str] integration_association_arn: The Amazon Resource Name (ARN) of the integration association. ``IntegrationAssociationArn`` is required if ``TriggerEventSource`` is one of the following values: ``OnZendeskTicketCreate`` | ``OnZendeskTicketStatusUpdate`` | ``OnSalesforceCaseCreate``
         """
@@ -5278,6 +5339,7 @@ class SecurityProfileApplicationArgs:
                  namespace: pulumi.Input[_builtins.str]):
         """
         A third-party application's metadata.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] application_permissions: The permissions that the agent is granted on the application
         :param pulumi.Input[_builtins.str] namespace: Namespace of the application that you want to give access to.
         """
@@ -5324,6 +5386,7 @@ class SecurityProfileDataTableAccessControlConfigurationArgs:
                  primary_attribute_access_control_configuration: Optional[pulumi.Input['SecurityProfilePrimaryAttributeAccessControlConfigurationItemArgs']] = None):
         """
         Defines the access control configuration for data tables.
+
         :param pulumi.Input['SecurityProfilePrimaryAttributeAccessControlConfigurationItemArgs'] primary_attribute_access_control_configuration: The configuration's primary attribute access control configuration.
         """
         if primary_attribute_access_control_configuration is not None:
@@ -5357,6 +5420,7 @@ class SecurityProfilePrimaryAttributeAccessControlConfigurationItemArgs:
                  primary_attribute_values: pulumi.Input[Sequence[pulumi.Input['SecurityProfilePrimaryAttributeValueArgs']]]):
         """
         Contains the configuration for record-based access control.
+
         :param pulumi.Input[Sequence[pulumi.Input['SecurityProfilePrimaryAttributeValueArgs']]] primary_attribute_values: An array of PrimaryAttributeValue objects.
         """
         pulumi.set(__self__, "primary_attribute_values", primary_attribute_values)
@@ -5399,6 +5463,7 @@ class SecurityProfilePrimaryAttributeValueArgs:
                  values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
         """
         An object defining the access control for a specific attribute and its values.
+
         :param pulumi.Input['SecurityProfilePrimaryAttributeValueAccessType'] access_type: Specifies the type of access granted. Currently, only "ALLOW" is supported
         :param pulumi.Input[_builtins.str] attribute_name: The name of the primary attribute.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: An array of allowed primary values for the specified primary attribute.
@@ -5464,6 +5529,7 @@ class SecurityProfileTagArgs:
                  value: pulumi.Input[_builtins.str]):
         """
         A key-value pair to associate with a resource.
+
         :param pulumi.Input[_builtins.str] key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         :param pulumi.Input[_builtins.str] value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         """
@@ -5515,6 +5581,7 @@ class TaskTemplateDefaultFieldValueArgs:
                  id: pulumi.Input['TaskTemplateFieldIdentifierArgs']):
         """
         the default value for the task template's field
+
         :param pulumi.Input[_builtins.str] default_value: Default value for the field.
         :param pulumi.Input['TaskTemplateFieldIdentifierArgs'] id: Identifier of a field.
         """
@@ -5561,6 +5628,7 @@ class TaskTemplateFieldIdentifierArgs:
                  name: pulumi.Input[_builtins.str]):
         """
         the identifier (name) for the task template field
+
         :param pulumi.Input[_builtins.str] name: The name of the task template field
         """
         pulumi.set(__self__, "name", name)
@@ -5608,6 +5676,7 @@ class TaskTemplateFieldArgs:
                  single_select_options: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         A task template field object.
+
         :param pulumi.Input['TaskTemplateFieldIdentifierArgs'] id: The unique identifier for the field.
         :param pulumi.Input['TaskTemplateFieldType'] type: Indicates the type of field. Following are the valid field types: `NAME` `DESCRIPTION` | `SCHEDULED_TIME` | `QUICK_CONNECT` | `URL` | `NUMBER` | `TEXT` | `TEXT_AREA` | `DATE_TIME` | `BOOLEAN` | `SINGLE_SELECT` | `EMAIL`
         :param pulumi.Input[_builtins.str] description: The description of the task template's field
@@ -5895,6 +5964,7 @@ class UserHierarchyStructureLevelFiveArgs:
                  hierarchy_level_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Information about level five.
+
         :param pulumi.Input[_builtins.str] name: The name of the hierarchy level.
         :param pulumi.Input[_builtins.str] hierarchy_level_arn: The Amazon Resource Name (ARN) of the hierarchy level.
         :param pulumi.Input[_builtins.str] hierarchy_level_id: The identifier of the hierarchy level.
@@ -5967,6 +6037,7 @@ class UserHierarchyStructureLevelFourArgs:
                  hierarchy_level_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Information about level four.
+
         :param pulumi.Input[_builtins.str] name: The name of the hierarchy level.
         :param pulumi.Input[_builtins.str] hierarchy_level_arn: The Amazon Resource Name (ARN) of the hierarchy level.
         :param pulumi.Input[_builtins.str] hierarchy_level_id: The identifier of the hierarchy level.
@@ -6039,6 +6110,7 @@ class UserHierarchyStructureLevelOneArgs:
                  hierarchy_level_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Information about level one.
+
         :param pulumi.Input[_builtins.str] name: The name of the hierarchy level.
         :param pulumi.Input[_builtins.str] hierarchy_level_arn: The Amazon Resource Name (ARN) of the hierarchy level.
         :param pulumi.Input[_builtins.str] hierarchy_level_id: The identifier of the hierarchy level.
@@ -6108,6 +6180,7 @@ class UserHierarchyStructureLevelThreeArgs:
                  hierarchy_level_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Information about level three.
+
         :param pulumi.Input[_builtins.str] name: The name of the hierarchy level.
         :param pulumi.Input[_builtins.str] hierarchy_level_arn: The Amazon Resource Name (ARN) of the hierarchy level.
         """
@@ -6176,6 +6249,7 @@ class UserHierarchyStructureLevelTwoArgs:
                  hierarchy_level_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Information about level two.
+
         :param pulumi.Input[_builtins.str] name: The name of the hierarchy level.
         :param pulumi.Input[_builtins.str] hierarchy_level_arn: The Amazon Resource Name (ARN) of the hierarchy level.
         :param pulumi.Input[_builtins.str] hierarchy_level_id: The identifier of the hierarchy level.
@@ -6255,6 +6329,7 @@ class UserHierarchyStructurePropertiesArgs:
                  level_two: Optional[pulumi.Input['UserHierarchyStructureLevelTwoArgs']] = None):
         """
         Information about the hierarchy structure.
+
         :param pulumi.Input['UserHierarchyStructureLevelFourArgs'] level_four: The update for level four.
         :param pulumi.Input['UserHierarchyStructureLevelOneArgs'] level_one: The update for level one.
         :param pulumi.Input['UserHierarchyStructureLevelThreeArgs'] level_three: The update for level three.
@@ -6366,6 +6441,7 @@ class UserIdentityInfoArgs:
                  secondary_email: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Contains information about the identity of a user.
+
         :param pulumi.Input[_builtins.str] email: The email address. If you are using SAML for identity management and include this parameter, an error is returned.
         :param pulumi.Input[_builtins.str] first_name: The first name. This is required if you are using Amazon Connect or SAML for identity management. Inputs must be in Unicode Normalization Form C (NFC). Text containing characters in a non-NFC form (for example, decomposed characters or combining marks) are not accepted.
         :param pulumi.Input[_builtins.str] last_name: The last name. This is required if you are using Amazon Connect or SAML for identity management. Inputs must be in Unicode Normalization Form C (NFC). Text containing characters in a non-NFC form (for example, decomposed characters or combining marks) are not accepted.
@@ -6522,6 +6598,7 @@ class UserPhoneConfigArgs:
                  phone_type: Optional[pulumi.Input['UserPhoneType']] = None):
         """
         Contains information about the phone configuration settings for a user.
+
         :param pulumi.Input[_builtins.int] after_contact_work_time_limit: The After Call Work (ACW) timeout setting, in seconds. This parameter has a minimum value of 0 and a maximum value of 2,000,000 seconds (24 days). Enter 0 if you don't want to allocate a specific amount of ACW time. It essentially means an indefinite amount of time. When the conversation ends, ACW starts; the agent must choose Close contact to end ACW.
                
                > When returned by a `SearchUsers` call, `AfterContactWorkTimeLimit` is returned in milliseconds.
@@ -6679,6 +6756,7 @@ class UserProficiencyArgs:
                  level: pulumi.Input[_builtins.float]):
         """
         Proficiency of a user.
+
         :param pulumi.Input[_builtins.str] attribute_name: The name of user’s proficiency. You must use a predefined attribute name that is present in the Amazon Connect instance.
         :param pulumi.Input[_builtins.str] attribute_value: The value of user’s proficiency. You must use a predefined attribute value that is present in the Amazon Connect instance.
         :param pulumi.Input[_builtins.float] level: The level of the proficiency. The valid values are 1, 2, 3, 4 and 5.
@@ -6860,6 +6938,7 @@ class ValidationPropertiesArgs:
                  multiple_of: Optional[pulumi.Input[_builtins.float]] = None):
         """
         The validation rules applied to values of this attribute. Based on JSON Schema Draft 2020-12 with additional Connect-specific validations for data integrity.
+
         :param pulumi.Input['ValidationPropertiesEnumPropertiesArgs'] enum: Defines enumeration constraints for attribute values. Can specify a list of allowed values and whether custom values are permitted beyond the enumerated list.
         :param pulumi.Input[_builtins.float] exclusive_maximum: The largest exclusive numeric value for NUMBER value type. Can be provided alongside Maximum where both operate independently. Must be greater than ExclusiveMinimum and Minimum. Applies to NUMBER and values within NUMBER_LIST.
         :param pulumi.Input[_builtins.float] exclusive_minimum: The smallest exclusive numeric value for NUMBER value type. Can be provided alongside Minimum where both operate independently. Must be less than ExclusiveMaximum and Maximum. Applies to NUMBER and values within NUMBER_LIST.
@@ -7028,6 +7107,7 @@ class ValuesPropertiesArgs:
                  string_list: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The values of a predefined attribute.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] string_list: Predefined attribute values of type string list.
         """
         if string_list is not None:
@@ -7744,6 +7824,7 @@ class WorkspaceThemeArgs:
                  light: Optional[pulumi.Input['WorkspaceThemeConfigArgs']] = None):
         """
         The theme configuration for the Connect workspace
+
         :param pulumi.Input['WorkspaceThemeConfigArgs'] dark: The theme configuration for dark mode.
         :param pulumi.Input['WorkspaceThemeConfigArgs'] light: The theme configuration for light mode.
         """

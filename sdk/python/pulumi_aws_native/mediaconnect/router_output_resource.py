@@ -35,6 +35,7 @@ class RouterOutputResourceArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a RouterOutputResource resource.
+
         :param pulumi.Input[_builtins.int] maximum_bitrate: The maximum bitrate for the router output.
         :param pulumi.Input['RouterOutputResourceRoutingScope'] routing_scope: Indicates whether the router output is configured for Regional or global routing.
         :param pulumi.Input['RouterOutputResourceRouterOutputTier'] tier: The tier level of the router output.
@@ -184,6 +185,7 @@ class RouterOutputResource(pulumi.CustomResource):
         """
         Represents a router input in AWS Elemental MediaConnect that can be used to egress content transmitted from router inputs
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] availability_zone: The Availability Zone where you want to create the router output. This must be a valid Availability Zone for the region specified by regionName, or the current region if no regionName is provided.
@@ -203,6 +205,7 @@ class RouterOutputResource(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Represents a router input in AWS Elemental MediaConnect that can be used to egress content transmitted from router inputs
+
 
         :param str resource_name: The name of the resource.
         :param RouterOutputResourceArgs args: The arguments to use to populate this resource's properties.

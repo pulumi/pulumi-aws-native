@@ -31,6 +31,7 @@ class MapArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Map resource.
+
         :param pulumi.Input['MapConfigurationArgs'] configuration: Specifies the `MapConfiguration` , including the map style, for the map resource that you create. The map style defines the look of maps and the data provider for your map resource.
         :param pulumi.Input[_builtins.str] description: An optional description for the map resource.
         :param pulumi.Input[_builtins.str] map_name: The name for the map resource.
@@ -139,6 +140,7 @@ class Map(pulumi.CustomResource):
         """
         Definition of AWS::Location::Map Resource Type
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['MapConfigurationArgs', 'MapConfigurationArgsDict']] configuration: Specifies the `MapConfiguration` , including the map style, for the map resource that you create. The map style defines the look of maps and the data provider for your map resource.
@@ -163,6 +165,7 @@ class Map(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of AWS::Location::Map Resource Type
+
 
         :param str resource_name: The name of the resource.
         :param MapArgs args: The arguments to use to populate this resource's properties.

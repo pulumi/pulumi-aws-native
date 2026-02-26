@@ -28,6 +28,7 @@ class PlaybackRestrictionPolicyArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a PlaybackRestrictionPolicy resource.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_countries: A list of country codes that control geoblocking restriction. Allowed values are the officially assigned ISO 3166-1 alpha-2 codes. Default: All countries (an empty array).
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_origins: A list of origin sites that control CORS restriction. Allowed values are the same as valid values of the Origin header defined at https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Origin
         :param pulumi.Input[_builtins.bool] enable_strict_origin_enforcement: Whether channel playback is constrained by origin site.
@@ -121,6 +122,7 @@ class PlaybackRestrictionPolicy(pulumi.CustomResource):
         """
         Resource Type definition for AWS::IVS::PlaybackRestrictionPolicy.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_countries: A list of country codes that control geoblocking restriction. Allowed values are the officially assigned ISO 3166-1 alpha-2 codes. Default: All countries (an empty array).
@@ -137,6 +139,7 @@ class PlaybackRestrictionPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::IVS::PlaybackRestrictionPolicy.
+
 
         :param str resource_name: The name of the resource.
         :param PlaybackRestrictionPolicyArgs args: The arguments to use to populate this resource's properties.

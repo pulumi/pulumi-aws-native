@@ -34,6 +34,7 @@ class GuardHookArgs:
                  target_filters: Optional[pulumi.Input[Union['TargetFilters0PropertiesArgs', 'TargetFilters1PropertiesArgs']]] = None):
         """
         The set of arguments for constructing a GuardHook resource.
+
         :param pulumi.Input[_builtins.str] alias: The typename alias for the hook.
         :param pulumi.Input[_builtins.str] execution_role: The execution role ARN assumed by hooks to read Guard rules from S3 and write Guard outputs to S3.
         :param pulumi.Input['GuardHookFailureMode'] failure_mode: Attribute to specify CloudFormation behavior on hook failure.
@@ -201,6 +202,7 @@ class GuardHook(pulumi.CustomResource):
         """
         This is a CloudFormation resource for activating the first-party AWS::Hooks::GuardHook.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] alias: The typename alias for the hook.
@@ -222,6 +224,7 @@ class GuardHook(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         This is a CloudFormation resource for activating the first-party AWS::Hooks::GuardHook.
+
 
         :param str resource_name: The name of the resource.
         :param GuardHookArgs args: The arguments to use to populate this resource's properties.

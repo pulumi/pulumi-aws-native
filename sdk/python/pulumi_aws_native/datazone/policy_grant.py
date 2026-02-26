@@ -30,6 +30,7 @@ class PolicyGrantArgs:
                  principal: Optional[pulumi.Input[Union['PolicyGrantPrincipal0PropertiesArgs', 'PolicyGrantPrincipal1PropertiesArgs', 'PolicyGrantPrincipal2PropertiesArgs', 'PolicyGrantPrincipal3PropertiesArgs']]] = None):
         """
         The set of arguments for constructing a PolicyGrant resource.
+
         :param pulumi.Input[_builtins.str] domain_identifier: The ID of the domain where you want to add a policy grant.
         :param pulumi.Input[_builtins.str] entity_identifier: The ID of the entity (resource) to which you want to add a policy grant.
         :param pulumi.Input['PolicyGrantTargetEntityType'] entity_type: The type of entity (resource) to which the grant is added.
@@ -135,6 +136,7 @@ class PolicyGrant(pulumi.CustomResource):
         """
         Policy Grant in AWS DataZone is an explicit authorization assignment that allows a specific principal (user, group, or project) to perform particular actions (such as creating glossary terms, managing projects, or accessing resources) on governed resources within a certain scope (like a Domain Unit or Project). Policy Grants are essentially the mechanism by which DataZone enforces fine-grained, role-based access control beyond what is possible through AWS IAM alone.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union[Union['PolicyGrantDetail0PropertiesArgs', 'PolicyGrantDetail0PropertiesArgsDict'], Union['PolicyGrantDetail1PropertiesArgs', 'PolicyGrantDetail1PropertiesArgsDict'], Union['PolicyGrantDetail2PropertiesArgs', 'PolicyGrantDetail2PropertiesArgsDict'], Union['PolicyGrantDetail3PropertiesArgs', 'PolicyGrantDetail3PropertiesArgsDict'], Union['PolicyGrantDetail4PropertiesArgs', 'PolicyGrantDetail4PropertiesArgsDict'], Union['PolicyGrantDetail5PropertiesArgs', 'PolicyGrantDetail5PropertiesArgsDict'], Union['PolicyGrantDetail6PropertiesArgs', 'PolicyGrantDetail6PropertiesArgsDict'], Union['PolicyGrantDetail7PropertiesArgs', 'PolicyGrantDetail7PropertiesArgsDict'], Union['PolicyGrantDetail8PropertiesArgs', 'PolicyGrantDetail8PropertiesArgsDict'], Union['PolicyGrantDetail9PropertiesArgs', 'PolicyGrantDetail9PropertiesArgsDict'], Union['PolicyGrantDetail10PropertiesArgs', 'PolicyGrantDetail10PropertiesArgsDict'], Union['PolicyGrantDetail11PropertiesArgs', 'PolicyGrantDetail11PropertiesArgsDict'], Union['PolicyGrantDetail12PropertiesArgs', 'PolicyGrantDetail12PropertiesArgsDict']]] detail: The details of the policy grant member.
@@ -152,6 +154,7 @@ class PolicyGrant(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Policy Grant in AWS DataZone is an explicit authorization assignment that allows a specific principal (user, group, or project) to perform particular actions (such as creating glossary terms, managing projects, or accessing resources) on governed resources within a certain scope (like a Domain Unit or Project). Policy Grants are essentially the mechanism by which DataZone enforces fine-grained, role-based access control beyond what is possible through AWS IAM alone.
+
 
         :param str resource_name: The name of the resource.
         :param PolicyGrantArgs args: The arguments to use to populate this resource's properties.

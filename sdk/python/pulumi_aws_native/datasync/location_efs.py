@@ -33,6 +33,7 @@ class LocationEfsArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a LocationEfs resource.
+
         :param pulumi.Input['LocationEfsEc2ConfigArgs'] ec2_config: Specifies the subnet and security groups DataSync uses to connect to one of your Amazon EFS file system's [mount targets](https://docs.aws.amazon.com/efs/latest/ug/accessing-fs.html) .
         :param pulumi.Input[_builtins.str] access_point_arn: The Amazon Resource Name (ARN) for the Amazon EFS Access point that DataSync uses when accessing the EFS file system.
         :param pulumi.Input[_builtins.str] efs_filesystem_arn: The Amazon Resource Name (ARN) for the Amazon EFS file system.
@@ -157,6 +158,7 @@ class LocationEfs(pulumi.CustomResource):
         """
         Resource schema for AWS::DataSync::LocationEFS.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] access_point_arn: The Amazon Resource Name (ARN) for the Amazon EFS Access point that DataSync uses when accessing the EFS file system.
@@ -175,6 +177,7 @@ class LocationEfs(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource schema for AWS::DataSync::LocationEFS.
+
 
         :param str resource_name: The name of the resource.
         :param LocationEfsArgs args: The arguments to use to populate this resource's properties.

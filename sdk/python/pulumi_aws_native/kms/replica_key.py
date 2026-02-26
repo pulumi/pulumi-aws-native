@@ -29,6 +29,7 @@ class ReplicaKeyArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a ReplicaKey resource.
+
         :param Any key_policy: The key policy that authorizes use of the AWS KMS key. The key policy must observe the following rules.
                
                Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::KMS::ReplicaKey` for more information about the expected schema for this property.
@@ -140,6 +141,7 @@ class ReplicaKey(pulumi.CustomResource):
         """
         The AWS::KMS::ReplicaKey resource specifies a multi-region replica AWS KMS key in AWS Key Management Service (AWS KMS).
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: A description of the AWS KMS key. Use a description that helps you to distinguish this AWS KMS key from others in the account, such as its intended use.
@@ -159,6 +161,7 @@ class ReplicaKey(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The AWS::KMS::ReplicaKey resource specifies a multi-region replica AWS KMS key in AWS Key Management Service (AWS KMS).
+
 
         :param str resource_name: The name of the resource.
         :param ReplicaKeyArgs args: The arguments to use to populate this resource's properties.

@@ -30,6 +30,7 @@ class IpSetArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a IpSet resource.
+
         :param pulumi.Input[_builtins.str] format: The format of the file that contains the IPSet. For information about supported formats, see [List formats](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_upload-lists.html#prepare_list) in the *Amazon GuardDuty User Guide* .
         :param pulumi.Input[_builtins.str] location: The URI of the file that contains the IPSet.
         :param pulumi.Input[_builtins.bool] activate: A boolean value that determines if GuardDuty can start using this list for custom threat detection. For GuardDuty to prevent generating findings based on an activity associated with these entries, this list must be active.
@@ -171,6 +172,7 @@ class IpSet(pulumi.CustomResource):
         """
         Resource Type definition for AWS::GuardDuty::IPSet
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] activate: A boolean value that determines if GuardDuty can start using this list for custom threat detection. For GuardDuty to prevent generating findings based on an activity associated with these entries, this list must be active.
@@ -198,6 +200,7 @@ class IpSet(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::GuardDuty::IPSet
+
 
         :param str resource_name: The name of the resource.
         :param IpSetArgs args: The arguments to use to populate this resource's properties.

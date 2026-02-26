@@ -29,6 +29,7 @@ class LayoutArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Layout resource.
+
         :param pulumi.Input['LayoutContentPropertiesArgs'] content: Object to store union of different versions of layout content.
         :param pulumi.Input[_builtins.str] domain_id: The unique identifier of the Cases domain.
         :param pulumi.Input[_builtins.str] name: A descriptive name for the layout. Must be unique within the Cases domain and should clearly indicate the layout's purpose and field organization.
@@ -105,6 +106,7 @@ class Layout(pulumi.CustomResource):
         """
         A layout in the Cases domain. Layouts define the following configuration in the top section and More Info tab of the Cases user interface: Fields to display to the users and Field ordering.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['LayoutContentPropertiesArgs', 'LayoutContentPropertiesArgsDict']] content: Object to store union of different versions of layout content.
@@ -120,6 +122,7 @@ class Layout(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A layout in the Cases domain. Layouts define the following configuration in the top section and More Info tab of the Cases user interface: Fields to display to the users and Field ordering.
+
 
         :param str resource_name: The name of the resource.
         :param LayoutArgs args: The arguments to use to populate this resource's properties.

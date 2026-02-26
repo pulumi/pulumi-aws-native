@@ -51,6 +51,7 @@ class EncryptionDetailsProperties(dict):
                  kms_key_arn: Optional[_builtins.str] = None):
         """
         The encryption configuration details for the cluster.
+
         :param _builtins.str encryption_status: The status of encryption for the cluster.
         :param _builtins.str encryption_type: The type of encryption that protects data in the cluster.
         :param _builtins.str kms_key_arn: The Amazon Resource Name (ARN) of the KMS key that encrypts data in the cluster.
@@ -114,6 +115,7 @@ class MultiRegionPropertiesProperties(dict):
                  witness_region: Optional[_builtins.str] = None):
         """
         The Multi-region properties associated to this cluster.
+
         :param Sequence[_builtins.str] clusters: The set of peered clusters that form the multi-Region cluster configuration. Each peered cluster represents a database instance in a different Region.
         :param _builtins.str witness_region: The witness region in a multi-region cluster.
         """

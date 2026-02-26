@@ -28,6 +28,7 @@ class SceneArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Scene resource.
+
         :param pulumi.Input[_builtins.str] content_location: The relative path that specifies the location of the content definition file.
         :param pulumi.Input[_builtins.str] scene_id: The ID of the scene.
         :param pulumi.Input[_builtins.str] workspace_id: The ID of the scene.
@@ -150,6 +151,7 @@ class Scene(pulumi.CustomResource):
         """
         Resource schema for AWS::IoTTwinMaker::Scene
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] capabilities: A list of capabilities that the scene uses to render.
@@ -168,6 +170,7 @@ class Scene(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource schema for AWS::IoTTwinMaker::Scene
+
 
         :param str resource_name: The name of the resource.
         :param SceneArgs args: The arguments to use to populate this resource's properties.

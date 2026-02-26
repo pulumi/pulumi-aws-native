@@ -35,6 +35,7 @@ class VerifiedAccessTrustProviderArgs:
                  user_trust_provider_type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a VerifiedAccessTrustProvider resource.
+
         :param pulumi.Input[_builtins.str] policy_reference_name: The identifier to be used when working with policy rules.
         :param pulumi.Input[_builtins.str] trust_provider_type: Type of trust provider. Possible values: user|device
         :param pulumi.Input[_builtins.str] description: A description for the Amazon Web Services Verified Access trust provider.
@@ -206,6 +207,7 @@ class VerifiedAccessTrustProvider(pulumi.CustomResource):
         """
         The AWS::EC2::VerifiedAccessTrustProvider type describes a verified access trust provider
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: A description for the Amazon Web Services Verified Access trust provider.
@@ -227,6 +229,7 @@ class VerifiedAccessTrustProvider(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The AWS::EC2::VerifiedAccessTrustProvider type describes a verified access trust provider
+
 
         :param str resource_name: The name of the resource.
         :param VerifiedAccessTrustProviderArgs args: The arguments to use to populate this resource's properties.

@@ -30,6 +30,7 @@ class DbShardGroupArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a DbShardGroup resource.
+
         :param pulumi.Input[_builtins.str] db_cluster_identifier: The name of the primary DB cluster for the DB shard group.
         :param pulumi.Input[_builtins.float] max_acu: The maximum capacity of the DB shard group in Aurora capacity units (ACUs).
         :param pulumi.Input[_builtins.int] compute_redundancy: Specifies whether to create standby standby DB data access shard for the DB shard group. Valid values are the following:
@@ -180,6 +181,7 @@ class DbShardGroup(pulumi.CustomResource):
         Creates a new DB shard group for Aurora Limitless Database. You must enable Aurora Limitless Database to create a DB shard group.
          Valid for: Aurora DB clusters only
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.int] compute_redundancy: Specifies whether to create standby standby DB data access shard for the DB shard group. Valid values are the following:
@@ -212,6 +214,7 @@ class DbShardGroup(pulumi.CustomResource):
         """
         Creates a new DB shard group for Aurora Limitless Database. You must enable Aurora Limitless Database to create a DB shard group.
          Valid for: Aurora DB clusters only
+
 
         :param str resource_name: The name of the resource.
         :param DbShardGroupArgs args: The arguments to use to populate this resource's properties.

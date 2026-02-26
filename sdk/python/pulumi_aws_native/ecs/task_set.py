@@ -38,6 +38,7 @@ class TaskSetArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a TaskSet resource.
+
         :param pulumi.Input[_builtins.str] cluster: The short name or full Amazon Resource Name (ARN) of the cluster that hosts the service to create the task set in.
         :param pulumi.Input[_builtins.str] service: The short name or full Amazon Resource Name (ARN) of the service to create the task set in.
         :param pulumi.Input[_builtins.str] task_definition: The short name or full Amazon Resource Name (ARN) of the task definition for the tasks in the task set to use.
@@ -260,6 +261,7 @@ class TaskSet(pulumi.CustomResource):
         """
         Create a task set in the specified cluster and service. This is used when a service uses the EXTERNAL deployment controller type. For more information, see https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.htmlin the Amazon Elastic Container Service Developer Guide.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['TaskSetCapacityProviderStrategyItemArgs', 'TaskSetCapacityProviderStrategyItemArgsDict']]]] capacity_provider_strategy: The capacity provider strategy that are associated with the task set.
@@ -293,6 +295,7 @@ class TaskSet(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Create a task set in the specified cluster and service. This is used when a service uses the EXTERNAL deployment controller type. For more information, see https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.htmlin the Amazon Elastic Container Service Developer Guide.
+
 
         :param str resource_name: The name of the resource.
         :param TaskSetArgs args: The arguments to use to populate this resource's properties.

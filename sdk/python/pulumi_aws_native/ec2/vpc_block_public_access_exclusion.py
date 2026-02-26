@@ -28,6 +28,7 @@ class VpcBlockPublicAccessExclusionArgs:
                  vpc_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a VpcBlockPublicAccessExclusion resource.
+
         :param pulumi.Input['VpcBlockPublicAccessExclusionInternetGatewayExclusionMode'] internet_gateway_exclusion_mode: The desired Block Public Access Exclusion Mode for a specific VPC/Subnet.
         :param pulumi.Input[_builtins.str] subnet_id: The ID of the subnet. Required only if you don't specify VpcId
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
@@ -104,6 +105,7 @@ class VpcBlockPublicAccessExclusion(pulumi.CustomResource):
         """
         Resource Type definition for AWS::EC2::VPCBlockPublicAccessExclusion.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input['VpcBlockPublicAccessExclusionInternetGatewayExclusionMode'] internet_gateway_exclusion_mode: The desired Block Public Access Exclusion Mode for a specific VPC/Subnet.
@@ -119,6 +121,7 @@ class VpcBlockPublicAccessExclusion(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::EC2::VPCBlockPublicAccessExclusion.
+
 
         :param str resource_name: The name of the resource.
         :param VpcBlockPublicAccessExclusionArgs args: The arguments to use to populate this resource's properties.

@@ -44,6 +44,7 @@ class DeliveryStreamArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a DeliveryStream resource.
+
         :param pulumi.Input['DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationArgs'] amazon_open_search_serverless_destination_configuration: Describes the configuration of a destination in the Serverless offering for Amazon OpenSearch Service.
         :param pulumi.Input['DeliveryStreamAmazonopensearchserviceDestinationConfigurationArgs'] amazonopensearchservice_destination_configuration: The destination in Amazon OpenSearch Service. You can specify only one destination.
         :param pulumi.Input['DeliveryStreamDatabaseSourceConfigurationArgs'] database_source_configuration: The top level object for configuring streams with database as a source.
@@ -407,6 +408,7 @@ class DeliveryStream(pulumi.CustomResource):
         """
         Resource Type definition for AWS::KinesisFirehose::DeliveryStream
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationArgs', 'DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationArgsDict']] amazon_open_search_serverless_destination_configuration: Describes the configuration of a destination in the Serverless offering for Amazon OpenSearch Service.
@@ -467,6 +469,7 @@ class DeliveryStream(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::KinesisFirehose::DeliveryStream
+
 
         :param str resource_name: The name of the resource.
         :param DeliveryStreamArgs args: The arguments to use to populate this resource's properties.

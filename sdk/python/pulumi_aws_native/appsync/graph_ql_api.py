@@ -43,6 +43,7 @@ class GraphQlApiArgs:
                  xray_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a GraphQlApi resource.
+
         :param pulumi.Input[_builtins.str] authentication_type: Security configuration for your GraphQL API
         :param pulumi.Input[Sequence[pulumi.Input['GraphQlApiAdditionalAuthenticationProviderArgs']]] additional_authentication_providers: A list of additional authentication providers for the GraphqlApi API.
         :param pulumi.Input[_builtins.str] api_type: The value that indicates whether the GraphQL API is a standard API (GRAPHQL) or merged API (MERGED).
@@ -343,6 +344,7 @@ class GraphQlApi(pulumi.CustomResource):
         """
         Resource Type definition for AWS::AppSync::GraphQLApi
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['GraphQlApiAdditionalAuthenticationProviderArgs', 'GraphQlApiAdditionalAuthenticationProviderArgsDict']]]] additional_authentication_providers: A list of additional authentication providers for the GraphqlApi API.
@@ -372,6 +374,7 @@ class GraphQlApi(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::AppSync::GraphQLApi
+
 
         :param str resource_name: The name of the resource.
         :param GraphQlApiArgs args: The arguments to use to populate this resource's properties.

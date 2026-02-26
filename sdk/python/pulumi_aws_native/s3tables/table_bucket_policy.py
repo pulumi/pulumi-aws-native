@@ -25,6 +25,7 @@ class TableBucketPolicyArgs:
                  table_bucket_arn: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a TableBucketPolicy resource.
+
         :param pulumi.Input['TableBucketPolicyResourcePolicyArgs'] resource_policy: The bucket policy JSON for the table bucket.
         :param pulumi.Input[_builtins.str] table_bucket_arn: The Amazon Resource Name (ARN) of the table bucket.
         """
@@ -68,6 +69,7 @@ class TableBucketPolicy(pulumi.CustomResource):
         """
         Applies an IAM resource policy to a table bucket.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['TableBucketPolicyResourcePolicyArgs', 'TableBucketPolicyResourcePolicyArgsDict']] resource_policy: The bucket policy JSON for the table bucket.
@@ -81,6 +83,7 @@ class TableBucketPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Applies an IAM resource policy to a table bucket.
+
 
         :param str resource_name: The name of the resource.
         :param TableBucketPolicyArgs args: The arguments to use to populate this resource's properties.

@@ -34,6 +34,7 @@ class UserArgs:
                  user_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a User resource.
+
         :param pulumi.Input['UserEngine'] engine: The target cache engine for the user.
         :param pulumi.Input[_builtins.str] user_id: The ID of the user.
         :param pulumi.Input[_builtins.str] access_string: Access permissions string used for this user account.
@@ -183,6 +184,7 @@ class User(pulumi.CustomResource):
         """
         Resource Type definition for AWS::ElastiCache::User
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] access_string: Access permissions string used for this user account.
@@ -207,6 +209,7 @@ class User(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::ElastiCache::User
+
 
         :param str resource_name: The name of the resource.
         :param UserArgs args: The arguments to use to populate this resource's properties.

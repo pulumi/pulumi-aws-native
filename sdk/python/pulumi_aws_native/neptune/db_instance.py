@@ -35,6 +35,7 @@ class DbInstanceArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a DbInstance resource.
+
         :param pulumi.Input[_builtins.str] db_instance_class: Contains the name of the compute and memory capacity class of the DB instance.
                
                If you update this property, some interruptions may occur.
@@ -255,6 +256,7 @@ class DbInstance(pulumi.CustomResource):
         """
         The AWS::Neptune::DBInstance resource creates an Amazon Neptune DB instance.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] allow_major_version_upgrade: Indicates that major version upgrades are allowed. Changing this parameter doesn't result in an outage and the change is asynchronously applied as soon as possible. This parameter must be set to true when specifying a value for the EngineVersion parameter that is a different major version than the DB instance's current version.
@@ -286,6 +288,7 @@ class DbInstance(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The AWS::Neptune::DBInstance resource creates an Amazon Neptune DB instance.
+
 
         :param str resource_name: The name of the resource.
         :param DbInstanceArgs args: The arguments to use to populate this resource's properties.

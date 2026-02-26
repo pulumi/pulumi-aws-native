@@ -79,6 +79,7 @@ class EnvironmentHighAvailabilityConfigArgs:
                  desired_capacity: pulumi.Input[_builtins.int]):
         """
         Defines the details of a high availability configuration.
+
         :param pulumi.Input[_builtins.int] desired_capacity: The number of instances in a high availability configuration. The minimum possible value is 1 and the maximum is 100.
         """
         pulumi.set(__self__, "desired_capacity", desired_capacity)

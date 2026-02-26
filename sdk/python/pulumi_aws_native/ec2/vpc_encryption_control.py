@@ -36,6 +36,7 @@ class VpcEncryptionControlArgs:
                  vpc_peering_exclusion_input: Optional[pulumi.Input['VpcEncryptionControlVpcPeeringExclusionInput']] = None):
         """
         The set of arguments for constructing a VpcEncryptionControl resource.
+
         :param pulumi.Input['VpcEncryptionControlEgressOnlyInternetGatewayExclusionInput'] egress_only_internet_gateway_exclusion_input: Used to enable or disable EIGW exclusion
         :param pulumi.Input['VpcEncryptionControlElasticFileSystemExclusionInput'] elastic_file_system_exclusion_input: Used to enable or disable EFS exclusion
         :param pulumi.Input['VpcEncryptionControlInternetGatewayExclusionInput'] internet_gateway_exclusion_input: Used to enable or disable IGW exclusion
@@ -225,6 +226,7 @@ class VpcEncryptionControl(pulumi.CustomResource):
         """
         Resource Type definition for AWS::EC2::VPCEncryptionControl
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input['VpcEncryptionControlEgressOnlyInternetGatewayExclusionInput'] egress_only_internet_gateway_exclusion_input: Used to enable or disable EIGW exclusion
@@ -247,6 +249,7 @@ class VpcEncryptionControl(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::EC2::VPCEncryptionControl
+
 
         :param str resource_name: The name of the resource.
         :param VpcEncryptionControlArgs args: The arguments to use to populate this resource's properties.

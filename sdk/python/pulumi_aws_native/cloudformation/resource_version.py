@@ -28,6 +28,7 @@ class ResourceVersionArgs:
                  logging_config: Optional[pulumi.Input['ResourceVersionLoggingConfigArgs']] = None):
         """
         The set of arguments for constructing a ResourceVersion resource.
+
         :param pulumi.Input[_builtins.str] schema_handler_package: A url to the S3 bucket containing the schema handler package that contains the schema, event handlers, and associated files for the type you want to register.
                
                For information on generating a schema handler package for the type you want to register, see submit in the CloudFormation CLI User Guide.
@@ -183,6 +184,7 @@ class ResourceVersion(pulumi.CustomResource):
 
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] execution_role_arn: The Amazon Resource Name (ARN) of the IAM execution role to use to register the type. If your resource type calls AWS APIs in any of its handlers, you must create an IAM execution role that includes the necessary permissions to call those AWS APIs, and provision that execution role in your account. CloudFormation then assumes that execution role to provide your resource type with the appropriate credentials.
@@ -274,6 +276,7 @@ class ResourceVersion(pulumi.CustomResource):
         resource_default_version = aws_native.cloudformation.ResourceDefaultVersion("resourceDefaultVersion", type_version_arn=resource_version.id)
 
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ResourceVersionArgs args: The arguments to use to populate this resource's properties.

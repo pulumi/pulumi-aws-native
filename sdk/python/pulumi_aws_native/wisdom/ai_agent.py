@@ -30,6 +30,7 @@ class AiAgentArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a AiAgent resource.
+
         :param pulumi.Input[_builtins.str] assistant_id: The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
         :param pulumi.Input[Union['AiAgentAiAgentConfiguration0PropertiesArgs', 'AiAgentAiAgentConfiguration1PropertiesArgs', 'AiAgentAiAgentConfiguration2PropertiesArgs', 'AiAgentAiAgentConfiguration3PropertiesArgs', 'AiAgentAiAgentConfiguration4PropertiesArgs', 'AiAgentAiAgentConfiguration5PropertiesArgs', 'AiAgentAiAgentConfiguration6PropertiesArgs', 'AiAgentAiAgentConfiguration7PropertiesArgs', 'AiAgentAiAgentConfiguration8PropertiesArgs']] configuration: Configuration for the AI Agent.
         :param pulumi.Input['AiAgentAiAgentType'] type: The type of the AI Agent.
@@ -136,6 +137,7 @@ class AiAgent(pulumi.CustomResource):
         """
         Definition of AWS::Wisdom::AIAgent Resource Type
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] assistant_id: The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
@@ -153,6 +155,7 @@ class AiAgent(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of AWS::Wisdom::AIAgent Resource Type
+
 
         :param str resource_name: The name of the resource.
         :param AiAgentArgs args: The arguments to use to populate this resource's properties.

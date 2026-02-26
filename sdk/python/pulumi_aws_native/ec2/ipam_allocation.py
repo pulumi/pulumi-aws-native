@@ -25,6 +25,7 @@ class IpamAllocationArgs:
                  netmask_length: Optional[pulumi.Input[_builtins.int]] = None):
         """
         The set of arguments for constructing a IpamAllocation resource.
+
         :param pulumi.Input[_builtins.str] ipam_pool_id: Id of the IPAM Pool.
         :param pulumi.Input[_builtins.str] cidr: The CIDR you would like to allocate from the IPAM pool. Note the following:
                
@@ -111,6 +112,7 @@ class IpamAllocation(pulumi.CustomResource):
         """
         Resource Schema of AWS::EC2::IPAMAllocation Type
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] cidr: The CIDR you would like to allocate from the IPAM pool. Note the following:
@@ -131,6 +133,7 @@ class IpamAllocation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Schema of AWS::EC2::IPAMAllocation Type
+
 
         :param str resource_name: The name of the resource.
         :param IpamAllocationArgs args: The arguments to use to populate this resource's properties.

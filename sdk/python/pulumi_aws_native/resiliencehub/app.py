@@ -33,6 +33,7 @@ class AppArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a App resource.
+
         :param pulumi.Input[_builtins.str] app_template_body: A string containing full ResilienceHub app template body.
         :param pulumi.Input[Sequence[pulumi.Input['AppResourceMappingArgs']]] resource_mappings: An array of ResourceMapping objects.
         :param pulumi.Input['AppAssessmentSchedule'] app_assessment_schedule: Assessment execution schedule.
@@ -188,6 +189,7 @@ class App(pulumi.CustomResource):
         """
         Resource Type Definition for AWS::ResilienceHub::App.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input['AppAssessmentSchedule'] app_assessment_schedule: Assessment execution schedule.
@@ -208,6 +210,7 @@ class App(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type Definition for AWS::ResilienceHub::App.
+
 
         :param str resource_name: The name of the resource.
         :param AppArgs args: The arguments to use to populate this resource's properties.

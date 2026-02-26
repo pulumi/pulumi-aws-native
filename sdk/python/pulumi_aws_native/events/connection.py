@@ -30,6 +30,7 @@ class ConnectionArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Connection resource.
+
         :param pulumi.Input['ConnectionAuthParametersArgs'] auth_parameters: The authorization parameters to use to authorize with the endpoint.
                
                You must include only authorization parameters for the `AuthorizationType` you specify.
@@ -181,6 +182,7 @@ class Connection(pulumi.CustomResource):
 
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ConnectionAuthParametersArgs', 'ConnectionAuthParametersArgsDict']] auth_parameters: The authorization parameters to use to authorize with the endpoint.
@@ -232,6 +234,7 @@ class Connection(pulumi.CustomResource):
             invocation_endpoint="https://events.pagerduty.com/v2/enqueue")
 
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ConnectionArgs args: The arguments to use to populate this resource's properties.

@@ -34,6 +34,7 @@ class LaunchArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Launch resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['LaunchGroupObjectArgs']]] groups: An array of structures that contains the feature and variations that are to be used for the launch. You can up to five launch groups in a launch.
         :param pulumi.Input[_builtins.str] project: The name or ARN of the project that you want to create the launch in.
         :param pulumi.Input[Sequence[pulumi.Input['LaunchStepConfigArgs']]] scheduled_splits_config: An array of structures that define the traffic allocation percentages among the feature variations during each step of the launch.
@@ -188,6 +189,7 @@ class Launch(pulumi.CustomResource):
         """
         Resource Type definition for AWS::Evidently::Launch.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: An optional description for the launch.
@@ -208,6 +210,7 @@ class Launch(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::Evidently::Launch.
+
 
         :param str resource_name: The name of the resource.
         :param LaunchArgs args: The arguments to use to populate this resource's properties.

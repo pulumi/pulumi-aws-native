@@ -31,6 +31,7 @@ class LocationFSxOpenZfsArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a LocationFSxOpenZfs resource.
+
         :param pulumi.Input['LocationFSxOpenZfsProtocolArgs'] protocol: The type of protocol that AWS DataSync uses to access your file system.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_arns: The ARNs of the security groups that are to use to configure the FSx OpenZFS file system.
         :param pulumi.Input[_builtins.str] fsx_filesystem_arn: The Amazon Resource Name (ARN) for the FSx OpenZFS file system.
@@ -122,6 +123,7 @@ class LocationFSxOpenZfs(pulumi.CustomResource):
         """
         Resource schema for AWS::DataSync::LocationFSxOpenZFS.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] fsx_filesystem_arn: The Amazon Resource Name (ARN) for the FSx OpenZFS file system.
@@ -138,6 +140,7 @@ class LocationFSxOpenZfs(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource schema for AWS::DataSync::LocationFSxOpenZFS.
+
 
         :param str resource_name: The name of the resource.
         :param LocationFSxOpenZfsArgs args: The arguments to use to populate this resource's properties.

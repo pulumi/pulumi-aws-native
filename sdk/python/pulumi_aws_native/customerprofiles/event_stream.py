@@ -29,6 +29,7 @@ class EventStreamArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a EventStream resource.
+
         :param pulumi.Input[_builtins.str] domain_name: The unique name of the domain.
         :param pulumi.Input[_builtins.str] uri: The StreamARN of the destination to deliver profile events to. For example, arn:aws:kinesis:region:account-id:stream/stream-name.
         :param pulumi.Input[_builtins.str] event_stream_name: The name of the event stream.
@@ -104,6 +105,7 @@ class EventStream(pulumi.CustomResource):
         """
         An Event Stream resource of Amazon Connect Customer Profiles
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] domain_name: The unique name of the domain.
@@ -119,6 +121,7 @@ class EventStream(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An Event Stream resource of Amazon Connect Customer Profiles
+
 
         :param str resource_name: The name of the resource.
         :param EventStreamArgs args: The arguments to use to populate this resource's properties.

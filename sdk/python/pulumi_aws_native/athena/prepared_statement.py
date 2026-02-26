@@ -25,6 +25,7 @@ class PreparedStatementArgs:
                  statement_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a PreparedStatement resource.
+
         :param pulumi.Input[_builtins.str] query_statement: The query string for the prepared statement.
         :param pulumi.Input[_builtins.str] work_group: The name of the workgroup to which the prepared statement belongs.
         :param pulumi.Input[_builtins.str] description: The description of the prepared statement.
@@ -100,6 +101,7 @@ class PreparedStatement(pulumi.CustomResource):
         """
         Resource schema for AWS::Athena::PreparedStatement
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: The description of the prepared statement.
@@ -115,6 +117,7 @@ class PreparedStatement(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource schema for AWS::Athena::PreparedStatement
+
 
         :param str resource_name: The name of the resource.
         :param PreparedStatementArgs args: The arguments to use to populate this resource's properties.

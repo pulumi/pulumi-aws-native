@@ -35,6 +35,7 @@ class DeploymentArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]] = None):
         """
         The set of arguments for constructing a Deployment resource.
+
         :param pulumi.Input[_builtins.str] application_id: The application ID.
         :param pulumi.Input[_builtins.str] configuration_profile_id: The configuration profile ID.
         :param pulumi.Input[_builtins.str] configuration_version: The configuration version to deploy. If deploying an AWS AppConfig hosted configuration version, you can specify either the version number or version label. For all other configurations, you must specify the version number.
@@ -187,6 +188,7 @@ class Deployment(pulumi.CustomResource):
         """
         Resource Type definition for AWS::AppConfig::Deployment
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] application_id: The application ID.
@@ -207,6 +209,7 @@ class Deployment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::AppConfig::Deployment
+
 
         :param str resource_name: The name of the resource.
         :param DeploymentArgs args: The arguments to use to populate this resource's properties.

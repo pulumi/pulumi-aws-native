@@ -44,6 +44,7 @@ class InfluxDbClusterArgs:
                  vpc_subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a InfluxDbCluster resource.
+
         :param pulumi.Input[_builtins.int] allocated_storage: The allocated storage for the InfluxDB cluster.
         :param pulumi.Input[_builtins.str] bucket: The bucket for the InfluxDB cluster.
         :param pulumi.Input['InfluxDbClusterDbInstanceType'] db_instance_type: The compute instance of the InfluxDB cluster.
@@ -345,6 +346,7 @@ class InfluxDbCluster(pulumi.CustomResource):
         """
         The AWS::Timestream::InfluxDBCluster resource creates an InfluxDB cluster.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.int] allocated_storage: The allocated storage for the InfluxDB cluster.
@@ -374,6 +376,7 @@ class InfluxDbCluster(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The AWS::Timestream::InfluxDBCluster resource creates an InfluxDB cluster.
+
 
         :param str resource_name: The name of the resource.
         :param InfluxDbClusterArgs args: The arguments to use to populate this resource's properties.

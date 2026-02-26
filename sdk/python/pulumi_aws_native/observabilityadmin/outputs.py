@@ -464,6 +464,7 @@ class OrganizationTelemetryRuleAdvancedEventSelector(dict):
                  name: Optional[_builtins.str] = None):
         """
         An advanced event selector that includes optional name and field selectors
+
         :param Sequence['OrganizationTelemetryRuleAdvancedFieldSelector'] field_selectors: Contains all selector statements in an advanced event selector.
         :param _builtins.str name: An optional descriptive name for the advanced event selector
         """
@@ -528,6 +529,7 @@ class OrganizationTelemetryRuleAdvancedFieldSelector(dict):
                  starts_with: Optional[Sequence[_builtins.str]] = None):
         """
         A single selector statement in an advanced event selector.
+
         :param Sequence[_builtins.str] ends_with: An operator that includes events that match the last few characters of the event record field specified as the value of Field.
         :param Sequence[_builtins.str] equals: An operator that includes events that match the exact value of the event record field specified as the value of Field.
         :param _builtins.str field: A field in a CloudTrail event record on which to filter events to be logged
@@ -634,6 +636,7 @@ class OrganizationTelemetryRuleCloudtrailParameters(dict):
                  advanced_event_selectors: Sequence['outputs.OrganizationTelemetryRuleAdvancedEventSelector']):
         """
         Telemetry parameters for Cloudtrail
+
         :param Sequence['OrganizationTelemetryRuleAdvancedEventSelector'] advanced_event_selectors: Create fine-grained selectors for AWS CloudTrail management and data.
         """
         pulumi.set(__self__, "advanced_event_selectors", advanced_event_selectors)
@@ -722,6 +725,7 @@ class OrganizationTelemetryRuleElbLoadBalancerLoggingParameters(dict):
                  output_format: Optional['OrganizationTelemetryRuleElbLoadBalancerLoggingParametersOutputFormat'] = None):
         """
         Telemetry parameters for ELB/NLB Load Balancer Logs
+
         :param _builtins.str field_delimiter: A delimiter to delineate log fields
         :param 'OrganizationTelemetryRuleElbLoadBalancerLoggingParametersOutputFormat' output_format: The format for ELB access log entries (plain text or JSON format).
         """
@@ -780,6 +784,7 @@ class OrganizationTelemetryRuleFieldToMatch(dict):
                  uri_path: Optional[_builtins.str] = None):
         """
         The field that we want to match this rule to.
+
         :param _builtins.str method: The method with which to match this rule.
         :param _builtins.str query_string: The query string to find the resource to match this field to.
         :param _builtins.str uri_path: This is the URI path to match this rule to.
@@ -884,6 +889,7 @@ class OrganizationTelemetryRuleLabelNameCondition(dict):
                  label_name: Optional[_builtins.str] = None):
         """
         The label name of the condition.
+
         :param _builtins.str label_name: The label name of the condition.
         """
         if label_name is not None:
@@ -925,6 +931,7 @@ class OrganizationTelemetryRuleLoggingFilter(dict):
                  filters: Optional[Sequence['outputs.OrganizationTelemetryRuleFilter']] = None):
         """
         Default handling for logs that don't match any of the specified filtering conditions.
+
         :param 'OrganizationTelemetryRuleFilterBehavior' default_behavior: The default action (KEEP or DROP) for log records that don't match any filter conditions.
         :param Sequence['OrganizationTelemetryRuleFilter'] filters: A list of filter conditions that determine log record handling behavior.
         """
@@ -959,6 +966,7 @@ class OrganizationTelemetryRuleSingleHeader(dict):
                  name: _builtins.str):
         """
         Header for the field to match.
+
         :param _builtins.str name: The name of the header
         """
         pulumi.set(__self__, "name", name)
@@ -1016,6 +1024,7 @@ class OrganizationTelemetryRuleTelemetryDestinationConfiguration(dict):
                  waf_logging_parameters: Optional['outputs.OrganizationTelemetryRuleWafLoggingParameters'] = None):
         """
         The destination configuration for telemetry data
+
         :param 'OrganizationTelemetryRuleCloudtrailParameters' cloudtrail_parameters: Configuration parameters specific to AWS CloudTrail when CloudTrail is the source type.
         :param _builtins.str destination_pattern: The pattern used to generate the destination path or name, supporting macros like <resourceId> and <accountId>.
         :param 'OrganizationTelemetryRuleDestinationType' destination_type: The type of destination for the telemetry data (e.g., "Amazon CloudWatch Logs", "S3").
@@ -1135,6 +1144,7 @@ class OrganizationTelemetryRuleTelemetryRule(dict):
                  telemetry_source_types: Optional[Sequence['OrganizationTelemetryRuleTelemetrySourceType']] = None):
         """
         The telemetry rule
+
         :param 'OrganizationTelemetryRuleResourceType' resource_type: The type of AWS resource to configure telemetry for (e.g., "AWS::EC2::VPC", "AWS::EKS::Cluster", "AWS::WAFv2::WebACL").
         :param 'OrganizationTelemetryRuleTelemetryType' telemetry_type: The type of telemetry to collect (Logs, Metrics, or Traces).
         :param 'OrganizationTelemetryRuleTelemetryDestinationConfiguration' destination_configuration: Configuration specifying where and how the telemetry data should be delivered.
@@ -1234,6 +1244,7 @@ class OrganizationTelemetryRuleVpcFlowLogParameters(dict):
                  traffic_type: Optional[_builtins.str] = None):
         """
         Telemetry parameters for VPC Flow logs
+
         :param _builtins.str log_format: The fields to include in the flow log record. If you omit this parameter, the flow log is created using the default format.
         :param _builtins.int max_aggregation_interval: The maximum interval of time, in seconds, during which a flow of packets is captured and aggregated into a flow log record. Default is 600s.
         :param _builtins.str traffic_type: The type of traffic captured for the flow log. Default is ALL
@@ -1302,6 +1313,7 @@ class OrganizationTelemetryRuleWafLoggingParameters(dict):
                  redacted_fields: Optional[Sequence['outputs.OrganizationTelemetryRuleFieldToMatch']] = None):
         """
         Telemetry parameters for WAF v2 Web ACL
+
         :param 'OrganizationTelemetryRuleWafLogType' log_type: The type of WAF logs to collect (currently supports WAF_LOGS).
         :param 'OrganizationTelemetryRuleLoggingFilter' logging_filter: A filter configuration that determines which WAF log records to include or exclude.
         :param Sequence['OrganizationTelemetryRuleFieldToMatch'] redacted_fields: Fields not to be included in the logs.
@@ -1367,6 +1379,7 @@ class S3TableIntegrationEncryptionConfig(dict):
                  kms_key_arn: Optional[_builtins.str] = None):
         """
         Encryption configuration for the S3 Table Integration
+
         :param 'S3TableIntegrationEncryptionConfigSseAlgorithm' sse_algorithm: The server-side encryption algorithm used to encrypt the S3 Table(s) data
         :param _builtins.str kms_key_arn: The ARN of the KMS key used to encrypt the S3 Table Integration
         """
@@ -1402,6 +1415,7 @@ class S3TableIntegrationLogSource(dict):
                  identifier: Optional[_builtins.str] = None):
         """
         CloudWatch Logs data source to associate with the S3 Table Integration
+
         :param _builtins.str name: The name of the CloudWatch Logs data source
         :param _builtins.str type: The type of the CloudWatch Logs data source
         :param _builtins.str identifier: The ID of the CloudWatch Logs data source association
@@ -1446,6 +1460,7 @@ class TelemetryPipelinesTag(dict):
                  value: _builtins.str):
         """
         A key-value pair to associate with a resource
+
         :param _builtins.str key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         :param _builtins.str value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         """
@@ -1668,6 +1683,7 @@ class TelemetryRule(dict):
                  telemetry_source_types: Optional[Sequence['TelemetryRuleTelemetrySourceType']] = None):
         """
         The telemetry rule
+
         :param 'TelemetryRuleResourceType' resource_type: The type of AWS resource to configure telemetry for (e.g., "AWS::EC2::VPC", "AWS::EKS::Cluster", "AWS::WAFv2::WebACL").
         :param 'TelemetryRuleTelemetryType' telemetry_type: The type of telemetry to collect (Logs, Metrics, or Traces).
         :param 'TelemetryRuleTelemetryDestinationConfiguration' destination_configuration: Configuration specifying where and how the telemetry data should be delivered.
@@ -1770,6 +1786,7 @@ class TelemetryRuleAdvancedEventSelector(dict):
                  name: Optional[_builtins.str] = None):
         """
         An advanced event selector that includes optional name and field selectors
+
         :param Sequence['TelemetryRuleAdvancedFieldSelector'] field_selectors: Contains all selector statements in an advanced event selector.
         :param _builtins.str name: An optional descriptive name for the advanced event selector
         """
@@ -1834,6 +1851,7 @@ class TelemetryRuleAdvancedFieldSelector(dict):
                  starts_with: Optional[Sequence[_builtins.str]] = None):
         """
         A single selector statement in an advanced event selector.
+
         :param Sequence[_builtins.str] ends_with: An operator that includes events that match the last few characters of the event record field specified as the value of Field.
         :param Sequence[_builtins.str] equals: An operator that includes events that match the exact value of the event record field specified as the value of Field.
         :param _builtins.str field: A field in a CloudTrail event record on which to filter events to be logged
@@ -1940,6 +1958,7 @@ class TelemetryRuleCloudtrailParameters(dict):
                  advanced_event_selectors: Sequence['outputs.TelemetryRuleAdvancedEventSelector']):
         """
         Telemetry parameters for Cloudtrail
+
         :param Sequence['TelemetryRuleAdvancedEventSelector'] advanced_event_selectors: Create fine-grained selectors for AWS CloudTrail management and data.
         """
         pulumi.set(__self__, "advanced_event_selectors", advanced_event_selectors)
@@ -2028,6 +2047,7 @@ class TelemetryRuleElbLoadBalancerLoggingParameters(dict):
                  output_format: Optional['TelemetryRuleElbLoadBalancerLoggingParametersOutputFormat'] = None):
         """
         Telemetry parameters for ELB/NLB Load Balancer Logs
+
         :param _builtins.str field_delimiter: A delimiter to delineate log fields
         :param 'TelemetryRuleElbLoadBalancerLoggingParametersOutputFormat' output_format: The format for ELB access log entries (plain text or JSON format).
         """
@@ -2086,6 +2106,7 @@ class TelemetryRuleFieldToMatch(dict):
                  uri_path: Optional[_builtins.str] = None):
         """
         The field that we want to match this rule to.
+
         :param _builtins.str method: The method with which to match this rule.
         :param _builtins.str query_string: The query string to find the resource to match this field to.
         :param _builtins.str uri_path: This is the URI path to match this rule to.
@@ -2190,6 +2211,7 @@ class TelemetryRuleLabelNameCondition(dict):
                  label_name: Optional[_builtins.str] = None):
         """
         The label name of the condition.
+
         :param _builtins.str label_name: The label name of the condition.
         """
         if label_name is not None:
@@ -2231,6 +2253,7 @@ class TelemetryRuleLoggingFilter(dict):
                  filters: Optional[Sequence['outputs.TelemetryRuleFilter']] = None):
         """
         Default handling for logs that don't match any of the specified filtering conditions.
+
         :param 'TelemetryRuleFilterBehavior' default_behavior: The default action (KEEP or DROP) for log records that don't match any filter conditions.
         :param Sequence['TelemetryRuleFilter'] filters: A list of filter conditions that determine log record handling behavior.
         """
@@ -2265,6 +2288,7 @@ class TelemetryRuleSingleHeader(dict):
                  name: _builtins.str):
         """
         Header for the field to match.
+
         :param _builtins.str name: The name of the header
         """
         pulumi.set(__self__, "name", name)
@@ -2325,6 +2349,7 @@ class TelemetryRuleTelemetryDestinationConfiguration(dict):
                  waf_logging_parameters: Optional['outputs.TelemetryRuleWafLoggingParameters'] = None):
         """
         The destination configuration for telemetry data
+
         :param 'TelemetryRuleCloudtrailParameters' cloudtrail_parameters: Configuration parameters specific to AWS CloudTrail when CloudTrail is the source type.
         :param _builtins.str destination_pattern: The pattern used to generate the destination path or name, supporting macros like <resourceId> and <accountId>.
         :param 'TelemetryRuleDestinationType' destination_type: The type of destination for the telemetry data (e.g., "Amazon CloudWatch Logs", "S3").
@@ -2442,6 +2467,7 @@ class TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropert
                  log_types: Optional[Sequence['TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem']] = None):
         """
         Parameters for BedrockAgentCore log delivery
+
         :param Sequence['TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem'] log_types: Types of logs to deliver for BedrockAgentCore resources
         """
         if log_types is not None:
@@ -2488,6 +2514,7 @@ class TelemetryRuleVpcFlowLogParameters(dict):
                  traffic_type: Optional[_builtins.str] = None):
         """
         Telemetry parameters for VPC Flow logs
+
         :param _builtins.str log_format: The fields to include in the flow log record. If you omit this parameter, the flow log is created using the default format.
         :param _builtins.int max_aggregation_interval: The maximum interval of time, in seconds, during which a flow of packets is captured and aggregated into a flow log record. Default is 600s.
         :param _builtins.str traffic_type: The type of traffic captured for the flow log. Default is ALL
@@ -2556,6 +2583,7 @@ class TelemetryRuleWafLoggingParameters(dict):
                  redacted_fields: Optional[Sequence['outputs.TelemetryRuleFieldToMatch']] = None):
         """
         Telemetry parameters for WAF v2 Web ACL
+
         :param 'TelemetryRuleWafLogType' log_type: The type of WAF logs to collect (currently supports WAF_LOGS).
         :param 'TelemetryRuleLoggingFilter' logging_filter: A filter configuration that determines which WAF log records to include or exclude.
         :param Sequence['TelemetryRuleFieldToMatch'] redacted_fields: Fields not to be included in the logs.

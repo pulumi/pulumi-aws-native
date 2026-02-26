@@ -24,6 +24,7 @@ class CoreNetworkPrefixListAssociationArgs:
                  prefix_list_arn: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a CoreNetworkPrefixListAssociation resource.
+
         :param pulumi.Input[_builtins.str] core_network_id: The ID of the core network.
         :param pulumi.Input[_builtins.str] prefix_list_alias: The alias of the prefix list
         :param pulumi.Input[_builtins.str] prefix_list_arn: The Amazon Resource Name (ARN) of the prefix list.
@@ -82,6 +83,7 @@ class CoreNetworkPrefixListAssociation(pulumi.CustomResource):
         """
         Resource Type definition for AWS::NetworkManager::CoreNetworkPrefixListAssociation which associates a prefix list with a core network.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] core_network_id: The ID of the core network.
@@ -96,6 +98,7 @@ class CoreNetworkPrefixListAssociation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::NetworkManager::CoreNetworkPrefixListAssociation which associates a prefix list with a core network.
+
 
         :param str resource_name: The name of the resource.
         :param CoreNetworkPrefixListAssociationArgs args: The arguments to use to populate this resource's properties.

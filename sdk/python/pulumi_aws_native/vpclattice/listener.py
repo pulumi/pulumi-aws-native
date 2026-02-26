@@ -32,6 +32,7 @@ class ListenerArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Listener resource.
+
         :param pulumi.Input['ListenerDefaultActionArgs'] default_action: The action for the default rule. Each listener has a default rule. The default rule is used if no other rules match.
         :param pulumi.Input['ListenerProtocol'] protocol: The listener protocol.
         :param pulumi.Input[_builtins.str] name: The name of the listener. A listener name must be unique within a service. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
@@ -143,6 +144,7 @@ class Listener(pulumi.CustomResource):
         """
         Creates a listener for a service. Before you start using your Amazon VPC Lattice service, you must add one or more listeners. A listener is a process that checks for connection requests to your services.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ListenerDefaultActionArgs', 'ListenerDefaultActionArgsDict']] default_action: The action for the default rule. Each listener has a default rule. The default rule is used if no other rules match.
@@ -162,6 +164,7 @@ class Listener(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Creates a listener for a service. Before you start using your Amazon VPC Lattice service, you must add one or more listeners. A listener is a process that checks for connection requests to your services.
+
 
         :param str resource_name: The name of the resource.
         :param ListenerArgs args: The arguments to use to populate this resource's properties.

@@ -76,6 +76,7 @@ class ConnectAttachmentOptionsArgs:
                  protocol: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Connect attachment options for protocol
+
         :param pulumi.Input[_builtins.str] protocol: Tunnel protocol for connect attachment
         """
         if protocol is not None:
@@ -119,6 +120,7 @@ class ConnectAttachmentProposedNetworkFunctionGroupChangeArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['ConnectAttachmentTagArgs']]]] = None):
         """
         The attachment to move from one network function group to another.
+
         :param pulumi.Input[_builtins.int] attachment_policy_rule_number: The rule number in the policy document that applies to this change.
         :param pulumi.Input[_builtins.str] network_function_group_name: The name of the network function group to change.
         :param pulumi.Input[Sequence[pulumi.Input['ConnectAttachmentTagArgs']]] tags: The key-value tags that changed for the network function group.
@@ -192,6 +194,7 @@ class ConnectAttachmentProposedSegmentChangeArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['ConnectAttachmentTagArgs']]]] = None):
         """
         The attachment to move from one segment to another.
+
         :param pulumi.Input[_builtins.int] attachment_policy_rule_number: The rule number in the policy document that applies to this change.
         :param pulumi.Input[_builtins.str] segment_name: The name of the segment to change.
         :param pulumi.Input[Sequence[pulumi.Input['ConnectAttachmentTagArgs']]] tags: The list of key-value tags that changed for the segment.
@@ -260,6 +263,7 @@ class ConnectAttachmentTagArgs:
                  value: pulumi.Input[_builtins.str]):
         """
         A key-value pair to associate with a resource.
+
         :param pulumi.Input[_builtins.str] key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         :param pulumi.Input[_builtins.str] value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         """
@@ -306,6 +310,7 @@ class ConnectPeerBgpOptionsArgs:
                  peer_asn: Optional[pulumi.Input[_builtins.float]] = None):
         """
         Bgp options
+
         :param pulumi.Input[_builtins.float] peer_asn: The Peer ASN of the BGP.
         """
         if peer_asn is not None:
@@ -344,6 +349,7 @@ class DeviceAwsLocationArgs:
                  zone: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The Amazon Web Services location of the device, if applicable.
+
         :param pulumi.Input[_builtins.str] subnet_arn: The Amazon Resource Name (ARN) of the subnet that the device is located in.
         :param pulumi.Input[_builtins.str] zone: The Zone that the device is located in. Specify the ID of an Availability Zone, Local Zone, Wavelength Zone, or an Outpost.
         """
@@ -402,6 +408,7 @@ class DeviceLocationArgs:
                  longitude: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The site location.
+
         :param pulumi.Input[_builtins.str] address: The physical address.
         :param pulumi.Input[_builtins.str] latitude: The latitude.
         :param pulumi.Input[_builtins.str] longitude: The longitude.
@@ -475,6 +482,7 @@ class DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangeArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['DirectConnectGatewayAttachmentTagArgs']]]] = None):
         """
         The attachment to move from one network function group to another.
+
         :param pulumi.Input[_builtins.int] attachment_policy_rule_number: The rule number in the policy document that applies to this change.
         :param pulumi.Input[_builtins.str] network_function_group_name: The name of the network function group to change.
         :param pulumi.Input[Sequence[pulumi.Input['DirectConnectGatewayAttachmentTagArgs']]] tags: The key-value tags that changed for the network function group.
@@ -548,6 +556,7 @@ class DirectConnectGatewayAttachmentProposedSegmentChangeArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['DirectConnectGatewayAttachmentTagArgs']]]] = None):
         """
         The attachment to move from one segment to another.
+
         :param pulumi.Input[_builtins.int] attachment_policy_rule_number: The rule number in the policy document that applies to this change.
         :param pulumi.Input[_builtins.str] segment_name: The name of the segment to change.
         :param pulumi.Input[Sequence[pulumi.Input['DirectConnectGatewayAttachmentTagArgs']]] tags: The key-value tags that changed for the segment.
@@ -616,6 +625,7 @@ class DirectConnectGatewayAttachmentTagArgs:
                  value: pulumi.Input[_builtins.str]):
         """
         A key-value pair to associate with a resource.
+
         :param pulumi.Input[_builtins.str] key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         :param pulumi.Input[_builtins.str] value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         """
@@ -667,6 +677,7 @@ class LinkBandwidthArgs:
                  upload_speed: Optional[pulumi.Input[_builtins.int]] = None):
         """
         The bandwidth for the link.
+
         :param pulumi.Input[_builtins.int] download_speed: Download speed in Mbps.
         :param pulumi.Input[_builtins.int] upload_speed: Upload speed in Mbps.
         """
@@ -725,6 +736,7 @@ class SiteLocationArgs:
                  longitude: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The location of the site
+
         :param pulumi.Input[_builtins.str] address: The physical address.
         :param pulumi.Input[_builtins.str] latitude: The latitude.
         :param pulumi.Input[_builtins.str] longitude: The longitude.
@@ -798,6 +810,7 @@ class SiteToSiteVpnAttachmentProposedNetworkFunctionGroupChangeArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['SiteToSiteVpnAttachmentTagArgs']]]] = None):
         """
         The attachment to move from one network function group to another.
+
         :param pulumi.Input[_builtins.int] attachment_policy_rule_number: The rule number in the policy document that applies to this change.
         :param pulumi.Input[_builtins.str] network_function_group_name: The name of the network function group to change.
         :param pulumi.Input[Sequence[pulumi.Input['SiteToSiteVpnAttachmentTagArgs']]] tags: The key-value tags that changed for the network function group.
@@ -871,6 +884,7 @@ class SiteToSiteVpnAttachmentProposedSegmentChangeArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['SiteToSiteVpnAttachmentTagArgs']]]] = None):
         """
         The attachment to move from one segment to another.
+
         :param pulumi.Input[_builtins.int] attachment_policy_rule_number: The rule number in the policy document that applies to this change.
         :param pulumi.Input[_builtins.str] segment_name: The name of the segment to change.
         :param pulumi.Input[Sequence[pulumi.Input['SiteToSiteVpnAttachmentTagArgs']]] tags: The key-value tags that changed for the segment.
@@ -939,6 +953,7 @@ class SiteToSiteVpnAttachmentTagArgs:
                  value: pulumi.Input[_builtins.str]):
         """
         A key-value pair to associate with a resource.
+
         :param pulumi.Input[_builtins.str] key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         :param pulumi.Input[_builtins.str] value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         """
@@ -995,6 +1010,7 @@ class TransitGatewayRouteTableAttachmentProposedNetworkFunctionGroupChangeArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['TransitGatewayRouteTableAttachmentTagArgs']]]] = None):
         """
         The attachment to move from one network function group to another.
+
         :param pulumi.Input[_builtins.int] attachment_policy_rule_number: The rule number in the policy document that applies to this change.
         :param pulumi.Input[_builtins.str] network_function_group_name: The name of the network function group to change.
         :param pulumi.Input[Sequence[pulumi.Input['TransitGatewayRouteTableAttachmentTagArgs']]] tags: The key-value tags that changed for the network function group.
@@ -1068,6 +1084,7 @@ class TransitGatewayRouteTableAttachmentProposedSegmentChangeArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['TransitGatewayRouteTableAttachmentTagArgs']]]] = None):
         """
         The attachment to move from one segment to another.
+
         :param pulumi.Input[_builtins.int] attachment_policy_rule_number: The rule number in the policy document that applies to this change.
         :param pulumi.Input[_builtins.str] segment_name: The name of the segment to change.
         :param pulumi.Input[Sequence[pulumi.Input['TransitGatewayRouteTableAttachmentTagArgs']]] tags: The key-value tags that changed for the segment.
@@ -1136,6 +1153,7 @@ class TransitGatewayRouteTableAttachmentTagArgs:
                  value: pulumi.Input[_builtins.str]):
         """
         A key-value pair to associate with a resource.
+
         :param pulumi.Input[_builtins.str] key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         :param pulumi.Input[_builtins.str] value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         """
@@ -1192,6 +1210,7 @@ class VpcAttachmentProposedNetworkFunctionGroupChangeArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['VpcAttachmentTagArgs']]]] = None):
         """
         The attachment to move from one network function group to another.
+
         :param pulumi.Input[_builtins.int] attachment_policy_rule_number: The rule number in the policy document that applies to this change.
         :param pulumi.Input[_builtins.str] network_function_group_name: The name of the network function group to change.
         :param pulumi.Input[Sequence[pulumi.Input['VpcAttachmentTagArgs']]] tags: The key-value tags that changed for the network function group.
@@ -1265,6 +1284,7 @@ class VpcAttachmentProposedSegmentChangeArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['VpcAttachmentTagArgs']]]] = None):
         """
         The attachment to move from one segment to another.
+
         :param pulumi.Input[_builtins.int] attachment_policy_rule_number: The rule number in the policy document that applies to this change.
         :param pulumi.Input[_builtins.str] segment_name: The name of the segment to change.
         :param pulumi.Input[Sequence[pulumi.Input['VpcAttachmentTagArgs']]] tags: The key-value tags that changed for the segment.
@@ -1333,6 +1353,7 @@ class VpcAttachmentTagArgs:
                  value: pulumi.Input[_builtins.str]):
         """
         A key-value pair to associate with a resource.
+
         :param pulumi.Input[_builtins.str] key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         :param pulumi.Input[_builtins.str] value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         """
@@ -1394,6 +1415,7 @@ class VpcAttachmentVpcOptionsArgs:
                  security_group_referencing_support: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Vpc options of the attachment.
+
         :param pulumi.Input[_builtins.bool] appliance_mode_support: Indicates whether to enable ApplianceModeSupport Support for Vpc Attachment. Valid Values: true | false
         :param pulumi.Input[_builtins.bool] dns_support: Indicates whether to enable private DNS Support for Vpc Attachment. Valid Values: true | false
         :param pulumi.Input[_builtins.bool] ipv6_support: Indicates whether to enable Ipv6 Support for Vpc Attachment. Valid Values: enable | disable

@@ -39,6 +39,7 @@ class ImagePipelineArgs:
                  workflows: Optional[pulumi.Input[Sequence[pulumi.Input['ImagePipelineWorkflowConfigurationArgs']]]] = None):
         """
         The set of arguments for constructing a ImagePipeline resource.
+
         :param pulumi.Input[_builtins.str] container_recipe_arn: The Amazon Resource Name (ARN) of the container recipe that defines how images are configured and tested.
         :param pulumi.Input[_builtins.str] description: The description of the image pipeline.
         :param pulumi.Input[_builtins.str] distribution_configuration_arn: The Amazon Resource Name (ARN) of the distribution configuration associated with this image pipeline.
@@ -292,6 +293,7 @@ class ImagePipeline(pulumi.CustomResource):
         """
         Resource schema for AWS::ImageBuilder::ImagePipeline
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] container_recipe_arn: The Amazon Resource Name (ARN) of the container recipe that defines how images are configured and tested.
@@ -318,6 +320,7 @@ class ImagePipeline(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource schema for AWS::ImageBuilder::ImagePipeline
+
 
         :param str resource_name: The name of the resource.
         :param ImagePipelineArgs args: The arguments to use to populate this resource's properties.

@@ -23,6 +23,7 @@ class OrganizationArgs:
                  feature_set: Optional[pulumi.Input['OrganizationFeatureSet']] = None):
         """
         The set of arguments for constructing a Organization resource.
+
         :param pulumi.Input['OrganizationFeatureSet'] feature_set: Specifies the feature set supported by the new organization. Each feature set supports different levels of functionality.
         """
         if feature_set is not None:
@@ -52,6 +53,7 @@ class Organization(pulumi.CustomResource):
         """
         Resource schema for AWS::Organizations::Organization
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input['OrganizationFeatureSet'] feature_set: Specifies the feature set supported by the new organization. Each feature set supports different levels of functionality.
@@ -64,6 +66,7 @@ class Organization(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource schema for AWS::Organizations::Organization
+
 
         :param str resource_name: The name of the resource.
         :param OrganizationArgs args: The arguments to use to populate this resource's properties.

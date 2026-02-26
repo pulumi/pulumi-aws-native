@@ -42,6 +42,7 @@ class GlobalTableArgs:
                  write_provisioned_throughput_settings: Optional[pulumi.Input['GlobalTableWriteProvisionedThroughputSettingsArgs']] = None):
         """
         The set of arguments for constructing a GlobalTable resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['GlobalTableReplicaSpecificationArgs']]] replicas: Specifies the list of replicas for your global table. The list must contain at least one element, the region where the stack defining the global table is deployed. For example, if you define your table in a stack deployed to us-east-1, you must have an entry in `Replicas` with the region us-east-1. You cannot remove the replica in the stack region.
                
                > Adding a replica might take a few minutes for an empty table, or up to several hours for large tables. If you want to add or remove a replica, we recommend submitting an `UpdateStack` operation containing only that change.
@@ -374,6 +375,7 @@ class GlobalTable(pulumi.CustomResource):
         """
         Version: None. Resource Type definition for AWS::DynamoDB::GlobalTable
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['GlobalTableAttributeDefinitionArgs', 'GlobalTableAttributeDefinitionArgsDict']]]] attribute_definitions: A list of attributes that describe the key schema for the global table and indexes.
@@ -422,6 +424,7 @@ class GlobalTable(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Version: None. Resource Type definition for AWS::DynamoDB::GlobalTable
+
 
         :param str resource_name: The name of the resource.
         :param GlobalTableArgs args: The arguments to use to populate this resource's properties.

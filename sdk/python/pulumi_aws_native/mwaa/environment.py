@@ -50,6 +50,7 @@ class EnvironmentArgs:
                  worker_replacement_strategy: Optional[pulumi.Input['EnvironmentWorkerReplacementStrategy']] = None):
         """
         The set of arguments for constructing a Environment resource.
+
         :param Any airflow_configuration_options: Key/value pairs representing Airflow configuration variables.
                    Keys are prefixed by their section:
                
@@ -541,6 +542,7 @@ class Environment(pulumi.CustomResource):
         """
         Resource schema for AWS::MWAA::Environment
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param Any airflow_configuration_options: Key/value pairs representing Airflow configuration variables.
@@ -610,6 +612,7 @@ class Environment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource schema for AWS::MWAA::Environment
+
 
         :param str resource_name: The name of the resource.
         :param EnvironmentArgs args: The arguments to use to populate this resource's properties.

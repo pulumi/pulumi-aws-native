@@ -30,6 +30,7 @@ class DestinationArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Destination resource.
+
         :param pulumi.Input[_builtins.str] expression: Destination expression
         :param pulumi.Input['DestinationExpressionType'] expression_type: Must be RuleName
         :param pulumi.Input[_builtins.str] description: Destination description
@@ -137,6 +138,7 @@ class Destination(pulumi.CustomResource):
         """
         Destination's resource schema demonstrating some basic constructs and validation rules.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: Destination description
@@ -154,6 +156,7 @@ class Destination(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Destination's resource schema demonstrating some basic constructs and validation rules.
+
 
         :param str resource_name: The name of the resource.
         :param DestinationArgs args: The arguments to use to populate this resource's properties.

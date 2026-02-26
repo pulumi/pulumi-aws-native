@@ -34,6 +34,7 @@ class EventTriggerArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a EventTrigger resource.
+
         :param pulumi.Input[_builtins.str] domain_name: The unique name of the domain.
         :param pulumi.Input[Sequence[pulumi.Input['EventTriggerConditionArgs']]] event_trigger_conditions: A list of conditions that determine when an event should trigger the destination.
         :param pulumi.Input[_builtins.str] object_type_name: The unique name of the object type.
@@ -172,6 +173,7 @@ class EventTrigger(pulumi.CustomResource):
         """
         An event trigger resource of Amazon Connect Customer Profiles
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: The description of the event trigger.
@@ -191,6 +193,7 @@ class EventTrigger(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An event trigger resource of Amazon Connect Customer Profiles
+
 
         :param str resource_name: The name of the resource.
         :param EventTriggerArgs args: The arguments to use to populate this resource's properties.

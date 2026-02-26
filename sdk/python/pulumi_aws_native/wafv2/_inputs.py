@@ -353,6 +353,7 @@ class LoggingConfigurationConditionActionConditionPropertiesArgs:
                  action: pulumi.Input['LoggingConfigurationConditionActionConditionPropertiesAction']):
         """
         A single action condition.
+
         :param pulumi.Input['LoggingConfigurationConditionActionConditionPropertiesAction'] action: Logic to apply to the filtering conditions. You can specify that, in order to satisfy the filter, a log must match all conditions or must match at least one condition.
         """
         pulumi.set(__self__, "action", action)
@@ -385,6 +386,7 @@ class LoggingConfigurationConditionLabelNameConditionPropertiesArgs:
                  label_name: pulumi.Input[_builtins.str]):
         """
         A single label name condition.
+
         :param pulumi.Input[_builtins.str] label_name: The label name that a log record must contain in order to meet the condition. This must be a fully qualified label name. Fully qualified labels have a prefix, optional namespaces, and label name. The prefix identifies the rule group or web ACL context of the rule that added the label. 
         """
         pulumi.set(__self__, "label_name", label_name)
@@ -466,6 +468,7 @@ class LoggingConfigurationFieldToMatchSingleHeaderPropertiesArgs:
                  name: pulumi.Input[_builtins.str]):
         """
         Inspect a single header. Provide the name of the header to inspect, for example, User-Agent or Referer. This setting isn't case sensitive.
+
         :param pulumi.Input[_builtins.str] name: The name of the query header to inspect.
         """
         pulumi.set(__self__, "name", name)
@@ -513,6 +516,7 @@ class LoggingConfigurationFieldToMatchArgs:
                  uri_path: Optional[Any] = None):
         """
         A key-value pair to associate with a resource.
+
         :param Any method: Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform. 
         :param Any query_string: Inspect the query string. This is the part of a URL that appears after a ? character, if any. 
         :param pulumi.Input['LoggingConfigurationFieldToMatchSingleHeaderPropertiesArgs'] single_header: Inspect a single header. Provide the name of the header to inspect, for example, User-Agent or Referer. This setting isn't case sensitive.
@@ -662,6 +666,7 @@ class LoggingFilterPropertiesArgs:
                  filters: pulumi.Input[Sequence[pulumi.Input['LoggingConfigurationFilterArgs']]]):
         """
         Filtering that specifies which web requests are kept in the logs and which are dropped. You can filter on the rule action and on the web request labels that were applied by matching rules during web ACL evaluation.
+
         :param pulumi.Input['LoggingConfigurationLoggingFilterPropertiesDefaultBehavior'] default_behavior: Default handling for logs that don't match any of the specified filtering conditions.
         :param pulumi.Input[Sequence[pulumi.Input['LoggingConfigurationFilterArgs']]] filters: The filters that you want to apply to the logs.
         """
@@ -710,6 +715,7 @@ class RuleGroupAllowActionArgs:
                  custom_request_handling: Optional[pulumi.Input['RuleGroupCustomRequestHandlingArgs']] = None):
         """
         Allow traffic towards application.
+
         :param pulumi.Input['RuleGroupCustomRequestHandlingArgs'] custom_request_handling: Defines custom handling for the web request.
                
                For information about customizing web requests and responses, see [Customizing web requests and responses in AWS WAF](https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html) in the *AWS WAF Developer Guide* .
@@ -826,6 +832,7 @@ class RuleGroupBlockActionArgs:
                  custom_response: Optional[pulumi.Input['RuleGroupCustomResponseArgs']] = None):
         """
         Block traffic towards application.
+
         :param pulumi.Input['RuleGroupCustomResponseArgs'] custom_response: Defines a custom response for the web request.
                
                For information about customizing web requests and responses, see [Customizing web requests and responses in AWS WAF](https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html) in the *AWS WAF Developer Guide* .
@@ -879,6 +886,7 @@ class RuleGroupBodyArgs:
                  oversize_handling: Optional[pulumi.Input['RuleGroupOversizeHandling']] = None):
         """
         The body of a web request. This immediately follows the request headers.
+
         :param pulumi.Input['RuleGroupOversizeHandling'] oversize_handling: What AWS WAF should do if the body is larger than AWS WAF can inspect.
                
                AWS WAF does not support inspecting the entire contents of the web request body if the body exceeds the limit for the resource type. When a web request body is larger than the limit, the underlying host service only forwards the contents that are within the limit to AWS WAF for inspection.
@@ -995,6 +1003,7 @@ class RuleGroupByteMatchStatementArgs:
                  search_string_base64: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Byte Match statement.
+
         :param pulumi.Input['RuleGroupFieldToMatchArgs'] field_to_match: The part of the web request that you want AWS WAF to inspect.
         :param pulumi.Input['RuleGroupPositionalConstraint'] positional_constraint: The area within the portion of the web request that you want AWS WAF to search for `SearchString` . Valid values include the following:
                
@@ -1149,6 +1158,7 @@ class RuleGroupCaptchaActionArgs:
                  custom_request_handling: Optional[pulumi.Input['RuleGroupCustomRequestHandlingArgs']] = None):
         """
         Checks valid token exists with request.
+
         :param pulumi.Input['RuleGroupCustomRequestHandlingArgs'] custom_request_handling: Defines custom handling for the web request, used when the `CAPTCHA` inspection determines that the request's token is valid and unexpired.
                
                For information about customizing web requests and responses, see [Customizing web requests and responses in AWS WAF](https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html) in the *AWS WAF Developer Guide* .
@@ -1217,6 +1227,7 @@ class RuleGroupChallengeActionArgs:
                  custom_request_handling: Optional[pulumi.Input['RuleGroupCustomRequestHandlingArgs']] = None):
         """
         Checks that the request has a valid token with an unexpired challenge timestamp and, if not, returns a browser challenge to the client.
+
         :param pulumi.Input['RuleGroupCustomRequestHandlingArgs'] custom_request_handling: Defines custom handling for the web request, used when the challenge inspection determines that the request's token is valid and unexpired.
                
                For information about customizing web requests and responses, see [Customizing web requests and responses in AWS WAF](https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html) in the *AWS WAF Developer Guide* .
@@ -1293,6 +1304,7 @@ class RuleGroupCookieMatchPatternArgs:
                  included_cookies: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The pattern to look for in the request cookies.
+
         :param Any all: Inspect all parts of the web request cookies.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] excluded_cookies: Inspect only the cookies whose keys don't match any of the strings specified here.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] included_cookies: Inspect only the cookies that have a key that matches one of the strings specified here.
@@ -1378,6 +1390,7 @@ class RuleGroupCookiesArgs:
                  oversize_handling: pulumi.Input['RuleGroupOversizeHandling']):
         """
         Includes cookies of a web request.
+
         :param pulumi.Input['RuleGroupCookieMatchPatternArgs'] match_pattern: The filter to use to identify the subset of cookies to inspect in a web request.
                
                You must specify exactly one setting: either `All` , `IncludedCookies` , or `ExcludedCookies` .
@@ -1464,6 +1477,7 @@ class RuleGroupCountActionArgs:
                  custom_request_handling: Optional[pulumi.Input['RuleGroupCustomRequestHandlingArgs']] = None):
         """
         Count traffic towards application.
+
         :param pulumi.Input['RuleGroupCustomRequestHandlingArgs'] custom_request_handling: Defines custom handling for the web request.
                
                For information about customizing web requests and responses, see [Customizing web requests and responses in AWS WAF](https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html) in the *AWS WAF Developer Guide* .
@@ -1508,6 +1522,7 @@ class RuleGroupCustomHttpHeaderArgs:
                  value: pulumi.Input[_builtins.str]):
         """
         HTTP header.
+
         :param pulumi.Input[_builtins.str] name: The name of the custom header.
                
                For custom request header insertion, when AWS WAF inserts the header into the request, it prefixes this name `x-amzn-waf-` , to avoid confusion with the headers that are already in the request. For example, for the header name `sample` , AWS WAF inserts the header `x-amzn-waf-sample` .
@@ -1558,6 +1573,7 @@ class RuleGroupCustomRequestHandlingArgs:
                  insert_headers: pulumi.Input[Sequence[pulumi.Input['RuleGroupCustomHttpHeaderArgs']]]):
         """
         Custom request handling.
+
         :param pulumi.Input[Sequence[pulumi.Input['RuleGroupCustomHttpHeaderArgs']]] insert_headers: Collection of HTTP headers.
         """
         pulumi.set(__self__, "insert_headers", insert_headers)
@@ -1599,6 +1615,7 @@ class RuleGroupCustomResponseBodyArgs:
                  content_type: pulumi.Input['RuleGroupResponseContentType']):
         """
         Custom response body.
+
         :param pulumi.Input[_builtins.str] content: The payload of the custom response.
                
                You can use JSON escape strings in JSON content. To do this, you must specify JSON content in the `ContentType` setting.
@@ -1665,6 +1682,7 @@ class RuleGroupCustomResponseArgs:
                  response_headers: Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupCustomHttpHeaderArgs']]]] = None):
         """
         Custom response.
+
         :param pulumi.Input[_builtins.int] response_code: The HTTP status code to return to the client.
                
                For a list of status codes that you can use in your custom responses, see [Supported status codes for custom response](https://docs.aws.amazon.com/waf/latest/developerguide/customizing-the-response-status-codes.html) in the *AWS WAF Developer Guide* .
@@ -1889,6 +1907,7 @@ class RuleGroupFieldToMatchArgs:
                  uri_path: Optional[Any] = None):
         """
         Field of the request to match.
+
         :param Any all_query_arguments: All query arguments of a web request.
         :param pulumi.Input['RuleGroupBodyArgs'] body: Inspect the request body as plain text. The request body immediately follows the request headers. This is the part of a request that contains any additional data that you want to send to your web server as the HTTP request body, such as data from a form.
                
@@ -2334,6 +2353,7 @@ class RuleGroupHeaderMatchPatternArgs:
                  included_headers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The pattern to look for in the request headers.
+
         :param Any all: Inspect all parts of the web request headers.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] excluded_headers: Inspect only the headers whose keys don't match any of the strings specified here.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] included_headers: Inspect only the headers that have a key that matches one of the strings specified here.
@@ -2444,6 +2464,7 @@ class RuleGroupHeadersArgs:
                  oversize_handling: pulumi.Input['RuleGroupOversizeHandling']):
         """
         Includes headers of a web request.
+
         :param pulumi.Input['RuleGroupHeaderMatchPatternArgs'] match_pattern: The filter to use to identify the subset of headers to inspect in a web request.
                
                You must specify exactly one setting: either `All` , `IncludedHeaders` , or `ExcludedHeaders` .
@@ -2732,6 +2753,7 @@ class RuleGroupJa3FingerprintArgs:
                  fallback_behavior: pulumi.Input['RuleGroupJa3FingerprintFallbackBehavior']):
         """
         Includes the JA3 fingerprint of a web request.
+
         :param pulumi.Input['RuleGroupJa3FingerprintFallbackBehavior'] fallback_behavior: The match status to assign to the web request if the request doesn't have a JA3 fingerprint.
                
                You can specify the following fallback behaviors:
@@ -2779,6 +2801,7 @@ class RuleGroupJa4FingerprintArgs:
                  fallback_behavior: pulumi.Input['RuleGroupJa4FingerprintFallbackBehavior']):
         """
         Includes the JA4 fingerprint of a web request.
+
         :param pulumi.Input['RuleGroupJa4FingerprintFallbackBehavior'] fallback_behavior: The match status to assign to the web request if the request doesn't have a JA4 fingerprint.
                
                You can specify the following fallback behaviors:
@@ -2862,6 +2885,7 @@ class RuleGroupJsonBodyArgs:
                  oversize_handling: Optional[pulumi.Input['RuleGroupOversizeHandling']] = None):
         """
         Inspect the request body as JSON. The request body immediately follows the request headers.
+
         :param pulumi.Input['RuleGroupJsonMatchPatternArgs'] match_pattern: The patterns to look for in the JSON body. AWS WAF inspects the results of these pattern matches against the rule inspection criteria.
         :param pulumi.Input['RuleGroupJsonMatchScope'] match_scope: The parts of the JSON to match against using the `MatchPattern` . If you specify `ALL` , AWS WAF matches against keys and values.
                
@@ -3001,6 +3025,7 @@ class RuleGroupJsonMatchPatternArgs:
                  included_paths: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The pattern to look for in the JSON body.
+
         :param Any all: Inspect all parts of the web request's JSON body.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] included_paths: Match only the specified include paths. See also `MatchScope` in the `JsonBody` `FieldToMatch` specification.
                
@@ -3301,6 +3326,7 @@ class RuleGroupRateBasedStatementCustomKeyArgs:
                  uri_path: Optional[pulumi.Input['RuleGroupRateLimitUriPathArgs']] = None):
         """
         Specifies a single custom aggregate key for a rate-base rule.
+
         :param pulumi.Input['RuleGroupRateLimitAsnArgs'] asn: Use an Autonomous System Number (ASN) derived from the request's originating or forwarded IP address as an aggregate key. Each distinct ASN contributes to the aggregation instance.
         :param pulumi.Input['RuleGroupRateLimitCookieArgs'] cookie: Use the value of a cookie in the request as an aggregate key. Each distinct value in the cookie contributes to the aggregation instance. If you use a single cookie as your custom key, then each value fully defines an aggregation instance.
         :param pulumi.Input['RuleGroupRateLimitForwardedIpArgs'] forwarded_ip: Use the first IP address in an HTTP header as an aggregate key. Each distinct forwarded IP address contributes to the aggregation instance.
@@ -3762,6 +3788,7 @@ class RuleGroupRateLimitCookieArgs:
                  text_transformations: pulumi.Input[Sequence[pulumi.Input['RuleGroupTextTransformationArgs']]]):
         """
         Specifies a cookie as an aggregate key for a rate-based rule.
+
         :param pulumi.Input[_builtins.str] name: The name of the cookie to use.
         :param pulumi.Input[Sequence[pulumi.Input['RuleGroupTextTransformationArgs']]] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. Text transformations are used in rule match statements, to transform the `FieldToMatch` request component before inspecting it, and they're used in rate-based rule statements, to transform request components before using them as custom aggregation keys. If you specify one or more transformations to apply, AWS WAF performs all transformations on the specified content, starting from the lowest priority setting, and then uses the transformed component contents.
         """
@@ -3828,6 +3855,7 @@ class RuleGroupRateLimitHeaderArgs:
                  text_transformations: pulumi.Input[Sequence[pulumi.Input['RuleGroupTextTransformationArgs']]]):
         """
         Specifies a header as an aggregate key for a rate-based rule.
+
         :param pulumi.Input[_builtins.str] name: The name of the header to use.
         :param pulumi.Input[Sequence[pulumi.Input['RuleGroupTextTransformationArgs']]] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. Text transformations are used in rule match statements, to transform the `FieldToMatch` request component before inspecting it, and they're used in rate-based rule statements, to transform request components before using them as custom aggregation keys. If you specify one or more transformations to apply, AWS WAF performs all transformations on the specified content, starting from the lowest priority setting, and then uses the transformed component contents.
         """
@@ -3909,6 +3937,7 @@ class RuleGroupRateLimitJa3FingerprintArgs:
                  fallback_behavior: pulumi.Input['RuleGroupRateLimitJa3FingerprintFallbackBehavior']):
         """
         Specifies the request's JA3 fingerprint as an aggregate key for a rate-based rule.
+
         :param pulumi.Input['RuleGroupRateLimitJa3FingerprintFallbackBehavior'] fallback_behavior: The match status to assign to the web request if there is insufficient TSL Client Hello information to compute the JA3 fingerprint.
                
                You can specify the following fallback behaviors:
@@ -3956,6 +3985,7 @@ class RuleGroupRateLimitJa4FingerprintArgs:
                  fallback_behavior: pulumi.Input['RuleGroupRateLimitJa4FingerprintFallbackBehavior']):
         """
         Specifies the request's JA4 fingerprint as an aggregate key for a rate-based rule.
+
         :param pulumi.Input['RuleGroupRateLimitJa4FingerprintFallbackBehavior'] fallback_behavior: The match status to assign to the web request if there is insufficient TSL Client Hello information to compute the JA4 fingerprint.
                
                You can specify the following fallback behaviors:
@@ -3998,6 +4028,7 @@ class RuleGroupRateLimitLabelNamespaceArgs:
                  namespace: pulumi.Input[_builtins.str]):
         """
         Specifies a label namespace to use as an aggregate key for a rate-based rule.
+
         :param pulumi.Input[_builtins.str] namespace: The namespace to use for aggregation.
         """
         pulumi.set(__self__, "namespace", namespace)
@@ -4035,6 +4066,7 @@ class RuleGroupRateLimitQueryArgumentArgs:
                  text_transformations: pulumi.Input[Sequence[pulumi.Input['RuleGroupTextTransformationArgs']]]):
         """
         Specifies a query argument in the request as an aggregate key for a rate-based rule.
+
         :param pulumi.Input[_builtins.str] name: The name of the query argument to use.
         :param pulumi.Input[Sequence[pulumi.Input['RuleGroupTextTransformationArgs']]] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. Text transformations are used in rule match statements, to transform the `FieldToMatch` request component before inspecting it, and they're used in rate-based rule statements, to transform request components before using them as custom aggregation keys. If you specify one or more transformations to apply, AWS WAF performs all transformations on the specified content, starting from the lowest priority setting, and then uses the transformed component contents.
         """
@@ -4081,6 +4113,7 @@ class RuleGroupRateLimitQueryStringArgs:
                  text_transformations: pulumi.Input[Sequence[pulumi.Input['RuleGroupTextTransformationArgs']]]):
         """
         Specifies the request's query string as an aggregate key for a rate-based rule.
+
         :param pulumi.Input[Sequence[pulumi.Input['RuleGroupTextTransformationArgs']]] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. Text transformations are used in rule match statements, to transform the `FieldToMatch` request component before inspecting it, and they're used in rate-based rule statements, to transform request components before using them as custom aggregation keys. If you specify one or more transformations to apply, AWS WAF performs all transformations on the specified content, starting from the lowest priority setting, and then uses the transformed component contents.
         """
         pulumi.set(__self__, "text_transformations", text_transformations)
@@ -4113,6 +4146,7 @@ class RuleGroupRateLimitUriPathArgs:
                  text_transformations: pulumi.Input[Sequence[pulumi.Input['RuleGroupTextTransformationArgs']]]):
         """
         Specifies the request's URI Path as an aggregate key for a rate-based rule.
+
         :param pulumi.Input[Sequence[pulumi.Input['RuleGroupTextTransformationArgs']]] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. Text transformations are used in rule match statements, to transform the `FieldToMatch` request component before inspecting it, and they're used in rate-based rule statements, to transform request components before using them as custom aggregation keys. If you specify one or more transformations to apply, AWS WAF performs all transformations on the specified content, starting from the lowest priority setting, and then uses the transformed component contents.
         """
         pulumi.set(__self__, "text_transformations", text_transformations)
@@ -4310,6 +4344,7 @@ class RuleGroupRuleActionArgs:
                  count: Optional[pulumi.Input['RuleGroupCountActionArgs']] = None):
         """
         Action taken when Rule matches its condition.
+
         :param pulumi.Input['RuleGroupAllowActionArgs'] allow: Instructs AWS WAF to allow the web request.
         :param pulumi.Input['RuleGroupBlockActionArgs'] block: Instructs AWS WAF to block the web request.
         :param pulumi.Input['RuleGroupCaptchaActionArgs'] captcha: Specifies that AWS WAF should run a `CAPTCHA` check against the request:
@@ -4468,6 +4503,7 @@ class RuleGroupRuleArgs:
                  rule_labels: Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupLabelArgs']]]] = None):
         """
         Rule of RuleGroup that contains condition and action.
+
         :param pulumi.Input[_builtins.str] name: The name of the rule.
                
                If you change the name of a `Rule` after you create it and you want the rule's metric name to reflect the change, update the metric name in the rule's `VisibilityConfig` settings. AWS WAF doesn't automatically update the metric name when you update the rule name.
@@ -4625,6 +4661,7 @@ class RuleGroupSizeConstraintStatementArgs:
                  text_transformations: pulumi.Input[Sequence[pulumi.Input['RuleGroupTextTransformationArgs']]]):
         """
         Size Constraint statement.
+
         :param pulumi.Input['RuleGroupSizeConstraintStatementComparisonOperator'] comparison_operator: The operator to use to compare the request part to the size setting.
         :param pulumi.Input['RuleGroupFieldToMatchArgs'] field_to_match: The part of the web request that you want AWS WAF to inspect.
         :param pulumi.Input[_builtins.float] size: The size, in byte, to compare to the request part, after any transformations.
@@ -4715,6 +4752,7 @@ class RuleGroupSqliMatchStatementArgs:
                  sensitivity_level: Optional[pulumi.Input['RuleGroupSensitivityLevel']] = None):
         """
         Sqli Match Statement.
+
         :param pulumi.Input['RuleGroupFieldToMatchArgs'] field_to_match: The part of the web request that you want AWS WAF to inspect.
         :param pulumi.Input[Sequence[pulumi.Input['RuleGroupTextTransformationArgs']]] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. If you specify one or more transformations in a rule statement, AWS WAF performs all transformations on the content of the request component identified by `FieldToMatch` , starting from the lowest priority setting, before inspecting the content for a match.
         :param pulumi.Input['RuleGroupSensitivityLevel'] sensitivity_level: The sensitivity that you want AWS WAF to use to inspect for SQL injection attacks.
@@ -4917,6 +4955,7 @@ class RuleGroupStatementArgs:
                  xss_match_statement: Optional[pulumi.Input['RuleGroupXssMatchStatementArgs']] = None):
         """
         First level statement that contains conditions, such as ByteMatch, SizeConstraint, etc
+
         :param pulumi.Input['RuleGroupAndStatementArgs'] and_statement: A logical rule statement used to combine other rule statements with AND logic. You provide more than one `Statement` within the `AndStatement` .
         :param pulumi.Input['RuleGroupAsnMatchStatementArgs'] asn_match_statement: A rule statement that inspects web traffic based on the Autonomous System Number (ASN) associated with the request's IP address.
                
@@ -5278,6 +5317,7 @@ class RuleGroupTextTransformationArgs:
                  type: pulumi.Input['RuleGroupTextTransformationType']):
         """
         Text Transformation on the Search String before match.
+
         :param pulumi.Input[_builtins.int] priority: Sets the relative processing order for multiple transformations. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content. The priorities don't need to be consecutive, but they must all be different.
         :param pulumi.Input['RuleGroupTextTransformationType'] type: For detailed descriptions of each of the transformation types, see [Text transformations](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-transformation.html) in the *AWS WAF Developer Guide* .
         """
@@ -5334,6 +5374,7 @@ class RuleGroupUriFragmentArgs:
                  fallback_behavior: Optional[pulumi.Input['RuleGroupUriFragmentFallbackBehavior']] = None):
         """
         The path component of the URI Fragment. This is the part of a web request that identifies a fragment uri, for example, /abcd#introduction
+
         :param pulumi.Input['RuleGroupUriFragmentFallbackBehavior'] fallback_behavior: What AWS WAF should do if it fails to completely parse the JSON body. The options are the following:
                
                - `EVALUATE_AS_STRING` - Inspect the body as plain text. AWS WAF applies the text transformations and inspection criteria that you defined for the JSON inspection to the body text string.
@@ -5404,6 +5445,7 @@ class RuleGroupVisibilityConfigArgs:
                  sampled_requests_enabled: pulumi.Input[_builtins.bool]):
         """
         Visibility Metric of the RuleGroup.
+
         :param pulumi.Input[_builtins.bool] cloud_watch_metrics_enabled: Indicates whether the associated resource sends metrics to Amazon CloudWatch. For the list of available metrics, see [AWS WAF Metrics](https://docs.aws.amazon.com/waf/latest/developerguide/monitoring-cloudwatch.html#waf-metrics) in the *AWS WAF Developer Guide* .
                
                For web ACLs, the metrics are for web requests that have the web ACL default action applied. AWS WAF applies the default action to web requests that pass the inspection of all rules in the web ACL without being either allowed or blocked. For more information,
@@ -5483,6 +5525,7 @@ class RuleGroupXssMatchStatementArgs:
                  text_transformations: pulumi.Input[Sequence[pulumi.Input['RuleGroupTextTransformationArgs']]]):
         """
         Xss Match Statement.
+
         :param pulumi.Input['RuleGroupFieldToMatchArgs'] field_to_match: The part of the web request that you want AWS WAF to inspect.
         :param pulumi.Input[Sequence[pulumi.Input['RuleGroupTextTransformationArgs']]] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. If you specify one or more transformations in a rule statement, AWS WAF performs all transformations on the content of the request component identified by `FieldToMatch` , starting from the lowest priority setting, before inspecting the content for a match.
         """
@@ -5531,6 +5574,7 @@ class WebAclAllowActionArgs:
                  custom_request_handling: Optional[pulumi.Input['WebAclCustomRequestHandlingArgs']] = None):
         """
         Allow traffic towards application.
+
         :param pulumi.Input['WebAclCustomRequestHandlingArgs'] custom_request_handling: Defines custom handling for the web request.
                
                For information about customizing web requests and responses, see [Customizing web requests and responses in AWS WAF](https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html) in the *AWS WAF Developer Guide* .
@@ -5633,6 +5677,7 @@ class WebAclApplicationConfigArgs:
                  attributes: pulumi.Input[Sequence[pulumi.Input['WebAclApplicationAttributeArgs']]]):
         """
         Configures the ability for the WAF; console to store and retrieve application attributes during the webacl; creation process. Application attributes help WAF; give recommendations for protection packs.
+
         :param pulumi.Input[Sequence[pulumi.Input['WebAclApplicationAttributeArgs']]] attributes: Contains the attribute name and a list of values for that attribute.
         """
         pulumi.set(__self__, "attributes", attributes)
@@ -5720,6 +5765,7 @@ class WebAclAssociationConfigArgs:
                  request_body: Optional[pulumi.Input[Mapping[str, pulumi.Input['WebAclRequestBodyAssociatedResourceTypeConfigArgs']]]] = None):
         """
         AssociationConfig for body inspection
+
         :param pulumi.Input[Mapping[str, pulumi.Input['WebAclRequestBodyAssociatedResourceTypeConfigArgs']]] request_body: Customizes the maximum size of the request body that your protected CloudFront, API Gateway, Amazon Cognito, App Runner, and Verified Access resources forward to AWS WAF for inspection. The default size is 16 KB (16,384 bytes). You can change the setting for any of the available resource types.
                
                > You are charged additional fees when your protected resources forward body sizes that are larger than the default. For more information, see [AWS WAF Pricing](https://docs.aws.amazon.com/waf/pricing/) . 
@@ -5795,6 +5841,7 @@ class WebAclAwsManagedRulesAcfpRuleSetArgs:
                  response_inspection: Optional[pulumi.Input['WebAclResponseInspectionArgs']] = None):
         """
         Configures how to use the Account creation fraud prevention managed rule group in the web ACL
+
         :param pulumi.Input[_builtins.str] creation_path: The path of the account creation endpoint for your application. This is the page on your website that accepts the completed registration form for a new user. This page must accept `POST` requests.
                
                For example, for the URL `https://example.com/web/newaccount` , you would provide the path `/web/newaccount` . Account creation page paths that start with the path that you provide are considered a match. For example `/web/newaccount` matches the account creation paths `/web/newaccount` , `/web/newaccount/` , `/web/newaccountPage` , and `/web/newaccount/thisPage` , but doesn't match the path `/home/web/newaccount` or `/website/newaccount` .
@@ -5918,6 +5965,7 @@ class WebAclAwsManagedRulesAntiDDoSRuleSetArgs:
                  sensitivity_to_block: Optional[pulumi.Input['WebAclSensitivityToAct']] = None):
         """
         Configures how to use the AntiDDOS AWS managed rule group in the web ACL
+
         :param pulumi.Input['WebAclClientSideActionConfigArgs'] client_side_action_config: Configures the request handling that's applied by the managed rule group rules `ChallengeAllDuringEvent` and `ChallengeDDoSRequests` during a distributed denial of service (DDoS) attack.
         :param pulumi.Input['WebAclSensitivityToAct'] sensitivity_to_block: The sensitivity that the rule group rule `DDoSRequests` uses when matching against the DDoS suspicion labeling on a request. The managed rule group adds the labeling during DDoS events, before the `DDoSRequests` rule runs.
                
@@ -6002,6 +6050,7 @@ class WebAclAwsManagedRulesAtpRuleSetArgs:
                  response_inspection: Optional[pulumi.Input['WebAclResponseInspectionArgs']] = None):
         """
         Configures how to use the Account Takeover Prevention managed rule group in the web ACL
+
         :param pulumi.Input[_builtins.str] login_path: The path of the login endpoint for your application. For example, for the URL `https://example.com/web/login` , you would provide the path `/web/login` . Login paths that start with the path that you provide are considered a match. For example `/web/login` matches the login paths `/web/login` , `/web/login/` , `/web/loginPage` , and `/web/login/thisPage` , but doesn't match the login path `/home/web/login` or `/website/login` .
                
                The rule group inspects only HTTP `POST` requests to your specified login endpoint.
@@ -6103,6 +6152,7 @@ class WebAclAwsManagedRulesBotControlRuleSetArgs:
                  enable_machine_learning: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Configures how to use the Bot Control managed rule group in the web ACL
+
         :param pulumi.Input['WebAclAwsManagedRulesBotControlRuleSetInspectionLevel'] inspection_level: The inspection level to use for the Bot Control rule group. The common level is the least expensive. The targeted level includes all common level rules and adds rules with more advanced inspection criteria. For details, see [AWS WAF Bot Control rule group](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html) in the *AWS WAF Developer Guide* .
         :param pulumi.Input[_builtins.bool] enable_machine_learning: Applies only to the targeted inspection level.
                
@@ -6166,6 +6216,7 @@ class WebAclBlockActionArgs:
                  custom_response: Optional[pulumi.Input['WebAclCustomResponseArgs']] = None):
         """
         Block traffic towards application.
+
         :param pulumi.Input['WebAclCustomResponseArgs'] custom_response: Defines a custom response for the web request.
                
                For information about customizing web requests and responses, see [Customizing web requests and responses in AWS WAF](https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html) in the *AWS WAF Developer Guide* .
@@ -6219,6 +6270,7 @@ class WebAclBodyArgs:
                  oversize_handling: Optional[pulumi.Input['WebAclOversizeHandling']] = None):
         """
         The body of a web request. This immediately follows the request headers.
+
         :param pulumi.Input['WebAclOversizeHandling'] oversize_handling: What AWS WAF should do if the body is larger than AWS WAF can inspect.
                
                AWS WAF does not support inspecting the entire contents of the web request body if the body exceeds the limit for the resource type. When a web request body is larger than the limit, the underlying host service only forwards the contents that are within the limit to AWS WAF for inspection.
@@ -6335,6 +6387,7 @@ class WebAclByteMatchStatementArgs:
                  search_string_base64: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Byte Match statement.
+
         :param pulumi.Input['WebAclFieldToMatchArgs'] field_to_match: The part of the web request that you want AWS WAF to inspect.
         :param pulumi.Input['WebAclPositionalConstraint'] positional_constraint: The area within the portion of the web request that you want AWS WAF to search for `SearchString` . Valid values include the following:
                
@@ -6489,6 +6542,7 @@ class WebAclCaptchaActionArgs:
                  custom_request_handling: Optional[pulumi.Input['WebAclCustomRequestHandlingArgs']] = None):
         """
         Checks valid token exists with request.
+
         :param pulumi.Input['WebAclCustomRequestHandlingArgs'] custom_request_handling: Defines custom handling for the web request, used when the `CAPTCHA` inspection determines that the request's token is valid and unexpired.
                
                For information about customizing web requests and responses, see [Customizing web requests and responses in AWS WAF](https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html) in the *AWS WAF Developer Guide* .
@@ -6557,6 +6611,7 @@ class WebAclChallengeActionArgs:
                  custom_request_handling: Optional[pulumi.Input['WebAclCustomRequestHandlingArgs']] = None):
         """
         Checks that the request has a valid token with an unexpired challenge timestamp and, if not, returns a browser challenge to the client.
+
         :param pulumi.Input['WebAclCustomRequestHandlingArgs'] custom_request_handling: Defines custom handling for the web request, used when the challenge inspection determines that the request's token is valid and unexpired.
                
                For information about customizing web requests and responses, see [Customizing web requests and responses in AWS WAF](https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html) in the [AWS WAF developer guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html) .
@@ -6627,6 +6682,7 @@ class WebAclClientSideActionConfigArgs:
                  challenge: pulumi.Input['WebAclClientSideActionArgs']):
         """
         Client side action config for AntiDDOS AMR.
+
         :param pulumi.Input['WebAclClientSideActionArgs'] challenge: Configuration for the use of the `AWSManagedRulesAntiDDoSRuleSet` rules `ChallengeAllDuringEvent` and `ChallengeDDoSRequests` .
                
                > This setting isn't related to the configuration of the `Challenge` action itself. It only configures the use of the two anti-DDoS rules named here. 
@@ -6709,6 +6765,7 @@ class WebAclClientSideActionArgs:
                  sensitivity: Optional[pulumi.Input['WebAclSensitivityToAct']] = None):
         """
         Client side action config for AntiDDOS AMR.
+
         :param pulumi.Input['WebAclUsageOfAction'] usage_of_action: Determines whether to use the `AWSManagedRulesAntiDDoSRuleSet` rules `ChallengeAllDuringEvent` and `ChallengeDDoSRequests` in the rule group evaluation and the related label `awswaf:managed:aws:anti-ddos:challengeable-request` .
                
                - If usage is enabled:
@@ -6845,6 +6902,7 @@ class WebAclCookieMatchPatternArgs:
                  included_cookies: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The pattern to look for in the request cookies.
+
         :param Any all: Inspect all parts of the web request cookies.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] excluded_cookies: Inspect only the cookies whose keys don't match any of the strings specified here.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] included_cookies: Inspect only the cookies that have a key that matches one of the strings specified here.
@@ -6930,6 +6988,7 @@ class WebAclCookiesArgs:
                  oversize_handling: pulumi.Input['WebAclOversizeHandling']):
         """
         Includes cookies of a web request.
+
         :param pulumi.Input['WebAclCookieMatchPatternArgs'] match_pattern: The filter to use to identify the subset of cookies to inspect in a web request.
                
                You must specify exactly one setting: either `All` , `IncludedCookies` , or `ExcludedCookies` .
@@ -7016,6 +7075,7 @@ class WebAclCountActionArgs:
                  custom_request_handling: Optional[pulumi.Input['WebAclCustomRequestHandlingArgs']] = None):
         """
         Allow traffic towards application.
+
         :param pulumi.Input['WebAclCustomRequestHandlingArgs'] custom_request_handling: Defines custom handling for the web request.
                
                For information about customizing web requests and responses, see [Customizing web requests and responses in AWS WAF](https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html) in the *AWS WAF Developer Guide* .
@@ -7060,6 +7120,7 @@ class WebAclCustomHttpHeaderArgs:
                  value: pulumi.Input[_builtins.str]):
         """
         HTTP header.
+
         :param pulumi.Input[_builtins.str] name: The name of the custom header.
                
                For custom request header insertion, when AWS WAF inserts the header into the request, it prefixes this name `x-amzn-waf-` , to avoid confusion with the headers that are already in the request. For example, for the header name `sample` , AWS WAF inserts the header `x-amzn-waf-sample` .
@@ -7110,6 +7171,7 @@ class WebAclCustomRequestHandlingArgs:
                  insert_headers: pulumi.Input[Sequence[pulumi.Input['WebAclCustomHttpHeaderArgs']]]):
         """
         Custom request handling.
+
         :param pulumi.Input[Sequence[pulumi.Input['WebAclCustomHttpHeaderArgs']]] insert_headers: Collection of HTTP headers.
         """
         pulumi.set(__self__, "insert_headers", insert_headers)
@@ -7151,6 +7213,7 @@ class WebAclCustomResponseBodyArgs:
                  content_type: pulumi.Input['WebAclResponseContentType']):
         """
         Custom response body.
+
         :param pulumi.Input[_builtins.str] content: The payload of the custom response.
                
                You can use JSON escape strings in JSON content. To do this, you must specify JSON content in the `ContentType` setting.
@@ -7217,6 +7280,7 @@ class WebAclCustomResponseArgs:
                  response_headers: Optional[pulumi.Input[Sequence[pulumi.Input['WebAclCustomHttpHeaderArgs']]]] = None):
         """
         Custom response.
+
         :param pulumi.Input[_builtins.int] response_code: The HTTP status code to return to the client.
                
                For a list of status codes that you can use in your custom responses, see [Supported status codes for custom response](https://docs.aws.amazon.com/waf/latest/developerguide/customizing-the-response-status-codes.html) in the *AWS WAF Developer Guide* .
@@ -7373,6 +7437,7 @@ class WebAclDefaultActionArgs:
                  block: Optional[pulumi.Input['WebAclBlockActionArgs']] = None):
         """
         Default Action WebACL will take against ingress traffic when there is no matching Rule.
+
         :param pulumi.Input['WebAclAllowActionArgs'] allow: Specifies that AWS WAF should allow requests by default.
         :param pulumi.Input['WebAclBlockActionArgs'] block: Specifies that AWS WAF should block requests by default.
         """
@@ -7421,6 +7486,7 @@ class WebAclExcludedRuleArgs:
                  name: pulumi.Input[_builtins.str]):
         """
         Excluded Rule in the RuleGroup or ManagedRuleGroup will not be evaluated.
+
         :param pulumi.Input[_builtins.str] name: The name of the rule whose action you want to override to `Count` .
         """
         pulumi.set(__self__, "name", name)
@@ -7657,6 +7723,7 @@ class WebAclFieldToMatchArgs:
                  uri_path: Optional[Any] = None):
         """
         Field of the request to match.
+
         :param Any all_query_arguments: All query arguments of a web request.
         :param pulumi.Input['WebAclBodyArgs'] body: Inspect the request body as plain text. The request body immediately follows the request headers. This is the part of a request that contains any additional data that you want to send to your web server as the HTTP request body, such as data from a form.
                
@@ -7962,6 +8029,7 @@ class WebAclFieldToProtectArgs:
                  field_keys: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Field in log to protect.
+
         :param pulumi.Input['WebAclFieldToProtectFieldType'] field_type: Field type to protect
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] field_keys: List of field keys to protect
         """
@@ -8154,6 +8222,7 @@ class WebAclHeaderMatchPatternArgs:
                  included_headers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The pattern to look for in the request headers.
+
         :param Any all: Inspect all parts of the web request headers.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] excluded_headers: Inspect only the headers whose keys don't match any of the strings specified here.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] included_headers: Inspect only the headers that have a key that matches one of the strings specified here.
@@ -8264,6 +8333,7 @@ class WebAclHeadersArgs:
                  oversize_handling: pulumi.Input['WebAclOversizeHandling']):
         """
         Includes headers of a web request.
+
         :param pulumi.Input['WebAclHeaderMatchPatternArgs'] match_pattern: The filter to use to identify the subset of headers to inspect in a web request.
                
                You must specify exactly one setting: either `All` , `IncludedHeaders` , or `ExcludedHeaders` .
@@ -8552,6 +8622,7 @@ class WebAclJa3FingerprintArgs:
                  fallback_behavior: pulumi.Input['WebAclJa3FingerprintFallbackBehavior']):
         """
         Includes the JA3 fingerprint of a web request.
+
         :param pulumi.Input['WebAclJa3FingerprintFallbackBehavior'] fallback_behavior: The match status to assign to the web request if the request doesn't have a JA3 fingerprint.
                
                You can specify the following fallback behaviors:
@@ -8599,6 +8670,7 @@ class WebAclJa4FingerprintArgs:
                  fallback_behavior: pulumi.Input['WebAclJa4FingerprintFallbackBehavior']):
         """
         Includes the JA4 fingerprint of a web request.
+
         :param pulumi.Input['WebAclJa4FingerprintFallbackBehavior'] fallback_behavior: The match status to assign to the web request if the request doesn't have a JA4 fingerprint.
                
                You can specify the following fallback behaviors:
@@ -8682,6 +8754,7 @@ class WebAclJsonBodyArgs:
                  oversize_handling: Optional[pulumi.Input['WebAclOversizeHandling']] = None):
         """
         Inspect the request body as JSON. The request body immediately follows the request headers.
+
         :param pulumi.Input['WebAclJsonMatchPatternArgs'] match_pattern: The patterns to look for in the JSON body. AWS WAF inspects the results of these pattern matches against the rule inspection criteria.
         :param pulumi.Input['WebAclJsonMatchScope'] match_scope: The parts of the JSON to match against using the `MatchPattern` . If you specify `ALL` , AWS WAF matches against keys and values.
                
@@ -8821,6 +8894,7 @@ class WebAclJsonMatchPatternArgs:
                  included_paths: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The pattern to look for in the JSON body.
+
         :param Any all: Inspect all parts of the web request's JSON body.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] included_paths: Match only the specified include paths. See also `MatchScope` in the `JsonBody` `FieldToMatch` specification.
                
@@ -9014,6 +9088,7 @@ class WebAclManagedRuleGroupConfigArgs:
                  username_field: Optional[pulumi.Input['WebAclFieldIdentifierArgs']] = None):
         """
         ManagedRuleGroupConfig.
+
         :param pulumi.Input['WebAclAwsManagedRulesAcfpRuleSetArgs'] aws_managed_rules_acfp_rule_set: Additional configuration for using the account creation fraud prevention (ACFP) managed rule group, `AWSManagedRulesACFPRuleSet` . Use this to provide account creation request information to the rule group. For web ACLs that protect CloudFront distributions, use this to also provide the information about how your distribution responds to account creation requests.
                
                For information about using the ACFP managed rule group, see [AWS WAF Fraud Control account creation fraud prevention (ACFP) rule group](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-acfp.html) and [AWS WAF Fraud Control account creation fraud prevention (ACFP)](https://docs.aws.amazon.com/waf/latest/developerguide/waf-acfp.html) in the *AWS WAF Developer Guide* .
@@ -9349,6 +9424,7 @@ class WebAclOnSourceDDoSProtectionConfigArgs:
                  alb_low_reputation_mode: pulumi.Input['WebAclOnSourceDDoSProtectionConfigAlbLowReputationMode']):
         """
         Configures the options for on-source DDoS protection provided by supported resource type.
+
         :param pulumi.Input['WebAclOnSourceDDoSProtectionConfigAlbLowReputationMode'] alb_low_reputation_mode: The level of DDoS protection that applies to web ACLs associated with Application Load Balancers. `ACTIVE_UNDER_DDOS` protection is enabled by default whenever a web ACL is associated with an Application Load Balancer. In the event that an Application Load Balancer experiences high-load conditions or suspected DDoS attacks, the `ACTIVE_UNDER_DDOS` protection automatically rate limits traffic from known low reputation sources without disrupting Application Load Balancer availability. `ALWAYS_ON` protection provides constant, always-on monitoring of known low reputation sources for suspected DDoS attacks. While this provides a higher level of protection, there may be potential impacts on legitimate traffic.
         """
         pulumi.set(__self__, "alb_low_reputation_mode", alb_low_reputation_mode)
@@ -9414,6 +9490,7 @@ class WebAclOverrideActionArgs:
                  none: Optional[Any] = None):
         """
         Override a RuleGroup or ManagedRuleGroup behavior. This can only be applied to Rule that has RuleGroupReferenceStatement or ManagedRuleGroupReferenceStatement.
+
         :param Any count: Count traffic towards application.
         :param Any none: Keep the RuleGroup or ManagedRuleGroup behavior as is.
         """
@@ -9527,6 +9604,7 @@ class WebAclRateBasedStatementCustomKeyArgs:
                  uri_path: Optional[pulumi.Input['WebAclRateLimitUriPathArgs']] = None):
         """
         Specifies a single custom aggregate key for a rate-base rule.
+
         :param pulumi.Input['WebAclRateLimitAsnArgs'] asn: Use an Autonomous System Number (ASN) derived from the request's originating or forwarded IP address as an aggregate key. Each distinct ASN contributes to the aggregation instance.
         :param pulumi.Input['WebAclRateLimitCookieArgs'] cookie: Use the value of a cookie in the request as an aggregate key. Each distinct value in the cookie contributes to the aggregation instance. If you use a single cookie as your custom key, then each value fully defines an aggregation instance.
         :param pulumi.Input['WebAclRateLimitForwardedIpArgs'] forwarded_ip: Use the first IP address in an HTTP header as an aggregate key. Each distinct forwarded IP address contributes to the aggregation instance.
@@ -9988,6 +10066,7 @@ class WebAclRateLimitCookieArgs:
                  text_transformations: pulumi.Input[Sequence[pulumi.Input['WebAclTextTransformationArgs']]]):
         """
         Specifies a cookie as an aggregate key for a rate-based rule.
+
         :param pulumi.Input[_builtins.str] name: The name of the cookie to use.
         :param pulumi.Input[Sequence[pulumi.Input['WebAclTextTransformationArgs']]] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. Text transformations are used in rule match statements, to transform the `FieldToMatch` request component before inspecting it, and they're used in rate-based rule statements, to transform request components before using them as custom aggregation keys. If you specify one or more transformations to apply, AWS WAF performs all transformations on the specified content, starting from the lowest priority setting, and then uses the transformed component contents.
         """
@@ -10054,6 +10133,7 @@ class WebAclRateLimitHeaderArgs:
                  text_transformations: pulumi.Input[Sequence[pulumi.Input['WebAclTextTransformationArgs']]]):
         """
         Specifies a header as an aggregate key for a rate-based rule.
+
         :param pulumi.Input[_builtins.str] name: The name of the header to use.
         :param pulumi.Input[Sequence[pulumi.Input['WebAclTextTransformationArgs']]] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. Text transformations are used in rule match statements, to transform the `FieldToMatch` request component before inspecting it, and they're used in rate-based rule statements, to transform request components before using them as custom aggregation keys. If you specify one or more transformations to apply, AWS WAF performs all transformations on the specified content, starting from the lowest priority setting, and then uses the transformed component contents.
         """
@@ -10135,6 +10215,7 @@ class WebAclRateLimitJa3FingerprintArgs:
                  fallback_behavior: pulumi.Input['WebAclRateLimitJa3FingerprintFallbackBehavior']):
         """
         Specifies the request's JA3 fingerprint as an aggregate key for a rate-based rule.
+
         :param pulumi.Input['WebAclRateLimitJa3FingerprintFallbackBehavior'] fallback_behavior: The match status to assign to the web request if there is insufficient TSL Client Hello information to compute the JA3 fingerprint.
                
                You can specify the following fallback behaviors:
@@ -10182,6 +10263,7 @@ class WebAclRateLimitJa4FingerprintArgs:
                  fallback_behavior: pulumi.Input['WebAclRateLimitJa4FingerprintFallbackBehavior']):
         """
         Specifies the request's JA4 fingerprint as an aggregate key for a rate-based rule.
+
         :param pulumi.Input['WebAclRateLimitJa4FingerprintFallbackBehavior'] fallback_behavior: The match status to assign to the web request if there is insufficient TSL Client Hello information to compute the JA4 fingerprint.
                
                You can specify the following fallback behaviors:
@@ -10224,6 +10306,7 @@ class WebAclRateLimitLabelNamespaceArgs:
                  namespace: pulumi.Input[_builtins.str]):
         """
         Specifies a label namespace to use as an aggregate key for a rate-based rule.
+
         :param pulumi.Input[_builtins.str] namespace: The namespace to use for aggregation.
         """
         pulumi.set(__self__, "namespace", namespace)
@@ -10261,6 +10344,7 @@ class WebAclRateLimitQueryArgumentArgs:
                  text_transformations: pulumi.Input[Sequence[pulumi.Input['WebAclTextTransformationArgs']]]):
         """
         Specifies a query argument in the request as an aggregate key for a rate-based rule.
+
         :param pulumi.Input[_builtins.str] name: The name of the query argument to use.
         :param pulumi.Input[Sequence[pulumi.Input['WebAclTextTransformationArgs']]] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. Text transformations are used in rule match statements, to transform the `FieldToMatch` request component before inspecting it, and they're used in rate-based rule statements, to transform request components before using them as custom aggregation keys. If you specify one or more transformations to apply, AWS WAF performs all transformations on the specified content, starting from the lowest priority setting, and then uses the transformed component contents.
         """
@@ -10307,6 +10391,7 @@ class WebAclRateLimitQueryStringArgs:
                  text_transformations: pulumi.Input[Sequence[pulumi.Input['WebAclTextTransformationArgs']]]):
         """
         Specifies the request's query string as an aggregate key for a rate-based rule.
+
         :param pulumi.Input[Sequence[pulumi.Input['WebAclTextTransformationArgs']]] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. Text transformations are used in rule match statements, to transform the `FieldToMatch` request component before inspecting it, and they're used in rate-based rule statements, to transform request components before using them as custom aggregation keys. If you specify one or more transformations to apply, AWS WAF performs all transformations on the specified content, starting from the lowest priority setting, and then uses the transformed component contents.
         """
         pulumi.set(__self__, "text_transformations", text_transformations)
@@ -10339,6 +10424,7 @@ class WebAclRateLimitUriPathArgs:
                  text_transformations: pulumi.Input[Sequence[pulumi.Input['WebAclTextTransformationArgs']]]):
         """
         Specifies the request's URI Path as an aggregate key for a rate-based rule.
+
         :param pulumi.Input[Sequence[pulumi.Input['WebAclTextTransformationArgs']]] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. Text transformations are used in rule match statements, to transform the `FieldToMatch` request component before inspecting it, and they're used in rate-based rule statements, to transform request components before using them as custom aggregation keys. If you specify one or more transformations to apply, AWS WAF performs all transformations on the specified content, starting from the lowest priority setting, and then uses the transformed component contents.
         """
         pulumi.set(__self__, "text_transformations", text_transformations)
@@ -10531,6 +10617,7 @@ class WebAclRequestBodyAssociatedResourceTypeConfigArgs:
                  default_size_inspection_limit: pulumi.Input['WebAclSizeInspectionLimit']):
         """
         Configures the inspection size in the request body.
+
         :param pulumi.Input['WebAclSizeInspectionLimit'] default_size_inspection_limit: Specifies the maximum size of the web request body component that an associated CloudFront, API Gateway, Amazon Cognito, App Runner, or Verified Access resource should send to AWS WAF for inspection. This applies to statements in the web ACL that inspect the body or JSON body.
                
                Default: `16 KB (16,384 bytes)`
@@ -10641,6 +10728,7 @@ class WebAclRequestInspectionAcfpArgs:
                  username_field: Optional[pulumi.Input['WebAclFieldIdentifierArgs']] = None):
         """
         Configures the inspection of sign-up requests
+
         :param pulumi.Input['WebAclRequestInspectionAcfpPayloadType'] payload_type: The payload type for your account creation endpoint, either JSON or form encoded.
         :param pulumi.Input[Sequence[pulumi.Input['WebAclFieldIdentifierArgs']]] address_fields: The names of the fields in the request payload that contain your customer's primary physical address.
                
@@ -10874,6 +10962,7 @@ class WebAclRequestInspectionArgs:
                  username_field: pulumi.Input['WebAclFieldIdentifierArgs']):
         """
         Configures the inspection of login requests
+
         :param pulumi.Input['WebAclFieldIdentifierArgs'] password_field: The name of the field in the request payload that contains your customer's password.
                
                How you specify this depends on the request inspection payload type.
@@ -10979,6 +11068,7 @@ class WebAclResponseInspectionBodyContainsArgs:
                  success_strings: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
         """
         Response body contents that indicate success or failure of a login request
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] failure_strings: Strings in the body of the response that indicate a failed login or account creation attempt. To be counted as a failure, the string can be anywhere in the body and must be an exact match, including case. Each string must be unique among the success and failure strings.
                
                JSON example: `"FailureStrings": [ "Request failed" ]`
@@ -11049,6 +11139,7 @@ class WebAclResponseInspectionHeaderArgs:
                  success_values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
         """
         Response headers that indicate success or failure of a login request
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] failure_values: Values in the response header with the specified name that indicate a failed login or account creation attempt. To be counted as a failure, the value must be an exact match, including case. Each value must be unique among the success and failure values.
                
                JSON examples: `"FailureValues": [ "LoginFailed", "Failed login" ]` and `"FailureValues": [ "AccountCreationFailed" ]`
@@ -11137,6 +11228,7 @@ class WebAclResponseInspectionJsonArgs:
                  success_values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
         """
         Response JSON that indicate success or failure of a login request
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] failure_values: Values for the specified identifier in the response JSON that indicate a failed login or account creation attempt. To be counted as a failure, the value must be an exact match, including case. Each value must be unique among the success and failure values.
                
                JSON example: `"FailureValues": [ "False", "Failed" ]`
@@ -11218,6 +11310,7 @@ class WebAclResponseInspectionStatusCodeArgs:
                  success_codes: pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]):
         """
         Response status codes that indicate success or failure of a login request
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] failure_codes: Status codes in the response that indicate a failed login or account creation attempt. To be counted as a failure, the response status code must match one of these. Each code must be unique among the success and failure status codes.
                
                JSON example: `"FailureCodes": [ 400, 404 ]`
@@ -11287,6 +11380,7 @@ class WebAclResponseInspectionArgs:
                  status_code: Optional[pulumi.Input['WebAclResponseInspectionStatusCodeArgs']] = None):
         """
         Configures the inspection of login responses
+
         :param pulumi.Input['WebAclResponseInspectionBodyContainsArgs'] body_contains: Configures inspection of the response body for success and failure indicators. AWS WAF can inspect the first 65,536 bytes (64 KB) of the response body.
         :param pulumi.Input['WebAclResponseInspectionHeaderArgs'] header: Configures inspection of the response header for success and failure indicators.
         :param pulumi.Input['WebAclResponseInspectionJsonArgs'] json: Configures inspection of the response JSON for success and failure indicators. AWS WAF can inspect the first 65,536 bytes (64 KB) of the response JSON.
@@ -11370,6 +11464,7 @@ class WebAclRuleActionOverrideArgs:
                  name: pulumi.Input[_builtins.str]):
         """
         Action override for rules in the rule group.
+
         :param pulumi.Input['WebAclRuleActionArgs'] action_to_use: The override action to use, in place of the configured action of the rule in the rule group.
         :param pulumi.Input[_builtins.str] name: The name of the rule to override.
         """
@@ -11449,6 +11544,7 @@ class WebAclRuleActionArgs:
                  count: Optional[pulumi.Input['WebAclCountActionArgs']] = None):
         """
         Action taken when Rule matches its condition.
+
         :param pulumi.Input['WebAclAllowActionArgs'] allow: Instructs AWS WAF to allow the web request.
         :param pulumi.Input['WebAclBlockActionArgs'] block: Instructs AWS WAF to block the web request.
         :param pulumi.Input['WebAclCaptchaActionArgs'] captcha: Specifies that AWS WAF should run a `CAPTCHA` check against the request:
@@ -11700,6 +11796,7 @@ class WebAclRuleArgs:
                  rule_labels: Optional[pulumi.Input[Sequence[pulumi.Input['WebAclLabelArgs']]]] = None):
         """
         Rule of WebACL that contains condition and action.
+
         :param pulumi.Input[_builtins.str] name: The name of the rule.
                
                If you change the name of a `Rule` after you create it and you want the rule's metric name to reflect the change, update the metric name in the rule's `VisibilityConfig` settings. AWS WAF doesn't automatically update the metric name when you update the rule name.
@@ -11900,6 +11997,7 @@ class WebAclSizeConstraintStatementArgs:
                  text_transformations: pulumi.Input[Sequence[pulumi.Input['WebAclTextTransformationArgs']]]):
         """
         Size Constraint statement.
+
         :param pulumi.Input['WebAclSizeConstraintStatementComparisonOperator'] comparison_operator: The operator to use to compare the request part to the size setting.
         :param pulumi.Input['WebAclFieldToMatchArgs'] field_to_match: The part of the web request that you want AWS WAF to inspect.
         :param pulumi.Input[_builtins.float] size: The size, in byte, to compare to the request part, after any transformations.
@@ -11990,6 +12088,7 @@ class WebAclSqliMatchStatementArgs:
                  sensitivity_level: Optional[pulumi.Input['WebAclSensitivityLevel']] = None):
         """
         Sqli Match Statement.
+
         :param pulumi.Input['WebAclFieldToMatchArgs'] field_to_match: The part of the web request that you want AWS WAF to inspect.
         :param pulumi.Input[Sequence[pulumi.Input['WebAclTextTransformationArgs']]] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. If you specify one or more transformations in a rule statement, AWS WAF performs all transformations on the content of the request component identified by `FieldToMatch` , starting from the lowest priority setting, before inspecting the content for a match.
         :param pulumi.Input['WebAclSensitivityLevel'] sensitivity_level: The sensitivity that you want AWS WAF to use to inspect for SQL injection attacks.
@@ -12208,6 +12307,7 @@ class WebAclStatementArgs:
                  xss_match_statement: Optional[pulumi.Input['WebAclXssMatchStatementArgs']] = None):
         """
         First level statement that contains conditions, such as ByteMatch, SizeConstraint, etc
+
         :param pulumi.Input['WebAclAndStatementArgs'] and_statement: A logical rule statement used to combine other rule statements with AND logic. You provide more than one `Statement` within the `AndStatement` .
         :param pulumi.Input['WebAclAsnMatchStatementArgs'] asn_match_statement: A rule statement that inspects web traffic based on the Autonomous System Number (ASN) associated with the request's IP address.
                
@@ -12611,6 +12711,7 @@ class WebAclTextTransformationArgs:
                  type: pulumi.Input['WebAclTextTransformationType']):
         """
         Text Transformation on the Search String before match.
+
         :param pulumi.Input[_builtins.int] priority: Sets the relative processing order for multiple transformations. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content. The priorities don't need to be consecutive, but they must all be different.
         :param pulumi.Input['WebAclTextTransformationType'] type: For detailed descriptions of each of the transformation types, see [Text transformations](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-transformation.html) in the *AWS WAF Developer Guide* .
         """
@@ -12667,6 +12768,7 @@ class WebAclUriFragmentArgs:
                  fallback_behavior: Optional[pulumi.Input['WebAclUriFragmentFallbackBehavior']] = None):
         """
         The path component of the URI Fragment. This is the part of a web request that identifies a fragment uri, for example, /abcd#introduction
+
         :param pulumi.Input['WebAclUriFragmentFallbackBehavior'] fallback_behavior: What AWS WAF should do if it fails to completely parse the JSON body. The options are the following:
                
                - `EVALUATE_AS_STRING` - Inspect the body as plain text. AWS WAF applies the text transformations and inspection criteria that you defined for the JSON inspection to the body text string.
@@ -12737,6 +12839,7 @@ class WebAclVisibilityConfigArgs:
                  sampled_requests_enabled: pulumi.Input[_builtins.bool]):
         """
         Visibility Metric of the WebACL.
+
         :param pulumi.Input[_builtins.bool] cloud_watch_metrics_enabled: Indicates whether the associated resource sends metrics to Amazon CloudWatch. For the list of available metrics, see [AWS WAF Metrics](https://docs.aws.amazon.com/waf/latest/developerguide/monitoring-cloudwatch.html#waf-metrics) in the *AWS WAF Developer Guide* .
                
                For web ACLs, the metrics are for web requests that have the web ACL default action applied. AWS WAF applies the default action to web requests that pass the inspection of all rules in the web ACL without being either allowed or blocked. For more information,
@@ -12816,6 +12919,7 @@ class WebAclXssMatchStatementArgs:
                  text_transformations: pulumi.Input[Sequence[pulumi.Input['WebAclTextTransformationArgs']]]):
         """
         Xss Match Statement.
+
         :param pulumi.Input['WebAclFieldToMatchArgs'] field_to_match: The part of the web request that you want AWS WAF to inspect.
         :param pulumi.Input[Sequence[pulumi.Input['WebAclTextTransformationArgs']]] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. If you specify one or more transformations in a rule statement, AWS WAF performs all transformations on the content of the request component identified by `FieldToMatch` , starting from the lowest priority setting, before inspecting the content for a match.
         """

@@ -27,6 +27,7 @@ class CertificateArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Certificate resource.
+
         :param pulumi.Input[_builtins.str] domain_name: The domain name (e.g., example.com ) for the certificate.
         :param pulumi.Input[_builtins.str] certificate_name: The name for the certificate.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subject_alternative_names: An array of strings that specify the alternate domains (e.g., example2.com) and subdomains (e.g., blog.example.com) for the certificate.
@@ -103,6 +104,7 @@ class Certificate(pulumi.CustomResource):
         """
         Resource Type definition for AWS::Lightsail::Certificate.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] certificate_name: The name for the certificate.
@@ -118,6 +120,7 @@ class Certificate(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::Lightsail::Certificate.
+
 
         :param str resource_name: The name of the resource.
         :param CertificateArgs args: The arguments to use to populate this resource's properties.

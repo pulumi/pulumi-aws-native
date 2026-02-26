@@ -30,6 +30,7 @@ class ConfigurationTemplateArgs:
                  source_configuration: Optional[pulumi.Input['ConfigurationTemplateSourceConfigurationArgs']] = None):
         """
         The set of arguments for constructing a ConfigurationTemplate resource.
+
         :param pulumi.Input[_builtins.str] application_name: The name of the Elastic Beanstalk application to associate with this configuration template. 
         :param pulumi.Input[_builtins.str] description: An optional description for this configuration.
         :param pulumi.Input[_builtins.str] environment_id: The ID of an environment whose settings you want to use to create the configuration template. You must specify EnvironmentId if you don't specify PlatformArn, SolutionStackName, or SourceConfiguration. 
@@ -174,6 +175,7 @@ class ConfigurationTemplate(pulumi.CustomResource):
         """
         Resource Type definition for AWS::ElasticBeanstalk::ConfigurationTemplate
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] application_name: The name of the Elastic Beanstalk application to associate with this configuration template. 
@@ -202,6 +204,7 @@ class ConfigurationTemplate(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::ElasticBeanstalk::ConfigurationTemplate
+
 
         :param str resource_name: The name of the resource.
         :param ConfigurationTemplateArgs args: The arguments to use to populate this resource's properties.

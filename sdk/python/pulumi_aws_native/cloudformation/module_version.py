@@ -24,6 +24,7 @@ class ModuleVersionArgs:
                  module_package: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a ModuleVersion resource.
+
         :param pulumi.Input[_builtins.str] module_name: The name of the module being registered.
                
                Recommended module naming pattern: company_or_organization::service::type::MODULE.
@@ -157,6 +158,7 @@ class ModuleVersion(pulumi.CustomResource):
 
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] module_name: The name of the module being registered.
@@ -258,6 +260,7 @@ class ModuleVersion(pulumi.CustomResource):
             opts = pulumi.ResourceOptions(depends_on=[module_version1]))
 
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ModuleVersionArgs args: The arguments to use to populate this resource's properties.

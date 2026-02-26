@@ -30,6 +30,7 @@ class LocationFSxWindowsArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a LocationFSxWindows resource.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_arns: The ARNs of the security groups that are to use to configure the FSx for Windows file system.
         :param pulumi.Input[_builtins.str] user: The user who has the permissions to access files and folders in the FSx for Windows file system.
         :param pulumi.Input[_builtins.str] domain: The name of the Windows domain that the FSx for Windows server belongs to.
@@ -153,6 +154,7 @@ class LocationFSxWindows(pulumi.CustomResource):
         """
         Resource schema for AWS::DataSync::LocationFSxWindows.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] domain: The name of the Windows domain that the FSx for Windows server belongs to.
@@ -171,6 +173,7 @@ class LocationFSxWindows(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource schema for AWS::DataSync::LocationFSxWindows.
+
 
         :param str resource_name: The name of the resource.
         :param LocationFSxWindowsArgs args: The arguments to use to populate this resource's properties.

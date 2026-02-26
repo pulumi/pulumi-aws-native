@@ -31,6 +31,7 @@ class DbProxyEndpointArgs:
                  vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a DbProxyEndpoint resource.
+
         :param pulumi.Input[_builtins.str] db_proxy_name: The identifier for the proxy. This name must be unique for all proxies owned by your AWS account in the specified AWS Region.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] vpc_subnet_ids: VPC subnet IDs to associate with the new DB proxy endpoint.
         :param pulumi.Input[_builtins.str] db_proxy_endpoint_name: The identifier for the DB proxy endpoint. This name must be unique for all DB proxy endpoints owned by your AWS account in the specified AWS Region.
@@ -154,6 +155,7 @@ class DbProxyEndpoint(pulumi.CustomResource):
         """
         Resource schema for AWS::RDS::DBProxyEndpoint.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] db_proxy_endpoint_name: The identifier for the DB proxy endpoint. This name must be unique for all DB proxy endpoints owned by your AWS account in the specified AWS Region.
@@ -172,6 +174,7 @@ class DbProxyEndpoint(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource schema for AWS::RDS::DBProxyEndpoint.
+
 
         :param str resource_name: The name of the resource.
         :param DbProxyEndpointArgs args: The arguments to use to populate this resource's properties.

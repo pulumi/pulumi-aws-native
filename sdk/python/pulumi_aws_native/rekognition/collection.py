@@ -25,6 +25,7 @@ class CollectionArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Collection resource.
+
         :param pulumi.Input[_builtins.str] collection_id: ID for the collection that you are creating.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
@@ -69,6 +70,7 @@ class Collection(pulumi.CustomResource):
         """
         The AWS::Rekognition::Collection type creates an Amazon Rekognition Collection. A collection is a logical grouping of information about detected faces which can later be referenced for searches on the group
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] collection_id: ID for the collection that you are creating.
@@ -82,6 +84,7 @@ class Collection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The AWS::Rekognition::Collection type creates an Amazon Rekognition Collection. A collection is a logical grouping of information about detected faces which can later be referenced for searches on the group
+
 
         :param str resource_name: The name of the resource.
         :param CollectionArgs args: The arguments to use to populate this resource's properties.

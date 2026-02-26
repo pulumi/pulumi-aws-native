@@ -55,6 +55,7 @@ class CrossAccountAttachmentResourceArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         ARN of resource to share.
+
         :param pulumi.Input[_builtins.str] cidr: An IP address range, in CIDR format, that is specified as resource. The address must be provisioned and advertised in AWS Global Accelerator by following the bring your own IP address (BYOIP) process for Global Accelerator
                
                For more information, see [Bring your own IP addresses (BYOIP)](https://docs.aws.amazon.com/global-accelerator/latest/dg/using-byoip.html) in the AWS Global Accelerator Developer Guide.
@@ -141,6 +142,7 @@ class EndpointGroupEndpointConfigurationArgs:
                  weight: Optional[pulumi.Input[_builtins.int]] = None):
         """
         The configuration for a given endpoint
+
         :param pulumi.Input[_builtins.str] endpoint_id: Id of the endpoint. For Network/Application Load Balancer this value is the ARN.  For EIP, this value is the allocation ID.  For EC2 instances, this is the EC2 instance ID
         :param pulumi.Input[_builtins.str] attachment_arn: Attachment ARN that provides access control to the cross account endpoint. Not required for resources hosted in the same account as the endpoint group.
         :param pulumi.Input[_builtins.bool] client_ip_preservation_enabled: true if client ip should be preserved
@@ -223,6 +225,7 @@ class EndpointGroupPortOverrideArgs:
                  listener_port: pulumi.Input[_builtins.int]):
         """
         listener to endpoint port mapping.
+
         :param pulumi.Input[_builtins.int] endpoint_port: The endpoint port that you want a listener port to be mapped to. This is the port on the endpoint, such as the Application Load Balancer or Amazon EC2 instance.
         :param pulumi.Input[_builtins.int] listener_port: The listener port that you want to map to a specific endpoint port. This is the port that user traffic arrives to the Global Accelerator on.
         """
@@ -274,6 +277,7 @@ class ListenerPortRangeArgs:
                  to_port: pulumi.Input[_builtins.int]):
         """
         A port range to support for connections from  clients to your accelerator.
+
         :param pulumi.Input[_builtins.int] from_port: The first port in the range of ports, inclusive.
         :param pulumi.Input[_builtins.int] to_port: The last port in the range of ports, inclusive.
         """

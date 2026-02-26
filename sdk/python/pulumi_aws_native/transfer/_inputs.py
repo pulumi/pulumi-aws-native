@@ -143,6 +143,7 @@ class As2ConfigPropertiesArgs:
                  signing_algorithm: Optional[pulumi.Input['ConnectorAs2ConfigPropertiesSigningAlgorithm']] = None):
         """
         Configuration for an AS2 connector.
+
         :param pulumi.Input['ConnectorAsyncMdnConfigArgs'] async_mdn_config: Configuration for an AS2 connector with ASYNC MDN Response
         :param pulumi.Input[_builtins.str] basic_auth_secret_id: ARN or name of the secret in AWS Secrets Manager which contains the credentials for Basic authentication. If empty, Basic authentication is disabled for the AS2 connector
         :param pulumi.Input['ConnectorAs2ConfigPropertiesCompression'] compression: Compression setting for this AS2 connector configuration.
@@ -462,6 +463,7 @@ class CustomDirectoriesPropertiesArgs:
                  temporary_files_directory: pulumi.Input[_builtins.str]):
         """
         Specifies a separate directory for each type of file to store for an AS2 message.
+
         :param pulumi.Input[_builtins.str] failed_files_directory: Specifies a location to store the failed files for an AS2 message.
         :param pulumi.Input[_builtins.str] mdn_files_directory: Specifies a location to store the MDN file for an AS2 message.
         :param pulumi.Input[_builtins.str] payload_files_directory: Specifies a location to store the payload file for an AS2 message.
@@ -1202,6 +1204,7 @@ class SftpConfigPropertiesArgs:
                  user_secret_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Configuration for an SFTP connector.
+
         :param pulumi.Input[_builtins.int] max_concurrent_connections: Specifies the number of active connections that your connector can establish with the remote server at the same time.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] trusted_host_keys: List of public host keys, for the external server to which you are connecting.
         :param pulumi.Input[_builtins.str] user_secret_id: ARN or name of the secret in AWS Secrets Manager which contains the SFTP user's private keys or passwords.
@@ -1504,6 +1507,7 @@ class WebAppIdentityProviderDetailsArgs:
                  role: Optional[pulumi.Input[_builtins.str]] = None):
         """
         You can provide a structure that contains the details for the identity provider to use with your web app.
+
         :param pulumi.Input[_builtins.str] application_arn: The Amazon Resource Name (ARN) for the IAM Identity Center application: this value is set automatically when you create your web app.
         :param pulumi.Input[_builtins.str] instance_arn: The Amazon Resource Name (ARN) for the IAM Identity Center used for the web app.
         :param pulumi.Input[_builtins.str] role: The IAM role in IAM Identity Center used for the web app.
@@ -1649,6 +1653,7 @@ class WorkflowEfsInputFileLocationArgs:
                  path: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Specifies the details for an EFS file.
+
         :param pulumi.Input[_builtins.str] file_system_id: Specifies the EFS filesystem that contains the file.
         :param pulumi.Input[_builtins.str] path: The name assigned to the file when it was created in EFS. You use the object path to retrieve the object.
         """
@@ -1736,6 +1741,7 @@ class WorkflowS3FileLocationArgs:
                  s3_file_location: Optional[pulumi.Input['WorkflowS3InputFileLocationArgs']] = None):
         """
         Specifies the location for the file being copied. Only applicable for the Copy type of workflow steps.
+
         :param pulumi.Input['WorkflowS3InputFileLocationArgs'] s3_file_location: Specifies the details for the file location for the file that's being used in the workflow. Only applicable if you are using Amazon S3 storage.
         """
         if s3_file_location is not None:
@@ -1774,6 +1780,7 @@ class WorkflowS3InputFileLocationArgs:
                  key: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Specifies the details for a S3 file.
+
         :param pulumi.Input[_builtins.str] bucket: Specifies the S3 bucket that contains the file.
         :param pulumi.Input[_builtins.str] key: The name assigned to the file when it was created in S3. You use the object key to retrieve the object.
         """
@@ -1827,6 +1834,7 @@ class WorkflowS3TagArgs:
                  value: pulumi.Input[_builtins.str]):
         """
         Specifies the key-value pair that are assigned to a file during the execution of a Tagging step.
+
         :param pulumi.Input[_builtins.str] key: The name assigned to the tag that you create.
         :param pulumi.Input[_builtins.str] value: The value that corresponds to the key.
         """
@@ -1885,6 +1893,7 @@ class WorkflowStepCopyStepDetailsPropertiesArgs:
                  source_file_location: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Details for a step that performs a file copy.
+
         :param pulumi.Input[_builtins.str] name: The name of the step, used as an identifier.
         :param pulumi.Input['WorkflowStepCopyStepDetailsPropertiesOverwriteExisting'] overwrite_existing: A flag that indicates whether or not to overwrite an existing file of the same name. The default is FALSE.
         :param pulumi.Input[_builtins.str] source_file_location: Specifies which file to use as input to the workflow step.
@@ -1974,6 +1983,7 @@ class WorkflowStepCustomStepDetailsPropertiesArgs:
                  timeout_seconds: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Details for a step that invokes a lambda function.
+
         :param pulumi.Input[_builtins.str] name: The name of the step, used as an identifier.
         :param pulumi.Input[_builtins.str] source_file_location: Specifies which file to use as input to the workflow step.
         :param pulumi.Input[_builtins.str] target: The ARN for the lambda function that is being called.
@@ -2069,6 +2079,7 @@ class WorkflowStepDecryptStepDetailsPropertiesArgs:
                  source_file_location: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Details for a step that performs a file decryption.
+
         :param pulumi.Input['WorkflowStepDecryptStepDetailsPropertiesType'] type: Specifies which encryption method to use.
         :param pulumi.Input[_builtins.str] name: The name of the step, used as an identifier.
         :param pulumi.Input['WorkflowStepDecryptStepDetailsPropertiesOverwriteExisting'] overwrite_existing: A flag that indicates whether or not to overwrite an existing file of the same name. The default is FALSE.
@@ -2161,6 +2172,7 @@ class WorkflowStepDeleteStepDetailsPropertiesArgs:
                  source_file_location: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Details for a step that deletes the file.
+
         :param pulumi.Input[_builtins.str] name: The name of the step, used as an identifier.
         :param pulumi.Input[_builtins.str] source_file_location: Specifies which file to use as input to the workflow step.
         """
@@ -2219,6 +2231,7 @@ class WorkflowStepTagStepDetailsPropertiesArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['WorkflowS3TagArgs']]]] = None):
         """
         Details for a step that creates one or more tags.
+
         :param pulumi.Input[_builtins.str] name: The name of the step, used as an identifier.
         :param pulumi.Input[_builtins.str] source_file_location: Specifies which file to use as input to the workflow step.
         :param pulumi.Input[Sequence[pulumi.Input['WorkflowS3TagArgs']]] tags: Array that contains from 1 to 10 key/value pairs.
@@ -2304,6 +2317,7 @@ class WorkflowStepArgs:
                  type: Optional[pulumi.Input['WorkflowStepType']] = None):
         """
         The basic building block of a workflow.
+
         :param pulumi.Input['WorkflowStepCopyStepDetailsPropertiesArgs'] copy_step_details: Details for a step that performs a file copy.
         :param pulumi.Input['WorkflowStepCustomStepDetailsPropertiesArgs'] custom_step_details: Details for a step that invokes a lambda function.
         :param pulumi.Input['WorkflowStepDecryptStepDetailsPropertiesArgs'] decrypt_step_details: Details for a step that performs a file decryption.

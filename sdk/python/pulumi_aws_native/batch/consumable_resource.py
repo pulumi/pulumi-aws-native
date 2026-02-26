@@ -26,6 +26,7 @@ class ConsumableResourceArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ConsumableResource resource.
+
         :param pulumi.Input['ConsumableResourceResourceType'] resource_type: Indicates whether the resource is available to be re-used after a job completes. Can be one of:
                
                - `REPLENISHABLE`
@@ -107,6 +108,7 @@ class ConsumableResource(pulumi.CustomResource):
         """
         Resource Type definition for AWS::Batch::ConsumableResource
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] consumable_resource_name: Name of ConsumableResource.
@@ -125,6 +127,7 @@ class ConsumableResource(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::Batch::ConsumableResource
+
 
         :param str resource_name: The name of the resource.
         :param ConsumableResourceArgs args: The arguments to use to populate this resource's properties.

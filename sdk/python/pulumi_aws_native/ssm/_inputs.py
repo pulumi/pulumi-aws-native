@@ -1162,6 +1162,7 @@ class PatchBaselinePatchFilterGroupArgs:
                  patch_filters: Optional[pulumi.Input[Sequence[pulumi.Input['PatchBaselinePatchFilterArgs']]]] = None):
         """
         The patch filter group that defines the criteria for the rule.
+
         :param pulumi.Input[Sequence[pulumi.Input['PatchBaselinePatchFilterArgs']]] patch_filters: The set of patch filters that make up the group.
         """
         if patch_filters is not None:
@@ -1204,6 +1205,7 @@ class PatchBaselinePatchFilterArgs:
                  values: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Defines which patches should be included in a patch baseline.
+
         :param pulumi.Input['PatchBaselinePatchFilterKey'] key: The key for the filter.
                
                For information about valid keys, see [PatchFilter](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PatchFilter.html) in the *AWS Systems Manager API Reference* .
@@ -1290,6 +1292,7 @@ class PatchBaselinePatchSourceArgs:
                  products: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Information about the patches to use to update the instances, including target operating systems and source repository. Applies to Linux instances only.
+
         :param pulumi.Input[_builtins.str] configuration: The value of the repo configuration.
                
                *Example for yum repositories*
@@ -1393,6 +1396,7 @@ class PatchBaselineRuleGroupArgs:
                  patch_rules: Optional[pulumi.Input[Sequence[pulumi.Input['PatchBaselineRuleArgs']]]] = None):
         """
         A set of rules defining the approval rules for a patch baseline.
+
         :param pulumi.Input[Sequence[pulumi.Input['PatchBaselineRuleArgs']]] patch_rules: The rules that make up the rule group.
         """
         if patch_rules is not None:
@@ -1464,6 +1468,7 @@ class PatchBaselineRuleArgs:
                  patch_filter_group: Optional[pulumi.Input['PatchBaselinePatchFilterGroupArgs']] = None):
         """
         Defines an approval rule for a patch baseline.
+
         :param pulumi.Input[_builtins.int] approve_after_days: The number of days after the release date of each patch matched by the rule that the patch is marked as approved in the patch baseline. For example, a value of `7` means that patches are approved seven days after they are released.
                
                Patch Manager evaluates patch release dates using Coordinated Universal Time (UTC). If the day represented by `7` is `2025-11-16` , patches released between `2025-11-16T00:00:00Z` and `2025-11-16T23:59:59Z` will be included in the approval.

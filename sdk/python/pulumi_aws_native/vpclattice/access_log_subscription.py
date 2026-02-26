@@ -28,6 +28,7 @@ class AccessLogSubscriptionArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a AccessLogSubscription resource.
+
         :param pulumi.Input[_builtins.str] destination_arn: The Amazon Resource Name (ARN) of the destination. The supported destination types are CloudWatch Log groups, Kinesis Data Firehose delivery streams, and Amazon S3 buckets.
         :param pulumi.Input[_builtins.str] resource_identifier: The ID or ARN of the service network or service.
         :param pulumi.Input['AccessLogSubscriptionServiceNetworkLogType'] service_network_log_type: Log type of the service network.
@@ -104,6 +105,7 @@ class AccessLogSubscription(pulumi.CustomResource):
         """
         Enables access logs to be sent to Amazon CloudWatch, Amazon S3, and Amazon Kinesis Data Firehose. The service network owner can use the access logs to audit the services in the network. The service network owner will only see access logs from clients and services that are associated with their service network. Access log entries represent traffic originated from VPCs associated with that network.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] destination_arn: The Amazon Resource Name (ARN) of the destination. The supported destination types are CloudWatch Log groups, Kinesis Data Firehose delivery streams, and Amazon S3 buckets.
@@ -119,6 +121,7 @@ class AccessLogSubscription(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Enables access logs to be sent to Amazon CloudWatch, Amazon S3, and Amazon Kinesis Data Firehose. The service network owner can use the access logs to audit the services in the network. The service network owner will only see access logs from clients and services that are associated with their service network. Access log entries represent traffic originated from VPCs associated with that network.
+
 
         :param str resource_name: The name of the resource.
         :param AccessLogSubscriptionArgs args: The arguments to use to populate this resource's properties.

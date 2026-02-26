@@ -28,6 +28,7 @@ class DbParameterGroupArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a DbParameterGroup resource.
+
         :param pulumi.Input[_builtins.str] description: Provides the customer-specified description for this DB parameter group.
         :param pulumi.Input[_builtins.str] family: Must be `neptune1` for engine versions prior to 1.2.0.0, or `neptune1.2` for engine version `1.2.0.0` and higher.
         :param Any parameters: The parameters to set for this DB parameter group.
@@ -130,6 +131,7 @@ class DbParameterGroup(pulumi.CustomResource):
         """
         AWS::Neptune::DBParameterGroup creates a new DB parameter group. This type can be declared in a template and referenced in the DBParameterGroupName parameter of AWS::Neptune::DBInstance
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: Provides the customer-specified description for this DB parameter group.
@@ -152,6 +154,7 @@ class DbParameterGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         AWS::Neptune::DBParameterGroup creates a new DB parameter group. This type can be declared in a template and referenced in the DBParameterGroupName parameter of AWS::Neptune::DBInstance
+
 
         :param str resource_name: The name of the resource.
         :param DbParameterGroupArgs args: The arguments to use to populate this resource's properties.

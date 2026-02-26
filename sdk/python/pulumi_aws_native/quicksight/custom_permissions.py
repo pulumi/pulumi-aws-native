@@ -30,6 +30,7 @@ class CustomPermissionsArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a CustomPermissions resource.
+
         :param pulumi.Input[_builtins.str] aws_account_id: The ID of the AWS account that contains the custom permission configuration that you want to update.
         :param pulumi.Input['CustomPermissionsCapabilitiesArgs'] capabilities: A set of actions in the custom permissions profile.
         :param pulumi.Input[_builtins.str] custom_permissions_name: The name of the custom permissions profile.
@@ -106,6 +107,7 @@ class CustomPermissions(pulumi.CustomResource):
         """
         Definition of the AWS::QuickSight::CustomPermissions Resource Type.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] aws_account_id: The ID of the AWS account that contains the custom permission configuration that you want to update.
@@ -121,6 +123,7 @@ class CustomPermissions(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of the AWS::QuickSight::CustomPermissions Resource Type.
+
 
         :param str resource_name: The name of the resource.
         :param CustomPermissionsArgs args: The arguments to use to populate this resource's properties.

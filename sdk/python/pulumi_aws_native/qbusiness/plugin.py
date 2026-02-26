@@ -34,6 +34,7 @@ class PluginArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Plugin resource.
+
         :param pulumi.Input[Union['PluginAuthConfiguration0PropertiesArgs', 'PluginAuthConfiguration1PropertiesArgs', 'PluginAuthConfiguration2PropertiesArgs']] auth_configuration: Authentication configuration information for an Amazon Q Business plugin.
         :param pulumi.Input[_builtins.str] display_name: The name of the plugin.
         :param pulumi.Input['PluginType'] type: The type of the plugin.
@@ -172,6 +173,7 @@ class Plugin(pulumi.CustomResource):
         """
         Definition of AWS::QBusiness::Plugin Resource Type
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] application_id: The identifier of the application that will contain the plugin.
@@ -191,6 +193,7 @@ class Plugin(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of AWS::QBusiness::Plugin Resource Type
+
 
         :param str resource_name: The name of the resource.
         :param PluginArgs args: The arguments to use to populate this resource's properties.

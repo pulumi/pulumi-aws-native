@@ -27,6 +27,7 @@ class RoutingRuleArgs:
                  priority: pulumi.Input[_builtins.int]):
         """
         The set of arguments for constructing a RoutingRule resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['RoutingRuleActionArgs']]] actions: The resulting action based on matching a routing rules condition. Only InvokeApi is supported.
         :param pulumi.Input[Sequence[pulumi.Input['RoutingRuleConditionArgs']]] conditions: The conditions of the routing rule.
         :param pulumi.Input[_builtins.str] domain_name_arn: The amazon resource name (ARN) of the domain name resource.
@@ -100,6 +101,7 @@ class RoutingRule(pulumi.CustomResource):
         """
         Schema for AWS::ApiGatewayV2::RoutingRule
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['RoutingRuleActionArgs', 'RoutingRuleActionArgsDict']]]] actions: The resulting action based on matching a routing rules condition. Only InvokeApi is supported.
@@ -115,6 +117,7 @@ class RoutingRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Schema for AWS::ApiGatewayV2::RoutingRule
+
 
         :param str resource_name: The name of the resource.
         :param RoutingRuleArgs args: The arguments to use to populate this resource's properties.

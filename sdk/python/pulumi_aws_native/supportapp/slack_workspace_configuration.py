@@ -23,6 +23,7 @@ class SlackWorkspaceConfigurationArgs:
                  version_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a SlackWorkspaceConfiguration resource.
+
         :param pulumi.Input[_builtins.str] team_id: The team ID in Slack, which uniquely identifies a workspace.
         :param pulumi.Input[_builtins.str] version_id: An identifier used to update an existing Slack workspace configuration in AWS CloudFormation.
         """
@@ -91,6 +92,7 @@ class SlackWorkspaceConfiguration(pulumi.CustomResource):
 
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] team_id: The team ID in Slack, which uniquely identifies a workspace.
@@ -128,6 +130,7 @@ class SlackWorkspaceConfiguration(pulumi.CustomResource):
             version_id="1")
 
         ```
+
 
         :param str resource_name: The name of the resource.
         :param SlackWorkspaceConfigurationArgs args: The arguments to use to populate this resource's properties.

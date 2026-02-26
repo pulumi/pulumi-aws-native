@@ -28,6 +28,7 @@ class DiskSnapshotArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a DiskSnapshot resource.
+
         :param pulumi.Input[_builtins.str] disk_name: The name of the source disk from which the snapshot was created.
         :param pulumi.Input[_builtins.str] disk_snapshot_name: The name of the disk snapshot (e.g., my-disk-snapshot).
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
@@ -88,6 +89,7 @@ class DiskSnapshot(pulumi.CustomResource):
         """
         Resource Type definition for AWS::Lightsail::DiskSnapshot
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] disk_name: The name of the source disk from which the snapshot was created.
@@ -102,6 +104,7 @@ class DiskSnapshot(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::Lightsail::DiskSnapshot
+
 
         :param str resource_name: The name of the resource.
         :param DiskSnapshotArgs args: The arguments to use to populate this resource's properties.

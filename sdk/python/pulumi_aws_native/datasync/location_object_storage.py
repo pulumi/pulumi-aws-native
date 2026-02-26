@@ -38,6 +38,7 @@ class LocationObjectStorageArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a LocationObjectStorage resource.
+
         :param pulumi.Input[_builtins.str] access_key: Optional. The access key is used if credentials are required to access the self-managed object storage server.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] agent_arns: Specifies the Amazon Resource Names (ARNs) of the DataSync agents that can connect with your object storage system. If you are setting up an agentless cross-cloud transfer, you do not need to specify a value for this parameter.
         :param pulumi.Input[_builtins.str] bucket_name: The name of the bucket on the self-managed object storage server.
@@ -275,6 +276,7 @@ class LocationObjectStorage(pulumi.CustomResource):
 
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] access_key: Optional. The access key is used if credentials are required to access the self-managed object storage server.
@@ -322,6 +324,7 @@ class LocationObjectStorage(pulumi.CustomResource):
             subdirectory="/MySubdirectory")
 
         ```
+
 
         :param str resource_name: The name of the resource.
         :param LocationObjectStorageArgs args: The arguments to use to populate this resource's properties.

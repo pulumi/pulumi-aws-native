@@ -37,6 +37,7 @@ class AgreementArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Agreement resource.
+
         :param pulumi.Input[_builtins.str] access_role: Specifies the access role for the agreement.
         :param pulumi.Input[_builtins.str] local_profile_id: A unique identifier for the local profile.
         :param pulumi.Input[_builtins.str] partner_profile_id: A unique identifier for the partner profile.
@@ -222,6 +223,7 @@ class Agreement(pulumi.CustomResource):
         """
         Resource Type definition for AWS::Transfer::Agreement
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] access_role: Specifies the access role for the agreement.
@@ -244,6 +246,7 @@ class Agreement(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::Transfer::Agreement
+
 
         :param str resource_name: The name of the resource.
         :param AgreementArgs args: The arguments to use to populate this resource's properties.

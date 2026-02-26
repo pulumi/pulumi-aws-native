@@ -67,6 +67,7 @@ class CloudAutonomousVmClusterMaintenanceWindow(dict):
                  weeks_of_month: Optional[Sequence[_builtins.int]] = None):
         """
         The scheduling details for the maintenance window. Patching and system updates take place during the maintenance window.
+
         :param Sequence['CloudAutonomousVmClusterMaintenanceWindowDaysOfWeekItem'] days_of_week: The days of the week when maintenance can be performed.
         :param Sequence[_builtins.int] hours_of_day: The hours of the day when maintenance can be performed.
         :param _builtins.int lead_time_in_weeks: The lead time in weeks before the maintenance window.
@@ -145,6 +146,7 @@ class CloudExadataInfrastructureCustomerContact(dict):
                  email: Optional[_builtins.str] = None):
         """
         A contact to receive notification from Oracle about maintenance updates for a specific Exadata infrastructure.
+
         :param _builtins.str email: The email address of the contact.
         """
         if email is not None:
@@ -205,6 +207,7 @@ class CloudExadataInfrastructureMaintenanceWindow(dict):
                  weeks_of_month: Optional[Sequence[_builtins.int]] = None):
         """
         The scheduling details for the maintenance window. Patching and system updates take place during the maintenance window.
+
         :param _builtins.int custom_action_timeout_in_mins: The timeout duration for custom actions in minutes.
         :param Sequence['CloudExadataInfrastructureMaintenanceWindowDaysOfWeekItem'] days_of_week: The days of the week when maintenance can be performed.
         :param Sequence[_builtins.int] hours_of_day: The hours of the day when maintenance can be performed.
@@ -339,6 +342,7 @@ class CloudVmClusterDataCollectionOptions(dict):
                  is_incident_logs_enabled: Optional[_builtins.bool] = None):
         """
         Information about the data collection options enabled for a VM cluster.
+
         :param _builtins.bool is_diagnostics_events_enabled: Indicates whether diagnostic collection is enabled for the VM cluster.
         :param _builtins.bool is_health_monitoring_enabled: Indicates whether health monitoring is enabled for the VM cluster.
         :param _builtins.bool is_incident_logs_enabled: Indicates whether incident logs are enabled for the cloud VM cluster.
@@ -438,6 +442,7 @@ class CloudVmClusterDbNode(dict):
                  vnic_id: Optional[_builtins.str] = None):
         """
         A DbNode is a virtual machine that hosts Oracle database instances and provides access to shared storage servers within a VM Cluster
+
         :param _builtins.str db_server_id: The unique identifier of the database server that's associated with the DB node.
         :param _builtins.str backup_ip_id: The Oracle Cloud ID (OCID) of the backup IP address that's associated with the DB node.
         :param _builtins.str backup_vnic2_id: The OCID of the second backup virtual network interface card (VNIC) for the DB node.
@@ -622,6 +627,7 @@ class CloudVmClusterTag(dict):
                  value: Optional[_builtins.str] = None):
         """
         A key-value pair to associate with a resource.
+
         :param _builtins.str key: The key name of the tag. You can specify a value that's 1 to 128 Unicode characters in length and can't be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., :, /, =, +, @, -, and ".
         :param _builtins.str value: The value for the tag. You can specify a value that's 1 to 256 characters in length. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         """
@@ -690,6 +696,7 @@ class OdbNetworkManagedServices(dict):
                  zero_etl_access: Optional['outputs.OdbNetworkManagedServicesZeroEtlAccessProperties'] = None):
         """
         The managed services configuration for the ODB network.
+
         :param 'OdbNetworkManagedServicesManagedS3BackupAccessProperties' managed_s3_backup_access: The managed Amazon S3 backup access configuration.
         :param Sequence[_builtins.str] managed_services_ipv4_cidrs: The IPv4 CIDR blocks for the managed services.
         :param _builtins.str resource_gateway_arn: The Amazon Resource Name (ARN) of the resource gateway.
@@ -797,6 +804,7 @@ class OdbNetworkManagedServicesManagedS3BackupAccessProperties(dict):
                  status: Optional['OdbNetworkManagedResourceStatus'] = None):
         """
         The managed Amazon S3 backup access configuration.
+
         :param Sequence[_builtins.str] ipv4_addresses: The IPv4 addresses for the managed Amazon S3 backup access.
         :param 'OdbNetworkManagedResourceStatus' status: The status of the managed Amazon S3 backup access.
         """
@@ -855,6 +863,7 @@ class OdbNetworkManagedServicesS3AccessProperties(dict):
                  status: Optional['OdbNetworkManagedResourceStatus'] = None):
         """
         The Amazon S3 access configuration.
+
         :param _builtins.str domain_name: The domain name for the Amazon S3 access.
         :param Sequence[_builtins.str] ipv4_addresses: The IPv4 addresses for the Amazon S3 access.
         :param _builtins.str s3_policy_document: The endpoint policy for the Amazon S3 access.
@@ -931,6 +940,7 @@ class OdbNetworkManagedServicesServiceNetworkEndpointProperties(dict):
                  vpc_endpoint_type: Optional['OdbNetworkManagedServicesServiceNetworkEndpointPropertiesVpcEndpointType'] = None):
         """
         The service network endpoint configuration.
+
         :param _builtins.str vpc_endpoint_id: The identifier of the VPC endpoint.
         :param 'OdbNetworkManagedServicesServiceNetworkEndpointPropertiesVpcEndpointType' vpc_endpoint_type: The type of the VPC endpoint.
         """
@@ -966,6 +976,7 @@ class OdbNetworkManagedServicesZeroEtlAccessProperties(dict):
                  status: Optional['OdbNetworkManagedResourceStatus'] = None):
         """
         The Zero-ETL access configuration.
+
         :param _builtins.str cidr: The CIDR block for the Zero-ETL access.
         :param 'OdbNetworkManagedResourceStatus' status: The status of the Zero-ETL access.
         """

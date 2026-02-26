@@ -35,6 +35,7 @@ class PermissionSetArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a PermissionSet resource.
+
         :param pulumi.Input[_builtins.str] instance_arn: The sso instance arn that the permission set is owned.
         :param pulumi.Input[Sequence[pulumi.Input['PermissionSetCustomerManagedPolicyReferenceArgs']]] customer_managed_policy_references: Specifies the names and paths of the customer managed policies that you have attached to your permission set.
         :param pulumi.Input[_builtins.str] description: The permission set description.
@@ -215,6 +216,7 @@ class PermissionSet(pulumi.CustomResource):
         """
         Resource Type definition for SSO PermissionSet
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['PermissionSetCustomerManagedPolicyReferenceArgs', 'PermissionSetCustomerManagedPolicyReferenceArgsDict']]]] customer_managed_policy_references: Specifies the names and paths of the customer managed policies that you have attached to your permission set.
@@ -240,6 +242,7 @@ class PermissionSet(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for SSO PermissionSet
+
 
         :param str resource_name: The name of the resource.
         :param PermissionSetArgs args: The arguments to use to populate this resource's properties.

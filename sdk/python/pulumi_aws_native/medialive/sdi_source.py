@@ -28,6 +28,7 @@ class SdiSourceArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a SdiSource resource.
+
         :param pulumi.Input[_builtins.str] name: The name of the SdiSource.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A collection of key-value pairs.
         """
@@ -96,6 +97,7 @@ class SdiSource(pulumi.CustomResource):
         """
         Definition of AWS::MediaLive::SdiSource Resource Type
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: The name of the SdiSource.
@@ -109,6 +111,7 @@ class SdiSource(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of AWS::MediaLive::SdiSource Resource Type
+
 
         :param str resource_name: The name of the resource.
         :param SdiSourceArgs args: The arguments to use to populate this resource's properties.

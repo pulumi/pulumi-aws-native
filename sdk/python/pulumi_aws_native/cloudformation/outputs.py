@@ -64,6 +64,7 @@ class GuardHookS3Location(dict):
                  version_id: Optional[_builtins.str] = None):
         """
         S3 Source Location for the Guard files.
+
         :param _builtins.str uri: S3 uri of Guard files.
         :param _builtins.str version_id: S3 object version
         """
@@ -198,6 +199,7 @@ class ManagedExecutionProperties(dict):
                  active: Optional[_builtins.bool] = None):
         """
         Describes whether StackSets performs non-conflicting operations concurrently and queues conflicting operations.
+
         :param _builtins.bool active: When `true` , CloudFormation performs non-conflicting operations concurrently and queues conflicting operations. After conflicting operations finish, CloudFormation starts queued operations in request order.
                
                > If there are already running or queued operations, CloudFormation queues all incoming operations even if they are non-conflicting.
@@ -250,6 +252,7 @@ class OptionsProperties(dict):
                  input_params: Optional['outputs.GuardHookS3Location'] = None):
         """
         Specifies the S3 location of your input parameters.
+
         :param 'GuardHookS3Location' input_params: Specifies the S3 location where your input parameters are located.
         """
         if input_params is not None:
@@ -346,6 +349,7 @@ class StackFiltersProperties(dict):
                  stack_roles: Optional['outputs.StackFiltersPropertiesStackRolesProperties'] = None):
         """
         Filters to allow hooks to target specific stack attributes
+
         :param 'LambdaHookStackFiltersPropertiesFilteringCriteria' filtering_criteria: Attribute to specify the filtering behavior. ANY will make the Hook pass if one filter matches. ALL will make the Hook pass if all filters match
         :param 'StackFiltersPropertiesStackNamesProperties' stack_names: List of stack names as filters
         :param 'StackFiltersPropertiesStackRolesProperties' stack_roles: List of stack roles that are performing the stack operations.
@@ -391,6 +395,7 @@ class StackFiltersPropertiesStackNamesProperties(dict):
                  include: Optional[Sequence[_builtins.str]] = None):
         """
         List of stack names as filters
+
         :param Sequence[_builtins.str] exclude: List of stack names that the hook is going to be excluded from
         :param Sequence[_builtins.str] include: List of stack names that the hook is going to target
         """
@@ -426,6 +431,7 @@ class StackFiltersPropertiesStackRolesProperties(dict):
                  include: Optional[Sequence[_builtins.str]] = None):
         """
         List of stack roles that are performing the stack operations.
+
         :param Sequence[_builtins.str] exclude: List of stack roles that the hook is going to be excluded from
         :param Sequence[_builtins.str] include: List of stack roles that the hook is going to target
         """
@@ -622,6 +628,7 @@ class StackSetDeploymentTargets(dict):
                  organizational_unit_ids: Optional[Sequence[_builtins.str]] = None):
         """
          The AWS OrganizationalUnitIds or Accounts for which to create stack instances in the specified Regions.
+
         :param 'StackSetDeploymentTargetsAccountFilterType' account_filter_type: The filter type you want to apply on organizational units and accounts.
         :param Sequence[_builtins.str] accounts: AWS accounts that you want to create stack instances in the specified Region(s) for.
         :param _builtins.str accounts_url: Returns the value of the AccountsUrl property.
@@ -713,6 +720,7 @@ class StackSetOperationPreferences(dict):
                  region_order: Optional[Sequence[_builtins.str]] = None):
         """
         The user-specified preferences for how AWS CloudFormation performs a stack set operation.
+
         :param 'StackSetConcurrencyMode' concurrency_mode: Specifies how the concurrency level behaves during the operation execution.
                
                - `STRICT_FAILURE_TOLERANCE` : This option dynamically lowers the concurrency level to ensure the number of failed accounts never exceeds the value of `FailureToleranceCount` +1. The initial actual concurrency is set to the lower of either the value of the `MaxConcurrentCount` , or the value of `FailureToleranceCount` +1. The actual concurrency is then reduced proportionally by the number of failures. This is the default behavior.
@@ -913,6 +921,7 @@ class StackSetStackInstances(dict):
                  parameter_overrides: Optional[Sequence['outputs.StackSetParameter']] = None):
         """
         Stack instances in some specific accounts and Regions.
+
         :param 'StackSetDeploymentTargets' deployment_targets: The AWS Organizations accounts or AWS accounts to deploy stacks to in the specified Regions.
         :param Sequence[_builtins.str] regions: The names of one or more Regions where you want to create stack instances using the specified AWS account(s).
         :param Sequence['StackSetParameter'] parameter_overrides: A list of stack set parameters whose values you want to override in the selected stack instances.
@@ -977,6 +986,7 @@ class TargetFilters0Properties(dict):
                  target_names: Optional[Sequence[_builtins.str]] = None):
         """
         Attribute to specify which targets should invoke the hook
+
         :param Sequence['LambdaHookAction'] actions: List of actions that the hook is going to target
         :param Sequence['LambdaHookInvocationPoint'] invocation_points: List of invocation points that the hook is going to target
         :param Sequence[_builtins.str] target_names: List of type names that the hook is going to target
@@ -1022,6 +1032,7 @@ class TargetFilters1Properties(dict):
                  targets: Sequence['outputs.LambdaHookHookTarget']):
         """
         Attribute to specify which targets should invoke the hook
+
         :param Sequence['LambdaHookHookTarget'] targets: List of hook targets
         """
         pulumi.set(__self__, "targets", targets)

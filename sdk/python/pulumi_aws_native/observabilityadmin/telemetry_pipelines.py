@@ -29,6 +29,7 @@ class TelemetryPipelinesArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a TelemetryPipelines resource.
+
         :param pulumi.Input['TelemetryPipelinesTelemetryPipelineConfigurationArgs'] configuration: The configuration that defines how the telemetry pipeline processes data, including sources, processors, and destinations. For more information, see the [Amazon CloudWatch User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Creating-pipelines.html) .
         :param pulumi.Input[_builtins.str] name: The name of the telemetry pipeline to create. The name must be unique within your account.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource
@@ -89,6 +90,7 @@ class TelemetryPipelines(pulumi.CustomResource):
         """
         Resource Type definition for AWS::ObservabilityAdmin::TelemetryPipelines
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['TelemetryPipelinesTelemetryPipelineConfigurationArgs', 'TelemetryPipelinesTelemetryPipelineConfigurationArgsDict']] configuration: The configuration that defines how the telemetry pipeline processes data, including sources, processors, and destinations. For more information, see the [Amazon CloudWatch User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Creating-pipelines.html) .
@@ -103,6 +105,7 @@ class TelemetryPipelines(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::ObservabilityAdmin::TelemetryPipelines
+
 
         :param str resource_name: The name of the resource.
         :param TelemetryPipelinesArgs args: The arguments to use to populate this resource's properties.

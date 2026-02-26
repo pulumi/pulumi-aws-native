@@ -119,6 +119,7 @@ class CampaignAnswerMachineDetectionConfigArgs:
                  await_answer_machine_prompt: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The configuration used for answering machine detection during outbound calls
+
         :param pulumi.Input[_builtins.bool] enable_answer_machine_detection: Flag to decided whether outbound calls should have answering machine detection enabled or not
         :param pulumi.Input[_builtins.bool] await_answer_machine_prompt: Enables detection of prompts (e.g., beep after after a voicemail greeting)
         """
@@ -181,6 +182,7 @@ class CampaignChannelSubtypeConfigArgs:
                  whats_app: Optional[pulumi.Input['CampaignWhatsAppChannelSubtypeConfigArgs']] = None):
         """
         The possible types of channel subtype config parameters
+
         :param pulumi.Input['CampaignEmailChannelSubtypeConfigArgs'] email: The configuration of the email channel subtype.
         :param pulumi.Input['CampaignSmsChannelSubtypeConfigArgs'] sms: The configuration of the SMS channel subtype.
         :param pulumi.Input['CampaignTelephonyChannelSubtypeConfigArgs'] telephony: The configuration of the telephony channel subtype.
@@ -264,6 +266,7 @@ class CampaignCommunicationLimitsConfigArgs:
                  instance_limits_handling: Optional[pulumi.Input['CampaignInstanceLimitsHandling']] = None):
         """
         Communication limits config
+
         :param pulumi.Input['CampaignCommunicationLimitsArgs'] all_channels_subtypes: The CommunicationLimits that apply to all channel subtypes defined in an outbound campaign.
         :param pulumi.Input['CampaignInstanceLimitsHandling'] instance_limits_handling: Opt-in or Opt-out from instance-level limits.
         """
@@ -312,6 +315,7 @@ class CampaignCommunicationLimitsArgs:
                  communication_limit_list: Optional[pulumi.Input[Sequence[pulumi.Input['CampaignCommunicationLimitArgs']]]] = None):
         """
         Communication limits
+
         :param pulumi.Input[Sequence[pulumi.Input['CampaignCommunicationLimitArgs']]] communication_limit_list: The list of CommunicationLimits.
         """
         if communication_limit_list is not None:
@@ -414,6 +418,7 @@ class CampaignCommunicationTimeConfigArgs:
                  whats_app: Optional[pulumi.Input['CampaignTimeWindowArgs']] = None):
         """
         Campaign communication time config
+
         :param pulumi.Input['CampaignLocalTimeZoneConfigArgs'] local_time_zone_config: The local timezone configuration.
         :param pulumi.Input['CampaignTimeWindowArgs'] email: The communication time configuration for the email channel subtype.
         :param pulumi.Input['CampaignTimeWindowArgs'] sms: The communication time configuration for the SMS channel subtype.
@@ -555,6 +560,7 @@ class CampaignEmailChannelSubtypeConfigArgs:
                  capacity: Optional[pulumi.Input[_builtins.float]] = None):
         """
         Email Channel Subtype config
+
         :param pulumi.Input['CampaignEmailOutboundConfigArgs'] default_outbound_config: The default email outbound configuration of an outbound campaign.
         :param pulumi.Input['CampaignEmailOutboundModeArgs'] outbound_mode: The outbound mode for email of an outbound campaign.
         :param pulumi.Input[_builtins.float] capacity: The allocation of email capacity between multiple running outbound campaigns.
@@ -626,6 +632,7 @@ class CampaignEmailOutboundConfigArgs:
                  source_email_address_display_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Default Email outbound config
+
         :param pulumi.Input[_builtins.str] connect_source_email_address: The Amazon Connect source email address.
         :param pulumi.Input[_builtins.str] wisdom_template_arn: The Amazon Resource Name (ARN) of the Amazon Q in Connect template.
         :param pulumi.Input[_builtins.str] source_email_address_display_name: The display name for the Amazon Connect source email address.
@@ -687,6 +694,7 @@ class CampaignEmailOutboundModeArgs:
                  agentless_config: Optional[pulumi.Input['CampaignAgentlessConfigArgs']] = None):
         """
         Email Outbound Mode
+
         :param pulumi.Input['CampaignAgentlessConfigArgs'] agentless_config: The agentless outbound mode configuration for email.
         """
         if agentless_config is not None:
@@ -720,6 +728,7 @@ class CampaignEventTriggerArgs:
                  customer_profiles_domain_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The event trigger of the campaign
+
         :param pulumi.Input[_builtins.str] customer_profiles_domain_arn: The Amazon Resource Name (ARN) of the Customer Profiles domain.
         """
         if customer_profiles_domain_arn is not None:
@@ -758,6 +767,7 @@ class CampaignLocalTimeZoneConfigArgs:
                  local_time_zone_detection: Optional[pulumi.Input[Sequence[pulumi.Input['CampaignLocalTimeZoneDetectionType']]]] = None):
         """
         Local time zone config
+
         :param pulumi.Input[_builtins.str] default_time_zone: The timezone to use for all recipients.
         :param pulumi.Input[Sequence[pulumi.Input['CampaignLocalTimeZoneDetectionType']]] local_time_zone_detection: Detects methods for the recipient's timezone.
         """
@@ -806,6 +816,7 @@ class CampaignOpenHoursArgs:
                  daily_hours: pulumi.Input[Sequence[pulumi.Input['CampaignDailyHourArgs']]]):
         """
         Open Hours config
+
         :param pulumi.Input[Sequence[pulumi.Input['CampaignDailyHourArgs']]] daily_hours: The daily hours configuration.
         """
         pulumi.set(__self__, "daily_hours", daily_hours)
@@ -838,6 +849,7 @@ class CampaignPredictiveConfigArgs:
                  bandwidth_allocation: pulumi.Input[_builtins.float]):
         """
         Predictive config
+
         :param pulumi.Input[_builtins.float] bandwidth_allocation: Bandwidth allocation for the predictive outbound mode.
         """
         pulumi.set(__self__, "bandwidth_allocation", bandwidth_allocation)
@@ -880,6 +892,7 @@ class CampaignPreviewConfigArgs:
                  agent_actions: Optional[pulumi.Input[Sequence[pulumi.Input['CampaignAgentAction']]]] = None):
         """
         Preview config
+
         :param pulumi.Input[_builtins.float] bandwidth_allocation: Bandwidth allocation for the preview outbound mode.
         :param pulumi.Input['CampaignTimeoutConfigArgs'] timeout_config: Countdown timer configuration for preview outbound mode.
         :param pulumi.Input[Sequence[pulumi.Input['CampaignAgentAction']]] agent_actions: Agent actions for the preview outbound mode.
@@ -941,6 +954,7 @@ class CampaignProgressiveConfigArgs:
                  bandwidth_allocation: pulumi.Input[_builtins.float]):
         """
         Progressive config
+
         :param pulumi.Input[_builtins.float] bandwidth_allocation: Bandwidth allocation for the progressive outbound mode.
         """
         pulumi.set(__self__, "bandwidth_allocation", bandwidth_allocation)
@@ -973,6 +987,7 @@ class CampaignRestrictedPeriodsArgs:
                  restricted_period_list: Optional[pulumi.Input[Sequence[pulumi.Input['CampaignRestrictedPeriodArgs']]]] = None):
         """
         Restricted period config
+
         :param pulumi.Input[Sequence[pulumi.Input['CampaignRestrictedPeriodArgs']]] restricted_period_list: The restricted period list.
         """
         if restricted_period_list is not None:
@@ -1010,6 +1025,7 @@ class CampaignRestrictedPeriodArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Restricted period
+
         :param pulumi.Input[_builtins.str] name: The name of a restricted period
         """
         pulumi.set(__self__, "end_date", end_date)
@@ -1073,6 +1089,7 @@ class CampaignScheduleArgs:
                  refresh_frequency: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Campaign schedule
+
         :param pulumi.Input[_builtins.str] end_time: The end time of the schedule in UTC.
         :param pulumi.Input[_builtins.str] start_time: The start time of the schedule in UTC.
         :param pulumi.Input[_builtins.str] refresh_frequency: The refresh frequency of the campaign.
@@ -1144,6 +1161,7 @@ class CampaignSmsChannelSubtypeConfigArgs:
                  capacity: Optional[pulumi.Input[_builtins.float]] = None):
         """
         SMS Channel Subtype config
+
         :param pulumi.Input['CampaignSmsOutboundConfigArgs'] default_outbound_config: The default SMS outbound configuration of an outbound campaign.
         :param pulumi.Input['CampaignSmsOutboundModeArgs'] outbound_mode: The outbound mode of SMS for an outbound campaign.
         :param pulumi.Input[_builtins.float] capacity: The allocation of SMS capacity between multiple running outbound campaigns.
@@ -1210,6 +1228,7 @@ class CampaignSmsOutboundConfigArgs:
                  wisdom_template_arn: pulumi.Input[_builtins.str]):
         """
         Default SMS outbound config
+
         :param pulumi.Input[_builtins.str] connect_source_phone_number_arn: The Amazon Resource Name (ARN) of the Amazon Connect source SMS phone number.
         :param pulumi.Input[_builtins.str] wisdom_template_arn: The Amazon Resource Name (ARN) of the Amazon Q in Connect template.
         """
@@ -1256,6 +1275,7 @@ class CampaignSmsOutboundModeArgs:
                  agentless_config: Optional[pulumi.Input['CampaignAgentlessConfigArgs']] = None):
         """
         SMS Outbound Mode
+
         :param pulumi.Input['CampaignAgentlessConfigArgs'] agentless_config: Contains agentless outbound mode configuration.
         """
         if agentless_config is not None:
@@ -1294,6 +1314,7 @@ class CampaignSourceArgs:
                  event_trigger: Optional[pulumi.Input['CampaignEventTriggerArgs']] = None):
         """
         The possible source of the campaign
+
         :param pulumi.Input[_builtins.str] customer_profiles_segment_arn: The Amazon Resource Name (ARN) of the Customer Profiles segment.
         :param pulumi.Input['CampaignEventTriggerArgs'] event_trigger: The event trigger of the campaign.
         """
@@ -1357,6 +1378,7 @@ class CampaignTelephonyChannelSubtypeConfigArgs:
                  connect_queue_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Telephony Channel Subtype config
+
         :param pulumi.Input['CampaignTelephonyOutboundConfigArgs'] default_outbound_config: The default telephony outbound configuration of an outbound campaign.
         :param pulumi.Input['CampaignTelephonyOutboundModeArgs'] outbound_mode: The outbound mode of telephony for an outbound campaign.
         :param pulumi.Input[_builtins.float] capacity: The allocation of telephony capacity between multiple running outbound campaigns.
@@ -1448,6 +1470,7 @@ class CampaignTelephonyOutboundConfigArgs:
                  ring_timeout: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Default Telephone Outbound config
+
         :param pulumi.Input[_builtins.str] connect_contact_flow_id: The identifier of the published Amazon Connect contact flow.
         :param pulumi.Input['CampaignAnswerMachineDetectionConfigArgs'] answer_machine_detection_config: The answering machine detection configuration.
         :param pulumi.Input[_builtins.str] connect_source_phone_number: The Amazon Connect source phone number.
@@ -1540,6 +1563,7 @@ class CampaignTelephonyOutboundModeArgs:
                  progressive_config: Optional[pulumi.Input['CampaignProgressiveConfigArgs']] = None):
         """
         Telephony Outbound Mode
+
         :param pulumi.Input['CampaignAgentlessConfigArgs'] agentless_config: The agentless outbound mode configuration for telephony.
         :param pulumi.Input['CampaignPredictiveConfigArgs'] predictive_config: Contains predictive outbound mode configuration.
         :param pulumi.Input['CampaignPreviewConfigArgs'] preview_config: Contains preview outbound mode configuration.
@@ -1660,6 +1684,7 @@ class CampaignTimeWindowArgs:
                  restricted_periods: Optional[pulumi.Input['CampaignRestrictedPeriodsArgs']] = None):
         """
         Time window config
+
         :param pulumi.Input['CampaignOpenHoursArgs'] open_hours: The open hours configuration.
         :param pulumi.Input['CampaignRestrictedPeriodsArgs'] restricted_periods: The restricted periods configuration.
         """
@@ -1707,6 +1732,7 @@ class CampaignTimeoutConfigArgs:
                  duration_in_seconds: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Timeout Config for preview contacts
+
         :param pulumi.Input[_builtins.int] duration_in_seconds: Duration in seconds for the countdown timer.
         """
         if duration_in_seconds is not None:
@@ -1750,6 +1776,7 @@ class CampaignWhatsAppChannelSubtypeConfigArgs:
                  capacity: Optional[pulumi.Input[_builtins.float]] = None):
         """
         WhatsApp Channel Subtype config
+
         :param pulumi.Input['CampaignWhatsAppOutboundConfigArgs'] default_outbound_config: The default WhatsApp outbound configuration of an outbound campaign.
         :param pulumi.Input['CampaignWhatsAppOutboundModeArgs'] outbound_mode: The outbound mode for WhatsApp of an outbound campaign.
         :param pulumi.Input[_builtins.float] capacity: The allocation of WhatsApp capacity between multiple running outbound campaigns.
@@ -1816,6 +1843,7 @@ class CampaignWhatsAppOutboundConfigArgs:
                  wisdom_template_arn: pulumi.Input[_builtins.str]):
         """
         Default WhatsApp outbound config
+
         :param pulumi.Input[_builtins.str] connect_source_phone_number_arn: The Amazon Resource Name (ARN) of the Amazon Connect source WhatsApp phone number.
         :param pulumi.Input[_builtins.str] wisdom_template_arn: The Amazon Resource Name (ARN) of the Amazon Q in Connect template.
         """

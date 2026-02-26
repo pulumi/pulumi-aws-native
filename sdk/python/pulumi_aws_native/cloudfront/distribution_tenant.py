@@ -35,6 +35,7 @@ class DistributionTenantArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a DistributionTenant resource.
+
         :param pulumi.Input[_builtins.str] distribution_id: The ID of the multi-tenant distribution.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] domains: The domains associated with the distribution tenant.
         :param pulumi.Input[_builtins.str] connection_group_id: The ID of the connection group for the distribution tenant. If you don't specify a connection group, CloudFront uses the default connection group.
@@ -190,6 +191,7 @@ class DistributionTenant(pulumi.CustomResource):
         """
         The distribution tenant.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] connection_group_id: The ID of the connection group for the distribution tenant. If you don't specify a connection group, CloudFront uses the default connection group.
@@ -210,6 +212,7 @@ class DistributionTenant(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The distribution tenant.
+
 
         :param str resource_name: The name of the resource.
         :param DistributionTenantArgs args: The arguments to use to populate this resource's properties.

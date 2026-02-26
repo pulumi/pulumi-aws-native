@@ -34,6 +34,7 @@ class IdMappingWorkflowArgs:
                  workflow_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a IdMappingWorkflow resource.
+
         :param pulumi.Input['IdMappingWorkflowIdMappingTechniquesArgs'] id_mapping_techniques: An object which defines the ID mapping technique and any additional configurations.
         :param pulumi.Input[Sequence[pulumi.Input['IdMappingWorkflowInputSourceArgs']]] input_source_config: A list of `InputSource` objects, which have the fields `InputSourceARN` and `SchemaName` .
         :param pulumi.Input[_builtins.str] role_arn: The Amazon Resource Name (ARN) of the IAM role. AWS Entity Resolution assumes this role to create resources on your behalf as part of workflow execution.
@@ -168,6 +169,7 @@ class IdMappingWorkflow(pulumi.CustomResource):
         """
         IdMappingWorkflow defined in AWS Entity Resolution service
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: The description of the IdMappingWorkflow
@@ -186,6 +188,7 @@ class IdMappingWorkflow(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         IdMappingWorkflow defined in AWS Entity Resolution service
+
 
         :param str resource_name: The name of the resource.
         :param IdMappingWorkflowArgs args: The arguments to use to populate this resource's properties.

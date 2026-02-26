@@ -31,6 +31,7 @@ class IpamPrefixListResolverArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a IpamPrefixListResolver resource.
+
         :param pulumi.Input[_builtins.str] address_family: The address family of the address space in this Prefix List Resolver. Either IPv4 or IPv6.
         :param pulumi.Input[_builtins.str] ipam_id: The Id of the IPAM this Prefix List Resolver is a part of.
         :param pulumi.Input[Sequence[pulumi.Input['IpamPrefixListResolverRuleArgs']]] rules: Rules define the business logic for selecting CIDRs from IPAM.
@@ -119,6 +120,7 @@ class IpamPrefixListResolver(pulumi.CustomResource):
         """
         Resource Type definition for AWS::EC2::IPAMPrefixListResolver
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] address_family: The address family of the address space in this Prefix List Resolver. Either IPv4 or IPv6.
@@ -134,6 +136,7 @@ class IpamPrefixListResolver(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::EC2::IPAMPrefixListResolver
+
 
         :param str resource_name: The name of the resource.
         :param IpamPrefixListResolverArgs args: The arguments to use to populate this resource's properties.

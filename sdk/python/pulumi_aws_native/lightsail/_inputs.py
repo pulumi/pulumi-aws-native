@@ -84,6 +84,7 @@ class BucketAccessRulesArgs:
                  get_object: Optional[pulumi.Input[_builtins.str]] = None):
         """
         An object that sets the public accessibility of objects in the specified bucket.
+
         :param pulumi.Input[_builtins.bool] allow_public_overrides: A Boolean value that indicates whether the access control list (ACL) permissions that are applied to individual objects override the getObject option that is currently specified.
         :param pulumi.Input[_builtins.str] get_object: Specifies the anonymous access to all objects in a bucket.
         """
@@ -206,6 +207,7 @@ class ContainerHealthCheckConfigArgs:
                  unhealthy_threshold: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Describes the health check configuration of an Amazon Lightsail container service.
+
         :param pulumi.Input[_builtins.int] healthy_threshold: The number of consecutive health checks successes required before moving the container to the Healthy state. The default value is 2.
         :param pulumi.Input[_builtins.int] interval_seconds: The approximate interval, in seconds, between health checks of an individual container. You can specify between 5 and 300 seconds. The default value is 5.
         :param pulumi.Input[_builtins.str] path: The path on the container on which to perform the health check. The default value is /.
@@ -374,6 +376,7 @@ class ContainerPrivateRegistryAccessEcrImagePullerRolePropertiesArgs:
                  principal_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         An object to describe a request to activate or deactivate the role that you can use to grant an Amazon Lightsail container service access to Amazon Elastic Container Registry (Amazon ECR) private repositories.
+
         :param pulumi.Input[_builtins.bool] is_active: A Boolean value that indicates whether to activate the role.
         :param pulumi.Input[_builtins.str] principal_arn: The Amazon Resource Name (ARN) of the role, if it is activated.
         """
@@ -422,6 +425,7 @@ class ContainerPrivateRegistryAccessArgs:
                  ecr_image_puller_role: Optional[pulumi.Input['ContainerPrivateRegistryAccessEcrImagePullerRolePropertiesArgs']] = None):
         """
         An object to describe the configuration for the container service to access private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories.
+
         :param pulumi.Input['ContainerPrivateRegistryAccessEcrImagePullerRolePropertiesArgs'] ecr_image_puller_role: An object to describe a request to activate or deactivate the role that you can use to grant an Amazon Lightsail container service access to Amazon Elastic Container Registry (Amazon ECR) private repositories.
         """
         if ecr_image_puller_role is not None:
@@ -460,6 +464,7 @@ class ContainerPublicDomainNameArgs:
                  domain_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The public domain name to use with the container service, such as example.com and www.example.com.
+
         :param pulumi.Input[_builtins.str] certificate_name: The name of the certificate for the public domains.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] domain_names: An object that describes the configuration for the containers of the deployment.
         """
@@ -518,6 +523,7 @@ class ContainerPublicEndpointArgs:
                  health_check_config: Optional[pulumi.Input['ContainerHealthCheckConfigArgs']] = None):
         """
         Describes the settings of a public endpoint for an Amazon Lightsail container service.
+
         :param pulumi.Input[_builtins.str] container_name: The name of the container for the endpoint.
         :param pulumi.Input[_builtins.int] container_port: The port of the container to which traffic is forwarded to.
         :param pulumi.Input['ContainerHealthCheckConfigArgs'] health_check_config: An object that describes the health check configuration of the container.
@@ -586,6 +592,7 @@ class ContainerServiceDeploymentArgs:
                  public_endpoint: Optional[pulumi.Input['ContainerPublicEndpointArgs']] = None):
         """
         Describes a container deployment configuration of an Amazon Lightsail container service.
+
         :param pulumi.Input[Sequence[pulumi.Input['ContainerArgs']]] containers: An object that describes the configuration for the containers of the deployment.
         :param pulumi.Input['ContainerPublicEndpointArgs'] public_endpoint: An object that describes the endpoint of the deployment.
         """
@@ -654,6 +661,7 @@ class ContainerArgs:
                  ports: Optional[pulumi.Input[Sequence[pulumi.Input['ContainerPortInfoArgs']]]] = None):
         """
         Describes the settings of a container that will be launched, or that is launched, to an Amazon Lightsail container service.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] command: The launch command for the container.
         :param pulumi.Input[_builtins.str] container_name: The name of the container.
         :param pulumi.Input[Sequence[pulumi.Input['ContainerEnvironmentVariableArgs']]] environment: The environment variables of the container.
@@ -782,6 +790,7 @@ class DatabaseRelationalDatabaseParameterArgs:
                  parameter_value: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Describes the parameters of the database.
+
         :param pulumi.Input[_builtins.str] allowed_values: Specifies the valid range of values for the parameter.
         :param pulumi.Input[_builtins.str] apply_method: Indicates when parameter updates are applied. Can be immediate or pending-reboot.
         :param pulumi.Input[_builtins.str] apply_type: Specifies the engine-specific parameter type.
@@ -930,6 +939,7 @@ class DiskAddOnArgs:
                  status: Optional[pulumi.Input['DiskAddOnStatus']] = None):
         """
         A addon associate with a resource.
+
         :param pulumi.Input[_builtins.str] add_on_type: The add-on type
         :param pulumi.Input['DiskAutoSnapshotAddOnArgs'] auto_snapshot_add_on_request: The parameters for the automatic snapshot add-on, such as the daily time when an automatic snapshot will be created.
         :param pulumi.Input['DiskAddOnStatus'] status: Status of the Addon
@@ -992,6 +1002,7 @@ class DiskAutoSnapshotAddOnArgs:
                  snapshot_time_of_day: Optional[pulumi.Input[_builtins.str]] = None):
         """
         An object that represents additional parameters when enabling or modifying the automatic snapshot add-on
+
         :param pulumi.Input[_builtins.str] snapshot_time_of_day: The daily time when an automatic snapshot will be created.
         """
         if snapshot_time_of_day is not None:
@@ -1030,6 +1041,7 @@ class DiskLocationArgs:
                  region_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Location of a resource.
+
         :param pulumi.Input[_builtins.str] availability_zone: The Availability Zone in which to create your disk. Use the following format: us-east-2a (case sensitive). Be sure to add the include Availability Zones parameter to your request.
         :param pulumi.Input[_builtins.str] region_name: The Region Name in which to create your disk.
         """
@@ -1088,6 +1100,7 @@ class InstanceAddOnArgs:
                  status: Optional[pulumi.Input['InstanceAddOnStatus']] = None):
         """
         A addon associate with a resource.
+
         :param pulumi.Input[_builtins.str] add_on_type: The add-on type
         :param pulumi.Input['InstanceAutoSnapshotAddOnArgs'] auto_snapshot_add_on_request: The parameters for the automatic snapshot add-on, such as the daily time when an automatic snapshot will be created.
         :param pulumi.Input['InstanceAddOnStatus'] status: Status of the Addon
@@ -1150,6 +1163,7 @@ class InstanceAutoSnapshotAddOnArgs:
                  snapshot_time_of_day: Optional[pulumi.Input[_builtins.str]] = None):
         """
         An object that represents additional parameters when enabling or modifying the automatic snapshot add-on
+
         :param pulumi.Input[_builtins.str] snapshot_time_of_day: The daily time when an automatic snapshot will be created.
         """
         if snapshot_time_of_day is not None:
@@ -1213,6 +1227,7 @@ class InstanceDiskArgs:
                  size_in_gb: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Disk associated with the Instance.
+
         :param pulumi.Input[_builtins.str] disk_name: The names to use for your new Lightsail disk.
         :param pulumi.Input[_builtins.str] path: Path of the disk attached to the instance.
         :param pulumi.Input[_builtins.str] attached_to: Instance attached to the disk.
@@ -1344,6 +1359,7 @@ class InstanceHardwareArgs:
                  ram_size_in_gb: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Hardware of the Instance.
+
         :param pulumi.Input[_builtins.int] cpu_count: CPU count of the Instance.
         :param pulumi.Input[Sequence[pulumi.Input['InstanceDiskArgs']]] disks: Disks attached to the Instance.
         :param pulumi.Input[_builtins.int] ram_size_in_gb: RAM Size of the Instance.
@@ -1412,6 +1428,7 @@ class InstanceLocationArgs:
                  region_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Location of a resource.
+
         :param pulumi.Input[_builtins.str] availability_zone: The Availability Zone in which to create your instance. Use the following format: us-east-2a (case sensitive). Be sure to add the include Availability Zones parameter to your request.
         :param pulumi.Input[_builtins.str] region_name: The Region Name in which to create your instance.
         """
@@ -1460,6 +1477,7 @@ class InstanceMonthlyTransferArgs:
                  gb_per_month_allocated: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Monthly Transfer of the Instance.
+
         :param pulumi.Input[_builtins.str] gb_per_month_allocated: GbPerMonthAllocated of the Instance.
         """
         if gb_per_month_allocated is not None:
@@ -1498,6 +1516,7 @@ class InstanceNetworkingArgs:
                  monthly_transfer: Optional[pulumi.Input['InstanceMonthlyTransferArgs']] = None):
         """
         Networking of the Instance.
+
         :param pulumi.Input[Sequence[pulumi.Input['InstancePortArgs']]] ports: Ports to the Instance.
         :param pulumi.Input['InstanceMonthlyTransferArgs'] monthly_transfer: The monthly amount of data transfer, in GB, allocated for the instance
         """
@@ -1601,6 +1620,7 @@ class InstancePortArgs:
                  to_port: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Port of the Instance.
+
         :param pulumi.Input[_builtins.str] access_direction: Access Direction for Protocol of the Instance(inbound/outbound).
         :param pulumi.Input[_builtins.str] access_from: Access From Protocol of the Instance.
         :param pulumi.Input[_builtins.str] access_type: Access Type Protocol of the Instance.
@@ -1796,6 +1816,7 @@ class InstanceStateArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Current State of the Instance.
+
         :param pulumi.Input[_builtins.int] code: Status code of the Instance.
         :param pulumi.Input[_builtins.str] name: Status code of the Instance.
         """

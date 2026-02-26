@@ -28,6 +28,7 @@ class DestinationArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Destination resource.
+
         :param pulumi.Input[_builtins.str] role_arn: The ARN of an IAM role that permits CloudWatch Logs to send data to the specified AWS resource
         :param pulumi.Input[_builtins.str] target_arn: The ARN of the physical target where the log events are delivered (for example, a Kinesis stream)
         :param pulumi.Input[_builtins.str] destination_name: The name of the destination resource
@@ -119,6 +120,7 @@ class Destination(pulumi.CustomResource):
         """
         The AWS::Logs::Destination resource specifies a CloudWatch Logs destination. A destination encapsulates a physical resource (such as an Amazon Kinesis data stream) and enables you to subscribe that resource to a stream of log events.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] destination_name: The name of the destination resource
@@ -135,6 +137,7 @@ class Destination(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The AWS::Logs::Destination resource specifies a CloudWatch Logs destination. A destination encapsulates a physical resource (such as an Amazon Kinesis data stream) and enables you to subscribe that resource to a stream of log events.
+
 
         :param str resource_name: The name of the resource.
         :param DestinationArgs args: The arguments to use to populate this resource's properties.

@@ -28,6 +28,7 @@ class StudioLifecycleConfigArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]] = None):
         """
         The set of arguments for constructing a StudioLifecycleConfig resource.
+
         :param pulumi.Input['StudioLifecycleConfigAppType'] studio_lifecycle_config_app_type: The App type that the Lifecycle Configuration is attached to.
         :param pulumi.Input[_builtins.str] studio_lifecycle_config_content: The content of your Amazon SageMaker Studio Lifecycle Configuration script. This content must be base64 encoded.
         :param pulumi.Input[_builtins.str] studio_lifecycle_config_name: The name of the Amazon SageMaker Studio Lifecycle Configuration.
@@ -103,6 +104,7 @@ class StudioLifecycleConfig(pulumi.CustomResource):
         """
         Resource Type definition for AWS::SageMaker::StudioLifecycleConfig
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input['StudioLifecycleConfigAppType'] studio_lifecycle_config_app_type: The App type that the Lifecycle Configuration is attached to.
@@ -118,6 +120,7 @@ class StudioLifecycleConfig(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::SageMaker::StudioLifecycleConfig
+
 
         :param str resource_name: The name of the resource.
         :param StudioLifecycleConfigArgs args: The arguments to use to populate this resource's properties.

@@ -55,6 +55,7 @@ class ProactiveEngagementEmergencyContact(dict):
                  phone_number: Optional[_builtins.str] = None):
         """
         An emergency contact is used by Shield Response Team (SRT) to contact you for escalations to the SRT and to initiate proactive customer support. An emergency contact requires an email address.
+
         :param _builtins.str email_address: The email address for the contact.
         :param _builtins.str contact_notes: Additional notes regarding the contact.
         :param _builtins.str phone_number: The phone number for the contact
@@ -100,6 +101,7 @@ class ProtectionApplicationLayerAutomaticResponseConfiguration(dict):
                  status: 'ProtectionApplicationLayerAutomaticResponseConfigurationStatus'):
         """
         The automatic application layer DDoS mitigation settings for a Protection. This configuration determines whether Shield Advanced automatically manages rules in the web ACL in order to respond to application layer events that Shield Advanced determines to be DDoS attacks.
+
         :param Union['ProtectionApplicationLayerAutomaticResponseConfigurationAction0Properties', 'ProtectionApplicationLayerAutomaticResponseConfigurationAction1Properties'] action: Specifies the action setting that Shield Advanced should use in the AWS WAF rules that it creates on behalf of the protected resource in response to DDoS attacks. You specify this as part of the configuration for the automatic application layer DDoS mitigation feature, when you enable or update automatic mitigation. Shield Advanced creates the AWS WAF rules in a Shield Advanced-managed rule group, inside the web ACL that you have associated with the resource.
         :param 'ProtectionApplicationLayerAutomaticResponseConfigurationStatus' status: Indicates whether automatic application layer DDoS mitigation is enabled for the protection.
         """
@@ -132,6 +134,7 @@ class ProtectionApplicationLayerAutomaticResponseConfigurationAction0Properties(
                  count: Optional[Any] = None):
         """
         Specifies the action setting that Shield Advanced should use in the AWS WAF rules that it creates on behalf of the protected resource in response to DDoS attacks. You specify this as part of the configuration for the automatic application layer DDoS mitigation feature, when you enable or update automatic mitigation. Shield Advanced creates the AWS WAF rules in a Shield Advanced-managed rule group, inside the web ACL that you have associated with the resource.
+
         :param Any count: Specifies that Shield Advanced should configure its AWS WAF rules with the AWS WAF `Count` action.
                You must specify exactly one action, either `Block` or `Count`.
         """
@@ -157,6 +160,7 @@ class ProtectionApplicationLayerAutomaticResponseConfigurationAction1Properties(
                  block: Optional[Any] = None):
         """
         Specifies the action setting that Shield Advanced should use in the AWS WAF rules that it creates on behalf of the protected resource in response to DDoS attacks. You specify this as part of the configuration for the automatic application layer DDoS mitigation feature, when you enable or update automatic mitigation. Shield Advanced creates the AWS WAF rules in a Shield Advanced-managed rule group, inside the web ACL that you have associated with the resource.
+
         :param Any block: Specifies that Shield Advanced should configure its AWS WAF rules with the AWS WAF `Block` action.
                You must specify exactly one action, either `Block` or `Count`.
         """

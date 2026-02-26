@@ -29,6 +29,7 @@ class CodeSecurityScanConfigurationInitArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a CodeSecurityScanConfiguration resource.
+
         :param pulumi.Input['CodeSecurityScanConfigurationArgs'] configuration: Code Security Scan Configuration
         :param pulumi.Input['CodeSecurityScanConfigurationConfigurationLevel'] level: Configuration Level
         :param pulumi.Input[_builtins.str] name: Code Security Scan Configuration name
@@ -122,6 +123,7 @@ class CodeSecurityScanConfiguration(pulumi.CustomResource):
         """
         Inspector CodeSecurityScanConfiguration resource schema
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['CodeSecurityScanConfigurationArgs', 'CodeSecurityScanConfigurationArgsDict']] configuration: Code Security Scan Configuration
@@ -138,6 +140,7 @@ class CodeSecurityScanConfiguration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Inspector CodeSecurityScanConfiguration resource schema
+
 
         :param str resource_name: The name of the resource.
         :param CodeSecurityScanConfigurationInitArgs args: The arguments to use to populate this resource's properties.

@@ -27,6 +27,7 @@ class PublicTypeVersionArgs:
                  type_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a PublicTypeVersion resource.
+
         :param pulumi.Input[_builtins.str] arn: The Amazon Resource Number (ARN) of the extension.
         :param pulumi.Input[_builtins.str] log_delivery_bucket: A url to the S3 bucket where logs for the testType run will be available
         :param pulumi.Input[_builtins.str] public_version_number: The version number of a public third-party extension
@@ -124,6 +125,7 @@ class PublicTypeVersion(pulumi.CustomResource):
         """
         Test and Publish a resource that has been registered in the CloudFormation Registry.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: The Amazon Resource Number (ARN) of the extension.
@@ -142,6 +144,7 @@ class PublicTypeVersion(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Test and Publish a resource that has been registered in the CloudFormation Registry.
+
 
         :param str resource_name: The name of the resource.
         :param PublicTypeVersionArgs args: The arguments to use to populate this resource's properties.

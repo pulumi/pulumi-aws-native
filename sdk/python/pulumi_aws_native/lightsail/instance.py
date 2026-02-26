@@ -38,6 +38,7 @@ class InstanceArgs:
                  user_data: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Instance resource.
+
         :param pulumi.Input[_builtins.str] blueprint_id: The ID for a virtual private server image (e.g., app_wordpress_4_4 or app_lamp_7_0 ). Use the get blueprints operation to return a list of available images (or blueprints ).
         :param pulumi.Input[_builtins.str] bundle_id: The bundle of specification information for your virtual private server (or instance ), including the pricing plan (e.g., micro_1_0 ).
         :param pulumi.Input[Sequence[pulumi.Input['InstanceAddOnArgs']]] add_ons: An array of objects representing the add-ons to enable for the new instance.
@@ -253,6 +254,7 @@ class Instance(pulumi.CustomResource):
         """
         Resource Type definition for AWS::Lightsail::Instance
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['InstanceAddOnArgs', 'InstanceAddOnArgsDict']]]] add_ons: An array of objects representing the add-ons to enable for the new instance.
@@ -282,6 +284,7 @@ class Instance(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::Lightsail::Instance
+
 
         :param str resource_name: The name of the resource.
         :param InstanceArgs args: The arguments to use to populate this resource's properties.

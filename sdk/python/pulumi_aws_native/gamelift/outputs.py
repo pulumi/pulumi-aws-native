@@ -220,6 +220,7 @@ class ContainerFleetConnectionPortRange(dict):
                  to_port: _builtins.int):
         """
         Defines the range of ports on the instance that allow inbound traffic to connect with containers in a fleet.
+
         :param _builtins.int from_port: A starting value for a range of allowed port numbers.
         :param _builtins.int to_port: An ending value for a range of allowed port numbers. Port numbers are end-inclusive. This value must be higher than FromPort.
         """
@@ -275,6 +276,7 @@ class ContainerFleetDeploymentConfiguration(dict):
                  protection_strategy: Optional['ContainerFleetDeploymentConfigurationProtectionStrategy'] = None):
         """
         Provides details about how to drain old tasks and replace them with new updated tasks.
+
         :param 'ContainerFleetDeploymentConfigurationImpairmentStrategy' impairment_strategy: The strategy to apply in case of impairment; defaults to MAINTAIN.
         :param _builtins.int minimum_healthy_percentage: The minimum percentage of healthy required; defaults to 75.
         :param 'ContainerFleetDeploymentConfigurationProtectionStrategy' protection_strategy: The protection strategy for deployment on the container fleet; defaults to WITH_PROTECTION.
@@ -337,6 +339,7 @@ class ContainerFleetDeploymentDetails(dict):
                  latest_deployment_id: Optional[_builtins.str] = None):
         """
         Provides information about the last deployment ID and its status.
+
         :param _builtins.str latest_deployment_id: The ID of the last deployment on the container fleet. This field will be empty if the container fleet does not have a ContainerGroupDefinition attached.
         """
         if latest_deployment_id is not None:
@@ -384,6 +387,7 @@ class ContainerFleetGameSessionCreationLimitPolicy(dict):
         A policy that limits the number of game sessions a player can create on the same fleet. This optional policy gives game owners control over how players can consume available game server resources. A resource creation policy makes the following statement: "An individual player can create a maximum number of new game sessions within a specified time period".
 
         The policy is evaluated when a player tries to create a new game session. For example, assume you have a policy of 10 new game sessions and a time period of 60 minutes. On receiving a CreateGameSession request, Amazon GameLift checks that the player (identified by CreatorId) has created fewer than 10 game sessions in the past 60 minutes.
+
         :param _builtins.int new_game_sessions_per_creator: The maximum number of game sessions that an individual can create during the policy period.
         :param _builtins.int policy_period_in_minutes: The time span used in evaluating the resource creation limit policy.
         """
@@ -442,6 +446,7 @@ class ContainerFleetIpPermission(dict):
                  to_port: _builtins.int):
         """
         A range of IP addresses and port settings that allow inbound traffic to connect to server processes on an Amazon GameLift hosting resource. New game sessions that are started on the fleet are assigned an IP address/port number combination, which must fall into the fleet's allowed ranges. For fleets created with a custom game server, the ranges reflect the server's game session assignments. For Realtime Servers fleets, Amazon GameLift automatically opens two port ranges, one for TCP messaging and one for UDP, for use by the Realtime servers.
+
         :param _builtins.int from_port: A starting value for a range of allowed port numbers.
         :param _builtins.str ip_range: A range of allowed IP addresses. This value must be expressed in CIDR notation. Example: "000.000.000.000/[subnet mask]" or optionally the shortened version "0.0.0.0/[subnet mask]".
         :param 'ContainerFleetIpPermissionProtocol' protocol: The network communication protocol used by the fleet.
@@ -520,6 +525,7 @@ class ContainerFleetLocationCapacity(dict):
                  min_size: Optional[_builtins.int] = None):
         """
         Current resource capacity settings in a specified fleet or location. The location value might refer to a fleet's remote location or its home Region.
+
         :param _builtins.int max_size: The maximum value that is allowed for the fleet's instance count for a location.
         :param _builtins.int desired_ec2_instances: Defaults to MinSize if not defined. The number of EC2 instances you want to maintain in the specified fleet location. This value must fall between the minimum and maximum size limits. If any auto-scaling policy is defined for the container fleet, the desired instance will only be applied once during fleet creation and will be ignored in updates to avoid conflicts with auto-scaling. During updates with any auto-scaling policy defined, if current desired instance is lower than the new MinSize, it will be increased to the new MinSize; if current desired instance is larger than the new MaxSize, it will be decreased to the new MaxSize.
         :param 'ContainerFleetManagedCapacityConfiguration' managed_capacity_configuration: Configuration options for Amazon GameLift Servers-managed capacity behavior.
@@ -596,6 +602,7 @@ class ContainerFleetLocationConfiguration(dict):
                  stopped_actions: Optional[Sequence['ContainerFleetStoppedActionsItem']] = None):
         """
         A remote location where a multi-location fleet can deploy EC2 instances for game hosting.
+
         :param _builtins.str location: An AWS Region code, such as `us-west-2` . For a list of supported Regions and Local Zones, see [Amazon GameLift Servers service locations](https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-regions.html) for managed hosting.
         """
         pulumi.set(__self__, "location", location)
@@ -655,6 +662,7 @@ class ContainerFleetLogConfiguration(dict):
                  s3_bucket_name: Optional[_builtins.str] = None):
         """
         A policy the location and provider of logs from the fleet.
+
         :param 'ContainerFleetLogDestination' log_destination: The type of log collection to use for a fleet.
                
                - `CLOUDWATCH` -- (default value) Send logs to an Amazon CloudWatch log group that you define. Each container emits a log stream, which is organized in the log group.
@@ -728,6 +736,7 @@ class ContainerFleetManagedCapacityConfiguration(dict):
                  scale_in_after_inactivity_minutes: Optional[_builtins.int] = None):
         """
         Configuration options for Amazon GameLift Servers managed capacity behavior.
+
         :param 'ContainerFleetManagedCapacityConfigurationZeroCapacityStrategy' zero_capacity_strategy: The strategy Amazon GameLift Servers will use to automatically scale your capacity to and from zero in response to game session activity. Game session activity refers to any active running sessions or game session requests. When set to SCALE_TO_AND_FROM_ZERO, MinSize must not be specified and will be managed automatically. When set to MANUAL, MinSize is required.
         :param _builtins.int scale_in_after_inactivity_minutes: Length of time, in minutes, that Amazon GameLift Servers will wait before scaling in your MinSize and DesiredInstances to 0 after a period with no game session activity.
         """
@@ -798,6 +807,7 @@ class ContainerFleetScalingPolicy(dict):
                  threshold: Optional[_builtins.float] = None):
         """
         Rule that controls how a fleet is scaled. Scaling policies are uniquely identified by the combination of name and fleet ID.
+
         :param 'ContainerFleetScalingPolicyMetricName' metric_name: Name of the Amazon GameLift-defined metric that is used to trigger a scaling adjustment.
         :param _builtins.str name: A descriptive label that is associated with a fleet's scaling policy. Policy names do not need to be unique.
         :param 'ContainerFleetScalingPolicyComparisonOperator' comparison_operator: Comparison operator to use when measuring a metric against the threshold value.
@@ -924,6 +934,7 @@ class ContainerFleetTargetConfiguration(dict):
                  target_value: _builtins.float):
         """
         Settings for a target-based scaling policy. A target-based policy tracks a particular fleet metric specifies a target value for the metric. As player usage changes, the policy triggers Amazon GameLift to adjust capacity so that the metric returns to the target value. The target configuration specifies settings as needed for the target based policy, including the target value.
+
         :param _builtins.float target_value: Desired value to use with a target-based scaling policy. The value must be relevant for whatever metric the scaling policy is using. For example, in a policy using the metric PercentAvailableGameSessions, the target value should be the preferred size of the fleet's buffer (the percent of capacity that should be idle and ready for new game sessions).
         """
         pulumi.set(__self__, "target_value", target_value)
@@ -964,6 +975,7 @@ class ContainerGroupDefinitionContainerDependency(dict):
                  container_name: _builtins.str):
         """
         A dependency that impacts a container's startup and shutdown.
+
         :param 'ContainerGroupDefinitionContainerDependencyCondition' condition: The type of dependency.
         :param _builtins.str container_name: A descriptive label for the container definition. The container being defined depends on this container's condition.
         """
@@ -997,6 +1009,7 @@ class ContainerGroupDefinitionContainerEnvironment(dict):
                  value: _builtins.str):
         """
         An environment variable to set inside a container, in the form of a key-value pair.
+
         :param _builtins.str name: The environment variable name.
         :param _builtins.str value: The environment variable value.
         """
@@ -1050,6 +1063,7 @@ class ContainerGroupDefinitionContainerHealthCheck(dict):
                  timeout: Optional[_builtins.int] = None):
         """
         Specifies how the process manager checks the health of containers.
+
         :param Sequence[_builtins.str] command: A string array representing the command that the container runs to determine if it is healthy.
         :param _builtins.int interval: How often (in seconds) the health is checked.
         :param _builtins.int retries: How many times the process manager will retry the command after a timeout. (The first run of the command does not count as a retry.)
@@ -1139,6 +1153,7 @@ class ContainerGroupDefinitionContainerMountPoint(dict):
                  container_path: Optional[_builtins.str] = None):
         """
         Defines the mount point configuration within a container.
+
         :param _builtins.str instance_path: The path on the host that will be mounted in the container.
         :param 'ContainerGroupDefinitionContainerMountPointAccessLevel' access_level: The access permissions for the mounted path.
         :param _builtins.str container_path: The path inside the container where the mount is accessible.
@@ -1204,6 +1219,7 @@ class ContainerGroupDefinitionContainerPortRange(dict):
                  to_port: _builtins.int):
         """
         A set of one or more port numbers that can be opened on the container.
+
         :param _builtins.int from_port: A starting value for the range of allowed port numbers.
         :param 'ContainerGroupDefinitionContainerPortRangeProtocol' protocol: Defines the protocol of these ports.
         :param _builtins.int to_port: An ending value for the range of allowed port numbers. Port numbers are end-inclusive. This value must be equal to or greater than FromPort.
@@ -1284,6 +1300,7 @@ class ContainerGroupDefinitionGameServerContainerDefinition(dict):
                  resolved_image_digest: Optional[_builtins.str] = None):
         """
         Specifies the information required to run game servers with this container group
+
         :param _builtins.str container_name: A descriptive label for the container definition. Container definition names must be unique with a container group definition.
         :param _builtins.str image_uri: Specifies the image URI of this container.
         :param _builtins.str server_sdk_version: The version of the server SDK used in this container group
@@ -1398,6 +1415,7 @@ class ContainerGroupDefinitionPortConfiguration(dict):
                  container_port_ranges: Sequence['outputs.ContainerGroupDefinitionContainerPortRange']):
         """
         Defines the ports on a container.
+
         :param Sequence['ContainerGroupDefinitionContainerPortRange'] container_port_ranges: Specifies one or more ranges of ports on a container.
         """
         pulumi.set(__self__, "container_port_ranges", container_port_ranges)
@@ -1463,6 +1481,7 @@ class ContainerGroupDefinitionSupportContainerDefinition(dict):
                  vcpu: Optional[_builtins.float] = None):
         """
         Supports the function of the main container group
+
         :param _builtins.str container_name: A descriptive label for the container definition.
         :param _builtins.str image_uri: Specifies the image URI of this container.
         :param Sequence['ContainerGroupDefinitionContainerDependency'] depends_on: A list of container dependencies that determines when this container starts up and shuts down. For container groups with multiple containers, dependencies let you define a startup/shutdown sequence across the containers.
@@ -1594,6 +1613,7 @@ class FleetAnywhereConfiguration(dict):
                  cost: _builtins.str):
         """
         Configuration for Anywhere fleet.
+
         :param _builtins.str cost: Cost of compute can be specified on Anywhere Fleets to prioritize placement across Queue destinations based on Cost.
         """
         pulumi.set(__self__, "cost", cost)
@@ -1633,6 +1653,7 @@ class FleetCertificateConfiguration(dict):
                  certificate_type: 'FleetCertificateConfigurationCertificateType'):
         """
         Information about the use of a TLS/SSL certificate for a fleet. TLS certificate generation is enabled at the fleet level, with one certificate generated for the fleet. When this feature is enabled, the certificate can be retrieved using the GameLift Server SDK call GetInstanceCertificate. All instances in a fleet share the same certificate.
+
         :param 'FleetCertificateConfigurationCertificateType' certificate_type: Indicates whether a TLS/SSL certificate is generated for a fleet.
                
                Valid values include:
@@ -1689,6 +1710,7 @@ class FleetIpPermission(dict):
                  to_port: _builtins.int):
         """
         A range of IP addresses and port settings that allow inbound traffic to connect to server processes on an Amazon GameLift hosting resource. New game sessions that are started on the fleet are assigned an IP address/port number combination, which must fall into the fleet's allowed ranges. For fleets created with a custom game server, the ranges reflect the server's game session assignments. For Realtime Servers fleets, Amazon GameLift automatically opens two port ranges, one for TCP messaging and one for UDP, for use by the Realtime servers.
+
         :param _builtins.int from_port: A starting value for a range of allowed port numbers.
         :param _builtins.str ip_range: A range of allowed IP addresses. This value must be expressed in CIDR notation. Example: "000.000.000.000/[subnet mask]" or optionally the shortened version "0.0.0.0/[subnet mask]".
         :param 'FleetIpPermissionProtocol' protocol: The network communication protocol used by the fleet.
@@ -1767,6 +1789,7 @@ class FleetLocationCapacity(dict):
                  min_size: Optional[_builtins.int] = None):
         """
         Current resource capacity settings in a specified fleet or location. The location value might refer to a fleet's remote location or its home Region.
+
         :param _builtins.int max_size: The maximum value that is allowed for the fleet's instance count for a location. When creating a new fleet, GameLift automatically sets this value to "1". Once the fleet is active, you can change this value.
         :param _builtins.int desired_ec2_instances: Defaults to MinSize if not defined. The number of EC2 instances you want to maintain in the specified fleet location. This value must fall between the minimum and maximum size limits.
         :param 'FleetManagedCapacityConfiguration' managed_capacity_configuration: Configuration options for Amazon GameLift Servers-managed capacity behavior.
@@ -1840,6 +1863,7 @@ class FleetLocationConfiguration(dict):
                  location_capacity: Optional['outputs.FleetLocationCapacity'] = None):
         """
         A remote location where a multi-location fleet can deploy EC2 instances for game hosting.
+
         :param _builtins.str location: An AWS Region code, such as `us-west-2` . For a list of supported Regions and Local Zones, see [Amazon GameLift Servers service locations](https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-regions.html) for managed hosting.
         :param 'FleetLocationCapacity' location_capacity: Current resource capacity settings for managed EC2 fleets and managed container fleets. For multi-location fleets, location values might refer to a fleet's remote location or its home Region.
                
@@ -1897,6 +1921,7 @@ class FleetManagedCapacityConfiguration(dict):
                  scale_in_after_inactivity_minutes: Optional[_builtins.int] = None):
         """
         Configuration options for Amazon GameLift Servers-managed capacity behavior.
+
         :param 'FleetManagedCapacityConfigurationZeroCapacityStrategy' zero_capacity_strategy: The strategy Amazon GameLift Servers will use to automatically scale your capacity to and from zero in response to game session activity. Game session activity refers to any active running sessions or game session requests. When set to SCALE_TO_AND_FROM_ZERO, MinSize must not be specified and will be managed automatically. When set to MANUAL, MinSize is required.
         :param _builtins.int scale_in_after_inactivity_minutes: Length of time, in minutes, that Amazon GameLift Servers will wait before scaling in your MinSize and DesiredInstances to 0 after a period with no game session activity.
         """
@@ -1954,6 +1979,7 @@ class FleetResourceCreationLimitPolicy(dict):
         A policy that limits the number of game sessions a player can create on the same fleet. This optional policy gives game owners control over how players can consume available game server resources. A resource creation policy makes the following statement: "An individual player can create a maximum number of new game sessions within a specified time period".
 
         The policy is evaluated when a player tries to create a new game session. For example, assume you have a policy of 10 new game sessions and a time period of 60 minutes. On receiving a CreateGameSession request, Amazon GameLift checks that the player (identified by CreatorId) has created fewer than 10 game sessions in the past 60 minutes.
+
         :param _builtins.int new_game_sessions_per_creator: The maximum number of game sessions that an individual can create during the policy period.
         :param _builtins.int policy_period_in_minutes: The time span used in evaluating the resource creation limit policy.
         """
@@ -2019,6 +2045,7 @@ class FleetRuntimeConfiguration(dict):
         The runtime configuration enables the instances in a fleet to run multiple processes simultaneously. Potential scenarios are as follows: (1) Run multiple processes of a single game server executable to maximize usage of your hosting resources. (2) Run one or more processes of different executables, such as your game server and a metrics tracking program. (3) Run multiple processes of a single game server but with different launch parameters, for example to run one process on each instance in debug mode.
 
         An Amazon GameLift instance is limited to 50 processes running simultaneously. A runtime configuration must specify fewer than this limit. To calculate the total number of processes specified in a runtime configuration, add the values of the ConcurrentExecutions parameter for each ServerProcess object in the runtime configuration.
+
         :param _builtins.int game_session_activation_timeout_seconds: The maximum amount of time (in seconds) that a game session can remain in status ACTIVATING. If the game session is not active before the timeout, activation is terminated and the game session status is changed to TERMINATED.
         :param _builtins.int max_concurrent_game_session_activations: The maximum number of game sessions with status ACTIVATING to allow on an instance simultaneously. This setting limits the amount of instance resources that can be used for new game activations at any one time.
         :param Sequence['FleetServerProcess'] server_processes: A collection of server process configurations that describe which server processes to run on each instance in a fleet.
@@ -2106,6 +2133,7 @@ class FleetScalingPolicy(dict):
                  update_status: Optional['FleetScalingPolicyUpdateStatus'] = None):
         """
         Rule that controls how a fleet is scaled. Scaling policies are uniquely identified by the combination of name and fleet ID.
+
         :param 'FleetScalingPolicyMetricName' metric_name: Name of the Amazon GameLift-defined metric that is used to trigger a scaling adjustment.
         :param _builtins.str name: A descriptive label that is associated with a fleet's scaling policy. Policy names do not need to be unique.
         :param 'FleetScalingPolicyComparisonOperator' comparison_operator: Comparison operator to use when measuring a metric against the threshold value.
@@ -2269,6 +2297,7 @@ class FleetServerProcess(dict):
                  parameters: Optional[_builtins.str] = None):
         """
         A set of instructions for launching server processes on each instance in a fleet. Each instruction set identifies the location of the server executable, optional launch parameters, and the number of server processes with this configuration to maintain concurrently on the instance. Server process configurations make up a fleet's RuntimeConfiguration.
+
         :param _builtins.int concurrent_executions: The number of server processes that use this configuration to run concurrently on an instance.
         :param _builtins.str launch_path: The location of the server executable in a custom game build or the name of the Realtime script file that contains the Init() function. Game builds and Realtime scripts are installed on instances at the root:
                
@@ -2337,6 +2366,7 @@ class FleetTargetConfiguration(dict):
                  target_value: _builtins.float):
         """
         Settings for a target-based scaling policy. A target-based policy tracks a particular fleet metric specifies a target value for the metric. As player usage changes, the policy triggers Amazon GameLift to adjust capacity so that the metric returns to the target value. The target configuration specifies settings as needed for the target based policy, including the target value.
+
         :param _builtins.float target_value: Desired value to use with a target-based scaling policy. The value must be relevant for whatever metric the scaling policy is using. For example, in a policy using the metric PercentAvailableGameSessions, the target value should be the preferred size of the fleet's buffer (the percent of capacity that should be idle and ready for new game sessions).
         """
         pulumi.set(__self__, "target_value", target_value)
@@ -2379,6 +2409,7 @@ class GameServerGroupAutoScalingPolicy(dict):
                  estimated_instance_warmup: Optional[_builtins.float] = None):
         """
         Configuration settings to define a scaling policy for the Auto Scaling group that is optimized for game hosting. Updating this game server group property will not take effect for the created EC2 Auto Scaling group, please update the EC2 Auto Scaling group directly after creating the resource.
+
         :param 'GameServerGroupTargetTrackingConfiguration' target_tracking_configuration: Settings for a target-based scaling policy applied to Auto Scaling group. These settings are used to create a target-based policy that tracks the GameLift FleetIQ metric `PercentUtilizedGameServers` and specifies a target value for the metric. As player usage changes, the policy triggers to adjust the game server group capacity so that the metric returns to the target value.
         :param _builtins.float estimated_instance_warmup: Length of time, in seconds, it takes for a new instance to start new game server processes and register with Amazon GameLift Servers FleetIQ. Specifying a warm-up time can be useful, particularly with game servers that take a long time to start up, because it avoids prematurely starting new instances.
         """
@@ -2478,6 +2509,7 @@ class GameServerGroupLaunchTemplate(dict):
                  version: Optional[_builtins.str] = None):
         """
         The EC2 launch template that contains configuration settings and game server code to be deployed to all instances in the game server group. Updating this game server group property will not take effect for the created EC2 Auto Scaling group, please update the EC2 Auto Scaling group directly after creating the resource.
+
         :param _builtins.str launch_template_id: A unique identifier for an existing Amazon EC2 launch template.
         :param _builtins.str launch_template_name: A readable identifier for an existing Amazon EC2 launch template.
         :param _builtins.str version: The version of the Amazon EC2 launch template to use. If no version is specified, the default version will be used. With Amazon EC2, you can specify a default version for a launch template. If none is set, the default is the first version created.
@@ -2540,6 +2572,7 @@ class GameServerGroupTargetTrackingConfiguration(dict):
                  target_value: _builtins.float):
         """
         Settings for a target-based scaling policy applied to Auto Scaling group.
+
         :param _builtins.float target_value: Desired value to use with a game server group target-based scaling policy.
         """
         pulumi.set(__self__, "target_value", target_value)
@@ -2579,6 +2612,7 @@ class GameSessionQueueDestination(dict):
                  destination_arn: Optional[_builtins.str] = None):
         """
         A fleet or alias designated in a game session queue.
+
         :param _builtins.str destination_arn: The Amazon Resource Name (ARN) that is assigned to fleet or fleet alias. ARNs, which include a fleet ID or alias ID and a Region name, provide a unique identifier across all Regions.
         """
         if destination_arn is not None:
@@ -2658,6 +2692,7 @@ class GameSessionQueuePlayerLatencyPolicy(dict):
                  policy_duration_seconds: Optional[_builtins.int] = None):
         """
         Sets a latency cap for individual players when placing a game session.
+
         :param _builtins.int maximum_individual_player_latency_milliseconds: The maximum latency value that is allowed for any player, in milliseconds. All policies must have a value set for this property.
         :param _builtins.int policy_duration_seconds: The length of time, in seconds, that the policy is enforced while placing a new game session.
         """
@@ -2753,6 +2788,7 @@ class MatchmakingConfigurationGameProperty(dict):
                  value: _builtins.str):
         """
         A key-value pair that contains information about a game session.
+
         :param _builtins.str key: The game property identifier.
         :param _builtins.str value: The game property value.
         """

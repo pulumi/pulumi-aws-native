@@ -29,6 +29,7 @@ class LifecycleHookArgs:
                  role_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a LifecycleHook resource.
+
         :param pulumi.Input[_builtins.str] auto_scaling_group_name: The name of the Auto Scaling group for the lifecycle hook.
         :param pulumi.Input[_builtins.str] lifecycle_transition: The instance state to which you want to attach the lifecycle hook.
         :param pulumi.Input[_builtins.str] default_result: The action the Auto Scaling group takes when the lifecycle hook timeout elapses or if an unexpected failure occurs. The valid values are CONTINUE and ABANDON (default).
@@ -168,6 +169,7 @@ class LifecycleHook(pulumi.CustomResource):
         """
         Resource Type definition for AWS::AutoScaling::LifecycleHook
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] auto_scaling_group_name: The name of the Auto Scaling group for the lifecycle hook.
@@ -187,6 +189,7 @@ class LifecycleHook(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::AutoScaling::LifecycleHook
+
 
         :param str resource_name: The name of the resource.
         :param LifecycleHookArgs args: The arguments to use to populate this resource's properties.

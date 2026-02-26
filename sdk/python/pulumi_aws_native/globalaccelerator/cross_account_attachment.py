@@ -29,6 +29,7 @@ class CrossAccountAttachmentArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a CrossAccountAttachment resource.
+
         :param pulumi.Input[_builtins.str] name: The Friendly identifier of the attachment.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] principals: Principals to share the resources with.
         :param pulumi.Input[Sequence[pulumi.Input['CrossAccountAttachmentResourceArgs']]] resources: Resources shared using the attachment.
@@ -110,6 +111,7 @@ class CrossAccountAttachment(pulumi.CustomResource):
         """
         Resource Type definition for AWS::GlobalAccelerator::CrossAccountAttachment
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: The Friendly identifier of the attachment.
@@ -127,6 +129,7 @@ class CrossAccountAttachment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::GlobalAccelerator::CrossAccountAttachment
+
 
         :param str resource_name: The name of the resource.
         :param CrossAccountAttachmentArgs args: The arguments to use to populate this resource's properties.

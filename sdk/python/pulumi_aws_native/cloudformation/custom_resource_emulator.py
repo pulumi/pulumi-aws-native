@@ -27,6 +27,7 @@ class CustomResourceEmulatorArgs:
                  stack_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a CustomResourceEmulator resource.
+
         :param pulumi.Input[_builtins.str] bucket_key_prefix: The prefix to use for the bucket key when storing the response from the Custom Resource provider.
         :param pulumi.Input[_builtins.str] bucket_name: The name of the S3 bucket to use for storing the response from the Custom Resource.
                
@@ -183,6 +184,7 @@ class CustomResourceEmulator(pulumi.CustomResource):
 
         Custom Resources have a default timeout of 60 minutes, matching the CloudFormation timeout for custom resource operations. You can customize it using the [`customTimeouts`](https://www.pulumi.com/docs/iac/concepts/options/customtimeouts/) resource option.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] bucket_key_prefix: The prefix to use for the bucket key when storing the response from the Custom Resource provider.
@@ -244,6 +246,7 @@ class CustomResourceEmulator(pulumi.CustomResource):
         ## Timeouts
 
         Custom Resources have a default timeout of 60 minutes, matching the CloudFormation timeout for custom resource operations. You can customize it using the [`customTimeouts`](https://www.pulumi.com/docs/iac/concepts/options/customtimeouts/) resource option.
+
 
         :param str resource_name: The name of the resource.
         :param CustomResourceEmulatorArgs args: The arguments to use to populate this resource's properties.

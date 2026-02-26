@@ -32,6 +32,7 @@ class SubscriptionTargetArgs:
                  provider: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a SubscriptionTarget resource.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] applicable_asset_types: The asset types that can be included in the subscription target.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] authorized_principals: The authorized principals of the subscription target.
         :param pulumi.Input[_builtins.str] domain_identifier: The ID of the Amazon DataZone domain in which subscription target would be created.
@@ -183,6 +184,7 @@ class SubscriptionTarget(pulumi.CustomResource):
         """
         Subscription targets enables one to access the data to which you have subscribed in your projects.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] applicable_asset_types: The asset types that can be included in the subscription target.
@@ -203,6 +205,7 @@ class SubscriptionTarget(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Subscription targets enables one to access the data to which you have subscribed in your projects.
+
 
         :param str resource_name: The name of the resource.
         :param SubscriptionTargetArgs args: The arguments to use to populate this resource's properties.

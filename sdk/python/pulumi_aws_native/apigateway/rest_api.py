@@ -42,6 +42,7 @@ class RestApiArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a RestApi resource.
+
         :param pulumi.Input[_builtins.str] api_key_source_type: The source of the API key for metering requests according to a usage plan. Valid values are: `HEADER` to read the API key from the `X-API-Key` header of a request. `AUTHORIZER` to read the API key from the `UsageIdentifierKey` from a custom authorizer.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] binary_media_types: The list of binary media types supported by the RestApi. By default, the RestApi supports only UTF-8-encoded text payloads.
         :param Any body: An OpenAPI specification that defines a set of RESTful APIs in JSON format. For YAML templates, you can also provide the specification in YAML format.
@@ -742,6 +743,7 @@ class RestApi(pulumi.CustomResource):
 
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] api_key_source_type: The source of the API key for metering requests according to a usage plan. Valid values are: `HEADER` to read the API key from the `X-API-Key` header of a request. `AUTHORIZER` to read the API key from the `UsageIdentifierKey` from a custom authorizer.
@@ -1176,6 +1178,7 @@ class RestApi(pulumi.CustomResource):
             name=api_name)
 
         ```
+
 
         :param str resource_name: The name of the resource.
         :param RestApiArgs args: The arguments to use to populate this resource's properties.

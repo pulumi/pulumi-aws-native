@@ -28,6 +28,7 @@ class SecurityControlArgs:
                  security_control_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a SecurityControl resource.
+
         :param pulumi.Input[Mapping[str, pulumi.Input['SecurityControlParameterConfigurationArgs']]] parameters: An object that identifies the name of a control parameter, its current value, and whether it has been customized.
         :param pulumi.Input[_builtins.str] last_update_reason: The most recent reason for updating the customizable properties of a security control. This differs from the UpdateReason field of the BatchUpdateStandardsControlAssociations API, which tracks the reason for updating the enablement status of a control. This field accepts alphanumeric characters in addition to white spaces, dashes, and underscores.
         :param pulumi.Input[_builtins.str] security_control_arn: The Amazon Resource Name (ARN) for a security control across standards, such as `arn:aws:securityhub:eu-central-1:123456789012:security-control/S3.1`. This parameter doesn't mention a specific standard.
@@ -104,6 +105,7 @@ class SecurityControl(pulumi.CustomResource):
         """
         A security control in Security Hub describes a security best practice related to a specific resource.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] last_update_reason: The most recent reason for updating the customizable properties of a security control. This differs from the UpdateReason field of the BatchUpdateStandardsControlAssociations API, which tracks the reason for updating the enablement status of a control. This field accepts alphanumeric characters in addition to white spaces, dashes, and underscores.
@@ -119,6 +121,7 @@ class SecurityControl(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A security control in Security Hub describes a security best practice related to a specific resource.
+
 
         :param str resource_name: The name of the resource.
         :param SecurityControlArgs args: The arguments to use to populate this resource's properties.

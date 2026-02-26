@@ -29,6 +29,7 @@ class ConnectorV2Args:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ConnectorV2 resource.
+
         :param pulumi.Input['ConnectorV2ProviderArgs'] provider: The third-party provider detail for a service configuration.
         :param pulumi.Input[_builtins.str] description: A description of the connector
         :param pulumi.Input[_builtins.str] kms_key_arn: The ARN of KMS key used for the connector
@@ -121,6 +122,7 @@ class ConnectorV2(pulumi.CustomResource):
         """
         Resource schema for AWS::SecurityHub::ConnectorV2
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: A description of the connector
@@ -137,6 +139,7 @@ class ConnectorV2(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource schema for AWS::SecurityHub::ConnectorV2
+
 
         :param str resource_name: The name of the resource.
         :param ConnectorV2Args args: The arguments to use to populate this resource's properties.

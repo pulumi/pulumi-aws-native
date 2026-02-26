@@ -30,6 +30,7 @@ class EnvironmentTemplateArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a EnvironmentTemplate resource.
+
         :param pulumi.Input[_builtins.str] description: <p>A description of the environment template.</p>
         :param pulumi.Input[_builtins.str] display_name: <p>The environment template name as displayed in the developer interface.</p>
         :param pulumi.Input[_builtins.str] encryption_key: <p>A customer provided encryption key that Proton uses to encrypt data.</p>
@@ -143,6 +144,7 @@ class EnvironmentTemplate(pulumi.CustomResource):
         """
         Definition of AWS::Proton::EnvironmentTemplate Resource Type
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: <p>A description of the environment template.</p>
@@ -162,6 +164,7 @@ class EnvironmentTemplate(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of AWS::Proton::EnvironmentTemplate Resource Type
+
 
         :param str resource_name: The name of the resource.
         :param EnvironmentTemplateArgs args: The arguments to use to populate this resource's properties.

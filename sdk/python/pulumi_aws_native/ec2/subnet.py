@@ -42,6 +42,7 @@ class SubnetArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Subnet resource.
+
         :param pulumi.Input[_builtins.str] vpc_id: The ID of the VPC the subnet is in.
                 If you update this property, you must also update the ``CidrBlock`` property.
         :param pulumi.Input[_builtins.bool] assign_ipv6_address_on_creation: Indicates whether a network interface created in this subnet receives an IPv6 address. The default value is ``false``.
@@ -350,6 +351,7 @@ class Subnet(pulumi.CustomResource):
          For an IPv4 only subnet, specify an IPv4 CIDR block. If the VPC has an IPv6 CIDR block, you can create an IPv6 only subnet or a dual stack subnet instead. For an IPv6 only subnet, specify an IPv6 CIDR block. For a dual stack subnet, specify both an IPv4 CIDR block and an IPv6 CIDR block.
          For more information, see [Subnets for your VPC](https://docs.aws.amazon.com/vpc/latest/userguide/configure-subnets.html) in the *Amazon VPC User Guide*.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] assign_ipv6_address_on_creation: Indicates whether a network interface created in this subnet receives an IPv6 address. The default value is ``false``.
@@ -391,6 +393,7 @@ class Subnet(pulumi.CustomResource):
         Specifies a subnet for the specified VPC.
          For an IPv4 only subnet, specify an IPv4 CIDR block. If the VPC has an IPv6 CIDR block, you can create an IPv6 only subnet or a dual stack subnet instead. For an IPv6 only subnet, specify an IPv6 CIDR block. For a dual stack subnet, specify both an IPv4 CIDR block and an IPv6 CIDR block.
          For more information, see [Subnets for your VPC](https://docs.aws.amazon.com/vpc/latest/userguide/configure-subnets.html) in the *Amazon VPC User Guide*.
+
 
         :param str resource_name: The name of the resource.
         :param SubnetArgs args: The arguments to use to populate this resource's properties.

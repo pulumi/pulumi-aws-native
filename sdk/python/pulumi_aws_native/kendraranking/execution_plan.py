@@ -29,6 +29,7 @@ class ExecutionPlanArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a ExecutionPlan resource.
+
         :param pulumi.Input['ExecutionPlanCapacityUnitsConfigurationArgs'] capacity_units: Capacity units
         :param pulumi.Input[_builtins.str] description: A description for the execution plan
         :param pulumi.Input[_builtins.str] name: A name for the rescore execution plan.
@@ -106,6 +107,7 @@ class ExecutionPlan(pulumi.CustomResource):
         """
         A KendraRanking Rescore execution plan
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ExecutionPlanCapacityUnitsConfigurationArgs', 'ExecutionPlanCapacityUnitsConfigurationArgsDict']] capacity_units: Capacity units
@@ -121,6 +123,7 @@ class ExecutionPlan(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A KendraRanking Rescore execution plan
+
 
         :param str resource_name: The name of the resource.
         :param ExecutionPlanArgs args: The arguments to use to populate this resource's properties.

@@ -27,6 +27,7 @@ class DocumentationPartArgs:
                  rest_api_id: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a DocumentationPart resource.
+
         :param pulumi.Input['DocumentationPartLocationArgs'] location: The location of the targeted API entity of the to-be-created documentation part.
         :param pulumi.Input[_builtins.str] properties: The new documentation content map of the targeted API entity. Enclosed key-value pairs are API-specific, but only OpenAPI-compliant key-value pairs can be exported and, hence, published.
         :param pulumi.Input[_builtins.str] rest_api_id: The string identifier of the associated RestApi.
@@ -85,6 +86,7 @@ class DocumentationPart(pulumi.CustomResource):
         """
         The ``AWS::ApiGateway::DocumentationPart`` resource creates a documentation part for an API. For more information, see [Representation of API Documentation in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-documenting-api-content-representation.html) in the *API Gateway Developer Guide*.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['DocumentationPartLocationArgs', 'DocumentationPartLocationArgsDict']] location: The location of the targeted API entity of the to-be-created documentation part.
@@ -99,6 +101,7 @@ class DocumentationPart(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The ``AWS::ApiGateway::DocumentationPart`` resource creates a documentation part for an API. For more information, see [Representation of API Documentation in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-documenting-api-content-representation.html) in the *API Gateway Developer Guide*.
+
 
         :param str resource_name: The name of the resource.
         :param DocumentationPartArgs args: The arguments to use to populate this resource's properties.

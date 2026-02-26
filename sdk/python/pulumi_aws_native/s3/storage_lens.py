@@ -28,6 +28,7 @@ class StorageLensArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a StorageLens resource.
+
         :param pulumi.Input['StorageLensConfigurationArgs'] storage_lens_configuration: This resource contains the details Amazon S3 Storage Lens configuration.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A set of tags (key-value pairs) for this Amazon S3 Storage Lens configuration.
         """
@@ -72,6 +73,7 @@ class StorageLens(pulumi.CustomResource):
         """
         The AWS::S3::StorageLens resource is an Amazon S3 resource type that you can use to create Storage Lens configurations.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['StorageLensConfigurationArgs', 'StorageLensConfigurationArgsDict']] storage_lens_configuration: This resource contains the details Amazon S3 Storage Lens configuration.
@@ -85,6 +87,7 @@ class StorageLens(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The AWS::S3::StorageLens resource is an Amazon S3 resource type that you can use to create Storage Lens configurations.
+
 
         :param str resource_name: The name of the resource.
         :param StorageLensArgs args: The arguments to use to populate this resource's properties.

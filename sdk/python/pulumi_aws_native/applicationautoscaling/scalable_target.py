@@ -31,6 +31,7 @@ class ScalableTargetArgs:
                  suspended_state: Optional[pulumi.Input['ScalableTargetSuspendedStateArgs']] = None):
         """
         The set of arguments for constructing a ScalableTarget resource.
+
         :param pulumi.Input[_builtins.int] max_capacity: The maximum value that you plan to scale out to. When a scaling policy is in effect, Application Auto Scaling can scale out (expand) as needed to the maximum capacity limit in response to changing demand.
         :param pulumi.Input[_builtins.int] min_capacity: The minimum value that you plan to scale in to. When a scaling policy is in effect, Application Auto Scaling can scale in (contract) as needed to the minimum capacity limit in response to changing demand.
         :param pulumi.Input[_builtins.str] resource_id: The identifier of the resource associated with the scalable target. This string consists of the resource type and unique identifier.
@@ -267,6 +268,7 @@ class ScalableTarget(pulumi.CustomResource):
          For more information, see [Getting started](https://docs.aws.amazon.com/autoscaling/application/userguide/getting-started.html) in the *Application Auto Scaling User Guide*.
           If the resource that you want Application Auto Scaling to scale is not yet created in your account, add a dependency on the resource when registering it as a scalable target using the [DependsOn](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html) attribute.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.int] max_capacity: The maximum value that you plan to scale out to. When a scaling policy is in effect, Application Auto Scaling can scale out (expand) as needed to the maximum capacity limit in response to changing demand.
@@ -337,6 +339,7 @@ class ScalableTarget(pulumi.CustomResource):
         The ``AWS::ApplicationAutoScaling::ScalableTarget`` resource specifies a resource that Application Auto Scaling can scale, such as an AWS::DynamoDB::Table or AWS::ECS::Service resource.
          For more information, see [Getting started](https://docs.aws.amazon.com/autoscaling/application/userguide/getting-started.html) in the *Application Auto Scaling User Guide*.
           If the resource that you want Application Auto Scaling to scale is not yet created in your account, add a dependency on the resource when registering it as a scalable target using the [DependsOn](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html) attribute.
+
 
         :param str resource_name: The name of the resource.
         :param ScalableTargetArgs args: The arguments to use to populate this resource's properties.

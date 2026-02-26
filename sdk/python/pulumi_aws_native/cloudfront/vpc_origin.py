@@ -27,6 +27,7 @@ class VpcOriginArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a VpcOrigin resource.
+
         :param pulumi.Input['VpcOriginEndpointConfigArgs'] vpc_origin_endpoint_config: The VPC origin endpoint configuration.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A complex type that contains zero or more ``Tag`` elements.
         """
@@ -71,6 +72,7 @@ class VpcOrigin(pulumi.CustomResource):
         """
         An Amazon CloudFront VPC origin.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A complex type that contains zero or more ``Tag`` elements.
@@ -84,6 +86,7 @@ class VpcOrigin(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An Amazon CloudFront VPC origin.
+
 
         :param str resource_name: The name of the resource.
         :param VpcOriginArgs args: The arguments to use to populate this resource's properties.

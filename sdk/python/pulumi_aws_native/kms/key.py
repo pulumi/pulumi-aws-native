@@ -36,6 +36,7 @@ class KeyArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Key resource.
+
         :param pulumi.Input[_builtins.bool] bypass_policy_lockout_safety_check: Skips ("bypasses") the key policy lockout safety check. The default value is false.
                  Setting this value to true increases the risk that the KMS key becomes unmanageable. Do not set this value to true indiscriminately.
                 For more information, see [Default key policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-default.html#prevent-unmanageable-key) in the *Developer Guide*.
@@ -424,6 +425,7 @@ class Key(pulumi.CustomResource):
           *Regions*
          KMS CloudFormation resources are available in all Regions in which KMS and CFN are supported. You can use the ``AWS::KMS::Key`` resource to create and manage all KMS key types that are supported in a Region.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] bypass_policy_lockout_safety_check: Skips ("bypasses") the key policy lockout safety check. The default value is false.
@@ -543,6 +545,7 @@ class Key(pulumi.CustomResource):
          You cannot use the ``AWS::KMS::Key`` resource to specify a KMS key with [imported key material](https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html) or a KMS key in a [custom key store](https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html).
           *Regions*
          KMS CloudFormation resources are available in all Regions in which KMS and CFN are supported. You can use the ``AWS::KMS::Key`` resource to create and manage all KMS key types that are supported in a Region.
+
 
         :param str resource_name: The name of the resource.
         :param KeyArgs args: The arguments to use to populate this resource's properties.

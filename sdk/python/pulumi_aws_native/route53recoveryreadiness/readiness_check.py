@@ -26,6 +26,7 @@ class ReadinessCheckArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a ReadinessCheck resource.
+
         :param pulumi.Input[_builtins.str] readiness_check_name: Name of the ReadinessCheck to create.
         :param pulumi.Input[_builtins.str] resource_set_name: The name of the resource set to check.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A collection of tags associated with a resource.
@@ -87,6 +88,7 @@ class ReadinessCheck(pulumi.CustomResource):
         """
         Aws Route53 Recovery Readiness Check Schema and API specification.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] readiness_check_name: Name of the ReadinessCheck to create.
@@ -101,6 +103,7 @@ class ReadinessCheck(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Aws Route53 Recovery Readiness Check Schema and API specification.
+
 
         :param str resource_name: The name of the resource.
         :param ReadinessCheckArgs args: The arguments to use to populate this resource's properties.

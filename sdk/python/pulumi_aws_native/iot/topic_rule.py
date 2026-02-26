@@ -29,6 +29,7 @@ class TopicRuleArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a TopicRule resource.
+
         :param pulumi.Input['TopicRulePayloadArgs'] topic_rule_payload: The rule payload.
         :param pulumi.Input[_builtins.str] rule_name: The name of the rule.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: Metadata which can be used to manage the topic rule.
@@ -101,6 +102,7 @@ class TopicRule(pulumi.CustomResource):
         """
         Resource Type definition for AWS::IoT::TopicRule
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] rule_name: The name of the rule.
@@ -121,6 +123,7 @@ class TopicRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::IoT::TopicRule
+
 
         :param str resource_name: The name of the resource.
         :param TopicRuleArgs args: The arguments to use to populate this resource's properties.

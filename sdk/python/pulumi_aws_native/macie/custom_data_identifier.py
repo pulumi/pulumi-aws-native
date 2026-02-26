@@ -30,6 +30,7 @@ class CustomDataIdentifierArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a CustomDataIdentifier resource.
+
         :param pulumi.Input[_builtins.str] regex: Regular expression for custom data identifier.
         :param pulumi.Input[_builtins.str] description: Description of custom data identifier.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ignore_words: Words to be ignored.
@@ -154,6 +155,7 @@ class CustomDataIdentifier(pulumi.CustomResource):
         """
         Macie CustomDataIdentifier resource schema
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: Description of custom data identifier.
@@ -172,6 +174,7 @@ class CustomDataIdentifier(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Macie CustomDataIdentifier resource schema
+
 
         :param str resource_name: The name of the resource.
         :param CustomDataIdentifierArgs args: The arguments to use to populate this resource's properties.

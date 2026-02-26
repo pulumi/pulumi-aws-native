@@ -25,6 +25,7 @@ class MailManagerAddonSubscriptionArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a MailManagerAddonSubscription resource.
+
         :param pulumi.Input[_builtins.str] addon_name: The name of the Add On to subscribe to. You can only have one subscription for each Add On name.
                
                Valid Values: `TRENDMICRO_VSAPI | SPAMHAUS_DBL | ABUSIX_MAIL_INTELLIGENCE | VADE_ADVANCED_EMAIL_SECURITY`
@@ -73,6 +74,7 @@ class MailManagerAddonSubscription(pulumi.CustomResource):
         """
         Definition of AWS::SES::MailManagerAddonSubscription Resource Type
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] addon_name: The name of the Add On to subscribe to. You can only have one subscription for each Add On name.
@@ -88,6 +90,7 @@ class MailManagerAddonSubscription(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of AWS::SES::MailManagerAddonSubscription Resource Type
+
 
         :param str resource_name: The name of the resource.
         :param MailManagerAddonSubscriptionArgs args: The arguments to use to populate this resource's properties.

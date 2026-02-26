@@ -23,6 +23,7 @@ class AttributeGroupAssociationArgs:
                  attribute_group: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a AttributeGroupAssociation resource.
+
         :param pulumi.Input[_builtins.str] application: The name or the Id of the Application.
         :param pulumi.Input[_builtins.str] attribute_group: The name or the Id of the AttributeGroup.
         """
@@ -66,6 +67,7 @@ class AttributeGroupAssociation(pulumi.CustomResource):
         """
         Resource Schema for AWS::ServiceCatalogAppRegistry::AttributeGroupAssociation.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] application: The name or the Id of the Application.
@@ -79,6 +81,7 @@ class AttributeGroupAssociation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Schema for AWS::ServiceCatalogAppRegistry::AttributeGroupAssociation.
+
 
         :param str resource_name: The name of the resource.
         :param AttributeGroupAssociationArgs args: The arguments to use to populate this resource's properties.

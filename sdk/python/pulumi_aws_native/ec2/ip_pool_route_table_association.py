@@ -23,6 +23,7 @@ class IpPoolRouteTableAssociationArgs:
                  route_table_id: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a IpPoolRouteTableAssociation resource.
+
         :param pulumi.Input[_builtins.str] public_ipv4_pool: The ID of the public IPv4 pool.
         :param pulumi.Input[_builtins.str] route_table_id: The ID of the route table.
         """
@@ -66,6 +67,7 @@ class IpPoolRouteTableAssociation(pulumi.CustomResource):
         """
         Resource Type definition for AWS::EC2::IpPoolRouteTableAssociation
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] public_ipv4_pool: The ID of the public IPv4 pool.
@@ -79,6 +81,7 @@ class IpPoolRouteTableAssociation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::EC2::IpPoolRouteTableAssociation
+
 
         :param str resource_name: The name of the resource.
         :param IpPoolRouteTableAssociationArgs args: The arguments to use to populate this resource's properties.

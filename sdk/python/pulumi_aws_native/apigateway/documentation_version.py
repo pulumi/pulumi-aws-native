@@ -24,6 +24,7 @@ class DocumentationVersionArgs:
                  description: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a DocumentationVersion resource.
+
         :param pulumi.Input[_builtins.str] documentation_version: The version identifier of the to-be-updated documentation version.
         :param pulumi.Input[_builtins.str] rest_api_id: The string identifier of the associated RestApi.
         :param pulumi.Input[_builtins.str] description: A description about the new documentation snapshot.
@@ -83,6 +84,7 @@ class DocumentationVersion(pulumi.CustomResource):
         """
         The ``AWS::ApiGateway::DocumentationVersion`` resource creates a snapshot of the documentation for an API. For more information, see [Representation of API Documentation in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-documenting-api-content-representation.html) in the *API Gateway Developer Guide*.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: A description about the new documentation snapshot.
@@ -97,6 +99,7 @@ class DocumentationVersion(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The ``AWS::ApiGateway::DocumentationVersion`` resource creates a snapshot of the documentation for an API. For more information, see [Representation of API Documentation in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-documenting-api-content-representation.html) in the *API Gateway Developer Guide*.
+
 
         :param str resource_name: The name of the resource.
         :param DocumentationVersionArgs args: The arguments to use to populate this resource's properties.

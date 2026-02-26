@@ -35,6 +35,7 @@ class FleetArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Fleet resource.
+
         :param pulumi.Input[Union['FleetConfiguration0PropertiesArgs', 'FleetConfiguration1PropertiesArgs']] configuration: The configuration details for the fleet.
         :param pulumi.Input[_builtins.str] display_name: The display name of the fleet summary to update.
                
@@ -199,6 +200,7 @@ class Fleet(pulumi.CustomResource):
         """
         Definition of AWS::Deadline::Fleet Resource Type
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union[Union['FleetConfiguration0PropertiesArgs', 'FleetConfiguration0PropertiesArgsDict'], Union['FleetConfiguration1PropertiesArgs', 'FleetConfiguration1PropertiesArgsDict']]] configuration: The configuration details for the fleet.
@@ -225,6 +227,7 @@ class Fleet(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of AWS::Deadline::Fleet Resource Type
+
 
         :param str resource_name: The name of the resource.
         :param FleetArgs args: The arguments to use to populate this resource's properties.

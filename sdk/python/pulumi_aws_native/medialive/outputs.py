@@ -65,6 +65,7 @@ class ClusterInterfaceMapping(dict):
                  network_id: Optional[_builtins.str] = None):
         """
         Network mappings for the cluster
+
         :param _builtins.str logical_interface_name: logical interface name, unique in the list
         :param _builtins.str network_id: Network Id to be associated with the logical interface name, can be duplicated in list
         """
@@ -119,6 +120,7 @@ class ClusterNetworkSettings(dict):
                  interface_mappings: Optional[Sequence['outputs.ClusterInterfaceMapping']] = None):
         """
         On premises settings which will have the interface network mappings and default Output logical interface
+
         :param _builtins.str default_route: Default value if the customer does not define it in channel Output API
         :param Sequence['ClusterInterfaceMapping'] interface_mappings: Network mappings for the cluster
         """
@@ -153,6 +155,7 @@ class EventBridgeRuleTemplateTarget(dict):
                  arn: _builtins.str):
         """
         The target to which to send matching events.
+
         :param _builtins.str arn: Target ARNs must be either an SNS topic or CloudWatch log group.
         """
         pulumi.set(__self__, "arn", arn)
@@ -192,6 +195,7 @@ class MultiplexOutputDestination(dict):
                  multiplex_media_connect_output_destination_settings: Optional['outputs.MultiplexOutputDestinationMultiplexMediaConnectOutputDestinationSettingsProperties'] = None):
         """
         Multiplex MediaConnect output destination settings.
+
         :param 'MultiplexOutputDestinationMultiplexMediaConnectOutputDestinationSettingsProperties' multiplex_media_connect_output_destination_settings: Multiplex MediaConnect output destination settings.
         """
         if multiplex_media_connect_output_destination_settings is not None:
@@ -232,6 +236,7 @@ class MultiplexOutputDestinationMultiplexMediaConnectOutputDestinationSettingsPr
                  entitlement_arn: Optional[_builtins.str] = None):
         """
         Multiplex MediaConnect output destination settings.
+
         :param _builtins.str entitlement_arn: The MediaConnect entitlement ARN available as a Flow source.
         """
         if entitlement_arn is not None:
@@ -281,6 +286,7 @@ class MultiplexSettings(dict):
                  transport_stream_reserved_bitrate: Optional[_builtins.int] = None):
         """
         A key-value pair to associate with a resource.
+
         :param _builtins.int transport_stream_bitrate: Transport stream bit rate.
         :param _builtins.int transport_stream_id: Transport stream ID.
         :param _builtins.int maximum_video_buffer_delay_milliseconds: Maximum video buffer delay in milliseconds.
@@ -511,6 +517,7 @@ class MultiplexprogramMultiplexProgramPipelineDetail(dict):
                  pipeline_id: Optional[_builtins.str] = None):
         """
         The current source for one of the pipelines in the multiplex.
+
         :param _builtins.str active_channel_pipeline: Identifies the channel pipeline that is currently active for the pipeline (identified by PipelineId) in the multiplex.
         :param _builtins.str pipeline_id: Identifies a specific pipeline in the multiplex.
         """
@@ -565,6 +572,7 @@ class MultiplexprogramMultiplexProgramServiceDescriptor(dict):
                  service_name: _builtins.str):
         """
         Transport stream service descriptor configuration for the Multiplex program.
+
         :param _builtins.str provider_name: Name of the provider.
         :param _builtins.str service_name: Name of the service.
         """
@@ -623,6 +631,7 @@ class MultiplexprogramMultiplexProgramSettings(dict):
                  video_settings: Optional['outputs.MultiplexprogramMultiplexVideoSettings'] = None):
         """
         Multiplex Program settings configuration.
+
         :param _builtins.int program_number: Unique program number.
         :param 'MultiplexprogramPreferredChannelPipeline' preferred_channel_pipeline: Indicates which pipeline is preferred by the multiplex for program ingest.
         :param 'MultiplexprogramMultiplexProgramServiceDescriptor' service_descriptor: Transport stream service descriptor configuration for the Multiplex program.
@@ -690,6 +699,7 @@ class NetworkIpPool(dict):
                  cidr: Optional[_builtins.str] = None):
         """
         IP address cidr pool
+
         :param _builtins.str cidr: IP address cidr pool
         """
         if cidr is not None:
@@ -746,6 +756,7 @@ class SignalMapMediaResource(dict):
                  sources: Optional[Sequence['outputs.SignalMapMediaResourceNeighbor']] = None):
         """
         An AWS resource used in media workflows.
+
         :param Sequence['SignalMapMediaResourceNeighbor'] destinations: A direct destination neighbor to an Amazon Web Services media resource.
         :param _builtins.str name: The logical name of an AWS media resource.
         :param Sequence['SignalMapMediaResourceNeighbor'] sources: A direct source neighbor to an Amazon Web Services media resource.
@@ -792,6 +803,7 @@ class SignalMapMediaResourceNeighbor(dict):
                  name: Optional[_builtins.str] = None):
         """
         A direct source or destination neighbor to an AWS media resource.
+
         :param _builtins.str arn: The ARN of a resource used in AWS media workflows.
         :param _builtins.str name: The logical name of an AWS media resource.
         """
@@ -846,6 +858,7 @@ class SignalMapMonitorDeployment(dict):
                  error_message: Optional[_builtins.str] = None):
         """
         Represents the latest monitor deployment of a signal map.
+
         :param 'SignalMapMonitorDeploymentStatus' status: The signal map monitor deployment status.
         :param _builtins.str details_uri: URI associated with a signal map's monitor deployment.
         :param _builtins.str error_message: Error message associated with a failed monitor deployment of a signal map.
@@ -908,6 +921,7 @@ class SignalMapSuccessfulMonitorDeployment(dict):
                  status: 'SignalMapMonitorDeploymentStatus'):
         """
         Represents the latest successful monitor deployment of a signal map.
+
         :param _builtins.str details_uri: URI associated with a signal map's monitor deployment.
         :param 'SignalMapMonitorDeploymentStatus' status: A signal map's monitor deployment status.
         """

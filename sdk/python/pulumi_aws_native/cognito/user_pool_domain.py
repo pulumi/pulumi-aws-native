@@ -27,6 +27,7 @@ class UserPoolDomainArgs:
                  managed_login_version: Optional[pulumi.Input[_builtins.int]] = None):
         """
         The set of arguments for constructing a UserPoolDomain resource.
+
         :param pulumi.Input[_builtins.str] domain: The name of the domain that you want to update. For custom domains, this is the fully-qualified domain name, for example `auth.example.com` . For prefix domains, this is the prefix alone, such as `myprefix` .
         :param pulumi.Input[_builtins.str] user_pool_id: The ID of the user pool that is associated with the domain you're updating.
         :param pulumi.Input['UserPoolDomainCustomDomainConfigTypeArgs'] custom_domain_config: The configuration for a custom domain that hosts the sign-up and sign-in pages for your application. Use this object to specify an SSL certificate that is managed by ACM.
@@ -106,6 +107,7 @@ class UserPoolDomain(pulumi.CustomResource):
         """
         Resource Type definition for AWS::Cognito::UserPoolDomain
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['UserPoolDomainCustomDomainConfigTypeArgs', 'UserPoolDomainCustomDomainConfigTypeArgsDict']] custom_domain_config: The configuration for a custom domain that hosts the sign-up and sign-in pages for your application. Use this object to specify an SSL certificate that is managed by ACM.
@@ -123,6 +125,7 @@ class UserPoolDomain(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::Cognito::UserPoolDomain
+
 
         :param str resource_name: The name of the resource.
         :param UserPoolDomainArgs args: The arguments to use to populate this resource's properties.

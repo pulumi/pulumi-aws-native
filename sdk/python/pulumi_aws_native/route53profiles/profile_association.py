@@ -28,6 +28,7 @@ class ProfileAssociationArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a ProfileAssociation resource.
+
         :param pulumi.Input[_builtins.str] profile_id: The ID of the  profile that you associated with the resource that is specified by ResourceId.
         :param pulumi.Input[_builtins.str] resource_id: The resource that you associated the  profile with.
         :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the profile association.
@@ -119,6 +120,7 @@ class ProfileAssociation(pulumi.CustomResource):
         """
         Resource Type definition for AWS::Route53Profiles::ProfileAssociation
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the profile association.
@@ -135,6 +137,7 @@ class ProfileAssociation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::Route53Profiles::ProfileAssociation
+
 
         :param str resource_name: The name of the resource.
         :param ProfileAssociationArgs args: The arguments to use to populate this resource's properties.

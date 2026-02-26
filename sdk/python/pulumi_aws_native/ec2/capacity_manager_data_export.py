@@ -29,6 +29,7 @@ class CapacityManagerDataExportArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a CapacityManagerDataExport resource.
+
         :param pulumi.Input['CapacityManagerDataExportOutputFormat'] output_format: The format of the exported capacity manager data. Choose 'csv' for comma-separated values or 'parquet' for optimized columnar storage format.
         :param pulumi.Input[_builtins.str] s3_bucket_name: The name of the Amazon S3 bucket where the capacity manager data export will be stored. The bucket must exist and be accessible by EC2 Capacity Manager service.
         :param pulumi.Input['CapacityManagerDataExportSchedule'] schedule: The schedule for the capacity manager data export. Currently supports hourly exports that provide periodic snapshots of capacity manager data.
@@ -119,6 +120,7 @@ class CapacityManagerDataExport(pulumi.CustomResource):
         """
         Resource Type definition for AWS::EC2::CapacityManagerDataExport
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input['CapacityManagerDataExportOutputFormat'] output_format: The format of the exported capacity manager data. Choose 'csv' for comma-separated values or 'parquet' for optimized columnar storage format.
@@ -135,6 +137,7 @@ class CapacityManagerDataExport(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::EC2::CapacityManagerDataExport
+
 
         :param str resource_name: The name of the resource.
         :param CapacityManagerDataExportArgs args: The arguments to use to populate this resource's properties.

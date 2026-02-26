@@ -27,6 +27,7 @@ class ServiceNetworkResourceAssociationArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a ServiceNetworkResourceAssociation resource.
+
         :param pulumi.Input[_builtins.bool] private_dns_enabled: Indicates if private DNS is enabled for the service network resource association.
         :param pulumi.Input[_builtins.str] resource_configuration_id: The ID of the resource configuration associated with the service network.
         :param pulumi.Input[_builtins.str] service_network_id: The ID of the service network associated with the resource configuration.
@@ -104,6 +105,7 @@ class ServiceNetworkResourceAssociation(pulumi.CustomResource):
         """
         VpcLattice ServiceNetworkResourceAssociation CFN resource
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] private_dns_enabled: Indicates if private DNS is enabled for the service network resource association.
@@ -119,6 +121,7 @@ class ServiceNetworkResourceAssociation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         VpcLattice ServiceNetworkResourceAssociation CFN resource
+
 
         :param str resource_name: The name of the resource.
         :param ServiceNetworkResourceAssociationArgs args: The arguments to use to populate this resource's properties.

@@ -25,6 +25,7 @@ class PermissionArgs:
                  source_account: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Permission resource.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] actions: The actions that the specified AWS service principal can use. Actions IssueCertificate, GetCertificate and ListPermissions must be provided.
         :param pulumi.Input[_builtins.str] certificate_authority_arn: The Amazon Resource Name (ARN) of the Private Certificate Authority that grants the permission.
         :param pulumi.Input[_builtins.str] principal: The AWS service or identity that receives the permission. At this time, the only valid principal is acm.amazonaws.com.
@@ -99,6 +100,7 @@ class Permission(pulumi.CustomResource):
         """
         Permission set on private certificate authority
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] actions: The actions that the specified AWS service principal can use. Actions IssueCertificate, GetCertificate and ListPermissions must be provided.
@@ -114,6 +116,7 @@ class Permission(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Permission set on private certificate authority
+
 
         :param str resource_name: The name of the resource.
         :param PermissionArgs args: The arguments to use to populate this resource's properties.

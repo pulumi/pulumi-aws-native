@@ -30,6 +30,7 @@ class AliasArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Alias resource.
+
         :param pulumi.Input['AliasRoutingStrategyArgs'] routing_strategy: A routing configuration that specifies where traffic is directed for this alias, such as to a fleet or to a message.
         :param pulumi.Input[_builtins.str] description: A human-readable description of the alias.
         :param pulumi.Input[_builtins.str] name: A descriptive label that is associated with an alias. Alias names do not need to be unique.
@@ -138,6 +139,7 @@ class Alias(pulumi.CustomResource):
 
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: A human-readable description of the alias.
@@ -185,6 +187,7 @@ class Alias(pulumi.CustomResource):
             })
 
         ```
+
 
         :param str resource_name: The name of the resource.
         :param AliasArgs args: The arguments to use to populate this resource's properties.

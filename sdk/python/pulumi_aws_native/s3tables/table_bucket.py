@@ -32,6 +32,7 @@ class TableBucketArgs:
                  unreferenced_file_removal: Optional[pulumi.Input['TableBucketUnreferencedFileRemovalArgs']] = None):
         """
         The set of arguments for constructing a TableBucket resource.
+
         :param pulumi.Input['TableBucketEncryptionConfigurationArgs'] encryption_configuration: Configuration specifying how data should be encrypted. This structure defines the encryption algorithm and optional KMS key to be used for server-side encryption.
         :param pulumi.Input['TableBucketStorageClassConfigurationArgs'] storage_class_configuration: The configuration details for the storage class of tables or table buckets. This allows you to optimize storage costs by selecting the appropriate storage class based on your access patterns and performance requirements.
         :param pulumi.Input[_builtins.str] table_bucket_name: The name for the table bucket.
@@ -137,6 +138,7 @@ class TableBucket(pulumi.CustomResource):
         """
         Creates an Amazon S3 Tables table bucket in the same AWS Region where you create the AWS CloudFormation stack.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['TableBucketEncryptionConfigurationArgs', 'TableBucketEncryptionConfigurationArgsDict']] encryption_configuration: Configuration specifying how data should be encrypted. This structure defines the encryption algorithm and optional KMS key to be used for server-side encryption.
@@ -153,6 +155,7 @@ class TableBucket(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Creates an Amazon S3 Tables table bucket in the same AWS Region where you create the AWS CloudFormation stack.
+
 
         :param str resource_name: The name of the resource.
         :param TableBucketArgs args: The arguments to use to populate this resource's properties.

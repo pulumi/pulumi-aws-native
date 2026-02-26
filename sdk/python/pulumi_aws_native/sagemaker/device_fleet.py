@@ -30,6 +30,7 @@ class DeviceFleetArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a DeviceFleet resource.
+
         :param pulumi.Input['DeviceFleetEdgeOutputConfigArgs'] output_config: S3 bucket and an ecryption key id (if available) to store outputs for the fleet
         :param pulumi.Input[_builtins.str] role_arn: Role associated with the device fleet
         :param pulumi.Input[_builtins.str] description: Description for the edge device fleet
@@ -121,6 +122,7 @@ class DeviceFleet(pulumi.CustomResource):
         """
         Resource schema for AWS::SageMaker::DeviceFleet
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: Description for the edge device fleet
@@ -137,6 +139,7 @@ class DeviceFleet(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource schema for AWS::SageMaker::DeviceFleet
+
 
         :param str resource_name: The name of the resource.
         :param DeviceFleetArgs args: The arguments to use to populate this resource's properties.

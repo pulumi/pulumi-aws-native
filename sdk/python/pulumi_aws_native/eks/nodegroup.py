@@ -43,6 +43,7 @@ class NodegroupArgs:
                  version: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Nodegroup resource.
+
         :param pulumi.Input[_builtins.str] cluster_name: Name of the cluster to create the node group in.
         :param pulumi.Input[_builtins.str] node_role: The Amazon Resource Name (ARN) of the IAM role to associate with your node group.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnets: The subnets to use for the Auto Scaling group that is created for your node group.
@@ -407,6 +408,7 @@ class Nodegroup(pulumi.CustomResource):
 
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] ami_type: The AMI type for your node group.
@@ -487,6 +489,7 @@ class Nodegroup(pulumi.CustomResource):
             ])
 
         ```
+
 
         :param str resource_name: The name of the resource.
         :param NodegroupArgs args: The arguments to use to populate this resource's properties.

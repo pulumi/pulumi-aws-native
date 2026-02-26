@@ -30,6 +30,7 @@ class KnowledgeBaseArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a KnowledgeBase resource.
+
         :param pulumi.Input['KnowledgeBaseConfigurationArgs'] knowledge_base_configuration: Contains details about the embeddings configuration of the knowledge base.
         :param pulumi.Input[_builtins.str] role_arn: The ARN of the IAM role with permissions to invoke API operations on the knowledge base. The ARN must begin with AmazonBedrockExecutionRoleForKnowledgeBase_
         :param pulumi.Input[_builtins.str] description: Description of the Resource.
@@ -143,6 +144,7 @@ class KnowledgeBase(pulumi.CustomResource):
         """
         Definition of AWS::Bedrock::KnowledgeBase Resource Type
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: Description of the Resource.
@@ -163,6 +165,7 @@ class KnowledgeBase(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of AWS::Bedrock::KnowledgeBase Resource Type
+
 
         :param str resource_name: The name of the resource.
         :param KnowledgeBaseArgs args: The arguments to use to populate this resource's properties.

@@ -84,6 +84,7 @@ class ApplicationCatalogConfiguration(dict):
                  glue_data_catalog_configuration: Optional['outputs.ApplicationGlueDataCatalogConfiguration'] = None):
         """
         The configuration parameters for the default Amazon Glue database. You use this database for SQL queries that you write in a Kinesis Data Analytics Studio notebook.
+
         :param 'ApplicationGlueDataCatalogConfiguration' glue_data_catalog_configuration: The configuration parameters for the default Amazon Glue database. You use this database for Apache Flink SQL queries and table API transforms that you write in a Kinesis Data Analytics Studio notebook.
         """
         if glue_data_catalog_configuration is not None:
@@ -133,6 +134,7 @@ class ApplicationCheckpointConfiguration(dict):
                  min_pause_between_checkpoints: Optional[_builtins.int] = None):
         """
         Describes an application's checkpointing configuration. Checkpointing is the process of persisting application state for fault tolerance. For more information, see Checkpoints for Fault Tolerance in the Apache Flink Documentation.
+
         :param 'ApplicationCheckpointConfigurationConfigurationType' configuration_type: Describes whether the application uses Kinesis Data Analytics' default checkpointing behavior. You must set this property to `CUSTOM` in order to set the `CheckpointingEnabled`, `CheckpointInterval`, or `MinPauseBetweenCheckpoints` parameters.
         :param _builtins.int checkpoint_interval: Describes the interval in milliseconds between checkpoint operations.
         :param _builtins.bool checkpointing_enabled: Describes whether checkpointing is enabled for a Flink-based Kinesis Data Analytics application.
@@ -208,6 +210,7 @@ class ApplicationCodeConfiguration(dict):
                  code_content_type: 'ApplicationCodeConfigurationCodeContentType'):
         """
         Describes code configuration for an application.
+
         :param 'ApplicationCodeContent' code_content: The location and type of the application code.
         :param 'ApplicationCodeConfigurationCodeContentType' code_content_type: Specifies whether the code content is in text or zip format.
         """
@@ -263,6 +266,7 @@ class ApplicationCodeContent(dict):
                  zip_file_content: Optional[_builtins.str] = None):
         """
         Specifies either the application code, or the location of the application code, for a Flink-based Kinesis Data Analytics application.
+
         :param 'ApplicationS3ContentLocation' s3_content_location: Information about the Amazon S3 bucket that contains the application code.
         :param _builtins.str text_content: The text-format code for a Flink-based Kinesis Data Analytics application.
         :param _builtins.str zip_file_content: The zip-format code for a Flink-based Kinesis Data Analytics application.
@@ -349,6 +353,7 @@ class ApplicationConfiguration(dict):
                  zeppelin_application_configuration: Optional['outputs.ApplicationZeppelinApplicationConfiguration'] = None):
         """
         Specifies the creation parameters for a Kinesis Data Analytics application.
+
         :param 'ApplicationCodeConfiguration' application_code_configuration: The code location and type parameters for a Flink-based Kinesis Data Analytics application.
         :param 'ApplicationEncryptionConfiguration' application_encryption_configuration: Describes whether customer managed key is enabled and key details for customer data encryption
         :param 'ApplicationSnapshotConfiguration' application_snapshot_configuration: Describes whether snapshots are enabled for a Flink-based Kinesis Data Analytics application.
@@ -484,6 +489,7 @@ class ApplicationCsvMappingParameters(dict):
         For a SQL-based Kinesis Data Analytics application, provides additional mapping information when the record format uses delimiters, such as CSV. For example, the following sample records use CSV format, where the records use the '\\n' as the row delimiter and a comma (",") as the column delimiter:
         `"name1", "address1"`
         `"name2", "address2"`
+
         :param _builtins.str record_column_delimiter: The column delimiter. For example, in a CSV format, a comma (",") is the typical column delimiter.
         :param _builtins.str record_row_delimiter: The row delimiter. For example, in a CSV format, '\\n' is the typical row delimiter.
         """
@@ -539,6 +545,7 @@ class ApplicationCustomArtifactConfiguration(dict):
                  s3_content_location: Optional['outputs.ApplicationS3ContentLocation'] = None):
         """
         The configuration of connectors and user-defined functions.
+
         :param 'ApplicationCustomArtifactConfigurationArtifactType' artifact_type: Set this to either `UDF` or `DEPENDENCY_JAR`. `UDF` stands for user-defined functions. This type of artifact must be in an S3 bucket. A `DEPENDENCY_JAR` can be in either Maven or an S3 bucket.
         :param 'ApplicationMavenReference' maven_reference: The parameters required to fully specify a Maven reference.
         :param 'ApplicationS3ContentLocation' s3_content_location: The location of the custom artifacts.
@@ -600,6 +607,7 @@ class ApplicationDeployAsApplicationConfiguration(dict):
                  s3_content_location: 'outputs.ApplicationS3ContentBaseLocation'):
         """
         The information required to deploy a Kinesis Data Analytics Studio notebook as an application with durable state.
+
         :param 'ApplicationS3ContentBaseLocation' s3_content_location: The description of an Amazon S3 object that contains the Amazon Data Analytics application, including the Amazon Resource Name (ARN) of the S3 bucket, the name of the Amazon S3 object that contains the data, and the version number of the Amazon S3 object that contains the data.
         """
         pulumi.set(__self__, "s3_content_location", s3_content_location)
@@ -642,6 +650,7 @@ class ApplicationEncryptionConfiguration(dict):
                  key_id: Optional[_builtins.str] = None):
         """
         Describes whether customer managed key is enabled and key details for customer data encryption
+
         :param 'ApplicationEncryptionConfigurationKeyType' key_type: Specifies whether application data is encrypted using service key: AWS_OWNED_KEY or customer key: CUSTOMER_MANAGED_KEY
         :param _builtins.str key_id: KMS KeyId. Can be either key uuid or full key arn or key alias arn or short key alias
         """
@@ -692,6 +701,7 @@ class ApplicationEnvironmentProperties(dict):
                  property_groups: Optional[Sequence['outputs.ApplicationPropertyGroup']] = None):
         """
         Describes execution properties for a Flink-based Kinesis Data Analytics application.
+
         :param Sequence['ApplicationPropertyGroup'] property_groups: Describes the execution property groups.
         """
         if property_groups is not None:
@@ -738,6 +748,7 @@ class ApplicationFlinkApplicationConfiguration(dict):
                  parallelism_configuration: Optional['outputs.ApplicationParallelismConfiguration'] = None):
         """
         Describes configuration parameters for a Flink-based Kinesis Data Analytics application or a Studio notebook.
+
         :param 'ApplicationCheckpointConfiguration' checkpoint_configuration: Describes an application's checkpointing configuration. Checkpointing is the process of persisting application state for fault tolerance. For more information, see Checkpoints for Fault Tolerance in the Apache Flink Documentation.
         :param 'ApplicationMonitoringConfiguration' monitoring_configuration: Describes configuration parameters for Amazon CloudWatch logging for an application.
         :param 'ApplicationParallelismConfiguration' parallelism_configuration: Describes parameters for how an application executes multiple tasks simultaneously.
@@ -800,6 +811,7 @@ class ApplicationFlinkRunConfiguration(dict):
                  allow_non_restored_state: Optional[_builtins.bool] = None):
         """
         Describes the starting parameters for a Flink-based Kinesis Data Analytics application.
+
         :param _builtins.bool allow_non_restored_state: When restoring from a snapshot, specifies whether the runtime is allowed to skip a state that cannot be mapped to the new program. Defaults to false. If you update your application without specifying this parameter, AllowNonRestoredState will be set to false, even if it was previously set to true.
         """
         if allow_non_restored_state is not None:
@@ -840,6 +852,7 @@ class ApplicationGlueDataCatalogConfiguration(dict):
                  database_arn: Optional[_builtins.str] = None):
         """
         The configuration of the Glue Data Catalog that you use for Apache Flink SQL queries and table API transforms that you write in an application.
+
         :param _builtins.str database_arn: The Amazon Resource Name (ARN) of the database.
         """
         if database_arn is not None:
@@ -895,6 +908,7 @@ class ApplicationInput(dict):
                  kinesis_streams_input: Optional['outputs.ApplicationKinesisStreamsInput'] = None):
         """
         When you configure the application input for a SQL-based Kinesis Data Analytics application, you specify the streaming source, the in-application stream name that is created, and the mapping between the two.
+
         :param 'ApplicationInputSchema' input_schema: Describes the format of the data in the streaming source, and how each data element maps to corresponding columns in the in-application stream that is being created.
         :param _builtins.str name_prefix: The name prefix to use when creating an in-application stream. Suppose that you specify a prefix `"MyInApplicationStream"`. Kinesis Data Analytics then creates one or more (as per the InputParallelism count you specified) in-application streams with the names `"MyInApplicationStream_001"`, `"MyInApplicationStream_002"`, and so on.
         :param 'ApplicationInputParallelism' input_parallelism: Describes the number of in-application streams to create.
@@ -988,6 +1002,7 @@ class ApplicationInputLambdaProcessor(dict):
                  resource_arn: _builtins.str):
         """
         An object that contains the Amazon Resource Name (ARN) of the Amazon Lambda function that is used to preprocess records in the stream in a SQL-based Kinesis Data Analytics application.
+
         :param _builtins.str resource_arn: The ARN of the Amazon Lambda function that operates on records in the stream.
         """
         pulumi.set(__self__, "resource_arn", resource_arn)
@@ -1010,6 +1025,7 @@ class ApplicationInputParallelism(dict):
                  count: Optional[_builtins.int] = None):
         """
         For a SQL-based Kinesis Data Analytics application, describes the number of in-application streams to create for a given streaming source.
+
         :param _builtins.int count: The number of in-application streams to create.
         """
         if count is not None:
@@ -1050,6 +1066,7 @@ class ApplicationInputProcessingConfiguration(dict):
                  input_lambda_processor: Optional['outputs.ApplicationInputLambdaProcessor'] = None):
         """
         For an SQL-based Amazon Kinesis Data Analytics application, describes a processor that is used to preprocess the records in the stream before being processed by your application code. Currently, the only input processor available is Amazon Lambda.
+
         :param 'ApplicationInputLambdaProcessor' input_lambda_processor: The InputLambdaProcessor that is used to preprocess the records in the stream before being processed by your application code.
         """
         if input_lambda_processor is not None:
@@ -1096,6 +1113,7 @@ class ApplicationInputSchema(dict):
                  record_encoding: Optional['ApplicationInputSchemaRecordEncoding'] = None):
         """
         For a SQL-based Kinesis Data Analytics application, describes the format of the data in the streaming source, and how each data element maps to corresponding columns created in the in-application stream.
+
         :param Sequence['ApplicationRecordColumn'] record_columns: A list of `RecordColumn` objects.
         :param 'ApplicationRecordFormat' record_format: Specifies the format of the records on the streaming source.
         :param 'ApplicationInputSchemaRecordEncoding' record_encoding: Specifies the encoding of the records in the streaming source. For example, UTF-8.
@@ -1156,6 +1174,7 @@ class ApplicationJsonMappingParameters(dict):
                  record_row_path: _builtins.str):
         """
         For a SQL-based Kinesis Data Analytics application, provides additional mapping information when JSON is the record format on the streaming source.
+
         :param _builtins.str record_row_path: The path to the top-level parent that contains the records.
         """
         pulumi.set(__self__, "record_row_path", record_row_path)
@@ -1195,6 +1214,7 @@ class ApplicationKinesisFirehoseInput(dict):
                  resource_arn: _builtins.str):
         """
         For a SQL-based Kinesis Data Analytics application, identifies a Kinesis Data Firehose delivery stream as the streaming source. You provide the delivery stream's Amazon Resource Name (ARN).
+
         :param _builtins.str resource_arn: The Amazon Resource Name (ARN) of the delivery stream.
         """
         pulumi.set(__self__, "resource_arn", resource_arn)
@@ -1234,6 +1254,7 @@ class ApplicationKinesisStreamsInput(dict):
                  resource_arn: _builtins.str):
         """
         Identifies a Kinesis data stream as the streaming source. You provide the stream's Amazon Resource Name (ARN).
+
         :param _builtins.str resource_arn: The ARN of the input Kinesis data stream to read.
         """
         pulumi.set(__self__, "resource_arn", resource_arn)
@@ -1273,6 +1294,7 @@ class ApplicationMaintenanceConfiguration(dict):
                  application_maintenance_window_start_time: _builtins.str):
         """
         Describes the maintenance configuration for the application.
+
         :param _builtins.str application_maintenance_window_start_time: The start time for the maintenance window.
         """
         pulumi.set(__self__, "application_maintenance_window_start_time", application_maintenance_window_start_time)
@@ -1315,6 +1337,7 @@ class ApplicationMappingParameters(dict):
                  json_mapping_parameters: Optional['outputs.ApplicationJsonMappingParameters'] = None):
         """
         When you configure a SQL-based Kinesis Data Analytics application's input at the time of creating or updating an application, provides additional mapping information specific to the record format (such as JSON, CSV, or record fields delimited by some delimiter) on the streaming source.
+
         :param 'ApplicationCsvMappingParameters' csv_mapping_parameters: Provides additional mapping information when the record format uses delimiters (for example, CSV).
         :param 'ApplicationJsonMappingParameters' json_mapping_parameters: Provides additional mapping information when JSON is the record format on the streaming source.
         """
@@ -1370,6 +1393,7 @@ class ApplicationMavenReference(dict):
                  version: _builtins.str):
         """
         The information required to specify a Maven reference. You can use Maven references to specify dependency JAR files.
+
         :param _builtins.str artifact_id: The artifact ID of the Maven reference.
         :param _builtins.str group_id: The group ID of the Maven reference.
         :param _builtins.str version: The version of the Maven reference.
@@ -1435,6 +1459,7 @@ class ApplicationMonitoringConfiguration(dict):
                  metrics_level: Optional['ApplicationMonitoringConfigurationMetricsLevel'] = None):
         """
         Describes configuration parameters for Amazon CloudWatch logging for a Java-based Kinesis Data Analytics application. For more information about CloudWatch logging, see Monitoring.
+
         :param 'ApplicationMonitoringConfigurationConfigurationType' configuration_type: Describes whether to use the default CloudWatch logging configuration for an application. You must set this property to CUSTOM in order to set the LogLevel or MetricsLevel parameters.
         :param 'ApplicationMonitoringConfigurationLogLevel' log_level: Describes the verbosity of the CloudWatch Logs for an application.
         :param 'ApplicationMonitoringConfigurationMetricsLevel' metrics_level: Describes the granularity of the CloudWatch Logs for an application. The Parallelism level is not recommended for applications with a Parallelism over 64 due to excessive costs.
@@ -1503,6 +1528,7 @@ class ApplicationParallelismConfiguration(dict):
                  parallelism_per_kpu: Optional[_builtins.int] = None):
         """
         Describes parameters for how a Flink-based Kinesis Data Analytics application executes multiple tasks simultaneously. For more information about parallelism, see Parallel Execution in the Apache Flink Documentation
+
         :param 'ApplicationParallelismConfigurationConfigurationType' configuration_type: Describes whether the application uses the default parallelism for the Kinesis Data Analytics service. You must set this property to `CUSTOM` in order to change your application's `AutoScalingEnabled`, `Parallelism`, or `ParallelismPerKPU` properties.
         :param _builtins.bool auto_scaling_enabled: Describes whether the Kinesis Data Analytics service can increase the parallelism of the application in response to increased throughput.
         :param _builtins.int parallelism: Describes the initial number of parallel tasks that a Java-based Kinesis Data Analytics application can perform. The Kinesis Data Analytics service can increase this number automatically if ParallelismConfiguration:AutoScalingEnabled is set to true.
@@ -1578,6 +1604,7 @@ class ApplicationPropertyGroup(dict):
                  property_map: Optional[Mapping[str, _builtins.str]] = None):
         """
         Property key-value pairs passed into an application.
+
         :param _builtins.str property_group_id: Describes the key of an application execution property key-value pair.
         :param Mapping[str, _builtins.str] property_map: Describes the value of an application execution property key-value pair.
         """
@@ -1633,6 +1660,7 @@ class ApplicationRecordColumn(dict):
         """
         For a SQL-based Kinesis Data Analytics application, describes the mapping of each data element in the streaming source to the corresponding column in the in-application stream.
         Also used to describe the format of the reference data source.
+
         :param _builtins.str name: The name of the column that is created in the in-application input stream or reference table.
         :param _builtins.str sql_type: The type of column created in the in-application input stream or reference table.
         :param _builtins.str mapping: A reference to the data element in the streaming input or the reference data source.
@@ -1696,6 +1724,7 @@ class ApplicationRecordFormat(dict):
                  mapping_parameters: Optional['outputs.ApplicationMappingParameters'] = None):
         """
         For a SQL-based Kinesis Data Analytics application, describes the record format and relevant mapping information that should be applied to schematize the records on the stream.
+
         :param 'ApplicationRecordFormatRecordFormatType' record_format_type: The type of record format.
         :param 'ApplicationMappingParameters' mapping_parameters: When you configure application input at the time of creating or updating an application, provides additional mapping information specific to the record format (such as JSON, CSV, or record fields delimited by some delimiter) on the streaming source.
         """
@@ -1749,6 +1778,7 @@ class ApplicationRestoreConfiguration(dict):
                  snapshot_name: Optional[_builtins.str] = None):
         """
         Describes the restore behavior of a restarting application.
+
         :param 'ApplicationRestoreConfigurationApplicationRestoreType' application_restore_type: Specifies how the application should be restored.
         :param _builtins.str snapshot_name: The identifier of an existing snapshot of application state to use to restart an application. The application uses this value if RESTORE_FROM_CUSTOM_SNAPSHOT is specified for the ApplicationRestoreType.
         """
@@ -1802,6 +1832,7 @@ class ApplicationRunConfiguration(dict):
                  flink_run_configuration: Optional['outputs.ApplicationFlinkRunConfiguration'] = None):
         """
         Identifies the run configuration (start parameters) of a Kinesis Data Analytics application. This section is evaluated only on stack updates for applications in running RUNNING state and has no effect during manual application start.
+
         :param 'ApplicationRestoreConfiguration' application_restore_configuration: Describes the restore behavior of a restarting application.
         :param 'ApplicationFlinkRunConfiguration' flink_run_configuration: Describes the starting parameters for a Flink-based Kinesis Data Analytics application.
         """
@@ -1856,6 +1887,7 @@ class ApplicationS3ContentBaseLocation(dict):
                  base_path: Optional[_builtins.str] = None):
         """
         The base location of the Amazon Data Analytics application.
+
         :param _builtins.str bucket_arn: The Amazon Resource Name (ARN) of the S3 bucket.
         :param _builtins.str base_path: The base path for the S3 bucket.
         """
@@ -1912,6 +1944,7 @@ class ApplicationS3ContentLocation(dict):
                  object_version: Optional[_builtins.str] = None):
         """
         The location of an application or a custom artifact.
+
         :param _builtins.str bucket_arn: The Amazon Resource Name (ARN) for the S3 bucket containing the application code.
         :param _builtins.str file_key: The file key for the object containing the application code.
         :param _builtins.str object_version: The version of the object containing the application code.
@@ -1972,6 +2005,7 @@ class ApplicationSnapshotConfiguration(dict):
                  snapshots_enabled: _builtins.bool):
         """
         Describes whether snapshots are enabled for a Flink-based Kinesis Data Analytics application.
+
         :param _builtins.bool snapshots_enabled: Describes whether snapshots are enabled for a Flink-based Kinesis Data Analytics application.
         """
         pulumi.set(__self__, "snapshots_enabled", snapshots_enabled)
@@ -1994,6 +2028,7 @@ class ApplicationSqlApplicationConfiguration(dict):
                  inputs: Optional[Sequence['outputs.ApplicationInput']] = None):
         """
         Describes the inputs, outputs, and reference data sources for a SQL-based Kinesis Data Analytics application.
+
         :param Sequence['ApplicationInput'] inputs: The array of Input objects describing the input streams used by the application.
         """
         if inputs is not None:
@@ -2034,6 +2069,7 @@ class ApplicationSystemRollbackConfiguration(dict):
                  rollback_enabled: _builtins.bool):
         """
         Describes whether system initiated rollbacks are enabled for a Flink-based Kinesis Data Analytics application.
+
         :param _builtins.bool rollback_enabled: Describes whether system initiated rollbacks are enabled for a Flink-based Kinesis Data Analytics application.
         """
         pulumi.set(__self__, "rollback_enabled", rollback_enabled)
@@ -2076,6 +2112,7 @@ class ApplicationVpcConfiguration(dict):
                  subnet_ids: Sequence[_builtins.str]):
         """
         Describes the parameters of a VPC used by the application.
+
         :param Sequence[_builtins.str] security_group_ids: The array of SecurityGroup IDs used by the VPC configuration.
         :param Sequence[_builtins.str] subnet_ids: The array of Subnet IDs used by the VPC configuration.
         """
@@ -2134,6 +2171,7 @@ class ApplicationZeppelinApplicationConfiguration(dict):
                  monitoring_configuration: Optional['outputs.ApplicationZeppelinMonitoringConfiguration'] = None):
         """
         The configuration of a Kinesis Data Analytics Studio notebook.
+
         :param 'ApplicationCatalogConfiguration' catalog_configuration: The Amazon Glue Data Catalog that you use in queries in a Kinesis Data Analytics Studio notebook.
         :param Sequence['ApplicationCustomArtifactConfiguration'] custom_artifacts_configuration: A list of CustomArtifactConfiguration objects.
         :param 'ApplicationDeployAsApplicationConfiguration' deploy_as_application_configuration: The information required to deploy a Kinesis Data Analytics Studio notebook as an application with durable state.
@@ -2207,6 +2245,7 @@ class ApplicationZeppelinMonitoringConfiguration(dict):
                  log_level: Optional['ApplicationZeppelinMonitoringConfigurationLogLevel'] = None):
         """
         Describes configuration parameters for Amazon CloudWatch logging for a Kinesis Data Analytics Studio notebook. For more information about CloudWatch logging, see Monitoring.
+
         :param 'ApplicationZeppelinMonitoringConfigurationLogLevel' log_level: The verbosity of the CloudWatch Logs for an application. You can set it to `INFO`, `WARN`, `ERROR`, or `DEBUG`.
         """
         if log_level is not None:

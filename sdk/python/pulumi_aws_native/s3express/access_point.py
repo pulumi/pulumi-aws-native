@@ -34,6 +34,7 @@ class AccessPointArgs:
                  vpc_configuration: Optional[pulumi.Input['AccessPointVpcConfigurationArgs']] = None):
         """
         The set of arguments for constructing a AccessPoint resource.
+
         :param pulumi.Input[_builtins.str] bucket: The name of the bucket that you want to associate this Access Point with.
         :param pulumi.Input[_builtins.str] bucket_account_id: The AWS account ID associated with the S3 bucket associated with this access point.
         :param pulumi.Input[_builtins.str] name: The name you want to assign to this Access Point. If you don't specify a name, AWS CloudFormation generates a unique ID and uses that ID for the access point name. For directory buckets, the access point name must consist of a base name that you provide and suﬃx that includes the ZoneID (AWS Availability Zone or Local Zone) of your bucket location, followed by --xa-s3.
@@ -178,6 +179,7 @@ class AccessPoint(pulumi.CustomResource):
         """
         The AWS::S3Express::AccessPoint resource is an Amazon S3 resource type that you can use to access buckets.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] bucket: The name of the bucket that you want to associate this Access Point with.
@@ -199,6 +201,7 @@ class AccessPoint(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The AWS::S3Express::AccessPoint resource is an Amazon S3 resource type that you can use to access buckets.
+
 
         :param str resource_name: The name of the resource.
         :param AccessPointArgs args: The arguments to use to populate this resource's properties.

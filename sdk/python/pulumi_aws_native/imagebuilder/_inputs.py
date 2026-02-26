@@ -140,6 +140,7 @@ class ContainerRecipeComponentConfigurationArgs:
                  parameters: Optional[pulumi.Input[Sequence[pulumi.Input['ContainerRecipeComponentParameterArgs']]]] = None):
         """
         Configuration details of the component.
+
         :param pulumi.Input[_builtins.str] component_arn: The Amazon Resource Name (ARN) of the component.
         :param pulumi.Input[Sequence[pulumi.Input['ContainerRecipeComponentParameterArgs']]] parameters: A group of parameter settings that are used to configure the component for a specific recipe.
         """
@@ -193,6 +194,7 @@ class ContainerRecipeComponentParameterArgs:
                  value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
         """
         Contains a key/value pair that sets the named component parameter.
+
         :param pulumi.Input[_builtins.str] name: The name of the component parameter to set.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] value: Sets the value for the named component parameter.
         """
@@ -274,6 +276,7 @@ class ContainerRecipeEbsInstanceBlockDeviceSpecificationArgs:
                  volume_type: Optional[pulumi.Input['ContainerRecipeEbsInstanceBlockDeviceSpecificationVolumeType']] = None):
         """
         Amazon EBS-specific block device mapping specifications. 
+
         :param pulumi.Input[_builtins.bool] delete_on_termination: Use to configure delete on termination of the associated device.
         :param pulumi.Input[_builtins.bool] encrypted: Use to configure device encryption.
         :param pulumi.Input[_builtins.int] iops: Use to configure device IOPS.
@@ -427,6 +430,7 @@ class ContainerRecipeInstanceBlockDeviceMappingArgs:
                  virtual_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Defines block device mappings for the instance used to configure your image. 
+
         :param pulumi.Input[_builtins.str] device_name: The device to which these mappings apply.
         :param pulumi.Input['ContainerRecipeEbsInstanceBlockDeviceSpecificationArgs'] ebs: Use to manage Amazon EBS-specific configuration for this mapping.
         :param pulumi.Input[_builtins.str] no_device: Use to remove a mapping from the parent image.
@@ -510,6 +514,7 @@ class ContainerRecipeInstanceConfigurationArgs:
                  image: Optional[pulumi.Input[_builtins.str]] = None):
         """
         A group of options that can be used to configure an instance for building and testing container images.
+
         :param pulumi.Input[Sequence[pulumi.Input['ContainerRecipeInstanceBlockDeviceMappingArgs']]] block_device_mappings: Defines the block devices to attach for building an instance from this Image Builder AMI.
         :param pulumi.Input[_builtins.str] image: The AMI ID to use as the base image for a container build and test instance. If not specified, Image Builder will use the appropriate ECS-optimized AMI as a base image.
         """
@@ -563,6 +568,7 @@ class ContainerRecipeTargetContainerRepositoryArgs:
                  service: Optional[pulumi.Input['ContainerRecipeTargetContainerRepositoryService']] = None):
         """
         The container repository where the output container image is stored.
+
         :param pulumi.Input[_builtins.str] repository_name: The name of the container repository where the output container image is stored. This name is prefixed by the repository location.
         :param pulumi.Input['ContainerRecipeTargetContainerRepositoryService'] service: Specifies the service in which this image was registered.
         """
@@ -636,6 +642,7 @@ class DistributionConfigurationAmiDistributionConfigurationArgs:
                  target_account_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The specific AMI settings (for example, launch permissions, AMI tags).
+
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] ami_tags: The tags to apply to AMIs distributed to this Region.
         :param pulumi.Input[_builtins.str] description: The description of the AMI distribution configuration.
         :param pulumi.Input[_builtins.str] kms_key_id: The KMS key identifier used to encrypt the distributed image.
@@ -754,6 +761,7 @@ class DistributionConfigurationContainerDistributionConfigurationArgs:
                  target_repository: Optional[pulumi.Input['DistributionConfigurationTargetContainerRepositoryArgs']] = None):
         """
         Container distribution settings for encryption, licensing, and sharing in a specific Region.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] container_tags: Tags that are attached to the container distribution configuration.
         :param pulumi.Input[_builtins.str] description: The description of the container distribution configuration.
         :param pulumi.Input['DistributionConfigurationTargetContainerRepositoryArgs'] target_repository: The destination repository for the container distribution configuration.
@@ -847,6 +855,7 @@ class DistributionConfigurationDistributionArgs:
                  ssm_parameter_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionConfigurationSsmParameterConfigurationArgs']]]] = None):
         """
         The distributions of the distribution configuration.
+
         :param pulumi.Input[_builtins.str] region: region
         :param pulumi.Input['DistributionConfigurationAmiDistributionConfigurationArgs'] ami_distribution_configuration: The specific AMI settings, such as launch permissions and AMI tags. For details, see example schema below.
         :param pulumi.Input['DistributionConfigurationContainerDistributionConfigurationArgs'] container_distribution_configuration: Container distribution settings for encryption, licensing, and sharing in a specific Region. For details, see example schema below.
@@ -989,6 +998,7 @@ class DistributionConfigurationFastLaunchConfigurationArgs:
                  snapshot_configuration: Optional[pulumi.Input['DistributionConfigurationFastLaunchSnapshotConfigurationArgs']] = None):
         """
         The Windows faster-launching configuration to use for AMI distribution.
+
         :param pulumi.Input[_builtins.str] account_id: The owner account ID for the fast-launch enabled Windows AMI.
         :param pulumi.Input[_builtins.bool] enabled: A Boolean that represents the current state of faster launching for the Windows AMI. Set to true to start using Windows faster launching, or false to stop using it.
         :param pulumi.Input['DistributionConfigurationFastLaunchLaunchTemplateSpecificationArgs'] launch_template: The launch template that the fast-launch enabled Windows AMI uses when it launches Windows instances to create pre-provisioned snapshots.
@@ -1092,6 +1102,7 @@ class DistributionConfigurationFastLaunchLaunchTemplateSpecificationArgs:
                  launch_template_version: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The launch template that the fast-launch enabled Windows AMI uses when it launches Windows instances to create pre-provisioned snapshots.
+
         :param pulumi.Input[_builtins.str] launch_template_id: The ID of the launch template to use for faster launching for a Windows AMI.
         :param pulumi.Input[_builtins.str] launch_template_name: The name of the launch template to use for faster launching for a Windows AMI.
         :param pulumi.Input[_builtins.str] launch_template_version: The version of the launch template to use for faster launching for a Windows AMI.
@@ -1155,6 +1166,7 @@ class DistributionConfigurationFastLaunchSnapshotConfigurationArgs:
                  target_resource_count: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Configuration settings for managing the number of snapshots that are created from pre-provisioned instances for the Windows AMI when faster launching is enabled.
+
         :param pulumi.Input[_builtins.int] target_resource_count: The number of pre-provisioned snapshots to keep on hand for a fast-launch enabled Windows AMI.
         """
         if target_resource_count is not None:
@@ -1203,6 +1215,7 @@ class DistributionConfigurationLaunchPermissionConfigurationArgs:
                  user_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Launch permissions can be used to configure which AWS accounts can use the AMI to launch instances.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] organization_arns: The ARN for an Amazon Web Services Organization that you want to share your AMI with.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] organizational_unit_arns: The ARN for an Organizations organizational unit (OU) that you want to share your AMI with.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] user_groups: The name of the group.
@@ -1291,6 +1304,7 @@ class DistributionConfigurationLaunchTemplateConfigurationArgs:
                  set_default_version: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         launchTemplateConfiguration settings that apply to image distribution.
+
         :param pulumi.Input[_builtins.str] account_id: The account ID that this configuration applies to.
         :param pulumi.Input[_builtins.str] launch_template_id: Identifies the EC2 launch template to use.
         :param pulumi.Input[_builtins.bool] set_default_version: Set the specified EC2 launch template as the default launch template for the specified account.
@@ -1364,6 +1378,7 @@ class DistributionConfigurationSsmParameterConfigurationArgs:
                  data_type: Optional[pulumi.Input['DistributionConfigurationSsmParameterConfigurationDataType']] = None):
         """
         The SSM parameter configuration for AMI distribution.
+
         :param pulumi.Input[_builtins.str] parameter_name: The name of the SSM parameter.
         :param pulumi.Input[_builtins.str] ami_account_id: The account ID for the AMI to update the parameter with.
         :param pulumi.Input['DistributionConfigurationSsmParameterConfigurationDataType'] data_type: The data type of the SSM parameter.
@@ -1431,6 +1446,7 @@ class DistributionConfigurationTargetContainerRepositoryArgs:
                  service: Optional[pulumi.Input['DistributionConfigurationTargetContainerRepositoryService']] = None):
         """
         The destination repository for the container image.
+
         :param pulumi.Input[_builtins.str] repository_name: The repository name of target container repository.
         :param pulumi.Input['DistributionConfigurationTargetContainerRepositoryService'] service: The service of target container repository.
         """
@@ -1479,6 +1495,7 @@ class ImageDeletionSettingsArgs:
                  execution_role: pulumi.Input[_builtins.str]):
         """
         The deletion settings of the image, indicating whether to delete the underlying resources in addition to the image.
+
         :param pulumi.Input[_builtins.str] execution_role: The execution role to use for deleting the image, as well as underlying resources.
         """
         pulumi.set(__self__, "execution_role", execution_role)
@@ -1516,6 +1533,7 @@ class ImageEcrConfigurationArgs:
                  repository_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Settings for Image Builder to configure the ECR repository and output container images that are scanned.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] container_tags: Tags for Image Builder to apply the output container image that is scanned. Tags can help you identify and manage your scanned images.
         :param pulumi.Input[_builtins.str] repository_name: The name of the container repository that Amazon Inspector scans to identify findings for your container images. The name includes the path for the repository location. If you don’t provide this information, Image Builder creates a repository in your account named image-builder-image-scanning-repository to use for vulnerability scans for your output container images.
         """
@@ -1564,6 +1582,7 @@ class ImageLoggingConfigurationArgs:
                  log_group_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The logging configuration settings for the image.
+
         :param pulumi.Input[_builtins.str] log_group_name: The name of the log group for image build logs.
         """
         if log_group_name is not None:
@@ -1597,6 +1616,7 @@ class ImagePipelineAutoDisablePolicyArgs:
                  failure_count: pulumi.Input[_builtins.int]):
         """
         The auto-disable policy configuration for the image pipeline.
+
         :param pulumi.Input[_builtins.int] failure_count: The number of consecutive failures after which the pipeline should be automatically disabled.
         """
         pulumi.set(__self__, "failure_count", failure_count)
@@ -1634,6 +1654,7 @@ class ImagePipelineEcrConfigurationArgs:
                  repository_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Settings for Image Builder to configure the ECR repository and output container images that are scanned.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] container_tags: Tags for Image Builder to apply the output container image that is scanned. Tags can help you identify and manage your scanned images.
         :param pulumi.Input[_builtins.str] repository_name: The name of the container repository that Amazon Inspector scans to identify findings for your container images. The name includes the path for the repository location. If you don't provide this information, Image Builder creates a repository in your account named image-builder-image-scanning-repository to use for vulnerability scans for your output container images.
         """
@@ -1687,6 +1708,7 @@ class ImagePipelineExecutionSettingsArgs:
                  on_update: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The settings for starting an image pipeline execution.
+
         :param pulumi.Input[_builtins.str] deployment_id: The deployment ID of the pipeline, used to trigger new image pipeline executions.
         :param pulumi.Input[_builtins.bool] on_update: Whether to trigger the image pipeline when the pipeline is updated. False by default.
         """
@@ -1740,6 +1762,7 @@ class ImagePipelineImageScanningConfigurationArgs:
                  image_scanning_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Determines if tests should run after building the image. Image Builder defaults to enable tests to run following the image build, before image distribution.
+
         :param pulumi.Input['ImagePipelineEcrConfigurationArgs'] ecr_configuration: Contains ECR settings for vulnerability scans.
         :param pulumi.Input[_builtins.bool] image_scanning_enabled: This sets whether Image Builder keeps a snapshot of the vulnerability scans that Amazon Inspector runs against the build instance when you create a new image.
         """
@@ -1793,6 +1816,7 @@ class ImagePipelineImageTestsConfigurationArgs:
                  timeout_minutes: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Image tests configuration.
+
         :param pulumi.Input[_builtins.bool] image_tests_enabled: Defines if tests should be executed when building this image.
         :param pulumi.Input[_builtins.int] timeout_minutes: The maximum time in minutes that tests are permitted to run.
         """
@@ -1846,6 +1870,7 @@ class ImagePipelinePipelineLoggingConfigurationArgs:
                  pipeline_log_group_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The logging configuration settings for the image pipeline.
+
         :param pulumi.Input[_builtins.str] image_log_group_name: The name of the log group for image build logs.
         :param pulumi.Input[_builtins.str] pipeline_log_group_name: The name of the log group for pipeline execution logs.
         """
@@ -1904,6 +1929,7 @@ class ImagePipelineScheduleArgs:
                  schedule_expression: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The schedule of the image pipeline.
+
         :param pulumi.Input['ImagePipelineAutoDisablePolicyArgs'] auto_disable_policy: The auto-disable policy for the image pipeline.
         :param pulumi.Input['ImagePipelineSchedulePipelineExecutionStartCondition'] pipeline_execution_start_condition: The condition configures when the pipeline should trigger a new image build.
         :param pulumi.Input[_builtins.str] schedule_expression: The expression determines how often EC2 Image Builder evaluates your pipelineExecutionStartCondition.
@@ -1982,6 +2008,7 @@ class ImagePipelineWorkflowConfigurationArgs:
                  workflow_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The workflow configuration of the image
+
         :param pulumi.Input['ImagePipelineWorkflowConfigurationOnFailure'] on_failure: Define execution decision in case of workflow failure
         :param pulumi.Input[_builtins.str] parallel_group: The parallel group name
         :param pulumi.Input[Sequence[pulumi.Input['ImagePipelineWorkflowParameterArgs']]] parameters: The parameters associated with the workflow
@@ -2065,6 +2092,7 @@ class ImagePipelineWorkflowParameterArgs:
                  value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         A parameter associated with the workflow
+
         :param pulumi.Input[_builtins.str] name: The name of the workflow parameter to set.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] value: Sets the value for the named workflow parameter.
         """
@@ -2118,6 +2146,7 @@ class ImageRecipeAdditionalInstanceConfigurationArgs:
                  user_data_override: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Specify additional settings and launch scripts for your build instances.
+
         :param pulumi.Input['ImageRecipeSystemsManagerAgentArgs'] systems_manager_agent: Contains settings for the SSM agent on your build instance.
         :param pulumi.Input[_builtins.str] user_data_override: Use this property to provide commands or a command script to run when you launch your build instance.
         """
@@ -2171,6 +2200,7 @@ class ImageRecipeComponentConfigurationArgs:
                  parameters: Optional[pulumi.Input[Sequence[pulumi.Input['ImageRecipeComponentParameterArgs']]]] = None):
         """
         Configuration details of the component.
+
         :param pulumi.Input[_builtins.str] component_arn: The Amazon Resource Name (ARN) of the component.
         :param pulumi.Input[Sequence[pulumi.Input['ImageRecipeComponentParameterArgs']]] parameters: A group of parameter settings that are used to configure the component for a specific recipe.
         """
@@ -2224,6 +2254,7 @@ class ImageRecipeComponentParameterArgs:
                  value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
         """
         Contains a key/value pair that sets the named component parameter.
+
         :param pulumi.Input[_builtins.str] name: The name of the component parameter to set.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] value: Sets the value for the named component parameter.
         """
@@ -2305,6 +2336,7 @@ class ImageRecipeEbsInstanceBlockDeviceSpecificationArgs:
                  volume_type: Optional[pulumi.Input['ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeType']] = None):
         """
         Amazon EBS-specific block device mapping specifications. 
+
         :param pulumi.Input[_builtins.bool] delete_on_termination: Use to configure delete on termination of the associated device.
         :param pulumi.Input[_builtins.bool] encrypted: Use to configure device encryption.
         :param pulumi.Input[_builtins.int] iops: Use to configure device IOPS.
@@ -2458,6 +2490,7 @@ class ImageRecipeInstanceBlockDeviceMappingArgs:
                  virtual_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Defines block device mappings for the instance used to configure your image. 
+
         :param pulumi.Input[_builtins.str] device_name: The device to which these mappings apply.
         :param pulumi.Input['ImageRecipeEbsInstanceBlockDeviceSpecificationArgs'] ebs: Use to manage Amazon EBS-specific configuration for this mapping.
         :param pulumi.Input[_builtins.str] no_device: Use to remove a mapping from the parent image.
@@ -2536,6 +2569,7 @@ class ImageRecipeSystemsManagerAgentArgs:
                  uninstall_after_build: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Contains settings for the SSM agent on your build instance.
+
         :param pulumi.Input[_builtins.bool] uninstall_after_build: Controls whether the SSM agent is removed from your final build image, prior to creating the new AMI. If this is set to true, then the agent is removed from the final image. If it's set to false, then the agent is left in, so that it is included in the new AMI. The default value is false.
         """
         if uninstall_after_build is not None:
@@ -2574,6 +2608,7 @@ class ImageScanningConfigurationArgs:
                  image_scanning_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Contains settings for Image Builder image resource and container image scans.
+
         :param pulumi.Input['ImageEcrConfigurationArgs'] ecr_configuration: Contains ECR settings for vulnerability scans.
         :param pulumi.Input[_builtins.bool] image_scanning_enabled: This sets whether Image Builder keeps a snapshot of the vulnerability scans that Amazon Inspector runs against the build instance when you create a new image.
         """
@@ -2627,6 +2662,7 @@ class ImageTestsConfigurationArgs:
                  timeout_minutes: Optional[pulumi.Input[_builtins.int]] = None):
         """
         The image tests configuration used when creating this image.
+
         :param pulumi.Input[_builtins.bool] image_tests_enabled: ImageTestsEnabled
         :param pulumi.Input[_builtins.int] timeout_minutes: TimeoutMinutes
         """
@@ -2690,6 +2726,7 @@ class ImageWorkflowConfigurationArgs:
                  workflow_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The workflow configuration of the image
+
         :param pulumi.Input['ImageWorkflowConfigurationOnFailure'] on_failure: Define execution decision in case of workflow failure
         :param pulumi.Input[_builtins.str] parallel_group: The parallel group name
         :param pulumi.Input[Sequence[pulumi.Input['ImageWorkflowParameterArgs']]] parameters: The parameters associated with the workflow
@@ -2773,6 +2810,7 @@ class ImageWorkflowParameterArgs:
                  value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         A parameter associated with the workflow
+
         :param pulumi.Input[_builtins.str] name: The name of the workflow parameter to set.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] value: Sets the value for the named workflow parameter.
         """
@@ -2826,6 +2864,7 @@ class InfrastructureConfigurationInstanceMetadataOptionsArgs:
                  http_tokens: Optional[pulumi.Input['InfrastructureConfigurationInstanceMetadataOptionsHttpTokens']] = None):
         """
         The instance metadata option settings for the infrastructure configuration.
+
         :param pulumi.Input[_builtins.int] http_put_response_hop_limit: Limit the number of hops that an instance metadata request can traverse to reach its destination.
         :param pulumi.Input['InfrastructureConfigurationInstanceMetadataOptionsHttpTokens'] http_tokens: Indicates whether a signed token header is required for instance metadata retrieval requests. The values affect the response as follows: 
         """
@@ -2874,6 +2913,7 @@ class InfrastructureConfigurationLoggingArgs:
                  s3_logs: Optional[pulumi.Input['InfrastructureConfigurationS3LogsArgs']] = None):
         """
         The logging configuration of the infrastructure configuration.
+
         :param pulumi.Input['InfrastructureConfigurationS3LogsArgs'] s3_logs: The Amazon S3 logging configuration.
         """
         if s3_logs is not None:
@@ -2922,6 +2962,7 @@ class InfrastructureConfigurationPlacementArgs:
                  tenancy: Optional[pulumi.Input['InfrastructureConfigurationPlacementTenancy']] = None):
         """
         The placement options
+
         :param pulumi.Input[_builtins.str] availability_zone: AvailabilityZone
         :param pulumi.Input[_builtins.str] host_id: HostId
         :param pulumi.Input[_builtins.str] host_resource_group_arn: HostResourceGroupArn
@@ -3005,6 +3046,7 @@ class InfrastructureConfigurationS3LogsArgs:
                  s3_key_prefix: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The S3 path in which to store the logs.
+
         :param pulumi.Input[_builtins.str] s3_bucket_name: S3BucketName
         :param pulumi.Input[_builtins.str] s3_key_prefix: S3KeyPrefix
         """
@@ -3058,6 +3100,7 @@ class LifecyclePolicyActionArgs:
                  include_resources: Optional[pulumi.Input['LifecyclePolicyIncludeResourcesArgs']] = None):
         """
         The action of the policy detail.
+
         :param pulumi.Input['LifecyclePolicyActionType'] type: The action type of the policy detail.
         :param pulumi.Input['LifecyclePolicyIncludeResourcesArgs'] include_resources: Specifies the resources that the lifecycle policy applies to.
         """
@@ -3125,6 +3168,7 @@ class LifecyclePolicyAmiExclusionRulesArgs:
                  tag_map: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The AMI exclusion rules for the policy detail.
+
         :param pulumi.Input[_builtins.bool] is_public: Use to apply lifecycle policy actions on whether the AMI is public.
         :param pulumi.Input['LifecyclePolicyLastLaunchedArgs'] last_launched: Use to apply lifecycle policy actions on AMIs launched before a certain time.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] regions: Use to apply lifecycle policy actions on AMIs distributed to a set of regions.
@@ -3223,6 +3267,7 @@ class LifecyclePolicyExclusionRulesArgs:
                  tag_map: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The exclusion rules to apply of the policy detail.
+
         :param pulumi.Input['LifecyclePolicyAmiExclusionRulesArgs'] amis: Lists configuration values that apply to AMIs that Image Builder should exclude from the lifecycle action.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tag_map: The Image Builder tags to filter on.
         """
@@ -3286,6 +3331,7 @@ class LifecyclePolicyFilterArgs:
                  unit: Optional[pulumi.Input['LifecyclePolicyTimeUnit']] = None):
         """
         The filters to apply of the policy detail.
+
         :param pulumi.Input['LifecyclePolicyFilterType'] type: The filter type.
         :param pulumi.Input[_builtins.int] value: The filter value.
         :param pulumi.Input[_builtins.int] retain_at_least: The minimum number of Image Builder resources to retain.
@@ -3372,6 +3418,7 @@ class LifecyclePolicyIncludeResourcesArgs:
                  snapshots: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The included resources of the policy detail.
+
         :param pulumi.Input[_builtins.bool] amis: Use to configure lifecycle actions on AMIs.
         :param pulumi.Input[_builtins.bool] containers: Use to configure lifecycle actions on containers.
         :param pulumi.Input[_builtins.bool] snapshots: Use to configure lifecycle actions on snapshots.
@@ -3440,6 +3487,7 @@ class LifecyclePolicyLastLaunchedArgs:
                  value: pulumi.Input[_builtins.int]):
         """
         The last launched time of a resource.
+
         :param pulumi.Input['LifecyclePolicyTimeUnit'] unit: The value's time unit.
         :param pulumi.Input[_builtins.int] value: The last launched value.
         """
@@ -3496,6 +3544,7 @@ class LifecyclePolicyPolicyDetailArgs:
                  exclusion_rules: Optional[pulumi.Input['LifecyclePolicyExclusionRulesArgs']] = None):
         """
         The policy detail of the lifecycle policy.
+
         :param pulumi.Input['LifecyclePolicyActionArgs'] action: Configuration details for the policy action.
         :param pulumi.Input['LifecyclePolicyFilterArgs'] filter: Specifies the resources that the lifecycle policy applies to.
         :param pulumi.Input['LifecyclePolicyExclusionRulesArgs'] exclusion_rules: Additional rules to specify resources that should be exempt from policy actions.
@@ -3562,6 +3611,7 @@ class LifecyclePolicyRecipeSelectionArgs:
                  semantic_version: pulumi.Input[_builtins.str]):
         """
         The recipe to apply the lifecycle policy for.
+
         :param pulumi.Input[_builtins.str] name: The recipe name.
         :param pulumi.Input[_builtins.str] semantic_version: The recipe version.
         """
@@ -3613,6 +3663,7 @@ class LifecyclePolicyResourceSelectionArgs:
                  tag_map: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The resource selection for the lifecycle policy.
+
         :param pulumi.Input[Sequence[pulumi.Input['LifecyclePolicyRecipeSelectionArgs']]] recipes: The recipes to select.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tag_map: The Image Builder resources to select by tag.
         """

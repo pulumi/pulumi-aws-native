@@ -37,6 +37,7 @@ class DataSourceArgs:
                  vpc_configuration: Optional[pulumi.Input['DataSourceVpcConfigurationArgs']] = None):
         """
         The set of arguments for constructing a DataSource resource.
+
         :param pulumi.Input[_builtins.str] application_id: The identifier of the Amazon Q Business application the data source will be attached to.
         :param Any configuration: Use this property to specify a JSON or YAML schema with configuration properties specific to your data source connector to connect your data source repository to Amazon Q Business . You must use the JSON or YAML schema provided by Amazon Q .
                
@@ -254,6 +255,7 @@ class DataSource(pulumi.CustomResource):
         """
         Definition of AWS::QBusiness::DataSource Resource Type
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] application_id: The identifier of the Amazon Q Business application the data source will be attached to.
@@ -292,6 +294,7 @@ class DataSource(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of AWS::QBusiness::DataSource Resource Type
+
 
         :param str resource_name: The name of the resource.
         :param DataSourceArgs args: The arguments to use to populate this resource's properties.

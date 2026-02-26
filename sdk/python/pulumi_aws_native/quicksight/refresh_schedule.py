@@ -27,6 +27,7 @@ class RefreshScheduleArgs:
                  schedule: Optional[pulumi.Input['RefreshScheduleMapArgs']] = None):
         """
         The set of arguments for constructing a RefreshSchedule resource.
+
         :param pulumi.Input[_builtins.str] aws_account_id: The AWS account ID of the account that you are creating a schedule in.
         :param pulumi.Input[_builtins.str] data_set_id: The ID of the dataset that you are creating a refresh schedule for.
         :param pulumi.Input['RefreshScheduleMapArgs'] schedule: The refresh schedule of a dataset.
@@ -88,6 +89,7 @@ class RefreshSchedule(pulumi.CustomResource):
         """
         Definition of the AWS::QuickSight::RefreshSchedule Resource Type.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] aws_account_id: The AWS account ID of the account that you are creating a schedule in.
@@ -102,6 +104,7 @@ class RefreshSchedule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of the AWS::QuickSight::RefreshSchedule Resource Type.
+
 
         :param str resource_name: The name of the resource.
         :param RefreshScheduleArgs args: The arguments to use to populate this resource's properties.

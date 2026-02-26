@@ -40,6 +40,7 @@ class ConnectorArgs:
                  worker_configuration: Optional[pulumi.Input['ConnectorWorkerConfigurationArgs']] = None):
         """
         The set of arguments for constructing a Connector resource.
+
         :param pulumi.Input['ConnectorCapacityArgs'] capacity: The connector's compute capacity settings.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] connector_configuration: The configuration for the connector.
         :param pulumi.Input['ConnectorKafkaClusterArgs'] kafka_cluster: The details of the Apache Kafka cluster to which the connector is connected.
@@ -269,6 +270,7 @@ class Connector(pulumi.CustomResource):
         """
         Resource Type definition for AWS::KafkaConnect::Connector
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ConnectorCapacityArgs', 'ConnectorCapacityArgsDict']] capacity: The connector's compute capacity settings.
@@ -294,6 +296,7 @@ class Connector(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::KafkaConnect::Connector
+
 
         :param str resource_name: The name of the resource.
         :param ConnectorArgs args: The arguments to use to populate this resource's properties.

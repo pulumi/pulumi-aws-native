@@ -35,6 +35,7 @@ class InvestigationGroupArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a InvestigationGroup resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['InvestigationGroupChatbotNotificationChannelArgs']]] chatbot_notification_channels: An array of key-value pairs of notification channels to apply to this resource.
         :param pulumi.Input[Sequence[pulumi.Input['InvestigationGroupCrossAccountConfigurationArgs']]] cross_account_configurations: An array of cross account configurations.
         :param pulumi.Input['InvestigationGroupEncryptionConfigMapArgs'] encryption_config: Specifies the customer managed AWS  key that the investigation group uses to encrypt data, if there is one. If not, the investigation group uses an AWS key to encrypt the data.
@@ -208,6 +209,7 @@ class InvestigationGroup(pulumi.CustomResource):
         """
         Definition of AWS::AIOps::InvestigationGroup Resource Type
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['InvestigationGroupChatbotNotificationChannelArgs', 'InvestigationGroupChatbotNotificationChannelArgsDict']]]] chatbot_notification_channels: An array of key-value pairs of notification channels to apply to this resource.
@@ -229,6 +231,7 @@ class InvestigationGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of AWS::AIOps::InvestigationGroup Resource Type
+
 
         :param str resource_name: The name of the resource.
         :param InvestigationGroupArgs args: The arguments to use to populate this resource's properties.

@@ -29,6 +29,7 @@ class CodeInterpreterCustomArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a CodeInterpreterCustom resource.
+
         :param pulumi.Input['CodeInterpreterCustomCodeInterpreterNetworkConfigurationArgs'] network_configuration: Network configuration for code interpreter.
         :param pulumi.Input[_builtins.str] description: The description of the code interpreter.
         :param pulumi.Input[_builtins.str] execution_role_arn: The ARN of the IAM role that the code interpreter uses to access resources.
@@ -121,6 +122,7 @@ class CodeInterpreterCustom(pulumi.CustomResource):
         """
         Resource definition for AWS::BedrockAgentCore::CodeInterpreterCustom
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: The description of the code interpreter.
@@ -137,6 +139,7 @@ class CodeInterpreterCustom(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource definition for AWS::BedrockAgentCore::CodeInterpreterCustom
+
 
         :param str resource_name: The name of the resource.
         :param CodeInterpreterCustomArgs args: The arguments to use to populate this resource's properties.

@@ -50,6 +50,7 @@ class RuleResourceTag(dict):
                  resource_tag_value: _builtins.str):
         """
         The resource tag of the rule.
+
         :param _builtins.str resource_tag_key: The tag key of the resource.
         :param _builtins.str resource_tag_value: The tag value of the resource
         """
@@ -102,6 +103,7 @@ class RuleRetentionPeriod(dict):
                  retention_period_value: _builtins.int):
         """
         The retention period of the rule.
+
         :param 'RuleRetentionPeriodRetentionPeriodUnit' retention_period_unit: The retention period unit of the rule
         :param _builtins.int retention_period_value: The retention period value of the rule.
         """

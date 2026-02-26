@@ -30,6 +30,7 @@ class VpcEndpointAssociationArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a VpcEndpointAssociation resource.
+
         :param pulumi.Input[_builtins.str] firewall_arn: The Amazon Resource Name (ARN) of the firewall.
         :param pulumi.Input['VpcEndpointAssociationSubnetMappingArgs'] subnet_mapping: The ID for a subnet that's used in an association with a firewall. This is used in `CreateFirewall` , `AssociateSubnets` , and `CreateVpcEndpointAssociation` . AWS Network Firewall creates an instance of the associated firewall in each subnet that you specify, to filter traffic in the subnet's Availability Zone.
         :param pulumi.Input[_builtins.str] vpc_id: The unique identifier of the VPC for the endpoint association.
@@ -120,6 +121,7 @@ class VpcEndpointAssociation(pulumi.CustomResource):
         """
         Resource type definition for AWS::NetworkFirewall::VpcEndpointAssociation
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: A description of the VPC endpoint association.
@@ -136,6 +138,7 @@ class VpcEndpointAssociation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource type definition for AWS::NetworkFirewall::VpcEndpointAssociation
+
 
         :param str resource_name: The name of the resource.
         :param VpcEndpointAssociationArgs args: The arguments to use to populate this resource's properties.

@@ -24,6 +24,7 @@ class AuthPolicyArgs:
                  resource_identifier: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a AuthPolicy resource.
+
         :param Any policy: The auth policy.
                
                Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::VpcLattice::AuthPolicy` for more information about the expected schema for this property.
@@ -71,6 +72,7 @@ class AuthPolicy(pulumi.CustomResource):
         """
         Creates or updates the auth policy.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param Any policy: The auth policy.
@@ -86,6 +88,7 @@ class AuthPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Creates or updates the auth policy.
+
 
         :param str resource_name: The name of the resource.
         :param AuthPolicyArgs args: The arguments to use to populate this resource's properties.

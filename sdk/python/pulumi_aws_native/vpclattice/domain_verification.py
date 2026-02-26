@@ -27,6 +27,7 @@ class DomainVerificationArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a DomainVerification resource.
+
         :param pulumi.Input[_builtins.str] domain_name: The domain name being verified.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags associated with the domain verification.
         """
@@ -71,6 +72,7 @@ class DomainVerification(pulumi.CustomResource):
         """
         Creates a Lattice Domain Verification
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] domain_name: The domain name being verified.
@@ -84,6 +86,7 @@ class DomainVerification(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Creates a Lattice Domain Verification
+
 
         :param str resource_name: The name of the resource.
         :param DomainVerificationArgs args: The arguments to use to populate this resource's properties.

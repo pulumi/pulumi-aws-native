@@ -29,6 +29,7 @@ class DomainNameArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a DomainName resource.
+
         :param pulumi.Input[_builtins.str] domain_name: The custom domain name for your API in Amazon API Gateway. Uppercase letters and the underscore (``_``) character are not supported.
         :param pulumi.Input[Sequence[pulumi.Input['DomainNameConfigurationArgs']]] domain_name_configurations: The domain name configurations.
         :param pulumi.Input['DomainNameMutualTlsAuthenticationArgs'] mutual_tls_authentication: The mutual TLS authentication configuration for a custom domain name.
@@ -122,6 +123,7 @@ class DomainName(pulumi.CustomResource):
         The ``AWS::ApiGatewayV2::DomainName`` resource specifies a custom domain name for your API in Amazon API Gateway (API Gateway).
          You can use a custom domain name to provide a URL that's more intuitive and easier to recall. For more information about using custom domain names, see [Set up Custom Domain Name for an API in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-custom-domains.html) in the *API Gateway Developer Guide*.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] domain_name: The custom domain name for your API in Amazon API Gateway. Uppercase letters and the underscore (``_``) character are not supported.
@@ -139,6 +141,7 @@ class DomainName(pulumi.CustomResource):
         """
         The ``AWS::ApiGatewayV2::DomainName`` resource specifies a custom domain name for your API in Amazon API Gateway (API Gateway).
          You can use a custom domain name to provide a URL that's more intuitive and easier to recall. For more information about using custom domain names, see [Set up Custom Domain Name for an API in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-custom-domains.html) in the *API Gateway Developer Guide*.
+
 
         :param str resource_name: The name of the resource.
         :param DomainNameArgs args: The arguments to use to populate this resource's properties.

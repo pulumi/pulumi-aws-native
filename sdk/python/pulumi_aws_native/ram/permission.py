@@ -27,6 +27,7 @@ class PermissionArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Permission resource.
+
         :param Any policy_template: Policy template for the permission.
                
                Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::RAM::Permission` for more information about the expected schema for this property.
@@ -106,6 +107,7 @@ class Permission(pulumi.CustomResource):
         """
         Resource type definition for AWS::RAM::Permission
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: The name of the permission.
@@ -123,6 +125,7 @@ class Permission(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource type definition for AWS::RAM::Permission
+
 
         :param str resource_name: The name of the resource.
         :param PermissionArgs args: The arguments to use to populate this resource's properties.

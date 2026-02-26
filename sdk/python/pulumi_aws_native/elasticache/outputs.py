@@ -47,6 +47,7 @@ class AuthenticationModeProperties(dict):
         { Passwords: ["*****", "******"] // If Type is password.
         }
         ```
+
         :param 'UserAuthenticationModePropertiesType' type: Authentication Type
         :param Sequence[_builtins.str] passwords: Passwords used for this user account. You can create up to two passwords for each user.
         """
@@ -276,6 +277,7 @@ class ServerlessCacheCacheUsageLimits(dict):
                  ecpu_per_second: Optional['outputs.ServerlessCacheEcpuPerSecond'] = None):
         """
         The cache capacity limit of the Serverless Cache.
+
         :param 'ServerlessCacheDataStorage' data_storage: The maximum data storage limit in the cache, expressed in Gigabytes.
         :param 'ServerlessCacheEcpuPerSecond' ecpu_per_second: The number of ElastiCache Processing Units (ECPU) the cache can consume per second.
         """
@@ -312,6 +314,7 @@ class ServerlessCacheDataStorage(dict):
                  minimum: Optional[_builtins.int] = None):
         """
         The cached data capacity of the Serverless Cache.
+
         :param 'ServerlessCacheDataStorageUnit' unit: The unit of cached data capacity of the Serverless Cache.
         :param _builtins.int maximum: The maximum cached data capacity of the Serverless Cache.
         :param _builtins.int minimum: The minimum cached data capacity of the Serverless Cache.
@@ -357,6 +360,7 @@ class ServerlessCacheEcpuPerSecond(dict):
                  minimum: Optional[_builtins.int] = None):
         """
         The ECPU per second of the Serverless Cache.
+
         :param _builtins.int maximum: The maximum ECPU per second of the Serverless Cache.
         :param _builtins.int minimum: The minimum ECPU per second of the Serverless Cache.
         """
@@ -392,6 +396,7 @@ class ServerlessCacheEndpoint(dict):
                  port: Optional[_builtins.str] = None):
         """
         The address and the port.
+
         :param _builtins.str address: Endpoint address.
         :param _builtins.str port: Endpoint port.
         """

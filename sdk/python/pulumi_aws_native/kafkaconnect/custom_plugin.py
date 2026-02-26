@@ -31,6 +31,7 @@ class CustomPluginArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a CustomPlugin resource.
+
         :param pulumi.Input['CustomPluginContentType'] content_type: The type of the plugin file.
         :param pulumi.Input['CustomPluginLocationArgs'] location: Information about the location of the custom plugin.
         :param pulumi.Input[_builtins.str] description: A summary description of the custom plugin.
@@ -122,6 +123,7 @@ class CustomPlugin(pulumi.CustomResource):
         """
         An example resource schema demonstrating some basic constructs and validation rules.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input['CustomPluginContentType'] content_type: The type of the plugin file.
@@ -138,6 +140,7 @@ class CustomPlugin(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An example resource schema demonstrating some basic constructs and validation rules.
+
 
         :param str resource_name: The name of the resource.
         :param CustomPluginArgs args: The arguments to use to populate this resource's properties.

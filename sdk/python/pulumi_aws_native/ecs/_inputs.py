@@ -1216,6 +1216,7 @@ class CapacityProviderManagedInstancesProviderInfrastructureOptimizationProperti
                  scale_in_after: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Defines how Amazon ECS Managed Instances optimizes the infrastructure in your capacity provider. Configure it to turn on or off the infrastructure optimization in your capacity provider, and to control the idle EC2 instances optimization delay.
+
         :param pulumi.Input[_builtins.int] scale_in_after: This parameter defines the number of seconds Amazon ECS Managed Instances waits before optimizing EC2 instances that have become idle or underutilized. A longer delay increases the likelihood of placing new tasks on idle instances, reducing startup time. A shorter delay helps reduce infrastructure costs by optimizing idle instances more quickly. Valid values are: Not set (null) - Uses the default optimization behavior, `-1` - Disables automatic infrastructure optimization, `0` to `3600` (inclusive) - Specifies the number of seconds to wait before optimizing instances.
         """
         if scale_in_after is not None:
@@ -1398,6 +1399,7 @@ class CapacityProviderManagedScalingArgs:
                  target_capacity: Optional[pulumi.Input[_builtins.int]] = None):
         """
         The managed scaling settings for the Auto Scaling group capacity provider.
+
         :param pulumi.Input[_builtins.int] instance_warmup_period: The period of time, in seconds, after a newly launched Amazon EC2 instance can contribute to CloudWatch metrics for Auto Scaling group. If this parameter is omitted, the default value of `300` seconds is used.
         :param pulumi.Input[_builtins.int] maximum_scaling_step_size: The maximum number of Amazon EC2 instances that Amazon ECS will scale out at one time. If this parameter is omitted, the default value of `10000` is used.
         :param pulumi.Input[_builtins.int] minimum_scaling_step_size: The minimum number of Amazon EC2 instances that Amazon ECS will scale out at one time. The scale in process is not affected by this parameter If this parameter is omitted, the default value of `1` is used.
@@ -1862,6 +1864,7 @@ class ClusterCapacityProviderStrategyItemArgs:
                  weight: Optional[pulumi.Input[_builtins.int]] = None):
         """
         The ``CapacityProviderStrategyItem`` property specifies the details of the default capacity provider strategy for the cluster. When services or tasks are run in the cluster with no launch type or capacity provider strategy specified, the default capacity provider strategy is used.
+
         :param pulumi.Input[_builtins.int] base: The *base* value designates how many tasks, at a minimum, to run on the specified capacity provider for each service. Only one capacity provider in a capacity provider strategy can have a *base* defined. If no value is specified, the default value of ``0`` is used.
                 Base value characteristics:
                  +  Only one capacity provider in a strategy can have a base defined
@@ -1970,6 +1973,7 @@ class ClusterConfigurationArgs:
                  managed_storage_configuration: Optional[pulumi.Input['ClusterManagedStorageConfigurationArgs']] = None):
         """
         The execute command and managed storage configuration for the cluster.
+
         :param pulumi.Input['ClusterExecuteCommandConfigurationArgs'] execute_command_configuration: The details of the execute command configuration.
         :param pulumi.Input['ClusterManagedStorageConfigurationArgs'] managed_storage_configuration: The details of the managed storage configuration.
         """
@@ -2031,6 +2035,7 @@ class ClusterExecuteCommandConfigurationArgs:
                  logging: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The details of the execute command configuration.
+
         :param pulumi.Input[_builtins.str] kms_key_id: Specify an KMSlong key ID to encrypt the data between the local client and the container.
         :param pulumi.Input['ClusterExecuteCommandLogConfigurationArgs'] log_configuration: The log configuration for the results of the execute command actions. The logs can be sent to CloudWatch Logs or an Amazon S3 bucket. When ``logging=OVERRIDE`` is specified, a ``logConfiguration`` must be provided.
         :param pulumi.Input[_builtins.str] logging: The log setting to use for redirecting logs for your execute command results. The following log settings are available.
@@ -2122,6 +2127,7 @@ class ClusterExecuteCommandLogConfigurationArgs:
                  s3_key_prefix: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The log configuration for the results of the execute command actions. The logs can be sent to CloudWatch Logs or an Amazon S3 bucket.
+
         :param pulumi.Input[_builtins.bool] cloud_watch_encryption_enabled: Determines whether to use encryption on the CloudWatch logs. If not specified, encryption will be off.
         :param pulumi.Input[_builtins.str] cloud_watch_log_group_name: The name of the CloudWatch log group to send logs to.
                  The CloudWatch log group must already be created.
@@ -2228,6 +2234,7 @@ class ClusterManagedStorageConfigurationArgs:
                  kms_key_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The managed storage configuration for the cluster.
+
         :param pulumi.Input[_builtins.str] fargate_ephemeral_storage_kms_key_id: Specify the KMSlong key ID for Fargate ephemeral storage.
                 When you specify a ``fargateEphemeralStorageKmsKeyId``, AWS Fargate uses the key to encrypt data at rest in ephemeral storage. For more information about Fargate ephemeral storage encryption, see [Customer managed keys for Fargate ephemeral storage for Amazon ECS](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/fargate-storage-encryption.html) in the *Amazon Elastic Container Service Developer Guide*.
                 The key must be a single Region key.
@@ -2290,6 +2297,7 @@ class ClusterServiceConnectDefaultsArgs:
         """
         Use this parameter to set a default Service Connect namespace. After you set a default Service Connect namespace, any new services with Service Connect turned on that are created in the cluster are added as client services in the namespace. This setting only applies to new services that set the ``enabled`` parameter to ``true`` in the ``ServiceConnectConfiguration``. You can set the namespace of each service individually in the ``ServiceConnectConfiguration`` to override this default parameter.
          Tasks that run in a namespace can use short names to connect to services in the namespace. Tasks can connect to services across all of the clusters in the namespace. Tasks connect through a managed proxy container that collects logs and metrics for increased visibility. Only the tasks that Amazon ECS services create are supported with Service Connect. For more information, see [Service Connect](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-connect.html) in the *Amazon Elastic Container Service Developer Guide*.
+
         :param pulumi.Input[_builtins.str] namespace: The namespace name or full Amazon Resource Name (ARN) of the CMAPlong namespace that's used when you create a service and don't specify a Service Connect configuration. The namespace name can include up to 1024 characters. The name is case-sensitive. The name can't include greater than (>), less than (<), double quotation marks ("), or slash (/).
                 If you enter an existing namespace name or ARN, then that namespace will be used. Any namespace type is supported. The namespace must be in this account and this AWS Region.
                 If you enter a new name, a CMAPlong namespace will be created. Amazon ECS creates a CMAP namespace with the "API calls" method of instance discovery only. This instance discovery method is the "HTTP" namespace type in the CLIlong. Other types of instance discovery aren't used by Service Connect.
@@ -2343,6 +2351,7 @@ class ClusterSettingsArgs:
         The settings to use when creating a cluster. This parameter is used to turn on CloudWatch Container Insights with enhanced observability or CloudWatch Container Insights for a cluster.
          Container Insights with enhanced observability provides all the Container Insights metrics, plus additional task and container metrics. This version supports enhanced observability for Amazon ECS clusters using the Amazon EC2 and Fargate launch types. After you configure Container Insights with enhanced observability on Amazon ECS, Container Insights auto-collects detailed infrastructure telemetry from the cluster level down to the container level in your environment and displays these critical performance data in curated dashboards removing the heavy lifting in observability set-up. 
          For more information, see [Monitor Amazon ECS containers using Container Insights with enhanced observability](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cloudwatch-container-insights.html) in the *Amazon Elastic Container Service Developer Guide*.
+
         :param pulumi.Input[_builtins.str] name: The name of the cluster setting. The value is ``containerInsights``.
         :param pulumi.Input[_builtins.str] value: The value to set for the cluster setting. The supported values are ``enhanced``, ``enabled``, and ``disabled``. 
                 To use Container Insights with enhanced observability, set the ``containerInsights`` account setting to ``enhanced``.
@@ -2885,6 +2894,7 @@ class ServiceAdvancedConfigurationArgs:
                  test_listener_rule: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The advanced settings for a load balancer used in blue/green deployments. Specify the alternate target group, listener rules, and IAM role required for traffic shifting during blue/green deployments. For more information, see [Required resources for Amazon ECS blue/green deployments](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/blue-green-deployment-implementation.html) in the *Amazon Elastic Container Service Developer Guide*.
+
         :param pulumi.Input[_builtins.str] alternate_target_group_arn: The Amazon Resource Name (ARN) of the alternate target group for Amazon ECS blue/green deployments.
         :param pulumi.Input[_builtins.str] production_listener_rule: The Amazon Resource Name (ARN) that that identifies the production listener rule (in the case of an Application Load Balancer) or listener (in the case for an Network Load Balancer) for routing production traffic.
         :param pulumi.Input[_builtins.str] role_arn: The Amazon Resource Name (ARN) of the IAM role that grants Amazon ECS permission to call the Elastic Load Balancing APIs for you.
@@ -2977,6 +2987,7 @@ class ServiceAwsVpcConfigurationArgs:
                  subnets: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         An object representing the networking details for a task or service. For example ``awsVpcConfiguration={subnets=["subnet-12344321"],securityGroups=["sg-12344321"]}``.
+
         :param pulumi.Input['ServiceAwsVpcConfigurationAssignPublicIp'] assign_public_ip: Whether the task's elastic network interface receives a public IP address. 
                 Consider the following when you set this value:
                  +  When you use ``create-service`` or ``update-service``, the default is ``DISABLED``. 
@@ -3061,6 +3072,7 @@ class ServiceCanaryConfigurationArgs:
          The following validation applies only to Canary deployments created through CFN. CFN operations time out after 36 hours. Canary deployments can approach this limit because of their extended duration. This can cause CFN to roll back the deployment. To prevent timeout-related rollbacks, CFN rejects deployments when the calculated deployment time exceeds 33 hours based on your template configuration: 
           ``BakeTimeInMinutes + CanaryBakeTimeInMinutes`` 
          Additional backend processes (such as task scaling and running lifecycle hooks) can extend deployment time beyond these calculations. Even deployments under the 33-hour threshold might still time out if these processes cause the total duration to exceed 36 hours.
+
         :param pulumi.Input[_builtins.int] canary_bake_time_in_minutes: The amount of time in minutes to wait during the canary phase before shifting the remaining production traffic to the new service revision. Valid values are 0 to 1440 minutes (24 hours). The default value is 10.
         :param pulumi.Input[_builtins.float] canary_percent: The percentage of production traffic to shift to the new service revision during the canary phase. Valid values are multiples of 0.1 from 0.1 to 100.0. The default value is 5.0.
         """
@@ -3145,6 +3157,7 @@ class ServiceCapacityProviderStrategyItemArgs:
          Only capacity providers that are already associated with a cluster and have an ``ACTIVE`` or ``UPDATING`` status can be used in a capacity provider strategy. The ``PutClusterCapacityProviders`` API is used to associate a capacity provider with a cluster.
          If specifying a capacity provider that uses an Auto Scaling group, the capacity provider must already be created. New Auto Scaling group capacity providers can be created with the ``CreateCapacityProvider`` API operation.
          To use an FARGATElong capacity provider, specify either the ``FARGATE`` or ``FARGATE_SPOT`` capacity providers. The FARGATElong capacity providers are available to all accounts and only need to be associated with a cluster to be used in a capacity provider strategy.
+
         :param pulumi.Input[_builtins.int] base: The *base* value designates how many tasks, at a minimum, to run on the specified capacity provider for each service. Only one capacity provider in a capacity provider strategy can have a *base* defined. If no value is specified, the default value of ``0`` is used.
                 Base value characteristics:
                  +  Only one capacity provider in a strategy can have a base defined
@@ -3256,6 +3269,7 @@ class ServiceConnectAccessLogConfigurationArgs:
         """
         Configuration for Service Connect access logging. Access logs provide detailed information about requests made to your service, including request patterns, response codes, and timing data for debugging and monitoring purposes.
           To enable access logs, you must also specify a ``logConfiguration`` in the ``serviceConnectConfiguration``.
+
         :param pulumi.Input['ServiceConnectAccessLogConfigurationFormat'] format: The format for Service Connect access log output. Choose TEXT for human-readable logs or JSON for structured data that integrates well with log analysis tools.
         :param pulumi.Input['ServiceConnectAccessLogConfigurationIncludeQueryParameters'] include_query_parameters: Specifies whether to include query parameters in Service Connect access logs.
                 When enabled, query parameters from HTTP requests are included in the access logs. Consider security and privacy implications when enabling this feature, as query parameters may contain sensitive information such as request IDs and tokens. By default, this parameter is ``DISABLED``.
@@ -3322,6 +3336,7 @@ class ServiceConnectClientAliasArgs:
         Each alias ("endpoint") is a fully-qualified name and port number that other tasks ("clients") can use to connect to this service.
          Each name and port mapping must be unique within the namespace.
          Tasks that run in a namespace can use short names to connect to services in the namespace. Tasks can connect to services across all of the clusters in the namespace. Tasks connect through a managed proxy container that collects logs and metrics for increased visibility. Only the tasks that Amazon ECS services create are supported with Service Connect. For more information, see [Service Connect](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-connect.html) in the *Amazon Elastic Container Service Developer Guide*.
+
         :param pulumi.Input[_builtins.int] port: The listening port number for the Service Connect proxy. This port is available inside of all of the tasks within the same namespace.
                 To avoid changing your applications in client Amazon ECS services, set this to the same port that the client application uses by default. For more information, see [Service Connect](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-connect.html) in the *Amazon Elastic Container Service Developer Guide*.
         :param pulumi.Input[_builtins.str] dns_name: The ``dnsName`` is the name that you use in the applications of client tasks to connect to this service. The name must be a valid DNS name but doesn't need to be fully-qualified. The name can include up to 127 characters. The name can include lowercase letters, numbers, underscores (_), hyphens (-), and periods (.). The name can't start with a hyphen.
@@ -3423,6 +3438,7 @@ class ServiceConnectConfigurationArgs:
         """
         The Service Connect configuration of your Amazon ECS service. The configuration for this service to discover and connect to services, and be discovered by, and connected from, other services within a namespace.
          Tasks that run in a namespace can use short names to connect to services in the namespace. Tasks can connect to services across all of the clusters in the namespace. Tasks connect through a managed proxy container that collects logs and metrics for increased visibility. Only the tasks that Amazon ECS services create are supported with Service Connect. For more information, see [Service Connect](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-connect.html) in the *Amazon Elastic Container Service Developer Guide*.
+
         :param pulumi.Input[_builtins.bool] enabled: Specifies whether to use Service Connect with this service.
         :param pulumi.Input['ServiceConnectAccessLogConfigurationArgs'] access_log_configuration: The configuration for Service Connect access logging. Access logs capture detailed information about requests made to your service, including request patterns, response codes, and timing data. They can be useful for debugging connectivity issues, monitoring service performance, and auditing service-to-service communication for security and compliance purposes.
                  To enable access logs, you must also specify a ``logConfiguration`` in the ``serviceConnectConfiguration``.
@@ -3568,6 +3584,7 @@ class ServiceConnectServiceArgs:
                  tls: Optional[pulumi.Input['ServiceConnectTlsConfigurationArgs']] = None):
         """
         The Service Connect service object configuration. For more information, see [Service Connect](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-connect.html) in the *Amazon Elastic Container Service Developer Guide*.
+
         :param pulumi.Input[_builtins.str] port_name: The ``portName`` must match the name of one of the ``portMappings`` from all the containers in the task definition of this Amazon ECS service.
         :param pulumi.Input[Sequence[pulumi.Input['ServiceConnectClientAliasArgs']]] client_aliases: The list of client aliases for this Service Connect service. You use these to assign names that can be used by client applications. The maximum number of client aliases that you can have in this list is 1.
                 Each alias ("endpoint") is a fully-qualified name and port number that other Amazon ECS tasks ("clients") can use to connect to this service.
@@ -3740,6 +3757,7 @@ class ServiceConnectTestTrafficRulesArgs:
         """
         The test traffic routing configuration for Amazon ECS blue/green deployments. This configuration allows you to define rules for routing specific traffic to the new service revision during the deployment process, allowing for safe testing before full production traffic shift.
          For more information, see [Service Connect for Amazon ECS blue/green deployments](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-connect-blue-green.html) in the *Amazon Elastic Container Service Developer Guide*.
+
         :param pulumi.Input['ServiceConnectTestTrafficRulesHeaderArgs'] header: The HTTP header-based routing rules that determine which requests should be routed to the new service version during blue/green deployment testing. These rules provide fine-grained control over test traffic routing based on request headers.
         """
         pulumi.set(__self__, "header", header)
@@ -3772,6 +3790,7 @@ class ServiceConnectTlsCertificateAuthorityArgs:
                  aws_pca_authority_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The certificate root authority that secures your service.
+
         :param pulumi.Input[_builtins.str] aws_pca_authority_arn: The ARN of the AWS Private Certificate Authority certificate.
         """
         if aws_pca_authority_arn is not None:
@@ -3815,6 +3834,7 @@ class ServiceConnectTlsConfigurationArgs:
                  role_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The key that encrypts and decrypts your resources for Service Connect TLS.
+
         :param pulumi.Input['ServiceConnectTlsCertificateAuthorityArgs'] issuer_certificate_authority: The signer certificate authority.
         :param pulumi.Input[_builtins.str] kms_key: The AWS Key Management Service key.
         :param pulumi.Input[_builtins.str] role_arn: The Amazon Resource Name (ARN) of the IAM role that's associated with the Service Connect TLS.
@@ -3893,6 +3913,7 @@ class ServiceDeploymentAlarmsArgs:
          When the alarms are generated, Amazon ECS sets the service deployment to failed. Set the rollback parameter to have Amazon ECS to roll back your service to the last completed deployment after a failure.
          You can only use the ``DeploymentAlarms`` method to detect failures when the ``DeploymentController`` is set to ``ECS``.
          For more information, see [Rolling update](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-type-ecs.html) in the *Amazon Elastic Container Service Developer Guide*.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] alarm_names: One or more CloudWatch alarm names. Use a "," to separate the alarms.
         :param pulumi.Input[_builtins.bool] enable: Determines whether to use the CloudWatch alarm option in the service deployment process.
         :param pulumi.Input[_builtins.bool] rollback: Determines whether to configure Amazon ECS to roll back the service if a service deployment fails. If rollback is used, when a service deployment fails, the service is rolled back to the last deployment that completed successfully.
@@ -3962,6 +3983,7 @@ class ServiceDeploymentCircuitBreakerArgs:
         The deployment circuit breaker can only be used for services using the rolling update (``ECS``) deployment type.
           The *deployment circuit breaker* determines whether a service deployment will fail if the service can't reach a steady state. If it is turned on, a service deployment will transition to a failed state and stop launching new tasks. You can also configure Amazon ECS to roll back your service to the last completed deployment after a failure. For more information, see [Rolling update](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-type-ecs.html) in the *Amazon Elastic Container Service Developer Guide*.
          For more information about API failure reasons, see [API failure reasons](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/api_failures_messages.html) in the *Amazon Elastic Container Service Developer Guide*.
+
         :param pulumi.Input[_builtins.bool] enable: Determines whether to use the deployment circuit breaker logic for the service.
         :param pulumi.Input[_builtins.bool] rollback: Determines whether to configure Amazon ECS to roll back the service if a service deployment fails. If rollback is on, when a service deployment fails, the service is rolled back to the last deployment that completed successfully.
         """
@@ -4076,6 +4098,7 @@ class ServiceDeploymentConfigurationArgs:
                  strategy: Optional[pulumi.Input['ServiceDeploymentConfigurationStrategy']] = None):
         """
         Optional deployment parameters that control how many tasks run during a deployment and the ordering of stopping and starting tasks.
+
         :param pulumi.Input['ServiceDeploymentAlarmsArgs'] alarms: Information about the CloudWatch alarms.
         :param pulumi.Input[_builtins.int] bake_time_in_minutes: The duration when both blue and green service revisions are running simultaneously after the production traffic has shifted.
                 The following rules apply when you don't specify a value:
@@ -4318,6 +4341,7 @@ class ServiceDeploymentControllerArgs:
                  type: Optional[pulumi.Input['ServiceDeploymentControllerType']] = None):
         """
         The deployment controller to use for the service.
+
         :param pulumi.Input['ServiceDeploymentControllerType'] type: The deployment controller type to use.
                 The deployment controller is the mechanism that determines how tasks are deployed for your service. The valid options are:
                  +  ECS
@@ -4460,6 +4484,7 @@ class ServiceDeploymentLifecycleHookArgs:
         """
         A deployment lifecycle hook runs custom logic at specific stages of the deployment process. Currently, you can use Lambda functions as hook targets.
          For more information, see [Lifecycle hooks for Amazon ECS service deployments](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-lifecycle-hooks.html) in the *Amazon Elastic Container Service Developer Guide*.
+
         :param pulumi.Input[_builtins.str] hook_target_arn: The Amazon Resource Name (ARN) of the hook target. Currently, only Lambda function ARNs are supported.
                 You must provide this parameter when configuring a deployment lifecycle hook.
         :param pulumi.Input[Sequence[pulumi.Input['ServiceDeploymentLifecycleHookLifecycleStagesItem']]] lifecycle_stages: The lifecycle stages at which to run the hook. Choose from these valid values:
@@ -4600,6 +4625,7 @@ class ServiceEbsTagSpecificationArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceTagArgs']]]] = None):
         """
         The tag specifications of an Amazon EBS volume.
+
         :param pulumi.Input[_builtins.str] resource_type: The type of volume resource.
         :param pulumi.Input['ServiceEbsTagSpecificationPropagateTags'] propagate_tags: Determines whether to propagate the tags from the task definition to 
                the Amazon EBS volume. Tags can only propagate to a ``SERVICE`` specified in 
@@ -4673,6 +4699,7 @@ class ServiceForceNewDeploymentArgs:
                  force_new_deployment_nonce: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Determines whether to force a new deployment of the service. By default, deployments aren't forced. You can use this option to start a new deployment with no service definition changes. For example, you can update a service's tasks to use a newer Docker image with the same image/tag combination (``my_image:latest``) or to roll Fargate tasks onto a newer platform version.
+
         :param pulumi.Input[_builtins.bool] enable_force_new_deployment: Determines whether to force a new deployment of the service. By default, deployments aren't forced. You can use this option to start a new deployment with no service definition changes. For example, you can update a service's tasks to use a newer Docker image with the same image/tag combination (``my_image:latest``) or to roll Fargate tasks onto a newer platform version.
         :param pulumi.Input[_builtins.str] force_new_deployment_nonce: When you change the``ForceNewDeploymentNonce`` value in your template, it signals ECS to start a new deployment even though no other service parameters have changed. The value must be a unique, time- varying value like a timestamp, random string, or sequence number. Use this property when you want to ensure your tasks pick up the latest version of a Docker image that uses the same tag but has been updated in the registry.
         """
@@ -4741,6 +4768,7 @@ class ServiceLinearConfigurationArgs:
           
          This calculation reflects that CFN doesn't apply the step bake time after the final traffic shift reaches 100%. For example, with a ``StepPercent`` of 50%, there are actually two traffic shifts, but only one deployment step is counted for validation purposes because the bake time is applied only after the first 50% shift, not after reaching 100%.
          Additional backend processes (such as task scaling and running lifecycle hooks) can extend deployment time beyond these calculations. Even deployments under the 33-hour threshold might still time out if these processes cause the total duration to exceed 36 hours.
+
         :param pulumi.Input[_builtins.int] step_bake_time_in_minutes: The amount of time in minutes to wait between each traffic shifting step during a linear deployment. Valid values are 0 to 1440 minutes (24 hours). The default value is 6. This bake time is not applied after reaching 100 percent traffic.
         :param pulumi.Input[_builtins.float] step_percent: The percentage of production traffic to shift in each step during a linear deployment. Valid values are multiples of 0.1 from 3.0 to 100.0. The default value is 10.0.
         """
@@ -4819,6 +4847,7 @@ class ServiceLoadBalancerArgs:
         The ``LoadBalancer`` property specifies details on a load balancer that is used with a service.
          If the service is using the ``CODE_DEPLOY`` deployment controller, the service is required to use either an Application Load Balancer or Network Load Balancer. When you are creating an ACDlong deployment group, you specify two target groups (referred to as a ``targetGroupPair``). Each target group binds to a separate task set in the deployment. The load balancer can also have up to two listeners, a required listener for production traffic and an optional listener that allows you to test new revisions of the service before routing production traffic to it.
          Services with tasks that use the ``awsvpc`` network mode (for example, those with the Fargate launch type) only support Application Load Balancers and Network Load Balancers. Classic Load Balancers are not supported. Also, when you create any target groups for these services, you must choose ``ip`` as the target type, not ``instance``. Tasks that use the ``awsvpc`` network mode are associated with an elastic network interface, not an Amazon EC2 instance.
+
         :param pulumi.Input['ServiceAdvancedConfigurationArgs'] advanced_configuration: The advanced settings for the load balancer used in blue/green deployments. Specify the alternate target group, listener rules, and IAM role required for traffic shifting during blue/green deployments.
         :param pulumi.Input[_builtins.str] container_name: The name of the container (as it appears in a container definition) to associate with the load balancer.
                 You need to specify the container name when configuring the target group for an Amazon ECS load balancer.
@@ -4966,6 +4995,7 @@ class ServiceLogConfigurationArgs:
           +  This parameter requires version 1.18 of the Docker Remote API or greater on your container instance.
           +  For tasks that are hosted on Amazon EC2 instances, the Amazon ECS container agent must register the available logging drivers with the ``ECS_AVAILABLE_LOGGING_DRIVERS`` environment variable before containers placed on that instance can use these log configuration options. For more information, see [Amazon ECS container agent configuration](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-config.html) in the *Amazon Elastic Container Service Developer Guide*.
           +  For tasks that are on FARGATElong, because you don't have access to the underlying infrastructure your tasks are hosted on, any additional software needed must be installed outside of the task. For example, the Fluentd output aggregators or a remote host running Logstash to send Gelf logs to.
+
         :param pulumi.Input[_builtins.str] log_driver: The log driver to use for the container.
                 For tasks on FARGATElong, the supported log drivers are ``awslogs``, ``splunk``, and ``awsfirelens``.
                 For tasks hosted on Amazon EC2 instances, the supported log drivers are ``awslogs``, ``fluentd``, ``gelf``, ``json-file``, ``journald``, ``syslog``, ``splunk``, and ``awsfirelens``.
@@ -5137,6 +5167,7 @@ class ServiceManagedEbsVolumeConfigurationArgs:
         """
         The configuration for the Amazon EBS volume that Amazon ECS creates and manages on your behalf. These settings are used to create each Amazon EBS volume, with one volume created for each task in the service. For information about the supported launch types and operating systems, see [Supported operating systems and launch types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ebs-volumes.html#ebs-volumes-configuration) in the*Amazon Elastic Container Service Developer Guide*.
          Many of these parameters map 1:1 with the Amazon EBS ``CreateVolume`` API request parameters.
+
         :param pulumi.Input[_builtins.str] role_arn: The ARN of the IAM role to associate with this volume. This is the Amazon ECS infrastructure IAM role that is used to manage your AWS infrastructure. We recommend using the Amazon ECS-managed ``AmazonECSInfrastructureRolePolicyForVolumes`` IAM policy with this role. For more information, see [Amazon ECS infrastructure IAM role](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/infrastructure_IAM_role.html) in the *Amazon ECS Developer Guide*.
         :param pulumi.Input[_builtins.bool] encrypted: Indicates whether the volume should be encrypted. If you turn on Region-level Amazon EBS encryption by default but set this value as ``false``, the setting is overridden and the volume is encrypted with the KMS key specified for Amazon EBS encryption by default. This parameter maps 1:1 with the ``Encrypted`` parameter of the [CreateVolume API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVolume.html) in the *Amazon EC2 API Reference*.
         :param pulumi.Input[_builtins.str] filesystem_type: The filesystem type for the volume. For volumes created from a snapshot, you must specify the same filesystem type that the volume was using when the snapshot was created. If there is a filesystem type mismatch, the tasks will fail to start.
@@ -5368,6 +5399,7 @@ class ServiceNetworkConfigurationArgs:
                  awsvpc_configuration: Optional[pulumi.Input['ServiceAwsVpcConfigurationArgs']] = None):
         """
         The network configuration for a task or service.
+
         :param pulumi.Input['ServiceAwsVpcConfigurationArgs'] awsvpc_configuration: The VPC subnets and security groups that are associated with a task.
                  All specified subnets and security groups must be from the same VPC.
         """
@@ -5410,6 +5442,7 @@ class ServicePlacementConstraintArgs:
         """
         An object representing a constraint on task placement. For more information, see [Task placement constraints](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-constraints.html) in the *Amazon Elastic Container Service Developer Guide*.
           If you're using the Fargate launch type, task placement constraints aren't supported.
+
         :param pulumi.Input['ServicePlacementConstraintType'] type: The type of constraint. Use ``distinctInstance`` to ensure that each task in a particular group is running on a different container instance. Use ``memberOf`` to restrict the selection to a group of valid candidates.
         :param pulumi.Input[_builtins.str] expression: A cluster query language expression to apply to the constraint. The expression can have a maximum length of 2000 characters. You can't specify an expression if the constraint type is ``distinctInstance``. For more information, see [Cluster query language](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html) in the *Amazon Elastic Container Service Developer Guide*.
         """
@@ -5462,6 +5495,7 @@ class ServicePlacementStrategyArgs:
                  field: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The task placement strategy for a task or service. For more information, see [Task placement strategies](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-strategies.html) in the *Amazon Elastic Container Service Developer Guide*.
+
         :param pulumi.Input['ServicePlacementStrategyType'] type: The type of placement strategy. The ``random`` placement strategy randomly places tasks on available candidates. The ``spread`` placement strategy spreads placement across available candidates evenly based on the ``field`` parameter. The ``binpack`` strategy places tasks on available candidates that have the least available amount of the resource that's specified with the ``field`` parameter. For example, if you binpack on memory, a task is placed on the instance with the least amount of remaining memory but still enough to run the task.
         :param pulumi.Input[_builtins.str] field: The field to apply the placement strategy against. For the ``spread`` placement strategy, valid values are ``instanceId`` (or ``host``, which has the same effect), or any platform or custom attribute that's applied to a container instance, such as ``attribute:ecs.availability-zone``. For the ``binpack`` placement strategy, valid values are ``cpu`` and ``memory``. For the ``random`` placement strategy, this field is not used.
         """
@@ -5528,6 +5562,7 @@ class ServiceRegistryArgs:
         The details for the service registry.
          Each service may be associated with one service registry. Multiple service registries for each service are not supported.
          When you add, update, or remove the service registries configuration, Amazon ECS starts a new deployment. New tasks are registered and deregistered to the updated service registry configuration.
+
         :param pulumi.Input[_builtins.str] container_name: The container name value to be used for your service discovery service. It's already specified in the task definition. If the task definition that your service task specifies uses the ``bridge`` or ``host`` network mode, you must specify a ``containerName`` and ``containerPort`` combination from the task definition. If the task definition that your service task specifies uses the ``awsvpc`` network mode and a type SRV DNS record is used, you must specify either a ``containerName`` and ``containerPort`` combination or a ``port`` value. However, you can't specify both.
         :param pulumi.Input[_builtins.int] container_port: The port value to be used for your service discovery service. It's already specified in the task definition. If the task definition your service task specifies uses the ``bridge`` or ``host`` network mode, you must specify a ``containerName`` and ``containerPort`` combination from the task definition. If the task definition your service task specifies uses the ``awsvpc`` network mode and a type SRV DNS record is used, you must specify either a ``containerName`` and ``containerPort`` combination or a ``port`` value. However, you can't specify both.
         :param pulumi.Input[_builtins.int] port: The port value used if your service discovery service specified an SRV record. This field might be used if both the ``awsvpc`` network mode and SRV records are used.
@@ -5621,6 +5656,7 @@ class ServiceSecretArgs:
           +  To reference sensitive information in the log configuration of a container, use the ``secretOptions`` container definition parameter.
           
          For more information, see [Specifying sensitive data](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/specifying-sensitive-data.html) in the *Amazon Elastic Container Service Developer Guide*.
+
         :param pulumi.Input[_builtins.str] name: The name of the secret.
         :param pulumi.Input[_builtins.str] value_from: The secret to expose to the container. The supported values are either the full ARN of the ASMlong secret or the full ARN of the parameter in the SSM Parameter Store.
                 For information about the require IAMlong permissions, see [Required IAM permissions for Amazon ECS secrets](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/specifying-sensitive-data-secrets.html#secrets-iam) (for Secrets Manager) or [Required IAM permissions for Amazon ECS secrets](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/specifying-sensitive-data-parameters.html) (for Systems Manager Parameter store) in the *Amazon Elastic Container Service Developer Guide*.
@@ -5706,6 +5742,7 @@ class ServiceTagArgs:
           +   The service ARN is: ``arn:aws:ecs:region:aws_account_id:service/cluster-name/service-name``
           +  You can use CFN to tag the service as you would a service with a long ARN format.
           +  When the ``PhysicalResourceId`` in the CFN stack represents a service, the value does not change and will be the short service ARN.
+
         :param pulumi.Input[_builtins.str] key: One part of a key-value pair that make up a tag. A ``key`` is a general label that acts like a category for more specific tag values.
         :param pulumi.Input[_builtins.str] value: The optional part of a key-value pair that make up a tag. A ``value`` acts as a descriptor within a tag category (key).
         """
@@ -5763,6 +5800,7 @@ class ServiceTimeoutConfigurationArgs:
         """
         An object that represents the timeout configurations for Service Connect.
           If ``idleTimeout`` is set to a time that is less than ``perRequestTimeout``, the connection will close when the ``idleTimeout`` is reached and not the ``perRequestTimeout``.
+
         :param pulumi.Input[_builtins.int] idle_timeout_seconds: The amount of time in seconds a connection will stay active while idle. A value of ``0`` can be set to disable ``idleTimeout``.
                 The ``idleTimeout`` default for ``HTTP``/``HTTP2``/``GRPC`` is 5 minutes.
                 The ``idleTimeout`` default for ``TCP`` is 1 hour.
@@ -5820,6 +5858,7 @@ class ServiceVolumeConfigurationArgs:
                  managed_ebs_volume: Optional[pulumi.Input['ServiceManagedEbsVolumeConfigurationArgs']] = None):
         """
         The configuration for a volume specified in the task definition as a volume that is configured at launch time. Currently, the only supported volume type is an Amazon EBS volume.
+
         :param pulumi.Input[_builtins.str] name: The name of the volume. This value must match the volume name from the ``Volume`` object in the task definition.
         :param pulumi.Input['ServiceManagedEbsVolumeConfigurationArgs'] managed_ebs_volume: The configuration for the Amazon EBS volume that Amazon ECS creates and manages on your behalf. These settings are used to create each Amazon EBS volume, with one volume created for each task in the service. The Amazon EBS volumes are visible in your account in the Amazon EC2 console once they are created.
         """
@@ -5878,6 +5917,7 @@ class ServiceVpcLatticeConfigurationArgs:
                  target_group_arn: pulumi.Input[_builtins.str]):
         """
         The VPC Lattice configuration for your service that holds the information for the target group(s) Amazon ECS tasks will be registered to.
+
         :param pulumi.Input[_builtins.str] port_name: The name of the port mapping to register in the VPC Lattice target group. This is the name of the ``portMapping`` you defined in your task definition.
         :param pulumi.Input[_builtins.str] role_arn: The ARN of the IAM role to associate with this VPC Lattice configuration. This is the Amazon ECS
                 infrastructure IAM role that is used to manage your VPC Lattice infrastructure.
@@ -5945,6 +5985,7 @@ class TaskDefinitionAuthorizationConfigArgs:
                  iam: Optional[pulumi.Input['TaskDefinitionAuthorizationConfigIam']] = None):
         """
         The authorization configuration details for the Amazon EFS file system.
+
         :param pulumi.Input[_builtins.str] access_point_id: The Amazon EFS access point ID to use. If an access point is specified, the root directory value specified in the ``EFSVolumeConfiguration`` must either be omitted or set to ``/`` which will enforce the path set on the EFS access point. If an access point is used, transit encryption must be on in the ``EFSVolumeConfiguration``. For more information, see [Working with Amazon EFS access points](https://docs.aws.amazon.com/efs/latest/ug/efs-access-points.html) in the *Amazon Elastic File System User Guide*.
         :param pulumi.Input['TaskDefinitionAuthorizationConfigIam'] iam: Determines whether to use the Amazon ECS task role defined in a task definition when mounting the Amazon EFS file system. If it is turned on, transit encryption must be turned on in the ``EFSVolumeConfiguration``. If this parameter is omitted, the default value of ``DISABLED`` is used. For more information, see [Using Amazon EFS access points](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/efs-volumes.html#efs-volume-accesspoints) in the *Amazon Elastic Container Service Developer Guide*.
         """
@@ -6285,6 +6326,7 @@ class TaskDefinitionContainerDefinitionArgs:
                  working_directory: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The ``ContainerDefinition`` property specifies a container definition. Container definitions are used in task definitions to describe the different containers that are launched as part of a task.
+
         :param pulumi.Input[_builtins.str] image: The image used to start a container. This string is passed directly to the Docker daemon. By default, images in the Docker Hub registry are available. Other repositories are specified with either ``repository-url/image:tag`` or ``repository-url/image@digest``. For images using tags (repository-url/image:tag), up to 255 characters total are allowed, including letters (uppercase and lowercase), numbers, hyphens, underscores, colons, periods, forward slashes, and number signs (#). For images using digests (repository-url/image@digest), the 255 character limit applies only to the repository URL and image name (everything before the @ sign). The only supported hash function is sha256, and the hash value after sha256: must be exactly 64 characters (only letters A-F, a-f, and numbers 0-9 are allowed). This parameter maps to ``Image`` in the docker container create command and the ``IMAGE`` parameter of docker run.
                  +  When a new task starts, the Amazon ECS container agent pulls the latest version of the specified image and tag for the container to use. However, subsequent updates to a repository image aren't propagated to already running tasks.
                  +  Images in Amazon ECR repositories can be specified by either using the full ``registry/repository:tag`` or ``registry/repository@digest``. For example, ``012345678910.dkr.ecr.<region-name>.amazonaws.com/<repository-name>:latest`` or ``012345678910.dkr.ecr.<region-name>.amazonaws.com/<repository-name>@sha256:94afd1f2e64d908bc90dbca0035a5b567EXAMPLE``. 
@@ -7118,6 +7160,7 @@ class TaskDefinitionContainerDependencyArgs:
         The ``ContainerDependency`` property specifies the dependencies defined for container startup and shutdown. A container can contain multiple dependencies. When a dependency is defined for container startup, for container shutdown it is reversed.
          Your Amazon ECS container instances require at least version 1.26.0 of the container agent to enable container dependencies. However, we recommend using the latest container agent version. For information about checking your agent version and updating to the latest version, see [Updating the Amazon ECS Container Agent](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-update.html) in the *Amazon Elastic Container Service Developer Guide*. If you are using an Amazon ECS-optimized Linux AMI, your instance needs at least version 1.26.0-1 of the ``ecs-init`` package. If your container instances are launched from version ``20190301`` or later, then they contain the required versions of the container agent and ``ecs-init``. For more information, see [Amazon ECS-optimized Linux AMI](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html) in the *Amazon Elastic Container Service Developer Guide*.
           For tasks using the Fargate launch type, this parameter requires that the task or service uses platform version 1.3.0 or later.
+
         :param pulumi.Input[_builtins.str] condition: The dependency condition of the container. The following are the available conditions and their behavior:
                  +  ``START`` - This condition emulates the behavior of links and volumes today. It validates that a dependent container is started before permitting other containers to start.
                  +  ``COMPLETE`` - This condition validates that a dependent container runs to completion (exits) before permitting other containers to start. This can be useful for nonessential containers that run a script and then exit. This condition can't be set on an essential container.
@@ -7184,6 +7227,7 @@ class TaskDefinitionDeviceArgs:
                  permissions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The ``Device`` property specifies an object representing a container instance host device.
+
         :param pulumi.Input[_builtins.str] container_path: The path inside the container at which to expose the host device.
         :param pulumi.Input[_builtins.str] host_path: The path for the device on the host container instance.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] permissions: The explicit permissions to provide to the container for the device. By default, the container has permissions for ``read``, ``write``, and ``mknod`` for the device.
@@ -7268,6 +7312,7 @@ class TaskDefinitionDockerVolumeConfigurationArgs:
                  scope: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The ``DockerVolumeConfiguration`` property specifies a Docker volume configuration and is used when you use Docker volumes. Docker volumes are only supported when you are using the EC2 launch type. Windows containers only support the use of the ``local`` driver. To use bind mounts, specify a ``host`` instead.
+
         :param pulumi.Input[_builtins.bool] autoprovision: If this value is ``true``, the Docker volume is created if it doesn't already exist.
                  This field is only used if the ``scope`` is ``shared``.
         :param pulumi.Input[_builtins.str] driver: The Docker volume driver to use. The driver value must match the driver name provided by Docker because it is used for task placement. If the driver was installed using the Docker plugin CLI, use ``docker plugin ls`` to retrieve the driver name from your container instance. If the driver was installed using another method, use Docker plugin discovery to retrieve the driver name. This parameter maps to ``Driver`` in the docker container create command and the ``xxdriver`` option to docker volume create.
@@ -7384,6 +7429,7 @@ class TaskDefinitionEfsVolumeConfigurationArgs:
                  transit_encryption_port: Optional[pulumi.Input[_builtins.int]] = None):
         """
         This parameter is specified when you're using an Amazon Elastic File System file system for task storage. For more information, see [Amazon EFS volumes](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/efs-volumes.html) in the *Amazon Elastic Container Service Developer Guide*.
+
         :param pulumi.Input[_builtins.str] filesystem_id: The Amazon EFS file system ID to use.
         :param pulumi.Input['TaskDefinitionAuthorizationConfigArgs'] authorization_config: The authorization configuration details for the Amazon EFS file system.
         :param pulumi.Input[_builtins.str] root_directory: The directory within the Amazon EFS file system to mount as the root directory inside the host. If this parameter is omitted, the root of the Amazon EFS volume will be used. Specifying ``/`` will have the same effect as omitting this parameter.
@@ -7503,6 +7549,7 @@ class TaskDefinitionEnvironmentFileArgs:
           +  The file is handled like a native Docker env-file.
           +  There is no support for shell escape handling.
           +  The container entry point interperts the ``VARIABLE`` values.
+
         :param pulumi.Input[_builtins.str] type: The file type to use. Environment files are objects in Amazon S3. The only supported value is ``s3``.
         :param pulumi.Input[_builtins.str] value: The Amazon Resource Name (ARN) of the Amazon S3 object containing the environment variable file.
         """
@@ -7557,6 +7604,7 @@ class TaskDefinitionEphemeralStorageArgs:
           For tasks using the Fargate launch type, the task requires the following platforms:
           +  Linux platform version ``1.4.0`` or later.
           +  Windows platform version ``1.0.0`` or later.
+
         :param pulumi.Input[_builtins.int] size_in_gi_b: The total amount, in GiB, of ephemeral storage to set for the task. The minimum supported value is ``21`` GiB and the maximum supported value is ``200`` GiB.
         """
         if size_in_gi_b is not None:
@@ -7597,6 +7645,7 @@ class TaskDefinitionFSxAuthorizationConfigArgs:
         """
         The authorization configuration details for Amazon FSx for Windows File Server file system. See [FSxWindowsFileServerVolumeConfiguration](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_FSxWindowsFileServerVolumeConfiguration.html) in the *Amazon ECS API Reference*.
          For more information and the input format, see [Amazon FSx for Windows File Server Volumes](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/wfsx-volumes.html) in the *Amazon Elastic Container Service Developer Guide*.
+
         :param pulumi.Input[_builtins.str] credentials_parameter: The authorization credential option to use. The authorization credential options can be provided using either the Amazon Resource Name (ARN) of an ASMlong secret or SSM Parameter Store parameter. The ARN refers to the stored credentials.
         :param pulumi.Input[_builtins.str] domain: A fully qualified domain name hosted by an [](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/directory_microsoft_ad.html) Managed Microsoft AD (Active Directory) or self-hosted AD on Amazon EC2.
         """
@@ -7655,6 +7704,7 @@ class TaskDefinitionFSxWindowsFileServerVolumeConfigurationArgs:
         """
         This parameter is specified when you're using [Amazon FSx for Windows File Server](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/what-is.html) file system for task storage.
          For more information and the input format, see [Amazon FSx for Windows File Server volumes](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/wfsx-volumes.html) in the *Amazon Elastic Container Service Developer Guide*.
+
         :param pulumi.Input[_builtins.str] file_system_id: The Amazon FSx for Windows File Server file system ID to use.
         :param pulumi.Input[_builtins.str] root_directory: The directory within the Amazon FSx for Windows File Server file system to mount as the root directory inside the host.
         :param pulumi.Input['TaskDefinitionFSxAuthorizationConfigArgs'] authorization_config: The authorization configuration details for the Amazon FSx for Windows File Server file system.
@@ -7725,6 +7775,7 @@ class TaskDefinitionFirelensConfigurationArgs:
                  type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The FireLens configuration for the container. This is used to specify and configure a log router for container logs. For more information, see [Custom log routing](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_firelens.html) in the *Amazon Elastic Container Service Developer Guide*.
+
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] options: The options to use when configuring the log router. This field is optional and can be used to add additional metadata, such as the task, task definition, cluster, and container instance details to the log event.
                  If specified, valid option keys are:
                  +  ``enable-ecs-log-metadata``, which can be ``true`` or ``false``
@@ -7819,6 +7870,7 @@ class TaskDefinitionHealthCheckArgs:
           +  Container health checks require version 1.17.0 or greater of the Amazon ECS container agent. For more information, see [Updating the Amazon ECS Container Agent](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-update.html).
           +  Container health checks are supported for Fargate tasks if you are using platform version 1.1.0 or greater. For more information, see [Platform Versions](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
           +  Container health checks are not supported for tasks that are part of a service that is configured to use a Classic Load Balancer.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] command: A string array representing the command that the container runs to determine if it is healthy. The string array must start with ``CMD`` to run the command arguments directly, or ``CMD-SHELL`` to run the command with the container's default shell. 
                  When you use the AWS Management Console JSON panel, the CLIlong, or the APIs, enclose the list of commands in double quotes and brackets.
                  ``[ "CMD-SHELL", "curl -f http://localhost/ || exit 1" ]`` 
@@ -7929,6 +7981,7 @@ class TaskDefinitionHostEntryArgs:
                  ip_address: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The ``HostEntry`` property specifies a hostname and an IP address that are added to the ``/etc/hosts`` file of a container through the ``extraHosts`` parameter of its ``ContainerDefinition`` resource.
+
         :param pulumi.Input[_builtins.str] hostname: The hostname to use in the ``/etc/hosts`` entry.
         :param pulumi.Input[_builtins.str] ip_address: The IP address to use in the ``/etc/hosts`` entry.
         """
@@ -7978,6 +8031,7 @@ class TaskDefinitionHostVolumePropertiesArgs:
                  source_path: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The ``HostVolumeProperties`` property specifies details on a container instance bind mount host volume.
+
         :param pulumi.Input[_builtins.str] source_path: When the ``host`` parameter is used, specify a ``sourcePath`` to declare the path on the host container instance that's presented to the container. If this parameter is empty, then the Docker daemon has assigned a host path for you. If the ``host`` parameter contains a ``sourcePath`` file location, then the data volume persists at the specified location on the host container instance until you delete it manually. If the ``sourcePath`` value doesn't exist on the host container instance, the Docker daemon creates it. If the location does exist, the contents of the source path folder are exported.
                 If you're using the Fargate launch type, the ``sourcePath`` parameter is not supported.
         """
@@ -8066,6 +8120,7 @@ class TaskDefinitionKernelCapabilitiesArgs:
           +  When the ``drop`` request parameter is set to ALL, the container capabilities are the capabilities specified in the ``add`` request parameter.
           +  When the ``add`` request parameter and the ``drop`` request parameter are both empty, the capabilities the container capabilities are all of the default Docker capabilities.
           +  The default is to first drop the capabilities specified in the ``drop`` request parameter, and then add the capabilities specified in the ``add`` request parameter.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] add: The Linux capabilities for the container that have been added to the default configuration provided by Docker. This parameter maps to ``CapAdd`` in the docker container create command and the ``--cap-add`` option to docker run.
                  Tasks launched on FARGATElong only support adding the ``SYS_PTRACE`` kernel capability.
                  Valid values: ``"ALL" | "AUDIT_CONTROL" | "AUDIT_WRITE" | "BLOCK_SUSPEND" | "CHOWN" | "DAC_OVERRIDE" | "DAC_READ_SEARCH" | "FOWNER" | "FSETID" | "IPC_LOCK" | "IPC_OWNER" | "KILL" | "LEASE" | "LINUX_IMMUTABLE" | "MAC_ADMIN" | "MAC_OVERRIDE" | "MKNOD" | "NET_ADMIN" | "NET_BIND_SERVICE" | "NET_BROADCAST" | "NET_RAW" | "SETFCAP" | "SETGID" | "SETPCAP" | "SETUID" | "SYS_ADMIN" | "SYS_BOOT" | "SYS_CHROOT" | "SYS_MODULE" | "SYS_NICE" | "SYS_PACCT" | "SYS_PTRACE" | "SYS_RAWIO" | "SYS_RESOURCE" | "SYS_TIME" | "SYS_TTY_CONFIG" | "SYSLOG" | "WAKE_ALARM"``
@@ -8125,6 +8180,7 @@ class TaskDefinitionKeyValuePairArgs:
                  value: Optional[pulumi.Input[_builtins.str]] = None):
         """
         A key-value pair object.
+
         :param pulumi.Input[_builtins.str] name: The name of the key-value pair. For environment variables, this is the name of the environment variable.
         :param pulumi.Input[_builtins.str] value: The value of the key-value pair. For environment variables, this is the value of the environment variable.
         """
@@ -8212,6 +8268,7 @@ class TaskDefinitionLinuxParametersArgs:
                  tmpfs: Optional[pulumi.Input[Sequence[pulumi.Input['TaskDefinitionTmpfsArgs']]]] = None):
         """
         The Linux-specific options that are applied to the container, such as Linux [KernelCapabilities](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_KernelCapabilities.html).
+
         :param pulumi.Input['TaskDefinitionKernelCapabilitiesArgs'] capabilities: The Linux capabilities for the container that are added to or dropped from the default configuration provided by Docker.
                  For tasks that use the Fargate launch type, ``capabilities`` is supported for all platform versions but the ``add`` parameter is only supported if using platform version 1.4.0 or later.
         :param pulumi.Input[Sequence[pulumi.Input['TaskDefinitionDeviceArgs']]] devices: Any host devices to expose to the container. This parameter maps to ``Devices`` in the docker container create command and the ``--device`` option to docker run.
@@ -8379,6 +8436,7 @@ class TaskDefinitionLogConfigurationArgs:
                  secret_options: Optional[pulumi.Input[Sequence[pulumi.Input['TaskDefinitionSecretArgs']]]] = None):
         """
         The ``LogConfiguration`` property specifies log configuration options to send to a custom log driver for the container.
+
         :param pulumi.Input[_builtins.str] log_driver: The log driver to use for the container.
                 For tasks on FARGATElong, the supported log drivers are ``awslogs``, ``splunk``, and ``awsfirelens``.
                 For tasks hosted on Amazon EC2 instances, the supported log drivers are ``awslogs``, ``fluentd``, ``gelf``, ``json-file``, ``journald``, ``syslog``, ``splunk``, and ``awsfirelens``.
@@ -8483,6 +8541,7 @@ class TaskDefinitionMountPointArgs:
                  source_volume: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The details for a volume mount point that's used in a container definition.
+
         :param pulumi.Input[_builtins.str] container_path: The path on the container to mount the host volume at.
         :param pulumi.Input[_builtins.bool] read_only: If this value is ``true``, the container has read-only access to the volume. If this value is ``false``, then the container can write to the volume. The default value is ``false``.
         :param pulumi.Input[_builtins.str] source_volume: The name of the volume to mount. Must be a volume name referenced in the ``name`` parameter of task definition ``volume``.
@@ -8553,6 +8612,7 @@ class TaskDefinitionPlacementConstraintArgs:
         """
         The constraint on task placement in the task definition. For more information, see [Task placement constraints](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-constraints.html) in the *Amazon Elastic Container Service Developer Guide*.
           Task placement constraints aren't supported for tasks run on FARGATElong.
+
         :param pulumi.Input[_builtins.str] type: The type of constraint. The ``MemberOf`` constraint restricts selection to be from a group of valid candidates.
         :param pulumi.Input[_builtins.str] expression: A cluster query language expression to apply to the constraint. For more information, see [Cluster query language](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html) in the *Amazon Elastic Container Service Developer Guide*.
         """
@@ -8661,6 +8721,7 @@ class TaskDefinitionPortMappingArgs:
         The ``PortMapping`` property specifies a port mapping. Port mappings allow containers to access ports on the host container instance to send or receive traffic. Port mappings are specified as part of the container definition.
          If you are using containers in a task with the ``awsvpc`` or ``host`` network mode, exposed ports should be specified using ``containerPort``. The ``hostPort`` can be left blank or it must be the same value as the ``containerPort``.
          After a task reaches the ``RUNNING`` status, manual and automatic host and container port assignments are visible in the ``networkBindings`` section of [DescribeTasks](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DescribeTasks.html) API responses.
+
         :param pulumi.Input['TaskDefinitionPortMappingAppProtocol'] app_protocol: The application protocol that's used for the port mapping. This parameter only applies to Service Connect. We recommend that you set this parameter to be consistent with the protocol that your application uses. If you set this parameter, Amazon ECS adds protocol-specific connection handling to the Service Connect proxy. If you set this parameter, Amazon ECS adds protocol-specific telemetry in the Amazon ECS console and CloudWatch.
                 If you don't set a value for this parameter, then TCP is used. However, Amazon ECS doesn't add protocol-specific telemetry for TCP.
                 ``appProtocol`` is immutable in a Service Connect service. Updating this field requires a service deletion and redeployment.
@@ -8852,6 +8913,7 @@ class TaskDefinitionProxyConfigurationArgs:
         """
         The configuration details for the App Mesh proxy.
          For tasks that use the EC2 launch type, the container instances require at least version 1.26.0 of the container agent and at least version 1.26.0-1 of the ``ecs-init`` package to use a proxy configuration. If your container instances are launched from the Amazon ECS optimized AMI version ``20190301`` or later, then they contain the required versions of the container agent and ``ecs-init``. For more information, see [Amazon ECS-optimized Linux AMI](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html)
+
         :param pulumi.Input[_builtins.str] container_name: The name of the container that will serve as the App Mesh proxy.
         :param pulumi.Input[Sequence[pulumi.Input['TaskDefinitionKeyValuePairArgs']]] proxy_configuration_properties: The set of network configuration parameters to provide the Container Network Interface (CNI) plugin, specified as key-value pairs.
                  +  ``IgnoredUID`` - (Required) The user ID (UID) of the proxy container as defined by the ``user`` parameter in a container definition. This is used to ensure the proxy ignores its own traffic. If ``IgnoredGID`` is specified, this field can be empty.
@@ -8929,6 +8991,7 @@ class TaskDefinitionRepositoryCredentialsArgs:
                  credentials_parameter: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The repository credentials for private registry authentication.
+
         :param pulumi.Input[_builtins.str] credentials_parameter: The Amazon Resource Name (ARN) of the secret containing the private repository credentials.
                  When you use the Amazon ECS API, CLI, or AWS SDK, if the secret exists in the same Region as the task that you're launching then you can use either the full ARN or the name of the secret. When you use the AWS Management Console, you must specify the full ARN of the secret.
         """
@@ -8971,6 +9034,7 @@ class TaskDefinitionResourceRequirementArgs:
                  value: pulumi.Input[_builtins.str]):
         """
         The type and amount of a resource to assign to a container. The supported resource types are GPUs and Elastic Inference accelerators. For more information, see [Working with GPUs on Amazon ECS](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-gpu.html) or [Working with Amazon Elastic Inference on Amazon ECS](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-inference.html) in the *Amazon Elastic Container Service Developer Guide*
+
         :param pulumi.Input[_builtins.str] type: The type of resource to assign to a container.
         :param pulumi.Input[_builtins.str] value: The value for the specified resource type.
                 When the type is ``GPU``, the value is the number of physical ``GPUs`` the Amazon ECS container agent reserves for the container. The number of GPUs that's reserved for all containers in a task can't exceed the number of available GPUs on the container instance that the task is launched on.
@@ -9031,6 +9095,7 @@ class TaskDefinitionRestartPolicyArgs:
                  restart_attempt_period: Optional[pulumi.Input[_builtins.int]] = None):
         """
         You can enable a restart policy for each container defined in your task definition, to overcome transient failures faster and maintain task availability. When you enable a restart policy for a container, Amazon ECS can restart the container if it exits, without needing to replace the task. For more information, see [Restart individual containers in Amazon ECS tasks with container restart policies](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/container-restart-policy.html) in the *Amazon Elastic Container Service Developer Guide*.
+
         :param pulumi.Input[_builtins.bool] enabled: Specifies whether a restart policy is enabled for the container.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] ignored_exit_codes: A list of exit codes that Amazon ECS will ignore and not attempt a restart on. You can specify a maximum of 50 container exit codes. By default, Amazon ECS does not ignore any exit codes.
         :param pulumi.Input[_builtins.int] restart_attempt_period: A period of time (in seconds) that the container must run for before a restart can be attempted. A container can be restarted only once every ``restartAttemptPeriod`` seconds. If a container isn't able to run for this time period and exits early, it will not be restarted. You can set a minimum ``restartAttemptPeriod`` of 60 seconds and a maximum ``restartAttemptPeriod`` of 1800 seconds. By default, a container must run for 300 seconds before it can be restarted.
@@ -9102,6 +9167,7 @@ class TaskDefinitionRuntimePlatformArgs:
         """
         Information about the platform for the Amazon ECS service or task.
          For more information about ``RuntimePlatform``, see [RuntimePlatform](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html#runtime-platform) in the *Amazon Elastic Container Service Developer Guide*.
+
         :param pulumi.Input[_builtins.str] cpu_architecture: The CPU architecture.
                 You can run your Linux tasks on an ARM-based platform by setting the value to ``ARM64``. This option is available for tasks that run on Linux Amazon EC2 instance, Amazon ECS Managed Instances, or Linux containers on Fargate.
         :param pulumi.Input[_builtins.str] operating_system_family: The operating system.
@@ -9167,6 +9233,7 @@ class TaskDefinitionSecretArgs:
           +  To reference sensitive information in the log configuration of a container, use the ``secretOptions`` container definition parameter.
           
          For more information, see [Specifying sensitive data](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/specifying-sensitive-data.html) in the *Amazon Elastic Container Service Developer Guide*.
+
         :param pulumi.Input[_builtins.str] name: The name of the secret.
         :param pulumi.Input[_builtins.str] value_from: The secret to expose to the container. The supported values are either the full ARN of the ASMlong secret or the full ARN of the parameter in the SSM Parameter Store.
                 For information about the require IAMlong permissions, see [Required IAM permissions for Amazon ECS secrets](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/specifying-sensitive-data-secrets.html#secrets-iam) (for Secrets Manager) or [Required IAM permissions for Amazon ECS secrets](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/specifying-sensitive-data-parameters.html) (for Systems Manager Parameter store) in the *Amazon Elastic Container Service Developer Guide*.
@@ -9245,6 +9312,7 @@ class TaskDefinitionSystemControlArgs:
           
           This parameter is not supported for Windows containers.
            This parameter is only supported for tasks that are hosted on FARGATElong if the tasks are using platform version ``1.4.0`` or later (Linux). This isn't supported for Windows containers on Fargate.
+
         :param pulumi.Input[_builtins.str] namespace: The namespaced kernel parameter to set a ``value`` for.
         :param pulumi.Input[_builtins.str] value: The namespaced kernel parameter to set a ``value`` for.
                 Valid IPC namespace values: ``"kernel.msgmax" | "kernel.msgmnb" | "kernel.msgmni" | "kernel.sem" | "kernel.shmall" | "kernel.shmmax" | "kernel.shmmni" | "kernel.shm_rmid_forced"``, and ``Sysctls`` that start with ``"fs.mqueue.*"``
@@ -9310,6 +9378,7 @@ class TaskDefinitionTmpfsArgs:
                  mount_options: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The container path, mount options, and size of the tmpfs mount.
+
         :param pulumi.Input[_builtins.int] size: The maximum size (in MiB) of the tmpfs volume.
         :param pulumi.Input[_builtins.str] container_path: The absolute file path where the tmpfs volume is to be mounted.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] mount_options: The list of tmpfs volume mount options.
@@ -9388,6 +9457,7 @@ class TaskDefinitionUlimitArgs:
         The ``ulimit`` settings to pass to the container.
          Amazon ECS tasks hosted on FARGATElong use the default resource limit values set by the operating system with the exception of the ``nofile`` resource limit parameter which FARGATElong overrides. The ``nofile`` resource limit sets a restriction on the number of open files that a container can use. The default ``nofile`` soft limit is ``65535`` and the default hard limit is ``65535``.
          You can specify the ``ulimit`` settings for a container in a task definition.
+
         :param pulumi.Input[_builtins.int] hard_limit: The hard limit for the ``ulimit`` type. The value can be specified in bytes, seconds, or as a count, depending on the ``type`` of the ``ulimit``.
         :param pulumi.Input[_builtins.str] name: The ``type`` of the ``ulimit``.
         :param pulumi.Input[_builtins.int] soft_limit: The soft limit for the ``ulimit`` type. The value can be specified in bytes, seconds, or as a count, depending on the ``type`` of the ``ulimit``.
@@ -9453,6 +9523,7 @@ class TaskDefinitionVolumeFromArgs:
                  source_container: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Details on a data volume from another container in the same task definition.
+
         :param pulumi.Input[_builtins.bool] read_only: If this value is ``true``, the container has read-only access to the volume. If this value is ``false``, then the container can write to the volume. The default value is ``false``.
         :param pulumi.Input[_builtins.str] source_container: The name of another container within the same task definition to mount volumes from.
         """
@@ -9533,6 +9604,7 @@ class TaskDefinitionVolumeArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The data volume configuration for tasks launched using this task definition. Specifying a volume configuration in a task definition is optional. The volume configuration may contain multiple volumes but only one volume configured at launch is supported. Each volume defined in the volume configuration may only specify a ``name`` and one of either ``configuredAtLaunch``, ``dockerVolumeConfiguration``, ``efsVolumeConfiguration``, ``fsxWindowsFileServerVolumeConfiguration``, or ``host``. If an empty volume configuration is specified, by default Amazon ECS uses a host volume. For more information, see [Using data volumes in tasks](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_data_volumes.html).
+
         :param pulumi.Input[_builtins.bool] configured_at_launch: Indicates whether the volume should be configured at launch time. This is used to create Amazon EBS volumes for standalone tasks or tasks created as part of a service. Each task definition revision may only have one volume configured at launch in the volume configuration.
                 To configure a volume at launch time, use this task definition revision and specify a ``volumeConfigurations`` object when calling the ``CreateService``, ``UpdateService``, ``RunTask`` or ``StartTask`` APIs.
         :param pulumi.Input['TaskDefinitionDockerVolumeConfigurationArgs'] docker_volume_configuration: This parameter is specified when you use Docker volumes.
@@ -9665,6 +9737,7 @@ class TaskSetAwsVpcConfigurationArgs:
                  security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The VPC subnets and security groups associated with a task. All specified subnets and security groups must be from the same VPC.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnets: The subnets associated with the task or service. There is a limit of 16 subnets that can be specified per AwsVpcConfiguration.
         :param pulumi.Input['TaskSetAwsVpcConfigurationAssignPublicIp'] assign_public_ip: Whether the task's elastic network interface receives a public IP address. The default value is DISABLED.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_groups: The security groups associated with the task or service. If you do not specify a security group, the default security group for the VPC is used. There is a limit of 5 security groups that can be specified per AwsVpcConfiguration.
@@ -9890,6 +9963,7 @@ class TaskSetLoadBalancerArgs:
                  target_group_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         A load balancer object representing the load balancer to use with the task set. The supported load balancer types are either an Application Load Balancer or a Network Load Balancer. 
+
         :param pulumi.Input[_builtins.str] container_name: The name of the container (as it appears in a container definition) to associate with the load balancer.
         :param pulumi.Input[_builtins.int] container_port: The port on the container to associate with the load balancer. This port must correspond to a containerPort in the task definition the tasks in the service are using. For tasks that use the EC2 launch type, the container instance they are launched on must allow ingress traffic on the hostPort of the port mapping.
         :param pulumi.Input[_builtins.str] target_group_arn: The full Amazon Resource Name (ARN) of the Elastic Load Balancing target group or groups associated with a service or task set. A target group ARN is only specified when using an Application Load Balancer or Network Load Balancer. If you are using a Classic Load Balancer this should be omitted. For services using the ECS deployment controller, you can specify one or multiple target groups. For more information, see https://docs.aws.amazon.com/AmazonECS/latest/developerguide/register-multiple-targetgroups.html in the Amazon Elastic Container Service Developer Guide. For services using the CODE_DEPLOY deployment controller, you are required to define two target groups for the load balancer. For more information, see https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-type-bluegreen.html in the Amazon Elastic Container Service Developer Guide. If your service's task definition uses the awsvpc network mode (which is required for the Fargate launch type), you must choose ip as the target type, not instance, when creating your target groups because tasks that use the awsvpc network mode are associated with an elastic network interface, not an Amazon EC2 instance.
@@ -9955,6 +10029,7 @@ class TaskSetNetworkConfigurationArgs:
                  aws_vpc_configuration: Optional[pulumi.Input['TaskSetAwsVpcConfigurationArgs']] = None):
         """
         An object representing the network configuration for a task or service.
+
         :param pulumi.Input['TaskSetAwsVpcConfigurationArgs'] aws_vpc_configuration: The VPC subnets and security groups that are associated with a task.
                
                > All specified subnets and security groups must be from the same VPC.

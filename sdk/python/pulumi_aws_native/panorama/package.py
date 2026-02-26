@@ -28,6 +28,7 @@ class PackageArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Package resource.
+
         :param pulumi.Input[_builtins.str] package_name: A name for the package.
         :param pulumi.Input['PackageStorageLocationArgs'] storage_location: A storage location.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: Tags for the package.
@@ -89,6 +90,7 @@ class Package(pulumi.CustomResource):
         """
         Creates a package and storage location in an Amazon S3 access point.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] package_name: A name for the package.
@@ -103,6 +105,7 @@ class Package(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Creates a package and storage location in an Amazon S3 access point.
+
 
         :param str resource_name: The name of the resource.
         :param PackageArgs args: The arguments to use to populate this resource's properties.

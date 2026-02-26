@@ -33,6 +33,7 @@ class SpaceArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Space resource.
+
         :param pulumi.Input[_builtins.str] domain_id: The ID of the associated Domain.
         :param pulumi.Input['SpaceOwnershipSettingsArgs'] ownership_settings: The collection of ownership settings for a space.
         :param pulumi.Input[_builtins.str] space_display_name: The name of the space that appears in the Studio UI.
@@ -157,6 +158,7 @@ class Space(pulumi.CustomResource):
         """
         Resource Type definition for AWS::SageMaker::Space
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] domain_id: The ID of the associated Domain.
@@ -175,6 +177,7 @@ class Space(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::SageMaker::Space
+
 
         :param str resource_name: The name of the resource.
         :param SpaceArgs args: The arguments to use to populate this resource's properties.

@@ -31,6 +31,7 @@ class BridgeArgs:
                  source_failover_config: Optional[pulumi.Input['BridgeFailoverConfigArgs']] = None):
         """
         The set of arguments for constructing a Bridge resource.
+
         :param pulumi.Input[_builtins.str] placement_arn: The placement Amazon Resource Number (ARN) of the bridge.
         :param pulumi.Input[Sequence[pulumi.Input['BridgeSourceArgs']]] sources: The sources on this bridge.
         :param pulumi.Input['BridgeEgressGatewayBridgeArgs'] egress_gateway_bridge: An egress bridge is a cloud-to-ground bridge. The content comes from an existing MediaConnect flow and is delivered to your premises.
@@ -154,6 +155,7 @@ class Bridge(pulumi.CustomResource):
         """
         Resource schema for AWS::MediaConnect::Bridge
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['BridgeEgressGatewayBridgeArgs', 'BridgeEgressGatewayBridgeArgsDict']] egress_gateway_bridge: An egress bridge is a cloud-to-ground bridge. The content comes from an existing MediaConnect flow and is delivered to your premises.
@@ -172,6 +174,7 @@ class Bridge(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource schema for AWS::MediaConnect::Bridge
+
 
         :param str resource_name: The name of the resource.
         :param BridgeArgs args: The arguments to use to populate this resource's properties.

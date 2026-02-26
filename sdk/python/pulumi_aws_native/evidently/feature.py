@@ -34,6 +34,7 @@ class FeatureArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Feature resource.
+
         :param pulumi.Input[_builtins.str] project: The name or ARN of the project that is to contain the new feature.
         :param pulumi.Input[Sequence[pulumi.Input['FeatureVariationObjectArgs']]] variations: An array of structures that contain the configuration of the feature's different variations.
                
@@ -185,6 +186,7 @@ class Feature(pulumi.CustomResource):
         """
         Resource Type definition for AWS::Evidently::Feature.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] default_variation: The name of the variation to use as the default variation. The default variation is served to users who are not allocated to any ongoing launches or experiments of this feature.
@@ -210,6 +212,7 @@ class Feature(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::Evidently::Feature.
+
 
         :param str resource_name: The name of the resource.
         :param FeatureArgs args: The arguments to use to populate this resource's properties.

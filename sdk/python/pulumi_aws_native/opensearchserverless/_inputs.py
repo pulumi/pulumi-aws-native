@@ -58,6 +58,7 @@ class CollectionEncryptionConfigArgs:
                  kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Encryption settings for the collection
+
         :param pulumi.Input[_builtins.bool] aws_owned_key: Indicates whether to use an AWS owned key for encryption.
         :param pulumi.Input[_builtins.str] kms_key_arn: Key Management Service key used to encrypt the collection.
         """
@@ -111,6 +112,7 @@ class IndexPropertyMappingMethodPropertiesParametersPropertiesArgs:
                  m: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Additional parameters for the k-NN algorithm
+
         :param pulumi.Input[_builtins.int] ef_construction: The size of the dynamic list used during k-NN graph creation
         :param pulumi.Input[_builtins.int] m: Number of neighbors to consider during k-NN search
         """
@@ -174,6 +176,7 @@ class IndexPropertyMappingMethodPropertiesArgs:
                  space_type: Optional[pulumi.Input['IndexPropertyMappingMethodPropertiesSpaceType']] = None):
         """
         Configuration for k-NN search method
+
         :param pulumi.Input['IndexPropertyMappingMethodPropertiesName'] name: The algorithm name for k-NN search
         :param pulumi.Input['IndexPropertyMappingMethodPropertiesEngine'] engine: The k-NN search engine to use
         :param pulumi.Input['IndexPropertyMappingMethodPropertiesParametersPropertiesArgs'] parameters: Additional parameters for the k-NN algorithm
@@ -389,6 +392,7 @@ class IndexSettingsIndexPropertiesArgs:
                  refresh_interval: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Index settings.
+
         :param pulumi.Input[_builtins.bool] knn: Enable/disable k-nearest neighbor search capability
         :param pulumi.Input[_builtins.int] knn_algo_param_ef_search: Size of the dynamic list for the nearest neighbors
         :param pulumi.Input[_builtins.str] refresh_interval: How often to perform refresh operation (e.g. '1s', '5s')
@@ -481,6 +485,7 @@ class MappingsPropertiesArgs:
                  properties: Optional[pulumi.Input[Mapping[str, pulumi.Input['IndexPropertyMappingArgs']]]] = None):
         """
         Index Mappings
+
         :param pulumi.Input[Mapping[str, pulumi.Input['IndexPropertyMappingArgs']]] properties: Defines the fields within the mapping, including their types and configurations
         """
         if properties is not None:
@@ -519,6 +524,7 @@ class SecurityConfigIamFederationConfigOptionsArgs:
                  user_attribute: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Describe IAM federation options in form of key value map
+
         :param pulumi.Input[_builtins.str] group_attribute: Group attribute for this IAM federation integration
         :param pulumi.Input[_builtins.str] user_attribute: User attribute for this IAM federation integration
         """
@@ -592,6 +598,7 @@ class SecurityConfigIamIdentityCenterConfigOptionsArgs:
                  user_attribute: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Describes IAM Identity Center options for an OpenSearch Serverless security configuration in the form of a key-value map
+
         :param pulumi.Input[_builtins.str] instance_arn: The ARN of the IAM Identity Center instance used to integrate with OpenSearch Serverless.
         :param pulumi.Input[_builtins.str] application_arn: The ARN of the IAM Identity Center application used to integrate with OpenSearch Serverless.
         :param pulumi.Input[_builtins.str] application_description: The description of the IAM Identity Center application used to integrate with OpenSearch Serverless
@@ -719,6 +726,7 @@ class SecurityConfigSamlConfigOptionsArgs:
                  user_attribute: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Describes saml options in form of key value map
+
         :param pulumi.Input[_builtins.str] metadata: The XML saml provider metadata document that you want to use
         :param pulumi.Input[_builtins.str] group_attribute: Group attribute for this saml integration
         :param pulumi.Input[_builtins.str] open_search_serverless_entity_id: Custom entity id attribute to override default entity id for this saml integration

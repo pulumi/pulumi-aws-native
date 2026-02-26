@@ -24,6 +24,7 @@ class RegistryPolicyArgs:
                  revision_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a RegistryPolicy resource.
+
         :param Any policy: A resource-based policy.
                
                Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::EventSchemas::RegistryPolicy` for more information about the expected schema for this property.
@@ -164,6 +165,7 @@ class RegistryPolicy(pulumi.CustomResource):
 
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param Any policy: A resource-based policy.
@@ -257,6 +259,7 @@ class RegistryPolicy(pulumi.CustomResource):
             })
 
         ```
+
 
         :param str resource_name: The name of the resource.
         :param RegistryPolicyArgs args: The arguments to use to populate this resource's properties.

@@ -47,6 +47,7 @@ class UserPoolClientArgs:
                  write_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a UserPoolClient resource.
+
         :param pulumi.Input[_builtins.str] user_pool_id: The ID of the user pool where you want to create an app client.
         :param pulumi.Input[_builtins.int] access_token_validity: The access token time limit. After this limit expires, your user can't use their access token. To specify the time unit for `AccessTokenValidity` as `seconds` , `minutes` , `hours` , or `days` , set a `TokenValidityUnits` value in your API request.
                
@@ -593,6 +594,7 @@ class UserPoolClient(pulumi.CustomResource):
         """
         Resource Type definition for AWS::Cognito::UserPoolClient
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.int] access_token_validity: The access token time limit. After this limit expires, your user can't use their access token. To specify the time unit for `AccessTokenValidity` as `seconds` , `minutes` , `hours` , or `days` , set a `TokenValidityUnits` value in your API request.
@@ -710,6 +712,7 @@ class UserPoolClient(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::Cognito::UserPoolClient
+
 
         :param str resource_name: The name of the resource.
         :param UserPoolClientArgs args: The arguments to use to populate this resource's properties.

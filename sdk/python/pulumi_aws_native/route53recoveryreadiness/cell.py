@@ -26,6 +26,7 @@ class CellArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Cell resource.
+
         :param pulumi.Input[_builtins.str] cell_name: The name of the cell to create.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] cells: A list of cell Amazon Resource Names (ARNs) contained within this cell, for use in nested cells. For example, Availability Zones within specific Regions.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A collection of tags associated with a resource
@@ -87,6 +88,7 @@ class Cell(pulumi.CustomResource):
         """
         The API Schema for AWS Route53 Recovery Readiness Cells.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] cell_name: The name of the cell to create.
@@ -101,6 +103,7 @@ class Cell(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The API Schema for AWS Route53 Recovery Readiness Cells.
+
 
         :param str resource_name: The name of the resource.
         :param CellArgs args: The arguments to use to populate this resource's properties.

@@ -256,6 +256,7 @@ class CachePolicyConfigArgs:
           If your minimum TTL is greater than 0, CloudFront will cache content for at least the duration specified in the cache policy's minimum TTL, even if the ``Cache-Control: no-cache``, ``no-store``, or ``private`` directives are present in the origin headers.
            
          The headers, cookies, and query strings that are included in the cache key are also included in requests that CloudFront sends to the origin. CloudFront sends a request when it can't find a valid object in its cache that matches the request's cache key. If you want to send values to the origin but *not* include them in the cache key, use ``OriginRequestPolicy``.
+
         :param pulumi.Input[_builtins.float] default_ttl: The default amount of time, in seconds, that you want objects to stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated. CloudFront uses this value as the object's time to live (TTL) only when the origin does *not* send ``Cache-Control`` or ``Expires`` headers with the object. For more information, see [Managing How Long Content Stays in an Edge Cache (Expiration)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html) in the *Amazon CloudFront Developer Guide*.
                 The default value for this field is 86400 seconds (one day). If the value of ``MinTTL`` is more than 86400 seconds, then the default value for this field is the same as the value of ``MinTTL``.
         :param pulumi.Input[_builtins.float] max_ttl: The maximum amount of time, in seconds, that objects stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated. CloudFront uses this value only when the origin sends ``Cache-Control`` or ``Expires`` headers with the object. For more information, see [Managing How Long Content Stays in an Edge Cache (Expiration)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html) in the *Amazon CloudFront Developer Guide*.
@@ -372,6 +373,7 @@ class CachePolicyCookiesConfigArgs:
                  cookies: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         An object that determines whether any cookies in viewer requests (and if so, which cookies) are included in the cache key and in requests that CloudFront sends to the origin.
+
         :param pulumi.Input[_builtins.str] cookie_behavior: Determines whether any cookies in viewer requests are included in the cache key and in requests that CloudFront sends to the origin. Valid values are:
                  +  ``none`` – No cookies in viewer requests are included in the cache key or in requests that CloudFront sends to the origin. Even when this field is set to ``none``, any cookies that are listed in an ``OriginRequestPolicy``*are* included in origin requests.
                  +  ``whitelist`` – Only the cookies in viewer requests that are listed in the ``CookieNames`` type are included in the cache key and in requests that CloudFront sends to the origin.
@@ -434,6 +436,7 @@ class CachePolicyHeadersConfigArgs:
                  headers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         An object that determines whether any HTTP headers (and if so, which headers) are included in the cache key and in requests that CloudFront sends to the origin.
+
         :param pulumi.Input[_builtins.str] header_behavior: Determines whether any HTTP headers are included in the cache key and in requests that CloudFront sends to the origin. Valid values are:
                  +  ``none`` – No HTTP headers are included in the cache key or in requests that CloudFront sends to the origin. Even when this field is set to ``none``, any headers that are listed in an ``OriginRequestPolicy``*are* included in origin requests.
                  +  ``whitelist`` – Only the HTTP headers that are listed in the ``Headers`` type are included in the cache key and in requests that CloudFront sends to the origin.
@@ -523,6 +526,7 @@ class CachePolicyParametersInCacheKeyAndForwardedToOriginArgs:
         """
         This object determines the values that CloudFront includes in the cache key. These values can include HTTP headers, cookies, and URL query strings. CloudFront uses the cache key to find an object in its cache that it can return to the viewer.
          The headers, cookies, and query strings that are included in the cache key are also included in requests that CloudFront sends to the origin. CloudFront sends a request when it can't find an object in its cache that matches the request's cache key. If you want to send values to the origin but *not* include them in the cache key, use ``OriginRequestPolicy``.
+
         :param pulumi.Input['CachePolicyCookiesConfigArgs'] cookies_config: An object that determines whether any cookies in viewer requests (and if so, which cookies) are included in the cache key and in requests that CloudFront sends to the origin.
         :param pulumi.Input[_builtins.bool] enable_accept_encoding_gzip: A flag that can affect whether the ``Accept-Encoding`` HTTP header is included in the cache key and included in requests that CloudFront sends to the origin.
                 This field is related to the ``EnableAcceptEncodingBrotli`` field. If one or both of these fields is ``true``*and* the viewer request includes the ``Accept-Encoding`` header, then CloudFront does the following:
@@ -653,6 +657,7 @@ class CachePolicyQueryStringsConfigArgs:
                  query_strings: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         An object that determines whether any URL query strings in viewer requests (and if so, which query strings) are included in the cache key and in requests that CloudFront sends to the origin.
+
         :param pulumi.Input[_builtins.str] query_string_behavior: Determines whether any URL query strings in viewer requests are included in the cache key and in requests that CloudFront sends to the origin. Valid values are:
                  +  ``none`` – No query strings in viewer requests are included in the cache key or in requests that CloudFront sends to the origin. Even when this field is set to ``none``, any query strings that are listed in an ``OriginRequestPolicy``*are* included in origin requests.
                  +  ``whitelist`` – Only the query strings in viewer requests that are listed in the ``QueryStringNames`` type are included in the cache key and in requests that CloudFront sends to the origin.
@@ -708,6 +713,7 @@ class CloudFrontOriginAccessIdentityConfigArgs:
                  comment: pulumi.Input[_builtins.str]):
         """
         Origin access identity configuration. Send a ``GET`` request to the ``/CloudFront API version/CloudFront/identity ID/config`` resource.
+
         :param pulumi.Input[_builtins.str] comment: A comment to describe the origin access identity. The comment cannot be longer than 128 characters.
         """
         pulumi.set(__self__, "comment", comment)
@@ -935,6 +941,7 @@ class ContinuousDeploymentPolicyConfigArgs:
                  type: Optional[pulumi.Input['ContinuousDeploymentPolicyConfigType']] = None):
         """
         Contains the configuration for a continuous deployment policy.
+
         :param pulumi.Input[_builtins.bool] enabled: A Boolean that indicates whether this continuous deployment policy is enabled (in effect). When this value is ``true``, this policy is enabled and in effect. When this value is ``false``, this policy is not enabled and has no effect.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] staging_distribution_dns_names: The CloudFront domain name of the staging distribution. For example: ``d111111abcdef8.cloudfront.net``.
         :param pulumi.Input['ContinuousDeploymentPolicyConfigSingleHeaderPolicyConfigPropertiesArgs'] single_header_policy_config: This configuration determines which HTTP requests are sent to the staging distribution. If the HTTP request contains a header and value that matches what you specify here, the request is sent to the staging distribution. Otherwise the request is sent to the primary distribution.
@@ -1046,6 +1053,7 @@ class ContinuousDeploymentPolicySessionStickinessConfigArgs:
                  maximum_ttl: pulumi.Input[_builtins.int]):
         """
         Session stickiness provides the ability to define multiple requests from a single viewer as a single session. This prevents the potentially inconsistent experience of sending some of a given user's requests to your staging distribution, while others are sent to your primary distribution. Define the session duration using TTL values.
+
         :param pulumi.Input[_builtins.int] idle_ttl: The amount of time after which you want sessions to cease if no requests are received. Allowed values are 300–3600 seconds (5–60 minutes).
         :param pulumi.Input[_builtins.int] maximum_ttl: The maximum amount of time to consider requests from the viewer as being part of the same session. Allowed values are 300–3600 seconds (5–60 minutes).
         """
@@ -1097,6 +1105,7 @@ class ContinuousDeploymentPolicySingleHeaderConfigArgs:
                  value: pulumi.Input[_builtins.str]):
         """
         Determines which HTTP requests are sent to the staging distribution.
+
         :param pulumi.Input[_builtins.str] header: The request header name that you want CloudFront to send to your staging distribution. The header must contain the prefix ``aws-cf-cd-``.
         :param pulumi.Input[_builtins.str] value: The request header value.
         """
@@ -1148,6 +1157,7 @@ class ContinuousDeploymentPolicySingleWeightConfigArgs:
                  session_stickiness_config: Optional[pulumi.Input['ContinuousDeploymentPolicySessionStickinessConfigArgs']] = None):
         """
         This configuration determines the percentage of HTTP requests that are sent to the staging distribution.
+
         :param pulumi.Input[_builtins.float] weight: The percentage of traffic to send to a staging distribution, expressed as a decimal number between 0 and 0.15. For example, a value of 0.10 means 10% of traffic is sent to the staging distribution.
         :param pulumi.Input['ContinuousDeploymentPolicySessionStickinessConfigArgs'] session_stickiness_config: Session stickiness provides the ability to define multiple requests from a single viewer as a single session. This prevents the potentially inconsistent experience of sending some of a given user's requests to your staging distribution, while others are sent to your primary distribution. Define the session duration using TTL values.
         """
@@ -1205,6 +1215,7 @@ class ContinuousDeploymentPolicyTrafficConfigArgs:
                  single_weight_config: Optional[pulumi.Input['ContinuousDeploymentPolicySingleWeightConfigArgs']] = None):
         """
         The traffic configuration of your continuous deployment.
+
         :param pulumi.Input['ContinuousDeploymentPolicyTrafficConfigType'] type: The type of traffic configuration.
         :param pulumi.Input['ContinuousDeploymentPolicySingleHeaderConfigArgs'] single_header_config: Determines which HTTP requests are sent to the staging distribution.
         :param pulumi.Input['ContinuousDeploymentPolicySingleWeightConfigArgs'] single_weight_config: Contains the percentage of traffic to send to the staging distribution.
@@ -1416,6 +1427,7 @@ class DistributionCacheBehaviorArgs:
          To add, change, or remove one or more cache behaviors, update the distribution configuration and specify all of the cache behaviors that you want to include in the updated distribution.
           If your minimum TTL is greater than 0, CloudFront will cache content for at least the duration specified in the cache policy's minimum TTL, even if the ``Cache-Control: no-cache``, ``no-store``, or ``private`` directives are present in the origin headers.
           For more information about cache behaviors, see [Cache Behavior Settings](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesCacheBehavior) in the *Amazon CloudFront Developer Guide*.
+
         :param pulumi.Input[_builtins.str] path_pattern: The pattern (for example, ``images/*.jpg``) that specifies which requests to apply the behavior to. When CloudFront receives a viewer request, the requested path is compared with path patterns in the order in which cache behaviors are listed in the distribution.
                  You can optionally include a slash (``/``) at the beginning of the path pattern. For example, ``/images/*.jpg``. CloudFront behavior is the same with or without the leading ``/``.
                  The path pattern for the default cache behavior is ``*`` and cannot be changed. If the request for an object does not match the path pattern for any cache behaviors, CloudFront applies the behavior in the default cache behavior.
@@ -2004,6 +2016,7 @@ class DistributionConfigArgs:
                  web_acl_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         A distribution configuration.
+
         :param pulumi.Input['DistributionDefaultCacheBehaviorArgs'] default_cache_behavior: A complex type that describes the default cache behavior if you don't specify a ``CacheBehavior`` element or if files don't match any of the values of ``PathPattern`` in ``CacheBehavior`` elements. You must create exactly one default cache behavior.
         :param pulumi.Input[_builtins.bool] enabled: From this field, you can enable or disable the selected distribution.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] aliases: This field only supports standard distributions. You can't specify this field for multi-tenant distributions. For more information, see [Unsupported features for SaaS Manager for Amazon CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-config-options.html#unsupported-saas) in the *Amazon CloudFront Developer Guide*.
@@ -2528,6 +2541,7 @@ class DistributionCookiesArgs:
          If you want to include cookies in the cache key, use a cache policy. For more information, see [Creating cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy) in the *Amazon CloudFront Developer Guide*.
          If you want to send cookies to the origin but not include them in the cache key, use an origin request policy. For more information, see [Creating origin request policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-origin-requests.html#origin-request-create-origin-request-policy) in the *Amazon CloudFront Developer Guide*.
          A complex type that specifies whether you want CloudFront to forward cookies to the origin and, if so, which ones. For more information about forwarding cookies to the origin, see [How CloudFront Forwards, Caches, and Logs Cookies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Cookies.html) in the *Amazon CloudFront Developer Guide*.
+
         :param pulumi.Input[_builtins.str] forward: This field is deprecated. We recommend that you use a cache policy or an origin request policy instead of this field.
                 If you want to include cookies in the cache key, use a cache policy. For more information, see [Creating cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy) in the *Amazon CloudFront Developer Guide*.
                 If you want to send cookies to the origin but not include them in the cache key, use origin request policy. For more information, see [Creating origin request policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-origin-requests.html#origin-request-create-origin-request-policy) in the *Amazon CloudFront Developer Guide*.
@@ -2627,6 +2641,7 @@ class DistributionCustomErrorResponseArgs:
           +  How long CloudFront caches HTTP status codes in the 4xx and 5xx range.
           
          For more information about custom error pages, see [Customizing Error Responses](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/custom-error-pages.html) in the *Amazon CloudFront Developer Guide*.
+
         :param pulumi.Input[_builtins.int] error_code: The HTTP status code for which you want to specify a custom error page and/or a caching duration.
         :param pulumi.Input[_builtins.float] error_caching_min_ttl: The minimum amount of time, in seconds, that you want CloudFront to cache the HTTP status code specified in ``ErrorCode``. When this time period has elapsed, CloudFront queries your origin to see whether the problem that caused the error has been resolved and the requested object is now available.
                 For more information, see [Customizing Error Responses](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/custom-error-pages.html) in the *Amazon CloudFront Developer Guide*.
@@ -2764,6 +2779,7 @@ class DistributionCustomOriginConfigArgs:
                  origin_ssl_protocols: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         A custom origin. A custom origin is any origin that is *not* an Amazon S3 bucket, with one exception. An Amazon S3 bucket that is [configured with static website hosting](https://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteHosting.html)*is* a custom origin.
+
         :param pulumi.Input[_builtins.str] origin_protocol_policy: Specifies the protocol (HTTP or HTTPS) that CloudFront uses to connect to the origin. Valid values are:
                  +  ``http-only`` – CloudFront always uses HTTP to connect to the origin.
                  +  ``match-viewer`` – CloudFront connects to the origin using the same protocol that the viewer used to connect to CloudFront.
@@ -3038,6 +3054,7 @@ class DistributionDefaultCacheBehaviorArgs:
         """
         A complex type that describes the default cache behavior if you don't specify a ``CacheBehavior`` element or if request URLs don't match any of the values of ``PathPattern`` in ``CacheBehavior`` elements. You must create exactly one default cache behavior.
           If your minimum TTL is greater than 0, CloudFront will cache content for at least the duration specified in the cache policy's minimum TTL, even if the ``Cache-Control: no-cache``, ``no-store``, or ``private`` directives are present in the origin headers.
+
         :param pulumi.Input[_builtins.str] target_origin_id: The value of ``ID`` for the origin that you want CloudFront to route requests to when they use the default cache behavior.
         :param pulumi.Input[_builtins.str] viewer_protocol_policy: The protocol that viewers can use to access the files in the origin specified by ``TargetOriginId`` when a request matches the path pattern in ``PathPattern``. You can specify the following options:
                  +  ``allow-all``: Viewers can use HTTP or HTTPS.
@@ -3458,6 +3475,7 @@ class DistributionForwardedValuesArgs:
          If you want to include values in the cache key, use a cache policy. For more information, see [Creating cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy) in the *Amazon CloudFront Developer Guide*.
          If you want to send values to the origin but not include them in the cache key, use an origin request policy. For more information, see [Creating origin request policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-origin-requests.html#origin-request-create-origin-request-policy) in the *Amazon CloudFront Developer Guide*.
          A complex type that specifies how CloudFront handles query strings, cookies, and HTTP headers.
+
         :param pulumi.Input[_builtins.bool] query_string: This field is deprecated. We recommend that you use a cache policy or an origin request policy instead of this field.
                 If you want to include query strings in the cache key, use a cache policy. For more information, see [Creating cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy) in the *Amazon CloudFront Developer Guide*.
                 If you want to send query strings to the origin but not include them in the cache key, use an origin request policy. For more information, see [Creating origin request policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-origin-requests.html#origin-request-create-origin-request-policy) in the *Amazon CloudFront Developer Guide*.
@@ -3574,6 +3592,7 @@ class DistributionFunctionAssociationArgs:
                  function_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         A CloudFront function that is associated with a cache behavior in a CloudFront distribution.
+
         :param pulumi.Input[_builtins.str] event_type: The event type of the function, either ``viewer-request`` or ``viewer-response``. You cannot use origin-facing event types (``origin-request`` and ``origin-response``) with a CloudFront function.
         :param pulumi.Input[_builtins.str] function_arn: The Amazon Resource Name (ARN) of the function.
         """
@@ -3632,6 +3651,7 @@ class DistributionGeoRestrictionArgs:
                  locations: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         A complex type that controls the countries in which your content is distributed. CF determines the location of your users using ``MaxMind`` GeoIP databases. To disable geo restriction, remove the [Restrictions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-restrictions) property from your stack template.
+
         :param pulumi.Input[_builtins.str] restriction_type: The method that you want to use to restrict distribution of your content by country:
                  +  ``none``: No geo restriction is enabled, meaning access to content is not restricted by client geo location.
                  +  ``blacklist``: The ``Location`` elements specify the countries in which you don't want CloudFront to distribute your content.
@@ -3693,6 +3713,7 @@ class DistributionGrpcConfigArgs:
         Amazon CloudFront supports gRPC, an open-source remote procedure call (RPC) framework built on HTTP/2. gRPC offers bi-directional streaming and binary protocol that buffers payloads, making it suitable for applications that require low latency communications.
          To enable your distribution to handle gRPC requests, you must include HTTP/2 as one of the supported ``HTTP`` versions and allow ``HTTP`` methods, including ``POST``.
          For more information, see [Using gRPC with CloudFront distributions](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-using-grpc.html) in the *Amazon CloudFront Developer Guide*.
+
         :param pulumi.Input[_builtins.bool] enabled: Enables your CloudFront distribution to receive gRPC requests and to proxy them directly to your origins.
         """
         pulumi.set(__self__, "enabled", enabled)
@@ -3740,6 +3761,7 @@ class DistributionLambdaFunctionAssociationArgs:
                  lambda_function_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         A complex type that contains a Lambda@Edge function association.
+
         :param pulumi.Input[_builtins.str] event_type: Specifies the event type that triggers a Lambda@Edge function invocation. You can specify the following values:
                  +  ``viewer-request``: The function executes when CloudFront receives a request from a viewer and before it checks to see whether the requested object is in the edge cache.
                  +  ``origin-request``: The function executes only when CloudFront sends a request to your origin. When the requested object is in the edge cache, the function doesn't execute.
@@ -3836,6 +3858,7 @@ class DistributionLegacyCustomOriginArgs:
         """
         A custom origin. A custom origin is any origin that is *not* an S3 bucket, with one exception. An S3 bucket that is [configured with static website hosting](https://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteHosting.html)*is* a custom origin.
           This property is legacy. We recommend that you use [Origin](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origin.html) instead.
+
         :param pulumi.Input[_builtins.str] dns_name: The domain name assigned to your CF distribution.
         :param pulumi.Input[_builtins.str] origin_protocol_policy: Specifies the protocol (HTTP or HTTPS) that CF uses to connect to the origin.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] origin_ssl_protocols: The minimum SSL/TLS protocol version that CF uses when communicating with your origin server over HTTPs.
@@ -3936,6 +3959,7 @@ class DistributionLegacyS3OriginArgs:
         """
         The origin as an S3 bucket. 
           This property is legacy. We recommend that you use [Origin](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origin.html) instead.
+
         :param pulumi.Input[_builtins.str] dns_name: The domain name assigned to your CF distribution.
         :param pulumi.Input[_builtins.str] origin_access_identity: The CF origin access identity to associate with the distribution. Use an origin access identity to configure the distribution so that end users can only access objects in an S3 through CF.
                  This property is legacy. We recommend that you use [OriginAccessControl](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-originaccesscontrol.html) instead.
@@ -3997,6 +4021,7 @@ class DistributionLoggingArgs:
         """
         A complex type that specifies whether access logs are written for the distribution.
           If you already enabled standard logging (legacy) and you want to enable standard logging (v2) to send your access logs to Amazon S3, we recommend that you specify a *different* Amazon S3 bucket or use a *separate path* in the same bucket (for example, use a log prefix or partitioning). This helps you keep track of which log files are associated with which logging subscription and prevents log files from overwriting each other. For more information, see [Standard logging (access logs)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/AccessLogs.html) in the *Amazon CloudFront Developer Guide*.
+
         :param pulumi.Input[_builtins.str] bucket: The Amazon S3 bucket to store the access logs in, for example, ``amzn-s3-demo-bucket.s3.amazonaws.com``.
         :param pulumi.Input[_builtins.bool] include_cookies: Specifies whether you want CloudFront to include cookies in access logs, specify ``true`` for ``IncludeCookies``. If you choose to include cookies in logs, CloudFront logs all cookies regardless of how you configure the cache behaviors for this distribution. If you don't want to include cookies when you create a distribution or if you want to disable include cookies for an existing distribution, specify ``false`` for ``IncludeCookies``.
         :param pulumi.Input[_builtins.str] prefix: An optional string that you want CloudFront to prefix to the access log ``filenames`` for this distribution, for example, ``myprefix/``. If you want to enable logging, but you don't want to specify a prefix, you still must include an empty ``Prefix`` element in the ``Logging`` element.
@@ -4065,6 +4090,7 @@ class DistributionOriginCustomHeaderArgs:
                  header_value: pulumi.Input[_builtins.str]):
         """
         A complex type that contains ``HeaderName`` and ``HeaderValue`` elements, if any, for this distribution.
+
         :param pulumi.Input[_builtins.str] header_name: The name of a header that you want CloudFront to send to your origin. For more information, see [Adding Custom Headers to Origin Requests](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/forward-custom-headers.html) in the *Amazon CloudFront Developer Guide*.
         :param pulumi.Input[_builtins.str] header_value: The value for the header that you specified in the ``HeaderName`` field.
         """
@@ -4111,6 +4137,7 @@ class DistributionOriginGroupFailoverCriteriaArgs:
                  status_codes: pulumi.Input['DistributionStatusCodesArgs']):
         """
         A complex data type that includes information about the failover criteria for an origin group, including the status codes for which CloudFront will failover from the primary origin to the second origin.
+
         :param pulumi.Input['DistributionStatusCodesArgs'] status_codes: The status codes that, when returned from the primary origin, will trigger CloudFront to failover to the second origin.
         """
         pulumi.set(__self__, "status_codes", status_codes)
@@ -4148,6 +4175,7 @@ class DistributionOriginGroupMembersArgs:
                  quantity: pulumi.Input[_builtins.int]):
         """
         A complex data type for the origins included in an origin group.
+
         :param pulumi.Input[Sequence[pulumi.Input['DistributionOriginGroupMemberArgs']]] items: Items (origins) in an origin group.
         :param pulumi.Input[_builtins.int] quantity: The number of origins in an origin group.
         """
@@ -4194,6 +4222,7 @@ class DistributionOriginGroupMemberArgs:
                  origin_id: pulumi.Input[_builtins.str]):
         """
         An origin in an origin group.
+
         :param pulumi.Input[_builtins.str] origin_id: The ID for an origin in an origin group.
         """
         pulumi.set(__self__, "origin_id", origin_id)
@@ -4231,6 +4260,7 @@ class DistributionOriginGroupsArgs:
                  items: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionOriginGroupArgs']]]] = None):
         """
         A complex data type for the origin groups specified for a distribution.
+
         :param pulumi.Input[_builtins.int] quantity: The number of origin groups.
         :param pulumi.Input[Sequence[pulumi.Input['DistributionOriginGroupArgs']]] items: The items (origin groups) in a distribution.
         """
@@ -4295,6 +4325,7 @@ class DistributionOriginGroupArgs:
         """
         An origin group includes two origins (a primary origin and a secondary origin to failover to) and a failover criteria that you specify. You create an origin group to support origin failover in CloudFront. When you create or update a distribution, you can specify the origin group instead of a single origin, and CloudFront will failover from the primary origin to the secondary origin under the failover conditions that you've chosen.
          Optionally, you can choose selection criteria for your origin group to specify how your origins are selected when your distribution routes viewer requests.
+
         :param pulumi.Input['DistributionOriginGroupFailoverCriteriaArgs'] failover_criteria: A complex type that contains information about the failover criteria for an origin group.
         :param pulumi.Input[_builtins.str] id: The origin group's ID.
         :param pulumi.Input['DistributionOriginGroupMembersArgs'] members: A complex type that contains information about the origins in an origin group.
@@ -4399,6 +4430,7 @@ class DistributionOriginShieldArgs:
         """
         CloudFront Origin Shield.
          Using Origin Shield can help reduce the load on your origin. For more information, see [Using Origin Shield](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/origin-shield.html) in the *Amazon CloudFront Developer Guide*.
+
         :param pulumi.Input[_builtins.bool] enabled: A flag that specifies whether Origin Shield is enabled.
                 When it's enabled, CloudFront routes all requests through Origin Shield, which can help protect your origin. When it's disabled, CloudFront might send requests directly to your origin from multiple edge locations or regional edge caches.
         :param pulumi.Input[_builtins.str] origin_shield_region: The AWS-Region for Origin Shield.
@@ -4543,6 +4575,7 @@ class DistributionOriginArgs:
           
           
          For the current maximum number of origins that you can specify per distribution, see [General Quotas on Web Distributions](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html#limits-web-distributions) in the *Amazon CloudFront Developer Guide* (quotas were formerly referred to as limits).
+
         :param pulumi.Input[_builtins.str] domain_name: The domain name for the origin.
                 For more information, see [Origin Domain Name](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesDomainName) in the *Amazon CloudFront Developer Guide*.
         :param pulumi.Input[_builtins.str] id: A unique identifier for the origin. This value must be unique within the distribution.
@@ -4837,6 +4870,7 @@ class DistributionParameterDefinitionArgs:
                  name: pulumi.Input[_builtins.str]):
         """
         A list of parameter values to add to the resource. A parameter is specified as a key-value pair. A valid parameter value must exist for any parameter that is marked as required in the multi-tenant distribution.
+
         :param pulumi.Input['DistributionParameterDefinitionDefinitionPropertiesArgs'] definition: The value that you assigned to the parameter.
         :param pulumi.Input[_builtins.str] name: The name of the parameter.
         """
@@ -4883,6 +4917,7 @@ class DistributionRestrictionsArgs:
                  geo_restriction: pulumi.Input['DistributionGeoRestrictionArgs']):
         """
         A complex type that identifies ways in which you want to restrict distribution of your content.
+
         :param pulumi.Input['DistributionGeoRestrictionArgs'] geo_restriction: A complex type that controls the countries in which your content is distributed. CF determines the location of your users using ``MaxMind`` GeoIP databases. To disable geo restriction, remove the [Restrictions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-restrictions) property from your stack template.
         """
         pulumi.set(__self__, "geo_restriction", geo_restriction)
@@ -4928,6 +4963,7 @@ class DistributionS3OriginConfigArgs:
                  origin_read_timeout: Optional[pulumi.Input[_builtins.int]] = None):
         """
         A complex type that contains information about the Amazon S3 origin. If the origin is a custom origin or an S3 bucket that is configured as a website endpoint, use the ``CustomOriginConfig`` element instead.
+
         :param pulumi.Input[_builtins.str] origin_access_identity: If you're using origin access control (OAC) instead of origin access identity, specify an empty ``OriginAccessIdentity`` element. For more information, see [Restricting access to an](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-origin.html) in the *Amazon CloudFront Developer Guide*.
                  The CloudFront origin access identity to associate with the origin. Use an origin access identity to configure the origin so that viewers can *only* access objects in an Amazon S3 bucket through CloudFront. The format of the value is:
                  ``origin-access-identity/cloudfront/ID-of-origin-access-identity`` 
@@ -4997,6 +5033,7 @@ class DistributionStatusCodesArgs:
                  quantity: pulumi.Input[_builtins.int]):
         """
         A complex data type for the status codes that you specify that, when returned by a primary origin, trigger CloudFront to failover to a second origin.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] items: The items (status codes) for an origin group.
         :param pulumi.Input[_builtins.int] quantity: The number of status codes.
         """
@@ -5043,6 +5080,7 @@ class DistributionTenantCertificateArgs:
                  arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The ACMlong (ACM) certificate associated with your distribution.
+
         :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the ACM certificate.
         """
         if arn is not None:
@@ -5086,6 +5124,7 @@ class DistributionTenantCustomizationsArgs:
                  web_acl: Optional[pulumi.Input['DistributionTenantWebAclCustomizationArgs']] = None):
         """
         Customizations for the distribution tenant. For each distribution tenant, you can specify the geographic restrictions, and the Amazon Resource Names (ARNs) for the ACM certificate and WAF web ACL. These are specific values that you can override or disable from the multi-tenant distribution that was used to create the distribution tenant.
+
         :param pulumi.Input['DistributionTenantCertificateArgs'] certificate: The ACMlong (ACM) certificate.
         :param pulumi.Input['DistributionTenantGeoRestrictionCustomizationArgs'] geo_restrictions: The geographic restrictions.
         :param pulumi.Input['DistributionTenantWebAclCustomizationArgs'] web_acl: The WAF web ACL.
@@ -5157,6 +5196,7 @@ class DistributionTenantGeoRestrictionCustomizationArgs:
                  restriction_type: Optional[pulumi.Input['DistributionTenantGeoRestrictionCustomizationRestrictionType']] = None):
         """
         The customizations that you specified for the distribution tenant for geographic restrictions.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] locations: The locations for geographic restrictions.
         :param pulumi.Input['DistributionTenantGeoRestrictionCustomizationRestrictionType'] restriction_type: The method that you want to use to restrict distribution of your content by country:
                  +  ``none``: No geographic restriction is enabled, meaning access to content is not restricted by client geo location.
@@ -5223,6 +5263,7 @@ class DistributionTenantManagedCertificateRequestArgs:
                  validation_token_host: Optional[pulumi.Input['DistributionTenantManagedCertificateRequestValidationTokenHost']] = None):
         """
         An object that represents the request for the Amazon CloudFront managed ACM certificate.
+
         :param pulumi.Input['DistributionTenantManagedCertificateRequestCertificateTransparencyLoggingPreference'] certificate_transparency_logging_preference: You can opt out of certificate transparency logging by specifying the ``disabled`` option. Opt in by specifying ``enabled``. For more information, see [Certificate Transparency Logging](https://docs.aws.amazon.com/acm/latest/userguide/acm-concepts.html#concept-transparency) in the *User Guide*.
         :param pulumi.Input[_builtins.str] primary_domain_name: The primary domain name associated with the CloudFront managed ACM certificate.
         :param pulumi.Input['DistributionTenantManagedCertificateRequestValidationTokenHost'] validation_token_host: Specify how the HTTP validation token will be served when requesting the CloudFront managed ACM certificate.
@@ -5295,6 +5336,7 @@ class DistributionTenantParameterArgs:
                  value: Optional[pulumi.Input[_builtins.str]] = None):
         """
         A list of parameter values to add to the resource. A parameter is specified as a key-value pair. A valid parameter value must exist for any parameter that is marked as required in the multi-tenant distribution.
+
         :param pulumi.Input[_builtins.str] name: The parameter name.
         :param pulumi.Input[_builtins.str] value: The parameter value.
         """
@@ -5348,6 +5390,7 @@ class DistributionTenantWebAclCustomizationArgs:
                  arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The WAF web ACL customization specified for the distribution tenant.
+
         :param pulumi.Input['DistributionTenantWebAclCustomizationAction'] action: The action for the WAF web ACL customization. You can specify ``override`` to specify a separate WAF web ACL for the distribution tenant. If you specify ``disable``, the distribution tenant won't have WAF web ACL protections and won't inherit from the multi-tenant distribution.
         :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the WAF web ACL.
         """
@@ -5534,6 +5577,7 @@ class DistributionViewerCertificateArgs:
           
          All distributions support HTTPS connections from viewers. To require viewers to use HTTPS only, or to redirect them from HTTP to HTTPS, use ``ViewerProtocolPolicy`` in the ``CacheBehavior`` or ``DefaultCacheBehavior``. To specify how CloudFront should use SSL/TLS to communicate with your custom origin, use ``CustomOriginConfig``.
          For more information, see [Using HTTPS with CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-https.html) and [Using Alternate Domain Names and HTTPS](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-https-alternate-domain-names.html) in the *Amazon CloudFront Developer Guide*.
+
         :param pulumi.Input[_builtins.str] acm_certificate_arn: In CloudFormation, this field name is ``AcmCertificateArn``. Note the different capitalization.
                  If the distribution uses ``Aliases`` (alternate domain names or CNAMEs) and the SSL/TLS certificate is stored in [(ACM)](https://docs.aws.amazon.com/acm/latest/userguide/acm-overview.html), provide the Amazon Resource Name (ARN) of the ACM certificate. CloudFront only supports ACM certificates in the US East (N. Virginia) Region (``us-east-1``).
                 If you specify an ACM certificate ARN, you must also specify values for ``MinimumProtocolVersion`` and ``SSLSupportMethod``. (In CloudFormation, the field name is ``SslSupportMethod``. Note the different capitalization.)
@@ -5737,6 +5781,7 @@ class DistributionVpcOriginConfigArgs:
                  owner_account_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         An Amazon CloudFront VPC origin configuration.
+
         :param pulumi.Input[_builtins.str] vpc_origin_id: The VPC origin ID.
         :param pulumi.Input[_builtins.int] origin_keepalive_timeout: Specifies how long, in seconds, CloudFront persists its connection to the origin. The minimum timeout is 1 second, the maximum is 120 seconds, and the default (if you don't specify otherwise) is 5 seconds.
                 For more information, see [Keep-alive timeout (custom origins only)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/DownloadDistValuesOrigin.html#DownloadDistValuesOriginKeepaliveTimeout) in the *Amazon CloudFront Developer Guide*.
@@ -5828,6 +5873,7 @@ class FunctionConfigArgs:
                  key_value_store_associations: Optional[pulumi.Input[Sequence[pulumi.Input['FunctionKeyValueStoreAssociationArgs']]]] = None):
         """
         Contains configuration information about a CloudFront function.
+
         :param pulumi.Input[_builtins.str] comment: A comment to describe the function.
         :param pulumi.Input[_builtins.str] runtime: The function's runtime environment version.
         :param pulumi.Input[Sequence[pulumi.Input['FunctionKeyValueStoreAssociationArgs']]] key_value_store_associations: The configuration for the key value store associations.
@@ -5889,6 +5935,7 @@ class FunctionKeyValueStoreAssociationArgs:
                  key_value_store_arn: pulumi.Input[_builtins.str]):
         """
         The key value store association.
+
         :param pulumi.Input[_builtins.str] key_value_store_arn: The Amazon Resource Name (ARN) of the key value store association.
         """
         pulumi.set(__self__, "key_value_store_arn", key_value_store_arn)
@@ -5921,6 +5968,7 @@ class FunctionMetadataArgs:
                  function_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Contains metadata about a CloudFront function.
+
         :param pulumi.Input[_builtins.str] function_arn: The Amazon Resource Name (ARN) of the function. The ARN uniquely identifies the function.
         """
         if function_arn is not None:
@@ -5966,6 +6014,7 @@ class KeyGroupConfigArgs:
         """
         A key group configuration.
          A key group contains a list of public keys that you can use with [CloudFront signed URLs and signed cookies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html).
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] items: A list of the identifiers of the public keys in the key group.
         :param pulumi.Input[_builtins.str] name: A name to identify the key group.
         :param pulumi.Input[_builtins.str] comment: A comment to describe the key group. The comment cannot be longer than 128 characters.
@@ -6032,6 +6081,7 @@ class KeyValueStoreImportSourceArgs:
                  source_type: pulumi.Input[_builtins.str]):
         """
         The import source for the key value store.
+
         :param pulumi.Input[_builtins.str] source_arn: The Amazon Resource Name (ARN) of the import source for the key value store.
         :param pulumi.Input[_builtins.str] source_type: The source type of the import source for the key value store.
         """
@@ -6078,6 +6128,7 @@ class MonitoringSubscriptionRealtimeMetricsSubscriptionConfigArgs:
                  realtime_metrics_subscription_status: pulumi.Input['MonitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetricsSubscriptionStatus']):
         """
         A subscription configuration for additional CloudWatch metrics.
+
         :param pulumi.Input['MonitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetricsSubscriptionStatus'] realtime_metrics_subscription_status: A flag that indicates whether additional CloudWatch metrics are enabled for a given CloudFront distribution.
         """
         pulumi.set(__self__, "realtime_metrics_subscription_status", realtime_metrics_subscription_status)
@@ -6110,6 +6161,7 @@ class MonitoringSubscriptionArgs:
                  realtime_metrics_subscription_config: Optional[pulumi.Input['MonitoringSubscriptionRealtimeMetricsSubscriptionConfigArgs']] = None):
         """
         A monitoring subscription. This structure contains information about whether additional CloudWatch metrics are enabled for a given CloudFront distribution.
+
         :param pulumi.Input['MonitoringSubscriptionRealtimeMetricsSubscriptionConfigArgs'] realtime_metrics_subscription_config: A subscription configuration for additional CloudWatch metrics.
         """
         if realtime_metrics_subscription_config is not None:
@@ -6171,6 +6223,7 @@ class OriginAccessControlConfigArgs:
         Creates a new origin access control in CloudFront. After you create an origin access control, you can add it to an origin in a CloudFront distribution so that CloudFront sends authenticated (signed) requests to the origin.
          This makes it possible to block public access to the origin, allowing viewers (users) to access the origin's content only through CloudFront.
          For more information about using a CloudFront origin access control, see [Restricting access to an origin](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-origin.html) in the *Amazon CloudFront Developer Guide*.
+
         :param pulumi.Input[_builtins.str] name: A name to identify the origin access control. You can specify up to 64 characters.
         :param pulumi.Input[_builtins.str] origin_access_control_origin_type: The type of origin that this origin access control is for.
         :param pulumi.Input[_builtins.str] signing_behavior: Specifies which requests CloudFront signs (adds authentication information to). Specify ``always`` for the most common use case. For more information, see [origin access control advanced settings](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-s3.html#oac-advanced-settings) in the *Amazon CloudFront Developer Guide*.
@@ -6300,6 +6353,7 @@ class OriginRequestPolicyConfigArgs:
           +  All HTTP headers, cookies, and URL query strings that are specified in the cache policy or the origin request policy. These can include items from the viewer request and, in the case of headers, additional ones that are added by CloudFront.
           
          CloudFront sends a request when it can't find an object in its cache that matches the request. If you want to send values to the origin and also include them in the cache key, use ``CachePolicy``.
+
         :param pulumi.Input['OriginRequestPolicyCookiesConfigArgs'] cookies_config: The cookies from viewer requests to include in origin requests.
         :param pulumi.Input['OriginRequestPolicyHeadersConfigArgs'] headers_config: The HTTP headers to include in origin requests. These can include headers from viewer requests and additional headers added by CloudFront.
         :param pulumi.Input[_builtins.str] name: A unique name to identify the origin request policy.
@@ -6398,6 +6452,7 @@ class OriginRequestPolicyCookiesConfigArgs:
                  cookies: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         An object that determines whether any cookies in viewer requests (and if so, which cookies) are included in requests that CloudFront sends to the origin.
+
         :param pulumi.Input[_builtins.str] cookie_behavior: Determines whether cookies in viewer requests are included in requests that CloudFront sends to the origin. Valid values are:
                  +  ``none`` – No cookies in viewer requests are included in requests that CloudFront sends to the origin. Even when this field is set to ``none``, any cookies that are listed in a ``CachePolicy``*are* included in origin requests.
                  +  ``whitelist`` – Only the cookies in viewer requests that are listed in the ``CookieNames`` type are included in requests that CloudFront sends to the origin.
@@ -6463,6 +6518,7 @@ class OriginRequestPolicyHeadersConfigArgs:
                  headers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         An object that determines whether any HTTP headers (and if so, which headers) are included in requests that CloudFront sends to the origin.
+
         :param pulumi.Input[_builtins.str] header_behavior: Determines whether any HTTP headers are included in requests that CloudFront sends to the origin. Valid values are:
                  +  ``none`` – No HTTP headers in viewer requests are included in requests that CloudFront sends to the origin. Even when this field is set to ``none``, any headers that are listed in a ``CachePolicy``*are* included in origin requests.
                  +  ``whitelist`` – Only the HTTP headers that are listed in the ``Headers`` type are included in requests that CloudFront sends to the origin.
@@ -6529,6 +6585,7 @@ class OriginRequestPolicyQueryStringsConfigArgs:
                  query_strings: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         An object that determines whether any URL query strings in viewer requests (and if so, which query strings) are included in requests that CloudFront sends to the origin.
+
         :param pulumi.Input[_builtins.str] query_string_behavior: Determines whether any URL query strings in viewer requests are included in requests that CloudFront sends to the origin. Valid values are:
                  +  ``none`` – No query strings in viewer requests are included in requests that CloudFront sends to the origin. Even when this field is set to ``none``, any query strings that are listed in a ``CachePolicy``*are* included in origin requests.
                  +  ``whitelist`` – Only the query strings in viewer requests that are listed in the ``QueryStringNames`` type are included in requests that CloudFront sends to the origin.
@@ -6601,6 +6658,7 @@ class PublicKeyConfigArgs:
         """
         Configuration information about a public key that you can use with [signed URLs and signed cookies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html), or with [field-level encryption](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/field-level-encryption.html).
          CloudFront supports signed URLs and signed cookies with RSA 2048 or ECDSA 256 key signatures. Field-level encryption is only compatible with RSA 2048 key signatures.
+
         :param pulumi.Input[_builtins.str] caller_reference: A string included in the request to help make sure that the request can't be replayed.
         :param pulumi.Input[_builtins.str] encoded_key: The public key that you can use with [signed URLs and signed cookies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html), or with [field-level encryption](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/field-level-encryption.html).
         :param pulumi.Input[_builtins.str] name: A name to help identify the public key.
@@ -6681,6 +6739,7 @@ class RealtimeLogConfigEndPointArgs:
                  stream_type: pulumi.Input[_builtins.str]):
         """
         Contains information about the Amazon Kinesis data stream where you are sending real-time log data for this real-time log configuration.
+
         :param pulumi.Input['RealtimeLogConfigKinesisStreamConfigArgs'] kinesis_stream_config: Contains information about the Amazon Kinesis data stream where you are sending real-time log data in a real-time log configuration.
         :param pulumi.Input[_builtins.str] stream_type: The type of data stream where you are sending real-time log data. The only valid value is ``Kinesis``.
         """
@@ -6733,6 +6792,7 @@ class RealtimeLogConfigKinesisStreamConfigArgs:
                  stream_arn: pulumi.Input[_builtins.str]):
         """
         Contains information about the Amazon Kinesis data stream where you are sending real-time log data.
+
         :param pulumi.Input[_builtins.str] role_arn: The Amazon Resource Name (ARN) of an IAMlong (IAM) role that CloudFront can use to send real-time log data to your Kinesis data stream.
                 For more information the IAM role, see [Real-time log configuration IAM role](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html#understand-real-time-log-config-iam-role) in the *Amazon CloudFront Developer Guide*.
         :param pulumi.Input[_builtins.str] stream_arn: The Amazon Resource Name (ARN) of the Kinesis data stream where you are sending real-time log data.
@@ -6783,6 +6843,7 @@ class ResponseHeadersPolicyAccessControlAllowHeadersArgs:
         """
         A list of HTTP header names that CloudFront includes as values for the ``Access-Control-Allow-Headers`` HTTP response header.
          For more information about the ``Access-Control-Allow-Headers`` HTTP response header, see [Access-Control-Allow-Headers](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Headers) in the MDN Web Docs.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] items: The list of HTTP header names. You can specify ``*`` to allow all headers.
         """
         pulumi.set(__self__, "items", items)
@@ -6827,6 +6888,7 @@ class ResponseHeadersPolicyAccessControlAllowMethodsArgs:
         """
         A list of HTTP methods that CloudFront includes as values for the ``Access-Control-Allow-Methods`` HTTP response header.
          For more information about the ``Access-Control-Allow-Methods`` HTTP response header, see [Access-Control-Allow-Methods](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Methods) in the MDN Web Docs.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] items: The list of HTTP methods. Valid values are:
                  +   ``GET`` 
                  +   ``DELETE`` 
@@ -6881,6 +6943,7 @@ class ResponseHeadersPolicyAccessControlAllowOriginsArgs:
         """
         A list of origins (domain names) that CloudFront can use as the value for the ``Access-Control-Allow-Origin`` HTTP response header.
          For more information about the ``Access-Control-Allow-Origin`` HTTP response header, see [Access-Control-Allow-Origin](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Origin) in the MDN Web Docs.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] items: The list of origins (domain names). You can specify ``*`` to allow all origins.
         """
         pulumi.set(__self__, "items", items)
@@ -6915,6 +6978,7 @@ class ResponseHeadersPolicyAccessControlExposeHeadersArgs:
         """
         A list of HTTP headers that CloudFront includes as values for the ``Access-Control-Expose-Headers`` HTTP response header.
          For more information about the ``Access-Control-Expose-Headers`` HTTP response header, see [Access-Control-Expose-Headers](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Expose-Headers) in the MDN Web Docs.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] items: The list of HTTP headers. You can specify ``*`` to expose all headers.
         """
         pulumi.set(__self__, "items", items)
@@ -6981,6 +7045,7 @@ class ResponseHeadersPolicyConfigArgs:
         """
         A response headers policy configuration.
          A response headers policy configuration contains metadata about the response headers policy, and configurations for sets of HTTP response headers.
+
         :param pulumi.Input[_builtins.str] name: A name to identify the response headers policy.
                 The name must be unique for response headers policies in this AWS-account.
         :param pulumi.Input[_builtins.str] comment: A comment to describe the response headers policy.
@@ -7115,6 +7180,7 @@ class ResponseHeadersPolicyContentSecurityPolicyArgs:
         """
         The policy directives and their values that CloudFront includes as values for the ``Content-Security-Policy`` HTTP response header.
          For more information about the ``Content-Security-Policy`` HTTP response header, see [Content-Security-Policy](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy) in the MDN Web Docs.
+
         :param pulumi.Input[_builtins.str] content_security_policy: The policy directives and their values that CloudFront includes as values for the ``Content-Security-Policy`` HTTP response header.
                 For more information about the ``Content-Security-Policy`` HTTP response header, see [Content-Security-Policy](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy) in the MDN Web Docs.
         :param pulumi.Input[_builtins.bool] override: A Boolean that determines whether CloudFront overrides the ``Content-Security-Policy`` HTTP response header received from the origin with the one specified in this response headers policy.
@@ -7165,6 +7231,7 @@ class ResponseHeadersPolicyContentTypeOptionsArgs:
         """
         Determines whether CloudFront includes the ``X-Content-Type-Options`` HTTP response header with its value set to ``nosniff``.
          For more information about the ``X-Content-Type-Options`` HTTP response header, see [X-Content-Type-Options](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Content-Type-Options) in the MDN Web Docs.
+
         :param pulumi.Input[_builtins.bool] override: A Boolean that determines whether CloudFront overrides the ``X-Content-Type-Options`` HTTP response header received from the origin with the one specified in this response headers policy.
         """
         pulumi.set(__self__, "override", override)
@@ -7235,6 +7302,7 @@ class ResponseHeadersPolicyCorsConfigArgs:
         """
         A configuration for a set of HTTP response headers that are used for cross-origin resource sharing (CORS). CloudFront adds these headers to HTTP responses that it sends for CORS requests that match a cache behavior associated with this response headers policy.
          For more information about CORS, see [Cross-Origin Resource Sharing (CORS)](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) in the MDN Web Docs.
+
         :param pulumi.Input[_builtins.bool] access_control_allow_credentials: A Boolean that CloudFront uses as the value for the ``Access-Control-Allow-Credentials`` HTTP response header.
                 For more information about the ``Access-Control-Allow-Credentials`` HTTP response header, see [Access-Control-Allow-Credentials](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Credentials) in the MDN Web Docs.
         :param pulumi.Input['ResponseHeadersPolicyAccessControlAllowHeadersArgs'] access_control_allow_headers: A list of HTTP header names that CloudFront includes as values for the ``Access-Control-Allow-Headers`` HTTP response header.
@@ -7365,6 +7433,7 @@ class ResponseHeadersPolicyCustomHeadersConfigArgs:
                  items: pulumi.Input[Sequence[pulumi.Input['ResponseHeadersPolicyCustomHeaderArgs']]]):
         """
         A list of HTTP response header names and their values. CloudFront includes these headers in HTTP responses that it sends for requests that match a cache behavior that's associated with this response headers policy.
+
         :param pulumi.Input[Sequence[pulumi.Input['ResponseHeadersPolicyCustomHeaderArgs']]] items: The list of HTTP response headers and their values.
         """
         pulumi.set(__self__, "items", items)
@@ -7407,6 +7476,7 @@ class ResponseHeadersPolicyCustomHeaderArgs:
                  value: pulumi.Input[_builtins.str]):
         """
         An HTTP response header name and its value. CloudFront includes this header in HTTP responses that it sends for requests that match a cache behavior that's associated with this response headers policy.
+
         :param pulumi.Input[_builtins.str] header: The HTTP response header name.
         :param pulumi.Input[_builtins.bool] override: A Boolean that determines whether CloudFront overrides a response header with the same name received from the origin with the header specified here.
         :param pulumi.Input[_builtins.str] value: The value for the HTTP response header.
@@ -7475,6 +7545,7 @@ class ResponseHeadersPolicyFrameOptionsArgs:
         """
         Determines whether CloudFront includes the ``X-Frame-Options`` HTTP response header and the header's value.
          For more information about the ``X-Frame-Options`` HTTP response header, see [X-Frame-Options](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options) in the MDN Web Docs.
+
         :param pulumi.Input[_builtins.str] frame_option: The value of the ``X-Frame-Options`` HTTP response header. Valid values are ``DENY`` and ``SAMEORIGIN``.
                 For more information about these values, see [X-Frame-Options](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options) in the MDN Web Docs.
         :param pulumi.Input[_builtins.bool] override: A Boolean that determines whether CloudFront overrides the ``X-Frame-Options`` HTTP response header received from the origin with the one specified in this response headers policy.
@@ -7531,6 +7602,7 @@ class ResponseHeadersPolicyReferrerPolicyArgs:
         """
         Determines whether CloudFront includes the ``Referrer-Policy`` HTTP response header and the header's value.
          For more information about the ``Referrer-Policy`` HTTP response header, see [Referrer-Policy](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referrer-Policy) in the MDN Web Docs.
+
         :param pulumi.Input[_builtins.bool] override: A Boolean that determines whether CloudFront overrides the ``Referrer-Policy`` HTTP response header received from the origin with the one specified in this response headers policy.
         :param pulumi.Input[_builtins.str] referrer_policy: Determines whether CloudFront includes the ``Referrer-Policy`` HTTP response header and the header's value.
                 For more information about the ``Referrer-Policy`` HTTP response header, see [Referrer-Policy](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referrer-Policy) in the MDN Web Docs.
@@ -7579,6 +7651,7 @@ class ResponseHeadersPolicyRemoveHeadersConfigArgs:
                  items: pulumi.Input[Sequence[pulumi.Input['ResponseHeadersPolicyRemoveHeaderArgs']]]):
         """
         A list of HTTP header names that CloudFront removes from HTTP responses to requests that match the cache behavior that this response headers policy is attached to.
+
         :param pulumi.Input[Sequence[pulumi.Input['ResponseHeadersPolicyRemoveHeaderArgs']]] items: The list of HTTP header names.
         """
         pulumi.set(__self__, "items", items)
@@ -7611,6 +7684,7 @@ class ResponseHeadersPolicyRemoveHeaderArgs:
                  header: pulumi.Input[_builtins.str]):
         """
         The name of an HTTP header that CloudFront removes from HTTP responses to requests that match the cache behavior that this response headers policy is attached to.
+
         :param pulumi.Input[_builtins.str] header: The HTTP header name.
         """
         pulumi.set(__self__, "header", header)
@@ -7674,6 +7748,7 @@ class ResponseHeadersPolicySecurityHeadersConfigArgs:
                  xss_protection: Optional[pulumi.Input['ResponseHeadersPolicyXssProtectionArgs']] = None):
         """
         A configuration for a set of security-related HTTP response headers. CloudFront adds these headers to HTTP responses that it sends for requests that match a cache behavior associated with this response headers policy.
+
         :param pulumi.Input['ResponseHeadersPolicyContentSecurityPolicyArgs'] content_security_policy: The policy directives and their values that CloudFront includes as values for the ``Content-Security-Policy`` HTTP response header.
                 For more information about the ``Content-Security-Policy`` HTTP response header, see [Content-Security-Policy](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy) in the MDN Web Docs.
         :param pulumi.Input['ResponseHeadersPolicyContentTypeOptionsArgs'] content_type_options: Determines whether CloudFront includes the ``X-Content-Type-Options`` HTTP response header with its value set to ``nosniff``.
@@ -7799,6 +7874,7 @@ class ResponseHeadersPolicyServerTimingHeadersConfigArgs:
                  sampling_rate: Optional[pulumi.Input[_builtins.float]] = None):
         """
         A configuration for enabling the ``Server-Timing`` header in HTTP responses sent from CloudFront.
+
         :param pulumi.Input[_builtins.bool] enabled: A Boolean that determines whether CloudFront adds the ``Server-Timing`` header to HTTP responses that it sends in response to requests that match a cache behavior that's associated with this response headers policy.
         :param pulumi.Input[_builtins.float] sampling_rate: A number 0–100 (inclusive) that specifies the percentage of responses that you want CloudFront to add the ``Server-Timing`` header to. When you set the sampling rate to 100, CloudFront adds the ``Server-Timing`` header to the HTTP response for every request that matches the cache behavior that this response headers policy is attached to. When you set it to 50, CloudFront adds the header to 50% of the responses for requests that match the cache behavior. You can set the sampling rate to any number 0–100 with up to four decimal places.
         """
@@ -7863,6 +7939,7 @@ class ResponseHeadersPolicyStrictTransportSecurityArgs:
         """
         Determines whether CloudFront includes the ``Strict-Transport-Security`` HTTP response header and the header's value.
          For more information about the ``Strict-Transport-Security`` HTTP response header, see [Strict-Transport-Security](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Strict-Transport-Security) in the MDN Web Docs.
+
         :param pulumi.Input[_builtins.int] access_control_max_age_sec: A number that CloudFront uses as the value for the ``max-age`` directive in the ``Strict-Transport-Security`` HTTP response header.
         :param pulumi.Input[_builtins.bool] override: A Boolean that determines whether CloudFront overrides the ``Strict-Transport-Security`` HTTP response header received from the origin with the one specified in this response headers policy.
         :param pulumi.Input[_builtins.bool] include_subdomains: A Boolean that determines whether CloudFront includes the ``includeSubDomains`` directive in the ``Strict-Transport-Security`` HTTP response header.
@@ -7960,6 +8037,7 @@ class ResponseHeadersPolicyXssProtectionArgs:
         """
         Determines whether CloudFront includes the ``X-XSS-Protection`` HTTP response header and the header's value.
          For more information about the ``X-XSS-Protection`` HTTP response header, see [X-XSS-Protection](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-XSS-Protection) in the MDN Web Docs.
+
         :param pulumi.Input[_builtins.bool] override: A Boolean that determines whether CloudFront overrides the ``X-XSS-Protection`` HTTP response header received from the origin with the one specified in this response headers policy.
         :param pulumi.Input[_builtins.bool] protection: A Boolean that determines the value of the ``X-XSS-Protection`` HTTP response header. When this setting is ``true``, the value of the ``X-XSS-Protection`` header is ``1``. When this setting is ``false``, the value of the ``X-XSS-Protection`` header is ``0``.
                 For more information about these settings, see [X-XSS-Protection](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-XSS-Protection) in the MDN Web Docs.
@@ -8184,6 +8262,7 @@ class VpcOriginEndpointConfigArgs:
                  origin_ssl_protocols: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         An Amazon CloudFront VPC origin endpoint configuration.
+
         :param pulumi.Input[_builtins.str] arn: The ARN of the CloudFront VPC origin endpoint configuration.
         :param pulumi.Input[_builtins.str] name: The name of the CloudFront VPC origin endpoint configuration.
         :param pulumi.Input[_builtins.int] http_port: The HTTP port for the CloudFront VPC origin endpoint configuration. The default value is ``80``.

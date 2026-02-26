@@ -24,6 +24,7 @@ class LinkAssociationArgs:
                  link_id: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a LinkAssociation resource.
+
         :param pulumi.Input[_builtins.str] device_id: The ID of the device
         :param pulumi.Input[_builtins.str] global_network_id: The ID of the global network.
         :param pulumi.Input[_builtins.str] link_id: The ID of the link
@@ -82,6 +83,7 @@ class LinkAssociation(pulumi.CustomResource):
         """
         The AWS::NetworkManager::LinkAssociation type associates a link to a device. The device and link must be in the same global network and the same site.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] device_id: The ID of the device
@@ -96,6 +98,7 @@ class LinkAssociation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The AWS::NetworkManager::LinkAssociation type associates a link to a device. The device and link must be in the same global network and the same site.
+
 
         :param str resource_name: The name of the resource.
         :param LinkAssociationArgs args: The arguments to use to populate this resource's properties.

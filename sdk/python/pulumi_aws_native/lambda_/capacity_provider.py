@@ -33,6 +33,7 @@ class CapacityProviderArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a CapacityProvider resource.
+
         :param pulumi.Input['CapacityProviderPermissionsConfigArgs'] permissions_config: IAM permissions configuration for the capacity provider.
         :param pulumi.Input['CapacityProviderVpcConfigArgs'] vpc_config: VPC configuration for the capacity provider.
         :param pulumi.Input[_builtins.str] capacity_provider_name: The name of the capacity provider. The name must be unique within your AWS account and region. If you don't specify a name, CloudFormation generates one.
@@ -156,6 +157,7 @@ class CapacityProvider(pulumi.CustomResource):
         """
         Resource Type definition for AWS::Lambda::CapacityProvider
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] capacity_provider_name: The name of the capacity provider. The name must be unique within your AWS account and region. If you don't specify a name, CloudFormation generates one.
@@ -174,6 +176,7 @@ class CapacityProvider(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::Lambda::CapacityProvider
+
 
         :param str resource_name: The name of the resource.
         :param CapacityProviderArgs args: The arguments to use to populate this resource's properties.

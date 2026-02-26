@@ -31,6 +31,7 @@ class LogicallyAirGappedBackupVaultArgs:
                  notifications: Optional[pulumi.Input['LogicallyAirGappedBackupVaultNotificationObjectTypeArgs']] = None):
         """
         The set of arguments for constructing a LogicallyAirGappedBackupVault resource.
+
         :param pulumi.Input[_builtins.int] max_retention_days: The maximum retention period that the vault retains its recovery points.
         :param pulumi.Input[_builtins.int] min_retention_days: This setting specifies the minimum retention period that the vault retains its recovery points.
                
@@ -182,6 +183,7 @@ class LogicallyAirGappedBackupVault(pulumi.CustomResource):
         """
         Resource Type definition for AWS::Backup::LogicallyAirGappedBackupVault
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param Any access_policy: The backup vault access policy document in JSON format.
@@ -207,6 +209,7 @@ class LogicallyAirGappedBackupVault(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::Backup::LogicallyAirGappedBackupVault
+
 
         :param str resource_name: The name of the resource.
         :param LogicallyAirGappedBackupVaultArgs args: The arguments to use to populate this resource's properties.

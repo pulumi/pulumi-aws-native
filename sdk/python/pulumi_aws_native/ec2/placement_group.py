@@ -27,6 +27,7 @@ class PlacementGroupArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]] = None):
         """
         The set of arguments for constructing a PlacementGroup resource.
+
         :param pulumi.Input[_builtins.int] partition_count: The number of partitions. Valid only when **Strategy** is set to `partition`
         :param pulumi.Input[_builtins.str] spread_level: The Spread Level of Placement Group is an enum where it accepts either host or rack when strategy is spread
         :param pulumi.Input[_builtins.str] strategy: The placement strategy.
@@ -104,6 +105,7 @@ class PlacementGroup(pulumi.CustomResource):
         """
         Resource Type definition for AWS::EC2::PlacementGroup
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.int] partition_count: The number of partitions. Valid only when **Strategy** is set to `partition`
@@ -119,6 +121,7 @@ class PlacementGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::EC2::PlacementGroup
+
 
         :param str resource_name: The name of the resource.
         :param PlacementGroupArgs args: The arguments to use to populate this resource's properties.

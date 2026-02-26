@@ -24,6 +24,7 @@ class IdentityCenterConfigurationArgs:
                  user_background_sessions_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a IdentityCenterConfiguration resource.
+
         :param pulumi.Input[_builtins.str] instance_arn: The IAM identity center instance arn
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] scopes: The downstream scopes that Glue identity center configuration can access
         :param pulumi.Input[_builtins.bool] user_background_sessions_enabled: Enable or disable user background sessions for Glue Identity Center
@@ -84,6 +85,7 @@ class IdentityCenterConfiguration(pulumi.CustomResource):
         """
         Resource Type definition for AWS::Glue::IdentityCenterConfiguration
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] instance_arn: The IAM identity center instance arn
@@ -98,6 +100,7 @@ class IdentityCenterConfiguration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::Glue::IdentityCenterConfiguration
+
 
         :param str resource_name: The name of the resource.
         :param IdentityCenterConfigurationArgs args: The arguments to use to populate this resource's properties.

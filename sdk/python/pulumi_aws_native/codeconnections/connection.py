@@ -27,6 +27,7 @@ class ConnectionArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Connection resource.
+
         :param pulumi.Input[_builtins.str] connection_name: The name of the connection. Connection names must be unique in an AWS user account.
         :param pulumi.Input[_builtins.str] host_arn: The host arn configured to represent the infrastructure where your third-party provider is installed. You must specify either a ProviderType or a HostArn.
         :param pulumi.Input[_builtins.str] provider_type: The name of the external provider where your third-party code repository is configured. You must specify either a ProviderType or a HostArn.
@@ -104,6 +105,7 @@ class Connection(pulumi.CustomResource):
         """
         Schema for AWS::CodeConnections::Connection resource which can be used to connect external source providers with other AWS services (i.e. AWS CodePipeline)
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] connection_name: The name of the connection. Connection names must be unique in an AWS user account.
@@ -119,6 +121,7 @@ class Connection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Schema for AWS::CodeConnections::Connection resource which can be used to connect external source providers with other AWS services (i.e. AWS CodePipeline)
+
 
         :param str resource_name: The name of the resource.
         :param ConnectionArgs args: The arguments to use to populate this resource's properties.

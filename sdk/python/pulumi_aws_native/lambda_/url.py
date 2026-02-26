@@ -29,6 +29,7 @@ class UrlArgs:
                  qualifier: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Url resource.
+
         :param pulumi.Input['UrlAuthType'] auth_type: Can be either AWS_IAM if the requests are authorized via IAM, or NONE if no authorization is configured on the Function URL.
         :param pulumi.Input[_builtins.str] target_function_arn: The Amazon Resource Name (ARN) of the function associated with the Function URL.
         :param pulumi.Input['UrlCorsArgs'] cors: The [Cross-Origin Resource Sharing (CORS)](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) settings for your function URL.
@@ -120,6 +121,7 @@ class Url(pulumi.CustomResource):
         """
         Resource Type definition for AWS::Lambda::Url
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input['UrlAuthType'] auth_type: Can be either AWS_IAM if the requests are authorized via IAM, or NONE if no authorization is configured on the Function URL.
@@ -136,6 +138,7 @@ class Url(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::Lambda::Url
+
 
         :param str resource_name: The name of the resource.
         :param UrlArgs args: The arguments to use to populate this resource's properties.

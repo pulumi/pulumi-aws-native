@@ -55,6 +55,7 @@ class AssessmentAwsAccountArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The AWS account associated with the assessment.
+
         :param pulumi.Input[_builtins.str] email_address: The email address that's associated with the AWS account .
         :param pulumi.Input[_builtins.str] id: The identifier for the AWS account .
         :param pulumi.Input[_builtins.str] name: The name of the AWS account .
@@ -118,6 +119,7 @@ class AssessmentAwsServiceArgs:
                  service_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         An AWS service such as Amazon S3, AWS CloudTrail, and so on.
+
         :param pulumi.Input[_builtins.str] service_name: The name of the AWS service .
         """
         if service_name is not None:
@@ -213,6 +215,7 @@ class AssessmentDelegationArgs:
                  status: Optional[pulumi.Input['AssessmentDelegationStatus']] = None):
         """
         The assignment of a control set to a delegate for review.
+
         :param pulumi.Input[_builtins.str] assessment_id: The identifier for the assessment that's associated with the delegation.
         :param pulumi.Input[_builtins.str] assessment_name: The name of the assessment that's associated with the delegation.
         :param pulumi.Input[_builtins.str] comment: The comment that's related to the delegation.
@@ -425,6 +428,7 @@ class AssessmentReportsDestinationArgs:
                  destination_type: Optional[pulumi.Input['AssessmentReportDestinationType']] = None):
         """
         The destination in which evidence reports are stored for the specified assessment.
+
         :param pulumi.Input[_builtins.str] destination: The destination bucket where Audit Manager stores assessment reports.
         :param pulumi.Input['AssessmentReportDestinationType'] destination_type: The destination type, such as Amazon S3.
         """
@@ -484,6 +488,7 @@ class AssessmentRoleArgs:
                  role_type: Optional[pulumi.Input['AssessmentRoleType']] = None):
         """
         The wrapper that contains AWS Audit Manager role information, such as the role type and IAM ARN.
+
         :param pulumi.Input[_builtins.str] role_arn: The Amazon Resource Name (ARN) of the IAM role.
         :param pulumi.Input['AssessmentRoleType'] role_type: The type of customer persona.
                
@@ -549,6 +554,7 @@ class AssessmentScopeArgs:
                  aws_services: Optional[pulumi.Input[Sequence[pulumi.Input['AssessmentAwsServiceArgs']]]] = None):
         """
         The wrapper that contains the AWS accounts and AWS services in scope for the assessment.
+
         :param pulumi.Input[Sequence[pulumi.Input['AssessmentAwsAccountArgs']]] aws_accounts: The AWS accounts included in scope.
         :param pulumi.Input[Sequence[pulumi.Input['AssessmentAwsServiceArgs']]] aws_services: The AWS services included in scope.
         """

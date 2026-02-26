@@ -29,6 +29,7 @@ class LoggingConfigurationArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a LoggingConfiguration resource.
+
         :param pulumi.Input['LoggingConfigurationDestinationConfigurationArgs'] destination_configuration: The DestinationConfiguration is a complex type that contains information about where chat content will be logged.
         :param pulumi.Input[_builtins.str] name: The name of the logging configuration. The value does not need to be unique.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
@@ -89,6 +90,7 @@ class LoggingConfiguration(pulumi.CustomResource):
         """
         Resource type definition for AWS::IVSChat::LoggingConfiguration.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['LoggingConfigurationDestinationConfigurationArgs', 'LoggingConfigurationDestinationConfigurationArgsDict']] destination_configuration: The DestinationConfiguration is a complex type that contains information about where chat content will be logged.
@@ -103,6 +105,7 @@ class LoggingConfiguration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource type definition for AWS::IVSChat::LoggingConfiguration.
+
 
         :param str resource_name: The name of the resource.
         :param LoggingConfigurationArgs args: The arguments to use to populate this resource's properties.

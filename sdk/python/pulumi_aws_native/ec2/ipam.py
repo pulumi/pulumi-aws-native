@@ -33,6 +33,7 @@ class IpamArgs:
                  tier: Optional[pulumi.Input['IpamTier']] = None):
         """
         The set of arguments for constructing a Ipam resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['IpamOrganizationalUnitExclusionArgs']]] default_resource_discovery_organizational_unit_exclusions: A set of organizational unit (OU) exclusions for the default resource discovery, created with this IPAM.
         :param pulumi.Input[_builtins.str] description: The description for the IPAM.
         :param pulumi.Input[_builtins.bool] enable_private_gua: Enable provisioning of GUA space in private pools.
@@ -158,6 +159,7 @@ class Ipam(pulumi.CustomResource):
         """
         Resource Schema of AWS::EC2::IPAM Type
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['IpamOrganizationalUnitExclusionArgs', 'IpamOrganizationalUnitExclusionArgsDict']]]] default_resource_discovery_organizational_unit_exclusions: A set of organizational unit (OU) exclusions for the default resource discovery, created with this IPAM.
@@ -176,6 +178,7 @@ class Ipam(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Schema of AWS::EC2::IPAM Type
+
 
         :param str resource_name: The name of the resource.
         :param IpamArgs args: The arguments to use to populate this resource's properties.

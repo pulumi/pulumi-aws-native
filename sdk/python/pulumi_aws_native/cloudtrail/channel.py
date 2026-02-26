@@ -30,6 +30,7 @@ class ChannelArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Channel resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['ChannelDestinationArgs']]] destinations: One or more resources to which events arriving through a channel are logged and stored.
         :param pulumi.Input[_builtins.str] name: The name of the channel.
         :param pulumi.Input[_builtins.str] source: The ARN of an on-premises storage solution or application, or a partner event source.
@@ -107,6 +108,7 @@ class Channel(pulumi.CustomResource):
         """
         A channel receives events from a specific source (such as an on-premises storage solution or application, or a partner event data source), and delivers the events to one or more event data stores. You use channels to ingest events into CloudTrail from sources outside AWS.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ChannelDestinationArgs', 'ChannelDestinationArgsDict']]]] destinations: One or more resources to which events arriving through a channel are logged and stored.
@@ -122,6 +124,7 @@ class Channel(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A channel receives events from a specific source (such as an on-premises storage solution or application, or a partner event data source), and delivers the events to one or more event data stores. You use channels to ingest events into CloudTrail from sources outside AWS.
+
 
         :param str resource_name: The name of the resource.
         :param ChannelArgs args: The arguments to use to populate this resource's properties.

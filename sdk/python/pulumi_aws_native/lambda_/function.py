@@ -57,6 +57,7 @@ class FunctionArgs:
                  vpc_config: Optional[pulumi.Input['FunctionVpcConfigArgs']] = None):
         """
         The set of arguments for constructing a Function resource.
+
         :param pulumi.Input['FunctionCodeArgs'] code: The code for the function. You can define your function code in multiple ways:
                  +  For .zip deployment packages, you can specify the S3 location of the .zip file in the ``S3Bucket``, ``S3Key``, and ``S3ObjectVersion`` properties.
                  +  For .zip deployment packages, you can alternatively define the function code inline in the ``ZipFile`` property. This method works only for Node.js and Python functions.
@@ -801,6 +802,7 @@ class Function(pulumi.CustomResource):
 
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input['FunctionArchitecturesItem']]] architectures: The instruction set architecture that the function supports. Enter a string array with one of the valid values (arm64 or x86_64). The default value is ``x86_64``.
@@ -1067,6 +1069,7 @@ class Function(pulumi.CustomResource):
             })
 
         ```
+
 
         :param str resource_name: The name of the resource.
         :param FunctionArgs args: The arguments to use to populate this resource's properties.

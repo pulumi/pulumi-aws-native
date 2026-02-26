@@ -81,6 +81,7 @@ class ChannelDashPlaylistSettings(dict):
                  suggested_presentation_delay_seconds: Optional[_builtins.float] = None):
         """
         <p>Dash manifest configuration parameters.</p>
+
         :param _builtins.float manifest_window_seconds: <p>The total duration (in seconds) of each manifest. Minimum value: <code>30</code> seconds. Maximum value: <code>3600</code> seconds.</p>
         :param _builtins.float min_buffer_time_seconds: <p>Minimum amount of content (measured in seconds) that a player must keep available in the buffer. Minimum value: <code>2</code> seconds. Maximum value: <code>60</code> seconds.</p>
         :param _builtins.float min_update_period_seconds: <p>Minimum amount of time (in seconds) that the player should wait before requesting updates to the manifest. Minimum value: <code>2</code> seconds. Maximum value: <code>60</code> seconds.</p>
@@ -157,6 +158,7 @@ class ChannelHlsPlaylistSettings(dict):
                  manifest_window_seconds: Optional[_builtins.float] = None):
         """
         <p>HLS playlist configuration parameters.</p>
+
         :param Sequence['ChannelAdMarkupType'] ad_markup_type: <p>Determines the type of SCTE 35 tags to use in ad markup. Specify <code>DATERANGE</code> to use <code>DATERANGE</code> tags (for live or VOD content). Specify <code>SCTE35_ENHANCED</code> to use <code>EXT-X-CUE-OUT</code> and <code>EXT-X-CUE-IN</code> tags (for VOD content only).</p>
         :param _builtins.float manifest_window_seconds: <p>The total duration (in seconds) of each manifest. Minimum value: <code>30</code> seconds. Maximum value: <code>3600</code> seconds.</p>
         """
@@ -208,6 +210,7 @@ class ChannelLogConfigurationForChannel(dict):
                  log_types: Optional[Sequence['ChannelLogType']] = None):
         """
         <p>The log configuration for the channel.</p>
+
         :param Sequence['ChannelLogType'] log_types: <p>The log types.</p>
         """
         if log_types is not None:
@@ -257,6 +260,7 @@ class ChannelRequestOutputItem(dict):
                  hls_playlist_settings: Optional['outputs.ChannelHlsPlaylistSettings'] = None):
         """
         <p>The output configuration for this channel.</p>
+
         :param _builtins.str manifest_name: <p>The name of the manifest for the channel. The name appears in the <code>PlaybackUrl</code>.</p>
         :param _builtins.str source_group: <p>A string used to match which <code>HttpPackageConfiguration</code> is used for each <code>VodSource</code>.</p>
         :param 'ChannelDashPlaylistSettings' dash_playlist_settings: DASH manifest configuration parameters.
@@ -331,6 +335,7 @@ class ChannelSlateSource(dict):
                  vod_source_name: Optional[_builtins.str] = None):
         """
         <p>Slate VOD source configuration.</p>
+
         :param _builtins.str source_location_name: <p>The name of the source location where the slate VOD source is stored.</p>
         :param _builtins.str vod_source_name: <p>The slate VOD source name. The VOD source must already exist in a source location before it can be used for slate.</p>
         """
@@ -382,6 +387,7 @@ class ChannelTimeShiftConfiguration(dict):
                  max_time_delay_seconds: _builtins.float):
         """
         <p>The configuration for time-shifted viewing.</p>
+
         :param _builtins.float max_time_delay_seconds: <p>The maximum time delay for time-shifted viewing. The minimum allowed maximum time delay is 0 seconds, and the maximum allowed maximum time delay is 21600 seconds (6 hours).</p>
         """
         pulumi.set(__self__, "max_time_delay_seconds", max_time_delay_seconds)
@@ -423,6 +429,7 @@ class LiveSourceHttpPackageConfiguration(dict):
                  type: 'LiveSourceType'):
         """
         <p>The HTTP package configuration properties for the requested VOD source.</p>
+
         :param _builtins.str path: <p>The relative path to the URL for this VOD source. This is combined with <code>SourceLocation::HttpConfiguration::BaseUrl</code> to form a valid URL.</p>
         :param _builtins.str source_group: <p>The name of the source group. This has to match one of the <code>Channel::Outputs::SourceGroup</code>.</p>
         :param 'LiveSourceType' type: The streaming protocol for this package configuration. Supported values are `HLS` and `DASH` .
@@ -482,6 +489,7 @@ class PlaybackConfigurationAdConditioningConfiguration(dict):
                  streaming_media_file_conditioning: 'PlaybackConfigurationStreamingMediaFileConditioning'):
         """
         <p>The setting that indicates what conditioning MediaTailor will perform on ads that the ad decision server (ADS) returns.</p>
+
         :param 'PlaybackConfigurationStreamingMediaFileConditioning' streaming_media_file_conditioning: For ads that have media files with streaming delivery and supported file extensions, indicates what transcoding action MediaTailor takes when it first receives these ads from the ADS. `TRANSCODE` indicates that MediaTailor must transcode the ads. `NONE` indicates that you have already transcoded the ads outside of MediaTailor and don't need them transcoded as part of the ad insertion workflow. For more information about ad conditioning see [Using preconditioned ads](https://docs.aws.amazon.com/mediatailor/latest/ug/precondition-ads.html) in the AWS Elemental MediaTailor user guide.
         """
         pulumi.set(__self__, "streaming_media_file_conditioning", streaming_media_file_conditioning)
@@ -539,6 +547,7 @@ class PlaybackConfigurationAdMarkerPassthrough(dict):
                  enabled: Optional[_builtins.bool] = None):
         """
         For HLS, when set to true, MediaTailor passes through EXT-X-CUE-IN, EXT-X-CUE-OUT, and EXT-X-SPLICEPOINT-SCTE35 ad markers from the origin manifest to the MediaTailor personalized manifest. No logic is applied to these ad markers. For example, if EXT-X-CUE-OUT has a value of 60, but no ads are filled for that ad break, MediaTailor will not set the value to 0.
+
         :param _builtins.bool enabled: Enables ad marker passthrough for your configuration.
         """
         if enabled is not None:
@@ -631,6 +640,7 @@ class PlaybackConfigurationAvailSuppression(dict):
                  value: Optional[_builtins.str] = None):
         """
         The configuration for avail suppression, also known as ad suppression. For more information about ad suppression, see Ad Suppression (https://docs.aws.amazon.com/mediatailor/latest/ug/ad-behavior.html).
+
         :param 'PlaybackConfigurationAvailSuppressionFillPolicy' fill_policy: Defines the policy to apply to the avail suppression mode. BEHIND_LIVE_EDGE will always use the full avail suppression policy. AFTER_LIVE_EDGE mode can be used to invoke partial ad break fills when a session starts mid-break. Valid values are FULL_AVAIL_ONLY and PARTIAL_AVAIL
         :param 'PlaybackConfigurationAvailSuppressionMode' mode: Sets the ad suppression mode. By default, ad suppression is off and all ad breaks are filled with ads or slate. When Mode is set to BEHIND_LIVE_EDGE, ad suppression is active and MediaTailor won't fill ad breaks on or behind the ad suppression Value time in the manifest lookback window. When Mode is set to AFTER_LIVE_EDGE, ad suppression is active and MediaTailor won't fill ad breaks that are within the live edge plus the avail suppression value.
         :param _builtins.str value: A live edge offset time in HH:MM:SS. MediaTailor won't fill ad breaks on or behind this time in the manifest lookback window. If Value is set to 00:00:00, it is in sync with the live edge, and MediaTailor won't fill any ad breaks on or behind the live edge. If you set a Value time, MediaTailor won't fill any ad breaks on or behind this time in the manifest lookback window. For example, if you set 00:45:00, then MediaTailor will fill ad breaks that occur within 45 minutes behind the live edge, but won't fill ad breaks on or behind 45 minutes behind the live edge.
@@ -696,6 +706,7 @@ class PlaybackConfigurationBumper(dict):
                  start_url: Optional[_builtins.str] = None):
         """
         The configuration for bumpers. Bumpers are short audio or video clips that play at the start or before the end of an ad break. To learn more about bumpers, see Bumpers (https://docs.aws.amazon.com/mediatailor/latest/ug/bumpers.html).
+
         :param _builtins.str end_url: The URL for the end bumper asset.
         :param _builtins.str start_url: The URL for the start bumper asset.
         """
@@ -750,6 +761,7 @@ class PlaybackConfigurationCdnConfiguration(dict):
                  content_segment_url_prefix: Optional[_builtins.str] = None):
         """
         The configuration for using a content delivery network (CDN), like Amazon CloudFront, for content and ad segment management.
+
         :param _builtins.str ad_segment_url_prefix: A non-default content delivery network (CDN) to serve ad segments. By default, AWS Elemental MediaTailor uses Amazon CloudFront with default cache settings as its CDN for ad segments. To set up an alternate CDN, create a rule in your CDN for the origin ads.mediatailor.&lt;region>.amazonaws.com. Then specify the rule's name in this AdSegmentUrlPrefix. When AWS Elemental MediaTailor serves a manifest, it reports your CDN as the source for ad segments.
         :param _builtins.str content_segment_url_prefix: A content delivery network (CDN) to cache content segments, so that content requests don't always have to go to the origin server. First, create a rule in your CDN for the content segment origin server. Then specify the rule's name in this ContentSegmentUrlPrefix. When AWS Elemental MediaTailor serves a manifest, it reports your CDN as the source for content segments.
         """
@@ -807,6 +819,7 @@ class PlaybackConfigurationDashConfiguration(dict):
                  origin_manifest_type: Optional['PlaybackConfigurationDashConfigurationOriginManifestType'] = None):
         """
         The configuration for DASH PUT operations.
+
         :param _builtins.str manifest_endpoint_prefix: The URL generated by MediaTailor to initiate a DASH playback session. The session uses server-side reporting.
         :param _builtins.str mpd_location: The setting that controls whether MediaTailor includes the Location tag in DASH manifests. MediaTailor populates the Location tag with the URL for manifest update requests, to be used by players that don't support sticky redirects. Disable this if you have CDN routing rules set up for accessing MediaTailor manifests, and you are either using client-side reporting or your players support sticky HTTP redirects. Valid values are DISABLED and EMT_DEFAULT. The EMT_DEFAULT setting enables the inclusion of the tag and is the default value.
         :param 'PlaybackConfigurationDashConfigurationOriginManifestType' origin_manifest_type: The setting that controls whether MediaTailor handles manifests from the origin server as multi-period manifests or single-period manifests. If your origin server produces single-period manifests, set this to SINGLE_PERIOD. The default setting is MULTI_PERIOD. For multi-period manifests, omit this setting or set it to MULTI_PERIOD.
@@ -910,6 +923,7 @@ class PlaybackConfigurationHttpRequest(dict):
                  http_method: Optional['PlaybackConfigurationHttpRequestHttpMethod'] = None):
         """
         The configuration for the request to the Ad Decision Server URL.
+
         :param _builtins.str body: The body of the request to the Ad Decision Server URL. The maximum length is 100,000 characters.
         :param 'PlaybackConfigurationHttpRequestCompressRequest' compress_request: The compression type of the request sent to the Ad Decision Server URL. Only the POST HTTP Method permits compression other than NONE.
         :param 'PlaybackConfigurationHttpRequestHttpMethod' http_method: Supported HTTP Methods for the request to the Ad Decision Server URL.
@@ -982,6 +996,7 @@ class PlaybackConfigurationLivePreRollConfiguration(dict):
                  max_duration_seconds: Optional[_builtins.int] = None):
         """
         The configuration for pre-roll ad insertion.
+
         :param _builtins.str ad_decision_server_url: The URL for the ad decision server (ADS) for pre-roll ads. This includes the specification of static parameters and placeholders for dynamic parameters. AWS Elemental MediaTailor substitutes player-specific and session-specific parameters as needed when calling the ADS. Alternately, for testing, you can provide a static VAST URL. The maximum length is 25,000 characters.
         :param _builtins.int max_duration_seconds: The maximum allowed duration for the pre-roll ad avail. AWS Elemental MediaTailor won't play pre-roll ads to exceed this duration, regardless of the total duration of ads that the ADS returns.
         """
@@ -1110,6 +1125,7 @@ class PlaybackConfigurationManifestProcessingRules(dict):
                  ad_marker_passthrough: Optional['outputs.PlaybackConfigurationAdMarkerPassthrough'] = None):
         """
         The configuration for manifest processing rules. Manifest processing rules enable customization of the personalized manifests created by MediaTailor.
+
         :param 'PlaybackConfigurationAdMarkerPassthrough' ad_marker_passthrough: For HLS, when set to true, MediaTailor passes through EXT-X-CUE-IN, EXT-X-CUE-OUT, and EXT-X-SPLICEPOINT-SCTE35 ad markers from the origin manifest to the MediaTailor personalized manifest. No logic is applied to these ad markers. For example, if EXT-X-CUE-OUT has a value of 60, but no ads are filled for that ad break, MediaTailor will not set the value to 0.
         """
         if ad_marker_passthrough is not None:
@@ -1189,6 +1205,7 @@ class SourceLocationAccessConfiguration(dict):
                  secrets_manager_access_token_configuration: Optional['outputs.SourceLocationSecretsManagerAccessTokenConfiguration'] = None):
         """
         <p>Access configuration parameters.</p>
+
         :param 'SourceLocationAccessType' access_type: The type of authentication used to access content from `HttpConfiguration::BaseUrl` on your source location. Accepted value: `S3_SIGV4` .
                
                `S3_SIGV4` - AWS Signature Version 4 authentication for Amazon S3 hosted virtual-style access. If your source location base URL is an Amazon S3 bucket, MediaTailor can use AWS Signature Version 4 (SigV4) authentication to access the bucket where your source content is stored. Your MediaTailor source location baseURL must follow the S3 virtual hosted-style request URL format. For example, https://bucket-name.s3.Region.amazonaws.com/key-name.
@@ -1260,6 +1277,7 @@ class SourceLocationDefaultSegmentDeliveryConfiguration(dict):
                  base_url: Optional[_builtins.str] = None):
         """
         <p>The optional configuration for a server that serves segments. Use this if you want the segment delivery server to be different from the source location server. For example, you can configure your source location server to be an origination server, such as MediaPackage, and the segment delivery server to be a content delivery network (CDN), such as CloudFront. If you don't specify a segment delivery server, then the source location server is used.</p>
+
         :param _builtins.str base_url: <p>The hostname of the server that will be used to serve segments. This string must include the protocol, such as <b>https://</b>.</p>
         """
         if base_url is not None:
@@ -1300,6 +1318,7 @@ class SourceLocationHttpConfiguration(dict):
                  base_url: _builtins.str):
         """
         <p>The HTTP configuration for the source location.</p>
+
         :param _builtins.str base_url: <p>The base URL for the source location host server. This string must include the protocol, such as <b>https://</b>.</p>
         """
         pulumi.set(__self__, "base_url", base_url)
@@ -1345,6 +1364,7 @@ class SourceLocationSecretsManagerAccessTokenConfiguration(dict):
                  secret_string_key: Optional[_builtins.str] = None):
         """
         <p>AWS Secrets Manager access token configuration parameters. For information about Secrets Manager access token authentication, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/channel-assembly-access-configuration-access-token.html">Working with AWS Secrets Manager access token authentication</a>.</p>
+
         :param _builtins.str header_name: <p>The name of the HTTP header used to supply the access token in requests to the source location.</p>
         :param _builtins.str secret_arn: <p>The Amazon Resource Name (ARN) of the AWS Secrets Manager secret that contains the access token.</p>
         :param _builtins.str secret_string_key: <p>The AWS Secrets Manager <a href="https://docs.aws.amazon.com/secretsmanager/latest/apireference/API_CreateSecret.html#SecretsManager-CreateSecret-request-SecretString.html">SecretString</a> key associated with the access token. MediaTailor uses the key to look up SecretString key and value pair containing the access token.</p>
@@ -1408,6 +1428,7 @@ class SourceLocationSegmentDeliveryConfiguration(dict):
                  name: Optional[_builtins.str] = None):
         """
         <p>The segment delivery configuration settings.</p>
+
         :param _builtins.str base_url: <p>The base URL of the host or path of the segment delivery server that you're using to serve segments. This is typically a content delivery network (CDN). The URL can be absolute or relative. To use an absolute URL include the protocol, such as <code>https://example.com/some/path</code>. To use a relative URL specify the relative path, such as <code>/some/path*</code>.</p>
         :param _builtins.str name: <p>A unique identifier used to distinguish between multiple segment delivery configurations in a source location.</p>
         """
@@ -1461,6 +1482,7 @@ class VodSourceHttpPackageConfiguration(dict):
                  type: 'VodSourceType'):
         """
         <p>The HTTP package configuration properties for the requested VOD source.</p>
+
         :param _builtins.str path: <p>The relative path to the URL for this VOD source. This is combined with <code>SourceLocation::HttpConfiguration::BaseUrl</code> to form a valid URL.</p>
         :param _builtins.str source_group: <p>The name of the source group. This has to match one of the <code>Channel::Outputs::SourceGroup</code>.</p>
         :param 'VodSourceType' type: The streaming protocol for this package configuration. Supported values are `HLS` and `DASH` .

@@ -34,6 +34,7 @@ class ServiceLevelObjectiveArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a ServiceLevelObjective resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['ServiceLevelObjectiveBurnRateConfigurationArgs']]] burn_rate_configurations: Each object in this array defines the length of the look-back window used to calculate one burn rate metric for this SLO. The burn rate measures how fast the service is consuming the error budget, relative to the attainment goal of the SLO.
         :param pulumi.Input[_builtins.str] description: An optional description for this SLO. Default is 'No description'
         :param pulumi.Input[Sequence[pulumi.Input['ServiceLevelObjectiveExclusionWindowArgs']]] exclusion_windows: The time window to be excluded from the SLO performance metrics.
@@ -179,6 +180,7 @@ class ServiceLevelObjective(pulumi.CustomResource):
         """
         Resource Type definition for AWS::ApplicationSignals::ServiceLevelObjective
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ServiceLevelObjectiveBurnRateConfigurationArgs', 'ServiceLevelObjectiveBurnRateConfigurationArgsDict']]]] burn_rate_configurations: Each object in this array defines the length of the look-back window used to calculate one burn rate metric for this SLO. The burn rate measures how fast the service is consuming the error budget, relative to the attainment goal of the SLO.
@@ -200,6 +202,7 @@ class ServiceLevelObjective(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::ApplicationSignals::ServiceLevelObjective
+
 
         :param str resource_name: The name of the resource.
         :param ServiceLevelObjectiveArgs args: The arguments to use to populate this resource's properties.
