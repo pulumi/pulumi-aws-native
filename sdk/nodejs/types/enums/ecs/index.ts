@@ -28,9 +28,18 @@ export const CapacityProviderAutoScalingGroupProviderManagedTerminationProtectio
  */
 export type CapacityProviderAutoScalingGroupProviderManagedTerminationProtection = (typeof CapacityProviderAutoScalingGroupProviderManagedTerminationProtection)[keyof typeof CapacityProviderAutoScalingGroupProviderManagedTerminationProtection];
 
+export const CapacityProviderCapacityReservationRequestReservationPreference = {
+    ReservationsOnly: "RESERVATIONS_ONLY",
+    ReservationsFirst: "RESERVATIONS_FIRST",
+    ReservationsExcluded: "RESERVATIONS_EXCLUDED",
+} as const;
+
+export type CapacityProviderCapacityReservationRequestReservationPreference = (typeof CapacityProviderCapacityReservationRequestReservationPreference)[keyof typeof CapacityProviderCapacityReservationRequestReservationPreference];
+
 export const CapacityProviderInstanceLaunchTemplateCapacityOptionType = {
     OnDemand: "ON_DEMAND",
     Spot: "SPOT",
+    Reserved: "RESERVED",
 } as const;
 
 /**

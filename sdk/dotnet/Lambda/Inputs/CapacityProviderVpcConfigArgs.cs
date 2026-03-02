@@ -11,7 +11,7 @@ namespace Pulumi.AwsNative.Lambda.Inputs
 {
 
     /// <summary>
-    /// VPC configuration for the capacity provider.
+    /// VPC configuration that specifies the network settings for compute instances managed by the capacity provider.
     /// </summary>
     public sealed class CapacityProviderVpcConfigArgs : global::Pulumi.ResourceArgs
     {
@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.Lambda.Inputs
         private InputList<string>? _securityGroupIds;
 
         /// <summary>
-        /// A list of security group IDs to associate with EC2 instances.
+        /// A list of security group IDs that control network access for compute instances managed by the capacity provider.
         /// </summary>
         public InputList<string> SecurityGroupIds
         {
@@ -31,7 +31,7 @@ namespace Pulumi.AwsNative.Lambda.Inputs
         private InputList<string>? _subnetIds;
 
         /// <summary>
-        /// A list of subnet IDs where the capacity provider can launch EC2 instances.
+        /// A list of subnet IDs where the capacity provider launches compute instances.
         /// </summary>
         public InputList<string> SubnetIds
         {

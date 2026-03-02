@@ -25,6 +25,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Association{}
 	case "aws-native:ssm:Document":
 		r = &Document{}
+	case "aws-native:ssm:MaintenanceWindow":
+		r = &MaintenanceWindow{}
 	case "aws-native:ssm:MaintenanceWindowTarget":
 		r = &MaintenanceWindowTarget{}
 	case "aws-native:ssm:MaintenanceWindowTask":

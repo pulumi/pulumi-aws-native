@@ -45,6 +45,8 @@ type LookupVpnConnectionResult struct {
 	// The ID of the virtual private gateway at the AWS side of the VPN connection.
 	//  You must specify either ``TransitGatewayId`` or ``VpnGatewayId``, but not both.
 	VpnGatewayId *string `pulumi:"vpnGatewayId"`
+	// The tunnel options for the VPN connection.
+	VpnTunnelOptionsSpecifications []VpnConnectionVpnTunnelOptionsSpecification `pulumi:"vpnTunnelOptionsSpecifications"`
 }
 
 func LookupVpnConnectionOutput(ctx *pulumi.Context, args LookupVpnConnectionOutputArgs, opts ...pulumi.InvokeOption) LookupVpnConnectionResultOutput {
@@ -106,6 +108,13 @@ func (o LookupVpnConnectionResultOutput) VpnConnectionId() pulumi.StringPtrOutpu
 //	You must specify either ``TransitGatewayId`` or ``VpnGatewayId``, but not both.
 func (o LookupVpnConnectionResultOutput) VpnGatewayId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupVpnConnectionResult) *string { return v.VpnGatewayId }).(pulumi.StringPtrOutput)
+}
+
+// The tunnel options for the VPN connection.
+func (o LookupVpnConnectionResultOutput) VpnTunnelOptionsSpecifications() VpnConnectionVpnTunnelOptionsSpecificationArrayOutput {
+	return o.ApplyT(func(v LookupVpnConnectionResult) []VpnConnectionVpnTunnelOptionsSpecification {
+		return v.VpnTunnelOptionsSpecifications
+	}).(VpnConnectionVpnTunnelOptionsSpecificationArrayOutput)
 }
 
 func init() {

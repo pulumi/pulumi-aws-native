@@ -146,13 +146,17 @@ AWS::Bedrock::KnowledgeBase
 AWS::Bedrock::Prompt
 AWS::Bedrock::PromptVersion
 AWS::BedrockAgentCore::BrowserCustom
+AWS::BedrockAgentCore::BrowserProfile
 AWS::BedrockAgentCore::CodeInterpreterCustom
+AWS::BedrockAgentCore::Evaluator
 AWS::BedrockAgentCore::Gateway
 AWS::BedrockAgentCore::GatewayTarget
 AWS::BedrockAgentCore::Memory
+AWS::BedrockAgentCore::OnlineEvaluationConfig
 AWS::BedrockAgentCore::Runtime
 AWS::BedrockAgentCore::RuntimeEndpoint
 AWS::BedrockAgentCore::WorkloadIdentity
+AWS::BedrockMantle::Project
 AWS::Billing::BillingView
 AWS::Budgets::BudgetsAction
 AWS::CE::AnomalyMonitor
@@ -256,6 +260,7 @@ AWS::Cognito::UserPoolUser
 AWS::Cognito::UserPoolUserToGroupAttachment
 AWS::Comprehend::DocumentClassifier
 AWS::Comprehend::Flywheel
+AWS::ComputeOptimizer::AutomationRule
 AWS::Config::AggregationAuthorization
 AWS::Config::ConfigRule
 AWS::Config::ConfigurationAggregator
@@ -266,6 +271,8 @@ AWS::Connect::AgentStatus
 AWS::Connect::ApprovedOrigin
 AWS::Connect::ContactFlow
 AWS::Connect::ContactFlowModule
+AWS::Connect::ContactFlowModuleAlias
+AWS::Connect::ContactFlowModuleVersion
 AWS::Connect::ContactFlowVersion
 AWS::Connect::DataTable
 AWS::Connect::DataTableAttribute
@@ -374,6 +381,13 @@ AWS::DeviceFarm::NetworkProfile
 AWS::DeviceFarm::Project
 AWS::DeviceFarm::TestGridProject
 AWS::DeviceFarm::VPCEConfiguration
+AWS::DirectConnect::Connection
+AWS::DirectConnect::DirectConnectGateway
+AWS::DirectConnect::DirectConnectGatewayAssociation
+AWS::DirectConnect::Lag
+AWS::DirectConnect::PrivateVirtualInterface
+AWS::DirectConnect::PublicVirtualInterface
+AWS::DirectConnect::TransitVirtualInterface
 AWS::DirectoryService::SimpleAD
 AWS::DocDB::GlobalCluster
 AWS::DocDBElastic::Cluster
@@ -1126,6 +1140,7 @@ AWS::SQS::Queue
 AWS::SQS::QueueInlinePolicy
 AWS::SSM::Association
 AWS::SSM::Document
+AWS::SSM::MaintenanceWindow
 AWS::SSM::MaintenanceWindowTarget
 AWS::SSM::MaintenanceWindowTask
 AWS::SSM::Parameter
@@ -1203,7 +1218,9 @@ AWS::SecurityLake::SubscriberNotification
 AWS::ServiceCatalog::CloudFormationProduct
 AWS::ServiceCatalog::CloudFormationProvisionedProduct
 AWS::ServiceCatalog::LaunchNotificationConstraint
+AWS::ServiceCatalog::LaunchRoleConstraint
 AWS::ServiceCatalog::LaunchTemplateConstraint
+AWS::ServiceCatalog::Portfolio
 AWS::ServiceCatalog::PortfolioPrincipalAssociation
 AWS::ServiceCatalog::PortfolioProductAssociation
 AWS::ServiceCatalog::PortfolioShare
@@ -1406,6 +1423,7 @@ MongoDB::Atlas::FlexCluster
 MongoDB::Atlas::GlobalClusterConfig
 MongoDB::Atlas::LDAPConfiguration
 MongoDB::Atlas::LDAPVerify
+MongoDB::Atlas::LogIntegration
 MongoDB::Atlas::MaintenanceWindow
 MongoDB::Atlas::NetworkContainer
 MongoDB::Atlas::NetworkPeering
@@ -1426,6 +1444,7 @@ MongoDB::Atlas::SearchDeployment
 MongoDB::Atlas::SearchIndex
 MongoDB::Atlas::ServerlessInstance
 MongoDB::Atlas::ServerlessPrivateEndpoint
+MongoDB::Atlas::ServiceAccount
 MongoDB::Atlas::StreamConnection
 MongoDB::Atlas::StreamInstance
 MongoDB::Atlas::StreamPrivatelinkEndpoint

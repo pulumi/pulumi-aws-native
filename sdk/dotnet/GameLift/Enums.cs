@@ -198,6 +198,37 @@ namespace Pulumi.AwsNative.GameLift
     }
 
     /// <summary>
+    /// The player gateway status for the location.
+    /// </summary>
+    [EnumType]
+    public readonly struct ContainerFleetLocationConfigurationPlayerGatewayStatus : IEquatable<ContainerFleetLocationConfigurationPlayerGatewayStatus>
+    {
+        private readonly string _value;
+
+        private ContainerFleetLocationConfigurationPlayerGatewayStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ContainerFleetLocationConfigurationPlayerGatewayStatus Disabled { get; } = new ContainerFleetLocationConfigurationPlayerGatewayStatus("DISABLED");
+        public static ContainerFleetLocationConfigurationPlayerGatewayStatus Enabled { get; } = new ContainerFleetLocationConfigurationPlayerGatewayStatus("ENABLED");
+
+        public static bool operator ==(ContainerFleetLocationConfigurationPlayerGatewayStatus left, ContainerFleetLocationConfigurationPlayerGatewayStatus right) => left.Equals(right);
+        public static bool operator !=(ContainerFleetLocationConfigurationPlayerGatewayStatus left, ContainerFleetLocationConfigurationPlayerGatewayStatus right) => !left.Equals(right);
+
+        public static explicit operator string(ContainerFleetLocationConfigurationPlayerGatewayStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ContainerFleetLocationConfigurationPlayerGatewayStatus other && Equals(other);
+        public bool Equals(ContainerFleetLocationConfigurationPlayerGatewayStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Configures the service that provides logs.
     /// </summary>
     [EnumType]
@@ -284,6 +315,38 @@ namespace Pulumi.AwsNative.GameLift
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is ContainerFleetNewGameSessionProtectionPolicy other && Equals(other);
         public bool Equals(ContainerFleetNewGameSessionProtectionPolicy other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The player gateway mode for the container fleet.
+    /// </summary>
+    [EnumType]
+    public readonly struct ContainerFleetPlayerGatewayMode : IEquatable<ContainerFleetPlayerGatewayMode>
+    {
+        private readonly string _value;
+
+        private ContainerFleetPlayerGatewayMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ContainerFleetPlayerGatewayMode Disabled { get; } = new ContainerFleetPlayerGatewayMode("DISABLED");
+        public static ContainerFleetPlayerGatewayMode Enabled { get; } = new ContainerFleetPlayerGatewayMode("ENABLED");
+        public static ContainerFleetPlayerGatewayMode Required { get; } = new ContainerFleetPlayerGatewayMode("REQUIRED");
+
+        public static bool operator ==(ContainerFleetPlayerGatewayMode left, ContainerFleetPlayerGatewayMode right) => left.Equals(right);
+        public static bool operator !=(ContainerFleetPlayerGatewayMode left, ContainerFleetPlayerGatewayMode right) => !left.Equals(right);
+
+        public static explicit operator string(ContainerFleetPlayerGatewayMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ContainerFleetPlayerGatewayMode other && Equals(other);
+        public bool Equals(ContainerFleetPlayerGatewayMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -840,6 +903,37 @@ namespace Pulumi.AwsNative.GameLift
     }
 
     /// <summary>
+    /// The player gateway status for the location.
+    /// </summary>
+    [EnumType]
+    public readonly struct FleetLocationConfigurationPlayerGatewayStatus : IEquatable<FleetLocationConfigurationPlayerGatewayStatus>
+    {
+        private readonly string _value;
+
+        private FleetLocationConfigurationPlayerGatewayStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static FleetLocationConfigurationPlayerGatewayStatus Disabled { get; } = new FleetLocationConfigurationPlayerGatewayStatus("DISABLED");
+        public static FleetLocationConfigurationPlayerGatewayStatus Enabled { get; } = new FleetLocationConfigurationPlayerGatewayStatus("ENABLED");
+
+        public static bool operator ==(FleetLocationConfigurationPlayerGatewayStatus left, FleetLocationConfigurationPlayerGatewayStatus right) => left.Equals(right);
+        public static bool operator !=(FleetLocationConfigurationPlayerGatewayStatus left, FleetLocationConfigurationPlayerGatewayStatus right) => !left.Equals(right);
+
+        public static explicit operator string(FleetLocationConfigurationPlayerGatewayStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is FleetLocationConfigurationPlayerGatewayStatus other && Equals(other);
+        public bool Equals(FleetLocationConfigurationPlayerGatewayStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The strategy Amazon GameLift Servers will use to automatically scale your capacity to and from zero in response to game session activity. Game session activity refers to any active running sessions or game session requests. When set to SCALE_TO_AND_FROM_ZERO, MinSize must not be specified and will be managed automatically. When set to MANUAL, MinSize is required.
     /// </summary>
     [EnumType]
@@ -894,6 +988,69 @@ namespace Pulumi.AwsNative.GameLift
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is FleetNewGameSessionProtectionPolicy other && Equals(other);
         public bool Equals(FleetNewGameSessionProtectionPolicy other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The IP protocol supported by the game server.
+    /// </summary>
+    [EnumType]
+    public readonly struct FleetPlayerGatewayConfigurationGameServerIpProtocolSupported : IEquatable<FleetPlayerGatewayConfigurationGameServerIpProtocolSupported>
+    {
+        private readonly string _value;
+
+        private FleetPlayerGatewayConfigurationGameServerIpProtocolSupported(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static FleetPlayerGatewayConfigurationGameServerIpProtocolSupported IPv4 { get; } = new FleetPlayerGatewayConfigurationGameServerIpProtocolSupported("IPv4");
+        public static FleetPlayerGatewayConfigurationGameServerIpProtocolSupported DualStack { get; } = new FleetPlayerGatewayConfigurationGameServerIpProtocolSupported("DUAL_STACK");
+
+        public static bool operator ==(FleetPlayerGatewayConfigurationGameServerIpProtocolSupported left, FleetPlayerGatewayConfigurationGameServerIpProtocolSupported right) => left.Equals(right);
+        public static bool operator !=(FleetPlayerGatewayConfigurationGameServerIpProtocolSupported left, FleetPlayerGatewayConfigurationGameServerIpProtocolSupported right) => !left.Equals(right);
+
+        public static explicit operator string(FleetPlayerGatewayConfigurationGameServerIpProtocolSupported value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is FleetPlayerGatewayConfigurationGameServerIpProtocolSupported other && Equals(other);
+        public bool Equals(FleetPlayerGatewayConfigurationGameServerIpProtocolSupported other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The player gateway mode for the fleet.
+    /// </summary>
+    [EnumType]
+    public readonly struct FleetPlayerGatewayMode : IEquatable<FleetPlayerGatewayMode>
+    {
+        private readonly string _value;
+
+        private FleetPlayerGatewayMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static FleetPlayerGatewayMode Disabled { get; } = new FleetPlayerGatewayMode("DISABLED");
+        public static FleetPlayerGatewayMode Enabled { get; } = new FleetPlayerGatewayMode("ENABLED");
+        public static FleetPlayerGatewayMode Required { get; } = new FleetPlayerGatewayMode("REQUIRED");
+
+        public static bool operator ==(FleetPlayerGatewayMode left, FleetPlayerGatewayMode right) => left.Equals(right);
+        public static bool operator !=(FleetPlayerGatewayMode left, FleetPlayerGatewayMode right) => !left.Equals(right);
+
+        public static explicit operator string(FleetPlayerGatewayMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is FleetPlayerGatewayMode other && Equals(other);
+        public bool Equals(FleetPlayerGatewayMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

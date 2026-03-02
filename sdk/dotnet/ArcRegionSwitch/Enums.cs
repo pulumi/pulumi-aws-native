@@ -111,6 +111,8 @@ namespace Pulumi.AwsNative.ArcRegionSwitch
         public static PlanExecutionBlockType EksResourceScaling { get; } = new PlanExecutionBlockType("EKSResourceScaling");
         public static PlanExecutionBlockType Route53HealthCheck { get; } = new PlanExecutionBlockType("Route53HealthCheck");
         public static PlanExecutionBlockType DocumentDb { get; } = new PlanExecutionBlockType("DocumentDb");
+        public static PlanExecutionBlockType RdsPromoteReadReplica { get; } = new PlanExecutionBlockType("RdsPromoteReadReplica");
+        public static PlanExecutionBlockType RdsCreateCrossRegionReplica { get; } = new PlanExecutionBlockType("RdsCreateCrossRegionReplica");
 
         public static bool operator ==(PlanExecutionBlockType left, PlanExecutionBlockType right) => left.Equals(right);
         public static bool operator !=(PlanExecutionBlockType left, PlanExecutionBlockType right) => !left.Equals(right);
@@ -194,6 +196,8 @@ namespace Pulumi.AwsNative.ArcRegionSwitch
 
         public static PlanRegionToRunIn ActivatingRegion { get; } = new PlanRegionToRunIn("activatingRegion");
         public static PlanRegionToRunIn DeactivatingRegion { get; } = new PlanRegionToRunIn("deactivatingRegion");
+        public static PlanRegionToRunIn ActiveRegion { get; } = new PlanRegionToRunIn("activeRegion");
+        public static PlanRegionToRunIn InactiveRegion { get; } = new PlanRegionToRunIn("inactiveRegion");
 
         public static bool operator ==(PlanRegionToRunIn left, PlanRegionToRunIn right) => left.Equals(right);
         public static bool operator !=(PlanRegionToRunIn left, PlanRegionToRunIn right) => !left.Equals(right);
@@ -250,6 +254,7 @@ namespace Pulumi.AwsNative.ArcRegionSwitch
 
         public static PlanWorkflowTargetAction Activate { get; } = new PlanWorkflowTargetAction("activate");
         public static PlanWorkflowTargetAction Deactivate { get; } = new PlanWorkflowTargetAction("deactivate");
+        public static PlanWorkflowTargetAction PostRecovery { get; } = new PlanWorkflowTargetAction("postRecovery");
 
         public static bool operator ==(PlanWorkflowTargetAction left, PlanWorkflowTargetAction right) => left.Equals(right);
         public static bool operator !=(PlanWorkflowTargetAction left, PlanWorkflowTargetAction right) => !left.Equals(right);

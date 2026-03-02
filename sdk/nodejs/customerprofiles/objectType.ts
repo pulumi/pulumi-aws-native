@@ -90,6 +90,10 @@ export class ObjectType extends pulumi.CustomResource {
      */
     declare public readonly sourceLastUpdatedTimestampFormat: pulumi.Output<string | undefined>;
     /**
+     * Defines the priority order of object types. Lower value indicates higher priority.
+     */
+    declare public readonly sourcePriority: pulumi.Output<number | undefined>;
+    /**
      * The tags (keys and values) associated with the integration.
      */
     declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
@@ -125,6 +129,7 @@ export class ObjectType extends pulumi.CustomResource {
             resourceInputs["maxProfileObjectCount"] = args?.maxProfileObjectCount;
             resourceInputs["objectTypeName"] = args?.objectTypeName;
             resourceInputs["sourceLastUpdatedTimestampFormat"] = args?.sourceLastUpdatedTimestampFormat;
+            resourceInputs["sourcePriority"] = args?.sourcePriority;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["templateId"] = args?.templateId;
             resourceInputs["createdAt"] = undefined /*out*/;
@@ -144,6 +149,7 @@ export class ObjectType extends pulumi.CustomResource {
             resourceInputs["maxProfileObjectCount"] = undefined /*out*/;
             resourceInputs["objectTypeName"] = undefined /*out*/;
             resourceInputs["sourceLastUpdatedTimestampFormat"] = undefined /*out*/;
+            resourceInputs["sourcePriority"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["templateId"] = undefined /*out*/;
         }
@@ -198,6 +204,10 @@ export interface ObjectTypeArgs {
      * The format of your sourceLastUpdatedTimestamp that was previously set up.
      */
     sourceLastUpdatedTimestampFormat?: pulumi.Input<string>;
+    /**
+     * Defines the priority order of object types. Lower value indicates higher priority.
+     */
+    sourcePriority?: pulumi.Input<number>;
     /**
      * The tags (keys and values) associated with the integration.
      */

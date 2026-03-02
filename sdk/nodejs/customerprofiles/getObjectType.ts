@@ -75,6 +75,10 @@ export interface GetObjectTypeResult {
      */
     readonly sourceLastUpdatedTimestampFormat?: string;
     /**
+     * Defines the priority order of object types. Lower value indicates higher priority.
+     */
+    readonly sourcePriority?: number;
+    /**
      * The tags (keys and values) associated with the integration.
      */
     readonly tags?: outputs.Tag[];

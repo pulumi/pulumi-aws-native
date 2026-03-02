@@ -29,6 +29,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ContactFlow{}
 	case "aws-native:connect:ContactFlowModule":
 		r = &ContactFlowModule{}
+	case "aws-native:connect:ContactFlowModuleAlias":
+		r = &ContactFlowModuleAlias{}
+	case "aws-native:connect:ContactFlowModuleVersion":
+		r = &ContactFlowModuleVersion{}
 	case "aws-native:connect:ContactFlowVersion":
 		r = &ContactFlowVersion{}
 	case "aws-native:connect:DataTable":

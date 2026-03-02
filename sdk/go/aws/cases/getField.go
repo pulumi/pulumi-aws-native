@@ -29,6 +29,8 @@ type LookupFieldArgs struct {
 }
 
 type LookupFieldResult struct {
+	// Field-type specific attributes that control rendering and validation behavior
+	Attributes *FieldAttributes `pulumi:"attributes"`
 	// The time at which the field was created.
 	CreatedTime *string `pulumi:"createdTime"`
 	// A description explaining the purpose and usage of this field in cases. Helps agents and administrators understand what information should be captured in this field.
@@ -77,6 +79,11 @@ func (o LookupFieldResultOutput) ToLookupFieldResultOutput() LookupFieldResultOu
 
 func (o LookupFieldResultOutput) ToLookupFieldResultOutputWithContext(ctx context.Context) LookupFieldResultOutput {
 	return o
+}
+
+// Field-type specific attributes that control rendering and validation behavior
+func (o LookupFieldResultOutput) Attributes() FieldAttributesPtrOutput {
+	return o.ApplyT(func(v LookupFieldResult) *FieldAttributes { return v.Attributes }).(FieldAttributesPtrOutput)
 }
 
 // The time at which the field was created.

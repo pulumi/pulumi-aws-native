@@ -49,6 +49,8 @@ class PlanExecutionBlockType(_builtins.str, Enum):
     EKS_RESOURCE_SCALING = "EKSResourceScaling"
     ROUTE53_HEALTH_CHECK = "Route53HealthCheck"
     DOCUMENT_DB = "DocumentDb"
+    RDS_PROMOTE_READ_REPLICA = "RdsPromoteReadReplica"
+    RDS_CREATE_CROSS_REGION_REPLICA = "RdsCreateCrossRegionReplica"
 
 
 @pulumi.type_token("aws-native:arcregionswitch:PlanGlobalAuroraUngracefulBehavior")
@@ -66,6 +68,8 @@ class PlanRecoveryApproach(_builtins.str, Enum):
 class PlanRegionToRunIn(_builtins.str, Enum):
     ACTIVATING_REGION = "activatingRegion"
     DEACTIVATING_REGION = "deactivatingRegion"
+    ACTIVE_REGION = "activeRegion"
+    INACTIVE_REGION = "inactiveRegion"
 
 
 @pulumi.type_token("aws-native:arcregionswitch:PlanRoutingControlStateChange")
@@ -78,3 +82,4 @@ class PlanRoutingControlStateChange(_builtins.str, Enum):
 class PlanWorkflowTargetAction(_builtins.str, Enum):
     ACTIVATE = "activate"
     DEACTIVATE = "deactivate"
+    POST_RECOVERY = "postRecovery"

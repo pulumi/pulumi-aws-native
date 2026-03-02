@@ -24,7 +24,8 @@ class ConnectorArgs:
     def __init__(__self__, *,
                  certificate_authority_arn: pulumi.Input[_builtins.str],
                  mobile_device_management: Optional[pulumi.Input['ConnectorMobileDeviceManagementArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 vpc_endpoint_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Connector resource.
         :param pulumi.Input[_builtins.str] certificate_authority_arn: The Amazon Resource Name (ARN) of the certificate authority associated with the connector.
@@ -35,6 +36,8 @@ class ConnectorArgs:
             pulumi.set(__self__, "mobile_device_management", mobile_device_management)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if vpc_endpoint_id is not None:
+            pulumi.set(__self__, "vpc_endpoint_id", vpc_endpoint_id)
 
     @_builtins.property
     @pulumi.getter(name="certificateAuthorityArn")
@@ -69,6 +72,15 @@ class ConnectorArgs:
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
+    @_builtins.property
+    @pulumi.getter(name="vpcEndpointId")
+    def vpc_endpoint_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "vpc_endpoint_id")
+
+    @vpc_endpoint_id.setter
+    def vpc_endpoint_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "vpc_endpoint_id", value)
+
 
 @pulumi.type_token("aws-native:pcaconnectorscep:Connector")
 class Connector(pulumi.CustomResource):
@@ -79,6 +91,7 @@ class Connector(pulumi.CustomResource):
                  certificate_authority_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  mobile_device_management: Optional[pulumi.Input[Union['ConnectorMobileDeviceManagementArgs', 'ConnectorMobileDeviceManagementArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 vpc_endpoint_id: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
         Represents a Connector that allows certificate issuance through Simple Certificate Enrollment Protocol (SCEP)
@@ -115,6 +128,7 @@ class Connector(pulumi.CustomResource):
                  certificate_authority_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  mobile_device_management: Optional[pulumi.Input[Union['ConnectorMobileDeviceManagementArgs', 'ConnectorMobileDeviceManagementArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 vpc_endpoint_id: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -129,11 +143,12 @@ class Connector(pulumi.CustomResource):
             __props__.__dict__["certificate_authority_arn"] = certificate_authority_arn
             __props__.__dict__["mobile_device_management"] = mobile_device_management
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["vpc_endpoint_id"] = vpc_endpoint_id
             __props__.__dict__["connector_arn"] = None
             __props__.__dict__["endpoint"] = None
             __props__.__dict__["open_id_configuration"] = None
             __props__.__dict__["type"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["certificateAuthorityArn", "mobileDeviceManagement"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["certificateAuthorityArn", "mobileDeviceManagement", "vpcEndpointId"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Connector, __self__).__init__(
             'aws-native:pcaconnectorscep:Connector',
@@ -164,6 +179,7 @@ class Connector(pulumi.CustomResource):
         __props__.__dict__["open_id_configuration"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
+        __props__.__dict__["vpc_endpoint_id"] = None
         return Connector(resource_name, opts=opts, __props__=__props__)
 
     @_builtins.property
@@ -215,4 +231,9 @@ class Connector(pulumi.CustomResource):
         The connector type.
         """
         return pulumi.get(self, "type")
+
+    @_builtins.property
+    @pulumi.getter(name="vpcEndpointId")
+    def vpc_endpoint_id(self) -> pulumi.Output[Optional[_builtins.str]]:
+        return pulumi.get(self, "vpc_endpoint_id")
 

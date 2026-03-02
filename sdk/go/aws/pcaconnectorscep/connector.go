@@ -27,7 +27,8 @@ type Connector struct {
 	OpenIdConfiguration    ConnectorOpenIdConfigurationOutput       `pulumi:"openIdConfiguration"`
 	Tags                   pulumi.StringMapOutput                   `pulumi:"tags"`
 	// The connector type.
-	Type ConnectorTypeOutput `pulumi:"type"`
+	Type          ConnectorTypeOutput    `pulumi:"type"`
+	VpcEndpointId pulumi.StringPtrOutput `pulumi:"vpcEndpointId"`
 }
 
 // NewConnector registers a new resource with the given unique name, arguments, and options.
@@ -43,6 +44,7 @@ func NewConnector(ctx *pulumi.Context,
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"certificateAuthorityArn",
 		"mobileDeviceManagement",
+		"vpcEndpointId",
 	})
 	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
@@ -83,6 +85,7 @@ type connectorArgs struct {
 	// Contains settings relevant to the mobile device management system that you chose for the connector. If you didn't configure `MobileDeviceManagement` , then the connector is for general-purpose use and this object is empty.
 	MobileDeviceManagement *ConnectorMobileDeviceManagement `pulumi:"mobileDeviceManagement"`
 	Tags                   map[string]string                `pulumi:"tags"`
+	VpcEndpointId          *string                          `pulumi:"vpcEndpointId"`
 }
 
 // The set of arguments for constructing a Connector resource.
@@ -92,6 +95,7 @@ type ConnectorArgs struct {
 	// Contains settings relevant to the mobile device management system that you chose for the connector. If you didn't configure `MobileDeviceManagement` , then the connector is for general-purpose use and this object is empty.
 	MobileDeviceManagement ConnectorMobileDeviceManagementPtrInput
 	Tags                   pulumi.StringMapInput
+	VpcEndpointId          pulumi.StringPtrInput
 }
 
 func (ConnectorArgs) ElementType() reflect.Type {
@@ -162,6 +166,10 @@ func (o ConnectorOutput) Tags() pulumi.StringMapOutput {
 // The connector type.
 func (o ConnectorOutput) Type() ConnectorTypeOutput {
 	return o.ApplyT(func(v *Connector) ConnectorTypeOutput { return v.Type }).(ConnectorTypeOutput)
+}
+
+func (o ConnectorOutput) VpcEndpointId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Connector) pulumi.StringPtrOutput { return v.VpcEndpointId }).(pulumi.StringPtrOutput)
 }
 
 func init() {

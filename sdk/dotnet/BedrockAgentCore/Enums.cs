@@ -74,6 +74,39 @@ namespace Pulumi.AwsNative.BedrockAgentCore
     }
 
     /// <summary>
+    /// Status of browser profile
+    /// </summary>
+    [EnumType]
+    public readonly struct BrowserProfileStatus : IEquatable<BrowserProfileStatus>
+    {
+        private readonly string _value;
+
+        private BrowserProfileStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static BrowserProfileStatus Ready { get; } = new BrowserProfileStatus("READY");
+        public static BrowserProfileStatus Deleting { get; } = new BrowserProfileStatus("DELETING");
+        public static BrowserProfileStatus Deleted { get; } = new BrowserProfileStatus("DELETED");
+        public static BrowserProfileStatus Saving { get; } = new BrowserProfileStatus("SAVING");
+
+        public static bool operator ==(BrowserProfileStatus left, BrowserProfileStatus right) => left.Equals(right);
+        public static bool operator !=(BrowserProfileStatus left, BrowserProfileStatus right) => !left.Equals(right);
+
+        public static explicit operator string(BrowserProfileStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is BrowserProfileStatus other && Equals(other);
+        public bool Equals(BrowserProfileStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Network modes supported by code interpreter
     /// </summary>
     [EnumType]
@@ -133,6 +166,67 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is CodeInterpreterCustomCodeInterpreterStatus other && Equals(other);
         public bool Equals(CodeInterpreterCustomCodeInterpreterStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct EvaluatorLevel : IEquatable<EvaluatorLevel>
+    {
+        private readonly string _value;
+
+        private EvaluatorLevel(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static EvaluatorLevel ToolCall { get; } = new EvaluatorLevel("TOOL_CALL");
+        public static EvaluatorLevel Trace { get; } = new EvaluatorLevel("TRACE");
+        public static EvaluatorLevel Session { get; } = new EvaluatorLevel("SESSION");
+
+        public static bool operator ==(EvaluatorLevel left, EvaluatorLevel right) => left.Equals(right);
+        public static bool operator !=(EvaluatorLevel left, EvaluatorLevel right) => !left.Equals(right);
+
+        public static explicit operator string(EvaluatorLevel value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is EvaluatorLevel other && Equals(other);
+        public bool Equals(EvaluatorLevel other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct EvaluatorStatus : IEquatable<EvaluatorStatus>
+    {
+        private readonly string _value;
+
+        private EvaluatorStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static EvaluatorStatus Active { get; } = new EvaluatorStatus("ACTIVE");
+        public static EvaluatorStatus Creating { get; } = new EvaluatorStatus("CREATING");
+        public static EvaluatorStatus CreateFailed { get; } = new EvaluatorStatus("CREATE_FAILED");
+        public static EvaluatorStatus Updating { get; } = new EvaluatorStatus("UPDATING");
+        public static EvaluatorStatus UpdateFailed { get; } = new EvaluatorStatus("UPDATE_FAILED");
+        public static EvaluatorStatus Deleting { get; } = new EvaluatorStatus("DELETING");
+
+        public static bool operator ==(EvaluatorStatus left, EvaluatorStatus right) => left.Equals(right);
+        public static bool operator !=(EvaluatorStatus left, EvaluatorStatus right) => !left.Equals(right);
+
+        public static explicit operator string(EvaluatorStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is EvaluatorStatus other && Equals(other);
+        public bool Equals(EvaluatorStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -918,6 +1012,103 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is MemoryUserPreferenceMemoryStrategyType other && Equals(other);
         public bool Equals(MemoryUserPreferenceMemoryStrategyType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct OnlineEvaluationConfigExecutionStatus : IEquatable<OnlineEvaluationConfigExecutionStatus>
+    {
+        private readonly string _value;
+
+        private OnlineEvaluationConfigExecutionStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static OnlineEvaluationConfigExecutionStatus Enabled { get; } = new OnlineEvaluationConfigExecutionStatus("ENABLED");
+        public static OnlineEvaluationConfigExecutionStatus Disabled { get; } = new OnlineEvaluationConfigExecutionStatus("DISABLED");
+
+        public static bool operator ==(OnlineEvaluationConfigExecutionStatus left, OnlineEvaluationConfigExecutionStatus right) => left.Equals(right);
+        public static bool operator !=(OnlineEvaluationConfigExecutionStatus left, OnlineEvaluationConfigExecutionStatus right) => !left.Equals(right);
+
+        public static explicit operator string(OnlineEvaluationConfigExecutionStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is OnlineEvaluationConfigExecutionStatus other && Equals(other);
+        public bool Equals(OnlineEvaluationConfigExecutionStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The comparison operator to use for filtering.
+    /// </summary>
+    [EnumType]
+    public readonly struct OnlineEvaluationConfigFilterOperator : IEquatable<OnlineEvaluationConfigFilterOperator>
+    {
+        private readonly string _value;
+
+        private OnlineEvaluationConfigFilterOperator(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static OnlineEvaluationConfigFilterOperator EqualsValue { get; } = new OnlineEvaluationConfigFilterOperator("Equals");
+        public static OnlineEvaluationConfigFilterOperator NotEquals { get; } = new OnlineEvaluationConfigFilterOperator("NotEquals");
+        public static OnlineEvaluationConfigFilterOperator GreaterThan { get; } = new OnlineEvaluationConfigFilterOperator("GreaterThan");
+        public static OnlineEvaluationConfigFilterOperator LessThan { get; } = new OnlineEvaluationConfigFilterOperator("LessThan");
+        public static OnlineEvaluationConfigFilterOperator GreaterThanOrEqual { get; } = new OnlineEvaluationConfigFilterOperator("GreaterThanOrEqual");
+        public static OnlineEvaluationConfigFilterOperator LessThanOrEqual { get; } = new OnlineEvaluationConfigFilterOperator("LessThanOrEqual");
+        public static OnlineEvaluationConfigFilterOperator Contains { get; } = new OnlineEvaluationConfigFilterOperator("Contains");
+        public static OnlineEvaluationConfigFilterOperator NotContains { get; } = new OnlineEvaluationConfigFilterOperator("NotContains");
+
+        public static bool operator ==(OnlineEvaluationConfigFilterOperator left, OnlineEvaluationConfigFilterOperator right) => left.Equals(right);
+        public static bool operator !=(OnlineEvaluationConfigFilterOperator left, OnlineEvaluationConfigFilterOperator right) => !left.Equals(right);
+
+        public static explicit operator string(OnlineEvaluationConfigFilterOperator value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is OnlineEvaluationConfigFilterOperator other && Equals(other);
+        public bool Equals(OnlineEvaluationConfigFilterOperator other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct OnlineEvaluationConfigStatus : IEquatable<OnlineEvaluationConfigStatus>
+    {
+        private readonly string _value;
+
+        private OnlineEvaluationConfigStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static OnlineEvaluationConfigStatus Active { get; } = new OnlineEvaluationConfigStatus("ACTIVE");
+        public static OnlineEvaluationConfigStatus Creating { get; } = new OnlineEvaluationConfigStatus("CREATING");
+        public static OnlineEvaluationConfigStatus CreateFailed { get; } = new OnlineEvaluationConfigStatus("CREATE_FAILED");
+        public static OnlineEvaluationConfigStatus Updating { get; } = new OnlineEvaluationConfigStatus("UPDATING");
+        public static OnlineEvaluationConfigStatus UpdateFailed { get; } = new OnlineEvaluationConfigStatus("UPDATE_FAILED");
+        public static OnlineEvaluationConfigStatus Deleting { get; } = new OnlineEvaluationConfigStatus("DELETING");
+
+        public static bool operator ==(OnlineEvaluationConfigStatus left, OnlineEvaluationConfigStatus right) => left.Equals(right);
+        public static bool operator !=(OnlineEvaluationConfigStatus left, OnlineEvaluationConfigStatus right) => !left.Equals(right);
+
+        public static explicit operator string(OnlineEvaluationConfigStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is OnlineEvaluationConfigStatus other && Equals(other);
+        public bool Equals(OnlineEvaluationConfigStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

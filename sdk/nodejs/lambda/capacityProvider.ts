@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource Type definition for AWS::Lambda::CapacityProvider
+ * Creates a capacity provider that manages compute resources for Lambda functions
  */
 export class CapacityProvider extends pulumi.CustomResource {
     /**
@@ -37,28 +37,22 @@ export class CapacityProvider extends pulumi.CustomResource {
         return obj['__pulumiType'] === CapacityProvider.__pulumiType;
     }
 
-    /**
-     * The Amazon Resource Name (ARN) of the capacity provider. This is a read-only property that is automatically generated when the capacity provider is created.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * The name of the capacity provider. The name must be unique within your AWS account and region. If you don't specify a name, CloudFormation generates one.
-     */
     declare public readonly capacityProviderName: pulumi.Output<string | undefined>;
     /**
      * The scaling configuration for the capacity provider.
      */
     declare public readonly capacityProviderScalingConfig: pulumi.Output<outputs.lambda.CapacityProviderScalingConfig | undefined>;
     /**
-     * Specifications for the types of EC2 instances that the capacity provider can use.
+     * The instance requirements for compute resources managed by the capacity provider.
      */
     declare public readonly instanceRequirements: pulumi.Output<outputs.lambda.CapacityProviderInstanceRequirements | undefined>;
     /**
-     * The ARN of the AWS Key Management Service (KMS) key used by the capacity provider.
+     * The ARN of the KMS key used to encrypt the capacity provider's resources.
      */
     declare public readonly kmsKeyArn: pulumi.Output<string | undefined>;
     /**
-     * IAM permissions configuration for the capacity provider.
+     * The permissions configuration for the capacity provider.
      */
     declare public readonly permissionsConfig: pulumi.Output<outputs.lambda.CapacityProviderPermissionsConfig>;
     /**
@@ -66,11 +60,11 @@ export class CapacityProvider extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly state: pulumi.Output<enums.lambda.CapacityProviderState>;
     /**
-     * A list of tags to apply to the capacity provider.
+     * A key-value pair that provides metadata for the capacity provider.
      */
     declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
-     * VPC configuration for the capacity provider.
+     * The VPC configuration for the capacity provider.
      */
     declare public readonly vpcConfig: pulumi.Output<outputs.lambda.CapacityProviderVpcConfig>;
 
@@ -122,32 +116,29 @@ export class CapacityProvider extends pulumi.CustomResource {
  * The set of arguments for constructing a CapacityProvider resource.
  */
 export interface CapacityProviderArgs {
-    /**
-     * The name of the capacity provider. The name must be unique within your AWS account and region. If you don't specify a name, CloudFormation generates one.
-     */
     capacityProviderName?: pulumi.Input<string>;
     /**
      * The scaling configuration for the capacity provider.
      */
     capacityProviderScalingConfig?: pulumi.Input<inputs.lambda.CapacityProviderScalingConfigArgs>;
     /**
-     * Specifications for the types of EC2 instances that the capacity provider can use.
+     * The instance requirements for compute resources managed by the capacity provider.
      */
     instanceRequirements?: pulumi.Input<inputs.lambda.CapacityProviderInstanceRequirementsArgs>;
     /**
-     * The ARN of the AWS Key Management Service (KMS) key used by the capacity provider.
+     * The ARN of the KMS key used to encrypt the capacity provider's resources.
      */
     kmsKeyArn?: pulumi.Input<string>;
     /**
-     * IAM permissions configuration for the capacity provider.
+     * The permissions configuration for the capacity provider.
      */
     permissionsConfig: pulumi.Input<inputs.lambda.CapacityProviderPermissionsConfigArgs>;
     /**
-     * A list of tags to apply to the capacity provider.
+     * A key-value pair that provides metadata for the capacity provider.
      */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
-     * VPC configuration for the capacity provider.
+     * The VPC configuration for the capacity provider.
      */
     vpcConfig: pulumi.Input<inputs.lambda.CapacityProviderVpcConfigArgs>;
 }

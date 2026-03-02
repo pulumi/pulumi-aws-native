@@ -13,7 +13,9 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 from .. import outputs as _root_outputs
+from ._enums import *
 
 __all__ = [
     'GetVpnConnectionResult',
@@ -24,7 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetVpnConnectionResult:
-    def __init__(__self__, customer_gateway_id=None, tags=None, transit_gateway_id=None, vpn_connection_id=None, vpn_gateway_id=None):
+    def __init__(__self__, customer_gateway_id=None, tags=None, transit_gateway_id=None, vpn_connection_id=None, vpn_gateway_id=None, vpn_tunnel_options_specifications=None):
         if customer_gateway_id and not isinstance(customer_gateway_id, str):
             raise TypeError("Expected argument 'customer_gateway_id' to be a str")
         pulumi.set(__self__, "customer_gateway_id", customer_gateway_id)
@@ -40,6 +42,9 @@ class GetVpnConnectionResult:
         if vpn_gateway_id and not isinstance(vpn_gateway_id, str):
             raise TypeError("Expected argument 'vpn_gateway_id' to be a str")
         pulumi.set(__self__, "vpn_gateway_id", vpn_gateway_id)
+        if vpn_tunnel_options_specifications and not isinstance(vpn_tunnel_options_specifications, list):
+            raise TypeError("Expected argument 'vpn_tunnel_options_specifications' to be a list")
+        pulumi.set(__self__, "vpn_tunnel_options_specifications", vpn_tunnel_options_specifications)
 
     @_builtins.property
     @pulumi.getter(name="customerGatewayId")
@@ -83,6 +88,14 @@ class GetVpnConnectionResult:
         """
         return pulumi.get(self, "vpn_gateway_id")
 
+    @_builtins.property
+    @pulumi.getter(name="vpnTunnelOptionsSpecifications")
+    def vpn_tunnel_options_specifications(self) -> Optional[Sequence['outputs.VpnConnectionVpnTunnelOptionsSpecification']]:
+        """
+        The tunnel options for the VPN connection.
+        """
+        return pulumi.get(self, "vpn_tunnel_options_specifications")
+
 
 class AwaitableGetVpnConnectionResult(GetVpnConnectionResult):
     # pylint: disable=using-constant-test
@@ -94,7 +107,8 @@ class AwaitableGetVpnConnectionResult(GetVpnConnectionResult):
             tags=self.tags,
             transit_gateway_id=self.transit_gateway_id,
             vpn_connection_id=self.vpn_connection_id,
-            vpn_gateway_id=self.vpn_gateway_id)
+            vpn_gateway_id=self.vpn_gateway_id,
+            vpn_tunnel_options_specifications=self.vpn_tunnel_options_specifications)
 
 
 def get_vpn_connection(vpn_connection_id: Optional[_builtins.str] = None,
@@ -118,7 +132,8 @@ def get_vpn_connection(vpn_connection_id: Optional[_builtins.str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         transit_gateway_id=pulumi.get(__ret__, 'transit_gateway_id'),
         vpn_connection_id=pulumi.get(__ret__, 'vpn_connection_id'),
-        vpn_gateway_id=pulumi.get(__ret__, 'vpn_gateway_id'))
+        vpn_gateway_id=pulumi.get(__ret__, 'vpn_gateway_id'),
+        vpn_tunnel_options_specifications=pulumi.get(__ret__, 'vpn_tunnel_options_specifications'))
 def get_vpn_connection_output(vpn_connection_id: Optional[pulumi.Input[_builtins.str]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVpnConnectionResult]:
     """
@@ -139,4 +154,5 @@ def get_vpn_connection_output(vpn_connection_id: Optional[pulumi.Input[_builtins
         tags=pulumi.get(__response__, 'tags'),
         transit_gateway_id=pulumi.get(__response__, 'transit_gateway_id'),
         vpn_connection_id=pulumi.get(__response__, 'vpn_connection_id'),
-        vpn_gateway_id=pulumi.get(__response__, 'vpn_gateway_id')))
+        vpn_gateway_id=pulumi.get(__response__, 'vpn_gateway_id'),
+        vpn_tunnel_options_specifications=pulumi.get(__response__, 'vpn_tunnel_options_specifications')))

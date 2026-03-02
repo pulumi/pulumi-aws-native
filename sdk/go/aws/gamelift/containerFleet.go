@@ -63,6 +63,8 @@ type ContainerFleet struct {
 	PerInstanceContainerGroupDefinitionArn pulumi.StringOutput `pulumi:"perInstanceContainerGroupDefinitionArn"`
 	// The name of the container group definition that will be created per instance. This field is optional if you specify GameServerContainerGroupDefinitionName.
 	PerInstanceContainerGroupDefinitionName pulumi.StringPtrOutput `pulumi:"perInstanceContainerGroupDefinitionName"`
+	// The player gateway mode for the container fleet.
+	PlayerGatewayMode ContainerFleetPlayerGatewayModePtrOutput `pulumi:"playerGatewayMode"`
 	// A list of rules that control how a fleet is scaled.
 	ScalingPolicies ContainerFleetScalingPolicyArrayOutput `pulumi:"scalingPolicies"`
 	// The current status of the container fleet.
@@ -84,6 +86,7 @@ func NewContainerFleet(ctx *pulumi.Context,
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"billingType",
 		"instanceType",
+		"playerGatewayMode",
 	})
 	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
@@ -152,6 +155,8 @@ type containerFleetArgs struct {
 	NewGameSessionProtectionPolicy *ContainerFleetNewGameSessionProtectionPolicy `pulumi:"newGameSessionProtectionPolicy"`
 	// The name of the container group definition that will be created per instance. This field is optional if you specify GameServerContainerGroupDefinitionName.
 	PerInstanceContainerGroupDefinitionName *string `pulumi:"perInstanceContainerGroupDefinitionName"`
+	// The player gateway mode for the container fleet.
+	PlayerGatewayMode *ContainerFleetPlayerGatewayMode `pulumi:"playerGatewayMode"`
 	// A list of rules that control how a fleet is scaled.
 	ScalingPolicies []ContainerFleetScalingPolicy `pulumi:"scalingPolicies"`
 	// An array of key-value pairs to apply to this resource.
@@ -193,6 +198,8 @@ type ContainerFleetArgs struct {
 	NewGameSessionProtectionPolicy ContainerFleetNewGameSessionProtectionPolicyPtrInput
 	// The name of the container group definition that will be created per instance. This field is optional if you specify GameServerContainerGroupDefinitionName.
 	PerInstanceContainerGroupDefinitionName pulumi.StringPtrInput
+	// The player gateway mode for the container fleet.
+	PlayerGatewayMode ContainerFleetPlayerGatewayModePtrInput
 	// A list of rules that control how a fleet is scaled.
 	ScalingPolicies ContainerFleetScalingPolicyArrayInput
 	// An array of key-value pairs to apply to this resource.
@@ -354,6 +361,11 @@ func (o ContainerFleetOutput) PerInstanceContainerGroupDefinitionArn() pulumi.St
 // The name of the container group definition that will be created per instance. This field is optional if you specify GameServerContainerGroupDefinitionName.
 func (o ContainerFleetOutput) PerInstanceContainerGroupDefinitionName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContainerFleet) pulumi.StringPtrOutput { return v.PerInstanceContainerGroupDefinitionName }).(pulumi.StringPtrOutput)
+}
+
+// The player gateway mode for the container fleet.
+func (o ContainerFleetOutput) PlayerGatewayMode() ContainerFleetPlayerGatewayModePtrOutput {
+	return o.ApplyT(func(v *ContainerFleet) ContainerFleetPlayerGatewayModePtrOutput { return v.PlayerGatewayMode }).(ContainerFleetPlayerGatewayModePtrOutput)
 }
 
 // A list of rules that control how a fleet is scaled.

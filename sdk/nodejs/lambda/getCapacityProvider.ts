@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource Type definition for AWS::Lambda::CapacityProvider
+ * Creates a capacity provider that manages compute resources for Lambda functions
  */
 export function getCapacityProvider(args: GetCapacityProviderArgs, opts?: pulumi.InvokeOptions): Promise<GetCapacityProviderResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -18,16 +18,10 @@ export function getCapacityProvider(args: GetCapacityProviderArgs, opts?: pulumi
 }
 
 export interface GetCapacityProviderArgs {
-    /**
-     * The name of the capacity provider. The name must be unique within your AWS account and region. If you don't specify a name, CloudFormation generates one.
-     */
     capacityProviderName: string;
 }
 
 export interface GetCapacityProviderResult {
-    /**
-     * The Amazon Resource Name (ARN) of the capacity provider. This is a read-only property that is automatically generated when the capacity provider is created.
-     */
     readonly arn?: string;
     /**
      * The scaling configuration for the capacity provider.
@@ -38,12 +32,12 @@ export interface GetCapacityProviderResult {
      */
     readonly state?: enums.lambda.CapacityProviderState;
     /**
-     * A list of tags to apply to the capacity provider.
+     * A key-value pair that provides metadata for the capacity provider.
      */
     readonly tags?: outputs.Tag[];
 }
 /**
- * Resource Type definition for AWS::Lambda::CapacityProvider
+ * Creates a capacity provider that manages compute resources for Lambda functions
  */
 export function getCapacityProviderOutput(args: GetCapacityProviderOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCapacityProviderResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -53,8 +47,5 @@ export function getCapacityProviderOutput(args: GetCapacityProviderOutputArgs, o
 }
 
 export interface GetCapacityProviderOutputArgs {
-    /**
-     * The name of the capacity provider. The name must be unique within your AWS account and region. If you don't specify a name, CloudFormation generates one.
-     */
     capacityProviderName: pulumi.Input<string>;
 }

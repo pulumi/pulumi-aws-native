@@ -154,6 +154,18 @@ namespace Pulumi.AwsNative.GameLift
         public Output<string?> PeerVpcId { get; private set; } = null!;
 
         /// <summary>
+        /// Configuration for player gateway.
+        /// </summary>
+        [Output("playerGatewayConfiguration")]
+        public Output<Outputs.FleetPlayerGatewayConfiguration?> PlayerGatewayConfiguration { get; private set; } = null!;
+
+        /// <summary>
+        /// The player gateway mode for the fleet.
+        /// </summary>
+        [Output("playerGatewayMode")]
+        public Output<Pulumi.AwsNative.GameLift.FleetPlayerGatewayMode?> PlayerGatewayMode { get; private set; } = null!;
+
+        /// <summary>
         /// A policy that limits the number of game sessions an individual player can create over a span of time for this fleet.
         /// </summary>
         [Output("resourceCreationLimitPolicy")]
@@ -234,6 +246,8 @@ namespace Pulumi.AwsNative.GameLift
                     "logPaths[*]",
                     "peerVpcAwsAccountId",
                     "peerVpcId",
+                    "playerGatewayConfiguration",
+                    "playerGatewayMode",
                     "scriptId",
                     "serverLaunchParameters",
                     "serverLaunchPath",
@@ -409,6 +423,18 @@ namespace Pulumi.AwsNative.GameLift
         /// </summary>
         [Input("peerVpcId")]
         public Input<string>? PeerVpcId { get; set; }
+
+        /// <summary>
+        /// Configuration for player gateway.
+        /// </summary>
+        [Input("playerGatewayConfiguration")]
+        public Input<Inputs.FleetPlayerGatewayConfigurationArgs>? PlayerGatewayConfiguration { get; set; }
+
+        /// <summary>
+        /// The player gateway mode for the fleet.
+        /// </summary>
+        [Input("playerGatewayMode")]
+        public Input<Pulumi.AwsNative.GameLift.FleetPlayerGatewayMode>? PlayerGatewayMode { get; set; }
 
         /// <summary>
         /// A policy that limits the number of game sessions an individual player can create over a span of time for this fleet.

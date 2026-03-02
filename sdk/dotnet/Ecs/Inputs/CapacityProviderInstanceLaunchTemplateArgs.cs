@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.Ecs.Inputs
         [Input("capacityOptionType")]
         public Input<Pulumi.AwsNative.Ecs.CapacityProviderInstanceLaunchTemplateCapacityOptionType>? CapacityOptionType { get; set; }
 
+        [Input("capacityReservations")]
+        public Input<Inputs.CapacityProviderCapacityReservationRequestArgs>? CapacityReservations { get; set; }
+
         /// <summary>
         /// The Amazon Resource Name (ARN) of the instance profile that Amazon ECS applies to Amazon ECS Managed Instances. This instance profile must include the necessary permissions for your tasks to access AWS services and resources.
         /// 

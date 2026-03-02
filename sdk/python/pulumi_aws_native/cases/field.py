@@ -13,9 +13,11 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 from .. import _inputs as _root_inputs
 from .. import outputs as _root_outputs
 from ._enums import *
+from ._inputs import *
 
 __all__ = ['FieldArgs', 'Field']
 
@@ -23,6 +25,7 @@ __all__ = ['FieldArgs', 'Field']
 class FieldArgs:
     def __init__(__self__, *,
                  type: pulumi.Input['FieldType'],
+                 attributes: Optional[pulumi.Input['FieldAttributesArgs']] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  domain_id: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -30,12 +33,15 @@ class FieldArgs:
         """
         The set of arguments for constructing a Field resource.
         :param pulumi.Input['FieldType'] type: Type of the field.
+        :param pulumi.Input['FieldAttributesArgs'] attributes: Field-type specific attributes that control rendering and validation behavior
         :param pulumi.Input[_builtins.str] description: A description explaining the purpose and usage of this field in cases. Helps agents and administrators understand what information should be captured in this field.
         :param pulumi.Input[_builtins.str] domain_id: The unique identifier of the Cases domain.
         :param pulumi.Input[_builtins.str] name: The display name of the field as it appears to agents in the case interface. Should be descriptive and user-friendly (e.g., 'Customer Priority Level', 'Issue Category').
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
         pulumi.set(__self__, "type", type)
+        if attributes is not None:
+            pulumi.set(__self__, "attributes", attributes)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if domain_id is not None:
@@ -56,6 +62,18 @@ class FieldArgs:
     @type.setter
     def type(self, value: pulumi.Input['FieldType']):
         pulumi.set(self, "type", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def attributes(self) -> Optional[pulumi.Input['FieldAttributesArgs']]:
+        """
+        Field-type specific attributes that control rendering and validation behavior
+        """
+        return pulumi.get(self, "attributes")
+
+    @attributes.setter
+    def attributes(self, value: Optional[pulumi.Input['FieldAttributesArgs']]):
+        pulumi.set(self, "attributes", value)
 
     @_builtins.property
     @pulumi.getter
@@ -112,6 +130,7 @@ class Field(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 attributes: Optional[pulumi.Input[Union['FieldAttributesArgs', 'FieldAttributesArgsDict']]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  domain_id: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -123,6 +142,7 @@ class Field(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Union['FieldAttributesArgs', 'FieldAttributesArgsDict']] attributes: Field-type specific attributes that control rendering and validation behavior
         :param pulumi.Input[_builtins.str] description: A description explaining the purpose and usage of this field in cases. Helps agents and administrators understand what information should be captured in this field.
         :param pulumi.Input[_builtins.str] domain_id: The unique identifier of the Cases domain.
         :param pulumi.Input[_builtins.str] name: The display name of the field as it appears to agents in the case interface. Should be descriptive and user-friendly (e.g., 'Customer Priority Level', 'Issue Category').
@@ -153,6 +173,7 @@ class Field(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 attributes: Optional[pulumi.Input[Union['FieldAttributesArgs', 'FieldAttributesArgsDict']]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  domain_id: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -167,6 +188,7 @@ class Field(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = FieldArgs.__new__(FieldArgs)
 
+            __props__.__dict__["attributes"] = attributes
             __props__.__dict__["description"] = description
             __props__.__dict__["domain_id"] = domain_id
             __props__.__dict__["name"] = name
@@ -203,6 +225,7 @@ class Field(pulumi.CustomResource):
 
         __props__ = FieldArgs.__new__(FieldArgs)
 
+        __props__.__dict__["attributes"] = None
         __props__.__dict__["created_time"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["domain_id"] = None
@@ -214,6 +237,14 @@ class Field(pulumi.CustomResource):
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         return Field(resource_name, opts=opts, __props__=__props__)
+
+    @_builtins.property
+    @pulumi.getter
+    def attributes(self) -> pulumi.Output[Optional['outputs.FieldAttributes']]:
+        """
+        Field-type specific attributes that control rendering and validation behavior
+        """
+        return pulumi.get(self, "attributes")
 
     @_builtins.property
     @pulumi.getter(name="createdTime")

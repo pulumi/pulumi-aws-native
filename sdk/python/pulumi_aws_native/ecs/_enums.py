@@ -9,6 +9,7 @@ from enum import Enum
 __all__ = [
     'CapacityProviderAutoScalingGroupProviderManagedDraining',
     'CapacityProviderAutoScalingGroupProviderManagedTerminationProtection',
+    'CapacityProviderCapacityReservationRequestReservationPreference',
     'CapacityProviderInstanceLaunchTemplateCapacityOptionType',
     'CapacityProviderInstanceRequirementsRequestAcceleratorManufacturersItem',
     'CapacityProviderInstanceRequirementsRequestAcceleratorNamesItem',
@@ -74,6 +75,13 @@ class CapacityProviderAutoScalingGroupProviderManagedTerminationProtection(_buil
     ENABLED = "ENABLED"
 
 
+@pulumi.type_token("aws-native:ecs:CapacityProviderCapacityReservationRequestReservationPreference")
+class CapacityProviderCapacityReservationRequestReservationPreference(_builtins.str, Enum):
+    RESERVATIONS_ONLY = "RESERVATIONS_ONLY"
+    RESERVATIONS_FIRST = "RESERVATIONS_FIRST"
+    RESERVATIONS_EXCLUDED = "RESERVATIONS_EXCLUDED"
+
+
 @pulumi.type_token("aws-native:ecs:CapacityProviderInstanceLaunchTemplateCapacityOptionType")
 class CapacityProviderInstanceLaunchTemplateCapacityOptionType(_builtins.str, Enum):
     """
@@ -90,6 +98,7 @@ class CapacityProviderInstanceLaunchTemplateCapacityOptionType(_builtins.str, En
     """
     ON_DEMAND = "ON_DEMAND"
     SPOT = "SPOT"
+    RESERVED = "RESERVED"
 
 
 @pulumi.type_token("aws-native:ecs:CapacityProviderInstanceRequirementsRequestAcceleratorManufacturersItem")

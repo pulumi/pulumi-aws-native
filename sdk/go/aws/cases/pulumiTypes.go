@@ -908,11 +908,287 @@ type DomainTag struct {
 	Value string `pulumi:"value"`
 }
 
+// Union of field attributes
+type FieldAttributes struct {
+	Text *FieldTextAttributes `pulumi:"text"`
+}
+
+// FieldAttributesInput is an input type that accepts FieldAttributesArgs and FieldAttributesOutput values.
+// You can construct a concrete instance of `FieldAttributesInput` via:
+//
+//	FieldAttributesArgs{...}
+type FieldAttributesInput interface {
+	pulumi.Input
+
+	ToFieldAttributesOutput() FieldAttributesOutput
+	ToFieldAttributesOutputWithContext(context.Context) FieldAttributesOutput
+}
+
+// Union of field attributes
+type FieldAttributesArgs struct {
+	Text FieldTextAttributesPtrInput `pulumi:"text"`
+}
+
+func (FieldAttributesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FieldAttributes)(nil)).Elem()
+}
+
+func (i FieldAttributesArgs) ToFieldAttributesOutput() FieldAttributesOutput {
+	return i.ToFieldAttributesOutputWithContext(context.Background())
+}
+
+func (i FieldAttributesArgs) ToFieldAttributesOutputWithContext(ctx context.Context) FieldAttributesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FieldAttributesOutput)
+}
+
+func (i FieldAttributesArgs) ToFieldAttributesPtrOutput() FieldAttributesPtrOutput {
+	return i.ToFieldAttributesPtrOutputWithContext(context.Background())
+}
+
+func (i FieldAttributesArgs) ToFieldAttributesPtrOutputWithContext(ctx context.Context) FieldAttributesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FieldAttributesOutput).ToFieldAttributesPtrOutputWithContext(ctx)
+}
+
+// FieldAttributesPtrInput is an input type that accepts FieldAttributesArgs, FieldAttributesPtr and FieldAttributesPtrOutput values.
+// You can construct a concrete instance of `FieldAttributesPtrInput` via:
+//
+//	        FieldAttributesArgs{...}
+//
+//	or:
+//
+//	        nil
+type FieldAttributesPtrInput interface {
+	pulumi.Input
+
+	ToFieldAttributesPtrOutput() FieldAttributesPtrOutput
+	ToFieldAttributesPtrOutputWithContext(context.Context) FieldAttributesPtrOutput
+}
+
+type fieldAttributesPtrType FieldAttributesArgs
+
+func FieldAttributesPtr(v *FieldAttributesArgs) FieldAttributesPtrInput {
+	return (*fieldAttributesPtrType)(v)
+}
+
+func (*fieldAttributesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FieldAttributes)(nil)).Elem()
+}
+
+func (i *fieldAttributesPtrType) ToFieldAttributesPtrOutput() FieldAttributesPtrOutput {
+	return i.ToFieldAttributesPtrOutputWithContext(context.Background())
+}
+
+func (i *fieldAttributesPtrType) ToFieldAttributesPtrOutputWithContext(ctx context.Context) FieldAttributesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FieldAttributesPtrOutput)
+}
+
+// Union of field attributes
+type FieldAttributesOutput struct{ *pulumi.OutputState }
+
+func (FieldAttributesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FieldAttributes)(nil)).Elem()
+}
+
+func (o FieldAttributesOutput) ToFieldAttributesOutput() FieldAttributesOutput {
+	return o
+}
+
+func (o FieldAttributesOutput) ToFieldAttributesOutputWithContext(ctx context.Context) FieldAttributesOutput {
+	return o
+}
+
+func (o FieldAttributesOutput) ToFieldAttributesPtrOutput() FieldAttributesPtrOutput {
+	return o.ToFieldAttributesPtrOutputWithContext(context.Background())
+}
+
+func (o FieldAttributesOutput) ToFieldAttributesPtrOutputWithContext(ctx context.Context) FieldAttributesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FieldAttributes) *FieldAttributes {
+		return &v
+	}).(FieldAttributesPtrOutput)
+}
+
+func (o FieldAttributesOutput) Text() FieldTextAttributesPtrOutput {
+	return o.ApplyT(func(v FieldAttributes) *FieldTextAttributes { return v.Text }).(FieldTextAttributesPtrOutput)
+}
+
+type FieldAttributesPtrOutput struct{ *pulumi.OutputState }
+
+func (FieldAttributesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FieldAttributes)(nil)).Elem()
+}
+
+func (o FieldAttributesPtrOutput) ToFieldAttributesPtrOutput() FieldAttributesPtrOutput {
+	return o
+}
+
+func (o FieldAttributesPtrOutput) ToFieldAttributesPtrOutputWithContext(ctx context.Context) FieldAttributesPtrOutput {
+	return o
+}
+
+func (o FieldAttributesPtrOutput) Elem() FieldAttributesOutput {
+	return o.ApplyT(func(v *FieldAttributes) FieldAttributes {
+		if v != nil {
+			return *v
+		}
+		var ret FieldAttributes
+		return ret
+	}).(FieldAttributesOutput)
+}
+
+func (o FieldAttributesPtrOutput) Text() FieldTextAttributesPtrOutput {
+	return o.ApplyT(func(v *FieldAttributes) *FieldTextAttributes {
+		if v == nil {
+			return nil
+		}
+		return v.Text
+	}).(FieldTextAttributesPtrOutput)
+}
+
 type FieldTag struct {
 	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
 	Key string `pulumi:"key"`
 	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
 	Value string `pulumi:"value"`
+}
+
+// Field attributes for Text field type
+type FieldTextAttributes struct {
+	// Attribute that defines rendering component and validation
+	IsMultiline bool `pulumi:"isMultiline"`
+}
+
+// FieldTextAttributesInput is an input type that accepts FieldTextAttributesArgs and FieldTextAttributesOutput values.
+// You can construct a concrete instance of `FieldTextAttributesInput` via:
+//
+//	FieldTextAttributesArgs{...}
+type FieldTextAttributesInput interface {
+	pulumi.Input
+
+	ToFieldTextAttributesOutput() FieldTextAttributesOutput
+	ToFieldTextAttributesOutputWithContext(context.Context) FieldTextAttributesOutput
+}
+
+// Field attributes for Text field type
+type FieldTextAttributesArgs struct {
+	// Attribute that defines rendering component and validation
+	IsMultiline pulumi.BoolInput `pulumi:"isMultiline"`
+}
+
+func (FieldTextAttributesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FieldTextAttributes)(nil)).Elem()
+}
+
+func (i FieldTextAttributesArgs) ToFieldTextAttributesOutput() FieldTextAttributesOutput {
+	return i.ToFieldTextAttributesOutputWithContext(context.Background())
+}
+
+func (i FieldTextAttributesArgs) ToFieldTextAttributesOutputWithContext(ctx context.Context) FieldTextAttributesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FieldTextAttributesOutput)
+}
+
+func (i FieldTextAttributesArgs) ToFieldTextAttributesPtrOutput() FieldTextAttributesPtrOutput {
+	return i.ToFieldTextAttributesPtrOutputWithContext(context.Background())
+}
+
+func (i FieldTextAttributesArgs) ToFieldTextAttributesPtrOutputWithContext(ctx context.Context) FieldTextAttributesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FieldTextAttributesOutput).ToFieldTextAttributesPtrOutputWithContext(ctx)
+}
+
+// FieldTextAttributesPtrInput is an input type that accepts FieldTextAttributesArgs, FieldTextAttributesPtr and FieldTextAttributesPtrOutput values.
+// You can construct a concrete instance of `FieldTextAttributesPtrInput` via:
+//
+//	        FieldTextAttributesArgs{...}
+//
+//	or:
+//
+//	        nil
+type FieldTextAttributesPtrInput interface {
+	pulumi.Input
+
+	ToFieldTextAttributesPtrOutput() FieldTextAttributesPtrOutput
+	ToFieldTextAttributesPtrOutputWithContext(context.Context) FieldTextAttributesPtrOutput
+}
+
+type fieldTextAttributesPtrType FieldTextAttributesArgs
+
+func FieldTextAttributesPtr(v *FieldTextAttributesArgs) FieldTextAttributesPtrInput {
+	return (*fieldTextAttributesPtrType)(v)
+}
+
+func (*fieldTextAttributesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FieldTextAttributes)(nil)).Elem()
+}
+
+func (i *fieldTextAttributesPtrType) ToFieldTextAttributesPtrOutput() FieldTextAttributesPtrOutput {
+	return i.ToFieldTextAttributesPtrOutputWithContext(context.Background())
+}
+
+func (i *fieldTextAttributesPtrType) ToFieldTextAttributesPtrOutputWithContext(ctx context.Context) FieldTextAttributesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FieldTextAttributesPtrOutput)
+}
+
+// Field attributes for Text field type
+type FieldTextAttributesOutput struct{ *pulumi.OutputState }
+
+func (FieldTextAttributesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FieldTextAttributes)(nil)).Elem()
+}
+
+func (o FieldTextAttributesOutput) ToFieldTextAttributesOutput() FieldTextAttributesOutput {
+	return o
+}
+
+func (o FieldTextAttributesOutput) ToFieldTextAttributesOutputWithContext(ctx context.Context) FieldTextAttributesOutput {
+	return o
+}
+
+func (o FieldTextAttributesOutput) ToFieldTextAttributesPtrOutput() FieldTextAttributesPtrOutput {
+	return o.ToFieldTextAttributesPtrOutputWithContext(context.Background())
+}
+
+func (o FieldTextAttributesOutput) ToFieldTextAttributesPtrOutputWithContext(ctx context.Context) FieldTextAttributesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FieldTextAttributes) *FieldTextAttributes {
+		return &v
+	}).(FieldTextAttributesPtrOutput)
+}
+
+// Attribute that defines rendering component and validation
+func (o FieldTextAttributesOutput) IsMultiline() pulumi.BoolOutput {
+	return o.ApplyT(func(v FieldTextAttributes) bool { return v.IsMultiline }).(pulumi.BoolOutput)
+}
+
+type FieldTextAttributesPtrOutput struct{ *pulumi.OutputState }
+
+func (FieldTextAttributesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FieldTextAttributes)(nil)).Elem()
+}
+
+func (o FieldTextAttributesPtrOutput) ToFieldTextAttributesPtrOutput() FieldTextAttributesPtrOutput {
+	return o
+}
+
+func (o FieldTextAttributesPtrOutput) ToFieldTextAttributesPtrOutputWithContext(ctx context.Context) FieldTextAttributesPtrOutput {
+	return o
+}
+
+func (o FieldTextAttributesPtrOutput) Elem() FieldTextAttributesOutput {
+	return o.ApplyT(func(v *FieldTextAttributes) FieldTextAttributes {
+		if v != nil {
+			return *v
+		}
+		var ret FieldTextAttributes
+		return ret
+	}).(FieldTextAttributesOutput)
+}
+
+// Attribute that defines rendering component and validation
+func (o FieldTextAttributesPtrOutput) IsMultiline() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *FieldTextAttributes) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.IsMultiline
+	}).(pulumi.BoolPtrOutput)
 }
 
 // Defines the field layout for the agent's case interface. Configures which fields appear in the top panel (immediately visible) and More Info tab (expandable section) of the case view, allowing customization of the agent experience.
@@ -1888,6 +2164,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CaseRuleOperandTwo2PropertiesInput)(nil)).Elem(), CaseRuleOperandTwo2PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CaseRuleOperandTwo3PropertiesInput)(nil)).Elem(), CaseRuleOperandTwo3PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CaseRuleRequiredCaseRuleInput)(nil)).Elem(), CaseRuleRequiredCaseRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FieldAttributesInput)(nil)).Elem(), FieldAttributesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FieldAttributesPtrInput)(nil)).Elem(), FieldAttributesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FieldTextAttributesInput)(nil)).Elem(), FieldTextAttributesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FieldTextAttributesPtrInput)(nil)).Elem(), FieldTextAttributesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LayoutBasicLayoutInput)(nil)).Elem(), LayoutBasicLayoutArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LayoutContentPropertiesInput)(nil)).Elem(), LayoutContentPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LayoutFieldGroupInput)(nil)).Elem(), LayoutFieldGroupArgs{})
@@ -1920,6 +2200,10 @@ func init() {
 	pulumi.RegisterOutputType(CaseRuleOperandTwo3PropertiesOutput{})
 	pulumi.RegisterOutputType(CaseRuleRequiredCaseRuleOutput{})
 	pulumi.RegisterOutputType(CaseRuleRequiredCaseRulePtrOutput{})
+	pulumi.RegisterOutputType(FieldAttributesOutput{})
+	pulumi.RegisterOutputType(FieldAttributesPtrOutput{})
+	pulumi.RegisterOutputType(FieldTextAttributesOutput{})
+	pulumi.RegisterOutputType(FieldTextAttributesPtrOutput{})
 	pulumi.RegisterOutputType(LayoutBasicLayoutOutput{})
 	pulumi.RegisterOutputType(LayoutBasicLayoutPtrOutput{})
 	pulumi.RegisterOutputType(LayoutContentPropertiesOutput{})

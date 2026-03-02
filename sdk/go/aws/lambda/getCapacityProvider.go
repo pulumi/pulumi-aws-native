@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource Type definition for AWS::Lambda::CapacityProvider
+// Creates a capacity provider that manages compute resources for Lambda functions
 func LookupCapacityProvider(ctx *pulumi.Context, args *LookupCapacityProviderArgs, opts ...pulumi.InvokeOption) (*LookupCapacityProviderResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupCapacityProviderResult
@@ -24,18 +24,16 @@ func LookupCapacityProvider(ctx *pulumi.Context, args *LookupCapacityProviderArg
 }
 
 type LookupCapacityProviderArgs struct {
-	// The name of the capacity provider. The name must be unique within your AWS account and region. If you don't specify a name, CloudFormation generates one.
 	CapacityProviderName string `pulumi:"capacityProviderName"`
 }
 
 type LookupCapacityProviderResult struct {
-	// The Amazon Resource Name (ARN) of the capacity provider. This is a read-only property that is automatically generated when the capacity provider is created.
 	Arn *string `pulumi:"arn"`
 	// The scaling configuration for the capacity provider.
 	CapacityProviderScalingConfig *CapacityProviderScalingConfig `pulumi:"capacityProviderScalingConfig"`
 	// The current state of the capacity provider.
 	State *CapacityProviderStateEnum `pulumi:"state"`
-	// A list of tags to apply to the capacity provider.
+	// A key-value pair that provides metadata for the capacity provider.
 	Tags []aws.Tag `pulumi:"tags"`
 }
 
@@ -49,7 +47,6 @@ func LookupCapacityProviderOutput(ctx *pulumi.Context, args LookupCapacityProvid
 }
 
 type LookupCapacityProviderOutputArgs struct {
-	// The name of the capacity provider. The name must be unique within your AWS account and region. If you don't specify a name, CloudFormation generates one.
 	CapacityProviderName pulumi.StringInput `pulumi:"capacityProviderName"`
 }
 
@@ -71,7 +68,6 @@ func (o LookupCapacityProviderResultOutput) ToLookupCapacityProviderResultOutput
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the capacity provider. This is a read-only property that is automatically generated when the capacity provider is created.
 func (o LookupCapacityProviderResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupCapacityProviderResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
@@ -88,7 +84,7 @@ func (o LookupCapacityProviderResultOutput) State() CapacityProviderStateEnumPtr
 	return o.ApplyT(func(v LookupCapacityProviderResult) *CapacityProviderStateEnum { return v.State }).(CapacityProviderStateEnumPtrOutput)
 }
 
-// A list of tags to apply to the capacity provider.
+// A key-value pair that provides metadata for the capacity provider.
 func (o LookupCapacityProviderResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupCapacityProviderResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }

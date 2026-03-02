@@ -30,6 +30,22 @@ __all__ = [
     'CodeInterpreterCustomCodeInterpreterNetworkConfigurationArgsDict',
     'CodeInterpreterCustomVpcConfigArgs',
     'CodeInterpreterCustomVpcConfigArgsDict',
+    'EvaluatorBedrockEvaluatorModelConfigArgs',
+    'EvaluatorBedrockEvaluatorModelConfigArgsDict',
+    'EvaluatorCategoricalScaleDefinitionArgs',
+    'EvaluatorCategoricalScaleDefinitionArgsDict',
+    'EvaluatorConfigArgs',
+    'EvaluatorConfigArgsDict',
+    'EvaluatorInferenceConfigurationArgs',
+    'EvaluatorInferenceConfigurationArgsDict',
+    'EvaluatorLlmAsAJudgeEvaluatorConfigArgs',
+    'EvaluatorLlmAsAJudgeEvaluatorConfigArgsDict',
+    'EvaluatorModelConfigArgs',
+    'EvaluatorModelConfigArgsDict',
+    'EvaluatorNumericalScaleDefinitionArgs',
+    'EvaluatorNumericalScaleDefinitionArgsDict',
+    'EvaluatorRatingScaleArgs',
+    'EvaluatorRatingScaleArgsDict',
     'GatewayAuthorizerConfigurationPropertiesArgs',
     'GatewayAuthorizerConfigurationPropertiesArgsDict',
     'GatewayAuthorizingClaimMatchValueTypeArgs',
@@ -154,6 +170,22 @@ __all__ = [
     'MemoryUserPreferenceOverrideExtractionConfigurationInputArgsDict',
     'MemoryUserPreferenceOverrideArgs',
     'MemoryUserPreferenceOverrideArgsDict',
+    'OnlineEvaluationConfigCloudWatchLogsInputConfigArgs',
+    'OnlineEvaluationConfigCloudWatchLogsInputConfigArgsDict',
+    'OnlineEvaluationConfigDataSourceConfigArgs',
+    'OnlineEvaluationConfigDataSourceConfigArgsDict',
+    'OnlineEvaluationConfigEvaluatorReferenceArgs',
+    'OnlineEvaluationConfigEvaluatorReferenceArgsDict',
+    'OnlineEvaluationConfigFilterValueArgs',
+    'OnlineEvaluationConfigFilterValueArgsDict',
+    'OnlineEvaluationConfigFilterArgs',
+    'OnlineEvaluationConfigFilterArgsDict',
+    'OnlineEvaluationConfigRuleArgs',
+    'OnlineEvaluationConfigRuleArgsDict',
+    'OnlineEvaluationConfigSamplingConfigArgs',
+    'OnlineEvaluationConfigSamplingConfigArgsDict',
+    'OnlineEvaluationConfigSessionConfigArgs',
+    'OnlineEvaluationConfigSessionConfigArgsDict',
     'RuntimeAgentRuntimeArtifactArgs',
     'RuntimeAgentRuntimeArtifactArgsDict',
     'RuntimeAuthorizerConfigurationArgs',
@@ -476,6 +508,410 @@ class CodeInterpreterCustomVpcConfigArgs:
     @subnets.setter
     def subnets(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
         pulumi.set(self, "subnets", value)
+
+
+class EvaluatorBedrockEvaluatorModelConfigArgsDict(TypedDict):
+    """
+    The configuration for using Amazon Bedrock models in evaluator assessments.
+    """
+    model_id: pulumi.Input[_builtins.str]
+    """
+    The identifier of the Amazon Bedrock model to use for evaluation.
+    """
+    additional_model_request_fields: NotRequired[Any]
+    """
+    Additional model-specific request fields.
+    """
+    inference_config: NotRequired[pulumi.Input['EvaluatorInferenceConfigurationArgsDict']]
+
+@pulumi.input_type
+class EvaluatorBedrockEvaluatorModelConfigArgs:
+    def __init__(__self__, *,
+                 model_id: pulumi.Input[_builtins.str],
+                 additional_model_request_fields: Optional[Any] = None,
+                 inference_config: Optional[pulumi.Input['EvaluatorInferenceConfigurationArgs']] = None):
+        """
+        The configuration for using Amazon Bedrock models in evaluator assessments.
+        :param pulumi.Input[_builtins.str] model_id: The identifier of the Amazon Bedrock model to use for evaluation.
+        :param Any additional_model_request_fields: Additional model-specific request fields.
+        """
+        pulumi.set(__self__, "model_id", model_id)
+        if additional_model_request_fields is not None:
+            pulumi.set(__self__, "additional_model_request_fields", additional_model_request_fields)
+        if inference_config is not None:
+            pulumi.set(__self__, "inference_config", inference_config)
+
+    @_builtins.property
+    @pulumi.getter(name="modelId")
+    def model_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        The identifier of the Amazon Bedrock model to use for evaluation.
+        """
+        return pulumi.get(self, "model_id")
+
+    @model_id.setter
+    def model_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "model_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="additionalModelRequestFields")
+    def additional_model_request_fields(self) -> Optional[Any]:
+        """
+        Additional model-specific request fields.
+        """
+        return pulumi.get(self, "additional_model_request_fields")
+
+    @additional_model_request_fields.setter
+    def additional_model_request_fields(self, value: Optional[Any]):
+        pulumi.set(self, "additional_model_request_fields", value)
+
+    @_builtins.property
+    @pulumi.getter(name="inferenceConfig")
+    def inference_config(self) -> Optional[pulumi.Input['EvaluatorInferenceConfigurationArgs']]:
+        return pulumi.get(self, "inference_config")
+
+    @inference_config.setter
+    def inference_config(self, value: Optional[pulumi.Input['EvaluatorInferenceConfigurationArgs']]):
+        pulumi.set(self, "inference_config", value)
+
+
+class EvaluatorCategoricalScaleDefinitionArgsDict(TypedDict):
+    """
+    A categorical rating scale option.
+    """
+    definition: pulumi.Input[_builtins.str]
+    """
+    The description that explains what this categorical rating represents.
+    """
+    label: pulumi.Input[_builtins.str]
+    """
+    The label of this categorical rating option.
+    """
+
+@pulumi.input_type
+class EvaluatorCategoricalScaleDefinitionArgs:
+    def __init__(__self__, *,
+                 definition: pulumi.Input[_builtins.str],
+                 label: pulumi.Input[_builtins.str]):
+        """
+        A categorical rating scale option.
+        :param pulumi.Input[_builtins.str] definition: The description that explains what this categorical rating represents.
+        :param pulumi.Input[_builtins.str] label: The label of this categorical rating option.
+        """
+        pulumi.set(__self__, "definition", definition)
+        pulumi.set(__self__, "label", label)
+
+    @_builtins.property
+    @pulumi.getter
+    def definition(self) -> pulumi.Input[_builtins.str]:
+        """
+        The description that explains what this categorical rating represents.
+        """
+        return pulumi.get(self, "definition")
+
+    @definition.setter
+    def definition(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "definition", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def label(self) -> pulumi.Input[_builtins.str]:
+        """
+        The label of this categorical rating option.
+        """
+        return pulumi.get(self, "label")
+
+    @label.setter
+    def label(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "label", value)
+
+
+class EvaluatorConfigArgsDict(TypedDict):
+    """
+    The configuration that defines how an evaluator assesses agent performance.
+    """
+    llm_as_a_judge: pulumi.Input['EvaluatorLlmAsAJudgeEvaluatorConfigArgsDict']
+
+@pulumi.input_type
+class EvaluatorConfigArgs:
+    def __init__(__self__, *,
+                 llm_as_a_judge: pulumi.Input['EvaluatorLlmAsAJudgeEvaluatorConfigArgs']):
+        """
+        The configuration that defines how an evaluator assesses agent performance.
+        """
+        pulumi.set(__self__, "llm_as_a_judge", llm_as_a_judge)
+
+    @_builtins.property
+    @pulumi.getter(name="llmAsAJudge")
+    def llm_as_a_judge(self) -> pulumi.Input['EvaluatorLlmAsAJudgeEvaluatorConfigArgs']:
+        return pulumi.get(self, "llm_as_a_judge")
+
+    @llm_as_a_judge.setter
+    def llm_as_a_judge(self, value: pulumi.Input['EvaluatorLlmAsAJudgeEvaluatorConfigArgs']):
+        pulumi.set(self, "llm_as_a_judge", value)
+
+
+class EvaluatorInferenceConfigurationArgsDict(TypedDict):
+    """
+    The inference configuration parameters that control model behavior during evaluation.
+    """
+    max_tokens: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The maximum number of tokens to generate in the model response.
+    """
+    temperature: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    The temperature value that controls randomness in the model's responses.
+    """
+    top_p: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    The top-p sampling parameter that controls the diversity of the model's responses.
+    """
+
+@pulumi.input_type
+class EvaluatorInferenceConfigurationArgs:
+    def __init__(__self__, *,
+                 max_tokens: Optional[pulumi.Input[_builtins.int]] = None,
+                 temperature: Optional[pulumi.Input[_builtins.float]] = None,
+                 top_p: Optional[pulumi.Input[_builtins.float]] = None):
+        """
+        The inference configuration parameters that control model behavior during evaluation.
+        :param pulumi.Input[_builtins.int] max_tokens: The maximum number of tokens to generate in the model response.
+        :param pulumi.Input[_builtins.float] temperature: The temperature value that controls randomness in the model's responses.
+        :param pulumi.Input[_builtins.float] top_p: The top-p sampling parameter that controls the diversity of the model's responses.
+        """
+        if max_tokens is not None:
+            pulumi.set(__self__, "max_tokens", max_tokens)
+        if temperature is not None:
+            pulumi.set(__self__, "temperature", temperature)
+        if top_p is not None:
+            pulumi.set(__self__, "top_p", top_p)
+
+    @_builtins.property
+    @pulumi.getter(name="maxTokens")
+    def max_tokens(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        The maximum number of tokens to generate in the model response.
+        """
+        return pulumi.get(self, "max_tokens")
+
+    @max_tokens.setter
+    def max_tokens(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "max_tokens", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def temperature(self) -> Optional[pulumi.Input[_builtins.float]]:
+        """
+        The temperature value that controls randomness in the model's responses.
+        """
+        return pulumi.get(self, "temperature")
+
+    @temperature.setter
+    def temperature(self, value: Optional[pulumi.Input[_builtins.float]]):
+        pulumi.set(self, "temperature", value)
+
+    @_builtins.property
+    @pulumi.getter(name="topP")
+    def top_p(self) -> Optional[pulumi.Input[_builtins.float]]:
+        """
+        The top-p sampling parameter that controls the diversity of the model's responses.
+        """
+        return pulumi.get(self, "top_p")
+
+    @top_p.setter
+    def top_p(self, value: Optional[pulumi.Input[_builtins.float]]):
+        pulumi.set(self, "top_p", value)
+
+
+class EvaluatorLlmAsAJudgeEvaluatorConfigArgsDict(TypedDict):
+    """
+    The configuration for LLM-as-a-Judge evaluation.
+    """
+    instructions: pulumi.Input[_builtins.str]
+    """
+    The evaluation instructions that guide the language model in assessing agent performance.
+    """
+    model_config: pulumi.Input['EvaluatorModelConfigArgsDict']
+    rating_scale: pulumi.Input['EvaluatorRatingScaleArgsDict']
+
+@pulumi.input_type
+class EvaluatorLlmAsAJudgeEvaluatorConfigArgs:
+    def __init__(__self__, *,
+                 instructions: pulumi.Input[_builtins.str],
+                 model_config: pulumi.Input['EvaluatorModelConfigArgs'],
+                 rating_scale: pulumi.Input['EvaluatorRatingScaleArgs']):
+        """
+        The configuration for LLM-as-a-Judge evaluation.
+        :param pulumi.Input[_builtins.str] instructions: The evaluation instructions that guide the language model in assessing agent performance.
+        """
+        pulumi.set(__self__, "instructions", instructions)
+        pulumi.set(__self__, "model_config", model_config)
+        pulumi.set(__self__, "rating_scale", rating_scale)
+
+    @_builtins.property
+    @pulumi.getter
+    def instructions(self) -> pulumi.Input[_builtins.str]:
+        """
+        The evaluation instructions that guide the language model in assessing agent performance.
+        """
+        return pulumi.get(self, "instructions")
+
+    @instructions.setter
+    def instructions(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "instructions", value)
+
+    @_builtins.property
+    @pulumi.getter(name="modelConfig")
+    def model_config(self) -> pulumi.Input['EvaluatorModelConfigArgs']:
+        return pulumi.get(self, "model_config")
+
+    @model_config.setter
+    def model_config(self, value: pulumi.Input['EvaluatorModelConfigArgs']):
+        pulumi.set(self, "model_config", value)
+
+    @_builtins.property
+    @pulumi.getter(name="ratingScale")
+    def rating_scale(self) -> pulumi.Input['EvaluatorRatingScaleArgs']:
+        return pulumi.get(self, "rating_scale")
+
+    @rating_scale.setter
+    def rating_scale(self, value: pulumi.Input['EvaluatorRatingScaleArgs']):
+        pulumi.set(self, "rating_scale", value)
+
+
+class EvaluatorModelConfigArgsDict(TypedDict):
+    """
+    The model configuration that specifies which foundation model to use for evaluation.
+    """
+    bedrock_evaluator_model_config: pulumi.Input['EvaluatorBedrockEvaluatorModelConfigArgsDict']
+
+@pulumi.input_type
+class EvaluatorModelConfigArgs:
+    def __init__(__self__, *,
+                 bedrock_evaluator_model_config: pulumi.Input['EvaluatorBedrockEvaluatorModelConfigArgs']):
+        """
+        The model configuration that specifies which foundation model to use for evaluation.
+        """
+        pulumi.set(__self__, "bedrock_evaluator_model_config", bedrock_evaluator_model_config)
+
+    @_builtins.property
+    @pulumi.getter(name="bedrockEvaluatorModelConfig")
+    def bedrock_evaluator_model_config(self) -> pulumi.Input['EvaluatorBedrockEvaluatorModelConfigArgs']:
+        return pulumi.get(self, "bedrock_evaluator_model_config")
+
+    @bedrock_evaluator_model_config.setter
+    def bedrock_evaluator_model_config(self, value: pulumi.Input['EvaluatorBedrockEvaluatorModelConfigArgs']):
+        pulumi.set(self, "bedrock_evaluator_model_config", value)
+
+
+class EvaluatorNumericalScaleDefinitionArgsDict(TypedDict):
+    """
+    A numerical rating scale option.
+    """
+    definition: pulumi.Input[_builtins.str]
+    """
+    The description that explains what this numerical rating represents.
+    """
+    label: pulumi.Input[_builtins.str]
+    """
+    The label that describes this numerical rating option.
+    """
+    value: pulumi.Input[_builtins.float]
+    """
+    The numerical value for this rating scale option.
+    """
+
+@pulumi.input_type
+class EvaluatorNumericalScaleDefinitionArgs:
+    def __init__(__self__, *,
+                 definition: pulumi.Input[_builtins.str],
+                 label: pulumi.Input[_builtins.str],
+                 value: pulumi.Input[_builtins.float]):
+        """
+        A numerical rating scale option.
+        :param pulumi.Input[_builtins.str] definition: The description that explains what this numerical rating represents.
+        :param pulumi.Input[_builtins.str] label: The label that describes this numerical rating option.
+        :param pulumi.Input[_builtins.float] value: The numerical value for this rating scale option.
+        """
+        pulumi.set(__self__, "definition", definition)
+        pulumi.set(__self__, "label", label)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def definition(self) -> pulumi.Input[_builtins.str]:
+        """
+        The description that explains what this numerical rating represents.
+        """
+        return pulumi.get(self, "definition")
+
+    @definition.setter
+    def definition(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "definition", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def label(self) -> pulumi.Input[_builtins.str]:
+        """
+        The label that describes this numerical rating option.
+        """
+        return pulumi.get(self, "label")
+
+    @label.setter
+    def label(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "label", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[_builtins.float]:
+        """
+        The numerical value for this rating scale option.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[_builtins.float]):
+        pulumi.set(self, "value", value)
+
+
+class EvaluatorRatingScaleArgsDict(TypedDict):
+    """
+    The rating scale that defines how evaluators should score agent performance.
+    """
+    categorical: NotRequired[pulumi.Input[Sequence[pulumi.Input['EvaluatorCategoricalScaleDefinitionArgsDict']]]]
+    numerical: NotRequired[pulumi.Input[Sequence[pulumi.Input['EvaluatorNumericalScaleDefinitionArgsDict']]]]
+
+@pulumi.input_type
+class EvaluatorRatingScaleArgs:
+    def __init__(__self__, *,
+                 categorical: Optional[pulumi.Input[Sequence[pulumi.Input['EvaluatorCategoricalScaleDefinitionArgs']]]] = None,
+                 numerical: Optional[pulumi.Input[Sequence[pulumi.Input['EvaluatorNumericalScaleDefinitionArgs']]]] = None):
+        """
+        The rating scale that defines how evaluators should score agent performance.
+        """
+        if categorical is not None:
+            pulumi.set(__self__, "categorical", categorical)
+        if numerical is not None:
+            pulumi.set(__self__, "numerical", numerical)
+
+    @_builtins.property
+    @pulumi.getter
+    def categorical(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EvaluatorCategoricalScaleDefinitionArgs']]]]:
+        return pulumi.get(self, "categorical")
+
+    @categorical.setter
+    def categorical(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EvaluatorCategoricalScaleDefinitionArgs']]]]):
+        pulumi.set(self, "categorical", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def numerical(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EvaluatorNumericalScaleDefinitionArgs']]]]:
+        return pulumi.get(self, "numerical")
+
+    @numerical.setter
+    def numerical(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EvaluatorNumericalScaleDefinitionArgs']]]]):
+        pulumi.set(self, "numerical", value)
 
 
 class GatewayAuthorizerConfigurationPropertiesArgsDict(TypedDict):
@@ -3190,6 +3626,372 @@ class MemoryUserPreferenceOverrideArgs:
     @extraction.setter
     def extraction(self, value: Optional[pulumi.Input['MemoryUserPreferenceOverrideExtractionConfigurationInputArgs']]):
         pulumi.set(self, "extraction", value)
+
+
+class OnlineEvaluationConfigCloudWatchLogsInputConfigArgsDict(TypedDict):
+    """
+    The configuration for reading agent traces from CloudWatch logs.
+    """
+    log_group_names: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    The list of CloudWatch log group names to monitor for agent traces.
+    """
+    service_names: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    The list of service names to filter traces within the specified log groups.
+    """
+
+@pulumi.input_type
+class OnlineEvaluationConfigCloudWatchLogsInputConfigArgs:
+    def __init__(__self__, *,
+                 log_group_names: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
+                 service_names: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        """
+        The configuration for reading agent traces from CloudWatch logs.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] log_group_names: The list of CloudWatch log group names to monitor for agent traces.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] service_names: The list of service names to filter traces within the specified log groups.
+        """
+        pulumi.set(__self__, "log_group_names", log_group_names)
+        pulumi.set(__self__, "service_names", service_names)
+
+    @_builtins.property
+    @pulumi.getter(name="logGroupNames")
+    def log_group_names(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        """
+        The list of CloudWatch log group names to monitor for agent traces.
+        """
+        return pulumi.get(self, "log_group_names")
+
+    @log_group_names.setter
+    def log_group_names(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "log_group_names", value)
+
+    @_builtins.property
+    @pulumi.getter(name="serviceNames")
+    def service_names(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        """
+        The list of service names to filter traces within the specified log groups.
+        """
+        return pulumi.get(self, "service_names")
+
+    @service_names.setter
+    def service_names(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "service_names", value)
+
+
+class OnlineEvaluationConfigDataSourceConfigArgsDict(TypedDict):
+    """
+    The configuration that specifies where to read agent traces for online evaluation.
+    """
+    cloud_watch_logs: pulumi.Input['OnlineEvaluationConfigCloudWatchLogsInputConfigArgsDict']
+
+@pulumi.input_type
+class OnlineEvaluationConfigDataSourceConfigArgs:
+    def __init__(__self__, *,
+                 cloud_watch_logs: pulumi.Input['OnlineEvaluationConfigCloudWatchLogsInputConfigArgs']):
+        """
+        The configuration that specifies where to read agent traces for online evaluation.
+        """
+        pulumi.set(__self__, "cloud_watch_logs", cloud_watch_logs)
+
+    @_builtins.property
+    @pulumi.getter(name="cloudWatchLogs")
+    def cloud_watch_logs(self) -> pulumi.Input['OnlineEvaluationConfigCloudWatchLogsInputConfigArgs']:
+        return pulumi.get(self, "cloud_watch_logs")
+
+    @cloud_watch_logs.setter
+    def cloud_watch_logs(self, value: pulumi.Input['OnlineEvaluationConfigCloudWatchLogsInputConfigArgs']):
+        pulumi.set(self, "cloud_watch_logs", value)
+
+
+class OnlineEvaluationConfigEvaluatorReferenceArgsDict(TypedDict):
+    """
+    The reference to an evaluator used in online evaluation configurations.
+    """
+    evaluator_id: pulumi.Input[_builtins.str]
+    """
+    The unique identifier of the evaluator.
+    """
+
+@pulumi.input_type
+class OnlineEvaluationConfigEvaluatorReferenceArgs:
+    def __init__(__self__, *,
+                 evaluator_id: pulumi.Input[_builtins.str]):
+        """
+        The reference to an evaluator used in online evaluation configurations.
+        :param pulumi.Input[_builtins.str] evaluator_id: The unique identifier of the evaluator.
+        """
+        pulumi.set(__self__, "evaluator_id", evaluator_id)
+
+    @_builtins.property
+    @pulumi.getter(name="evaluatorId")
+    def evaluator_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        The unique identifier of the evaluator.
+        """
+        return pulumi.get(self, "evaluator_id")
+
+    @evaluator_id.setter
+    def evaluator_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "evaluator_id", value)
+
+
+class OnlineEvaluationConfigFilterValueArgsDict(TypedDict):
+    """
+    The value used in filter comparisons.
+    """
+    boolean_value: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    The boolean value for true/false filtering conditions.
+    """
+    double_value: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    The numeric value for numerical filtering.
+    """
+    string_value: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The string value for text-based filtering.
+    """
+
+@pulumi.input_type
+class OnlineEvaluationConfigFilterValueArgs:
+    def __init__(__self__, *,
+                 boolean_value: Optional[pulumi.Input[_builtins.bool]] = None,
+                 double_value: Optional[pulumi.Input[_builtins.float]] = None,
+                 string_value: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        The value used in filter comparisons.
+        :param pulumi.Input[_builtins.bool] boolean_value: The boolean value for true/false filtering conditions.
+        :param pulumi.Input[_builtins.float] double_value: The numeric value for numerical filtering.
+        :param pulumi.Input[_builtins.str] string_value: The string value for text-based filtering.
+        """
+        if boolean_value is not None:
+            pulumi.set(__self__, "boolean_value", boolean_value)
+        if double_value is not None:
+            pulumi.set(__self__, "double_value", double_value)
+        if string_value is not None:
+            pulumi.set(__self__, "string_value", string_value)
+
+    @_builtins.property
+    @pulumi.getter(name="booleanValue")
+    def boolean_value(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        The boolean value for true/false filtering conditions.
+        """
+        return pulumi.get(self, "boolean_value")
+
+    @boolean_value.setter
+    def boolean_value(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "boolean_value", value)
+
+    @_builtins.property
+    @pulumi.getter(name="doubleValue")
+    def double_value(self) -> Optional[pulumi.Input[_builtins.float]]:
+        """
+        The numeric value for numerical filtering.
+        """
+        return pulumi.get(self, "double_value")
+
+    @double_value.setter
+    def double_value(self, value: Optional[pulumi.Input[_builtins.float]]):
+        pulumi.set(self, "double_value", value)
+
+    @_builtins.property
+    @pulumi.getter(name="stringValue")
+    def string_value(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The string value for text-based filtering.
+        """
+        return pulumi.get(self, "string_value")
+
+    @string_value.setter
+    def string_value(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "string_value", value)
+
+
+class OnlineEvaluationConfigFilterArgsDict(TypedDict):
+    """
+    The filter that applies conditions to agent traces during online evaluation.
+    """
+    key: pulumi.Input[_builtins.str]
+    """
+    The key or field name to filter on within the agent trace data.
+    """
+    operator: pulumi.Input['OnlineEvaluationConfigFilterOperator']
+    """
+    The comparison operator to use for filtering.
+    """
+    value: pulumi.Input['OnlineEvaluationConfigFilterValueArgsDict']
+
+@pulumi.input_type
+class OnlineEvaluationConfigFilterArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[_builtins.str],
+                 operator: pulumi.Input['OnlineEvaluationConfigFilterOperator'],
+                 value: pulumi.Input['OnlineEvaluationConfigFilterValueArgs']):
+        """
+        The filter that applies conditions to agent traces during online evaluation.
+        :param pulumi.Input[_builtins.str] key: The key or field name to filter on within the agent trace data.
+        :param pulumi.Input['OnlineEvaluationConfigFilterOperator'] operator: The comparison operator to use for filtering.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "operator", operator)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[_builtins.str]:
+        """
+        The key or field name to filter on within the agent trace data.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "key", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def operator(self) -> pulumi.Input['OnlineEvaluationConfigFilterOperator']:
+        """
+        The comparison operator to use for filtering.
+        """
+        return pulumi.get(self, "operator")
+
+    @operator.setter
+    def operator(self, value: pulumi.Input['OnlineEvaluationConfigFilterOperator']):
+        pulumi.set(self, "operator", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Input['OnlineEvaluationConfigFilterValueArgs']:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input['OnlineEvaluationConfigFilterValueArgs']):
+        pulumi.set(self, "value", value)
+
+
+class OnlineEvaluationConfigRuleArgsDict(TypedDict):
+    """
+    The evaluation rule that defines sampling configuration, filtering criteria, and session detection settings.
+    """
+    sampling_config: pulumi.Input['OnlineEvaluationConfigSamplingConfigArgsDict']
+    filters: NotRequired[pulumi.Input[Sequence[pulumi.Input['OnlineEvaluationConfigFilterArgsDict']]]]
+    """
+    The list of filters that determine which agent traces should be included in the evaluation.
+    """
+    session_config: NotRequired[pulumi.Input['OnlineEvaluationConfigSessionConfigArgsDict']]
+
+@pulumi.input_type
+class OnlineEvaluationConfigRuleArgs:
+    def __init__(__self__, *,
+                 sampling_config: pulumi.Input['OnlineEvaluationConfigSamplingConfigArgs'],
+                 filters: Optional[pulumi.Input[Sequence[pulumi.Input['OnlineEvaluationConfigFilterArgs']]]] = None,
+                 session_config: Optional[pulumi.Input['OnlineEvaluationConfigSessionConfigArgs']] = None):
+        """
+        The evaluation rule that defines sampling configuration, filtering criteria, and session detection settings.
+        :param pulumi.Input[Sequence[pulumi.Input['OnlineEvaluationConfigFilterArgs']]] filters: The list of filters that determine which agent traces should be included in the evaluation.
+        """
+        pulumi.set(__self__, "sampling_config", sampling_config)
+        if filters is not None:
+            pulumi.set(__self__, "filters", filters)
+        if session_config is not None:
+            pulumi.set(__self__, "session_config", session_config)
+
+    @_builtins.property
+    @pulumi.getter(name="samplingConfig")
+    def sampling_config(self) -> pulumi.Input['OnlineEvaluationConfigSamplingConfigArgs']:
+        return pulumi.get(self, "sampling_config")
+
+    @sampling_config.setter
+    def sampling_config(self, value: pulumi.Input['OnlineEvaluationConfigSamplingConfigArgs']):
+        pulumi.set(self, "sampling_config", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OnlineEvaluationConfigFilterArgs']]]]:
+        """
+        The list of filters that determine which agent traces should be included in the evaluation.
+        """
+        return pulumi.get(self, "filters")
+
+    @filters.setter
+    def filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['OnlineEvaluationConfigFilterArgs']]]]):
+        pulumi.set(self, "filters", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sessionConfig")
+    def session_config(self) -> Optional[pulumi.Input['OnlineEvaluationConfigSessionConfigArgs']]:
+        return pulumi.get(self, "session_config")
+
+    @session_config.setter
+    def session_config(self, value: Optional[pulumi.Input['OnlineEvaluationConfigSessionConfigArgs']]):
+        pulumi.set(self, "session_config", value)
+
+
+class OnlineEvaluationConfigSamplingConfigArgsDict(TypedDict):
+    """
+    The configuration that controls what percentage of agent traces are sampled for evaluation.
+    """
+    sampling_percentage: pulumi.Input[_builtins.float]
+    """
+    The percentage of agent traces to sample for evaluation.
+    """
+
+@pulumi.input_type
+class OnlineEvaluationConfigSamplingConfigArgs:
+    def __init__(__self__, *,
+                 sampling_percentage: pulumi.Input[_builtins.float]):
+        """
+        The configuration that controls what percentage of agent traces are sampled for evaluation.
+        :param pulumi.Input[_builtins.float] sampling_percentage: The percentage of agent traces to sample for evaluation.
+        """
+        pulumi.set(__self__, "sampling_percentage", sampling_percentage)
+
+    @_builtins.property
+    @pulumi.getter(name="samplingPercentage")
+    def sampling_percentage(self) -> pulumi.Input[_builtins.float]:
+        """
+        The percentage of agent traces to sample for evaluation.
+        """
+        return pulumi.get(self, "sampling_percentage")
+
+    @sampling_percentage.setter
+    def sampling_percentage(self, value: pulumi.Input[_builtins.float]):
+        pulumi.set(self, "sampling_percentage", value)
+
+
+class OnlineEvaluationConfigSessionConfigArgsDict(TypedDict):
+    """
+    The configuration that defines how agent sessions are detected.
+    """
+    session_timeout_minutes: pulumi.Input[_builtins.int]
+    """
+    The number of minutes of inactivity after which an agent session is considered complete.
+    """
+
+@pulumi.input_type
+class OnlineEvaluationConfigSessionConfigArgs:
+    def __init__(__self__, *,
+                 session_timeout_minutes: pulumi.Input[_builtins.int]):
+        """
+        The configuration that defines how agent sessions are detected.
+        :param pulumi.Input[_builtins.int] session_timeout_minutes: The number of minutes of inactivity after which an agent session is considered complete.
+        """
+        pulumi.set(__self__, "session_timeout_minutes", session_timeout_minutes)
+
+    @_builtins.property
+    @pulumi.getter(name="sessionTimeoutMinutes")
+    def session_timeout_minutes(self) -> pulumi.Input[_builtins.int]:
+        """
+        The number of minutes of inactivity after which an agent session is considered complete.
+        """
+        return pulumi.get(self, "session_timeout_minutes")
+
+    @session_timeout_minutes.setter
+    def session_timeout_minutes(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "session_timeout_minutes", value)
 
 
 class RuntimeAgentRuntimeArtifactArgsDict(TypedDict):

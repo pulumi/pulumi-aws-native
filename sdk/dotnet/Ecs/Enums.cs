@@ -75,6 +75,35 @@ namespace Pulumi.AwsNative.Ecs
         public override string ToString() => _value;
     }
 
+    [EnumType]
+    public readonly struct CapacityProviderCapacityReservationRequestReservationPreference : IEquatable<CapacityProviderCapacityReservationRequestReservationPreference>
+    {
+        private readonly string _value;
+
+        private CapacityProviderCapacityReservationRequestReservationPreference(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static CapacityProviderCapacityReservationRequestReservationPreference ReservationsOnly { get; } = new CapacityProviderCapacityReservationRequestReservationPreference("RESERVATIONS_ONLY");
+        public static CapacityProviderCapacityReservationRequestReservationPreference ReservationsFirst { get; } = new CapacityProviderCapacityReservationRequestReservationPreference("RESERVATIONS_FIRST");
+        public static CapacityProviderCapacityReservationRequestReservationPreference ReservationsExcluded { get; } = new CapacityProviderCapacityReservationRequestReservationPreference("RESERVATIONS_EXCLUDED");
+
+        public static bool operator ==(CapacityProviderCapacityReservationRequestReservationPreference left, CapacityProviderCapacityReservationRequestReservationPreference right) => left.Equals(right);
+        public static bool operator !=(CapacityProviderCapacityReservationRequestReservationPreference left, CapacityProviderCapacityReservationRequestReservationPreference right) => !left.Equals(right);
+
+        public static explicit operator string(CapacityProviderCapacityReservationRequestReservationPreference value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is CapacityProviderCapacityReservationRequestReservationPreference other && Equals(other);
+        public bool Equals(CapacityProviderCapacityReservationRequestReservationPreference other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     /// <summary>
     /// The capacity option type. This determines whether Amazon ECS launches On-Demand or Spot Instances for your managed instance capacity provider.
     /// 
@@ -99,6 +128,7 @@ namespace Pulumi.AwsNative.Ecs
 
         public static CapacityProviderInstanceLaunchTemplateCapacityOptionType OnDemand { get; } = new CapacityProviderInstanceLaunchTemplateCapacityOptionType("ON_DEMAND");
         public static CapacityProviderInstanceLaunchTemplateCapacityOptionType Spot { get; } = new CapacityProviderInstanceLaunchTemplateCapacityOptionType("SPOT");
+        public static CapacityProviderInstanceLaunchTemplateCapacityOptionType Reserved { get; } = new CapacityProviderInstanceLaunchTemplateCapacityOptionType("RESERVED");
 
         public static bool operator ==(CapacityProviderInstanceLaunchTemplateCapacityOptionType left, CapacityProviderInstanceLaunchTemplateCapacityOptionType right) => left.Equals(right);
         public static bool operator !=(CapacityProviderInstanceLaunchTemplateCapacityOptionType left, CapacityProviderInstanceLaunchTemplateCapacityOptionType right) => !left.Equals(right);

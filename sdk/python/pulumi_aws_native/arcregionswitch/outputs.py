@@ -33,6 +33,8 @@ __all__ = [
     'PlanExecutionApprovalConfiguration',
     'PlanExecutionBlockConfiguration0Properties',
     'PlanExecutionBlockConfiguration10Properties',
+    'PlanExecutionBlockConfiguration11Properties',
+    'PlanExecutionBlockConfiguration12Properties',
     'PlanExecutionBlockConfiguration1Properties',
     'PlanExecutionBlockConfiguration2Properties',
     'PlanExecutionBlockConfiguration3Properties',
@@ -49,6 +51,8 @@ __all__ = [
     'PlanLambdaUngraceful',
     'PlanLambdas',
     'PlanParallelExecutionBlockConfiguration',
+    'PlanRdsCreateCrossRegionReplicaConfiguration',
+    'PlanRdsPromoteReadReplicaConfiguration',
     'PlanRegionSwitchPlanConfiguration',
     'PlanReportConfiguration',
     'PlanReportOutputConfigurationProperties',
@@ -856,6 +860,64 @@ class PlanExecutionBlockConfiguration10Properties(dict):
 
 
 @pulumi.output_type
+class PlanExecutionBlockConfiguration11Properties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "rdsPromoteReadReplicaConfig":
+            suggest = "rds_promote_read_replica_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PlanExecutionBlockConfiguration11Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PlanExecutionBlockConfiguration11Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PlanExecutionBlockConfiguration11Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 rds_promote_read_replica_config: 'outputs.PlanRdsPromoteReadReplicaConfiguration'):
+        pulumi.set(__self__, "rds_promote_read_replica_config", rds_promote_read_replica_config)
+
+    @_builtins.property
+    @pulumi.getter(name="rdsPromoteReadReplicaConfig")
+    def rds_promote_read_replica_config(self) -> 'outputs.PlanRdsPromoteReadReplicaConfiguration':
+        return pulumi.get(self, "rds_promote_read_replica_config")
+
+
+@pulumi.output_type
+class PlanExecutionBlockConfiguration12Properties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "rdsCreateCrossRegionReadReplicaConfig":
+            suggest = "rds_create_cross_region_read_replica_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PlanExecutionBlockConfiguration12Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PlanExecutionBlockConfiguration12Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PlanExecutionBlockConfiguration12Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 rds_create_cross_region_read_replica_config: 'outputs.PlanRdsCreateCrossRegionReplicaConfiguration'):
+        pulumi.set(__self__, "rds_create_cross_region_read_replica_config", rds_create_cross_region_read_replica_config)
+
+    @_builtins.property
+    @pulumi.getter(name="rdsCreateCrossRegionReadReplicaConfig")
+    def rds_create_cross_region_read_replica_config(self) -> 'outputs.PlanRdsCreateCrossRegionReplicaConfiguration':
+        return pulumi.get(self, "rds_create_cross_region_read_replica_config")
+
+
+@pulumi.output_type
 class PlanExecutionBlockConfiguration1Properties(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -1360,6 +1422,124 @@ class PlanParallelExecutionBlockConfiguration(dict):
 
 
 @pulumi.output_type
+class PlanRdsCreateCrossRegionReplicaConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dbInstanceArnMap":
+            suggest = "db_instance_arn_map"
+        elif key == "crossAccountRole":
+            suggest = "cross_account_role"
+        elif key == "externalId":
+            suggest = "external_id"
+        elif key == "timeoutMinutes":
+            suggest = "timeout_minutes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PlanRdsCreateCrossRegionReplicaConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PlanRdsCreateCrossRegionReplicaConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PlanRdsCreateCrossRegionReplicaConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 db_instance_arn_map: Mapping[str, _builtins.str],
+                 cross_account_role: Optional[_builtins.str] = None,
+                 external_id: Optional[_builtins.str] = None,
+                 timeout_minutes: Optional[_builtins.float] = None):
+        pulumi.set(__self__, "db_instance_arn_map", db_instance_arn_map)
+        if cross_account_role is not None:
+            pulumi.set(__self__, "cross_account_role", cross_account_role)
+        if external_id is not None:
+            pulumi.set(__self__, "external_id", external_id)
+        if timeout_minutes is not None:
+            pulumi.set(__self__, "timeout_minutes", timeout_minutes)
+
+    @_builtins.property
+    @pulumi.getter(name="dbInstanceArnMap")
+    def db_instance_arn_map(self) -> Mapping[str, _builtins.str]:
+        return pulumi.get(self, "db_instance_arn_map")
+
+    @_builtins.property
+    @pulumi.getter(name="crossAccountRole")
+    def cross_account_role(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "cross_account_role")
+
+    @_builtins.property
+    @pulumi.getter(name="externalId")
+    def external_id(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "external_id")
+
+    @_builtins.property
+    @pulumi.getter(name="timeoutMinutes")
+    def timeout_minutes(self) -> Optional[_builtins.float]:
+        return pulumi.get(self, "timeout_minutes")
+
+
+@pulumi.output_type
+class PlanRdsPromoteReadReplicaConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dbInstanceArnMap":
+            suggest = "db_instance_arn_map"
+        elif key == "crossAccountRole":
+            suggest = "cross_account_role"
+        elif key == "externalId":
+            suggest = "external_id"
+        elif key == "timeoutMinutes":
+            suggest = "timeout_minutes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PlanRdsPromoteReadReplicaConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PlanRdsPromoteReadReplicaConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PlanRdsPromoteReadReplicaConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 db_instance_arn_map: Mapping[str, _builtins.str],
+                 cross_account_role: Optional[_builtins.str] = None,
+                 external_id: Optional[_builtins.str] = None,
+                 timeout_minutes: Optional[_builtins.float] = None):
+        pulumi.set(__self__, "db_instance_arn_map", db_instance_arn_map)
+        if cross_account_role is not None:
+            pulumi.set(__self__, "cross_account_role", cross_account_role)
+        if external_id is not None:
+            pulumi.set(__self__, "external_id", external_id)
+        if timeout_minutes is not None:
+            pulumi.set(__self__, "timeout_minutes", timeout_minutes)
+
+    @_builtins.property
+    @pulumi.getter(name="dbInstanceArnMap")
+    def db_instance_arn_map(self) -> Mapping[str, _builtins.str]:
+        return pulumi.get(self, "db_instance_arn_map")
+
+    @_builtins.property
+    @pulumi.getter(name="crossAccountRole")
+    def cross_account_role(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "cross_account_role")
+
+    @_builtins.property
+    @pulumi.getter(name="externalId")
+    def external_id(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "external_id")
+
+    @_builtins.property
+    @pulumi.getter(name="timeoutMinutes")
+    def timeout_minutes(self) -> Optional[_builtins.float]:
+        return pulumi.get(self, "timeout_minutes")
+
+
+@pulumi.output_type
 class PlanRegionSwitchPlanConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -1714,7 +1894,7 @@ class PlanStep(dict):
                  name: _builtins.str,
                  description: Optional[_builtins.str] = None):
         """
-        :param Union['PlanExecutionBlockConfiguration0Properties', 'PlanExecutionBlockConfiguration1Properties', 'PlanExecutionBlockConfiguration2Properties', 'PlanExecutionBlockConfiguration3Properties', 'PlanExecutionBlockConfiguration4Properties', 'PlanExecutionBlockConfiguration5Properties', 'PlanExecutionBlockConfiguration6Properties', 'PlanExecutionBlockConfiguration7Properties', 'PlanExecutionBlockConfiguration8Properties', 'PlanExecutionBlockConfiguration9Properties', 'PlanExecutionBlockConfiguration10Properties'] execution_block_configuration: The configuration for an execution block in a workflow.
+        :param Union['PlanExecutionBlockConfiguration0Properties', 'PlanExecutionBlockConfiguration1Properties', 'PlanExecutionBlockConfiguration2Properties', 'PlanExecutionBlockConfiguration3Properties', 'PlanExecutionBlockConfiguration4Properties', 'PlanExecutionBlockConfiguration5Properties', 'PlanExecutionBlockConfiguration6Properties', 'PlanExecutionBlockConfiguration7Properties', 'PlanExecutionBlockConfiguration8Properties', 'PlanExecutionBlockConfiguration9Properties', 'PlanExecutionBlockConfiguration10Properties', 'PlanExecutionBlockConfiguration11Properties', 'PlanExecutionBlockConfiguration12Properties'] execution_block_configuration: The configuration for an execution block in a workflow.
         :param 'PlanExecutionBlockType' execution_block_type: The type of an execution block in a workflow.
         :param _builtins.str name: The name of a step in a workflow.
         :param _builtins.str description: The description of a step in a workflow.

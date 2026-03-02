@@ -21,6 +21,10 @@ namespace Pulumi.AwsNative.GameLift.Outputs
         /// </summary>
         public readonly string Location;
         public readonly Outputs.ContainerFleetLocationCapacity? LocationCapacity;
+        /// <summary>
+        /// The player gateway status for the location.
+        /// </summary>
+        public readonly Pulumi.AwsNative.GameLift.ContainerFleetLocationConfigurationPlayerGatewayStatus? PlayerGatewayStatus;
         public readonly ImmutableArray<Pulumi.AwsNative.GameLift.ContainerFleetStoppedActionsItem> StoppedActions;
 
         [OutputConstructor]
@@ -29,10 +33,13 @@ namespace Pulumi.AwsNative.GameLift.Outputs
 
             Outputs.ContainerFleetLocationCapacity? locationCapacity,
 
+            Pulumi.AwsNative.GameLift.ContainerFleetLocationConfigurationPlayerGatewayStatus? playerGatewayStatus,
+
             ImmutableArray<Pulumi.AwsNative.GameLift.ContainerFleetStoppedActionsItem> stoppedActions)
         {
             Location = location;
             LocationCapacity = locationCapacity;
+            PlayerGatewayStatus = playerGatewayStatus;
             StoppedActions = stoppedActions;
         }
     }

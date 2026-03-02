@@ -177,7 +177,8 @@ type DbCluster struct {
 	//  Valid for Cluster Type: Aurora DB clusters only
 	EngineMode pulumi.StringPtrOutput `pulumi:"engineMode"`
 	// The version number of the database engine to use.
-	//  To list all of the available engine versions for Aurora MySQL version 2 (5.7-compatible) and version 3 (8.0-compatible), use the following command:
+	//   Don't use this property if your DB cluster is a member of a global database cluster. Instead, specify the ``EngineVersion`` property on the [AWS::RDS::GlobalCluster](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-globalcluster.html) resource. Major version upgrades aren't supported for individual members of a global cluster. Use ``ModifyGlobalCluster`` to upgrade all members of the global cluster.
+	//   To list all of the available engine versions for Aurora MySQL version 2 (5.7-compatible) and version 3 (8.0-compatible), use the following command:
 	//   ``aws rds describe-db-engine-versions --engine aurora-mysql --query "DBEngineVersions[].EngineVersion"``
 	//  You can supply either ``5.7`` or ``8.0`` to use the default engine version for Aurora MySQL version 2 or version 3, respectively.
 	//  To list all of the available engine versions for Aurora PostgreSQL, use the following command:
@@ -611,7 +612,8 @@ type dbClusterArgs struct {
 	//  Valid for Cluster Type: Aurora DB clusters only
 	EngineMode *string `pulumi:"engineMode"`
 	// The version number of the database engine to use.
-	//  To list all of the available engine versions for Aurora MySQL version 2 (5.7-compatible) and version 3 (8.0-compatible), use the following command:
+	//   Don't use this property if your DB cluster is a member of a global database cluster. Instead, specify the ``EngineVersion`` property on the [AWS::RDS::GlobalCluster](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-globalcluster.html) resource. Major version upgrades aren't supported for individual members of a global cluster. Use ``ModifyGlobalCluster`` to upgrade all members of the global cluster.
+	//   To list all of the available engine versions for Aurora MySQL version 2 (5.7-compatible) and version 3 (8.0-compatible), use the following command:
 	//   ``aws rds describe-db-engine-versions --engine aurora-mysql --query "DBEngineVersions[].EngineVersion"``
 	//  You can supply either ``5.7`` or ``8.0`` to use the default engine version for Aurora MySQL version 2 or version 3, respectively.
 	//  To list all of the available engine versions for Aurora PostgreSQL, use the following command:
@@ -982,7 +984,8 @@ type DbClusterArgs struct {
 	//  Valid for Cluster Type: Aurora DB clusters only
 	EngineMode pulumi.StringPtrInput
 	// The version number of the database engine to use.
-	//  To list all of the available engine versions for Aurora MySQL version 2 (5.7-compatible) and version 3 (8.0-compatible), use the following command:
+	//   Don't use this property if your DB cluster is a member of a global database cluster. Instead, specify the ``EngineVersion`` property on the [AWS::RDS::GlobalCluster](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-globalcluster.html) resource. Major version upgrades aren't supported for individual members of a global cluster. Use ``ModifyGlobalCluster`` to upgrade all members of the global cluster.
+	//   To list all of the available engine versions for Aurora MySQL version 2 (5.7-compatible) and version 3 (8.0-compatible), use the following command:
 	//   ``aws rds describe-db-engine-versions --engine aurora-mysql --query "DBEngineVersions[].EngineVersion"``
 	//  You can supply either ``5.7`` or ``8.0`` to use the default engine version for Aurora MySQL version 2 or version 3, respectively.
 	//  To list all of the available engine versions for Aurora PostgreSQL, use the following command:
@@ -1513,7 +1516,8 @@ func (o DbClusterOutput) EngineMode() pulumi.StringPtrOutput {
 
 // The version number of the database engine to use.
 //
-//	To list all of the available engine versions for Aurora MySQL version 2 (5.7-compatible) and version 3 (8.0-compatible), use the following command:
+//	 Don't use this property if your DB cluster is a member of a global database cluster. Instead, specify the ``EngineVersion`` property on the [AWS::RDS::GlobalCluster](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-globalcluster.html) resource. Major version upgrades aren't supported for individual members of a global cluster. Use ``ModifyGlobalCluster`` to upgrade all members of the global cluster.
+//	 To list all of the available engine versions for Aurora MySQL version 2 (5.7-compatible) and version 3 (8.0-compatible), use the following command:
 //	 ``aws rds describe-db-engine-versions --engine aurora-mysql --query "DBEngineVersions[].EngineVersion"``
 //	You can supply either ``5.7`` or ``8.0`` to use the default engine version for Aurora MySQL version 2 or version 3, respectively.
 //	To list all of the available engine versions for Aurora PostgreSQL, use the following command:

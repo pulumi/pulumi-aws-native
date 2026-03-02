@@ -124,6 +124,7 @@ namespace Pulumi.AwsNative.Batch.Outputs
         /// &gt; This parameter isn't applicable to jobs that are running on Fargate resources. Don't specify it.
         /// </summary>
         public readonly string? PlacementGroup;
+        public readonly Outputs.ComputeEnvironmentComputeScalingPolicy? ScalingPolicy;
         /// <summary>
         /// The Amazon EC2 security groups that are associated with instances launched in the compute environment. This parameter is required for Fargate compute resources, where it can contain up to 5 security groups. For Fargate compute resources, providing an empty list is handled as if this parameter wasn't specified and no change is made. For Amazon EC2 compute resources, providing an empty list removes the security groups from the compute resource.
         /// 
@@ -195,6 +196,8 @@ namespace Pulumi.AwsNative.Batch.Outputs
 
             string? placementGroup,
 
+            Outputs.ComputeEnvironmentComputeScalingPolicy? scalingPolicy,
+
             ImmutableArray<string> securityGroupIds,
 
             string? spotIamFleetRole,
@@ -219,6 +222,7 @@ namespace Pulumi.AwsNative.Batch.Outputs
             MaxvCpus = maxvCpus;
             MinvCpus = minvCpus;
             PlacementGroup = placementGroup;
+            ScalingPolicy = scalingPolicy;
             SecurityGroupIds = securityGroupIds;
             SpotIamFleetRole = spotIamFleetRole;
             Subnets = subnets;

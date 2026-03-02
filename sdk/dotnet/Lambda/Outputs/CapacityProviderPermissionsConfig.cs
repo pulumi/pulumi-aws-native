@@ -11,13 +11,13 @@ namespace Pulumi.AwsNative.Lambda.Outputs
 {
 
     /// <summary>
-    /// IAM permissions configuration for the capacity provider.
+    /// Configuration that specifies the permissions required for the capacity provider to manage compute resources.
     /// </summary>
     [OutputType]
     public sealed class CapacityProviderPermissionsConfig
     {
         /// <summary>
-        /// The ARN of the IAM role that Lambda assumes to manage the capacity provider.
+        /// The ARN of the IAM role that the capacity provider uses to manage compute instances and other AWS resources.
         /// </summary>
         public readonly string CapacityProviderOperatorRoleArn;
 

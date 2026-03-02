@@ -13,27 +13,25 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource Type definition for AWS::Lambda::CapacityProvider
+// Creates a capacity provider that manages compute resources for Lambda functions
 type CapacityProvider struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name (ARN) of the capacity provider. This is a read-only property that is automatically generated when the capacity provider is created.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The name of the capacity provider. The name must be unique within your AWS account and region. If you don't specify a name, CloudFormation generates one.
+	Arn                  pulumi.StringOutput    `pulumi:"arn"`
 	CapacityProviderName pulumi.StringPtrOutput `pulumi:"capacityProviderName"`
 	// The scaling configuration for the capacity provider.
 	CapacityProviderScalingConfig CapacityProviderScalingConfigPtrOutput `pulumi:"capacityProviderScalingConfig"`
-	// Specifications for the types of EC2 instances that the capacity provider can use.
+	// The instance requirements for compute resources managed by the capacity provider.
 	InstanceRequirements CapacityProviderInstanceRequirementsPtrOutput `pulumi:"instanceRequirements"`
-	// The ARN of the AWS Key Management Service (KMS) key used by the capacity provider.
+	// The ARN of the KMS key used to encrypt the capacity provider's resources.
 	KmsKeyArn pulumi.StringPtrOutput `pulumi:"kmsKeyArn"`
-	// IAM permissions configuration for the capacity provider.
+	// The permissions configuration for the capacity provider.
 	PermissionsConfig CapacityProviderPermissionsConfigOutput `pulumi:"permissionsConfig"`
 	// The current state of the capacity provider.
 	State CapacityProviderStateEnumOutput `pulumi:"state"`
-	// A list of tags to apply to the capacity provider.
+	// A key-value pair that provides metadata for the capacity provider.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
-	// VPC configuration for the capacity provider.
+	// The VPC configuration for the capacity provider.
 	VpcConfig CapacityProviderVpcConfigOutput `pulumi:"vpcConfig"`
 }
 
@@ -91,37 +89,35 @@ func (CapacityProviderState) ElementType() reflect.Type {
 }
 
 type capacityProviderArgs struct {
-	// The name of the capacity provider. The name must be unique within your AWS account and region. If you don't specify a name, CloudFormation generates one.
 	CapacityProviderName *string `pulumi:"capacityProviderName"`
 	// The scaling configuration for the capacity provider.
 	CapacityProviderScalingConfig *CapacityProviderScalingConfig `pulumi:"capacityProviderScalingConfig"`
-	// Specifications for the types of EC2 instances that the capacity provider can use.
+	// The instance requirements for compute resources managed by the capacity provider.
 	InstanceRequirements *CapacityProviderInstanceRequirements `pulumi:"instanceRequirements"`
-	// The ARN of the AWS Key Management Service (KMS) key used by the capacity provider.
+	// The ARN of the KMS key used to encrypt the capacity provider's resources.
 	KmsKeyArn *string `pulumi:"kmsKeyArn"`
-	// IAM permissions configuration for the capacity provider.
+	// The permissions configuration for the capacity provider.
 	PermissionsConfig CapacityProviderPermissionsConfig `pulumi:"permissionsConfig"`
-	// A list of tags to apply to the capacity provider.
+	// A key-value pair that provides metadata for the capacity provider.
 	Tags []aws.Tag `pulumi:"tags"`
-	// VPC configuration for the capacity provider.
+	// The VPC configuration for the capacity provider.
 	VpcConfig CapacityProviderVpcConfig `pulumi:"vpcConfig"`
 }
 
 // The set of arguments for constructing a CapacityProvider resource.
 type CapacityProviderArgs struct {
-	// The name of the capacity provider. The name must be unique within your AWS account and region. If you don't specify a name, CloudFormation generates one.
 	CapacityProviderName pulumi.StringPtrInput
 	// The scaling configuration for the capacity provider.
 	CapacityProviderScalingConfig CapacityProviderScalingConfigPtrInput
-	// Specifications for the types of EC2 instances that the capacity provider can use.
+	// The instance requirements for compute resources managed by the capacity provider.
 	InstanceRequirements CapacityProviderInstanceRequirementsPtrInput
-	// The ARN of the AWS Key Management Service (KMS) key used by the capacity provider.
+	// The ARN of the KMS key used to encrypt the capacity provider's resources.
 	KmsKeyArn pulumi.StringPtrInput
-	// IAM permissions configuration for the capacity provider.
+	// The permissions configuration for the capacity provider.
 	PermissionsConfig CapacityProviderPermissionsConfigInput
-	// A list of tags to apply to the capacity provider.
+	// A key-value pair that provides metadata for the capacity provider.
 	Tags aws.TagArrayInput
-	// VPC configuration for the capacity provider.
+	// The VPC configuration for the capacity provider.
 	VpcConfig CapacityProviderVpcConfigInput
 }
 
@@ -162,12 +158,10 @@ func (o CapacityProviderOutput) ToCapacityProviderOutputWithContext(ctx context.
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the capacity provider. This is a read-only property that is automatically generated when the capacity provider is created.
 func (o CapacityProviderOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *CapacityProvider) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The name of the capacity provider. The name must be unique within your AWS account and region. If you don't specify a name, CloudFormation generates one.
 func (o CapacityProviderOutput) CapacityProviderName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CapacityProvider) pulumi.StringPtrOutput { return v.CapacityProviderName }).(pulumi.StringPtrOutput)
 }
@@ -179,17 +173,17 @@ func (o CapacityProviderOutput) CapacityProviderScalingConfig() CapacityProvider
 	}).(CapacityProviderScalingConfigPtrOutput)
 }
 
-// Specifications for the types of EC2 instances that the capacity provider can use.
+// The instance requirements for compute resources managed by the capacity provider.
 func (o CapacityProviderOutput) InstanceRequirements() CapacityProviderInstanceRequirementsPtrOutput {
 	return o.ApplyT(func(v *CapacityProvider) CapacityProviderInstanceRequirementsPtrOutput { return v.InstanceRequirements }).(CapacityProviderInstanceRequirementsPtrOutput)
 }
 
-// The ARN of the AWS Key Management Service (KMS) key used by the capacity provider.
+// The ARN of the KMS key used to encrypt the capacity provider's resources.
 func (o CapacityProviderOutput) KmsKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CapacityProvider) pulumi.StringPtrOutput { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
 }
 
-// IAM permissions configuration for the capacity provider.
+// The permissions configuration for the capacity provider.
 func (o CapacityProviderOutput) PermissionsConfig() CapacityProviderPermissionsConfigOutput {
 	return o.ApplyT(func(v *CapacityProvider) CapacityProviderPermissionsConfigOutput { return v.PermissionsConfig }).(CapacityProviderPermissionsConfigOutput)
 }
@@ -199,12 +193,12 @@ func (o CapacityProviderOutput) State() CapacityProviderStateEnumOutput {
 	return o.ApplyT(func(v *CapacityProvider) CapacityProviderStateEnumOutput { return v.State }).(CapacityProviderStateEnumOutput)
 }
 
-// A list of tags to apply to the capacity provider.
+// A key-value pair that provides metadata for the capacity provider.
 func (o CapacityProviderOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *CapacityProvider) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
-// VPC configuration for the capacity provider.
+// The VPC configuration for the capacity provider.
 func (o CapacityProviderOutput) VpcConfig() CapacityProviderVpcConfigOutput {
 	return o.ApplyT(func(v *CapacityProvider) CapacityProviderVpcConfigOutput { return v.VpcConfig }).(CapacityProviderVpcConfigOutput)
 }

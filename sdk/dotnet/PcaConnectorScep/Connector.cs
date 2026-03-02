@@ -51,6 +51,9 @@ namespace Pulumi.AwsNative.PcaConnectorScep
         [Output("type")]
         public Output<Pulumi.AwsNative.PcaConnectorScep.ConnectorType> Type { get; private set; } = null!;
 
+        [Output("vpcEndpointId")]
+        public Output<string?> VpcEndpointId { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a Connector resource with the given unique name, arguments, and options.
@@ -78,6 +81,7 @@ namespace Pulumi.AwsNative.PcaConnectorScep
                 {
                     "certificateAuthorityArn",
                     "mobileDeviceManagement",
+                    "vpcEndpointId",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -120,6 +124,9 @@ namespace Pulumi.AwsNative.PcaConnectorScep
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        [Input("vpcEndpointId")]
+        public Input<string>? VpcEndpointId { get; set; }
 
         public ConnectorArgs()
         {

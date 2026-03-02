@@ -100,7 +100,6 @@ func NewVpnConnection(ctx *pulumi.Context,
 		"tunnelInsideIpVersion",
 		"type",
 		"vpnConcentratorId",
-		"vpnTunnelOptionsSpecifications[*]",
 	})
 	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)

@@ -34,6 +34,8 @@ export const PlanExecutionBlockType = {
     EksResourceScaling: "EKSResourceScaling",
     Route53HealthCheck: "Route53HealthCheck",
     DocumentDb: "DocumentDb",
+    RdsPromoteReadReplica: "RdsPromoteReadReplica",
+    RdsCreateCrossRegionReplica: "RdsCreateCrossRegionReplica",
 } as const;
 
 export type PlanExecutionBlockType = (typeof PlanExecutionBlockType)[keyof typeof PlanExecutionBlockType];
@@ -54,6 +56,8 @@ export type PlanRecoveryApproach = (typeof PlanRecoveryApproach)[keyof typeof Pl
 export const PlanRegionToRunIn = {
     ActivatingRegion: "activatingRegion",
     DeactivatingRegion: "deactivatingRegion",
+    ActiveRegion: "activeRegion",
+    InactiveRegion: "inactiveRegion",
 } as const;
 
 export type PlanRegionToRunIn = (typeof PlanRegionToRunIn)[keyof typeof PlanRegionToRunIn];
@@ -68,6 +72,7 @@ export type PlanRoutingControlStateChange = (typeof PlanRoutingControlStateChang
 export const PlanWorkflowTargetAction = {
     Activate: "activate",
     Deactivate: "deactivate",
+    PostRecovery: "postRecovery",
 } as const;
 
 export type PlanWorkflowTargetAction = (typeof PlanWorkflowTargetAction)[keyof typeof PlanWorkflowTargetAction];

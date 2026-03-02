@@ -11,6 +11,16 @@ export const AccessPolicyType = {
  */
 export type AccessPolicyType = (typeof AccessPolicyType)[keyof typeof AccessPolicyType];
 
+export const CollectionGroupStandbyReplicas = {
+    Enabled: "ENABLED",
+    Disabled: "DISABLED",
+} as const;
+
+/**
+ * Indicates whether standby replicas are used for the collection group.
+ */
+export type CollectionGroupStandbyReplicas = (typeof CollectionGroupStandbyReplicas)[keyof typeof CollectionGroupStandbyReplicas];
+
 export const CollectionStandbyReplicas = {
     Enabled: "ENABLED",
     Disabled: "DISABLED",

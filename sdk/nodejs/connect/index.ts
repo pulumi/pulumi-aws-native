@@ -25,6 +25,16 @@ export type ContactFlowModule = import("./contactFlowModule").ContactFlowModule;
 export const ContactFlowModule: typeof import("./contactFlowModule").ContactFlowModule = null as any;
 utilities.lazyLoad(exports, ["ContactFlowModule"], () => require("./contactFlowModule"));
 
+export { ContactFlowModuleAliasArgs } from "./contactFlowModuleAlias";
+export type ContactFlowModuleAlias = import("./contactFlowModuleAlias").ContactFlowModuleAlias;
+export const ContactFlowModuleAlias: typeof import("./contactFlowModuleAlias").ContactFlowModuleAlias = null as any;
+utilities.lazyLoad(exports, ["ContactFlowModuleAlias"], () => require("./contactFlowModuleAlias"));
+
+export { ContactFlowModuleVersionArgs } from "./contactFlowModuleVersion";
+export type ContactFlowModuleVersion = import("./contactFlowModuleVersion").ContactFlowModuleVersion;
+export const ContactFlowModuleVersion: typeof import("./contactFlowModuleVersion").ContactFlowModuleVersion = null as any;
+utilities.lazyLoad(exports, ["ContactFlowModuleVersion"], () => require("./contactFlowModuleVersion"));
+
 export { ContactFlowVersionArgs } from "./contactFlowVersion";
 export type ContactFlowVersion = import("./contactFlowVersion").ContactFlowVersion;
 export const ContactFlowVersion: typeof import("./contactFlowVersion").ContactFlowVersion = null as any;
@@ -69,6 +79,16 @@ export { GetContactFlowModuleArgs, GetContactFlowModuleResult, GetContactFlowMod
 export const getContactFlowModule: typeof import("./getContactFlowModule").getContactFlowModule = null as any;
 export const getContactFlowModuleOutput: typeof import("./getContactFlowModule").getContactFlowModuleOutput = null as any;
 utilities.lazyLoad(exports, ["getContactFlowModule","getContactFlowModuleOutput"], () => require("./getContactFlowModule"));
+
+export { GetContactFlowModuleAliasArgs, GetContactFlowModuleAliasResult, GetContactFlowModuleAliasOutputArgs } from "./getContactFlowModuleAlias";
+export const getContactFlowModuleAlias: typeof import("./getContactFlowModuleAlias").getContactFlowModuleAlias = null as any;
+export const getContactFlowModuleAliasOutput: typeof import("./getContactFlowModuleAlias").getContactFlowModuleAliasOutput = null as any;
+utilities.lazyLoad(exports, ["getContactFlowModuleAlias","getContactFlowModuleAliasOutput"], () => require("./getContactFlowModuleAlias"));
+
+export { GetContactFlowModuleVersionArgs, GetContactFlowModuleVersionResult, GetContactFlowModuleVersionOutputArgs } from "./getContactFlowModuleVersion";
+export const getContactFlowModuleVersion: typeof import("./getContactFlowModuleVersion").getContactFlowModuleVersion = null as any;
+export const getContactFlowModuleVersionOutput: typeof import("./getContactFlowModuleVersion").getContactFlowModuleVersionOutput = null as any;
+utilities.lazyLoad(exports, ["getContactFlowModuleVersion","getContactFlowModuleVersionOutput"], () => require("./getContactFlowModuleVersion"));
 
 export { GetContactFlowVersionArgs, GetContactFlowVersionResult, GetContactFlowVersionOutputArgs } from "./getContactFlowVersion";
 export const getContactFlowVersion: typeof import("./getContactFlowVersion").getContactFlowVersion = null as any;
@@ -336,6 +356,10 @@ const _module = {
                 return new ContactFlow(name, <any>undefined, { urn })
             case "aws-native:connect:ContactFlowModule":
                 return new ContactFlowModule(name, <any>undefined, { urn })
+            case "aws-native:connect:ContactFlowModuleAlias":
+                return new ContactFlowModuleAlias(name, <any>undefined, { urn })
+            case "aws-native:connect:ContactFlowModuleVersion":
+                return new ContactFlowModuleVersion(name, <any>undefined, { urn })
             case "aws-native:connect:ContactFlowVersion":
                 return new ContactFlowVersion(name, <any>undefined, { urn })
             case "aws-native:connect:DataTable":

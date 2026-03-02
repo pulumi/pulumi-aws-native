@@ -18,6 +18,8 @@ from ._enums import *
 __all__ = [
     'CollectionEncryptionConfigArgs',
     'CollectionEncryptionConfigArgsDict',
+    'CollectionGroupCapacityLimitsArgs',
+    'CollectionGroupCapacityLimitsArgsDict',
     'IndexPropertyMappingMethodPropertiesParametersPropertiesArgs',
     'IndexPropertyMappingMethodPropertiesParametersPropertiesArgsDict',
     'IndexPropertyMappingMethodPropertiesArgs',
@@ -89,6 +91,95 @@ class CollectionEncryptionConfigArgs:
     @kms_key_arn.setter
     def kms_key_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "kms_key_arn", value)
+
+
+class CollectionGroupCapacityLimitsArgsDict(TypedDict):
+    max_indexing_capacity_in_ocu: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    The maximum indexing capacity for collections in the group.
+    """
+    max_search_capacity_in_ocu: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    The maximum search capacity for collections in the group.
+    """
+    min_indexing_capacity_in_ocu: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    The minimum indexing capacity for collections in the group.
+    """
+    min_search_capacity_in_ocu: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    The minimum search capacity for collections in the group.
+    """
+
+@pulumi.input_type
+class CollectionGroupCapacityLimitsArgs:
+    def __init__(__self__, *,
+                 max_indexing_capacity_in_ocu: Optional[pulumi.Input[_builtins.float]] = None,
+                 max_search_capacity_in_ocu: Optional[pulumi.Input[_builtins.float]] = None,
+                 min_indexing_capacity_in_ocu: Optional[pulumi.Input[_builtins.float]] = None,
+                 min_search_capacity_in_ocu: Optional[pulumi.Input[_builtins.float]] = None):
+        """
+        :param pulumi.Input[_builtins.float] max_indexing_capacity_in_ocu: The maximum indexing capacity for collections in the group.
+        :param pulumi.Input[_builtins.float] max_search_capacity_in_ocu: The maximum search capacity for collections in the group.
+        :param pulumi.Input[_builtins.float] min_indexing_capacity_in_ocu: The minimum indexing capacity for collections in the group.
+        :param pulumi.Input[_builtins.float] min_search_capacity_in_ocu: The minimum search capacity for collections in the group.
+        """
+        if max_indexing_capacity_in_ocu is not None:
+            pulumi.set(__self__, "max_indexing_capacity_in_ocu", max_indexing_capacity_in_ocu)
+        if max_search_capacity_in_ocu is not None:
+            pulumi.set(__self__, "max_search_capacity_in_ocu", max_search_capacity_in_ocu)
+        if min_indexing_capacity_in_ocu is not None:
+            pulumi.set(__self__, "min_indexing_capacity_in_ocu", min_indexing_capacity_in_ocu)
+        if min_search_capacity_in_ocu is not None:
+            pulumi.set(__self__, "min_search_capacity_in_ocu", min_search_capacity_in_ocu)
+
+    @_builtins.property
+    @pulumi.getter(name="maxIndexingCapacityInOcu")
+    def max_indexing_capacity_in_ocu(self) -> Optional[pulumi.Input[_builtins.float]]:
+        """
+        The maximum indexing capacity for collections in the group.
+        """
+        return pulumi.get(self, "max_indexing_capacity_in_ocu")
+
+    @max_indexing_capacity_in_ocu.setter
+    def max_indexing_capacity_in_ocu(self, value: Optional[pulumi.Input[_builtins.float]]):
+        pulumi.set(self, "max_indexing_capacity_in_ocu", value)
+
+    @_builtins.property
+    @pulumi.getter(name="maxSearchCapacityInOcu")
+    def max_search_capacity_in_ocu(self) -> Optional[pulumi.Input[_builtins.float]]:
+        """
+        The maximum search capacity for collections in the group.
+        """
+        return pulumi.get(self, "max_search_capacity_in_ocu")
+
+    @max_search_capacity_in_ocu.setter
+    def max_search_capacity_in_ocu(self, value: Optional[pulumi.Input[_builtins.float]]):
+        pulumi.set(self, "max_search_capacity_in_ocu", value)
+
+    @_builtins.property
+    @pulumi.getter(name="minIndexingCapacityInOcu")
+    def min_indexing_capacity_in_ocu(self) -> Optional[pulumi.Input[_builtins.float]]:
+        """
+        The minimum indexing capacity for collections in the group.
+        """
+        return pulumi.get(self, "min_indexing_capacity_in_ocu")
+
+    @min_indexing_capacity_in_ocu.setter
+    def min_indexing_capacity_in_ocu(self, value: Optional[pulumi.Input[_builtins.float]]):
+        pulumi.set(self, "min_indexing_capacity_in_ocu", value)
+
+    @_builtins.property
+    @pulumi.getter(name="minSearchCapacityInOcu")
+    def min_search_capacity_in_ocu(self) -> Optional[pulumi.Input[_builtins.float]]:
+        """
+        The minimum search capacity for collections in the group.
+        """
+        return pulumi.get(self, "min_search_capacity_in_ocu")
+
+    @min_search_capacity_in_ocu.setter
+    def min_search_capacity_in_ocu(self, value: Optional[pulumi.Input[_builtins.float]]):
+        pulumi.set(self, "min_search_capacity_in_ocu", value)
 
 
 class IndexPropertyMappingMethodPropertiesParametersPropertiesArgsDict(TypedDict):

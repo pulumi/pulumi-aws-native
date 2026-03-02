@@ -271,6 +271,99 @@ func (o BrowserCustomBrowserStatusPtrOutput) ToStringPtrOutputWithContext(ctx co
 	}).(pulumi.StringPtrOutput)
 }
 
+// Status of browser profile
+type BrowserProfileStatus string
+
+const (
+	BrowserProfileStatusReady    = BrowserProfileStatus("READY")
+	BrowserProfileStatusDeleting = BrowserProfileStatus("DELETING")
+	BrowserProfileStatusDeleted  = BrowserProfileStatus("DELETED")
+	BrowserProfileStatusSaving   = BrowserProfileStatus("SAVING")
+)
+
+type BrowserProfileStatusOutput struct{ *pulumi.OutputState }
+
+func (BrowserProfileStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BrowserProfileStatus)(nil)).Elem()
+}
+
+func (o BrowserProfileStatusOutput) ToBrowserProfileStatusOutput() BrowserProfileStatusOutput {
+	return o
+}
+
+func (o BrowserProfileStatusOutput) ToBrowserProfileStatusOutputWithContext(ctx context.Context) BrowserProfileStatusOutput {
+	return o
+}
+
+func (o BrowserProfileStatusOutput) ToBrowserProfileStatusPtrOutput() BrowserProfileStatusPtrOutput {
+	return o.ToBrowserProfileStatusPtrOutputWithContext(context.Background())
+}
+
+func (o BrowserProfileStatusOutput) ToBrowserProfileStatusPtrOutputWithContext(ctx context.Context) BrowserProfileStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BrowserProfileStatus) *BrowserProfileStatus {
+		return &v
+	}).(BrowserProfileStatusPtrOutput)
+}
+
+func (o BrowserProfileStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o BrowserProfileStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e BrowserProfileStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o BrowserProfileStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o BrowserProfileStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e BrowserProfileStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type BrowserProfileStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (BrowserProfileStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BrowserProfileStatus)(nil)).Elem()
+}
+
+func (o BrowserProfileStatusPtrOutput) ToBrowserProfileStatusPtrOutput() BrowserProfileStatusPtrOutput {
+	return o
+}
+
+func (o BrowserProfileStatusPtrOutput) ToBrowserProfileStatusPtrOutputWithContext(ctx context.Context) BrowserProfileStatusPtrOutput {
+	return o
+}
+
+func (o BrowserProfileStatusPtrOutput) Elem() BrowserProfileStatusOutput {
+	return o.ApplyT(func(v *BrowserProfileStatus) BrowserProfileStatus {
+		if v != nil {
+			return *v
+		}
+		var ret BrowserProfileStatus
+		return ret
+	}).(BrowserProfileStatusOutput)
+}
+
+func (o BrowserProfileStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o BrowserProfileStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *BrowserProfileStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
 // Network modes supported by code interpreter
 type CodeInterpreterCustomCodeInterpreterNetworkMode string
 
@@ -526,6 +619,267 @@ func (o CodeInterpreterCustomCodeInterpreterStatusPtrOutput) ToStringPtrOutput()
 
 func (o CodeInterpreterCustomCodeInterpreterStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return o.ApplyTWithContext(ctx, func(_ context.Context, e *CodeInterpreterCustomCodeInterpreterStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type EvaluatorLevel string
+
+const (
+	EvaluatorLevelToolCall = EvaluatorLevel("TOOL_CALL")
+	EvaluatorLevelTrace    = EvaluatorLevel("TRACE")
+	EvaluatorLevelSession  = EvaluatorLevel("SESSION")
+)
+
+func (EvaluatorLevel) ElementType() reflect.Type {
+	return reflect.TypeOf((*EvaluatorLevel)(nil)).Elem()
+}
+
+func (e EvaluatorLevel) ToEvaluatorLevelOutput() EvaluatorLevelOutput {
+	return pulumi.ToOutput(e).(EvaluatorLevelOutput)
+}
+
+func (e EvaluatorLevel) ToEvaluatorLevelOutputWithContext(ctx context.Context) EvaluatorLevelOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(EvaluatorLevelOutput)
+}
+
+func (e EvaluatorLevel) ToEvaluatorLevelPtrOutput() EvaluatorLevelPtrOutput {
+	return e.ToEvaluatorLevelPtrOutputWithContext(context.Background())
+}
+
+func (e EvaluatorLevel) ToEvaluatorLevelPtrOutputWithContext(ctx context.Context) EvaluatorLevelPtrOutput {
+	return EvaluatorLevel(e).ToEvaluatorLevelOutputWithContext(ctx).ToEvaluatorLevelPtrOutputWithContext(ctx)
+}
+
+func (e EvaluatorLevel) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e EvaluatorLevel) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e EvaluatorLevel) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e EvaluatorLevel) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type EvaluatorLevelOutput struct{ *pulumi.OutputState }
+
+func (EvaluatorLevelOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EvaluatorLevel)(nil)).Elem()
+}
+
+func (o EvaluatorLevelOutput) ToEvaluatorLevelOutput() EvaluatorLevelOutput {
+	return o
+}
+
+func (o EvaluatorLevelOutput) ToEvaluatorLevelOutputWithContext(ctx context.Context) EvaluatorLevelOutput {
+	return o
+}
+
+func (o EvaluatorLevelOutput) ToEvaluatorLevelPtrOutput() EvaluatorLevelPtrOutput {
+	return o.ToEvaluatorLevelPtrOutputWithContext(context.Background())
+}
+
+func (o EvaluatorLevelOutput) ToEvaluatorLevelPtrOutputWithContext(ctx context.Context) EvaluatorLevelPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EvaluatorLevel) *EvaluatorLevel {
+		return &v
+	}).(EvaluatorLevelPtrOutput)
+}
+
+func (o EvaluatorLevelOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o EvaluatorLevelOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e EvaluatorLevel) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o EvaluatorLevelOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o EvaluatorLevelOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e EvaluatorLevel) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type EvaluatorLevelPtrOutput struct{ *pulumi.OutputState }
+
+func (EvaluatorLevelPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EvaluatorLevel)(nil)).Elem()
+}
+
+func (o EvaluatorLevelPtrOutput) ToEvaluatorLevelPtrOutput() EvaluatorLevelPtrOutput {
+	return o
+}
+
+func (o EvaluatorLevelPtrOutput) ToEvaluatorLevelPtrOutputWithContext(ctx context.Context) EvaluatorLevelPtrOutput {
+	return o
+}
+
+func (o EvaluatorLevelPtrOutput) Elem() EvaluatorLevelOutput {
+	return o.ApplyT(func(v *EvaluatorLevel) EvaluatorLevel {
+		if v != nil {
+			return *v
+		}
+		var ret EvaluatorLevel
+		return ret
+	}).(EvaluatorLevelOutput)
+}
+
+func (o EvaluatorLevelPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o EvaluatorLevelPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *EvaluatorLevel) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// EvaluatorLevelInput is an input type that accepts values of the EvaluatorLevel enum
+// A concrete instance of `EvaluatorLevelInput` can be one of the following:
+//
+//	EvaluatorLevelToolCall
+//	EvaluatorLevelTrace
+//	EvaluatorLevelSession
+type EvaluatorLevelInput interface {
+	pulumi.Input
+
+	ToEvaluatorLevelOutput() EvaluatorLevelOutput
+	ToEvaluatorLevelOutputWithContext(context.Context) EvaluatorLevelOutput
+}
+
+var evaluatorLevelPtrType = reflect.TypeOf((**EvaluatorLevel)(nil)).Elem()
+
+type EvaluatorLevelPtrInput interface {
+	pulumi.Input
+
+	ToEvaluatorLevelPtrOutput() EvaluatorLevelPtrOutput
+	ToEvaluatorLevelPtrOutputWithContext(context.Context) EvaluatorLevelPtrOutput
+}
+
+type evaluatorLevelPtr string
+
+func EvaluatorLevelPtr(v string) EvaluatorLevelPtrInput {
+	return (*evaluatorLevelPtr)(&v)
+}
+
+func (*evaluatorLevelPtr) ElementType() reflect.Type {
+	return evaluatorLevelPtrType
+}
+
+func (in *evaluatorLevelPtr) ToEvaluatorLevelPtrOutput() EvaluatorLevelPtrOutput {
+	return pulumi.ToOutput(in).(EvaluatorLevelPtrOutput)
+}
+
+func (in *evaluatorLevelPtr) ToEvaluatorLevelPtrOutputWithContext(ctx context.Context) EvaluatorLevelPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(EvaluatorLevelPtrOutput)
+}
+
+type EvaluatorStatus string
+
+const (
+	EvaluatorStatusActive       = EvaluatorStatus("ACTIVE")
+	EvaluatorStatusCreating     = EvaluatorStatus("CREATING")
+	EvaluatorStatusCreateFailed = EvaluatorStatus("CREATE_FAILED")
+	EvaluatorStatusUpdating     = EvaluatorStatus("UPDATING")
+	EvaluatorStatusUpdateFailed = EvaluatorStatus("UPDATE_FAILED")
+	EvaluatorStatusDeleting     = EvaluatorStatus("DELETING")
+)
+
+type EvaluatorStatusOutput struct{ *pulumi.OutputState }
+
+func (EvaluatorStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EvaluatorStatus)(nil)).Elem()
+}
+
+func (o EvaluatorStatusOutput) ToEvaluatorStatusOutput() EvaluatorStatusOutput {
+	return o
+}
+
+func (o EvaluatorStatusOutput) ToEvaluatorStatusOutputWithContext(ctx context.Context) EvaluatorStatusOutput {
+	return o
+}
+
+func (o EvaluatorStatusOutput) ToEvaluatorStatusPtrOutput() EvaluatorStatusPtrOutput {
+	return o.ToEvaluatorStatusPtrOutputWithContext(context.Background())
+}
+
+func (o EvaluatorStatusOutput) ToEvaluatorStatusPtrOutputWithContext(ctx context.Context) EvaluatorStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EvaluatorStatus) *EvaluatorStatus {
+		return &v
+	}).(EvaluatorStatusPtrOutput)
+}
+
+func (o EvaluatorStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o EvaluatorStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e EvaluatorStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o EvaluatorStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o EvaluatorStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e EvaluatorStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type EvaluatorStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (EvaluatorStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EvaluatorStatus)(nil)).Elem()
+}
+
+func (o EvaluatorStatusPtrOutput) ToEvaluatorStatusPtrOutput() EvaluatorStatusPtrOutput {
+	return o
+}
+
+func (o EvaluatorStatusPtrOutput) ToEvaluatorStatusPtrOutputWithContext(ctx context.Context) EvaluatorStatusPtrOutput {
+	return o
+}
+
+func (o EvaluatorStatusPtrOutput) Elem() EvaluatorStatusOutput {
+	return o.ApplyT(func(v *EvaluatorStatus) EvaluatorStatus {
+		if v != nil {
+			return *v
+		}
+		var ret EvaluatorStatus
+		return ret
+	}).(EvaluatorStatusOutput)
+}
+
+func (o EvaluatorStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o EvaluatorStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *EvaluatorStatus) *string {
 		if e == nil {
 			return nil
 		}
@@ -4617,6 +4971,368 @@ func (in *memoryUserPreferenceMemoryStrategyTypePtr) ToMemoryUserPreferenceMemor
 	return pulumi.ToOutputWithContext(ctx, in).(MemoryUserPreferenceMemoryStrategyTypePtrOutput)
 }
 
+type OnlineEvaluationConfigExecutionStatus string
+
+const (
+	OnlineEvaluationConfigExecutionStatusEnabled  = OnlineEvaluationConfigExecutionStatus("ENABLED")
+	OnlineEvaluationConfigExecutionStatusDisabled = OnlineEvaluationConfigExecutionStatus("DISABLED")
+)
+
+type OnlineEvaluationConfigExecutionStatusOutput struct{ *pulumi.OutputState }
+
+func (OnlineEvaluationConfigExecutionStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OnlineEvaluationConfigExecutionStatus)(nil)).Elem()
+}
+
+func (o OnlineEvaluationConfigExecutionStatusOutput) ToOnlineEvaluationConfigExecutionStatusOutput() OnlineEvaluationConfigExecutionStatusOutput {
+	return o
+}
+
+func (o OnlineEvaluationConfigExecutionStatusOutput) ToOnlineEvaluationConfigExecutionStatusOutputWithContext(ctx context.Context) OnlineEvaluationConfigExecutionStatusOutput {
+	return o
+}
+
+func (o OnlineEvaluationConfigExecutionStatusOutput) ToOnlineEvaluationConfigExecutionStatusPtrOutput() OnlineEvaluationConfigExecutionStatusPtrOutput {
+	return o.ToOnlineEvaluationConfigExecutionStatusPtrOutputWithContext(context.Background())
+}
+
+func (o OnlineEvaluationConfigExecutionStatusOutput) ToOnlineEvaluationConfigExecutionStatusPtrOutputWithContext(ctx context.Context) OnlineEvaluationConfigExecutionStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OnlineEvaluationConfigExecutionStatus) *OnlineEvaluationConfigExecutionStatus {
+		return &v
+	}).(OnlineEvaluationConfigExecutionStatusPtrOutput)
+}
+
+func (o OnlineEvaluationConfigExecutionStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o OnlineEvaluationConfigExecutionStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e OnlineEvaluationConfigExecutionStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o OnlineEvaluationConfigExecutionStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o OnlineEvaluationConfigExecutionStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e OnlineEvaluationConfigExecutionStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type OnlineEvaluationConfigExecutionStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (OnlineEvaluationConfigExecutionStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OnlineEvaluationConfigExecutionStatus)(nil)).Elem()
+}
+
+func (o OnlineEvaluationConfigExecutionStatusPtrOutput) ToOnlineEvaluationConfigExecutionStatusPtrOutput() OnlineEvaluationConfigExecutionStatusPtrOutput {
+	return o
+}
+
+func (o OnlineEvaluationConfigExecutionStatusPtrOutput) ToOnlineEvaluationConfigExecutionStatusPtrOutputWithContext(ctx context.Context) OnlineEvaluationConfigExecutionStatusPtrOutput {
+	return o
+}
+
+func (o OnlineEvaluationConfigExecutionStatusPtrOutput) Elem() OnlineEvaluationConfigExecutionStatusOutput {
+	return o.ApplyT(func(v *OnlineEvaluationConfigExecutionStatus) OnlineEvaluationConfigExecutionStatus {
+		if v != nil {
+			return *v
+		}
+		var ret OnlineEvaluationConfigExecutionStatus
+		return ret
+	}).(OnlineEvaluationConfigExecutionStatusOutput)
+}
+
+func (o OnlineEvaluationConfigExecutionStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o OnlineEvaluationConfigExecutionStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *OnlineEvaluationConfigExecutionStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// The comparison operator to use for filtering.
+type OnlineEvaluationConfigFilterOperator string
+
+const (
+	OnlineEvaluationConfigFilterOperatorEquals             = OnlineEvaluationConfigFilterOperator("Equals")
+	OnlineEvaluationConfigFilterOperatorNotEquals          = OnlineEvaluationConfigFilterOperator("NotEquals")
+	OnlineEvaluationConfigFilterOperatorGreaterThan        = OnlineEvaluationConfigFilterOperator("GreaterThan")
+	OnlineEvaluationConfigFilterOperatorLessThan           = OnlineEvaluationConfigFilterOperator("LessThan")
+	OnlineEvaluationConfigFilterOperatorGreaterThanOrEqual = OnlineEvaluationConfigFilterOperator("GreaterThanOrEqual")
+	OnlineEvaluationConfigFilterOperatorLessThanOrEqual    = OnlineEvaluationConfigFilterOperator("LessThanOrEqual")
+	OnlineEvaluationConfigFilterOperatorContains           = OnlineEvaluationConfigFilterOperator("Contains")
+	OnlineEvaluationConfigFilterOperatorNotContains        = OnlineEvaluationConfigFilterOperator("NotContains")
+)
+
+func (OnlineEvaluationConfigFilterOperator) ElementType() reflect.Type {
+	return reflect.TypeOf((*OnlineEvaluationConfigFilterOperator)(nil)).Elem()
+}
+
+func (e OnlineEvaluationConfigFilterOperator) ToOnlineEvaluationConfigFilterOperatorOutput() OnlineEvaluationConfigFilterOperatorOutput {
+	return pulumi.ToOutput(e).(OnlineEvaluationConfigFilterOperatorOutput)
+}
+
+func (e OnlineEvaluationConfigFilterOperator) ToOnlineEvaluationConfigFilterOperatorOutputWithContext(ctx context.Context) OnlineEvaluationConfigFilterOperatorOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(OnlineEvaluationConfigFilterOperatorOutput)
+}
+
+func (e OnlineEvaluationConfigFilterOperator) ToOnlineEvaluationConfigFilterOperatorPtrOutput() OnlineEvaluationConfigFilterOperatorPtrOutput {
+	return e.ToOnlineEvaluationConfigFilterOperatorPtrOutputWithContext(context.Background())
+}
+
+func (e OnlineEvaluationConfigFilterOperator) ToOnlineEvaluationConfigFilterOperatorPtrOutputWithContext(ctx context.Context) OnlineEvaluationConfigFilterOperatorPtrOutput {
+	return OnlineEvaluationConfigFilterOperator(e).ToOnlineEvaluationConfigFilterOperatorOutputWithContext(ctx).ToOnlineEvaluationConfigFilterOperatorPtrOutputWithContext(ctx)
+}
+
+func (e OnlineEvaluationConfigFilterOperator) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e OnlineEvaluationConfigFilterOperator) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e OnlineEvaluationConfigFilterOperator) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e OnlineEvaluationConfigFilterOperator) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type OnlineEvaluationConfigFilterOperatorOutput struct{ *pulumi.OutputState }
+
+func (OnlineEvaluationConfigFilterOperatorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OnlineEvaluationConfigFilterOperator)(nil)).Elem()
+}
+
+func (o OnlineEvaluationConfigFilterOperatorOutput) ToOnlineEvaluationConfigFilterOperatorOutput() OnlineEvaluationConfigFilterOperatorOutput {
+	return o
+}
+
+func (o OnlineEvaluationConfigFilterOperatorOutput) ToOnlineEvaluationConfigFilterOperatorOutputWithContext(ctx context.Context) OnlineEvaluationConfigFilterOperatorOutput {
+	return o
+}
+
+func (o OnlineEvaluationConfigFilterOperatorOutput) ToOnlineEvaluationConfigFilterOperatorPtrOutput() OnlineEvaluationConfigFilterOperatorPtrOutput {
+	return o.ToOnlineEvaluationConfigFilterOperatorPtrOutputWithContext(context.Background())
+}
+
+func (o OnlineEvaluationConfigFilterOperatorOutput) ToOnlineEvaluationConfigFilterOperatorPtrOutputWithContext(ctx context.Context) OnlineEvaluationConfigFilterOperatorPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OnlineEvaluationConfigFilterOperator) *OnlineEvaluationConfigFilterOperator {
+		return &v
+	}).(OnlineEvaluationConfigFilterOperatorPtrOutput)
+}
+
+func (o OnlineEvaluationConfigFilterOperatorOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o OnlineEvaluationConfigFilterOperatorOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e OnlineEvaluationConfigFilterOperator) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o OnlineEvaluationConfigFilterOperatorOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o OnlineEvaluationConfigFilterOperatorOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e OnlineEvaluationConfigFilterOperator) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type OnlineEvaluationConfigFilterOperatorPtrOutput struct{ *pulumi.OutputState }
+
+func (OnlineEvaluationConfigFilterOperatorPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OnlineEvaluationConfigFilterOperator)(nil)).Elem()
+}
+
+func (o OnlineEvaluationConfigFilterOperatorPtrOutput) ToOnlineEvaluationConfigFilterOperatorPtrOutput() OnlineEvaluationConfigFilterOperatorPtrOutput {
+	return o
+}
+
+func (o OnlineEvaluationConfigFilterOperatorPtrOutput) ToOnlineEvaluationConfigFilterOperatorPtrOutputWithContext(ctx context.Context) OnlineEvaluationConfigFilterOperatorPtrOutput {
+	return o
+}
+
+func (o OnlineEvaluationConfigFilterOperatorPtrOutput) Elem() OnlineEvaluationConfigFilterOperatorOutput {
+	return o.ApplyT(func(v *OnlineEvaluationConfigFilterOperator) OnlineEvaluationConfigFilterOperator {
+		if v != nil {
+			return *v
+		}
+		var ret OnlineEvaluationConfigFilterOperator
+		return ret
+	}).(OnlineEvaluationConfigFilterOperatorOutput)
+}
+
+func (o OnlineEvaluationConfigFilterOperatorPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o OnlineEvaluationConfigFilterOperatorPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *OnlineEvaluationConfigFilterOperator) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// OnlineEvaluationConfigFilterOperatorInput is an input type that accepts values of the OnlineEvaluationConfigFilterOperator enum
+// A concrete instance of `OnlineEvaluationConfigFilterOperatorInput` can be one of the following:
+//
+//	OnlineEvaluationConfigFilterOperatorEquals
+//	OnlineEvaluationConfigFilterOperatorNotEquals
+//	OnlineEvaluationConfigFilterOperatorGreaterThan
+//	OnlineEvaluationConfigFilterOperatorLessThan
+//	OnlineEvaluationConfigFilterOperatorGreaterThanOrEqual
+//	OnlineEvaluationConfigFilterOperatorLessThanOrEqual
+//	OnlineEvaluationConfigFilterOperatorContains
+//	OnlineEvaluationConfigFilterOperatorNotContains
+type OnlineEvaluationConfigFilterOperatorInput interface {
+	pulumi.Input
+
+	ToOnlineEvaluationConfigFilterOperatorOutput() OnlineEvaluationConfigFilterOperatorOutput
+	ToOnlineEvaluationConfigFilterOperatorOutputWithContext(context.Context) OnlineEvaluationConfigFilterOperatorOutput
+}
+
+var onlineEvaluationConfigFilterOperatorPtrType = reflect.TypeOf((**OnlineEvaluationConfigFilterOperator)(nil)).Elem()
+
+type OnlineEvaluationConfigFilterOperatorPtrInput interface {
+	pulumi.Input
+
+	ToOnlineEvaluationConfigFilterOperatorPtrOutput() OnlineEvaluationConfigFilterOperatorPtrOutput
+	ToOnlineEvaluationConfigFilterOperatorPtrOutputWithContext(context.Context) OnlineEvaluationConfigFilterOperatorPtrOutput
+}
+
+type onlineEvaluationConfigFilterOperatorPtr string
+
+func OnlineEvaluationConfigFilterOperatorPtr(v string) OnlineEvaluationConfigFilterOperatorPtrInput {
+	return (*onlineEvaluationConfigFilterOperatorPtr)(&v)
+}
+
+func (*onlineEvaluationConfigFilterOperatorPtr) ElementType() reflect.Type {
+	return onlineEvaluationConfigFilterOperatorPtrType
+}
+
+func (in *onlineEvaluationConfigFilterOperatorPtr) ToOnlineEvaluationConfigFilterOperatorPtrOutput() OnlineEvaluationConfigFilterOperatorPtrOutput {
+	return pulumi.ToOutput(in).(OnlineEvaluationConfigFilterOperatorPtrOutput)
+}
+
+func (in *onlineEvaluationConfigFilterOperatorPtr) ToOnlineEvaluationConfigFilterOperatorPtrOutputWithContext(ctx context.Context) OnlineEvaluationConfigFilterOperatorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(OnlineEvaluationConfigFilterOperatorPtrOutput)
+}
+
+type OnlineEvaluationConfigStatus string
+
+const (
+	OnlineEvaluationConfigStatusActive       = OnlineEvaluationConfigStatus("ACTIVE")
+	OnlineEvaluationConfigStatusCreating     = OnlineEvaluationConfigStatus("CREATING")
+	OnlineEvaluationConfigStatusCreateFailed = OnlineEvaluationConfigStatus("CREATE_FAILED")
+	OnlineEvaluationConfigStatusUpdating     = OnlineEvaluationConfigStatus("UPDATING")
+	OnlineEvaluationConfigStatusUpdateFailed = OnlineEvaluationConfigStatus("UPDATE_FAILED")
+	OnlineEvaluationConfigStatusDeleting     = OnlineEvaluationConfigStatus("DELETING")
+)
+
+type OnlineEvaluationConfigStatusOutput struct{ *pulumi.OutputState }
+
+func (OnlineEvaluationConfigStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OnlineEvaluationConfigStatus)(nil)).Elem()
+}
+
+func (o OnlineEvaluationConfigStatusOutput) ToOnlineEvaluationConfigStatusOutput() OnlineEvaluationConfigStatusOutput {
+	return o
+}
+
+func (o OnlineEvaluationConfigStatusOutput) ToOnlineEvaluationConfigStatusOutputWithContext(ctx context.Context) OnlineEvaluationConfigStatusOutput {
+	return o
+}
+
+func (o OnlineEvaluationConfigStatusOutput) ToOnlineEvaluationConfigStatusPtrOutput() OnlineEvaluationConfigStatusPtrOutput {
+	return o.ToOnlineEvaluationConfigStatusPtrOutputWithContext(context.Background())
+}
+
+func (o OnlineEvaluationConfigStatusOutput) ToOnlineEvaluationConfigStatusPtrOutputWithContext(ctx context.Context) OnlineEvaluationConfigStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OnlineEvaluationConfigStatus) *OnlineEvaluationConfigStatus {
+		return &v
+	}).(OnlineEvaluationConfigStatusPtrOutput)
+}
+
+func (o OnlineEvaluationConfigStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o OnlineEvaluationConfigStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e OnlineEvaluationConfigStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o OnlineEvaluationConfigStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o OnlineEvaluationConfigStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e OnlineEvaluationConfigStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type OnlineEvaluationConfigStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (OnlineEvaluationConfigStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OnlineEvaluationConfigStatus)(nil)).Elem()
+}
+
+func (o OnlineEvaluationConfigStatusPtrOutput) ToOnlineEvaluationConfigStatusPtrOutput() OnlineEvaluationConfigStatusPtrOutput {
+	return o
+}
+
+func (o OnlineEvaluationConfigStatusPtrOutput) ToOnlineEvaluationConfigStatusPtrOutputWithContext(ctx context.Context) OnlineEvaluationConfigStatusPtrOutput {
+	return o
+}
+
+func (o OnlineEvaluationConfigStatusPtrOutput) Elem() OnlineEvaluationConfigStatusOutput {
+	return o.ApplyT(func(v *OnlineEvaluationConfigStatus) OnlineEvaluationConfigStatus {
+		if v != nil {
+			return *v
+		}
+		var ret OnlineEvaluationConfigStatus
+		return ret
+	}).(OnlineEvaluationConfigStatusOutput)
+}
+
+func (o OnlineEvaluationConfigStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o OnlineEvaluationConfigStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *OnlineEvaluationConfigStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
 // Managed runtime types
 type RuntimeAgentManagedRuntimeType string
 
@@ -5647,6 +6363,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BrowserCustomBrowserNetworkModePtrInput)(nil)).Elem(), BrowserCustomBrowserNetworkMode("PUBLIC"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CodeInterpreterCustomCodeInterpreterNetworkModeInput)(nil)).Elem(), CodeInterpreterCustomCodeInterpreterNetworkMode("PUBLIC"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CodeInterpreterCustomCodeInterpreterNetworkModePtrInput)(nil)).Elem(), CodeInterpreterCustomCodeInterpreterNetworkMode("PUBLIC"))
+	pulumi.RegisterInputType(reflect.TypeOf((*EvaluatorLevelInput)(nil)).Elem(), EvaluatorLevel("TOOL_CALL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*EvaluatorLevelPtrInput)(nil)).Elem(), EvaluatorLevel("TOOL_CALL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayAuthorizerTypeInput)(nil)).Elem(), GatewayAuthorizerType("CUSTOM_JWT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayAuthorizerTypePtrInput)(nil)).Elem(), GatewayAuthorizerType("CUSTOM_JWT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayClaimMatchOperatorInput)(nil)).Elem(), GatewayClaimMatchOperator("EQUALS"))
@@ -5693,6 +6411,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MemoryUserPreferenceMemoryStrategyStatusPtrInput)(nil)).Elem(), MemoryUserPreferenceMemoryStrategyStatus("CREATING"))
 	pulumi.RegisterInputType(reflect.TypeOf((*MemoryUserPreferenceMemoryStrategyTypeInput)(nil)).Elem(), MemoryUserPreferenceMemoryStrategyType("SEMANTIC"))
 	pulumi.RegisterInputType(reflect.TypeOf((*MemoryUserPreferenceMemoryStrategyTypePtrInput)(nil)).Elem(), MemoryUserPreferenceMemoryStrategyType("SEMANTIC"))
+	pulumi.RegisterInputType(reflect.TypeOf((*OnlineEvaluationConfigFilterOperatorInput)(nil)).Elem(), OnlineEvaluationConfigFilterOperator("Equals"))
+	pulumi.RegisterInputType(reflect.TypeOf((*OnlineEvaluationConfigFilterOperatorPtrInput)(nil)).Elem(), OnlineEvaluationConfigFilterOperator("Equals"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeAgentManagedRuntimeTypeInput)(nil)).Elem(), RuntimeAgentManagedRuntimeType("PYTHON_3_10"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeAgentManagedRuntimeTypePtrInput)(nil)).Elem(), RuntimeAgentManagedRuntimeType("PYTHON_3_10"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeClaimMatchOperatorInput)(nil)).Elem(), RuntimeClaimMatchOperator("EQUALS"))
@@ -5707,10 +6427,16 @@ func init() {
 	pulumi.RegisterOutputType(BrowserCustomBrowserNetworkModePtrOutput{})
 	pulumi.RegisterOutputType(BrowserCustomBrowserStatusOutput{})
 	pulumi.RegisterOutputType(BrowserCustomBrowserStatusPtrOutput{})
+	pulumi.RegisterOutputType(BrowserProfileStatusOutput{})
+	pulumi.RegisterOutputType(BrowserProfileStatusPtrOutput{})
 	pulumi.RegisterOutputType(CodeInterpreterCustomCodeInterpreterNetworkModeOutput{})
 	pulumi.RegisterOutputType(CodeInterpreterCustomCodeInterpreterNetworkModePtrOutput{})
 	pulumi.RegisterOutputType(CodeInterpreterCustomCodeInterpreterStatusOutput{})
 	pulumi.RegisterOutputType(CodeInterpreterCustomCodeInterpreterStatusPtrOutput{})
+	pulumi.RegisterOutputType(EvaluatorLevelOutput{})
+	pulumi.RegisterOutputType(EvaluatorLevelPtrOutput{})
+	pulumi.RegisterOutputType(EvaluatorStatusOutput{})
+	pulumi.RegisterOutputType(EvaluatorStatusPtrOutput{})
 	pulumi.RegisterOutputType(GatewayAuthorizerTypeOutput{})
 	pulumi.RegisterOutputType(GatewayAuthorizerTypePtrOutput{})
 	pulumi.RegisterOutputType(GatewayClaimMatchOperatorOutput{})
@@ -5763,6 +6489,12 @@ func init() {
 	pulumi.RegisterOutputType(MemoryUserPreferenceMemoryStrategyStatusPtrOutput{})
 	pulumi.RegisterOutputType(MemoryUserPreferenceMemoryStrategyTypeOutput{})
 	pulumi.RegisterOutputType(MemoryUserPreferenceMemoryStrategyTypePtrOutput{})
+	pulumi.RegisterOutputType(OnlineEvaluationConfigExecutionStatusOutput{})
+	pulumi.RegisterOutputType(OnlineEvaluationConfigExecutionStatusPtrOutput{})
+	pulumi.RegisterOutputType(OnlineEvaluationConfigFilterOperatorOutput{})
+	pulumi.RegisterOutputType(OnlineEvaluationConfigFilterOperatorPtrOutput{})
+	pulumi.RegisterOutputType(OnlineEvaluationConfigStatusOutput{})
+	pulumi.RegisterOutputType(OnlineEvaluationConfigStatusPtrOutput{})
 	pulumi.RegisterOutputType(RuntimeAgentManagedRuntimeTypeOutput{})
 	pulumi.RegisterOutputType(RuntimeAgentManagedRuntimeTypePtrOutput{})
 	pulumi.RegisterOutputType(RuntimeAgentStatusOutput{})

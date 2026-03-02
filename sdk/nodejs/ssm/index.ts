@@ -25,6 +25,11 @@ export const getDocument: typeof import("./getDocument").getDocument = null as a
 export const getDocumentOutput: typeof import("./getDocument").getDocumentOutput = null as any;
 utilities.lazyLoad(exports, ["getDocument","getDocumentOutput"], () => require("./getDocument"));
 
+export { GetMaintenanceWindowArgs, GetMaintenanceWindowResult, GetMaintenanceWindowOutputArgs } from "./getMaintenanceWindow";
+export const getMaintenanceWindow: typeof import("./getMaintenanceWindow").getMaintenanceWindow = null as any;
+export const getMaintenanceWindowOutput: typeof import("./getMaintenanceWindow").getMaintenanceWindowOutput = null as any;
+utilities.lazyLoad(exports, ["getMaintenanceWindow","getMaintenanceWindowOutput"], () => require("./getMaintenanceWindow"));
+
 export { GetMaintenanceWindowTargetArgs, GetMaintenanceWindowTargetResult, GetMaintenanceWindowTargetOutputArgs } from "./getMaintenanceWindowTarget";
 export const getMaintenanceWindowTarget: typeof import("./getMaintenanceWindowTarget").getMaintenanceWindowTarget = null as any;
 export const getMaintenanceWindowTargetOutput: typeof import("./getMaintenanceWindowTarget").getMaintenanceWindowTargetOutput = null as any;
@@ -54,6 +59,11 @@ export { GetResourcePolicyArgs, GetResourcePolicyResult, GetResourcePolicyOutput
 export const getResourcePolicy: typeof import("./getResourcePolicy").getResourcePolicy = null as any;
 export const getResourcePolicyOutput: typeof import("./getResourcePolicy").getResourcePolicyOutput = null as any;
 utilities.lazyLoad(exports, ["getResourcePolicy","getResourcePolicyOutput"], () => require("./getResourcePolicy"));
+
+export { MaintenanceWindowArgs } from "./maintenanceWindow";
+export type MaintenanceWindow = import("./maintenanceWindow").MaintenanceWindow;
+export const MaintenanceWindow: typeof import("./maintenanceWindow").MaintenanceWindow = null as any;
+utilities.lazyLoad(exports, ["MaintenanceWindow"], () => require("./maintenanceWindow"));
 
 export { MaintenanceWindowTargetArgs } from "./maintenanceWindowTarget";
 export type MaintenanceWindowTarget = import("./maintenanceWindowTarget").MaintenanceWindowTarget;
@@ -97,6 +107,8 @@ const _module = {
                 return new Association(name, <any>undefined, { urn })
             case "aws-native:ssm:Document":
                 return new Document(name, <any>undefined, { urn })
+            case "aws-native:ssm:MaintenanceWindow":
+                return new MaintenanceWindow(name, <any>undefined, { urn })
             case "aws-native:ssm:MaintenanceWindowTarget":
                 return new MaintenanceWindowTarget(name, <any>undefined, { urn })
             case "aws-native:ssm:MaintenanceWindowTask":

@@ -46,6 +46,7 @@ import * as codestarconnections from "./codestarconnections";
 import * as codestarnotifications from "./codestarnotifications";
 import * as cognito from "./cognito";
 import * as comprehend from "./comprehend";
+import * as computeoptimizer from "./computeoptimizer";
 import * as connect from "./connect";
 import * as connectcampaignsv2 from "./connectcampaignsv2";
 import * as controltower from "./controltower";
@@ -241,6 +242,7 @@ export {
     codestarnotifications,
     cognito,
     comprehend,
+    computeoptimizer,
     connect,
     connectcampaignsv2,
     controltower,

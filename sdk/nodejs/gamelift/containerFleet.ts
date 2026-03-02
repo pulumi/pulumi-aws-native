@@ -124,6 +124,10 @@ export class ContainerFleet extends pulumi.CustomResource {
      */
     declare public readonly perInstanceContainerGroupDefinitionName: pulumi.Output<string | undefined>;
     /**
+     * The player gateway mode for the container fleet.
+     */
+    declare public readonly playerGatewayMode: pulumi.Output<enums.gamelift.ContainerFleetPlayerGatewayMode | undefined>;
+    /**
      * A list of rules that control how a fleet is scaled.
      */
     declare public readonly scalingPolicies: pulumi.Output<outputs.gamelift.ContainerFleetScalingPolicy[] | undefined>;
@@ -165,6 +169,7 @@ export class ContainerFleet extends pulumi.CustomResource {
             resourceInputs["metricGroups"] = args?.metricGroups;
             resourceInputs["newGameSessionProtectionPolicy"] = args?.newGameSessionProtectionPolicy;
             resourceInputs["perInstanceContainerGroupDefinitionName"] = args?.perInstanceContainerGroupDefinitionName;
+            resourceInputs["playerGatewayMode"] = args?.playerGatewayMode;
             resourceInputs["scalingPolicies"] = args?.scalingPolicies;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["creationTime"] = undefined /*out*/;
@@ -198,12 +203,13 @@ export class ContainerFleet extends pulumi.CustomResource {
             resourceInputs["newGameSessionProtectionPolicy"] = undefined /*out*/;
             resourceInputs["perInstanceContainerGroupDefinitionArn"] = undefined /*out*/;
             resourceInputs["perInstanceContainerGroupDefinitionName"] = undefined /*out*/;
+            resourceInputs["playerGatewayMode"] = undefined /*out*/;
             resourceInputs["scalingPolicies"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["billingType", "instanceType"] };
+        const replaceOnChanges = { replaceOnChanges: ["billingType", "instanceType", "playerGatewayMode"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(ContainerFleet.__pulumiType, name, resourceInputs, opts);
     }
@@ -274,6 +280,10 @@ export interface ContainerFleetArgs {
      * The name of the container group definition that will be created per instance. This field is optional if you specify GameServerContainerGroupDefinitionName.
      */
     perInstanceContainerGroupDefinitionName?: pulumi.Input<string>;
+    /**
+     * The player gateway mode for the container fleet.
+     */
+    playerGatewayMode?: pulumi.Input<enums.gamelift.ContainerFleetPlayerGatewayMode>;
     /**
      * A list of rules that control how a fleet is scaled.
      */

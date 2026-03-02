@@ -348,6 +348,173 @@ func (in *capacityProviderAutoScalingGroupProviderManagedTerminationProtectionPt
 	return pulumi.ToOutputWithContext(ctx, in).(CapacityProviderAutoScalingGroupProviderManagedTerminationProtectionPtrOutput)
 }
 
+type CapacityProviderCapacityReservationRequestReservationPreference string
+
+const (
+	CapacityProviderCapacityReservationRequestReservationPreferenceReservationsOnly     = CapacityProviderCapacityReservationRequestReservationPreference("RESERVATIONS_ONLY")
+	CapacityProviderCapacityReservationRequestReservationPreferenceReservationsFirst    = CapacityProviderCapacityReservationRequestReservationPreference("RESERVATIONS_FIRST")
+	CapacityProviderCapacityReservationRequestReservationPreferenceReservationsExcluded = CapacityProviderCapacityReservationRequestReservationPreference("RESERVATIONS_EXCLUDED")
+)
+
+func (CapacityProviderCapacityReservationRequestReservationPreference) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityProviderCapacityReservationRequestReservationPreference)(nil)).Elem()
+}
+
+func (e CapacityProviderCapacityReservationRequestReservationPreference) ToCapacityProviderCapacityReservationRequestReservationPreferenceOutput() CapacityProviderCapacityReservationRequestReservationPreferenceOutput {
+	return pulumi.ToOutput(e).(CapacityProviderCapacityReservationRequestReservationPreferenceOutput)
+}
+
+func (e CapacityProviderCapacityReservationRequestReservationPreference) ToCapacityProviderCapacityReservationRequestReservationPreferenceOutputWithContext(ctx context.Context) CapacityProviderCapacityReservationRequestReservationPreferenceOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(CapacityProviderCapacityReservationRequestReservationPreferenceOutput)
+}
+
+func (e CapacityProviderCapacityReservationRequestReservationPreference) ToCapacityProviderCapacityReservationRequestReservationPreferencePtrOutput() CapacityProviderCapacityReservationRequestReservationPreferencePtrOutput {
+	return e.ToCapacityProviderCapacityReservationRequestReservationPreferencePtrOutputWithContext(context.Background())
+}
+
+func (e CapacityProviderCapacityReservationRequestReservationPreference) ToCapacityProviderCapacityReservationRequestReservationPreferencePtrOutputWithContext(ctx context.Context) CapacityProviderCapacityReservationRequestReservationPreferencePtrOutput {
+	return CapacityProviderCapacityReservationRequestReservationPreference(e).ToCapacityProviderCapacityReservationRequestReservationPreferenceOutputWithContext(ctx).ToCapacityProviderCapacityReservationRequestReservationPreferencePtrOutputWithContext(ctx)
+}
+
+func (e CapacityProviderCapacityReservationRequestReservationPreference) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e CapacityProviderCapacityReservationRequestReservationPreference) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e CapacityProviderCapacityReservationRequestReservationPreference) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e CapacityProviderCapacityReservationRequestReservationPreference) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type CapacityProviderCapacityReservationRequestReservationPreferenceOutput struct{ *pulumi.OutputState }
+
+func (CapacityProviderCapacityReservationRequestReservationPreferenceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityProviderCapacityReservationRequestReservationPreference)(nil)).Elem()
+}
+
+func (o CapacityProviderCapacityReservationRequestReservationPreferenceOutput) ToCapacityProviderCapacityReservationRequestReservationPreferenceOutput() CapacityProviderCapacityReservationRequestReservationPreferenceOutput {
+	return o
+}
+
+func (o CapacityProviderCapacityReservationRequestReservationPreferenceOutput) ToCapacityProviderCapacityReservationRequestReservationPreferenceOutputWithContext(ctx context.Context) CapacityProviderCapacityReservationRequestReservationPreferenceOutput {
+	return o
+}
+
+func (o CapacityProviderCapacityReservationRequestReservationPreferenceOutput) ToCapacityProviderCapacityReservationRequestReservationPreferencePtrOutput() CapacityProviderCapacityReservationRequestReservationPreferencePtrOutput {
+	return o.ToCapacityProviderCapacityReservationRequestReservationPreferencePtrOutputWithContext(context.Background())
+}
+
+func (o CapacityProviderCapacityReservationRequestReservationPreferenceOutput) ToCapacityProviderCapacityReservationRequestReservationPreferencePtrOutputWithContext(ctx context.Context) CapacityProviderCapacityReservationRequestReservationPreferencePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CapacityProviderCapacityReservationRequestReservationPreference) *CapacityProviderCapacityReservationRequestReservationPreference {
+		return &v
+	}).(CapacityProviderCapacityReservationRequestReservationPreferencePtrOutput)
+}
+
+func (o CapacityProviderCapacityReservationRequestReservationPreferenceOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o CapacityProviderCapacityReservationRequestReservationPreferenceOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CapacityProviderCapacityReservationRequestReservationPreference) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o CapacityProviderCapacityReservationRequestReservationPreferenceOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CapacityProviderCapacityReservationRequestReservationPreferenceOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CapacityProviderCapacityReservationRequestReservationPreference) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type CapacityProviderCapacityReservationRequestReservationPreferencePtrOutput struct{ *pulumi.OutputState }
+
+func (CapacityProviderCapacityReservationRequestReservationPreferencePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CapacityProviderCapacityReservationRequestReservationPreference)(nil)).Elem()
+}
+
+func (o CapacityProviderCapacityReservationRequestReservationPreferencePtrOutput) ToCapacityProviderCapacityReservationRequestReservationPreferencePtrOutput() CapacityProviderCapacityReservationRequestReservationPreferencePtrOutput {
+	return o
+}
+
+func (o CapacityProviderCapacityReservationRequestReservationPreferencePtrOutput) ToCapacityProviderCapacityReservationRequestReservationPreferencePtrOutputWithContext(ctx context.Context) CapacityProviderCapacityReservationRequestReservationPreferencePtrOutput {
+	return o
+}
+
+func (o CapacityProviderCapacityReservationRequestReservationPreferencePtrOutput) Elem() CapacityProviderCapacityReservationRequestReservationPreferenceOutput {
+	return o.ApplyT(func(v *CapacityProviderCapacityReservationRequestReservationPreference) CapacityProviderCapacityReservationRequestReservationPreference {
+		if v != nil {
+			return *v
+		}
+		var ret CapacityProviderCapacityReservationRequestReservationPreference
+		return ret
+	}).(CapacityProviderCapacityReservationRequestReservationPreferenceOutput)
+}
+
+func (o CapacityProviderCapacityReservationRequestReservationPreferencePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CapacityProviderCapacityReservationRequestReservationPreferencePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *CapacityProviderCapacityReservationRequestReservationPreference) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// CapacityProviderCapacityReservationRequestReservationPreferenceInput is an input type that accepts values of the CapacityProviderCapacityReservationRequestReservationPreference enum
+// A concrete instance of `CapacityProviderCapacityReservationRequestReservationPreferenceInput` can be one of the following:
+//
+//	CapacityProviderCapacityReservationRequestReservationPreferenceReservationsOnly
+//	CapacityProviderCapacityReservationRequestReservationPreferenceReservationsFirst
+//	CapacityProviderCapacityReservationRequestReservationPreferenceReservationsExcluded
+type CapacityProviderCapacityReservationRequestReservationPreferenceInput interface {
+	pulumi.Input
+
+	ToCapacityProviderCapacityReservationRequestReservationPreferenceOutput() CapacityProviderCapacityReservationRequestReservationPreferenceOutput
+	ToCapacityProviderCapacityReservationRequestReservationPreferenceOutputWithContext(context.Context) CapacityProviderCapacityReservationRequestReservationPreferenceOutput
+}
+
+var capacityProviderCapacityReservationRequestReservationPreferencePtrType = reflect.TypeOf((**CapacityProviderCapacityReservationRequestReservationPreference)(nil)).Elem()
+
+type CapacityProviderCapacityReservationRequestReservationPreferencePtrInput interface {
+	pulumi.Input
+
+	ToCapacityProviderCapacityReservationRequestReservationPreferencePtrOutput() CapacityProviderCapacityReservationRequestReservationPreferencePtrOutput
+	ToCapacityProviderCapacityReservationRequestReservationPreferencePtrOutputWithContext(context.Context) CapacityProviderCapacityReservationRequestReservationPreferencePtrOutput
+}
+
+type capacityProviderCapacityReservationRequestReservationPreferencePtr string
+
+func CapacityProviderCapacityReservationRequestReservationPreferencePtr(v string) CapacityProviderCapacityReservationRequestReservationPreferencePtrInput {
+	return (*capacityProviderCapacityReservationRequestReservationPreferencePtr)(&v)
+}
+
+func (*capacityProviderCapacityReservationRequestReservationPreferencePtr) ElementType() reflect.Type {
+	return capacityProviderCapacityReservationRequestReservationPreferencePtrType
+}
+
+func (in *capacityProviderCapacityReservationRequestReservationPreferencePtr) ToCapacityProviderCapacityReservationRequestReservationPreferencePtrOutput() CapacityProviderCapacityReservationRequestReservationPreferencePtrOutput {
+	return pulumi.ToOutput(in).(CapacityProviderCapacityReservationRequestReservationPreferencePtrOutput)
+}
+
+func (in *capacityProviderCapacityReservationRequestReservationPreferencePtr) ToCapacityProviderCapacityReservationRequestReservationPreferencePtrOutputWithContext(ctx context.Context) CapacityProviderCapacityReservationRequestReservationPreferencePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(CapacityProviderCapacityReservationRequestReservationPreferencePtrOutput)
+}
+
 // The capacity option type. This determines whether Amazon ECS launches On-Demand or Spot Instances for your managed instance capacity provider.
 //
 // Valid values are:
@@ -363,6 +530,7 @@ type CapacityProviderInstanceLaunchTemplateCapacityOptionType string
 const (
 	CapacityProviderInstanceLaunchTemplateCapacityOptionTypeOnDemand = CapacityProviderInstanceLaunchTemplateCapacityOptionType("ON_DEMAND")
 	CapacityProviderInstanceLaunchTemplateCapacityOptionTypeSpot     = CapacityProviderInstanceLaunchTemplateCapacityOptionType("SPOT")
+	CapacityProviderInstanceLaunchTemplateCapacityOptionTypeReserved = CapacityProviderInstanceLaunchTemplateCapacityOptionType("RESERVED")
 )
 
 func (CapacityProviderInstanceLaunchTemplateCapacityOptionType) ElementType() reflect.Type {
@@ -489,6 +657,7 @@ func (o CapacityProviderInstanceLaunchTemplateCapacityOptionTypePtrOutput) ToStr
 //
 //	CapacityProviderInstanceLaunchTemplateCapacityOptionTypeOnDemand
 //	CapacityProviderInstanceLaunchTemplateCapacityOptionTypeSpot
+//	CapacityProviderInstanceLaunchTemplateCapacityOptionTypeReserved
 type CapacityProviderInstanceLaunchTemplateCapacityOptionTypeInput interface {
 	pulumi.Input
 
@@ -6792,6 +6961,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderAutoScalingGroupProviderManagedDrainingPtrInput)(nil)).Elem(), CapacityProviderAutoScalingGroupProviderManagedDraining("DISABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderAutoScalingGroupProviderManagedTerminationProtectionInput)(nil)).Elem(), CapacityProviderAutoScalingGroupProviderManagedTerminationProtection("DISABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderAutoScalingGroupProviderManagedTerminationProtectionPtrInput)(nil)).Elem(), CapacityProviderAutoScalingGroupProviderManagedTerminationProtection("DISABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderCapacityReservationRequestReservationPreferenceInput)(nil)).Elem(), CapacityProviderCapacityReservationRequestReservationPreference("RESERVATIONS_ONLY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderCapacityReservationRequestReservationPreferencePtrInput)(nil)).Elem(), CapacityProviderCapacityReservationRequestReservationPreference("RESERVATIONS_ONLY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderInstanceLaunchTemplateCapacityOptionTypeInput)(nil)).Elem(), CapacityProviderInstanceLaunchTemplateCapacityOptionType("ON_DEMAND"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderInstanceLaunchTemplateCapacityOptionTypePtrInput)(nil)).Elem(), CapacityProviderInstanceLaunchTemplateCapacityOptionType("ON_DEMAND"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderInstanceRequirementsRequestAcceleratorManufacturersItemInput)(nil)).Elem(), CapacityProviderInstanceRequirementsRequestAcceleratorManufacturersItem("amazon-web-services"))
@@ -6873,6 +7044,8 @@ func init() {
 	pulumi.RegisterOutputType(CapacityProviderAutoScalingGroupProviderManagedDrainingPtrOutput{})
 	pulumi.RegisterOutputType(CapacityProviderAutoScalingGroupProviderManagedTerminationProtectionOutput{})
 	pulumi.RegisterOutputType(CapacityProviderAutoScalingGroupProviderManagedTerminationProtectionPtrOutput{})
+	pulumi.RegisterOutputType(CapacityProviderCapacityReservationRequestReservationPreferenceOutput{})
+	pulumi.RegisterOutputType(CapacityProviderCapacityReservationRequestReservationPreferencePtrOutput{})
 	pulumi.RegisterOutputType(CapacityProviderInstanceLaunchTemplateCapacityOptionTypeOutput{})
 	pulumi.RegisterOutputType(CapacityProviderInstanceLaunchTemplateCapacityOptionTypePtrOutput{})
 	pulumi.RegisterOutputType(CapacityProviderInstanceRequirementsRequestAcceleratorManufacturersItemOutput{})

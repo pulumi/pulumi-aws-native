@@ -130,6 +130,14 @@ export class Fleet extends pulumi.CustomResource {
      */
     declare public readonly peerVpcId: pulumi.Output<string | undefined>;
     /**
+     * Configuration for player gateway.
+     */
+    declare public readonly playerGatewayConfiguration: pulumi.Output<outputs.gamelift.FleetPlayerGatewayConfiguration | undefined>;
+    /**
+     * The player gateway mode for the fleet.
+     */
+    declare public readonly playerGatewayMode: pulumi.Output<enums.gamelift.FleetPlayerGatewayMode | undefined>;
+    /**
      * A policy that limits the number of game sessions an individual player can create over a span of time for this fleet.
      */
     declare public readonly resourceCreationLimitPolicy: pulumi.Output<outputs.gamelift.FleetResourceCreationLimitPolicy | undefined>;
@@ -194,6 +202,8 @@ export class Fleet extends pulumi.CustomResource {
             resourceInputs["newGameSessionProtectionPolicy"] = args?.newGameSessionProtectionPolicy;
             resourceInputs["peerVpcAwsAccountId"] = args?.peerVpcAwsAccountId;
             resourceInputs["peerVpcId"] = args?.peerVpcId;
+            resourceInputs["playerGatewayConfiguration"] = args?.playerGatewayConfiguration;
+            resourceInputs["playerGatewayMode"] = args?.playerGatewayMode;
             resourceInputs["resourceCreationLimitPolicy"] = args?.resourceCreationLimitPolicy;
             resourceInputs["runtimeConfiguration"] = args?.runtimeConfiguration;
             resourceInputs["scalingPolicies"] = args?.scalingPolicies;
@@ -227,6 +237,8 @@ export class Fleet extends pulumi.CustomResource {
             resourceInputs["newGameSessionProtectionPolicy"] = undefined /*out*/;
             resourceInputs["peerVpcAwsAccountId"] = undefined /*out*/;
             resourceInputs["peerVpcId"] = undefined /*out*/;
+            resourceInputs["playerGatewayConfiguration"] = undefined /*out*/;
+            resourceInputs["playerGatewayMode"] = undefined /*out*/;
             resourceInputs["resourceCreationLimitPolicy"] = undefined /*out*/;
             resourceInputs["runtimeConfiguration"] = undefined /*out*/;
             resourceInputs["scalingPolicies"] = undefined /*out*/;
@@ -236,7 +248,7 @@ export class Fleet extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["buildId", "certificateConfiguration", "computeType", "ec2InstanceType", "fleetType", "instanceRoleArn", "instanceRoleCredentialsProvider", "logPaths[*]", "peerVpcAwsAccountId", "peerVpcId", "scriptId", "serverLaunchParameters", "serverLaunchPath"] };
+        const replaceOnChanges = { replaceOnChanges: ["buildId", "certificateConfiguration", "computeType", "ec2InstanceType", "fleetType", "instanceRoleArn", "instanceRoleCredentialsProvider", "logPaths[*]", "peerVpcAwsAccountId", "peerVpcId", "playerGatewayConfiguration", "playerGatewayMode", "scriptId", "serverLaunchParameters", "serverLaunchPath"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Fleet.__pulumiType, name, resourceInputs, opts);
     }
@@ -330,6 +342,14 @@ export interface FleetArgs {
      * A unique identifier for a VPC with resources to be accessed by your Amazon GameLift fleet. The VPC must be in the same Region as your fleet. To look up a VPC ID, use the VPC Dashboard in the AWS Management Console.
      */
     peerVpcId?: pulumi.Input<string>;
+    /**
+     * Configuration for player gateway.
+     */
+    playerGatewayConfiguration?: pulumi.Input<inputs.gamelift.FleetPlayerGatewayConfigurationArgs>;
+    /**
+     * The player gateway mode for the fleet.
+     */
+    playerGatewayMode?: pulumi.Input<enums.gamelift.FleetPlayerGatewayMode>;
     /**
      * A policy that limits the number of game sessions an individual player can create over a span of time for this fleet.
      */

@@ -24,6 +24,8 @@ __all__ = [
     'CapacityProviderAutoScalingGroupProviderArgsDict',
     'CapacityProviderBaselineEbsBandwidthMbpsRequestArgs',
     'CapacityProviderBaselineEbsBandwidthMbpsRequestArgsDict',
+    'CapacityProviderCapacityReservationRequestArgs',
+    'CapacityProviderCapacityReservationRequestArgsDict',
     'CapacityProviderInstanceLaunchTemplateArgs',
     'CapacityProviderInstanceLaunchTemplateArgsDict',
     'CapacityProviderInstanceRequirementsRequestArgs',
@@ -479,6 +481,39 @@ class CapacityProviderBaselineEbsBandwidthMbpsRequestArgs:
         pulumi.set(self, "min", value)
 
 
+class CapacityProviderCapacityReservationRequestArgsDict(TypedDict):
+    reservation_group_arn: NotRequired[pulumi.Input[_builtins.str]]
+    reservation_preference: NotRequired[pulumi.Input['CapacityProviderCapacityReservationRequestReservationPreference']]
+
+@pulumi.input_type
+class CapacityProviderCapacityReservationRequestArgs:
+    def __init__(__self__, *,
+                 reservation_group_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 reservation_preference: Optional[pulumi.Input['CapacityProviderCapacityReservationRequestReservationPreference']] = None):
+        if reservation_group_arn is not None:
+            pulumi.set(__self__, "reservation_group_arn", reservation_group_arn)
+        if reservation_preference is not None:
+            pulumi.set(__self__, "reservation_preference", reservation_preference)
+
+    @_builtins.property
+    @pulumi.getter(name="reservationGroupArn")
+    def reservation_group_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "reservation_group_arn")
+
+    @reservation_group_arn.setter
+    def reservation_group_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "reservation_group_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="reservationPreference")
+    def reservation_preference(self) -> Optional[pulumi.Input['CapacityProviderCapacityReservationRequestReservationPreference']]:
+        return pulumi.get(self, "reservation_preference")
+
+    @reservation_preference.setter
+    def reservation_preference(self, value: Optional[pulumi.Input['CapacityProviderCapacityReservationRequestReservationPreference']]):
+        pulumi.set(self, "reservation_preference", value)
+
+
 class CapacityProviderInstanceLaunchTemplateArgsDict(TypedDict):
     ec2_instance_profile_arn: pulumi.Input[_builtins.str]
     """
@@ -503,6 +538,7 @@ class CapacityProviderInstanceLaunchTemplateArgsDict(TypedDict):
 
     For more information about Amazon EC2 capacity options, see [Instance purchasing options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-purchasing-options.html) in the *Amazon EC2 User Guide* .
     """
+    capacity_reservations: NotRequired[pulumi.Input['CapacityProviderCapacityReservationRequestArgsDict']]
     fips_enabled: NotRequired[pulumi.Input[_builtins.bool]]
     instance_requirements: NotRequired[pulumi.Input['CapacityProviderInstanceRequirementsRequestArgsDict']]
     """
@@ -528,6 +564,7 @@ class CapacityProviderInstanceLaunchTemplateArgs:
                  ec2_instance_profile_arn: pulumi.Input[_builtins.str],
                  network_configuration: pulumi.Input['CapacityProviderManagedInstancesNetworkConfigurationArgs'],
                  capacity_option_type: Optional[pulumi.Input['CapacityProviderInstanceLaunchTemplateCapacityOptionType']] = None,
+                 capacity_reservations: Optional[pulumi.Input['CapacityProviderCapacityReservationRequestArgs']] = None,
                  fips_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  instance_requirements: Optional[pulumi.Input['CapacityProviderInstanceRequirementsRequestArgs']] = None,
                  monitoring: Optional[pulumi.Input['CapacityProviderManagedInstancesMonitoringOptions']] = None,
@@ -560,6 +597,8 @@ class CapacityProviderInstanceLaunchTemplateArgs:
         pulumi.set(__self__, "network_configuration", network_configuration)
         if capacity_option_type is not None:
             pulumi.set(__self__, "capacity_option_type", capacity_option_type)
+        if capacity_reservations is not None:
+            pulumi.set(__self__, "capacity_reservations", capacity_reservations)
         if fips_enabled is not None:
             pulumi.set(__self__, "fips_enabled", fips_enabled)
         if instance_requirements is not None:
@@ -615,6 +654,15 @@ class CapacityProviderInstanceLaunchTemplateArgs:
     @capacity_option_type.setter
     def capacity_option_type(self, value: Optional[pulumi.Input['CapacityProviderInstanceLaunchTemplateCapacityOptionType']]):
         pulumi.set(self, "capacity_option_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="capacityReservations")
+    def capacity_reservations(self) -> Optional[pulumi.Input['CapacityProviderCapacityReservationRequestArgs']]:
+        return pulumi.get(self, "capacity_reservations")
+
+    @capacity_reservations.setter
+    def capacity_reservations(self, value: Optional[pulumi.Input['CapacityProviderCapacityReservationRequestArgs']]):
+        pulumi.set(self, "capacity_reservations", value)
 
     @_builtins.property
     @pulumi.getter(name="fipsEnabled")

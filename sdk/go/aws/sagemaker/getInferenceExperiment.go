@@ -36,24 +36,16 @@ type LookupInferenceExperimentResult struct {
 	// The Amazon S3 location and configuration for storing inference request and response data.
 	DataStorageConfig *InferenceExperimentDataStorageConfig `pulumi:"dataStorageConfig"`
 	// The description of the inference experiment.
-	Description *string `pulumi:"description"`
-	// The desired state of the experiment after starting or stopping operation.
-	DesiredState     *InferenceExperimentDesiredState     `pulumi:"desiredState"`
+	Description      *string                              `pulumi:"description"`
 	EndpointMetadata *InferenceExperimentEndpointMetadata `pulumi:"endpointMetadata"`
 	// The timestamp at which you last modified the inference experiment.
 	LastModifiedTime *string `pulumi:"lastModifiedTime"`
 	// An array of ModelVariantConfig objects. Each ModelVariantConfig object in the array describes the infrastructure configuration for the corresponding variant.
 	ModelVariants []InferenceExperimentModelVariantConfig `pulumi:"modelVariants"`
-	// The duration for which the inference experiment ran or will run.
-	//
-	// The maximum duration that you can set for an inference experiment is 30 days.
-	Schedule *InferenceExperimentSchedule `pulumi:"schedule"`
 	// The configuration of `ShadowMode` inference experiment type, which shows the production variant that takes all the inference requests, and the shadow variant to which Amazon SageMaker replicates a percentage of the inference requests. For the shadow variant it also shows the percentage of requests that Amazon SageMaker replicates.
 	ShadowModeConfig *InferenceExperimentShadowModeConfig `pulumi:"shadowModeConfig"`
 	// The status of the inference experiment.
 	Status *InferenceExperimentStatus `pulumi:"status"`
-	// The error message or client-specified reason from the StopInferenceExperiment API, that explains the status of the inference experiment.
-	StatusReason *string `pulumi:"statusReason"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []aws.Tag `pulumi:"tags"`
 }
@@ -112,11 +104,6 @@ func (o LookupInferenceExperimentResultOutput) Description() pulumi.StringPtrOut
 	return o.ApplyT(func(v LookupInferenceExperimentResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The desired state of the experiment after starting or stopping operation.
-func (o LookupInferenceExperimentResultOutput) DesiredState() InferenceExperimentDesiredStatePtrOutput {
-	return o.ApplyT(func(v LookupInferenceExperimentResult) *InferenceExperimentDesiredState { return v.DesiredState }).(InferenceExperimentDesiredStatePtrOutput)
-}
-
 func (o LookupInferenceExperimentResultOutput) EndpointMetadata() InferenceExperimentEndpointMetadataPtrOutput {
 	return o.ApplyT(func(v LookupInferenceExperimentResult) *InferenceExperimentEndpointMetadata {
 		return v.EndpointMetadata
@@ -135,13 +122,6 @@ func (o LookupInferenceExperimentResultOutput) ModelVariants() InferenceExperime
 	}).(InferenceExperimentModelVariantConfigArrayOutput)
 }
 
-// The duration for which the inference experiment ran or will run.
-//
-// The maximum duration that you can set for an inference experiment is 30 days.
-func (o LookupInferenceExperimentResultOutput) Schedule() InferenceExperimentSchedulePtrOutput {
-	return o.ApplyT(func(v LookupInferenceExperimentResult) *InferenceExperimentSchedule { return v.Schedule }).(InferenceExperimentSchedulePtrOutput)
-}
-
 // The configuration of `ShadowMode` inference experiment type, which shows the production variant that takes all the inference requests, and the shadow variant to which Amazon SageMaker replicates a percentage of the inference requests. For the shadow variant it also shows the percentage of requests that Amazon SageMaker replicates.
 func (o LookupInferenceExperimentResultOutput) ShadowModeConfig() InferenceExperimentShadowModeConfigPtrOutput {
 	return o.ApplyT(func(v LookupInferenceExperimentResult) *InferenceExperimentShadowModeConfig {
@@ -152,11 +132,6 @@ func (o LookupInferenceExperimentResultOutput) ShadowModeConfig() InferenceExper
 // The status of the inference experiment.
 func (o LookupInferenceExperimentResultOutput) Status() InferenceExperimentStatusPtrOutput {
 	return o.ApplyT(func(v LookupInferenceExperimentResult) *InferenceExperimentStatus { return v.Status }).(InferenceExperimentStatusPtrOutput)
-}
-
-// The error message or client-specified reason from the StopInferenceExperiment API, that explains the status of the inference experiment.
-func (o LookupInferenceExperimentResultOutput) StatusReason() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupInferenceExperimentResult) *string { return v.StatusReason }).(pulumi.StringPtrOutput)
 }
 
 // An array of key-value pairs to apply to this resource.

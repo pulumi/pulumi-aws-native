@@ -120,6 +120,10 @@ namespace Pulumi.AwsNative.CustomerProfiles
         /// </summary>
         public readonly string? SourceLastUpdatedTimestampFormat;
         /// <summary>
+        /// Defines the priority order of object types. Lower value indicates higher priority.
+        /// </summary>
+        public readonly int? SourcePriority;
+        /// <summary>
         /// The tags (keys and values) associated with the integration.
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
@@ -152,6 +156,8 @@ namespace Pulumi.AwsNative.CustomerProfiles
 
             string? sourceLastUpdatedTimestampFormat,
 
+            int? sourcePriority,
+
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             string? templateId)
@@ -167,6 +173,7 @@ namespace Pulumi.AwsNative.CustomerProfiles
             MaxAvailableProfileObjectCount = maxAvailableProfileObjectCount;
             MaxProfileObjectCount = maxProfileObjectCount;
             SourceLastUpdatedTimestampFormat = sourceLastUpdatedTimestampFormat;
+            SourcePriority = sourcePriority;
             Tags = tags;
             TemplateId = templateId;
         }

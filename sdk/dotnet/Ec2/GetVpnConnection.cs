@@ -94,6 +94,10 @@ namespace Pulumi.AwsNative.Ec2
         ///  You must specify either ``TransitGatewayId`` or ``VpnGatewayId``, but not both.
         /// </summary>
         public readonly string? VpnGatewayId;
+        /// <summary>
+        /// The tunnel options for the VPN connection.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.VpnConnectionVpnTunnelOptionsSpecification> VpnTunnelOptionsSpecifications;
 
         [OutputConstructor]
         private GetVpnConnectionResult(
@@ -105,13 +109,16 @@ namespace Pulumi.AwsNative.Ec2
 
             string? vpnConnectionId,
 
-            string? vpnGatewayId)
+            string? vpnGatewayId,
+
+            ImmutableArray<Outputs.VpnConnectionVpnTunnelOptionsSpecification> vpnTunnelOptionsSpecifications)
         {
             CustomerGatewayId = customerGatewayId;
             Tags = tags;
             TransitGatewayId = transitGatewayId;
             VpnConnectionId = vpnConnectionId;
             VpnGatewayId = vpnGatewayId;
+            VpnTunnelOptionsSpecifications = vpnTunnelOptionsSpecifications;
         }
     }
 }

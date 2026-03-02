@@ -159,6 +159,9 @@ namespace Pulumi.AwsNative.Batch.Inputs
         [Input("placementGroup")]
         public Input<string>? PlacementGroup { get; set; }
 
+        [Input("scalingPolicy")]
+        public Input<Inputs.ComputeEnvironmentComputeScalingPolicyArgs>? ScalingPolicy { get; set; }
+
         [Input("securityGroupIds")]
         private InputList<string>? _securityGroupIds;
 

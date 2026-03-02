@@ -11,12 +11,12 @@ namespace Pulumi.AwsNative.Lambda.Inputs
 {
 
     /// <summary>
-    /// IAM permissions configuration for the capacity provider.
+    /// Configuration that specifies the permissions required for the capacity provider to manage compute resources.
     /// </summary>
     public sealed class CapacityProviderPermissionsConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ARN of the IAM role that Lambda assumes to manage the capacity provider.
+        /// The ARN of the IAM role that the capacity provider uses to manage compute instances and other AWS resources.
         /// </summary>
         [Input("capacityProviderOperatorRoleArn", required: true)]
         public Input<string> CapacityProviderOperatorRoleArn { get; set; } = null!;

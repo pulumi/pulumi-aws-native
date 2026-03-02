@@ -172,6 +172,208 @@ func (o CollectionEncryptionConfigPtrOutput) KmsKeyArn() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
+type CollectionGroupCapacityLimits struct {
+	// The maximum indexing capacity for collections in the group.
+	MaxIndexingCapacityInOcu *float64 `pulumi:"maxIndexingCapacityInOcu"`
+	// The maximum search capacity for collections in the group.
+	MaxSearchCapacityInOcu *float64 `pulumi:"maxSearchCapacityInOcu"`
+	// The minimum indexing capacity for collections in the group.
+	MinIndexingCapacityInOcu *float64 `pulumi:"minIndexingCapacityInOcu"`
+	// The minimum search capacity for collections in the group.
+	MinSearchCapacityInOcu *float64 `pulumi:"minSearchCapacityInOcu"`
+}
+
+// CollectionGroupCapacityLimitsInput is an input type that accepts CollectionGroupCapacityLimitsArgs and CollectionGroupCapacityLimitsOutput values.
+// You can construct a concrete instance of `CollectionGroupCapacityLimitsInput` via:
+//
+//	CollectionGroupCapacityLimitsArgs{...}
+type CollectionGroupCapacityLimitsInput interface {
+	pulumi.Input
+
+	ToCollectionGroupCapacityLimitsOutput() CollectionGroupCapacityLimitsOutput
+	ToCollectionGroupCapacityLimitsOutputWithContext(context.Context) CollectionGroupCapacityLimitsOutput
+}
+
+type CollectionGroupCapacityLimitsArgs struct {
+	// The maximum indexing capacity for collections in the group.
+	MaxIndexingCapacityInOcu pulumi.Float64PtrInput `pulumi:"maxIndexingCapacityInOcu"`
+	// The maximum search capacity for collections in the group.
+	MaxSearchCapacityInOcu pulumi.Float64PtrInput `pulumi:"maxSearchCapacityInOcu"`
+	// The minimum indexing capacity for collections in the group.
+	MinIndexingCapacityInOcu pulumi.Float64PtrInput `pulumi:"minIndexingCapacityInOcu"`
+	// The minimum search capacity for collections in the group.
+	MinSearchCapacityInOcu pulumi.Float64PtrInput `pulumi:"minSearchCapacityInOcu"`
+}
+
+func (CollectionGroupCapacityLimitsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CollectionGroupCapacityLimits)(nil)).Elem()
+}
+
+func (i CollectionGroupCapacityLimitsArgs) ToCollectionGroupCapacityLimitsOutput() CollectionGroupCapacityLimitsOutput {
+	return i.ToCollectionGroupCapacityLimitsOutputWithContext(context.Background())
+}
+
+func (i CollectionGroupCapacityLimitsArgs) ToCollectionGroupCapacityLimitsOutputWithContext(ctx context.Context) CollectionGroupCapacityLimitsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CollectionGroupCapacityLimitsOutput)
+}
+
+func (i CollectionGroupCapacityLimitsArgs) ToCollectionGroupCapacityLimitsPtrOutput() CollectionGroupCapacityLimitsPtrOutput {
+	return i.ToCollectionGroupCapacityLimitsPtrOutputWithContext(context.Background())
+}
+
+func (i CollectionGroupCapacityLimitsArgs) ToCollectionGroupCapacityLimitsPtrOutputWithContext(ctx context.Context) CollectionGroupCapacityLimitsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CollectionGroupCapacityLimitsOutput).ToCollectionGroupCapacityLimitsPtrOutputWithContext(ctx)
+}
+
+// CollectionGroupCapacityLimitsPtrInput is an input type that accepts CollectionGroupCapacityLimitsArgs, CollectionGroupCapacityLimitsPtr and CollectionGroupCapacityLimitsPtrOutput values.
+// You can construct a concrete instance of `CollectionGroupCapacityLimitsPtrInput` via:
+//
+//	        CollectionGroupCapacityLimitsArgs{...}
+//
+//	or:
+//
+//	        nil
+type CollectionGroupCapacityLimitsPtrInput interface {
+	pulumi.Input
+
+	ToCollectionGroupCapacityLimitsPtrOutput() CollectionGroupCapacityLimitsPtrOutput
+	ToCollectionGroupCapacityLimitsPtrOutputWithContext(context.Context) CollectionGroupCapacityLimitsPtrOutput
+}
+
+type collectionGroupCapacityLimitsPtrType CollectionGroupCapacityLimitsArgs
+
+func CollectionGroupCapacityLimitsPtr(v *CollectionGroupCapacityLimitsArgs) CollectionGroupCapacityLimitsPtrInput {
+	return (*collectionGroupCapacityLimitsPtrType)(v)
+}
+
+func (*collectionGroupCapacityLimitsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CollectionGroupCapacityLimits)(nil)).Elem()
+}
+
+func (i *collectionGroupCapacityLimitsPtrType) ToCollectionGroupCapacityLimitsPtrOutput() CollectionGroupCapacityLimitsPtrOutput {
+	return i.ToCollectionGroupCapacityLimitsPtrOutputWithContext(context.Background())
+}
+
+func (i *collectionGroupCapacityLimitsPtrType) ToCollectionGroupCapacityLimitsPtrOutputWithContext(ctx context.Context) CollectionGroupCapacityLimitsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CollectionGroupCapacityLimitsPtrOutput)
+}
+
+type CollectionGroupCapacityLimitsOutput struct{ *pulumi.OutputState }
+
+func (CollectionGroupCapacityLimitsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CollectionGroupCapacityLimits)(nil)).Elem()
+}
+
+func (o CollectionGroupCapacityLimitsOutput) ToCollectionGroupCapacityLimitsOutput() CollectionGroupCapacityLimitsOutput {
+	return o
+}
+
+func (o CollectionGroupCapacityLimitsOutput) ToCollectionGroupCapacityLimitsOutputWithContext(ctx context.Context) CollectionGroupCapacityLimitsOutput {
+	return o
+}
+
+func (o CollectionGroupCapacityLimitsOutput) ToCollectionGroupCapacityLimitsPtrOutput() CollectionGroupCapacityLimitsPtrOutput {
+	return o.ToCollectionGroupCapacityLimitsPtrOutputWithContext(context.Background())
+}
+
+func (o CollectionGroupCapacityLimitsOutput) ToCollectionGroupCapacityLimitsPtrOutputWithContext(ctx context.Context) CollectionGroupCapacityLimitsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CollectionGroupCapacityLimits) *CollectionGroupCapacityLimits {
+		return &v
+	}).(CollectionGroupCapacityLimitsPtrOutput)
+}
+
+// The maximum indexing capacity for collections in the group.
+func (o CollectionGroupCapacityLimitsOutput) MaxIndexingCapacityInOcu() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v CollectionGroupCapacityLimits) *float64 { return v.MaxIndexingCapacityInOcu }).(pulumi.Float64PtrOutput)
+}
+
+// The maximum search capacity for collections in the group.
+func (o CollectionGroupCapacityLimitsOutput) MaxSearchCapacityInOcu() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v CollectionGroupCapacityLimits) *float64 { return v.MaxSearchCapacityInOcu }).(pulumi.Float64PtrOutput)
+}
+
+// The minimum indexing capacity for collections in the group.
+func (o CollectionGroupCapacityLimitsOutput) MinIndexingCapacityInOcu() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v CollectionGroupCapacityLimits) *float64 { return v.MinIndexingCapacityInOcu }).(pulumi.Float64PtrOutput)
+}
+
+// The minimum search capacity for collections in the group.
+func (o CollectionGroupCapacityLimitsOutput) MinSearchCapacityInOcu() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v CollectionGroupCapacityLimits) *float64 { return v.MinSearchCapacityInOcu }).(pulumi.Float64PtrOutput)
+}
+
+type CollectionGroupCapacityLimitsPtrOutput struct{ *pulumi.OutputState }
+
+func (CollectionGroupCapacityLimitsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CollectionGroupCapacityLimits)(nil)).Elem()
+}
+
+func (o CollectionGroupCapacityLimitsPtrOutput) ToCollectionGroupCapacityLimitsPtrOutput() CollectionGroupCapacityLimitsPtrOutput {
+	return o
+}
+
+func (o CollectionGroupCapacityLimitsPtrOutput) ToCollectionGroupCapacityLimitsPtrOutputWithContext(ctx context.Context) CollectionGroupCapacityLimitsPtrOutput {
+	return o
+}
+
+func (o CollectionGroupCapacityLimitsPtrOutput) Elem() CollectionGroupCapacityLimitsOutput {
+	return o.ApplyT(func(v *CollectionGroupCapacityLimits) CollectionGroupCapacityLimits {
+		if v != nil {
+			return *v
+		}
+		var ret CollectionGroupCapacityLimits
+		return ret
+	}).(CollectionGroupCapacityLimitsOutput)
+}
+
+// The maximum indexing capacity for collections in the group.
+func (o CollectionGroupCapacityLimitsPtrOutput) MaxIndexingCapacityInOcu() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *CollectionGroupCapacityLimits) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.MaxIndexingCapacityInOcu
+	}).(pulumi.Float64PtrOutput)
+}
+
+// The maximum search capacity for collections in the group.
+func (o CollectionGroupCapacityLimitsPtrOutput) MaxSearchCapacityInOcu() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *CollectionGroupCapacityLimits) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.MaxSearchCapacityInOcu
+	}).(pulumi.Float64PtrOutput)
+}
+
+// The minimum indexing capacity for collections in the group.
+func (o CollectionGroupCapacityLimitsPtrOutput) MinIndexingCapacityInOcu() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *CollectionGroupCapacityLimits) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.MinIndexingCapacityInOcu
+	}).(pulumi.Float64PtrOutput)
+}
+
+// The minimum search capacity for collections in the group.
+func (o CollectionGroupCapacityLimitsPtrOutput) MinSearchCapacityInOcu() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *CollectionGroupCapacityLimits) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.MinSearchCapacityInOcu
+	}).(pulumi.Float64PtrOutput)
+}
+
+// A map of key-value pairs associated with the collection group.
+type CollectionGroupTag struct {
+	// The key in the key-value pair
+	Key string `pulumi:"key"`
+	// The value in the key-value pair
+	Value string `pulumi:"value"`
+}
+
 // A key-value pair metadata associated with resource
 type CollectionTag struct {
 	// The key in the key-value pair
@@ -1752,6 +1954,8 @@ func (o SecurityConfigSamlConfigOptionsPtrOutput) UserAttribute() pulumi.StringP
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CollectionEncryptionConfigInput)(nil)).Elem(), CollectionEncryptionConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CollectionEncryptionConfigPtrInput)(nil)).Elem(), CollectionEncryptionConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CollectionGroupCapacityLimitsInput)(nil)).Elem(), CollectionGroupCapacityLimitsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CollectionGroupCapacityLimitsPtrInput)(nil)).Elem(), CollectionGroupCapacityLimitsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IndexPropertyMappingInput)(nil)).Elem(), IndexPropertyMappingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IndexPropertyMappingMapInput)(nil)).Elem(), IndexPropertyMappingMap{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IndexPropertyMappingMethodPropertiesInput)(nil)).Elem(), IndexPropertyMappingMethodPropertiesArgs{})
@@ -1772,6 +1976,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SecurityConfigSamlConfigOptionsPtrInput)(nil)).Elem(), SecurityConfigSamlConfigOptionsArgs{})
 	pulumi.RegisterOutputType(CollectionEncryptionConfigOutput{})
 	pulumi.RegisterOutputType(CollectionEncryptionConfigPtrOutput{})
+	pulumi.RegisterOutputType(CollectionGroupCapacityLimitsOutput{})
+	pulumi.RegisterOutputType(CollectionGroupCapacityLimitsPtrOutput{})
 	pulumi.RegisterOutputType(IndexPropertyMappingOutput{})
 	pulumi.RegisterOutputType(IndexPropertyMappingMapOutput{})
 	pulumi.RegisterOutputType(IndexPropertyMappingMethodPropertiesOutput{})

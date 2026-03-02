@@ -1501,6 +1501,108 @@ func (o PlanExecutionBlockConfiguration10PropertiesOutput) DocumentDbConfig() Pl
 	}).(PlanDocumentDbConfigurationOutput)
 }
 
+type PlanExecutionBlockConfiguration11Properties struct {
+	RdsPromoteReadReplicaConfig PlanRdsPromoteReadReplicaConfiguration `pulumi:"rdsPromoteReadReplicaConfig"`
+}
+
+// PlanExecutionBlockConfiguration11PropertiesInput is an input type that accepts PlanExecutionBlockConfiguration11PropertiesArgs and PlanExecutionBlockConfiguration11PropertiesOutput values.
+// You can construct a concrete instance of `PlanExecutionBlockConfiguration11PropertiesInput` via:
+//
+//	PlanExecutionBlockConfiguration11PropertiesArgs{...}
+type PlanExecutionBlockConfiguration11PropertiesInput interface {
+	pulumi.Input
+
+	ToPlanExecutionBlockConfiguration11PropertiesOutput() PlanExecutionBlockConfiguration11PropertiesOutput
+	ToPlanExecutionBlockConfiguration11PropertiesOutputWithContext(context.Context) PlanExecutionBlockConfiguration11PropertiesOutput
+}
+
+type PlanExecutionBlockConfiguration11PropertiesArgs struct {
+	RdsPromoteReadReplicaConfig PlanRdsPromoteReadReplicaConfigurationInput `pulumi:"rdsPromoteReadReplicaConfig"`
+}
+
+func (PlanExecutionBlockConfiguration11PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlanExecutionBlockConfiguration11Properties)(nil)).Elem()
+}
+
+func (i PlanExecutionBlockConfiguration11PropertiesArgs) ToPlanExecutionBlockConfiguration11PropertiesOutput() PlanExecutionBlockConfiguration11PropertiesOutput {
+	return i.ToPlanExecutionBlockConfiguration11PropertiesOutputWithContext(context.Background())
+}
+
+func (i PlanExecutionBlockConfiguration11PropertiesArgs) ToPlanExecutionBlockConfiguration11PropertiesOutputWithContext(ctx context.Context) PlanExecutionBlockConfiguration11PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PlanExecutionBlockConfiguration11PropertiesOutput)
+}
+
+type PlanExecutionBlockConfiguration11PropertiesOutput struct{ *pulumi.OutputState }
+
+func (PlanExecutionBlockConfiguration11PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlanExecutionBlockConfiguration11Properties)(nil)).Elem()
+}
+
+func (o PlanExecutionBlockConfiguration11PropertiesOutput) ToPlanExecutionBlockConfiguration11PropertiesOutput() PlanExecutionBlockConfiguration11PropertiesOutput {
+	return o
+}
+
+func (o PlanExecutionBlockConfiguration11PropertiesOutput) ToPlanExecutionBlockConfiguration11PropertiesOutputWithContext(ctx context.Context) PlanExecutionBlockConfiguration11PropertiesOutput {
+	return o
+}
+
+func (o PlanExecutionBlockConfiguration11PropertiesOutput) RdsPromoteReadReplicaConfig() PlanRdsPromoteReadReplicaConfigurationOutput {
+	return o.ApplyT(func(v PlanExecutionBlockConfiguration11Properties) PlanRdsPromoteReadReplicaConfiguration {
+		return v.RdsPromoteReadReplicaConfig
+	}).(PlanRdsPromoteReadReplicaConfigurationOutput)
+}
+
+type PlanExecutionBlockConfiguration12Properties struct {
+	RdsCreateCrossRegionReadReplicaConfig PlanRdsCreateCrossRegionReplicaConfiguration `pulumi:"rdsCreateCrossRegionReadReplicaConfig"`
+}
+
+// PlanExecutionBlockConfiguration12PropertiesInput is an input type that accepts PlanExecutionBlockConfiguration12PropertiesArgs and PlanExecutionBlockConfiguration12PropertiesOutput values.
+// You can construct a concrete instance of `PlanExecutionBlockConfiguration12PropertiesInput` via:
+//
+//	PlanExecutionBlockConfiguration12PropertiesArgs{...}
+type PlanExecutionBlockConfiguration12PropertiesInput interface {
+	pulumi.Input
+
+	ToPlanExecutionBlockConfiguration12PropertiesOutput() PlanExecutionBlockConfiguration12PropertiesOutput
+	ToPlanExecutionBlockConfiguration12PropertiesOutputWithContext(context.Context) PlanExecutionBlockConfiguration12PropertiesOutput
+}
+
+type PlanExecutionBlockConfiguration12PropertiesArgs struct {
+	RdsCreateCrossRegionReadReplicaConfig PlanRdsCreateCrossRegionReplicaConfigurationInput `pulumi:"rdsCreateCrossRegionReadReplicaConfig"`
+}
+
+func (PlanExecutionBlockConfiguration12PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlanExecutionBlockConfiguration12Properties)(nil)).Elem()
+}
+
+func (i PlanExecutionBlockConfiguration12PropertiesArgs) ToPlanExecutionBlockConfiguration12PropertiesOutput() PlanExecutionBlockConfiguration12PropertiesOutput {
+	return i.ToPlanExecutionBlockConfiguration12PropertiesOutputWithContext(context.Background())
+}
+
+func (i PlanExecutionBlockConfiguration12PropertiesArgs) ToPlanExecutionBlockConfiguration12PropertiesOutputWithContext(ctx context.Context) PlanExecutionBlockConfiguration12PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PlanExecutionBlockConfiguration12PropertiesOutput)
+}
+
+type PlanExecutionBlockConfiguration12PropertiesOutput struct{ *pulumi.OutputState }
+
+func (PlanExecutionBlockConfiguration12PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlanExecutionBlockConfiguration12Properties)(nil)).Elem()
+}
+
+func (o PlanExecutionBlockConfiguration12PropertiesOutput) ToPlanExecutionBlockConfiguration12PropertiesOutput() PlanExecutionBlockConfiguration12PropertiesOutput {
+	return o
+}
+
+func (o PlanExecutionBlockConfiguration12PropertiesOutput) ToPlanExecutionBlockConfiguration12PropertiesOutputWithContext(ctx context.Context) PlanExecutionBlockConfiguration12PropertiesOutput {
+	return o
+}
+
+func (o PlanExecutionBlockConfiguration12PropertiesOutput) RdsCreateCrossRegionReadReplicaConfig() PlanRdsCreateCrossRegionReplicaConfigurationOutput {
+	return o.ApplyT(func(v PlanExecutionBlockConfiguration12Properties) PlanRdsCreateCrossRegionReplicaConfiguration {
+		return v.RdsCreateCrossRegionReadReplicaConfig
+	}).(PlanRdsCreateCrossRegionReplicaConfigurationOutput)
+}
+
 type PlanExecutionBlockConfiguration1Properties struct {
 	Ec2AsgCapacityIncreaseConfig PlanEc2AsgCapacityIncreaseConfiguration `pulumi:"ec2AsgCapacityIncreaseConfig"`
 }
@@ -2572,6 +2674,140 @@ func (o PlanParallelExecutionBlockConfigurationOutput) ToPlanParallelExecutionBl
 
 func (o PlanParallelExecutionBlockConfigurationOutput) Steps() PlanStepArrayOutput {
 	return o.ApplyT(func(v PlanParallelExecutionBlockConfiguration) []PlanStep { return v.Steps }).(PlanStepArrayOutput)
+}
+
+type PlanRdsCreateCrossRegionReplicaConfiguration struct {
+	CrossAccountRole *string           `pulumi:"crossAccountRole"`
+	DbInstanceArnMap map[string]string `pulumi:"dbInstanceArnMap"`
+	ExternalId       *string           `pulumi:"externalId"`
+	TimeoutMinutes   *float64          `pulumi:"timeoutMinutes"`
+}
+
+// PlanRdsCreateCrossRegionReplicaConfigurationInput is an input type that accepts PlanRdsCreateCrossRegionReplicaConfigurationArgs and PlanRdsCreateCrossRegionReplicaConfigurationOutput values.
+// You can construct a concrete instance of `PlanRdsCreateCrossRegionReplicaConfigurationInput` via:
+//
+//	PlanRdsCreateCrossRegionReplicaConfigurationArgs{...}
+type PlanRdsCreateCrossRegionReplicaConfigurationInput interface {
+	pulumi.Input
+
+	ToPlanRdsCreateCrossRegionReplicaConfigurationOutput() PlanRdsCreateCrossRegionReplicaConfigurationOutput
+	ToPlanRdsCreateCrossRegionReplicaConfigurationOutputWithContext(context.Context) PlanRdsCreateCrossRegionReplicaConfigurationOutput
+}
+
+type PlanRdsCreateCrossRegionReplicaConfigurationArgs struct {
+	CrossAccountRole pulumi.StringPtrInput  `pulumi:"crossAccountRole"`
+	DbInstanceArnMap pulumi.StringMapInput  `pulumi:"dbInstanceArnMap"`
+	ExternalId       pulumi.StringPtrInput  `pulumi:"externalId"`
+	TimeoutMinutes   pulumi.Float64PtrInput `pulumi:"timeoutMinutes"`
+}
+
+func (PlanRdsCreateCrossRegionReplicaConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlanRdsCreateCrossRegionReplicaConfiguration)(nil)).Elem()
+}
+
+func (i PlanRdsCreateCrossRegionReplicaConfigurationArgs) ToPlanRdsCreateCrossRegionReplicaConfigurationOutput() PlanRdsCreateCrossRegionReplicaConfigurationOutput {
+	return i.ToPlanRdsCreateCrossRegionReplicaConfigurationOutputWithContext(context.Background())
+}
+
+func (i PlanRdsCreateCrossRegionReplicaConfigurationArgs) ToPlanRdsCreateCrossRegionReplicaConfigurationOutputWithContext(ctx context.Context) PlanRdsCreateCrossRegionReplicaConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PlanRdsCreateCrossRegionReplicaConfigurationOutput)
+}
+
+type PlanRdsCreateCrossRegionReplicaConfigurationOutput struct{ *pulumi.OutputState }
+
+func (PlanRdsCreateCrossRegionReplicaConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlanRdsCreateCrossRegionReplicaConfiguration)(nil)).Elem()
+}
+
+func (o PlanRdsCreateCrossRegionReplicaConfigurationOutput) ToPlanRdsCreateCrossRegionReplicaConfigurationOutput() PlanRdsCreateCrossRegionReplicaConfigurationOutput {
+	return o
+}
+
+func (o PlanRdsCreateCrossRegionReplicaConfigurationOutput) ToPlanRdsCreateCrossRegionReplicaConfigurationOutputWithContext(ctx context.Context) PlanRdsCreateCrossRegionReplicaConfigurationOutput {
+	return o
+}
+
+func (o PlanRdsCreateCrossRegionReplicaConfigurationOutput) CrossAccountRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PlanRdsCreateCrossRegionReplicaConfiguration) *string { return v.CrossAccountRole }).(pulumi.StringPtrOutput)
+}
+
+func (o PlanRdsCreateCrossRegionReplicaConfigurationOutput) DbInstanceArnMap() pulumi.StringMapOutput {
+	return o.ApplyT(func(v PlanRdsCreateCrossRegionReplicaConfiguration) map[string]string { return v.DbInstanceArnMap }).(pulumi.StringMapOutput)
+}
+
+func (o PlanRdsCreateCrossRegionReplicaConfigurationOutput) ExternalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PlanRdsCreateCrossRegionReplicaConfiguration) *string { return v.ExternalId }).(pulumi.StringPtrOutput)
+}
+
+func (o PlanRdsCreateCrossRegionReplicaConfigurationOutput) TimeoutMinutes() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v PlanRdsCreateCrossRegionReplicaConfiguration) *float64 { return v.TimeoutMinutes }).(pulumi.Float64PtrOutput)
+}
+
+type PlanRdsPromoteReadReplicaConfiguration struct {
+	CrossAccountRole *string           `pulumi:"crossAccountRole"`
+	DbInstanceArnMap map[string]string `pulumi:"dbInstanceArnMap"`
+	ExternalId       *string           `pulumi:"externalId"`
+	TimeoutMinutes   *float64          `pulumi:"timeoutMinutes"`
+}
+
+// PlanRdsPromoteReadReplicaConfigurationInput is an input type that accepts PlanRdsPromoteReadReplicaConfigurationArgs and PlanRdsPromoteReadReplicaConfigurationOutput values.
+// You can construct a concrete instance of `PlanRdsPromoteReadReplicaConfigurationInput` via:
+//
+//	PlanRdsPromoteReadReplicaConfigurationArgs{...}
+type PlanRdsPromoteReadReplicaConfigurationInput interface {
+	pulumi.Input
+
+	ToPlanRdsPromoteReadReplicaConfigurationOutput() PlanRdsPromoteReadReplicaConfigurationOutput
+	ToPlanRdsPromoteReadReplicaConfigurationOutputWithContext(context.Context) PlanRdsPromoteReadReplicaConfigurationOutput
+}
+
+type PlanRdsPromoteReadReplicaConfigurationArgs struct {
+	CrossAccountRole pulumi.StringPtrInput  `pulumi:"crossAccountRole"`
+	DbInstanceArnMap pulumi.StringMapInput  `pulumi:"dbInstanceArnMap"`
+	ExternalId       pulumi.StringPtrInput  `pulumi:"externalId"`
+	TimeoutMinutes   pulumi.Float64PtrInput `pulumi:"timeoutMinutes"`
+}
+
+func (PlanRdsPromoteReadReplicaConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlanRdsPromoteReadReplicaConfiguration)(nil)).Elem()
+}
+
+func (i PlanRdsPromoteReadReplicaConfigurationArgs) ToPlanRdsPromoteReadReplicaConfigurationOutput() PlanRdsPromoteReadReplicaConfigurationOutput {
+	return i.ToPlanRdsPromoteReadReplicaConfigurationOutputWithContext(context.Background())
+}
+
+func (i PlanRdsPromoteReadReplicaConfigurationArgs) ToPlanRdsPromoteReadReplicaConfigurationOutputWithContext(ctx context.Context) PlanRdsPromoteReadReplicaConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PlanRdsPromoteReadReplicaConfigurationOutput)
+}
+
+type PlanRdsPromoteReadReplicaConfigurationOutput struct{ *pulumi.OutputState }
+
+func (PlanRdsPromoteReadReplicaConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlanRdsPromoteReadReplicaConfiguration)(nil)).Elem()
+}
+
+func (o PlanRdsPromoteReadReplicaConfigurationOutput) ToPlanRdsPromoteReadReplicaConfigurationOutput() PlanRdsPromoteReadReplicaConfigurationOutput {
+	return o
+}
+
+func (o PlanRdsPromoteReadReplicaConfigurationOutput) ToPlanRdsPromoteReadReplicaConfigurationOutputWithContext(ctx context.Context) PlanRdsPromoteReadReplicaConfigurationOutput {
+	return o
+}
+
+func (o PlanRdsPromoteReadReplicaConfigurationOutput) CrossAccountRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PlanRdsPromoteReadReplicaConfiguration) *string { return v.CrossAccountRole }).(pulumi.StringPtrOutput)
+}
+
+func (o PlanRdsPromoteReadReplicaConfigurationOutput) DbInstanceArnMap() pulumi.StringMapOutput {
+	return o.ApplyT(func(v PlanRdsPromoteReadReplicaConfiguration) map[string]string { return v.DbInstanceArnMap }).(pulumi.StringMapOutput)
+}
+
+func (o PlanRdsPromoteReadReplicaConfigurationOutput) ExternalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PlanRdsPromoteReadReplicaConfiguration) *string { return v.ExternalId }).(pulumi.StringPtrOutput)
+}
+
+func (o PlanRdsPromoteReadReplicaConfigurationOutput) TimeoutMinutes() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v PlanRdsPromoteReadReplicaConfiguration) *float64 { return v.TimeoutMinutes }).(pulumi.Float64PtrOutput)
 }
 
 type PlanRegionSwitchPlanConfiguration struct {
@@ -3846,6 +4082,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PlanExecutionApprovalConfigurationInput)(nil)).Elem(), PlanExecutionApprovalConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PlanExecutionBlockConfiguration0PropertiesInput)(nil)).Elem(), PlanExecutionBlockConfiguration0PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PlanExecutionBlockConfiguration10PropertiesInput)(nil)).Elem(), PlanExecutionBlockConfiguration10PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PlanExecutionBlockConfiguration11PropertiesInput)(nil)).Elem(), PlanExecutionBlockConfiguration11PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PlanExecutionBlockConfiguration12PropertiesInput)(nil)).Elem(), PlanExecutionBlockConfiguration12PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PlanExecutionBlockConfiguration1PropertiesInput)(nil)).Elem(), PlanExecutionBlockConfiguration1PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PlanExecutionBlockConfiguration2PropertiesInput)(nil)).Elem(), PlanExecutionBlockConfiguration2PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PlanExecutionBlockConfiguration3PropertiesInput)(nil)).Elem(), PlanExecutionBlockConfiguration3PropertiesArgs{})
@@ -3864,6 +4102,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PlanLambdasInput)(nil)).Elem(), PlanLambdasArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PlanLambdasArrayInput)(nil)).Elem(), PlanLambdasArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PlanParallelExecutionBlockConfigurationInput)(nil)).Elem(), PlanParallelExecutionBlockConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PlanRdsCreateCrossRegionReplicaConfigurationInput)(nil)).Elem(), PlanRdsCreateCrossRegionReplicaConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PlanRdsPromoteReadReplicaConfigurationInput)(nil)).Elem(), PlanRdsPromoteReadReplicaConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PlanRegionSwitchPlanConfigurationInput)(nil)).Elem(), PlanRegionSwitchPlanConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PlanReportConfigurationInput)(nil)).Elem(), PlanReportConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PlanReportConfigurationPtrInput)(nil)).Elem(), PlanReportConfigurationArgs{})
@@ -3906,6 +4146,8 @@ func init() {
 	pulumi.RegisterOutputType(PlanExecutionApprovalConfigurationOutput{})
 	pulumi.RegisterOutputType(PlanExecutionBlockConfiguration0PropertiesOutput{})
 	pulumi.RegisterOutputType(PlanExecutionBlockConfiguration10PropertiesOutput{})
+	pulumi.RegisterOutputType(PlanExecutionBlockConfiguration11PropertiesOutput{})
+	pulumi.RegisterOutputType(PlanExecutionBlockConfiguration12PropertiesOutput{})
 	pulumi.RegisterOutputType(PlanExecutionBlockConfiguration1PropertiesOutput{})
 	pulumi.RegisterOutputType(PlanExecutionBlockConfiguration2PropertiesOutput{})
 	pulumi.RegisterOutputType(PlanExecutionBlockConfiguration3PropertiesOutput{})
@@ -3926,6 +4168,8 @@ func init() {
 	pulumi.RegisterOutputType(PlanLambdasOutput{})
 	pulumi.RegisterOutputType(PlanLambdasArrayOutput{})
 	pulumi.RegisterOutputType(PlanParallelExecutionBlockConfigurationOutput{})
+	pulumi.RegisterOutputType(PlanRdsCreateCrossRegionReplicaConfigurationOutput{})
+	pulumi.RegisterOutputType(PlanRdsPromoteReadReplicaConfigurationOutput{})
 	pulumi.RegisterOutputType(PlanRegionSwitchPlanConfigurationOutput{})
 	pulumi.RegisterOutputType(PlanReportConfigurationOutput{})
 	pulumi.RegisterOutputType(PlanReportConfigurationPtrOutput{})
