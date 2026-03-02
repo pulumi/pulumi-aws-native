@@ -705,6 +705,156 @@ func (o CapacityProviderBaselineEbsBandwidthMbpsRequestPtrOutput) Min() pulumi.I
 	}).(pulumi.IntPtrOutput)
 }
 
+type CapacityProviderCapacityReservationRequest struct {
+	ReservationGroupArn   *string                                                          `pulumi:"reservationGroupArn"`
+	ReservationPreference *CapacityProviderCapacityReservationRequestReservationPreference `pulumi:"reservationPreference"`
+}
+
+// CapacityProviderCapacityReservationRequestInput is an input type that accepts CapacityProviderCapacityReservationRequestArgs and CapacityProviderCapacityReservationRequestOutput values.
+// You can construct a concrete instance of `CapacityProviderCapacityReservationRequestInput` via:
+//
+//	CapacityProviderCapacityReservationRequestArgs{...}
+type CapacityProviderCapacityReservationRequestInput interface {
+	pulumi.Input
+
+	ToCapacityProviderCapacityReservationRequestOutput() CapacityProviderCapacityReservationRequestOutput
+	ToCapacityProviderCapacityReservationRequestOutputWithContext(context.Context) CapacityProviderCapacityReservationRequestOutput
+}
+
+type CapacityProviderCapacityReservationRequestArgs struct {
+	ReservationGroupArn   pulumi.StringPtrInput                                                   `pulumi:"reservationGroupArn"`
+	ReservationPreference CapacityProviderCapacityReservationRequestReservationPreferencePtrInput `pulumi:"reservationPreference"`
+}
+
+func (CapacityProviderCapacityReservationRequestArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityProviderCapacityReservationRequest)(nil)).Elem()
+}
+
+func (i CapacityProviderCapacityReservationRequestArgs) ToCapacityProviderCapacityReservationRequestOutput() CapacityProviderCapacityReservationRequestOutput {
+	return i.ToCapacityProviderCapacityReservationRequestOutputWithContext(context.Background())
+}
+
+func (i CapacityProviderCapacityReservationRequestArgs) ToCapacityProviderCapacityReservationRequestOutputWithContext(ctx context.Context) CapacityProviderCapacityReservationRequestOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderCapacityReservationRequestOutput)
+}
+
+func (i CapacityProviderCapacityReservationRequestArgs) ToCapacityProviderCapacityReservationRequestPtrOutput() CapacityProviderCapacityReservationRequestPtrOutput {
+	return i.ToCapacityProviderCapacityReservationRequestPtrOutputWithContext(context.Background())
+}
+
+func (i CapacityProviderCapacityReservationRequestArgs) ToCapacityProviderCapacityReservationRequestPtrOutputWithContext(ctx context.Context) CapacityProviderCapacityReservationRequestPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderCapacityReservationRequestOutput).ToCapacityProviderCapacityReservationRequestPtrOutputWithContext(ctx)
+}
+
+// CapacityProviderCapacityReservationRequestPtrInput is an input type that accepts CapacityProviderCapacityReservationRequestArgs, CapacityProviderCapacityReservationRequestPtr and CapacityProviderCapacityReservationRequestPtrOutput values.
+// You can construct a concrete instance of `CapacityProviderCapacityReservationRequestPtrInput` via:
+//
+//	        CapacityProviderCapacityReservationRequestArgs{...}
+//
+//	or:
+//
+//	        nil
+type CapacityProviderCapacityReservationRequestPtrInput interface {
+	pulumi.Input
+
+	ToCapacityProviderCapacityReservationRequestPtrOutput() CapacityProviderCapacityReservationRequestPtrOutput
+	ToCapacityProviderCapacityReservationRequestPtrOutputWithContext(context.Context) CapacityProviderCapacityReservationRequestPtrOutput
+}
+
+type capacityProviderCapacityReservationRequestPtrType CapacityProviderCapacityReservationRequestArgs
+
+func CapacityProviderCapacityReservationRequestPtr(v *CapacityProviderCapacityReservationRequestArgs) CapacityProviderCapacityReservationRequestPtrInput {
+	return (*capacityProviderCapacityReservationRequestPtrType)(v)
+}
+
+func (*capacityProviderCapacityReservationRequestPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CapacityProviderCapacityReservationRequest)(nil)).Elem()
+}
+
+func (i *capacityProviderCapacityReservationRequestPtrType) ToCapacityProviderCapacityReservationRequestPtrOutput() CapacityProviderCapacityReservationRequestPtrOutput {
+	return i.ToCapacityProviderCapacityReservationRequestPtrOutputWithContext(context.Background())
+}
+
+func (i *capacityProviderCapacityReservationRequestPtrType) ToCapacityProviderCapacityReservationRequestPtrOutputWithContext(ctx context.Context) CapacityProviderCapacityReservationRequestPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderCapacityReservationRequestPtrOutput)
+}
+
+type CapacityProviderCapacityReservationRequestOutput struct{ *pulumi.OutputState }
+
+func (CapacityProviderCapacityReservationRequestOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityProviderCapacityReservationRequest)(nil)).Elem()
+}
+
+func (o CapacityProviderCapacityReservationRequestOutput) ToCapacityProviderCapacityReservationRequestOutput() CapacityProviderCapacityReservationRequestOutput {
+	return o
+}
+
+func (o CapacityProviderCapacityReservationRequestOutput) ToCapacityProviderCapacityReservationRequestOutputWithContext(ctx context.Context) CapacityProviderCapacityReservationRequestOutput {
+	return o
+}
+
+func (o CapacityProviderCapacityReservationRequestOutput) ToCapacityProviderCapacityReservationRequestPtrOutput() CapacityProviderCapacityReservationRequestPtrOutput {
+	return o.ToCapacityProviderCapacityReservationRequestPtrOutputWithContext(context.Background())
+}
+
+func (o CapacityProviderCapacityReservationRequestOutput) ToCapacityProviderCapacityReservationRequestPtrOutputWithContext(ctx context.Context) CapacityProviderCapacityReservationRequestPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CapacityProviderCapacityReservationRequest) *CapacityProviderCapacityReservationRequest {
+		return &v
+	}).(CapacityProviderCapacityReservationRequestPtrOutput)
+}
+
+func (o CapacityProviderCapacityReservationRequestOutput) ReservationGroupArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CapacityProviderCapacityReservationRequest) *string { return v.ReservationGroupArn }).(pulumi.StringPtrOutput)
+}
+
+func (o CapacityProviderCapacityReservationRequestOutput) ReservationPreference() CapacityProviderCapacityReservationRequestReservationPreferencePtrOutput {
+	return o.ApplyT(func(v CapacityProviderCapacityReservationRequest) *CapacityProviderCapacityReservationRequestReservationPreference {
+		return v.ReservationPreference
+	}).(CapacityProviderCapacityReservationRequestReservationPreferencePtrOutput)
+}
+
+type CapacityProviderCapacityReservationRequestPtrOutput struct{ *pulumi.OutputState }
+
+func (CapacityProviderCapacityReservationRequestPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CapacityProviderCapacityReservationRequest)(nil)).Elem()
+}
+
+func (o CapacityProviderCapacityReservationRequestPtrOutput) ToCapacityProviderCapacityReservationRequestPtrOutput() CapacityProviderCapacityReservationRequestPtrOutput {
+	return o
+}
+
+func (o CapacityProviderCapacityReservationRequestPtrOutput) ToCapacityProviderCapacityReservationRequestPtrOutputWithContext(ctx context.Context) CapacityProviderCapacityReservationRequestPtrOutput {
+	return o
+}
+
+func (o CapacityProviderCapacityReservationRequestPtrOutput) Elem() CapacityProviderCapacityReservationRequestOutput {
+	return o.ApplyT(func(v *CapacityProviderCapacityReservationRequest) CapacityProviderCapacityReservationRequest {
+		if v != nil {
+			return *v
+		}
+		var ret CapacityProviderCapacityReservationRequest
+		return ret
+	}).(CapacityProviderCapacityReservationRequestOutput)
+}
+
+func (o CapacityProviderCapacityReservationRequestPtrOutput) ReservationGroupArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CapacityProviderCapacityReservationRequest) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ReservationGroupArn
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o CapacityProviderCapacityReservationRequestPtrOutput) ReservationPreference() CapacityProviderCapacityReservationRequestReservationPreferencePtrOutput {
+	return o.ApplyT(func(v *CapacityProviderCapacityReservationRequest) *CapacityProviderCapacityReservationRequestReservationPreference {
+		if v == nil {
+			return nil
+		}
+		return v.ReservationPreference
+	}).(CapacityProviderCapacityReservationRequestReservationPreferencePtrOutput)
+}
+
 type CapacityProviderInstanceLaunchTemplate struct {
 	// The capacity option type. This determines whether Amazon ECS launches On-Demand or Spot Instances for your managed instance capacity provider.
 	//
@@ -716,7 +866,8 @@ type CapacityProviderInstanceLaunchTemplate struct {
 	// The default is On-Demand
 	//
 	// For more information about Amazon EC2 capacity options, see [Instance purchasing options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-purchasing-options.html) in the *Amazon EC2 User Guide* .
-	CapacityOptionType *CapacityProviderInstanceLaunchTemplateCapacityOptionType `pulumi:"capacityOptionType"`
+	CapacityOptionType   *CapacityProviderInstanceLaunchTemplateCapacityOptionType `pulumi:"capacityOptionType"`
+	CapacityReservations *CapacityProviderCapacityReservationRequest               `pulumi:"capacityReservations"`
 	// The Amazon Resource Name (ARN) of the instance profile that Amazon ECS applies to Amazon ECS Managed Instances. This instance profile must include the necessary permissions for your tasks to access AWS services and resources.
 	//
 	// For more information, see [Amazon ECS instance profile for Managed Instances](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/managed-instances-instance-profile.html) in the *Amazon ECS Developer Guide* .
@@ -759,7 +910,8 @@ type CapacityProviderInstanceLaunchTemplateArgs struct {
 	// The default is On-Demand
 	//
 	// For more information about Amazon EC2 capacity options, see [Instance purchasing options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-purchasing-options.html) in the *Amazon EC2 User Guide* .
-	CapacityOptionType CapacityProviderInstanceLaunchTemplateCapacityOptionTypePtrInput `pulumi:"capacityOptionType"`
+	CapacityOptionType   CapacityProviderInstanceLaunchTemplateCapacityOptionTypePtrInput `pulumi:"capacityOptionType"`
+	CapacityReservations CapacityProviderCapacityReservationRequestPtrInput               `pulumi:"capacityReservations"`
 	// The Amazon Resource Name (ARN) of the instance profile that Amazon ECS applies to Amazon ECS Managed Instances. This instance profile must include the necessary permissions for your tasks to access AWS services and resources.
 	//
 	// For more information, see [Amazon ECS instance profile for Managed Instances](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/managed-instances-instance-profile.html) in the *Amazon ECS Developer Guide* .
@@ -873,6 +1025,12 @@ func (o CapacityProviderInstanceLaunchTemplateOutput) CapacityOptionType() Capac
 	}).(CapacityProviderInstanceLaunchTemplateCapacityOptionTypePtrOutput)
 }
 
+func (o CapacityProviderInstanceLaunchTemplateOutput) CapacityReservations() CapacityProviderCapacityReservationRequestPtrOutput {
+	return o.ApplyT(func(v CapacityProviderInstanceLaunchTemplate) *CapacityProviderCapacityReservationRequest {
+		return v.CapacityReservations
+	}).(CapacityProviderCapacityReservationRequestPtrOutput)
+}
+
 // The Amazon Resource Name (ARN) of the instance profile that Amazon ECS applies to Amazon ECS Managed Instances. This instance profile must include the necessary permissions for your tasks to access AWS services and resources.
 //
 // For more information, see [Amazon ECS instance profile for Managed Instances](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/managed-instances-instance-profile.html) in the *Amazon ECS Developer Guide* .
@@ -958,6 +1116,15 @@ func (o CapacityProviderInstanceLaunchTemplatePtrOutput) CapacityOptionType() Ca
 		}
 		return v.CapacityOptionType
 	}).(CapacityProviderInstanceLaunchTemplateCapacityOptionTypePtrOutput)
+}
+
+func (o CapacityProviderInstanceLaunchTemplatePtrOutput) CapacityReservations() CapacityProviderCapacityReservationRequestPtrOutput {
+	return o.ApplyT(func(v *CapacityProviderInstanceLaunchTemplate) *CapacityProviderCapacityReservationRequest {
+		if v == nil {
+			return nil
+		}
+		return v.CapacityReservations
+	}).(CapacityProviderCapacityReservationRequestPtrOutput)
 }
 
 // The Amazon Resource Name (ARN) of the instance profile that Amazon ECS applies to Amazon ECS Managed Instances. This instance profile must include the necessary permissions for your tasks to access AWS services and resources.
@@ -19532,6 +19699,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderAutoScalingGroupProviderPtrInput)(nil)).Elem(), CapacityProviderAutoScalingGroupProviderArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderBaselineEbsBandwidthMbpsRequestInput)(nil)).Elem(), CapacityProviderBaselineEbsBandwidthMbpsRequestArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderBaselineEbsBandwidthMbpsRequestPtrInput)(nil)).Elem(), CapacityProviderBaselineEbsBandwidthMbpsRequestArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderCapacityReservationRequestInput)(nil)).Elem(), CapacityProviderCapacityReservationRequestArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderCapacityReservationRequestPtrInput)(nil)).Elem(), CapacityProviderCapacityReservationRequestArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderInstanceLaunchTemplateInput)(nil)).Elem(), CapacityProviderInstanceLaunchTemplateArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderInstanceLaunchTemplatePtrInput)(nil)).Elem(), CapacityProviderInstanceLaunchTemplateArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderInstanceRequirementsRequestInput)(nil)).Elem(), CapacityProviderInstanceRequirementsRequestArgs{})
@@ -19739,6 +19908,8 @@ func init() {
 	pulumi.RegisterOutputType(CapacityProviderAutoScalingGroupProviderPtrOutput{})
 	pulumi.RegisterOutputType(CapacityProviderBaselineEbsBandwidthMbpsRequestOutput{})
 	pulumi.RegisterOutputType(CapacityProviderBaselineEbsBandwidthMbpsRequestPtrOutput{})
+	pulumi.RegisterOutputType(CapacityProviderCapacityReservationRequestOutput{})
+	pulumi.RegisterOutputType(CapacityProviderCapacityReservationRequestPtrOutput{})
 	pulumi.RegisterOutputType(CapacityProviderInstanceLaunchTemplateOutput{})
 	pulumi.RegisterOutputType(CapacityProviderInstanceLaunchTemplatePtrOutput{})
 	pulumi.RegisterOutputType(CapacityProviderInstanceRequirementsRequestOutput{})

@@ -12,13 +12,17 @@ from .cloud_formation_provisioned_product import *
 from .get_cloud_formation_product import *
 from .get_cloud_formation_provisioned_product import *
 from .get_launch_notification_constraint import *
+from .get_launch_role_constraint import *
 from .get_launch_template_constraint import *
+from .get_portfolio import *
 from .get_portfolio_share import *
 from .get_resource_update_constraint import *
 from .get_service_action import *
 from .get_tag_option import *
 from .launch_notification_constraint import *
+from .launch_role_constraint import *
 from .launch_template_constraint import *
+from .portfolio import *
 from .portfolio_principal_association import *
 from .portfolio_product_association import *
 from .portfolio_share import *

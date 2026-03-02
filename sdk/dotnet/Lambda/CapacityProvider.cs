@@ -10,20 +10,14 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Lambda
 {
     /// <summary>
-    /// Resource Type definition for AWS::Lambda::CapacityProvider
+    /// Creates a capacity provider that manages compute resources for Lambda functions
     /// </summary>
     [AwsNativeResourceType("aws-native:lambda:CapacityProvider")]
     public partial class CapacityProvider : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the capacity provider. This is a read-only property that is automatically generated when the capacity provider is created.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the capacity provider. The name must be unique within your AWS account and region. If you don't specify a name, CloudFormation generates one.
-        /// </summary>
         [Output("capacityProviderName")]
         public Output<string?> CapacityProviderName { get; private set; } = null!;
 
@@ -34,19 +28,19 @@ namespace Pulumi.AwsNative.Lambda
         public Output<Outputs.CapacityProviderScalingConfig?> CapacityProviderScalingConfig { get; private set; } = null!;
 
         /// <summary>
-        /// Specifications for the types of EC2 instances that the capacity provider can use.
+        /// The instance requirements for compute resources managed by the capacity provider.
         /// </summary>
         [Output("instanceRequirements")]
         public Output<Outputs.CapacityProviderInstanceRequirements?> InstanceRequirements { get; private set; } = null!;
 
         /// <summary>
-        /// The ARN of the AWS Key Management Service (KMS) key used by the capacity provider.
+        /// The ARN of the KMS key used to encrypt the capacity provider's resources.
         /// </summary>
         [Output("kmsKeyArn")]
         public Output<string?> KmsKeyArn { get; private set; } = null!;
 
         /// <summary>
-        /// IAM permissions configuration for the capacity provider.
+        /// The permissions configuration for the capacity provider.
         /// </summary>
         [Output("permissionsConfig")]
         public Output<Outputs.CapacityProviderPermissionsConfig> PermissionsConfig { get; private set; } = null!;
@@ -58,13 +52,13 @@ namespace Pulumi.AwsNative.Lambda
         public Output<Pulumi.AwsNative.Lambda.CapacityProviderState> State { get; private set; } = null!;
 
         /// <summary>
-        /// A list of tags to apply to the capacity provider.
+        /// A key-value pair that provides metadata for the capacity provider.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// VPC configuration for the capacity provider.
+        /// The VPC configuration for the capacity provider.
         /// </summary>
         [Output("vpcConfig")]
         public Output<Outputs.CapacityProviderVpcConfig> VpcConfig { get; private set; } = null!;
@@ -122,9 +116,6 @@ namespace Pulumi.AwsNative.Lambda
 
     public sealed class CapacityProviderArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The name of the capacity provider. The name must be unique within your AWS account and region. If you don't specify a name, CloudFormation generates one.
-        /// </summary>
         [Input("capacityProviderName")]
         public Input<string>? CapacityProviderName { get; set; }
 
@@ -135,19 +126,19 @@ namespace Pulumi.AwsNative.Lambda
         public Input<Inputs.CapacityProviderScalingConfigArgs>? CapacityProviderScalingConfig { get; set; }
 
         /// <summary>
-        /// Specifications for the types of EC2 instances that the capacity provider can use.
+        /// The instance requirements for compute resources managed by the capacity provider.
         /// </summary>
         [Input("instanceRequirements")]
         public Input<Inputs.CapacityProviderInstanceRequirementsArgs>? InstanceRequirements { get; set; }
 
         /// <summary>
-        /// The ARN of the AWS Key Management Service (KMS) key used by the capacity provider.
+        /// The ARN of the KMS key used to encrypt the capacity provider's resources.
         /// </summary>
         [Input("kmsKeyArn")]
         public Input<string>? KmsKeyArn { get; set; }
 
         /// <summary>
-        /// IAM permissions configuration for the capacity provider.
+        /// The permissions configuration for the capacity provider.
         /// </summary>
         [Input("permissionsConfig", required: true)]
         public Input<Inputs.CapacityProviderPermissionsConfigArgs> PermissionsConfig { get; set; } = null!;
@@ -156,7 +147,7 @@ namespace Pulumi.AwsNative.Lambda
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
-        /// A list of tags to apply to the capacity provider.
+        /// A key-value pair that provides metadata for the capacity provider.
         /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
@@ -165,7 +156,7 @@ namespace Pulumi.AwsNative.Lambda
         }
 
         /// <summary>
-        /// VPC configuration for the capacity provider.
+        /// The VPC configuration for the capacity provider.
         /// </summary>
         [Input("vpcConfig", required: true)]
         public Input<Inputs.CapacityProviderVpcConfigArgs> VpcConfig { get; set; } = null!;

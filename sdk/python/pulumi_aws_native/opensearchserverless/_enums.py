@@ -8,6 +8,7 @@ from enum import Enum
 
 __all__ = [
     'AccessPolicyType',
+    'CollectionGroupStandbyReplicas',
     'CollectionStandbyReplicas',
     'CollectionType',
     'IndexPropertyMappingMethodPropertiesEngine',
@@ -26,6 +27,15 @@ class AccessPolicyType(_builtins.str, Enum):
     The possible types for the access policy
     """
     DATA = "data"
+
+
+@pulumi.type_token("aws-native:opensearchserverless:CollectionGroupStandbyReplicas")
+class CollectionGroupStandbyReplicas(_builtins.str, Enum):
+    """
+    Indicates whether standby replicas are used for the collection group.
+    """
+    ENABLED = "ENABLED"
+    DISABLED = "DISABLED"
 
 
 @pulumi.type_token("aws-native:opensearchserverless:CollectionStandbyReplicas")

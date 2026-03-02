@@ -22,6 +22,164 @@ namespace Pulumi.AwsNative.Ssm
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
+    ///     var maintenanceWindow = new AwsNative.Ssm.MaintenanceWindow("maintenanceWindow", new()
+    ///     {
+    ///         Name = "MaintenanceWindow",
+    ///         AllowUnassociatedTargets = true,
+    ///         Cutoff = 0,
+    ///         Description = "Maintenance window for instances",
+    ///         Duration = 1,
+    ///         Schedule = "cron(20 17 ? * MON-FRI *)",
+    ///     });
+    /// 
+    ///     var maintenanceWindowTarget = new AwsNative.Ssm.MaintenanceWindowTarget("maintenanceWindowTarget", new()
+    ///     {
+    ///         ResourceType = "RESOURCE_GROUP",
+    ///         Targets = new[]
+    ///         {
+    ///             new AwsNative.Ssm.Inputs.MaintenanceWindowTargetTargetsArgs
+    ///             {
+    ///                 Key = "resource-groups:Name",
+    ///                 Values = new[]
+    ///                 {
+    ///                     "TestResourceGroup",
+    ///                 },
+    ///             },
+    ///         },
+    ///         WindowId = maintenanceWindow.Id,
+    ///     });
+    /// 
+    ///     var patchTask = new AwsNative.Ssm.MaintenanceWindowTask("patchTask", new()
+    ///     {
+    ///         Description = "Apply OS patches on instances in target",
+    ///         MaxConcurrency = "1",
+    ///         MaxErrors = "1",
+    ///         Priority = 0,
+    ///         TaskType = "RUN_COMMAND",
+    ///         WindowId = maintenanceWindow.Id,
+    ///         TaskArn = "AWS-RunPatchBaseline",
+    ///         TaskInvocationParameters = new AwsNative.Ssm.Inputs.MaintenanceWindowTaskTaskInvocationParametersArgs
+    ///         {
+    ///             MaintenanceWindowRunCommandParameters = new AwsNative.Ssm.Inputs.MaintenanceWindowTaskMaintenanceWindowRunCommandParametersArgs
+    ///             {
+    ///                 Parameters = new Dictionary&lt;string, object?&gt;
+    ///                 {
+    ///                     ["operation"] = new[]
+    ///                     {
+    ///                         "Install",
+    ///                     },
+    ///                     ["rebootOption"] = new[]
+    ///                     {
+    ///                         "NoReboot",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         Targets = new[]
+    ///         {
+    ///             new AwsNative.Ssm.Inputs.MaintenanceWindowTaskTargetArgs
+    ///             {
+    ///                 Key = "WindowTargetIds",
+    ///                 Values = new[]
+    ///                 {
+    ///                     maintenanceWindowTarget.Id,
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Example
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AwsNative = Pulumi.AwsNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var maintenanceWindow = new AwsNative.Ssm.MaintenanceWindow("maintenanceWindow", new()
+    ///     {
+    ///         Name = "MaintenanceWindow",
+    ///         AllowUnassociatedTargets = true,
+    ///         Cutoff = 0,
+    ///         Description = "Maintenance window for instances",
+    ///         Duration = 1,
+    ///         Schedule = "cron(20 17 ? * MON-FRI *)",
+    ///     });
+    /// 
+    ///     var maintenanceWindowTarget = new AwsNative.Ssm.MaintenanceWindowTarget("maintenanceWindowTarget", new()
+    ///     {
+    ///         ResourceType = "RESOURCE_GROUP",
+    ///         Targets = new[]
+    ///         {
+    ///             new AwsNative.Ssm.Inputs.MaintenanceWindowTargetTargetsArgs
+    ///             {
+    ///                 Key = "resource-groups:Name",
+    ///                 Values = new[]
+    ///                 {
+    ///                     "TestResourceGroup",
+    ///                 },
+    ///             },
+    ///         },
+    ///         WindowId = maintenanceWindow.Id,
+    ///     });
+    /// 
+    ///     var patchTask = new AwsNative.Ssm.MaintenanceWindowTask("patchTask", new()
+    ///     {
+    ///         Description = "Apply OS patches on instances in target",
+    ///         MaxConcurrency = "1",
+    ///         MaxErrors = "1",
+    ///         Priority = 0,
+    ///         TaskType = "RUN_COMMAND",
+    ///         WindowId = maintenanceWindow.Id,
+    ///         TaskArn = "AWS-RunPatchBaseline",
+    ///         TaskInvocationParameters = new AwsNative.Ssm.Inputs.MaintenanceWindowTaskTaskInvocationParametersArgs
+    ///         {
+    ///             MaintenanceWindowRunCommandParameters = new AwsNative.Ssm.Inputs.MaintenanceWindowTaskMaintenanceWindowRunCommandParametersArgs
+    ///             {
+    ///                 Parameters = new Dictionary&lt;string, object?&gt;
+    ///                 {
+    ///                     ["operation"] = new[]
+    ///                     {
+    ///                         "Install",
+    ///                     },
+    ///                     ["rebootOption"] = new[]
+    ///                     {
+    ///                         "NoReboot",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         Targets = new[]
+    ///         {
+    ///             new AwsNative.Ssm.Inputs.MaintenanceWindowTaskTargetArgs
+    ///             {
+    ///                 Key = "WindowTargetIds",
+    ///                 Values = new[]
+    ///                 {
+    ///                     maintenanceWindowTarget.Id,
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Example
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AwsNative = Pulumi.AwsNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
     ///     var lambdaTask = new AwsNative.Ssm.MaintenanceWindowTask("lambdaTask", new()
     ///     {
     ///         WindowId = "mw-04fd6f19dfEXAMPLE",

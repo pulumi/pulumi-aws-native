@@ -9,8 +9,10 @@ import typing
 from ._enums import *
 from .access_policy import *
 from .collection import *
+from .collection_group import *
 from .get_access_policy import *
 from .get_collection import *
+from .get_collection_group import *
 from .get_index import *
 from .get_lifecycle_policy import *
 from .get_security_config import *

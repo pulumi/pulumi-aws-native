@@ -1227,6 +1227,13 @@ type CloudFormationProvisionedProductTag struct {
 	Value string `pulumi:"value"`
 }
 
+type PortfolioTag struct {
+	// The tag key.
+	Key string `pulumi:"key"`
+	// The value for this key.
+	Value string `pulumi:"value"`
+}
+
 type ServiceActionDefinitionParameter struct {
 	// The parameter key.
 	Key string `pulumi:"key"`

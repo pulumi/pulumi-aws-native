@@ -39,6 +39,7 @@ class ContainerFleetArgs:
                  metric_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  new_game_session_protection_policy: Optional[pulumi.Input['ContainerFleetNewGameSessionProtectionPolicy']] = None,
                  per_instance_container_group_definition_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 player_gateway_mode: Optional[pulumi.Input['ContainerFleetPlayerGatewayMode']] = None,
                  scaling_policies: Optional[pulumi.Input[Sequence[pulumi.Input['ContainerFleetScalingPolicyArgs']]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
@@ -61,6 +62,7 @@ class ContainerFleetArgs:
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] metric_groups: The name of an Amazon CloudWatch metric group. A metric group aggregates the metrics for all fleets in the group. Specify a string containing the metric group name. You can use an existing name or use a new name to create a new metric group. Currently, this parameter can have only one string.
         :param pulumi.Input['ContainerFleetNewGameSessionProtectionPolicy'] new_game_session_protection_policy: A game session protection policy to apply to all game sessions hosted on instances in this fleet. When protected, active game sessions cannot be terminated during a scale-down event. If this parameter is not set, instances in this fleet default to no protection. You can change a fleet's protection policy to affect future game sessions on the fleet. You can also set protection for individual game sessions.
         :param pulumi.Input[_builtins.str] per_instance_container_group_definition_name: The name of the container group definition that will be created per instance. This field is optional if you specify GameServerContainerGroupDefinitionName.
+        :param pulumi.Input['ContainerFleetPlayerGatewayMode'] player_gateway_mode: The player gateway mode for the container fleet.
         :param pulumi.Input[Sequence[pulumi.Input['ContainerFleetScalingPolicyArgs']]] scaling_policies: A list of rules that control how a fleet is scaled.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
@@ -93,6 +95,8 @@ class ContainerFleetArgs:
             pulumi.set(__self__, "new_game_session_protection_policy", new_game_session_protection_policy)
         if per_instance_container_group_definition_name is not None:
             pulumi.set(__self__, "per_instance_container_group_definition_name", per_instance_container_group_definition_name)
+        if player_gateway_mode is not None:
+            pulumi.set(__self__, "player_gateway_mode", player_gateway_mode)
         if scaling_policies is not None:
             pulumi.set(__self__, "scaling_policies", scaling_policies)
         if tags is not None:
@@ -280,6 +284,18 @@ class ContainerFleetArgs:
         pulumi.set(self, "per_instance_container_group_definition_name", value)
 
     @_builtins.property
+    @pulumi.getter(name="playerGatewayMode")
+    def player_gateway_mode(self) -> Optional[pulumi.Input['ContainerFleetPlayerGatewayMode']]:
+        """
+        The player gateway mode for the container fleet.
+        """
+        return pulumi.get(self, "player_gateway_mode")
+
+    @player_gateway_mode.setter
+    def player_gateway_mode(self, value: Optional[pulumi.Input['ContainerFleetPlayerGatewayMode']]):
+        pulumi.set(self, "player_gateway_mode", value)
+
+    @_builtins.property
     @pulumi.getter(name="scalingPolicies")
     def scaling_policies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ContainerFleetScalingPolicyArgs']]]]:
         """
@@ -325,6 +341,7 @@ class ContainerFleet(pulumi.CustomResource):
                  metric_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  new_game_session_protection_policy: Optional[pulumi.Input['ContainerFleetNewGameSessionProtectionPolicy']] = None,
                  per_instance_container_group_definition_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 player_gateway_mode: Optional[pulumi.Input['ContainerFleetPlayerGatewayMode']] = None,
                  scaling_policies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ContainerFleetScalingPolicyArgs', 'ContainerFleetScalingPolicyArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
@@ -351,6 +368,7 @@ class ContainerFleet(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] metric_groups: The name of an Amazon CloudWatch metric group. A metric group aggregates the metrics for all fleets in the group. Specify a string containing the metric group name. You can use an existing name or use a new name to create a new metric group. Currently, this parameter can have only one string.
         :param pulumi.Input['ContainerFleetNewGameSessionProtectionPolicy'] new_game_session_protection_policy: A game session protection policy to apply to all game sessions hosted on instances in this fleet. When protected, active game sessions cannot be terminated during a scale-down event. If this parameter is not set, instances in this fleet default to no protection. You can change a fleet's protection policy to affect future game sessions on the fleet. You can also set protection for individual game sessions.
         :param pulumi.Input[_builtins.str] per_instance_container_group_definition_name: The name of the container group definition that will be created per instance. This field is optional if you specify GameServerContainerGroupDefinitionName.
+        :param pulumi.Input['ContainerFleetPlayerGatewayMode'] player_gateway_mode: The player gateway mode for the container fleet.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ContainerFleetScalingPolicyArgs', 'ContainerFleetScalingPolicyArgsDict']]]] scaling_policies: A list of rules that control how a fleet is scaled.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
         """
@@ -393,6 +411,7 @@ class ContainerFleet(pulumi.CustomResource):
                  metric_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  new_game_session_protection_policy: Optional[pulumi.Input['ContainerFleetNewGameSessionProtectionPolicy']] = None,
                  per_instance_container_group_definition_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 player_gateway_mode: Optional[pulumi.Input['ContainerFleetPlayerGatewayMode']] = None,
                  scaling_policies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ContainerFleetScalingPolicyArgs', 'ContainerFleetScalingPolicyArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
@@ -421,6 +440,7 @@ class ContainerFleet(pulumi.CustomResource):
             __props__.__dict__["metric_groups"] = metric_groups
             __props__.__dict__["new_game_session_protection_policy"] = new_game_session_protection_policy
             __props__.__dict__["per_instance_container_group_definition_name"] = per_instance_container_group_definition_name
+            __props__.__dict__["player_gateway_mode"] = player_gateway_mode
             __props__.__dict__["scaling_policies"] = scaling_policies
             __props__.__dict__["tags"] = tags
             __props__.__dict__["creation_time"] = None
@@ -431,7 +451,7 @@ class ContainerFleet(pulumi.CustomResource):
             __props__.__dict__["maximum_game_server_container_groups_per_instance"] = None
             __props__.__dict__["per_instance_container_group_definition_arn"] = None
             __props__.__dict__["status"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["billingType", "instanceType"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["billingType", "instanceType", "playerGatewayMode"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(ContainerFleet, __self__).__init__(
             'aws-native:gamelift:ContainerFleet',
@@ -477,6 +497,7 @@ class ContainerFleet(pulumi.CustomResource):
         __props__.__dict__["new_game_session_protection_policy"] = None
         __props__.__dict__["per_instance_container_group_definition_arn"] = None
         __props__.__dict__["per_instance_container_group_definition_name"] = None
+        __props__.__dict__["player_gateway_mode"] = None
         __props__.__dict__["scaling_policies"] = None
         __props__.__dict__["status"] = None
         __props__.__dict__["tags"] = None
@@ -655,6 +676,14 @@ class ContainerFleet(pulumi.CustomResource):
         The name of the container group definition that will be created per instance. This field is optional if you specify GameServerContainerGroupDefinitionName.
         """
         return pulumi.get(self, "per_instance_container_group_definition_name")
+
+    @_builtins.property
+    @pulumi.getter(name="playerGatewayMode")
+    def player_gateway_mode(self) -> pulumi.Output[Optional['ContainerFleetPlayerGatewayMode']]:
+        """
+        The player gateway mode for the container fleet.
+        """
+        return pulumi.get(self, "player_gateway_mode")
 
     @_builtins.property
     @pulumi.getter(name="scalingPolicies")

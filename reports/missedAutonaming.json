@@ -2611,6 +2611,19 @@
       }
     }
   },
+  "aws-native:connect:ContactFlowModuleVersion": {
+    "cfTypeName": "AWS::Connect::ContactFlowModuleVersion",
+    "properties": {
+      "contactFlowModuleId": {
+        "type": "string",
+        "description": "The identifier of the contact flow module (ARN) this version is tied to."
+      },
+      "description": {
+        "type": "string",
+        "description": "The description of the version."
+      }
+    }
+  },
   "aws-native:connect:ContactFlowVersion": {
     "cfTypeName": "AWS::Connect::ContactFlowVersion",
     "properties": {
@@ -4184,6 +4197,30 @@
       "resourceCollectionFilter": {
         "$ref": "#/types/aws-native:devopsguru:ResourceCollectionFilter",
         "description": "Information about a filter used to specify which AWS resources are analyzed for anomalous behavior by DevOps Guru."
+      }
+    }
+  },
+  "aws-native:directconnect:DirectConnectGatewayAssociation": {
+    "cfTypeName": "AWS::DirectConnect::DirectConnectGatewayAssociation",
+    "properties": {
+      "acceptDirectConnectGatewayAssociationProposalRoleArn": {
+        "type": "string",
+        "description": "The Amazon Resource Name (ARN) of the role to accept the Direct Connect Gateway association proposal. Needs directconnect:AcceptDirectConnectGatewayAssociationProposal permissions."
+      },
+      "allowedPrefixesToDirectConnectGateway": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "description": "The Amazon VPC prefixes to advertise to the Direct Connect gateway. This parameter is required when you create an association to a transit gateway."
+      },
+      "associatedGatewayId": {
+        "type": "string",
+        "description": "The ID or ARN of the virtual private gateway or transit gateway."
+      },
+      "directConnectGatewayId": {
+        "type": "string",
+        "description": "The ID or ARN of the Direct Connect gateway."
       }
     }
   },
@@ -8924,6 +8961,10 @@
         "type": "string",
         "description": "The name of the container group definition that will be created per instance. This field is optional if you specify GameServerContainerGroupDefinitionName."
       },
+      "playerGatewayMode": {
+        "$ref": "#/types/aws-native:gamelift:ContainerFleetPlayerGatewayMode",
+        "description": "The player gateway mode for the container fleet."
+      },
       "scalingPolicies": {
         "type": "array",
         "items": {
@@ -12423,6 +12464,9 @@
         "additionalProperties": {
           "type": "string"
         }
+      },
+      "vpcEndpointId": {
+        "type": "string"
       }
     }
   },
@@ -13081,7 +13125,7 @@
       },
       "engineVersion": {
         "type": "string",
-        "description": "The version number of the database engine to use.\n To list all of the available engine versions for Aurora MySQL version 2 (5.7-compatible) and version 3 (8.0-compatible), use the following command:\n  ``aws rds describe-db-engine-versions --engine aurora-mysql --query \"DBEngineVersions[].EngineVersion\"`` \n You can supply either ``5.7`` or ``8.0`` to use the default engine version for Aurora MySQL version 2 or version 3, respectively.\n To list all of the available engine versions for Aurora PostgreSQL, use the following command:\n  ``aws rds describe-db-engine-versions --engine aurora-postgresql --query \"DBEngineVersions[].EngineVersion\"`` \n To list all of the available engine versions for RDS for MySQL, use the following command:\n  ``aws rds describe-db-engine-versions --engine mysql --query \"DBEngineVersions[].EngineVersion\"`` \n To list all of the available engine versions for RDS for PostgreSQL, use the following command:\n  ``aws rds describe-db-engine-versions --engine postgres --query \"DBEngineVersions[].EngineVersion\"`` \n  *Aurora MySQL* \n For information, see [Database engine updates for Amazon Aurora MySQL](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Updates.html) in the *Amazon Aurora User Guide*.\n  *Aurora PostgreSQL* \n For information, see [Amazon Aurora PostgreSQL releases and engine versions](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.Updates.20180305.html) in the *Amazon Aurora User Guide*.\n  *MySQL* \n For information, see [Amazon RDS for MySQL](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_MySQL.html#MySQL.Concepts.VersionMgmt) in the *Amazon RDS User Guide*.\n  *PostgreSQL* \n For information, see [Amazon RDS for PostgreSQL](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_PostgreSQL.html#PostgreSQL.Concepts) in the *Amazon RDS User Guide*.\n Valid for: Aurora DB clusters and Multi-AZ DB clusters"
+        "description": "The version number of the database engine to use.\n  Don't use this property if your DB cluster is a member of a global database cluster. Instead, specify the ``EngineVersion`` property on the [AWS::RDS::GlobalCluster](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-globalcluster.html) resource. Major version upgrades aren't supported for individual members of a global cluster. Use ``ModifyGlobalCluster`` to upgrade all members of the global cluster.\n  To list all of the available engine versions for Aurora MySQL version 2 (5.7-compatible) and version 3 (8.0-compatible), use the following command:\n  ``aws rds describe-db-engine-versions --engine aurora-mysql --query \"DBEngineVersions[].EngineVersion\"`` \n You can supply either ``5.7`` or ``8.0`` to use the default engine version for Aurora MySQL version 2 or version 3, respectively.\n To list all of the available engine versions for Aurora PostgreSQL, use the following command:\n  ``aws rds describe-db-engine-versions --engine aurora-postgresql --query \"DBEngineVersions[].EngineVersion\"`` \n To list all of the available engine versions for RDS for MySQL, use the following command:\n  ``aws rds describe-db-engine-versions --engine mysql --query \"DBEngineVersions[].EngineVersion\"`` \n To list all of the available engine versions for RDS for PostgreSQL, use the following command:\n  ``aws rds describe-db-engine-versions --engine postgres --query \"DBEngineVersions[].EngineVersion\"`` \n  *Aurora MySQL* \n For information, see [Database engine updates for Amazon Aurora MySQL](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Updates.html) in the *Amazon Aurora User Guide*.\n  *Aurora PostgreSQL* \n For information, see [Amazon Aurora PostgreSQL releases and engine versions](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.Updates.20180305.html) in the *Amazon Aurora User Guide*.\n  *MySQL* \n For information, see [Amazon RDS for MySQL](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_MySQL.html#MySQL.Concepts.VersionMgmt) in the *Amazon RDS User Guide*.\n  *PostgreSQL* \n For information, see [Amazon RDS for PostgreSQL](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_PostgreSQL.html#PostgreSQL.Concepts) in the *Amazon RDS User Guide*.\n Valid for: Aurora DB clusters and Multi-AZ DB clusters"
       },
       "globalClusterIdentifier": {
         "type": "string",
@@ -13471,7 +13515,7 @@
       },
       "performanceInsightsKmsKeyId": {
         "type": "string",
-        "description": "The AWS KMS key identifier for encryption of Performance Insights data.\n The KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key.\n If you do not specify a value for ``PerformanceInsightsKMSKeyId``, then Amazon RDS uses your default KMS key. There is a default KMS key for your AWS account. Your AWS account has a different default KMS key for each AWS Region.\n For information about enabling Performance Insights, see [EnablePerformanceInsights](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-enableperformanceinsights)."
+        "description": "The AWS KMS key identifier for encryption of Performance Insights data.\n The KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key.\n If you do not specify a value for ``PerformanceInsightsKMSKeyId``, then Amazon RDS uses your default KMS key. There is a default KMS key for your AWS account. Your AWS account has a different default KMS key for each AWS Region.\n  *Update behavior:* Once Performance Insights is enabled with a KMS key, you cannot change to a different physical KMS key without replacing the DB instance. However, the following updates do not require replacement:\n  +  Enabling or disabling Performance Insights using the ``EnablePerformanceInsights`` property\n  +  Changing between different identifier formats (key ARN, key ID, alias ARN, alias name) of the same physical KMS key\n  +  Removing the ``PerformanceInsightsKMSKeyId`` property from your template\n  \n   *Drift behavior:* If you specify ``PerformanceInsightsKMSKeyId`` while ``EnablePerformanceInsights`` is set to ``false``, CloudFormation will report drift. This occurs because the RDS API does not allow setting a KMS key when Performance Insights is disabled. CloudFormation ignores the ``PerformanceInsightsKMSKeyId`` value during instance creation to avoid API errors, resulting in a mismatch between your template and the actual instance configuration.\n To avoid drift, omit both ``EnablePerformanceInsights`` and ``PerformanceInsightsKMSKeyId`` during initial instance creation, then set both properties together when you're ready to enable Performance Insights.\n  For information about enabling Performance Insights, see [EnablePerformanceInsights](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-enableperformanceinsights)."
       },
       "performanceInsightsRetentionPeriod": {
         "type": "integer",
@@ -15035,6 +15079,35 @@
       }
     }
   },
+  "aws-native:servicecatalog:LaunchRoleConstraint": {
+    "cfTypeName": "AWS::ServiceCatalog::LaunchRoleConstraint",
+    "properties": {
+      "acceptLanguage": {
+        "type": "string",
+        "description": "The language code for the constraint."
+      },
+      "description": {
+        "type": "string",
+        "description": "The description of the launch role constraint."
+      },
+      "localRoleName": {
+        "type": "string",
+        "description": "The local IAM role name to use in the launch constraint."
+      },
+      "portfolioId": {
+        "type": "string",
+        "description": "The ID of the portfolio to which this launch role constraint applies."
+      },
+      "productId": {
+        "type": "string",
+        "description": "The ID of the product to which this launch role constraint applies."
+      },
+      "roleArn": {
+        "type": "string",
+        "description": "The ARN of the IAM role used for the launch constraint."
+      }
+    }
+  },
   "aws-native:servicecatalog:LaunchTemplateConstraint": {
     "cfTypeName": "AWS::ServiceCatalog::LaunchTemplateConstraint",
     "properties": {
@@ -15057,6 +15130,34 @@
       "rules": {
         "type": "string",
         "description": "A json encoded string of the template constraint rules"
+      }
+    }
+  },
+  "aws-native:servicecatalog:Portfolio": {
+    "cfTypeName": "AWS::ServiceCatalog::Portfolio",
+    "properties": {
+      "acceptLanguage": {
+        "type": "string",
+        "description": "The language code.\n\n- `jp` - Japanese\n- `zh` - Chinese"
+      },
+      "description": {
+        "type": "string",
+        "description": "The description of the portfolio."
+      },
+      "displayName": {
+        "type": "string",
+        "description": "The name to use for display purposes."
+      },
+      "providerName": {
+        "type": "string",
+        "description": "The name of the portfolio provider."
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:index:Tag"
+        },
+        "description": "One or more tags."
       }
     }
   },

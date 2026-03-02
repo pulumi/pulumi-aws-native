@@ -27,8 +27,12 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &CloudFormationProvisionedProduct{}
 	case "aws-native:servicecatalog:LaunchNotificationConstraint":
 		r = &LaunchNotificationConstraint{}
+	case "aws-native:servicecatalog:LaunchRoleConstraint":
+		r = &LaunchRoleConstraint{}
 	case "aws-native:servicecatalog:LaunchTemplateConstraint":
 		r = &LaunchTemplateConstraint{}
+	case "aws-native:servicecatalog:Portfolio":
+		r = &Portfolio{}
 	case "aws-native:servicecatalog:PortfolioPrincipalAssociation":
 		r = &PortfolioPrincipalAssociation{}
 	case "aws-native:servicecatalog:PortfolioProductAssociation":

@@ -43,9 +43,6 @@ class GetCapacityProviderResult:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[_builtins.str]:
-        """
-        The Amazon Resource Name (ARN) of the capacity provider. This is a read-only property that is automatically generated when the capacity provider is created.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
@@ -68,7 +65,7 @@ class GetCapacityProviderResult:
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
         """
-        A list of tags to apply to the capacity provider.
+        A key-value pair that provides metadata for the capacity provider.
         """
         return pulumi.get(self, "tags")
 
@@ -88,10 +85,7 @@ class AwaitableGetCapacityProviderResult(GetCapacityProviderResult):
 def get_capacity_provider(capacity_provider_name: Optional[_builtins.str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCapacityProviderResult:
     """
-    Resource Type definition for AWS::Lambda::CapacityProvider
-
-
-    :param _builtins.str capacity_provider_name: The name of the capacity provider. The name must be unique within your AWS account and region. If you don't specify a name, CloudFormation generates one.
+    Creates a capacity provider that manages compute resources for Lambda functions
     """
     __args__ = dict()
     __args__['capacityProviderName'] = capacity_provider_name
@@ -106,10 +100,7 @@ def get_capacity_provider(capacity_provider_name: Optional[_builtins.str] = None
 def get_capacity_provider_output(capacity_provider_name: Optional[pulumi.Input[_builtins.str]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCapacityProviderResult]:
     """
-    Resource Type definition for AWS::Lambda::CapacityProvider
-
-
-    :param _builtins.str capacity_provider_name: The name of the capacity provider. The name must be unique within your AWS account and region. If you don't specify a name, CloudFormation generates one.
+    Creates a capacity provider that manages compute resources for Lambda functions
     """
     __args__ = dict()
     __args__['capacityProviderName'] = capacity_provider_name

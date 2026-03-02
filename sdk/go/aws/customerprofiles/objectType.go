@@ -43,6 +43,8 @@ type ObjectType struct {
 	ObjectTypeName pulumi.StringOutput `pulumi:"objectTypeName"`
 	// The format of your sourceLastUpdatedTimestamp that was previously set up.
 	SourceLastUpdatedTimestampFormat pulumi.StringPtrOutput `pulumi:"sourceLastUpdatedTimestampFormat"`
+	// Defines the priority order of object types. Lower value indicates higher priority.
+	SourcePriority pulumi.IntPtrOutput `pulumi:"sourcePriority"`
 	// The tags (keys and values) associated with the integration.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// A unique identifier for the object template.
@@ -120,6 +122,8 @@ type objectTypeArgs struct {
 	ObjectTypeName *string `pulumi:"objectTypeName"`
 	// The format of your sourceLastUpdatedTimestamp that was previously set up.
 	SourceLastUpdatedTimestampFormat *string `pulumi:"sourceLastUpdatedTimestampFormat"`
+	// Defines the priority order of object types. Lower value indicates higher priority.
+	SourcePriority *int `pulumi:"sourcePriority"`
 	// The tags (keys and values) associated with the integration.
 	Tags []aws.Tag `pulumi:"tags"`
 	// A unique identifier for the object template.
@@ -148,6 +152,8 @@ type ObjectTypeArgs struct {
 	ObjectTypeName pulumi.StringPtrInput
 	// The format of your sourceLastUpdatedTimestamp that was previously set up.
 	SourceLastUpdatedTimestampFormat pulumi.StringPtrInput
+	// Defines the priority order of object types. Lower value indicates higher priority.
+	SourcePriority pulumi.IntPtrInput
 	// The tags (keys and values) associated with the integration.
 	Tags aws.TagArrayInput
 	// A unique identifier for the object template.
@@ -254,6 +260,11 @@ func (o ObjectTypeOutput) ObjectTypeName() pulumi.StringOutput {
 // The format of your sourceLastUpdatedTimestamp that was previously set up.
 func (o ObjectTypeOutput) SourceLastUpdatedTimestampFormat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ObjectType) pulumi.StringPtrOutput { return v.SourceLastUpdatedTimestampFormat }).(pulumi.StringPtrOutput)
+}
+
+// Defines the priority order of object types. Lower value indicates higher priority.
+func (o ObjectTypeOutput) SourcePriority() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ObjectType) pulumi.IntPtrOutput { return v.SourcePriority }).(pulumi.IntPtrOutput)
 }
 
 // The tags (keys and values) associated with the integration.

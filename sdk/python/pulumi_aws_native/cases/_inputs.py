@@ -42,6 +42,10 @@ __all__ = [
     'CaseRuleOperandTwo3PropertiesArgsDict',
     'CaseRuleRequiredCaseRuleArgs',
     'CaseRuleRequiredCaseRuleArgsDict',
+    'FieldAttributesArgs',
+    'FieldAttributesArgsDict',
+    'FieldTextAttributesArgs',
+    'FieldTextAttributesArgsDict',
     'LayoutBasicLayoutArgs',
     'LayoutBasicLayoutArgsDict',
     'LayoutContentPropertiesArgs',
@@ -486,6 +490,64 @@ class CaseRuleRequiredCaseRuleArgs:
     @default_value.setter
     def default_value(self, value: pulumi.Input[_builtins.bool]):
         pulumi.set(self, "default_value", value)
+
+
+class FieldAttributesArgsDict(TypedDict):
+    """
+    Union of field attributes
+    """
+    text: NotRequired[pulumi.Input['FieldTextAttributesArgsDict']]
+
+@pulumi.input_type
+class FieldAttributesArgs:
+    def __init__(__self__, *,
+                 text: Optional[pulumi.Input['FieldTextAttributesArgs']] = None):
+        """
+        Union of field attributes
+        """
+        if text is not None:
+            pulumi.set(__self__, "text", text)
+
+    @_builtins.property
+    @pulumi.getter
+    def text(self) -> Optional[pulumi.Input['FieldTextAttributesArgs']]:
+        return pulumi.get(self, "text")
+
+    @text.setter
+    def text(self, value: Optional[pulumi.Input['FieldTextAttributesArgs']]):
+        pulumi.set(self, "text", value)
+
+
+class FieldTextAttributesArgsDict(TypedDict):
+    """
+    Field attributes for Text field type
+    """
+    is_multiline: pulumi.Input[_builtins.bool]
+    """
+    Attribute that defines rendering component and validation
+    """
+
+@pulumi.input_type
+class FieldTextAttributesArgs:
+    def __init__(__self__, *,
+                 is_multiline: pulumi.Input[_builtins.bool]):
+        """
+        Field attributes for Text field type
+        :param pulumi.Input[_builtins.bool] is_multiline: Attribute that defines rendering component and validation
+        """
+        pulumi.set(__self__, "is_multiline", is_multiline)
+
+    @_builtins.property
+    @pulumi.getter(name="isMultiline")
+    def is_multiline(self) -> pulumi.Input[_builtins.bool]:
+        """
+        Attribute that defines rendering component and validation
+        """
+        return pulumi.get(self, "is_multiline")
+
+    @is_multiline.setter
+    def is_multiline(self, value: pulumi.Input[_builtins.bool]):
+        pulumi.set(self, "is_multiline", value)
 
 
 class LayoutBasicLayoutArgsDict(TypedDict):

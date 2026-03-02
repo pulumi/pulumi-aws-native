@@ -68,6 +68,8 @@ __all__ = [
     'FleetLocationConfigurationArgsDict',
     'FleetManagedCapacityConfigurationArgs',
     'FleetManagedCapacityConfigurationArgsDict',
+    'FleetPlayerGatewayConfigurationArgs',
+    'FleetPlayerGatewayConfigurationArgsDict',
     'FleetResourceCreationLimitPolicyArgs',
     'FleetResourceCreationLimitPolicyArgsDict',
     'FleetRuntimeConfigurationArgs',
@@ -625,6 +627,10 @@ class ContainerFleetLocationConfigurationArgsDict(TypedDict):
     An AWS Region code, such as `us-west-2` . For a list of supported Regions and Local Zones, see [Amazon GameLift Servers service locations](https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-regions.html) for managed hosting.
     """
     location_capacity: NotRequired[pulumi.Input['ContainerFleetLocationCapacityArgsDict']]
+    player_gateway_status: NotRequired[pulumi.Input['ContainerFleetLocationConfigurationPlayerGatewayStatus']]
+    """
+    The player gateway status for the location.
+    """
     stopped_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input['ContainerFleetStoppedActionsItem']]]]
 
 @pulumi.input_type
@@ -632,14 +638,18 @@ class ContainerFleetLocationConfigurationArgs:
     def __init__(__self__, *,
                  location: pulumi.Input[_builtins.str],
                  location_capacity: Optional[pulumi.Input['ContainerFleetLocationCapacityArgs']] = None,
+                 player_gateway_status: Optional[pulumi.Input['ContainerFleetLocationConfigurationPlayerGatewayStatus']] = None,
                  stopped_actions: Optional[pulumi.Input[Sequence[pulumi.Input['ContainerFleetStoppedActionsItem']]]] = None):
         """
         A remote location where a multi-location fleet can deploy EC2 instances for game hosting.
         :param pulumi.Input[_builtins.str] location: An AWS Region code, such as `us-west-2` . For a list of supported Regions and Local Zones, see [Amazon GameLift Servers service locations](https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-regions.html) for managed hosting.
+        :param pulumi.Input['ContainerFleetLocationConfigurationPlayerGatewayStatus'] player_gateway_status: The player gateway status for the location.
         """
         pulumi.set(__self__, "location", location)
         if location_capacity is not None:
             pulumi.set(__self__, "location_capacity", location_capacity)
+        if player_gateway_status is not None:
+            pulumi.set(__self__, "player_gateway_status", player_gateway_status)
         if stopped_actions is not None:
             pulumi.set(__self__, "stopped_actions", stopped_actions)
 
@@ -663,6 +673,18 @@ class ContainerFleetLocationConfigurationArgs:
     @location_capacity.setter
     def location_capacity(self, value: Optional[pulumi.Input['ContainerFleetLocationCapacityArgs']]):
         pulumi.set(self, "location_capacity", value)
+
+    @_builtins.property
+    @pulumi.getter(name="playerGatewayStatus")
+    def player_gateway_status(self) -> Optional[pulumi.Input['ContainerFleetLocationConfigurationPlayerGatewayStatus']]:
+        """
+        The player gateway status for the location.
+        """
+        return pulumi.get(self, "player_gateway_status")
+
+    @player_gateway_status.setter
+    def player_gateway_status(self, value: Optional[pulumi.Input['ContainerFleetLocationConfigurationPlayerGatewayStatus']]):
+        pulumi.set(self, "player_gateway_status", value)
 
     @_builtins.property
     @pulumi.getter(name="stoppedActions")
@@ -2097,22 +2119,30 @@ class FleetLocationConfigurationArgsDict(TypedDict):
 
     *Returned by:* [DescribeFleetCapacity](https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeFleetCapacity.html) , [DescribeFleetLocationCapacity](https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeFleetLocationCapacity.html) , [UpdateFleetCapacity](https://docs.aws.amazon.com/gamelift/latest/apireference/API_UpdateFleetCapacity.html)
     """
+    player_gateway_status: NotRequired[pulumi.Input['FleetLocationConfigurationPlayerGatewayStatus']]
+    """
+    The player gateway status for the location.
+    """
 
 @pulumi.input_type
 class FleetLocationConfigurationArgs:
     def __init__(__self__, *,
                  location: pulumi.Input[_builtins.str],
-                 location_capacity: Optional[pulumi.Input['FleetLocationCapacityArgs']] = None):
+                 location_capacity: Optional[pulumi.Input['FleetLocationCapacityArgs']] = None,
+                 player_gateway_status: Optional[pulumi.Input['FleetLocationConfigurationPlayerGatewayStatus']] = None):
         """
         A remote location where a multi-location fleet can deploy EC2 instances for game hosting.
         :param pulumi.Input[_builtins.str] location: An AWS Region code, such as `us-west-2` . For a list of supported Regions and Local Zones, see [Amazon GameLift Servers service locations](https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-regions.html) for managed hosting.
         :param pulumi.Input['FleetLocationCapacityArgs'] location_capacity: Current resource capacity settings for managed EC2 fleets and managed container fleets. For multi-location fleets, location values might refer to a fleet's remote location or its home Region.
                
                *Returned by:* [DescribeFleetCapacity](https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeFleetCapacity.html) , [DescribeFleetLocationCapacity](https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeFleetLocationCapacity.html) , [UpdateFleetCapacity](https://docs.aws.amazon.com/gamelift/latest/apireference/API_UpdateFleetCapacity.html)
+        :param pulumi.Input['FleetLocationConfigurationPlayerGatewayStatus'] player_gateway_status: The player gateway status for the location.
         """
         pulumi.set(__self__, "location", location)
         if location_capacity is not None:
             pulumi.set(__self__, "location_capacity", location_capacity)
+        if player_gateway_status is not None:
+            pulumi.set(__self__, "player_gateway_status", player_gateway_status)
 
     @_builtins.property
     @pulumi.getter
@@ -2139,6 +2169,18 @@ class FleetLocationConfigurationArgs:
     @location_capacity.setter
     def location_capacity(self, value: Optional[pulumi.Input['FleetLocationCapacityArgs']]):
         pulumi.set(self, "location_capacity", value)
+
+    @_builtins.property
+    @pulumi.getter(name="playerGatewayStatus")
+    def player_gateway_status(self) -> Optional[pulumi.Input['FleetLocationConfigurationPlayerGatewayStatus']]:
+        """
+        The player gateway status for the location.
+        """
+        return pulumi.get(self, "player_gateway_status")
+
+    @player_gateway_status.setter
+    def player_gateway_status(self, value: Optional[pulumi.Input['FleetLocationConfigurationPlayerGatewayStatus']]):
+        pulumi.set(self, "player_gateway_status", value)
 
 
 class FleetManagedCapacityConfigurationArgsDict(TypedDict):
@@ -2191,6 +2233,39 @@ class FleetManagedCapacityConfigurationArgs:
     @scale_in_after_inactivity_minutes.setter
     def scale_in_after_inactivity_minutes(self, value: Optional[pulumi.Input[_builtins.int]]):
         pulumi.set(self, "scale_in_after_inactivity_minutes", value)
+
+
+class FleetPlayerGatewayConfigurationArgsDict(TypedDict):
+    """
+    Configuration for player gateway.
+    """
+    game_server_ip_protocol_supported: NotRequired[pulumi.Input['FleetPlayerGatewayConfigurationGameServerIpProtocolSupported']]
+    """
+    The IP protocol supported by the game server.
+    """
+
+@pulumi.input_type
+class FleetPlayerGatewayConfigurationArgs:
+    def __init__(__self__, *,
+                 game_server_ip_protocol_supported: Optional[pulumi.Input['FleetPlayerGatewayConfigurationGameServerIpProtocolSupported']] = None):
+        """
+        Configuration for player gateway.
+        :param pulumi.Input['FleetPlayerGatewayConfigurationGameServerIpProtocolSupported'] game_server_ip_protocol_supported: The IP protocol supported by the game server.
+        """
+        if game_server_ip_protocol_supported is not None:
+            pulumi.set(__self__, "game_server_ip_protocol_supported", game_server_ip_protocol_supported)
+
+    @_builtins.property
+    @pulumi.getter(name="gameServerIpProtocolSupported")
+    def game_server_ip_protocol_supported(self) -> Optional[pulumi.Input['FleetPlayerGatewayConfigurationGameServerIpProtocolSupported']]:
+        """
+        The IP protocol supported by the game server.
+        """
+        return pulumi.get(self, "game_server_ip_protocol_supported")
+
+    @game_server_ip_protocol_supported.setter
+    def game_server_ip_protocol_supported(self, value: Optional[pulumi.Input['FleetPlayerGatewayConfigurationGameServerIpProtocolSupported']]):
+        pulumi.set(self, "game_server_ip_protocol_supported", value)
 
 
 class FleetResourceCreationLimitPolicyArgsDict(TypedDict):

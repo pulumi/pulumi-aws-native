@@ -33,13 +33,12 @@ class CapacityProviderArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a CapacityProvider resource.
-        :param pulumi.Input['CapacityProviderPermissionsConfigArgs'] permissions_config: IAM permissions configuration for the capacity provider.
-        :param pulumi.Input['CapacityProviderVpcConfigArgs'] vpc_config: VPC configuration for the capacity provider.
-        :param pulumi.Input[_builtins.str] capacity_provider_name: The name of the capacity provider. The name must be unique within your AWS account and region. If you don't specify a name, CloudFormation generates one.
+        :param pulumi.Input['CapacityProviderPermissionsConfigArgs'] permissions_config: The permissions configuration for the capacity provider.
+        :param pulumi.Input['CapacityProviderVpcConfigArgs'] vpc_config: The VPC configuration for the capacity provider.
         :param pulumi.Input['CapacityProviderScalingConfigArgs'] capacity_provider_scaling_config: The scaling configuration for the capacity provider.
-        :param pulumi.Input['CapacityProviderInstanceRequirementsArgs'] instance_requirements: Specifications for the types of EC2 instances that the capacity provider can use.
-        :param pulumi.Input[_builtins.str] kms_key_arn: The ARN of the AWS Key Management Service (KMS) key used by the capacity provider.
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A list of tags to apply to the capacity provider.
+        :param pulumi.Input['CapacityProviderInstanceRequirementsArgs'] instance_requirements: The instance requirements for compute resources managed by the capacity provider.
+        :param pulumi.Input[_builtins.str] kms_key_arn: The ARN of the KMS key used to encrypt the capacity provider's resources.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A key-value pair that provides metadata for the capacity provider.
         """
         pulumi.set(__self__, "permissions_config", permissions_config)
         pulumi.set(__self__, "vpc_config", vpc_config)
@@ -58,7 +57,7 @@ class CapacityProviderArgs:
     @pulumi.getter(name="permissionsConfig")
     def permissions_config(self) -> pulumi.Input['CapacityProviderPermissionsConfigArgs']:
         """
-        IAM permissions configuration for the capacity provider.
+        The permissions configuration for the capacity provider.
         """
         return pulumi.get(self, "permissions_config")
 
@@ -70,7 +69,7 @@ class CapacityProviderArgs:
     @pulumi.getter(name="vpcConfig")
     def vpc_config(self) -> pulumi.Input['CapacityProviderVpcConfigArgs']:
         """
-        VPC configuration for the capacity provider.
+        The VPC configuration for the capacity provider.
         """
         return pulumi.get(self, "vpc_config")
 
@@ -81,9 +80,6 @@ class CapacityProviderArgs:
     @_builtins.property
     @pulumi.getter(name="capacityProviderName")
     def capacity_provider_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the capacity provider. The name must be unique within your AWS account and region. If you don't specify a name, CloudFormation generates one.
-        """
         return pulumi.get(self, "capacity_provider_name")
 
     @capacity_provider_name.setter
@@ -106,7 +102,7 @@ class CapacityProviderArgs:
     @pulumi.getter(name="instanceRequirements")
     def instance_requirements(self) -> Optional[pulumi.Input['CapacityProviderInstanceRequirementsArgs']]:
         """
-        Specifications for the types of EC2 instances that the capacity provider can use.
+        The instance requirements for compute resources managed by the capacity provider.
         """
         return pulumi.get(self, "instance_requirements")
 
@@ -118,7 +114,7 @@ class CapacityProviderArgs:
     @pulumi.getter(name="kmsKeyArn")
     def kms_key_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The ARN of the AWS Key Management Service (KMS) key used by the capacity provider.
+        The ARN of the KMS key used to encrypt the capacity provider's resources.
         """
         return pulumi.get(self, "kms_key_arn")
 
@@ -130,7 +126,7 @@ class CapacityProviderArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
-        A list of tags to apply to the capacity provider.
+        A key-value pair that provides metadata for the capacity provider.
         """
         return pulumi.get(self, "tags")
 
@@ -154,17 +150,16 @@ class CapacityProvider(pulumi.CustomResource):
                  vpc_config: Optional[pulumi.Input[Union['CapacityProviderVpcConfigArgs', 'CapacityProviderVpcConfigArgsDict']]] = None,
                  __props__=None):
         """
-        Resource Type definition for AWS::Lambda::CapacityProvider
+        Creates a capacity provider that manages compute resources for Lambda functions
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] capacity_provider_name: The name of the capacity provider. The name must be unique within your AWS account and region. If you don't specify a name, CloudFormation generates one.
         :param pulumi.Input[Union['CapacityProviderScalingConfigArgs', 'CapacityProviderScalingConfigArgsDict']] capacity_provider_scaling_config: The scaling configuration for the capacity provider.
-        :param pulumi.Input[Union['CapacityProviderInstanceRequirementsArgs', 'CapacityProviderInstanceRequirementsArgsDict']] instance_requirements: Specifications for the types of EC2 instances that the capacity provider can use.
-        :param pulumi.Input[_builtins.str] kms_key_arn: The ARN of the AWS Key Management Service (KMS) key used by the capacity provider.
-        :param pulumi.Input[Union['CapacityProviderPermissionsConfigArgs', 'CapacityProviderPermissionsConfigArgsDict']] permissions_config: IAM permissions configuration for the capacity provider.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A list of tags to apply to the capacity provider.
-        :param pulumi.Input[Union['CapacityProviderVpcConfigArgs', 'CapacityProviderVpcConfigArgsDict']] vpc_config: VPC configuration for the capacity provider.
+        :param pulumi.Input[Union['CapacityProviderInstanceRequirementsArgs', 'CapacityProviderInstanceRequirementsArgsDict']] instance_requirements: The instance requirements for compute resources managed by the capacity provider.
+        :param pulumi.Input[_builtins.str] kms_key_arn: The ARN of the KMS key used to encrypt the capacity provider's resources.
+        :param pulumi.Input[Union['CapacityProviderPermissionsConfigArgs', 'CapacityProviderPermissionsConfigArgsDict']] permissions_config: The permissions configuration for the capacity provider.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A key-value pair that provides metadata for the capacity provider.
+        :param pulumi.Input[Union['CapacityProviderVpcConfigArgs', 'CapacityProviderVpcConfigArgsDict']] vpc_config: The VPC configuration for the capacity provider.
         """
         ...
     @overload
@@ -173,7 +168,7 @@ class CapacityProvider(pulumi.CustomResource):
                  args: CapacityProviderArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource Type definition for AWS::Lambda::CapacityProvider
+        Creates a capacity provider that manages compute resources for Lambda functions
 
         :param str resource_name: The name of the resource.
         :param CapacityProviderArgs args: The arguments to use to populate this resource's properties.
@@ -257,17 +252,11 @@ class CapacityProvider(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        The Amazon Resource Name (ARN) of the capacity provider. This is a read-only property that is automatically generated when the capacity provider is created.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="capacityProviderName")
     def capacity_provider_name(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The name of the capacity provider. The name must be unique within your AWS account and region. If you don't specify a name, CloudFormation generates one.
-        """
         return pulumi.get(self, "capacity_provider_name")
 
     @_builtins.property
@@ -282,7 +271,7 @@ class CapacityProvider(pulumi.CustomResource):
     @pulumi.getter(name="instanceRequirements")
     def instance_requirements(self) -> pulumi.Output[Optional['outputs.CapacityProviderInstanceRequirements']]:
         """
-        Specifications for the types of EC2 instances that the capacity provider can use.
+        The instance requirements for compute resources managed by the capacity provider.
         """
         return pulumi.get(self, "instance_requirements")
 
@@ -290,7 +279,7 @@ class CapacityProvider(pulumi.CustomResource):
     @pulumi.getter(name="kmsKeyArn")
     def kms_key_arn(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The ARN of the AWS Key Management Service (KMS) key used by the capacity provider.
+        The ARN of the KMS key used to encrypt the capacity provider's resources.
         """
         return pulumi.get(self, "kms_key_arn")
 
@@ -298,7 +287,7 @@ class CapacityProvider(pulumi.CustomResource):
     @pulumi.getter(name="permissionsConfig")
     def permissions_config(self) -> pulumi.Output['outputs.CapacityProviderPermissionsConfig']:
         """
-        IAM permissions configuration for the capacity provider.
+        The permissions configuration for the capacity provider.
         """
         return pulumi.get(self, "permissions_config")
 
@@ -314,7 +303,7 @@ class CapacityProvider(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
-        A list of tags to apply to the capacity provider.
+        A key-value pair that provides metadata for the capacity provider.
         """
         return pulumi.get(self, "tags")
 
@@ -322,7 +311,7 @@ class CapacityProvider(pulumi.CustomResource):
     @pulumi.getter(name="vpcConfig")
     def vpc_config(self) -> pulumi.Output['outputs.CapacityProviderVpcConfig']:
         """
-        VPC configuration for the capacity provider.
+        The VPC configuration for the capacity provider.
         """
         return pulumi.get(self, "vpc_config")
 

@@ -182,7 +182,6 @@ namespace Pulumi.AwsNative.Ec2
                     "tunnelInsideIpVersion",
                     "type",
                     "vpnConcentratorId",
-                    "vpnTunnelOptionsSpecifications[*]",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

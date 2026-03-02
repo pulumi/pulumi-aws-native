@@ -50,6 +50,10 @@ export interface GetVpnConnectionResult {
      *  You must specify either ``TransitGatewayId`` or ``VpnGatewayId``, but not both.
      */
     readonly vpnGatewayId?: string;
+    /**
+     * The tunnel options for the VPN connection.
+     */
+    readonly vpnTunnelOptionsSpecifications?: outputs.ec2.VpnConnectionVpnTunnelOptionsSpecification[];
 }
 /**
  * Specifies a VPN connection between a virtual private gateway and a VPN customer gateway or a transit gateway and a VPN customer gateway.

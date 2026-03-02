@@ -53,6 +53,8 @@ type LookupObjectTypeResult struct {
 	MaxProfileObjectCount *int `pulumi:"maxProfileObjectCount"`
 	// The format of your sourceLastUpdatedTimestamp that was previously set up.
 	SourceLastUpdatedTimestampFormat *string `pulumi:"sourceLastUpdatedTimestampFormat"`
+	// Defines the priority order of object types. Lower value indicates higher priority.
+	SourcePriority *int `pulumi:"sourcePriority"`
 	// The tags (keys and values) associated with the integration.
 	Tags []aws.Tag `pulumi:"tags"`
 	// A unique identifier for the object template.
@@ -146,6 +148,11 @@ func (o LookupObjectTypeResultOutput) MaxProfileObjectCount() pulumi.IntPtrOutpu
 // The format of your sourceLastUpdatedTimestamp that was previously set up.
 func (o LookupObjectTypeResultOutput) SourceLastUpdatedTimestampFormat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupObjectTypeResult) *string { return v.SourceLastUpdatedTimestampFormat }).(pulumi.StringPtrOutput)
+}
+
+// Defines the priority order of object types. Lower value indicates higher priority.
+func (o LookupObjectTypeResultOutput) SourcePriority() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupObjectTypeResult) *int { return v.SourcePriority }).(pulumi.IntPtrOutput)
 }
 
 // The tags (keys and values) associated with the integration.

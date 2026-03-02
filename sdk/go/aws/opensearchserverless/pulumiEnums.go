@@ -174,6 +174,172 @@ func (in *accessPolicyTypePtr) ToAccessPolicyTypePtrOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, in).(AccessPolicyTypePtrOutput)
 }
 
+// Indicates whether standby replicas are used for the collection group.
+type CollectionGroupStandbyReplicas string
+
+const (
+	CollectionGroupStandbyReplicasEnabled  = CollectionGroupStandbyReplicas("ENABLED")
+	CollectionGroupStandbyReplicasDisabled = CollectionGroupStandbyReplicas("DISABLED")
+)
+
+func (CollectionGroupStandbyReplicas) ElementType() reflect.Type {
+	return reflect.TypeOf((*CollectionGroupStandbyReplicas)(nil)).Elem()
+}
+
+func (e CollectionGroupStandbyReplicas) ToCollectionGroupStandbyReplicasOutput() CollectionGroupStandbyReplicasOutput {
+	return pulumi.ToOutput(e).(CollectionGroupStandbyReplicasOutput)
+}
+
+func (e CollectionGroupStandbyReplicas) ToCollectionGroupStandbyReplicasOutputWithContext(ctx context.Context) CollectionGroupStandbyReplicasOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(CollectionGroupStandbyReplicasOutput)
+}
+
+func (e CollectionGroupStandbyReplicas) ToCollectionGroupStandbyReplicasPtrOutput() CollectionGroupStandbyReplicasPtrOutput {
+	return e.ToCollectionGroupStandbyReplicasPtrOutputWithContext(context.Background())
+}
+
+func (e CollectionGroupStandbyReplicas) ToCollectionGroupStandbyReplicasPtrOutputWithContext(ctx context.Context) CollectionGroupStandbyReplicasPtrOutput {
+	return CollectionGroupStandbyReplicas(e).ToCollectionGroupStandbyReplicasOutputWithContext(ctx).ToCollectionGroupStandbyReplicasPtrOutputWithContext(ctx)
+}
+
+func (e CollectionGroupStandbyReplicas) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e CollectionGroupStandbyReplicas) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e CollectionGroupStandbyReplicas) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e CollectionGroupStandbyReplicas) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type CollectionGroupStandbyReplicasOutput struct{ *pulumi.OutputState }
+
+func (CollectionGroupStandbyReplicasOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CollectionGroupStandbyReplicas)(nil)).Elem()
+}
+
+func (o CollectionGroupStandbyReplicasOutput) ToCollectionGroupStandbyReplicasOutput() CollectionGroupStandbyReplicasOutput {
+	return o
+}
+
+func (o CollectionGroupStandbyReplicasOutput) ToCollectionGroupStandbyReplicasOutputWithContext(ctx context.Context) CollectionGroupStandbyReplicasOutput {
+	return o
+}
+
+func (o CollectionGroupStandbyReplicasOutput) ToCollectionGroupStandbyReplicasPtrOutput() CollectionGroupStandbyReplicasPtrOutput {
+	return o.ToCollectionGroupStandbyReplicasPtrOutputWithContext(context.Background())
+}
+
+func (o CollectionGroupStandbyReplicasOutput) ToCollectionGroupStandbyReplicasPtrOutputWithContext(ctx context.Context) CollectionGroupStandbyReplicasPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CollectionGroupStandbyReplicas) *CollectionGroupStandbyReplicas {
+		return &v
+	}).(CollectionGroupStandbyReplicasPtrOutput)
+}
+
+func (o CollectionGroupStandbyReplicasOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o CollectionGroupStandbyReplicasOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CollectionGroupStandbyReplicas) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o CollectionGroupStandbyReplicasOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CollectionGroupStandbyReplicasOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CollectionGroupStandbyReplicas) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type CollectionGroupStandbyReplicasPtrOutput struct{ *pulumi.OutputState }
+
+func (CollectionGroupStandbyReplicasPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CollectionGroupStandbyReplicas)(nil)).Elem()
+}
+
+func (o CollectionGroupStandbyReplicasPtrOutput) ToCollectionGroupStandbyReplicasPtrOutput() CollectionGroupStandbyReplicasPtrOutput {
+	return o
+}
+
+func (o CollectionGroupStandbyReplicasPtrOutput) ToCollectionGroupStandbyReplicasPtrOutputWithContext(ctx context.Context) CollectionGroupStandbyReplicasPtrOutput {
+	return o
+}
+
+func (o CollectionGroupStandbyReplicasPtrOutput) Elem() CollectionGroupStandbyReplicasOutput {
+	return o.ApplyT(func(v *CollectionGroupStandbyReplicas) CollectionGroupStandbyReplicas {
+		if v != nil {
+			return *v
+		}
+		var ret CollectionGroupStandbyReplicas
+		return ret
+	}).(CollectionGroupStandbyReplicasOutput)
+}
+
+func (o CollectionGroupStandbyReplicasPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CollectionGroupStandbyReplicasPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *CollectionGroupStandbyReplicas) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// CollectionGroupStandbyReplicasInput is an input type that accepts values of the CollectionGroupStandbyReplicas enum
+// A concrete instance of `CollectionGroupStandbyReplicasInput` can be one of the following:
+//
+//	CollectionGroupStandbyReplicasEnabled
+//	CollectionGroupStandbyReplicasDisabled
+type CollectionGroupStandbyReplicasInput interface {
+	pulumi.Input
+
+	ToCollectionGroupStandbyReplicasOutput() CollectionGroupStandbyReplicasOutput
+	ToCollectionGroupStandbyReplicasOutputWithContext(context.Context) CollectionGroupStandbyReplicasOutput
+}
+
+var collectionGroupStandbyReplicasPtrType = reflect.TypeOf((**CollectionGroupStandbyReplicas)(nil)).Elem()
+
+type CollectionGroupStandbyReplicasPtrInput interface {
+	pulumi.Input
+
+	ToCollectionGroupStandbyReplicasPtrOutput() CollectionGroupStandbyReplicasPtrOutput
+	ToCollectionGroupStandbyReplicasPtrOutputWithContext(context.Context) CollectionGroupStandbyReplicasPtrOutput
+}
+
+type collectionGroupStandbyReplicasPtr string
+
+func CollectionGroupStandbyReplicasPtr(v string) CollectionGroupStandbyReplicasPtrInput {
+	return (*collectionGroupStandbyReplicasPtr)(&v)
+}
+
+func (*collectionGroupStandbyReplicasPtr) ElementType() reflect.Type {
+	return collectionGroupStandbyReplicasPtrType
+}
+
+func (in *collectionGroupStandbyReplicasPtr) ToCollectionGroupStandbyReplicasPtrOutput() CollectionGroupStandbyReplicasPtrOutput {
+	return pulumi.ToOutput(in).(CollectionGroupStandbyReplicasPtrOutput)
+}
+
+func (in *collectionGroupStandbyReplicasPtr) ToCollectionGroupStandbyReplicasPtrOutputWithContext(ctx context.Context) CollectionGroupStandbyReplicasPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(CollectionGroupStandbyReplicasPtrOutput)
+}
+
 // The possible standby replicas for the collection
 type CollectionStandbyReplicas string
 
@@ -1683,6 +1849,8 @@ func (in *securityPolicyTypePtr) ToSecurityPolicyTypePtrOutputWithContext(ctx co
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AccessPolicyTypeInput)(nil)).Elem(), AccessPolicyType("data"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AccessPolicyTypePtrInput)(nil)).Elem(), AccessPolicyType("data"))
+	pulumi.RegisterInputType(reflect.TypeOf((*CollectionGroupStandbyReplicasInput)(nil)).Elem(), CollectionGroupStandbyReplicas("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*CollectionGroupStandbyReplicasPtrInput)(nil)).Elem(), CollectionGroupStandbyReplicas("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CollectionStandbyReplicasInput)(nil)).Elem(), CollectionStandbyReplicas("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CollectionStandbyReplicasPtrInput)(nil)).Elem(), CollectionStandbyReplicas("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CollectionTypeInput)(nil)).Elem(), CollectionType("SEARCH"))
@@ -1703,6 +1871,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SecurityPolicyTypePtrInput)(nil)).Elem(), SecurityPolicyType("encryption"))
 	pulumi.RegisterOutputType(AccessPolicyTypeOutput{})
 	pulumi.RegisterOutputType(AccessPolicyTypePtrOutput{})
+	pulumi.RegisterOutputType(CollectionGroupStandbyReplicasOutput{})
+	pulumi.RegisterOutputType(CollectionGroupStandbyReplicasPtrOutput{})
 	pulumi.RegisterOutputType(CollectionStandbyReplicasOutput{})
 	pulumi.RegisterOutputType(CollectionStandbyReplicasPtrOutput{})
 	pulumi.RegisterOutputType(CollectionTypeOutput{})

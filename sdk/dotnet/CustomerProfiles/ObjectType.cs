@@ -94,6 +94,12 @@ namespace Pulumi.AwsNative.CustomerProfiles
         public Output<string?> SourceLastUpdatedTimestampFormat { get; private set; } = null!;
 
         /// <summary>
+        /// Defines the priority order of object types. Lower value indicates higher priority.
+        /// </summary>
+        [Output("sourcePriority")]
+        public Output<int?> SourcePriority { get; private set; } = null!;
+
+        /// <summary>
         /// The tags (keys and values) associated with the integration.
         /// </summary>
         [Output("tags")]
@@ -226,6 +232,12 @@ namespace Pulumi.AwsNative.CustomerProfiles
         /// </summary>
         [Input("sourceLastUpdatedTimestampFormat")]
         public Input<string>? SourceLastUpdatedTimestampFormat { get; set; }
+
+        /// <summary>
+        /// Defines the priority order of object types. Lower value indicates higher priority.
+        /// </summary>
+        [Input("sourcePriority")]
+        public Input<int>? SourcePriority { get; set; }
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;

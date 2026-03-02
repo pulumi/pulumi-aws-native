@@ -11,17 +11,17 @@ namespace Pulumi.AwsNative.Lambda.Outputs
 {
 
     /// <summary>
-    /// VPC configuration for the capacity provider.
+    /// VPC configuration that specifies the network settings for compute instances managed by the capacity provider.
     /// </summary>
     [OutputType]
     public sealed class CapacityProviderVpcConfig
     {
         /// <summary>
-        /// A list of security group IDs to associate with EC2 instances.
+        /// A list of security group IDs that control network access for compute instances managed by the capacity provider.
         /// </summary>
         public readonly ImmutableArray<string> SecurityGroupIds;
         /// <summary>
-        /// A list of subnet IDs where the capacity provider can launch EC2 instances.
+        /// A list of subnet IDs where the capacity provider launches compute instances.
         /// </summary>
         public readonly ImmutableArray<string> SubnetIds;
 

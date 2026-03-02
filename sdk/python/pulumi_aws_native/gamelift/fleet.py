@@ -45,6 +45,8 @@ class FleetArgs:
                  new_game_session_protection_policy: Optional[pulumi.Input['FleetNewGameSessionProtectionPolicy']] = None,
                  peer_vpc_aws_account_id: Optional[pulumi.Input[_builtins.str]] = None,
                  peer_vpc_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 player_gateway_configuration: Optional[pulumi.Input['FleetPlayerGatewayConfigurationArgs']] = None,
+                 player_gateway_mode: Optional[pulumi.Input['FleetPlayerGatewayMode']] = None,
                  resource_creation_limit_policy: Optional[pulumi.Input['FleetResourceCreationLimitPolicyArgs']] = None,
                  runtime_configuration: Optional[pulumi.Input['FleetRuntimeConfigurationArgs']] = None,
                  scaling_policies: Optional[pulumi.Input[Sequence[pulumi.Input['FleetScalingPolicyArgs']]]] = None,
@@ -75,6 +77,8 @@ class FleetArgs:
         :param pulumi.Input['FleetNewGameSessionProtectionPolicy'] new_game_session_protection_policy: A game session protection policy to apply to all game sessions hosted on instances in this fleet. When protected, active game sessions cannot be terminated during a scale-down event. If this parameter is not set, instances in this fleet default to no protection. You can change a fleet's protection policy to affect future game sessions on the fleet. You can also set protection for individual game sessions.
         :param pulumi.Input[_builtins.str] peer_vpc_aws_account_id: A unique identifier for the AWS account with the VPC that you want to peer your Amazon GameLift fleet with. You can find your account ID in the AWS Management Console under account settings.
         :param pulumi.Input[_builtins.str] peer_vpc_id: A unique identifier for a VPC with resources to be accessed by your Amazon GameLift fleet. The VPC must be in the same Region as your fleet. To look up a VPC ID, use the VPC Dashboard in the AWS Management Console.
+        :param pulumi.Input['FleetPlayerGatewayConfigurationArgs'] player_gateway_configuration: Configuration for player gateway.
+        :param pulumi.Input['FleetPlayerGatewayMode'] player_gateway_mode: The player gateway mode for the fleet.
         :param pulumi.Input['FleetResourceCreationLimitPolicyArgs'] resource_creation_limit_policy: A policy that limits the number of game sessions an individual player can create over a span of time for this fleet.
         :param pulumi.Input['FleetRuntimeConfigurationArgs'] runtime_configuration: Instructions for launching server processes on each instance in the fleet. Server processes run either a custom game build executable or a Realtime script. The runtime configuration defines the server executables or launch script file, launch parameters, and the number of processes to run concurrently on each instance. When creating a fleet, the runtime configuration must have at least one server process configuration; otherwise the request fails with an invalid request exception.
                
@@ -129,6 +133,10 @@ class FleetArgs:
             pulumi.set(__self__, "peer_vpc_aws_account_id", peer_vpc_aws_account_id)
         if peer_vpc_id is not None:
             pulumi.set(__self__, "peer_vpc_id", peer_vpc_id)
+        if player_gateway_configuration is not None:
+            pulumi.set(__self__, "player_gateway_configuration", player_gateway_configuration)
+        if player_gateway_mode is not None:
+            pulumi.set(__self__, "player_gateway_mode", player_gateway_mode)
         if resource_creation_limit_policy is not None:
             pulumi.set(__self__, "resource_creation_limit_policy", resource_creation_limit_policy)
         if runtime_configuration is not None:
@@ -397,6 +405,30 @@ class FleetArgs:
         pulumi.set(self, "peer_vpc_id", value)
 
     @_builtins.property
+    @pulumi.getter(name="playerGatewayConfiguration")
+    def player_gateway_configuration(self) -> Optional[pulumi.Input['FleetPlayerGatewayConfigurationArgs']]:
+        """
+        Configuration for player gateway.
+        """
+        return pulumi.get(self, "player_gateway_configuration")
+
+    @player_gateway_configuration.setter
+    def player_gateway_configuration(self, value: Optional[pulumi.Input['FleetPlayerGatewayConfigurationArgs']]):
+        pulumi.set(self, "player_gateway_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="playerGatewayMode")
+    def player_gateway_mode(self) -> Optional[pulumi.Input['FleetPlayerGatewayMode']]:
+        """
+        The player gateway mode for the fleet.
+        """
+        return pulumi.get(self, "player_gateway_mode")
+
+    @player_gateway_mode.setter
+    def player_gateway_mode(self, value: Optional[pulumi.Input['FleetPlayerGatewayMode']]):
+        pulumi.set(self, "player_gateway_mode", value)
+
+    @_builtins.property
     @pulumi.getter(name="resourceCreationLimitPolicy")
     def resource_creation_limit_policy(self) -> Optional[pulumi.Input['FleetResourceCreationLimitPolicyArgs']]:
         """
@@ -512,6 +544,8 @@ class Fleet(pulumi.CustomResource):
                  new_game_session_protection_policy: Optional[pulumi.Input['FleetNewGameSessionProtectionPolicy']] = None,
                  peer_vpc_aws_account_id: Optional[pulumi.Input[_builtins.str]] = None,
                  peer_vpc_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 player_gateway_configuration: Optional[pulumi.Input[Union['FleetPlayerGatewayConfigurationArgs', 'FleetPlayerGatewayConfigurationArgsDict']]] = None,
+                 player_gateway_mode: Optional[pulumi.Input['FleetPlayerGatewayMode']] = None,
                  resource_creation_limit_policy: Optional[pulumi.Input[Union['FleetResourceCreationLimitPolicyArgs', 'FleetResourceCreationLimitPolicyArgsDict']]] = None,
                  runtime_configuration: Optional[pulumi.Input[Union['FleetRuntimeConfigurationArgs', 'FleetRuntimeConfigurationArgsDict']]] = None,
                  scaling_policies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FleetScalingPolicyArgs', 'FleetScalingPolicyArgsDict']]]]] = None,
@@ -546,6 +580,8 @@ class Fleet(pulumi.CustomResource):
         :param pulumi.Input['FleetNewGameSessionProtectionPolicy'] new_game_session_protection_policy: A game session protection policy to apply to all game sessions hosted on instances in this fleet. When protected, active game sessions cannot be terminated during a scale-down event. If this parameter is not set, instances in this fleet default to no protection. You can change a fleet's protection policy to affect future game sessions on the fleet. You can also set protection for individual game sessions.
         :param pulumi.Input[_builtins.str] peer_vpc_aws_account_id: A unique identifier for the AWS account with the VPC that you want to peer your Amazon GameLift fleet with. You can find your account ID in the AWS Management Console under account settings.
         :param pulumi.Input[_builtins.str] peer_vpc_id: A unique identifier for a VPC with resources to be accessed by your Amazon GameLift fleet. The VPC must be in the same Region as your fleet. To look up a VPC ID, use the VPC Dashboard in the AWS Management Console.
+        :param pulumi.Input[Union['FleetPlayerGatewayConfigurationArgs', 'FleetPlayerGatewayConfigurationArgsDict']] player_gateway_configuration: Configuration for player gateway.
+        :param pulumi.Input['FleetPlayerGatewayMode'] player_gateway_mode: The player gateway mode for the fleet.
         :param pulumi.Input[Union['FleetResourceCreationLimitPolicyArgs', 'FleetResourceCreationLimitPolicyArgsDict']] resource_creation_limit_policy: A policy that limits the number of game sessions an individual player can create over a span of time for this fleet.
         :param pulumi.Input[Union['FleetRuntimeConfigurationArgs', 'FleetRuntimeConfigurationArgsDict']] runtime_configuration: Instructions for launching server processes on each instance in the fleet. Server processes run either a custom game build executable or a Realtime script. The runtime configuration defines the server executables or launch script file, launch parameters, and the number of processes to run concurrently on each instance. When creating a fleet, the runtime configuration must have at least one server process configuration; otherwise the request fails with an invalid request exception.
                
@@ -603,6 +639,8 @@ class Fleet(pulumi.CustomResource):
                  new_game_session_protection_policy: Optional[pulumi.Input['FleetNewGameSessionProtectionPolicy']] = None,
                  peer_vpc_aws_account_id: Optional[pulumi.Input[_builtins.str]] = None,
                  peer_vpc_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 player_gateway_configuration: Optional[pulumi.Input[Union['FleetPlayerGatewayConfigurationArgs', 'FleetPlayerGatewayConfigurationArgsDict']]] = None,
+                 player_gateway_mode: Optional[pulumi.Input['FleetPlayerGatewayMode']] = None,
                  resource_creation_limit_policy: Optional[pulumi.Input[Union['FleetResourceCreationLimitPolicyArgs', 'FleetResourceCreationLimitPolicyArgsDict']]] = None,
                  runtime_configuration: Optional[pulumi.Input[Union['FleetRuntimeConfigurationArgs', 'FleetRuntimeConfigurationArgsDict']]] = None,
                  scaling_policies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FleetScalingPolicyArgs', 'FleetScalingPolicyArgsDict']]]]] = None,
@@ -640,6 +678,8 @@ class Fleet(pulumi.CustomResource):
             __props__.__dict__["new_game_session_protection_policy"] = new_game_session_protection_policy
             __props__.__dict__["peer_vpc_aws_account_id"] = peer_vpc_aws_account_id
             __props__.__dict__["peer_vpc_id"] = peer_vpc_id
+            __props__.__dict__["player_gateway_configuration"] = player_gateway_configuration
+            __props__.__dict__["player_gateway_mode"] = player_gateway_mode
             __props__.__dict__["resource_creation_limit_policy"] = resource_creation_limit_policy
             __props__.__dict__["runtime_configuration"] = runtime_configuration
             __props__.__dict__["scaling_policies"] = scaling_policies
@@ -649,7 +689,7 @@ class Fleet(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["fleet_arn"] = None
             __props__.__dict__["fleet_id"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["buildId", "certificateConfiguration", "computeType", "ec2InstanceType", "fleetType", "instanceRoleArn", "instanceRoleCredentialsProvider", "logPaths[*]", "peerVpcAwsAccountId", "peerVpcId", "scriptId", "serverLaunchParameters", "serverLaunchPath"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["buildId", "certificateConfiguration", "computeType", "ec2InstanceType", "fleetType", "instanceRoleArn", "instanceRoleCredentialsProvider", "logPaths[*]", "peerVpcAwsAccountId", "peerVpcId", "playerGatewayConfiguration", "playerGatewayMode", "scriptId", "serverLaunchParameters", "serverLaunchPath"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Fleet, __self__).__init__(
             'aws-native:gamelift:Fleet',
@@ -696,6 +736,8 @@ class Fleet(pulumi.CustomResource):
         __props__.__dict__["new_game_session_protection_policy"] = None
         __props__.__dict__["peer_vpc_aws_account_id"] = None
         __props__.__dict__["peer_vpc_id"] = None
+        __props__.__dict__["player_gateway_configuration"] = None
+        __props__.__dict__["player_gateway_mode"] = None
         __props__.__dict__["resource_creation_limit_policy"] = None
         __props__.__dict__["runtime_configuration"] = None
         __props__.__dict__["scaling_policies"] = None
@@ -888,6 +930,22 @@ class Fleet(pulumi.CustomResource):
         A unique identifier for a VPC with resources to be accessed by your Amazon GameLift fleet. The VPC must be in the same Region as your fleet. To look up a VPC ID, use the VPC Dashboard in the AWS Management Console.
         """
         return pulumi.get(self, "peer_vpc_id")
+
+    @_builtins.property
+    @pulumi.getter(name="playerGatewayConfiguration")
+    def player_gateway_configuration(self) -> pulumi.Output[Optional['outputs.FleetPlayerGatewayConfiguration']]:
+        """
+        Configuration for player gateway.
+        """
+        return pulumi.get(self, "player_gateway_configuration")
+
+    @_builtins.property
+    @pulumi.getter(name="playerGatewayMode")
+    def player_gateway_mode(self) -> pulumi.Output[Optional['FleetPlayerGatewayMode']]:
+        """
+        The player gateway mode for the fleet.
+        """
+        return pulumi.get(self, "player_gateway_mode")
 
     @_builtins.property
     @pulumi.getter(name="resourceCreationLimitPolicy")

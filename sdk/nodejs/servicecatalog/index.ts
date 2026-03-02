@@ -30,10 +30,20 @@ export const getLaunchNotificationConstraint: typeof import("./getLaunchNotifica
 export const getLaunchNotificationConstraintOutput: typeof import("./getLaunchNotificationConstraint").getLaunchNotificationConstraintOutput = null as any;
 utilities.lazyLoad(exports, ["getLaunchNotificationConstraint","getLaunchNotificationConstraintOutput"], () => require("./getLaunchNotificationConstraint"));
 
+export { GetLaunchRoleConstraintArgs, GetLaunchRoleConstraintResult, GetLaunchRoleConstraintOutputArgs } from "./getLaunchRoleConstraint";
+export const getLaunchRoleConstraint: typeof import("./getLaunchRoleConstraint").getLaunchRoleConstraint = null as any;
+export const getLaunchRoleConstraintOutput: typeof import("./getLaunchRoleConstraint").getLaunchRoleConstraintOutput = null as any;
+utilities.lazyLoad(exports, ["getLaunchRoleConstraint","getLaunchRoleConstraintOutput"], () => require("./getLaunchRoleConstraint"));
+
 export { GetLaunchTemplateConstraintArgs, GetLaunchTemplateConstraintResult, GetLaunchTemplateConstraintOutputArgs } from "./getLaunchTemplateConstraint";
 export const getLaunchTemplateConstraint: typeof import("./getLaunchTemplateConstraint").getLaunchTemplateConstraint = null as any;
 export const getLaunchTemplateConstraintOutput: typeof import("./getLaunchTemplateConstraint").getLaunchTemplateConstraintOutput = null as any;
 utilities.lazyLoad(exports, ["getLaunchTemplateConstraint","getLaunchTemplateConstraintOutput"], () => require("./getLaunchTemplateConstraint"));
+
+export { GetPortfolioArgs, GetPortfolioResult, GetPortfolioOutputArgs } from "./getPortfolio";
+export const getPortfolio: typeof import("./getPortfolio").getPortfolio = null as any;
+export const getPortfolioOutput: typeof import("./getPortfolio").getPortfolioOutput = null as any;
+utilities.lazyLoad(exports, ["getPortfolio","getPortfolioOutput"], () => require("./getPortfolio"));
 
 export { GetPortfolioShareArgs, GetPortfolioShareResult, GetPortfolioShareOutputArgs } from "./getPortfolioShare";
 export const getPortfolioShare: typeof import("./getPortfolioShare").getPortfolioShare = null as any;
@@ -60,10 +70,20 @@ export type LaunchNotificationConstraint = import("./launchNotificationConstrain
 export const LaunchNotificationConstraint: typeof import("./launchNotificationConstraint").LaunchNotificationConstraint = null as any;
 utilities.lazyLoad(exports, ["LaunchNotificationConstraint"], () => require("./launchNotificationConstraint"));
 
+export { LaunchRoleConstraintArgs } from "./launchRoleConstraint";
+export type LaunchRoleConstraint = import("./launchRoleConstraint").LaunchRoleConstraint;
+export const LaunchRoleConstraint: typeof import("./launchRoleConstraint").LaunchRoleConstraint = null as any;
+utilities.lazyLoad(exports, ["LaunchRoleConstraint"], () => require("./launchRoleConstraint"));
+
 export { LaunchTemplateConstraintArgs } from "./launchTemplateConstraint";
 export type LaunchTemplateConstraint = import("./launchTemplateConstraint").LaunchTemplateConstraint;
 export const LaunchTemplateConstraint: typeof import("./launchTemplateConstraint").LaunchTemplateConstraint = null as any;
 utilities.lazyLoad(exports, ["LaunchTemplateConstraint"], () => require("./launchTemplateConstraint"));
+
+export { PortfolioArgs } from "./portfolio";
+export type Portfolio = import("./portfolio").Portfolio;
+export const Portfolio: typeof import("./portfolio").Portfolio = null as any;
+utilities.lazyLoad(exports, ["Portfolio"], () => require("./portfolio"));
 
 export { PortfolioPrincipalAssociationArgs } from "./portfolioPrincipalAssociation";
 export type PortfolioPrincipalAssociation = import("./portfolioPrincipalAssociation").PortfolioPrincipalAssociation;
@@ -119,8 +139,12 @@ const _module = {
                 return new CloudFormationProvisionedProduct(name, <any>undefined, { urn })
             case "aws-native:servicecatalog:LaunchNotificationConstraint":
                 return new LaunchNotificationConstraint(name, <any>undefined, { urn })
+            case "aws-native:servicecatalog:LaunchRoleConstraint":
+                return new LaunchRoleConstraint(name, <any>undefined, { urn })
             case "aws-native:servicecatalog:LaunchTemplateConstraint":
                 return new LaunchTemplateConstraint(name, <any>undefined, { urn })
+            case "aws-native:servicecatalog:Portfolio":
+                return new Portfolio(name, <any>undefined, { urn })
             case "aws-native:servicecatalog:PortfolioPrincipalAssociation":
                 return new PortfolioPrincipalAssociation(name, <any>undefined, { urn })
             case "aws-native:servicecatalog:PortfolioProductAssociation":

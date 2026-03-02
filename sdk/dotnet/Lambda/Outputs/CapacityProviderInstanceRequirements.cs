@@ -11,21 +11,21 @@ namespace Pulumi.AwsNative.Lambda.Outputs
 {
 
     /// <summary>
-    /// Specifications for the types of EC2 instances that the capacity provider can use.
+    /// Specifications that define the characteristics and constraints for compute instances used by the capacity provider.
     /// </summary>
     [OutputType]
     public sealed class CapacityProviderInstanceRequirements
     {
         /// <summary>
-        /// A list of instance types that the capacity provider can use. Supports wildcards (for example, m5.*).
+        /// A list of EC2 instance types that the capacity provider is allowed to use. If not specified, all compatible instance types are allowed.
         /// </summary>
         public readonly ImmutableArray<string> AllowedInstanceTypes;
         /// <summary>
-        /// The instruction set architecture for EC2 instances. Specify either x86_64 or arm64.
+        /// A list of supported CPU architectures for compute instances. Valid values include ``x86_64`` and ``arm64``.
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Lambda.CapacityProviderArchitecture> Architectures;
         /// <summary>
-        /// A list of instance types that the capacity provider should not use. Takes precedence over AllowedInstanceTypes.
+        /// A list of EC2 instance types that the capacity provider should not use, even if they meet other requirements.
         /// </summary>
         public readonly ImmutableArray<string> ExcludedInstanceTypes;
 

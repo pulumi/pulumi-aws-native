@@ -17,6 +17,8 @@ import (
 type Field struct {
 	pulumi.CustomResourceState
 
+	// Field-type specific attributes that control rendering and validation behavior
+	Attributes FieldAttributesPtrOutput `pulumi:"attributes"`
 	// The time at which the field was created.
 	CreatedTime pulumi.StringOutput `pulumi:"createdTime"`
 	// A description explaining the purpose and usage of this field in cases. Helps agents and administrators understand what information should be captured in this field.
@@ -87,6 +89,8 @@ func (FieldState) ElementType() reflect.Type {
 }
 
 type fieldArgs struct {
+	// Field-type specific attributes that control rendering and validation behavior
+	Attributes *FieldAttributes `pulumi:"attributes"`
 	// A description explaining the purpose and usage of this field in cases. Helps agents and administrators understand what information should be captured in this field.
 	Description *string `pulumi:"description"`
 	// The unique identifier of the Cases domain.
@@ -101,6 +105,8 @@ type fieldArgs struct {
 
 // The set of arguments for constructing a Field resource.
 type FieldArgs struct {
+	// Field-type specific attributes that control rendering and validation behavior
+	Attributes FieldAttributesPtrInput
 	// A description explaining the purpose and usage of this field in cases. Helps agents and administrators understand what information should be captured in this field.
 	Description pulumi.StringPtrInput
 	// The unique identifier of the Cases domain.
@@ -148,6 +154,11 @@ func (o FieldOutput) ToFieldOutput() FieldOutput {
 
 func (o FieldOutput) ToFieldOutputWithContext(ctx context.Context) FieldOutput {
 	return o
+}
+
+// Field-type specific attributes that control rendering and validation behavior
+func (o FieldOutput) Attributes() FieldAttributesPtrOutput {
+	return o.ApplyT(func(v *Field) FieldAttributesPtrOutput { return v.Attributes }).(FieldAttributesPtrOutput)
 }
 
 // The time at which the field was created.

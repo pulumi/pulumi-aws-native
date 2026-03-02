@@ -402,13 +402,13 @@ func (o AliasVersionWeightArrayOutput) Index(i pulumi.IntInput) AliasVersionWeig
 	}).(AliasVersionWeightOutput)
 }
 
-// Specifications for the types of EC2 instances that the capacity provider can use.
+// Specifications that define the characteristics and constraints for compute instances used by the capacity provider.
 type CapacityProviderInstanceRequirements struct {
-	// A list of instance types that the capacity provider can use. Supports wildcards (for example, m5.*).
+	// A list of EC2 instance types that the capacity provider is allowed to use. If not specified, all compatible instance types are allowed.
 	AllowedInstanceTypes []string `pulumi:"allowedInstanceTypes"`
-	// The instruction set architecture for EC2 instances. Specify either x86_64 or arm64.
+	// A list of supported CPU architectures for compute instances. Valid values include ``x86_64`` and ``arm64``.
 	Architectures []CapacityProviderArchitecture `pulumi:"architectures"`
-	// A list of instance types that the capacity provider should not use. Takes precedence over AllowedInstanceTypes.
+	// A list of EC2 instance types that the capacity provider should not use, even if they meet other requirements.
 	ExcludedInstanceTypes []string `pulumi:"excludedInstanceTypes"`
 }
 
@@ -423,13 +423,13 @@ type CapacityProviderInstanceRequirementsInput interface {
 	ToCapacityProviderInstanceRequirementsOutputWithContext(context.Context) CapacityProviderInstanceRequirementsOutput
 }
 
-// Specifications for the types of EC2 instances that the capacity provider can use.
+// Specifications that define the characteristics and constraints for compute instances used by the capacity provider.
 type CapacityProviderInstanceRequirementsArgs struct {
-	// A list of instance types that the capacity provider can use. Supports wildcards (for example, m5.*).
+	// A list of EC2 instance types that the capacity provider is allowed to use. If not specified, all compatible instance types are allowed.
 	AllowedInstanceTypes pulumi.StringArrayInput `pulumi:"allowedInstanceTypes"`
-	// The instruction set architecture for EC2 instances. Specify either x86_64 or arm64.
+	// A list of supported CPU architectures for compute instances. Valid values include ``x86_64`` and ``arm64``.
 	Architectures CapacityProviderArchitectureArrayInput `pulumi:"architectures"`
-	// A list of instance types that the capacity provider should not use. Takes precedence over AllowedInstanceTypes.
+	// A list of EC2 instance types that the capacity provider should not use, even if they meet other requirements.
 	ExcludedInstanceTypes pulumi.StringArrayInput `pulumi:"excludedInstanceTypes"`
 }
 
@@ -486,7 +486,7 @@ func (i *capacityProviderInstanceRequirementsPtrType) ToCapacityProviderInstance
 	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderInstanceRequirementsPtrOutput)
 }
 
-// Specifications for the types of EC2 instances that the capacity provider can use.
+// Specifications that define the characteristics and constraints for compute instances used by the capacity provider.
 type CapacityProviderInstanceRequirementsOutput struct{ *pulumi.OutputState }
 
 func (CapacityProviderInstanceRequirementsOutput) ElementType() reflect.Type {
@@ -511,17 +511,17 @@ func (o CapacityProviderInstanceRequirementsOutput) ToCapacityProviderInstanceRe
 	}).(CapacityProviderInstanceRequirementsPtrOutput)
 }
 
-// A list of instance types that the capacity provider can use. Supports wildcards (for example, m5.*).
+// A list of EC2 instance types that the capacity provider is allowed to use. If not specified, all compatible instance types are allowed.
 func (o CapacityProviderInstanceRequirementsOutput) AllowedInstanceTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v CapacityProviderInstanceRequirements) []string { return v.AllowedInstanceTypes }).(pulumi.StringArrayOutput)
 }
 
-// The instruction set architecture for EC2 instances. Specify either x86_64 or arm64.
+// A list of supported CPU architectures for compute instances. Valid values include “x86_64“ and “arm64“.
 func (o CapacityProviderInstanceRequirementsOutput) Architectures() CapacityProviderArchitectureArrayOutput {
 	return o.ApplyT(func(v CapacityProviderInstanceRequirements) []CapacityProviderArchitecture { return v.Architectures }).(CapacityProviderArchitectureArrayOutput)
 }
 
-// A list of instance types that the capacity provider should not use. Takes precedence over AllowedInstanceTypes.
+// A list of EC2 instance types that the capacity provider should not use, even if they meet other requirements.
 func (o CapacityProviderInstanceRequirementsOutput) ExcludedInstanceTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v CapacityProviderInstanceRequirements) []string { return v.ExcludedInstanceTypes }).(pulumi.StringArrayOutput)
 }
@@ -550,7 +550,7 @@ func (o CapacityProviderInstanceRequirementsPtrOutput) Elem() CapacityProviderIn
 	}).(CapacityProviderInstanceRequirementsOutput)
 }
 
-// A list of instance types that the capacity provider can use. Supports wildcards (for example, m5.*).
+// A list of EC2 instance types that the capacity provider is allowed to use. If not specified, all compatible instance types are allowed.
 func (o CapacityProviderInstanceRequirementsPtrOutput) AllowedInstanceTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *CapacityProviderInstanceRequirements) []string {
 		if v == nil {
@@ -560,7 +560,7 @@ func (o CapacityProviderInstanceRequirementsPtrOutput) AllowedInstanceTypes() pu
 	}).(pulumi.StringArrayOutput)
 }
 
-// The instruction set architecture for EC2 instances. Specify either x86_64 or arm64.
+// A list of supported CPU architectures for compute instances. Valid values include “x86_64“ and “arm64“.
 func (o CapacityProviderInstanceRequirementsPtrOutput) Architectures() CapacityProviderArchitectureArrayOutput {
 	return o.ApplyT(func(v *CapacityProviderInstanceRequirements) []CapacityProviderArchitecture {
 		if v == nil {
@@ -570,7 +570,7 @@ func (o CapacityProviderInstanceRequirementsPtrOutput) Architectures() CapacityP
 	}).(CapacityProviderArchitectureArrayOutput)
 }
 
-// A list of instance types that the capacity provider should not use. Takes precedence over AllowedInstanceTypes.
+// A list of EC2 instance types that the capacity provider should not use, even if they meet other requirements.
 func (o CapacityProviderInstanceRequirementsPtrOutput) ExcludedInstanceTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *CapacityProviderInstanceRequirements) []string {
 		if v == nil {
@@ -580,9 +580,9 @@ func (o CapacityProviderInstanceRequirementsPtrOutput) ExcludedInstanceTypes() p
 	}).(pulumi.StringArrayOutput)
 }
 
-// IAM permissions configuration for the capacity provider.
+// Configuration that specifies the permissions required for the capacity provider to manage compute resources.
 type CapacityProviderPermissionsConfig struct {
-	// The ARN of the IAM role that Lambda assumes to manage the capacity provider.
+	// The ARN of the IAM role that the capacity provider uses to manage compute instances and other AWS resources.
 	CapacityProviderOperatorRoleArn string `pulumi:"capacityProviderOperatorRoleArn"`
 }
 
@@ -597,9 +597,9 @@ type CapacityProviderPermissionsConfigInput interface {
 	ToCapacityProviderPermissionsConfigOutputWithContext(context.Context) CapacityProviderPermissionsConfigOutput
 }
 
-// IAM permissions configuration for the capacity provider.
+// Configuration that specifies the permissions required for the capacity provider to manage compute resources.
 type CapacityProviderPermissionsConfigArgs struct {
-	// The ARN of the IAM role that Lambda assumes to manage the capacity provider.
+	// The ARN of the IAM role that the capacity provider uses to manage compute instances and other AWS resources.
 	CapacityProviderOperatorRoleArn pulumi.StringInput `pulumi:"capacityProviderOperatorRoleArn"`
 }
 
@@ -615,7 +615,7 @@ func (i CapacityProviderPermissionsConfigArgs) ToCapacityProviderPermissionsConf
 	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderPermissionsConfigOutput)
 }
 
-// IAM permissions configuration for the capacity provider.
+// Configuration that specifies the permissions required for the capacity provider to manage compute resources.
 type CapacityProviderPermissionsConfigOutput struct{ *pulumi.OutputState }
 
 func (CapacityProviderPermissionsConfigOutput) ElementType() reflect.Type {
@@ -630,14 +630,14 @@ func (o CapacityProviderPermissionsConfigOutput) ToCapacityProviderPermissionsCo
 	return o
 }
 
-// The ARN of the IAM role that Lambda assumes to manage the capacity provider.
+// The ARN of the IAM role that the capacity provider uses to manage compute instances and other AWS resources.
 func (o CapacityProviderPermissionsConfigOutput) CapacityProviderOperatorRoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v CapacityProviderPermissionsConfig) string { return v.CapacityProviderOperatorRoleArn }).(pulumi.StringOutput)
 }
 
-// The scaling configuration for the capacity provider.
+// Configuration that defines how the capacity provider scales compute instances based on demand and policies.
 type CapacityProviderScalingConfig struct {
-	// The maximum number of EC2 instances that the capacity provider can scale up to.
+	// The maximum number of vCPUs that the capacity provider can provision across all compute instances.
 	MaxVCpuCount *int `pulumi:"maxVCpuCount"`
 	// The scaling mode that determines how the capacity provider responds to changes in demand.
 	ScalingMode *CapacityProviderScalingMode `pulumi:"scalingMode"`
@@ -656,9 +656,9 @@ type CapacityProviderScalingConfigInput interface {
 	ToCapacityProviderScalingConfigOutputWithContext(context.Context) CapacityProviderScalingConfigOutput
 }
 
-// The scaling configuration for the capacity provider.
+// Configuration that defines how the capacity provider scales compute instances based on demand and policies.
 type CapacityProviderScalingConfigArgs struct {
-	// The maximum number of EC2 instances that the capacity provider can scale up to.
+	// The maximum number of vCPUs that the capacity provider can provision across all compute instances.
 	MaxVCpuCount pulumi.IntPtrInput `pulumi:"maxVCpuCount"`
 	// The scaling mode that determines how the capacity provider responds to changes in demand.
 	ScalingMode CapacityProviderScalingModePtrInput `pulumi:"scalingMode"`
@@ -719,7 +719,7 @@ func (i *capacityProviderScalingConfigPtrType) ToCapacityProviderScalingConfigPt
 	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderScalingConfigPtrOutput)
 }
 
-// The scaling configuration for the capacity provider.
+// Configuration that defines how the capacity provider scales compute instances based on demand and policies.
 type CapacityProviderScalingConfigOutput struct{ *pulumi.OutputState }
 
 func (CapacityProviderScalingConfigOutput) ElementType() reflect.Type {
@@ -744,7 +744,7 @@ func (o CapacityProviderScalingConfigOutput) ToCapacityProviderScalingConfigPtrO
 	}).(CapacityProviderScalingConfigPtrOutput)
 }
 
-// The maximum number of EC2 instances that the capacity provider can scale up to.
+// The maximum number of vCPUs that the capacity provider can provision across all compute instances.
 func (o CapacityProviderScalingConfigOutput) MaxVCpuCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v CapacityProviderScalingConfig) *int { return v.MaxVCpuCount }).(pulumi.IntPtrOutput)
 }
@@ -785,7 +785,7 @@ func (o CapacityProviderScalingConfigPtrOutput) Elem() CapacityProviderScalingCo
 	}).(CapacityProviderScalingConfigOutput)
 }
 
-// The maximum number of EC2 instances that the capacity provider can scale up to.
+// The maximum number of vCPUs that the capacity provider can provision across all compute instances.
 func (o CapacityProviderScalingConfigPtrOutput) MaxVCpuCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *CapacityProviderScalingConfig) *int {
 		if v == nil {
@@ -823,11 +823,11 @@ type CapacityProviderTag struct {
 	Value *string `pulumi:"value"`
 }
 
-// A target tracking scaling policy for the capacity provider.
+// A scaling policy for the capacity provider that automatically adjusts capacity to maintain a target value for a specific metric.
 type CapacityProviderTargetTrackingScalingPolicy struct {
 	// The predefined metric type to track for scaling decisions.
 	PredefinedMetricType CapacityProviderPredefinedMetricType `pulumi:"predefinedMetricType"`
-	// The target value for the metric as a percentage (for example, 70.0 for 70%).
+	// The target value for the metric that the scaling policy attempts to maintain through scaling actions.
 	TargetValue float64 `pulumi:"targetValue"`
 }
 
@@ -842,11 +842,11 @@ type CapacityProviderTargetTrackingScalingPolicyInput interface {
 	ToCapacityProviderTargetTrackingScalingPolicyOutputWithContext(context.Context) CapacityProviderTargetTrackingScalingPolicyOutput
 }
 
-// A target tracking scaling policy for the capacity provider.
+// A scaling policy for the capacity provider that automatically adjusts capacity to maintain a target value for a specific metric.
 type CapacityProviderTargetTrackingScalingPolicyArgs struct {
 	// The predefined metric type to track for scaling decisions.
 	PredefinedMetricType CapacityProviderPredefinedMetricTypeInput `pulumi:"predefinedMetricType"`
-	// The target value for the metric as a percentage (for example, 70.0 for 70%).
+	// The target value for the metric that the scaling policy attempts to maintain through scaling actions.
 	TargetValue pulumi.Float64Input `pulumi:"targetValue"`
 }
 
@@ -887,7 +887,7 @@ func (i CapacityProviderTargetTrackingScalingPolicyArray) ToCapacityProviderTarg
 	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderTargetTrackingScalingPolicyArrayOutput)
 }
 
-// A target tracking scaling policy for the capacity provider.
+// A scaling policy for the capacity provider that automatically adjusts capacity to maintain a target value for a specific metric.
 type CapacityProviderTargetTrackingScalingPolicyOutput struct{ *pulumi.OutputState }
 
 func (CapacityProviderTargetTrackingScalingPolicyOutput) ElementType() reflect.Type {
@@ -909,7 +909,7 @@ func (o CapacityProviderTargetTrackingScalingPolicyOutput) PredefinedMetricType(
 	}).(CapacityProviderPredefinedMetricTypeOutput)
 }
 
-// The target value for the metric as a percentage (for example, 70.0 for 70%).
+// The target value for the metric that the scaling policy attempts to maintain through scaling actions.
 func (o CapacityProviderTargetTrackingScalingPolicyOutput) TargetValue() pulumi.Float64Output {
 	return o.ApplyT(func(v CapacityProviderTargetTrackingScalingPolicy) float64 { return v.TargetValue }).(pulumi.Float64Output)
 }
@@ -934,11 +934,11 @@ func (o CapacityProviderTargetTrackingScalingPolicyArrayOutput) Index(i pulumi.I
 	}).(CapacityProviderTargetTrackingScalingPolicyOutput)
 }
 
-// VPC configuration for the capacity provider.
+// VPC configuration that specifies the network settings for compute instances managed by the capacity provider.
 type CapacityProviderVpcConfig struct {
-	// A list of security group IDs to associate with EC2 instances.
+	// A list of security group IDs that control network access for compute instances managed by the capacity provider.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
-	// A list of subnet IDs where the capacity provider can launch EC2 instances.
+	// A list of subnet IDs where the capacity provider launches compute instances.
 	SubnetIds []string `pulumi:"subnetIds"`
 }
 
@@ -953,11 +953,11 @@ type CapacityProviderVpcConfigInput interface {
 	ToCapacityProviderVpcConfigOutputWithContext(context.Context) CapacityProviderVpcConfigOutput
 }
 
-// VPC configuration for the capacity provider.
+// VPC configuration that specifies the network settings for compute instances managed by the capacity provider.
 type CapacityProviderVpcConfigArgs struct {
-	// A list of security group IDs to associate with EC2 instances.
+	// A list of security group IDs that control network access for compute instances managed by the capacity provider.
 	SecurityGroupIds pulumi.StringArrayInput `pulumi:"securityGroupIds"`
-	// A list of subnet IDs where the capacity provider can launch EC2 instances.
+	// A list of subnet IDs where the capacity provider launches compute instances.
 	SubnetIds pulumi.StringArrayInput `pulumi:"subnetIds"`
 }
 
@@ -973,7 +973,7 @@ func (i CapacityProviderVpcConfigArgs) ToCapacityProviderVpcConfigOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderVpcConfigOutput)
 }
 
-// VPC configuration for the capacity provider.
+// VPC configuration that specifies the network settings for compute instances managed by the capacity provider.
 type CapacityProviderVpcConfigOutput struct{ *pulumi.OutputState }
 
 func (CapacityProviderVpcConfigOutput) ElementType() reflect.Type {
@@ -988,12 +988,12 @@ func (o CapacityProviderVpcConfigOutput) ToCapacityProviderVpcConfigOutputWithCo
 	return o
 }
 
-// A list of security group IDs to associate with EC2 instances.
+// A list of security group IDs that control network access for compute instances managed by the capacity provider.
 func (o CapacityProviderVpcConfigOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v CapacityProviderVpcConfig) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
 }
 
-// A list of subnet IDs where the capacity provider can launch EC2 instances.
+// A list of subnet IDs where the capacity provider launches compute instances.
 func (o CapacityProviderVpcConfigOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v CapacityProviderVpcConfig) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
 }

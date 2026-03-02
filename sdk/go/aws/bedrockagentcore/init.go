@@ -23,14 +23,20 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "aws-native:bedrockagentcore:BrowserCustom":
 		r = &BrowserCustom{}
+	case "aws-native:bedrockagentcore:BrowserProfile":
+		r = &BrowserProfile{}
 	case "aws-native:bedrockagentcore:CodeInterpreterCustom":
 		r = &CodeInterpreterCustom{}
+	case "aws-native:bedrockagentcore:Evaluator":
+		r = &Evaluator{}
 	case "aws-native:bedrockagentcore:Gateway":
 		r = &Gateway{}
 	case "aws-native:bedrockagentcore:GatewayTarget":
 		r = &GatewayTarget{}
 	case "aws-native:bedrockagentcore:Memory":
 		r = &Memory{}
+	case "aws-native:bedrockagentcore:OnlineEvaluationConfig":
+		r = &OnlineEvaluationConfig{}
 	case "aws-native:bedrockagentcore:Runtime":
 		r = &Runtime{}
 	case "aws-native:bedrockagentcore:RuntimeEndpoint":

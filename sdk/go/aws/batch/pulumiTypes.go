@@ -100,7 +100,8 @@ type ComputeEnvironmentComputeResources struct {
 	// When updating a compute environment, changing the placement group requires an infrastructure update of the compute environment. For more information, see [Updating compute environments](https://docs.aws.amazon.com/batch/latest/userguide/updating-compute-environments.html) in the *AWS Batch User Guide* .
 	//
 	// > This parameter isn't applicable to jobs that are running on Fargate resources. Don't specify it.
-	PlacementGroup *string `pulumi:"placementGroup"`
+	PlacementGroup *string                                 `pulumi:"placementGroup"`
+	ScalingPolicy  *ComputeEnvironmentComputeScalingPolicy `pulumi:"scalingPolicy"`
 	// The Amazon EC2 security groups that are associated with instances launched in the compute environment. This parameter is required for Fargate compute resources, where it can contain up to 5 security groups. For Fargate compute resources, providing an empty list is handled as if this parameter wasn't specified and no change is made. For Amazon EC2 compute resources, providing an empty list removes the security groups from the compute resource.
 	//
 	// When updating a compute environment, changing the Amazon EC2 security groups requires an infrastructure update of the compute environment. For more information, see [Updating compute environments](https://docs.aws.amazon.com/batch/latest/userguide/updating-compute-environments.html) in the *AWS Batch User Guide* .
@@ -233,7 +234,8 @@ type ComputeEnvironmentComputeResourcesArgs struct {
 	// When updating a compute environment, changing the placement group requires an infrastructure update of the compute environment. For more information, see [Updating compute environments](https://docs.aws.amazon.com/batch/latest/userguide/updating-compute-environments.html) in the *AWS Batch User Guide* .
 	//
 	// > This parameter isn't applicable to jobs that are running on Fargate resources. Don't specify it.
-	PlacementGroup pulumi.StringPtrInput `pulumi:"placementGroup"`
+	PlacementGroup pulumi.StringPtrInput                          `pulumi:"placementGroup"`
+	ScalingPolicy  ComputeEnvironmentComputeScalingPolicyPtrInput `pulumi:"scalingPolicy"`
 	// The Amazon EC2 security groups that are associated with instances launched in the compute environment. This parameter is required for Fargate compute resources, where it can contain up to 5 security groups. For Fargate compute resources, providing an empty list is handled as if this parameter wasn't specified and no change is made. For Amazon EC2 compute resources, providing an empty list removes the security groups from the compute resource.
 	//
 	// When updating a compute environment, changing the Amazon EC2 security groups requires an infrastructure update of the compute environment. For more information, see [Updating compute environments](https://docs.aws.amazon.com/batch/latest/userguide/updating-compute-environments.html) in the *AWS Batch User Guide* .
@@ -470,6 +472,12 @@ func (o ComputeEnvironmentComputeResourcesOutput) MinvCpus() pulumi.IntPtrOutput
 // > This parameter isn't applicable to jobs that are running on Fargate resources. Don't specify it.
 func (o ComputeEnvironmentComputeResourcesOutput) PlacementGroup() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ComputeEnvironmentComputeResources) *string { return v.PlacementGroup }).(pulumi.StringPtrOutput)
+}
+
+func (o ComputeEnvironmentComputeResourcesOutput) ScalingPolicy() ComputeEnvironmentComputeScalingPolicyPtrOutput {
+	return o.ApplyT(func(v ComputeEnvironmentComputeResources) *ComputeEnvironmentComputeScalingPolicy {
+		return v.ScalingPolicy
+	}).(ComputeEnvironmentComputeScalingPolicyPtrOutput)
 }
 
 // The Amazon EC2 security groups that are associated with instances launched in the compute environment. This parameter is required for Fargate compute resources, where it can contain up to 5 security groups. For Fargate compute resources, providing an empty list is handled as if this parameter wasn't specified and no change is made. For Amazon EC2 compute resources, providing an empty list removes the security groups from the compute resource.
@@ -729,6 +737,15 @@ func (o ComputeEnvironmentComputeResourcesPtrOutput) PlacementGroup() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
+func (o ComputeEnvironmentComputeResourcesPtrOutput) ScalingPolicy() ComputeEnvironmentComputeScalingPolicyPtrOutput {
+	return o.ApplyT(func(v *ComputeEnvironmentComputeResources) *ComputeEnvironmentComputeScalingPolicy {
+		if v == nil {
+			return nil
+		}
+		return v.ScalingPolicy
+	}).(ComputeEnvironmentComputeScalingPolicyPtrOutput)
+}
+
 // The Amazon EC2 security groups that are associated with instances launched in the compute environment. This parameter is required for Fargate compute resources, where it can contain up to 5 security groups. For Fargate compute resources, providing an empty list is handled as if this parameter wasn't specified and no change is made. For Amazon EC2 compute resources, providing an empty list removes the security groups from the compute resource.
 //
 // When updating a compute environment, changing the Amazon EC2 security groups requires an infrastructure update of the compute environment. For more information, see [Updating compute environments](https://docs.aws.amazon.com/batch/latest/userguide/updating-compute-environments.html) in the *AWS Batch User Guide* .
@@ -807,6 +824,139 @@ func (o ComputeEnvironmentComputeResourcesPtrOutput) UpdateToLatestImageVersion(
 		}
 		return v.UpdateToLatestImageVersion
 	}).(pulumi.BoolPtrOutput)
+}
+
+type ComputeEnvironmentComputeScalingPolicy struct {
+	MinScaleDownDelayMinutes *int `pulumi:"minScaleDownDelayMinutes"`
+}
+
+// ComputeEnvironmentComputeScalingPolicyInput is an input type that accepts ComputeEnvironmentComputeScalingPolicyArgs and ComputeEnvironmentComputeScalingPolicyOutput values.
+// You can construct a concrete instance of `ComputeEnvironmentComputeScalingPolicyInput` via:
+//
+//	ComputeEnvironmentComputeScalingPolicyArgs{...}
+type ComputeEnvironmentComputeScalingPolicyInput interface {
+	pulumi.Input
+
+	ToComputeEnvironmentComputeScalingPolicyOutput() ComputeEnvironmentComputeScalingPolicyOutput
+	ToComputeEnvironmentComputeScalingPolicyOutputWithContext(context.Context) ComputeEnvironmentComputeScalingPolicyOutput
+}
+
+type ComputeEnvironmentComputeScalingPolicyArgs struct {
+	MinScaleDownDelayMinutes pulumi.IntPtrInput `pulumi:"minScaleDownDelayMinutes"`
+}
+
+func (ComputeEnvironmentComputeScalingPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ComputeEnvironmentComputeScalingPolicy)(nil)).Elem()
+}
+
+func (i ComputeEnvironmentComputeScalingPolicyArgs) ToComputeEnvironmentComputeScalingPolicyOutput() ComputeEnvironmentComputeScalingPolicyOutput {
+	return i.ToComputeEnvironmentComputeScalingPolicyOutputWithContext(context.Background())
+}
+
+func (i ComputeEnvironmentComputeScalingPolicyArgs) ToComputeEnvironmentComputeScalingPolicyOutputWithContext(ctx context.Context) ComputeEnvironmentComputeScalingPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ComputeEnvironmentComputeScalingPolicyOutput)
+}
+
+func (i ComputeEnvironmentComputeScalingPolicyArgs) ToComputeEnvironmentComputeScalingPolicyPtrOutput() ComputeEnvironmentComputeScalingPolicyPtrOutput {
+	return i.ToComputeEnvironmentComputeScalingPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i ComputeEnvironmentComputeScalingPolicyArgs) ToComputeEnvironmentComputeScalingPolicyPtrOutputWithContext(ctx context.Context) ComputeEnvironmentComputeScalingPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ComputeEnvironmentComputeScalingPolicyOutput).ToComputeEnvironmentComputeScalingPolicyPtrOutputWithContext(ctx)
+}
+
+// ComputeEnvironmentComputeScalingPolicyPtrInput is an input type that accepts ComputeEnvironmentComputeScalingPolicyArgs, ComputeEnvironmentComputeScalingPolicyPtr and ComputeEnvironmentComputeScalingPolicyPtrOutput values.
+// You can construct a concrete instance of `ComputeEnvironmentComputeScalingPolicyPtrInput` via:
+//
+//	        ComputeEnvironmentComputeScalingPolicyArgs{...}
+//
+//	or:
+//
+//	        nil
+type ComputeEnvironmentComputeScalingPolicyPtrInput interface {
+	pulumi.Input
+
+	ToComputeEnvironmentComputeScalingPolicyPtrOutput() ComputeEnvironmentComputeScalingPolicyPtrOutput
+	ToComputeEnvironmentComputeScalingPolicyPtrOutputWithContext(context.Context) ComputeEnvironmentComputeScalingPolicyPtrOutput
+}
+
+type computeEnvironmentComputeScalingPolicyPtrType ComputeEnvironmentComputeScalingPolicyArgs
+
+func ComputeEnvironmentComputeScalingPolicyPtr(v *ComputeEnvironmentComputeScalingPolicyArgs) ComputeEnvironmentComputeScalingPolicyPtrInput {
+	return (*computeEnvironmentComputeScalingPolicyPtrType)(v)
+}
+
+func (*computeEnvironmentComputeScalingPolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ComputeEnvironmentComputeScalingPolicy)(nil)).Elem()
+}
+
+func (i *computeEnvironmentComputeScalingPolicyPtrType) ToComputeEnvironmentComputeScalingPolicyPtrOutput() ComputeEnvironmentComputeScalingPolicyPtrOutput {
+	return i.ToComputeEnvironmentComputeScalingPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *computeEnvironmentComputeScalingPolicyPtrType) ToComputeEnvironmentComputeScalingPolicyPtrOutputWithContext(ctx context.Context) ComputeEnvironmentComputeScalingPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ComputeEnvironmentComputeScalingPolicyPtrOutput)
+}
+
+type ComputeEnvironmentComputeScalingPolicyOutput struct{ *pulumi.OutputState }
+
+func (ComputeEnvironmentComputeScalingPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ComputeEnvironmentComputeScalingPolicy)(nil)).Elem()
+}
+
+func (o ComputeEnvironmentComputeScalingPolicyOutput) ToComputeEnvironmentComputeScalingPolicyOutput() ComputeEnvironmentComputeScalingPolicyOutput {
+	return o
+}
+
+func (o ComputeEnvironmentComputeScalingPolicyOutput) ToComputeEnvironmentComputeScalingPolicyOutputWithContext(ctx context.Context) ComputeEnvironmentComputeScalingPolicyOutput {
+	return o
+}
+
+func (o ComputeEnvironmentComputeScalingPolicyOutput) ToComputeEnvironmentComputeScalingPolicyPtrOutput() ComputeEnvironmentComputeScalingPolicyPtrOutput {
+	return o.ToComputeEnvironmentComputeScalingPolicyPtrOutputWithContext(context.Background())
+}
+
+func (o ComputeEnvironmentComputeScalingPolicyOutput) ToComputeEnvironmentComputeScalingPolicyPtrOutputWithContext(ctx context.Context) ComputeEnvironmentComputeScalingPolicyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ComputeEnvironmentComputeScalingPolicy) *ComputeEnvironmentComputeScalingPolicy {
+		return &v
+	}).(ComputeEnvironmentComputeScalingPolicyPtrOutput)
+}
+
+func (o ComputeEnvironmentComputeScalingPolicyOutput) MinScaleDownDelayMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ComputeEnvironmentComputeScalingPolicy) *int { return v.MinScaleDownDelayMinutes }).(pulumi.IntPtrOutput)
+}
+
+type ComputeEnvironmentComputeScalingPolicyPtrOutput struct{ *pulumi.OutputState }
+
+func (ComputeEnvironmentComputeScalingPolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ComputeEnvironmentComputeScalingPolicy)(nil)).Elem()
+}
+
+func (o ComputeEnvironmentComputeScalingPolicyPtrOutput) ToComputeEnvironmentComputeScalingPolicyPtrOutput() ComputeEnvironmentComputeScalingPolicyPtrOutput {
+	return o
+}
+
+func (o ComputeEnvironmentComputeScalingPolicyPtrOutput) ToComputeEnvironmentComputeScalingPolicyPtrOutputWithContext(ctx context.Context) ComputeEnvironmentComputeScalingPolicyPtrOutput {
+	return o
+}
+
+func (o ComputeEnvironmentComputeScalingPolicyPtrOutput) Elem() ComputeEnvironmentComputeScalingPolicyOutput {
+	return o.ApplyT(func(v *ComputeEnvironmentComputeScalingPolicy) ComputeEnvironmentComputeScalingPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret ComputeEnvironmentComputeScalingPolicy
+		return ret
+	}).(ComputeEnvironmentComputeScalingPolicyOutput)
+}
+
+func (o ComputeEnvironmentComputeScalingPolicyPtrOutput) MinScaleDownDelayMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ComputeEnvironmentComputeScalingPolicy) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MinScaleDownDelayMinutes
+	}).(pulumi.IntPtrOutput)
 }
 
 type ComputeEnvironmentEc2ConfigurationObject struct {
@@ -11616,6 +11766,8 @@ func (o ServiceEnvironmentCapacityLimitArrayOutput) Index(i pulumi.IntInput) Ser
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ComputeEnvironmentComputeResourcesInput)(nil)).Elem(), ComputeEnvironmentComputeResourcesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ComputeEnvironmentComputeResourcesPtrInput)(nil)).Elem(), ComputeEnvironmentComputeResourcesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ComputeEnvironmentComputeScalingPolicyInput)(nil)).Elem(), ComputeEnvironmentComputeScalingPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ComputeEnvironmentComputeScalingPolicyPtrInput)(nil)).Elem(), ComputeEnvironmentComputeScalingPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ComputeEnvironmentEc2ConfigurationObjectInput)(nil)).Elem(), ComputeEnvironmentEc2ConfigurationObjectArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ComputeEnvironmentEc2ConfigurationObjectArrayInput)(nil)).Elem(), ComputeEnvironmentEc2ConfigurationObjectArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ComputeEnvironmentEksConfigurationInput)(nil)).Elem(), ComputeEnvironmentEksConfigurationArgs{})
@@ -11738,6 +11890,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEnvironmentCapacityLimitArrayInput)(nil)).Elem(), ServiceEnvironmentCapacityLimitArray{})
 	pulumi.RegisterOutputType(ComputeEnvironmentComputeResourcesOutput{})
 	pulumi.RegisterOutputType(ComputeEnvironmentComputeResourcesPtrOutput{})
+	pulumi.RegisterOutputType(ComputeEnvironmentComputeScalingPolicyOutput{})
+	pulumi.RegisterOutputType(ComputeEnvironmentComputeScalingPolicyPtrOutput{})
 	pulumi.RegisterOutputType(ComputeEnvironmentEc2ConfigurationObjectOutput{})
 	pulumi.RegisterOutputType(ComputeEnvironmentEc2ConfigurationObjectArrayOutput{})
 	pulumi.RegisterOutputType(ComputeEnvironmentEksConfigurationOutput{})

@@ -665,6 +665,13 @@ type DocumentTag struct {
 	Value *string `pulumi:"value"`
 }
 
+type MaintenanceWindowTag struct {
+	// The name of the tag.
+	Key string `pulumi:"key"`
+	// The value of the tag.
+	Value string `pulumi:"value"`
+}
+
 type MaintenanceWindowTargetTargets struct {
 	// User-defined criteria for sending commands that target managed nodes that meet the criteria.
 	Key string `pulumi:"key"`

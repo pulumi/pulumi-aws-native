@@ -79,10 +79,6 @@ namespace Pulumi.AwsNative.SageMaker
         /// The description of the inference experiment.
         /// </summary>
         public readonly string? Description;
-        /// <summary>
-        /// The desired state of the experiment after starting or stopping operation.
-        /// </summary>
-        public readonly Pulumi.AwsNative.SageMaker.InferenceExperimentDesiredState? DesiredState;
         public readonly Outputs.InferenceExperimentEndpointMetadata? EndpointMetadata;
         /// <summary>
         /// The timestamp at which you last modified the inference experiment.
@@ -93,12 +89,6 @@ namespace Pulumi.AwsNative.SageMaker
         /// </summary>
         public readonly ImmutableArray<Outputs.InferenceExperimentModelVariantConfig> ModelVariants;
         /// <summary>
-        /// The duration for which the inference experiment ran or will run.
-        /// 
-        /// The maximum duration that you can set for an inference experiment is 30 days.
-        /// </summary>
-        public readonly Outputs.InferenceExperimentSchedule? Schedule;
-        /// <summary>
         /// The configuration of `ShadowMode` inference experiment type, which shows the production variant that takes all the inference requests, and the shadow variant to which Amazon SageMaker replicates a percentage of the inference requests. For the shadow variant it also shows the percentage of requests that Amazon SageMaker replicates.
         /// </summary>
         public readonly Outputs.InferenceExperimentShadowModeConfig? ShadowModeConfig;
@@ -106,10 +96,6 @@ namespace Pulumi.AwsNative.SageMaker
         /// The status of the inference experiment.
         /// </summary>
         public readonly Pulumi.AwsNative.SageMaker.InferenceExperimentStatus? Status;
-        /// <summary>
-        /// The error message or client-specified reason from the StopInferenceExperiment API, that explains the status of the inference experiment.
-        /// </summary>
-        public readonly string? StatusReason;
         /// <summary>
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
@@ -125,21 +111,15 @@ namespace Pulumi.AwsNative.SageMaker
 
             string? description,
 
-            Pulumi.AwsNative.SageMaker.InferenceExperimentDesiredState? desiredState,
-
             Outputs.InferenceExperimentEndpointMetadata? endpointMetadata,
 
             string? lastModifiedTime,
 
             ImmutableArray<Outputs.InferenceExperimentModelVariantConfig> modelVariants,
 
-            Outputs.InferenceExperimentSchedule? schedule,
-
             Outputs.InferenceExperimentShadowModeConfig? shadowModeConfig,
 
             Pulumi.AwsNative.SageMaker.InferenceExperimentStatus? status,
-
-            string? statusReason,
 
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
@@ -147,14 +127,11 @@ namespace Pulumi.AwsNative.SageMaker
             CreationTime = creationTime;
             DataStorageConfig = dataStorageConfig;
             Description = description;
-            DesiredState = desiredState;
             EndpointMetadata = endpointMetadata;
             LastModifiedTime = lastModifiedTime;
             ModelVariants = modelVariants;
-            Schedule = schedule;
             ShadowModeConfig = shadowModeConfig;
             Status = status;
-            StatusReason = statusReason;
             Tags = tags;
         }
     }

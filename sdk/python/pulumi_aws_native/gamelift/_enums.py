@@ -13,9 +13,11 @@ __all__ = [
     'ContainerFleetDeploymentConfigurationImpairmentStrategy',
     'ContainerFleetDeploymentConfigurationProtectionStrategy',
     'ContainerFleetIpPermissionProtocol',
+    'ContainerFleetLocationConfigurationPlayerGatewayStatus',
     'ContainerFleetLogDestination',
     'ContainerFleetManagedCapacityConfigurationZeroCapacityStrategy',
     'ContainerFleetNewGameSessionProtectionPolicy',
+    'ContainerFleetPlayerGatewayMode',
     'ContainerFleetScalingPolicyComparisonOperator',
     'ContainerFleetScalingPolicyMetricName',
     'ContainerFleetScalingPolicyPolicyType',
@@ -33,8 +35,11 @@ __all__ = [
     'FleetComputeType',
     'FleetInstanceRoleCredentialsProvider',
     'FleetIpPermissionProtocol',
+    'FleetLocationConfigurationPlayerGatewayStatus',
     'FleetManagedCapacityConfigurationZeroCapacityStrategy',
     'FleetNewGameSessionProtectionPolicy',
+    'FleetPlayerGatewayConfigurationGameServerIpProtocolSupported',
+    'FleetPlayerGatewayMode',
     'FleetScalingPolicyComparisonOperator',
     'FleetScalingPolicyMetricName',
     'FleetScalingPolicyPolicyType',
@@ -109,6 +114,15 @@ class ContainerFleetIpPermissionProtocol(_builtins.str, Enum):
     UDP = "UDP"
 
 
+@pulumi.type_token("aws-native:gamelift:ContainerFleetLocationConfigurationPlayerGatewayStatus")
+class ContainerFleetLocationConfigurationPlayerGatewayStatus(_builtins.str, Enum):
+    """
+    The player gateway status for the location.
+    """
+    DISABLED = "DISABLED"
+    ENABLED = "ENABLED"
+
+
 @pulumi.type_token("aws-native:gamelift:ContainerFleetLogDestination")
 class ContainerFleetLogDestination(_builtins.str, Enum):
     """
@@ -135,6 +149,16 @@ class ContainerFleetNewGameSessionProtectionPolicy(_builtins.str, Enum):
     """
     FULL_PROTECTION = "FullProtection"
     NO_PROTECTION = "NoProtection"
+
+
+@pulumi.type_token("aws-native:gamelift:ContainerFleetPlayerGatewayMode")
+class ContainerFleetPlayerGatewayMode(_builtins.str, Enum):
+    """
+    The player gateway mode for the container fleet.
+    """
+    DISABLED = "DISABLED"
+    ENABLED = "ENABLED"
+    REQUIRED = "REQUIRED"
 
 
 @pulumi.type_token("aws-native:gamelift:ContainerFleetScalingPolicyComparisonOperator")
@@ -311,6 +335,15 @@ class FleetIpPermissionProtocol(_builtins.str, Enum):
     UDP = "UDP"
 
 
+@pulumi.type_token("aws-native:gamelift:FleetLocationConfigurationPlayerGatewayStatus")
+class FleetLocationConfigurationPlayerGatewayStatus(_builtins.str, Enum):
+    """
+    The player gateway status for the location.
+    """
+    DISABLED = "DISABLED"
+    ENABLED = "ENABLED"
+
+
 @pulumi.type_token("aws-native:gamelift:FleetManagedCapacityConfigurationZeroCapacityStrategy")
 class FleetManagedCapacityConfigurationZeroCapacityStrategy(_builtins.str, Enum):
     """
@@ -327,6 +360,25 @@ class FleetNewGameSessionProtectionPolicy(_builtins.str, Enum):
     """
     FULL_PROTECTION = "FullProtection"
     NO_PROTECTION = "NoProtection"
+
+
+@pulumi.type_token("aws-native:gamelift:FleetPlayerGatewayConfigurationGameServerIpProtocolSupported")
+class FleetPlayerGatewayConfigurationGameServerIpProtocolSupported(_builtins.str, Enum):
+    """
+    The IP protocol supported by the game server.
+    """
+    I_PV4 = "IPv4"
+    DUAL_STACK = "DUAL_STACK"
+
+
+@pulumi.type_token("aws-native:gamelift:FleetPlayerGatewayMode")
+class FleetPlayerGatewayMode(_builtins.str, Enum):
+    """
+    The player gateway mode for the fleet.
+    """
+    DISABLED = "DISABLED"
+    ENABLED = "ENABLED"
+    REQUIRED = "REQUIRED"
 
 
 @pulumi.type_token("aws-native:gamelift:FleetScalingPolicyComparisonOperator")

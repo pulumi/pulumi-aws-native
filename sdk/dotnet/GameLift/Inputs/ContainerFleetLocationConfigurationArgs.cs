@@ -24,6 +24,12 @@ namespace Pulumi.AwsNative.GameLift.Inputs
         [Input("locationCapacity")]
         public Input<Inputs.ContainerFleetLocationCapacityArgs>? LocationCapacity { get; set; }
 
+        /// <summary>
+        /// The player gateway status for the location.
+        /// </summary>
+        [Input("playerGatewayStatus")]
+        public Input<Pulumi.AwsNative.GameLift.ContainerFleetLocationConfigurationPlayerGatewayStatus>? PlayerGatewayStatus { get; set; }
+
         [Input("stoppedActions")]
         private InputList<Pulumi.AwsNative.GameLift.ContainerFleetStoppedActionsItem>? _stoppedActions;
         public InputList<Pulumi.AwsNative.GameLift.ContainerFleetStoppedActionsItem> StoppedActions

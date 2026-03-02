@@ -16,6 +16,12 @@ namespace Pulumi.AwsNative.Cases
     public partial class Field : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// Field-type specific attributes that control rendering and validation behavior
+        /// </summary>
+        [Output("attributes")]
+        public Output<Outputs.FieldAttributes?> Attributes { get; private set; } = null!;
+
+        /// <summary>
         /// The time at which the field was created.
         /// </summary>
         [Output("createdTime")]
@@ -125,6 +131,12 @@ namespace Pulumi.AwsNative.Cases
 
     public sealed class FieldArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Field-type specific attributes that control rendering and validation behavior
+        /// </summary>
+        [Input("attributes")]
+        public Input<Inputs.FieldAttributesArgs>? Attributes { get; set; }
+
         /// <summary>
         /// A description explaining the purpose and usage of this field in cases. Helps agents and administrators understand what information should be captured in this field.
         /// </summary>

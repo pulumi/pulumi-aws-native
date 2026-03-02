@@ -1014,6 +1014,172 @@ func (in *containerFleetIpPermissionProtocolPtr) ToContainerFleetIpPermissionPro
 	return pulumi.ToOutputWithContext(ctx, in).(ContainerFleetIpPermissionProtocolPtrOutput)
 }
 
+// The player gateway status for the location.
+type ContainerFleetLocationConfigurationPlayerGatewayStatus string
+
+const (
+	ContainerFleetLocationConfigurationPlayerGatewayStatusDisabled = ContainerFleetLocationConfigurationPlayerGatewayStatus("DISABLED")
+	ContainerFleetLocationConfigurationPlayerGatewayStatusEnabled  = ContainerFleetLocationConfigurationPlayerGatewayStatus("ENABLED")
+)
+
+func (ContainerFleetLocationConfigurationPlayerGatewayStatus) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerFleetLocationConfigurationPlayerGatewayStatus)(nil)).Elem()
+}
+
+func (e ContainerFleetLocationConfigurationPlayerGatewayStatus) ToContainerFleetLocationConfigurationPlayerGatewayStatusOutput() ContainerFleetLocationConfigurationPlayerGatewayStatusOutput {
+	return pulumi.ToOutput(e).(ContainerFleetLocationConfigurationPlayerGatewayStatusOutput)
+}
+
+func (e ContainerFleetLocationConfigurationPlayerGatewayStatus) ToContainerFleetLocationConfigurationPlayerGatewayStatusOutputWithContext(ctx context.Context) ContainerFleetLocationConfigurationPlayerGatewayStatusOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ContainerFleetLocationConfigurationPlayerGatewayStatusOutput)
+}
+
+func (e ContainerFleetLocationConfigurationPlayerGatewayStatus) ToContainerFleetLocationConfigurationPlayerGatewayStatusPtrOutput() ContainerFleetLocationConfigurationPlayerGatewayStatusPtrOutput {
+	return e.ToContainerFleetLocationConfigurationPlayerGatewayStatusPtrOutputWithContext(context.Background())
+}
+
+func (e ContainerFleetLocationConfigurationPlayerGatewayStatus) ToContainerFleetLocationConfigurationPlayerGatewayStatusPtrOutputWithContext(ctx context.Context) ContainerFleetLocationConfigurationPlayerGatewayStatusPtrOutput {
+	return ContainerFleetLocationConfigurationPlayerGatewayStatus(e).ToContainerFleetLocationConfigurationPlayerGatewayStatusOutputWithContext(ctx).ToContainerFleetLocationConfigurationPlayerGatewayStatusPtrOutputWithContext(ctx)
+}
+
+func (e ContainerFleetLocationConfigurationPlayerGatewayStatus) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ContainerFleetLocationConfigurationPlayerGatewayStatus) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ContainerFleetLocationConfigurationPlayerGatewayStatus) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ContainerFleetLocationConfigurationPlayerGatewayStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ContainerFleetLocationConfigurationPlayerGatewayStatusOutput struct{ *pulumi.OutputState }
+
+func (ContainerFleetLocationConfigurationPlayerGatewayStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerFleetLocationConfigurationPlayerGatewayStatus)(nil)).Elem()
+}
+
+func (o ContainerFleetLocationConfigurationPlayerGatewayStatusOutput) ToContainerFleetLocationConfigurationPlayerGatewayStatusOutput() ContainerFleetLocationConfigurationPlayerGatewayStatusOutput {
+	return o
+}
+
+func (o ContainerFleetLocationConfigurationPlayerGatewayStatusOutput) ToContainerFleetLocationConfigurationPlayerGatewayStatusOutputWithContext(ctx context.Context) ContainerFleetLocationConfigurationPlayerGatewayStatusOutput {
+	return o
+}
+
+func (o ContainerFleetLocationConfigurationPlayerGatewayStatusOutput) ToContainerFleetLocationConfigurationPlayerGatewayStatusPtrOutput() ContainerFleetLocationConfigurationPlayerGatewayStatusPtrOutput {
+	return o.ToContainerFleetLocationConfigurationPlayerGatewayStatusPtrOutputWithContext(context.Background())
+}
+
+func (o ContainerFleetLocationConfigurationPlayerGatewayStatusOutput) ToContainerFleetLocationConfigurationPlayerGatewayStatusPtrOutputWithContext(ctx context.Context) ContainerFleetLocationConfigurationPlayerGatewayStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerFleetLocationConfigurationPlayerGatewayStatus) *ContainerFleetLocationConfigurationPlayerGatewayStatus {
+		return &v
+	}).(ContainerFleetLocationConfigurationPlayerGatewayStatusPtrOutput)
+}
+
+func (o ContainerFleetLocationConfigurationPlayerGatewayStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ContainerFleetLocationConfigurationPlayerGatewayStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ContainerFleetLocationConfigurationPlayerGatewayStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ContainerFleetLocationConfigurationPlayerGatewayStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ContainerFleetLocationConfigurationPlayerGatewayStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ContainerFleetLocationConfigurationPlayerGatewayStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ContainerFleetLocationConfigurationPlayerGatewayStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (ContainerFleetLocationConfigurationPlayerGatewayStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ContainerFleetLocationConfigurationPlayerGatewayStatus)(nil)).Elem()
+}
+
+func (o ContainerFleetLocationConfigurationPlayerGatewayStatusPtrOutput) ToContainerFleetLocationConfigurationPlayerGatewayStatusPtrOutput() ContainerFleetLocationConfigurationPlayerGatewayStatusPtrOutput {
+	return o
+}
+
+func (o ContainerFleetLocationConfigurationPlayerGatewayStatusPtrOutput) ToContainerFleetLocationConfigurationPlayerGatewayStatusPtrOutputWithContext(ctx context.Context) ContainerFleetLocationConfigurationPlayerGatewayStatusPtrOutput {
+	return o
+}
+
+func (o ContainerFleetLocationConfigurationPlayerGatewayStatusPtrOutput) Elem() ContainerFleetLocationConfigurationPlayerGatewayStatusOutput {
+	return o.ApplyT(func(v *ContainerFleetLocationConfigurationPlayerGatewayStatus) ContainerFleetLocationConfigurationPlayerGatewayStatus {
+		if v != nil {
+			return *v
+		}
+		var ret ContainerFleetLocationConfigurationPlayerGatewayStatus
+		return ret
+	}).(ContainerFleetLocationConfigurationPlayerGatewayStatusOutput)
+}
+
+func (o ContainerFleetLocationConfigurationPlayerGatewayStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ContainerFleetLocationConfigurationPlayerGatewayStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ContainerFleetLocationConfigurationPlayerGatewayStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ContainerFleetLocationConfigurationPlayerGatewayStatusInput is an input type that accepts values of the ContainerFleetLocationConfigurationPlayerGatewayStatus enum
+// A concrete instance of `ContainerFleetLocationConfigurationPlayerGatewayStatusInput` can be one of the following:
+//
+//	ContainerFleetLocationConfigurationPlayerGatewayStatusDisabled
+//	ContainerFleetLocationConfigurationPlayerGatewayStatusEnabled
+type ContainerFleetLocationConfigurationPlayerGatewayStatusInput interface {
+	pulumi.Input
+
+	ToContainerFleetLocationConfigurationPlayerGatewayStatusOutput() ContainerFleetLocationConfigurationPlayerGatewayStatusOutput
+	ToContainerFleetLocationConfigurationPlayerGatewayStatusOutputWithContext(context.Context) ContainerFleetLocationConfigurationPlayerGatewayStatusOutput
+}
+
+var containerFleetLocationConfigurationPlayerGatewayStatusPtrType = reflect.TypeOf((**ContainerFleetLocationConfigurationPlayerGatewayStatus)(nil)).Elem()
+
+type ContainerFleetLocationConfigurationPlayerGatewayStatusPtrInput interface {
+	pulumi.Input
+
+	ToContainerFleetLocationConfigurationPlayerGatewayStatusPtrOutput() ContainerFleetLocationConfigurationPlayerGatewayStatusPtrOutput
+	ToContainerFleetLocationConfigurationPlayerGatewayStatusPtrOutputWithContext(context.Context) ContainerFleetLocationConfigurationPlayerGatewayStatusPtrOutput
+}
+
+type containerFleetLocationConfigurationPlayerGatewayStatusPtr string
+
+func ContainerFleetLocationConfigurationPlayerGatewayStatusPtr(v string) ContainerFleetLocationConfigurationPlayerGatewayStatusPtrInput {
+	return (*containerFleetLocationConfigurationPlayerGatewayStatusPtr)(&v)
+}
+
+func (*containerFleetLocationConfigurationPlayerGatewayStatusPtr) ElementType() reflect.Type {
+	return containerFleetLocationConfigurationPlayerGatewayStatusPtrType
+}
+
+func (in *containerFleetLocationConfigurationPlayerGatewayStatusPtr) ToContainerFleetLocationConfigurationPlayerGatewayStatusPtrOutput() ContainerFleetLocationConfigurationPlayerGatewayStatusPtrOutput {
+	return pulumi.ToOutput(in).(ContainerFleetLocationConfigurationPlayerGatewayStatusPtrOutput)
+}
+
+func (in *containerFleetLocationConfigurationPlayerGatewayStatusPtr) ToContainerFleetLocationConfigurationPlayerGatewayStatusPtrOutputWithContext(ctx context.Context) ContainerFleetLocationConfigurationPlayerGatewayStatusPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ContainerFleetLocationConfigurationPlayerGatewayStatusPtrOutput)
+}
+
 // Configures the service that provides logs.
 type ContainerFleetLogDestination string
 
@@ -1512,6 +1678,174 @@ func (in *containerFleetNewGameSessionProtectionPolicyPtr) ToContainerFleetNewGa
 
 func (in *containerFleetNewGameSessionProtectionPolicyPtr) ToContainerFleetNewGameSessionProtectionPolicyPtrOutputWithContext(ctx context.Context) ContainerFleetNewGameSessionProtectionPolicyPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ContainerFleetNewGameSessionProtectionPolicyPtrOutput)
+}
+
+// The player gateway mode for the container fleet.
+type ContainerFleetPlayerGatewayMode string
+
+const (
+	ContainerFleetPlayerGatewayModeDisabled = ContainerFleetPlayerGatewayMode("DISABLED")
+	ContainerFleetPlayerGatewayModeEnabled  = ContainerFleetPlayerGatewayMode("ENABLED")
+	ContainerFleetPlayerGatewayModeRequired = ContainerFleetPlayerGatewayMode("REQUIRED")
+)
+
+func (ContainerFleetPlayerGatewayMode) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerFleetPlayerGatewayMode)(nil)).Elem()
+}
+
+func (e ContainerFleetPlayerGatewayMode) ToContainerFleetPlayerGatewayModeOutput() ContainerFleetPlayerGatewayModeOutput {
+	return pulumi.ToOutput(e).(ContainerFleetPlayerGatewayModeOutput)
+}
+
+func (e ContainerFleetPlayerGatewayMode) ToContainerFleetPlayerGatewayModeOutputWithContext(ctx context.Context) ContainerFleetPlayerGatewayModeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ContainerFleetPlayerGatewayModeOutput)
+}
+
+func (e ContainerFleetPlayerGatewayMode) ToContainerFleetPlayerGatewayModePtrOutput() ContainerFleetPlayerGatewayModePtrOutput {
+	return e.ToContainerFleetPlayerGatewayModePtrOutputWithContext(context.Background())
+}
+
+func (e ContainerFleetPlayerGatewayMode) ToContainerFleetPlayerGatewayModePtrOutputWithContext(ctx context.Context) ContainerFleetPlayerGatewayModePtrOutput {
+	return ContainerFleetPlayerGatewayMode(e).ToContainerFleetPlayerGatewayModeOutputWithContext(ctx).ToContainerFleetPlayerGatewayModePtrOutputWithContext(ctx)
+}
+
+func (e ContainerFleetPlayerGatewayMode) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ContainerFleetPlayerGatewayMode) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ContainerFleetPlayerGatewayMode) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ContainerFleetPlayerGatewayMode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ContainerFleetPlayerGatewayModeOutput struct{ *pulumi.OutputState }
+
+func (ContainerFleetPlayerGatewayModeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerFleetPlayerGatewayMode)(nil)).Elem()
+}
+
+func (o ContainerFleetPlayerGatewayModeOutput) ToContainerFleetPlayerGatewayModeOutput() ContainerFleetPlayerGatewayModeOutput {
+	return o
+}
+
+func (o ContainerFleetPlayerGatewayModeOutput) ToContainerFleetPlayerGatewayModeOutputWithContext(ctx context.Context) ContainerFleetPlayerGatewayModeOutput {
+	return o
+}
+
+func (o ContainerFleetPlayerGatewayModeOutput) ToContainerFleetPlayerGatewayModePtrOutput() ContainerFleetPlayerGatewayModePtrOutput {
+	return o.ToContainerFleetPlayerGatewayModePtrOutputWithContext(context.Background())
+}
+
+func (o ContainerFleetPlayerGatewayModeOutput) ToContainerFleetPlayerGatewayModePtrOutputWithContext(ctx context.Context) ContainerFleetPlayerGatewayModePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerFleetPlayerGatewayMode) *ContainerFleetPlayerGatewayMode {
+		return &v
+	}).(ContainerFleetPlayerGatewayModePtrOutput)
+}
+
+func (o ContainerFleetPlayerGatewayModeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ContainerFleetPlayerGatewayModeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ContainerFleetPlayerGatewayMode) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ContainerFleetPlayerGatewayModeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ContainerFleetPlayerGatewayModeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ContainerFleetPlayerGatewayMode) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ContainerFleetPlayerGatewayModePtrOutput struct{ *pulumi.OutputState }
+
+func (ContainerFleetPlayerGatewayModePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ContainerFleetPlayerGatewayMode)(nil)).Elem()
+}
+
+func (o ContainerFleetPlayerGatewayModePtrOutput) ToContainerFleetPlayerGatewayModePtrOutput() ContainerFleetPlayerGatewayModePtrOutput {
+	return o
+}
+
+func (o ContainerFleetPlayerGatewayModePtrOutput) ToContainerFleetPlayerGatewayModePtrOutputWithContext(ctx context.Context) ContainerFleetPlayerGatewayModePtrOutput {
+	return o
+}
+
+func (o ContainerFleetPlayerGatewayModePtrOutput) Elem() ContainerFleetPlayerGatewayModeOutput {
+	return o.ApplyT(func(v *ContainerFleetPlayerGatewayMode) ContainerFleetPlayerGatewayMode {
+		if v != nil {
+			return *v
+		}
+		var ret ContainerFleetPlayerGatewayMode
+		return ret
+	}).(ContainerFleetPlayerGatewayModeOutput)
+}
+
+func (o ContainerFleetPlayerGatewayModePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ContainerFleetPlayerGatewayModePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ContainerFleetPlayerGatewayMode) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ContainerFleetPlayerGatewayModeInput is an input type that accepts values of the ContainerFleetPlayerGatewayMode enum
+// A concrete instance of `ContainerFleetPlayerGatewayModeInput` can be one of the following:
+//
+//	ContainerFleetPlayerGatewayModeDisabled
+//	ContainerFleetPlayerGatewayModeEnabled
+//	ContainerFleetPlayerGatewayModeRequired
+type ContainerFleetPlayerGatewayModeInput interface {
+	pulumi.Input
+
+	ToContainerFleetPlayerGatewayModeOutput() ContainerFleetPlayerGatewayModeOutput
+	ToContainerFleetPlayerGatewayModeOutputWithContext(context.Context) ContainerFleetPlayerGatewayModeOutput
+}
+
+var containerFleetPlayerGatewayModePtrType = reflect.TypeOf((**ContainerFleetPlayerGatewayMode)(nil)).Elem()
+
+type ContainerFleetPlayerGatewayModePtrInput interface {
+	pulumi.Input
+
+	ToContainerFleetPlayerGatewayModePtrOutput() ContainerFleetPlayerGatewayModePtrOutput
+	ToContainerFleetPlayerGatewayModePtrOutputWithContext(context.Context) ContainerFleetPlayerGatewayModePtrOutput
+}
+
+type containerFleetPlayerGatewayModePtr string
+
+func ContainerFleetPlayerGatewayModePtr(v string) ContainerFleetPlayerGatewayModePtrInput {
+	return (*containerFleetPlayerGatewayModePtr)(&v)
+}
+
+func (*containerFleetPlayerGatewayModePtr) ElementType() reflect.Type {
+	return containerFleetPlayerGatewayModePtrType
+}
+
+func (in *containerFleetPlayerGatewayModePtr) ToContainerFleetPlayerGatewayModePtrOutput() ContainerFleetPlayerGatewayModePtrOutput {
+	return pulumi.ToOutput(in).(ContainerFleetPlayerGatewayModePtrOutput)
+}
+
+func (in *containerFleetPlayerGatewayModePtr) ToContainerFleetPlayerGatewayModePtrOutputWithContext(ctx context.Context) ContainerFleetPlayerGatewayModePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ContainerFleetPlayerGatewayModePtrOutput)
 }
 
 // Comparison operator to use when measuring a metric against the threshold value.
@@ -4267,6 +4601,172 @@ func (in *fleetIpPermissionProtocolPtr) ToFleetIpPermissionProtocolPtrOutputWith
 	return pulumi.ToOutputWithContext(ctx, in).(FleetIpPermissionProtocolPtrOutput)
 }
 
+// The player gateway status for the location.
+type FleetLocationConfigurationPlayerGatewayStatus string
+
+const (
+	FleetLocationConfigurationPlayerGatewayStatusDisabled = FleetLocationConfigurationPlayerGatewayStatus("DISABLED")
+	FleetLocationConfigurationPlayerGatewayStatusEnabled  = FleetLocationConfigurationPlayerGatewayStatus("ENABLED")
+)
+
+func (FleetLocationConfigurationPlayerGatewayStatus) ElementType() reflect.Type {
+	return reflect.TypeOf((*FleetLocationConfigurationPlayerGatewayStatus)(nil)).Elem()
+}
+
+func (e FleetLocationConfigurationPlayerGatewayStatus) ToFleetLocationConfigurationPlayerGatewayStatusOutput() FleetLocationConfigurationPlayerGatewayStatusOutput {
+	return pulumi.ToOutput(e).(FleetLocationConfigurationPlayerGatewayStatusOutput)
+}
+
+func (e FleetLocationConfigurationPlayerGatewayStatus) ToFleetLocationConfigurationPlayerGatewayStatusOutputWithContext(ctx context.Context) FleetLocationConfigurationPlayerGatewayStatusOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(FleetLocationConfigurationPlayerGatewayStatusOutput)
+}
+
+func (e FleetLocationConfigurationPlayerGatewayStatus) ToFleetLocationConfigurationPlayerGatewayStatusPtrOutput() FleetLocationConfigurationPlayerGatewayStatusPtrOutput {
+	return e.ToFleetLocationConfigurationPlayerGatewayStatusPtrOutputWithContext(context.Background())
+}
+
+func (e FleetLocationConfigurationPlayerGatewayStatus) ToFleetLocationConfigurationPlayerGatewayStatusPtrOutputWithContext(ctx context.Context) FleetLocationConfigurationPlayerGatewayStatusPtrOutput {
+	return FleetLocationConfigurationPlayerGatewayStatus(e).ToFleetLocationConfigurationPlayerGatewayStatusOutputWithContext(ctx).ToFleetLocationConfigurationPlayerGatewayStatusPtrOutputWithContext(ctx)
+}
+
+func (e FleetLocationConfigurationPlayerGatewayStatus) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FleetLocationConfigurationPlayerGatewayStatus) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FleetLocationConfigurationPlayerGatewayStatus) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e FleetLocationConfigurationPlayerGatewayStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type FleetLocationConfigurationPlayerGatewayStatusOutput struct{ *pulumi.OutputState }
+
+func (FleetLocationConfigurationPlayerGatewayStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FleetLocationConfigurationPlayerGatewayStatus)(nil)).Elem()
+}
+
+func (o FleetLocationConfigurationPlayerGatewayStatusOutput) ToFleetLocationConfigurationPlayerGatewayStatusOutput() FleetLocationConfigurationPlayerGatewayStatusOutput {
+	return o
+}
+
+func (o FleetLocationConfigurationPlayerGatewayStatusOutput) ToFleetLocationConfigurationPlayerGatewayStatusOutputWithContext(ctx context.Context) FleetLocationConfigurationPlayerGatewayStatusOutput {
+	return o
+}
+
+func (o FleetLocationConfigurationPlayerGatewayStatusOutput) ToFleetLocationConfigurationPlayerGatewayStatusPtrOutput() FleetLocationConfigurationPlayerGatewayStatusPtrOutput {
+	return o.ToFleetLocationConfigurationPlayerGatewayStatusPtrOutputWithContext(context.Background())
+}
+
+func (o FleetLocationConfigurationPlayerGatewayStatusOutput) ToFleetLocationConfigurationPlayerGatewayStatusPtrOutputWithContext(ctx context.Context) FleetLocationConfigurationPlayerGatewayStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FleetLocationConfigurationPlayerGatewayStatus) *FleetLocationConfigurationPlayerGatewayStatus {
+		return &v
+	}).(FleetLocationConfigurationPlayerGatewayStatusPtrOutput)
+}
+
+func (o FleetLocationConfigurationPlayerGatewayStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o FleetLocationConfigurationPlayerGatewayStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FleetLocationConfigurationPlayerGatewayStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o FleetLocationConfigurationPlayerGatewayStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FleetLocationConfigurationPlayerGatewayStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FleetLocationConfigurationPlayerGatewayStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type FleetLocationConfigurationPlayerGatewayStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (FleetLocationConfigurationPlayerGatewayStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FleetLocationConfigurationPlayerGatewayStatus)(nil)).Elem()
+}
+
+func (o FleetLocationConfigurationPlayerGatewayStatusPtrOutput) ToFleetLocationConfigurationPlayerGatewayStatusPtrOutput() FleetLocationConfigurationPlayerGatewayStatusPtrOutput {
+	return o
+}
+
+func (o FleetLocationConfigurationPlayerGatewayStatusPtrOutput) ToFleetLocationConfigurationPlayerGatewayStatusPtrOutputWithContext(ctx context.Context) FleetLocationConfigurationPlayerGatewayStatusPtrOutput {
+	return o
+}
+
+func (o FleetLocationConfigurationPlayerGatewayStatusPtrOutput) Elem() FleetLocationConfigurationPlayerGatewayStatusOutput {
+	return o.ApplyT(func(v *FleetLocationConfigurationPlayerGatewayStatus) FleetLocationConfigurationPlayerGatewayStatus {
+		if v != nil {
+			return *v
+		}
+		var ret FleetLocationConfigurationPlayerGatewayStatus
+		return ret
+	}).(FleetLocationConfigurationPlayerGatewayStatusOutput)
+}
+
+func (o FleetLocationConfigurationPlayerGatewayStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FleetLocationConfigurationPlayerGatewayStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *FleetLocationConfigurationPlayerGatewayStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// FleetLocationConfigurationPlayerGatewayStatusInput is an input type that accepts values of the FleetLocationConfigurationPlayerGatewayStatus enum
+// A concrete instance of `FleetLocationConfigurationPlayerGatewayStatusInput` can be one of the following:
+//
+//	FleetLocationConfigurationPlayerGatewayStatusDisabled
+//	FleetLocationConfigurationPlayerGatewayStatusEnabled
+type FleetLocationConfigurationPlayerGatewayStatusInput interface {
+	pulumi.Input
+
+	ToFleetLocationConfigurationPlayerGatewayStatusOutput() FleetLocationConfigurationPlayerGatewayStatusOutput
+	ToFleetLocationConfigurationPlayerGatewayStatusOutputWithContext(context.Context) FleetLocationConfigurationPlayerGatewayStatusOutput
+}
+
+var fleetLocationConfigurationPlayerGatewayStatusPtrType = reflect.TypeOf((**FleetLocationConfigurationPlayerGatewayStatus)(nil)).Elem()
+
+type FleetLocationConfigurationPlayerGatewayStatusPtrInput interface {
+	pulumi.Input
+
+	ToFleetLocationConfigurationPlayerGatewayStatusPtrOutput() FleetLocationConfigurationPlayerGatewayStatusPtrOutput
+	ToFleetLocationConfigurationPlayerGatewayStatusPtrOutputWithContext(context.Context) FleetLocationConfigurationPlayerGatewayStatusPtrOutput
+}
+
+type fleetLocationConfigurationPlayerGatewayStatusPtr string
+
+func FleetLocationConfigurationPlayerGatewayStatusPtr(v string) FleetLocationConfigurationPlayerGatewayStatusPtrInput {
+	return (*fleetLocationConfigurationPlayerGatewayStatusPtr)(&v)
+}
+
+func (*fleetLocationConfigurationPlayerGatewayStatusPtr) ElementType() reflect.Type {
+	return fleetLocationConfigurationPlayerGatewayStatusPtrType
+}
+
+func (in *fleetLocationConfigurationPlayerGatewayStatusPtr) ToFleetLocationConfigurationPlayerGatewayStatusPtrOutput() FleetLocationConfigurationPlayerGatewayStatusPtrOutput {
+	return pulumi.ToOutput(in).(FleetLocationConfigurationPlayerGatewayStatusPtrOutput)
+}
+
+func (in *fleetLocationConfigurationPlayerGatewayStatusPtr) ToFleetLocationConfigurationPlayerGatewayStatusPtrOutputWithContext(ctx context.Context) FleetLocationConfigurationPlayerGatewayStatusPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(FleetLocationConfigurationPlayerGatewayStatusPtrOutput)
+}
+
 // The strategy Amazon GameLift Servers will use to automatically scale your capacity to and from zero in response to game session activity. Game session activity refers to any active running sessions or game session requests. When set to SCALE_TO_AND_FROM_ZERO, MinSize must not be specified and will be managed automatically. When set to MANUAL, MinSize is required.
 type FleetManagedCapacityConfigurationZeroCapacityStrategy string
 
@@ -4597,6 +5097,340 @@ func (in *fleetNewGameSessionProtectionPolicyPtr) ToFleetNewGameSessionProtectio
 
 func (in *fleetNewGameSessionProtectionPolicyPtr) ToFleetNewGameSessionProtectionPolicyPtrOutputWithContext(ctx context.Context) FleetNewGameSessionProtectionPolicyPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(FleetNewGameSessionProtectionPolicyPtrOutput)
+}
+
+// The IP protocol supported by the game server.
+type FleetPlayerGatewayConfigurationGameServerIpProtocolSupported string
+
+const (
+	FleetPlayerGatewayConfigurationGameServerIpProtocolSupportedIPv4      = FleetPlayerGatewayConfigurationGameServerIpProtocolSupported("IPv4")
+	FleetPlayerGatewayConfigurationGameServerIpProtocolSupportedDualStack = FleetPlayerGatewayConfigurationGameServerIpProtocolSupported("DUAL_STACK")
+)
+
+func (FleetPlayerGatewayConfigurationGameServerIpProtocolSupported) ElementType() reflect.Type {
+	return reflect.TypeOf((*FleetPlayerGatewayConfigurationGameServerIpProtocolSupported)(nil)).Elem()
+}
+
+func (e FleetPlayerGatewayConfigurationGameServerIpProtocolSupported) ToFleetPlayerGatewayConfigurationGameServerIpProtocolSupportedOutput() FleetPlayerGatewayConfigurationGameServerIpProtocolSupportedOutput {
+	return pulumi.ToOutput(e).(FleetPlayerGatewayConfigurationGameServerIpProtocolSupportedOutput)
+}
+
+func (e FleetPlayerGatewayConfigurationGameServerIpProtocolSupported) ToFleetPlayerGatewayConfigurationGameServerIpProtocolSupportedOutputWithContext(ctx context.Context) FleetPlayerGatewayConfigurationGameServerIpProtocolSupportedOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(FleetPlayerGatewayConfigurationGameServerIpProtocolSupportedOutput)
+}
+
+func (e FleetPlayerGatewayConfigurationGameServerIpProtocolSupported) ToFleetPlayerGatewayConfigurationGameServerIpProtocolSupportedPtrOutput() FleetPlayerGatewayConfigurationGameServerIpProtocolSupportedPtrOutput {
+	return e.ToFleetPlayerGatewayConfigurationGameServerIpProtocolSupportedPtrOutputWithContext(context.Background())
+}
+
+func (e FleetPlayerGatewayConfigurationGameServerIpProtocolSupported) ToFleetPlayerGatewayConfigurationGameServerIpProtocolSupportedPtrOutputWithContext(ctx context.Context) FleetPlayerGatewayConfigurationGameServerIpProtocolSupportedPtrOutput {
+	return FleetPlayerGatewayConfigurationGameServerIpProtocolSupported(e).ToFleetPlayerGatewayConfigurationGameServerIpProtocolSupportedOutputWithContext(ctx).ToFleetPlayerGatewayConfigurationGameServerIpProtocolSupportedPtrOutputWithContext(ctx)
+}
+
+func (e FleetPlayerGatewayConfigurationGameServerIpProtocolSupported) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FleetPlayerGatewayConfigurationGameServerIpProtocolSupported) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FleetPlayerGatewayConfigurationGameServerIpProtocolSupported) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e FleetPlayerGatewayConfigurationGameServerIpProtocolSupported) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type FleetPlayerGatewayConfigurationGameServerIpProtocolSupportedOutput struct{ *pulumi.OutputState }
+
+func (FleetPlayerGatewayConfigurationGameServerIpProtocolSupportedOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FleetPlayerGatewayConfigurationGameServerIpProtocolSupported)(nil)).Elem()
+}
+
+func (o FleetPlayerGatewayConfigurationGameServerIpProtocolSupportedOutput) ToFleetPlayerGatewayConfigurationGameServerIpProtocolSupportedOutput() FleetPlayerGatewayConfigurationGameServerIpProtocolSupportedOutput {
+	return o
+}
+
+func (o FleetPlayerGatewayConfigurationGameServerIpProtocolSupportedOutput) ToFleetPlayerGatewayConfigurationGameServerIpProtocolSupportedOutputWithContext(ctx context.Context) FleetPlayerGatewayConfigurationGameServerIpProtocolSupportedOutput {
+	return o
+}
+
+func (o FleetPlayerGatewayConfigurationGameServerIpProtocolSupportedOutput) ToFleetPlayerGatewayConfigurationGameServerIpProtocolSupportedPtrOutput() FleetPlayerGatewayConfigurationGameServerIpProtocolSupportedPtrOutput {
+	return o.ToFleetPlayerGatewayConfigurationGameServerIpProtocolSupportedPtrOutputWithContext(context.Background())
+}
+
+func (o FleetPlayerGatewayConfigurationGameServerIpProtocolSupportedOutput) ToFleetPlayerGatewayConfigurationGameServerIpProtocolSupportedPtrOutputWithContext(ctx context.Context) FleetPlayerGatewayConfigurationGameServerIpProtocolSupportedPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FleetPlayerGatewayConfigurationGameServerIpProtocolSupported) *FleetPlayerGatewayConfigurationGameServerIpProtocolSupported {
+		return &v
+	}).(FleetPlayerGatewayConfigurationGameServerIpProtocolSupportedPtrOutput)
+}
+
+func (o FleetPlayerGatewayConfigurationGameServerIpProtocolSupportedOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o FleetPlayerGatewayConfigurationGameServerIpProtocolSupportedOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FleetPlayerGatewayConfigurationGameServerIpProtocolSupported) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o FleetPlayerGatewayConfigurationGameServerIpProtocolSupportedOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FleetPlayerGatewayConfigurationGameServerIpProtocolSupportedOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FleetPlayerGatewayConfigurationGameServerIpProtocolSupported) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type FleetPlayerGatewayConfigurationGameServerIpProtocolSupportedPtrOutput struct{ *pulumi.OutputState }
+
+func (FleetPlayerGatewayConfigurationGameServerIpProtocolSupportedPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FleetPlayerGatewayConfigurationGameServerIpProtocolSupported)(nil)).Elem()
+}
+
+func (o FleetPlayerGatewayConfigurationGameServerIpProtocolSupportedPtrOutput) ToFleetPlayerGatewayConfigurationGameServerIpProtocolSupportedPtrOutput() FleetPlayerGatewayConfigurationGameServerIpProtocolSupportedPtrOutput {
+	return o
+}
+
+func (o FleetPlayerGatewayConfigurationGameServerIpProtocolSupportedPtrOutput) ToFleetPlayerGatewayConfigurationGameServerIpProtocolSupportedPtrOutputWithContext(ctx context.Context) FleetPlayerGatewayConfigurationGameServerIpProtocolSupportedPtrOutput {
+	return o
+}
+
+func (o FleetPlayerGatewayConfigurationGameServerIpProtocolSupportedPtrOutput) Elem() FleetPlayerGatewayConfigurationGameServerIpProtocolSupportedOutput {
+	return o.ApplyT(func(v *FleetPlayerGatewayConfigurationGameServerIpProtocolSupported) FleetPlayerGatewayConfigurationGameServerIpProtocolSupported {
+		if v != nil {
+			return *v
+		}
+		var ret FleetPlayerGatewayConfigurationGameServerIpProtocolSupported
+		return ret
+	}).(FleetPlayerGatewayConfigurationGameServerIpProtocolSupportedOutput)
+}
+
+func (o FleetPlayerGatewayConfigurationGameServerIpProtocolSupportedPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FleetPlayerGatewayConfigurationGameServerIpProtocolSupportedPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *FleetPlayerGatewayConfigurationGameServerIpProtocolSupported) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// FleetPlayerGatewayConfigurationGameServerIpProtocolSupportedInput is an input type that accepts values of the FleetPlayerGatewayConfigurationGameServerIpProtocolSupported enum
+// A concrete instance of `FleetPlayerGatewayConfigurationGameServerIpProtocolSupportedInput` can be one of the following:
+//
+//	FleetPlayerGatewayConfigurationGameServerIpProtocolSupportedIPv4
+//	FleetPlayerGatewayConfigurationGameServerIpProtocolSupportedDualStack
+type FleetPlayerGatewayConfigurationGameServerIpProtocolSupportedInput interface {
+	pulumi.Input
+
+	ToFleetPlayerGatewayConfigurationGameServerIpProtocolSupportedOutput() FleetPlayerGatewayConfigurationGameServerIpProtocolSupportedOutput
+	ToFleetPlayerGatewayConfigurationGameServerIpProtocolSupportedOutputWithContext(context.Context) FleetPlayerGatewayConfigurationGameServerIpProtocolSupportedOutput
+}
+
+var fleetPlayerGatewayConfigurationGameServerIpProtocolSupportedPtrType = reflect.TypeOf((**FleetPlayerGatewayConfigurationGameServerIpProtocolSupported)(nil)).Elem()
+
+type FleetPlayerGatewayConfigurationGameServerIpProtocolSupportedPtrInput interface {
+	pulumi.Input
+
+	ToFleetPlayerGatewayConfigurationGameServerIpProtocolSupportedPtrOutput() FleetPlayerGatewayConfigurationGameServerIpProtocolSupportedPtrOutput
+	ToFleetPlayerGatewayConfigurationGameServerIpProtocolSupportedPtrOutputWithContext(context.Context) FleetPlayerGatewayConfigurationGameServerIpProtocolSupportedPtrOutput
+}
+
+type fleetPlayerGatewayConfigurationGameServerIpProtocolSupportedPtr string
+
+func FleetPlayerGatewayConfigurationGameServerIpProtocolSupportedPtr(v string) FleetPlayerGatewayConfigurationGameServerIpProtocolSupportedPtrInput {
+	return (*fleetPlayerGatewayConfigurationGameServerIpProtocolSupportedPtr)(&v)
+}
+
+func (*fleetPlayerGatewayConfigurationGameServerIpProtocolSupportedPtr) ElementType() reflect.Type {
+	return fleetPlayerGatewayConfigurationGameServerIpProtocolSupportedPtrType
+}
+
+func (in *fleetPlayerGatewayConfigurationGameServerIpProtocolSupportedPtr) ToFleetPlayerGatewayConfigurationGameServerIpProtocolSupportedPtrOutput() FleetPlayerGatewayConfigurationGameServerIpProtocolSupportedPtrOutput {
+	return pulumi.ToOutput(in).(FleetPlayerGatewayConfigurationGameServerIpProtocolSupportedPtrOutput)
+}
+
+func (in *fleetPlayerGatewayConfigurationGameServerIpProtocolSupportedPtr) ToFleetPlayerGatewayConfigurationGameServerIpProtocolSupportedPtrOutputWithContext(ctx context.Context) FleetPlayerGatewayConfigurationGameServerIpProtocolSupportedPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(FleetPlayerGatewayConfigurationGameServerIpProtocolSupportedPtrOutput)
+}
+
+// The player gateway mode for the fleet.
+type FleetPlayerGatewayMode string
+
+const (
+	FleetPlayerGatewayModeDisabled = FleetPlayerGatewayMode("DISABLED")
+	FleetPlayerGatewayModeEnabled  = FleetPlayerGatewayMode("ENABLED")
+	FleetPlayerGatewayModeRequired = FleetPlayerGatewayMode("REQUIRED")
+)
+
+func (FleetPlayerGatewayMode) ElementType() reflect.Type {
+	return reflect.TypeOf((*FleetPlayerGatewayMode)(nil)).Elem()
+}
+
+func (e FleetPlayerGatewayMode) ToFleetPlayerGatewayModeOutput() FleetPlayerGatewayModeOutput {
+	return pulumi.ToOutput(e).(FleetPlayerGatewayModeOutput)
+}
+
+func (e FleetPlayerGatewayMode) ToFleetPlayerGatewayModeOutputWithContext(ctx context.Context) FleetPlayerGatewayModeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(FleetPlayerGatewayModeOutput)
+}
+
+func (e FleetPlayerGatewayMode) ToFleetPlayerGatewayModePtrOutput() FleetPlayerGatewayModePtrOutput {
+	return e.ToFleetPlayerGatewayModePtrOutputWithContext(context.Background())
+}
+
+func (e FleetPlayerGatewayMode) ToFleetPlayerGatewayModePtrOutputWithContext(ctx context.Context) FleetPlayerGatewayModePtrOutput {
+	return FleetPlayerGatewayMode(e).ToFleetPlayerGatewayModeOutputWithContext(ctx).ToFleetPlayerGatewayModePtrOutputWithContext(ctx)
+}
+
+func (e FleetPlayerGatewayMode) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FleetPlayerGatewayMode) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FleetPlayerGatewayMode) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e FleetPlayerGatewayMode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type FleetPlayerGatewayModeOutput struct{ *pulumi.OutputState }
+
+func (FleetPlayerGatewayModeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FleetPlayerGatewayMode)(nil)).Elem()
+}
+
+func (o FleetPlayerGatewayModeOutput) ToFleetPlayerGatewayModeOutput() FleetPlayerGatewayModeOutput {
+	return o
+}
+
+func (o FleetPlayerGatewayModeOutput) ToFleetPlayerGatewayModeOutputWithContext(ctx context.Context) FleetPlayerGatewayModeOutput {
+	return o
+}
+
+func (o FleetPlayerGatewayModeOutput) ToFleetPlayerGatewayModePtrOutput() FleetPlayerGatewayModePtrOutput {
+	return o.ToFleetPlayerGatewayModePtrOutputWithContext(context.Background())
+}
+
+func (o FleetPlayerGatewayModeOutput) ToFleetPlayerGatewayModePtrOutputWithContext(ctx context.Context) FleetPlayerGatewayModePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FleetPlayerGatewayMode) *FleetPlayerGatewayMode {
+		return &v
+	}).(FleetPlayerGatewayModePtrOutput)
+}
+
+func (o FleetPlayerGatewayModeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o FleetPlayerGatewayModeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FleetPlayerGatewayMode) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o FleetPlayerGatewayModeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FleetPlayerGatewayModeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FleetPlayerGatewayMode) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type FleetPlayerGatewayModePtrOutput struct{ *pulumi.OutputState }
+
+func (FleetPlayerGatewayModePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FleetPlayerGatewayMode)(nil)).Elem()
+}
+
+func (o FleetPlayerGatewayModePtrOutput) ToFleetPlayerGatewayModePtrOutput() FleetPlayerGatewayModePtrOutput {
+	return o
+}
+
+func (o FleetPlayerGatewayModePtrOutput) ToFleetPlayerGatewayModePtrOutputWithContext(ctx context.Context) FleetPlayerGatewayModePtrOutput {
+	return o
+}
+
+func (o FleetPlayerGatewayModePtrOutput) Elem() FleetPlayerGatewayModeOutput {
+	return o.ApplyT(func(v *FleetPlayerGatewayMode) FleetPlayerGatewayMode {
+		if v != nil {
+			return *v
+		}
+		var ret FleetPlayerGatewayMode
+		return ret
+	}).(FleetPlayerGatewayModeOutput)
+}
+
+func (o FleetPlayerGatewayModePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FleetPlayerGatewayModePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *FleetPlayerGatewayMode) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// FleetPlayerGatewayModeInput is an input type that accepts values of the FleetPlayerGatewayMode enum
+// A concrete instance of `FleetPlayerGatewayModeInput` can be one of the following:
+//
+//	FleetPlayerGatewayModeDisabled
+//	FleetPlayerGatewayModeEnabled
+//	FleetPlayerGatewayModeRequired
+type FleetPlayerGatewayModeInput interface {
+	pulumi.Input
+
+	ToFleetPlayerGatewayModeOutput() FleetPlayerGatewayModeOutput
+	ToFleetPlayerGatewayModeOutputWithContext(context.Context) FleetPlayerGatewayModeOutput
+}
+
+var fleetPlayerGatewayModePtrType = reflect.TypeOf((**FleetPlayerGatewayMode)(nil)).Elem()
+
+type FleetPlayerGatewayModePtrInput interface {
+	pulumi.Input
+
+	ToFleetPlayerGatewayModePtrOutput() FleetPlayerGatewayModePtrOutput
+	ToFleetPlayerGatewayModePtrOutputWithContext(context.Context) FleetPlayerGatewayModePtrOutput
+}
+
+type fleetPlayerGatewayModePtr string
+
+func FleetPlayerGatewayModePtr(v string) FleetPlayerGatewayModePtrInput {
+	return (*fleetPlayerGatewayModePtr)(&v)
+}
+
+func (*fleetPlayerGatewayModePtr) ElementType() reflect.Type {
+	return fleetPlayerGatewayModePtrType
+}
+
+func (in *fleetPlayerGatewayModePtr) ToFleetPlayerGatewayModePtrOutput() FleetPlayerGatewayModePtrOutput {
+	return pulumi.ToOutput(in).(FleetPlayerGatewayModePtrOutput)
+}
+
+func (in *fleetPlayerGatewayModePtr) ToFleetPlayerGatewayModePtrOutputWithContext(ctx context.Context) FleetPlayerGatewayModePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(FleetPlayerGatewayModePtrOutput)
 }
 
 // Comparison operator to use when measuring a metric against the threshold value.
@@ -6856,12 +7690,16 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ContainerFleetDeploymentConfigurationProtectionStrategyPtrInput)(nil)).Elem(), ContainerFleetDeploymentConfigurationProtectionStrategy("WITH_PROTECTION"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ContainerFleetIpPermissionProtocolInput)(nil)).Elem(), ContainerFleetIpPermissionProtocol("TCP"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ContainerFleetIpPermissionProtocolPtrInput)(nil)).Elem(), ContainerFleetIpPermissionProtocol("TCP"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ContainerFleetLocationConfigurationPlayerGatewayStatusInput)(nil)).Elem(), ContainerFleetLocationConfigurationPlayerGatewayStatus("DISABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ContainerFleetLocationConfigurationPlayerGatewayStatusPtrInput)(nil)).Elem(), ContainerFleetLocationConfigurationPlayerGatewayStatus("DISABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ContainerFleetLogDestinationInput)(nil)).Elem(), ContainerFleetLogDestination("NONE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ContainerFleetLogDestinationPtrInput)(nil)).Elem(), ContainerFleetLogDestination("NONE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ContainerFleetManagedCapacityConfigurationZeroCapacityStrategyInput)(nil)).Elem(), ContainerFleetManagedCapacityConfigurationZeroCapacityStrategy("SCALE_TO_AND_FROM_ZERO"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ContainerFleetManagedCapacityConfigurationZeroCapacityStrategyPtrInput)(nil)).Elem(), ContainerFleetManagedCapacityConfigurationZeroCapacityStrategy("SCALE_TO_AND_FROM_ZERO"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ContainerFleetNewGameSessionProtectionPolicyInput)(nil)).Elem(), ContainerFleetNewGameSessionProtectionPolicy("FullProtection"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ContainerFleetNewGameSessionProtectionPolicyPtrInput)(nil)).Elem(), ContainerFleetNewGameSessionProtectionPolicy("FullProtection"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ContainerFleetPlayerGatewayModeInput)(nil)).Elem(), ContainerFleetPlayerGatewayMode("DISABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ContainerFleetPlayerGatewayModePtrInput)(nil)).Elem(), ContainerFleetPlayerGatewayMode("DISABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ContainerFleetScalingPolicyComparisonOperatorInput)(nil)).Elem(), ContainerFleetScalingPolicyComparisonOperator("GreaterThanOrEqualToThreshold"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ContainerFleetScalingPolicyComparisonOperatorPtrInput)(nil)).Elem(), ContainerFleetScalingPolicyComparisonOperator("GreaterThanOrEqualToThreshold"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ContainerFleetScalingPolicyMetricNameInput)(nil)).Elem(), ContainerFleetScalingPolicyMetricName("ActivatingGameSessions"))
@@ -6893,10 +7731,16 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetInstanceRoleCredentialsProviderPtrInput)(nil)).Elem(), FleetInstanceRoleCredentialsProvider("SHARED_CREDENTIAL_FILE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetIpPermissionProtocolInput)(nil)).Elem(), FleetIpPermissionProtocol("TCP"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetIpPermissionProtocolPtrInput)(nil)).Elem(), FleetIpPermissionProtocol("TCP"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FleetLocationConfigurationPlayerGatewayStatusInput)(nil)).Elem(), FleetLocationConfigurationPlayerGatewayStatus("DISABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FleetLocationConfigurationPlayerGatewayStatusPtrInput)(nil)).Elem(), FleetLocationConfigurationPlayerGatewayStatus("DISABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetManagedCapacityConfigurationZeroCapacityStrategyInput)(nil)).Elem(), FleetManagedCapacityConfigurationZeroCapacityStrategy("SCALE_TO_AND_FROM_ZERO"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetManagedCapacityConfigurationZeroCapacityStrategyPtrInput)(nil)).Elem(), FleetManagedCapacityConfigurationZeroCapacityStrategy("SCALE_TO_AND_FROM_ZERO"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetNewGameSessionProtectionPolicyInput)(nil)).Elem(), FleetNewGameSessionProtectionPolicy("FullProtection"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetNewGameSessionProtectionPolicyPtrInput)(nil)).Elem(), FleetNewGameSessionProtectionPolicy("FullProtection"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FleetPlayerGatewayConfigurationGameServerIpProtocolSupportedInput)(nil)).Elem(), FleetPlayerGatewayConfigurationGameServerIpProtocolSupported("IPv4"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FleetPlayerGatewayConfigurationGameServerIpProtocolSupportedPtrInput)(nil)).Elem(), FleetPlayerGatewayConfigurationGameServerIpProtocolSupported("IPv4"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FleetPlayerGatewayModeInput)(nil)).Elem(), FleetPlayerGatewayMode("DISABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FleetPlayerGatewayModePtrInput)(nil)).Elem(), FleetPlayerGatewayMode("DISABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetScalingPolicyComparisonOperatorInput)(nil)).Elem(), FleetScalingPolicyComparisonOperator("GreaterThanOrEqualToThreshold"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetScalingPolicyComparisonOperatorPtrInput)(nil)).Elem(), FleetScalingPolicyComparisonOperator("GreaterThanOrEqualToThreshold"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetScalingPolicyMetricNameInput)(nil)).Elem(), FleetScalingPolicyMetricName("ActivatingGameSessions"))
@@ -6936,12 +7780,16 @@ func init() {
 	pulumi.RegisterOutputType(ContainerFleetDeploymentConfigurationProtectionStrategyPtrOutput{})
 	pulumi.RegisterOutputType(ContainerFleetIpPermissionProtocolOutput{})
 	pulumi.RegisterOutputType(ContainerFleetIpPermissionProtocolPtrOutput{})
+	pulumi.RegisterOutputType(ContainerFleetLocationConfigurationPlayerGatewayStatusOutput{})
+	pulumi.RegisterOutputType(ContainerFleetLocationConfigurationPlayerGatewayStatusPtrOutput{})
 	pulumi.RegisterOutputType(ContainerFleetLogDestinationOutput{})
 	pulumi.RegisterOutputType(ContainerFleetLogDestinationPtrOutput{})
 	pulumi.RegisterOutputType(ContainerFleetManagedCapacityConfigurationZeroCapacityStrategyOutput{})
 	pulumi.RegisterOutputType(ContainerFleetManagedCapacityConfigurationZeroCapacityStrategyPtrOutput{})
 	pulumi.RegisterOutputType(ContainerFleetNewGameSessionProtectionPolicyOutput{})
 	pulumi.RegisterOutputType(ContainerFleetNewGameSessionProtectionPolicyPtrOutput{})
+	pulumi.RegisterOutputType(ContainerFleetPlayerGatewayModeOutput{})
+	pulumi.RegisterOutputType(ContainerFleetPlayerGatewayModePtrOutput{})
 	pulumi.RegisterOutputType(ContainerFleetScalingPolicyComparisonOperatorOutput{})
 	pulumi.RegisterOutputType(ContainerFleetScalingPolicyComparisonOperatorPtrOutput{})
 	pulumi.RegisterOutputType(ContainerFleetScalingPolicyMetricNameOutput{})
@@ -6977,10 +7825,16 @@ func init() {
 	pulumi.RegisterOutputType(FleetInstanceRoleCredentialsProviderPtrOutput{})
 	pulumi.RegisterOutputType(FleetIpPermissionProtocolOutput{})
 	pulumi.RegisterOutputType(FleetIpPermissionProtocolPtrOutput{})
+	pulumi.RegisterOutputType(FleetLocationConfigurationPlayerGatewayStatusOutput{})
+	pulumi.RegisterOutputType(FleetLocationConfigurationPlayerGatewayStatusPtrOutput{})
 	pulumi.RegisterOutputType(FleetManagedCapacityConfigurationZeroCapacityStrategyOutput{})
 	pulumi.RegisterOutputType(FleetManagedCapacityConfigurationZeroCapacityStrategyPtrOutput{})
 	pulumi.RegisterOutputType(FleetNewGameSessionProtectionPolicyOutput{})
 	pulumi.RegisterOutputType(FleetNewGameSessionProtectionPolicyPtrOutput{})
+	pulumi.RegisterOutputType(FleetPlayerGatewayConfigurationGameServerIpProtocolSupportedOutput{})
+	pulumi.RegisterOutputType(FleetPlayerGatewayConfigurationGameServerIpProtocolSupportedPtrOutput{})
+	pulumi.RegisterOutputType(FleetPlayerGatewayModeOutput{})
+	pulumi.RegisterOutputType(FleetPlayerGatewayModePtrOutput{})
 	pulumi.RegisterOutputType(FleetScalingPolicyComparisonOperatorOutput{})
 	pulumi.RegisterOutputType(FleetScalingPolicyComparisonOperatorPtrOutput{})
 	pulumi.RegisterOutputType(FleetScalingPolicyMetricNameOutput{})

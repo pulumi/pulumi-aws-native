@@ -62,6 +62,10 @@ type Fleet struct {
 	PeerVpcAwsAccountId pulumi.StringPtrOutput `pulumi:"peerVpcAwsAccountId"`
 	// A unique identifier for a VPC with resources to be accessed by your Amazon GameLift fleet. The VPC must be in the same Region as your fleet. To look up a VPC ID, use the VPC Dashboard in the AWS Management Console.
 	PeerVpcId pulumi.StringPtrOutput `pulumi:"peerVpcId"`
+	// Configuration for player gateway.
+	PlayerGatewayConfiguration FleetPlayerGatewayConfigurationPtrOutput `pulumi:"playerGatewayConfiguration"`
+	// The player gateway mode for the fleet.
+	PlayerGatewayMode FleetPlayerGatewayModePtrOutput `pulumi:"playerGatewayMode"`
 	// A policy that limits the number of game sessions an individual player can create over a span of time for this fleet.
 	ResourceCreationLimitPolicy FleetResourceCreationLimitPolicyPtrOutput `pulumi:"resourceCreationLimitPolicy"`
 	// Instructions for launching server processes on each instance in the fleet. Server processes run either a custom game build executable or a Realtime script. The runtime configuration defines the server executables or launch script file, launch parameters, and the number of processes to run concurrently on each instance. When creating a fleet, the runtime configuration must have at least one server process configuration; otherwise the request fails with an invalid request exception.
@@ -100,6 +104,8 @@ func NewFleet(ctx *pulumi.Context,
 		"logPaths[*]",
 		"peerVpcAwsAccountId",
 		"peerVpcId",
+		"playerGatewayConfiguration",
+		"playerGatewayMode",
 		"scriptId",
 		"serverLaunchParameters",
 		"serverLaunchPath",
@@ -180,6 +186,10 @@ type fleetArgs struct {
 	PeerVpcAwsAccountId *string `pulumi:"peerVpcAwsAccountId"`
 	// A unique identifier for a VPC with resources to be accessed by your Amazon GameLift fleet. The VPC must be in the same Region as your fleet. To look up a VPC ID, use the VPC Dashboard in the AWS Management Console.
 	PeerVpcId *string `pulumi:"peerVpcId"`
+	// Configuration for player gateway.
+	PlayerGatewayConfiguration *FleetPlayerGatewayConfiguration `pulumi:"playerGatewayConfiguration"`
+	// The player gateway mode for the fleet.
+	PlayerGatewayMode *FleetPlayerGatewayMode `pulumi:"playerGatewayMode"`
 	// A policy that limits the number of game sessions an individual player can create over a span of time for this fleet.
 	ResourceCreationLimitPolicy *FleetResourceCreationLimitPolicy `pulumi:"resourceCreationLimitPolicy"`
 	// Instructions for launching server processes on each instance in the fleet. Server processes run either a custom game build executable or a Realtime script. The runtime configuration defines the server executables or launch script file, launch parameters, and the number of processes to run concurrently on each instance. When creating a fleet, the runtime configuration must have at least one server process configuration; otherwise the request fails with an invalid request exception.
@@ -244,6 +254,10 @@ type FleetArgs struct {
 	PeerVpcAwsAccountId pulumi.StringPtrInput
 	// A unique identifier for a VPC with resources to be accessed by your Amazon GameLift fleet. The VPC must be in the same Region as your fleet. To look up a VPC ID, use the VPC Dashboard in the AWS Management Console.
 	PeerVpcId pulumi.StringPtrInput
+	// Configuration for player gateway.
+	PlayerGatewayConfiguration FleetPlayerGatewayConfigurationPtrInput
+	// The player gateway mode for the fleet.
+	PlayerGatewayMode FleetPlayerGatewayModePtrInput
 	// A policy that limits the number of game sessions an individual player can create over a span of time for this fleet.
 	ResourceCreationLimitPolicy FleetResourceCreationLimitPolicyPtrInput
 	// Instructions for launching server processes on each instance in the fleet. Server processes run either a custom game build executable or a Realtime script. The runtime configuration defines the server executables or launch script file, launch parameters, and the number of processes to run concurrently on each instance. When creating a fleet, the runtime configuration must have at least one server process configuration; otherwise the request fails with an invalid request exception.
@@ -414,6 +428,16 @@ func (o FleetOutput) PeerVpcAwsAccountId() pulumi.StringPtrOutput {
 // A unique identifier for a VPC with resources to be accessed by your Amazon GameLift fleet. The VPC must be in the same Region as your fleet. To look up a VPC ID, use the VPC Dashboard in the AWS Management Console.
 func (o FleetOutput) PeerVpcId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Fleet) pulumi.StringPtrOutput { return v.PeerVpcId }).(pulumi.StringPtrOutput)
+}
+
+// Configuration for player gateway.
+func (o FleetOutput) PlayerGatewayConfiguration() FleetPlayerGatewayConfigurationPtrOutput {
+	return o.ApplyT(func(v *Fleet) FleetPlayerGatewayConfigurationPtrOutput { return v.PlayerGatewayConfiguration }).(FleetPlayerGatewayConfigurationPtrOutput)
+}
+
+// The player gateway mode for the fleet.
+func (o FleetOutput) PlayerGatewayMode() FleetPlayerGatewayModePtrOutput {
+	return o.ApplyT(func(v *Fleet) FleetPlayerGatewayModePtrOutput { return v.PlayerGatewayMode }).(FleetPlayerGatewayModePtrOutput)
 }
 
 // A policy that limits the number of game sessions an individual player can create over a span of time for this fleet.
