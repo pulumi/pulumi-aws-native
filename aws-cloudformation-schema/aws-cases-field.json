@@ -8,6 +8,28 @@
       "description" : "The data type of the field, which determines validation rules, input constraints, and display format. Each type has specific constraints: Text (string input), Number (numeric values), Boolean (true/false), DateTime (date/time picker), SingleSelect (dropdown options), Url (URL validation), User (Amazon Connect user selection).",
       "enum" : [ "Text", "Number", "Boolean", "DateTime", "SingleSelect", "Url", "User" ]
     },
+    "TextAttributes" : {
+      "type" : "object",
+      "description" : "Field attributes for Text field type",
+      "additionalProperties" : false,
+      "properties" : {
+        "IsMultiline" : {
+          "type" : "boolean",
+          "description" : "Attribute that defines rendering component and validation"
+        }
+      },
+      "required" : [ "IsMultiline" ]
+    },
+    "FieldAttributes" : {
+      "type" : "object",
+      "description" : "Union of field attributes",
+      "additionalProperties" : false,
+      "properties" : {
+        "Text" : {
+          "$ref" : "#/definitions/TextAttributes"
+        }
+      }
+    },
     "Tags" : {
       "type" : "array",
       "description" : "The tags that you attach to this field.",
@@ -89,6 +111,10 @@
     },
     "Type" : {
       "$ref" : "#/definitions/FieldType"
+    },
+    "Attributes" : {
+      "$ref" : "#/definitions/FieldAttributes",
+      "description" : "Field-type specific attributes that control rendering and validation behavior"
     }
   },
   "required" : [ "Name", "Type" ],

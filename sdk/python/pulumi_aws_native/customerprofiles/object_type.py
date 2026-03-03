@@ -34,6 +34,7 @@ class ObjectTypeArgs:
                  max_profile_object_count: Optional[pulumi.Input[_builtins.int]] = None,
                  object_type_name: Optional[pulumi.Input[_builtins.str]] = None,
                  source_last_updated_timestamp_format: Optional[pulumi.Input[_builtins.str]] = None,
+                 source_priority: Optional[pulumi.Input[_builtins.int]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
                  template_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
@@ -48,6 +49,7 @@ class ObjectTypeArgs:
         :param pulumi.Input[_builtins.int] max_profile_object_count: The maximum number of profile objects for this object type
         :param pulumi.Input[_builtins.str] object_type_name: The name of the profile object type.
         :param pulumi.Input[_builtins.str] source_last_updated_timestamp_format: The format of your sourceLastUpdatedTimestamp that was previously set up.
+        :param pulumi.Input[_builtins.int] source_priority: Defines the priority order of object types. Lower value indicates higher priority.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags (keys and values) associated with the integration.
         :param pulumi.Input[_builtins.str] template_id: A unique identifier for the object template.
         """
@@ -69,6 +71,8 @@ class ObjectTypeArgs:
             pulumi.set(__self__, "object_type_name", object_type_name)
         if source_last_updated_timestamp_format is not None:
             pulumi.set(__self__, "source_last_updated_timestamp_format", source_last_updated_timestamp_format)
+        if source_priority is not None:
+            pulumi.set(__self__, "source_priority", source_priority)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if template_id is not None:
@@ -195,6 +199,18 @@ class ObjectTypeArgs:
         pulumi.set(self, "source_last_updated_timestamp_format", value)
 
     @_builtins.property
+    @pulumi.getter(name="sourcePriority")
+    def source_priority(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        Defines the priority order of object types. Lower value indicates higher priority.
+        """
+        return pulumi.get(self, "source_priority")
+
+    @source_priority.setter
+    def source_priority(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "source_priority", value)
+
+    @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
@@ -235,6 +251,7 @@ class ObjectType(pulumi.CustomResource):
                  max_profile_object_count: Optional[pulumi.Input[_builtins.int]] = None,
                  object_type_name: Optional[pulumi.Input[_builtins.str]] = None,
                  source_last_updated_timestamp_format: Optional[pulumi.Input[_builtins.str]] = None,
+                 source_priority: Optional[pulumi.Input[_builtins.int]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  template_id: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
@@ -253,6 +270,7 @@ class ObjectType(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] max_profile_object_count: The maximum number of profile objects for this object type
         :param pulumi.Input[_builtins.str] object_type_name: The name of the profile object type.
         :param pulumi.Input[_builtins.str] source_last_updated_timestamp_format: The format of your sourceLastUpdatedTimestamp that was previously set up.
+        :param pulumi.Input[_builtins.int] source_priority: Defines the priority order of object types. Lower value indicates higher priority.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags (keys and values) associated with the integration.
         :param pulumi.Input[_builtins.str] template_id: A unique identifier for the object template.
         """
@@ -290,6 +308,7 @@ class ObjectType(pulumi.CustomResource):
                  max_profile_object_count: Optional[pulumi.Input[_builtins.int]] = None,
                  object_type_name: Optional[pulumi.Input[_builtins.str]] = None,
                  source_last_updated_timestamp_format: Optional[pulumi.Input[_builtins.str]] = None,
+                 source_priority: Optional[pulumi.Input[_builtins.int]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  template_id: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
@@ -315,6 +334,7 @@ class ObjectType(pulumi.CustomResource):
             __props__.__dict__["max_profile_object_count"] = max_profile_object_count
             __props__.__dict__["object_type_name"] = object_type_name
             __props__.__dict__["source_last_updated_timestamp_format"] = source_last_updated_timestamp_format
+            __props__.__dict__["source_priority"] = source_priority
             __props__.__dict__["tags"] = tags
             __props__.__dict__["template_id"] = template_id
             __props__.__dict__["created_at"] = None
@@ -357,6 +377,7 @@ class ObjectType(pulumi.CustomResource):
         __props__.__dict__["max_profile_object_count"] = None
         __props__.__dict__["object_type_name"] = None
         __props__.__dict__["source_last_updated_timestamp_format"] = None
+        __props__.__dict__["source_priority"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["template_id"] = None
         return ObjectType(resource_name, opts=opts, __props__=__props__)
@@ -464,6 +485,14 @@ class ObjectType(pulumi.CustomResource):
         The format of your sourceLastUpdatedTimestamp that was previously set up.
         """
         return pulumi.get(self, "source_last_updated_timestamp_format")
+
+    @_builtins.property
+    @pulumi.getter(name="sourcePriority")
+    def source_priority(self) -> pulumi.Output[Optional[_builtins.int]]:
+        """
+        Defines the priority order of object types. Lower value indicates higher priority.
+        """
+        return pulumi.get(self, "source_priority")
 
     @_builtins.property
     @pulumi.getter

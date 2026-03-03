@@ -146,6 +146,12 @@ namespace Pulumi.AwsNative.GameLift
         public Output<string?> PerInstanceContainerGroupDefinitionName { get; private set; } = null!;
 
         /// <summary>
+        /// The player gateway mode for the container fleet.
+        /// </summary>
+        [Output("playerGatewayMode")]
+        public Output<Pulumi.AwsNative.GameLift.ContainerFleetPlayerGatewayMode?> PlayerGatewayMode { get; private set; } = null!;
+
+        /// <summary>
         /// A list of rules that control how a fleet is scaled.
         /// </summary>
         [Output("scalingPolicies")]
@@ -190,6 +196,7 @@ namespace Pulumi.AwsNative.GameLift
                 {
                     "billingType",
                     "instanceType",
+                    "playerGatewayMode",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -320,6 +327,12 @@ namespace Pulumi.AwsNative.GameLift
         /// </summary>
         [Input("perInstanceContainerGroupDefinitionName")]
         public Input<string>? PerInstanceContainerGroupDefinitionName { get; set; }
+
+        /// <summary>
+        /// The player gateway mode for the container fleet.
+        /// </summary>
+        [Input("playerGatewayMode")]
+        public Input<Pulumi.AwsNative.GameLift.ContainerFleetPlayerGatewayMode>? PlayerGatewayMode { get; set; }
 
         [Input("scalingPolicies")]
         private InputList<Inputs.ContainerFleetScalingPolicyArgs>? _scalingPolicies;

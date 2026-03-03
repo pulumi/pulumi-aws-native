@@ -24,6 +24,14 @@ __all__ = [
     'BrowserCustomVpcConfig',
     'CodeInterpreterCustomCodeInterpreterNetworkConfiguration',
     'CodeInterpreterCustomVpcConfig',
+    'EvaluatorBedrockEvaluatorModelConfig',
+    'EvaluatorCategoricalScaleDefinition',
+    'EvaluatorConfig',
+    'EvaluatorInferenceConfiguration',
+    'EvaluatorLlmAsAJudgeEvaluatorConfig',
+    'EvaluatorModelConfig',
+    'EvaluatorNumericalScaleDefinition',
+    'EvaluatorRatingScale',
     'GatewayAuthorizerConfigurationProperties',
     'GatewayAuthorizingClaimMatchValueType',
     'GatewayClaimMatchValueType',
@@ -87,6 +95,16 @@ __all__ = [
     'MemoryUserPreferenceOverride',
     'MemoryUserPreferenceOverrideConsolidationConfigurationInput',
     'MemoryUserPreferenceOverrideExtractionConfigurationInput',
+    'OnlineEvaluationConfigCloudWatchLogsInputConfig',
+    'OnlineEvaluationConfigCloudWatchOutputConfig',
+    'OnlineEvaluationConfigDataSourceConfig',
+    'OnlineEvaluationConfigEvaluatorReference',
+    'OnlineEvaluationConfigFilter',
+    'OnlineEvaluationConfigFilterValue',
+    'OnlineEvaluationConfigOutputConfig',
+    'OnlineEvaluationConfigRule',
+    'OnlineEvaluationConfigSamplingConfig',
+    'OnlineEvaluationConfigSessionConfig',
     'RuntimeAgentRuntimeArtifact',
     'RuntimeAuthorizerConfiguration',
     'RuntimeAuthorizingClaimMatchValueType',
@@ -388,6 +406,364 @@ class CodeInterpreterCustomVpcConfig(dict):
     @pulumi.getter
     def subnets(self) -> Sequence[_builtins.str]:
         return pulumi.get(self, "subnets")
+
+
+@pulumi.output_type
+class EvaluatorBedrockEvaluatorModelConfig(dict):
+    """
+    The configuration for using Amazon Bedrock models in evaluator assessments.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "modelId":
+            suggest = "model_id"
+        elif key == "additionalModelRequestFields":
+            suggest = "additional_model_request_fields"
+        elif key == "inferenceConfig":
+            suggest = "inference_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EvaluatorBedrockEvaluatorModelConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EvaluatorBedrockEvaluatorModelConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EvaluatorBedrockEvaluatorModelConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 model_id: _builtins.str,
+                 additional_model_request_fields: Optional[Any] = None,
+                 inference_config: Optional['outputs.EvaluatorInferenceConfiguration'] = None):
+        """
+        The configuration for using Amazon Bedrock models in evaluator assessments.
+        :param _builtins.str model_id: The identifier of the Amazon Bedrock model to use for evaluation.
+        :param Any additional_model_request_fields: Additional model-specific request fields.
+        """
+        pulumi.set(__self__, "model_id", model_id)
+        if additional_model_request_fields is not None:
+            pulumi.set(__self__, "additional_model_request_fields", additional_model_request_fields)
+        if inference_config is not None:
+            pulumi.set(__self__, "inference_config", inference_config)
+
+    @_builtins.property
+    @pulumi.getter(name="modelId")
+    def model_id(self) -> _builtins.str:
+        """
+        The identifier of the Amazon Bedrock model to use for evaluation.
+        """
+        return pulumi.get(self, "model_id")
+
+    @_builtins.property
+    @pulumi.getter(name="additionalModelRequestFields")
+    def additional_model_request_fields(self) -> Optional[Any]:
+        """
+        Additional model-specific request fields.
+        """
+        return pulumi.get(self, "additional_model_request_fields")
+
+    @_builtins.property
+    @pulumi.getter(name="inferenceConfig")
+    def inference_config(self) -> Optional['outputs.EvaluatorInferenceConfiguration']:
+        return pulumi.get(self, "inference_config")
+
+
+@pulumi.output_type
+class EvaluatorCategoricalScaleDefinition(dict):
+    """
+    A categorical rating scale option.
+    """
+    def __init__(__self__, *,
+                 definition: _builtins.str,
+                 label: _builtins.str):
+        """
+        A categorical rating scale option.
+        :param _builtins.str definition: The description that explains what this categorical rating represents.
+        :param _builtins.str label: The label of this categorical rating option.
+        """
+        pulumi.set(__self__, "definition", definition)
+        pulumi.set(__self__, "label", label)
+
+    @_builtins.property
+    @pulumi.getter
+    def definition(self) -> _builtins.str:
+        """
+        The description that explains what this categorical rating represents.
+        """
+        return pulumi.get(self, "definition")
+
+    @_builtins.property
+    @pulumi.getter
+    def label(self) -> _builtins.str:
+        """
+        The label of this categorical rating option.
+        """
+        return pulumi.get(self, "label")
+
+
+@pulumi.output_type
+class EvaluatorConfig(dict):
+    """
+    The configuration that defines how an evaluator assesses agent performance.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "llmAsAJudge":
+            suggest = "llm_as_a_judge"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EvaluatorConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EvaluatorConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EvaluatorConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 llm_as_a_judge: 'outputs.EvaluatorLlmAsAJudgeEvaluatorConfig'):
+        """
+        The configuration that defines how an evaluator assesses agent performance.
+        """
+        pulumi.set(__self__, "llm_as_a_judge", llm_as_a_judge)
+
+    @_builtins.property
+    @pulumi.getter(name="llmAsAJudge")
+    def llm_as_a_judge(self) -> 'outputs.EvaluatorLlmAsAJudgeEvaluatorConfig':
+        return pulumi.get(self, "llm_as_a_judge")
+
+
+@pulumi.output_type
+class EvaluatorInferenceConfiguration(dict):
+    """
+    The inference configuration parameters that control model behavior during evaluation.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxTokens":
+            suggest = "max_tokens"
+        elif key == "topP":
+            suggest = "top_p"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EvaluatorInferenceConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EvaluatorInferenceConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EvaluatorInferenceConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 max_tokens: Optional[_builtins.int] = None,
+                 temperature: Optional[_builtins.float] = None,
+                 top_p: Optional[_builtins.float] = None):
+        """
+        The inference configuration parameters that control model behavior during evaluation.
+        :param _builtins.int max_tokens: The maximum number of tokens to generate in the model response.
+        :param _builtins.float temperature: The temperature value that controls randomness in the model's responses.
+        :param _builtins.float top_p: The top-p sampling parameter that controls the diversity of the model's responses.
+        """
+        if max_tokens is not None:
+            pulumi.set(__self__, "max_tokens", max_tokens)
+        if temperature is not None:
+            pulumi.set(__self__, "temperature", temperature)
+        if top_p is not None:
+            pulumi.set(__self__, "top_p", top_p)
+
+    @_builtins.property
+    @pulumi.getter(name="maxTokens")
+    def max_tokens(self) -> Optional[_builtins.int]:
+        """
+        The maximum number of tokens to generate in the model response.
+        """
+        return pulumi.get(self, "max_tokens")
+
+    @_builtins.property
+    @pulumi.getter
+    def temperature(self) -> Optional[_builtins.float]:
+        """
+        The temperature value that controls randomness in the model's responses.
+        """
+        return pulumi.get(self, "temperature")
+
+    @_builtins.property
+    @pulumi.getter(name="topP")
+    def top_p(self) -> Optional[_builtins.float]:
+        """
+        The top-p sampling parameter that controls the diversity of the model's responses.
+        """
+        return pulumi.get(self, "top_p")
+
+
+@pulumi.output_type
+class EvaluatorLlmAsAJudgeEvaluatorConfig(dict):
+    """
+    The configuration for LLM-as-a-Judge evaluation.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "modelConfig":
+            suggest = "model_config"
+        elif key == "ratingScale":
+            suggest = "rating_scale"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EvaluatorLlmAsAJudgeEvaluatorConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EvaluatorLlmAsAJudgeEvaluatorConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EvaluatorLlmAsAJudgeEvaluatorConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 instructions: _builtins.str,
+                 model_config: 'outputs.EvaluatorModelConfig',
+                 rating_scale: 'outputs.EvaluatorRatingScale'):
+        """
+        The configuration for LLM-as-a-Judge evaluation.
+        :param _builtins.str instructions: The evaluation instructions that guide the language model in assessing agent performance.
+        """
+        pulumi.set(__self__, "instructions", instructions)
+        pulumi.set(__self__, "model_config", model_config)
+        pulumi.set(__self__, "rating_scale", rating_scale)
+
+    @_builtins.property
+    @pulumi.getter
+    def instructions(self) -> _builtins.str:
+        """
+        The evaluation instructions that guide the language model in assessing agent performance.
+        """
+        return pulumi.get(self, "instructions")
+
+    @_builtins.property
+    @pulumi.getter(name="modelConfig")
+    def model_config(self) -> 'outputs.EvaluatorModelConfig':
+        return pulumi.get(self, "model_config")
+
+    @_builtins.property
+    @pulumi.getter(name="ratingScale")
+    def rating_scale(self) -> 'outputs.EvaluatorRatingScale':
+        return pulumi.get(self, "rating_scale")
+
+
+@pulumi.output_type
+class EvaluatorModelConfig(dict):
+    """
+    The model configuration that specifies which foundation model to use for evaluation.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "bedrockEvaluatorModelConfig":
+            suggest = "bedrock_evaluator_model_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EvaluatorModelConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EvaluatorModelConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EvaluatorModelConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 bedrock_evaluator_model_config: 'outputs.EvaluatorBedrockEvaluatorModelConfig'):
+        """
+        The model configuration that specifies which foundation model to use for evaluation.
+        """
+        pulumi.set(__self__, "bedrock_evaluator_model_config", bedrock_evaluator_model_config)
+
+    @_builtins.property
+    @pulumi.getter(name="bedrockEvaluatorModelConfig")
+    def bedrock_evaluator_model_config(self) -> 'outputs.EvaluatorBedrockEvaluatorModelConfig':
+        return pulumi.get(self, "bedrock_evaluator_model_config")
+
+
+@pulumi.output_type
+class EvaluatorNumericalScaleDefinition(dict):
+    """
+    A numerical rating scale option.
+    """
+    def __init__(__self__, *,
+                 definition: _builtins.str,
+                 label: _builtins.str,
+                 value: _builtins.float):
+        """
+        A numerical rating scale option.
+        :param _builtins.str definition: The description that explains what this numerical rating represents.
+        :param _builtins.str label: The label that describes this numerical rating option.
+        :param _builtins.float value: The numerical value for this rating scale option.
+        """
+        pulumi.set(__self__, "definition", definition)
+        pulumi.set(__self__, "label", label)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def definition(self) -> _builtins.str:
+        """
+        The description that explains what this numerical rating represents.
+        """
+        return pulumi.get(self, "definition")
+
+    @_builtins.property
+    @pulumi.getter
+    def label(self) -> _builtins.str:
+        """
+        The label that describes this numerical rating option.
+        """
+        return pulumi.get(self, "label")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.float:
+        """
+        The numerical value for this rating scale option.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class EvaluatorRatingScale(dict):
+    """
+    The rating scale that defines how evaluators should score agent performance.
+    """
+    def __init__(__self__, *,
+                 categorical: Optional[Sequence['outputs.EvaluatorCategoricalScaleDefinition']] = None,
+                 numerical: Optional[Sequence['outputs.EvaluatorNumericalScaleDefinition']] = None):
+        """
+        The rating scale that defines how evaluators should score agent performance.
+        """
+        if categorical is not None:
+            pulumi.set(__self__, "categorical", categorical)
+        if numerical is not None:
+            pulumi.set(__self__, "numerical", numerical)
+
+    @_builtins.property
+    @pulumi.getter
+    def categorical(self) -> Optional[Sequence['outputs.EvaluatorCategoricalScaleDefinition']]:
+        return pulumi.get(self, "categorical")
+
+    @_builtins.property
+    @pulumi.getter
+    def numerical(self) -> Optional[Sequence['outputs.EvaluatorNumericalScaleDefinition']]:
+        return pulumi.get(self, "numerical")
 
 
 @pulumi.output_type
@@ -3051,6 +3427,451 @@ class MemoryUserPreferenceOverrideExtractionConfigurationInput(dict):
     @pulumi.getter(name="modelId")
     def model_id(self) -> _builtins.str:
         return pulumi.get(self, "model_id")
+
+
+@pulumi.output_type
+class OnlineEvaluationConfigCloudWatchLogsInputConfig(dict):
+    """
+    The configuration for reading agent traces from CloudWatch logs.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "logGroupNames":
+            suggest = "log_group_names"
+        elif key == "serviceNames":
+            suggest = "service_names"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OnlineEvaluationConfigCloudWatchLogsInputConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OnlineEvaluationConfigCloudWatchLogsInputConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OnlineEvaluationConfigCloudWatchLogsInputConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 log_group_names: Sequence[_builtins.str],
+                 service_names: Sequence[_builtins.str]):
+        """
+        The configuration for reading agent traces from CloudWatch logs.
+        :param Sequence[_builtins.str] log_group_names: The list of CloudWatch log group names to monitor for agent traces.
+        :param Sequence[_builtins.str] service_names: The list of service names to filter traces within the specified log groups.
+        """
+        pulumi.set(__self__, "log_group_names", log_group_names)
+        pulumi.set(__self__, "service_names", service_names)
+
+    @_builtins.property
+    @pulumi.getter(name="logGroupNames")
+    def log_group_names(self) -> Sequence[_builtins.str]:
+        """
+        The list of CloudWatch log group names to monitor for agent traces.
+        """
+        return pulumi.get(self, "log_group_names")
+
+    @_builtins.property
+    @pulumi.getter(name="serviceNames")
+    def service_names(self) -> Sequence[_builtins.str]:
+        """
+        The list of service names to filter traces within the specified log groups.
+        """
+        return pulumi.get(self, "service_names")
+
+
+@pulumi.output_type
+class OnlineEvaluationConfigCloudWatchOutputConfig(dict):
+    """
+    The CloudWatch configuration for writing evaluation results.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "logGroupName":
+            suggest = "log_group_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OnlineEvaluationConfigCloudWatchOutputConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OnlineEvaluationConfigCloudWatchOutputConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OnlineEvaluationConfigCloudWatchOutputConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 log_group_name: Optional[_builtins.str] = None):
+        """
+        The CloudWatch configuration for writing evaluation results.
+        :param _builtins.str log_group_name: The CloudWatch log group name for evaluation results.
+        """
+        if log_group_name is not None:
+            pulumi.set(__self__, "log_group_name", log_group_name)
+
+    @_builtins.property
+    @pulumi.getter(name="logGroupName")
+    def log_group_name(self) -> Optional[_builtins.str]:
+        """
+        The CloudWatch log group name for evaluation results.
+        """
+        return pulumi.get(self, "log_group_name")
+
+
+@pulumi.output_type
+class OnlineEvaluationConfigDataSourceConfig(dict):
+    """
+    The configuration that specifies where to read agent traces for online evaluation.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cloudWatchLogs":
+            suggest = "cloud_watch_logs"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OnlineEvaluationConfigDataSourceConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OnlineEvaluationConfigDataSourceConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OnlineEvaluationConfigDataSourceConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cloud_watch_logs: 'outputs.OnlineEvaluationConfigCloudWatchLogsInputConfig'):
+        """
+        The configuration that specifies where to read agent traces for online evaluation.
+        """
+        pulumi.set(__self__, "cloud_watch_logs", cloud_watch_logs)
+
+    @_builtins.property
+    @pulumi.getter(name="cloudWatchLogs")
+    def cloud_watch_logs(self) -> 'outputs.OnlineEvaluationConfigCloudWatchLogsInputConfig':
+        return pulumi.get(self, "cloud_watch_logs")
+
+
+@pulumi.output_type
+class OnlineEvaluationConfigEvaluatorReference(dict):
+    """
+    The reference to an evaluator used in online evaluation configurations.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "evaluatorId":
+            suggest = "evaluator_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OnlineEvaluationConfigEvaluatorReference. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OnlineEvaluationConfigEvaluatorReference.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OnlineEvaluationConfigEvaluatorReference.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 evaluator_id: _builtins.str):
+        """
+        The reference to an evaluator used in online evaluation configurations.
+        :param _builtins.str evaluator_id: The unique identifier of the evaluator.
+        """
+        pulumi.set(__self__, "evaluator_id", evaluator_id)
+
+    @_builtins.property
+    @pulumi.getter(name="evaluatorId")
+    def evaluator_id(self) -> _builtins.str:
+        """
+        The unique identifier of the evaluator.
+        """
+        return pulumi.get(self, "evaluator_id")
+
+
+@pulumi.output_type
+class OnlineEvaluationConfigFilter(dict):
+    """
+    The filter that applies conditions to agent traces during online evaluation.
+    """
+    def __init__(__self__, *,
+                 key: _builtins.str,
+                 operator: 'OnlineEvaluationConfigFilterOperator',
+                 value: 'outputs.OnlineEvaluationConfigFilterValue'):
+        """
+        The filter that applies conditions to agent traces during online evaluation.
+        :param _builtins.str key: The key or field name to filter on within the agent trace data.
+        :param 'OnlineEvaluationConfigFilterOperator' operator: The comparison operator to use for filtering.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "operator", operator)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        """
+        The key or field name to filter on within the agent trace data.
+        """
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def operator(self) -> 'OnlineEvaluationConfigFilterOperator':
+        """
+        The comparison operator to use for filtering.
+        """
+        return pulumi.get(self, "operator")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> 'outputs.OnlineEvaluationConfigFilterValue':
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class OnlineEvaluationConfigFilterValue(dict):
+    """
+    The value used in filter comparisons.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "booleanValue":
+            suggest = "boolean_value"
+        elif key == "doubleValue":
+            suggest = "double_value"
+        elif key == "stringValue":
+            suggest = "string_value"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OnlineEvaluationConfigFilterValue. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OnlineEvaluationConfigFilterValue.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OnlineEvaluationConfigFilterValue.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 boolean_value: Optional[_builtins.bool] = None,
+                 double_value: Optional[_builtins.float] = None,
+                 string_value: Optional[_builtins.str] = None):
+        """
+        The value used in filter comparisons.
+        :param _builtins.bool boolean_value: The boolean value for true/false filtering conditions.
+        :param _builtins.float double_value: The numeric value for numerical filtering.
+        :param _builtins.str string_value: The string value for text-based filtering.
+        """
+        if boolean_value is not None:
+            pulumi.set(__self__, "boolean_value", boolean_value)
+        if double_value is not None:
+            pulumi.set(__self__, "double_value", double_value)
+        if string_value is not None:
+            pulumi.set(__self__, "string_value", string_value)
+
+    @_builtins.property
+    @pulumi.getter(name="booleanValue")
+    def boolean_value(self) -> Optional[_builtins.bool]:
+        """
+        The boolean value for true/false filtering conditions.
+        """
+        return pulumi.get(self, "boolean_value")
+
+    @_builtins.property
+    @pulumi.getter(name="doubleValue")
+    def double_value(self) -> Optional[_builtins.float]:
+        """
+        The numeric value for numerical filtering.
+        """
+        return pulumi.get(self, "double_value")
+
+    @_builtins.property
+    @pulumi.getter(name="stringValue")
+    def string_value(self) -> Optional[_builtins.str]:
+        """
+        The string value for text-based filtering.
+        """
+        return pulumi.get(self, "string_value")
+
+
+@pulumi.output_type
+class OnlineEvaluationConfigOutputConfig(dict):
+    """
+    The configuration that specifies where evaluation results should be written.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cloudWatchConfig":
+            suggest = "cloud_watch_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OnlineEvaluationConfigOutputConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OnlineEvaluationConfigOutputConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OnlineEvaluationConfigOutputConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cloud_watch_config: Optional['outputs.OnlineEvaluationConfigCloudWatchOutputConfig'] = None):
+        """
+        The configuration that specifies where evaluation results should be written.
+        """
+        if cloud_watch_config is not None:
+            pulumi.set(__self__, "cloud_watch_config", cloud_watch_config)
+
+    @_builtins.property
+    @pulumi.getter(name="cloudWatchConfig")
+    def cloud_watch_config(self) -> Optional['outputs.OnlineEvaluationConfigCloudWatchOutputConfig']:
+        return pulumi.get(self, "cloud_watch_config")
+
+
+@pulumi.output_type
+class OnlineEvaluationConfigRule(dict):
+    """
+    The evaluation rule that defines sampling configuration, filtering criteria, and session detection settings.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "samplingConfig":
+            suggest = "sampling_config"
+        elif key == "sessionConfig":
+            suggest = "session_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OnlineEvaluationConfigRule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OnlineEvaluationConfigRule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OnlineEvaluationConfigRule.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 sampling_config: 'outputs.OnlineEvaluationConfigSamplingConfig',
+                 filters: Optional[Sequence['outputs.OnlineEvaluationConfigFilter']] = None,
+                 session_config: Optional['outputs.OnlineEvaluationConfigSessionConfig'] = None):
+        """
+        The evaluation rule that defines sampling configuration, filtering criteria, and session detection settings.
+        :param Sequence['OnlineEvaluationConfigFilter'] filters: The list of filters that determine which agent traces should be included in the evaluation.
+        """
+        pulumi.set(__self__, "sampling_config", sampling_config)
+        if filters is not None:
+            pulumi.set(__self__, "filters", filters)
+        if session_config is not None:
+            pulumi.set(__self__, "session_config", session_config)
+
+    @_builtins.property
+    @pulumi.getter(name="samplingConfig")
+    def sampling_config(self) -> 'outputs.OnlineEvaluationConfigSamplingConfig':
+        return pulumi.get(self, "sampling_config")
+
+    @_builtins.property
+    @pulumi.getter
+    def filters(self) -> Optional[Sequence['outputs.OnlineEvaluationConfigFilter']]:
+        """
+        The list of filters that determine which agent traces should be included in the evaluation.
+        """
+        return pulumi.get(self, "filters")
+
+    @_builtins.property
+    @pulumi.getter(name="sessionConfig")
+    def session_config(self) -> Optional['outputs.OnlineEvaluationConfigSessionConfig']:
+        return pulumi.get(self, "session_config")
+
+
+@pulumi.output_type
+class OnlineEvaluationConfigSamplingConfig(dict):
+    """
+    The configuration that controls what percentage of agent traces are sampled for evaluation.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "samplingPercentage":
+            suggest = "sampling_percentage"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OnlineEvaluationConfigSamplingConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OnlineEvaluationConfigSamplingConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OnlineEvaluationConfigSamplingConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 sampling_percentage: _builtins.float):
+        """
+        The configuration that controls what percentage of agent traces are sampled for evaluation.
+        :param _builtins.float sampling_percentage: The percentage of agent traces to sample for evaluation.
+        """
+        pulumi.set(__self__, "sampling_percentage", sampling_percentage)
+
+    @_builtins.property
+    @pulumi.getter(name="samplingPercentage")
+    def sampling_percentage(self) -> _builtins.float:
+        """
+        The percentage of agent traces to sample for evaluation.
+        """
+        return pulumi.get(self, "sampling_percentage")
+
+
+@pulumi.output_type
+class OnlineEvaluationConfigSessionConfig(dict):
+    """
+    The configuration that defines how agent sessions are detected.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sessionTimeoutMinutes":
+            suggest = "session_timeout_minutes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OnlineEvaluationConfigSessionConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OnlineEvaluationConfigSessionConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OnlineEvaluationConfigSessionConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 session_timeout_minutes: _builtins.int):
+        """
+        The configuration that defines how agent sessions are detected.
+        :param _builtins.int session_timeout_minutes: The number of minutes of inactivity after which an agent session is considered complete.
+        """
+        pulumi.set(__self__, "session_timeout_minutes", session_timeout_minutes)
+
+    @_builtins.property
+    @pulumi.getter(name="sessionTimeoutMinutes")
+    def session_timeout_minutes(self) -> _builtins.int:
+        """
+        The number of minutes of inactivity after which an agent session is considered complete.
+        """
+        return pulumi.get(self, "session_timeout_minutes")
 
 
 @pulumi.output_type

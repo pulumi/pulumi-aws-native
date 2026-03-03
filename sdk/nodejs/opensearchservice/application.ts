@@ -62,6 +62,10 @@ export class Application extends pulumi.CustomResource {
      */
     declare public readonly iamIdentityCenterOptions: pulumi.Output<outputs.opensearchservice.IamIdentityCenterOptionsProperties | undefined>;
     /**
+     * The ARN of the KMS key used to encrypt the application.
+     */
+    declare public readonly kmsKeyArn: pulumi.Output<string | undefined>;
+    /**
      * The name of the application.
      */
     declare public readonly name: pulumi.Output<string>;
@@ -85,6 +89,7 @@ export class Application extends pulumi.CustomResource {
             resourceInputs["dataSources"] = args?.dataSources;
             resourceInputs["endpoint"] = args?.endpoint;
             resourceInputs["iamIdentityCenterOptions"] = args?.iamIdentityCenterOptions;
+            resourceInputs["kmsKeyArn"] = args?.kmsKeyArn;
             resourceInputs["name"] = args?.name;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
@@ -96,11 +101,12 @@ export class Application extends pulumi.CustomResource {
             resourceInputs["dataSources"] = undefined /*out*/;
             resourceInputs["endpoint"] = undefined /*out*/;
             resourceInputs["iamIdentityCenterOptions"] = undefined /*out*/;
+            resourceInputs["kmsKeyArn"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["name"] };
+        const replaceOnChanges = { replaceOnChanges: ["kmsKeyArn", "name"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Application.__pulumiType, name, resourceInputs, opts);
     }
@@ -126,6 +132,10 @@ export interface ApplicationArgs {
      * Options for configuring IAM Identity Center
      */
     iamIdentityCenterOptions?: pulumi.Input<inputs.opensearchservice.IamIdentityCenterOptionsPropertiesArgs>;
+    /**
+     * The ARN of the KMS key used to encrypt the application.
+     */
+    kmsKeyArn?: pulumi.Input<string>;
     /**
      * The name of the application.
      */

@@ -94,6 +94,7 @@ import * as backupgateway from "./backupgateway";
 import * as batch from "./batch";
 import * as bedrock from "./bedrock";
 import * as bedrockagentcore from "./bedrockagentcore";
+import * as bedrockmantle from "./bedrockmantle";
 import * as billing from "./billing";
 import * as budgets from "./budgets";
 import * as cases from "./cases";
@@ -118,6 +119,7 @@ import * as codestarconnections from "./codestarconnections";
 import * as codestarnotifications from "./codestarnotifications";
 import * as cognito from "./cognito";
 import * as comprehend from "./comprehend";
+import * as computeoptimizer from "./computeoptimizer";
 import * as config from "./config";
 import * as configuration from "./configuration";
 import * as connect from "./connect";
@@ -134,6 +136,7 @@ import * as deadline from "./deadline";
 import * as detective from "./detective";
 import * as devicefarm from "./devicefarm";
 import * as devopsguru from "./devopsguru";
+import * as directconnect from "./directconnect";
 import * as directoryservice from "./directoryservice";
 import * as dms from "./dms";
 import * as docdb from "./docdb";
@@ -335,6 +338,7 @@ export {
     batch,
     bedrock,
     bedrockagentcore,
+    bedrockmantle,
     billing,
     budgets,
     cases,
@@ -359,6 +363,7 @@ export {
     codestarnotifications,
     cognito,
     comprehend,
+    computeoptimizer,
     config,
     configuration,
     connect,
@@ -375,6 +380,7 @@ export {
     detective,
     devicefarm,
     devopsguru,
+    directconnect,
     directoryservice,
     dms,
     docdb,

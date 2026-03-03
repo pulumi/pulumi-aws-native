@@ -12,19 +12,19 @@ namespace Pulumi.AwsNative.Lambda
     public static class GetCapacityProvider
     {
         /// <summary>
-        /// Resource Type definition for AWS::Lambda::CapacityProvider
+        /// Creates a capacity provider that manages compute resources for Lambda functions
         /// </summary>
         public static Task<GetCapacityProviderResult> InvokeAsync(GetCapacityProviderArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCapacityProviderResult>("aws-native:lambda:getCapacityProvider", args ?? new GetCapacityProviderArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Resource Type definition for AWS::Lambda::CapacityProvider
+        /// Creates a capacity provider that manages compute resources for Lambda functions
         /// </summary>
         public static Output<GetCapacityProviderResult> Invoke(GetCapacityProviderInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCapacityProviderResult>("aws-native:lambda:getCapacityProvider", args ?? new GetCapacityProviderInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Resource Type definition for AWS::Lambda::CapacityProvider
+        /// Creates a capacity provider that manages compute resources for Lambda functions
         /// </summary>
         public static Output<GetCapacityProviderResult> Invoke(GetCapacityProviderInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetCapacityProviderResult>("aws-native:lambda:getCapacityProvider", args ?? new GetCapacityProviderInvokeArgs(), options.WithDefaults());
@@ -33,9 +33,6 @@ namespace Pulumi.AwsNative.Lambda
 
     public sealed class GetCapacityProviderArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// The name of the capacity provider. The name must be unique within your AWS account and region. If you don't specify a name, CloudFormation generates one.
-        /// </summary>
         [Input("capacityProviderName", required: true)]
         public string CapacityProviderName { get; set; } = null!;
 
@@ -47,9 +44,6 @@ namespace Pulumi.AwsNative.Lambda
 
     public sealed class GetCapacityProviderInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// The name of the capacity provider. The name must be unique within your AWS account and region. If you don't specify a name, CloudFormation generates one.
-        /// </summary>
         [Input("capacityProviderName", required: true)]
         public Input<string> CapacityProviderName { get; set; } = null!;
 
@@ -63,9 +57,6 @@ namespace Pulumi.AwsNative.Lambda
     [OutputType]
     public sealed class GetCapacityProviderResult
     {
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the capacity provider. This is a read-only property that is automatically generated when the capacity provider is created.
-        /// </summary>
         public readonly string? Arn;
         /// <summary>
         /// The scaling configuration for the capacity provider.
@@ -76,7 +67,7 @@ namespace Pulumi.AwsNative.Lambda
         /// </summary>
         public readonly Pulumi.AwsNative.Lambda.CapacityProviderState? State;
         /// <summary>
-        /// A list of tags to apply to the capacity provider.
+        /// A key-value pair that provides metadata for the capacity provider.
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 

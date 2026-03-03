@@ -11,13 +11,13 @@ namespace Pulumi.AwsNative.Lambda.Outputs
 {
 
     /// <summary>
-    /// The scaling configuration for the capacity provider.
+    /// Configuration that defines how the capacity provider scales compute instances based on demand and policies.
     /// </summary>
     [OutputType]
     public sealed class CapacityProviderScalingConfig
     {
         /// <summary>
-        /// The maximum number of EC2 instances that the capacity provider can scale up to.
+        /// The maximum number of vCPUs that the capacity provider can provision across all compute instances.
         /// </summary>
         public readonly int? MaxVCpuCount;
         /// <summary>

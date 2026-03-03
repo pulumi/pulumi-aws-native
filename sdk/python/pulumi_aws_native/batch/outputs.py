@@ -18,6 +18,7 @@ from ._enums import *
 
 __all__ = [
     'ComputeEnvironmentComputeResources',
+    'ComputeEnvironmentComputeScalingPolicy',
     'ComputeEnvironmentEc2ConfigurationObject',
     'ComputeEnvironmentEksConfiguration',
     'ComputeEnvironmentLaunchTemplateSpecification',
@@ -109,6 +110,8 @@ class ComputeEnvironmentComputeResources(dict):
             suggest = "minv_cpus"
         elif key == "placementGroup":
             suggest = "placement_group"
+        elif key == "scalingPolicy":
+            suggest = "scaling_policy"
         elif key == "securityGroupIds":
             suggest = "security_group_ids"
         elif key == "spotIamFleetRole":
@@ -142,6 +145,7 @@ class ComputeEnvironmentComputeResources(dict):
                  launch_template: Optional['outputs.ComputeEnvironmentLaunchTemplateSpecification'] = None,
                  minv_cpus: Optional[_builtins.int] = None,
                  placement_group: Optional[_builtins.str] = None,
+                 scaling_policy: Optional['outputs.ComputeEnvironmentComputeScalingPolicy'] = None,
                  security_group_ids: Optional[Sequence[_builtins.str]] = None,
                  spot_iam_fleet_role: Optional[_builtins.str] = None,
                  tags: Optional[Mapping[str, _builtins.str]] = None,
@@ -274,6 +278,8 @@ class ComputeEnvironmentComputeResources(dict):
             pulumi.set(__self__, "minv_cpus", minv_cpus)
         if placement_group is not None:
             pulumi.set(__self__, "placement_group", placement_group)
+        if scaling_policy is not None:
+            pulumi.set(__self__, "scaling_policy", scaling_policy)
         if security_group_ids is not None:
             pulumi.set(__self__, "security_group_ids", security_group_ids)
         if spot_iam_fleet_role is not None:
@@ -471,6 +477,11 @@ class ComputeEnvironmentComputeResources(dict):
         return pulumi.get(self, "placement_group")
 
     @_builtins.property
+    @pulumi.getter(name="scalingPolicy")
+    def scaling_policy(self) -> Optional['outputs.ComputeEnvironmentComputeScalingPolicy']:
+        return pulumi.get(self, "scaling_policy")
+
+    @_builtins.property
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> Optional[Sequence[_builtins.str]]:
         """
@@ -509,6 +520,36 @@ class ComputeEnvironmentComputeResources(dict):
         When updating a compute environment, changing this setting requires an infrastructure update of the compute environment. For more information, see [Updating compute environments](https://docs.aws.amazon.com/batch/latest/userguide/updating-compute-environments.html) in the *AWS Batch User Guide* .
         """
         return pulumi.get(self, "update_to_latest_image_version")
+
+
+@pulumi.output_type
+class ComputeEnvironmentComputeScalingPolicy(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "minScaleDownDelayMinutes":
+            suggest = "min_scale_down_delay_minutes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ComputeEnvironmentComputeScalingPolicy. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ComputeEnvironmentComputeScalingPolicy.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ComputeEnvironmentComputeScalingPolicy.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 min_scale_down_delay_minutes: Optional[_builtins.int] = None):
+        if min_scale_down_delay_minutes is not None:
+            pulumi.set(__self__, "min_scale_down_delay_minutes", min_scale_down_delay_minutes)
+
+    @_builtins.property
+    @pulumi.getter(name="minScaleDownDelayMinutes")
+    def min_scale_down_delay_minutes(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "min_scale_down_delay_minutes")
 
 
 @pulumi.output_type

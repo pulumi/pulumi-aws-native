@@ -41,10 +41,6 @@ export interface GetInferenceExperimentResult {
      * The description of the inference experiment.
      */
     readonly description?: string;
-    /**
-     * The desired state of the experiment after starting or stopping operation.
-     */
-    readonly desiredState?: enums.sagemaker.InferenceExperimentDesiredState;
     readonly endpointMetadata?: outputs.sagemaker.InferenceExperimentEndpointMetadata;
     /**
      * The timestamp at which you last modified the inference experiment.
@@ -55,12 +51,6 @@ export interface GetInferenceExperimentResult {
      */
     readonly modelVariants?: outputs.sagemaker.InferenceExperimentModelVariantConfig[];
     /**
-     * The duration for which the inference experiment ran or will run.
-     *
-     * The maximum duration that you can set for an inference experiment is 30 days.
-     */
-    readonly schedule?: outputs.sagemaker.InferenceExperimentSchedule;
-    /**
      * The configuration of `ShadowMode` inference experiment type, which shows the production variant that takes all the inference requests, and the shadow variant to which Amazon SageMaker replicates a percentage of the inference requests. For the shadow variant it also shows the percentage of requests that Amazon SageMaker replicates.
      */
     readonly shadowModeConfig?: outputs.sagemaker.InferenceExperimentShadowModeConfig;
@@ -68,10 +58,6 @@ export interface GetInferenceExperimentResult {
      * The status of the inference experiment.
      */
     readonly status?: enums.sagemaker.InferenceExperimentStatus;
-    /**
-     * The error message or client-specified reason from the StopInferenceExperiment API, that explains the status of the inference experiment.
-     */
-    readonly statusReason?: string;
     /**
      * An array of key-value pairs to apply to this resource.
      */

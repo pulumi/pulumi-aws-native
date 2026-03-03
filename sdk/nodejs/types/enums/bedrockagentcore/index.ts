@@ -26,6 +26,18 @@ export const BrowserCustomBrowserStatus = {
  */
 export type BrowserCustomBrowserStatus = (typeof BrowserCustomBrowserStatus)[keyof typeof BrowserCustomBrowserStatus];
 
+export const BrowserProfileStatus = {
+    Ready: "READY",
+    Deleting: "DELETING",
+    Deleted: "DELETED",
+    Saving: "SAVING",
+} as const;
+
+/**
+ * Status of browser profile
+ */
+export type BrowserProfileStatus = (typeof BrowserProfileStatus)[keyof typeof BrowserProfileStatus];
+
 export const CodeInterpreterCustomCodeInterpreterNetworkMode = {
     Public: "PUBLIC",
     Sandbox: "SANDBOX",
@@ -50,6 +62,25 @@ export const CodeInterpreterCustomCodeInterpreterStatus = {
  * Status of Code interpreter
  */
 export type CodeInterpreterCustomCodeInterpreterStatus = (typeof CodeInterpreterCustomCodeInterpreterStatus)[keyof typeof CodeInterpreterCustomCodeInterpreterStatus];
+
+export const EvaluatorLevel = {
+    ToolCall: "TOOL_CALL",
+    Trace: "TRACE",
+    Session: "SESSION",
+} as const;
+
+export type EvaluatorLevel = (typeof EvaluatorLevel)[keyof typeof EvaluatorLevel];
+
+export const EvaluatorStatus = {
+    Active: "ACTIVE",
+    Creating: "CREATING",
+    CreateFailed: "CREATE_FAILED",
+    Updating: "UPDATING",
+    UpdateFailed: "UPDATE_FAILED",
+    Deleting: "DELETING",
+} as const;
+
+export type EvaluatorStatus = (typeof EvaluatorStatus)[keyof typeof EvaluatorStatus];
 
 export const GatewayAuthorizerType = {
     CustomJwt: "CUSTOM_JWT",
@@ -310,6 +341,40 @@ export const MemoryUserPreferenceMemoryStrategyType = {
  * Type of memory strategy
  */
 export type MemoryUserPreferenceMemoryStrategyType = (typeof MemoryUserPreferenceMemoryStrategyType)[keyof typeof MemoryUserPreferenceMemoryStrategyType];
+
+export const OnlineEvaluationConfigExecutionStatus = {
+    Enabled: "ENABLED",
+    Disabled: "DISABLED",
+} as const;
+
+export type OnlineEvaluationConfigExecutionStatus = (typeof OnlineEvaluationConfigExecutionStatus)[keyof typeof OnlineEvaluationConfigExecutionStatus];
+
+export const OnlineEvaluationConfigFilterOperator = {
+    Equals: "Equals",
+    NotEquals: "NotEquals",
+    GreaterThan: "GreaterThan",
+    LessThan: "LessThan",
+    GreaterThanOrEqual: "GreaterThanOrEqual",
+    LessThanOrEqual: "LessThanOrEqual",
+    Contains: "Contains",
+    NotContains: "NotContains",
+} as const;
+
+/**
+ * The comparison operator to use for filtering.
+ */
+export type OnlineEvaluationConfigFilterOperator = (typeof OnlineEvaluationConfigFilterOperator)[keyof typeof OnlineEvaluationConfigFilterOperator];
+
+export const OnlineEvaluationConfigStatus = {
+    Active: "ACTIVE",
+    Creating: "CREATING",
+    CreateFailed: "CREATE_FAILED",
+    Updating: "UPDATING",
+    UpdateFailed: "UPDATE_FAILED",
+    Deleting: "DELETING",
+} as const;
+
+export type OnlineEvaluationConfigStatus = (typeof OnlineEvaluationConfigStatus)[keyof typeof OnlineEvaluationConfigStatus];
 
 export const RuntimeAgentManagedRuntimeType = {
     Python310: "PYTHON_3_10",

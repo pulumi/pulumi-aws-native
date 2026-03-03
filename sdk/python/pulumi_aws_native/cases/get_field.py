@@ -13,6 +13,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 from .. import outputs as _root_outputs
 from ._enums import *
 
@@ -25,7 +26,10 @@ __all__ = [
 
 @pulumi.output_type
 class GetFieldResult:
-    def __init__(__self__, created_time=None, description=None, field_arn=None, field_id=None, last_modified_time=None, name=None, namespace=None, tags=None):
+    def __init__(__self__, attributes=None, created_time=None, description=None, field_arn=None, field_id=None, last_modified_time=None, name=None, namespace=None, tags=None):
+        if attributes and not isinstance(attributes, dict):
+            raise TypeError("Expected argument 'attributes' to be a dict")
+        pulumi.set(__self__, "attributes", attributes)
         if created_time and not isinstance(created_time, str):
             raise TypeError("Expected argument 'created_time' to be a str")
         pulumi.set(__self__, "created_time", created_time)
@@ -50,6 +54,14 @@ class GetFieldResult:
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
+
+    @_builtins.property
+    @pulumi.getter
+    def attributes(self) -> Optional['outputs.FieldAttributes']:
+        """
+        Field-type specific attributes that control rendering and validation behavior
+        """
+        return pulumi.get(self, "attributes")
 
     @_builtins.property
     @pulumi.getter(name="createdTime")
@@ -122,6 +134,7 @@ class AwaitableGetFieldResult(GetFieldResult):
         if False:
             yield self
         return GetFieldResult(
+            attributes=self.attributes,
             created_time=self.created_time,
             description=self.description,
             field_arn=self.field_arn,
@@ -146,6 +159,7 @@ def get_field(field_arn: Optional[_builtins.str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:cases:getField', __args__, opts=opts, typ=GetFieldResult).value
 
     return AwaitableGetFieldResult(
+        attributes=pulumi.get(__ret__, 'attributes'),
         created_time=pulumi.get(__ret__, 'created_time'),
         description=pulumi.get(__ret__, 'description'),
         field_arn=pulumi.get(__ret__, 'field_arn'),
@@ -167,6 +181,7 @@ def get_field_output(field_arn: Optional[pulumi.Input[_builtins.str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:cases:getField', __args__, opts=opts, typ=GetFieldResult)
     return __ret__.apply(lambda __response__: GetFieldResult(
+        attributes=pulumi.get(__response__, 'attributes'),
         created_time=pulumi.get(__response__, 'created_time'),
         description=pulumi.get(__response__, 'description'),
         field_arn=pulumi.get(__response__, 'field_arn'),

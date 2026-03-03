@@ -18,6 +18,8 @@ from ._enums import *
 __all__ = [
     'ComputeEnvironmentComputeResourcesArgs',
     'ComputeEnvironmentComputeResourcesArgsDict',
+    'ComputeEnvironmentComputeScalingPolicyArgs',
+    'ComputeEnvironmentComputeScalingPolicyArgsDict',
     'ComputeEnvironmentEc2ConfigurationObjectArgs',
     'ComputeEnvironmentEc2ConfigurationObjectArgsDict',
     'ComputeEnvironmentEksConfigurationArgs',
@@ -272,6 +274,7 @@ class ComputeEnvironmentComputeResourcesArgsDict(TypedDict):
 
     > This parameter isn't applicable to jobs that are running on Fargate resources. Don't specify it.
     """
+    scaling_policy: NotRequired[pulumi.Input['ComputeEnvironmentComputeScalingPolicyArgsDict']]
     security_group_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
     """
     The Amazon EC2 security groups that are associated with instances launched in the compute environment. This parameter is required for Fargate compute resources, where it can contain up to 5 security groups. For Fargate compute resources, providing an empty list is handled as if this parameter wasn't specified and no change is made. For Amazon EC2 compute resources, providing an empty list removes the security groups from the compute resource.
@@ -314,6 +317,7 @@ class ComputeEnvironmentComputeResourcesArgs:
                  launch_template: Optional[pulumi.Input['ComputeEnvironmentLaunchTemplateSpecificationArgs']] = None,
                  minv_cpus: Optional[pulumi.Input[_builtins.int]] = None,
                  placement_group: Optional[pulumi.Input[_builtins.str]] = None,
+                 scaling_policy: Optional[pulumi.Input['ComputeEnvironmentComputeScalingPolicyArgs']] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  spot_iam_fleet_role: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -446,6 +450,8 @@ class ComputeEnvironmentComputeResourcesArgs:
             pulumi.set(__self__, "minv_cpus", minv_cpus)
         if placement_group is not None:
             pulumi.set(__self__, "placement_group", placement_group)
+        if scaling_policy is not None:
+            pulumi.set(__self__, "scaling_policy", scaling_policy)
         if security_group_ids is not None:
             pulumi.set(__self__, "security_group_ids", security_group_ids)
         if spot_iam_fleet_role is not None:
@@ -699,6 +705,15 @@ class ComputeEnvironmentComputeResourcesArgs:
         pulumi.set(self, "placement_group", value)
 
     @_builtins.property
+    @pulumi.getter(name="scalingPolicy")
+    def scaling_policy(self) -> Optional[pulumi.Input['ComputeEnvironmentComputeScalingPolicyArgs']]:
+        return pulumi.get(self, "scaling_policy")
+
+    @scaling_policy.setter
+    def scaling_policy(self, value: Optional[pulumi.Input['ComputeEnvironmentComputeScalingPolicyArgs']]):
+        pulumi.set(self, "scaling_policy", value)
+
+    @_builtins.property
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
         """
@@ -753,6 +768,26 @@ class ComputeEnvironmentComputeResourcesArgs:
     @update_to_latest_image_version.setter
     def update_to_latest_image_version(self, value: Optional[pulumi.Input[_builtins.bool]]):
         pulumi.set(self, "update_to_latest_image_version", value)
+
+
+class ComputeEnvironmentComputeScalingPolicyArgsDict(TypedDict):
+    min_scale_down_delay_minutes: NotRequired[pulumi.Input[_builtins.int]]
+
+@pulumi.input_type
+class ComputeEnvironmentComputeScalingPolicyArgs:
+    def __init__(__self__, *,
+                 min_scale_down_delay_minutes: Optional[pulumi.Input[_builtins.int]] = None):
+        if min_scale_down_delay_minutes is not None:
+            pulumi.set(__self__, "min_scale_down_delay_minutes", min_scale_down_delay_minutes)
+
+    @_builtins.property
+    @pulumi.getter(name="minScaleDownDelayMinutes")
+    def min_scale_down_delay_minutes(self) -> Optional[pulumi.Input[_builtins.int]]:
+        return pulumi.get(self, "min_scale_down_delay_minutes")
+
+    @min_scale_down_delay_minutes.setter
+    def min_scale_down_delay_minutes(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "min_scale_down_delay_minutes", value)
 
 
 class ComputeEnvironmentEc2ConfigurationObjectArgsDict(TypedDict):

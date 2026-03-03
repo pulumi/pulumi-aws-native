@@ -506,17 +506,19 @@ func (in *planDocumentDbUngracefulBehaviorPtr) ToPlanDocumentDbUngracefulBehavio
 type PlanExecutionBlockType string
 
 const (
-	PlanExecutionBlockTypeCustomActionLambda   = PlanExecutionBlockType("CustomActionLambda")
-	PlanExecutionBlockTypeManualApproval       = PlanExecutionBlockType("ManualApproval")
-	PlanExecutionBlockTypeAuroraGlobalDatabase = PlanExecutionBlockType("AuroraGlobalDatabase")
-	PlanExecutionBlockTypeEc2AutoScaling       = PlanExecutionBlockType("EC2AutoScaling")
-	PlanExecutionBlockTypeArcRoutingControl    = PlanExecutionBlockType("ARCRoutingControl")
-	PlanExecutionBlockTypeArcRegionSwitchPlan  = PlanExecutionBlockType("ARCRegionSwitchPlan")
-	PlanExecutionBlockTypeParallel             = PlanExecutionBlockType("Parallel")
-	PlanExecutionBlockTypeEcsServiceScaling    = PlanExecutionBlockType("ECSServiceScaling")
-	PlanExecutionBlockTypeEksResourceScaling   = PlanExecutionBlockType("EKSResourceScaling")
-	PlanExecutionBlockTypeRoute53HealthCheck   = PlanExecutionBlockType("Route53HealthCheck")
-	PlanExecutionBlockTypeDocumentDb           = PlanExecutionBlockType("DocumentDb")
+	PlanExecutionBlockTypeCustomActionLambda          = PlanExecutionBlockType("CustomActionLambda")
+	PlanExecutionBlockTypeManualApproval              = PlanExecutionBlockType("ManualApproval")
+	PlanExecutionBlockTypeAuroraGlobalDatabase        = PlanExecutionBlockType("AuroraGlobalDatabase")
+	PlanExecutionBlockTypeEc2AutoScaling              = PlanExecutionBlockType("EC2AutoScaling")
+	PlanExecutionBlockTypeArcRoutingControl           = PlanExecutionBlockType("ARCRoutingControl")
+	PlanExecutionBlockTypeArcRegionSwitchPlan         = PlanExecutionBlockType("ARCRegionSwitchPlan")
+	PlanExecutionBlockTypeParallel                    = PlanExecutionBlockType("Parallel")
+	PlanExecutionBlockTypeEcsServiceScaling           = PlanExecutionBlockType("ECSServiceScaling")
+	PlanExecutionBlockTypeEksResourceScaling          = PlanExecutionBlockType("EKSResourceScaling")
+	PlanExecutionBlockTypeRoute53HealthCheck          = PlanExecutionBlockType("Route53HealthCheck")
+	PlanExecutionBlockTypeDocumentDb                  = PlanExecutionBlockType("DocumentDb")
+	PlanExecutionBlockTypeRdsPromoteReadReplica       = PlanExecutionBlockType("RdsPromoteReadReplica")
+	PlanExecutionBlockTypeRdsCreateCrossRegionReplica = PlanExecutionBlockType("RdsCreateCrossRegionReplica")
 )
 
 func (PlanExecutionBlockType) ElementType() reflect.Type {
@@ -652,6 +654,8 @@ func (o PlanExecutionBlockTypePtrOutput) ToStringPtrOutputWithContext(ctx contex
 //	PlanExecutionBlockTypeEksResourceScaling
 //	PlanExecutionBlockTypeRoute53HealthCheck
 //	PlanExecutionBlockTypeDocumentDb
+//	PlanExecutionBlockTypeRdsPromoteReadReplica
+//	PlanExecutionBlockTypeRdsCreateCrossRegionReplica
 type PlanExecutionBlockTypeInput interface {
 	pulumi.Input
 
@@ -1019,6 +1023,8 @@ type PlanRegionToRunIn string
 const (
 	PlanRegionToRunInActivatingRegion   = PlanRegionToRunIn("activatingRegion")
 	PlanRegionToRunInDeactivatingRegion = PlanRegionToRunIn("deactivatingRegion")
+	PlanRegionToRunInActiveRegion       = PlanRegionToRunIn("activeRegion")
+	PlanRegionToRunInInactiveRegion     = PlanRegionToRunIn("inactiveRegion")
 )
 
 func (PlanRegionToRunIn) ElementType() reflect.Type {
@@ -1145,6 +1151,8 @@ func (o PlanRegionToRunInPtrOutput) ToStringPtrOutputWithContext(ctx context.Con
 //
 //	PlanRegionToRunInActivatingRegion
 //	PlanRegionToRunInDeactivatingRegion
+//	PlanRegionToRunInActiveRegion
+//	PlanRegionToRunInInactiveRegion
 type PlanRegionToRunInInput interface {
 	pulumi.Input
 
@@ -1189,8 +1197,9 @@ const (
 type PlanWorkflowTargetAction string
 
 const (
-	PlanWorkflowTargetActionActivate   = PlanWorkflowTargetAction("activate")
-	PlanWorkflowTargetActionDeactivate = PlanWorkflowTargetAction("deactivate")
+	PlanWorkflowTargetActionActivate     = PlanWorkflowTargetAction("activate")
+	PlanWorkflowTargetActionDeactivate   = PlanWorkflowTargetAction("deactivate")
+	PlanWorkflowTargetActionPostRecovery = PlanWorkflowTargetAction("postRecovery")
 )
 
 func (PlanWorkflowTargetAction) ElementType() reflect.Type {
@@ -1317,6 +1326,7 @@ func (o PlanWorkflowTargetActionPtrOutput) ToStringPtrOutputWithContext(ctx cont
 //
 //	PlanWorkflowTargetActionActivate
 //	PlanWorkflowTargetActionDeactivate
+//	PlanWorkflowTargetActionPostRecovery
 type PlanWorkflowTargetActionInput interface {
 	pulumi.Input
 

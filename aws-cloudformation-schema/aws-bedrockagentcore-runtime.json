@@ -568,7 +568,7 @@
       "permissions" : [ "bedrock-agentcore:UpdateAgentRuntime", "bedrock-agentcore:UpdateAgentRuntimeEndpoint", "bedrock-agentcore:GetAgentRuntime", "bedrock-agentcore:GetAgentRuntimeEndpoint", "bedrock-agentcore:TagResource", "bedrock-agentcore:UntagResource", "bedrock-agentcore:ListTagsForResource", "iam:CreateServiceLinkedRole", "iam:PassRole", "s3:GetObject", "s3:GetObjectVersion", "kms:Decrypt" ]
     },
     "delete" : {
-      "permissions" : [ "bedrock-agentcore:DeleteAgentRuntime", "bedrock-agentcore:DeleteAgentRuntimeEndpoint", "bedrock-agentcore:GetAgentRuntime", "bedrock-agentcore:GetAgentRuntimeEndpoint" ]
+      "permissions" : [ "bedrock-agentcore:DeleteAgentRuntime", "bedrock-agentcore:DeleteAgentRuntimeEndpoint", "bedrock-agentcore:DeleteWorkloadIdentity", "bedrock-agentcore:GetAgentRuntime", "bedrock-agentcore:GetAgentRuntimeEndpoint" ]
     },
     "list" : {
       "permissions" : [ "bedrock-agentcore:ListAgentRuntimes", "bedrock-agentcore:ListAgentRuntimeEndpoints" ]

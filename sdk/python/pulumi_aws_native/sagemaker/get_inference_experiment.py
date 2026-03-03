@@ -26,7 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetInferenceExperimentResult:
-    def __init__(__self__, arn=None, creation_time=None, data_storage_config=None, description=None, desired_state=None, endpoint_metadata=None, last_modified_time=None, model_variants=None, schedule=None, shadow_mode_config=None, status=None, status_reason=None, tags=None):
+    def __init__(__self__, arn=None, creation_time=None, data_storage_config=None, description=None, endpoint_metadata=None, last_modified_time=None, model_variants=None, shadow_mode_config=None, status=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -39,9 +39,6 @@ class GetInferenceExperimentResult:
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
-        if desired_state and not isinstance(desired_state, str):
-            raise TypeError("Expected argument 'desired_state' to be a str")
-        pulumi.set(__self__, "desired_state", desired_state)
         if endpoint_metadata and not isinstance(endpoint_metadata, dict):
             raise TypeError("Expected argument 'endpoint_metadata' to be a dict")
         pulumi.set(__self__, "endpoint_metadata", endpoint_metadata)
@@ -51,18 +48,12 @@ class GetInferenceExperimentResult:
         if model_variants and not isinstance(model_variants, list):
             raise TypeError("Expected argument 'model_variants' to be a list")
         pulumi.set(__self__, "model_variants", model_variants)
-        if schedule and not isinstance(schedule, dict):
-            raise TypeError("Expected argument 'schedule' to be a dict")
-        pulumi.set(__self__, "schedule", schedule)
         if shadow_mode_config and not isinstance(shadow_mode_config, dict):
             raise TypeError("Expected argument 'shadow_mode_config' to be a dict")
         pulumi.set(__self__, "shadow_mode_config", shadow_mode_config)
         if status and not isinstance(status, str):
             raise TypeError("Expected argument 'status' to be a str")
         pulumi.set(__self__, "status", status)
-        if status_reason and not isinstance(status_reason, str):
-            raise TypeError("Expected argument 'status_reason' to be a str")
-        pulumi.set(__self__, "status_reason", status_reason)
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
@@ -100,14 +91,6 @@ class GetInferenceExperimentResult:
         return pulumi.get(self, "description")
 
     @_builtins.property
-    @pulumi.getter(name="desiredState")
-    def desired_state(self) -> Optional['InferenceExperimentDesiredState']:
-        """
-        The desired state of the experiment after starting or stopping operation.
-        """
-        return pulumi.get(self, "desired_state")
-
-    @_builtins.property
     @pulumi.getter(name="endpointMetadata")
     def endpoint_metadata(self) -> Optional['outputs.InferenceExperimentEndpointMetadata']:
         return pulumi.get(self, "endpoint_metadata")
@@ -129,16 +112,6 @@ class GetInferenceExperimentResult:
         return pulumi.get(self, "model_variants")
 
     @_builtins.property
-    @pulumi.getter
-    def schedule(self) -> Optional['outputs.InferenceExperimentSchedule']:
-        """
-        The duration for which the inference experiment ran or will run.
-
-        The maximum duration that you can set for an inference experiment is 30 days.
-        """
-        return pulumi.get(self, "schedule")
-
-    @_builtins.property
     @pulumi.getter(name="shadowModeConfig")
     def shadow_mode_config(self) -> Optional['outputs.InferenceExperimentShadowModeConfig']:
         """
@@ -153,14 +126,6 @@ class GetInferenceExperimentResult:
         The status of the inference experiment.
         """
         return pulumi.get(self, "status")
-
-    @_builtins.property
-    @pulumi.getter(name="statusReason")
-    def status_reason(self) -> Optional[_builtins.str]:
-        """
-        The error message or client-specified reason from the StopInferenceExperiment API, that explains the status of the inference experiment.
-        """
-        return pulumi.get(self, "status_reason")
 
     @_builtins.property
     @pulumi.getter
@@ -181,14 +146,11 @@ class AwaitableGetInferenceExperimentResult(GetInferenceExperimentResult):
             creation_time=self.creation_time,
             data_storage_config=self.data_storage_config,
             description=self.description,
-            desired_state=self.desired_state,
             endpoint_metadata=self.endpoint_metadata,
             last_modified_time=self.last_modified_time,
             model_variants=self.model_variants,
-            schedule=self.schedule,
             shadow_mode_config=self.shadow_mode_config,
             status=self.status,
-            status_reason=self.status_reason,
             tags=self.tags)
 
 
@@ -210,14 +172,11 @@ def get_inference_experiment(name: Optional[_builtins.str] = None,
         creation_time=pulumi.get(__ret__, 'creation_time'),
         data_storage_config=pulumi.get(__ret__, 'data_storage_config'),
         description=pulumi.get(__ret__, 'description'),
-        desired_state=pulumi.get(__ret__, 'desired_state'),
         endpoint_metadata=pulumi.get(__ret__, 'endpoint_metadata'),
         last_modified_time=pulumi.get(__ret__, 'last_modified_time'),
         model_variants=pulumi.get(__ret__, 'model_variants'),
-        schedule=pulumi.get(__ret__, 'schedule'),
         shadow_mode_config=pulumi.get(__ret__, 'shadow_mode_config'),
         status=pulumi.get(__ret__, 'status'),
-        status_reason=pulumi.get(__ret__, 'status_reason'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_inference_experiment_output(name: Optional[pulumi.Input[_builtins.str]] = None,
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetInferenceExperimentResult]:
@@ -236,12 +195,9 @@ def get_inference_experiment_output(name: Optional[pulumi.Input[_builtins.str]] 
         creation_time=pulumi.get(__response__, 'creation_time'),
         data_storage_config=pulumi.get(__response__, 'data_storage_config'),
         description=pulumi.get(__response__, 'description'),
-        desired_state=pulumi.get(__response__, 'desired_state'),
         endpoint_metadata=pulumi.get(__response__, 'endpoint_metadata'),
         last_modified_time=pulumi.get(__response__, 'last_modified_time'),
         model_variants=pulumi.get(__response__, 'model_variants'),
-        schedule=pulumi.get(__response__, 'schedule'),
         shadow_mode_config=pulumi.get(__response__, 'shadow_mode_config'),
         status=pulumi.get(__response__, 'status'),
-        status_reason=pulumi.get(__response__, 'status_reason'),
         tags=pulumi.get(__response__, 'tags')))

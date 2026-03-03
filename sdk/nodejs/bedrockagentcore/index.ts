@@ -10,10 +10,20 @@ export type BrowserCustom = import("./browserCustom").BrowserCustom;
 export const BrowserCustom: typeof import("./browserCustom").BrowserCustom = null as any;
 utilities.lazyLoad(exports, ["BrowserCustom"], () => require("./browserCustom"));
 
+export { BrowserProfileArgs } from "./browserProfile";
+export type BrowserProfile = import("./browserProfile").BrowserProfile;
+export const BrowserProfile: typeof import("./browserProfile").BrowserProfile = null as any;
+utilities.lazyLoad(exports, ["BrowserProfile"], () => require("./browserProfile"));
+
 export { CodeInterpreterCustomArgs } from "./codeInterpreterCustom";
 export type CodeInterpreterCustom = import("./codeInterpreterCustom").CodeInterpreterCustom;
 export const CodeInterpreterCustom: typeof import("./codeInterpreterCustom").CodeInterpreterCustom = null as any;
 utilities.lazyLoad(exports, ["CodeInterpreterCustom"], () => require("./codeInterpreterCustom"));
+
+export { EvaluatorArgs } from "./evaluator";
+export type Evaluator = import("./evaluator").Evaluator;
+export const Evaluator: typeof import("./evaluator").Evaluator = null as any;
+utilities.lazyLoad(exports, ["Evaluator"], () => require("./evaluator"));
 
 export { GatewayArgs } from "./gateway";
 export type Gateway = import("./gateway").Gateway;
@@ -30,10 +40,20 @@ export const getBrowserCustom: typeof import("./getBrowserCustom").getBrowserCus
 export const getBrowserCustomOutput: typeof import("./getBrowserCustom").getBrowserCustomOutput = null as any;
 utilities.lazyLoad(exports, ["getBrowserCustom","getBrowserCustomOutput"], () => require("./getBrowserCustom"));
 
+export { GetBrowserProfileArgs, GetBrowserProfileResult, GetBrowserProfileOutputArgs } from "./getBrowserProfile";
+export const getBrowserProfile: typeof import("./getBrowserProfile").getBrowserProfile = null as any;
+export const getBrowserProfileOutput: typeof import("./getBrowserProfile").getBrowserProfileOutput = null as any;
+utilities.lazyLoad(exports, ["getBrowserProfile","getBrowserProfileOutput"], () => require("./getBrowserProfile"));
+
 export { GetCodeInterpreterCustomArgs, GetCodeInterpreterCustomResult, GetCodeInterpreterCustomOutputArgs } from "./getCodeInterpreterCustom";
 export const getCodeInterpreterCustom: typeof import("./getCodeInterpreterCustom").getCodeInterpreterCustom = null as any;
 export const getCodeInterpreterCustomOutput: typeof import("./getCodeInterpreterCustom").getCodeInterpreterCustomOutput = null as any;
 utilities.lazyLoad(exports, ["getCodeInterpreterCustom","getCodeInterpreterCustomOutput"], () => require("./getCodeInterpreterCustom"));
+
+export { GetEvaluatorArgs, GetEvaluatorResult, GetEvaluatorOutputArgs } from "./getEvaluator";
+export const getEvaluator: typeof import("./getEvaluator").getEvaluator = null as any;
+export const getEvaluatorOutput: typeof import("./getEvaluator").getEvaluatorOutput = null as any;
+utilities.lazyLoad(exports, ["getEvaluator","getEvaluatorOutput"], () => require("./getEvaluator"));
 
 export { GetGatewayArgs, GetGatewayResult, GetGatewayOutputArgs } from "./getGateway";
 export const getGateway: typeof import("./getGateway").getGateway = null as any;
@@ -49,6 +69,11 @@ export { GetMemoryArgs, GetMemoryResult, GetMemoryOutputArgs } from "./getMemory
 export const getMemory: typeof import("./getMemory").getMemory = null as any;
 export const getMemoryOutput: typeof import("./getMemory").getMemoryOutput = null as any;
 utilities.lazyLoad(exports, ["getMemory","getMemoryOutput"], () => require("./getMemory"));
+
+export { GetOnlineEvaluationConfigArgs, GetOnlineEvaluationConfigResult, GetOnlineEvaluationConfigOutputArgs } from "./getOnlineEvaluationConfig";
+export const getOnlineEvaluationConfig: typeof import("./getOnlineEvaluationConfig").getOnlineEvaluationConfig = null as any;
+export const getOnlineEvaluationConfigOutput: typeof import("./getOnlineEvaluationConfig").getOnlineEvaluationConfigOutput = null as any;
+utilities.lazyLoad(exports, ["getOnlineEvaluationConfig","getOnlineEvaluationConfigOutput"], () => require("./getOnlineEvaluationConfig"));
 
 export { GetRuntimeArgs, GetRuntimeResult, GetRuntimeOutputArgs } from "./getRuntime";
 export const getRuntime: typeof import("./getRuntime").getRuntime = null as any;
@@ -69,6 +94,11 @@ export { MemoryArgs } from "./memory";
 export type Memory = import("./memory").Memory;
 export const Memory: typeof import("./memory").Memory = null as any;
 utilities.lazyLoad(exports, ["Memory"], () => require("./memory"));
+
+export { OnlineEvaluationConfigArgs } from "./onlineEvaluationConfig";
+export type OnlineEvaluationConfig = import("./onlineEvaluationConfig").OnlineEvaluationConfig;
+export const OnlineEvaluationConfig: typeof import("./onlineEvaluationConfig").OnlineEvaluationConfig = null as any;
+utilities.lazyLoad(exports, ["OnlineEvaluationConfig"], () => require("./onlineEvaluationConfig"));
 
 export { RuntimeArgs } from "./runtime";
 export type Runtime = import("./runtime").Runtime;
@@ -95,14 +125,20 @@ const _module = {
         switch (type) {
             case "aws-native:bedrockagentcore:BrowserCustom":
                 return new BrowserCustom(name, <any>undefined, { urn })
+            case "aws-native:bedrockagentcore:BrowserProfile":
+                return new BrowserProfile(name, <any>undefined, { urn })
             case "aws-native:bedrockagentcore:CodeInterpreterCustom":
                 return new CodeInterpreterCustom(name, <any>undefined, { urn })
+            case "aws-native:bedrockagentcore:Evaluator":
+                return new Evaluator(name, <any>undefined, { urn })
             case "aws-native:bedrockagentcore:Gateway":
                 return new Gateway(name, <any>undefined, { urn })
             case "aws-native:bedrockagentcore:GatewayTarget":
                 return new GatewayTarget(name, <any>undefined, { urn })
             case "aws-native:bedrockagentcore:Memory":
                 return new Memory(name, <any>undefined, { urn })
+            case "aws-native:bedrockagentcore:OnlineEvaluationConfig":
+                return new OnlineEvaluationConfig(name, <any>undefined, { urn })
             case "aws-native:bedrockagentcore:Runtime":
                 return new Runtime(name, <any>undefined, { urn })
             case "aws-native:bedrockagentcore:RuntimeEndpoint":

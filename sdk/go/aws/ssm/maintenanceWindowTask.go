@@ -29,6 +29,160 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
+//			maintenanceWindow, err := ssm.NewMaintenanceWindow(ctx, "maintenanceWindow", &ssm.MaintenanceWindowArgs{
+//				Name:                     pulumi.String("MaintenanceWindow"),
+//				AllowUnassociatedTargets: pulumi.Bool(true),
+//				Cutoff:                   pulumi.Int(0),
+//				Description:              pulumi.String("Maintenance window for instances"),
+//				Duration:                 pulumi.Int(1),
+//				Schedule:                 pulumi.String("cron(20 17 ? * MON-FRI *)"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			maintenanceWindowTarget, err := ssm.NewMaintenanceWindowTarget(ctx, "maintenanceWindowTarget", &ssm.MaintenanceWindowTargetArgs{
+//				ResourceType: pulumi.String("RESOURCE_GROUP"),
+//				Targets: ssm.MaintenanceWindowTargetTargetsArray{
+//					&ssm.MaintenanceWindowTargetTargetsArgs{
+//						Key: pulumi.String("resource-groups:Name"),
+//						Values: pulumi.StringArray{
+//							pulumi.String("TestResourceGroup"),
+//						},
+//					},
+//				},
+//				WindowId: maintenanceWindow.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = ssm.NewMaintenanceWindowTask(ctx, "patchTask", &ssm.MaintenanceWindowTaskArgs{
+//				Description:    pulumi.String("Apply OS patches on instances in target"),
+//				MaxConcurrency: pulumi.String("1"),
+//				MaxErrors:      pulumi.String("1"),
+//				Priority:       pulumi.Int(0),
+//				TaskType:       pulumi.String("RUN_COMMAND"),
+//				WindowId:       maintenanceWindow.ID(),
+//				TaskArn:        pulumi.String("AWS-RunPatchBaseline"),
+//				TaskInvocationParameters: &ssm.MaintenanceWindowTaskTaskInvocationParametersArgs{
+//					MaintenanceWindowRunCommandParameters: &ssm.MaintenanceWindowTaskMaintenanceWindowRunCommandParametersArgs{
+//						Parameters: pulumi.Any(map[string]interface{}{
+//							"operation": []string{
+//								"Install",
+//							},
+//							"rebootOption": []string{
+//								"NoReboot",
+//							},
+//						}),
+//					},
+//				},
+//				Targets: ssm.MaintenanceWindowTaskTargetArray{
+//					&ssm.MaintenanceWindowTaskTargetArgs{
+//						Key: pulumi.String("WindowTargetIds"),
+//						Values: pulumi.StringArray{
+//							maintenanceWindowTarget.ID(),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### Example
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/ssm"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			maintenanceWindow, err := ssm.NewMaintenanceWindow(ctx, "maintenanceWindow", &ssm.MaintenanceWindowArgs{
+//				Name:                     pulumi.String("MaintenanceWindow"),
+//				AllowUnassociatedTargets: pulumi.Bool(true),
+//				Cutoff:                   pulumi.Int(0),
+//				Description:              pulumi.String("Maintenance window for instances"),
+//				Duration:                 pulumi.Int(1),
+//				Schedule:                 pulumi.String("cron(20 17 ? * MON-FRI *)"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			maintenanceWindowTarget, err := ssm.NewMaintenanceWindowTarget(ctx, "maintenanceWindowTarget", &ssm.MaintenanceWindowTargetArgs{
+//				ResourceType: pulumi.String("RESOURCE_GROUP"),
+//				Targets: ssm.MaintenanceWindowTargetTargetsArray{
+//					&ssm.MaintenanceWindowTargetTargetsArgs{
+//						Key: pulumi.String("resource-groups:Name"),
+//						Values: pulumi.StringArray{
+//							pulumi.String("TestResourceGroup"),
+//						},
+//					},
+//				},
+//				WindowId: maintenanceWindow.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = ssm.NewMaintenanceWindowTask(ctx, "patchTask", &ssm.MaintenanceWindowTaskArgs{
+//				Description:    pulumi.String("Apply OS patches on instances in target"),
+//				MaxConcurrency: pulumi.String("1"),
+//				MaxErrors:      pulumi.String("1"),
+//				Priority:       pulumi.Int(0),
+//				TaskType:       pulumi.String("RUN_COMMAND"),
+//				WindowId:       maintenanceWindow.ID(),
+//				TaskArn:        pulumi.String("AWS-RunPatchBaseline"),
+//				TaskInvocationParameters: &ssm.MaintenanceWindowTaskTaskInvocationParametersArgs{
+//					MaintenanceWindowRunCommandParameters: &ssm.MaintenanceWindowTaskMaintenanceWindowRunCommandParametersArgs{
+//						Parameters: pulumi.Any(map[string]interface{}{
+//							"operation": []string{
+//								"Install",
+//							},
+//							"rebootOption": []string{
+//								"NoReboot",
+//							},
+//						}),
+//					},
+//				},
+//				Targets: ssm.MaintenanceWindowTaskTargetArray{
+//					&ssm.MaintenanceWindowTaskTargetArgs{
+//						Key: pulumi.String("WindowTargetIds"),
+//						Values: pulumi.StringArray{
+//							maintenanceWindowTarget.ID(),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### Example
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/ssm"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ssm.NewMaintenanceWindowTask(ctx, "lambdaTask", &ssm.MaintenanceWindowTaskArgs{
 //				WindowId:       pulumi.String("mw-04fd6f19dfEXAMPLE"),
 //				TaskArn:        pulumi.String("arn:aws:lambda:us-east-2:111222333444:function:MyLambdaTaskArn"),

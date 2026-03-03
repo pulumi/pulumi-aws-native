@@ -17,6 +17,96 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws_native from "@pulumi/aws-native";
  *
+ * const maintenanceWindow = new aws_native.ssm.MaintenanceWindow("maintenanceWindow", {
+ *     name: "MaintenanceWindow",
+ *     allowUnassociatedTargets: true,
+ *     cutoff: 0,
+ *     description: "Maintenance window for instances",
+ *     duration: 1,
+ *     schedule: "cron(20 17 ? * MON-FRI *)",
+ * });
+ * const maintenanceWindowTarget = new aws_native.ssm.MaintenanceWindowTarget("maintenanceWindowTarget", {
+ *     resourceType: "RESOURCE_GROUP",
+ *     targets: [{
+ *         key: "resource-groups:Name",
+ *         values: ["TestResourceGroup"],
+ *     }],
+ *     windowId: maintenanceWindow.id,
+ * });
+ * const patchTask = new aws_native.ssm.MaintenanceWindowTask("patchTask", {
+ *     description: "Apply OS patches on instances in target",
+ *     maxConcurrency: "1",
+ *     maxErrors: "1",
+ *     priority: 0,
+ *     taskType: "RUN_COMMAND",
+ *     windowId: maintenanceWindow.id,
+ *     taskArn: "AWS-RunPatchBaseline",
+ *     taskInvocationParameters: {
+ *         maintenanceWindowRunCommandParameters: {
+ *             parameters: {
+ *                 operation: ["Install"],
+ *                 rebootOption: ["NoReboot"],
+ *             },
+ *         },
+ *     },
+ *     targets: [{
+ *         key: "WindowTargetIds",
+ *         values: [maintenanceWindowTarget.id],
+ *     }],
+ * });
+ *
+ * ```
+ * ### Example
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws_native from "@pulumi/aws-native";
+ *
+ * const maintenanceWindow = new aws_native.ssm.MaintenanceWindow("maintenanceWindow", {
+ *     name: "MaintenanceWindow",
+ *     allowUnassociatedTargets: true,
+ *     cutoff: 0,
+ *     description: "Maintenance window for instances",
+ *     duration: 1,
+ *     schedule: "cron(20 17 ? * MON-FRI *)",
+ * });
+ * const maintenanceWindowTarget = new aws_native.ssm.MaintenanceWindowTarget("maintenanceWindowTarget", {
+ *     resourceType: "RESOURCE_GROUP",
+ *     targets: [{
+ *         key: "resource-groups:Name",
+ *         values: ["TestResourceGroup"],
+ *     }],
+ *     windowId: maintenanceWindow.id,
+ * });
+ * const patchTask = new aws_native.ssm.MaintenanceWindowTask("patchTask", {
+ *     description: "Apply OS patches on instances in target",
+ *     maxConcurrency: "1",
+ *     maxErrors: "1",
+ *     priority: 0,
+ *     taskType: "RUN_COMMAND",
+ *     windowId: maintenanceWindow.id,
+ *     taskArn: "AWS-RunPatchBaseline",
+ *     taskInvocationParameters: {
+ *         maintenanceWindowRunCommandParameters: {
+ *             parameters: {
+ *                 operation: ["Install"],
+ *                 rebootOption: ["NoReboot"],
+ *             },
+ *         },
+ *     },
+ *     targets: [{
+ *         key: "WindowTargetIds",
+ *         values: [maintenanceWindowTarget.id],
+ *     }],
+ * });
+ *
+ * ```
+ * ### Example
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws_native from "@pulumi/aws-native";
+ *
  * const lambdaTask = new aws_native.ssm.MaintenanceWindowTask("lambdaTask", {
  *     windowId: "mw-04fd6f19dfEXAMPLE",
  *     taskArn: "arn:aws:lambda:us-east-2:111222333444:function:MyLambdaTaskArn",

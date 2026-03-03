@@ -26,15 +26,22 @@ namespace Pulumi.AwsNative.GameLift.Outputs
         /// *Returned by:* [DescribeFleetCapacity](https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeFleetCapacity.html) , [DescribeFleetLocationCapacity](https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeFleetLocationCapacity.html) , [UpdateFleetCapacity](https://docs.aws.amazon.com/gamelift/latest/apireference/API_UpdateFleetCapacity.html)
         /// </summary>
         public readonly Outputs.FleetLocationCapacity? LocationCapacity;
+        /// <summary>
+        /// The player gateway status for the location.
+        /// </summary>
+        public readonly Pulumi.AwsNative.GameLift.FleetLocationConfigurationPlayerGatewayStatus? PlayerGatewayStatus;
 
         [OutputConstructor]
         private FleetLocationConfiguration(
             string location,
 
-            Outputs.FleetLocationCapacity? locationCapacity)
+            Outputs.FleetLocationCapacity? locationCapacity,
+
+            Pulumi.AwsNative.GameLift.FleetLocationConfigurationPlayerGatewayStatus? playerGatewayStatus)
         {
             Location = location;
             LocationCapacity = locationCapacity;
+            PlayerGatewayStatus = playerGatewayStatus;
         }
     }
 }

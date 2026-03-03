@@ -11,7 +11,7 @@ namespace Pulumi.AwsNative.Lambda.Outputs
 {
 
     /// <summary>
-    /// A target tracking scaling policy for the capacity provider.
+    /// A scaling policy for the capacity provider that automatically adjusts capacity to maintain a target value for a specific metric.
     /// </summary>
     [OutputType]
     public sealed class CapacityProviderTargetTrackingScalingPolicy
@@ -21,7 +21,7 @@ namespace Pulumi.AwsNative.Lambda.Outputs
         /// </summary>
         public readonly Pulumi.AwsNative.Lambda.CapacityProviderPredefinedMetricType PredefinedMetricType;
         /// <summary>
-        /// The target value for the metric as a percentage (for example, 70.0 for 70%).
+        /// The target value for the metric that the scaling policy attempts to maintain through scaling actions.
         /// </summary>
         public readonly double TargetValue;
 

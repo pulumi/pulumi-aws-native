@@ -59,6 +59,7 @@ export class Connector extends pulumi.CustomResource {
      * The connector type.
      */
     declare public /*out*/ readonly type: pulumi.Output<enums.pcaconnectorscep.ConnectorType>;
+    declare public readonly vpcEndpointId: pulumi.Output<string | undefined>;
 
     /**
      * Create a Connector resource with the given unique name, arguments, and options.
@@ -77,6 +78,7 @@ export class Connector extends pulumi.CustomResource {
             resourceInputs["certificateAuthorityArn"] = args?.certificateAuthorityArn;
             resourceInputs["mobileDeviceManagement"] = args?.mobileDeviceManagement;
             resourceInputs["tags"] = args?.tags;
+            resourceInputs["vpcEndpointId"] = args?.vpcEndpointId;
             resourceInputs["connectorArn"] = undefined /*out*/;
             resourceInputs["endpoint"] = undefined /*out*/;
             resourceInputs["openIdConfiguration"] = undefined /*out*/;
@@ -89,9 +91,10 @@ export class Connector extends pulumi.CustomResource {
             resourceInputs["openIdConfiguration"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["vpcEndpointId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["certificateAuthorityArn", "mobileDeviceManagement"] };
+        const replaceOnChanges = { replaceOnChanges: ["certificateAuthorityArn", "mobileDeviceManagement", "vpcEndpointId"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Connector.__pulumiType, name, resourceInputs, opts);
     }
@@ -110,4 +113,5 @@ export interface ConnectorArgs {
      */
     mobileDeviceManagement?: pulumi.Input<inputs.pcaconnectorscep.ConnectorMobileDeviceManagementArgs>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    vpcEndpointId?: pulumi.Input<string>;
 }

@@ -1242,9 +1242,11 @@ func (o ContainerFleetLocationCapacityPtrOutput) MinSize() pulumi.IntPtrOutput {
 // A remote location where a multi-location fleet can deploy EC2 instances for game hosting.
 type ContainerFleetLocationConfiguration struct {
 	// An AWS Region code, such as `us-west-2` . For a list of supported Regions and Local Zones, see [Amazon GameLift Servers service locations](https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-regions.html) for managed hosting.
-	Location         string                             `pulumi:"location"`
-	LocationCapacity *ContainerFleetLocationCapacity    `pulumi:"locationCapacity"`
-	StoppedActions   []ContainerFleetStoppedActionsItem `pulumi:"stoppedActions"`
+	Location         string                          `pulumi:"location"`
+	LocationCapacity *ContainerFleetLocationCapacity `pulumi:"locationCapacity"`
+	// The player gateway status for the location.
+	PlayerGatewayStatus *ContainerFleetLocationConfigurationPlayerGatewayStatus `pulumi:"playerGatewayStatus"`
+	StoppedActions      []ContainerFleetStoppedActionsItem                      `pulumi:"stoppedActions"`
 }
 
 // ContainerFleetLocationConfigurationInput is an input type that accepts ContainerFleetLocationConfigurationArgs and ContainerFleetLocationConfigurationOutput values.
@@ -1261,9 +1263,11 @@ type ContainerFleetLocationConfigurationInput interface {
 // A remote location where a multi-location fleet can deploy EC2 instances for game hosting.
 type ContainerFleetLocationConfigurationArgs struct {
 	// An AWS Region code, such as `us-west-2` . For a list of supported Regions and Local Zones, see [Amazon GameLift Servers service locations](https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-regions.html) for managed hosting.
-	Location         pulumi.StringInput                         `pulumi:"location"`
-	LocationCapacity ContainerFleetLocationCapacityPtrInput     `pulumi:"locationCapacity"`
-	StoppedActions   ContainerFleetStoppedActionsItemArrayInput `pulumi:"stoppedActions"`
+	Location         pulumi.StringInput                     `pulumi:"location"`
+	LocationCapacity ContainerFleetLocationCapacityPtrInput `pulumi:"locationCapacity"`
+	// The player gateway status for the location.
+	PlayerGatewayStatus ContainerFleetLocationConfigurationPlayerGatewayStatusPtrInput `pulumi:"playerGatewayStatus"`
+	StoppedActions      ContainerFleetStoppedActionsItemArrayInput                     `pulumi:"stoppedActions"`
 }
 
 func (ContainerFleetLocationConfigurationArgs) ElementType() reflect.Type {
@@ -1325,6 +1329,13 @@ func (o ContainerFleetLocationConfigurationOutput) Location() pulumi.StringOutpu
 
 func (o ContainerFleetLocationConfigurationOutput) LocationCapacity() ContainerFleetLocationCapacityPtrOutput {
 	return o.ApplyT(func(v ContainerFleetLocationConfiguration) *ContainerFleetLocationCapacity { return v.LocationCapacity }).(ContainerFleetLocationCapacityPtrOutput)
+}
+
+// The player gateway status for the location.
+func (o ContainerFleetLocationConfigurationOutput) PlayerGatewayStatus() ContainerFleetLocationConfigurationPlayerGatewayStatusPtrOutput {
+	return o.ApplyT(func(v ContainerFleetLocationConfiguration) *ContainerFleetLocationConfigurationPlayerGatewayStatus {
+		return v.PlayerGatewayStatus
+	}).(ContainerFleetLocationConfigurationPlayerGatewayStatusPtrOutput)
 }
 
 func (o ContainerFleetLocationConfigurationOutput) StoppedActions() ContainerFleetStoppedActionsItemArrayOutput {
@@ -3975,6 +3986,8 @@ type FleetLocationConfiguration struct {
 	//
 	// *Returned by:* [DescribeFleetCapacity](https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeFleetCapacity.html) , [DescribeFleetLocationCapacity](https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeFleetLocationCapacity.html) , [UpdateFleetCapacity](https://docs.aws.amazon.com/gamelift/latest/apireference/API_UpdateFleetCapacity.html)
 	LocationCapacity *FleetLocationCapacity `pulumi:"locationCapacity"`
+	// The player gateway status for the location.
+	PlayerGatewayStatus *FleetLocationConfigurationPlayerGatewayStatus `pulumi:"playerGatewayStatus"`
 }
 
 // FleetLocationConfigurationInput is an input type that accepts FleetLocationConfigurationArgs and FleetLocationConfigurationOutput values.
@@ -3996,6 +4009,8 @@ type FleetLocationConfigurationArgs struct {
 	//
 	// *Returned by:* [DescribeFleetCapacity](https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeFleetCapacity.html) , [DescribeFleetLocationCapacity](https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeFleetLocationCapacity.html) , [UpdateFleetCapacity](https://docs.aws.amazon.com/gamelift/latest/apireference/API_UpdateFleetCapacity.html)
 	LocationCapacity FleetLocationCapacityPtrInput `pulumi:"locationCapacity"`
+	// The player gateway status for the location.
+	PlayerGatewayStatus FleetLocationConfigurationPlayerGatewayStatusPtrInput `pulumi:"playerGatewayStatus"`
 }
 
 func (FleetLocationConfigurationArgs) ElementType() reflect.Type {
@@ -4060,6 +4075,13 @@ func (o FleetLocationConfigurationOutput) Location() pulumi.StringOutput {
 // *Returned by:* [DescribeFleetCapacity](https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeFleetCapacity.html) , [DescribeFleetLocationCapacity](https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeFleetLocationCapacity.html) , [UpdateFleetCapacity](https://docs.aws.amazon.com/gamelift/latest/apireference/API_UpdateFleetCapacity.html)
 func (o FleetLocationConfigurationOutput) LocationCapacity() FleetLocationCapacityPtrOutput {
 	return o.ApplyT(func(v FleetLocationConfiguration) *FleetLocationCapacity { return v.LocationCapacity }).(FleetLocationCapacityPtrOutput)
+}
+
+// The player gateway status for the location.
+func (o FleetLocationConfigurationOutput) PlayerGatewayStatus() FleetLocationConfigurationPlayerGatewayStatusPtrOutput {
+	return o.ApplyT(func(v FleetLocationConfiguration) *FleetLocationConfigurationPlayerGatewayStatus {
+		return v.PlayerGatewayStatus
+	}).(FleetLocationConfigurationPlayerGatewayStatusPtrOutput)
 }
 
 type FleetLocationConfigurationArrayOutput struct{ *pulumi.OutputState }
@@ -4241,6 +4263,148 @@ func (o FleetManagedCapacityConfigurationPtrOutput) ZeroCapacityStrategy() Fleet
 		}
 		return &v.ZeroCapacityStrategy
 	}).(FleetManagedCapacityConfigurationZeroCapacityStrategyPtrOutput)
+}
+
+// Configuration for player gateway.
+type FleetPlayerGatewayConfiguration struct {
+	// The IP protocol supported by the game server.
+	GameServerIpProtocolSupported *FleetPlayerGatewayConfigurationGameServerIpProtocolSupported `pulumi:"gameServerIpProtocolSupported"`
+}
+
+// FleetPlayerGatewayConfigurationInput is an input type that accepts FleetPlayerGatewayConfigurationArgs and FleetPlayerGatewayConfigurationOutput values.
+// You can construct a concrete instance of `FleetPlayerGatewayConfigurationInput` via:
+//
+//	FleetPlayerGatewayConfigurationArgs{...}
+type FleetPlayerGatewayConfigurationInput interface {
+	pulumi.Input
+
+	ToFleetPlayerGatewayConfigurationOutput() FleetPlayerGatewayConfigurationOutput
+	ToFleetPlayerGatewayConfigurationOutputWithContext(context.Context) FleetPlayerGatewayConfigurationOutput
+}
+
+// Configuration for player gateway.
+type FleetPlayerGatewayConfigurationArgs struct {
+	// The IP protocol supported by the game server.
+	GameServerIpProtocolSupported FleetPlayerGatewayConfigurationGameServerIpProtocolSupportedPtrInput `pulumi:"gameServerIpProtocolSupported"`
+}
+
+func (FleetPlayerGatewayConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FleetPlayerGatewayConfiguration)(nil)).Elem()
+}
+
+func (i FleetPlayerGatewayConfigurationArgs) ToFleetPlayerGatewayConfigurationOutput() FleetPlayerGatewayConfigurationOutput {
+	return i.ToFleetPlayerGatewayConfigurationOutputWithContext(context.Background())
+}
+
+func (i FleetPlayerGatewayConfigurationArgs) ToFleetPlayerGatewayConfigurationOutputWithContext(ctx context.Context) FleetPlayerGatewayConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FleetPlayerGatewayConfigurationOutput)
+}
+
+func (i FleetPlayerGatewayConfigurationArgs) ToFleetPlayerGatewayConfigurationPtrOutput() FleetPlayerGatewayConfigurationPtrOutput {
+	return i.ToFleetPlayerGatewayConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i FleetPlayerGatewayConfigurationArgs) ToFleetPlayerGatewayConfigurationPtrOutputWithContext(ctx context.Context) FleetPlayerGatewayConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FleetPlayerGatewayConfigurationOutput).ToFleetPlayerGatewayConfigurationPtrOutputWithContext(ctx)
+}
+
+// FleetPlayerGatewayConfigurationPtrInput is an input type that accepts FleetPlayerGatewayConfigurationArgs, FleetPlayerGatewayConfigurationPtr and FleetPlayerGatewayConfigurationPtrOutput values.
+// You can construct a concrete instance of `FleetPlayerGatewayConfigurationPtrInput` via:
+//
+//	        FleetPlayerGatewayConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type FleetPlayerGatewayConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToFleetPlayerGatewayConfigurationPtrOutput() FleetPlayerGatewayConfigurationPtrOutput
+	ToFleetPlayerGatewayConfigurationPtrOutputWithContext(context.Context) FleetPlayerGatewayConfigurationPtrOutput
+}
+
+type fleetPlayerGatewayConfigurationPtrType FleetPlayerGatewayConfigurationArgs
+
+func FleetPlayerGatewayConfigurationPtr(v *FleetPlayerGatewayConfigurationArgs) FleetPlayerGatewayConfigurationPtrInput {
+	return (*fleetPlayerGatewayConfigurationPtrType)(v)
+}
+
+func (*fleetPlayerGatewayConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FleetPlayerGatewayConfiguration)(nil)).Elem()
+}
+
+func (i *fleetPlayerGatewayConfigurationPtrType) ToFleetPlayerGatewayConfigurationPtrOutput() FleetPlayerGatewayConfigurationPtrOutput {
+	return i.ToFleetPlayerGatewayConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *fleetPlayerGatewayConfigurationPtrType) ToFleetPlayerGatewayConfigurationPtrOutputWithContext(ctx context.Context) FleetPlayerGatewayConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FleetPlayerGatewayConfigurationPtrOutput)
+}
+
+// Configuration for player gateway.
+type FleetPlayerGatewayConfigurationOutput struct{ *pulumi.OutputState }
+
+func (FleetPlayerGatewayConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FleetPlayerGatewayConfiguration)(nil)).Elem()
+}
+
+func (o FleetPlayerGatewayConfigurationOutput) ToFleetPlayerGatewayConfigurationOutput() FleetPlayerGatewayConfigurationOutput {
+	return o
+}
+
+func (o FleetPlayerGatewayConfigurationOutput) ToFleetPlayerGatewayConfigurationOutputWithContext(ctx context.Context) FleetPlayerGatewayConfigurationOutput {
+	return o
+}
+
+func (o FleetPlayerGatewayConfigurationOutput) ToFleetPlayerGatewayConfigurationPtrOutput() FleetPlayerGatewayConfigurationPtrOutput {
+	return o.ToFleetPlayerGatewayConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o FleetPlayerGatewayConfigurationOutput) ToFleetPlayerGatewayConfigurationPtrOutputWithContext(ctx context.Context) FleetPlayerGatewayConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FleetPlayerGatewayConfiguration) *FleetPlayerGatewayConfiguration {
+		return &v
+	}).(FleetPlayerGatewayConfigurationPtrOutput)
+}
+
+// The IP protocol supported by the game server.
+func (o FleetPlayerGatewayConfigurationOutput) GameServerIpProtocolSupported() FleetPlayerGatewayConfigurationGameServerIpProtocolSupportedPtrOutput {
+	return o.ApplyT(func(v FleetPlayerGatewayConfiguration) *FleetPlayerGatewayConfigurationGameServerIpProtocolSupported {
+		return v.GameServerIpProtocolSupported
+	}).(FleetPlayerGatewayConfigurationGameServerIpProtocolSupportedPtrOutput)
+}
+
+type FleetPlayerGatewayConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (FleetPlayerGatewayConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FleetPlayerGatewayConfiguration)(nil)).Elem()
+}
+
+func (o FleetPlayerGatewayConfigurationPtrOutput) ToFleetPlayerGatewayConfigurationPtrOutput() FleetPlayerGatewayConfigurationPtrOutput {
+	return o
+}
+
+func (o FleetPlayerGatewayConfigurationPtrOutput) ToFleetPlayerGatewayConfigurationPtrOutputWithContext(ctx context.Context) FleetPlayerGatewayConfigurationPtrOutput {
+	return o
+}
+
+func (o FleetPlayerGatewayConfigurationPtrOutput) Elem() FleetPlayerGatewayConfigurationOutput {
+	return o.ApplyT(func(v *FleetPlayerGatewayConfiguration) FleetPlayerGatewayConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret FleetPlayerGatewayConfiguration
+		return ret
+	}).(FleetPlayerGatewayConfigurationOutput)
+}
+
+// The IP protocol supported by the game server.
+func (o FleetPlayerGatewayConfigurationPtrOutput) GameServerIpProtocolSupported() FleetPlayerGatewayConfigurationGameServerIpProtocolSupportedPtrOutput {
+	return o.ApplyT(func(v *FleetPlayerGatewayConfiguration) *FleetPlayerGatewayConfigurationGameServerIpProtocolSupported {
+		if v == nil {
+			return nil
+		}
+		return v.GameServerIpProtocolSupported
+	}).(FleetPlayerGatewayConfigurationGameServerIpProtocolSupportedPtrOutput)
 }
 
 // A policy that limits the number of game sessions a player can create on the same fleet. This optional policy gives game owners control over how players can consume available game server resources. A resource creation policy makes the following statement: "An individual player can create a maximum number of new game sessions within a specified time period".
@@ -6532,6 +6696,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetLocationConfigurationArrayInput)(nil)).Elem(), FleetLocationConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetManagedCapacityConfigurationInput)(nil)).Elem(), FleetManagedCapacityConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetManagedCapacityConfigurationPtrInput)(nil)).Elem(), FleetManagedCapacityConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FleetPlayerGatewayConfigurationInput)(nil)).Elem(), FleetPlayerGatewayConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FleetPlayerGatewayConfigurationPtrInput)(nil)).Elem(), FleetPlayerGatewayConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetResourceCreationLimitPolicyInput)(nil)).Elem(), FleetResourceCreationLimitPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetResourceCreationLimitPolicyPtrInput)(nil)).Elem(), FleetResourceCreationLimitPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetRuntimeConfigurationInput)(nil)).Elem(), FleetRuntimeConfigurationArgs{})
@@ -6615,6 +6781,8 @@ func init() {
 	pulumi.RegisterOutputType(FleetLocationConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(FleetManagedCapacityConfigurationOutput{})
 	pulumi.RegisterOutputType(FleetManagedCapacityConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(FleetPlayerGatewayConfigurationOutput{})
+	pulumi.RegisterOutputType(FleetPlayerGatewayConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(FleetResourceCreationLimitPolicyOutput{})
 	pulumi.RegisterOutputType(FleetResourceCreationLimitPolicyPtrOutput{})
 	pulumi.RegisterOutputType(FleetRuntimeConfigurationOutput{})

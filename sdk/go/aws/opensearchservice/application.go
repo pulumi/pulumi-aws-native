@@ -28,6 +28,8 @@ type Application struct {
 	Endpoint pulumi.StringPtrOutput `pulumi:"endpoint"`
 	// Options for configuring IAM Identity Center
 	IamIdentityCenterOptions IamIdentityCenterOptionsPropertiesPtrOutput `pulumi:"iamIdentityCenterOptions"`
+	// The ARN of the KMS key used to encrypt the application.
+	KmsKeyArn pulumi.StringPtrOutput `pulumi:"kmsKeyArn"`
 	// The name of the application.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// An arbitrary set of tags (key-value pairs) for this application.
@@ -42,6 +44,7 @@ func NewApplication(ctx *pulumi.Context,
 	}
 
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"kmsKeyArn",
 		"name",
 	})
 	opts = append(opts, replaceOnChanges)
@@ -86,6 +89,8 @@ type applicationArgs struct {
 	Endpoint *string `pulumi:"endpoint"`
 	// Options for configuring IAM Identity Center
 	IamIdentityCenterOptions *IamIdentityCenterOptionsProperties `pulumi:"iamIdentityCenterOptions"`
+	// The ARN of the KMS key used to encrypt the application.
+	KmsKeyArn *string `pulumi:"kmsKeyArn"`
 	// The name of the application.
 	Name *string `pulumi:"name"`
 	// An arbitrary set of tags (key-value pairs) for this application.
@@ -102,6 +107,8 @@ type ApplicationArgs struct {
 	Endpoint pulumi.StringPtrInput
 	// Options for configuring IAM Identity Center
 	IamIdentityCenterOptions IamIdentityCenterOptionsPropertiesPtrInput
+	// The ARN of the KMS key used to encrypt the application.
+	KmsKeyArn pulumi.StringPtrInput
 	// The name of the application.
 	Name pulumi.StringPtrInput
 	// An arbitrary set of tags (key-value pairs) for this application.
@@ -173,6 +180,11 @@ func (o ApplicationOutput) Endpoint() pulumi.StringPtrOutput {
 // Options for configuring IAM Identity Center
 func (o ApplicationOutput) IamIdentityCenterOptions() IamIdentityCenterOptionsPropertiesPtrOutput {
 	return o.ApplyT(func(v *Application) IamIdentityCenterOptionsPropertiesPtrOutput { return v.IamIdentityCenterOptions }).(IamIdentityCenterOptionsPropertiesPtrOutput)
+}
+
+// The ARN of the KMS key used to encrypt the application.
+func (o ApplicationOutput) KmsKeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Application) pulumi.StringPtrOutput { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
 }
 
 // The name of the application.

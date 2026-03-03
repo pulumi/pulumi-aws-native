@@ -64,6 +64,10 @@ namespace Pulumi.AwsNative.Cases
     public sealed class GetFieldResult
     {
         /// <summary>
+        /// Field-type specific attributes that control rendering and validation behavior
+        /// </summary>
+        public readonly Outputs.FieldAttributes? Attributes;
+        /// <summary>
         /// The time at which the field was created.
         /// </summary>
         public readonly string? CreatedTime;
@@ -98,6 +102,8 @@ namespace Pulumi.AwsNative.Cases
 
         [OutputConstructor]
         private GetFieldResult(
+            Outputs.FieldAttributes? attributes,
+
             string? createdTime,
 
             string? description,
@@ -114,6 +120,7 @@ namespace Pulumi.AwsNative.Cases
 
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
+            Attributes = attributes;
             CreatedTime = createdTime;
             Description = description;
             FieldArn = fieldArn;

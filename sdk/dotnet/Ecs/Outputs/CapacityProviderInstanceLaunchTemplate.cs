@@ -26,6 +26,7 @@ namespace Pulumi.AwsNative.Ecs.Outputs
         /// For more information about Amazon EC2 capacity options, see [Instance purchasing options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-purchasing-options.html) in the *Amazon EC2 User Guide* .
         /// </summary>
         public readonly Pulumi.AwsNative.Ecs.CapacityProviderInstanceLaunchTemplateCapacityOptionType? CapacityOptionType;
+        public readonly Outputs.CapacityProviderCapacityReservationRequest? CapacityReservations;
         /// <summary>
         /// The Amazon Resource Name (ARN) of the instance profile that Amazon ECS applies to Amazon ECS Managed Instances. This instance profile must include the necessary permissions for your tasks to access AWS services and resources.
         /// 
@@ -59,6 +60,8 @@ namespace Pulumi.AwsNative.Ecs.Outputs
         private CapacityProviderInstanceLaunchTemplate(
             Pulumi.AwsNative.Ecs.CapacityProviderInstanceLaunchTemplateCapacityOptionType? capacityOptionType,
 
+            Outputs.CapacityProviderCapacityReservationRequest? capacityReservations,
+
             string ec2InstanceProfileArn,
 
             bool? fipsEnabled,
@@ -72,6 +75,7 @@ namespace Pulumi.AwsNative.Ecs.Outputs
             Outputs.CapacityProviderManagedInstancesStorageConfiguration? storageConfiguration)
         {
             CapacityOptionType = capacityOptionType;
+            CapacityReservations = capacityReservations;
             Ec2InstanceProfileArn = ec2InstanceProfileArn;
             FipsEnabled = fipsEnabled;
             InstanceRequirements = instanceRequirements;

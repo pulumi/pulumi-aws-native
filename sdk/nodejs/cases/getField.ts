@@ -26,6 +26,10 @@ export interface GetFieldArgs {
 
 export interface GetFieldResult {
     /**
+     * Field-type specific attributes that control rendering and validation behavior
+     */
+    readonly attributes?: outputs.cases.FieldAttributes;
+    /**
      * The time at which the field was created.
      */
     readonly createdTime?: string;

@@ -28,6 +28,7 @@ class ApplicationArgs:
                  data_sources: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationDataSourceArgs']]]] = None,
                  endpoint: Optional[pulumi.Input[_builtins.str]] = None,
                  iam_identity_center_options: Optional[pulumi.Input['IamIdentityCenterOptionsPropertiesArgs']] = None,
+                 kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
@@ -36,6 +37,7 @@ class ApplicationArgs:
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationDataSourceArgs']]] data_sources: List of data sources.
         :param pulumi.Input[_builtins.str] endpoint: The endpoint for the application.
         :param pulumi.Input['IamIdentityCenterOptionsPropertiesArgs'] iam_identity_center_options: Options for configuring IAM Identity Center
+        :param pulumi.Input[_builtins.str] kms_key_arn: The ARN of the KMS key used to encrypt the application.
         :param pulumi.Input[_builtins.str] name: The name of the application.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An arbitrary set of tags (key-value pairs) for this application.
         """
@@ -47,6 +49,8 @@ class ApplicationArgs:
             pulumi.set(__self__, "endpoint", endpoint)
         if iam_identity_center_options is not None:
             pulumi.set(__self__, "iam_identity_center_options", iam_identity_center_options)
+        if kms_key_arn is not None:
+            pulumi.set(__self__, "kms_key_arn", kms_key_arn)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if tags is not None:
@@ -101,6 +105,18 @@ class ApplicationArgs:
         pulumi.set(self, "iam_identity_center_options", value)
 
     @_builtins.property
+    @pulumi.getter(name="kmsKeyArn")
+    def kms_key_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The ARN of the KMS key used to encrypt the application.
+        """
+        return pulumi.get(self, "kms_key_arn")
+
+    @kms_key_arn.setter
+    def kms_key_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "kms_key_arn", value)
+
+    @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -135,6 +151,7 @@ class Application(pulumi.CustomResource):
                  data_sources: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ApplicationDataSourceArgs', 'ApplicationDataSourceArgsDict']]]]] = None,
                  endpoint: Optional[pulumi.Input[_builtins.str]] = None,
                  iam_identity_center_options: Optional[pulumi.Input[Union['IamIdentityCenterOptionsPropertiesArgs', 'IamIdentityCenterOptionsPropertiesArgsDict']]] = None,
+                 kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
@@ -147,6 +164,7 @@ class Application(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['ApplicationDataSourceArgs', 'ApplicationDataSourceArgsDict']]]] data_sources: List of data sources.
         :param pulumi.Input[_builtins.str] endpoint: The endpoint for the application.
         :param pulumi.Input[Union['IamIdentityCenterOptionsPropertiesArgs', 'IamIdentityCenterOptionsPropertiesArgsDict']] iam_identity_center_options: Options for configuring IAM Identity Center
+        :param pulumi.Input[_builtins.str] kms_key_arn: The ARN of the KMS key used to encrypt the application.
         :param pulumi.Input[_builtins.str] name: The name of the application.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An arbitrary set of tags (key-value pairs) for this application.
         """
@@ -178,6 +196,7 @@ class Application(pulumi.CustomResource):
                  data_sources: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ApplicationDataSourceArgs', 'ApplicationDataSourceArgsDict']]]]] = None,
                  endpoint: Optional[pulumi.Input[_builtins.str]] = None,
                  iam_identity_center_options: Optional[pulumi.Input[Union['IamIdentityCenterOptionsPropertiesArgs', 'IamIdentityCenterOptionsPropertiesArgsDict']]] = None,
+                 kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
@@ -193,11 +212,12 @@ class Application(pulumi.CustomResource):
             __props__.__dict__["data_sources"] = data_sources
             __props__.__dict__["endpoint"] = endpoint
             __props__.__dict__["iam_identity_center_options"] = iam_identity_center_options
+            __props__.__dict__["kms_key_arn"] = kms_key_arn
             __props__.__dict__["name"] = name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["aws_id"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["kmsKeyArn", "name"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Application, __self__).__init__(
             'aws-native:opensearchservice:Application',
@@ -227,6 +247,7 @@ class Application(pulumi.CustomResource):
         __props__.__dict__["data_sources"] = None
         __props__.__dict__["endpoint"] = None
         __props__.__dict__["iam_identity_center_options"] = None
+        __props__.__dict__["kms_key_arn"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["tags"] = None
         return Application(resource_name, opts=opts, __props__=__props__)
@@ -278,6 +299,14 @@ class Application(pulumi.CustomResource):
         Options for configuring IAM Identity Center
         """
         return pulumi.get(self, "iam_identity_center_options")
+
+    @_builtins.property
+    @pulumi.getter(name="kmsKeyArn")
+    def kms_key_arn(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The ARN of the KMS key used to encrypt the application.
+        """
+        return pulumi.get(self, "kms_key_arn")
 
     @_builtins.property
     @pulumi.getter

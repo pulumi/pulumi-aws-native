@@ -11,6 +11,8 @@ from .agent_status import *
 from .approved_origin import *
 from .contact_flow import *
 from .contact_flow_module import *
+from .contact_flow_module_alias import *
+from .contact_flow_module_version import *
 from .contact_flow_version import *
 from .data_table import *
 from .data_table_attribute import *
@@ -20,6 +22,8 @@ from .evaluation_form import *
 from .get_agent_status import *
 from .get_contact_flow import *
 from .get_contact_flow_module import *
+from .get_contact_flow_module_alias import *
+from .get_contact_flow_module_version import *
 from .get_contact_flow_version import *
 from .get_data_table import *
 from .get_data_table_attribute import *

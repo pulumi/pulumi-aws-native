@@ -66,6 +66,16 @@ export const ContainerFleetIpPermissionProtocol = {
  */
 export type ContainerFleetIpPermissionProtocol = (typeof ContainerFleetIpPermissionProtocol)[keyof typeof ContainerFleetIpPermissionProtocol];
 
+export const ContainerFleetLocationConfigurationPlayerGatewayStatus = {
+    Disabled: "DISABLED",
+    Enabled: "ENABLED",
+} as const;
+
+/**
+ * The player gateway status for the location.
+ */
+export type ContainerFleetLocationConfigurationPlayerGatewayStatus = (typeof ContainerFleetLocationConfigurationPlayerGatewayStatus)[keyof typeof ContainerFleetLocationConfigurationPlayerGatewayStatus];
+
 export const ContainerFleetLogDestination = {
     None: "NONE",
     Cloudwatch: "CLOUDWATCH",
@@ -96,6 +106,17 @@ export const ContainerFleetNewGameSessionProtectionPolicy = {
  * A game session protection policy to apply to all game sessions hosted on instances in this fleet. When protected, active game sessions cannot be terminated during a scale-down event. If this parameter is not set, instances in this fleet default to no protection. You can change a fleet's protection policy to affect future game sessions on the fleet. You can also set protection for individual game sessions.
  */
 export type ContainerFleetNewGameSessionProtectionPolicy = (typeof ContainerFleetNewGameSessionProtectionPolicy)[keyof typeof ContainerFleetNewGameSessionProtectionPolicy];
+
+export const ContainerFleetPlayerGatewayMode = {
+    Disabled: "DISABLED",
+    Enabled: "ENABLED",
+    Required: "REQUIRED",
+} as const;
+
+/**
+ * The player gateway mode for the container fleet.
+ */
+export type ContainerFleetPlayerGatewayMode = (typeof ContainerFleetPlayerGatewayMode)[keyof typeof ContainerFleetPlayerGatewayMode];
 
 export const ContainerFleetScalingPolicyComparisonOperator = {
     GreaterThanOrEqualToThreshold: "GreaterThanOrEqualToThreshold",
@@ -288,6 +309,16 @@ export const FleetIpPermissionProtocol = {
  */
 export type FleetIpPermissionProtocol = (typeof FleetIpPermissionProtocol)[keyof typeof FleetIpPermissionProtocol];
 
+export const FleetLocationConfigurationPlayerGatewayStatus = {
+    Disabled: "DISABLED",
+    Enabled: "ENABLED",
+} as const;
+
+/**
+ * The player gateway status for the location.
+ */
+export type FleetLocationConfigurationPlayerGatewayStatus = (typeof FleetLocationConfigurationPlayerGatewayStatus)[keyof typeof FleetLocationConfigurationPlayerGatewayStatus];
+
 export const FleetManagedCapacityConfigurationZeroCapacityStrategy = {
     ScaleToAndFromZero: "SCALE_TO_AND_FROM_ZERO",
     Manual: "MANUAL",
@@ -307,6 +338,27 @@ export const FleetNewGameSessionProtectionPolicy = {
  * A game session protection policy to apply to all game sessions hosted on instances in this fleet. When protected, active game sessions cannot be terminated during a scale-down event. If this parameter is not set, instances in this fleet default to no protection. You can change a fleet's protection policy to affect future game sessions on the fleet. You can also set protection for individual game sessions.
  */
 export type FleetNewGameSessionProtectionPolicy = (typeof FleetNewGameSessionProtectionPolicy)[keyof typeof FleetNewGameSessionProtectionPolicy];
+
+export const FleetPlayerGatewayConfigurationGameServerIpProtocolSupported = {
+    IPv4: "IPv4",
+    DualStack: "DUAL_STACK",
+} as const;
+
+/**
+ * The IP protocol supported by the game server.
+ */
+export type FleetPlayerGatewayConfigurationGameServerIpProtocolSupported = (typeof FleetPlayerGatewayConfigurationGameServerIpProtocolSupported)[keyof typeof FleetPlayerGatewayConfigurationGameServerIpProtocolSupported];
+
+export const FleetPlayerGatewayMode = {
+    Disabled: "DISABLED",
+    Enabled: "ENABLED",
+    Required: "REQUIRED",
+} as const;
+
+/**
+ * The player gateway mode for the fleet.
+ */
+export type FleetPlayerGatewayMode = (typeof FleetPlayerGatewayMode)[keyof typeof FleetPlayerGatewayMode];
 
 export const FleetScalingPolicyComparisonOperator = {
     GreaterThanOrEqualToThreshold: "GreaterThanOrEqualToThreshold",

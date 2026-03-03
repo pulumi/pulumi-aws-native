@@ -38,6 +38,10 @@ export class Field extends pulumi.CustomResource {
     }
 
     /**
+     * Field-type specific attributes that control rendering and validation behavior
+     */
+    declare public readonly attributes: pulumi.Output<outputs.cases.FieldAttributes | undefined>;
+    /**
      * The time at which the field was created.
      */
     declare public /*out*/ readonly createdTime: pulumi.Output<string>;
@@ -92,6 +96,7 @@ export class Field extends pulumi.CustomResource {
             if (args?.type === undefined && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
+            resourceInputs["attributes"] = args?.attributes;
             resourceInputs["description"] = args?.description;
             resourceInputs["domainId"] = args?.domainId;
             resourceInputs["name"] = args?.name;
@@ -103,6 +108,7 @@ export class Field extends pulumi.CustomResource {
             resourceInputs["lastModifiedTime"] = undefined /*out*/;
             resourceInputs["namespace"] = undefined /*out*/;
         } else {
+            resourceInputs["attributes"] = undefined /*out*/;
             resourceInputs["createdTime"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["domainId"] = undefined /*out*/;
@@ -125,6 +131,10 @@ export class Field extends pulumi.CustomResource {
  * The set of arguments for constructing a Field resource.
  */
 export interface FieldArgs {
+    /**
+     * Field-type specific attributes that control rendering and validation behavior
+     */
+    attributes?: pulumi.Input<inputs.cases.FieldAttributesArgs>;
     /**
      * A description explaining the purpose and usage of this field in cases. Helps agents and administrators understand what information should be captured in this field.
      */

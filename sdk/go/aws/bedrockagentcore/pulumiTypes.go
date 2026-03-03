@@ -895,6 +895,932 @@ func (o CodeInterpreterCustomVpcConfigPtrOutput) Subnets() pulumi.StringArrayOut
 	}).(pulumi.StringArrayOutput)
 }
 
+// The configuration for using Amazon Bedrock models in evaluator assessments.
+type EvaluatorBedrockEvaluatorModelConfig struct {
+	// Additional model-specific request fields.
+	AdditionalModelRequestFields interface{}                      `pulumi:"additionalModelRequestFields"`
+	InferenceConfig              *EvaluatorInferenceConfiguration `pulumi:"inferenceConfig"`
+	// The identifier of the Amazon Bedrock model to use for evaluation.
+	ModelId string `pulumi:"modelId"`
+}
+
+// EvaluatorBedrockEvaluatorModelConfigInput is an input type that accepts EvaluatorBedrockEvaluatorModelConfigArgs and EvaluatorBedrockEvaluatorModelConfigOutput values.
+// You can construct a concrete instance of `EvaluatorBedrockEvaluatorModelConfigInput` via:
+//
+//	EvaluatorBedrockEvaluatorModelConfigArgs{...}
+type EvaluatorBedrockEvaluatorModelConfigInput interface {
+	pulumi.Input
+
+	ToEvaluatorBedrockEvaluatorModelConfigOutput() EvaluatorBedrockEvaluatorModelConfigOutput
+	ToEvaluatorBedrockEvaluatorModelConfigOutputWithContext(context.Context) EvaluatorBedrockEvaluatorModelConfigOutput
+}
+
+// The configuration for using Amazon Bedrock models in evaluator assessments.
+type EvaluatorBedrockEvaluatorModelConfigArgs struct {
+	// Additional model-specific request fields.
+	AdditionalModelRequestFields pulumi.Input                            `pulumi:"additionalModelRequestFields"`
+	InferenceConfig              EvaluatorInferenceConfigurationPtrInput `pulumi:"inferenceConfig"`
+	// The identifier of the Amazon Bedrock model to use for evaluation.
+	ModelId pulumi.StringInput `pulumi:"modelId"`
+}
+
+func (EvaluatorBedrockEvaluatorModelConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EvaluatorBedrockEvaluatorModelConfig)(nil)).Elem()
+}
+
+func (i EvaluatorBedrockEvaluatorModelConfigArgs) ToEvaluatorBedrockEvaluatorModelConfigOutput() EvaluatorBedrockEvaluatorModelConfigOutput {
+	return i.ToEvaluatorBedrockEvaluatorModelConfigOutputWithContext(context.Background())
+}
+
+func (i EvaluatorBedrockEvaluatorModelConfigArgs) ToEvaluatorBedrockEvaluatorModelConfigOutputWithContext(ctx context.Context) EvaluatorBedrockEvaluatorModelConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EvaluatorBedrockEvaluatorModelConfigOutput)
+}
+
+// The configuration for using Amazon Bedrock models in evaluator assessments.
+type EvaluatorBedrockEvaluatorModelConfigOutput struct{ *pulumi.OutputState }
+
+func (EvaluatorBedrockEvaluatorModelConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EvaluatorBedrockEvaluatorModelConfig)(nil)).Elem()
+}
+
+func (o EvaluatorBedrockEvaluatorModelConfigOutput) ToEvaluatorBedrockEvaluatorModelConfigOutput() EvaluatorBedrockEvaluatorModelConfigOutput {
+	return o
+}
+
+func (o EvaluatorBedrockEvaluatorModelConfigOutput) ToEvaluatorBedrockEvaluatorModelConfigOutputWithContext(ctx context.Context) EvaluatorBedrockEvaluatorModelConfigOutput {
+	return o
+}
+
+// Additional model-specific request fields.
+func (o EvaluatorBedrockEvaluatorModelConfigOutput) AdditionalModelRequestFields() pulumi.AnyOutput {
+	return o.ApplyT(func(v EvaluatorBedrockEvaluatorModelConfig) interface{} { return v.AdditionalModelRequestFields }).(pulumi.AnyOutput)
+}
+
+func (o EvaluatorBedrockEvaluatorModelConfigOutput) InferenceConfig() EvaluatorInferenceConfigurationPtrOutput {
+	return o.ApplyT(func(v EvaluatorBedrockEvaluatorModelConfig) *EvaluatorInferenceConfiguration {
+		return v.InferenceConfig
+	}).(EvaluatorInferenceConfigurationPtrOutput)
+}
+
+// The identifier of the Amazon Bedrock model to use for evaluation.
+func (o EvaluatorBedrockEvaluatorModelConfigOutput) ModelId() pulumi.StringOutput {
+	return o.ApplyT(func(v EvaluatorBedrockEvaluatorModelConfig) string { return v.ModelId }).(pulumi.StringOutput)
+}
+
+type EvaluatorBedrockEvaluatorModelConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (EvaluatorBedrockEvaluatorModelConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EvaluatorBedrockEvaluatorModelConfig)(nil)).Elem()
+}
+
+func (o EvaluatorBedrockEvaluatorModelConfigPtrOutput) ToEvaluatorBedrockEvaluatorModelConfigPtrOutput() EvaluatorBedrockEvaluatorModelConfigPtrOutput {
+	return o
+}
+
+func (o EvaluatorBedrockEvaluatorModelConfigPtrOutput) ToEvaluatorBedrockEvaluatorModelConfigPtrOutputWithContext(ctx context.Context) EvaluatorBedrockEvaluatorModelConfigPtrOutput {
+	return o
+}
+
+func (o EvaluatorBedrockEvaluatorModelConfigPtrOutput) Elem() EvaluatorBedrockEvaluatorModelConfigOutput {
+	return o.ApplyT(func(v *EvaluatorBedrockEvaluatorModelConfig) EvaluatorBedrockEvaluatorModelConfig {
+		if v != nil {
+			return *v
+		}
+		var ret EvaluatorBedrockEvaluatorModelConfig
+		return ret
+	}).(EvaluatorBedrockEvaluatorModelConfigOutput)
+}
+
+// Additional model-specific request fields.
+func (o EvaluatorBedrockEvaluatorModelConfigPtrOutput) AdditionalModelRequestFields() pulumi.AnyOutput {
+	return o.ApplyT(func(v *EvaluatorBedrockEvaluatorModelConfig) interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.AdditionalModelRequestFields
+	}).(pulumi.AnyOutput)
+}
+
+func (o EvaluatorBedrockEvaluatorModelConfigPtrOutput) InferenceConfig() EvaluatorInferenceConfigurationPtrOutput {
+	return o.ApplyT(func(v *EvaluatorBedrockEvaluatorModelConfig) *EvaluatorInferenceConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.InferenceConfig
+	}).(EvaluatorInferenceConfigurationPtrOutput)
+}
+
+// The identifier of the Amazon Bedrock model to use for evaluation.
+func (o EvaluatorBedrockEvaluatorModelConfigPtrOutput) ModelId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EvaluatorBedrockEvaluatorModelConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ModelId
+	}).(pulumi.StringPtrOutput)
+}
+
+// A categorical rating scale option.
+type EvaluatorCategoricalScaleDefinition struct {
+	// The description that explains what this categorical rating represents.
+	Definition string `pulumi:"definition"`
+	// The label of this categorical rating option.
+	Label string `pulumi:"label"`
+}
+
+// EvaluatorCategoricalScaleDefinitionInput is an input type that accepts EvaluatorCategoricalScaleDefinitionArgs and EvaluatorCategoricalScaleDefinitionOutput values.
+// You can construct a concrete instance of `EvaluatorCategoricalScaleDefinitionInput` via:
+//
+//	EvaluatorCategoricalScaleDefinitionArgs{...}
+type EvaluatorCategoricalScaleDefinitionInput interface {
+	pulumi.Input
+
+	ToEvaluatorCategoricalScaleDefinitionOutput() EvaluatorCategoricalScaleDefinitionOutput
+	ToEvaluatorCategoricalScaleDefinitionOutputWithContext(context.Context) EvaluatorCategoricalScaleDefinitionOutput
+}
+
+// A categorical rating scale option.
+type EvaluatorCategoricalScaleDefinitionArgs struct {
+	// The description that explains what this categorical rating represents.
+	Definition pulumi.StringInput `pulumi:"definition"`
+	// The label of this categorical rating option.
+	Label pulumi.StringInput `pulumi:"label"`
+}
+
+func (EvaluatorCategoricalScaleDefinitionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EvaluatorCategoricalScaleDefinition)(nil)).Elem()
+}
+
+func (i EvaluatorCategoricalScaleDefinitionArgs) ToEvaluatorCategoricalScaleDefinitionOutput() EvaluatorCategoricalScaleDefinitionOutput {
+	return i.ToEvaluatorCategoricalScaleDefinitionOutputWithContext(context.Background())
+}
+
+func (i EvaluatorCategoricalScaleDefinitionArgs) ToEvaluatorCategoricalScaleDefinitionOutputWithContext(ctx context.Context) EvaluatorCategoricalScaleDefinitionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EvaluatorCategoricalScaleDefinitionOutput)
+}
+
+// EvaluatorCategoricalScaleDefinitionArrayInput is an input type that accepts EvaluatorCategoricalScaleDefinitionArray and EvaluatorCategoricalScaleDefinitionArrayOutput values.
+// You can construct a concrete instance of `EvaluatorCategoricalScaleDefinitionArrayInput` via:
+//
+//	EvaluatorCategoricalScaleDefinitionArray{ EvaluatorCategoricalScaleDefinitionArgs{...} }
+type EvaluatorCategoricalScaleDefinitionArrayInput interface {
+	pulumi.Input
+
+	ToEvaluatorCategoricalScaleDefinitionArrayOutput() EvaluatorCategoricalScaleDefinitionArrayOutput
+	ToEvaluatorCategoricalScaleDefinitionArrayOutputWithContext(context.Context) EvaluatorCategoricalScaleDefinitionArrayOutput
+}
+
+type EvaluatorCategoricalScaleDefinitionArray []EvaluatorCategoricalScaleDefinitionInput
+
+func (EvaluatorCategoricalScaleDefinitionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EvaluatorCategoricalScaleDefinition)(nil)).Elem()
+}
+
+func (i EvaluatorCategoricalScaleDefinitionArray) ToEvaluatorCategoricalScaleDefinitionArrayOutput() EvaluatorCategoricalScaleDefinitionArrayOutput {
+	return i.ToEvaluatorCategoricalScaleDefinitionArrayOutputWithContext(context.Background())
+}
+
+func (i EvaluatorCategoricalScaleDefinitionArray) ToEvaluatorCategoricalScaleDefinitionArrayOutputWithContext(ctx context.Context) EvaluatorCategoricalScaleDefinitionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EvaluatorCategoricalScaleDefinitionArrayOutput)
+}
+
+// A categorical rating scale option.
+type EvaluatorCategoricalScaleDefinitionOutput struct{ *pulumi.OutputState }
+
+func (EvaluatorCategoricalScaleDefinitionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EvaluatorCategoricalScaleDefinition)(nil)).Elem()
+}
+
+func (o EvaluatorCategoricalScaleDefinitionOutput) ToEvaluatorCategoricalScaleDefinitionOutput() EvaluatorCategoricalScaleDefinitionOutput {
+	return o
+}
+
+func (o EvaluatorCategoricalScaleDefinitionOutput) ToEvaluatorCategoricalScaleDefinitionOutputWithContext(ctx context.Context) EvaluatorCategoricalScaleDefinitionOutput {
+	return o
+}
+
+// The description that explains what this categorical rating represents.
+func (o EvaluatorCategoricalScaleDefinitionOutput) Definition() pulumi.StringOutput {
+	return o.ApplyT(func(v EvaluatorCategoricalScaleDefinition) string { return v.Definition }).(pulumi.StringOutput)
+}
+
+// The label of this categorical rating option.
+func (o EvaluatorCategoricalScaleDefinitionOutput) Label() pulumi.StringOutput {
+	return o.ApplyT(func(v EvaluatorCategoricalScaleDefinition) string { return v.Label }).(pulumi.StringOutput)
+}
+
+type EvaluatorCategoricalScaleDefinitionArrayOutput struct{ *pulumi.OutputState }
+
+func (EvaluatorCategoricalScaleDefinitionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EvaluatorCategoricalScaleDefinition)(nil)).Elem()
+}
+
+func (o EvaluatorCategoricalScaleDefinitionArrayOutput) ToEvaluatorCategoricalScaleDefinitionArrayOutput() EvaluatorCategoricalScaleDefinitionArrayOutput {
+	return o
+}
+
+func (o EvaluatorCategoricalScaleDefinitionArrayOutput) ToEvaluatorCategoricalScaleDefinitionArrayOutputWithContext(ctx context.Context) EvaluatorCategoricalScaleDefinitionArrayOutput {
+	return o
+}
+
+func (o EvaluatorCategoricalScaleDefinitionArrayOutput) Index(i pulumi.IntInput) EvaluatorCategoricalScaleDefinitionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EvaluatorCategoricalScaleDefinition {
+		return vs[0].([]EvaluatorCategoricalScaleDefinition)[vs[1].(int)]
+	}).(EvaluatorCategoricalScaleDefinitionOutput)
+}
+
+// The configuration that defines how an evaluator assesses agent performance.
+type EvaluatorConfig struct {
+	LlmAsAJudge EvaluatorLlmAsAJudgeEvaluatorConfig `pulumi:"llmAsAJudge"`
+}
+
+// EvaluatorConfigInput is an input type that accepts EvaluatorConfigArgs and EvaluatorConfigOutput values.
+// You can construct a concrete instance of `EvaluatorConfigInput` via:
+//
+//	EvaluatorConfigArgs{...}
+type EvaluatorConfigInput interface {
+	pulumi.Input
+
+	ToEvaluatorConfigOutput() EvaluatorConfigOutput
+	ToEvaluatorConfigOutputWithContext(context.Context) EvaluatorConfigOutput
+}
+
+// The configuration that defines how an evaluator assesses agent performance.
+type EvaluatorConfigArgs struct {
+	LlmAsAJudge EvaluatorLlmAsAJudgeEvaluatorConfigInput `pulumi:"llmAsAJudge"`
+}
+
+func (EvaluatorConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EvaluatorConfig)(nil)).Elem()
+}
+
+func (i EvaluatorConfigArgs) ToEvaluatorConfigOutput() EvaluatorConfigOutput {
+	return i.ToEvaluatorConfigOutputWithContext(context.Background())
+}
+
+func (i EvaluatorConfigArgs) ToEvaluatorConfigOutputWithContext(ctx context.Context) EvaluatorConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EvaluatorConfigOutput)
+}
+
+// The configuration that defines how an evaluator assesses agent performance.
+type EvaluatorConfigOutput struct{ *pulumi.OutputState }
+
+func (EvaluatorConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EvaluatorConfig)(nil)).Elem()
+}
+
+func (o EvaluatorConfigOutput) ToEvaluatorConfigOutput() EvaluatorConfigOutput {
+	return o
+}
+
+func (o EvaluatorConfigOutput) ToEvaluatorConfigOutputWithContext(ctx context.Context) EvaluatorConfigOutput {
+	return o
+}
+
+func (o EvaluatorConfigOutput) LlmAsAJudge() EvaluatorLlmAsAJudgeEvaluatorConfigOutput {
+	return o.ApplyT(func(v EvaluatorConfig) EvaluatorLlmAsAJudgeEvaluatorConfig { return v.LlmAsAJudge }).(EvaluatorLlmAsAJudgeEvaluatorConfigOutput)
+}
+
+type EvaluatorConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (EvaluatorConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EvaluatorConfig)(nil)).Elem()
+}
+
+func (o EvaluatorConfigPtrOutput) ToEvaluatorConfigPtrOutput() EvaluatorConfigPtrOutput {
+	return o
+}
+
+func (o EvaluatorConfigPtrOutput) ToEvaluatorConfigPtrOutputWithContext(ctx context.Context) EvaluatorConfigPtrOutput {
+	return o
+}
+
+func (o EvaluatorConfigPtrOutput) Elem() EvaluatorConfigOutput {
+	return o.ApplyT(func(v *EvaluatorConfig) EvaluatorConfig {
+		if v != nil {
+			return *v
+		}
+		var ret EvaluatorConfig
+		return ret
+	}).(EvaluatorConfigOutput)
+}
+
+func (o EvaluatorConfigPtrOutput) LlmAsAJudge() EvaluatorLlmAsAJudgeEvaluatorConfigPtrOutput {
+	return o.ApplyT(func(v *EvaluatorConfig) *EvaluatorLlmAsAJudgeEvaluatorConfig {
+		if v == nil {
+			return nil
+		}
+		return &v.LlmAsAJudge
+	}).(EvaluatorLlmAsAJudgeEvaluatorConfigPtrOutput)
+}
+
+// The inference configuration parameters that control model behavior during evaluation.
+type EvaluatorInferenceConfiguration struct {
+	// The maximum number of tokens to generate in the model response.
+	MaxTokens *int `pulumi:"maxTokens"`
+	// The temperature value that controls randomness in the model's responses.
+	Temperature *float64 `pulumi:"temperature"`
+	// The top-p sampling parameter that controls the diversity of the model's responses.
+	TopP *float64 `pulumi:"topP"`
+}
+
+// EvaluatorInferenceConfigurationInput is an input type that accepts EvaluatorInferenceConfigurationArgs and EvaluatorInferenceConfigurationOutput values.
+// You can construct a concrete instance of `EvaluatorInferenceConfigurationInput` via:
+//
+//	EvaluatorInferenceConfigurationArgs{...}
+type EvaluatorInferenceConfigurationInput interface {
+	pulumi.Input
+
+	ToEvaluatorInferenceConfigurationOutput() EvaluatorInferenceConfigurationOutput
+	ToEvaluatorInferenceConfigurationOutputWithContext(context.Context) EvaluatorInferenceConfigurationOutput
+}
+
+// The inference configuration parameters that control model behavior during evaluation.
+type EvaluatorInferenceConfigurationArgs struct {
+	// The maximum number of tokens to generate in the model response.
+	MaxTokens pulumi.IntPtrInput `pulumi:"maxTokens"`
+	// The temperature value that controls randomness in the model's responses.
+	Temperature pulumi.Float64PtrInput `pulumi:"temperature"`
+	// The top-p sampling parameter that controls the diversity of the model's responses.
+	TopP pulumi.Float64PtrInput `pulumi:"topP"`
+}
+
+func (EvaluatorInferenceConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EvaluatorInferenceConfiguration)(nil)).Elem()
+}
+
+func (i EvaluatorInferenceConfigurationArgs) ToEvaluatorInferenceConfigurationOutput() EvaluatorInferenceConfigurationOutput {
+	return i.ToEvaluatorInferenceConfigurationOutputWithContext(context.Background())
+}
+
+func (i EvaluatorInferenceConfigurationArgs) ToEvaluatorInferenceConfigurationOutputWithContext(ctx context.Context) EvaluatorInferenceConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EvaluatorInferenceConfigurationOutput)
+}
+
+func (i EvaluatorInferenceConfigurationArgs) ToEvaluatorInferenceConfigurationPtrOutput() EvaluatorInferenceConfigurationPtrOutput {
+	return i.ToEvaluatorInferenceConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i EvaluatorInferenceConfigurationArgs) ToEvaluatorInferenceConfigurationPtrOutputWithContext(ctx context.Context) EvaluatorInferenceConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EvaluatorInferenceConfigurationOutput).ToEvaluatorInferenceConfigurationPtrOutputWithContext(ctx)
+}
+
+// EvaluatorInferenceConfigurationPtrInput is an input type that accepts EvaluatorInferenceConfigurationArgs, EvaluatorInferenceConfigurationPtr and EvaluatorInferenceConfigurationPtrOutput values.
+// You can construct a concrete instance of `EvaluatorInferenceConfigurationPtrInput` via:
+//
+//	        EvaluatorInferenceConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type EvaluatorInferenceConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToEvaluatorInferenceConfigurationPtrOutput() EvaluatorInferenceConfigurationPtrOutput
+	ToEvaluatorInferenceConfigurationPtrOutputWithContext(context.Context) EvaluatorInferenceConfigurationPtrOutput
+}
+
+type evaluatorInferenceConfigurationPtrType EvaluatorInferenceConfigurationArgs
+
+func EvaluatorInferenceConfigurationPtr(v *EvaluatorInferenceConfigurationArgs) EvaluatorInferenceConfigurationPtrInput {
+	return (*evaluatorInferenceConfigurationPtrType)(v)
+}
+
+func (*evaluatorInferenceConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EvaluatorInferenceConfiguration)(nil)).Elem()
+}
+
+func (i *evaluatorInferenceConfigurationPtrType) ToEvaluatorInferenceConfigurationPtrOutput() EvaluatorInferenceConfigurationPtrOutput {
+	return i.ToEvaluatorInferenceConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *evaluatorInferenceConfigurationPtrType) ToEvaluatorInferenceConfigurationPtrOutputWithContext(ctx context.Context) EvaluatorInferenceConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EvaluatorInferenceConfigurationPtrOutput)
+}
+
+// The inference configuration parameters that control model behavior during evaluation.
+type EvaluatorInferenceConfigurationOutput struct{ *pulumi.OutputState }
+
+func (EvaluatorInferenceConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EvaluatorInferenceConfiguration)(nil)).Elem()
+}
+
+func (o EvaluatorInferenceConfigurationOutput) ToEvaluatorInferenceConfigurationOutput() EvaluatorInferenceConfigurationOutput {
+	return o
+}
+
+func (o EvaluatorInferenceConfigurationOutput) ToEvaluatorInferenceConfigurationOutputWithContext(ctx context.Context) EvaluatorInferenceConfigurationOutput {
+	return o
+}
+
+func (o EvaluatorInferenceConfigurationOutput) ToEvaluatorInferenceConfigurationPtrOutput() EvaluatorInferenceConfigurationPtrOutput {
+	return o.ToEvaluatorInferenceConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o EvaluatorInferenceConfigurationOutput) ToEvaluatorInferenceConfigurationPtrOutputWithContext(ctx context.Context) EvaluatorInferenceConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EvaluatorInferenceConfiguration) *EvaluatorInferenceConfiguration {
+		return &v
+	}).(EvaluatorInferenceConfigurationPtrOutput)
+}
+
+// The maximum number of tokens to generate in the model response.
+func (o EvaluatorInferenceConfigurationOutput) MaxTokens() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v EvaluatorInferenceConfiguration) *int { return v.MaxTokens }).(pulumi.IntPtrOutput)
+}
+
+// The temperature value that controls randomness in the model's responses.
+func (o EvaluatorInferenceConfigurationOutput) Temperature() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v EvaluatorInferenceConfiguration) *float64 { return v.Temperature }).(pulumi.Float64PtrOutput)
+}
+
+// The top-p sampling parameter that controls the diversity of the model's responses.
+func (o EvaluatorInferenceConfigurationOutput) TopP() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v EvaluatorInferenceConfiguration) *float64 { return v.TopP }).(pulumi.Float64PtrOutput)
+}
+
+type EvaluatorInferenceConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (EvaluatorInferenceConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EvaluatorInferenceConfiguration)(nil)).Elem()
+}
+
+func (o EvaluatorInferenceConfigurationPtrOutput) ToEvaluatorInferenceConfigurationPtrOutput() EvaluatorInferenceConfigurationPtrOutput {
+	return o
+}
+
+func (o EvaluatorInferenceConfigurationPtrOutput) ToEvaluatorInferenceConfigurationPtrOutputWithContext(ctx context.Context) EvaluatorInferenceConfigurationPtrOutput {
+	return o
+}
+
+func (o EvaluatorInferenceConfigurationPtrOutput) Elem() EvaluatorInferenceConfigurationOutput {
+	return o.ApplyT(func(v *EvaluatorInferenceConfiguration) EvaluatorInferenceConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret EvaluatorInferenceConfiguration
+		return ret
+	}).(EvaluatorInferenceConfigurationOutput)
+}
+
+// The maximum number of tokens to generate in the model response.
+func (o EvaluatorInferenceConfigurationPtrOutput) MaxTokens() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EvaluatorInferenceConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxTokens
+	}).(pulumi.IntPtrOutput)
+}
+
+// The temperature value that controls randomness in the model's responses.
+func (o EvaluatorInferenceConfigurationPtrOutput) Temperature() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *EvaluatorInferenceConfiguration) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.Temperature
+	}).(pulumi.Float64PtrOutput)
+}
+
+// The top-p sampling parameter that controls the diversity of the model's responses.
+func (o EvaluatorInferenceConfigurationPtrOutput) TopP() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *EvaluatorInferenceConfiguration) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.TopP
+	}).(pulumi.Float64PtrOutput)
+}
+
+// The configuration for LLM-as-a-Judge evaluation.
+type EvaluatorLlmAsAJudgeEvaluatorConfig struct {
+	// The evaluation instructions that guide the language model in assessing agent performance.
+	Instructions string               `pulumi:"instructions"`
+	ModelConfig  EvaluatorModelConfig `pulumi:"modelConfig"`
+	RatingScale  EvaluatorRatingScale `pulumi:"ratingScale"`
+}
+
+// EvaluatorLlmAsAJudgeEvaluatorConfigInput is an input type that accepts EvaluatorLlmAsAJudgeEvaluatorConfigArgs and EvaluatorLlmAsAJudgeEvaluatorConfigOutput values.
+// You can construct a concrete instance of `EvaluatorLlmAsAJudgeEvaluatorConfigInput` via:
+//
+//	EvaluatorLlmAsAJudgeEvaluatorConfigArgs{...}
+type EvaluatorLlmAsAJudgeEvaluatorConfigInput interface {
+	pulumi.Input
+
+	ToEvaluatorLlmAsAJudgeEvaluatorConfigOutput() EvaluatorLlmAsAJudgeEvaluatorConfigOutput
+	ToEvaluatorLlmAsAJudgeEvaluatorConfigOutputWithContext(context.Context) EvaluatorLlmAsAJudgeEvaluatorConfigOutput
+}
+
+// The configuration for LLM-as-a-Judge evaluation.
+type EvaluatorLlmAsAJudgeEvaluatorConfigArgs struct {
+	// The evaluation instructions that guide the language model in assessing agent performance.
+	Instructions pulumi.StringInput        `pulumi:"instructions"`
+	ModelConfig  EvaluatorModelConfigInput `pulumi:"modelConfig"`
+	RatingScale  EvaluatorRatingScaleInput `pulumi:"ratingScale"`
+}
+
+func (EvaluatorLlmAsAJudgeEvaluatorConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EvaluatorLlmAsAJudgeEvaluatorConfig)(nil)).Elem()
+}
+
+func (i EvaluatorLlmAsAJudgeEvaluatorConfigArgs) ToEvaluatorLlmAsAJudgeEvaluatorConfigOutput() EvaluatorLlmAsAJudgeEvaluatorConfigOutput {
+	return i.ToEvaluatorLlmAsAJudgeEvaluatorConfigOutputWithContext(context.Background())
+}
+
+func (i EvaluatorLlmAsAJudgeEvaluatorConfigArgs) ToEvaluatorLlmAsAJudgeEvaluatorConfigOutputWithContext(ctx context.Context) EvaluatorLlmAsAJudgeEvaluatorConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EvaluatorLlmAsAJudgeEvaluatorConfigOutput)
+}
+
+// The configuration for LLM-as-a-Judge evaluation.
+type EvaluatorLlmAsAJudgeEvaluatorConfigOutput struct{ *pulumi.OutputState }
+
+func (EvaluatorLlmAsAJudgeEvaluatorConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EvaluatorLlmAsAJudgeEvaluatorConfig)(nil)).Elem()
+}
+
+func (o EvaluatorLlmAsAJudgeEvaluatorConfigOutput) ToEvaluatorLlmAsAJudgeEvaluatorConfigOutput() EvaluatorLlmAsAJudgeEvaluatorConfigOutput {
+	return o
+}
+
+func (o EvaluatorLlmAsAJudgeEvaluatorConfigOutput) ToEvaluatorLlmAsAJudgeEvaluatorConfigOutputWithContext(ctx context.Context) EvaluatorLlmAsAJudgeEvaluatorConfigOutput {
+	return o
+}
+
+// The evaluation instructions that guide the language model in assessing agent performance.
+func (o EvaluatorLlmAsAJudgeEvaluatorConfigOutput) Instructions() pulumi.StringOutput {
+	return o.ApplyT(func(v EvaluatorLlmAsAJudgeEvaluatorConfig) string { return v.Instructions }).(pulumi.StringOutput)
+}
+
+func (o EvaluatorLlmAsAJudgeEvaluatorConfigOutput) ModelConfig() EvaluatorModelConfigOutput {
+	return o.ApplyT(func(v EvaluatorLlmAsAJudgeEvaluatorConfig) EvaluatorModelConfig { return v.ModelConfig }).(EvaluatorModelConfigOutput)
+}
+
+func (o EvaluatorLlmAsAJudgeEvaluatorConfigOutput) RatingScale() EvaluatorRatingScaleOutput {
+	return o.ApplyT(func(v EvaluatorLlmAsAJudgeEvaluatorConfig) EvaluatorRatingScale { return v.RatingScale }).(EvaluatorRatingScaleOutput)
+}
+
+type EvaluatorLlmAsAJudgeEvaluatorConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (EvaluatorLlmAsAJudgeEvaluatorConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EvaluatorLlmAsAJudgeEvaluatorConfig)(nil)).Elem()
+}
+
+func (o EvaluatorLlmAsAJudgeEvaluatorConfigPtrOutput) ToEvaluatorLlmAsAJudgeEvaluatorConfigPtrOutput() EvaluatorLlmAsAJudgeEvaluatorConfigPtrOutput {
+	return o
+}
+
+func (o EvaluatorLlmAsAJudgeEvaluatorConfigPtrOutput) ToEvaluatorLlmAsAJudgeEvaluatorConfigPtrOutputWithContext(ctx context.Context) EvaluatorLlmAsAJudgeEvaluatorConfigPtrOutput {
+	return o
+}
+
+func (o EvaluatorLlmAsAJudgeEvaluatorConfigPtrOutput) Elem() EvaluatorLlmAsAJudgeEvaluatorConfigOutput {
+	return o.ApplyT(func(v *EvaluatorLlmAsAJudgeEvaluatorConfig) EvaluatorLlmAsAJudgeEvaluatorConfig {
+		if v != nil {
+			return *v
+		}
+		var ret EvaluatorLlmAsAJudgeEvaluatorConfig
+		return ret
+	}).(EvaluatorLlmAsAJudgeEvaluatorConfigOutput)
+}
+
+// The evaluation instructions that guide the language model in assessing agent performance.
+func (o EvaluatorLlmAsAJudgeEvaluatorConfigPtrOutput) Instructions() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EvaluatorLlmAsAJudgeEvaluatorConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Instructions
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o EvaluatorLlmAsAJudgeEvaluatorConfigPtrOutput) ModelConfig() EvaluatorModelConfigPtrOutput {
+	return o.ApplyT(func(v *EvaluatorLlmAsAJudgeEvaluatorConfig) *EvaluatorModelConfig {
+		if v == nil {
+			return nil
+		}
+		return &v.ModelConfig
+	}).(EvaluatorModelConfigPtrOutput)
+}
+
+func (o EvaluatorLlmAsAJudgeEvaluatorConfigPtrOutput) RatingScale() EvaluatorRatingScalePtrOutput {
+	return o.ApplyT(func(v *EvaluatorLlmAsAJudgeEvaluatorConfig) *EvaluatorRatingScale {
+		if v == nil {
+			return nil
+		}
+		return &v.RatingScale
+	}).(EvaluatorRatingScalePtrOutput)
+}
+
+// The model configuration that specifies which foundation model to use for evaluation.
+type EvaluatorModelConfig struct {
+	BedrockEvaluatorModelConfig EvaluatorBedrockEvaluatorModelConfig `pulumi:"bedrockEvaluatorModelConfig"`
+}
+
+// EvaluatorModelConfigInput is an input type that accepts EvaluatorModelConfigArgs and EvaluatorModelConfigOutput values.
+// You can construct a concrete instance of `EvaluatorModelConfigInput` via:
+//
+//	EvaluatorModelConfigArgs{...}
+type EvaluatorModelConfigInput interface {
+	pulumi.Input
+
+	ToEvaluatorModelConfigOutput() EvaluatorModelConfigOutput
+	ToEvaluatorModelConfigOutputWithContext(context.Context) EvaluatorModelConfigOutput
+}
+
+// The model configuration that specifies which foundation model to use for evaluation.
+type EvaluatorModelConfigArgs struct {
+	BedrockEvaluatorModelConfig EvaluatorBedrockEvaluatorModelConfigInput `pulumi:"bedrockEvaluatorModelConfig"`
+}
+
+func (EvaluatorModelConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EvaluatorModelConfig)(nil)).Elem()
+}
+
+func (i EvaluatorModelConfigArgs) ToEvaluatorModelConfigOutput() EvaluatorModelConfigOutput {
+	return i.ToEvaluatorModelConfigOutputWithContext(context.Background())
+}
+
+func (i EvaluatorModelConfigArgs) ToEvaluatorModelConfigOutputWithContext(ctx context.Context) EvaluatorModelConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EvaluatorModelConfigOutput)
+}
+
+// The model configuration that specifies which foundation model to use for evaluation.
+type EvaluatorModelConfigOutput struct{ *pulumi.OutputState }
+
+func (EvaluatorModelConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EvaluatorModelConfig)(nil)).Elem()
+}
+
+func (o EvaluatorModelConfigOutput) ToEvaluatorModelConfigOutput() EvaluatorModelConfigOutput {
+	return o
+}
+
+func (o EvaluatorModelConfigOutput) ToEvaluatorModelConfigOutputWithContext(ctx context.Context) EvaluatorModelConfigOutput {
+	return o
+}
+
+func (o EvaluatorModelConfigOutput) BedrockEvaluatorModelConfig() EvaluatorBedrockEvaluatorModelConfigOutput {
+	return o.ApplyT(func(v EvaluatorModelConfig) EvaluatorBedrockEvaluatorModelConfig {
+		return v.BedrockEvaluatorModelConfig
+	}).(EvaluatorBedrockEvaluatorModelConfigOutput)
+}
+
+type EvaluatorModelConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (EvaluatorModelConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EvaluatorModelConfig)(nil)).Elem()
+}
+
+func (o EvaluatorModelConfigPtrOutput) ToEvaluatorModelConfigPtrOutput() EvaluatorModelConfigPtrOutput {
+	return o
+}
+
+func (o EvaluatorModelConfigPtrOutput) ToEvaluatorModelConfigPtrOutputWithContext(ctx context.Context) EvaluatorModelConfigPtrOutput {
+	return o
+}
+
+func (o EvaluatorModelConfigPtrOutput) Elem() EvaluatorModelConfigOutput {
+	return o.ApplyT(func(v *EvaluatorModelConfig) EvaluatorModelConfig {
+		if v != nil {
+			return *v
+		}
+		var ret EvaluatorModelConfig
+		return ret
+	}).(EvaluatorModelConfigOutput)
+}
+
+func (o EvaluatorModelConfigPtrOutput) BedrockEvaluatorModelConfig() EvaluatorBedrockEvaluatorModelConfigPtrOutput {
+	return o.ApplyT(func(v *EvaluatorModelConfig) *EvaluatorBedrockEvaluatorModelConfig {
+		if v == nil {
+			return nil
+		}
+		return &v.BedrockEvaluatorModelConfig
+	}).(EvaluatorBedrockEvaluatorModelConfigPtrOutput)
+}
+
+// A numerical rating scale option.
+type EvaluatorNumericalScaleDefinition struct {
+	// The description that explains what this numerical rating represents.
+	Definition string `pulumi:"definition"`
+	// The label that describes this numerical rating option.
+	Label string `pulumi:"label"`
+	// The numerical value for this rating scale option.
+	Value float64 `pulumi:"value"`
+}
+
+// EvaluatorNumericalScaleDefinitionInput is an input type that accepts EvaluatorNumericalScaleDefinitionArgs and EvaluatorNumericalScaleDefinitionOutput values.
+// You can construct a concrete instance of `EvaluatorNumericalScaleDefinitionInput` via:
+//
+//	EvaluatorNumericalScaleDefinitionArgs{...}
+type EvaluatorNumericalScaleDefinitionInput interface {
+	pulumi.Input
+
+	ToEvaluatorNumericalScaleDefinitionOutput() EvaluatorNumericalScaleDefinitionOutput
+	ToEvaluatorNumericalScaleDefinitionOutputWithContext(context.Context) EvaluatorNumericalScaleDefinitionOutput
+}
+
+// A numerical rating scale option.
+type EvaluatorNumericalScaleDefinitionArgs struct {
+	// The description that explains what this numerical rating represents.
+	Definition pulumi.StringInput `pulumi:"definition"`
+	// The label that describes this numerical rating option.
+	Label pulumi.StringInput `pulumi:"label"`
+	// The numerical value for this rating scale option.
+	Value pulumi.Float64Input `pulumi:"value"`
+}
+
+func (EvaluatorNumericalScaleDefinitionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EvaluatorNumericalScaleDefinition)(nil)).Elem()
+}
+
+func (i EvaluatorNumericalScaleDefinitionArgs) ToEvaluatorNumericalScaleDefinitionOutput() EvaluatorNumericalScaleDefinitionOutput {
+	return i.ToEvaluatorNumericalScaleDefinitionOutputWithContext(context.Background())
+}
+
+func (i EvaluatorNumericalScaleDefinitionArgs) ToEvaluatorNumericalScaleDefinitionOutputWithContext(ctx context.Context) EvaluatorNumericalScaleDefinitionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EvaluatorNumericalScaleDefinitionOutput)
+}
+
+// EvaluatorNumericalScaleDefinitionArrayInput is an input type that accepts EvaluatorNumericalScaleDefinitionArray and EvaluatorNumericalScaleDefinitionArrayOutput values.
+// You can construct a concrete instance of `EvaluatorNumericalScaleDefinitionArrayInput` via:
+//
+//	EvaluatorNumericalScaleDefinitionArray{ EvaluatorNumericalScaleDefinitionArgs{...} }
+type EvaluatorNumericalScaleDefinitionArrayInput interface {
+	pulumi.Input
+
+	ToEvaluatorNumericalScaleDefinitionArrayOutput() EvaluatorNumericalScaleDefinitionArrayOutput
+	ToEvaluatorNumericalScaleDefinitionArrayOutputWithContext(context.Context) EvaluatorNumericalScaleDefinitionArrayOutput
+}
+
+type EvaluatorNumericalScaleDefinitionArray []EvaluatorNumericalScaleDefinitionInput
+
+func (EvaluatorNumericalScaleDefinitionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EvaluatorNumericalScaleDefinition)(nil)).Elem()
+}
+
+func (i EvaluatorNumericalScaleDefinitionArray) ToEvaluatorNumericalScaleDefinitionArrayOutput() EvaluatorNumericalScaleDefinitionArrayOutput {
+	return i.ToEvaluatorNumericalScaleDefinitionArrayOutputWithContext(context.Background())
+}
+
+func (i EvaluatorNumericalScaleDefinitionArray) ToEvaluatorNumericalScaleDefinitionArrayOutputWithContext(ctx context.Context) EvaluatorNumericalScaleDefinitionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EvaluatorNumericalScaleDefinitionArrayOutput)
+}
+
+// A numerical rating scale option.
+type EvaluatorNumericalScaleDefinitionOutput struct{ *pulumi.OutputState }
+
+func (EvaluatorNumericalScaleDefinitionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EvaluatorNumericalScaleDefinition)(nil)).Elem()
+}
+
+func (o EvaluatorNumericalScaleDefinitionOutput) ToEvaluatorNumericalScaleDefinitionOutput() EvaluatorNumericalScaleDefinitionOutput {
+	return o
+}
+
+func (o EvaluatorNumericalScaleDefinitionOutput) ToEvaluatorNumericalScaleDefinitionOutputWithContext(ctx context.Context) EvaluatorNumericalScaleDefinitionOutput {
+	return o
+}
+
+// The description that explains what this numerical rating represents.
+func (o EvaluatorNumericalScaleDefinitionOutput) Definition() pulumi.StringOutput {
+	return o.ApplyT(func(v EvaluatorNumericalScaleDefinition) string { return v.Definition }).(pulumi.StringOutput)
+}
+
+// The label that describes this numerical rating option.
+func (o EvaluatorNumericalScaleDefinitionOutput) Label() pulumi.StringOutput {
+	return o.ApplyT(func(v EvaluatorNumericalScaleDefinition) string { return v.Label }).(pulumi.StringOutput)
+}
+
+// The numerical value for this rating scale option.
+func (o EvaluatorNumericalScaleDefinitionOutput) Value() pulumi.Float64Output {
+	return o.ApplyT(func(v EvaluatorNumericalScaleDefinition) float64 { return v.Value }).(pulumi.Float64Output)
+}
+
+type EvaluatorNumericalScaleDefinitionArrayOutput struct{ *pulumi.OutputState }
+
+func (EvaluatorNumericalScaleDefinitionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EvaluatorNumericalScaleDefinition)(nil)).Elem()
+}
+
+func (o EvaluatorNumericalScaleDefinitionArrayOutput) ToEvaluatorNumericalScaleDefinitionArrayOutput() EvaluatorNumericalScaleDefinitionArrayOutput {
+	return o
+}
+
+func (o EvaluatorNumericalScaleDefinitionArrayOutput) ToEvaluatorNumericalScaleDefinitionArrayOutputWithContext(ctx context.Context) EvaluatorNumericalScaleDefinitionArrayOutput {
+	return o
+}
+
+func (o EvaluatorNumericalScaleDefinitionArrayOutput) Index(i pulumi.IntInput) EvaluatorNumericalScaleDefinitionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EvaluatorNumericalScaleDefinition {
+		return vs[0].([]EvaluatorNumericalScaleDefinition)[vs[1].(int)]
+	}).(EvaluatorNumericalScaleDefinitionOutput)
+}
+
+// The rating scale that defines how evaluators should score agent performance.
+type EvaluatorRatingScale struct {
+	Categorical []EvaluatorCategoricalScaleDefinition `pulumi:"categorical"`
+	Numerical   []EvaluatorNumericalScaleDefinition   `pulumi:"numerical"`
+}
+
+// EvaluatorRatingScaleInput is an input type that accepts EvaluatorRatingScaleArgs and EvaluatorRatingScaleOutput values.
+// You can construct a concrete instance of `EvaluatorRatingScaleInput` via:
+//
+//	EvaluatorRatingScaleArgs{...}
+type EvaluatorRatingScaleInput interface {
+	pulumi.Input
+
+	ToEvaluatorRatingScaleOutput() EvaluatorRatingScaleOutput
+	ToEvaluatorRatingScaleOutputWithContext(context.Context) EvaluatorRatingScaleOutput
+}
+
+// The rating scale that defines how evaluators should score agent performance.
+type EvaluatorRatingScaleArgs struct {
+	Categorical EvaluatorCategoricalScaleDefinitionArrayInput `pulumi:"categorical"`
+	Numerical   EvaluatorNumericalScaleDefinitionArrayInput   `pulumi:"numerical"`
+}
+
+func (EvaluatorRatingScaleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EvaluatorRatingScale)(nil)).Elem()
+}
+
+func (i EvaluatorRatingScaleArgs) ToEvaluatorRatingScaleOutput() EvaluatorRatingScaleOutput {
+	return i.ToEvaluatorRatingScaleOutputWithContext(context.Background())
+}
+
+func (i EvaluatorRatingScaleArgs) ToEvaluatorRatingScaleOutputWithContext(ctx context.Context) EvaluatorRatingScaleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EvaluatorRatingScaleOutput)
+}
+
+// The rating scale that defines how evaluators should score agent performance.
+type EvaluatorRatingScaleOutput struct{ *pulumi.OutputState }
+
+func (EvaluatorRatingScaleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EvaluatorRatingScale)(nil)).Elem()
+}
+
+func (o EvaluatorRatingScaleOutput) ToEvaluatorRatingScaleOutput() EvaluatorRatingScaleOutput {
+	return o
+}
+
+func (o EvaluatorRatingScaleOutput) ToEvaluatorRatingScaleOutputWithContext(ctx context.Context) EvaluatorRatingScaleOutput {
+	return o
+}
+
+func (o EvaluatorRatingScaleOutput) Categorical() EvaluatorCategoricalScaleDefinitionArrayOutput {
+	return o.ApplyT(func(v EvaluatorRatingScale) []EvaluatorCategoricalScaleDefinition { return v.Categorical }).(EvaluatorCategoricalScaleDefinitionArrayOutput)
+}
+
+func (o EvaluatorRatingScaleOutput) Numerical() EvaluatorNumericalScaleDefinitionArrayOutput {
+	return o.ApplyT(func(v EvaluatorRatingScale) []EvaluatorNumericalScaleDefinition { return v.Numerical }).(EvaluatorNumericalScaleDefinitionArrayOutput)
+}
+
+type EvaluatorRatingScalePtrOutput struct{ *pulumi.OutputState }
+
+func (EvaluatorRatingScalePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EvaluatorRatingScale)(nil)).Elem()
+}
+
+func (o EvaluatorRatingScalePtrOutput) ToEvaluatorRatingScalePtrOutput() EvaluatorRatingScalePtrOutput {
+	return o
+}
+
+func (o EvaluatorRatingScalePtrOutput) ToEvaluatorRatingScalePtrOutputWithContext(ctx context.Context) EvaluatorRatingScalePtrOutput {
+	return o
+}
+
+func (o EvaluatorRatingScalePtrOutput) Elem() EvaluatorRatingScaleOutput {
+	return o.ApplyT(func(v *EvaluatorRatingScale) EvaluatorRatingScale {
+		if v != nil {
+			return *v
+		}
+		var ret EvaluatorRatingScale
+		return ret
+	}).(EvaluatorRatingScaleOutput)
+}
+
+func (o EvaluatorRatingScalePtrOutput) Categorical() EvaluatorCategoricalScaleDefinitionArrayOutput {
+	return o.ApplyT(func(v *EvaluatorRatingScale) []EvaluatorCategoricalScaleDefinition {
+		if v == nil {
+			return nil
+		}
+		return v.Categorical
+	}).(EvaluatorCategoricalScaleDefinitionArrayOutput)
+}
+
+func (o EvaluatorRatingScalePtrOutput) Numerical() EvaluatorNumericalScaleDefinitionArrayOutput {
+	return o.ApplyT(func(v *EvaluatorRatingScale) []EvaluatorNumericalScaleDefinition {
+		if v == nil {
+			return nil
+		}
+		return v.Numerical
+	}).(EvaluatorNumericalScaleDefinitionArrayOutput)
+}
+
+type EvaluatorTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
 type GatewayAuthorizerConfiguration0Properties struct {
 	CustomJwtAuthorizer GatewayCustomJwtAuthorizerConfiguration `pulumi:"customJwtAuthorizer"`
 }
@@ -9350,6 +10276,961 @@ func (o MemoryUserPreferenceOverrideExtractionConfigurationInputPtrOutput) Model
 	}).(pulumi.StringPtrOutput)
 }
 
+// The configuration for reading agent traces from CloudWatch logs.
+type OnlineEvaluationConfigCloudWatchLogsInputConfig struct {
+	// The list of CloudWatch log group names to monitor for agent traces.
+	LogGroupNames []string `pulumi:"logGroupNames"`
+	// The list of service names to filter traces within the specified log groups.
+	ServiceNames []string `pulumi:"serviceNames"`
+}
+
+// OnlineEvaluationConfigCloudWatchLogsInputConfigInput is an input type that accepts OnlineEvaluationConfigCloudWatchLogsInputConfigArgs and OnlineEvaluationConfigCloudWatchLogsInputConfigOutput values.
+// You can construct a concrete instance of `OnlineEvaluationConfigCloudWatchLogsInputConfigInput` via:
+//
+//	OnlineEvaluationConfigCloudWatchLogsInputConfigArgs{...}
+type OnlineEvaluationConfigCloudWatchLogsInputConfigInput interface {
+	pulumi.Input
+
+	ToOnlineEvaluationConfigCloudWatchLogsInputConfigOutput() OnlineEvaluationConfigCloudWatchLogsInputConfigOutput
+	ToOnlineEvaluationConfigCloudWatchLogsInputConfigOutputWithContext(context.Context) OnlineEvaluationConfigCloudWatchLogsInputConfigOutput
+}
+
+// The configuration for reading agent traces from CloudWatch logs.
+type OnlineEvaluationConfigCloudWatchLogsInputConfigArgs struct {
+	// The list of CloudWatch log group names to monitor for agent traces.
+	LogGroupNames pulumi.StringArrayInput `pulumi:"logGroupNames"`
+	// The list of service names to filter traces within the specified log groups.
+	ServiceNames pulumi.StringArrayInput `pulumi:"serviceNames"`
+}
+
+func (OnlineEvaluationConfigCloudWatchLogsInputConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OnlineEvaluationConfigCloudWatchLogsInputConfig)(nil)).Elem()
+}
+
+func (i OnlineEvaluationConfigCloudWatchLogsInputConfigArgs) ToOnlineEvaluationConfigCloudWatchLogsInputConfigOutput() OnlineEvaluationConfigCloudWatchLogsInputConfigOutput {
+	return i.ToOnlineEvaluationConfigCloudWatchLogsInputConfigOutputWithContext(context.Background())
+}
+
+func (i OnlineEvaluationConfigCloudWatchLogsInputConfigArgs) ToOnlineEvaluationConfigCloudWatchLogsInputConfigOutputWithContext(ctx context.Context) OnlineEvaluationConfigCloudWatchLogsInputConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OnlineEvaluationConfigCloudWatchLogsInputConfigOutput)
+}
+
+// The configuration for reading agent traces from CloudWatch logs.
+type OnlineEvaluationConfigCloudWatchLogsInputConfigOutput struct{ *pulumi.OutputState }
+
+func (OnlineEvaluationConfigCloudWatchLogsInputConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OnlineEvaluationConfigCloudWatchLogsInputConfig)(nil)).Elem()
+}
+
+func (o OnlineEvaluationConfigCloudWatchLogsInputConfigOutput) ToOnlineEvaluationConfigCloudWatchLogsInputConfigOutput() OnlineEvaluationConfigCloudWatchLogsInputConfigOutput {
+	return o
+}
+
+func (o OnlineEvaluationConfigCloudWatchLogsInputConfigOutput) ToOnlineEvaluationConfigCloudWatchLogsInputConfigOutputWithContext(ctx context.Context) OnlineEvaluationConfigCloudWatchLogsInputConfigOutput {
+	return o
+}
+
+// The list of CloudWatch log group names to monitor for agent traces.
+func (o OnlineEvaluationConfigCloudWatchLogsInputConfigOutput) LogGroupNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v OnlineEvaluationConfigCloudWatchLogsInputConfig) []string { return v.LogGroupNames }).(pulumi.StringArrayOutput)
+}
+
+// The list of service names to filter traces within the specified log groups.
+func (o OnlineEvaluationConfigCloudWatchLogsInputConfigOutput) ServiceNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v OnlineEvaluationConfigCloudWatchLogsInputConfig) []string { return v.ServiceNames }).(pulumi.StringArrayOutput)
+}
+
+type OnlineEvaluationConfigCloudWatchLogsInputConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (OnlineEvaluationConfigCloudWatchLogsInputConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OnlineEvaluationConfigCloudWatchLogsInputConfig)(nil)).Elem()
+}
+
+func (o OnlineEvaluationConfigCloudWatchLogsInputConfigPtrOutput) ToOnlineEvaluationConfigCloudWatchLogsInputConfigPtrOutput() OnlineEvaluationConfigCloudWatchLogsInputConfigPtrOutput {
+	return o
+}
+
+func (o OnlineEvaluationConfigCloudWatchLogsInputConfigPtrOutput) ToOnlineEvaluationConfigCloudWatchLogsInputConfigPtrOutputWithContext(ctx context.Context) OnlineEvaluationConfigCloudWatchLogsInputConfigPtrOutput {
+	return o
+}
+
+func (o OnlineEvaluationConfigCloudWatchLogsInputConfigPtrOutput) Elem() OnlineEvaluationConfigCloudWatchLogsInputConfigOutput {
+	return o.ApplyT(func(v *OnlineEvaluationConfigCloudWatchLogsInputConfig) OnlineEvaluationConfigCloudWatchLogsInputConfig {
+		if v != nil {
+			return *v
+		}
+		var ret OnlineEvaluationConfigCloudWatchLogsInputConfig
+		return ret
+	}).(OnlineEvaluationConfigCloudWatchLogsInputConfigOutput)
+}
+
+// The list of CloudWatch log group names to monitor for agent traces.
+func (o OnlineEvaluationConfigCloudWatchLogsInputConfigPtrOutput) LogGroupNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *OnlineEvaluationConfigCloudWatchLogsInputConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.LogGroupNames
+	}).(pulumi.StringArrayOutput)
+}
+
+// The list of service names to filter traces within the specified log groups.
+func (o OnlineEvaluationConfigCloudWatchLogsInputConfigPtrOutput) ServiceNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *OnlineEvaluationConfigCloudWatchLogsInputConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ServiceNames
+	}).(pulumi.StringArrayOutput)
+}
+
+// The CloudWatch configuration for writing evaluation results.
+type OnlineEvaluationConfigCloudWatchOutputConfig struct {
+	// The CloudWatch log group name for evaluation results.
+	LogGroupName *string `pulumi:"logGroupName"`
+}
+
+// The CloudWatch configuration for writing evaluation results.
+type OnlineEvaluationConfigCloudWatchOutputConfigOutput struct{ *pulumi.OutputState }
+
+func (OnlineEvaluationConfigCloudWatchOutputConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OnlineEvaluationConfigCloudWatchOutputConfig)(nil)).Elem()
+}
+
+func (o OnlineEvaluationConfigCloudWatchOutputConfigOutput) ToOnlineEvaluationConfigCloudWatchOutputConfigOutput() OnlineEvaluationConfigCloudWatchOutputConfigOutput {
+	return o
+}
+
+func (o OnlineEvaluationConfigCloudWatchOutputConfigOutput) ToOnlineEvaluationConfigCloudWatchOutputConfigOutputWithContext(ctx context.Context) OnlineEvaluationConfigCloudWatchOutputConfigOutput {
+	return o
+}
+
+// The CloudWatch log group name for evaluation results.
+func (o OnlineEvaluationConfigCloudWatchOutputConfigOutput) LogGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OnlineEvaluationConfigCloudWatchOutputConfig) *string { return v.LogGroupName }).(pulumi.StringPtrOutput)
+}
+
+type OnlineEvaluationConfigCloudWatchOutputConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (OnlineEvaluationConfigCloudWatchOutputConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OnlineEvaluationConfigCloudWatchOutputConfig)(nil)).Elem()
+}
+
+func (o OnlineEvaluationConfigCloudWatchOutputConfigPtrOutput) ToOnlineEvaluationConfigCloudWatchOutputConfigPtrOutput() OnlineEvaluationConfigCloudWatchOutputConfigPtrOutput {
+	return o
+}
+
+func (o OnlineEvaluationConfigCloudWatchOutputConfigPtrOutput) ToOnlineEvaluationConfigCloudWatchOutputConfigPtrOutputWithContext(ctx context.Context) OnlineEvaluationConfigCloudWatchOutputConfigPtrOutput {
+	return o
+}
+
+func (o OnlineEvaluationConfigCloudWatchOutputConfigPtrOutput) Elem() OnlineEvaluationConfigCloudWatchOutputConfigOutput {
+	return o.ApplyT(func(v *OnlineEvaluationConfigCloudWatchOutputConfig) OnlineEvaluationConfigCloudWatchOutputConfig {
+		if v != nil {
+			return *v
+		}
+		var ret OnlineEvaluationConfigCloudWatchOutputConfig
+		return ret
+	}).(OnlineEvaluationConfigCloudWatchOutputConfigOutput)
+}
+
+// The CloudWatch log group name for evaluation results.
+func (o OnlineEvaluationConfigCloudWatchOutputConfigPtrOutput) LogGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OnlineEvaluationConfigCloudWatchOutputConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LogGroupName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The configuration that specifies where to read agent traces for online evaluation.
+type OnlineEvaluationConfigDataSourceConfig struct {
+	CloudWatchLogs OnlineEvaluationConfigCloudWatchLogsInputConfig `pulumi:"cloudWatchLogs"`
+}
+
+// OnlineEvaluationConfigDataSourceConfigInput is an input type that accepts OnlineEvaluationConfigDataSourceConfigArgs and OnlineEvaluationConfigDataSourceConfigOutput values.
+// You can construct a concrete instance of `OnlineEvaluationConfigDataSourceConfigInput` via:
+//
+//	OnlineEvaluationConfigDataSourceConfigArgs{...}
+type OnlineEvaluationConfigDataSourceConfigInput interface {
+	pulumi.Input
+
+	ToOnlineEvaluationConfigDataSourceConfigOutput() OnlineEvaluationConfigDataSourceConfigOutput
+	ToOnlineEvaluationConfigDataSourceConfigOutputWithContext(context.Context) OnlineEvaluationConfigDataSourceConfigOutput
+}
+
+// The configuration that specifies where to read agent traces for online evaluation.
+type OnlineEvaluationConfigDataSourceConfigArgs struct {
+	CloudWatchLogs OnlineEvaluationConfigCloudWatchLogsInputConfigInput `pulumi:"cloudWatchLogs"`
+}
+
+func (OnlineEvaluationConfigDataSourceConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OnlineEvaluationConfigDataSourceConfig)(nil)).Elem()
+}
+
+func (i OnlineEvaluationConfigDataSourceConfigArgs) ToOnlineEvaluationConfigDataSourceConfigOutput() OnlineEvaluationConfigDataSourceConfigOutput {
+	return i.ToOnlineEvaluationConfigDataSourceConfigOutputWithContext(context.Background())
+}
+
+func (i OnlineEvaluationConfigDataSourceConfigArgs) ToOnlineEvaluationConfigDataSourceConfigOutputWithContext(ctx context.Context) OnlineEvaluationConfigDataSourceConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OnlineEvaluationConfigDataSourceConfigOutput)
+}
+
+// The configuration that specifies where to read agent traces for online evaluation.
+type OnlineEvaluationConfigDataSourceConfigOutput struct{ *pulumi.OutputState }
+
+func (OnlineEvaluationConfigDataSourceConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OnlineEvaluationConfigDataSourceConfig)(nil)).Elem()
+}
+
+func (o OnlineEvaluationConfigDataSourceConfigOutput) ToOnlineEvaluationConfigDataSourceConfigOutput() OnlineEvaluationConfigDataSourceConfigOutput {
+	return o
+}
+
+func (o OnlineEvaluationConfigDataSourceConfigOutput) ToOnlineEvaluationConfigDataSourceConfigOutputWithContext(ctx context.Context) OnlineEvaluationConfigDataSourceConfigOutput {
+	return o
+}
+
+func (o OnlineEvaluationConfigDataSourceConfigOutput) CloudWatchLogs() OnlineEvaluationConfigCloudWatchLogsInputConfigOutput {
+	return o.ApplyT(func(v OnlineEvaluationConfigDataSourceConfig) OnlineEvaluationConfigCloudWatchLogsInputConfig {
+		return v.CloudWatchLogs
+	}).(OnlineEvaluationConfigCloudWatchLogsInputConfigOutput)
+}
+
+type OnlineEvaluationConfigDataSourceConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (OnlineEvaluationConfigDataSourceConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OnlineEvaluationConfigDataSourceConfig)(nil)).Elem()
+}
+
+func (o OnlineEvaluationConfigDataSourceConfigPtrOutput) ToOnlineEvaluationConfigDataSourceConfigPtrOutput() OnlineEvaluationConfigDataSourceConfigPtrOutput {
+	return o
+}
+
+func (o OnlineEvaluationConfigDataSourceConfigPtrOutput) ToOnlineEvaluationConfigDataSourceConfigPtrOutputWithContext(ctx context.Context) OnlineEvaluationConfigDataSourceConfigPtrOutput {
+	return o
+}
+
+func (o OnlineEvaluationConfigDataSourceConfigPtrOutput) Elem() OnlineEvaluationConfigDataSourceConfigOutput {
+	return o.ApplyT(func(v *OnlineEvaluationConfigDataSourceConfig) OnlineEvaluationConfigDataSourceConfig {
+		if v != nil {
+			return *v
+		}
+		var ret OnlineEvaluationConfigDataSourceConfig
+		return ret
+	}).(OnlineEvaluationConfigDataSourceConfigOutput)
+}
+
+func (o OnlineEvaluationConfigDataSourceConfigPtrOutput) CloudWatchLogs() OnlineEvaluationConfigCloudWatchLogsInputConfigPtrOutput {
+	return o.ApplyT(func(v *OnlineEvaluationConfigDataSourceConfig) *OnlineEvaluationConfigCloudWatchLogsInputConfig {
+		if v == nil {
+			return nil
+		}
+		return &v.CloudWatchLogs
+	}).(OnlineEvaluationConfigCloudWatchLogsInputConfigPtrOutput)
+}
+
+// The reference to an evaluator used in online evaluation configurations.
+type OnlineEvaluationConfigEvaluatorReference struct {
+	// The unique identifier of the evaluator.
+	EvaluatorId string `pulumi:"evaluatorId"`
+}
+
+// OnlineEvaluationConfigEvaluatorReferenceInput is an input type that accepts OnlineEvaluationConfigEvaluatorReferenceArgs and OnlineEvaluationConfigEvaluatorReferenceOutput values.
+// You can construct a concrete instance of `OnlineEvaluationConfigEvaluatorReferenceInput` via:
+//
+//	OnlineEvaluationConfigEvaluatorReferenceArgs{...}
+type OnlineEvaluationConfigEvaluatorReferenceInput interface {
+	pulumi.Input
+
+	ToOnlineEvaluationConfigEvaluatorReferenceOutput() OnlineEvaluationConfigEvaluatorReferenceOutput
+	ToOnlineEvaluationConfigEvaluatorReferenceOutputWithContext(context.Context) OnlineEvaluationConfigEvaluatorReferenceOutput
+}
+
+// The reference to an evaluator used in online evaluation configurations.
+type OnlineEvaluationConfigEvaluatorReferenceArgs struct {
+	// The unique identifier of the evaluator.
+	EvaluatorId pulumi.StringInput `pulumi:"evaluatorId"`
+}
+
+func (OnlineEvaluationConfigEvaluatorReferenceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OnlineEvaluationConfigEvaluatorReference)(nil)).Elem()
+}
+
+func (i OnlineEvaluationConfigEvaluatorReferenceArgs) ToOnlineEvaluationConfigEvaluatorReferenceOutput() OnlineEvaluationConfigEvaluatorReferenceOutput {
+	return i.ToOnlineEvaluationConfigEvaluatorReferenceOutputWithContext(context.Background())
+}
+
+func (i OnlineEvaluationConfigEvaluatorReferenceArgs) ToOnlineEvaluationConfigEvaluatorReferenceOutputWithContext(ctx context.Context) OnlineEvaluationConfigEvaluatorReferenceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OnlineEvaluationConfigEvaluatorReferenceOutput)
+}
+
+// OnlineEvaluationConfigEvaluatorReferenceArrayInput is an input type that accepts OnlineEvaluationConfigEvaluatorReferenceArray and OnlineEvaluationConfigEvaluatorReferenceArrayOutput values.
+// You can construct a concrete instance of `OnlineEvaluationConfigEvaluatorReferenceArrayInput` via:
+//
+//	OnlineEvaluationConfigEvaluatorReferenceArray{ OnlineEvaluationConfigEvaluatorReferenceArgs{...} }
+type OnlineEvaluationConfigEvaluatorReferenceArrayInput interface {
+	pulumi.Input
+
+	ToOnlineEvaluationConfigEvaluatorReferenceArrayOutput() OnlineEvaluationConfigEvaluatorReferenceArrayOutput
+	ToOnlineEvaluationConfigEvaluatorReferenceArrayOutputWithContext(context.Context) OnlineEvaluationConfigEvaluatorReferenceArrayOutput
+}
+
+type OnlineEvaluationConfigEvaluatorReferenceArray []OnlineEvaluationConfigEvaluatorReferenceInput
+
+func (OnlineEvaluationConfigEvaluatorReferenceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OnlineEvaluationConfigEvaluatorReference)(nil)).Elem()
+}
+
+func (i OnlineEvaluationConfigEvaluatorReferenceArray) ToOnlineEvaluationConfigEvaluatorReferenceArrayOutput() OnlineEvaluationConfigEvaluatorReferenceArrayOutput {
+	return i.ToOnlineEvaluationConfigEvaluatorReferenceArrayOutputWithContext(context.Background())
+}
+
+func (i OnlineEvaluationConfigEvaluatorReferenceArray) ToOnlineEvaluationConfigEvaluatorReferenceArrayOutputWithContext(ctx context.Context) OnlineEvaluationConfigEvaluatorReferenceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OnlineEvaluationConfigEvaluatorReferenceArrayOutput)
+}
+
+// The reference to an evaluator used in online evaluation configurations.
+type OnlineEvaluationConfigEvaluatorReferenceOutput struct{ *pulumi.OutputState }
+
+func (OnlineEvaluationConfigEvaluatorReferenceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OnlineEvaluationConfigEvaluatorReference)(nil)).Elem()
+}
+
+func (o OnlineEvaluationConfigEvaluatorReferenceOutput) ToOnlineEvaluationConfigEvaluatorReferenceOutput() OnlineEvaluationConfigEvaluatorReferenceOutput {
+	return o
+}
+
+func (o OnlineEvaluationConfigEvaluatorReferenceOutput) ToOnlineEvaluationConfigEvaluatorReferenceOutputWithContext(ctx context.Context) OnlineEvaluationConfigEvaluatorReferenceOutput {
+	return o
+}
+
+// The unique identifier of the evaluator.
+func (o OnlineEvaluationConfigEvaluatorReferenceOutput) EvaluatorId() pulumi.StringOutput {
+	return o.ApplyT(func(v OnlineEvaluationConfigEvaluatorReference) string { return v.EvaluatorId }).(pulumi.StringOutput)
+}
+
+type OnlineEvaluationConfigEvaluatorReferenceArrayOutput struct{ *pulumi.OutputState }
+
+func (OnlineEvaluationConfigEvaluatorReferenceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OnlineEvaluationConfigEvaluatorReference)(nil)).Elem()
+}
+
+func (o OnlineEvaluationConfigEvaluatorReferenceArrayOutput) ToOnlineEvaluationConfigEvaluatorReferenceArrayOutput() OnlineEvaluationConfigEvaluatorReferenceArrayOutput {
+	return o
+}
+
+func (o OnlineEvaluationConfigEvaluatorReferenceArrayOutput) ToOnlineEvaluationConfigEvaluatorReferenceArrayOutputWithContext(ctx context.Context) OnlineEvaluationConfigEvaluatorReferenceArrayOutput {
+	return o
+}
+
+func (o OnlineEvaluationConfigEvaluatorReferenceArrayOutput) Index(i pulumi.IntInput) OnlineEvaluationConfigEvaluatorReferenceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OnlineEvaluationConfigEvaluatorReference {
+		return vs[0].([]OnlineEvaluationConfigEvaluatorReference)[vs[1].(int)]
+	}).(OnlineEvaluationConfigEvaluatorReferenceOutput)
+}
+
+// The filter that applies conditions to agent traces during online evaluation.
+type OnlineEvaluationConfigFilter struct {
+	// The key or field name to filter on within the agent trace data.
+	Key string `pulumi:"key"`
+	// The comparison operator to use for filtering.
+	Operator OnlineEvaluationConfigFilterOperator `pulumi:"operator"`
+	Value    OnlineEvaluationConfigFilterValue    `pulumi:"value"`
+}
+
+// OnlineEvaluationConfigFilterInput is an input type that accepts OnlineEvaluationConfigFilterArgs and OnlineEvaluationConfigFilterOutput values.
+// You can construct a concrete instance of `OnlineEvaluationConfigFilterInput` via:
+//
+//	OnlineEvaluationConfigFilterArgs{...}
+type OnlineEvaluationConfigFilterInput interface {
+	pulumi.Input
+
+	ToOnlineEvaluationConfigFilterOutput() OnlineEvaluationConfigFilterOutput
+	ToOnlineEvaluationConfigFilterOutputWithContext(context.Context) OnlineEvaluationConfigFilterOutput
+}
+
+// The filter that applies conditions to agent traces during online evaluation.
+type OnlineEvaluationConfigFilterArgs struct {
+	// The key or field name to filter on within the agent trace data.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The comparison operator to use for filtering.
+	Operator OnlineEvaluationConfigFilterOperatorInput `pulumi:"operator"`
+	Value    OnlineEvaluationConfigFilterValueInput    `pulumi:"value"`
+}
+
+func (OnlineEvaluationConfigFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OnlineEvaluationConfigFilter)(nil)).Elem()
+}
+
+func (i OnlineEvaluationConfigFilterArgs) ToOnlineEvaluationConfigFilterOutput() OnlineEvaluationConfigFilterOutput {
+	return i.ToOnlineEvaluationConfigFilterOutputWithContext(context.Background())
+}
+
+func (i OnlineEvaluationConfigFilterArgs) ToOnlineEvaluationConfigFilterOutputWithContext(ctx context.Context) OnlineEvaluationConfigFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OnlineEvaluationConfigFilterOutput)
+}
+
+// OnlineEvaluationConfigFilterArrayInput is an input type that accepts OnlineEvaluationConfigFilterArray and OnlineEvaluationConfigFilterArrayOutput values.
+// You can construct a concrete instance of `OnlineEvaluationConfigFilterArrayInput` via:
+//
+//	OnlineEvaluationConfigFilterArray{ OnlineEvaluationConfigFilterArgs{...} }
+type OnlineEvaluationConfigFilterArrayInput interface {
+	pulumi.Input
+
+	ToOnlineEvaluationConfigFilterArrayOutput() OnlineEvaluationConfigFilterArrayOutput
+	ToOnlineEvaluationConfigFilterArrayOutputWithContext(context.Context) OnlineEvaluationConfigFilterArrayOutput
+}
+
+type OnlineEvaluationConfigFilterArray []OnlineEvaluationConfigFilterInput
+
+func (OnlineEvaluationConfigFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OnlineEvaluationConfigFilter)(nil)).Elem()
+}
+
+func (i OnlineEvaluationConfigFilterArray) ToOnlineEvaluationConfigFilterArrayOutput() OnlineEvaluationConfigFilterArrayOutput {
+	return i.ToOnlineEvaluationConfigFilterArrayOutputWithContext(context.Background())
+}
+
+func (i OnlineEvaluationConfigFilterArray) ToOnlineEvaluationConfigFilterArrayOutputWithContext(ctx context.Context) OnlineEvaluationConfigFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OnlineEvaluationConfigFilterArrayOutput)
+}
+
+// The filter that applies conditions to agent traces during online evaluation.
+type OnlineEvaluationConfigFilterOutput struct{ *pulumi.OutputState }
+
+func (OnlineEvaluationConfigFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OnlineEvaluationConfigFilter)(nil)).Elem()
+}
+
+func (o OnlineEvaluationConfigFilterOutput) ToOnlineEvaluationConfigFilterOutput() OnlineEvaluationConfigFilterOutput {
+	return o
+}
+
+func (o OnlineEvaluationConfigFilterOutput) ToOnlineEvaluationConfigFilterOutputWithContext(ctx context.Context) OnlineEvaluationConfigFilterOutput {
+	return o
+}
+
+// The key or field name to filter on within the agent trace data.
+func (o OnlineEvaluationConfigFilterOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v OnlineEvaluationConfigFilter) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The comparison operator to use for filtering.
+func (o OnlineEvaluationConfigFilterOutput) Operator() OnlineEvaluationConfigFilterOperatorOutput {
+	return o.ApplyT(func(v OnlineEvaluationConfigFilter) OnlineEvaluationConfigFilterOperator { return v.Operator }).(OnlineEvaluationConfigFilterOperatorOutput)
+}
+
+func (o OnlineEvaluationConfigFilterOutput) Value() OnlineEvaluationConfigFilterValueOutput {
+	return o.ApplyT(func(v OnlineEvaluationConfigFilter) OnlineEvaluationConfigFilterValue { return v.Value }).(OnlineEvaluationConfigFilterValueOutput)
+}
+
+type OnlineEvaluationConfigFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (OnlineEvaluationConfigFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OnlineEvaluationConfigFilter)(nil)).Elem()
+}
+
+func (o OnlineEvaluationConfigFilterArrayOutput) ToOnlineEvaluationConfigFilterArrayOutput() OnlineEvaluationConfigFilterArrayOutput {
+	return o
+}
+
+func (o OnlineEvaluationConfigFilterArrayOutput) ToOnlineEvaluationConfigFilterArrayOutputWithContext(ctx context.Context) OnlineEvaluationConfigFilterArrayOutput {
+	return o
+}
+
+func (o OnlineEvaluationConfigFilterArrayOutput) Index(i pulumi.IntInput) OnlineEvaluationConfigFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OnlineEvaluationConfigFilter {
+		return vs[0].([]OnlineEvaluationConfigFilter)[vs[1].(int)]
+	}).(OnlineEvaluationConfigFilterOutput)
+}
+
+// The value used in filter comparisons.
+type OnlineEvaluationConfigFilterValue struct {
+	// The boolean value for true/false filtering conditions.
+	BooleanValue *bool `pulumi:"booleanValue"`
+	// The numeric value for numerical filtering.
+	DoubleValue *float64 `pulumi:"doubleValue"`
+	// The string value for text-based filtering.
+	StringValue *string `pulumi:"stringValue"`
+}
+
+// OnlineEvaluationConfigFilterValueInput is an input type that accepts OnlineEvaluationConfigFilterValueArgs and OnlineEvaluationConfigFilterValueOutput values.
+// You can construct a concrete instance of `OnlineEvaluationConfigFilterValueInput` via:
+//
+//	OnlineEvaluationConfigFilterValueArgs{...}
+type OnlineEvaluationConfigFilterValueInput interface {
+	pulumi.Input
+
+	ToOnlineEvaluationConfigFilterValueOutput() OnlineEvaluationConfigFilterValueOutput
+	ToOnlineEvaluationConfigFilterValueOutputWithContext(context.Context) OnlineEvaluationConfigFilterValueOutput
+}
+
+// The value used in filter comparisons.
+type OnlineEvaluationConfigFilterValueArgs struct {
+	// The boolean value for true/false filtering conditions.
+	BooleanValue pulumi.BoolPtrInput `pulumi:"booleanValue"`
+	// The numeric value for numerical filtering.
+	DoubleValue pulumi.Float64PtrInput `pulumi:"doubleValue"`
+	// The string value for text-based filtering.
+	StringValue pulumi.StringPtrInput `pulumi:"stringValue"`
+}
+
+func (OnlineEvaluationConfigFilterValueArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OnlineEvaluationConfigFilterValue)(nil)).Elem()
+}
+
+func (i OnlineEvaluationConfigFilterValueArgs) ToOnlineEvaluationConfigFilterValueOutput() OnlineEvaluationConfigFilterValueOutput {
+	return i.ToOnlineEvaluationConfigFilterValueOutputWithContext(context.Background())
+}
+
+func (i OnlineEvaluationConfigFilterValueArgs) ToOnlineEvaluationConfigFilterValueOutputWithContext(ctx context.Context) OnlineEvaluationConfigFilterValueOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OnlineEvaluationConfigFilterValueOutput)
+}
+
+// The value used in filter comparisons.
+type OnlineEvaluationConfigFilterValueOutput struct{ *pulumi.OutputState }
+
+func (OnlineEvaluationConfigFilterValueOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OnlineEvaluationConfigFilterValue)(nil)).Elem()
+}
+
+func (o OnlineEvaluationConfigFilterValueOutput) ToOnlineEvaluationConfigFilterValueOutput() OnlineEvaluationConfigFilterValueOutput {
+	return o
+}
+
+func (o OnlineEvaluationConfigFilterValueOutput) ToOnlineEvaluationConfigFilterValueOutputWithContext(ctx context.Context) OnlineEvaluationConfigFilterValueOutput {
+	return o
+}
+
+// The boolean value for true/false filtering conditions.
+func (o OnlineEvaluationConfigFilterValueOutput) BooleanValue() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v OnlineEvaluationConfigFilterValue) *bool { return v.BooleanValue }).(pulumi.BoolPtrOutput)
+}
+
+// The numeric value for numerical filtering.
+func (o OnlineEvaluationConfigFilterValueOutput) DoubleValue() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v OnlineEvaluationConfigFilterValue) *float64 { return v.DoubleValue }).(pulumi.Float64PtrOutput)
+}
+
+// The string value for text-based filtering.
+func (o OnlineEvaluationConfigFilterValueOutput) StringValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OnlineEvaluationConfigFilterValue) *string { return v.StringValue }).(pulumi.StringPtrOutput)
+}
+
+// The configuration that specifies where evaluation results should be written.
+type OnlineEvaluationConfigOutputConfig struct {
+	CloudWatchConfig *OnlineEvaluationConfigCloudWatchOutputConfig `pulumi:"cloudWatchConfig"`
+}
+
+// The configuration that specifies where evaluation results should be written.
+type OnlineEvaluationConfigOutputConfigOutput struct{ *pulumi.OutputState }
+
+func (OnlineEvaluationConfigOutputConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OnlineEvaluationConfigOutputConfig)(nil)).Elem()
+}
+
+func (o OnlineEvaluationConfigOutputConfigOutput) ToOnlineEvaluationConfigOutputConfigOutput() OnlineEvaluationConfigOutputConfigOutput {
+	return o
+}
+
+func (o OnlineEvaluationConfigOutputConfigOutput) ToOnlineEvaluationConfigOutputConfigOutputWithContext(ctx context.Context) OnlineEvaluationConfigOutputConfigOutput {
+	return o
+}
+
+func (o OnlineEvaluationConfigOutputConfigOutput) CloudWatchConfig() OnlineEvaluationConfigCloudWatchOutputConfigPtrOutput {
+	return o.ApplyT(func(v OnlineEvaluationConfigOutputConfig) *OnlineEvaluationConfigCloudWatchOutputConfig {
+		return v.CloudWatchConfig
+	}).(OnlineEvaluationConfigCloudWatchOutputConfigPtrOutput)
+}
+
+type OnlineEvaluationConfigOutputConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (OnlineEvaluationConfigOutputConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OnlineEvaluationConfigOutputConfig)(nil)).Elem()
+}
+
+func (o OnlineEvaluationConfigOutputConfigPtrOutput) ToOnlineEvaluationConfigOutputConfigPtrOutput() OnlineEvaluationConfigOutputConfigPtrOutput {
+	return o
+}
+
+func (o OnlineEvaluationConfigOutputConfigPtrOutput) ToOnlineEvaluationConfigOutputConfigPtrOutputWithContext(ctx context.Context) OnlineEvaluationConfigOutputConfigPtrOutput {
+	return o
+}
+
+func (o OnlineEvaluationConfigOutputConfigPtrOutput) Elem() OnlineEvaluationConfigOutputConfigOutput {
+	return o.ApplyT(func(v *OnlineEvaluationConfigOutputConfig) OnlineEvaluationConfigOutputConfig {
+		if v != nil {
+			return *v
+		}
+		var ret OnlineEvaluationConfigOutputConfig
+		return ret
+	}).(OnlineEvaluationConfigOutputConfigOutput)
+}
+
+func (o OnlineEvaluationConfigOutputConfigPtrOutput) CloudWatchConfig() OnlineEvaluationConfigCloudWatchOutputConfigPtrOutput {
+	return o.ApplyT(func(v *OnlineEvaluationConfigOutputConfig) *OnlineEvaluationConfigCloudWatchOutputConfig {
+		if v == nil {
+			return nil
+		}
+		return v.CloudWatchConfig
+	}).(OnlineEvaluationConfigCloudWatchOutputConfigPtrOutput)
+}
+
+// The evaluation rule that defines sampling configuration, filtering criteria, and session detection settings.
+type OnlineEvaluationConfigRule struct {
+	// The list of filters that determine which agent traces should be included in the evaluation.
+	Filters        []OnlineEvaluationConfigFilter       `pulumi:"filters"`
+	SamplingConfig OnlineEvaluationConfigSamplingConfig `pulumi:"samplingConfig"`
+	SessionConfig  *OnlineEvaluationConfigSessionConfig `pulumi:"sessionConfig"`
+}
+
+// OnlineEvaluationConfigRuleInput is an input type that accepts OnlineEvaluationConfigRuleArgs and OnlineEvaluationConfigRuleOutput values.
+// You can construct a concrete instance of `OnlineEvaluationConfigRuleInput` via:
+//
+//	OnlineEvaluationConfigRuleArgs{...}
+type OnlineEvaluationConfigRuleInput interface {
+	pulumi.Input
+
+	ToOnlineEvaluationConfigRuleOutput() OnlineEvaluationConfigRuleOutput
+	ToOnlineEvaluationConfigRuleOutputWithContext(context.Context) OnlineEvaluationConfigRuleOutput
+}
+
+// The evaluation rule that defines sampling configuration, filtering criteria, and session detection settings.
+type OnlineEvaluationConfigRuleArgs struct {
+	// The list of filters that determine which agent traces should be included in the evaluation.
+	Filters        OnlineEvaluationConfigFilterArrayInput      `pulumi:"filters"`
+	SamplingConfig OnlineEvaluationConfigSamplingConfigInput   `pulumi:"samplingConfig"`
+	SessionConfig  OnlineEvaluationConfigSessionConfigPtrInput `pulumi:"sessionConfig"`
+}
+
+func (OnlineEvaluationConfigRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OnlineEvaluationConfigRule)(nil)).Elem()
+}
+
+func (i OnlineEvaluationConfigRuleArgs) ToOnlineEvaluationConfigRuleOutput() OnlineEvaluationConfigRuleOutput {
+	return i.ToOnlineEvaluationConfigRuleOutputWithContext(context.Background())
+}
+
+func (i OnlineEvaluationConfigRuleArgs) ToOnlineEvaluationConfigRuleOutputWithContext(ctx context.Context) OnlineEvaluationConfigRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OnlineEvaluationConfigRuleOutput)
+}
+
+// The evaluation rule that defines sampling configuration, filtering criteria, and session detection settings.
+type OnlineEvaluationConfigRuleOutput struct{ *pulumi.OutputState }
+
+func (OnlineEvaluationConfigRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OnlineEvaluationConfigRule)(nil)).Elem()
+}
+
+func (o OnlineEvaluationConfigRuleOutput) ToOnlineEvaluationConfigRuleOutput() OnlineEvaluationConfigRuleOutput {
+	return o
+}
+
+func (o OnlineEvaluationConfigRuleOutput) ToOnlineEvaluationConfigRuleOutputWithContext(ctx context.Context) OnlineEvaluationConfigRuleOutput {
+	return o
+}
+
+// The list of filters that determine which agent traces should be included in the evaluation.
+func (o OnlineEvaluationConfigRuleOutput) Filters() OnlineEvaluationConfigFilterArrayOutput {
+	return o.ApplyT(func(v OnlineEvaluationConfigRule) []OnlineEvaluationConfigFilter { return v.Filters }).(OnlineEvaluationConfigFilterArrayOutput)
+}
+
+func (o OnlineEvaluationConfigRuleOutput) SamplingConfig() OnlineEvaluationConfigSamplingConfigOutput {
+	return o.ApplyT(func(v OnlineEvaluationConfigRule) OnlineEvaluationConfigSamplingConfig { return v.SamplingConfig }).(OnlineEvaluationConfigSamplingConfigOutput)
+}
+
+func (o OnlineEvaluationConfigRuleOutput) SessionConfig() OnlineEvaluationConfigSessionConfigPtrOutput {
+	return o.ApplyT(func(v OnlineEvaluationConfigRule) *OnlineEvaluationConfigSessionConfig { return v.SessionConfig }).(OnlineEvaluationConfigSessionConfigPtrOutput)
+}
+
+type OnlineEvaluationConfigRulePtrOutput struct{ *pulumi.OutputState }
+
+func (OnlineEvaluationConfigRulePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OnlineEvaluationConfigRule)(nil)).Elem()
+}
+
+func (o OnlineEvaluationConfigRulePtrOutput) ToOnlineEvaluationConfigRulePtrOutput() OnlineEvaluationConfigRulePtrOutput {
+	return o
+}
+
+func (o OnlineEvaluationConfigRulePtrOutput) ToOnlineEvaluationConfigRulePtrOutputWithContext(ctx context.Context) OnlineEvaluationConfigRulePtrOutput {
+	return o
+}
+
+func (o OnlineEvaluationConfigRulePtrOutput) Elem() OnlineEvaluationConfigRuleOutput {
+	return o.ApplyT(func(v *OnlineEvaluationConfigRule) OnlineEvaluationConfigRule {
+		if v != nil {
+			return *v
+		}
+		var ret OnlineEvaluationConfigRule
+		return ret
+	}).(OnlineEvaluationConfigRuleOutput)
+}
+
+// The list of filters that determine which agent traces should be included in the evaluation.
+func (o OnlineEvaluationConfigRulePtrOutput) Filters() OnlineEvaluationConfigFilterArrayOutput {
+	return o.ApplyT(func(v *OnlineEvaluationConfigRule) []OnlineEvaluationConfigFilter {
+		if v == nil {
+			return nil
+		}
+		return v.Filters
+	}).(OnlineEvaluationConfigFilterArrayOutput)
+}
+
+func (o OnlineEvaluationConfigRulePtrOutput) SamplingConfig() OnlineEvaluationConfigSamplingConfigPtrOutput {
+	return o.ApplyT(func(v *OnlineEvaluationConfigRule) *OnlineEvaluationConfigSamplingConfig {
+		if v == nil {
+			return nil
+		}
+		return &v.SamplingConfig
+	}).(OnlineEvaluationConfigSamplingConfigPtrOutput)
+}
+
+func (o OnlineEvaluationConfigRulePtrOutput) SessionConfig() OnlineEvaluationConfigSessionConfigPtrOutput {
+	return o.ApplyT(func(v *OnlineEvaluationConfigRule) *OnlineEvaluationConfigSessionConfig {
+		if v == nil {
+			return nil
+		}
+		return v.SessionConfig
+	}).(OnlineEvaluationConfigSessionConfigPtrOutput)
+}
+
+// The configuration that controls what percentage of agent traces are sampled for evaluation.
+type OnlineEvaluationConfigSamplingConfig struct {
+	// The percentage of agent traces to sample for evaluation.
+	SamplingPercentage float64 `pulumi:"samplingPercentage"`
+}
+
+// OnlineEvaluationConfigSamplingConfigInput is an input type that accepts OnlineEvaluationConfigSamplingConfigArgs and OnlineEvaluationConfigSamplingConfigOutput values.
+// You can construct a concrete instance of `OnlineEvaluationConfigSamplingConfigInput` via:
+//
+//	OnlineEvaluationConfigSamplingConfigArgs{...}
+type OnlineEvaluationConfigSamplingConfigInput interface {
+	pulumi.Input
+
+	ToOnlineEvaluationConfigSamplingConfigOutput() OnlineEvaluationConfigSamplingConfigOutput
+	ToOnlineEvaluationConfigSamplingConfigOutputWithContext(context.Context) OnlineEvaluationConfigSamplingConfigOutput
+}
+
+// The configuration that controls what percentage of agent traces are sampled for evaluation.
+type OnlineEvaluationConfigSamplingConfigArgs struct {
+	// The percentage of agent traces to sample for evaluation.
+	SamplingPercentage pulumi.Float64Input `pulumi:"samplingPercentage"`
+}
+
+func (OnlineEvaluationConfigSamplingConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OnlineEvaluationConfigSamplingConfig)(nil)).Elem()
+}
+
+func (i OnlineEvaluationConfigSamplingConfigArgs) ToOnlineEvaluationConfigSamplingConfigOutput() OnlineEvaluationConfigSamplingConfigOutput {
+	return i.ToOnlineEvaluationConfigSamplingConfigOutputWithContext(context.Background())
+}
+
+func (i OnlineEvaluationConfigSamplingConfigArgs) ToOnlineEvaluationConfigSamplingConfigOutputWithContext(ctx context.Context) OnlineEvaluationConfigSamplingConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OnlineEvaluationConfigSamplingConfigOutput)
+}
+
+// The configuration that controls what percentage of agent traces are sampled for evaluation.
+type OnlineEvaluationConfigSamplingConfigOutput struct{ *pulumi.OutputState }
+
+func (OnlineEvaluationConfigSamplingConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OnlineEvaluationConfigSamplingConfig)(nil)).Elem()
+}
+
+func (o OnlineEvaluationConfigSamplingConfigOutput) ToOnlineEvaluationConfigSamplingConfigOutput() OnlineEvaluationConfigSamplingConfigOutput {
+	return o
+}
+
+func (o OnlineEvaluationConfigSamplingConfigOutput) ToOnlineEvaluationConfigSamplingConfigOutputWithContext(ctx context.Context) OnlineEvaluationConfigSamplingConfigOutput {
+	return o
+}
+
+// The percentage of agent traces to sample for evaluation.
+func (o OnlineEvaluationConfigSamplingConfigOutput) SamplingPercentage() pulumi.Float64Output {
+	return o.ApplyT(func(v OnlineEvaluationConfigSamplingConfig) float64 { return v.SamplingPercentage }).(pulumi.Float64Output)
+}
+
+type OnlineEvaluationConfigSamplingConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (OnlineEvaluationConfigSamplingConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OnlineEvaluationConfigSamplingConfig)(nil)).Elem()
+}
+
+func (o OnlineEvaluationConfigSamplingConfigPtrOutput) ToOnlineEvaluationConfigSamplingConfigPtrOutput() OnlineEvaluationConfigSamplingConfigPtrOutput {
+	return o
+}
+
+func (o OnlineEvaluationConfigSamplingConfigPtrOutput) ToOnlineEvaluationConfigSamplingConfigPtrOutputWithContext(ctx context.Context) OnlineEvaluationConfigSamplingConfigPtrOutput {
+	return o
+}
+
+func (o OnlineEvaluationConfigSamplingConfigPtrOutput) Elem() OnlineEvaluationConfigSamplingConfigOutput {
+	return o.ApplyT(func(v *OnlineEvaluationConfigSamplingConfig) OnlineEvaluationConfigSamplingConfig {
+		if v != nil {
+			return *v
+		}
+		var ret OnlineEvaluationConfigSamplingConfig
+		return ret
+	}).(OnlineEvaluationConfigSamplingConfigOutput)
+}
+
+// The percentage of agent traces to sample for evaluation.
+func (o OnlineEvaluationConfigSamplingConfigPtrOutput) SamplingPercentage() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *OnlineEvaluationConfigSamplingConfig) *float64 {
+		if v == nil {
+			return nil
+		}
+		return &v.SamplingPercentage
+	}).(pulumi.Float64PtrOutput)
+}
+
+// The configuration that defines how agent sessions are detected.
+type OnlineEvaluationConfigSessionConfig struct {
+	// The number of minutes of inactivity after which an agent session is considered complete.
+	SessionTimeoutMinutes int `pulumi:"sessionTimeoutMinutes"`
+}
+
+// OnlineEvaluationConfigSessionConfigInput is an input type that accepts OnlineEvaluationConfigSessionConfigArgs and OnlineEvaluationConfigSessionConfigOutput values.
+// You can construct a concrete instance of `OnlineEvaluationConfigSessionConfigInput` via:
+//
+//	OnlineEvaluationConfigSessionConfigArgs{...}
+type OnlineEvaluationConfigSessionConfigInput interface {
+	pulumi.Input
+
+	ToOnlineEvaluationConfigSessionConfigOutput() OnlineEvaluationConfigSessionConfigOutput
+	ToOnlineEvaluationConfigSessionConfigOutputWithContext(context.Context) OnlineEvaluationConfigSessionConfigOutput
+}
+
+// The configuration that defines how agent sessions are detected.
+type OnlineEvaluationConfigSessionConfigArgs struct {
+	// The number of minutes of inactivity after which an agent session is considered complete.
+	SessionTimeoutMinutes pulumi.IntInput `pulumi:"sessionTimeoutMinutes"`
+}
+
+func (OnlineEvaluationConfigSessionConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OnlineEvaluationConfigSessionConfig)(nil)).Elem()
+}
+
+func (i OnlineEvaluationConfigSessionConfigArgs) ToOnlineEvaluationConfigSessionConfigOutput() OnlineEvaluationConfigSessionConfigOutput {
+	return i.ToOnlineEvaluationConfigSessionConfigOutputWithContext(context.Background())
+}
+
+func (i OnlineEvaluationConfigSessionConfigArgs) ToOnlineEvaluationConfigSessionConfigOutputWithContext(ctx context.Context) OnlineEvaluationConfigSessionConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OnlineEvaluationConfigSessionConfigOutput)
+}
+
+func (i OnlineEvaluationConfigSessionConfigArgs) ToOnlineEvaluationConfigSessionConfigPtrOutput() OnlineEvaluationConfigSessionConfigPtrOutput {
+	return i.ToOnlineEvaluationConfigSessionConfigPtrOutputWithContext(context.Background())
+}
+
+func (i OnlineEvaluationConfigSessionConfigArgs) ToOnlineEvaluationConfigSessionConfigPtrOutputWithContext(ctx context.Context) OnlineEvaluationConfigSessionConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OnlineEvaluationConfigSessionConfigOutput).ToOnlineEvaluationConfigSessionConfigPtrOutputWithContext(ctx)
+}
+
+// OnlineEvaluationConfigSessionConfigPtrInput is an input type that accepts OnlineEvaluationConfigSessionConfigArgs, OnlineEvaluationConfigSessionConfigPtr and OnlineEvaluationConfigSessionConfigPtrOutput values.
+// You can construct a concrete instance of `OnlineEvaluationConfigSessionConfigPtrInput` via:
+//
+//	        OnlineEvaluationConfigSessionConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type OnlineEvaluationConfigSessionConfigPtrInput interface {
+	pulumi.Input
+
+	ToOnlineEvaluationConfigSessionConfigPtrOutput() OnlineEvaluationConfigSessionConfigPtrOutput
+	ToOnlineEvaluationConfigSessionConfigPtrOutputWithContext(context.Context) OnlineEvaluationConfigSessionConfigPtrOutput
+}
+
+type onlineEvaluationConfigSessionConfigPtrType OnlineEvaluationConfigSessionConfigArgs
+
+func OnlineEvaluationConfigSessionConfigPtr(v *OnlineEvaluationConfigSessionConfigArgs) OnlineEvaluationConfigSessionConfigPtrInput {
+	return (*onlineEvaluationConfigSessionConfigPtrType)(v)
+}
+
+func (*onlineEvaluationConfigSessionConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OnlineEvaluationConfigSessionConfig)(nil)).Elem()
+}
+
+func (i *onlineEvaluationConfigSessionConfigPtrType) ToOnlineEvaluationConfigSessionConfigPtrOutput() OnlineEvaluationConfigSessionConfigPtrOutput {
+	return i.ToOnlineEvaluationConfigSessionConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *onlineEvaluationConfigSessionConfigPtrType) ToOnlineEvaluationConfigSessionConfigPtrOutputWithContext(ctx context.Context) OnlineEvaluationConfigSessionConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OnlineEvaluationConfigSessionConfigPtrOutput)
+}
+
+// The configuration that defines how agent sessions are detected.
+type OnlineEvaluationConfigSessionConfigOutput struct{ *pulumi.OutputState }
+
+func (OnlineEvaluationConfigSessionConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OnlineEvaluationConfigSessionConfig)(nil)).Elem()
+}
+
+func (o OnlineEvaluationConfigSessionConfigOutput) ToOnlineEvaluationConfigSessionConfigOutput() OnlineEvaluationConfigSessionConfigOutput {
+	return o
+}
+
+func (o OnlineEvaluationConfigSessionConfigOutput) ToOnlineEvaluationConfigSessionConfigOutputWithContext(ctx context.Context) OnlineEvaluationConfigSessionConfigOutput {
+	return o
+}
+
+func (o OnlineEvaluationConfigSessionConfigOutput) ToOnlineEvaluationConfigSessionConfigPtrOutput() OnlineEvaluationConfigSessionConfigPtrOutput {
+	return o.ToOnlineEvaluationConfigSessionConfigPtrOutputWithContext(context.Background())
+}
+
+func (o OnlineEvaluationConfigSessionConfigOutput) ToOnlineEvaluationConfigSessionConfigPtrOutputWithContext(ctx context.Context) OnlineEvaluationConfigSessionConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OnlineEvaluationConfigSessionConfig) *OnlineEvaluationConfigSessionConfig {
+		return &v
+	}).(OnlineEvaluationConfigSessionConfigPtrOutput)
+}
+
+// The number of minutes of inactivity after which an agent session is considered complete.
+func (o OnlineEvaluationConfigSessionConfigOutput) SessionTimeoutMinutes() pulumi.IntOutput {
+	return o.ApplyT(func(v OnlineEvaluationConfigSessionConfig) int { return v.SessionTimeoutMinutes }).(pulumi.IntOutput)
+}
+
+type OnlineEvaluationConfigSessionConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (OnlineEvaluationConfigSessionConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OnlineEvaluationConfigSessionConfig)(nil)).Elem()
+}
+
+func (o OnlineEvaluationConfigSessionConfigPtrOutput) ToOnlineEvaluationConfigSessionConfigPtrOutput() OnlineEvaluationConfigSessionConfigPtrOutput {
+	return o
+}
+
+func (o OnlineEvaluationConfigSessionConfigPtrOutput) ToOnlineEvaluationConfigSessionConfigPtrOutputWithContext(ctx context.Context) OnlineEvaluationConfigSessionConfigPtrOutput {
+	return o
+}
+
+func (o OnlineEvaluationConfigSessionConfigPtrOutput) Elem() OnlineEvaluationConfigSessionConfigOutput {
+	return o.ApplyT(func(v *OnlineEvaluationConfigSessionConfig) OnlineEvaluationConfigSessionConfig {
+		if v != nil {
+			return *v
+		}
+		var ret OnlineEvaluationConfigSessionConfig
+		return ret
+	}).(OnlineEvaluationConfigSessionConfigOutput)
+}
+
+// The number of minutes of inactivity after which an agent session is considered complete.
+func (o OnlineEvaluationConfigSessionConfigPtrOutput) SessionTimeoutMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *OnlineEvaluationConfigSessionConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.SessionTimeoutMinutes
+	}).(pulumi.IntPtrOutput)
+}
+
+type OnlineEvaluationConfigTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
 type RuntimeAgentRuntimeArtifact struct {
 	CodeConfiguration *RuntimeCodeConfiguration `pulumi:"codeConfiguration"`
 	// Representation of a container configuration.
@@ -11276,6 +13157,17 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CodeInterpreterCustomCodeInterpreterNetworkConfigurationInput)(nil)).Elem(), CodeInterpreterCustomCodeInterpreterNetworkConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CodeInterpreterCustomVpcConfigInput)(nil)).Elem(), CodeInterpreterCustomVpcConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CodeInterpreterCustomVpcConfigPtrInput)(nil)).Elem(), CodeInterpreterCustomVpcConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EvaluatorBedrockEvaluatorModelConfigInput)(nil)).Elem(), EvaluatorBedrockEvaluatorModelConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EvaluatorCategoricalScaleDefinitionInput)(nil)).Elem(), EvaluatorCategoricalScaleDefinitionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EvaluatorCategoricalScaleDefinitionArrayInput)(nil)).Elem(), EvaluatorCategoricalScaleDefinitionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EvaluatorConfigInput)(nil)).Elem(), EvaluatorConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EvaluatorInferenceConfigurationInput)(nil)).Elem(), EvaluatorInferenceConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EvaluatorInferenceConfigurationPtrInput)(nil)).Elem(), EvaluatorInferenceConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EvaluatorLlmAsAJudgeEvaluatorConfigInput)(nil)).Elem(), EvaluatorLlmAsAJudgeEvaluatorConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EvaluatorModelConfigInput)(nil)).Elem(), EvaluatorModelConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EvaluatorNumericalScaleDefinitionInput)(nil)).Elem(), EvaluatorNumericalScaleDefinitionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EvaluatorNumericalScaleDefinitionArrayInput)(nil)).Elem(), EvaluatorNumericalScaleDefinitionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EvaluatorRatingScaleInput)(nil)).Elem(), EvaluatorRatingScaleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayAuthorizerConfigurationPropertiesInput)(nil)).Elem(), GatewayAuthorizerConfigurationPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayAuthorizerConfigurationPropertiesPtrInput)(nil)).Elem(), GatewayAuthorizerConfigurationPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayAuthorizingClaimMatchValueTypeInput)(nil)).Elem(), GatewayAuthorizingClaimMatchValueTypeArgs{})
@@ -11382,6 +13274,17 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MemoryUserPreferenceOverrideConsolidationConfigurationInputPtrInput)(nil)).Elem(), MemoryUserPreferenceOverrideConsolidationConfigurationInputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MemoryUserPreferenceOverrideExtractionConfigurationInputInput)(nil)).Elem(), MemoryUserPreferenceOverrideExtractionConfigurationInputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MemoryUserPreferenceOverrideExtractionConfigurationInputPtrInput)(nil)).Elem(), MemoryUserPreferenceOverrideExtractionConfigurationInputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OnlineEvaluationConfigCloudWatchLogsInputConfigInput)(nil)).Elem(), OnlineEvaluationConfigCloudWatchLogsInputConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OnlineEvaluationConfigDataSourceConfigInput)(nil)).Elem(), OnlineEvaluationConfigDataSourceConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OnlineEvaluationConfigEvaluatorReferenceInput)(nil)).Elem(), OnlineEvaluationConfigEvaluatorReferenceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OnlineEvaluationConfigEvaluatorReferenceArrayInput)(nil)).Elem(), OnlineEvaluationConfigEvaluatorReferenceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OnlineEvaluationConfigFilterInput)(nil)).Elem(), OnlineEvaluationConfigFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OnlineEvaluationConfigFilterArrayInput)(nil)).Elem(), OnlineEvaluationConfigFilterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OnlineEvaluationConfigFilterValueInput)(nil)).Elem(), OnlineEvaluationConfigFilterValueArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OnlineEvaluationConfigRuleInput)(nil)).Elem(), OnlineEvaluationConfigRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OnlineEvaluationConfigSamplingConfigInput)(nil)).Elem(), OnlineEvaluationConfigSamplingConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OnlineEvaluationConfigSessionConfigInput)(nil)).Elem(), OnlineEvaluationConfigSessionConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OnlineEvaluationConfigSessionConfigPtrInput)(nil)).Elem(), OnlineEvaluationConfigSessionConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeAgentRuntimeArtifactInput)(nil)).Elem(), RuntimeAgentRuntimeArtifactArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeAuthorizerConfigurationInput)(nil)).Elem(), RuntimeAuthorizerConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeAuthorizerConfigurationPtrInput)(nil)).Elem(), RuntimeAuthorizerConfigurationArgs{})
@@ -11418,6 +13321,22 @@ func init() {
 	pulumi.RegisterOutputType(CodeInterpreterCustomCodeInterpreterNetworkConfigurationOutput{})
 	pulumi.RegisterOutputType(CodeInterpreterCustomVpcConfigOutput{})
 	pulumi.RegisterOutputType(CodeInterpreterCustomVpcConfigPtrOutput{})
+	pulumi.RegisterOutputType(EvaluatorBedrockEvaluatorModelConfigOutput{})
+	pulumi.RegisterOutputType(EvaluatorBedrockEvaluatorModelConfigPtrOutput{})
+	pulumi.RegisterOutputType(EvaluatorCategoricalScaleDefinitionOutput{})
+	pulumi.RegisterOutputType(EvaluatorCategoricalScaleDefinitionArrayOutput{})
+	pulumi.RegisterOutputType(EvaluatorConfigOutput{})
+	pulumi.RegisterOutputType(EvaluatorConfigPtrOutput{})
+	pulumi.RegisterOutputType(EvaluatorInferenceConfigurationOutput{})
+	pulumi.RegisterOutputType(EvaluatorInferenceConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(EvaluatorLlmAsAJudgeEvaluatorConfigOutput{})
+	pulumi.RegisterOutputType(EvaluatorLlmAsAJudgeEvaluatorConfigPtrOutput{})
+	pulumi.RegisterOutputType(EvaluatorModelConfigOutput{})
+	pulumi.RegisterOutputType(EvaluatorModelConfigPtrOutput{})
+	pulumi.RegisterOutputType(EvaluatorNumericalScaleDefinitionOutput{})
+	pulumi.RegisterOutputType(EvaluatorNumericalScaleDefinitionArrayOutput{})
+	pulumi.RegisterOutputType(EvaluatorRatingScaleOutput{})
+	pulumi.RegisterOutputType(EvaluatorRatingScalePtrOutput{})
 	pulumi.RegisterOutputType(GatewayAuthorizerConfigurationPropertiesOutput{})
 	pulumi.RegisterOutputType(GatewayAuthorizerConfigurationPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(GatewayAuthorizingClaimMatchValueTypeOutput{})
@@ -11541,6 +13460,25 @@ func init() {
 	pulumi.RegisterOutputType(MemoryUserPreferenceOverrideConsolidationConfigurationInputPtrOutput{})
 	pulumi.RegisterOutputType(MemoryUserPreferenceOverrideExtractionConfigurationInputOutput{})
 	pulumi.RegisterOutputType(MemoryUserPreferenceOverrideExtractionConfigurationInputPtrOutput{})
+	pulumi.RegisterOutputType(OnlineEvaluationConfigCloudWatchLogsInputConfigOutput{})
+	pulumi.RegisterOutputType(OnlineEvaluationConfigCloudWatchLogsInputConfigPtrOutput{})
+	pulumi.RegisterOutputType(OnlineEvaluationConfigCloudWatchOutputConfigOutput{})
+	pulumi.RegisterOutputType(OnlineEvaluationConfigCloudWatchOutputConfigPtrOutput{})
+	pulumi.RegisterOutputType(OnlineEvaluationConfigDataSourceConfigOutput{})
+	pulumi.RegisterOutputType(OnlineEvaluationConfigDataSourceConfigPtrOutput{})
+	pulumi.RegisterOutputType(OnlineEvaluationConfigEvaluatorReferenceOutput{})
+	pulumi.RegisterOutputType(OnlineEvaluationConfigEvaluatorReferenceArrayOutput{})
+	pulumi.RegisterOutputType(OnlineEvaluationConfigFilterOutput{})
+	pulumi.RegisterOutputType(OnlineEvaluationConfigFilterArrayOutput{})
+	pulumi.RegisterOutputType(OnlineEvaluationConfigFilterValueOutput{})
+	pulumi.RegisterOutputType(OnlineEvaluationConfigOutputConfigOutput{})
+	pulumi.RegisterOutputType(OnlineEvaluationConfigOutputConfigPtrOutput{})
+	pulumi.RegisterOutputType(OnlineEvaluationConfigRuleOutput{})
+	pulumi.RegisterOutputType(OnlineEvaluationConfigRulePtrOutput{})
+	pulumi.RegisterOutputType(OnlineEvaluationConfigSamplingConfigOutput{})
+	pulumi.RegisterOutputType(OnlineEvaluationConfigSamplingConfigPtrOutput{})
+	pulumi.RegisterOutputType(OnlineEvaluationConfigSessionConfigOutput{})
+	pulumi.RegisterOutputType(OnlineEvaluationConfigSessionConfigPtrOutput{})
 	pulumi.RegisterOutputType(RuntimeAgentRuntimeArtifactOutput{})
 	pulumi.RegisterOutputType(RuntimeAgentRuntimeArtifactPtrOutput{})
 	pulumi.RegisterOutputType(RuntimeAuthorizerConfigurationOutput{})

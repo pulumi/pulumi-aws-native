@@ -281,6 +281,90 @@ class MaintenanceWindowTask(pulumi.CustomResource):
         import pulumi
         import pulumi_aws_native as aws_native
 
+        maintenance_window = aws_native.ssm.MaintenanceWindow("maintenanceWindow",
+            name="MaintenanceWindow",
+            allow_unassociated_targets=True,
+            cutoff=0,
+            description="Maintenance window for instances",
+            duration=1,
+            schedule="cron(20 17 ? * MON-FRI *)")
+        maintenance_window_target = aws_native.ssm.MaintenanceWindowTarget("maintenanceWindowTarget",
+            resource_type="RESOURCE_GROUP",
+            targets=[{
+                "key": "resource-groups:Name",
+                "values": ["TestResourceGroup"],
+            }],
+            window_id=maintenance_window.id)
+        patch_task = aws_native.ssm.MaintenanceWindowTask("patchTask",
+            description="Apply OS patches on instances in target",
+            max_concurrency="1",
+            max_errors="1",
+            priority=0,
+            task_type="RUN_COMMAND",
+            window_id=maintenance_window.id,
+            task_arn="AWS-RunPatchBaseline",
+            task_invocation_parameters={
+                "maintenance_window_run_command_parameters": {
+                    "parameters": {
+                        "operation": ["Install"],
+                        "rebootOption": ["NoReboot"],
+                    },
+                },
+            },
+            targets=[{
+                "key": "WindowTargetIds",
+                "values": [maintenance_window_target.id],
+            }])
+
+        ```
+        ### Example
+
+        ```python
+        import pulumi
+        import pulumi_aws_native as aws_native
+
+        maintenance_window = aws_native.ssm.MaintenanceWindow("maintenanceWindow",
+            name="MaintenanceWindow",
+            allow_unassociated_targets=True,
+            cutoff=0,
+            description="Maintenance window for instances",
+            duration=1,
+            schedule="cron(20 17 ? * MON-FRI *)")
+        maintenance_window_target = aws_native.ssm.MaintenanceWindowTarget("maintenanceWindowTarget",
+            resource_type="RESOURCE_GROUP",
+            targets=[{
+                "key": "resource-groups:Name",
+                "values": ["TestResourceGroup"],
+            }],
+            window_id=maintenance_window.id)
+        patch_task = aws_native.ssm.MaintenanceWindowTask("patchTask",
+            description="Apply OS patches on instances in target",
+            max_concurrency="1",
+            max_errors="1",
+            priority=0,
+            task_type="RUN_COMMAND",
+            window_id=maintenance_window.id,
+            task_arn="AWS-RunPatchBaseline",
+            task_invocation_parameters={
+                "maintenance_window_run_command_parameters": {
+                    "parameters": {
+                        "operation": ["Install"],
+                        "rebootOption": ["NoReboot"],
+                    },
+                },
+            },
+            targets=[{
+                "key": "WindowTargetIds",
+                "values": [maintenance_window_target.id],
+            }])
+
+        ```
+        ### Example
+
+        ```python
+        import pulumi
+        import pulumi_aws_native as aws_native
+
         lambda_task = aws_native.ssm.MaintenanceWindowTask("lambdaTask",
             window_id="mw-04fd6f19dfEXAMPLE",
             task_arn="arn:aws:lambda:us-east-2:111222333444:function:MyLambdaTaskArn",
@@ -349,6 +433,90 @@ class MaintenanceWindowTask(pulumi.CustomResource):
         Resource Type definition for AWS::SSM::MaintenanceWindowTask
 
         ## Example Usage
+        ### Example
+
+        ```python
+        import pulumi
+        import pulumi_aws_native as aws_native
+
+        maintenance_window = aws_native.ssm.MaintenanceWindow("maintenanceWindow",
+            name="MaintenanceWindow",
+            allow_unassociated_targets=True,
+            cutoff=0,
+            description="Maintenance window for instances",
+            duration=1,
+            schedule="cron(20 17 ? * MON-FRI *)")
+        maintenance_window_target = aws_native.ssm.MaintenanceWindowTarget("maintenanceWindowTarget",
+            resource_type="RESOURCE_GROUP",
+            targets=[{
+                "key": "resource-groups:Name",
+                "values": ["TestResourceGroup"],
+            }],
+            window_id=maintenance_window.id)
+        patch_task = aws_native.ssm.MaintenanceWindowTask("patchTask",
+            description="Apply OS patches on instances in target",
+            max_concurrency="1",
+            max_errors="1",
+            priority=0,
+            task_type="RUN_COMMAND",
+            window_id=maintenance_window.id,
+            task_arn="AWS-RunPatchBaseline",
+            task_invocation_parameters={
+                "maintenance_window_run_command_parameters": {
+                    "parameters": {
+                        "operation": ["Install"],
+                        "rebootOption": ["NoReboot"],
+                    },
+                },
+            },
+            targets=[{
+                "key": "WindowTargetIds",
+                "values": [maintenance_window_target.id],
+            }])
+
+        ```
+        ### Example
+
+        ```python
+        import pulumi
+        import pulumi_aws_native as aws_native
+
+        maintenance_window = aws_native.ssm.MaintenanceWindow("maintenanceWindow",
+            name="MaintenanceWindow",
+            allow_unassociated_targets=True,
+            cutoff=0,
+            description="Maintenance window for instances",
+            duration=1,
+            schedule="cron(20 17 ? * MON-FRI *)")
+        maintenance_window_target = aws_native.ssm.MaintenanceWindowTarget("maintenanceWindowTarget",
+            resource_type="RESOURCE_GROUP",
+            targets=[{
+                "key": "resource-groups:Name",
+                "values": ["TestResourceGroup"],
+            }],
+            window_id=maintenance_window.id)
+        patch_task = aws_native.ssm.MaintenanceWindowTask("patchTask",
+            description="Apply OS patches on instances in target",
+            max_concurrency="1",
+            max_errors="1",
+            priority=0,
+            task_type="RUN_COMMAND",
+            window_id=maintenance_window.id,
+            task_arn="AWS-RunPatchBaseline",
+            task_invocation_parameters={
+                "maintenance_window_run_command_parameters": {
+                    "parameters": {
+                        "operation": ["Install"],
+                        "rebootOption": ["NoReboot"],
+                    },
+                },
+            },
+            targets=[{
+                "key": "WindowTargetIds",
+                "values": [maintenance_window_target.id],
+            }])
+
+        ```
         ### Example
 
         ```python

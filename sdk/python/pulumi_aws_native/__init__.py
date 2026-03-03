@@ -81,6 +81,8 @@ if typing.TYPE_CHECKING:
     bedrock = __bedrock
     import pulumi_aws_native.bedrockagentcore as __bedrockagentcore
     bedrockagentcore = __bedrockagentcore
+    import pulumi_aws_native.bedrockmantle as __bedrockmantle
+    bedrockmantle = __bedrockmantle
     import pulumi_aws_native.billing as __billing
     billing = __billing
     import pulumi_aws_native.budgets as __budgets
@@ -129,6 +131,8 @@ if typing.TYPE_CHECKING:
     cognito = __cognito
     import pulumi_aws_native.comprehend as __comprehend
     comprehend = __comprehend
+    import pulumi_aws_native.computeoptimizer as __computeoptimizer
+    computeoptimizer = __computeoptimizer
     import pulumi_aws_native.config as __config
     config = __config
     import pulumi_aws_native.configuration as __configuration
@@ -161,6 +165,8 @@ if typing.TYPE_CHECKING:
     devicefarm = __devicefarm
     import pulumi_aws_native.devopsguru as __devopsguru
     devopsguru = __devopsguru
+    import pulumi_aws_native.directconnect as __directconnect
+    directconnect = __directconnect
     import pulumi_aws_native.directoryservice as __directoryservice
     directoryservice = __directoryservice
     import pulumi_aws_native.dms as __dms
@@ -529,6 +535,7 @@ else:
     batch = _utilities.lazy_import('pulumi_aws_native.batch')
     bedrock = _utilities.lazy_import('pulumi_aws_native.bedrock')
     bedrockagentcore = _utilities.lazy_import('pulumi_aws_native.bedrockagentcore')
+    bedrockmantle = _utilities.lazy_import('pulumi_aws_native.bedrockmantle')
     billing = _utilities.lazy_import('pulumi_aws_native.billing')
     budgets = _utilities.lazy_import('pulumi_aws_native.budgets')
     cases = _utilities.lazy_import('pulumi_aws_native.cases')
@@ -553,6 +560,7 @@ else:
     codestarnotifications = _utilities.lazy_import('pulumi_aws_native.codestarnotifications')
     cognito = _utilities.lazy_import('pulumi_aws_native.cognito')
     comprehend = _utilities.lazy_import('pulumi_aws_native.comprehend')
+    computeoptimizer = _utilities.lazy_import('pulumi_aws_native.computeoptimizer')
     config = _utilities.lazy_import('pulumi_aws_native.config')
     configuration = _utilities.lazy_import('pulumi_aws_native.configuration')
     connect = _utilities.lazy_import('pulumi_aws_native.connect')
@@ -569,6 +577,7 @@ else:
     detective = _utilities.lazy_import('pulumi_aws_native.detective')
     devicefarm = _utilities.lazy_import('pulumi_aws_native.devicefarm')
     devopsguru = _utilities.lazy_import('pulumi_aws_native.devopsguru')
+    directconnect = _utilities.lazy_import('pulumi_aws_native.directconnect')
     directoryservice = _utilities.lazy_import('pulumi_aws_native.directoryservice')
     dms = _utilities.lazy_import('pulumi_aws_native.dms')
     docdb = _utilities.lazy_import('pulumi_aws_native.docdb')
@@ -1091,13 +1100,24 @@ _utilities.register(
   "fqn": "pulumi_aws_native.bedrockagentcore",
   "classes": {
    "aws-native:bedrockagentcore:BrowserCustom": "BrowserCustom",
+   "aws-native:bedrockagentcore:BrowserProfile": "BrowserProfile",
    "aws-native:bedrockagentcore:CodeInterpreterCustom": "CodeInterpreterCustom",
+   "aws-native:bedrockagentcore:Evaluator": "Evaluator",
    "aws-native:bedrockagentcore:Gateway": "Gateway",
    "aws-native:bedrockagentcore:GatewayTarget": "GatewayTarget",
    "aws-native:bedrockagentcore:Memory": "Memory",
+   "aws-native:bedrockagentcore:OnlineEvaluationConfig": "OnlineEvaluationConfig",
    "aws-native:bedrockagentcore:Runtime": "Runtime",
    "aws-native:bedrockagentcore:RuntimeEndpoint": "RuntimeEndpoint",
    "aws-native:bedrockagentcore:WorkloadIdentity": "WorkloadIdentity"
+  }
+ },
+ {
+  "pkg": "aws-native",
+  "mod": "bedrockmantle",
+  "fqn": "pulumi_aws_native.bedrockmantle",
+  "classes": {
+   "aws-native:bedrockmantle:Project": "Project"
   }
  },
  {
@@ -1374,6 +1394,14 @@ _utilities.register(
  },
  {
   "pkg": "aws-native",
+  "mod": "computeoptimizer",
+  "fqn": "pulumi_aws_native.computeoptimizer",
+  "classes": {
+   "aws-native:computeoptimizer:AutomationRule": "AutomationRule"
+  }
+ },
+ {
+  "pkg": "aws-native",
   "mod": "configuration",
   "fqn": "pulumi_aws_native.configuration",
   "classes": {
@@ -1394,6 +1422,8 @@ _utilities.register(
    "aws-native:connect:ApprovedOrigin": "ApprovedOrigin",
    "aws-native:connect:ContactFlow": "ContactFlow",
    "aws-native:connect:ContactFlowModule": "ContactFlowModule",
+   "aws-native:connect:ContactFlowModuleAlias": "ContactFlowModuleAlias",
+   "aws-native:connect:ContactFlowModuleVersion": "ContactFlowModuleVersion",
    "aws-native:connect:ContactFlowVersion": "ContactFlowVersion",
    "aws-native:connect:DataTable": "DataTable",
    "aws-native:connect:DataTableAttribute": "DataTableAttribute",
@@ -1587,6 +1617,20 @@ _utilities.register(
    "aws-native:devopsguru:LogAnomalyDetectionIntegration": "LogAnomalyDetectionIntegration",
    "aws-native:devopsguru:NotificationChannel": "NotificationChannel",
    "aws-native:devopsguru:ResourceCollection": "ResourceCollection"
+  }
+ },
+ {
+  "pkg": "aws-native",
+  "mod": "directconnect",
+  "fqn": "pulumi_aws_native.directconnect",
+  "classes": {
+   "aws-native:directconnect:Connection": "Connection",
+   "aws-native:directconnect:DirectConnectGateway": "DirectConnectGateway",
+   "aws-native:directconnect:DirectConnectGatewayAssociation": "DirectConnectGatewayAssociation",
+   "aws-native:directconnect:Lag": "Lag",
+   "aws-native:directconnect:PrivateVirtualInterface": "PrivateVirtualInterface",
+   "aws-native:directconnect:PublicVirtualInterface": "PublicVirtualInterface",
+   "aws-native:directconnect:TransitVirtualInterface": "TransitVirtualInterface"
   }
  },
  {
@@ -2796,6 +2840,7 @@ _utilities.register(
   "classes": {
    "aws-native:opensearchserverless:AccessPolicy": "AccessPolicy",
    "aws-native:opensearchserverless:Collection": "Collection",
+   "aws-native:opensearchserverless:CollectionGroup": "CollectionGroup",
    "aws-native:opensearchserverless:Index": "Index",
    "aws-native:opensearchserverless:LifecyclePolicy": "LifecyclePolicy",
    "aws-native:opensearchserverless:SecurityConfig": "SecurityConfig",
@@ -3338,7 +3383,9 @@ _utilities.register(
    "aws-native:servicecatalog:CloudFormationProduct": "CloudFormationProduct",
    "aws-native:servicecatalog:CloudFormationProvisionedProduct": "CloudFormationProvisionedProduct",
    "aws-native:servicecatalog:LaunchNotificationConstraint": "LaunchNotificationConstraint",
+   "aws-native:servicecatalog:LaunchRoleConstraint": "LaunchRoleConstraint",
    "aws-native:servicecatalog:LaunchTemplateConstraint": "LaunchTemplateConstraint",
+   "aws-native:servicecatalog:Portfolio": "Portfolio",
    "aws-native:servicecatalog:PortfolioPrincipalAssociation": "PortfolioPrincipalAssociation",
    "aws-native:servicecatalog:PortfolioProductAssociation": "PortfolioProductAssociation",
    "aws-native:servicecatalog:PortfolioShare": "PortfolioShare",
@@ -3454,6 +3501,7 @@ _utilities.register(
   "classes": {
    "aws-native:ssm:Association": "Association",
    "aws-native:ssm:Document": "Document",
+   "aws-native:ssm:MaintenanceWindow": "MaintenanceWindow",
    "aws-native:ssm:MaintenanceWindowTarget": "MaintenanceWindowTarget",
    "aws-native:ssm:MaintenanceWindowTask": "MaintenanceWindowTask",
    "aws-native:ssm:Parameter": "Parameter",

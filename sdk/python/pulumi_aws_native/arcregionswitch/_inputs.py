@@ -48,6 +48,10 @@ __all__ = [
     'PlanExecutionBlockConfiguration0PropertiesArgsDict',
     'PlanExecutionBlockConfiguration10PropertiesArgs',
     'PlanExecutionBlockConfiguration10PropertiesArgsDict',
+    'PlanExecutionBlockConfiguration11PropertiesArgs',
+    'PlanExecutionBlockConfiguration11PropertiesArgsDict',
+    'PlanExecutionBlockConfiguration12PropertiesArgs',
+    'PlanExecutionBlockConfiguration12PropertiesArgsDict',
     'PlanExecutionBlockConfiguration1PropertiesArgs',
     'PlanExecutionBlockConfiguration1PropertiesArgsDict',
     'PlanExecutionBlockConfiguration2PropertiesArgs',
@@ -78,6 +82,10 @@ __all__ = [
     'PlanLambdasArgsDict',
     'PlanParallelExecutionBlockConfigurationArgs',
     'PlanParallelExecutionBlockConfigurationArgsDict',
+    'PlanRdsCreateCrossRegionReplicaConfigurationArgs',
+    'PlanRdsCreateCrossRegionReplicaConfigurationArgsDict',
+    'PlanRdsPromoteReadReplicaConfigurationArgs',
+    'PlanRdsPromoteReadReplicaConfigurationArgsDict',
     'PlanRegionSwitchPlanConfigurationArgs',
     'PlanRegionSwitchPlanConfigurationArgsDict',
     'PlanReportConfigurationArgs',
@@ -888,6 +896,44 @@ class PlanExecutionBlockConfiguration10PropertiesArgs:
         pulumi.set(self, "document_db_config", value)
 
 
+class PlanExecutionBlockConfiguration11PropertiesArgsDict(TypedDict):
+    rds_promote_read_replica_config: pulumi.Input['PlanRdsPromoteReadReplicaConfigurationArgsDict']
+
+@pulumi.input_type
+class PlanExecutionBlockConfiguration11PropertiesArgs:
+    def __init__(__self__, *,
+                 rds_promote_read_replica_config: pulumi.Input['PlanRdsPromoteReadReplicaConfigurationArgs']):
+        pulumi.set(__self__, "rds_promote_read_replica_config", rds_promote_read_replica_config)
+
+    @_builtins.property
+    @pulumi.getter(name="rdsPromoteReadReplicaConfig")
+    def rds_promote_read_replica_config(self) -> pulumi.Input['PlanRdsPromoteReadReplicaConfigurationArgs']:
+        return pulumi.get(self, "rds_promote_read_replica_config")
+
+    @rds_promote_read_replica_config.setter
+    def rds_promote_read_replica_config(self, value: pulumi.Input['PlanRdsPromoteReadReplicaConfigurationArgs']):
+        pulumi.set(self, "rds_promote_read_replica_config", value)
+
+
+class PlanExecutionBlockConfiguration12PropertiesArgsDict(TypedDict):
+    rds_create_cross_region_read_replica_config: pulumi.Input['PlanRdsCreateCrossRegionReplicaConfigurationArgsDict']
+
+@pulumi.input_type
+class PlanExecutionBlockConfiguration12PropertiesArgs:
+    def __init__(__self__, *,
+                 rds_create_cross_region_read_replica_config: pulumi.Input['PlanRdsCreateCrossRegionReplicaConfigurationArgs']):
+        pulumi.set(__self__, "rds_create_cross_region_read_replica_config", rds_create_cross_region_read_replica_config)
+
+    @_builtins.property
+    @pulumi.getter(name="rdsCreateCrossRegionReadReplicaConfig")
+    def rds_create_cross_region_read_replica_config(self) -> pulumi.Input['PlanRdsCreateCrossRegionReplicaConfigurationArgs']:
+        return pulumi.get(self, "rds_create_cross_region_read_replica_config")
+
+    @rds_create_cross_region_read_replica_config.setter
+    def rds_create_cross_region_read_replica_config(self, value: pulumi.Input['PlanRdsCreateCrossRegionReplicaConfigurationArgs']):
+        pulumi.set(self, "rds_create_cross_region_read_replica_config", value)
+
+
 class PlanExecutionBlockConfiguration1PropertiesArgsDict(TypedDict):
     ec2_asg_capacity_increase_config: pulumi.Input['PlanEc2AsgCapacityIncreaseConfigurationArgsDict']
 
@@ -1290,6 +1336,122 @@ class PlanParallelExecutionBlockConfigurationArgs:
         pulumi.set(self, "steps", value)
 
 
+class PlanRdsCreateCrossRegionReplicaConfigurationArgsDict(TypedDict):
+    db_instance_arn_map: pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]
+    cross_account_role: NotRequired[pulumi.Input[_builtins.str]]
+    external_id: NotRequired[pulumi.Input[_builtins.str]]
+    timeout_minutes: NotRequired[pulumi.Input[_builtins.float]]
+
+@pulumi.input_type
+class PlanRdsCreateCrossRegionReplicaConfigurationArgs:
+    def __init__(__self__, *,
+                 db_instance_arn_map: pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]],
+                 cross_account_role: Optional[pulumi.Input[_builtins.str]] = None,
+                 external_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 timeout_minutes: Optional[pulumi.Input[_builtins.float]] = None):
+        pulumi.set(__self__, "db_instance_arn_map", db_instance_arn_map)
+        if cross_account_role is not None:
+            pulumi.set(__self__, "cross_account_role", cross_account_role)
+        if external_id is not None:
+            pulumi.set(__self__, "external_id", external_id)
+        if timeout_minutes is not None:
+            pulumi.set(__self__, "timeout_minutes", timeout_minutes)
+
+    @_builtins.property
+    @pulumi.getter(name="dbInstanceArnMap")
+    def db_instance_arn_map(self) -> pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]:
+        return pulumi.get(self, "db_instance_arn_map")
+
+    @db_instance_arn_map.setter
+    def db_instance_arn_map(self, value: pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "db_instance_arn_map", value)
+
+    @_builtins.property
+    @pulumi.getter(name="crossAccountRole")
+    def cross_account_role(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "cross_account_role")
+
+    @cross_account_role.setter
+    def cross_account_role(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "cross_account_role", value)
+
+    @_builtins.property
+    @pulumi.getter(name="externalId")
+    def external_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "external_id")
+
+    @external_id.setter
+    def external_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "external_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="timeoutMinutes")
+    def timeout_minutes(self) -> Optional[pulumi.Input[_builtins.float]]:
+        return pulumi.get(self, "timeout_minutes")
+
+    @timeout_minutes.setter
+    def timeout_minutes(self, value: Optional[pulumi.Input[_builtins.float]]):
+        pulumi.set(self, "timeout_minutes", value)
+
+
+class PlanRdsPromoteReadReplicaConfigurationArgsDict(TypedDict):
+    db_instance_arn_map: pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]
+    cross_account_role: NotRequired[pulumi.Input[_builtins.str]]
+    external_id: NotRequired[pulumi.Input[_builtins.str]]
+    timeout_minutes: NotRequired[pulumi.Input[_builtins.float]]
+
+@pulumi.input_type
+class PlanRdsPromoteReadReplicaConfigurationArgs:
+    def __init__(__self__, *,
+                 db_instance_arn_map: pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]],
+                 cross_account_role: Optional[pulumi.Input[_builtins.str]] = None,
+                 external_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 timeout_minutes: Optional[pulumi.Input[_builtins.float]] = None):
+        pulumi.set(__self__, "db_instance_arn_map", db_instance_arn_map)
+        if cross_account_role is not None:
+            pulumi.set(__self__, "cross_account_role", cross_account_role)
+        if external_id is not None:
+            pulumi.set(__self__, "external_id", external_id)
+        if timeout_minutes is not None:
+            pulumi.set(__self__, "timeout_minutes", timeout_minutes)
+
+    @_builtins.property
+    @pulumi.getter(name="dbInstanceArnMap")
+    def db_instance_arn_map(self) -> pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]:
+        return pulumi.get(self, "db_instance_arn_map")
+
+    @db_instance_arn_map.setter
+    def db_instance_arn_map(self, value: pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "db_instance_arn_map", value)
+
+    @_builtins.property
+    @pulumi.getter(name="crossAccountRole")
+    def cross_account_role(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "cross_account_role")
+
+    @cross_account_role.setter
+    def cross_account_role(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "cross_account_role", value)
+
+    @_builtins.property
+    @pulumi.getter(name="externalId")
+    def external_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "external_id")
+
+    @external_id.setter
+    def external_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "external_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="timeoutMinutes")
+    def timeout_minutes(self) -> Optional[pulumi.Input[_builtins.float]]:
+        return pulumi.get(self, "timeout_minutes")
+
+    @timeout_minutes.setter
+    def timeout_minutes(self, value: Optional[pulumi.Input[_builtins.float]]):
+        pulumi.set(self, "timeout_minutes", value)
+
+
 class PlanRegionSwitchPlanConfigurationArgsDict(TypedDict):
     arn: pulumi.Input[_builtins.str]
     cross_account_role: NotRequired[pulumi.Input[_builtins.str]]
@@ -1592,7 +1754,7 @@ class PlanServiceArgs:
 
 
 class PlanStepArgsDict(TypedDict):
-    execution_block_configuration: pulumi.Input[Union['PlanExecutionBlockConfiguration0PropertiesArgsDict', 'PlanExecutionBlockConfiguration1PropertiesArgsDict', 'PlanExecutionBlockConfiguration2PropertiesArgsDict', 'PlanExecutionBlockConfiguration3PropertiesArgsDict', 'PlanExecutionBlockConfiguration4PropertiesArgsDict', 'PlanExecutionBlockConfiguration5PropertiesArgsDict', 'PlanExecutionBlockConfiguration6PropertiesArgsDict', 'PlanExecutionBlockConfiguration7PropertiesArgsDict', 'PlanExecutionBlockConfiguration8PropertiesArgsDict', 'PlanExecutionBlockConfiguration9PropertiesArgsDict', 'PlanExecutionBlockConfiguration10PropertiesArgsDict']]
+    execution_block_configuration: pulumi.Input[Union['PlanExecutionBlockConfiguration0PropertiesArgsDict', 'PlanExecutionBlockConfiguration1PropertiesArgsDict', 'PlanExecutionBlockConfiguration2PropertiesArgsDict', 'PlanExecutionBlockConfiguration3PropertiesArgsDict', 'PlanExecutionBlockConfiguration4PropertiesArgsDict', 'PlanExecutionBlockConfiguration5PropertiesArgsDict', 'PlanExecutionBlockConfiguration6PropertiesArgsDict', 'PlanExecutionBlockConfiguration7PropertiesArgsDict', 'PlanExecutionBlockConfiguration8PropertiesArgsDict', 'PlanExecutionBlockConfiguration9PropertiesArgsDict', 'PlanExecutionBlockConfiguration10PropertiesArgsDict', 'PlanExecutionBlockConfiguration11PropertiesArgsDict', 'PlanExecutionBlockConfiguration12PropertiesArgsDict']]
     """
     The configuration for an execution block in a workflow.
     """
@@ -1612,12 +1774,12 @@ class PlanStepArgsDict(TypedDict):
 @pulumi.input_type
 class PlanStepArgs:
     def __init__(__self__, *,
-                 execution_block_configuration: pulumi.Input[Union['PlanExecutionBlockConfiguration0PropertiesArgs', 'PlanExecutionBlockConfiguration1PropertiesArgs', 'PlanExecutionBlockConfiguration2PropertiesArgs', 'PlanExecutionBlockConfiguration3PropertiesArgs', 'PlanExecutionBlockConfiguration4PropertiesArgs', 'PlanExecutionBlockConfiguration5PropertiesArgs', 'PlanExecutionBlockConfiguration6PropertiesArgs', 'PlanExecutionBlockConfiguration7PropertiesArgs', 'PlanExecutionBlockConfiguration8PropertiesArgs', 'PlanExecutionBlockConfiguration9PropertiesArgs', 'PlanExecutionBlockConfiguration10PropertiesArgs']],
+                 execution_block_configuration: pulumi.Input[Union['PlanExecutionBlockConfiguration0PropertiesArgs', 'PlanExecutionBlockConfiguration1PropertiesArgs', 'PlanExecutionBlockConfiguration2PropertiesArgs', 'PlanExecutionBlockConfiguration3PropertiesArgs', 'PlanExecutionBlockConfiguration4PropertiesArgs', 'PlanExecutionBlockConfiguration5PropertiesArgs', 'PlanExecutionBlockConfiguration6PropertiesArgs', 'PlanExecutionBlockConfiguration7PropertiesArgs', 'PlanExecutionBlockConfiguration8PropertiesArgs', 'PlanExecutionBlockConfiguration9PropertiesArgs', 'PlanExecutionBlockConfiguration10PropertiesArgs', 'PlanExecutionBlockConfiguration11PropertiesArgs', 'PlanExecutionBlockConfiguration12PropertiesArgs']],
                  execution_block_type: pulumi.Input['PlanExecutionBlockType'],
                  name: pulumi.Input[_builtins.str],
                  description: Optional[pulumi.Input[_builtins.str]] = None):
         """
-        :param pulumi.Input[Union['PlanExecutionBlockConfiguration0PropertiesArgs', 'PlanExecutionBlockConfiguration1PropertiesArgs', 'PlanExecutionBlockConfiguration2PropertiesArgs', 'PlanExecutionBlockConfiguration3PropertiesArgs', 'PlanExecutionBlockConfiguration4PropertiesArgs', 'PlanExecutionBlockConfiguration5PropertiesArgs', 'PlanExecutionBlockConfiguration6PropertiesArgs', 'PlanExecutionBlockConfiguration7PropertiesArgs', 'PlanExecutionBlockConfiguration8PropertiesArgs', 'PlanExecutionBlockConfiguration9PropertiesArgs', 'PlanExecutionBlockConfiguration10PropertiesArgs']] execution_block_configuration: The configuration for an execution block in a workflow.
+        :param pulumi.Input[Union['PlanExecutionBlockConfiguration0PropertiesArgs', 'PlanExecutionBlockConfiguration1PropertiesArgs', 'PlanExecutionBlockConfiguration2PropertiesArgs', 'PlanExecutionBlockConfiguration3PropertiesArgs', 'PlanExecutionBlockConfiguration4PropertiesArgs', 'PlanExecutionBlockConfiguration5PropertiesArgs', 'PlanExecutionBlockConfiguration6PropertiesArgs', 'PlanExecutionBlockConfiguration7PropertiesArgs', 'PlanExecutionBlockConfiguration8PropertiesArgs', 'PlanExecutionBlockConfiguration9PropertiesArgs', 'PlanExecutionBlockConfiguration10PropertiesArgs', 'PlanExecutionBlockConfiguration11PropertiesArgs', 'PlanExecutionBlockConfiguration12PropertiesArgs']] execution_block_configuration: The configuration for an execution block in a workflow.
         :param pulumi.Input['PlanExecutionBlockType'] execution_block_type: The type of an execution block in a workflow.
         :param pulumi.Input[_builtins.str] name: The name of a step in a workflow.
         :param pulumi.Input[_builtins.str] description: The description of a step in a workflow.
@@ -1630,14 +1792,14 @@ class PlanStepArgs:
 
     @_builtins.property
     @pulumi.getter(name="executionBlockConfiguration")
-    def execution_block_configuration(self) -> pulumi.Input[Union['PlanExecutionBlockConfiguration0PropertiesArgs', 'PlanExecutionBlockConfiguration1PropertiesArgs', 'PlanExecutionBlockConfiguration2PropertiesArgs', 'PlanExecutionBlockConfiguration3PropertiesArgs', 'PlanExecutionBlockConfiguration4PropertiesArgs', 'PlanExecutionBlockConfiguration5PropertiesArgs', 'PlanExecutionBlockConfiguration6PropertiesArgs', 'PlanExecutionBlockConfiguration7PropertiesArgs', 'PlanExecutionBlockConfiguration8PropertiesArgs', 'PlanExecutionBlockConfiguration9PropertiesArgs', 'PlanExecutionBlockConfiguration10PropertiesArgs']]:
+    def execution_block_configuration(self) -> pulumi.Input[Union['PlanExecutionBlockConfiguration0PropertiesArgs', 'PlanExecutionBlockConfiguration1PropertiesArgs', 'PlanExecutionBlockConfiguration2PropertiesArgs', 'PlanExecutionBlockConfiguration3PropertiesArgs', 'PlanExecutionBlockConfiguration4PropertiesArgs', 'PlanExecutionBlockConfiguration5PropertiesArgs', 'PlanExecutionBlockConfiguration6PropertiesArgs', 'PlanExecutionBlockConfiguration7PropertiesArgs', 'PlanExecutionBlockConfiguration8PropertiesArgs', 'PlanExecutionBlockConfiguration9PropertiesArgs', 'PlanExecutionBlockConfiguration10PropertiesArgs', 'PlanExecutionBlockConfiguration11PropertiesArgs', 'PlanExecutionBlockConfiguration12PropertiesArgs']]:
         """
         The configuration for an execution block in a workflow.
         """
         return pulumi.get(self, "execution_block_configuration")
 
     @execution_block_configuration.setter
-    def execution_block_configuration(self, value: pulumi.Input[Union['PlanExecutionBlockConfiguration0PropertiesArgs', 'PlanExecutionBlockConfiguration1PropertiesArgs', 'PlanExecutionBlockConfiguration2PropertiesArgs', 'PlanExecutionBlockConfiguration3PropertiesArgs', 'PlanExecutionBlockConfiguration4PropertiesArgs', 'PlanExecutionBlockConfiguration5PropertiesArgs', 'PlanExecutionBlockConfiguration6PropertiesArgs', 'PlanExecutionBlockConfiguration7PropertiesArgs', 'PlanExecutionBlockConfiguration8PropertiesArgs', 'PlanExecutionBlockConfiguration9PropertiesArgs', 'PlanExecutionBlockConfiguration10PropertiesArgs']]):
+    def execution_block_configuration(self, value: pulumi.Input[Union['PlanExecutionBlockConfiguration0PropertiesArgs', 'PlanExecutionBlockConfiguration1PropertiesArgs', 'PlanExecutionBlockConfiguration2PropertiesArgs', 'PlanExecutionBlockConfiguration3PropertiesArgs', 'PlanExecutionBlockConfiguration4PropertiesArgs', 'PlanExecutionBlockConfiguration5PropertiesArgs', 'PlanExecutionBlockConfiguration6PropertiesArgs', 'PlanExecutionBlockConfiguration7PropertiesArgs', 'PlanExecutionBlockConfiguration8PropertiesArgs', 'PlanExecutionBlockConfiguration9PropertiesArgs', 'PlanExecutionBlockConfiguration10PropertiesArgs', 'PlanExecutionBlockConfiguration11PropertiesArgs', 'PlanExecutionBlockConfiguration12PropertiesArgs']]):
         pulumi.set(self, "execution_block_configuration", value)
 
     @_builtins.property

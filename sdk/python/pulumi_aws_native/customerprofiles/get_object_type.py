@@ -26,7 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetObjectTypeResult:
-    def __init__(__self__, allow_profile_creation=None, created_at=None, description=None, encryption_key=None, expiration_days=None, fields=None, keys=None, last_updated_at=None, max_available_profile_object_count=None, max_profile_object_count=None, source_last_updated_timestamp_format=None, tags=None, template_id=None):
+    def __init__(__self__, allow_profile_creation=None, created_at=None, description=None, encryption_key=None, expiration_days=None, fields=None, keys=None, last_updated_at=None, max_available_profile_object_count=None, max_profile_object_count=None, source_last_updated_timestamp_format=None, source_priority=None, tags=None, template_id=None):
         if allow_profile_creation and not isinstance(allow_profile_creation, bool):
             raise TypeError("Expected argument 'allow_profile_creation' to be a bool")
         pulumi.set(__self__, "allow_profile_creation", allow_profile_creation)
@@ -60,6 +60,9 @@ class GetObjectTypeResult:
         if source_last_updated_timestamp_format and not isinstance(source_last_updated_timestamp_format, str):
             raise TypeError("Expected argument 'source_last_updated_timestamp_format' to be a str")
         pulumi.set(__self__, "source_last_updated_timestamp_format", source_last_updated_timestamp_format)
+        if source_priority and not isinstance(source_priority, int):
+            raise TypeError("Expected argument 'source_priority' to be a int")
+        pulumi.set(__self__, "source_priority", source_priority)
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
@@ -156,6 +159,14 @@ class GetObjectTypeResult:
         return pulumi.get(self, "source_last_updated_timestamp_format")
 
     @_builtins.property
+    @pulumi.getter(name="sourcePriority")
+    def source_priority(self) -> Optional[_builtins.int]:
+        """
+        Defines the priority order of object types. Lower value indicates higher priority.
+        """
+        return pulumi.get(self, "source_priority")
+
+    @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
         """
@@ -189,6 +200,7 @@ class AwaitableGetObjectTypeResult(GetObjectTypeResult):
             max_available_profile_object_count=self.max_available_profile_object_count,
             max_profile_object_count=self.max_profile_object_count,
             source_last_updated_timestamp_format=self.source_last_updated_timestamp_format,
+            source_priority=self.source_priority,
             tags=self.tags,
             template_id=self.template_id)
 
@@ -221,6 +233,7 @@ def get_object_type(domain_name: Optional[_builtins.str] = None,
         max_available_profile_object_count=pulumi.get(__ret__, 'max_available_profile_object_count'),
         max_profile_object_count=pulumi.get(__ret__, 'max_profile_object_count'),
         source_last_updated_timestamp_format=pulumi.get(__ret__, 'source_last_updated_timestamp_format'),
+        source_priority=pulumi.get(__ret__, 'source_priority'),
         tags=pulumi.get(__ret__, 'tags'),
         template_id=pulumi.get(__ret__, 'template_id'))
 def get_object_type_output(domain_name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -250,5 +263,6 @@ def get_object_type_output(domain_name: Optional[pulumi.Input[_builtins.str]] = 
         max_available_profile_object_count=pulumi.get(__response__, 'max_available_profile_object_count'),
         max_profile_object_count=pulumi.get(__response__, 'max_profile_object_count'),
         source_last_updated_timestamp_format=pulumi.get(__response__, 'source_last_updated_timestamp_format'),
+        source_priority=pulumi.get(__response__, 'source_priority'),
         tags=pulumi.get(__response__, 'tags'),
         template_id=pulumi.get(__response__, 'template_id')))

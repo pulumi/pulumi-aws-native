@@ -52,6 +52,12 @@ namespace Pulumi.AwsNative.OpenSearchService
         public Output<Outputs.IamIdentityCenterOptionsProperties?> IamIdentityCenterOptions { get; private set; } = null!;
 
         /// <summary>
+        /// The ARN of the KMS key used to encrypt the application.
+        /// </summary>
+        [Output("kmsKeyArn")]
+        public Output<string?> KmsKeyArn { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the application.
         /// </summary>
         [Output("name")]
@@ -88,6 +94,7 @@ namespace Pulumi.AwsNative.OpenSearchService
                 Version = Utilities.Version,
                 ReplaceOnChanges =
                 {
+                    "kmsKeyArn",
                     "name",
                 },
             };
@@ -147,6 +154,12 @@ namespace Pulumi.AwsNative.OpenSearchService
         /// </summary>
         [Input("iamIdentityCenterOptions")]
         public Input<Inputs.IamIdentityCenterOptionsPropertiesArgs>? IamIdentityCenterOptions { get; set; }
+
+        /// <summary>
+        /// The ARN of the KMS key used to encrypt the application.
+        /// </summary>
+        [Input("kmsKeyArn")]
+        public Input<string>? KmsKeyArn { get; set; }
 
         /// <summary>
         /// The name of the application.

@@ -15,6 +15,11 @@ export type Collection = import("./collection").Collection;
 export const Collection: typeof import("./collection").Collection = null as any;
 utilities.lazyLoad(exports, ["Collection"], () => require("./collection"));
 
+export { CollectionGroupArgs } from "./collectionGroup";
+export type CollectionGroup = import("./collectionGroup").CollectionGroup;
+export const CollectionGroup: typeof import("./collectionGroup").CollectionGroup = null as any;
+utilities.lazyLoad(exports, ["CollectionGroup"], () => require("./collectionGroup"));
+
 export { GetAccessPolicyArgs, GetAccessPolicyResult, GetAccessPolicyOutputArgs } from "./getAccessPolicy";
 export const getAccessPolicy: typeof import("./getAccessPolicy").getAccessPolicy = null as any;
 export const getAccessPolicyOutput: typeof import("./getAccessPolicy").getAccessPolicyOutput = null as any;
@@ -24,6 +29,11 @@ export { GetCollectionArgs, GetCollectionResult, GetCollectionOutputArgs } from 
 export const getCollection: typeof import("./getCollection").getCollection = null as any;
 export const getCollectionOutput: typeof import("./getCollection").getCollectionOutput = null as any;
 utilities.lazyLoad(exports, ["getCollection","getCollectionOutput"], () => require("./getCollection"));
+
+export { GetCollectionGroupArgs, GetCollectionGroupResult, GetCollectionGroupOutputArgs } from "./getCollectionGroup";
+export const getCollectionGroup: typeof import("./getCollectionGroup").getCollectionGroup = null as any;
+export const getCollectionGroupOutput: typeof import("./getCollectionGroup").getCollectionGroupOutput = null as any;
+utilities.lazyLoad(exports, ["getCollectionGroup","getCollectionGroupOutput"], () => require("./getCollectionGroup"));
 
 export { GetIndexArgs, GetIndexResult, GetIndexOutputArgs } from "./getIndex";
 export const getIndex: typeof import("./getIndex").getIndex = null as any;
@@ -87,6 +97,8 @@ const _module = {
                 return new AccessPolicy(name, <any>undefined, { urn })
             case "aws-native:opensearchserverless:Collection":
                 return new Collection(name, <any>undefined, { urn })
+            case "aws-native:opensearchserverless:CollectionGroup":
+                return new CollectionGroup(name, <any>undefined, { urn })
             case "aws-native:opensearchserverless:Index":
                 return new Index(name, <any>undefined, { urn })
             case "aws-native:opensearchserverless:LifecyclePolicy":

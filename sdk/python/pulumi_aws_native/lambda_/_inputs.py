@@ -238,19 +238,19 @@ class AliasVersionWeightArgs:
 
 class CapacityProviderInstanceRequirementsArgsDict(TypedDict):
     """
-    Specifications for the types of EC2 instances that the capacity provider can use.
+    Specifications that define the characteristics and constraints for compute instances used by the capacity provider.
     """
     allowed_instance_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
     """
-    A list of instance types that the capacity provider can use. Supports wildcards (for example, m5.*).
+    A list of EC2 instance types that the capacity provider is allowed to use. If not specified, all compatible instance types are allowed.
     """
     architectures: NotRequired[pulumi.Input[Sequence[pulumi.Input['CapacityProviderArchitecture']]]]
     """
-    The instruction set architecture for EC2 instances. Specify either x86_64 or arm64.
+    A list of supported CPU architectures for compute instances. Valid values include ``x86_64`` and ``arm64``.
     """
     excluded_instance_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
     """
-    A list of instance types that the capacity provider should not use. Takes precedence over AllowedInstanceTypes.
+    A list of EC2 instance types that the capacity provider should not use, even if they meet other requirements.
     """
 
 @pulumi.input_type
@@ -260,10 +260,10 @@ class CapacityProviderInstanceRequirementsArgs:
                  architectures: Optional[pulumi.Input[Sequence[pulumi.Input['CapacityProviderArchitecture']]]] = None,
                  excluded_instance_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
-        Specifications for the types of EC2 instances that the capacity provider can use.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_instance_types: A list of instance types that the capacity provider can use. Supports wildcards (for example, m5.*).
-        :param pulumi.Input[Sequence[pulumi.Input['CapacityProviderArchitecture']]] architectures: The instruction set architecture for EC2 instances. Specify either x86_64 or arm64.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] excluded_instance_types: A list of instance types that the capacity provider should not use. Takes precedence over AllowedInstanceTypes.
+        Specifications that define the characteristics and constraints for compute instances used by the capacity provider.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_instance_types: A list of EC2 instance types that the capacity provider is allowed to use. If not specified, all compatible instance types are allowed.
+        :param pulumi.Input[Sequence[pulumi.Input['CapacityProviderArchitecture']]] architectures: A list of supported CPU architectures for compute instances. Valid values include ``x86_64`` and ``arm64``.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] excluded_instance_types: A list of EC2 instance types that the capacity provider should not use, even if they meet other requirements.
         """
         if allowed_instance_types is not None:
             pulumi.set(__self__, "allowed_instance_types", allowed_instance_types)
@@ -276,7 +276,7 @@ class CapacityProviderInstanceRequirementsArgs:
     @pulumi.getter(name="allowedInstanceTypes")
     def allowed_instance_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        A list of instance types that the capacity provider can use. Supports wildcards (for example, m5.*).
+        A list of EC2 instance types that the capacity provider is allowed to use. If not specified, all compatible instance types are allowed.
         """
         return pulumi.get(self, "allowed_instance_types")
 
@@ -288,7 +288,7 @@ class CapacityProviderInstanceRequirementsArgs:
     @pulumi.getter
     def architectures(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CapacityProviderArchitecture']]]]:
         """
-        The instruction set architecture for EC2 instances. Specify either x86_64 or arm64.
+        A list of supported CPU architectures for compute instances. Valid values include ``x86_64`` and ``arm64``.
         """
         return pulumi.get(self, "architectures")
 
@@ -300,7 +300,7 @@ class CapacityProviderInstanceRequirementsArgs:
     @pulumi.getter(name="excludedInstanceTypes")
     def excluded_instance_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        A list of instance types that the capacity provider should not use. Takes precedence over AllowedInstanceTypes.
+        A list of EC2 instance types that the capacity provider should not use, even if they meet other requirements.
         """
         return pulumi.get(self, "excluded_instance_types")
 
@@ -311,11 +311,11 @@ class CapacityProviderInstanceRequirementsArgs:
 
 class CapacityProviderPermissionsConfigArgsDict(TypedDict):
     """
-    IAM permissions configuration for the capacity provider.
+    Configuration that specifies the permissions required for the capacity provider to manage compute resources.
     """
     capacity_provider_operator_role_arn: pulumi.Input[_builtins.str]
     """
-    The ARN of the IAM role that Lambda assumes to manage the capacity provider.
+    The ARN of the IAM role that the capacity provider uses to manage compute instances and other AWS resources.
     """
 
 @pulumi.input_type
@@ -323,8 +323,8 @@ class CapacityProviderPermissionsConfigArgs:
     def __init__(__self__, *,
                  capacity_provider_operator_role_arn: pulumi.Input[_builtins.str]):
         """
-        IAM permissions configuration for the capacity provider.
-        :param pulumi.Input[_builtins.str] capacity_provider_operator_role_arn: The ARN of the IAM role that Lambda assumes to manage the capacity provider.
+        Configuration that specifies the permissions required for the capacity provider to manage compute resources.
+        :param pulumi.Input[_builtins.str] capacity_provider_operator_role_arn: The ARN of the IAM role that the capacity provider uses to manage compute instances and other AWS resources.
         """
         pulumi.set(__self__, "capacity_provider_operator_role_arn", capacity_provider_operator_role_arn)
 
@@ -332,7 +332,7 @@ class CapacityProviderPermissionsConfigArgs:
     @pulumi.getter(name="capacityProviderOperatorRoleArn")
     def capacity_provider_operator_role_arn(self) -> pulumi.Input[_builtins.str]:
         """
-        The ARN of the IAM role that Lambda assumes to manage the capacity provider.
+        The ARN of the IAM role that the capacity provider uses to manage compute instances and other AWS resources.
         """
         return pulumi.get(self, "capacity_provider_operator_role_arn")
 
@@ -343,11 +343,11 @@ class CapacityProviderPermissionsConfigArgs:
 
 class CapacityProviderScalingConfigArgsDict(TypedDict):
     """
-    The scaling configuration for the capacity provider.
+    Configuration that defines how the capacity provider scales compute instances based on demand and policies.
     """
     max_v_cpu_count: NotRequired[pulumi.Input[_builtins.int]]
     """
-    The maximum number of EC2 instances that the capacity provider can scale up to.
+    The maximum number of vCPUs that the capacity provider can provision across all compute instances.
     """
     scaling_mode: NotRequired[pulumi.Input['CapacityProviderScalingMode']]
     """
@@ -365,8 +365,8 @@ class CapacityProviderScalingConfigArgs:
                  scaling_mode: Optional[pulumi.Input['CapacityProviderScalingMode']] = None,
                  scaling_policies: Optional[pulumi.Input[Sequence[pulumi.Input['CapacityProviderTargetTrackingScalingPolicyArgs']]]] = None):
         """
-        The scaling configuration for the capacity provider.
-        :param pulumi.Input[_builtins.int] max_v_cpu_count: The maximum number of EC2 instances that the capacity provider can scale up to.
+        Configuration that defines how the capacity provider scales compute instances based on demand and policies.
+        :param pulumi.Input[_builtins.int] max_v_cpu_count: The maximum number of vCPUs that the capacity provider can provision across all compute instances.
         :param pulumi.Input['CapacityProviderScalingMode'] scaling_mode: The scaling mode that determines how the capacity provider responds to changes in demand.
         :param pulumi.Input[Sequence[pulumi.Input['CapacityProviderTargetTrackingScalingPolicyArgs']]] scaling_policies: A list of target tracking scaling policies for the capacity provider.
         """
@@ -381,7 +381,7 @@ class CapacityProviderScalingConfigArgs:
     @pulumi.getter(name="maxVCpuCount")
     def max_v_cpu_count(self) -> Optional[pulumi.Input[_builtins.int]]:
         """
-        The maximum number of EC2 instances that the capacity provider can scale up to.
+        The maximum number of vCPUs that the capacity provider can provision across all compute instances.
         """
         return pulumi.get(self, "max_v_cpu_count")
 
@@ -416,7 +416,7 @@ class CapacityProviderScalingConfigArgs:
 
 class CapacityProviderTargetTrackingScalingPolicyArgsDict(TypedDict):
     """
-    A target tracking scaling policy for the capacity provider.
+    A scaling policy for the capacity provider that automatically adjusts capacity to maintain a target value for a specific metric.
     """
     predefined_metric_type: pulumi.Input['CapacityProviderPredefinedMetricType']
     """
@@ -424,7 +424,7 @@ class CapacityProviderTargetTrackingScalingPolicyArgsDict(TypedDict):
     """
     target_value: pulumi.Input[_builtins.float]
     """
-    The target value for the metric as a percentage (for example, 70.0 for 70%).
+    The target value for the metric that the scaling policy attempts to maintain through scaling actions.
     """
 
 @pulumi.input_type
@@ -433,9 +433,9 @@ class CapacityProviderTargetTrackingScalingPolicyArgs:
                  predefined_metric_type: pulumi.Input['CapacityProviderPredefinedMetricType'],
                  target_value: pulumi.Input[_builtins.float]):
         """
-        A target tracking scaling policy for the capacity provider.
+        A scaling policy for the capacity provider that automatically adjusts capacity to maintain a target value for a specific metric.
         :param pulumi.Input['CapacityProviderPredefinedMetricType'] predefined_metric_type: The predefined metric type to track for scaling decisions.
-        :param pulumi.Input[_builtins.float] target_value: The target value for the metric as a percentage (for example, 70.0 for 70%).
+        :param pulumi.Input[_builtins.float] target_value: The target value for the metric that the scaling policy attempts to maintain through scaling actions.
         """
         pulumi.set(__self__, "predefined_metric_type", predefined_metric_type)
         pulumi.set(__self__, "target_value", target_value)
@@ -456,7 +456,7 @@ class CapacityProviderTargetTrackingScalingPolicyArgs:
     @pulumi.getter(name="targetValue")
     def target_value(self) -> pulumi.Input[_builtins.float]:
         """
-        The target value for the metric as a percentage (for example, 70.0 for 70%).
+        The target value for the metric that the scaling policy attempts to maintain through scaling actions.
         """
         return pulumi.get(self, "target_value")
 
@@ -467,15 +467,15 @@ class CapacityProviderTargetTrackingScalingPolicyArgs:
 
 class CapacityProviderVpcConfigArgsDict(TypedDict):
     """
-    VPC configuration for the capacity provider.
+    VPC configuration that specifies the network settings for compute instances managed by the capacity provider.
     """
     security_group_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
     """
-    A list of security group IDs to associate with EC2 instances.
+    A list of security group IDs that control network access for compute instances managed by the capacity provider.
     """
     subnet_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
     """
-    A list of subnet IDs where the capacity provider can launch EC2 instances.
+    A list of subnet IDs where the capacity provider launches compute instances.
     """
 
 @pulumi.input_type
@@ -484,9 +484,9 @@ class CapacityProviderVpcConfigArgs:
                  security_group_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  subnet_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
         """
-        VPC configuration for the capacity provider.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: A list of security group IDs to associate with EC2 instances.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: A list of subnet IDs where the capacity provider can launch EC2 instances.
+        VPC configuration that specifies the network settings for compute instances managed by the capacity provider.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: A list of security group IDs that control network access for compute instances managed by the capacity provider.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: A list of subnet IDs where the capacity provider launches compute instances.
         """
         pulumi.set(__self__, "security_group_ids", security_group_ids)
         pulumi.set(__self__, "subnet_ids", subnet_ids)
@@ -495,7 +495,7 @@ class CapacityProviderVpcConfigArgs:
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
         """
-        A list of security group IDs to associate with EC2 instances.
+        A list of security group IDs that control network access for compute instances managed by the capacity provider.
         """
         return pulumi.get(self, "security_group_ids")
 
@@ -507,7 +507,7 @@ class CapacityProviderVpcConfigArgs:
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
         """
-        A list of subnet IDs where the capacity provider can launch EC2 instances.
+        A list of subnet IDs where the capacity provider launches compute instances.
         """
         return pulumi.get(self, "subnet_ids")
 

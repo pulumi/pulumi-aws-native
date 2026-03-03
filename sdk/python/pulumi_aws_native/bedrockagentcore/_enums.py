@@ -9,8 +9,11 @@ from enum import Enum
 __all__ = [
     'BrowserCustomBrowserNetworkMode',
     'BrowserCustomBrowserStatus',
+    'BrowserProfileStatus',
     'CodeInterpreterCustomCodeInterpreterNetworkMode',
     'CodeInterpreterCustomCodeInterpreterStatus',
+    'EvaluatorLevel',
+    'EvaluatorStatus',
     'GatewayAuthorizerType',
     'GatewayClaimMatchOperator',
     'GatewayExceptionLevel',
@@ -36,6 +39,9 @@ __all__ = [
     'MemorySummaryMemoryStrategyType',
     'MemoryUserPreferenceMemoryStrategyStatus',
     'MemoryUserPreferenceMemoryStrategyType',
+    'OnlineEvaluationConfigExecutionStatus',
+    'OnlineEvaluationConfigFilterOperator',
+    'OnlineEvaluationConfigStatus',
     'RuntimeAgentManagedRuntimeType',
     'RuntimeAgentStatus',
     'RuntimeClaimMatchOperator',
@@ -68,6 +74,17 @@ class BrowserCustomBrowserStatus(_builtins.str, Enum):
     DELETED = "DELETED"
 
 
+@pulumi.type_token("aws-native:bedrockagentcore:BrowserProfileStatus")
+class BrowserProfileStatus(_builtins.str, Enum):
+    """
+    Status of browser profile
+    """
+    READY = "READY"
+    DELETING = "DELETING"
+    DELETED = "DELETED"
+    SAVING = "SAVING"
+
+
 @pulumi.type_token("aws-native:bedrockagentcore:CodeInterpreterCustomCodeInterpreterNetworkMode")
 class CodeInterpreterCustomCodeInterpreterNetworkMode(_builtins.str, Enum):
     """
@@ -89,6 +106,23 @@ class CodeInterpreterCustomCodeInterpreterStatus(_builtins.str, Enum):
     DELETING = "DELETING"
     DELETE_FAILED = "DELETE_FAILED"
     DELETED = "DELETED"
+
+
+@pulumi.type_token("aws-native:bedrockagentcore:EvaluatorLevel")
+class EvaluatorLevel(_builtins.str, Enum):
+    TOOL_CALL = "TOOL_CALL"
+    TRACE = "TRACE"
+    SESSION = "SESSION"
+
+
+@pulumi.type_token("aws-native:bedrockagentcore:EvaluatorStatus")
+class EvaluatorStatus(_builtins.str, Enum):
+    ACTIVE = "ACTIVE"
+    CREATING = "CREATING"
+    CREATE_FAILED = "CREATE_FAILED"
+    UPDATING = "UPDATING"
+    UPDATE_FAILED = "UPDATE_FAILED"
+    DELETING = "DELETING"
 
 
 @pulumi.type_token("aws-native:bedrockagentcore:GatewayAuthorizerType")
@@ -324,6 +358,37 @@ class MemoryUserPreferenceMemoryStrategyType(_builtins.str, Enum):
     USER_PREFERENCE = "USER_PREFERENCE"
     CUSTOM = "CUSTOM"
     EPISODIC = "EPISODIC"
+
+
+@pulumi.type_token("aws-native:bedrockagentcore:OnlineEvaluationConfigExecutionStatus")
+class OnlineEvaluationConfigExecutionStatus(_builtins.str, Enum):
+    ENABLED = "ENABLED"
+    DISABLED = "DISABLED"
+
+
+@pulumi.type_token("aws-native:bedrockagentcore:OnlineEvaluationConfigFilterOperator")
+class OnlineEvaluationConfigFilterOperator(_builtins.str, Enum):
+    """
+    The comparison operator to use for filtering.
+    """
+    EQUALS = "Equals"
+    NOT_EQUALS = "NotEquals"
+    GREATER_THAN = "GreaterThan"
+    LESS_THAN = "LessThan"
+    GREATER_THAN_OR_EQUAL = "GreaterThanOrEqual"
+    LESS_THAN_OR_EQUAL = "LessThanOrEqual"
+    CONTAINS = "Contains"
+    NOT_CONTAINS = "NotContains"
+
+
+@pulumi.type_token("aws-native:bedrockagentcore:OnlineEvaluationConfigStatus")
+class OnlineEvaluationConfigStatus(_builtins.str, Enum):
+    ACTIVE = "ACTIVE"
+    CREATING = "CREATING"
+    CREATE_FAILED = "CREATE_FAILED"
+    UPDATING = "UPDATING"
+    UPDATE_FAILED = "UPDATE_FAILED"
+    DELETING = "DELETING"
 
 
 @pulumi.type_token("aws-native:bedrockagentcore:RuntimeAgentManagedRuntimeType")

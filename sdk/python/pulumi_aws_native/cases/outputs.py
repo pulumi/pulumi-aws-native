@@ -30,6 +30,8 @@ __all__ = [
     'CaseRuleOperandTwo2Properties',
     'CaseRuleOperandTwo3Properties',
     'CaseRuleRequiredCaseRule',
+    'FieldAttributes',
+    'FieldTextAttributes',
     'LayoutBasicLayout',
     'LayoutContentProperties',
     'LayoutFieldGroup',
@@ -503,6 +505,64 @@ class CaseRuleRequiredCaseRule(dict):
         The default required state for the field when none of the specified conditions are met. If true, the field is required by default; if false, the field is optional by default.
         """
         return pulumi.get(self, "default_value")
+
+
+@pulumi.output_type
+class FieldAttributes(dict):
+    """
+    Union of field attributes
+    """
+    def __init__(__self__, *,
+                 text: Optional['outputs.FieldTextAttributes'] = None):
+        """
+        Union of field attributes
+        """
+        if text is not None:
+            pulumi.set(__self__, "text", text)
+
+    @_builtins.property
+    @pulumi.getter
+    def text(self) -> Optional['outputs.FieldTextAttributes']:
+        return pulumi.get(self, "text")
+
+
+@pulumi.output_type
+class FieldTextAttributes(dict):
+    """
+    Field attributes for Text field type
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "isMultiline":
+            suggest = "is_multiline"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FieldTextAttributes. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FieldTextAttributes.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FieldTextAttributes.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 is_multiline: _builtins.bool):
+        """
+        Field attributes for Text field type
+        :param _builtins.bool is_multiline: Attribute that defines rendering component and validation
+        """
+        pulumi.set(__self__, "is_multiline", is_multiline)
+
+    @_builtins.property
+    @pulumi.getter(name="isMultiline")
+    def is_multiline(self) -> _builtins.bool:
+        """
+        Attribute that defines rendering component and validation
+        """
+        return pulumi.get(self, "is_multiline")
 
 
 @pulumi.output_type
