@@ -60,6 +60,12 @@ ensure:: init_submodules
 	cd sdk/go && GO111MODULE=on go mod tidy
 	cd examples && GO111MODULE=on go mod tidy
 
+prepare_local_workspace:: init_submodules
+	@command -v mise >/dev/null 2>&1 || (echo "mise is required. Install from https://mise.jdx.dev/" && exit 1)
+	mise install
+	cd provider && GO111MODULE=on go mod download
+	cd examples && GO111MODULE=on go mod download
+
 local_generate:: generate_schema generate_nodejs generate_python generate_dotnet generate_java generate_go
 
 generate_schema:: docs
@@ -81,6 +87,9 @@ cf2pulumi::
 
 test_provider::
 	(cd provider && go test -v -coverpkg=./... -coverprofile=coverage.txt ./...)
+
+test_provider_fast::
+	(cd provider && go test -short ./pkg/...)
 
 lint:: provider # lint the provider code
 	cd provider && GOGC=20 golangci-lint run -c ../.golangci.yml
@@ -170,6 +179,9 @@ test:: PATH := $(WORKING_DIR)/bin:$(PATH)
 test::
 	cd examples && go test -v -tags=all -timeout 2h
 
+verify:: lint test_provider_fast
+	@echo "verify: lint + fast provider tests passed"
+
 build:: clean codegen local_generate provider build_sdks install_sdks
 build_sdks: build_nodejs build_dotnet build_python build_go build_java
 install_sdks:: install_dotnet_sdk install_python_sdk install_nodejs_sdk
@@ -192,7 +204,7 @@ ref-db-report::
 	(cd provider/tools/ref-parser && go build -o ../../../bin/ref-parser)
 	./bin/ref-parser -guide ./aws-cloudformation-user-guide -schema ./aws-cloudformation-schema -db ./meta/ref-db.json -report
 
-.PHONY: ensure generate_schema generate build_provider build
+.PHONY: ensure prepare_local_workspace generate_schema generate build_provider build test_provider_fast verify
 
 # Set these variables to enable signing of the windows binary
 AZURE_SIGNING_CLIENT_ID ?=
@@ -247,4 +259,3 @@ sign-goreleaser-exe-%: bin/jsign-6.0.jar
 ci-mgmt: .ci-mgmt.yaml
 	go run github.com/pulumi/ci-mgmt/provider-ci@b6bfde4bf3d1f9e539671e20aad7801e4ba5d300 generate
 .PHONY: ci-mgmt
-	fi

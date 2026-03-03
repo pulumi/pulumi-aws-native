@@ -21,11 +21,11 @@ To learn how to configure credentials refer to the [AWS configuration options](h
 
 ### Dependencies
 
-- Go 1.20
-- NodeJS 10.X.X or later
+- Go (pinned in `.config/mise.toml`)
+- Node.js 20.x
 - Yarn 1.22 or later
-- Python 3.6 or later
-- .NET 6 or greater
+- Python 3.11.x
+- .NET 8.x
 - Gradle 7
 - Pulumi CLI and language plugins
 - pulumictl
@@ -55,10 +55,22 @@ Add the `bin` folder to your `$PATH` or copy the `bin/pulumi-resource-aws-native
 
 ### Running tests
 
-To run unittests, use:
+Fast local verification:
+
+```bash
+make verify
+```
+
+Provider unit tests:
 
 ```bash
 make test_provider
+```
+
+Examples/integration tests (slow):
+
+```bash
+make test
 ```
 
 ### Running an example
