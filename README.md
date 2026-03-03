@@ -30,6 +30,8 @@ To learn how to configure credentials refer to the [AWS configuration options](h
 - Pulumi CLI and language plugins
 - pulumictl
 
+Quick start: `make prepare_local_workspace` installs pinned toolchain versions via `mise`.
+
 You can quickly launch a shell environment with all the required dependencies using
 [devbox](https://www.jetpack.io/devbox/):
 

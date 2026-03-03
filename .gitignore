@@ -31,4 +31,5 @@ sdk/python/README.md
 .mono
 aws-cloudformation-docs/
 
+# Local runtime artifacts (logs, temp files, etc.)
 .runtime/

@@ -43,8 +43,8 @@ Generated or externally sourced (do not hand-edit):
 - Regenerate CI from `.ci-mgmt.yaml`: `make ci-mgmt`
 
 ## If You Change X, Also Do Y
-- `provider/pkg/**`: `make lint && make test_provider_fast`
-- codegen/schema logic (`provider/cmd/pulumi-gen-aws-native/**`, schema overlays, `meta/**`): `make codegen && make generate_schema`
+- `provider/pkg/**`: `make lint && make test_provider_fast` (example: runtime/resource mapper bug fix)
+- codegen/schema logic (`provider/cmd/pulumi-gen-aws-native/**`, schema overlays, `meta/**`): `make codegen && make generate_schema` (example: new schema overlay)
 - SDK surface: `make local_generate`
 - `.ci-mgmt.yaml`: `make ci-mgmt`
 - `provider/go.mod` or `examples/go.mod`: `make ensure`

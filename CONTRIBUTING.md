@@ -10,7 +10,7 @@ mise install
 Tool versions are pinned in `.config/mise.toml`.
 
 ## Quick Flow
-1. Read `AGENTS.md`.
+1. Review `AGENTS.md` (agent instructions) and `ARCHITECTURE.md` (module map and system boundaries).
 2. Determine whether target files are hand-written or generated.
 3. Implement focused changes.
 4. Run verification commands.

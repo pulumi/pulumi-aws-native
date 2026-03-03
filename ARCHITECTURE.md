@@ -11,6 +11,13 @@
 - `sdk/`: generated SDK outputs for each language
 - `aws-cloudformation-schema/`, `aws-cloudformation-user-guide/`: upstream submodule inputs
 
+## Generation Flow
+- CloudFormation schemas/docs inputs
+- `pulumi-gen-aws-native` codegen
+- provider schema and metadata artifacts
+- language SDK generators
+- `sdk/**` outputs
+
 ## Ownership Boundaries
 - Hand-written behavior should be implemented in `provider/pkg/**` and selected `provider/cmd/**`.
 - Generated SDKs in `sdk/**` must be regenerated, not manually edited.

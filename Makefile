@@ -61,7 +61,7 @@ ensure:: init_submodules
 	cd examples && GO111MODULE=on go mod tidy
 
 prepare_local_workspace:: init_submodules
-	@command -v mise >/dev/null 2>&1 || (echo "mise is required. Install from https://mise.jdx.dev/" && exit 1)
+	@command -v mise >/dev/null 2>&1 || (echo "mise is required to install pinned toolchain versions. Install from https://mise.jdx.dev/" && exit 1)
 	mise install
 	cd provider && GO111MODULE=on go mod download
 	cd examples && GO111MODULE=on go mod download
@@ -88,7 +88,7 @@ cf2pulumi::
 test_provider::
 	(cd provider && go test -v -coverpkg=./... -coverprofile=coverage.txt ./...)
 
-test_provider_fast::
+test_provider_fast:: # Runs short-mode provider unit tests
 	(cd provider && go test -short ./pkg/...)
 
 lint:: provider # lint the provider code
@@ -204,7 +204,7 @@ ref-db-report::
 	(cd provider/tools/ref-parser && go build -o ../../../bin/ref-parser)
 	./bin/ref-parser -guide ./aws-cloudformation-user-guide -schema ./aws-cloudformation-schema -db ./meta/ref-db.json -report
 
-.PHONY: ensure prepare_local_workspace generate_schema generate build_provider build test_provider_fast verify
+.PHONY: ensure prepare_local_workspace generate_schema generate provider build test_provider_fast verify
 
 # Set these variables to enable signing of the windows binary
 AZURE_SIGNING_CLIENT_ID ?=
