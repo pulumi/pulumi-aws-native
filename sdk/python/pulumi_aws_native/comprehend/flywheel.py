@@ -34,6 +34,7 @@ class FlywheelArgs:
                  task_config: Optional[pulumi.Input['FlywheelTaskConfigArgs']] = None):
         """
         The set of arguments for constructing a Flywheel resource.
+
         :param pulumi.Input[_builtins.str] data_access_role_arn: The Amazon Resource Name (ARN) of the IAM role that grants Amazon Comprehend permission to access the flywheel data.
         :param pulumi.Input[_builtins.str] data_lake_s3_uri: Amazon S3 URI of the data lake location.
         :param pulumi.Input[_builtins.str] active_model_arn: The Amazon Resource Number (ARN) of the active model version.
@@ -173,6 +174,7 @@ class Flywheel(pulumi.CustomResource):
         """
         The AWS::Comprehend::Flywheel resource creates an Amazon Comprehend Flywheel that enables customer to train their model.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] active_model_arn: The Amazon Resource Number (ARN) of the active model version.
@@ -192,6 +194,7 @@ class Flywheel(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The AWS::Comprehend::Flywheel resource creates an Amazon Comprehend Flywheel that enables customer to train their model.
+
 
         :param str resource_name: The name of the resource.
         :param FlywheelArgs args: The arguments to use to populate this resource's properties.

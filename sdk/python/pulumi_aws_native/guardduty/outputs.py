@@ -775,6 +775,7 @@ class MalwareProtectionPlanCfnProtectedResourceS3BucketProperties(dict):
                  object_prefixes: Optional[Sequence[_builtins.str]] = None):
         """
         Information about the protected S3 bucket resource.
+
         :param _builtins.str bucket_name: Name of the S3 bucket.
         :param Sequence[_builtins.str] object_prefixes: Information about the specified object prefixes. The S3 object will be scanned only if it belongs to any of the specified object prefixes.
         """

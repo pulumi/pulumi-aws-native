@@ -23,6 +23,7 @@ class EnclaveCertificateIamRoleAssociationArgs:
                  role_arn: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a EnclaveCertificateIamRoleAssociation resource.
+
         :param pulumi.Input[_builtins.str] certificate_arn: The Amazon Resource Name (ARN) of the ACM certificate with which to associate the IAM role.
         :param pulumi.Input[_builtins.str] role_arn: The Amazon Resource Name (ARN) of the IAM role to associate with the ACM certificate. You can associate up to 16 IAM roles with an ACM certificate.
         """
@@ -90,6 +91,7 @@ class EnclaveCertificateIamRoleAssociation(pulumi.CustomResource):
 
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] certificate_arn: The Amazon Resource Name (ARN) of the ACM certificate with which to associate the IAM role.
@@ -127,6 +129,7 @@ class EnclaveCertificateIamRoleAssociation(pulumi.CustomResource):
             role_arn="arn:aws:iam::123456789012:role/my-acm-role")
 
         ```
+
 
         :param str resource_name: The name of the resource.
         :param EnclaveCertificateIamRoleAssociationArgs args: The arguments to use to populate this resource's properties.

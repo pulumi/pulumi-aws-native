@@ -24,6 +24,7 @@ class ResourceGroupArgs:
                  resource_group_tags: pulumi.Input[Sequence[pulumi.Input['ResourceGroupTagArgs']]]):
         """
         The set of arguments for constructing a ResourceGroup resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['ResourceGroupTagArgs']]] resource_group_tags: The tags (key and value pairs) that will be associated with the resource group.
                
                For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
@@ -56,6 +57,7 @@ class ResourceGroup(pulumi.CustomResource):
         """
         Resource Type definition for AWS::Inspector::ResourceGroup
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ResourceGroupTagArgs', 'ResourceGroupTagArgsDict']]]] resource_group_tags: The tags (key and value pairs) that will be associated with the resource group.
@@ -70,6 +72,7 @@ class ResourceGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::Inspector::ResourceGroup
+
 
         :param str resource_name: The name of the resource.
         :param ResourceGroupArgs args: The arguments to use to populate this resource's properties.

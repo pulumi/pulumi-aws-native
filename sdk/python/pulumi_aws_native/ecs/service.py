@@ -52,6 +52,7 @@ class ServiceArgs:
                  vpc_lattice_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceVpcLatticeConfigurationArgs']]]] = None):
         """
         The set of arguments for constructing a Service resource.
+
         :param pulumi.Input['ServiceAvailabilityZoneRebalancing'] availability_zone_rebalancing: Indicates whether to use Availability Zone rebalancing for the service.
                 For more information, see [Balancing an Amazon ECS service across Availability Zones](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-rebalancing.html) in the *Amazon Elastic Container Service Developer Guide*.
                 The default behavior of ``AvailabilityZoneRebalancing`` differs between create and update requests:
@@ -581,6 +582,7 @@ class Service(pulumi.CustomResource):
          Note that CFN automatically initiates a new deployment when it detects a parameter change, but customers cannot choose to force a deployment through CFN. This is an invalid input scenario that requires one of the remediation actions listed above.
          If you are experiencing active production issues related to this change, contact AWS Support or your Technical Account Manager.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input['ServiceAvailabilityZoneRebalancing'] availability_zone_rebalancing: Indicates whether to use Availability Zone rebalancing for the service.
@@ -680,6 +682,7 @@ class Service(pulumi.CustomResource):
           Invalid request provided: When switching from launch type to capacity provider strategy on an existing service, or making a change to a capacity provider strategy on a service that is already using one, you must force a new deployment. (Service: Ecs, Status Code: 400, Request ID: xxx) (SDK Attempt Count: 1)" (RequestToken: xxx HandlerErrorCode: InvalidRequest)
          Note that CFN automatically initiates a new deployment when it detects a parameter change, but customers cannot choose to force a deployment through CFN. This is an invalid input scenario that requires one of the remediation actions listed above.
          If you are experiencing active production issues related to this change, contact AWS Support or your Technical Account Manager.
+
 
         :param str resource_name: The name of the resource.
         :param ServiceArgs args: The arguments to use to populate this resource's properties.

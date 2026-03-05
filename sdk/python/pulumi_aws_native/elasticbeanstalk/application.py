@@ -26,6 +26,7 @@ class ApplicationArgs:
                  resource_lifecycle_config: Optional[pulumi.Input['ApplicationResourceLifecycleConfigArgs']] = None):
         """
         The set of arguments for constructing a Application resource.
+
         :param pulumi.Input[_builtins.str] application_name: A name for the Elastic Beanstalk application. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the application name.
         :param pulumi.Input[_builtins.str] description: Your description of the application.
         :param pulumi.Input['ApplicationResourceLifecycleConfigArgs'] resource_lifecycle_config: Specifies an application resource lifecycle configuration to prevent your application from accumulating too many versions.
@@ -87,6 +88,7 @@ class Application(pulumi.CustomResource):
         """
         The AWS::ElasticBeanstalk::Application resource specifies an Elastic Beanstalk application.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] application_name: A name for the Elastic Beanstalk application. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the application name.
@@ -101,6 +103,7 @@ class Application(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The AWS::ElasticBeanstalk::Application resource specifies an Elastic Beanstalk application.
+
 
         :param str resource_name: The name of the resource.
         :param ApplicationArgs args: The arguments to use to populate this resource's properties.

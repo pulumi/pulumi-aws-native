@@ -271,6 +271,7 @@ class ApiEventConfigArgs:
                  log_config: Optional[pulumi.Input['ApiEventLogConfigArgs']] = None):
         """
         The configuration for an Event Api
+
         :param pulumi.Input[Sequence[pulumi.Input['ApiAuthProviderArgs']]] auth_providers: A list of authorization providers.
         :param pulumi.Input[Sequence[pulumi.Input['ApiAuthModeArgs']]] connection_auth_modes: A list of valid authorization modes for the Event API connections.
         :param pulumi.Input[Sequence[pulumi.Input['ApiAuthModeArgs']]] default_publish_auth_modes: A list of valid authorization modes for the Event API publishing.
@@ -365,6 +366,7 @@ class ApiEventLogConfigArgs:
                  log_level: pulumi.Input['ApiEventLogLevel']):
         """
         The log config for the AppSync API.
+
         :param pulumi.Input[_builtins.str] cloud_watch_logs_role_arn: The IAM service role that AWS AppSync assumes to publish CloudWatch Logs in your account.
         :param pulumi.Input['ApiEventLogLevel'] log_level: The type of information to log for the Event API.
         """
@@ -1351,6 +1353,7 @@ class FunctionConfigurationAppSyncRuntimeArgs:
                  runtime_version: pulumi.Input[_builtins.str]):
         """
         Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified.
+
         :param pulumi.Input[_builtins.str] name: The name of the runtime to use. Currently, the only allowed value is APPSYNC_JS.
         :param pulumi.Input[_builtins.str] runtime_version: The version of the runtime to use. Currently, the only allowed version is 1.0.0.
         """
@@ -1397,6 +1400,7 @@ class FunctionConfigurationLambdaConflictHandlerConfigArgs:
                  lambda_conflict_handler_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The LambdaConflictHandlerConfig when configuring LAMBDA as the Conflict Handler.
+
         :param pulumi.Input[_builtins.str] lambda_conflict_handler_arn: The Amazon Resource Name (ARN) for the Lambda function to use as the Conflict Handler.
         """
         if lambda_conflict_handler_arn is not None:
@@ -1440,6 +1444,7 @@ class FunctionConfigurationSyncConfigArgs:
                  lambda_conflict_handler_config: Optional[pulumi.Input['FunctionConfigurationLambdaConflictHandlerConfigArgs']] = None):
         """
         Describes a Sync configuration for a resolver. Specifies which Conflict Detection strategy and Resolution strategy to use when the resolver is invoked.
+
         :param pulumi.Input[_builtins.str] conflict_detection: The Conflict Detection strategy to use.
         :param pulumi.Input[_builtins.str] conflict_handler: The Conflict Resolution strategy to perform in the event of a conflict.
         :param pulumi.Input['FunctionConfigurationLambdaConflictHandlerConfigArgs'] lambda_conflict_handler_config: The `LambdaConflictHandlerConfig` when configuring `LAMBDA` as the Conflict Handler.
@@ -2046,6 +2051,7 @@ class ResolverAppSyncRuntimeArgs:
                  runtime_version: pulumi.Input[_builtins.str]):
         """
         Describes a runtime used by an APSYlong resolver or APSYlong function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified.
+
         :param pulumi.Input[_builtins.str] name: The ``name`` of the runtime to use. Currently, the only allowed value is ``APPSYNC_JS``.
         :param pulumi.Input[_builtins.str] runtime_version: The ``version`` of the runtime to use. Currently, the only allowed version is ``1.0.0``.
         """
@@ -2099,6 +2105,7 @@ class ResolverCachingConfigArgs:
                  caching_keys: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The caching configuration for a resolver that has caching activated.
+
         :param pulumi.Input[_builtins.float] ttl: The TTL in seconds for a resolver that has caching activated.
                 Valid values are 1–3,600 seconds.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] caching_keys: The caching keys for a resolver that has caching activated.
@@ -2150,6 +2157,7 @@ class ResolverLambdaConflictHandlerConfigArgs:
                  lambda_conflict_handler_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The ``LambdaConflictHandlerConfig`` when configuring LAMBDA as the Conflict Handler.
+
         :param pulumi.Input[_builtins.str] lambda_conflict_handler_arn: The Amazon Resource Name (ARN) for the Lambda function to use as the Conflict Handler.
         """
         if lambda_conflict_handler_arn is not None:
@@ -2185,6 +2193,7 @@ class ResolverPipelineConfigArgs:
         """
         Use the ``PipelineConfig`` property type to specify ``PipelineConfig`` for an APSYlong resolver.
          ``PipelineConfig`` is a property of the [AWS::AppSync::Resolver](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-resolver.html) resource.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] functions: A list of ``Function`` objects.
         """
         if functions is not None:
@@ -2235,6 +2244,7 @@ class ResolverSyncConfigArgs:
         """
         Describes a Sync configuration for a resolver.
          Specifies which Conflict Detection strategy and Resolution strategy to use when the resolver is invoked.
+
         :param pulumi.Input[_builtins.str] conflict_detection: The Conflict Detection strategy to use.
                  +  *VERSION*: Detect conflicts based on object versions for this resolver.
                  +  *NONE*: Do not detect conflicts when invoking this resolver.

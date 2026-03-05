@@ -30,6 +30,7 @@ class TransitGatewayAttachmentArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a TransitGatewayAttachment resource.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: The IDs of one or more subnets. You can specify only one subnet per Availability Zone. You must specify at least one subnet, but we recommend that you specify two subnets for better availability. The transit gateway uses one IP address from each specified subnet.
         :param pulumi.Input[_builtins.str] transit_gateway_id: The ID of the transit gateway.
         :param pulumi.Input[_builtins.str] vpc_id: The ID of the VPC.
@@ -120,6 +121,7 @@ class TransitGatewayAttachment(pulumi.CustomResource):
         """
         Resource Type definition for AWS::EC2::TransitGatewayAttachment
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['OptionsPropertiesArgs', 'OptionsPropertiesArgsDict']] options: The options for the transit gateway vpc attachment.
@@ -136,6 +138,7 @@ class TransitGatewayAttachment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::EC2::TransitGatewayAttachment
+
 
         :param str resource_name: The name of the resource.
         :param TransitGatewayAttachmentArgs args: The arguments to use to populate this resource's properties.

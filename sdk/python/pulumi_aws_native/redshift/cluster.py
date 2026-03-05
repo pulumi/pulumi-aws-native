@@ -77,6 +77,7 @@ class ClusterArgs:
                  vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Cluster resource.
+
         :param pulumi.Input[_builtins.str] cluster_type: The type of the cluster. When cluster type is specified as single-node, the NumberOfNodes parameter is not required and if multi-node, the NumberOfNodes parameter is required
         :param pulumi.Input[_builtins.str] db_name: The name of the first database to be created when the cluster is created. To create additional databases after the cluster is created, connect to the cluster with a SQL client and use SQL commands to create a database.
         :param pulumi.Input[_builtins.str] master_username: The user name associated with the master user account for the cluster that is being created. The user name can't be PUBLIC and first character must be a letter.
@@ -950,6 +951,7 @@ class Cluster(pulumi.CustomResource):
         """
         An example resource schema demonstrating some basic constructs and validation rules.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] allow_version_upgrade: Major version upgrades can be applied during the maintenance window to the Amazon Redshift engine that is running on the cluster. Default value is True
@@ -1029,6 +1031,7 @@ class Cluster(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An example resource schema demonstrating some basic constructs and validation rules.
+
 
         :param str resource_name: The name of the resource.
         :param ClusterArgs args: The arguments to use to populate this resource's properties.

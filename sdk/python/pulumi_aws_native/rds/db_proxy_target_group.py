@@ -29,6 +29,7 @@ class DbProxyTargetGroupArgs:
                  db_instance_identifiers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a DbProxyTargetGroup resource.
+
         :param pulumi.Input[_builtins.str] db_proxy_name: The identifier for the proxy.
         :param pulumi.Input['DbProxyTargetGroupTargetGroupName'] target_group_name: The identifier for the DBProxyTargetGroup
         :param pulumi.Input['DbProxyTargetGroupConnectionPoolConfigurationInfoFormatArgs'] connection_pool_configuration_info: Displays the settings that control the size and behavior of the connection pool associated with a `DBProxyTarget` .
@@ -120,6 +121,7 @@ class DbProxyTargetGroup(pulumi.CustomResource):
         """
         Resource schema for AWS::RDS::DBProxyTargetGroup
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['DbProxyTargetGroupConnectionPoolConfigurationInfoFormatArgs', 'DbProxyTargetGroupConnectionPoolConfigurationInfoFormatArgsDict']] connection_pool_configuration_info: Displays the settings that control the size and behavior of the connection pool associated with a `DBProxyTarget` .
@@ -136,6 +138,7 @@ class DbProxyTargetGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource schema for AWS::RDS::DBProxyTargetGroup
+
 
         :param str resource_name: The name of the resource.
         :param DbProxyTargetGroupArgs args: The arguments to use to populate this resource's properties.

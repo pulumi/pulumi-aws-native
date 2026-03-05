@@ -72,6 +72,7 @@ class GuardHookS3LocationArgs:
                  version_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         S3 Source Location for the Guard files.
+
         :param pulumi.Input[_builtins.str] uri: S3 uri of Guard files.
         :param pulumi.Input[_builtins.str] version_id: S3 object version
         """
@@ -223,6 +224,7 @@ class ManagedExecutionPropertiesArgs:
                  active: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Describes whether StackSets performs non-conflicting operations concurrently and queues conflicting operations.
+
         :param pulumi.Input[_builtins.bool] active: When `true` , CloudFormation performs non-conflicting operations concurrently and queues conflicting operations. After conflicting operations finish, CloudFormation starts queued operations in request order.
                
                > If there are already running or queued operations, CloudFormation queues all incoming operations even if they are non-conflicting.
@@ -268,6 +270,7 @@ class OptionsPropertiesArgs:
                  input_params: Optional[pulumi.Input['GuardHookS3LocationArgs']] = None):
         """
         Specifies the S3 location of your input parameters.
+
         :param pulumi.Input['GuardHookS3LocationArgs'] input_params: Specifies the S3 location where your input parameters are located.
         """
         if input_params is not None:
@@ -355,6 +358,7 @@ class StackFiltersPropertiesStackNamesPropertiesArgs:
                  include: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         List of stack names as filters
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] exclude: List of stack names that the hook is going to be excluded from
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] include: List of stack names that the hook is going to target
         """
@@ -408,6 +412,7 @@ class StackFiltersPropertiesStackRolesPropertiesArgs:
                  include: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         List of stack roles that are performing the stack operations.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] exclude: List of stack roles that the hook is going to be excluded from
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] include: List of stack roles that the hook is going to target
         """
@@ -466,6 +471,7 @@ class StackFiltersPropertiesArgs:
                  stack_roles: Optional[pulumi.Input['StackFiltersPropertiesStackRolesPropertiesArgs']] = None):
         """
         Filters to allow hooks to target specific stack attributes
+
         :param pulumi.Input['LambdaHookStackFiltersPropertiesFilteringCriteria'] filtering_criteria: Attribute to specify the filtering behavior. ANY will make the Hook pass if one filter matches. ALL will make the Hook pass if all filters match
         :param pulumi.Input['StackFiltersPropertiesStackNamesPropertiesArgs'] stack_names: List of stack names as filters
         :param pulumi.Input['StackFiltersPropertiesStackRolesPropertiesArgs'] stack_roles: List of stack roles that are performing the stack operations.
@@ -612,6 +618,7 @@ class StackSetDeploymentTargetsArgs:
                  organizational_unit_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
          The AWS OrganizationalUnitIds or Accounts for which to create stack instances in the specified Regions.
+
         :param pulumi.Input['StackSetDeploymentTargetsAccountFilterType'] account_filter_type: The filter type you want to apply on organizational units and accounts.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] accounts: AWS accounts that you want to create stack instances in the specified Region(s) for.
         :param pulumi.Input[_builtins.str] accounts_url: Returns the value of the AccountsUrl property.
@@ -741,6 +748,7 @@ class StackSetOperationPreferencesArgs:
                  region_order: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The user-specified preferences for how AWS CloudFormation performs a stack set operation.
+
         :param pulumi.Input['StackSetConcurrencyMode'] concurrency_mode: Specifies how the concurrency level behaves during the operation execution.
                
                - `STRICT_FAILURE_TOLERANCE` : This option dynamically lowers the concurrency level to ensure the number of failed accounts never exceeds the value of `FailureToleranceCount` +1. The initial actual concurrency is set to the lower of either the value of the `MaxConcurrentCount` , or the value of `FailureToleranceCount` +1. The actual concurrency is then reduced proportionally by the number of failures. This is the default behavior.
@@ -963,6 +971,7 @@ class StackSetStackInstancesArgs:
                  parameter_overrides: Optional[pulumi.Input[Sequence[pulumi.Input['StackSetParameterArgs']]]] = None):
         """
         Stack instances in some specific accounts and Regions.
+
         :param pulumi.Input['StackSetDeploymentTargetsArgs'] deployment_targets: The AWS Organizations accounts or AWS accounts to deploy stacks to in the specified Regions.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] regions: The names of one or more Regions where you want to create stack instances using the specified AWS account(s).
         :param pulumi.Input[Sequence[pulumi.Input['StackSetParameterArgs']]] parameter_overrides: A list of stack set parameters whose values you want to override in the selected stack instances.
@@ -1034,6 +1043,7 @@ class TargetFilters0PropertiesArgs:
                  target_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Attribute to specify which targets should invoke the hook
+
         :param pulumi.Input[Sequence[pulumi.Input['LambdaHookAction']]] actions: List of actions that the hook is going to target
         :param pulumi.Input[Sequence[pulumi.Input['LambdaHookInvocationPoint']]] invocation_points: List of invocation points that the hook is going to target
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] target_names: List of type names that the hook is going to target
@@ -1097,6 +1107,7 @@ class TargetFilters1PropertiesArgs:
                  targets: pulumi.Input[Sequence[pulumi.Input['LambdaHookHookTargetArgs']]]):
         """
         Attribute to specify which targets should invoke the hook
+
         :param pulumi.Input[Sequence[pulumi.Input['LambdaHookHookTargetArgs']]] targets: List of hook targets
         """
         pulumi.set(__self__, "targets", targets)

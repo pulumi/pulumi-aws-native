@@ -31,6 +31,7 @@ class IpAccessSettingsArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a IpAccessSettings resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['IpAccessSettingsIpRuleArgs']]] ip_rules: The IP rules of the IP access settings.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] additional_encryption_context: Additional encryption context of the IP access settings.
         :param pulumi.Input[_builtins.str] customer_managed_key: The custom managed key of the IP access settings.
@@ -143,6 +144,7 @@ class IpAccessSettings(pulumi.CustomResource):
         """
         Definition of AWS::WorkSpacesWeb::IpAccessSettings Resource Type
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] additional_encryption_context: Additional encryption context of the IP access settings.
@@ -162,6 +164,7 @@ class IpAccessSettings(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of AWS::WorkSpacesWeb::IpAccessSettings Resource Type
+
 
         :param str resource_name: The name of the resource.
         :param IpAccessSettingsArgs args: The arguments to use to populate this resource's properties.

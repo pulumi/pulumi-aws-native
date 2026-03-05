@@ -35,6 +35,7 @@ class GameSessionQueueArgs:
                  timeout_in_seconds: Optional[pulumi.Input[_builtins.int]] = None):
         """
         The set of arguments for constructing a GameSessionQueue resource.
+
         :param pulumi.Input[_builtins.str] custom_event_data: Information that is added to all events that are related to this game session queue.
         :param pulumi.Input[Sequence[pulumi.Input['GameSessionQueueDestinationArgs']]] destinations: A list of fleets and/or fleet aliases that can be used to fulfill game session placement requests in the queue.
         :param pulumi.Input['GameSessionQueueFilterConfigurationArgs'] filter_configuration: A list of locations where a queue is allowed to place new game sessions.
@@ -275,6 +276,7 @@ class GameSessionQueue(pulumi.CustomResource):
 
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] custom_event_data: Information that is added to all events that are related to this game session queue.
@@ -378,6 +380,7 @@ class GameSessionQueue(pulumi.CustomResource):
                 ]))
 
         ```
+
 
         :param str resource_name: The name of the resource.
         :param GameSessionQueueArgs args: The arguments to use to populate this resource's properties.

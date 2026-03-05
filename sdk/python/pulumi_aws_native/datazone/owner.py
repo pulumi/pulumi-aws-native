@@ -28,6 +28,7 @@ class OwnerArgs:
                  owner: pulumi.Input['OwnerPropertiesArgs']):
         """
         The set of arguments for constructing a Owner resource.
+
         :param pulumi.Input[_builtins.str] domain_identifier: The ID of the domain in which you want to add the entity owner.
         :param pulumi.Input[_builtins.str] entity_identifier: The ID of the entity to which you want to add an owner.
         :param pulumi.Input['OwnerEntityType'] entity_type: The type of an entity.
@@ -101,6 +102,7 @@ class Owner(pulumi.CustomResource):
         """
         A owner can set up authorization permissions on their resources.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] domain_identifier: The ID of the domain in which you want to add the entity owner.
@@ -116,6 +118,7 @@ class Owner(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A owner can set up authorization permissions on their resources.
+
 
         :param str resource_name: The name of the resource.
         :param OwnerArgs args: The arguments to use to populate this resource's properties.

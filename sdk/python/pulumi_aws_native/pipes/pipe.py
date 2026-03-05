@@ -37,6 +37,7 @@ class PipeArgs:
                  target_parameters: Optional[pulumi.Input['PipeTargetParametersArgs']] = None):
         """
         The set of arguments for constructing a Pipe resource.
+
         :param pulumi.Input[_builtins.str] role_arn: The ARN of the role that allows the pipe to send data to the target.
         :param pulumi.Input[_builtins.str] source: The ARN of the source resource.
         :param pulumi.Input[_builtins.str] target: The ARN of the target resource.
@@ -301,6 +302,7 @@ class Pipe(pulumi.CustomResource):
 
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: A description of the pipe.
@@ -363,6 +365,7 @@ class Pipe(pulumi.CustomResource):
             target="arn:aws:states:us-east-1:123456789123:stateMachine:PipeTargetStateMachine")
 
         ```
+
 
         :param str resource_name: The name of the resource.
         :param PipeArgs args: The arguments to use to populate this resource's properties.

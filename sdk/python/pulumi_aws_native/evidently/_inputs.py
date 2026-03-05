@@ -1129,6 +1129,7 @@ class ProjectDataDeliveryObjectArgs:
                  s3: Optional[pulumi.Input['ProjectS3DestinationArgs']] = None):
         """
         Destinations for data.
+
         :param pulumi.Input[_builtins.str] log_group: If the project stores evaluation events in CloudWatch Logs , this structure stores the log group name.
         :param pulumi.Input['ProjectS3DestinationArgs'] s3: If the project stores evaluation events in an Amazon S3 bucket, this structure stores the bucket name and bucket prefix.
         """

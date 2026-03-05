@@ -33,6 +33,7 @@ class AppArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a App resource.
+
         :param pulumi.Input['AppType'] app_type: The type of app.
         :param pulumi.Input[_builtins.str] domain_id: The domain ID.
         :param pulumi.Input[_builtins.str] user_profile_name: The user profile name.
@@ -155,6 +156,7 @@ class App(pulumi.CustomResource):
         """
         Resource Type definition for AWS::SageMaker::App
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] app_name: The name of the app.
@@ -173,6 +175,7 @@ class App(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::SageMaker::App
+
 
         :param str resource_name: The name of the resource.
         :param AppArgs args: The arguments to use to populate this resource's properties.

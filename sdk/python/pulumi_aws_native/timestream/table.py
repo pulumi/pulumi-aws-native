@@ -32,6 +32,7 @@ class TableArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Table resource.
+
         :param pulumi.Input[_builtins.str] database_name: The name for the database which the table to be created belongs to.
         :param pulumi.Input['MagneticStoreWritePropertiesPropertiesArgs'] magnetic_store_write_properties: The properties that determine whether magnetic store writes are enabled.
         :param pulumi.Input['RetentionPropertiesPropertiesArgs'] retention_properties: The retention duration of the memory store and the magnetic store.
@@ -140,6 +141,7 @@ class Table(pulumi.CustomResource):
         """
         The AWS::Timestream::Table resource creates a Timestream Table.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] database_name: The name for the database which the table to be created belongs to.
@@ -157,6 +159,7 @@ class Table(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The AWS::Timestream::Table resource creates a Timestream Table.
+
 
         :param str resource_name: The name of the resource.
         :param TableArgs args: The arguments to use to populate this resource's properties.

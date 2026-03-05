@@ -26,6 +26,7 @@ class DirectConnectGatewayArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a DirectConnectGateway resource.
+
         :param pulumi.Input[_builtins.str] amazon_side_asn: The autonomous system number (ASN) for the Amazon side of the connection.
         :param pulumi.Input[_builtins.str] direct_connect_gateway_name: The name of the Direct Connect gateway.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags associated with the Direct Connect gateway.
@@ -87,6 +88,7 @@ class DirectConnectGateway(pulumi.CustomResource):
         """
         Resource Type definition for AWS::DirectConnect::DirectConnectGateway
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] amazon_side_asn: The autonomous system number (ASN) for the Amazon side of the connection.
@@ -101,6 +103,7 @@ class DirectConnectGateway(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::DirectConnect::DirectConnectGateway
+
 
         :param str resource_name: The name of the resource.
         :param DirectConnectGatewayArgs args: The arguments to use to populate this resource's properties.

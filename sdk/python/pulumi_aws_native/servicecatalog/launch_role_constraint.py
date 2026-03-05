@@ -27,6 +27,7 @@ class LaunchRoleConstraintArgs:
                  role_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a LaunchRoleConstraint resource.
+
         :param pulumi.Input[_builtins.str] portfolio_id: The ID of the portfolio to which this launch role constraint applies.
         :param pulumi.Input[_builtins.str] product_id: The ID of the product to which this launch role constraint applies.
         :param pulumi.Input[_builtins.str] accept_language: The language code for the constraint.
@@ -134,6 +135,7 @@ class LaunchRoleConstraint(pulumi.CustomResource):
         """
         Resource Type definition for AWS::ServiceCatalog::LaunchRoleConstraint
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] accept_language: The language code for the constraint.
@@ -151,6 +153,7 @@ class LaunchRoleConstraint(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::ServiceCatalog::LaunchRoleConstraint
+
 
         :param str resource_name: The name of the resource.
         :param LaunchRoleConstraintArgs args: The arguments to use to populate this resource's properties.

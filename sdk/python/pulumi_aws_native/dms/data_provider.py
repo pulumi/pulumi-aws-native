@@ -33,6 +33,7 @@ class DataProviderArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a DataProvider resource.
+
         :param pulumi.Input['DataProviderEngine'] engine: The property describes a data engine for the data provider.
         :param pulumi.Input[_builtins.str] data_provider_identifier: The property describes an identifier for the data provider. It is used for describing/deleting/modifying can be name/arn
         :param pulumi.Input[_builtins.str] data_provider_name: The property describes a name to identify the data provider.
@@ -157,6 +158,7 @@ class DataProvider(pulumi.CustomResource):
         """
         Resource schema for AWS::DMS::DataProvider
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] data_provider_identifier: The property describes an identifier for the data provider. It is used for describing/deleting/modifying can be name/arn
@@ -175,6 +177,7 @@ class DataProvider(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource schema for AWS::DMS::DataProvider
+
 
         :param str resource_name: The name of the resource.
         :param DataProviderArgs args: The arguments to use to populate this resource's properties.

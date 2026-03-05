@@ -30,6 +30,7 @@ class CustomerGatewayArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a CustomerGateway resource.
+
         :param pulumi.Input[_builtins.str] ip_address: The IP address for the customer gateway device's outside interface. The address must be static. If ``OutsideIpAddressType`` in your VPN connection options is set to ``PrivateIpv4``, you can use an RFC6598 or RFC1918 private IPv4 address. If ``OutsideIpAddressType`` is set to ``Ipv6``, you can use an IPv6 address.
         :param pulumi.Input[_builtins.str] type: The type of VPN connection that this customer gateway supports (``ipsec.1``).
         :param pulumi.Input[_builtins.int] bgp_asn: For customer gateway devices that support BGP, specify the device's ASN. You must specify either ``BgpAsn`` or ``BgpAsnExtended`` when creating the customer gateway. If the ASN is larger than ``2,147,483,647``, you must use ``BgpAsnExtended``.
@@ -159,6 +160,7 @@ class CustomerGateway(pulumi.CustomResource):
         """
         Specifies a customer gateway.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.int] bgp_asn: For customer gateway devices that support BGP, specify the device's ASN. You must specify either ``BgpAsn`` or ``BgpAsnExtended`` when creating the customer gateway. If the ASN is larger than ``2,147,483,647``, you must use ``BgpAsnExtended``.
@@ -180,6 +182,7 @@ class CustomerGateway(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Specifies a customer gateway.
+
 
         :param str resource_name: The name of the resource.
         :param CustomerGatewayArgs args: The arguments to use to populate this resource's properties.

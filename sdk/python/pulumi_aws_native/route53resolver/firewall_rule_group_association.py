@@ -30,6 +30,7 @@ class FirewallRuleGroupAssociationArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a FirewallRuleGroupAssociation resource.
+
         :param pulumi.Input[_builtins.str] firewall_rule_group_id: FirewallRuleGroupId
         :param pulumi.Input[_builtins.int] priority: Priority
         :param pulumi.Input[_builtins.str] vpc_id: VpcId
@@ -136,6 +137,7 @@ class FirewallRuleGroupAssociation(pulumi.CustomResource):
         """
         Resource schema for AWS::Route53Resolver::FirewallRuleGroupAssociation.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] firewall_rule_group_id: FirewallRuleGroupId
@@ -153,6 +155,7 @@ class FirewallRuleGroupAssociation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource schema for AWS::Route53Resolver::FirewallRuleGroupAssociation.
+
 
         :param str resource_name: The name of the resource.
         :param FirewallRuleGroupAssociationArgs args: The arguments to use to populate this resource's properties.

@@ -29,6 +29,7 @@ class CisScanConfigurationArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a CisScanConfiguration resource.
+
         :param pulumi.Input[_builtins.str] scan_name: Name of the scan
         :param pulumi.Input['CisScanConfigurationScheduleArgs'] schedule: The CIS scan configuration's schedule.
         :param pulumi.Input['CisScanConfigurationCisSecurityLevel'] security_level: The CIS scan configuration's CIS Benchmark level.
@@ -118,6 +119,7 @@ class CisScanConfiguration(pulumi.CustomResource):
         """
         CIS Scan Configuration resource schema
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] scan_name: Name of the scan
@@ -134,6 +136,7 @@ class CisScanConfiguration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         CIS Scan Configuration resource schema
+
 
         :param str resource_name: The name of the resource.
         :param CisScanConfigurationArgs args: The arguments to use to populate this resource's properties.

@@ -28,6 +28,7 @@ class LoggingConfigurationInitArgs:
                  firewall_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a LoggingConfiguration resource.
+
         :param pulumi.Input[_builtins.str] firewall_arn: The Amazon Resource Name (ARN) of the firewallthat the logging configuration is associated with. You can't change the firewall specification after you create the logging configuration.
         :param pulumi.Input['LoggingConfigurationArgs'] logging_configuration: Defines how AWS Network Firewall performs logging for a firewall.
         :param pulumi.Input[_builtins.str] firewall_name: The name of the firewall that the logging configuration is associated with. You can't change the firewall specification after you create the logging configuration.
@@ -99,6 +100,7 @@ class LoggingConfiguration(pulumi.CustomResource):
         """
         Resource type definition for AWS::NetworkFirewall::LoggingConfiguration
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] firewall_arn: The Amazon Resource Name (ARN) of the firewallthat the logging configuration is associated with. You can't change the firewall specification after you create the logging configuration.
@@ -113,6 +115,7 @@ class LoggingConfiguration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource type definition for AWS::NetworkFirewall::LoggingConfiguration
+
 
         :param str resource_name: The name of the resource.
         :param LoggingConfigurationInitArgs args: The arguments to use to populate this resource's properties.

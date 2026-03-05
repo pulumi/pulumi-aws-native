@@ -29,6 +29,7 @@ class TestGridProjectArgs:
                  vpc_config: Optional[pulumi.Input['TestGridProjectVpcConfigArgs']] = None):
         """
         The set of arguments for constructing a TestGridProject resource.
+
         :param pulumi.Input[_builtins.str] description: A human-readable description for the project.
         :param pulumi.Input[_builtins.str] name: A human-readable name for the project.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
@@ -110,6 +111,7 @@ class TestGridProject(pulumi.CustomResource):
         """
         Resource Type definition for a Device Farm TestGrid Project
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: A human-readable description for the project.
@@ -127,6 +129,7 @@ class TestGridProject(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for a Device Farm TestGrid Project
+
 
         :param str resource_name: The name of the resource.
         :param TestGridProjectArgs args: The arguments to use to populate this resource's properties.

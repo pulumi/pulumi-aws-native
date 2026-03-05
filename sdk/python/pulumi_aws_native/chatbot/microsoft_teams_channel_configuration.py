@@ -35,6 +35,7 @@ class MicrosoftTeamsChannelConfigurationArgs:
                  user_role_required: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a MicrosoftTeamsChannelConfiguration resource.
+
         :param pulumi.Input[_builtins.str] iam_role_arn: The ARN of the IAM role that defines the permissions for AWS Chatbot
         :param pulumi.Input[_builtins.str] team_id: The id of the Microsoft Teams team
         :param pulumi.Input[_builtins.str] teams_channel_id: The id of the Microsoft Teams channel
@@ -236,6 +237,7 @@ class MicrosoftTeamsChannelConfiguration(pulumi.CustomResource):
         """
         Resource schema for AWS::Chatbot::MicrosoftTeamsChannelConfiguration.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] configuration_name: The name of the configuration
@@ -259,6 +261,7 @@ class MicrosoftTeamsChannelConfiguration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource schema for AWS::Chatbot::MicrosoftTeamsChannelConfiguration.
+
 
         :param str resource_name: The name of the resource.
         :param MicrosoftTeamsChannelConfigurationArgs args: The arguments to use to populate this resource's properties.

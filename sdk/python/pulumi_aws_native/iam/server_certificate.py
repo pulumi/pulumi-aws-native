@@ -29,6 +29,7 @@ class ServerCertificateArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a ServerCertificate resource.
+
         :param pulumi.Input[_builtins.str] certificate_body: The contents of the public key certificate.
         :param pulumi.Input[_builtins.str] certificate_chain: The contents of the public key certificate chain.
         :param pulumi.Input[_builtins.str] path: The path for the server certificate. For more information about paths, see [IAM identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) in the *IAM User Guide* .
@@ -162,6 +163,7 @@ class ServerCertificate(pulumi.CustomResource):
         """
         Resource Type definition for AWS::IAM::ServerCertificate
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] certificate_body: The contents of the public key certificate.
@@ -191,6 +193,7 @@ class ServerCertificate(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::IAM::ServerCertificate
+
 
         :param str resource_name: The name of the resource.
         :param ServerCertificateArgs args: The arguments to use to populate this resource's properties.

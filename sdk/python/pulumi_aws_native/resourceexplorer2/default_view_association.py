@@ -22,6 +22,7 @@ class DefaultViewAssociationArgs:
                  view_arn: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a DefaultViewAssociation resource.
+
         :param pulumi.Input[_builtins.str] view_arn: The ARN of the view to set as the default for the AWS Region and AWS account in which you call this operation. The specified view must already exist in the specified Region.
         """
         pulumi.set(__self__, "view_arn", view_arn)
@@ -50,6 +51,7 @@ class DefaultViewAssociation(pulumi.CustomResource):
         """
         Definition of AWS::ResourceExplorer2::DefaultViewAssociation Resource Type
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] view_arn: The ARN of the view to set as the default for the AWS Region and AWS account in which you call this operation. The specified view must already exist in the specified Region.
@@ -62,6 +64,7 @@ class DefaultViewAssociation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of AWS::ResourceExplorer2::DefaultViewAssociation Resource Type
+
 
         :param str resource_name: The name of the resource.
         :param DefaultViewAssociationArgs args: The arguments to use to populate this resource's properties.

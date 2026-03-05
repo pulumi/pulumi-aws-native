@@ -37,6 +37,7 @@ class QuickResponseArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a QuickResponse resource.
+
         :param pulumi.Input['QuickResponseContentProviderArgs'] content: The content of the quick response.
         :param pulumi.Input[_builtins.str] knowledge_base_arn: The Amazon Resource Name (ARN) of the knowledge base.
         :param pulumi.Input[Sequence[pulumi.Input['QuickResponseChannelType']]] channels: The Amazon Connect contact channels this quick response applies to.
@@ -228,6 +229,7 @@ class QuickResponse(pulumi.CustomResource):
         """
         Definition of AWS::Wisdom::QuickResponse Resource Type.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input['QuickResponseChannelType']]] channels: The Amazon Connect contact channels this quick response applies to.
@@ -252,6 +254,7 @@ class QuickResponse(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of AWS::Wisdom::QuickResponse Resource Type.
+
 
         :param str resource_name: The name of the resource.
         :param QuickResponseArgs args: The arguments to use to populate this resource's properties.

@@ -28,6 +28,7 @@ class AssignmentArgs:
                  target_type: pulumi.Input['AssignmentTargetType']):
         """
         The set of arguments for constructing a Assignment resource.
+
         :param pulumi.Input[_builtins.str] instance_arn: The sso instance that the permission set is owned.
         :param pulumi.Input[_builtins.str] permission_set_arn: The permission set that the assignment will be assigned
         :param pulumi.Input[_builtins.str] principal_id: The assignee's identifier, user id/group id
@@ -131,6 +132,7 @@ class Assignment(pulumi.CustomResource):
         """
         Resource Type definition for SSO assignmet
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] instance_arn: The sso instance that the permission set is owned.
@@ -148,6 +150,7 @@ class Assignment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for SSO assignmet
+
 
         :param str resource_name: The name of the resource.
         :param AssignmentArgs args: The arguments to use to populate this resource's properties.

@@ -33,6 +33,7 @@ class DataIntegrationArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a DataIntegration resource.
+
         :param pulumi.Input[_builtins.str] kms_key: The KMS key of the data integration.
         :param pulumi.Input[_builtins.str] source_uri: The URI of the data source.
         :param pulumi.Input[_builtins.str] description: The data integration description.
@@ -172,6 +173,7 @@ class DataIntegration(pulumi.CustomResource):
         """
         Resource Type definition for AWS::AppIntegrations::DataIntegration
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: The data integration description.
@@ -191,6 +193,7 @@ class DataIntegration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::AppIntegrations::DataIntegration
+
 
         :param str resource_name: The name of the resource.
         :param DataIntegrationArgs args: The arguments to use to populate this resource's properties.

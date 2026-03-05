@@ -23,6 +23,7 @@ class AccessPointPolicyArgs:
                  policy_document: Any):
         """
         The set of arguments for constructing a AccessPointPolicy resource.
+
         :param pulumi.Input[_builtins.str] object_lambda_access_point: The name of the Amazon S3 ObjectLambdaAccessPoint to which the policy applies.
         :param Any policy_document: A policy document containing permissions to add to the specified ObjectLambdaAccessPoint. For more information, see Access Policy Language Overview (https://docs.aws.amazon.com/AmazonS3/latest/dev/access-policy-language-overview.html) in the Amazon Simple Storage Service Developer Guide. 
                
@@ -70,6 +71,7 @@ class AccessPointPolicy(pulumi.CustomResource):
         """
         AWS::S3ObjectLambda::AccessPointPolicy resource is an Amazon S3ObjectLambda policy type that you can use to control permissions for your S3ObjectLambda
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] object_lambda_access_point: The name of the Amazon S3 ObjectLambdaAccessPoint to which the policy applies.
@@ -85,6 +87,7 @@ class AccessPointPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         AWS::S3ObjectLambda::AccessPointPolicy resource is an Amazon S3ObjectLambda policy type that you can use to control permissions for your S3ObjectLambda
+
 
         :param str resource_name: The name of the resource.
         :param AccessPointPolicyArgs args: The arguments to use to populate this resource's properties.

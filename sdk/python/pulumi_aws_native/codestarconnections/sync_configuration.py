@@ -30,6 +30,7 @@ class SyncConfigurationArgs:
                  trigger_resource_update_on: Optional[pulumi.Input['SyncConfigurationTriggerResourceUpdateOn']] = None):
         """
         The set of arguments for constructing a SyncConfiguration resource.
+
         :param pulumi.Input[_builtins.str] branch: The name of the branch of the repository from which resources are to be synchronized,
         :param pulumi.Input[_builtins.str] config_file: The source provider repository path of the sync configuration file of the respective SyncType.
         :param pulumi.Input[_builtins.str] repository_link_id: A UUID that uniquely identifies the RepositoryLink that the SyncConfig is associated with.
@@ -165,6 +166,7 @@ class SyncConfiguration(pulumi.CustomResource):
         """
         Schema for AWS::CodeStarConnections::SyncConfiguration resource which is used to enables an AWS resource to be synchronized from a source-provider.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] branch: The name of the branch of the repository from which resources are to be synchronized,
@@ -184,6 +186,7 @@ class SyncConfiguration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Schema for AWS::CodeStarConnections::SyncConfiguration resource which is used to enables an AWS resource to be synchronized from a source-provider.
+
 
         :param str resource_name: The name of the resource.
         :param SyncConfigurationArgs args: The arguments to use to populate this resource's properties.

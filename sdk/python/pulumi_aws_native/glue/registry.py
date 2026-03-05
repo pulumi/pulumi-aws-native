@@ -26,6 +26,7 @@ class RegistryArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Registry resource.
+
         :param pulumi.Input[_builtins.str] description: A description of the registry. If description is not provided, there will not be any default value for this.
         :param pulumi.Input[_builtins.str] name: Name of the registry to be created of max length of 255, and may only contain letters, numbers, hyphen, underscore, dollar sign, or hash mark.  No whitespace.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: List of tags to tag the Registry
@@ -87,6 +88,7 @@ class Registry(pulumi.CustomResource):
         """
         This resource creates a Registry for authoring schemas as part of Glue Schema Registry.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: A description of the registry. If description is not provided, there will not be any default value for this.
@@ -101,6 +103,7 @@ class Registry(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         This resource creates a Registry for authoring schemas as part of Glue Schema Registry.
+
 
         :param str resource_name: The name of the resource.
         :param RegistryArgs args: The arguments to use to populate this resource's properties.

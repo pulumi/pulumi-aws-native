@@ -23,6 +23,7 @@ class VpcBlockPublicAccessOptionsArgs:
                  internet_gateway_block_mode: pulumi.Input['VpcBlockPublicAccessOptionsInternetGatewayBlockMode']):
         """
         The set of arguments for constructing a VpcBlockPublicAccessOptions resource.
+
         :param pulumi.Input['VpcBlockPublicAccessOptionsInternetGatewayBlockMode'] internet_gateway_block_mode: The desired Block Public Access mode for Internet Gateways in your account. We do not allow to create in a off mode as this is the default value
         """
         pulumi.set(__self__, "internet_gateway_block_mode", internet_gateway_block_mode)
@@ -51,6 +52,7 @@ class VpcBlockPublicAccessOptions(pulumi.CustomResource):
         """
         Resource Type definition for AWS::EC2::VPCBlockPublicAccessOptions
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input['VpcBlockPublicAccessOptionsInternetGatewayBlockMode'] internet_gateway_block_mode: The desired Block Public Access mode for Internet Gateways in your account. We do not allow to create in a off mode as this is the default value
@@ -63,6 +65,7 @@ class VpcBlockPublicAccessOptions(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::EC2::VPCBlockPublicAccessOptions
+
 
         :param str resource_name: The name of the resource.
         :param VpcBlockPublicAccessOptionsArgs args: The arguments to use to populate this resource's properties.

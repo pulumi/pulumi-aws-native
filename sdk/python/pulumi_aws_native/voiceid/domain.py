@@ -29,6 +29,7 @@ class DomainArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Domain resource.
+
         :param pulumi.Input['DomainServerSideEncryptionConfigurationArgs'] server_side_encryption_configuration: The server-side encryption configuration containing the KMS key identifier you want Voice ID to use to encrypt your data.
         :param pulumi.Input[_builtins.str] description: The description of the domain.
         :param pulumi.Input[_builtins.str] name: The name for the domain.
@@ -105,6 +106,7 @@ class Domain(pulumi.CustomResource):
         """
         The AWS::VoiceID::Domain resource specifies an Amazon VoiceID Domain.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: The description of the domain.
@@ -120,6 +122,7 @@ class Domain(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The AWS::VoiceID::Domain resource specifies an Amazon VoiceID Domain.
+
 
         :param str resource_name: The name of the resource.
         :param DomainArgs args: The arguments to use to populate this resource's properties.

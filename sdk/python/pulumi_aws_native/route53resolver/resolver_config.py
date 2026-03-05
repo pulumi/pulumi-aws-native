@@ -24,6 +24,7 @@ class ResolverConfigArgs:
                  resource_id: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a ResolverConfig resource.
+
         :param pulumi.Input['ResolverConfigAutodefinedReverseFlag'] autodefined_reverse_flag: Represents the desired status of AutodefinedReverse. The only supported value on creation is DISABLE. Deletion of this resource will return AutodefinedReverse to its default value (ENABLED).
         :param pulumi.Input[_builtins.str] resource_id: ResourceId
         """
@@ -67,6 +68,7 @@ class ResolverConfig(pulumi.CustomResource):
         """
         Resource schema for AWS::Route53Resolver::ResolverConfig.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input['ResolverConfigAutodefinedReverseFlag'] autodefined_reverse_flag: Represents the desired status of AutodefinedReverse. The only supported value on creation is DISABLE. Deletion of this resource will return AutodefinedReverse to its default value (ENABLED).
@@ -80,6 +82,7 @@ class ResolverConfig(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource schema for AWS::Route53Resolver::ResolverConfig.
+
 
         :param str resource_name: The name of the resource.
         :param ResolverConfigArgs args: The arguments to use to populate this resource's properties.

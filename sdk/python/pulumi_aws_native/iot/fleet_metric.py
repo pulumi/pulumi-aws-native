@@ -35,6 +35,7 @@ class FleetMetricArgs:
                  unit: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a FleetMetric resource.
+
         :param pulumi.Input[_builtins.str] aggregation_field: The aggregation field to perform aggregation and metric emission
         :param pulumi.Input['FleetMetricAggregationTypeArgs'] aggregation_type: The type of the aggregation query.
         :param pulumi.Input[_builtins.str] description: The description of a fleet metric
@@ -208,6 +209,7 @@ class FleetMetric(pulumi.CustomResource):
         """
         An aggregated metric of certain devices in your fleet
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] aggregation_field: The aggregation field to perform aggregation and metric emission
@@ -229,6 +231,7 @@ class FleetMetric(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An aggregated metric of certain devices in your fleet
+
 
         :param str resource_name: The name of the resource.
         :param FleetMetricArgs args: The arguments to use to populate this resource's properties.

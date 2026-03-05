@@ -28,6 +28,7 @@ class DeploymentConfigArgs:
                  zonal_config: Optional[pulumi.Input['DeploymentConfigZonalConfigArgs']] = None):
         """
         The set of arguments for constructing a DeploymentConfig resource.
+
         :param pulumi.Input[_builtins.str] compute_platform: The destination platform type for the deployment (Lambda, Server, or ECS).
         :param pulumi.Input[_builtins.str] deployment_config_name: A name for the deployment configuration. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the deployment configuration name. For more information, see Name Type.
         :param pulumi.Input['DeploymentConfigMinimumHealthyHostsArgs'] minimum_healthy_hosts: The minimum number of healthy instances that should be available at any time during the deployment. There are two parameters expected in the input: type and value.
@@ -121,6 +122,7 @@ class DeploymentConfig(pulumi.CustomResource):
         """
         Resource Type definition for AWS::CodeDeploy::DeploymentConfig
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] compute_platform: The destination platform type for the deployment (Lambda, Server, or ECS).
@@ -137,6 +139,7 @@ class DeploymentConfig(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::CodeDeploy::DeploymentConfig
+
 
         :param str resource_name: The name of the resource.
         :param DeploymentConfigArgs args: The arguments to use to populate this resource's properties.

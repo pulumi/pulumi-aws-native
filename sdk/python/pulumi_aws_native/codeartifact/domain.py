@@ -27,6 +27,7 @@ class DomainArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Domain resource.
+
         :param pulumi.Input[_builtins.str] domain_name: The name of the domain.
         :param pulumi.Input[_builtins.str] encryption_key: The ARN of an AWS Key Management Service (AWS KMS) key associated with a domain.
         :param Any permissions_policy_document: The access control resource policy on the provided domain.
@@ -336,6 +337,7 @@ class Domain(pulumi.CustomResource):
 
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] domain_name: The name of the domain.
@@ -581,6 +583,7 @@ class Domain(pulumi.CustomResource):
             ])
 
         ```
+
 
         :param str resource_name: The name of the resource.
         :param DomainArgs args: The arguments to use to populate this resource's properties.

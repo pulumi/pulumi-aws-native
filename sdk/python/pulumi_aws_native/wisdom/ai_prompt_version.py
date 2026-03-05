@@ -24,6 +24,7 @@ class AiPromptVersionArgs:
                  modified_time_seconds: Optional[pulumi.Input[_builtins.float]] = None):
         """
         The set of arguments for constructing a AiPromptVersion resource.
+
         :param pulumi.Input[_builtins.str] ai_prompt_id: The identifier of the Amazon Q in Connect AI prompt.
         :param pulumi.Input[_builtins.str] assistant_id: The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
         :param pulumi.Input[_builtins.float] modified_time_seconds: The time the AI Prompt version was last modified in seconds.
@@ -83,6 +84,7 @@ class AiPromptVersion(pulumi.CustomResource):
         """
         Definition of AWS::Wisdom::AIPromptVersion Resource Type
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] ai_prompt_id: The identifier of the Amazon Q in Connect AI prompt.
@@ -97,6 +99,7 @@ class AiPromptVersion(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of AWS::Wisdom::AIPromptVersion Resource Type
+
 
         :param str resource_name: The name of the resource.
         :param AiPromptVersionArgs args: The arguments to use to populate this resource's properties.

@@ -23,6 +23,7 @@ class DomainNameApiAssociationArgs:
                  domain_name: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a DomainNameApiAssociation resource.
+
         :param pulumi.Input[_builtins.str] api_id: The API ID.
         :param pulumi.Input[_builtins.str] domain_name: The domain name.
         """
@@ -66,6 +67,7 @@ class DomainNameApiAssociation(pulumi.CustomResource):
         """
         Resource Type definition for AWS::AppSync::DomainNameApiAssociation
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] api_id: The API ID.
@@ -79,6 +81,7 @@ class DomainNameApiAssociation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::AppSync::DomainNameApiAssociation
+
 
         :param str resource_name: The name of the resource.
         :param DomainNameApiAssociationArgs args: The arguments to use to populate this resource's properties.

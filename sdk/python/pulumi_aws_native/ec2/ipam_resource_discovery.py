@@ -29,6 +29,7 @@ class IpamResourceDiscoveryArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a IpamResourceDiscovery resource.
+
         :param pulumi.Input[_builtins.str] description: The resource discovery description.
         :param pulumi.Input[Sequence[pulumi.Input['IpamResourceDiscoveryIpamOperatingRegionArgs']]] operating_regions: The regions Resource Discovery is enabled for. Allows resource discoveries to be created in these regions, as well as enabling monitoring
         :param pulumi.Input[Sequence[pulumi.Input['IpamResourceDiscoveryOrganizationalUnitExclusionArgs']]] organizational_unit_exclusions: A set of organizational unit (OU) exclusions for this resource.
@@ -106,6 +107,7 @@ class IpamResourceDiscovery(pulumi.CustomResource):
         """
         Resource Schema of AWS::EC2::IPAMResourceDiscovery Type
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: The resource discovery description.
@@ -121,6 +123,7 @@ class IpamResourceDiscovery(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Schema of AWS::EC2::IPAMResourceDiscovery Type
+
 
         :param str resource_name: The name of the resource.
         :param IpamResourceDiscoveryArgs args: The arguments to use to populate this resource's properties.

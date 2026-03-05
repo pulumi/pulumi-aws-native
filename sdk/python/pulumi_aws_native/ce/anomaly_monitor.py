@@ -29,6 +29,7 @@ class AnomalyMonitorArgs:
                  resource_tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]] = None):
         """
         The set of arguments for constructing a AnomalyMonitor resource.
+
         :param pulumi.Input['AnomalyMonitorMonitorType'] monitor_type: The type of the monitor.
                
                Set this to `DIMENSIONAL` for an AWS managed monitor. AWS managed monitors automatically track up to the top 5,000 values by cost within a dimension of your choosing. Each dimension value is evaluated independently. If you start incurring cost in a new value of your chosen dimension, it will automatically be analyzed by an AWS managed monitor.
@@ -343,6 +344,7 @@ class AnomalyMonitor(pulumi.CustomResource):
 
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input['AnomalyMonitorMonitorDimension'] monitor_dimension: The dimensions to evaluate
@@ -575,6 +577,7 @@ class AnomalyMonitor(pulumi.CustomResource):
             }])
 
         ```
+
 
         :param str resource_name: The name of the resource.
         :param AnomalyMonitorArgs args: The arguments to use to populate this resource's properties.

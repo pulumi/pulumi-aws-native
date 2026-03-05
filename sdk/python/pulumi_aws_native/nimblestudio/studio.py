@@ -111,6 +111,7 @@ class Studio(pulumi.CustomResource):
         """
         Resource Type definition for AWS::NimbleStudio::Studio
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
@@ -122,6 +123,7 @@ class Studio(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::NimbleStudio::Studio
+
 
         :param str resource_name: The name of the resource.
         :param StudioArgs args: The arguments to use to populate this resource's properties.

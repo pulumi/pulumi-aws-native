@@ -27,6 +27,7 @@ class NetworkSettingsArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a NetworkSettings resource.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: One or more security groups used to control access from streaming instances to your VPC.
                
                *Pattern* : `^[\\w+\\-]+$`
@@ -113,6 +114,7 @@ class NetworkSettings(pulumi.CustomResource):
         """
         Definition of AWS::WorkSpacesWeb::NetworkSettings Resource Type
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: One or more security groups used to control access from streaming instances to your VPC.
@@ -134,6 +136,7 @@ class NetworkSettings(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of AWS::WorkSpacesWeb::NetworkSettings Resource Type
+
 
         :param str resource_name: The name of the resource.
         :param NetworkSettingsArgs args: The arguments to use to populate this resource's properties.

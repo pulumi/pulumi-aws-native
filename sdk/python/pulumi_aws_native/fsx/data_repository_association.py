@@ -33,6 +33,7 @@ class DataRepositoryAssociationArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a DataRepositoryAssociation resource.
+
         :param pulumi.Input[_builtins.str] data_repository_path: The path to the Amazon S3 data repository that will be linked to the file system. The path can be an S3 bucket or prefix in the format s3://myBucket/myPrefix/ . This path specifies where in the S3 data repository files will be imported from or exported to.
         :param pulumi.Input[_builtins.str] file_system_id: The globally unique ID of the file system, assigned by Amazon FSx.
         :param pulumi.Input[_builtins.str] file_system_path: This path specifies where in your file system files will be exported from or imported to. This file system directory can be linked to only one Amazon S3 bucket, and no other S3 bucket can be linked to the directory.
@@ -197,6 +198,7 @@ class DataRepositoryAssociation(pulumi.CustomResource):
 
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] batch_import_meta_data_on_create: A boolean flag indicating whether an import data repository task to import metadata should run after the data repository association is created. The task runs if this flag is set to true.
@@ -257,6 +259,7 @@ class DataRepositoryAssociation(pulumi.CustomResource):
         pulumi.export("draId", test_dra.id)
 
         ```
+
 
         :param str resource_name: The name of the resource.
         :param DataRepositoryAssociationArgs args: The arguments to use to populate this resource's properties.

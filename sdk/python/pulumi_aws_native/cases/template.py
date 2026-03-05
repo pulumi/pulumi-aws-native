@@ -34,6 +34,7 @@ class TemplateArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Template resource.
+
         :param pulumi.Input[_builtins.str] description: A description explaining the purpose and use case for this template. Should indicate what types of cases this template is designed for and any specific workflow it supports.
         :param pulumi.Input[_builtins.str] domain_id: The unique identifier of the Cases domain.
         :param pulumi.Input['TemplateLayoutConfigurationArgs'] layout_configuration: Object to store configuration of layouts associated to the template.
@@ -175,6 +176,7 @@ class Template(pulumi.CustomResource):
         """
         A template in the Cases domain. This template is used to define the case object model (that is, to define what data can be captured on cases) in a Cases domain. A template must have a unique name within a domain, and it must reference existing field IDs and layout IDs.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: A description explaining the purpose and use case for this template. Should indicate what types of cases this template is designed for and any specific workflow it supports.
@@ -194,6 +196,7 @@ class Template(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A template in the Cases domain. This template is used to define the case object model (that is, to define what data can be captured on cases) in a Cases domain. A template must have a unique name within a domain, and it must reference existing field IDs and layout IDs.
+
 
         :param str resource_name: The name of the resource.
         :param TemplateArgs args: The arguments to use to populate this resource's properties.

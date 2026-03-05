@@ -29,6 +29,7 @@ class UsageProfileArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a UsageProfile resource.
+
         :param pulumi.Input['UsageProfileProfileConfigurationArgs'] configuration: UsageProfile configuration for supported service ex: (Jobs, Sessions).
         :param pulumi.Input[_builtins.str] description: The description of the UsageProfile.
         :param pulumi.Input[_builtins.str] name: The name of the UsageProfile.
@@ -106,6 +107,7 @@ class UsageProfile(pulumi.CustomResource):
         """
         This creates a Resource of UsageProfile type.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['UsageProfileProfileConfigurationArgs', 'UsageProfileProfileConfigurationArgsDict']] configuration: UsageProfile configuration for supported service ex: (Jobs, Sessions).
@@ -121,6 +123,7 @@ class UsageProfile(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         This creates a Resource of UsageProfile type.
+
 
         :param str resource_name: The name of the resource.
         :param UsageProfileArgs args: The arguments to use to populate this resource's properties.

@@ -27,6 +27,7 @@ class GlobalNetworkArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a GlobalNetwork resource.
+
         :param pulumi.Input[_builtins.str] created_at: The date and time that the global network was created.
         :param pulumi.Input[_builtins.str] description: The description of the global network.
         :param pulumi.Input[_builtins.str] state: The state of the global network.
@@ -190,6 +191,7 @@ class GlobalNetwork(pulumi.CustomResource):
 
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] created_at: The date and time that the global network was created.
@@ -291,6 +293,7 @@ class GlobalNetwork(pulumi.CustomResource):
             device_id=device.device_id)
 
         ```
+
 
         :param str resource_name: The name of the resource.
         :param GlobalNetworkArgs args: The arguments to use to populate this resource's properties.

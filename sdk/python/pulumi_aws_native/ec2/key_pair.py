@@ -29,6 +29,7 @@ class KeyPairArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]] = None):
         """
         The set of arguments for constructing a KeyPair resource.
+
         :param pulumi.Input[_builtins.str] key_name: A unique name for the key pair.
                 Constraints: Up to 255 ASCII characters
         :param pulumi.Input['KeyPairKeyFormat'] key_format: The format of the key pair.
@@ -189,6 +190,7 @@ class KeyPair(pulumi.CustomResource):
 
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input['KeyPairKeyFormat'] key_format: The format of the key pair.
@@ -269,6 +271,7 @@ class KeyPair(pulumi.CustomResource):
             key_name=imported_key_pair.id)
 
         ```
+
 
         :param str resource_name: The name of the resource.
         :param KeyPairArgs args: The arguments to use to populate this resource's properties.

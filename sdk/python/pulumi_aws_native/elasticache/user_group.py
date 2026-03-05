@@ -28,6 +28,7 @@ class UserGroupArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a UserGroup resource.
+
         :param pulumi.Input['UserGroupEngine'] engine: The target cache engine for the user group.
         :param pulumi.Input[_builtins.str] user_group_id: The ID of the user group.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] user_ids: List of users associated to this user group.
@@ -102,6 +103,7 @@ class UserGroup(pulumi.CustomResource):
         """
         Resource Type definition for AWS::ElastiCache::UserGroup
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input['UserGroupEngine'] engine: The target cache engine for the user group.
@@ -117,6 +119,7 @@ class UserGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::ElastiCache::UserGroup
+
 
         :param str resource_name: The name of the resource.
         :param UserGroupArgs args: The arguments to use to populate this resource's properties.

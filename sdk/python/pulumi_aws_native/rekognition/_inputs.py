@@ -65,6 +65,7 @@ class StreamProcessorBoundingBoxArgs:
                  width: pulumi.Input[_builtins.float]):
         """
         A bounding box denoting a region of interest in the frame to be analyzed.
+
         :param pulumi.Input[_builtins.float] height: Height of the bounding box as a ratio of the overall image height.
         :param pulumi.Input[_builtins.float] left: Left coordinate of the bounding box as a ratio of overall image width.
         :param pulumi.Input[_builtins.float] top: Top coordinate of the bounding box as a ratio of overall image height.
@@ -144,6 +145,7 @@ class StreamProcessorConnectedHomeSettingsArgs:
                  min_confidence: Optional[pulumi.Input[_builtins.float]] = None):
         """
         Connected home settings to use on a streaming video. Note that either ConnectedHomeSettings or FaceSearchSettings should be set. Not both
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] labels: Specifies what you want to detect in the video, such as people, packages, or pets. The current valid labels you can include in this list are: "PERSON", "PET", "PACKAGE", and "ALL".
         :param pulumi.Input[_builtins.float] min_confidence: Minimum object class match confidence score that must be met to return a result for a recognized object.
         """
@@ -191,6 +193,7 @@ class StreamProcessorDataSharingPreferenceArgs:
                  opt_in: pulumi.Input[_builtins.bool]):
         """
         Indicates whether Rekognition is allowed to store the video stream data for model-training.
+
         :param pulumi.Input[_builtins.bool] opt_in: Flag to enable data-sharing
         """
         pulumi.set(__self__, "opt_in", opt_in)
@@ -228,6 +231,7 @@ class StreamProcessorFaceSearchSettingsArgs:
                  face_match_threshold: Optional[pulumi.Input[_builtins.float]] = None):
         """
         Face search settings to use on a streaming video. Note that either FaceSearchSettings or ConnectedHomeSettings should be set. Not both
+
         :param pulumi.Input[_builtins.str] collection_id: The ID of a collection that contains faces that you want to search for.
         :param pulumi.Input[_builtins.float] face_match_threshold: Minimum face match confidence score percentage that must be met to return a result for a recognized face. The default is 80. 0 is the lowest confidence. 100 is the highest confidence. Values between 0 and 100 are accepted.
         """
@@ -275,6 +279,7 @@ class StreamProcessorKinesisDataStreamArgs:
                  arn: pulumi.Input[_builtins.str]):
         """
         The Amazon Kinesis Data Stream stream to which the Amazon Rekognition stream processor streams the analysis results, as part of face search feature.
+
         :param pulumi.Input[_builtins.str] arn: ARN of the Kinesis Data Stream stream.
         """
         pulumi.set(__self__, "arn", arn)
@@ -307,6 +312,7 @@ class StreamProcessorKinesisVideoStreamArgs:
                  arn: pulumi.Input[_builtins.str]):
         """
         The Kinesis Video Stream that streams the source video.
+
         :param pulumi.Input[_builtins.str] arn: ARN of the Kinesis Video Stream that streams the source video.
         """
         pulumi.set(__self__, "arn", arn)
@@ -339,6 +345,7 @@ class StreamProcessorNotificationChannelArgs:
                  arn: pulumi.Input[_builtins.str]):
         """
         The ARN of the SNS notification channel where events of interests are published, as part of connected home feature.
+
         :param pulumi.Input[_builtins.str] arn: ARN of the SNS topic.
         """
         pulumi.set(__self__, "arn", arn)
@@ -376,6 +383,7 @@ class StreamProcessorPointArgs:
                  y: pulumi.Input[_builtins.float]):
         """
         An (X, Y) cartesian coordinate denoting a point on the frame
+
         :param pulumi.Input[_builtins.float] x: The X coordinate of the point.
         :param pulumi.Input[_builtins.float] y: The Y coordinate of the point.
         """
@@ -427,6 +435,7 @@ class StreamProcessorS3DestinationArgs:
                  object_key_prefix: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The S3 location in customer's account where inference output & artifacts are stored, as part of connected home feature.
+
         :param pulumi.Input[_builtins.str] bucket_name: Name of the S3 bucket.
         :param pulumi.Input[_builtins.str] object_key_prefix: The object key prefix path where the results will be stored. Default is no prefix path
         """

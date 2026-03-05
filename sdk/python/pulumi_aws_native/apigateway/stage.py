@@ -39,6 +39,7 @@ class StageArgs:
                  variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Stage resource.
+
         :param pulumi.Input[_builtins.str] rest_api_id: The string identifier of the associated RestApi.
         :param pulumi.Input['StageAccessLogSettingArgs'] access_log_setting: Access log settings, including the access log format and access log destination ARN.
         :param pulumi.Input[_builtins.bool] cache_cluster_enabled: Specifies whether a cache cluster is enabled for the stage. To activate a method-level cache, set `CachingEnabled` to `true` for a method.
@@ -275,6 +276,7 @@ class Stage(pulumi.CustomResource):
         """
         The ``AWS::ApiGateway::Stage`` resource creates a stage for a deployment.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['StageAccessLogSettingArgs', 'StageAccessLogSettingArgsDict']] access_log_setting: Access log settings, including the access log format and access log destination ARN.
@@ -300,6 +302,7 @@ class Stage(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The ``AWS::ApiGateway::Stage`` resource creates a stage for a deployment.
+
 
         :param str resource_name: The name of the resource.
         :param StageArgs args: The arguments to use to populate this resource's properties.

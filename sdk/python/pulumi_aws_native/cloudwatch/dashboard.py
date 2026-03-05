@@ -23,6 +23,7 @@ class DashboardArgs:
                  dashboard_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Dashboard resource.
+
         :param pulumi.Input[_builtins.str] dashboard_body: The detailed information about the dashboard in JSON format, including the widgets to include and their location on the dashboard
         :param pulumi.Input[_builtins.str] dashboard_name: The name of the dashboard. The name must be between 1 and 255 characters. If you do not specify a name, one will be generated automatically.
         """
@@ -67,6 +68,7 @@ class Dashboard(pulumi.CustomResource):
         """
         Resource Type definition for AWS::CloudWatch::Dashboard
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] dashboard_body: The detailed information about the dashboard in JSON format, including the widgets to include and their location on the dashboard
@@ -80,6 +82,7 @@ class Dashboard(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::CloudWatch::Dashboard
+
 
         :param str resource_name: The name of the resource.
         :param DashboardArgs args: The arguments to use to populate this resource's properties.

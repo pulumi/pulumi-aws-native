@@ -22,6 +22,7 @@ class ProjectArgs:
                  project_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Project resource.
+
         :param pulumi.Input[_builtins.str] project_name: The name of the project.
         """
         if project_name is not None:
@@ -51,6 +52,7 @@ class Project(pulumi.CustomResource):
         """
         The AWS::LookoutVision::Project type creates an Amazon Lookout for Vision project. A project is a grouping of the resources needed to create and manage a Lookout for Vision model.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] project_name: The name of the project.
@@ -63,6 +65,7 @@ class Project(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The AWS::LookoutVision::Project type creates an Amazon Lookout for Vision project. A project is a grouping of the resources needed to create and manage a Lookout for Vision model.
+
 
         :param str resource_name: The name of the resource.
         :param ProjectArgs args: The arguments to use to populate this resource's properties.

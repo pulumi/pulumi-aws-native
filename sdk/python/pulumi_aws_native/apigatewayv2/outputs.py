@@ -47,6 +47,7 @@ class ApiBodyS3Location(dict):
                  version: Optional[_builtins.str] = None):
         """
         The ``BodyS3Location`` property specifies an S3 location from which to import an OpenAPI definition. Supported only for HTTP APIs.
+
         :param _builtins.str bucket: The S3 bucket that contains the OpenAPI definition to import. Required if you specify a ``BodyS3Location`` for an API.
         :param _builtins.str etag: The Etag of the S3 object.
         :param _builtins.str key: The key of the S3 object. Required if you specify a ``BodyS3Location`` for an API.
@@ -135,6 +136,7 @@ class ApiCors(dict):
                  max_age: Optional[_builtins.int] = None):
         """
         The ``Cors`` property specifies a CORS configuration for an API. Supported only for HTTP APIs. See [Configuring CORS](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-cors.html) for more information.
+
         :param _builtins.bool allow_credentials: Specifies whether credentials are included in the CORS request. Supported only for HTTP APIs.
         :param Sequence[_builtins.str] allow_headers: Represents a collection of allowed headers. Supported only for HTTP APIs.
         :param Sequence[_builtins.str] allow_methods: Represents a collection of allowed HTTP methods. Supported only for HTTP APIs.
@@ -214,6 +216,7 @@ class AuthorizerJwtConfiguration(dict):
                  issuer: Optional[_builtins.str] = None):
         """
         The ``JWTConfiguration`` property specifies the configuration of a JWT authorizer. Required for the ``JWT`` authorizer type. Supported only for HTTP APIs.
+
         :param Sequence[_builtins.str] audience: A list of the intended recipients of the JWT. A valid JWT must provide an ``aud`` that matches at least one entry in this list. See [RFC 7519](https://docs.aws.amazon.com/https://tools.ietf.org/html/rfc7519#section-4.1.3). Required for the ``JWT`` authorizer type. Supported only for HTTP APIs.
         :param _builtins.str issuer: The base domain of the identity provider that issues JSON Web Tokens. For example, an Amazon Cognito user pool has the following format: ``https://cognito-idp.{region}.amazonaws.com/{userPoolId}``. Required for the ``JWT`` authorizer type. Supported only for HTTP APIs.
         """
@@ -282,6 +285,7 @@ class DomainNameConfiguration(dict):
         """
         The ``DomainNameConfiguration`` property type specifies the configuration for an API's domain name.
           ``DomainNameConfiguration`` is a property of the [AWS::ApiGatewayV2::DomainName](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-domainname.html) resource.
+
         :param _builtins.str certificate_arn: An AWS-managed certificate that will be used by the edge-optimized endpoint for this domain name. AWS Certificate Manager is the only supported source.
         :param _builtins.str certificate_name: The user-friendly name of the certificate that will be used by the edge-optimized endpoint for this domain name.
         :param _builtins.str endpoint_type: The endpoint type.
@@ -380,6 +384,7 @@ class DomainNameMutualTlsAuthentication(dict):
                  truststore_version: Optional[_builtins.str] = None):
         """
         If specified, API Gateway performs two-way authentication between the client and the server. Clients must present a trusted certificate to access your API.
+
         :param _builtins.str truststore_uri: An Amazon S3 URL that specifies the truststore for mutual TLS authentication, for example, ``s3://bucket-name/key-name``. The truststore can contain certificates from public or private certificate authorities. To update the truststore, upload a new version to S3, and then update your custom domain name to use the new version. To update the truststore, you must have permissions to access the S3 object.
         :param _builtins.str truststore_version: The version of the S3 object that contains your truststore. To specify a version, you must have versioning enabled for the S3 bucket.
         """
@@ -494,6 +499,7 @@ class IntegrationTlsConfig(dict):
                  server_name_to_verify: Optional[_builtins.str] = None):
         """
         The TlsConfig property specifies the TLS configuration for a private integration. Supported only for HTTP APIs.
+
         :param _builtins.str server_name_to_verify: If you specify a server name, API Gateway uses it to verify the hostname on the integration's certificate. The server name is also included in the TLS handshake to support Server Name Indication (SNI) or virtual hosting.
         """
         if server_name_to_verify is not None:
@@ -529,6 +535,7 @@ class RouteResponseParameterConstraints(dict):
                  required: _builtins.bool):
         """
         Specifies whether the parameter is required.
+
         :param _builtins.bool required: Specifies whether the parameter is required.
         """
         pulumi.set(__self__, "required", required)

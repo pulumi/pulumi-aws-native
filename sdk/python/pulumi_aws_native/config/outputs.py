@@ -38,6 +38,7 @@ class AssumeRole(dict):
                  transitive_tag_keys: Optional[Sequence[_builtins.str]] = None):
         """
         The configuration for a Provider to assume a role.
+
         :param _builtins.int duration_seconds: Number of seconds to restrict the assume role session duration.
         :param _builtins.str external_id: External identifier to use when assuming the role.
         :param _builtins.str policy: IAM Policy JSON describing further restricting permissions for the IAM Role being assumed.
@@ -139,6 +140,7 @@ class AutoNaming(dict):
                  random_suffix_min_length: Optional[_builtins.int] = None):
         """
         The configuration for automatically naming resources.
+
         :param _builtins.bool auto_trim: Automatically trim the auto-generated name to meet the maximum length constraint.
         :param _builtins.int random_suffix_min_length: The minimum length of the random suffix to append to the auto-generated name.
         """
@@ -175,6 +177,7 @@ class DefaultTags(dict):
                  tags: Optional[Mapping[str, _builtins.str]] = None):
         """
         The configuration with resource tag settings to apply across all resources handled by this provider. This is designed to replace redundant per-resource `tags` configurations. Provider tags can be overridden with new values, but not excluded from specific resources. To override provider tag values, use the `tags` argument within a resource to configure new tag values for matching keys.
+
         :param Mapping[str, _builtins.str] tags: A group of tags to set across all resources.
         """
         if tags is not None:
@@ -202,6 +205,7 @@ class Endpoints(dict):
                  sts: Optional[_builtins.str] = None):
         """
         The configuration for for customizing service endpoints.
+
         :param _builtins.str cloudcontrol: Override the default endpoint for AWS CloudControl
         :param _builtins.str cloudformation: Override the default endpoint for AWS CloudFormation
         :param _builtins.str ec2: Override the default endpoint for AWS Elastic Compute Cloud (EC2)
@@ -270,6 +274,7 @@ class IgnoreTags(dict):
                  keys: Optional[Sequence[_builtins.str]] = None):
         """
         The configuration with resource tag settings to ignore across all resources handled by this provider (except any individual service tag resources such as `ec2.Tag`) for situations where external systems are managing certain resource tags.
+
         :param Sequence[_builtins.str] key_prefixes: List of exact resource tag keys to ignore across all resources handled by this provider. This configuration prevents Pulumi from returning the tag in any `tags` attributes and displaying any configuration difference for the tag value. If any resource configuration still has this tag key configured in the `tags` argument, it will display a perpetual difference until the tag is removed from the argument or `ignoreChanges` is also used.
         :param Sequence[_builtins.str] keys: List of resource tag key prefixes to ignore across all resources handled by this provider. This configuration prevents Pulumi from returning any tag key matching the prefixes in any `tags` attributes and displaying any configuration difference for those tag values. If any resource configuration still has a tag matching one of the prefixes configured in the `tags` argument, it will display a perpetual difference until the tag is removed from the argument or `ignoreChanges` is also used.
         """

@@ -40,6 +40,7 @@ class EnvironmentArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Environment resource.
+
         :param pulumi.Input['ConnectivityInfoPropertiesArgs'] connectivity_info: The connectivity configuration for the environment. Amazon EVS requires that you specify two route server peer IDs. During environment creation, the route server endpoints peer with the NSX uplink VLAN for connectivity to the NSX overlay network.
         :param pulumi.Input['LicenseInfoPropertiesArgs'] license_info: The license information for an EVS environment
         :param pulumi.Input[_builtins.str] service_access_subnet_id: The subnet that is used to establish connectivity between the Amazon EVS control plane and VPC. Amazon EVS uses this subnet to perform validations and create the environment.
@@ -277,6 +278,7 @@ class Environment(pulumi.CustomResource):
         """
         An environment created within the EVS service
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ConnectivityInfoPropertiesArgs', 'ConnectivityInfoPropertiesArgsDict']] connectivity_info: The connectivity configuration for the environment. Amazon EVS requires that you specify two route server peer IDs. During environment creation, the route server endpoints peer with the NSX uplink VLAN for connectivity to the NSX overlay network.
@@ -306,6 +308,7 @@ class Environment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An environment created within the EVS service
+
 
         :param str resource_name: The name of the resource.
         :param EnvironmentArgs args: The arguments to use to populate this resource's properties.

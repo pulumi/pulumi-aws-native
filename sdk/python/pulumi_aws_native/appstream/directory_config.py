@@ -27,6 +27,7 @@ class DirectoryConfigArgs:
                  certificate_based_auth_properties: Optional[pulumi.Input['DirectoryConfigCertificateBasedAuthPropertiesArgs']] = None):
         """
         The set of arguments for constructing a DirectoryConfig resource.
+
         :param pulumi.Input[_builtins.str] directory_name: The fully qualified name of the directory (for example, corp.example.com).
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] organizational_unit_distinguished_names: The distinguished names of the organizational units for computer accounts.
         :param pulumi.Input['DirectoryConfigServiceAccountCredentialsArgs'] service_account_credentials: The credentials for the service account used by the streaming instance to connect to the directory. Do not use this parameter directly. Use `ServiceAccountCredentials` as an input parameter with `noEcho` as shown in the [Parameters](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/parameters-section-structure.html) . For best practices information, see [Do Not Embed Credentials in Your Templates](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/best-practices.html#creds) .
@@ -101,6 +102,7 @@ class DirectoryConfig(pulumi.CustomResource):
         """
         Resource Type definition for AWS::AppStream::DirectoryConfig
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['DirectoryConfigCertificateBasedAuthPropertiesArgs', 'DirectoryConfigCertificateBasedAuthPropertiesArgsDict']] certificate_based_auth_properties: The certificate-based authentication properties used to authenticate SAML 2.0 Identity Provider (IdP) user identities to Active Directory domain-joined streaming instances.
@@ -116,6 +118,7 @@ class DirectoryConfig(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::AppStream::DirectoryConfig
+
 
         :param str resource_name: The name of the resource.
         :param DirectoryConfigArgs args: The arguments to use to populate this resource's properties.

@@ -36,6 +36,7 @@ class TrafficMirrorFilterRuleArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a TrafficMirrorFilterRule resource.
+
         :param pulumi.Input[_builtins.str] destination_cidr_block: The destination CIDR block to assign to the Traffic Mirror rule.
         :param pulumi.Input[_builtins.str] rule_action: The action to take on the filtered traffic (accept/reject).
         :param pulumi.Input[_builtins.int] rule_number: The number of the Traffic Mirror rule.
@@ -219,6 +220,7 @@ class TrafficMirrorFilterRule(pulumi.CustomResource):
         """
         Resource Type definition for for AWS::EC2::TrafficMirrorFilterRule
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: The description of the Traffic Mirror Filter rule.
@@ -241,6 +243,7 @@ class TrafficMirrorFilterRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for for AWS::EC2::TrafficMirrorFilterRule
+
 
         :param str resource_name: The name of the resource.
         :param TrafficMirrorFilterRuleArgs args: The arguments to use to populate this resource's properties.

@@ -31,6 +31,7 @@ class CollectionGroupArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a CollectionGroup resource.
+
         :param pulumi.Input['CollectionGroupStandbyReplicas'] standby_replicas: Indicates whether standby replicas are used for the collection group.
         :param pulumi.Input[_builtins.str] description: The description of the collection group.
         :param pulumi.Input[_builtins.str] name: The name of the collection group.
@@ -119,6 +120,7 @@ class CollectionGroup(pulumi.CustomResource):
         """
         Resource Type definition for AWS::OpenSearchServerless::CollectionGroup
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: The description of the collection group.
@@ -134,6 +136,7 @@ class CollectionGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::OpenSearchServerless::CollectionGroup
+
 
         :param str resource_name: The name of the resource.
         :param CollectionGroupArgs args: The arguments to use to populate this resource's properties.

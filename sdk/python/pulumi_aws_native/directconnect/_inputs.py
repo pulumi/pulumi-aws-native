@@ -60,6 +60,7 @@ class PrivateVirtualInterfaceBgpPeerArgs:
                  customer_address: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Information about a BGP peer.
+
         :param pulumi.Input[_builtins.str] address_family: The address family for the BGP peer.
         :param pulumi.Input[_builtins.str] asn: The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
         :param pulumi.Input[_builtins.str] amazon_address: The IP address assigned to the Amazon interface.
@@ -184,6 +185,7 @@ class PublicVirtualInterfaceBgpPeerArgs:
                  customer_address: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Information about a BGP peer.
+
         :param pulumi.Input[_builtins.str] address_family: The address family for the BGP peer.
         :param pulumi.Input[_builtins.str] asn: The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
         :param pulumi.Input[_builtins.str] amazon_address: The IP address assigned to the Amazon interface.
@@ -308,6 +310,7 @@ class TransitVirtualInterfaceBgpPeerArgs:
                  customer_address: Optional[pulumi.Input[_builtins.str]] = None):
         """
         A key-value pair to associate with a resource.
+
         :param pulumi.Input[_builtins.str] address_family: The address family for the BGP peer.
         :param pulumi.Input[_builtins.str] asn: The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
         :param pulumi.Input[_builtins.str] amazon_address: The IP address assigned to the Amazon interface.

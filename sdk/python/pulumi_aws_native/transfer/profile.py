@@ -28,6 +28,7 @@ class ProfileArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Profile resource.
+
         :param pulumi.Input[_builtins.str] as2_id: AS2 identifier agreed with a trading partner.
         :param pulumi.Input['ProfileType'] profile_type: Enum specifying whether the profile is local or associated with a trading partner.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] certificate_ids: List of the certificate IDs associated with this profile to be used for encryption and signing of AS2 messages.
@@ -103,6 +104,7 @@ class Profile(pulumi.CustomResource):
         """
         Resource Type definition for AWS::Transfer::Profile
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] as2_id: AS2 identifier agreed with a trading partner.
@@ -118,6 +120,7 @@ class Profile(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::Transfer::Profile
+
 
         :param str resource_name: The name of the resource.
         :param ProfileArgs args: The arguments to use to populate this resource's properties.

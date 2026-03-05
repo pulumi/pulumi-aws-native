@@ -61,6 +61,7 @@ class ContactChannelTargetInfo(dict):
                  retry_interval_in_minutes: _builtins.int):
         """
         Information about the contact channel that SSM Incident Manager uses to engage the contact.
+
         :param _builtins.str channel_id: The Amazon Resource Name (ARN) of the contact channel.
         :param _builtins.int retry_interval_in_minutes: The number of minutes to wait to retry sending engagement in the case the engagement initially fails.
         """
@@ -114,6 +115,7 @@ class ContactStage(dict):
                  targets: Optional[Sequence['outputs.ContactTargets']] = None):
         """
         A set amount of time that an escalation plan or engagement plan engages the specified contacts or contact methods.
+
         :param _builtins.int duration_in_minutes: The time to wait until beginning the next stage.
         :param Sequence[_builtins.str] rotation_ids: List of Rotation Ids to associate with Contact
         :param Sequence['ContactTargets'] targets: The contacts or contact methods that the escalation plan or engagement plan is engaging.
@@ -179,6 +181,7 @@ class ContactTargetInfo(dict):
                  is_essential: _builtins.bool):
         """
         The contact that SSM Incident Manager is engaging during an incident.
+
         :param _builtins.str contact_id: The Amazon Resource Name (ARN) of the contact.
         :param _builtins.bool is_essential: A Boolean value determining if the contact's acknowledgement stops the progress of stages in the plan.
         """
@@ -231,6 +234,7 @@ class ContactTargets(dict):
                  contact_target_info: Optional['outputs.ContactTargetInfo'] = None):
         """
         The contacts or contact methods that the escalation plan or engagement plan is engaging.
+
         :param 'ContactChannelTargetInfo' channel_target_info: Information about the contact channel that Incident Manager engages.
         :param 'ContactTargetInfo' contact_target_info: The contact that Incident Manager is engaging during an incident.
         """
@@ -285,6 +289,7 @@ class PlanChannelTargetInfo(dict):
                  retry_interval_in_minutes: _builtins.int):
         """
         Information about the contact channel that SSM Incident Manager uses to engage the contact.
+
         :param _builtins.str channel_id: The Amazon Resource Name (ARN) of the contact channel.
         :param _builtins.int retry_interval_in_minutes: The number of minutes to wait to retry sending engagement in the case the engagement initially fails.
         """
@@ -337,6 +342,7 @@ class PlanContactTargetInfo(dict):
                  is_essential: _builtins.bool):
         """
         The contact that SSM Incident Manager is engaging during an incident.
+
         :param _builtins.str contact_id: The Amazon Resource Name (ARN) of the contact.
         :param _builtins.bool is_essential: A Boolean value determining if the contact's acknowledgement stops the progress of stages in the plan.
         """
@@ -387,6 +393,7 @@ class PlanStage(dict):
                  targets: Optional[Sequence['outputs.PlanTargets']] = None):
         """
         A set amount of time that an escalation plan or engagement plan engages the specified contacts or contact methods.
+
         :param _builtins.int duration_in_minutes: The time to wait until beginning the next stage.
         :param Sequence['PlanTargets'] targets: The contacts or contact methods that the escalation plan or engagement plan is engaging.
         """
@@ -440,6 +447,7 @@ class PlanTargets(dict):
                  contact_target_info: Optional['outputs.PlanContactTargetInfo'] = None):
         """
         The contacts or contact methods that the escalation plan or engagement plan is engaging.
+
         :param 'PlanChannelTargetInfo' channel_target_info: Information about the contact channel that Incident Manager engages.
         :param 'PlanContactTargetInfo' contact_target_info: Information about the contact that Incident Manager engages.
         """
@@ -494,6 +502,7 @@ class RotationCoverageTime(dict):
                  start_time: _builtins.str):
         """
         StartTime and EndTime for the Shift
+
         :param _builtins.str end_time: Information about when an on-call rotation shift ends.
         :param _builtins.str start_time: Information about when an on-call rotation shift begins.
         """
@@ -546,6 +555,7 @@ class RotationMonthlySetting(dict):
                  hand_off_time: _builtins.str):
         """
         DayOfWeek for Month and HandOff Time for Monthly Recurring Rotation.
+
         :param _builtins.int day_of_month: The day of the month when monthly recurring on-call rotations begin.
         :param _builtins.str hand_off_time: The time of day when a monthly recurring on-call shift rotation begins.
         """
@@ -610,6 +620,7 @@ class RotationRecurrenceSettings(dict):
                  weekly_settings: Optional[Sequence['outputs.RotationWeeklySetting']] = None):
         """
         Information about when an on-call rotation is in effect and how long the rotation period lasts.
+
         :param Sequence[_builtins.str] daily_settings: Information about on-call rotations that recur daily.
         :param Sequence['RotationMonthlySetting'] monthly_settings: Information about on-call rotations that recur monthly.
         :param _builtins.int number_of_on_calls: Number of Oncalls per shift.
@@ -708,6 +719,7 @@ class RotationShiftCoverage(dict):
                  day_of_week: 'RotationDayOfWeek'):
         """
         Information about the days of the week included in on-call rotation coverage.
+
         :param Sequence['RotationCoverageTime'] coverage_times: Information about when an on-call shift begins and ends.
         :param 'RotationDayOfWeek' day_of_week: A list of days on which the schedule is active.
         """
@@ -760,6 +772,7 @@ class RotationWeeklySetting(dict):
                  hand_off_time: _builtins.str):
         """
         DayOfWeek for Rotation and HandOff Time for Weekly Recurring Rotation.
+
         :param 'RotationDayOfWeek' day_of_week: The day of the week when weekly recurring on-call shift rotations begins.
         :param _builtins.str hand_off_time: The time of day when a weekly recurring on-call shift rotation begins.
         """

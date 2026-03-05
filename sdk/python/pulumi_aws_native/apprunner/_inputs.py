@@ -69,6 +69,7 @@ class ObservabilityConfigurationTraceConfigurationArgs:
                  vendor: pulumi.Input['ObservabilityConfigurationTraceConfigurationVendor']):
         """
         Describes the configuration of the tracing feature within an AWS App Runner observability configuration.
+
         :param pulumi.Input['ObservabilityConfigurationTraceConfigurationVendor'] vendor: The implementation provider chosen for tracing App Runner services.
         """
         pulumi.set(__self__, "vendor", vendor)
@@ -106,6 +107,7 @@ class ServiceAuthenticationConfigurationArgs:
                  connection_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Authentication Configuration
+
         :param pulumi.Input[_builtins.str] access_role_arn: Access Role Arn
         :param pulumi.Input[_builtins.str] connection_arn: Connection Arn
         """
@@ -179,6 +181,7 @@ class ServiceCodeConfigurationValuesArgs:
                  start_command: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Code Configuration Values
+
         :param pulumi.Input['ServiceCodeConfigurationValuesRuntime'] runtime: Runtime
         :param pulumi.Input[_builtins.str] build_command: Build Command
         :param pulumi.Input[_builtins.str] port: Port
@@ -291,6 +294,7 @@ class ServiceCodeConfigurationArgs:
                  code_configuration_values: Optional[pulumi.Input['ServiceCodeConfigurationValuesArgs']] = None):
         """
         Code Configuration
+
         :param pulumi.Input['ServiceCodeConfigurationConfigurationSource'] configuration_source: Configuration Source
         :param pulumi.Input['ServiceCodeConfigurationValuesArgs'] code_configuration_values: The basic configuration for building and running the App Runner service. Use it to quickly launch an App Runner service without providing a `apprunner.yaml` file in the source code repository (or ignoring the file if it exists).
         """
@@ -355,6 +359,7 @@ class ServiceCodeRepositoryArgs:
                  source_directory: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Source Code Repository
+
         :param pulumi.Input[_builtins.str] repository_url: Repository Url
         :param pulumi.Input['ServiceSourceCodeVersionArgs'] source_code_version: The version that should be used within the source code repository.
         :param pulumi.Input['ServiceCodeConfigurationArgs'] code_configuration: Configuration for building and running the service from a source code repository.
@@ -440,6 +445,7 @@ class ServiceEgressConfigurationArgs:
                  vpc_connector_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Network egress configuration
+
         :param pulumi.Input['ServiceEgressConfigurationEgressType'] egress_type: Network egress type.
         :param pulumi.Input[_builtins.str] vpc_connector_arn: The Amazon Resource Name (ARN) of the App Runner VpcConnector.
         """
@@ -487,6 +493,7 @@ class ServiceEncryptionConfigurationArgs:
                  kms_key: pulumi.Input[_builtins.str]):
         """
         Encryption configuration (KMS key)
+
         :param pulumi.Input[_builtins.str] kms_key: The KMS Key
         """
         pulumi.set(__self__, "kms_key", kms_key)
@@ -544,6 +551,7 @@ class ServiceHealthCheckConfigurationArgs:
                  unhealthy_threshold: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Health check configuration
+
         :param pulumi.Input[_builtins.int] healthy_threshold: Health check Healthy Threshold
         :param pulumi.Input[_builtins.int] interval: Health check Interval
         :param pulumi.Input[_builtins.str] path: Health check Path
@@ -667,6 +675,7 @@ class ServiceImageConfigurationArgs:
                  start_command: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Image Configuration
+
         :param pulumi.Input[_builtins.str] port: Port
         :param pulumi.Input[Sequence[pulumi.Input['ServiceKeyValuePairArgs']]] runtime_environment_secrets: The secrets and parameters that get referenced by your service as environment variables
         :param pulumi.Input[Sequence[pulumi.Input['ServiceKeyValuePairArgs']]] runtime_environment_variables: Environment variables that are available to your running App Runner service. An array of key-value pairs.
@@ -755,6 +764,7 @@ class ServiceImageRepositoryArgs:
                  image_configuration: Optional[pulumi.Input['ServiceImageConfigurationArgs']] = None):
         """
         Image Repository
+
         :param pulumi.Input[_builtins.str] image_identifier: Image Identifier
         :param pulumi.Input['ServiceImageRepositoryImageRepositoryType'] image_repository_type: Image Repository Type
         :param pulumi.Input['ServiceImageConfigurationArgs'] image_configuration: Configuration for running the identified image.
@@ -816,6 +826,7 @@ class ServiceIngressConfigurationArgs:
                  is_publicly_accessible: pulumi.Input[_builtins.bool]):
         """
         Network ingress configuration
+
         :param pulumi.Input[_builtins.bool] is_publicly_accessible: It's set to true if the Apprunner service is publicly accessible. It's set to false otherwise.
         """
         pulumi.set(__self__, "is_publicly_accessible", is_publicly_accessible)
@@ -858,6 +869,7 @@ class ServiceInstanceConfigurationArgs:
                  memory: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Instance Configuration
+
         :param pulumi.Input[_builtins.str] cpu: CPU
         :param pulumi.Input[_builtins.str] instance_role_arn: Instance Role Arn
         :param pulumi.Input[_builtins.str] memory: Memory
@@ -980,6 +992,7 @@ class ServiceNetworkConfigurationArgs:
                  ip_address_type: Optional[pulumi.Input['ServiceNetworkConfigurationIpAddressType']] = None):
         """
         Network configuration
+
         :param pulumi.Input['ServiceEgressConfigurationArgs'] egress_configuration: Network configuration settings for outbound message traffic.
         :param pulumi.Input['ServiceIngressConfigurationArgs'] ingress_configuration: Network configuration settings for inbound message traffic.
         :param pulumi.Input['ServiceNetworkConfigurationIpAddressType'] ip_address_type: App Runner service endpoint IP address type
@@ -1048,6 +1061,7 @@ class ServiceObservabilityConfigurationArgs:
                  observability_configuration_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Service observability configuration
+
         :param pulumi.Input[_builtins.bool] observability_enabled: Observability enabled
         :param pulumi.Input[_builtins.str] observability_configuration_arn: The Amazon Resource Name (ARN) of the App Runner ObservabilityConfiguration.
         """
@@ -1100,6 +1114,7 @@ class ServiceSourceCodeVersionArgs:
                  value: pulumi.Input[_builtins.str]):
         """
         Source Code Version
+
         :param pulumi.Input['ServiceSourceCodeVersionType'] type: Source Code Version Type
         :param pulumi.Input[_builtins.str] value: Source Code Version Value
         """
@@ -1165,6 +1180,7 @@ class ServiceSourceConfigurationArgs:
                  image_repository: Optional[pulumi.Input['ServiceImageRepositoryArgs']] = None):
         """
         Source Code configuration
+
         :param pulumi.Input['ServiceAuthenticationConfigurationArgs'] authentication_configuration: Describes the resources that are needed to authenticate access to some source repositories.
         :param pulumi.Input[_builtins.bool] auto_deployments_enabled: Auto Deployment enabled
         :param pulumi.Input['ServiceCodeRepositoryArgs'] code_repository: The description of a source code repository.
@@ -1256,6 +1272,7 @@ class VpcIngressConnectionIngressVpcConfigurationArgs:
                  vpc_id: pulumi.Input[_builtins.str]):
         """
         The configuration of customer’s VPC and related VPC endpoint
+
         :param pulumi.Input[_builtins.str] vpc_endpoint_id: The ID of the VPC endpoint that your App Runner service connects to.
         :param pulumi.Input[_builtins.str] vpc_id: The ID of the VPC that the VPC endpoint is used in.
         """

@@ -35,6 +35,7 @@ class WorkspacesPoolArgs:
                  timeout_settings: Optional[pulumi.Input['WorkspacesPoolTimeoutSettingsArgs']] = None):
         """
         The set of arguments for constructing a WorkspacesPool resource.
+
         :param pulumi.Input[_builtins.str] bundle_id: The identifier of the bundle used by the pool.
         :param pulumi.Input['WorkspacesPoolCapacityArgs'] capacity: Describes the user capacity for the pool.
         :param pulumi.Input[_builtins.str] directory_id: The identifier of the directory used by the pool.
@@ -185,6 +186,7 @@ class WorkspacesPool(pulumi.CustomResource):
         """
         Resource Type definition for AWS::WorkSpaces::WorkspacesPool
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['WorkspacesPoolApplicationSettingsArgs', 'WorkspacesPoolApplicationSettingsArgsDict']] application_settings: The persistent application settings for users of the pool.
@@ -204,6 +206,7 @@ class WorkspacesPool(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::WorkSpaces::WorkspacesPool
+
 
         :param str resource_name: The name of the resource.
         :param WorkspacesPoolArgs args: The arguments to use to populate this resource's properties.

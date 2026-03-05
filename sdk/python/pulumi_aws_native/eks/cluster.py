@@ -45,6 +45,7 @@ class ClusterArgs:
                  zonal_shift_config: Optional[pulumi.Input['ClusterZonalShiftConfigArgs']] = None):
         """
         The set of arguments for constructing a Cluster resource.
+
         :param pulumi.Input['ClusterResourcesVpcConfigArgs'] resources_vpc_config: The VPC configuration that's used by the cluster control plane. Amazon EKS VPC resources have specific requirements to work properly with Kubernetes. For more information, see [Cluster VPC Considerations](https://docs.aws.amazon.com/eks/latest/userguide/network_reqs.html) and [Cluster Security Group Considerations](https://docs.aws.amazon.com/eks/latest/userguide/sec-group-reqs.html) in the *Amazon EKS User Guide* . You must specify at least two subnets. You can specify up to five security groups, but we recommend that you use a dedicated security group for your cluster control plane.
         :param pulumi.Input[_builtins.str] role_arn: The Amazon Resource Name (ARN) of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf.
         :param pulumi.Input['ClusterAccessConfigArgs'] access_config: The access configuration for the cluster.
@@ -364,6 +365,7 @@ class Cluster(pulumi.CustomResource):
         """
         An object representing an Amazon EKS cluster.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ClusterAccessConfigArgs', 'ClusterAccessConfigArgsDict']] access_config: The access configuration for the cluster.
@@ -396,6 +398,7 @@ class Cluster(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An object representing an Amazon EKS cluster.
+
 
         :param str resource_name: The name of the resource.
         :param ClusterArgs args: The arguments to use to populate this resource's properties.

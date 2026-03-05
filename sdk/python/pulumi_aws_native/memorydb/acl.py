@@ -26,6 +26,7 @@ class AclArgs:
                  user_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Acl resource.
+
         :param pulumi.Input[_builtins.str] acl_name: The name of the acl.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this cluster.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] user_names: List of users associated to this acl.
@@ -87,6 +88,7 @@ class Acl(pulumi.CustomResource):
         """
         Resource Type definition for AWS::MemoryDB::ACL
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] acl_name: The name of the acl.
@@ -101,6 +103,7 @@ class Acl(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::MemoryDB::ACL
+
 
         :param str resource_name: The name of the resource.
         :param AclArgs args: The arguments to use to populate this resource's properties.

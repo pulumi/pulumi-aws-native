@@ -28,6 +28,7 @@ class ViewArgs:
                  view_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a View resource.
+
         :param pulumi.Input['ViewSearchFilterArgs'] filters: An array of strings that include search keywords, prefixes, and operators that filter the results that are returned for queries made using this view. When you use this view in a [Search](https://docs.aws.amazon.com/resource-explorer/latest/apireference/API_Search.html) operation, the filter string is combined with the search's `QueryString` parameter using a logical `AND` operator.
                
                For information about the supported syntax, see [Search query reference for Resource Explorer](https://docs.aws.amazon.com/resource-explorer/latest/userguide/using-search-query-syntax.html) in the *AWS Resource Explorer User Guide* .
@@ -129,6 +130,7 @@ class View(pulumi.CustomResource):
         """
         Definition of AWS::ResourceExplorer2::View Resource Type
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ViewSearchFilterArgs', 'ViewSearchFilterArgsDict']] filters: An array of strings that include search keywords, prefixes, and operators that filter the results that are returned for queries made using this view. When you use this view in a [Search](https://docs.aws.amazon.com/resource-explorer/latest/apireference/API_Search.html) operation, the filter string is combined with the search's `QueryString` parameter using a logical `AND` operator.
@@ -149,6 +151,7 @@ class View(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of AWS::ResourceExplorer2::View Resource Type
+
 
         :param str resource_name: The name of the resource.
         :param ViewArgs args: The arguments to use to populate this resource's properties.

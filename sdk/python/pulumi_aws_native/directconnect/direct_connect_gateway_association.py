@@ -25,6 +25,7 @@ class DirectConnectGatewayAssociationArgs:
                  allowed_prefixes_to_direct_connect_gateway: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a DirectConnectGatewayAssociation resource.
+
         :param pulumi.Input[_builtins.str] associated_gateway_id: The ID or ARN of the virtual private gateway or transit gateway.
         :param pulumi.Input[_builtins.str] direct_connect_gateway_id: The ID or ARN of the Direct Connect gateway.
         :param pulumi.Input[_builtins.str] accept_direct_connect_gateway_association_proposal_role_arn: The Amazon Resource Name (ARN) of the role to accept the Direct Connect Gateway association proposal. Needs directconnect:AcceptDirectConnectGatewayAssociationProposal permissions.
@@ -100,6 +101,7 @@ class DirectConnectGatewayAssociation(pulumi.CustomResource):
         """
         Resource Type definition for AWS::DirectConnect::DirectConnectGatewayAssociation
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] accept_direct_connect_gateway_association_proposal_role_arn: The Amazon Resource Name (ARN) of the role to accept the Direct Connect Gateway association proposal. Needs directconnect:AcceptDirectConnectGatewayAssociationProposal permissions.
@@ -115,6 +117,7 @@ class DirectConnectGatewayAssociation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::DirectConnect::DirectConnectGatewayAssociation
+
 
         :param str resource_name: The name of the resource.
         :param DirectConnectGatewayAssociationArgs args: The arguments to use to populate this resource's properties.

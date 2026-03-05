@@ -32,6 +32,7 @@ class IdMappingTableArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a IdMappingTable resource.
+
         :param pulumi.Input['IdMappingTableInputReferenceConfigArgs'] input_reference_config: The input reference configuration for the ID mapping table.
         :param pulumi.Input[_builtins.str] membership_identifier: The unique identifier of the membership resource for the ID mapping table.
         :param pulumi.Input[_builtins.str] description: The description of the ID mapping table.
@@ -139,6 +140,7 @@ class IdMappingTable(pulumi.CustomResource):
         """
         Represents an association between an ID mapping workflow and a collaboration
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: The description of the ID mapping table.
@@ -156,6 +158,7 @@ class IdMappingTable(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Represents an association between an ID mapping workflow and a collaboration
+
 
         :param str resource_name: The name of the resource.
         :param IdMappingTableArgs args: The arguments to use to populate this resource's properties.

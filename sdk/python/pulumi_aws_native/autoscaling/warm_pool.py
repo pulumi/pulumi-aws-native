@@ -28,6 +28,7 @@ class WarmPoolArgs:
                  pool_state: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a WarmPool resource.
+
         :param pulumi.Input[_builtins.str] auto_scaling_group_name: The name of the Auto Scaling group.
         :param pulumi.Input['WarmPoolInstanceReusePolicyArgs'] instance_reuse_policy: Indicates whether instances in the Auto Scaling group can be returned to the warm pool on scale in. The default is to terminate instances in the Auto Scaling group when the group scales in.
         :param pulumi.Input[_builtins.int] max_group_prepared_capacity: Specifies the maximum number of instances that are allowed to be in the warm pool or in any state except `Terminated` for the Auto Scaling group. This is an optional property. Specify it only if you do not want the warm pool size to be determined by the difference between the group's maximum capacity and its desired capacity.
@@ -132,6 +133,7 @@ class WarmPool(pulumi.CustomResource):
         """
         Resource schema for AWS::AutoScaling::WarmPool.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] auto_scaling_group_name: The name of the Auto Scaling group.
@@ -154,6 +156,7 @@ class WarmPool(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource schema for AWS::AutoScaling::WarmPool.
+
 
         :param str resource_name: The name of the resource.
         :param WarmPoolArgs args: The arguments to use to populate this resource's properties.

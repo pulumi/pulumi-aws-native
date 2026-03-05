@@ -36,6 +36,7 @@ class AssessmentArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Assessment resource.
+
         :param pulumi.Input['AssessmentReportsDestinationArgs'] assessment_reports_destination: The destination that evidence reports are stored in for the assessment.
         :param pulumi.Input['AssessmentAwsAccountArgs'] aws_account: The AWS account that's associated with the assessment.
         :param pulumi.Input[Sequence[pulumi.Input['AssessmentDelegationArgs']]] delegations: The list of delegations.
@@ -217,6 +218,7 @@ class Assessment(pulumi.CustomResource):
         """
         An entity that defines the scope of audit evidence collected by AWS Audit Manager.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['AssessmentReportsDestinationArgs', 'AssessmentReportsDestinationArgsDict']] assessment_reports_destination: The destination that evidence reports are stored in for the assessment.
@@ -242,6 +244,7 @@ class Assessment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An entity that defines the scope of audit evidence collected by AWS Audit Manager.
+
 
         :param str resource_name: The name of the resource.
         :param AssessmentArgs args: The arguments to use to populate this resource's properties.

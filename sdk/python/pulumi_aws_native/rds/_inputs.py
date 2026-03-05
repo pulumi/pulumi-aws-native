@@ -62,6 +62,7 @@ class DbClusterDbClusterRoleArgs:
                  feature_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Describes an AWS Identity and Access Management (IAM) role that is associated with a DB cluster.
+
         :param pulumi.Input[_builtins.str] role_arn: The Amazon Resource Name (ARN) of the IAM role that is associated with the DB cluster.
         :param pulumi.Input[_builtins.str] feature_name: The name of the feature associated with the AWS Identity and Access Management (IAM) role. IAM roles that are associated with a DB cluster grant permission for the DB cluster to access other AWS services on your behalf. For the list of supported feature names, see the ``SupportedFeatureNames`` description in [DBEngineVersion](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DBEngineVersion.html) in the *Amazon RDS API Reference*.
         """
@@ -116,6 +117,7 @@ class DbClusterMasterUserSecretArgs:
         """
         The ``MasterUserSecret`` return value specifies the secret managed by RDS in AWS Secrets Manager for the master user password.
          For more information, see [Password management with Secrets Manager](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-secrets-manager.html) in the *Amazon RDS User Guide* and [Password management with Secrets Manager](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/rds-secrets-manager.html) in the *Amazon Aurora User Guide.*
+
         :param pulumi.Input[_builtins.str] kms_key_id: The AWS KMS key identifier that is used to encrypt the secret.
         :param pulumi.Input[_builtins.str] secret_arn: The Amazon Resource Name (ARN) of the secret. This parameter is a return value that you can retrieve using the ``Fn::GetAtt`` intrinsic function. For more information, see [Return values](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#aws-resource-rds-dbcluster-return-values).
         """
@@ -208,6 +210,7 @@ class DbClusterScalingConfigurationArgs:
          For more information, see [Using Amazon Aurora Serverless](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html) in the *Amazon Aurora User Guide*.
          This property is only supported for Aurora Serverless v1. For Aurora Serverless v2, Use the ``ServerlessV2ScalingConfiguration`` property.
          Valid for: Aurora Serverless v1 DB clusters only
+
         :param pulumi.Input[_builtins.bool] auto_pause: Indicates whether to allow or disallow automatic pause for an Aurora DB cluster in ``serverless`` DB engine mode. A DB cluster can be paused only when it's idle (it has no connections).
                  If a DB cluster is paused for more than seven days, the DB cluster might be backed up with a snapshot. In this case, the DB cluster is restored when there is a request to connect to it.
         :param pulumi.Input[_builtins.int] max_capacity: The maximum capacity for an Aurora DB cluster in ``serverless`` DB engine mode.
@@ -361,6 +364,7 @@ class DbClusterServerlessV2ScalingConfigurationArgs:
          If you have an Aurora cluster, you must set this attribute before you add a DB instance that uses the ``db.serverless`` DB instance class. For more information, see [Clusters that use Aurora Serverless v2 must have a capacity range specified](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless-v2.requirements.html#aurora-serverless-v2.requirements.capacity-range) in the *Amazon Aurora User Guide*.
          This property is only supported for Aurora Serverless v2. For Aurora Serverless v1, use the ``ScalingConfiguration`` property.
          Valid for: Aurora Serverless v2 DB clusters
+
         :param pulumi.Input[_builtins.float] max_capacity: The maximum number of Aurora capacity units (ACUs) for a DB instance in an Aurora Serverless v2 cluster. You can specify ACU values in half-step increments, such as 40, 40.5, 41, and so on. The largest value that you can use is 128.
                 The maximum capacity must be higher than 0.5 ACUs. For more information, see [Choosing the maximum Aurora Serverless v2 capacity setting for a cluster](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless-v2.setting-capacity.html#aurora-serverless-v2.max_capacity_considerations) in the *Amazon Aurora User Guide*.
                 Aurora automatically sets certain parameters for Aurora Serverless V2 DB instances to values that depend on the maximum ACU value in the capacity range. When you update the maximum capacity value, the ``ParameterApplyStatus`` value for the DB instance changes to ``pending-reboot``. You can update the parameter values by rebooting the DB instance after changing the capacity range.
@@ -457,6 +461,7 @@ class DbInstanceAdditionalStorageVolumeArgs:
                  volume_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Contains details about an additional storage volume for a DB instance. RDS support additional storage volumes for RDS for Oracle and RDS for SQL Server.
+
         :param pulumi.Input[_builtins.str] allocated_storage: The amount of storage allocated for the additional storage volume, in gibibytes (GiB). The minimum is 20 GiB. The maximum is 65,536 GiB (64 TiB).
         :param pulumi.Input[_builtins.int] iops: The number of I/O operations per second (IOPS) provisioned for the additional storage volume.
         :param pulumi.Input[_builtins.int] max_allocated_storage: The upper limit in gibibytes (GiB) to which RDS can automatically scale the storage of the additional storage volume.
@@ -574,6 +579,7 @@ class DbInstanceDbInstanceRoleArgs:
                  role_arn: pulumi.Input[_builtins.str]):
         """
         Information about an AWS Identity and Access Management (IAM) role that is associated with a DB instance.
+
         :param pulumi.Input[_builtins.str] feature_name: The name of the feature associated with the AWS Identity and Access Management (IAM) role. IAM roles that are associated with a DB instance grant permission for the DB instance to access other AWS services on your behalf. For the list of supported feature names, see the ``SupportedFeatureNames`` description in [DBEngineVersion](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DBEngineVersion.html) in the *Amazon RDS API Reference*.
         :param pulumi.Input[_builtins.str] role_arn: The Amazon Resource Name (ARN) of the IAM role that is associated with the DB instance.
         """
@@ -627,6 +633,7 @@ class DbInstanceMasterUserSecretArgs:
         """
         The ``MasterUserSecret`` return value specifies the secret managed by RDS in AWS Secrets Manager for the master user password.
          For more information, see [Password management with Secrets Manager](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-secrets-manager.html) in the *Amazon RDS User Guide* and [Password management with Secrets Manager](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/rds-secrets-manager.html) in the *Amazon Aurora User Guide.*
+
         :param pulumi.Input[_builtins.str] kms_key_id: The AWS KMS key identifier that is used to encrypt the secret.
         :param pulumi.Input[_builtins.str] secret_arn: The Amazon Resource Name (ARN) of the secret. This parameter is a return value that you can retrieve using the ``Fn::GetAtt`` intrinsic function. For more information, see [Return values](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#aws-resource-rds-dbinstance-return-values).
         """
@@ -680,6 +687,7 @@ class DbInstanceProcessorFeatureArgs:
                  value: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The ``ProcessorFeature`` property type specifies the processor features of a DB instance class.
+
         :param pulumi.Input['DbInstanceProcessorFeatureName'] name: The name of the processor feature. Valid names are ``coreCount`` and ``threadsPerCore``.
         :param pulumi.Input[_builtins.str] value: The value of a processor feature.
         """
@@ -971,6 +979,7 @@ class OptionGroupOptionConfigurationArgs:
                  vpc_security_group_memberships: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The ``OptionConfiguration`` property type specifies an individual option, and its settings, within an ``AWS::RDS::OptionGroup`` resource.
+
         :param pulumi.Input[_builtins.str] option_name: The configuration of options to include in a group.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] db_security_group_memberships: A list of DB security groups used for this option.
         :param pulumi.Input[Sequence[pulumi.Input['OptionGroupOptionSettingArgs']]] option_settings: The option settings to include in an option group.
@@ -1083,6 +1092,7 @@ class OptionGroupOptionSettingArgs:
                  value: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The ``OptionSetting`` property type specifies the value for an option within an ``OptionSetting`` property.
+
         :param pulumi.Input[_builtins.str] name: The name of the option that has settings that you can set.
         :param pulumi.Input[_builtins.str] value: The current value of the option setting.
         """

@@ -26,6 +26,7 @@ class StudioSessionMappingArgs:
                  studio_id: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a StudioSessionMapping resource.
+
         :param pulumi.Input[_builtins.str] identity_name: The name of the user or group. For more information, see UserName and DisplayName in the AWS SSO Identity Store API Reference. Either IdentityName or IdentityId must be specified.
         :param pulumi.Input['StudioSessionMappingIdentityType'] identity_type: Specifies whether the identity to map to the Studio is a user or a group.
         :param pulumi.Input[_builtins.str] session_policy_arn: The Amazon Resource Name (ARN) for the session policy that will be applied to the user or group. Session policies refine Studio user permissions without the need to use multiple IAM user roles.
@@ -99,6 +100,7 @@ class StudioSessionMapping(pulumi.CustomResource):
         """
         An example resource schema demonstrating some basic constructs and validation rules.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] identity_name: The name of the user or group. For more information, see UserName and DisplayName in the AWS SSO Identity Store API Reference. Either IdentityName or IdentityId must be specified.
@@ -114,6 +116,7 @@ class StudioSessionMapping(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An example resource schema demonstrating some basic constructs and validation rules.
+
 
         :param str resource_name: The name of the resource.
         :param StudioSessionMappingArgs args: The arguments to use to populate this resource's properties.

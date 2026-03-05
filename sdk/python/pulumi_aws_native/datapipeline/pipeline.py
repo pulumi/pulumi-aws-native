@@ -32,6 +32,7 @@ class PipelineArgs:
                  pipeline_tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Pipeline resource.
+
         :param pulumi.Input[_builtins.bool] activate: Indicates whether to validate and start the pipeline or stop an active pipeline. By default, the value is set to true.
         :param pulumi.Input[_builtins.str] description: A description of the pipeline.
         :param pulumi.Input[_builtins.str] name: The name of the pipeline.
@@ -157,6 +158,7 @@ class Pipeline(pulumi.CustomResource):
         """
         An example resource schema demonstrating some basic constructs and validation rules.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] activate: Indicates whether to validate and start the pipeline or stop an active pipeline. By default, the value is set to true.
@@ -175,6 +177,7 @@ class Pipeline(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An example resource schema demonstrating some basic constructs and validation rules.
+
 
         :param str resource_name: The name of the resource.
         :param PipelineArgs args: The arguments to use to populate this resource's properties.

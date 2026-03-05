@@ -27,6 +27,7 @@ class ArchiveArgs:
                  retention_days: Optional[pulumi.Input[_builtins.int]] = None):
         """
         The set of arguments for constructing a Archive resource.
+
         :param pulumi.Input[_builtins.str] source_arn: The ARN of the event bus that sends events to the archive.
         :param pulumi.Input[_builtins.str] archive_name: The name for the archive to create.
         :param pulumi.Input[_builtins.str] description: A description for the archive.
@@ -155,6 +156,7 @@ class Archive(pulumi.CustomResource):
         """
         Resource Type definition for AWS::Events::Archive
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] archive_name: The name for the archive to create.
@@ -182,6 +184,7 @@ class Archive(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::Events::Archive
+
 
         :param str resource_name: The name of the resource.
         :param ArchiveArgs args: The arguments to use to populate this resource's properties.

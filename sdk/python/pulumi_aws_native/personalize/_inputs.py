@@ -55,6 +55,7 @@ class DatasetImportJobDataSourcePropertiesArgs:
                  data_location: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The Amazon S3 bucket that contains the training data to import.
+
         :param pulumi.Input[_builtins.str] data_location: The path to the Amazon S3 bucket where the data that you want to upload to your dataset is stored.
         """
         if data_location is not None:
@@ -108,6 +109,7 @@ class DatasetImportJobArgs:
                  role_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Initial DatasetImportJob for the created dataset
+
         :param pulumi.Input['DatasetImportJobDataSourcePropertiesArgs'] data_source: The Amazon S3 bucket that contains the training data to import.
         :param pulumi.Input[_builtins.str] dataset_arn: The ARN of the dataset that receives the imported data
         :param pulumi.Input[_builtins.str] dataset_import_job_arn: The ARN of the dataset import job
@@ -206,6 +208,7 @@ class SolutionCategoricalHyperParameterRangeArgs:
                  values: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Provides the name and values of a Categorical hyperparameter.
+
         :param pulumi.Input[_builtins.str] name: The name of the hyperparameter.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: A list of the categories for the hyperparameter.
         """
@@ -259,6 +262,7 @@ class SolutionConfigAutoMlConfigPropertiesArgs:
                  recipe_list: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The AutoMLConfig object containing a list of recipes to search when AutoML is performed.
+
         :param pulumi.Input[_builtins.str] metric_name: The metric to optimize.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] recipe_list: The list of candidate recipes.
         """
@@ -317,6 +321,7 @@ class SolutionConfigHpoConfigPropertiesAlgorithmHyperParameterRangesPropertiesAr
                  integer_hyper_parameter_ranges: Optional[pulumi.Input[Sequence[pulumi.Input['SolutionIntegerHyperParameterRangeArgs']]]] = None):
         """
         The hyperparameters and their allowable ranges
+
         :param pulumi.Input[Sequence[pulumi.Input['SolutionCategoricalHyperParameterRangeArgs']]] categorical_hyper_parameter_ranges: The categorical hyperparameters and their ranges.
         :param pulumi.Input[Sequence[pulumi.Input['SolutionContinuousHyperParameterRangeArgs']]] continuous_hyper_parameter_ranges: The continuous hyperparameters and their ranges.
         :param pulumi.Input[Sequence[pulumi.Input['SolutionIntegerHyperParameterRangeArgs']]] integer_hyper_parameter_ranges: The integer hyperparameters and their ranges.
@@ -390,6 +395,7 @@ class SolutionConfigHpoConfigPropertiesHpoObjectivePropertiesArgs:
                  type: Optional[pulumi.Input['SolutionConfigHpoConfigPropertiesHpoObjectivePropertiesType']] = None):
         """
         The metric to optimize during HPO.
+
         :param pulumi.Input[_builtins.str] metric_name: The name of the metric
         :param pulumi.Input[_builtins.str] metric_regex: A regular expression for finding the metric in the training job logs.
         :param pulumi.Input['SolutionConfigHpoConfigPropertiesHpoObjectivePropertiesType'] type: The type of the metric. Valid values are Maximize and Minimize.
@@ -458,6 +464,7 @@ class SolutionConfigHpoConfigPropertiesHpoResourceConfigPropertiesArgs:
                  max_parallel_training_jobs: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Describes the resource configuration for hyperparameter optimization (HPO).
+
         :param pulumi.Input[_builtins.str] max_number_of_training_jobs: The maximum number of training jobs when you create a solution version. The maximum value for maxNumberOfTrainingJobs is 40.
         :param pulumi.Input[_builtins.str] max_parallel_training_jobs: The maximum number of parallel training jobs when you create a solution version. The maximum value for maxParallelTrainingJobs is 10.
         """
@@ -516,6 +523,7 @@ class SolutionConfigHpoConfigPropertiesArgs:
                  hpo_resource_config: Optional[pulumi.Input['SolutionConfigHpoConfigPropertiesHpoResourceConfigPropertiesArgs']] = None):
         """
         Describes the properties for hyperparameter optimization (HPO)
+
         :param pulumi.Input['SolutionConfigHpoConfigPropertiesAlgorithmHyperParameterRangesPropertiesArgs'] algorithm_hyper_parameter_ranges: The hyperparameters and their allowable ranges
         :param pulumi.Input['SolutionConfigHpoConfigPropertiesHpoObjectivePropertiesArgs'] hpo_objective: The metric to optimize during HPO.
         :param pulumi.Input['SolutionConfigHpoConfigPropertiesHpoResourceConfigPropertiesArgs'] hpo_resource_config: Describes the resource configuration for hyperparameter optimization (HPO).
@@ -599,6 +607,7 @@ class SolutionConfigArgs:
                  hpo_config: Optional[pulumi.Input['SolutionConfigHpoConfigPropertiesArgs']] = None):
         """
         The configuration to use with the solution. When performAutoML is set to true, Amazon Personalize only evaluates the autoMLConfig section of the solution configuration.
+
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] algorithm_hyper_parameters: Lists the hyperparameter names and ranges.
         :param pulumi.Input['SolutionConfigAutoMlConfigPropertiesArgs'] auto_ml_config: The AutoMLConfig object containing a list of recipes to search when AutoML is performed.
         :param pulumi.Input[_builtins.str] event_value_threshold: Only events with a value greater than or equal to this threshold are used for training a model.
@@ -702,6 +711,7 @@ class SolutionContinuousHyperParameterRangeArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Provides the name and range of a continuous hyperparameter.
+
         :param pulumi.Input[_builtins.float] max_value: The maximum allowable value for the hyperparameter.
         :param pulumi.Input[_builtins.float] min_value: The minimum allowable value for the hyperparameter.
         :param pulumi.Input[_builtins.str] name: The name of the hyperparameter.
@@ -775,6 +785,7 @@ class SolutionIntegerHyperParameterRangeArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Provides the name and range of an integer-valued hyperparameter.
+
         :param pulumi.Input[_builtins.int] max_value: The maximum allowable value for the hyperparameter.
         :param pulumi.Input[_builtins.int] min_value: The minimum allowable value for the hyperparameter.
         :param pulumi.Input[_builtins.str] name: The name of the hyperparameter.

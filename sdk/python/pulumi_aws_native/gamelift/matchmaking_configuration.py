@@ -43,6 +43,7 @@ class MatchmakingConfigurationArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a MatchmakingConfiguration resource.
+
         :param pulumi.Input[_builtins.bool] acceptance_required: A flag that indicates whether a match that was created with this configuration must be accepted by the matched players
         :param pulumi.Input[_builtins.int] request_timeout_seconds: The maximum duration, in seconds, that a matchmaking ticket can remain in process before timing out.
         :param pulumi.Input[_builtins.str] rule_set_name: A unique identifier for the matchmaking rule set to use with this configuration.
@@ -325,6 +326,7 @@ class MatchmakingConfiguration(pulumi.CustomResource):
         """
         The AWS::GameLift::MatchmakingConfiguration resource creates an Amazon GameLift (GameLift) matchmaking configuration.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] acceptance_required: A flag that indicates whether a match that was created with this configuration must be accepted by the matched players
@@ -353,6 +355,7 @@ class MatchmakingConfiguration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The AWS::GameLift::MatchmakingConfiguration resource creates an Amazon GameLift (GameLift) matchmaking configuration.
+
 
         :param str resource_name: The name of the resource.
         :param MatchmakingConfigurationArgs args: The arguments to use to populate this resource's properties.

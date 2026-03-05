@@ -60,6 +60,7 @@ class PolicyIeMapArgs:
                  orgunit: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         An FMS includeMap or excludeMap.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] account: The account list for the map.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] orgunit: The organizational unit list for the map.
         """
@@ -108,6 +109,7 @@ class PolicyNetworkAclCommonPolicyArgs:
                  network_acl_entry_set: pulumi.Input['PolicyNetworkAclEntrySetArgs']):
         """
         Network ACL common policy.
+
         :param pulumi.Input['PolicyNetworkAclEntrySetArgs'] network_acl_entry_set: The definition of the first and last rules for the network ACL policy.
         """
         pulumi.set(__self__, "network_acl_entry_set", network_acl_entry_set)
@@ -145,6 +147,7 @@ class PolicyNetworkAclEntryIcmpTypeCodePropertiesArgs:
                  type: pulumi.Input[_builtins.int]):
         """
         ICMP type and code.
+
         :param pulumi.Input[_builtins.int] code: Code.
         :param pulumi.Input[_builtins.int] type: Type.
         """
@@ -196,6 +199,7 @@ class PolicyNetworkAclEntryPortRangePropertiesArgs:
                  to: pulumi.Input[_builtins.int]):
         """
         Port range.
+
         :param pulumi.Input[_builtins.int] from_: From Port.
         :param pulumi.Input[_builtins.int] to: To Port.
         """
@@ -269,6 +273,7 @@ class PolicyNetworkAclEntrySetArgs:
                  last_entries: Optional[pulumi.Input[Sequence[pulumi.Input['PolicyNetworkAclEntryArgs']]]] = None):
         """
         Network ACL entry set.
+
         :param pulumi.Input[_builtins.bool] force_remediate_for_first_entries: Applies only when remediation is enabled for the policy as a whole. Firewall Manager uses this setting when it finds policy violations that involve conflicts between the custom entries and the policy entries.
                
                If forced remediation is disabled, Firewall Manager marks the network ACL as noncompliant and does not try to remediate. For more information about the remediation behavior, see [Remediation for managed network ACLs](https://docs.aws.amazon.com/waf/latest/developerguide/network-acl-policies.html#network-acls-remediation) in the *AWS Firewall Manager Developer Guide* .
@@ -399,6 +404,7 @@ class PolicyNetworkAclEntryArgs:
                  port_range: Optional[pulumi.Input['PolicyNetworkAclEntryPortRangePropertiesArgs']] = None):
         """
         Network ACL entry.
+
         :param pulumi.Input[_builtins.bool] egress: Whether the entry is an egress entry.
         :param pulumi.Input[_builtins.str] protocol: Protocol.
         :param pulumi.Input['PolicyNetworkAclEntryRuleAction'] rule_action: Rule Action.
@@ -519,6 +525,7 @@ class PolicyNetworkFirewallPolicyArgs:
                  firewall_deployment_model: pulumi.Input['PolicyFirewallDeploymentModel']):
         """
         Network firewall policy.
+
         :param pulumi.Input['PolicyFirewallDeploymentModel'] firewall_deployment_model: Defines the deployment model to use for the firewall policy. To use a distributed model, set [FirewallDeploymentModel](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-thirdpartyfirewallpolicy.html) to `DISTRIBUTED` .
         """
         pulumi.set(__self__, "firewall_deployment_model", firewall_deployment_model)
@@ -561,6 +568,7 @@ class PolicyOptionArgs:
                  third_party_firewall_policy: Optional[pulumi.Input['PolicyThirdPartyFirewallPolicyArgs']] = None):
         """
         Firewall policy option.
+
         :param pulumi.Input['PolicyNetworkAclCommonPolicyArgs'] network_acl_common_policy: Defines a Firewall Manager network ACL policy.
         :param pulumi.Input['PolicyNetworkFirewallPolicyArgs'] network_firewall_policy: Defines the deployment model to use for the firewall policy.
         :param pulumi.Input['PolicyThirdPartyFirewallPolicyArgs'] third_party_firewall_policy: Defines the policy options for a third-party firewall policy.
@@ -629,6 +637,7 @@ class PolicyResourceTagArgs:
                  value: Optional[pulumi.Input[_builtins.str]] = None):
         """
         A resource tag.
+
         :param pulumi.Input[_builtins.str] key: The resource tag key.
         :param pulumi.Input[_builtins.str] value: The resource tag value.
         """
@@ -765,6 +774,7 @@ class PolicySecurityServicePolicyDataArgs:
                  policy_option: Optional[pulumi.Input['PolicyOptionArgs']] = None):
         """
         Firewall security service policy data.
+
         :param pulumi.Input['PolicyType'] type: The service that the policy is using to protect the resources. This specifies the type of policy that is created, either an AWS WAF policy, a Shield Advanced policy, or a security group policy. For security group policies, Firewall Manager supports one security group for each common policy and for each content audit policy. This is an adjustable limit that you can increase by contacting SUPlong .
         :param pulumi.Input[_builtins.str] managed_service_data: Details about the service that are specific to the service type, in JSON format.
                
@@ -985,6 +995,7 @@ class PolicyThirdPartyFirewallPolicyArgs:
                  firewall_deployment_model: pulumi.Input['PolicyFirewallDeploymentModel']):
         """
         Third party firewall policy.
+
         :param pulumi.Input['PolicyFirewallDeploymentModel'] firewall_deployment_model: Defines the deployment model to use for the third-party firewall policy.
         """
         pulumi.set(__self__, "firewall_deployment_model", firewall_deployment_model)

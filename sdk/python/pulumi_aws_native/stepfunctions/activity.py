@@ -29,6 +29,7 @@ class ActivityArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Activity resource.
+
         :param pulumi.Input['ActivityEncryptionConfigurationArgs'] encryption_configuration: Encryption configuration for the activity.
                
                Activity configuration is immutable, and resource names must be unique. To set customer managed keys for encryption, you must create a *new Activity* . If you attempt to change the configuration in your CFN template for an existing activity, you will receive an `ActivityAlreadyExists` exception.
@@ -168,6 +169,7 @@ class Activity(pulumi.CustomResource):
 
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ActivityEncryptionConfigurationArgs', 'ActivityEncryptionConfigurationArgsDict']] encryption_configuration: Encryption configuration for the activity.
@@ -242,6 +244,7 @@ class Activity(pulumi.CustomResource):
             ])
 
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ActivityArgs args: The arguments to use to populate this resource's properties.

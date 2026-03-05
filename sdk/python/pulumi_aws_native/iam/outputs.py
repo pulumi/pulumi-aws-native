@@ -56,6 +56,7 @@ class GroupPolicy(dict):
         Contains information about an attached policy.
          An attached policy is a managed policy that has been attached to a user, group, or role.
          For more information about managed policies, see [Managed Policies and Inline Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html) in the *User Guide*.
+
         :param Any policy_document: The policy document.
         :param _builtins.str policy_name: The friendly name (not ARN) identifying the policy.
         """
@@ -112,6 +113,7 @@ class RolePolicy(dict):
         Contains information about an attached policy.
          An attached policy is a managed policy that has been attached to a user, group, or role.
          For more information about managed policies, refer to [Managed Policies and Inline Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html) in the *User Guide*.
+
         :param Any policy_document: The entire contents of the policy that defines permissions. For more information, see [Overview of JSON policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#access_policies-json).
         :param _builtins.str policy_name: The friendly name (not ARN) identifying the policy.
         """
@@ -162,6 +164,7 @@ class SamlProviderSamlPrivateKey(dict):
                  timestamp: _builtins.str):
         """
         The private key metadata for the SAML provider
+
         :param _builtins.str key_id: The unique identifier for the SAML private key.
         :param _builtins.str timestamp: The date and time, in <a href=\\"http://www.iso.org/iso/iso8601\\">ISO 8601 date-time </a> format, when the private key was uploaded.
         """
@@ -212,6 +215,7 @@ class UserLoginProfile(dict):
                  password_reset_required: Optional[_builtins.bool] = None):
         """
         Creates a password for the specified user, giving the user the ability to access AWS services through the console. For more information about managing passwords, see [Managing Passwords](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingLogins.html) in the *User Guide*.
+
         :param _builtins.str password: The user's password.
         :param _builtins.bool password_reset_required: Specifies whether the user is required to set a new password on next sign-in.
         """
@@ -269,6 +273,7 @@ class UserPolicy(dict):
         Contains information about an attached policy.
          An attached policy is a managed policy that has been attached to a user, group, or role.
          For more information about managed policies, refer to [Managed Policies and Inline Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html) in the *User Guide*.
+
         :param Any policy_document: The entire contents of the policy that defines permissions. For more information, see [Overview of JSON policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#access_policies-json).
         :param _builtins.str policy_name: The friendly name (not ARN) identifying the policy.
         """

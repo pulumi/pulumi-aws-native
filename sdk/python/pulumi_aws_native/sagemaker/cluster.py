@@ -37,6 +37,7 @@ class ClusterArgs:
                  vpc_config: Optional[pulumi.Input['ClusterVpcConfigArgs']] = None):
         """
         The set of arguments for constructing a Cluster resource.
+
         :param pulumi.Input[_builtins.str] cluster_name: The name of the HyperPod Cluster.
         :param pulumi.Input[_builtins.str] cluster_role: The cluster role for the autoscaler to assume.
         :param pulumi.Input[Sequence[pulumi.Input['ClusterInstanceGroupArgs']]] instance_groups: The instance groups of the SageMaker HyperPod cluster. To delete an instance group, remove it from the array.
@@ -214,6 +215,7 @@ class Cluster(pulumi.CustomResource):
         """
         Resource Type definition for AWS::SageMaker::Cluster
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] cluster_name: The name of the HyperPod Cluster.
@@ -233,6 +235,7 @@ class Cluster(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::SageMaker::Cluster
+
 
         :param str resource_name: The name of the resource.
         :param ClusterArgs args: The arguments to use to populate this resource's properties.

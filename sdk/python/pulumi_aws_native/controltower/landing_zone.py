@@ -28,6 +28,7 @@ class LandingZoneArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a LandingZone resource.
+
         :param Any manifest: The landing zone manifest JSON text file that specifies the landing zone configurations.
                
                Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ControlTower::LandingZone` for more information about the expected schema for this property.
@@ -107,6 +108,7 @@ class LandingZone(pulumi.CustomResource):
         """
         Definition of AWS::ControlTower::LandingZone Resource Type
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param Any manifest: The landing zone manifest JSON text file that specifies the landing zone configurations.
@@ -124,6 +126,7 @@ class LandingZone(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of AWS::ControlTower::LandingZone Resource Type
+
 
         :param str resource_name: The name of the resource.
         :param LandingZoneArgs args: The arguments to use to populate this resource's properties.

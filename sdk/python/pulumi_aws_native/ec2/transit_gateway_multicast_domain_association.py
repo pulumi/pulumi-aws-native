@@ -24,6 +24,7 @@ class TransitGatewayMulticastDomainAssociationArgs:
                  transit_gateway_multicast_domain_id: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a TransitGatewayMulticastDomainAssociation resource.
+
         :param pulumi.Input[_builtins.str] subnet_id: The IDs of the subnets to associate with the transit gateway multicast domain.
         :param pulumi.Input[_builtins.str] transit_gateway_attachment_id: The ID of the transit gateway attachment.
         :param pulumi.Input[_builtins.str] transit_gateway_multicast_domain_id: The ID of the transit gateway multicast domain.
@@ -82,6 +83,7 @@ class TransitGatewayMulticastDomainAssociation(pulumi.CustomResource):
         """
         The AWS::EC2::TransitGatewayMulticastDomainAssociation type
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] subnet_id: The IDs of the subnets to associate with the transit gateway multicast domain.
@@ -96,6 +98,7 @@ class TransitGatewayMulticastDomainAssociation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The AWS::EC2::TransitGatewayMulticastDomainAssociation type
+
 
         :param str resource_name: The name of the resource.
         :param TransitGatewayMulticastDomainAssociationArgs args: The arguments to use to populate this resource's properties.

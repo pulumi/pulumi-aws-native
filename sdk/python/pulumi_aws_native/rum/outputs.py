@@ -77,6 +77,7 @@ class AppMonitorConfiguration(dict):
                  telemetries: Optional[Sequence['AppMonitorTelemetry']] = None):
         """
         AppMonitor configuration
+
         :param _builtins.bool allow_cookies: If you set this to true, the RUM web client sets two cookies, a session cookie and a user cookie. The cookies allow the RUM web client to collect data relating to the number of users an application has and the behavior of the application across a sequence of events. Cookies are stored in the top-level domain of the current page.
         :param _builtins.bool enable_x_ray: If you set this to true, RUM enables xray tracing for the user sessions that RUM samples. RUM adds an xray trace header to allowed HTTP requests. It also records an xray segment for allowed HTTP requests. You can see traces and segments from these user sessions in the xray console and the CW ServiceLens console.
         :param Sequence[_builtins.str] excluded_pages: A list of URLs in your website or application to exclude from RUM data collection. You can't include both ExcludedPages and IncludedPages in the same operation.
@@ -199,6 +200,7 @@ class AppMonitorCustomEvents(dict):
                  status: Optional['AppMonitorCustomEventsStatus'] = None):
         """
         AppMonitor custom events configuration
+
         :param 'AppMonitorCustomEventsStatus' status: Indicates whether AppMonitor accepts custom events.
         """
         if status is not None:
@@ -239,6 +241,7 @@ class AppMonitorDeobfuscationConfiguration(dict):
                  java_script_source_maps: Optional['outputs.AppMonitorDeobfuscationConfigurationJavaScriptSourceMapsProperties'] = None):
         """
         A structure that contains the configuration for how an app monitor can deobfuscate stack traces.
+
         :param 'AppMonitorDeobfuscationConfigurationJavaScriptSourceMapsProperties' java_script_source_maps: A structure that contains the configuration for how an app monitor can unminify JavaScript error stack traces using source maps.
         """
         if java_script_source_maps is not None:
@@ -280,6 +283,7 @@ class AppMonitorDeobfuscationConfigurationJavaScriptSourceMapsProperties(dict):
                  s3_uri: Optional[_builtins.str] = None):
         """
         A structure that contains the configuration for how an app monitor can unminify JavaScript error stack traces using source maps.
+
         :param 'AppMonitorDeobfuscationConfigurationJavaScriptSourceMapsPropertiesStatus' status: Specifies whether JavaScript error stack traces should be unminified for this app monitor. The default is for JavaScript error stack trace unminification to be DISABLED
         :param _builtins.str s3_uri: The S3Uri of the bucket or folder that stores the source map files. It is required if status is ENABLED.
         """
@@ -341,6 +345,7 @@ class AppMonitorMetricDefinition(dict):
                  value_key: Optional[_builtins.str] = None):
         """
         A single metric definition
+
         :param _builtins.str name: The name for the metric that is defined in this structure. For extended metrics, valid values are the following:
                
                PerformanceNavigationDuration
@@ -642,6 +647,7 @@ class AppMonitorMetricDestination(dict):
                  metric_definitions: Optional[Sequence['outputs.AppMonitorMetricDefinition']] = None):
         """
         An structure which defines the destination and the metrics that you want to send.
+
         :param 'AppMonitorMetricDestinationDestination' destination: Defines the destination to send the metrics to. Valid values are CloudWatch and Evidently. Note: Evidently has been discontinued and is no longer supported - requests with Evidently will be rejected.
         :param _builtins.str destination_arn: Evidently has been discontinued and therefore this is no longer an acceptable field. If Destination is CloudWatch, do not use this parameter. 
                
@@ -725,6 +731,7 @@ class AppMonitorResourcePolicy(dict):
                  policy_revision_id: Optional[_builtins.str] = None):
         """
         A structure that defines resource policy attached to your app monitor.
+
         :param _builtins.str policy_document: The JSON to use as the resource policy. The document can be up to 4 KB in size. 
         :param _builtins.str policy_revision_id: A string value that you can use to conditionally update your policy. You can provide the revision ID of your existing policy to make mutating requests against that policy. 
                

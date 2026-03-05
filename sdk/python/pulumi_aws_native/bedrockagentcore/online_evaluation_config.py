@@ -33,6 +33,7 @@ class OnlineEvaluationConfigArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a OnlineEvaluationConfig resource.
+
         :param pulumi.Input['OnlineEvaluationConfigDataSourceConfigArgs'] data_source_config: The data source configuration that specifies CloudWatch log groups and service names to monitor.
         :param pulumi.Input[_builtins.str] evaluation_execution_role_arn: The Amazon Resource Name (ARN) of the IAM role that grants permissions for evaluation.
         :param pulumi.Input[Sequence[pulumi.Input['OnlineEvaluationConfigEvaluatorReferenceArgs']]] evaluators: The list of evaluators to apply during online evaluation.
@@ -154,6 +155,7 @@ class OnlineEvaluationConfig(pulumi.CustomResource):
         """
         Resource Type definition for AWS::BedrockAgentCore::OnlineEvaluationConfig - Creates an online evaluation configuration for continuous monitoring of agent performance.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['OnlineEvaluationConfigDataSourceConfigArgs', 'OnlineEvaluationConfigDataSourceConfigArgsDict']] data_source_config: The data source configuration that specifies CloudWatch log groups and service names to monitor.
@@ -172,6 +174,7 @@ class OnlineEvaluationConfig(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::BedrockAgentCore::OnlineEvaluationConfig - Creates an online evaluation configuration for continuous monitoring of agent performance.
+
 
         :param str resource_name: The name of the resource.
         :param OnlineEvaluationConfigArgs args: The arguments to use to populate this resource's properties.

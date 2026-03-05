@@ -25,6 +25,7 @@ class PrivateGraphEndpointArgs:
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a PrivateGraphEndpoint resource.
+
         :param pulumi.Input[_builtins.str] graph_identifier: The auto-generated Graph Id assigned by the service.
         :param pulumi.Input[_builtins.str] vpc_id: The VPC where you want the private graph endpoint to be created, ie, the graph will be reachable from within the VPC.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: The security group Ids associated with the VPC where you want the private graph endpoint to be created, ie, the graph will be reachable from within the VPC.
@@ -100,6 +101,7 @@ class PrivateGraphEndpoint(pulumi.CustomResource):
         """
         The AWS::NeptuneGraph::PrivateGraphEndpoint resource creates an Amazon NeptuneGraph PrivateGraphEndpoint.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] graph_identifier: The auto-generated Graph Id assigned by the service.
@@ -115,6 +117,7 @@ class PrivateGraphEndpoint(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The AWS::NeptuneGraph::PrivateGraphEndpoint resource creates an Amazon NeptuneGraph PrivateGraphEndpoint.
+
 
         :param str resource_name: The name of the resource.
         :param PrivateGraphEndpointArgs args: The arguments to use to populate this resource's properties.

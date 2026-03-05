@@ -29,6 +29,7 @@ class RepositoryLinkArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a RepositoryLink resource.
+
         :param pulumi.Input[_builtins.str] connection_arn: The Amazon Resource Name (ARN) of the CodeStarConnection. The ARN is used as the connection reference when the connection is shared between AWS services.
         :param pulumi.Input[_builtins.str] owner_id: the ID of the entity that owns the repository.
         :param pulumi.Input[_builtins.str] repository_name: The repository for which the link is being created.
@@ -119,6 +120,7 @@ class RepositoryLink(pulumi.CustomResource):
         """
         Schema for AWS::CodeStarConnections::RepositoryLink resource which is used to aggregate repository metadata relevant to synchronizing source provider content to AWS Resources.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] connection_arn: The Amazon Resource Name (ARN) of the CodeStarConnection. The ARN is used as the connection reference when the connection is shared between AWS services.
@@ -135,6 +137,7 @@ class RepositoryLink(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Schema for AWS::CodeStarConnections::RepositoryLink resource which is used to aggregate repository metadata relevant to synchronizing source provider content to AWS Resources.
+
 
         :param str resource_name: The name of the resource.
         :param RepositoryLinkArgs args: The arguments to use to populate this resource's properties.

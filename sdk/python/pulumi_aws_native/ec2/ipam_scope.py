@@ -30,6 +30,7 @@ class IpamScopeArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a IpamScope resource.
+
         :param pulumi.Input[_builtins.str] ipam_id: The Id of the IPAM this scope is a part of.
         :param pulumi.Input[_builtins.str] description: The description of the scope.
         :param pulumi.Input['IpamScopeExternalAuthorityConfigurationArgs'] external_authority_configuration: The configuration that links an Amazon VPC IPAM scope to an external authority system. It specifies the type of external system and the external resource identifier that identifies your account or instance in that system.
@@ -110,6 +111,7 @@ class IpamScope(pulumi.CustomResource):
         """
         Resource Schema of AWS::EC2::IPAMScope Type
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: The description of the scope.
@@ -127,6 +129,7 @@ class IpamScope(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Schema of AWS::EC2::IPAMScope Type
+
 
         :param str resource_name: The name of the resource.
         :param IpamScopeArgs args: The arguments to use to populate this resource's properties.

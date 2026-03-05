@@ -30,6 +30,7 @@ class ClusterArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Cluster resource.
+
         :param pulumi.Input[_builtins.bool] deletion_protection_enabled: Whether deletion protection is enabled in this cluster.
         :param pulumi.Input[_builtins.str] kms_encryption_key: The KMS key that encrypts data on the cluster.
         :param pulumi.Input['MultiRegionPropertiesPropertiesArgs'] multi_region_properties: The Multi-region properties associated to this cluster.
@@ -123,6 +124,7 @@ class Cluster(pulumi.CustomResource):
         """
         Resource Type definition for AWS::DSQL::Cluster
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] deletion_protection_enabled: Whether deletion protection is enabled in this cluster.
@@ -139,6 +141,7 @@ class Cluster(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::DSQL::Cluster
+
 
         :param str resource_name: The name of the resource.
         :param ClusterArgs args: The arguments to use to populate this resource's properties.

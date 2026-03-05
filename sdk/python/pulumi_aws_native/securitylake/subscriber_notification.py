@@ -26,6 +26,7 @@ class SubscriberNotificationArgs:
                  subscriber_arn: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a SubscriberNotification resource.
+
         :param pulumi.Input['SubscriberNotificationNotificationConfigurationArgs'] notification_configuration: Specify the configurations you want to use for subscriber notification. The subscriber is notified when new data is written to the data lake for sources that the subscriber consumes in Security Lake .
         :param pulumi.Input[_builtins.str] subscriber_arn: The ARN for the subscriber
         """
@@ -69,6 +70,7 @@ class SubscriberNotification(pulumi.CustomResource):
         """
         Resource Type definition for AWS::SecurityLake::SubscriberNotification
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['SubscriberNotificationNotificationConfigurationArgs', 'SubscriberNotificationNotificationConfigurationArgsDict']] notification_configuration: Specify the configurations you want to use for subscriber notification. The subscriber is notified when new data is written to the data lake for sources that the subscriber consumes in Security Lake .
@@ -82,6 +84,7 @@ class SubscriberNotification(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::SecurityLake::SubscriberNotification
+
 
         :param str resource_name: The name of the resource.
         :param SubscriberNotificationArgs args: The arguments to use to populate this resource's properties.

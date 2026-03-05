@@ -37,6 +37,7 @@ class OdbNetworkArgs:
                  zero_etl_access: Optional[pulumi.Input['OdbNetworkZeroEtlAccess']] = None):
         """
         The set of arguments for constructing a OdbNetwork resource.
+
         :param pulumi.Input[_builtins.str] availability_zone: The AWS Availability Zone (AZ) where the ODB network is located.
         :param pulumi.Input[_builtins.str] availability_zone_id: The AZ ID of the AZ where the ODB network is located.
         :param pulumi.Input[_builtins.str] backup_subnet_cidr: The CIDR range of the backup subnet in the ODB network.
@@ -242,6 +243,7 @@ class OdbNetwork(pulumi.CustomResource):
         """
         The AWS::ODB::OdbNetwork resource creates an ODB Network
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] availability_zone: The AWS Availability Zone (AZ) where the ODB network is located.
@@ -265,6 +267,7 @@ class OdbNetwork(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The AWS::ODB::OdbNetwork resource creates an ODB Network
+
 
         :param str resource_name: The name of the resource.
         :param OdbNetworkArgs args: The arguments to use to populate this resource's properties.

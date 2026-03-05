@@ -28,6 +28,7 @@ class MultiRegionEndpointArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a MultiRegionEndpoint resource.
+
         :param pulumi.Input['MultiRegionEndpointDetailsArgs'] details: Contains details of a multi-region endpoint (global-endpoint) being created.
         :param pulumi.Input[_builtins.str] endpoint_name: The name of the multi-region endpoint (global-endpoint).
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of objects that define the tags (keys and values) to associate with the multi-region endpoint (global-endpoint).
@@ -88,6 +89,7 @@ class MultiRegionEndpoint(pulumi.CustomResource):
         """
         Resource Type definition for AWS::SES::MultiRegionEndpoint
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['MultiRegionEndpointDetailsArgs', 'MultiRegionEndpointDetailsArgsDict']] details: Contains details of a multi-region endpoint (global-endpoint) being created.
@@ -102,6 +104,7 @@ class MultiRegionEndpoint(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::SES::MultiRegionEndpoint
+
 
         :param str resource_name: The name of the resource.
         :param MultiRegionEndpointArgs args: The arguments to use to populate this resource's properties.

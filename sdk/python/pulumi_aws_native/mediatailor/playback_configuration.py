@@ -45,6 +45,7 @@ class PlaybackConfigurationArgs:
                  transcode_profile_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a PlaybackConfiguration resource.
+
         :param pulumi.Input[_builtins.str] ad_decision_server_url: The URL for the ad decision server (ADS). This includes the specification of static parameters and placeholders for dynamic parameters. AWS Elemental MediaTailor substitutes player-specific and session-specific parameters as needed when calling the ADS. Alternately, for testing you can provide a static VAST URL. The maximum length is 25,000 characters.
         :param pulumi.Input[_builtins.str] video_content_source_url: The URL prefix for the parent manifest for the stream, minus the asset ID. The maximum length is 512 characters.
         :param pulumi.Input['PlaybackConfigurationAdConditioningConfigurationArgs'] ad_conditioning_configuration: The setting that indicates what conditioning MediaTailor will perform on ads that the ad decision server (ADS) returns, and what priority MediaTailor uses when inserting ads.
@@ -356,6 +357,7 @@ class PlaybackConfiguration(pulumi.CustomResource):
         """
         Resource schema for AWS::MediaTailor::PlaybackConfiguration
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['PlaybackConfigurationAdConditioningConfigurationArgs', 'PlaybackConfigurationAdConditioningConfigurationArgsDict']] ad_conditioning_configuration: The setting that indicates what conditioning MediaTailor will perform on ads that the ad decision server (ADS) returns, and what priority MediaTailor uses when inserting ads.
@@ -385,6 +387,7 @@ class PlaybackConfiguration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource schema for AWS::MediaTailor::PlaybackConfiguration
+
 
         :param str resource_name: The name of the resource.
         :param PlaybackConfigurationArgs args: The arguments to use to populate this resource's properties.

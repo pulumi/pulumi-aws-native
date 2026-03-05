@@ -30,6 +30,7 @@ class DataCellsFilterArgs:
                  row_filter: Optional[pulumi.Input['DataCellsFilterRowFilterArgs']] = None):
         """
         The set of arguments for constructing a DataCellsFilter resource.
+
         :param pulumi.Input[_builtins.str] database_name: The name of the Database that the Table resides in.
         :param pulumi.Input[_builtins.str] table_catalog_id: The Catalog Id of the Table on which to create a Data Cells Filter.
         :param pulumi.Input[_builtins.str] table_name: The name of the Table to create a Data Cells Filter for.
@@ -152,6 +153,7 @@ class DataCellsFilter(pulumi.CustomResource):
         """
         A resource schema representing a Lake Formation Data Cells Filter.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] column_names: A list of columns to be included in this Data Cells Filter.
@@ -170,6 +172,7 @@ class DataCellsFilter(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A resource schema representing a Lake Formation Data Cells Filter.
+
 
         :param str resource_name: The name of the resource.
         :param DataCellsFilterArgs args: The arguments to use to populate this resource's properties.

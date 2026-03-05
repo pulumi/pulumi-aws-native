@@ -28,6 +28,7 @@ class ModelPackageGroupArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a ModelPackageGroup resource.
+
         :param pulumi.Input[_builtins.str] model_package_group_description: The description for the model group.
         :param pulumi.Input[_builtins.str] model_package_group_name: The name of the model group.
         :param Any model_package_group_policy: A resouce policy to control access to a model group. For information about resoure policies, see [Identity-based policies and resource-based policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_identity-vs-resource.html) in the *AWS Identity and Access Management User Guide.* .
@@ -109,6 +110,7 @@ class ModelPackageGroup(pulumi.CustomResource):
         """
         Resource Type definition for AWS::SageMaker::ModelPackageGroup
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] model_package_group_description: The description for the model group.
@@ -126,6 +128,7 @@ class ModelPackageGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::SageMaker::ModelPackageGroup
+
 
         :param str resource_name: The name of the resource.
         :param ModelPackageGroupArgs args: The arguments to use to populate this resource's properties.

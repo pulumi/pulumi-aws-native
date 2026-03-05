@@ -34,6 +34,7 @@ class TransitVirtualInterfaceArgs:
                  virtual_interface_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a TransitVirtualInterface resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['TransitVirtualInterfaceBgpPeerArgs']]] bgp_peers: The BGP peers configured on this virtual interface..
         :param pulumi.Input[_builtins.str] connection_id: The ID or ARN of the connection or LAG.
         :param pulumi.Input[_builtins.str] direct_connect_gateway_id: The ID or ARN of the Direct Connect gateway.
@@ -187,6 +188,7 @@ class TransitVirtualInterface(pulumi.CustomResource):
         """
         Resource Type definition for AWS::DirectConnect::TransitVirtualInterface
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] allocate_transit_virtual_interface_role_arn: The Amazon Resource Name (ARN) of the role to allocate the TransitVifAllocation. Needs directconnect:AllocateTransitVirtualInterface permissions and tag permissions if applicable.
@@ -207,6 +209,7 @@ class TransitVirtualInterface(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::DirectConnect::TransitVirtualInterface
+
 
         :param str resource_name: The name of the resource.
         :param TransitVirtualInterfaceArgs args: The arguments to use to populate this resource's properties.

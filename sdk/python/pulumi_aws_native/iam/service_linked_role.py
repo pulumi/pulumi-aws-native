@@ -24,6 +24,7 @@ class ServiceLinkedRoleArgs:
                  description: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ServiceLinkedRole resource.
+
         :param pulumi.Input[_builtins.str] aws_service_name: The service principal for the AWS service to which this role is attached.
         :param pulumi.Input[_builtins.str] custom_suffix: A string that you provide, which is combined with the service-provided prefix to form the complete role name.
         :param pulumi.Input[_builtins.str] description: The description of the role.
@@ -113,6 +114,7 @@ class ServiceLinkedRole(pulumi.CustomResource):
 
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] aws_service_name: The service principal for the AWS service to which this role is attached.
@@ -155,6 +157,7 @@ class ServiceLinkedRole(pulumi.CustomResource):
         pulumi.export("slrId", basic_slr.id)
 
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ServiceLinkedRoleArgs args: The arguments to use to populate this resource's properties.

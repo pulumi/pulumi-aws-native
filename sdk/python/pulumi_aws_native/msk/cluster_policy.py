@@ -23,6 +23,7 @@ class ClusterPolicyArgs:
                  policy: Any):
         """
         The set of arguments for constructing a ClusterPolicy resource.
+
         :param pulumi.Input[_builtins.str] cluster_arn: The arn of the cluster for the resource policy.
         :param Any policy: A policy document containing permissions to add to the specified cluster.
                
@@ -70,6 +71,7 @@ class ClusterPolicy(pulumi.CustomResource):
         """
         Resource Type definition for AWS::MSK::ClusterPolicy
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] cluster_arn: The arn of the cluster for the resource policy.
@@ -85,6 +87,7 @@ class ClusterPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::MSK::ClusterPolicy
+
 
         :param str resource_name: The name of the resource.
         :param ClusterPolicyArgs args: The arguments to use to populate this resource's properties.

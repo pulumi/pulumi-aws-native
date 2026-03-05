@@ -30,6 +30,7 @@ class ConfigurationArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Configuration resource.
+
         :param pulumi.Input[_builtins.str] engine_type: The type of broker engine. Note: Currently, Amazon MQ only supports ACTIVEMQ for creating and editing broker configurations.
         :param pulumi.Input[_builtins.str] authentication_strategy: The authentication strategy associated with the configuration. The default is SIMPLE.
         :param pulumi.Input[_builtins.str] data: The base64-encoded XML configuration.
@@ -186,6 +187,7 @@ class Configuration(pulumi.CustomResource):
 
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] authentication_strategy: The authentication strategy associated with the configuration. The default is SIMPLE.
@@ -236,6 +238,7 @@ class Configuration(pulumi.CustomResource):
             name="my-configuration-1")
 
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ConfigurationArgs args: The arguments to use to populate this resource's properties.

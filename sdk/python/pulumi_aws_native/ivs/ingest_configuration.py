@@ -30,6 +30,7 @@ class IngestConfigurationArgs:
                  user_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a IngestConfiguration resource.
+
         :param pulumi.Input['IngestConfigurationIngestProtocol'] ingest_protocol: Ingest Protocol.
         :param pulumi.Input[_builtins.bool] insecure_ingest: Whether ingest configuration allows insecure ingest.
         :param pulumi.Input[_builtins.str] name: IngestConfiguration
@@ -139,6 +140,7 @@ class IngestConfiguration(pulumi.CustomResource):
         """
         Resource Type definition for AWS::IVS::IngestConfiguration
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input['IngestConfigurationIngestProtocol'] ingest_protocol: Ingest Protocol.
@@ -156,6 +158,7 @@ class IngestConfiguration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::IVS::IngestConfiguration
+
 
         :param str resource_name: The name of the resource.
         :param IngestConfigurationArgs args: The arguments to use to populate this resource's properties.

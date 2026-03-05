@@ -53,6 +53,7 @@ class AssessmentAwsAccount(dict):
                  name: Optional[_builtins.str] = None):
         """
         The AWS account associated with the assessment.
+
         :param _builtins.str email_address: The email address that's associated with the AWS account .
         :param _builtins.str id: The identifier for the AWS account .
         :param _builtins.str name: The name of the AWS account .
@@ -115,6 +116,7 @@ class AssessmentAwsService(dict):
                  service_name: Optional[_builtins.str] = None):
         """
         An AWS service such as Amazon S3, AWS CloudTrail, and so on.
+
         :param _builtins.str service_name: The name of the AWS service .
         """
         if service_name is not None:
@@ -179,6 +181,7 @@ class AssessmentDelegation(dict):
                  status: Optional['AssessmentDelegationStatus'] = None):
         """
         The assignment of a control set to a delegate for review.
+
         :param _builtins.str assessment_id: The identifier for the assessment that's associated with the delegation.
         :param _builtins.str assessment_name: The name of the assessment that's associated with the delegation.
         :param _builtins.str comment: The comment that's related to the delegation.
@@ -354,6 +357,7 @@ class AssessmentReportsDestination(dict):
                  destination_type: Optional['AssessmentReportDestinationType'] = None):
         """
         The destination in which evidence reports are stored for the specified assessment.
+
         :param _builtins.str destination: The destination bucket where Audit Manager stores assessment reports.
         :param 'AssessmentReportDestinationType' destination_type: The destination type, such as Amazon S3.
         """
@@ -408,6 +412,7 @@ class AssessmentRole(dict):
                  role_type: Optional['AssessmentRoleType'] = None):
         """
         The wrapper that contains AWS Audit Manager role information, such as the role type and IAM ARN.
+
         :param _builtins.str role_arn: The Amazon Resource Name (ARN) of the IAM role.
         :param 'AssessmentRoleType' role_type: The type of customer persona.
                
@@ -474,6 +479,7 @@ class AssessmentScope(dict):
                  aws_services: Optional[Sequence['outputs.AssessmentAwsService']] = None):
         """
         The wrapper that contains the AWS accounts and AWS services in scope for the assessment.
+
         :param Sequence['AssessmentAwsAccount'] aws_accounts: The AWS accounts included in scope.
         :param Sequence['AssessmentAwsService'] aws_services: The AWS services included in scope.
         """

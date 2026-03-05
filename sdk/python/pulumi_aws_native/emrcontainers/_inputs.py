@@ -439,6 +439,7 @@ class SecurityConfigurationContainerProviderArgs:
                  info: Optional[pulumi.Input['SecurityConfigurationContainerInfoArgs']] = None):
         """
         Container provider information.
+
         :param pulumi.Input[_builtins.str] id: The container provider ID.
         :param pulumi.Input['SecurityConfigurationContainerProviderType'] type: The container provider type.
         """
@@ -548,6 +549,7 @@ class SecurityConfigurationEksInfoArgs:
                  namespace: Optional[pulumi.Input[_builtins.str]] = None):
         """
         EKS information.
+
         :param pulumi.Input[_builtins.str] namespace: The EKS namespace.
         """
         if namespace is not None:
@@ -620,6 +622,7 @@ class SecurityConfigurationIamConfigurationArgs:
                  system_role: Optional[pulumi.Input[_builtins.str]] = None):
         """
         IAM configuration.
+
         :param pulumi.Input[_builtins.str] system_role: The system role ARN.
         """
         if system_role is not None:
@@ -663,6 +666,7 @@ class SecurityConfigurationIdentityCenterConfigurationArgs:
                  identity_center_instance_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Identity Center configuration.
+
         :param pulumi.Input[_builtins.bool] enable_identity_center: Whether to enable Identity Center integration.
         :param pulumi.Input[_builtins.bool] identity_center_application_assignment_required: Whether Identity Center application assignment is required.
         :param pulumi.Input[_builtins.str] identity_center_instance_arn: The ARN of the Identity Center instance.
@@ -764,6 +768,7 @@ class SecurityConfigurationLakeFormationConfigurationArgs:
                  secure_namespace_info: Optional[pulumi.Input['SecurityConfigurationSecureNamespaceInfoArgs']] = None):
         """
         Lake Formation configuration.
+
         :param pulumi.Input[_builtins.str] authorized_session_tag_value: The session tag to authorize Lake Formation access.
         :param pulumi.Input[_builtins.bool] query_access_control_enabled: Whether query access control is enabled.
         :param pulumi.Input[_builtins.str] query_engine_role_arn: The ARN of the query engine role.
@@ -843,6 +848,7 @@ class SecurityConfigurationLocalDiskEncryptionConfigurationArgs:
                  encryption_key_provider_type: Optional[pulumi.Input['SecurityConfigurationLocalDiskEncryptionConfigurationEncryptionKeyProviderType']] = None):
         """
         Local disk encryption configuration.
+
         :param pulumi.Input[_builtins.str] aws_kms_key_id: The AWS KMS key ID.
         :param pulumi.Input['SecurityConfigurationLocalDiskEncryptionConfigurationEncryptionKeyProviderType'] encryption_key_provider_type: The encryption key provider type.
         """
@@ -896,6 +902,7 @@ class SecurityConfigurationS3EncryptionConfigurationArgs:
                  kms_key_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         S3 encryption configuration.
+
         :param pulumi.Input['SecurityConfigurationS3EncryptionConfigurationEncryptionOption'] encryption_option: The S3 encryption option.
         :param pulumi.Input[_builtins.str] kms_key_id: The KMS key ID for encryption.
         """
@@ -949,6 +956,7 @@ class SecurityConfigurationSecureNamespaceInfoArgs:
                  namespace: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Secure namespace information for Lake Formation.
+
         :param pulumi.Input[_builtins.str] cluster_id: The ID of the cluster.
         :param pulumi.Input[_builtins.str] namespace: The namespace.
         """
@@ -1007,6 +1015,7 @@ class SecurityConfigurationTlsCertificateConfigurationArgs:
                  public_key_secret_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         TLS certificate configuration for in-transit encryption.
+
         :param pulumi.Input['SecurityConfigurationTlsCertificateConfigurationCertificateProviderType'] certificate_provider_type: The certificate provider type.
         :param pulumi.Input[_builtins.str] private_key_secret_arn: The ARN of the secret containing the private key.
         :param pulumi.Input[_builtins.str] public_key_secret_arn: The ARN of the secret containing the public key.

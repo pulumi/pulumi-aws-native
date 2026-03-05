@@ -25,6 +25,7 @@ class ApiMappingArgs:
                  api_mapping_key: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ApiMapping resource.
+
         :param pulumi.Input[_builtins.str] api_id: The identifier of the API.
         :param pulumi.Input[_builtins.str] domain_name: The domain name.
         :param pulumi.Input[_builtins.str] stage: The API stage.
@@ -99,6 +100,7 @@ class ApiMapping(pulumi.CustomResource):
         """
         The ``AWS::ApiGatewayV2::ApiMapping`` resource contains an API mapping. An API mapping relates a path of your custom domain name to a stage of your API. A custom domain name can have multiple API mappings, but the paths can't overlap. A custom domain can map only to APIs of the same protocol type. For more information, see [CreateApiMapping](https://docs.aws.amazon.com/apigatewayv2/latest/api-reference/domainnames-domainname-apimappings.html#CreateApiMapping) in the *Amazon API Gateway V2 API Reference*.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] api_id: The identifier of the API.
@@ -114,6 +116,7 @@ class ApiMapping(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The ``AWS::ApiGatewayV2::ApiMapping`` resource contains an API mapping. An API mapping relates a path of your custom domain name to a stage of your API. A custom domain name can have multiple API mappings, but the paths can't overlap. A custom domain can map only to APIs of the same protocol type. For more information, see [CreateApiMapping](https://docs.aws.amazon.com/apigatewayv2/latest/api-reference/domainnames-domainname-apimappings.html#CreateApiMapping) in the *Amazon API Gateway V2 API Reference*.
+
 
         :param str resource_name: The name of the resource.
         :param ApiMappingArgs args: The arguments to use to populate this resource's properties.

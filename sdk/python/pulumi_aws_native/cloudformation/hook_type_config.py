@@ -26,6 +26,7 @@ class HookTypeConfigArgs:
                  type_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a HookTypeConfig resource.
+
         :param pulumi.Input[_builtins.str] configuration: The configuration data for the extension, in this account and region.
         :param pulumi.Input['HookTypeConfigConfigurationAlias'] configuration_alias: An alias by which to refer to this extension configuration data.
         :param pulumi.Input[_builtins.str] type_arn: The Amazon Resource Name (ARN) of the type without version number.
@@ -153,6 +154,7 @@ class HookTypeConfig(pulumi.CustomResource):
 
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] configuration: The configuration data for the extension, in this account and region.
@@ -216,6 +218,7 @@ class HookTypeConfig(pulumi.CustomResource):
             configuration="{\\"CloudFormationConfiguration\\":{\\"HookConfiguration\\":{\\"TargetStacks\\":\\"ALL\\",\\"FailureMode\\":\\"WARN\\",\\"Properties\\":{\\"limitSize\\": \\"1\\",\\"encryptionAlgorithm\\": \\"aws:kms\\"}}}}")
 
         ```
+
 
         :param str resource_name: The name of the resource.
         :param HookTypeConfigArgs args: The arguments to use to populate this resource's properties.

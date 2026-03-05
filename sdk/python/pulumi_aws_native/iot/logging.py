@@ -28,6 +28,7 @@ class LoggingArgs:
                  event_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['LoggingEventConfigurationArgs']]]] = None):
         """
         The set of arguments for constructing a Logging resource.
+
         :param pulumi.Input[_builtins.str] account_id: Your 12-digit account ID (used as the primary identifier for the CloudFormation resource).
         :param pulumi.Input['LoggingDefaultLogLevel'] default_log_level: The log level to use. Valid values are: ERROR, WARN, INFO, DEBUG, or DISABLED.
         :param pulumi.Input[_builtins.str] role_arn: The ARN of the role that allows IoT to write to Cloudwatch logs.
@@ -102,6 +103,7 @@ class Logging(pulumi.CustomResource):
         """
         Logging Options enable you to configure your IoT V2 logging role and default logging level so that you can monitor progress events logs as it passes from your devices through Iot core service.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_id: Your 12-digit account ID (used as the primary identifier for the CloudFormation resource).
@@ -117,6 +119,7 @@ class Logging(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Logging Options enable you to configure your IoT V2 logging role and default logging level so that you can monitor progress events logs as it passes from your devices through Iot core service.
+
 
         :param str resource_name: The name of the resource.
         :param LoggingArgs args: The arguments to use to populate this resource's properties.

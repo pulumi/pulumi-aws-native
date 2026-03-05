@@ -44,6 +44,7 @@ class AgentArgs:
                  test_alias_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Agent resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['AgentActionGroupArgs']]] action_groups: List of ActionGroups
         :param pulumi.Input['AgentCollaboration'] agent_collaboration: The agent's collaboration settings.
         :param pulumi.Input[Sequence[pulumi.Input['AgentCollaboratorArgs']]] agent_collaborators: List of Agent Collaborators
@@ -389,6 +390,7 @@ class Agent(pulumi.CustomResource):
         """
         Definition of AWS::Bedrock::Agent Resource Type
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['AgentActionGroupArgs', 'AgentActionGroupArgsDict']]]] action_groups: List of ActionGroups
@@ -426,6 +428,7 @@ class Agent(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of AWS::Bedrock::Agent Resource Type
+
 
         :param str resource_name: The name of the resource.
         :param AgentArgs args: The arguments to use to populate this resource's properties.

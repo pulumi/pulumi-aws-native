@@ -216,6 +216,7 @@ class MigrationProjectDataProviderDescriptor(dict):
                  secrets_manager_secret_id: Optional[_builtins.str] = None):
         """
         It is an object that describes Source and Target DataProviders and credentials for connecting to databases that are used in MigrationProject
+
         :param _builtins.str data_provider_arn: The Amazon Resource Name (ARN) of the data provider.
         :param _builtins.str data_provider_name: The user-friendly name of the data provider.
         :param _builtins.str secrets_manager_access_role_arn: The ARN of the role used to access AWS Secrets Manager.
@@ -320,6 +321,7 @@ class ReplicationConfigComputeConfig(dict):
                  vpc_security_group_ids: Optional[Sequence[_builtins.str]] = None):
         """
         Configuration parameters for provisioning a AWS DMS Serverless replication
+
         :param _builtins.int max_capacity_units: Specifies the maximum value of the AWS DMS capacity units (DCUs) for which a given AWS DMS Serverless replication can be provisioned. A single DCU is 2GB of RAM, with 1 DCU as the minimum value allowed. The list of valid DCU values includes 1, 2, 4, 8, 16, 32, 64, 128, 192, 256, and 384. So, the maximum value that you can specify for AWS DMS Serverless is 384. The `MaxCapacityUnits` parameter is the only DCU parameter you are required to specify.
         :param _builtins.str availability_zone: The Availability Zone where the AWS DMS Serverless replication using this configuration will run. The default value is a random, system-chosen Availability Zone in the configuration's AWS Region , for example, `"us-west-2"` . You can't set this parameter if the `MultiAZ` parameter is set to `true` .
         :param _builtins.str dns_name_servers: A list of custom DNS name servers supported for the AWS DMS Serverless replication to access your source or target database. This list overrides the default name servers supported by the AWS DMS Serverless replication. You can specify a comma-separated list of internet addresses for up to four DNS name servers. For example: `"1.1.1.1,2.2.2.2,3.3.3.3,4.4.4.4"`
@@ -539,6 +541,7 @@ class SettingsProperties(dict):
                  sybase_ase_settings: Optional['outputs.SettingsPropertiesSybaseAseSettingsProperties'] = None):
         """
         The property identifies the exact type of settings for the data provider.
+
         :param 'SettingsPropertiesDocDbSettingsProperties' doc_db_settings: DocDbSettings property identifier.
         :param 'SettingsPropertiesIbmDb2LuwSettingsProperties' ibm_db2_luw_settings: IbmDb2LuwSettings property identifier.
         :param 'SettingsPropertiesIbmDb2zOsSettingsProperties' ibm_db2z_os_settings: IbmDb2zOsSettings property identifier.

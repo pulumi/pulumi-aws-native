@@ -27,6 +27,7 @@ class SenderIdArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a SenderId resource.
+
         :param pulumi.Input[_builtins.str] iso_country_code: The two-character code, in ISO 3166-1 alpha-2 format, for the country or region.
         :param pulumi.Input[_builtins.str] sender_id: The sender ID string to request.
         :param pulumi.Input[_builtins.bool] deletion_protection_enabled: When set to true the sender ID can't be deleted. By default this is set to false.
@@ -102,6 +103,7 @@ class SenderId(pulumi.CustomResource):
         """
         Resource Type definition for AWS::SMSVOICE::SenderId
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] deletion_protection_enabled: When set to true the sender ID can't be deleted. By default this is set to false.
@@ -117,6 +119,7 @@ class SenderId(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::SMSVOICE::SenderId
+
 
         :param str resource_name: The name of the resource.
         :param SenderIdArgs args: The arguments to use to populate this resource's properties.

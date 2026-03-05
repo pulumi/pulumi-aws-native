@@ -26,6 +26,7 @@ class GroupArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Group resource.
+
         :param pulumi.Input[_builtins.str] name: Name of the group.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] resource_arns: The ARNs of the canaries that you want to associate with this group.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The list of key-value pairs that are associated with the group.
@@ -87,6 +88,7 @@ class Group(pulumi.CustomResource):
         """
         Resource Type definition for AWS::Synthetics::Group
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: Name of the group.
@@ -101,6 +103,7 @@ class Group(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::Synthetics::Group
+
 
         :param str resource_name: The name of the resource.
         :param GroupArgs args: The arguments to use to populate this resource's properties.

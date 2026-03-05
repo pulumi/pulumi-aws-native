@@ -31,6 +31,7 @@ class InstanceStorageConfigArgs:
                  s3_config: Optional[pulumi.Input['InstanceStorageConfigS3ConfigArgs']] = None):
         """
         The set of arguments for constructing a InstanceStorageConfig resource.
+
         :param pulumi.Input[_builtins.str] instance_arn: Connect Instance ID with which the storage config will be associated
         :param pulumi.Input['InstanceStorageConfigInstanceStorageResourceType'] resource_type: A valid resource type. Following are the valid resource types: `CHAT_TRANSCRIPTS` | `CALL_RECORDINGS` | `SCHEDULED_REPORTS` | `MEDIA_STREAMS` | `CONTACT_TRACE_RECORDS` | `AGENT_EVENTS`
         :param pulumi.Input['InstanceStorageConfigStorageType'] storage_type: A valid storage type.
@@ -153,6 +154,7 @@ class InstanceStorageConfig(pulumi.CustomResource):
         """
         Resource Type definition for AWS::Connect::InstanceStorageConfig
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] instance_arn: Connect Instance ID with which the storage config will be associated
@@ -171,6 +173,7 @@ class InstanceStorageConfig(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::Connect::InstanceStorageConfig
+
 
         :param str resource_name: The name of the resource.
         :param InstanceStorageConfigArgs args: The arguments to use to populate this resource's properties.

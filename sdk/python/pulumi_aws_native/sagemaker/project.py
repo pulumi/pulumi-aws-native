@@ -32,6 +32,7 @@ class ProjectArgs:
                  template_provider_details: Optional[pulumi.Input[Sequence[pulumi.Input['ProjectTemplateProviderDetailArgs']]]] = None):
         """
         The set of arguments for constructing a Project resource.
+
         :param pulumi.Input[_builtins.str] project_description: The description of the project.
         :param pulumi.Input[_builtins.str] project_name: The name of the project.
         :param pulumi.Input['ServiceCatalogProvisionedProductDetailsPropertiesArgs'] service_catalog_provisioned_product_details: Provisioned ServiceCatalog  Details
@@ -173,6 +174,7 @@ class Project(pulumi.CustomResource):
 
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] project_description: The description of the project.
@@ -222,6 +224,7 @@ class Project(pulumi.CustomResource):
             })
 
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ProjectArgs args: The arguments to use to populate this resource's properties.

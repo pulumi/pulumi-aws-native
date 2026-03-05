@@ -46,6 +46,7 @@ class TableArgs:
                  warm_throughput: Optional[pulumi.Input['TableWarmThroughputArgs']] = None):
         """
         The set of arguments for constructing a Table resource.
+
         :param pulumi.Input[Union[Sequence[pulumi.Input['TableKeySchemaArgs']], Any]] key_schema: Specifies the attributes that make up the primary key for the table. The attributes in the ``KeySchema`` property must also be defined in the ``AttributeDefinitions`` property.
         :param pulumi.Input[Sequence[pulumi.Input['TableAttributeDefinitionArgs']]] attribute_definitions: A list of attributes that describe the key schema for the table and indexes.
                 This property is required to create a DDB table.
@@ -648,6 +649,7 @@ class Table(pulumi.CustomResource):
 
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['TableAttributeDefinitionArgs', 'TableAttributeDefinitionArgsDict']]]] attribute_definitions: A list of attributes that describe the key schema for the table and indexes.
@@ -929,6 +931,7 @@ class Table(pulumi.CustomResource):
             }])
 
         ```
+
 
         :param str resource_name: The name of the resource.
         :param TableArgs args: The arguments to use to populate this resource's properties.

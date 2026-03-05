@@ -33,6 +33,7 @@ class ContactFlowModuleArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a ContactFlowModule resource.
+
         :param pulumi.Input[_builtins.str] content: The content of the contact flow module in JSON format.
         :param pulumi.Input[_builtins.str] instance_arn: The identifier of the Amazon Connect instance (ARN).
         :param pulumi.Input[_builtins.str] description: The description of the contact flow module.
@@ -191,6 +192,7 @@ class ContactFlowModule(pulumi.CustomResource):
 
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] content: The content of the contact flow module in JSON format.
@@ -229,6 +231,7 @@ class ContactFlowModule(pulumi.CustomResource):
             }])
 
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ContactFlowModuleArgs args: The arguments to use to populate this resource's properties.

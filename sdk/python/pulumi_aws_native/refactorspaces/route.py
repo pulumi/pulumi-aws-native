@@ -33,6 +33,7 @@ class RouteArgs:
                  uri_path_route: Optional[pulumi.Input['RouteUriPathRouteInputArgs']] = None):
         """
         The set of arguments for constructing a Route resource.
+
         :param pulumi.Input[_builtins.str] application_identifier: The unique identifier of the application.
         :param pulumi.Input[_builtins.str] environment_identifier: The unique identifier of the environment.
         :param pulumi.Input['RouteType'] route_type: The route type of the route.
@@ -154,6 +155,7 @@ class Route(pulumi.CustomResource):
         """
         Definition of AWS::RefactorSpaces::Route Resource Type
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] application_identifier: The unique identifier of the application.
@@ -172,6 +174,7 @@ class Route(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of AWS::RefactorSpaces::Route Resource Type
+
 
         :param str resource_name: The name of the resource.
         :param RouteArgs args: The arguments to use to populate this resource's properties.

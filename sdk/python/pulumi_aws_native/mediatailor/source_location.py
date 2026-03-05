@@ -32,6 +32,7 @@ class SourceLocationArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a SourceLocation resource.
+
         :param pulumi.Input['SourceLocationHttpConfigurationArgs'] http_configuration: The HTTP configuration for the source location.
         :param pulumi.Input['SourceLocationAccessConfigurationArgs'] access_configuration: The access configuration for the source location.
         :param pulumi.Input['SourceLocationDefaultSegmentDeliveryConfigurationArgs'] default_segment_delivery_configuration: The default segment delivery configuration.
@@ -140,6 +141,7 @@ class SourceLocation(pulumi.CustomResource):
         """
         Definition of AWS::MediaTailor::SourceLocation Resource Type
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['SourceLocationAccessConfigurationArgs', 'SourceLocationAccessConfigurationArgsDict']] access_configuration: The access configuration for the source location.
@@ -157,6 +159,7 @@ class SourceLocation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of AWS::MediaTailor::SourceLocation Resource Type
+
 
         :param str resource_name: The name of the resource.
         :param SourceLocationArgs args: The arguments to use to populate this resource's properties.

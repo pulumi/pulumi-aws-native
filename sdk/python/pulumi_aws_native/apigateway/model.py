@@ -26,6 +26,7 @@ class ModelArgs:
                  schema: Optional[Any] = None):
         """
         The set of arguments for constructing a Model resource.
+
         :param pulumi.Input[_builtins.str] rest_api_id: The string identifier of the associated RestApi.
         :param pulumi.Input[_builtins.str] content_type: The content-type for the model.
         :param pulumi.Input[_builtins.str] description: The description of the model.
@@ -124,6 +125,7 @@ class Model(pulumi.CustomResource):
         """
         The ``AWS::ApiGateway::Model`` resource defines the structure of a request or response payload for an API method.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] content_type: The content-type for the model.
@@ -143,6 +145,7 @@ class Model(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The ``AWS::ApiGateway::Model`` resource defines the structure of a request or response payload for an API method.
+
 
         :param str resource_name: The name of the resource.
         :param ModelArgs args: The arguments to use to populate this resource's properties.

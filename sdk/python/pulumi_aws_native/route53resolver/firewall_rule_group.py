@@ -29,6 +29,7 @@ class FirewallRuleGroupArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a FirewallRuleGroup resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['FirewallRuleGroupFirewallRuleArgs']]] firewall_rules: FirewallRules
         :param pulumi.Input[_builtins.str] name: FirewallRuleGroupName
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: Tags
@@ -90,6 +91,7 @@ class FirewallRuleGroup(pulumi.CustomResource):
         """
         Resource schema for AWS::Route53Resolver::FirewallRuleGroup.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['FirewallRuleGroupFirewallRuleArgs', 'FirewallRuleGroupFirewallRuleArgsDict']]]] firewall_rules: FirewallRules
@@ -104,6 +106,7 @@ class FirewallRuleGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource schema for AWS::Route53Resolver::FirewallRuleGroup.
+
 
         :param str resource_name: The name of the resource.
         :param FirewallRuleGroupArgs args: The arguments to use to populate this resource's properties.

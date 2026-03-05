@@ -28,6 +28,7 @@ class EnvironmentArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Environment resource.
+
         :param pulumi.Input[_builtins.str] description: A description of the environment.
         :param pulumi.Input[_builtins.str] name: The name of the environment.
         :param pulumi.Input['EnvironmentNetworkFabricType'] network_fabric_type: The network fabric type of the environment.
@@ -105,6 +106,7 @@ class Environment(pulumi.CustomResource):
         """
         Definition of AWS::RefactorSpaces::Environment Resource Type
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: A description of the environment.
@@ -120,6 +122,7 @@ class Environment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of AWS::RefactorSpaces::Environment Resource Type
+
 
         :param str resource_name: The name of the resource.
         :param EnvironmentArgs args: The arguments to use to populate this resource's properties.

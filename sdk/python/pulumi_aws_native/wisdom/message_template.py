@@ -36,6 +36,7 @@ class MessageTemplateArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a MessageTemplate resource.
+
         :param pulumi.Input['MessageTemplateChannelSubtype'] channel_subtype: The channel subtype this message template applies to.
         :param pulumi.Input['MessageTemplateContentArgs'] content: The content of the message template.
         :param pulumi.Input[_builtins.str] knowledge_base_arn: The Amazon Resource Name (ARN) of the knowledge base to which the message template belongs.
@@ -206,6 +207,7 @@ class MessageTemplate(pulumi.CustomResource):
         """
         Definition of AWS::Wisdom::MessageTemplate Resource Type
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input['MessageTemplateChannelSubtype'] channel_subtype: The channel subtype this message template applies to.
@@ -227,6 +229,7 @@ class MessageTemplate(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of AWS::Wisdom::MessageTemplate Resource Type
+
 
         :param str resource_name: The name of the resource.
         :param MessageTemplateArgs args: The arguments to use to populate this resource's properties.

@@ -24,6 +24,7 @@ class ResolverQueryLoggingConfigAssociationArgs:
                  resource_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ResolverQueryLoggingConfigAssociation resource.
+
         :param pulumi.Input[_builtins.str] resolver_query_log_config_id: ResolverQueryLogConfigId
         :param pulumi.Input[_builtins.str] resource_id: ResourceId
         """
@@ -69,6 +70,7 @@ class ResolverQueryLoggingConfigAssociation(pulumi.CustomResource):
         """
         Resource schema for AWS::Route53Resolver::ResolverQueryLoggingConfigAssociation.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] resolver_query_log_config_id: ResolverQueryLogConfigId
@@ -82,6 +84,7 @@ class ResolverQueryLoggingConfigAssociation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource schema for AWS::Route53Resolver::ResolverQueryLoggingConfigAssociation.
+
 
         :param str resource_name: The name of the resource.
         :param ResolverQueryLoggingConfigAssociationArgs args: The arguments to use to populate this resource's properties.

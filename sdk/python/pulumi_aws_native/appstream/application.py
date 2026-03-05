@@ -35,6 +35,7 @@ class ApplicationArgs:
                  working_directory: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Application resource.
+
         :param pulumi.Input[_builtins.str] app_block_arn: The app block ARN with which the application should be associated.
         :param pulumi.Input['ApplicationS3LocationArgs'] icon_s3_location: The icon S3 location of the application.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] instance_families: The instance families the application supports.
@@ -247,6 +248,7 @@ class Application(pulumi.CustomResource):
         """
         Resource Type definition for AWS::AppStream::Application
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] app_block_arn: The app block ARN with which the application should be associated.
@@ -276,6 +278,7 @@ class Application(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::AppStream::Application
+
 
         :param str resource_name: The name of the resource.
         :param ApplicationArgs args: The arguments to use to populate this resource's properties.

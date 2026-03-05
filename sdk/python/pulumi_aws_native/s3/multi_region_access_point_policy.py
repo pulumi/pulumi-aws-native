@@ -25,6 +25,7 @@ class MultiRegionAccessPointPolicyArgs:
                  policy: Any):
         """
         The set of arguments for constructing a MultiRegionAccessPointPolicy resource.
+
         :param pulumi.Input[_builtins.str] mrap_name: The name of the Multi Region Access Point to apply policy
         :param Any policy: Policy document to apply to a Multi Region Access Point
                
@@ -72,6 +73,7 @@ class MultiRegionAccessPointPolicy(pulumi.CustomResource):
         """
         The policy to be attached to a Multi Region Access Point
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] mrap_name: The name of the Multi Region Access Point to apply policy
@@ -87,6 +89,7 @@ class MultiRegionAccessPointPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The policy to be attached to a Multi Region Access Point
+
 
         :param str resource_name: The name of the resource.
         :param MultiRegionAccessPointPolicyArgs args: The arguments to use to populate this resource's properties.

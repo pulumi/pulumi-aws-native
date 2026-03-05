@@ -25,6 +25,7 @@ class TrustStoreRevocationArgs:
                  trust_store_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a TrustStoreRevocation resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['TrustStoreRevocationRevocationContentArgs']]] revocation_contents: The attributes required to create a trust store revocation.
         :param pulumi.Input[_builtins.str] trust_store_arn: The Amazon Resource Name (ARN) of the trust store.
         """
@@ -70,6 +71,7 @@ class TrustStoreRevocation(pulumi.CustomResource):
         """
         Resource Type definition for AWS::ElasticLoadBalancingV2::TrustStoreRevocation
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['TrustStoreRevocationRevocationContentArgs', 'TrustStoreRevocationRevocationContentArgsDict']]]] revocation_contents: The attributes required to create a trust store revocation.
@@ -83,6 +85,7 @@ class TrustStoreRevocation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::ElasticLoadBalancingV2::TrustStoreRevocation
+
 
         :param str resource_name: The name of the resource.
         :param TrustStoreRevocationArgs args: The arguments to use to populate this resource's properties.

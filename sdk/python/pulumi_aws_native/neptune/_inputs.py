@@ -41,6 +41,7 @@ class DbClusterDbClusterRoleArgs:
                  feature_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Describes an AWS Identity and Access Management (IAM) role that is associated with a DB cluster.
+
         :param pulumi.Input[_builtins.str] role_arn: The Amazon Resource Name (ARN) of the IAM role that is associated with the DB cluster.
         :param pulumi.Input[_builtins.str] feature_name: The name of the feature associated with the AWS Identity and Access Management (IAM) role. For the list of supported feature names, see DBEngineVersion in the Amazon Neptune API Reference.
         """
@@ -93,6 +94,7 @@ class DbClusterServerlessScalingConfigurationArgs:
                  min_capacity: pulumi.Input[_builtins.float]):
         """
         Contains the scaling configuration of an Neptune Serverless DB cluster.
+
         :param pulumi.Input[_builtins.float] max_capacity: The maximum number of Neptune capacity units (NCUs) for a DB instance in an Neptune Serverless cluster. You can specify NCU values in half-step increments, such as 40, 40.5, 41, and so on. The smallest value you can use is 2.5, whereas the largest is 128.
         :param pulumi.Input[_builtins.float] min_capacity: The minimum number of Neptune capacity units (NCUs) for a DB instance in an Neptune Serverless cluster. You can specify NCU values in half-step increments, such as 8, 8.5, 9, and so on. The smallest value you can use is 1, whereas the largest is 128.
         """

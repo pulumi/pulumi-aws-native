@@ -23,6 +23,7 @@ class VpcdhcpOptionsAssociationArgs:
                  vpc_id: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a VpcdhcpOptionsAssociation resource.
+
         :param pulumi.Input[_builtins.str] dhcp_options_id: The ID of the DHCP options set, or default to associate no DHCP options with the VPC.
         :param pulumi.Input[_builtins.str] vpc_id: The ID of the VPC.
         """
@@ -66,6 +67,7 @@ class VpcdhcpOptionsAssociation(pulumi.CustomResource):
         """
         Associates a set of DHCP options with a VPC, or associates no DHCP options with the VPC.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] dhcp_options_id: The ID of the DHCP options set, or default to associate no DHCP options with the VPC.
@@ -79,6 +81,7 @@ class VpcdhcpOptionsAssociation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Associates a set of DHCP options with a VPC, or associates no DHCP options with the VPC.
+
 
         :param str resource_name: The name of the resource.
         :param VpcdhcpOptionsAssociationArgs args: The arguments to use to populate this resource's properties.

@@ -26,6 +26,7 @@ class NetworkInsightsAccessScopeAnalysisArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a NetworkInsightsAccessScopeAnalysis resource.
+
         :param pulumi.Input[_builtins.str] network_insights_access_scope_id: The ID of the Network Access Scope.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags.
         """
@@ -70,6 +71,7 @@ class NetworkInsightsAccessScopeAnalysis(pulumi.CustomResource):
         """
         Resource schema for AWS::EC2::NetworkInsightsAccessScopeAnalysis
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] network_insights_access_scope_id: The ID of the Network Access Scope.
@@ -83,6 +85,7 @@ class NetworkInsightsAccessScopeAnalysis(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource schema for AWS::EC2::NetworkInsightsAccessScopeAnalysis
+
 
         :param str resource_name: The name of the resource.
         :param NetworkInsightsAccessScopeAnalysisArgs args: The arguments to use to populate this resource's properties.

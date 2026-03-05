@@ -24,6 +24,7 @@ class FindingAggregatorArgs:
                  regions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a FindingAggregator resource.
+
         :param pulumi.Input['FindingAggregatorRegionLinkingMode'] region_linking_mode: Indicates whether to aggregate findings from all of the available Regions in the current partition. Also determines whether to automatically aggregate findings from new Regions as Security Hub supports them and you opt into them.
                 The selected option also determines how to use the Regions provided in the Regions list.
                 In CFN, the options for this property are as follows:
@@ -82,6 +83,7 @@ class FindingAggregator(pulumi.CustomResource):
          This resource must be created in the Region that you want to designate as your aggregation Region.
          Cross-Region aggregation is also a prerequisite for using [central configuration](https://docs.aws.amazon.com/securityhub/latest/userguide/central-configuration-intro.html) in ASH.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input['FindingAggregatorRegionLinkingMode'] region_linking_mode: Indicates whether to aggregate findings from all of the available Regions in the current partition. Also determines whether to automatically aggregate findings from new Regions as Security Hub supports them and you opt into them.
@@ -103,6 +105,7 @@ class FindingAggregator(pulumi.CustomResource):
         The ``AWS::SecurityHub::FindingAggregator`` resource enables cross-Region aggregation. When cross-Region aggregation is enabled, you can aggregate findings, finding updates, insights, control compliance statuses, and security scores from one or more linked Regions to a single aggregation Region. You can then view and manage all of this data from the aggregation Region. For more details about cross-Region aggregation, see [Cross-Region aggregation](https://docs.aws.amazon.com/securityhub/latest/userguide/finding-aggregation.html) in the *User Guide*
          This resource must be created in the Region that you want to designate as your aggregation Region.
          Cross-Region aggregation is also a prerequisite for using [central configuration](https://docs.aws.amazon.com/securityhub/latest/userguide/central-configuration-intro.html) in ASH.
+
 
         :param str resource_name: The name of the resource.
         :param FindingAggregatorArgs args: The arguments to use to populate this resource's properties.

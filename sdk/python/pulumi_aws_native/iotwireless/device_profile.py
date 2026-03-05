@@ -28,6 +28,7 @@ class DeviceProfileArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a DeviceProfile resource.
+
         :param pulumi.Input['DeviceProfileLoRaWanDeviceProfileArgs'] lo_ra_wan: LoRaWANDeviceProfile supports all LoRa specific attributes for service profile for CreateDeviceProfile operation
         :param pulumi.Input[_builtins.str] name: Name of service profile
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A list of key-value pairs that contain metadata for the device profile.
@@ -89,6 +90,7 @@ class DeviceProfile(pulumi.CustomResource):
         """
         Device Profile's resource schema demonstrating some basic constructs and validation rules.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['DeviceProfileLoRaWanDeviceProfileArgs', 'DeviceProfileLoRaWanDeviceProfileArgsDict']] lo_ra_wan: LoRaWANDeviceProfile supports all LoRa specific attributes for service profile for CreateDeviceProfile operation
@@ -103,6 +105,7 @@ class DeviceProfile(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Device Profile's resource schema demonstrating some basic constructs and validation rules.
+
 
         :param str resource_name: The name of the resource.
         :param DeviceProfileArgs args: The arguments to use to populate this resource's properties.

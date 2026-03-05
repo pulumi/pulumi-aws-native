@@ -36,6 +36,7 @@ class ProfileArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Profile resource.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] role_arns: A list of IAM role ARNs that can be assumed when this profile is specified in a CreateSession request.
         :param pulumi.Input[_builtins.bool] accept_role_session_name: Used to determine if a custom role session name will be accepted in a temporary credential request.
         :param pulumi.Input[Sequence[pulumi.Input['ProfileAttributeMappingArgs']]] attribute_mappings: A mapping applied to the authenticating end-entity certificate.
@@ -208,6 +209,7 @@ class Profile(pulumi.CustomResource):
         """
         Definition of AWS::RolesAnywhere::Profile Resource Type
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] accept_role_session_name: Used to determine if a custom role session name will be accepted in a temporary credential request.
@@ -229,6 +231,7 @@ class Profile(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of AWS::RolesAnywhere::Profile Resource Type
+
 
         :param str resource_name: The name of the resource.
         :param ProfileArgs args: The arguments to use to populate this resource's properties.

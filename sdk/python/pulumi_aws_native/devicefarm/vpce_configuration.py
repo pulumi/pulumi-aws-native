@@ -28,6 +28,7 @@ class VpceConfigurationArgs:
                  vpce_configuration_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a VpceConfiguration resource.
+
         :param pulumi.Input[_builtins.str] service_dns_name: The DNS name that Device Farm will use to map to the private service you want to access.
         :param pulumi.Input[_builtins.str] vpce_service_name: The name of the VPC endpoint service that you want to access from Device Farm.
                
@@ -127,6 +128,7 @@ class VpceConfiguration(pulumi.CustomResource):
         """
         Resource Type definition for a Device Farm VPCE Configuration
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] service_dns_name: The DNS name that Device Farm will use to map to the private service you want to access.
@@ -147,6 +149,7 @@ class VpceConfiguration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for a Device Farm VPCE Configuration
+
 
         :param str resource_name: The name of the resource.
         :param VpceConfigurationArgs args: The arguments to use to populate this resource's properties.

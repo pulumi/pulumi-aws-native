@@ -24,6 +24,7 @@ class GroupingConfigurationArgs:
                  grouping_attribute_definitions: pulumi.Input[Sequence[pulumi.Input['GroupingConfigurationGroupingAttributeDefinitionArgs']]]):
         """
         The set of arguments for constructing a GroupingConfiguration resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['GroupingConfigurationGroupingAttributeDefinitionArgs']]] grouping_attribute_definitions: An array of grouping attribute definitions that specify how services should be grouped based on various attributes and source keys.
         """
         pulumi.set(__self__, "grouping_attribute_definitions", grouping_attribute_definitions)
@@ -52,6 +53,7 @@ class GroupingConfiguration(pulumi.CustomResource):
         """
         Resource Type definition for AWS::ApplicationSignals::GroupingConfiguration
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['GroupingConfigurationGroupingAttributeDefinitionArgs', 'GroupingConfigurationGroupingAttributeDefinitionArgsDict']]]] grouping_attribute_definitions: An array of grouping attribute definitions that specify how services should be grouped based on various attributes and source keys.
@@ -64,6 +66,7 @@ class GroupingConfiguration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::ApplicationSignals::GroupingConfiguration
+
 
         :param str resource_name: The name of the resource.
         :param GroupingConfigurationArgs args: The arguments to use to populate this resource's properties.

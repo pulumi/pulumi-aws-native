@@ -30,6 +30,7 @@ class FlowAliasArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a FlowAlias resource.
+
         :param pulumi.Input[_builtins.str] flow_arn: Arn representation of the Flow
         :param pulumi.Input[Sequence[pulumi.Input['FlowAliasRoutingConfigurationListItemArgs']]] routing_configuration: Routing configuration for a Flow alias.
         :param pulumi.Input['FlowAliasConcurrencyConfigurationArgs'] concurrency_configuration: The configuration that specifies how nodes in the flow are executed concurrently.
@@ -143,6 +144,7 @@ class FlowAlias(pulumi.CustomResource):
         """
         Definition of AWS::Bedrock::FlowAlias Resource Type
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['FlowAliasConcurrencyConfigurationArgs', 'FlowAliasConcurrencyConfigurationArgsDict']] concurrency_configuration: The configuration that specifies how nodes in the flow are executed concurrently.
@@ -163,6 +165,7 @@ class FlowAlias(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of AWS::Bedrock::FlowAlias Resource Type
+
 
         :param str resource_name: The name of the resource.
         :param FlowAliasArgs args: The arguments to use to populate this resource's properties.

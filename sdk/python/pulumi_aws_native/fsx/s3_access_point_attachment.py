@@ -29,6 +29,7 @@ class S3AccessPointAttachmentArgs:
                  s3_access_point: Optional[pulumi.Input['S3AccessPointAttachmentS3AccessPointArgs']] = None):
         """
         The set of arguments for constructing a S3AccessPointAttachment resource.
+
         :param pulumi.Input['S3AccessPointAttachmentType'] type: The type of Amazon FSx volume that the S3 access point is attached to.
         :param pulumi.Input[_builtins.str] name: The name of the S3 access point attachment; also used for the name of the S3 access point.
         :param pulumi.Input['S3AccessPointAttachmentS3AccessPointOntapConfigurationArgs'] ontap_configuration: The OntapConfiguration of the S3 access point attachment.
@@ -121,6 +122,7 @@ class S3AccessPointAttachment(pulumi.CustomResource):
         """
         Resource type definition for AWS::FSx::S3AccessPointAttachment
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: The name of the S3 access point attachment; also used for the name of the S3 access point.
@@ -137,6 +139,7 @@ class S3AccessPointAttachment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource type definition for AWS::FSx::S3AccessPointAttachment
+
 
         :param str resource_name: The name of the resource.
         :param S3AccessPointAttachmentArgs args: The arguments to use to populate this resource's properties.

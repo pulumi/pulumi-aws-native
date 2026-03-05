@@ -33,6 +33,7 @@ class ComponentArgs:
                  uri: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Component resource.
+
         :param pulumi.Input['ComponentPlatform'] platform: The platform of the component.
         :param pulumi.Input[_builtins.str] version: The version of the component.
         :param pulumi.Input[_builtins.str] change_description: The change description of the component.
@@ -348,6 +349,7 @@ class Component(pulumi.CustomResource):
 
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] change_description: The change description of the component.
@@ -513,6 +515,7 @@ class Component(pulumi.CustomResource):
             })
 
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ComponentArgs args: The arguments to use to populate this resource's properties.

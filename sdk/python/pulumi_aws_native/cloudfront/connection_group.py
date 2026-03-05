@@ -28,6 +28,7 @@ class ConnectionGroupArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a ConnectionGroup resource.
+
         :param pulumi.Input[_builtins.str] anycast_ip_list_id: The ID of the Anycast static IP list.
         :param pulumi.Input[_builtins.bool] enabled: Whether the connection group is enabled.
         :param pulumi.Input[_builtins.bool] ipv6_enabled: IPv6 is enabled for the connection group.
@@ -121,6 +122,7 @@ class ConnectionGroup(pulumi.CustomResource):
         """
         The connection group for your distribution tenants. When you first create a distribution tenant and you don't specify a connection group, CloudFront will automatically create a default connection group for you. When you create a new distribution tenant and don't specify a connection group, the default one will be associated with your distribution tenant.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] anycast_ip_list_id: The ID of the Anycast static IP list.
@@ -137,6 +139,7 @@ class ConnectionGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The connection group for your distribution tenants. When you first create a distribution tenant and you don't specify a connection group, CloudFront will automatically create a default connection group for you. When you create a new distribution tenant and don't specify a connection group, the default one will be associated with your distribution tenant.
+
 
         :param str resource_name: The name of the resource.
         :param ConnectionGroupArgs args: The arguments to use to populate this resource's properties.

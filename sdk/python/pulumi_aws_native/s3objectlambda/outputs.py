@@ -129,6 +129,7 @@ class AccessPointObjectLambdaConfiguration(dict):
                  cloud_watch_metrics_enabled: Optional[_builtins.bool] = None):
         """
         Configuration to be applied to this Object lambda Access Point. It specifies Supporting Access Point, Transformation Configurations. Customers can also set if they like to enable Cloudwatch metrics for accesses to this Object lambda Access Point. Default setting for Cloudwatch metrics is disable.
+
         :param _builtins.str supporting_access_point: Standard access point associated with the Object Lambda Access Point.
         :param Sequence['AccessPointTransformationConfiguration'] transformation_configurations: A container for transformation configurations for an Object Lambda Access Point.
         :param Sequence[_builtins.str] allowed_features: A container for allowed features. Valid inputs are `GetObject-Range` , `GetObject-PartNumber` , `HeadObject-Range` , and `HeadObject-PartNumber` .
@@ -245,6 +246,7 @@ class AccessPointPublicAccessBlockConfiguration(dict):
                  restrict_public_buckets: Optional[_builtins.bool] = None):
         """
         The Public Access Block Configuration is used to block policies that would allow public access to this Object lambda Access Point. All public access to Object lambda Access Points are blocked by default, and any policy that would give public access to them will be also blocked. This behavior cannot be changed for Object lambda Access Points.
+
         :param _builtins.bool block_public_acls: Specifies whether Amazon S3 should block public access control lists (ACLs) to this object lambda access point. Setting this element to TRUE causes the following behavior:
                - PUT Bucket acl and PUT Object acl calls fail if the specified ACL is public.
                 - PUT Object calls fail if the request includes a public ACL.
@@ -329,6 +331,7 @@ class AccessPointTransformationConfiguration(dict):
                  content_transformation: 'outputs.AccessPointTransformationConfigurationContentTransformationProperties'):
         """
         Configuration to define what content transformation will be applied on which S3 Action.
+
         :param Sequence[_builtins.str] actions: A container for the action of an Object Lambda Access Point configuration. Valid inputs are `GetObject` , `HeadObject` , `ListObject` , and `ListObjectV2` .
         :param 'AccessPointTransformationConfigurationContentTransformationProperties' content_transformation: A container for the content transformation of an Object Lambda Access Point configuration. Can include the FunctionArn and FunctionPayload. For more information, see [AwsLambdaTransformation](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_AwsLambdaTransformation.html) in the *Amazon S3 API Reference* .
         """

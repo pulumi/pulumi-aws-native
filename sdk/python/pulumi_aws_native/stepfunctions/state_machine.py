@@ -37,6 +37,7 @@ class StateMachineArgs:
                  tracing_configuration: Optional[pulumi.Input['StateMachineTracingConfigurationArgs']] = None):
         """
         The set of arguments for constructing a StateMachine resource.
+
         :param pulumi.Input[_builtins.str] role_arn: The Amazon Resource Name (ARN) of the IAM role to use for this state machine.
         :param pulumi.Input['StateMachineDefinitionArgs'] definition: The Amazon States Language definition of the state machine. The state machine definition must be in JSON or YAML, and the format of the object must match the format of your CloudFormation template file. See [Amazon States Language](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html) .
         :param pulumi.Input['StateMachineS3LocationArgs'] definition_s3_location: The name of the S3 bucket where the state machine definition is stored. The state machine definition must be a JSON or YAML file.
@@ -353,6 +354,7 @@ class StateMachine(pulumi.CustomResource):
 
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['StateMachineDefinitionArgs', 'StateMachineDefinitionArgsDict']] definition: The Amazon States Language definition of the state machine. The state machine definition must be in JSON or YAML, and the format of the object must match the format of your CloudFormation template file. See [Amazon States Language](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html) .
@@ -487,6 +489,7 @@ class StateMachine(pulumi.CustomResource):
             role_arn="arn:aws:iam::111122223333:role/service-role/StatesExecutionRole-us-east-1")
 
         ```
+
 
         :param str resource_name: The name of the resource.
         :param StateMachineArgs args: The arguments to use to populate this resource's properties.

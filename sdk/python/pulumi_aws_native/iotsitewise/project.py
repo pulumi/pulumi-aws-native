@@ -28,6 +28,7 @@ class ProjectArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Project resource.
+
         :param pulumi.Input[_builtins.str] portal_id: The ID of the portal in which to create the project.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] asset_ids: The IDs of the assets to be associated to the project.
         :param pulumi.Input[_builtins.str] project_description: A description for the project.
@@ -120,6 +121,7 @@ class Project(pulumi.CustomResource):
         """
         Resource schema for AWS::IoTSiteWise::Project
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] asset_ids: The IDs of the assets to be associated to the project.
@@ -136,6 +138,7 @@ class Project(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource schema for AWS::IoTSiteWise::Project
+
 
         :param str resource_name: The name of the resource.
         :param ProjectArgs args: The arguments to use to populate this resource's properties.

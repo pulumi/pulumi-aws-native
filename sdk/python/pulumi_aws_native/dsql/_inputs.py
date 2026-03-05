@@ -39,6 +39,7 @@ class MultiRegionPropertiesPropertiesArgs:
                  witness_region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The Multi-region properties associated to this cluster.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] clusters: The set of peered clusters that form the multi-Region cluster configuration. Each peered cluster represents a database instance in a different Region.
         :param pulumi.Input[_builtins.str] witness_region: The witness region in a multi-region cluster.
         """

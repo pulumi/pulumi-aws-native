@@ -27,6 +27,7 @@ class ServerlessClusterArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ServerlessCluster resource.
+
         :param pulumi.Input['ServerlessClusterClientAuthenticationArgs'] client_authentication: Includes all client authentication related information.
         :param pulumi.Input[Sequence[pulumi.Input['ServerlessClusterVpcConfigArgs']]] vpc_configs: VPC configuration information for the serverless cluster.
         :param pulumi.Input[_builtins.str] cluster_name: The name of the cluster.
@@ -102,6 +103,7 @@ class ServerlessCluster(pulumi.CustomResource):
         """
         Resource Type definition for AWS::MSK::ServerlessCluster
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ServerlessClusterClientAuthenticationArgs', 'ServerlessClusterClientAuthenticationArgsDict']] client_authentication: Includes all client authentication related information.
@@ -117,6 +119,7 @@ class ServerlessCluster(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::MSK::ServerlessCluster
+
 
         :param str resource_name: The name of the resource.
         :param ServerlessClusterArgs args: The arguments to use to populate this resource's properties.

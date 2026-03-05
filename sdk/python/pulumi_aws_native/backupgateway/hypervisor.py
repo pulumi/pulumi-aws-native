@@ -30,6 +30,7 @@ class HypervisorArgs:
                  username: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Hypervisor resource.
+
         :param pulumi.Input[_builtins.str] host: The server host of the hypervisor. This can be either an IP address or a fully-qualified domain name (FQDN).
         :param pulumi.Input[_builtins.str] kms_key_arn: The Amazon Resource Name (ARN) of the AWS Key Management Service used to encrypt the hypervisor.
         :param pulumi.Input[_builtins.str] log_group_arn: The Amazon Resource Name (ARN) of the group of gateways within the requested log.
@@ -155,6 +156,7 @@ class Hypervisor(pulumi.CustomResource):
         """
         Definition of AWS::BackupGateway::Hypervisor Resource Type
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] host: The server host of the hypervisor. This can be either an IP address or a fully-qualified domain name (FQDN).
@@ -173,6 +175,7 @@ class Hypervisor(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of AWS::BackupGateway::Hypervisor Resource Type
+
 
         :param str resource_name: The name of the resource.
         :param HypervisorArgs args: The arguments to use to populate this resource's properties.

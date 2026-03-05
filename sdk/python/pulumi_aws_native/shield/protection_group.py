@@ -30,6 +30,7 @@ class ProtectionGroupArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a ProtectionGroup resource.
+
         :param pulumi.Input['ProtectionGroupAggregation'] aggregation: Defines how AWS Shield combines resource data for the group in order to detect, mitigate, and report events.
                * Sum - Use the total traffic across the group. This is a good choice for most cases. Examples include Elastic IP addresses for EC2 instances that scale manually or automatically.
                * Mean - Use the average of the traffic across the group. This is a good choice for resources that share traffic uniformly. Examples include accelerators and load balancers.
@@ -194,6 +195,7 @@ class ProtectionGroup(pulumi.CustomResource):
 
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input['ProtectionGroupAggregation'] aggregation: Defines how AWS Shield combines resource data for the group in order to detect, mitigate, and report events.
@@ -266,6 +268,7 @@ class ProtectionGroup(pulumi.CustomResource):
             resource_type=aws_native.shield.ProtectionGroupResourceType.ELASTIC_IP_ALLOCATION)
 
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ProtectionGroupArgs args: The arguments to use to populate this resource's properties.

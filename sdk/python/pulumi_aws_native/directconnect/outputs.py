@@ -59,6 +59,7 @@ class PrivateVirtualInterfaceBgpPeer(dict):
                  customer_address: Optional[_builtins.str] = None):
         """
         Information about a BGP peer.
+
         :param _builtins.str address_family: The address family for the BGP peer.
         :param _builtins.str asn: The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
         :param _builtins.str amazon_address: The IP address assigned to the Amazon interface.
@@ -161,6 +162,7 @@ class PublicVirtualInterfaceBgpPeer(dict):
                  customer_address: Optional[_builtins.str] = None):
         """
         Information about a BGP peer.
+
         :param _builtins.str address_family: The address family for the BGP peer.
         :param _builtins.str asn: The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
         :param _builtins.str amazon_address: The IP address assigned to the Amazon interface.
@@ -263,6 +265,7 @@ class TransitVirtualInterfaceBgpPeer(dict):
                  customer_address: Optional[_builtins.str] = None):
         """
         A key-value pair to associate with a resource.
+
         :param _builtins.str address_family: The address family for the BGP peer.
         :param _builtins.str asn: The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
         :param _builtins.str amazon_address: The IP address assigned to the Amazon interface.

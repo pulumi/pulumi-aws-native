@@ -27,6 +27,7 @@ class VirtualMfaDeviceArgs:
                  virtual_mfa_device_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a VirtualMfaDevice resource.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] users: The IAM user associated with this virtual MFA device.
         :param pulumi.Input[_builtins.str] path: The path for the virtual MFA device. For more information about paths, see [IAM identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) in the *IAM User Guide* .
                
@@ -119,6 +120,7 @@ class VirtualMfaDevice(pulumi.CustomResource):
         """
         Resource Type definition for AWS::IAM::VirtualMFADevice
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] path: The path for the virtual MFA device. For more information about paths, see [IAM identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) in the *IAM User Guide* .
@@ -142,6 +144,7 @@ class VirtualMfaDevice(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::IAM::VirtualMFADevice
+
 
         :param str resource_name: The name of the resource.
         :param VirtualMfaDeviceArgs args: The arguments to use to populate this resource's properties.

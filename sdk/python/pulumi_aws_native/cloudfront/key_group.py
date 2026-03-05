@@ -24,6 +24,7 @@ class KeyGroupArgs:
                  key_group_config: pulumi.Input['KeyGroupConfigArgs']):
         """
         The set of arguments for constructing a KeyGroup resource.
+
         :param pulumi.Input['KeyGroupConfigArgs'] key_group_config: The key group configuration.
         """
         pulumi.set(__self__, "key_group_config", key_group_config)
@@ -53,6 +54,7 @@ class KeyGroup(pulumi.CustomResource):
         A key group.
          A key group contains a list of public keys that you can use with [CloudFront signed URLs and signed cookies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html).
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['KeyGroupConfigArgs', 'KeyGroupConfigArgsDict']] key_group_config: The key group configuration.
@@ -66,6 +68,7 @@ class KeyGroup(pulumi.CustomResource):
         """
         A key group.
          A key group contains a list of public keys that you can use with [CloudFront signed URLs and signed cookies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html).
+
 
         :param str resource_name: The name of the resource.
         :param KeyGroupArgs args: The arguments to use to populate this resource's properties.

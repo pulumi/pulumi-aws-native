@@ -53,6 +53,7 @@ class TopicLoggingConfig(dict):
                  success_feedback_sample_rate: Optional[_builtins.str] = None):
         """
         The ``LoggingConfig`` property type specifies the ``Delivery`` status logging configuration for an [AWS::SNS::Topic](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-topic.html).
+
         :param 'TopicLoggingConfigProtocol' protocol: Indicates one of the supported protocols for the Amazon SNS topic.
                  At least one of the other three ``LoggingConfig`` properties is recommend along with ``Protocol``.
         :param _builtins.str failure_feedback_role_arn: The IAM role ARN to be used when logging failed message deliveries in Amazon CloudWatch.
@@ -113,6 +114,7 @@ class TopicSubscription(dict):
         """
         ``Subscription`` is an embedded property that describes the subscription endpoints of an SNS topic.
           For full control over subscription behavior (for example, delivery policy, filtering, raw message delivery, and cross-region subscriptions), use the [AWS::SNS::Subscription](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-subscription.html) resource.
+
         :param _builtins.str endpoint: The endpoint that receives notifications from the SNS topic. The endpoint value depends on the protocol that you specify. For more information, see the ``Endpoint`` parameter of the ``Subscribe`` action in the *API Reference*.
         :param _builtins.str protocol: The subscription's protocol. For more information, see the ``Protocol`` parameter of the ``Subscribe`` action in the *API Reference*.
         """

@@ -25,6 +25,7 @@ class GraphArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Graph resource.
+
         :param pulumi.Input[_builtins.bool] auto_enable_members: Indicates whether to automatically enable new organization accounts as member accounts in the organization behavior graph.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tag values to assign to the new behavior graph.
         """
@@ -70,6 +71,7 @@ class Graph(pulumi.CustomResource):
         """
         Resource schema for AWS::Detective::Graph
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] auto_enable_members: Indicates whether to automatically enable new organization accounts as member accounts in the organization behavior graph.
@@ -83,6 +85,7 @@ class Graph(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource schema for AWS::Detective::Graph
+
 
         :param str resource_name: The name of the resource.
         :param GraphArgs args: The arguments to use to populate this resource's properties.

@@ -36,6 +36,7 @@ class ComputeNodeGroupArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ComputeNodeGroup resource.
+
         :param pulumi.Input[_builtins.str] cluster_id: The ID of the cluster of the compute node group.
         :param pulumi.Input['CustomLaunchTemplatePropertiesArgs'] custom_launch_template: An Amazon EC2 launch template AWS PCS uses to launch compute nodes.
         :param pulumi.Input[_builtins.str] iam_instance_profile_arn: The Amazon Resource Name (ARN) of the IAM instance profile used to pass an IAM role when launching EC2 instances. The role contained in your instance profile must have pcs:RegisterComputeNodeGroupInstance permissions attached to provision instances correctly.
@@ -235,6 +236,7 @@ class ComputeNodeGroup(pulumi.CustomResource):
         """
         AWS::PCS::ComputeNodeGroup resource creates an AWS PCS compute node group.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] ami_id: The ID of the Amazon Machine Image (AMI) that AWS PCS uses to launch instances. If not provided, AWS PCS uses the AMI ID specified in the custom launch template.
@@ -258,6 +260,7 @@ class ComputeNodeGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         AWS::PCS::ComputeNodeGroup resource creates an AWS PCS compute node group.
+
 
         :param str resource_name: The name of the resource.
         :param ComputeNodeGroupArgs args: The arguments to use to populate this resource's properties.

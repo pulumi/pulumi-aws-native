@@ -28,6 +28,7 @@ class PortfolioArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Portfolio resource.
+
         :param pulumi.Input[_builtins.str] display_name: The name to use for display purposes.
         :param pulumi.Input[_builtins.str] provider_name: The name of the portfolio provider.
         :param pulumi.Input[_builtins.str] accept_language: The language code.
@@ -125,6 +126,7 @@ class Portfolio(pulumi.CustomResource):
         """
         Resource type definition for AWS::ServiceCatalog::Portfolio
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] accept_language: The language code.
@@ -144,6 +146,7 @@ class Portfolio(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource type definition for AWS::ServiceCatalog::Portfolio
+
 
         :param str resource_name: The name of the resource.
         :param PortfolioArgs args: The arguments to use to populate this resource's properties.

@@ -40,6 +40,7 @@ class AnalysisArgs:
                  validation_strategy: Optional[pulumi.Input['AnalysisValidationStrategyArgs']] = None):
         """
         The set of arguments for constructing a Analysis resource.
+
         :param pulumi.Input[_builtins.str] analysis_id: The ID for the analysis that you're creating. This ID displays in the URL of the analysis.
         :param pulumi.Input[_builtins.str] aws_account_id: The ID of the AWS account where you are creating an analysis.
         :param pulumi.Input[Sequence[pulumi.Input['AnalysisErrorArgs']]] errors: <p>Errors associated with the analysis.</p>
@@ -275,6 +276,7 @@ class Analysis(pulumi.CustomResource):
         """
         Definition of the AWS::QuickSight::Analysis Resource Type.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] analysis_id: The ID for the analysis that you're creating. This ID displays in the URL of the analysis.
@@ -302,6 +304,7 @@ class Analysis(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of the AWS::QuickSight::Analysis Resource Type.
+
 
         :param str resource_name: The name of the resource.
         :param AnalysisArgs args: The arguments to use to populate this resource's properties.

@@ -28,6 +28,7 @@ class DeploymentArgs:
                  stage_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Deployment resource.
+
         :param pulumi.Input[_builtins.str] rest_api_id: The string identifier of the associated RestApi.
         :param pulumi.Input['DeploymentCanarySettingsArgs'] deployment_canary_settings: The input configuration for a canary deployment.
         :param pulumi.Input[_builtins.str] description: The description for the Deployment resource to create.
@@ -120,6 +121,7 @@ class Deployment(pulumi.CustomResource):
         """
         The ``AWS::ApiGateway::Deployment`` resource deploys an API Gateway ``RestApi`` resource to a stage so that clients can call the API over the internet. The stage acts as an environment.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['DeploymentCanarySettingsArgs', 'DeploymentCanarySettingsArgsDict']] deployment_canary_settings: The input configuration for a canary deployment.
@@ -136,6 +138,7 @@ class Deployment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The ``AWS::ApiGateway::Deployment`` resource deploys an API Gateway ``RestApi`` resource to a stage so that clients can call the API over the internet. The stage acts as an environment.
+
 
         :param str resource_name: The name of the resource.
         :param DeploymentArgs args: The arguments to use to populate this resource's properties.

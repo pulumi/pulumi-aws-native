@@ -31,6 +31,7 @@ class ApplicationArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Application resource.
+
         :param pulumi.Input['ApplicationEngineType'] engine_type: The type of the target platform for this application.
         :param pulumi.Input[Union['ApplicationDefinition0PropertiesArgs', 'ApplicationDefinition1PropertiesArgs']] definition: The application definition for a particular application. You can specify either inline JSON or an Amazon S3 bucket location.
                
@@ -163,6 +164,7 @@ class Application(pulumi.CustomResource):
         """
         Represents an application that runs on an AWS Mainframe Modernization Environment
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union[Union['ApplicationDefinition0PropertiesArgs', 'ApplicationDefinition0PropertiesArgsDict'], Union['ApplicationDefinition1PropertiesArgs', 'ApplicationDefinition1PropertiesArgsDict']]] definition: The application definition for a particular application. You can specify either inline JSON or an Amazon S3 bucket location.
@@ -185,6 +187,7 @@ class Application(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Represents an application that runs on an AWS Mainframe Modernization Environment
+
 
         :param str resource_name: The name of the resource.
         :param ApplicationArgs args: The arguments to use to populate this resource's properties.

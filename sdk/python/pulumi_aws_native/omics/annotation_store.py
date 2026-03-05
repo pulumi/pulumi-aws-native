@@ -31,6 +31,7 @@ class AnnotationStoreArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a AnnotationStore resource.
+
         :param pulumi.Input['AnnotationStoreStoreFormat'] store_format: The annotation file format of the store.
         :param pulumi.Input[_builtins.str] description: A description for the store.
         :param pulumi.Input[_builtins.str] name: The name of the Annotation Store.
@@ -155,6 +156,7 @@ class AnnotationStore(pulumi.CustomResource):
         """
         Definition of AWS::Omics::AnnotationStore Resource Type
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: A description for the store.
@@ -173,6 +175,7 @@ class AnnotationStore(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of AWS::Omics::AnnotationStore Resource Type
+
 
         :param str resource_name: The name of the resource.
         :param AnnotationStoreArgs args: The arguments to use to populate this resource's properties.

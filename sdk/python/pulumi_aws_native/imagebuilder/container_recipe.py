@@ -39,6 +39,7 @@ class ContainerRecipeArgs:
                  working_directory: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ContainerRecipe resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['ContainerRecipeComponentConfigurationArgs']]] components: Components for build and test that are included in the container recipe.
         :param pulumi.Input['ContainerRecipeContainerType'] container_type: Specifies the type of container, such as Docker.
         :param pulumi.Input[_builtins.str] description: The description of the container recipe.
@@ -292,6 +293,7 @@ class ContainerRecipe(pulumi.CustomResource):
         """
         Resource schema for AWS::ImageBuilder::ContainerRecipe
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ContainerRecipeComponentConfigurationArgs', 'ContainerRecipeComponentConfigurationArgsDict']]]] components: Components for build and test that are included in the container recipe.
@@ -318,6 +320,7 @@ class ContainerRecipe(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource schema for AWS::ImageBuilder::ContainerRecipe
+
 
         :param str resource_name: The name of the resource.
         :param ContainerRecipeArgs args: The arguments to use to populate this resource's properties.

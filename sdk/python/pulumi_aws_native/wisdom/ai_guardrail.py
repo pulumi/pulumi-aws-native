@@ -35,6 +35,7 @@ class AiGuardrailArgs:
                  word_policy_config: Optional[pulumi.Input['AiGuardrailAiGuardrailWordPolicyConfigArgs']] = None):
         """
         The set of arguments for constructing a AiGuardrail resource.
+
         :param pulumi.Input[_builtins.str] assistant_id: The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
         :param pulumi.Input[_builtins.str] blocked_input_messaging: Messaging for when violations are detected in text
         :param pulumi.Input[_builtins.str] blocked_outputs_messaging: Messaging for when violations are detected in text
@@ -221,6 +222,7 @@ class AiGuardrail(pulumi.CustomResource):
         """
         Definition of AWS::Wisdom::AIGuardrail Resource Type
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] assistant_id: The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
@@ -243,6 +245,7 @@ class AiGuardrail(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of AWS::Wisdom::AIGuardrail Resource Type
+
 
         :param str resource_name: The name of the resource.
         :param AiGuardrailArgs args: The arguments to use to populate this resource's properties.

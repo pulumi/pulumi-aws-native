@@ -86,6 +86,7 @@ class DbClusterArgs:
                  vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a DbCluster resource.
+
         :param pulumi.Input[_builtins.int] allocated_storage: The amount of storage in gibibytes (GiB) to allocate to each DB instance in the Multi-AZ DB cluster.
                 Valid for Cluster Type: Multi-AZ DB clusters only
                 This setting is required to create a Multi-AZ DB cluster.
@@ -1583,6 +1584,7 @@ class DbCluster(pulumi.CustomResource):
           *Deleting DB clusters*
          The default ``DeletionPolicy`` for ``AWS::RDS::DBCluster`` resources is ``Snapshot``. For more information about how AWS CloudFormation deletes resources, see [DeletionPolicy Attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html).
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.int] allocated_storage: The amount of storage in gibibytes (GiB) to allocate to each DB instance in the Multi-AZ DB cluster.
@@ -1917,6 +1919,7 @@ class DbCluster(pulumi.CustomResource):
          For more information about updating other properties of this resource, see ``ModifyDBCluster``. For more information about updating stacks, see [CloudFormation Stacks Updates](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks.html).
           *Deleting DB clusters*
          The default ``DeletionPolicy`` for ``AWS::RDS::DBCluster`` resources is ``Snapshot``. For more information about how AWS CloudFormation deletes resources, see [DeletionPolicy Attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html).
+
 
         :param str resource_name: The name of the resource.
         :param DbClusterArgs args: The arguments to use to populate this resource's properties.

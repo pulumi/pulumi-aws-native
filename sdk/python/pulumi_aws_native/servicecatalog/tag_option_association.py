@@ -23,6 +23,7 @@ class TagOptionAssociationArgs:
                  tag_option_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a TagOptionAssociation resource.
+
         :param pulumi.Input[_builtins.str] resource_id: The CloudformationProduct or Portfolio identifier.
         :param pulumi.Input[_builtins.str] tag_option_id: The TagOption identifier.
         """
@@ -68,6 +69,7 @@ class TagOptionAssociation(pulumi.CustomResource):
         """
         Resource Type definition for AWS::ServiceCatalog::TagOptionAssociation
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] resource_id: The CloudformationProduct or Portfolio identifier.
@@ -81,6 +83,7 @@ class TagOptionAssociation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::ServiceCatalog::TagOptionAssociation
+
 
         :param str resource_name: The name of the resource.
         :param TagOptionAssociationArgs args: The arguments to use to populate this resource's properties.

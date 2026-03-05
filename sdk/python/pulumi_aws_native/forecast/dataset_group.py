@@ -28,6 +28,7 @@ class DatasetGroupArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a DatasetGroup resource.
+
         :param pulumi.Input['DatasetGroupDomain'] domain: The domain associated with the dataset group. When you add a dataset to a dataset group, this value and the value specified for the Domain parameter of the CreateDataset operation must match.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dataset_arns: An array of Amazon Resource Names (ARNs) of the datasets that you want to include in the dataset group.
         :param pulumi.Input[_builtins.str] dataset_group_name: A name for the dataset group.
@@ -104,6 +105,7 @@ class DatasetGroup(pulumi.CustomResource):
         """
         Represents a dataset group that holds a collection of related datasets
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dataset_arns: An array of Amazon Resource Names (ARNs) of the datasets that you want to include in the dataset group.
@@ -119,6 +121,7 @@ class DatasetGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Represents a dataset group that holds a collection of related datasets
+
 
         :param str resource_name: The name of the resource.
         :param DatasetGroupArgs args: The arguments to use to populate this resource's properties.

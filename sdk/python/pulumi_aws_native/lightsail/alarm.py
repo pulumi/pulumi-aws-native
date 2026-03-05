@@ -32,6 +32,7 @@ class AlarmArgs:
                  treat_missing_data: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Alarm resource.
+
         :param pulumi.Input[_builtins.str] comparison_operator: The arithmetic operation to use when comparing the specified statistic to the threshold. The specified statistic value is used as the first operand.
         :param pulumi.Input[_builtins.int] evaluation_periods: The number of most recent periods over which data is compared to the specified threshold. If you are setting an "M out of N" alarm, this value (evaluationPeriods) is the N.
         :param pulumi.Input[_builtins.str] metric_name: The name of the metric to associate with the alarm.
@@ -216,6 +217,7 @@ class Alarm(pulumi.CustomResource):
         """
         Resource Type definition for AWS::Lightsail::Alarm
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] alarm_name: The name for the alarm. Specify the name of an existing alarm to update, and overwrite the previous configuration of the alarm.
@@ -238,6 +240,7 @@ class Alarm(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::Lightsail::Alarm
+
 
         :param str resource_name: The name of the resource.
         :param AlarmArgs args: The arguments to use to populate this resource's properties.

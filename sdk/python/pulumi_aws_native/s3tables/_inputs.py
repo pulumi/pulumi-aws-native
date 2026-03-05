@@ -70,6 +70,7 @@ class TableBucketEncryptionConfigurationArgs:
                  sse_algorithm: Optional[pulumi.Input['TableBucketEncryptionConfigurationSseAlgorithm']] = None):
         """
         Specifies encryption settings for the table bucket
+
         :param pulumi.Input[_builtins.str] kms_key_arn: ARN of the KMS key to use for encryption
         :param pulumi.Input['TableBucketEncryptionConfigurationSseAlgorithm'] sse_algorithm: Server-side encryption algorithm
         """
@@ -118,6 +119,7 @@ class TableBucketMetricsConfigurationArgs:
                  status: Optional[pulumi.Input['TableBucketMetricsConfigurationStatus']] = None):
         """
         Settings governing the Metric configuration for the table bucket.
+
         :param pulumi.Input['TableBucketMetricsConfigurationStatus'] status: Indicates whether Metrics are enabled.
         """
         if status is not None:
@@ -166,6 +168,7 @@ class TableBucketStorageClassConfigurationArgs:
                  storage_class: Optional[pulumi.Input['TableBucketStorageClassConfigurationStorageClass']] = None):
         """
         Specifies storage class settings for the table bucket
+
         :param pulumi.Input['TableBucketStorageClassConfigurationStorageClass'] storage_class: The storage class for the table bucket
         """
         if storage_class is not None:
@@ -209,6 +212,7 @@ class TableBucketUnreferencedFileRemovalArgs:
                  unreferenced_days: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Settings governing the Unreferenced File Removal maintenance action. Unreferenced file removal identifies and deletes all objects that are not referenced by any table snapshots.
+
         :param pulumi.Input[_builtins.int] noncurrent_days: S3 permanently deletes noncurrent objects after the number of days specified by the NoncurrentDays property.
         :param pulumi.Input['TableBucketUnreferencedFileRemovalStatus'] status: Indicates whether the Unreferenced File Removal maintenance action is enabled.
         :param pulumi.Input[_builtins.int] unreferenced_days: For any object not referenced by your table and older than the UnreferencedDays property, S3 creates a delete marker and marks the object version as noncurrent.
@@ -277,6 +281,7 @@ class TableCompactionArgs:
                  target_file_size_mb: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Settings governing the Compaction maintenance action. Contains details about the compaction settings for an Iceberg table.
+
         :param pulumi.Input['TableCompactionStatus'] status: Indicates whether the Compaction maintenance action is enabled.
         :param pulumi.Input[_builtins.int] target_file_size_mb: The target file size for the table in MB.
         """
@@ -331,6 +336,7 @@ class TableIcebergMetadataArgs:
                  table_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Contains details about the metadata for an Iceberg table.
+
         :param pulumi.Input['TableIcebergSchemaArgs'] iceberg_schema: The schema for an Iceberg table.
         """
         pulumi.set(__self__, "iceberg_schema", iceberg_schema)
@@ -411,6 +417,7 @@ class TableIcebergPartitionFieldArgs:
                  field_id: Optional[pulumi.Input[_builtins.int]] = None):
         """
         A partition field specification for an Iceberg table
+
         :param pulumi.Input[_builtins.str] name: The name of the partition field
         :param pulumi.Input[_builtins.int] source_id: The source column ID to partition on
         :param pulumi.Input[_builtins.str] transform: The partition transform function (identity, bucket[N], truncate[N], year, month, day, hour)
@@ -491,6 +498,7 @@ class TableIcebergPartitionSpecArgs:
                  spec_id: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Partition specification for an Iceberg table
+
         :param pulumi.Input[Sequence[pulumi.Input['TableIcebergPartitionFieldArgs']]] fields: List of partition fields
         :param pulumi.Input[_builtins.int] spec_id: The partition spec ID (defaults to 0 if not specified)
         """
@@ -538,6 +546,7 @@ class TableIcebergSchemaArgs:
                  schema_field_list: pulumi.Input[Sequence[pulumi.Input['TableSchemaFieldArgs']]]):
         """
         Contains details about the schema for an Iceberg table
+
         :param pulumi.Input[Sequence[pulumi.Input['TableSchemaFieldArgs']]] schema_field_list: The schema fields for the table
         """
         pulumi.set(__self__, "schema_field_list", schema_field_list)
@@ -585,6 +594,7 @@ class TableIcebergSortFieldArgs:
                  transform: pulumi.Input[_builtins.str]):
         """
         A sort field specification for an Iceberg table
+
         :param pulumi.Input['TableIcebergSortFieldDirection'] direction: Sort direction (asc or desc)
         :param pulumi.Input['TableIcebergSortFieldNullOrder'] null_order: Null value ordering (nulls-first or nulls-last)
         :param pulumi.Input[_builtins.int] source_id: The source column ID to sort on
@@ -664,6 +674,7 @@ class TableIcebergSortOrderArgs:
                  order_id: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Sort order specification for an Iceberg table
+
         :param pulumi.Input[Sequence[pulumi.Input['TableIcebergSortFieldArgs']]] fields: List of sort fields
         :param pulumi.Input[_builtins.int] order_id: The sort order ID (defaults to 1 if not specified, 0 is reserved for unsorted)
         """
@@ -741,6 +752,7 @@ class TableSchemaFieldArgs:
                  required: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Contains details about the schema for an Iceberg table
+
         :param pulumi.Input[_builtins.str] name: The name of the field
         :param pulumi.Input[_builtins.str] type: The field type
         :param pulumi.Input[_builtins.int] id: The unique identifier for the field
@@ -827,6 +839,7 @@ class TableSnapshotManagementArgs:
                  status: Optional[pulumi.Input['TableSnapshotManagementStatus']] = None):
         """
         Contains details about the snapshot management settings for an Iceberg table. A snapshot is expired when it exceeds MinSnapshotsToKeep and MaxSnapshotAgeHours.
+
         :param pulumi.Input[_builtins.int] max_snapshot_age_hours: The maximum age of a snapshot before it can be expired.
         :param pulumi.Input[_builtins.int] min_snapshots_to_keep: The minimum number of snapshots to keep.
         :param pulumi.Input['TableSnapshotManagementStatus'] status: Indicates whether the SnapshotManagement maintenance action is enabled.
@@ -890,6 +903,7 @@ class TableStorageClassConfigurationArgs:
                  storage_class: Optional[pulumi.Input['TableStorageClassConfigurationStorageClass']] = None):
         """
         Specifies storage class settings for the table
+
         :param pulumi.Input['TableStorageClassConfigurationStorageClass'] storage_class: The storage class for the table
         """
         if storage_class is not None:

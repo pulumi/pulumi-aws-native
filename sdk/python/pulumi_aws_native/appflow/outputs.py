@@ -140,6 +140,7 @@ class ConnectorLambdaConnectorProvisioningConfig(dict):
                  lambda_arn: _builtins.str):
         """
         Contains information about the configuration of the lambda which is being registered as the connector.
+
         :param _builtins.str lambda_arn: Lambda ARN of the connector being registered.
         """
         pulumi.set(__self__, "lambda_arn", lambda_arn)
@@ -308,6 +309,7 @@ class ConnectorProfileConfig(dict):
                  connector_profile_properties: Optional['outputs.ConnectorProfileProperties'] = None):
         """
         Connector specific configurations needed to create connector profile
+
         :param 'ConnectorProfileCredentials' connector_profile_credentials: The connector-specific credentials required by each connector.
         :param 'ConnectorProfileProperties' connector_profile_properties: The connector-specific properties of the profile configuration.
         """
@@ -436,6 +438,7 @@ class ConnectorProfileCredentials(dict):
                  zendesk: Optional['outputs.ConnectorProfileZendeskConnectorProfileCredentials'] = None):
         """
         Connector specific configuration needed to create connector profile based on Authentication mechanism
+
         :param 'ConnectorProfileAmplitudeConnectorProfileCredentials' amplitude: The connector-specific credentials required when using Amplitude.
         :param 'ConnectorProfileCustomConnectorProfileCredentials' custom_connector: The connector-specific profile credentials that are required when using the custom connector.
         :param 'ConnectorProfileDatadogConnectorProfileCredentials' datadog: The connector-specific credentials required when using Datadog.
@@ -1684,6 +1687,7 @@ class ConnectorProfileProperties(dict):
                  zendesk: Optional['outputs.ConnectorProfileZendeskConnectorProfileProperties'] = None):
         """
         Connector specific properties needed to create connector profile - currently not needed for Amplitude, Trendmicro, Googleanalytics and Singular
+
         :param 'ConnectorProfileCustomConnectorProfileProperties' custom_connector: The properties required by the custom connector.
         :param 'ConnectorProfileDatadogConnectorProfileProperties' datadog: The connector-specific properties required by Datadog.
         :param 'ConnectorProfileDynatraceConnectorProfileProperties' dynatrace: The connector-specific properties required by Dynatrace.
@@ -3067,6 +3071,7 @@ class ConnectorProvisioningConfig(dict):
                  lambda_: Optional['outputs.ConnectorLambdaConnectorProvisioningConfig'] = None):
         """
         Contains information about the configuration of the connector being registered.
+
         :param 'ConnectorLambdaConnectorProvisioningConfig' lambda_: Contains information about the configuration of the lambda which is being registered as the connector.
         """
         if lambda_ is not None:
@@ -3199,6 +3204,7 @@ class FlowConnectorOperator(dict):
                  zendesk: Optional['FlowZendeskConnectorOperator'] = None):
         """
         Operation to be performed on provided source fields
+
         :param 'FlowAmplitudeConnectorOperator' amplitude: The operation to be performed on the provided Amplitude source fields.
         :param 'FlowOperator' custom_connector: Operators supported by the custom connector.
         :param 'FlowDatadogConnectorOperator' datadog: The operation to be performed on the provided Datadog source fields.
@@ -3628,6 +3634,7 @@ class FlowDestinationConnectorProperties(dict):
                  zendesk: Optional['outputs.FlowZendeskDestinationProperties'] = None):
         """
         Destination connector details
+
         :param 'FlowCustomConnectorDestinationProperties' custom_connector: The properties that are required to query the custom Connector.
         :param 'FlowEventBridgeDestinationProperties' event_bridge: The properties required to query Amazon EventBridge.
         :param 'FlowLookoutMetricsDestinationProperties' lookout_metrics: The properties required to query Amazon Lookout for Metrics.
@@ -3787,6 +3794,7 @@ class FlowDestinationFlowConfig(dict):
                  connector_profile_name: Optional[_builtins.str] = None):
         """
         Configurations of destination connector.
+
         :param 'FlowConnectorType' connector_type: Destination connector type
         :param 'FlowDestinationConnectorProperties' destination_connector_properties: Destination connector details
         :param _builtins.str api_version: The API version that the destination connector uses.
@@ -3993,6 +4001,7 @@ class FlowGlueDataCatalog(dict):
                  table_prefix: _builtins.str):
         """
         Trigger settings of the flow.
+
         :param _builtins.str database_name: A string containing the value for the tag
         :param _builtins.str role_arn: A string containing the value for the tag
         :param _builtins.str table_prefix: A string containing the value for the tag
@@ -4070,6 +4079,7 @@ class FlowIncrementalPullConfig(dict):
                  datetime_type_field_name: Optional[_builtins.str] = None):
         """
         Configuration for scheduled incremental data pull
+
         :param _builtins.str datetime_type_field_name: A field that specifies the date time or timestamp field as the criteria to use when importing incremental records from the source.
         """
         if datetime_type_field_name is not None:
@@ -4212,6 +4222,7 @@ class FlowMetadataCatalogConfig(dict):
                  glue_data_catalog: Optional['outputs.FlowGlueDataCatalog'] = None):
         """
         Configurations of metadata catalog of the flow.
+
         :param 'FlowGlueDataCatalog' glue_data_catalog: Configurations of glue data catalog of the flow.
         """
         if glue_data_catalog is not None:
@@ -4966,6 +4977,7 @@ class FlowSapoDataPaginationConfig(dict):
                  max_page_size: _builtins.int):
         """
         SAP Source connector page size
+
         :param _builtins.int max_page_size: The maximum number of records that Amazon AppFlow receives in each page of the response from your SAP application. For transfers of OData records, the maximum page size is 3,000. For transfers of data that comes from an ODP provider, the maximum page size is 10,000.
         """
         pulumi.set(__self__, "max_page_size", max_page_size)
@@ -5005,6 +5017,7 @@ class FlowSapoDataParallelismConfig(dict):
                  max_parallelism: _builtins.int):
         """
         SAP Source connector parallelism factor
+
         :param _builtins.int max_parallelism: The maximum number of processes that Amazon AppFlow runs at the same time when it retrieves your data from your SAP application.
         """
         pulumi.set(__self__, "max_parallelism", max_parallelism)
@@ -5128,6 +5141,7 @@ class FlowScheduledTriggerProperties(dict):
                  time_zone: Optional[_builtins.str] = None):
         """
         Details required for scheduled trigger type
+
         :param _builtins.str schedule_expression: The scheduling expression that determines the rate at which the schedule will run, for example `rate(5minutes)` .
         :param 'FlowScheduledTriggerPropertiesDataPullMode' data_pull_mode: Specifies whether a scheduled flow has an incremental data transfer or a complete data transfer for each flow run.
         :param _builtins.float first_execution_from: Specifies the date range for the records to import from the connector in the first flow run.
@@ -5400,6 +5414,7 @@ class FlowSourceConnectorProperties(dict):
                  zendesk: Optional['outputs.FlowZendeskSourceProperties'] = None):
         """
         Source connector details required to query a connector
+
         :param 'FlowAmplitudeSourceProperties' amplitude: Specifies the information that is required for querying Amplitude.
         :param 'FlowCustomConnectorSourceProperties' custom_connector: The properties that are applied when the custom connector is being used as a source.
         :param 'FlowDatadogSourceProperties' datadog: Specifies the information that is required for querying Datadog.
@@ -5628,6 +5643,7 @@ class FlowSourceFlowConfig(dict):
                  incremental_pull_config: Optional['outputs.FlowIncrementalPullConfig'] = None):
         """
         Configurations of Source connector of the flow.
+
         :param 'FlowConnectorType' connector_type: Type of source connector
         :param 'FlowSourceConnectorProperties' source_connector_properties: Source connector details required to query a connector
         :param _builtins.str api_version: The API version that the destination connector uses.
@@ -5834,6 +5850,7 @@ class FlowTaskPropertiesObject(dict):
                  value: _builtins.str):
         """
         An object used to store task related info
+
         :param 'FlowOperatorPropertiesKeys' key: The task property key.
         :param _builtins.str value: The task property value.
         """
@@ -5904,6 +5921,7 @@ class FlowTriggerConfig(dict):
                  trigger_properties: Optional['outputs.FlowScheduledTriggerProperties'] = None):
         """
         Trigger settings of the flow.
+
         :param 'FlowTriggerType' trigger_type: Trigger type of the flow
         :param 'FlowScheduledTriggerProperties' trigger_properties: Details required based on the type of trigger
         """

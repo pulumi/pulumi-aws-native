@@ -34,6 +34,7 @@ class GraphVectorSearchConfigurationArgs:
                  vector_search_dimension: pulumi.Input[_builtins.int]):
         """
         The vector search configuration.
+
         :param pulumi.Input[_builtins.int] vector_search_dimension: The vector search dimension
         """
         pulumi.set(__self__, "vector_search_dimension", vector_search_dimension)

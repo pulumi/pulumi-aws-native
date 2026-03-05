@@ -89,6 +89,7 @@ class AccessEntryAccessPolicy(dict):
                  policy_arn: _builtins.str):
         """
         An access policy to associate with the current access entry.
+
         :param 'AccessEntryAccessScope' access_scope: The scope of an `AccessPolicy` that's associated to an `AccessEntry` .
         :param _builtins.str policy_arn: The ARN of the access policy to add to the access entry.
         """
@@ -122,6 +123,7 @@ class AccessEntryAccessScope(dict):
                  namespaces: Optional[Sequence[_builtins.str]] = None):
         """
         The access scope of the access policy.
+
         :param 'AccessEntryAccessScopeType' type: The type of the access scope.
         :param Sequence[_builtins.str] namespaces: The namespaces to associate with the access scope. Only specify if Type is set to 'namespace'.
         """
@@ -175,6 +177,7 @@ class AddonPodIdentityAssociation(dict):
                  service_account: _builtins.str):
         """
         A pod identity to associate with an add-on.
+
         :param _builtins.str role_arn: The IAM role ARN that the pod identity association is created for.
         :param _builtins.str service_account: The Kubernetes service account that the pod identity association is created for.
         """
@@ -234,6 +237,7 @@ class CapabilityArgoCd(dict):
                  server_url: Optional[_builtins.str] = None):
         """
         Configuration settings for an Argo CD capability. This includes the Kubernetes namespace, IAM Identity Center integration, RBAC role mappings, and network access configuration.
+
         :param _builtins.str namespace: The Kubernetes namespace where Argo CD resources will be created. If not specified, the default namespace is used.
         :param Sequence['CapabilityArgoCdRoleMapping'] rbac_role_mappings: A list of role mappings that define which IAM Identity Center users or groups have which Argo CD roles. Each mapping associates an Argo CD role (ADMIN, EDITOR, or VIEWER) with one or more IAM Identity Center identities.
         :param _builtins.str server_url: The URL of the Argo CD server. Use this URL to access the Argo CD web interface and API.
@@ -293,6 +297,7 @@ class CapabilityArgoCdRoleMapping(dict):
                  role: 'CapabilityArgoCdRoleMappingRole'):
         """
         A mapping between an Argo CD role and IAM Identity Center identities. This defines which users or groups have specific permissions in Argo CD.
+
         :param Sequence['CapabilitySsoIdentity'] identities: A list of IAM Identity Center identities (users or groups) that should be assigned this Argo CD role.
         :param 'CapabilityArgoCdRoleMappingRole' role: The Argo CD role to assign. Valid values are: ADMIN (full administrative access to Argo CD), EDITOR (edit access to Argo CD resources), or VIEWER (read-only access to Argo CD resources).
         """
@@ -348,6 +353,7 @@ class CapabilityAwsIdc(dict):
                  idc_region: Optional[_builtins.str] = None):
         """
         Configuration for integrating Argo CD with IAM Identity Center. This allows you to use your organization's identity provider for authentication to Argo CD.
+
         :param _builtins.str idc_instance_arn: The ARN of the IAM Identity Center instance to use for authentication.
         :param _builtins.str idc_managed_application_arn: The ARN of the managed application created in IAM Identity Center for this Argo CD capability. This application is automatically created and managed by EKS.
         :param _builtins.str idc_region: The Region where your IAM Identity Center instance is located.
@@ -445,6 +451,7 @@ class CapabilityNetworkAccess(dict):
                  vpce_ids: Optional[Sequence[_builtins.str]] = None):
         """
         Configuration for network access to the Argo CD capability's managed API server endpoint. By default, the Argo CD server is accessible via a public endpoint. You can optionally specify one or more VPC endpoint IDs to enable private connectivity from your VPCs.
+
         :param Sequence[_builtins.str] vpce_ids: A list of VPC endpoint IDs to associate with the managed Argo CD API server endpoint. Each VPC endpoint provides private connectivity from a specific VPC to the Argo CD server. You can specify multiple VPC endpoint IDs to enable access from multiple VPCs.
         """
         if vpce_ids is not None:
@@ -469,6 +476,7 @@ class CapabilitySsoIdentity(dict):
                  type: 'CapabilitySsoIdentityType'):
         """
         An IAM Identity Center identity (user or group) that can be assigned permissions in a capability.
+
         :param _builtins.str id: The unique identifier of the IAM Identity Center user or group.
         :param 'CapabilitySsoIdentityType' type: The type of identity. Valid values are SSO_USER or SSO_GROUP.
         """
@@ -521,6 +529,7 @@ class ClusterAccessConfig(dict):
                  bootstrap_cluster_creator_admin_permissions: Optional[_builtins.bool] = None):
         """
         An object representing the Access Config to use for the cluster.
+
         :param 'ClusterAccessConfigAuthenticationMode' authentication_mode: Specify the authentication mode that should be used to create your cluster.
         :param _builtins.bool bootstrap_cluster_creator_admin_permissions: Set this value to false to avoid creating a default cluster admin Access Entry using the IAM principal used to create the cluster.
         """
@@ -555,6 +564,7 @@ class ClusterBlockStorage(dict):
                  enabled: Optional[_builtins.bool] = None):
         """
         Todo: add description
+
         :param _builtins.bool enabled: Todo: add description
         """
         if enabled is not None:
@@ -599,6 +609,7 @@ class ClusterComputeConfig(dict):
                  node_role_arn: Optional[_builtins.str] = None):
         """
         Todo: add description
+
         :param _builtins.bool enabled: Todo: add description
         :param Sequence[_builtins.str] node_pools: Todo: add description
         :param _builtins.str node_role_arn: Todo: add description
@@ -661,6 +672,7 @@ class ClusterControlPlanePlacement(dict):
                  group_name: Optional[_builtins.str] = None):
         """
         Specify the placement group of the control plane machines for your cluster.
+
         :param _builtins.str group_name: Specify the placement group name of the control place machines for your cluster.
         """
         if group_name is not None:
@@ -684,6 +696,7 @@ class ClusterControlPlaneScalingConfig(dict):
                  tier: Optional['ClusterControlPlaneScalingConfigTier'] = None):
         """
         Configuration for provisioned control plane scaling.
+
         :param 'ClusterControlPlaneScalingConfigTier' tier: The scaling tier for the provisioned control plane.
         """
         if tier is not None:
@@ -707,6 +720,7 @@ class ClusterElasticLoadBalancing(dict):
                  enabled: Optional[_builtins.bool] = None):
         """
         Todo: add description
+
         :param _builtins.bool enabled: Todo: add description
         """
         if enabled is not None:
@@ -731,6 +745,7 @@ class ClusterEncryptionConfig(dict):
                  resources: Optional[Sequence[_builtins.str]] = None):
         """
         The encryption configuration for the cluster
+
         :param 'ClusterProvider' provider: The encryption provider for the cluster.
         :param Sequence[_builtins.str] resources: Specifies the resources to be encrypted. The only supported value is "secrets".
         """
@@ -791,6 +806,7 @@ class ClusterKubernetesNetworkConfig(dict):
                  service_ipv6_cidr: Optional[_builtins.str] = None):
         """
         The Kubernetes network configuration for the cluster.
+
         :param 'ClusterElasticLoadBalancing' elastic_load_balancing: Todo: add description
         :param 'ClusterKubernetesNetworkConfigIpFamily' ip_family: Ipv4 or Ipv6. You can only specify ipv6 for 1.21 and later clusters that use version 1.10.1 or later of the Amazon VPC CNI add-on
         :param _builtins.str service_ipv4_cidr: The CIDR block to assign Kubernetes service IP addresses from. If you don't specify a block, Kubernetes assigns addresses from either the 10.100.0.0/16 or 172.20.0.0/16 CIDR blocks. We recommend that you specify a block that does not overlap with resources in other networks that are peered or connected to your VPC. 
@@ -864,6 +880,7 @@ class ClusterLoggingEnabledTypes(dict):
                  enabled_types: Optional[Sequence['outputs.ClusterLoggingTypeConfig']] = None):
         """
         The cluster control plane logging configuration for your cluster. 
+
         :param Sequence['ClusterLoggingTypeConfig'] enabled_types: The enabled control plane logs for your cluster. All log types are disabled if the array is empty.
                
                > When updating a resource, you must include this `EnabledTypes` property if the previous CloudFormation template of the resource had it.
@@ -891,6 +908,7 @@ class ClusterLoggingTypeConfig(dict):
                  type: Optional['ClusterLoggingTypeConfigType'] = None):
         """
         Enabled Logging Type
+
         :param 'ClusterLoggingTypeConfigType' type: name of the log type
         """
         if type is not None:
@@ -937,6 +955,7 @@ class ClusterOutpostConfig(dict):
                  control_plane_placement: Optional['outputs.ClusterControlPlanePlacement'] = None):
         """
         An object representing the Outpost configuration to use for AWS EKS outpost cluster.
+
         :param _builtins.str control_plane_instance_type: Specify the Instance type of the machines that should be used to create your cluster.
         :param Sequence[_builtins.str] outpost_arns: Specify one or more Arn(s) of Outpost(s) on which you would like to create your cluster.
         :param 'ClusterControlPlanePlacement' control_plane_placement: Specify the placement group of the control plane machines for your cluster.
@@ -1036,6 +1055,7 @@ class ClusterRemoteNetworkConfig(dict):
                  remote_pod_networks: Optional[Sequence['outputs.ClusterRemotePodNetwork']] = None):
         """
         Configuration fields for specifying on-premises node and pod CIDRs that are external to the VPC passed during cluster creation.
+
         :param Sequence['ClusterRemoteNodeNetwork'] remote_node_networks: Network configuration of nodes run on-premises with EKS Hybrid Nodes.
         :param Sequence['ClusterRemotePodNetwork'] remote_pod_networks: Network configuration of pods run on-premises with EKS Hybrid Nodes.
         """
@@ -1069,6 +1089,7 @@ class ClusterRemoteNodeNetwork(dict):
                  cidrs: Sequence[_builtins.str]):
         """
         Network configuration of nodes run on-premises with EKS Hybrid Nodes.
+
         :param Sequence[_builtins.str] cidrs: Specifies the list of remote node CIDRs.
         """
         pulumi.set(__self__, "cidrs", cidrs)
@@ -1091,6 +1112,7 @@ class ClusterRemotePodNetwork(dict):
                  cidrs: Sequence[_builtins.str]):
         """
         Network configuration of pods run on-premises with EKS Hybrid Nodes.
+
         :param Sequence[_builtins.str] cidrs: Specifies the list of remote pod CIDRs.
         """
         pulumi.set(__self__, "cidrs", cidrs)
@@ -1142,6 +1164,7 @@ class ClusterResourcesVpcConfig(dict):
                  security_group_ids: Optional[Sequence[_builtins.str]] = None):
         """
         An object representing the VPC configuration to use for an Amazon EKS cluster.
+
         :param Sequence[_builtins.str] subnet_ids: Specify subnets for your Amazon EKS nodes. Amazon EKS creates cross-account elastic network interfaces in these subnets to allow communication between your nodes and the Kubernetes control plane.
         :param _builtins.bool endpoint_private_access: Set this value to true to enable private access for your cluster's Kubernetes API server endpoint. If you enable private access, Kubernetes API requests from within your cluster's VPC use the private VPC endpoint. The default value for this parameter is false, which disables private access for your Kubernetes API server. If you disable private access and you have nodes or AWS Fargate pods in the cluster, then ensure that publicAccessCidrs includes the necessary CIDR blocks for communication with the nodes or Fargate pods.
         :param _builtins.bool endpoint_public_access: Set this value to false to disable public access to your cluster's Kubernetes API server endpoint. If you disable public access, your cluster's Kubernetes API server can only receive requests from within the cluster VPC. The default value for this parameter is true, which enables public access for your Kubernetes API server.
@@ -1225,6 +1248,7 @@ class ClusterStorageConfig(dict):
                  block_storage: Optional['outputs.ClusterBlockStorage'] = None):
         """
         Todo: add description
+
         :param 'ClusterBlockStorage' block_storage: Todo: add description
         """
         if block_storage is not None:
@@ -1265,6 +1289,7 @@ class ClusterUpgradePolicy(dict):
                  support_type: Optional['ClusterUpgradePolicySupportType'] = None):
         """
         An object representing the Upgrade Policy to use for the cluster.
+
         :param 'ClusterUpgradePolicySupportType' support_type: Specify the support type for your cluster.
         """
         if support_type is not None:
@@ -1288,6 +1313,7 @@ class ClusterZonalShiftConfig(dict):
                  enabled: Optional[_builtins.bool] = None):
         """
         The current zonal shift configuration to use for the cluster.
+
         :param _builtins.bool enabled: Set this value to true to enable zonal shift for the cluster.
         """
         if enabled is not None:
@@ -1312,6 +1338,7 @@ class FargateProfileLabel(dict):
                  value: _builtins.str):
         """
         A key-value pair to associate with a pod.
+
         :param _builtins.str key: The key name of the label.
         :param _builtins.str value: The value for the label. 
         """
@@ -1409,6 +1436,7 @@ class IdentityProviderConfigOidcIdentityProviderConfig(dict):
                  username_prefix: Optional[_builtins.str] = None):
         """
         An object representing an OpenID Connect (OIDC) configuration.
+
         :param _builtins.str client_id: This is also known as audience. The ID for the client application that makes authentication requests to the OpenID identity provider.
         :param _builtins.str issuer_url: The URL of the OpenID identity provider that allows the API server to discover public signing keys for verifying tokens.
         :param _builtins.str groups_claim: The JWT claim that the provider uses to return your groups.
@@ -1497,6 +1525,7 @@ class IdentityProviderConfigRequiredClaim(dict):
                  value: _builtins.str):
         """
         The key value pairs that describe required claims in the identity token. If set, each claim is verified to be present in the token with a matching value.
+
         :param _builtins.str key: The key of the requiredClaims.
         :param _builtins.str value: The value for the requiredClaims.
         """
@@ -1546,6 +1575,7 @@ class Logging(dict):
                  cluster_logging: Optional['outputs.ClusterLoggingEnabledTypes'] = None):
         """
         Enable exporting the Kubernetes control plane logs for your cluster to CloudWatch Logs based on log types. By default, cluster control plane logs aren't exported to CloudWatch Logs.
+
         :param 'ClusterLoggingEnabledTypes' cluster_logging: The cluster control plane logging configuration for your cluster. 
         """
         if cluster_logging is not None:
@@ -1569,6 +1599,7 @@ class NamespaceConfigProperties(dict):
                  namespace: _builtins.str):
         """
         The custom namespace configuration to use with the add-on
+
         :param _builtins.str namespace: The custom namespace for creating the add-on
         """
         pulumi.set(__self__, "namespace", namespace)
@@ -1593,6 +1624,7 @@ class NodegroupLaunchTemplateSpecification(dict):
                  version: Optional[_builtins.str] = None):
         """
         An object representing a launch template specification for AWS EKS Nodegroup.
+
         :param _builtins.str id: The ID of the launch template.
                
                You must specify either the launch template ID or the launch template name in the request, but not both. After node group creation, you cannot use a different ID.
@@ -1676,6 +1708,7 @@ class NodegroupNodeRepairConfig(dict):
                  node_repair_config_overrides: Optional[Sequence['outputs.NodegroupNodeRepairConfigOverrides']] = None):
         """
         The node auto repair configuration for node group.
+
         :param _builtins.bool enabled: Set this value to true to enable node auto repair for the node group.
         :param _builtins.int max_parallel_nodes_repaired_count: Specify the maximum number of nodes that can be repaired concurrently or in parallel, expressed as a count of unhealthy nodes. This gives you finer-grained control over the pace of node replacements. When using this, you cannot also set MaxParallelNodesRepairedPercentage at the same time.
         :param _builtins.int max_parallel_nodes_repaired_percentage: Specify the maximum number of nodes that can be repaired concurrently or in parallel, expressed as a percentage of unhealthy nodes. This gives you finer-grained control over the pace of node replacements. When using this, you cannot also set MaxParallelNodesRepairedCount at the same time.
@@ -1780,6 +1813,7 @@ class NodegroupNodeRepairConfigOverrides(dict):
                  repair_action: Optional['NodegroupNodeRepairConfigOverridesRepairAction'] = None):
         """
         Specify granular overrides for specific repair actions. These overrides control the repair action and the repair delay time before a node is considered eligible for repair. If you use this, you must specify all the values.
+
         :param _builtins.int min_repair_wait_time_mins: Specify the minimum time in minutes to wait before attempting to repair a node with this specific NodeMonitoringCondition and NodeUnhealthyReason.
         :param _builtins.str node_monitoring_condition: Specify an unhealthy condition reported by the node monitoring agent that this override would apply to.
         :param _builtins.str node_unhealthy_reason: Specify a reason reported by the node monitoring agent that this override would apply to.
@@ -1856,6 +1890,7 @@ class NodegroupRemoteAccess(dict):
                  source_security_groups: Optional[Sequence[_builtins.str]] = None):
         """
         An object representing a remote access configuration specification for AWS EKS Nodegroup.
+
         :param _builtins.str ec2_ssh_key: The Amazon EC2 SSH key name that provides access for SSH communication with the nodes in the managed node group. For more information, see [Amazon EC2 key pairs and Linux instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html) in the *Amazon Elastic Compute Cloud User Guide for Linux Instances* . For Windows, an Amazon EC2 SSH key is used to obtain the RDP password. For more information, see [Amazon EC2 key pairs and Windows instances](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ec2-key-pairs.html) in the *Amazon Elastic Compute Cloud User Guide for Windows Instances* .
         :param Sequence[_builtins.str] source_security_groups: The security group IDs that are allowed SSH access (port 22) to the nodes. For Windows, the port is 3389. If you specify an Amazon EC2 SSH key but don't specify a source security group when you create a managed node group, then the port on the nodes is opened to the internet ( `0.0.0.0/0` ). For more information, see [Security Groups for Your VPC](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html) in the *Amazon Virtual Private Cloud User Guide* .
         """
@@ -1912,6 +1947,7 @@ class NodegroupScalingConfig(dict):
                  min_size: Optional[_builtins.int] = None):
         """
         An object representing a auto scaling group specification for AWS EKS Nodegroup.
+
         :param _builtins.int desired_size: The current number of nodes that the managed node group should maintain.
                
                > If you use the Kubernetes [Cluster Autoscaler](https://docs.aws.amazon.com/https://github.com/kubernetes/autoscaler#kubernetes-autoscaler) , you shouldn't change the `desiredSize` value directly, as this can cause the Cluster Autoscaler to suddenly scale up or scale down. 
@@ -1971,6 +2007,7 @@ class NodegroupTaint(dict):
                  value: Optional[_builtins.str] = None):
         """
         An object representing a Taint specification for AWS EKS Nodegroup.
+
         :param _builtins.str effect: The effect of the taint.
         :param _builtins.str key: The key of the taint.
         :param _builtins.str value: The value of the taint.
@@ -2039,6 +2076,7 @@ class NodegroupUpdateConfig(dict):
                  update_strategy: Optional[_builtins.str] = None):
         """
         The node group update configuration.
+
         :param _builtins.float max_unavailable: The maximum number of nodes unavailable at once during a version update. Nodes will be updated in parallel. This value or maxUnavailablePercentage is required to have a value.The maximum number is 100. 
         :param _builtins.float max_unavailable_percentage: The maximum percentage of nodes unavailable during a version update. This percentage of nodes will be updated in parallel, up to 100 nodes at once. This value or maxUnavailable is required to have a value.
         :param _builtins.str update_strategy: The configuration for the behavior to follow during an node group version update of this managed node group. You choose between two possible strategies for replacing nodes during an UpdateNodegroupVersion action.

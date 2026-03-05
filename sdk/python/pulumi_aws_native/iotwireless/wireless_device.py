@@ -35,6 +35,7 @@ class WirelessDeviceArgs:
                  thing_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a WirelessDevice resource.
+
         :param pulumi.Input[_builtins.str] destination_name: Wireless device destination name
         :param pulumi.Input['WirelessDeviceType'] type: Wireless device type, currently only Sidewalk and LoRa
         :param pulumi.Input[_builtins.str] description: Wireless device description
@@ -190,6 +191,7 @@ class WirelessDevice(pulumi.CustomResource):
         """
         Create and manage wireless gateways, including LoRa gateways.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: Wireless device description
@@ -210,6 +212,7 @@ class WirelessDevice(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Create and manage wireless gateways, including LoRa gateways.
+
 
         :param str resource_name: The name of the resource.
         :param WirelessDeviceArgs args: The arguments to use to populate this resource's properties.

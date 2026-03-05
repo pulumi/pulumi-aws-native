@@ -33,6 +33,7 @@ class SequenceStoreArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a SequenceStore resource.
+
         :param pulumi.Input[_builtins.str] access_log_location: Location of the access logs.
         :param pulumi.Input[_builtins.str] description: A description for the store.
         :param pulumi.Input['SequenceStoreETagAlgorithmFamily'] e_tag_algorithm_family: The algorithm family of the ETag.
@@ -194,6 +195,7 @@ class SequenceStore(pulumi.CustomResource):
         """
         Resource Type definition for AWS::Omics::SequenceStore
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] access_log_location: Location of the access logs.
@@ -216,6 +218,7 @@ class SequenceStore(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::Omics::SequenceStore
+
 
         :param str resource_name: The name of the resource.
         :param SequenceStoreArgs args: The arguments to use to populate this resource's properties.

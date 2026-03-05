@@ -26,6 +26,7 @@ class VolumeAssociationArgs:
                  disassociate_mode: Optional[pulumi.Input['VolumeAssociationDisassociateMode']] = None):
         """
         The set of arguments for constructing a VolumeAssociation resource.
+
         :param pulumi.Input[_builtins.str] device: The device name for the volume attachment
         :param pulumi.Input[_builtins.str] volume_id: ID of the volume to attach to the workspace instance
         :param pulumi.Input[_builtins.str] workspace_instance_id: ID of the workspace instance to associate with the volume
@@ -100,6 +101,7 @@ class VolumeAssociation(pulumi.CustomResource):
         """
         Resource Type definition for AWS::WorkspacesInstances::VolumeAssociation
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] device: The device name for the volume attachment
@@ -115,6 +117,7 @@ class VolumeAssociation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::WorkspacesInstances::VolumeAssociation
+
 
         :param str resource_name: The name of the resource.
         :param VolumeAssociationArgs args: The arguments to use to populate this resource's properties.

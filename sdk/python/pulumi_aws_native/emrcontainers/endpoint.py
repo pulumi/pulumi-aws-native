@@ -33,6 +33,7 @@ class EndpointArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Endpoint resource.
+
         :param pulumi.Input[_builtins.str] execution_role_arn: The execution role ARN for the managed endpoint.
         :param pulumi.Input[_builtins.str] release_label: The Amazon EMR release label.
         :param pulumi.Input[_builtins.str] type: The type of the managed endpoint.
@@ -154,6 +155,7 @@ class Endpoint(pulumi.CustomResource):
         """
         Resource Schema of AWS::EMRContainers::Endpoint Type
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['EndpointConfigurationOverridesArgs', 'EndpointConfigurationOverridesArgsDict']] configuration_overrides: The configuration overrides for the managed endpoint.
@@ -172,6 +174,7 @@ class Endpoint(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Schema of AWS::EMRContainers::Endpoint Type
+
 
         :param str resource_name: The name of the resource.
         :param EndpointArgs args: The arguments to use to populate this resource's properties.

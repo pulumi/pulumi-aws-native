@@ -24,6 +24,7 @@ class SessionArgs:
                  status: Optional[pulumi.Input['SessionStatus']] = None):
         """
         The set of arguments for constructing a Session resource.
+
         :param pulumi.Input['SessionFindingPublishingFrequency'] finding_publishing_frequency: A enumeration value that specifies how frequently finding updates are published.
         :param pulumi.Input['SessionStatus'] status: A enumeration value that specifies the status of the Macie Session.
         """
@@ -69,6 +70,7 @@ class Session(pulumi.CustomResource):
         """
         The AWS::Macie::Session resource specifies a new Amazon Macie session. A session is an object that represents the Amazon Macie service. A session is required for Amazon Macie to become operational.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input['SessionFindingPublishingFrequency'] finding_publishing_frequency: A enumeration value that specifies how frequently finding updates are published.
@@ -82,6 +84,7 @@ class Session(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The AWS::Macie::Session resource specifies a new Amazon Macie session. A session is an object that represents the Amazon Macie service. A session is required for Amazon Macie to become operational.
+
 
         :param str resource_name: The name of the resource.
         :param SessionArgs args: The arguments to use to populate this resource's properties.

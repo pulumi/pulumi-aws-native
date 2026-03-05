@@ -32,6 +32,7 @@ class AutomationRuleArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a AutomationRule resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['AutomationRulesActionArgs']]] actions: One or more actions to update finding fields if a finding matches the conditions specified in ``Criteria``.
         :param pulumi.Input['AutomationRulesFindingFiltersArgs'] criteria: A set of [Security Finding Format (ASFF)](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-findings-format.html) finding field attributes and corresponding expected values that ASH uses to filter findings. If a rule is enabled and a finding matches the criteria specified in this parameter, ASH applies the rule action to the finding.
         :param pulumi.Input[_builtins.str] description: A description of the rule.
@@ -727,6 +728,7 @@ class AutomationRule(pulumi.CustomResource):
 
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['AutomationRulesActionArgs', 'AutomationRulesActionArgsDict']]]] actions: One or more actions to update finding fields if a finding matches the conditions specified in ``Criteria``.
@@ -1304,6 +1306,7 @@ class AutomationRule(pulumi.CustomResource):
             })
 
         ```
+
 
         :param str resource_name: The name of the resource.
         :param AutomationRuleArgs args: The arguments to use to populate this resource's properties.

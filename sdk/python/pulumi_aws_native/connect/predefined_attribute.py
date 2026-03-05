@@ -28,6 +28,7 @@ class PredefinedAttributeArgs:
                  values: Optional[pulumi.Input['ValuesPropertiesArgs']] = None):
         """
         The set of arguments for constructing a PredefinedAttribute resource.
+
         :param pulumi.Input[_builtins.str] instance_arn: The identifier of the Amazon Connect instance.
         :param pulumi.Input['AttributeConfigurationPropertiesArgs'] attribute_configuration: Custom metadata associated to a Predefined attribute that controls how the attribute behaves when used by upstream services.
         :param pulumi.Input[_builtins.str] name: The name of the predefined attribute.
@@ -120,6 +121,7 @@ class PredefinedAttribute(pulumi.CustomResource):
         """
         Resource Type definition for AWS::Connect::PredefinedAttribute
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['AttributeConfigurationPropertiesArgs', 'AttributeConfigurationPropertiesArgsDict']] attribute_configuration: Custom metadata associated to a Predefined attribute that controls how the attribute behaves when used by upstream services.
@@ -136,6 +138,7 @@ class PredefinedAttribute(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::Connect::PredefinedAttribute
+
 
         :param str resource_name: The name of the resource.
         :param PredefinedAttributeArgs args: The arguments to use to populate this resource's properties.

@@ -87,6 +87,7 @@ class ComponentLatestVersion(dict):
                  patch: Optional[_builtins.str] = None):
         """
         The latest version references of the component.
+
         :param _builtins.str arn: The latest version ARN of the created component.
         :param _builtins.str major: The latest version ARN of the created component, with the same major version.
         :param _builtins.str minor: The latest version ARN of the created component, with the same minor version.
@@ -161,6 +162,7 @@ class ContainerRecipeComponentConfiguration(dict):
                  parameters: Optional[Sequence['outputs.ContainerRecipeComponentParameter']] = None):
         """
         Configuration details of the component.
+
         :param _builtins.str component_arn: The Amazon Resource Name (ARN) of the component.
         :param Sequence['ContainerRecipeComponentParameter'] parameters: A group of parameter settings that are used to configure the component for a specific recipe.
         """
@@ -196,6 +198,7 @@ class ContainerRecipeComponentParameter(dict):
                  value: Sequence[_builtins.str]):
         """
         Contains a key/value pair that sets the named component parameter.
+
         :param _builtins.str name: The name of the component parameter to set.
         :param Sequence[_builtins.str] value: Sets the value for the named component parameter.
         """
@@ -260,6 +263,7 @@ class ContainerRecipeEbsInstanceBlockDeviceSpecification(dict):
                  volume_type: Optional['ContainerRecipeEbsInstanceBlockDeviceSpecificationVolumeType'] = None):
         """
         Amazon EBS-specific block device mapping specifications. 
+
         :param _builtins.bool delete_on_termination: Use to configure delete on termination of the associated device.
         :param _builtins.bool encrypted: Use to configure device encryption.
         :param _builtins.int iops: Use to configure device IOPS.
@@ -384,6 +388,7 @@ class ContainerRecipeInstanceBlockDeviceMapping(dict):
                  virtual_name: Optional[_builtins.str] = None):
         """
         Defines block device mappings for the instance used to configure your image. 
+
         :param _builtins.str device_name: The device to which these mappings apply.
         :param 'ContainerRecipeEbsInstanceBlockDeviceSpecification' ebs: Use to manage Amazon EBS-specific configuration for this mapping.
         :param _builtins.str no_device: Use to remove a mapping from the parent image.
@@ -458,6 +463,7 @@ class ContainerRecipeInstanceConfiguration(dict):
                  image: Optional[_builtins.str] = None):
         """
         A group of options that can be used to configure an instance for building and testing container images.
+
         :param Sequence['ContainerRecipeInstanceBlockDeviceMapping'] block_device_mappings: Defines the block devices to attach for building an instance from this Image Builder AMI.
         :param _builtins.str image: The AMI ID to use as the base image for a container build and test instance. If not specified, Image Builder will use the appropriate ECS-optimized AMI as a base image.
         """
@@ -495,6 +501,7 @@ class ContainerRecipeLatestVersion(dict):
                  patch: Optional[_builtins.str] = None):
         """
         The latest version references of the container recipe.
+
         :param _builtins.str arn: The latest version ARN of the created container recipe.
         :param _builtins.str major: The latest version ARN of the created container recipe, with the same major version.
         :param _builtins.str minor: The latest version ARN of the created container recipe, with the same minor version.
@@ -569,6 +576,7 @@ class ContainerRecipeTargetContainerRepository(dict):
                  service: Optional['ContainerRecipeTargetContainerRepositoryService'] = None):
         """
         The container repository where the output container image is stored.
+
         :param _builtins.str repository_name: The name of the container repository where the output container image is stored. This name is prefixed by the repository location.
         :param 'ContainerRecipeTargetContainerRepositoryService' service: Specifies the service in which this image was registered.
         """
@@ -631,6 +639,7 @@ class DistributionConfigurationAmiDistributionConfiguration(dict):
                  target_account_ids: Optional[Sequence[_builtins.str]] = None):
         """
         The specific AMI settings (for example, launch permissions, AMI tags).
+
         :param Mapping[str, _builtins.str] ami_tags: The tags to apply to AMIs distributed to this Region.
         :param _builtins.str description: The description of the AMI distribution configuration.
         :param _builtins.str kms_key_id: The KMS key identifier used to encrypt the distributed image.
@@ -730,6 +739,7 @@ class DistributionConfigurationContainerDistributionConfiguration(dict):
                  target_repository: Optional['outputs.DistributionConfigurationTargetContainerRepository'] = None):
         """
         Container distribution settings for encryption, licensing, and sharing in a specific Region.
+
         :param Sequence[_builtins.str] container_tags: Tags that are attached to the container distribution configuration.
         :param _builtins.str description: The description of the container distribution configuration.
         :param 'DistributionConfigurationTargetContainerRepository' target_repository: The destination repository for the container distribution configuration.
@@ -808,6 +818,7 @@ class DistributionConfigurationDistribution(dict):
                  ssm_parameter_configurations: Optional[Sequence['outputs.DistributionConfigurationSsmParameterConfiguration']] = None):
         """
         The distributions of the distribution configuration.
+
         :param _builtins.str region: region
         :param 'DistributionConfigurationAmiDistributionConfiguration' ami_distribution_configuration: The specific AMI settings, such as launch permissions and AMI tags. For details, see example schema below.
         :param 'DistributionConfigurationContainerDistributionConfiguration' container_distribution_configuration: Container distribution settings for encryption, licensing, and sharing in a specific Region. For details, see example schema below.
@@ -923,6 +934,7 @@ class DistributionConfigurationFastLaunchConfiguration(dict):
                  snapshot_configuration: Optional['outputs.DistributionConfigurationFastLaunchSnapshotConfiguration'] = None):
         """
         The Windows faster-launching configuration to use for AMI distribution.
+
         :param _builtins.str account_id: The owner account ID for the fast-launch enabled Windows AMI.
         :param _builtins.bool enabled: A Boolean that represents the current state of faster launching for the Windows AMI. Set to true to start using Windows faster launching, or false to stop using it.
         :param 'DistributionConfigurationFastLaunchLaunchTemplateSpecification' launch_template: The launch template that the fast-launch enabled Windows AMI uses when it launches Windows instances to create pre-provisioned snapshots.
@@ -1013,6 +1025,7 @@ class DistributionConfigurationFastLaunchLaunchTemplateSpecification(dict):
                  launch_template_version: Optional[_builtins.str] = None):
         """
         The launch template that the fast-launch enabled Windows AMI uses when it launches Windows instances to create pre-provisioned snapshots.
+
         :param _builtins.str launch_template_id: The ID of the launch template to use for faster launching for a Windows AMI.
         :param _builtins.str launch_template_name: The name of the launch template to use for faster launching for a Windows AMI.
         :param _builtins.str launch_template_version: The version of the launch template to use for faster launching for a Windows AMI.
@@ -1075,6 +1088,7 @@ class DistributionConfigurationFastLaunchSnapshotConfiguration(dict):
                  target_resource_count: Optional[_builtins.int] = None):
         """
         Configuration settings for managing the number of snapshots that are created from pre-provisioned instances for the Windows AMI when faster launching is enabled.
+
         :param _builtins.int target_resource_count: The number of pre-provisioned snapshots to keep on hand for a fast-launch enabled Windows AMI.
         """
         if target_resource_count is not None:
@@ -1124,6 +1138,7 @@ class DistributionConfigurationLaunchPermissionConfiguration(dict):
                  user_ids: Optional[Sequence[_builtins.str]] = None):
         """
         Launch permissions can be used to configure which AWS accounts can use the AMI to launch instances.
+
         :param Sequence[_builtins.str] organization_arns: The ARN for an Amazon Web Services Organization that you want to share your AMI with.
         :param Sequence[_builtins.str] organizational_unit_arns: The ARN for an Organizations organizational unit (OU) that you want to share your AMI with.
         :param Sequence[_builtins.str] user_groups: The name of the group.
@@ -1203,6 +1218,7 @@ class DistributionConfigurationLaunchTemplateConfiguration(dict):
                  set_default_version: Optional[_builtins.bool] = None):
         """
         launchTemplateConfiguration settings that apply to image distribution.
+
         :param _builtins.str account_id: The account ID that this configuration applies to.
         :param _builtins.str launch_template_id: Identifies the EC2 launch template to use.
         :param _builtins.bool set_default_version: Set the specified EC2 launch template as the default launch template for the specified account.
@@ -1271,6 +1287,7 @@ class DistributionConfigurationSsmParameterConfiguration(dict):
                  data_type: Optional['DistributionConfigurationSsmParameterConfigurationDataType'] = None):
         """
         The SSM parameter configuration for AMI distribution.
+
         :param _builtins.str parameter_name: The name of the SSM parameter.
         :param _builtins.str ami_account_id: The account ID for the AMI to update the parameter with.
         :param 'DistributionConfigurationSsmParameterConfigurationDataType' data_type: The data type of the SSM parameter.
@@ -1333,6 +1350,7 @@ class DistributionConfigurationTargetContainerRepository(dict):
                  service: Optional['DistributionConfigurationTargetContainerRepositoryService'] = None):
         """
         The destination repository for the container image.
+
         :param _builtins.str repository_name: The repository name of target container repository.
         :param 'DistributionConfigurationTargetContainerRepositoryService' service: The service of target container repository.
         """
@@ -1384,6 +1402,7 @@ class ImageDeletionSettings(dict):
                  execution_role: _builtins.str):
         """
         The deletion settings of the image, indicating whether to delete the underlying resources in addition to the image.
+
         :param _builtins.str execution_role: The execution role to use for deleting the image, as well as underlying resources.
         """
         pulumi.set(__self__, "execution_role", execution_role)
@@ -1426,6 +1445,7 @@ class ImageEcrConfiguration(dict):
                  repository_name: Optional[_builtins.str] = None):
         """
         Settings for Image Builder to configure the ECR repository and output container images that are scanned.
+
         :param Sequence[_builtins.str] container_tags: Tags for Image Builder to apply the output container image that is scanned. Tags can help you identify and manage your scanned images.
         :param _builtins.str repository_name: The name of the container repository that Amazon Inspector scans to identify findings for your container images. The name includes the path for the repository location. If you don’t provide this information, Image Builder creates a repository in your account named image-builder-image-scanning-repository to use for vulnerability scans for your output container images.
         """
@@ -1463,6 +1483,7 @@ class ImageLatestVersion(dict):
                  patch: Optional[_builtins.str] = None):
         """
         The latest version references of the image.
+
         :param _builtins.str arn: The latest version ARN of the created image.
         :param _builtins.str major: The latest version ARN of the created image, with the same major version.
         :param _builtins.str minor: The latest version ARN of the created image, with the same minor version.
@@ -1536,6 +1557,7 @@ class ImageLoggingConfiguration(dict):
                  log_group_name: Optional[_builtins.str] = None):
         """
         The logging configuration settings for the image.
+
         :param _builtins.str log_group_name: The name of the log group for image build logs.
         """
         if log_group_name is not None:
@@ -1576,6 +1598,7 @@ class ImagePipelineAutoDisablePolicy(dict):
                  failure_count: _builtins.int):
         """
         The auto-disable policy configuration for the image pipeline.
+
         :param _builtins.int failure_count: The number of consecutive failures after which the pipeline should be automatically disabled.
         """
         pulumi.set(__self__, "failure_count", failure_count)
@@ -1618,6 +1641,7 @@ class ImagePipelineEcrConfiguration(dict):
                  repository_name: Optional[_builtins.str] = None):
         """
         Settings for Image Builder to configure the ECR repository and output container images that are scanned.
+
         :param Sequence[_builtins.str] container_tags: Tags for Image Builder to apply the output container image that is scanned. Tags can help you identify and manage your scanned images.
         :param _builtins.str repository_name: The name of the container repository that Amazon Inspector scans to identify findings for your container images. The name includes the path for the repository location. If you don't provide this information, Image Builder creates a repository in your account named image-builder-image-scanning-repository to use for vulnerability scans for your output container images.
         """
@@ -1672,6 +1696,7 @@ class ImagePipelineExecutionSettings(dict):
                  on_update: Optional[_builtins.bool] = None):
         """
         The settings for starting an image pipeline execution.
+
         :param _builtins.str deployment_id: The deployment ID of the pipeline, used to trigger new image pipeline executions.
         :param _builtins.bool on_update: Whether to trigger the image pipeline when the pipeline is updated. False by default.
         """
@@ -1726,6 +1751,7 @@ class ImagePipelineImageScanningConfiguration(dict):
                  image_scanning_enabled: Optional[_builtins.bool] = None):
         """
         Determines if tests should run after building the image. Image Builder defaults to enable tests to run following the image build, before image distribution.
+
         :param 'ImagePipelineEcrConfiguration' ecr_configuration: Contains ECR settings for vulnerability scans.
         :param _builtins.bool image_scanning_enabled: This sets whether Image Builder keeps a snapshot of the vulnerability scans that Amazon Inspector runs against the build instance when you create a new image.
         """
@@ -1780,6 +1806,7 @@ class ImagePipelineImageTestsConfiguration(dict):
                  timeout_minutes: Optional[_builtins.int] = None):
         """
         Image tests configuration.
+
         :param _builtins.bool image_tests_enabled: Defines if tests should be executed when building this image.
         :param _builtins.int timeout_minutes: The maximum time in minutes that tests are permitted to run.
         """
@@ -1834,6 +1861,7 @@ class ImagePipelinePipelineLoggingConfiguration(dict):
                  pipeline_log_group_name: Optional[_builtins.str] = None):
         """
         The logging configuration settings for the image pipeline.
+
         :param _builtins.str image_log_group_name: The name of the log group for image build logs.
         :param _builtins.str pipeline_log_group_name: The name of the log group for pipeline execution logs.
         """
@@ -1891,6 +1919,7 @@ class ImagePipelineSchedule(dict):
                  schedule_expression: Optional[_builtins.str] = None):
         """
         The schedule of the image pipeline.
+
         :param 'ImagePipelineAutoDisablePolicy' auto_disable_policy: The auto-disable policy for the image pipeline.
         :param 'ImagePipelineSchedulePipelineExecutionStartCondition' pipeline_execution_start_condition: The condition configures when the pipeline should trigger a new image build.
         :param _builtins.str schedule_expression: The expression determines how often EC2 Image Builder evaluates your pipelineExecutionStartCondition.
@@ -1960,6 +1989,7 @@ class ImagePipelineWorkflowConfiguration(dict):
                  workflow_arn: Optional[_builtins.str] = None):
         """
         The workflow configuration of the image
+
         :param 'ImagePipelineWorkflowConfigurationOnFailure' on_failure: Define execution decision in case of workflow failure
         :param _builtins.str parallel_group: The parallel group name
         :param Sequence['ImagePipelineWorkflowParameter'] parameters: The parameters associated with the workflow
@@ -2017,6 +2047,7 @@ class ImagePipelineWorkflowParameter(dict):
                  value: Optional[Sequence[_builtins.str]] = None):
         """
         A parameter associated with the workflow
+
         :param _builtins.str name: The name of the workflow parameter to set.
         :param Sequence[_builtins.str] value: Sets the value for the named workflow parameter.
         """
@@ -2071,6 +2102,7 @@ class ImageRecipeAdditionalInstanceConfiguration(dict):
                  user_data_override: Optional[_builtins.str] = None):
         """
         Specify additional settings and launch scripts for your build instances.
+
         :param 'ImageRecipeSystemsManagerAgent' systems_manager_agent: Contains settings for the SSM agent on your build instance.
         :param _builtins.str user_data_override: Use this property to provide commands or a command script to run when you launch your build instance.
         """
@@ -2123,6 +2155,7 @@ class ImageRecipeComponentConfiguration(dict):
                  parameters: Optional[Sequence['outputs.ImageRecipeComponentParameter']] = None):
         """
         Configuration details of the component.
+
         :param _builtins.str component_arn: The Amazon Resource Name (ARN) of the component.
         :param Sequence['ImageRecipeComponentParameter'] parameters: A group of parameter settings that are used to configure the component for a specific recipe.
         """
@@ -2158,6 +2191,7 @@ class ImageRecipeComponentParameter(dict):
                  value: Sequence[_builtins.str]):
         """
         Contains a key/value pair that sets the named component parameter.
+
         :param _builtins.str name: The name of the component parameter to set.
         :param Sequence[_builtins.str] value: Sets the value for the named component parameter.
         """
@@ -2222,6 +2256,7 @@ class ImageRecipeEbsInstanceBlockDeviceSpecification(dict):
                  volume_type: Optional['ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeType'] = None):
         """
         Amazon EBS-specific block device mapping specifications. 
+
         :param _builtins.bool delete_on_termination: Use to configure delete on termination of the associated device.
         :param _builtins.bool encrypted: Use to configure device encryption.
         :param _builtins.int iops: Use to configure device IOPS.
@@ -2346,6 +2381,7 @@ class ImageRecipeInstanceBlockDeviceMapping(dict):
                  virtual_name: Optional[_builtins.str] = None):
         """
         Defines block device mappings for the instance used to configure your image. 
+
         :param _builtins.str device_name: The device to which these mappings apply.
         :param 'ImageRecipeEbsInstanceBlockDeviceSpecification' ebs: Use to manage Amazon EBS-specific configuration for this mapping.
         :param _builtins.str no_device: Use to remove a mapping from the parent image.
@@ -2405,6 +2441,7 @@ class ImageRecipeLatestVersion(dict):
                  patch: Optional[_builtins.str] = None):
         """
         The latest version references of the image recipe.
+
         :param _builtins.str arn: The latest version ARN of the created image recipe.
         :param _builtins.str major: The latest version ARN of the created image recipe, with the same major version.
         :param _builtins.str minor: The latest version ARN of the created image recipe, with the same minor version.
@@ -2478,6 +2515,7 @@ class ImageRecipeSystemsManagerAgent(dict):
                  uninstall_after_build: Optional[_builtins.bool] = None):
         """
         Contains settings for the SSM agent on your build instance.
+
         :param _builtins.bool uninstall_after_build: Controls whether the SSM agent is removed from your final build image, prior to creating the new AMI. If this is set to true, then the agent is removed from the final image. If it's set to false, then the agent is left in, so that it is included in the new AMI. The default value is false.
         """
         if uninstall_after_build is not None:
@@ -2521,6 +2559,7 @@ class ImageScanningConfiguration(dict):
                  image_scanning_enabled: Optional[_builtins.bool] = None):
         """
         Contains settings for Image Builder image resource and container image scans.
+
         :param 'ImageEcrConfiguration' ecr_configuration: Contains ECR settings for vulnerability scans.
         :param _builtins.bool image_scanning_enabled: This sets whether Image Builder keeps a snapshot of the vulnerability scans that Amazon Inspector runs against the build instance when you create a new image.
         """
@@ -2575,6 +2614,7 @@ class ImageTestsConfiguration(dict):
                  timeout_minutes: Optional[_builtins.int] = None):
         """
         The image tests configuration used when creating this image.
+
         :param _builtins.bool image_tests_enabled: ImageTestsEnabled
         :param _builtins.int timeout_minutes: TimeoutMinutes
         """
@@ -2633,6 +2673,7 @@ class ImageWorkflowConfiguration(dict):
                  workflow_arn: Optional[_builtins.str] = None):
         """
         The workflow configuration of the image
+
         :param 'ImageWorkflowConfigurationOnFailure' on_failure: Define execution decision in case of workflow failure
         :param _builtins.str parallel_group: The parallel group name
         :param Sequence['ImageWorkflowParameter'] parameters: The parameters associated with the workflow
@@ -2690,6 +2731,7 @@ class ImageWorkflowParameter(dict):
                  value: Optional[Sequence[_builtins.str]] = None):
         """
         A parameter associated with the workflow
+
         :param _builtins.str name: The name of the workflow parameter to set.
         :param Sequence[_builtins.str] value: Sets the value for the named workflow parameter.
         """
@@ -2744,6 +2786,7 @@ class InfrastructureConfigurationInstanceMetadataOptions(dict):
                  http_tokens: Optional['InfrastructureConfigurationInstanceMetadataOptionsHttpTokens'] = None):
         """
         The instance metadata option settings for the infrastructure configuration.
+
         :param _builtins.int http_put_response_hop_limit: Limit the number of hops that an instance metadata request can traverse to reach its destination.
         :param 'InfrastructureConfigurationInstanceMetadataOptionsHttpTokens' http_tokens: Indicates whether a signed token header is required for instance metadata retrieval requests. The values affect the response as follows: 
         """
@@ -2795,6 +2838,7 @@ class InfrastructureConfigurationLogging(dict):
                  s3_logs: Optional['outputs.InfrastructureConfigurationS3Logs'] = None):
         """
         The logging configuration of the infrastructure configuration.
+
         :param 'InfrastructureConfigurationS3Logs' s3_logs: The Amazon S3 logging configuration.
         """
         if s3_logs is not None:
@@ -2842,6 +2886,7 @@ class InfrastructureConfigurationPlacement(dict):
                  tenancy: Optional['InfrastructureConfigurationPlacementTenancy'] = None):
         """
         The placement options
+
         :param _builtins.str availability_zone: AvailabilityZone
         :param _builtins.str host_id: HostId
         :param _builtins.str host_resource_group_arn: HostResourceGroupArn
@@ -2918,6 +2963,7 @@ class InfrastructureConfigurationS3Logs(dict):
                  s3_key_prefix: Optional[_builtins.str] = None):
         """
         The S3 path in which to store the logs.
+
         :param _builtins.str s3_bucket_name: S3BucketName
         :param _builtins.str s3_key_prefix: S3KeyPrefix
         """
@@ -2970,6 +3016,7 @@ class LifecyclePolicyAction(dict):
                  include_resources: Optional['outputs.LifecyclePolicyIncludeResources'] = None):
         """
         The action of the policy detail.
+
         :param 'LifecyclePolicyActionType' type: The action type of the policy detail.
         :param 'LifecyclePolicyIncludeResources' include_resources: Specifies the resources that the lifecycle policy applies to.
         """
@@ -3030,6 +3077,7 @@ class LifecyclePolicyAmiExclusionRules(dict):
                  tag_map: Optional[Mapping[str, _builtins.str]] = None):
         """
         The AMI exclusion rules for the policy detail.
+
         :param _builtins.bool is_public: Use to apply lifecycle policy actions on whether the AMI is public.
         :param 'LifecyclePolicyLastLaunched' last_launched: Use to apply lifecycle policy actions on AMIs launched before a certain time.
         :param Sequence[_builtins.str] regions: Use to apply lifecycle policy actions on AMIs distributed to a set of regions.
@@ -3115,6 +3163,7 @@ class LifecyclePolicyExclusionRules(dict):
                  tag_map: Optional[Mapping[str, _builtins.str]] = None):
         """
         The exclusion rules to apply of the policy detail.
+
         :param 'LifecyclePolicyAmiExclusionRules' amis: Lists configuration values that apply to AMIs that Image Builder should exclude from the lifecycle action.
         :param Mapping[str, _builtins.str] tag_map: The Image Builder tags to filter on.
         """
@@ -3169,6 +3218,7 @@ class LifecyclePolicyFilter(dict):
                  unit: Optional['LifecyclePolicyTimeUnit'] = None):
         """
         The filters to apply of the policy detail.
+
         :param 'LifecyclePolicyFilterType' type: The filter type.
         :param _builtins.int value: The filter value.
         :param _builtins.int retain_at_least: The minimum number of Image Builder resources to retain.
@@ -3225,6 +3275,7 @@ class LifecyclePolicyIncludeResources(dict):
                  snapshots: Optional[_builtins.bool] = None):
         """
         The included resources of the policy detail.
+
         :param _builtins.bool amis: Use to configure lifecycle actions on AMIs.
         :param _builtins.bool containers: Use to configure lifecycle actions on containers.
         :param _builtins.bool snapshots: Use to configure lifecycle actions on snapshots.
@@ -3271,6 +3322,7 @@ class LifecyclePolicyLastLaunched(dict):
                  value: _builtins.int):
         """
         The last launched time of a resource.
+
         :param 'LifecyclePolicyTimeUnit' unit: The value's time unit.
         :param _builtins.int value: The last launched value.
         """
@@ -3322,6 +3374,7 @@ class LifecyclePolicyPolicyDetail(dict):
                  exclusion_rules: Optional['outputs.LifecyclePolicyExclusionRules'] = None):
         """
         The policy detail of the lifecycle policy.
+
         :param 'LifecyclePolicyAction' action: Configuration details for the policy action.
         :param 'LifecyclePolicyFilter' filter: Specifies the resources that the lifecycle policy applies to.
         :param 'LifecyclePolicyExclusionRules' exclusion_rules: Additional rules to specify resources that should be exempt from policy actions.
@@ -3383,6 +3436,7 @@ class LifecyclePolicyRecipeSelection(dict):
                  semantic_version: _builtins.str):
         """
         The recipe to apply the lifecycle policy for.
+
         :param _builtins.str name: The recipe name.
         :param _builtins.str semantic_version: The recipe version.
         """
@@ -3433,6 +3487,7 @@ class LifecyclePolicyResourceSelection(dict):
                  tag_map: Optional[Mapping[str, _builtins.str]] = None):
         """
         The resource selection for the lifecycle policy.
+
         :param Sequence['LifecyclePolicyRecipeSelection'] recipes: The recipes to select.
         :param Mapping[str, _builtins.str] tag_map: The Image Builder resources to select by tag.
         """
@@ -3470,6 +3525,7 @@ class WorkflowLatestVersion(dict):
                  patch: Optional[_builtins.str] = None):
         """
         The latest version references of the workflow.
+
         :param _builtins.str arn: The latest version ARN of the created workflow.
         :param _builtins.str major: The latest version ARN of the created workflow, with the same major version.
         :param _builtins.str minor: The latest version ARN of the created workflow, with the same minor version.

@@ -64,6 +64,7 @@ class ExperimentTemplateAction(dict):
                  targets: Optional[Mapping[str, _builtins.str]] = None):
         """
         Specifies an action for the experiment template.
+
         :param _builtins.str action_id: The ID of the action.
         :param _builtins.str description: A description for the action.
         :param Mapping[str, _builtins.str] parameters: The parameters for the action, if applicable.
@@ -587,6 +588,7 @@ class ExperimentTemplateTarget(dict):
                  resource_tags: Optional[Mapping[str, _builtins.str]] = None):
         """
         Specifies a target for an experiment.
+
         :param _builtins.str resource_type: The resource type.
         :param _builtins.str selection_mode: Scopes the identified resources to a specific count or percentage.
         :param Sequence['ExperimentTemplateTargetFilter'] filters: The filters to apply to identify target resources using specific attributes.

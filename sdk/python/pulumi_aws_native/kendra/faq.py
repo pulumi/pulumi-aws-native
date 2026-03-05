@@ -34,6 +34,7 @@ class FaqArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Faq resource.
+
         :param pulumi.Input[_builtins.str] index_id: Index ID
         :param pulumi.Input[_builtins.str] role_arn: FAQ role ARN
         :param pulumi.Input['FaqS3PathArgs'] s3_path: FAQ S3 path
@@ -172,6 +173,7 @@ class Faq(pulumi.CustomResource):
         """
         A Kendra FAQ resource
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: FAQ description
@@ -191,6 +193,7 @@ class Faq(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A Kendra FAQ resource
+
 
         :param str resource_name: The name of the resource.
         :param FaqArgs args: The arguments to use to populate this resource's properties.

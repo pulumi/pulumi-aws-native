@@ -25,6 +25,7 @@ class PortfolioShareArgs:
                  share_tag_options: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a PortfolioShare resource.
+
         :param pulumi.Input[_builtins.str] account_id: The AWS account ID.
         :param pulumi.Input[_builtins.str] portfolio_id: The portfolio identifier.
         :param pulumi.Input[_builtins.str] accept_language: The language code.
@@ -100,6 +101,7 @@ class PortfolioShare(pulumi.CustomResource):
         """
         Resource Type definition for AWS::ServiceCatalog::PortfolioShare
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] accept_language: The language code.
@@ -115,6 +117,7 @@ class PortfolioShare(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::ServiceCatalog::PortfolioShare
+
 
         :param str resource_name: The name of the resource.
         :param PortfolioShareArgs args: The arguments to use to populate this resource's properties.

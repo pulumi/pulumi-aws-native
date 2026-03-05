@@ -34,6 +34,7 @@ class KnowledgeBaseArgs:
                  vector_ingestion_configuration: Optional[pulumi.Input['KnowledgeBaseVectorIngestionConfigurationArgs']] = None):
         """
         The set of arguments for constructing a KnowledgeBase resource.
+
         :param pulumi.Input['KnowledgeBaseType'] knowledge_base_type: The type of knowledge base. Only CUSTOM knowledge bases allow you to upload your own content. EXTERNAL knowledge bases support integrations with third-party systems whose content is synchronized automatically.
         :param pulumi.Input[_builtins.str] description: The description.
         :param pulumi.Input[_builtins.str] name: The name of the knowledge base.
@@ -174,6 +175,7 @@ class KnowledgeBase(pulumi.CustomResource):
         """
         Definition of AWS::Wisdom::KnowledgeBase Resource Type
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: The description.
@@ -193,6 +195,7 @@ class KnowledgeBase(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of AWS::Wisdom::KnowledgeBase Resource Type
+
 
         :param str resource_name: The name of the resource.
         :param KnowledgeBaseArgs args: The arguments to use to populate this resource's properties.

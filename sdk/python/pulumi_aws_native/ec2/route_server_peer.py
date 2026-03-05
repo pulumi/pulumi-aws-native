@@ -30,6 +30,7 @@ class RouteServerPeerArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a RouteServerPeer resource.
+
         :param pulumi.Input['RouteServerPeerBgpOptionsArgs'] bgp_options: The BGP configuration options for this peer, including ASN (Autonomous System Number) and BFD (Bidrectional Forwarding Detection) settings.
         :param pulumi.Input[_builtins.str] peer_address: IP address of the Route Server Peer
         :param pulumi.Input[_builtins.str] route_server_endpoint_id: Route Server Endpoint ID
@@ -104,6 +105,7 @@ class RouteServerPeer(pulumi.CustomResource):
         """
         VPC Route Server Peer
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['RouteServerPeerBgpOptionsArgs', 'RouteServerPeerBgpOptionsArgsDict']] bgp_options: The BGP configuration options for this peer, including ASN (Autonomous System Number) and BFD (Bidrectional Forwarding Detection) settings.
@@ -119,6 +121,7 @@ class RouteServerPeer(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         VPC Route Server Peer
+
 
         :param str resource_name: The name of the resource.
         :param RouteServerPeerArgs args: The arguments to use to populate this resource's properties.

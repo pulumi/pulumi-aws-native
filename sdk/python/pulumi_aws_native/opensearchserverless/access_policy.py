@@ -26,6 +26,7 @@ class AccessPolicyArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a AccessPolicy resource.
+
         :param pulumi.Input[_builtins.str] policy: The JSON policy document that is the content for the policy
         :param pulumi.Input['AccessPolicyType'] type: The type of access policy. Currently the only option is `data` .
         :param pulumi.Input[_builtins.str] description: The description of the policy
@@ -101,6 +102,7 @@ class AccessPolicy(pulumi.CustomResource):
         """
         Amazon OpenSearchServerless access policy resource
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: The description of the policy
@@ -116,6 +118,7 @@ class AccessPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Amazon OpenSearchServerless access policy resource
+
 
         :param str resource_name: The name of the resource.
         :param AccessPolicyArgs args: The arguments to use to populate this resource's properties.

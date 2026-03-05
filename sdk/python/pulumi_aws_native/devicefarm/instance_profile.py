@@ -29,6 +29,7 @@ class InstanceProfileArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a InstanceProfile resource.
+
         :param pulumi.Input[_builtins.str] description: The description of the instance profile.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] exclude_app_packages_from_cleanup: An array of strings containing the list of app packages that should not be cleaned up from the device after a test run completes.
                
@@ -146,6 +147,7 @@ class InstanceProfile(pulumi.CustomResource):
         """
         Resource Type definition for a Device Farm Instance Profile
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: The description of the instance profile.
@@ -167,6 +169,7 @@ class InstanceProfile(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for a Device Farm Instance Profile
+
 
         :param str resource_name: The name of the resource.
         :param InstanceProfileArgs args: The arguments to use to populate this resource's properties.

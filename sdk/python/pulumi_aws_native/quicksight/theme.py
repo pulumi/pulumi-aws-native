@@ -34,6 +34,7 @@ class ThemeArgs:
                  version_description: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Theme resource.
+
         :param pulumi.Input[_builtins.str] aws_account_id: The ID of the AWS account where you want to store the new theme.
         :param pulumi.Input[_builtins.str] base_theme_id: The ID of the theme that a custom theme will inherit from. All themes inherit from one of the starting themes defined by Amazon Quick Sight. For a list of the starting themes, use `ListThemes` or choose *Themes* from within an analysis.
         :param pulumi.Input['ThemeConfigurationArgs'] configuration: The theme configuration, which contains the theme display properties.
@@ -171,6 +172,7 @@ class Theme(pulumi.CustomResource):
         """
         Definition of the AWS::QuickSight::Theme Resource Type.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] aws_account_id: The ID of the AWS account where you want to store the new theme.
@@ -190,6 +192,7 @@ class Theme(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of the AWS::QuickSight::Theme Resource Type.
+
 
         :param str resource_name: The name of the resource.
         :param ThemeArgs args: The arguments to use to populate this resource's properties.

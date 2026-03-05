@@ -32,6 +32,7 @@ class EntityArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Entity resource.
+
         :param pulumi.Input[_builtins.str] workspace_id: The ID of the workspace.
         :param pulumi.Input[Mapping[str, pulumi.Input['EntityComponentArgs']]] components: A map that sets information about a component type.
         :param pulumi.Input[Mapping[str, pulumi.Input['EntityCompositeComponentArgs']]] composite_components: A map that sets information about a composite component.
@@ -172,6 +173,7 @@ class Entity(pulumi.CustomResource):
         """
         Resource schema for AWS::IoTTwinMaker::Entity
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[Union['EntityComponentArgs', 'EntityComponentArgsDict']]]] components: A map that sets information about a component type.
@@ -191,6 +193,7 @@ class Entity(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource schema for AWS::IoTTwinMaker::Entity
+
 
         :param str resource_name: The name of the resource.
         :param EntityArgs args: The arguments to use to populate this resource's properties.
