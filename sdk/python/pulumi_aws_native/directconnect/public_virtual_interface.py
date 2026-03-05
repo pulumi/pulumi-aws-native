@@ -32,6 +32,7 @@ class PublicVirtualInterfaceArgs:
                  virtual_interface_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a PublicVirtualInterface resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['PublicVirtualInterfaceBgpPeerArgs']]] bgp_peers: The BGP peers configured on this virtual interface.
         :param pulumi.Input[_builtins.str] connection_id: The ID or ARN of the connection or LAG.
         :param pulumi.Input[_builtins.int] vlan: The ID of the VLAN.
@@ -154,6 +155,7 @@ class PublicVirtualInterface(pulumi.CustomResource):
         """
         Resource Type definition for AWS::DirectConnect::PublicVirtualInterface
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] allocate_public_virtual_interface_role_arn: The Amazon Resource Name (ARN) of the role to allocate the public virtual interface. Needs directconnect:AllocatePublicVirtualInterface permissions and tag permissions if applicable.
@@ -172,6 +174,7 @@ class PublicVirtualInterface(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::DirectConnect::PublicVirtualInterface
+
 
         :param str resource_name: The name of the resource.
         :param PublicVirtualInterfaceArgs args: The arguments to use to populate this resource's properties.

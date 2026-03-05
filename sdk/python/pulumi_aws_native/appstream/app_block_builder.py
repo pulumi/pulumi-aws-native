@@ -36,6 +36,7 @@ class AppBlockBuilderArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a AppBlockBuilder resource.
+
         :param pulumi.Input[_builtins.str] instance_type: The instance type of the app block builder.
         :param pulumi.Input[_builtins.str] platform: The platform of the app block builder.
                
@@ -230,6 +231,7 @@ class AppBlockBuilder(pulumi.CustomResource):
         """
         Resource Type definition for AWS::AppStream::AppBlockBuilder.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['AppBlockBuilderAccessEndpointArgs', 'AppBlockBuilderAccessEndpointArgsDict']]]] access_endpoints: The access endpoints of the app block builder.
@@ -256,6 +258,7 @@ class AppBlockBuilder(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::AppStream::AppBlockBuilder.
+
 
         :param str resource_name: The name of the resource.
         :param AppBlockBuilderArgs args: The arguments to use to populate this resource's properties.

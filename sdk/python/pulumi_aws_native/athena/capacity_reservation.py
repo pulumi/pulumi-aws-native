@@ -30,6 +30,7 @@ class CapacityReservationArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a CapacityReservation resource.
+
         :param pulumi.Input[_builtins.int] target_dpus: The number of DPUs to request to be allocated to the reservation.
         :param pulumi.Input['CapacityReservationCapacityAssignmentConfigurationArgs'] capacity_assignment_configuration: Assigns Athena workgroups (and hence their queries) to capacity reservations. A capacity reservation can have only one capacity assignment configuration, but the capacity assignment configuration can be made up of multiple individual assignments. Each assignment specifies how Athena queries can consume capacity from the capacity reservation that their workgroup is mapped to.
         :param pulumi.Input[_builtins.str] name: The reservation name.
@@ -106,6 +107,7 @@ class CapacityReservation(pulumi.CustomResource):
         """
         Resource schema for AWS::Athena::CapacityReservation
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['CapacityReservationCapacityAssignmentConfigurationArgs', 'CapacityReservationCapacityAssignmentConfigurationArgsDict']] capacity_assignment_configuration: Assigns Athena workgroups (and hence their queries) to capacity reservations. A capacity reservation can have only one capacity assignment configuration, but the capacity assignment configuration can be made up of multiple individual assignments. Each assignment specifies how Athena queries can consume capacity from the capacity reservation that their workgroup is mapped to.
@@ -121,6 +123,7 @@ class CapacityReservation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource schema for AWS::Athena::CapacityReservation
+
 
         :param str resource_name: The name of the resource.
         :param CapacityReservationArgs args: The arguments to use to populate this resource's properties.

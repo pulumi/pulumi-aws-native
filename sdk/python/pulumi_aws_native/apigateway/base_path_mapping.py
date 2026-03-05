@@ -25,6 +25,7 @@ class BasePathMappingArgs:
                  stage: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a BasePathMapping resource.
+
         :param pulumi.Input[_builtins.str] domain_name: The domain name of the BasePathMapping resource to be described.
         :param pulumi.Input[_builtins.str] base_path: The base path name that callers of the API must provide as part of the URL after the domain name.
         :param pulumi.Input[_builtins.str] rest_api_id: The string identifier of the associated RestApi.
@@ -101,6 +102,7 @@ class BasePathMapping(pulumi.CustomResource):
         """
         The ``AWS::ApiGateway::BasePathMapping`` resource creates a base path that clients who call your API must use in the invocation URL. Supported only for public custom domain names.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] base_path: The base path name that callers of the API must provide as part of the URL after the domain name.
@@ -116,6 +118,7 @@ class BasePathMapping(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The ``AWS::ApiGateway::BasePathMapping`` resource creates a base path that clients who call your API must use in the invocation URL. Supported only for public custom domain names.
+
 
         :param str resource_name: The name of the resource.
         :param BasePathMappingArgs args: The arguments to use to populate this resource's properties.

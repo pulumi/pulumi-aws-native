@@ -29,6 +29,7 @@ class VersionArgs:
                  runtime_policy: Optional[pulumi.Input['VersionRuntimePolicyArgs']] = None):
         """
         The set of arguments for constructing a Version resource.
+
         :param pulumi.Input[_builtins.str] function_name: The name of the Lambda function.
         :param pulumi.Input[_builtins.str] code_sha256: Only publish a version if the hash value matches the value that's specified. Use this option to avoid publishing a version if the function code has changed since you last updated it. Updates are not supported for this property.
         :param pulumi.Input[_builtins.str] description: A description for the version to override the description in the function configuration. Updates are not supported for this property.
@@ -137,6 +138,7 @@ class Version(pulumi.CustomResource):
         """
         Resource Type definition for AWS::Lambda::Version
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] code_sha256: Only publish a version if the hash value matches the value that's specified. Use this option to avoid publishing a version if the function code has changed since you last updated it. Updates are not supported for this property.
@@ -154,6 +156,7 @@ class Version(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::Lambda::Version
+
 
         :param str resource_name: The name of the resource.
         :param VersionArgs args: The arguments to use to populate this resource's properties.

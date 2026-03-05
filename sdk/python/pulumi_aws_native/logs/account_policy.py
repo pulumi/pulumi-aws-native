@@ -27,6 +27,7 @@ class AccountPolicyArgs:
                  selection_criteria: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a AccountPolicy resource.
+
         :param pulumi.Input[_builtins.str] policy_document: The body of the policy document you want to use for this topic.
                
                You can only add one policy per PolicyType.
@@ -158,6 +159,7 @@ class AccountPolicy(pulumi.CustomResource):
 
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] policy_document: The body of the policy document you want to use for this topic.
@@ -208,6 +210,7 @@ class AccountPolicy(pulumi.CustomResource):
             scope=aws_native.logs.AccountPolicyScope.ALL)
 
         ```
+
 
         :param str resource_name: The name of the resource.
         :param AccountPolicyArgs args: The arguments to use to populate this resource's properties.

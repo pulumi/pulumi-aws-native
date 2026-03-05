@@ -30,6 +30,7 @@ class RepositoryAssociationArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]] = None):
         """
         The set of arguments for constructing a RepositoryAssociation resource.
+
         :param pulumi.Input['RepositoryAssociationType'] type: The type of repository to be associated.
         :param pulumi.Input[_builtins.str] bucket_name: The name of the S3 bucket associated with an associated S3 repository. It must start with `codeguru-reviewer-`.
         :param pulumi.Input[_builtins.str] connection_arn: The Amazon Resource Name (ARN) of an AWS CodeStar Connections connection.
@@ -256,6 +257,7 @@ class RepositoryAssociation(pulumi.CustomResource):
 
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] bucket_name: The name of the S3 bucket associated with an associated S3 repository. It must start with `codeguru-reviewer-`.
@@ -391,6 +393,7 @@ class RepositoryAssociation(pulumi.CustomResource):
             ])
 
         ```
+
 
         :param str resource_name: The name of the resource.
         :param RepositoryAssociationArgs args: The arguments to use to populate this resource's properties.

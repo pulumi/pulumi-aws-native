@@ -36,6 +36,7 @@ class WorkspaceArgs:
                  visibility: Optional[pulumi.Input['WorkspaceVisibility']] = None):
         """
         The set of arguments for constructing a Workspace resource.
+
         :param pulumi.Input[_builtins.str] instance_arn: The identifier of the Amazon Connect instance.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] associations: The resource ARNs associated with the workspace
         :param pulumi.Input[_builtins.str] description: The description of the workspace
@@ -208,6 +209,7 @@ class Workspace(pulumi.CustomResource):
         """
         Resource Type definition for AWS::Connect::Workspace
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] associations: The resource ARNs associated with the workspace
@@ -229,6 +231,7 @@ class Workspace(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::Connect::Workspace
+
 
         :param str resource_name: The name of the resource.
         :param WorkspaceArgs args: The arguments to use to populate this resource's properties.

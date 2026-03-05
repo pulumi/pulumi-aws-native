@@ -38,6 +38,7 @@ class StreamProcessorArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a StreamProcessor resource.
+
         :param pulumi.Input['StreamProcessorKinesisVideoStreamArgs'] kinesis_video_stream: The Kinesis video stream that provides the source of the streaming video for an Amazon Rekognition Video stream processor. For more information, see [KinesisVideoStream](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_KinesisVideoStream) .
         :param pulumi.Input[_builtins.str] role_arn: ARN of the IAM role that allows access to the stream processor, and provides Rekognition read permissions for KVS stream and write permissions to S3 bucket and SNS topic.
         :param pulumi.Input[Sequence[pulumi.Input['StreamProcessorBoundingBoxArgs']]] bounding_box_regions_of_interest: The BoundingBoxRegionsOfInterest specifies an array of bounding boxes of interest in the video frames to analyze, as part of connected home feature. If an object is partially in a region of interest, Rekognition will tag it as detected if the overlap of the object with the region-of-interest is greater than 20%.
@@ -257,6 +258,7 @@ class StreamProcessor(pulumi.CustomResource):
         """
         The AWS::Rekognition::StreamProcessor type is used to create an Amazon Rekognition StreamProcessor that you can use to analyze streaming videos.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['StreamProcessorBoundingBoxArgs', 'StreamProcessorBoundingBoxArgsDict']]]] bounding_box_regions_of_interest: The BoundingBoxRegionsOfInterest specifies an array of bounding boxes of interest in the video frames to analyze, as part of connected home feature. If an object is partially in a region of interest, Rekognition will tag it as detected if the overlap of the object with the region-of-interest is greater than 20%.
@@ -281,6 +283,7 @@ class StreamProcessor(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The AWS::Rekognition::StreamProcessor type is used to create an Amazon Rekognition StreamProcessor that you can use to analyze streaming videos.
+
 
         :param str resource_name: The name of the resource.
         :param StreamProcessorArgs args: The arguments to use to populate this resource's properties.

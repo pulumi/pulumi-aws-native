@@ -29,6 +29,7 @@ class NetworkInsightsAccessScopeArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a NetworkInsightsAccessScope resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAccessScopeAccessScopePathRequestArgs']]] exclude_paths: The paths to exclude.
         :param pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAccessScopeAccessScopePathRequestArgs']]] match_paths: The paths to match.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags.
@@ -90,6 +91,7 @@ class NetworkInsightsAccessScope(pulumi.CustomResource):
         """
         Resource schema for AWS::EC2::NetworkInsightsAccessScope
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['NetworkInsightsAccessScopeAccessScopePathRequestArgs', 'NetworkInsightsAccessScopeAccessScopePathRequestArgsDict']]]] exclude_paths: The paths to exclude.
@@ -104,6 +106,7 @@ class NetworkInsightsAccessScope(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource schema for AWS::EC2::NetworkInsightsAccessScope
+
 
         :param str resource_name: The name of the resource.
         :param NetworkInsightsAccessScopeArgs args: The arguments to use to populate this resource's properties.

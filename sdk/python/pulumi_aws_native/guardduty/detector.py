@@ -31,6 +31,7 @@ class DetectorArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Detector resource.
+
         :param pulumi.Input[_builtins.bool] enable: Specifies whether the detector is to be enabled on creation.
         :param pulumi.Input['DetectorCfnDataSourceConfigurationsArgs'] data_sources: Describes which data sources will be enabled for the detector.
         :param pulumi.Input[Sequence[pulumi.Input['DetectorCfnFeatureConfigurationArgs']]] features: A list of features that will be configured for the detector.
@@ -131,6 +132,7 @@ class Detector(pulumi.CustomResource):
         """
         Resource Type definition for AWS::GuardDuty::Detector
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['DetectorCfnDataSourceConfigurationsArgs', 'DetectorCfnDataSourceConfigurationsArgsDict']] data_sources: Describes which data sources will be enabled for the detector.
@@ -151,6 +153,7 @@ class Detector(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::GuardDuty::Detector
+
 
         :param str resource_name: The name of the resource.
         :param DetectorArgs args: The arguments to use to populate this resource's properties.

@@ -29,6 +29,7 @@ class EventBusPolicyArgs:
                  statement: Optional[Any] = None):
         """
         The set of arguments for constructing a EventBusPolicy resource.
+
         :param pulumi.Input[_builtins.str] statement_id: An identifier string for the external account that you are granting permissions to
         :param pulumi.Input[_builtins.str] action: The action that you are enabling the other account to perform.
         :param pulumi.Input[_builtins.str] event_bus_name: The name of the event bus associated with the rule. If you omit this, the default event bus is used.
@@ -137,6 +138,7 @@ class EventBusPolicy(pulumi.CustomResource):
         """
         Resource Type definition for AWS::Events::EventBusPolicy
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] action: The action that you are enabling the other account to perform.
@@ -155,6 +157,7 @@ class EventBusPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::Events::EventBusPolicy
+
 
         :param str resource_name: The name of the resource.
         :param EventBusPolicyArgs args: The arguments to use to populate this resource's properties.

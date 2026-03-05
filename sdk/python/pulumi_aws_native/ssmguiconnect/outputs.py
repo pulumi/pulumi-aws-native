@@ -50,6 +50,7 @@ class ConnectionRecordingPreferencesProperties(dict):
                  recording_destinations: 'outputs.PreferencesRecordingDestinations'):
         """
         The set of preferences used for recording RDP connections in the requesting AWS account and AWS Region. This includes details such as which S3 bucket recordings are stored in.
+
         :param _builtins.str kms_key_arn: The ARN of a AWS  key that is used to encrypt data while it is being processed by the service. This key must exist in the same AWS Region as the node you start an RDP connection to.
         :param 'PreferencesRecordingDestinations' recording_destinations: Determines where recordings of RDP connections are stored.
         """
@@ -99,6 +100,7 @@ class PreferencesRecordingDestinations(dict):
                  s3_buckets: Sequence['outputs.PreferencesS3Bucket']):
         """
         Determines where recordings of RDP connections are stored.
+
         :param Sequence['PreferencesS3Bucket'] s3_buckets: The S3 bucket where RDP connection recordings are stored.
         """
         pulumi.set(__self__, "s3_buckets", s3_buckets)

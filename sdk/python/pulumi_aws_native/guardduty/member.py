@@ -27,6 +27,7 @@ class MemberArgs:
                  status: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Member resource.
+
         :param pulumi.Input[_builtins.str] email: The email address associated with the member account.
         :param pulumi.Input[_builtins.str] detector_id: The ID of the detector associated with the GuardDuty service to add the member to.
         :param pulumi.Input[_builtins.bool] disable_email_notification: Specifies whether or not to disable email notification for the member account that you invite.
@@ -135,6 +136,7 @@ class Member(pulumi.CustomResource):
         """
         Resource Type definition for AWS::GuardDuty::Member
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] detector_id: The ID of the detector associated with the GuardDuty service to add the member to.
@@ -152,6 +154,7 @@ class Member(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::GuardDuty::Member
+
 
         :param str resource_name: The name of the resource.
         :param MemberArgs args: The arguments to use to populate this resource's properties.

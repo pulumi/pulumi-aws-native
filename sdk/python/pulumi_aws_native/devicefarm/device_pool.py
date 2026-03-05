@@ -32,6 +32,7 @@ class DevicePoolArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a DevicePool resource.
+
         :param pulumi.Input[_builtins.str] project_arn: The ARN of the project for the device pool.
         :param pulumi.Input[Sequence[pulumi.Input['DevicePoolRuleArgs']]] rules: The device pool's rules.
         :param pulumi.Input[_builtins.str] description: The device pool's description.
@@ -147,6 +148,7 @@ class DevicePool(pulumi.CustomResource):
         """
         Resource Type definition for a Device Pool for a given Device Farm Project
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: The device pool's description.
@@ -168,6 +170,7 @@ class DevicePool(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for a Device Pool for a given Device Farm Project
+
 
         :param str resource_name: The name of the resource.
         :param DevicePoolArgs args: The arguments to use to populate this resource's properties.

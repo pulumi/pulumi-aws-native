@@ -41,6 +41,7 @@ class PatchBaselineArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a PatchBaseline resource.
+
         :param pulumi.Input['PatchBaselineRuleGroupArgs'] approval_rules: A set of rules used to include patches in the baseline.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] approved_patches: A list of explicitly approved patches for the baseline.
         :param pulumi.Input['PatchBaselineApprovedPatchesComplianceLevel'] approved_patches_compliance_level: Defines the compliance level for approved patches. This means that if an approved patch is reported as missing, this is the severity of the compliance violation. The default value is UNSPECIFIED.
@@ -448,6 +449,7 @@ class PatchBaseline(pulumi.CustomResource):
 
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['PatchBaselineRuleGroupArgs', 'PatchBaselineRuleGroupArgsDict']] approval_rules: A set of rules used to include patches in the baseline.
@@ -628,6 +630,7 @@ class PatchBaseline(pulumi.CustomResource):
             })
 
         ```
+
 
         :param str resource_name: The name of the resource.
         :param PatchBaselineArgs args: The arguments to use to populate this resource's properties.

@@ -210,6 +210,7 @@ class BridgeFailoverConfig(dict):
                  state: Optional['BridgeFailoverConfigStateEnum'] = None):
         """
         The settings for source failover.
+
         :param 'BridgeFailoverModeEnum' failover_mode: The type of failover you choose for this flow. FAILOVER allows switching between different streams.
         :param 'BridgeSourcePriority' source_priority: The priority you want to assign to a source. You can have a primary stream and a backup stream or two equally prioritized streams.
         :param 'BridgeFailoverConfigStateEnum' state: The state of source failover on the flow. If the state is inactive, the flow can have only one source. If the state is active, the flow can have one or two sources.
@@ -275,6 +276,7 @@ class BridgeFlowSource(dict):
                  flow_vpc_interface_attachment: Optional['outputs.BridgeVpcInterfaceAttachment'] = None):
         """
         The source of the bridge. A flow source originates in MediaConnect as an existing cloud flow.
+
         :param _builtins.str flow_arn: The ARN of the cloud flow used as a source of this bridge.
         :param _builtins.str name: The name of the flow source.
         :param 'BridgeVpcInterfaceAttachment' flow_vpc_interface_attachment: The name of the VPC interface attachment to use for this source.
@@ -383,6 +385,7 @@ class BridgeMulticastSourceSettings(dict):
                  multicast_source_ip: Optional[_builtins.str] = None):
         """
         The settings related to the multicast source.
+
         :param _builtins.str multicast_source_ip: The IP address of the source for source-specific multicast (SSM).
         """
         if multicast_source_ip is not None:
@@ -430,6 +433,7 @@ class BridgeNetworkOutput(dict):
                  ttl: _builtins.int):
         """
         The output of the bridge. A network output is delivered to your premises.
+
         :param _builtins.str ip_address: The network output IP Address.
         :param _builtins.str name: The network output name.
         :param _builtins.str network_name: The network output's gateway network name.
@@ -528,6 +532,7 @@ class BridgeNetworkSource(dict):
                  multicast_source_settings: Optional['outputs.BridgeMulticastSourceSettings'] = None):
         """
         The source of the bridge. A network source originates at your premises.
+
         :param _builtins.str multicast_ip: The network source multicast IP.
         :param _builtins.str name: The name of the network source.
         :param _builtins.str network_name: The network source's gateway network name.
@@ -618,6 +623,7 @@ class BridgeOutput(dict):
                  network_output: Optional['outputs.BridgeNetworkOutput'] = None):
         """
         The output of the bridge.
+
         :param 'BridgeNetworkOutput' network_output: The output of the bridge. A network output is delivered to your premises.
         """
         if network_output is not None:
@@ -664,6 +670,7 @@ class BridgeOutputResourceBridgeNetworkOutput(dict):
                  ttl: _builtins.int):
         """
         The output of the bridge. A network output is delivered to your premises.
+
         :param _builtins.str ip_address: The network output IP Address.
         :param _builtins.str network_name: The network output's gateway network name.
         :param _builtins.int port: The network output port.
@@ -746,6 +753,7 @@ class BridgeSource(dict):
                  network_source: Optional['outputs.BridgeNetworkSource'] = None):
         """
         The bridge's source.
+
         :param 'BridgeFlowSource' flow_source: The source of the bridge. A flow source originates in MediaConnect as an existing cloud flow.
         :param 'BridgeNetworkSource' network_source: The source of the bridge. A network source originates at your premises.
         """
@@ -800,6 +808,7 @@ class BridgeSourceBridgeFlowSource(dict):
                  flow_vpc_interface_attachment: Optional['outputs.BridgeSourceVpcInterfaceAttachment'] = None):
         """
         The source of the bridge. A flow source originates in MediaConnect as an existing cloud flow.
+
         :param _builtins.str flow_arn: The ARN of the cloud flow used as a source of this bridge.
         :param 'BridgeSourceVpcInterfaceAttachment' flow_vpc_interface_attachment: The name of the VPC interface attachment to use for this source.
         """
@@ -858,6 +867,7 @@ class BridgeSourceBridgeNetworkSource(dict):
                  multicast_source_settings: Optional['outputs.BridgeSourceMulticastSourceSettings'] = None):
         """
         The source of the bridge. A network source originates at your premises.
+
         :param _builtins.str multicast_ip: The network source multicast IP.
         :param _builtins.str network_name: The network source's gateway network name.
         :param _builtins.int port: The network source port.
@@ -938,6 +948,7 @@ class BridgeSourceMulticastSourceSettings(dict):
                  multicast_source_ip: Optional[_builtins.str] = None):
         """
         The settings related to the multicast source.
+
         :param _builtins.str multicast_source_ip: The IP address of the source for source-specific multicast (SSM).
         """
         if multicast_source_ip is not None:
@@ -978,6 +989,7 @@ class BridgeSourcePriority(dict):
                  primary_source: Optional[_builtins.str] = None):
         """
         The priority you want to assign to a source. You can have a primary stream and a backup stream or two equally prioritized streams.
+
         :param _builtins.str primary_source: The name of the source you choose as the primary source for this flow.
         """
         if primary_source is not None:
@@ -1018,6 +1030,7 @@ class BridgeSourceVpcInterfaceAttachment(dict):
                  vpc_interface_name: Optional[_builtins.str] = None):
         """
         The settings for attaching a VPC interface to an resource.
+
         :param _builtins.str vpc_interface_name: The name of the VPC interface to use for this resource.
         """
         if vpc_interface_name is not None:
@@ -1058,6 +1071,7 @@ class BridgeVpcInterfaceAttachment(dict):
                  vpc_interface_name: Optional[_builtins.str] = None):
         """
         The settings for attaching a VPC interface to an resource.
+
         :param _builtins.str vpc_interface_name: The name of the VPC interface to use for this resource.
         """
         if vpc_interface_name is not None:
@@ -1098,6 +1112,7 @@ class FlowAudioMonitoringSetting(dict):
                  silent_audio: Optional['outputs.FlowSilentAudio'] = None):
         """
         Specifies the configuration for audio stream metrics monitoring.
+
         :param 'FlowSilentAudio' silent_audio: Detects periods of silence.
         """
         if silent_audio is not None:
@@ -1151,6 +1166,7 @@ class FlowBlackFrames(dict):
                  threshold_seconds: Optional[_builtins.int] = None):
         """
         Configures settings for the BlackFrames metric.
+
         :param 'FlowBlackFramesState' state: Indicates whether the BlackFrames metric is enabled or disabled.
         :param _builtins.int threshold_seconds: Specifies the number of consecutive seconds of black frames that triggers an event or alert.
         """
@@ -1220,6 +1236,7 @@ class FlowEncryption(dict):
                  url: Optional[_builtins.str] = None):
         """
         Information about the encryption of the flow.
+
         :param _builtins.str role_arn: The ARN of the role that you created during setup (when you set up AWS Elemental MediaConnect as a trusted entity).
         :param 'FlowEncryptionAlgorithm' algorithm: The type of algorithm that is used for the encryption (such as aes128, aes192, or aes256).
         :param _builtins.str constant_initialization_vector: A 128-bit, 16-byte hex value represented by a 32-character string, to be used with the key for encrypting content. This parameter is not valid for static key encryption.
@@ -1365,6 +1382,7 @@ class FlowEntitlementEncryption(dict):
                  url: Optional[_builtins.str] = None):
         """
         Information about the encryption of the flow.
+
         :param 'FlowEntitlementEncryptionAlgorithm' algorithm: The type of algorithm that is used for the encryption (such as aes128, aes192, or aes256).
         :param _builtins.str role_arn: The ARN of the role that you created during setup (when you set up AWS Elemental MediaConnect as a trusted entity).
         :param _builtins.str constant_initialization_vector: A 128-bit, 16-byte hex value represented by a 32-character string, to be used with the key for encrypting content. This parameter is not valid for static key encryption.
@@ -1498,6 +1516,7 @@ class FlowFailoverConfig(dict):
                  state: Optional['FlowFailoverConfigState'] = None):
         """
         The settings for source failover
+
         :param 'FlowFailoverConfigFailoverMode' failover_mode: The type of failover you choose for this flow. MERGE combines the source streams into a single stream, allowing graceful recovery from any single-source loss. FAILOVER allows switching between different streams.
         :param _builtins.int recovery_window: Search window time to look for dash-7 packets
         :param 'FlowFailoverConfigSourcePriorityProperties' source_priority: The priority you want to assign to a source. You can have a primary stream and a backup stream or two equally prioritized streams.
@@ -1571,6 +1590,7 @@ class FlowFailoverConfigSourcePriorityProperties(dict):
                  primary_source: _builtins.str):
         """
         The priority you want to assign to a source. You can have a primary stream and a backup stream or two equally prioritized streams.
+
         :param _builtins.str primary_source: The name of the source you choose as the primary source for this flow.
         """
         pulumi.set(__self__, "primary_source", primary_source)
@@ -1620,6 +1640,7 @@ class FlowFmtp(dict):
                  tcs: Optional['FlowFmtpTcs'] = None):
         """
         A set of parameters that define the media stream.
+
         :param _builtins.str channel_order: The format of the audio channel.
         :param 'FlowFmtpColorimetry' colorimetry: The format used for the representation of color.
         :param _builtins.str exact_framerate: The frame rate for the video stream, in frames/second. For example: 60000/1001.
@@ -1727,6 +1748,7 @@ class FlowFrozenFrames(dict):
                  threshold_seconds: Optional[_builtins.int] = None):
         """
         Configures settings for the FrozenFrames metric.
+
         :param 'FlowFrozenFramesState' state: Indicates whether the FrozenFrames metric is enabled or disabled.
         :param _builtins.int threshold_seconds: Specifies the number of consecutive seconds of a static image that triggers an event or alert.
         """
@@ -1781,6 +1803,7 @@ class FlowGatewayBridgeSource(dict):
                  vpc_interface_attachment: Optional['outputs.FlowVpcInterfaceAttachment'] = None):
         """
         The source configuration for cloud flows receiving a stream from a bridge.
+
         :param _builtins.str bridge_arn: The ARN of the bridge feeding this flow.
         :param 'FlowVpcInterfaceAttachment' vpc_interface_attachment: The name of the VPC interface attachment to use for this bridge source.
         """
@@ -1832,6 +1855,7 @@ class FlowInputConfiguration(dict):
                  interface: 'outputs.FlowInterface'):
         """
         The transport parameters associated with an incoming media stream.
+
         :param _builtins.int input_port: The port that the flow listens on for an incoming media stream.
         :param 'FlowInterface' interface: The VPC interface where the media stream comes in from.
         """
@@ -1864,6 +1888,7 @@ class FlowInterface(dict):
                  name: _builtins.str):
         """
         The VPC interface that you want to use for the media stream associated with the output.
+
         :param _builtins.str name: The name of the VPC interface that you want to use for the media stream associated with the output.
         """
         pulumi.set(__self__, "name", name)
@@ -1906,6 +1931,7 @@ class FlowMaintenance(dict):
                  maintenance_start_hour: _builtins.str):
         """
         The maintenance setting of a flow.
+
         :param 'FlowMaintenanceMaintenanceDay' maintenance_day: A day of a week when the maintenance will happen. Use Monday/Tuesday/Wednesday/Thursday/Friday/Saturday/Sunday.
         :param _builtins.str maintenance_start_hour: UTC time when the maintenance will happen. Use 24-hour HH:MM format. Minutes must be 00. Example: 13:00. The default value is 02:00.
         """
@@ -1970,6 +1996,7 @@ class FlowMediaStream(dict):
                  video_format: Optional['FlowMediaStreamVideoFormat'] = None):
         """
         A single track or stream of media that contains video, audio, or ancillary data. After you add a media stream to a flow, you can associate it with sources and outputs on that flow, as long as they use the CDI protocol or the ST 2110 JPEG XS protocol. Each source or output can consist of one or many media streams.
+
         :param _builtins.int media_stream_id: A unique identifier for the media stream.
         :param _builtins.str media_stream_name: A name that helps you distinguish one media stream from another.
         :param 'FlowMediaStreamMediaStreamType' media_stream_type: The type of media stream.
@@ -2068,6 +2095,7 @@ class FlowMediaStreamAttributes(dict):
                  lang: Optional[_builtins.str] = None):
         """
         Attributes that are related to the media stream.
+
         :param 'FlowFmtp' fmtp: A set of parameters that define the media stream.
         :param _builtins.str lang: The audio language, in a format that is recognized by the receiver.
         """
@@ -2125,6 +2153,7 @@ class FlowMediaStreamSourceConfiguration(dict):
                  input_configurations: Optional[Sequence['outputs.FlowInputConfiguration']] = None):
         """
         The media stream that is associated with the source, and the parameters for that association.
+
         :param 'FlowMediaStreamSourceConfigurationEncodingName' encoding_name: The format that was used to encode the data. For ancillary data streams, set the encoding name to smpte291. For audio streams, set the encoding name to pcm. For video, 2110 streams, set the encoding name to raw. For video, JPEG XS streams, set the encoding name to jxsv.
         :param _builtins.str media_stream_name: A name that helps you distinguish one media stream from another.
         :param Sequence['FlowInputConfiguration'] input_configurations: The media streams that you want to associate with the source.
@@ -2191,6 +2220,7 @@ class FlowNdiConfig(dict):
                  ndi_state: Optional['FlowNdiConfigNdiState'] = None):
         """
         Specifies the configuration settings for NDI outputs. Required when the flow includes NDI outputs.
+
         :param _builtins.str machine_name: A prefix for the names of the NDI sources that the flow creates. If a custom name isn't specified, MediaConnect generates a unique 12-character ID as the prefix.
         :param Sequence['FlowNdiDiscoveryServerConfig'] ndi_discovery_servers: A list of up to three NDI discovery server configurations. While not required by the API, this configuration is necessary for NDI functionality to work properly.
         :param 'FlowNdiConfigNdiState' ndi_state: A setting that controls whether NDI outputs can be used in the flow. Must be ENABLED to add NDI outputs. Default is DISABLED.
@@ -2259,6 +2289,7 @@ class FlowNdiDiscoveryServerConfig(dict):
                  discovery_server_port: Optional[_builtins.int] = None):
         """
         Specifies the configuration settings for individual NDI discovery servers. A maximum of 3 servers is allowed.
+
         :param _builtins.str discovery_server_address: The unique network address of the NDI discovery server.
         :param _builtins.str vpc_interface_adapter: The identifier for the Virtual Private Cloud (VPC) network interface used by the flow.
         :param _builtins.int discovery_server_port: The port for the NDI discovery server. Defaults to 5959 if a custom port isn't specified.
@@ -2335,6 +2366,7 @@ class FlowOutputDestinationConfiguration(dict):
                  interface: 'outputs.FlowOutputInterface'):
         """
         The definition of a media stream that is associated with the output.
+
         :param _builtins.str destination_ip: The IP address where contents of the media stream will be sent.
         :param _builtins.int destination_port: The port to use when the content of the media stream is distributed to the output.
         :param 'FlowOutputInterface' interface: The VPC interface that is used for the media stream associated with the output.
@@ -2397,6 +2429,7 @@ class FlowOutputEncodingParameters(dict):
                  encoder_profile: Optional['FlowOutputEncodingParametersEncoderProfile'] = None):
         """
         A collection of parameters that determine how MediaConnect will convert the content. These fields only apply to outputs on flows that have a CDI source.
+
         :param _builtins.float compression_factor: A value that is used to calculate compression for an output. The bitrate of the output is calculated as follows: Output bitrate = (1 / compressionFactor) * (source bitrate) This property only applies to outputs that use the ST 2110 JPEG XS protocol, with a flow source that uses the CDI protocol. Valid values are in the range of 3.0 to 10.0, inclusive.
         :param 'FlowOutputEncodingParametersEncoderProfile' encoder_profile: A setting on the encoder that drives compression settings. This property only applies to video media streams associated with outputs that use the ST 2110 JPEG XS protocol, with a flow source that uses the CDI protocol.
         """
@@ -2454,6 +2487,7 @@ class FlowOutputEncryption(dict):
                  key_type: Optional['FlowOutputEncryptionKeyType'] = None):
         """
         Information about the encryption of the flow.
+
         :param _builtins.str role_arn: The ARN of the role that you created during setup (when you set up AWS Elemental MediaConnect as a trusted entity).
         :param _builtins.str secret_arn:  The ARN of the secret that you created in AWS Secrets Manager to store the encryption key. This parameter is required for static key encryption and is not valid for SPEKE encryption.
         :param 'FlowOutputEncryptionAlgorithm' algorithm: The type of algorithm that is used for the encryption (such as aes128, aes192, or aes256).
@@ -2606,6 +2640,7 @@ class FlowOutputInterface(dict):
                  name: _builtins.str):
         """
         The VPC interface that you want to use for the media stream associated with the output.
+
         :param _builtins.str name: The name of the VPC interface that you want to use for the media stream associated with the output.
         """
         pulumi.set(__self__, "name", name)
@@ -2654,6 +2689,7 @@ class FlowOutputMediaStreamOutputConfiguration(dict):
                  encoding_parameters: Optional['outputs.FlowOutputEncodingParameters'] = None):
         """
         The media stream that is associated with the output, and the parameters for that association.
+
         :param 'FlowOutputMediaStreamOutputConfigurationEncodingName' encoding_name: The format that will be used to encode the data. For ancillary data streams, set the encoding name to smpte291. For audio streams, set the encoding name to pcm. For video streams on sources or outputs that use the CDI protocol, set the encoding name to raw. For video streams on sources or outputs that use the ST 2110 JPEG XS protocol, set the encoding name to jxsv.
         :param _builtins.str media_stream_name: A name that helps you distinguish one media stream from another.
         :param Sequence['FlowOutputDestinationConfiguration'] destination_configurations: The media streams that you want to associate with the output.
@@ -2728,6 +2764,7 @@ class FlowOutputSecretsManagerEncryptionKeyConfiguration(dict):
                  secret_arn: _builtins.str):
         """
         The configuration settings for transit encryption of a flow output using AWS Secrets Manager, including the secret ARN and role ARN.
+
         :param _builtins.str role_arn: The ARN of the IAM role used for transit encryption to the router input using AWS Secrets Manager.
         :param _builtins.str secret_arn: The ARN of the AWS Secrets Manager secret used for transit encryption to the router input.
         """
@@ -2777,6 +2814,7 @@ class FlowOutputVpcInterfaceAttachment(dict):
                  vpc_interface_name: Optional[_builtins.str] = None):
         """
         The settings for attaching a VPC interface to an output.
+
         :param _builtins.str vpc_interface_name: The name of the VPC interface to use for this output.
         """
         if vpc_interface_name is not None:
@@ -2820,6 +2858,7 @@ class FlowSecretsManagerEncryptionKeyConfiguration(dict):
                  secret_arn: _builtins.str):
         """
         The configuration settings for transit encryption of a flow source using AWS Secrets Manager, including the secret ARN and role ARN.
+
         :param _builtins.str role_arn: The ARN of the IAM role used for transit encryption from the router output using AWS Secrets Manager.
         :param _builtins.str secret_arn: The ARN of the AWS Secrets Manager secret used for transit encryption from the router output.
         """
@@ -2870,6 +2909,7 @@ class FlowSilentAudio(dict):
                  threshold_seconds: Optional[_builtins.int] = None):
         """
         Configures settings for the SilentAudio metric.
+
         :param 'FlowSilentAudioState' state: Indicates whether the SilentAudio metric is enabled or disabled.
         :param _builtins.int threshold_seconds: Specifies the number of consecutive seconds of silence that triggers an event or alert.
         """
@@ -2982,6 +3022,7 @@ class FlowSource(dict):
                  whitelist_cidr: Optional[_builtins.str] = None):
         """
         The settings for the source of the flow.
+
         :param 'FlowEncryption' decryption: The type of decryption that is used on the content ingested from this source.
         :param _builtins.str description: A description for the source. This value is not used or seen outside of the current AWS Elemental MediaConnect account.
         :param _builtins.str entitlement_arn: The ARN of the entitlement that allows you to subscribe to content that comes from another AWS account. The entitlement is set by the content originator and the ARN is generated as part of the originator's flow.
@@ -3293,6 +3334,7 @@ class FlowSourceEncryption(dict):
                  url: Optional[_builtins.str] = None):
         """
         Information about the encryption of the flow.
+
         :param _builtins.str role_arn: The ARN of the role that you created during setup (when you set up AWS Elemental MediaConnect as a trusted entity).
         :param 'FlowSourceEncryptionAlgorithm' algorithm: The type of algorithm that is used for the encryption (such as aes128, aes192, or aes256).
         :param _builtins.str constant_initialization_vector: A 128-bit, 16-byte hex value represented by a 32-character string, to be used with the key for encrypting content. This parameter is not valid for static key encryption.
@@ -3423,6 +3465,7 @@ class FlowSourceGatewayBridgeSource(dict):
                  vpc_interface_attachment: Optional['outputs.FlowSourceVpcInterfaceAttachment'] = None):
         """
         The source configuration for cloud flows receiving a stream from a bridge.
+
         :param _builtins.str bridge_arn: The ARN of the bridge feeding this flow.
         :param 'FlowSourceVpcInterfaceAttachment' vpc_interface_attachment: The name of the VPC interface attachment to use for this bridge source.
         """
@@ -3482,6 +3525,7 @@ class FlowSourceMonitoringConfig(dict):
                  video_monitoring_settings: Optional[Sequence['outputs.FlowVideoMonitoringSetting']] = None):
         """
         The settings for source monitoring.
+
         :param Sequence['FlowAudioMonitoringSetting'] audio_monitoring_settings: Contains the settings for audio stream metrics monitoring.
         :param 'FlowSourceMonitoringConfigContentQualityAnalysisState' content_quality_analysis_state: Indicates whether content quality analysis is enabled or disabled.
         :param 'FlowSourceMonitoringConfigThumbnailState' thumbnail_state: The state of thumbnail monitoring.
@@ -3555,6 +3599,7 @@ class FlowSourceVpcInterfaceAttachment(dict):
                  vpc_interface_name: Optional[_builtins.str] = None):
         """
         The settings for attaching a VPC interface to an resource.
+
         :param _builtins.str vpc_interface_name: The name of the VPC interface to use for this resource.
         """
         if vpc_interface_name is not None:
@@ -3696,6 +3741,7 @@ class FlowVideoMonitoringSetting(dict):
                  frozen_frames: Optional['outputs.FlowFrozenFrames'] = None):
         """
         Specifies the configuration for video stream metrics monitoring.
+
         :param 'FlowBlackFrames' black_frames: Detects video frames that are black.
         :param 'FlowFrozenFrames' frozen_frames: Detects video frames that have not changed.
         """
@@ -3760,6 +3806,7 @@ class FlowVpcInterface(dict):
                  network_interface_type: Optional['FlowVpcInterfaceNetworkInterfaceType'] = None):
         """
         The details of a VPC interface.
+
         :param _builtins.str name: Immutable and has to be a unique against other VpcInterfaces in this Flow.
         :param _builtins.str role_arn: Role Arn MediaConnect can assume to create ENIs in customer's account.
         :param Sequence[_builtins.str] security_group_ids: Security Group IDs to be used on ENI.
@@ -3851,6 +3898,7 @@ class FlowVpcInterfaceAttachment(dict):
                  vpc_interface_name: Optional[_builtins.str] = None):
         """
         The settings for attaching a VPC interface to an resource.
+
         :param _builtins.str vpc_interface_name: The name of the VPC interface to use for this resource.
         """
         if vpc_interface_name is not None:
@@ -3892,6 +3940,7 @@ class GatewayNetwork(dict):
                  name: _builtins.str):
         """
         The network settings for a gateway.
+
         :param _builtins.str cidr_block: A unique IP address range to use for this network. These IP addresses should be in the form of a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16.
         :param _builtins.str name: The name of the network. This name is used to reference the network and must be unique among networks in this gateway.
         """
@@ -4063,6 +4112,7 @@ class RouterInputFailoverRouterInputConfiguration(dict):
                  primary_source_index: Optional[_builtins.int] = None):
         """
         Configuration settings for a failover router input that allows switching between two input sources.
+
         :param _builtins.str network_interface_arn: The ARN of the network interface to use for this failover router input.
         :param Sequence[Union['RouterInputFailoverRouterInputProtocolConfiguration0Properties', 'RouterInputFailoverRouterInputProtocolConfiguration1Properties', 'RouterInputFailoverRouterInputProtocolConfiguration2Properties', 'RouterInputFailoverRouterInputProtocolConfiguration3Properties']] protocol_configurations: A list of exactly two protocol configurations for the failover input sources. Both must use the same protocol type.
         :param _builtins.int primary_source_index: The index (0 or 1) that specifies which source in the protocol configurations list is currently active. Used to control which of the two failover sources is currently selected. This field is ignored when sourcePriorityMode is set to NO_PRIORITY
@@ -4392,6 +4442,7 @@ class RouterInputMediaConnectFlowRouterInputConfiguration(dict):
                  flow_output_arn: Optional[_builtins.str] = None):
         """
         Configuration settings for connecting a router input to a flow output.
+
         :param _builtins.str flow_arn: The ARN of the flow to connect to.
         :param _builtins.str flow_output_arn: The ARN of the flow output to connect to this router input.
         """
@@ -4455,6 +4506,7 @@ class RouterInputMergeRouterInputConfiguration(dict):
                  protocol_configurations: Sequence[Any]):
         """
         Configuration settings for a merge router input that combines two input sources.
+
         :param _builtins.int merge_recovery_window_milliseconds: The time window in milliseconds for merging the two input sources.
         :param _builtins.str network_interface_arn: The ARN of the network interface to use for this merge router input.
         :param Sequence[Union['RouterInputMergeRouterInputProtocolConfiguration0Properties', 'RouterInputMergeRouterInputProtocolConfiguration1Properties']] protocol_configurations: A list of exactly two protocol configurations for the merge input sources. Both must use the same protocol type.
@@ -4534,6 +4586,7 @@ class RouterInputPreferredDayTimeMaintenanceConfiguration(dict):
                  time: _builtins.str):
         """
         Configuration for preferred day and time maintenance settings.
+
         :param _builtins.str time: The preferred time for maintenance operations.
         """
         pulumi.set(__self__, "day", day)
@@ -4686,6 +4739,7 @@ class RouterInputRistRouterInputConfiguration(dict):
                  recovery_latency_milliseconds: _builtins.int):
         """
         The configuration settings for a router input using the RIST (Reliable Internet Stream Transport) protocol, including the port and recovery latency.
+
         :param _builtins.int port: The port number used for the RIST protocol in the router input configuration.
         :param _builtins.int recovery_latency_milliseconds: The recovery latency in milliseconds for the RIST protocol in the router input configuration.
         """
@@ -4736,6 +4790,7 @@ class RouterInputRtpRouterInputConfiguration(dict):
                  forward_error_correction: Optional['RouterInputForwardErrorCorrectionState'] = None):
         """
         The configuration settings for a Router Input using the RTP (Real-Time Transport Protocol) protocol, including the port and forward error correction state.
+
         :param _builtins.int port: The port number used for the RTP protocol in the router input configuration.
         """
         pulumi.set(__self__, "port", port)
@@ -4785,6 +4840,7 @@ class RouterInputSecretsManagerEncryptionKeyConfiguration(dict):
                  secret_arn: _builtins.str):
         """
         The configuration settings for transit encryption using AWS Secrets Manager, including the secret ARN and role ARN.
+
         :param _builtins.str role_arn: The ARN of the IAM role assumed by MediaConnect to access the AWS Secrets Manager secret.
         :param _builtins.str secret_arn: The ARN of the AWS Secrets Manager secret used for transit encryption.
         """
@@ -4846,6 +4902,7 @@ class RouterInputSrtCallerRouterInputConfiguration(dict):
                  stream_id: Optional[_builtins.str] = None):
         """
         The configuration settings for a router input using the SRT (Secure Reliable Transport) protocol in caller mode, including the source address and port, minimum latency, stream ID, and decryption key configuration.
+
         :param _builtins.int minimum_latency_milliseconds: The minimum latency in milliseconds for the SRT protocol in caller mode.
         :param _builtins.str source_address: The source IP address for the SRT protocol in caller mode.
         :param _builtins.int source_port: The source port number for the SRT protocol in caller mode.
@@ -4962,6 +5019,7 @@ class RouterInputSrtListenerRouterInputConfiguration(dict):
                  decryption_configuration: Optional['outputs.RouterInputSrtDecryptionConfiguration'] = None):
         """
         The configuration settings for a router input using the SRT (Secure Reliable Transport) protocol in listener mode, including the port, minimum latency, and decryption key configuration.
+
         :param _builtins.int minimum_latency_milliseconds: The minimum latency in milliseconds for the SRT protocol in listener mode.
         :param _builtins.int port: The port number for the SRT protocol in listener mode.
         """
@@ -5022,6 +5080,7 @@ class RouterInputStandardRouterInputConfiguration(dict):
                  protocol: Optional['RouterInputProtocol'] = None):
         """
         The configuration settings for a standard router input, including the protocol, protocol-specific configuration, network interface, and availability zone.
+
         :param _builtins.str network_interface_arn: The Amazon Resource Name (ARN) of the network interface associated with the standard router input.
         """
         pulumi.set(__self__, "network_interface_arn", network_interface_arn)
@@ -5208,6 +5267,7 @@ class RouterNetworkInterfacePublicRouterNetworkInterfaceConfiguration(dict):
                  allow_rules: Sequence['outputs.RouterNetworkInterfacePublicRouterNetworkInterfaceRule']):
         """
         The configuration settings for a public router network interface, including the list of allowed CIDR blocks.
+
         :param Sequence['RouterNetworkInterfacePublicRouterNetworkInterfaceRule'] allow_rules: The list of allowed CIDR blocks for the public router network interface.
         """
         pulumi.set(__self__, "allow_rules", allow_rules)
@@ -5230,6 +5290,7 @@ class RouterNetworkInterfacePublicRouterNetworkInterfaceRule(dict):
                  cidr: _builtins.str):
         """
         A rule that allows a specific CIDR block to access the public router network interface.
+
         :param _builtins.str cidr: The CIDR block that is allowed to access the public router network interface.
         """
         pulumi.set(__self__, "cidr", cidr)
@@ -5272,6 +5333,7 @@ class RouterNetworkInterfaceVpcRouterNetworkInterfaceConfiguration(dict):
                  subnet_id: _builtins.str):
         """
         The configuration settings for a router network interface within a VPC, including the security group IDs and subnet ID.
+
         :param Sequence[_builtins.str] security_group_ids: The IDs of the security groups to associate with the router network interface within the VPC.
         :param _builtins.str subnet_id: The ID of the subnet within the VPC to associate the router network interface with.
         """
@@ -5502,6 +5564,7 @@ class RouterOutputResourceMediaConnectFlowRouterOutputConfiguration(dict):
                  flow_source_arn: Optional[_builtins.str] = None):
         """
         Configuration settings for connecting a router output to a MediaConnect flow source.
+
         :param _builtins.str flow_arn: The ARN of the flow to connect to this router output.
         :param _builtins.str flow_source_arn: The ARN of the flow source to connect to this router output.
         """
@@ -5565,6 +5628,7 @@ class RouterOutputResourceMediaLiveInputRouterOutputConfiguration(dict):
                  media_live_pipeline_id: Optional['RouterOutputResourceMediaLiveInputPipelineId'] = None):
         """
         Configuration settings for connecting a router output to a MediaLive input.
+
         :param _builtins.str media_live_input_arn: The ARN of the MediaLive input to connect to this router output.
         """
         pulumi.set(__self__, "destination_transit_encryption", destination_transit_encryption)
@@ -5700,6 +5764,7 @@ class RouterOutputResourcePreferredDayTimeMaintenanceConfiguration(dict):
                  time: _builtins.str):
         """
         Configuration for preferred day and time maintenance settings.
+
         :param _builtins.str time: The preferred time for maintenance operations.
         """
         pulumi.set(__self__, "day", day)
@@ -5748,6 +5813,7 @@ class RouterOutputResourceRistRouterOutputConfiguration(dict):
                  destination_port: _builtins.int):
         """
         The configuration settings for a router output using the RIST (Reliable Internet Stream Transport) protocol, including the destination address and port.
+
         :param _builtins.str destination_address: The destination IP address for the RIST protocol in the router output configuration.
         :param _builtins.int destination_port: The destination port number for the RIST protocol in the router output configuration.
         """
@@ -5997,6 +6063,7 @@ class RouterOutputResourceRtpRouterOutputConfiguration(dict):
                  forward_error_correction: Optional['RouterOutputResourceForwardErrorCorrectionState'] = None):
         """
         The configuration settings for a router output using the RTP (Real-Time Transport Protocol) protocol, including the destination address and port, and forward error correction state.
+
         :param _builtins.str destination_address: The destination IP address for the RTP protocol in the router output configuration.
         :param _builtins.int destination_port: The destination port number for the RTP protocol in the router output configuration.
         """
@@ -6056,6 +6123,7 @@ class RouterOutputResourceSecretsManagerEncryptionKeyConfiguration(dict):
                  secret_arn: _builtins.str):
         """
         The configuration settings for transit encryption using AWS Secrets Manager, including the secret ARN and role ARN.
+
         :param _builtins.str role_arn: The ARN of the IAM role assumed by MediaConnect to access the AWS Secrets Manager secret.
         :param _builtins.str secret_arn: The ARN of the AWS Secrets Manager secret used for transit encryption.
         """
@@ -6117,6 +6185,7 @@ class RouterOutputResourceSrtCallerRouterOutputConfiguration(dict):
                  stream_id: Optional[_builtins.str] = None):
         """
         The configuration settings for a router output using the SRT (Secure Reliable Transport) protocol in caller mode, including the destination address and port, minimum latency, stream ID, and encryption key configuration.
+
         :param _builtins.str destination_address: The destination IP address for the SRT protocol in caller mode.
         :param _builtins.int destination_port: The destination port number for the SRT protocol in caller mode.
         :param _builtins.int minimum_latency_milliseconds: The minimum latency in milliseconds for the SRT protocol in caller mode.
@@ -6233,6 +6302,7 @@ class RouterOutputResourceSrtListenerRouterOutputConfiguration(dict):
                  encryption_configuration: Optional['outputs.RouterOutputResourceSrtEncryptionConfiguration'] = None):
         """
         The configuration settings for a router output using the SRT (Secure Reliable Transport) protocol in listener mode, including the port, minimum latency, and encryption key configuration.
+
         :param _builtins.int minimum_latency_milliseconds: The minimum latency in milliseconds for the SRT protocol in listener mode.
         :param _builtins.int port: The port number for the SRT protocol in listener mode.
         """
@@ -6293,6 +6363,7 @@ class RouterOutputResourceStandardRouterOutputConfiguration(dict):
                  protocol: Optional['RouterOutputResourceRouterOutputProtocol'] = None):
         """
         The configuration settings for a standard router output, including the protocol, protocol-specific configuration, network interface, and availability zone.
+
         :param _builtins.str network_interface_arn: The Amazon Resource Name (ARN) of the network interface associated with the standard router output.
         """
         pulumi.set(__self__, "network_interface_arn", network_interface_arn)

@@ -33,6 +33,7 @@ class WorkGroupArgs:
                  work_group_configuration_updates: Optional[pulumi.Input['WorkGroupConfigurationUpdatesArgs']] = None):
         """
         The set of arguments for constructing a WorkGroup resource.
+
         :param pulumi.Input[_builtins.str] description: The workgroup description.
         :param pulumi.Input[_builtins.str] name: The workGroup name.
         :param pulumi.Input[_builtins.bool] recursive_delete_option: The option to delete the workgroup and its contents even if the workgroup contains any named queries.
@@ -290,6 +291,7 @@ class WorkGroup(pulumi.CustomResource):
 
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: The workgroup description.
@@ -440,6 +442,7 @@ class WorkGroup(pulumi.CustomResource):
             })
 
         ```
+
 
         :param str resource_name: The name of the resource.
         :param WorkGroupArgs args: The arguments to use to populate this resource's properties.

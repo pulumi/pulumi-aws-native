@@ -25,6 +25,7 @@ class ThingArgs:
                  thing_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Thing resource.
+
         :param pulumi.Input['ThingAttributePayloadArgs'] attribute_payload: A string that contains up to three key value pairs. Maximum length of 800. Duplicates not allowed.
         :param pulumi.Input[_builtins.str] thing_name: The name of the thing to update.
                
@@ -104,6 +105,7 @@ class Thing(pulumi.CustomResource):
 
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ThingAttributePayloadArgs', 'ThingAttributePayloadArgsDict']] attribute_payload: A string that contains up to three key value pairs. Maximum length of 800. Duplicates not allowed.
@@ -149,6 +151,7 @@ class Thing(pulumi.CustomResource):
             })
 
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ThingArgs args: The arguments to use to populate this resource's properties.

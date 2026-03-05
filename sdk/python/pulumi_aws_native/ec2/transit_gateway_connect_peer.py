@@ -28,6 +28,7 @@ class TransitGatewayConnectPeerArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a TransitGatewayConnectPeer resource.
+
         :param pulumi.Input['TransitGatewayConnectPeerConfigurationArgs'] connect_peer_configuration: The Connect peer details.
         :param pulumi.Input[_builtins.str] transit_gateway_attachment_id: The ID of the Connect attachment.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags for the Connect Peer.
@@ -87,6 +88,7 @@ class TransitGatewayConnectPeer(pulumi.CustomResource):
         """
         Resource Type definition for AWS::EC2::TransitGatewayConnectPeer
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['TransitGatewayConnectPeerConfigurationArgs', 'TransitGatewayConnectPeerConfigurationArgsDict']] connect_peer_configuration: The Connect peer details.
@@ -101,6 +103,7 @@ class TransitGatewayConnectPeer(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::EC2::TransitGatewayConnectPeer
+
 
         :param str resource_name: The name of the resource.
         :param TransitGatewayConnectPeerArgs args: The arguments to use to populate this resource's properties.

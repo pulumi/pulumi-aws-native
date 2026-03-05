@@ -29,6 +29,7 @@ class RegexPatternSetArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a RegexPatternSet resource.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] regular_expression_list: The regular expression patterns in the set.
         :param pulumi.Input['RegexPatternSetScope'] scope: Use CLOUDFRONT for CloudFront RegexPatternSet, use REGIONAL for Application Load Balancer and API Gateway.
         :param pulumi.Input[_builtins.str] description: Description of the entity.
@@ -124,6 +125,7 @@ class RegexPatternSet(pulumi.CustomResource):
         """
         Contains a list of Regular expressions based on the provided inputs. RegexPatternSet can be used with other WAF entities with RegexPatternSetReferenceStatement to perform other actions .
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: Description of the entity.
@@ -142,6 +144,7 @@ class RegexPatternSet(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Contains a list of Regular expressions based on the provided inputs. RegexPatternSet can be used with other WAF entities with RegexPatternSetReferenceStatement to perform other actions .
+
 
         :param str resource_name: The name of the resource.
         :param RegexPatternSetArgs args: The arguments to use to populate this resource's properties.

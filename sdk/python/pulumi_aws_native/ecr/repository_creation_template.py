@@ -34,6 +34,7 @@ class RepositoryCreationTemplateArgs:
                  resource_tags: Optional[pulumi.Input[Sequence[pulumi.Input['RepositoryCreationTemplateTagArgs']]]] = None):
         """
         The set of arguments for constructing a RepositoryCreationTemplate resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['RepositoryCreationTemplateAppliedForItem']]] applied_for: A list of enumerable Strings representing the repository creation scenarios that this template will apply towards. The supported scenarios are PULL_THROUGH_CACHE, REPLICATION, and CREATE_ON_PUSH
         :param pulumi.Input[_builtins.str] prefix: The repository namespace prefix associated with the repository creation template.
         :param pulumi.Input[_builtins.str] custom_role_arn: The ARN of the role to be assumed by Amazon ECR. Amazon ECR will assume your supplied role when the customRoleArn is specified. When this field isn't specified, Amazon ECR will use the service-linked role for the repository creation template.
@@ -205,6 +206,7 @@ class RepositoryCreationTemplate(pulumi.CustomResource):
         """
         The details of the repository creation template associated with the request.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input['RepositoryCreationTemplateAppliedForItem']]] applied_for: A list of enumerable Strings representing the repository creation scenarios that this template will apply towards. The supported scenarios are PULL_THROUGH_CACHE, REPLICATION, and CREATE_ON_PUSH
@@ -226,6 +228,7 @@ class RepositoryCreationTemplate(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The details of the repository creation template associated with the request.
+
 
         :param str resource_name: The name of the resource.
         :param RepositoryCreationTemplateArgs args: The arguments to use to populate this resource's properties.

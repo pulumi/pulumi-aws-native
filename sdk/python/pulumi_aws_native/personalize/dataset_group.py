@@ -26,6 +26,7 @@ class DatasetGroupArgs:
                  role_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a DatasetGroup resource.
+
         :param pulumi.Input['DatasetGroupDomain'] domain: The domain of a Domain dataset group.
         :param pulumi.Input[_builtins.str] kms_key_arn: The Amazon Resource Name(ARN) of a AWS Key Management Service (KMS) key used to encrypt the datasets.
         :param pulumi.Input[_builtins.str] name: The name for the new dataset group.
@@ -123,6 +124,7 @@ class DatasetGroup(pulumi.CustomResource):
 
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input['DatasetGroupDomain'] domain: The domain of a Domain dataset group.
@@ -158,6 +160,7 @@ class DatasetGroup(pulumi.CustomResource):
         my_dataset_group = aws_native.personalize.DatasetGroup("myDatasetGroup", name="my-dataset-group-name")
 
         ```
+
 
         :param str resource_name: The name of the resource.
         :param DatasetGroupArgs args: The arguments to use to populate this resource's properties.

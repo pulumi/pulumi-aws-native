@@ -32,6 +32,7 @@ class ServiceNetworkVpcAssociationArgs:
                  vpc_identifier: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ServiceNetworkVpcAssociation resource.
+
         :param pulumi.Input['ServiceNetworkVpcAssociationDnsOptionsArgs'] dns_options: The DNS options for the service network VPC association.
         :param pulumi.Input[_builtins.bool] private_dns_enabled: Indicates if private DNS is enabled for the service network VPC association.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: The IDs of the security groups. Security groups aren't added by default. You can add a security group to apply network level controls to control which resources in a VPC are allowed to access the service network and its services. For more information, see [Control traffic to resources using security groups](https://docs.aws.amazon.com//vpc/latest/userguide/VPC_SecurityGroups.html) in the *Amazon VPC User Guide* .
@@ -141,6 +142,7 @@ class ServiceNetworkVpcAssociation(pulumi.CustomResource):
         """
         Associates a VPC with a service network.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ServiceNetworkVpcAssociationDnsOptionsArgs', 'ServiceNetworkVpcAssociationDnsOptionsArgsDict']] dns_options: The DNS options for the service network VPC association.
@@ -158,6 +160,7 @@ class ServiceNetworkVpcAssociation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Associates a VPC with a service network.
+
 
         :param str resource_name: The name of the resource.
         :param ServiceNetworkVpcAssociationArgs args: The arguments to use to populate this resource's properties.

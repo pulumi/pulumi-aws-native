@@ -31,6 +31,7 @@ class SubscriptionFilterArgs:
                  role_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a SubscriptionFilter resource.
+
         :param pulumi.Input[_builtins.str] destination_arn: The Amazon Resource Name (ARN) of the destination.
         :param pulumi.Input[_builtins.str] filter_pattern: The filtering expressions that restrict what gets delivered to the destination AWS resource. For more information about the filter pattern syntax, see [Filter and Pattern Syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html).
         :param pulumi.Input[_builtins.str] log_group_name: The log group to associate with the subscription filter. All log events that are uploaded to this log group are filtered and delivered to the specified AWS resource if the filter pattern matches the log events.
@@ -193,6 +194,7 @@ class SubscriptionFilter(pulumi.CustomResource):
 
          There can be as many as two subscription filters associated with a log group.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] apply_on_transformed_logs: This parameter is valid only for log groups that have an active log transformer. For more information about log transformers, see [PutTransformer](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutTransformer.html).
@@ -220,6 +222,7 @@ class SubscriptionFilter(pulumi.CustomResource):
           +  An LAMlong function that belongs to the same account as the subscription filter, for same-account delivery.
 
          There can be as many as two subscription filters associated with a log group.
+
 
         :param str resource_name: The name of the resource.
         :param SubscriptionFilterArgs args: The arguments to use to populate this resource's properties.

@@ -28,6 +28,7 @@ class SourceApiAssociationArgs:
                  source_api_identifier: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a SourceApiAssociation resource.
+
         :param pulumi.Input[_builtins.str] description: Description of the SourceApiAssociation.
         :param pulumi.Input[_builtins.str] merged_api_identifier: Identifier of the Merged GraphQLApi to associate. It could be either GraphQLApi ApiId or ARN
         :param pulumi.Input['SourceApiAssociationConfigArgs'] source_api_association_config: Customized configuration for SourceApiAssociation.
@@ -105,6 +106,7 @@ class SourceApiAssociation(pulumi.CustomResource):
         """
         Resource Type definition for AWS::AppSync::SourceApiAssociation
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: Description of the SourceApiAssociation.
@@ -120,6 +122,7 @@ class SourceApiAssociation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::AppSync::SourceApiAssociation
+
 
         :param str resource_name: The name of the resource.
         :param SourceApiAssociationArgs args: The arguments to use to populate this resource's properties.

@@ -31,6 +31,7 @@ class MulticastGroupArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a MulticastGroup resource.
+
         :param pulumi.Input['MulticastGroupLoRaWanArgs'] lo_ra_wan: Multicast group LoRaWAN
         :param pulumi.Input[_builtins.str] associate_wireless_device: Wireless device to associate. Only for update request.
         :param pulumi.Input[_builtins.str] description: Multicast group description
@@ -139,6 +140,7 @@ class MulticastGroup(pulumi.CustomResource):
         """
         Create and manage Multicast groups.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] associate_wireless_device: Wireless device to associate. Only for update request.
@@ -156,6 +158,7 @@ class MulticastGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Create and manage Multicast groups.
+
 
         :param str resource_name: The name of the resource.
         :param MulticastGroupArgs args: The arguments to use to populate this resource's properties.

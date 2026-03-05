@@ -28,6 +28,7 @@ class MonitorArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Monitor resource.
+
         :param pulumi.Input[_builtins.str] display_name: The name of the monitor that displays on the Deadline Cloud console.
                
                > This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
@@ -121,6 +122,7 @@ class Monitor(pulumi.CustomResource):
         """
         Definition of AWS::Deadline::Monitor Resource Type
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] display_name: The name of the monitor that displays on the Deadline Cloud console.
@@ -139,6 +141,7 @@ class Monitor(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of AWS::Deadline::Monitor Resource Type
+
 
         :param str resource_name: The name of the resource.
         :param MonitorArgs args: The arguments to use to populate this resource's properties.

@@ -32,6 +32,7 @@ class DeploymentStrategyArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a DeploymentStrategy resource.
+
         :param pulumi.Input[_builtins.float] deployment_duration_in_minutes: Total amount of time for a deployment to last.
         :param pulumi.Input[_builtins.float] growth_factor: The percentage of targets to receive a deployed configuration during each interval.
         :param pulumi.Input['DeploymentStrategyReplicateTo'] replicate_to: Save the deployment strategy to a Systems Manager (SSM) document.
@@ -216,6 +217,7 @@ class DeploymentStrategy(pulumi.CustomResource):
 
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.float] deployment_duration_in_minutes: Total amount of time for a deployment to last.
@@ -269,6 +271,7 @@ class DeploymentStrategy(pulumi.CustomResource):
             }])
 
         ```
+
 
         :param str resource_name: The name of the resource.
         :param DeploymentStrategyArgs args: The arguments to use to populate this resource's properties.

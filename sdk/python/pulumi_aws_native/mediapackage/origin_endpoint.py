@@ -40,6 +40,7 @@ class OriginEndpointArgs:
                  whitelist: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a OriginEndpoint resource.
+
         :param pulumi.Input[_builtins.str] aws_id: The ID of the OriginEndpoint.
         :param pulumi.Input[_builtins.str] channel_id: The ID of the Channel the OriginEndpoint is associated with.
         :param pulumi.Input['OriginEndpointAuthorizationArgs'] authorization: Parameters for CDN authorization.
@@ -275,6 +276,7 @@ class OriginEndpoint(pulumi.CustomResource):
         """
         Resource schema for AWS::MediaPackage::OriginEndpoint
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['OriginEndpointAuthorizationArgs', 'OriginEndpointAuthorizationArgsDict']] authorization: Parameters for CDN authorization.
@@ -300,6 +302,7 @@ class OriginEndpoint(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource schema for AWS::MediaPackage::OriginEndpoint
+
 
         :param str resource_name: The name of the resource.
         :param OriginEndpointArgs args: The arguments to use to populate this resource's properties.

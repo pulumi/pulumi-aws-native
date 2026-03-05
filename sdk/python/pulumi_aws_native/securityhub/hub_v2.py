@@ -22,6 +22,7 @@ class HubV2Args:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a HubV2 resource.
+
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: The tags to add to the hub V2 resource when you enable Security Hub CSPM.
         """
         if tags is not None:
@@ -51,6 +52,7 @@ class HubV2(pulumi.CustomResource):
         """
         The AWS::SecurityHub::HubV2 resource represents the implementation of the AWS Security Hub V2 service in your account. Only one hubv2 resource can created in each region in which you enable Security Hub V2.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: The tags to add to the hub V2 resource when you enable Security Hub CSPM.
@@ -63,6 +65,7 @@ class HubV2(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The AWS::SecurityHub::HubV2 resource represents the implementation of the AWS Security Hub V2 service in your account. Only one hubv2 resource can created in each region in which you enable Security Hub V2.
+
 
         :param str resource_name: The name of the resource.
         :param HubV2Args args: The arguments to use to populate this resource's properties.

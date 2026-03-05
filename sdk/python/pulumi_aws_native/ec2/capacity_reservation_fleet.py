@@ -33,6 +33,7 @@ class CapacityReservationFleetArgs:
                  total_target_capacity: Optional[pulumi.Input[_builtins.int]] = None):
         """
         The set of arguments for constructing a CapacityReservationFleet resource.
+
         :param pulumi.Input[_builtins.str] allocation_strategy: The strategy used by the Capacity Reservation Fleet to determine which of the specified instance types to use. Currently, only the `prioritized` allocation strategy is supported. For more information, see [Allocation strategy](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/crfleet-concepts.html#allocation-strategy) in the *Amazon EC2 User Guide* .
                
                Valid values: `prioritized`
@@ -239,6 +240,7 @@ class CapacityReservationFleet(pulumi.CustomResource):
 
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] allocation_strategy: The strategy used by the Capacity Reservation Fleet to determine which of the specified instance types to use. Currently, only the `prioritized` allocation strategy is supported. For more information, see [Allocation strategy](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/crfleet-concepts.html#allocation-strategy) in the *Amazon EC2 User Guide* .
@@ -299,6 +301,7 @@ class CapacityReservationFleet(pulumi.CustomResource):
             instance_match_criteria=aws_native.ec2.CapacityReservationFleetInstanceMatchCriteria.OPEN)
 
         ```
+
 
         :param str resource_name: The name of the resource.
         :param CapacityReservationFleetArgs args: The arguments to use to populate this resource's properties.

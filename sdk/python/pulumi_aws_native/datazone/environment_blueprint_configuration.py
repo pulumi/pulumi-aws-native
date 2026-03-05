@@ -32,6 +32,7 @@ class EnvironmentBlueprintConfigurationArgs:
                  regional_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentBlueprintConfigurationRegionalParameterArgs']]]] = None):
         """
         The set of arguments for constructing a EnvironmentBlueprintConfiguration resource.
+
         :param pulumi.Input[_builtins.str] domain_identifier: The identifier of the Amazon DataZone domain in which an environment blueprint exists.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] enabled_regions: The enabled AWS Regions specified in a blueprint configuration.
         :param pulumi.Input[_builtins.str] environment_blueprint_identifier: The identifier of the environment blueprint.
@@ -190,6 +191,7 @@ class EnvironmentBlueprintConfiguration(pulumi.CustomResource):
         """
         Definition of AWS::DataZone::EnvironmentBlueprintConfiguration Resource Type
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] domain_identifier: The identifier of the Amazon DataZone domain in which an environment blueprint exists.
@@ -212,6 +214,7 @@ class EnvironmentBlueprintConfiguration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of AWS::DataZone::EnvironmentBlueprintConfiguration Resource Type
+
 
         :param str resource_name: The name of the resource.
         :param EnvironmentBlueprintConfigurationArgs args: The arguments to use to populate this resource's properties.

@@ -25,6 +25,7 @@ class UserAccessLoggingSettingsArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a UserAccessLoggingSettings resource.
+
         :param pulumi.Input[_builtins.str] kinesis_stream_arn: Kinesis stream ARN to which log events are published.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags to add to the user access logging settings resource. A tag is a key-value pair.
         """
@@ -69,6 +70,7 @@ class UserAccessLoggingSettings(pulumi.CustomResource):
         """
         Definition of AWS::WorkSpacesWeb::UserAccessLoggingSettings Resource Type
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] kinesis_stream_arn: Kinesis stream ARN to which log events are published.
@@ -82,6 +84,7 @@ class UserAccessLoggingSettings(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of AWS::WorkSpacesWeb::UserAccessLoggingSettings Resource Type
+
 
         :param str resource_name: The name of the resource.
         :param UserAccessLoggingSettingsArgs args: The arguments to use to populate this resource's properties.

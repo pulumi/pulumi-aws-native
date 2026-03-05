@@ -27,6 +27,7 @@ class AccessPointArgs:
                  policy: Optional[Any] = None):
         """
         The set of arguments for constructing a AccessPoint resource.
+
         :param pulumi.Input[_builtins.str] bucket: The Amazon Resource Name (ARN) of the bucket you want to associate this AccessPoint with.
         :param pulumi.Input['AccessPointVpcConfigurationArgs'] vpc_configuration: Virtual Private Cloud (VPC) from which requests can be made to the AccessPoint.
         :param pulumi.Input[_builtins.str] name: A name for the AccessPoint.
@@ -106,6 +107,7 @@ class AccessPoint(pulumi.CustomResource):
         """
         Resource Type Definition for AWS::S3Outposts::AccessPoint
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] bucket: The Amazon Resource Name (ARN) of the bucket you want to associate this AccessPoint with.
@@ -123,6 +125,7 @@ class AccessPoint(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type Definition for AWS::S3Outposts::AccessPoint
+
 
         :param str resource_name: The name of the resource.
         :param AccessPointArgs args: The arguments to use to populate this resource's properties.

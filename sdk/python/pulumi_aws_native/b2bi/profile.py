@@ -30,6 +30,7 @@ class ProfileArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Profile resource.
+
         :param pulumi.Input[_builtins.str] business_name: Returns the name for the business associated with this profile.
         :param pulumi.Input['ProfileLogging'] logging: Specifies whether or not logging is enabled for this profile.
         :param pulumi.Input[_builtins.str] phone: Specifies the phone number associated with the profile.
@@ -132,6 +133,7 @@ class Profile(pulumi.CustomResource):
         """
         Definition of AWS::B2BI::Profile Resource Type
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] business_name: Returns the name for the business associated with this profile.
@@ -148,6 +150,7 @@ class Profile(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of AWS::B2BI::Profile Resource Type
+
 
         :param str resource_name: The name of the resource.
         :param ProfileArgs args: The arguments to use to populate this resource's properties.

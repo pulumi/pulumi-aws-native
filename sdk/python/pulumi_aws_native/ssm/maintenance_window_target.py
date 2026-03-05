@@ -29,6 +29,7 @@ class MaintenanceWindowTargetArgs:
                  owner_information: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a MaintenanceWindowTarget resource.
+
         :param pulumi.Input[_builtins.str] resource_type: The type of target that is being registered with the maintenance window.
         :param pulumi.Input[Sequence[pulumi.Input['MaintenanceWindowTargetTargetsArgs']]] targets: The targets to register with the maintenance window.
         :param pulumi.Input[_builtins.str] window_id: The ID of the maintenance window to register the target with.
@@ -135,6 +136,7 @@ class MaintenanceWindowTarget(pulumi.CustomResource):
         """
         Resource type definition for AWS::SSM::MaintenanceWindowTarget
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: A description for the target.
@@ -152,6 +154,7 @@ class MaintenanceWindowTarget(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource type definition for AWS::SSM::MaintenanceWindowTarget
+
 
         :param str resource_name: The name of the resource.
         :param MaintenanceWindowTargetArgs args: The arguments to use to populate this resource's properties.

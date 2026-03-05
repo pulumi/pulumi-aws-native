@@ -33,6 +33,7 @@ class UserArgs:
                  user_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a User resource.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] groups: A list of group names to which you want to add the user.
         :param pulumi.Input['UserLoginProfileArgs'] login_profile: Creates a password for the specified IAM user. A password allows an IAM user to access AWS services through the console.
                 You can use the CLI, the AWS API, or the *Users* page in the IAM console to create a password for any IAM user. Use [ChangePassword](https://docs.aws.amazon.com/IAM/latest/APIReference/API_ChangePassword.html) to update your own existing password in the *My Security Credentials* page in the console.
@@ -203,6 +204,7 @@ class User(pulumi.CustomResource):
         Creates a new IAM user for your AWS-account.
           For information about quotas for the number of IAM users you can create, see [IAM and quotas](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html) in the *IAM User Guide*.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] groups: A list of group names to which you want to add the user.
@@ -237,6 +239,7 @@ class User(pulumi.CustomResource):
         """
         Creates a new IAM user for your AWS-account.
           For information about quotas for the number of IAM users you can create, see [IAM and quotas](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html) in the *IAM User Guide*.
+
 
         :param str resource_name: The name of the resource.
         :param UserArgs args: The arguments to use to populate this resource's properties.

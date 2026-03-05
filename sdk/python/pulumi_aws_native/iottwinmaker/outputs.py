@@ -68,6 +68,7 @@ class ComponentTypeCompositeComponentType(dict):
                  component_type_id: Optional[_builtins.str] = None):
         """
         An object that sets information about a composite component type.
+
         :param _builtins.str component_type_id: The id of the composite component type.
         """
         if component_type_id is not None:
@@ -111,6 +112,7 @@ class ComponentTypeDataConnector(dict):
                  lambda_: Optional['outputs.ComponentTypeLambdaFunction'] = None):
         """
         The data connector.
+
         :param _builtins.bool is_native: A Boolean value that specifies whether the data connector is native to IoT TwinMaker.
         :param 'ComponentTypeLambdaFunction' lambda_: The Lambda function associated with this data connector.
         """
@@ -170,6 +172,7 @@ class ComponentTypeDataType(dict):
                  unit_of_measure: Optional[_builtins.str] = None):
         """
         An object that specifies the data type of a property.
+
         :param 'ComponentTypeDataTypeType' type: The underlying type of the data type.
         :param Sequence['ComponentTypeDataValue'] allowed_values: The allowed values for this data type.
         :param 'ComponentTypeDataType' nested_type: The nested type in the data type.
@@ -275,6 +278,7 @@ class ComponentTypeDataValue(dict):
                  string_value: Optional[_builtins.str] = None):
         """
         An object that specifies a value for a property.
+
         :param _builtins.bool boolean_value: A Boolean value.
         :param _builtins.float double_value: A double value.
         :param _builtins.str expression: An expression that produces the value.
@@ -453,6 +457,7 @@ class ComponentTypeFunction(dict):
                  scope: Optional['ComponentTypeFunctionScope'] = None):
         """
         The function of component type.
+
         :param 'ComponentTypeDataConnector' implemented_by: The data connector.
         :param Sequence[_builtins.str] required_properties: The required properties of the function.
         :param 'ComponentTypeFunctionScope' scope: The scope of the function.
@@ -543,6 +548,7 @@ class ComponentTypePropertyDefinition(dict):
                  is_time_series: Optional[_builtins.bool] = None):
         """
         An object that sets information about a property.
+
         :param Mapping[str, _builtins.str] configurations: An object that specifies information about a property.
         :param 'ComponentTypeDataType' data_type: An object that contains information about the data type.
         :param 'ComponentTypeDataValue' default_value: An object that contains the default value.
@@ -652,6 +658,7 @@ class ComponentTypePropertyGroup(dict):
                  property_names: Optional[Sequence[_builtins.str]] = None):
         """
         An object that sets information about a property group.
+
         :param 'ComponentTypePropertyGroupGroupType' group_type: The type of property group.
         :param Sequence[_builtins.str] property_names: The list of property names in the property group.
         """
@@ -706,6 +713,7 @@ class ComponentTypeRelationship(dict):
                  target_component_type_id: Optional[_builtins.str] = None):
         """
         The type of the relationship.
+
         :param _builtins.str relationship_type: The type of the relationship.
         :param _builtins.str target_component_type_id: The ID of the target component type associated with this relationship.
         """
@@ -1051,6 +1059,7 @@ class EntityDataType(dict):
                  unit_of_measure: Optional[_builtins.str] = None):
         """
         An object that specifies the data type of a property.
+
         :param Sequence['EntityDataValue'] allowed_values: The allowed values for this data type.
         :param 'EntityDataType' nested_type: The nested type in the data type.
         :param 'EntityRelationship' relationship: A relationship that associates a component with another component.
@@ -1157,6 +1166,7 @@ class EntityDataValue(dict):
                  string_value: Optional[_builtins.str] = None):
         """
         An object that specifies a value for a property.
+
         :param _builtins.bool boolean_value: A Boolean value.
         :param _builtins.float double_value: A double value.
         :param _builtins.str expression: An expression that produces the value.
@@ -1356,6 +1366,7 @@ class EntityDefinition(dict):
                  is_time_series: Optional[_builtins.bool] = None):
         """
         An object that specifies information about a property definition.
+
         :param Mapping[str, _builtins.str] configuration: An object that specifies information about a property configuration.
         :param 'EntityDataType' data_type: An object that contains information about the data type.
         :param 'EntityDataValue' default_value: An object that contains the default value.
@@ -1479,6 +1490,7 @@ class EntityProperty(dict):
                  value: Optional['outputs.EntityDataValue'] = None):
         """
         An object that specifies information about a property.
+
         :param 'EntityDefinition' definition: The definition of the property.
         :param 'EntityDataValue' value: The value of the property.
         """
@@ -1533,6 +1545,7 @@ class EntityPropertyGroup(dict):
                  property_names: Optional[Sequence[_builtins.str]] = None):
         """
         An object that specifies information about a property group.
+
         :param 'EntityPropertyGroupGroupType' group_type: The type of property group.
         :param Sequence[_builtins.str] property_names: The list of property names in the property group.
         """
@@ -1587,6 +1600,7 @@ class EntityRelationship(dict):
                  target_component_type_id: Optional[_builtins.str] = None):
         """
         The type of the relationship.
+
         :param _builtins.str relationship_type: The type of the relationship.
         :param _builtins.str target_component_type_id: The ID of the target component type associated with this relationship.
         """

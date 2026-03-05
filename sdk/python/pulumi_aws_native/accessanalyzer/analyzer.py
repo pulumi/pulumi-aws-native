@@ -30,6 +30,7 @@ class AnalyzerArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Analyzer resource.
+
         :param pulumi.Input[_builtins.str] type: The type of the analyzer, must be one of ACCOUNT, ORGANIZATION, ACCOUNT_INTERNAL_ACCESS, ORGANIZATION_INTERNAL_ACCESS, ACCOUNT_UNUSED_ACCESS and ORGANIZATION_UNUSED_ACCESS
         :param pulumi.Input['AnalyzerConfigurationPropertiesArgs'] analyzer_configuration: The configuration for the analyzer
         :param pulumi.Input[_builtins.str] analyzer_name: Analyzer name
@@ -158,6 +159,7 @@ class Analyzer(pulumi.CustomResource):
 
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['AnalyzerConfigurationPropertiesArgs', 'AnalyzerConfigurationPropertiesArgsDict']] analyzer_configuration: The configuration for the analyzer
@@ -210,6 +212,7 @@ class Analyzer(pulumi.CustomResource):
             type="ACCOUNT")
 
         ```
+
 
         :param str resource_name: The name of the resource.
         :param AnalyzerArgs args: The arguments to use to populate this resource's properties.

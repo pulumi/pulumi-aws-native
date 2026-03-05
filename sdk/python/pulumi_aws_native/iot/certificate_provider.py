@@ -28,6 +28,7 @@ class CertificateProviderArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a CertificateProvider resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['CertificateProviderOperation']]] account_default_for_operations: A list of the operations that the certificate provider will use to generate certificates. Valid value: `CreateCertificateFromCsr` .
         :param pulumi.Input[_builtins.str] lambda_function_arn: The ARN of the Lambda function.
         :param pulumi.Input[_builtins.str] certificate_provider_name: The name of the certificate provider.
@@ -103,6 +104,7 @@ class CertificateProvider(pulumi.CustomResource):
         """
         Use the AWS::IoT::CertificateProvider resource to declare an AWS IoT Certificate Provider.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input['CertificateProviderOperation']]] account_default_for_operations: A list of the operations that the certificate provider will use to generate certificates. Valid value: `CreateCertificateFromCsr` .
@@ -118,6 +120,7 @@ class CertificateProvider(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Use the AWS::IoT::CertificateProvider resource to declare an AWS IoT Certificate Provider.
+
 
         :param str resource_name: The name of the resource.
         :param CertificateProviderArgs args: The arguments to use to populate this resource's properties.

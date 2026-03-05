@@ -32,6 +32,7 @@ class DirectConnectGatewayAttachmentArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a DirectConnectGatewayAttachment resource.
+
         :param pulumi.Input[_builtins.str] core_network_id: The ID of a core network for the Direct Connect Gateway attachment.
         :param pulumi.Input[_builtins.str] direct_connect_gateway_arn: The ARN of the Direct Connect Gateway.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] edge_locations: The Regions where the edges are located.
@@ -154,6 +155,7 @@ class DirectConnectGatewayAttachment(pulumi.CustomResource):
         """
         AWS::NetworkManager::DirectConnectGatewayAttachment Resource Type
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] core_network_id: The ID of a core network for the Direct Connect Gateway attachment.
@@ -172,6 +174,7 @@ class DirectConnectGatewayAttachment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         AWS::NetworkManager::DirectConnectGatewayAttachment Resource Type
+
 
         :param str resource_name: The name of the resource.
         :param DirectConnectGatewayAttachmentArgs args: The arguments to use to populate this resource's properties.

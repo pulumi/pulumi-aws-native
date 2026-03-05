@@ -31,6 +31,7 @@ class CapacityProviderArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a CapacityProvider resource.
+
         :param pulumi.Input['CapacityProviderAutoScalingGroupProviderArgs'] auto_scaling_group_provider: The Auto Scaling group settings for the capacity provider.
         :param pulumi.Input[_builtins.str] cluster_name: The cluster that this capacity provider is associated with. Managed instances capacity providers are cluster-scoped, meaning they can only be used within their associated cluster.
                
@@ -284,6 +285,7 @@ class CapacityProvider(pulumi.CustomResource):
 
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['CapacityProviderAutoScalingGroupProviderArgs', 'CapacityProviderAutoScalingGroupProviderArgsDict']] auto_scaling_group_provider: The Auto Scaling group settings for the capacity provider.
@@ -448,6 +450,7 @@ class CapacityProvider(pulumi.CustomResource):
             ])
 
         ```
+
 
         :param str resource_name: The name of the resource.
         :param CapacityProviderArgs args: The arguments to use to populate this resource's properties.

@@ -32,6 +32,7 @@ class RotationScheduleExternalSecretRotationMetadataItem(dict):
                  value: _builtins.str):
         """
         The metadata needed to successfully rotate a managed external secret. Each metadata item is a key and value pair of strings in a JSON text string.
+
         :param _builtins.str key: The key name of the metadata item. You can specify a value that's 1 to 256 characters in length.
         :param _builtins.str value: The value for the metadata item. You can specify a value that's 1 to 2048 characters in length.
         """
@@ -345,6 +346,7 @@ class SecretGenerateSecretString(dict):
         """
         Generates a random password. We recommend that you specify the maximum length and include every character type that the system you are generating a password for can support.
          *Required permissions:*``secretsmanager:GetRandomPassword``. For more information, see [IAM policy actions for Secrets Manager](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awssecretsmanager.html#awssecretsmanager-actions-as-permissions) and [Authentication and access control in Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html).
+
         :param _builtins.str exclude_characters: A string of the characters that you don't want in the password.
         :param _builtins.bool exclude_lowercase: Specifies whether to exclude lowercase letters from the password. If you don't include this switch, the password can contain lowercase letters.
         :param _builtins.bool exclude_numbers: Specifies whether to exclude numbers from the password. If you don't include this switch, the password can contain numbers.
@@ -485,6 +487,7 @@ class SecretReplicaRegion(dict):
                  kms_key_id: Optional[_builtins.str] = None):
         """
         Specifies a ``Region`` and the ``KmsKeyId`` for a replica secret.
+
         :param _builtins.str region: A string that represents a ``Region``, for example "us-east-1".
         :param _builtins.str kms_key_id: The ARN, key ID, or alias of the KMS key to encrypt the secret. If you don't include this field, Secrets Manager uses ``aws/secretsmanager``.
         """

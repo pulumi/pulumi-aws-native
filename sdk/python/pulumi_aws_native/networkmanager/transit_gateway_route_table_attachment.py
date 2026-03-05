@@ -32,6 +32,7 @@ class TransitGatewayRouteTableAttachmentArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a TransitGatewayRouteTableAttachment resource.
+
         :param pulumi.Input[_builtins.str] peering_id: The Id of peering between transit gateway and core network.
         :param pulumi.Input[_builtins.str] transit_gateway_route_table_arn: The Arn of transit gateway route table.
         :param pulumi.Input[_builtins.str] network_function_group_name: The name of the network function group attachment.
@@ -155,6 +156,7 @@ class TransitGatewayRouteTableAttachment(pulumi.CustomResource):
         """
         AWS::NetworkManager::TransitGatewayRouteTableAttachment Resource Type definition.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] network_function_group_name: The name of the network function group attachment.
@@ -173,6 +175,7 @@ class TransitGatewayRouteTableAttachment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         AWS::NetworkManager::TransitGatewayRouteTableAttachment Resource Type definition.
+
 
         :param str resource_name: The name of the resource.
         :param TransitGatewayRouteTableAttachmentArgs args: The arguments to use to populate this resource's properties.

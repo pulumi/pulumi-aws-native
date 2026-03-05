@@ -32,6 +32,7 @@ class DataAccessorArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a DataAccessor resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['DataAccessorActionConfigurationArgs']]] action_configurations: A list of action configurations specifying the allowed actions and any associated filters.
         :param pulumi.Input[_builtins.str] application_id: The unique identifier of the Amazon Q Business application.
         :param pulumi.Input[_builtins.str] display_name: The friendly name of the data accessor.
@@ -137,6 +138,7 @@ class DataAccessor(pulumi.CustomResource):
         """
         Definition of AWS::QBusiness::DataAccessor Resource Type
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['DataAccessorActionConfigurationArgs', 'DataAccessorActionConfigurationArgsDict']]]] action_configurations: A list of action configurations specifying the allowed actions and any associated filters.
@@ -154,6 +156,7 @@ class DataAccessor(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of AWS::QBusiness::DataAccessor Resource Type
+
 
         :param str resource_name: The name of the resource.
         :param DataAccessorArgs args: The arguments to use to populate this resource's properties.

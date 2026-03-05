@@ -75,6 +75,7 @@ class ComponentTypeCompositeComponentTypeArgs:
                  component_type_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         An object that sets information about a composite component type.
+
         :param pulumi.Input[_builtins.str] component_type_id: The id of the composite component type.
         """
         if component_type_id is not None:
@@ -113,6 +114,7 @@ class ComponentTypeDataConnectorArgs:
                  lambda_: Optional[pulumi.Input['ComponentTypeLambdaFunctionArgs']] = None):
         """
         The data connector.
+
         :param pulumi.Input[_builtins.bool] is_native: A Boolean value that specifies whether the data connector is native to IoT TwinMaker.
         :param pulumi.Input['ComponentTypeLambdaFunctionArgs'] lambda_: The Lambda function associated with this data connector.
         """
@@ -181,6 +183,7 @@ class ComponentTypeDataTypeArgs:
                  unit_of_measure: Optional[pulumi.Input[_builtins.str]] = None):
         """
         An object that specifies the data type of a property.
+
         :param pulumi.Input['ComponentTypeDataTypeType'] type: The underlying type of the data type.
         :param pulumi.Input[Sequence[pulumi.Input['ComponentTypeDataValueArgs']]] allowed_values: The allowed values for this data type.
         :param pulumi.Input['ComponentTypeDataTypeArgs'] nested_type: The nested type in the data type.
@@ -352,6 +355,7 @@ class ComponentTypeDataValueArgs:
                  string_value: Optional[pulumi.Input[_builtins.str]] = None):
         """
         An object that specifies a value for a property.
+
         :param pulumi.Input[_builtins.bool] boolean_value: A Boolean value.
         :param pulumi.Input[_builtins.float] double_value: A double value.
         :param pulumi.Input[_builtins.str] expression: An expression that produces the value.
@@ -515,6 +519,7 @@ class ComponentTypeFunctionArgs:
                  scope: Optional[pulumi.Input['ComponentTypeFunctionScope']] = None):
         """
         The function of component type.
+
         :param pulumi.Input['ComponentTypeDataConnectorArgs'] implemented_by: The data connector.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] required_properties: The required properties of the function.
         :param pulumi.Input['ComponentTypeFunctionScope'] scope: The scope of the function.
@@ -627,6 +632,7 @@ class ComponentTypePropertyDefinitionArgs:
                  is_time_series: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         An object that sets information about a property.
+
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] configurations: An object that specifies information about a property.
         :param pulumi.Input['ComponentTypeDataTypeArgs'] data_type: An object that contains information about the data type.
         :param pulumi.Input['ComponentTypeDataValueArgs'] default_value: An object that contains the default value.
@@ -755,6 +761,7 @@ class ComponentTypePropertyGroupArgs:
                  property_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         An object that sets information about a property group.
+
         :param pulumi.Input['ComponentTypePropertyGroupGroupType'] group_type: The type of property group.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] property_names: The list of property names in the property group.
         """
@@ -808,6 +815,7 @@ class ComponentTypeRelationshipArgs:
                  target_component_type_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The type of the relationship.
+
         :param pulumi.Input[_builtins.str] relationship_type: The type of the relationship.
         :param pulumi.Input[_builtins.str] target_component_type_id: The ID of the target component type associated with this relationship.
         """
@@ -1174,6 +1182,7 @@ class EntityDataTypeArgs:
                  unit_of_measure: Optional[pulumi.Input[_builtins.str]] = None):
         """
         An object that specifies the data type of a property.
+
         :param pulumi.Input[Sequence[pulumi.Input['EntityDataValueArgs']]] allowed_values: The allowed values for this data type.
         :param pulumi.Input['EntityDataTypeArgs'] nested_type: The nested type in the data type.
         :param pulumi.Input['EntityRelationshipArgs'] relationship: A relationship that associates a component with another component.
@@ -1346,6 +1355,7 @@ class EntityDataValueArgs:
                  string_value: Optional[pulumi.Input[_builtins.str]] = None):
         """
         An object that specifies a value for a property.
+
         :param pulumi.Input[_builtins.bool] boolean_value: A Boolean value.
         :param pulumi.Input[_builtins.float] double_value: A double value.
         :param pulumi.Input[_builtins.str] expression: An expression that produces the value.
@@ -1544,6 +1554,7 @@ class EntityDefinitionArgs:
                  is_time_series: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         An object that specifies information about a property definition.
+
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] configuration: An object that specifies information about a property configuration.
         :param pulumi.Input['EntityDataTypeArgs'] data_type: An object that contains information about the data type.
         :param pulumi.Input['EntityDataValueArgs'] default_value: An object that contains the default value.
@@ -1717,6 +1728,7 @@ class EntityPropertyGroupArgs:
                  property_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         An object that specifies information about a property group.
+
         :param pulumi.Input['EntityPropertyGroupGroupType'] group_type: The type of property group.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] property_names: The list of property names in the property group.
         """
@@ -1770,6 +1782,7 @@ class EntityPropertyArgs:
                  value: Optional[pulumi.Input['EntityDataValueArgs']] = None):
         """
         An object that specifies information about a property.
+
         :param pulumi.Input['EntityDefinitionArgs'] definition: The definition of the property.
         :param pulumi.Input['EntityDataValueArgs'] value: The value of the property.
         """
@@ -1823,6 +1836,7 @@ class EntityRelationshipArgs:
                  target_component_type_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The type of the relationship.
+
         :param pulumi.Input[_builtins.str] relationship_type: The type of the relationship.
         :param pulumi.Input[_builtins.str] target_component_type_id: The ID of the target component type associated with this relationship.
         """

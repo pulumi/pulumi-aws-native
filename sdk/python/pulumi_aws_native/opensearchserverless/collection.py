@@ -33,6 +33,7 @@ class CollectionArgs:
                  type: Optional[pulumi.Input['CollectionType']] = None):
         """
         The set of arguments for constructing a Collection resource.
+
         :param pulumi.Input[_builtins.str] collection_group_name: The name of the collection group to associate with the collection.
         :param pulumi.Input[_builtins.str] description: The description of the collection
         :param pulumi.Input[_builtins.str] name: The name of the collection.
@@ -204,6 +205,7 @@ class Collection(pulumi.CustomResource):
 
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] collection_group_name: The name of the collection group to associate with the collection.
@@ -265,6 +267,7 @@ class Collection(pulumi.CustomResource):
             opts = pulumi.ResourceOptions(depends_on=[encryption_policy]))
 
         ```
+
 
         :param str resource_name: The name of the resource.
         :param CollectionArgs args: The arguments to use to populate this resource's properties.

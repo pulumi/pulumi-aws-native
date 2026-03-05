@@ -92,6 +92,7 @@ class CapacityReservationCapacityAssignmentConfiguration(dict):
                  capacity_assignments: Sequence['outputs.CapacityReservationCapacityAssignment']):
         """
         Assignment configuration to assign workgroups to a reservation
+
         :param Sequence['CapacityReservationCapacityAssignment'] capacity_assignments: The list of assignments that make up the capacity assignment configuration.
         """
         pulumi.set(__self__, "capacity_assignments", capacity_assignments)
@@ -131,6 +132,7 @@ class WorkGroupAclConfiguration(dict):
                  s3_acl_option: 'WorkGroupS3AclOption'):
         """
         Indicates that an Amazon S3 canned ACL should be set to control ownership of stored query results
+
         :param 'WorkGroupS3AclOption' s3_acl_option: The Amazon S3 canned ACL that Athena should specify when storing query results, including data files inserted by Athena as the result of statements like CTAS or INSERT INTO. Currently the only supported canned ACL is `BUCKET_OWNER_FULL_CONTROL` . If a query runs in a workgroup and the workgroup overrides client-side settings, then the Amazon S3 canned ACL specified in the workgroup's settings is used for all queries that run in the workgroup. For more information about Amazon S3 canned ACLs, see [Canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl) in the *Amazon S3 User Guide* .
         """
         pulumi.set(__self__, "s3_acl_option", s3_acl_option)
@@ -154,6 +156,7 @@ class WorkGroupClassification(dict):
                  properties: Optional[Mapping[str, _builtins.str]] = None):
         """
         A classification refers to a set of specific configurations.
+
         :param _builtins.str name: The name of the configuration classification.
         :param Mapping[str, _builtins.str] properties: A set of properties specified within a configuration classification.
         """
@@ -212,6 +215,7 @@ class WorkGroupCloudWatchLoggingConfiguration(dict):
                  log_types: Optional[Mapping[str, Sequence[_builtins.str]]] = None):
         """
         Configuration settings for delivering logs to Amazon CloudWatch log groups.
+
         :param _builtins.bool enabled: Enables CloudWatch logging.
         :param _builtins.str log_group: The name of the log group in Amazon CloudWatch Logs where you want to publish your logs.
         :param _builtins.str log_stream_name_prefix: Prefix for the CloudWatch log stream name.
@@ -641,6 +645,7 @@ class WorkGroupCustomerContentEncryptionConfiguration(dict):
                  kms_key: _builtins.str):
         """
         Indicates the KMS key for encrypting notebook content.
+
         :param _builtins.str kms_key: The customer managed KMS key that is used to encrypt the user's data stores in Athena.
         """
         pulumi.set(__self__, "kms_key", kms_key)
@@ -683,6 +688,7 @@ class WorkGroupEncryptionConfiguration(dict):
                  kms_key: Optional[_builtins.str] = None):
         """
         If query results are encrypted in Amazon S3, indicates the encryption option used (for example, SSE-KMS or CSE-KMS) and key information.
+
         :param 'WorkGroupEncryptionOption' encryption_option: Indicates whether Amazon S3 server-side encryption with Amazon S3-managed keys ( `SSE_S3` ), server-side encryption with KMS-managed keys ( `SSE_KMS` ), or client-side encryption with KMS-managed keys ( `CSE_KMS` ) is used.
                
                If a query runs in a workgroup and the workgroup overrides client-side settings, then the workgroup's setting for encryption is used. It specifies whether query results must be encrypted, for all queries that run in this workgroup.
@@ -750,6 +756,7 @@ class WorkGroupEngineConfiguration(dict):
                  spark_properties: Optional[Mapping[str, _builtins.str]] = None):
         """
         The engine configuration for running queries.
+
         :param Mapping[str, _builtins.str] additional_configs: Contains additional notebook engine MAP<string, string> parameter mappings in the form of key-value pairs. To specify an Athena notebook that the Jupyter server will download and serve, specify a value for the StartSessionRequest$NotebookVersion field, and then add a key named NotebookId to AdditionalConfigs that has the value of the Athena notebook ID.
         :param Sequence['WorkGroupClassification'] classifications: The configuration classifications that can be specified for the engine.
         :param _builtins.int coordinator_dpu_size: The number of DPUs to use for the coordinator. A coordinator is a special executor that orchestrates processing work and manages other executors in a notebook session. The default is 1.
@@ -848,6 +855,7 @@ class WorkGroupEngineVersion(dict):
                  selected_engine_version: Optional[_builtins.str] = None):
         """
         The Athena engine version for running queries.
+
         :param _builtins.str effective_engine_version: Read only. The engine version on which the query runs. If the user requests a valid engine version other than Auto, the effective engine version is the same as the engine version that the user requested. If the user requests Auto, the effective engine version is chosen by Athena. When a request to update the engine version is made by a `CreateWorkGroup` or `UpdateWorkGroup` operation, the `EffectiveEngineVersion` field is ignored.
         :param _builtins.str selected_engine_version: The engine version requested by the user. Possible values are determined by the output of `ListEngineVersions` , including AUTO. The default is AUTO.
         """
@@ -900,6 +908,7 @@ class WorkGroupManagedLoggingConfiguration(dict):
                  kms_key: Optional[_builtins.str] = None):
         """
         Configuration settings for managed log persistence.
+
         :param _builtins.bool enabled: Enables managed log persistence.
         :param _builtins.str kms_key: The KMS key ARN to encrypt the logs stored in managed log persistence.
         """
@@ -952,6 +961,7 @@ class WorkGroupManagedQueryResultsConfiguration(dict):
                  encryption_configuration: Optional['outputs.WorkGroupManagedStorageEncryptionConfiguration'] = None):
         """
         The configuration for the managed query results and encryption option. ResultConfiguration and ManagedQueryResultsConfiguration cannot be set at the same time
+
         :param _builtins.bool enabled: If set to true, allows you to store query results in Athena owned storage. If set to false, workgroup member stores query results in location specified under `ResultConfiguration$OutputLocation` . The default is false. A workgroup cannot have the `ResultConfiguration$OutputLocation` parameter when you set this field to true.
         :param 'WorkGroupManagedStorageEncryptionConfiguration' encryption_configuration: If you encrypt query and calculation results in Athena owned storage, this field indicates the encryption option (for example, SSE_KMS or CSE_KMS) and key information.
         """
@@ -1045,6 +1055,7 @@ class WorkGroupMonitoringConfiguration(dict):
                  s3_logging_configuration: Optional['outputs.WorkGroupS3LoggingConfiguration'] = None):
         """
         Contains the configuration settings for managed log persistence, delivering logs to Amazon S3 buckets, Amazon CloudWatch log groups etc.
+
         :param 'WorkGroupCloudWatchLoggingConfiguration' cloud_watch_logging_configuration: Configuration settings for delivering logs to Amazon CloudWatch log groups.
         :param 'WorkGroupManagedLoggingConfiguration' managed_logging_configuration: Configuration settings for managed log persistence.
         :param 'WorkGroupS3LoggingConfiguration' s3_logging_configuration: Configuration settings for delivering logs to Amazon S3 buckets.
@@ -1116,6 +1127,7 @@ class WorkGroupResultConfiguration(dict):
                  output_location: Optional[_builtins.str] = None):
         """
         The location in Amazon S3 where query results are stored and the encryption option, if any, used for query results. These are known as "client-side settings". If workgroup settings override client-side settings, then the query uses the workgroup settings.
+
 
         :param 'WorkGroupAclConfiguration' acl_configuration: Indicates that an Amazon S3 canned ACL should be set to control ownership of stored query results. Currently the only supported canned ACL is `BUCKET_OWNER_FULL_CONTROL` . This is a client-side setting. If workgroup settings override client-side settings, then the query uses the ACL configuration that is specified for the workgroup, and also uses the location for storing query results specified in the workgroup. See `EnforceWorkGroupConfiguration` .
         :param 'WorkGroupEncryptionConfiguration' encryption_configuration: If query results are encrypted in Amazon S3, indicates the encryption option used (for example, `SSE_KMS` or `CSE_KMS` ) and key information. This is a client-side setting. If workgroup settings override client-side settings, then the query uses the encryption configuration that is specified for the workgroup, and also uses the location for storing query results specified in the workgroup. See `EnforceWorkGroupConfiguration` and [Override client-side settings](https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html) .
@@ -1215,6 +1227,7 @@ class WorkGroupResultConfigurationUpdates(dict):
                  remove_output_location: Optional[_builtins.bool] = None):
         """
         The result configuration information about the queries in this workgroup that will be updated. Includes the updated results location and an updated option for encrypting query results. 
+
         :param 'WorkGroupAclConfiguration' acl_configuration: The ACL configuration for the query results.
         :param 'WorkGroupEncryptionConfiguration' encryption_configuration: The encryption configuration for the query results.
         :param _builtins.str expected_bucket_owner: The AWS account ID that you expect to be the owner of the Amazon S3 bucket specified by [](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-athena-workgroup-resultconfiguration.html#cfn-athena-workgroup-resultconfiguration-outputlocation) . If set, Athena uses the value for `ExpectedBucketOwner` when it makes Amazon S3 calls to your specified output location. If the `ExpectedBucketOwner` AWS account ID does not match the actual owner of the Amazon S3 bucket, the call fails with a permissions error.
@@ -1340,6 +1353,7 @@ class WorkGroupS3LoggingConfiguration(dict):
                  log_location: Optional[_builtins.str] = None):
         """
         Configuration settings for delivering logs to Amazon S3 buckets.
+
         :param _builtins.bool enabled: Enables S3 log delivery.
         :param _builtins.str kms_key: The KMS key ARN to encrypt the logs published to the given Amazon S3 destination.
         :param _builtins.str log_location: The Amazon S3 destination URI for log publishing.

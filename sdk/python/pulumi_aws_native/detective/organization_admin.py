@@ -22,6 +22,7 @@ class OrganizationAdminArgs:
                  account_id: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a OrganizationAdmin resource.
+
         :param pulumi.Input[_builtins.str] account_id: The account ID of the account that should be registered as your Organization's delegated administrator for Detective
         """
         pulumi.set(__self__, "account_id", account_id)
@@ -50,6 +51,7 @@ class OrganizationAdmin(pulumi.CustomResource):
         """
         Resource schema for AWS::Detective::OrganizationAdmin
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_id: The account ID of the account that should be registered as your Organization's delegated administrator for Detective
@@ -62,6 +64,7 @@ class OrganizationAdmin(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource schema for AWS::Detective::OrganizationAdmin
+
 
         :param str resource_name: The name of the resource.
         :param OrganizationAdminArgs args: The arguments to use to populate this resource's properties.

@@ -33,6 +33,7 @@ class AlarmMuteRuleArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a AlarmMuteRule resource.
+
         :param pulumi.Input['RulePropertiesArgs'] rule: The rule for the mute
         :param pulumi.Input[_builtins.str] description: The description of the AlarmMuteRule
         :param pulumi.Input[_builtins.str] expire_date: The date, with the same timezone offset as "ScheduleTimezone" after which the alarm mute rule will be expired.
@@ -157,6 +158,7 @@ class AlarmMuteRule(pulumi.CustomResource):
         """
         Resource Type definition for AWS::CloudWatch::AlarmMuteRule that allows defining a rule and targeting alarms to mute their actions during the specified window.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: The description of the AlarmMuteRule
@@ -175,6 +177,7 @@ class AlarmMuteRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::CloudWatch::AlarmMuteRule that allows defining a rule and targeting alarms to mute their actions during the specified window.
+
 
         :param str resource_name: The name of the resource.
         :param AlarmMuteRuleArgs args: The arguments to use to populate this resource's properties.

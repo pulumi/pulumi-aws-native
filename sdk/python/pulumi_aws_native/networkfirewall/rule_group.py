@@ -33,6 +33,7 @@ class RuleGroupInitArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a RuleGroup resource.
+
         :param pulumi.Input[_builtins.int] capacity: The maximum operating resources that this rule group can use. You can't change a rule group's capacity setting after you create the rule group. When you update a rule group, you are limited to this capacity. When you reference a rule group from a firewall policy, Network Firewall reserves this capacity for the rule group.
         :param pulumi.Input['RuleGroupTypeEnum'] type: Indicates whether the rule group is stateless or stateful. If the rule group is stateless, it contains
                stateless rules. If it is stateful, it contains stateful rules.
@@ -168,6 +169,7 @@ class RuleGroup(pulumi.CustomResource):
         """
         Resource type definition for AWS::NetworkFirewall::RuleGroup
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.int] capacity: The maximum operating resources that this rule group can use. You can't change a rule group's capacity setting after you create the rule group. When you update a rule group, you are limited to this capacity. When you reference a rule group from a firewall policy, Network Firewall reserves this capacity for the rule group.
@@ -192,6 +194,7 @@ class RuleGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource type definition for AWS::NetworkFirewall::RuleGroup
+
 
         :param str resource_name: The name of the resource.
         :param RuleGroupInitArgs args: The arguments to use to populate this resource's properties.

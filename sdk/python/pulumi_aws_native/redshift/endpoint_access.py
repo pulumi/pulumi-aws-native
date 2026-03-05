@@ -27,6 +27,7 @@ class EndpointAccessArgs:
                  resource_owner: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a EndpointAccess resource.
+
         :param pulumi.Input[_builtins.str] cluster_identifier: A unique identifier for the cluster. You use this identifier to refer to the cluster for any subsequent cluster operations such as deleting or modifying. All alphabetical characters must be lower case, no hypens at the end, no two consecutive hyphens. Cluster name should be unique for all clusters within an AWS account
         :param pulumi.Input[_builtins.str] endpoint_name: The name of the endpoint.
         :param pulumi.Input[_builtins.str] subnet_group_name: The subnet group name where Amazon Redshift chooses to deploy the endpoint.
@@ -116,6 +117,7 @@ class EndpointAccess(pulumi.CustomResource):
         """
         Resource schema for a Redshift-managed VPC endpoint.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] cluster_identifier: A unique identifier for the cluster. You use this identifier to refer to the cluster for any subsequent cluster operations such as deleting or modifying. All alphabetical characters must be lower case, no hypens at the end, no two consecutive hyphens. Cluster name should be unique for all clusters within an AWS account
@@ -132,6 +134,7 @@ class EndpointAccess(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource schema for a Redshift-managed VPC endpoint.
+
 
         :param str resource_name: The name of the resource.
         :param EndpointAccessArgs args: The arguments to use to populate this resource's properties.

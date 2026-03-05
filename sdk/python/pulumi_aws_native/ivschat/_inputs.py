@@ -43,6 +43,7 @@ class LoggingConfigurationCloudWatchLogsDestinationConfigurationArgs:
                  log_group_name: pulumi.Input[_builtins.str]):
         """
         CloudWatch destination configuration for IVS Chat logging.
+
         :param pulumi.Input[_builtins.str] log_group_name: Name of the Amazon CloudWatch Logs log group where chat activity will be logged.
         """
         pulumi.set(__self__, "log_group_name", log_group_name)
@@ -85,6 +86,7 @@ class LoggingConfigurationDestinationConfigurationArgs:
                  s3: Optional[pulumi.Input['LoggingConfigurationS3DestinationConfigurationArgs']] = None):
         """
         Destination configuration for IVS Chat logging.
+
         :param pulumi.Input['LoggingConfigurationCloudWatchLogsDestinationConfigurationArgs'] cloud_watch_logs: An Amazon CloudWatch Logs destination configuration where chat activity will be logged.
         :param pulumi.Input['LoggingConfigurationFirehoseDestinationConfigurationArgs'] firehose: An Amazon Kinesis Data Firehose destination configuration where chat activity will be logged.
         :param pulumi.Input['LoggingConfigurationS3DestinationConfigurationArgs'] s3: An Amazon S3 destination configuration where chat activity will be logged.
@@ -148,6 +150,7 @@ class LoggingConfigurationFirehoseDestinationConfigurationArgs:
                  delivery_stream_name: pulumi.Input[_builtins.str]):
         """
         Kinesis Firehose destination configuration for IVS Chat logging.
+
         :param pulumi.Input[_builtins.str] delivery_stream_name: Name of the Amazon Kinesis Firehose delivery stream where chat activity will be logged.
         """
         pulumi.set(__self__, "delivery_stream_name", delivery_stream_name)
@@ -180,6 +183,7 @@ class LoggingConfigurationS3DestinationConfigurationArgs:
                  bucket_name: pulumi.Input[_builtins.str]):
         """
         S3 destination configuration for IVS Chat logging.
+
         :param pulumi.Input[_builtins.str] bucket_name: Name of the Amazon S3 bucket where chat activity will be logged.
         """
         pulumi.set(__self__, "bucket_name", bucket_name)
@@ -217,6 +221,7 @@ class RoomMessageReviewHandlerArgs:
                  uri: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Configuration information for optional review of messages.
+
         :param pulumi.Input['RoomMessageReviewHandlerFallbackResult'] fallback_result: Specifies the fallback behavior if the handler does not return a valid response, encounters an error, or times out.
         :param pulumi.Input[_builtins.str] uri: Identifier of the message review handler.
         """

@@ -27,6 +27,7 @@ class DomainNameArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a DomainName resource.
+
         :param pulumi.Input[_builtins.str] certificate_arn: The Amazon Resource Name (ARN) of the certificate. This will be an Certificate Manager certificate.
         :param pulumi.Input[_builtins.str] domain_name: The domain name.
         :param pulumi.Input[_builtins.str] description: The decription for your domain name.
@@ -102,6 +103,7 @@ class DomainName(pulumi.CustomResource):
         """
         Resource Type definition for AWS::AppSync::DomainName
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] certificate_arn: The Amazon Resource Name (ARN) of the certificate. This will be an Certificate Manager certificate.
@@ -117,6 +119,7 @@ class DomainName(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::AppSync::DomainName
+
 
         :param str resource_name: The name of the resource.
         :param DomainNameArgs args: The arguments to use to populate this resource's properties.

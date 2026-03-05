@@ -64,6 +64,7 @@ class ContactChannelTargetInfoArgs:
                  retry_interval_in_minutes: pulumi.Input[_builtins.int]):
         """
         Information about the contact channel that SSM Incident Manager uses to engage the contact.
+
         :param pulumi.Input[_builtins.str] channel_id: The Amazon Resource Name (ARN) of the contact channel.
         :param pulumi.Input[_builtins.int] retry_interval_in_minutes: The number of minutes to wait to retry sending engagement in the case the engagement initially fails.
         """
@@ -120,6 +121,7 @@ class ContactStageArgs:
                  targets: Optional[pulumi.Input[Sequence[pulumi.Input['ContactTargetsArgs']]]] = None):
         """
         A set amount of time that an escalation plan or engagement plan engages the specified contacts or contact methods.
+
         :param pulumi.Input[_builtins.int] duration_in_minutes: The time to wait until beginning the next stage.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] rotation_ids: List of Rotation Ids to associate with Contact
         :param pulumi.Input[Sequence[pulumi.Input['ContactTargetsArgs']]] targets: The contacts or contact methods that the escalation plan or engagement plan is engaging.
@@ -188,6 +190,7 @@ class ContactTargetInfoArgs:
                  is_essential: pulumi.Input[_builtins.bool]):
         """
         The contact that SSM Incident Manager is engaging during an incident.
+
         :param pulumi.Input[_builtins.str] contact_id: The Amazon Resource Name (ARN) of the contact.
         :param pulumi.Input[_builtins.bool] is_essential: A Boolean value determining if the contact's acknowledgement stops the progress of stages in the plan.
         """
@@ -239,6 +242,7 @@ class ContactTargetsArgs:
                  contact_target_info: Optional[pulumi.Input['ContactTargetInfoArgs']] = None):
         """
         The contacts or contact methods that the escalation plan or engagement plan is engaging.
+
         :param pulumi.Input['ContactChannelTargetInfoArgs'] channel_target_info: Information about the contact channel that Incident Manager engages.
         :param pulumi.Input['ContactTargetInfoArgs'] contact_target_info: The contact that Incident Manager is engaging during an incident.
         """
@@ -292,6 +296,7 @@ class PlanChannelTargetInfoArgs:
                  retry_interval_in_minutes: pulumi.Input[_builtins.int]):
         """
         Information about the contact channel that SSM Incident Manager uses to engage the contact.
+
         :param pulumi.Input[_builtins.str] channel_id: The Amazon Resource Name (ARN) of the contact channel.
         :param pulumi.Input[_builtins.int] retry_interval_in_minutes: The number of minutes to wait to retry sending engagement in the case the engagement initially fails.
         """
@@ -343,6 +348,7 @@ class PlanContactTargetInfoArgs:
                  is_essential: pulumi.Input[_builtins.bool]):
         """
         The contact that SSM Incident Manager is engaging during an incident.
+
         :param pulumi.Input[_builtins.str] contact_id: The Amazon Resource Name (ARN) of the contact.
         :param pulumi.Input[_builtins.bool] is_essential: A Boolean value determining if the contact's acknowledgement stops the progress of stages in the plan.
         """
@@ -394,6 +400,7 @@ class PlanStageArgs:
                  targets: Optional[pulumi.Input[Sequence[pulumi.Input['PlanTargetsArgs']]]] = None):
         """
         A set amount of time that an escalation plan or engagement plan engages the specified contacts or contact methods.
+
         :param pulumi.Input[_builtins.int] duration_in_minutes: The time to wait until beginning the next stage.
         :param pulumi.Input[Sequence[pulumi.Input['PlanTargetsArgs']]] targets: The contacts or contact methods that the escalation plan or engagement plan is engaging.
         """
@@ -446,6 +453,7 @@ class PlanTargetsArgs:
                  contact_target_info: Optional[pulumi.Input['PlanContactTargetInfoArgs']] = None):
         """
         The contacts or contact methods that the escalation plan or engagement plan is engaging.
+
         :param pulumi.Input['PlanChannelTargetInfoArgs'] channel_target_info: Information about the contact channel that Incident Manager engages.
         :param pulumi.Input['PlanContactTargetInfoArgs'] contact_target_info: Information about the contact that Incident Manager engages.
         """
@@ -499,6 +507,7 @@ class RotationCoverageTimeArgs:
                  start_time: pulumi.Input[_builtins.str]):
         """
         StartTime and EndTime for the Shift
+
         :param pulumi.Input[_builtins.str] end_time: Information about when an on-call rotation shift ends.
         :param pulumi.Input[_builtins.str] start_time: Information about when an on-call rotation shift begins.
         """
@@ -550,6 +559,7 @@ class RotationMonthlySettingArgs:
                  hand_off_time: pulumi.Input[_builtins.str]):
         """
         DayOfWeek for Month and HandOff Time for Monthly Recurring Rotation.
+
         :param pulumi.Input[_builtins.int] day_of_month: The day of the month when monthly recurring on-call rotations begin.
         :param pulumi.Input[_builtins.str] hand_off_time: The time of day when a monthly recurring on-call shift rotation begins.
         """
@@ -621,6 +631,7 @@ class RotationRecurrenceSettingsArgs:
                  weekly_settings: Optional[pulumi.Input[Sequence[pulumi.Input['RotationWeeklySettingArgs']]]] = None):
         """
         Information about when an on-call rotation is in effect and how long the rotation period lasts.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] daily_settings: Information about on-call rotations that recur daily.
         :param pulumi.Input[Sequence[pulumi.Input['RotationMonthlySettingArgs']]] monthly_settings: Information about on-call rotations that recur monthly.
         :param pulumi.Input[_builtins.int] number_of_on_calls: Number of Oncalls per shift.
@@ -734,6 +745,7 @@ class RotationShiftCoverageArgs:
                  day_of_week: pulumi.Input['RotationDayOfWeek']):
         """
         Information about the days of the week included in on-call rotation coverage.
+
         :param pulumi.Input[Sequence[pulumi.Input['RotationCoverageTimeArgs']]] coverage_times: Information about when an on-call shift begins and ends.
         :param pulumi.Input['RotationDayOfWeek'] day_of_week: A list of days on which the schedule is active.
         """
@@ -785,6 +797,7 @@ class RotationWeeklySettingArgs:
                  hand_off_time: pulumi.Input[_builtins.str]):
         """
         DayOfWeek for Rotation and HandOff Time for Weekly Recurring Rotation.
+
         :param pulumi.Input['RotationDayOfWeek'] day_of_week: The day of the week when weekly recurring on-call shift rotations begins.
         :param pulumi.Input[_builtins.str] hand_off_time: The time of day when a weekly recurring on-call shift rotation begins.
         """

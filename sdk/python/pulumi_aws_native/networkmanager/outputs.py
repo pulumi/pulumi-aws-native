@@ -55,6 +55,7 @@ class ConnectAttachmentOptions(dict):
                  protocol: Optional[_builtins.str] = None):
         """
         Connect attachment options for protocol
+
         :param _builtins.str protocol: Tunnel protocol for connect attachment
         """
         if protocol is not None:
@@ -99,6 +100,7 @@ class ConnectAttachmentProposedNetworkFunctionGroupChange(dict):
                  tags: Optional[Sequence['outputs.ConnectAttachmentTag']] = None):
         """
         The attachment to move from one network function group to another.
+
         :param _builtins.int attachment_policy_rule_number: The rule number in the policy document that applies to this change.
         :param _builtins.str network_function_group_name: The name of the network function group to change.
         :param Sequence['ConnectAttachmentTag'] tags: The key-value tags that changed for the network function group.
@@ -165,6 +167,7 @@ class ConnectAttachmentProposedSegmentChange(dict):
                  tags: Optional[Sequence['outputs.ConnectAttachmentTag']] = None):
         """
         The attachment to move from one segment to another.
+
         :param _builtins.int attachment_policy_rule_number: The rule number in the policy document that applies to this change.
         :param _builtins.str segment_name: The name of the segment to change.
         :param Sequence['ConnectAttachmentTag'] tags: The list of key-value tags that changed for the segment.
@@ -211,6 +214,7 @@ class ConnectAttachmentTag(dict):
                  value: _builtins.str):
         """
         A key-value pair to associate with a resource.
+
         :param _builtins.str key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         :param _builtins.str value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         """
@@ -269,6 +273,7 @@ class ConnectPeerBgpConfiguration(dict):
                  peer_asn: Optional[_builtins.float] = None):
         """
         Bgp configuration for connect peer
+
         :param _builtins.str core_network_address: The address of a core network.
         :param _builtins.float core_network_asn: The ASN of the Coret Network.
         :param _builtins.str peer_address: The address of a core network Connect peer.
@@ -342,6 +347,7 @@ class ConnectPeerBgpOptions(dict):
                  peer_asn: Optional[_builtins.float] = None):
         """
         Bgp options
+
         :param _builtins.float peer_asn: The Peer ASN of the BGP.
         """
         if peer_asn is not None:
@@ -703,6 +709,7 @@ class DeviceAwsLocation(dict):
                  zone: Optional[_builtins.str] = None):
         """
         The Amazon Web Services location of the device, if applicable.
+
         :param _builtins.str subnet_arn: The Amazon Resource Name (ARN) of the subnet that the device is located in.
         :param _builtins.str zone: The Zone that the device is located in. Specify the ID of an Availability Zone, Local Zone, Wavelength Zone, or an Outpost.
         """
@@ -739,6 +746,7 @@ class DeviceLocation(dict):
                  longitude: Optional[_builtins.str] = None):
         """
         The site location.
+
         :param _builtins.str address: The physical address.
         :param _builtins.str latitude: The latitude.
         :param _builtins.str longitude: The longitude.
@@ -805,6 +813,7 @@ class DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChange(dict):
                  tags: Optional[Sequence['outputs.DirectConnectGatewayAttachmentTag']] = None):
         """
         The attachment to move from one network function group to another.
+
         :param _builtins.int attachment_policy_rule_number: The rule number in the policy document that applies to this change.
         :param _builtins.str network_function_group_name: The name of the network function group to change.
         :param Sequence['DirectConnectGatewayAttachmentTag'] tags: The key-value tags that changed for the network function group.
@@ -871,6 +880,7 @@ class DirectConnectGatewayAttachmentProposedSegmentChange(dict):
                  tags: Optional[Sequence['outputs.DirectConnectGatewayAttachmentTag']] = None):
         """
         The attachment to move from one segment to another.
+
         :param _builtins.int attachment_policy_rule_number: The rule number in the policy document that applies to this change.
         :param _builtins.str segment_name: The name of the segment to change.
         :param Sequence['DirectConnectGatewayAttachmentTag'] tags: The key-value tags that changed for the segment.
@@ -917,6 +927,7 @@ class DirectConnectGatewayAttachmentTag(dict):
                  value: _builtins.str):
         """
         A key-value pair to associate with a resource.
+
         :param _builtins.str key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         :param _builtins.str value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         """
@@ -969,6 +980,7 @@ class LinkBandwidth(dict):
                  upload_speed: Optional[_builtins.int] = None):
         """
         The bandwidth for the link.
+
         :param _builtins.int download_speed: Download speed in Mbps.
         :param _builtins.int upload_speed: Upload speed in Mbps.
         """
@@ -1005,6 +1017,7 @@ class SiteLocation(dict):
                  longitude: Optional[_builtins.str] = None):
         """
         The location of the site
+
         :param _builtins.str address: The physical address.
         :param _builtins.str latitude: The latitude.
         :param _builtins.str longitude: The longitude.
@@ -1071,6 +1084,7 @@ class SiteToSiteVpnAttachmentProposedNetworkFunctionGroupChange(dict):
                  tags: Optional[Sequence['outputs.SiteToSiteVpnAttachmentTag']] = None):
         """
         The attachment to move from one network function group to another.
+
         :param _builtins.int attachment_policy_rule_number: The rule number in the policy document that applies to this change.
         :param _builtins.str network_function_group_name: The name of the network function group to change.
         :param Sequence['SiteToSiteVpnAttachmentTag'] tags: The key-value tags that changed for the network function group.
@@ -1137,6 +1151,7 @@ class SiteToSiteVpnAttachmentProposedSegmentChange(dict):
                  tags: Optional[Sequence['outputs.SiteToSiteVpnAttachmentTag']] = None):
         """
         The attachment to move from one segment to another.
+
         :param _builtins.int attachment_policy_rule_number: The rule number in the policy document that applies to this change.
         :param _builtins.str segment_name: The name of the segment to change.
         :param Sequence['SiteToSiteVpnAttachmentTag'] tags: The key-value tags that changed for the segment.
@@ -1183,6 +1198,7 @@ class SiteToSiteVpnAttachmentTag(dict):
                  value: _builtins.str):
         """
         A key-value pair to associate with a resource.
+
         :param _builtins.str key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         :param _builtins.str value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         """
@@ -1236,6 +1252,7 @@ class TransitGatewayRouteTableAttachmentProposedNetworkFunctionGroupChange(dict)
                  tags: Optional[Sequence['outputs.TransitGatewayRouteTableAttachmentTag']] = None):
         """
         The attachment to move from one network function group to another.
+
         :param _builtins.int attachment_policy_rule_number: The rule number in the policy document that applies to this change.
         :param _builtins.str network_function_group_name: The name of the network function group to change.
         :param Sequence['TransitGatewayRouteTableAttachmentTag'] tags: The key-value tags that changed for the network function group.
@@ -1302,6 +1319,7 @@ class TransitGatewayRouteTableAttachmentProposedSegmentChange(dict):
                  tags: Optional[Sequence['outputs.TransitGatewayRouteTableAttachmentTag']] = None):
         """
         The attachment to move from one segment to another.
+
         :param _builtins.int attachment_policy_rule_number: The rule number in the policy document that applies to this change.
         :param _builtins.str segment_name: The name of the segment to change.
         :param Sequence['TransitGatewayRouteTableAttachmentTag'] tags: The key-value tags that changed for the segment.
@@ -1348,6 +1366,7 @@ class TransitGatewayRouteTableAttachmentTag(dict):
                  value: _builtins.str):
         """
         A key-value pair to associate with a resource.
+
         :param _builtins.str key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         :param _builtins.str value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         """
@@ -1401,6 +1420,7 @@ class VpcAttachmentProposedNetworkFunctionGroupChange(dict):
                  tags: Optional[Sequence['outputs.VpcAttachmentTag']] = None):
         """
         The attachment to move from one network function group to another.
+
         :param _builtins.int attachment_policy_rule_number: The rule number in the policy document that applies to this change.
         :param _builtins.str network_function_group_name: The name of the network function group to change.
         :param Sequence['VpcAttachmentTag'] tags: The key-value tags that changed for the network function group.
@@ -1467,6 +1487,7 @@ class VpcAttachmentProposedSegmentChange(dict):
                  tags: Optional[Sequence['outputs.VpcAttachmentTag']] = None):
         """
         The attachment to move from one segment to another.
+
         :param _builtins.int attachment_policy_rule_number: The rule number in the policy document that applies to this change.
         :param _builtins.str segment_name: The name of the segment to change.
         :param Sequence['VpcAttachmentTag'] tags: The key-value tags that changed for the segment.
@@ -1513,6 +1534,7 @@ class VpcAttachmentTag(dict):
                  value: _builtins.str):
         """
         A key-value pair to associate with a resource.
+
         :param _builtins.str key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         :param _builtins.str value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         """
@@ -1571,6 +1593,7 @@ class VpcAttachmentVpcOptions(dict):
                  security_group_referencing_support: Optional[_builtins.bool] = None):
         """
         Vpc options of the attachment.
+
         :param _builtins.bool appliance_mode_support: Indicates whether to enable ApplianceModeSupport Support for Vpc Attachment. Valid Values: true | false
         :param _builtins.bool dns_support: Indicates whether to enable private DNS Support for Vpc Attachment. Valid Values: true | false
         :param _builtins.bool ipv6_support: Indicates whether to enable Ipv6 Support for Vpc Attachment. Valid Values: enable | disable

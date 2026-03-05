@@ -35,6 +35,7 @@ class Discovery(pulumi.CustomResource):
         """
         Resource Type definition for AWS::ApplicationSignals::Discovery
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
@@ -46,6 +47,7 @@ class Discovery(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::ApplicationSignals::Discovery
+
 
         :param str resource_name: The name of the resource.
         :param DiscoveryArgs args: The arguments to use to populate this resource's properties.

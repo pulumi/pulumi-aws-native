@@ -29,6 +29,7 @@ class OrganizationCentralizationRuleArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a OrganizationCentralizationRule resource.
+
         :param pulumi.Input[_builtins.str] rule_name: The name of the organization centralization rule.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
@@ -85,6 +86,7 @@ class OrganizationCentralizationRule(pulumi.CustomResource):
         """
         Resource schema for AWS:ObservabilityAdmin:OrganizationCentralizationRule
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] rule_name: The name of the organization centralization rule.
@@ -98,6 +100,7 @@ class OrganizationCentralizationRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource schema for AWS:ObservabilityAdmin:OrganizationCentralizationRule
+
 
         :param str resource_name: The name of the resource.
         :param OrganizationCentralizationRuleArgs args: The arguments to use to populate this resource's properties.

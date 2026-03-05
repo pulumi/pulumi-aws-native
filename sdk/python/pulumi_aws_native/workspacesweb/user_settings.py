@@ -41,6 +41,7 @@ class UserSettingsArgs:
                  web_authn_allowed: Optional[pulumi.Input['UserSettingsEnabledType']] = None):
         """
         The set of arguments for constructing a UserSettings resource.
+
         :param pulumi.Input['UserSettingsEnabledType'] copy_allowed: Specifies whether the user can copy text from the streaming session to the local device.
         :param pulumi.Input['UserSettingsEnabledType'] download_allowed: Specifies whether the user can download files from the streaming session to the local device.
         :param pulumi.Input['UserSettingsEnabledType'] paste_allowed: Specifies whether the user can paste text from the local device to the streaming session.
@@ -289,6 +290,7 @@ class UserSettings(pulumi.CustomResource):
         """
         Definition of AWS::WorkSpacesWeb::UserSettings Resource Type
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] additional_encryption_context: The additional encryption context of the user settings.
@@ -315,6 +317,7 @@ class UserSettings(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of AWS::WorkSpacesWeb::UserSettings Resource Type
+
 
         :param str resource_name: The name of the resource.
         :param UserSettingsArgs args: The arguments to use to populate this resource's properties.

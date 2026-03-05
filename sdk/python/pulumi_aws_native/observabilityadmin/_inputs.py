@@ -541,6 +541,7 @@ class OrganizationTelemetryRuleAdvancedEventSelectorArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         An advanced event selector that includes optional name and field selectors
+
         :param pulumi.Input[Sequence[pulumi.Input['OrganizationTelemetryRuleAdvancedFieldSelectorArgs']]] field_selectors: Contains all selector statements in an advanced event selector.
         :param pulumi.Input[_builtins.str] name: An optional descriptive name for the advanced event selector
         """
@@ -618,6 +619,7 @@ class OrganizationTelemetryRuleAdvancedFieldSelectorArgs:
                  starts_with: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         A single selector statement in an advanced event selector.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ends_with: An operator that includes events that match the last few characters of the event record field specified as the value of Field.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] equals: An operator that includes events that match the exact value of the event record field specified as the value of Field.
         :param pulumi.Input[_builtins.str] field: A field in a CloudTrail event record on which to filter events to be logged
@@ -741,6 +743,7 @@ class OrganizationTelemetryRuleCloudtrailParametersArgs:
                  advanced_event_selectors: pulumi.Input[Sequence[pulumi.Input['OrganizationTelemetryRuleAdvancedEventSelectorArgs']]]):
         """
         Telemetry parameters for Cloudtrail
+
         :param pulumi.Input[Sequence[pulumi.Input['OrganizationTelemetryRuleAdvancedEventSelectorArgs']]] advanced_event_selectors: Create fine-grained selectors for AWS CloudTrail management and data.
         """
         pulumi.set(__self__, "advanced_event_selectors", advanced_event_selectors)
@@ -817,6 +820,7 @@ class OrganizationTelemetryRuleElbLoadBalancerLoggingParametersArgs:
                  output_format: Optional[pulumi.Input['OrganizationTelemetryRuleElbLoadBalancerLoggingParametersOutputFormat']] = None):
         """
         Telemetry parameters for ELB/NLB Load Balancer Logs
+
         :param pulumi.Input[_builtins.str] field_delimiter: A delimiter to delineate log fields
         :param pulumi.Input['OrganizationTelemetryRuleElbLoadBalancerLoggingParametersOutputFormat'] output_format: The format for ELB access log entries (plain text or JSON format).
         """
@@ -877,6 +881,7 @@ class OrganizationTelemetryRuleFieldToMatchArgs:
                  uri_path: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The field that we want to match this rule to.
+
         :param pulumi.Input[_builtins.str] method: The method with which to match this rule.
         :param pulumi.Input[_builtins.str] query_string: The query string to find the resource to match this field to.
         :param pulumi.Input[_builtins.str] uri_path: This is the URI path to match this rule to.
@@ -1003,6 +1008,7 @@ class OrganizationTelemetryRuleLabelNameConditionArgs:
                  label_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The label name of the condition.
+
         :param pulumi.Input[_builtins.str] label_name: The label name of the condition.
         """
         if label_name is not None:
@@ -1041,6 +1047,7 @@ class OrganizationTelemetryRuleLoggingFilterArgs:
                  filters: Optional[pulumi.Input[Sequence[pulumi.Input['OrganizationTelemetryRuleFilterArgs']]]] = None):
         """
         Default handling for logs that don't match any of the specified filtering conditions.
+
         :param pulumi.Input['OrganizationTelemetryRuleFilterBehavior'] default_behavior: The default action (KEEP or DROP) for log records that don't match any filter conditions.
         :param pulumi.Input[Sequence[pulumi.Input['OrganizationTelemetryRuleFilterArgs']]] filters: A list of filter conditions that determine log record handling behavior.
         """
@@ -1089,6 +1096,7 @@ class OrganizationTelemetryRuleSingleHeaderArgs:
                  name: pulumi.Input[_builtins.str]):
         """
         Header for the field to match.
+
         :param pulumi.Input[_builtins.str] name: The name of the header
         """
         pulumi.set(__self__, "name", name)
@@ -1151,6 +1159,7 @@ class OrganizationTelemetryRuleTelemetryDestinationConfigurationArgs:
                  waf_logging_parameters: Optional[pulumi.Input['OrganizationTelemetryRuleWafLoggingParametersArgs']] = None):
         """
         The destination configuration for telemetry data
+
         :param pulumi.Input['OrganizationTelemetryRuleCloudtrailParametersArgs'] cloudtrail_parameters: Configuration parameters specific to AWS CloudTrail when CloudTrail is the source type.
         :param pulumi.Input[_builtins.str] destination_pattern: The pattern used to generate the destination path or name, supporting macros like <resourceId> and <accountId>.
         :param pulumi.Input['OrganizationTelemetryRuleDestinationType'] destination_type: The type of destination for the telemetry data (e.g., "Amazon CloudWatch Logs", "S3").
@@ -1299,6 +1308,7 @@ class OrganizationTelemetryRuleTelemetryRuleArgs:
                  telemetry_source_types: Optional[pulumi.Input[Sequence[pulumi.Input['OrganizationTelemetryRuleTelemetrySourceType']]]] = None):
         """
         The telemetry rule
+
         :param pulumi.Input['OrganizationTelemetryRuleResourceType'] resource_type: The type of AWS resource to configure telemetry for (e.g., "AWS::EC2::VPC", "AWS::EKS::Cluster", "AWS::WAFv2::WebACL").
         :param pulumi.Input['OrganizationTelemetryRuleTelemetryType'] telemetry_type: The type of telemetry to collect (Logs, Metrics, or Traces).
         :param pulumi.Input['OrganizationTelemetryRuleTelemetryDestinationConfigurationArgs'] destination_configuration: Configuration specifying where and how the telemetry data should be delivered.
@@ -1415,6 +1425,7 @@ class OrganizationTelemetryRuleVpcFlowLogParametersArgs:
                  traffic_type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Telemetry parameters for VPC Flow logs
+
         :param pulumi.Input[_builtins.str] log_format: The fields to include in the flow log record. If you omit this parameter, the flow log is created using the default format.
         :param pulumi.Input[_builtins.int] max_aggregation_interval: The maximum interval of time, in seconds, during which a flow of packets is captured and aggregated into a flow log record. Default is 600s.
         :param pulumi.Input[_builtins.str] traffic_type: The type of traffic captured for the flow log. Default is ALL
@@ -1488,6 +1499,7 @@ class OrganizationTelemetryRuleWafLoggingParametersArgs:
                  redacted_fields: Optional[pulumi.Input[Sequence[pulumi.Input['OrganizationTelemetryRuleFieldToMatchArgs']]]] = None):
         """
         Telemetry parameters for WAF v2 Web ACL
+
         :param pulumi.Input['OrganizationTelemetryRuleWafLogType'] log_type: The type of WAF logs to collect (currently supports WAF_LOGS).
         :param pulumi.Input['OrganizationTelemetryRuleLoggingFilterArgs'] logging_filter: A filter configuration that determines which WAF log records to include or exclude.
         :param pulumi.Input[Sequence[pulumi.Input['OrganizationTelemetryRuleFieldToMatchArgs']]] redacted_fields: Fields not to be included in the logs.
@@ -1556,6 +1568,7 @@ class S3TableIntegrationEncryptionConfigArgs:
                  kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Encryption configuration for the S3 Table Integration
+
         :param pulumi.Input['S3TableIntegrationEncryptionConfigSseAlgorithm'] sse_algorithm: The server-side encryption algorithm used to encrypt the S3 Table(s) data
         :param pulumi.Input[_builtins.str] kms_key_arn: The ARN of the KMS key used to encrypt the S3 Table Integration
         """
@@ -1613,6 +1626,7 @@ class S3TableIntegrationLogSourceArgs:
                  identifier: Optional[pulumi.Input[_builtins.str]] = None):
         """
         CloudWatch Logs data source to associate with the S3 Table Integration
+
         :param pulumi.Input[_builtins.str] name: The name of the CloudWatch Logs data source
         :param pulumi.Input[_builtins.str] type: The type of the CloudWatch Logs data source
         :param pulumi.Input[_builtins.str] identifier: The ID of the CloudWatch Logs data source association
@@ -1733,6 +1747,7 @@ class TelemetryRuleAdvancedEventSelectorArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         An advanced event selector that includes optional name and field selectors
+
         :param pulumi.Input[Sequence[pulumi.Input['TelemetryRuleAdvancedFieldSelectorArgs']]] field_selectors: Contains all selector statements in an advanced event selector.
         :param pulumi.Input[_builtins.str] name: An optional descriptive name for the advanced event selector
         """
@@ -1810,6 +1825,7 @@ class TelemetryRuleAdvancedFieldSelectorArgs:
                  starts_with: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         A single selector statement in an advanced event selector.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ends_with: An operator that includes events that match the last few characters of the event record field specified as the value of Field.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] equals: An operator that includes events that match the exact value of the event record field specified as the value of Field.
         :param pulumi.Input[_builtins.str] field: A field in a CloudTrail event record on which to filter events to be logged
@@ -1933,6 +1949,7 @@ class TelemetryRuleCloudtrailParametersArgs:
                  advanced_event_selectors: pulumi.Input[Sequence[pulumi.Input['TelemetryRuleAdvancedEventSelectorArgs']]]):
         """
         Telemetry parameters for Cloudtrail
+
         :param pulumi.Input[Sequence[pulumi.Input['TelemetryRuleAdvancedEventSelectorArgs']]] advanced_event_selectors: Create fine-grained selectors for AWS CloudTrail management and data.
         """
         pulumi.set(__self__, "advanced_event_selectors", advanced_event_selectors)
@@ -2009,6 +2026,7 @@ class TelemetryRuleElbLoadBalancerLoggingParametersArgs:
                  output_format: Optional[pulumi.Input['TelemetryRuleElbLoadBalancerLoggingParametersOutputFormat']] = None):
         """
         Telemetry parameters for ELB/NLB Load Balancer Logs
+
         :param pulumi.Input[_builtins.str] field_delimiter: A delimiter to delineate log fields
         :param pulumi.Input['TelemetryRuleElbLoadBalancerLoggingParametersOutputFormat'] output_format: The format for ELB access log entries (plain text or JSON format).
         """
@@ -2069,6 +2087,7 @@ class TelemetryRuleFieldToMatchArgs:
                  uri_path: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The field that we want to match this rule to.
+
         :param pulumi.Input[_builtins.str] method: The method with which to match this rule.
         :param pulumi.Input[_builtins.str] query_string: The query string to find the resource to match this field to.
         :param pulumi.Input[_builtins.str] uri_path: This is the URI path to match this rule to.
@@ -2195,6 +2214,7 @@ class TelemetryRuleLabelNameConditionArgs:
                  label_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The label name of the condition.
+
         :param pulumi.Input[_builtins.str] label_name: The label name of the condition.
         """
         if label_name is not None:
@@ -2233,6 +2253,7 @@ class TelemetryRuleLoggingFilterArgs:
                  filters: Optional[pulumi.Input[Sequence[pulumi.Input['TelemetryRuleFilterArgs']]]] = None):
         """
         Default handling for logs that don't match any of the specified filtering conditions.
+
         :param pulumi.Input['TelemetryRuleFilterBehavior'] default_behavior: The default action (KEEP or DROP) for log records that don't match any filter conditions.
         :param pulumi.Input[Sequence[pulumi.Input['TelemetryRuleFilterArgs']]] filters: A list of filter conditions that determine log record handling behavior.
         """
@@ -2281,6 +2302,7 @@ class TelemetryRuleSingleHeaderArgs:
                  name: pulumi.Input[_builtins.str]):
         """
         Header for the field to match.
+
         :param pulumi.Input[_builtins.str] name: The name of the header
         """
         pulumi.set(__self__, "name", name)
@@ -2313,6 +2335,7 @@ class TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropert
                  log_types: Optional[pulumi.Input[Sequence[pulumi.Input['TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem']]]] = None):
         """
         Parameters for BedrockAgentCore log delivery
+
         :param pulumi.Input[Sequence[pulumi.Input['TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem']]] log_types: Types of logs to deliver for BedrockAgentCore resources
         """
         if log_types is not None:
@@ -2381,6 +2404,7 @@ class TelemetryRuleTelemetryDestinationConfigurationArgs:
                  waf_logging_parameters: Optional[pulumi.Input['TelemetryRuleWafLoggingParametersArgs']] = None):
         """
         The destination configuration for telemetry data
+
         :param pulumi.Input['TelemetryRuleCloudtrailParametersArgs'] cloudtrail_parameters: Configuration parameters specific to AWS CloudTrail when CloudTrail is the source type.
         :param pulumi.Input[_builtins.str] destination_pattern: The pattern used to generate the destination path or name, supporting macros like <resourceId> and <accountId>.
         :param pulumi.Input['TelemetryRuleDestinationType'] destination_type: The type of destination for the telemetry data (e.g., "Amazon CloudWatch Logs", "S3").
@@ -2529,6 +2553,7 @@ class TelemetryRuleVpcFlowLogParametersArgs:
                  traffic_type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Telemetry parameters for VPC Flow logs
+
         :param pulumi.Input[_builtins.str] log_format: The fields to include in the flow log record. If you omit this parameter, the flow log is created using the default format.
         :param pulumi.Input[_builtins.int] max_aggregation_interval: The maximum interval of time, in seconds, during which a flow of packets is captured and aggregated into a flow log record. Default is 600s.
         :param pulumi.Input[_builtins.str] traffic_type: The type of traffic captured for the flow log. Default is ALL
@@ -2602,6 +2627,7 @@ class TelemetryRuleWafLoggingParametersArgs:
                  redacted_fields: Optional[pulumi.Input[Sequence[pulumi.Input['TelemetryRuleFieldToMatchArgs']]]] = None):
         """
         Telemetry parameters for WAF v2 Web ACL
+
         :param pulumi.Input['TelemetryRuleWafLogType'] log_type: The type of WAF logs to collect (currently supports WAF_LOGS).
         :param pulumi.Input['TelemetryRuleLoggingFilterArgs'] logging_filter: A filter configuration that determines which WAF log records to include or exclude.
         :param pulumi.Input[Sequence[pulumi.Input['TelemetryRuleFieldToMatchArgs']]] redacted_fields: Fields not to be included in the logs.
@@ -2685,6 +2711,7 @@ class TelemetryRuleArgs:
                  telemetry_source_types: Optional[pulumi.Input[Sequence[pulumi.Input['TelemetryRuleTelemetrySourceType']]]] = None):
         """
         The telemetry rule
+
         :param pulumi.Input['TelemetryRuleResourceType'] resource_type: The type of AWS resource to configure telemetry for (e.g., "AWS::EC2::VPC", "AWS::EKS::Cluster", "AWS::WAFv2::WebACL").
         :param pulumi.Input['TelemetryRuleTelemetryType'] telemetry_type: The type of telemetry to collect (Logs, Metrics, or Traces).
         :param pulumi.Input['TelemetryRuleTelemetryDestinationConfigurationArgs'] destination_configuration: Configuration specifying where and how the telemetry data should be delivered.

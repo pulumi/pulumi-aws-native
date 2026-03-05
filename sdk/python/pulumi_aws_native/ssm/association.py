@@ -41,6 +41,7 @@ class AssociationArgs:
                  wait_for_success_timeout_seconds: Optional[pulumi.Input[_builtins.int]] = None):
         """
         The set of arguments for constructing a Association resource.
+
         :param pulumi.Input[_builtins.bool] apply_only_at_cron_interval: By default, when you create a new association, the system runs it immediately after it is created and then according to the schedule you specified. Specify this option if you don't want an association to run immediately after you create it. This parameter is not supported for rate expressions.
         :param pulumi.Input[_builtins.str] association_name: The name of the association.
         :param pulumi.Input[_builtins.str] automation_target_parameter_name: Choose the parameter that will define how your automation will branch out. This target is required for associations that use an Automation runbook and target resources by using rate controls. Automation is a tool in AWS Systems Manager .
@@ -448,6 +449,7 @@ class Association(pulumi.CustomResource):
 
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] apply_only_at_cron_interval: By default, when you create a new association, the system runs it immediately after it is created and then according to the schedule you specified. Specify this option if you don't want an association to run immediately after you create it. This parameter is not supported for rate expressions.
@@ -588,6 +590,7 @@ class Association(pulumi.CustomResource):
             }])
 
         ```
+
 
         :param str resource_name: The name of the resource.
         :param AssociationArgs args: The arguments to use to populate this resource's properties.

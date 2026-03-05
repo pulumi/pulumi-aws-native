@@ -59,6 +59,7 @@ class AutoNamingArgs:
                  property_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Auto-naming specification for the resource.
+
         :param pulumi.Input[_builtins.int] max_length: The maximum length of the name.
         :param pulumi.Input[_builtins.int] min_length: The minimum length of the name.
         :param pulumi.Input[_builtins.str] property_name: The name of the property in the Cloud Control payload that is used to set the name of the resource.
@@ -127,6 +128,7 @@ class CreateOnlyTagArgs:
                  value: pulumi.Input[_builtins.str]):
         """
         A set of tags to apply to the resource.
+
         :param pulumi.Input[_builtins.str] key: The key name of the tag
         :param pulumi.Input[_builtins.str] value: The value of the tag
         """
@@ -208,6 +210,7 @@ class ProviderAssumeRoleArgs:
                  transitive_tag_keys: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The configuration for a Provider to assume a role.
+
         :param pulumi.Input[_builtins.int] duration_seconds: Number of seconds to restrict the assume role session duration.
         :param pulumi.Input[_builtins.str] external_id: External identifier to use when assuming the role.
         :param pulumi.Input[_builtins.str] policy: IAM Policy JSON describing further restricting permissions for the IAM Role being assumed.
@@ -351,6 +354,7 @@ class ProviderAutoNamingArgs:
                  random_suffix_min_length: Optional[pulumi.Input[_builtins.int]] = None):
         """
         The configuration for automatically naming resources.
+
         :param pulumi.Input[_builtins.bool] auto_trim: Automatically trim the auto-generated name to meet the maximum length constraint.
         :param pulumi.Input[_builtins.int] random_suffix_min_length: The minimum length of the random suffix to append to the auto-generated name.
         """
@@ -401,6 +405,7 @@ class ProviderDefaultTagsArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The configuration with resource tag settings to apply across all resources handled by this provider. This is designed to replace redundant per-resource `tags` configurations. Provider tags can be overridden with new values, but not excluded from specific resources. To override provider tag values, use the `tags` argument within a resource to configure new tag values for matching keys.
+
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A group of tags to set across all resources.
         """
         if tags is not None:
@@ -454,6 +459,7 @@ class ProviderEndpointArgs:
                  sts: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The configuration for for customizing service endpoints.
+
         :param pulumi.Input[_builtins.str] cloudcontrol: Override the default endpoint for AWS CloudControl
         :param pulumi.Input[_builtins.str] cloudformation: Override the default endpoint for AWS CloudFormation
         :param pulumi.Input[_builtins.str] ec2: Override the default endpoint for AWS Elastic Compute Cloud (EC2)
@@ -552,6 +558,7 @@ class ProviderIgnoreTagsArgs:
                  keys: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The configuration with resource tag settings to ignore across all resources handled by this provider (except any individual service tag resources such as `ec2.Tag`) for situations where external systems are managing certain resource tags.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] key_prefixes: List of exact resource tag keys to ignore across all resources handled by this provider. This configuration prevents Pulumi from returning the tag in any `tags` attributes and displaying any configuration difference for the tag value. If any resource configuration still has this tag key configured in the `tags` argument, it will display a perpetual difference until the tag is removed from the argument or `ignoreChanges` is also used.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] keys: List of resource tag key prefixes to ignore across all resources handled by this provider. This configuration prevents Pulumi from returning any tag key matching the prefixes in any `tags` attributes and displaying any configuration difference for those tag values. If any resource configuration still has a tag matching one of the prefixes configured in the `tags` argument, it will display a perpetual difference until the tag is removed from the argument or `ignoreChanges` is also used.
         """
@@ -605,6 +612,7 @@ class TagArgs:
                  value: pulumi.Input[_builtins.str]):
         """
         A set of tags to apply to the resource.
+
         :param pulumi.Input[_builtins.str] key: The key name of the tag
         :param pulumi.Input[_builtins.str] value: The value of the tag
         """

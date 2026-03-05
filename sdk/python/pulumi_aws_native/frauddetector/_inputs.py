@@ -835,6 +835,7 @@ class DetectorModelArgs:
                  arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         A model to associate with a detector.
+
         :param pulumi.Input[_builtins.str] arn: The ARN of the model.
         """
         if arn is not None:

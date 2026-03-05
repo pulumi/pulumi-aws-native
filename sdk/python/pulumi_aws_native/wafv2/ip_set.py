@@ -30,6 +30,7 @@ class IpSetArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a IpSet resource.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] addresses: List of IPAddresses.
         :param pulumi.Input['IpSetIpAddressVersion'] ip_address_version: The version of the IP addresses, either `IPV4` or `IPV6` .
         :param pulumi.Input['IpSetScope'] scope: Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an  REST API, an AWS AppSync GraphQL API, an Amazon Cognito user pool, an AWS App Runner service, or an AWS Verified Access instance. Valid Values are `CLOUDFRONT` and `REGIONAL` .
@@ -144,6 +145,7 @@ class IpSet(pulumi.CustomResource):
         """
         Contains a list of IP addresses. This can be either IPV4 or IPV6. The list will be mutually
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] addresses: List of IPAddresses.
@@ -165,6 +167,7 @@ class IpSet(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Contains a list of IP addresses. This can be either IPV4 or IPV6. The list will be mutually
+
 
         :param str resource_name: The name of the resource.
         :param IpSetArgs args: The arguments to use to populate this resource's properties.

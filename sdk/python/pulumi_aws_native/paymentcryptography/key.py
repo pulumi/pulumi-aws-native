@@ -33,6 +33,7 @@ class KeyArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Key resource.
+
         :param pulumi.Input[_builtins.bool] exportable: Specifies whether the key is exportable. This data is immutable after the key is created.
         :param pulumi.Input['KeyAttributesArgs'] key_attributes: The role of the key, the algorithm it supports, and the cryptographic operations allowed with the key. This data is immutable after the key is created.
         :param pulumi.Input['KeyDeriveKeyUsage'] derive_key_usage: The cryptographic usage of an ECDH derived key as deﬁned in section A.5.2 of the TR-31 spec.
@@ -160,6 +161,7 @@ class Key(pulumi.CustomResource):
         """
         Definition of AWS::PaymentCryptography::Key Resource Type
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input['KeyDeriveKeyUsage'] derive_key_usage: The cryptographic usage of an ECDH derived key as deﬁned in section A.5.2 of the TR-31 spec.
@@ -181,6 +183,7 @@ class Key(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of AWS::PaymentCryptography::Key Resource Type
+
 
         :param str resource_name: The name of the resource.
         :param KeyArgs args: The arguments to use to populate this resource's properties.

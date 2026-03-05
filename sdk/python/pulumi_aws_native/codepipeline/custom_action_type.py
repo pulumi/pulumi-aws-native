@@ -33,6 +33,7 @@ class CustomActionTypeArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a CustomActionType resource.
+
         :param pulumi.Input[_builtins.str] category: The category of the custom action, such as a build action or a test action.
         :param pulumi.Input['CustomActionTypeArtifactDetailsArgs'] input_artifact_details: The details of the input artifact for the action, such as its commit ID.
         :param pulumi.Input['CustomActionTypeArtifactDetailsArgs'] output_artifact_details: The details of the output artifact of the action, such as its commit ID.
@@ -169,6 +170,7 @@ class CustomActionType(pulumi.CustomResource):
         """
         The AWS::CodePipeline::CustomActionType resource creates a custom action for activities that aren't included in the CodePipeline default actions, such as running an internally developed build process or a test suite. You can use these custom actions in the stage of a pipeline.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] category: The category of the custom action, such as a build action or a test action.
@@ -188,6 +190,7 @@ class CustomActionType(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The AWS::CodePipeline::CustomActionType resource creates a custom action for activities that aren't included in the CodePipeline default actions, such as running an internally developed build process or a test suite. You can use these custom actions in the stage of a pipeline.
+
 
         :param str resource_name: The name of the resource.
         :param CustomActionTypeArgs args: The arguments to use to populate this resource's properties.

@@ -32,6 +32,7 @@ class EnvironmentArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Environment resource.
+
         :param pulumi.Input[_builtins.str] application_id: The application ID.
         :param pulumi.Input['EnvironmentDeletionProtectionCheck'] deletion_protection_check: On resource deletion this controls whether the Deletion Protection check should be applied, bypassed, or (the default) whether the behavior should be controlled by the account-level Deletion Protection setting. See https://docs.aws.amazon.com/appconfig/latest/userguide/deletion-protection.html
         :param pulumi.Input[_builtins.str] description: A description of the environment.
@@ -140,6 +141,7 @@ class Environment(pulumi.CustomResource):
         """
         Resource Type definition for AWS::AppConfig::Environment
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] application_id: The application ID.
@@ -157,6 +159,7 @@ class Environment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::AppConfig::Environment
+
 
         :param str resource_name: The name of the resource.
         :param EnvironmentArgs args: The arguments to use to populate this resource's properties.

@@ -24,6 +24,7 @@ class ResponseHeadersPolicyArgs:
                  response_headers_policy_config: pulumi.Input['ResponseHeadersPolicyConfigArgs']):
         """
         The set of arguments for constructing a ResponseHeadersPolicy resource.
+
         :param pulumi.Input['ResponseHeadersPolicyConfigArgs'] response_headers_policy_config: A response headers policy configuration.
         """
         pulumi.set(__self__, "response_headers_policy_config", response_headers_policy_config)
@@ -55,6 +56,7 @@ class ResponseHeadersPolicy(pulumi.CustomResource):
          After you create a response headers policy, you can use its ID to attach it to one or more cache behaviors in a CloudFront distribution. When it's attached to a cache behavior, the response headers policy affects the HTTP headers that CloudFront includes in HTTP responses to requests that match the cache behavior. CloudFront adds or removes response headers according to the configuration of the response headers policy.
          For more information, see [Adding or removing HTTP headers in CloudFront responses](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/modifying-response-headers.html) in the *Amazon CloudFront Developer Guide*.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ResponseHeadersPolicyConfigArgs', 'ResponseHeadersPolicyConfigArgsDict']] response_headers_policy_config: A response headers policy configuration.
@@ -70,6 +72,7 @@ class ResponseHeadersPolicy(pulumi.CustomResource):
          A response headers policy contains information about a set of HTTP response headers.
          After you create a response headers policy, you can use its ID to attach it to one or more cache behaviors in a CloudFront distribution. When it's attached to a cache behavior, the response headers policy affects the HTTP headers that CloudFront includes in HTTP responses to requests that match the cache behavior. CloudFront adds or removes response headers according to the configuration of the response headers policy.
          For more information, see [Adding or removing HTTP headers in CloudFront responses](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/modifying-response-headers.html) in the *Amazon CloudFront Developer Guide*.
+
 
         :param str resource_name: The name of the resource.
         :param ResponseHeadersPolicyArgs args: The arguments to use to populate this resource's properties.

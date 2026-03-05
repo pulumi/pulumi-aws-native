@@ -32,6 +32,7 @@ class SubscriptionArgs:
                  subscription_role_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Subscription resource.
+
         :param pulumi.Input[_builtins.str] protocol: The subscription's protocol.
         :param pulumi.Input[_builtins.str] topic_arn: The ARN of the topic to subscribe to.
         :param Any delivery_policy: The delivery policy JSON assigned to the subscription. Enables the subscriber to define the message delivery retry strategy in the case of an HTTP/S endpoint subscribed to the topic.
@@ -235,6 +236,7 @@ class Subscription(pulumi.CustomResource):
         """
         Resource Type definition for AWS::SNS::Subscription
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param Any delivery_policy: The delivery policy JSON assigned to the subscription. Enables the subscriber to define the message delivery retry strategy in the case of an HTTP/S endpoint subscribed to the topic.
@@ -265,6 +267,7 @@ class Subscription(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::SNS::Subscription
+
 
         :param str resource_name: The name of the resource.
         :param SubscriptionArgs args: The arguments to use to populate this resource's properties.

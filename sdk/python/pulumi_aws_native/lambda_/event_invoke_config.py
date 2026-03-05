@@ -28,6 +28,7 @@ class EventInvokeConfigArgs:
                  maximum_retry_attempts: Optional[pulumi.Input[_builtins.int]] = None):
         """
         The set of arguments for constructing a EventInvokeConfig resource.
+
         :param pulumi.Input[_builtins.str] function_name: The name of the Lambda function.
         :param pulumi.Input[_builtins.str] qualifier: The identifier of a version or alias.
         :param pulumi.Input['EventInvokeConfigDestinationConfigArgs'] destination_config: A destination for events after they have been sent to a function for processing.
@@ -135,6 +136,7 @@ class EventInvokeConfig(pulumi.CustomResource):
         """
         The AWS::Lambda::EventInvokeConfig resource configures options for asynchronous invocation on a version or an alias.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['EventInvokeConfigDestinationConfigArgs', 'EventInvokeConfigDestinationConfigArgsDict']] destination_config: A destination for events after they have been sent to a function for processing.
@@ -159,6 +161,7 @@ class EventInvokeConfig(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The AWS::Lambda::EventInvokeConfig resource configures options for asynchronous invocation on a version or an alias.
+
 
         :param str resource_name: The name of the resource.
         :param EventInvokeConfigArgs args: The arguments to use to populate this resource's properties.

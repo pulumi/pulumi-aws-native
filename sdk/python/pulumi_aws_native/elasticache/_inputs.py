@@ -64,6 +64,7 @@ class AuthenticationModePropertiesArgs:
         { Passwords: ["*****", "******"] // If Type is password.
         }
         ```
+
         :param pulumi.Input['UserAuthenticationModePropertiesType'] type: Authentication Type
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] passwords: Passwords used for this user account. You can create up to two passwords for each user.
         """
@@ -303,6 +304,7 @@ class ServerlessCacheCacheUsageLimitsArgs:
                  ecpu_per_second: Optional[pulumi.Input['ServerlessCacheEcpuPerSecondArgs']] = None):
         """
         The cache capacity limit of the Serverless Cache.
+
         :param pulumi.Input['ServerlessCacheDataStorageArgs'] data_storage: The maximum data storage limit in the cache, expressed in Gigabytes.
         :param pulumi.Input['ServerlessCacheEcpuPerSecondArgs'] ecpu_per_second: The number of ElastiCache Processing Units (ECPU) the cache can consume per second.
         """
@@ -361,6 +363,7 @@ class ServerlessCacheDataStorageArgs:
                  minimum: Optional[pulumi.Input[_builtins.int]] = None):
         """
         The cached data capacity of the Serverless Cache.
+
         :param pulumi.Input['ServerlessCacheDataStorageUnit'] unit: The unit of cached data capacity of the Serverless Cache.
         :param pulumi.Input[_builtins.int] maximum: The maximum cached data capacity of the Serverless Cache.
         :param pulumi.Input[_builtins.int] minimum: The minimum cached data capacity of the Serverless Cache.
@@ -428,6 +431,7 @@ class ServerlessCacheEcpuPerSecondArgs:
                  minimum: Optional[pulumi.Input[_builtins.int]] = None):
         """
         The ECPU per second of the Serverless Cache.
+
         :param pulumi.Input[_builtins.int] maximum: The maximum ECPU per second of the Serverless Cache.
         :param pulumi.Input[_builtins.int] minimum: The minimum ECPU per second of the Serverless Cache.
         """
@@ -481,6 +485,7 @@ class ServerlessCacheEndpointArgs:
                  port: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The address and the port.
+
         :param pulumi.Input[_builtins.str] address: Endpoint address.
         :param pulumi.Input[_builtins.str] port: Endpoint port.
         """

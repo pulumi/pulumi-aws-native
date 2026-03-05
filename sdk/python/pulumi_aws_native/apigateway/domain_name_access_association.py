@@ -28,6 +28,7 @@ class DomainNameAccessAssociationArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]] = None):
         """
         The set of arguments for constructing a DomainNameAccessAssociation resource.
+
         :param pulumi.Input[_builtins.str] access_association_source: The source of the domain name access association resource.
         :param pulumi.Input['DomainNameAccessAssociationAccessAssociationSourceType'] access_association_source_type: The source type of the domain name access association resource.
         :param pulumi.Input[_builtins.str] domain_name_arn: The amazon resource name (ARN) of the domain name resource.
@@ -102,6 +103,7 @@ class DomainNameAccessAssociation(pulumi.CustomResource):
         """
         Resource Type definition for AWS::ApiGateway::DomainNameAccessAssociation.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] access_association_source: The source of the domain name access association resource.
@@ -117,6 +119,7 @@ class DomainNameAccessAssociation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::ApiGateway::DomainNameAccessAssociation.
+
 
         :param str resource_name: The name of the resource.
         :param DomainNameAccessAssociationArgs args: The arguments to use to populate this resource's properties.

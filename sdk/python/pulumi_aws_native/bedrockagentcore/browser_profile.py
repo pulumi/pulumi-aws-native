@@ -25,6 +25,7 @@ class BrowserProfileArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a BrowserProfile resource.
+
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tag keys and values.
         """
         if description is not None:
@@ -78,6 +79,7 @@ class BrowserProfile(pulumi.CustomResource):
         """
         Resource definition for AWS::BedrockAgentCore::BrowserProfile
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tag keys and values.
@@ -90,6 +92,7 @@ class BrowserProfile(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource definition for AWS::BedrockAgentCore::BrowserProfile
+
 
         :param str resource_name: The name of the resource.
         :param BrowserProfileArgs args: The arguments to use to populate this resource's properties.

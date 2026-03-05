@@ -32,6 +32,7 @@ class PolicyStoreArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a PolicyStore resource.
+
         :param pulumi.Input['PolicyStoreValidationSettingsArgs'] validation_settings: Specifies the validation setting for this policy store.
                
                Currently, the only valid and required value is `Mode` .
@@ -165,6 +166,7 @@ class PolicyStore(pulumi.CustomResource):
 
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['PolicyStoreDeletionProtectionArgs', 'PolicyStoreDeletionProtectionArgsDict']] deletion_protection: Specifies whether the policy store can be deleted. If enabled, the policy store can't be deleted.
@@ -204,6 +206,7 @@ class PolicyStore(pulumi.CustomResource):
             })
 
         ```
+
 
         :param str resource_name: The name of the resource.
         :param PolicyStoreArgs args: The arguments to use to populate this resource's properties.

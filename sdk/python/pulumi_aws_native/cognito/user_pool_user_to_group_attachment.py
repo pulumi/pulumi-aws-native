@@ -24,6 +24,7 @@ class UserPoolUserToGroupAttachmentArgs:
                  username: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a UserPoolUserToGroupAttachment resource.
+
         :param pulumi.Input[_builtins.str] group_name: The name of the group that you want to add your user to.
         :param pulumi.Input[_builtins.str] user_pool_id: The ID of the user pool that contains the group that you want to add the user to.
         :param pulumi.Input[_builtins.str] username: The user's username.
@@ -82,6 +83,7 @@ class UserPoolUserToGroupAttachment(pulumi.CustomResource):
         """
         Resource Type definition for AWS::Cognito::UserPoolUserToGroupAttachment
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] group_name: The name of the group that you want to add your user to.
@@ -96,6 +98,7 @@ class UserPoolUserToGroupAttachment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::Cognito::UserPoolUserToGroupAttachment
+
 
         :param str resource_name: The name of the resource.
         :param UserPoolUserToGroupAttachmentArgs args: The arguments to use to populate this resource's properties.

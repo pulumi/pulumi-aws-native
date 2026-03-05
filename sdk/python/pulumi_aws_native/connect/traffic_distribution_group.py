@@ -28,6 +28,7 @@ class TrafficDistributionGroupArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a TrafficDistributionGroup resource.
+
         :param pulumi.Input[_builtins.str] instance_arn: The identifier of the Amazon Connect instance that has been replicated.
         :param pulumi.Input[_builtins.str] description: A description for the traffic distribution group.
         :param pulumi.Input[_builtins.str] name: The name for the traffic distribution group.
@@ -104,6 +105,7 @@ class TrafficDistributionGroup(pulumi.CustomResource):
         """
         Resource Type definition for AWS::Connect::TrafficDistributionGroup
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: A description for the traffic distribution group.
@@ -119,6 +121,7 @@ class TrafficDistributionGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::Connect::TrafficDistributionGroup
+
 
         :param str resource_name: The name of the resource.
         :param TrafficDistributionGroupArgs args: The arguments to use to populate this resource's properties.

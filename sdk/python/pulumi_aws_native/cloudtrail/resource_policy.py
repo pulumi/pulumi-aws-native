@@ -23,6 +23,7 @@ class ResourcePolicyArgs:
                  resource_policy: Any):
         """
         The set of arguments for constructing a ResourcePolicy resource.
+
         :param pulumi.Input[_builtins.str] resource_arn: The ARN of the AWS CloudTrail resource to which the policy applies.
         :param Any resource_policy: A policy document containing permissions to add to the specified resource. In IAM, you must provide policy documents in JSON format. However, in CloudFormation you can provide the policy in JSON or YAML format because CloudFormation converts YAML to JSON before submitting it to IAM.
                
@@ -70,6 +71,7 @@ class ResourcePolicy(pulumi.CustomResource):
         """
         Resource Type definition for AWS::CloudTrail::ResourcePolicy
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] resource_arn: The ARN of the AWS CloudTrail resource to which the policy applies.
@@ -85,6 +87,7 @@ class ResourcePolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::CloudTrail::ResourcePolicy
+
 
         :param str resource_name: The name of the resource.
         :param ResourcePolicyArgs args: The arguments to use to populate this resource's properties.

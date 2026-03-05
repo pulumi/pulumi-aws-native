@@ -25,6 +25,7 @@ class OrganizationConfigurationArgs:
                  configuration_type: Optional[pulumi.Input['OrganizationConfigurationConfigurationType']] = None):
         """
         The set of arguments for constructing a OrganizationConfiguration resource.
+
         :param pulumi.Input[_builtins.bool] auto_enable: Whether to automatically enable Security Hub in new member accounts when they join the organization.
         :param pulumi.Input['OrganizationConfigurationAutoEnableStandards'] auto_enable_standards: Whether to automatically enable Security Hub default standards in new member accounts when they join the organization.
         :param pulumi.Input['OrganizationConfigurationConfigurationType'] configuration_type: Indicates whether the organization uses local or central configuration.
@@ -85,6 +86,7 @@ class OrganizationConfiguration(pulumi.CustomResource):
         """
         The AWS::SecurityHub::OrganizationConfiguration resource represents the configuration of your organization in Security Hub. Only the Security Hub administrator account can create Organization Configuration resource in each region and can opt-in to Central Configuration only in the aggregation region of FindingAggregator.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] auto_enable: Whether to automatically enable Security Hub in new member accounts when they join the organization.
@@ -99,6 +101,7 @@ class OrganizationConfiguration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The AWS::SecurityHub::OrganizationConfiguration resource represents the configuration of your organization in Security Hub. Only the Security Hub administrator account can create Organization Configuration resource in each region and can opt-in to Central Configuration only in the aggregation region of FindingAggregator.
+
 
         :param str resource_name: The name of the resource.
         :param OrganizationConfigurationArgs args: The arguments to use to populate this resource's properties.

@@ -24,6 +24,7 @@ class TransitGatewayMulticastGroupSourceArgs:
                  transit_gateway_multicast_domain_id: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a TransitGatewayMulticastGroupSource resource.
+
         :param pulumi.Input[_builtins.str] group_ip_address: The IP address assigned to the transit gateway multicast group.
         :param pulumi.Input[_builtins.str] network_interface_id: The ID of the transit gateway attachment.
         :param pulumi.Input[_builtins.str] transit_gateway_multicast_domain_id: The ID of the transit gateway multicast domain.
@@ -82,6 +83,7 @@ class TransitGatewayMulticastGroupSource(pulumi.CustomResource):
         """
         The AWS::EC2::TransitGatewayMulticastGroupSource registers and deregisters members and sources (network interfaces) with the transit gateway multicast group
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] group_ip_address: The IP address assigned to the transit gateway multicast group.
@@ -96,6 +98,7 @@ class TransitGatewayMulticastGroupSource(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The AWS::EC2::TransitGatewayMulticastGroupSource registers and deregisters members and sources (network interfaces) with the transit gateway multicast group
+
 
         :param str resource_name: The name of the resource.
         :param TransitGatewayMulticastGroupSourceArgs args: The arguments to use to populate this resource's properties.

@@ -32,6 +32,7 @@ class RetrieverArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Retriever resource.
+
         :param pulumi.Input[_builtins.str] application_id: The identifier of the Amazon Q Business application using the retriever.
         :param pulumi.Input[Union['RetrieverConfiguration0PropertiesArgs', 'RetrieverConfiguration1PropertiesArgs']] configuration: Provides information on how the retriever used for your Amazon Q Business application is configured.
         :param pulumi.Input[_builtins.str] display_name: The name of your retriever.
@@ -137,6 +138,7 @@ class Retriever(pulumi.CustomResource):
         """
         Definition of AWS::QBusiness::Retriever Resource Type
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] application_id: The identifier of the Amazon Q Business application using the retriever.
@@ -154,6 +156,7 @@ class Retriever(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of AWS::QBusiness::Retriever Resource Type
+
 
         :param str resource_name: The name of the resource.
         :param RetrieverArgs args: The arguments to use to populate this resource's properties.

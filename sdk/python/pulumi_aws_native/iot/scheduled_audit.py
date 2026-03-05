@@ -30,6 +30,7 @@ class ScheduledAuditArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a ScheduledAudit resource.
+
         :param pulumi.Input['ScheduledAuditFrequency'] frequency: How often the scheduled audit takes place. Can be one of DAILY, WEEKLY, BIWEEKLY, or MONTHLY.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] target_check_names: Which checks are performed during the scheduled audit. Checks must be enabled for your account.
         :param pulumi.Input[_builtins.str] day_of_month: The day of the month on which the scheduled audit takes place. Can be 1 through 31 or LAST. This field is required if the frequency parameter is set to MONTHLY.
@@ -137,6 +138,7 @@ class ScheduledAudit(pulumi.CustomResource):
         """
         Scheduled audits can be used to specify the checks you want to perform during an audit and how often the audit should be run.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] day_of_month: The day of the month on which the scheduled audit takes place. Can be 1 through 31 or LAST. This field is required if the frequency parameter is set to MONTHLY.
@@ -154,6 +156,7 @@ class ScheduledAudit(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Scheduled audits can be used to specify the checks you want to perform during an audit and how often the audit should be run.
+
 
         :param str resource_name: The name of the resource.
         :param ScheduledAuditArgs args: The arguments to use to populate this resource's properties.

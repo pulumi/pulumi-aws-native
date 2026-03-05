@@ -32,6 +32,7 @@ class AnomalyDetectorArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a AnomalyDetector resource.
+
         :param pulumi.Input[_builtins.str] alias: The AnomalyDetector alias.
         :param pulumi.Input['AnomalyDetectorConfigurationArgs'] configuration: Determines the anomaly detector's algorithm and its configuration.
         :param pulumi.Input[_builtins.str] workspace: Required to identify a specific APS Workspace associated with this Anomaly Detector.
@@ -154,6 +155,7 @@ class AnomalyDetector(pulumi.CustomResource):
         """
         AnomalyDetector schema for cloudformation.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] alias: The AnomalyDetector alias.
@@ -172,6 +174,7 @@ class AnomalyDetector(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         AnomalyDetector schema for cloudformation.
+
 
         :param str resource_name: The name of the resource.
         :param AnomalyDetectorArgs args: The arguments to use to populate this resource's properties.

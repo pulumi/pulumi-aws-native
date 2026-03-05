@@ -35,6 +35,7 @@ class ChannelArgs:
                  time_shift_configuration: Optional[pulumi.Input['ChannelTimeShiftConfigurationArgs']] = None):
         """
         The set of arguments for constructing a Channel resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['ChannelRequestOutputItemArgs']]] outputs: <p>The channel's output properties.</p>
         :param pulumi.Input['ChannelPlaybackMode'] playback_mode: The type of playback mode for this channel.
                
@@ -198,6 +199,7 @@ class Channel(pulumi.CustomResource):
         """
         Definition of AWS::MediaTailor::Channel Resource Type
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] audiences: <p>The list of audiences defined in channel.</p>
@@ -222,6 +224,7 @@ class Channel(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of AWS::MediaTailor::Channel Resource Type
+
 
         :param str resource_name: The name of the resource.
         :param ChannelArgs args: The arguments to use to populate this resource's properties.

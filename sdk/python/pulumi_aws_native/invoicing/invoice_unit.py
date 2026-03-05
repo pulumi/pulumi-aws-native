@@ -31,6 +31,7 @@ class InvoiceUnitArgs:
                  tax_inheritance_disabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a InvoiceUnit resource.
+
         :param pulumi.Input[_builtins.str] invoice_receiver: The account that receives invoices related to the invoice unit.
         :param pulumi.Input['InvoiceUnitRuleArgs'] rule: An `InvoiceUnitRule` object used the categorize invoice units.
         :param pulumi.Input[_builtins.str] description: The assigned description for an invoice unit. This information can't be modified or deleted.
@@ -138,6 +139,7 @@ class InvoiceUnit(pulumi.CustomResource):
         """
         An invoice unit is a set of mutually exclusive accounts that correspond to your business entity. Invoice units allow you to separate AWS account costs and configures your invoice for each business entity.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: The assigned description for an invoice unit. This information can't be modified or deleted.
@@ -155,6 +157,7 @@ class InvoiceUnit(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An invoice unit is a set of mutually exclusive accounts that correspond to your business entity. Invoice units allow you to separate AWS account costs and configures your invoice for each business entity.
+
 
         :param str resource_name: The name of the resource.
         :param InvoiceUnitArgs args: The arguments to use to populate this resource's properties.

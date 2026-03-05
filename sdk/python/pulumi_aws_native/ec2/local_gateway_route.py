@@ -25,6 +25,7 @@ class LocalGatewayRouteArgs:
                  network_interface_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a LocalGatewayRoute resource.
+
         :param pulumi.Input[_builtins.str] destination_cidr_block: The CIDR block used for destination matches.
         :param pulumi.Input[_builtins.str] local_gateway_route_table_id: The ID of the local gateway route table.
         :param pulumi.Input[_builtins.str] local_gateway_virtual_interface_group_id: The ID of the virtual interface group.
@@ -102,6 +103,7 @@ class LocalGatewayRoute(pulumi.CustomResource):
         """
         Resource Type definition for Local Gateway Route which describes a route for a local gateway route table.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] destination_cidr_block: The CIDR block used for destination matches.
@@ -117,6 +119,7 @@ class LocalGatewayRoute(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for Local Gateway Route which describes a route for a local gateway route table.
+
 
         :param str resource_name: The name of the resource.
         :param LocalGatewayRouteArgs args: The arguments to use to populate this resource's properties.

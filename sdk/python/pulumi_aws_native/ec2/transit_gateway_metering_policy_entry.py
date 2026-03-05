@@ -34,6 +34,7 @@ class TransitGatewayMeteringPolicyEntryArgs:
                  source_transit_gateway_attachment_type: Optional[pulumi.Input['TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceType']] = None):
         """
         The set of arguments for constructing a TransitGatewayMeteringPolicyEntry resource.
+
         :param pulumi.Input['TransitGatewayMeteringPolicyEntryTransitGatewayMeteringPayerType'] metered_account: The resource owner information responsible for paying default billable charges for the traffic flow
         :param pulumi.Input[_builtins.int] policy_rule_number: The rule number of the metering policy entry
         :param pulumi.Input[_builtins.str] transit_gateway_metering_policy_id: The ID of the transit gateway metering policy for which the entry is being created
@@ -236,6 +237,7 @@ class TransitGatewayMeteringPolicyEntry(pulumi.CustomResource):
         """
         AWS::EC2::TransitGatewayMeteringPolicyEntry Resource Definition
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] destination_cidr_block: The list of IP addresses of the instances receiving traffic from the transit gateway
@@ -259,6 +261,7 @@ class TransitGatewayMeteringPolicyEntry(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         AWS::EC2::TransitGatewayMeteringPolicyEntry Resource Definition
+
 
         :param str resource_name: The name of the resource.
         :param TransitGatewayMeteringPolicyEntryArgs args: The arguments to use to populate this resource's properties.

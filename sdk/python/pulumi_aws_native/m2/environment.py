@@ -38,6 +38,7 @@ class EnvironmentArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Environment resource.
+
         :param pulumi.Input['EnvironmentEngineType'] engine_type: The target platform for the runtime environment.
         :param pulumi.Input[_builtins.str] instance_type: The type of instance underlying the environment.
         :param pulumi.Input[_builtins.str] description: The description of the environment.
@@ -277,6 +278,7 @@ class Environment(pulumi.CustomResource):
         """
         Represents a runtime environment that can run migrated mainframe applications.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: The description of the environment.
@@ -304,6 +306,7 @@ class Environment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Represents a runtime environment that can run migrated mainframe applications.
+
 
         :param str resource_name: The name of the resource.
         :param EnvironmentArgs args: The arguments to use to populate this resource's properties.

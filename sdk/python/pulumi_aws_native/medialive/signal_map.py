@@ -30,6 +30,7 @@ class SignalMapArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a SignalMap resource.
+
         :param pulumi.Input[_builtins.str] discovery_entry_point_arn: A top-level supported AWS resource ARN to discovery a signal map from.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] cloud_watch_alarm_template_group_identifiers: A cloudwatch alarm template group's identifier. Can be either be its id or current name.
         :param pulumi.Input[_builtins.str] description: A resource's optional description.
@@ -150,6 +151,7 @@ class SignalMap(pulumi.CustomResource):
         """
         Definition of AWS::MediaLive::SignalMap Resource Type
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] cloud_watch_alarm_template_group_identifiers: A cloudwatch alarm template group's identifier. Can be either be its id or current name.
@@ -167,6 +169,7 @@ class SignalMap(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of AWS::MediaLive::SignalMap Resource Type
+
 
         :param str resource_name: The name of the resource.
         :param SignalMapArgs args: The arguments to use to populate this resource's properties.

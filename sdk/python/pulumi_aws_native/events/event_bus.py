@@ -34,6 +34,7 @@ class EventBusArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a EventBus resource.
+
         :param pulumi.Input['DeadLetterConfigPropertiesArgs'] dead_letter_config: Dead Letter Queue for the event bus.
         :param pulumi.Input[_builtins.str] description: The description of the event bus.
         :param pulumi.Input[_builtins.str] event_source_name: If you are creating a partner event bus, this specifies the partner event source that the new event bus will be matched with.
@@ -179,6 +180,7 @@ class EventBus(pulumi.CustomResource):
         """
         Resource type definition for AWS::Events::EventBus
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['DeadLetterConfigPropertiesArgs', 'DeadLetterConfigPropertiesArgsDict']] dead_letter_config: Dead Letter Queue for the event bus.
@@ -200,6 +202,7 @@ class EventBus(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource type definition for AWS::Events::EventBus
+
 
         :param str resource_name: The name of the resource.
         :param EventBusArgs args: The arguments to use to populate this resource's properties.

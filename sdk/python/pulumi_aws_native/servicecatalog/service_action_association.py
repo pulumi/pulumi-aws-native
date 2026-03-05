@@ -24,6 +24,7 @@ class ServiceActionAssociationArgs:
                  service_action_id: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a ServiceActionAssociation resource.
+
         :param pulumi.Input[_builtins.str] product_id: The product identifier. For example, `prod-abcdzk7xy33qa` .
         :param pulumi.Input[_builtins.str] provisioning_artifact_id: The identifier of the provisioning artifact. For example, `pa-4abcdjnxjj6ne` .
         :param pulumi.Input[_builtins.str] service_action_id: The self-service action identifier. For example, `act-fs7abcd89wxyz` .
@@ -82,6 +83,7 @@ class ServiceActionAssociation(pulumi.CustomResource):
         """
         Resource Schema for AWS::ServiceCatalog::ServiceActionAssociation
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] product_id: The product identifier. For example, `prod-abcdzk7xy33qa` .
@@ -96,6 +98,7 @@ class ServiceActionAssociation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Schema for AWS::ServiceCatalog::ServiceActionAssociation
+
 
         :param str resource_name: The name of the resource.
         :param ServiceActionAssociationArgs args: The arguments to use to populate this resource's properties.

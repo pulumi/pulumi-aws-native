@@ -23,6 +23,7 @@ class ResourcePolicyArgs:
                  resource_arn: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a ResourcePolicy resource.
+
         :param Any policy: The Amazon Resource Name (ARN) of the service network or service.
                
                Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::VpcLattice::ResourcePolicy` for more information about the expected schema for this property.
@@ -70,6 +71,7 @@ class ResourcePolicy(pulumi.CustomResource):
         """
         Retrieves information about the resource policy. The resource policy is an IAM policy created by AWS RAM on behalf of the resource owner when they share a resource.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param Any policy: The Amazon Resource Name (ARN) of the service network or service.
@@ -85,6 +87,7 @@ class ResourcePolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Retrieves information about the resource policy. The resource policy is an IAM policy created by AWS RAM on behalf of the resource owner when they share a resource.
+
 
         :param str resource_name: The name of the resource.
         :param ResourcePolicyArgs args: The arguments to use to populate this resource's properties.

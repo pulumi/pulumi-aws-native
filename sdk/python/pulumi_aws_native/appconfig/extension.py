@@ -31,6 +31,7 @@ class ExtensionArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Extension resource.
+
         :param pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input['ExtensionActionArgs']]]]] actions: The actions defined in the extension.
         :param pulumi.Input[_builtins.str] description: Description of the extension.
         :param pulumi.Input[_builtins.int] latest_version_number: You can omit this field when you create an extension. When you create a new version, specify the most recent current version number. For example, you create version 3, enter 2 for this field.
@@ -171,6 +172,7 @@ class Extension(pulumi.CustomResource):
 
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[Union['ExtensionActionArgs', 'ExtensionActionArgsDict']]]]]] actions: The actions defined in the extension.
@@ -220,6 +222,7 @@ class Extension(pulumi.CustomResource):
             }])
 
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ExtensionArgs args: The arguments to use to populate this resource's properties.

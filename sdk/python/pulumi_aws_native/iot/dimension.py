@@ -28,6 +28,7 @@ class DimensionArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Dimension resource.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] string_values: Specifies the value or list of values for the dimension.
         :param pulumi.Input['DimensionType'] type: Specifies the type of the dimension.
         :param pulumi.Input[_builtins.str] name: A unique identifier for the dimension.
@@ -121,6 +122,7 @@ class Dimension(pulumi.CustomResource):
 
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: A unique identifier for the dimension.
@@ -154,6 +156,7 @@ class Dimension(pulumi.CustomResource):
             }])
 
         ```
+
 
         :param str resource_name: The name of the resource.
         :param DimensionArgs args: The arguments to use to populate this resource's properties.

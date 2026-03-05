@@ -34,6 +34,7 @@ class GlobalReplicationGroupArgs:
                  regional_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['GlobalReplicationGroupRegionalConfigurationArgs']]]] = None):
         """
         The set of arguments for constructing a GlobalReplicationGroup resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['GlobalReplicationGroupMemberArgs']]] members: The replication groups that comprise the Global Datastore.
         :param pulumi.Input[_builtins.bool] automatic_failover_enabled: AutomaticFailoverEnabled
         :param pulumi.Input[_builtins.str] cache_node_type: The cache node type of the Global Datastore
@@ -206,6 +207,7 @@ class GlobalReplicationGroup(pulumi.CustomResource):
         """
         The AWS::ElastiCache::GlobalReplicationGroup resource creates an Amazon ElastiCache Global Replication Group.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] automatic_failover_enabled: AutomaticFailoverEnabled
@@ -227,6 +229,7 @@ class GlobalReplicationGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The AWS::ElastiCache::GlobalReplicationGroup resource creates an Amazon ElastiCache Global Replication Group.
+
 
         :param str resource_name: The name of the resource.
         :param GlobalReplicationGroupArgs args: The arguments to use to populate this resource's properties.

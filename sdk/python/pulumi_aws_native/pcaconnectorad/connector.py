@@ -28,6 +28,7 @@ class ConnectorArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Connector resource.
+
         :param pulumi.Input[_builtins.str] certificate_authority_arn: The Amazon Resource Name (ARN) of the certificate authority being used.
         :param pulumi.Input[_builtins.str] directory_id: The identifier of the Active Directory.
         :param pulumi.Input['ConnectorVpcInformationArgs'] vpc_information: Information of the VPC and security group(s) used with the connector.
@@ -102,6 +103,7 @@ class Connector(pulumi.CustomResource):
         """
         Represents a Connector that connects AWS PrivateCA and your directory
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] certificate_authority_arn: The Amazon Resource Name (ARN) of the certificate authority being used.
@@ -117,6 +119,7 @@ class Connector(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Represents a Connector that connects AWS PrivateCA and your directory
+
 
         :param str resource_name: The name of the resource.
         :param ConnectorArgs args: The arguments to use to populate this resource's properties.

@@ -26,6 +26,7 @@ class ProfilePermissionArgs:
                  profile_version: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ProfilePermission resource.
+
         :param pulumi.Input[_builtins.str] action: The AWS Signer action permitted as part of cross-account permissions.
         :param pulumi.Input[_builtins.str] principal: The AWS principal receiving cross-account permissions. This may be an IAM role or another AWS account ID.
         :param pulumi.Input[_builtins.str] profile_name: The human-readable name of the signing profile.
@@ -115,6 +116,7 @@ class ProfilePermission(pulumi.CustomResource):
         """
         An example resource schema demonstrating some basic constructs and validation rules.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] action: The AWS Signer action permitted as part of cross-account permissions.
@@ -131,6 +133,7 @@ class ProfilePermission(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An example resource schema demonstrating some basic constructs and validation rules.
+
 
         :param str resource_name: The name of the resource.
         :param ProfilePermissionArgs args: The arguments to use to populate this resource's properties.

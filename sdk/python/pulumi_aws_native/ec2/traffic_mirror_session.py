@@ -32,6 +32,7 @@ class TrafficMirrorSessionArgs:
                  virtual_network_id: Optional[pulumi.Input[_builtins.int]] = None):
         """
         The set of arguments for constructing a TrafficMirrorSession resource.
+
         :param pulumi.Input[_builtins.str] network_interface_id: The ID of the source network interface.
         :param pulumi.Input[_builtins.int] session_number: The session number determines the order in which sessions are evaluated when an interface is used by multiple sessions. The first session with a matching filter is the one that mirrors the packets.
         :param pulumi.Input[_builtins.str] traffic_mirror_filter_id: The ID of a Traffic Mirror filter.
@@ -185,6 +186,7 @@ class TrafficMirrorSession(pulumi.CustomResource):
         """
         Resource schema for AWS::EC2::TrafficMirrorSession
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: The description of the Traffic Mirror session.
@@ -205,6 +207,7 @@ class TrafficMirrorSession(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource schema for AWS::EC2::TrafficMirrorSession
+
 
         :param str resource_name: The name of the resource.
         :param TrafficMirrorSessionArgs args: The arguments to use to populate this resource's properties.

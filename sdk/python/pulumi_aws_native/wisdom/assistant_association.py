@@ -30,6 +30,7 @@ class AssistantAssociationArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]] = None):
         """
         The set of arguments for constructing a AssistantAssociation resource.
+
         :param pulumi.Input[_builtins.str] assistant_id: The identifier of the Wisdom assistant.
         :param pulumi.Input[Union['AssistantAssociationAssociationData0PropertiesArgs', 'AssistantAssociationAssociationData1PropertiesArgs']] association: The identifier of the associated resource.
         :param pulumi.Input['AssistantAssociationAssociationType'] association_type: The type of association.
@@ -104,6 +105,7 @@ class AssistantAssociation(pulumi.CustomResource):
         """
         Definition of AWS::Wisdom::AssistantAssociation Resource Type
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] assistant_id: The identifier of the Wisdom assistant.
@@ -119,6 +121,7 @@ class AssistantAssociation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of AWS::Wisdom::AssistantAssociation Resource Type
+
 
         :param str resource_name: The name of the resource.
         :param AssistantAssociationArgs args: The arguments to use to populate this resource's properties.

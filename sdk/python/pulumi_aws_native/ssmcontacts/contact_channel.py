@@ -27,6 +27,7 @@ class ContactChannelArgs:
                  defer_activation: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a ContactChannel resource.
+
         :param pulumi.Input[_builtins.str] channel_address: The details that SSM Incident Manager uses when trying to engage the contact channel.
         :param pulumi.Input[_builtins.str] channel_name: The device name. String of 6 to 50 alphabetical, numeric, dash, and underscore characters.
         :param pulumi.Input['ContactChannelChannelType'] channel_type: Device type, which specify notification channel. Currently supported values: "SMS", "VOICE", "EMAIL", "CHATBOT.
@@ -120,6 +121,7 @@ class ContactChannel(pulumi.CustomResource):
         """
         Resource Type definition for AWS::SSMContacts::ContactChannel
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] channel_address: The details that SSM Incident Manager uses when trying to engage the contact channel.
@@ -136,6 +138,7 @@ class ContactChannel(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::SSMContacts::ContactChannel
+
 
         :param str resource_name: The name of the resource.
         :param ContactChannelArgs args: The arguments to use to populate this resource's properties.

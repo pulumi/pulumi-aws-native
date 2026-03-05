@@ -26,6 +26,7 @@ class MemberInvitationArgs:
                  message: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a MemberInvitation resource.
+
         :param pulumi.Input[_builtins.str] graph_arn: The ARN of the graph to which the member account will be invited
         :param pulumi.Input[_builtins.str] member_email_address: The root email address for the account to be invited, for validation. Updating this field has no effect.
         :param pulumi.Input[_builtins.str] member_id: The AWS account ID to be invited to join the graph as a member
@@ -116,6 +117,7 @@ class MemberInvitation(pulumi.CustomResource):
         """
         Resource schema for AWS::Detective::MemberInvitation
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] disable_email_notification: When set to true, invitation emails are not sent to the member accounts. Member accounts must still accept the invitation before they are added to the behavior graph. Updating this field has no effect.
@@ -132,6 +134,7 @@ class MemberInvitation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource schema for AWS::Detective::MemberInvitation
+
 
         :param str resource_name: The name of the resource.
         :param MemberInvitationArgs args: The arguments to use to populate this resource's properties.

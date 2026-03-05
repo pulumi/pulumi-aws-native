@@ -94,6 +94,7 @@ class DatasetCsvOptions(dict):
                  header_row: Optional[_builtins.bool] = None):
         """
         Csv options
+
         :param _builtins.str delimiter: A single character that specifies the delimiter being used in the CSV file.
         :param _builtins.bool header_row: A variable that specifies whether the first row in the file is parsed as the header. If this value is false, column names are auto-generated.
         """
@@ -533,6 +534,7 @@ class DatasetFilterValue(dict):
                  value_reference: _builtins.str):
         """
         A key-value pair to associate expression variable names with their values
+
         :param _builtins.str value: The value to be associated with the substitution variable.
         :param _builtins.str value_reference: Variable name
         """
@@ -567,6 +569,7 @@ class DatasetFormatOptions(dict):
                  json: Optional['outputs.DatasetJsonOptions'] = None):
         """
         Format options for dataset
+
         :param 'DatasetCsvOptions' csv: Options that define how CSV input is to be interpreted by DataBrew.
         :param 'DatasetExcelOptions' excel: Options that define how Excel input is to be interpreted by DataBrew.
         :param 'DatasetJsonOptions' json: Options that define how JSON input is to be interpreted by DataBrew.
@@ -636,6 +639,7 @@ class DatasetInput(dict):
                  s3_input_definition: Optional['outputs.DatasetS3Location'] = None):
         """
         Input
+
         :param 'DatasetDataCatalogInputDefinition' data_catalog_input_definition: The AWS Glue Data Catalog parameters for the data.
         :param 'DatasetDatabaseInputDefinition' database_input_definition: Connection information for dataset input files stored in a database.
         :param 'DatasetMetadata' metadata: Contains additional resource information needed for specific datasets.
@@ -709,6 +713,7 @@ class DatasetJsonOptions(dict):
                  multi_line: Optional[_builtins.bool] = None):
         """
         Json options
+
         :param _builtins.bool multi_line: A value that specifies whether JSON input contains embedded new line characters.
         """
         if multi_line is not None:
@@ -873,6 +878,7 @@ class DatasetPathOptions(dict):
                  parameters: Optional[Sequence['outputs.DatasetPathParameter']] = None):
         """
         Path options for dataset
+
         :param 'DatasetFilesLimit' files_limit: If provided, this structure imposes a limit on a number of files that should be selected.
         :param 'DatasetFilterExpression' last_modified_date_condition: If provided, this structure defines a date range for matching Amazon S3 objects based on their LastModifiedDate attribute in Amazon S3 .
         :param Sequence['DatasetPathParameter'] parameters: A structure that maps names of parameters used in the Amazon S3 path of a dataset to their definitions.
@@ -938,6 +944,7 @@ class DatasetPathParameter(dict):
                  path_parameter_name: _builtins.str):
         """
         A key-value pair to associate dataset parameter name with its definition.
+
         :param 'DatasetParameter' dataset_parameter: The path parameter definition.
         :param _builtins.str path_parameter_name: The name of the path parameter.
         """
@@ -989,6 +996,7 @@ class DatasetS3Location(dict):
                  key: Optional[_builtins.str] = None):
         """
         Input location
+
         :param _builtins.str bucket: The Amazon S3 bucket name.
         :param _builtins.str bucket_owner: The AWS account ID of the bucket owner.
         :param _builtins.str key: The unique name of the object in the bucket.
@@ -1112,6 +1120,7 @@ class JobCsvOutputOptions(dict):
                  delimiter: Optional[_builtins.str] = None):
         """
         Output Csv options
+
         :param _builtins.str delimiter: A single character that specifies the delimiter used to create CSV job output.
         """
         if delimiter is not None:
@@ -1554,6 +1563,7 @@ class JobOutputFormatOptions(dict):
                  csv: Optional['outputs.JobCsvOutputOptions'] = None):
         """
         Format options for job Output
+
         :param 'JobCsvOutputOptions' csv: Represents a set of options that define the structure of comma-separated value (CSV) job output.
         """
         if csv is not None:
@@ -1596,6 +1606,7 @@ class JobOutputLocation(dict):
                  key: Optional[_builtins.str] = None):
         """
         Output location
+
         :param _builtins.str bucket: The Amazon S3 bucket name.
         :param _builtins.str key: The unique name of the object in the bucket.
         """
@@ -1763,6 +1774,7 @@ class JobS3Location(dict):
                  key: Optional[_builtins.str] = None):
         """
         S3 Output location
+
         :param _builtins.str bucket: The Amazon S3 bucket name.
         :param _builtins.str bucket_owner: The AWS account ID of the bucket owner.
         :param _builtins.str key: The unique name of the object in the bucket.
@@ -1826,6 +1838,7 @@ class JobSample(dict):
                  size: Optional[_builtins.int] = None):
         """
         Job Sample
+
         :param 'JobSampleMode' mode: A value that determines whether the profile job is run on the entire dataset or a specified number of rows. This value must be one of the following:
                
                - FULL_DATASET - The profile job is run on the entire dataset.
@@ -1967,6 +1980,7 @@ class JobValidationConfiguration(dict):
                  validation_mode: Optional['JobValidationMode'] = None):
         """
         Configuration to attach Rulesets to the job
+
         :param _builtins.str ruleset_arn: Arn of the Ruleset
         :param 'JobValidationMode' validation_mode: Mode of data quality validation. Default mode is "CHECK_ALL" which verifies all rules defined in the selected ruleset.
         """
@@ -2079,6 +2093,7 @@ class RecipeConditionExpression(dict):
                  value: Optional[_builtins.str] = None):
         """
         Condition expressions applied to the step action
+
         :param _builtins.str condition: Input condition to be applied to the target column
         :param _builtins.str target_column: Name of the target column
         :param _builtins.str value: Value of the condition
@@ -3366,6 +3381,7 @@ class RulesetColumnSelector(dict):
                  regex: Optional[_builtins.str] = None):
         """
         Selector of a column from a dataset for profile job configuration. One selector includes either a column name or a regular expression
+
         :param _builtins.str name: The name of a column from a dataset
         :param _builtins.str regex: A regular expression for selecting a column from a dataset
         """
@@ -3426,6 +3442,7 @@ class RulesetRule(dict):
                  threshold: Optional['outputs.RulesetThreshold'] = None):
         """
         Data quality rule for a target resource (dataset)
+
         :param _builtins.str check_expression: The expression which includes column references, condition names followed by variable references, possibly grouped and combined with other conditions. For example, `(:col1 starts_with :prefix1 or :col1 starts_with :prefix2) and (:col1 ends_with :suffix1 or :col1 ends_with :suffix2)` . Column and value references are substitution variables that should start with the ':' symbol. Depending on the context, substitution variables' values can be either an actual value or a column name. These values are defined in the SubstitutionMap. If a CheckExpression starts with a column reference, then ColumnSelectors in the rule should be null. If ColumnSelectors has been defined, then there should be no columnn reference in the left side of a condition, for example, `is_between :val1 and :val2` .
         :param _builtins.str name: Name of the rule
         :param Sequence['RulesetColumnSelector'] column_selectors: List of column selectors. Selectors can be used to select columns using a name or regular expression from the dataset. Rule will be applied to selected columns.
@@ -3520,6 +3537,7 @@ class RulesetSubstitutionValue(dict):
                  value_reference: _builtins.str):
         """
         A key-value pair to associate expression's substitution variable names with their values
+
         :param _builtins.str value: Value or column name
         :param _builtins.str value_reference: Variable name
         """

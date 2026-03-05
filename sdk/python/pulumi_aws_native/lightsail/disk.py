@@ -32,6 +32,7 @@ class DiskArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Disk resource.
+
         :param pulumi.Input[_builtins.int] size_in_gb: Size of the Lightsail disk
         :param pulumi.Input[Sequence[pulumi.Input['DiskAddOnArgs']]] add_ons: An array of objects representing the add-ons to enable for the new instance.
         :param pulumi.Input[_builtins.str] availability_zone: The Availability Zone in which to create your instance. Use the following format: us-east-2a (case sensitive). Be sure to add the include Availability Zones parameter to your request.
@@ -140,6 +141,7 @@ class Disk(pulumi.CustomResource):
         """
         Resource Type definition for AWS::Lightsail::Disk
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['DiskAddOnArgs', 'DiskAddOnArgsDict']]]] add_ons: An array of objects representing the add-ons to enable for the new instance.
@@ -157,6 +159,7 @@ class Disk(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::Lightsail::Disk
+
 
         :param str resource_name: The name of the resource.
         :param DiskArgs args: The arguments to use to populate this resource's properties.

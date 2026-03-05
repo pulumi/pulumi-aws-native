@@ -34,6 +34,7 @@ class ComponentTypeArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ComponentType resource.
+
         :param pulumi.Input[_builtins.str] component_type_id: The ID of the component type.
         :param pulumi.Input[_builtins.str] workspace_id: The ID of the workspace that contains the component type.
         :param pulumi.Input[Mapping[str, pulumi.Input['ComponentTypeCompositeComponentTypeArgs']]] composite_component_types: An map of the composite component types in the component type. Each composite component type's key must be unique to this map.
@@ -205,6 +206,7 @@ class ComponentType(pulumi.CustomResource):
         """
         Resource schema for AWS::IoTTwinMaker::ComponentType
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] component_type_id: The ID of the component type.
@@ -226,6 +228,7 @@ class ComponentType(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource schema for AWS::IoTTwinMaker::ComponentType
+
 
         :param str resource_name: The name of the resource.
         :param ComponentTypeArgs args: The arguments to use to populate this resource's properties.

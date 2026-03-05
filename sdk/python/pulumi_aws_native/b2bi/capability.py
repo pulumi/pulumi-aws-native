@@ -31,6 +31,7 @@ class CapabilityArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Capability resource.
+
         :param pulumi.Input['CapabilityConfigurationPropertiesArgs'] configuration: Specifies a structure that contains the details for a capability.
         :param pulumi.Input['CapabilityType'] type: Returns the type of the capability. Currently, only `edi` is supported.
         :param pulumi.Input[Sequence[pulumi.Input['CapabilityS3LocationArgs']]] instructions_documents: Specifies one or more locations in Amazon S3, each specifying an EDI document that can be used with this capability. Each item contains the name of the bucket and the key, to identify the document's location.
@@ -122,6 +123,7 @@ class Capability(pulumi.CustomResource):
         """
         Definition of AWS::B2BI::Capability Resource Type
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['CapabilityConfigurationPropertiesArgs', 'CapabilityConfigurationPropertiesArgsDict']] configuration: Specifies a structure that contains the details for a capability.
@@ -138,6 +140,7 @@ class Capability(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of AWS::B2BI::Capability Resource Type
+
 
         :param str resource_name: The name of the resource.
         :param CapabilityArgs args: The arguments to use to populate this resource's properties.

@@ -26,6 +26,7 @@ class UserPoolGroupArgs:
                  role_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a UserPoolGroup resource.
+
         :param pulumi.Input[_builtins.str] user_pool_id: The ID of the user pool where you want to create a user group.
         :param pulumi.Input[_builtins.str] description: A description of the group that you're creating.
         :param pulumi.Input[_builtins.str] group_name: A name for the group. This name must be unique in your user pool.
@@ -126,6 +127,7 @@ class UserPoolGroup(pulumi.CustomResource):
         """
         Resource Type definition for AWS::Cognito::UserPoolGroup
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: A description of the group that you're creating.
@@ -146,6 +148,7 @@ class UserPoolGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::Cognito::UserPoolGroup
+
 
         :param str resource_name: The name of the resource.
         :param UserPoolGroupArgs args: The arguments to use to populate this resource's properties.

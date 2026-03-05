@@ -35,6 +35,7 @@ class ScheduleArgs:
                  state: Optional[pulumi.Input['ScheduleState']] = None):
         """
         The set of arguments for constructing a Schedule resource.
+
         :param pulumi.Input['ScheduleFlexibleTimeWindowArgs'] flexible_time_window: Allows you to configure a time window during which EventBridge Scheduler invokes the schedule.
         :param pulumi.Input[_builtins.str] schedule_expression: The scheduling expression.
         :param pulumi.Input['ScheduleTargetArgs'] target: The schedule's target details.
@@ -225,6 +226,7 @@ class Schedule(pulumi.CustomResource):
         """
         Definition of AWS::Scheduler::Schedule Resource Type
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: The description of the schedule.
@@ -249,6 +251,7 @@ class Schedule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of AWS::Scheduler::Schedule Resource Type
+
 
         :param str resource_name: The name of the resource.
         :param ScheduleArgs args: The arguments to use to populate this resource's properties.

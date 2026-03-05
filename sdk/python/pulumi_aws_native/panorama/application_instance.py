@@ -34,6 +34,7 @@ class ApplicationInstanceArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a ApplicationInstance resource.
+
         :param pulumi.Input[_builtins.str] default_runtime_context_device: The device's ID.
         :param pulumi.Input['ApplicationInstanceManifestPayloadArgs'] manifest_payload: The application's manifest document.
         :param pulumi.Input[_builtins.str] application_instance_id_to_replace: The ID of an application instance to replace with the new instance.
@@ -173,6 +174,7 @@ class ApplicationInstance(pulumi.CustomResource):
         """
         Creates an application instance and deploys it to a device.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] application_instance_id_to_replace: The ID of an application instance to replace with the new instance.
@@ -192,6 +194,7 @@ class ApplicationInstance(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Creates an application instance and deploys it to a device.
+
 
         :param str resource_name: The name of the resource.
         :param ApplicationInstanceArgs args: The arguments to use to populate this resource's properties.

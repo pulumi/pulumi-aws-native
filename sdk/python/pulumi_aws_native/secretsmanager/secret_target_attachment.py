@@ -24,6 +24,7 @@ class SecretTargetAttachmentArgs:
                  target_type: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a SecretTargetAttachment resource.
+
         :param pulumi.Input[_builtins.str] secret_id: The ARN or name of the secret. To reference a secret also created in this template, use the see [Ref](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ref.html) function with the secret's logical ID. This field is unique for each target attachment definition.
         :param pulumi.Input[_builtins.str] target_id: The ID of the database or cluster.
         :param pulumi.Input[_builtins.str] target_type: A string that defines the type of service or database associated with the secret. This value instructs Secrets Manager how to update the secret with the details of the service or database. This value must be one of the following:
@@ -98,6 +99,7 @@ class SecretTargetAttachment(pulumi.CustomResource):
         """
         Resource Type definition for AWS::SecretsManager::SecretTargetAttachment
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] secret_id: The ARN or name of the secret. To reference a secret also created in this template, use the see [Ref](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ref.html) function with the secret's logical ID. This field is unique for each target attachment definition.
@@ -120,6 +122,7 @@ class SecretTargetAttachment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::SecretsManager::SecretTargetAttachment
+
 
         :param str resource_name: The name of the resource.
         :param SecretTargetAttachmentArgs args: The arguments to use to populate this resource's properties.

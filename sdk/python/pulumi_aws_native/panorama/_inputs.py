@@ -39,6 +39,7 @@ class ApplicationInstanceManifestOverridesPayloadArgs:
                  payload_data: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Parameter overrides for an application instance. This is a JSON document that has a single key (``PayloadData``) where the value is an escaped string representation of the overrides document.
+
         :param pulumi.Input[_builtins.str] payload_data: The overrides document.
         """
         if payload_data is not None:
@@ -72,6 +73,7 @@ class ApplicationInstanceManifestPayloadArgs:
                  payload_data: Optional[pulumi.Input[_builtins.str]] = None):
         """
         A application verion's manifest file. This is a JSON document that has a single key (``PayloadData``) where the value is an escaped string representation of the application manifest (``graph.json``). This file is located in the ``graphs`` folder in your application source.
+
         :param pulumi.Input[_builtins.str] payload_data: The application manifest.
         """
         if payload_data is not None:
@@ -125,6 +127,7 @@ class PackageStorageLocationArgs:
                  repo_prefix_location: Optional[pulumi.Input[_builtins.str]] = None):
         """
         A storage location.
+
         :param pulumi.Input[_builtins.str] binary_prefix_location: The location's binary prefix.
         :param pulumi.Input[_builtins.str] bucket: The location's bucket.
         :param pulumi.Input[_builtins.str] generated_prefix_location: The location's generated prefix.

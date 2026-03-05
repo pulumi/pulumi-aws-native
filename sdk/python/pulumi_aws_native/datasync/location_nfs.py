@@ -31,6 +31,7 @@ class LocationNfsArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a LocationNfs resource.
+
         :param pulumi.Input['LocationNfsOnPremConfigArgs'] on_prem_config: Specifies the Amazon Resource Name (ARN) of the DataSync agent that can connect to your NFS file server.
                
                You can specify more than one agent. For more information, see [Using multiple DataSync agents](https://docs.aws.amazon.com/datasync/latest/userguide/do-i-need-datasync-agent.html#multiple-agents) .
@@ -127,6 +128,7 @@ class LocationNfs(pulumi.CustomResource):
         """
         Resource schema for AWS::DataSync::LocationNFS
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['LocationNfsMountOptionsArgs', 'LocationNfsMountOptionsArgsDict']] mount_options: Specifies the options that DataSync can use to mount your NFS file server.
@@ -145,6 +147,7 @@ class LocationNfs(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource schema for AWS::DataSync::LocationNFS
+
 
         :param str resource_name: The name of the resource.
         :param LocationNfsArgs args: The arguments to use to populate this resource's properties.

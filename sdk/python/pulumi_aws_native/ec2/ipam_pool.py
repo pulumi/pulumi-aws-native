@@ -42,6 +42,7 @@ class IpamPoolArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a IpamPool resource.
+
         :param pulumi.Input[_builtins.str] address_family: The address family of the address space in this pool. Either IPv4 or IPv6.
         :param pulumi.Input[_builtins.str] ipam_scope_id: The Id of the scope this pool is a part of.
         :param pulumi.Input[_builtins.int] allocation_default_netmask_length: The default netmask length for allocations made from this pool. This value is used when the netmask length of an allocation isn't specified.
@@ -309,6 +310,7 @@ class IpamPool(pulumi.CustomResource):
         """
         Resource Schema of AWS::EC2::IPAMPool Type
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] address_family: The address family of the address space in this pool. Either IPv4 or IPv6.
@@ -336,6 +338,7 @@ class IpamPool(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Schema of AWS::EC2::IPAMPool Type
+
 
         :param str resource_name: The name of the resource.
         :param IpamPoolArgs args: The arguments to use to populate this resource's properties.

@@ -971,6 +971,7 @@ class DataflowEndpointGroupAwsGroundStationAgentEndpoint(dict):
                  name: Optional[_builtins.str] = None):
         """
         Information about AwsGroundStationAgentEndpoint.
+
         :param 'DataflowEndpointGroupAgentStatus' agent_status: The status of AgentEndpoint.
         :param 'DataflowEndpointGroupAuditResults' audit_results: The results of the audit.
         :param 'DataflowEndpointGroupConnectionDetails' egress_address: The egress address of AgentEndpoint.
@@ -1056,6 +1057,7 @@ class DataflowEndpointGroupConnectionDetails(dict):
                  socket_address: Optional['outputs.DataflowEndpointGroupSocketAddress'] = None):
         """
         Egress address of AgentEndpoint with an optional mtu.
+
         :param _builtins.int mtu: Maximum transmission unit (MTU) size in bytes of a dataflow endpoint.
         :param 'DataflowEndpointGroupSocketAddress' socket_address: A socket address.
         """
@@ -1200,6 +1202,7 @@ class DataflowEndpointGroupIntegerRange(dict):
                  minimum: Optional[_builtins.int] = None):
         """
         An integer range that has a minimum and maximum value.
+
         :param _builtins.int maximum: A maximum value.
         :param _builtins.int minimum: A minimum value.
         """
@@ -1252,6 +1255,7 @@ class DataflowEndpointGroupRangedConnectionDetails(dict):
                  socket_address: Optional['outputs.DataflowEndpointGroupRangedSocketAddress'] = None):
         """
         Ingress address of AgentEndpoint with a port range and an optional mtu.
+
         :param _builtins.int mtu: Maximum transmission unit (MTU) size in bytes of a dataflow endpoint.
         :param 'DataflowEndpointGroupRangedSocketAddress' socket_address: A ranged socket address.
         """
@@ -1304,6 +1308,7 @@ class DataflowEndpointGroupRangedSocketAddress(dict):
                  port_range: Optional['outputs.DataflowEndpointGroupIntegerRange'] = None):
         """
         A socket address with a port range.
+
         :param _builtins.str name: IPv4 socket address.
         :param 'DataflowEndpointGroupIntegerRange' port_range: Port range of a socket address.
         """
@@ -1455,6 +1460,7 @@ class DataflowEndpointGroupV2ConnectionDetails(dict):
                  mtu: Optional[_builtins.int] = None):
         """
         Socket address of an uplink or downlink agent endpoint with an optional mtu.
+
         :param 'DataflowEndpointGroupV2SocketAddress' socket_address: A socket address.
         :param _builtins.int mtu: Maximum transmission unit (MTU) size in bytes of a dataflow endpoint.
         """
@@ -1556,6 +1562,7 @@ class DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpoint(dict):
                  name: _builtins.str):
         """
         Information about DownlinkAwsGroundStationAgentEndpoint used for create
+
         :param 'DataflowEndpointGroupV2DownlinkDataflowDetails' dataflow_details: Dataflow details for the downlink endpoint
         :param _builtins.str name: Downlink dataflow endpoint name
         """
@@ -1612,6 +1619,7 @@ class DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointDetails(dict):
                  audit_results: Optional['DataflowEndpointGroupV2AuditResults'] = None):
         """
         Information about DownlinkAwsGroundStationAgentEndpoint
+
         :param 'DataflowEndpointGroupV2DownlinkDataflowDetails' dataflow_details: Dataflow details for the downlink endpoint
         :param _builtins.str name: Downlink dataflow endpoint name
         :param 'DataflowEndpointGroupV2AgentStatus' agent_status: Status of the agent associated with the downlink dataflow endpoint
@@ -1686,6 +1694,7 @@ class DataflowEndpointGroupV2DownlinkConnectionDetails(dict):
                  egress_address_and_port: 'outputs.DataflowEndpointGroupV2ConnectionDetails'):
         """
         Connection details for downlink, from ground station to agent, and customer to agent
+
         :param 'DataflowEndpointGroupV2RangedConnectionDetails' agent_ip_and_port_address: Agent IP and port address for the downlink connection.
         :param 'DataflowEndpointGroupV2ConnectionDetails' egress_address_and_port: Egress address and port for the downlink connection.
         """
@@ -1735,6 +1744,7 @@ class DataflowEndpointGroupV2DownlinkDataflowDetails(dict):
                  agent_connection_details: Optional['outputs.DataflowEndpointGroupV2DownlinkConnectionDetails'] = None):
         """
         Dataflow details for downlink
+
         :param 'DataflowEndpointGroupV2DownlinkConnectionDetails' agent_connection_details: Downlink connection details for customer to Agent and Agent to Ground Station
         """
         if agent_connection_details is not None:
@@ -1809,6 +1819,7 @@ class DataflowEndpointGroupV2IntegerRange(dict):
                  minimum: _builtins.int):
         """
         An integer range that has a minimum and maximum value.
+
         :param _builtins.int maximum: A maximum value.
         :param _builtins.int minimum: A minimum value.
         """
@@ -1859,6 +1870,7 @@ class DataflowEndpointGroupV2RangedConnectionDetails(dict):
                  mtu: Optional[_builtins.int] = None):
         """
         Socket address of an uplink or downlink agent endpoint with a port range and an optional mtu.
+
         :param 'DataflowEndpointGroupV2RangedSocketAddress' socket_address: A ranged socket address.
         :param _builtins.int mtu: Maximum transmission unit (MTU) size in bytes of a dataflow endpoint.
         """
@@ -1910,6 +1922,7 @@ class DataflowEndpointGroupV2RangedSocketAddress(dict):
                  port_range: 'outputs.DataflowEndpointGroupV2IntegerRange'):
         """
         A socket address with a port range.
+
         :param _builtins.str name: IPv4 socket address.
         :param 'DataflowEndpointGroupV2IntegerRange' port_range: Port range of a socket address.
         """
@@ -1989,6 +2002,7 @@ class DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpoint(dict):
                  name: _builtins.str):
         """
         Information about UplinkAwsGroundStationAgentEndpoint used for create
+
         :param 'DataflowEndpointGroupV2UplinkDataflowDetails' dataflow_details: Dataflow details for the uplink endpoint
         :param _builtins.str name: Uplink dataflow endpoint name
         """
@@ -2045,6 +2059,7 @@ class DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointDetails(dict):
                  audit_results: Optional['DataflowEndpointGroupV2AuditResults'] = None):
         """
         Information about UplinkAwsGroundStationAgentEndpoint
+
         :param 'DataflowEndpointGroupV2UplinkDataflowDetails' dataflow_details: Dataflow details for the uplink endpoint
         :param _builtins.str name: Uplink dataflow endpoint name
         :param 'DataflowEndpointGroupV2AgentStatus' agent_status: Status of the agent associated with the uplink dataflow endpoint
@@ -2119,6 +2134,7 @@ class DataflowEndpointGroupV2UplinkConnectionDetails(dict):
                  ingress_address_and_port: 'outputs.DataflowEndpointGroupV2ConnectionDetails'):
         """
         Connection details for uplink, from ground station to agent, and customer to agent
+
         :param 'DataflowEndpointGroupV2RangedConnectionDetails' agent_ip_and_port_address: Agent IP and port address for the uplink connection.
         :param 'DataflowEndpointGroupV2ConnectionDetails' ingress_address_and_port: Ingress address and port for the uplink connection.
         """
@@ -2168,6 +2184,7 @@ class DataflowEndpointGroupV2UplinkDataflowDetails(dict):
                  agent_connection_details: Optional['outputs.DataflowEndpointGroupV2UplinkConnectionDetails'] = None):
         """
         Dataflow details for uplink
+
         :param 'DataflowEndpointGroupV2UplinkConnectionDetails' agent_connection_details: Uplink connection details for customer to Agent and Agent to Ground Station
         """
         if agent_connection_details is not None:

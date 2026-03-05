@@ -55,6 +55,7 @@ class AppEventSubscriptionArgs:
                  sns_topic_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Indicates an event you would like to subscribe and get notification for.
+
         :param pulumi.Input['AppEventSubscriptionEventType'] event_type: The type of event you would like to subscribe and get notification for.
         :param pulumi.Input[_builtins.str] name: Unique name to identify an event subscription.
         :param pulumi.Input[_builtins.str] sns_topic_arn: Amazon Resource Name (ARN) of the Amazon Simple Notification Service topic.
@@ -126,6 +127,7 @@ class AppPermissionModelArgs:
                  invoker_role_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Defines the roles and credentials that AWS Resilience Hub would use while creating the application, importing its resources, and running an assessment.
+
         :param pulumi.Input['AppPermissionModelType'] type: Defines how AWS Resilience Hub scans your resources. It can scan for the resources by using a pre-existing role in your AWS account, or by using the credentials of the current IAM user.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] cross_account_role_arns: Defines a list of role Amazon Resource Names (ARNs) to be used in other accounts. These ARNs are used for querying purposes while importing resources and assessing your application.
         :param pulumi.Input[_builtins.str] invoker_role_name: Existing AWS IAM role name in the primary AWS account that will be assumed by AWS Resilience Hub Service Principle to obtain a read-only access to your application resources while running an assessment.
@@ -389,6 +391,7 @@ class AppResourceMappingArgs:
                  terraform_source_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Resource mapping is used to map logical resources from template to physical resource
+
         :param pulumi.Input[_builtins.str] mapping_type: Specifies the type of resource mapping.
         :param pulumi.Input['AppPhysicalResourceIdArgs'] physical_resource_id: Identifier of the physical resource.
         :param pulumi.Input[_builtins.str] eks_source_name: Name of the Amazon Elastic Kubernetes Service cluster and namespace that this resource is mapped to when the `mappingType` is `EKS` .
@@ -504,6 +507,7 @@ class ResiliencyPolicyFailurePolicyArgs:
                  rto_in_secs: pulumi.Input[_builtins.int]):
         """
         Failure Policy.
+
         :param pulumi.Input[_builtins.int] rpo_in_secs: RPO in seconds.
         :param pulumi.Input[_builtins.int] rto_in_secs: RTO in seconds.
         """

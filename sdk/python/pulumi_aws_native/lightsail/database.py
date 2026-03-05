@@ -40,6 +40,7 @@ class DatabaseArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Database resource.
+
         :param pulumi.Input[_builtins.str] master_database_name: The name of the database to create when the Lightsail database resource is created. For MySQL, if this parameter isn't specified, no database is created in the database resource. For PostgreSQL, if this parameter isn't specified, a database named postgres is created in the database resource.
         :param pulumi.Input[_builtins.str] master_username: The name for the master user.
         :param pulumi.Input[_builtins.str] relational_database_blueprint_id: The blueprint ID for your new database. A blueprint describes the major engine version of a database.
@@ -288,6 +289,7 @@ class Database(pulumi.CustomResource):
         """
         Resource Type definition for AWS::Lightsail::Database
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] availability_zone: The Availability Zone in which to create your new database. Use the us-east-2a case-sensitive format.
@@ -314,6 +316,7 @@ class Database(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::Lightsail::Database
+
 
         :param str resource_name: The name of the resource.
         :param DatabaseArgs args: The arguments to use to populate this resource's properties.

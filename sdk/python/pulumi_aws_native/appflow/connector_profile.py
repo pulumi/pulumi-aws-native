@@ -30,6 +30,7 @@ class ConnectorProfileArgs:
                  kms_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ConnectorProfile resource.
+
         :param pulumi.Input['ConnectorProfileConnectionMode'] connection_mode: Mode in which data transfer should be enabled. Private connection mode is currently enabled for Salesforce, Snowflake, Trendmicro and Singular
         :param pulumi.Input['ConnectorProfileConnectorType'] connector_type: List of Saas providers that need connector profile to be created
         :param pulumi.Input[_builtins.str] connector_label: The label of the connector. The label is unique for each ConnectorRegistration in your AWS account. Only needed if calling for CUSTOMCONNECTOR connector type/.
@@ -137,6 +138,7 @@ class ConnectorProfile(pulumi.CustomResource):
         """
         Resource Type definition for AWS::AppFlow::ConnectorProfile
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input['ConnectorProfileConnectionMode'] connection_mode: Mode in which data transfer should be enabled. Private connection mode is currently enabled for Salesforce, Snowflake, Trendmicro and Singular
@@ -154,6 +156,7 @@ class ConnectorProfile(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::AppFlow::ConnectorProfile
+
 
         :param str resource_name: The name of the resource.
         :param ConnectorProfileArgs args: The arguments to use to populate this resource's properties.

@@ -32,6 +32,7 @@ class GroupArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Group resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['GroupConfigurationItemArgs']]] configuration: The service configuration currently associated with the resource group and in effect for the members of the resource group. A `Configuration` consists of one or more `ConfigurationItem` entries. For information about service configurations for resource groups and how to construct them, see [Service configurations for resource groups](https://docs.aws.amazon.com//ARG/latest/APIReference/about-slg.html) in the *Resource Groups User Guide* .
                
                > You can include either a `Configuration` or a `ResourceQuery` , but not both.
@@ -157,6 +158,7 @@ class Group(pulumi.CustomResource):
         """
         Schema for ResourceGroups::Group
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['GroupConfigurationItemArgs', 'GroupConfigurationItemArgsDict']]]] configuration: The service configuration currently associated with the resource group and in effect for the members of the resource group. A `Configuration` consists of one or more `ConfigurationItem` entries. For information about service configurations for resource groups and how to construct them, see [Service configurations for resource groups](https://docs.aws.amazon.com//ARG/latest/APIReference/about-slg.html) in the *Resource Groups User Guide* .
@@ -182,6 +184,7 @@ class Group(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Schema for ResourceGroups::Group
+
 
         :param str resource_name: The name of the resource.
         :param GroupArgs args: The arguments to use to populate this resource's properties.

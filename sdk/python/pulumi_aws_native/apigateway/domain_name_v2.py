@@ -34,6 +34,7 @@ class DomainNameV2Args:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a DomainNameV2 resource.
+
         :param pulumi.Input[_builtins.str] certificate_arn: The reference to an AWS -managed certificate that will be used by the private endpoint for this domain name. AWS Certificate Manager is the only supported source.
         :param pulumi.Input[_builtins.str] domain_name: Represents a custom domain name as a user-friendly host name of an API (RestApi).
         :param pulumi.Input[_builtins.str] endpoint_access_mode: The endpoint access mode for your DomainName.
@@ -179,6 +180,7 @@ class DomainNameV2(pulumi.CustomResource):
         """
         Resource Type definition for AWS::ApiGateway::DomainNameV2.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] certificate_arn: The reference to an AWS -managed certificate that will be used by the private endpoint for this domain name. AWS Certificate Manager is the only supported source.
@@ -200,6 +202,7 @@ class DomainNameV2(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::ApiGateway::DomainNameV2.
+
 
         :param str resource_name: The name of the resource.
         :param DomainNameV2Args args: The arguments to use to populate this resource's properties.

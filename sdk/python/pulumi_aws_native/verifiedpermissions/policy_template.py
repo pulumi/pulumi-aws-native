@@ -24,6 +24,7 @@ class PolicyTemplateArgs:
                  description: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a PolicyTemplate resource.
+
         :param pulumi.Input[_builtins.str] policy_store_id: The unique identifier of the policy store that contains the template.
         :param pulumi.Input[_builtins.str] statement: Specifies the content that you want to use for the new policy template, written in the Cedar policy language.
         :param pulumi.Input[_builtins.str] description: The description to attach to the new or updated policy template.
@@ -102,6 +103,7 @@ class PolicyTemplate(pulumi.CustomResource):
 
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: The description to attach to the new or updated policy template.
@@ -135,6 +137,7 @@ class PolicyTemplate(pulumi.CustomResource):
         pulumi.export("policyTemplateId", policy_template.policy_template_id)
 
         ```
+
 
         :param str resource_name: The name of the resource.
         :param PolicyTemplateArgs args: The arguments to use to populate this resource's properties.

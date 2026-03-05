@@ -33,6 +33,7 @@ class TriggerArgs:
                  workflow_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Trigger resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['TriggerActionArgs']]] actions: The actions initiated by this trigger.
         :param pulumi.Input[_builtins.str] type: The type of trigger that this is.
         :param pulumi.Input[_builtins.str] description: A description of this trigger.
@@ -288,6 +289,7 @@ class Trigger(pulumi.CustomResource):
 
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['TriggerActionArgs', 'TriggerActionArgsDict']]]] actions: The actions initiated by this trigger.
@@ -391,6 +393,7 @@ class Trigger(pulumi.CustomResource):
             name="prod-trigger1-scheduled")
 
         ```
+
 
         :param str resource_name: The name of the resource.
         :param TriggerArgs args: The arguments to use to populate this resource's properties.

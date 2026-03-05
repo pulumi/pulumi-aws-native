@@ -31,6 +31,7 @@ class RepositoryArgs:
                  upstreams: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Repository resource.
+
         :param pulumi.Input[_builtins.str] domain_name: The name of the domain that contains the repository.
         :param pulumi.Input[_builtins.str] description: A text description of the repository.
         :param pulumi.Input[_builtins.str] domain_owner: The 12-digit account ID of the AWS account that owns the domain.
@@ -175,6 +176,7 @@ class Repository(pulumi.CustomResource):
         """
         The resource schema to create a CodeArtifact repository.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: A text description of the repository.
@@ -196,6 +198,7 @@ class Repository(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The resource schema to create a CodeArtifact repository.
+
 
         :param str resource_name: The name of the resource.
         :param RepositoryArgs args: The arguments to use to populate this resource's properties.

@@ -28,6 +28,7 @@ class StorageLensGroupArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a StorageLensGroup resource.
+
         :param pulumi.Input['StorageLensGroupFilterArgs'] filter: This property contains the criteria for the Storage Lens group data that is displayed
         :param pulumi.Input[_builtins.str] name: This property contains the Storage Lens group name.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A set of tags (key-value pairs) for this Amazon S3 Storage Lens Group.
@@ -88,6 +89,7 @@ class StorageLensGroup(pulumi.CustomResource):
         """
         The AWS::S3::StorageLensGroup resource is an Amazon S3 resource type that you can use to create Storage Lens Group.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['StorageLensGroupFilterArgs', 'StorageLensGroupFilterArgsDict']] filter: This property contains the criteria for the Storage Lens group data that is displayed
@@ -102,6 +104,7 @@ class StorageLensGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The AWS::S3::StorageLensGroup resource is an Amazon S3 resource type that you can use to create Storage Lens Group.
+
 
         :param str resource_name: The name of the resource.
         :param StorageLensGroupArgs args: The arguments to use to populate this resource's properties.

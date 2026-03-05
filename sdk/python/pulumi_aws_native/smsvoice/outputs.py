@@ -117,6 +117,7 @@ class ConfigurationSetEventDestination(dict):
                  sns_destination: Optional['outputs.ConfigurationSetSnsDestination'] = None):
         """
         An event destination is a location where you send message events. The event options are Amazon CloudWatch, Amazon Data Firehose, or Amazon SNS. For example, when a message is delivered successfully, you can send information about that event to an event destination, or send notifications to endpoints that are subscribed to an Amazon SNS topic.
+
         :param _builtins.bool enabled: When set to true events will be logged. By default this is set to true
         :param _builtins.str event_destination_name: The name that identifies the event destination.
         :param Sequence[_builtins.str] matching_event_types: An array of event types that determine which events to log. If 'ALL' is used, then AWS End User Messaging SMS and Voice logs every event type.
@@ -276,6 +277,7 @@ class MandatoryKeywordsProperties(dict):
                  stop: 'outputs.PoolMandatoryKeyword'):
         """
         A keyword is a word that you can search for on a particular phone number or pool. It is also a specific word or phrase that an end user can send to your number to elicit a response, such as an informational message or a special offer. When your number receives a message that begins with a keyword, AWS End User Messaging SMS and Voice responds with a customizable message. Keywords "HELP" and "STOP" are mandatory keywords
+
         :param 'PoolMandatoryKeyword' help: Specifies the pool's `HELP` keyword. For more information, see [Opt out list required keywords](https://docs.aws.amazon.com/sms-voice/latest/userguide/opt-out-list-keywords.html) in the End User Messaging  User Guide.
         :param 'PoolMandatoryKeyword' stop: Specifies the pool's opt-out keyword. For more information, see [Required opt-out keywords](https://docs.aws.amazon.com/sms-voice/latest/userguide/keywords-required.html) in the End User Messaging  User Guide.
         """
@@ -310,6 +312,7 @@ class PhoneNumberOptionalKeyword(dict):
                  message: _builtins.str):
         """
         A keyword is a word that you can search for on a particular phone number or pool. It is also a specific word or phrase that an end user can send to your number to elicit a response, such as an informational message or a special offer. When your number receives a message that begins with a keyword, AWS End User Messaging SMS and Voice responds with a customizable message.
+
         :param 'PhoneNumberOptionalKeywordAction' action: The action to perform when the keyword is used.
         :param _builtins.str keyword: The new keyword to add.
         :param _builtins.str message: The message associated with the keyword.
@@ -352,6 +355,7 @@ class PoolMandatoryKeyword(dict):
                  message: _builtins.str):
         """
         A keyword is a word that you can search for on a particular phone number or pool. It is also a specific word or phrase that an end user can send to your number to elicit a response, such as an informational message or a special offer. When your number receives a message that begins with a keyword, AWS End User Messaging SMS and Voice responds with a customizable message. Keywords "HELP" and "STOP" are mandatory keywords
+
         :param _builtins.str message: The message associated with the keyword.
         """
         pulumi.set(__self__, "message", message)
@@ -376,6 +380,7 @@ class PoolOptionalKeyword(dict):
                  message: _builtins.str):
         """
         A keyword is a word that you can search for on a particular phone number or pool. It is also a specific word or phrase that an end user can send to your number to elicit a response, such as an informational message or a special offer. When your number receives a message that begins with a keyword, AWS End User Messaging SMS and Voice responds with a customizable message.
+
         :param 'PoolOptionalKeywordAction' action: The action to perform when the keyword is used.
         :param _builtins.str keyword: The new keyword to add.
         :param _builtins.str message: The message associated with the keyword.
@@ -530,6 +535,7 @@ class TwoWayProperties(dict):
                  channel_role: Optional[_builtins.str] = None):
         """
         When you set up two-way SMS, you can receive incoming messages from your customers. When one of your customers sends a message to your phone number, the message body is sent to an Amazon SNS topic or Amazon Connect for processing.
+
         :param _builtins.bool enabled: By default this is set to false. When set to true you can receive incoming text messages from your end recipients.
         :param _builtins.str channel_arn: The Amazon Resource Name (ARN) of the two way channel.
         :param _builtins.str channel_role: An optional IAM Role Arn for a service to assume, to be able to post inbound SMS messages.

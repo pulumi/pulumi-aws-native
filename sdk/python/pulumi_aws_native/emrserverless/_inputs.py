@@ -71,6 +71,7 @@ class ApplicationAutoStartConfigurationArgs:
                  enabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Configuration for Auto Start of Application
+
         :param pulumi.Input[_builtins.bool] enabled: If set to true, the Application will automatically start. Defaults to true.
         """
         if enabled is not None:
@@ -109,6 +110,7 @@ class ApplicationAutoStopConfigurationArgs:
                  idle_timeout_minutes: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Configuration for Auto Stop of Application
+
         :param pulumi.Input[_builtins.bool] enabled: If set to true, the Application will automatically stop after being idle. Defaults to true.
         :param pulumi.Input[_builtins.int] idle_timeout_minutes: The amount of time [in minutes] to wait before auto stopping the Application when idle. Defaults to 15 minutes.
         """
@@ -270,6 +272,7 @@ class ApplicationConfigurationObjectArgs:
                  properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Configuration for a JobRun.
+
         :param pulumi.Input[_builtins.str] classification: String with a maximum length of 1024.
         """
         pulumi.set(__self__, "classification", classification)
@@ -324,6 +327,7 @@ class ApplicationIdentityCenterConfigurationArgs:
                  identity_center_instance_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The IAM IdentityCenter configuration for trusted-identity-propagation on this application. Supported with release labels emr-7.8.0 and above.
+
         :param pulumi.Input[_builtins.str] identity_center_instance_arn: The IAM IdentityCenter instance arn
         """
         if identity_center_instance_arn is not None:
@@ -357,6 +361,7 @@ class ApplicationImageConfigurationInputArgs:
                  image_uri: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The image configuration.
+
         :param pulumi.Input[_builtins.str] image_uri: The URI of an image in the Amazon ECR registry. This field is required when you create a new application. If you leave this field blank in an update, Amazon EMR will remove the image configuration.
         """
         if image_uri is not None:
@@ -681,6 +686,7 @@ class ApplicationMonitoringConfigurationArgs:
                  s3_monitoring_configuration: Optional[pulumi.Input['ApplicationS3MonitoringConfigurationArgs']] = None):
         """
         Monitoring configuration for batch and interactive JobRun.
+
         :param pulumi.Input['ApplicationCloudWatchLoggingConfigurationArgs'] cloud_watch_logging_configuration: CloudWatch logging configurations for a JobRun.
         :param pulumi.Input['ApplicationManagedPersistenceMonitoringConfigurationArgs'] managed_persistence_monitoring_configuration: Managed log persistence configurations for a JobRun.
         :param pulumi.Input['ApplicationPrometheusMonitoringConfigurationArgs'] prometheus_monitoring_configuration: Prometheus monitoring configurations for a JobRun.
@@ -884,6 +890,7 @@ class ApplicationSchedulerConfigurationArgs:
                  queue_timeout_minutes: Optional[pulumi.Input[_builtins.int]] = None):
         """
         The scheduler configuration for batch and streaming jobs running on this application. Supported with release labels emr-7.0.0 and above.
+
         :param pulumi.Input[_builtins.int] max_concurrent_runs: The maximum concurrent job runs on this application. If scheduler configuration is enabled on your application, the default value is 15. The valid range is 1 to 1000.
         :param pulumi.Input[_builtins.int] queue_timeout_minutes: The maximum duration in minutes for the job in QUEUED state. If scheduler configuration is enabled on your application, the default value is 360 minutes (6 hours). The valid range is from 15 to 720.
         """
@@ -1019,6 +1026,7 @@ class ApplicationWorkerTypeSpecificationInputArgs:
                  image_configuration: Optional[pulumi.Input['ApplicationImageConfigurationInputArgs']] = None):
         """
         The specifications for a worker type.
+
         :param pulumi.Input['ApplicationImageConfigurationInputArgs'] image_configuration: The image configuration for a worker type.
         """
         if image_configuration is not None:

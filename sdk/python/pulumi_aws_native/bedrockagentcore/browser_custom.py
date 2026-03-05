@@ -31,6 +31,7 @@ class BrowserCustomArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a BrowserCustom resource.
+
         :param pulumi.Input['BrowserCustomBrowserNetworkConfigurationArgs'] network_configuration: Network configuration for browser.
         :param pulumi.Input['BrowserCustomBrowserSigningArgs'] browser_signing: Browser signing configuration.
         :param pulumi.Input[_builtins.str] description: The description of the browser.
@@ -155,6 +156,7 @@ class BrowserCustom(pulumi.CustomResource):
         """
         Resource definition for AWS::BedrockAgentCore::BrowserCustom
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['BrowserCustomBrowserSigningArgs', 'BrowserCustomBrowserSigningArgsDict']] browser_signing: Browser signing configuration.
@@ -173,6 +175,7 @@ class BrowserCustom(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource definition for AWS::BedrockAgentCore::BrowserCustom
+
 
         :param str resource_name: The name of the resource.
         :param BrowserCustomArgs args: The arguments to use to populate this resource's properties.

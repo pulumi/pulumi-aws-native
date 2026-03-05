@@ -66,6 +66,7 @@ class DbClusterDbClusterRole(dict):
                  feature_name: Optional[_builtins.str] = None):
         """
         Describes an AWS Identity and Access Management (IAM) role that is associated with a DB cluster.
+
         :param _builtins.str role_arn: The Amazon Resource Name (ARN) of the IAM role that is associated with the DB cluster.
         :param _builtins.str feature_name: The name of the feature associated with the AWS Identity and Access Management (IAM) role. IAM roles that are associated with a DB cluster grant permission for the DB cluster to access other AWS services on your behalf. For the list of supported feature names, see the ``SupportedFeatureNames`` description in [DBEngineVersion](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DBEngineVersion.html) in the *Amazon RDS API Reference*.
         """
@@ -100,6 +101,7 @@ class DbClusterEndpoint(dict):
                  port: Optional[_builtins.str] = None):
         """
         The ``Endpoint`` return value specifies the connection endpoint for the primary instance of the DB cluster.
+
         :param _builtins.str address: Specifies the connection endpoint for the primary instance of the DB cluster.
         :param _builtins.str port: Specifies the port that the database engine is listening on.
         """
@@ -156,6 +158,7 @@ class DbClusterMasterUserSecret(dict):
         """
         The ``MasterUserSecret`` return value specifies the secret managed by RDS in AWS Secrets Manager for the master user password.
          For more information, see [Password management with Secrets Manager](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-secrets-manager.html) in the *Amazon RDS User Guide* and [Password management with Secrets Manager](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/rds-secrets-manager.html) in the *Amazon Aurora User Guide.*
+
         :param _builtins.str kms_key_id: The AWS KMS key identifier that is used to encrypt the secret.
         :param _builtins.str secret_arn: The Amazon Resource Name (ARN) of the secret. This parameter is a return value that you can retrieve using the ``Fn::GetAtt`` intrinsic function. For more information, see [Return values](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#aws-resource-rds-dbcluster-return-values).
         """
@@ -196,6 +199,7 @@ class DbClusterReadEndpoint(dict):
          The reader endpoint for a DB cluster load-balances connections across the Aurora Replicas that are available in a DB cluster. As clients request new connections to the reader endpoint, Aurora distributes the connection requests among the Aurora Replicas in the DB cluster. This functionality can help balance your read workload across multiple Aurora Replicas in your DB cluster.
          If a failover occurs, and the Aurora Replica that you are connected to is promoted to be the primary instance, your connection is dropped. To continue sending your read workload to other Aurora Replicas in the cluster, you can then reconnect to the reader endpoint.
          For more information about Aurora endpoints, see [Amazon Aurora connection management](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Overview.Endpoints.html) in the *Amazon Aurora User Guide*.
+
         :param _builtins.str address: The host address of the reader endpoint.
         """
         if address is not None:
@@ -257,6 +261,7 @@ class DbClusterScalingConfiguration(dict):
          For more information, see [Using Amazon Aurora Serverless](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html) in the *Amazon Aurora User Guide*.
          This property is only supported for Aurora Serverless v1. For Aurora Serverless v2, Use the ``ServerlessV2ScalingConfiguration`` property.
          Valid for: Aurora Serverless v1 DB clusters only
+
         :param _builtins.bool auto_pause: Indicates whether to allow or disallow automatic pause for an Aurora DB cluster in ``serverless`` DB engine mode. A DB cluster can be paused only when it's idle (it has no connections).
                  If a DB cluster is paused for more than seven days, the DB cluster might be backed up with a snapshot. In this case, the DB cluster is restored when there is a request to connect to it.
         :param _builtins.int max_capacity: The maximum capacity for an Aurora DB cluster in ``serverless`` DB engine mode.
@@ -390,6 +395,7 @@ class DbClusterServerlessV2ScalingConfiguration(dict):
          If you have an Aurora cluster, you must set this attribute before you add a DB instance that uses the ``db.serverless`` DB instance class. For more information, see [Clusters that use Aurora Serverless v2 must have a capacity range specified](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless-v2.requirements.html#aurora-serverless-v2.requirements.capacity-range) in the *Amazon Aurora User Guide*.
          This property is only supported for Aurora Serverless v2. For Aurora Serverless v1, use the ``ScalingConfiguration`` property.
          Valid for: Aurora Serverless v2 DB clusters
+
         :param _builtins.float max_capacity: The maximum number of Aurora capacity units (ACUs) for a DB instance in an Aurora Serverless v2 cluster. You can specify ACU values in half-step increments, such as 40, 40.5, 41, and so on. The largest value that you can use is 128.
                 The maximum capacity must be higher than 0.5 ACUs. For more information, see [Choosing the maximum Aurora Serverless v2 capacity setting for a cluster](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless-v2.setting-capacity.html#aurora-serverless-v2.max_capacity_considerations) in the *Amazon Aurora User Guide*.
                 Aurora automatically sets certain parameters for Aurora Serverless V2 DB instances to values that depend on the maximum ACU value in the capacity range. When you update the maximum capacity value, the ``ParameterApplyStatus`` value for the DB instance changes to ``pending-reboot``. You can update the parameter values by rebooting the DB instance after changing the capacity range.
@@ -471,6 +477,7 @@ class DbInstanceAdditionalStorageVolume(dict):
                  volume_name: Optional[_builtins.str] = None):
         """
         Contains details about an additional storage volume for a DB instance. RDS support additional storage volumes for RDS for Oracle and RDS for SQL Server.
+
         :param _builtins.str allocated_storage: The amount of storage allocated for the additional storage volume, in gibibytes (GiB). The minimum is 20 GiB. The maximum is 65,536 GiB (64 TiB).
         :param _builtins.int iops: The number of I/O operations per second (IOPS) provisioned for the additional storage volume.
         :param _builtins.int max_allocated_storage: The upper limit in gibibytes (GiB) to which RDS can automatically scale the storage of the additional storage volume.
@@ -575,6 +582,7 @@ class DbInstanceCertificateDetails(dict):
         """
         The details of the DB instance’s server certificate.
          For more information, see [Using SSL/TLS to encrypt a connection to a DB instance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.SSL.html) in the *Amazon RDS User Guide* and [Using SSL/TLS to encrypt a connection to a DB cluster](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.SSL.html) in the *Amazon Aurora User Guide*.
+
         :param _builtins.str ca_identifier: The CA identifier of the CA certificate used for the DB instance's server certificate.
         :param _builtins.str valid_till: The expiration date of the DB instance’s server certificate.
         """
@@ -629,6 +637,7 @@ class DbInstanceDbInstanceRole(dict):
                  role_arn: _builtins.str):
         """
         Information about an AWS Identity and Access Management (IAM) role that is associated with a DB instance.
+
         :param _builtins.str feature_name: The name of the feature associated with the AWS Identity and Access Management (IAM) role. IAM roles that are associated with a DB instance grant permission for the DB instance to access other AWS services on your behalf. For the list of supported feature names, see the ``SupportedFeatureNames`` description in [DBEngineVersion](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DBEngineVersion.html) in the *Amazon RDS API Reference*.
         :param _builtins.str role_arn: The Amazon Resource Name (ARN) of the IAM role that is associated with the DB instance.
         """
@@ -681,6 +690,7 @@ class DbInstanceDbInstanceStatusInfo(dict):
                  status_type: Optional[_builtins.str] = None):
         """
         Provides a list of status information for a DB instance.
+
         :param _builtins.str message: Details of the error if there is an error for the instance. If the instance isn't in an error state, this value is blank.
         :param _builtins.bool normal: Indicates whether the instance is operating normally (TRUE) or is in an error state (FALSE).
         :param _builtins.str status: The status of the DB instance. For a StatusType of read replica, the values can be replicating, replication stop point set, replication stop point reached, error, stopped, or terminated.
@@ -766,6 +776,7 @@ class DbInstanceEndpoint(dict):
           +   ``DeleteDBInstance`` 
           
          For the data structure that represents Amazon Aurora DB cluster endpoints, see ``DBClusterEndpoint``.
+
         :param _builtins.str address: Specifies the DNS address of the DB instance.
         :param _builtins.str hosted_zone_id: Specifies the ID that Amazon Route 53 assigns when you create a hosted zone.
         :param _builtins.str port: Specifies the port that the database engine is listening on.
@@ -833,6 +844,7 @@ class DbInstanceMasterUserSecret(dict):
         """
         The ``MasterUserSecret`` return value specifies the secret managed by RDS in AWS Secrets Manager for the master user password.
          For more information, see [Password management with Secrets Manager](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-secrets-manager.html) in the *Amazon RDS User Guide* and [Password management with Secrets Manager](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/rds-secrets-manager.html) in the *Amazon Aurora User Guide.*
+
         :param _builtins.str kms_key_id: The AWS KMS key identifier that is used to encrypt the secret.
         :param _builtins.str secret_arn: The Amazon Resource Name (ARN) of the secret. This parameter is a return value that you can retrieve using the ``Fn::GetAtt`` intrinsic function. For more information, see [Return values](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#aws-resource-rds-dbinstance-return-values).
         """
@@ -868,6 +880,7 @@ class DbInstanceProcessorFeature(dict):
                  value: Optional[_builtins.str] = None):
         """
         The ``ProcessorFeature`` property type specifies the processor features of a DB instance class.
+
         :param 'DbInstanceProcessorFeatureName' name: The name of the processor feature. Valid names are ``coreCount`` and ``threadsPerCore``.
         :param _builtins.str value: The value of a processor feature.
         """
@@ -1133,6 +1146,7 @@ class OptionGroupOptionConfiguration(dict):
                  vpc_security_group_memberships: Optional[Sequence[_builtins.str]] = None):
         """
         The ``OptionConfiguration`` property type specifies an individual option, and its settings, within an ``AWS::RDS::OptionGroup`` resource.
+
         :param _builtins.str option_name: The configuration of options to include in a group.
         :param Sequence[_builtins.str] db_security_group_memberships: A list of DB security groups used for this option.
         :param Sequence['OptionGroupOptionSetting'] option_settings: The option settings to include in an option group.
@@ -1211,6 +1225,7 @@ class OptionGroupOptionSetting(dict):
                  value: Optional[_builtins.str] = None):
         """
         The ``OptionSetting`` property type specifies the value for an option within an ``OptionSetting`` property.
+
         :param _builtins.str name: The name of the option that has settings that you can set.
         :param _builtins.str value: The current value of the option setting.
         """

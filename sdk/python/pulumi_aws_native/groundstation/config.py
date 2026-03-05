@@ -29,6 +29,7 @@ class ConfigArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Config resource.
+
         :param pulumi.Input['ConfigDataArgs'] config_data: Object containing the parameters of a config. Only one subtype may be specified per config. See the subtype definitions for a description of each config subtype.
         :param pulumi.Input[_builtins.str] name: The name of the config object.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: Tags assigned to a resource.
@@ -89,6 +90,7 @@ class Config(pulumi.CustomResource):
         """
         AWS Ground Station config resource type for CloudFormation.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ConfigDataArgs', 'ConfigDataArgsDict']] config_data: Object containing the parameters of a config. Only one subtype may be specified per config. See the subtype definitions for a description of each config subtype.
@@ -103,6 +105,7 @@ class Config(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         AWS Ground Station config resource type for CloudFormation.
+
 
         :param str resource_name: The name of the resource.
         :param ConfigArgs args: The arguments to use to populate this resource's properties.

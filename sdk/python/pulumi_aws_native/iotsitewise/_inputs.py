@@ -97,6 +97,7 @@ class AccessPolicyIamRoleArgs:
                  arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Contains information for an IAM role identity in an access policy.
+
         :param pulumi.Input[_builtins.str] arn: The ARN of the IAM role.
         """
         if arn is not None:
@@ -130,6 +131,7 @@ class AccessPolicyIamUserArgs:
                  arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Contains information for an IAM user identity in an access policy.
+
         :param pulumi.Input[_builtins.str] arn: The ARN of the IAM user.
         """
         if arn is not None:
@@ -173,6 +175,7 @@ class AccessPolicyIdentityArgs:
                  user: Optional[pulumi.Input['AccessPolicyUserArgs']] = None):
         """
         The identity for this access policy. Choose either an SSO user or group or an IAM user or role.
+
         :param pulumi.Input['AccessPolicyIamRoleArgs'] iam_role: An IAM role identity.
         :param pulumi.Input['AccessPolicyIamUserArgs'] iam_user: An IAM user identity.
         :param pulumi.Input['AccessPolicyUserArgs'] user: An IAM Identity Center user identity.
@@ -236,6 +239,7 @@ class AccessPolicyPortalArgs:
                  id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         A portal resource.
+
         :param pulumi.Input[_builtins.str] id: The ID of the portal.
         """
         if id is not None:
@@ -269,6 +273,7 @@ class AccessPolicyProjectArgs:
                  id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         A project resource.
+
         :param pulumi.Input[_builtins.str] id: The ID of the project.
         """
         if id is not None:
@@ -307,6 +312,7 @@ class AccessPolicyResourceArgs:
                  project: Optional[pulumi.Input['AccessPolicyProjectArgs']] = None):
         """
         The AWS IoT SiteWise Monitor resource for this access policy. Choose either portal or project but not both.
+
         :param pulumi.Input['AccessPolicyPortalArgs'] portal: Identifies an AWS IoT SiteWise Monitor portal.
         :param pulumi.Input['AccessPolicyProjectArgs'] project: Identifies a specific AWS IoT SiteWise Monitor project.
         """
@@ -355,6 +361,7 @@ class AccessPolicyUserArgs:
                  id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Contains information for a user identity in an access policy.
+
         :param pulumi.Input[_builtins.str] id: The AWS SSO ID of the user.
         """
         if id is not None:
@@ -393,6 +400,7 @@ class AlarmsPropertiesArgs:
                  notification_lambda_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Contains the configuration information of an alarm created in an AWS IoT SiteWise Monitor portal. You can use the alarm to monitor an asset property and get notified when the asset property value is outside a specified range.
+
         :param pulumi.Input[_builtins.str] alarm_role_arn: The ARN of the IAM role that allows the alarm to perform actions and access AWS resources and services, such as AWS IoT Events.
         :param pulumi.Input[_builtins.str] notification_lambda_arn: The ARN of the AWS Lambda function that manages alarm notifications. For more information, see Managing alarm notifications in the AWS IoT Events Developer Guide.
         """
@@ -456,6 +464,7 @@ class AssetHierarchyArgs:
                  logical_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         A hierarchy specifies allowed parent/child asset relationships.
+
         :param pulumi.Input[_builtins.str] child_asset_id: The ID of the child asset to be associated.
         :param pulumi.Input[_builtins.str] external_id: String-friendly customer provided external ID
         :param pulumi.Input[_builtins.str] id: Customer provided actual UUID for property
@@ -602,6 +611,7 @@ class AssetModelCompositeModelArgs:
                  path: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Contains a composite model definition in an asset model. This composite model definition is applied to all assets created from the asset model.
+
         :param pulumi.Input[_builtins.str] name: A unique, friendly name for the asset composite model.
         :param pulumi.Input[_builtins.str] type: The type of the composite model. For alarm composite models, this type is AWS/ALARM
         :param pulumi.Input[_builtins.str] composed_asset_model_id: The component model ID for which the composite model is composed of
@@ -763,6 +773,7 @@ class AssetModelEnforcedAssetModelInterfacePropertyMappingArgs:
                  asset_model_property_logical_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Contains information about enforced interface property and asset model property
+
         :param pulumi.Input[_builtins.str] interface_asset_model_property_external_id: The external ID of the enforced interface property
         :param pulumi.Input[_builtins.str] asset_model_property_external_id: The external ID of the enforced asset model property
         :param pulumi.Input[_builtins.str] asset_model_property_logical_id: The logical ID of the enforced asset model property
@@ -830,6 +841,7 @@ class AssetModelEnforcedAssetModelInterfaceRelationshipArgs:
                  property_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['AssetModelEnforcedAssetModelInterfacePropertyMappingArgs']]]] = None):
         """
         Contains information about enforced interface hierarchy and asset model hierarchy
+
         :param pulumi.Input[_builtins.str] interface_asset_model_id: The ID of the interface that is enforced to the asset model
         :param pulumi.Input[Sequence[pulumi.Input['AssetModelEnforcedAssetModelInterfacePropertyMappingArgs']]] property_mappings: Contains information about enforced interface property and asset model property
         """
@@ -945,6 +957,7 @@ class AssetModelHierarchyArgs:
                  logical_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Contains information about an asset model hierarchy.
+
         :param pulumi.Input[_builtins.str] child_asset_model_id: The ID of the asset model. All assets in this hierarchy must be instances of the child AssetModelId asset model.
         :param pulumi.Input[_builtins.str] name: The name of the asset model hierarchy.
         :param pulumi.Input[_builtins.str] external_id: Customer provided external ID for hierarchy
@@ -1036,6 +1049,7 @@ class AssetModelMetricWindowArgs:
                  tumbling: Optional[pulumi.Input['AssetModelTumblingWindowArgs']] = None):
         """
         Contains a time interval window used for data aggregate computations (for example, average, sum, count, and so on).
+
         :param pulumi.Input['AssetModelTumblingWindowArgs'] tumbling: The tumbling time interval window.
         """
         if tumbling is not None:
@@ -1135,6 +1149,7 @@ class AssetModelPropertyPathDefinitionArgs:
                  name: pulumi.Input[_builtins.str]):
         """
         The definition for property path which is used to reference properties in transforms/metrics
+
         :param pulumi.Input[_builtins.str] name: The name of the property
         """
         pulumi.set(__self__, "name", name)
@@ -1182,6 +1197,7 @@ class AssetModelPropertyTypeArgs:
                  transform: Optional[pulumi.Input['AssetModelTransformArgs']] = None):
         """
         Contains a property type, which can be one of attribute, measurement, metric, or transform.
+
         :param pulumi.Input['AssetModelTypeName'] type_name: The type of property type, which can be one of `Attribute` , `Measurement` , `Metric` , or `Transform` .
         :param pulumi.Input['AssetModelAttributeArgs'] attribute: Specifies an asset attribute property. An attribute generally contains static information, such as the serial number of an [IIoT](https://docs.aws.amazon.com/https://en.wikipedia.org/wiki/Internet_of_things#Industrial_applications) wind turbine.
         :param pulumi.Input['AssetModelMetricArgs'] metric: Specifies an asset metric property. A metric contains a mathematical expression that uses aggregate functions to process all input data points over a time interval and output a single data point, such as to calculate the average hourly temperature.
@@ -1294,6 +1310,7 @@ class AssetModelPropertyArgs:
                  unit: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Contains information about an asset model property.
+
         :param pulumi.Input['AssetModelDataType'] data_type: The data type of the asset model property.
         :param pulumi.Input[_builtins.str] name: The name of the asset model property.
         :param pulumi.Input['AssetModelPropertyTypeArgs'] type: The property type
@@ -1507,6 +1524,7 @@ class AssetModelTumblingWindowArgs:
                  offset: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Contains a tumbling window, which is a repeating fixed-sized, non-overlapping, and contiguous time interval. This window is used in metric and aggregation computations.
+
         :param pulumi.Input[_builtins.str] interval: The time interval for the tumbling window. The interval time must be between 1 minute and 1 week.
                
                AWS IoT SiteWise computes the `1w` interval the end of Sunday at midnight each week (UTC), the `1d` interval at the end of each day at midnight (UTC), the `1h` interval at the end of each hour, and so on.
@@ -1786,6 +1804,7 @@ class AssetPropertyArgs:
                  unit: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The asset property's definition, alias, unit, and notification state.
+
         :param pulumi.Input[_builtins.str] alias: The property alias that identifies the property.
         :param pulumi.Input[_builtins.str] external_id: String-friendly customer provided external ID
         :param pulumi.Input[_builtins.str] id: Customer provided actual UUID for property
@@ -2042,6 +2061,7 @@ class GatewayCapabilitySummaryArgs:
                  capability_configuration: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Contains a summary of a gateway capability configuration.
+
         :param pulumi.Input[_builtins.str] capability_namespace: The namespace of the capability configuration. For example, if you configure OPC UA sources for an MQTT-enabled gateway, your OPC-UA capability configuration has the namespace `iotsitewise:opcuacollector:3` .
         :param pulumi.Input[_builtins.str] capability_configuration: The JSON document that defines the configuration for the gateway capability. For more information, see [Configuring data sources (CLI)](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/configure-sources.html#configure-source-cli) in the *AWS IoT SiteWise User Guide* .
         """
@@ -2094,6 +2114,7 @@ class GatewayGreengrassV2Args:
                  core_device_operating_system: Optional[pulumi.Input['GatewayGreengrassV2CoreDeviceOperatingSystem']] = None):
         """
         Contains the CoreDeviceThingName of AWS IoT Greengrass Group V2 that the gateway runs on.
+
         :param pulumi.Input[_builtins.str] core_device_thing_name: The name of the CoreDevice in GreenGrass V2.
         :param pulumi.Input['GatewayGreengrassV2CoreDeviceOperatingSystem'] core_device_operating_system: The operating system of the core device in AWS IoT Greengrass V2.
         """
@@ -2146,6 +2167,7 @@ class GatewayPlatformArgs:
                  siemens_ie: Optional[pulumi.Input['GatewaySiemensIeArgs']] = None):
         """
         Contains a gateway's platform information.
+
         :param pulumi.Input['GatewayGreengrassV2Args'] greengrass_v2: A gateway that runs on AWS IoT Greengrass V2.
         :param pulumi.Input['GatewaySiemensIeArgs'] siemens_ie: A gateway that runs on Siemens Industrial Edge.
         """
@@ -2194,6 +2216,7 @@ class GatewaySiemensIeArgs:
                  iot_core_thing_name: pulumi.Input[_builtins.str]):
         """
         Contains the IotCoreThingName of AWS IoT Thing that the gateway runs on.
+
         :param pulumi.Input[_builtins.str] iot_core_thing_name: The name of the IoT Core Thing.
         """
         pulumi.set(__self__, "iot_core_thing_name", iot_core_thing_name)
@@ -2226,6 +2249,7 @@ class PortalTypeEntryArgs:
                  portal_tools: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
         """
         Container associated a certain PortalType.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] portal_tools: The array of tools associated with the specified portal type. The possible values are `ASSISTANT` and `DASHBOARD` .
         """
         pulumi.set(__self__, "portal_tools", portal_tools)

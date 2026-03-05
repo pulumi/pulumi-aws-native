@@ -32,6 +32,7 @@ class FieldArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Field resource.
+
         :param pulumi.Input['FieldType'] type: Type of the field.
         :param pulumi.Input['FieldAttributesArgs'] attributes: Field-type specific attributes that control rendering and validation behavior
         :param pulumi.Input[_builtins.str] description: A description explaining the purpose and usage of this field in cases. Helps agents and administrators understand what information should be captured in this field.
@@ -140,6 +141,7 @@ class Field(pulumi.CustomResource):
         """
         A field in the Cases domain. This field is used to define the case object model (that is, defines what data can be captured on cases) in a Cases domain.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['FieldAttributesArgs', 'FieldAttributesArgsDict']] attributes: Field-type specific attributes that control rendering and validation behavior
@@ -157,6 +159,7 @@ class Field(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A field in the Cases domain. This field is used to define the case object model (that is, defines what data can be captured on cases) in a Cases domain.
+
 
         :param str resource_name: The name of the resource.
         :param FieldArgs args: The arguments to use to populate this resource's properties.

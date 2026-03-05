@@ -31,6 +31,7 @@ class EmailAddressArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a EmailAddress resource.
+
         :param pulumi.Input[_builtins.str] email_address: Email address to be created for this instance
         :param pulumi.Input[_builtins.str] instance_arn: The identifier of the Amazon Connect instance.
         :param pulumi.Input[Sequence[pulumi.Input['EmailAddressAliasConfigurationArgs']]] alias_configurations: List of alias configurations for the email address
@@ -138,6 +139,7 @@ class EmailAddress(pulumi.CustomResource):
         """
         Resource Type definition for AWS::Connect::EmailAddress
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['EmailAddressAliasConfigurationArgs', 'EmailAddressAliasConfigurationArgsDict']]]] alias_configurations: List of alias configurations for the email address
@@ -155,6 +157,7 @@ class EmailAddress(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::Connect::EmailAddress
+
 
         :param str resource_name: The name of the resource.
         :param EmailAddressArgs args: The arguments to use to populate this resource's properties.

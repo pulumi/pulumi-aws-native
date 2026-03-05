@@ -25,6 +25,7 @@ class VpcEndpointConnectionNotificationArgs:
                  vpc_endpoint_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a VpcEndpointConnectionNotification resource.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] connection_events: The endpoint events for which to receive notifications.
         :param pulumi.Input[_builtins.str] connection_notification_arn: The ARN of the SNS topic for the notifications.
         :param pulumi.Input[_builtins.str] service_id: The ID of the endpoint service.
@@ -100,6 +101,7 @@ class VpcEndpointConnectionNotification(pulumi.CustomResource):
         """
         Resource Type definition for AWS::EC2::VPCEndpointConnectionNotification
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] connection_events: The endpoint events for which to receive notifications.
@@ -115,6 +117,7 @@ class VpcEndpointConnectionNotification(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::EC2::VPCEndpointConnectionNotification
+
 
         :param str resource_name: The name of the resource.
         :param VpcEndpointConnectionNotificationArgs args: The arguments to use to populate this resource's properties.

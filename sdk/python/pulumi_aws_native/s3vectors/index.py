@@ -35,6 +35,7 @@ class IndexArgs:
                  vector_bucket_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Index resource.
+
         :param pulumi.Input['IndexDataType'] data_type: The data type of the vectors to be inserted into the vector index. Currently, only `float32` is supported, which represents 32-bit floating-point numbers.
         :param pulumi.Input[_builtins.int] dimension: The dimensions of the vectors to be inserted into the vector index. This value must be between 1 and 4096, inclusive. All vectors stored in the index must have the same number of dimensions.
                
@@ -207,6 +208,7 @@ class Index(pulumi.CustomResource):
         """
         Resource Type definition for AWS::S3Vectors::Index
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input['IndexDataType'] data_type: The data type of the vectors to be inserted into the vector index. Currently, only `float32` is supported, which represents 32-bit floating-point numbers.
@@ -236,6 +238,7 @@ class Index(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::S3Vectors::Index
+
 
         :param str resource_name: The name of the resource.
         :param IndexArgs args: The arguments to use to populate this resource's properties.

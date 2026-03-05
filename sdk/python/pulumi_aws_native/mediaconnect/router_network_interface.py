@@ -30,6 +30,7 @@ class RouterNetworkInterfaceArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a RouterNetworkInterface resource.
+
         :param pulumi.Input[_builtins.str] name: The name of the router network interface.
         :param pulumi.Input[_builtins.str] region_name: The AWS Region for the router network interface. Defaults to the current region if not specified.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: Key-value pairs that can be used to tag and organize this router network interface.
@@ -102,6 +103,7 @@ class RouterNetworkInterface(pulumi.CustomResource):
         """
         Represents a router network interface in AWS Elemental MediaConnect that is used to define a network boundary for router resources
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: The name of the router network interface.
@@ -116,6 +118,7 @@ class RouterNetworkInterface(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Represents a router network interface in AWS Elemental MediaConnect that is used to define a network boundary for router resources
+
 
         :param str resource_name: The name of the resource.
         :param RouterNetworkInterfaceArgs args: The arguments to use to populate this resource's properties.

@@ -34,6 +34,7 @@ class FhirDatastoreCreatedAt(dict):
                  seconds: _builtins.str):
         """
         The time that a Data Store was created.
+
         :param _builtins.int nanos: Nanoseconds.
         :param _builtins.str seconds: Seconds since epoch.
         """
@@ -90,6 +91,7 @@ class FhirDatastoreIdentityProviderConfiguration(dict):
                  metadata: Optional[_builtins.str] = None):
         """
         The identity provider configuration for the datastore
+
         :param 'FhirDatastoreIdentityProviderConfigurationAuthorizationStrategy' authorization_strategy: Type of Authorization Strategy. The two types of supported Authorization strategies are SMART_ON_FHIR_V1 and AWS_AUTH.
         :param _builtins.bool fine_grained_authorization_enabled: Flag to indicate if fine-grained authorization will be enabled for the datastore
         :param _builtins.str idp_lambda_arn: The Amazon Resource Name (ARN) of the Lambda function that will be used to decode the access token created by the authorization server.
@@ -165,6 +167,7 @@ class FhirDatastoreKmsEncryptionConfig(dict):
                  kms_key_id: Optional[_builtins.str] = None):
         """
         The customer-managed-key (CMK) used when creating a Data Store. If a customer owned key is not specified, an AWS owned key will be used for encryption.
+
         :param 'FhirDatastoreKmsEncryptionConfigCmkType' cmk_type: The type of customer-managed-key (CMK) used for encryption. The two types of supported CMKs are customer owned CMKs and AWS owned CMKs.
         :param _builtins.str kms_key_id: The KMS encryption key id/alias used to encrypt the Data Store contents at rest.
         """
@@ -215,6 +218,7 @@ class FhirDatastorePreloadDataConfig(dict):
                  preload_data_type: 'FhirDatastorePreloadDataConfigPreloadDataType'):
         """
         The preloaded data configuration for the Data Store. Only data preloaded from Synthea is supported.
+
         :param 'FhirDatastorePreloadDataConfigPreloadDataType' preload_data_type: The type of preloaded data. Only Synthea preloaded data is supported.
         """
         pulumi.set(__self__, "preload_data_type", preload_data_type)
@@ -254,6 +258,7 @@ class FhirDatastoreSseConfiguration(dict):
                  kms_encryption_config: 'outputs.FhirDatastoreKmsEncryptionConfig'):
         """
         The server-side encryption key configuration for a customer provided encryption key.
+
         :param 'FhirDatastoreKmsEncryptionConfig' kms_encryption_config: The server-side encryption key configuration for a customer provided encryption key.
         """
         pulumi.set(__self__, "kms_encryption_config", kms_encryption_config)

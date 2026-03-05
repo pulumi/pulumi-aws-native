@@ -25,6 +25,7 @@ class AwsLogSourceArgs:
                  source_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a AwsLogSource resource.
+
         :param pulumi.Input[_builtins.str] data_lake_arn: The ARN for the data lake.
         :param pulumi.Input[_builtins.str] source_version: The version for a AWS source. This must be a Regionally unique value.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] accounts: AWS account where you want to collect logs from.
@@ -100,6 +101,7 @@ class AwsLogSource(pulumi.CustomResource):
         """
         Resource Type definition for AWS::SecurityLake::AwsLogSource
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] accounts: AWS account where you want to collect logs from.
@@ -115,6 +117,7 @@ class AwsLogSource(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::SecurityLake::AwsLogSource
+
 
         :param str resource_name: The name of the resource.
         :param AwsLogSourceArgs args: The arguments to use to populate this resource's properties.

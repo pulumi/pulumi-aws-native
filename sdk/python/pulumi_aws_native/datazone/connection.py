@@ -33,6 +33,7 @@ class ConnectionArgs:
                  scope: Optional[pulumi.Input['ConnectionScope']] = None):
         """
         The set of arguments for constructing a Connection resource.
+
         :param pulumi.Input[_builtins.str] domain_identifier: The identifier of the domain in which the connection is created.
         :param pulumi.Input['ConnectionAwsLocationArgs'] aws_location: The location where the connection is created.
         :param pulumi.Input[_builtins.str] description: The description of the connection.
@@ -189,6 +190,7 @@ class Connection(pulumi.CustomResource):
         """
         Connections enables users to connect their DataZone resources (domains, projects, and environments) to external resources/services (data, compute, etc)
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ConnectionAwsLocationArgs', 'ConnectionAwsLocationArgsDict']] aws_location: The location where the connection is created.
@@ -209,6 +211,7 @@ class Connection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Connections enables users to connect their DataZone resources (domains, projects, and environments) to external resources/services (data, compute, etc)
+
 
         :param str resource_name: The name of the resource.
         :param ConnectionArgs args: The arguments to use to populate this resource's properties.

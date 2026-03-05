@@ -34,6 +34,7 @@ class IntegrationArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Integration resource.
+
         :param pulumi.Input[_builtins.str] source_arn: The Amazon Resource Name (ARN) of the database to use as the source for replication
         :param pulumi.Input[_builtins.str] target_arn: The Amazon Resource Name (ARN) of the Glue data warehouse to use as the target for replication
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] additional_encryption_context: An optional set of non-secret key–value pairs that contains additional contextual information for encryption. This can only be provided if `KMSKeyId` is provided.
@@ -189,6 +190,7 @@ class Integration(pulumi.CustomResource):
         """
         Resource Type definition for AWS::Glue::Integration
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] additional_encryption_context: An optional set of non-secret key–value pairs that contains additional contextual information for encryption. This can only be provided if `KMSKeyId` is provided.
@@ -209,6 +211,7 @@ class Integration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::Glue::Integration
+
 
         :param str resource_name: The name of the resource.
         :param IntegrationArgs args: The arguments to use to populate this resource's properties.

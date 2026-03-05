@@ -29,6 +29,7 @@ class ResourceSetArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a ResourceSet resource.
+
         :param pulumi.Input[_builtins.str] resource_set_type: The resource type of the resources in the resource set. Enter one of the following values for resource type: 
                
                AWS: :AutoScaling: :AutoScalingGroup, AWS: :CloudWatch: :Alarm, AWS: :EC2: :CustomerGateway, AWS: :DynamoDB: :Table, AWS: :EC2: :Volume, AWS: :ElasticLoadBalancing: :LoadBalancer, AWS: :ElasticLoadBalancingV2: :LoadBalancer, AWS: :MSK: :Cluster, AWS: :RDS: :DBCluster, AWS: :Route53: :HealthCheck, AWS: :SQS: :Queue, AWS: :SNS: :Topic, AWS: :SNS: :Subscription, AWS: :EC2: :VPC, AWS: :EC2: :VPNConnection, AWS: :EC2: :VPNGateway, AWS::Route53RecoveryReadiness::DNSTargetResource
@@ -108,6 +109,7 @@ class ResourceSet(pulumi.CustomResource):
         """
         Schema for the AWS Route53 Recovery Readiness ResourceSet Resource and API.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] resource_set_name: The name of the resource set to create.
@@ -125,6 +127,7 @@ class ResourceSet(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Schema for the AWS Route53 Recovery Readiness ResourceSet Resource and API.
+
 
         :param str resource_name: The name of the resource.
         :param ResourceSetArgs args: The arguments to use to populate this resource's properties.

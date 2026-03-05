@@ -31,6 +31,7 @@ class DataTableAttributeArgs:
                  value_type: Optional[pulumi.Input['DataTableAttributeValueType']] = None):
         """
         The set of arguments for constructing a DataTableAttribute resource.
+
         :param pulumi.Input[_builtins.str] data_table_arn: The Amazon Resource Name (ARN) of the data table that contains this attribute.
         :param pulumi.Input[_builtins.str] description: An optional description explaining the purpose and usage of this attribute.
         :param pulumi.Input[_builtins.str] instance_arn: The Amazon Resource Name (ARN) of the instance.
@@ -156,6 +157,7 @@ class DataTableAttribute(pulumi.CustomResource):
         """
         Resource Type definition for AWS::Connect::DataTableAttribute
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] data_table_arn: The Amazon Resource Name (ARN) of the data table that contains this attribute.
@@ -174,6 +176,7 @@ class DataTableAttribute(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::Connect::DataTableAttribute
+
 
         :param str resource_name: The name of the resource.
         :param DataTableAttributeArgs args: The arguments to use to populate this resource's properties.

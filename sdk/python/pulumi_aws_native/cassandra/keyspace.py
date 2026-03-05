@@ -30,6 +30,7 @@ class KeyspaceArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Keyspace resource.
+
         :param pulumi.Input[_builtins.bool] client_side_timestamps_enabled: Indicates whether client-side timestamps are enabled (true) or disabled (false) for all tables in the keyspace. To add a Region to a single-Region keyspace with at least one table, the value must be set to true. After you enabled client-side timestamps for a table, you can’t disable it again.
         :param pulumi.Input[_builtins.str] keyspace_name: Name for Cassandra keyspace
         :param pulumi.Input['KeyspaceReplicationSpecificationArgs'] replication_specification: Specifies the `ReplicationStrategy` of a keyspace. The options are:
@@ -179,6 +180,7 @@ class Keyspace(pulumi.CustomResource):
 
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] client_side_timestamps_enabled: Indicates whether client-side timestamps are enabled (true) or disabled (false) for all tables in the keyspace. To add a Region to a single-Region keyspace with at least one table, the value must be set to true. After you enabled client-side timestamps for a table, you can’t disable it again.
@@ -259,6 +261,7 @@ class Keyspace(pulumi.CustomResource):
             })
 
         ```
+
 
         :param str resource_name: The name of the resource.
         :param KeyspaceArgs args: The arguments to use to populate this resource's properties.

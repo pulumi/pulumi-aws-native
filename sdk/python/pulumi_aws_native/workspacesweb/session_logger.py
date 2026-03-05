@@ -32,6 +32,7 @@ class SessionLoggerArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a SessionLogger resource.
+
         :param pulumi.Input[Union['SessionLoggerEventFilter0PropertiesArgs', 'SessionLoggerEventFilter1PropertiesArgs']] event_filter: The filter that specifies which events to monitor.
         :param pulumi.Input['SessionLoggerLogConfigurationArgs'] log_configuration: The configuration that specifies where logs are fowarded.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] additional_encryption_context: The additional encryption context of the session logger.
@@ -139,6 +140,7 @@ class SessionLogger(pulumi.CustomResource):
         """
         Definition of AWS::WorkSpacesWeb::SessionLogger Resource Type
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] additional_encryption_context: The additional encryption context of the session logger.
@@ -156,6 +158,7 @@ class SessionLogger(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of AWS::WorkSpacesWeb::SessionLogger Resource Type
+
 
         :param str resource_name: The name of the resource.
         :param SessionLoggerArgs args: The arguments to use to populate this resource's properties.

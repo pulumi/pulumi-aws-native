@@ -32,6 +32,7 @@ class ConnectPeerArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a ConnectPeer resource.
+
         :param pulumi.Input[_builtins.str] connect_attachment_id: The ID of the attachment to connect.
         :param pulumi.Input[_builtins.str] peer_address: The IP address of the Connect peer.
         :param pulumi.Input['ConnectPeerBgpOptionsArgs'] bgp_options: Bgp options for connect peer.
@@ -155,6 +156,7 @@ class ConnectPeer(pulumi.CustomResource):
         """
         AWS::NetworkManager::ConnectPeer Resource Type Definition.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ConnectPeerBgpOptionsArgs', 'ConnectPeerBgpOptionsArgsDict']] bgp_options: Bgp options for connect peer.
@@ -173,6 +175,7 @@ class ConnectPeer(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         AWS::NetworkManager::ConnectPeer Resource Type Definition.
+
 
         :param str resource_name: The name of the resource.
         :param ConnectPeerArgs args: The arguments to use to populate this resource's properties.

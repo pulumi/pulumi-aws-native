@@ -29,6 +29,7 @@ class StepArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Step resource.
+
         :param pulumi.Input[_builtins.str] action_on_failure: This specifies what action to take when the cluster step fails. Possible values are CANCEL_AND_WAIT and CONTINUE.
         :param pulumi.Input['StepHadoopJarStepConfigArgs'] hadoop_jar_step: The HadoopJarStepConfig property type specifies a job flow step consisting of a JAR file whose main function will be executed. The main function submits a job for the cluster to execute as a step on the master node, and then waits for the job to finish or fail before executing subsequent steps.
         :param pulumi.Input[_builtins.str] job_flow_id: A string that uniquely identifies the cluster (job flow).
@@ -135,6 +136,7 @@ class Step(pulumi.CustomResource):
         """
         Schema for AWS::EMR::Step
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] action_on_failure: This specifies what action to take when the cluster step fails. Possible values are CANCEL_AND_WAIT and CONTINUE.
@@ -152,6 +154,7 @@ class Step(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Schema for AWS::EMR::Step
+
 
         :param str resource_name: The name of the resource.
         :param StepArgs args: The arguments to use to populate this resource's properties.

@@ -33,6 +33,7 @@ class DatasetArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Dataset resource.
+
         :param pulumi.Input['DatasetType'] dataset_type: The dataset type
         :param pulumi.Input['DatasetDomain'] domain: The domain associated with the dataset
         :param pulumi.Input['SchemaPropertiesArgs'] schema: The schema for the dataset. The schema attributes and their order must match the fields in your data. The dataset `Domain` and `DatasetType` that you choose determine the minimum required fields in your training data. For information about the required fields for a specific dataset domain and type, see [Dataset Domains and Dataset Types](https://docs.aws.amazon.com/forecast/latest/dg/howitworks-domains-ds-types.html) .
@@ -159,6 +160,7 @@ class Dataset(pulumi.CustomResource):
         """
         Resource Type Definition for AWS::Forecast::Dataset
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] data_frequency: Frequency of data collection. This parameter is required for RELATED_TIME_SERIES
@@ -179,6 +181,7 @@ class Dataset(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type Definition for AWS::Forecast::Dataset
+
 
         :param str resource_name: The name of the resource.
         :param DatasetArgs args: The arguments to use to populate this resource's properties.

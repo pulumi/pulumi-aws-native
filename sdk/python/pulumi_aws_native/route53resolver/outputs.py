@@ -74,6 +74,7 @@ class FirewallRuleGroupFirewallRule(dict):
                  qtype: Optional[_builtins.str] = None):
         """
         Firewall Rule associating the Rule Group to a Domain List
+
         :param 'FirewallRuleGroupFirewallRuleAction' action: Rule Action
         :param _builtins.int priority: Rule Priority
         :param 'FirewallRuleGroupFirewallRuleBlockOverrideDnsType' block_override_dns_type: BlockOverrideDnsType

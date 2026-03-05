@@ -29,6 +29,7 @@ class RecipeArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Recipe resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['RecipeStepArgs']]] steps: A list of steps that are defined by the recipe.
         :param pulumi.Input[_builtins.str] description: Description of the recipe
         :param pulumi.Input[_builtins.str] name: Recipe name
@@ -137,6 +138,7 @@ class Recipe(pulumi.CustomResource):
 
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: Description of the recipe
@@ -184,6 +186,7 @@ class Recipe(pulumi.CustomResource):
             }])
 
         ```
+
 
         :param str resource_name: The name of the resource.
         :param RecipeArgs args: The arguments to use to populate this resource's properties.

@@ -36,6 +36,7 @@ class TopicArgs:
                  user_experience_version: Optional[pulumi.Input['TopicUserExperienceVersion']] = None):
         """
         The set of arguments for constructing a Topic resource.
+
         :param pulumi.Input[_builtins.str] aws_account_id: The ID of the AWS account that you want to create a topic in.
         :param pulumi.Input['TopicConfigOptionsArgs'] config_options: Configuration options for a `Topic` .
         :param pulumi.Input[Sequence[pulumi.Input['TopicDatasetMetadataArgs']]] data_sets: The data sets that the topic is associated with.
@@ -197,6 +198,7 @@ class Topic(pulumi.CustomResource):
         """
         Definition of the AWS::QuickSight::Topic Resource Type.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] aws_account_id: The ID of the AWS account that you want to create a topic in.
@@ -215,6 +217,7 @@ class Topic(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of the AWS::QuickSight::Topic Resource Type.
+
 
         :param str resource_name: The name of the resource.
         :param TopicArgs args: The arguments to use to populate this resource's properties.

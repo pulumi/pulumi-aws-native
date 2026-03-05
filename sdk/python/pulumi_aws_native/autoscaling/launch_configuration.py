@@ -42,6 +42,7 @@ class LaunchConfigurationArgs:
                  user_data: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a LaunchConfiguration resource.
+
         :param pulumi.Input[_builtins.str] image_id: Provides the unique ID of the Amazon Machine Image (AMI) that was assigned during registration.
         :param pulumi.Input[_builtins.str] instance_type: Specifies the instance type of the EC2 instance.
         :param pulumi.Input[_builtins.bool] associate_public_ip_address: For Auto Scaling groups that are running in a virtual private cloud (VPC), specifies whether to assign a public IP address to the group's instances.
@@ -357,6 +358,7 @@ class LaunchConfiguration(pulumi.CustomResource):
         """
         The AWS::AutoScaling::LaunchConfiguration resource specifies the launch configuration that can be used by an Auto Scaling group to configure Amazon EC2 instances.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] associate_public_ip_address: For Auto Scaling groups that are running in a virtual private cloud (VPC), specifies whether to assign a public IP address to the group's instances.
@@ -387,6 +389,7 @@ class LaunchConfiguration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The AWS::AutoScaling::LaunchConfiguration resource specifies the launch configuration that can be used by an Auto Scaling group to configure Amazon EC2 instances.
+
 
         :param str resource_name: The name of the resource.
         :param LaunchConfigurationArgs args: The arguments to use to populate this resource's properties.

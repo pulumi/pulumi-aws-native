@@ -41,6 +41,7 @@ class TableArgs:
                  warm_throughput: Optional[pulumi.Input['TableWarmThroughputArgs']] = None):
         """
         The set of arguments for constructing a Table resource.
+
         :param pulumi.Input[_builtins.str] keyspace_name: Name for Cassandra keyspace
         :param pulumi.Input[Sequence[pulumi.Input['TableColumnArgs']]] partition_key_columns: Partition key columns of the table
         :param pulumi.Input['TableAutoScalingSpecificationArgs'] auto_scaling_specifications: The optional auto scaling capacity settings for a table in provisioned capacity mode.
@@ -790,6 +791,7 @@ class Table(pulumi.CustomResource):
 
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['TableAutoScalingSpecificationArgs', 'TableAutoScalingSpecificationArgsDict']] auto_scaling_specifications: The optional auto scaling capacity settings for a table in provisioned capacity mode.
@@ -1299,6 +1301,7 @@ class Table(pulumi.CustomResource):
             ])
 
         ```
+
 
         :param str resource_name: The name of the resource.
         :param TableArgs args: The arguments to use to populate this resource's properties.

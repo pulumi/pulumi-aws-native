@@ -31,6 +31,7 @@ class SecurityGroupArgs:
                  vpc_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a SecurityGroup resource.
+
         :param pulumi.Input[_builtins.str] group_description: A description for the security group.
         :param pulumi.Input[_builtins.str] group_name: The name of the security group.
         :param pulumi.Input[Sequence[pulumi.Input['SecurityGroupEgressArgs']]] security_group_egress: [VPC only] The outbound rules associated with the security group. There is a short interruption during which you cannot connect to the security group.
@@ -139,6 +140,7 @@ class SecurityGroup(pulumi.CustomResource):
         """
         Resource Type definition for AWS::EC2::SecurityGroup
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] group_description: A description for the security group.
@@ -156,6 +158,7 @@ class SecurityGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::EC2::SecurityGroup
+
 
         :param str resource_name: The name of the resource.
         :param SecurityGroupArgs args: The arguments to use to populate this resource's properties.

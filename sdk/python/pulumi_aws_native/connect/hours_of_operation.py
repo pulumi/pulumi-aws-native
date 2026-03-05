@@ -35,6 +35,7 @@ class HoursOfOperationArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a HoursOfOperation resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['HoursOfOperationConfigArgs']]] config: Configuration information for the hours of operation: day, start time, and end time.
         :param pulumi.Input[_builtins.str] instance_arn: The identifier of the Amazon Connect instance.
         :param pulumi.Input[_builtins.str] time_zone: The time zone of the hours of operation.
@@ -219,6 +220,7 @@ class HoursOfOperation(pulumi.CustomResource):
 
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['HoursOfOperationsIdentifierArgs', 'HoursOfOperationsIdentifierArgsDict']]]] child_hours_of_operations: List of child hours of operations.
@@ -269,6 +271,7 @@ class HoursOfOperation(pulumi.CustomResource):
             }])
 
         ```
+
 
         :param str resource_name: The name of the resource.
         :param HoursOfOperationArgs args: The arguments to use to populate this resource's properties.

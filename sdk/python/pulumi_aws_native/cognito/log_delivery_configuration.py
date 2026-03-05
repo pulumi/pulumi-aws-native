@@ -25,6 +25,7 @@ class LogDeliveryConfigurationArgs:
                  log_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['LogDeliveryConfigurationLogConfigurationArgs']]]] = None):
         """
         The set of arguments for constructing a LogDeliveryConfiguration resource.
+
         :param pulumi.Input[_builtins.str] user_pool_id: The ID of the user pool where you configured logging.
         :param pulumi.Input[Sequence[pulumi.Input['LogDeliveryConfigurationLogConfigurationArgs']]] log_configurations: A logging destination of a user pool. User pools can have multiple logging destinations for message-delivery and user-activity logs.
         """
@@ -69,6 +70,7 @@ class LogDeliveryConfiguration(pulumi.CustomResource):
         """
         Resource Type definition for AWS::Cognito::LogDeliveryConfiguration
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['LogDeliveryConfigurationLogConfigurationArgs', 'LogDeliveryConfigurationLogConfigurationArgsDict']]]] log_configurations: A logging destination of a user pool. User pools can have multiple logging destinations for message-delivery and user-activity logs.
@@ -82,6 +84,7 @@ class LogDeliveryConfiguration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::Cognito::LogDeliveryConfiguration
+
 
         :param str resource_name: The name of the resource.
         :param LogDeliveryConfigurationArgs args: The arguments to use to populate this resource's properties.

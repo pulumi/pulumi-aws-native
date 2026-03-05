@@ -33,6 +33,7 @@ class CapacityProviderArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a CapacityProvider resource.
+
         :param pulumi.Input['CapacityProviderPermissionsConfigArgs'] permissions_config: The permissions configuration for the capacity provider.
         :param pulumi.Input['CapacityProviderVpcConfigArgs'] vpc_config: The VPC configuration for the capacity provider.
         :param pulumi.Input['CapacityProviderScalingConfigArgs'] capacity_provider_scaling_config: The scaling configuration for the capacity provider.
@@ -152,6 +153,7 @@ class CapacityProvider(pulumi.CustomResource):
         """
         Creates a capacity provider that manages compute resources for Lambda functions
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['CapacityProviderScalingConfigArgs', 'CapacityProviderScalingConfigArgsDict']] capacity_provider_scaling_config: The scaling configuration for the capacity provider.
@@ -169,6 +171,7 @@ class CapacityProvider(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Creates a capacity provider that manages compute resources for Lambda functions
+
 
         :param str resource_name: The name of the resource.
         :param CapacityProviderArgs args: The arguments to use to populate this resource's properties.

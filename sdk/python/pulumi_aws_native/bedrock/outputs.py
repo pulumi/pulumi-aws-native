@@ -430,6 +430,7 @@ class AgentActionGroup(dict):
                  skip_resource_in_use_check_on_delete: Optional[_builtins.bool] = None):
         """
         Contains the information of an Agent Action Group
+
         :param _builtins.str action_group_name: Name of the action group
         :param Union['AgentActionGroupExecutor0Properties', 'AgentActionGroupExecutor1Properties'] action_group_executor: The Amazon Resource Name (ARN) of the Lambda function containing the business logic that is carried out upon invoking the action or the custom control method for handling the information elicited from the user.
         :param 'AgentActionGroupState' action_group_state: Specifies whether the action group is available for the agent to invoke or not when sending an [InvokeAgent](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html) request.
@@ -550,6 +551,7 @@ class AgentActionGroupExecutor0Properties(dict):
                  lambda_: _builtins.str):
         """
         Type of Executors for an Action Group
+
         :param _builtins.str lambda_: ARN of a Lambda.
         """
         pulumi.set(__self__, "lambda_", lambda_)
@@ -642,6 +644,7 @@ class AgentAliasHistoryEvent(dict):
                  start_date: Optional[_builtins.str] = None):
         """
         History event for an alias for an Agent.
+
         :param _builtins.str end_date: Time Stamp.
         :param Sequence['AgentAliasRoutingConfigurationListItem'] routing_configuration: Routing configuration for an Agent alias.
         :param _builtins.str start_date: Time Stamp.
@@ -704,6 +707,7 @@ class AgentAliasRoutingConfigurationListItem(dict):
                  agent_version: _builtins.str):
         """
         Details about the routing configuration for an Agent alias.
+
         :param _builtins.str agent_version: Agent Version.
         """
         pulumi.set(__self__, "agent_version", agent_version)
@@ -744,6 +748,7 @@ class AgentApiSchema1Properties(dict):
                  payload: _builtins.str):
         """
         Contains information about the API Schema for the Action Group
+
         :param _builtins.str payload: String OpenAPI Payload
         """
         pulumi.set(__self__, "payload", payload)
@@ -792,6 +797,7 @@ class AgentCollaborator(dict):
                  relay_conversation_history: Optional['AgentRelayConversationHistory'] = None):
         """
         Agent Collaborator
+
         :param 'AgentCollaboratorAgentDescriptorProperties' agent_descriptor: Agent descriptor for agent collaborator
         :param _builtins.str collaboration_instruction: Agent collaborator instruction
         :param _builtins.str collaborator_name: Agent collaborator name
@@ -862,6 +868,7 @@ class AgentCollaboratorAgentDescriptorProperties(dict):
                  alias_arn: Optional[_builtins.str] = None):
         """
         Agent descriptor for agent collaborator
+
         :param _builtins.str alias_arn: Alias ARN for agent descriptor
         """
         if alias_arn is not None:
@@ -885,6 +892,7 @@ class AgentCustomOrchestration(dict):
                  executor: Optional['outputs.AgentOrchestrationExecutor'] = None):
         """
         Structure for custom orchestration
+
         :param 'AgentOrchestrationExecutor' executor: The structure of the executor invoking the actions in custom orchestration.
         """
         if executor is not None:
@@ -928,6 +936,7 @@ class AgentFunction(dict):
                  require_confirmation: Optional['AgentRequireConfirmation'] = None):
         """
         Function definition
+
         :param _builtins.str name: Name for a resource.
         :param _builtins.str description: Description of function
         :param Mapping[str, 'AgentParameterDetail'] parameters: The parameters that the agent elicits from the user to fulfill the function.
@@ -983,6 +992,7 @@ class AgentFunctionSchema(dict):
                  functions: Sequence['outputs.AgentFunction']):
         """
         Schema of Functions
+
         :param Sequence['AgentFunction'] functions: List of Function definitions
         """
         pulumi.set(__self__, "functions", functions)
@@ -1025,6 +1035,7 @@ class AgentGuardrailConfiguration(dict):
                  guardrail_version: Optional[_builtins.str] = None):
         """
         Configuration for a guardrail.
+
         :param _builtins.str guardrail_identifier: Identifier for the guardrail, could be the id or the arn
         :param _builtins.str guardrail_version: Version of the guardrail
         """
@@ -1086,6 +1097,7 @@ class AgentInferenceConfiguration(dict):
                  top_p: Optional[_builtins.float] = None):
         """
         Configuration for inference in prompt configuration
+
         :param _builtins.float maximum_length: Maximum length of output
         :param Sequence[_builtins.str] stop_sequences: List of stop sequences
         :param _builtins.float temperature: Controls randomness, higher values increase diversity
@@ -1174,6 +1186,7 @@ class AgentKnowledgeBase(dict):
                  knowledge_base_state: Optional['AgentKnowledgeBaseState'] = None):
         """
         Agent Knowledge Base
+
         :param _builtins.str description: Description of the Resource.
         :param _builtins.str knowledge_base_id: Identifier for a resource.
         :param 'AgentKnowledgeBaseState' knowledge_base_state: Specifies whether to use the knowledge base or not when sending an [InvokeAgent](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html) request.
@@ -1240,6 +1253,7 @@ class AgentMemoryConfiguration(dict):
                  storage_days: Optional[_builtins.float] = None):
         """
         Configuration for memory storage
+
         :param Sequence['AgentMemoryType'] enabled_memory_types: The type of memory that is stored.
         :param 'AgentSessionSummaryConfiguration' session_summary_configuration: Contains the configuration for SESSION_SUMMARY memory type enabled for the agent.
         :param _builtins.float storage_days: Maximum number of days to store session details
@@ -1302,6 +1316,7 @@ class AgentOrchestrationExecutor(dict):
                  lambda_: _builtins.str):
         """
         Types of executors for custom orchestration strategy
+
         :param _builtins.str lambda_: ARN of a Lambda.
         """
         pulumi.set(__self__, "lambda_", lambda_)
@@ -1326,6 +1341,7 @@ class AgentParameterDetail(dict):
                  required: Optional[_builtins.bool] = None):
         """
         Parameter detail
+
         :param 'AgentType' type: The data type of the parameter.
         :param _builtins.str description: Description of function parameter.
         :param _builtins.bool required: Information about if a parameter is required for function call. Default to false.
@@ -1408,6 +1424,7 @@ class AgentPromptConfiguration(dict):
                  prompt_type: Optional['AgentPromptType'] = None):
         """
         BasePromptConfiguration per Prompt Type.
+
         :param 'AgentAdditionalModelRequestFields' additional_model_request_fields: If the Converse or ConverseStream operations support the model, `additionalModelRequestFields` contains additional inference parameters, beyond the base set of inference parameters in the `inferenceConfiguration` field.
                
                For more information, see [Inference request parameters and response fields for foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html) .
@@ -1542,6 +1559,7 @@ class AgentPromptOverrideConfiguration(dict):
                  override_lambda: Optional[_builtins.str] = None):
         """
         Configuration for prompt override.
+
         :param Sequence['AgentPromptConfiguration'] prompt_configurations: List of BasePromptConfiguration
         :param _builtins.str override_lambda: ARN of a Lambda.
         """
@@ -1595,6 +1613,7 @@ class AgentS3Identifier(dict):
                  s3_object_key: Optional[_builtins.str] = None):
         """
         The identifier for the S3 resource.
+
         :param _builtins.str s3_bucket_name: A bucket in S3.
         :param _builtins.str s3_object_key: A object key in S3.
         """
@@ -1646,6 +1665,7 @@ class AgentSessionSummaryConfiguration(dict):
                  max_recent_sessions: Optional[_builtins.float] = None):
         """
         Configuration for Session Summarization
+
         :param _builtins.float max_recent_sessions: Maximum number of Sessions to Summarize
         """
         if max_recent_sessions is not None:
@@ -1686,6 +1706,7 @@ class ApplicationInferenceProfileInferenceProfileModel(dict):
                  model_arn: Optional[_builtins.str] = None):
         """
         Model configuration
+
         :param _builtins.str model_arn: ARN for Foundation Models in Bedrock. These models can be used as base models for model customization jobs
         """
         if model_arn is not None:
@@ -1726,6 +1747,7 @@ class ApplicationInferenceProfileInferenceProfileModelSourceProperties(dict):
                  copy_from: _builtins.str):
         """
         Various ways to encode a list of models in a CreateInferenceProfile request
+
         :param _builtins.str copy_from: Source arns for a custom inference profile to copy its regional load balancing config from. This
                can either be a foundation model or predefined inference profile ARN.
         """
@@ -2357,6 +2379,7 @@ class DataAutomationProjectCustomOutputConfiguration(dict):
                  blueprints: Optional[Sequence['outputs.DataAutomationProjectBlueprintItem']] = None):
         """
         Custom output configuration
+
         :param Sequence['DataAutomationProjectBlueprintItem'] blueprints: A list of blueprints.
         """
         if blueprints is not None:
@@ -2934,6 +2957,7 @@ class DataAutomationProjectModalityRoutingConfiguration(dict):
                  png: Optional['DataAutomationProjectDesiredModality'] = None):
         """
         Modality routing configuration
+
         :param 'DataAutomationProjectDesiredModality' jpeg: Sets whether JPEG files are routed to document or image processing.
         :param 'DataAutomationProjectDesiredModality' mov: Sets whether MOV files are routed to audio or video processing.
         :param 'DataAutomationProjectDesiredModality' mp4: Sets whether MP4 files are routed to audio or video processing.
@@ -3011,6 +3035,7 @@ class DataAutomationProjectOverrideConfiguration(dict):
                  video: Optional['outputs.DataAutomationProjectVideoOverrideConfiguration'] = None):
         """
         Override configuration
+
         :param 'DataAutomationProjectAudioOverrideConfiguration' audio: This element declares whether your project will process audio files.
         :param 'DataAutomationProjectDocumentOverrideConfiguration' document: Additional settings for a project.
         :param 'DataAutomationProjectImageOverrideConfiguration' image: This element declares whether your project will process image files.
@@ -3232,6 +3257,7 @@ class DataAutomationProjectStandardOutputConfiguration(dict):
                  video: Optional['outputs.DataAutomationProjectVideoStandardOutputConfiguration'] = None):
         """
         Standard output configuration
+
         :param 'DataAutomationProjectAudioStandardOutputConfiguration' audio: Settings for processing audio.
         :param 'DataAutomationProjectDocumentStandardOutputConfiguration' document: Settings for processing documents.
         :param 'DataAutomationProjectImageStandardOutputConfiguration' image: Settings for processing images.
@@ -3577,6 +3603,7 @@ class DataSourceBedrockDataAutomationConfiguration(dict):
                  parsing_modality: Optional['DataSourceParsingModality'] = None):
         """
         Settings for a Bedrock Data Automation used to parse documents for a data source.
+
         :param 'DataSourceParsingModality' parsing_modality: Specifies whether to enable parsing of multimodal data, including both text and/or images.
         """
         if parsing_modality is not None:
@@ -3623,6 +3650,7 @@ class DataSourceBedrockFoundationModelConfiguration(dict):
                  parsing_prompt: Optional['outputs.DataSourceParsingPrompt'] = None):
         """
         Settings for a foundation model used to parse documents for a data source.
+
         :param _builtins.str model_arn: The ARN of the foundation model to use for parsing.
         :param 'DataSourceParsingModality' parsing_modality: Specifies whether to enable parsing of multimodal data, including both text and/or images.
         :param 'DataSourceParsingPrompt' parsing_prompt: Instructions for interpreting the contents of a document.
@@ -3687,6 +3715,7 @@ class DataSourceBedrockFoundationModelContextEnrichmentConfiguration(dict):
                  model_arn: _builtins.str):
         """
         Bedrock Foundation Model configuration to be used for Context Enrichment.
+
         :param 'DataSourceEnrichmentStrategyConfiguration' enrichment_strategy_configuration: The enrichment stategy used to provide additional context. For example, Neptune GraphRAG uses Amazon Bedrock foundation models to perform chunk entity extraction.
         :param _builtins.str model_arn: The Amazon Resource Name (ARN) of the model used to create vector embeddings for the knowledge base.
         """
@@ -3745,6 +3774,7 @@ class DataSourceChunkingConfiguration(dict):
                  semantic_chunking_configuration: Optional['outputs.DataSourceSemanticChunkingConfiguration'] = None):
         """
         Details about how to chunk the documents in the data source. A chunk refers to an excerpt from a data source that is returned when the knowledge base that it belongs to is queried.
+
         :param 'DataSourceChunkingStrategy' chunking_strategy: Knowledge base can split your source data into chunks. A *chunk* refers to an excerpt from a data source that is returned when the knowledge base that it belongs to is queried. You have the following options for chunking your data. If you opt for `NONE` , then you may want to pre-process your files by splitting them up such that each file corresponds to a chunk.
                
                - `FIXED_SIZE` – Amazon Bedrock splits your source data into chunks of the approximate size that you set in the `fixedSizeChunkingConfiguration` .
@@ -3840,6 +3870,7 @@ class DataSourceConfiguration(dict):
                  web_configuration: Optional['outputs.DataSourceWebDataSourceConfiguration'] = None):
         """
         Specifies a raw data source location to ingest.
+
         :param 'DataSourceType' type: The type of data source.
         :param 'DataSourceConfluenceDataSourceConfiguration' confluence_configuration: The configuration information to connect to Confluence as your data source.
                
@@ -3950,6 +3981,7 @@ class DataSourceConfluenceCrawlerConfiguration(dict):
                  filter_configuration: Optional['outputs.DataSourceCrawlFilterConfiguration'] = None):
         """
         The configuration of the Confluence content. For example, configuring specific types of Confluence content.
+
         :param 'DataSourceCrawlFilterConfiguration' filter_configuration: The configuration of filtering the Confluence content. For example, configuring regular expression patterns to include or exclude certain content.
         """
         if filter_configuration is not None:
@@ -3993,6 +4025,7 @@ class DataSourceConfluenceDataSourceConfiguration(dict):
                  crawler_configuration: Optional['outputs.DataSourceConfluenceCrawlerConfiguration'] = None):
         """
         The configuration information to connect to Confluence as your data source.
+
         :param 'DataSourceConfluenceSourceConfiguration' source_configuration: The endpoint information to connect to your Confluence data source.
         :param 'DataSourceConfluenceCrawlerConfiguration' crawler_configuration: The configuration of the Confluence content. For example, configuring specific types of Confluence content.
         """
@@ -4052,6 +4085,7 @@ class DataSourceConfluenceSourceConfiguration(dict):
                  host_url: _builtins.str):
         """
         The endpoint information to connect to your Confluence data source.
+
         :param 'DataSourceConfluenceSourceConfigurationAuthType' auth_type: The supported authentication type to authenticate and connect to your Confluence instance.
         :param _builtins.str credentials_secret_arn: The Amazon Resource Name of an AWS Secrets Manager secret that stores your authentication credentials for your Confluence instance URL. For more information on the key-value pairs that must be included in your secret, depending on your authentication type, see Confluence connection configuration.
         :param 'DataSourceConfluenceSourceConfigurationHostType' host_type: The supported host type, whether online/cloud or server/on-premises.
@@ -4122,6 +4156,7 @@ class DataSourceContextEnrichmentConfiguration(dict):
                  bedrock_foundation_model_configuration: Optional['outputs.DataSourceBedrockFoundationModelContextEnrichmentConfiguration'] = None):
         """
         Additional Enrichment Configuration for example when using GraphRag.
+
         :param 'DataSourceContextEnrichmentType' type: The method used for context enrichment. It must be Amazon Bedrock foundation models.
         :param 'DataSourceBedrockFoundationModelContextEnrichmentConfiguration' bedrock_foundation_model_configuration: The configuration of the Amazon Bedrock foundation model used for context enrichment.
         """
@@ -4173,6 +4208,7 @@ class DataSourceCrawlFilterConfiguration(dict):
                  pattern_object_filter: Optional['outputs.DataSourcePatternObjectFilterConfiguration'] = None):
         """
         The type of filtering that you want to apply to certain objects or content of the data source. For example, the PATTERN type is regular expression patterns you can apply to filter your content.
+
         :param 'DataSourceCrawlFilterConfigurationType' type: The crawl filter type.
         :param 'DataSourcePatternObjectFilterConfiguration' pattern_object_filter: The configuration of filtering certain objects or content types of the data source.
         """
@@ -4224,6 +4260,7 @@ class DataSourceCustomTransformationConfiguration(dict):
                  transformations: Sequence['outputs.DataSourceTransformation']):
         """
         Settings for customizing steps in the data source content ingestion pipeline.
+
         :param 'DataSourceIntermediateStorage' intermediate_storage: An S3 bucket path for input and output objects.
         :param Sequence['DataSourceTransformation'] transformations: A list of Lambda functions that process documents.
         """
@@ -4256,6 +4293,7 @@ class DataSourceEnrichmentStrategyConfiguration(dict):
                  method: 'DataSourceEnrichmentStrategyMethod'):
         """
         Strategy to be used when using Bedrock Foundation Model for Context Enrichment.
+
         :param 'DataSourceEnrichmentStrategyMethod' method: The method used for the context enrichment strategy.
         """
         pulumi.set(__self__, "method", method)
@@ -4298,6 +4336,7 @@ class DataSourceFixedSizeChunkingConfiguration(dict):
                  overlap_percentage: _builtins.int):
         """
         Configurations for when you choose fixed-size chunking. If you set the chunkingStrategy as NONE, exclude this field.
+
         :param _builtins.int max_tokens: The maximum number of tokens to include in a chunk.
         :param _builtins.int overlap_percentage: The percentage of overlap between adjacent chunks of a data source.
         """
@@ -4350,6 +4389,7 @@ class DataSourceHierarchicalChunkingConfiguration(dict):
                  overlap_tokens: _builtins.int):
         """
         Configurations for when you choose hierarchical chunking. If you set the chunkingStrategy as NONE, exclude this field.
+
         :param Sequence['DataSourceHierarchicalChunkingLevelConfiguration'] level_configurations: Token settings for each layer.
         :param _builtins.int overlap_tokens: The number of tokens to repeat across chunks in the same layer.
         """
@@ -4399,6 +4439,7 @@ class DataSourceHierarchicalChunkingLevelConfiguration(dict):
                  max_tokens: _builtins.int):
         """
         Token settings for a layer in a hierarchical chunking configuration.
+
         :param _builtins.int max_tokens: The maximum number of tokens that a chunk can contain in this layer.
         """
         pulumi.set(__self__, "max_tokens", max_tokens)
@@ -4438,6 +4479,7 @@ class DataSourceIntermediateStorage(dict):
                  s3_location: 'outputs.DataSourceS3Location'):
         """
         A location for storing content from data sources temporarily as it is processed by custom components in the ingestion pipeline.
+
         :param 'DataSourceS3Location' s3_location: An S3 bucket path.
         """
         pulumi.set(__self__, "s3_location", s3_location)
@@ -4483,6 +4525,7 @@ class DataSourceParsingConfiguration(dict):
                  bedrock_foundation_model_configuration: Optional['outputs.DataSourceBedrockFoundationModelConfiguration'] = None):
         """
         Settings for parsing document contents
+
         :param 'DataSourceParsingStrategy' parsing_strategy: The parsing strategy for the data source.
         :param 'DataSourceBedrockDataAutomationConfiguration' bedrock_data_automation_configuration: If you specify `BEDROCK_DATA_AUTOMATION` as the parsing strategy for ingesting your data source, use this object to modify configurations for using the Amazon Bedrock Data Automation parser.
         :param 'DataSourceBedrockFoundationModelConfiguration' bedrock_foundation_model_configuration: If you specify `BEDROCK_FOUNDATION_MODEL` as the parsing strategy for ingesting your data source, use this object to modify configurations for using a foundation model to parse documents.
@@ -4544,6 +4587,7 @@ class DataSourceParsingPrompt(dict):
                  parsing_prompt_text: _builtins.str):
         """
         Instructions for interpreting the contents of a document.
+
         :param _builtins.str parsing_prompt_text: Instructions for interpreting the contents of a document.
         """
         pulumi.set(__self__, "parsing_prompt_text", parsing_prompt_text)
@@ -4589,6 +4633,7 @@ class DataSourcePatternObjectFilter(dict):
                  inclusion_filters: Optional[Sequence[_builtins.str]] = None):
         """
         The specific filters applied to your data source content. You can filter out or include certain content.
+
         :param _builtins.str object_type: The supported object type or content type of the data source.
         """
         pulumi.set(__self__, "object_type", object_type)
@@ -4625,6 +4670,7 @@ class DataSourcePatternObjectFilterConfiguration(dict):
                  filters: Sequence['outputs.DataSourcePatternObjectFilter']):
         """
         The configuration of specific filters applied to your data source content. You can filter out or include certain content.
+
         :param Sequence['DataSourcePatternObjectFilter'] filters: The configuration of specific filters applied to your data source content. You can filter out or include certain content.
         """
         pulumi.set(__self__, "filters", filters)
@@ -4670,6 +4716,7 @@ class DataSourceS3DataSourceConfiguration(dict):
                  inclusion_prefixes: Optional[Sequence[_builtins.str]] = None):
         """
         The configuration information to connect to Amazon S3 as your data source.
+
         :param _builtins.str bucket_arn: The ARN of the bucket that contains the data source.
         :param _builtins.str bucket_owner_account_id: The account ID for the owner of the S3 bucket.
         :param Sequence[_builtins.str] inclusion_prefixes: A list of S3 prefixes that define the object containing the data sources.
@@ -4714,6 +4761,7 @@ class DataSourceS3Location(dict):
                  uri: _builtins.str):
         """
         An Amazon S3 location.
+
         :param _builtins.str uri: The location's URI
         """
         pulumi.set(__self__, "uri", uri)
@@ -4753,6 +4801,7 @@ class DataSourceSalesforceCrawlerConfiguration(dict):
                  filter_configuration: Optional['outputs.DataSourceCrawlFilterConfiguration'] = None):
         """
         The configuration of filtering the Salesforce content. For example, configuring regular expression patterns to include or exclude certain content.
+
         :param 'DataSourceCrawlFilterConfiguration' filter_configuration: The configuration of filtering the Salesforce content. For example, configuring regular expression patterns to include or exclude certain content.
         """
         if filter_configuration is not None:
@@ -4796,6 +4845,7 @@ class DataSourceSalesforceDataSourceConfiguration(dict):
                  crawler_configuration: Optional['outputs.DataSourceSalesforceCrawlerConfiguration'] = None):
         """
         The configuration information to connect to Salesforce as your data source.
+
         :param 'DataSourceSalesforceSourceConfiguration' source_configuration: The endpoint information to connect to your Salesforce data source.
         :param 'DataSourceSalesforceCrawlerConfiguration' crawler_configuration: The configuration of the Salesforce content. For example, configuring specific types of Salesforce content.
         """
@@ -4852,6 +4902,7 @@ class DataSourceSalesforceSourceConfiguration(dict):
                  host_url: _builtins.str):
         """
         The endpoint information to connect to your Salesforce data source.
+
         :param 'DataSourceSalesforceSourceConfigurationAuthType' auth_type: The supported authentication type to authenticate and connect to your Salesforce instance.
         :param _builtins.str credentials_secret_arn: The Amazon Resource Name of an AWS Secrets Manager secret that stores your authentication credentials for your Salesforce instance URL. For more information on the key-value pairs that must be included in your secret, depending on your authentication type, see Salesforce connection configuration.
         :param _builtins.str host_url: The Salesforce host URL or instance URL.
@@ -4894,6 +4945,7 @@ class DataSourceSeedUrl(dict):
                  url: _builtins.str):
         """
         A seed url object.
+
         :param _builtins.str url: A web url.
         """
         pulumi.set(__self__, "url", url)
@@ -4939,6 +4991,7 @@ class DataSourceSemanticChunkingConfiguration(dict):
                  max_tokens: _builtins.int):
         """
         Configurations for when you choose semantic chunking. If you set the chunkingStrategy as NONE, exclude this field.
+
         :param _builtins.int breakpoint_percentile_threshold: The dissimilarity threshold for splitting chunks.
         :param _builtins.int buffer_size: The buffer size.
         :param _builtins.int max_tokens: The maximum number of tokens that a chunk can contain.
@@ -4998,6 +5051,7 @@ class DataSourceServerSideEncryptionConfiguration(dict):
                  kms_key_arn: Optional[_builtins.str] = None):
         """
         Contains details about the server-side encryption for the data source.
+
         :param _builtins.str kms_key_arn: The ARN of the AWS KMS key used to encrypt the resource.
         """
         if kms_key_arn is not None:
@@ -5038,6 +5092,7 @@ class DataSourceSharePointCrawlerConfiguration(dict):
                  filter_configuration: Optional['outputs.DataSourceCrawlFilterConfiguration'] = None):
         """
         The configuration of the SharePoint content. For example, configuring specific types of SharePoint content.
+
         :param 'DataSourceCrawlFilterConfiguration' filter_configuration: The configuration of filtering the SharePoint content. For example, configuring regular expression patterns to include or exclude certain content.
         """
         if filter_configuration is not None:
@@ -5081,6 +5136,7 @@ class DataSourceSharePointDataSourceConfiguration(dict):
                  crawler_configuration: Optional['outputs.DataSourceSharePointCrawlerConfiguration'] = None):
         """
         The configuration information to connect to SharePoint as your data source.
+
         :param 'DataSourceSharePointSourceConfiguration' source_configuration: The endpoint information to connect to your SharePoint data source.
         :param 'DataSourceSharePointCrawlerConfiguration' crawler_configuration: The configuration of the SharePoint content. For example, configuring specific types of SharePoint content.
         """
@@ -5144,6 +5200,7 @@ class DataSourceSharePointSourceConfiguration(dict):
                  tenant_id: Optional[_builtins.str] = None):
         """
         The endpoint information to connect to your SharePoint data source.
+
         :param 'DataSourceSharePointSourceConfigurationAuthType' auth_type: The supported authentication type to authenticate and connect to your SharePoint site/sites.
         :param _builtins.str credentials_secret_arn: The Amazon Resource Name of an AWS Secrets Manager secret that stores your authentication credentials for your SharePoint site/sites. For more information on the key-value pairs that must be included in your secret, depending on your authentication type, see SharePoint connection configuration.
         :param _builtins.str domain: The domain of your SharePoint instance or site URL/URLs.
@@ -5237,6 +5294,7 @@ class DataSourceTransformation(dict):
                  transformation_function: 'outputs.DataSourceTransformationFunction'):
         """
         A Lambda function that processes documents.
+
         :param 'DataSourceTransformationStepToApply' step_to_apply: When the service applies the transformation.
         :param 'DataSourceTransformationFunction' transformation_function: A Lambda function that processes documents.
         """
@@ -5286,6 +5344,7 @@ class DataSourceTransformationFunction(dict):
                  transformation_lambda_configuration: 'outputs.DataSourceTransformationLambdaConfiguration'):
         """
         A Lambda function that processes documents.
+
         :param 'DataSourceTransformationLambdaConfiguration' transformation_lambda_configuration: The Lambda function.
         """
         pulumi.set(__self__, "transformation_lambda_configuration", transformation_lambda_configuration)
@@ -5325,6 +5384,7 @@ class DataSourceTransformationLambdaConfiguration(dict):
                  lambda_arn: _builtins.str):
         """
         A Lambda function that processes documents.
+
         :param _builtins.str lambda_arn: The function's ARN identifier.
         """
         pulumi.set(__self__, "lambda_arn", lambda_arn)
@@ -5364,6 +5424,7 @@ class DataSourceUrlConfiguration(dict):
                  seed_urls: Sequence['outputs.DataSourceSeedUrl']):
         """
         A url configuration.
+
         :param Sequence['DataSourceSeedUrl'] seed_urls: One or more seed or starting point URLs.
         """
         pulumi.set(__self__, "seed_urls", seed_urls)
@@ -5412,6 +5473,7 @@ class DataSourceVectorIngestionConfiguration(dict):
                  parsing_configuration: Optional['outputs.DataSourceParsingConfiguration'] = None):
         """
         Details about how to chunk the documents in the data source. A chunk refers to an excerpt from a data source that is returned when the knowledge base that it belongs to is queried.
+
         :param 'DataSourceChunkingConfiguration' chunking_configuration: Details about how to chunk the documents in the data source. A *chunk* refers to an excerpt from a data source that is returned when the knowledge base that it belongs to is queried.
         :param 'DataSourceContextEnrichmentConfiguration' context_enrichment_configuration: The context enrichment configuration used for ingestion of the data into the vector store.
         :param 'DataSourceCustomTransformationConfiguration' custom_transformation_configuration: A custom document transformer for parsed data source documents.
@@ -5498,6 +5560,7 @@ class DataSourceWebCrawlerConfiguration(dict):
                  user_agent_header: Optional[_builtins.str] = None):
         """
         Configuration for the web crawler.
+
         :param 'DataSourceWebCrawlerLimits' crawler_limits: The configuration of crawl limits for the web URLs.
         :param Sequence[_builtins.str] exclusion_filters: A list of one or more exclusion regular expression patterns to exclude certain URLs. If you specify an inclusion and exclusion filter/pattern and both match a URL, the exclusion filter takes precedence and the web content of the URL isn’t crawled.
         :param Sequence[_builtins.str] inclusion_filters: A list of one or more inclusion regular expression patterns to include certain URLs. If you specify an inclusion and exclusion filter/pattern and both match a URL, the exclusion filter takes precedence and the web content of the URL isn’t crawled.
@@ -5600,6 +5663,7 @@ class DataSourceWebCrawlerLimits(dict):
                  rate_limit: Optional[_builtins.int] = None):
         """
         Limit settings for the web crawler.
+
         :param _builtins.int max_pages: Maximum number of pages the crawler can crawl.
         :param _builtins.int rate_limit: Rate of web URLs retrieved per minute.
         """
@@ -5654,6 +5718,7 @@ class DataSourceWebDataSourceConfiguration(dict):
                  crawler_configuration: Optional['outputs.DataSourceWebCrawlerConfiguration'] = None):
         """
         Configures a web data source location.
+
         :param 'DataSourceWebSourceConfiguration' source_configuration: The source configuration details for the web data source.
         :param 'DataSourceWebCrawlerConfiguration' crawler_configuration: The Web Crawler configuration details for the web data source.
         """
@@ -5704,6 +5769,7 @@ class DataSourceWebSourceConfiguration(dict):
                  url_configuration: 'outputs.DataSourceUrlConfiguration'):
         """
         A web source configuration.
+
         :param 'DataSourceUrlConfiguration' url_configuration: The configuration of the URL/URLs.
         """
         pulumi.set(__self__, "url_configuration", url_configuration)
@@ -5749,6 +5815,7 @@ class FlowAgentFlowNodeConfiguration(dict):
                  agent_alias_arn: _builtins.str):
         """
         Agent flow node configuration
+
         :param _builtins.str agent_alias_arn: Arn representation of the Agent Alias.
         """
         pulumi.set(__self__, "agent_alias_arn", agent_alias_arn)
@@ -5841,6 +5908,7 @@ class FlowAliasRoutingConfigurationListItem(dict):
                  flow_version: Optional[_builtins.str] = None):
         """
         Details about the routing configuration for a Flow alias.
+
         :param _builtins.str flow_version: Version.
         """
         if flow_version is not None:
@@ -5877,6 +5945,7 @@ class FlowCondition(dict):
                  expression: Optional[_builtins.str] = None):
         """
         Condition branch for a condition node
+
         :param _builtins.str name: Name of a condition in a flow
         :param _builtins.str expression: Expression for a condition in a flow
         """
@@ -5910,6 +5979,7 @@ class FlowConditionFlowNodeConfiguration(dict):
                  conditions: Sequence['outputs.FlowCondition']):
         """
         Condition flow node configuration
+
         :param Sequence['FlowCondition'] conditions: List of conditions in a condition node
         """
         pulumi.set(__self__, "conditions", conditions)
@@ -5932,6 +6002,7 @@ class FlowConditionalConnectionConfiguration(dict):
                  condition: _builtins.str):
         """
         Conditional connection configuration
+
         :param _builtins.str condition: Name of a condition in a flow
         """
         pulumi.set(__self__, "condition", condition)
@@ -5958,6 +6029,7 @@ class FlowConnection(dict):
                  configuration: Optional[Any] = None):
         """
         Flow connection
+
         :param _builtins.str name: Name of a connection in a flow
         :param _builtins.str source: Name of a node in a flow
         :param _builtins.str target: Name of a node in a flow
@@ -6077,6 +6149,7 @@ class FlowDataConnectionConfiguration(dict):
                  target_input: _builtins.str):
         """
         Data connection configuration
+
         :param _builtins.str source_output: Name of a node output in a flow
         :param _builtins.str target_input: Name of a node input in a flow
         """
@@ -6110,6 +6183,7 @@ class FlowDefinition(dict):
                  nodes: Optional[Sequence['outputs.FlowNode']] = None):
         """
         Flow definition
+
         :param Sequence['FlowConnection'] connections: List of connections
         :param Sequence['FlowNode'] nodes: List of nodes in a flow
         """
@@ -6161,6 +6235,7 @@ class FlowFieldForReranking(dict):
                  field_name: _builtins.str):
         """
         Field name for reranking
+
         :param _builtins.str field_name: Field name for reranking
         """
         pulumi.set(__self__, "field_name", field_name)
@@ -6203,6 +6278,7 @@ class FlowGuardrailConfiguration(dict):
                  guardrail_version: Optional[_builtins.str] = None):
         """
         Configuration for a guardrail
+
         :param _builtins.str guardrail_identifier: Identifier for the guardrail, could be the id or the arn
         :param _builtins.str guardrail_version: Version of the guardrail
         """
@@ -6238,6 +6314,7 @@ class FlowInlineCodeFlowNodeConfiguration(dict):
                  language: 'FlowSupportedLanguages'):
         """
         Inline code config strucuture, contains code configs
+
         :param _builtins.str code: The inline code entered by customers. max size is 5MB.
         """
         pulumi.set(__self__, "code", code)
@@ -6328,6 +6405,7 @@ class FlowKnowledgeBaseFlowNodeConfiguration(dict):
                  reranking_configuration: Optional['outputs.FlowVectorSearchRerankingConfiguration'] = None):
         """
         Knowledge base flow node configuration
+
         :param _builtins.str knowledge_base_id: Identifier of the KnowledgeBase
         :param _builtins.str model_id: ARN or Id of a Bedrock Foundational Model or Inference Profile, or the ARN of a imported model, or a provisioned throughput ARN for custom models.
         :param _builtins.float number_of_results: Number Of Results to Retrieve
@@ -6519,6 +6597,7 @@ class FlowLambdaFunctionFlowNodeConfiguration(dict):
                  lambda_arn: _builtins.str):
         """
         Lambda function flow node configuration
+
         :param _builtins.str lambda_arn: ARN of a Lambda.
         """
         pulumi.set(__self__, "lambda_arn", lambda_arn)
@@ -6561,6 +6640,7 @@ class FlowLexFlowNodeConfiguration(dict):
                  locale_id: _builtins.str):
         """
         Lex flow node configuration
+
         :param _builtins.str bot_alias_arn: ARN of a Lex bot alias
         :param _builtins.str locale_id: Lex bot locale id
         """
@@ -6613,6 +6693,7 @@ class FlowLoopControllerFlowNodeConfiguration(dict):
                  max_iterations: Optional[_builtins.float] = None):
         """
         Configuration for the LoopController node, which manages loop execution
+
         :param _builtins.float max_iterations: Maximum number of iterations the loop can perform
         """
         pulumi.set(__self__, "continue_condition", continue_condition)
@@ -6715,6 +6796,7 @@ class FlowNode(dict):
                  outputs: Optional[Sequence['outputs.FlowNodeOutput']] = None):
         """
         Internal mixin for flow node
+
         :param _builtins.str name: Name of a node in a flow
         :param 'FlowNodeType' type: The type of node. This value must match the name of the key that you provide in the configuration you provide in the `FlowNodeConfiguration` field.
         :param Union['FlowNodeConfiguration0Properties', 'FlowNodeConfiguration1Properties', 'FlowNodeConfiguration2Properties', 'FlowNodeConfiguration3Properties', 'FlowNodeConfiguration4Properties', 'FlowNodeConfiguration5Properties', 'FlowNodeConfiguration6Properties', 'FlowNodeConfiguration7Properties', 'FlowNodeConfiguration8Properties', 'FlowNodeConfiguration9Properties', 'FlowNodeConfiguration10Properties', 'FlowNodeConfiguration11Properties', 'FlowNodeConfiguration12Properties', 'FlowNodeConfiguration13Properties', 'FlowNodeConfiguration14Properties', 'FlowNodeConfiguration15Properties'] configuration: Contains configurations for the node.
@@ -7156,6 +7238,7 @@ class FlowNodeInput(dict):
                  category: Optional['FlowNodeInputCategory'] = None):
         """
         Input to a node in a flow
+
         :param _builtins.str expression: Expression for a node input in a flow
         :param _builtins.str name: Name of a node input in a flow
         :param 'FlowNodeIoDataType' type: Specifies the data type of the input. If the input doesn't match this type at runtime, a validation error will be thrown.
@@ -7218,6 +7301,7 @@ class FlowNodeOutput(dict):
                  type: 'FlowNodeIoDataType'):
         """
         Output of a node in a flow
+
         :param _builtins.str name: Name of a node output in a flow
         :param 'FlowNodeIoDataType' type: The data type of the output. If the output doesn't match this type at runtime, a validation error will be thrown.
         """
@@ -7346,6 +7430,7 @@ class FlowPromptFlowNodeInlineConfiguration(dict):
                  inference_configuration: Optional['outputs.FlowPromptInferenceConfigurationProperties'] = None):
         """
         Inline prompt configuration for prompt node
+
         :param _builtins.str model_id: ARN or Id of a Bedrock Foundational Model or Inference Profile, or the ARN of a imported model, or a provisioned throughput ARN for custom models.
         """
         pulumi.set(__self__, "model_id", model_id)
@@ -7404,6 +7489,7 @@ class FlowPromptFlowNodeResourceConfiguration(dict):
                  prompt_arn: _builtins.str):
         """
         Resource prompt configuration for prompt node
+
         :param _builtins.str prompt_arn: ARN of a prompt resource possibly with a version
         """
         pulumi.set(__self__, "prompt_arn", prompt_arn)
@@ -7480,6 +7566,7 @@ class FlowPromptInputVariable(dict):
                  name: Optional[_builtins.str] = None):
         """
         Input variable
+
         :param _builtins.str name: Name for an input variable
         """
         if name is not None:
@@ -7527,6 +7614,7 @@ class FlowPromptModelInferenceConfiguration(dict):
                  top_p: Optional[_builtins.float] = None):
         """
         Prompt model inference configuration
+
         :param _builtins.float max_tokens: Maximum length of output
         :param Sequence[_builtins.str] stop_sequences: List of stop sequences
         :param _builtins.float temperature: Controls randomness, higher values increase diversity
@@ -7723,6 +7811,7 @@ class FlowRetrievalFlowNodeS3Configuration(dict):
                  bucket_name: _builtins.str):
         """
         s3 Retrieval configuration for Retrieval node
+
         :param _builtins.str bucket_name: bucket name of an s3 that will be used for Retrieval flow node configuration
         """
         pulumi.set(__self__, "bucket_name", bucket_name)
@@ -7766,6 +7855,7 @@ class FlowS3Location(dict):
                  version: Optional[_builtins.str] = None):
         """
         A bucket, key and optional version pointing to an S3 object containing a UTF-8 encoded JSON string Definition with the same schema as the Definition property of this resource
+
         :param _builtins.str bucket: A bucket in S3
         :param _builtins.str key: A object key in S3
         :param _builtins.str version: The version of the the S3 object to use
@@ -7861,6 +7951,7 @@ class FlowStorageFlowNodeS3Configuration(dict):
                  bucket_name: _builtins.str):
         """
         s3 storage configuration for storage node
+
         :param _builtins.str bucket_name: bucket name of an s3 that will be used for storage flow node configuration
         """
         pulumi.set(__self__, "bucket_name", bucket_name)
@@ -7920,6 +8011,7 @@ class FlowTextPromptTemplateConfiguration(dict):
                  input_variables: Optional[Sequence['outputs.FlowPromptInputVariable']] = None):
         """
         Configuration for text prompt template
+
         :param _builtins.str text: Prompt content for String prompt template
         :param Sequence['FlowPromptInputVariable'] input_variables: List of input variables
         """
@@ -7953,6 +8045,7 @@ class FlowValidation(dict):
                  message: _builtins.str):
         """
         Validation for Flow
+
         :param _builtins.str message: validation message
         """
         pulumi.set(__self__, "message", message)
@@ -8129,6 +8222,7 @@ class FlowVersionAgentFlowNodeConfiguration(dict):
                  agent_alias_arn: _builtins.str):
         """
         Agent flow node configuration
+
         :param _builtins.str agent_alias_arn: Arn representation of the Agent Alias.
         """
         pulumi.set(__self__, "agent_alias_arn", agent_alias_arn)
@@ -8163,6 +8257,7 @@ class FlowVersionConditionFlowNodeConfiguration(dict):
                  conditions: Sequence['outputs.FlowVersionFlowCondition']):
         """
         Condition flow node configuration
+
         :param Sequence['FlowVersionFlowCondition'] conditions: List of conditions in a condition node
         """
         pulumi.set(__self__, "conditions", conditions)
@@ -8202,6 +8297,7 @@ class FlowVersionFieldForReranking(dict):
                  field_name: _builtins.str):
         """
         Field name for reranking
+
         :param _builtins.str field_name: Field name for reranking
         """
         pulumi.set(__self__, "field_name", field_name)
@@ -8225,6 +8321,7 @@ class FlowVersionFlowCondition(dict):
                  expression: Optional[_builtins.str] = None):
         """
         Condition branch for a condition node
+
         :param _builtins.str name: Name of a condition in a flow
         :param _builtins.str expression: Expression for a condition in a flow
         """
@@ -8258,6 +8355,7 @@ class FlowVersionFlowConditionalConnectionConfiguration(dict):
                  condition: _builtins.str):
         """
         Conditional connection configuration
+
         :param _builtins.str condition: Name of a condition in a flow
         """
         pulumi.set(__self__, "condition", condition)
@@ -8284,6 +8382,7 @@ class FlowVersionFlowConnection(dict):
                  configuration: Optional[Any] = None):
         """
         Flow connection
+
         :param _builtins.str name: Name of a connection in a flow
         :param _builtins.str source: Name of a node in a flow
         :param _builtins.str target: Name of a node in a flow
@@ -8403,6 +8502,7 @@ class FlowVersionFlowDataConnectionConfiguration(dict):
                  target_input: _builtins.str):
         """
         Data connection configuration
+
         :param _builtins.str source_output: Name of a node output in a flow
         :param _builtins.str target_input: Name of a node input in a flow
         """
@@ -8436,6 +8536,7 @@ class FlowVersionFlowDefinition(dict):
                  nodes: Optional[Sequence['outputs.FlowVersionFlowNode']] = None):
         """
         Flow definition
+
         :param Sequence['FlowVersionFlowConnection'] connections: List of connections
         :param Sequence['FlowVersionFlowNode'] nodes: List of nodes in a flow
         """
@@ -8474,6 +8575,7 @@ class FlowVersionFlowNode(dict):
                  outputs: Optional[Sequence['outputs.FlowVersionFlowNodeOutput']] = None):
         """
         Internal mixin for flow node
+
         :param _builtins.str name: Name of a node in a flow
         :param 'FlowVersionFlowNodeType' type: The type of node. This value must match the name of the key that you provide in the configuration you provide in the `FlowNodeConfiguration` field.
         :param Union['FlowVersionFlowNodeConfiguration0Properties', 'FlowVersionFlowNodeConfiguration1Properties', 'FlowVersionFlowNodeConfiguration2Properties', 'FlowVersionFlowNodeConfiguration3Properties', 'FlowVersionFlowNodeConfiguration4Properties', 'FlowVersionFlowNodeConfiguration5Properties', 'FlowVersionFlowNodeConfiguration6Properties', 'FlowVersionFlowNodeConfiguration7Properties', 'FlowVersionFlowNodeConfiguration8Properties', 'FlowVersionFlowNodeConfiguration9Properties', 'FlowVersionFlowNodeConfiguration10Properties', 'FlowVersionFlowNodeConfiguration11Properties', 'FlowVersionFlowNodeConfiguration12Properties', 'FlowVersionFlowNodeConfiguration13Properties', 'FlowVersionFlowNodeConfiguration14Properties', 'FlowVersionFlowNodeConfiguration15Properties'] configuration: Contains configurations for the node.
@@ -8914,6 +9016,7 @@ class FlowVersionFlowNodeInput(dict):
                  type: 'FlowVersionFlowNodeIoDataType'):
         """
         Input to a node in a flow
+
         :param _builtins.str expression: Expression for a node input in a flow
         :param _builtins.str name: Name of a node input in a flow
         :param 'FlowVersionFlowNodeIoDataType' type: Specifies the data type of the input. If the input doesn't match this type at runtime, a validation error will be thrown.
@@ -8957,6 +9060,7 @@ class FlowVersionFlowNodeOutput(dict):
                  type: 'FlowVersionFlowNodeIoDataType'):
         """
         Output of a node in a flow
+
         :param _builtins.str name: Name of a node output in a flow
         :param 'FlowVersionFlowNodeIoDataType' type: The data type of the output. If the output doesn't match this type at runtime, a validation error will be thrown.
         """
@@ -9009,6 +9113,7 @@ class FlowVersionGuardrailConfiguration(dict):
                  guardrail_version: Optional[_builtins.str] = None):
         """
         Configuration for a guardrail
+
         :param _builtins.str guardrail_identifier: Identifier for the guardrail, could be the id or the arn
         :param _builtins.str guardrail_version: Version of the guardrail
         """
@@ -9044,6 +9149,7 @@ class FlowVersionInlineCodeFlowNodeConfiguration(dict):
                  language: 'FlowVersionSupportedLanguages'):
         """
         Inline code config strucuture, contains code configs
+
         :param _builtins.str code: The inline code entered by customers. max size is 5MB.
         """
         pulumi.set(__self__, "code", code)
@@ -9134,6 +9240,7 @@ class FlowVersionKnowledgeBaseFlowNodeConfiguration(dict):
                  reranking_configuration: Optional['outputs.FlowVersionVectorSearchRerankingConfiguration'] = None):
         """
         Knowledge base flow node configuration
+
         :param _builtins.str knowledge_base_id: Identifier of the KnowledgeBase
         :param _builtins.str model_id: ARN or Id of a Bedrock Foundational Model or Inference Profile, or the ARN of a imported model, or a provisioned throughput ARN for custom models.
         :param _builtins.float number_of_results: Number Of Results to Retrieve
@@ -9325,6 +9432,7 @@ class FlowVersionLambdaFunctionFlowNodeConfiguration(dict):
                  lambda_arn: _builtins.str):
         """
         Lambda function flow node configuration
+
         :param _builtins.str lambda_arn: ARN of a Lambda.
         """
         pulumi.set(__self__, "lambda_arn", lambda_arn)
@@ -9367,6 +9475,7 @@ class FlowVersionLexFlowNodeConfiguration(dict):
                  locale_id: _builtins.str):
         """
         Lex flow node configuration
+
         :param _builtins.str bot_alias_arn: ARN of a Lex bot alias
         :param _builtins.str locale_id: Lex bot locale id
         """
@@ -9419,6 +9528,7 @@ class FlowVersionLoopControllerFlowNodeConfiguration(dict):
                  max_iterations: Optional[_builtins.float] = None):
         """
         Configuration for the LoopController node, which manages loop execution
+
         :param _builtins.float max_iterations: Maximum number of iterations the loop can perform
         """
         pulumi.set(__self__, "continue_condition", continue_condition)
@@ -9613,6 +9723,7 @@ class FlowVersionPromptFlowNodeInlineConfiguration(dict):
                  inference_configuration: Optional['outputs.FlowVersionPromptInferenceConfigurationProperties'] = None):
         """
         Inline prompt configuration for prompt node
+
         :param _builtins.str model_id: ARN or Id of a Bedrock Foundational Model or Inference Profile, or the ARN of a imported model, or a provisioned throughput ARN for custom models.
         """
         pulumi.set(__self__, "model_id", model_id)
@@ -9671,6 +9782,7 @@ class FlowVersionPromptFlowNodeResourceConfiguration(dict):
                  prompt_arn: _builtins.str):
         """
         Resource prompt configuration for prompt node
+
         :param _builtins.str prompt_arn: ARN of a prompt resource possibly with a version
         """
         pulumi.set(__self__, "prompt_arn", prompt_arn)
@@ -9747,6 +9859,7 @@ class FlowVersionPromptInputVariable(dict):
                  name: Optional[_builtins.str] = None):
         """
         Input variable
+
         :param _builtins.str name: Name for an input variable
         """
         if name is not None:
@@ -9794,6 +9907,7 @@ class FlowVersionPromptModelInferenceConfiguration(dict):
                  top_p: Optional[_builtins.float] = None):
         """
         Prompt model inference configuration
+
         :param _builtins.float max_tokens: Maximum length of output
         :param Sequence[_builtins.str] stop_sequences: List of stop sequences
         :param _builtins.float temperature: Controls randomness, higher values increase diversity
@@ -9990,6 +10104,7 @@ class FlowVersionRetrievalFlowNodeS3Configuration(dict):
                  bucket_name: _builtins.str):
         """
         s3 Retrieval configuration for Retrieval node
+
         :param _builtins.str bucket_name: bucket name of an s3 that will be used for Retrieval flow node configuration
         """
         pulumi.set(__self__, "bucket_name", bucket_name)
@@ -10083,6 +10198,7 @@ class FlowVersionStorageFlowNodeS3Configuration(dict):
                  bucket_name: _builtins.str):
         """
         s3 storage configuration for storage node
+
         :param _builtins.str bucket_name: bucket name of an s3 that will be used for storage flow node configuration
         """
         pulumi.set(__self__, "bucket_name", bucket_name)
@@ -10142,6 +10258,7 @@ class FlowVersionTextPromptTemplateConfiguration(dict):
                  input_variables: Optional[Sequence['outputs.FlowVersionPromptInputVariable']] = None):
         """
         Configuration for text prompt template
+
         :param _builtins.str text: Prompt content for String prompt template
         :param Sequence['FlowVersionPromptInputVariable'] input_variables: List of input variables
         """
@@ -10324,6 +10441,7 @@ class GuardrailAutomatedReasoningPolicyConfig(dict):
                  confidence_threshold: Optional[_builtins.float] = None):
         """
         Optional configuration for integrating Automated Reasoning policies with the guardrail.
+
         :param Sequence[_builtins.str] policies: The list of Automated Reasoning policy ARNs to include in the guardrail configuration
         :param _builtins.float confidence_threshold: The confidence threshold for triggering guardrail actions based on Automated Reasoning policy violations.
         """
@@ -10396,6 +10514,7 @@ class GuardrailContentFilterConfig(dict):
                  output_modalities: Optional[Sequence['GuardrailModality']] = None):
         """
         Content filter config in content policy.
+
         :param 'GuardrailFilterStrength' input_strength: The strength of the content filter to apply to prompts. As you increase the filter strength, the likelihood of filtering harmful content increases and the probability of seeing harmful content in your application reduces.
         :param 'GuardrailFilterStrength' output_strength: The strength of the content filter to apply to model responses. As you increase the filter strength, the likelihood of filtering harmful content increases and the probability of seeing harmful content in your application reduces.
         :param 'GuardrailContentFilterType' type: The harmful category that the content filter is applied to.
@@ -10536,6 +10655,7 @@ class GuardrailContentPolicyConfig(dict):
                  content_filters_tier_config: Optional['outputs.GuardrailContentPolicyConfigContentFiltersTierConfigProperties'] = None):
         """
         Content policy config for a guardrail.
+
         :param Sequence['GuardrailContentFilterConfig'] filters_config: List of content filter configs in content policy.
         :param 'GuardrailContentPolicyConfigContentFiltersTierConfigProperties' content_filters_tier_config: Guardrail tier config for content policy
         """
@@ -10607,6 +10727,7 @@ class GuardrailContextualGroundingFilterConfig(dict):
                  enabled: Optional[_builtins.bool] = None):
         """
         A config for grounding filter.
+
         :param _builtins.float threshold: The threshold for this filter.
         :param 'GuardrailContextualGroundingFilterType' type: The filter details for the guardrails contextual grounding filter.
         :param 'GuardrailContextualGroundingAction' action: Specifies the action to take when content fails the contextual grounding evaluation. Supported values include:
@@ -10684,6 +10805,7 @@ class GuardrailContextualGroundingPolicyConfig(dict):
                  filters_config: Sequence['outputs.GuardrailContextualGroundingFilterConfig']):
         """
         Contextual grounding policy config for a guardrail.
+
         :param Sequence['GuardrailContextualGroundingFilterConfig'] filters_config: List of contextual grounding filter configs.
         """
         pulumi.set(__self__, "filters_config", filters_config)
@@ -10723,6 +10845,7 @@ class GuardrailCrossRegionConfig(dict):
                  guardrail_profile_arn: _builtins.str):
         """
         The system-defined guardrail profile that you’re using with your guardrail
+
         :param _builtins.str guardrail_profile_arn: The Amazon Resource Name (ARN) of the guardrail profile
         """
         pulumi.set(__self__, "guardrail_profile_arn", guardrail_profile_arn)
@@ -10772,6 +10895,7 @@ class GuardrailManagedWordsConfig(dict):
                  output_enabled: Optional[_builtins.bool] = None):
         """
         A managed words config.
+
         :param 'GuardrailManagedWordsType' type: The managed word type to configure for the guardrail.
         :param 'GuardrailWordAction' input_action: Specifies the action to take when harmful content is detected in the input. Supported values include:
                
@@ -10878,6 +11002,7 @@ class GuardrailPiiEntityConfig(dict):
                  output_enabled: Optional[_builtins.bool] = None):
         """
         Pii entity configuration.
+
         :param 'GuardrailSensitiveInformationAction' action: Configure guardrail action when the PII entity is detected.
         :param 'GuardrailPiiEntityType' type: Configure guardrail type when the PII entity is detected.
                
@@ -11234,6 +11359,7 @@ class GuardrailRegexConfig(dict):
                  output_enabled: Optional[_builtins.bool] = None):
         """
         A regex configuration.
+
         :param 'GuardrailSensitiveInformationAction' action: The guardrail action to configure when matching regular expression is detected.
         :param _builtins.str name: The regex name.
         :param _builtins.str pattern: The regex pattern.
@@ -11363,6 +11489,7 @@ class GuardrailSensitiveInformationPolicyConfig(dict):
                  regexes_config: Optional[Sequence['outputs.GuardrailRegexConfig']] = None):
         """
         Sensitive information policy config for a guardrail.
+
         :param Sequence['GuardrailPiiEntityConfig'] pii_entities_config: List of entities.
         :param Sequence['GuardrailRegexConfig'] regexes_config: List of regex.
         """
@@ -11427,6 +11554,7 @@ class GuardrailTopicConfig(dict):
                  output_enabled: Optional[_builtins.bool] = None):
         """
         Topic config in topic policy.
+
         :param _builtins.str definition: Definition of topic in topic policy
         :param _builtins.str name: Name of topic in topic policy
         :param 'GuardrailTopicType' type: Specifies to deny the topic.
@@ -11556,6 +11684,7 @@ class GuardrailTopicPolicyConfig(dict):
                  topics_tier_config: Optional['outputs.GuardrailTopicPolicyConfigTopicsTierConfigProperties'] = None):
         """
         Topic policy config for a guardrail.
+
         :param Sequence['GuardrailTopicConfig'] topics_config: List of topic configs in topic policy.
         :param 'GuardrailTopicPolicyConfigTopicsTierConfigProperties' topics_tier_config: Guardrail tier config for topic policy
         """
@@ -11651,6 +11780,7 @@ class GuardrailWordConfig(dict):
                  output_enabled: Optional[_builtins.bool] = None):
         """
         A custom word config.
+
         :param _builtins.str text: The custom word text.
         :param 'GuardrailWordAction' input_action: Specifies the action to take when harmful content is detected in the input. Supported values include:
                
@@ -11749,6 +11879,7 @@ class GuardrailWordPolicyConfig(dict):
                  words_config: Optional[Sequence['outputs.GuardrailWordConfig']] = None):
         """
         Word policy config for a guardrail.
+
         :param Sequence['GuardrailManagedWordsConfig'] managed_word_lists_config: A config for the list of managed words.
         :param Sequence['GuardrailWordConfig'] words_config: List of custom word configs.
         """
@@ -11800,6 +11931,7 @@ class IntelligentPromptRouterPromptRouterTargetModel(dict):
                  model_arn: _builtins.str):
         """
         Model configuration
+
         :param _builtins.str model_arn: Arn of underlying model which are added in the Prompt Router.
         """
         pulumi.set(__self__, "model_arn", model_arn)
@@ -11839,6 +11971,7 @@ class IntelligentPromptRouterRoutingCriteria(dict):
                  response_quality_difference: _builtins.float):
         """
         Represents the criteria used for routing requests.
+
         :param _builtins.float response_quality_difference: The criteria's response quality difference.
         """
         pulumi.set(__self__, "response_quality_difference", response_quality_difference)
@@ -11951,6 +12084,7 @@ class KnowledgeBaseBedrockEmbeddingModelConfiguration(dict):
                  video: Optional[Sequence['outputs.KnowledgeBaseVideoConfiguration']] = None):
         """
         The vector configuration details for the Bedrock embeddings model.
+
         :param Sequence['KnowledgeBaseAudioConfiguration'] audio: Configuration settings for processing audio content in multimodal knowledge bases.
         :param _builtins.int dimensions: The dimensions details for the vector configuration used on the Bedrock embeddings model.
         :param 'KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataType' embedding_data_type: The data type for the vectors when using a model to convert text into vector embeddings.
@@ -12031,6 +12165,7 @@ class KnowledgeBaseConfiguration(dict):
                  vector_knowledge_base_configuration: Optional['outputs.KnowledgeBaseVectorKnowledgeBaseConfiguration'] = None):
         """
         Contains details about the embeddings model used for the knowledge base.
+
         :param 'KnowledgeBaseType' type: The type of data that the data source is converted into for the knowledge base.
         :param 'KnowledgeBaseKendraKnowledgeBaseConfiguration' kendra_knowledge_base_configuration: Settings for an Amazon Kendra knowledge base.
         :param 'KnowledgeBaseSqlKnowledgeBaseConfiguration' sql_knowledge_base_configuration: Specifies configurations for a knowledge base connected to an SQL database.
@@ -12145,6 +12280,7 @@ class KnowledgeBaseEmbeddingModelConfiguration(dict):
                  bedrock_embedding_model_configuration: Optional['outputs.KnowledgeBaseBedrockEmbeddingModelConfiguration'] = None):
         """
         The embeddings model configuration details for the vector model used in Knowledge Base.
+
         :param 'KnowledgeBaseBedrockEmbeddingModelConfiguration' bedrock_embedding_model_configuration: The vector configuration details on the Bedrock embeddings model.
         """
         if bedrock_embedding_model_configuration is not None:
@@ -12185,6 +12321,7 @@ class KnowledgeBaseKendraKnowledgeBaseConfiguration(dict):
                  kendra_index_arn: _builtins.str):
         """
         Configurations for a Kendra knowledge base
+
         :param _builtins.str kendra_index_arn: The ARN of the Amazon Kendra index.
         """
         pulumi.set(__self__, "kendra_index_arn", kendra_index_arn)
@@ -12243,6 +12380,7 @@ class KnowledgeBaseMongoDbAtlasConfiguration(dict):
                  text_index_name: Optional[_builtins.str] = None):
         """
         Contains the storage configuration of the knowledge base in MongoDb Atlas Cloud.
+
         :param _builtins.str collection_name: Name of the collection within MongoDB Atlas.
         :param _builtins.str credentials_secret_arn: The ARN of the secret that you created in AWS Secrets Manager that is linked to your Amazon Mongo database.
         :param _builtins.str database_name: Name of the database within MongoDB Atlas.
@@ -12360,6 +12498,7 @@ class KnowledgeBaseMongoDbAtlasFieldMapping(dict):
                  vector_field: _builtins.str):
         """
         Contains the names of the fields to which to map information about the vector store.
+
         :param _builtins.str metadata_field: The name of the field in which Amazon Bedrock stores metadata about the vector store.
         :param _builtins.str text_field: The name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
         :param _builtins.str vector_field: The name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.
@@ -12422,6 +12561,7 @@ class KnowledgeBaseNeptuneAnalyticsConfiguration(dict):
                  graph_arn: _builtins.str):
         """
         Contains the configurations to use Neptune Analytics as Vector Store.
+
         :param 'KnowledgeBaseNeptuneAnalyticsFieldMapping' field_mapping: Contains the names of the fields to which to map information about the vector store.
         :param _builtins.str graph_arn: ARN for Neptune Analytics graph database.
         """
@@ -12474,6 +12614,7 @@ class KnowledgeBaseNeptuneAnalyticsFieldMapping(dict):
                  text_field: _builtins.str):
         """
         A mapping of Bedrock Knowledge Base fields to Neptune Analytics fields.
+
         :param _builtins.str metadata_field: The name of the field in which Amazon Bedrock stores metadata about the vector store.
         :param _builtins.str text_field: The name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
         """
@@ -12532,6 +12673,7 @@ class KnowledgeBaseOpenSearchManagedClusterConfiguration(dict):
                  vector_index_name: _builtins.str):
         """
         Contains the storage configuration of the knowledge base in Amazon OpenSearch Service.
+
         :param _builtins.str domain_arn: The Amazon Resource Name (ARN) of the OpenSearch domain.
         :param _builtins.str domain_endpoint: The endpoint URL the OpenSearch domain.
         :param 'KnowledgeBaseOpenSearchManagedClusterFieldMapping' field_mapping: Contains the names of the fields to which to map information about the vector store.
@@ -12607,6 +12749,7 @@ class KnowledgeBaseOpenSearchManagedClusterFieldMapping(dict):
                  vector_field: _builtins.str):
         """
         A mapping of Bedrock Knowledge Base fields to OpenSearch Managed Cluster field names
+
         :param _builtins.str metadata_field: The name of the field in which Amazon Bedrock stores metadata about the vector store.
         :param _builtins.str text_field: The name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
         :param _builtins.str vector_field: The name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.
@@ -12672,6 +12815,7 @@ class KnowledgeBaseOpenSearchServerlessConfiguration(dict):
                  vector_index_name: _builtins.str):
         """
         Contains the storage configuration of the knowledge base in Amazon OpenSearch Service.
+
         :param _builtins.str collection_arn: The ARN of the OpenSearch Service vector store.
         :param 'KnowledgeBaseOpenSearchServerlessFieldMapping' field_mapping: Contains the names of the fields to which to map information about the vector store.
         :param _builtins.str vector_index_name: The name of the vector store.
@@ -12737,6 +12881,7 @@ class KnowledgeBaseOpenSearchServerlessFieldMapping(dict):
                  vector_field: _builtins.str):
         """
         A mapping of Bedrock Knowledge Base fields to OpenSearch Serverless field names
+
         :param _builtins.str metadata_field: The name of the field in which Amazon Bedrock stores metadata about the vector store.
         :param _builtins.str text_field: The name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
         :param _builtins.str vector_field: The name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.
@@ -12803,6 +12948,7 @@ class KnowledgeBasePineconeConfiguration(dict):
                  namespace: Optional[_builtins.str] = None):
         """
         Contains the storage configuration of the knowledge base in Pinecone.
+
         :param _builtins.str connection_string: The endpoint URL for your index management page.
         :param _builtins.str credentials_secret_arn: The ARN of the secret that you created in AWS Secrets Manager that is linked to your Pinecone API key.
         :param 'KnowledgeBasePineconeFieldMapping' field_mapping: Contains the names of the fields to which to map information about the vector store.
@@ -12876,6 +13022,7 @@ class KnowledgeBasePineconeFieldMapping(dict):
                  text_field: _builtins.str):
         """
         Contains the names of the fields to which to map information about the vector store.
+
         :param _builtins.str metadata_field: The name of the field in which Amazon Bedrock stores metadata about the vector store.
         :param _builtins.str text_field: The name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
         """
@@ -12963,6 +13110,7 @@ class KnowledgeBaseQueryGenerationConfiguration(dict):
                  generation_context: Optional['outputs.KnowledgeBaseQueryGenerationContext'] = None):
         """
         Configurations for generating Redshift engine queries
+
         :param _builtins.int execution_timeout_seconds: The time after which query generation will time out.
         :param 'KnowledgeBaseQueryGenerationContext' generation_context: Specifies configurations for context to use during query generation.
         """
@@ -13015,6 +13163,7 @@ class KnowledgeBaseQueryGenerationContext(dict):
                  tables: Optional[Sequence['outputs.KnowledgeBaseQueryGenerationTable']] = None):
         """
         Context used to improve query generation
+
         :param Sequence['KnowledgeBaseCuratedQuery'] curated_queries: An array of objects, each of which defines information about example queries to help the query engine generate appropriate SQL queries.
         :param Sequence['KnowledgeBaseQueryGenerationTable'] tables: An array of objects, each of which defines information about a table in the database.
         """
@@ -13120,6 +13269,7 @@ class KnowledgeBaseRdsConfiguration(dict):
                  table_name: _builtins.str):
         """
         Contains details about the storage configuration of the knowledge base in Amazon RDS. For more information, see Create a vector index in Amazon RDS.
+
         :param _builtins.str credentials_secret_arn: The ARN of the secret that you created in AWS Secrets Manager that is linked to your Amazon RDS database.
         :param _builtins.str database_name: The name of your Amazon RDS database.
         :param 'KnowledgeBaseRdsFieldMapping' field_mapping: Contains the names of the fields to which to map information about the vector store.
@@ -13211,6 +13361,7 @@ class KnowledgeBaseRdsFieldMapping(dict):
                  custom_metadata_field: Optional[_builtins.str] = None):
         """
         Contains the names of the fields to which to map information about the vector store.
+
         :param _builtins.str metadata_field: The name of the field in which Amazon Bedrock stores metadata about the vector store.
         :param _builtins.str primary_key_field: The name of the field in which Amazon Bedrock stores the ID for each entry.
         :param _builtins.str text_field: The name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
@@ -13297,6 +13448,7 @@ class KnowledgeBaseRedshiftConfiguration(dict):
                  query_generation_configuration: Optional['outputs.KnowledgeBaseQueryGenerationConfiguration'] = None):
         """
         Configurations for a Redshift knowledge base
+
         :param 'KnowledgeBaseRedshiftQueryEngineConfiguration' query_engine_configuration: Specifies configurations for an Amazon Redshift query engine.
         :param Sequence['KnowledgeBaseRedshiftQueryEngineStorageConfiguration'] storage_configurations: Specifies configurations for Amazon Redshift database storage.
         :param 'KnowledgeBaseQueryGenerationConfiguration' query_generation_configuration: Specifies configurations for generating queries.
@@ -13361,6 +13513,7 @@ class KnowledgeBaseRedshiftProvisionedAuthConfiguration(dict):
                  username_password_secret_arn: Optional[_builtins.str] = None):
         """
         Configurations for Redshift query engine provisioned auth setup
+
         :param 'KnowledgeBaseRedshiftProvisionedAuthType' type: The type of authentication to use.
         :param _builtins.str database_user: Redshift database user
         :param _builtins.str username_password_secret_arn: The ARN of an Secrets Manager secret for authentication.
@@ -13425,6 +13578,7 @@ class KnowledgeBaseRedshiftProvisionedConfiguration(dict):
                  cluster_identifier: _builtins.str):
         """
         Configurations for provisioned Redshift query engine
+
         :param 'KnowledgeBaseRedshiftProvisionedAuthConfiguration' auth_configuration: Specifies configurations for authentication to Amazon Redshift.
         :param _builtins.str cluster_identifier: The ID of the Amazon Redshift cluster.
         """
@@ -13513,6 +13667,7 @@ class KnowledgeBaseRedshiftQueryEngineConfiguration(dict):
                  serverless_configuration: Optional['outputs.KnowledgeBaseRedshiftServerlessConfiguration'] = None):
         """
         Configurations for Redshift query engine
+
         :param 'KnowledgeBaseRedshiftQueryEngineType' type: The type of query engine.
         :param 'KnowledgeBaseRedshiftProvisionedConfiguration' provisioned_configuration: Specifies configurations for a provisioned Amazon Redshift query engine.
         :param 'KnowledgeBaseRedshiftServerlessConfiguration' serverless_configuration: Specifies configurations for a serverless Amazon Redshift query engine.
@@ -13663,6 +13818,7 @@ class KnowledgeBaseRedshiftServerlessAuthConfiguration(dict):
                  username_password_secret_arn: Optional[_builtins.str] = None):
         """
         Configurations for Redshift query engine serverless auth setup
+
         :param 'KnowledgeBaseRedshiftServerlessAuthType' type: The type of authentication to use.
         :param _builtins.str username_password_secret_arn: The ARN of an Secrets Manager secret for authentication.
         """
@@ -13716,6 +13872,7 @@ class KnowledgeBaseRedshiftServerlessConfiguration(dict):
                  workgroup_arn: _builtins.str):
         """
         Configurations for serverless Redshift query engine
+
         :param 'KnowledgeBaseRedshiftServerlessAuthConfiguration' auth_configuration: Specifies configurations for authentication to an Amazon Redshift provisioned data warehouse.
         :param _builtins.str workgroup_arn: The ARN of the Amazon Redshift workgroup.
         """
@@ -13748,6 +13905,7 @@ class KnowledgeBaseS3Location(dict):
                  uri: _builtins.str):
         """
         An Amazon S3 location.
+
         :param _builtins.str uri: The location's URI
         """
         pulumi.set(__self__, "uri", uri)
@@ -13793,6 +13951,7 @@ class KnowledgeBaseS3VectorsConfiguration(dict):
                  vector_bucket_arn: Optional[_builtins.str] = None):
         """
         Contains the storage configuration of the knowledge base for S3 vectors.
+
         :param _builtins.str index_arn: The Amazon Resource Name (ARN) of the vector index used for the knowledge base. This ARN identifies the specific vector index resource within Amazon Bedrock.
         :param _builtins.str index_name: The name of the vector index used for the knowledge base. This name identifies the vector index within the Amazon Bedrock service.
         :param _builtins.str vector_bucket_arn: The Amazon Resource Name (ARN) of the S3 bucket where vector embeddings are stored. This bucket contains the vector data used by the knowledge base.
@@ -13856,6 +14015,7 @@ class KnowledgeBaseSqlKnowledgeBaseConfiguration(dict):
                  redshift_configuration: Optional['outputs.KnowledgeBaseRedshiftConfiguration'] = None):
         """
         Configurations for a SQL knowledge base
+
         :param 'KnowledgeBaseQueryEngineType' type: The type of SQL database to connect to the knowledge base.
         :param 'KnowledgeBaseRedshiftConfiguration' redshift_configuration: Specifies configurations for a knowledge base connected to an Amazon Redshift database.
         """
@@ -13925,6 +14085,7 @@ class KnowledgeBaseStorageConfiguration(dict):
                  s3_vectors_configuration: Optional['outputs.KnowledgeBaseS3VectorsConfiguration'] = None):
         """
         The vector store service in which the knowledge base is stored.
+
         :param 'KnowledgeBaseStorageType' type: The vector store service in which the knowledge base is stored.
         :param 'KnowledgeBaseMongoDbAtlasConfiguration' mongo_db_atlas_configuration: Contains the storage configuration of the knowledge base in MongoDB Atlas.
         :param 'KnowledgeBaseNeptuneAnalyticsConfiguration' neptune_analytics_configuration: Contains details about the Neptune Analytics configuration of the knowledge base in Amazon Neptune. For more information, see [Create a vector index in Amazon Neptune Analytics.](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup-neptune.html) .
@@ -14127,6 +14288,7 @@ class KnowledgeBaseVectorKnowledgeBaseConfiguration(dict):
                  supplemental_data_storage_configuration: Optional['outputs.KnowledgeBaseSupplementalDataStorageConfiguration'] = None):
         """
         Contains details about the model used to create vector embeddings for the knowledge base.
+
         :param _builtins.str embedding_model_arn: The ARN of the model used to create vector embeddings for the knowledge base.
         :param 'KnowledgeBaseEmbeddingModelConfiguration' embedding_model_configuration: The embeddings model configuration details for the vector model used in Knowledge Base.
         :param 'KnowledgeBaseSupplementalDataStorageConfiguration' supplemental_data_storage_configuration: If you include multimodal data from your data source, use this object to specify configurations for the storage location of the images extracted from your documents. These images can be retrieved and returned to the end user. They can also be used in generation when using [RetrieveAndGenerate](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_RetrieveAndGenerate.html) .
@@ -14270,6 +14432,7 @@ class PromptAgentResource(dict):
                  agent_identifier: _builtins.str):
         """
         Target Agent to invoke with Prompt
+
         :param _builtins.str agent_identifier: Arn representation of the Agent Alias.
         """
         pulumi.set(__self__, "agent_identifier", agent_identifier)
@@ -14356,6 +14519,7 @@ class PromptChatPromptTemplateConfiguration(dict):
                  tool_configuration: Optional['outputs.PromptToolConfiguration'] = None):
         """
         Configuration for chat prompt template
+
         :param Sequence['PromptMessage'] messages: List of messages for chat prompt template
         :param Sequence['PromptInputVariable'] input_variables: List of input variables
         :param Sequence[Union['PromptSystemContentBlock0Properties', 'PromptSystemContentBlock1Properties']] system: Configuration for chat prompt template
@@ -14407,6 +14571,7 @@ class PromptContentBlock0Properties(dict):
                  text: _builtins.str):
         """
         Configuration for chat prompt template
+
         :param _builtins.str text: Configuration for chat prompt template
         """
         pulumi.set(__self__, "text", text)
@@ -14500,6 +14665,7 @@ class PromptInputVariable(dict):
                  name: Optional[_builtins.str] = None):
         """
         Input variable
+
         :param _builtins.str name: Name for an input variable
         """
         if name is not None:
@@ -14524,6 +14690,7 @@ class PromptMessage(dict):
                  role: 'PromptConversationRole'):
         """
         Chat prompt Message
+
         :param Sequence[Union['PromptContentBlock0Properties', 'PromptContentBlock1Properties']] content: List of Content Blocks
         """
         pulumi.set(__self__, "content", content)
@@ -14601,6 +14768,7 @@ class PromptModelInferenceConfiguration(dict):
                  top_p: Optional[_builtins.float] = None):
         """
         Prompt model inference configuration
+
         :param _builtins.float max_tokens: Maximum length of output
         :param Sequence[_builtins.str] stop_sequences: List of stop sequences
         :param _builtins.float temperature: Controls randomness, higher values increase diversity
@@ -14657,6 +14825,7 @@ class PromptSpecificToolChoice(dict):
                  name: _builtins.str):
         """
         Specific Tool choice
+
         :param _builtins.str name: Tool name
         """
         pulumi.set(__self__, "name", name)
@@ -14679,6 +14848,7 @@ class PromptSystemContentBlock0Properties(dict):
                  text: _builtins.str):
         """
         Configuration for chat prompt template
+
         :param _builtins.str text: Configuration for chat prompt template
         """
         pulumi.set(__self__, "text", text)
@@ -14796,6 +14966,7 @@ class PromptTextPromptTemplateConfiguration(dict):
                  text_s3_location: Optional['outputs.PromptTextS3Location'] = None):
         """
         Configuration for text prompt template
+
         :param Sequence['PromptInputVariable'] input_variables: List of input variables
         :param _builtins.str text: Prompt content for String prompt template
         """
@@ -14846,6 +15017,7 @@ class PromptTextS3Location(dict):
                  version: Optional[_builtins.str] = None):
         """
         The identifier for the S3 resource.
+
         :param _builtins.str bucket: A bucket in S3
         :param _builtins.str key: A object key in S3
         :param _builtins.str version: The version of the the S3 object to use
@@ -15031,6 +15203,7 @@ class PromptToolConfiguration(dict):
                  tool_choice: Optional[Any] = None):
         """
         Tool configuration
+
         :param Sequence[Union['PromptTool0Properties', 'PromptTool1Properties']] tools: List of Tools
         """
         pulumi.set(__self__, "tools", tools)
@@ -15097,6 +15270,7 @@ class PromptToolSpecification(dict):
                  description: Optional[_builtins.str] = None):
         """
         Tool specification
+
         :param _builtins.str name: Tool name
         """
         pulumi.set(__self__, "input_schema", input_schema)
@@ -15166,6 +15340,7 @@ class PromptVariant(dict):
                  model_id: Optional[_builtins.str] = None):
         """
         Prompt variant
+
         :param _builtins.str name: Name for a variant.
         :param Union['PromptTemplateConfiguration0Properties', 'PromptTemplateConfiguration1Properties'] template_configuration: Contains configurations for the prompt template.
         :param 'PromptTemplateType' template_type: The type of prompt template to use.
@@ -15339,6 +15514,7 @@ class PromptVersionChatPromptTemplateConfiguration(dict):
                  tool_configuration: Optional['outputs.PromptVersionToolConfiguration'] = None):
         """
         Configuration for chat prompt template
+
         :param Sequence['PromptVersionMessage'] messages: List of messages for chat prompt template
         :param Sequence['PromptVersionPromptInputVariable'] input_variables: List of input variables
         :param Sequence[Union['PromptVersionSystemContentBlock0Properties', 'PromptVersionSystemContentBlock1Properties']] system: Configuration for chat prompt template
@@ -15390,6 +15566,7 @@ class PromptVersionContentBlock0Properties(dict):
                  text: _builtins.str):
         """
         Configuration for chat prompt template
+
         :param _builtins.str text: Configuration for chat prompt template
         """
         pulumi.set(__self__, "text", text)
@@ -15448,6 +15625,7 @@ class PromptVersionMessage(dict):
                  role: 'PromptVersionConversationRole'):
         """
         Chat prompt Message
+
         :param Sequence[Union['PromptVersionContentBlock0Properties', 'PromptVersionContentBlock1Properties']] content: List of Content Blocks
         """
         pulumi.set(__self__, "content", content)
@@ -15493,6 +15671,7 @@ class PromptVersionPromptAgentResource(dict):
                  agent_identifier: _builtins.str):
         """
         Target Agent to invoke with Prompt
+
         :param _builtins.str agent_identifier: Arn representation of the Agent Alias.
         """
         pulumi.set(__self__, "agent_identifier", agent_identifier)
@@ -15551,6 +15730,7 @@ class PromptVersionPromptInputVariable(dict):
                  name: Optional[_builtins.str] = None):
         """
         Input variable
+
         :param _builtins.str name: Name for an input variable
         """
         if name is not None:
@@ -15623,6 +15803,7 @@ class PromptVersionPromptModelInferenceConfiguration(dict):
                  top_p: Optional[_builtins.float] = None):
         """
         Prompt model inference configuration
+
         :param _builtins.float max_tokens: Maximum length of output
         :param Sequence[_builtins.str] stop_sequences: List of stop sequences
         :param _builtins.float temperature: Controls randomness, higher values increase diversity
@@ -15749,6 +15930,7 @@ class PromptVersionPromptVariant(dict):
                  model_id: Optional[_builtins.str] = None):
         """
         Prompt variant
+
         :param _builtins.str name: Name for a variant.
         :param Union['PromptVersionPromptTemplateConfiguration0Properties', 'PromptVersionPromptTemplateConfiguration1Properties'] template_configuration: Contains configurations for the prompt template.
         :param 'PromptVersionPromptTemplateType' template_type: The type of prompt template to use.
@@ -15846,6 +16028,7 @@ class PromptVersionSpecificToolChoice(dict):
                  name: _builtins.str):
         """
         Specific Tool choice
+
         :param _builtins.str name: Tool name
         """
         pulumi.set(__self__, "name", name)
@@ -15868,6 +16051,7 @@ class PromptVersionSystemContentBlock0Properties(dict):
                  text: _builtins.str):
         """
         Configuration for chat prompt template
+
         :param _builtins.str text: Configuration for chat prompt template
         """
         pulumi.set(__self__, "text", text)
@@ -15946,6 +16130,7 @@ class PromptVersionTextPromptTemplateConfiguration(dict):
                  input_variables: Optional[Sequence['outputs.PromptVersionPromptInputVariable']] = None):
         """
         Configuration for text prompt template
+
         :param _builtins.str text: Prompt content for String prompt template
         :param Sequence['PromptVersionPromptInputVariable'] input_variables: List of input variables
         """
@@ -16128,6 +16313,7 @@ class PromptVersionToolConfiguration(dict):
                  tool_choice: Optional[Any] = None):
         """
         Tool configuration
+
         :param Sequence[Union['PromptVersionTool0Properties', 'PromptVersionTool1Properties']] tools: List of Tools
         """
         pulumi.set(__self__, "tools", tools)
@@ -16194,6 +16380,7 @@ class PromptVersionToolSpecification(dict):
                  description: Optional[_builtins.str] = None):
         """
         Tool specification
+
         :param _builtins.str name: Tool name
         """
         pulumi.set(__self__, "input_schema", input_schema)

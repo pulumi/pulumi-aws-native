@@ -35,6 +35,7 @@ class NetworkInsightsPathArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a NetworkInsightsPath resource.
+
         :param pulumi.Input['NetworkInsightsPathProtocol'] protocol: The protocol.
         :param pulumi.Input[_builtins.str] source: The ID or ARN of the source. If the resource is in another account, you must specify an ARN.
         :param pulumi.Input[_builtins.str] destination: The ID or ARN of the destination. If the resource is in another account, you must specify an ARN.
@@ -190,6 +191,7 @@ class NetworkInsightsPath(pulumi.CustomResource):
         """
         Resource schema for AWS::EC2::NetworkInsightsPath
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] destination: The ID or ARN of the destination. If the resource is in another account, you must specify an ARN.
@@ -210,6 +212,7 @@ class NetworkInsightsPath(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource schema for AWS::EC2::NetworkInsightsPath
+
 
         :param str resource_name: The name of the resource.
         :param NetworkInsightsPathArgs args: The arguments to use to populate this resource's properties.

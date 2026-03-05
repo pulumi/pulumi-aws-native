@@ -38,6 +38,7 @@ class AuthenticationModeProperties(dict):
         *Example:*
 
         `mynewdbuser: Type: AWS::MemoryDB::User Properties: AccessString: on ~* &* +@all AuthenticationMode: Passwords: '1234567890123456' Type: password UserName: mynewdbuser AuthenticationMode: { "Passwords": ["1234567890123456"], "Type": "Password" }`
+
         :param Sequence[_builtins.str] passwords: Passwords used for this user account. You can create up to two passwords for each user.
         :param 'UserAuthenticationModePropertiesType' type: Type of authentication strategy for this user.
         """

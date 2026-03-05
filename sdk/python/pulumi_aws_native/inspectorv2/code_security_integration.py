@@ -29,6 +29,7 @@ class CodeSecurityIntegrationArgs:
                  update_integration_details: Optional[pulumi.Input['CodeSecurityIntegrationUpdateDetailsArgs']] = None):
         """
         The set of arguments for constructing a CodeSecurityIntegration resource.
+
         :param pulumi.Input['CodeSecurityIntegrationCreateDetailsArgs'] create_integration_details: Create Integration Details
         :param pulumi.Input[_builtins.str] name: Code Security Integration name
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: The tags to apply to the code security integration.
@@ -122,6 +123,7 @@ class CodeSecurityIntegration(pulumi.CustomResource):
         """
         Inspector CodeSecurityIntegration resource schema
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['CodeSecurityIntegrationCreateDetailsArgs', 'CodeSecurityIntegrationCreateDetailsArgsDict']] create_integration_details: Create Integration Details
@@ -138,6 +140,7 @@ class CodeSecurityIntegration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Inspector CodeSecurityIntegration resource schema
+
 
         :param str resource_name: The name of the resource.
         :param CodeSecurityIntegrationArgs args: The arguments to use to populate this resource's properties.

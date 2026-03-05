@@ -27,6 +27,7 @@ class DbSubnetGroupArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a DbSubnetGroup resource.
+
         :param pulumi.Input[_builtins.str] db_subnet_group_description: The description for the DB subnet group.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: The EC2 Subnet IDs for the DB subnet group.
         :param pulumi.Input[_builtins.str] db_subnet_group_name: The name for the DB subnet group. This value is stored as a lowercase string.
@@ -115,6 +116,7 @@ class DbSubnetGroup(pulumi.CustomResource):
         The ``AWS::RDS::DBSubnetGroup`` resource creates a database subnet group. Subnet groups must contain at least two subnets in two different Availability Zones in the same region.
          For more information, see [Working with DB subnet groups](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html#USER_VPC.Subnets) in the *Amazon RDS User Guide*.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] db_subnet_group_description: The description for the DB subnet group.
@@ -137,6 +139,7 @@ class DbSubnetGroup(pulumi.CustomResource):
         """
         The ``AWS::RDS::DBSubnetGroup`` resource creates a database subnet group. Subnet groups must contain at least two subnets in two different Availability Zones in the same region.
          For more information, see [Working with DB subnet groups](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html#USER_VPC.Subnets) in the *Amazon RDS User Guide*.
+
 
         :param str resource_name: The name of the resource.
         :param DbSubnetGroupArgs args: The arguments to use to populate this resource's properties.

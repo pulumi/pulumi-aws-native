@@ -29,6 +29,7 @@ class ConfigurationAggregatorArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a ConfigurationAggregator resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['ConfigurationAggregatorAccountAggregationSourceArgs']]] account_aggregation_sources: Provides a list of source accounts and regions to be aggregated.
         :param pulumi.Input[_builtins.str] configuration_aggregator_name: The name of the aggregator.
         :param pulumi.Input['ConfigurationAggregatorOrganizationAggregationSourceArgs'] organization_aggregation_source: Provides an organization and list of regions to be aggregated.
@@ -106,6 +107,7 @@ class ConfigurationAggregator(pulumi.CustomResource):
         """
         Resource Type definition for AWS::Config::ConfigurationAggregator
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ConfigurationAggregatorAccountAggregationSourceArgs', 'ConfigurationAggregatorAccountAggregationSourceArgsDict']]]] account_aggregation_sources: Provides a list of source accounts and regions to be aggregated.
@@ -121,6 +123,7 @@ class ConfigurationAggregator(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::Config::ConfigurationAggregator
+
 
         :param str resource_name: The name of the resource.
         :param ConfigurationAggregatorArgs args: The arguments to use to populate this resource's properties.

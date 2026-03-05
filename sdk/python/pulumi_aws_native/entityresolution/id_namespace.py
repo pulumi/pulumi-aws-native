@@ -33,6 +33,7 @@ class IdNamespaceArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a IdNamespace resource.
+
         :param pulumi.Input['IdNamespaceType'] type: The type of ID namespace. There are two types: `SOURCE` and `TARGET` .
                
                The `SOURCE` contains configurations for `sourceId` data that will be processed in an ID mapping workflow.
@@ -165,6 +166,7 @@ class IdNamespace(pulumi.CustomResource):
         """
         IdNamespace defined in AWS Entity Resolution service
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: The description of the ID namespace.
@@ -187,6 +189,7 @@ class IdNamespace(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         IdNamespace defined in AWS Entity Resolution service
+
 
         :param str resource_name: The name of the resource.
         :param IdNamespaceArgs args: The arguments to use to populate this resource's properties.

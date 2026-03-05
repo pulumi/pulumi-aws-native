@@ -32,6 +32,7 @@ class SiteToSiteVpnAttachmentArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a SiteToSiteVpnAttachment resource.
+
         :param pulumi.Input[_builtins.str] core_network_id: The ID of a core network where you're creating a site-to-site VPN attachment.
         :param pulumi.Input[_builtins.str] vpn_connection_arn: The ARN of the site-to-site VPN attachment.
         :param pulumi.Input[_builtins.str] network_function_group_name: The name of the network function group attachment.
@@ -155,6 +156,7 @@ class SiteToSiteVpnAttachment(pulumi.CustomResource):
         """
         AWS::NetworkManager::SiteToSiteVpnAttachment Resource Type definition.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] core_network_id: The ID of a core network where you're creating a site-to-site VPN attachment.
@@ -173,6 +175,7 @@ class SiteToSiteVpnAttachment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         AWS::NetworkManager::SiteToSiteVpnAttachment Resource Type definition.
+
 
         :param str resource_name: The name of the resource.
         :param SiteToSiteVpnAttachmentArgs args: The arguments to use to populate this resource's properties.

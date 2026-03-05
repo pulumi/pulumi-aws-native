@@ -69,6 +69,7 @@ class ApplicationAlarmMetricArgs:
                  alarm_metric_name: pulumi.Input[_builtins.str]):
         """
         A metric to be monitored for the component.
+
         :param pulumi.Input[_builtins.str] alarm_metric_name: The name of the metric to be monitored for the component.
         """
         pulumi.set(__self__, "alarm_metric_name", alarm_metric_name)
@@ -106,6 +107,7 @@ class ApplicationAlarmArgs:
                  severity: Optional[pulumi.Input['ApplicationAlarmSeverity']] = None):
         """
         A CloudWatch alarm to be monitored for the component.
+
         :param pulumi.Input[_builtins.str] alarm_name: The name of the CloudWatch alarm to be monitored for the component.
         :param pulumi.Input['ApplicationAlarmSeverity'] severity: Indicates the degree of outage when the alarm goes off.
         """
@@ -158,6 +160,7 @@ class ApplicationComponentConfigurationArgs:
                  sub_component_type_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationSubComponentTypeConfigurationArgs']]]] = None):
         """
         The configuration settings of the component.
+
         :param pulumi.Input['ApplicationConfigurationDetailsArgs'] configuration_details: The configuration settings
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationSubComponentTypeConfigurationArgs']]] sub_component_type_configurations: Sub component configurations of the component.
         """
@@ -231,6 +234,7 @@ class ApplicationComponentMonitoringSettingArgs:
                  default_overwrite_component_configuration: Optional[pulumi.Input['ApplicationComponentConfigurationArgs']] = None):
         """
         The monitoring setting of the component.
+
         :param pulumi.Input['ApplicationComponentMonitoringSettingComponentConfigurationMode'] component_configuration_mode: The component monitoring configuration mode.
         :param pulumi.Input[_builtins.str] tier: The tier of the application component.
         :param pulumi.Input[_builtins.str] component_arn: The ARN of the compnonent.
@@ -382,6 +386,7 @@ class ApplicationConfigurationDetailsArgs:
                  windows_events: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationWindowsEventArgs']]]] = None):
         """
         The configuration settings.
+
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationAlarmMetricArgs']]] alarm_metrics: A list of metrics to monitor for the component.
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationAlarmArgs']]] alarms: A list of alarms to monitor for the component.
         :param pulumi.Input['ApplicationHaClusterPrometheusExporterArgs'] ha_cluster_prometheus_exporter: The HA cluster Prometheus Exporter settings.
@@ -555,6 +560,7 @@ class ApplicationCustomComponentArgs:
                  resource_list: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
         """
         The custom grouped component.
+
         :param pulumi.Input[_builtins.str] component_name: The name of the component.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] resource_list: The list of resource ARNs that belong to the component.
         """
@@ -601,6 +607,7 @@ class ApplicationHaClusterPrometheusExporterArgs:
                  prometheus_port: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The HA cluster Prometheus Exporter settings.
+
         :param pulumi.Input[_builtins.str] prometheus_port: Prometheus exporter port.
         """
         if prometheus_port is not None:
@@ -657,6 +664,7 @@ class ApplicationHanaPrometheusExporterArgs:
                  prometheus_port: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The HANA DB Prometheus Exporter settings.
+
         :param pulumi.Input[_builtins.bool] agree_to_install_hanadb_client: A flag which indicates agreeing to install SAP HANA DB client.
         :param pulumi.Input[_builtins.str] hana_port: The HANA DB port.
         :param pulumi.Input[_builtins.str] hana_secret_name: The secret name which manages the HANA DB credentials e.g. {
@@ -762,6 +770,7 @@ class ApplicationJmxPrometheusExporterArgs:
                  prometheus_port: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The JMX Prometheus Exporter settings.
+
         :param pulumi.Input[_builtins.str] host_port: Java agent host port
         :param pulumi.Input[_builtins.str] jmxurl: JMX service URL.
         :param pulumi.Input[_builtins.str] prometheus_port: Prometheus exporter port.
@@ -830,6 +839,7 @@ class ApplicationLogPatternSetArgs:
                  pattern_set_name: pulumi.Input[_builtins.str]):
         """
         The log pattern set.
+
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationLogPatternArgs']]] log_patterns: The log patterns of a set.
         :param pulumi.Input[_builtins.str] pattern_set_name: The name of the log pattern set.
         """
@@ -886,6 +896,7 @@ class ApplicationLogPatternArgs:
                  rank: pulumi.Input[_builtins.int]):
         """
         The log pattern.
+
         :param pulumi.Input[_builtins.str] pattern: The log pattern.
         :param pulumi.Input[_builtins.str] pattern_name: The name of the log pattern.
         :param pulumi.Input[_builtins.int] rank: Rank of the log pattern.
@@ -966,6 +977,7 @@ class ApplicationLogArgs:
                  pattern_set: Optional[pulumi.Input[_builtins.str]] = None):
         """
         A log to be monitored for the component.
+
         :param pulumi.Input[_builtins.str] log_type: The log type decides the log patterns against which Application Insights analyzes the log.
         :param pulumi.Input['ApplicationLogEncoding'] encoding: The type of encoding of the logs to be monitored.
         :param pulumi.Input[_builtins.str] log_group_name: The CloudWatch log group name to be associated to the monitored log.
@@ -1068,6 +1080,7 @@ class ApplicationNetWeaverPrometheusExporterArgs:
                  prometheus_port: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The NetWeaver Prometheus Exporter Settings.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] instance_numbers: SAP instance numbers for ASCS, ERS, and App Servers.
         :param pulumi.Input[_builtins.str] sapsid: SAP NetWeaver SID.
         :param pulumi.Input[_builtins.str] prometheus_port: Prometheus exporter port.
@@ -1134,6 +1147,7 @@ class ApplicationProcessArgs:
                  process_name: pulumi.Input[_builtins.str]):
         """
         A process to be monitored for the component.
+
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationAlarmMetricArgs']]] alarm_metrics: A list of metrics to monitor for the component.
         :param pulumi.Input[_builtins.str] process_name: The name of the process to be monitored for the component.
         """
@@ -1185,6 +1199,7 @@ class ApplicationSqlServerPrometheusExporterArgs:
                  sql_secret_name: pulumi.Input[_builtins.str]):
         """
         The SQL prometheus exporter settings.
+
         :param pulumi.Input[_builtins.str] prometheus_port: Prometheus exporter port.
         :param pulumi.Input[_builtins.str] sql_secret_name: Secret name which managers SQL exporter connection. e.g. {"data_source_name": "sqlserver://<USERNAME>:<PASSWORD>@localhost:1433"}
         """
@@ -1246,6 +1261,7 @@ class ApplicationSubComponentConfigurationDetailsArgs:
                  windows_events: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationWindowsEventArgs']]]] = None):
         """
         The configuration settings of sub components.
+
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationAlarmMetricArgs']]] alarm_metrics: A list of metrics to monitor for the component.
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationLogArgs']]] logs: A list of logs to monitor for the component.
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationProcessArgs']]] processes: A list of processes to monitor for the component. Only Windows EC2 instances can have a processes section.
@@ -1329,6 +1345,7 @@ class ApplicationSubComponentTypeConfigurationArgs:
                  sub_component_type: pulumi.Input['ApplicationSubComponentTypeConfigurationSubComponentType']):
         """
         One type sub component configurations for the component.
+
         :param pulumi.Input['ApplicationSubComponentConfigurationDetailsArgs'] sub_component_configuration_details: The configuration settings of sub components.
         :param pulumi.Input['ApplicationSubComponentTypeConfigurationSubComponentType'] sub_component_type: The sub component type.
         """
@@ -1390,6 +1407,7 @@ class ApplicationWindowsEventArgs:
                  pattern_set: Optional[pulumi.Input[_builtins.str]] = None):
         """
         A Windows Event to be monitored for the component.
+
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationEventLevel']]] event_levels: The levels of event to log. 
         :param pulumi.Input[_builtins.str] event_name: The type of Windows Events to log.
         :param pulumi.Input[_builtins.str] log_group_name: The CloudWatch log group name to be associated to the monitored log.

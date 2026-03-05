@@ -24,6 +24,7 @@ class SchemaVersionMetadataArgs:
                  value: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a SchemaVersionMetadata resource.
+
         :param pulumi.Input[_builtins.str] key: Metadata key
         :param pulumi.Input[_builtins.str] schema_version_id: Represents the version ID associated with the schema version.
         :param pulumi.Input[_builtins.str] value: Metadata value
@@ -82,6 +83,7 @@ class SchemaVersionMetadata(pulumi.CustomResource):
         """
         This resource adds Key-Value metadata to a Schema version of Glue Schema Registry.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] key: Metadata key
@@ -96,6 +98,7 @@ class SchemaVersionMetadata(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         This resource adds Key-Value metadata to a Schema version of Glue Schema Registry.
+
 
         :param str resource_name: The name of the resource.
         :param SchemaVersionMetadataArgs args: The arguments to use to populate this resource's properties.

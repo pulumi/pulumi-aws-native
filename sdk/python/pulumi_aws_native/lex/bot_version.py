@@ -26,6 +26,7 @@ class BotVersionArgs:
                  description: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a BotVersion resource.
+
         :param pulumi.Input[_builtins.str] bot_id: The unique identifier of the bot.
         :param pulumi.Input[Sequence[pulumi.Input['BotVersionLocaleSpecificationArgs']]] bot_version_locale_specification: Specifies the locales that Amazon Lex adds to this version. You can choose the Draft version or any other previously published version for each locale. When you specify a source version, the locale data is copied from the source version to the new version.
         :param pulumi.Input[_builtins.str] description: The description of the version.
@@ -85,6 +86,7 @@ class BotVersion(pulumi.CustomResource):
         """
         Resource Type definition for bot versions, a numbered snapshot of your work that you can publish for use in different parts of your workflow, such as development, beta deployment, and production.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] bot_id: The unique identifier of the bot.
@@ -99,6 +101,7 @@ class BotVersion(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for bot versions, a numbered snapshot of your work that you can publish for use in different parts of your workflow, such as development, beta deployment, and production.
+
 
         :param str resource_name: The name of the resource.
         :param BotVersionArgs args: The arguments to use to populate this resource's properties.

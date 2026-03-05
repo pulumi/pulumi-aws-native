@@ -31,6 +31,7 @@ class GlobalClusterArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a GlobalCluster resource.
+
         :param pulumi.Input[_builtins.str] global_cluster_identifier: The cluster identifier of the global cluster.
         :param pulumi.Input[_builtins.bool] deletion_protection: Indicates whether the global cluster has deletion protection enabled. The global cluster can't be deleted when deletion protection is enabled.
         :param pulumi.Input['GlobalClusterEngine'] engine: The database engine to use for this global cluster.
@@ -155,6 +156,7 @@ class GlobalCluster(pulumi.CustomResource):
         """
         The AWS::DocDB::GlobalCluster resource represents an Amazon DocumentDB Global Cluster.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] deletion_protection: Indicates whether the global cluster has deletion protection enabled. The global cluster can't be deleted when deletion protection is enabled.
@@ -173,6 +175,7 @@ class GlobalCluster(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The AWS::DocDB::GlobalCluster resource represents an Amazon DocumentDB Global Cluster.
+
 
         :param str resource_name: The name of the resource.
         :param GlobalClusterArgs args: The arguments to use to populate this resource's properties.

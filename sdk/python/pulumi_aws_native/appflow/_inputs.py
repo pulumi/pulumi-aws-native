@@ -223,6 +223,7 @@ class ConnectorLambdaConnectorProvisioningConfigArgs:
                  lambda_arn: pulumi.Input[_builtins.str]):
         """
         Contains information about the configuration of the lambda which is being registered as the connector.
+
         :param pulumi.Input[_builtins.str] lambda_arn: Lambda ARN of the connector being registered.
         """
         pulumi.set(__self__, "lambda_arn", lambda_arn)
@@ -402,6 +403,7 @@ class ConnectorProfileConfigArgs:
                  connector_profile_properties: Optional[pulumi.Input['ConnectorProfilePropertiesArgs']] = None):
         """
         Connector specific configurations needed to create connector profile
+
         :param pulumi.Input['ConnectorProfileCredentialsArgs'] connector_profile_credentials: The connector-specific credentials required by each connector.
         :param pulumi.Input['ConnectorProfilePropertiesArgs'] connector_profile_properties: The connector-specific properties of the profile configuration.
         """
@@ -587,6 +589,7 @@ class ConnectorProfileCredentialsArgs:
                  zendesk: Optional[pulumi.Input['ConnectorProfileZendeskConnectorProfileCredentialsArgs']] = None):
         """
         Connector specific configuration needed to create connector profile based on Authentication mechanism
+
         :param pulumi.Input['ConnectorProfileAmplitudeConnectorProfileCredentialsArgs'] amplitude: The connector-specific credentials required when using Amplitude.
         :param pulumi.Input['ConnectorProfileCustomConnectorProfileCredentialsArgs'] custom_connector: The connector-specific profile credentials that are required when using the custom connector.
         :param pulumi.Input['ConnectorProfileDatadogConnectorProfileCredentialsArgs'] datadog: The connector-specific credentials required when using Datadog.
@@ -2008,6 +2011,7 @@ class ConnectorProfilePropertiesArgs:
                  zendesk: Optional[pulumi.Input['ConnectorProfileZendeskConnectorProfilePropertiesArgs']] = None):
         """
         Connector specific properties needed to create connector profile - currently not needed for Amplitude, Trendmicro, Googleanalytics and Singular
+
         :param pulumi.Input['ConnectorProfileCustomConnectorProfilePropertiesArgs'] custom_connector: The properties required by the custom connector.
         :param pulumi.Input['ConnectorProfileDatadogConnectorProfilePropertiesArgs'] datadog: The connector-specific properties required by Datadog.
         :param pulumi.Input['ConnectorProfileDynatraceConnectorProfilePropertiesArgs'] dynatrace: The connector-specific properties required by Dynatrace.
@@ -3620,6 +3624,7 @@ class ConnectorProvisioningConfigArgs:
                  lambda_: Optional[pulumi.Input['ConnectorLambdaConnectorProvisioningConfigArgs']] = None):
         """
         Contains information about the configuration of the connector being registered.
+
         :param pulumi.Input['ConnectorLambdaConnectorProvisioningConfigArgs'] lambda_: Contains information about the configuration of the lambda which is being registered as the connector.
         """
         if lambda_ is not None:
@@ -3810,6 +3815,7 @@ class FlowConnectorOperatorArgs:
                  zendesk: Optional[pulumi.Input['FlowZendeskConnectorOperator']] = None):
         """
         Operation to be performed on provided source fields
+
         :param pulumi.Input['FlowAmplitudeConnectorOperator'] amplitude: The operation to be performed on the provided Amplitude source fields.
         :param pulumi.Input['FlowOperator'] custom_connector: Operators supported by the custom connector.
         :param pulumi.Input['FlowDatadogConnectorOperator'] datadog: The operation to be performed on the provided Datadog source fields.
@@ -4374,6 +4380,7 @@ class FlowDestinationConnectorPropertiesArgs:
                  zendesk: Optional[pulumi.Input['FlowZendeskDestinationPropertiesArgs']] = None):
         """
         Destination connector details
+
         :param pulumi.Input['FlowCustomConnectorDestinationPropertiesArgs'] custom_connector: The properties that are required to query the custom Connector.
         :param pulumi.Input['FlowEventBridgeDestinationPropertiesArgs'] event_bridge: The properties required to query Amazon EventBridge.
         :param pulumi.Input['FlowLookoutMetricsDestinationPropertiesArgs'] lookout_metrics: The properties required to query Amazon Lookout for Metrics.
@@ -4572,6 +4579,7 @@ class FlowDestinationFlowConfigArgs:
                  connector_profile_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Configurations of destination connector.
+
         :param pulumi.Input['FlowConnectorType'] connector_type: Destination connector type
         :param pulumi.Input['FlowDestinationConnectorPropertiesArgs'] destination_connector_properties: Destination connector details
         :param pulumi.Input[_builtins.str] api_version: The API version that the destination connector uses.
@@ -4803,6 +4811,7 @@ class FlowGlueDataCatalogArgs:
                  table_prefix: pulumi.Input[_builtins.str]):
         """
         Trigger settings of the flow.
+
         :param pulumi.Input[_builtins.str] database_name: A string containing the value for the tag
         :param pulumi.Input[_builtins.str] role_arn: A string containing the value for the tag
         :param pulumi.Input[_builtins.str] table_prefix: A string containing the value for the tag
@@ -4891,6 +4900,7 @@ class FlowIncrementalPullConfigArgs:
                  datetime_type_field_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Configuration for scheduled incremental data pull
+
         :param pulumi.Input[_builtins.str] datetime_type_field_name: A field that specifies the date time or timestamp field as the criteria to use when importing incremental records from the source.
         """
         if datetime_type_field_name is not None:
@@ -5057,6 +5067,7 @@ class FlowMetadataCatalogConfigArgs:
                  glue_data_catalog: Optional[pulumi.Input['FlowGlueDataCatalogArgs']] = None):
         """
         Configurations of metadata catalog of the flow.
+
         :param pulumi.Input['FlowGlueDataCatalogArgs'] glue_data_catalog: Configurations of glue data catalog of the flow.
         """
         if glue_data_catalog is not None:
@@ -5927,6 +5938,7 @@ class FlowSapoDataPaginationConfigArgs:
                  max_page_size: pulumi.Input[_builtins.int]):
         """
         SAP Source connector page size
+
         :param pulumi.Input[_builtins.int] max_page_size: The maximum number of records that Amazon AppFlow receives in each page of the response from your SAP application. For transfers of OData records, the maximum page size is 3,000. For transfers of data that comes from an ODP provider, the maximum page size is 10,000.
         """
         pulumi.set(__self__, "max_page_size", max_page_size)
@@ -5959,6 +5971,7 @@ class FlowSapoDataParallelismConfigArgs:
                  max_parallelism: pulumi.Input[_builtins.int]):
         """
         SAP Source connector parallelism factor
+
         :param pulumi.Input[_builtins.int] max_parallelism: The maximum number of processes that Amazon AppFlow runs at the same time when it retrieves your data from your SAP application.
         """
         pulumi.set(__self__, "max_parallelism", max_parallelism)
@@ -6096,6 +6109,7 @@ class FlowScheduledTriggerPropertiesArgs:
                  time_zone: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Details required for scheduled trigger type
+
         :param pulumi.Input[_builtins.str] schedule_expression: The scheduling expression that determines the rate at which the schedule will run, for example `rate(5minutes)` .
         :param pulumi.Input['FlowScheduledTriggerPropertiesDataPullMode'] data_pull_mode: Specifies whether a scheduled flow has an incremental data transfer or a complete data transfer for each flow run.
         :param pulumi.Input[_builtins.float] first_execution_from: Specifies the date range for the records to import from the connector in the first flow run.
@@ -6488,6 +6502,7 @@ class FlowSourceConnectorPropertiesArgs:
                  zendesk: Optional[pulumi.Input['FlowZendeskSourcePropertiesArgs']] = None):
         """
         Source connector details required to query a connector
+
         :param pulumi.Input['FlowAmplitudeSourcePropertiesArgs'] amplitude: Specifies the information that is required for querying Amplitude.
         :param pulumi.Input['FlowCustomConnectorSourcePropertiesArgs'] custom_connector: The properties that are applied when the custom connector is being used as a source.
         :param pulumi.Input['FlowDatadogSourcePropertiesArgs'] datadog: Specifies the information that is required for querying Datadog.
@@ -6781,6 +6796,7 @@ class FlowSourceFlowConfigArgs:
                  incremental_pull_config: Optional[pulumi.Input['FlowIncrementalPullConfigArgs']] = None):
         """
         Configurations of Source connector of the flow.
+
         :param pulumi.Input['FlowConnectorType'] connector_type: Type of source connector
         :param pulumi.Input['FlowSourceConnectorPropertiesArgs'] source_connector_properties: Source connector details required to query a connector
         :param pulumi.Input[_builtins.str] api_version: The API version that the destination connector uses.
@@ -6926,6 +6942,7 @@ class FlowTaskPropertiesObjectArgs:
                  value: pulumi.Input[_builtins.str]):
         """
         An object used to store task related info
+
         :param pulumi.Input['FlowOperatorPropertiesKeys'] key: The task property key.
         :param pulumi.Input[_builtins.str] value: The task property value.
         """
@@ -7112,6 +7129,7 @@ class FlowTriggerConfigArgs:
                  trigger_properties: Optional[pulumi.Input['FlowScheduledTriggerPropertiesArgs']] = None):
         """
         Trigger settings of the flow.
+
         :param pulumi.Input['FlowTriggerType'] trigger_type: Trigger type of the flow
         :param pulumi.Input['FlowScheduledTriggerPropertiesArgs'] trigger_properties: Details required based on the type of trigger
         """

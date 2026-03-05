@@ -26,6 +26,7 @@ class EncryptionConfigurationArgs:
                  kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a EncryptionConfiguration resource.
+
         :param pulumi.Input['EncryptionConfigurationEncryptionType'] encryption_type: The type of the KMS key.
         :param pulumi.Input[_builtins.str] kms_access_role_arn: The Amazon Resource Name (ARN) of the IAM role assumed by AWS IoT Core to call AWS  on behalf of the customer.
         :param pulumi.Input[_builtins.str] kms_key_arn: The ARN of the customer managed KMS key.
@@ -86,6 +87,7 @@ class EncryptionConfiguration(pulumi.CustomResource):
         """
         Resource Type definition for AWS::IoT::EncryptionConfiguration
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input['EncryptionConfigurationEncryptionType'] encryption_type: The type of the KMS key.
@@ -100,6 +102,7 @@ class EncryptionConfiguration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::IoT::EncryptionConfiguration
+
 
         :param str resource_name: The name of the resource.
         :param EncryptionConfigurationArgs args: The arguments to use to populate this resource's properties.

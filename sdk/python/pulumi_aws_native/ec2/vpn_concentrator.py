@@ -26,6 +26,7 @@ class VpnConcentratorArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a VpnConcentrator resource.
+
         :param pulumi.Input[_builtins.str] transit_gateway_id: The ID of the transit gateway associated with the VPN concentrator.
         :param pulumi.Input[_builtins.str] type: The type of VPN concentrator.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: Any tags assigned to the VPN concentrator.
@@ -85,6 +86,7 @@ class VpnConcentrator(pulumi.CustomResource):
         """
         Describes a VPN concentrator.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Any tags assigned to the VPN concentrator.
@@ -99,6 +101,7 @@ class VpnConcentrator(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Describes a VPN concentrator.
+
 
         :param str resource_name: The name of the resource.
         :param VpnConcentratorArgs args: The arguments to use to populate this resource's properties.

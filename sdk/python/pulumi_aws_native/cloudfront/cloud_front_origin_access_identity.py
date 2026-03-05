@@ -24,6 +24,7 @@ class CloudFrontOriginAccessIdentityArgs:
                  cloud_front_origin_access_identity_config: pulumi.Input['CloudFrontOriginAccessIdentityConfigArgs']):
         """
         The set of arguments for constructing a CloudFrontOriginAccessIdentity resource.
+
         :param pulumi.Input['CloudFrontOriginAccessIdentityConfigArgs'] cloud_front_origin_access_identity_config: The current configuration information for the identity.
         """
         pulumi.set(__self__, "cloud_front_origin_access_identity_config", cloud_front_origin_access_identity_config)
@@ -76,6 +77,7 @@ class CloudFrontOriginAccessIdentity(pulumi.CustomResource):
 
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['CloudFrontOriginAccessIdentityConfigArgs', 'CloudFrontOriginAccessIdentityConfigArgsDict']] cloud_front_origin_access_identity_config: The current configuration information for the identity.
@@ -112,6 +114,7 @@ class CloudFrontOriginAccessIdentity(pulumi.CustomResource):
         })
 
         ```
+
 
         :param str resource_name: The name of the resource.
         :param CloudFrontOriginAccessIdentityArgs args: The arguments to use to populate this resource's properties.

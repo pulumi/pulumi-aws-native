@@ -27,6 +27,7 @@ class ConnectorArgs:
                  description: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Connector resource.
+
         :param pulumi.Input['ConnectorProvisioningConfigArgs'] connector_provisioning_config: Contains information about the configuration of the connector being registered.
         :param pulumi.Input[_builtins.str] connector_provisioning_type: The provisioning type of the connector. Currently the only supported value is LAMBDA. 
         :param pulumi.Input[_builtins.str] connector_label:  The name of the connector. The name is unique for each ConnectorRegistration in your AWS account.
@@ -102,6 +103,7 @@ class Connector(pulumi.CustomResource):
         """
         Resource schema for AWS::AppFlow::Connector
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] connector_label:  The name of the connector. The name is unique for each ConnectorRegistration in your AWS account.
@@ -117,6 +119,7 @@ class Connector(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource schema for AWS::AppFlow::Connector
+
 
         :param str resource_name: The name of the resource.
         :param ConnectorArgs args: The arguments to use to populate this resource's properties.

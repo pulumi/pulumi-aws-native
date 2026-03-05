@@ -30,6 +30,7 @@ class EventSubscriptionArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a EventSubscription resource.
+
         :param pulumi.Input[_builtins.str] sns_topic_arn: The Amazon Resource Name (ARN) of the SNS topic created for event notification. The ARN is created by Amazon SNS when you create a topic and subscribe to it.
         :param pulumi.Input[_builtins.bool] enabled: A Boolean value; set to true to activate the subscription, set to false to create the subscription but not active it.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] event_categories: A list of event categories for a SourceType that you want to subscribe to. You can see a list of the categories for a given SourceType in the Events topic in the Amazon Neptune User Guide or by using the DescribeEventCategories action.
@@ -154,6 +155,7 @@ class EventSubscription(pulumi.CustomResource):
         """
         Resource Type definition for AWS::Neptune::EventSubscription
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] enabled: A Boolean value; set to true to activate the subscription, set to false to create the subscription but not active it.
@@ -172,6 +174,7 @@ class EventSubscription(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::Neptune::EventSubscription
+
 
         :param str resource_name: The name of the resource.
         :param EventSubscriptionArgs args: The arguments to use to populate this resource's properties.

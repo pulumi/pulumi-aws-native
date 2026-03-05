@@ -32,6 +32,7 @@ class NotificationArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Notification resource.
+
         :param pulumi.Input['NotificationContentArgs'] content: The content of the notification.
         :param pulumi.Input[_builtins.str] instance_arn: The identifier of the Amazon Connect instance.
         :param pulumi.Input[_builtins.str] expires_at: The time a notification will expire
@@ -139,6 +140,7 @@ class Notification(pulumi.CustomResource):
         """
         Resource Type definition for AWS::Connect::Notification
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['NotificationContentArgs', 'NotificationContentArgsDict']] content: The content of the notification.
@@ -156,6 +158,7 @@ class Notification(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::Connect::Notification
+
 
         :param str resource_name: The name of the resource.
         :param NotificationArgs args: The arguments to use to populate this resource's properties.

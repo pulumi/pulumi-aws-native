@@ -32,6 +32,7 @@ class EndpointArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Endpoint resource.
+
         :param pulumi.Input[_builtins.str] endpoint_config_name: The name of the endpoint configuration for the SageMaker endpoint. This is a required property.
         :param pulumi.Input['EndpointDeploymentConfigArgs'] deployment_config: Specifies deployment configuration for updating the SageMaker endpoint. Includes rollback and update policies.
         :param pulumi.Input[_builtins.str] endpoint_name: The name of the SageMaker endpoint. This name must be unique within an AWS Region.
@@ -156,6 +157,7 @@ class Endpoint(pulumi.CustomResource):
         """
         Resource Type definition for AWS::SageMaker::Endpoint
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['EndpointDeploymentConfigArgs', 'EndpointDeploymentConfigArgsDict']] deployment_config: Specifies deployment configuration for updating the SageMaker endpoint. Includes rollback and update policies.
@@ -174,6 +176,7 @@ class Endpoint(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::SageMaker::Endpoint
+
 
         :param str resource_name: The name of the resource.
         :param EndpointArgs args: The arguments to use to populate this resource's properties.

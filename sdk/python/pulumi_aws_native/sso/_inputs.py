@@ -52,6 +52,7 @@ class ApplicationPortalOptionsConfigurationArgs:
                  visibility: Optional[pulumi.Input['ApplicationPortalOptionsConfigurationVisibility']] = None):
         """
         A structure that describes the options for the access portal associated with an application
+
         :param pulumi.Input['ApplicationSignInOptionsArgs'] sign_in_options: A structure that describes the sign-in options for the access portal
         :param pulumi.Input['ApplicationPortalOptionsConfigurationVisibility'] visibility: Indicates whether this application is visible in the access portal
         """
@@ -105,6 +106,7 @@ class ApplicationSignInOptionsArgs:
                  application_url: Optional[pulumi.Input[_builtins.str]] = None):
         """
         A structure that describes the sign-in options for an application portal
+
         :param pulumi.Input['ApplicationSignInOptionsOrigin'] origin: This determines how IAM Identity Center navigates the user to the target application
         :param pulumi.Input[_builtins.str] application_url: The URL that accepts authentication requests for an application, this is a required parameter if the Origin parameter is APPLICATION
         """

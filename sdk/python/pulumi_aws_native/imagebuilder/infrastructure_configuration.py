@@ -38,6 +38,7 @@ class InfrastructureConfigurationArgs:
                  terminate_instance_on_failure: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a InfrastructureConfiguration resource.
+
         :param pulumi.Input[_builtins.str] instance_profile_name: The instance profile of the infrastructure configuration.
         :param pulumi.Input[_builtins.str] description: The description of the infrastructure configuration.
         :param pulumi.Input['InfrastructureConfigurationInstanceMetadataOptionsArgs'] instance_metadata_options: The instance metadata option settings for the infrastructure configuration.
@@ -274,6 +275,7 @@ class InfrastructureConfiguration(pulumi.CustomResource):
         """
         Resource schema for AWS::ImageBuilder::InfrastructureConfiguration
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: The description of the infrastructure configuration.
@@ -299,6 +301,7 @@ class InfrastructureConfiguration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource schema for AWS::ImageBuilder::InfrastructureConfiguration
+
 
         :param str resource_name: The name of the resource.
         :param InfrastructureConfigurationArgs args: The arguments to use to populate this resource's properties.

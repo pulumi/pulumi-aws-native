@@ -59,6 +59,7 @@ class EnvironmentLoggingConfigurationArgs:
                  worker_logs: Optional[pulumi.Input['EnvironmentModuleLoggingConfigurationArgs']] = None):
         """
         Logging configuration for the environment.
+
         :param pulumi.Input['EnvironmentModuleLoggingConfigurationArgs'] dag_processing_logs: Defines the processing logs sent to CloudWatch Logs and the logging level to send.
         :param pulumi.Input['EnvironmentModuleLoggingConfigurationArgs'] scheduler_logs: Defines the scheduler logs sent to CloudWatch Logs and the logging level to send.
         :param pulumi.Input['EnvironmentModuleLoggingConfigurationArgs'] task_logs: Defines the task logs sent to CloudWatch Logs and the logging level to send.
@@ -164,6 +165,7 @@ class EnvironmentModuleLoggingConfigurationArgs:
                  log_level: Optional[pulumi.Input['EnvironmentLoggingLevel']] = None):
         """
         Logging configuration for a specific airflow component.
+
         :param pulumi.Input[_builtins.str] cloud_watch_log_group_arn: The ARN of the CloudWatch Logs log group for each type of Apache Airflow log type that you have enabled.
                
                > `CloudWatchLogGroupArn` is available only as a return value, accessible when specified as an attribute in the [`Fn:GetAtt`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#aws-resource-mwaa-environment-return-values) intrinsic function. Any value you provide for `CloudWatchLogGroupArn` is discarded by Amazon MWAA.
@@ -236,6 +238,7 @@ class EnvironmentNetworkConfigurationArgs:
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Configures the network resources of the environment.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: A list of security groups to use for the environment.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: A list of subnets to use for the environment. These must be private subnets, in the same VPC, in two different availability zones.
         """

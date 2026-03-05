@@ -26,6 +26,7 @@ class DatabaseArgs:
                  database_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Database resource.
+
         :param pulumi.Input[_builtins.str] catalog_id: The AWS account ID for the account in which to create the catalog object.
         :param pulumi.Input['DatabaseInputArgs'] database_input: The metadata for the database.
         :param pulumi.Input[_builtins.str] database_name: The name of the database. For hive compatibility, this is folded to lowercase when it is store.
@@ -85,6 +86,7 @@ class Database(pulumi.CustomResource):
         """
         Resource Type definition for AWS::Glue::Database
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] catalog_id: The AWS account ID for the account in which to create the catalog object.
@@ -99,6 +101,7 @@ class Database(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::Glue::Database
+
 
         :param str resource_name: The name of the resource.
         :param DatabaseArgs args: The arguments to use to populate this resource's properties.

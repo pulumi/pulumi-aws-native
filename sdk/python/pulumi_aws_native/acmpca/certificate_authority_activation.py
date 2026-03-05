@@ -25,6 +25,7 @@ class CertificateAuthorityActivationArgs:
                  status: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a CertificateAuthorityActivation resource.
+
         :param pulumi.Input[_builtins.str] certificate: Certificate Authority certificate that will be installed in the Certificate Authority.
         :param pulumi.Input[_builtins.str] certificate_authority_arn: Arn of the Certificate Authority.
         :param pulumi.Input[_builtins.str] certificate_chain: Certificate chain for the Certificate Authority certificate.
@@ -100,6 +101,7 @@ class CertificateAuthorityActivation(pulumi.CustomResource):
         """
         Used to install the certificate authority certificate and update the certificate authority status.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] certificate: Certificate Authority certificate that will be installed in the Certificate Authority.
@@ -115,6 +117,7 @@ class CertificateAuthorityActivation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Used to install the certificate authority certificate and update the certificate authority status.
+
 
         :param str resource_name: The name of the resource.
         :param CertificateAuthorityActivationArgs args: The arguments to use to populate this resource's properties.

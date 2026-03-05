@@ -25,6 +25,7 @@ class StreamKeyArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a StreamKey resource.
+
         :param pulumi.Input[_builtins.str] channel_arn: Channel ARN for the stream.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A list of key-value pairs that contain metadata for the asset model.
         """
@@ -69,6 +70,7 @@ class StreamKey(pulumi.CustomResource):
         """
         Resource Type definition for AWS::IVS::StreamKey
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] channel_arn: Channel ARN for the stream.
@@ -82,6 +84,7 @@ class StreamKey(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::IVS::StreamKey
+
 
         :param str resource_name: The name of the resource.
         :param StreamKeyArgs args: The arguments to use to populate this resource's properties.

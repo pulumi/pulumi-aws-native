@@ -287,6 +287,7 @@ class MetricFilterDimensionArgs:
           Metrics extracted from log events are charged as custom metrics. To prevent unexpected high charges, do not specify high-cardinality fields such as ``IPAddress`` or ``requestID`` as dimensions. Each different value found for a dimension is treated as a separate metric and accrues charges as a separate custom metric. 
          To help prevent accidental high charges, Amazon disables a metric filter if it generates 1000 different name/value pairs for the dimensions that you have specified within a certain amount of time.
          You can also set up a billing alarm to alert you if your charges are higher than expected. For more information, see [Creating a Billing Alarm to Monitor Your Estimated Charges](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/monitor_estimated_charges_with_cloudwatch.html).
+
         :param pulumi.Input[_builtins.str] key: The name for the CW metric dimension that the metric filter creates.
                 Dimension names must contain only ASCII characters, must include at least one non-whitespace character, and cannot start with a colon (:).
         :param pulumi.Input[_builtins.str] value: The log event field that will contain the value for this dimension. This dimension will only be published for a metric if the value is found in the log event. For example, ``$.eventType`` for JSON log events, or ``$server`` for space-delimited log events.
@@ -363,6 +364,7 @@ class MetricFilterMetricTransformationArgs:
                  unit: Optional[pulumi.Input['MetricFilterMetricTransformationUnit']] = None):
         """
         ``MetricTransformation`` is a property of the ``AWS::Logs::MetricFilter`` resource that describes how to transform log streams into a CloudWatch metric.
+
         :param pulumi.Input[_builtins.str] metric_name: The name of the CloudWatch metric.
         :param pulumi.Input[_builtins.str] metric_namespace: A custom namespace to contain your metric in CloudWatch. Use namespaces to group together metrics that are similar. For more information, see [Namespaces](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html#Namespace).
         :param pulumi.Input[_builtins.str] metric_value: The value that is published to the CloudWatch metric. For example, if you're counting the occurrences of a particular term like ``Error``, specify 1 for the metric value. If you're counting the number of bytes transferred, reference the value that is in the log event by using $. followed by the name of the field that you specified in the filter pattern, such as ``$.size``.
@@ -474,6 +476,7 @@ class ResourceConfigPropertiesArgs:
                  open_search_resource_config: Optional[pulumi.Input['IntegrationOpenSearchResourceConfigArgs']] = None):
         """
         OpenSearchResourceConfig for the given Integration
+
         :param pulumi.Input['IntegrationOpenSearchResourceConfigArgs'] open_search_resource_config: This structure contains configuration details about an integration between CloudWatch Logs and OpenSearch Service.
         """
         if open_search_resource_config is not None:
@@ -1776,6 +1779,7 @@ class TransformerProcessorArgs:
                  upper_case_string: Optional[pulumi.Input['TransformerProcessorUpperCaseStringPropertiesArgs']] = None):
         """
         Individual processor configuration
+
         :param pulumi.Input['TransformerProcessorAddKeysPropertiesArgs'] add_keys: Use this parameter to include the [addKeys](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation.html#CloudWatch-Logs-Transformation-addKeys) processor in your transformer.
         :param pulumi.Input['TransformerProcessorCopyValuePropertiesArgs'] copy_value: Use this parameter to include the [copyValue](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation-Processors.html#CloudWatch-Logs-Transformation-copyValue) processor in your transformer.
         :param pulumi.Input['TransformerProcessorCsvPropertiesArgs'] csv: Use this parameter to include the [CSV](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation.html#CloudWatch-Logs-Transformation-CSV) processor in your transformer.

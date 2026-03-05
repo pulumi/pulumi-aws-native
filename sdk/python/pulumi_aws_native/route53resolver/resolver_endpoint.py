@@ -37,6 +37,7 @@ class ResolverEndpointArgs:
                  target_name_server_metrics_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a ResolverEndpoint resource.
+
         :param pulumi.Input[_builtins.str] direction: Indicates whether the Resolver endpoint allows inbound or outbound DNS queries:
                - INBOUND: allows DNS queries to your VPC from your network 
                - OUTBOUND: allows DNS queries from your VPC to your network 
@@ -229,6 +230,7 @@ class ResolverEndpoint(pulumi.CustomResource):
         """
         Resource type definition for AWS::Route53Resolver::ResolverEndpoint
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] direction: Indicates whether the Resolver endpoint allows inbound or outbound DNS queries:
@@ -254,6 +256,7 @@ class ResolverEndpoint(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource type definition for AWS::Route53Resolver::ResolverEndpoint
+
 
         :param str resource_name: The name of the resource.
         :param ResolverEndpointArgs args: The arguments to use to populate this resource's properties.

@@ -28,6 +28,7 @@ class ServiceProfileArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a ServiceProfile resource.
+
         :param pulumi.Input['ServiceProfileLoRaWanServiceProfileArgs'] lo_ra_wan: LoRaWAN supports all LoRa specific attributes for service profile for CreateServiceProfile operation
         :param pulumi.Input[_builtins.str] name: Name of service profile
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A list of key-value pairs that contain metadata for the service profile.
@@ -89,6 +90,7 @@ class ServiceProfile(pulumi.CustomResource):
         """
         An example resource schema demonstrating some basic constructs and validation rules.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ServiceProfileLoRaWanServiceProfileArgs', 'ServiceProfileLoRaWanServiceProfileArgsDict']] lo_ra_wan: LoRaWAN supports all LoRa specific attributes for service profile for CreateServiceProfile operation
@@ -103,6 +105,7 @@ class ServiceProfile(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An example resource schema demonstrating some basic constructs and validation rules.
+
 
         :param str resource_name: The name of the resource.
         :param ServiceProfileArgs args: The arguments to use to populate this resource's properties.

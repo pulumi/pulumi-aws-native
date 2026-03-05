@@ -44,6 +44,7 @@ class ProviderArgs:
                  token: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Provider resource.
+
         :param pulumi.Input[_builtins.str] region: The region where AWS operations will take place. Examples are `us-east-1`, `us-west-2`, etc.
         :param pulumi.Input[_builtins.str] access_key: The access key for API operations. You can retrieve this from the ‘Security & Credentials’ section of the AWS console.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_account_ids: List of allowed AWS account IDs to prevent you from mistakenly using an incorrect one. Conflicts with `forbiddenAccountIds`.
@@ -422,6 +423,7 @@ class Provider(pulumi.ProviderResource):
         """
         The provider type for the AWS Cloud Control package. By default, resources use package-wide configuration settings, however an explicit `Provider` instance may be created and passed during resource construction to achieve fine-grained programmatic control over provider settings. See the [documentation](https://www.pulumi.com/docs/reference/programming-model/#providers) for more information.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] access_key: The access key for API operations. You can retrieve this from the ‘Security & Credentials’ section of the AWS console.
@@ -455,6 +457,7 @@ class Provider(pulumi.ProviderResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The provider type for the AWS Cloud Control package. By default, resources use package-wide configuration settings, however an explicit `Provider` instance may be created and passed during resource construction to achieve fine-grained programmatic control over provider settings. See the [documentation](https://www.pulumi.com/docs/reference/programming-model/#providers) for more information.
+
 
         :param str resource_name: The name of the resource.
         :param ProviderArgs args: The arguments to use to populate this resource's properties.

@@ -25,6 +25,7 @@ class ContactFlowModuleAliasArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ContactFlowModuleAlias resource.
+
         :param pulumi.Input[_builtins.str] contact_flow_module_id: The identifier of the contact flow module (ARN) this alias is tied to.
         :param pulumi.Input[_builtins.int] contact_flow_module_version: The version number of the contact flow module this alias points to.
         :param pulumi.Input[_builtins.str] description: The description of the alias.
@@ -100,6 +101,7 @@ class ContactFlowModuleAlias(pulumi.CustomResource):
         """
         Resource Type definition for ContactFlowModuleAlias
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] contact_flow_module_id: The identifier of the contact flow module (ARN) this alias is tied to.
@@ -115,6 +117,7 @@ class ContactFlowModuleAlias(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for ContactFlowModuleAlias
+
 
         :param str resource_name: The name of the resource.
         :param ContactFlowModuleAliasArgs args: The arguments to use to populate this resource's properties.

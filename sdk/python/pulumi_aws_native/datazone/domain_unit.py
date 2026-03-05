@@ -25,6 +25,7 @@ class DomainUnitArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a DomainUnit resource.
+
         :param pulumi.Input[_builtins.str] domain_identifier: The ID of the domain where you want to create a domain unit.
         :param pulumi.Input[_builtins.str] parent_domain_unit_identifier: The ID of the parent domain unit.
         :param pulumi.Input[_builtins.str] description: The description of the domain unit.
@@ -100,6 +101,7 @@ class DomainUnit(pulumi.CustomResource):
         """
         A domain unit enables you to easily organize your assets and other domain entities under specific business units and teams.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: The description of the domain unit.
@@ -115,6 +117,7 @@ class DomainUnit(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A domain unit enables you to easily organize your assets and other domain entities under specific business units and teams.
+
 
         :param str resource_name: The name of the resource.
         :param DomainUnitArgs args: The arguments to use to populate this resource's properties.

@@ -30,6 +30,7 @@ class CreateOnlyTag(dict):
                  value: _builtins.str):
         """
         A set of tags to apply to the resource.
+
         :param _builtins.str key: The key name of the tag
         :param _builtins.str value: The value of the tag
         """
@@ -63,6 +64,7 @@ class Tag(dict):
                  value: _builtins.str):
         """
         A set of tags to apply to the resource.
+
         :param _builtins.str key: The key name of the tag
         :param _builtins.str value: The value of the tag
         """

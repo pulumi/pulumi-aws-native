@@ -34,6 +34,7 @@ class DomainArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Domain resource.
+
         :param pulumi.Input[_builtins.int] default_expiration_days: The default number of days until the data within the domain expires.
         :param pulumi.Input[_builtins.str] dead_letter_queue_url: The URL of the SQS dead letter queue
         :param pulumi.Input[_builtins.str] default_encryption_key: The default encryption key
@@ -170,6 +171,7 @@ class Domain(pulumi.CustomResource):
         """
         A domain defined for 3rd party data source in Profile Service
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] dead_letter_queue_url: The URL of the SQS dead letter queue
@@ -188,6 +190,7 @@ class Domain(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A domain defined for 3rd party data source in Profile Service
+
 
         :param str resource_name: The name of the resource.
         :param DomainArgs args: The arguments to use to populate this resource's properties.

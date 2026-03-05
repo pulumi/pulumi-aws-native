@@ -29,6 +29,7 @@ class DatasetArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Dataset resource.
+
         :param pulumi.Input[_builtins.str] dataset_group_arn: The Amazon Resource Name (ARN) of the dataset group to add the dataset to
         :param pulumi.Input['DatasetType'] dataset_type: The type of dataset
         :param pulumi.Input[_builtins.str] schema_arn: The ARN of the schema to associate with the dataset. The schema defines the dataset fields.
@@ -161,6 +162,7 @@ class Dataset(pulumi.CustomResource):
 
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] dataset_group_arn: The Amazon Resource Name (ARN) of the dataset group to add the dataset to
@@ -219,6 +221,7 @@ class Dataset(pulumi.CustomResource):
             })
 
         ```
+
 
         :param str resource_name: The name of the resource.
         :param DatasetArgs args: The arguments to use to populate this resource's properties.

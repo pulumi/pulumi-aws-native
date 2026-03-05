@@ -28,6 +28,7 @@ class IntegrationResponseArgs:
                  template_selection_expression: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a IntegrationResponse resource.
+
         :param pulumi.Input[_builtins.str] api_id: The API identifier.
         :param pulumi.Input[_builtins.str] integration_id: The integration ID.
         :param pulumi.Input[_builtins.str] integration_response_key: The integration response key.
@@ -164,6 +165,7 @@ class IntegrationResponse(pulumi.CustomResource):
         """
         The ``AWS::ApiGatewayV2::IntegrationResponse`` resource updates an integration response for an WebSocket API. For more information, see [Set up WebSocket API Integration Responses in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-integration-responses.html) in the *API Gateway Developer Guide*.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] api_id: The API identifier.
@@ -189,6 +191,7 @@ class IntegrationResponse(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The ``AWS::ApiGatewayV2::IntegrationResponse`` resource updates an integration response for an WebSocket API. For more information, see [Set up WebSocket API Integration Responses in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-integration-responses.html) in the *API Gateway Developer Guide*.
+
 
         :param str resource_name: The name of the resource.
         :param IntegrationResponseArgs args: The arguments to use to populate this resource's properties.

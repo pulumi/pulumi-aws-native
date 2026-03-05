@@ -27,6 +27,7 @@ class ControlPanelArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]] = None):
         """
         The set of arguments for constructing a ControlPanel resource.
+
         :param pulumi.Input[_builtins.str] cluster_arn: Cluster to associate with the Control Panel
         :param pulumi.Input[_builtins.str] name: The name of the control panel. You can use any non-white space character in the name.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]] tags: A collection of tags associated with a resource
@@ -88,6 +89,7 @@ class ControlPanel(pulumi.CustomResource):
         """
         AWS Route53 Recovery Control Control Panel resource schema .
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] cluster_arn: Cluster to associate with the Control Panel
@@ -102,6 +104,7 @@ class ControlPanel(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         AWS Route53 Recovery Control Control Panel resource schema .
+
 
         :param str resource_name: The name of the resource.
         :param ControlPanelArgs args: The arguments to use to populate this resource's properties.

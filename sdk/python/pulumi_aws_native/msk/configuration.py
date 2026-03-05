@@ -28,6 +28,7 @@ class ConfigurationArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Configuration resource.
+
         :param pulumi.Input[_builtins.str] server_properties: Contents of the `server.properties` file. When using the console, the SDK, or the AWS CLI , the contents of `server.properties` can be in plaintext.
         :param pulumi.Input[_builtins.str] description: The description of the configuration.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] kafka_versions_list: The [versions of Apache Kafka](https://docs.aws.amazon.com/msk/latest/developerguide/supported-kafka-versions.html) with which you can use this MSK configuration.
@@ -132,6 +133,7 @@ class Configuration(pulumi.CustomResource):
         """
         Resource Type definition for AWS::MSK::Configuration
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: The description of the configuration.
@@ -154,6 +156,7 @@ class Configuration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::MSK::Configuration
+
 
         :param str resource_name: The name of the resource.
         :param ConfigurationArgs args: The arguments to use to populate this resource's properties.

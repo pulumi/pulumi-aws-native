@@ -36,6 +36,7 @@ class LocationAzureBlobArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a LocationAzureBlob resource.
+
         :param pulumi.Input['LocationAzureBlobAzureBlobAuthenticationType'] azure_blob_authentication_type: The specific authentication type that you want DataSync to use to access your Azure Blob Container.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] agent_arns: Specifies the Amazon Resource Name (ARN) of the DataSync agent that can connect with your Azure Blob Storage container. If you are setting up an agentless cross-cloud transfer, you do not need to specify a value for this parameter.
         :param pulumi.Input['LocationAzureBlobAzureAccessTier'] azure_access_tier: Specifies an access tier for the objects you're transferring into your Azure Blob Storage container.
@@ -220,6 +221,7 @@ class LocationAzureBlob(pulumi.CustomResource):
         """
         Resource Type definition for AWS::DataSync::LocationAzureBlob.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] agent_arns: Specifies the Amazon Resource Name (ARN) of the DataSync agent that can connect with your Azure Blob Storage container. If you are setting up an agentless cross-cloud transfer, you do not need to specify a value for this parameter.
@@ -247,6 +249,7 @@ class LocationAzureBlob(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::DataSync::LocationAzureBlob.
+
 
         :param str resource_name: The name of the resource.
         :param LocationAzureBlobArgs args: The arguments to use to populate this resource's properties.

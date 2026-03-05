@@ -31,6 +31,7 @@ class MetricFilterArgs:
                  filter_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a MetricFilter resource.
+
         :param pulumi.Input[_builtins.str] filter_pattern: A filter pattern for extracting metric data out of ingested log events. For more information, see [Filter and Pattern Syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html).
         :param pulumi.Input[_builtins.str] log_group_name: The name of an existing log group that you want to associate with this metric filter.
         :param pulumi.Input[Sequence[pulumi.Input['MetricFilterMetricTransformationArgs']]] metric_transformations: The metric transformations.
@@ -156,6 +157,7 @@ class MetricFilter(pulumi.CustomResource):
         The ``AWS::Logs::MetricFilter`` resource specifies a metric filter that describes how CWL extracts information from logs and transforms it into Amazon CloudWatch metrics. If you have multiple metric filters that are associated with a log group, all the filters are applied to the log streams in that group.
          The maximum number of metric filters that can be associated with a log group is 100.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] apply_on_transformed_logs: This parameter is valid only for log groups that have an active log transformer. For more information about log transformers, see [PutTransformer](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutTransformer.html).
@@ -176,6 +178,7 @@ class MetricFilter(pulumi.CustomResource):
         """
         The ``AWS::Logs::MetricFilter`` resource specifies a metric filter that describes how CWL extracts information from logs and transforms it into Amazon CloudWatch metrics. If you have multiple metric filters that are associated with a log group, all the filters are applied to the log streams in that group.
          The maximum number of metric filters that can be associated with a log group is 100.
+
 
         :param str resource_name: The name of the resource.
         :param MetricFilterArgs args: The arguments to use to populate this resource's properties.

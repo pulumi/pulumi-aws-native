@@ -31,6 +31,7 @@ class ChannelArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]] = None):
         """
         The set of arguments for constructing a Channel resource.
+
         :param pulumi.Input[_builtins.str] aws_id: The ID of the Channel.
         :param pulumi.Input[_builtins.str] description: A short text description of the Channel.
         :param pulumi.Input['ChannelLogConfigurationArgs'] egress_access_logs: The configuration parameters for egress access logging.
@@ -139,6 +140,7 @@ class Channel(pulumi.CustomResource):
         """
         Resource schema for AWS::MediaPackage::Channel
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] aws_id: The ID of the Channel.
@@ -156,6 +158,7 @@ class Channel(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource schema for AWS::MediaPackage::Channel
+
 
         :param str resource_name: The name of the resource.
         :param ChannelArgs args: The arguments to use to populate this resource's properties.

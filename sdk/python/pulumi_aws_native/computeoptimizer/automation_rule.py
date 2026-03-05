@@ -36,6 +36,7 @@ class AutomationRuleArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a AutomationRule resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['AutomationRuleRecommendedActionTypesItem']]] recommended_action_types: The types of recommended actions this rule will implement.
         :param pulumi.Input['AutomationRuleRuleType'] rule_type: The type of automation rule.
         :param pulumi.Input['AutomationRuleScheduleArgs'] schedule: The schedule configuration for when the rule runs.
@@ -205,6 +206,7 @@ class AutomationRule(pulumi.CustomResource):
         """
         Creates an AWS Compute Optimizer automation rule that automatically implements recommended actions based on your defined criteria and schedule. Automation rules are global resources that manage automated actions across all AWS Regions where Compute Optimizer Automation is available. Organization-level rules can only be created by the management account or delegated administrator.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['AutomationRuleCriteriaArgs', 'AutomationRuleCriteriaArgsDict']] criteria: Filter criteria that specify which recommended actions qualify for implementation.
@@ -226,6 +228,7 @@ class AutomationRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Creates an AWS Compute Optimizer automation rule that automatically implements recommended actions based on your defined criteria and schedule. Automation rules are global resources that manage automated actions across all AWS Regions where Compute Optimizer Automation is available. Organization-level rules can only be created by the management account or delegated administrator.
+
 
         :param str resource_name: The name of the resource.
         :param AutomationRuleArgs args: The arguments to use to populate this resource's properties.

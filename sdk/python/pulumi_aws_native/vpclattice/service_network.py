@@ -30,6 +30,7 @@ class ServiceNetworkArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a ServiceNetwork resource.
+
         :param pulumi.Input['ServiceNetworkAuthType'] auth_type: The type of IAM policy.
                
                - `NONE` : The resource does not use an IAM policy. This is the default.
@@ -117,6 +118,7 @@ class ServiceNetwork(pulumi.CustomResource):
         """
         A service network is a logical boundary for a collection of services. You can associate services and VPCs with a service network.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input['ServiceNetworkAuthType'] auth_type: The type of IAM policy.
@@ -137,6 +139,7 @@ class ServiceNetwork(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A service network is a logical boundary for a collection of services. You can associate services and VPCs with a service network.
+
 
         :param str resource_name: The name of the resource.
         :param ServiceNetworkArgs args: The arguments to use to populate this resource's properties.

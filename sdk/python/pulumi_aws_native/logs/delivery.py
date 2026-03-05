@@ -30,6 +30,7 @@ class DeliveryArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Delivery resource.
+
         :param pulumi.Input[_builtins.str] delivery_destination_arn: The ARN of the delivery destination that is associated with this delivery.
         :param pulumi.Input[_builtins.str] delivery_source_name: The name of the delivery source that is associated with this delivery.
         :param pulumi.Input[_builtins.str] field_delimiter: The field delimiter to use between record fields when the final output format of a delivery is in Plain , W3C , or Raw format.
@@ -157,6 +158,7 @@ class Delivery(pulumi.CustomResource):
 
         For more information, see [CreateDelivery](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_CreateDelivery.html).
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] delivery_destination_arn: The ARN of the delivery destination that is associated with this delivery.
@@ -179,6 +181,7 @@ class Delivery(pulumi.CustomResource):
         A delivery is a connection between a logical delivery source and a logical delivery destination.
 
         For more information, see [CreateDelivery](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_CreateDelivery.html).
+
 
         :param str resource_name: The name of the resource.
         :param DeliveryArgs args: The arguments to use to populate this resource's properties.

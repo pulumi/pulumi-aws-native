@@ -24,6 +24,7 @@ class StateMachineVersionArgs:
                  state_machine_revision_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a StateMachineVersion resource.
+
         :param pulumi.Input[_builtins.str] state_machine_arn: The Amazon Resource Name (ARN) of the state machine.
         :param pulumi.Input[_builtins.str] description: An optional description of the state machine version.
         :param pulumi.Input[_builtins.str] state_machine_revision_id: Identifier for a state machine revision, which is an immutable, read-only snapshot of a state machine’s definition and configuration.
@@ -92,6 +93,7 @@ class StateMachineVersion(pulumi.CustomResource):
         """
         Resource schema for StateMachineVersion
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: An optional description of the state machine version.
@@ -110,6 +112,7 @@ class StateMachineVersion(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource schema for StateMachineVersion
+
 
         :param str resource_name: The name of the resource.
         :param StateMachineVersionArgs args: The arguments to use to populate this resource's properties.

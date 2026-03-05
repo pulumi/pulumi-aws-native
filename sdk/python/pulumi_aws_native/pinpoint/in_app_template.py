@@ -30,6 +30,7 @@ class InAppTemplateArgs:
                  template_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a InAppTemplate resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['InAppTemplateInAppMessageContentArgs']]] content: An object that contains information about the content of an in-app message, including its title and body text, text colors, background colors, images, buttons, and behaviors.
         :param Any custom_config: Custom data, in the form of key-value pairs, that is included in an in-app messaging payload.
                
@@ -165,6 +166,7 @@ class InAppTemplate(pulumi.CustomResource):
         """
         Resource Type definition for AWS::Pinpoint::InAppTemplate
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['InAppTemplateInAppMessageContentArgs', 'InAppTemplateInAppMessageContentArgsDict']]]] content: An object that contains information about the content of an in-app message, including its title and body text, text colors, background colors, images, buttons, and behaviors.
@@ -195,6 +197,7 @@ class InAppTemplate(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::Pinpoint::InAppTemplate
+
 
         :param str resource_name: The name of the resource.
         :param InAppTemplateArgs args: The arguments to use to populate this resource's properties.

@@ -27,6 +27,7 @@ class ClusterCapacityProviderAssociationsArgs:
                  capacity_providers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ClusterCapacityProviderAssociationsCapacityProvider', _builtins.str]]]]] = None):
         """
         The set of arguments for constructing a ClusterCapacityProviderAssociations resource.
+
         :param pulumi.Input[_builtins.str] cluster: The cluster the capacity provider association is the target of.
         :param pulumi.Input[Sequence[pulumi.Input['ClusterCapacityProviderAssociationsCapacityProviderStrategyArgs']]] default_capacity_provider_strategy: The default capacity provider strategy to associate with the cluster.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ClusterCapacityProviderAssociationsCapacityProvider', _builtins.str]]]] capacity_providers: The capacity providers to associate with the cluster.
@@ -144,6 +145,7 @@ class ClusterCapacityProviderAssociations(pulumi.CustomResource):
 
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ClusterCapacityProviderAssociationsCapacityProvider', _builtins.str]]]] capacity_providers: The capacity providers to associate with the cluster.
@@ -216,6 +218,7 @@ class ClusterCapacityProviderAssociations(pulumi.CustomResource):
             ])
 
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ClusterCapacityProviderAssociationsArgs args: The arguments to use to populate this resource's properties.

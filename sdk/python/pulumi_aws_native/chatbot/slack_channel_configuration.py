@@ -33,6 +33,7 @@ class SlackChannelConfigurationArgs:
                  user_role_required: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a SlackChannelConfiguration resource.
+
         :param pulumi.Input[_builtins.str] iam_role_arn: The ARN of the IAM role that defines the permissions for AWS Chatbot
         :param pulumi.Input[_builtins.str] slack_channel_id: The id of the Slack channel
         :param pulumi.Input[_builtins.str] slack_workspace_id: The id of the Slack workspace
@@ -203,6 +204,7 @@ class SlackChannelConfiguration(pulumi.CustomResource):
         """
         Resource schema for AWS::Chatbot::SlackChannelConfiguration.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] configuration_name: The name of the configuration
@@ -224,6 +226,7 @@ class SlackChannelConfiguration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource schema for AWS::Chatbot::SlackChannelConfiguration.
+
 
         :param str resource_name: The name of the resource.
         :param SlackChannelConfigurationArgs args: The arguments to use to populate this resource's properties.

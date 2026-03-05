@@ -33,6 +33,7 @@ class VolumeArgs:
                  volume_type: Optional[pulumi.Input['VolumeType']] = None):
         """
         The set of arguments for constructing a Volume resource.
+
         :param pulumi.Input[_builtins.str] availability_zone: The Availability Zone in which to create the volume
         :param pulumi.Input[_builtins.bool] encrypted: Indicates whether the volume should be encrypted
         :param pulumi.Input[_builtins.int] iops: The number of I/O operations per second (IOPS)
@@ -189,6 +190,7 @@ class Volume(pulumi.CustomResource):
         """
         Resource Type definition for AWS::WorkspacesInstances::Volume - Manages WorkSpaces Volume resources
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] availability_zone: The Availability Zone in which to create the volume
@@ -209,6 +211,7 @@ class Volume(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::WorkspacesInstances::Volume - Manages WorkSpaces Volume resources
+
 
         :param str resource_name: The name of the resource.
         :param VolumeArgs args: The arguments to use to populate this resource's properties.

@@ -2992,6 +2992,7 @@ class ParametersPropertiesArgs:
                  users_noise_per_query: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Specifies the epsilon and noise parameters for the privacy budget template.
+
         :param pulumi.Input[_builtins.int] epsilon: The epsilon value that you want to use.
         :param pulumi.Input[_builtins.int] users_noise_per_query: Noise added per query is measured in terms of the number of users whose contributions you want to obscure. This value governs the rate at which the privacy budget is depleted.
         """

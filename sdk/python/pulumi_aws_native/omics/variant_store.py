@@ -29,6 +29,7 @@ class VariantStoreArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a VariantStore resource.
+
         :param pulumi.Input['VariantStoreReferenceItemArgs'] reference: The genome reference for the store's variants.
         :param pulumi.Input[_builtins.str] description: A description for the store.
         :param pulumi.Input[_builtins.str] name: A name for the store.
@@ -121,6 +122,7 @@ class VariantStore(pulumi.CustomResource):
         """
         Definition of AWS::Omics::VariantStore Resource Type
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: A description for the store.
@@ -137,6 +139,7 @@ class VariantStore(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of AWS::Omics::VariantStore Resource Type
+
 
         :param str resource_name: The name of the resource.
         :param VariantStoreArgs args: The arguments to use to populate this resource's properties.

@@ -24,6 +24,7 @@ class HookDefaultVersionArgs:
                  version_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a HookDefaultVersion resource.
+
         :param pulumi.Input[_builtins.str] type_name: The name of the type being registered.
                
                We recommend that type names adhere to the following pattern: company_or_organization::service::type.
@@ -131,6 +132,7 @@ class HookDefaultVersion(pulumi.CustomResource):
 
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] type_name: The name of the type being registered.
@@ -189,6 +191,7 @@ class HookDefaultVersion(pulumi.CustomResource):
             version_id="1")
 
         ```
+
 
         :param str resource_name: The name of the resource.
         :param HookDefaultVersionArgs args: The arguments to use to populate this resource's properties.

@@ -25,6 +25,7 @@ class NetworkAclArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a NetworkAcl resource.
+
         :param pulumi.Input[_builtins.str] vpc_id: The ID of the VPC for the network ACL.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags for the network ACL.
         """
@@ -70,6 +71,7 @@ class NetworkAcl(pulumi.CustomResource):
         Specifies a network ACL for your VPC.
          To add a network ACL entry, see [AWS::EC2::NetworkAclEntry](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkaclentry.html).
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags for the network ACL.
@@ -84,6 +86,7 @@ class NetworkAcl(pulumi.CustomResource):
         """
         Specifies a network ACL for your VPC.
          To add a network ACL entry, see [AWS::EC2::NetworkAclEntry](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkaclentry.html).
+
 
         :param str resource_name: The name of the resource.
         :param NetworkAclArgs args: The arguments to use to populate this resource's properties.

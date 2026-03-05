@@ -371,6 +371,7 @@ class DeploymentGroupAlarm(dict):
                  name: Optional[_builtins.str] = None):
         """
         Specifies a CloudWatch alarm to use for an AWS CodeDeploy deployment group.
+
         :param _builtins.str name: The name of the alarm. Maximum length is 255 characters. Each alarm name can be used only once in a list of alarms.
         """
         if name is not None:
@@ -413,6 +414,7 @@ class DeploymentGroupAlarmConfiguration(dict):
                  ignore_poll_alarm_failure: Optional[_builtins.bool] = None):
         """
         Configures CloudWatch alarms for an AWS CodeDeploy deployment group.
+
         :param Sequence['DeploymentGroupAlarm'] alarms: A list of alarms configured for the deployment or deployment group. A maximum of 10 alarms can be added.
         :param _builtins.bool enabled: Indicates whether the alarm configuration is enabled.
         :param _builtins.bool ignore_poll_alarm_failure: Indicates whether a deployment should continue if information about the current state of alarms cannot be retrieved from Amazon CloudWatch. The default value is false.
@@ -459,6 +461,7 @@ class DeploymentGroupAutoRollbackConfiguration(dict):
                  events: Optional[Sequence[_builtins.str]] = None):
         """
         Configures automatic rollback for an AWS CodeDeploy deployment group when a deployment is not completed successfully.
+
         :param _builtins.bool enabled: Indicates whether a defined automatic rollback configuration is currently enabled.
         :param Sequence[_builtins.str] events: The event type or types that trigger a rollback.
         """
@@ -516,6 +519,7 @@ class DeploymentGroupBlueGreenDeploymentConfiguration(dict):
                  terminate_blue_instances_on_deployment_success: Optional['outputs.DeploymentGroupBlueInstanceTerminationOption'] = None):
         """
         Information about blue/green deployment options for a deployment group.
+
         :param 'DeploymentGroupDeploymentReadyOption' deployment_ready_option: Information about the action to take when newly provisioned instances are ready to receive traffic in a blue/green deployment.
         :param 'DeploymentGroupGreenFleetProvisioningOption' green_fleet_provisioning_option: Information about how instances are provisioned for a replacement environment in a blue/green deployment.
         :param 'DeploymentGroupBlueInstanceTerminationOption' terminate_blue_instances_on_deployment_success: Information about whether to terminate instances in the original fleet during a blue/green deployment.
@@ -579,6 +583,7 @@ class DeploymentGroupBlueInstanceTerminationOption(dict):
                  termination_wait_time_in_minutes: Optional[_builtins.int] = None):
         """
         Information about whether instances in the original environment are terminated when a blue/green deployment is successful. BlueInstanceTerminationOption does not apply to Lambda deployments.
+
         :param _builtins.str action: The action to take on instances in the original environment after a successful blue/green deployment.
         :param _builtins.int termination_wait_time_in_minutes: For an Amazon EC2 deployment, the number of minutes to wait after a successful blue/green deployment before terminating instances from the original environment. For an Amazon ECS deployment, the number of minutes before deleting the original (blue) task set. During an Amazon ECS deployment, CodeDeploy shifts traffic from the original (blue) task set to a replacement (green) task set. The maximum setting is 2880 minutes (2 days).
         """
@@ -632,6 +637,7 @@ class DeploymentGroupDeployment(dict):
                  ignore_application_stop_failures: Optional[_builtins.bool] = None):
         """
         Specifies an AWS CodeDeploy application revision to be deployed to instances in the deployment group. If you specify an application revision, your target revision is deployed as soon as the provisioning process is complete.
+
         :param 'DeploymentGroupRevisionLocation' revision: Information about the location of stored application artifacts and the service from which to retrieve them.
         :param _builtins.str description: A description of the deployment.
         :param _builtins.bool ignore_application_stop_failures: If true, then if an ApplicationStop, BeforeBlockTraffic, or AfterBlockTraffic deployment lifecycle event to an instance fails, then the deployment continues to the next deployment lifecycle event. If false or not specified, then if a lifecycle event fails during a deployment to an instance, that deployment fails. If deployment to that instance is part of an overall deployment and the number of healthy hosts is not less than the minimum number of healthy hosts, then a deployment to the next instance is attempted.
@@ -696,6 +702,7 @@ class DeploymentGroupDeploymentReadyOption(dict):
                  wait_time_in_minutes: Optional[_builtins.int] = None):
         """
         Information about when to reroute traffic from an original environment to a replacement environment in a blue/green deployment.
+
         :param _builtins.str action_on_timeout: Information about when to reroute traffic from an original environment to a replacement environment in a blue/green deployment. CONTINUE_DEPLOYMENT: Register new instances with the load balancer immediately after the new application revision is installed on the instances in the replacement environment. STOP_DEPLOYMENT: Do not register new instances with a load balancer unless traffic rerouting is started using ContinueDeployment . If traffic rerouting is not started before the end of the specified wait period, the deployment status is changed to Stopped.
         :param _builtins.int wait_time_in_minutes: The number of minutes to wait before the status of a blue/green deployment is changed to Stopped if rerouting is not started manually. Applies only to the STOP_DEPLOYMENT option for actionOnTimeout.
         """
@@ -750,6 +757,7 @@ class DeploymentGroupDeploymentStyle(dict):
                  deployment_type: Optional[_builtins.str] = None):
         """
         Information about the type of deployment, either in-place or blue/green, you want to run and whether to route deployment traffic behind a load balancer.
+
         :param _builtins.str deployment_option: Indicates whether to route deployment traffic behind a load balancer.
         :param _builtins.str deployment_type: Indicates whether to run an in-place or blue/green deployment.
         """
@@ -786,6 +794,7 @@ class DeploymentGroupEc2TagFilter(dict):
                  value: Optional[_builtins.str] = None):
         """
         Information about an Amazon EC2 tag filter.
+
         :param _builtins.str key: The tag filter key.
         :param _builtins.str type: The tag filter type.
         :param _builtins.str value: The tag filter value.
@@ -848,6 +857,7 @@ class DeploymentGroupEc2TagSet(dict):
                  ec2_tag_set_list: Optional[Sequence['outputs.DeploymentGroupEc2TagSetListObject']] = None):
         """
         Specifies information about groups of tags applied to Amazon EC2 instances. The deployment group includes only Amazon EC2 instances identified by all the tag groups. Cannot be used in the same template as EC2TagFilters.
+
         :param Sequence['DeploymentGroupEc2TagSetListObject'] ec2_tag_set_list: The Amazon EC2 tags that are already applied to Amazon EC2 instances that you want to include in the deployment group. CodeDeploy includes all Amazon EC2 instances identified by any of the tags you specify in this deployment group.
         """
         if ec2_tag_set_list is not None:
@@ -888,6 +898,7 @@ class DeploymentGroupEc2TagSetListObject(dict):
                  ec2_tag_group: Optional[Sequence['outputs.DeploymentGroupEc2TagFilter']] = None):
         """
         The EC2TagSet property type specifies information about groups of tags applied to Amazon EC2 instances. The deployment group includes only Amazon EC2 instances identified by all the tag groups. Cannot be used in the same template as EC2TagFilters.
+
         :param Sequence['DeploymentGroupEc2TagFilter'] ec2_tag_group: A list that contains other lists of Amazon EC2 instance tag groups. For an instance to be included in the deployment group, it must be identified by all of the tag groups in the list.
         """
         if ec2_tag_group is not None:
@@ -931,6 +942,7 @@ class DeploymentGroupEcsService(dict):
                  service_name: _builtins.str):
         """
         Contains the service and cluster names used to identify an Amazon ECS deployment's target.
+
         :param _builtins.str cluster_name: The name of the cluster that the Amazon ECS service is associated with.
         :param _builtins.str service_name: The name of the target Amazon ECS service.
         """
@@ -963,6 +975,7 @@ class DeploymentGroupElbInfo(dict):
                  name: Optional[_builtins.str] = None):
         """
         The ELBInfo property type specifies information about the Elastic Load Balancing load balancer used for an CodeDeploy deployment group. If you specify the ELBInfo property, the DeploymentStyle.DeploymentOption property must be set to WITH_TRAFFIC_CONTROL for AWS CodeDeploy to route your traffic using the specified load balancers.
+
         :param _builtins.str name: For blue/green deployments, the name of the load balancer that is used to route traffic from original instances to replacement instances in a blue/green deployment. For in-place deployments, the name of the load balancer that instances are deregistered from so they are not serving traffic during a deployment, and then re-registered with after the deployment is complete.
         """
         if name is not None:
@@ -1004,6 +1017,7 @@ class DeploymentGroupGitHubLocation(dict):
                  repository: _builtins.str):
         """
         Specifies the location of an application revision that is stored in GitHub.
+
         :param _builtins.str commit_id: The SHA1 commit ID of the GitHub commit that represents the bundled artifacts for the application revision.
         :param _builtins.str repository: The GitHub account and repository pair that stores the application revision to be deployed.
         """
@@ -1036,6 +1050,7 @@ class DeploymentGroupGreenFleetProvisioningOption(dict):
                  action: Optional[_builtins.str] = None):
         """
         Information about the instances that belong to the replacement environment in a blue/green deployment.
+
         :param _builtins.str action: The method used to add instances to a replacement environment.
         """
         if action is not None:
@@ -1082,6 +1097,7 @@ class DeploymentGroupLoadBalancerInfo(dict):
                  target_group_pair_info_list: Optional[Sequence['outputs.DeploymentGroupTargetGroupPairInfo']] = None):
         """
         Specifies information about the load balancer or target group used for an AWS CodeDeploy deployment group. For AWS CloudFormation to use the properties specified in LoadBalancerInfo, the DeploymentStyle.DeploymentOption property must be set to WITH_TRAFFIC_CONTROL.
+
         :param Sequence['DeploymentGroupElbInfo'] elb_info_list: An array that contains information about the load balancers to use for load balancing in a deployment. If you're using Classic Load Balancers, specify those load balancers in this array.
         :param Sequence['DeploymentGroupTargetGroupInfo'] target_group_info_list: An array that contains information about the target groups to use for load balancing in a deployment. If you're using Application Load Balancers and Network Load Balancers, specify their associated target groups in this array.
         :param Sequence['DeploymentGroupTargetGroupPairInfo'] target_group_pair_info_list: The target group pair information. This is an array of TargeGroupPairInfo objects with a maximum size of one.
@@ -1144,6 +1160,7 @@ class DeploymentGroupOnPremisesTagSet(dict):
                  on_premises_tag_set_list: Optional[Sequence['outputs.DeploymentGroupOnPremisesTagSetListObject']] = None):
         """
         Specifies a list containing other lists of on-premises instance tag groups. In order for an instance to be included in the deployment group, it must be identified by all the tag groups in the list.
+
         :param Sequence['DeploymentGroupOnPremisesTagSetListObject'] on_premises_tag_set_list: A list that contains other lists of on-premises instance tag groups. For an instance to be included in the deployment group, it must be identified by all of the tag groups in the list.
         """
         if on_premises_tag_set_list is not None:
@@ -1184,6 +1201,7 @@ class DeploymentGroupOnPremisesTagSetListObject(dict):
                  on_premises_tag_group: Optional[Sequence['outputs.DeploymentGroupTagFilter']] = None):
         """
         Specifies lists of on-premises instance tag groups. In order for an instance to be included in the deployment group, it must be identified by all the tag groups in the list.
+
         :param Sequence['DeploymentGroupTagFilter'] on_premises_tag_group: Information about groups of on-premises instance tags.
         """
         if on_premises_tag_group is not None:
@@ -1230,6 +1248,7 @@ class DeploymentGroupRevisionLocation(dict):
                  s3_location: Optional['outputs.DeploymentGroupS3Location'] = None):
         """
         Defines the location of the CodeDeploy application revision to deploy.
+
         :param 'DeploymentGroupGitHubLocation' git_hub_location: Information about the location of application artifacts stored in GitHub.
         :param _builtins.str revision_type: The type of application revision.
         :param 'DeploymentGroupS3Location' s3_location: Information about the location of a revision stored in Amazon S3.
@@ -1298,6 +1317,7 @@ class DeploymentGroupS3Location(dict):
                  version: Optional[_builtins.str] = None):
         """
         Information about the location of application artifacts stored in Amazon S3.
+
         :param _builtins.str bucket: The name of the Amazon S3 bucket where the application revision is stored.
         :param _builtins.str key: The name of the Amazon S3 object that represents the bundled artifacts for the application revision.
         :param _builtins.str bundle_type: The file type of the application revision.
@@ -1365,6 +1385,7 @@ class DeploymentGroupTagFilter(dict):
                  value: Optional[_builtins.str] = None):
         """
         Specifies which on-premises instances to associate with the deployment group.
+
         :param _builtins.str key: The on-premises instance tag filter key.
         :param _builtins.str type: The on-premises instance tag filter type
         :param _builtins.str value: The on-premises instance tag filter value.
@@ -1410,6 +1431,7 @@ class DeploymentGroupTargetGroupInfo(dict):
                  name: Optional[_builtins.str] = None):
         """
         Specifies information about a target group in Elastic Load Balancing to use in a deployment. Instances are registered as targets in a target group, and traffic is routed to the target group. The DeploymentStyle.DeploymentOption property must be set to WITH_TRAFFIC_CONTROL for CodeDeploy to route your traffic using the specified target groups.
+
         :param _builtins.str name: For blue/green deployments, the name of the target group that instances in the original environment are deregistered from, and instances in the replacement environment registered with. For in-place deployments, the name of the target group that instances are deregistered from, so they are not serving traffic during a deployment, and then re-registered with after the deployment completes. No duplicates allowed.
         """
         if name is not None:
@@ -1456,6 +1478,7 @@ class DeploymentGroupTargetGroupPairInfo(dict):
                  test_traffic_route: Optional['outputs.DeploymentGroupTrafficRoute'] = None):
         """
         The TargetGroupInfo property type specifies information about a target group in Elastic Load Balancing to use in a deployment. Instances are registered as targets in a target group, and traffic is routed to the target group. The DeploymentStyle.DeploymentOption property must be set to WITH_TRAFFIC_CONTROL for CodeDeploy to route your traffic using the specified target groups.
+
         :param 'DeploymentGroupTrafficRoute' prod_traffic_route: The path used by a load balancer to route production traffic when an Amazon ECS deployment is complete.
         :param Sequence['DeploymentGroupTargetGroupInfo'] target_groups: One pair of target groups. One is associated with the original task set. The second is associated with the task set that serves traffic after the deployment is complete.
         :param 'DeploymentGroupTrafficRoute' test_traffic_route: An optional path used by a load balancer to route test traffic after an Amazon ECS deployment. Validation can occur while test traffic is served during a deployment.
@@ -1518,6 +1541,7 @@ class DeploymentGroupTrafficRoute(dict):
                  listener_arns: Optional[Sequence[_builtins.str]] = None):
         """
         Information about a listener. The listener contains the path used to route traffic that is received from the load balancer to a target group.
+
         :param Sequence[_builtins.str] listener_arns: The Amazon Resource Name (ARN) of one listener. The listener identifies the route between a target group and a load balancer. This is an array of strings with a maximum size of one.
         """
         if listener_arns is not None:
@@ -1564,6 +1588,7 @@ class DeploymentGroupTriggerConfig(dict):
                  trigger_target_arn: Optional[_builtins.str] = None):
         """
         Information about notification triggers for the deployment group.
+
         :param Sequence[_builtins.str] trigger_events: The event type or types that trigger notifications.
         :param _builtins.str trigger_name: The name of the notification trigger.
         :param _builtins.str trigger_target_arn: The Amazon Resource Name (ARN) of the Amazon Simple Notification Service topic through which notifications about deployment or instance events are sent.

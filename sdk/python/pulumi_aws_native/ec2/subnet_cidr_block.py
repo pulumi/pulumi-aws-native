@@ -25,6 +25,7 @@ class SubnetCidrBlockArgs:
                  ipv6_netmask_length: Optional[pulumi.Input[_builtins.int]] = None):
         """
         The set of arguments for constructing a SubnetCidrBlock resource.
+
         :param pulumi.Input[_builtins.str] subnet_id: The ID of the subnet
         :param pulumi.Input[_builtins.str] ipv6_cidr_block: The IPv6 network range for the subnet, in CIDR notation. The subnet size must use a /64 prefix length
         :param pulumi.Input[_builtins.str] ipv6_ipam_pool_id: The ID of an IPv6 Amazon VPC IP Address Manager (IPAM) pool from which to allocate, to get the subnet's CIDR
@@ -101,6 +102,7 @@ class SubnetCidrBlock(pulumi.CustomResource):
         """
         The AWS::EC2::SubnetCidrBlock resource creates association between subnet and IPv6 CIDR
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] ipv6_cidr_block: The IPv6 network range for the subnet, in CIDR notation. The subnet size must use a /64 prefix length
@@ -116,6 +118,7 @@ class SubnetCidrBlock(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The AWS::EC2::SubnetCidrBlock resource creates association between subnet and IPv6 CIDR
+
 
         :param str resource_name: The name of the resource.
         :param SubnetCidrBlockArgs args: The arguments to use to populate this resource's properties.

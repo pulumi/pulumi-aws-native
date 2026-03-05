@@ -31,6 +31,7 @@ class AutomationRuleV2Args:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a AutomationRuleV2 resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['AutomationRuleV2AutomationRulesActionV2Args']]] actions: A list of actions to be performed when the rule criteria is met
         :param pulumi.Input['AutomationRuleV2CriteriaArgs'] criteria: The filtering type and configuration of the automation rule.
         :param pulumi.Input[_builtins.str] description: A description of the automation rule
@@ -151,6 +152,7 @@ class AutomationRuleV2(pulumi.CustomResource):
         """
         Resource schema for AWS::SecurityHub::AutomationRuleV2
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['AutomationRuleV2AutomationRulesActionV2Args', 'AutomationRuleV2AutomationRulesActionV2ArgsDict']]]] actions: A list of actions to be performed when the rule criteria is met
@@ -169,6 +171,7 @@ class AutomationRuleV2(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource schema for AWS::SecurityHub::AutomationRuleV2
+
 
         :param str resource_name: The name of the resource.
         :param AutomationRuleV2Args args: The arguments to use to populate this resource's properties.

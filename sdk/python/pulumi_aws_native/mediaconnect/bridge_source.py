@@ -28,6 +28,7 @@ class BridgeSourceInitArgs:
                  network_source: Optional[pulumi.Input['BridgeSourceBridgeNetworkSourceArgs']] = None):
         """
         The set of arguments for constructing a BridgeSource resource.
+
         :param pulumi.Input[_builtins.str] bridge_arn: The Amazon Resource Number (ARN) of the bridge.
         :param pulumi.Input['BridgeSourceBridgeFlowSourceArgs'] flow_source: The source of the flow.
         :param pulumi.Input[_builtins.str] name: The name of the source.
@@ -104,6 +105,7 @@ class BridgeSource(pulumi.CustomResource):
         """
         Resource schema for AWS::MediaConnect::BridgeSource
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] bridge_arn: The Amazon Resource Number (ARN) of the bridge.
@@ -119,6 +121,7 @@ class BridgeSource(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource schema for AWS::MediaConnect::BridgeSource
+
 
         :param str resource_name: The name of the resource.
         :param BridgeSourceInitArgs args: The arguments to use to populate this resource's properties.

@@ -31,6 +31,7 @@ class ProfilingGroupArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a ProfilingGroup resource.
+
         :param pulumi.Input['AgentPermissionsPropertiesArgs'] agent_permissions: The agent permissions attached to this profiling group.
         :param pulumi.Input[Sequence[pulumi.Input['ProfilingGroupChannelArgs']]] anomaly_detection_notification_configuration: Configuration for Notification Channels for Anomaly Detection feature in CodeGuru Profiler which enables customers to detect anomalies in the application profile for those methods that represent the highest proportion of CPU time or latency
         :param pulumi.Input['ProfilingGroupComputePlatform'] compute_platform: The compute platform of the profiling group.
@@ -124,6 +125,7 @@ class ProfilingGroup(pulumi.CustomResource):
         """
         This resource schema represents the Profiling Group resource in the Amazon CodeGuru Profiler service.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['AgentPermissionsPropertiesArgs', 'AgentPermissionsPropertiesArgsDict']] agent_permissions: The agent permissions attached to this profiling group.
@@ -140,6 +142,7 @@ class ProfilingGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         This resource schema represents the Profiling Group resource in the Amazon CodeGuru Profiler service.
+
 
         :param str resource_name: The name of the resource.
         :param ProfilingGroupArgs args: The arguments to use to populate this resource's properties.

@@ -35,6 +35,7 @@ class AssetModelArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a AssetModel resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['AssetModelCompositeModelArgs']]] asset_model_composite_models: The composite asset models that are part of this asset model. Composite asset models are asset models that contain specific properties.
         :param pulumi.Input[_builtins.str] asset_model_description: A description for the asset model.
         :param pulumi.Input[_builtins.str] asset_model_external_id: The external ID of the asset model.
@@ -192,6 +193,7 @@ class AssetModel(pulumi.CustomResource):
         """
         Resource schema for AWS::IoTSiteWise::AssetModel
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['AssetModelCompositeModelArgs', 'AssetModelCompositeModelArgsDict']]]] asset_model_composite_models: The composite asset models that are part of this asset model. Composite asset models are asset models that contain specific properties.
@@ -212,6 +214,7 @@ class AssetModel(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource schema for AWS::IoTSiteWise::AssetModel
+
 
         :param str resource_name: The name of the resource.
         :param AssetModelArgs args: The arguments to use to populate this resource's properties.

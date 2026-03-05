@@ -32,6 +32,7 @@ class ListenerArgs:
                  ssl_policy: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Listener resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['ListenerActionArgs']]] default_actions: The actions for the default rule. You cannot define a condition for a default rule.
                 To create additional rules for an Application Load Balancer, use [AWS::ElasticLoadBalancingV2::ListenerRule](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html).
         :param pulumi.Input[_builtins.str] load_balancer_arn: The Amazon Resource Name (ARN) of the load balancer.
@@ -195,6 +196,7 @@ class Listener(pulumi.CustomResource):
         """
         Specifies a listener for an Application Load Balancer, Network Load Balancer, or Gateway Load Balancer.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] alpn_policy: [TLS listener] The name of the Application-Layer Protocol Negotiation (ALPN) policy.
@@ -219,6 +221,7 @@ class Listener(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Specifies a listener for an Application Load Balancer, Network Load Balancer, or Gateway Load Balancer.
+
 
         :param str resource_name: The name of the resource.
         :param ListenerArgs args: The arguments to use to populate this resource's properties.

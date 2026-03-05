@@ -30,6 +30,7 @@ class LagArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Lag resource.
+
         :param pulumi.Input[_builtins.str] connections_bandwidth: The bandwidth of the individual physical dedicated connections bundled by the LAG.
         :param pulumi.Input[_builtins.str] location: The location for the LAG.
         :param pulumi.Input[_builtins.str] lag_name: The name of the LAG.
@@ -153,6 +154,7 @@ class Lag(pulumi.CustomResource):
         """
         Resource Type definition for AWS::DirectConnect::Lag
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] connections_bandwidth: The bandwidth of the individual physical dedicated connections bundled by the LAG.
@@ -171,6 +173,7 @@ class Lag(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::DirectConnect::Lag
+
 
         :param str resource_name: The name of the resource.
         :param LagArgs args: The arguments to use to populate this resource's properties.

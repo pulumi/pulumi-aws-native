@@ -23,6 +23,7 @@ class AliasArgs:
                  key_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Alias resource.
+
         :param pulumi.Input[_builtins.str] alias_name: A friendly name that you can use to refer to a key. The value must begin with `alias/` .
                
                > Do not include confidential or sensitive information in this field. This field may be displayed in plaintext in AWS CloudTrail logs and other output.
@@ -72,6 +73,7 @@ class Alias(pulumi.CustomResource):
         """
         Definition of AWS::PaymentCryptography::Alias Resource Type
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] alias_name: A friendly name that you can use to refer to a key. The value must begin with `alias/` .
@@ -87,6 +89,7 @@ class Alias(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of AWS::PaymentCryptography::Alias Resource Type
+
 
         :param str resource_name: The name of the resource.
         :param AliasArgs args: The arguments to use to populate this resource's properties.

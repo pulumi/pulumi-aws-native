@@ -30,6 +30,7 @@ class EnabledBaselineArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a EnabledBaseline resource.
+
         :param pulumi.Input[_builtins.str] baseline_identifier: The specific `Baseline` enabled as part of the `EnabledBaseline` resource.
         :param pulumi.Input[_builtins.str] baseline_version: The enabled version of the `Baseline` .
         :param pulumi.Input[_builtins.str] target_identifier: The target on which to enable the `Baseline` .
@@ -116,6 +117,7 @@ class EnabledBaseline(pulumi.CustomResource):
         """
         Definition of AWS::ControlTower::EnabledBaseline Resource Type
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] baseline_identifier: The specific `Baseline` enabled as part of the `EnabledBaseline` resource.
@@ -131,6 +133,7 @@ class EnabledBaseline(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of AWS::ControlTower::EnabledBaseline Resource Type
+
 
         :param str resource_name: The name of the resource.
         :param EnabledBaselineArgs args: The arguments to use to populate this resource's properties.

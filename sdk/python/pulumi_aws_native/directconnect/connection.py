@@ -30,6 +30,7 @@ class ConnectionArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Connection resource.
+
         :param pulumi.Input[_builtins.str] bandwidth: The bandwidth of the connection.
         :param pulumi.Input[_builtins.str] location: The location of the connection.
         :param pulumi.Input[_builtins.str] connection_name: The name of the connection.
@@ -153,6 +154,7 @@ class Connection(pulumi.CustomResource):
         """
         Resource Type definition for AWS::DirectConnect::Connection
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] bandwidth: The bandwidth of the connection.
@@ -171,6 +173,7 @@ class Connection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::DirectConnect::Connection
+
 
         :param str resource_name: The name of the resource.
         :param ConnectionArgs args: The arguments to use to populate this resource's properties.

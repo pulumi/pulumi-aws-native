@@ -34,6 +34,7 @@ class ResponsePlanArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a ResponsePlan resource.
+
         :param pulumi.Input['ResponsePlanIncidentTemplateArgs'] incident_template: Details used to create an incident when using this response plan.
         :param pulumi.Input[Sequence[pulumi.Input['ResponsePlanActionArgs']]] actions: The list of actions.
         :param pulumi.Input['ResponsePlanChatChannelArgs'] chat_channel: The  chat channel used for collaboration during an incident.
@@ -174,6 +175,7 @@ class ResponsePlan(pulumi.CustomResource):
         """
         Resource type definition for AWS::SSMIncidents::ResponsePlan
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ResponsePlanActionArgs', 'ResponsePlanActionArgsDict']]]] actions: The list of actions.
@@ -193,6 +195,7 @@ class ResponsePlan(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource type definition for AWS::SSMIncidents::ResponsePlan
+
 
         :param str resource_name: The name of the resource.
         :param ResponsePlanArgs args: The arguments to use to populate this resource's properties.

@@ -33,6 +33,7 @@ class PackagingConfigurationArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a PackagingConfiguration resource.
+
         :param pulumi.Input[_builtins.str] aws_id: The ID of the PackagingConfiguration.
         :param pulumi.Input[_builtins.str] packaging_group_id: The ID of a PackagingGroup.
         :param pulumi.Input['PackagingConfigurationCmafPackageArgs'] cmaf_package: A CMAF packaging configuration.
@@ -156,6 +157,7 @@ class PackagingConfiguration(pulumi.CustomResource):
         """
         Resource schema for AWS::MediaPackage::PackagingConfiguration
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] aws_id: The ID of the PackagingConfiguration.
@@ -174,6 +176,7 @@ class PackagingConfiguration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource schema for AWS::MediaPackage::PackagingConfiguration
+
 
         :param str resource_name: The name of the resource.
         :param PackagingConfigurationArgs args: The arguments to use to populate this resource's properties.

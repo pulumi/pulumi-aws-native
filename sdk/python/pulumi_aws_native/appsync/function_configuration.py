@@ -37,6 +37,7 @@ class FunctionConfigurationArgs:
                  sync_config: Optional[pulumi.Input['FunctionConfigurationSyncConfigArgs']] = None):
         """
         The set of arguments for constructing a FunctionConfiguration resource.
+
         :param pulumi.Input[_builtins.str] api_id: The AWS AppSync GraphQL API that you want to attach using this function.
         :param pulumi.Input[_builtins.str] data_source_name: The name of data source this function will attach.
         :param pulumi.Input[_builtins.str] code: The resolver code that contains the request and response functions. When code is used, the runtime is required. The runtime value must be APPSYNC_JS.
@@ -298,6 +299,7 @@ class FunctionConfiguration(pulumi.CustomResource):
 
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] api_id: The AWS AppSync GraphQL API that you want to attach using this function.
@@ -349,6 +351,7 @@ class FunctionConfiguration(pulumi.CustomResource):
             response_mapping_template_s3_location=response_mapping_template_s3_location_input)
 
         ```
+
 
         :param str resource_name: The name of the resource.
         :param FunctionConfigurationArgs args: The arguments to use to populate this resource's properties.

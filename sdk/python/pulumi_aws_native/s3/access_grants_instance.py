@@ -25,6 +25,7 @@ class AccessGrantsInstanceArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]] = None):
         """
         The set of arguments for constructing a AccessGrantsInstance resource.
+
         :param pulumi.Input[_builtins.str] identity_center_arn: The Amazon Resource Name (ARN) of the specified AWS Identity Center.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]] tags: The AWS resource tags that you are adding to the S3 Access Grants instance. Each tag is a label consisting of a user-defined key and value. Tags can help you manage, identify, organize, search for, and filter resources.
         """
@@ -70,6 +71,7 @@ class AccessGrantsInstance(pulumi.CustomResource):
         """
         The AWS::S3::AccessGrantsInstance resource is an Amazon S3 resource type that hosts Access Grants and their associated locations
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] identity_center_arn: The Amazon Resource Name (ARN) of the specified AWS Identity Center.
@@ -83,6 +85,7 @@ class AccessGrantsInstance(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The AWS::S3::AccessGrantsInstance resource is an Amazon S3 resource type that hosts Access Grants and their associated locations
+
 
         :param str resource_name: The name of the resource.
         :param AccessGrantsInstanceArgs args: The arguments to use to populate this resource's properties.

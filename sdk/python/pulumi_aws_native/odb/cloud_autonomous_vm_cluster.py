@@ -42,6 +42,7 @@ class CloudAutonomousVmClusterArgs:
                  total_container_databases: Optional[pulumi.Input[_builtins.int]] = None):
         """
         The set of arguments for constructing a CloudAutonomousVmCluster resource.
+
         :param pulumi.Input[_builtins.float] autonomous_data_storage_size_in_tbs: The data storage size allocated for Autonomous Databases in the Autonomous VM cluster, in TB.
         :param pulumi.Input[_builtins.str] cloud_exadata_infrastructure_id: The unique identifier of the Cloud Exadata Infrastructure containing this Autonomous VM cluster.
         :param pulumi.Input[_builtins.int] cpu_core_count_per_node: The number of CPU cores enabled per node in the Autonomous VM cluster.
@@ -311,6 +312,7 @@ class CloudAutonomousVmCluster(pulumi.CustomResource):
         """
         The AWS::ODB::CloudAutonomousVmCluster resource creates a Cloud Autonomous VM Cluster
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.float] autonomous_data_storage_size_in_tbs: The data storage size allocated for Autonomous Databases in the Autonomous VM cluster, in TB.
@@ -338,6 +340,7 @@ class CloudAutonomousVmCluster(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The AWS::ODB::CloudAutonomousVmCluster resource creates a Cloud Autonomous VM Cluster
+
 
         :param str resource_name: The name of the resource.
         :param CloudAutonomousVmClusterArgs args: The arguments to use to populate this resource's properties.

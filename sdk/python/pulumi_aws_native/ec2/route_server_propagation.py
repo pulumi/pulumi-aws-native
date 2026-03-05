@@ -23,6 +23,7 @@ class RouteServerPropagationArgs:
                  route_table_id: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a RouteServerPropagation resource.
+
         :param pulumi.Input[_builtins.str] route_server_id: Route Server ID
         :param pulumi.Input[_builtins.str] route_table_id: Route Table ID
         """
@@ -66,6 +67,7 @@ class RouteServerPropagation(pulumi.CustomResource):
         """
         VPC Route Server Propagation
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] route_server_id: Route Server ID
@@ -79,6 +81,7 @@ class RouteServerPropagation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         VPC Route Server Propagation
+
 
         :param str resource_name: The name of the resource.
         :param RouteServerPropagationArgs args: The arguments to use to populate this resource's properties.

@@ -26,6 +26,7 @@ class FlowVpcInterfaceInitArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a FlowVpcInterface resource.
+
         :param pulumi.Input[_builtins.str] flow_arn: The Amazon Resource Name (ARN), a unique identifier for any AWS resource, of the flow.
         :param pulumi.Input[_builtins.str] role_arn: Role Arn MediaConnect can assume to create ENIs in customer's account.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: Security Group IDs to be used on ENI.
@@ -115,6 +116,7 @@ class FlowVpcInterface(pulumi.CustomResource):
         """
         Resource schema for AWS::MediaConnect::FlowVpcInterface
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] flow_arn: The Amazon Resource Name (ARN), a unique identifier for any AWS resource, of the flow.
@@ -131,6 +133,7 @@ class FlowVpcInterface(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource schema for AWS::MediaConnect::FlowVpcInterface
+
 
         :param str resource_name: The name of the resource.
         :param FlowVpcInterfaceInitArgs args: The arguments to use to populate this resource's properties.

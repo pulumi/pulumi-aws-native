@@ -23,6 +23,7 @@ class ContactFlowModuleVersionArgs:
                  description: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ContactFlowModuleVersion resource.
+
         :param pulumi.Input[_builtins.str] contact_flow_module_id: The identifier of the contact flow module (ARN) this version is tied to.
         :param pulumi.Input[_builtins.str] description: The description of the version.
         """
@@ -67,6 +68,7 @@ class ContactFlowModuleVersion(pulumi.CustomResource):
         """
         Resource Type definition for ContactFlowModuleVersion
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] contact_flow_module_id: The identifier of the contact flow module (ARN) this version is tied to.
@@ -80,6 +82,7 @@ class ContactFlowModuleVersion(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for ContactFlowModuleVersion
+
 
         :param str resource_name: The name of the resource.
         :param ContactFlowModuleVersionArgs args: The arguments to use to populate this resource's properties.

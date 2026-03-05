@@ -24,6 +24,7 @@ class IpamPoolCidrArgs:
                  netmask_length: Optional[pulumi.Input[_builtins.int]] = None):
         """
         The set of arguments for constructing a IpamPoolCidr resource.
+
         :param pulumi.Input[_builtins.str] ipam_pool_id: Id of the IPAM Pool.
         :param pulumi.Input[_builtins.str] cidr: Represents a single IPv4 or IPv6 CIDR
         :param pulumi.Input[_builtins.int] netmask_length: The desired netmask length of the provision. If set, IPAM will choose a block of free space with this size and return the CIDR representing it.
@@ -84,6 +85,7 @@ class IpamPoolCidr(pulumi.CustomResource):
         """
         Resource Schema of AWS::EC2::IPAMPoolCidr Type
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] cidr: Represents a single IPv4 or IPv6 CIDR
@@ -98,6 +100,7 @@ class IpamPoolCidr(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Schema of AWS::EC2::IPAMPoolCidr Type
+
 
         :param str resource_name: The name of the resource.
         :param IpamPoolCidrArgs args: The arguments to use to populate this resource's properties.

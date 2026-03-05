@@ -23,6 +23,7 @@ class ApplicationFleetAssociationArgs:
                  fleet_name: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a ApplicationFleetAssociation resource.
+
         :param pulumi.Input[_builtins.str] application_arn: The ARN of the application.
         :param pulumi.Input[_builtins.str] fleet_name: The name of the fleet.
         """
@@ -66,6 +67,7 @@ class ApplicationFleetAssociation(pulumi.CustomResource):
         """
         Resource Type definition for AWS::AppStream::ApplicationFleetAssociation
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] application_arn: The ARN of the application.
@@ -79,6 +81,7 @@ class ApplicationFleetAssociation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::AppStream::ApplicationFleetAssociation
+
 
         :param str resource_name: The name of the resource.
         :param ApplicationFleetAssociationArgs args: The arguments to use to populate this resource's properties.

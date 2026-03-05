@@ -25,6 +25,7 @@ class ResourcePolicyArgs:
                  resource_arn: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a ResourcePolicy resource.
+
         :param pulumi.Input['ResourcePolicyPolicyArgs'] policy: A resource policy to add to the resource. The policy is a JSON structure that contains one or more statements that define the policy. The policy must follow IAM syntax. If the policy isn't valid, Amazon Lex returns a validation exception.
         :param pulumi.Input[_builtins.str] resource_arn: The Amazon Resource Name (ARN) of the bot or bot alias that the resource policy is attached to.
         """
@@ -68,6 +69,7 @@ class ResourcePolicy(pulumi.CustomResource):
         """
         Resource Type definition for a resource policy with specified policy statements that attaches to a Lex bot or bot alias.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ResourcePolicyPolicyArgs', 'ResourcePolicyPolicyArgsDict']] policy: A resource policy to add to the resource. The policy is a JSON structure that contains one or more statements that define the policy. The policy must follow IAM syntax. If the policy isn't valid, Amazon Lex returns a validation exception.
@@ -81,6 +83,7 @@ class ResourcePolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for a resource policy with specified policy statements that attaches to a Lex bot or bot alias.
+
 
         :param str resource_name: The name of the resource.
         :param ResourcePolicyArgs args: The arguments to use to populate this resource's properties.

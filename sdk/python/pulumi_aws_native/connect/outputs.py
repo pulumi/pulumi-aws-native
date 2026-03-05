@@ -172,6 +172,7 @@ class AttributeConfigurationProperties(dict):
                  is_read_only: Optional[_builtins.bool] = None):
         """
         Custom metadata associated to a Predefined attribute that controls how the attribute behaves when used by upstream services.
+
         :param _builtins.bool enable_value_validation_on_association: Enables customers to enforce strict validation on the specific values that this predefined attribute can hold.
         :param _builtins.bool is_read_only: Allows the predefined attribute to show up and be managed in the Amazon Connect UI.
         """
@@ -229,6 +230,7 @@ class ConstraintsProperties(dict):
                  required_fields: Optional[Sequence['outputs.TaskTemplateRequiredFieldInfo']] = None):
         """
         The constraints for the task template
+
         :param Sequence['TaskTemplateInvisibleFieldInfo'] invisible_fields: Lists the fields that are invisible to agents.
         :param Sequence['TaskTemplateReadOnlyFieldInfo'] read_only_fields: Lists the fields that are read-only to agents, and cannot be edited.
         :param Sequence['TaskTemplateRequiredFieldInfo'] required_fields: Lists the fields that are required to be filled by agents.
@@ -368,6 +370,7 @@ class EmailAddressAliasConfiguration(dict):
                  email_address_arn: _builtins.str):
         """
         Configuration for an email address alias
+
         :param _builtins.str email_address_arn: The identifier of the email address alias
         """
         pulumi.set(__self__, "email_address_arn", email_address_arn)
@@ -426,6 +429,7 @@ class EvaluationFormAutomaticFailConfiguration(dict):
                  target_section: Optional[_builtins.str] = None):
         """
         Information about automatic fail configuration for an evaluation form.
+
         :param _builtins.str target_section: The referenceId of the target section for auto failure.
         """
         if target_section is not None:
@@ -449,6 +453,7 @@ class EvaluationFormBaseItem(dict):
                  section: 'outputs.EvaluationFormSection'):
         """
         An item at the root level. All items must be sections.
+
         :param 'EvaluationFormSection' section: A subsection or inner section of an item.
         """
         pulumi.set(__self__, "section", section)
@@ -586,6 +591,7 @@ class EvaluationFormItem(dict):
                  section: Optional['outputs.EvaluationFormSection'] = None):
         """
         Items that are part of the evaluation form. The total number of sections and questions must not exceed 100 each. Questions must be contained in a section.
+
         :param 'EvaluationFormQuestion' question: The information of the question.
         :param 'EvaluationFormSection' section: The information of the section.
         """
@@ -621,6 +627,7 @@ class EvaluationFormItemEnablementCondition(dict):
                  operator: Optional['EvaluationFormItemEnablementConditionOperator'] = None):
         """
         A condition for item enablement.
+
         :param Sequence['EvaluationFormItemEnablementConditionOperand'] operands: Operands of the enablement condition.
         :param 'EvaluationFormItemEnablementConditionOperator' operator: The operator to be used to be applied to operands if more than one provided.
         """
@@ -654,6 +661,7 @@ class EvaluationFormItemEnablementConditionOperand(dict):
                  expression: Optional['outputs.EvaluationFormItemEnablementExpression'] = None):
         """
         An operand of the enablement condition.
+
         :param 'EvaluationFormItemEnablementExpression' expression: An expression of the enablement condition.
         """
         if expression is not None:
@@ -696,6 +704,7 @@ class EvaluationFormItemEnablementConfiguration(dict):
                  default_action: Optional['EvaluationFormItemEnablementConfigurationDefaultAction'] = None):
         """
         An item enablement configuration.
+
         :param 'EvaluationFormItemEnablementConfigurationAction' action: An enablement action that if condition is satisfied.
         :param 'EvaluationFormItemEnablementCondition' condition: A condition for item enablement configuration.
         :param 'EvaluationFormItemEnablementConfigurationDefaultAction' default_action: An enablement action that if condition is not satisfied.
@@ -741,6 +750,7 @@ class EvaluationFormItemEnablementExpression(dict):
                  values: Sequence['outputs.EvaluationFormItemEnablementSourceValue']):
         """
         An expression that defines a basic building block of conditional enablement.
+
         :param 'EvaluationFormItemEnablementExpressionComparator' comparator: A comparator to be used against list of values.
         :param 'EvaluationFormItemEnablementSource' source: A source item of enablement expression.
         :param Sequence['EvaluationFormItemEnablementSourceValue'] values: A list of values from source item.
@@ -801,6 +811,7 @@ class EvaluationFormItemEnablementSource(dict):
                  ref_id: Optional[_builtins.str] = None):
         """
         An enablement expression source item.
+
         :param 'EvaluationFormItemEnablementSourceType' type: A type of source item.
         :param _builtins.str ref_id: A referenceId of the source item.
         """
@@ -852,6 +863,7 @@ class EvaluationFormItemEnablementSourceValue(dict):
                  type: Optional['EvaluationFormItemEnablementSourceValueType'] = None):
         """
         An enablement expression source value.
+
         :param _builtins.str ref_id: A referenceId of the source value.
         :param 'EvaluationFormItemEnablementSourceValueType' type: A type of source item value.
         """
@@ -903,6 +915,7 @@ class EvaluationFormLanguageConfiguration(dict):
                  form_language: Optional['EvaluationFormLanguageConfigurationFormLanguage'] = None):
         """
         Language configuration for an evaluation form.
+
         :param 'EvaluationFormLanguageConfigurationFormLanguage' form_language: The language for the evaluation form.
         """
         if form_language is not None:
@@ -947,6 +960,7 @@ class EvaluationFormMultiSelectQuestionAutomation(dict):
                  default_option_ref_ids: Optional[Sequence[_builtins.str]] = None):
         """
         Automation configuration for multi-select questions.
+
         :param Sequence['EvaluationFormMultiSelectQuestionAutomationOption'] options: Automation options for the multi-select question.
         :param Sequence[_builtins.str] default_option_ref_ids: Reference IDs of default options.
         """
@@ -1004,6 +1018,7 @@ class EvaluationFormMultiSelectQuestionAutomationOption(dict):
                  rule_category: 'outputs.EvaluationFormMultiSelectQuestionRuleCategoryAutomation'):
         """
         An automation option for a multi-select question.
+
         :param 'EvaluationFormMultiSelectQuestionRuleCategoryAutomation' rule_category: Rule category configuration for this automation option.
         """
         pulumi.set(__self__, "rule_category", rule_category)
@@ -1044,6 +1059,7 @@ class EvaluationFormMultiSelectQuestionOption(dict):
                  text: _builtins.str):
         """
         An option for a multi-select question in an evaluation form.
+
         :param _builtins.str ref_id: Reference identifier for this option.
         :param _builtins.str text: Display text for this option.
         """
@@ -1095,6 +1111,7 @@ class EvaluationFormMultiSelectQuestionProperties(dict):
                  display_as: Optional['EvaluationFormMultiSelectQuestionPropertiesDisplayAs'] = None):
         """
         Properties for a multi-select question in an evaluation form.
+
         :param Sequence['EvaluationFormMultiSelectQuestionOption'] options: Options available for this multi-select question.
         :param 'EvaluationFormMultiSelectQuestionAutomation' automation: Automation configuration for this multi-select question.
         :param 'EvaluationFormMultiSelectQuestionPropertiesDisplayAs' display_as: Display format for the multi-select question.
@@ -1158,6 +1175,7 @@ class EvaluationFormMultiSelectQuestionRuleCategoryAutomation(dict):
                  option_ref_ids: Sequence[_builtins.str]):
         """
         Automation rule for multi-select questions based on rule categories.
+
         :param _builtins.str category: The category name for this automation rule.
         :param 'EvaluationFormMultiSelectQuestionRuleCategoryAutomationCondition' condition: The condition for this automation rule.
         :param Sequence[_builtins.str] option_ref_ids: Reference IDs of options for this automation rule.
@@ -1220,6 +1238,7 @@ class EvaluationFormNumericQuestionAutomation(dict):
                  property_value: Optional['outputs.EvaluationFormNumericQuestionPropertyValueAutomation'] = None):
         """
         Information about the automation configuration in numeric questions.
+
         :param 'EvaluationFormQuestionAutomationAnswerSource' answer_source: A source of automation answer for numeric question.
         :param 'EvaluationFormNumericQuestionPropertyValueAutomation' property_value: The property value of the automation.
         """
@@ -1281,6 +1300,7 @@ class EvaluationFormNumericQuestionOption(dict):
                  score: Optional[_builtins.int] = None):
         """
         Information about the option range used for scoring in numeric questions.
+
         :param _builtins.int max_value: The maximum answer value of the range option.
         :param _builtins.int min_value: The minimum answer value of the range option.
         :param _builtins.bool automatic_fail: The flag to mark the option as automatic fail. If an automatic fail answer is provided, the overall evaluation gets a score of 0.
@@ -1372,6 +1392,7 @@ class EvaluationFormNumericQuestionProperties(dict):
                  options: Optional[Sequence['outputs.EvaluationFormNumericQuestionOption']] = None):
         """
         Information about properties for a numeric question in an evaluation form.
+
         :param _builtins.int max_value: The maximum answer value.
         :param _builtins.int min_value: The minimum answer value.
         :param 'EvaluationFormNumericQuestionAutomation' automation: The automation properties of the numeric question.
@@ -1426,6 +1447,7 @@ class EvaluationFormNumericQuestionPropertyValueAutomation(dict):
                  label: 'EvaluationFormNumericQuestionPropertyValueAutomationLabel'):
         """
         Information about the property value used in automation of a numeric questions.
+
         :param 'EvaluationFormNumericQuestionPropertyValueAutomationLabel' label: The property label of the automation.
         """
         pulumi.set(__self__, "label", label)
@@ -1478,6 +1500,7 @@ class EvaluationFormQuestion(dict):
                  weight: Optional[_builtins.float] = None):
         """
         Information about a question from an evaluation form.
+
         :param 'EvaluationFormQuestionQuestionType' question_type: The type of the question.
                 *Allowed values*: ``NUMERIC`` | ``SINGLESELECT`` | ``TEXT``
         :param _builtins.str ref_id: The identifier of the question. An identifier must be unique within the evaluation form.
@@ -1604,6 +1627,7 @@ class EvaluationFormQuestionAutomationAnswerSource(dict):
                  source_type: 'EvaluationFormQuestionAutomationAnswerSourceSourceType'):
         """
         A question automation answer.
+
         :param 'EvaluationFormQuestionAutomationAnswerSourceSourceType' source_type: The automation answer source type.
         """
         pulumi.set(__self__, "source_type", source_type)
@@ -1648,6 +1672,7 @@ class EvaluationFormQuestionTypeProperties(dict):
                  text: Optional['outputs.EvaluationFormTextQuestionProperties'] = None):
         """
         Information about properties for a question in an evaluation form. The question type properties must be either for a numeric question or a single select question.
+
         :param 'EvaluationFormMultiSelectQuestionProperties' multi_select: Properties for multi-select question types.
         :param 'EvaluationFormNumericQuestionProperties' numeric: The properties of the numeric question.
         :param 'EvaluationFormSingleSelectQuestionProperties' single_select: The properties of the numeric question.
@@ -1705,6 +1730,7 @@ class EvaluationFormScoringStrategy(dict):
                  status: 'EvaluationFormScoringStrategyStatus'):
         """
         A scoring strategy of the evaluation form.
+
         :param 'EvaluationFormScoringStrategyMode' mode: The scoring mode of the evaluation form.
                 *Allowed values*: ``QUESTION_ONLY`` | ``SECTION_ONLY``
         :param 'EvaluationFormScoringStrategyStatus' status: The scoring status of the evaluation form.
@@ -1762,6 +1788,7 @@ class EvaluationFormSection(dict):
                  weight: Optional[_builtins.float] = None):
         """
         Information about a section from an evaluation form. A section can contain sections and/or questions. Evaluation forms can only contain sections and subsections (two level nesting).
+
         :param _builtins.str ref_id: The identifier of the section. An identifier must be unique within the evaluation form.
                 *Length Constraints*: Minimum length of 1. Maximum length of 40.
         :param _builtins.str title: The title of the section.
@@ -1858,6 +1885,7 @@ class EvaluationFormSingleSelectQuestionAutomation(dict):
                  default_option_ref_id: Optional[_builtins.str] = None):
         """
         Information about the automation configuration in single select questions. Automation options are evaluated in order, and the first matched option is applied. If no automation option matches, and there is a default option, then the default option is applied.
+
         :param Sequence['EvaluationFormSingleSelectQuestionAutomationOption'] options: The automation options of the single select question.
                 *Minimum*: 1
                 *Maximum*: 20
@@ -1925,6 +1953,7 @@ class EvaluationFormSingleSelectQuestionAutomationOption(dict):
                  rule_category: 'outputs.EvaluationFormSingleSelectQuestionRuleCategoryAutomation'):
         """
         The automation options of the single select question.
+
         :param 'EvaluationFormSingleSelectQuestionRuleCategoryAutomation' rule_category: The automation option based on a rule category for the single select question.
         """
         pulumi.set(__self__, "rule_category", rule_category)
@@ -1972,6 +2001,7 @@ class EvaluationFormSingleSelectQuestionOption(dict):
                  score: Optional[_builtins.int] = None):
         """
         Information about the automation configuration in single select questions.
+
         :param _builtins.str ref_id: The identifier of the answer option. An identifier must be unique within the question.
                 *Length Constraints*: Minimum length of 1. Maximum length of 40.
         :param _builtins.str text: The title of the answer option.
@@ -2064,6 +2094,7 @@ class EvaluationFormSingleSelectQuestionProperties(dict):
                  display_as: Optional['EvaluationFormSingleSelectQuestionPropertiesDisplayAs'] = None):
         """
         Information about the options in single select questions.
+
         :param Sequence['EvaluationFormSingleSelectQuestionOption'] options: The answer options of the single select question.
                 *Minimum*: 2
                 *Maximum*: 256
@@ -2135,6 +2166,7 @@ class EvaluationFormSingleSelectQuestionRuleCategoryAutomation(dict):
         """
         Information about the automation option based on a rule category for a single select question.
          *Length Constraints*: Minimum length of 1. Maximum length of 50.
+
         :param _builtins.str category: The category name, as defined in Rules.
                 *Minimum*: 1
                 *Maximum*: 50
@@ -2204,6 +2236,7 @@ class EvaluationFormTargetConfiguration(dict):
                  contact_interaction_type: 'EvaluationFormTargetConfigurationContactInteractionType'):
         """
         Configuration that specifies the target for an evaluation form.
+
         :param 'EvaluationFormTargetConfigurationContactInteractionType' contact_interaction_type: The contact interaction type for this evaluation form.
         """
         pulumi.set(__self__, "contact_interaction_type", contact_interaction_type)
@@ -2243,6 +2276,7 @@ class EvaluationFormTextQuestionAutomation(dict):
                  answer_source: Optional['outputs.EvaluationFormQuestionAutomationAnswerSource'] = None):
         """
         Information about the automation configuration in text questions.
+
         :param 'EvaluationFormQuestionAutomationAnswerSource' answer_source: Automation answer source.
         """
         if answer_source is not None:
@@ -2266,6 +2300,7 @@ class EvaluationFormTextQuestionProperties(dict):
                  automation: Optional['outputs.EvaluationFormTextQuestionAutomation'] = None):
         """
         Information about properties for a text question in an evaluation form.
+
         :param 'EvaluationFormTextQuestionAutomation' automation: The automation properties of the text question.
         """
         if automation is not None:
@@ -2289,6 +2324,7 @@ class ExternalInvocationConfigurationProperties(dict):
                  enabled: _builtins.bool):
         """
         Defines the external invocation configuration of the flow module resource
+
         :param _builtins.bool enabled: Enable external invocation.
         """
         pulumi.set(__self__, "enabled", enabled)
@@ -2347,6 +2383,7 @@ class GranularAccessControlConfigurationProperties(dict):
                  data_table_access_control_configuration: Optional['outputs.SecurityProfileDataTableAccessControlConfiguration'] = None):
         """
         The granular access control configuration for the security profile, including data table permissions.
+
         :param 'SecurityProfileDataTableAccessControlConfiguration' data_table_access_control_configuration: The access control configuration for data tables.
         """
         if data_table_access_control_configuration is not None:
@@ -2391,6 +2428,7 @@ class HoursOfOperationConfig(dict):
                  start_time: 'outputs.HoursOfOperationTimeSlice'):
         """
         Contains information about the hours of operation.
+
         :param 'HoursOfOperationConfigDay' day: The day that the hours of operation applies to.
         :param 'HoursOfOperationTimeSlice' end_time: The end time that your contact center closes.
         :param 'HoursOfOperationTimeSlice' start_time: The start time that your contact center opens.
@@ -2471,6 +2509,7 @@ class HoursOfOperationOverride(dict):
                  recurrence_config: Optional['outputs.HoursOfOperationRecurrenceConfig'] = None):
         """
         Overrides attached to the hours of operation.
+
         :param _builtins.str effective_from: The date from which the hours of operation override would be effective.
         :param _builtins.str effective_till: The date until the hours of operation override is effective.
         :param _builtins.str hours_of_operation_override_id: The identifier for the hours of operation override.
@@ -2568,6 +2607,7 @@ class HoursOfOperationOverrideConfig(dict):
                  start_time: 'outputs.HoursOfOperationOverrideTimeSlice'):
         """
         Contains information about the hours of operation override.
+
         :param 'HoursOfOperationOverrideConfigDay' day: The day that the hours of operation override applies to.
         :param 'HoursOfOperationOverrideTimeSlice' end_time: The new end time that your contact center closes for the overriden days.
         :param 'HoursOfOperationOverrideTimeSlice' start_time: The new start time that your contact center opens for the overriden days.
@@ -2611,6 +2651,7 @@ class HoursOfOperationOverrideTimeSlice(dict):
                  minutes: _builtins.int):
         """
         The start time or end time for an an hours of operation override.
+
         :param _builtins.int hours: The hours.
         :param _builtins.int minutes: The minutes.
         """
@@ -2751,6 +2792,7 @@ class HoursOfOperationTimeSlice(dict):
                  minutes: _builtins.int):
         """
         The start time or end time for an hours of operation.
+
         :param _builtins.int hours: The hours.
         :param _builtins.int minutes: The minutes.
         """
@@ -2784,6 +2826,7 @@ class HoursOfOperationsIdentifier(dict):
                  name: Optional[_builtins.str] = None):
         """
         Identifier for hours of operation.
+
         :param _builtins.str id: The identifier for the hours of operation.
         :param _builtins.str name: The name of the hours of operation.
         """
@@ -3413,6 +3456,7 @@ class QueueOutboundCallerConfig(dict):
                  outbound_flow_arn: Optional[_builtins.str] = None):
         """
         The outbound caller ID name, number, and outbound whisper flow.
+
         :param _builtins.str outbound_caller_id_name: The caller ID name.
         :param _builtins.str outbound_caller_id_number_arn: The Amazon Resource Name (ARN) of the outbound caller ID number.
                
@@ -3479,6 +3523,7 @@ class QueueOutboundEmailConfig(dict):
                  outbound_email_address_id: Optional[_builtins.str] = None):
         """
         The outbound email address ID.
+
         :param _builtins.str outbound_email_address_id: The identifier of the email address.
         """
         if outbound_email_address_id is not None:
@@ -3528,6 +3573,7 @@ class QuickConnectConfig(dict):
                  user_config: Optional['outputs.QuickConnectUserQuickConnectConfig'] = None):
         """
         Configuration settings for the quick connect.
+
         :param 'QuickConnectType' quick_connect_type: The type of quick connect. In the Amazon Connect console, when you create a quick connect, you are prompted to assign one of the following types: Agent (USER), External (PHONE_NUMBER), or Queue (QUEUE).
         :param 'QuickConnectPhoneNumberQuickConnectConfig' phone_config: The phone configuration. This is required only if QuickConnectType is PHONE_NUMBER.
         :param 'QuickConnectQueueQuickConnectConfig' queue_config: The queue configuration. This is required only if QuickConnectType is QUEUE.
@@ -3600,6 +3646,7 @@ class QuickConnectPhoneNumberQuickConnectConfig(dict):
                  phone_number: _builtins.str):
         """
         The phone configuration. This is required only if QuickConnectType is PHONE_NUMBER.
+
         :param _builtins.str phone_number: The phone number in E.164 format.
         """
         pulumi.set(__self__, "phone_number", phone_number)
@@ -3642,6 +3689,7 @@ class QuickConnectQueueQuickConnectConfig(dict):
                  queue_arn: _builtins.str):
         """
         The queue configuration. This is required only if QuickConnectType is QUEUE.
+
         :param _builtins.str contact_flow_arn: The Amazon Resource Name (ARN) of the flow.
         :param _builtins.str queue_arn: The Amazon Resource Name (ARN) of the queue.
         """
@@ -3694,6 +3742,7 @@ class QuickConnectUserQuickConnectConfig(dict):
                  user_arn: _builtins.str):
         """
         The user configuration. This is required only if QuickConnectType is USER.
+
         :param _builtins.str contact_flow_arn: The Amazon Resource Name (ARN) of the flow.
         :param _builtins.str user_arn: The Amazon Resource Name (ARN) of the user.
         """
@@ -3743,6 +3792,7 @@ class RoutingProfileCrossChannelBehavior(dict):
                  behavior_type: 'RoutingProfileBehaviorType'):
         """
         Defines the cross-channel routing behavior that allows an agent working on a contact in one channel to be offered a contact from a different channel.
+
         :param 'RoutingProfileBehaviorType' behavior_type: Specifies the other channels that can be routed to an agent handling their current channel.
         """
         pulumi.set(__self__, "behavior_type", behavior_type)
@@ -3782,6 +3832,7 @@ class RoutingProfileManualAssignmentQueueConfig(dict):
                  queue_reference: 'outputs.RoutingProfileQueueReference'):
         """
         Contains information about the manual assignment queue and channel
+
         :param 'RoutingProfileQueueReference' queue_reference: Contains information about a queue resource.
         """
         pulumi.set(__self__, "queue_reference", queue_reference)
@@ -3823,6 +3874,7 @@ class RoutingProfileMediaConcurrency(dict):
                  cross_channel_behavior: Optional['outputs.RoutingProfileCrossChannelBehavior'] = None):
         """
         Contains information about which channels are supported, and how many contacts an agent can have on a channel simultaneously.
+
         :param 'RoutingProfileChannel' channel: The channels that agents can handle in the Contact Control Panel (CCP).
         :param _builtins.int concurrency: The number of contacts an agent can have on a channel simultaneously.
                
@@ -3897,6 +3949,7 @@ class RoutingProfileQueueConfig(dict):
                  queue_reference: 'outputs.RoutingProfileQueueReference'):
         """
         Contains information about the queue and channel for which priority and delay can be set.
+
         :param _builtins.int delay: The delay, in seconds, a contact should be in the queue before they are routed to an available agent. For more information, see [Queues: priority and delay](https://docs.aws.amazon.com/connect/latest/adminguide/concepts-routing-profiles-priority.html) in the *Amazon Connect Administrator Guide* .
         :param _builtins.int priority: The order in which contacts are to be handled for the queue. For more information, see [Queues: priority and delay](https://docs.aws.amazon.com/connect/latest/adminguide/concepts-routing-profiles-priority.html) .
         :param 'RoutingProfileQueueReference' queue_reference: Contains information about a queue resource.
@@ -3957,6 +4010,7 @@ class RoutingProfileQueueReference(dict):
                  queue_arn: _builtins.str):
         """
         Contains the channel and queue identifier for a routing profile.
+
         :param 'RoutingProfileChannel' channel: The channels agents can handle in the Contact Control Panel (CCP) for this routing profile.
         :param _builtins.str queue_arn: The Amazon Resource Name (ARN) of the queue.
         """
@@ -4027,6 +4081,7 @@ class RuleActions(dict):
                  update_case_actions: Optional[Sequence['outputs.RuleUpdateCaseAction']] = None):
         """
         A list of actions to be run when the rule is triggered.
+
         :param Sequence['RuleAssignContactCategoryAction'] assign_contact_category_actions: Information about the contact category action. The syntax can be empty, for example, ``{}``.
         :param Sequence['RuleEventBridgeAction'] event_bridge_actions: Information about the EV action.
         :param Sequence['RuleSendNotificationAction'] send_notification_actions: Information about the send notification action.
@@ -4171,6 +4226,7 @@ class RuleEventBridgeAction(dict):
                  name: _builtins.str):
         """
         The EV action definition.
+
         :param _builtins.str name: The name.
         """
         pulumi.set(__self__, "name", name)
@@ -4298,6 +4354,7 @@ class RuleNotificationRecipientType(dict):
                  user_tags: Optional[Mapping[str, _builtins.str]] = None):
         """
         The type of notification recipient.
+
         :param Sequence[_builtins.str] user_arns: The Amazon Resource Name (ARN) of the user account.
         :param Mapping[str, _builtins.str] user_tags: The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }. CON users with the specified tags will be notified.
         """
@@ -4333,6 +4390,7 @@ class RuleReference(dict):
                  value: _builtins.str):
         """
         Information about the reference when the ``referenceType`` is ``URL``. Otherwise, null. (Supports variable injection in the ``Value`` field.)
+
         :param 'RuleReferenceType' type: The type of the reference. ``DATE`` must be of type Epoch timestamp. 
                 *Allowed values*: ``URL`` | ``ATTACHMENT`` | ``NUMBER`` | ``STRING`` | ``DATE`` | ``EMAIL``
         :param _builtins.str value: A valid value for the reference. For example, for a URL reference, a formatted URL that is displayed to an agent in the Contact Control Panel (CCP).
@@ -4390,6 +4448,7 @@ class RuleSendNotificationAction(dict):
                  subject: Optional[_builtins.str] = None):
         """
         Information about the send notification action.
+
         :param _builtins.str content: Notification content. Supports variable injection. For more information, see [JSONPath reference](https://docs.aws.amazon.com/connect/latest/adminguide/contact-lens-variable-injection.html) in the *Administrators Guide*.
         :param 'RuleSendNotificationActionContentType' content_type: Content type format.
                 *Allowed value*: ``PLAIN_TEXT``
@@ -4506,6 +4565,7 @@ class RuleTaskAction(dict):
                  references: Optional[Mapping[str, 'outputs.RuleReference']] = None):
         """
         Information about the task action. This field is required if ``TriggerEventSource`` is one of the following values: ``OnZendeskTicketCreate`` | ``OnZendeskTicketStatusUpdate`` | ``OnSalesforceCaseCreate``
+
         :param _builtins.str contact_flow_arn: The Amazon Resource Name (ARN) of the flow.
         :param _builtins.str name: The name. Supports variable injection. For more information, see [JSONPath reference](https://docs.aws.amazon.com/connect/latest/adminguide/contact-lens-variable-injection.html) in the *Administrators Guide*.
         :param _builtins.str description: The description. Supports variable injection. For more information, see [JSONPath reference](https://docs.aws.amazon.com/connect/latest/adminguide/contact-lens-variable-injection.html) in the *Administrators Guide*.
@@ -4580,6 +4640,7 @@ class RuleTriggerEventSource(dict):
                  integration_association_arn: Optional[_builtins.str] = None):
         """
         The name of the event source.
+
         :param 'RuleTriggerEventSourceEventSourceName' event_source_name: The name of the event source.
         :param _builtins.str integration_association_arn: The Amazon Resource Name (ARN) of the integration association. ``IntegrationAssociationArn`` is required if ``TriggerEventSource`` is one of the following values: ``OnZendeskTicketCreate`` | ``OnZendeskTicketStatusUpdate`` | ``OnSalesforceCaseCreate``
         """
@@ -4643,6 +4704,7 @@ class SecurityProfileApplication(dict):
                  namespace: _builtins.str):
         """
         A third-party application's metadata.
+
         :param Sequence[_builtins.str] application_permissions: The permissions that the agent is granted on the application
         :param _builtins.str namespace: Namespace of the application that you want to give access to.
         """
@@ -4692,6 +4754,7 @@ class SecurityProfileDataTableAccessControlConfiguration(dict):
                  primary_attribute_access_control_configuration: Optional['outputs.SecurityProfilePrimaryAttributeAccessControlConfigurationItem'] = None):
         """
         Defines the access control configuration for data tables.
+
         :param 'SecurityProfilePrimaryAttributeAccessControlConfigurationItem' primary_attribute_access_control_configuration: The configuration's primary attribute access control configuration.
         """
         if primary_attribute_access_control_configuration is not None:
@@ -4732,6 +4795,7 @@ class SecurityProfilePrimaryAttributeAccessControlConfigurationItem(dict):
                  primary_attribute_values: Sequence['outputs.SecurityProfilePrimaryAttributeValue']):
         """
         Contains the configuration for record-based access control.
+
         :param Sequence['SecurityProfilePrimaryAttributeValue'] primary_attribute_values: An array of PrimaryAttributeValue objects.
         """
         pulumi.set(__self__, "primary_attribute_values", primary_attribute_values)
@@ -4775,6 +4839,7 @@ class SecurityProfilePrimaryAttributeValue(dict):
                  values: Sequence[_builtins.str]):
         """
         An object defining the access control for a specific attribute and its values.
+
         :param 'SecurityProfilePrimaryAttributeValueAccessType' access_type: Specifies the type of access granted. Currently, only "ALLOW" is supported
         :param _builtins.str attribute_name: The name of the primary attribute.
         :param Sequence[_builtins.str] values: An array of allowed primary values for the specified primary attribute.
@@ -4818,6 +4883,7 @@ class SecurityProfileTag(dict):
                  value: _builtins.str):
         """
         A key-value pair to associate with a resource.
+
         :param _builtins.str key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         :param _builtins.str value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         """
@@ -4868,6 +4934,7 @@ class TaskTemplateDefaultFieldValue(dict):
                  id: 'outputs.TaskTemplateFieldIdentifier'):
         """
         the default value for the task template's field
+
         :param _builtins.str default_value: Default value for the field.
         :param 'TaskTemplateFieldIdentifier' id: Identifier of a field.
         """
@@ -4920,6 +4987,7 @@ class TaskTemplateField(dict):
                  single_select_options: Optional[Sequence[_builtins.str]] = None):
         """
         A task template field object.
+
         :param 'TaskTemplateFieldIdentifier' id: The unique identifier for the field.
         :param 'TaskTemplateFieldType' type: Indicates the type of field. Following are the valid field types: `NAME` `DESCRIPTION` | `SCHEDULED_TIME` | `QUICK_CONNECT` | `URL` | `NUMBER` | `TEXT` | `TEXT_AREA` | `DATE_TIME` | `BOOLEAN` | `SINGLE_SELECT` | `EMAIL`
         :param _builtins.str description: The description of the task template's field
@@ -4974,6 +5042,7 @@ class TaskTemplateFieldIdentifier(dict):
                  name: _builtins.str):
         """
         the identifier (name) for the task template field
+
         :param _builtins.str name: The name of the task template field
         """
         pulumi.set(__self__, "name", name)
@@ -5211,6 +5280,7 @@ class UserHierarchyStructureLevelFive(dict):
                  hierarchy_level_id: Optional[_builtins.str] = None):
         """
         Information about level five.
+
         :param _builtins.str name: The name of the hierarchy level.
         :param _builtins.str hierarchy_level_arn: The Amazon Resource Name (ARN) of the hierarchy level.
         :param _builtins.str hierarchy_level_id: The identifier of the hierarchy level.
@@ -5276,6 +5346,7 @@ class UserHierarchyStructureLevelFour(dict):
                  hierarchy_level_id: Optional[_builtins.str] = None):
         """
         Information about level four.
+
         :param _builtins.str name: The name of the hierarchy level.
         :param _builtins.str hierarchy_level_arn: The Amazon Resource Name (ARN) of the hierarchy level.
         :param _builtins.str hierarchy_level_id: The identifier of the hierarchy level.
@@ -5341,6 +5412,7 @@ class UserHierarchyStructureLevelOne(dict):
                  hierarchy_level_id: Optional[_builtins.str] = None):
         """
         Information about level one.
+
         :param _builtins.str name: The name of the hierarchy level.
         :param _builtins.str hierarchy_level_arn: The Amazon Resource Name (ARN) of the hierarchy level.
         :param _builtins.str hierarchy_level_id: The identifier of the hierarchy level.
@@ -5406,6 +5478,7 @@ class UserHierarchyStructureLevelThree(dict):
                  hierarchy_level_id: Optional[_builtins.str] = None):
         """
         Information about level three.
+
         :param _builtins.str name: The name of the hierarchy level.
         :param _builtins.str hierarchy_level_arn: The Amazon Resource Name (ARN) of the hierarchy level.
         """
@@ -5467,6 +5540,7 @@ class UserHierarchyStructureLevelTwo(dict):
                  hierarchy_level_id: Optional[_builtins.str] = None):
         """
         Information about level two.
+
         :param _builtins.str name: The name of the hierarchy level.
         :param _builtins.str hierarchy_level_arn: The Amazon Resource Name (ARN) of the hierarchy level.
         :param _builtins.str hierarchy_level_id: The identifier of the hierarchy level.
@@ -5540,6 +5614,7 @@ class UserHierarchyStructureProperties(dict):
                  level_two: Optional['outputs.UserHierarchyStructureLevelTwo'] = None):
         """
         Information about the hierarchy structure.
+
         :param 'UserHierarchyStructureLevelFour' level_four: The update for level four.
         :param 'UserHierarchyStructureLevelOne' level_one: The update for level one.
         :param 'UserHierarchyStructureLevelThree' level_three: The update for level three.
@@ -5628,6 +5703,7 @@ class UserIdentityInfo(dict):
                  secondary_email: Optional[_builtins.str] = None):
         """
         Contains information about the identity of a user.
+
         :param _builtins.str email: The email address. If you are using SAML for identity management and include this parameter, an error is returned.
         :param _builtins.str first_name: The first name. This is required if you are using Amazon Connect or SAML for identity management. Inputs must be in Unicode Normalization Form C (NFC). Text containing characters in a non-NFC form (for example, decomposed characters or combining marks) are not accepted.
         :param _builtins.str last_name: The last name. This is required if you are using Amazon Connect or SAML for identity management. Inputs must be in Unicode Normalization Form C (NFC). Text containing characters in a non-NFC form (for example, decomposed characters or combining marks) are not accepted.
@@ -5770,6 +5846,7 @@ class UserPhoneConfig(dict):
                  phone_type: Optional['UserPhoneType'] = None):
         """
         Contains information about the phone configuration settings for a user.
+
         :param _builtins.int after_contact_work_time_limit: The After Call Work (ACW) timeout setting, in seconds. This parameter has a minimum value of 0 and a maximum value of 2,000,000 seconds (24 days). Enter 0 if you don't want to allocate a specific amount of ACW time. It essentially means an indefinite amount of time. When the conversation ends, ACW starts; the agent must choose Close contact to end ACW.
                
                > When returned by a `SearchUsers` call, `AfterContactWorkTimeLimit` is returned in milliseconds.
@@ -5914,6 +5991,7 @@ class UserProficiency(dict):
                  level: _builtins.float):
         """
         Proficiency of a user.
+
         :param _builtins.str attribute_name: The name of user’s proficiency. You must use a predefined attribute name that is present in the Amazon Connect instance.
         :param _builtins.str attribute_value: The value of user’s proficiency. You must use a predefined attribute value that is present in the Amazon Connect instance.
         :param _builtins.float level: The level of the proficiency. The valid values are 1, 2, 3, 4 and 5.
@@ -6036,6 +6114,7 @@ class ValidationProperties(dict):
                  multiple_of: Optional[_builtins.float] = None):
         """
         The validation rules applied to values of this attribute. Based on JSON Schema Draft 2020-12 with additional Connect-specific validations for data integrity.
+
         :param 'ValidationPropertiesEnumProperties' enum: Defines enumeration constraints for attribute values. Can specify a list of allowed values and whether custom values are permitted beyond the enumerated list.
         :param _builtins.float exclusive_maximum: The largest exclusive numeric value for NUMBER value type. Can be provided alongside Maximum where both operate independently. Must be greater than ExclusiveMinimum and Minimum. Applies to NUMBER and values within NUMBER_LIST.
         :param _builtins.float exclusive_minimum: The smallest exclusive numeric value for NUMBER value type. Can be provided alongside Minimum where both operate independently. Must be less than ExclusiveMaximum and Maximum. Applies to NUMBER and values within NUMBER_LIST.
@@ -6202,6 +6281,7 @@ class ValuesProperties(dict):
                  string_list: Optional[Sequence[_builtins.str]] = None):
         """
         The values of a predefined attribute.
+
         :param Sequence[_builtins.str] string_list: Predefined attribute values of type string list.
         """
         if string_list is not None:
@@ -6642,6 +6722,7 @@ class WorkspaceTheme(dict):
                  light: Optional['outputs.WorkspaceThemeConfig'] = None):
         """
         The theme configuration for the Connect workspace
+
         :param 'WorkspaceThemeConfig' dark: The theme configuration for dark mode.
         :param 'WorkspaceThemeConfig' light: The theme configuration for light mode.
         """

@@ -24,6 +24,7 @@ class ModuleDefaultVersionArgs:
                  version_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ModuleDefaultVersion resource.
+
         :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the module version to set as the default version.
         :param pulumi.Input[_builtins.str] module_name: The name of a module existing in the registry.
         :param pulumi.Input[_builtins.str] version_id: The ID of an existing version of the named module to set as the default.
@@ -85,6 +86,7 @@ class ModuleDefaultVersion(pulumi.CustomResource):
         """
         A module that has been registered in the CloudFormation registry as the default version
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the module version to set as the default version.
@@ -99,6 +101,7 @@ class ModuleDefaultVersion(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A module that has been registered in the CloudFormation registry as the default version
+
 
         :param str resource_name: The name of the resource.
         :param ModuleDefaultVersionArgs args: The arguments to use to populate this resource's properties.

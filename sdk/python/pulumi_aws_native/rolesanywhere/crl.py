@@ -28,6 +28,7 @@ class CrlArgs:
                  trust_anchor_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Crl resource.
+
         :param pulumi.Input[_builtins.str] crl_data: The x509 v3 specified certificate revocation list (CRL).
         :param pulumi.Input[_builtins.bool] enabled: Specifies whether the certificate revocation list (CRL) is enabled.
         :param pulumi.Input[_builtins.str] name: The name of the certificate revocation list (CRL).
@@ -120,6 +121,7 @@ class Crl(pulumi.CustomResource):
         """
         Definition of AWS::RolesAnywhere::CRL Resource Type
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] crl_data: The x509 v3 specified certificate revocation list (CRL).
@@ -136,6 +138,7 @@ class Crl(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of AWS::RolesAnywhere::CRL Resource Type
+
 
         :param str resource_name: The name of the resource.
         :param CrlArgs args: The arguments to use to populate this resource's properties.

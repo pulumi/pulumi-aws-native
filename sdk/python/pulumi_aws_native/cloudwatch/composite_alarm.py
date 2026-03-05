@@ -34,6 +34,7 @@ class CompositeAlarmArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a CompositeAlarm resource.
+
         :param pulumi.Input[_builtins.str] alarm_rule: Expression which aggregates the state of other Alarms (Metric or Composite Alarms)
         :param pulumi.Input[_builtins.bool] actions_enabled: Indicates whether actions should be executed during any changes to the alarm state. The default is TRUE.
         :param pulumi.Input[_builtins.str] actions_suppressor: Actions will be suppressed if the suppressor alarm is in the ALARM state. ActionsSuppressor can be an AlarmName or an Amazon Resource Name (ARN) from an existing alarm. 
@@ -222,6 +223,7 @@ class CompositeAlarm(pulumi.CustomResource):
         """
         The AWS::CloudWatch::CompositeAlarm type specifies an alarm which aggregates the states of other Alarms (Metric or Composite Alarms) as defined by the AlarmRule expression
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] actions_enabled: Indicates whether actions should be executed during any changes to the alarm state. The default is TRUE.
@@ -244,6 +246,7 @@ class CompositeAlarm(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The AWS::CloudWatch::CompositeAlarm type specifies an alarm which aggregates the states of other Alarms (Metric or Composite Alarms) as defined by the AlarmRule expression
+
 
         :param str resource_name: The name of the resource.
         :param CompositeAlarmArgs args: The arguments to use to populate this resource's properties.

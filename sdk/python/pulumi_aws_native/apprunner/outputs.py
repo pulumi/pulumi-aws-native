@@ -46,6 +46,7 @@ class ObservabilityConfigurationTraceConfiguration(dict):
                  vendor: 'ObservabilityConfigurationTraceConfigurationVendor'):
         """
         Describes the configuration of the tracing feature within an AWS App Runner observability configuration.
+
         :param 'ObservabilityConfigurationTraceConfigurationVendor' vendor: The implementation provider chosen for tracing App Runner services.
         """
         pulumi.set(__self__, "vendor", vendor)
@@ -88,6 +89,7 @@ class ServiceAuthenticationConfiguration(dict):
                  connection_arn: Optional[_builtins.str] = None):
         """
         Authentication Configuration
+
         :param _builtins.str access_role_arn: Access Role Arn
         :param _builtins.str connection_arn: Connection Arn
         """
@@ -142,6 +144,7 @@ class ServiceCodeConfiguration(dict):
                  code_configuration_values: Optional['outputs.ServiceCodeConfigurationValues'] = None):
         """
         Code Configuration
+
         :param 'ServiceCodeConfigurationConfigurationSource' configuration_source: Configuration Source
         :param 'ServiceCodeConfigurationValues' code_configuration_values: The basic configuration for building and running the App Runner service. Use it to quickly launch an App Runner service without providing a `apprunner.yaml` file in the source code repository (or ignoring the file if it exists).
         """
@@ -203,6 +206,7 @@ class ServiceCodeConfigurationValues(dict):
                  start_command: Optional[_builtins.str] = None):
         """
         Code Configuration Values
+
         :param 'ServiceCodeConfigurationValuesRuntime' runtime: Runtime
         :param _builtins.str build_command: Build Command
         :param _builtins.str port: Port
@@ -306,6 +310,7 @@ class ServiceCodeRepository(dict):
                  source_directory: Optional[_builtins.str] = None):
         """
         Source Code Repository
+
         :param _builtins.str repository_url: Repository Url
         :param 'ServiceSourceCodeVersion' source_code_version: The version that should be used within the source code repository.
         :param 'ServiceCodeConfiguration' code_configuration: Configuration for building and running the service from a source code repository.
@@ -384,6 +389,7 @@ class ServiceEgressConfiguration(dict):
                  vpc_connector_arn: Optional[_builtins.str] = None):
         """
         Network egress configuration
+
         :param 'ServiceEgressConfigurationEgressType' egress_type: Network egress type.
         :param _builtins.str vpc_connector_arn: The Amazon Resource Name (ARN) of the App Runner VpcConnector.
         """
@@ -434,6 +440,7 @@ class ServiceEncryptionConfiguration(dict):
                  kms_key: _builtins.str):
         """
         Encryption configuration (KMS key)
+
         :param _builtins.str kms_key: The KMS Key
         """
         pulumi.set(__self__, "kms_key", kms_key)
@@ -480,6 +487,7 @@ class ServiceHealthCheckConfiguration(dict):
                  unhealthy_threshold: Optional[_builtins.int] = None):
         """
         Health check configuration
+
         :param _builtins.int healthy_threshold: Health check Healthy Threshold
         :param _builtins.int interval: Health check Interval
         :param _builtins.str path: Health check Path
@@ -582,6 +590,7 @@ class ServiceImageConfiguration(dict):
                  start_command: Optional[_builtins.str] = None):
         """
         Image Configuration
+
         :param _builtins.str port: Port
         :param Sequence['ServiceKeyValuePair'] runtime_environment_secrets: The secrets and parameters that get referenced by your service as environment variables
         :param Sequence['ServiceKeyValuePair'] runtime_environment_variables: Environment variables that are available to your running App Runner service. An array of key-value pairs.
@@ -661,6 +670,7 @@ class ServiceImageRepository(dict):
                  image_configuration: Optional['outputs.ServiceImageConfiguration'] = None):
         """
         Image Repository
+
         :param _builtins.str image_identifier: Image Identifier
         :param 'ServiceImageRepositoryImageRepositoryType' image_repository_type: Image Repository Type
         :param 'ServiceImageConfiguration' image_configuration: Configuration for running the identified image.
@@ -721,6 +731,7 @@ class ServiceIngressConfiguration(dict):
                  is_publicly_accessible: _builtins.bool):
         """
         Network ingress configuration
+
         :param _builtins.bool is_publicly_accessible: It's set to true if the Apprunner service is publicly accessible. It's set to false otherwise.
         """
         pulumi.set(__self__, "is_publicly_accessible", is_publicly_accessible)
@@ -762,6 +773,7 @@ class ServiceInstanceConfiguration(dict):
                  memory: Optional[_builtins.str] = None):
         """
         Instance Configuration
+
         :param _builtins.str cpu: CPU
         :param _builtins.str instance_role_arn: Instance Role Arn
         :param _builtins.str memory: Memory
@@ -861,6 +873,7 @@ class ServiceNetworkConfiguration(dict):
                  ip_address_type: Optional['ServiceNetworkConfigurationIpAddressType'] = None):
         """
         Network configuration
+
         :param 'ServiceEgressConfiguration' egress_configuration: Network configuration settings for outbound message traffic.
         :param 'ServiceIngressConfiguration' ingress_configuration: Network configuration settings for inbound message traffic.
         :param 'ServiceNetworkConfigurationIpAddressType' ip_address_type: App Runner service endpoint IP address type
@@ -926,6 +939,7 @@ class ServiceObservabilityConfiguration(dict):
                  observability_configuration_arn: Optional[_builtins.str] = None):
         """
         Service observability configuration
+
         :param _builtins.bool observability_enabled: Observability enabled
         :param _builtins.str observability_configuration_arn: The Amazon Resource Name (ARN) of the App Runner ObservabilityConfiguration.
         """
@@ -960,6 +974,7 @@ class ServiceSourceCodeVersion(dict):
                  value: _builtins.str):
         """
         Source Code Version
+
         :param 'ServiceSourceCodeVersionType' type: Source Code Version Type
         :param _builtins.str value: Source Code Version Value
         """
@@ -1018,6 +1033,7 @@ class ServiceSourceConfiguration(dict):
                  image_repository: Optional['outputs.ServiceImageRepository'] = None):
         """
         Source Code configuration
+
         :param 'ServiceAuthenticationConfiguration' authentication_configuration: Describes the resources that are needed to authenticate access to some source repositories.
         :param _builtins.bool auto_deployments_enabled: Auto Deployment enabled
         :param 'ServiceCodeRepository' code_repository: The description of a source code repository.
@@ -1102,6 +1118,7 @@ class VpcIngressConnectionIngressVpcConfiguration(dict):
                  vpc_id: _builtins.str):
         """
         The configuration of customer’s VPC and related VPC endpoint
+
         :param _builtins.str vpc_endpoint_id: The ID of the VPC endpoint that your App Runner service connects to.
         :param _builtins.str vpc_id: The ID of the VPC that the VPC endpoint is used in.
         """

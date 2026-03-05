@@ -31,6 +31,7 @@ class LocalGatewayVirtualInterfaceArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a LocalGatewayVirtualInterface resource.
+
         :param pulumi.Input[_builtins.str] local_address: The local address.
         :param pulumi.Input[_builtins.str] local_gateway_virtual_interface_group_id: The ID of the virtual interface group
         :param pulumi.Input[_builtins.str] outpost_lag_id: The Outpost LAG ID.
@@ -167,6 +168,7 @@ class LocalGatewayVirtualInterface(pulumi.CustomResource):
         """
         Resource Type definition for Local Gateway Virtual Interface which describes a virtual interface for AWS Outposts local gateways.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] local_address: The local address.
@@ -186,6 +188,7 @@ class LocalGatewayVirtualInterface(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for Local Gateway Virtual Interface which describes a virtual interface for AWS Outposts local gateways.
+
 
         :param str resource_name: The name of the resource.
         :param LocalGatewayVirtualInterfaceArgs args: The arguments to use to populate this resource's properties.

@@ -38,6 +38,7 @@ class VolumeArgs:
                  volume_type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Volume resource.
+
         :param pulumi.Input[_builtins.bool] auto_enable_io: Indicates whether the volume is auto-enabled for I/O operations. By default, EBS disables I/O to the volume from attached EC2 instances when it determines that a volume's data is potentially inconsistent. If the consistency of the volume is not a concern, and you prefer that the volume be made available immediately if it's impaired, you can configure the volume to automatically enable I/O.
         :param pulumi.Input[_builtins.str] availability_zone: The ID of the Availability Zone in which to create the volume. For example, ``us-east-1a``.
                 Either ``AvailabilityZone`` or ``AvailabilityZoneId`` must be specified, but not both.
@@ -403,6 +404,7 @@ class Volume(pulumi.CustomResource):
 
         > If you set a deletion policy that creates a snapshot, all tags on the volume are included in the snapshot.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] auto_enable_io: Indicates whether the volume is auto-enabled for I/O operations. By default, EBS disables I/O to the volume from attached EC2 instances when it determines that a volume's data is potentially inconsistent. If the consistency of the volume is not a concern, and you prefer that the volume be made available immediately if it's impaired, you can configure the volume to automatically enable I/O.
@@ -492,6 +494,7 @@ class Volume(pulumi.CustomResource):
         To control how AWS CloudFormation handles the volume when the stack is deleted, set a deletion policy for your volume. You can choose to retain the volume, to delete the volume, or to create a snapshot of the volume. For more information, see [DeletionPolicy attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html) .
 
         > If you set a deletion policy that creates a snapshot, all tags on the volume are included in the snapshot.
+
 
         :param str resource_name: The name of the resource.
         :param VolumeArgs args: The arguments to use to populate this resource's properties.

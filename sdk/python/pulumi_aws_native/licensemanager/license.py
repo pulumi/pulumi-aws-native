@@ -37,6 +37,7 @@ class LicenseArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a License resource.
+
         :param pulumi.Input[_builtins.str] beneficiary: Beneficiary of the license.
         :param pulumi.Input['LicenseConsumptionConfigurationArgs'] consumption_configuration: Configuration for consumption of the license.
         :param pulumi.Input[Sequence[pulumi.Input['LicenseEntitlementArgs']]] entitlements: License entitlements.
@@ -234,6 +235,7 @@ class License(pulumi.CustomResource):
         """
         Resource Type definition for AWS::LicenseManager::License
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] beneficiary: Beneficiary of the license.
@@ -257,6 +259,7 @@ class License(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::LicenseManager::License
+
 
         :param str resource_name: The name of the resource.
         :param LicenseArgs args: The arguments to use to populate this resource's properties.

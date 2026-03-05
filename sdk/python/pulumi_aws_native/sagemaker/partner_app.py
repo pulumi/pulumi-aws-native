@@ -39,6 +39,7 @@ class PartnerAppArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a PartnerApp resource.
+
         :param pulumi.Input['PartnerAppAuthType'] auth_type: The Auth type of PartnerApp.
         :param pulumi.Input[_builtins.str] execution_role_arn: The execution role for the user.
         :param pulumi.Input[_builtins.str] tier: The tier of the PartnerApp.
@@ -256,6 +257,7 @@ class PartnerApp(pulumi.CustomResource):
         """
         Resource Type definition for AWS::SageMaker::PartnerApp
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] app_version: The version of the PartnerApp.
@@ -280,6 +282,7 @@ class PartnerApp(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::SageMaker::PartnerApp
+
 
         :param str resource_name: The name of the resource.
         :param PartnerAppArgs args: The arguments to use to populate this resource's properties.

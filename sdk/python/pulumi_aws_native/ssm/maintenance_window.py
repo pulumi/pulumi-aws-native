@@ -34,6 +34,7 @@ class MaintenanceWindowArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a MaintenanceWindow resource.
+
         :param pulumi.Input[_builtins.bool] allow_unassociated_targets: Enables a maintenance window task to run on managed instances, even if you have not registered those instances as targets. If enabled, then you must specify the unregistered instances (by instance ID) when you register a task with the maintenance window.
         :param pulumi.Input[_builtins.int] cutoff: The number of hours before the end of the maintenance window that AWS Systems Manager stops scheduling new tasks for execution.
         :param pulumi.Input[_builtins.int] duration: The duration of the maintenance window in hours.
@@ -253,6 +254,7 @@ class MaintenanceWindow(pulumi.CustomResource):
 
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] allow_unassociated_targets: Enables a maintenance window task to run on managed instances, even if you have not registered those instances as targets. If enabled, then you must specify the unregistered instances (by instance ID) when you register a task with the maintenance window.
@@ -309,6 +311,7 @@ class MaintenanceWindow(pulumi.CustomResource):
             schedule_timezone="US/Eastern")
 
         ```
+
 
         :param str resource_name: The name of the resource.
         :param MaintenanceWindowArgs args: The arguments to use to populate this resource's properties.

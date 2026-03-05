@@ -84,6 +84,7 @@ class HealthCheckAlarmIdentifier(dict):
                  region: _builtins.str):
         """
         A complex type that identifies the CloudWatch alarm that you want Amazon Route 53 health checkers to use to determine whether the specified health check is healthy.
+
         :param _builtins.str name: The name of the CloudWatch alarm that you want Amazon Route 53 health checkers to use to determine whether this health check is healthy.
         :param _builtins.str region: For the CloudWatch alarm that you want Route 53 health checkers to use to determine whether this health check is healthy, the region that the alarm was created in.
         """
@@ -173,6 +174,7 @@ class HealthCheckConfigProperties(dict):
                  search_string: Optional[_builtins.str] = None):
         """
         A complex type that contains information about the health check.
+
         :param 'HealthCheckConfigPropertiesType' type: The type of health check that you want to create, which indicates how Amazon Route 53 determines whether an endpoint is healthy.
                
                > You can't change the value of `Type` after you create a health check. 
@@ -571,6 +573,7 @@ class HostedZoneConfig(dict):
                  comment: Optional[_builtins.str] = None):
         """
         A complex type that contains an optional comment about your hosted zone. If you don't want to specify a comment, omit both the ``HostedZoneConfig`` and ``Comment`` elements.
+
         :param _builtins.str comment: Any comments that you want to include about the hosted zone.
         """
         if comment is not None:
@@ -647,6 +650,7 @@ class HostedZoneQueryLoggingConfig(dict):
                  cloud_watch_logs_log_group_arn: _builtins.str):
         """
         A complex type that contains information about a configuration for DNS query logging.
+
         :param _builtins.str cloud_watch_logs_log_group_arn: The Amazon Resource Name (ARN) of the CloudWatch Logs log group that Amazon Route 53 is publishing logs to.
         """
         pulumi.set(__self__, "cloud_watch_logs_log_group_arn", cloud_watch_logs_log_group_arn)
@@ -691,6 +695,7 @@ class HostedZoneVpc(dict):
         """
         *Private hosted zones only:* A complex type that contains information about an Amazon VPC. Route 53 Resolver uses the records in the private hosted zone to route traffic in that VPC. 
           For public hosted zones, omit ``VPCs``, ``VPCId``, and ``VPCRegion``.
+
         :param _builtins.str vpc_id: *Private hosted zones only:* The ID of an Amazon VPC.
                  For public hosted zones, omit ``VPCs``, ``VPCId``, and ``VPCRegion``.
         :param _builtins.str vpc_region: *Private hosted zones only:* The region that an Amazon VPC was created in.

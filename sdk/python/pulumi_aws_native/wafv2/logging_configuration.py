@@ -28,6 +28,7 @@ class LoggingConfigurationArgs:
                  redacted_fields: Optional[pulumi.Input[Sequence[pulumi.Input['LoggingConfigurationFieldToMatchArgs']]]] = None):
         """
         The set of arguments for constructing a LoggingConfiguration resource.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] log_destination_configs: The Amazon Resource Names (ARNs) of the logging destinations that you want to associate with the web ACL.
         :param pulumi.Input[_builtins.str] resource_arn: The Amazon Resource Name (ARN) of the web ACL that you want to associate with LogDestinationConfigs.
         :param pulumi.Input['LoggingFilterPropertiesArgs'] logging_filter: Filtering that specifies which web requests are kept in the logs and which are dropped. You can filter on the rule action and on the web request labels that were applied by matching rules during web ACL evaluation.
@@ -103,6 +104,7 @@ class LoggingConfiguration(pulumi.CustomResource):
         """
         A WAFv2 Logging Configuration Resource Provider
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] log_destination_configs: The Amazon Resource Names (ARNs) of the logging destinations that you want to associate with the web ACL.
@@ -118,6 +120,7 @@ class LoggingConfiguration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A WAFv2 Logging Configuration Resource Provider
+
 
         :param str resource_name: The name of the resource.
         :param LoggingConfigurationArgs args: The arguments to use to populate this resource's properties.

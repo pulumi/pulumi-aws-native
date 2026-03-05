@@ -27,6 +27,7 @@ class UserPoolIdentityProviderArgs:
                  provider_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a UserPoolIdentityProvider resource.
+
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] provider_details: The scopes, URLs, and identifiers for your external identity provider. The following
                examples describe the provider detail keys for each IdP type. These values and their
                schema are subject to change. Social IdP `authorize_scopes` values must match
@@ -189,6 +190,7 @@ class UserPoolIdentityProvider(pulumi.CustomResource):
         """
         Resource Type definition for AWS::Cognito::UserPoolIdentityProvider
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] attribute_mapping: A mapping of IdP attributes to standard and custom user pool attributes. Specify a user pool attribute as the key of the key-value pair, and the IdP attribute claim name as the value.
@@ -234,6 +236,7 @@ class UserPoolIdentityProvider(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::Cognito::UserPoolIdentityProvider
+
 
         :param str resource_name: The name of the resource.
         :param UserPoolIdentityProviderArgs args: The arguments to use to populate this resource's properties.

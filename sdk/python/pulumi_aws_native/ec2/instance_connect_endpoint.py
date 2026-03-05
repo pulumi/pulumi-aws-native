@@ -28,6 +28,7 @@ class InstanceConnectEndpointArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a InstanceConnectEndpoint resource.
+
         :param pulumi.Input[_builtins.str] subnet_id: The subnet id of the instance connect endpoint
         :param pulumi.Input[_builtins.str] client_token: The client token of the instance connect endpoint.
         :param pulumi.Input[_builtins.bool] preserve_client_ip: If true, the address of the instance connect endpoint client is preserved when connecting to the end resource
@@ -120,6 +121,7 @@ class InstanceConnectEndpoint(pulumi.CustomResource):
         """
         Resource Type definition for AWS::EC2::InstanceConnectEndpoint
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] client_token: The client token of the instance connect endpoint.
@@ -136,6 +138,7 @@ class InstanceConnectEndpoint(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::EC2::InstanceConnectEndpoint
+
 
         :param str resource_name: The name of the resource.
         :param InstanceConnectEndpointArgs args: The arguments to use to populate this resource's properties.

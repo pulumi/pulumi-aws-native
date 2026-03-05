@@ -26,6 +26,7 @@ class RegistryArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Registry resource.
+
         :param pulumi.Input[_builtins.str] description: A description of the registry to be created.
         :param pulumi.Input[_builtins.str] registry_name: The name of the schema registry.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: Tags associated with the resource.
@@ -100,6 +101,7 @@ class Registry(pulumi.CustomResource):
 
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: A description of the registry to be created.
@@ -127,6 +129,7 @@ class Registry(pulumi.CustomResource):
             description="Contains the schemas of events emitted by AWS Step Functions")
 
         ```
+
 
         :param str resource_name: The name of the resource.
         :param RegistryArgs args: The arguments to use to populate this resource's properties.

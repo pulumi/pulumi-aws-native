@@ -36,6 +36,7 @@ class PhoneNumberArgs:
                  two_way: Optional[pulumi.Input['TwoWayPropertiesArgs']] = None):
         """
         The set of arguments for constructing a PhoneNumber resource.
+
         :param pulumi.Input[_builtins.str] iso_country_code: The two-character code, in ISO 3166-1 alpha-2 format, for the country or region.
         :param pulumi.Input['MandatoryKeywordsPropertiesArgs'] mandatory_keywords: A keyword is a word that you can search for on a particular phone number or pool. It is also a specific word or phrase that an end user can send to your number to elicit a response, such as an informational message or a special offer. When your number receives a message that begins with a keyword, AWS End User Messaging SMS and Voice responds with a customizable message. Keywords "HELP" and "STOP" are mandatory keywords
         :param pulumi.Input[Sequence[pulumi.Input['PhoneNumberNumberCapabilitiesItem']]] number_capabilities: Indicates if the phone number will be used for text messages, voice messages, or both.
@@ -205,6 +206,7 @@ class PhoneNumber(pulumi.CustomResource):
         """
         Resource Type definition for AWS::SMSVOICE::PhoneNumber
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] deletion_protection_enabled: When set to true the sender ID can't be deleted. By default this is set to false.
@@ -226,6 +228,7 @@ class PhoneNumber(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::SMSVOICE::PhoneNumber
+
 
         :param str resource_name: The name of the resource.
         :param PhoneNumberArgs args: The arguments to use to populate this resource's properties.

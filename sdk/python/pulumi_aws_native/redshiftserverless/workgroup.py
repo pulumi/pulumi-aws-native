@@ -44,6 +44,7 @@ class WorkgroupInitArgs:
                  workgroup_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Workgroup resource.
+
         :param pulumi.Input[_builtins.int] base_capacity: The base compute capacity of the workgroup in Redshift Processing Units (RPUs).
         :param pulumi.Input[Sequence[pulumi.Input['WorkgroupConfigParameterArgs']]] config_parameters: A list of parameters to set for finer control over a database. Available options are datestyle, enable_user_activity_logging, query_group, search_path, max_query_execution_time, and require_ssl.
         :param pulumi.Input[_builtins.bool] enhanced_vpc_routing: The value that specifies whether to enable enhanced virtual private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC.
@@ -345,6 +346,7 @@ class Workgroup(pulumi.CustomResource):
         """
         Definition of AWS::RedshiftServerless::Workgroup Resource Type
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.int] base_capacity: The base compute capacity of the workgroup in Redshift Processing Units (RPUs).
@@ -374,6 +376,7 @@ class Workgroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of AWS::RedshiftServerless::Workgroup Resource Type
+
 
         :param str resource_name: The name of the resource.
         :param WorkgroupInitArgs args: The arguments to use to populate this resource's properties.

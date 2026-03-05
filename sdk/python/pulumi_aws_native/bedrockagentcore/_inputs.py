@@ -233,6 +233,7 @@ class BrowserCustomBrowserNetworkConfigurationArgs:
                  vpc_config: Optional[pulumi.Input['BrowserCustomVpcConfigArgs']] = None):
         """
         Network configuration for browser
+
         :param pulumi.Input['BrowserCustomBrowserNetworkMode'] network_mode: The network mode.
         """
         pulumi.set(__self__, "network_mode", network_mode)
@@ -307,6 +308,7 @@ class BrowserCustomRecordingConfigArgs:
                  s3_location: Optional[pulumi.Input['BrowserCustomS3LocationArgs']] = None):
         """
         Recording configuration for browser
+
         :param pulumi.Input[_builtins.bool] enabled: The recording configuration for a browser. This structure defines how browser sessions are recorded.
         :param pulumi.Input['BrowserCustomS3LocationArgs'] s3_location: The S3 location.
         """
@@ -360,6 +362,7 @@ class BrowserCustomS3LocationArgs:
                  prefix: pulumi.Input[_builtins.str]):
         """
         S3 Location Configuration
+
         :param pulumi.Input[_builtins.str] bucket: The S3 location bucket name.
         :param pulumi.Input[_builtins.str] prefix: The S3 location object prefix.
         """
@@ -445,6 +448,7 @@ class CodeInterpreterCustomCodeInterpreterNetworkConfigurationArgs:
                  vpc_config: Optional[pulumi.Input['CodeInterpreterCustomVpcConfigArgs']] = None):
         """
         Network configuration for code interpreter
+
         :param pulumi.Input['CodeInterpreterCustomCodeInterpreterNetworkMode'] network_mode: The network mode.
         """
         pulumi.set(__self__, "network_mode", network_mode)
@@ -532,6 +536,7 @@ class EvaluatorBedrockEvaluatorModelConfigArgs:
                  inference_config: Optional[pulumi.Input['EvaluatorInferenceConfigurationArgs']] = None):
         """
         The configuration for using Amazon Bedrock models in evaluator assessments.
+
         :param pulumi.Input[_builtins.str] model_id: The identifier of the Amazon Bedrock model to use for evaluation.
         :param Any additional_model_request_fields: Additional model-specific request fields.
         """
@@ -595,6 +600,7 @@ class EvaluatorCategoricalScaleDefinitionArgs:
                  label: pulumi.Input[_builtins.str]):
         """
         A categorical rating scale option.
+
         :param pulumi.Input[_builtins.str] definition: The description that explains what this categorical rating represents.
         :param pulumi.Input[_builtins.str] label: The label of this categorical rating option.
         """
@@ -676,6 +682,7 @@ class EvaluatorInferenceConfigurationArgs:
                  top_p: Optional[pulumi.Input[_builtins.float]] = None):
         """
         The inference configuration parameters that control model behavior during evaluation.
+
         :param pulumi.Input[_builtins.int] max_tokens: The maximum number of tokens to generate in the model response.
         :param pulumi.Input[_builtins.float] temperature: The temperature value that controls randomness in the model's responses.
         :param pulumi.Input[_builtins.float] top_p: The top-p sampling parameter that controls the diversity of the model's responses.
@@ -743,6 +750,7 @@ class EvaluatorLlmAsAJudgeEvaluatorConfigArgs:
                  rating_scale: pulumi.Input['EvaluatorRatingScaleArgs']):
         """
         The configuration for LLM-as-a-Judge evaluation.
+
         :param pulumi.Input[_builtins.str] instructions: The evaluation instructions that guide the language model in assessing agent performance.
         """
         pulumi.set(__self__, "instructions", instructions)
@@ -830,6 +838,7 @@ class EvaluatorNumericalScaleDefinitionArgs:
                  value: pulumi.Input[_builtins.float]):
         """
         A numerical rating scale option.
+
         :param pulumi.Input[_builtins.str] definition: The description that explains what this numerical rating represents.
         :param pulumi.Input[_builtins.str] label: The label that describes this numerical rating option.
         :param pulumi.Input[_builtins.float] value: The numerical value for this rating scale option.
@@ -3648,6 +3657,7 @@ class OnlineEvaluationConfigCloudWatchLogsInputConfigArgs:
                  service_names: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
         """
         The configuration for reading agent traces from CloudWatch logs.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] log_group_names: The list of CloudWatch log group names to monitor for agent traces.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] service_names: The list of service names to filter traces within the specified log groups.
         """
@@ -3719,6 +3729,7 @@ class OnlineEvaluationConfigEvaluatorReferenceArgs:
                  evaluator_id: pulumi.Input[_builtins.str]):
         """
         The reference to an evaluator used in online evaluation configurations.
+
         :param pulumi.Input[_builtins.str] evaluator_id: The unique identifier of the evaluator.
         """
         pulumi.set(__self__, "evaluator_id", evaluator_id)
@@ -3761,6 +3772,7 @@ class OnlineEvaluationConfigFilterValueArgs:
                  string_value: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The value used in filter comparisons.
+
         :param pulumi.Input[_builtins.bool] boolean_value: The boolean value for true/false filtering conditions.
         :param pulumi.Input[_builtins.float] double_value: The numeric value for numerical filtering.
         :param pulumi.Input[_builtins.str] string_value: The string value for text-based filtering.
@@ -3831,6 +3843,7 @@ class OnlineEvaluationConfigFilterArgs:
                  value: pulumi.Input['OnlineEvaluationConfigFilterValueArgs']):
         """
         The filter that applies conditions to agent traces during online evaluation.
+
         :param pulumi.Input[_builtins.str] key: The key or field name to filter on within the agent trace data.
         :param pulumi.Input['OnlineEvaluationConfigFilterOperator'] operator: The comparison operator to use for filtering.
         """
@@ -3891,6 +3904,7 @@ class OnlineEvaluationConfigRuleArgs:
                  session_config: Optional[pulumi.Input['OnlineEvaluationConfigSessionConfigArgs']] = None):
         """
         The evaluation rule that defines sampling configuration, filtering criteria, and session detection settings.
+
         :param pulumi.Input[Sequence[pulumi.Input['OnlineEvaluationConfigFilterArgs']]] filters: The list of filters that determine which agent traces should be included in the evaluation.
         """
         pulumi.set(__self__, "sampling_config", sampling_config)
@@ -3945,6 +3959,7 @@ class OnlineEvaluationConfigSamplingConfigArgs:
                  sampling_percentage: pulumi.Input[_builtins.float]):
         """
         The configuration that controls what percentage of agent traces are sampled for evaluation.
+
         :param pulumi.Input[_builtins.float] sampling_percentage: The percentage of agent traces to sample for evaluation.
         """
         pulumi.set(__self__, "sampling_percentage", sampling_percentage)
@@ -3977,6 +3992,7 @@ class OnlineEvaluationConfigSessionConfigArgs:
                  session_timeout_minutes: pulumi.Input[_builtins.int]):
         """
         The configuration that defines how agent sessions are detected.
+
         :param pulumi.Input[_builtins.int] session_timeout_minutes: The number of minutes of inactivity after which an agent session is considered complete.
         """
         pulumi.set(__self__, "session_timeout_minutes", session_timeout_minutes)
@@ -4051,6 +4067,7 @@ class RuntimeAuthorizerConfigurationArgs:
                  custom_jwt_authorizer: Optional[pulumi.Input['RuntimeCustomJwtAuthorizerConfigurationArgs']] = None):
         """
         Configuration for the authorizer
+
         :param pulumi.Input['RuntimeCustomJwtAuthorizerConfigurationArgs'] custom_jwt_authorizer: Represents inbound authorization configuration options used to authenticate incoming requests.
         """
         if custom_jwt_authorizer is not None:
@@ -4326,6 +4343,7 @@ class RuntimeCustomJwtAuthorizerConfigurationArgs:
                  custom_claims: Optional[pulumi.Input[Sequence[pulumi.Input['RuntimeCustomClaimValidationTypeArgs']]]] = None):
         """
         Configuration for custom JWT authorizer
+
         :param pulumi.Input[_builtins.str] discovery_url: The configuration authorization.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_audience: Represents inbound authorization configuration options used to authenticate incoming requests.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_clients: Represents individual client IDs that are validated in the incoming JWT token validation process.
@@ -4415,6 +4433,7 @@ class RuntimeLifecycleConfigurationArgs:
                  max_lifetime: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Configuration for managing the lifecycle of runtime sessions and resources
+
         :param pulumi.Input[_builtins.int] idle_runtime_session_timeout: Timeout in seconds for idle runtime sessions
         :param pulumi.Input[_builtins.int] max_lifetime: Maximum lifetime in seconds for runtime sessions
         """
@@ -4540,6 +4559,7 @@ class RuntimeS3LocationArgs:
                  version_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         S3 Location Configuration
+
         :param pulumi.Input[_builtins.str] bucket: S3 bucket name
         :param pulumi.Input[_builtins.str] prefix: S3 object key prefix
         :param pulumi.Input[_builtins.str] version_id: S3 object version ID

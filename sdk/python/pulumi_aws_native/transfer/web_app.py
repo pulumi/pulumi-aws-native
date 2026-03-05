@@ -33,6 +33,7 @@ class WebAppArgs:
                  web_app_units: Optional[pulumi.Input['WebAppUnitsPropertiesArgs']] = None):
         """
         The set of arguments for constructing a WebApp resource.
+
         :param pulumi.Input['WebAppIdentityProviderDetailsArgs'] identity_provider_details: You can provide a structure that contains the details for the identity provider to use with your web app.
                
                For more details about this parameter, see [Configure your identity provider for Transfer Family web apps](https://docs.aws.amazon.com//transfer/latest/userguide/webapp-identity-center.html) .
@@ -161,6 +162,7 @@ class WebApp(pulumi.CustomResource):
         """
         Resource Type definition for AWS::Transfer::WebApp
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] access_endpoint: The AccessEndpoint is the URL that you provide to your users for them to interact with the Transfer Family web app. You can specify a custom URL or use the default value.
@@ -182,6 +184,7 @@ class WebApp(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::Transfer::WebApp
+
 
         :param str resource_name: The name of the resource.
         :param WebAppArgs args: The arguments to use to populate this resource's properties.

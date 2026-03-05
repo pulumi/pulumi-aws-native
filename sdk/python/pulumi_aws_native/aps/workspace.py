@@ -32,6 +32,7 @@ class WorkspaceArgs:
                  workspace_configuration: Optional[pulumi.Input['WorkspaceConfigurationArgs']] = None):
         """
         The set of arguments for constructing a Workspace resource.
+
         :param pulumi.Input[_builtins.str] alert_manager_definition: The AMP Workspace alert manager definition data
         :param pulumi.Input[_builtins.str] alias: AMP Workspace alias.
         :param pulumi.Input[_builtins.str] kms_key_arn: KMS Key ARN used to encrypt and decrypt AMP workspace data.
@@ -207,6 +208,7 @@ class Workspace(pulumi.CustomResource):
 
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] alert_manager_definition: The AMP Workspace alert manager definition data
@@ -275,6 +277,7 @@ class Workspace(pulumi.CustomResource):
             }])
 
         ```
+
 
         :param str resource_name: The name of the resource.
         :param WorkspaceArgs args: The arguments to use to populate this resource's properties.

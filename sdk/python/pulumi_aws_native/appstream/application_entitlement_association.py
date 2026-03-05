@@ -24,6 +24,7 @@ class ApplicationEntitlementAssociationArgs:
                  stack_name: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a ApplicationEntitlementAssociation resource.
+
         :param pulumi.Input[_builtins.str] application_identifier: The identifier of the application.
         :param pulumi.Input[_builtins.str] entitlement_name: The name of the entitlement.
         :param pulumi.Input[_builtins.str] stack_name: The name of the stack.
@@ -82,6 +83,7 @@ class ApplicationEntitlementAssociation(pulumi.CustomResource):
         """
         Resource Type definition for AWS::AppStream::ApplicationEntitlementAssociation
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] application_identifier: The identifier of the application.
@@ -96,6 +98,7 @@ class ApplicationEntitlementAssociation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::AppStream::ApplicationEntitlementAssociation
+
 
         :param str resource_name: The name of the resource.
         :param ApplicationEntitlementAssociationArgs args: The arguments to use to populate this resource's properties.

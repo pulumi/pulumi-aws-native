@@ -34,6 +34,7 @@ class CaCertificateArgs:
                  verification_certificate_pem: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a CaCertificate resource.
+
         :param pulumi.Input[_builtins.str] ca_certificate_pem: The certificate data in PEM format.
         :param pulumi.Input['CaCertificateStatus'] status: The status of the CA certificate.
                
@@ -185,6 +186,7 @@ class CaCertificate(pulumi.CustomResource):
         """
         Registers a CA Certificate in IoT.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input['CaCertificateAutoRegistrationStatus'] auto_registration_status: Whether the CA certificate is configured for auto registration of device certificates. Valid values are "ENABLE" and "DISABLE".
@@ -210,6 +212,7 @@ class CaCertificate(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Registers a CA Certificate in IoT.
+
 
         :param str resource_name: The name of the resource.
         :param CaCertificateArgs args: The arguments to use to populate this resource's properties.

@@ -27,6 +27,7 @@ class AccountAuditConfigurationArgs:
                  audit_notification_target_configurations: Optional[pulumi.Input['AccountAuditConfigurationAuditNotificationTargetConfigurationsArgs']] = None):
         """
         The set of arguments for constructing a AccountAuditConfiguration resource.
+
         :param pulumi.Input[_builtins.str] account_id: Your 12-digit account ID (used as the primary identifier for the CloudFormation resource).
         :param pulumi.Input['AccountAuditConfigurationAuditCheckConfigurationsArgs'] audit_check_configurations: Specifies which audit checks are enabled and disabled for this account.
                
@@ -117,6 +118,7 @@ class AccountAuditConfiguration(pulumi.CustomResource):
         """
         Configures the Device Defender audit settings for this account. Settings include how audit notifications are sent and which audit checks are enabled or disabled.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_id: Your 12-digit account ID (used as the primary identifier for the CloudFormation resource).
@@ -140,6 +142,7 @@ class AccountAuditConfiguration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Configures the Device Defender audit settings for this account. Settings include how audit notifications are sent and which audit checks are enabled or disabled.
+
 
         :param str resource_name: The name of the resource.
         :param AccountAuditConfigurationArgs args: The arguments to use to populate this resource's properties.

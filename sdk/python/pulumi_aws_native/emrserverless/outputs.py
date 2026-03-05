@@ -47,6 +47,7 @@ class ApplicationAutoStartConfiguration(dict):
                  enabled: Optional[_builtins.bool] = None):
         """
         Configuration for Auto Start of Application
+
         :param _builtins.bool enabled: If set to true, the Application will automatically start. Defaults to true.
         """
         if enabled is not None:
@@ -88,6 +89,7 @@ class ApplicationAutoStopConfiguration(dict):
                  idle_timeout_minutes: Optional[_builtins.int] = None):
         """
         Configuration for Auto Stop of Application
+
         :param _builtins.bool enabled: If set to true, the Application will automatically stop after being idle. Defaults to true.
         :param _builtins.int idle_timeout_minutes: The amount of time [in minutes] to wait before auto stopping the Application when idle. Defaults to 15 minutes.
         """
@@ -214,6 +216,7 @@ class ApplicationConfigurationObject(dict):
                  properties: Optional[Mapping[str, _builtins.str]] = None):
         """
         Configuration for a JobRun.
+
         :param _builtins.str classification: String with a maximum length of 1024.
         """
         pulumi.set(__self__, "classification", classification)
@@ -267,6 +270,7 @@ class ApplicationIdentityCenterConfiguration(dict):
                  identity_center_instance_arn: Optional[_builtins.str] = None):
         """
         The IAM IdentityCenter configuration for trusted-identity-propagation on this application. Supported with release labels emr-7.8.0 and above.
+
         :param _builtins.str identity_center_instance_arn: The IAM IdentityCenter instance arn
         """
         if identity_center_instance_arn is not None:
@@ -307,6 +311,7 @@ class ApplicationImageConfigurationInput(dict):
                  image_uri: Optional[_builtins.str] = None):
         """
         The image configuration.
+
         :param _builtins.str image_uri: The URI of an image in the Amazon ECR registry. This field is required when you create a new application. If you leave this field blank in an update, Amazon EMR will remove the image configuration.
         """
         if image_uri is not None:
@@ -583,6 +588,7 @@ class ApplicationMonitoringConfiguration(dict):
                  s3_monitoring_configuration: Optional['outputs.ApplicationS3MonitoringConfiguration'] = None):
         """
         Monitoring configuration for batch and interactive JobRun.
+
         :param 'ApplicationCloudWatchLoggingConfiguration' cloud_watch_logging_configuration: CloudWatch logging configurations for a JobRun.
         :param 'ApplicationManagedPersistenceMonitoringConfiguration' managed_persistence_monitoring_configuration: Managed log persistence configurations for a JobRun.
         :param 'ApplicationPrometheusMonitoringConfiguration' prometheus_monitoring_configuration: Prometheus monitoring configurations for a JobRun.
@@ -791,6 +797,7 @@ class ApplicationSchedulerConfiguration(dict):
                  queue_timeout_minutes: Optional[_builtins.int] = None):
         """
         The scheduler configuration for batch and streaming jobs running on this application. Supported with release labels emr-7.0.0 and above.
+
         :param _builtins.int max_concurrent_runs: The maximum concurrent job runs on this application. If scheduler configuration is enabled on your application, the default value is 15. The valid range is 1 to 1000.
         :param _builtins.int queue_timeout_minutes: The maximum duration in minutes for the job in QUEUED state. If scheduler configuration is enabled on your application, the default value is 360 minutes (6 hours). The valid range is from 15 to 720.
         """
@@ -912,6 +919,7 @@ class ApplicationWorkerTypeSpecificationInput(dict):
                  image_configuration: Optional['outputs.ApplicationImageConfigurationInput'] = None):
         """
         The specifications for a worker type.
+
         :param 'ApplicationImageConfigurationInput' image_configuration: The image configuration for a worker type.
         """
         if image_configuration is not None:

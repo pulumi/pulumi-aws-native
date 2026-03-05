@@ -33,6 +33,7 @@ class ContainerInitArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Container resource.
+
         :param pulumi.Input[_builtins.str] power: The power specification for the container service.
         :param pulumi.Input[_builtins.int] scale: The scale specification for the container service.
         :param pulumi.Input[_builtins.str] service_name: The name for the container service.
@@ -171,6 +172,7 @@ class Container(pulumi.CustomResource):
         """
         Resource Type definition for AWS::Lightsail::Container
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ContainerServiceDeploymentArgs', 'ContainerServiceDeploymentArgsDict']] container_service_deployment: Describes a container deployment configuration of an Amazon Lightsail container service.
@@ -190,6 +192,7 @@ class Container(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::Lightsail::Container
+
 
         :param str resource_name: The name of the resource.
         :param ContainerInitArgs args: The arguments to use to populate this resource's properties.

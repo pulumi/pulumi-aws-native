@@ -44,6 +44,7 @@ class GroupMembershipMemberId(dict):
                  user_id: _builtins.str):
         """
         An object containing the identifier of a group member.
+
         :param _builtins.str user_id: The identifier for a user in the identity store.
         """
         pulumi.set(__self__, "user_id", user_id)

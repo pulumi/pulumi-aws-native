@@ -47,6 +47,7 @@ class ApplicationInstanceManifestOverridesPayload(dict):
                  payload_data: Optional[_builtins.str] = None):
         """
         Parameter overrides for an application instance. This is a JSON document that has a single key (``PayloadData``) where the value is an escaped string representation of the overrides document.
+
         :param _builtins.str payload_data: The overrides document.
         """
         if payload_data is not None:
@@ -87,6 +88,7 @@ class ApplicationInstanceManifestPayload(dict):
                  payload_data: Optional[_builtins.str] = None):
         """
         A application verion's manifest file. This is a JSON document that has a single key (``PayloadData``) where the value is an escaped string representation of the application manifest (``graph.json``). This file is located in the ``graphs`` folder in your application source.
+
         :param _builtins.str payload_data: The application manifest.
         """
         if payload_data is not None:
@@ -137,6 +139,7 @@ class PackageStorageLocation(dict):
                  repo_prefix_location: Optional[_builtins.str] = None):
         """
         A storage location.
+
         :param _builtins.str binary_prefix_location: The location's binary prefix.
         :param _builtins.str bucket: The location's bucket.
         :param _builtins.str generated_prefix_location: The location's generated prefix.

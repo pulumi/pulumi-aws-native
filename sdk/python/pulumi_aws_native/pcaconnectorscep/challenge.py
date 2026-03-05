@@ -23,6 +23,7 @@ class ChallengeArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Challenge resource.
+
         :param pulumi.Input[_builtins.str] connector_arn: The Amazon Resource Name (ARN) of the connector.
         """
         pulumi.set(__self__, "connector_arn", connector_arn)
@@ -63,6 +64,7 @@ class Challenge(pulumi.CustomResource):
         """
         Represents a SCEP Challenge that is used for certificate enrollment
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] connector_arn: The Amazon Resource Name (ARN) of the connector.
@@ -75,6 +77,7 @@ class Challenge(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Represents a SCEP Challenge that is used for certificate enrollment
+
 
         :param str resource_name: The name of the resource.
         :param ChallengeArgs args: The arguments to use to populate this resource's properties.

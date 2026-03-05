@@ -37,6 +37,7 @@ class ProcessingJobArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]] = None):
         """
         The set of arguments for constructing a ProcessingJob resource.
+
         :param pulumi.Input['ProcessingJobAppSpecificationArgs'] app_specification: Configuration to run a processing job in a specified container image.
         :param pulumi.Input['ProcessingJobProcessingResourcesArgs'] processing_resources: Identifies the resources, ML compute instances, and ML storage volumes to deploy for a processing job. In distributed training, you specify more than one instance.
         :param pulumi.Input[_builtins.str] role_arn: The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can assume to perform tasks on your behalf.
@@ -223,6 +224,7 @@ class ProcessingJob(pulumi.CustomResource):
         """
         Resource Type definition for AWS::SageMaker::ProcessingJob
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ProcessingJobAppSpecificationArgs', 'ProcessingJobAppSpecificationArgsDict']] app_specification: Configuration to run a processing job in a specified container image.
@@ -245,6 +247,7 @@ class ProcessingJob(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::SageMaker::ProcessingJob
+
 
         :param str resource_name: The name of the resource.
         :param ProcessingJobArgs args: The arguments to use to populate this resource's properties.

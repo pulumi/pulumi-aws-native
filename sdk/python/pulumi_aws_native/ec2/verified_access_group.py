@@ -31,6 +31,7 @@ class VerifiedAccessGroupArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a VerifiedAccessGroup resource.
+
         :param pulumi.Input[_builtins.str] verified_access_instance_id: The ID of the AWS Verified Access instance.
         :param pulumi.Input[_builtins.str] description: A description for the AWS Verified Access group.
         :param pulumi.Input[_builtins.str] policy_document: The AWS Verified Access policy document.
@@ -139,6 +140,7 @@ class VerifiedAccessGroup(pulumi.CustomResource):
         """
         The AWS::EC2::VerifiedAccessGroup resource creates an AWS EC2 Verified Access Group.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: A description for the AWS Verified Access group.
@@ -156,6 +158,7 @@ class VerifiedAccessGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The AWS::EC2::VerifiedAccessGroup resource creates an AWS EC2 Verified Access Group.
+
 
         :param str resource_name: The name of the resource.
         :param VerifiedAccessGroupArgs args: The arguments to use to populate this resource's properties.

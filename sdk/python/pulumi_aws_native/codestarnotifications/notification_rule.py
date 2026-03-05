@@ -34,6 +34,7 @@ class NotificationRuleArgs:
                  target_address: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a NotificationRule resource.
+
         :param pulumi.Input['NotificationRuleDetailType'] detail_type: The level of detail to include in the notifications for this resource. `BASIC` will include only the contents of the event as it would appear in Amazon CloudWatch. `FULL` will include any supplemental information provided by AWS CodeStar Notifications and/or the service for the resource for which the notification is created.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] event_type_ids: A list of event types associated with this notification rule. For a complete list of event types and IDs, see [Notification concepts](https://docs.aws.amazon.com/dtconsole/latest/userguide/concepts.html#concepts-api) in the *Developer Tools Console User Guide* .
         :param pulumi.Input[_builtins.str] resource: The Amazon Resource Name (ARN) of the resource to associate with the notification rule. Supported resources include pipelines in AWS CodePipeline , repositories in AWS CodeCommit , and build projects in AWS CodeBuild .
@@ -203,6 +204,7 @@ class NotificationRule(pulumi.CustomResource):
         """
         Resource Type definition for AWS::CodeStarNotifications::NotificationRule
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] created_by: The name or email alias of the person who created the notification rule.
@@ -224,6 +226,7 @@ class NotificationRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::CodeStarNotifications::NotificationRule
+
 
         :param str resource_name: The name of the resource.
         :param NotificationRuleArgs args: The arguments to use to populate this resource's properties.

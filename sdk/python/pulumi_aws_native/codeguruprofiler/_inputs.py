@@ -37,6 +37,7 @@ class AgentPermissionsPropertiesArgs:
                  principals: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
         """
         The agent permissions attached to this profiling group.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] principals: The principals for the agent permissions.
         """
         pulumi.set(__self__, "principals", principals)
@@ -74,6 +75,7 @@ class ProfilingGroupChannelArgs:
                  channel_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Notification medium for users to get alerted for events that occur in application profile. We support SNS topic as a notification channel.
+
         :param pulumi.Input[_builtins.str] channel_uri: The channel URI.
         :param pulumi.Input[_builtins.str] channel_id: The channel ID.
         """

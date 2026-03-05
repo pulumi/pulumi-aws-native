@@ -24,6 +24,7 @@ class AccountArgs:
                  expiry_events_configuration: pulumi.Input['AccountExpiryEventsConfigurationArgs']):
         """
         The set of arguments for constructing a Account resource.
+
         :param pulumi.Input['AccountExpiryEventsConfigurationArgs'] expiry_events_configuration: Object containing expiration events options associated with an AWS account . For more information, see [ExpiryEventsConfiguration](https://docs.aws.amazon.com/acm/latest/APIReference/API_ExpiryEventsConfiguration.html) in the API reference.
         """
         pulumi.set(__self__, "expiry_events_configuration", expiry_events_configuration)
@@ -52,6 +53,7 @@ class Account(pulumi.CustomResource):
         """
         Resource schema for AWS::CertificateManager::Account.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['AccountExpiryEventsConfigurationArgs', 'AccountExpiryEventsConfigurationArgsDict']] expiry_events_configuration: Object containing expiration events options associated with an AWS account . For more information, see [ExpiryEventsConfiguration](https://docs.aws.amazon.com/acm/latest/APIReference/API_ExpiryEventsConfiguration.html) in the API reference.
@@ -64,6 +66,7 @@ class Account(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource schema for AWS::CertificateManager::Account.
+
 
         :param str resource_name: The name of the resource.
         :param AccountArgs args: The arguments to use to populate this resource's properties.

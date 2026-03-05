@@ -28,6 +28,7 @@ class ListenerArgs:
                  client_affinity: Optional[pulumi.Input['ListenerClientAffinity']] = None):
         """
         The set of arguments for constructing a Listener resource.
+
         :param pulumi.Input[_builtins.str] accelerator_arn: The Amazon Resource Name (ARN) of the accelerator.
         :param pulumi.Input[Sequence[pulumi.Input['ListenerPortRangeArgs']]] port_ranges: The list of port ranges for the connections from clients to the accelerator.
         :param pulumi.Input['ListenerProtocol'] protocol: The protocol for the listener.
@@ -102,6 +103,7 @@ class Listener(pulumi.CustomResource):
         """
         Resource Type definition for AWS::GlobalAccelerator::Listener
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] accelerator_arn: The Amazon Resource Name (ARN) of the accelerator.
@@ -117,6 +119,7 @@ class Listener(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::GlobalAccelerator::Listener
+
 
         :param str resource_name: The name of the resource.
         :param ListenerArgs args: The arguments to use to populate this resource's properties.

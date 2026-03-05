@@ -30,6 +30,7 @@ class SecurityConfigArgs:
                  type: Optional[pulumi.Input['SecurityConfigType']] = None):
         """
         The set of arguments for constructing a SecurityConfig resource.
+
         :param pulumi.Input[_builtins.str] description: Security config description
         :param pulumi.Input['SecurityConfigIamFederationConfigOptionsArgs'] iam_federation_options: Describes IAM federation options in the form of a key-value map. Contains configuration details about how OpenSearch Serverless integrates with external identity providers through federation.
         :param pulumi.Input['SecurityConfigIamIdentityCenterConfigOptionsArgs'] iam_identity_center_options: Describes IAM Identity Center options in the form of a key-value map.
@@ -177,6 +178,7 @@ class SecurityConfig(pulumi.CustomResource):
 
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: Security config description
@@ -232,6 +234,7 @@ class SecurityConfig(pulumi.CustomResource):
             })
 
         ```
+
 
         :param str resource_name: The name of the resource.
         :param SecurityConfigArgs args: The arguments to use to populate this resource's properties.
