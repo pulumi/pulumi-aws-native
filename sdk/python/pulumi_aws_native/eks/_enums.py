@@ -98,6 +98,8 @@ class ClusterControlPlaneScalingConfigTier(_builtins.str, Enum):
     TIER_XL = "tier-xl"
     TIER2XL = "tier-2xl"
     TIER4XL = "tier-4xl"
+    TIER8XL = "tier-8xl"
+    TIER_ULTRA = "tier-ultra"
 
 
 @pulumi.type_token("aws-native:eks:ClusterKubernetesNetworkConfigIpFamily")

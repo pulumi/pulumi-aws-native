@@ -27,6 +27,7 @@ class SecurityProfileArgs:
                  instance_arn: pulumi.Input[_builtins.str],
                  allowed_access_control_hierarchy_group_id: Optional[pulumi.Input[_builtins.str]] = None,
                  allowed_access_control_tags: Optional[pulumi.Input[Sequence[pulumi.Input['SecurityProfileTagArgs']]]] = None,
+                 allowed_flow_modules: Optional[pulumi.Input[Sequence[pulumi.Input['SecurityProfileFlowModuleArgs']]]] = None,
                  applications: Optional[pulumi.Input[Sequence[pulumi.Input['SecurityProfileApplicationArgs']]]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  granular_access_control_configuration: Optional[pulumi.Input['GranularAccessControlConfigurationPropertiesArgs']] = None,
@@ -41,6 +42,7 @@ class SecurityProfileArgs:
         :param pulumi.Input[_builtins.str] instance_arn: The identifier of the Amazon Connect instance.
         :param pulumi.Input[_builtins.str] allowed_access_control_hierarchy_group_id: The identifier of the hierarchy group that a security profile uses to restrict access to resources in Amazon Connect.
         :param pulumi.Input[Sequence[pulumi.Input['SecurityProfileTagArgs']]] allowed_access_control_tags: The list of tags that a security profile uses to restrict access to resources in Amazon Connect.
+        :param pulumi.Input[Sequence[pulumi.Input['SecurityProfileFlowModuleArgs']]] allowed_flow_modules: The list of flow-module resources to be linked to a security profile in Amazon Connect.
         :param pulumi.Input[Sequence[pulumi.Input['SecurityProfileApplicationArgs']]] applications: A list of third-party applications that the security profile will give access to.
         :param pulumi.Input[_builtins.str] description: The description of the security profile.
         :param pulumi.Input['GranularAccessControlConfigurationPropertiesArgs'] granular_access_control_configuration: The granular access control configuration for the security profile, including data table permissions.
@@ -55,6 +57,8 @@ class SecurityProfileArgs:
             pulumi.set(__self__, "allowed_access_control_hierarchy_group_id", allowed_access_control_hierarchy_group_id)
         if allowed_access_control_tags is not None:
             pulumi.set(__self__, "allowed_access_control_tags", allowed_access_control_tags)
+        if allowed_flow_modules is not None:
+            pulumi.set(__self__, "allowed_flow_modules", allowed_flow_modules)
         if applications is not None:
             pulumi.set(__self__, "applications", applications)
         if description is not None:
@@ -107,6 +111,18 @@ class SecurityProfileArgs:
     @allowed_access_control_tags.setter
     def allowed_access_control_tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SecurityProfileTagArgs']]]]):
         pulumi.set(self, "allowed_access_control_tags", value)
+
+    @_builtins.property
+    @pulumi.getter(name="allowedFlowModules")
+    def allowed_flow_modules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SecurityProfileFlowModuleArgs']]]]:
+        """
+        The list of flow-module resources to be linked to a security profile in Amazon Connect.
+        """
+        return pulumi.get(self, "allowed_flow_modules")
+
+    @allowed_flow_modules.setter
+    def allowed_flow_modules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SecurityProfileFlowModuleArgs']]]]):
+        pulumi.set(self, "allowed_flow_modules", value)
 
     @_builtins.property
     @pulumi.getter
@@ -213,6 +229,7 @@ class SecurityProfile(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  allowed_access_control_hierarchy_group_id: Optional[pulumi.Input[_builtins.str]] = None,
                  allowed_access_control_tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SecurityProfileTagArgs', 'SecurityProfileTagArgsDict']]]]] = None,
+                 allowed_flow_modules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SecurityProfileFlowModuleArgs', 'SecurityProfileFlowModuleArgsDict']]]]] = None,
                  applications: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SecurityProfileApplicationArgs', 'SecurityProfileApplicationArgsDict']]]]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  granular_access_control_configuration: Optional[pulumi.Input[Union['GranularAccessControlConfigurationPropertiesArgs', 'GranularAccessControlConfigurationPropertiesArgsDict']]] = None,
@@ -231,6 +248,7 @@ class SecurityProfile(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] allowed_access_control_hierarchy_group_id: The identifier of the hierarchy group that a security profile uses to restrict access to resources in Amazon Connect.
         :param pulumi.Input[Sequence[pulumi.Input[Union['SecurityProfileTagArgs', 'SecurityProfileTagArgsDict']]]] allowed_access_control_tags: The list of tags that a security profile uses to restrict access to resources in Amazon Connect.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SecurityProfileFlowModuleArgs', 'SecurityProfileFlowModuleArgsDict']]]] allowed_flow_modules: The list of flow-module resources to be linked to a security profile in Amazon Connect.
         :param pulumi.Input[Sequence[pulumi.Input[Union['SecurityProfileApplicationArgs', 'SecurityProfileApplicationArgsDict']]]] applications: A list of third-party applications that the security profile will give access to.
         :param pulumi.Input[_builtins.str] description: The description of the security profile.
         :param pulumi.Input[Union['GranularAccessControlConfigurationPropertiesArgs', 'GranularAccessControlConfigurationPropertiesArgsDict']] granular_access_control_configuration: The granular access control configuration for the security profile, including data table permissions.
@@ -268,6 +286,7 @@ class SecurityProfile(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  allowed_access_control_hierarchy_group_id: Optional[pulumi.Input[_builtins.str]] = None,
                  allowed_access_control_tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SecurityProfileTagArgs', 'SecurityProfileTagArgsDict']]]]] = None,
+                 allowed_flow_modules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SecurityProfileFlowModuleArgs', 'SecurityProfileFlowModuleArgsDict']]]]] = None,
                  applications: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SecurityProfileApplicationArgs', 'SecurityProfileApplicationArgsDict']]]]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  granular_access_control_configuration: Optional[pulumi.Input[Union['GranularAccessControlConfigurationPropertiesArgs', 'GranularAccessControlConfigurationPropertiesArgsDict']]] = None,
@@ -288,6 +307,7 @@ class SecurityProfile(pulumi.CustomResource):
 
             __props__.__dict__["allowed_access_control_hierarchy_group_id"] = allowed_access_control_hierarchy_group_id
             __props__.__dict__["allowed_access_control_tags"] = allowed_access_control_tags
+            __props__.__dict__["allowed_flow_modules"] = allowed_flow_modules
             __props__.__dict__["applications"] = applications
             __props__.__dict__["description"] = description
             __props__.__dict__["granular_access_control_configuration"] = granular_access_control_configuration
@@ -328,6 +348,7 @@ class SecurityProfile(pulumi.CustomResource):
 
         __props__.__dict__["allowed_access_control_hierarchy_group_id"] = None
         __props__.__dict__["allowed_access_control_tags"] = None
+        __props__.__dict__["allowed_flow_modules"] = None
         __props__.__dict__["applications"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["granular_access_control_configuration"] = None
@@ -357,6 +378,14 @@ class SecurityProfile(pulumi.CustomResource):
         The list of tags that a security profile uses to restrict access to resources in Amazon Connect.
         """
         return pulumi.get(self, "allowed_access_control_tags")
+
+    @_builtins.property
+    @pulumi.getter(name="allowedFlowModules")
+    def allowed_flow_modules(self) -> pulumi.Output[Optional[Sequence['outputs.SecurityProfileFlowModule']]]:
+        """
+        The list of flow-module resources to be linked to a security profile in Amazon Connect.
+        """
+        return pulumi.get(self, "allowed_flow_modules")
 
     @_builtins.property
     @pulumi.getter

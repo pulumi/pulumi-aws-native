@@ -12,27 +12,27 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource Type definition for AWS::CloudFront::TrustStore. TrustStores contain CA certificates for mTLS authentication and can be associated with CloudFront distributions.
+// A trust store.
 type TrustStore struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name (ARN) of the trust store
+	// The trust store's Amazon Resource Name (ARN).
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The unique identifier for the trust store
+	// The trust store's ID.
 	AwsId pulumi.StringOutput `pulumi:"awsId"`
 	// A CA certificates bundle source.
 	CaCertificatesBundleSource TrustStoreCaCertificatesBundleSourcePtrOutput `pulumi:"caCertificatesBundleSource"`
 	// The version identifier for the current version of the trust store.
 	ETag pulumi.StringOutput `pulumi:"eTag"`
-	// The last modification timestamp of the trust store PEM file
+	// The trust store's last modified time.
 	LastModifiedTime pulumi.StringOutput `pulumi:"lastModifiedTime"`
-	// A unique name to identify the trust store
+	// The trust store's name.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The number of CA certificates in the trust store PEM file
+	// The trust store's number of CA certificates.
 	NumberOfCaCertificates pulumi.IntOutput `pulumi:"numberOfCaCertificates"`
-	// Current status of the trust store
+	// The trust store's status.
 	Status TrustStoreStatusOutput `pulumi:"status"`
-	// Key-value pairs for resource tagging
+	// A complex type that contains zero or more ``Tag`` elements.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
@@ -82,9 +82,9 @@ func (TrustStoreState) ElementType() reflect.Type {
 type trustStoreArgs struct {
 	// A CA certificates bundle source.
 	CaCertificatesBundleSource *TrustStoreCaCertificatesBundleSource `pulumi:"caCertificatesBundleSource"`
-	// A unique name to identify the trust store
+	// The trust store's name.
 	Name *string `pulumi:"name"`
-	// Key-value pairs for resource tagging
+	// A complex type that contains zero or more ``Tag`` elements.
 	Tags []aws.Tag `pulumi:"tags"`
 }
 
@@ -92,9 +92,9 @@ type trustStoreArgs struct {
 type TrustStoreArgs struct {
 	// A CA certificates bundle source.
 	CaCertificatesBundleSource TrustStoreCaCertificatesBundleSourcePtrInput
-	// A unique name to identify the trust store
+	// The trust store's name.
 	Name pulumi.StringPtrInput
-	// Key-value pairs for resource tagging
+	// A complex type that contains zero or more ``Tag`` elements.
 	Tags aws.TagArrayInput
 }
 
@@ -135,12 +135,12 @@ func (o TrustStoreOutput) ToTrustStoreOutputWithContext(ctx context.Context) Tru
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the trust store
+// The trust store's Amazon Resource Name (ARN).
 func (o TrustStoreOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *TrustStore) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The unique identifier for the trust store
+// The trust store's ID.
 func (o TrustStoreOutput) AwsId() pulumi.StringOutput {
 	return o.ApplyT(func(v *TrustStore) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
@@ -155,27 +155,27 @@ func (o TrustStoreOutput) ETag() pulumi.StringOutput {
 	return o.ApplyT(func(v *TrustStore) pulumi.StringOutput { return v.ETag }).(pulumi.StringOutput)
 }
 
-// The last modification timestamp of the trust store PEM file
+// The trust store's last modified time.
 func (o TrustStoreOutput) LastModifiedTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *TrustStore) pulumi.StringOutput { return v.LastModifiedTime }).(pulumi.StringOutput)
 }
 
-// A unique name to identify the trust store
+// The trust store's name.
 func (o TrustStoreOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *TrustStore) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The number of CA certificates in the trust store PEM file
+// The trust store's number of CA certificates.
 func (o TrustStoreOutput) NumberOfCaCertificates() pulumi.IntOutput {
 	return o.ApplyT(func(v *TrustStore) pulumi.IntOutput { return v.NumberOfCaCertificates }).(pulumi.IntOutput)
 }
 
-// Current status of the trust store
+// The trust store's status.
 func (o TrustStoreOutput) Status() TrustStoreStatusOutput {
 	return o.ApplyT(func(v *TrustStore) TrustStoreStatusOutput { return v.Status }).(TrustStoreStatusOutput)
 }
 
-// Key-value pairs for resource tagging
+// A complex type that contains zero or more “Tag“ elements.
 func (o TrustStoreOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *TrustStore) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }

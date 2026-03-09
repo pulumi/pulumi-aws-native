@@ -12,19 +12,19 @@ namespace Pulumi.AwsNative.DataSync
     public static class GetLocationHdfs
     {
         /// <summary>
-        /// Resource schema for AWS::DataSync::LocationHDFS.
+        /// Resource Type definition for AWS::DataSync::LocationHDFS.
         /// </summary>
         public static Task<GetLocationHdfsResult> InvokeAsync(GetLocationHdfsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLocationHdfsResult>("aws-native:datasync:getLocationHdfs", args ?? new GetLocationHdfsArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Resource schema for AWS::DataSync::LocationHDFS.
+        /// Resource Type definition for AWS::DataSync::LocationHDFS.
         /// </summary>
         public static Output<GetLocationHdfsResult> Invoke(GetLocationHdfsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLocationHdfsResult>("aws-native:datasync:getLocationHdfs", args ?? new GetLocationHdfsInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Resource schema for AWS::DataSync::LocationHDFS.
+        /// Resource Type definition for AWS::DataSync::LocationHDFS.
         /// </summary>
         public static Output<GetLocationHdfsResult> Invoke(GetLocationHdfsInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetLocationHdfsResult>("aws-native:datasync:getLocationHdfs", args ?? new GetLocationHdfsInvokeArgs(), options.WithDefaults());
@@ -75,6 +75,8 @@ namespace Pulumi.AwsNative.DataSync
         /// Size of chunks (blocks) in bytes that the data is divided into when stored in the HDFS cluster.
         /// </summary>
         public readonly int? BlockSize;
+        public readonly Outputs.LocationHdfsCmkSecretConfig? CmkSecretConfig;
+        public readonly Outputs.LocationHdfsCustomSecretConfig? CustomSecretConfig;
         /// <summary>
         /// The unique identity, or principal, to which Kerberos can assign tickets.
         /// </summary>
@@ -91,6 +93,7 @@ namespace Pulumi.AwsNative.DataSync
         /// The URL of the HDFS location that was described.
         /// </summary>
         public readonly string? LocationUri;
+        public readonly Outputs.LocationHdfsManagedSecretConfig? ManagedSecretConfig;
         /// <summary>
         /// An array of Name Node(s) of the HDFS location.
         /// </summary>
@@ -120,6 +123,10 @@ namespace Pulumi.AwsNative.DataSync
 
             int? blockSize,
 
+            Outputs.LocationHdfsCmkSecretConfig? cmkSecretConfig,
+
+            Outputs.LocationHdfsCustomSecretConfig? customSecretConfig,
+
             string? kerberosPrincipal,
 
             string? kmsKeyProviderUri,
@@ -127,6 +134,8 @@ namespace Pulumi.AwsNative.DataSync
             string? locationArn,
 
             string? locationUri,
+
+            Outputs.LocationHdfsManagedSecretConfig? managedSecretConfig,
 
             ImmutableArray<Outputs.LocationHdfsNameNode> nameNodes,
 
@@ -141,10 +150,13 @@ namespace Pulumi.AwsNative.DataSync
             AgentArns = agentArns;
             AuthenticationType = authenticationType;
             BlockSize = blockSize;
+            CmkSecretConfig = cmkSecretConfig;
+            CustomSecretConfig = customSecretConfig;
             KerberosPrincipal = kerberosPrincipal;
             KmsKeyProviderUri = kmsKeyProviderUri;
             LocationArn = locationArn;
             LocationUri = locationUri;
+            ManagedSecretConfig = managedSecretConfig;
             NameNodes = nameNodes;
             QopConfiguration = qopConfiguration;
             ReplicationFactor = replicationFactor;

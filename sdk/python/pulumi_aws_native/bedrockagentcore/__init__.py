@@ -21,11 +21,15 @@ from .get_gateway import *
 from .get_gateway_target import *
 from .get_memory import *
 from .get_online_evaluation_config import *
+from .get_policy import *
+from .get_policy_engine import *
 from .get_runtime import *
 from .get_runtime_endpoint import *
 from .get_workload_identity import *
 from .memory import *
 from .online_evaluation_config import *
+from .policy import *
+from .policy_engine import *
 from .runtime import *
 from .runtime_endpoint import *
 from .workload_identity import *

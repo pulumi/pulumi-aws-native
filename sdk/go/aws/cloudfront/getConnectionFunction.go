@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource Type definition for AWS::CloudFront::ConnectionFunction
+// A connection function.
 func LookupConnectionFunction(ctx *pulumi.Context, args *LookupConnectionFunctionArgs, opts ...pulumi.InvokeOption) (*LookupConnectionFunctionResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupConnectionFunctionResult
@@ -47,7 +47,7 @@ type LookupConnectionFunctionResult struct {
 	Stage *ConnectionFunctionStage `pulumi:"stage"`
 	// The connection function status.
 	Status *ConnectionFunctionStatus `pulumi:"status"`
-	// A complex type that contains zero or more `Tag` elements.
+	// A complex type that contains zero or more ``Tag`` elements.
 	Tags []aws.Tag `pulumi:"tags"`
 }
 
@@ -128,7 +128,7 @@ func (o LookupConnectionFunctionResultOutput) Status() ConnectionFunctionStatusP
 	return o.ApplyT(func(v LookupConnectionFunctionResult) *ConnectionFunctionStatus { return v.Status }).(ConnectionFunctionStatusPtrOutput)
 }
 
-// A complex type that contains zero or more `Tag` elements.
+// A complex type that contains zero or more “Tag“ elements.
 func (o LookupConnectionFunctionResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupConnectionFunctionResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }

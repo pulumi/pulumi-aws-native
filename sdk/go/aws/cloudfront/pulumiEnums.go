@@ -2282,7 +2282,7 @@ func (in *monitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetrics
 	return pulumi.ToOutputWithContext(ctx, in).(MonitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetricsSubscriptionStatusPtrOutput)
 }
 
-// Current status of the trust store
+// The trust store's status.
 type TrustStoreStatus string
 
 const (

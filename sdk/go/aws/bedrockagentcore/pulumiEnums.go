@@ -3168,6 +3168,336 @@ func (o GatewayTargetTargetStatusPtrOutput) ToStringPtrOutputWithContext(ctx con
 	}).(pulumi.StringPtrOutput)
 }
 
+// The level of content detail to deliver
+type MemoryContentConfigurationLevel string
+
+const (
+	MemoryContentConfigurationLevelMetadataOnly = MemoryContentConfigurationLevel("METADATA_ONLY")
+	MemoryContentConfigurationLevelFullContent  = MemoryContentConfigurationLevel("FULL_CONTENT")
+)
+
+func (MemoryContentConfigurationLevel) ElementType() reflect.Type {
+	return reflect.TypeOf((*MemoryContentConfigurationLevel)(nil)).Elem()
+}
+
+func (e MemoryContentConfigurationLevel) ToMemoryContentConfigurationLevelOutput() MemoryContentConfigurationLevelOutput {
+	return pulumi.ToOutput(e).(MemoryContentConfigurationLevelOutput)
+}
+
+func (e MemoryContentConfigurationLevel) ToMemoryContentConfigurationLevelOutputWithContext(ctx context.Context) MemoryContentConfigurationLevelOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(MemoryContentConfigurationLevelOutput)
+}
+
+func (e MemoryContentConfigurationLevel) ToMemoryContentConfigurationLevelPtrOutput() MemoryContentConfigurationLevelPtrOutput {
+	return e.ToMemoryContentConfigurationLevelPtrOutputWithContext(context.Background())
+}
+
+func (e MemoryContentConfigurationLevel) ToMemoryContentConfigurationLevelPtrOutputWithContext(ctx context.Context) MemoryContentConfigurationLevelPtrOutput {
+	return MemoryContentConfigurationLevel(e).ToMemoryContentConfigurationLevelOutputWithContext(ctx).ToMemoryContentConfigurationLevelPtrOutputWithContext(ctx)
+}
+
+func (e MemoryContentConfigurationLevel) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e MemoryContentConfigurationLevel) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e MemoryContentConfigurationLevel) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e MemoryContentConfigurationLevel) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type MemoryContentConfigurationLevelOutput struct{ *pulumi.OutputState }
+
+func (MemoryContentConfigurationLevelOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MemoryContentConfigurationLevel)(nil)).Elem()
+}
+
+func (o MemoryContentConfigurationLevelOutput) ToMemoryContentConfigurationLevelOutput() MemoryContentConfigurationLevelOutput {
+	return o
+}
+
+func (o MemoryContentConfigurationLevelOutput) ToMemoryContentConfigurationLevelOutputWithContext(ctx context.Context) MemoryContentConfigurationLevelOutput {
+	return o
+}
+
+func (o MemoryContentConfigurationLevelOutput) ToMemoryContentConfigurationLevelPtrOutput() MemoryContentConfigurationLevelPtrOutput {
+	return o.ToMemoryContentConfigurationLevelPtrOutputWithContext(context.Background())
+}
+
+func (o MemoryContentConfigurationLevelOutput) ToMemoryContentConfigurationLevelPtrOutputWithContext(ctx context.Context) MemoryContentConfigurationLevelPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MemoryContentConfigurationLevel) *MemoryContentConfigurationLevel {
+		return &v
+	}).(MemoryContentConfigurationLevelPtrOutput)
+}
+
+func (o MemoryContentConfigurationLevelOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o MemoryContentConfigurationLevelOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e MemoryContentConfigurationLevel) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o MemoryContentConfigurationLevelOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o MemoryContentConfigurationLevelOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e MemoryContentConfigurationLevel) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type MemoryContentConfigurationLevelPtrOutput struct{ *pulumi.OutputState }
+
+func (MemoryContentConfigurationLevelPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MemoryContentConfigurationLevel)(nil)).Elem()
+}
+
+func (o MemoryContentConfigurationLevelPtrOutput) ToMemoryContentConfigurationLevelPtrOutput() MemoryContentConfigurationLevelPtrOutput {
+	return o
+}
+
+func (o MemoryContentConfigurationLevelPtrOutput) ToMemoryContentConfigurationLevelPtrOutputWithContext(ctx context.Context) MemoryContentConfigurationLevelPtrOutput {
+	return o
+}
+
+func (o MemoryContentConfigurationLevelPtrOutput) Elem() MemoryContentConfigurationLevelOutput {
+	return o.ApplyT(func(v *MemoryContentConfigurationLevel) MemoryContentConfigurationLevel {
+		if v != nil {
+			return *v
+		}
+		var ret MemoryContentConfigurationLevel
+		return ret
+	}).(MemoryContentConfigurationLevelOutput)
+}
+
+func (o MemoryContentConfigurationLevelPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o MemoryContentConfigurationLevelPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *MemoryContentConfigurationLevel) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// MemoryContentConfigurationLevelInput is an input type that accepts values of the MemoryContentConfigurationLevel enum
+// A concrete instance of `MemoryContentConfigurationLevelInput` can be one of the following:
+//
+//	MemoryContentConfigurationLevelMetadataOnly
+//	MemoryContentConfigurationLevelFullContent
+type MemoryContentConfigurationLevelInput interface {
+	pulumi.Input
+
+	ToMemoryContentConfigurationLevelOutput() MemoryContentConfigurationLevelOutput
+	ToMemoryContentConfigurationLevelOutputWithContext(context.Context) MemoryContentConfigurationLevelOutput
+}
+
+var memoryContentConfigurationLevelPtrType = reflect.TypeOf((**MemoryContentConfigurationLevel)(nil)).Elem()
+
+type MemoryContentConfigurationLevelPtrInput interface {
+	pulumi.Input
+
+	ToMemoryContentConfigurationLevelPtrOutput() MemoryContentConfigurationLevelPtrOutput
+	ToMemoryContentConfigurationLevelPtrOutputWithContext(context.Context) MemoryContentConfigurationLevelPtrOutput
+}
+
+type memoryContentConfigurationLevelPtr string
+
+func MemoryContentConfigurationLevelPtr(v string) MemoryContentConfigurationLevelPtrInput {
+	return (*memoryContentConfigurationLevelPtr)(&v)
+}
+
+func (*memoryContentConfigurationLevelPtr) ElementType() reflect.Type {
+	return memoryContentConfigurationLevelPtrType
+}
+
+func (in *memoryContentConfigurationLevelPtr) ToMemoryContentConfigurationLevelPtrOutput() MemoryContentConfigurationLevelPtrOutput {
+	return pulumi.ToOutput(in).(MemoryContentConfigurationLevelPtrOutput)
+}
+
+func (in *memoryContentConfigurationLevelPtr) ToMemoryContentConfigurationLevelPtrOutputWithContext(ctx context.Context) MemoryContentConfigurationLevelPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(MemoryContentConfigurationLevelPtrOutput)
+}
+
+// The type of content to deliver
+type MemoryContentConfigurationType string
+
+const (
+	MemoryContentConfigurationTypeMemoryRecords = MemoryContentConfigurationType("MEMORY_RECORDS")
+)
+
+func (MemoryContentConfigurationType) ElementType() reflect.Type {
+	return reflect.TypeOf((*MemoryContentConfigurationType)(nil)).Elem()
+}
+
+func (e MemoryContentConfigurationType) ToMemoryContentConfigurationTypeOutput() MemoryContentConfigurationTypeOutput {
+	return pulumi.ToOutput(e).(MemoryContentConfigurationTypeOutput)
+}
+
+func (e MemoryContentConfigurationType) ToMemoryContentConfigurationTypeOutputWithContext(ctx context.Context) MemoryContentConfigurationTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(MemoryContentConfigurationTypeOutput)
+}
+
+func (e MemoryContentConfigurationType) ToMemoryContentConfigurationTypePtrOutput() MemoryContentConfigurationTypePtrOutput {
+	return e.ToMemoryContentConfigurationTypePtrOutputWithContext(context.Background())
+}
+
+func (e MemoryContentConfigurationType) ToMemoryContentConfigurationTypePtrOutputWithContext(ctx context.Context) MemoryContentConfigurationTypePtrOutput {
+	return MemoryContentConfigurationType(e).ToMemoryContentConfigurationTypeOutputWithContext(ctx).ToMemoryContentConfigurationTypePtrOutputWithContext(ctx)
+}
+
+func (e MemoryContentConfigurationType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e MemoryContentConfigurationType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e MemoryContentConfigurationType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e MemoryContentConfigurationType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type MemoryContentConfigurationTypeOutput struct{ *pulumi.OutputState }
+
+func (MemoryContentConfigurationTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MemoryContentConfigurationType)(nil)).Elem()
+}
+
+func (o MemoryContentConfigurationTypeOutput) ToMemoryContentConfigurationTypeOutput() MemoryContentConfigurationTypeOutput {
+	return o
+}
+
+func (o MemoryContentConfigurationTypeOutput) ToMemoryContentConfigurationTypeOutputWithContext(ctx context.Context) MemoryContentConfigurationTypeOutput {
+	return o
+}
+
+func (o MemoryContentConfigurationTypeOutput) ToMemoryContentConfigurationTypePtrOutput() MemoryContentConfigurationTypePtrOutput {
+	return o.ToMemoryContentConfigurationTypePtrOutputWithContext(context.Background())
+}
+
+func (o MemoryContentConfigurationTypeOutput) ToMemoryContentConfigurationTypePtrOutputWithContext(ctx context.Context) MemoryContentConfigurationTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MemoryContentConfigurationType) *MemoryContentConfigurationType {
+		return &v
+	}).(MemoryContentConfigurationTypePtrOutput)
+}
+
+func (o MemoryContentConfigurationTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o MemoryContentConfigurationTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e MemoryContentConfigurationType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o MemoryContentConfigurationTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o MemoryContentConfigurationTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e MemoryContentConfigurationType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type MemoryContentConfigurationTypePtrOutput struct{ *pulumi.OutputState }
+
+func (MemoryContentConfigurationTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MemoryContentConfigurationType)(nil)).Elem()
+}
+
+func (o MemoryContentConfigurationTypePtrOutput) ToMemoryContentConfigurationTypePtrOutput() MemoryContentConfigurationTypePtrOutput {
+	return o
+}
+
+func (o MemoryContentConfigurationTypePtrOutput) ToMemoryContentConfigurationTypePtrOutputWithContext(ctx context.Context) MemoryContentConfigurationTypePtrOutput {
+	return o
+}
+
+func (o MemoryContentConfigurationTypePtrOutput) Elem() MemoryContentConfigurationTypeOutput {
+	return o.ApplyT(func(v *MemoryContentConfigurationType) MemoryContentConfigurationType {
+		if v != nil {
+			return *v
+		}
+		var ret MemoryContentConfigurationType
+		return ret
+	}).(MemoryContentConfigurationTypeOutput)
+}
+
+func (o MemoryContentConfigurationTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o MemoryContentConfigurationTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *MemoryContentConfigurationType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// MemoryContentConfigurationTypeInput is an input type that accepts values of the MemoryContentConfigurationType enum
+// A concrete instance of `MemoryContentConfigurationTypeInput` can be one of the following:
+//
+//	MemoryContentConfigurationTypeMemoryRecords
+type MemoryContentConfigurationTypeInput interface {
+	pulumi.Input
+
+	ToMemoryContentConfigurationTypeOutput() MemoryContentConfigurationTypeOutput
+	ToMemoryContentConfigurationTypeOutputWithContext(context.Context) MemoryContentConfigurationTypeOutput
+}
+
+var memoryContentConfigurationTypePtrType = reflect.TypeOf((**MemoryContentConfigurationType)(nil)).Elem()
+
+type MemoryContentConfigurationTypePtrInput interface {
+	pulumi.Input
+
+	ToMemoryContentConfigurationTypePtrOutput() MemoryContentConfigurationTypePtrOutput
+	ToMemoryContentConfigurationTypePtrOutputWithContext(context.Context) MemoryContentConfigurationTypePtrOutput
+}
+
+type memoryContentConfigurationTypePtr string
+
+func MemoryContentConfigurationTypePtr(v string) MemoryContentConfigurationTypePtrInput {
+	return (*memoryContentConfigurationTypePtr)(&v)
+}
+
+func (*memoryContentConfigurationTypePtr) ElementType() reflect.Type {
+	return memoryContentConfigurationTypePtrType
+}
+
+func (in *memoryContentConfigurationTypePtr) ToMemoryContentConfigurationTypePtrOutput() MemoryContentConfigurationTypePtrOutput {
+	return pulumi.ToOutput(in).(MemoryContentConfigurationTypePtrOutput)
+}
+
+func (in *memoryContentConfigurationTypePtr) ToMemoryContentConfigurationTypePtrOutputWithContext(ctx context.Context) MemoryContentConfigurationTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(MemoryContentConfigurationTypePtrOutput)
+}
+
 // Status of the memory strategy
 type MemoryCustomMemoryStrategyStatus string
 
@@ -5333,6 +5663,362 @@ func (o OnlineEvaluationConfigStatusPtrOutput) ToStringPtrOutputWithContext(ctx 
 	}).(pulumi.StringPtrOutput)
 }
 
+type PolicyEngineStatus string
+
+const (
+	PolicyEngineStatusCreating     = PolicyEngineStatus("CREATING")
+	PolicyEngineStatusActive       = PolicyEngineStatus("ACTIVE")
+	PolicyEngineStatusUpdating     = PolicyEngineStatus("UPDATING")
+	PolicyEngineStatusDeleting     = PolicyEngineStatus("DELETING")
+	PolicyEngineStatusCreateFailed = PolicyEngineStatus("CREATE_FAILED")
+	PolicyEngineStatusUpdateFailed = PolicyEngineStatus("UPDATE_FAILED")
+	PolicyEngineStatusDeleteFailed = PolicyEngineStatus("DELETE_FAILED")
+)
+
+type PolicyEngineStatusOutput struct{ *pulumi.OutputState }
+
+func (PolicyEngineStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyEngineStatus)(nil)).Elem()
+}
+
+func (o PolicyEngineStatusOutput) ToPolicyEngineStatusOutput() PolicyEngineStatusOutput {
+	return o
+}
+
+func (o PolicyEngineStatusOutput) ToPolicyEngineStatusOutputWithContext(ctx context.Context) PolicyEngineStatusOutput {
+	return o
+}
+
+func (o PolicyEngineStatusOutput) ToPolicyEngineStatusPtrOutput() PolicyEngineStatusPtrOutput {
+	return o.ToPolicyEngineStatusPtrOutputWithContext(context.Background())
+}
+
+func (o PolicyEngineStatusOutput) ToPolicyEngineStatusPtrOutputWithContext(ctx context.Context) PolicyEngineStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicyEngineStatus) *PolicyEngineStatus {
+		return &v
+	}).(PolicyEngineStatusPtrOutput)
+}
+
+func (o PolicyEngineStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o PolicyEngineStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PolicyEngineStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o PolicyEngineStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PolicyEngineStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PolicyEngineStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type PolicyEngineStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (PolicyEngineStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PolicyEngineStatus)(nil)).Elem()
+}
+
+func (o PolicyEngineStatusPtrOutput) ToPolicyEngineStatusPtrOutput() PolicyEngineStatusPtrOutput {
+	return o
+}
+
+func (o PolicyEngineStatusPtrOutput) ToPolicyEngineStatusPtrOutputWithContext(ctx context.Context) PolicyEngineStatusPtrOutput {
+	return o
+}
+
+func (o PolicyEngineStatusPtrOutput) Elem() PolicyEngineStatusOutput {
+	return o.ApplyT(func(v *PolicyEngineStatus) PolicyEngineStatus {
+		if v != nil {
+			return *v
+		}
+		var ret PolicyEngineStatus
+		return ret
+	}).(PolicyEngineStatusOutput)
+}
+
+func (o PolicyEngineStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PolicyEngineStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *PolicyEngineStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type PolicyStatus string
+
+const (
+	PolicyStatusCreating     = PolicyStatus("CREATING")
+	PolicyStatusActive       = PolicyStatus("ACTIVE")
+	PolicyStatusUpdating     = PolicyStatus("UPDATING")
+	PolicyStatusDeleting     = PolicyStatus("DELETING")
+	PolicyStatusCreateFailed = PolicyStatus("CREATE_FAILED")
+	PolicyStatusUpdateFailed = PolicyStatus("UPDATE_FAILED")
+	PolicyStatusDeleteFailed = PolicyStatus("DELETE_FAILED")
+)
+
+type PolicyStatusOutput struct{ *pulumi.OutputState }
+
+func (PolicyStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyStatus)(nil)).Elem()
+}
+
+func (o PolicyStatusOutput) ToPolicyStatusOutput() PolicyStatusOutput {
+	return o
+}
+
+func (o PolicyStatusOutput) ToPolicyStatusOutputWithContext(ctx context.Context) PolicyStatusOutput {
+	return o
+}
+
+func (o PolicyStatusOutput) ToPolicyStatusPtrOutput() PolicyStatusPtrOutput {
+	return o.ToPolicyStatusPtrOutputWithContext(context.Background())
+}
+
+func (o PolicyStatusOutput) ToPolicyStatusPtrOutputWithContext(ctx context.Context) PolicyStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicyStatus) *PolicyStatus {
+		return &v
+	}).(PolicyStatusPtrOutput)
+}
+
+func (o PolicyStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o PolicyStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PolicyStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o PolicyStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PolicyStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PolicyStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type PolicyStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (PolicyStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PolicyStatus)(nil)).Elem()
+}
+
+func (o PolicyStatusPtrOutput) ToPolicyStatusPtrOutput() PolicyStatusPtrOutput {
+	return o
+}
+
+func (o PolicyStatusPtrOutput) ToPolicyStatusPtrOutputWithContext(ctx context.Context) PolicyStatusPtrOutput {
+	return o
+}
+
+func (o PolicyStatusPtrOutput) Elem() PolicyStatusOutput {
+	return o.ApplyT(func(v *PolicyStatus) PolicyStatus {
+		if v != nil {
+			return *v
+		}
+		var ret PolicyStatus
+		return ret
+	}).(PolicyStatusOutput)
+}
+
+func (o PolicyStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PolicyStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *PolicyStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// The validation mode for the policy. Determines how Cedar analyzer validation results are handled.
+type PolicyValidationMode string
+
+const (
+	PolicyValidationModeFailOnAnyFindings = PolicyValidationMode("FAIL_ON_ANY_FINDINGS")
+	PolicyValidationModeIgnoreAllFindings = PolicyValidationMode("IGNORE_ALL_FINDINGS")
+)
+
+func (PolicyValidationMode) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyValidationMode)(nil)).Elem()
+}
+
+func (e PolicyValidationMode) ToPolicyValidationModeOutput() PolicyValidationModeOutput {
+	return pulumi.ToOutput(e).(PolicyValidationModeOutput)
+}
+
+func (e PolicyValidationMode) ToPolicyValidationModeOutputWithContext(ctx context.Context) PolicyValidationModeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(PolicyValidationModeOutput)
+}
+
+func (e PolicyValidationMode) ToPolicyValidationModePtrOutput() PolicyValidationModePtrOutput {
+	return e.ToPolicyValidationModePtrOutputWithContext(context.Background())
+}
+
+func (e PolicyValidationMode) ToPolicyValidationModePtrOutputWithContext(ctx context.Context) PolicyValidationModePtrOutput {
+	return PolicyValidationMode(e).ToPolicyValidationModeOutputWithContext(ctx).ToPolicyValidationModePtrOutputWithContext(ctx)
+}
+
+func (e PolicyValidationMode) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PolicyValidationMode) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PolicyValidationMode) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e PolicyValidationMode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type PolicyValidationModeOutput struct{ *pulumi.OutputState }
+
+func (PolicyValidationModeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyValidationMode)(nil)).Elem()
+}
+
+func (o PolicyValidationModeOutput) ToPolicyValidationModeOutput() PolicyValidationModeOutput {
+	return o
+}
+
+func (o PolicyValidationModeOutput) ToPolicyValidationModeOutputWithContext(ctx context.Context) PolicyValidationModeOutput {
+	return o
+}
+
+func (o PolicyValidationModeOutput) ToPolicyValidationModePtrOutput() PolicyValidationModePtrOutput {
+	return o.ToPolicyValidationModePtrOutputWithContext(context.Background())
+}
+
+func (o PolicyValidationModeOutput) ToPolicyValidationModePtrOutputWithContext(ctx context.Context) PolicyValidationModePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicyValidationMode) *PolicyValidationMode {
+		return &v
+	}).(PolicyValidationModePtrOutput)
+}
+
+func (o PolicyValidationModeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o PolicyValidationModeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PolicyValidationMode) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o PolicyValidationModeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PolicyValidationModeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PolicyValidationMode) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type PolicyValidationModePtrOutput struct{ *pulumi.OutputState }
+
+func (PolicyValidationModePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PolicyValidationMode)(nil)).Elem()
+}
+
+func (o PolicyValidationModePtrOutput) ToPolicyValidationModePtrOutput() PolicyValidationModePtrOutput {
+	return o
+}
+
+func (o PolicyValidationModePtrOutput) ToPolicyValidationModePtrOutputWithContext(ctx context.Context) PolicyValidationModePtrOutput {
+	return o
+}
+
+func (o PolicyValidationModePtrOutput) Elem() PolicyValidationModeOutput {
+	return o.ApplyT(func(v *PolicyValidationMode) PolicyValidationMode {
+		if v != nil {
+			return *v
+		}
+		var ret PolicyValidationMode
+		return ret
+	}).(PolicyValidationModeOutput)
+}
+
+func (o PolicyValidationModePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PolicyValidationModePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *PolicyValidationMode) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// PolicyValidationModeInput is an input type that accepts values of the PolicyValidationMode enum
+// A concrete instance of `PolicyValidationModeInput` can be one of the following:
+//
+//	PolicyValidationModeFailOnAnyFindings
+//	PolicyValidationModeIgnoreAllFindings
+type PolicyValidationModeInput interface {
+	pulumi.Input
+
+	ToPolicyValidationModeOutput() PolicyValidationModeOutput
+	ToPolicyValidationModeOutputWithContext(context.Context) PolicyValidationModeOutput
+}
+
+var policyValidationModePtrType = reflect.TypeOf((**PolicyValidationMode)(nil)).Elem()
+
+type PolicyValidationModePtrInput interface {
+	pulumi.Input
+
+	ToPolicyValidationModePtrOutput() PolicyValidationModePtrOutput
+	ToPolicyValidationModePtrOutputWithContext(context.Context) PolicyValidationModePtrOutput
+}
+
+type policyValidationModePtr string
+
+func PolicyValidationModePtr(v string) PolicyValidationModePtrInput {
+	return (*policyValidationModePtr)(&v)
+}
+
+func (*policyValidationModePtr) ElementType() reflect.Type {
+	return policyValidationModePtrType
+}
+
+func (in *policyValidationModePtr) ToPolicyValidationModePtrOutput() PolicyValidationModePtrOutput {
+	return pulumi.ToOutput(in).(PolicyValidationModePtrOutput)
+}
+
+func (in *policyValidationModePtr) ToPolicyValidationModePtrOutputWithContext(ctx context.Context) PolicyValidationModePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(PolicyValidationModePtrOutput)
+}
+
 // Managed runtime types
 type RuntimeAgentManagedRuntimeType string
 
@@ -6391,6 +7077,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetRestApiMethodArrayInput)(nil)).Elem(), GatewayTargetRestApiMethodArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetSchemaTypeInput)(nil)).Elem(), GatewayTargetSchemaType("string"))
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetSchemaTypePtrInput)(nil)).Elem(), GatewayTargetSchemaType("string"))
+	pulumi.RegisterInputType(reflect.TypeOf((*MemoryContentConfigurationLevelInput)(nil)).Elem(), MemoryContentConfigurationLevel("METADATA_ONLY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*MemoryContentConfigurationLevelPtrInput)(nil)).Elem(), MemoryContentConfigurationLevel("METADATA_ONLY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*MemoryContentConfigurationTypeInput)(nil)).Elem(), MemoryContentConfigurationType("MEMORY_RECORDS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*MemoryContentConfigurationTypePtrInput)(nil)).Elem(), MemoryContentConfigurationType("MEMORY_RECORDS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*MemoryCustomMemoryStrategyStatusInput)(nil)).Elem(), MemoryCustomMemoryStrategyStatus("CREATING"))
 	pulumi.RegisterInputType(reflect.TypeOf((*MemoryCustomMemoryStrategyStatusPtrInput)(nil)).Elem(), MemoryCustomMemoryStrategyStatus("CREATING"))
 	pulumi.RegisterInputType(reflect.TypeOf((*MemoryCustomMemoryStrategyTypeInput)(nil)).Elem(), MemoryCustomMemoryStrategyType("SEMANTIC"))
@@ -6413,6 +7103,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MemoryUserPreferenceMemoryStrategyTypePtrInput)(nil)).Elem(), MemoryUserPreferenceMemoryStrategyType("SEMANTIC"))
 	pulumi.RegisterInputType(reflect.TypeOf((*OnlineEvaluationConfigFilterOperatorInput)(nil)).Elem(), OnlineEvaluationConfigFilterOperator("Equals"))
 	pulumi.RegisterInputType(reflect.TypeOf((*OnlineEvaluationConfigFilterOperatorPtrInput)(nil)).Elem(), OnlineEvaluationConfigFilterOperator("Equals"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyValidationModeInput)(nil)).Elem(), PolicyValidationMode("FAIL_ON_ANY_FINDINGS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyValidationModePtrInput)(nil)).Elem(), PolicyValidationMode("FAIL_ON_ANY_FINDINGS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeAgentManagedRuntimeTypeInput)(nil)).Elem(), RuntimeAgentManagedRuntimeType("PYTHON_3_10"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeAgentManagedRuntimeTypePtrInput)(nil)).Elem(), RuntimeAgentManagedRuntimeType("PYTHON_3_10"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeClaimMatchOperatorInput)(nil)).Elem(), RuntimeClaimMatchOperator("EQUALS"))
@@ -6467,6 +7159,10 @@ func init() {
 	pulumi.RegisterOutputType(GatewayTargetSchemaTypePtrOutput{})
 	pulumi.RegisterOutputType(GatewayTargetTargetStatusOutput{})
 	pulumi.RegisterOutputType(GatewayTargetTargetStatusPtrOutput{})
+	pulumi.RegisterOutputType(MemoryContentConfigurationLevelOutput{})
+	pulumi.RegisterOutputType(MemoryContentConfigurationLevelPtrOutput{})
+	pulumi.RegisterOutputType(MemoryContentConfigurationTypeOutput{})
+	pulumi.RegisterOutputType(MemoryContentConfigurationTypePtrOutput{})
 	pulumi.RegisterOutputType(MemoryCustomMemoryStrategyStatusOutput{})
 	pulumi.RegisterOutputType(MemoryCustomMemoryStrategyStatusPtrOutput{})
 	pulumi.RegisterOutputType(MemoryCustomMemoryStrategyTypeOutput{})
@@ -6495,6 +7191,12 @@ func init() {
 	pulumi.RegisterOutputType(OnlineEvaluationConfigFilterOperatorPtrOutput{})
 	pulumi.RegisterOutputType(OnlineEvaluationConfigStatusOutput{})
 	pulumi.RegisterOutputType(OnlineEvaluationConfigStatusPtrOutput{})
+	pulumi.RegisterOutputType(PolicyEngineStatusOutput{})
+	pulumi.RegisterOutputType(PolicyEngineStatusPtrOutput{})
+	pulumi.RegisterOutputType(PolicyStatusOutput{})
+	pulumi.RegisterOutputType(PolicyStatusPtrOutput{})
+	pulumi.RegisterOutputType(PolicyValidationModeOutput{})
+	pulumi.RegisterOutputType(PolicyValidationModePtrOutput{})
 	pulumi.RegisterOutputType(RuntimeAgentManagedRuntimeTypeOutput{})
 	pulumi.RegisterOutputType(RuntimeAgentManagedRuntimeTypePtrOutput{})
 	pulumi.RegisterOutputType(RuntimeAgentStatusOutput{})

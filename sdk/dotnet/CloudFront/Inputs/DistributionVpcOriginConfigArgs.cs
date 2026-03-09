@@ -30,7 +30,7 @@ namespace Pulumi.AwsNative.CloudFront.Inputs
         public Input<int>? OriginReadTimeout { get; set; }
 
         /// <summary>
-        /// The account ID of the AWS account that owns the VPC origin.
+        /// The account ID of the AWS-account that owns the VPC origin.
         /// </summary>
         [Input("ownerAccountId")]
         public Input<string>? OwnerAccountId { get; set; }

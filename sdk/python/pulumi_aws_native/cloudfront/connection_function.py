@@ -34,9 +34,9 @@ class ConnectionFunctionArgs:
 
         :param pulumi.Input[_builtins.str] connection_function_code: The code for the connection function.
         :param pulumi.Input['ConnectionFunctionConfigArgs'] connection_function_config: Contains configuration information about a CloudFront function.
-        :param pulumi.Input[_builtins.bool] auto_publish: A flag that determines whether to automatically publish the function to the `LIVE` stage when it’s created. To automatically publish to the `LIVE` stage, set this property to `true` .
+        :param pulumi.Input[_builtins.bool] auto_publish: A flag that determines whether to automatically publish the function to the ``LIVE`` stage when it’s created. To automatically publish to the ``LIVE`` stage, set this property to ``true``.
         :param pulumi.Input[_builtins.str] name: The connection function name.
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A complex type that contains zero or more `Tag` elements.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A complex type that contains zero or more ``Tag`` elements.
         """
         pulumi.set(__self__, "connection_function_code", connection_function_code)
         pulumi.set(__self__, "connection_function_config", connection_function_config)
@@ -75,7 +75,7 @@ class ConnectionFunctionArgs:
     @pulumi.getter(name="autoPublish")
     def auto_publish(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        A flag that determines whether to automatically publish the function to the `LIVE` stage when it’s created. To automatically publish to the `LIVE` stage, set this property to `true` .
+        A flag that determines whether to automatically publish the function to the ``LIVE`` stage when it’s created. To automatically publish to the ``LIVE`` stage, set this property to ``true``.
         """
         return pulumi.get(self, "auto_publish")
 
@@ -99,7 +99,7 @@ class ConnectionFunctionArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
-        A complex type that contains zero or more `Tag` elements.
+        A complex type that contains zero or more ``Tag`` elements.
         """
         return pulumi.get(self, "tags")
 
@@ -121,16 +121,16 @@ class ConnectionFunction(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
-        Resource Type definition for AWS::CloudFront::ConnectionFunction
+        A connection function.
 
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.bool] auto_publish: A flag that determines whether to automatically publish the function to the `LIVE` stage when it’s created. To automatically publish to the `LIVE` stage, set this property to `true` .
+        :param pulumi.Input[_builtins.bool] auto_publish: A flag that determines whether to automatically publish the function to the ``LIVE`` stage when it’s created. To automatically publish to the ``LIVE`` stage, set this property to ``true``.
         :param pulumi.Input[_builtins.str] connection_function_code: The code for the connection function.
         :param pulumi.Input[Union['ConnectionFunctionConfigArgs', 'ConnectionFunctionConfigArgsDict']] connection_function_config: Contains configuration information about a CloudFront function.
         :param pulumi.Input[_builtins.str] name: The connection function name.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A complex type that contains zero or more `Tag` elements.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A complex type that contains zero or more ``Tag`` elements.
         """
         ...
     @overload
@@ -139,7 +139,7 @@ class ConnectionFunction(pulumi.CustomResource):
                  args: ConnectionFunctionArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource Type definition for AWS::CloudFront::ConnectionFunction
+        A connection function.
 
 
         :param str resource_name: The name of the resource.
@@ -229,7 +229,7 @@ class ConnectionFunction(pulumi.CustomResource):
     @pulumi.getter(name="autoPublish")
     def auto_publish(self) -> pulumi.Output[Optional[_builtins.bool]]:
         """
-        A flag that determines whether to automatically publish the function to the `LIVE` stage when it’s created. To automatically publish to the `LIVE` stage, set this property to `true` .
+        A flag that determines whether to automatically publish the function to the ``LIVE`` stage when it’s created. To automatically publish to the ``LIVE`` stage, set this property to ``true``.
         """
         return pulumi.get(self, "auto_publish")
 
@@ -317,7 +317,7 @@ class ConnectionFunction(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
-        A complex type that contains zero or more `Tag` elements.
+        A complex type that contains zero or more ``Tag`` elements.
         """
         return pulumi.get(self, "tags")
 

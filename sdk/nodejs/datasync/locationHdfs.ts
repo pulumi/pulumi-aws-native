@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource schema for AWS::DataSync::LocationHDFS.
+ * Resource Type definition for AWS::DataSync::LocationHDFS.
  */
 export class LocationHdfs extends pulumi.CustomResource {
     /**
@@ -49,6 +49,8 @@ export class LocationHdfs extends pulumi.CustomResource {
      * Size of chunks (blocks) in bytes that the data is divided into when stored in the HDFS cluster.
      */
     declare public readonly blockSize: pulumi.Output<number | undefined>;
+    declare public readonly cmkSecretConfig: pulumi.Output<outputs.datasync.LocationHdfsCmkSecretConfig | undefined>;
+    declare public readonly customSecretConfig: pulumi.Output<outputs.datasync.LocationHdfsCustomSecretConfig | undefined>;
     /**
      * The Base64 string representation of the Keytab file.
      */
@@ -73,6 +75,7 @@ export class LocationHdfs extends pulumi.CustomResource {
      * The URL of the HDFS location that was described.
      */
     declare public /*out*/ readonly locationUri: pulumi.Output<string>;
+    declare public /*out*/ readonly managedSecretConfig: pulumi.Output<outputs.datasync.LocationHdfsManagedSecretConfig>;
     /**
      * An array of Name Node(s) of the HDFS location.
      */
@@ -121,6 +124,8 @@ export class LocationHdfs extends pulumi.CustomResource {
             resourceInputs["agentArns"] = args?.agentArns;
             resourceInputs["authenticationType"] = args?.authenticationType;
             resourceInputs["blockSize"] = args?.blockSize;
+            resourceInputs["cmkSecretConfig"] = args?.cmkSecretConfig;
+            resourceInputs["customSecretConfig"] = args?.customSecretConfig;
             resourceInputs["kerberosKeytab"] = args?.kerberosKeytab;
             resourceInputs["kerberosKrb5Conf"] = args?.kerberosKrb5Conf;
             resourceInputs["kerberosPrincipal"] = args?.kerberosPrincipal;
@@ -133,16 +138,20 @@ export class LocationHdfs extends pulumi.CustomResource {
             resourceInputs["tags"] = args?.tags;
             resourceInputs["locationArn"] = undefined /*out*/;
             resourceInputs["locationUri"] = undefined /*out*/;
+            resourceInputs["managedSecretConfig"] = undefined /*out*/;
         } else {
             resourceInputs["agentArns"] = undefined /*out*/;
             resourceInputs["authenticationType"] = undefined /*out*/;
             resourceInputs["blockSize"] = undefined /*out*/;
+            resourceInputs["cmkSecretConfig"] = undefined /*out*/;
+            resourceInputs["customSecretConfig"] = undefined /*out*/;
             resourceInputs["kerberosKeytab"] = undefined /*out*/;
             resourceInputs["kerberosKrb5Conf"] = undefined /*out*/;
             resourceInputs["kerberosPrincipal"] = undefined /*out*/;
             resourceInputs["kmsKeyProviderUri"] = undefined /*out*/;
             resourceInputs["locationArn"] = undefined /*out*/;
             resourceInputs["locationUri"] = undefined /*out*/;
+            resourceInputs["managedSecretConfig"] = undefined /*out*/;
             resourceInputs["nameNodes"] = undefined /*out*/;
             resourceInputs["qopConfiguration"] = undefined /*out*/;
             resourceInputs["replicationFactor"] = undefined /*out*/;
@@ -171,6 +180,8 @@ export interface LocationHdfsArgs {
      * Size of chunks (blocks) in bytes that the data is divided into when stored in the HDFS cluster.
      */
     blockSize?: pulumi.Input<number>;
+    cmkSecretConfig?: pulumi.Input<inputs.datasync.LocationHdfsCmkSecretConfigArgs>;
+    customSecretConfig?: pulumi.Input<inputs.datasync.LocationHdfsCustomSecretConfigArgs>;
     /**
      * The Base64 string representation of the Keytab file.
      */

@@ -18,6 +18,9 @@ namespace Pulumi.AwsNative.ObservabilityAdmin.Inputs
         [Input("backupConfiguration")]
         public Input<Inputs.OrganizationCentralizationRuleLogsBackupConfigurationArgs>? BackupConfiguration { get; set; }
 
+        [Input("logGroupNameConfiguration")]
+        public Input<Inputs.OrganizationCentralizationRuleLogGroupNameConfigurationArgs>? LogGroupNameConfiguration { get; set; }
+
         /// <summary>
         /// The encryption configuration for centralization destination log groups.
         /// </summary>

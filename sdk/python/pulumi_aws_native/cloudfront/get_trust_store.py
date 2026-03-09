@@ -52,7 +52,7 @@ class GetTrustStoreResult:
     @pulumi.getter
     def arn(self) -> Optional[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) of the trust store
+        The trust store's Amazon Resource Name (ARN).
         """
         return pulumi.get(self, "arn")
 
@@ -68,7 +68,7 @@ class GetTrustStoreResult:
     @pulumi.getter
     def id(self) -> Optional[_builtins.str]:
         """
-        The unique identifier for the trust store
+        The trust store's ID.
         """
         return pulumi.get(self, "id")
 
@@ -76,7 +76,7 @@ class GetTrustStoreResult:
     @pulumi.getter(name="lastModifiedTime")
     def last_modified_time(self) -> Optional[_builtins.str]:
         """
-        The last modification timestamp of the trust store PEM file
+        The trust store's last modified time.
         """
         return pulumi.get(self, "last_modified_time")
 
@@ -84,7 +84,7 @@ class GetTrustStoreResult:
     @pulumi.getter(name="numberOfCaCertificates")
     def number_of_ca_certificates(self) -> Optional[_builtins.int]:
         """
-        The number of CA certificates in the trust store PEM file
+        The trust store's number of CA certificates.
         """
         return pulumi.get(self, "number_of_ca_certificates")
 
@@ -92,7 +92,7 @@ class GetTrustStoreResult:
     @pulumi.getter
     def status(self) -> Optional['TrustStoreStatus']:
         """
-        Current status of the trust store
+        The trust store's status.
         """
         return pulumi.get(self, "status")
 
@@ -100,7 +100,7 @@ class GetTrustStoreResult:
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
         """
-        Key-value pairs for resource tagging
+        A complex type that contains zero or more ``Tag`` elements.
         """
         return pulumi.get(self, "tags")
 
@@ -123,10 +123,10 @@ class AwaitableGetTrustStoreResult(GetTrustStoreResult):
 def get_trust_store(id: Optional[_builtins.str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTrustStoreResult:
     """
-    Resource Type definition for AWS::CloudFront::TrustStore. TrustStores contain CA certificates for mTLS authentication and can be associated with CloudFront distributions.
+    A trust store.
 
 
-    :param _builtins.str id: The unique identifier for the trust store
+    :param _builtins.str id: The trust store's ID.
     """
     __args__ = dict()
     __args__['id'] = id
@@ -144,10 +144,10 @@ def get_trust_store(id: Optional[_builtins.str] = None,
 def get_trust_store_output(id: Optional[pulumi.Input[_builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTrustStoreResult]:
     """
-    Resource Type definition for AWS::CloudFront::TrustStore. TrustStores contain CA certificates for mTLS authentication and can be associated with CloudFront distributions.
+    A trust store.
 
 
-    :param _builtins.str id: The unique identifier for the trust store
+    :param _builtins.str id: The trust store's ID.
     """
     __args__ = dict()
     __args__['id'] = id

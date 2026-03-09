@@ -29,6 +29,8 @@ type LookupQueueArgs struct {
 }
 
 type LookupQueueResult struct {
+	// The email addresses that agents can use when replying to or initiating email contacts
+	AdditionalEmailAddresses []QueueEmailAddress `pulumi:"additionalEmailAddresses"`
 	// The description of the queue.
 	Description *string `pulumi:"description"`
 	// The identifier for the hours of operation.
@@ -85,6 +87,11 @@ func (o LookupQueueResultOutput) ToLookupQueueResultOutput() LookupQueueResultOu
 
 func (o LookupQueueResultOutput) ToLookupQueueResultOutputWithContext(ctx context.Context) LookupQueueResultOutput {
 	return o
+}
+
+// The email addresses that agents can use when replying to or initiating email contacts
+func (o LookupQueueResultOutput) AdditionalEmailAddresses() QueueEmailAddressArrayOutput {
+	return o.ApplyT(func(v LookupQueueResult) []QueueEmailAddress { return v.AdditionalEmailAddresses }).(QueueEmailAddressArrayOutput)
 }
 
 // The description of the queue.

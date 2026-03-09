@@ -2725,7 +2725,8 @@
         "description": "Configuration for language settings of this evaluation form."
       },
       "reviewConfiguration": {
-        "$ref": "#/types/aws-native:connect:EvaluationFormEvaluationReviewConfiguration"
+        "$ref": "#/types/aws-native:connect:EvaluationFormEvaluationReviewConfiguration",
+        "description": "Configuration for evaluation review settings of this evaluation form."
       },
       "scoringStrategy": {
         "$ref": "#/types/aws-native:connect:EvaluationFormScoringStrategy",
@@ -3302,6 +3303,12 @@
   "aws-native:datasync:LocationFSxWindows": {
     "cfTypeName": "AWS::DataSync::LocationFSxWindows",
     "properties": {
+      "cmkSecretConfig": {
+        "$ref": "#/types/aws-native:datasync:LocationFSxWindowsCmkSecretConfig"
+      },
+      "customSecretConfig": {
+        "$ref": "#/types/aws-native:datasync:LocationFSxWindowsCustomSecretConfig"
+      },
       "domain": {
         "type": "string",
         "description": "The name of the Windows domain that the FSx for Windows server belongs to."
@@ -3355,6 +3362,12 @@
       "blockSize": {
         "type": "integer",
         "description": "Size of chunks (blocks) in bytes that the data is divided into when stored in the HDFS cluster."
+      },
+      "cmkSecretConfig": {
+        "$ref": "#/types/aws-native:datasync:LocationHdfsCmkSecretConfig"
+      },
+      "customSecretConfig": {
+        "$ref": "#/types/aws-native:datasync:LocationHdfsCustomSecretConfig"
       },
       "kerberosKeytab": {
         "type": "string",
@@ -7162,7 +7175,7 @@
       },
       "throughput": {
         "type": "integer",
-        "description": "The throughput to provision for a volume, with a maximum of 1,000 MiB/s.\n This parameter is valid only for ``gp3`` volumes. The default value is 125.\n Valid Range: Minimum value of 125. Maximum value of 1000."
+        "description": "The throughput to provision for a volume, with a maximum of 2,000 MiB/s.\n This parameter is valid only for ``gp3`` volumes. The default value is 125.\n Valid Range: Minimum value of 125. Maximum value of 2000.\n The maximum ratio of throughput to IOPS is 0.25 MiB/s per IOPS. For example, a volume with 3,000 IOPS can have a maximum throughput of 750 MiB/s (3,000 x 0.25)."
       },
       "volumeInitializationRate": {
         "type": "integer",

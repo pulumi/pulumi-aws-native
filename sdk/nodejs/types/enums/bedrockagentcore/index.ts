@@ -205,6 +205,25 @@ export const GatewayTargetTargetStatus = {
 
 export type GatewayTargetTargetStatus = (typeof GatewayTargetTargetStatus)[keyof typeof GatewayTargetTargetStatus];
 
+export const MemoryContentConfigurationLevel = {
+    MetadataOnly: "METADATA_ONLY",
+    FullContent: "FULL_CONTENT",
+} as const;
+
+/**
+ * The level of content detail to deliver
+ */
+export type MemoryContentConfigurationLevel = (typeof MemoryContentConfigurationLevel)[keyof typeof MemoryContentConfigurationLevel];
+
+export const MemoryContentConfigurationType = {
+    MemoryRecords: "MEMORY_RECORDS",
+} as const;
+
+/**
+ * The type of content to deliver
+ */
+export type MemoryContentConfigurationType = (typeof MemoryContentConfigurationType)[keyof typeof MemoryContentConfigurationType];
+
 export const MemoryCustomMemoryStrategyStatus = {
     Creating: "CREATING",
     Active: "ACTIVE",
@@ -375,6 +394,40 @@ export const OnlineEvaluationConfigStatus = {
 } as const;
 
 export type OnlineEvaluationConfigStatus = (typeof OnlineEvaluationConfigStatus)[keyof typeof OnlineEvaluationConfigStatus];
+
+export const PolicyEngineStatus = {
+    Creating: "CREATING",
+    Active: "ACTIVE",
+    Updating: "UPDATING",
+    Deleting: "DELETING",
+    CreateFailed: "CREATE_FAILED",
+    UpdateFailed: "UPDATE_FAILED",
+    DeleteFailed: "DELETE_FAILED",
+} as const;
+
+export type PolicyEngineStatus = (typeof PolicyEngineStatus)[keyof typeof PolicyEngineStatus];
+
+export const PolicyStatus = {
+    Creating: "CREATING",
+    Active: "ACTIVE",
+    Updating: "UPDATING",
+    Deleting: "DELETING",
+    CreateFailed: "CREATE_FAILED",
+    UpdateFailed: "UPDATE_FAILED",
+    DeleteFailed: "DELETE_FAILED",
+} as const;
+
+export type PolicyStatus = (typeof PolicyStatus)[keyof typeof PolicyStatus];
+
+export const PolicyValidationMode = {
+    FailOnAnyFindings: "FAIL_ON_ANY_FINDINGS",
+    IgnoreAllFindings: "IGNORE_ALL_FINDINGS",
+} as const;
+
+/**
+ * The validation mode for the policy. Determines how Cedar analyzer validation results are handled.
+ */
+export type PolicyValidationMode = (typeof PolicyValidationMode)[keyof typeof PolicyValidationMode];
 
 export const RuntimeAgentManagedRuntimeType = {
     Python310: "PYTHON_3_10",

@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource schema for AWS::DataSync::LocationFSxWindows.
+ * Resource Type definition for AWS::DataSync::LocationFSxWindows.
  */
 export class LocationFSxWindows extends pulumi.CustomResource {
     /**
@@ -37,6 +37,8 @@ export class LocationFSxWindows extends pulumi.CustomResource {
         return obj['__pulumiType'] === LocationFSxWindows.__pulumiType;
     }
 
+    declare public readonly cmkSecretConfig: pulumi.Output<outputs.datasync.LocationFSxWindowsCmkSecretConfig | undefined>;
+    declare public readonly customSecretConfig: pulumi.Output<outputs.datasync.LocationFSxWindowsCustomSecretConfig | undefined>;
     /**
      * The name of the Windows domain that the FSx for Windows server belongs to.
      */
@@ -53,6 +55,7 @@ export class LocationFSxWindows extends pulumi.CustomResource {
      * The URL of the FSx for Windows location that was described.
      */
     declare public /*out*/ readonly locationUri: pulumi.Output<string>;
+    declare public /*out*/ readonly managedSecretConfig: pulumi.Output<outputs.datasync.LocationFSxWindowsManagedSecretConfig>;
     /**
      * The password of the user who has the permissions to access files and folders in the FSx for Windows file system.
      */
@@ -91,6 +94,8 @@ export class LocationFSxWindows extends pulumi.CustomResource {
             if (args?.user === undefined && !opts.urn) {
                 throw new Error("Missing required property 'user'");
             }
+            resourceInputs["cmkSecretConfig"] = args?.cmkSecretConfig;
+            resourceInputs["customSecretConfig"] = args?.customSecretConfig;
             resourceInputs["domain"] = args?.domain;
             resourceInputs["fsxFilesystemArn"] = args?.fsxFilesystemArn;
             resourceInputs["password"] = args?.password;
@@ -100,11 +105,15 @@ export class LocationFSxWindows extends pulumi.CustomResource {
             resourceInputs["user"] = args?.user;
             resourceInputs["locationArn"] = undefined /*out*/;
             resourceInputs["locationUri"] = undefined /*out*/;
+            resourceInputs["managedSecretConfig"] = undefined /*out*/;
         } else {
+            resourceInputs["cmkSecretConfig"] = undefined /*out*/;
+            resourceInputs["customSecretConfig"] = undefined /*out*/;
             resourceInputs["domain"] = undefined /*out*/;
             resourceInputs["fsxFilesystemArn"] = undefined /*out*/;
             resourceInputs["locationArn"] = undefined /*out*/;
             resourceInputs["locationUri"] = undefined /*out*/;
+            resourceInputs["managedSecretConfig"] = undefined /*out*/;
             resourceInputs["password"] = undefined /*out*/;
             resourceInputs["securityGroupArns"] = undefined /*out*/;
             resourceInputs["subdirectory"] = undefined /*out*/;
@@ -122,6 +131,8 @@ export class LocationFSxWindows extends pulumi.CustomResource {
  * The set of arguments for constructing a LocationFSxWindows resource.
  */
 export interface LocationFSxWindowsArgs {
+    cmkSecretConfig?: pulumi.Input<inputs.datasync.LocationFSxWindowsCmkSecretConfigArgs>;
+    customSecretConfig?: pulumi.Input<inputs.datasync.LocationFSxWindowsCustomSecretConfigArgs>;
     /**
      * The name of the Windows domain that the FSx for Windows server belongs to.
      */

@@ -84,6 +84,7 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         /// The memory status.
         /// </summary>
         public readonly Pulumi.AwsNative.BedrockAgentCore.MemoryStatus? Status;
+        public readonly Outputs.MemoryStreamDeliveryResources? StreamDeliveryResources;
         /// <summary>
         /// The tags for the resources.
         /// </summary>
@@ -110,6 +111,8 @@ namespace Pulumi.AwsNative.BedrockAgentCore
 
             Pulumi.AwsNative.BedrockAgentCore.MemoryStatus? status,
 
+            Outputs.MemoryStreamDeliveryResources? streamDeliveryResources,
+
             ImmutableDictionary<string, string>? tags,
 
             string? updatedAt)
@@ -123,6 +126,7 @@ namespace Pulumi.AwsNative.BedrockAgentCore
             MemoryId = memoryId;
             MemoryStrategies = memoryStrategies;
             Status = status;
+            StreamDeliveryResources = streamDeliveryResources;
             Tags = tags;
             UpdatedAt = updatedAt;
         }

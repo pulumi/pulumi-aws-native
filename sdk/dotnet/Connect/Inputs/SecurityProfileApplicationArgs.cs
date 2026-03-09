@@ -33,6 +33,12 @@ namespace Pulumi.AwsNative.Connect.Inputs
         [Input("namespace", required: true)]
         public Input<string> Namespace { get; set; } = null!;
 
+        /// <summary>
+        /// The type of the application.
+        /// </summary>
+        [Input("type")]
+        public Input<Pulumi.AwsNative.Connect.SecurityProfileApplicationType>? Type { get; set; }
+
         public SecurityProfileApplicationArgs()
         {
         }

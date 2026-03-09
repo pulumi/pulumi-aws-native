@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource schema for AWS::DataSync::LocationHDFS.
+// Resource Type definition for AWS::DataSync::LocationHDFS.
 func LookupLocationHdfs(ctx *pulumi.Context, args *LookupLocationHdfsArgs, opts ...pulumi.InvokeOption) (*LookupLocationHdfsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupLocationHdfsResult
@@ -34,7 +34,9 @@ type LookupLocationHdfsResult struct {
 	// The authentication mode used to determine identity of user.
 	AuthenticationType *LocationHdfsAuthenticationType `pulumi:"authenticationType"`
 	// Size of chunks (blocks) in bytes that the data is divided into when stored in the HDFS cluster.
-	BlockSize *int `pulumi:"blockSize"`
+	BlockSize          *int                            `pulumi:"blockSize"`
+	CmkSecretConfig    *LocationHdfsCmkSecretConfig    `pulumi:"cmkSecretConfig"`
+	CustomSecretConfig *LocationHdfsCustomSecretConfig `pulumi:"customSecretConfig"`
 	// The unique identity, or principal, to which Kerberos can assign tickets.
 	KerberosPrincipal *string `pulumi:"kerberosPrincipal"`
 	// The identifier for the Key Management Server where the encryption keys that encrypt data inside HDFS clusters are stored.
@@ -42,7 +44,8 @@ type LookupLocationHdfsResult struct {
 	// The Amazon Resource Name (ARN) of the HDFS location.
 	LocationArn *string `pulumi:"locationArn"`
 	// The URL of the HDFS location that was described.
-	LocationUri *string `pulumi:"locationUri"`
+	LocationUri         *string                          `pulumi:"locationUri"`
+	ManagedSecretConfig *LocationHdfsManagedSecretConfig `pulumi:"managedSecretConfig"`
 	// An array of Name Node(s) of the HDFS location.
 	NameNodes []LocationHdfsNameNode `pulumi:"nameNodes"`
 	// The Quality of Protection (QOP) configuration specifies the Remote Procedure Call (RPC) and data transfer protection settings configured on the Hadoop Distributed File System (HDFS) cluster. If `QopConfiguration` isn't specified, `RpcProtection` and `DataTransferProtection` default to `PRIVACY` . If you set `RpcProtection` or `DataTransferProtection` , the other parameter assumes the same value.
@@ -102,6 +105,14 @@ func (o LookupLocationHdfsResultOutput) BlockSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LookupLocationHdfsResult) *int { return v.BlockSize }).(pulumi.IntPtrOutput)
 }
 
+func (o LookupLocationHdfsResultOutput) CmkSecretConfig() LocationHdfsCmkSecretConfigPtrOutput {
+	return o.ApplyT(func(v LookupLocationHdfsResult) *LocationHdfsCmkSecretConfig { return v.CmkSecretConfig }).(LocationHdfsCmkSecretConfigPtrOutput)
+}
+
+func (o LookupLocationHdfsResultOutput) CustomSecretConfig() LocationHdfsCustomSecretConfigPtrOutput {
+	return o.ApplyT(func(v LookupLocationHdfsResult) *LocationHdfsCustomSecretConfig { return v.CustomSecretConfig }).(LocationHdfsCustomSecretConfigPtrOutput)
+}
+
 // The unique identity, or principal, to which Kerberos can assign tickets.
 func (o LookupLocationHdfsResultOutput) KerberosPrincipal() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupLocationHdfsResult) *string { return v.KerberosPrincipal }).(pulumi.StringPtrOutput)
@@ -120,6 +131,10 @@ func (o LookupLocationHdfsResultOutput) LocationArn() pulumi.StringPtrOutput {
 // The URL of the HDFS location that was described.
 func (o LookupLocationHdfsResultOutput) LocationUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupLocationHdfsResult) *string { return v.LocationUri }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupLocationHdfsResultOutput) ManagedSecretConfig() LocationHdfsManagedSecretConfigPtrOutput {
+	return o.ApplyT(func(v LookupLocationHdfsResult) *LocationHdfsManagedSecretConfig { return v.ManagedSecretConfig }).(LocationHdfsManagedSecretConfigPtrOutput)
 }
 
 // An array of Name Node(s) of the HDFS location.

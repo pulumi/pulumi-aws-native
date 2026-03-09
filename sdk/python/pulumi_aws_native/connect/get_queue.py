@@ -26,7 +26,10 @@ __all__ = [
 
 @pulumi.output_type
 class GetQueueResult:
-    def __init__(__self__, description=None, hours_of_operation_arn=None, instance_arn=None, max_contacts=None, name=None, outbound_caller_config=None, outbound_email_config=None, queue_arn=None, quick_connect_arns=None, status=None, tags=None, type=None):
+    def __init__(__self__, additional_email_addresses=None, description=None, hours_of_operation_arn=None, instance_arn=None, max_contacts=None, name=None, outbound_caller_config=None, outbound_email_config=None, queue_arn=None, quick_connect_arns=None, status=None, tags=None, type=None):
+        if additional_email_addresses and not isinstance(additional_email_addresses, list):
+            raise TypeError("Expected argument 'additional_email_addresses' to be a list")
+        pulumi.set(__self__, "additional_email_addresses", additional_email_addresses)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -63,6 +66,14 @@ class GetQueueResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter(name="additionalEmailAddresses")
+    def additional_email_addresses(self) -> Optional[Sequence['outputs.QueueEmailAddress']]:
+        """
+        The email addresses that agents can use when replying to or initiating email contacts
+        """
+        return pulumi.get(self, "additional_email_addresses")
 
     @_builtins.property
     @pulumi.getter
@@ -167,6 +178,7 @@ class AwaitableGetQueueResult(GetQueueResult):
         if False:
             yield self
         return GetQueueResult(
+            additional_email_addresses=self.additional_email_addresses,
             description=self.description,
             hours_of_operation_arn=self.hours_of_operation_arn,
             instance_arn=self.instance_arn,
@@ -195,6 +207,7 @@ def get_queue(queue_arn: Optional[_builtins.str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:connect:getQueue', __args__, opts=opts, typ=GetQueueResult).value
 
     return AwaitableGetQueueResult(
+        additional_email_addresses=pulumi.get(__ret__, 'additional_email_addresses'),
         description=pulumi.get(__ret__, 'description'),
         hours_of_operation_arn=pulumi.get(__ret__, 'hours_of_operation_arn'),
         instance_arn=pulumi.get(__ret__, 'instance_arn'),
@@ -220,6 +233,7 @@ def get_queue_output(queue_arn: Optional[pulumi.Input[_builtins.str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:connect:getQueue', __args__, opts=opts, typ=GetQueueResult)
     return __ret__.apply(lambda __response__: GetQueueResult(
+        additional_email_addresses=pulumi.get(__response__, 'additional_email_addresses'),
         description=pulumi.get(__response__, 'description'),
         hours_of_operation_arn=pulumi.get(__response__, 'hours_of_operation_arn'),
         instance_arn=pulumi.get(__response__, 'instance_arn'),

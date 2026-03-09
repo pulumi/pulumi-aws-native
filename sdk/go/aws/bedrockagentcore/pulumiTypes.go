@@ -5883,6 +5883,112 @@ func (o InterceptorConfigurationPropertiesOutput) Lambda() GatewayLambdaIntercep
 	return o.ApplyT(func(v InterceptorConfigurationProperties) GatewayLambdaInterceptorConfiguration { return v.Lambda }).(GatewayLambdaInterceptorConfigurationOutput)
 }
 
+type MemoryContentConfiguration struct {
+	// The level of content detail to deliver
+	Level *MemoryContentConfigurationLevel `pulumi:"level"`
+	// The type of content to deliver
+	Type MemoryContentConfigurationType `pulumi:"type"`
+}
+
+// MemoryContentConfigurationInput is an input type that accepts MemoryContentConfigurationArgs and MemoryContentConfigurationOutput values.
+// You can construct a concrete instance of `MemoryContentConfigurationInput` via:
+//
+//	MemoryContentConfigurationArgs{...}
+type MemoryContentConfigurationInput interface {
+	pulumi.Input
+
+	ToMemoryContentConfigurationOutput() MemoryContentConfigurationOutput
+	ToMemoryContentConfigurationOutputWithContext(context.Context) MemoryContentConfigurationOutput
+}
+
+type MemoryContentConfigurationArgs struct {
+	// The level of content detail to deliver
+	Level MemoryContentConfigurationLevelPtrInput `pulumi:"level"`
+	// The type of content to deliver
+	Type MemoryContentConfigurationTypeInput `pulumi:"type"`
+}
+
+func (MemoryContentConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MemoryContentConfiguration)(nil)).Elem()
+}
+
+func (i MemoryContentConfigurationArgs) ToMemoryContentConfigurationOutput() MemoryContentConfigurationOutput {
+	return i.ToMemoryContentConfigurationOutputWithContext(context.Background())
+}
+
+func (i MemoryContentConfigurationArgs) ToMemoryContentConfigurationOutputWithContext(ctx context.Context) MemoryContentConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MemoryContentConfigurationOutput)
+}
+
+// MemoryContentConfigurationArrayInput is an input type that accepts MemoryContentConfigurationArray and MemoryContentConfigurationArrayOutput values.
+// You can construct a concrete instance of `MemoryContentConfigurationArrayInput` via:
+//
+//	MemoryContentConfigurationArray{ MemoryContentConfigurationArgs{...} }
+type MemoryContentConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToMemoryContentConfigurationArrayOutput() MemoryContentConfigurationArrayOutput
+	ToMemoryContentConfigurationArrayOutputWithContext(context.Context) MemoryContentConfigurationArrayOutput
+}
+
+type MemoryContentConfigurationArray []MemoryContentConfigurationInput
+
+func (MemoryContentConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MemoryContentConfiguration)(nil)).Elem()
+}
+
+func (i MemoryContentConfigurationArray) ToMemoryContentConfigurationArrayOutput() MemoryContentConfigurationArrayOutput {
+	return i.ToMemoryContentConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i MemoryContentConfigurationArray) ToMemoryContentConfigurationArrayOutputWithContext(ctx context.Context) MemoryContentConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MemoryContentConfigurationArrayOutput)
+}
+
+type MemoryContentConfigurationOutput struct{ *pulumi.OutputState }
+
+func (MemoryContentConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MemoryContentConfiguration)(nil)).Elem()
+}
+
+func (o MemoryContentConfigurationOutput) ToMemoryContentConfigurationOutput() MemoryContentConfigurationOutput {
+	return o
+}
+
+func (o MemoryContentConfigurationOutput) ToMemoryContentConfigurationOutputWithContext(ctx context.Context) MemoryContentConfigurationOutput {
+	return o
+}
+
+// The level of content detail to deliver
+func (o MemoryContentConfigurationOutput) Level() MemoryContentConfigurationLevelPtrOutput {
+	return o.ApplyT(func(v MemoryContentConfiguration) *MemoryContentConfigurationLevel { return v.Level }).(MemoryContentConfigurationLevelPtrOutput)
+}
+
+// The type of content to deliver
+func (o MemoryContentConfigurationOutput) Type() MemoryContentConfigurationTypeOutput {
+	return o.ApplyT(func(v MemoryContentConfiguration) MemoryContentConfigurationType { return v.Type }).(MemoryContentConfigurationTypeOutput)
+}
+
+type MemoryContentConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (MemoryContentConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MemoryContentConfiguration)(nil)).Elem()
+}
+
+func (o MemoryContentConfigurationArrayOutput) ToMemoryContentConfigurationArrayOutput() MemoryContentConfigurationArrayOutput {
+	return o
+}
+
+func (o MemoryContentConfigurationArrayOutput) ToMemoryContentConfigurationArrayOutputWithContext(ctx context.Context) MemoryContentConfigurationArrayOutput {
+	return o
+}
+
+func (o MemoryContentConfigurationArrayOutput) Index(i pulumi.IntInput) MemoryContentConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MemoryContentConfiguration {
+		return vs[0].([]MemoryContentConfiguration)[vs[1].(int)]
+	}).(MemoryContentConfigurationOutput)
+}
+
 type MemoryCustomConfigurationInput struct {
 	EpisodicOverride         *MemoryEpisodicOverride         `pulumi:"episodicOverride"`
 	SelfManagedConfiguration *MemorySelfManagedConfiguration `pulumi:"selfManagedConfiguration"`
@@ -7535,6 +7641,154 @@ func (o MemoryInvocationConfigurationInputPtrOutput) TopicArn() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
+type MemoryKinesisResource struct {
+	ContentConfigurations []MemoryContentConfiguration `pulumi:"contentConfigurations"`
+	DataStreamArn         string                       `pulumi:"dataStreamArn"`
+}
+
+// MemoryKinesisResourceInput is an input type that accepts MemoryKinesisResourceArgs and MemoryKinesisResourceOutput values.
+// You can construct a concrete instance of `MemoryKinesisResourceInput` via:
+//
+//	MemoryKinesisResourceArgs{...}
+type MemoryKinesisResourceInput interface {
+	pulumi.Input
+
+	ToMemoryKinesisResourceOutput() MemoryKinesisResourceOutput
+	ToMemoryKinesisResourceOutputWithContext(context.Context) MemoryKinesisResourceOutput
+}
+
+type MemoryKinesisResourceArgs struct {
+	ContentConfigurations MemoryContentConfigurationArrayInput `pulumi:"contentConfigurations"`
+	DataStreamArn         pulumi.StringInput                   `pulumi:"dataStreamArn"`
+}
+
+func (MemoryKinesisResourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MemoryKinesisResource)(nil)).Elem()
+}
+
+func (i MemoryKinesisResourceArgs) ToMemoryKinesisResourceOutput() MemoryKinesisResourceOutput {
+	return i.ToMemoryKinesisResourceOutputWithContext(context.Background())
+}
+
+func (i MemoryKinesisResourceArgs) ToMemoryKinesisResourceOutputWithContext(ctx context.Context) MemoryKinesisResourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MemoryKinesisResourceOutput)
+}
+
+func (i MemoryKinesisResourceArgs) ToMemoryKinesisResourcePtrOutput() MemoryKinesisResourcePtrOutput {
+	return i.ToMemoryKinesisResourcePtrOutputWithContext(context.Background())
+}
+
+func (i MemoryKinesisResourceArgs) ToMemoryKinesisResourcePtrOutputWithContext(ctx context.Context) MemoryKinesisResourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MemoryKinesisResourceOutput).ToMemoryKinesisResourcePtrOutputWithContext(ctx)
+}
+
+// MemoryKinesisResourcePtrInput is an input type that accepts MemoryKinesisResourceArgs, MemoryKinesisResourcePtr and MemoryKinesisResourcePtrOutput values.
+// You can construct a concrete instance of `MemoryKinesisResourcePtrInput` via:
+//
+//	        MemoryKinesisResourceArgs{...}
+//
+//	or:
+//
+//	        nil
+type MemoryKinesisResourcePtrInput interface {
+	pulumi.Input
+
+	ToMemoryKinesisResourcePtrOutput() MemoryKinesisResourcePtrOutput
+	ToMemoryKinesisResourcePtrOutputWithContext(context.Context) MemoryKinesisResourcePtrOutput
+}
+
+type memoryKinesisResourcePtrType MemoryKinesisResourceArgs
+
+func MemoryKinesisResourcePtr(v *MemoryKinesisResourceArgs) MemoryKinesisResourcePtrInput {
+	return (*memoryKinesisResourcePtrType)(v)
+}
+
+func (*memoryKinesisResourcePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MemoryKinesisResource)(nil)).Elem()
+}
+
+func (i *memoryKinesisResourcePtrType) ToMemoryKinesisResourcePtrOutput() MemoryKinesisResourcePtrOutput {
+	return i.ToMemoryKinesisResourcePtrOutputWithContext(context.Background())
+}
+
+func (i *memoryKinesisResourcePtrType) ToMemoryKinesisResourcePtrOutputWithContext(ctx context.Context) MemoryKinesisResourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MemoryKinesisResourcePtrOutput)
+}
+
+type MemoryKinesisResourceOutput struct{ *pulumi.OutputState }
+
+func (MemoryKinesisResourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MemoryKinesisResource)(nil)).Elem()
+}
+
+func (o MemoryKinesisResourceOutput) ToMemoryKinesisResourceOutput() MemoryKinesisResourceOutput {
+	return o
+}
+
+func (o MemoryKinesisResourceOutput) ToMemoryKinesisResourceOutputWithContext(ctx context.Context) MemoryKinesisResourceOutput {
+	return o
+}
+
+func (o MemoryKinesisResourceOutput) ToMemoryKinesisResourcePtrOutput() MemoryKinesisResourcePtrOutput {
+	return o.ToMemoryKinesisResourcePtrOutputWithContext(context.Background())
+}
+
+func (o MemoryKinesisResourceOutput) ToMemoryKinesisResourcePtrOutputWithContext(ctx context.Context) MemoryKinesisResourcePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MemoryKinesisResource) *MemoryKinesisResource {
+		return &v
+	}).(MemoryKinesisResourcePtrOutput)
+}
+
+func (o MemoryKinesisResourceOutput) ContentConfigurations() MemoryContentConfigurationArrayOutput {
+	return o.ApplyT(func(v MemoryKinesisResource) []MemoryContentConfiguration { return v.ContentConfigurations }).(MemoryContentConfigurationArrayOutput)
+}
+
+func (o MemoryKinesisResourceOutput) DataStreamArn() pulumi.StringOutput {
+	return o.ApplyT(func(v MemoryKinesisResource) string { return v.DataStreamArn }).(pulumi.StringOutput)
+}
+
+type MemoryKinesisResourcePtrOutput struct{ *pulumi.OutputState }
+
+func (MemoryKinesisResourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MemoryKinesisResource)(nil)).Elem()
+}
+
+func (o MemoryKinesisResourcePtrOutput) ToMemoryKinesisResourcePtrOutput() MemoryKinesisResourcePtrOutput {
+	return o
+}
+
+func (o MemoryKinesisResourcePtrOutput) ToMemoryKinesisResourcePtrOutputWithContext(ctx context.Context) MemoryKinesisResourcePtrOutput {
+	return o
+}
+
+func (o MemoryKinesisResourcePtrOutput) Elem() MemoryKinesisResourceOutput {
+	return o.ApplyT(func(v *MemoryKinesisResource) MemoryKinesisResource {
+		if v != nil {
+			return *v
+		}
+		var ret MemoryKinesisResource
+		return ret
+	}).(MemoryKinesisResourceOutput)
+}
+
+func (o MemoryKinesisResourcePtrOutput) ContentConfigurations() MemoryContentConfigurationArrayOutput {
+	return o.ApplyT(func(v *MemoryKinesisResource) []MemoryContentConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.ContentConfigurations
+	}).(MemoryContentConfigurationArrayOutput)
+}
+
+func (o MemoryKinesisResourcePtrOutput) DataStreamArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MemoryKinesisResource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DataStreamArn
+	}).(pulumi.StringPtrOutput)
+}
+
 type MemoryMessageBasedTriggerInput struct {
 	MessageCount *int `pulumi:"messageCount"`
 }
@@ -8655,6 +8909,233 @@ func (o MemoryStrategyArrayOutput) Index(i pulumi.IntInput) MemoryStrategyOutput
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MemoryStrategy {
 		return vs[0].([]MemoryStrategy)[vs[1].(int)]
 	}).(MemoryStrategyOutput)
+}
+
+type MemoryStreamDeliveryResource struct {
+	Kinesis *MemoryKinesisResource `pulumi:"kinesis"`
+}
+
+// MemoryStreamDeliveryResourceInput is an input type that accepts MemoryStreamDeliveryResourceArgs and MemoryStreamDeliveryResourceOutput values.
+// You can construct a concrete instance of `MemoryStreamDeliveryResourceInput` via:
+//
+//	MemoryStreamDeliveryResourceArgs{...}
+type MemoryStreamDeliveryResourceInput interface {
+	pulumi.Input
+
+	ToMemoryStreamDeliveryResourceOutput() MemoryStreamDeliveryResourceOutput
+	ToMemoryStreamDeliveryResourceOutputWithContext(context.Context) MemoryStreamDeliveryResourceOutput
+}
+
+type MemoryStreamDeliveryResourceArgs struct {
+	Kinesis MemoryKinesisResourcePtrInput `pulumi:"kinesis"`
+}
+
+func (MemoryStreamDeliveryResourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MemoryStreamDeliveryResource)(nil)).Elem()
+}
+
+func (i MemoryStreamDeliveryResourceArgs) ToMemoryStreamDeliveryResourceOutput() MemoryStreamDeliveryResourceOutput {
+	return i.ToMemoryStreamDeliveryResourceOutputWithContext(context.Background())
+}
+
+func (i MemoryStreamDeliveryResourceArgs) ToMemoryStreamDeliveryResourceOutputWithContext(ctx context.Context) MemoryStreamDeliveryResourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MemoryStreamDeliveryResourceOutput)
+}
+
+// MemoryStreamDeliveryResourceArrayInput is an input type that accepts MemoryStreamDeliveryResourceArray and MemoryStreamDeliveryResourceArrayOutput values.
+// You can construct a concrete instance of `MemoryStreamDeliveryResourceArrayInput` via:
+//
+//	MemoryStreamDeliveryResourceArray{ MemoryStreamDeliveryResourceArgs{...} }
+type MemoryStreamDeliveryResourceArrayInput interface {
+	pulumi.Input
+
+	ToMemoryStreamDeliveryResourceArrayOutput() MemoryStreamDeliveryResourceArrayOutput
+	ToMemoryStreamDeliveryResourceArrayOutputWithContext(context.Context) MemoryStreamDeliveryResourceArrayOutput
+}
+
+type MemoryStreamDeliveryResourceArray []MemoryStreamDeliveryResourceInput
+
+func (MemoryStreamDeliveryResourceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MemoryStreamDeliveryResource)(nil)).Elem()
+}
+
+func (i MemoryStreamDeliveryResourceArray) ToMemoryStreamDeliveryResourceArrayOutput() MemoryStreamDeliveryResourceArrayOutput {
+	return i.ToMemoryStreamDeliveryResourceArrayOutputWithContext(context.Background())
+}
+
+func (i MemoryStreamDeliveryResourceArray) ToMemoryStreamDeliveryResourceArrayOutputWithContext(ctx context.Context) MemoryStreamDeliveryResourceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MemoryStreamDeliveryResourceArrayOutput)
+}
+
+type MemoryStreamDeliveryResourceOutput struct{ *pulumi.OutputState }
+
+func (MemoryStreamDeliveryResourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MemoryStreamDeliveryResource)(nil)).Elem()
+}
+
+func (o MemoryStreamDeliveryResourceOutput) ToMemoryStreamDeliveryResourceOutput() MemoryStreamDeliveryResourceOutput {
+	return o
+}
+
+func (o MemoryStreamDeliveryResourceOutput) ToMemoryStreamDeliveryResourceOutputWithContext(ctx context.Context) MemoryStreamDeliveryResourceOutput {
+	return o
+}
+
+func (o MemoryStreamDeliveryResourceOutput) Kinesis() MemoryKinesisResourcePtrOutput {
+	return o.ApplyT(func(v MemoryStreamDeliveryResource) *MemoryKinesisResource { return v.Kinesis }).(MemoryKinesisResourcePtrOutput)
+}
+
+type MemoryStreamDeliveryResourceArrayOutput struct{ *pulumi.OutputState }
+
+func (MemoryStreamDeliveryResourceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MemoryStreamDeliveryResource)(nil)).Elem()
+}
+
+func (o MemoryStreamDeliveryResourceArrayOutput) ToMemoryStreamDeliveryResourceArrayOutput() MemoryStreamDeliveryResourceArrayOutput {
+	return o
+}
+
+func (o MemoryStreamDeliveryResourceArrayOutput) ToMemoryStreamDeliveryResourceArrayOutputWithContext(ctx context.Context) MemoryStreamDeliveryResourceArrayOutput {
+	return o
+}
+
+func (o MemoryStreamDeliveryResourceArrayOutput) Index(i pulumi.IntInput) MemoryStreamDeliveryResourceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MemoryStreamDeliveryResource {
+		return vs[0].([]MemoryStreamDeliveryResource)[vs[1].(int)]
+	}).(MemoryStreamDeliveryResourceOutput)
+}
+
+type MemoryStreamDeliveryResources struct {
+	Resources []MemoryStreamDeliveryResource `pulumi:"resources"`
+}
+
+// MemoryStreamDeliveryResourcesInput is an input type that accepts MemoryStreamDeliveryResourcesArgs and MemoryStreamDeliveryResourcesOutput values.
+// You can construct a concrete instance of `MemoryStreamDeliveryResourcesInput` via:
+//
+//	MemoryStreamDeliveryResourcesArgs{...}
+type MemoryStreamDeliveryResourcesInput interface {
+	pulumi.Input
+
+	ToMemoryStreamDeliveryResourcesOutput() MemoryStreamDeliveryResourcesOutput
+	ToMemoryStreamDeliveryResourcesOutputWithContext(context.Context) MemoryStreamDeliveryResourcesOutput
+}
+
+type MemoryStreamDeliveryResourcesArgs struct {
+	Resources MemoryStreamDeliveryResourceArrayInput `pulumi:"resources"`
+}
+
+func (MemoryStreamDeliveryResourcesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MemoryStreamDeliveryResources)(nil)).Elem()
+}
+
+func (i MemoryStreamDeliveryResourcesArgs) ToMemoryStreamDeliveryResourcesOutput() MemoryStreamDeliveryResourcesOutput {
+	return i.ToMemoryStreamDeliveryResourcesOutputWithContext(context.Background())
+}
+
+func (i MemoryStreamDeliveryResourcesArgs) ToMemoryStreamDeliveryResourcesOutputWithContext(ctx context.Context) MemoryStreamDeliveryResourcesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MemoryStreamDeliveryResourcesOutput)
+}
+
+func (i MemoryStreamDeliveryResourcesArgs) ToMemoryStreamDeliveryResourcesPtrOutput() MemoryStreamDeliveryResourcesPtrOutput {
+	return i.ToMemoryStreamDeliveryResourcesPtrOutputWithContext(context.Background())
+}
+
+func (i MemoryStreamDeliveryResourcesArgs) ToMemoryStreamDeliveryResourcesPtrOutputWithContext(ctx context.Context) MemoryStreamDeliveryResourcesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MemoryStreamDeliveryResourcesOutput).ToMemoryStreamDeliveryResourcesPtrOutputWithContext(ctx)
+}
+
+// MemoryStreamDeliveryResourcesPtrInput is an input type that accepts MemoryStreamDeliveryResourcesArgs, MemoryStreamDeliveryResourcesPtr and MemoryStreamDeliveryResourcesPtrOutput values.
+// You can construct a concrete instance of `MemoryStreamDeliveryResourcesPtrInput` via:
+//
+//	        MemoryStreamDeliveryResourcesArgs{...}
+//
+//	or:
+//
+//	        nil
+type MemoryStreamDeliveryResourcesPtrInput interface {
+	pulumi.Input
+
+	ToMemoryStreamDeliveryResourcesPtrOutput() MemoryStreamDeliveryResourcesPtrOutput
+	ToMemoryStreamDeliveryResourcesPtrOutputWithContext(context.Context) MemoryStreamDeliveryResourcesPtrOutput
+}
+
+type memoryStreamDeliveryResourcesPtrType MemoryStreamDeliveryResourcesArgs
+
+func MemoryStreamDeliveryResourcesPtr(v *MemoryStreamDeliveryResourcesArgs) MemoryStreamDeliveryResourcesPtrInput {
+	return (*memoryStreamDeliveryResourcesPtrType)(v)
+}
+
+func (*memoryStreamDeliveryResourcesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MemoryStreamDeliveryResources)(nil)).Elem()
+}
+
+func (i *memoryStreamDeliveryResourcesPtrType) ToMemoryStreamDeliveryResourcesPtrOutput() MemoryStreamDeliveryResourcesPtrOutput {
+	return i.ToMemoryStreamDeliveryResourcesPtrOutputWithContext(context.Background())
+}
+
+func (i *memoryStreamDeliveryResourcesPtrType) ToMemoryStreamDeliveryResourcesPtrOutputWithContext(ctx context.Context) MemoryStreamDeliveryResourcesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MemoryStreamDeliveryResourcesPtrOutput)
+}
+
+type MemoryStreamDeliveryResourcesOutput struct{ *pulumi.OutputState }
+
+func (MemoryStreamDeliveryResourcesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MemoryStreamDeliveryResources)(nil)).Elem()
+}
+
+func (o MemoryStreamDeliveryResourcesOutput) ToMemoryStreamDeliveryResourcesOutput() MemoryStreamDeliveryResourcesOutput {
+	return o
+}
+
+func (o MemoryStreamDeliveryResourcesOutput) ToMemoryStreamDeliveryResourcesOutputWithContext(ctx context.Context) MemoryStreamDeliveryResourcesOutput {
+	return o
+}
+
+func (o MemoryStreamDeliveryResourcesOutput) ToMemoryStreamDeliveryResourcesPtrOutput() MemoryStreamDeliveryResourcesPtrOutput {
+	return o.ToMemoryStreamDeliveryResourcesPtrOutputWithContext(context.Background())
+}
+
+func (o MemoryStreamDeliveryResourcesOutput) ToMemoryStreamDeliveryResourcesPtrOutputWithContext(ctx context.Context) MemoryStreamDeliveryResourcesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MemoryStreamDeliveryResources) *MemoryStreamDeliveryResources {
+		return &v
+	}).(MemoryStreamDeliveryResourcesPtrOutput)
+}
+
+func (o MemoryStreamDeliveryResourcesOutput) Resources() MemoryStreamDeliveryResourceArrayOutput {
+	return o.ApplyT(func(v MemoryStreamDeliveryResources) []MemoryStreamDeliveryResource { return v.Resources }).(MemoryStreamDeliveryResourceArrayOutput)
+}
+
+type MemoryStreamDeliveryResourcesPtrOutput struct{ *pulumi.OutputState }
+
+func (MemoryStreamDeliveryResourcesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MemoryStreamDeliveryResources)(nil)).Elem()
+}
+
+func (o MemoryStreamDeliveryResourcesPtrOutput) ToMemoryStreamDeliveryResourcesPtrOutput() MemoryStreamDeliveryResourcesPtrOutput {
+	return o
+}
+
+func (o MemoryStreamDeliveryResourcesPtrOutput) ToMemoryStreamDeliveryResourcesPtrOutputWithContext(ctx context.Context) MemoryStreamDeliveryResourcesPtrOutput {
+	return o
+}
+
+func (o MemoryStreamDeliveryResourcesPtrOutput) Elem() MemoryStreamDeliveryResourcesOutput {
+	return o.ApplyT(func(v *MemoryStreamDeliveryResources) MemoryStreamDeliveryResources {
+		if v != nil {
+			return *v
+		}
+		var ret MemoryStreamDeliveryResources
+		return ret
+	}).(MemoryStreamDeliveryResourcesOutput)
+}
+
+func (o MemoryStreamDeliveryResourcesPtrOutput) Resources() MemoryStreamDeliveryResourceArrayOutput {
+	return o.ApplyT(func(v *MemoryStreamDeliveryResources) []MemoryStreamDeliveryResource {
+		if v == nil {
+			return nil
+		}
+		return v.Resources
+	}).(MemoryStreamDeliveryResourceArrayOutput)
 }
 
 type MemorySummaryMemoryStrategy struct {
@@ -11231,6 +11712,185 @@ type OnlineEvaluationConfigTag struct {
 	Value string `pulumi:"value"`
 }
 
+// A Cedar policy statement within the AgentCore Policy system.
+type PolicyCedarPolicy struct {
+	// The Cedar policy statement that defines the authorization logic.
+	Statement string `pulumi:"statement"`
+}
+
+// PolicyCedarPolicyInput is an input type that accepts PolicyCedarPolicyArgs and PolicyCedarPolicyOutput values.
+// You can construct a concrete instance of `PolicyCedarPolicyInput` via:
+//
+//	PolicyCedarPolicyArgs{...}
+type PolicyCedarPolicyInput interface {
+	pulumi.Input
+
+	ToPolicyCedarPolicyOutput() PolicyCedarPolicyOutput
+	ToPolicyCedarPolicyOutputWithContext(context.Context) PolicyCedarPolicyOutput
+}
+
+// A Cedar policy statement within the AgentCore Policy system.
+type PolicyCedarPolicyArgs struct {
+	// The Cedar policy statement that defines the authorization logic.
+	Statement pulumi.StringInput `pulumi:"statement"`
+}
+
+func (PolicyCedarPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyCedarPolicy)(nil)).Elem()
+}
+
+func (i PolicyCedarPolicyArgs) ToPolicyCedarPolicyOutput() PolicyCedarPolicyOutput {
+	return i.ToPolicyCedarPolicyOutputWithContext(context.Background())
+}
+
+func (i PolicyCedarPolicyArgs) ToPolicyCedarPolicyOutputWithContext(ctx context.Context) PolicyCedarPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyCedarPolicyOutput)
+}
+
+// A Cedar policy statement within the AgentCore Policy system.
+type PolicyCedarPolicyOutput struct{ *pulumi.OutputState }
+
+func (PolicyCedarPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyCedarPolicy)(nil)).Elem()
+}
+
+func (o PolicyCedarPolicyOutput) ToPolicyCedarPolicyOutput() PolicyCedarPolicyOutput {
+	return o
+}
+
+func (o PolicyCedarPolicyOutput) ToPolicyCedarPolicyOutputWithContext(ctx context.Context) PolicyCedarPolicyOutput {
+	return o
+}
+
+// The Cedar policy statement that defines the authorization logic.
+func (o PolicyCedarPolicyOutput) Statement() pulumi.StringOutput {
+	return o.ApplyT(func(v PolicyCedarPolicy) string { return v.Statement }).(pulumi.StringOutput)
+}
+
+type PolicyCedarPolicyPtrOutput struct{ *pulumi.OutputState }
+
+func (PolicyCedarPolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PolicyCedarPolicy)(nil)).Elem()
+}
+
+func (o PolicyCedarPolicyPtrOutput) ToPolicyCedarPolicyPtrOutput() PolicyCedarPolicyPtrOutput {
+	return o
+}
+
+func (o PolicyCedarPolicyPtrOutput) ToPolicyCedarPolicyPtrOutputWithContext(ctx context.Context) PolicyCedarPolicyPtrOutput {
+	return o
+}
+
+func (o PolicyCedarPolicyPtrOutput) Elem() PolicyCedarPolicyOutput {
+	return o.ApplyT(func(v *PolicyCedarPolicy) PolicyCedarPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret PolicyCedarPolicy
+		return ret
+	}).(PolicyCedarPolicyOutput)
+}
+
+// The Cedar policy statement that defines the authorization logic.
+func (o PolicyCedarPolicyPtrOutput) Statement() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PolicyCedarPolicy) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Statement
+	}).(pulumi.StringPtrOutput)
+}
+
+// The definition structure for policies. Encapsulates different policy formats.
+type PolicyDefinition struct {
+	Cedar PolicyCedarPolicy `pulumi:"cedar"`
+}
+
+// PolicyDefinitionInput is an input type that accepts PolicyDefinitionArgs and PolicyDefinitionOutput values.
+// You can construct a concrete instance of `PolicyDefinitionInput` via:
+//
+//	PolicyDefinitionArgs{...}
+type PolicyDefinitionInput interface {
+	pulumi.Input
+
+	ToPolicyDefinitionOutput() PolicyDefinitionOutput
+	ToPolicyDefinitionOutputWithContext(context.Context) PolicyDefinitionOutput
+}
+
+// The definition structure for policies. Encapsulates different policy formats.
+type PolicyDefinitionArgs struct {
+	Cedar PolicyCedarPolicyInput `pulumi:"cedar"`
+}
+
+func (PolicyDefinitionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyDefinition)(nil)).Elem()
+}
+
+func (i PolicyDefinitionArgs) ToPolicyDefinitionOutput() PolicyDefinitionOutput {
+	return i.ToPolicyDefinitionOutputWithContext(context.Background())
+}
+
+func (i PolicyDefinitionArgs) ToPolicyDefinitionOutputWithContext(ctx context.Context) PolicyDefinitionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyDefinitionOutput)
+}
+
+// The definition structure for policies. Encapsulates different policy formats.
+type PolicyDefinitionOutput struct{ *pulumi.OutputState }
+
+func (PolicyDefinitionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyDefinition)(nil)).Elem()
+}
+
+func (o PolicyDefinitionOutput) ToPolicyDefinitionOutput() PolicyDefinitionOutput {
+	return o
+}
+
+func (o PolicyDefinitionOutput) ToPolicyDefinitionOutputWithContext(ctx context.Context) PolicyDefinitionOutput {
+	return o
+}
+
+func (o PolicyDefinitionOutput) Cedar() PolicyCedarPolicyOutput {
+	return o.ApplyT(func(v PolicyDefinition) PolicyCedarPolicy { return v.Cedar }).(PolicyCedarPolicyOutput)
+}
+
+type PolicyDefinitionPtrOutput struct{ *pulumi.OutputState }
+
+func (PolicyDefinitionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PolicyDefinition)(nil)).Elem()
+}
+
+func (o PolicyDefinitionPtrOutput) ToPolicyDefinitionPtrOutput() PolicyDefinitionPtrOutput {
+	return o
+}
+
+func (o PolicyDefinitionPtrOutput) ToPolicyDefinitionPtrOutputWithContext(ctx context.Context) PolicyDefinitionPtrOutput {
+	return o
+}
+
+func (o PolicyDefinitionPtrOutput) Elem() PolicyDefinitionOutput {
+	return o.ApplyT(func(v *PolicyDefinition) PolicyDefinition {
+		if v != nil {
+			return *v
+		}
+		var ret PolicyDefinition
+		return ret
+	}).(PolicyDefinitionOutput)
+}
+
+func (o PolicyDefinitionPtrOutput) Cedar() PolicyCedarPolicyPtrOutput {
+	return o.ApplyT(func(v *PolicyDefinition) *PolicyCedarPolicy {
+		if v == nil {
+			return nil
+		}
+		return &v.Cedar
+	}).(PolicyCedarPolicyPtrOutput)
+}
+
+type PolicyEngineTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
 type RuntimeAgentRuntimeArtifact struct {
 	CodeConfiguration *RuntimeCodeConfiguration `pulumi:"codeConfiguration"`
 	// Representation of a container configuration.
@@ -13222,6 +13882,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetToolSchema0PropertiesInput)(nil)).Elem(), GatewayTargetToolSchema0PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetToolSchema1PropertiesInput)(nil)).Elem(), GatewayTargetToolSchema1PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InterceptorConfigurationPropertiesInput)(nil)).Elem(), InterceptorConfigurationPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MemoryContentConfigurationInput)(nil)).Elem(), MemoryContentConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MemoryContentConfigurationArrayInput)(nil)).Elem(), MemoryContentConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MemoryCustomConfigurationInputInput)(nil)).Elem(), MemoryCustomConfigurationInputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MemoryCustomConfigurationInputPtrInput)(nil)).Elem(), MemoryCustomConfigurationInputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MemoryCustomMemoryStrategyInput)(nil)).Elem(), MemoryCustomMemoryStrategyArgs{})
@@ -13240,6 +13902,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MemoryEpisodicReflectionConfigurationInputPtrInput)(nil)).Elem(), MemoryEpisodicReflectionConfigurationInputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MemoryInvocationConfigurationInputInput)(nil)).Elem(), MemoryInvocationConfigurationInputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MemoryInvocationConfigurationInputPtrInput)(nil)).Elem(), MemoryInvocationConfigurationInputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MemoryKinesisResourceInput)(nil)).Elem(), MemoryKinesisResourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MemoryKinesisResourcePtrInput)(nil)).Elem(), MemoryKinesisResourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MemoryMessageBasedTriggerInputInput)(nil)).Elem(), MemoryMessageBasedTriggerInputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MemoryMessageBasedTriggerInputPtrInput)(nil)).Elem(), MemoryMessageBasedTriggerInputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MemorySelfManagedConfigurationInput)(nil)).Elem(), MemorySelfManagedConfigurationArgs{})
@@ -13254,6 +13918,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MemorySemanticOverrideExtractionConfigurationInputPtrInput)(nil)).Elem(), MemorySemanticOverrideExtractionConfigurationInputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MemoryStrategyInput)(nil)).Elem(), MemoryStrategyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MemoryStrategyArrayInput)(nil)).Elem(), MemoryStrategyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MemoryStreamDeliveryResourceInput)(nil)).Elem(), MemoryStreamDeliveryResourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MemoryStreamDeliveryResourceArrayInput)(nil)).Elem(), MemoryStreamDeliveryResourceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MemoryStreamDeliveryResourcesInput)(nil)).Elem(), MemoryStreamDeliveryResourcesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MemoryStreamDeliveryResourcesPtrInput)(nil)).Elem(), MemoryStreamDeliveryResourcesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MemorySummaryMemoryStrategyInput)(nil)).Elem(), MemorySummaryMemoryStrategyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MemorySummaryMemoryStrategyPtrInput)(nil)).Elem(), MemorySummaryMemoryStrategyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MemorySummaryOverrideInput)(nil)).Elem(), MemorySummaryOverrideArgs{})
@@ -13285,6 +13953,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OnlineEvaluationConfigSamplingConfigInput)(nil)).Elem(), OnlineEvaluationConfigSamplingConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OnlineEvaluationConfigSessionConfigInput)(nil)).Elem(), OnlineEvaluationConfigSessionConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OnlineEvaluationConfigSessionConfigPtrInput)(nil)).Elem(), OnlineEvaluationConfigSessionConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyCedarPolicyInput)(nil)).Elem(), PolicyCedarPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyDefinitionInput)(nil)).Elem(), PolicyDefinitionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeAgentRuntimeArtifactInput)(nil)).Elem(), RuntimeAgentRuntimeArtifactArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeAuthorizerConfigurationInput)(nil)).Elem(), RuntimeAuthorizerConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeAuthorizerConfigurationPtrInput)(nil)).Elem(), RuntimeAuthorizerConfigurationArgs{})
@@ -13408,6 +14078,8 @@ func init() {
 	pulumi.RegisterOutputType(GatewayWorkloadIdentityDetailsOutput{})
 	pulumi.RegisterOutputType(GatewayWorkloadIdentityDetailsPtrOutput{})
 	pulumi.RegisterOutputType(InterceptorConfigurationPropertiesOutput{})
+	pulumi.RegisterOutputType(MemoryContentConfigurationOutput{})
+	pulumi.RegisterOutputType(MemoryContentConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(MemoryCustomConfigurationInputOutput{})
 	pulumi.RegisterOutputType(MemoryCustomConfigurationInputPtrOutput{})
 	pulumi.RegisterOutputType(MemoryCustomMemoryStrategyOutput{})
@@ -13426,6 +14098,8 @@ func init() {
 	pulumi.RegisterOutputType(MemoryEpisodicReflectionConfigurationInputPtrOutput{})
 	pulumi.RegisterOutputType(MemoryInvocationConfigurationInputOutput{})
 	pulumi.RegisterOutputType(MemoryInvocationConfigurationInputPtrOutput{})
+	pulumi.RegisterOutputType(MemoryKinesisResourceOutput{})
+	pulumi.RegisterOutputType(MemoryKinesisResourcePtrOutput{})
 	pulumi.RegisterOutputType(MemoryMessageBasedTriggerInputOutput{})
 	pulumi.RegisterOutputType(MemoryMessageBasedTriggerInputPtrOutput{})
 	pulumi.RegisterOutputType(MemorySelfManagedConfigurationOutput{})
@@ -13440,6 +14114,10 @@ func init() {
 	pulumi.RegisterOutputType(MemorySemanticOverrideExtractionConfigurationInputPtrOutput{})
 	pulumi.RegisterOutputType(MemoryStrategyOutput{})
 	pulumi.RegisterOutputType(MemoryStrategyArrayOutput{})
+	pulumi.RegisterOutputType(MemoryStreamDeliveryResourceOutput{})
+	pulumi.RegisterOutputType(MemoryStreamDeliveryResourceArrayOutput{})
+	pulumi.RegisterOutputType(MemoryStreamDeliveryResourcesOutput{})
+	pulumi.RegisterOutputType(MemoryStreamDeliveryResourcesPtrOutput{})
 	pulumi.RegisterOutputType(MemorySummaryMemoryStrategyOutput{})
 	pulumi.RegisterOutputType(MemorySummaryMemoryStrategyPtrOutput{})
 	pulumi.RegisterOutputType(MemorySummaryOverrideOutput{})
@@ -13479,6 +14157,10 @@ func init() {
 	pulumi.RegisterOutputType(OnlineEvaluationConfigSamplingConfigPtrOutput{})
 	pulumi.RegisterOutputType(OnlineEvaluationConfigSessionConfigOutput{})
 	pulumi.RegisterOutputType(OnlineEvaluationConfigSessionConfigPtrOutput{})
+	pulumi.RegisterOutputType(PolicyCedarPolicyOutput{})
+	pulumi.RegisterOutputType(PolicyCedarPolicyPtrOutput{})
+	pulumi.RegisterOutputType(PolicyDefinitionOutput{})
+	pulumi.RegisterOutputType(PolicyDefinitionPtrOutput{})
 	pulumi.RegisterOutputType(RuntimeAgentRuntimeArtifactOutput{})
 	pulumi.RegisterOutputType(RuntimeAgentRuntimeArtifactPtrOutput{})
 	pulumi.RegisterOutputType(RuntimeAuthorizerConfigurationOutput{})

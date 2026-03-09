@@ -13,6 +13,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 from .. import outputs as _root_outputs
 
 __all__ = [
@@ -24,7 +25,13 @@ __all__ = [
 
 @pulumi.output_type
 class GetLocationFSxWindowsResult:
-    def __init__(__self__, domain=None, location_arn=None, location_uri=None, tags=None, user=None):
+    def __init__(__self__, cmk_secret_config=None, custom_secret_config=None, domain=None, location_arn=None, location_uri=None, managed_secret_config=None, tags=None, user=None):
+        if cmk_secret_config and not isinstance(cmk_secret_config, dict):
+            raise TypeError("Expected argument 'cmk_secret_config' to be a dict")
+        pulumi.set(__self__, "cmk_secret_config", cmk_secret_config)
+        if custom_secret_config and not isinstance(custom_secret_config, dict):
+            raise TypeError("Expected argument 'custom_secret_config' to be a dict")
+        pulumi.set(__self__, "custom_secret_config", custom_secret_config)
         if domain and not isinstance(domain, str):
             raise TypeError("Expected argument 'domain' to be a str")
         pulumi.set(__self__, "domain", domain)
@@ -34,12 +41,25 @@ class GetLocationFSxWindowsResult:
         if location_uri and not isinstance(location_uri, str):
             raise TypeError("Expected argument 'location_uri' to be a str")
         pulumi.set(__self__, "location_uri", location_uri)
+        if managed_secret_config and not isinstance(managed_secret_config, dict):
+            raise TypeError("Expected argument 'managed_secret_config' to be a dict")
+        pulumi.set(__self__, "managed_secret_config", managed_secret_config)
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
         if user and not isinstance(user, str):
             raise TypeError("Expected argument 'user' to be a str")
         pulumi.set(__self__, "user", user)
+
+    @_builtins.property
+    @pulumi.getter(name="cmkSecretConfig")
+    def cmk_secret_config(self) -> Optional['outputs.LocationFSxWindowsCmkSecretConfig']:
+        return pulumi.get(self, "cmk_secret_config")
+
+    @_builtins.property
+    @pulumi.getter(name="customSecretConfig")
+    def custom_secret_config(self) -> Optional['outputs.LocationFSxWindowsCustomSecretConfig']:
+        return pulumi.get(self, "custom_secret_config")
 
     @_builtins.property
     @pulumi.getter
@@ -66,6 +86,11 @@ class GetLocationFSxWindowsResult:
         return pulumi.get(self, "location_uri")
 
     @_builtins.property
+    @pulumi.getter(name="managedSecretConfig")
+    def managed_secret_config(self) -> Optional['outputs.LocationFSxWindowsManagedSecretConfig']:
+        return pulumi.get(self, "managed_secret_config")
+
+    @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
         """
@@ -88,9 +113,12 @@ class AwaitableGetLocationFSxWindowsResult(GetLocationFSxWindowsResult):
         if False:
             yield self
         return GetLocationFSxWindowsResult(
+            cmk_secret_config=self.cmk_secret_config,
+            custom_secret_config=self.custom_secret_config,
             domain=self.domain,
             location_arn=self.location_arn,
             location_uri=self.location_uri,
+            managed_secret_config=self.managed_secret_config,
             tags=self.tags,
             user=self.user)
 
@@ -98,7 +126,7 @@ class AwaitableGetLocationFSxWindowsResult(GetLocationFSxWindowsResult):
 def get_location_f_sx_windows(location_arn: Optional[_builtins.str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLocationFSxWindowsResult:
     """
-    Resource schema for AWS::DataSync::LocationFSxWindows.
+    Resource Type definition for AWS::DataSync::LocationFSxWindows.
 
 
     :param _builtins.str location_arn: The Amazon Resource Name (ARN) of the Amazon FSx for Windows file system location that is created.
@@ -109,15 +137,18 @@ def get_location_f_sx_windows(location_arn: Optional[_builtins.str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:datasync:getLocationFSxWindows', __args__, opts=opts, typ=GetLocationFSxWindowsResult).value
 
     return AwaitableGetLocationFSxWindowsResult(
+        cmk_secret_config=pulumi.get(__ret__, 'cmk_secret_config'),
+        custom_secret_config=pulumi.get(__ret__, 'custom_secret_config'),
         domain=pulumi.get(__ret__, 'domain'),
         location_arn=pulumi.get(__ret__, 'location_arn'),
         location_uri=pulumi.get(__ret__, 'location_uri'),
+        managed_secret_config=pulumi.get(__ret__, 'managed_secret_config'),
         tags=pulumi.get(__ret__, 'tags'),
         user=pulumi.get(__ret__, 'user'))
 def get_location_f_sx_windows_output(location_arn: Optional[pulumi.Input[_builtins.str]] = None,
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLocationFSxWindowsResult]:
     """
-    Resource schema for AWS::DataSync::LocationFSxWindows.
+    Resource Type definition for AWS::DataSync::LocationFSxWindows.
 
 
     :param _builtins.str location_arn: The Amazon Resource Name (ARN) of the Amazon FSx for Windows file system location that is created.
@@ -127,8 +158,11 @@ def get_location_f_sx_windows_output(location_arn: Optional[pulumi.Input[_builti
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:datasync:getLocationFSxWindows', __args__, opts=opts, typ=GetLocationFSxWindowsResult)
     return __ret__.apply(lambda __response__: GetLocationFSxWindowsResult(
+        cmk_secret_config=pulumi.get(__response__, 'cmk_secret_config'),
+        custom_secret_config=pulumi.get(__response__, 'custom_secret_config'),
         domain=pulumi.get(__response__, 'domain'),
         location_arn=pulumi.get(__response__, 'location_arn'),
         location_uri=pulumi.get(__response__, 'location_uri'),
+        managed_secret_config=pulumi.get(__response__, 'managed_secret_config'),
         tags=pulumi.get(__response__, 'tags'),
         user=pulumi.get(__response__, 'user')))

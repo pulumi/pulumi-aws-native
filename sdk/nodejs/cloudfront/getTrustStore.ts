@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource Type definition for AWS::CloudFront::TrustStore. TrustStores contain CA certificates for mTLS authentication and can be associated with CloudFront distributions.
+ * A trust store.
  */
 export function getTrustStore(args: GetTrustStoreArgs, opts?: pulumi.InvokeOptions): Promise<GetTrustStoreResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -19,14 +19,14 @@ export function getTrustStore(args: GetTrustStoreArgs, opts?: pulumi.InvokeOptio
 
 export interface GetTrustStoreArgs {
     /**
-     * The unique identifier for the trust store
+     * The trust store's ID.
      */
     id: string;
 }
 
 export interface GetTrustStoreResult {
     /**
-     * The Amazon Resource Name (ARN) of the trust store
+     * The trust store's Amazon Resource Name (ARN).
      */
     readonly arn?: string;
     /**
@@ -34,28 +34,28 @@ export interface GetTrustStoreResult {
      */
     readonly eTag?: string;
     /**
-     * The unique identifier for the trust store
+     * The trust store's ID.
      */
     readonly id?: string;
     /**
-     * The last modification timestamp of the trust store PEM file
+     * The trust store's last modified time.
      */
     readonly lastModifiedTime?: string;
     /**
-     * The number of CA certificates in the trust store PEM file
+     * The trust store's number of CA certificates.
      */
     readonly numberOfCaCertificates?: number;
     /**
-     * Current status of the trust store
+     * The trust store's status.
      */
     readonly status?: enums.cloudfront.TrustStoreStatus;
     /**
-     * Key-value pairs for resource tagging
+     * A complex type that contains zero or more ``Tag`` elements.
      */
     readonly tags?: outputs.Tag[];
 }
 /**
- * Resource Type definition for AWS::CloudFront::TrustStore. TrustStores contain CA certificates for mTLS authentication and can be associated with CloudFront distributions.
+ * A trust store.
  */
 export function getTrustStoreOutput(args: GetTrustStoreOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetTrustStoreResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -66,7 +66,7 @@ export function getTrustStoreOutput(args: GetTrustStoreOutputArgs, opts?: pulumi
 
 export interface GetTrustStoreOutputArgs {
     /**
-     * The unique identifier for the trust store
+     * The trust store's ID.
      */
     id: pulumi.Input<string>;
 }

@@ -28,6 +28,7 @@ class MemoryArgs:
                  memory_execution_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  memory_strategies: Optional[pulumi.Input[Sequence[pulumi.Input['MemoryStrategyArgs']]]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
+                 stream_delivery_resources: Optional[pulumi.Input['MemoryStreamDeliveryResourcesArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Memory resource.
@@ -50,6 +51,8 @@ class MemoryArgs:
             pulumi.set(__self__, "memory_strategies", memory_strategies)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if stream_delivery_resources is not None:
+            pulumi.set(__self__, "stream_delivery_resources", stream_delivery_resources)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -123,6 +126,15 @@ class MemoryArgs:
         pulumi.set(self, "name", value)
 
     @_builtins.property
+    @pulumi.getter(name="streamDeliveryResources")
+    def stream_delivery_resources(self) -> Optional[pulumi.Input['MemoryStreamDeliveryResourcesArgs']]:
+        return pulumi.get(self, "stream_delivery_resources")
+
+    @stream_delivery_resources.setter
+    def stream_delivery_resources(self, value: Optional[pulumi.Input['MemoryStreamDeliveryResourcesArgs']]):
+        pulumi.set(self, "stream_delivery_resources", value)
+
+    @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
@@ -147,6 +159,7 @@ class Memory(pulumi.CustomResource):
                  memory_execution_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  memory_strategies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MemoryStrategyArgs', 'MemoryStrategyArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
+                 stream_delivery_resources: Optional[pulumi.Input[Union['MemoryStreamDeliveryResourcesArgs', 'MemoryStreamDeliveryResourcesArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
@@ -193,6 +206,7 @@ class Memory(pulumi.CustomResource):
                  memory_execution_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  memory_strategies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MemoryStrategyArgs', 'MemoryStrategyArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
+                 stream_delivery_resources: Optional[pulumi.Input[Union['MemoryStreamDeliveryResourcesArgs', 'MemoryStreamDeliveryResourcesArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -211,6 +225,7 @@ class Memory(pulumi.CustomResource):
             __props__.__dict__["memory_execution_role_arn"] = memory_execution_role_arn
             __props__.__dict__["memory_strategies"] = memory_strategies
             __props__.__dict__["name"] = name
+            __props__.__dict__["stream_delivery_resources"] = stream_delivery_resources
             __props__.__dict__["tags"] = tags
             __props__.__dict__["created_at"] = None
             __props__.__dict__["failure_reason"] = None
@@ -253,6 +268,7 @@ class Memory(pulumi.CustomResource):
         __props__.__dict__["memory_strategies"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["status"] = None
+        __props__.__dict__["stream_delivery_resources"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["updated_at"] = None
         return Memory(resource_name, opts=opts, __props__=__props__)
@@ -335,6 +351,11 @@ class Memory(pulumi.CustomResource):
         The memory status.
         """
         return pulumi.get(self, "status")
+
+    @_builtins.property
+    @pulumi.getter(name="streamDeliveryResources")
+    def stream_delivery_resources(self) -> pulumi.Output[Optional['outputs.MemoryStreamDeliveryResources']]:
+        return pulumi.get(self, "stream_delivery_resources")
 
     @_builtins.property
     @pulumi.getter

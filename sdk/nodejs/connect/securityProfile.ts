@@ -46,6 +46,10 @@ export class SecurityProfile extends pulumi.CustomResource {
      */
     declare public readonly allowedAccessControlTags: pulumi.Output<outputs.connect.SecurityProfileTag[] | undefined>;
     /**
+     * The list of flow-module resources to be linked to a security profile in Amazon Connect.
+     */
+    declare public readonly allowedFlowModules: pulumi.Output<outputs.connect.SecurityProfileFlowModule[] | undefined>;
+    /**
      * A list of third-party applications that the security profile will give access to.
      */
     declare public readonly applications: pulumi.Output<outputs.connect.SecurityProfileApplication[] | undefined>;
@@ -110,6 +114,7 @@ export class SecurityProfile extends pulumi.CustomResource {
             }
             resourceInputs["allowedAccessControlHierarchyGroupId"] = args?.allowedAccessControlHierarchyGroupId;
             resourceInputs["allowedAccessControlTags"] = args?.allowedAccessControlTags;
+            resourceInputs["allowedFlowModules"] = args?.allowedFlowModules;
             resourceInputs["applications"] = args?.applications;
             resourceInputs["description"] = args?.description;
             resourceInputs["granularAccessControlConfiguration"] = args?.granularAccessControlConfiguration;
@@ -125,6 +130,7 @@ export class SecurityProfile extends pulumi.CustomResource {
         } else {
             resourceInputs["allowedAccessControlHierarchyGroupId"] = undefined /*out*/;
             resourceInputs["allowedAccessControlTags"] = undefined /*out*/;
+            resourceInputs["allowedFlowModules"] = undefined /*out*/;
             resourceInputs["applications"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["granularAccessControlConfiguration"] = undefined /*out*/;
@@ -157,6 +163,10 @@ export interface SecurityProfileArgs {
      * The list of tags that a security profile uses to restrict access to resources in Amazon Connect.
      */
     allowedAccessControlTags?: pulumi.Input<pulumi.Input<inputs.connect.SecurityProfileTagArgs>[]>;
+    /**
+     * The list of flow-module resources to be linked to a security profile in Amazon Connect.
+     */
+    allowedFlowModules?: pulumi.Input<pulumi.Input<inputs.connect.SecurityProfileFlowModuleArgs>[]>;
     /**
      * A list of third-party applications that the security profile will give access to.
      */

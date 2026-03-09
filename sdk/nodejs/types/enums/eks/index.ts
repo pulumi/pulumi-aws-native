@@ -80,6 +80,8 @@ export const ClusterControlPlaneScalingConfigTier = {
     TierXl: "tier-xl",
     Tier2xl: "tier-2xl",
     Tier4xl: "tier-4xl",
+    Tier8xl: "tier-8xl",
+    TierUltra: "tier-ultra",
 } as const;
 
 /**

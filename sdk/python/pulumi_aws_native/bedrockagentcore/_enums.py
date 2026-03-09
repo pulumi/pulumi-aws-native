@@ -28,6 +28,8 @@ __all__ = [
     'GatewayTargetRestApiMethod',
     'GatewayTargetSchemaType',
     'GatewayTargetTargetStatus',
+    'MemoryContentConfigurationLevel',
+    'MemoryContentConfigurationType',
     'MemoryCustomMemoryStrategyStatus',
     'MemoryCustomMemoryStrategyType',
     'MemoryEpisodicMemoryStrategyStatus',
@@ -42,6 +44,9 @@ __all__ = [
     'OnlineEvaluationConfigExecutionStatus',
     'OnlineEvaluationConfigFilterOperator',
     'OnlineEvaluationConfigStatus',
+    'PolicyEngineStatus',
+    'PolicyStatus',
+    'PolicyValidationMode',
     'RuntimeAgentManagedRuntimeType',
     'RuntimeAgentStatus',
     'RuntimeClaimMatchOperator',
@@ -234,6 +239,23 @@ class GatewayTargetTargetStatus(_builtins.str, Enum):
     SYNCHRONIZE_UNSUCCESSFUL = "SYNCHRONIZE_UNSUCCESSFUL"
 
 
+@pulumi.type_token("aws-native:bedrockagentcore:MemoryContentConfigurationLevel")
+class MemoryContentConfigurationLevel(_builtins.str, Enum):
+    """
+    The level of content detail to deliver
+    """
+    METADATA_ONLY = "METADATA_ONLY"
+    FULL_CONTENT = "FULL_CONTENT"
+
+
+@pulumi.type_token("aws-native:bedrockagentcore:MemoryContentConfigurationType")
+class MemoryContentConfigurationType(_builtins.str, Enum):
+    """
+    The type of content to deliver
+    """
+    MEMORY_RECORDS = "MEMORY_RECORDS"
+
+
 @pulumi.type_token("aws-native:bedrockagentcore:MemoryCustomMemoryStrategyStatus")
 class MemoryCustomMemoryStrategyStatus(_builtins.str, Enum):
     """
@@ -389,6 +411,37 @@ class OnlineEvaluationConfigStatus(_builtins.str, Enum):
     UPDATING = "UPDATING"
     UPDATE_FAILED = "UPDATE_FAILED"
     DELETING = "DELETING"
+
+
+@pulumi.type_token("aws-native:bedrockagentcore:PolicyEngineStatus")
+class PolicyEngineStatus(_builtins.str, Enum):
+    CREATING = "CREATING"
+    ACTIVE = "ACTIVE"
+    UPDATING = "UPDATING"
+    DELETING = "DELETING"
+    CREATE_FAILED = "CREATE_FAILED"
+    UPDATE_FAILED = "UPDATE_FAILED"
+    DELETE_FAILED = "DELETE_FAILED"
+
+
+@pulumi.type_token("aws-native:bedrockagentcore:PolicyStatus")
+class PolicyStatus(_builtins.str, Enum):
+    CREATING = "CREATING"
+    ACTIVE = "ACTIVE"
+    UPDATING = "UPDATING"
+    DELETING = "DELETING"
+    CREATE_FAILED = "CREATE_FAILED"
+    UPDATE_FAILED = "UPDATE_FAILED"
+    DELETE_FAILED = "DELETE_FAILED"
+
+
+@pulumi.type_token("aws-native:bedrockagentcore:PolicyValidationMode")
+class PolicyValidationMode(_builtins.str, Enum):
+    """
+    The validation mode for the policy. Determines how Cedar analyzer validation results are handled.
+    """
+    FAIL_ON_ANY_FINDINGS = "FAIL_ON_ANY_FINDINGS"
+    IGNORE_ALL_FINDINGS = "IGNORE_ALL_FINDINGS"
 
 
 @pulumi.type_token("aws-native:bedrockagentcore:RuntimeAgentManagedRuntimeType")

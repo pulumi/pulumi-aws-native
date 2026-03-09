@@ -26,6 +26,10 @@ export interface GetQueueArgs {
 
 export interface GetQueueResult {
     /**
+     * The email addresses that agents can use when replying to or initiating email contacts
+     */
+    readonly additionalEmailAddresses?: outputs.connect.QueueEmailAddress[];
+    /**
      * The description of the queue.
      */
     readonly description?: string;

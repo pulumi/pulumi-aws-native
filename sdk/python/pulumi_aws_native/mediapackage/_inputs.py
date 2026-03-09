@@ -174,19 +174,19 @@ class ChannelIngestEndpointArgsDict(TypedDict):
     """
     An endpoint for ingesting source content for a Channel.
     """
-    id: pulumi.Input[_builtins.str]
+    id: NotRequired[pulumi.Input[_builtins.str]]
     """
     The system generated unique identifier for the IngestEndpoint
     """
-    password: pulumi.Input[_builtins.str]
+    password: NotRequired[pulumi.Input[_builtins.str]]
     """
     The system generated password for ingest authentication.
     """
-    url: pulumi.Input[_builtins.str]
+    url: NotRequired[pulumi.Input[_builtins.str]]
     """
     The ingest URL to which the source stream should be sent.
     """
-    username: pulumi.Input[_builtins.str]
+    username: NotRequired[pulumi.Input[_builtins.str]]
     """
     The system generated username for ingest authentication.
     """
@@ -194,10 +194,10 @@ class ChannelIngestEndpointArgsDict(TypedDict):
 @pulumi.input_type
 class ChannelIngestEndpointArgs:
     def __init__(__self__, *,
-                 id: pulumi.Input[_builtins.str],
-                 password: pulumi.Input[_builtins.str],
-                 url: pulumi.Input[_builtins.str],
-                 username: pulumi.Input[_builtins.str]):
+                 id: Optional[pulumi.Input[_builtins.str]] = None,
+                 password: Optional[pulumi.Input[_builtins.str]] = None,
+                 url: Optional[pulumi.Input[_builtins.str]] = None,
+                 username: Optional[pulumi.Input[_builtins.str]] = None):
         """
         An endpoint for ingesting source content for a Channel.
 
@@ -206,57 +206,61 @@ class ChannelIngestEndpointArgs:
         :param pulumi.Input[_builtins.str] url: The ingest URL to which the source stream should be sent.
         :param pulumi.Input[_builtins.str] username: The system generated username for ingest authentication.
         """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "password", password)
-        pulumi.set(__self__, "url", url)
-        pulumi.set(__self__, "username", username)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if password is not None:
+            pulumi.set(__self__, "password", password)
+        if url is not None:
+            pulumi.set(__self__, "url", url)
+        if username is not None:
+            pulumi.set(__self__, "username", username)
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> pulumi.Input[_builtins.str]:
+    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The system generated unique identifier for the IngestEndpoint
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: pulumi.Input[_builtins.str]):
+    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "id", value)
 
     @_builtins.property
     @pulumi.getter
-    def password(self) -> pulumi.Input[_builtins.str]:
+    def password(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The system generated password for ingest authentication.
         """
         return pulumi.get(self, "password")
 
     @password.setter
-    def password(self, value: pulumi.Input[_builtins.str]):
+    def password(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "password", value)
 
     @_builtins.property
     @pulumi.getter
-    def url(self) -> pulumi.Input[_builtins.str]:
+    def url(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The ingest URL to which the source stream should be sent.
         """
         return pulumi.get(self, "url")
 
     @url.setter
-    def url(self, value: pulumi.Input[_builtins.str]):
+    def url(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "url", value)
 
     @_builtins.property
     @pulumi.getter
-    def username(self) -> pulumi.Input[_builtins.str]:
+    def username(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The system generated username for ingest authentication.
         """
         return pulumi.get(self, "username")
 
     @username.setter
-    def username(self, value: pulumi.Input[_builtins.str]):
+    def username(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "username", value)
 
 

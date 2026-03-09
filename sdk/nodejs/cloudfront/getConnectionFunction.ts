@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource Type definition for AWS::CloudFront::ConnectionFunction
+ * A connection function.
  */
 export function getConnectionFunction(args: GetConnectionFunctionArgs, opts?: pulumi.InvokeOptions): Promise<GetConnectionFunctionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -62,12 +62,12 @@ export interface GetConnectionFunctionResult {
      */
     readonly status?: enums.cloudfront.ConnectionFunctionStatus;
     /**
-     * A complex type that contains zero or more `Tag` elements.
+     * A complex type that contains zero or more ``Tag`` elements.
      */
     readonly tags?: outputs.Tag[];
 }
 /**
- * Resource Type definition for AWS::CloudFront::ConnectionFunction
+ * A connection function.
  */
 export function getConnectionFunctionOutput(args: GetConnectionFunctionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetConnectionFunctionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

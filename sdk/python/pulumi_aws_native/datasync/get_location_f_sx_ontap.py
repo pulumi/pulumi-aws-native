@@ -100,7 +100,7 @@ class AwaitableGetLocationFSxOntapResult(GetLocationFSxOntapResult):
 def get_location_f_sx_ontap(location_arn: Optional[_builtins.str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLocationFSxOntapResult:
     """
-    Resource schema for AWS::DataSync::LocationFSxONTAP.
+    Resource Type definition for AWS::DataSync::LocationFSxONTAP.
 
 
     :param _builtins.str location_arn: The Amazon Resource Name (ARN) of the Amazon FSx ONTAP file system location that is created.
@@ -119,7 +119,7 @@ def get_location_f_sx_ontap(location_arn: Optional[_builtins.str] = None,
 def get_location_f_sx_ontap_output(location_arn: Optional[pulumi.Input[_builtins.str]] = None,
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLocationFSxOntapResult]:
     """
-    Resource schema for AWS::DataSync::LocationFSxONTAP.
+    Resource Type definition for AWS::DataSync::LocationFSxONTAP.
 
 
     :param _builtins.str location_arn: The Amazon Resource Name (ARN) of the Amazon FSx ONTAP file system location that is created.

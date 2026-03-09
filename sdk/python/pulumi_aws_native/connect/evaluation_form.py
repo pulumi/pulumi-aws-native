@@ -49,6 +49,7 @@ class EvaluationFormArgs:
         :param pulumi.Input[_builtins.str] description: The description of the evaluation form.
                 *Length Constraints*: Minimum length of 0. Maximum length of 1024.
         :param pulumi.Input['EvaluationFormLanguageConfigurationArgs'] language_configuration: Configuration for language settings of this evaluation form.
+        :param pulumi.Input['EvaluationFormEvaluationReviewConfigurationArgs'] review_configuration: Configuration for evaluation review settings of this evaluation form.
         :param pulumi.Input['EvaluationFormScoringStrategyArgs'] scoring_strategy: A scoring strategy of the evaluation form.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.
         :param pulumi.Input['EvaluationFormTargetConfigurationArgs'] target_configuration: Configuration that specifies the target for this evaluation form.
@@ -163,6 +164,9 @@ class EvaluationFormArgs:
     @_builtins.property
     @pulumi.getter(name="reviewConfiguration")
     def review_configuration(self) -> Optional[pulumi.Input['EvaluationFormEvaluationReviewConfigurationArgs']]:
+        """
+        Configuration for evaluation review settings of this evaluation form.
+        """
         return pulumi.get(self, "review_configuration")
 
     @review_configuration.setter
@@ -238,6 +242,7 @@ class EvaluationForm(pulumi.CustomResource):
                 *Minimum size*: 1
                 *Maximum size*: 100
         :param pulumi.Input[Union['EvaluationFormLanguageConfigurationArgs', 'EvaluationFormLanguageConfigurationArgsDict']] language_configuration: Configuration for language settings of this evaluation form.
+        :param pulumi.Input[Union['EvaluationFormEvaluationReviewConfigurationArgs', 'EvaluationFormEvaluationReviewConfigurationArgsDict']] review_configuration: Configuration for evaluation review settings of this evaluation form.
         :param pulumi.Input[Union['EvaluationFormScoringStrategyArgs', 'EvaluationFormScoringStrategyArgsDict']] scoring_strategy: A scoring strategy of the evaluation form.
         :param pulumi.Input['EvaluationFormStatus'] status: The status of the evaluation form.
                 *Allowed values*: ``DRAFT`` | ``ACTIVE``
@@ -400,6 +405,9 @@ class EvaluationForm(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="reviewConfiguration")
     def review_configuration(self) -> pulumi.Output[Optional['outputs.EvaluationFormEvaluationReviewConfiguration']]:
+        """
+        Configuration for evaluation review settings of this evaluation form.
+        """
         return pulumi.get(self, "review_configuration")
 
     @_builtins.property

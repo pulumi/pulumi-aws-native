@@ -17,6 +17,8 @@ import (
 type Queue struct {
 	pulumi.CustomResourceState
 
+	// The email addresses that agents can use when replying to or initiating email contacts
+	AdditionalEmailAddresses QueueEmailAddressArrayOutput `pulumi:"additionalEmailAddresses"`
 	// The description of the queue.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The identifier for the hours of operation.
@@ -89,6 +91,8 @@ func (QueueState) ElementType() reflect.Type {
 }
 
 type queueArgs struct {
+	// The email addresses that agents can use when replying to or initiating email contacts
+	AdditionalEmailAddresses []QueueEmailAddress `pulumi:"additionalEmailAddresses"`
 	// The description of the queue.
 	Description *string `pulumi:"description"`
 	// The identifier for the hours of operation.
@@ -113,6 +117,8 @@ type queueArgs struct {
 
 // The set of arguments for constructing a Queue resource.
 type QueueArgs struct {
+	// The email addresses that agents can use when replying to or initiating email contacts
+	AdditionalEmailAddresses QueueEmailAddressArrayInput
 	// The description of the queue.
 	Description pulumi.StringPtrInput
 	// The identifier for the hours of operation.
@@ -170,6 +176,11 @@ func (o QueueOutput) ToQueueOutput() QueueOutput {
 
 func (o QueueOutput) ToQueueOutputWithContext(ctx context.Context) QueueOutput {
 	return o
+}
+
+// The email addresses that agents can use when replying to or initiating email contacts
+func (o QueueOutput) AdditionalEmailAddresses() QueueEmailAddressArrayOutput {
+	return o.ApplyT(func(v *Queue) QueueEmailAddressArrayOutput { return v.AdditionalEmailAddresses }).(QueueEmailAddressArrayOutput)
 }
 
 // The description of the queue.

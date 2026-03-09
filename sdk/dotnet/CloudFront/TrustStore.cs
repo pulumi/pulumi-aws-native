@@ -10,19 +10,19 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CloudFront
 {
     /// <summary>
-    /// Resource Type definition for AWS::CloudFront::TrustStore. TrustStores contain CA certificates for mTLS authentication and can be associated with CloudFront distributions.
+    /// A trust store.
     /// </summary>
     [AwsNativeResourceType("aws-native:cloudfront:TrustStore")]
     public partial class TrustStore : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the trust store
+        /// The trust store's Amazon Resource Name (ARN).
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The unique identifier for the trust store
+        /// The trust store's ID.
         /// </summary>
         [Output("awsId")]
         public Output<string> AwsId { get; private set; } = null!;
@@ -40,31 +40,31 @@ namespace Pulumi.AwsNative.CloudFront
         public Output<string> ETag { get; private set; } = null!;
 
         /// <summary>
-        /// The last modification timestamp of the trust store PEM file
+        /// The trust store's last modified time.
         /// </summary>
         [Output("lastModifiedTime")]
         public Output<string> LastModifiedTime { get; private set; } = null!;
 
         /// <summary>
-        /// A unique name to identify the trust store
+        /// The trust store's name.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The number of CA certificates in the trust store PEM file
+        /// The trust store's number of CA certificates.
         /// </summary>
         [Output("numberOfCaCertificates")]
         public Output<int> NumberOfCaCertificates { get; private set; } = null!;
 
         /// <summary>
-        /// Current status of the trust store
+        /// The trust store's status.
         /// </summary>
         [Output("status")]
         public Output<Pulumi.AwsNative.CloudFront.TrustStoreStatus> Status { get; private set; } = null!;
 
         /// <summary>
-        /// Key-value pairs for resource tagging
+        /// A complex type that contains zero or more ``Tag`` elements.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
@@ -125,7 +125,7 @@ namespace Pulumi.AwsNative.CloudFront
         public Input<Inputs.TrustStoreCaCertificatesBundleSourceArgs>? CaCertificatesBundleSource { get; set; }
 
         /// <summary>
-        /// A unique name to identify the trust store
+        /// The trust store's name.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -134,7 +134,7 @@ namespace Pulumi.AwsNative.CloudFront
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
-        /// Key-value pairs for resource tagging
+        /// A complex type that contains zero or more ``Tag`` elements.
         /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {

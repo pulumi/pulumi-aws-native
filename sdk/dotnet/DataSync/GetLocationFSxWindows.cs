@@ -12,19 +12,19 @@ namespace Pulumi.AwsNative.DataSync
     public static class GetLocationFSxWindows
     {
         /// <summary>
-        /// Resource schema for AWS::DataSync::LocationFSxWindows.
+        /// Resource Type definition for AWS::DataSync::LocationFSxWindows.
         /// </summary>
         public static Task<GetLocationFSxWindowsResult> InvokeAsync(GetLocationFSxWindowsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLocationFSxWindowsResult>("aws-native:datasync:getLocationFSxWindows", args ?? new GetLocationFSxWindowsArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Resource schema for AWS::DataSync::LocationFSxWindows.
+        /// Resource Type definition for AWS::DataSync::LocationFSxWindows.
         /// </summary>
         public static Output<GetLocationFSxWindowsResult> Invoke(GetLocationFSxWindowsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLocationFSxWindowsResult>("aws-native:datasync:getLocationFSxWindows", args ?? new GetLocationFSxWindowsInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Resource schema for AWS::DataSync::LocationFSxWindows.
+        /// Resource Type definition for AWS::DataSync::LocationFSxWindows.
         /// </summary>
         public static Output<GetLocationFSxWindowsResult> Invoke(GetLocationFSxWindowsInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetLocationFSxWindowsResult>("aws-native:datasync:getLocationFSxWindows", args ?? new GetLocationFSxWindowsInvokeArgs(), options.WithDefaults());
@@ -63,6 +63,8 @@ namespace Pulumi.AwsNative.DataSync
     [OutputType]
     public sealed class GetLocationFSxWindowsResult
     {
+        public readonly Outputs.LocationFSxWindowsCmkSecretConfig? CmkSecretConfig;
+        public readonly Outputs.LocationFSxWindowsCustomSecretConfig? CustomSecretConfig;
         /// <summary>
         /// The name of the Windows domain that the FSx for Windows server belongs to.
         /// </summary>
@@ -75,6 +77,7 @@ namespace Pulumi.AwsNative.DataSync
         /// The URL of the FSx for Windows location that was described.
         /// </summary>
         public readonly string? LocationUri;
+        public readonly Outputs.LocationFSxWindowsManagedSecretConfig? ManagedSecretConfig;
         /// <summary>
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
@@ -86,19 +89,28 @@ namespace Pulumi.AwsNative.DataSync
 
         [OutputConstructor]
         private GetLocationFSxWindowsResult(
+            Outputs.LocationFSxWindowsCmkSecretConfig? cmkSecretConfig,
+
+            Outputs.LocationFSxWindowsCustomSecretConfig? customSecretConfig,
+
             string? domain,
 
             string? locationArn,
 
             string? locationUri,
 
+            Outputs.LocationFSxWindowsManagedSecretConfig? managedSecretConfig,
+
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             string? user)
         {
+            CmkSecretConfig = cmkSecretConfig;
+            CustomSecretConfig = customSecretConfig;
             Domain = domain;
             LocationArn = locationArn;
             LocationUri = locationUri;
+            ManagedSecretConfig = managedSecretConfig;
             Tags = tags;
             User = user;
         }

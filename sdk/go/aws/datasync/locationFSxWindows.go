@@ -13,10 +13,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource schema for AWS::DataSync::LocationFSxWindows.
+// Resource Type definition for AWS::DataSync::LocationFSxWindows.
 type LocationFSxWindows struct {
 	pulumi.CustomResourceState
 
+	CmkSecretConfig    LocationFSxWindowsCmkSecretConfigPtrOutput    `pulumi:"cmkSecretConfig"`
+	CustomSecretConfig LocationFSxWindowsCustomSecretConfigPtrOutput `pulumi:"customSecretConfig"`
 	// The name of the Windows domain that the FSx for Windows server belongs to.
 	Domain pulumi.StringPtrOutput `pulumi:"domain"`
 	// The Amazon Resource Name (ARN) for the FSx for Windows file system.
@@ -24,7 +26,8 @@ type LocationFSxWindows struct {
 	// The Amazon Resource Name (ARN) of the Amazon FSx for Windows file system location that is created.
 	LocationArn pulumi.StringOutput `pulumi:"locationArn"`
 	// The URL of the FSx for Windows location that was described.
-	LocationUri pulumi.StringOutput `pulumi:"locationUri"`
+	LocationUri         pulumi.StringOutput                         `pulumi:"locationUri"`
+	ManagedSecretConfig LocationFSxWindowsManagedSecretConfigOutput `pulumi:"managedSecretConfig"`
 	// The password of the user who has the permissions to access files and folders in the FSx for Windows file system.
 	Password pulumi.StringPtrOutput `pulumi:"password"`
 	// The ARNs of the security groups that are to use to configure the FSx for Windows file system.
@@ -88,6 +91,8 @@ func (LocationFSxWindowsState) ElementType() reflect.Type {
 }
 
 type locationFSxWindowsArgs struct {
+	CmkSecretConfig    *LocationFSxWindowsCmkSecretConfig    `pulumi:"cmkSecretConfig"`
+	CustomSecretConfig *LocationFSxWindowsCustomSecretConfig `pulumi:"customSecretConfig"`
 	// The name of the Windows domain that the FSx for Windows server belongs to.
 	Domain *string `pulumi:"domain"`
 	// The Amazon Resource Name (ARN) for the FSx for Windows file system.
@@ -106,6 +111,8 @@ type locationFSxWindowsArgs struct {
 
 // The set of arguments for constructing a LocationFSxWindows resource.
 type LocationFSxWindowsArgs struct {
+	CmkSecretConfig    LocationFSxWindowsCmkSecretConfigPtrInput
+	CustomSecretConfig LocationFSxWindowsCustomSecretConfigPtrInput
 	// The name of the Windows domain that the FSx for Windows server belongs to.
 	Domain pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) for the FSx for Windows file system.
@@ -159,6 +166,14 @@ func (o LocationFSxWindowsOutput) ToLocationFSxWindowsOutputWithContext(ctx cont
 	return o
 }
 
+func (o LocationFSxWindowsOutput) CmkSecretConfig() LocationFSxWindowsCmkSecretConfigPtrOutput {
+	return o.ApplyT(func(v *LocationFSxWindows) LocationFSxWindowsCmkSecretConfigPtrOutput { return v.CmkSecretConfig }).(LocationFSxWindowsCmkSecretConfigPtrOutput)
+}
+
+func (o LocationFSxWindowsOutput) CustomSecretConfig() LocationFSxWindowsCustomSecretConfigPtrOutput {
+	return o.ApplyT(func(v *LocationFSxWindows) LocationFSxWindowsCustomSecretConfigPtrOutput { return v.CustomSecretConfig }).(LocationFSxWindowsCustomSecretConfigPtrOutput)
+}
+
 // The name of the Windows domain that the FSx for Windows server belongs to.
 func (o LocationFSxWindowsOutput) Domain() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LocationFSxWindows) pulumi.StringPtrOutput { return v.Domain }).(pulumi.StringPtrOutput)
@@ -177,6 +192,10 @@ func (o LocationFSxWindowsOutput) LocationArn() pulumi.StringOutput {
 // The URL of the FSx for Windows location that was described.
 func (o LocationFSxWindowsOutput) LocationUri() pulumi.StringOutput {
 	return o.ApplyT(func(v *LocationFSxWindows) pulumi.StringOutput { return v.LocationUri }).(pulumi.StringOutput)
+}
+
+func (o LocationFSxWindowsOutput) ManagedSecretConfig() LocationFSxWindowsManagedSecretConfigOutput {
+	return o.ApplyT(func(v *LocationFSxWindows) LocationFSxWindowsManagedSecretConfigOutput { return v.ManagedSecretConfig }).(LocationFSxWindowsManagedSecretConfigOutput)
 }
 
 // The password of the user who has the permissions to access files and folders in the FSx for Windows file system.

@@ -5,7 +5,7 @@
   "properties" : {
     "PreferredCacheClusterAZs" : {
       "type" : "array",
-      "uniqueItems" : true,
+      "uniqueItems" : false,
       "items" : {
         "type" : "string"
       }
@@ -114,15 +114,14 @@
     "ReadEndPointAddresses" : {
       "type" : "string"
     },
+    "PrimaryEndPoint" : {
+      "$ref" : "#/definitions/Endpoint"
+    },
     "PrimaryEndPointPort" : {
       "type" : "string"
     },
-    "CacheSecurityGroupNames" : {
-      "type" : "array",
-      "uniqueItems" : true,
-      "items" : {
-        "type" : "string"
-      }
+    "ReadEndPoint" : {
+      "$ref" : "#/definitions/ReadEndPoint"
     },
     "ClusterMode" : {
       "type" : "string"
@@ -133,6 +132,9 @@
       "items" : {
         "type" : "string"
       }
+    },
+    "ReaderEndPoint" : {
+      "$ref" : "#/definitions/Endpoint"
     },
     "SnapshotName" : {
       "type" : "string"
@@ -157,6 +159,9 @@
     },
     "CacheSubnetGroupName" : {
       "type" : "string"
+    },
+    "ConfigurationEndPoint" : {
+      "$ref" : "#/definitions/Endpoint"
     },
     "CacheParameterGroupName" : {
       "type" : "string"
@@ -185,7 +190,7 @@
     },
     "LogDeliveryConfigurations" : {
       "type" : "array",
-      "uniqueItems" : true,
+      "uniqueItems" : false,
       "items" : {
         "$ref" : "#/definitions/LogDeliveryConfigurationRequest"
       }
@@ -230,6 +235,44 @@
         }
       },
       "required" : [ "LogGroup" ]
+    },
+    "Endpoint" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "Address" : {
+          "type" : "string"
+        },
+        "Port" : {
+          "type" : "string"
+        }
+      }
+    },
+    "ReadEndPoint" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "Addresses" : {
+          "type" : "string"
+        },
+        "AddressesList" : {
+          "type" : "array",
+          "uniqueItems" : false,
+          "items" : {
+            "type" : "string"
+          }
+        },
+        "Ports" : {
+          "type" : "string"
+        },
+        "PortsList" : {
+          "type" : "array",
+          "uniqueItems" : false,
+          "items" : {
+            "type" : "string"
+          }
+        }
+      }
     },
     "NodeGroupConfiguration" : {
       "type" : "object",
@@ -283,7 +326,7 @@
     }
   },
   "required" : [ "ReplicationGroupDescription" ],
-  "createOnlyProperties" : [ "/properties/KmsKeyId", "/properties/Port", "/properties/SnapshotArns", "/properties/SnapshotName", "/properties/CacheSubnetGroupName", "/properties/NetworkType", "/properties/DataTieringEnabled", "/properties/AtRestEncryptionEnabled", "/properties/ReplicationGroupId", "/properties/GlobalReplicationGroupId", "/properties/ReplicasPerNodeGroup", "/properties/PreferredCacheClusterAZs" ],
+  "createOnlyProperties" : [ "/properties/KmsKeyId", "/properties/Port", "/properties/SnapshotArns", "/properties/SnapshotName", "/properties/CacheSubnetGroupName", "/properties/NetworkType", "/properties/DataTieringEnabled", "/properties/ReplicationGroupId", "/properties/AtRestEncryptionEnabled", "/properties/ReplicasPerNodeGroup", "/properties/GlobalReplicationGroupId", "/properties/PreferredCacheClusterAZs" ],
   "primaryIdentifier" : [ "/properties/ReplicationGroupId" ],
-  "readOnlyProperties" : [ "/properties/ConfigurationEndPoint.Address", "/properties/PrimaryEndPoint.Address", "/properties/PrimaryEndPoint.Port", "/properties/ReaderEndPoint.Address", "/properties/ConfigurationEndPoint.Port", "/properties/ReadEndPoint.Addresses.List", "/properties/ReadEndPoint.Ports.List", "/properties/ReaderEndPoint.Port", "/properties/ReadEndPoint.Addresses", "/properties/ReadEndPoint.Ports", "/properties/ReplicationGroupId" ]
+  "readOnlyProperties" : [ "/properties/ReadEndPoint.AddressesList", "/properties/PrimaryEndPoint.Port", "/properties/ConfigurationEndPoint.Port", "/properties/ReaderEndPoint.Port", "/properties/ReadEndPoint", "/properties/ReplicationGroupId", "/properties/ReadEndPoint.PortsList", "/properties/ConfigurationEndPoint.Address", "/properties/PrimaryEndPoint.Address", "/properties/ReaderEndPoint.Address", "/properties/PrimaryEndPoint", "/properties/ConfigurationEndPoint", "/properties/ReadEndPoint.Ports", "/properties/ReadEndPoint.Addresses", "/properties/ReaderEndPoint" ]
 }

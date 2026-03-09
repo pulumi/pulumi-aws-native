@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource Type definition for AWS::CloudFront::ConnectionFunction
+ * A connection function.
  */
 export class ConnectionFunction extends pulumi.CustomResource {
     /**
@@ -38,7 +38,7 @@ export class ConnectionFunction extends pulumi.CustomResource {
     }
 
     /**
-     * A flag that determines whether to automatically publish the function to the `LIVE` stage when it’s created. To automatically publish to the `LIVE` stage, set this property to `true` .
+     * A flag that determines whether to automatically publish the function to the ``LIVE`` stage when it’s created. To automatically publish to the ``LIVE`` stage, set this property to ``true``.
      */
     declare public readonly autoPublish: pulumi.Output<boolean | undefined>;
     /**
@@ -82,7 +82,7 @@ export class ConnectionFunction extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly status: pulumi.Output<enums.cloudfront.ConnectionFunctionStatus>;
     /**
-     * A complex type that contains zero or more `Tag` elements.
+     * A complex type that contains zero or more ``Tag`` elements.
      */
     declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
@@ -141,7 +141,7 @@ export class ConnectionFunction extends pulumi.CustomResource {
  */
 export interface ConnectionFunctionArgs {
     /**
-     * A flag that determines whether to automatically publish the function to the `LIVE` stage when it’s created. To automatically publish to the `LIVE` stage, set this property to `true` .
+     * A flag that determines whether to automatically publish the function to the ``LIVE`` stage when it’s created. To automatically publish to the ``LIVE`` stage, set this property to ``true``.
      */
     autoPublish?: pulumi.Input<boolean>;
     /**
@@ -157,7 +157,7 @@ export interface ConnectionFunctionArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * A complex type that contains zero or more `Tag` elements.
+     * A complex type that contains zero or more ``Tag`` elements.
      */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource schema for AWS::DataSync::LocationFSxWindows.
+ * Resource Type definition for AWS::DataSync::LocationFSxWindows.
  */
 export function getLocationFSxWindows(args: GetLocationFSxWindowsArgs, opts?: pulumi.InvokeOptions): Promise<GetLocationFSxWindowsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -25,6 +25,8 @@ export interface GetLocationFSxWindowsArgs {
 }
 
 export interface GetLocationFSxWindowsResult {
+    readonly cmkSecretConfig?: outputs.datasync.LocationFSxWindowsCmkSecretConfig;
+    readonly customSecretConfig?: outputs.datasync.LocationFSxWindowsCustomSecretConfig;
     /**
      * The name of the Windows domain that the FSx for Windows server belongs to.
      */
@@ -37,6 +39,7 @@ export interface GetLocationFSxWindowsResult {
      * The URL of the FSx for Windows location that was described.
      */
     readonly locationUri?: string;
+    readonly managedSecretConfig?: outputs.datasync.LocationFSxWindowsManagedSecretConfig;
     /**
      * An array of key-value pairs to apply to this resource.
      */
@@ -47,7 +50,7 @@ export interface GetLocationFSxWindowsResult {
     readonly user?: string;
 }
 /**
- * Resource schema for AWS::DataSync::LocationFSxWindows.
+ * Resource Type definition for AWS::DataSync::LocationFSxWindows.
  */
 export function getLocationFSxWindowsOutput(args: GetLocationFSxWindowsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLocationFSxWindowsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource Type definition for AWS::CloudFront::TrustStore. TrustStores contain CA certificates for mTLS authentication and can be associated with CloudFront distributions.
+ * A trust store.
  */
 export class TrustStore extends pulumi.CustomResource {
     /**
@@ -38,11 +38,11 @@ export class TrustStore extends pulumi.CustomResource {
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the trust store
+     * The trust store's Amazon Resource Name (ARN).
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
-     * The unique identifier for the trust store
+     * The trust store's ID.
      */
     declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
@@ -54,23 +54,23 @@ export class TrustStore extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly eTag: pulumi.Output<string>;
     /**
-     * The last modification timestamp of the trust store PEM file
+     * The trust store's last modified time.
      */
     declare public /*out*/ readonly lastModifiedTime: pulumi.Output<string>;
     /**
-     * A unique name to identify the trust store
+     * The trust store's name.
      */
     declare public readonly name: pulumi.Output<string>;
     /**
-     * The number of CA certificates in the trust store PEM file
+     * The trust store's number of CA certificates.
      */
     declare public /*out*/ readonly numberOfCaCertificates: pulumi.Output<number>;
     /**
-     * Current status of the trust store
+     * The trust store's status.
      */
     declare public /*out*/ readonly status: pulumi.Output<enums.cloudfront.TrustStoreStatus>;
     /**
-     * Key-value pairs for resource tagging
+     * A complex type that contains zero or more ``Tag`` elements.
      */
     declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
@@ -121,11 +121,11 @@ export interface TrustStoreArgs {
      */
     caCertificatesBundleSource?: pulumi.Input<inputs.cloudfront.TrustStoreCaCertificatesBundleSourceArgs>;
     /**
-     * A unique name to identify the trust store
+     * The trust store's name.
      */
     name?: pulumi.Input<string>;
     /**
-     * Key-value pairs for resource tagging
+     * A complex type that contains zero or more ``Tag`` elements.
      */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

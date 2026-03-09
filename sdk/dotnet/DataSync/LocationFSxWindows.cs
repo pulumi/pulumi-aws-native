@@ -10,11 +10,17 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.DataSync
 {
     /// <summary>
-    /// Resource schema for AWS::DataSync::LocationFSxWindows.
+    /// Resource Type definition for AWS::DataSync::LocationFSxWindows.
     /// </summary>
     [AwsNativeResourceType("aws-native:datasync:LocationFSxWindows")]
     public partial class LocationFSxWindows : global::Pulumi.CustomResource
     {
+        [Output("cmkSecretConfig")]
+        public Output<Outputs.LocationFSxWindowsCmkSecretConfig?> CmkSecretConfig { get; private set; } = null!;
+
+        [Output("customSecretConfig")]
+        public Output<Outputs.LocationFSxWindowsCustomSecretConfig?> CustomSecretConfig { get; private set; } = null!;
+
         /// <summary>
         /// The name of the Windows domain that the FSx for Windows server belongs to.
         /// </summary>
@@ -38,6 +44,9 @@ namespace Pulumi.AwsNative.DataSync
         /// </summary>
         [Output("locationUri")]
         public Output<string> LocationUri { get; private set; } = null!;
+
+        [Output("managedSecretConfig")]
+        public Output<Outputs.LocationFSxWindowsManagedSecretConfig> ManagedSecretConfig { get; private set; } = null!;
 
         /// <summary>
         /// The password of the user who has the permissions to access files and folders in the FSx for Windows file system.
@@ -119,6 +128,12 @@ namespace Pulumi.AwsNative.DataSync
 
     public sealed class LocationFSxWindowsArgs : global::Pulumi.ResourceArgs
     {
+        [Input("cmkSecretConfig")]
+        public Input<Inputs.LocationFSxWindowsCmkSecretConfigArgs>? CmkSecretConfig { get; set; }
+
+        [Input("customSecretConfig")]
+        public Input<Inputs.LocationFSxWindowsCustomSecretConfigArgs>? CustomSecretConfig { get; set; }
+
         /// <summary>
         /// The name of the Windows domain that the FSx for Windows server belongs to.
         /// </summary>

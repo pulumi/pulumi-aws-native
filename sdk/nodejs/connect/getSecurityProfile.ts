@@ -34,6 +34,10 @@ export interface GetSecurityProfileResult {
      */
     readonly allowedAccessControlTags?: outputs.connect.SecurityProfileTag[];
     /**
+     * The list of flow-module resources to be linked to a security profile in Amazon Connect.
+     */
+    readonly allowedFlowModules?: outputs.connect.SecurityProfileFlowModule[];
+    /**
      * A list of third-party applications that the security profile will give access to.
      */
     readonly applications?: outputs.connect.SecurityProfileApplication[];

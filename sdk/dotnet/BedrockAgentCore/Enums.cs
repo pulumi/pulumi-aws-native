@@ -652,6 +652,67 @@ namespace Pulumi.AwsNative.BedrockAgentCore
     }
 
     /// <summary>
+    /// The level of content detail to deliver
+    /// </summary>
+    [EnumType]
+    public readonly struct MemoryContentConfigurationLevel : IEquatable<MemoryContentConfigurationLevel>
+    {
+        private readonly string _value;
+
+        private MemoryContentConfigurationLevel(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static MemoryContentConfigurationLevel MetadataOnly { get; } = new MemoryContentConfigurationLevel("METADATA_ONLY");
+        public static MemoryContentConfigurationLevel FullContent { get; } = new MemoryContentConfigurationLevel("FULL_CONTENT");
+
+        public static bool operator ==(MemoryContentConfigurationLevel left, MemoryContentConfigurationLevel right) => left.Equals(right);
+        public static bool operator !=(MemoryContentConfigurationLevel left, MemoryContentConfigurationLevel right) => !left.Equals(right);
+
+        public static explicit operator string(MemoryContentConfigurationLevel value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is MemoryContentConfigurationLevel other && Equals(other);
+        public bool Equals(MemoryContentConfigurationLevel other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The type of content to deliver
+    /// </summary>
+    [EnumType]
+    public readonly struct MemoryContentConfigurationType : IEquatable<MemoryContentConfigurationType>
+    {
+        private readonly string _value;
+
+        private MemoryContentConfigurationType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static MemoryContentConfigurationType MemoryRecords { get; } = new MemoryContentConfigurationType("MEMORY_RECORDS");
+
+        public static bool operator ==(MemoryContentConfigurationType left, MemoryContentConfigurationType right) => left.Equals(right);
+        public static bool operator !=(MemoryContentConfigurationType left, MemoryContentConfigurationType right) => !left.Equals(right);
+
+        public static explicit operator string(MemoryContentConfigurationType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is MemoryContentConfigurationType other && Equals(other);
+        public bool Equals(MemoryContentConfigurationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Status of the memory strategy
     /// </summary>
     [EnumType]
@@ -1109,6 +1170,103 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is OnlineEvaluationConfigStatus other && Equals(other);
         public bool Equals(OnlineEvaluationConfigStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct PolicyEngineStatus : IEquatable<PolicyEngineStatus>
+    {
+        private readonly string _value;
+
+        private PolicyEngineStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PolicyEngineStatus Creating { get; } = new PolicyEngineStatus("CREATING");
+        public static PolicyEngineStatus Active { get; } = new PolicyEngineStatus("ACTIVE");
+        public static PolicyEngineStatus Updating { get; } = new PolicyEngineStatus("UPDATING");
+        public static PolicyEngineStatus Deleting { get; } = new PolicyEngineStatus("DELETING");
+        public static PolicyEngineStatus CreateFailed { get; } = new PolicyEngineStatus("CREATE_FAILED");
+        public static PolicyEngineStatus UpdateFailed { get; } = new PolicyEngineStatus("UPDATE_FAILED");
+        public static PolicyEngineStatus DeleteFailed { get; } = new PolicyEngineStatus("DELETE_FAILED");
+
+        public static bool operator ==(PolicyEngineStatus left, PolicyEngineStatus right) => left.Equals(right);
+        public static bool operator !=(PolicyEngineStatus left, PolicyEngineStatus right) => !left.Equals(right);
+
+        public static explicit operator string(PolicyEngineStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PolicyEngineStatus other && Equals(other);
+        public bool Equals(PolicyEngineStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct PolicyStatus : IEquatable<PolicyStatus>
+    {
+        private readonly string _value;
+
+        private PolicyStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PolicyStatus Creating { get; } = new PolicyStatus("CREATING");
+        public static PolicyStatus Active { get; } = new PolicyStatus("ACTIVE");
+        public static PolicyStatus Updating { get; } = new PolicyStatus("UPDATING");
+        public static PolicyStatus Deleting { get; } = new PolicyStatus("DELETING");
+        public static PolicyStatus CreateFailed { get; } = new PolicyStatus("CREATE_FAILED");
+        public static PolicyStatus UpdateFailed { get; } = new PolicyStatus("UPDATE_FAILED");
+        public static PolicyStatus DeleteFailed { get; } = new PolicyStatus("DELETE_FAILED");
+
+        public static bool operator ==(PolicyStatus left, PolicyStatus right) => left.Equals(right);
+        public static bool operator !=(PolicyStatus left, PolicyStatus right) => !left.Equals(right);
+
+        public static explicit operator string(PolicyStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PolicyStatus other && Equals(other);
+        public bool Equals(PolicyStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The validation mode for the policy. Determines how Cedar analyzer validation results are handled.
+    /// </summary>
+    [EnumType]
+    public readonly struct PolicyValidationMode : IEquatable<PolicyValidationMode>
+    {
+        private readonly string _value;
+
+        private PolicyValidationMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PolicyValidationMode FailOnAnyFindings { get; } = new PolicyValidationMode("FAIL_ON_ANY_FINDINGS");
+        public static PolicyValidationMode IgnoreAllFindings { get; } = new PolicyValidationMode("IGNORE_ALL_FINDINGS");
+
+        public static bool operator ==(PolicyValidationMode left, PolicyValidationMode right) => left.Equals(right);
+        public static bool operator !=(PolicyValidationMode left, PolicyValidationMode right) => !left.Equals(right);
+
+        public static explicit operator string(PolicyValidationMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PolicyValidationMode other && Equals(other);
+        public bool Equals(PolicyValidationMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

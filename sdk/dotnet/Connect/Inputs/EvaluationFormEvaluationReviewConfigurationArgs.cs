@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Connect.Inputs
 {
 
+    /// <summary>
+    /// Configuration settings for evaluation reviews.
+    /// </summary>
     public sealed class EvaluationFormEvaluationReviewConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>

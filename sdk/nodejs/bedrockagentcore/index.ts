@@ -75,6 +75,16 @@ export const getOnlineEvaluationConfig: typeof import("./getOnlineEvaluationConf
 export const getOnlineEvaluationConfigOutput: typeof import("./getOnlineEvaluationConfig").getOnlineEvaluationConfigOutput = null as any;
 utilities.lazyLoad(exports, ["getOnlineEvaluationConfig","getOnlineEvaluationConfigOutput"], () => require("./getOnlineEvaluationConfig"));
 
+export { GetPolicyArgs, GetPolicyResult, GetPolicyOutputArgs } from "./getPolicy";
+export const getPolicy: typeof import("./getPolicy").getPolicy = null as any;
+export const getPolicyOutput: typeof import("./getPolicy").getPolicyOutput = null as any;
+utilities.lazyLoad(exports, ["getPolicy","getPolicyOutput"], () => require("./getPolicy"));
+
+export { GetPolicyEngineArgs, GetPolicyEngineResult, GetPolicyEngineOutputArgs } from "./getPolicyEngine";
+export const getPolicyEngine: typeof import("./getPolicyEngine").getPolicyEngine = null as any;
+export const getPolicyEngineOutput: typeof import("./getPolicyEngine").getPolicyEngineOutput = null as any;
+utilities.lazyLoad(exports, ["getPolicyEngine","getPolicyEngineOutput"], () => require("./getPolicyEngine"));
+
 export { GetRuntimeArgs, GetRuntimeResult, GetRuntimeOutputArgs } from "./getRuntime";
 export const getRuntime: typeof import("./getRuntime").getRuntime = null as any;
 export const getRuntimeOutput: typeof import("./getRuntime").getRuntimeOutput = null as any;
@@ -99,6 +109,16 @@ export { OnlineEvaluationConfigArgs } from "./onlineEvaluationConfig";
 export type OnlineEvaluationConfig = import("./onlineEvaluationConfig").OnlineEvaluationConfig;
 export const OnlineEvaluationConfig: typeof import("./onlineEvaluationConfig").OnlineEvaluationConfig = null as any;
 utilities.lazyLoad(exports, ["OnlineEvaluationConfig"], () => require("./onlineEvaluationConfig"));
+
+export { PolicyArgs } from "./policy";
+export type Policy = import("./policy").Policy;
+export const Policy: typeof import("./policy").Policy = null as any;
+utilities.lazyLoad(exports, ["Policy"], () => require("./policy"));
+
+export { PolicyEngineArgs } from "./policyEngine";
+export type PolicyEngine = import("./policyEngine").PolicyEngine;
+export const PolicyEngine: typeof import("./policyEngine").PolicyEngine = null as any;
+utilities.lazyLoad(exports, ["PolicyEngine"], () => require("./policyEngine"));
 
 export { RuntimeArgs } from "./runtime";
 export type Runtime = import("./runtime").Runtime;
@@ -139,6 +159,10 @@ const _module = {
                 return new Memory(name, <any>undefined, { urn })
             case "aws-native:bedrockagentcore:OnlineEvaluationConfig":
                 return new OnlineEvaluationConfig(name, <any>undefined, { urn })
+            case "aws-native:bedrockagentcore:Policy":
+                return new Policy(name, <any>undefined, { urn })
+            case "aws-native:bedrockagentcore:PolicyEngine":
+                return new PolicyEngine(name, <any>undefined, { urn })
             case "aws-native:bedrockagentcore:Runtime":
                 return new Runtime(name, <any>undefined, { urn })
             case "aws-native:bedrockagentcore:RuntimeEndpoint":

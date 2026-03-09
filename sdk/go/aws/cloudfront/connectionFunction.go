@@ -13,11 +13,11 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource Type definition for AWS::CloudFront::ConnectionFunction
+// A connection function.
 type ConnectionFunction struct {
 	pulumi.CustomResourceState
 
-	// A flag that determines whether to automatically publish the function to the `LIVE` stage when it’s created. To automatically publish to the `LIVE` stage, set this property to `true` .
+	// A flag that determines whether to automatically publish the function to the ``LIVE`` stage when it’s created. To automatically publish to the ``LIVE`` stage, set this property to ``true``.
 	AutoPublish pulumi.BoolPtrOutput `pulumi:"autoPublish"`
 	// The connection function ID.
 	AwsId pulumi.StringOutput `pulumi:"awsId"`
@@ -39,7 +39,7 @@ type ConnectionFunction struct {
 	Stage ConnectionFunctionStageOutput `pulumi:"stage"`
 	// The connection function status.
 	Status ConnectionFunctionStatusOutput `pulumi:"status"`
-	// A complex type that contains zero or more `Tag` elements.
+	// A complex type that contains zero or more ``Tag`` elements.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
@@ -94,7 +94,7 @@ func (ConnectionFunctionState) ElementType() reflect.Type {
 }
 
 type connectionFunctionArgs struct {
-	// A flag that determines whether to automatically publish the function to the `LIVE` stage when it’s created. To automatically publish to the `LIVE` stage, set this property to `true` .
+	// A flag that determines whether to automatically publish the function to the ``LIVE`` stage when it’s created. To automatically publish to the ``LIVE`` stage, set this property to ``true``.
 	AutoPublish *bool `pulumi:"autoPublish"`
 	// The code for the connection function.
 	ConnectionFunctionCode string `pulumi:"connectionFunctionCode"`
@@ -102,13 +102,13 @@ type connectionFunctionArgs struct {
 	ConnectionFunctionConfig ConnectionFunctionConfig `pulumi:"connectionFunctionConfig"`
 	// The connection function name.
 	Name *string `pulumi:"name"`
-	// A complex type that contains zero or more `Tag` elements.
+	// A complex type that contains zero or more ``Tag`` elements.
 	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ConnectionFunction resource.
 type ConnectionFunctionArgs struct {
-	// A flag that determines whether to automatically publish the function to the `LIVE` stage when it’s created. To automatically publish to the `LIVE` stage, set this property to `true` .
+	// A flag that determines whether to automatically publish the function to the ``LIVE`` stage when it’s created. To automatically publish to the ``LIVE`` stage, set this property to ``true``.
 	AutoPublish pulumi.BoolPtrInput
 	// The code for the connection function.
 	ConnectionFunctionCode pulumi.StringInput
@@ -116,7 +116,7 @@ type ConnectionFunctionArgs struct {
 	ConnectionFunctionConfig ConnectionFunctionConfigInput
 	// The connection function name.
 	Name pulumi.StringPtrInput
-	// A complex type that contains zero or more `Tag` elements.
+	// A complex type that contains zero or more ``Tag`` elements.
 	Tags aws.TagArrayInput
 }
 
@@ -157,7 +157,7 @@ func (o ConnectionFunctionOutput) ToConnectionFunctionOutputWithContext(ctx cont
 	return o
 }
 
-// A flag that determines whether to automatically publish the function to the `LIVE` stage when it’s created. To automatically publish to the `LIVE` stage, set this property to `true` .
+// A flag that determines whether to automatically publish the function to the “LIVE“ stage when it’s created. To automatically publish to the “LIVE“ stage, set this property to “true“.
 func (o ConnectionFunctionOutput) AutoPublish() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ConnectionFunction) pulumi.BoolPtrOutput { return v.AutoPublish }).(pulumi.BoolPtrOutput)
 }
@@ -212,7 +212,7 @@ func (o ConnectionFunctionOutput) Status() ConnectionFunctionStatusOutput {
 	return o.ApplyT(func(v *ConnectionFunction) ConnectionFunctionStatusOutput { return v.Status }).(ConnectionFunctionStatusOutput)
 }
 
-// A complex type that contains zero or more `Tag` elements.
+// A complex type that contains zero or more “Tag“ elements.
 func (o ConnectionFunctionOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *ConnectionFunction) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }

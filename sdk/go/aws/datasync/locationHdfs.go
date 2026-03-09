@@ -13,7 +13,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource schema for AWS::DataSync::LocationHDFS.
+// Resource Type definition for AWS::DataSync::LocationHDFS.
 type LocationHdfs struct {
 	pulumi.CustomResourceState
 
@@ -22,7 +22,9 @@ type LocationHdfs struct {
 	// The authentication mode used to determine identity of user.
 	AuthenticationType LocationHdfsAuthenticationTypeOutput `pulumi:"authenticationType"`
 	// Size of chunks (blocks) in bytes that the data is divided into when stored in the HDFS cluster.
-	BlockSize pulumi.IntPtrOutput `pulumi:"blockSize"`
+	BlockSize          pulumi.IntPtrOutput                     `pulumi:"blockSize"`
+	CmkSecretConfig    LocationHdfsCmkSecretConfigPtrOutput    `pulumi:"cmkSecretConfig"`
+	CustomSecretConfig LocationHdfsCustomSecretConfigPtrOutput `pulumi:"customSecretConfig"`
 	// The Base64 string representation of the Keytab file.
 	KerberosKeytab pulumi.StringPtrOutput `pulumi:"kerberosKeytab"`
 	// The string representation of the Krb5Conf file, or the presigned URL to access the Krb5.conf file within an S3 bucket.
@@ -34,7 +36,8 @@ type LocationHdfs struct {
 	// The Amazon Resource Name (ARN) of the HDFS location.
 	LocationArn pulumi.StringOutput `pulumi:"locationArn"`
 	// The URL of the HDFS location that was described.
-	LocationUri pulumi.StringOutput `pulumi:"locationUri"`
+	LocationUri         pulumi.StringOutput                   `pulumi:"locationUri"`
+	ManagedSecretConfig LocationHdfsManagedSecretConfigOutput `pulumi:"managedSecretConfig"`
 	// An array of Name Node(s) of the HDFS location.
 	NameNodes LocationHdfsNameNodeArrayOutput `pulumi:"nameNodes"`
 	// The Quality of Protection (QOP) configuration specifies the Remote Procedure Call (RPC) and data transfer protection settings configured on the Hadoop Distributed File System (HDFS) cluster. If `QopConfiguration` isn't specified, `RpcProtection` and `DataTransferProtection` default to `PRIVACY` . If you set `RpcProtection` or `DataTransferProtection` , the other parameter assumes the same value.
@@ -103,7 +106,9 @@ type locationHdfsArgs struct {
 	// The authentication mode used to determine identity of user.
 	AuthenticationType LocationHdfsAuthenticationType `pulumi:"authenticationType"`
 	// Size of chunks (blocks) in bytes that the data is divided into when stored in the HDFS cluster.
-	BlockSize *int `pulumi:"blockSize"`
+	BlockSize          *int                            `pulumi:"blockSize"`
+	CmkSecretConfig    *LocationHdfsCmkSecretConfig    `pulumi:"cmkSecretConfig"`
+	CustomSecretConfig *LocationHdfsCustomSecretConfig `pulumi:"customSecretConfig"`
 	// The Base64 string representation of the Keytab file.
 	KerberosKeytab *string `pulumi:"kerberosKeytab"`
 	// The string representation of the Krb5Conf file, or the presigned URL to access the Krb5.conf file within an S3 bucket.
@@ -133,7 +138,9 @@ type LocationHdfsArgs struct {
 	// The authentication mode used to determine identity of user.
 	AuthenticationType LocationHdfsAuthenticationTypeInput
 	// Size of chunks (blocks) in bytes that the data is divided into when stored in the HDFS cluster.
-	BlockSize pulumi.IntPtrInput
+	BlockSize          pulumi.IntPtrInput
+	CmkSecretConfig    LocationHdfsCmkSecretConfigPtrInput
+	CustomSecretConfig LocationHdfsCustomSecretConfigPtrInput
 	// The Base64 string representation of the Keytab file.
 	KerberosKeytab pulumi.StringPtrInput
 	// The string representation of the Krb5Conf file, or the presigned URL to access the Krb5.conf file within an S3 bucket.
@@ -208,6 +215,14 @@ func (o LocationHdfsOutput) BlockSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *LocationHdfs) pulumi.IntPtrOutput { return v.BlockSize }).(pulumi.IntPtrOutput)
 }
 
+func (o LocationHdfsOutput) CmkSecretConfig() LocationHdfsCmkSecretConfigPtrOutput {
+	return o.ApplyT(func(v *LocationHdfs) LocationHdfsCmkSecretConfigPtrOutput { return v.CmkSecretConfig }).(LocationHdfsCmkSecretConfigPtrOutput)
+}
+
+func (o LocationHdfsOutput) CustomSecretConfig() LocationHdfsCustomSecretConfigPtrOutput {
+	return o.ApplyT(func(v *LocationHdfs) LocationHdfsCustomSecretConfigPtrOutput { return v.CustomSecretConfig }).(LocationHdfsCustomSecretConfigPtrOutput)
+}
+
 // The Base64 string representation of the Keytab file.
 func (o LocationHdfsOutput) KerberosKeytab() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LocationHdfs) pulumi.StringPtrOutput { return v.KerberosKeytab }).(pulumi.StringPtrOutput)
@@ -236,6 +251,10 @@ func (o LocationHdfsOutput) LocationArn() pulumi.StringOutput {
 // The URL of the HDFS location that was described.
 func (o LocationHdfsOutput) LocationUri() pulumi.StringOutput {
 	return o.ApplyT(func(v *LocationHdfs) pulumi.StringOutput { return v.LocationUri }).(pulumi.StringOutput)
+}
+
+func (o LocationHdfsOutput) ManagedSecretConfig() LocationHdfsManagedSecretConfigOutput {
+	return o.ApplyT(func(v *LocationHdfs) LocationHdfsManagedSecretConfigOutput { return v.ManagedSecretConfig }).(LocationHdfsManagedSecretConfigOutput)
 }
 
 // An array of Name Node(s) of the HDFS location.

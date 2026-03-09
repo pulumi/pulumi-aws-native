@@ -244,6 +244,8 @@ namespace Pulumi.AwsNative.Eks
         public static ClusterControlPlaneScalingConfigTier TierXl { get; } = new ClusterControlPlaneScalingConfigTier("tier-xl");
         public static ClusterControlPlaneScalingConfigTier Tier2xl { get; } = new ClusterControlPlaneScalingConfigTier("tier-2xl");
         public static ClusterControlPlaneScalingConfigTier Tier4xl { get; } = new ClusterControlPlaneScalingConfigTier("tier-4xl");
+        public static ClusterControlPlaneScalingConfigTier Tier8xl { get; } = new ClusterControlPlaneScalingConfigTier("tier-8xl");
+        public static ClusterControlPlaneScalingConfigTier TierUltra { get; } = new ClusterControlPlaneScalingConfigTier("tier-ultra");
 
         public static bool operator ==(ClusterControlPlaneScalingConfigTier left, ClusterControlPlaneScalingConfigTier right) => left.Equals(right);
         public static bool operator !=(ClusterControlPlaneScalingConfigTier left, ClusterControlPlaneScalingConfigTier right) => !left.Equals(right);

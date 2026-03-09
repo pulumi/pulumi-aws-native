@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.DataSync
 {
     /// <summary>
-    /// Resource schema for AWS::DataSync::LocationFSxONTAP.
+    /// Resource Type definition for AWS::DataSync::LocationFSxONTAP.
     /// </summary>
     [AwsNativeResourceType("aws-native:datasync:LocationFSxOntap")]
     public partial class LocationFSxOntap : global::Pulumi.CustomResource

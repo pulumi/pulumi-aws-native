@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.DataSync
 {
     /// <summary>
-    /// Resource schema for AWS::DataSync::LocationHDFS.
+    /// Resource Type definition for AWS::DataSync::LocationHDFS.
     /// </summary>
     [AwsNativeResourceType("aws-native:datasync:LocationHdfs")]
     public partial class LocationHdfs : global::Pulumi.CustomResource
@@ -32,6 +32,12 @@ namespace Pulumi.AwsNative.DataSync
         /// </summary>
         [Output("blockSize")]
         public Output<int?> BlockSize { get; private set; } = null!;
+
+        [Output("cmkSecretConfig")]
+        public Output<Outputs.LocationHdfsCmkSecretConfig?> CmkSecretConfig { get; private set; } = null!;
+
+        [Output("customSecretConfig")]
+        public Output<Outputs.LocationHdfsCustomSecretConfig?> CustomSecretConfig { get; private set; } = null!;
 
         /// <summary>
         /// The Base64 string representation of the Keytab file.
@@ -68,6 +74,9 @@ namespace Pulumi.AwsNative.DataSync
         /// </summary>
         [Output("locationUri")]
         public Output<string> LocationUri { get; private set; } = null!;
+
+        [Output("managedSecretConfig")]
+        public Output<Outputs.LocationHdfsManagedSecretConfig> ManagedSecretConfig { get; private set; } = null!;
 
         /// <summary>
         /// An array of Name Node(s) of the HDFS location.
@@ -173,6 +182,12 @@ namespace Pulumi.AwsNative.DataSync
         /// </summary>
         [Input("blockSize")]
         public Input<int>? BlockSize { get; set; }
+
+        [Input("cmkSecretConfig")]
+        public Input<Inputs.LocationHdfsCmkSecretConfigArgs>? CmkSecretConfig { get; set; }
+
+        [Input("customSecretConfig")]
+        public Input<Inputs.LocationHdfsCustomSecretConfigArgs>? CustomSecretConfig { get; set; }
 
         /// <summary>
         /// The Base64 string representation of the Keytab file.

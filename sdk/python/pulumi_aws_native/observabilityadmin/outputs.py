@@ -21,6 +21,7 @@ __all__ = [
     'OrganizationCentralizationRuleCentralizationRuleDestination',
     'OrganizationCentralizationRuleCentralizationRuleSource',
     'OrganizationCentralizationRuleDestinationLogsConfiguration',
+    'OrganizationCentralizationRuleLogGroupNameConfiguration',
     'OrganizationCentralizationRuleLogsBackupConfiguration',
     'OrganizationCentralizationRuleLogsEncryptionConfiguration',
     'OrganizationCentralizationRuleSourceLogsConfiguration',
@@ -217,6 +218,8 @@ class OrganizationCentralizationRuleDestinationLogsConfiguration(dict):
         suggest = None
         if key == "backupConfiguration":
             suggest = "backup_configuration"
+        elif key == "logGroupNameConfiguration":
+            suggest = "log_group_name_configuration"
         elif key == "logsEncryptionConfiguration":
             suggest = "logs_encryption_configuration"
 
@@ -233,6 +236,7 @@ class OrganizationCentralizationRuleDestinationLogsConfiguration(dict):
 
     def __init__(__self__, *,
                  backup_configuration: Optional['outputs.OrganizationCentralizationRuleLogsBackupConfiguration'] = None,
+                 log_group_name_configuration: Optional['outputs.OrganizationCentralizationRuleLogGroupNameConfiguration'] = None,
                  logs_encryption_configuration: Optional['outputs.OrganizationCentralizationRuleLogsEncryptionConfiguration'] = None):
         """
         :param 'OrganizationCentralizationRuleLogsBackupConfiguration' backup_configuration: Configuration defining the backup region and an optional KMS key for the backup destination.
@@ -240,6 +244,8 @@ class OrganizationCentralizationRuleDestinationLogsConfiguration(dict):
         """
         if backup_configuration is not None:
             pulumi.set(__self__, "backup_configuration", backup_configuration)
+        if log_group_name_configuration is not None:
+            pulumi.set(__self__, "log_group_name_configuration", log_group_name_configuration)
         if logs_encryption_configuration is not None:
             pulumi.set(__self__, "logs_encryption_configuration", logs_encryption_configuration)
 
@@ -252,12 +258,46 @@ class OrganizationCentralizationRuleDestinationLogsConfiguration(dict):
         return pulumi.get(self, "backup_configuration")
 
     @_builtins.property
+    @pulumi.getter(name="logGroupNameConfiguration")
+    def log_group_name_configuration(self) -> Optional['outputs.OrganizationCentralizationRuleLogGroupNameConfiguration']:
+        return pulumi.get(self, "log_group_name_configuration")
+
+    @_builtins.property
     @pulumi.getter(name="logsEncryptionConfiguration")
     def logs_encryption_configuration(self) -> Optional['outputs.OrganizationCentralizationRuleLogsEncryptionConfiguration']:
         """
         The encryption configuration for centralization destination log groups.
         """
         return pulumi.get(self, "logs_encryption_configuration")
+
+
+@pulumi.output_type
+class OrganizationCentralizationRuleLogGroupNameConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "logGroupNamePattern":
+            suggest = "log_group_name_pattern"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OrganizationCentralizationRuleLogGroupNameConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OrganizationCentralizationRuleLogGroupNameConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OrganizationCentralizationRuleLogGroupNameConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 log_group_name_pattern: _builtins.str):
+        pulumi.set(__self__, "log_group_name_pattern", log_group_name_pattern)
+
+    @_builtins.property
+    @pulumi.getter(name="logGroupNamePattern")
+    def log_group_name_pattern(self) -> _builtins.str:
+        return pulumi.get(self, "log_group_name_pattern")
 
 
 @pulumi.output_type

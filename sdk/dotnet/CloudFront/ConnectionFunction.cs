@@ -10,13 +10,13 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CloudFront
 {
     /// <summary>
-    /// Resource Type definition for AWS::CloudFront::ConnectionFunction
+    /// A connection function.
     /// </summary>
     [AwsNativeResourceType("aws-native:cloudfront:ConnectionFunction")]
     public partial class ConnectionFunction : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// A flag that determines whether to automatically publish the function to the `LIVE` stage when it’s created. To automatically publish to the `LIVE` stage, set this property to `true` .
+        /// A flag that determines whether to automatically publish the function to the ``LIVE`` stage when it’s created. To automatically publish to the ``LIVE`` stage, set this property to ``true``.
         /// </summary>
         [Output("autoPublish")]
         public Output<bool?> AutoPublish { get; private set; } = null!;
@@ -82,7 +82,7 @@ namespace Pulumi.AwsNative.CloudFront
         public Output<Pulumi.AwsNative.CloudFront.ConnectionFunctionStatus> Status { get; private set; } = null!;
 
         /// <summary>
-        /// A complex type that contains zero or more `Tag` elements.
+        /// A complex type that contains zero or more ``Tag`` elements.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
@@ -138,7 +138,7 @@ namespace Pulumi.AwsNative.CloudFront
     public sealed class ConnectionFunctionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A flag that determines whether to automatically publish the function to the `LIVE` stage when it’s created. To automatically publish to the `LIVE` stage, set this property to `true` .
+        /// A flag that determines whether to automatically publish the function to the ``LIVE`` stage when it’s created. To automatically publish to the ``LIVE`` stage, set this property to ``true``.
         /// </summary>
         [Input("autoPublish")]
         public Input<bool>? AutoPublish { get; set; }
@@ -165,7 +165,7 @@ namespace Pulumi.AwsNative.CloudFront
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
-        /// A complex type that contains zero or more `Tag` elements.
+        /// A complex type that contains zero or more ``Tag`` elements.
         /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {

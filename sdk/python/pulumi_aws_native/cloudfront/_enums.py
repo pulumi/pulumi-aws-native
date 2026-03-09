@@ -164,7 +164,7 @@ class MonitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetricsSubs
 @pulumi.type_token("aws-native:cloudfront:TrustStoreStatus")
 class TrustStoreStatus(_builtins.str, Enum):
     """
-    Current status of the trust store
+    The trust store's status.
     """
     PENDING = "PENDING"
     ACTIVE = "ACTIVE"

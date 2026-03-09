@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Connect.Outputs
 {
 
+    /// <summary>
+    /// Information about a recipient who should be notified when an evaluation review is requested.
+    /// </summary>
     [OutputType]
     public sealed class EvaluationFormEvaluationReviewNotificationRecipient
     {

@@ -10,28 +10,31 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CloudFront.Inputs
 {
 
+    /// <summary>
+    /// The CA certificates bundle location in Amazon S3.
+    /// </summary>
     public sealed class TrustStoreCaCertificatesBundleS3LocationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The S3 bucket containing the CA certificates bundle PEM file
+        /// The S3 bucket.
         /// </summary>
         [Input("bucket", required: true)]
         public Input<string> Bucket { get; set; } = null!;
 
         /// <summary>
-        /// The S3 object key of the CA certificates bundle PEM file
+        /// The location's key.
         /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 
         /// <summary>
-        /// The S3 bucket region
+        /// The location's Region.
         /// </summary>
         [Input("region", required: true)]
         public Input<string> Region { get; set; } = null!;
 
         /// <summary>
-        /// The S3 object version of the CA certificates bundle PEM file
+        /// The location's version.
         /// </summary>
         [Input("version")]
         public Input<string>? Version { get; set; }

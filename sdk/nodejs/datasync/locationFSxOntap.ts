@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource schema for AWS::DataSync::LocationFSxONTAP.
+ * Resource Type definition for AWS::DataSync::LocationFSxONTAP.
  */
 export class LocationFSxOntap extends pulumi.CustomResource {
     /**

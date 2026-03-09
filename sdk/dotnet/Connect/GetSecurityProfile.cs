@@ -72,6 +72,10 @@ namespace Pulumi.AwsNative.Connect
         /// </summary>
         public readonly ImmutableArray<Outputs.SecurityProfileTag> AllowedAccessControlTags;
         /// <summary>
+        /// The list of flow-module resources to be linked to a security profile in Amazon Connect.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.SecurityProfileFlowModule> AllowedFlowModules;
+        /// <summary>
         /// A list of third-party applications that the security profile will give access to.
         /// </summary>
         public readonly ImmutableArray<Outputs.SecurityProfileApplication> Applications;
@@ -118,6 +122,8 @@ namespace Pulumi.AwsNative.Connect
 
             ImmutableArray<Outputs.SecurityProfileTag> allowedAccessControlTags,
 
+            ImmutableArray<Outputs.SecurityProfileFlowModule> allowedFlowModules,
+
             ImmutableArray<Outputs.SecurityProfileApplication> applications,
 
             string? description,
@@ -140,6 +146,7 @@ namespace Pulumi.AwsNative.Connect
         {
             AllowedAccessControlHierarchyGroupId = allowedAccessControlHierarchyGroupId;
             AllowedAccessControlTags = allowedAccessControlTags;
+            AllowedFlowModules = allowedFlowModules;
             Applications = applications;
             Description = description;
             GranularAccessControlConfiguration = granularAccessControlConfiguration;

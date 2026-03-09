@@ -19,6 +19,8 @@ __all__ = [
     'GroupInsightsConfigurationArgsDict',
     'SamplingRuleRecordArgs',
     'SamplingRuleRecordArgsDict',
+    'SamplingRuleSamplingRateBoostArgs',
+    'SamplingRuleSamplingRateBoostArgsDict',
     'SamplingRuleUpdateArgs',
     'SamplingRuleUpdateArgsDict',
     'SamplingRuleArgs',
@@ -136,6 +138,53 @@ class SamplingRuleRecordArgs:
         pulumi.set(self, "sampling_rule", value)
 
 
+class SamplingRuleSamplingRateBoostArgsDict(TypedDict):
+    cooldown_window_minutes: pulumi.Input[_builtins.int]
+    """
+    Time window (in minutes) in which only one sampling rate boost can be triggered. After a boost occurs, no further boosts are allowed until the next window.
+    """
+    max_rate: pulumi.Input[_builtins.float]
+    """
+    The maximum sampling rate X-Ray will apply when it detects anomalies. X-Ray determines the appropriate rate between your baseline and the maximum, depending on anomaly activity.
+    """
+
+@pulumi.input_type
+class SamplingRuleSamplingRateBoostArgs:
+    def __init__(__self__, *,
+                 cooldown_window_minutes: pulumi.Input[_builtins.int],
+                 max_rate: pulumi.Input[_builtins.float]):
+        """
+        :param pulumi.Input[_builtins.int] cooldown_window_minutes: Time window (in minutes) in which only one sampling rate boost can be triggered. After a boost occurs, no further boosts are allowed until the next window.
+        :param pulumi.Input[_builtins.float] max_rate: The maximum sampling rate X-Ray will apply when it detects anomalies. X-Ray determines the appropriate rate between your baseline and the maximum, depending on anomaly activity.
+        """
+        pulumi.set(__self__, "cooldown_window_minutes", cooldown_window_minutes)
+        pulumi.set(__self__, "max_rate", max_rate)
+
+    @_builtins.property
+    @pulumi.getter(name="cooldownWindowMinutes")
+    def cooldown_window_minutes(self) -> pulumi.Input[_builtins.int]:
+        """
+        Time window (in minutes) in which only one sampling rate boost can be triggered. After a boost occurs, no further boosts are allowed until the next window.
+        """
+        return pulumi.get(self, "cooldown_window_minutes")
+
+    @cooldown_window_minutes.setter
+    def cooldown_window_minutes(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "cooldown_window_minutes", value)
+
+    @_builtins.property
+    @pulumi.getter(name="maxRate")
+    def max_rate(self) -> pulumi.Input[_builtins.float]:
+        """
+        The maximum sampling rate X-Ray will apply when it detects anomalies. X-Ray determines the appropriate rate between your baseline and the maximum, depending on anomaly activity.
+        """
+        return pulumi.get(self, "max_rate")
+
+    @max_rate.setter
+    def max_rate(self, value: pulumi.Input[_builtins.float]):
+        pulumi.set(self, "max_rate", value)
+
+
 class SamplingRuleUpdateArgsDict(TypedDict):
     attributes: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
     """
@@ -167,6 +216,7 @@ class SamplingRuleUpdateArgsDict(TypedDict):
     """
     rule_arn: NotRequired[pulumi.Input[_builtins.str]]
     rule_name: NotRequired[pulumi.Input[_builtins.str]]
+    sampling_rate_boost: NotRequired[pulumi.Input['SamplingRuleSamplingRateBoostArgsDict']]
     service_name: NotRequired[pulumi.Input[_builtins.str]]
     """
     Matches the name that the service uses to identify itself in segments.
@@ -192,6 +242,7 @@ class SamplingRuleUpdateArgs:
                  resource_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  rule_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  rule_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 sampling_rate_boost: Optional[pulumi.Input['SamplingRuleSamplingRateBoostArgs']] = None,
                  service_name: Optional[pulumi.Input[_builtins.str]] = None,
                  service_type: Optional[pulumi.Input[_builtins.str]] = None,
                  url_path: Optional[pulumi.Input[_builtins.str]] = None):
@@ -225,6 +276,8 @@ class SamplingRuleUpdateArgs:
             pulumi.set(__self__, "rule_arn", rule_arn)
         if rule_name is not None:
             pulumi.set(__self__, "rule_name", rule_name)
+        if sampling_rate_boost is not None:
+            pulumi.set(__self__, "sampling_rate_boost", sampling_rate_boost)
         if service_name is not None:
             pulumi.set(__self__, "service_name", service_name)
         if service_type is not None:
@@ -335,6 +388,15 @@ class SamplingRuleUpdateArgs:
         pulumi.set(self, "rule_name", value)
 
     @_builtins.property
+    @pulumi.getter(name="samplingRateBoost")
+    def sampling_rate_boost(self) -> Optional[pulumi.Input['SamplingRuleSamplingRateBoostArgs']]:
+        return pulumi.get(self, "sampling_rate_boost")
+
+    @sampling_rate_boost.setter
+    def sampling_rate_boost(self, value: Optional[pulumi.Input['SamplingRuleSamplingRateBoostArgs']]):
+        pulumi.set(self, "sampling_rate_boost", value)
+
+    @_builtins.property
     @pulumi.getter(name="serviceName")
     def service_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -422,6 +484,7 @@ class SamplingRuleArgsDict(TypedDict):
     """
     The name of the sampling rule. Specify a rule by either name or ARN, but not both.
     """
+    sampling_rate_boost: NotRequired[pulumi.Input['SamplingRuleSamplingRateBoostArgsDict']]
     version: NotRequired[pulumi.Input[_builtins.int]]
     """
     The version of the sampling rule format (1)
@@ -442,6 +505,7 @@ class SamplingRuleArgs:
                  attributes: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  rule_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  rule_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 sampling_rate_boost: Optional[pulumi.Input['SamplingRuleSamplingRateBoostArgs']] = None,
                  version: Optional[pulumi.Input[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.float] fixed_rate: The percentage of matching requests to instrument, after the reservoir is exhausted.
@@ -475,6 +539,8 @@ class SamplingRuleArgs:
             pulumi.set(__self__, "rule_arn", rule_arn)
         if rule_name is not None:
             pulumi.set(__self__, "rule_name", rule_name)
+        if sampling_rate_boost is not None:
+            pulumi.set(__self__, "sampling_rate_boost", sampling_rate_boost)
         if version is not None:
             pulumi.set(__self__, "version", version)
 
@@ -623,6 +689,15 @@ class SamplingRuleArgs:
     @rule_name.setter
     def rule_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "rule_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="samplingRateBoost")
+    def sampling_rate_boost(self) -> Optional[pulumi.Input['SamplingRuleSamplingRateBoostArgs']]:
+        return pulumi.get(self, "sampling_rate_boost")
+
+    @sampling_rate_boost.setter
+    def sampling_rate_boost(self, value: Optional[pulumi.Input['SamplingRuleSamplingRateBoostArgs']]):
+        pulumi.set(self, "sampling_rate_boost", value)
 
     @_builtins.property
     @pulumi.getter

@@ -64,6 +64,10 @@ namespace Pulumi.AwsNative.Connect
     public sealed class GetQueueResult
     {
         /// <summary>
+        /// The email addresses that agents can use when replying to or initiating email contacts
+        /// </summary>
+        public readonly ImmutableArray<Outputs.QueueEmailAddress> AdditionalEmailAddresses;
+        /// <summary>
         /// The description of the queue.
         /// </summary>
         public readonly string? Description;
@@ -114,6 +118,8 @@ namespace Pulumi.AwsNative.Connect
 
         [OutputConstructor]
         private GetQueueResult(
+            ImmutableArray<Outputs.QueueEmailAddress> additionalEmailAddresses,
+
             string? description,
 
             string? hoursOfOperationArn,
@@ -138,6 +144,7 @@ namespace Pulumi.AwsNative.Connect
 
             Pulumi.AwsNative.Connect.QueueType? type)
         {
+            AdditionalEmailAddresses = additionalEmailAddresses;
             Description = description;
             HoursOfOperationArn = hoursOfOperationArn;
             InstanceArn = instanceArn;
