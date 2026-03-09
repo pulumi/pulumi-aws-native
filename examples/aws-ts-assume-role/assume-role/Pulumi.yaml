@@ -1,3 +1,0 @@
-name: assume-role
-runtime: nodejs
-description: Demonstrate use of AWS AssumeRole Functionality
