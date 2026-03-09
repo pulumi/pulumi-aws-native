@@ -27,7 +27,7 @@ namespace Pulumi.AwsNative.CloudFront.Outputs
         /// </summary>
         public readonly int? OriginReadTimeout;
         /// <summary>
-        /// The account ID of the AWS account that owns the VPC origin.
+        /// The account ID of the AWS-account that owns the VPC origin.
         /// </summary>
         public readonly string? OwnerAccountId;
         /// <summary>

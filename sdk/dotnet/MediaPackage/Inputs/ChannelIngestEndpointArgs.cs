@@ -18,26 +18,26 @@ namespace Pulumi.AwsNative.MediaPackage.Inputs
         /// <summary>
         /// The system generated unique identifier for the IngestEndpoint
         /// </summary>
-        [Input("id", required: true)]
-        public Input<string> Id { get; set; } = null!;
+        [Input("id")]
+        public Input<string>? Id { get; set; }
 
         /// <summary>
         /// The system generated password for ingest authentication.
         /// </summary>
-        [Input("password", required: true)]
-        public Input<string> Password { get; set; } = null!;
+        [Input("password")]
+        public Input<string>? Password { get; set; }
 
         /// <summary>
         /// The ingest URL to which the source stream should be sent.
         /// </summary>
-        [Input("url", required: true)]
-        public Input<string> Url { get; set; } = null!;
+        [Input("url")]
+        public Input<string>? Url { get; set; }
 
         /// <summary>
         /// The system generated username for ingest authentication.
         /// </summary>
-        [Input("username", required: true)]
-        public Input<string> Username { get; set; } = null!;
+        [Input("username")]
+        public Input<string>? Username { get; set; }
 
         public ChannelIngestEndpointArgs()
         {

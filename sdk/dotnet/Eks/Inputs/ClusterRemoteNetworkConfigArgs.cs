@@ -15,7 +15,7 @@ namespace Pulumi.AwsNative.Eks.Inputs
     /// </summary>
     public sealed class ClusterRemoteNetworkConfigArgs : global::Pulumi.ResourceArgs
     {
-        [Input("remoteNodeNetworks", required: true)]
+        [Input("remoteNodeNetworks")]
         private InputList<Inputs.ClusterRemoteNodeNetworkArgs>? _remoteNodeNetworks;
 
         /// <summary>

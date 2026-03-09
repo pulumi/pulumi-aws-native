@@ -25,7 +25,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetMemoryResult:
-    def __init__(__self__, created_at=None, description=None, event_expiry_duration=None, failure_reason=None, memory_arn=None, memory_execution_role_arn=None, memory_id=None, memory_strategies=None, status=None, tags=None, updated_at=None):
+    def __init__(__self__, created_at=None, description=None, event_expiry_duration=None, failure_reason=None, memory_arn=None, memory_execution_role_arn=None, memory_id=None, memory_strategies=None, status=None, stream_delivery_resources=None, tags=None, updated_at=None):
         if created_at and not isinstance(created_at, str):
             raise TypeError("Expected argument 'created_at' to be a str")
         pulumi.set(__self__, "created_at", created_at)
@@ -53,6 +53,9 @@ class GetMemoryResult:
         if status and not isinstance(status, str):
             raise TypeError("Expected argument 'status' to be a str")
         pulumi.set(__self__, "status", status)
+        if stream_delivery_resources and not isinstance(stream_delivery_resources, dict):
+            raise TypeError("Expected argument 'stream_delivery_resources' to be a dict")
+        pulumi.set(__self__, "stream_delivery_resources", stream_delivery_resources)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -124,6 +127,11 @@ class GetMemoryResult:
         return pulumi.get(self, "status")
 
     @_builtins.property
+    @pulumi.getter(name="streamDeliveryResources")
+    def stream_delivery_resources(self) -> Optional['outputs.MemoryStreamDeliveryResources']:
+        return pulumi.get(self, "stream_delivery_resources")
+
+    @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, _builtins.str]]:
         """
@@ -152,6 +160,7 @@ class AwaitableGetMemoryResult(GetMemoryResult):
             memory_id=self.memory_id,
             memory_strategies=self.memory_strategies,
             status=self.status,
+            stream_delivery_resources=self.stream_delivery_resources,
             tags=self.tags,
             updated_at=self.updated_at)
 
@@ -176,6 +185,7 @@ def get_memory(memory_arn: Optional[_builtins.str] = None,
         memory_id=pulumi.get(__ret__, 'memory_id'),
         memory_strategies=pulumi.get(__ret__, 'memory_strategies'),
         status=pulumi.get(__ret__, 'status'),
+        stream_delivery_resources=pulumi.get(__ret__, 'stream_delivery_resources'),
         tags=pulumi.get(__ret__, 'tags'),
         updated_at=pulumi.get(__ret__, 'updated_at'))
 def get_memory_output(memory_arn: Optional[pulumi.Input[_builtins.str]] = None,
@@ -197,5 +207,6 @@ def get_memory_output(memory_arn: Optional[pulumi.Input[_builtins.str]] = None,
         memory_id=pulumi.get(__response__, 'memory_id'),
         memory_strategies=pulumi.get(__response__, 'memory_strategies'),
         status=pulumi.get(__response__, 'status'),
+        stream_delivery_resources=pulumi.get(__response__, 'stream_delivery_resources'),
         tags=pulumi.get(__response__, 'tags'),
         updated_at=pulumi.get(__response__, 'updated_at')))

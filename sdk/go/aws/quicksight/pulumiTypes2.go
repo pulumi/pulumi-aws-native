@@ -49021,7 +49021,7 @@ type RefreshScheduleMap struct {
 	// - `FULL_REFRESH` : A complete refresh of a dataset.
 	// - `INCREMENTAL_REFRESH` : A partial refresh of some rows of a dataset, based on the time window specified.
 	//
-	// For more information on full and incremental refreshes, see [Refreshing SPICE data](https://docs.aws.amazon.com/quicksight/latest/user/refreshing-imported-data.html) in the *Quick Suite User Guide* .
+	// For more information on full and incremental refreshes, see [Refreshing SPICE data](https://docs.aws.amazon.com/quicksight/latest/user/refreshing-imported-data.html) in the *Quick User Guide* .
 	RefreshType *RefreshScheduleMapRefreshType `pulumi:"refreshType"`
 	// <p>Information about the schedule frequency.</p>
 	ScheduleFrequency *RefreshScheduleMapScheduleFrequencyProperties `pulumi:"scheduleFrequency"`
@@ -49048,7 +49048,7 @@ type RefreshScheduleMapArgs struct {
 	// - `FULL_REFRESH` : A complete refresh of a dataset.
 	// - `INCREMENTAL_REFRESH` : A partial refresh of some rows of a dataset, based on the time window specified.
 	//
-	// For more information on full and incremental refreshes, see [Refreshing SPICE data](https://docs.aws.amazon.com/quicksight/latest/user/refreshing-imported-data.html) in the *Quick Suite User Guide* .
+	// For more information on full and incremental refreshes, see [Refreshing SPICE data](https://docs.aws.amazon.com/quicksight/latest/user/refreshing-imported-data.html) in the *Quick User Guide* .
 	RefreshType RefreshScheduleMapRefreshTypePtrInput `pulumi:"refreshType"`
 	// <p>Information about the schedule frequency.</p>
 	ScheduleFrequency RefreshScheduleMapScheduleFrequencyPropertiesPtrInput `pulumi:"scheduleFrequency"`
@@ -49140,7 +49140,7 @@ func (o RefreshScheduleMapOutput) ToRefreshScheduleMapPtrOutputWithContext(ctx c
 // - `FULL_REFRESH` : A complete refresh of a dataset.
 // - `INCREMENTAL_REFRESH` : A partial refresh of some rows of a dataset, based on the time window specified.
 //
-// For more information on full and incremental refreshes, see [Refreshing SPICE data](https://docs.aws.amazon.com/quicksight/latest/user/refreshing-imported-data.html) in the *Quick Suite User Guide* .
+// For more information on full and incremental refreshes, see [Refreshing SPICE data](https://docs.aws.amazon.com/quicksight/latest/user/refreshing-imported-data.html) in the *Quick User Guide* .
 func (o RefreshScheduleMapOutput) RefreshType() RefreshScheduleMapRefreshTypePtrOutput {
 	return o.ApplyT(func(v RefreshScheduleMap) *RefreshScheduleMapRefreshType { return v.RefreshType }).(RefreshScheduleMapRefreshTypePtrOutput)
 }
@@ -49189,7 +49189,7 @@ func (o RefreshScheduleMapPtrOutput) Elem() RefreshScheduleMapOutput {
 // - `FULL_REFRESH` : A complete refresh of a dataset.
 // - `INCREMENTAL_REFRESH` : A partial refresh of some rows of a dataset, based on the time window specified.
 //
-// For more information on full and incremental refreshes, see [Refreshing SPICE data](https://docs.aws.amazon.com/quicksight/latest/user/refreshing-imported-data.html) in the *Quick Suite User Guide* .
+// For more information on full and incremental refreshes, see [Refreshing SPICE data](https://docs.aws.amazon.com/quicksight/latest/user/refreshing-imported-data.html) in the *Quick User Guide* .
 func (o RefreshScheduleMapPtrOutput) RefreshType() RefreshScheduleMapRefreshTypePtrOutput {
 	return o.ApplyT(func(v *RefreshScheduleMap) *RefreshScheduleMapRefreshType {
 		if v == nil {

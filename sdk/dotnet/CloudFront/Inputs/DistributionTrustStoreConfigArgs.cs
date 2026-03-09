@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CloudFront.Inputs
 {
 
+    /// <summary>
+    /// A trust store configuration.
+    /// </summary>
     public sealed class DistributionTrustStoreConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>

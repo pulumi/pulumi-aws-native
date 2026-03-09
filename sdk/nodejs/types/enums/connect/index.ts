@@ -559,6 +559,16 @@ export const RuleTriggerEventSourceEventSourceName = {
  */
 export type RuleTriggerEventSourceEventSourceName = (typeof RuleTriggerEventSourceEventSourceName)[keyof typeof RuleTriggerEventSourceEventSourceName];
 
+export const SecurityProfileApplicationType = {
+    Mcp: "MCP",
+    ThirdPartyApplication: "THIRD_PARTY_APPLICATION",
+} as const;
+
+/**
+ * The type of the application.
+ */
+export type SecurityProfileApplicationType = (typeof SecurityProfileApplicationType)[keyof typeof SecurityProfileApplicationType];
+
 export const SecurityProfilePrimaryAttributeValueAccessType = {
     Allow: "ALLOW",
 } as const;

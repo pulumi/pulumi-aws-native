@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource schema for AWS::DataSync::LocationFSxONTAP.
+// Resource Type definition for AWS::DataSync::LocationFSxONTAP.
 func LookupLocationFSxOntap(ctx *pulumi.Context, args *LookupLocationFSxOntapArgs, opts ...pulumi.InvokeOption) (*LookupLocationFSxOntapResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupLocationFSxOntapResult

@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource Type definition for AWS::CloudFront::TrustStore. TrustStores contain CA certificates for mTLS authentication and can be associated with CloudFront distributions.
+// A trust store.
 func LookupTrustStore(ctx *pulumi.Context, args *LookupTrustStoreArgs, opts ...pulumi.InvokeOption) (*LookupTrustStoreResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupTrustStoreResult
@@ -24,24 +24,24 @@ func LookupTrustStore(ctx *pulumi.Context, args *LookupTrustStoreArgs, opts ...p
 }
 
 type LookupTrustStoreArgs struct {
-	// The unique identifier for the trust store
+	// The trust store's ID.
 	Id string `pulumi:"id"`
 }
 
 type LookupTrustStoreResult struct {
-	// The Amazon Resource Name (ARN) of the trust store
+	// The trust store's Amazon Resource Name (ARN).
 	Arn *string `pulumi:"arn"`
 	// The version identifier for the current version of the trust store.
 	ETag *string `pulumi:"eTag"`
-	// The unique identifier for the trust store
+	// The trust store's ID.
 	Id *string `pulumi:"id"`
-	// The last modification timestamp of the trust store PEM file
+	// The trust store's last modified time.
 	LastModifiedTime *string `pulumi:"lastModifiedTime"`
-	// The number of CA certificates in the trust store PEM file
+	// The trust store's number of CA certificates.
 	NumberOfCaCertificates *int `pulumi:"numberOfCaCertificates"`
-	// Current status of the trust store
+	// The trust store's status.
 	Status *TrustStoreStatus `pulumi:"status"`
-	// Key-value pairs for resource tagging
+	// A complex type that contains zero or more ``Tag`` elements.
 	Tags []aws.Tag `pulumi:"tags"`
 }
 
@@ -55,7 +55,7 @@ func LookupTrustStoreOutput(ctx *pulumi.Context, args LookupTrustStoreOutputArgs
 }
 
 type LookupTrustStoreOutputArgs struct {
-	// The unique identifier for the trust store
+	// The trust store's ID.
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
@@ -77,7 +77,7 @@ func (o LookupTrustStoreResultOutput) ToLookupTrustStoreResultOutputWithContext(
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the trust store
+// The trust store's Amazon Resource Name (ARN).
 func (o LookupTrustStoreResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupTrustStoreResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
@@ -87,27 +87,27 @@ func (o LookupTrustStoreResultOutput) ETag() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupTrustStoreResult) *string { return v.ETag }).(pulumi.StringPtrOutput)
 }
 
-// The unique identifier for the trust store
+// The trust store's ID.
 func (o LookupTrustStoreResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupTrustStoreResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// The last modification timestamp of the trust store PEM file
+// The trust store's last modified time.
 func (o LookupTrustStoreResultOutput) LastModifiedTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupTrustStoreResult) *string { return v.LastModifiedTime }).(pulumi.StringPtrOutput)
 }
 
-// The number of CA certificates in the trust store PEM file
+// The trust store's number of CA certificates.
 func (o LookupTrustStoreResultOutput) NumberOfCaCertificates() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LookupTrustStoreResult) *int { return v.NumberOfCaCertificates }).(pulumi.IntPtrOutput)
 }
 
-// Current status of the trust store
+// The trust store's status.
 func (o LookupTrustStoreResultOutput) Status() TrustStoreStatusPtrOutput {
 	return o.ApplyT(func(v LookupTrustStoreResult) *TrustStoreStatus { return v.Status }).(TrustStoreStatusPtrOutput)
 }
 
-// Key-value pairs for resource tagging
+// A complex type that contains zero or more “Tag“ elements.
 func (o LookupTrustStoreResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupTrustStoreResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }

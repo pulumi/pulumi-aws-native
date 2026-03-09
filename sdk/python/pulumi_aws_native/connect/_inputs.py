@@ -134,6 +134,8 @@ __all__ = [
     'InstanceStorageConfigS3ConfigArgsDict',
     'NotificationContentArgs',
     'NotificationContentArgsDict',
+    'QueueEmailAddressArgs',
+    'QueueEmailAddressArgsDict',
     'QueueOutboundCallerConfigArgs',
     'QueueOutboundCallerConfigArgsDict',
     'QueueOutboundEmailConfigArgs',
@@ -188,6 +190,8 @@ __all__ = [
     'SecurityProfileApplicationArgsDict',
     'SecurityProfileDataTableAccessControlConfigurationArgs',
     'SecurityProfileDataTableAccessControlConfigurationArgsDict',
+    'SecurityProfileFlowModuleArgs',
+    'SecurityProfileFlowModuleArgsDict',
     'SecurityProfilePrimaryAttributeAccessControlConfigurationItemArgs',
     'SecurityProfilePrimaryAttributeAccessControlConfigurationItemArgsDict',
     'SecurityProfilePrimaryAttributeValueArgs',
@@ -584,6 +588,9 @@ class EvaluationFormBaseItemArgs:
 
 
 class EvaluationFormEvaluationReviewConfigurationArgsDict(TypedDict):
+    """
+    Configuration settings for evaluation reviews.
+    """
     review_notification_recipients: pulumi.Input[Sequence[pulumi.Input['EvaluationFormEvaluationReviewNotificationRecipientArgsDict']]]
     """
     List of recipients who should be notified when a review is requested.
@@ -599,6 +606,8 @@ class EvaluationFormEvaluationReviewConfigurationArgs:
                  review_notification_recipients: pulumi.Input[Sequence[pulumi.Input['EvaluationFormEvaluationReviewNotificationRecipientArgs']]],
                  eligibility_days: Optional[pulumi.Input[_builtins.int]] = None):
         """
+        Configuration settings for evaluation reviews.
+
         :param pulumi.Input[Sequence[pulumi.Input['EvaluationFormEvaluationReviewNotificationRecipientArgs']]] review_notification_recipients: List of recipients who should be notified when a review is requested.
         :param pulumi.Input[_builtins.int] eligibility_days: Number of days during which a request for review can be submitted for evaluations created from this form.
         """
@@ -632,6 +641,9 @@ class EvaluationFormEvaluationReviewConfigurationArgs:
 
 
 class EvaluationFormEvaluationReviewNotificationRecipientValueArgsDict(TypedDict):
+    """
+    The value information for an evaluation review notification recipient.
+    """
     user_id: NotRequired[pulumi.Input[_builtins.str]]
     """
     The user identifier for the notification recipient.
@@ -642,6 +654,8 @@ class EvaluationFormEvaluationReviewNotificationRecipientValueArgs:
     def __init__(__self__, *,
                  user_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
+        The value information for an evaluation review notification recipient.
+
         :param pulumi.Input[_builtins.str] user_id: The user identifier for the notification recipient.
         """
         if user_id is not None:
@@ -661,6 +675,9 @@ class EvaluationFormEvaluationReviewNotificationRecipientValueArgs:
 
 
 class EvaluationFormEvaluationReviewNotificationRecipientArgsDict(TypedDict):
+    """
+    Information about a recipient who should be notified when an evaluation review is requested.
+    """
     type: pulumi.Input['EvaluationFormEvaluationReviewNotificationRecipientType']
     """
     The type of notification recipient.
@@ -676,6 +693,8 @@ class EvaluationFormEvaluationReviewNotificationRecipientArgs:
                  type: pulumi.Input['EvaluationFormEvaluationReviewNotificationRecipientType'],
                  value: pulumi.Input['EvaluationFormEvaluationReviewNotificationRecipientValueArgs']):
         """
+        Information about a recipient who should be notified when an evaluation review is requested.
+
         :param pulumi.Input['EvaluationFormEvaluationReviewNotificationRecipientType'] type: The type of notification recipient.
         :param pulumi.Input['EvaluationFormEvaluationReviewNotificationRecipientValueArgs'] value: The value associated with the notification recipient type.
         """
@@ -3952,6 +3971,39 @@ class NotificationContentArgs:
         pulumi.set(self, "zh_tw", value)
 
 
+class QueueEmailAddressArgsDict(TypedDict):
+    """
+    An email address configuration for the queue
+    """
+    email_address_arn: pulumi.Input[_builtins.str]
+    """
+    The Amazon Resource Name (ARN) of the email address
+    """
+
+@pulumi.input_type
+class QueueEmailAddressArgs:
+    def __init__(__self__, *,
+                 email_address_arn: pulumi.Input[_builtins.str]):
+        """
+        An email address configuration for the queue
+
+        :param pulumi.Input[_builtins.str] email_address_arn: The Amazon Resource Name (ARN) of the email address
+        """
+        pulumi.set(__self__, "email_address_arn", email_address_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="emailAddressArn")
+    def email_address_arn(self) -> pulumi.Input[_builtins.str]:
+        """
+        The Amazon Resource Name (ARN) of the email address
+        """
+        return pulumi.get(self, "email_address_arn")
+
+    @email_address_arn.setter
+    def email_address_arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "email_address_arn", value)
+
+
 class QueueOutboundCallerConfigArgsDict(TypedDict):
     """
     The outbound caller ID name, number, and outbound whisper flow.
@@ -5331,20 +5383,28 @@ class SecurityProfileApplicationArgsDict(TypedDict):
     """
     Namespace of the application that you want to give access to.
     """
+    type: NotRequired[pulumi.Input['SecurityProfileApplicationType']]
+    """
+    The type of the application.
+    """
 
 @pulumi.input_type
 class SecurityProfileApplicationArgs:
     def __init__(__self__, *,
                  application_permissions: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
-                 namespace: pulumi.Input[_builtins.str]):
+                 namespace: pulumi.Input[_builtins.str],
+                 type: Optional[pulumi.Input['SecurityProfileApplicationType']] = None):
         """
         A third-party application's metadata.
 
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] application_permissions: The permissions that the agent is granted on the application
         :param pulumi.Input[_builtins.str] namespace: Namespace of the application that you want to give access to.
+        :param pulumi.Input['SecurityProfileApplicationType'] type: The type of the application.
         """
         pulumi.set(__self__, "application_permissions", application_permissions)
         pulumi.set(__self__, "namespace", namespace)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
 
     @_builtins.property
     @pulumi.getter(name="applicationPermissions")
@@ -5369,6 +5429,18 @@ class SecurityProfileApplicationArgs:
     @namespace.setter
     def namespace(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "namespace", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input['SecurityProfileApplicationType']]:
+        """
+        The type of the application.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input['SecurityProfileApplicationType']]):
+        pulumi.set(self, "type", value)
 
 
 class SecurityProfileDataTableAccessControlConfigurationArgsDict(TypedDict):
@@ -5403,6 +5475,58 @@ class SecurityProfileDataTableAccessControlConfigurationArgs:
     @primary_attribute_access_control_configuration.setter
     def primary_attribute_access_control_configuration(self, value: Optional[pulumi.Input['SecurityProfilePrimaryAttributeAccessControlConfigurationItemArgs']]):
         pulumi.set(self, "primary_attribute_access_control_configuration", value)
+
+
+class SecurityProfileFlowModuleArgsDict(TypedDict):
+    """
+    A first-party application's metadata.
+    """
+    flow_module_id: pulumi.Input[_builtins.str]
+    """
+    The identifier of the application that you want to give access to.
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    The type of the first-party application
+    """
+
+@pulumi.input_type
+class SecurityProfileFlowModuleArgs:
+    def __init__(__self__, *,
+                 flow_module_id: pulumi.Input[_builtins.str],
+                 type: pulumi.Input[_builtins.str]):
+        """
+        A first-party application's metadata.
+
+        :param pulumi.Input[_builtins.str] flow_module_id: The identifier of the application that you want to give access to.
+        :param pulumi.Input[_builtins.str] type: The type of the first-party application
+        """
+        pulumi.set(__self__, "flow_module_id", flow_module_id)
+        pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter(name="flowModuleId")
+    def flow_module_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        The identifier of the application that you want to give access to.
+        """
+        return pulumi.get(self, "flow_module_id")
+
+    @flow_module_id.setter
+    def flow_module_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "flow_module_id", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[_builtins.str]:
+        """
+        The type of the first-party application
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "type", value)
 
 
 class SecurityProfilePrimaryAttributeAccessControlConfigurationItemArgsDict(TypedDict):

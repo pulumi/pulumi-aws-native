@@ -1107,6 +1107,8 @@ _utilities.register(
    "aws-native:bedrockagentcore:GatewayTarget": "GatewayTarget",
    "aws-native:bedrockagentcore:Memory": "Memory",
    "aws-native:bedrockagentcore:OnlineEvaluationConfig": "OnlineEvaluationConfig",
+   "aws-native:bedrockagentcore:Policy": "Policy",
+   "aws-native:bedrockagentcore:PolicyEngine": "PolicyEngine",
    "aws-native:bedrockagentcore:Runtime": "Runtime",
    "aws-native:bedrockagentcore:RuntimeEndpoint": "RuntimeEndpoint",
    "aws-native:bedrockagentcore:WorkloadIdentity": "WorkloadIdentity"

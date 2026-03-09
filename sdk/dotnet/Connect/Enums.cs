@@ -1573,6 +1573,37 @@ namespace Pulumi.AwsNative.Connect
     }
 
     /// <summary>
+    /// The type of the application.
+    /// </summary>
+    [EnumType]
+    public readonly struct SecurityProfileApplicationType : IEquatable<SecurityProfileApplicationType>
+    {
+        private readonly string _value;
+
+        private SecurityProfileApplicationType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SecurityProfileApplicationType Mcp { get; } = new SecurityProfileApplicationType("MCP");
+        public static SecurityProfileApplicationType ThirdPartyApplication { get; } = new SecurityProfileApplicationType("THIRD_PARTY_APPLICATION");
+
+        public static bool operator ==(SecurityProfileApplicationType left, SecurityProfileApplicationType right) => left.Equals(right);
+        public static bool operator !=(SecurityProfileApplicationType left, SecurityProfileApplicationType right) => !left.Equals(right);
+
+        public static explicit operator string(SecurityProfileApplicationType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SecurityProfileApplicationType other && Equals(other);
+        public bool Equals(SecurityProfileApplicationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Specifies the type of access granted. Currently, only "ALLOW" is supported
     /// </summary>
     [EnumType]

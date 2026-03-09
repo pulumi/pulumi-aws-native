@@ -24,6 +24,8 @@ __all__ = [
     'OrganizationCentralizationRuleCentralizationRuleArgsDict',
     'OrganizationCentralizationRuleDestinationLogsConfigurationArgs',
     'OrganizationCentralizationRuleDestinationLogsConfigurationArgsDict',
+    'OrganizationCentralizationRuleLogGroupNameConfigurationArgs',
+    'OrganizationCentralizationRuleLogGroupNameConfigurationArgsDict',
     'OrganizationCentralizationRuleLogsBackupConfigurationArgs',
     'OrganizationCentralizationRuleLogsBackupConfigurationArgsDict',
     'OrganizationCentralizationRuleLogsEncryptionConfigurationArgs',
@@ -288,6 +290,7 @@ class OrganizationCentralizationRuleDestinationLogsConfigurationArgsDict(TypedDi
     """
     Configuration defining the backup region and an optional KMS key for the backup destination.
     """
+    log_group_name_configuration: NotRequired[pulumi.Input['OrganizationCentralizationRuleLogGroupNameConfigurationArgsDict']]
     logs_encryption_configuration: NotRequired[pulumi.Input['OrganizationCentralizationRuleLogsEncryptionConfigurationArgsDict']]
     """
     The encryption configuration for centralization destination log groups.
@@ -297,6 +300,7 @@ class OrganizationCentralizationRuleDestinationLogsConfigurationArgsDict(TypedDi
 class OrganizationCentralizationRuleDestinationLogsConfigurationArgs:
     def __init__(__self__, *,
                  backup_configuration: Optional[pulumi.Input['OrganizationCentralizationRuleLogsBackupConfigurationArgs']] = None,
+                 log_group_name_configuration: Optional[pulumi.Input['OrganizationCentralizationRuleLogGroupNameConfigurationArgs']] = None,
                  logs_encryption_configuration: Optional[pulumi.Input['OrganizationCentralizationRuleLogsEncryptionConfigurationArgs']] = None):
         """
         :param pulumi.Input['OrganizationCentralizationRuleLogsBackupConfigurationArgs'] backup_configuration: Configuration defining the backup region and an optional KMS key for the backup destination.
@@ -304,6 +308,8 @@ class OrganizationCentralizationRuleDestinationLogsConfigurationArgs:
         """
         if backup_configuration is not None:
             pulumi.set(__self__, "backup_configuration", backup_configuration)
+        if log_group_name_configuration is not None:
+            pulumi.set(__self__, "log_group_name_configuration", log_group_name_configuration)
         if logs_encryption_configuration is not None:
             pulumi.set(__self__, "logs_encryption_configuration", logs_encryption_configuration)
 
@@ -320,6 +326,15 @@ class OrganizationCentralizationRuleDestinationLogsConfigurationArgs:
         pulumi.set(self, "backup_configuration", value)
 
     @_builtins.property
+    @pulumi.getter(name="logGroupNameConfiguration")
+    def log_group_name_configuration(self) -> Optional[pulumi.Input['OrganizationCentralizationRuleLogGroupNameConfigurationArgs']]:
+        return pulumi.get(self, "log_group_name_configuration")
+
+    @log_group_name_configuration.setter
+    def log_group_name_configuration(self, value: Optional[pulumi.Input['OrganizationCentralizationRuleLogGroupNameConfigurationArgs']]):
+        pulumi.set(self, "log_group_name_configuration", value)
+
+    @_builtins.property
     @pulumi.getter(name="logsEncryptionConfiguration")
     def logs_encryption_configuration(self) -> Optional[pulumi.Input['OrganizationCentralizationRuleLogsEncryptionConfigurationArgs']]:
         """
@@ -330,6 +345,25 @@ class OrganizationCentralizationRuleDestinationLogsConfigurationArgs:
     @logs_encryption_configuration.setter
     def logs_encryption_configuration(self, value: Optional[pulumi.Input['OrganizationCentralizationRuleLogsEncryptionConfigurationArgs']]):
         pulumi.set(self, "logs_encryption_configuration", value)
+
+
+class OrganizationCentralizationRuleLogGroupNameConfigurationArgsDict(TypedDict):
+    log_group_name_pattern: pulumi.Input[_builtins.str]
+
+@pulumi.input_type
+class OrganizationCentralizationRuleLogGroupNameConfigurationArgs:
+    def __init__(__self__, *,
+                 log_group_name_pattern: pulumi.Input[_builtins.str]):
+        pulumi.set(__self__, "log_group_name_pattern", log_group_name_pattern)
+
+    @_builtins.property
+    @pulumi.getter(name="logGroupNamePattern")
+    def log_group_name_pattern(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "log_group_name_pattern")
+
+    @log_group_name_pattern.setter
+    def log_group_name_pattern(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "log_group_name_pattern", value)
 
 
 class OrganizationCentralizationRuleLogsBackupConfigurationArgsDict(TypedDict):

@@ -473,7 +473,7 @@ namespace Pulumi.AwsNative.CloudFront
     }
 
     /// <summary>
-    /// Current status of the trust store
+    /// The trust store's status.
     /// </summary>
     [EnumType]
     public readonly struct TrustStoreStatus : IEquatable<TrustStoreStatus>

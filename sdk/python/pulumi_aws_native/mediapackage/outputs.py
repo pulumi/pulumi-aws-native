@@ -150,10 +150,10 @@ class ChannelIngestEndpoint(dict):
     An endpoint for ingesting source content for a Channel.
     """
     def __init__(__self__, *,
-                 id: _builtins.str,
-                 password: _builtins.str,
-                 url: _builtins.str,
-                 username: _builtins.str):
+                 id: Optional[_builtins.str] = None,
+                 password: Optional[_builtins.str] = None,
+                 url: Optional[_builtins.str] = None,
+                 username: Optional[_builtins.str] = None):
         """
         An endpoint for ingesting source content for a Channel.
 
@@ -162,14 +162,18 @@ class ChannelIngestEndpoint(dict):
         :param _builtins.str url: The ingest URL to which the source stream should be sent.
         :param _builtins.str username: The system generated username for ingest authentication.
         """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "password", password)
-        pulumi.set(__self__, "url", url)
-        pulumi.set(__self__, "username", username)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if password is not None:
+            pulumi.set(__self__, "password", password)
+        if url is not None:
+            pulumi.set(__self__, "url", url)
+        if username is not None:
+            pulumi.set(__self__, "username", username)
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> _builtins.str:
+    def id(self) -> Optional[_builtins.str]:
         """
         The system generated unique identifier for the IngestEndpoint
         """
@@ -177,7 +181,7 @@ class ChannelIngestEndpoint(dict):
 
     @_builtins.property
     @pulumi.getter
-    def password(self) -> _builtins.str:
+    def password(self) -> Optional[_builtins.str]:
         """
         The system generated password for ingest authentication.
         """
@@ -185,7 +189,7 @@ class ChannelIngestEndpoint(dict):
 
     @_builtins.property
     @pulumi.getter
-    def url(self) -> _builtins.str:
+    def url(self) -> Optional[_builtins.str]:
         """
         The ingest URL to which the source stream should be sent.
         """
@@ -193,7 +197,7 @@ class ChannelIngestEndpoint(dict):
 
     @_builtins.property
     @pulumi.getter
-    def username(self) -> _builtins.str:
+    def username(self) -> Optional[_builtins.str]:
         """
         The system generated username for ingest authentication.
         """

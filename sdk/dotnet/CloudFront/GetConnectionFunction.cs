@@ -12,19 +12,19 @@ namespace Pulumi.AwsNative.CloudFront
     public static class GetConnectionFunction
     {
         /// <summary>
-        /// Resource Type definition for AWS::CloudFront::ConnectionFunction
+        /// A connection function.
         /// </summary>
         public static Task<GetConnectionFunctionResult> InvokeAsync(GetConnectionFunctionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetConnectionFunctionResult>("aws-native:cloudfront:getConnectionFunction", args ?? new GetConnectionFunctionArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Resource Type definition for AWS::CloudFront::ConnectionFunction
+        /// A connection function.
         /// </summary>
         public static Output<GetConnectionFunctionResult> Invoke(GetConnectionFunctionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConnectionFunctionResult>("aws-native:cloudfront:getConnectionFunction", args ?? new GetConnectionFunctionInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Resource Type definition for AWS::CloudFront::ConnectionFunction
+        /// A connection function.
         /// </summary>
         public static Output<GetConnectionFunctionResult> Invoke(GetConnectionFunctionInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetConnectionFunctionResult>("aws-native:cloudfront:getConnectionFunction", args ?? new GetConnectionFunctionInvokeArgs(), options.WithDefaults());
@@ -100,7 +100,7 @@ namespace Pulumi.AwsNative.CloudFront
         /// </summary>
         public readonly Pulumi.AwsNative.CloudFront.ConnectionFunctionStatus? Status;
         /// <summary>
-        /// A complex type that contains zero or more `Tag` elements.
+        /// A complex type that contains zero or more ``Tag`` elements.
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 

@@ -185,9 +185,10 @@ namespace Pulumi.AwsNative.Ec2
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         /// <summary>
-        /// The throughput to provision for a volume, with a maximum of 1,000 MiB/s.
+        /// The throughput to provision for a volume, with a maximum of 2,000 MiB/s.
         ///  This parameter is valid only for ``gp3`` volumes. The default value is 125.
-        ///  Valid Range: Minimum value of 125. Maximum value of 1000.
+        ///  Valid Range: Minimum value of 125. Maximum value of 2000.
+        ///  The maximum ratio of throughput to IOPS is 0.25 MiB/s per IOPS. For example, a volume with 3,000 IOPS can have a maximum throughput of 750 MiB/s (3,000 x 0.25).
         /// </summary>
         public readonly int? Throughput;
         /// <summary>

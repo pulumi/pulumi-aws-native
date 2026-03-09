@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CloudFront.Outputs
 {
 
+    /// <summary>
+    /// A connection function association.
+    /// </summary>
     [OutputType]
     public sealed class DistributionConnectionFunctionAssociation
     {

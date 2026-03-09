@@ -7980,6 +7980,172 @@ func (in *ruleTriggerEventSourceEventSourceNamePtr) ToRuleTriggerEventSourceEven
 	return pulumi.ToOutputWithContext(ctx, in).(RuleTriggerEventSourceEventSourceNamePtrOutput)
 }
 
+// The type of the application.
+type SecurityProfileApplicationType string
+
+const (
+	SecurityProfileApplicationTypeMcp                   = SecurityProfileApplicationType("MCP")
+	SecurityProfileApplicationTypeThirdPartyApplication = SecurityProfileApplicationType("THIRD_PARTY_APPLICATION")
+)
+
+func (SecurityProfileApplicationType) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityProfileApplicationType)(nil)).Elem()
+}
+
+func (e SecurityProfileApplicationType) ToSecurityProfileApplicationTypeOutput() SecurityProfileApplicationTypeOutput {
+	return pulumi.ToOutput(e).(SecurityProfileApplicationTypeOutput)
+}
+
+func (e SecurityProfileApplicationType) ToSecurityProfileApplicationTypeOutputWithContext(ctx context.Context) SecurityProfileApplicationTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(SecurityProfileApplicationTypeOutput)
+}
+
+func (e SecurityProfileApplicationType) ToSecurityProfileApplicationTypePtrOutput() SecurityProfileApplicationTypePtrOutput {
+	return e.ToSecurityProfileApplicationTypePtrOutputWithContext(context.Background())
+}
+
+func (e SecurityProfileApplicationType) ToSecurityProfileApplicationTypePtrOutputWithContext(ctx context.Context) SecurityProfileApplicationTypePtrOutput {
+	return SecurityProfileApplicationType(e).ToSecurityProfileApplicationTypeOutputWithContext(ctx).ToSecurityProfileApplicationTypePtrOutputWithContext(ctx)
+}
+
+func (e SecurityProfileApplicationType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SecurityProfileApplicationType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SecurityProfileApplicationType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e SecurityProfileApplicationType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type SecurityProfileApplicationTypeOutput struct{ *pulumi.OutputState }
+
+func (SecurityProfileApplicationTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityProfileApplicationType)(nil)).Elem()
+}
+
+func (o SecurityProfileApplicationTypeOutput) ToSecurityProfileApplicationTypeOutput() SecurityProfileApplicationTypeOutput {
+	return o
+}
+
+func (o SecurityProfileApplicationTypeOutput) ToSecurityProfileApplicationTypeOutputWithContext(ctx context.Context) SecurityProfileApplicationTypeOutput {
+	return o
+}
+
+func (o SecurityProfileApplicationTypeOutput) ToSecurityProfileApplicationTypePtrOutput() SecurityProfileApplicationTypePtrOutput {
+	return o.ToSecurityProfileApplicationTypePtrOutputWithContext(context.Background())
+}
+
+func (o SecurityProfileApplicationTypeOutput) ToSecurityProfileApplicationTypePtrOutputWithContext(ctx context.Context) SecurityProfileApplicationTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SecurityProfileApplicationType) *SecurityProfileApplicationType {
+		return &v
+	}).(SecurityProfileApplicationTypePtrOutput)
+}
+
+func (o SecurityProfileApplicationTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o SecurityProfileApplicationTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SecurityProfileApplicationType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o SecurityProfileApplicationTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SecurityProfileApplicationTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SecurityProfileApplicationType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type SecurityProfileApplicationTypePtrOutput struct{ *pulumi.OutputState }
+
+func (SecurityProfileApplicationTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SecurityProfileApplicationType)(nil)).Elem()
+}
+
+func (o SecurityProfileApplicationTypePtrOutput) ToSecurityProfileApplicationTypePtrOutput() SecurityProfileApplicationTypePtrOutput {
+	return o
+}
+
+func (o SecurityProfileApplicationTypePtrOutput) ToSecurityProfileApplicationTypePtrOutputWithContext(ctx context.Context) SecurityProfileApplicationTypePtrOutput {
+	return o
+}
+
+func (o SecurityProfileApplicationTypePtrOutput) Elem() SecurityProfileApplicationTypeOutput {
+	return o.ApplyT(func(v *SecurityProfileApplicationType) SecurityProfileApplicationType {
+		if v != nil {
+			return *v
+		}
+		var ret SecurityProfileApplicationType
+		return ret
+	}).(SecurityProfileApplicationTypeOutput)
+}
+
+func (o SecurityProfileApplicationTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SecurityProfileApplicationTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *SecurityProfileApplicationType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// SecurityProfileApplicationTypeInput is an input type that accepts values of the SecurityProfileApplicationType enum
+// A concrete instance of `SecurityProfileApplicationTypeInput` can be one of the following:
+//
+//	SecurityProfileApplicationTypeMcp
+//	SecurityProfileApplicationTypeThirdPartyApplication
+type SecurityProfileApplicationTypeInput interface {
+	pulumi.Input
+
+	ToSecurityProfileApplicationTypeOutput() SecurityProfileApplicationTypeOutput
+	ToSecurityProfileApplicationTypeOutputWithContext(context.Context) SecurityProfileApplicationTypeOutput
+}
+
+var securityProfileApplicationTypePtrType = reflect.TypeOf((**SecurityProfileApplicationType)(nil)).Elem()
+
+type SecurityProfileApplicationTypePtrInput interface {
+	pulumi.Input
+
+	ToSecurityProfileApplicationTypePtrOutput() SecurityProfileApplicationTypePtrOutput
+	ToSecurityProfileApplicationTypePtrOutputWithContext(context.Context) SecurityProfileApplicationTypePtrOutput
+}
+
+type securityProfileApplicationTypePtr string
+
+func SecurityProfileApplicationTypePtr(v string) SecurityProfileApplicationTypePtrInput {
+	return (*securityProfileApplicationTypePtr)(&v)
+}
+
+func (*securityProfileApplicationTypePtr) ElementType() reflect.Type {
+	return securityProfileApplicationTypePtrType
+}
+
+func (in *securityProfileApplicationTypePtr) ToSecurityProfileApplicationTypePtrOutput() SecurityProfileApplicationTypePtrOutput {
+	return pulumi.ToOutput(in).(SecurityProfileApplicationTypePtrOutput)
+}
+
+func (in *securityProfileApplicationTypePtr) ToSecurityProfileApplicationTypePtrOutputWithContext(ctx context.Context) SecurityProfileApplicationTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(SecurityProfileApplicationTypePtrOutput)
+}
+
 // Specifies the type of access granted. Currently, only "ALLOW" is supported
 type SecurityProfilePrimaryAttributeValueAccessType string
 
@@ -9703,6 +9869,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleSendNotificationActionDeliveryMethodPtrInput)(nil)).Elem(), RuleSendNotificationActionDeliveryMethod("EMAIL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleTriggerEventSourceEventSourceNameInput)(nil)).Elem(), RuleTriggerEventSourceEventSourceName("OnContactEvaluationSubmit"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleTriggerEventSourceEventSourceNamePtrInput)(nil)).Elem(), RuleTriggerEventSourceEventSourceName("OnContactEvaluationSubmit"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurityProfileApplicationTypeInput)(nil)).Elem(), SecurityProfileApplicationType("MCP"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurityProfileApplicationTypePtrInput)(nil)).Elem(), SecurityProfileApplicationType("MCP"))
 	pulumi.RegisterInputType(reflect.TypeOf((*SecurityProfilePrimaryAttributeValueAccessTypeInput)(nil)).Elem(), SecurityProfilePrimaryAttributeValueAccessType("ALLOW"))
 	pulumi.RegisterInputType(reflect.TypeOf((*SecurityProfilePrimaryAttributeValueAccessTypePtrInput)(nil)).Elem(), SecurityProfilePrimaryAttributeValueAccessType("ALLOW"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskTemplateFieldTypeInput)(nil)).Elem(), TaskTemplateFieldType("NAME"))
@@ -9817,6 +9985,8 @@ func init() {
 	pulumi.RegisterOutputType(RuleSendNotificationActionDeliveryMethodPtrOutput{})
 	pulumi.RegisterOutputType(RuleTriggerEventSourceEventSourceNameOutput{})
 	pulumi.RegisterOutputType(RuleTriggerEventSourceEventSourceNamePtrOutput{})
+	pulumi.RegisterOutputType(SecurityProfileApplicationTypeOutput{})
+	pulumi.RegisterOutputType(SecurityProfileApplicationTypePtrOutput{})
 	pulumi.RegisterOutputType(SecurityProfilePrimaryAttributeValueAccessTypeOutput{})
 	pulumi.RegisterOutputType(SecurityProfilePrimaryAttributeValueAccessTypePtrOutput{})
 	pulumi.RegisterOutputType(TaskTemplateFieldTypeOutput{})

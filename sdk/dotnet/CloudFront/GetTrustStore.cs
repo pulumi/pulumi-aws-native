@@ -12,19 +12,19 @@ namespace Pulumi.AwsNative.CloudFront
     public static class GetTrustStore
     {
         /// <summary>
-        /// Resource Type definition for AWS::CloudFront::TrustStore. TrustStores contain CA certificates for mTLS authentication and can be associated with CloudFront distributions.
+        /// A trust store.
         /// </summary>
         public static Task<GetTrustStoreResult> InvokeAsync(GetTrustStoreArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetTrustStoreResult>("aws-native:cloudfront:getTrustStore", args ?? new GetTrustStoreArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Resource Type definition for AWS::CloudFront::TrustStore. TrustStores contain CA certificates for mTLS authentication and can be associated with CloudFront distributions.
+        /// A trust store.
         /// </summary>
         public static Output<GetTrustStoreResult> Invoke(GetTrustStoreInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTrustStoreResult>("aws-native:cloudfront:getTrustStore", args ?? new GetTrustStoreInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Resource Type definition for AWS::CloudFront::TrustStore. TrustStores contain CA certificates for mTLS authentication and can be associated with CloudFront distributions.
+        /// A trust store.
         /// </summary>
         public static Output<GetTrustStoreResult> Invoke(GetTrustStoreInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetTrustStoreResult>("aws-native:cloudfront:getTrustStore", args ?? new GetTrustStoreInvokeArgs(), options.WithDefaults());
@@ -34,7 +34,7 @@ namespace Pulumi.AwsNative.CloudFront
     public sealed class GetTrustStoreArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The unique identifier for the trust store
+        /// The trust store's ID.
         /// </summary>
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -48,7 +48,7 @@ namespace Pulumi.AwsNative.CloudFront
     public sealed class GetTrustStoreInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The unique identifier for the trust store
+        /// The trust store's ID.
         /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -64,7 +64,7 @@ namespace Pulumi.AwsNative.CloudFront
     public sealed class GetTrustStoreResult
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the trust store
+        /// The trust store's Amazon Resource Name (ARN).
         /// </summary>
         public readonly string? Arn;
         /// <summary>
@@ -72,23 +72,23 @@ namespace Pulumi.AwsNative.CloudFront
         /// </summary>
         public readonly string? ETag;
         /// <summary>
-        /// The unique identifier for the trust store
+        /// The trust store's ID.
         /// </summary>
         public readonly string? Id;
         /// <summary>
-        /// The last modification timestamp of the trust store PEM file
+        /// The trust store's last modified time.
         /// </summary>
         public readonly string? LastModifiedTime;
         /// <summary>
-        /// The number of CA certificates in the trust store PEM file
+        /// The trust store's number of CA certificates.
         /// </summary>
         public readonly int? NumberOfCaCertificates;
         /// <summary>
-        /// Current status of the trust store
+        /// The trust store's status.
         /// </summary>
         public readonly Pulumi.AwsNative.CloudFront.TrustStoreStatus? Status;
         /// <summary>
-        /// Key-value pairs for resource tagging
+        /// A complex type that contains zero or more ``Tag`` elements.
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 

@@ -26,13 +26,16 @@ __all__ = [
 
 @pulumi.output_type
 class GetSecurityProfileResult:
-    def __init__(__self__, allowed_access_control_hierarchy_group_id=None, allowed_access_control_tags=None, applications=None, description=None, granular_access_control_configuration=None, hierarchy_restricted_resources=None, last_modified_region=None, last_modified_time=None, permissions=None, security_profile_arn=None, tag_restricted_resources=None, tags=None):
+    def __init__(__self__, allowed_access_control_hierarchy_group_id=None, allowed_access_control_tags=None, allowed_flow_modules=None, applications=None, description=None, granular_access_control_configuration=None, hierarchy_restricted_resources=None, last_modified_region=None, last_modified_time=None, permissions=None, security_profile_arn=None, tag_restricted_resources=None, tags=None):
         if allowed_access_control_hierarchy_group_id and not isinstance(allowed_access_control_hierarchy_group_id, str):
             raise TypeError("Expected argument 'allowed_access_control_hierarchy_group_id' to be a str")
         pulumi.set(__self__, "allowed_access_control_hierarchy_group_id", allowed_access_control_hierarchy_group_id)
         if allowed_access_control_tags and not isinstance(allowed_access_control_tags, list):
             raise TypeError("Expected argument 'allowed_access_control_tags' to be a list")
         pulumi.set(__self__, "allowed_access_control_tags", allowed_access_control_tags)
+        if allowed_flow_modules and not isinstance(allowed_flow_modules, list):
+            raise TypeError("Expected argument 'allowed_flow_modules' to be a list")
+        pulumi.set(__self__, "allowed_flow_modules", allowed_flow_modules)
         if applications and not isinstance(applications, list):
             raise TypeError("Expected argument 'applications' to be a list")
         pulumi.set(__self__, "applications", applications)
@@ -79,6 +82,14 @@ class GetSecurityProfileResult:
         The list of tags that a security profile uses to restrict access to resources in Amazon Connect.
         """
         return pulumi.get(self, "allowed_access_control_tags")
+
+    @_builtins.property
+    @pulumi.getter(name="allowedFlowModules")
+    def allowed_flow_modules(self) -> Optional[Sequence['outputs.SecurityProfileFlowModule']]:
+        """
+        The list of flow-module resources to be linked to a security profile in Amazon Connect.
+        """
+        return pulumi.get(self, "allowed_flow_modules")
 
     @_builtins.property
     @pulumi.getter
@@ -169,6 +180,7 @@ class AwaitableGetSecurityProfileResult(GetSecurityProfileResult):
         return GetSecurityProfileResult(
             allowed_access_control_hierarchy_group_id=self.allowed_access_control_hierarchy_group_id,
             allowed_access_control_tags=self.allowed_access_control_tags,
+            allowed_flow_modules=self.allowed_flow_modules,
             applications=self.applications,
             description=self.description,
             granular_access_control_configuration=self.granular_access_control_configuration,
@@ -197,6 +209,7 @@ def get_security_profile(security_profile_arn: Optional[_builtins.str] = None,
     return AwaitableGetSecurityProfileResult(
         allowed_access_control_hierarchy_group_id=pulumi.get(__ret__, 'allowed_access_control_hierarchy_group_id'),
         allowed_access_control_tags=pulumi.get(__ret__, 'allowed_access_control_tags'),
+        allowed_flow_modules=pulumi.get(__ret__, 'allowed_flow_modules'),
         applications=pulumi.get(__ret__, 'applications'),
         description=pulumi.get(__ret__, 'description'),
         granular_access_control_configuration=pulumi.get(__ret__, 'granular_access_control_configuration'),
@@ -222,6 +235,7 @@ def get_security_profile_output(security_profile_arn: Optional[pulumi.Input[_bui
     return __ret__.apply(lambda __response__: GetSecurityProfileResult(
         allowed_access_control_hierarchy_group_id=pulumi.get(__response__, 'allowed_access_control_hierarchy_group_id'),
         allowed_access_control_tags=pulumi.get(__response__, 'allowed_access_control_tags'),
+        allowed_flow_modules=pulumi.get(__response__, 'allowed_flow_modules'),
         applications=pulumi.get(__response__, 'applications'),
         description=pulumi.get(__response__, 'description'),
         granular_access_control_configuration=pulumi.get(__response__, 'granular_access_control_configuration'),

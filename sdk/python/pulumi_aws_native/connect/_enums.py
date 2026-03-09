@@ -55,6 +55,7 @@ __all__ = [
     'RuleSendNotificationActionContentType',
     'RuleSendNotificationActionDeliveryMethod',
     'RuleTriggerEventSourceEventSourceName',
+    'SecurityProfileApplicationType',
     'SecurityProfilePrimaryAttributeValueAccessType',
     'TaskTemplateFieldType',
     'TaskTemplateStatus',
@@ -575,6 +576,15 @@ class RuleTriggerEventSourceEventSourceName(_builtins.str, Enum):
     ON_METRIC_DATA_UPDATE = "OnMetricDataUpdate"
     ON_CASE_CREATE = "OnCaseCreate"
     ON_CASE_UPDATE = "OnCaseUpdate"
+
+
+@pulumi.type_token("aws-native:connect:SecurityProfileApplicationType")
+class SecurityProfileApplicationType(_builtins.str, Enum):
+    """
+    The type of the application.
+    """
+    MCP = "MCP"
+    THIRD_PARTY_APPLICATION = "THIRD_PARTY_APPLICATION"
 
 
 @pulumi.type_token("aws-native:connect:SecurityProfilePrimaryAttributeValueAccessType")

@@ -77,6 +77,7 @@ __all__ = [
     'InstanceStorageConfigS3Config',
     'LockVersionProperties',
     'NotificationContent',
+    'QueueEmailAddress',
     'QueueOutboundCallerConfig',
     'QueueOutboundEmailConfig',
     'QuickConnectConfig',
@@ -104,6 +105,7 @@ __all__ = [
     'RuleUpdateCaseAction',
     'SecurityProfileApplication',
     'SecurityProfileDataTableAccessControlConfiguration',
+    'SecurityProfileFlowModule',
     'SecurityProfilePrimaryAttributeAccessControlConfigurationItem',
     'SecurityProfilePrimaryAttributeValue',
     'SecurityProfileTag',
@@ -469,6 +471,9 @@ class EvaluationFormBaseItem(dict):
 
 @pulumi.output_type
 class EvaluationFormEvaluationReviewConfiguration(dict):
+    """
+    Configuration settings for evaluation reviews.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -492,6 +497,8 @@ class EvaluationFormEvaluationReviewConfiguration(dict):
                  review_notification_recipients: Sequence['outputs.EvaluationFormEvaluationReviewNotificationRecipient'],
                  eligibility_days: Optional[_builtins.int] = None):
         """
+        Configuration settings for evaluation reviews.
+
         :param Sequence['EvaluationFormEvaluationReviewNotificationRecipient'] review_notification_recipients: List of recipients who should be notified when a review is requested.
         :param _builtins.int eligibility_days: Number of days during which a request for review can be submitted for evaluations created from this form.
         """
@@ -518,10 +525,15 @@ class EvaluationFormEvaluationReviewConfiguration(dict):
 
 @pulumi.output_type
 class EvaluationFormEvaluationReviewNotificationRecipient(dict):
+    """
+    Information about a recipient who should be notified when an evaluation review is requested.
+    """
     def __init__(__self__, *,
                  type: 'EvaluationFormEvaluationReviewNotificationRecipientType',
                  value: 'outputs.EvaluationFormEvaluationReviewNotificationRecipientValue'):
         """
+        Information about a recipient who should be notified when an evaluation review is requested.
+
         :param 'EvaluationFormEvaluationReviewNotificationRecipientType' type: The type of notification recipient.
         :param 'EvaluationFormEvaluationReviewNotificationRecipientValue' value: The value associated with the notification recipient type.
         """
@@ -547,6 +559,9 @@ class EvaluationFormEvaluationReviewNotificationRecipient(dict):
 
 @pulumi.output_type
 class EvaluationFormEvaluationReviewNotificationRecipientValue(dict):
+    """
+    The value information for an evaluation review notification recipient.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -567,6 +582,8 @@ class EvaluationFormEvaluationReviewNotificationRecipientValue(dict):
     def __init__(__self__, *,
                  user_id: Optional[_builtins.str] = None):
         """
+        The value information for an evaluation review notification recipient.
+
         :param _builtins.str user_id: The user identifier for the notification recipient.
         """
         if user_id is not None:
@@ -3425,6 +3442,46 @@ class NotificationContent(dict):
 
 
 @pulumi.output_type
+class QueueEmailAddress(dict):
+    """
+    An email address configuration for the queue
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "emailAddressArn":
+            suggest = "email_address_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in QueueEmailAddress. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        QueueEmailAddress.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        QueueEmailAddress.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 email_address_arn: _builtins.str):
+        """
+        An email address configuration for the queue
+
+        :param _builtins.str email_address_arn: The Amazon Resource Name (ARN) of the email address
+        """
+        pulumi.set(__self__, "email_address_arn", email_address_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="emailAddressArn")
+    def email_address_arn(self) -> _builtins.str:
+        """
+        The Amazon Resource Name (ARN) of the email address
+        """
+        return pulumi.get(self, "email_address_arn")
+
+
+@pulumi.output_type
 class QueueOutboundCallerConfig(dict):
     """
     The outbound caller ID name, number, and outbound whisper flow.
@@ -4701,15 +4758,19 @@ class SecurityProfileApplication(dict):
 
     def __init__(__self__, *,
                  application_permissions: Sequence[_builtins.str],
-                 namespace: _builtins.str):
+                 namespace: _builtins.str,
+                 type: Optional['SecurityProfileApplicationType'] = None):
         """
         A third-party application's metadata.
 
         :param Sequence[_builtins.str] application_permissions: The permissions that the agent is granted on the application
         :param _builtins.str namespace: Namespace of the application that you want to give access to.
+        :param 'SecurityProfileApplicationType' type: The type of the application.
         """
         pulumi.set(__self__, "application_permissions", application_permissions)
         pulumi.set(__self__, "namespace", namespace)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
 
     @_builtins.property
     @pulumi.getter(name="applicationPermissions")
@@ -4726,6 +4787,14 @@ class SecurityProfileApplication(dict):
         Namespace of the application that you want to give access to.
         """
         return pulumi.get(self, "namespace")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> Optional['SecurityProfileApplicationType']:
+        """
+        The type of the application.
+        """
+        return pulumi.get(self, "type")
 
 
 @pulumi.output_type
@@ -4767,6 +4836,57 @@ class SecurityProfileDataTableAccessControlConfiguration(dict):
         The configuration's primary attribute access control configuration.
         """
         return pulumi.get(self, "primary_attribute_access_control_configuration")
+
+
+@pulumi.output_type
+class SecurityProfileFlowModule(dict):
+    """
+    A first-party application's metadata.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "flowModuleId":
+            suggest = "flow_module_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SecurityProfileFlowModule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SecurityProfileFlowModule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SecurityProfileFlowModule.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 flow_module_id: _builtins.str,
+                 type: _builtins.str):
+        """
+        A first-party application's metadata.
+
+        :param _builtins.str flow_module_id: The identifier of the application that you want to give access to.
+        :param _builtins.str type: The type of the first-party application
+        """
+        pulumi.set(__self__, "flow_module_id", flow_module_id)
+        pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter(name="flowModuleId")
+    def flow_module_id(self) -> _builtins.str:
+        """
+        The identifier of the application that you want to give access to.
+        """
+        return pulumi.get(self, "flow_module_id")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> _builtins.str:
+        """
+        The type of the first-party application
+        """
+        return pulumi.get(self, "type")
 
 
 @pulumi.output_type

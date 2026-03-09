@@ -52,7 +52,7 @@ namespace Pulumi.AwsNative.CloudWatch
         /// The arithmetic operation to use when comparing the specified statistic and threshold. The specified statistic value is used as the first operand.
         /// </summary>
         [Output("comparisonOperator")]
-        public Output<string> ComparisonOperator { get; private set; } = null!;
+        public Output<string?> ComparisonOperator { get; private set; } = null!;
 
         /// <summary>
         /// The number of datapoints that must be breaching to trigger the alarm. This is used only if you are setting an "M out of N" alarm. In that case, this value is the M, and the value that you set for ``EvaluationPeriods`` is the N value. For more information, see [Evaluating an Alarm](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#alarm-evaluation) in the *User Guide*.
@@ -78,7 +78,7 @@ namespace Pulumi.AwsNative.CloudWatch
         ///  For more information, see [Evaluating an Alarm](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#alarm-evaluation) in the *User Guide*.
         /// </summary>
         [Output("evaluationPeriods")]
-        public Output<int> EvaluationPeriods { get; private set; } = null!;
+        public Output<int?> EvaluationPeriods { get; private set; } = null!;
 
         /// <summary>
         /// The percentile statistic for the metric associated with the alarm. Specify a value between p0.0 and p100.
@@ -177,7 +177,7 @@ namespace Pulumi.AwsNative.CloudWatch
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public Alarm(string name, AlarmArgs args, CustomResourceOptions? options = null)
+        public Alarm(string name, AlarmArgs? args = null, CustomResourceOptions? options = null)
             : base("aws-native:cloudwatch:Alarm", name, args ?? new AlarmArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -252,8 +252,8 @@ namespace Pulumi.AwsNative.CloudWatch
         /// <summary>
         /// The arithmetic operation to use when comparing the specified statistic and threshold. The specified statistic value is used as the first operand.
         /// </summary>
-        [Input("comparisonOperator", required: true)]
-        public Input<string> ComparisonOperator { get; set; } = null!;
+        [Input("comparisonOperator")]
+        public Input<string>? ComparisonOperator { get; set; }
 
         /// <summary>
         /// The number of datapoints that must be breaching to trigger the alarm. This is used only if you are setting an "M out of N" alarm. In that case, this value is the M, and the value that you set for ``EvaluationPeriods`` is the N value. For more information, see [Evaluating an Alarm](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#alarm-evaluation) in the *User Guide*.
@@ -284,8 +284,8 @@ namespace Pulumi.AwsNative.CloudWatch
         /// The number of periods over which data is compared to the specified threshold. If you are setting an alarm that requires that a number of consecutive data points be breaching to trigger the alarm, this value specifies that number. If you are setting an "M out of N" alarm, this value is the N, and ``DatapointsToAlarm`` is the M.
         ///  For more information, see [Evaluating an Alarm](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#alarm-evaluation) in the *User Guide*.
         /// </summary>
-        [Input("evaluationPeriods", required: true)]
-        public Input<int> EvaluationPeriods { get; set; } = null!;
+        [Input("evaluationPeriods")]
+        public Input<int>? EvaluationPeriods { get; set; }
 
         /// <summary>
         /// The percentile statistic for the metric associated with the alarm. Specify a value between p0.0 and p100.

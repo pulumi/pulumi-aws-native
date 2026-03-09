@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource schema for AWS::DataSync::LocationFSxONTAP.
+ * Resource Type definition for AWS::DataSync::LocationFSxONTAP.
  */
 export function getLocationFSxOntap(args: GetLocationFSxOntapArgs, opts?: pulumi.InvokeOptions): Promise<GetLocationFSxOntapResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -47,7 +47,7 @@ export interface GetLocationFSxOntapResult {
     readonly tags?: outputs.Tag[];
 }
 /**
- * Resource schema for AWS::DataSync::LocationFSxONTAP.
+ * Resource Type definition for AWS::DataSync::LocationFSxONTAP.
  */
 export function getLocationFSxOntapOutput(args: GetLocationFSxOntapOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLocationFSxOntapResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

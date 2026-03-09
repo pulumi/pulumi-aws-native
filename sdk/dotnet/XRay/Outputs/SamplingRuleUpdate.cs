@@ -43,6 +43,7 @@ namespace Pulumi.AwsNative.XRay.Outputs
         public readonly string? ResourceArn;
         public readonly string? RuleArn;
         public readonly string? RuleName;
+        public readonly Outputs.SamplingRuleSamplingRateBoost? SamplingRateBoost;
         /// <summary>
         /// Matches the name that the service uses to identify itself in segments.
         /// </summary>
@@ -76,6 +77,8 @@ namespace Pulumi.AwsNative.XRay.Outputs
 
             string? ruleName,
 
+            Outputs.SamplingRuleSamplingRateBoost? samplingRateBoost,
+
             string? serviceName,
 
             string? serviceType,
@@ -91,6 +94,7 @@ namespace Pulumi.AwsNative.XRay.Outputs
             ResourceArn = resourceArn;
             RuleArn = ruleArn;
             RuleName = ruleName;
+            SamplingRateBoost = samplingRateBoost;
             ServiceName = serviceName;
             ServiceType = serviceType;
             UrlPath = urlPath;

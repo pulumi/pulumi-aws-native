@@ -1184,7 +1184,7 @@ class ClusterRemoteNetworkConfigArgsDict(TypedDict):
     """
     Configuration fields for specifying on-premises node and pod CIDRs that are external to the VPC passed during cluster creation.
     """
-    remote_node_networks: pulumi.Input[Sequence[pulumi.Input['ClusterRemoteNodeNetworkArgsDict']]]
+    remote_node_networks: NotRequired[pulumi.Input[Sequence[pulumi.Input['ClusterRemoteNodeNetworkArgsDict']]]]
     """
     Network configuration of nodes run on-premises with EKS Hybrid Nodes.
     """
@@ -1196,7 +1196,7 @@ class ClusterRemoteNetworkConfigArgsDict(TypedDict):
 @pulumi.input_type
 class ClusterRemoteNetworkConfigArgs:
     def __init__(__self__, *,
-                 remote_node_networks: pulumi.Input[Sequence[pulumi.Input['ClusterRemoteNodeNetworkArgs']]],
+                 remote_node_networks: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterRemoteNodeNetworkArgs']]]] = None,
                  remote_pod_networks: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterRemotePodNetworkArgs']]]] = None):
         """
         Configuration fields for specifying on-premises node and pod CIDRs that are external to the VPC passed during cluster creation.
@@ -1204,20 +1204,21 @@ class ClusterRemoteNetworkConfigArgs:
         :param pulumi.Input[Sequence[pulumi.Input['ClusterRemoteNodeNetworkArgs']]] remote_node_networks: Network configuration of nodes run on-premises with EKS Hybrid Nodes.
         :param pulumi.Input[Sequence[pulumi.Input['ClusterRemotePodNetworkArgs']]] remote_pod_networks: Network configuration of pods run on-premises with EKS Hybrid Nodes.
         """
-        pulumi.set(__self__, "remote_node_networks", remote_node_networks)
+        if remote_node_networks is not None:
+            pulumi.set(__self__, "remote_node_networks", remote_node_networks)
         if remote_pod_networks is not None:
             pulumi.set(__self__, "remote_pod_networks", remote_pod_networks)
 
     @_builtins.property
     @pulumi.getter(name="remoteNodeNetworks")
-    def remote_node_networks(self) -> pulumi.Input[Sequence[pulumi.Input['ClusterRemoteNodeNetworkArgs']]]:
+    def remote_node_networks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ClusterRemoteNodeNetworkArgs']]]]:
         """
         Network configuration of nodes run on-premises with EKS Hybrid Nodes.
         """
         return pulumi.get(self, "remote_node_networks")
 
     @remote_node_networks.setter
-    def remote_node_networks(self, value: pulumi.Input[Sequence[pulumi.Input['ClusterRemoteNodeNetworkArgs']]]):
+    def remote_node_networks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterRemoteNodeNetworkArgs']]]]):
         pulumi.set(self, "remote_node_networks", value)
 
     @_builtins.property

@@ -72,6 +72,7 @@ export class Memory extends pulumi.CustomResource {
      * The memory status.
      */
     declare public /*out*/ readonly status: pulumi.Output<enums.bedrockagentcore.MemoryStatus>;
+    declare public readonly streamDeliveryResources: pulumi.Output<outputs.bedrockagentcore.MemoryStreamDeliveryResources | undefined>;
     /**
      * The tags for the resources.
      */
@@ -98,6 +99,7 @@ export class Memory extends pulumi.CustomResource {
             resourceInputs["memoryExecutionRoleArn"] = args?.memoryExecutionRoleArn;
             resourceInputs["memoryStrategies"] = args?.memoryStrategies;
             resourceInputs["name"] = args?.name;
+            resourceInputs["streamDeliveryResources"] = args?.streamDeliveryResources;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["failureReason"] = undefined /*out*/;
@@ -117,6 +119,7 @@ export class Memory extends pulumi.CustomResource {
             resourceInputs["memoryStrategies"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["streamDeliveryResources"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["updatedAt"] = undefined /*out*/;
         }
@@ -152,6 +155,7 @@ export interface MemoryArgs {
      * The memory name.
      */
     name?: pulumi.Input<string>;
+    streamDeliveryResources?: pulumi.Input<inputs.bedrockagentcore.MemoryStreamDeliveryResourcesArgs>;
     /**
      * The tags for the resources.
      */

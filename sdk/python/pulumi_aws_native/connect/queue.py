@@ -26,6 +26,7 @@ class QueueArgs:
     def __init__(__self__, *,
                  hours_of_operation_arn: pulumi.Input[_builtins.str],
                  instance_arn: pulumi.Input[_builtins.str],
+                 additional_email_addresses: Optional[pulumi.Input[Sequence[pulumi.Input['QueueEmailAddressArgs']]]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  max_contacts: Optional[pulumi.Input[_builtins.int]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -39,6 +40,7 @@ class QueueArgs:
 
         :param pulumi.Input[_builtins.str] hours_of_operation_arn: The identifier for the hours of operation.
         :param pulumi.Input[_builtins.str] instance_arn: The identifier of the Amazon Connect instance.
+        :param pulumi.Input[Sequence[pulumi.Input['QueueEmailAddressArgs']]] additional_email_addresses: The email addresses that agents can use when replying to or initiating email contacts
         :param pulumi.Input[_builtins.str] description: The description of the queue.
         :param pulumi.Input[_builtins.int] max_contacts: The maximum number of contacts that can be in the queue before it is considered full.
         :param pulumi.Input[_builtins.str] name: The name of the queue.
@@ -50,6 +52,8 @@ class QueueArgs:
         """
         pulumi.set(__self__, "hours_of_operation_arn", hours_of_operation_arn)
         pulumi.set(__self__, "instance_arn", instance_arn)
+        if additional_email_addresses is not None:
+            pulumi.set(__self__, "additional_email_addresses", additional_email_addresses)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if max_contacts is not None:
@@ -90,6 +94,18 @@ class QueueArgs:
     @instance_arn.setter
     def instance_arn(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "instance_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="additionalEmailAddresses")
+    def additional_email_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['QueueEmailAddressArgs']]]]:
+        """
+        The email addresses that agents can use when replying to or initiating email contacts
+        """
+        return pulumi.get(self, "additional_email_addresses")
+
+    @additional_email_addresses.setter
+    def additional_email_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['QueueEmailAddressArgs']]]]):
+        pulumi.set(self, "additional_email_addresses", value)
 
     @_builtins.property
     @pulumi.getter
@@ -194,6 +210,7 @@ class Queue(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 additional_email_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[Union['QueueEmailAddressArgs', 'QueueEmailAddressArgsDict']]]]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  hours_of_operation_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  instance_arn: Optional[pulumi.Input[_builtins.str]] = None,
@@ -211,6 +228,7 @@ class Queue(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['QueueEmailAddressArgs', 'QueueEmailAddressArgsDict']]]] additional_email_addresses: The email addresses that agents can use when replying to or initiating email contacts
         :param pulumi.Input[_builtins.str] description: The description of the queue.
         :param pulumi.Input[_builtins.str] hours_of_operation_arn: The identifier for the hours of operation.
         :param pulumi.Input[_builtins.str] instance_arn: The identifier of the Amazon Connect instance.
@@ -247,6 +265,7 @@ class Queue(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 additional_email_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[Union['QueueEmailAddressArgs', 'QueueEmailAddressArgsDict']]]]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  hours_of_operation_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  instance_arn: Optional[pulumi.Input[_builtins.str]] = None,
@@ -266,6 +285,7 @@ class Queue(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = QueueArgs.__new__(QueueArgs)
 
+            __props__.__dict__["additional_email_addresses"] = additional_email_addresses
             __props__.__dict__["description"] = description
             if hours_of_operation_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'hours_of_operation_arn'")
@@ -304,6 +324,7 @@ class Queue(pulumi.CustomResource):
 
         __props__ = QueueArgs.__new__(QueueArgs)
 
+        __props__.__dict__["additional_email_addresses"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["hours_of_operation_arn"] = None
         __props__.__dict__["instance_arn"] = None
@@ -317,6 +338,14 @@ class Queue(pulumi.CustomResource):
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         return Queue(resource_name, opts=opts, __props__=__props__)
+
+    @_builtins.property
+    @pulumi.getter(name="additionalEmailAddresses")
+    def additional_email_addresses(self) -> pulumi.Output[Optional[Sequence['outputs.QueueEmailAddress']]]:
+        """
+        The email addresses that agents can use when replying to or initiating email contacts
+        """
+        return pulumi.get(self, "additional_email_addresses")
 
     @_builtins.property
     @pulumi.getter

@@ -40,6 +40,9 @@ namespace Pulumi.AwsNative.CloudFront.Inputs
         [Input("originKeepaliveTimeout")]
         public Input<int>? OriginKeepaliveTimeout { get; set; }
 
+        /// <summary>
+        /// Configures mutual TLS authentication between CloudFront and your origin server.
+        /// </summary>
         [Input("originMtlsConfig")]
         public Input<Inputs.DistributionOriginMtlsConfigArgs>? OriginMtlsConfig { get; set; }
 

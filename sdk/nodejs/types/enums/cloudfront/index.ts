@@ -159,6 +159,6 @@ export const TrustStoreStatus = {
 } as const;
 
 /**
- * Current status of the trust store
+ * The trust store's status.
  */
 export type TrustStoreStatus = (typeof TrustStoreStatus)[keyof typeof TrustStoreStatus];

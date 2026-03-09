@@ -41,7 +41,8 @@ type LookupMemoryResult struct {
 	// The memory strategies.
 	MemoryStrategies []MemoryStrategy `pulumi:"memoryStrategies"`
 	// The memory status.
-	Status *MemoryStatus `pulumi:"status"`
+	Status                  *MemoryStatus                  `pulumi:"status"`
+	StreamDeliveryResources *MemoryStreamDeliveryResources `pulumi:"streamDeliveryResources"`
 	// The tags for the resources.
 	Tags      map[string]string `pulumi:"tags"`
 	UpdatedAt *string           `pulumi:"updatedAt"`
@@ -118,6 +119,10 @@ func (o LookupMemoryResultOutput) MemoryStrategies() MemoryStrategyArrayOutput {
 // The memory status.
 func (o LookupMemoryResultOutput) Status() MemoryStatusPtrOutput {
 	return o.ApplyT(func(v LookupMemoryResult) *MemoryStatus { return v.Status }).(MemoryStatusPtrOutput)
+}
+
+func (o LookupMemoryResultOutput) StreamDeliveryResources() MemoryStreamDeliveryResourcesPtrOutput {
+	return o.ApplyT(func(v LookupMemoryResult) *MemoryStreamDeliveryResources { return v.StreamDeliveryResources }).(MemoryStreamDeliveryResourcesPtrOutput)
 }
 
 // The tags for the resources.

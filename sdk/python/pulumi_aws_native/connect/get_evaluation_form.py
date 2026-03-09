@@ -118,6 +118,9 @@ class GetEvaluationFormResult:
     @_builtins.property
     @pulumi.getter(name="reviewConfiguration")
     def review_configuration(self) -> Optional['outputs.EvaluationFormEvaluationReviewConfiguration']:
+        """
+        Configuration for evaluation review settings of this evaluation form.
+        """
         return pulumi.get(self, "review_configuration")
 
     @_builtins.property

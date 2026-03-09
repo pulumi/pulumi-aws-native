@@ -1114,6 +1114,7 @@ func (o EvaluationFormBaseItemArrayOutput) Index(i pulumi.IntInput) EvaluationFo
 	}).(EvaluationFormBaseItemOutput)
 }
 
+// Configuration settings for evaluation reviews.
 type EvaluationFormEvaluationReviewConfiguration struct {
 	// Number of days during which a request for review can be submitted for evaluations created from this form.
 	EligibilityDays *int `pulumi:"eligibilityDays"`
@@ -1132,6 +1133,7 @@ type EvaluationFormEvaluationReviewConfigurationInput interface {
 	ToEvaluationFormEvaluationReviewConfigurationOutputWithContext(context.Context) EvaluationFormEvaluationReviewConfigurationOutput
 }
 
+// Configuration settings for evaluation reviews.
 type EvaluationFormEvaluationReviewConfigurationArgs struct {
 	// Number of days during which a request for review can be submitted for evaluations created from this form.
 	EligibilityDays pulumi.IntPtrInput `pulumi:"eligibilityDays"`
@@ -1192,6 +1194,7 @@ func (i *evaluationFormEvaluationReviewConfigurationPtrType) ToEvaluationFormEva
 	return pulumi.ToOutputWithContext(ctx, i).(EvaluationFormEvaluationReviewConfigurationPtrOutput)
 }
 
+// Configuration settings for evaluation reviews.
 type EvaluationFormEvaluationReviewConfigurationOutput struct{ *pulumi.OutputState }
 
 func (EvaluationFormEvaluationReviewConfigurationOutput) ElementType() reflect.Type {
@@ -1272,6 +1275,7 @@ func (o EvaluationFormEvaluationReviewConfigurationPtrOutput) ReviewNotification
 	}).(EvaluationFormEvaluationReviewNotificationRecipientArrayOutput)
 }
 
+// Information about a recipient who should be notified when an evaluation review is requested.
 type EvaluationFormEvaluationReviewNotificationRecipient struct {
 	// The type of notification recipient.
 	Type EvaluationFormEvaluationReviewNotificationRecipientType `pulumi:"type"`
@@ -1290,6 +1294,7 @@ type EvaluationFormEvaluationReviewNotificationRecipientInput interface {
 	ToEvaluationFormEvaluationReviewNotificationRecipientOutputWithContext(context.Context) EvaluationFormEvaluationReviewNotificationRecipientOutput
 }
 
+// Information about a recipient who should be notified when an evaluation review is requested.
 type EvaluationFormEvaluationReviewNotificationRecipientArgs struct {
 	// The type of notification recipient.
 	Type EvaluationFormEvaluationReviewNotificationRecipientTypeInput `pulumi:"type"`
@@ -1334,6 +1339,7 @@ func (i EvaluationFormEvaluationReviewNotificationRecipientArray) ToEvaluationFo
 	return pulumi.ToOutputWithContext(ctx, i).(EvaluationFormEvaluationReviewNotificationRecipientArrayOutput)
 }
 
+// Information about a recipient who should be notified when an evaluation review is requested.
 type EvaluationFormEvaluationReviewNotificationRecipientOutput struct{ *pulumi.OutputState }
 
 func (EvaluationFormEvaluationReviewNotificationRecipientOutput) ElementType() reflect.Type {
@@ -1382,6 +1388,7 @@ func (o EvaluationFormEvaluationReviewNotificationRecipientArrayOutput) Index(i 
 	}).(EvaluationFormEvaluationReviewNotificationRecipientOutput)
 }
 
+// The value information for an evaluation review notification recipient.
 type EvaluationFormEvaluationReviewNotificationRecipientValue struct {
 	// The user identifier for the notification recipient.
 	UserId *string `pulumi:"userId"`
@@ -1398,6 +1405,7 @@ type EvaluationFormEvaluationReviewNotificationRecipientValueInput interface {
 	ToEvaluationFormEvaluationReviewNotificationRecipientValueOutputWithContext(context.Context) EvaluationFormEvaluationReviewNotificationRecipientValueOutput
 }
 
+// The value information for an evaluation review notification recipient.
 type EvaluationFormEvaluationReviewNotificationRecipientValueArgs struct {
 	// The user identifier for the notification recipient.
 	UserId pulumi.StringPtrInput `pulumi:"userId"`
@@ -1415,6 +1423,7 @@ func (i EvaluationFormEvaluationReviewNotificationRecipientValueArgs) ToEvaluati
 	return pulumi.ToOutputWithContext(ctx, i).(EvaluationFormEvaluationReviewNotificationRecipientValueOutput)
 }
 
+// The value information for an evaluation review notification recipient.
 type EvaluationFormEvaluationReviewNotificationRecipientValueOutput struct{ *pulumi.OutputState }
 
 func (EvaluationFormEvaluationReviewNotificationRecipientValueOutput) ElementType() reflect.Type {
@@ -8926,6 +8935,106 @@ type PromptTag struct {
 	Value string `pulumi:"value"`
 }
 
+// An email address configuration for the queue
+type QueueEmailAddress struct {
+	// The Amazon Resource Name (ARN) of the email address
+	EmailAddressArn string `pulumi:"emailAddressArn"`
+}
+
+// QueueEmailAddressInput is an input type that accepts QueueEmailAddressArgs and QueueEmailAddressOutput values.
+// You can construct a concrete instance of `QueueEmailAddressInput` via:
+//
+//	QueueEmailAddressArgs{...}
+type QueueEmailAddressInput interface {
+	pulumi.Input
+
+	ToQueueEmailAddressOutput() QueueEmailAddressOutput
+	ToQueueEmailAddressOutputWithContext(context.Context) QueueEmailAddressOutput
+}
+
+// An email address configuration for the queue
+type QueueEmailAddressArgs struct {
+	// The Amazon Resource Name (ARN) of the email address
+	EmailAddressArn pulumi.StringInput `pulumi:"emailAddressArn"`
+}
+
+func (QueueEmailAddressArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*QueueEmailAddress)(nil)).Elem()
+}
+
+func (i QueueEmailAddressArgs) ToQueueEmailAddressOutput() QueueEmailAddressOutput {
+	return i.ToQueueEmailAddressOutputWithContext(context.Background())
+}
+
+func (i QueueEmailAddressArgs) ToQueueEmailAddressOutputWithContext(ctx context.Context) QueueEmailAddressOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(QueueEmailAddressOutput)
+}
+
+// QueueEmailAddressArrayInput is an input type that accepts QueueEmailAddressArray and QueueEmailAddressArrayOutput values.
+// You can construct a concrete instance of `QueueEmailAddressArrayInput` via:
+//
+//	QueueEmailAddressArray{ QueueEmailAddressArgs{...} }
+type QueueEmailAddressArrayInput interface {
+	pulumi.Input
+
+	ToQueueEmailAddressArrayOutput() QueueEmailAddressArrayOutput
+	ToQueueEmailAddressArrayOutputWithContext(context.Context) QueueEmailAddressArrayOutput
+}
+
+type QueueEmailAddressArray []QueueEmailAddressInput
+
+func (QueueEmailAddressArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]QueueEmailAddress)(nil)).Elem()
+}
+
+func (i QueueEmailAddressArray) ToQueueEmailAddressArrayOutput() QueueEmailAddressArrayOutput {
+	return i.ToQueueEmailAddressArrayOutputWithContext(context.Background())
+}
+
+func (i QueueEmailAddressArray) ToQueueEmailAddressArrayOutputWithContext(ctx context.Context) QueueEmailAddressArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(QueueEmailAddressArrayOutput)
+}
+
+// An email address configuration for the queue
+type QueueEmailAddressOutput struct{ *pulumi.OutputState }
+
+func (QueueEmailAddressOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*QueueEmailAddress)(nil)).Elem()
+}
+
+func (o QueueEmailAddressOutput) ToQueueEmailAddressOutput() QueueEmailAddressOutput {
+	return o
+}
+
+func (o QueueEmailAddressOutput) ToQueueEmailAddressOutputWithContext(ctx context.Context) QueueEmailAddressOutput {
+	return o
+}
+
+// The Amazon Resource Name (ARN) of the email address
+func (o QueueEmailAddressOutput) EmailAddressArn() pulumi.StringOutput {
+	return o.ApplyT(func(v QueueEmailAddress) string { return v.EmailAddressArn }).(pulumi.StringOutput)
+}
+
+type QueueEmailAddressArrayOutput struct{ *pulumi.OutputState }
+
+func (QueueEmailAddressArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]QueueEmailAddress)(nil)).Elem()
+}
+
+func (o QueueEmailAddressArrayOutput) ToQueueEmailAddressArrayOutput() QueueEmailAddressArrayOutput {
+	return o
+}
+
+func (o QueueEmailAddressArrayOutput) ToQueueEmailAddressArrayOutputWithContext(ctx context.Context) QueueEmailAddressArrayOutput {
+	return o
+}
+
+func (o QueueEmailAddressArrayOutput) Index(i pulumi.IntInput) QueueEmailAddressOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) QueueEmailAddress {
+		return vs[0].([]QueueEmailAddress)[vs[1].(int)]
+	}).(QueueEmailAddressOutput)
+}
+
 // The outbound caller ID name, number, and outbound whisper flow.
 type QueueOutboundCallerConfig struct {
 	// The caller ID name.
@@ -11914,6 +12023,8 @@ type SecurityProfileApplication struct {
 	ApplicationPermissions []string `pulumi:"applicationPermissions"`
 	// Namespace of the application that you want to give access to.
 	Namespace string `pulumi:"namespace"`
+	// The type of the application.
+	Type *SecurityProfileApplicationType `pulumi:"type"`
 }
 
 // SecurityProfileApplicationInput is an input type that accepts SecurityProfileApplicationArgs and SecurityProfileApplicationOutput values.
@@ -11933,6 +12044,8 @@ type SecurityProfileApplicationArgs struct {
 	ApplicationPermissions pulumi.StringArrayInput `pulumi:"applicationPermissions"`
 	// Namespace of the application that you want to give access to.
 	Namespace pulumi.StringInput `pulumi:"namespace"`
+	// The type of the application.
+	Type SecurityProfileApplicationTypePtrInput `pulumi:"type"`
 }
 
 func (SecurityProfileApplicationArgs) ElementType() reflect.Type {
@@ -11995,6 +12108,11 @@ func (o SecurityProfileApplicationOutput) ApplicationPermissions() pulumi.String
 // Namespace of the application that you want to give access to.
 func (o SecurityProfileApplicationOutput) Namespace() pulumi.StringOutput {
 	return o.ApplyT(func(v SecurityProfileApplication) string { return v.Namespace }).(pulumi.StringOutput)
+}
+
+// The type of the application.
+func (o SecurityProfileApplicationOutput) Type() SecurityProfileApplicationTypePtrOutput {
+	return o.ApplyT(func(v SecurityProfileApplication) *SecurityProfileApplicationType { return v.Type }).(SecurityProfileApplicationTypePtrOutput)
 }
 
 type SecurityProfileApplicationArrayOutput struct{ *pulumi.OutputState }
@@ -12157,6 +12275,115 @@ func (o SecurityProfileDataTableAccessControlConfigurationPtrOutput) PrimaryAttr
 		}
 		return v.PrimaryAttributeAccessControlConfiguration
 	}).(SecurityProfilePrimaryAttributeAccessControlConfigurationItemPtrOutput)
+}
+
+// A first-party application's metadata.
+type SecurityProfileFlowModule struct {
+	// The identifier of the application that you want to give access to.
+	FlowModuleId string `pulumi:"flowModuleId"`
+	// The type of the first-party application
+	Type string `pulumi:"type"`
+}
+
+// SecurityProfileFlowModuleInput is an input type that accepts SecurityProfileFlowModuleArgs and SecurityProfileFlowModuleOutput values.
+// You can construct a concrete instance of `SecurityProfileFlowModuleInput` via:
+//
+//	SecurityProfileFlowModuleArgs{...}
+type SecurityProfileFlowModuleInput interface {
+	pulumi.Input
+
+	ToSecurityProfileFlowModuleOutput() SecurityProfileFlowModuleOutput
+	ToSecurityProfileFlowModuleOutputWithContext(context.Context) SecurityProfileFlowModuleOutput
+}
+
+// A first-party application's metadata.
+type SecurityProfileFlowModuleArgs struct {
+	// The identifier of the application that you want to give access to.
+	FlowModuleId pulumi.StringInput `pulumi:"flowModuleId"`
+	// The type of the first-party application
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (SecurityProfileFlowModuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityProfileFlowModule)(nil)).Elem()
+}
+
+func (i SecurityProfileFlowModuleArgs) ToSecurityProfileFlowModuleOutput() SecurityProfileFlowModuleOutput {
+	return i.ToSecurityProfileFlowModuleOutputWithContext(context.Background())
+}
+
+func (i SecurityProfileFlowModuleArgs) ToSecurityProfileFlowModuleOutputWithContext(ctx context.Context) SecurityProfileFlowModuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityProfileFlowModuleOutput)
+}
+
+// SecurityProfileFlowModuleArrayInput is an input type that accepts SecurityProfileFlowModuleArray and SecurityProfileFlowModuleArrayOutput values.
+// You can construct a concrete instance of `SecurityProfileFlowModuleArrayInput` via:
+//
+//	SecurityProfileFlowModuleArray{ SecurityProfileFlowModuleArgs{...} }
+type SecurityProfileFlowModuleArrayInput interface {
+	pulumi.Input
+
+	ToSecurityProfileFlowModuleArrayOutput() SecurityProfileFlowModuleArrayOutput
+	ToSecurityProfileFlowModuleArrayOutputWithContext(context.Context) SecurityProfileFlowModuleArrayOutput
+}
+
+type SecurityProfileFlowModuleArray []SecurityProfileFlowModuleInput
+
+func (SecurityProfileFlowModuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SecurityProfileFlowModule)(nil)).Elem()
+}
+
+func (i SecurityProfileFlowModuleArray) ToSecurityProfileFlowModuleArrayOutput() SecurityProfileFlowModuleArrayOutput {
+	return i.ToSecurityProfileFlowModuleArrayOutputWithContext(context.Background())
+}
+
+func (i SecurityProfileFlowModuleArray) ToSecurityProfileFlowModuleArrayOutputWithContext(ctx context.Context) SecurityProfileFlowModuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityProfileFlowModuleArrayOutput)
+}
+
+// A first-party application's metadata.
+type SecurityProfileFlowModuleOutput struct{ *pulumi.OutputState }
+
+func (SecurityProfileFlowModuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityProfileFlowModule)(nil)).Elem()
+}
+
+func (o SecurityProfileFlowModuleOutput) ToSecurityProfileFlowModuleOutput() SecurityProfileFlowModuleOutput {
+	return o
+}
+
+func (o SecurityProfileFlowModuleOutput) ToSecurityProfileFlowModuleOutputWithContext(ctx context.Context) SecurityProfileFlowModuleOutput {
+	return o
+}
+
+// The identifier of the application that you want to give access to.
+func (o SecurityProfileFlowModuleOutput) FlowModuleId() pulumi.StringOutput {
+	return o.ApplyT(func(v SecurityProfileFlowModule) string { return v.FlowModuleId }).(pulumi.StringOutput)
+}
+
+// The type of the first-party application
+func (o SecurityProfileFlowModuleOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v SecurityProfileFlowModule) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type SecurityProfileFlowModuleArrayOutput struct{ *pulumi.OutputState }
+
+func (SecurityProfileFlowModuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SecurityProfileFlowModule)(nil)).Elem()
+}
+
+func (o SecurityProfileFlowModuleArrayOutput) ToSecurityProfileFlowModuleArrayOutput() SecurityProfileFlowModuleArrayOutput {
+	return o
+}
+
+func (o SecurityProfileFlowModuleArrayOutput) ToSecurityProfileFlowModuleArrayOutputWithContext(ctx context.Context) SecurityProfileFlowModuleArrayOutput {
+	return o
+}
+
+func (o SecurityProfileFlowModuleArrayOutput) Index(i pulumi.IntInput) SecurityProfileFlowModuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SecurityProfileFlowModule {
+		return vs[0].([]SecurityProfileFlowModule)[vs[1].(int)]
+	}).(SecurityProfileFlowModuleOutput)
 }
 
 // Contains the configuration for record-based access control.
@@ -17882,6 +18109,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceStorageConfigS3ConfigInput)(nil)).Elem(), InstanceStorageConfigS3ConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceStorageConfigS3ConfigPtrInput)(nil)).Elem(), InstanceStorageConfigS3ConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NotificationContentInput)(nil)).Elem(), NotificationContentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*QueueEmailAddressInput)(nil)).Elem(), QueueEmailAddressArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*QueueEmailAddressArrayInput)(nil)).Elem(), QueueEmailAddressArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*QueueOutboundCallerConfigInput)(nil)).Elem(), QueueOutboundCallerConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*QueueOutboundCallerConfigPtrInput)(nil)).Elem(), QueueOutboundCallerConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*QueueOutboundEmailConfigInput)(nil)).Elem(), QueueOutboundEmailConfigArgs{})
@@ -17930,6 +18159,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SecurityProfileApplicationArrayInput)(nil)).Elem(), SecurityProfileApplicationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SecurityProfileDataTableAccessControlConfigurationInput)(nil)).Elem(), SecurityProfileDataTableAccessControlConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SecurityProfileDataTableAccessControlConfigurationPtrInput)(nil)).Elem(), SecurityProfileDataTableAccessControlConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurityProfileFlowModuleInput)(nil)).Elem(), SecurityProfileFlowModuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurityProfileFlowModuleArrayInput)(nil)).Elem(), SecurityProfileFlowModuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SecurityProfilePrimaryAttributeAccessControlConfigurationItemInput)(nil)).Elem(), SecurityProfilePrimaryAttributeAccessControlConfigurationItemArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SecurityProfilePrimaryAttributeAccessControlConfigurationItemPtrInput)(nil)).Elem(), SecurityProfilePrimaryAttributeAccessControlConfigurationItemArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SecurityProfilePrimaryAttributeValueInput)(nil)).Elem(), SecurityProfilePrimaryAttributeValueArgs{})
@@ -18118,6 +18349,8 @@ func init() {
 	pulumi.RegisterOutputType(LockVersionPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(NotificationContentOutput{})
 	pulumi.RegisterOutputType(NotificationContentPtrOutput{})
+	pulumi.RegisterOutputType(QueueEmailAddressOutput{})
+	pulumi.RegisterOutputType(QueueEmailAddressArrayOutput{})
 	pulumi.RegisterOutputType(QueueOutboundCallerConfigOutput{})
 	pulumi.RegisterOutputType(QueueOutboundCallerConfigPtrOutput{})
 	pulumi.RegisterOutputType(QueueOutboundEmailConfigOutput{})
@@ -18168,6 +18401,8 @@ func init() {
 	pulumi.RegisterOutputType(SecurityProfileApplicationArrayOutput{})
 	pulumi.RegisterOutputType(SecurityProfileDataTableAccessControlConfigurationOutput{})
 	pulumi.RegisterOutputType(SecurityProfileDataTableAccessControlConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(SecurityProfileFlowModuleOutput{})
+	pulumi.RegisterOutputType(SecurityProfileFlowModuleArrayOutput{})
 	pulumi.RegisterOutputType(SecurityProfilePrimaryAttributeAccessControlConfigurationItemOutput{})
 	pulumi.RegisterOutputType(SecurityProfilePrimaryAttributeAccessControlConfigurationItemPtrOutput{})
 	pulumi.RegisterOutputType(SecurityProfilePrimaryAttributeValueOutput{})

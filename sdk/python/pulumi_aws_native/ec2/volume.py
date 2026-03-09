@@ -82,9 +82,10 @@ class VolumeArgs:
         :param pulumi.Input[_builtins.str] snapshot_id: The snapshot from which to create the volume. Only specify to create a volume from a snapshot. To create a new empty volume, omit this parameter and specify a value for ``Size`` instead. To create a volume copy, omit this parameter and specify ``SourceVolumeId`` instead.
         :param pulumi.Input[_builtins.str] source_volume_id: The ID of the source EBS volume to copy. When specified, the volume is created as an exact copy of the specified volume. Only specify to create a volume copy. To create a new empty volume or to create a volume from a snapshot, omit this parameter,
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags to apply to the volume during creation.
-        :param pulumi.Input[_builtins.int] throughput: The throughput to provision for a volume, with a maximum of 1,000 MiB/s.
+        :param pulumi.Input[_builtins.int] throughput: The throughput to provision for a volume, with a maximum of 2,000 MiB/s.
                 This parameter is valid only for ``gp3`` volumes. The default value is 125.
-                Valid Range: Minimum value of 125. Maximum value of 1000.
+                Valid Range: Minimum value of 125. Maximum value of 2000.
+                The maximum ratio of throughput to IOPS is 0.25 MiB/s per IOPS. For example, a volume with 3,000 IOPS can have a maximum throughput of 750 MiB/s (3,000 x 0.25).
         :param pulumi.Input[_builtins.int] volume_initialization_rate: Specifies the Amazon EBS Provisioned Rate for Volume Initialization (volume initialization rate), in MiB/s, at which to download the snapshot blocks from Amazon S3 to the volume. This is also known as *volume initialization*. Specifying a volume initialization rate ensures that the volume is initialized at a predictable and consistent rate after creation.
                 This parameter is supported only for volumes created from snapshots. Omit this parameter if:
                  +  You want to create the volume using fast snapshot restore. You must specify a snapshot that is enabled for fast snapshot restore. In this case, the volume is fully initialized at creation.
@@ -314,9 +315,10 @@ class VolumeArgs:
     @pulumi.getter
     def throughput(self) -> Optional[pulumi.Input[_builtins.int]]:
         """
-        The throughput to provision for a volume, with a maximum of 1,000 MiB/s.
+        The throughput to provision for a volume, with a maximum of 2,000 MiB/s.
          This parameter is valid only for ``gp3`` volumes. The default value is 125.
-         Valid Range: Minimum value of 125. Maximum value of 1000.
+         Valid Range: Minimum value of 125. Maximum value of 2000.
+         The maximum ratio of throughput to IOPS is 0.25 MiB/s per IOPS. For example, a volume with 3,000 IOPS can have a maximum throughput of 750 MiB/s (3,000 x 0.25).
         """
         return pulumi.get(self, "throughput")
 
@@ -450,9 +452,10 @@ class Volume(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] snapshot_id: The snapshot from which to create the volume. Only specify to create a volume from a snapshot. To create a new empty volume, omit this parameter and specify a value for ``Size`` instead. To create a volume copy, omit this parameter and specify ``SourceVolumeId`` instead.
         :param pulumi.Input[_builtins.str] source_volume_id: The ID of the source EBS volume to copy. When specified, the volume is created as an exact copy of the specified volume. Only specify to create a volume copy. To create a new empty volume or to create a volume from a snapshot, omit this parameter,
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags to apply to the volume during creation.
-        :param pulumi.Input[_builtins.int] throughput: The throughput to provision for a volume, with a maximum of 1,000 MiB/s.
+        :param pulumi.Input[_builtins.int] throughput: The throughput to provision for a volume, with a maximum of 2,000 MiB/s.
                 This parameter is valid only for ``gp3`` volumes. The default value is 125.
-                Valid Range: Minimum value of 125. Maximum value of 1000.
+                Valid Range: Minimum value of 125. Maximum value of 2000.
+                The maximum ratio of throughput to IOPS is 0.25 MiB/s per IOPS. For example, a volume with 3,000 IOPS can have a maximum throughput of 750 MiB/s (3,000 x 0.25).
         :param pulumi.Input[_builtins.int] volume_initialization_rate: Specifies the Amazon EBS Provisioned Rate for Volume Initialization (volume initialization rate), in MiB/s, at which to download the snapshot blocks from Amazon S3 to the volume. This is also known as *volume initialization*. Specifying a volume initialization rate ensures that the volume is initialized at a predictable and consistent rate after creation.
                 This parameter is supported only for volumes created from snapshots. Omit this parameter if:
                  +  You want to create the volume using fast snapshot restore. You must specify a snapshot that is enabled for fast snapshot restore. In this case, the volume is fully initialized at creation.
@@ -722,9 +725,10 @@ class Volume(pulumi.CustomResource):
     @pulumi.getter
     def throughput(self) -> pulumi.Output[Optional[_builtins.int]]:
         """
-        The throughput to provision for a volume, with a maximum of 1,000 MiB/s.
+        The throughput to provision for a volume, with a maximum of 2,000 MiB/s.
          This parameter is valid only for ``gp3`` volumes. The default value is 125.
-         Valid Range: Minimum value of 125. Maximum value of 1000.
+         Valid Range: Minimum value of 125. Maximum value of 2000.
+         The maximum ratio of throughput to IOPS is 0.25 MiB/s per IOPS. For example, a volume with 3,000 IOPS can have a maximum throughput of 750 MiB/s (3,000 x 0.25).
         """
         return pulumi.get(self, "throughput")
 

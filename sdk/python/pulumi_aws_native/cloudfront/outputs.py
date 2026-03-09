@@ -560,6 +560,9 @@ class CloudFrontOriginAccessIdentityConfig(dict):
 
 @pulumi.output_type
 class ConnectionFunctionConfig(dict):
+    """
+    Contains configuration information about a CloudFront function.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -582,6 +585,8 @@ class ConnectionFunctionConfig(dict):
                  runtime: 'ConnectionFunctionConfigRuntime',
                  key_value_store_associations: Optional[Sequence['outputs.ConnectionFunctionKeyValueStoreAssociation']] = None):
         """
+        Contains configuration information about a CloudFront function.
+
         :param _builtins.str comment: A comment to describe the function.
         :param 'ConnectionFunctionConfigRuntime' runtime: The function's runtime environment version.
         :param Sequence['ConnectionFunctionKeyValueStoreAssociation'] key_value_store_associations: The configuration for the key value store associations.
@@ -618,6 +623,9 @@ class ConnectionFunctionConfig(dict):
 
 @pulumi.output_type
 class ConnectionFunctionKeyValueStoreAssociation(dict):
+    """
+    The key value store association.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -638,6 +646,8 @@ class ConnectionFunctionKeyValueStoreAssociation(dict):
     def __init__(__self__, *,
                  key_value_store_arn: _builtins.str):
         """
+        The key value store association.
+
         :param _builtins.str key_value_store_arn: The Amazon Resource Name (ARN) of the key value store association.
         """
         pulumi.set(__self__, "key_value_store_arn", key_value_store_arn)
@@ -1912,9 +1922,14 @@ class DistributionConfigTenantConfigProperties(dict):
 
 @pulumi.output_type
 class DistributionConnectionFunctionAssociation(dict):
+    """
+    A connection function association.
+    """
     def __init__(__self__, *,
                  id: _builtins.str):
         """
+        A connection function association.
+
         :param _builtins.str id: The association's ID.
         """
         pulumi.set(__self__, "id", id)
@@ -2173,6 +2188,7 @@ class DistributionCustomOriginConfig(dict):
         :param 'DistributionCustomOriginConfigIpAddressType' ip_address_type: Specifies which IP protocol CloudFront uses when connecting to your origin. If your origin uses both IPv4 and IPv6 protocols, you can choose ``dualstack`` to help optimize reliability.
         :param _builtins.int origin_keepalive_timeout: Specifies how long, in seconds, CloudFront persists its connection to the origin. The minimum timeout is 1 second, the maximum is 120 seconds, and the default (if you don't specify otherwise) is 5 seconds.
                 For more information, see [Keep-alive timeout (custom origins only)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/DownloadDistValuesOrigin.html#DownloadDistValuesOriginKeepaliveTimeout) in the *Amazon CloudFront Developer Guide*.
+        :param 'DistributionOriginMtlsConfig' origin_mtls_config: Configures mutual TLS authentication between CloudFront and your origin server.
         :param _builtins.int origin_read_timeout: Specifies how long, in seconds, CloudFront waits for a response from the origin. This is also known as the *origin response timeout*. The minimum timeout is 1 second, the maximum is 120 seconds, and the default (if you don't specify otherwise) is 30 seconds.
                 For more information, see [Response timeout](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/DownloadDistValuesOrigin.html#DownloadDistValuesOriginResponseTimeout) in the *Amazon CloudFront Developer Guide*.
         :param Sequence[_builtins.str] origin_ssl_protocols: Specifies the minimum SSL/TLS protocol that CloudFront uses when connecting to your origin over HTTPS. Valid values include ``SSLv3``, ``TLSv1``, ``TLSv1.1``, and ``TLSv1.2``.
@@ -2241,6 +2257,9 @@ class DistributionCustomOriginConfig(dict):
     @_builtins.property
     @pulumi.getter(name="originMtlsConfig")
     def origin_mtls_config(self) -> Optional['outputs.DistributionOriginMtlsConfig']:
+        """
+        Configures mutual TLS authentication between CloudFront and your origin server.
+        """
         return pulumi.get(self, "origin_mtls_config")
 
     @_builtins.property
@@ -3716,6 +3735,9 @@ class DistributionOriginGroups(dict):
 
 @pulumi.output_type
 class DistributionOriginMtlsConfig(dict):
+    """
+    Configures mutual TLS authentication between CloudFront and your origin server.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3735,11 +3757,19 @@ class DistributionOriginMtlsConfig(dict):
 
     def __init__(__self__, *,
                  client_certificate_arn: _builtins.str):
+        """
+        Configures mutual TLS authentication between CloudFront and your origin server.
+
+        :param _builtins.str client_certificate_arn: The Amazon Resource Name (ARN) of the client certificate stored in AWS Certificate Manager (ACM) that CloudFront uses to authenticate with your origin using Mutual TLS.
+        """
         pulumi.set(__self__, "client_certificate_arn", client_certificate_arn)
 
     @_builtins.property
     @pulumi.getter(name="clientCertificateArn")
     def client_certificate_arn(self) -> _builtins.str:
+        """
+        The Amazon Resource Name (ARN) of the client certificate stored in AWS Certificate Manager (ACM) that CloudFront uses to authenticate with your origin using Mutual TLS.
+        """
         return pulumi.get(self, "client_certificate_arn")
 
 
@@ -4397,6 +4427,9 @@ class DistributionTenantWebAclCustomization(dict):
 
 @pulumi.output_type
 class DistributionTrustStoreConfig(dict):
+    """
+    A trust store configuration.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4423,6 +4456,8 @@ class DistributionTrustStoreConfig(dict):
                  advertise_trust_store_ca_names: Optional[_builtins.bool] = None,
                  ignore_certificate_expiry: Optional[_builtins.bool] = None):
         """
+        A trust store configuration.
+
         :param _builtins.str trust_store_id: The trust store ID.
         :param _builtins.bool advertise_trust_store_ca_names: The configuration to use to advertise trust store CA names.
         :param _builtins.bool ignore_certificate_expiry: The configuration to use to ignore certificate expiration.
@@ -4629,6 +4664,9 @@ class DistributionViewerCertificate(dict):
 
 @pulumi.output_type
 class DistributionViewerMtlsConfig(dict):
+    """
+    A viewer mTLS configuration.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4650,6 +4688,8 @@ class DistributionViewerMtlsConfig(dict):
                  mode: Optional['DistributionViewerMtlsMode'] = None,
                  trust_store_config: Optional['outputs.DistributionTrustStoreConfig'] = None):
         """
+        A viewer mTLS configuration.
+
         :param 'DistributionViewerMtlsMode' mode: The viewer mTLS mode.
         :param 'DistributionTrustStoreConfig' trust_store_config: The trust store configuration associated with the viewer mTLS configuration.
         """
@@ -4716,7 +4756,7 @@ class DistributionVpcOriginConfig(dict):
                 For more information, see [Keep-alive timeout (custom origins only)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/DownloadDistValuesOrigin.html#DownloadDistValuesOriginKeepaliveTimeout) in the *Amazon CloudFront Developer Guide*.
         :param _builtins.int origin_read_timeout: Specifies how long, in seconds, CloudFront waits for a response from the origin. This is also known as the *origin response timeout*. The minimum timeout is 1 second, the maximum is 120 seconds, and the default (if you don't specify otherwise) is 30 seconds.
                 For more information, see [Response timeout](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/DownloadDistValuesOrigin.html#DownloadDistValuesOriginResponseTimeout) in the *Amazon CloudFront Developer Guide*.
-        :param _builtins.str owner_account_id: The account ID of the AWS account that owns the VPC origin.
+        :param _builtins.str owner_account_id: The account ID of the AWS-account that owns the VPC origin.
         """
         pulumi.set(__self__, "vpc_origin_id", vpc_origin_id)
         if origin_keepalive_timeout is not None:
@@ -4756,7 +4796,7 @@ class DistributionVpcOriginConfig(dict):
     @pulumi.getter(name="ownerAccountId")
     def owner_account_id(self) -> Optional[_builtins.str]:
         """
-        The account ID of the AWS account that owns the VPC origin.
+        The account ID of the AWS-account that owns the VPC origin.
         """
         return pulumi.get(self, "owner_account_id")
 
@@ -6686,16 +6726,21 @@ class ResponseHeadersPolicyXssProtection(dict):
 
 @pulumi.output_type
 class TrustStoreCaCertificatesBundleS3Location(dict):
+    """
+    The CA certificates bundle location in Amazon S3.
+    """
     def __init__(__self__, *,
                  bucket: _builtins.str,
                  key: _builtins.str,
                  region: _builtins.str,
                  version: Optional[_builtins.str] = None):
         """
-        :param _builtins.str bucket: The S3 bucket containing the CA certificates bundle PEM file
-        :param _builtins.str key: The S3 object key of the CA certificates bundle PEM file
-        :param _builtins.str region: The S3 bucket region
-        :param _builtins.str version: The S3 object version of the CA certificates bundle PEM file
+        The CA certificates bundle location in Amazon S3.
+
+        :param _builtins.str bucket: The S3 bucket.
+        :param _builtins.str key: The location's key.
+        :param _builtins.str region: The location's Region.
+        :param _builtins.str version: The location's version.
         """
         pulumi.set(__self__, "bucket", bucket)
         pulumi.set(__self__, "key", key)
@@ -6707,7 +6752,7 @@ class TrustStoreCaCertificatesBundleS3Location(dict):
     @pulumi.getter
     def bucket(self) -> _builtins.str:
         """
-        The S3 bucket containing the CA certificates bundle PEM file
+        The S3 bucket.
         """
         return pulumi.get(self, "bucket")
 
@@ -6715,7 +6760,7 @@ class TrustStoreCaCertificatesBundleS3Location(dict):
     @pulumi.getter
     def key(self) -> _builtins.str:
         """
-        The S3 object key of the CA certificates bundle PEM file
+        The location's key.
         """
         return pulumi.get(self, "key")
 
@@ -6723,7 +6768,7 @@ class TrustStoreCaCertificatesBundleS3Location(dict):
     @pulumi.getter
     def region(self) -> _builtins.str:
         """
-        The S3 bucket region
+        The location's Region.
         """
         return pulumi.get(self, "region")
 
@@ -6731,13 +6776,16 @@ class TrustStoreCaCertificatesBundleS3Location(dict):
     @pulumi.getter
     def version(self) -> Optional[_builtins.str]:
         """
-        The S3 object version of the CA certificates bundle PEM file
+        The location's version.
         """
         return pulumi.get(self, "version")
 
 
 @pulumi.output_type
 class TrustStoreCaCertificatesBundleSource(dict):
+    """
+    A CA certificates bundle source.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -6758,6 +6806,8 @@ class TrustStoreCaCertificatesBundleSource(dict):
     def __init__(__self__, *,
                  ca_certificates_bundle_s3_location: 'outputs.TrustStoreCaCertificatesBundleS3Location'):
         """
+        A CA certificates bundle source.
+
         :param 'TrustStoreCaCertificatesBundleS3Location' ca_certificates_bundle_s3_location: The CA certificates bundle location in Amazon S3.
         """
         pulumi.set(__self__, "ca_certificates_bundle_s3_location", ca_certificates_bundle_s3_location)

@@ -23,15 +23,15 @@ __all__ = ['AlarmArgs', 'Alarm']
 @pulumi.input_type
 class AlarmArgs:
     def __init__(__self__, *,
-                 comparison_operator: pulumi.Input[_builtins.str],
-                 evaluation_periods: pulumi.Input[_builtins.int],
                  actions_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  alarm_actions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  alarm_description: Optional[pulumi.Input[_builtins.str]] = None,
                  alarm_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 comparison_operator: Optional[pulumi.Input[_builtins.str]] = None,
                  datapoints_to_alarm: Optional[pulumi.Input[_builtins.int]] = None,
                  dimensions: Optional[pulumi.Input[Sequence[pulumi.Input['AlarmDimensionArgs']]]] = None,
                  evaluate_low_sample_count_percentile: Optional[pulumi.Input[_builtins.str]] = None,
+                 evaluation_periods: Optional[pulumi.Input[_builtins.int]] = None,
                  extended_statistic: Optional[pulumi.Input[_builtins.str]] = None,
                  insufficient_data_actions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  metric_name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -48,18 +48,18 @@ class AlarmArgs:
         """
         The set of arguments for constructing a Alarm resource.
 
-        :param pulumi.Input[_builtins.str] comparison_operator: The arithmetic operation to use when comparing the specified statistic and threshold. The specified statistic value is used as the first operand.
-        :param pulumi.Input[_builtins.int] evaluation_periods: The number of periods over which data is compared to the specified threshold. If you are setting an alarm that requires that a number of consecutive data points be breaching to trigger the alarm, this value specifies that number. If you are setting an "M out of N" alarm, this value is the N, and ``DatapointsToAlarm`` is the M.
-                For more information, see [Evaluating an Alarm](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#alarm-evaluation) in the *User Guide*.
         :param pulumi.Input[_builtins.bool] actions_enabled: Indicates whether actions should be executed during any changes to the alarm state. The default is TRUE.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] alarm_actions: The list of actions to execute when this alarm transitions into an ALARM state from any other state. Specify each action as an Amazon Resource Name (ARN). For more information about creating alarms and the actions that you can specify, see [PutMetricAlarm](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_PutMetricAlarm.html) in the *API Reference*.
         :param pulumi.Input[_builtins.str] alarm_description: The description of the alarm.
         :param pulumi.Input[_builtins.str] alarm_name: The name of the alarm. If you don't specify a name, CFN generates a unique physical ID and uses that ID for the alarm name. 
                  If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
+        :param pulumi.Input[_builtins.str] comparison_operator: The arithmetic operation to use when comparing the specified statistic and threshold. The specified statistic value is used as the first operand.
         :param pulumi.Input[_builtins.int] datapoints_to_alarm: The number of datapoints that must be breaching to trigger the alarm. This is used only if you are setting an "M out of N" alarm. In that case, this value is the M, and the value that you set for ``EvaluationPeriods`` is the N value. For more information, see [Evaluating an Alarm](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#alarm-evaluation) in the *User Guide*.
                 If you omit this parameter, CW uses the same value here that you set for ``EvaluationPeriods``, and the alarm goes to alarm state if that many consecutive periods are breaching.
         :param pulumi.Input[Sequence[pulumi.Input['AlarmDimensionArgs']]] dimensions: The dimensions for the metric associated with the alarm. For an alarm based on a math expression, you can't specify ``Dimensions``. Instead, you use ``Metrics``.
         :param pulumi.Input[_builtins.str] evaluate_low_sample_count_percentile: Used only for alarms based on percentiles. If ``ignore``, the alarm state does not change during periods with too few data points to be statistically significant. If ``evaluate`` or this parameter is not used, the alarm is always evaluated and possibly changes state no matter how many data points are available.
+        :param pulumi.Input[_builtins.int] evaluation_periods: The number of periods over which data is compared to the specified threshold. If you are setting an alarm that requires that a number of consecutive data points be breaching to trigger the alarm, this value specifies that number. If you are setting an "M out of N" alarm, this value is the N, and ``DatapointsToAlarm`` is the M.
+                For more information, see [Evaluating an Alarm](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#alarm-evaluation) in the *User Guide*.
         :param pulumi.Input[_builtins.str] extended_statistic: The percentile statistic for the metric associated with the alarm. Specify a value between p0.0 and p100.
                 For an alarm based on a metric, you must specify either ``Statistic`` or ``ExtendedStatistic`` but not both.
                 For an alarm based on a math expression, you can't specify ``ExtendedStatistic``. Instead, you use ``Metrics``.
@@ -85,8 +85,6 @@ class AlarmArgs:
         :param pulumi.Input[_builtins.str] unit: The unit of the metric associated with the alarm. Specify this only if you are creating an alarm based on a single metric. Do not specify this if you are specifying a ``Metrics`` array.
                  You can specify the following values: Seconds, Microseconds, Milliseconds, Bytes, Kilobytes, Megabytes, Gigabytes, Terabytes, Bits, Kilobits, Megabits, Gigabits, Terabits, Percent, Count, Bytes/Second, Kilobytes/Second, Megabytes/Second, Gigabytes/Second, Terabytes/Second, Bits/Second, Kilobits/Second, Megabits/Second, Gigabits/Second, Terabits/Second, Count/Second, or None.
         """
-        pulumi.set(__self__, "comparison_operator", comparison_operator)
-        pulumi.set(__self__, "evaluation_periods", evaluation_periods)
         if actions_enabled is not None:
             pulumi.set(__self__, "actions_enabled", actions_enabled)
         if alarm_actions is not None:
@@ -95,12 +93,16 @@ class AlarmArgs:
             pulumi.set(__self__, "alarm_description", alarm_description)
         if alarm_name is not None:
             pulumi.set(__self__, "alarm_name", alarm_name)
+        if comparison_operator is not None:
+            pulumi.set(__self__, "comparison_operator", comparison_operator)
         if datapoints_to_alarm is not None:
             pulumi.set(__self__, "datapoints_to_alarm", datapoints_to_alarm)
         if dimensions is not None:
             pulumi.set(__self__, "dimensions", dimensions)
         if evaluate_low_sample_count_percentile is not None:
             pulumi.set(__self__, "evaluate_low_sample_count_percentile", evaluate_low_sample_count_percentile)
+        if evaluation_periods is not None:
+            pulumi.set(__self__, "evaluation_periods", evaluation_periods)
         if extended_statistic is not None:
             pulumi.set(__self__, "extended_statistic", extended_statistic)
         if insufficient_data_actions is not None:
@@ -127,31 +129,6 @@ class AlarmArgs:
             pulumi.set(__self__, "treat_missing_data", treat_missing_data)
         if unit is not None:
             pulumi.set(__self__, "unit", unit)
-
-    @_builtins.property
-    @pulumi.getter(name="comparisonOperator")
-    def comparison_operator(self) -> pulumi.Input[_builtins.str]:
-        """
-        The arithmetic operation to use when comparing the specified statistic and threshold. The specified statistic value is used as the first operand.
-        """
-        return pulumi.get(self, "comparison_operator")
-
-    @comparison_operator.setter
-    def comparison_operator(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "comparison_operator", value)
-
-    @_builtins.property
-    @pulumi.getter(name="evaluationPeriods")
-    def evaluation_periods(self) -> pulumi.Input[_builtins.int]:
-        """
-        The number of periods over which data is compared to the specified threshold. If you are setting an alarm that requires that a number of consecutive data points be breaching to trigger the alarm, this value specifies that number. If you are setting an "M out of N" alarm, this value is the N, and ``DatapointsToAlarm`` is the M.
-         For more information, see [Evaluating an Alarm](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#alarm-evaluation) in the *User Guide*.
-        """
-        return pulumi.get(self, "evaluation_periods")
-
-    @evaluation_periods.setter
-    def evaluation_periods(self, value: pulumi.Input[_builtins.int]):
-        pulumi.set(self, "evaluation_periods", value)
 
     @_builtins.property
     @pulumi.getter(name="actionsEnabled")
@@ -203,6 +180,18 @@ class AlarmArgs:
         pulumi.set(self, "alarm_name", value)
 
     @_builtins.property
+    @pulumi.getter(name="comparisonOperator")
+    def comparison_operator(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The arithmetic operation to use when comparing the specified statistic and threshold. The specified statistic value is used as the first operand.
+        """
+        return pulumi.get(self, "comparison_operator")
+
+    @comparison_operator.setter
+    def comparison_operator(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "comparison_operator", value)
+
+    @_builtins.property
     @pulumi.getter(name="datapointsToAlarm")
     def datapoints_to_alarm(self) -> Optional[pulumi.Input[_builtins.int]]:
         """
@@ -238,6 +227,19 @@ class AlarmArgs:
     @evaluate_low_sample_count_percentile.setter
     def evaluate_low_sample_count_percentile(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "evaluate_low_sample_count_percentile", value)
+
+    @_builtins.property
+    @pulumi.getter(name="evaluationPeriods")
+    def evaluation_periods(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        The number of periods over which data is compared to the specified threshold. If you are setting an alarm that requires that a number of consecutive data points be breaching to trigger the alarm, this value specifies that number. If you are setting an "M out of N" alarm, this value is the N, and ``DatapointsToAlarm`` is the M.
+         For more information, see [Evaluating an Alarm](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#alarm-evaluation) in the *User Guide*.
+        """
+        return pulumi.get(self, "evaluation_periods")
+
+    @evaluation_periods.setter
+    def evaluation_periods(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "evaluation_periods", value)
 
     @_builtins.property
     @pulumi.getter(name="extendedStatistic")
@@ -485,7 +487,7 @@ class Alarm(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: AlarmArgs,
+                 args: Optional[AlarmArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The ``AWS::CloudWatch::Alarm`` type specifies an alarm and associates it with the specified metric or metric math expression.
@@ -543,14 +545,10 @@ class Alarm(pulumi.CustomResource):
             __props__.__dict__["alarm_actions"] = alarm_actions
             __props__.__dict__["alarm_description"] = alarm_description
             __props__.__dict__["alarm_name"] = alarm_name
-            if comparison_operator is None and not opts.urn:
-                raise TypeError("Missing required property 'comparison_operator'")
             __props__.__dict__["comparison_operator"] = comparison_operator
             __props__.__dict__["datapoints_to_alarm"] = datapoints_to_alarm
             __props__.__dict__["dimensions"] = dimensions
             __props__.__dict__["evaluate_low_sample_count_percentile"] = evaluate_low_sample_count_percentile
-            if evaluation_periods is None and not opts.urn:
-                raise TypeError("Missing required property 'evaluation_periods'")
             __props__.__dict__["evaluation_periods"] = evaluation_periods
             __props__.__dict__["extended_statistic"] = extended_statistic
             __props__.__dict__["insufficient_data_actions"] = insufficient_data_actions
@@ -658,7 +656,7 @@ class Alarm(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="comparisonOperator")
-    def comparison_operator(self) -> pulumi.Output[_builtins.str]:
+    def comparison_operator(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
         The arithmetic operation to use when comparing the specified statistic and threshold. The specified statistic value is used as the first operand.
         """
@@ -691,7 +689,7 @@ class Alarm(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="evaluationPeriods")
-    def evaluation_periods(self) -> pulumi.Output[_builtins.int]:
+    def evaluation_periods(self) -> pulumi.Output[Optional[_builtins.int]]:
         """
         The number of periods over which data is compared to the specified threshold. If you are setting an alarm that requires that a number of consecutive data points be breaching to trigger the alarm, this value specifies that number. If you are setting an "M out of N" alarm, this value is the N, and ``DatapointsToAlarm`` is the M.
          For more information, see [Evaluating an Alarm](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#alarm-evaluation) in the *User Guide*.

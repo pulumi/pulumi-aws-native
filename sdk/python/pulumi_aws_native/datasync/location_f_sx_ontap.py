@@ -121,7 +121,7 @@ class LocationFSxOntap(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
-        Resource schema for AWS::DataSync::LocationFSxONTAP.
+        Resource Type definition for AWS::DataSync::LocationFSxONTAP.
 
 
         :param str resource_name: The name of the resource.
@@ -139,7 +139,7 @@ class LocationFSxOntap(pulumi.CustomResource):
                  args: LocationFSxOntapArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource schema for AWS::DataSync::LocationFSxONTAP.
+        Resource Type definition for AWS::DataSync::LocationFSxONTAP.
 
 
         :param str resource_name: The name of the resource.

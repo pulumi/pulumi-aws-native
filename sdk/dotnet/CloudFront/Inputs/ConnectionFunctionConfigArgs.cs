@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CloudFront.Inputs
 {
 
+    /// <summary>
+    /// Contains configuration information about a CloudFront function.
+    /// </summary>
     public sealed class ConnectionFunctionConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>

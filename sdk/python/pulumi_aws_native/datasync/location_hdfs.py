@@ -28,6 +28,8 @@ class LocationHdfsArgs:
                  authentication_type: pulumi.Input['LocationHdfsAuthenticationType'],
                  name_nodes: pulumi.Input[Sequence[pulumi.Input['LocationHdfsNameNodeArgs']]],
                  block_size: Optional[pulumi.Input[_builtins.int]] = None,
+                 cmk_secret_config: Optional[pulumi.Input['LocationHdfsCmkSecretConfigArgs']] = None,
+                 custom_secret_config: Optional[pulumi.Input['LocationHdfsCustomSecretConfigArgs']] = None,
                  kerberos_keytab: Optional[pulumi.Input[_builtins.str]] = None,
                  kerberos_krb5_conf: Optional[pulumi.Input[_builtins.str]] = None,
                  kerberos_principal: Optional[pulumi.Input[_builtins.str]] = None,
@@ -59,6 +61,10 @@ class LocationHdfsArgs:
         pulumi.set(__self__, "name_nodes", name_nodes)
         if block_size is not None:
             pulumi.set(__self__, "block_size", block_size)
+        if cmk_secret_config is not None:
+            pulumi.set(__self__, "cmk_secret_config", cmk_secret_config)
+        if custom_secret_config is not None:
+            pulumi.set(__self__, "custom_secret_config", custom_secret_config)
         if kerberos_keytab is not None:
             pulumi.set(__self__, "kerberos_keytab", kerberos_keytab)
         if kerberos_krb5_conf is not None:
@@ -125,6 +131,24 @@ class LocationHdfsArgs:
     @block_size.setter
     def block_size(self, value: Optional[pulumi.Input[_builtins.int]]):
         pulumi.set(self, "block_size", value)
+
+    @_builtins.property
+    @pulumi.getter(name="cmkSecretConfig")
+    def cmk_secret_config(self) -> Optional[pulumi.Input['LocationHdfsCmkSecretConfigArgs']]:
+        return pulumi.get(self, "cmk_secret_config")
+
+    @cmk_secret_config.setter
+    def cmk_secret_config(self, value: Optional[pulumi.Input['LocationHdfsCmkSecretConfigArgs']]):
+        pulumi.set(self, "cmk_secret_config", value)
+
+    @_builtins.property
+    @pulumi.getter(name="customSecretConfig")
+    def custom_secret_config(self) -> Optional[pulumi.Input['LocationHdfsCustomSecretConfigArgs']]:
+        return pulumi.get(self, "custom_secret_config")
+
+    @custom_secret_config.setter
+    def custom_secret_config(self, value: Optional[pulumi.Input['LocationHdfsCustomSecretConfigArgs']]):
+        pulumi.set(self, "custom_secret_config", value)
 
     @_builtins.property
     @pulumi.getter(name="kerberosKeytab")
@@ -244,6 +268,8 @@ class LocationHdfs(pulumi.CustomResource):
                  agent_arns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  authentication_type: Optional[pulumi.Input['LocationHdfsAuthenticationType']] = None,
                  block_size: Optional[pulumi.Input[_builtins.int]] = None,
+                 cmk_secret_config: Optional[pulumi.Input[Union['LocationHdfsCmkSecretConfigArgs', 'LocationHdfsCmkSecretConfigArgsDict']]] = None,
+                 custom_secret_config: Optional[pulumi.Input[Union['LocationHdfsCustomSecretConfigArgs', 'LocationHdfsCustomSecretConfigArgsDict']]] = None,
                  kerberos_keytab: Optional[pulumi.Input[_builtins.str]] = None,
                  kerberos_krb5_conf: Optional[pulumi.Input[_builtins.str]] = None,
                  kerberos_principal: Optional[pulumi.Input[_builtins.str]] = None,
@@ -256,7 +282,7 @@ class LocationHdfs(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
-        Resource schema for AWS::DataSync::LocationHDFS.
+        Resource Type definition for AWS::DataSync::LocationHDFS.
 
 
         :param str resource_name: The name of the resource.
@@ -282,7 +308,7 @@ class LocationHdfs(pulumi.CustomResource):
                  args: LocationHdfsArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource schema for AWS::DataSync::LocationHDFS.
+        Resource Type definition for AWS::DataSync::LocationHDFS.
 
 
         :param str resource_name: The name of the resource.
@@ -303,6 +329,8 @@ class LocationHdfs(pulumi.CustomResource):
                  agent_arns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  authentication_type: Optional[pulumi.Input['LocationHdfsAuthenticationType']] = None,
                  block_size: Optional[pulumi.Input[_builtins.int]] = None,
+                 cmk_secret_config: Optional[pulumi.Input[Union['LocationHdfsCmkSecretConfigArgs', 'LocationHdfsCmkSecretConfigArgsDict']]] = None,
+                 custom_secret_config: Optional[pulumi.Input[Union['LocationHdfsCustomSecretConfigArgs', 'LocationHdfsCustomSecretConfigArgsDict']]] = None,
                  kerberos_keytab: Optional[pulumi.Input[_builtins.str]] = None,
                  kerberos_krb5_conf: Optional[pulumi.Input[_builtins.str]] = None,
                  kerberos_principal: Optional[pulumi.Input[_builtins.str]] = None,
@@ -329,6 +357,8 @@ class LocationHdfs(pulumi.CustomResource):
                 raise TypeError("Missing required property 'authentication_type'")
             __props__.__dict__["authentication_type"] = authentication_type
             __props__.__dict__["block_size"] = block_size
+            __props__.__dict__["cmk_secret_config"] = cmk_secret_config
+            __props__.__dict__["custom_secret_config"] = custom_secret_config
             __props__.__dict__["kerberos_keytab"] = kerberos_keytab
             __props__.__dict__["kerberos_krb5_conf"] = kerberos_krb5_conf
             __props__.__dict__["kerberos_principal"] = kerberos_principal
@@ -343,6 +373,7 @@ class LocationHdfs(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["location_arn"] = None
             __props__.__dict__["location_uri"] = None
+            __props__.__dict__["managed_secret_config"] = None
         super(LocationHdfs, __self__).__init__(
             'aws-native:datasync:LocationHdfs',
             resource_name,
@@ -368,12 +399,15 @@ class LocationHdfs(pulumi.CustomResource):
         __props__.__dict__["agent_arns"] = None
         __props__.__dict__["authentication_type"] = None
         __props__.__dict__["block_size"] = None
+        __props__.__dict__["cmk_secret_config"] = None
+        __props__.__dict__["custom_secret_config"] = None
         __props__.__dict__["kerberos_keytab"] = None
         __props__.__dict__["kerberos_krb5_conf"] = None
         __props__.__dict__["kerberos_principal"] = None
         __props__.__dict__["kms_key_provider_uri"] = None
         __props__.__dict__["location_arn"] = None
         __props__.__dict__["location_uri"] = None
+        __props__.__dict__["managed_secret_config"] = None
         __props__.__dict__["name_nodes"] = None
         __props__.__dict__["qop_configuration"] = None
         __props__.__dict__["replication_factor"] = None
@@ -405,6 +439,16 @@ class LocationHdfs(pulumi.CustomResource):
         Size of chunks (blocks) in bytes that the data is divided into when stored in the HDFS cluster.
         """
         return pulumi.get(self, "block_size")
+
+    @_builtins.property
+    @pulumi.getter(name="cmkSecretConfig")
+    def cmk_secret_config(self) -> pulumi.Output[Optional['outputs.LocationHdfsCmkSecretConfig']]:
+        return pulumi.get(self, "cmk_secret_config")
+
+    @_builtins.property
+    @pulumi.getter(name="customSecretConfig")
+    def custom_secret_config(self) -> pulumi.Output[Optional['outputs.LocationHdfsCustomSecretConfig']]:
+        return pulumi.get(self, "custom_secret_config")
 
     @_builtins.property
     @pulumi.getter(name="kerberosKeytab")
@@ -453,6 +497,11 @@ class LocationHdfs(pulumi.CustomResource):
         The URL of the HDFS location that was described.
         """
         return pulumi.get(self, "location_uri")
+
+    @_builtins.property
+    @pulumi.getter(name="managedSecretConfig")
+    def managed_secret_config(self) -> pulumi.Output['outputs.LocationHdfsManagedSecretConfig']:
+        return pulumi.get(self, "managed_secret_config")
 
     @_builtins.property
     @pulumi.getter(name="nameNodes")

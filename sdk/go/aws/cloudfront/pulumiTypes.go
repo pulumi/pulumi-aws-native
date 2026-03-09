@@ -930,6 +930,7 @@ func (o CloudFrontOriginAccessIdentityConfigPtrOutput) Comment() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
+// Contains configuration information about a CloudFront function.
 type ConnectionFunctionConfig struct {
 	// A comment to describe the function.
 	Comment string `pulumi:"comment"`
@@ -950,6 +951,7 @@ type ConnectionFunctionConfigInput interface {
 	ToConnectionFunctionConfigOutputWithContext(context.Context) ConnectionFunctionConfigOutput
 }
 
+// Contains configuration information about a CloudFront function.
 type ConnectionFunctionConfigArgs struct {
 	// A comment to describe the function.
 	Comment pulumi.StringInput `pulumi:"comment"`
@@ -971,6 +973,7 @@ func (i ConnectionFunctionConfigArgs) ToConnectionFunctionConfigOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectionFunctionConfigOutput)
 }
 
+// Contains configuration information about a CloudFront function.
 type ConnectionFunctionConfigOutput struct{ *pulumi.OutputState }
 
 func (ConnectionFunctionConfigOutput) ElementType() reflect.Type {
@@ -1056,6 +1059,7 @@ func (o ConnectionFunctionConfigPtrOutput) Runtime() ConnectionFunctionConfigRun
 	}).(ConnectionFunctionConfigRuntimePtrOutput)
 }
 
+// The key value store association.
 type ConnectionFunctionKeyValueStoreAssociation struct {
 	// The Amazon Resource Name (ARN) of the key value store association.
 	KeyValueStoreArn string `pulumi:"keyValueStoreArn"`
@@ -1072,6 +1076,7 @@ type ConnectionFunctionKeyValueStoreAssociationInput interface {
 	ToConnectionFunctionKeyValueStoreAssociationOutputWithContext(context.Context) ConnectionFunctionKeyValueStoreAssociationOutput
 }
 
+// The key value store association.
 type ConnectionFunctionKeyValueStoreAssociationArgs struct {
 	// The Amazon Resource Name (ARN) of the key value store association.
 	KeyValueStoreArn pulumi.StringInput `pulumi:"keyValueStoreArn"`
@@ -1114,6 +1119,7 @@ func (i ConnectionFunctionKeyValueStoreAssociationArray) ToConnectionFunctionKey
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectionFunctionKeyValueStoreAssociationArrayOutput)
 }
 
+// The key value store association.
 type ConnectionFunctionKeyValueStoreAssociationOutput struct{ *pulumi.OutputState }
 
 func (ConnectionFunctionKeyValueStoreAssociationOutput) ElementType() reflect.Type {
@@ -1153,14 +1159,13 @@ func (o ConnectionFunctionKeyValueStoreAssociationArrayOutput) Index(i pulumi.In
 	}).(ConnectionFunctionKeyValueStoreAssociationOutput)
 }
 
+// A complex type that contains “Tag“ key and “Tag“ value.
 type ConnectionFunctionTag struct {
-	// A string that contains `Tag` key.
-	//
-	// The string length should be between 1 and 128 characters. Valid characters include `a-z` , `A-Z` , `0-9` , space, and the special characters `_ - . : / = + @` .
+	// A string that contains ``Tag`` key.
+	//  The string length should be between 1 and 128 characters. Valid characters include ``a-z``, ``A-Z``, ``0-9``, space, and the special characters ``_ - . : / = + @``.
 	Key string `pulumi:"key"`
-	// A string that contains an optional `Tag` value.
-	//
-	// The string length should be between 0 and 256 characters. Valid characters include `a-z` , `A-Z` , `0-9` , space, and the special characters `_ - . : / = + @` .
+	// A string that contains an optional ``Tag`` value.
+	//  The string length should be between 0 and 256 characters. Valid characters include ``a-z``, ``A-Z``, ``0-9``, space, and the special characters ``_ - . : / = + @``.
 	Value string `pulumi:"value"`
 }
 
@@ -3645,6 +3650,7 @@ func (o DistributionConfigTenantConfigPropertiesPtrOutput) ParameterDefinitions(
 	}).(DistributionParameterDefinitionArrayOutput)
 }
 
+// A connection function association.
 type DistributionConnectionFunctionAssociation struct {
 	// The association's ID.
 	Id string `pulumi:"id"`
@@ -3661,6 +3667,7 @@ type DistributionConnectionFunctionAssociationInput interface {
 	ToDistributionConnectionFunctionAssociationOutputWithContext(context.Context) DistributionConnectionFunctionAssociationOutput
 }
 
+// A connection function association.
 type DistributionConnectionFunctionAssociationArgs struct {
 	// The association's ID.
 	Id pulumi.StringInput `pulumi:"id"`
@@ -3719,6 +3726,7 @@ func (i *distributionConnectionFunctionAssociationPtrType) ToDistributionConnect
 	return pulumi.ToOutputWithContext(ctx, i).(DistributionConnectionFunctionAssociationPtrOutput)
 }
 
+// A connection function association.
 type DistributionConnectionFunctionAssociationOutput struct{ *pulumi.OutputState }
 
 func (DistributionConnectionFunctionAssociationOutput) ElementType() reflect.Type {
@@ -4187,8 +4195,9 @@ type DistributionCustomOriginConfig struct {
 	IpAddressType *DistributionCustomOriginConfigIpAddressType `pulumi:"ipAddressType"`
 	// Specifies how long, in seconds, CloudFront persists its connection to the origin. The minimum timeout is 1 second, the maximum is 120 seconds, and the default (if you don't specify otherwise) is 5 seconds.
 	//  For more information, see [Keep-alive timeout (custom origins only)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/DownloadDistValuesOrigin.html#DownloadDistValuesOriginKeepaliveTimeout) in the *Amazon CloudFront Developer Guide*.
-	OriginKeepaliveTimeout *int                          `pulumi:"originKeepaliveTimeout"`
-	OriginMtlsConfig       *DistributionOriginMtlsConfig `pulumi:"originMtlsConfig"`
+	OriginKeepaliveTimeout *int `pulumi:"originKeepaliveTimeout"`
+	// Configures mutual TLS authentication between CloudFront and your origin server.
+	OriginMtlsConfig *DistributionOriginMtlsConfig `pulumi:"originMtlsConfig"`
 	// Specifies the protocol (HTTP or HTTPS) that CloudFront uses to connect to the origin. Valid values are:
 	//   +  ``http-only`` – CloudFront always uses HTTP to connect to the origin.
 	//   +  ``match-viewer`` – CloudFront connects to the origin using the same protocol that the viewer used to connect to CloudFront.
@@ -4223,8 +4232,9 @@ type DistributionCustomOriginConfigArgs struct {
 	IpAddressType DistributionCustomOriginConfigIpAddressTypePtrInput `pulumi:"ipAddressType"`
 	// Specifies how long, in seconds, CloudFront persists its connection to the origin. The minimum timeout is 1 second, the maximum is 120 seconds, and the default (if you don't specify otherwise) is 5 seconds.
 	//  For more information, see [Keep-alive timeout (custom origins only)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/DownloadDistValuesOrigin.html#DownloadDistValuesOriginKeepaliveTimeout) in the *Amazon CloudFront Developer Guide*.
-	OriginKeepaliveTimeout pulumi.IntPtrInput                   `pulumi:"originKeepaliveTimeout"`
-	OriginMtlsConfig       DistributionOriginMtlsConfigPtrInput `pulumi:"originMtlsConfig"`
+	OriginKeepaliveTimeout pulumi.IntPtrInput `pulumi:"originKeepaliveTimeout"`
+	// Configures mutual TLS authentication between CloudFront and your origin server.
+	OriginMtlsConfig DistributionOriginMtlsConfigPtrInput `pulumi:"originMtlsConfig"`
 	// Specifies the protocol (HTTP or HTTPS) that CloudFront uses to connect to the origin. Valid values are:
 	//   +  ``http-only`` – CloudFront always uses HTTP to connect to the origin.
 	//   +  ``match-viewer`` – CloudFront connects to the origin using the same protocol that the viewer used to connect to CloudFront.
@@ -4340,6 +4350,7 @@ func (o DistributionCustomOriginConfigOutput) OriginKeepaliveTimeout() pulumi.In
 	return o.ApplyT(func(v DistributionCustomOriginConfig) *int { return v.OriginKeepaliveTimeout }).(pulumi.IntPtrOutput)
 }
 
+// Configures mutual TLS authentication between CloudFront and your origin server.
 func (o DistributionCustomOriginConfigOutput) OriginMtlsConfig() DistributionOriginMtlsConfigPtrOutput {
 	return o.ApplyT(func(v DistributionCustomOriginConfig) *DistributionOriginMtlsConfig { return v.OriginMtlsConfig }).(DistributionOriginMtlsConfigPtrOutput)
 }
@@ -4432,6 +4443,7 @@ func (o DistributionCustomOriginConfigPtrOutput) OriginKeepaliveTimeout() pulumi
 	}).(pulumi.IntPtrOutput)
 }
 
+// Configures mutual TLS authentication between CloudFront and your origin server.
 func (o DistributionCustomOriginConfigPtrOutput) OriginMtlsConfig() DistributionOriginMtlsConfigPtrOutput {
 	return o.ApplyT(func(v *DistributionCustomOriginConfig) *DistributionOriginMtlsConfig {
 		if v == nil {
@@ -7438,7 +7450,9 @@ func (o DistributionOriginGroupsPtrOutput) Quantity() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
+// Configures mutual TLS authentication between CloudFront and your origin server.
 type DistributionOriginMtlsConfig struct {
+	// The Amazon Resource Name (ARN) of the client certificate stored in AWS Certificate Manager (ACM) that CloudFront uses to authenticate with your origin using Mutual TLS.
 	ClientCertificateArn string `pulumi:"clientCertificateArn"`
 }
 
@@ -7453,7 +7467,9 @@ type DistributionOriginMtlsConfigInput interface {
 	ToDistributionOriginMtlsConfigOutputWithContext(context.Context) DistributionOriginMtlsConfigOutput
 }
 
+// Configures mutual TLS authentication between CloudFront and your origin server.
 type DistributionOriginMtlsConfigArgs struct {
+	// The Amazon Resource Name (ARN) of the client certificate stored in AWS Certificate Manager (ACM) that CloudFront uses to authenticate with your origin using Mutual TLS.
 	ClientCertificateArn pulumi.StringInput `pulumi:"clientCertificateArn"`
 }
 
@@ -7510,6 +7526,7 @@ func (i *distributionOriginMtlsConfigPtrType) ToDistributionOriginMtlsConfigPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(DistributionOriginMtlsConfigPtrOutput)
 }
 
+// Configures mutual TLS authentication between CloudFront and your origin server.
 type DistributionOriginMtlsConfigOutput struct{ *pulumi.OutputState }
 
 func (DistributionOriginMtlsConfigOutput) ElementType() reflect.Type {
@@ -7534,6 +7551,7 @@ func (o DistributionOriginMtlsConfigOutput) ToDistributionOriginMtlsConfigPtrOut
 	}).(DistributionOriginMtlsConfigPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the client certificate stored in AWS Certificate Manager (ACM) that CloudFront uses to authenticate with your origin using Mutual TLS.
 func (o DistributionOriginMtlsConfigOutput) ClientCertificateArn() pulumi.StringOutput {
 	return o.ApplyT(func(v DistributionOriginMtlsConfig) string { return v.ClientCertificateArn }).(pulumi.StringOutput)
 }
@@ -7562,6 +7580,7 @@ func (o DistributionOriginMtlsConfigPtrOutput) Elem() DistributionOriginMtlsConf
 	}).(DistributionOriginMtlsConfigOutput)
 }
 
+// The Amazon Resource Name (ARN) of the client certificate stored in AWS Certificate Manager (ACM) that CloudFront uses to authenticate with your origin using Mutual TLS.
 func (o DistributionOriginMtlsConfigPtrOutput) ClientCertificateArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DistributionOriginMtlsConfig) *string {
 		if v == nil {
@@ -9511,6 +9530,7 @@ func (o DistributionTenantWebAclCustomizationPtrOutput) Arn() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
+// A trust store configuration.
 type DistributionTrustStoreConfig struct {
 	// The configuration to use to advertise trust store CA names.
 	AdvertiseTrustStoreCaNames *bool `pulumi:"advertiseTrustStoreCaNames"`
@@ -9531,6 +9551,7 @@ type DistributionTrustStoreConfigInput interface {
 	ToDistributionTrustStoreConfigOutputWithContext(context.Context) DistributionTrustStoreConfigOutput
 }
 
+// A trust store configuration.
 type DistributionTrustStoreConfigArgs struct {
 	// The configuration to use to advertise trust store CA names.
 	AdvertiseTrustStoreCaNames pulumi.BoolPtrInput `pulumi:"advertiseTrustStoreCaNames"`
@@ -9593,6 +9614,7 @@ func (i *distributionTrustStoreConfigPtrType) ToDistributionTrustStoreConfigPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(DistributionTrustStoreConfigPtrOutput)
 }
 
+// A trust store configuration.
 type DistributionTrustStoreConfigOutput struct{ *pulumi.OutputState }
 
 func (DistributionTrustStoreConfigOutput) ElementType() reflect.Type {
@@ -10044,6 +10066,7 @@ func (o DistributionViewerCertificatePtrOutput) SslSupportMethod() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
+// A viewer mTLS configuration.
 type DistributionViewerMtlsConfig struct {
 	// The viewer mTLS mode.
 	Mode *DistributionViewerMtlsMode `pulumi:"mode"`
@@ -10062,6 +10085,7 @@ type DistributionViewerMtlsConfigInput interface {
 	ToDistributionViewerMtlsConfigOutputWithContext(context.Context) DistributionViewerMtlsConfigOutput
 }
 
+// A viewer mTLS configuration.
 type DistributionViewerMtlsConfigArgs struct {
 	// The viewer mTLS mode.
 	Mode DistributionViewerMtlsModePtrInput `pulumi:"mode"`
@@ -10122,6 +10146,7 @@ func (i *distributionViewerMtlsConfigPtrType) ToDistributionViewerMtlsConfigPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(DistributionViewerMtlsConfigPtrOutput)
 }
 
+// A viewer mTLS configuration.
 type DistributionViewerMtlsConfigOutput struct{ *pulumi.OutputState }
 
 func (DistributionViewerMtlsConfigOutput) ElementType() reflect.Type {
@@ -10208,7 +10233,7 @@ type DistributionVpcOriginConfig struct {
 	// Specifies how long, in seconds, CloudFront waits for a response from the origin. This is also known as the *origin response timeout*. The minimum timeout is 1 second, the maximum is 120 seconds, and the default (if you don't specify otherwise) is 30 seconds.
 	//  For more information, see [Response timeout](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/DownloadDistValuesOrigin.html#DownloadDistValuesOriginResponseTimeout) in the *Amazon CloudFront Developer Guide*.
 	OriginReadTimeout *int `pulumi:"originReadTimeout"`
-	// The account ID of the AWS account that owns the VPC origin.
+	// The account ID of the AWS-account that owns the VPC origin.
 	OwnerAccountId *string `pulumi:"ownerAccountId"`
 	// The VPC origin ID.
 	VpcOriginId string `pulumi:"vpcOriginId"`
@@ -10233,7 +10258,7 @@ type DistributionVpcOriginConfigArgs struct {
 	// Specifies how long, in seconds, CloudFront waits for a response from the origin. This is also known as the *origin response timeout*. The minimum timeout is 1 second, the maximum is 120 seconds, and the default (if you don't specify otherwise) is 30 seconds.
 	//  For more information, see [Response timeout](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/DownloadDistValuesOrigin.html#DownloadDistValuesOriginResponseTimeout) in the *Amazon CloudFront Developer Guide*.
 	OriginReadTimeout pulumi.IntPtrInput `pulumi:"originReadTimeout"`
-	// The account ID of the AWS account that owns the VPC origin.
+	// The account ID of the AWS-account that owns the VPC origin.
 	OwnerAccountId pulumi.StringPtrInput `pulumi:"ownerAccountId"`
 	// The VPC origin ID.
 	VpcOriginId pulumi.StringInput `pulumi:"vpcOriginId"`
@@ -10331,7 +10356,7 @@ func (o DistributionVpcOriginConfigOutput) OriginReadTimeout() pulumi.IntPtrOutp
 	return o.ApplyT(func(v DistributionVpcOriginConfig) *int { return v.OriginReadTimeout }).(pulumi.IntPtrOutput)
 }
 
-// The account ID of the AWS account that owns the VPC origin.
+// The account ID of the AWS-account that owns the VPC origin.
 func (o DistributionVpcOriginConfigOutput) OwnerAccountId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DistributionVpcOriginConfig) *string { return v.OwnerAccountId }).(pulumi.StringPtrOutput)
 }
@@ -10389,7 +10414,7 @@ func (o DistributionVpcOriginConfigPtrOutput) OriginReadTimeout() pulumi.IntPtrO
 	}).(pulumi.IntPtrOutput)
 }
 
-// The account ID of the AWS account that owns the VPC origin.
+// The account ID of the AWS-account that owns the VPC origin.
 func (o DistributionVpcOriginConfigPtrOutput) OwnerAccountId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DistributionVpcOriginConfig) *string {
 		if v == nil {
@@ -15589,14 +15614,15 @@ func (o ResponseHeadersPolicyXssProtectionPtrOutput) ReportUri() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
+// The CA certificates bundle location in Amazon S3.
 type TrustStoreCaCertificatesBundleS3Location struct {
-	// The S3 bucket containing the CA certificates bundle PEM file
+	// The S3 bucket.
 	Bucket string `pulumi:"bucket"`
-	// The S3 object key of the CA certificates bundle PEM file
+	// The location's key.
 	Key string `pulumi:"key"`
-	// The S3 bucket region
+	// The location's Region.
 	Region string `pulumi:"region"`
-	// The S3 object version of the CA certificates bundle PEM file
+	// The location's version.
 	Version *string `pulumi:"version"`
 }
 
@@ -15611,14 +15637,15 @@ type TrustStoreCaCertificatesBundleS3LocationInput interface {
 	ToTrustStoreCaCertificatesBundleS3LocationOutputWithContext(context.Context) TrustStoreCaCertificatesBundleS3LocationOutput
 }
 
+// The CA certificates bundle location in Amazon S3.
 type TrustStoreCaCertificatesBundleS3LocationArgs struct {
-	// The S3 bucket containing the CA certificates bundle PEM file
+	// The S3 bucket.
 	Bucket pulumi.StringInput `pulumi:"bucket"`
-	// The S3 object key of the CA certificates bundle PEM file
+	// The location's key.
 	Key pulumi.StringInput `pulumi:"key"`
-	// The S3 bucket region
+	// The location's Region.
 	Region pulumi.StringInput `pulumi:"region"`
-	// The S3 object version of the CA certificates bundle PEM file
+	// The location's version.
 	Version pulumi.StringPtrInput `pulumi:"version"`
 }
 
@@ -15675,6 +15702,7 @@ func (i *trustStoreCaCertificatesBundleS3LocationPtrType) ToTrustStoreCaCertific
 	return pulumi.ToOutputWithContext(ctx, i).(TrustStoreCaCertificatesBundleS3LocationPtrOutput)
 }
 
+// The CA certificates bundle location in Amazon S3.
 type TrustStoreCaCertificatesBundleS3LocationOutput struct{ *pulumi.OutputState }
 
 func (TrustStoreCaCertificatesBundleS3LocationOutput) ElementType() reflect.Type {
@@ -15699,22 +15727,22 @@ func (o TrustStoreCaCertificatesBundleS3LocationOutput) ToTrustStoreCaCertificat
 	}).(TrustStoreCaCertificatesBundleS3LocationPtrOutput)
 }
 
-// The S3 bucket containing the CA certificates bundle PEM file
+// The S3 bucket.
 func (o TrustStoreCaCertificatesBundleS3LocationOutput) Bucket() pulumi.StringOutput {
 	return o.ApplyT(func(v TrustStoreCaCertificatesBundleS3Location) string { return v.Bucket }).(pulumi.StringOutput)
 }
 
-// The S3 object key of the CA certificates bundle PEM file
+// The location's key.
 func (o TrustStoreCaCertificatesBundleS3LocationOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v TrustStoreCaCertificatesBundleS3Location) string { return v.Key }).(pulumi.StringOutput)
 }
 
-// The S3 bucket region
+// The location's Region.
 func (o TrustStoreCaCertificatesBundleS3LocationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v TrustStoreCaCertificatesBundleS3Location) string { return v.Region }).(pulumi.StringOutput)
 }
 
-// The S3 object version of the CA certificates bundle PEM file
+// The location's version.
 func (o TrustStoreCaCertificatesBundleS3LocationOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TrustStoreCaCertificatesBundleS3Location) *string { return v.Version }).(pulumi.StringPtrOutput)
 }
@@ -15743,7 +15771,7 @@ func (o TrustStoreCaCertificatesBundleS3LocationPtrOutput) Elem() TrustStoreCaCe
 	}).(TrustStoreCaCertificatesBundleS3LocationOutput)
 }
 
-// The S3 bucket containing the CA certificates bundle PEM file
+// The S3 bucket.
 func (o TrustStoreCaCertificatesBundleS3LocationPtrOutput) Bucket() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TrustStoreCaCertificatesBundleS3Location) *string {
 		if v == nil {
@@ -15753,7 +15781,7 @@ func (o TrustStoreCaCertificatesBundleS3LocationPtrOutput) Bucket() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// The S3 object key of the CA certificates bundle PEM file
+// The location's key.
 func (o TrustStoreCaCertificatesBundleS3LocationPtrOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TrustStoreCaCertificatesBundleS3Location) *string {
 		if v == nil {
@@ -15763,7 +15791,7 @@ func (o TrustStoreCaCertificatesBundleS3LocationPtrOutput) Key() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// The S3 bucket region
+// The location's Region.
 func (o TrustStoreCaCertificatesBundleS3LocationPtrOutput) Region() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TrustStoreCaCertificatesBundleS3Location) *string {
 		if v == nil {
@@ -15773,7 +15801,7 @@ func (o TrustStoreCaCertificatesBundleS3LocationPtrOutput) Region() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// The S3 object version of the CA certificates bundle PEM file
+// The location's version.
 func (o TrustStoreCaCertificatesBundleS3LocationPtrOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TrustStoreCaCertificatesBundleS3Location) *string {
 		if v == nil {
@@ -15783,6 +15811,7 @@ func (o TrustStoreCaCertificatesBundleS3LocationPtrOutput) Version() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
+// A CA certificates bundle source.
 type TrustStoreCaCertificatesBundleSource struct {
 	// The CA certificates bundle location in Amazon S3.
 	CaCertificatesBundleS3Location TrustStoreCaCertificatesBundleS3Location `pulumi:"caCertificatesBundleS3Location"`
@@ -15799,6 +15828,7 @@ type TrustStoreCaCertificatesBundleSourceInput interface {
 	ToTrustStoreCaCertificatesBundleSourceOutputWithContext(context.Context) TrustStoreCaCertificatesBundleSourceOutput
 }
 
+// A CA certificates bundle source.
 type TrustStoreCaCertificatesBundleSourceArgs struct {
 	// The CA certificates bundle location in Amazon S3.
 	CaCertificatesBundleS3Location TrustStoreCaCertificatesBundleS3LocationInput `pulumi:"caCertificatesBundleS3Location"`
@@ -15857,6 +15887,7 @@ func (i *trustStoreCaCertificatesBundleSourcePtrType) ToTrustStoreCaCertificates
 	return pulumi.ToOutputWithContext(ctx, i).(TrustStoreCaCertificatesBundleSourcePtrOutput)
 }
 
+// A CA certificates bundle source.
 type TrustStoreCaCertificatesBundleSourceOutput struct{ *pulumi.OutputState }
 
 func (TrustStoreCaCertificatesBundleSourceOutput) ElementType() reflect.Type {
@@ -15922,14 +15953,13 @@ func (o TrustStoreCaCertificatesBundleSourcePtrOutput) CaCertificatesBundleS3Loc
 	}).(TrustStoreCaCertificatesBundleS3LocationPtrOutput)
 }
 
+// A complex type that contains “Tag“ key and “Tag“ value.
 type TrustStoreTag struct {
-	// A string that contains `Tag` key.
-	//
-	// The string length should be between 1 and 128 characters. Valid characters include `a-z` , `A-Z` , `0-9` , space, and the special characters `_ - . : / = + @` .
+	// A string that contains ``Tag`` key.
+	//  The string length should be between 1 and 128 characters. Valid characters include ``a-z``, ``A-Z``, ``0-9``, space, and the special characters ``_ - . : / = + @``.
 	Key string `pulumi:"key"`
-	// A string that contains an optional `Tag` value.
-	//
-	// The string length should be between 0 and 256 characters. Valid characters include `a-z` , `A-Z` , `0-9` , space, and the special characters `_ - . : / = + @` .
+	// A string that contains an optional ``Tag`` value.
+	//  The string length should be between 0 and 256 characters. Valid characters include ``a-z``, ``A-Z``, ``0-9``, space, and the special characters ``_ - . : / = + @``.
 	Value string `pulumi:"value"`
 }
 

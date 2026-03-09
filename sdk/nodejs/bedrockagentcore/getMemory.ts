@@ -49,6 +49,7 @@ export interface GetMemoryResult {
      * The memory status.
      */
     readonly status?: enums.bedrockagentcore.MemoryStatus;
+    readonly streamDeliveryResources?: outputs.bedrockagentcore.MemoryStreamDeliveryResources;
     /**
      * The tags for the resources.
      */

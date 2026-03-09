@@ -69,6 +69,7 @@ __all__ = [
     'GatewayTargetToolSchema1Properties',
     'GatewayWorkloadIdentityDetails',
     'InterceptorConfigurationProperties',
+    'MemoryContentConfiguration',
     'MemoryCustomConfigurationInput',
     'MemoryCustomMemoryStrategy',
     'MemoryEpisodicMemoryStrategy',
@@ -78,6 +79,7 @@ __all__ = [
     'MemoryEpisodicOverrideReflectionConfigurationInput',
     'MemoryEpisodicReflectionConfigurationInput',
     'MemoryInvocationConfigurationInput',
+    'MemoryKinesisResource',
     'MemoryMessageBasedTriggerInput',
     'MemorySelfManagedConfiguration',
     'MemorySemanticMemoryStrategy',
@@ -85,6 +87,8 @@ __all__ = [
     'MemorySemanticOverrideConsolidationConfigurationInput',
     'MemorySemanticOverrideExtractionConfigurationInput',
     'MemoryStrategy',
+    'MemoryStreamDeliveryResource',
+    'MemoryStreamDeliveryResources',
     'MemorySummaryMemoryStrategy',
     'MemorySummaryOverride',
     'MemorySummaryOverrideConsolidationConfigurationInput',
@@ -105,6 +109,8 @@ __all__ = [
     'OnlineEvaluationConfigRule',
     'OnlineEvaluationConfigSamplingConfig',
     'OnlineEvaluationConfigSessionConfig',
+    'PolicyCedarPolicy',
+    'PolicyDefinition',
     'RuntimeAgentRuntimeArtifact',
     'RuntimeAuthorizerConfiguration',
     'RuntimeAuthorizingClaimMatchValueType',
@@ -2088,6 +2094,36 @@ class InterceptorConfigurationProperties(dict):
 
 
 @pulumi.output_type
+class MemoryContentConfiguration(dict):
+    def __init__(__self__, *,
+                 type: 'MemoryContentConfigurationType',
+                 level: Optional['MemoryContentConfigurationLevel'] = None):
+        """
+        :param 'MemoryContentConfigurationType' type: The type of content to deliver
+        :param 'MemoryContentConfigurationLevel' level: The level of content detail to deliver
+        """
+        pulumi.set(__self__, "type", type)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> 'MemoryContentConfigurationType':
+        """
+        The type of content to deliver
+        """
+        return pulumi.get(self, "type")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> Optional['MemoryContentConfigurationLevel']:
+        """
+        The level of content detail to deliver
+        """
+        return pulumi.get(self, "level")
+
+
+@pulumi.output_type
 class MemoryCustomConfigurationInput(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -2601,6 +2637,44 @@ class MemoryInvocationConfigurationInput(dict):
 
 
 @pulumi.output_type
+class MemoryKinesisResource(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "contentConfigurations":
+            suggest = "content_configurations"
+        elif key == "dataStreamArn":
+            suggest = "data_stream_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MemoryKinesisResource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MemoryKinesisResource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MemoryKinesisResource.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 content_configurations: Sequence['outputs.MemoryContentConfiguration'],
+                 data_stream_arn: _builtins.str):
+        pulumi.set(__self__, "content_configurations", content_configurations)
+        pulumi.set(__self__, "data_stream_arn", data_stream_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="contentConfigurations")
+    def content_configurations(self) -> Sequence['outputs.MemoryContentConfiguration']:
+        return pulumi.get(self, "content_configurations")
+
+    @_builtins.property
+    @pulumi.getter(name="dataStreamArn")
+    def data_stream_arn(self) -> _builtins.str:
+        return pulumi.get(self, "data_stream_arn")
+
+
+@pulumi.output_type
 class MemoryMessageBasedTriggerInput(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -2956,6 +3030,31 @@ class MemoryStrategy(dict):
     @pulumi.getter(name="userPreferenceMemoryStrategy")
     def user_preference_memory_strategy(self) -> Optional['outputs.MemoryUserPreferenceMemoryStrategy']:
         return pulumi.get(self, "user_preference_memory_strategy")
+
+
+@pulumi.output_type
+class MemoryStreamDeliveryResource(dict):
+    def __init__(__self__, *,
+                 kinesis: Optional['outputs.MemoryKinesisResource'] = None):
+        if kinesis is not None:
+            pulumi.set(__self__, "kinesis", kinesis)
+
+    @_builtins.property
+    @pulumi.getter
+    def kinesis(self) -> Optional['outputs.MemoryKinesisResource']:
+        return pulumi.get(self, "kinesis")
+
+
+@pulumi.output_type
+class MemoryStreamDeliveryResources(dict):
+    def __init__(__self__, *,
+                 resources: Sequence['outputs.MemoryStreamDeliveryResource']):
+        pulumi.set(__self__, "resources", resources)
+
+    @_builtins.property
+    @pulumi.getter
+    def resources(self) -> Sequence['outputs.MemoryStreamDeliveryResource']:
+        return pulumi.get(self, "resources")
 
 
 @pulumi.output_type
@@ -3889,6 +3988,47 @@ class OnlineEvaluationConfigSessionConfig(dict):
         The number of minutes of inactivity after which an agent session is considered complete.
         """
         return pulumi.get(self, "session_timeout_minutes")
+
+
+@pulumi.output_type
+class PolicyCedarPolicy(dict):
+    """
+    A Cedar policy statement within the AgentCore Policy system.
+    """
+    def __init__(__self__, *,
+                 statement: _builtins.str):
+        """
+        A Cedar policy statement within the AgentCore Policy system.
+
+        :param _builtins.str statement: The Cedar policy statement that defines the authorization logic.
+        """
+        pulumi.set(__self__, "statement", statement)
+
+    @_builtins.property
+    @pulumi.getter
+    def statement(self) -> _builtins.str:
+        """
+        The Cedar policy statement that defines the authorization logic.
+        """
+        return pulumi.get(self, "statement")
+
+
+@pulumi.output_type
+class PolicyDefinition(dict):
+    """
+    The definition structure for policies. Encapsulates different policy formats.
+    """
+    def __init__(__self__, *,
+                 cedar: 'outputs.PolicyCedarPolicy'):
+        """
+        The definition structure for policies. Encapsulates different policy formats.
+        """
+        pulumi.set(__self__, "cedar", cedar)
+
+    @_builtins.property
+    @pulumi.getter
+    def cedar(self) -> 'outputs.PolicyCedarPolicy':
+        return pulumi.get(self, "cedar")
 
 
 @pulumi.output_type

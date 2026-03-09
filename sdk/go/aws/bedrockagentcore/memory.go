@@ -34,7 +34,8 @@ type Memory struct {
 	// The memory name.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The memory status.
-	Status MemoryStatusOutput `pulumi:"status"`
+	Status                  MemoryStatusOutput                     `pulumi:"status"`
+	StreamDeliveryResources MemoryStreamDeliveryResourcesPtrOutput `pulumi:"streamDeliveryResources"`
 	// The tags for the resources.
 	Tags      pulumi.StringMapOutput `pulumi:"tags"`
 	UpdatedAt pulumi.StringOutput    `pulumi:"updatedAt"`
@@ -98,7 +99,8 @@ type memoryArgs struct {
 	// The memory strategies.
 	MemoryStrategies []MemoryStrategy `pulumi:"memoryStrategies"`
 	// The memory name.
-	Name *string `pulumi:"name"`
+	Name                    *string                        `pulumi:"name"`
+	StreamDeliveryResources *MemoryStreamDeliveryResources `pulumi:"streamDeliveryResources"`
 	// The tags for the resources.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -115,7 +117,8 @@ type MemoryArgs struct {
 	// The memory strategies.
 	MemoryStrategies MemoryStrategyArrayInput
 	// The memory name.
-	Name pulumi.StringPtrInput
+	Name                    pulumi.StringPtrInput
+	StreamDeliveryResources MemoryStreamDeliveryResourcesPtrInput
 	// The tags for the resources.
 	Tags pulumi.StringMapInput
 }
@@ -207,6 +210,10 @@ func (o MemoryOutput) Name() pulumi.StringOutput {
 // The memory status.
 func (o MemoryOutput) Status() MemoryStatusOutput {
 	return o.ApplyT(func(v *Memory) MemoryStatusOutput { return v.Status }).(MemoryStatusOutput)
+}
+
+func (o MemoryOutput) StreamDeliveryResources() MemoryStreamDeliveryResourcesPtrOutput {
+	return o.ApplyT(func(v *Memory) MemoryStreamDeliveryResourcesPtrOutput { return v.StreamDeliveryResources }).(MemoryStreamDeliveryResourcesPtrOutput)
 }
 
 // The tags for the resources.

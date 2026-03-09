@@ -43,8 +43,9 @@ type LookupEvaluationFormResult struct {
 	//  *Maximum size*: 100
 	Items []EvaluationFormBaseItem `pulumi:"items"`
 	// Configuration for language settings of this evaluation form.
-	LanguageConfiguration *EvaluationFormLanguageConfiguration         `pulumi:"languageConfiguration"`
-	ReviewConfiguration   *EvaluationFormEvaluationReviewConfiguration `pulumi:"reviewConfiguration"`
+	LanguageConfiguration *EvaluationFormLanguageConfiguration `pulumi:"languageConfiguration"`
+	// Configuration for evaluation review settings of this evaluation form.
+	ReviewConfiguration *EvaluationFormEvaluationReviewConfiguration `pulumi:"reviewConfiguration"`
 	// A scoring strategy of the evaluation form.
 	ScoringStrategy *EvaluationFormScoringStrategy `pulumi:"scoringStrategy"`
 	// The status of the evaluation form.
@@ -129,6 +130,7 @@ func (o LookupEvaluationFormResultOutput) LanguageConfiguration() EvaluationForm
 	}).(EvaluationFormLanguageConfigurationPtrOutput)
 }
 
+// Configuration for evaluation review settings of this evaluation form.
 func (o LookupEvaluationFormResultOutput) ReviewConfiguration() EvaluationFormEvaluationReviewConfigurationPtrOutput {
 	return o.ApplyT(func(v LookupEvaluationFormResult) *EvaluationFormEvaluationReviewConfiguration {
 		return v.ReviewConfiguration

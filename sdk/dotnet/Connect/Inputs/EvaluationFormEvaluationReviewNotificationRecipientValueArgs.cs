@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Connect.Inputs
 {
 
+    /// <summary>
+    /// The value information for an evaluation review notification recipient.
+    /// </summary>
     public sealed class EvaluationFormEvaluationReviewNotificationRecipientValueArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>

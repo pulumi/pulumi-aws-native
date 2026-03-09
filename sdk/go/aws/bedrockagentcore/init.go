@@ -37,6 +37,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Memory{}
 	case "aws-native:bedrockagentcore:OnlineEvaluationConfig":
 		r = &OnlineEvaluationConfig{}
+	case "aws-native:bedrockagentcore:Policy":
+		r = &Policy{}
+	case "aws-native:bedrockagentcore:PolicyEngine":
+		r = &PolicyEngine{}
 	case "aws-native:bedrockagentcore:Runtime":
 		r = &Runtime{}
 	case "aws-native:bedrockagentcore:RuntimeEndpoint":

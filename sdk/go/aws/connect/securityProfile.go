@@ -21,6 +21,8 @@ type SecurityProfile struct {
 	AllowedAccessControlHierarchyGroupId pulumi.StringPtrOutput `pulumi:"allowedAccessControlHierarchyGroupId"`
 	// The list of tags that a security profile uses to restrict access to resources in Amazon Connect.
 	AllowedAccessControlTags SecurityProfileTagArrayOutput `pulumi:"allowedAccessControlTags"`
+	// The list of flow-module resources to be linked to a security profile in Amazon Connect.
+	AllowedFlowModules SecurityProfileFlowModuleArrayOutput `pulumi:"allowedFlowModules"`
 	// A list of third-party applications that the security profile will give access to.
 	Applications SecurityProfileApplicationArrayOutput `pulumi:"applications"`
 	// The description of the security profile.
@@ -99,6 +101,8 @@ type securityProfileArgs struct {
 	AllowedAccessControlHierarchyGroupId *string `pulumi:"allowedAccessControlHierarchyGroupId"`
 	// The list of tags that a security profile uses to restrict access to resources in Amazon Connect.
 	AllowedAccessControlTags []SecurityProfileTag `pulumi:"allowedAccessControlTags"`
+	// The list of flow-module resources to be linked to a security profile in Amazon Connect.
+	AllowedFlowModules []SecurityProfileFlowModule `pulumi:"allowedFlowModules"`
 	// A list of third-party applications that the security profile will give access to.
 	Applications []SecurityProfileApplication `pulumi:"applications"`
 	// The description of the security profile.
@@ -125,6 +129,8 @@ type SecurityProfileArgs struct {
 	AllowedAccessControlHierarchyGroupId pulumi.StringPtrInput
 	// The list of tags that a security profile uses to restrict access to resources in Amazon Connect.
 	AllowedAccessControlTags SecurityProfileTagArrayInput
+	// The list of flow-module resources to be linked to a security profile in Amazon Connect.
+	AllowedFlowModules SecurityProfileFlowModuleArrayInput
 	// A list of third-party applications that the security profile will give access to.
 	Applications SecurityProfileApplicationArrayInput
 	// The description of the security profile.
@@ -190,6 +196,11 @@ func (o SecurityProfileOutput) AllowedAccessControlHierarchyGroupId() pulumi.Str
 // The list of tags that a security profile uses to restrict access to resources in Amazon Connect.
 func (o SecurityProfileOutput) AllowedAccessControlTags() SecurityProfileTagArrayOutput {
 	return o.ApplyT(func(v *SecurityProfile) SecurityProfileTagArrayOutput { return v.AllowedAccessControlTags }).(SecurityProfileTagArrayOutput)
+}
+
+// The list of flow-module resources to be linked to a security profile in Amazon Connect.
+func (o SecurityProfileOutput) AllowedFlowModules() SecurityProfileFlowModuleArrayOutput {
+	return o.ApplyT(func(v *SecurityProfile) SecurityProfileFlowModuleArrayOutput { return v.AllowedFlowModules }).(SecurityProfileFlowModuleArrayOutput)
 }
 
 // A list of third-party applications that the security profile will give access to.

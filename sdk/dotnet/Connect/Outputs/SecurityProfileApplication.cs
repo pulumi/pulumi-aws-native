@@ -24,15 +24,22 @@ namespace Pulumi.AwsNative.Connect.Outputs
         /// Namespace of the application that you want to give access to.
         /// </summary>
         public readonly string Namespace;
+        /// <summary>
+        /// The type of the application.
+        /// </summary>
+        public readonly Pulumi.AwsNative.Connect.SecurityProfileApplicationType? Type;
 
         [OutputConstructor]
         private SecurityProfileApplication(
             ImmutableArray<string> applicationPermissions,
 
-            string @namespace)
+            string @namespace,
+
+            Pulumi.AwsNative.Connect.SecurityProfileApplicationType? type)
         {
             ApplicationPermissions = applicationPermissions;
             Namespace = @namespace;
+            Type = type;
         }
     }
 }

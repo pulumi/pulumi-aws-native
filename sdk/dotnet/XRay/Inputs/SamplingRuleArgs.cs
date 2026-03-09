@@ -74,6 +74,9 @@ namespace Pulumi.AwsNative.XRay.Inputs
         [Input("ruleName")]
         public Input<string>? RuleName { get; set; }
 
+        [Input("samplingRateBoost")]
+        public Input<Inputs.SamplingRuleSamplingRateBoostArgs>? SamplingRateBoost { get; set; }
+
         /// <summary>
         /// Matches the name that the service uses to identify itself in segments.
         /// </summary>

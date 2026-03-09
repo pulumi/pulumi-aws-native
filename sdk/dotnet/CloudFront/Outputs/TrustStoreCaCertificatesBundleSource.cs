@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CloudFront.Outputs
 {
 
+    /// <summary>
+    /// A CA certificates bundle source.
+    /// </summary>
     [OutputType]
     public sealed class TrustStoreCaCertificatesBundleSource
     {

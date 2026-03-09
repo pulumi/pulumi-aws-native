@@ -7,7 +7,6 @@ import (
 	"context"
 	"reflect"
 
-	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
@@ -32,7 +31,7 @@ type Alarm struct {
 	// The ARN of the CloudWatch alarm, such as `arn:aws:cloudwatch:us-west-2:123456789012:alarm:myCloudWatchAlarm-CPUAlarm-UXMMZK36R55Z` .
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The arithmetic operation to use when comparing the specified statistic and threshold. The specified statistic value is used as the first operand.
-	ComparisonOperator pulumi.StringOutput `pulumi:"comparisonOperator"`
+	ComparisonOperator pulumi.StringPtrOutput `pulumi:"comparisonOperator"`
 	// The number of datapoints that must be breaching to trigger the alarm. This is used only if you are setting an "M out of N" alarm. In that case, this value is the M, and the value that you set for ``EvaluationPeriods`` is the N value. For more information, see [Evaluating an Alarm](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#alarm-evaluation) in the *User Guide*.
 	//  If you omit this parameter, CW uses the same value here that you set for ``EvaluationPeriods``, and the alarm goes to alarm state if that many consecutive periods are breaching.
 	DatapointsToAlarm pulumi.IntPtrOutput `pulumi:"datapointsToAlarm"`
@@ -42,7 +41,7 @@ type Alarm struct {
 	EvaluateLowSampleCountPercentile pulumi.StringPtrOutput `pulumi:"evaluateLowSampleCountPercentile"`
 	// The number of periods over which data is compared to the specified threshold. If you are setting an alarm that requires that a number of consecutive data points be breaching to trigger the alarm, this value specifies that number. If you are setting an "M out of N" alarm, this value is the N, and ``DatapointsToAlarm`` is the M.
 	//  For more information, see [Evaluating an Alarm](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#alarm-evaluation) in the *User Guide*.
-	EvaluationPeriods pulumi.IntOutput `pulumi:"evaluationPeriods"`
+	EvaluationPeriods pulumi.IntPtrOutput `pulumi:"evaluationPeriods"`
 	// The percentile statistic for the metric associated with the alarm. Specify a value between p0.0 and p100.
 	//  For an alarm based on a metric, you must specify either ``Statistic`` or ``ExtendedStatistic`` but not both.
 	//  For an alarm based on a math expression, you can't specify ``ExtendedStatistic``. Instead, you use ``Metrics``.
@@ -86,15 +85,9 @@ type Alarm struct {
 func NewAlarm(ctx *pulumi.Context,
 	name string, args *AlarmArgs, opts ...pulumi.ResourceOption) (*Alarm, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &AlarmArgs{}
 	}
 
-	if args.ComparisonOperator == nil {
-		return nil, errors.New("invalid value for required argument 'ComparisonOperator'")
-	}
-	if args.EvaluationPeriods == nil {
-		return nil, errors.New("invalid value for required argument 'EvaluationPeriods'")
-	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"alarmName",
 	})
@@ -142,7 +135,7 @@ type alarmArgs struct {
 	//   If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
 	AlarmName *string `pulumi:"alarmName"`
 	// The arithmetic operation to use when comparing the specified statistic and threshold. The specified statistic value is used as the first operand.
-	ComparisonOperator string `pulumi:"comparisonOperator"`
+	ComparisonOperator *string `pulumi:"comparisonOperator"`
 	// The number of datapoints that must be breaching to trigger the alarm. This is used only if you are setting an "M out of N" alarm. In that case, this value is the M, and the value that you set for ``EvaluationPeriods`` is the N value. For more information, see [Evaluating an Alarm](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#alarm-evaluation) in the *User Guide*.
 	//  If you omit this parameter, CW uses the same value here that you set for ``EvaluationPeriods``, and the alarm goes to alarm state if that many consecutive periods are breaching.
 	DatapointsToAlarm *int `pulumi:"datapointsToAlarm"`
@@ -152,7 +145,7 @@ type alarmArgs struct {
 	EvaluateLowSampleCountPercentile *string `pulumi:"evaluateLowSampleCountPercentile"`
 	// The number of periods over which data is compared to the specified threshold. If you are setting an alarm that requires that a number of consecutive data points be breaching to trigger the alarm, this value specifies that number. If you are setting an "M out of N" alarm, this value is the N, and ``DatapointsToAlarm`` is the M.
 	//  For more information, see [Evaluating an Alarm](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#alarm-evaluation) in the *User Guide*.
-	EvaluationPeriods int `pulumi:"evaluationPeriods"`
+	EvaluationPeriods *int `pulumi:"evaluationPeriods"`
 	// The percentile statistic for the metric associated with the alarm. Specify a value between p0.0 and p100.
 	//  For an alarm based on a metric, you must specify either ``Statistic`` or ``ExtendedStatistic`` but not both.
 	//  For an alarm based on a math expression, you can't specify ``ExtendedStatistic``. Instead, you use ``Metrics``.
@@ -204,7 +197,7 @@ type AlarmArgs struct {
 	//   If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
 	AlarmName pulumi.StringPtrInput
 	// The arithmetic operation to use when comparing the specified statistic and threshold. The specified statistic value is used as the first operand.
-	ComparisonOperator pulumi.StringInput
+	ComparisonOperator pulumi.StringPtrInput
 	// The number of datapoints that must be breaching to trigger the alarm. This is used only if you are setting an "M out of N" alarm. In that case, this value is the M, and the value that you set for ``EvaluationPeriods`` is the N value. For more information, see [Evaluating an Alarm](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#alarm-evaluation) in the *User Guide*.
 	//  If you omit this parameter, CW uses the same value here that you set for ``EvaluationPeriods``, and the alarm goes to alarm state if that many consecutive periods are breaching.
 	DatapointsToAlarm pulumi.IntPtrInput
@@ -214,7 +207,7 @@ type AlarmArgs struct {
 	EvaluateLowSampleCountPercentile pulumi.StringPtrInput
 	// The number of periods over which data is compared to the specified threshold. If you are setting an alarm that requires that a number of consecutive data points be breaching to trigger the alarm, this value specifies that number. If you are setting an "M out of N" alarm, this value is the N, and ``DatapointsToAlarm`` is the M.
 	//  For more information, see [Evaluating an Alarm](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#alarm-evaluation) in the *User Guide*.
-	EvaluationPeriods pulumi.IntInput
+	EvaluationPeriods pulumi.IntPtrInput
 	// The percentile statistic for the metric associated with the alarm. Specify a value between p0.0 and p100.
 	//  For an alarm based on a metric, you must specify either ``Statistic`` or ``ExtendedStatistic`` but not both.
 	//  For an alarm based on a math expression, you can't specify ``ExtendedStatistic``. Instead, you use ``Metrics``.
@@ -319,8 +312,8 @@ func (o AlarmOutput) Arn() pulumi.StringOutput {
 }
 
 // The arithmetic operation to use when comparing the specified statistic and threshold. The specified statistic value is used as the first operand.
-func (o AlarmOutput) ComparisonOperator() pulumi.StringOutput {
-	return o.ApplyT(func(v *Alarm) pulumi.StringOutput { return v.ComparisonOperator }).(pulumi.StringOutput)
+func (o AlarmOutput) ComparisonOperator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Alarm) pulumi.StringPtrOutput { return v.ComparisonOperator }).(pulumi.StringPtrOutput)
 }
 
 // The number of datapoints that must be breaching to trigger the alarm. This is used only if you are setting an "M out of N" alarm. In that case, this value is the M, and the value that you set for “EvaluationPeriods“ is the N value. For more information, see [Evaluating an Alarm](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#alarm-evaluation) in the *User Guide*.
@@ -343,8 +336,8 @@ func (o AlarmOutput) EvaluateLowSampleCountPercentile() pulumi.StringPtrOutput {
 // The number of periods over which data is compared to the specified threshold. If you are setting an alarm that requires that a number of consecutive data points be breaching to trigger the alarm, this value specifies that number. If you are setting an "M out of N" alarm, this value is the N, and “DatapointsToAlarm“ is the M.
 //
 //	For more information, see [Evaluating an Alarm](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#alarm-evaluation) in the *User Guide*.
-func (o AlarmOutput) EvaluationPeriods() pulumi.IntOutput {
-	return o.ApplyT(func(v *Alarm) pulumi.IntOutput { return v.EvaluationPeriods }).(pulumi.IntOutput)
+func (o AlarmOutput) EvaluationPeriods() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Alarm) pulumi.IntPtrOutput { return v.EvaluationPeriods }).(pulumi.IntPtrOutput)
 }
 
 // The percentile statistic for the metric associated with the alarm. Specify a value between p0.0 and p100.

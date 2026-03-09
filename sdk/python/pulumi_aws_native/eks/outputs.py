@@ -1051,7 +1051,7 @@ class ClusterRemoteNetworkConfig(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 remote_node_networks: Sequence['outputs.ClusterRemoteNodeNetwork'],
+                 remote_node_networks: Optional[Sequence['outputs.ClusterRemoteNodeNetwork']] = None,
                  remote_pod_networks: Optional[Sequence['outputs.ClusterRemotePodNetwork']] = None):
         """
         Configuration fields for specifying on-premises node and pod CIDRs that are external to the VPC passed during cluster creation.
@@ -1059,13 +1059,14 @@ class ClusterRemoteNetworkConfig(dict):
         :param Sequence['ClusterRemoteNodeNetwork'] remote_node_networks: Network configuration of nodes run on-premises with EKS Hybrid Nodes.
         :param Sequence['ClusterRemotePodNetwork'] remote_pod_networks: Network configuration of pods run on-premises with EKS Hybrid Nodes.
         """
-        pulumi.set(__self__, "remote_node_networks", remote_node_networks)
+        if remote_node_networks is not None:
+            pulumi.set(__self__, "remote_node_networks", remote_node_networks)
         if remote_pod_networks is not None:
             pulumi.set(__self__, "remote_pod_networks", remote_pod_networks)
 
     @_builtins.property
     @pulumi.getter(name="remoteNodeNetworks")
-    def remote_node_networks(self) -> Sequence['outputs.ClusterRemoteNodeNetwork']:
+    def remote_node_networks(self) -> Optional[Sequence['outputs.ClusterRemoteNodeNetwork']]:
         """
         Network configuration of nodes run on-premises with EKS Hybrid Nodes.
         """

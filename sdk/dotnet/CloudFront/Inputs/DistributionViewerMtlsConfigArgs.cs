@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CloudFront.Inputs
 {
 
+    /// <summary>
+    /// A viewer mTLS configuration.
+    /// </summary>
     public sealed class DistributionViewerMtlsConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>

@@ -15,11 +15,20 @@ namespace Pulumi.AwsNative.DataSync.Inputs
     /// </summary>
     public sealed class LocationFSxOntapSmbArgs : global::Pulumi.ResourceArgs
     {
+        [Input("cmkSecretConfig")]
+        public Input<Inputs.LocationFSxOntapCmkSecretConfigArgs>? CmkSecretConfig { get; set; }
+
+        [Input("customSecretConfig")]
+        public Input<Inputs.LocationFSxOntapCustomSecretConfigArgs>? CustomSecretConfig { get; set; }
+
         /// <summary>
         /// The name of the Windows domain that the SMB server belongs to.
         /// </summary>
         [Input("domain")]
         public Input<string>? Domain { get; set; }
+
+        [Input("managedSecretConfig")]
+        public Input<Inputs.LocationFSxOntapManagedSecretConfigArgs>? ManagedSecretConfig { get; set; }
 
         /// <summary>
         /// Specifies how DataSync can access a location using the SMB protocol.
@@ -30,8 +39,8 @@ namespace Pulumi.AwsNative.DataSync.Inputs
         /// <summary>
         /// The password of the user who can mount the share and has the permissions to access files and folders in the SMB share.
         /// </summary>
-        [Input("password", required: true)]
-        public Input<string> Password { get; set; } = null!;
+        [Input("password")]
+        public Input<string>? Password { get; set; }
 
         /// <summary>
         /// The user who can mount the share, has the permissions to access files and folders in the SMB share.

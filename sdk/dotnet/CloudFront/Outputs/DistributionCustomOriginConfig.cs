@@ -33,6 +33,9 @@ namespace Pulumi.AwsNative.CloudFront.Outputs
         ///  For more information, see [Keep-alive timeout (custom origins only)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/DownloadDistValuesOrigin.html#DownloadDistValuesOriginKeepaliveTimeout) in the *Amazon CloudFront Developer Guide*.
         /// </summary>
         public readonly int? OriginKeepaliveTimeout;
+        /// <summary>
+        /// Configures mutual TLS authentication between CloudFront and your origin server.
+        /// </summary>
         public readonly Outputs.DistributionOriginMtlsConfig? OriginMtlsConfig;
         /// <summary>
         /// Specifies the protocol (HTTP or HTTPS) that CloudFront uses to connect to the origin. Valid values are:

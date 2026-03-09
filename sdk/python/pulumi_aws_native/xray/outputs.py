@@ -19,6 +19,7 @@ __all__ = [
     'GroupInsightsConfiguration',
     'SamplingRule',
     'SamplingRuleRecord',
+    'SamplingRuleSamplingRateBoost',
     'SamplingRuleUpdate',
 ]
 
@@ -95,6 +96,8 @@ class SamplingRule(dict):
             suggest = "rule_arn"
         elif key == "ruleName":
             suggest = "rule_name"
+        elif key == "samplingRateBoost":
+            suggest = "sampling_rate_boost"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in SamplingRule. Access the value via the '{suggest}' property getter instead.")
@@ -120,6 +123,7 @@ class SamplingRule(dict):
                  attributes: Optional[Mapping[str, _builtins.str]] = None,
                  rule_arn: Optional[_builtins.str] = None,
                  rule_name: Optional[_builtins.str] = None,
+                 sampling_rate_boost: Optional['outputs.SamplingRuleSamplingRateBoost'] = None,
                  version: Optional[_builtins.int] = None):
         """
         :param _builtins.float fixed_rate: The percentage of matching requests to instrument, after the reservoir is exhausted.
@@ -153,6 +157,8 @@ class SamplingRule(dict):
             pulumi.set(__self__, "rule_arn", rule_arn)
         if rule_name is not None:
             pulumi.set(__self__, "rule_name", rule_name)
+        if sampling_rate_boost is not None:
+            pulumi.set(__self__, "sampling_rate_boost", sampling_rate_boost)
         if version is not None:
             pulumi.set(__self__, "version", version)
 
@@ -255,6 +261,11 @@ class SamplingRule(dict):
         return pulumi.get(self, "rule_name")
 
     @_builtins.property
+    @pulumi.getter(name="samplingRateBoost")
+    def sampling_rate_boost(self) -> Optional['outputs.SamplingRuleSamplingRateBoost']:
+        return pulumi.get(self, "sampling_rate_boost")
+
+    @_builtins.property
     @pulumi.getter
     def version(self) -> Optional[_builtins.int]:
         """
@@ -324,6 +335,54 @@ class SamplingRuleRecord(dict):
 
 
 @pulumi.output_type
+class SamplingRuleSamplingRateBoost(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cooldownWindowMinutes":
+            suggest = "cooldown_window_minutes"
+        elif key == "maxRate":
+            suggest = "max_rate"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SamplingRuleSamplingRateBoost. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SamplingRuleSamplingRateBoost.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SamplingRuleSamplingRateBoost.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cooldown_window_minutes: _builtins.int,
+                 max_rate: _builtins.float):
+        """
+        :param _builtins.int cooldown_window_minutes: Time window (in minutes) in which only one sampling rate boost can be triggered. After a boost occurs, no further boosts are allowed until the next window.
+        :param _builtins.float max_rate: The maximum sampling rate X-Ray will apply when it detects anomalies. X-Ray determines the appropriate rate between your baseline and the maximum, depending on anomaly activity.
+        """
+        pulumi.set(__self__, "cooldown_window_minutes", cooldown_window_minutes)
+        pulumi.set(__self__, "max_rate", max_rate)
+
+    @_builtins.property
+    @pulumi.getter(name="cooldownWindowMinutes")
+    def cooldown_window_minutes(self) -> _builtins.int:
+        """
+        Time window (in minutes) in which only one sampling rate boost can be triggered. After a boost occurs, no further boosts are allowed until the next window.
+        """
+        return pulumi.get(self, "cooldown_window_minutes")
+
+    @_builtins.property
+    @pulumi.getter(name="maxRate")
+    def max_rate(self) -> _builtins.float:
+        """
+        The maximum sampling rate X-Ray will apply when it detects anomalies. X-Ray determines the appropriate rate between your baseline and the maximum, depending on anomaly activity.
+        """
+        return pulumi.get(self, "max_rate")
+
+
+@pulumi.output_type
 class SamplingRuleUpdate(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -340,6 +399,8 @@ class SamplingRuleUpdate(dict):
             suggest = "rule_arn"
         elif key == "ruleName":
             suggest = "rule_name"
+        elif key == "samplingRateBoost":
+            suggest = "sampling_rate_boost"
         elif key == "serviceName":
             suggest = "service_name"
         elif key == "serviceType":
@@ -368,6 +429,7 @@ class SamplingRuleUpdate(dict):
                  resource_arn: Optional[_builtins.str] = None,
                  rule_arn: Optional[_builtins.str] = None,
                  rule_name: Optional[_builtins.str] = None,
+                 sampling_rate_boost: Optional['outputs.SamplingRuleSamplingRateBoost'] = None,
                  service_name: Optional[_builtins.str] = None,
                  service_type: Optional[_builtins.str] = None,
                  url_path: Optional[_builtins.str] = None):
@@ -401,6 +463,8 @@ class SamplingRuleUpdate(dict):
             pulumi.set(__self__, "rule_arn", rule_arn)
         if rule_name is not None:
             pulumi.set(__self__, "rule_name", rule_name)
+        if sampling_rate_boost is not None:
+            pulumi.set(__self__, "sampling_rate_boost", sampling_rate_boost)
         if service_name is not None:
             pulumi.set(__self__, "service_name", service_name)
         if service_type is not None:
@@ -473,6 +537,11 @@ class SamplingRuleUpdate(dict):
     @pulumi.getter(name="ruleName")
     def rule_name(self) -> Optional[_builtins.str]:
         return pulumi.get(self, "rule_name")
+
+    @_builtins.property
+    @pulumi.getter(name="samplingRateBoost")
+    def sampling_rate_boost(self) -> Optional['outputs.SamplingRuleSamplingRateBoost']:
+        return pulumi.get(self, "sampling_rate_boost")
 
     @_builtins.property
     @pulumi.getter(name="serviceName")

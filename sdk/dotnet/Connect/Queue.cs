@@ -16,6 +16,12 @@ namespace Pulumi.AwsNative.Connect
     public partial class Queue : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// The email addresses that agents can use when replying to or initiating email contacts
+        /// </summary>
+        [Output("additionalEmailAddresses")]
+        public Output<ImmutableArray<Outputs.QueueEmailAddress>> AdditionalEmailAddresses { get; private set; } = null!;
+
+        /// <summary>
         /// The description of the queue.
         /// </summary>
         [Output("description")]
@@ -132,6 +138,18 @@ namespace Pulumi.AwsNative.Connect
 
     public sealed class QueueArgs : global::Pulumi.ResourceArgs
     {
+        [Input("additionalEmailAddresses")]
+        private InputList<Inputs.QueueEmailAddressArgs>? _additionalEmailAddresses;
+
+        /// <summary>
+        /// The email addresses that agents can use when replying to or initiating email contacts
+        /// </summary>
+        public InputList<Inputs.QueueEmailAddressArgs> AdditionalEmailAddresses
+        {
+            get => _additionalEmailAddresses ?? (_additionalEmailAddresses = new InputList<Inputs.QueueEmailAddressArgs>());
+            set => _additionalEmailAddresses = value;
+        }
+
         /// <summary>
         /// The description of the queue.
         /// </summary>

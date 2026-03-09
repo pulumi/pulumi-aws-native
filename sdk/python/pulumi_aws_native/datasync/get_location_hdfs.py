@@ -26,7 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetLocationHdfsResult:
-    def __init__(__self__, agent_arns=None, authentication_type=None, block_size=None, kerberos_principal=None, kms_key_provider_uri=None, location_arn=None, location_uri=None, name_nodes=None, qop_configuration=None, replication_factor=None, simple_user=None, tags=None):
+    def __init__(__self__, agent_arns=None, authentication_type=None, block_size=None, cmk_secret_config=None, custom_secret_config=None, kerberos_principal=None, kms_key_provider_uri=None, location_arn=None, location_uri=None, managed_secret_config=None, name_nodes=None, qop_configuration=None, replication_factor=None, simple_user=None, tags=None):
         if agent_arns and not isinstance(agent_arns, list):
             raise TypeError("Expected argument 'agent_arns' to be a list")
         pulumi.set(__self__, "agent_arns", agent_arns)
@@ -36,6 +36,12 @@ class GetLocationHdfsResult:
         if block_size and not isinstance(block_size, int):
             raise TypeError("Expected argument 'block_size' to be a int")
         pulumi.set(__self__, "block_size", block_size)
+        if cmk_secret_config and not isinstance(cmk_secret_config, dict):
+            raise TypeError("Expected argument 'cmk_secret_config' to be a dict")
+        pulumi.set(__self__, "cmk_secret_config", cmk_secret_config)
+        if custom_secret_config and not isinstance(custom_secret_config, dict):
+            raise TypeError("Expected argument 'custom_secret_config' to be a dict")
+        pulumi.set(__self__, "custom_secret_config", custom_secret_config)
         if kerberos_principal and not isinstance(kerberos_principal, str):
             raise TypeError("Expected argument 'kerberos_principal' to be a str")
         pulumi.set(__self__, "kerberos_principal", kerberos_principal)
@@ -48,6 +54,9 @@ class GetLocationHdfsResult:
         if location_uri and not isinstance(location_uri, str):
             raise TypeError("Expected argument 'location_uri' to be a str")
         pulumi.set(__self__, "location_uri", location_uri)
+        if managed_secret_config and not isinstance(managed_secret_config, dict):
+            raise TypeError("Expected argument 'managed_secret_config' to be a dict")
+        pulumi.set(__self__, "managed_secret_config", managed_secret_config)
         if name_nodes and not isinstance(name_nodes, list):
             raise TypeError("Expected argument 'name_nodes' to be a list")
         pulumi.set(__self__, "name_nodes", name_nodes)
@@ -89,6 +98,16 @@ class GetLocationHdfsResult:
         return pulumi.get(self, "block_size")
 
     @_builtins.property
+    @pulumi.getter(name="cmkSecretConfig")
+    def cmk_secret_config(self) -> Optional['outputs.LocationHdfsCmkSecretConfig']:
+        return pulumi.get(self, "cmk_secret_config")
+
+    @_builtins.property
+    @pulumi.getter(name="customSecretConfig")
+    def custom_secret_config(self) -> Optional['outputs.LocationHdfsCustomSecretConfig']:
+        return pulumi.get(self, "custom_secret_config")
+
+    @_builtins.property
     @pulumi.getter(name="kerberosPrincipal")
     def kerberos_principal(self) -> Optional[_builtins.str]:
         """
@@ -119,6 +138,11 @@ class GetLocationHdfsResult:
         The URL of the HDFS location that was described.
         """
         return pulumi.get(self, "location_uri")
+
+    @_builtins.property
+    @pulumi.getter(name="managedSecretConfig")
+    def managed_secret_config(self) -> Optional['outputs.LocationHdfsManagedSecretConfig']:
+        return pulumi.get(self, "managed_secret_config")
 
     @_builtins.property
     @pulumi.getter(name="nameNodes")
@@ -170,10 +194,13 @@ class AwaitableGetLocationHdfsResult(GetLocationHdfsResult):
             agent_arns=self.agent_arns,
             authentication_type=self.authentication_type,
             block_size=self.block_size,
+            cmk_secret_config=self.cmk_secret_config,
+            custom_secret_config=self.custom_secret_config,
             kerberos_principal=self.kerberos_principal,
             kms_key_provider_uri=self.kms_key_provider_uri,
             location_arn=self.location_arn,
             location_uri=self.location_uri,
+            managed_secret_config=self.managed_secret_config,
             name_nodes=self.name_nodes,
             qop_configuration=self.qop_configuration,
             replication_factor=self.replication_factor,
@@ -184,7 +211,7 @@ class AwaitableGetLocationHdfsResult(GetLocationHdfsResult):
 def get_location_hdfs(location_arn: Optional[_builtins.str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLocationHdfsResult:
     """
-    Resource schema for AWS::DataSync::LocationHDFS.
+    Resource Type definition for AWS::DataSync::LocationHDFS.
 
 
     :param _builtins.str location_arn: The Amazon Resource Name (ARN) of the HDFS location.
@@ -198,10 +225,13 @@ def get_location_hdfs(location_arn: Optional[_builtins.str] = None,
         agent_arns=pulumi.get(__ret__, 'agent_arns'),
         authentication_type=pulumi.get(__ret__, 'authentication_type'),
         block_size=pulumi.get(__ret__, 'block_size'),
+        cmk_secret_config=pulumi.get(__ret__, 'cmk_secret_config'),
+        custom_secret_config=pulumi.get(__ret__, 'custom_secret_config'),
         kerberos_principal=pulumi.get(__ret__, 'kerberos_principal'),
         kms_key_provider_uri=pulumi.get(__ret__, 'kms_key_provider_uri'),
         location_arn=pulumi.get(__ret__, 'location_arn'),
         location_uri=pulumi.get(__ret__, 'location_uri'),
+        managed_secret_config=pulumi.get(__ret__, 'managed_secret_config'),
         name_nodes=pulumi.get(__ret__, 'name_nodes'),
         qop_configuration=pulumi.get(__ret__, 'qop_configuration'),
         replication_factor=pulumi.get(__ret__, 'replication_factor'),
@@ -210,7 +240,7 @@ def get_location_hdfs(location_arn: Optional[_builtins.str] = None,
 def get_location_hdfs_output(location_arn: Optional[pulumi.Input[_builtins.str]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLocationHdfsResult]:
     """
-    Resource schema for AWS::DataSync::LocationHDFS.
+    Resource Type definition for AWS::DataSync::LocationHDFS.
 
 
     :param _builtins.str location_arn: The Amazon Resource Name (ARN) of the HDFS location.
@@ -223,10 +253,13 @@ def get_location_hdfs_output(location_arn: Optional[pulumi.Input[_builtins.str]]
         agent_arns=pulumi.get(__response__, 'agent_arns'),
         authentication_type=pulumi.get(__response__, 'authentication_type'),
         block_size=pulumi.get(__response__, 'block_size'),
+        cmk_secret_config=pulumi.get(__response__, 'cmk_secret_config'),
+        custom_secret_config=pulumi.get(__response__, 'custom_secret_config'),
         kerberos_principal=pulumi.get(__response__, 'kerberos_principal'),
         kms_key_provider_uri=pulumi.get(__response__, 'kms_key_provider_uri'),
         location_arn=pulumi.get(__response__, 'location_arn'),
         location_uri=pulumi.get(__response__, 'location_uri'),
+        managed_secret_config=pulumi.get(__response__, 'managed_secret_config'),
         name_nodes=pulumi.get(__response__, 'name_nodes'),
         qop_configuration=pulumi.get(__response__, 'qop_configuration'),
         replication_factor=pulumi.get(__response__, 'replication_factor'),

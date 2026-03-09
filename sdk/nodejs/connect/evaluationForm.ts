@@ -64,6 +64,9 @@ export class EvaluationForm extends pulumi.CustomResource {
      * Configuration for language settings of this evaluation form.
      */
     declare public readonly languageConfiguration: pulumi.Output<outputs.connect.EvaluationFormLanguageConfiguration | undefined>;
+    /**
+     * Configuration for evaluation review settings of this evaluation form.
+     */
     declare public readonly reviewConfiguration: pulumi.Output<outputs.connect.EvaluationFormEvaluationReviewConfiguration | undefined>;
     /**
      * A scoring strategy of the evaluation form.
@@ -168,6 +171,9 @@ export interface EvaluationFormArgs {
      * Configuration for language settings of this evaluation form.
      */
     languageConfiguration?: pulumi.Input<inputs.connect.EvaluationFormLanguageConfigurationArgs>;
+    /**
+     * Configuration for evaluation review settings of this evaluation form.
+     */
     reviewConfiguration?: pulumi.Input<inputs.connect.EvaluationFormEvaluationReviewConfigurationArgs>;
     /**
      * A scoring strategy of the evaluation form.

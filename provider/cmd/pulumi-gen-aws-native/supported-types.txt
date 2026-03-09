@@ -153,6 +153,8 @@ AWS::BedrockAgentCore::Gateway
 AWS::BedrockAgentCore::GatewayTarget
 AWS::BedrockAgentCore::Memory
 AWS::BedrockAgentCore::OnlineEvaluationConfig
+AWS::BedrockAgentCore::Policy
+AWS::BedrockAgentCore::PolicyEngine
 AWS::BedrockAgentCore::Runtime
 AWS::BedrockAgentCore::RuntimeEndpoint
 AWS::BedrockAgentCore::WorkloadIdentity

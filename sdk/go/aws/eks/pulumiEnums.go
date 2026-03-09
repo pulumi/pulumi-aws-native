@@ -1182,10 +1182,12 @@ func (in *clusterAccessConfigAuthenticationModePtr) ToClusterAccessConfigAuthent
 type ClusterControlPlaneScalingConfigTier string
 
 const (
-	ClusterControlPlaneScalingConfigTierStandard = ClusterControlPlaneScalingConfigTier("standard")
-	ClusterControlPlaneScalingConfigTierTierXl   = ClusterControlPlaneScalingConfigTier("tier-xl")
-	ClusterControlPlaneScalingConfigTierTier2xl  = ClusterControlPlaneScalingConfigTier("tier-2xl")
-	ClusterControlPlaneScalingConfigTierTier4xl  = ClusterControlPlaneScalingConfigTier("tier-4xl")
+	ClusterControlPlaneScalingConfigTierStandard  = ClusterControlPlaneScalingConfigTier("standard")
+	ClusterControlPlaneScalingConfigTierTierXl    = ClusterControlPlaneScalingConfigTier("tier-xl")
+	ClusterControlPlaneScalingConfigTierTier2xl   = ClusterControlPlaneScalingConfigTier("tier-2xl")
+	ClusterControlPlaneScalingConfigTierTier4xl   = ClusterControlPlaneScalingConfigTier("tier-4xl")
+	ClusterControlPlaneScalingConfigTierTier8xl   = ClusterControlPlaneScalingConfigTier("tier-8xl")
+	ClusterControlPlaneScalingConfigTierTierUltra = ClusterControlPlaneScalingConfigTier("tier-ultra")
 )
 
 func (ClusterControlPlaneScalingConfigTier) ElementType() reflect.Type {
@@ -1314,6 +1316,8 @@ func (o ClusterControlPlaneScalingConfigTierPtrOutput) ToStringPtrOutputWithCont
 //	ClusterControlPlaneScalingConfigTierTierXl
 //	ClusterControlPlaneScalingConfigTierTier2xl
 //	ClusterControlPlaneScalingConfigTierTier4xl
+//	ClusterControlPlaneScalingConfigTierTier8xl
+//	ClusterControlPlaneScalingConfigTierTierUltra
 type ClusterControlPlaneScalingConfigTierInput interface {
 	pulumi.Input
 

@@ -31,8 +31,8 @@ class TrustStoreArgs:
         The set of arguments for constructing a TrustStore resource.
 
         :param pulumi.Input['TrustStoreCaCertificatesBundleSourceArgs'] ca_certificates_bundle_source: A CA certificates bundle source.
-        :param pulumi.Input[_builtins.str] name: A unique name to identify the trust store
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: Key-value pairs for resource tagging
+        :param pulumi.Input[_builtins.str] name: The trust store's name.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A complex type that contains zero or more ``Tag`` elements.
         """
         if ca_certificates_bundle_source is not None:
             pulumi.set(__self__, "ca_certificates_bundle_source", ca_certificates_bundle_source)
@@ -57,7 +57,7 @@ class TrustStoreArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        A unique name to identify the trust store
+        The trust store's name.
         """
         return pulumi.get(self, "name")
 
@@ -69,7 +69,7 @@ class TrustStoreArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
-        Key-value pairs for resource tagging
+        A complex type that contains zero or more ``Tag`` elements.
         """
         return pulumi.get(self, "tags")
 
@@ -89,14 +89,14 @@ class TrustStore(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
-        Resource Type definition for AWS::CloudFront::TrustStore. TrustStores contain CA certificates for mTLS authentication and can be associated with CloudFront distributions.
+        A trust store.
 
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['TrustStoreCaCertificatesBundleSourceArgs', 'TrustStoreCaCertificatesBundleSourceArgsDict']] ca_certificates_bundle_source: A CA certificates bundle source.
-        :param pulumi.Input[_builtins.str] name: A unique name to identify the trust store
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Key-value pairs for resource tagging
+        :param pulumi.Input[_builtins.str] name: The trust store's name.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A complex type that contains zero or more ``Tag`` elements.
         """
         ...
     @overload
@@ -105,7 +105,7 @@ class TrustStore(pulumi.CustomResource):
                  args: Optional[TrustStoreArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource Type definition for AWS::CloudFront::TrustStore. TrustStores contain CA certificates for mTLS authentication and can be associated with CloudFront distributions.
+        A trust store.
 
 
         :param str resource_name: The name of the resource.
@@ -183,7 +183,7 @@ class TrustStore(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) of the trust store
+        The trust store's Amazon Resource Name (ARN).
         """
         return pulumi.get(self, "arn")
 
@@ -191,7 +191,7 @@ class TrustStore(pulumi.CustomResource):
     @pulumi.getter(name="awsId")
     def aws_id(self) -> pulumi.Output[_builtins.str]:
         """
-        The unique identifier for the trust store
+        The trust store's ID.
         """
         return pulumi.get(self, "aws_id")
 
@@ -215,7 +215,7 @@ class TrustStore(pulumi.CustomResource):
     @pulumi.getter(name="lastModifiedTime")
     def last_modified_time(self) -> pulumi.Output[_builtins.str]:
         """
-        The last modification timestamp of the trust store PEM file
+        The trust store's last modified time.
         """
         return pulumi.get(self, "last_modified_time")
 
@@ -223,7 +223,7 @@ class TrustStore(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
         """
-        A unique name to identify the trust store
+        The trust store's name.
         """
         return pulumi.get(self, "name")
 
@@ -231,7 +231,7 @@ class TrustStore(pulumi.CustomResource):
     @pulumi.getter(name="numberOfCaCertificates")
     def number_of_ca_certificates(self) -> pulumi.Output[_builtins.int]:
         """
-        The number of CA certificates in the trust store PEM file
+        The trust store's number of CA certificates.
         """
         return pulumi.get(self, "number_of_ca_certificates")
 
@@ -239,7 +239,7 @@ class TrustStore(pulumi.CustomResource):
     @pulumi.getter
     def status(self) -> pulumi.Output['TrustStoreStatus']:
         """
-        Current status of the trust store
+        The trust store's status.
         """
         return pulumi.get(self, "status")
 
@@ -247,7 +247,7 @@ class TrustStore(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
-        Key-value pairs for resource tagging
+        A complex type that contains zero or more ``Tag`` elements.
         """
         return pulumi.get(self, "tags")
 

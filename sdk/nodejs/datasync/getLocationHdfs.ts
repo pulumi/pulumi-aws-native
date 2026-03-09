@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource schema for AWS::DataSync::LocationHDFS.
+ * Resource Type definition for AWS::DataSync::LocationHDFS.
  */
 export function getLocationHdfs(args: GetLocationHdfsArgs, opts?: pulumi.InvokeOptions): Promise<GetLocationHdfsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -37,6 +37,8 @@ export interface GetLocationHdfsResult {
      * Size of chunks (blocks) in bytes that the data is divided into when stored in the HDFS cluster.
      */
     readonly blockSize?: number;
+    readonly cmkSecretConfig?: outputs.datasync.LocationHdfsCmkSecretConfig;
+    readonly customSecretConfig?: outputs.datasync.LocationHdfsCustomSecretConfig;
     /**
      * The unique identity, or principal, to which Kerberos can assign tickets.
      */
@@ -53,6 +55,7 @@ export interface GetLocationHdfsResult {
      * The URL of the HDFS location that was described.
      */
     readonly locationUri?: string;
+    readonly managedSecretConfig?: outputs.datasync.LocationHdfsManagedSecretConfig;
     /**
      * An array of Name Node(s) of the HDFS location.
      */
@@ -75,7 +78,7 @@ export interface GetLocationHdfsResult {
     readonly tags?: outputs.Tag[];
 }
 /**
- * Resource schema for AWS::DataSync::LocationHDFS.
+ * Resource Type definition for AWS::DataSync::LocationHDFS.
  */
 export function getLocationHdfsOutput(args: GetLocationHdfsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLocationHdfsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

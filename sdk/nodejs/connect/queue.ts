@@ -38,6 +38,10 @@ export class Queue extends pulumi.CustomResource {
     }
 
     /**
+     * The email addresses that agents can use when replying to or initiating email contacts
+     */
+    declare public readonly additionalEmailAddresses: pulumi.Output<outputs.connect.QueueEmailAddress[] | undefined>;
+    /**
      * The description of the queue.
      */
     declare public readonly description: pulumi.Output<string | undefined>;
@@ -103,6 +107,7 @@ export class Queue extends pulumi.CustomResource {
             if (args?.instanceArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'instanceArn'");
             }
+            resourceInputs["additionalEmailAddresses"] = args?.additionalEmailAddresses;
             resourceInputs["description"] = args?.description;
             resourceInputs["hoursOfOperationArn"] = args?.hoursOfOperationArn;
             resourceInputs["instanceArn"] = args?.instanceArn;
@@ -116,6 +121,7 @@ export class Queue extends pulumi.CustomResource {
             resourceInputs["queueArn"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["additionalEmailAddresses"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["hoursOfOperationArn"] = undefined /*out*/;
             resourceInputs["instanceArn"] = undefined /*out*/;
@@ -138,6 +144,10 @@ export class Queue extends pulumi.CustomResource {
  * The set of arguments for constructing a Queue resource.
  */
 export interface QueueArgs {
+    /**
+     * The email addresses that agents can use when replying to or initiating email contacts
+     */
+    additionalEmailAddresses?: pulumi.Input<pulumi.Input<inputs.connect.QueueEmailAddressArgs>[]>;
     /**
      * The description of the queue.
      */

@@ -376,7 +376,8 @@ func (o OrganizationCentralizationRuleCentralizationRuleSourcePtrOutput) SourceL
 
 type OrganizationCentralizationRuleDestinationLogsConfiguration struct {
 	// Configuration defining the backup region and an optional KMS key for the backup destination.
-	BackupConfiguration *OrganizationCentralizationRuleLogsBackupConfiguration `pulumi:"backupConfiguration"`
+	BackupConfiguration       *OrganizationCentralizationRuleLogsBackupConfiguration   `pulumi:"backupConfiguration"`
+	LogGroupNameConfiguration *OrganizationCentralizationRuleLogGroupNameConfiguration `pulumi:"logGroupNameConfiguration"`
 	// The encryption configuration for centralization destination log groups.
 	LogsEncryptionConfiguration *OrganizationCentralizationRuleLogsEncryptionConfiguration `pulumi:"logsEncryptionConfiguration"`
 }
@@ -394,7 +395,8 @@ type OrganizationCentralizationRuleDestinationLogsConfigurationInput interface {
 
 type OrganizationCentralizationRuleDestinationLogsConfigurationArgs struct {
 	// Configuration defining the backup region and an optional KMS key for the backup destination.
-	BackupConfiguration OrganizationCentralizationRuleLogsBackupConfigurationPtrInput `pulumi:"backupConfiguration"`
+	BackupConfiguration       OrganizationCentralizationRuleLogsBackupConfigurationPtrInput   `pulumi:"backupConfiguration"`
+	LogGroupNameConfiguration OrganizationCentralizationRuleLogGroupNameConfigurationPtrInput `pulumi:"logGroupNameConfiguration"`
 	// The encryption configuration for centralization destination log groups.
 	LogsEncryptionConfiguration OrganizationCentralizationRuleLogsEncryptionConfigurationPtrInput `pulumi:"logsEncryptionConfiguration"`
 }
@@ -483,6 +485,12 @@ func (o OrganizationCentralizationRuleDestinationLogsConfigurationOutput) Backup
 	}).(OrganizationCentralizationRuleLogsBackupConfigurationPtrOutput)
 }
 
+func (o OrganizationCentralizationRuleDestinationLogsConfigurationOutput) LogGroupNameConfiguration() OrganizationCentralizationRuleLogGroupNameConfigurationPtrOutput {
+	return o.ApplyT(func(v OrganizationCentralizationRuleDestinationLogsConfiguration) *OrganizationCentralizationRuleLogGroupNameConfiguration {
+		return v.LogGroupNameConfiguration
+	}).(OrganizationCentralizationRuleLogGroupNameConfigurationPtrOutput)
+}
+
 // The encryption configuration for centralization destination log groups.
 func (o OrganizationCentralizationRuleDestinationLogsConfigurationOutput) LogsEncryptionConfiguration() OrganizationCentralizationRuleLogsEncryptionConfigurationPtrOutput {
 	return o.ApplyT(func(v OrganizationCentralizationRuleDestinationLogsConfiguration) *OrganizationCentralizationRuleLogsEncryptionConfiguration {
@@ -524,6 +532,15 @@ func (o OrganizationCentralizationRuleDestinationLogsConfigurationPtrOutput) Bac
 	}).(OrganizationCentralizationRuleLogsBackupConfigurationPtrOutput)
 }
 
+func (o OrganizationCentralizationRuleDestinationLogsConfigurationPtrOutput) LogGroupNameConfiguration() OrganizationCentralizationRuleLogGroupNameConfigurationPtrOutput {
+	return o.ApplyT(func(v *OrganizationCentralizationRuleDestinationLogsConfiguration) *OrganizationCentralizationRuleLogGroupNameConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.LogGroupNameConfiguration
+	}).(OrganizationCentralizationRuleLogGroupNameConfigurationPtrOutput)
+}
+
 // The encryption configuration for centralization destination log groups.
 func (o OrganizationCentralizationRuleDestinationLogsConfigurationPtrOutput) LogsEncryptionConfiguration() OrganizationCentralizationRuleLogsEncryptionConfigurationPtrOutput {
 	return o.ApplyT(func(v *OrganizationCentralizationRuleDestinationLogsConfiguration) *OrganizationCentralizationRuleLogsEncryptionConfiguration {
@@ -532,6 +549,139 @@ func (o OrganizationCentralizationRuleDestinationLogsConfigurationPtrOutput) Log
 		}
 		return v.LogsEncryptionConfiguration
 	}).(OrganizationCentralizationRuleLogsEncryptionConfigurationPtrOutput)
+}
+
+type OrganizationCentralizationRuleLogGroupNameConfiguration struct {
+	LogGroupNamePattern string `pulumi:"logGroupNamePattern"`
+}
+
+// OrganizationCentralizationRuleLogGroupNameConfigurationInput is an input type that accepts OrganizationCentralizationRuleLogGroupNameConfigurationArgs and OrganizationCentralizationRuleLogGroupNameConfigurationOutput values.
+// You can construct a concrete instance of `OrganizationCentralizationRuleLogGroupNameConfigurationInput` via:
+//
+//	OrganizationCentralizationRuleLogGroupNameConfigurationArgs{...}
+type OrganizationCentralizationRuleLogGroupNameConfigurationInput interface {
+	pulumi.Input
+
+	ToOrganizationCentralizationRuleLogGroupNameConfigurationOutput() OrganizationCentralizationRuleLogGroupNameConfigurationOutput
+	ToOrganizationCentralizationRuleLogGroupNameConfigurationOutputWithContext(context.Context) OrganizationCentralizationRuleLogGroupNameConfigurationOutput
+}
+
+type OrganizationCentralizationRuleLogGroupNameConfigurationArgs struct {
+	LogGroupNamePattern pulumi.StringInput `pulumi:"logGroupNamePattern"`
+}
+
+func (OrganizationCentralizationRuleLogGroupNameConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrganizationCentralizationRuleLogGroupNameConfiguration)(nil)).Elem()
+}
+
+func (i OrganizationCentralizationRuleLogGroupNameConfigurationArgs) ToOrganizationCentralizationRuleLogGroupNameConfigurationOutput() OrganizationCentralizationRuleLogGroupNameConfigurationOutput {
+	return i.ToOrganizationCentralizationRuleLogGroupNameConfigurationOutputWithContext(context.Background())
+}
+
+func (i OrganizationCentralizationRuleLogGroupNameConfigurationArgs) ToOrganizationCentralizationRuleLogGroupNameConfigurationOutputWithContext(ctx context.Context) OrganizationCentralizationRuleLogGroupNameConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationCentralizationRuleLogGroupNameConfigurationOutput)
+}
+
+func (i OrganizationCentralizationRuleLogGroupNameConfigurationArgs) ToOrganizationCentralizationRuleLogGroupNameConfigurationPtrOutput() OrganizationCentralizationRuleLogGroupNameConfigurationPtrOutput {
+	return i.ToOrganizationCentralizationRuleLogGroupNameConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i OrganizationCentralizationRuleLogGroupNameConfigurationArgs) ToOrganizationCentralizationRuleLogGroupNameConfigurationPtrOutputWithContext(ctx context.Context) OrganizationCentralizationRuleLogGroupNameConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationCentralizationRuleLogGroupNameConfigurationOutput).ToOrganizationCentralizationRuleLogGroupNameConfigurationPtrOutputWithContext(ctx)
+}
+
+// OrganizationCentralizationRuleLogGroupNameConfigurationPtrInput is an input type that accepts OrganizationCentralizationRuleLogGroupNameConfigurationArgs, OrganizationCentralizationRuleLogGroupNameConfigurationPtr and OrganizationCentralizationRuleLogGroupNameConfigurationPtrOutput values.
+// You can construct a concrete instance of `OrganizationCentralizationRuleLogGroupNameConfigurationPtrInput` via:
+//
+//	        OrganizationCentralizationRuleLogGroupNameConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type OrganizationCentralizationRuleLogGroupNameConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToOrganizationCentralizationRuleLogGroupNameConfigurationPtrOutput() OrganizationCentralizationRuleLogGroupNameConfigurationPtrOutput
+	ToOrganizationCentralizationRuleLogGroupNameConfigurationPtrOutputWithContext(context.Context) OrganizationCentralizationRuleLogGroupNameConfigurationPtrOutput
+}
+
+type organizationCentralizationRuleLogGroupNameConfigurationPtrType OrganizationCentralizationRuleLogGroupNameConfigurationArgs
+
+func OrganizationCentralizationRuleLogGroupNameConfigurationPtr(v *OrganizationCentralizationRuleLogGroupNameConfigurationArgs) OrganizationCentralizationRuleLogGroupNameConfigurationPtrInput {
+	return (*organizationCentralizationRuleLogGroupNameConfigurationPtrType)(v)
+}
+
+func (*organizationCentralizationRuleLogGroupNameConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OrganizationCentralizationRuleLogGroupNameConfiguration)(nil)).Elem()
+}
+
+func (i *organizationCentralizationRuleLogGroupNameConfigurationPtrType) ToOrganizationCentralizationRuleLogGroupNameConfigurationPtrOutput() OrganizationCentralizationRuleLogGroupNameConfigurationPtrOutput {
+	return i.ToOrganizationCentralizationRuleLogGroupNameConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *organizationCentralizationRuleLogGroupNameConfigurationPtrType) ToOrganizationCentralizationRuleLogGroupNameConfigurationPtrOutputWithContext(ctx context.Context) OrganizationCentralizationRuleLogGroupNameConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationCentralizationRuleLogGroupNameConfigurationPtrOutput)
+}
+
+type OrganizationCentralizationRuleLogGroupNameConfigurationOutput struct{ *pulumi.OutputState }
+
+func (OrganizationCentralizationRuleLogGroupNameConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrganizationCentralizationRuleLogGroupNameConfiguration)(nil)).Elem()
+}
+
+func (o OrganizationCentralizationRuleLogGroupNameConfigurationOutput) ToOrganizationCentralizationRuleLogGroupNameConfigurationOutput() OrganizationCentralizationRuleLogGroupNameConfigurationOutput {
+	return o
+}
+
+func (o OrganizationCentralizationRuleLogGroupNameConfigurationOutput) ToOrganizationCentralizationRuleLogGroupNameConfigurationOutputWithContext(ctx context.Context) OrganizationCentralizationRuleLogGroupNameConfigurationOutput {
+	return o
+}
+
+func (o OrganizationCentralizationRuleLogGroupNameConfigurationOutput) ToOrganizationCentralizationRuleLogGroupNameConfigurationPtrOutput() OrganizationCentralizationRuleLogGroupNameConfigurationPtrOutput {
+	return o.ToOrganizationCentralizationRuleLogGroupNameConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o OrganizationCentralizationRuleLogGroupNameConfigurationOutput) ToOrganizationCentralizationRuleLogGroupNameConfigurationPtrOutputWithContext(ctx context.Context) OrganizationCentralizationRuleLogGroupNameConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OrganizationCentralizationRuleLogGroupNameConfiguration) *OrganizationCentralizationRuleLogGroupNameConfiguration {
+		return &v
+	}).(OrganizationCentralizationRuleLogGroupNameConfigurationPtrOutput)
+}
+
+func (o OrganizationCentralizationRuleLogGroupNameConfigurationOutput) LogGroupNamePattern() pulumi.StringOutput {
+	return o.ApplyT(func(v OrganizationCentralizationRuleLogGroupNameConfiguration) string { return v.LogGroupNamePattern }).(pulumi.StringOutput)
+}
+
+type OrganizationCentralizationRuleLogGroupNameConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (OrganizationCentralizationRuleLogGroupNameConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OrganizationCentralizationRuleLogGroupNameConfiguration)(nil)).Elem()
+}
+
+func (o OrganizationCentralizationRuleLogGroupNameConfigurationPtrOutput) ToOrganizationCentralizationRuleLogGroupNameConfigurationPtrOutput() OrganizationCentralizationRuleLogGroupNameConfigurationPtrOutput {
+	return o
+}
+
+func (o OrganizationCentralizationRuleLogGroupNameConfigurationPtrOutput) ToOrganizationCentralizationRuleLogGroupNameConfigurationPtrOutputWithContext(ctx context.Context) OrganizationCentralizationRuleLogGroupNameConfigurationPtrOutput {
+	return o
+}
+
+func (o OrganizationCentralizationRuleLogGroupNameConfigurationPtrOutput) Elem() OrganizationCentralizationRuleLogGroupNameConfigurationOutput {
+	return o.ApplyT(func(v *OrganizationCentralizationRuleLogGroupNameConfiguration) OrganizationCentralizationRuleLogGroupNameConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret OrganizationCentralizationRuleLogGroupNameConfiguration
+		return ret
+	}).(OrganizationCentralizationRuleLogGroupNameConfigurationOutput)
+}
+
+func (o OrganizationCentralizationRuleLogGroupNameConfigurationPtrOutput) LogGroupNamePattern() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OrganizationCentralizationRuleLogGroupNameConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.LogGroupNamePattern
+	}).(pulumi.StringPtrOutput)
 }
 
 type OrganizationCentralizationRuleLogsBackupConfiguration struct {
@@ -6369,6 +6519,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationCentralizationRuleCentralizationRuleSourceInput)(nil)).Elem(), OrganizationCentralizationRuleCentralizationRuleSourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationCentralizationRuleDestinationLogsConfigurationInput)(nil)).Elem(), OrganizationCentralizationRuleDestinationLogsConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationCentralizationRuleDestinationLogsConfigurationPtrInput)(nil)).Elem(), OrganizationCentralizationRuleDestinationLogsConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationCentralizationRuleLogGroupNameConfigurationInput)(nil)).Elem(), OrganizationCentralizationRuleLogGroupNameConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationCentralizationRuleLogGroupNameConfigurationPtrInput)(nil)).Elem(), OrganizationCentralizationRuleLogGroupNameConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationCentralizationRuleLogsBackupConfigurationInput)(nil)).Elem(), OrganizationCentralizationRuleLogsBackupConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationCentralizationRuleLogsBackupConfigurationPtrInput)(nil)).Elem(), OrganizationCentralizationRuleLogsBackupConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationCentralizationRuleLogsEncryptionConfigurationInput)(nil)).Elem(), OrganizationCentralizationRuleLogsEncryptionConfigurationArgs{})
@@ -6447,6 +6599,8 @@ func init() {
 	pulumi.RegisterOutputType(OrganizationCentralizationRuleCentralizationRuleSourcePtrOutput{})
 	pulumi.RegisterOutputType(OrganizationCentralizationRuleDestinationLogsConfigurationOutput{})
 	pulumi.RegisterOutputType(OrganizationCentralizationRuleDestinationLogsConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(OrganizationCentralizationRuleLogGroupNameConfigurationOutput{})
+	pulumi.RegisterOutputType(OrganizationCentralizationRuleLogGroupNameConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(OrganizationCentralizationRuleLogsBackupConfigurationOutput{})
 	pulumi.RegisterOutputType(OrganizationCentralizationRuleLogsBackupConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(OrganizationCentralizationRuleLogsEncryptionConfigurationOutput{})

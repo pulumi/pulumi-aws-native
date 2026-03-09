@@ -72,6 +72,9 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         [Output("status")]
         public Output<Pulumi.AwsNative.BedrockAgentCore.MemoryStatus> Status { get; private set; } = null!;
 
+        [Output("streamDeliveryResources")]
+        public Output<Outputs.MemoryStreamDeliveryResources?> StreamDeliveryResources { get; private set; } = null!;
+
         /// <summary>
         /// The tags for the resources.
         /// </summary>
@@ -169,6 +172,9 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        [Input("streamDeliveryResources")]
+        public Input<Inputs.MemoryStreamDeliveryResourcesArgs>? StreamDeliveryResources { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

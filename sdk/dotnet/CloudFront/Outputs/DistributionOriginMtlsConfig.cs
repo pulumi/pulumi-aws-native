@@ -10,9 +10,15 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CloudFront.Outputs
 {
 
+    /// <summary>
+    /// Configures mutual TLS authentication between CloudFront and your origin server.
+    /// </summary>
     [OutputType]
     public sealed class DistributionOriginMtlsConfig
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the client certificate stored in AWS Certificate Manager (ACM) that CloudFront uses to authenticate with your origin using Mutual TLS.
+        /// </summary>
         public readonly string ClientCertificateArn;
 
         [OutputConstructor]

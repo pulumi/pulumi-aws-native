@@ -17,6 +17,7 @@ namespace Pulumi.AwsNative.ObservabilityAdmin.Outputs
         /// Configuration defining the backup region and an optional KMS key for the backup destination.
         /// </summary>
         public readonly Outputs.OrganizationCentralizationRuleLogsBackupConfiguration? BackupConfiguration;
+        public readonly Outputs.OrganizationCentralizationRuleLogGroupNameConfiguration? LogGroupNameConfiguration;
         /// <summary>
         /// The encryption configuration for centralization destination log groups.
         /// </summary>
@@ -26,9 +27,12 @@ namespace Pulumi.AwsNative.ObservabilityAdmin.Outputs
         private OrganizationCentralizationRuleDestinationLogsConfiguration(
             Outputs.OrganizationCentralizationRuleLogsBackupConfiguration? backupConfiguration,
 
+            Outputs.OrganizationCentralizationRuleLogGroupNameConfiguration? logGroupNameConfiguration,
+
             Outputs.OrganizationCentralizationRuleLogsEncryptionConfiguration? logsEncryptionConfiguration)
         {
             BackupConfiguration = backupConfiguration;
+            LogGroupNameConfiguration = logGroupNameConfiguration;
             LogsEncryptionConfiguration = logsEncryptionConfiguration;
         }
     }

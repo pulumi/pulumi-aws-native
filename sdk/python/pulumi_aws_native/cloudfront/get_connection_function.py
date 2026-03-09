@@ -134,7 +134,7 @@ class GetConnectionFunctionResult:
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
         """
-        A complex type that contains zero or more `Tag` elements.
+        A complex type that contains zero or more ``Tag`` elements.
         """
         return pulumi.get(self, "tags")
 
@@ -160,7 +160,7 @@ class AwaitableGetConnectionFunctionResult(GetConnectionFunctionResult):
 def get_connection_function(id: Optional[_builtins.str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConnectionFunctionResult:
     """
-    Resource Type definition for AWS::CloudFront::ConnectionFunction
+    A connection function.
 
 
     :param _builtins.str id: The connection function ID.
@@ -184,7 +184,7 @@ def get_connection_function(id: Optional[_builtins.str] = None,
 def get_connection_function_output(id: Optional[pulumi.Input[_builtins.str]] = None,
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConnectionFunctionResult]:
     """
-    Resource Type definition for AWS::CloudFront::ConnectionFunction
+    A connection function.
 
 
     :param _builtins.str id: The connection function ID.

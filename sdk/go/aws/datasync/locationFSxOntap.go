@@ -13,7 +13,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource schema for AWS::DataSync::LocationFSxONTAP.
+// Resource Type definition for AWS::DataSync::LocationFSxONTAP.
 type LocationFSxOntap struct {
 	pulumi.CustomResourceState
 

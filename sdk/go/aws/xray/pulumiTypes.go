@@ -196,7 +196,8 @@ type SamplingRuleType struct {
 	// > Specifying a sampling rule by name is recommended, as specifying by ARN will be deprecated in future.
 	RuleArn *string `pulumi:"ruleArn"`
 	// The name of the sampling rule. Specify a rule by either name or ARN, but not both.
-	RuleName *string `pulumi:"ruleName"`
+	RuleName          *string                        `pulumi:"ruleName"`
+	SamplingRateBoost *SamplingRuleSamplingRateBoost `pulumi:"samplingRateBoost"`
 	// Matches the name that the service uses to identify itself in segments.
 	ServiceName string `pulumi:"serviceName"`
 	// Matches the origin that the service uses to identify its type in segments.
@@ -238,7 +239,8 @@ type SamplingRuleTypeArgs struct {
 	// > Specifying a sampling rule by name is recommended, as specifying by ARN will be deprecated in future.
 	RuleArn pulumi.StringPtrInput `pulumi:"ruleArn"`
 	// The name of the sampling rule. Specify a rule by either name or ARN, but not both.
-	RuleName pulumi.StringPtrInput `pulumi:"ruleName"`
+	RuleName          pulumi.StringPtrInput                 `pulumi:"ruleName"`
+	SamplingRateBoost SamplingRuleSamplingRateBoostPtrInput `pulumi:"samplingRateBoost"`
 	// Matches the name that the service uses to identify itself in segments.
 	ServiceName pulumi.StringInput `pulumi:"serviceName"`
 	// Matches the origin that the service uses to identify its type in segments.
@@ -371,6 +373,10 @@ func (o SamplingRuleTypeOutput) RuleArn() pulumi.StringPtrOutput {
 // The name of the sampling rule. Specify a rule by either name or ARN, but not both.
 func (o SamplingRuleTypeOutput) RuleName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SamplingRuleType) *string { return v.RuleName }).(pulumi.StringPtrOutput)
+}
+
+func (o SamplingRuleTypeOutput) SamplingRateBoost() SamplingRuleSamplingRateBoostPtrOutput {
+	return o.ApplyT(func(v SamplingRuleType) *SamplingRuleSamplingRateBoost { return v.SamplingRateBoost }).(SamplingRuleSamplingRateBoostPtrOutput)
 }
 
 // Matches the name that the service uses to identify itself in segments.
@@ -507,6 +513,15 @@ func (o SamplingRuleTypePtrOutput) RuleName() pulumi.StringPtrOutput {
 		}
 		return v.RuleName
 	}).(pulumi.StringPtrOutput)
+}
+
+func (o SamplingRuleTypePtrOutput) SamplingRateBoost() SamplingRuleSamplingRateBoostPtrOutput {
+	return o.ApplyT(func(v *SamplingRuleType) *SamplingRuleSamplingRateBoost {
+		if v == nil {
+			return nil
+		}
+		return v.SamplingRateBoost
+	}).(SamplingRuleSamplingRateBoostPtrOutput)
 }
 
 // Matches the name that the service uses to identify itself in segments.
@@ -720,6 +735,162 @@ func (o SamplingRuleRecordPtrOutput) SamplingRule() SamplingRuleTypePtrOutput {
 	}).(SamplingRuleTypePtrOutput)
 }
 
+type SamplingRuleSamplingRateBoost struct {
+	// Time window (in minutes) in which only one sampling rate boost can be triggered. After a boost occurs, no further boosts are allowed until the next window.
+	CooldownWindowMinutes int `pulumi:"cooldownWindowMinutes"`
+	// The maximum sampling rate X-Ray will apply when it detects anomalies. X-Ray determines the appropriate rate between your baseline and the maximum, depending on anomaly activity.
+	MaxRate float64 `pulumi:"maxRate"`
+}
+
+// SamplingRuleSamplingRateBoostInput is an input type that accepts SamplingRuleSamplingRateBoostArgs and SamplingRuleSamplingRateBoostOutput values.
+// You can construct a concrete instance of `SamplingRuleSamplingRateBoostInput` via:
+//
+//	SamplingRuleSamplingRateBoostArgs{...}
+type SamplingRuleSamplingRateBoostInput interface {
+	pulumi.Input
+
+	ToSamplingRuleSamplingRateBoostOutput() SamplingRuleSamplingRateBoostOutput
+	ToSamplingRuleSamplingRateBoostOutputWithContext(context.Context) SamplingRuleSamplingRateBoostOutput
+}
+
+type SamplingRuleSamplingRateBoostArgs struct {
+	// Time window (in minutes) in which only one sampling rate boost can be triggered. After a boost occurs, no further boosts are allowed until the next window.
+	CooldownWindowMinutes pulumi.IntInput `pulumi:"cooldownWindowMinutes"`
+	// The maximum sampling rate X-Ray will apply when it detects anomalies. X-Ray determines the appropriate rate between your baseline and the maximum, depending on anomaly activity.
+	MaxRate pulumi.Float64Input `pulumi:"maxRate"`
+}
+
+func (SamplingRuleSamplingRateBoostArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SamplingRuleSamplingRateBoost)(nil)).Elem()
+}
+
+func (i SamplingRuleSamplingRateBoostArgs) ToSamplingRuleSamplingRateBoostOutput() SamplingRuleSamplingRateBoostOutput {
+	return i.ToSamplingRuleSamplingRateBoostOutputWithContext(context.Background())
+}
+
+func (i SamplingRuleSamplingRateBoostArgs) ToSamplingRuleSamplingRateBoostOutputWithContext(ctx context.Context) SamplingRuleSamplingRateBoostOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SamplingRuleSamplingRateBoostOutput)
+}
+
+func (i SamplingRuleSamplingRateBoostArgs) ToSamplingRuleSamplingRateBoostPtrOutput() SamplingRuleSamplingRateBoostPtrOutput {
+	return i.ToSamplingRuleSamplingRateBoostPtrOutputWithContext(context.Background())
+}
+
+func (i SamplingRuleSamplingRateBoostArgs) ToSamplingRuleSamplingRateBoostPtrOutputWithContext(ctx context.Context) SamplingRuleSamplingRateBoostPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SamplingRuleSamplingRateBoostOutput).ToSamplingRuleSamplingRateBoostPtrOutputWithContext(ctx)
+}
+
+// SamplingRuleSamplingRateBoostPtrInput is an input type that accepts SamplingRuleSamplingRateBoostArgs, SamplingRuleSamplingRateBoostPtr and SamplingRuleSamplingRateBoostPtrOutput values.
+// You can construct a concrete instance of `SamplingRuleSamplingRateBoostPtrInput` via:
+//
+//	        SamplingRuleSamplingRateBoostArgs{...}
+//
+//	or:
+//
+//	        nil
+type SamplingRuleSamplingRateBoostPtrInput interface {
+	pulumi.Input
+
+	ToSamplingRuleSamplingRateBoostPtrOutput() SamplingRuleSamplingRateBoostPtrOutput
+	ToSamplingRuleSamplingRateBoostPtrOutputWithContext(context.Context) SamplingRuleSamplingRateBoostPtrOutput
+}
+
+type samplingRuleSamplingRateBoostPtrType SamplingRuleSamplingRateBoostArgs
+
+func SamplingRuleSamplingRateBoostPtr(v *SamplingRuleSamplingRateBoostArgs) SamplingRuleSamplingRateBoostPtrInput {
+	return (*samplingRuleSamplingRateBoostPtrType)(v)
+}
+
+func (*samplingRuleSamplingRateBoostPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SamplingRuleSamplingRateBoost)(nil)).Elem()
+}
+
+func (i *samplingRuleSamplingRateBoostPtrType) ToSamplingRuleSamplingRateBoostPtrOutput() SamplingRuleSamplingRateBoostPtrOutput {
+	return i.ToSamplingRuleSamplingRateBoostPtrOutputWithContext(context.Background())
+}
+
+func (i *samplingRuleSamplingRateBoostPtrType) ToSamplingRuleSamplingRateBoostPtrOutputWithContext(ctx context.Context) SamplingRuleSamplingRateBoostPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SamplingRuleSamplingRateBoostPtrOutput)
+}
+
+type SamplingRuleSamplingRateBoostOutput struct{ *pulumi.OutputState }
+
+func (SamplingRuleSamplingRateBoostOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SamplingRuleSamplingRateBoost)(nil)).Elem()
+}
+
+func (o SamplingRuleSamplingRateBoostOutput) ToSamplingRuleSamplingRateBoostOutput() SamplingRuleSamplingRateBoostOutput {
+	return o
+}
+
+func (o SamplingRuleSamplingRateBoostOutput) ToSamplingRuleSamplingRateBoostOutputWithContext(ctx context.Context) SamplingRuleSamplingRateBoostOutput {
+	return o
+}
+
+func (o SamplingRuleSamplingRateBoostOutput) ToSamplingRuleSamplingRateBoostPtrOutput() SamplingRuleSamplingRateBoostPtrOutput {
+	return o.ToSamplingRuleSamplingRateBoostPtrOutputWithContext(context.Background())
+}
+
+func (o SamplingRuleSamplingRateBoostOutput) ToSamplingRuleSamplingRateBoostPtrOutputWithContext(ctx context.Context) SamplingRuleSamplingRateBoostPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SamplingRuleSamplingRateBoost) *SamplingRuleSamplingRateBoost {
+		return &v
+	}).(SamplingRuleSamplingRateBoostPtrOutput)
+}
+
+// Time window (in minutes) in which only one sampling rate boost can be triggered. After a boost occurs, no further boosts are allowed until the next window.
+func (o SamplingRuleSamplingRateBoostOutput) CooldownWindowMinutes() pulumi.IntOutput {
+	return o.ApplyT(func(v SamplingRuleSamplingRateBoost) int { return v.CooldownWindowMinutes }).(pulumi.IntOutput)
+}
+
+// The maximum sampling rate X-Ray will apply when it detects anomalies. X-Ray determines the appropriate rate between your baseline and the maximum, depending on anomaly activity.
+func (o SamplingRuleSamplingRateBoostOutput) MaxRate() pulumi.Float64Output {
+	return o.ApplyT(func(v SamplingRuleSamplingRateBoost) float64 { return v.MaxRate }).(pulumi.Float64Output)
+}
+
+type SamplingRuleSamplingRateBoostPtrOutput struct{ *pulumi.OutputState }
+
+func (SamplingRuleSamplingRateBoostPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SamplingRuleSamplingRateBoost)(nil)).Elem()
+}
+
+func (o SamplingRuleSamplingRateBoostPtrOutput) ToSamplingRuleSamplingRateBoostPtrOutput() SamplingRuleSamplingRateBoostPtrOutput {
+	return o
+}
+
+func (o SamplingRuleSamplingRateBoostPtrOutput) ToSamplingRuleSamplingRateBoostPtrOutputWithContext(ctx context.Context) SamplingRuleSamplingRateBoostPtrOutput {
+	return o
+}
+
+func (o SamplingRuleSamplingRateBoostPtrOutput) Elem() SamplingRuleSamplingRateBoostOutput {
+	return o.ApplyT(func(v *SamplingRuleSamplingRateBoost) SamplingRuleSamplingRateBoost {
+		if v != nil {
+			return *v
+		}
+		var ret SamplingRuleSamplingRateBoost
+		return ret
+	}).(SamplingRuleSamplingRateBoostOutput)
+}
+
+// Time window (in minutes) in which only one sampling rate boost can be triggered. After a boost occurs, no further boosts are allowed until the next window.
+func (o SamplingRuleSamplingRateBoostPtrOutput) CooldownWindowMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SamplingRuleSamplingRateBoost) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.CooldownWindowMinutes
+	}).(pulumi.IntPtrOutput)
+}
+
+// The maximum sampling rate X-Ray will apply when it detects anomalies. X-Ray determines the appropriate rate between your baseline and the maximum, depending on anomaly activity.
+func (o SamplingRuleSamplingRateBoostPtrOutput) MaxRate() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *SamplingRuleSamplingRateBoost) *float64 {
+		if v == nil {
+			return nil
+		}
+		return &v.MaxRate
+	}).(pulumi.Float64PtrOutput)
+}
+
 type SamplingRuleTag struct {
 	// The key name of the tag.
 	Key string `pulumi:"key"`
@@ -741,9 +912,10 @@ type SamplingRuleUpdate struct {
 	// A fixed number of matching requests to instrument per second, prior to applying the fixed rate. The reservoir is not used directly by services, but applies to all services using the rule collectively.
 	ReservoirSize *int `pulumi:"reservoirSize"`
 	// Matches the ARN of the AWS resource on which the service runs.
-	ResourceArn *string `pulumi:"resourceArn"`
-	RuleArn     *string `pulumi:"ruleArn"`
-	RuleName    *string `pulumi:"ruleName"`
+	ResourceArn       *string                        `pulumi:"resourceArn"`
+	RuleArn           *string                        `pulumi:"ruleArn"`
+	RuleName          *string                        `pulumi:"ruleName"`
+	SamplingRateBoost *SamplingRuleSamplingRateBoost `pulumi:"samplingRateBoost"`
 	// Matches the name that the service uses to identify itself in segments.
 	ServiceName *string `pulumi:"serviceName"`
 	// Matches the origin that the service uses to identify its type in segments.
@@ -777,9 +949,10 @@ type SamplingRuleUpdateArgs struct {
 	// A fixed number of matching requests to instrument per second, prior to applying the fixed rate. The reservoir is not used directly by services, but applies to all services using the rule collectively.
 	ReservoirSize pulumi.IntPtrInput `pulumi:"reservoirSize"`
 	// Matches the ARN of the AWS resource on which the service runs.
-	ResourceArn pulumi.StringPtrInput `pulumi:"resourceArn"`
-	RuleArn     pulumi.StringPtrInput `pulumi:"ruleArn"`
-	RuleName    pulumi.StringPtrInput `pulumi:"ruleName"`
+	ResourceArn       pulumi.StringPtrInput                 `pulumi:"resourceArn"`
+	RuleArn           pulumi.StringPtrInput                 `pulumi:"ruleArn"`
+	RuleName          pulumi.StringPtrInput                 `pulumi:"ruleName"`
+	SamplingRateBoost SamplingRuleSamplingRateBoostPtrInput `pulumi:"samplingRateBoost"`
 	// Matches the name that the service uses to identify itself in segments.
 	ServiceName pulumi.StringPtrInput `pulumi:"serviceName"`
 	// Matches the origin that the service uses to identify its type in segments.
@@ -906,6 +1079,10 @@ func (o SamplingRuleUpdateOutput) RuleArn() pulumi.StringPtrOutput {
 
 func (o SamplingRuleUpdateOutput) RuleName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SamplingRuleUpdate) *string { return v.RuleName }).(pulumi.StringPtrOutput)
+}
+
+func (o SamplingRuleUpdateOutput) SamplingRateBoost() SamplingRuleSamplingRateBoostPtrOutput {
+	return o.ApplyT(func(v SamplingRuleUpdate) *SamplingRuleSamplingRateBoost { return v.SamplingRateBoost }).(SamplingRuleSamplingRateBoostPtrOutput)
 }
 
 // Matches the name that the service uses to identify itself in segments.
@@ -1035,6 +1212,15 @@ func (o SamplingRuleUpdatePtrOutput) RuleName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+func (o SamplingRuleUpdatePtrOutput) SamplingRateBoost() SamplingRuleSamplingRateBoostPtrOutput {
+	return o.ApplyT(func(v *SamplingRuleUpdate) *SamplingRuleSamplingRateBoost {
+		if v == nil {
+			return nil
+		}
+		return v.SamplingRateBoost
+	}).(SamplingRuleSamplingRateBoostPtrOutput)
+}
+
 // Matches the name that the service uses to identify itself in segments.
 func (o SamplingRuleUpdatePtrOutput) ServiceName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SamplingRuleUpdate) *string {
@@ -1072,6 +1258,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SamplingRuleTypePtrInput)(nil)).Elem(), SamplingRuleTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SamplingRuleRecordInput)(nil)).Elem(), SamplingRuleRecordArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SamplingRuleRecordPtrInput)(nil)).Elem(), SamplingRuleRecordArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SamplingRuleSamplingRateBoostInput)(nil)).Elem(), SamplingRuleSamplingRateBoostArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SamplingRuleSamplingRateBoostPtrInput)(nil)).Elem(), SamplingRuleSamplingRateBoostArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SamplingRuleUpdateInput)(nil)).Elem(), SamplingRuleUpdateArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SamplingRuleUpdatePtrInput)(nil)).Elem(), SamplingRuleUpdateArgs{})
 	pulumi.RegisterOutputType(GroupInsightsConfigurationOutput{})
@@ -1080,6 +1268,8 @@ func init() {
 	pulumi.RegisterOutputType(SamplingRuleTypePtrOutput{})
 	pulumi.RegisterOutputType(SamplingRuleRecordOutput{})
 	pulumi.RegisterOutputType(SamplingRuleRecordPtrOutput{})
+	pulumi.RegisterOutputType(SamplingRuleSamplingRateBoostOutput{})
+	pulumi.RegisterOutputType(SamplingRuleSamplingRateBoostPtrOutput{})
 	pulumi.RegisterOutputType(SamplingRuleUpdateOutput{})
 	pulumi.RegisterOutputType(SamplingRuleUpdatePtrOutput{})
 }

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CloudFront.Outputs
 {
 
+    /// <summary>
+    /// A viewer mTLS configuration.
+    /// </summary>
     [OutputType]
     public sealed class DistributionViewerMtlsConfig
     {
