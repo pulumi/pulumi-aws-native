@@ -37,7 +37,7 @@ import (
 //				AuthParameters: &events.ConnectionAuthParametersArgs{
 //					ApiKeyAuthParameters: &events.ConnectionApiKeyAuthParametersArgs{
 //						ApiKeyName:  pulumi.String("PagerDuty Authorization"),
-//						ApiKeyValue: pulumi.String(pagerDutyAPIKeyParam),
+//						ApiKeyValue: pulumi.String(pulumi.String(pagerDutyAPIKeyParam)),
 //					},
 //				},
 //			})

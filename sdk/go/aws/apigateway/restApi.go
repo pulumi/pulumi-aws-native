@@ -39,7 +39,7 @@ import (
 //			_type := cfg.Require("type")
 //			property := cfg.Require("property")
 //			restApi, err := apigateway.NewRestApi(ctx, "restApi", &apigateway.RestApiArgs{
-//				Name: pulumi.String(apiName),
+//				Name: pulumi.String(pulumi.String(apiName)),
 //			})
 //			if err != nil {
 //				return err
@@ -49,14 +49,14 @@ import (
 //					Type: apigateway.DocumentationPartLocationType(_type),
 //				},
 //				RestApiId:  restApi.ID(),
-//				Properties: pulumi.String(property),
+//				Properties: pulumi.String(pulumi.String(property)),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = apigateway.NewDocumentationVersion(ctx, "documentationVersion", &apigateway.DocumentationVersionArgs{
-//				Description:          pulumi.String(description),
-//				DocumentationVersion: pulumi.String(version),
+//				Description:          pulumi.String(pulumi.String(description)),
+//				DocumentationVersion: pulumi.String(pulumi.String(version)),
 //				RestApiId:            restApi.ID(),
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				documentationPart,
@@ -91,7 +91,7 @@ import (
 //			_type := cfg.Require("type")
 //			property := cfg.Require("property")
 //			restApi, err := apigateway.NewRestApi(ctx, "restApi", &apigateway.RestApiArgs{
-//				Name: pulumi.String(apiName),
+//				Name: pulumi.String(pulumi.String(apiName)),
 //			})
 //			if err != nil {
 //				return err
@@ -101,14 +101,14 @@ import (
 //					Type: apigateway.DocumentationPartLocationType(_type),
 //				},
 //				RestApiId:  restApi.ID(),
-//				Properties: pulumi.String(property),
+//				Properties: pulumi.String(pulumi.String(property)),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = apigateway.NewDocumentationVersion(ctx, "documentationVersion", &apigateway.DocumentationVersionArgs{
-//				Description:          pulumi.String(description),
-//				DocumentationVersion: pulumi.String(version),
+//				Description:          pulumi.String(pulumi.String(description)),
+//				DocumentationVersion: pulumi.String(pulumi.String(version)),
 //				RestApiId:            restApi.ID(),
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				documentationPart,
@@ -217,19 +217,19 @@ import (
 //			responseType := cfg.Require("responseType")
 //			statusCode := cfg.Require("statusCode")
 //			restApi, err := apigateway.NewRestApi(ctx, "restApi", &apigateway.RestApiArgs{
-//				Name: pulumi.String(apiName),
+//				Name: pulumi.String(pulumi.String(apiName)),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = apigateway.NewGatewayResponse(ctx, "gatewayResponse", &apigateway.GatewayResponseArgs{
 //				ResponseParameters: pulumi.StringMap{
-//					"gatewayresponse.header.k1": pulumi.String(responseParameter1),
-//					"gatewayresponse.header.k2": pulumi.String(responseParameter2),
+//					"gatewayresponse.header.k1": pulumi.String(pulumi.String(responseParameter1)),
+//					"gatewayresponse.header.k2": pulumi.String(pulumi.String(responseParameter2)),
 //				},
-//				ResponseType: pulumi.String(responseType),
+//				ResponseType: pulumi.String(pulumi.String(responseType)),
 //				RestApiId:    restApi.ID(),
-//				StatusCode:   pulumi.String(statusCode),
+//				StatusCode:   pulumi.String(pulumi.String(statusCode)),
 //			})
 //			if err != nil {
 //				return err
@@ -261,19 +261,19 @@ import (
 //			responseType := cfg.Require("responseType")
 //			statusCode := cfg.Require("statusCode")
 //			restApi, err := apigateway.NewRestApi(ctx, "restApi", &apigateway.RestApiArgs{
-//				Name: pulumi.String(apiName),
+//				Name: pulumi.String(pulumi.String(apiName)),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = apigateway.NewGatewayResponse(ctx, "gatewayResponse", &apigateway.GatewayResponseArgs{
 //				ResponseParameters: pulumi.StringMap{
-//					"gatewayresponse.header.k1": pulumi.String(responseParameter1),
-//					"gatewayresponse.header.k2": pulumi.String(responseParameter2),
+//					"gatewayresponse.header.k1": pulumi.String(pulumi.String(responseParameter1)),
+//					"gatewayresponse.header.k2": pulumi.String(pulumi.String(responseParameter2)),
 //				},
-//				ResponseType: pulumi.String(responseType),
+//				ResponseType: pulumi.String(pulumi.String(responseType)),
 //				RestApiId:    restApi.ID(),
-//				StatusCode:   pulumi.String(statusCode),
+//				StatusCode:   pulumi.String(pulumi.String(statusCode)),
 //			})
 //			if err != nil {
 //				return err
@@ -321,13 +321,13 @@ import (
 //				validateRequestParameters = param
 //			}
 //			restApi, err := apigateway.NewRestApi(ctx, "restApi", &apigateway.RestApiArgs{
-//				Name: pulumi.String(restApiName),
+//				Name: pulumi.String(pulumi.String(restApiName)),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			requestValidator, err := apigateway.NewRequestValidator(ctx, "requestValidator", &apigateway.RequestValidatorArgs{
-//				Name:                      pulumi.String(validatorName),
+//				Name:                      pulumi.String(pulumi.String(validatorName)),
 //				RestApiId:                 restApi.ID(),
 //				ValidateRequestBody:       pulumi.String(validateRequestBody),
 //				ValidateRequestParameters: pulumi.String(validateRequestParameters),
@@ -351,7 +351,7 @@ import (
 //					},
 //				},
 //				RequestValidatorId: requestValidator.ID(),
-//				OperationName:      pulumi.String(operationName),
+//				OperationName:      pulumi.String(pulumi.String(operationName)),
 //			})
 //			if err != nil {
 //				return err
@@ -400,13 +400,13 @@ import (
 //				validateRequestParameters = param
 //			}
 //			restApi, err := apigateway.NewRestApi(ctx, "restApi", &apigateway.RestApiArgs{
-//				Name: pulumi.String(restApiName),
+//				Name: pulumi.String(pulumi.String(restApiName)),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			requestValidator, err := apigateway.NewRequestValidator(ctx, "requestValidator", &apigateway.RequestValidatorArgs{
-//				Name:                      pulumi.String(validatorName),
+//				Name:                      pulumi.String(pulumi.String(validatorName)),
 //				RestApiId:                 restApi.ID(),
 //				ValidateRequestBody:       pulumi.String(validateRequestBody),
 //				ValidateRequestParameters: pulumi.String(validateRequestParameters),
@@ -430,7 +430,7 @@ import (
 //					},
 //				},
 //				RequestValidatorId: requestValidator.ID(),
-//				OperationName:      pulumi.String(operationName),
+//				OperationName:      pulumi.String(pulumi.String(operationName)),
 //			})
 //			if err != nil {
 //				return err
@@ -462,13 +462,13 @@ import (
 //			validateRequestBody := cfg.Require("validateRequestBody")
 //			validateRequestParameters := cfg.Require("validateRequestParameters")
 //			restApi, err := apigateway.NewRestApi(ctx, "restApi", &apigateway.RestApiArgs{
-//				Name: pulumi.String(apiName),
+//				Name: pulumi.String(pulumi.String(apiName)),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = apigateway.NewRequestValidator(ctx, "requestValidator", &apigateway.RequestValidatorArgs{
-//				Name:                      pulumi.String(validatorName),
+//				Name:                      pulumi.String(pulumi.String(validatorName)),
 //				RestApiId:                 restApi.ID(),
 //				ValidateRequestBody:       pulumi.String(validateRequestBody),
 //				ValidateRequestParameters: pulumi.String(validateRequestParameters),
@@ -502,13 +502,13 @@ import (
 //			validateRequestBody := cfg.Require("validateRequestBody")
 //			validateRequestParameters := cfg.Require("validateRequestParameters")
 //			restApi, err := apigateway.NewRestApi(ctx, "restApi", &apigateway.RestApiArgs{
-//				Name: pulumi.String(apiName),
+//				Name: pulumi.String(pulumi.String(apiName)),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = apigateway.NewRequestValidator(ctx, "requestValidator", &apigateway.RequestValidatorArgs{
-//				Name:                      pulumi.String(validatorName),
+//				Name:                      pulumi.String(pulumi.String(validatorName)),
 //				RestApiId:                 restApi.ID(),
 //				ValidateRequestBody:       pulumi.String(validateRequestBody),
 //				ValidateRequestParameters: pulumi.String(validateRequestParameters),
@@ -542,10 +542,10 @@ import (
 //			_, err := apigateway.NewRestApi(ctx, "myRestApi", &apigateway.RestApiArgs{
 //				EndpointConfiguration: &apigateway.RestApiEndpointConfigurationArgs{
 //					Types: pulumi.StringArray{
-//						pulumi.String(_type),
+//						pulumi.String(pulumi.String(_type)),
 //					},
 //				},
-//				Name: pulumi.String(apiName),
+//				Name: pulumi.String(pulumi.String(apiName)),
 //			})
 //			if err != nil {
 //				return err
@@ -576,10 +576,10 @@ import (
 //			_, err := apigateway.NewRestApi(ctx, "myRestApi", &apigateway.RestApiArgs{
 //				EndpointConfiguration: &apigateway.RestApiEndpointConfigurationArgs{
 //					Types: pulumi.StringArray{
-//						pulumi.String(_type),
+//						pulumi.String(pulumi.String(_type)),
 //					},
 //				},
-//				Name: pulumi.String(apiName),
+//				Name: pulumi.String(pulumi.String(apiName)),
 //			})
 //			if err != nil {
 //				return err
@@ -699,13 +699,13 @@ import (
 //			binaryMediaType2 := cfg.Require("binaryMediaType2")
 //			minimumCompressionSize := cfg.Require("minimumCompressionSize")
 //			_, err := apigateway.NewRestApi(ctx, "myRestApi", &apigateway.RestApiArgs{
-//				ApiKeySourceType: pulumi.String(apiKeySourceType),
+//				ApiKeySourceType: pulumi.String(pulumi.String(apiKeySourceType)),
 //				BinaryMediaTypes: pulumi.StringArray{
-//					pulumi.String(binaryMediaType1),
-//					pulumi.String(binaryMediaType2),
+//					pulumi.String(pulumi.String(binaryMediaType1)),
+//					pulumi.String(pulumi.String(binaryMediaType2)),
 //				},
 //				MinimumCompressionSize: pulumi.String(minimumCompressionSize),
-//				Name:                   pulumi.String(apiName),
+//				Name:                   pulumi.String(pulumi.String(apiName)),
 //			})
 //			if err != nil {
 //				return err
@@ -737,13 +737,13 @@ import (
 //			binaryMediaType2 := cfg.Require("binaryMediaType2")
 //			minimumCompressionSize := cfg.Require("minimumCompressionSize")
 //			_, err := apigateway.NewRestApi(ctx, "myRestApi", &apigateway.RestApiArgs{
-//				ApiKeySourceType: pulumi.String(apiKeySourceType),
+//				ApiKeySourceType: pulumi.String(pulumi.String(apiKeySourceType)),
 //				BinaryMediaTypes: pulumi.StringArray{
-//					pulumi.String(binaryMediaType1),
-//					pulumi.String(binaryMediaType2),
+//					pulumi.String(pulumi.String(binaryMediaType1)),
+//					pulumi.String(pulumi.String(binaryMediaType2)),
 //				},
 //				MinimumCompressionSize: pulumi.String(minimumCompressionSize),
-//				Name:                   pulumi.String(apiName),
+//				Name:                   pulumi.String(pulumi.String(apiName)),
 //			})
 //			if err != nil {
 //				return err

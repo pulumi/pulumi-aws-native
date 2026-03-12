@@ -35,11 +35,11 @@ import (
 //			description := cfg.Require("description")
 //			statement := cfg.Require("statement")
 //			staticPolicy, err := verifiedpermissions.NewPolicy(ctx, "staticPolicy", &verifiedpermissions.PolicyArgs{
-//				PolicyStoreId: pulumi.String(policyStoreId),
+//				PolicyStoreId: pulumi.String(pulumi.String(policyStoreId)),
 //				Definition: &verifiedpermissions.PolicyDefinition0PropertiesArgs{
 //					Static: &verifiedpermissions.PolicyStaticPolicyDefinitionArgs{
-//						Description: pulumi.String(description),
-//						Statement:   pulumi.String(statement),
+//						Description: pulumi.String(pulumi.String(description)),
+//						Statement:   pulumi.String(pulumi.String(statement)),
 //					},
 //				},
 //			})
@@ -75,17 +75,17 @@ import (
 //			resourceType := cfg.Require("resourceType")
 //			resourceId := cfg.Require("resourceId")
 //			templateLinkedPolicy, err := verifiedpermissions.NewPolicy(ctx, "templateLinkedPolicy", &verifiedpermissions.PolicyArgs{
-//				PolicyStoreId: pulumi.String(policyStoreId),
+//				PolicyStoreId: pulumi.String(pulumi.String(policyStoreId)),
 //				Definition: &verifiedpermissions.PolicyDefinition0PropertiesArgs{
 //					TemplateLinked: &verifiedpermissions.PolicyTemplateLinkedPolicyDefinitionArgs{
-//						PolicyTemplateId: pulumi.String(policyTemplateId),
+//						PolicyTemplateId: pulumi.String(pulumi.String(policyTemplateId)),
 //						Principal: &verifiedpermissions.PolicyEntityIdentifierArgs{
-//							EntityType: pulumi.String(principalType),
-//							EntityId:   pulumi.String(principalId),
+//							EntityType: pulumi.String(pulumi.String(principalType)),
+//							EntityId:   pulumi.String(pulumi.String(principalId)),
 //						},
 //						Resource: &verifiedpermissions.PolicyEntityIdentifierArgs{
-//							EntityType: pulumi.String(resourceType),
-//							EntityId:   pulumi.String(resourceId),
+//							EntityType: pulumi.String(pulumi.String(resourceType)),
+//							EntityId:   pulumi.String(pulumi.String(resourceId)),
 //						},
 //					},
 //				},

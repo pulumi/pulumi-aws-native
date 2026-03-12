@@ -33,7 +33,7 @@ import (
 //			cfg := config.New(ctx, "")
 //			clusterName := cfg.Require("clusterName")
 //			_, err := ecs.NewClusterCapacityProviderAssociations(ctx, "clusterCPAssociation", &ecs.ClusterCapacityProviderAssociationsArgs{
-//				Cluster: pulumi.String(clusterName),
+//				Cluster: pulumi.String(pulumi.String(clusterName)),
 //				CapacityProviders: pulumi.StringArray{
 //					pulumi.String(ecs.ClusterCapacityProviderAssociationsCapacityProviderFargate),
 //					pulumi.String(ecs.ClusterCapacityProviderAssociationsCapacityProviderFargateSpot),
@@ -77,7 +77,7 @@ import (
 //			cfg := config.New(ctx, "")
 //			clusterName := cfg.Require("clusterName")
 //			_, err := ecs.NewClusterCapacityProviderAssociations(ctx, "clusterCPAssociation", &ecs.ClusterCapacityProviderAssociationsArgs{
-//				Cluster: pulumi.String(clusterName),
+//				Cluster: pulumi.String(pulumi.String(clusterName)),
 //				CapacityProviders: pulumi.StringArray{
 //					pulumi.String(ecs.ClusterCapacityProviderAssociationsCapacityProviderFargate),
 //					pulumi.String(ecs.ClusterCapacityProviderAssociationsCapacityProviderFargateSpot),
