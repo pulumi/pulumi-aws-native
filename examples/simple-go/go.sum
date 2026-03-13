@@ -179,10 +179,10 @@ github.com/pmezard/go-difflib v1.0.0 h1:4DBwDE0NGyQoBHbLQYPwSUPoCMWR5BEzIk/f1lZb
 github.com/pmezard/go-difflib v1.0.0/go.mod h1:iKH77koFhYxTK1pcRnkKkqfTogsbg7gZNVY4sRDYZ/4=
 github.com/pulumi/appdash v0.0.0-20231130102222-75f619a67231 h1:vkHw5I/plNdTr435cARxCW6q9gc0S/Yxz7Mkd38pOb0=
 github.com/pulumi/appdash v0.0.0-20231130102222-75f619a67231/go.mod h1:murToZ2N9hNJzewjHBgfFdXhZKjY3z5cYC1VXk+lbFE=
-github.com/pulumi/esc v0.22.0 h1:Kbk0kIPsoIu6vnLgKtiE8AKRfl8B8bg6adiQuwJiBjA=
-github.com/pulumi/esc v0.22.0/go.mod h1:mkghIFn/TvN3XnP4jmCB4U5BG1I4UjGluARi39ckrCE=
-github.com/pulumi/pulumi-aws-native/sdk v1.56.0 h1:pFUJuATUwRCfZk+mb1MftTqGYnbh+8KH5tXkTgZ8+dc=
-github.com/pulumi/pulumi-aws-native/sdk v1.56.0/go.mod h1:UkhMdEA8ukabGNkdw0nW3gF3lvCA35iU42XjCQN4pNM=
+github.com/pulumi/esc v0.23.0 h1:5lOXO+5vvXOEQxXw7cTuYhjg9lVng23f9XNLWDR9EP4=
+github.com/pulumi/esc v0.23.0/go.mod h1:mkghIFn/TvN3XnP4jmCB4U5BG1I4UjGluARi39ckrCE=
+github.com/pulumi/pulumi-aws-native/sdk v1.57.0 h1:It+iBKVjnlB7aKMdTXegPSZ6hlElWdzjpQjcsw1CQAM=
+github.com/pulumi/pulumi-aws-native/sdk v1.57.0/go.mod h1:mZqNmPQKFtR3F21zQSsjb/2O25tb+9wV2BnO6W2X9bg=
 github.com/pulumi/pulumi/sdk/v3 v3.225.0 h1:I6UJRZmySxVVtJ7fCDE4A6BaHPIy+dzKknSAPNOF+80=
 github.com/pulumi/pulumi/sdk/v3 v3.225.0/go.mod h1:kiwkjulVm9ibqTOcyrZYhaRZsDSxWpzIKPXtCFeffBE=
 github.com/rivo/uniseg v0.4.7 h1:WUdvkW8uEhrYfLC4ZzdpI2ztxP1I582+49Oc5Mq64VQ=
