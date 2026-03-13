@@ -38,8 +38,8 @@ import (
 //			fileSystemPath := cfg.Require("fileSystemPath")
 //			importedFileChunkSize := cfg.Require("importedFileChunkSize")
 //			testDRA, err := fsx.NewDataRepositoryAssociation(ctx, "testDRA", &fsx.DataRepositoryAssociationArgs{
-//				FileSystemId:                pulumi.String(fsId),
-//				FileSystemPath:              pulumi.String(fileSystemPath),
+//				FileSystemId:                pulumi.String(pulumi.String(fsId)),
+//				FileSystemPath:              pulumi.String(pulumi.String(fileSystemPath)),
 //				DataRepositoryPath:          pulumi.String("s3://example-bucket"),
 //				BatchImportMetaDataOnCreate: pulumi.Bool(true),
 //				ImportedFileChunkSize:       pulumi.String(importedFileChunkSize),

@@ -117,7 +117,7 @@ import (
 //			autoScalingGroupArn2 := cfg.Require("autoScalingGroupArn2")
 //			capacityProvider1, err := ecs.NewCapacityProvider(ctx, "capacityProvider1", &ecs.CapacityProviderArgs{
 //				AutoScalingGroupProvider: &ecs.CapacityProviderAutoScalingGroupProviderArgs{
-//					AutoScalingGroupArn: pulumi.String(autoScalingGroupArn1),
+//					AutoScalingGroupArn: pulumi.String(pulumi.String(autoScalingGroupArn1)),
 //					ManagedScaling: &ecs.CapacityProviderManagedScalingArgs{
 //						Status: ecs.CapacityProviderManagedScalingStatusEnabled,
 //					},
@@ -129,7 +129,7 @@ import (
 //			}
 //			capacityProvider2, err := ecs.NewCapacityProvider(ctx, "capacityProvider2", &ecs.CapacityProviderArgs{
 //				AutoScalingGroupProvider: &ecs.CapacityProviderAutoScalingGroupProviderArgs{
-//					AutoScalingGroupArn: pulumi.String(autoScalingGroupArn2),
+//					AutoScalingGroupArn: pulumi.String(pulumi.String(autoScalingGroupArn2)),
 //					ManagedScaling: &ecs.CapacityProviderManagedScalingArgs{
 //						Status: ecs.CapacityProviderManagedScalingStatusEnabled,
 //					},
@@ -190,7 +190,7 @@ import (
 //			autoScalingGroupArn2 := cfg.Require("autoScalingGroupArn2")
 //			capacityProvider1, err := ecs.NewCapacityProvider(ctx, "capacityProvider1", &ecs.CapacityProviderArgs{
 //				AutoScalingGroupProvider: &ecs.CapacityProviderAutoScalingGroupProviderArgs{
-//					AutoScalingGroupArn: pulumi.String(autoScalingGroupArn1),
+//					AutoScalingGroupArn: pulumi.String(pulumi.String(autoScalingGroupArn1)),
 //					ManagedScaling: &ecs.CapacityProviderManagedScalingArgs{
 //						Status: ecs.CapacityProviderManagedScalingStatusEnabled,
 //					},
@@ -202,7 +202,7 @@ import (
 //			}
 //			capacityProvider2, err := ecs.NewCapacityProvider(ctx, "capacityProvider2", &ecs.CapacityProviderArgs{
 //				AutoScalingGroupProvider: &ecs.CapacityProviderAutoScalingGroupProviderArgs{
-//					AutoScalingGroupArn: pulumi.String(autoScalingGroupArn2),
+//					AutoScalingGroupArn: pulumi.String(pulumi.String(autoScalingGroupArn2)),
 //					ManagedScaling: &ecs.CapacityProviderManagedScalingArgs{
 //						Status: ecs.CapacityProviderManagedScalingStatusEnabled,
 //					},
