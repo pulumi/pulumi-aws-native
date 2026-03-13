@@ -33,7 +33,7 @@ import (
 //			cfg := config.New(ctx, "")
 //			configSetName := cfg.Require("configSetName")
 //			_, err := ses.NewConfigurationSet(ctx, "configSet", &ses.ConfigurationSetArgs{
-//				Name: pulumi.String(configSetName),
+//				Name: pulumi.String(pulumi.String(configSetName)),
 //			})
 //			if err != nil {
 //				return err
@@ -61,7 +61,7 @@ import (
 //			cfg := config.New(ctx, "")
 //			configSetName := cfg.Require("configSetName")
 //			_, err := ses.NewConfigurationSet(ctx, "configSet", &ses.ConfigurationSetArgs{
-//				Name: pulumi.String(configSetName),
+//				Name: pulumi.String(pulumi.String(configSetName)),
 //			})
 //			if err != nil {
 //				return err
@@ -99,7 +99,7 @@ import (
 //			dimensionValueSource2 := cfg.Require("dimensionValueSource2")
 //			defaultDimensionValue2 := cfg.Require("defaultDimensionValue2")
 //			configSet, err := ses.NewConfigurationSet(ctx, "configSet", &ses.ConfigurationSetArgs{
-//				Name: pulumi.String(configSetName),
+//				Name: pulumi.String(pulumi.String(configSetName)),
 //			})
 //			if err != nil {
 //				return err
@@ -107,24 +107,24 @@ import (
 //			_, err = ses.NewConfigurationSetEventDestination(ctx, "cwEventDestination", &ses.ConfigurationSetEventDestinationArgs{
 //				ConfigurationSetName: configSet.ID(),
 //				EventDestination: &ses.ConfigurationSetEventDestinationEventDestinationArgs{
-//					Name:    pulumi.String(eventDestinationName),
+//					Name:    pulumi.String(pulumi.String(eventDestinationName)),
 //					Enabled: pulumi.Bool(true),
 //					MatchingEventTypes: pulumi.StringArray{
-//						pulumi.String(eventType1),
-//						pulumi.String(eventType2),
-//						pulumi.String(eventType3),
+//						pulumi.String(pulumi.String(eventType1)),
+//						pulumi.String(pulumi.String(eventType2)),
+//						pulumi.String(pulumi.String(eventType3)),
 //					},
 //					CloudWatchDestination: &ses.ConfigurationSetEventDestinationCloudWatchDestinationArgs{
 //						DimensionConfigurations: ses.ConfigurationSetEventDestinationDimensionConfigurationArray{
 //							&ses.ConfigurationSetEventDestinationDimensionConfigurationArgs{
-//								DimensionName:         pulumi.String(dimensionName1),
-//								DimensionValueSource:  pulumi.String(dimensionValueSource1),
-//								DefaultDimensionValue: pulumi.String(defaultDimensionValue1),
+//								DimensionName:         pulumi.String(pulumi.String(dimensionName1)),
+//								DimensionValueSource:  pulumi.String(pulumi.String(dimensionValueSource1)),
+//								DefaultDimensionValue: pulumi.String(pulumi.String(defaultDimensionValue1)),
 //							},
 //							&ses.ConfigurationSetEventDestinationDimensionConfigurationArgs{
-//								DimensionName:         pulumi.String(dimensionName2),
-//								DimensionValueSource:  pulumi.String(dimensionValueSource2),
-//								DefaultDimensionValue: pulumi.String(defaultDimensionValue2),
+//								DimensionName:         pulumi.String(pulumi.String(dimensionName2)),
+//								DimensionValueSource:  pulumi.String(pulumi.String(dimensionValueSource2)),
+//								DefaultDimensionValue: pulumi.String(pulumi.String(defaultDimensionValue2)),
 //							},
 //						},
 //					},
@@ -166,7 +166,7 @@ import (
 //			dimensionValueSource2 := cfg.Require("dimensionValueSource2")
 //			defaultDimensionValue2 := cfg.Require("defaultDimensionValue2")
 //			configSet, err := ses.NewConfigurationSet(ctx, "configSet", &ses.ConfigurationSetArgs{
-//				Name: pulumi.String(configSetName),
+//				Name: pulumi.String(pulumi.String(configSetName)),
 //			})
 //			if err != nil {
 //				return err
@@ -174,24 +174,24 @@ import (
 //			_, err = ses.NewConfigurationSetEventDestination(ctx, "cwEventDestination", &ses.ConfigurationSetEventDestinationArgs{
 //				ConfigurationSetName: configSet.ID(),
 //				EventDestination: &ses.ConfigurationSetEventDestinationEventDestinationArgs{
-//					Name:    pulumi.String(eventDestinationName),
+//					Name:    pulumi.String(pulumi.String(eventDestinationName)),
 //					Enabled: pulumi.Bool(true),
 //					MatchingEventTypes: pulumi.StringArray{
-//						pulumi.String(eventType1),
-//						pulumi.String(eventType2),
-//						pulumi.String(eventType3),
+//						pulumi.String(pulumi.String(eventType1)),
+//						pulumi.String(pulumi.String(eventType2)),
+//						pulumi.String(pulumi.String(eventType3)),
 //					},
 //					CloudWatchDestination: &ses.ConfigurationSetEventDestinationCloudWatchDestinationArgs{
 //						DimensionConfigurations: ses.ConfigurationSetEventDestinationDimensionConfigurationArray{
 //							&ses.ConfigurationSetEventDestinationDimensionConfigurationArgs{
-//								DimensionName:         pulumi.String(dimensionName1),
-//								DimensionValueSource:  pulumi.String(dimensionValueSource1),
-//								DefaultDimensionValue: pulumi.String(defaultDimensionValue1),
+//								DimensionName:         pulumi.String(pulumi.String(dimensionName1)),
+//								DimensionValueSource:  pulumi.String(pulumi.String(dimensionValueSource1)),
+//								DefaultDimensionValue: pulumi.String(pulumi.String(defaultDimensionValue1)),
 //							},
 //							&ses.ConfigurationSetEventDestinationDimensionConfigurationArgs{
-//								DimensionName:         pulumi.String(dimensionName2),
-//								DimensionValueSource:  pulumi.String(dimensionValueSource2),
-//								DefaultDimensionValue: pulumi.String(defaultDimensionValue2),
+//								DimensionName:         pulumi.String(pulumi.String(dimensionName2)),
+//								DimensionValueSource:  pulumi.String(pulumi.String(dimensionValueSource2)),
+//								DefaultDimensionValue: pulumi.String(pulumi.String(defaultDimensionValue2)),
 //							},
 //						},
 //					},

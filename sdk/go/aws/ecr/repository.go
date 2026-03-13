@@ -36,10 +36,10 @@ import (
 //			registryId := cfg.Require("registryId")
 //			myRepository, err := ecr.NewRepository(ctx, "myRepository", &ecr.RepositoryArgs{
 //				LifecyclePolicy: &ecr.RepositoryLifecyclePolicyArgs{
-//					LifecyclePolicyText: pulumi.String(lifecyclePolicyText),
-//					RegistryId:          pulumi.String(registryId),
+//					LifecyclePolicyText: pulumi.String(pulumi.String(lifecyclePolicyText)),
+//					RegistryId:          pulumi.String(pulumi.String(registryId)),
 //				},
-//				RepositoryName: pulumi.String(repositoryName),
+//				RepositoryName: pulumi.String(pulumi.String(repositoryName)),
 //			})
 //			if err != nil {
 //				return err
@@ -71,10 +71,10 @@ import (
 //			registryId := cfg.Require("registryId")
 //			myRepository, err := ecr.NewRepository(ctx, "myRepository", &ecr.RepositoryArgs{
 //				LifecyclePolicy: &ecr.RepositoryLifecyclePolicyArgs{
-//					LifecyclePolicyText: pulumi.String(lifecyclePolicyText),
-//					RegistryId:          pulumi.String(registryId),
+//					LifecyclePolicyText: pulumi.String(pulumi.String(lifecyclePolicyText)),
+//					RegistryId:          pulumi.String(pulumi.String(registryId)),
 //				},
-//				RepositoryName: pulumi.String(repositoryName),
+//				RepositoryName: pulumi.String(pulumi.String(repositoryName)),
 //			})
 //			if err != nil {
 //				return err
