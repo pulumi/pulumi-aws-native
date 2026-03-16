@@ -1455,6 +1455,8 @@ func (ctx *cfSchemaContext) propertyTypeSpec(parentName string, propSchema *jssc
 		schemas := FlattenJSSchema(propSchema)
 		types := make([]pschema.TypeSpec, 0, len(schemas))
 		typeMap := make(map[string]bool, len(schemas))
+		// Track mapping from deduplicated types index to original schemas index
+		typesToSchemasIndex := make([]int, 0, len(schemas))
 		for i, sch := range schemas {
 			typ, err := ctx.propertyTypeSpec(fmt.Sprintf("%s%d", parentName, i), sch)
 			if err != nil {
@@ -1470,6 +1472,7 @@ func (ctx *cfSchemaContext) propertyTypeSpec(parentName string, propSchema *jssc
 
 			if _, ok := typeMap[key]; !ok {
 				types = append(types, *typ)
+				typesToSchemasIndex = append(typesToSchemasIndex, i)
 				typeMap[key] = true
 			}
 		}
@@ -1485,7 +1488,8 @@ func (ctx *cfSchemaContext) propertyTypeSpec(parentName string, propSchema *jssc
 		}
 		if len(complexArms) == 1 {
 			i := complexArms[0]
-			typ, err := ctx.propertyTypeSpec(parentName, schemas[i])
+			schemaIndex := typesToSchemasIndex[i]
+			typ, err := ctx.propertyTypeSpec(parentName, schemas[schemaIndex])
 			if err != nil {
 				return nil, err
 			}
