@@ -76,13 +76,16 @@ func (c *clientImpl) Create(ctx context.Context, urn resource.URN, typeName stri
 	}
 	payload := string(jsonBytes)
 
-	pi, waitErr := c.withRetries(ctx, urn, func() (*types.ProgressEvent, error) {
-		res, err := c.api.CreateResource(ctx, typeName, payload)
-		if err != nil {
-			return nil, err
-		}
-		return c.awaiter.WaitForResourceOpCompletion(ctx, res)
-	})
+	// CreateResource is not retried via withRetries because CreateResource is not idempotent:
+	// each call uses a new client token and starts a new async operation. Retrying after the
+	// first request was accepted by AWS risks creating a duplicate resource that Pulumi cannot
+	// track. Synchronous throttling on CreateResource is already handled by the AWS SDK's own
+	// retry configuration.
+	res, err := c.api.CreateResource(ctx, typeName, payload)
+	if err != nil {
+		return nil, nil, fmt.Errorf("creating resource: %w", err)
+	}
+	pi, waitErr := c.awaiter.WaitForResourceOpCompletion(ctx, res)
 	if waitErr != nil {
 		if pi == nil || pi.Identifier == nil {
 			return nil, nil, fmt.Errorf("creating resource: %w", waitErr)
