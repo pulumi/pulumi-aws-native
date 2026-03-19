@@ -36,7 +36,7 @@ require (
 	github.com/wI2L/jsondiff v0.5.1
 	github.com/zclconf/go-cty v1.14.4
 	go.uber.org/mock v0.4.0
-	google.golang.org/grpc v1.79.2
+	google.golang.org/grpc v1.79.3
 	google.golang.org/protobuf v1.36.11
 )
 
