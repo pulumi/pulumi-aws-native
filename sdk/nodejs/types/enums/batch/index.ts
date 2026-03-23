@@ -60,3 +60,40 @@ export const JobQueueState = {
  * The state of the job queue. If the job queue state is `ENABLED` , it is able to accept jobs. If the job queue state is `DISABLED` , new jobs can't be added to the queue, but jobs already in the queue can finish.
  */
 export type JobQueueState = (typeof JobQueueState)[keyof typeof JobQueueState];
+
+export const QuotaSharePreemptionConfigurationInSharePreemption = {
+    Enabled: "ENABLED",
+    Disabled: "DISABLED",
+} as const;
+
+/**
+ * Whether preemption is enabled within the quota share.
+ */
+export type QuotaSharePreemptionConfigurationInSharePreemption = (typeof QuotaSharePreemptionConfigurationInSharePreemption)[keyof typeof QuotaSharePreemptionConfigurationInSharePreemption];
+
+export const QuotaShareResourceSharingConfigurationStrategy = {
+    Reserve: "RESERVE",
+    Lend: "LEND",
+    LendAndBorrow: "LEND_AND_BORROW",
+} as const;
+
+/**
+ * The resource sharing strategy.
+ */
+export type QuotaShareResourceSharingConfigurationStrategy = (typeof QuotaShareResourceSharingConfigurationStrategy)[keyof typeof QuotaShareResourceSharingConfigurationStrategy];
+
+export const QuotaShareState = {
+    Enabled: "ENABLED",
+    Disabled: "DISABLED",
+} as const;
+
+/**
+ * The state of the quota share.
+ */
+export type QuotaShareState = (typeof QuotaShareState)[keyof typeof QuotaShareState];
+
+export const SchedulingPolicyQuotaSharePolicyIdleResourceAssignmentStrategy = {
+    Fifo: "FIFO",
+} as const;
+
+export type SchedulingPolicyQuotaSharePolicyIdleResourceAssignmentStrategy = (typeof SchedulingPolicyQuotaSharePolicyIdleResourceAssignmentStrategy)[keyof typeof SchedulingPolicyQuotaSharePolicyIdleResourceAssignmentStrategy];

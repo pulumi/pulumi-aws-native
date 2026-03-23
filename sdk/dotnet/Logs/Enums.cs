@@ -301,6 +301,7 @@ namespace Pulumi.AwsNative.Logs
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        public static ScheduledQueryLastExecutionStatus Pending { get; } = new ScheduledQueryLastExecutionStatus("Pending");
         public static ScheduledQueryLastExecutionStatus InvalidQuery { get; } = new ScheduledQueryLastExecutionStatus("InvalidQuery");
         public static ScheduledQueryLastExecutionStatus Complete { get; } = new ScheduledQueryLastExecutionStatus("Complete");
         public static ScheduledQueryLastExecutionStatus Failed { get; } = new ScheduledQueryLastExecutionStatus("Failed");

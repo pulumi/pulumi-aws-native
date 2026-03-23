@@ -24,6 +24,8 @@ type OdbNetwork struct {
 	BackupSubnetCidr pulumi.StringPtrOutput `pulumi:"backupSubnetCidr"`
 	// The CIDR range of the client subnet in the ODB network.
 	ClientSubnetCidr pulumi.StringPtrOutput `pulumi:"clientSubnetCidr"`
+	// The cross-Region Amazon S3 restore sources for the ODB network.
+	CrossRegionS3RestoreSources pulumi.StringArrayOutput `pulumi:"crossRegionS3RestoreSources"`
 	// The domain name to use for the resources in the ODB network.
 	CustomDomainName pulumi.StringPtrOutput `pulumi:"customDomainName"`
 	// The DNS prefix to the default DNS domain name. The default DNS domain name is oraclevcn.com.
@@ -31,8 +33,12 @@ type OdbNetwork struct {
 	// Specifies whether to delete associated OCI networking resources along with the ODB network.
 	DeleteAssociatedResources pulumi.BoolPtrOutput `pulumi:"deleteAssociatedResources"`
 	// The user-friendly name of the ODB network.
-	DisplayName     pulumi.StringPtrOutput          `pulumi:"displayName"`
-	ManagedServices OdbNetworkManagedServicesOutput `pulumi:"managedServices"`
+	DisplayName pulumi.StringPtrOutput `pulumi:"displayName"`
+	// The AWS Key Management Service (KMS) access configuration for the ODB network.
+	KmsAccess OdbNetworkKmsAccessPtrOutput `pulumi:"kmsAccess"`
+	// The AWS Key Management Service (KMS) policy document that defines permissions for key usage within the ODB network.
+	KmsPolicyDocument pulumi.StringPtrOutput          `pulumi:"kmsPolicyDocument"`
+	ManagedServices   OdbNetworkManagedServicesOutput `pulumi:"managedServices"`
 	// The unique identifier of the OCI network anchor for the ODB network.
 	OciNetworkAnchorId pulumi.StringOutput `pulumi:"ociNetworkAnchorId"`
 	// The name of the OCI resource anchor that's associated with the ODB network.
@@ -47,6 +53,10 @@ type OdbNetwork struct {
 	S3Access OdbNetworkS3AccessPtrOutput `pulumi:"s3Access"`
 	// Specifies the endpoint policy for Amazon S3 access from the ODB network.
 	S3PolicyDocument pulumi.StringPtrOutput `pulumi:"s3PolicyDocument"`
+	// The AWS Security Token Service (STS) access configuration for the ODB network.
+	StsAccess OdbNetworkStsAccessPtrOutput `pulumi:"stsAccess"`
+	// The AWS Security Token Service (STS) policy document that defines permissions for token service usage within the ODB network.
+	StsPolicyDocument pulumi.StringPtrOutput `pulumi:"stsPolicyDocument"`
 	// Tags to assign to the Odb Network.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// Specifies the configuration for Zero-ETL access from the ODB network.
@@ -110,6 +120,8 @@ type odbNetworkArgs struct {
 	BackupSubnetCidr *string `pulumi:"backupSubnetCidr"`
 	// The CIDR range of the client subnet in the ODB network.
 	ClientSubnetCidr *string `pulumi:"clientSubnetCidr"`
+	// The cross-Region Amazon S3 restore sources for the ODB network.
+	CrossRegionS3RestoreSources []string `pulumi:"crossRegionS3RestoreSources"`
 	// The domain name to use for the resources in the ODB network.
 	CustomDomainName *string `pulumi:"customDomainName"`
 	// The DNS prefix to the default DNS domain name. The default DNS domain name is oraclevcn.com.
@@ -118,10 +130,18 @@ type odbNetworkArgs struct {
 	DeleteAssociatedResources *bool `pulumi:"deleteAssociatedResources"`
 	// The user-friendly name of the ODB network.
 	DisplayName *string `pulumi:"displayName"`
+	// The AWS Key Management Service (KMS) access configuration for the ODB network.
+	KmsAccess *OdbNetworkKmsAccess `pulumi:"kmsAccess"`
+	// The AWS Key Management Service (KMS) policy document that defines permissions for key usage within the ODB network.
+	KmsPolicyDocument *string `pulumi:"kmsPolicyDocument"`
 	// Specifies the configuration for Amazon S3 access from the ODB network.
 	S3Access *OdbNetworkS3Access `pulumi:"s3Access"`
 	// Specifies the endpoint policy for Amazon S3 access from the ODB network.
 	S3PolicyDocument *string `pulumi:"s3PolicyDocument"`
+	// The AWS Security Token Service (STS) access configuration for the ODB network.
+	StsAccess *OdbNetworkStsAccess `pulumi:"stsAccess"`
+	// The AWS Security Token Service (STS) policy document that defines permissions for token service usage within the ODB network.
+	StsPolicyDocument *string `pulumi:"stsPolicyDocument"`
 	// Tags to assign to the Odb Network.
 	Tags []aws.Tag `pulumi:"tags"`
 	// Specifies the configuration for Zero-ETL access from the ODB network.
@@ -138,6 +158,8 @@ type OdbNetworkArgs struct {
 	BackupSubnetCidr pulumi.StringPtrInput
 	// The CIDR range of the client subnet in the ODB network.
 	ClientSubnetCidr pulumi.StringPtrInput
+	// The cross-Region Amazon S3 restore sources for the ODB network.
+	CrossRegionS3RestoreSources pulumi.StringArrayInput
 	// The domain name to use for the resources in the ODB network.
 	CustomDomainName pulumi.StringPtrInput
 	// The DNS prefix to the default DNS domain name. The default DNS domain name is oraclevcn.com.
@@ -146,10 +168,18 @@ type OdbNetworkArgs struct {
 	DeleteAssociatedResources pulumi.BoolPtrInput
 	// The user-friendly name of the ODB network.
 	DisplayName pulumi.StringPtrInput
+	// The AWS Key Management Service (KMS) access configuration for the ODB network.
+	KmsAccess OdbNetworkKmsAccessPtrInput
+	// The AWS Key Management Service (KMS) policy document that defines permissions for key usage within the ODB network.
+	KmsPolicyDocument pulumi.StringPtrInput
 	// Specifies the configuration for Amazon S3 access from the ODB network.
 	S3Access OdbNetworkS3AccessPtrInput
 	// Specifies the endpoint policy for Amazon S3 access from the ODB network.
 	S3PolicyDocument pulumi.StringPtrInput
+	// The AWS Security Token Service (STS) access configuration for the ODB network.
+	StsAccess OdbNetworkStsAccessPtrInput
+	// The AWS Security Token Service (STS) policy document that defines permissions for token service usage within the ODB network.
+	StsPolicyDocument pulumi.StringPtrInput
 	// Tags to assign to the Odb Network.
 	Tags aws.TagArrayInput
 	// Specifies the configuration for Zero-ETL access from the ODB network.
@@ -213,6 +243,11 @@ func (o OdbNetworkOutput) ClientSubnetCidr() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OdbNetwork) pulumi.StringPtrOutput { return v.ClientSubnetCidr }).(pulumi.StringPtrOutput)
 }
 
+// The cross-Region Amazon S3 restore sources for the ODB network.
+func (o OdbNetworkOutput) CrossRegionS3RestoreSources() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *OdbNetwork) pulumi.StringArrayOutput { return v.CrossRegionS3RestoreSources }).(pulumi.StringArrayOutput)
+}
+
 // The domain name to use for the resources in the ODB network.
 func (o OdbNetworkOutput) CustomDomainName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OdbNetwork) pulumi.StringPtrOutput { return v.CustomDomainName }).(pulumi.StringPtrOutput)
@@ -231,6 +266,16 @@ func (o OdbNetworkOutput) DeleteAssociatedResources() pulumi.BoolPtrOutput {
 // The user-friendly name of the ODB network.
 func (o OdbNetworkOutput) DisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OdbNetwork) pulumi.StringPtrOutput { return v.DisplayName }).(pulumi.StringPtrOutput)
+}
+
+// The AWS Key Management Service (KMS) access configuration for the ODB network.
+func (o OdbNetworkOutput) KmsAccess() OdbNetworkKmsAccessPtrOutput {
+	return o.ApplyT(func(v *OdbNetwork) OdbNetworkKmsAccessPtrOutput { return v.KmsAccess }).(OdbNetworkKmsAccessPtrOutput)
+}
+
+// The AWS Key Management Service (KMS) policy document that defines permissions for key usage within the ODB network.
+func (o OdbNetworkOutput) KmsPolicyDocument() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OdbNetwork) pulumi.StringPtrOutput { return v.KmsPolicyDocument }).(pulumi.StringPtrOutput)
 }
 
 func (o OdbNetworkOutput) ManagedServices() OdbNetworkManagedServicesOutput {
@@ -270,6 +315,16 @@ func (o OdbNetworkOutput) S3Access() OdbNetworkS3AccessPtrOutput {
 // Specifies the endpoint policy for Amazon S3 access from the ODB network.
 func (o OdbNetworkOutput) S3PolicyDocument() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OdbNetwork) pulumi.StringPtrOutput { return v.S3PolicyDocument }).(pulumi.StringPtrOutput)
+}
+
+// The AWS Security Token Service (STS) access configuration for the ODB network.
+func (o OdbNetworkOutput) StsAccess() OdbNetworkStsAccessPtrOutput {
+	return o.ApplyT(func(v *OdbNetwork) OdbNetworkStsAccessPtrOutput { return v.StsAccess }).(OdbNetworkStsAccessPtrOutput)
+}
+
+// The AWS Security Token Service (STS) policy document that defines permissions for token service usage within the ODB network.
+func (o OdbNetworkOutput) StsPolicyDocument() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OdbNetwork) pulumi.StringPtrOutput { return v.StsPolicyDocument }).(pulumi.StringPtrOutput)
 }
 
 // Tags to assign to the Odb Network.

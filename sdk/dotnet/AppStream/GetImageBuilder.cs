@@ -98,10 +98,6 @@ namespace Pulumi.AwsNative.AppStream
         /// </summary>
         public readonly string? ImageArn;
         /// <summary>
-        /// The name of the image used to create the image builder.
-        /// </summary>
-        public readonly string? ImageName;
-        /// <summary>
         /// The instance type to use when launching the image builder. The following instance types are available:
         /// 
         /// - stream.standard.small
@@ -156,10 +152,7 @@ namespace Pulumi.AwsNative.AppStream
         /// - stream.graphics.gr6f.4xlarge
         /// </summary>
         public readonly string? InstanceType;
-        /// <summary>
-        /// A unique name for the image builder.
-        /// </summary>
-        public readonly string? Name;
+        public readonly Outputs.ImageBuilderVolumeConfig? RootVolumeConfig;
         /// <summary>
         /// The URL to start an image builder streaming session, returned as a string.
         /// </summary>
@@ -191,11 +184,9 @@ namespace Pulumi.AwsNative.AppStream
 
             string? imageArn,
 
-            string? imageName,
-
             string? instanceType,
 
-            string? name,
+            Outputs.ImageBuilderVolumeConfig? rootVolumeConfig,
 
             string? streamingUrl,
 
@@ -211,9 +202,8 @@ namespace Pulumi.AwsNative.AppStream
             EnableDefaultInternetAccess = enableDefaultInternetAccess;
             IamRoleArn = iamRoleArn;
             ImageArn = imageArn;
-            ImageName = imageName;
             InstanceType = instanceType;
-            Name = name;
+            RootVolumeConfig = rootVolumeConfig;
             StreamingUrl = streamingUrl;
             Tags = tags;
             VpcConfig = vpcConfig;

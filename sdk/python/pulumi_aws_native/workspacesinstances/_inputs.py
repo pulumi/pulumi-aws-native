@@ -42,8 +42,6 @@ __all__ = [
     'WorkspaceInstanceIamInstanceProfileSpecificationArgsDict',
     'WorkspaceInstanceInstanceMaintenanceOptionsRequestArgs',
     'WorkspaceInstanceInstanceMaintenanceOptionsRequestArgsDict',
-    'WorkspaceInstanceInstanceMarketOptionsRequestArgs',
-    'WorkspaceInstanceInstanceMarketOptionsRequestArgsDict',
     'WorkspaceInstanceInstanceMetadataOptionsRequestArgs',
     'WorkspaceInstanceInstanceMetadataOptionsRequestArgsDict',
     'WorkspaceInstanceInstanceNetworkInterfaceSpecificationArgs',
@@ -58,8 +56,6 @@ __all__ = [
     'WorkspaceInstancePrivateDnsNameOptionsRequestArgsDict',
     'WorkspaceInstanceRunInstancesMonitoringEnabledArgs',
     'WorkspaceInstanceRunInstancesMonitoringEnabledArgsDict',
-    'WorkspaceInstanceSpotMarketOptionsArgs',
-    'WorkspaceInstanceSpotMarketOptionsArgsDict',
     'WorkspaceInstanceTagSpecificationArgs',
     'WorkspaceInstanceTagSpecificationArgsDict',
     'WorkspaceInstanceTagArgs',
@@ -79,7 +75,6 @@ class ManagedInstancePropertiesArgsDict(TypedDict):
     enclave_options: NotRequired[pulumi.Input['WorkspaceInstanceEnclaveOptionsRequestArgsDict']]
     hibernation_options: NotRequired[pulumi.Input['WorkspaceInstanceHibernationOptionsRequestArgsDict']]
     iam_instance_profile: NotRequired[pulumi.Input['WorkspaceInstanceIamInstanceProfileSpecificationArgsDict']]
-    instance_market_options: NotRequired[pulumi.Input['WorkspaceInstanceInstanceMarketOptionsRequestArgsDict']]
     ipv6_address_count: NotRequired[pulumi.Input[_builtins.int]]
     key_name: NotRequired[pulumi.Input[_builtins.str]]
     license_specifications: NotRequired[pulumi.Input[Sequence[pulumi.Input['WorkspaceInstanceLicenseConfigurationRequestArgsDict']]]]
@@ -109,7 +104,6 @@ class ManagedInstancePropertiesArgs:
                  enclave_options: Optional[pulumi.Input['WorkspaceInstanceEnclaveOptionsRequestArgs']] = None,
                  hibernation_options: Optional[pulumi.Input['WorkspaceInstanceHibernationOptionsRequestArgs']] = None,
                  iam_instance_profile: Optional[pulumi.Input['WorkspaceInstanceIamInstanceProfileSpecificationArgs']] = None,
-                 instance_market_options: Optional[pulumi.Input['WorkspaceInstanceInstanceMarketOptionsRequestArgs']] = None,
                  ipv6_address_count: Optional[pulumi.Input[_builtins.int]] = None,
                  key_name: Optional[pulumi.Input[_builtins.str]] = None,
                  license_specifications: Optional[pulumi.Input[Sequence[pulumi.Input['WorkspaceInstanceLicenseConfigurationRequestArgs']]]] = None,
@@ -145,8 +139,6 @@ class ManagedInstancePropertiesArgs:
             pulumi.set(__self__, "hibernation_options", hibernation_options)
         if iam_instance_profile is not None:
             pulumi.set(__self__, "iam_instance_profile", iam_instance_profile)
-        if instance_market_options is not None:
-            pulumi.set(__self__, "instance_market_options", instance_market_options)
         if ipv6_address_count is not None:
             pulumi.set(__self__, "ipv6_address_count", ipv6_address_count)
         if key_name is not None:
@@ -281,15 +273,6 @@ class ManagedInstancePropertiesArgs:
     @iam_instance_profile.setter
     def iam_instance_profile(self, value: Optional[pulumi.Input['WorkspaceInstanceIamInstanceProfileSpecificationArgs']]):
         pulumi.set(self, "iam_instance_profile", value)
-
-    @_builtins.property
-    @pulumi.getter(name="instanceMarketOptions")
-    def instance_market_options(self) -> Optional[pulumi.Input['WorkspaceInstanceInstanceMarketOptionsRequestArgs']]:
-        return pulumi.get(self, "instance_market_options")
-
-    @instance_market_options.setter
-    def instance_market_options(self, value: Optional[pulumi.Input['WorkspaceInstanceInstanceMarketOptionsRequestArgs']]):
-        pulumi.set(self, "instance_market_options", value)
 
     @_builtins.property
     @pulumi.getter(name="ipv6AddressCount")
@@ -854,39 +837,6 @@ class WorkspaceInstanceInstanceMaintenanceOptionsRequestArgs:
         pulumi.set(self, "auto_recovery", value)
 
 
-class WorkspaceInstanceInstanceMarketOptionsRequestArgsDict(TypedDict):
-    market_type: NotRequired[pulumi.Input['WorkspaceInstanceInstanceMarketOptionsRequestMarketType']]
-    spot_options: NotRequired[pulumi.Input['WorkspaceInstanceSpotMarketOptionsArgsDict']]
-
-@pulumi.input_type
-class WorkspaceInstanceInstanceMarketOptionsRequestArgs:
-    def __init__(__self__, *,
-                 market_type: Optional[pulumi.Input['WorkspaceInstanceInstanceMarketOptionsRequestMarketType']] = None,
-                 spot_options: Optional[pulumi.Input['WorkspaceInstanceSpotMarketOptionsArgs']] = None):
-        if market_type is not None:
-            pulumi.set(__self__, "market_type", market_type)
-        if spot_options is not None:
-            pulumi.set(__self__, "spot_options", spot_options)
-
-    @_builtins.property
-    @pulumi.getter(name="marketType")
-    def market_type(self) -> Optional[pulumi.Input['WorkspaceInstanceInstanceMarketOptionsRequestMarketType']]:
-        return pulumi.get(self, "market_type")
-
-    @market_type.setter
-    def market_type(self, value: Optional[pulumi.Input['WorkspaceInstanceInstanceMarketOptionsRequestMarketType']]):
-        pulumi.set(self, "market_type", value)
-
-    @_builtins.property
-    @pulumi.getter(name="spotOptions")
-    def spot_options(self) -> Optional[pulumi.Input['WorkspaceInstanceSpotMarketOptionsArgs']]:
-        return pulumi.get(self, "spot_options")
-
-    @spot_options.setter
-    def spot_options(self, value: Optional[pulumi.Input['WorkspaceInstanceSpotMarketOptionsArgs']]):
-        pulumi.set(self, "spot_options", value)
-
-
 class WorkspaceInstanceInstanceMetadataOptionsRequestArgsDict(TypedDict):
     http_endpoint: NotRequired[pulumi.Input['WorkspaceInstanceInstanceMetadataOptionsRequestHttpEndpoint']]
     http_protocol_ipv6: NotRequired[pulumi.Input['WorkspaceInstanceInstanceMetadataOptionsRequestHttpProtocolIpv6']]
@@ -1194,65 +1144,6 @@ class WorkspaceInstanceRunInstancesMonitoringEnabledArgs:
     @enabled.setter
     def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
-
-
-class WorkspaceInstanceSpotMarketOptionsArgsDict(TypedDict):
-    instance_interruption_behavior: NotRequired[pulumi.Input['WorkspaceInstanceSpotMarketOptionsInstanceInterruptionBehavior']]
-    max_price: NotRequired[pulumi.Input[_builtins.str]]
-    spot_instance_type: NotRequired[pulumi.Input['WorkspaceInstanceSpotMarketOptionsSpotInstanceType']]
-    valid_until_utc: NotRequired[pulumi.Input[_builtins.str]]
-
-@pulumi.input_type
-class WorkspaceInstanceSpotMarketOptionsArgs:
-    def __init__(__self__, *,
-                 instance_interruption_behavior: Optional[pulumi.Input['WorkspaceInstanceSpotMarketOptionsInstanceInterruptionBehavior']] = None,
-                 max_price: Optional[pulumi.Input[_builtins.str]] = None,
-                 spot_instance_type: Optional[pulumi.Input['WorkspaceInstanceSpotMarketOptionsSpotInstanceType']] = None,
-                 valid_until_utc: Optional[pulumi.Input[_builtins.str]] = None):
-        if instance_interruption_behavior is not None:
-            pulumi.set(__self__, "instance_interruption_behavior", instance_interruption_behavior)
-        if max_price is not None:
-            pulumi.set(__self__, "max_price", max_price)
-        if spot_instance_type is not None:
-            pulumi.set(__self__, "spot_instance_type", spot_instance_type)
-        if valid_until_utc is not None:
-            pulumi.set(__self__, "valid_until_utc", valid_until_utc)
-
-    @_builtins.property
-    @pulumi.getter(name="instanceInterruptionBehavior")
-    def instance_interruption_behavior(self) -> Optional[pulumi.Input['WorkspaceInstanceSpotMarketOptionsInstanceInterruptionBehavior']]:
-        return pulumi.get(self, "instance_interruption_behavior")
-
-    @instance_interruption_behavior.setter
-    def instance_interruption_behavior(self, value: Optional[pulumi.Input['WorkspaceInstanceSpotMarketOptionsInstanceInterruptionBehavior']]):
-        pulumi.set(self, "instance_interruption_behavior", value)
-
-    @_builtins.property
-    @pulumi.getter(name="maxPrice")
-    def max_price(self) -> Optional[pulumi.Input[_builtins.str]]:
-        return pulumi.get(self, "max_price")
-
-    @max_price.setter
-    def max_price(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "max_price", value)
-
-    @_builtins.property
-    @pulumi.getter(name="spotInstanceType")
-    def spot_instance_type(self) -> Optional[pulumi.Input['WorkspaceInstanceSpotMarketOptionsSpotInstanceType']]:
-        return pulumi.get(self, "spot_instance_type")
-
-    @spot_instance_type.setter
-    def spot_instance_type(self, value: Optional[pulumi.Input['WorkspaceInstanceSpotMarketOptionsSpotInstanceType']]):
-        pulumi.set(self, "spot_instance_type", value)
-
-    @_builtins.property
-    @pulumi.getter(name="validUntilUtc")
-    def valid_until_utc(self) -> Optional[pulumi.Input[_builtins.str]]:
-        return pulumi.get(self, "valid_until_utc")
-
-    @valid_until_utc.setter
-    def valid_until_utc(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "valid_until_utc", value)
 
 
 class WorkspaceInstanceTagSpecificationArgsDict(TypedDict):

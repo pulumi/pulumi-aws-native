@@ -19,6 +19,7 @@ __all__ = [
     'GatewayExceptionLevel',
     'GatewayInboundTokenClaimValueType',
     'GatewayInterceptionPoint',
+    'GatewayPolicyEngineMode',
     'GatewayProtocolType',
     'GatewaySearchType',
     'GatewayStatus',
@@ -165,6 +166,15 @@ class GatewayInboundTokenClaimValueType(_builtins.str, Enum):
 class GatewayInterceptionPoint(_builtins.str, Enum):
     REQUEST = "REQUEST"
     RESPONSE = "RESPONSE"
+
+
+@pulumi.type_token("aws-native:bedrockagentcore:GatewayPolicyEngineMode")
+class GatewayPolicyEngineMode(_builtins.str, Enum):
+    """
+    The enforcement mode for the policy engine. LOG_ONLY - The policy engine evaluates each action against your policies and adds traces on whether tool calls would be allowed or denied, but does not enforce the decision. Use this mode to test and validate policies before enabling enforcement. ENFORCE - The policy engine evaluates actions against your policies and enforces decisions by allowing or denying agent operations. Test and validate policies in LOG_ONLY mode before enabling enforcement to avoid unintended denials or adversely affecting production traffic.
+    """
+    LOG_ONLY = "LOG_ONLY"
+    ENFORCE = "ENFORCE"
 
 
 @pulumi.type_token("aws-native:bedrockagentcore:GatewayProtocolType")

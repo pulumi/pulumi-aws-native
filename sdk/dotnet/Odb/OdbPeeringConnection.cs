@@ -70,6 +70,12 @@ namespace Pulumi.AwsNative.Odb
         public Output<string?> PeerNetworkId { get; private set; } = null!;
 
         /// <summary>
+        /// The unique identifier of the VPC route table for which a route to the ODB network is automatically created during peering connection establishment.
+        /// </summary>
+        [Output("peerNetworkRouteTableIds")]
+        public Output<ImmutableArray<string>> PeerNetworkRouteTableIds { get; private set; } = null!;
+
+        /// <summary>
         /// Tags to assign to the Odb peering connection.
         /// </summary>
         [Output("tags")]
@@ -102,6 +108,7 @@ namespace Pulumi.AwsNative.Odb
                 {
                     "odbNetworkId",
                     "peerNetworkId",
+                    "peerNetworkRouteTableIds[*]",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -154,6 +161,18 @@ namespace Pulumi.AwsNative.Odb
         /// </summary>
         [Input("peerNetworkId")]
         public Input<string>? PeerNetworkId { get; set; }
+
+        [Input("peerNetworkRouteTableIds")]
+        private InputList<string>? _peerNetworkRouteTableIds;
+
+        /// <summary>
+        /// The unique identifier of the VPC route table for which a route to the ODB network is automatically created during peering connection establishment.
+        /// </summary>
+        public InputList<string> PeerNetworkRouteTableIds
+        {
+            get => _peerNetworkRouteTableIds ?? (_peerNetworkRouteTableIds = new InputList<string>());
+            set => _peerNetworkRouteTableIds = value;
+        }
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;

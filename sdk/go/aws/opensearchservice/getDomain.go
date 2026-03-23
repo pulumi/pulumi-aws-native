@@ -50,7 +50,8 @@ type LookupDomainResult struct {
 	// Container for the cluster configuration of a domain.
 	ClusterConfig *DomainClusterConfig `pulumi:"clusterConfig"`
 	// Configures OpenSearch Service to use Amazon Cognito authentication for OpenSearch Dashboards.
-	CognitoOptions *DomainCognitoOptions `pulumi:"cognitoOptions"`
+	CognitoOptions            *DomainCognitoOptions            `pulumi:"cognitoOptions"`
+	DeploymentStrategyOptions *DomainDeploymentStrategyOptions `pulumi:"deploymentStrategyOptions"`
 	// The Amazon Resource Name (ARN) of the domain. See [Identifiers for IAM Entities](https://docs.aws.amazon.com/IAM/latest/UserGuide/index.html) in *Using AWS Identity and Access Management* for more information.
 	DomainArn *string `pulumi:"domainArn"`
 	// The domain-specific endpoint used for requests to the OpenSearch APIs, such as `search-mystack-1ab2cdefghij-ab1c2deckoyb3hofw7wpqa3cm.us-west-1.es.amazonaws.com` .
@@ -169,6 +170,10 @@ func (o LookupDomainResultOutput) ClusterConfig() DomainClusterConfigPtrOutput {
 // Configures OpenSearch Service to use Amazon Cognito authentication for OpenSearch Dashboards.
 func (o LookupDomainResultOutput) CognitoOptions() DomainCognitoOptionsPtrOutput {
 	return o.ApplyT(func(v LookupDomainResult) *DomainCognitoOptions { return v.CognitoOptions }).(DomainCognitoOptionsPtrOutput)
+}
+
+func (o LookupDomainResultOutput) DeploymentStrategyOptions() DomainDeploymentStrategyOptionsPtrOutput {
+	return o.ApplyT(func(v LookupDomainResult) *DomainDeploymentStrategyOptions { return v.DeploymentStrategyOptions }).(DomainDeploymentStrategyOptionsPtrOutput)
 }
 
 // The Amazon Resource Name (ARN) of the domain. See [Identifiers for IAM Entities](https://docs.aws.amazon.com/IAM/latest/UserGuide/index.html) in *Using AWS Identity and Access Management* for more information.

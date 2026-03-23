@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -32,6 +33,8 @@ type FlowEntitlement struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The AWS account IDs that you want to share your content with. The receiving accounts (subscribers) will be allowed to create their own flow using your content as the source.
 	Subscribers pulumi.StringArrayOutput `pulumi:"subscribers"`
+	// Key-value pairs that can be used to tag and organize this flow entitlement.
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewFlowEntitlement registers a new resource with the given unique name, arguments, and options.
@@ -52,6 +55,7 @@ func NewFlowEntitlement(ctx *pulumi.Context,
 	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"dataTransferSubscriberFeePercent",
+		"flowArn",
 		"name",
 	})
 	opts = append(opts, replaceOnChanges)
@@ -102,6 +106,8 @@ type flowEntitlementArgs struct {
 	Name *string `pulumi:"name"`
 	// The AWS account IDs that you want to share your content with. The receiving accounts (subscribers) will be allowed to create their own flow using your content as the source.
 	Subscribers []string `pulumi:"subscribers"`
+	// Key-value pairs that can be used to tag and organize this flow entitlement.
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a FlowEntitlement resource.
@@ -120,6 +126,8 @@ type FlowEntitlementArgs struct {
 	Name pulumi.StringPtrInput
 	// The AWS account IDs that you want to share your content with. The receiving accounts (subscribers) will be allowed to create their own flow using your content as the source.
 	Subscribers pulumi.StringArrayInput
+	// Key-value pairs that can be used to tag and organize this flow entitlement.
+	Tags aws.TagArrayInput
 }
 
 func (FlowEntitlementArgs) ElementType() reflect.Type {
@@ -197,6 +205,11 @@ func (o FlowEntitlementOutput) Name() pulumi.StringOutput {
 // The AWS account IDs that you want to share your content with. The receiving accounts (subscribers) will be allowed to create their own flow using your content as the source.
 func (o FlowEntitlementOutput) Subscribers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *FlowEntitlement) pulumi.StringArrayOutput { return v.Subscribers }).(pulumi.StringArrayOutput)
+}
+
+// Key-value pairs that can be used to tag and organize this flow entitlement.
+func (o FlowEntitlementOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *FlowEntitlement) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

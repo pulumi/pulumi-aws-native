@@ -48,6 +48,8 @@ type CloudVmCluster struct {
 	GiVersion pulumi.StringPtrOutput `pulumi:"giVersion"`
 	// The host name for the VM cluster.
 	Hostname pulumi.StringPtrOutput `pulumi:"hostname"`
+	// The AWS Identity and Access Management (IAM) service roles associated with the VM cluster.
+	IamRoles CloudVmClusterIamRoleArrayOutput `pulumi:"iamRoles"`
 	// Indicates whether database backups to local Exadata storage is enabled for the VM cluster.
 	IsLocalBackupEnabled pulumi.BoolPtrOutput `pulumi:"isLocalBackupEnabled"`
 	// Indicates whether the VM cluster is configured with a sparse disk group.
@@ -175,6 +177,8 @@ type cloudVmClusterArgs struct {
 	GiVersion *string `pulumi:"giVersion"`
 	// The host name for the VM cluster.
 	Hostname *string `pulumi:"hostname"`
+	// The AWS Identity and Access Management (IAM) service roles associated with the VM cluster.
+	IamRoles []CloudVmClusterIamRole `pulumi:"iamRoles"`
 	// Indicates whether database backups to local Exadata storage is enabled for the VM cluster.
 	IsLocalBackupEnabled *bool `pulumi:"isLocalBackupEnabled"`
 	// Indicates whether the VM cluster is configured with a sparse disk group.
@@ -221,6 +225,8 @@ type CloudVmClusterArgs struct {
 	GiVersion pulumi.StringPtrInput
 	// The host name for the VM cluster.
 	Hostname pulumi.StringPtrInput
+	// The AWS Identity and Access Management (IAM) service roles associated with the VM cluster.
+	IamRoles CloudVmClusterIamRoleArrayInput
 	// Indicates whether database backups to local Exadata storage is enabled for the VM cluster.
 	IsLocalBackupEnabled pulumi.BoolPtrInput
 	// Indicates whether the VM cluster is configured with a sparse disk group.
@@ -358,6 +364,11 @@ func (o CloudVmClusterOutput) GiVersion() pulumi.StringPtrOutput {
 // The host name for the VM cluster.
 func (o CloudVmClusterOutput) Hostname() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CloudVmCluster) pulumi.StringPtrOutput { return v.Hostname }).(pulumi.StringPtrOutput)
+}
+
+// The AWS Identity and Access Management (IAM) service roles associated with the VM cluster.
+func (o CloudVmClusterOutput) IamRoles() CloudVmClusterIamRoleArrayOutput {
+	return o.ApplyT(func(v *CloudVmCluster) CloudVmClusterIamRoleArrayOutput { return v.IamRoles }).(CloudVmClusterIamRoleArrayOutput)
 }
 
 // Indicates whether database backups to local Exadata storage is enabled for the VM cluster.

@@ -29,6 +29,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &JobDefinition{}
 	case "aws-native:batch:JobQueue":
 		r = &JobQueue{}
+	case "aws-native:batch:QuotaShare":
+		r = &QuotaShare{}
 	case "aws-native:batch:SchedulingPolicy":
 		r = &SchedulingPolicy{}
 	case "aws-native:batch:ServiceEnvironment":

@@ -57,6 +57,7 @@ export interface GetGatewayResult {
      * The name for the gateway.
      */
     readonly name?: string;
+    readonly policyEngineConfiguration?: outputs.bedrockagentcore.GatewayPolicyEngineConfiguration;
     /**
      * The protocol configuration for the gateway target.
      */

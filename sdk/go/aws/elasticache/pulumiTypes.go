@@ -517,6 +517,804 @@ type ParameterGroupTag struct {
 	Value string `pulumi:"value"`
 }
 
+type ReadEndPointProperties struct {
+	// A string containing a comma-separated list of endpoints for the primary and read-only replicas, formatted as [address1, address2, ...]. The order of the addresses maps to the order of the ports from the ReadEndPoint.Ports attribute.
+	Addresses *string `pulumi:"addresses"`
+	// A list of endpoints for the read-only replicas. The order of the addresses maps to the order of the ports from the ReadEndPoint.Ports attribute.
+	AddressesList []string `pulumi:"addressesList"`
+	// A string containing a comma-separated list of ports for the read-only replicas, formatted as [port1, port2, ...]. The order of the ports maps to the order of the addresses from the ReadEndPoint.Addresses attribute.
+	Ports *string `pulumi:"ports"`
+	// A list of ports for the read-only replicas. The order of the ports maps to the order of the addresses from the ReadEndPoint.Addresses attribute.
+	PortsList []string `pulumi:"portsList"`
+}
+
+type ReadEndPointPropertiesOutput struct{ *pulumi.OutputState }
+
+func (ReadEndPointPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReadEndPointProperties)(nil)).Elem()
+}
+
+func (o ReadEndPointPropertiesOutput) ToReadEndPointPropertiesOutput() ReadEndPointPropertiesOutput {
+	return o
+}
+
+func (o ReadEndPointPropertiesOutput) ToReadEndPointPropertiesOutputWithContext(ctx context.Context) ReadEndPointPropertiesOutput {
+	return o
+}
+
+// A string containing a comma-separated list of endpoints for the primary and read-only replicas, formatted as [address1, address2, ...]. The order of the addresses maps to the order of the ports from the ReadEndPoint.Ports attribute.
+func (o ReadEndPointPropertiesOutput) Addresses() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReadEndPointProperties) *string { return v.Addresses }).(pulumi.StringPtrOutput)
+}
+
+// A list of endpoints for the read-only replicas. The order of the addresses maps to the order of the ports from the ReadEndPoint.Ports attribute.
+func (o ReadEndPointPropertiesOutput) AddressesList() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ReadEndPointProperties) []string { return v.AddressesList }).(pulumi.StringArrayOutput)
+}
+
+// A string containing a comma-separated list of ports for the read-only replicas, formatted as [port1, port2, ...]. The order of the ports maps to the order of the addresses from the ReadEndPoint.Addresses attribute.
+func (o ReadEndPointPropertiesOutput) Ports() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReadEndPointProperties) *string { return v.Ports }).(pulumi.StringPtrOutput)
+}
+
+// A list of ports for the read-only replicas. The order of the ports maps to the order of the addresses from the ReadEndPoint.Addresses attribute.
+func (o ReadEndPointPropertiesOutput) PortsList() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ReadEndPointProperties) []string { return v.PortsList }).(pulumi.StringArrayOutput)
+}
+
+type ReadEndPointPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (ReadEndPointPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReadEndPointProperties)(nil)).Elem()
+}
+
+func (o ReadEndPointPropertiesPtrOutput) ToReadEndPointPropertiesPtrOutput() ReadEndPointPropertiesPtrOutput {
+	return o
+}
+
+func (o ReadEndPointPropertiesPtrOutput) ToReadEndPointPropertiesPtrOutputWithContext(ctx context.Context) ReadEndPointPropertiesPtrOutput {
+	return o
+}
+
+func (o ReadEndPointPropertiesPtrOutput) Elem() ReadEndPointPropertiesOutput {
+	return o.ApplyT(func(v *ReadEndPointProperties) ReadEndPointProperties {
+		if v != nil {
+			return *v
+		}
+		var ret ReadEndPointProperties
+		return ret
+	}).(ReadEndPointPropertiesOutput)
+}
+
+// A string containing a comma-separated list of endpoints for the primary and read-only replicas, formatted as [address1, address2, ...]. The order of the addresses maps to the order of the ports from the ReadEndPoint.Ports attribute.
+func (o ReadEndPointPropertiesPtrOutput) Addresses() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReadEndPointProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Addresses
+	}).(pulumi.StringPtrOutput)
+}
+
+// A list of endpoints for the read-only replicas. The order of the addresses maps to the order of the ports from the ReadEndPoint.Ports attribute.
+func (o ReadEndPointPropertiesPtrOutput) AddressesList() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ReadEndPointProperties) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AddressesList
+	}).(pulumi.StringArrayOutput)
+}
+
+// A string containing a comma-separated list of ports for the read-only replicas, formatted as [port1, port2, ...]. The order of the ports maps to the order of the addresses from the ReadEndPoint.Addresses attribute.
+func (o ReadEndPointPropertiesPtrOutput) Ports() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReadEndPointProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Ports
+	}).(pulumi.StringPtrOutput)
+}
+
+// A list of ports for the read-only replicas. The order of the ports maps to the order of the addresses from the ReadEndPoint.Addresses attribute.
+func (o ReadEndPointPropertiesPtrOutput) PortsList() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ReadEndPointProperties) []string {
+		if v == nil {
+			return nil
+		}
+		return v.PortsList
+	}).(pulumi.StringArrayOutput)
+}
+
+// The configuration details of the CloudWatch Logs destination. Note that this field is marked as required but only if CloudWatch Logs was chosen as the destination.
+type ReplicationGroupCloudWatchLogsDestinationDetails struct {
+	// The name of the CloudWatch Logs log group.
+	LogGroup string `pulumi:"logGroup"`
+}
+
+// ReplicationGroupCloudWatchLogsDestinationDetailsInput is an input type that accepts ReplicationGroupCloudWatchLogsDestinationDetailsArgs and ReplicationGroupCloudWatchLogsDestinationDetailsOutput values.
+// You can construct a concrete instance of `ReplicationGroupCloudWatchLogsDestinationDetailsInput` via:
+//
+//	ReplicationGroupCloudWatchLogsDestinationDetailsArgs{...}
+type ReplicationGroupCloudWatchLogsDestinationDetailsInput interface {
+	pulumi.Input
+
+	ToReplicationGroupCloudWatchLogsDestinationDetailsOutput() ReplicationGroupCloudWatchLogsDestinationDetailsOutput
+	ToReplicationGroupCloudWatchLogsDestinationDetailsOutputWithContext(context.Context) ReplicationGroupCloudWatchLogsDestinationDetailsOutput
+}
+
+// The configuration details of the CloudWatch Logs destination. Note that this field is marked as required but only if CloudWatch Logs was chosen as the destination.
+type ReplicationGroupCloudWatchLogsDestinationDetailsArgs struct {
+	// The name of the CloudWatch Logs log group.
+	LogGroup pulumi.StringInput `pulumi:"logGroup"`
+}
+
+func (ReplicationGroupCloudWatchLogsDestinationDetailsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicationGroupCloudWatchLogsDestinationDetails)(nil)).Elem()
+}
+
+func (i ReplicationGroupCloudWatchLogsDestinationDetailsArgs) ToReplicationGroupCloudWatchLogsDestinationDetailsOutput() ReplicationGroupCloudWatchLogsDestinationDetailsOutput {
+	return i.ToReplicationGroupCloudWatchLogsDestinationDetailsOutputWithContext(context.Background())
+}
+
+func (i ReplicationGroupCloudWatchLogsDestinationDetailsArgs) ToReplicationGroupCloudWatchLogsDestinationDetailsOutputWithContext(ctx context.Context) ReplicationGroupCloudWatchLogsDestinationDetailsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicationGroupCloudWatchLogsDestinationDetailsOutput)
+}
+
+func (i ReplicationGroupCloudWatchLogsDestinationDetailsArgs) ToReplicationGroupCloudWatchLogsDestinationDetailsPtrOutput() ReplicationGroupCloudWatchLogsDestinationDetailsPtrOutput {
+	return i.ToReplicationGroupCloudWatchLogsDestinationDetailsPtrOutputWithContext(context.Background())
+}
+
+func (i ReplicationGroupCloudWatchLogsDestinationDetailsArgs) ToReplicationGroupCloudWatchLogsDestinationDetailsPtrOutputWithContext(ctx context.Context) ReplicationGroupCloudWatchLogsDestinationDetailsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicationGroupCloudWatchLogsDestinationDetailsOutput).ToReplicationGroupCloudWatchLogsDestinationDetailsPtrOutputWithContext(ctx)
+}
+
+// ReplicationGroupCloudWatchLogsDestinationDetailsPtrInput is an input type that accepts ReplicationGroupCloudWatchLogsDestinationDetailsArgs, ReplicationGroupCloudWatchLogsDestinationDetailsPtr and ReplicationGroupCloudWatchLogsDestinationDetailsPtrOutput values.
+// You can construct a concrete instance of `ReplicationGroupCloudWatchLogsDestinationDetailsPtrInput` via:
+//
+//	        ReplicationGroupCloudWatchLogsDestinationDetailsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ReplicationGroupCloudWatchLogsDestinationDetailsPtrInput interface {
+	pulumi.Input
+
+	ToReplicationGroupCloudWatchLogsDestinationDetailsPtrOutput() ReplicationGroupCloudWatchLogsDestinationDetailsPtrOutput
+	ToReplicationGroupCloudWatchLogsDestinationDetailsPtrOutputWithContext(context.Context) ReplicationGroupCloudWatchLogsDestinationDetailsPtrOutput
+}
+
+type replicationGroupCloudWatchLogsDestinationDetailsPtrType ReplicationGroupCloudWatchLogsDestinationDetailsArgs
+
+func ReplicationGroupCloudWatchLogsDestinationDetailsPtr(v *ReplicationGroupCloudWatchLogsDestinationDetailsArgs) ReplicationGroupCloudWatchLogsDestinationDetailsPtrInput {
+	return (*replicationGroupCloudWatchLogsDestinationDetailsPtrType)(v)
+}
+
+func (*replicationGroupCloudWatchLogsDestinationDetailsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReplicationGroupCloudWatchLogsDestinationDetails)(nil)).Elem()
+}
+
+func (i *replicationGroupCloudWatchLogsDestinationDetailsPtrType) ToReplicationGroupCloudWatchLogsDestinationDetailsPtrOutput() ReplicationGroupCloudWatchLogsDestinationDetailsPtrOutput {
+	return i.ToReplicationGroupCloudWatchLogsDestinationDetailsPtrOutputWithContext(context.Background())
+}
+
+func (i *replicationGroupCloudWatchLogsDestinationDetailsPtrType) ToReplicationGroupCloudWatchLogsDestinationDetailsPtrOutputWithContext(ctx context.Context) ReplicationGroupCloudWatchLogsDestinationDetailsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicationGroupCloudWatchLogsDestinationDetailsPtrOutput)
+}
+
+// The configuration details of the CloudWatch Logs destination. Note that this field is marked as required but only if CloudWatch Logs was chosen as the destination.
+type ReplicationGroupCloudWatchLogsDestinationDetailsOutput struct{ *pulumi.OutputState }
+
+func (ReplicationGroupCloudWatchLogsDestinationDetailsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicationGroupCloudWatchLogsDestinationDetails)(nil)).Elem()
+}
+
+func (o ReplicationGroupCloudWatchLogsDestinationDetailsOutput) ToReplicationGroupCloudWatchLogsDestinationDetailsOutput() ReplicationGroupCloudWatchLogsDestinationDetailsOutput {
+	return o
+}
+
+func (o ReplicationGroupCloudWatchLogsDestinationDetailsOutput) ToReplicationGroupCloudWatchLogsDestinationDetailsOutputWithContext(ctx context.Context) ReplicationGroupCloudWatchLogsDestinationDetailsOutput {
+	return o
+}
+
+func (o ReplicationGroupCloudWatchLogsDestinationDetailsOutput) ToReplicationGroupCloudWatchLogsDestinationDetailsPtrOutput() ReplicationGroupCloudWatchLogsDestinationDetailsPtrOutput {
+	return o.ToReplicationGroupCloudWatchLogsDestinationDetailsPtrOutputWithContext(context.Background())
+}
+
+func (o ReplicationGroupCloudWatchLogsDestinationDetailsOutput) ToReplicationGroupCloudWatchLogsDestinationDetailsPtrOutputWithContext(ctx context.Context) ReplicationGroupCloudWatchLogsDestinationDetailsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReplicationGroupCloudWatchLogsDestinationDetails) *ReplicationGroupCloudWatchLogsDestinationDetails {
+		return &v
+	}).(ReplicationGroupCloudWatchLogsDestinationDetailsPtrOutput)
+}
+
+// The name of the CloudWatch Logs log group.
+func (o ReplicationGroupCloudWatchLogsDestinationDetailsOutput) LogGroup() pulumi.StringOutput {
+	return o.ApplyT(func(v ReplicationGroupCloudWatchLogsDestinationDetails) string { return v.LogGroup }).(pulumi.StringOutput)
+}
+
+type ReplicationGroupCloudWatchLogsDestinationDetailsPtrOutput struct{ *pulumi.OutputState }
+
+func (ReplicationGroupCloudWatchLogsDestinationDetailsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReplicationGroupCloudWatchLogsDestinationDetails)(nil)).Elem()
+}
+
+func (o ReplicationGroupCloudWatchLogsDestinationDetailsPtrOutput) ToReplicationGroupCloudWatchLogsDestinationDetailsPtrOutput() ReplicationGroupCloudWatchLogsDestinationDetailsPtrOutput {
+	return o
+}
+
+func (o ReplicationGroupCloudWatchLogsDestinationDetailsPtrOutput) ToReplicationGroupCloudWatchLogsDestinationDetailsPtrOutputWithContext(ctx context.Context) ReplicationGroupCloudWatchLogsDestinationDetailsPtrOutput {
+	return o
+}
+
+func (o ReplicationGroupCloudWatchLogsDestinationDetailsPtrOutput) Elem() ReplicationGroupCloudWatchLogsDestinationDetailsOutput {
+	return o.ApplyT(func(v *ReplicationGroupCloudWatchLogsDestinationDetails) ReplicationGroupCloudWatchLogsDestinationDetails {
+		if v != nil {
+			return *v
+		}
+		var ret ReplicationGroupCloudWatchLogsDestinationDetails
+		return ret
+	}).(ReplicationGroupCloudWatchLogsDestinationDetailsOutput)
+}
+
+// The name of the CloudWatch Logs log group.
+func (o ReplicationGroupCloudWatchLogsDestinationDetailsPtrOutput) LogGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReplicationGroupCloudWatchLogsDestinationDetails) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.LogGroup
+	}).(pulumi.StringPtrOutput)
+}
+
+// Configuration details of either a CloudWatch Logs destination or Kinesis Data Firehose destination.
+type ReplicationGroupDestinationDetails struct {
+	// The configuration details of the CloudWatch Logs destination. Note that this field is marked as required but only if CloudWatch Logs was chosen as the destination.
+	CloudWatchLogsDetails *ReplicationGroupCloudWatchLogsDestinationDetails `pulumi:"cloudWatchLogsDetails"`
+	// The configuration details of the Kinesis Data Firehose destination. Note that this field is marked as required but only if Kinesis Data Firehose was chosen as the destination.
+	KinesisFirehoseDetails *ReplicationGroupKinesisFirehoseDestinationDetails `pulumi:"kinesisFirehoseDetails"`
+}
+
+// ReplicationGroupDestinationDetailsInput is an input type that accepts ReplicationGroupDestinationDetailsArgs and ReplicationGroupDestinationDetailsOutput values.
+// You can construct a concrete instance of `ReplicationGroupDestinationDetailsInput` via:
+//
+//	ReplicationGroupDestinationDetailsArgs{...}
+type ReplicationGroupDestinationDetailsInput interface {
+	pulumi.Input
+
+	ToReplicationGroupDestinationDetailsOutput() ReplicationGroupDestinationDetailsOutput
+	ToReplicationGroupDestinationDetailsOutputWithContext(context.Context) ReplicationGroupDestinationDetailsOutput
+}
+
+// Configuration details of either a CloudWatch Logs destination or Kinesis Data Firehose destination.
+type ReplicationGroupDestinationDetailsArgs struct {
+	// The configuration details of the CloudWatch Logs destination. Note that this field is marked as required but only if CloudWatch Logs was chosen as the destination.
+	CloudWatchLogsDetails ReplicationGroupCloudWatchLogsDestinationDetailsPtrInput `pulumi:"cloudWatchLogsDetails"`
+	// The configuration details of the Kinesis Data Firehose destination. Note that this field is marked as required but only if Kinesis Data Firehose was chosen as the destination.
+	KinesisFirehoseDetails ReplicationGroupKinesisFirehoseDestinationDetailsPtrInput `pulumi:"kinesisFirehoseDetails"`
+}
+
+func (ReplicationGroupDestinationDetailsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicationGroupDestinationDetails)(nil)).Elem()
+}
+
+func (i ReplicationGroupDestinationDetailsArgs) ToReplicationGroupDestinationDetailsOutput() ReplicationGroupDestinationDetailsOutput {
+	return i.ToReplicationGroupDestinationDetailsOutputWithContext(context.Background())
+}
+
+func (i ReplicationGroupDestinationDetailsArgs) ToReplicationGroupDestinationDetailsOutputWithContext(ctx context.Context) ReplicationGroupDestinationDetailsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicationGroupDestinationDetailsOutput)
+}
+
+// Configuration details of either a CloudWatch Logs destination or Kinesis Data Firehose destination.
+type ReplicationGroupDestinationDetailsOutput struct{ *pulumi.OutputState }
+
+func (ReplicationGroupDestinationDetailsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicationGroupDestinationDetails)(nil)).Elem()
+}
+
+func (o ReplicationGroupDestinationDetailsOutput) ToReplicationGroupDestinationDetailsOutput() ReplicationGroupDestinationDetailsOutput {
+	return o
+}
+
+func (o ReplicationGroupDestinationDetailsOutput) ToReplicationGroupDestinationDetailsOutputWithContext(ctx context.Context) ReplicationGroupDestinationDetailsOutput {
+	return o
+}
+
+// The configuration details of the CloudWatch Logs destination. Note that this field is marked as required but only if CloudWatch Logs was chosen as the destination.
+func (o ReplicationGroupDestinationDetailsOutput) CloudWatchLogsDetails() ReplicationGroupCloudWatchLogsDestinationDetailsPtrOutput {
+	return o.ApplyT(func(v ReplicationGroupDestinationDetails) *ReplicationGroupCloudWatchLogsDestinationDetails {
+		return v.CloudWatchLogsDetails
+	}).(ReplicationGroupCloudWatchLogsDestinationDetailsPtrOutput)
+}
+
+// The configuration details of the Kinesis Data Firehose destination. Note that this field is marked as required but only if Kinesis Data Firehose was chosen as the destination.
+func (o ReplicationGroupDestinationDetailsOutput) KinesisFirehoseDetails() ReplicationGroupKinesisFirehoseDestinationDetailsPtrOutput {
+	return o.ApplyT(func(v ReplicationGroupDestinationDetails) *ReplicationGroupKinesisFirehoseDestinationDetails {
+		return v.KinesisFirehoseDetails
+	}).(ReplicationGroupKinesisFirehoseDestinationDetailsPtrOutput)
+}
+
+type ReplicationGroupEndpoint struct {
+	// The DNS hostname of the cache node.
+	Address *string `pulumi:"address"`
+	// The port number that the cache engine is listening on.
+	Port *string `pulumi:"port"`
+}
+
+type ReplicationGroupEndpointOutput struct{ *pulumi.OutputState }
+
+func (ReplicationGroupEndpointOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicationGroupEndpoint)(nil)).Elem()
+}
+
+func (o ReplicationGroupEndpointOutput) ToReplicationGroupEndpointOutput() ReplicationGroupEndpointOutput {
+	return o
+}
+
+func (o ReplicationGroupEndpointOutput) ToReplicationGroupEndpointOutputWithContext(ctx context.Context) ReplicationGroupEndpointOutput {
+	return o
+}
+
+// The DNS hostname of the cache node.
+func (o ReplicationGroupEndpointOutput) Address() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReplicationGroupEndpoint) *string { return v.Address }).(pulumi.StringPtrOutput)
+}
+
+// The port number that the cache engine is listening on.
+func (o ReplicationGroupEndpointOutput) Port() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReplicationGroupEndpoint) *string { return v.Port }).(pulumi.StringPtrOutput)
+}
+
+type ReplicationGroupEndpointPtrOutput struct{ *pulumi.OutputState }
+
+func (ReplicationGroupEndpointPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReplicationGroupEndpoint)(nil)).Elem()
+}
+
+func (o ReplicationGroupEndpointPtrOutput) ToReplicationGroupEndpointPtrOutput() ReplicationGroupEndpointPtrOutput {
+	return o
+}
+
+func (o ReplicationGroupEndpointPtrOutput) ToReplicationGroupEndpointPtrOutputWithContext(ctx context.Context) ReplicationGroupEndpointPtrOutput {
+	return o
+}
+
+func (o ReplicationGroupEndpointPtrOutput) Elem() ReplicationGroupEndpointOutput {
+	return o.ApplyT(func(v *ReplicationGroupEndpoint) ReplicationGroupEndpoint {
+		if v != nil {
+			return *v
+		}
+		var ret ReplicationGroupEndpoint
+		return ret
+	}).(ReplicationGroupEndpointOutput)
+}
+
+// The DNS hostname of the cache node.
+func (o ReplicationGroupEndpointPtrOutput) Address() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReplicationGroupEndpoint) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Address
+	}).(pulumi.StringPtrOutput)
+}
+
+// The port number that the cache engine is listening on.
+func (o ReplicationGroupEndpointPtrOutput) Port() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReplicationGroupEndpoint) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Port
+	}).(pulumi.StringPtrOutput)
+}
+
+// The configuration details of the Kinesis Data Firehose destination. Note that this field is marked as required but only if Kinesis Data Firehose was chosen as the destination.
+type ReplicationGroupKinesisFirehoseDestinationDetails struct {
+	// The name of the Kinesis Data Firehose delivery stream.
+	DeliveryStream string `pulumi:"deliveryStream"`
+}
+
+// ReplicationGroupKinesisFirehoseDestinationDetailsInput is an input type that accepts ReplicationGroupKinesisFirehoseDestinationDetailsArgs and ReplicationGroupKinesisFirehoseDestinationDetailsOutput values.
+// You can construct a concrete instance of `ReplicationGroupKinesisFirehoseDestinationDetailsInput` via:
+//
+//	ReplicationGroupKinesisFirehoseDestinationDetailsArgs{...}
+type ReplicationGroupKinesisFirehoseDestinationDetailsInput interface {
+	pulumi.Input
+
+	ToReplicationGroupKinesisFirehoseDestinationDetailsOutput() ReplicationGroupKinesisFirehoseDestinationDetailsOutput
+	ToReplicationGroupKinesisFirehoseDestinationDetailsOutputWithContext(context.Context) ReplicationGroupKinesisFirehoseDestinationDetailsOutput
+}
+
+// The configuration details of the Kinesis Data Firehose destination. Note that this field is marked as required but only if Kinesis Data Firehose was chosen as the destination.
+type ReplicationGroupKinesisFirehoseDestinationDetailsArgs struct {
+	// The name of the Kinesis Data Firehose delivery stream.
+	DeliveryStream pulumi.StringInput `pulumi:"deliveryStream"`
+}
+
+func (ReplicationGroupKinesisFirehoseDestinationDetailsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicationGroupKinesisFirehoseDestinationDetails)(nil)).Elem()
+}
+
+func (i ReplicationGroupKinesisFirehoseDestinationDetailsArgs) ToReplicationGroupKinesisFirehoseDestinationDetailsOutput() ReplicationGroupKinesisFirehoseDestinationDetailsOutput {
+	return i.ToReplicationGroupKinesisFirehoseDestinationDetailsOutputWithContext(context.Background())
+}
+
+func (i ReplicationGroupKinesisFirehoseDestinationDetailsArgs) ToReplicationGroupKinesisFirehoseDestinationDetailsOutputWithContext(ctx context.Context) ReplicationGroupKinesisFirehoseDestinationDetailsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicationGroupKinesisFirehoseDestinationDetailsOutput)
+}
+
+func (i ReplicationGroupKinesisFirehoseDestinationDetailsArgs) ToReplicationGroupKinesisFirehoseDestinationDetailsPtrOutput() ReplicationGroupKinesisFirehoseDestinationDetailsPtrOutput {
+	return i.ToReplicationGroupKinesisFirehoseDestinationDetailsPtrOutputWithContext(context.Background())
+}
+
+func (i ReplicationGroupKinesisFirehoseDestinationDetailsArgs) ToReplicationGroupKinesisFirehoseDestinationDetailsPtrOutputWithContext(ctx context.Context) ReplicationGroupKinesisFirehoseDestinationDetailsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicationGroupKinesisFirehoseDestinationDetailsOutput).ToReplicationGroupKinesisFirehoseDestinationDetailsPtrOutputWithContext(ctx)
+}
+
+// ReplicationGroupKinesisFirehoseDestinationDetailsPtrInput is an input type that accepts ReplicationGroupKinesisFirehoseDestinationDetailsArgs, ReplicationGroupKinesisFirehoseDestinationDetailsPtr and ReplicationGroupKinesisFirehoseDestinationDetailsPtrOutput values.
+// You can construct a concrete instance of `ReplicationGroupKinesisFirehoseDestinationDetailsPtrInput` via:
+//
+//	        ReplicationGroupKinesisFirehoseDestinationDetailsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ReplicationGroupKinesisFirehoseDestinationDetailsPtrInput interface {
+	pulumi.Input
+
+	ToReplicationGroupKinesisFirehoseDestinationDetailsPtrOutput() ReplicationGroupKinesisFirehoseDestinationDetailsPtrOutput
+	ToReplicationGroupKinesisFirehoseDestinationDetailsPtrOutputWithContext(context.Context) ReplicationGroupKinesisFirehoseDestinationDetailsPtrOutput
+}
+
+type replicationGroupKinesisFirehoseDestinationDetailsPtrType ReplicationGroupKinesisFirehoseDestinationDetailsArgs
+
+func ReplicationGroupKinesisFirehoseDestinationDetailsPtr(v *ReplicationGroupKinesisFirehoseDestinationDetailsArgs) ReplicationGroupKinesisFirehoseDestinationDetailsPtrInput {
+	return (*replicationGroupKinesisFirehoseDestinationDetailsPtrType)(v)
+}
+
+func (*replicationGroupKinesisFirehoseDestinationDetailsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReplicationGroupKinesisFirehoseDestinationDetails)(nil)).Elem()
+}
+
+func (i *replicationGroupKinesisFirehoseDestinationDetailsPtrType) ToReplicationGroupKinesisFirehoseDestinationDetailsPtrOutput() ReplicationGroupKinesisFirehoseDestinationDetailsPtrOutput {
+	return i.ToReplicationGroupKinesisFirehoseDestinationDetailsPtrOutputWithContext(context.Background())
+}
+
+func (i *replicationGroupKinesisFirehoseDestinationDetailsPtrType) ToReplicationGroupKinesisFirehoseDestinationDetailsPtrOutputWithContext(ctx context.Context) ReplicationGroupKinesisFirehoseDestinationDetailsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicationGroupKinesisFirehoseDestinationDetailsPtrOutput)
+}
+
+// The configuration details of the Kinesis Data Firehose destination. Note that this field is marked as required but only if Kinesis Data Firehose was chosen as the destination.
+type ReplicationGroupKinesisFirehoseDestinationDetailsOutput struct{ *pulumi.OutputState }
+
+func (ReplicationGroupKinesisFirehoseDestinationDetailsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicationGroupKinesisFirehoseDestinationDetails)(nil)).Elem()
+}
+
+func (o ReplicationGroupKinesisFirehoseDestinationDetailsOutput) ToReplicationGroupKinesisFirehoseDestinationDetailsOutput() ReplicationGroupKinesisFirehoseDestinationDetailsOutput {
+	return o
+}
+
+func (o ReplicationGroupKinesisFirehoseDestinationDetailsOutput) ToReplicationGroupKinesisFirehoseDestinationDetailsOutputWithContext(ctx context.Context) ReplicationGroupKinesisFirehoseDestinationDetailsOutput {
+	return o
+}
+
+func (o ReplicationGroupKinesisFirehoseDestinationDetailsOutput) ToReplicationGroupKinesisFirehoseDestinationDetailsPtrOutput() ReplicationGroupKinesisFirehoseDestinationDetailsPtrOutput {
+	return o.ToReplicationGroupKinesisFirehoseDestinationDetailsPtrOutputWithContext(context.Background())
+}
+
+func (o ReplicationGroupKinesisFirehoseDestinationDetailsOutput) ToReplicationGroupKinesisFirehoseDestinationDetailsPtrOutputWithContext(ctx context.Context) ReplicationGroupKinesisFirehoseDestinationDetailsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReplicationGroupKinesisFirehoseDestinationDetails) *ReplicationGroupKinesisFirehoseDestinationDetails {
+		return &v
+	}).(ReplicationGroupKinesisFirehoseDestinationDetailsPtrOutput)
+}
+
+// The name of the Kinesis Data Firehose delivery stream.
+func (o ReplicationGroupKinesisFirehoseDestinationDetailsOutput) DeliveryStream() pulumi.StringOutput {
+	return o.ApplyT(func(v ReplicationGroupKinesisFirehoseDestinationDetails) string { return v.DeliveryStream }).(pulumi.StringOutput)
+}
+
+type ReplicationGroupKinesisFirehoseDestinationDetailsPtrOutput struct{ *pulumi.OutputState }
+
+func (ReplicationGroupKinesisFirehoseDestinationDetailsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReplicationGroupKinesisFirehoseDestinationDetails)(nil)).Elem()
+}
+
+func (o ReplicationGroupKinesisFirehoseDestinationDetailsPtrOutput) ToReplicationGroupKinesisFirehoseDestinationDetailsPtrOutput() ReplicationGroupKinesisFirehoseDestinationDetailsPtrOutput {
+	return o
+}
+
+func (o ReplicationGroupKinesisFirehoseDestinationDetailsPtrOutput) ToReplicationGroupKinesisFirehoseDestinationDetailsPtrOutputWithContext(ctx context.Context) ReplicationGroupKinesisFirehoseDestinationDetailsPtrOutput {
+	return o
+}
+
+func (o ReplicationGroupKinesisFirehoseDestinationDetailsPtrOutput) Elem() ReplicationGroupKinesisFirehoseDestinationDetailsOutput {
+	return o.ApplyT(func(v *ReplicationGroupKinesisFirehoseDestinationDetails) ReplicationGroupKinesisFirehoseDestinationDetails {
+		if v != nil {
+			return *v
+		}
+		var ret ReplicationGroupKinesisFirehoseDestinationDetails
+		return ret
+	}).(ReplicationGroupKinesisFirehoseDestinationDetailsOutput)
+}
+
+// The name of the Kinesis Data Firehose delivery stream.
+func (o ReplicationGroupKinesisFirehoseDestinationDetailsPtrOutput) DeliveryStream() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReplicationGroupKinesisFirehoseDestinationDetails) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DeliveryStream
+	}).(pulumi.StringPtrOutput)
+}
+
+type ReplicationGroupLogDeliveryConfigurationRequest struct {
+	// Configuration details of either a CloudWatch Logs destination or Kinesis Data Firehose destination.
+	DestinationDetails ReplicationGroupDestinationDetails `pulumi:"destinationDetails"`
+	// Specify either CloudWatch Logs or Kinesis Data Firehose as the destination type. Valid values are either cloudwatch-logs or kinesis-firehose.
+	DestinationType string `pulumi:"destinationType"`
+	// Valid values are either json or text.
+	LogFormat string `pulumi:"logFormat"`
+	// Valid value is either slow-log, which refers to slow-log or engine-log.
+	LogType string `pulumi:"logType"`
+}
+
+// ReplicationGroupLogDeliveryConfigurationRequestInput is an input type that accepts ReplicationGroupLogDeliveryConfigurationRequestArgs and ReplicationGroupLogDeliveryConfigurationRequestOutput values.
+// You can construct a concrete instance of `ReplicationGroupLogDeliveryConfigurationRequestInput` via:
+//
+//	ReplicationGroupLogDeliveryConfigurationRequestArgs{...}
+type ReplicationGroupLogDeliveryConfigurationRequestInput interface {
+	pulumi.Input
+
+	ToReplicationGroupLogDeliveryConfigurationRequestOutput() ReplicationGroupLogDeliveryConfigurationRequestOutput
+	ToReplicationGroupLogDeliveryConfigurationRequestOutputWithContext(context.Context) ReplicationGroupLogDeliveryConfigurationRequestOutput
+}
+
+type ReplicationGroupLogDeliveryConfigurationRequestArgs struct {
+	// Configuration details of either a CloudWatch Logs destination or Kinesis Data Firehose destination.
+	DestinationDetails ReplicationGroupDestinationDetailsInput `pulumi:"destinationDetails"`
+	// Specify either CloudWatch Logs or Kinesis Data Firehose as the destination type. Valid values are either cloudwatch-logs or kinesis-firehose.
+	DestinationType pulumi.StringInput `pulumi:"destinationType"`
+	// Valid values are either json or text.
+	LogFormat pulumi.StringInput `pulumi:"logFormat"`
+	// Valid value is either slow-log, which refers to slow-log or engine-log.
+	LogType pulumi.StringInput `pulumi:"logType"`
+}
+
+func (ReplicationGroupLogDeliveryConfigurationRequestArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicationGroupLogDeliveryConfigurationRequest)(nil)).Elem()
+}
+
+func (i ReplicationGroupLogDeliveryConfigurationRequestArgs) ToReplicationGroupLogDeliveryConfigurationRequestOutput() ReplicationGroupLogDeliveryConfigurationRequestOutput {
+	return i.ToReplicationGroupLogDeliveryConfigurationRequestOutputWithContext(context.Background())
+}
+
+func (i ReplicationGroupLogDeliveryConfigurationRequestArgs) ToReplicationGroupLogDeliveryConfigurationRequestOutputWithContext(ctx context.Context) ReplicationGroupLogDeliveryConfigurationRequestOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicationGroupLogDeliveryConfigurationRequestOutput)
+}
+
+// ReplicationGroupLogDeliveryConfigurationRequestArrayInput is an input type that accepts ReplicationGroupLogDeliveryConfigurationRequestArray and ReplicationGroupLogDeliveryConfigurationRequestArrayOutput values.
+// You can construct a concrete instance of `ReplicationGroupLogDeliveryConfigurationRequestArrayInput` via:
+//
+//	ReplicationGroupLogDeliveryConfigurationRequestArray{ ReplicationGroupLogDeliveryConfigurationRequestArgs{...} }
+type ReplicationGroupLogDeliveryConfigurationRequestArrayInput interface {
+	pulumi.Input
+
+	ToReplicationGroupLogDeliveryConfigurationRequestArrayOutput() ReplicationGroupLogDeliveryConfigurationRequestArrayOutput
+	ToReplicationGroupLogDeliveryConfigurationRequestArrayOutputWithContext(context.Context) ReplicationGroupLogDeliveryConfigurationRequestArrayOutput
+}
+
+type ReplicationGroupLogDeliveryConfigurationRequestArray []ReplicationGroupLogDeliveryConfigurationRequestInput
+
+func (ReplicationGroupLogDeliveryConfigurationRequestArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ReplicationGroupLogDeliveryConfigurationRequest)(nil)).Elem()
+}
+
+func (i ReplicationGroupLogDeliveryConfigurationRequestArray) ToReplicationGroupLogDeliveryConfigurationRequestArrayOutput() ReplicationGroupLogDeliveryConfigurationRequestArrayOutput {
+	return i.ToReplicationGroupLogDeliveryConfigurationRequestArrayOutputWithContext(context.Background())
+}
+
+func (i ReplicationGroupLogDeliveryConfigurationRequestArray) ToReplicationGroupLogDeliveryConfigurationRequestArrayOutputWithContext(ctx context.Context) ReplicationGroupLogDeliveryConfigurationRequestArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicationGroupLogDeliveryConfigurationRequestArrayOutput)
+}
+
+type ReplicationGroupLogDeliveryConfigurationRequestOutput struct{ *pulumi.OutputState }
+
+func (ReplicationGroupLogDeliveryConfigurationRequestOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicationGroupLogDeliveryConfigurationRequest)(nil)).Elem()
+}
+
+func (o ReplicationGroupLogDeliveryConfigurationRequestOutput) ToReplicationGroupLogDeliveryConfigurationRequestOutput() ReplicationGroupLogDeliveryConfigurationRequestOutput {
+	return o
+}
+
+func (o ReplicationGroupLogDeliveryConfigurationRequestOutput) ToReplicationGroupLogDeliveryConfigurationRequestOutputWithContext(ctx context.Context) ReplicationGroupLogDeliveryConfigurationRequestOutput {
+	return o
+}
+
+// Configuration details of either a CloudWatch Logs destination or Kinesis Data Firehose destination.
+func (o ReplicationGroupLogDeliveryConfigurationRequestOutput) DestinationDetails() ReplicationGroupDestinationDetailsOutput {
+	return o.ApplyT(func(v ReplicationGroupLogDeliveryConfigurationRequest) ReplicationGroupDestinationDetails {
+		return v.DestinationDetails
+	}).(ReplicationGroupDestinationDetailsOutput)
+}
+
+// Specify either CloudWatch Logs or Kinesis Data Firehose as the destination type. Valid values are either cloudwatch-logs or kinesis-firehose.
+func (o ReplicationGroupLogDeliveryConfigurationRequestOutput) DestinationType() pulumi.StringOutput {
+	return o.ApplyT(func(v ReplicationGroupLogDeliveryConfigurationRequest) string { return v.DestinationType }).(pulumi.StringOutput)
+}
+
+// Valid values are either json or text.
+func (o ReplicationGroupLogDeliveryConfigurationRequestOutput) LogFormat() pulumi.StringOutput {
+	return o.ApplyT(func(v ReplicationGroupLogDeliveryConfigurationRequest) string { return v.LogFormat }).(pulumi.StringOutput)
+}
+
+// Valid value is either slow-log, which refers to slow-log or engine-log.
+func (o ReplicationGroupLogDeliveryConfigurationRequestOutput) LogType() pulumi.StringOutput {
+	return o.ApplyT(func(v ReplicationGroupLogDeliveryConfigurationRequest) string { return v.LogType }).(pulumi.StringOutput)
+}
+
+type ReplicationGroupLogDeliveryConfigurationRequestArrayOutput struct{ *pulumi.OutputState }
+
+func (ReplicationGroupLogDeliveryConfigurationRequestArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ReplicationGroupLogDeliveryConfigurationRequest)(nil)).Elem()
+}
+
+func (o ReplicationGroupLogDeliveryConfigurationRequestArrayOutput) ToReplicationGroupLogDeliveryConfigurationRequestArrayOutput() ReplicationGroupLogDeliveryConfigurationRequestArrayOutput {
+	return o
+}
+
+func (o ReplicationGroupLogDeliveryConfigurationRequestArrayOutput) ToReplicationGroupLogDeliveryConfigurationRequestArrayOutputWithContext(ctx context.Context) ReplicationGroupLogDeliveryConfigurationRequestArrayOutput {
+	return o
+}
+
+func (o ReplicationGroupLogDeliveryConfigurationRequestArrayOutput) Index(i pulumi.IntInput) ReplicationGroupLogDeliveryConfigurationRequestOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ReplicationGroupLogDeliveryConfigurationRequest {
+		return vs[0].([]ReplicationGroupLogDeliveryConfigurationRequest)[vs[1].(int)]
+	}).(ReplicationGroupLogDeliveryConfigurationRequestOutput)
+}
+
+type ReplicationGroupNodeGroupConfiguration struct {
+	// Either the ElastiCache for Redis supplied 4-digit id or a user supplied id for the node group these configuration values apply to.
+	NodeGroupId *string `pulumi:"nodeGroupId"`
+	// The Availability Zone where the primary node of this node group (shard) is launched.
+	PrimaryAvailabilityZone *string `pulumi:"primaryAvailabilityZone"`
+	// A list of Availability Zones to be used for the read replicas. The number of Availability Zones in this list must match the value of ReplicaCount or ReplicasPerNodeGroup if not specified.
+	ReplicaAvailabilityZones []string `pulumi:"replicaAvailabilityZones"`
+	// The number of read replica nodes in this node group (shard).
+	ReplicaCount *int `pulumi:"replicaCount"`
+	// A string of comma-separated values where the first set of values are the slot numbers (zero based), and the second set of values are the keyspaces for each slot. The following example specifies three slots (numbered 0, 1, and 2): 0,1,2,0-4999,5000-9999,10000-16,383.
+	Slots *string `pulumi:"slots"`
+}
+
+// ReplicationGroupNodeGroupConfigurationInput is an input type that accepts ReplicationGroupNodeGroupConfigurationArgs and ReplicationGroupNodeGroupConfigurationOutput values.
+// You can construct a concrete instance of `ReplicationGroupNodeGroupConfigurationInput` via:
+//
+//	ReplicationGroupNodeGroupConfigurationArgs{...}
+type ReplicationGroupNodeGroupConfigurationInput interface {
+	pulumi.Input
+
+	ToReplicationGroupNodeGroupConfigurationOutput() ReplicationGroupNodeGroupConfigurationOutput
+	ToReplicationGroupNodeGroupConfigurationOutputWithContext(context.Context) ReplicationGroupNodeGroupConfigurationOutput
+}
+
+type ReplicationGroupNodeGroupConfigurationArgs struct {
+	// Either the ElastiCache for Redis supplied 4-digit id or a user supplied id for the node group these configuration values apply to.
+	NodeGroupId pulumi.StringPtrInput `pulumi:"nodeGroupId"`
+	// The Availability Zone where the primary node of this node group (shard) is launched.
+	PrimaryAvailabilityZone pulumi.StringPtrInput `pulumi:"primaryAvailabilityZone"`
+	// A list of Availability Zones to be used for the read replicas. The number of Availability Zones in this list must match the value of ReplicaCount or ReplicasPerNodeGroup if not specified.
+	ReplicaAvailabilityZones pulumi.StringArrayInput `pulumi:"replicaAvailabilityZones"`
+	// The number of read replica nodes in this node group (shard).
+	ReplicaCount pulumi.IntPtrInput `pulumi:"replicaCount"`
+	// A string of comma-separated values where the first set of values are the slot numbers (zero based), and the second set of values are the keyspaces for each slot. The following example specifies three slots (numbered 0, 1, and 2): 0,1,2,0-4999,5000-9999,10000-16,383.
+	Slots pulumi.StringPtrInput `pulumi:"slots"`
+}
+
+func (ReplicationGroupNodeGroupConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicationGroupNodeGroupConfiguration)(nil)).Elem()
+}
+
+func (i ReplicationGroupNodeGroupConfigurationArgs) ToReplicationGroupNodeGroupConfigurationOutput() ReplicationGroupNodeGroupConfigurationOutput {
+	return i.ToReplicationGroupNodeGroupConfigurationOutputWithContext(context.Background())
+}
+
+func (i ReplicationGroupNodeGroupConfigurationArgs) ToReplicationGroupNodeGroupConfigurationOutputWithContext(ctx context.Context) ReplicationGroupNodeGroupConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicationGroupNodeGroupConfigurationOutput)
+}
+
+// ReplicationGroupNodeGroupConfigurationArrayInput is an input type that accepts ReplicationGroupNodeGroupConfigurationArray and ReplicationGroupNodeGroupConfigurationArrayOutput values.
+// You can construct a concrete instance of `ReplicationGroupNodeGroupConfigurationArrayInput` via:
+//
+//	ReplicationGroupNodeGroupConfigurationArray{ ReplicationGroupNodeGroupConfigurationArgs{...} }
+type ReplicationGroupNodeGroupConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToReplicationGroupNodeGroupConfigurationArrayOutput() ReplicationGroupNodeGroupConfigurationArrayOutput
+	ToReplicationGroupNodeGroupConfigurationArrayOutputWithContext(context.Context) ReplicationGroupNodeGroupConfigurationArrayOutput
+}
+
+type ReplicationGroupNodeGroupConfigurationArray []ReplicationGroupNodeGroupConfigurationInput
+
+func (ReplicationGroupNodeGroupConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ReplicationGroupNodeGroupConfiguration)(nil)).Elem()
+}
+
+func (i ReplicationGroupNodeGroupConfigurationArray) ToReplicationGroupNodeGroupConfigurationArrayOutput() ReplicationGroupNodeGroupConfigurationArrayOutput {
+	return i.ToReplicationGroupNodeGroupConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i ReplicationGroupNodeGroupConfigurationArray) ToReplicationGroupNodeGroupConfigurationArrayOutputWithContext(ctx context.Context) ReplicationGroupNodeGroupConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicationGroupNodeGroupConfigurationArrayOutput)
+}
+
+type ReplicationGroupNodeGroupConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ReplicationGroupNodeGroupConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicationGroupNodeGroupConfiguration)(nil)).Elem()
+}
+
+func (o ReplicationGroupNodeGroupConfigurationOutput) ToReplicationGroupNodeGroupConfigurationOutput() ReplicationGroupNodeGroupConfigurationOutput {
+	return o
+}
+
+func (o ReplicationGroupNodeGroupConfigurationOutput) ToReplicationGroupNodeGroupConfigurationOutputWithContext(ctx context.Context) ReplicationGroupNodeGroupConfigurationOutput {
+	return o
+}
+
+// Either the ElastiCache for Redis supplied 4-digit id or a user supplied id for the node group these configuration values apply to.
+func (o ReplicationGroupNodeGroupConfigurationOutput) NodeGroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReplicationGroupNodeGroupConfiguration) *string { return v.NodeGroupId }).(pulumi.StringPtrOutput)
+}
+
+// The Availability Zone where the primary node of this node group (shard) is launched.
+func (o ReplicationGroupNodeGroupConfigurationOutput) PrimaryAvailabilityZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReplicationGroupNodeGroupConfiguration) *string { return v.PrimaryAvailabilityZone }).(pulumi.StringPtrOutput)
+}
+
+// A list of Availability Zones to be used for the read replicas. The number of Availability Zones in this list must match the value of ReplicaCount or ReplicasPerNodeGroup if not specified.
+func (o ReplicationGroupNodeGroupConfigurationOutput) ReplicaAvailabilityZones() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ReplicationGroupNodeGroupConfiguration) []string { return v.ReplicaAvailabilityZones }).(pulumi.StringArrayOutput)
+}
+
+// The number of read replica nodes in this node group (shard).
+func (o ReplicationGroupNodeGroupConfigurationOutput) ReplicaCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ReplicationGroupNodeGroupConfiguration) *int { return v.ReplicaCount }).(pulumi.IntPtrOutput)
+}
+
+// A string of comma-separated values where the first set of values are the slot numbers (zero based), and the second set of values are the keyspaces for each slot. The following example specifies three slots (numbered 0, 1, and 2): 0,1,2,0-4999,5000-9999,10000-16,383.
+func (o ReplicationGroupNodeGroupConfigurationOutput) Slots() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReplicationGroupNodeGroupConfiguration) *string { return v.Slots }).(pulumi.StringPtrOutput)
+}
+
+type ReplicationGroupNodeGroupConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (ReplicationGroupNodeGroupConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ReplicationGroupNodeGroupConfiguration)(nil)).Elem()
+}
+
+func (o ReplicationGroupNodeGroupConfigurationArrayOutput) ToReplicationGroupNodeGroupConfigurationArrayOutput() ReplicationGroupNodeGroupConfigurationArrayOutput {
+	return o
+}
+
+func (o ReplicationGroupNodeGroupConfigurationArrayOutput) ToReplicationGroupNodeGroupConfigurationArrayOutputWithContext(ctx context.Context) ReplicationGroupNodeGroupConfigurationArrayOutput {
+	return o
+}
+
+func (o ReplicationGroupNodeGroupConfigurationArrayOutput) Index(i pulumi.IntInput) ReplicationGroupNodeGroupConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ReplicationGroupNodeGroupConfiguration {
+		return vs[0].([]ReplicationGroupNodeGroupConfiguration)[vs[1].(int)]
+	}).(ReplicationGroupNodeGroupConfigurationOutput)
+}
+
+type ReplicationGroupTag struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value string `pulumi:"value"`
+}
+
 // The cache capacity limit of the Serverless Cache.
 type ServerlessCacheCacheUsageLimits struct {
 	// The maximum data storage limit in the cache, expressed in Gigabytes.
@@ -1213,6 +2011,15 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GlobalReplicationGroupRegionalConfigurationArrayInput)(nil)).Elem(), GlobalReplicationGroupRegionalConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GlobalReplicationGroupReshardingConfigurationInput)(nil)).Elem(), GlobalReplicationGroupReshardingConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GlobalReplicationGroupReshardingConfigurationArrayInput)(nil)).Elem(), GlobalReplicationGroupReshardingConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationGroupCloudWatchLogsDestinationDetailsInput)(nil)).Elem(), ReplicationGroupCloudWatchLogsDestinationDetailsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationGroupCloudWatchLogsDestinationDetailsPtrInput)(nil)).Elem(), ReplicationGroupCloudWatchLogsDestinationDetailsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationGroupDestinationDetailsInput)(nil)).Elem(), ReplicationGroupDestinationDetailsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationGroupKinesisFirehoseDestinationDetailsInput)(nil)).Elem(), ReplicationGroupKinesisFirehoseDestinationDetailsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationGroupKinesisFirehoseDestinationDetailsPtrInput)(nil)).Elem(), ReplicationGroupKinesisFirehoseDestinationDetailsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationGroupLogDeliveryConfigurationRequestInput)(nil)).Elem(), ReplicationGroupLogDeliveryConfigurationRequestArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationGroupLogDeliveryConfigurationRequestArrayInput)(nil)).Elem(), ReplicationGroupLogDeliveryConfigurationRequestArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationGroupNodeGroupConfigurationInput)(nil)).Elem(), ReplicationGroupNodeGroupConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationGroupNodeGroupConfigurationArrayInput)(nil)).Elem(), ReplicationGroupNodeGroupConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerlessCacheCacheUsageLimitsInput)(nil)).Elem(), ServerlessCacheCacheUsageLimitsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerlessCacheCacheUsageLimitsPtrInput)(nil)).Elem(), ServerlessCacheCacheUsageLimitsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerlessCacheDataStorageInput)(nil)).Elem(), ServerlessCacheDataStorageArgs{})
@@ -1229,6 +2036,19 @@ func init() {
 	pulumi.RegisterOutputType(GlobalReplicationGroupRegionalConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(GlobalReplicationGroupReshardingConfigurationOutput{})
 	pulumi.RegisterOutputType(GlobalReplicationGroupReshardingConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(ReadEndPointPropertiesOutput{})
+	pulumi.RegisterOutputType(ReadEndPointPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(ReplicationGroupCloudWatchLogsDestinationDetailsOutput{})
+	pulumi.RegisterOutputType(ReplicationGroupCloudWatchLogsDestinationDetailsPtrOutput{})
+	pulumi.RegisterOutputType(ReplicationGroupDestinationDetailsOutput{})
+	pulumi.RegisterOutputType(ReplicationGroupEndpointOutput{})
+	pulumi.RegisterOutputType(ReplicationGroupEndpointPtrOutput{})
+	pulumi.RegisterOutputType(ReplicationGroupKinesisFirehoseDestinationDetailsOutput{})
+	pulumi.RegisterOutputType(ReplicationGroupKinesisFirehoseDestinationDetailsPtrOutput{})
+	pulumi.RegisterOutputType(ReplicationGroupLogDeliveryConfigurationRequestOutput{})
+	pulumi.RegisterOutputType(ReplicationGroupLogDeliveryConfigurationRequestArrayOutput{})
+	pulumi.RegisterOutputType(ReplicationGroupNodeGroupConfigurationOutput{})
+	pulumi.RegisterOutputType(ReplicationGroupNodeGroupConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(ServerlessCacheCacheUsageLimitsOutput{})
 	pulumi.RegisterOutputType(ServerlessCacheCacheUsageLimitsPtrOutput{})
 	pulumi.RegisterOutputType(ServerlessCacheDataStorageOutput{})

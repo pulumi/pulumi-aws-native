@@ -25,7 +25,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetImageBuilderResult:
-    def __init__(__self__, access_endpoints=None, appstream_agent_version=None, description=None, display_name=None, domain_join_info=None, enable_default_internet_access=None, iam_role_arn=None, image_arn=None, image_name=None, instance_type=None, name=None, streaming_url=None, tags=None, vpc_config=None):
+    def __init__(__self__, access_endpoints=None, appstream_agent_version=None, description=None, display_name=None, domain_join_info=None, enable_default_internet_access=None, iam_role_arn=None, image_arn=None, instance_type=None, root_volume_config=None, streaming_url=None, tags=None, vpc_config=None):
         if access_endpoints and not isinstance(access_endpoints, list):
             raise TypeError("Expected argument 'access_endpoints' to be a list")
         pulumi.set(__self__, "access_endpoints", access_endpoints)
@@ -50,15 +50,12 @@ class GetImageBuilderResult:
         if image_arn and not isinstance(image_arn, str):
             raise TypeError("Expected argument 'image_arn' to be a str")
         pulumi.set(__self__, "image_arn", image_arn)
-        if image_name and not isinstance(image_name, str):
-            raise TypeError("Expected argument 'image_name' to be a str")
-        pulumi.set(__self__, "image_name", image_name)
         if instance_type and not isinstance(instance_type, str):
             raise TypeError("Expected argument 'instance_type' to be a str")
         pulumi.set(__self__, "instance_type", instance_type)
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        pulumi.set(__self__, "name", name)
+        if root_volume_config and not isinstance(root_volume_config, dict):
+            raise TypeError("Expected argument 'root_volume_config' to be a dict")
+        pulumi.set(__self__, "root_volume_config", root_volume_config)
         if streaming_url and not isinstance(streaming_url, str):
             raise TypeError("Expected argument 'streaming_url' to be a str")
         pulumi.set(__self__, "streaming_url", streaming_url)
@@ -136,14 +133,6 @@ class GetImageBuilderResult:
         return pulumi.get(self, "image_arn")
 
     @_builtins.property
-    @pulumi.getter(name="imageName")
-    def image_name(self) -> Optional[_builtins.str]:
-        """
-        The name of the image used to create the image builder.
-        """
-        return pulumi.get(self, "image_name")
-
-    @_builtins.property
     @pulumi.getter(name="instanceType")
     def instance_type(self) -> Optional[_builtins.str]:
         """
@@ -203,12 +192,9 @@ class GetImageBuilderResult:
         return pulumi.get(self, "instance_type")
 
     @_builtins.property
-    @pulumi.getter
-    def name(self) -> Optional[_builtins.str]:
-        """
-        A unique name for the image builder.
-        """
-        return pulumi.get(self, "name")
+    @pulumi.getter(name="rootVolumeConfig")
+    def root_volume_config(self) -> Optional['outputs.ImageBuilderVolumeConfig']:
+        return pulumi.get(self, "root_volume_config")
 
     @_builtins.property
     @pulumi.getter(name="streamingUrl")
@@ -249,9 +235,8 @@ class AwaitableGetImageBuilderResult(GetImageBuilderResult):
             enable_default_internet_access=self.enable_default_internet_access,
             iam_role_arn=self.iam_role_arn,
             image_arn=self.image_arn,
-            image_name=self.image_name,
             instance_type=self.instance_type,
-            name=self.name,
+            root_volume_config=self.root_volume_config,
             streaming_url=self.streaming_url,
             tags=self.tags,
             vpc_config=self.vpc_config)
@@ -279,9 +264,8 @@ def get_image_builder(name: Optional[_builtins.str] = None,
         enable_default_internet_access=pulumi.get(__ret__, 'enable_default_internet_access'),
         iam_role_arn=pulumi.get(__ret__, 'iam_role_arn'),
         image_arn=pulumi.get(__ret__, 'image_arn'),
-        image_name=pulumi.get(__ret__, 'image_name'),
         instance_type=pulumi.get(__ret__, 'instance_type'),
-        name=pulumi.get(__ret__, 'name'),
+        root_volume_config=pulumi.get(__ret__, 'root_volume_config'),
         streaming_url=pulumi.get(__ret__, 'streaming_url'),
         tags=pulumi.get(__ret__, 'tags'),
         vpc_config=pulumi.get(__ret__, 'vpc_config'))
@@ -306,9 +290,8 @@ def get_image_builder_output(name: Optional[pulumi.Input[_builtins.str]] = None,
         enable_default_internet_access=pulumi.get(__response__, 'enable_default_internet_access'),
         iam_role_arn=pulumi.get(__response__, 'iam_role_arn'),
         image_arn=pulumi.get(__response__, 'image_arn'),
-        image_name=pulumi.get(__response__, 'image_name'),
         instance_type=pulumi.get(__response__, 'instance_type'),
-        name=pulumi.get(__response__, 'name'),
+        root_volume_config=pulumi.get(__response__, 'root_volume_config'),
         streaming_url=pulumi.get(__response__, 'streaming_url'),
         tags=pulumi.get(__response__, 'tags'),
         vpc_config=pulumi.get(__response__, 'vpc_config')))

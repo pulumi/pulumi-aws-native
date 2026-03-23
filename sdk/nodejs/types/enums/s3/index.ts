@@ -237,6 +237,13 @@ export const BucketMetricsStatus = {
  */
 export type BucketMetricsStatus = (typeof BucketMetricsStatus)[keyof typeof BucketMetricsStatus];
 
+export const BucketNamespace = {
+    Global: "global",
+    AccountRegional: "account-regional",
+} as const;
+
+export type BucketNamespace = (typeof BucketNamespace)[keyof typeof BucketNamespace];
+
 export const BucketNoncurrentVersionTransitionStorageClass = {
     DeepArchive: "DEEP_ARCHIVE",
     Glacier: "GLACIER",

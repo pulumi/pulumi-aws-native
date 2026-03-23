@@ -76,7 +76,11 @@ __all__ = [
     'JobQueueComputeEnvironmentOrder',
     'JobQueueJobStateTimeLimitAction',
     'JobQueueServiceEnvironmentOrder',
+    'QuotaShareCapacityLimit',
+    'QuotaSharePreemptionConfiguration',
+    'QuotaShareResourceSharingConfiguration',
     'SchedulingPolicyFairsharePolicy',
+    'SchedulingPolicyQuotaSharePolicy',
     'SchedulingPolicyShareAttributes',
     'ServiceEnvironmentCapacityLimit',
 ]
@@ -5274,6 +5278,136 @@ class JobQueueServiceEnvironmentOrder(dict):
 
 
 @pulumi.output_type
+class QuotaShareCapacityLimit(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "capacityUnit":
+            suggest = "capacity_unit"
+        elif key == "maxCapacity":
+            suggest = "max_capacity"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in QuotaShareCapacityLimit. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        QuotaShareCapacityLimit.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        QuotaShareCapacityLimit.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 capacity_unit: _builtins.str,
+                 max_capacity: _builtins.int):
+        """
+        :param _builtins.str capacity_unit: The unit of compute capacity for the capacityLimit.
+        :param _builtins.int max_capacity: The maximum capacity available for the quota share. This value represents the maximum amount of resources that can be allocated to jobs in the quota share without borrowing
+        """
+        pulumi.set(__self__, "capacity_unit", capacity_unit)
+        pulumi.set(__self__, "max_capacity", max_capacity)
+
+    @_builtins.property
+    @pulumi.getter(name="capacityUnit")
+    def capacity_unit(self) -> _builtins.str:
+        """
+        The unit of compute capacity for the capacityLimit.
+        """
+        return pulumi.get(self, "capacity_unit")
+
+    @_builtins.property
+    @pulumi.getter(name="maxCapacity")
+    def max_capacity(self) -> _builtins.int:
+        """
+        The maximum capacity available for the quota share. This value represents the maximum amount of resources that can be allocated to jobs in the quota share without borrowing
+        """
+        return pulumi.get(self, "max_capacity")
+
+
+@pulumi.output_type
+class QuotaSharePreemptionConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "inSharePreemption":
+            suggest = "in_share_preemption"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in QuotaSharePreemptionConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        QuotaSharePreemptionConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        QuotaSharePreemptionConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 in_share_preemption: 'QuotaSharePreemptionConfigurationInSharePreemption'):
+        """
+        :param 'QuotaSharePreemptionConfigurationInSharePreemption' in_share_preemption: Whether preemption is enabled within the quota share.
+        """
+        pulumi.set(__self__, "in_share_preemption", in_share_preemption)
+
+    @_builtins.property
+    @pulumi.getter(name="inSharePreemption")
+    def in_share_preemption(self) -> 'QuotaSharePreemptionConfigurationInSharePreemption':
+        """
+        Whether preemption is enabled within the quota share.
+        """
+        return pulumi.get(self, "in_share_preemption")
+
+
+@pulumi.output_type
+class QuotaShareResourceSharingConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "borrowLimit":
+            suggest = "borrow_limit"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in QuotaShareResourceSharingConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        QuotaShareResourceSharingConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        QuotaShareResourceSharingConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 strategy: 'QuotaShareResourceSharingConfigurationStrategy',
+                 borrow_limit: Optional[_builtins.int] = None):
+        """
+        :param 'QuotaShareResourceSharingConfigurationStrategy' strategy: The resource sharing strategy.
+        :param _builtins.int borrow_limit: The maximum amount of compute capacity that can be borrowed. Use -1 for unlimited borrowing.
+        """
+        pulumi.set(__self__, "strategy", strategy)
+        if borrow_limit is not None:
+            pulumi.set(__self__, "borrow_limit", borrow_limit)
+
+    @_builtins.property
+    @pulumi.getter
+    def strategy(self) -> 'QuotaShareResourceSharingConfigurationStrategy':
+        """
+        The resource sharing strategy.
+        """
+        return pulumi.get(self, "strategy")
+
+    @_builtins.property
+    @pulumi.getter(name="borrowLimit")
+    def borrow_limit(self) -> Optional[_builtins.int]:
+        """
+        The maximum amount of compute capacity that can be borrowed. Use -1 for unlimited borrowing.
+        """
+        return pulumi.get(self, "borrow_limit")
+
+
+@pulumi.output_type
 class SchedulingPolicyFairsharePolicy(dict):
     """
     Fair Share Policy for the Job Queue.
@@ -5356,6 +5490,42 @@ class SchedulingPolicyFairsharePolicy(dict):
         List of Share Attributes
         """
         return pulumi.get(self, "share_distribution")
+
+
+@pulumi.output_type
+class SchedulingPolicyQuotaSharePolicy(dict):
+    """
+    Quota Share Policy for the Job Queue.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "idleResourceAssignmentStrategy":
+            suggest = "idle_resource_assignment_strategy"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SchedulingPolicyQuotaSharePolicy. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SchedulingPolicyQuotaSharePolicy.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SchedulingPolicyQuotaSharePolicy.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 idle_resource_assignment_strategy: Optional['SchedulingPolicyQuotaSharePolicyIdleResourceAssignmentStrategy'] = None):
+        """
+        Quota Share Policy for the Job Queue.
+        """
+        if idle_resource_assignment_strategy is not None:
+            pulumi.set(__self__, "idle_resource_assignment_strategy", idle_resource_assignment_strategy)
+
+    @_builtins.property
+    @pulumi.getter(name="idleResourceAssignmentStrategy")
+    def idle_resource_assignment_strategy(self) -> Optional['SchedulingPolicyQuotaSharePolicyIdleResourceAssignmentStrategy']:
+        return pulumi.get(self, "idle_resource_assignment_strategy")
 
 
 @pulumi.output_type

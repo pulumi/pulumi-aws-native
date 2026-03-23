@@ -50,6 +50,10 @@ export interface GetCloudVmClusterResult {
      */
     readonly domain?: string;
     /**
+     * The AWS Identity and Access Management (IAM) service roles associated with the VM cluster.
+     */
+    readonly iamRoles?: outputs.odb.CloudVmClusterIamRole[];
+    /**
      * The port number configured for the listener on the VM cluster.
      */
     readonly listenerPort?: number;

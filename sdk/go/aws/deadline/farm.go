@@ -18,7 +18,8 @@ type Farm struct {
 	pulumi.CustomResourceState
 
 	// The Amazon Resource Name (ARN) assigned to the farm.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn             pulumi.StringOutput     `pulumi:"arn"`
+	CostScaleFactor pulumi.Float64PtrOutput `pulumi:"costScaleFactor"`
 	// A description of the farm that helps identify what the farm is used for.
 	//
 	// > This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
@@ -82,6 +83,7 @@ func (FarmState) ElementType() reflect.Type {
 }
 
 type farmArgs struct {
+	CostScaleFactor *float64 `pulumi:"costScaleFactor"`
 	// A description of the farm that helps identify what the farm is used for.
 	//
 	// > This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
@@ -98,6 +100,7 @@ type farmArgs struct {
 
 // The set of arguments for constructing a Farm resource.
 type FarmArgs struct {
+	CostScaleFactor pulumi.Float64PtrInput
 	// A description of the farm that helps identify what the farm is used for.
 	//
 	// > This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
@@ -152,6 +155,10 @@ func (o FarmOutput) ToFarmOutputWithContext(ctx context.Context) FarmOutput {
 // The Amazon Resource Name (ARN) assigned to the farm.
 func (o FarmOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Farm) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o FarmOutput) CostScaleFactor() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *Farm) pulumi.Float64PtrOutput { return v.CostScaleFactor }).(pulumi.Float64PtrOutput)
 }
 
 // A description of the farm that helps identify what the farm is used for.

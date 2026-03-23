@@ -94,6 +94,12 @@ namespace Pulumi.AwsNative.MediaConnect.Inputs
         public Input<string>? Name { get; set; }
 
         /// <summary>
+        /// The settings for the NDI flow source. This includes the exact name of the upstream NDI sender that you want to connect to your flow source.
+        /// </summary>
+        [Input("ndiSourceSettings")]
+        public Input<Inputs.FlowNdiSourceSettingsArgs>? NdiSourceSettings { get; set; }
+
+        /// <summary>
         /// The protocol that is used by the source.
         /// </summary>
         [Input("protocol")]
@@ -152,6 +158,18 @@ namespace Pulumi.AwsNative.MediaConnect.Inputs
         /// </summary>
         [Input("streamId")]
         public Input<string>? StreamId { get; set; }
+
+        [Input("tags")]
+        private InputList<Inputs.FlowTagArgs>? _tags;
+
+        /// <summary>
+        /// Key-value pairs that can be used to tag this source.
+        /// </summary>
+        public InputList<Inputs.FlowTagArgs> Tags
+        {
+            get => _tags ?? (_tags = new InputList<Inputs.FlowTagArgs>());
+            set => _tags = value;
+        }
 
         /// <summary>
         /// The name of the VPC Interface this Source is configured with.

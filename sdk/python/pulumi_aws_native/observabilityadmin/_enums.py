@@ -20,6 +20,8 @@ __all__ = [
     'OrganizationTelemetryRuleTelemetryType',
     'OrganizationTelemetryRuleWafLogType',
     'S3TableIntegrationEncryptionConfigSseAlgorithm',
+    'TelemetryEnrichmentScope',
+    'TelemetryEnrichmentStatus',
     'TelemetryPipelinesTelemetryPipelineStatus',
     'TelemetryRuleAction',
     'TelemetryRuleDestinationType',
@@ -158,6 +160,24 @@ class S3TableIntegrationEncryptionConfigSseAlgorithm(_builtins.str, Enum):
     """
     AES256 = "AES256"
     AWSKMS = "aws:kms"
+
+
+@pulumi.type_token("aws-native:observabilityadmin:TelemetryEnrichmentScope")
+class TelemetryEnrichmentScope(_builtins.str, Enum):
+    """
+    Scope of the Telemetry Enrichment
+    """
+    ACCOUNT = "ACCOUNT"
+
+
+@pulumi.type_token("aws-native:observabilityadmin:TelemetryEnrichmentStatus")
+class TelemetryEnrichmentStatus(_builtins.str, Enum):
+    """
+    Current status of the resource tags for telemetry feature (Running, Stopped, or Impaired).
+    """
+    RUNNING = "RUNNING"
+    STOPPED = "STOPPED"
+    IMPAIRED = "IMPAIRED"
 
 
 @pulumi.type_token("aws-native:observabilityadmin:TelemetryPipelinesTelemetryPipelineStatus")

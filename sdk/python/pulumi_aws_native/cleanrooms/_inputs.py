@@ -1848,6 +1848,7 @@ class ConfiguredTableAthenaTableReferenceArgsDict(TypedDict):
     database_name: pulumi.Input[_builtins.str]
     table_name: pulumi.Input[_builtins.str]
     work_group: pulumi.Input[_builtins.str]
+    catalog_name: NotRequired[pulumi.Input[_builtins.str]]
     output_location: NotRequired[pulumi.Input[_builtins.str]]
     region: NotRequired[pulumi.Input['ConfiguredTableCommercialRegion']]
 
@@ -1857,11 +1858,14 @@ class ConfiguredTableAthenaTableReferenceArgs:
                  database_name: pulumi.Input[_builtins.str],
                  table_name: pulumi.Input[_builtins.str],
                  work_group: pulumi.Input[_builtins.str],
+                 catalog_name: Optional[pulumi.Input[_builtins.str]] = None,
                  output_location: Optional[pulumi.Input[_builtins.str]] = None,
                  region: Optional[pulumi.Input['ConfiguredTableCommercialRegion']] = None):
         pulumi.set(__self__, "database_name", database_name)
         pulumi.set(__self__, "table_name", table_name)
         pulumi.set(__self__, "work_group", work_group)
+        if catalog_name is not None:
+            pulumi.set(__self__, "catalog_name", catalog_name)
         if output_location is not None:
             pulumi.set(__self__, "output_location", output_location)
         if region is not None:
@@ -1893,6 +1897,15 @@ class ConfiguredTableAthenaTableReferenceArgs:
     @work_group.setter
     def work_group(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "work_group", value)
+
+    @_builtins.property
+    @pulumi.getter(name="catalogName")
+    def catalog_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "catalog_name")
+
+    @catalog_name.setter
+    def catalog_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "catalog_name", value)
 
     @_builtins.property
     @pulumi.getter(name="outputLocation")

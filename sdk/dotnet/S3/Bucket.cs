@@ -906,6 +906,12 @@ namespace Pulumi.AwsNative.S3
         [Output("bucketName")]
         public Output<string?> BucketName { get; private set; } = null!;
 
+        [Output("bucketNamePrefix")]
+        public Output<string?> BucketNamePrefix { get; private set; } = null!;
+
+        [Output("bucketNamespace")]
+        public Output<Pulumi.AwsNative.S3.BucketNamespace?> BucketNamespace { get; private set; } = null!;
+
         /// <summary>
         /// Describes the cross-origin access configuration for objects in an Amazon S3 bucket. For more information, see [Enabling Cross-Origin Resource Sharing](https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html) in the *Amazon S3 User Guide*.
         /// </summary>
@@ -1078,6 +1084,8 @@ namespace Pulumi.AwsNative.S3
                 ReplaceOnChanges =
                 {
                     "bucketName",
+                    "bucketNamePrefix",
+                    "bucketNamespace",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -1146,6 +1154,12 @@ namespace Pulumi.AwsNative.S3
         /// </summary>
         [Input("bucketName")]
         public Input<string>? BucketName { get; set; }
+
+        [Input("bucketNamePrefix")]
+        public Input<string>? BucketNamePrefix { get; set; }
+
+        [Input("bucketNamespace")]
+        public Input<Pulumi.AwsNative.S3.BucketNamespace>? BucketNamespace { get; set; }
 
         /// <summary>
         /// Describes the cross-origin access configuration for objects in an Amazon S3 bucket. For more information, see [Enabling Cross-Origin Resource Sharing](https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html) in the *Amazon S3 User Guide*.

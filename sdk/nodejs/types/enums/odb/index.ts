@@ -100,6 +100,16 @@ export const CloudVmClusterLicenseModel = {
  */
 export type CloudVmClusterLicenseModel = (typeof CloudVmClusterLicenseModel)[keyof typeof CloudVmClusterLicenseModel];
 
+export const OdbNetworkKmsAccess = {
+    Enabled: "ENABLED",
+    Disabled: "DISABLED",
+} as const;
+
+/**
+ * The AWS Key Management Service (KMS) access configuration for the ODB network.
+ */
+export type OdbNetworkKmsAccess = (typeof OdbNetworkKmsAccess)[keyof typeof OdbNetworkKmsAccess];
+
 export const OdbNetworkManagedResourceStatus = {
     Enabled: "ENABLED",
     Enabling: "ENABLING",
@@ -130,6 +140,16 @@ export const OdbNetworkS3Access = {
  * Specifies the configuration for Amazon S3 access from the ODB network.
  */
 export type OdbNetworkS3Access = (typeof OdbNetworkS3Access)[keyof typeof OdbNetworkS3Access];
+
+export const OdbNetworkStsAccess = {
+    Enabled: "ENABLED",
+    Disabled: "DISABLED",
+} as const;
+
+/**
+ * The AWS Security Token Service (STS) access configuration for the ODB network.
+ */
+export type OdbNetworkStsAccess = (typeof OdbNetworkStsAccess)[keyof typeof OdbNetworkStsAccess];
 
 export const OdbNetworkZeroEtlAccess = {
     Enabled: "ENABLED",

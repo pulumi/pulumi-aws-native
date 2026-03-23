@@ -11329,6 +11329,307 @@ func (o JobQueueServiceEnvironmentOrderArrayOutput) Index(i pulumi.IntInput) Job
 	}).(JobQueueServiceEnvironmentOrderOutput)
 }
 
+type QuotaShareCapacityLimit struct {
+	// The unit of compute capacity for the capacityLimit.
+	CapacityUnit string `pulumi:"capacityUnit"`
+	// The maximum capacity available for the quota share. This value represents the maximum amount of resources that can be allocated to jobs in the quota share without borrowing
+	MaxCapacity int `pulumi:"maxCapacity"`
+}
+
+// QuotaShareCapacityLimitInput is an input type that accepts QuotaShareCapacityLimitArgs and QuotaShareCapacityLimitOutput values.
+// You can construct a concrete instance of `QuotaShareCapacityLimitInput` via:
+//
+//	QuotaShareCapacityLimitArgs{...}
+type QuotaShareCapacityLimitInput interface {
+	pulumi.Input
+
+	ToQuotaShareCapacityLimitOutput() QuotaShareCapacityLimitOutput
+	ToQuotaShareCapacityLimitOutputWithContext(context.Context) QuotaShareCapacityLimitOutput
+}
+
+type QuotaShareCapacityLimitArgs struct {
+	// The unit of compute capacity for the capacityLimit.
+	CapacityUnit pulumi.StringInput `pulumi:"capacityUnit"`
+	// The maximum capacity available for the quota share. This value represents the maximum amount of resources that can be allocated to jobs in the quota share without borrowing
+	MaxCapacity pulumi.IntInput `pulumi:"maxCapacity"`
+}
+
+func (QuotaShareCapacityLimitArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*QuotaShareCapacityLimit)(nil)).Elem()
+}
+
+func (i QuotaShareCapacityLimitArgs) ToQuotaShareCapacityLimitOutput() QuotaShareCapacityLimitOutput {
+	return i.ToQuotaShareCapacityLimitOutputWithContext(context.Background())
+}
+
+func (i QuotaShareCapacityLimitArgs) ToQuotaShareCapacityLimitOutputWithContext(ctx context.Context) QuotaShareCapacityLimitOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(QuotaShareCapacityLimitOutput)
+}
+
+// QuotaShareCapacityLimitArrayInput is an input type that accepts QuotaShareCapacityLimitArray and QuotaShareCapacityLimitArrayOutput values.
+// You can construct a concrete instance of `QuotaShareCapacityLimitArrayInput` via:
+//
+//	QuotaShareCapacityLimitArray{ QuotaShareCapacityLimitArgs{...} }
+type QuotaShareCapacityLimitArrayInput interface {
+	pulumi.Input
+
+	ToQuotaShareCapacityLimitArrayOutput() QuotaShareCapacityLimitArrayOutput
+	ToQuotaShareCapacityLimitArrayOutputWithContext(context.Context) QuotaShareCapacityLimitArrayOutput
+}
+
+type QuotaShareCapacityLimitArray []QuotaShareCapacityLimitInput
+
+func (QuotaShareCapacityLimitArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]QuotaShareCapacityLimit)(nil)).Elem()
+}
+
+func (i QuotaShareCapacityLimitArray) ToQuotaShareCapacityLimitArrayOutput() QuotaShareCapacityLimitArrayOutput {
+	return i.ToQuotaShareCapacityLimitArrayOutputWithContext(context.Background())
+}
+
+func (i QuotaShareCapacityLimitArray) ToQuotaShareCapacityLimitArrayOutputWithContext(ctx context.Context) QuotaShareCapacityLimitArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(QuotaShareCapacityLimitArrayOutput)
+}
+
+type QuotaShareCapacityLimitOutput struct{ *pulumi.OutputState }
+
+func (QuotaShareCapacityLimitOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*QuotaShareCapacityLimit)(nil)).Elem()
+}
+
+func (o QuotaShareCapacityLimitOutput) ToQuotaShareCapacityLimitOutput() QuotaShareCapacityLimitOutput {
+	return o
+}
+
+func (o QuotaShareCapacityLimitOutput) ToQuotaShareCapacityLimitOutputWithContext(ctx context.Context) QuotaShareCapacityLimitOutput {
+	return o
+}
+
+// The unit of compute capacity for the capacityLimit.
+func (o QuotaShareCapacityLimitOutput) CapacityUnit() pulumi.StringOutput {
+	return o.ApplyT(func(v QuotaShareCapacityLimit) string { return v.CapacityUnit }).(pulumi.StringOutput)
+}
+
+// The maximum capacity available for the quota share. This value represents the maximum amount of resources that can be allocated to jobs in the quota share without borrowing
+func (o QuotaShareCapacityLimitOutput) MaxCapacity() pulumi.IntOutput {
+	return o.ApplyT(func(v QuotaShareCapacityLimit) int { return v.MaxCapacity }).(pulumi.IntOutput)
+}
+
+type QuotaShareCapacityLimitArrayOutput struct{ *pulumi.OutputState }
+
+func (QuotaShareCapacityLimitArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]QuotaShareCapacityLimit)(nil)).Elem()
+}
+
+func (o QuotaShareCapacityLimitArrayOutput) ToQuotaShareCapacityLimitArrayOutput() QuotaShareCapacityLimitArrayOutput {
+	return o
+}
+
+func (o QuotaShareCapacityLimitArrayOutput) ToQuotaShareCapacityLimitArrayOutputWithContext(ctx context.Context) QuotaShareCapacityLimitArrayOutput {
+	return o
+}
+
+func (o QuotaShareCapacityLimitArrayOutput) Index(i pulumi.IntInput) QuotaShareCapacityLimitOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) QuotaShareCapacityLimit {
+		return vs[0].([]QuotaShareCapacityLimit)[vs[1].(int)]
+	}).(QuotaShareCapacityLimitOutput)
+}
+
+type QuotaSharePreemptionConfiguration struct {
+	// Whether preemption is enabled within the quota share.
+	InSharePreemption QuotaSharePreemptionConfigurationInSharePreemption `pulumi:"inSharePreemption"`
+}
+
+// QuotaSharePreemptionConfigurationInput is an input type that accepts QuotaSharePreemptionConfigurationArgs and QuotaSharePreemptionConfigurationOutput values.
+// You can construct a concrete instance of `QuotaSharePreemptionConfigurationInput` via:
+//
+//	QuotaSharePreemptionConfigurationArgs{...}
+type QuotaSharePreemptionConfigurationInput interface {
+	pulumi.Input
+
+	ToQuotaSharePreemptionConfigurationOutput() QuotaSharePreemptionConfigurationOutput
+	ToQuotaSharePreemptionConfigurationOutputWithContext(context.Context) QuotaSharePreemptionConfigurationOutput
+}
+
+type QuotaSharePreemptionConfigurationArgs struct {
+	// Whether preemption is enabled within the quota share.
+	InSharePreemption QuotaSharePreemptionConfigurationInSharePreemptionInput `pulumi:"inSharePreemption"`
+}
+
+func (QuotaSharePreemptionConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*QuotaSharePreemptionConfiguration)(nil)).Elem()
+}
+
+func (i QuotaSharePreemptionConfigurationArgs) ToQuotaSharePreemptionConfigurationOutput() QuotaSharePreemptionConfigurationOutput {
+	return i.ToQuotaSharePreemptionConfigurationOutputWithContext(context.Background())
+}
+
+func (i QuotaSharePreemptionConfigurationArgs) ToQuotaSharePreemptionConfigurationOutputWithContext(ctx context.Context) QuotaSharePreemptionConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(QuotaSharePreemptionConfigurationOutput)
+}
+
+type QuotaSharePreemptionConfigurationOutput struct{ *pulumi.OutputState }
+
+func (QuotaSharePreemptionConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*QuotaSharePreemptionConfiguration)(nil)).Elem()
+}
+
+func (o QuotaSharePreemptionConfigurationOutput) ToQuotaSharePreemptionConfigurationOutput() QuotaSharePreemptionConfigurationOutput {
+	return o
+}
+
+func (o QuotaSharePreemptionConfigurationOutput) ToQuotaSharePreemptionConfigurationOutputWithContext(ctx context.Context) QuotaSharePreemptionConfigurationOutput {
+	return o
+}
+
+// Whether preemption is enabled within the quota share.
+func (o QuotaSharePreemptionConfigurationOutput) InSharePreemption() QuotaSharePreemptionConfigurationInSharePreemptionOutput {
+	return o.ApplyT(func(v QuotaSharePreemptionConfiguration) QuotaSharePreemptionConfigurationInSharePreemption {
+		return v.InSharePreemption
+	}).(QuotaSharePreemptionConfigurationInSharePreemptionOutput)
+}
+
+type QuotaSharePreemptionConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (QuotaSharePreemptionConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**QuotaSharePreemptionConfiguration)(nil)).Elem()
+}
+
+func (o QuotaSharePreemptionConfigurationPtrOutput) ToQuotaSharePreemptionConfigurationPtrOutput() QuotaSharePreemptionConfigurationPtrOutput {
+	return o
+}
+
+func (o QuotaSharePreemptionConfigurationPtrOutput) ToQuotaSharePreemptionConfigurationPtrOutputWithContext(ctx context.Context) QuotaSharePreemptionConfigurationPtrOutput {
+	return o
+}
+
+func (o QuotaSharePreemptionConfigurationPtrOutput) Elem() QuotaSharePreemptionConfigurationOutput {
+	return o.ApplyT(func(v *QuotaSharePreemptionConfiguration) QuotaSharePreemptionConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret QuotaSharePreemptionConfiguration
+		return ret
+	}).(QuotaSharePreemptionConfigurationOutput)
+}
+
+// Whether preemption is enabled within the quota share.
+func (o QuotaSharePreemptionConfigurationPtrOutput) InSharePreemption() QuotaSharePreemptionConfigurationInSharePreemptionPtrOutput {
+	return o.ApplyT(func(v *QuotaSharePreemptionConfiguration) *QuotaSharePreemptionConfigurationInSharePreemption {
+		if v == nil {
+			return nil
+		}
+		return &v.InSharePreemption
+	}).(QuotaSharePreemptionConfigurationInSharePreemptionPtrOutput)
+}
+
+type QuotaShareResourceSharingConfiguration struct {
+	// The maximum amount of compute capacity that can be borrowed. Use -1 for unlimited borrowing.
+	BorrowLimit *int `pulumi:"borrowLimit"`
+	// The resource sharing strategy.
+	Strategy QuotaShareResourceSharingConfigurationStrategy `pulumi:"strategy"`
+}
+
+// QuotaShareResourceSharingConfigurationInput is an input type that accepts QuotaShareResourceSharingConfigurationArgs and QuotaShareResourceSharingConfigurationOutput values.
+// You can construct a concrete instance of `QuotaShareResourceSharingConfigurationInput` via:
+//
+//	QuotaShareResourceSharingConfigurationArgs{...}
+type QuotaShareResourceSharingConfigurationInput interface {
+	pulumi.Input
+
+	ToQuotaShareResourceSharingConfigurationOutput() QuotaShareResourceSharingConfigurationOutput
+	ToQuotaShareResourceSharingConfigurationOutputWithContext(context.Context) QuotaShareResourceSharingConfigurationOutput
+}
+
+type QuotaShareResourceSharingConfigurationArgs struct {
+	// The maximum amount of compute capacity that can be borrowed. Use -1 for unlimited borrowing.
+	BorrowLimit pulumi.IntPtrInput `pulumi:"borrowLimit"`
+	// The resource sharing strategy.
+	Strategy QuotaShareResourceSharingConfigurationStrategyInput `pulumi:"strategy"`
+}
+
+func (QuotaShareResourceSharingConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*QuotaShareResourceSharingConfiguration)(nil)).Elem()
+}
+
+func (i QuotaShareResourceSharingConfigurationArgs) ToQuotaShareResourceSharingConfigurationOutput() QuotaShareResourceSharingConfigurationOutput {
+	return i.ToQuotaShareResourceSharingConfigurationOutputWithContext(context.Background())
+}
+
+func (i QuotaShareResourceSharingConfigurationArgs) ToQuotaShareResourceSharingConfigurationOutputWithContext(ctx context.Context) QuotaShareResourceSharingConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(QuotaShareResourceSharingConfigurationOutput)
+}
+
+type QuotaShareResourceSharingConfigurationOutput struct{ *pulumi.OutputState }
+
+func (QuotaShareResourceSharingConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*QuotaShareResourceSharingConfiguration)(nil)).Elem()
+}
+
+func (o QuotaShareResourceSharingConfigurationOutput) ToQuotaShareResourceSharingConfigurationOutput() QuotaShareResourceSharingConfigurationOutput {
+	return o
+}
+
+func (o QuotaShareResourceSharingConfigurationOutput) ToQuotaShareResourceSharingConfigurationOutputWithContext(ctx context.Context) QuotaShareResourceSharingConfigurationOutput {
+	return o
+}
+
+// The maximum amount of compute capacity that can be borrowed. Use -1 for unlimited borrowing.
+func (o QuotaShareResourceSharingConfigurationOutput) BorrowLimit() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v QuotaShareResourceSharingConfiguration) *int { return v.BorrowLimit }).(pulumi.IntPtrOutput)
+}
+
+// The resource sharing strategy.
+func (o QuotaShareResourceSharingConfigurationOutput) Strategy() QuotaShareResourceSharingConfigurationStrategyOutput {
+	return o.ApplyT(func(v QuotaShareResourceSharingConfiguration) QuotaShareResourceSharingConfigurationStrategy {
+		return v.Strategy
+	}).(QuotaShareResourceSharingConfigurationStrategyOutput)
+}
+
+type QuotaShareResourceSharingConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (QuotaShareResourceSharingConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**QuotaShareResourceSharingConfiguration)(nil)).Elem()
+}
+
+func (o QuotaShareResourceSharingConfigurationPtrOutput) ToQuotaShareResourceSharingConfigurationPtrOutput() QuotaShareResourceSharingConfigurationPtrOutput {
+	return o
+}
+
+func (o QuotaShareResourceSharingConfigurationPtrOutput) ToQuotaShareResourceSharingConfigurationPtrOutputWithContext(ctx context.Context) QuotaShareResourceSharingConfigurationPtrOutput {
+	return o
+}
+
+func (o QuotaShareResourceSharingConfigurationPtrOutput) Elem() QuotaShareResourceSharingConfigurationOutput {
+	return o.ApplyT(func(v *QuotaShareResourceSharingConfiguration) QuotaShareResourceSharingConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret QuotaShareResourceSharingConfiguration
+		return ret
+	}).(QuotaShareResourceSharingConfigurationOutput)
+}
+
+// The maximum amount of compute capacity that can be borrowed. Use -1 for unlimited borrowing.
+func (o QuotaShareResourceSharingConfigurationPtrOutput) BorrowLimit() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *QuotaShareResourceSharingConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.BorrowLimit
+	}).(pulumi.IntPtrOutput)
+}
+
+// The resource sharing strategy.
+func (o QuotaShareResourceSharingConfigurationPtrOutput) Strategy() QuotaShareResourceSharingConfigurationStrategyPtrOutput {
+	return o.ApplyT(func(v *QuotaShareResourceSharingConfiguration) *QuotaShareResourceSharingConfigurationStrategy {
+		if v == nil {
+			return nil
+		}
+		return &v.Strategy
+	}).(QuotaShareResourceSharingConfigurationStrategyPtrOutput)
+}
+
 // Fair Share Policy for the Job Queue.
 type SchedulingPolicyFairsharePolicy struct {
 	// A value used to reserve some of the available maximum vCPU for share identifiers that aren't already used.
@@ -11537,6 +11838,144 @@ func (o SchedulingPolicyFairsharePolicyPtrOutput) ShareDistribution() Scheduling
 		}
 		return v.ShareDistribution
 	}).(SchedulingPolicyShareAttributesArrayOutput)
+}
+
+// Quota Share Policy for the Job Queue.
+type SchedulingPolicyQuotaSharePolicy struct {
+	IdleResourceAssignmentStrategy *SchedulingPolicyQuotaSharePolicyIdleResourceAssignmentStrategy `pulumi:"idleResourceAssignmentStrategy"`
+}
+
+// SchedulingPolicyQuotaSharePolicyInput is an input type that accepts SchedulingPolicyQuotaSharePolicyArgs and SchedulingPolicyQuotaSharePolicyOutput values.
+// You can construct a concrete instance of `SchedulingPolicyQuotaSharePolicyInput` via:
+//
+//	SchedulingPolicyQuotaSharePolicyArgs{...}
+type SchedulingPolicyQuotaSharePolicyInput interface {
+	pulumi.Input
+
+	ToSchedulingPolicyQuotaSharePolicyOutput() SchedulingPolicyQuotaSharePolicyOutput
+	ToSchedulingPolicyQuotaSharePolicyOutputWithContext(context.Context) SchedulingPolicyQuotaSharePolicyOutput
+}
+
+// Quota Share Policy for the Job Queue.
+type SchedulingPolicyQuotaSharePolicyArgs struct {
+	IdleResourceAssignmentStrategy SchedulingPolicyQuotaSharePolicyIdleResourceAssignmentStrategyPtrInput `pulumi:"idleResourceAssignmentStrategy"`
+}
+
+func (SchedulingPolicyQuotaSharePolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SchedulingPolicyQuotaSharePolicy)(nil)).Elem()
+}
+
+func (i SchedulingPolicyQuotaSharePolicyArgs) ToSchedulingPolicyQuotaSharePolicyOutput() SchedulingPolicyQuotaSharePolicyOutput {
+	return i.ToSchedulingPolicyQuotaSharePolicyOutputWithContext(context.Background())
+}
+
+func (i SchedulingPolicyQuotaSharePolicyArgs) ToSchedulingPolicyQuotaSharePolicyOutputWithContext(ctx context.Context) SchedulingPolicyQuotaSharePolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SchedulingPolicyQuotaSharePolicyOutput)
+}
+
+func (i SchedulingPolicyQuotaSharePolicyArgs) ToSchedulingPolicyQuotaSharePolicyPtrOutput() SchedulingPolicyQuotaSharePolicyPtrOutput {
+	return i.ToSchedulingPolicyQuotaSharePolicyPtrOutputWithContext(context.Background())
+}
+
+func (i SchedulingPolicyQuotaSharePolicyArgs) ToSchedulingPolicyQuotaSharePolicyPtrOutputWithContext(ctx context.Context) SchedulingPolicyQuotaSharePolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SchedulingPolicyQuotaSharePolicyOutput).ToSchedulingPolicyQuotaSharePolicyPtrOutputWithContext(ctx)
+}
+
+// SchedulingPolicyQuotaSharePolicyPtrInput is an input type that accepts SchedulingPolicyQuotaSharePolicyArgs, SchedulingPolicyQuotaSharePolicyPtr and SchedulingPolicyQuotaSharePolicyPtrOutput values.
+// You can construct a concrete instance of `SchedulingPolicyQuotaSharePolicyPtrInput` via:
+//
+//	        SchedulingPolicyQuotaSharePolicyArgs{...}
+//
+//	or:
+//
+//	        nil
+type SchedulingPolicyQuotaSharePolicyPtrInput interface {
+	pulumi.Input
+
+	ToSchedulingPolicyQuotaSharePolicyPtrOutput() SchedulingPolicyQuotaSharePolicyPtrOutput
+	ToSchedulingPolicyQuotaSharePolicyPtrOutputWithContext(context.Context) SchedulingPolicyQuotaSharePolicyPtrOutput
+}
+
+type schedulingPolicyQuotaSharePolicyPtrType SchedulingPolicyQuotaSharePolicyArgs
+
+func SchedulingPolicyQuotaSharePolicyPtr(v *SchedulingPolicyQuotaSharePolicyArgs) SchedulingPolicyQuotaSharePolicyPtrInput {
+	return (*schedulingPolicyQuotaSharePolicyPtrType)(v)
+}
+
+func (*schedulingPolicyQuotaSharePolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SchedulingPolicyQuotaSharePolicy)(nil)).Elem()
+}
+
+func (i *schedulingPolicyQuotaSharePolicyPtrType) ToSchedulingPolicyQuotaSharePolicyPtrOutput() SchedulingPolicyQuotaSharePolicyPtrOutput {
+	return i.ToSchedulingPolicyQuotaSharePolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *schedulingPolicyQuotaSharePolicyPtrType) ToSchedulingPolicyQuotaSharePolicyPtrOutputWithContext(ctx context.Context) SchedulingPolicyQuotaSharePolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SchedulingPolicyQuotaSharePolicyPtrOutput)
+}
+
+// Quota Share Policy for the Job Queue.
+type SchedulingPolicyQuotaSharePolicyOutput struct{ *pulumi.OutputState }
+
+func (SchedulingPolicyQuotaSharePolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SchedulingPolicyQuotaSharePolicy)(nil)).Elem()
+}
+
+func (o SchedulingPolicyQuotaSharePolicyOutput) ToSchedulingPolicyQuotaSharePolicyOutput() SchedulingPolicyQuotaSharePolicyOutput {
+	return o
+}
+
+func (o SchedulingPolicyQuotaSharePolicyOutput) ToSchedulingPolicyQuotaSharePolicyOutputWithContext(ctx context.Context) SchedulingPolicyQuotaSharePolicyOutput {
+	return o
+}
+
+func (o SchedulingPolicyQuotaSharePolicyOutput) ToSchedulingPolicyQuotaSharePolicyPtrOutput() SchedulingPolicyQuotaSharePolicyPtrOutput {
+	return o.ToSchedulingPolicyQuotaSharePolicyPtrOutputWithContext(context.Background())
+}
+
+func (o SchedulingPolicyQuotaSharePolicyOutput) ToSchedulingPolicyQuotaSharePolicyPtrOutputWithContext(ctx context.Context) SchedulingPolicyQuotaSharePolicyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SchedulingPolicyQuotaSharePolicy) *SchedulingPolicyQuotaSharePolicy {
+		return &v
+	}).(SchedulingPolicyQuotaSharePolicyPtrOutput)
+}
+
+func (o SchedulingPolicyQuotaSharePolicyOutput) IdleResourceAssignmentStrategy() SchedulingPolicyQuotaSharePolicyIdleResourceAssignmentStrategyPtrOutput {
+	return o.ApplyT(func(v SchedulingPolicyQuotaSharePolicy) *SchedulingPolicyQuotaSharePolicyIdleResourceAssignmentStrategy {
+		return v.IdleResourceAssignmentStrategy
+	}).(SchedulingPolicyQuotaSharePolicyIdleResourceAssignmentStrategyPtrOutput)
+}
+
+type SchedulingPolicyQuotaSharePolicyPtrOutput struct{ *pulumi.OutputState }
+
+func (SchedulingPolicyQuotaSharePolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SchedulingPolicyQuotaSharePolicy)(nil)).Elem()
+}
+
+func (o SchedulingPolicyQuotaSharePolicyPtrOutput) ToSchedulingPolicyQuotaSharePolicyPtrOutput() SchedulingPolicyQuotaSharePolicyPtrOutput {
+	return o
+}
+
+func (o SchedulingPolicyQuotaSharePolicyPtrOutput) ToSchedulingPolicyQuotaSharePolicyPtrOutputWithContext(ctx context.Context) SchedulingPolicyQuotaSharePolicyPtrOutput {
+	return o
+}
+
+func (o SchedulingPolicyQuotaSharePolicyPtrOutput) Elem() SchedulingPolicyQuotaSharePolicyOutput {
+	return o.ApplyT(func(v *SchedulingPolicyQuotaSharePolicy) SchedulingPolicyQuotaSharePolicy {
+		if v != nil {
+			return *v
+		}
+		var ret SchedulingPolicyQuotaSharePolicy
+		return ret
+	}).(SchedulingPolicyQuotaSharePolicyOutput)
+}
+
+func (o SchedulingPolicyQuotaSharePolicyPtrOutput) IdleResourceAssignmentStrategy() SchedulingPolicyQuotaSharePolicyIdleResourceAssignmentStrategyPtrOutput {
+	return o.ApplyT(func(v *SchedulingPolicyQuotaSharePolicy) *SchedulingPolicyQuotaSharePolicyIdleResourceAssignmentStrategy {
+		if v == nil {
+			return nil
+		}
+		return v.IdleResourceAssignmentStrategy
+	}).(SchedulingPolicyQuotaSharePolicyIdleResourceAssignmentStrategyPtrOutput)
 }
 
 type SchedulingPolicyShareAttributes struct {
@@ -11882,8 +12321,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*JobQueueJobStateTimeLimitActionArrayInput)(nil)).Elem(), JobQueueJobStateTimeLimitActionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobQueueServiceEnvironmentOrderInput)(nil)).Elem(), JobQueueServiceEnvironmentOrderArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobQueueServiceEnvironmentOrderArrayInput)(nil)).Elem(), JobQueueServiceEnvironmentOrderArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*QuotaShareCapacityLimitInput)(nil)).Elem(), QuotaShareCapacityLimitArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*QuotaShareCapacityLimitArrayInput)(nil)).Elem(), QuotaShareCapacityLimitArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*QuotaSharePreemptionConfigurationInput)(nil)).Elem(), QuotaSharePreemptionConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*QuotaShareResourceSharingConfigurationInput)(nil)).Elem(), QuotaShareResourceSharingConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SchedulingPolicyFairsharePolicyInput)(nil)).Elem(), SchedulingPolicyFairsharePolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SchedulingPolicyFairsharePolicyPtrInput)(nil)).Elem(), SchedulingPolicyFairsharePolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SchedulingPolicyQuotaSharePolicyInput)(nil)).Elem(), SchedulingPolicyQuotaSharePolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SchedulingPolicyQuotaSharePolicyPtrInput)(nil)).Elem(), SchedulingPolicyQuotaSharePolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SchedulingPolicyShareAttributesInput)(nil)).Elem(), SchedulingPolicyShareAttributesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SchedulingPolicyShareAttributesArrayInput)(nil)).Elem(), SchedulingPolicyShareAttributesArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEnvironmentCapacityLimitInput)(nil)).Elem(), ServiceEnvironmentCapacityLimitArgs{})
@@ -12006,8 +12451,16 @@ func init() {
 	pulumi.RegisterOutputType(JobQueueJobStateTimeLimitActionArrayOutput{})
 	pulumi.RegisterOutputType(JobQueueServiceEnvironmentOrderOutput{})
 	pulumi.RegisterOutputType(JobQueueServiceEnvironmentOrderArrayOutput{})
+	pulumi.RegisterOutputType(QuotaShareCapacityLimitOutput{})
+	pulumi.RegisterOutputType(QuotaShareCapacityLimitArrayOutput{})
+	pulumi.RegisterOutputType(QuotaSharePreemptionConfigurationOutput{})
+	pulumi.RegisterOutputType(QuotaSharePreemptionConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(QuotaShareResourceSharingConfigurationOutput{})
+	pulumi.RegisterOutputType(QuotaShareResourceSharingConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(SchedulingPolicyFairsharePolicyOutput{})
 	pulumi.RegisterOutputType(SchedulingPolicyFairsharePolicyPtrOutput{})
+	pulumi.RegisterOutputType(SchedulingPolicyQuotaSharePolicyOutput{})
+	pulumi.RegisterOutputType(SchedulingPolicyQuotaSharePolicyPtrOutput{})
 	pulumi.RegisterOutputType(SchedulingPolicyShareAttributesOutput{})
 	pulumi.RegisterOutputType(SchedulingPolicyShareAttributesArrayOutput{})
 	pulumi.RegisterOutputType(ServiceEnvironmentCapacityLimitOutput{})

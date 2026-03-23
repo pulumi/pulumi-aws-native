@@ -16,6 +16,8 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'CloudAutonomousVmClusterIamRoleArgs',
+    'CloudAutonomousVmClusterIamRoleArgsDict',
     'CloudAutonomousVmClusterMaintenanceWindowArgs',
     'CloudAutonomousVmClusterMaintenanceWindowArgsDict',
     'CloudExadataInfrastructureCustomerContactArgs',
@@ -26,9 +28,85 @@ __all__ = [
     'CloudVmClusterDataCollectionOptionsArgsDict',
     'CloudVmClusterDbNodeArgs',
     'CloudVmClusterDbNodeArgsDict',
+    'CloudVmClusterIamRoleArgs',
+    'CloudVmClusterIamRoleArgsDict',
     'CloudVmClusterTagArgs',
     'CloudVmClusterTagArgsDict',
 ]
+
+class CloudAutonomousVmClusterIamRoleArgsDict(TypedDict):
+    """
+    An AWS Identity and Access Management (IAM) service role associated with the Autonomous VM cluster.
+    """
+    aws_integration: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The AWS integration configuration settings for the AWS Identity and Access Management (IAM) service role.
+    """
+    iam_role_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) service role.
+    """
+    status: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The current status of the AWS Identity and Access Management (IAM) service role.
+    """
+
+@pulumi.input_type
+class CloudAutonomousVmClusterIamRoleArgs:
+    def __init__(__self__, *,
+                 aws_integration: Optional[pulumi.Input[_builtins.str]] = None,
+                 iam_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 status: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        An AWS Identity and Access Management (IAM) service role associated with the Autonomous VM cluster.
+
+        :param pulumi.Input[_builtins.str] aws_integration: The AWS integration configuration settings for the AWS Identity and Access Management (IAM) service role.
+        :param pulumi.Input[_builtins.str] iam_role_arn: The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) service role.
+        :param pulumi.Input[_builtins.str] status: The current status of the AWS Identity and Access Management (IAM) service role.
+        """
+        if aws_integration is not None:
+            pulumi.set(__self__, "aws_integration", aws_integration)
+        if iam_role_arn is not None:
+            pulumi.set(__self__, "iam_role_arn", iam_role_arn)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @_builtins.property
+    @pulumi.getter(name="awsIntegration")
+    def aws_integration(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The AWS integration configuration settings for the AWS Identity and Access Management (IAM) service role.
+        """
+        return pulumi.get(self, "aws_integration")
+
+    @aws_integration.setter
+    def aws_integration(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "aws_integration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="iamRoleArn")
+    def iam_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) service role.
+        """
+        return pulumi.get(self, "iam_role_arn")
+
+    @iam_role_arn.setter
+    def iam_role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "iam_role_arn", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The current status of the AWS Identity and Access Management (IAM) service role.
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "status", value)
+
 
 class CloudAutonomousVmClusterMaintenanceWindowArgsDict(TypedDict):
     """
@@ -790,6 +868,80 @@ class CloudVmClusterDbNodeArgs:
     @vnic_id.setter
     def vnic_id(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "vnic_id", value)
+
+
+class CloudVmClusterIamRoleArgsDict(TypedDict):
+    """
+    An AWS Identity and Access Management (IAM) service role associated with the VM cluster.
+    """
+    aws_integration: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The AWS integration configuration settings for the AWS Identity and Access Management (IAM) service role.
+    """
+    iam_role_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) service role.
+    """
+    status: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The current status of the AWS Identity and Access Management (IAM) service role.
+    """
+
+@pulumi.input_type
+class CloudVmClusterIamRoleArgs:
+    def __init__(__self__, *,
+                 aws_integration: Optional[pulumi.Input[_builtins.str]] = None,
+                 iam_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 status: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        An AWS Identity and Access Management (IAM) service role associated with the VM cluster.
+
+        :param pulumi.Input[_builtins.str] aws_integration: The AWS integration configuration settings for the AWS Identity and Access Management (IAM) service role.
+        :param pulumi.Input[_builtins.str] iam_role_arn: The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) service role.
+        :param pulumi.Input[_builtins.str] status: The current status of the AWS Identity and Access Management (IAM) service role.
+        """
+        if aws_integration is not None:
+            pulumi.set(__self__, "aws_integration", aws_integration)
+        if iam_role_arn is not None:
+            pulumi.set(__self__, "iam_role_arn", iam_role_arn)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @_builtins.property
+    @pulumi.getter(name="awsIntegration")
+    def aws_integration(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The AWS integration configuration settings for the AWS Identity and Access Management (IAM) service role.
+        """
+        return pulumi.get(self, "aws_integration")
+
+    @aws_integration.setter
+    def aws_integration(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "aws_integration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="iamRoleArn")
+    def iam_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) service role.
+        """
+        return pulumi.get(self, "iam_role_arn")
+
+    @iam_role_arn.setter
+    def iam_role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "iam_role_arn", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The current status of the AWS Identity and Access Management (IAM) service role.
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "status", value)
 
 
 class CloudVmClusterTagArgsDict(TypedDict):

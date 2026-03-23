@@ -41,6 +41,7 @@ export class Farm extends pulumi.CustomResource {
      * The Amazon Resource Name (ARN) assigned to the farm.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
+    declare public readonly costScaleFactor: pulumi.Output<number | undefined>;
     /**
      * A description of the farm that helps identify what the farm is used for.
      *
@@ -80,6 +81,7 @@ export class Farm extends pulumi.CustomResource {
             if (args?.displayName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'displayName'");
             }
+            resourceInputs["costScaleFactor"] = args?.costScaleFactor;
             resourceInputs["description"] = args?.description;
             resourceInputs["displayName"] = args?.displayName;
             resourceInputs["kmsKeyArn"] = args?.kmsKeyArn;
@@ -88,6 +90,7 @@ export class Farm extends pulumi.CustomResource {
             resourceInputs["farmId"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["costScaleFactor"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["displayName"] = undefined /*out*/;
             resourceInputs["farmId"] = undefined /*out*/;
@@ -105,6 +108,7 @@ export class Farm extends pulumi.CustomResource {
  * The set of arguments for constructing a Farm resource.
  */
 export interface FarmArgs {
+    costScaleFactor?: pulumi.Input<number>;
     /**
      * A description of the farm that helps identify what the farm is used for.
      *

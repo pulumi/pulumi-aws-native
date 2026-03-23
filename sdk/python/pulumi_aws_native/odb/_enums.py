@@ -15,9 +15,11 @@ __all__ = [
     'CloudExadataInfrastructureMaintenanceWindowDaysOfWeekItem',
     'CloudExadataInfrastructureMaintenanceWindowMonthsItem',
     'CloudVmClusterLicenseModel',
+    'OdbNetworkKmsAccess',
     'OdbNetworkManagedResourceStatus',
     'OdbNetworkManagedServicesServiceNetworkEndpointPropertiesVpcEndpointType',
     'OdbNetworkS3Access',
+    'OdbNetworkStsAccess',
     'OdbNetworkZeroEtlAccess',
 ]
 
@@ -112,6 +114,15 @@ class CloudVmClusterLicenseModel(_builtins.str, Enum):
     LICENSE_INCLUDED = "LICENSE_INCLUDED"
 
 
+@pulumi.type_token("aws-native:odb:OdbNetworkKmsAccess")
+class OdbNetworkKmsAccess(_builtins.str, Enum):
+    """
+    The AWS Key Management Service (KMS) access configuration for the ODB network.
+    """
+    ENABLED = "ENABLED"
+    DISABLED = "DISABLED"
+
+
 @pulumi.type_token("aws-native:odb:OdbNetworkManagedResourceStatus")
 class OdbNetworkManagedResourceStatus(_builtins.str, Enum):
     """
@@ -135,6 +146,15 @@ class OdbNetworkManagedServicesServiceNetworkEndpointPropertiesVpcEndpointType(_
 class OdbNetworkS3Access(_builtins.str, Enum):
     """
     Specifies the configuration for Amazon S3 access from the ODB network.
+    """
+    ENABLED = "ENABLED"
+    DISABLED = "DISABLED"
+
+
+@pulumi.type_token("aws-native:odb:OdbNetworkStsAccess")
+class OdbNetworkStsAccess(_builtins.str, Enum):
+    """
+    The AWS Security Token Service (STS) access configuration for the ODB network.
     """
     ENABLED = "ENABLED"
     DISABLED = "DISABLED"

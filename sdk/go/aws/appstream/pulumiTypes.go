@@ -1580,6 +1580,139 @@ type ImageBuilderTag struct {
 	Value string `pulumi:"value"`
 }
 
+type ImageBuilderVolumeConfig struct {
+	VolumeSizeInGb *int `pulumi:"volumeSizeInGb"`
+}
+
+// ImageBuilderVolumeConfigInput is an input type that accepts ImageBuilderVolumeConfigArgs and ImageBuilderVolumeConfigOutput values.
+// You can construct a concrete instance of `ImageBuilderVolumeConfigInput` via:
+//
+//	ImageBuilderVolumeConfigArgs{...}
+type ImageBuilderVolumeConfigInput interface {
+	pulumi.Input
+
+	ToImageBuilderVolumeConfigOutput() ImageBuilderVolumeConfigOutput
+	ToImageBuilderVolumeConfigOutputWithContext(context.Context) ImageBuilderVolumeConfigOutput
+}
+
+type ImageBuilderVolumeConfigArgs struct {
+	VolumeSizeInGb pulumi.IntPtrInput `pulumi:"volumeSizeInGb"`
+}
+
+func (ImageBuilderVolumeConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImageBuilderVolumeConfig)(nil)).Elem()
+}
+
+func (i ImageBuilderVolumeConfigArgs) ToImageBuilderVolumeConfigOutput() ImageBuilderVolumeConfigOutput {
+	return i.ToImageBuilderVolumeConfigOutputWithContext(context.Background())
+}
+
+func (i ImageBuilderVolumeConfigArgs) ToImageBuilderVolumeConfigOutputWithContext(ctx context.Context) ImageBuilderVolumeConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImageBuilderVolumeConfigOutput)
+}
+
+func (i ImageBuilderVolumeConfigArgs) ToImageBuilderVolumeConfigPtrOutput() ImageBuilderVolumeConfigPtrOutput {
+	return i.ToImageBuilderVolumeConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ImageBuilderVolumeConfigArgs) ToImageBuilderVolumeConfigPtrOutputWithContext(ctx context.Context) ImageBuilderVolumeConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImageBuilderVolumeConfigOutput).ToImageBuilderVolumeConfigPtrOutputWithContext(ctx)
+}
+
+// ImageBuilderVolumeConfigPtrInput is an input type that accepts ImageBuilderVolumeConfigArgs, ImageBuilderVolumeConfigPtr and ImageBuilderVolumeConfigPtrOutput values.
+// You can construct a concrete instance of `ImageBuilderVolumeConfigPtrInput` via:
+//
+//	        ImageBuilderVolumeConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type ImageBuilderVolumeConfigPtrInput interface {
+	pulumi.Input
+
+	ToImageBuilderVolumeConfigPtrOutput() ImageBuilderVolumeConfigPtrOutput
+	ToImageBuilderVolumeConfigPtrOutputWithContext(context.Context) ImageBuilderVolumeConfigPtrOutput
+}
+
+type imageBuilderVolumeConfigPtrType ImageBuilderVolumeConfigArgs
+
+func ImageBuilderVolumeConfigPtr(v *ImageBuilderVolumeConfigArgs) ImageBuilderVolumeConfigPtrInput {
+	return (*imageBuilderVolumeConfigPtrType)(v)
+}
+
+func (*imageBuilderVolumeConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ImageBuilderVolumeConfig)(nil)).Elem()
+}
+
+func (i *imageBuilderVolumeConfigPtrType) ToImageBuilderVolumeConfigPtrOutput() ImageBuilderVolumeConfigPtrOutput {
+	return i.ToImageBuilderVolumeConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *imageBuilderVolumeConfigPtrType) ToImageBuilderVolumeConfigPtrOutputWithContext(ctx context.Context) ImageBuilderVolumeConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImageBuilderVolumeConfigPtrOutput)
+}
+
+type ImageBuilderVolumeConfigOutput struct{ *pulumi.OutputState }
+
+func (ImageBuilderVolumeConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImageBuilderVolumeConfig)(nil)).Elem()
+}
+
+func (o ImageBuilderVolumeConfigOutput) ToImageBuilderVolumeConfigOutput() ImageBuilderVolumeConfigOutput {
+	return o
+}
+
+func (o ImageBuilderVolumeConfigOutput) ToImageBuilderVolumeConfigOutputWithContext(ctx context.Context) ImageBuilderVolumeConfigOutput {
+	return o
+}
+
+func (o ImageBuilderVolumeConfigOutput) ToImageBuilderVolumeConfigPtrOutput() ImageBuilderVolumeConfigPtrOutput {
+	return o.ToImageBuilderVolumeConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ImageBuilderVolumeConfigOutput) ToImageBuilderVolumeConfigPtrOutputWithContext(ctx context.Context) ImageBuilderVolumeConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ImageBuilderVolumeConfig) *ImageBuilderVolumeConfig {
+		return &v
+	}).(ImageBuilderVolumeConfigPtrOutput)
+}
+
+func (o ImageBuilderVolumeConfigOutput) VolumeSizeInGb() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ImageBuilderVolumeConfig) *int { return v.VolumeSizeInGb }).(pulumi.IntPtrOutput)
+}
+
+type ImageBuilderVolumeConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ImageBuilderVolumeConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ImageBuilderVolumeConfig)(nil)).Elem()
+}
+
+func (o ImageBuilderVolumeConfigPtrOutput) ToImageBuilderVolumeConfigPtrOutput() ImageBuilderVolumeConfigPtrOutput {
+	return o
+}
+
+func (o ImageBuilderVolumeConfigPtrOutput) ToImageBuilderVolumeConfigPtrOutputWithContext(ctx context.Context) ImageBuilderVolumeConfigPtrOutput {
+	return o
+}
+
+func (o ImageBuilderVolumeConfigPtrOutput) Elem() ImageBuilderVolumeConfigOutput {
+	return o.ApplyT(func(v *ImageBuilderVolumeConfig) ImageBuilderVolumeConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ImageBuilderVolumeConfig
+		return ret
+	}).(ImageBuilderVolumeConfigOutput)
+}
+
+func (o ImageBuilderVolumeConfigPtrOutput) VolumeSizeInGb() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ImageBuilderVolumeConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.VolumeSizeInGb
+	}).(pulumi.IntPtrOutput)
+}
+
 type ImageBuilderVpcConfig struct {
 	// The identifiers of the security groups for the image builder.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
@@ -1758,6 +1891,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ImageBuilderAccessEndpointArrayInput)(nil)).Elem(), ImageBuilderAccessEndpointArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ImageBuilderDomainJoinInfoInput)(nil)).Elem(), ImageBuilderDomainJoinInfoArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ImageBuilderDomainJoinInfoPtrInput)(nil)).Elem(), ImageBuilderDomainJoinInfoArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ImageBuilderVolumeConfigInput)(nil)).Elem(), ImageBuilderVolumeConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ImageBuilderVolumeConfigPtrInput)(nil)).Elem(), ImageBuilderVolumeConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ImageBuilderVpcConfigInput)(nil)).Elem(), ImageBuilderVpcConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ImageBuilderVpcConfigPtrInput)(nil)).Elem(), ImageBuilderVpcConfigArgs{})
 	pulumi.RegisterOutputType(AppBlockBuilderAccessEndpointOutput{})
@@ -1784,6 +1919,8 @@ func init() {
 	pulumi.RegisterOutputType(ImageBuilderAccessEndpointArrayOutput{})
 	pulumi.RegisterOutputType(ImageBuilderDomainJoinInfoOutput{})
 	pulumi.RegisterOutputType(ImageBuilderDomainJoinInfoPtrOutput{})
+	pulumi.RegisterOutputType(ImageBuilderVolumeConfigOutput{})
+	pulumi.RegisterOutputType(ImageBuilderVolumeConfigPtrOutput{})
 	pulumi.RegisterOutputType(ImageBuilderVpcConfigOutput{})
 	pulumi.RegisterOutputType(ImageBuilderVpcConfigPtrOutput{})
 }

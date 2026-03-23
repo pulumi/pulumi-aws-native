@@ -34,7 +34,8 @@ type Gateway struct {
 	// The KMS key ARN for the gateway.
 	KmsKeyArn pulumi.StringPtrOutput `pulumi:"kmsKeyArn"`
 	// The name for the gateway.
-	Name pulumi.StringOutput `pulumi:"name"`
+	Name                      pulumi.StringOutput                       `pulumi:"name"`
+	PolicyEngineConfiguration GatewayPolicyEngineConfigurationPtrOutput `pulumi:"policyEngineConfiguration"`
 	// The protocol configuration for the gateway target.
 	ProtocolConfiguration GatewayProtocolConfigurationPropertiesPtrOutput `pulumi:"protocolConfiguration"`
 	// The protocol type for the gateway target.
@@ -110,7 +111,8 @@ type gatewayArgs struct {
 	// The KMS key ARN for the gateway.
 	KmsKeyArn *string `pulumi:"kmsKeyArn"`
 	// The name for the gateway.
-	Name *string `pulumi:"name"`
+	Name                      *string                           `pulumi:"name"`
+	PolicyEngineConfiguration *GatewayPolicyEngineConfiguration `pulumi:"policyEngineConfiguration"`
 	// The protocol configuration for the gateway target.
 	ProtocolConfiguration *GatewayProtocolConfigurationProperties `pulumi:"protocolConfiguration"`
 	// The protocol type for the gateway target.
@@ -133,7 +135,8 @@ type GatewayArgs struct {
 	// The KMS key ARN for the gateway.
 	KmsKeyArn pulumi.StringPtrInput
 	// The name for the gateway.
-	Name pulumi.StringPtrInput
+	Name                      pulumi.StringPtrInput
+	PolicyEngineConfiguration GatewayPolicyEngineConfigurationPtrInput
 	// The protocol configuration for the gateway target.
 	ProtocolConfiguration GatewayProtocolConfigurationPropertiesPtrInput
 	// The protocol type for the gateway target.
@@ -230,6 +233,10 @@ func (o GatewayOutput) KmsKeyArn() pulumi.StringPtrOutput {
 // The name for the gateway.
 func (o GatewayOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Gateway) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o GatewayOutput) PolicyEngineConfiguration() GatewayPolicyEngineConfigurationPtrOutput {
+	return o.ApplyT(func(v *Gateway) GatewayPolicyEngineConfigurationPtrOutput { return v.PolicyEngineConfiguration }).(GatewayPolicyEngineConfigurationPtrOutput)
 }
 
 // The protocol configuration for the gateway target.

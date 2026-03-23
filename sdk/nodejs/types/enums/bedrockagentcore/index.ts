@@ -124,6 +124,16 @@ export const GatewayInterceptionPoint = {
 
 export type GatewayInterceptionPoint = (typeof GatewayInterceptionPoint)[keyof typeof GatewayInterceptionPoint];
 
+export const GatewayPolicyEngineMode = {
+    LogOnly: "LOG_ONLY",
+    Enforce: "ENFORCE",
+} as const;
+
+/**
+ * The enforcement mode for the policy engine. LOG_ONLY - The policy engine evaluates each action against your policies and adds traces on whether tool calls would be allowed or denied, but does not enforce the decision. Use this mode to test and validate policies before enabling enforcement. ENFORCE - The policy engine evaluates actions against your policies and enforces decisions by allowing or denying agent operations. Test and validate policies in LOG_ONLY mode before enabling enforcement to avoid unintended denials or adversely affecting production traffic.
+ */
+export type GatewayPolicyEngineMode = (typeof GatewayPolicyEngineMode)[keyof typeof GatewayPolicyEngineMode];
+
 export const GatewayProtocolType = {
     Mcp: "MCP",
 } as const;

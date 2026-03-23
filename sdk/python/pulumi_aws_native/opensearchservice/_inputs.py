@@ -30,6 +30,8 @@ __all__ = [
     'DomainCognitoOptionsArgsDict',
     'DomainColdStorageOptionsArgs',
     'DomainColdStorageOptionsArgsDict',
+    'DomainDeploymentStrategyOptionsArgs',
+    'DomainDeploymentStrategyOptionsArgsDict',
     'DomainEbsOptionsArgs',
     'DomainEbsOptionsArgsDict',
     'DomainEncryptionAtRestOptionsArgs',
@@ -788,6 +790,26 @@ class DomainColdStorageOptionsArgs:
     @enabled.setter
     def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
+
+
+class DomainDeploymentStrategyOptionsArgsDict(TypedDict):
+    deployment_strategy: NotRequired[pulumi.Input['DomainDeploymentStrategyOptionsDeploymentStrategy']]
+
+@pulumi.input_type
+class DomainDeploymentStrategyOptionsArgs:
+    def __init__(__self__, *,
+                 deployment_strategy: Optional[pulumi.Input['DomainDeploymentStrategyOptionsDeploymentStrategy']] = None):
+        if deployment_strategy is not None:
+            pulumi.set(__self__, "deployment_strategy", deployment_strategy)
+
+    @_builtins.property
+    @pulumi.getter(name="deploymentStrategy")
+    def deployment_strategy(self) -> Optional[pulumi.Input['DomainDeploymentStrategyOptionsDeploymentStrategy']]:
+        return pulumi.get(self, "deployment_strategy")
+
+    @deployment_strategy.setter
+    def deployment_strategy(self, value: Optional[pulumi.Input['DomainDeploymentStrategyOptionsDeploymentStrategy']]):
+        pulumi.set(self, "deployment_strategy", value)
 
 
 class DomainEbsOptionsArgsDict(TypedDict):

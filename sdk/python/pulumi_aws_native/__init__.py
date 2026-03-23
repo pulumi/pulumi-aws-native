@@ -195,6 +195,8 @@ if typing.TYPE_CHECKING:
     elasticbeanstalk = __elasticbeanstalk
     import pulumi_aws_native.elasticloadbalancingv2 as __elasticloadbalancingv2
     elasticloadbalancingv2 = __elasticloadbalancingv2
+    import pulumi_aws_native.elementalinference as __elementalinference
+    elementalinference = __elementalinference
     import pulumi_aws_native.emr as __emr
     emr = __emr
     import pulumi_aws_native.emrcontainers as __emrcontainers
@@ -409,6 +411,8 @@ if typing.TYPE_CHECKING:
     rolesanywhere = __rolesanywhere
     import pulumi_aws_native.route53 as __route53
     route53 = __route53
+    import pulumi_aws_native.route53globalresolver as __route53globalresolver
+    route53globalresolver = __route53globalresolver
     import pulumi_aws_native.route53profiles as __route53profiles
     route53profiles = __route53profiles
     import pulumi_aws_native.route53recoverycontrol as __route53recoverycontrol
@@ -447,6 +451,8 @@ if typing.TYPE_CHECKING:
     servicecatalog = __servicecatalog
     import pulumi_aws_native.servicecatalogappregistry as __servicecatalogappregistry
     servicecatalogappregistry = __servicecatalogappregistry
+    import pulumi_aws_native.servicediscovery as __servicediscovery
+    servicediscovery = __servicediscovery
     import pulumi_aws_native.ses as __ses
     ses = __ses
     import pulumi_aws_native.shield as __shield
@@ -592,6 +598,7 @@ else:
     elasticache = _utilities.lazy_import('pulumi_aws_native.elasticache')
     elasticbeanstalk = _utilities.lazy_import('pulumi_aws_native.elasticbeanstalk')
     elasticloadbalancingv2 = _utilities.lazy_import('pulumi_aws_native.elasticloadbalancingv2')
+    elementalinference = _utilities.lazy_import('pulumi_aws_native.elementalinference')
     emr = _utilities.lazy_import('pulumi_aws_native.emr')
     emrcontainers = _utilities.lazy_import('pulumi_aws_native.emrcontainers')
     emrserverless = _utilities.lazy_import('pulumi_aws_native.emrserverless')
@@ -699,6 +706,7 @@ else:
     resourcegroups = _utilities.lazy_import('pulumi_aws_native.resourcegroups')
     rolesanywhere = _utilities.lazy_import('pulumi_aws_native.rolesanywhere')
     route53 = _utilities.lazy_import('pulumi_aws_native.route53')
+    route53globalresolver = _utilities.lazy_import('pulumi_aws_native.route53globalresolver')
     route53profiles = _utilities.lazy_import('pulumi_aws_native.route53profiles')
     route53recoverycontrol = _utilities.lazy_import('pulumi_aws_native.route53recoverycontrol')
     route53recoveryreadiness = _utilities.lazy_import('pulumi_aws_native.route53recoveryreadiness')
@@ -718,6 +726,7 @@ else:
     securitylake = _utilities.lazy_import('pulumi_aws_native.securitylake')
     servicecatalog = _utilities.lazy_import('pulumi_aws_native.servicecatalog')
     servicecatalogappregistry = _utilities.lazy_import('pulumi_aws_native.servicecatalogappregistry')
+    servicediscovery = _utilities.lazy_import('pulumi_aws_native.servicediscovery')
     ses = _utilities.lazy_import('pulumi_aws_native.ses')
     shield = _utilities.lazy_import('pulumi_aws_native.shield')
     signer = _utilities.lazy_import('pulumi_aws_native.signer')
@@ -1066,6 +1075,7 @@ _utilities.register(
    "aws-native:batch:ConsumableResource": "ConsumableResource",
    "aws-native:batch:JobDefinition": "JobDefinition",
    "aws-native:batch:JobQueue": "JobQueue",
+   "aws-native:batch:QuotaShare": "QuotaShare",
    "aws-native:batch:SchedulingPolicy": "SchedulingPolicy",
    "aws-native:batch:ServiceEnvironment": "ServiceEnvironment"
   }
@@ -1208,6 +1218,8 @@ _utilities.register(
   "mod": "cleanroomsml",
   "fqn": "pulumi_aws_native.cleanroomsml",
   "classes": {
+   "aws-native:cleanroomsml:ConfiguredModelAlgorithm": "ConfiguredModelAlgorithm",
+   "aws-native:cleanroomsml:ConfiguredModelAlgorithmAssociation": "ConfiguredModelAlgorithmAssociation",
    "aws-native:cleanroomsml:TrainingDataset": "TrainingDataset"
   }
  },
@@ -1716,6 +1728,7 @@ _utilities.register(
    "aws-native:ec2:IpamPool": "IpamPool",
    "aws-native:ec2:IpamPoolCidr": "IpamPoolCidr",
    "aws-native:ec2:IpamPrefixListResolver": "IpamPrefixListResolver",
+   "aws-native:ec2:IpamPrefixListResolverTarget": "IpamPrefixListResolverTarget",
    "aws-native:ec2:IpamResourceDiscovery": "IpamResourceDiscovery",
    "aws-native:ec2:IpamResourceDiscoveryAssociation": "IpamResourceDiscoveryAssociation",
    "aws-native:ec2:IpamScope": "IpamScope",
@@ -1751,6 +1764,7 @@ _utilities.register(
    "aws-native:ec2:SecurityGroupVpcAssociation": "SecurityGroupVpcAssociation",
    "aws-native:ec2:SnapshotBlockPublicAccess": "SnapshotBlockPublicAccess",
    "aws-native:ec2:SpotFleet": "SpotFleet",
+   "aws-native:ec2:SqlHaStandbyDetectedInstance": "SqlHaStandbyDetectedInstance",
    "aws-native:ec2:Subnet": "Subnet",
    "aws-native:ec2:SubnetCidrBlock": "SubnetCidrBlock",
    "aws-native:ec2:SubnetNetworkAclAssociation": "SubnetNetworkAclAssociation",
@@ -1861,6 +1875,7 @@ _utilities.register(
   "classes": {
    "aws-native:elasticache:GlobalReplicationGroup": "GlobalReplicationGroup",
    "aws-native:elasticache:ParameterGroup": "ParameterGroup",
+   "aws-native:elasticache:ReplicationGroup": "ReplicationGroup",
    "aws-native:elasticache:ServerlessCache": "ServerlessCache",
    "aws-native:elasticache:SubnetGroup": "SubnetGroup",
    "aws-native:elasticache:User": "User",
@@ -1889,6 +1904,14 @@ _utilities.register(
    "aws-native:elasticloadbalancingv2:TargetGroup": "TargetGroup",
    "aws-native:elasticloadbalancingv2:TrustStore": "TrustStore",
    "aws-native:elasticloadbalancingv2:TrustStoreRevocation": "TrustStoreRevocation"
+  }
+ },
+ {
+  "pkg": "aws-native",
+  "mod": "elementalinference",
+  "fqn": "pulumi_aws_native.elementalinference",
+  "classes": {
+   "aws-native:elementalinference:Feed": "Feed"
   }
  },
  {
@@ -2080,6 +2103,7 @@ _utilities.register(
   "mod": "glue",
   "fqn": "pulumi_aws_native.glue",
   "classes": {
+   "aws-native:glue:Catalog": "Catalog",
    "aws-native:glue:Crawler": "Crawler",
    "aws-native:glue:Database": "Database",
    "aws-native:glue:IdentityCenterConfiguration": "IdentityCenterConfiguration",
@@ -2805,6 +2829,7 @@ _utilities.register(
    "aws-native:observabilityadmin:OrganizationCentralizationRule": "OrganizationCentralizationRule",
    "aws-native:observabilityadmin:OrganizationTelemetryRule": "OrganizationTelemetryRule",
    "aws-native:observabilityadmin:S3TableIntegration": "S3TableIntegration",
+   "aws-native:observabilityadmin:TelemetryEnrichment": "TelemetryEnrichment",
    "aws-native:observabilityadmin:TelemetryPipelines": "TelemetryPipelines",
    "aws-native:observabilityadmin:TelemetryRule": "TelemetryRule"
   }
@@ -3152,6 +3177,20 @@ _utilities.register(
  },
  {
   "pkg": "aws-native",
+  "mod": "route53globalresolver",
+  "fqn": "pulumi_aws_native.route53globalresolver",
+  "classes": {
+   "aws-native:route53globalresolver:AccessSource": "AccessSource",
+   "aws-native:route53globalresolver:AccessToken": "AccessToken",
+   "aws-native:route53globalresolver:DnsView": "DnsView",
+   "aws-native:route53globalresolver:FirewallDomainList": "FirewallDomainList",
+   "aws-native:route53globalresolver:FirewallRule": "FirewallRule",
+   "aws-native:route53globalresolver:GlobalResolver": "GlobalResolver",
+   "aws-native:route53globalresolver:HostedZoneAssociation": "HostedZoneAssociation"
+  }
+ },
+ {
+  "pkg": "aws-native",
   "mod": "route53profiles",
   "fqn": "pulumi_aws_native.route53profiles",
   "classes": {
@@ -3394,6 +3433,7 @@ _utilities.register(
    "aws-native:servicecatalog:ResourceUpdateConstraint": "ResourceUpdateConstraint",
    "aws-native:servicecatalog:ServiceAction": "ServiceAction",
    "aws-native:servicecatalog:ServiceActionAssociation": "ServiceActionAssociation",
+   "aws-native:servicecatalog:StackSetConstraint": "StackSetConstraint",
    "aws-native:servicecatalog:TagOption": "TagOption",
    "aws-native:servicecatalog:TagOptionAssociation": "TagOptionAssociation"
   }
@@ -3407,6 +3447,14 @@ _utilities.register(
    "aws-native:servicecatalogappregistry:AttributeGroup": "AttributeGroup",
    "aws-native:servicecatalogappregistry:AttributeGroupAssociation": "AttributeGroupAssociation",
    "aws-native:servicecatalogappregistry:ResourceAssociation": "ResourceAssociation"
+  }
+ },
+ {
+  "pkg": "aws-native",
+  "mod": "servicediscovery",
+  "fqn": "pulumi_aws_native.servicediscovery",
+  "classes": {
+   "aws-native:servicediscovery:Service": "Service"
   }
  },
  {

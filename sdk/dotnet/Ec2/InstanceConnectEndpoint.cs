@@ -16,7 +16,19 @@ namespace Pulumi.AwsNative.Ec2
     public partial class InstanceConnectEndpoint : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The id of the instance connect endpoint
+        /// The Availability Zone of the EC2 Instance Connect Endpoint
+        /// </summary>
+        [Output("availabilityZone")]
+        public Output<string> AvailabilityZone { get; private set; } = null!;
+
+        /// <summary>
+        /// The ID of the Availability Zone of the EC2 Instance Connect Endpoint
+        /// </summary>
+        [Output("availabilityZoneId")]
+        public Output<string> AvailabilityZoneId { get; private set; } = null!;
+
+        /// <summary>
+        /// The ID of the EC2 Instance Connect Endpoint.
         /// </summary>
         [Output("awsId")]
         public Output<string> AwsId { get; private set; } = null!;
@@ -28,28 +40,76 @@ namespace Pulumi.AwsNative.Ec2
         public Output<string?> ClientToken { get; private set; } = null!;
 
         /// <summary>
-        /// If true, the address of the instance connect endpoint client is preserved when connecting to the end resource
+        /// The date and time that the EC2 Instance Connect Endpoint was created
+        /// </summary>
+        [Output("createdAt")]
+        public Output<string> CreatedAt { get; private set; } = null!;
+
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the EC2 Instance Connect Endpoint
+        /// </summary>
+        [Output("instanceConnectEndpointArn")]
+        public Output<string> InstanceConnectEndpointArn { get; private set; } = null!;
+
+        /// <summary>
+        /// The ID of the elastic network interface that Amazon EC2 automatically created when creating the EC2 Instance Connect Endpoint
+        /// </summary>
+        [Output("networkInterfaceIds")]
+        public Output<ImmutableArray<string>> NetworkInterfaceIds { get; private set; } = null!;
+
+        /// <summary>
+        /// The ID of the AWS account that created the EC2 Instance Connect Endpoint
+        /// </summary>
+        [Output("ownerId")]
+        public Output<string> OwnerId { get; private set; } = null!;
+
+        /// <summary>
+        /// Indicates whether your client's IP address is preserved as the source when you connect to a resource.
         /// </summary>
         [Output("preserveClientIp")]
         public Output<bool?> PreserveClientIp { get; private set; } = null!;
 
         /// <summary>
-        /// The security group IDs of the instance connect endpoint.
+        /// The public DNS names of the endpoint
+        /// </summary>
+        [Output("publicDnsNames")]
+        public Output<Outputs.InstanceConnectEndpointPublicDnsNames> PublicDnsNames { get; private set; } = null!;
+
+        /// <summary>
+        /// The security groups associated with the endpoint.
         /// </summary>
         [Output("securityGroupIds")]
         public Output<ImmutableArray<string>> SecurityGroupIds { get; private set; } = null!;
 
         /// <summary>
-        /// The subnet id of the instance connect endpoint
+        /// The current state of the EC2 Instance Connect Endpoint
+        /// </summary>
+        [Output("state")]
+        public Output<Pulumi.AwsNative.Ec2.InstanceConnectEndpointState> State { get; private set; } = null!;
+
+        /// <summary>
+        /// The message for the current state of the EC2 Instance Connect Endpoint. Can include a failure message
+        /// </summary>
+        [Output("stateMessage")]
+        public Output<string> StateMessage { get; private set; } = null!;
+
+        /// <summary>
+        /// The ID of the subnet in which the EC2 Instance Connect Endpoint was created.
         /// </summary>
         [Output("subnetId")]
         public Output<string> SubnetId { get; private set; } = null!;
 
         /// <summary>
-        /// The tags of the instance connect endpoint.
+        /// The tags assigned to the EC2 Instance Connect Endpoint.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
+
+        /// <summary>
+        /// The ID of the VPC in which the EC2 Instance Connect Endpoint was created
+        /// </summary>
+        [Output("vpcId")]
+        public Output<string> VpcId { get; private set; } = null!;
 
 
         /// <summary>
@@ -110,7 +170,7 @@ namespace Pulumi.AwsNative.Ec2
         public Input<string>? ClientToken { get; set; }
 
         /// <summary>
-        /// If true, the address of the instance connect endpoint client is preserved when connecting to the end resource
+        /// Indicates whether your client's IP address is preserved as the source when you connect to a resource.
         /// </summary>
         [Input("preserveClientIp")]
         public Input<bool>? PreserveClientIp { get; set; }
@@ -119,7 +179,7 @@ namespace Pulumi.AwsNative.Ec2
         private InputList<string>? _securityGroupIds;
 
         /// <summary>
-        /// The security group IDs of the instance connect endpoint.
+        /// The security groups associated with the endpoint.
         /// </summary>
         public InputList<string> SecurityGroupIds
         {
@@ -128,7 +188,7 @@ namespace Pulumi.AwsNative.Ec2
         }
 
         /// <summary>
-        /// The subnet id of the instance connect endpoint
+        /// The ID of the subnet in which the EC2 Instance Connect Endpoint was created.
         /// </summary>
         [Input("subnetId", required: true)]
         public Input<string> SubnetId { get; set; } = null!;
@@ -137,7 +197,7 @@ namespace Pulumi.AwsNative.Ec2
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
-        /// The tags of the instance connect endpoint.
+        /// The tags assigned to the EC2 Instance Connect Endpoint.
         /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {

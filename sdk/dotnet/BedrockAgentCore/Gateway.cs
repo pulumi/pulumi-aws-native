@@ -72,6 +72,9 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        [Output("policyEngineConfiguration")]
+        public Output<Outputs.GatewayPolicyEngineConfiguration?> PolicyEngineConfiguration { get; private set; } = null!;
+
         /// <summary>
         /// The protocol configuration for the gateway target.
         /// </summary>
@@ -196,6 +199,9 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        [Input("policyEngineConfiguration")]
+        public Input<Inputs.GatewayPolicyEngineConfigurationArgs>? PolicyEngineConfiguration { get; set; }
 
         /// <summary>
         /// The protocol configuration for the gateway target.

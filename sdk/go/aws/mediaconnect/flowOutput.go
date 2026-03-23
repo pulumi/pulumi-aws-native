@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -55,6 +56,8 @@ type FlowOutputResource struct {
 	SmoothingLatency pulumi.IntPtrOutput `pulumi:"smoothingLatency"`
 	// The stream ID that you want to use for this transport. This parameter applies only to Zixi-based streams.
 	StreamId pulumi.StringPtrOutput `pulumi:"streamId"`
+	// Key-value pairs that can be used to tag and organize this flow output.
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// The name of the VPC interface attachment to use for this output.
 	VpcInterfaceAttachment FlowOutputVpcInterfaceAttachmentPtrOutput `pulumi:"vpcInterfaceAttachment"`
 }
@@ -70,6 +73,7 @@ func NewFlowOutputResource(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'FlowArn'")
 	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"flowArn",
 		"name",
 	})
 	opts = append(opts, replaceOnChanges)
@@ -143,6 +147,8 @@ type flowOutputResourceArgs struct {
 	SmoothingLatency *int `pulumi:"smoothingLatency"`
 	// The stream ID that you want to use for this transport. This parameter applies only to Zixi-based streams.
 	StreamId *string `pulumi:"streamId"`
+	// Key-value pairs that can be used to tag and organize this flow output.
+	Tags []aws.Tag `pulumi:"tags"`
 	// The name of the VPC interface attachment to use for this output.
 	VpcInterfaceAttachment *FlowOutputVpcInterfaceAttachment `pulumi:"vpcInterfaceAttachment"`
 }
@@ -186,6 +192,8 @@ type FlowOutputResourceArgs struct {
 	SmoothingLatency pulumi.IntPtrInput
 	// The stream ID that you want to use for this transport. This parameter applies only to Zixi-based streams.
 	StreamId pulumi.StringPtrInput
+	// Key-value pairs that can be used to tag and organize this flow output.
+	Tags aws.TagArrayInput
 	// The name of the VPC interface attachment to use for this output.
 	VpcInterfaceAttachment FlowOutputVpcInterfaceAttachmentPtrInput
 }
@@ -328,6 +336,11 @@ func (o FlowOutputResourceOutput) SmoothingLatency() pulumi.IntPtrOutput {
 // The stream ID that you want to use for this transport. This parameter applies only to Zixi-based streams.
 func (o FlowOutputResourceOutput) StreamId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowOutputResource) pulumi.StringPtrOutput { return v.StreamId }).(pulumi.StringPtrOutput)
+}
+
+// Key-value pairs that can be used to tag and organize this flow output.
+func (o FlowOutputResourceOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *FlowOutputResource) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // The name of the VPC interface attachment to use for this output.

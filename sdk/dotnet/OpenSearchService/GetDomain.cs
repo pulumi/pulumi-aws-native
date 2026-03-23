@@ -103,6 +103,7 @@ namespace Pulumi.AwsNative.OpenSearchService
         /// Configures OpenSearch Service to use Amazon Cognito authentication for OpenSearch Dashboards.
         /// </summary>
         public readonly Outputs.DomainCognitoOptions? CognitoOptions;
+        public readonly Outputs.DomainDeploymentStrategyOptions? DeploymentStrategyOptions;
         /// <summary>
         /// The Amazon Resource Name (ARN) of the domain. See [Identifiers for IAM Entities](https://docs.aws.amazon.com/IAM/latest/UserGuide/index.html) in *Using AWS Identity and Access Management* for more information.
         /// </summary>
@@ -197,6 +198,8 @@ namespace Pulumi.AwsNative.OpenSearchService
 
             Outputs.DomainCognitoOptions? cognitoOptions,
 
+            Outputs.DomainDeploymentStrategyOptions? deploymentStrategyOptions,
+
             string? domainArn,
 
             string? domainEndpoint,
@@ -244,6 +247,7 @@ namespace Pulumi.AwsNative.OpenSearchService
             Arn = arn;
             ClusterConfig = clusterConfig;
             CognitoOptions = cognitoOptions;
+            DeploymentStrategyOptions = deploymentStrategyOptions;
             DomainArn = domainArn;
             DomainEndpoint = domainEndpoint;
             DomainEndpointOptions = domainEndpointOptions;

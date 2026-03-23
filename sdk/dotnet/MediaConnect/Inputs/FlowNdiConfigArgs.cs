@@ -11,7 +11,7 @@ namespace Pulumi.AwsNative.MediaConnect.Inputs
 {
 
     /// <summary>
-    /// Specifies the configuration settings for NDI outputs. Required when the flow includes NDI outputs.
+    /// Specifies the configuration settings for NDI sources and outputs. Required when the flow includes NDI sources or outputs.
     /// </summary>
     public sealed class FlowNdiConfigArgs : global::Pulumi.ResourceArgs
     {
@@ -34,10 +34,10 @@ namespace Pulumi.AwsNative.MediaConnect.Inputs
         }
 
         /// <summary>
-        /// A setting that controls whether NDI outputs can be used in the flow. Must be ENABLED to add NDI outputs. Default is DISABLED.
+        /// A setting that controls whether NDI sources or outputs can be used in the flow. The default value is DISABLED. This value must be set as ENABLED for your flow to support NDI sources or outputs.
         /// </summary>
         [Input("ndiState")]
-        public Input<Pulumi.AwsNative.MediaConnect.FlowNdiConfigNdiState>? NdiState { get; set; }
+        public Input<Pulumi.AwsNative.MediaConnect.FlowNdiState>? NdiState { get; set; }
 
         public FlowNdiConfigArgs()
         {

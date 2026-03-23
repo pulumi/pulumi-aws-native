@@ -8,6 +8,7 @@ from enum import Enum
 
 __all__ = [
     'ApplicationAppConfigType',
+    'DomainDeploymentStrategyOptionsDeploymentStrategy',
     'DomainNodeOptionNodeType',
     'DomainRolesKeyIdcType',
     'DomainSubjectKeyIdcType',
@@ -21,6 +22,12 @@ class ApplicationAppConfigType(_builtins.str, Enum):
     """
     OPENSEARCH_DASHBOARDS_DASHBOARD_ADMIN_USERS = "opensearchDashboards.dashboardAdmin.users"
     OPENSEARCH_DASHBOARDS_DASHBOARD_ADMIN_GROUPS = "opensearchDashboards.dashboardAdmin.groups"
+
+
+@pulumi.type_token("aws-native:opensearchservice:DomainDeploymentStrategyOptionsDeploymentStrategy")
+class DomainDeploymentStrategyOptionsDeploymentStrategy(_builtins.str, Enum):
+    DEFAULT = "Default"
+    CAPACITY_OPTIMIZED = "CapacityOptimized"
 
 
 @pulumi.type_token("aws-native:opensearchservice:DomainNodeOptionNodeType")

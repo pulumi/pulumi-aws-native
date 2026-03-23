@@ -91,7 +91,7 @@
     },
     "LastExecutionStatus" : {
       "type" : "string",
-      "enum" : [ "InvalidQuery", "Complete", "Failed", "Timeout" ]
+      "enum" : [ "Pending", "InvalidQuery", "Complete", "Failed", "Timeout" ]
     },
     "CreationTime" : {
       "type" : "number"

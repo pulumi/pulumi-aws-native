@@ -7,11 +7,12 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource schema for AWS::MediaConnect::FlowSource
+// Resource Type definition for AWS::MediaConnect::FlowSource
 func LookupFlowSource(ctx *pulumi.Context, args *LookupFlowSourceArgs, opts ...pulumi.InvokeOption) (*LookupFlowSourceResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupFlowSourceResult
@@ -34,8 +35,6 @@ type LookupFlowSourceResult struct {
 	Description *string `pulumi:"description"`
 	// The ARN of the entitlement that allows you to subscribe to content that comes from another AWS account. The entitlement is set by the content originator and the ARN is generated as part of the originator's flow.
 	EntitlementArn *string `pulumi:"entitlementArn"`
-	// The ARN of the flow.
-	FlowArn *string `pulumi:"flowArn"`
 	// The source configuration for cloud flows receiving a stream from a bridge.
 	GatewayBridgeSource *FlowSourceGatewayBridgeSource `pulumi:"gatewayBridgeSource"`
 	// The IP address that the flow will be listening on for incoming content.
@@ -48,8 +47,6 @@ type LookupFlowSourceResult struct {
 	MaxLatency *int `pulumi:"maxLatency"`
 	// The minimum latency in milliseconds.
 	MinLatency *int `pulumi:"minLatency"`
-	// The protocol that is used by the source.
-	Protocol *FlowSourceProtocol `pulumi:"protocol"`
 	// The port that the flow uses to send outbound requests to initiate connection with the sender for fujitsu-qos protocol.
 	SenderControlPort *int `pulumi:"senderControlPort"`
 	// The IP address that the flow communicates with to initiate connection with the sender for fujitsu-qos protocol.
@@ -64,6 +61,8 @@ type LookupFlowSourceResult struct {
 	SourceListenerPort *int `pulumi:"sourceListenerPort"`
 	// The stream ID that you want to use for this transport. This parameter applies only to Zixi-based streams.
 	StreamId *string `pulumi:"streamId"`
+	// Key-value pairs that can be used to tag and organize this flow source.
+	Tags []aws.Tag `pulumi:"tags"`
 	// The name of the VPC Interface this Source is configured with.
 	VpcInterfaceName *string `pulumi:"vpcInterfaceName"`
 	// The range of IP addresses that should be allowed to contribute content to your source. These IP addresses should be in the form of a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16.
@@ -117,11 +116,6 @@ func (o LookupFlowSourceResultOutput) EntitlementArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupFlowSourceResult) *string { return v.EntitlementArn }).(pulumi.StringPtrOutput)
 }
 
-// The ARN of the flow.
-func (o LookupFlowSourceResultOutput) FlowArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupFlowSourceResult) *string { return v.FlowArn }).(pulumi.StringPtrOutput)
-}
-
 // The source configuration for cloud flows receiving a stream from a bridge.
 func (o LookupFlowSourceResultOutput) GatewayBridgeSource() FlowSourceGatewayBridgeSourcePtrOutput {
 	return o.ApplyT(func(v LookupFlowSourceResult) *FlowSourceGatewayBridgeSource { return v.GatewayBridgeSource }).(FlowSourceGatewayBridgeSourcePtrOutput)
@@ -150,11 +144,6 @@ func (o LookupFlowSourceResultOutput) MaxLatency() pulumi.IntPtrOutput {
 // The minimum latency in milliseconds.
 func (o LookupFlowSourceResultOutput) MinLatency() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LookupFlowSourceResult) *int { return v.MinLatency }).(pulumi.IntPtrOutput)
-}
-
-// The protocol that is used by the source.
-func (o LookupFlowSourceResultOutput) Protocol() FlowSourceProtocolPtrOutput {
-	return o.ApplyT(func(v LookupFlowSourceResult) *FlowSourceProtocol { return v.Protocol }).(FlowSourceProtocolPtrOutput)
 }
 
 // The port that the flow uses to send outbound requests to initiate connection with the sender for fujitsu-qos protocol.
@@ -190,6 +179,11 @@ func (o LookupFlowSourceResultOutput) SourceListenerPort() pulumi.IntPtrOutput {
 // The stream ID that you want to use for this transport. This parameter applies only to Zixi-based streams.
 func (o LookupFlowSourceResultOutput) StreamId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupFlowSourceResult) *string { return v.StreamId }).(pulumi.StringPtrOutput)
+}
+
+// Key-value pairs that can be used to tag and organize this flow source.
+func (o LookupFlowSourceResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupFlowSourceResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // The name of the VPC Interface this Source is configured with.

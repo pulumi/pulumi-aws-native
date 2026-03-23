@@ -5,6 +5,26 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { ConfiguredModelAlgorithmArgs } from "./configuredModelAlgorithm";
+export type ConfiguredModelAlgorithm = import("./configuredModelAlgorithm").ConfiguredModelAlgorithm;
+export const ConfiguredModelAlgorithm: typeof import("./configuredModelAlgorithm").ConfiguredModelAlgorithm = null as any;
+utilities.lazyLoad(exports, ["ConfiguredModelAlgorithm"], () => require("./configuredModelAlgorithm"));
+
+export { ConfiguredModelAlgorithmAssociationArgs } from "./configuredModelAlgorithmAssociation";
+export type ConfiguredModelAlgorithmAssociation = import("./configuredModelAlgorithmAssociation").ConfiguredModelAlgorithmAssociation;
+export const ConfiguredModelAlgorithmAssociation: typeof import("./configuredModelAlgorithmAssociation").ConfiguredModelAlgorithmAssociation = null as any;
+utilities.lazyLoad(exports, ["ConfiguredModelAlgorithmAssociation"], () => require("./configuredModelAlgorithmAssociation"));
+
+export { GetConfiguredModelAlgorithmArgs, GetConfiguredModelAlgorithmResult, GetConfiguredModelAlgorithmOutputArgs } from "./getConfiguredModelAlgorithm";
+export const getConfiguredModelAlgorithm: typeof import("./getConfiguredModelAlgorithm").getConfiguredModelAlgorithm = null as any;
+export const getConfiguredModelAlgorithmOutput: typeof import("./getConfiguredModelAlgorithm").getConfiguredModelAlgorithmOutput = null as any;
+utilities.lazyLoad(exports, ["getConfiguredModelAlgorithm","getConfiguredModelAlgorithmOutput"], () => require("./getConfiguredModelAlgorithm"));
+
+export { GetConfiguredModelAlgorithmAssociationArgs, GetConfiguredModelAlgorithmAssociationResult, GetConfiguredModelAlgorithmAssociationOutputArgs } from "./getConfiguredModelAlgorithmAssociation";
+export const getConfiguredModelAlgorithmAssociation: typeof import("./getConfiguredModelAlgorithmAssociation").getConfiguredModelAlgorithmAssociation = null as any;
+export const getConfiguredModelAlgorithmAssociationOutput: typeof import("./getConfiguredModelAlgorithmAssociation").getConfiguredModelAlgorithmAssociationOutput = null as any;
+utilities.lazyLoad(exports, ["getConfiguredModelAlgorithmAssociation","getConfiguredModelAlgorithmAssociationOutput"], () => require("./getConfiguredModelAlgorithmAssociation"));
+
 export { GetTrainingDatasetArgs, GetTrainingDatasetResult, GetTrainingDatasetOutputArgs } from "./getTrainingDataset";
 export const getTrainingDataset: typeof import("./getTrainingDataset").getTrainingDataset = null as any;
 export const getTrainingDatasetOutput: typeof import("./getTrainingDataset").getTrainingDatasetOutput = null as any;
@@ -23,6 +43,10 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws-native:cleanroomsml:ConfiguredModelAlgorithm":
+                return new ConfiguredModelAlgorithm(name, <any>undefined, { urn })
+            case "aws-native:cleanroomsml:ConfiguredModelAlgorithmAssociation":
+                return new ConfiguredModelAlgorithmAssociation(name, <any>undefined, { urn })
             case "aws-native:cleanroomsml:TrainingDataset":
                 return new TrainingDataset(name, <any>undefined, { urn })
             default:

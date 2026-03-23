@@ -88,6 +88,10 @@ namespace Pulumi.AwsNative.Odb
         /// </summary>
         public readonly string? Domain;
         /// <summary>
+        /// The AWS Identity and Access Management (IAM) service roles associated with the VM cluster.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.CloudVmClusterIamRole> IamRoles;
+        /// <summary>
         /// The port number configured for the listener on the VM cluster.
         /// </summary>
         public readonly int? ListenerPort;
@@ -146,6 +150,8 @@ namespace Pulumi.AwsNative.Odb
 
             string? domain,
 
+            ImmutableArray<Outputs.CloudVmClusterIamRole> iamRoles,
+
             int? listenerPort,
 
             int? nodeCount,
@@ -174,6 +180,7 @@ namespace Pulumi.AwsNative.Odb
             DbNodes = dbNodes;
             DiskRedundancy = diskRedundancy;
             Domain = domain;
+            IamRoles = iamRoles;
             ListenerPort = listenerPort;
             NodeCount = nodeCount;
             OciResourceAnchorName = ociResourceAnchorName;

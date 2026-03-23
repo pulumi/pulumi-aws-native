@@ -13,6 +13,10 @@ __all__ = [
     'JobQueueJobStateTimeLimitActionAction',
     'JobQueueJobStateTimeLimitActionState',
     'JobQueueState',
+    'QuotaSharePreemptionConfigurationInSharePreemption',
+    'QuotaShareResourceSharingConfigurationStrategy',
+    'QuotaShareState',
+    'SchedulingPolicyQuotaSharePolicyIdleResourceAssignmentStrategy',
 ]
 
 
@@ -67,3 +71,36 @@ class JobQueueState(_builtins.str, Enum):
     """
     DISABLED = "DISABLED"
     ENABLED = "ENABLED"
+
+
+@pulumi.type_token("aws-native:batch:QuotaSharePreemptionConfigurationInSharePreemption")
+class QuotaSharePreemptionConfigurationInSharePreemption(_builtins.str, Enum):
+    """
+    Whether preemption is enabled within the quota share.
+    """
+    ENABLED = "ENABLED"
+    DISABLED = "DISABLED"
+
+
+@pulumi.type_token("aws-native:batch:QuotaShareResourceSharingConfigurationStrategy")
+class QuotaShareResourceSharingConfigurationStrategy(_builtins.str, Enum):
+    """
+    The resource sharing strategy.
+    """
+    RESERVE = "RESERVE"
+    LEND = "LEND"
+    LEND_AND_BORROW = "LEND_AND_BORROW"
+
+
+@pulumi.type_token("aws-native:batch:QuotaShareState")
+class QuotaShareState(_builtins.str, Enum):
+    """
+    The state of the quota share.
+    """
+    ENABLED = "ENABLED"
+    DISABLED = "DISABLED"
+
+
+@pulumi.type_token("aws-native:batch:SchedulingPolicyQuotaSharePolicyIdleResourceAssignmentStrategy")
+class SchedulingPolicyQuotaSharePolicyIdleResourceAssignmentStrategy(_builtins.str, Enum):
+    FIFO = "FIFO"

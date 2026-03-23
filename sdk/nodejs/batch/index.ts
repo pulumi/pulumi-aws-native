@@ -35,6 +35,11 @@ export const getJobQueue: typeof import("./getJobQueue").getJobQueue = null as a
 export const getJobQueueOutput: typeof import("./getJobQueue").getJobQueueOutput = null as any;
 utilities.lazyLoad(exports, ["getJobQueue","getJobQueueOutput"], () => require("./getJobQueue"));
 
+export { GetQuotaShareArgs, GetQuotaShareResult, GetQuotaShareOutputArgs } from "./getQuotaShare";
+export const getQuotaShare: typeof import("./getQuotaShare").getQuotaShare = null as any;
+export const getQuotaShareOutput: typeof import("./getQuotaShare").getQuotaShareOutput = null as any;
+utilities.lazyLoad(exports, ["getQuotaShare","getQuotaShareOutput"], () => require("./getQuotaShare"));
+
 export { GetSchedulingPolicyArgs, GetSchedulingPolicyResult, GetSchedulingPolicyOutputArgs } from "./getSchedulingPolicy";
 export const getSchedulingPolicy: typeof import("./getSchedulingPolicy").getSchedulingPolicy = null as any;
 export const getSchedulingPolicyOutput: typeof import("./getSchedulingPolicy").getSchedulingPolicyOutput = null as any;
@@ -54,6 +59,11 @@ export { JobQueueArgs } from "./jobQueue";
 export type JobQueue = import("./jobQueue").JobQueue;
 export const JobQueue: typeof import("./jobQueue").JobQueue = null as any;
 utilities.lazyLoad(exports, ["JobQueue"], () => require("./jobQueue"));
+
+export { QuotaShareArgs } from "./quotaShare";
+export type QuotaShare = import("./quotaShare").QuotaShare;
+export const QuotaShare: typeof import("./quotaShare").QuotaShare = null as any;
+utilities.lazyLoad(exports, ["QuotaShare"], () => require("./quotaShare"));
 
 export { SchedulingPolicyArgs } from "./schedulingPolicy";
 export type SchedulingPolicy = import("./schedulingPolicy").SchedulingPolicy;
@@ -81,6 +91,8 @@ const _module = {
                 return new JobDefinition(name, <any>undefined, { urn })
             case "aws-native:batch:JobQueue":
                 return new JobQueue(name, <any>undefined, { urn })
+            case "aws-native:batch:QuotaShare":
+                return new QuotaShare(name, <any>undefined, { urn })
             case "aws-native:batch:SchedulingPolicy":
                 return new SchedulingPolicy(name, <any>undefined, { urn })
             case "aws-native:batch:ServiceEnvironment":

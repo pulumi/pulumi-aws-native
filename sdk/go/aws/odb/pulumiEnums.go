@@ -1499,6 +1499,172 @@ func (in *cloudVmClusterLicenseModelPtr) ToCloudVmClusterLicenseModelPtrOutputWi
 	return pulumi.ToOutputWithContext(ctx, in).(CloudVmClusterLicenseModelPtrOutput)
 }
 
+// The AWS Key Management Service (KMS) access configuration for the ODB network.
+type OdbNetworkKmsAccess string
+
+const (
+	OdbNetworkKmsAccessEnabled  = OdbNetworkKmsAccess("ENABLED")
+	OdbNetworkKmsAccessDisabled = OdbNetworkKmsAccess("DISABLED")
+)
+
+func (OdbNetworkKmsAccess) ElementType() reflect.Type {
+	return reflect.TypeOf((*OdbNetworkKmsAccess)(nil)).Elem()
+}
+
+func (e OdbNetworkKmsAccess) ToOdbNetworkKmsAccessOutput() OdbNetworkKmsAccessOutput {
+	return pulumi.ToOutput(e).(OdbNetworkKmsAccessOutput)
+}
+
+func (e OdbNetworkKmsAccess) ToOdbNetworkKmsAccessOutputWithContext(ctx context.Context) OdbNetworkKmsAccessOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(OdbNetworkKmsAccessOutput)
+}
+
+func (e OdbNetworkKmsAccess) ToOdbNetworkKmsAccessPtrOutput() OdbNetworkKmsAccessPtrOutput {
+	return e.ToOdbNetworkKmsAccessPtrOutputWithContext(context.Background())
+}
+
+func (e OdbNetworkKmsAccess) ToOdbNetworkKmsAccessPtrOutputWithContext(ctx context.Context) OdbNetworkKmsAccessPtrOutput {
+	return OdbNetworkKmsAccess(e).ToOdbNetworkKmsAccessOutputWithContext(ctx).ToOdbNetworkKmsAccessPtrOutputWithContext(ctx)
+}
+
+func (e OdbNetworkKmsAccess) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e OdbNetworkKmsAccess) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e OdbNetworkKmsAccess) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e OdbNetworkKmsAccess) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type OdbNetworkKmsAccessOutput struct{ *pulumi.OutputState }
+
+func (OdbNetworkKmsAccessOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OdbNetworkKmsAccess)(nil)).Elem()
+}
+
+func (o OdbNetworkKmsAccessOutput) ToOdbNetworkKmsAccessOutput() OdbNetworkKmsAccessOutput {
+	return o
+}
+
+func (o OdbNetworkKmsAccessOutput) ToOdbNetworkKmsAccessOutputWithContext(ctx context.Context) OdbNetworkKmsAccessOutput {
+	return o
+}
+
+func (o OdbNetworkKmsAccessOutput) ToOdbNetworkKmsAccessPtrOutput() OdbNetworkKmsAccessPtrOutput {
+	return o.ToOdbNetworkKmsAccessPtrOutputWithContext(context.Background())
+}
+
+func (o OdbNetworkKmsAccessOutput) ToOdbNetworkKmsAccessPtrOutputWithContext(ctx context.Context) OdbNetworkKmsAccessPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OdbNetworkKmsAccess) *OdbNetworkKmsAccess {
+		return &v
+	}).(OdbNetworkKmsAccessPtrOutput)
+}
+
+func (o OdbNetworkKmsAccessOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o OdbNetworkKmsAccessOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e OdbNetworkKmsAccess) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o OdbNetworkKmsAccessOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o OdbNetworkKmsAccessOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e OdbNetworkKmsAccess) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type OdbNetworkKmsAccessPtrOutput struct{ *pulumi.OutputState }
+
+func (OdbNetworkKmsAccessPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OdbNetworkKmsAccess)(nil)).Elem()
+}
+
+func (o OdbNetworkKmsAccessPtrOutput) ToOdbNetworkKmsAccessPtrOutput() OdbNetworkKmsAccessPtrOutput {
+	return o
+}
+
+func (o OdbNetworkKmsAccessPtrOutput) ToOdbNetworkKmsAccessPtrOutputWithContext(ctx context.Context) OdbNetworkKmsAccessPtrOutput {
+	return o
+}
+
+func (o OdbNetworkKmsAccessPtrOutput) Elem() OdbNetworkKmsAccessOutput {
+	return o.ApplyT(func(v *OdbNetworkKmsAccess) OdbNetworkKmsAccess {
+		if v != nil {
+			return *v
+		}
+		var ret OdbNetworkKmsAccess
+		return ret
+	}).(OdbNetworkKmsAccessOutput)
+}
+
+func (o OdbNetworkKmsAccessPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o OdbNetworkKmsAccessPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *OdbNetworkKmsAccess) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// OdbNetworkKmsAccessInput is an input type that accepts values of the OdbNetworkKmsAccess enum
+// A concrete instance of `OdbNetworkKmsAccessInput` can be one of the following:
+//
+//	OdbNetworkKmsAccessEnabled
+//	OdbNetworkKmsAccessDisabled
+type OdbNetworkKmsAccessInput interface {
+	pulumi.Input
+
+	ToOdbNetworkKmsAccessOutput() OdbNetworkKmsAccessOutput
+	ToOdbNetworkKmsAccessOutputWithContext(context.Context) OdbNetworkKmsAccessOutput
+}
+
+var odbNetworkKmsAccessPtrType = reflect.TypeOf((**OdbNetworkKmsAccess)(nil)).Elem()
+
+type OdbNetworkKmsAccessPtrInput interface {
+	pulumi.Input
+
+	ToOdbNetworkKmsAccessPtrOutput() OdbNetworkKmsAccessPtrOutput
+	ToOdbNetworkKmsAccessPtrOutputWithContext(context.Context) OdbNetworkKmsAccessPtrOutput
+}
+
+type odbNetworkKmsAccessPtr string
+
+func OdbNetworkKmsAccessPtr(v string) OdbNetworkKmsAccessPtrInput {
+	return (*odbNetworkKmsAccessPtr)(&v)
+}
+
+func (*odbNetworkKmsAccessPtr) ElementType() reflect.Type {
+	return odbNetworkKmsAccessPtrType
+}
+
+func (in *odbNetworkKmsAccessPtr) ToOdbNetworkKmsAccessPtrOutput() OdbNetworkKmsAccessPtrOutput {
+	return pulumi.ToOutput(in).(OdbNetworkKmsAccessPtrOutput)
+}
+
+func (in *odbNetworkKmsAccessPtr) ToOdbNetworkKmsAccessPtrOutputWithContext(ctx context.Context) OdbNetworkKmsAccessPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(OdbNetworkKmsAccessPtrOutput)
+}
+
 // The status of the managed resource access.
 type OdbNetworkManagedResourceStatus string
 
@@ -1848,6 +2014,172 @@ func (in *odbNetworkS3AccessPtr) ToOdbNetworkS3AccessPtrOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, in).(OdbNetworkS3AccessPtrOutput)
 }
 
+// The AWS Security Token Service (STS) access configuration for the ODB network.
+type OdbNetworkStsAccess string
+
+const (
+	OdbNetworkStsAccessEnabled  = OdbNetworkStsAccess("ENABLED")
+	OdbNetworkStsAccessDisabled = OdbNetworkStsAccess("DISABLED")
+)
+
+func (OdbNetworkStsAccess) ElementType() reflect.Type {
+	return reflect.TypeOf((*OdbNetworkStsAccess)(nil)).Elem()
+}
+
+func (e OdbNetworkStsAccess) ToOdbNetworkStsAccessOutput() OdbNetworkStsAccessOutput {
+	return pulumi.ToOutput(e).(OdbNetworkStsAccessOutput)
+}
+
+func (e OdbNetworkStsAccess) ToOdbNetworkStsAccessOutputWithContext(ctx context.Context) OdbNetworkStsAccessOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(OdbNetworkStsAccessOutput)
+}
+
+func (e OdbNetworkStsAccess) ToOdbNetworkStsAccessPtrOutput() OdbNetworkStsAccessPtrOutput {
+	return e.ToOdbNetworkStsAccessPtrOutputWithContext(context.Background())
+}
+
+func (e OdbNetworkStsAccess) ToOdbNetworkStsAccessPtrOutputWithContext(ctx context.Context) OdbNetworkStsAccessPtrOutput {
+	return OdbNetworkStsAccess(e).ToOdbNetworkStsAccessOutputWithContext(ctx).ToOdbNetworkStsAccessPtrOutputWithContext(ctx)
+}
+
+func (e OdbNetworkStsAccess) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e OdbNetworkStsAccess) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e OdbNetworkStsAccess) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e OdbNetworkStsAccess) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type OdbNetworkStsAccessOutput struct{ *pulumi.OutputState }
+
+func (OdbNetworkStsAccessOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OdbNetworkStsAccess)(nil)).Elem()
+}
+
+func (o OdbNetworkStsAccessOutput) ToOdbNetworkStsAccessOutput() OdbNetworkStsAccessOutput {
+	return o
+}
+
+func (o OdbNetworkStsAccessOutput) ToOdbNetworkStsAccessOutputWithContext(ctx context.Context) OdbNetworkStsAccessOutput {
+	return o
+}
+
+func (o OdbNetworkStsAccessOutput) ToOdbNetworkStsAccessPtrOutput() OdbNetworkStsAccessPtrOutput {
+	return o.ToOdbNetworkStsAccessPtrOutputWithContext(context.Background())
+}
+
+func (o OdbNetworkStsAccessOutput) ToOdbNetworkStsAccessPtrOutputWithContext(ctx context.Context) OdbNetworkStsAccessPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OdbNetworkStsAccess) *OdbNetworkStsAccess {
+		return &v
+	}).(OdbNetworkStsAccessPtrOutput)
+}
+
+func (o OdbNetworkStsAccessOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o OdbNetworkStsAccessOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e OdbNetworkStsAccess) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o OdbNetworkStsAccessOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o OdbNetworkStsAccessOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e OdbNetworkStsAccess) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type OdbNetworkStsAccessPtrOutput struct{ *pulumi.OutputState }
+
+func (OdbNetworkStsAccessPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OdbNetworkStsAccess)(nil)).Elem()
+}
+
+func (o OdbNetworkStsAccessPtrOutput) ToOdbNetworkStsAccessPtrOutput() OdbNetworkStsAccessPtrOutput {
+	return o
+}
+
+func (o OdbNetworkStsAccessPtrOutput) ToOdbNetworkStsAccessPtrOutputWithContext(ctx context.Context) OdbNetworkStsAccessPtrOutput {
+	return o
+}
+
+func (o OdbNetworkStsAccessPtrOutput) Elem() OdbNetworkStsAccessOutput {
+	return o.ApplyT(func(v *OdbNetworkStsAccess) OdbNetworkStsAccess {
+		if v != nil {
+			return *v
+		}
+		var ret OdbNetworkStsAccess
+		return ret
+	}).(OdbNetworkStsAccessOutput)
+}
+
+func (o OdbNetworkStsAccessPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o OdbNetworkStsAccessPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *OdbNetworkStsAccess) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// OdbNetworkStsAccessInput is an input type that accepts values of the OdbNetworkStsAccess enum
+// A concrete instance of `OdbNetworkStsAccessInput` can be one of the following:
+//
+//	OdbNetworkStsAccessEnabled
+//	OdbNetworkStsAccessDisabled
+type OdbNetworkStsAccessInput interface {
+	pulumi.Input
+
+	ToOdbNetworkStsAccessOutput() OdbNetworkStsAccessOutput
+	ToOdbNetworkStsAccessOutputWithContext(context.Context) OdbNetworkStsAccessOutput
+}
+
+var odbNetworkStsAccessPtrType = reflect.TypeOf((**OdbNetworkStsAccess)(nil)).Elem()
+
+type OdbNetworkStsAccessPtrInput interface {
+	pulumi.Input
+
+	ToOdbNetworkStsAccessPtrOutput() OdbNetworkStsAccessPtrOutput
+	ToOdbNetworkStsAccessPtrOutputWithContext(context.Context) OdbNetworkStsAccessPtrOutput
+}
+
+type odbNetworkStsAccessPtr string
+
+func OdbNetworkStsAccessPtr(v string) OdbNetworkStsAccessPtrInput {
+	return (*odbNetworkStsAccessPtr)(&v)
+}
+
+func (*odbNetworkStsAccessPtr) ElementType() reflect.Type {
+	return odbNetworkStsAccessPtrType
+}
+
+func (in *odbNetworkStsAccessPtr) ToOdbNetworkStsAccessPtrOutput() OdbNetworkStsAccessPtrOutput {
+	return pulumi.ToOutput(in).(OdbNetworkStsAccessPtrOutput)
+}
+
+func (in *odbNetworkStsAccessPtr) ToOdbNetworkStsAccessPtrOutputWithContext(ctx context.Context) OdbNetworkStsAccessPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(OdbNetworkStsAccessPtrOutput)
+}
+
 // Specifies the configuration for Zero-ETL access from the ODB network.
 type OdbNetworkZeroEtlAccess string
 
@@ -2033,8 +2365,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CloudExadataInfrastructureMaintenanceWindowMonthsItemArrayInput)(nil)).Elem(), CloudExadataInfrastructureMaintenanceWindowMonthsItemArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CloudVmClusterLicenseModelInput)(nil)).Elem(), CloudVmClusterLicenseModel("BRING_YOUR_OWN_LICENSE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CloudVmClusterLicenseModelPtrInput)(nil)).Elem(), CloudVmClusterLicenseModel("BRING_YOUR_OWN_LICENSE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*OdbNetworkKmsAccessInput)(nil)).Elem(), OdbNetworkKmsAccess("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*OdbNetworkKmsAccessPtrInput)(nil)).Elem(), OdbNetworkKmsAccess("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*OdbNetworkS3AccessInput)(nil)).Elem(), OdbNetworkS3Access("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*OdbNetworkS3AccessPtrInput)(nil)).Elem(), OdbNetworkS3Access("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*OdbNetworkStsAccessInput)(nil)).Elem(), OdbNetworkStsAccess("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*OdbNetworkStsAccessPtrInput)(nil)).Elem(), OdbNetworkStsAccess("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*OdbNetworkZeroEtlAccessInput)(nil)).Elem(), OdbNetworkZeroEtlAccess("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*OdbNetworkZeroEtlAccessPtrInput)(nil)).Elem(), OdbNetworkZeroEtlAccess("ENABLED"))
 	pulumi.RegisterOutputType(CloudAutonomousVmClusterComputeModelOutput{})
@@ -2057,12 +2393,16 @@ func init() {
 	pulumi.RegisterOutputType(CloudExadataInfrastructureMaintenanceWindowMonthsItemArrayOutput{})
 	pulumi.RegisterOutputType(CloudVmClusterLicenseModelOutput{})
 	pulumi.RegisterOutputType(CloudVmClusterLicenseModelPtrOutput{})
+	pulumi.RegisterOutputType(OdbNetworkKmsAccessOutput{})
+	pulumi.RegisterOutputType(OdbNetworkKmsAccessPtrOutput{})
 	pulumi.RegisterOutputType(OdbNetworkManagedResourceStatusOutput{})
 	pulumi.RegisterOutputType(OdbNetworkManagedResourceStatusPtrOutput{})
 	pulumi.RegisterOutputType(OdbNetworkManagedServicesServiceNetworkEndpointPropertiesVpcEndpointTypeOutput{})
 	pulumi.RegisterOutputType(OdbNetworkManagedServicesServiceNetworkEndpointPropertiesVpcEndpointTypePtrOutput{})
 	pulumi.RegisterOutputType(OdbNetworkS3AccessOutput{})
 	pulumi.RegisterOutputType(OdbNetworkS3AccessPtrOutput{})
+	pulumi.RegisterOutputType(OdbNetworkStsAccessOutput{})
+	pulumi.RegisterOutputType(OdbNetworkStsAccessPtrOutput{})
 	pulumi.RegisterOutputType(OdbNetworkZeroEtlAccessOutput{})
 	pulumi.RegisterOutputType(OdbNetworkZeroEtlAccessPtrOutput{})
 }

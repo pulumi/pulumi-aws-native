@@ -78,6 +78,9 @@
     },
     "Tags" : {
       "type" : "object"
+    },
+    "InferenceSettings" : {
+      "$ref" : "#/definitions/InferenceSettings"
     }
   },
   "definitions" : {
@@ -2668,6 +2671,15 @@
           "type" : "integer"
         },
         "Convert608To708" : {
+          "type" : "string"
+        }
+      }
+    },
+    "InferenceSettings" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "FeedArn" : {
           "type" : "string"
         }
       }

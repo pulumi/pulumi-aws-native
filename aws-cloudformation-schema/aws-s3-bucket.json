@@ -29,6 +29,15 @@
       "description" : "A name for the bucket. If you don't specify a name, AWS CloudFormation generates a unique ID and uses that ID for the bucket name. The bucket name must contain only lowercase letters, numbers, periods (.), and dashes (-) and must follow [Amazon S3 bucket restrictions and limitations](https://docs.aws.amazon.com/AmazonS3/latest/dev/BucketRestrictions.html). For more information, see [Rules for naming Amazon S3 buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html) in the *Amazon S3 User Guide*. \n  If you specify a name, you can't perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you need to replace the resource, specify a new name.",
       "type" : "string"
     },
+    "BucketNamePrefix" : {
+      "description" : "",
+      "type" : "string"
+    },
+    "BucketNamespace" : {
+      "description" : "",
+      "type" : "string",
+      "enum" : [ "global", "account-regional" ]
+    },
     "CorsConfiguration" : {
       "$ref" : "#/definitions/CorsConfiguration",
       "description" : "Describes the cross-origin access configuration for objects in an Amazon S3 bucket. For more information, see [Enabling Cross-Origin Resource Sharing](https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html) in the *Amazon S3 User Guide*."
@@ -1612,10 +1621,10 @@
     "tagProperty" : "/properties/Tags",
     "permissions" : [ "s3:PutBucketTagging", "s3:GetBucketTagging", "s3:DeleteBucketTagging", "s3:TagResource", "s3:UntagResource", "s3:ListTagsForResource" ]
   },
-  "createOnlyProperties" : [ "/properties/BucketName" ],
+  "createOnlyProperties" : [ "/properties/BucketName", "/properties/BucketNamePrefix", "/properties/BucketNamespace" ],
   "primaryIdentifier" : [ "/properties/BucketName" ],
   "readOnlyProperties" : [ "/properties/Arn", "/properties/DomainName", "/properties/DualStackDomainName", "/properties/RegionalDomainName", "/properties/MetadataTableConfiguration/S3TablesDestination/TableNamespace", "/properties/MetadataTableConfiguration/S3TablesDestination/TableArn", "/properties/MetadataConfiguration/Destination", "/properties/MetadataConfiguration/JournalTableConfiguration/TableName", "/properties/MetadataConfiguration/JournalTableConfiguration/TableArn", "/properties/MetadataConfiguration/InventoryTableConfiguration/TableName", "/properties/MetadataConfiguration/InventoryTableConfiguration/TableArn", "/properties/WebsiteURL" ],
-  "writeOnlyProperties" : [ "/properties/AccessControl", "/properties/MetadataConfiguration/JournalTableConfiguration/EncryptionConfiguration", "/properties/MetadataConfiguration/InventoryTableConfiguration/EncryptionConfiguration", "/properties/LifecycleConfiguration/Rules/*/NoncurrentVersionExpirationInDays", "/properties/LifecycleConfiguration/Rules/*/NoncurrentVersionTransition", "/properties/LifecycleConfiguration/Rules/*/Transition", "/properties/ReplicationConfiguration/Rules/*/Prefix", "/properties/LifecycleConfiguration/Rules/*/ExpiredObjectDeleteMarker" ],
+  "writeOnlyProperties" : [ "/properties/AccessControl", "/properties/BucketNamePrefix", "/properties/BucketNamespace", "/properties/MetadataConfiguration/JournalTableConfiguration/EncryptionConfiguration", "/properties/MetadataConfiguration/InventoryTableConfiguration/EncryptionConfiguration", "/properties/LifecycleConfiguration/Rules/*/NoncurrentVersionExpirationInDays", "/properties/LifecycleConfiguration/Rules/*/NoncurrentVersionTransition", "/properties/LifecycleConfiguration/Rules/*/Transition", "/properties/ReplicationConfiguration/Rules/*/Prefix", "/properties/LifecycleConfiguration/Rules/*/ExpiredObjectDeleteMarker" ],
   "propertyTransform" : {
     "/properties/NotificationConfiguration/QueueConfigurations/*/Filter/S3Key/Rules/*/Name" : "$replace(Name, \"prefix\", \"Prefix\") $OR $replace(Name, \"suffix\", \"Suffix\")",
     "/properties/NotificationConfiguration/LambdaConfigurations/*/Filter/S3Key/Rules/*/Name" : "$replace(Name, \"prefix\", \"Prefix\") $OR $replace(Name, \"suffix\", \"Suffix\")",

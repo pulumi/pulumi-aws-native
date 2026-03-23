@@ -802,7 +802,9 @@ type Bucket struct {
 	BucketEncryption BucketEncryptionPtrOutput `pulumi:"bucketEncryption"`
 	// A name for the bucket. If you don't specify a name, AWS CloudFormation generates a unique ID and uses that ID for the bucket name. The bucket name must contain only lowercase letters, numbers, periods (.), and dashes (-) and must follow [Amazon S3 bucket restrictions and limitations](https://docs.aws.amazon.com/AmazonS3/latest/dev/BucketRestrictions.html). For more information, see [Rules for naming Amazon S3 buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html) in the *Amazon S3 User Guide*.
 	//   If you specify a name, you can't perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you need to replace the resource, specify a new name.
-	BucketName pulumi.StringPtrOutput `pulumi:"bucketName"`
+	BucketName       pulumi.StringPtrOutput   `pulumi:"bucketName"`
+	BucketNamePrefix pulumi.StringPtrOutput   `pulumi:"bucketNamePrefix"`
+	BucketNamespace  BucketNamespacePtrOutput `pulumi:"bucketNamespace"`
 	// Describes the cross-origin access configuration for objects in an Amazon S3 bucket. For more information, see [Enabling Cross-Origin Resource Sharing](https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html) in the *Amazon S3 User Guide*.
 	CorsConfiguration BucketCorsConfigurationPtrOutput `pulumi:"corsConfiguration"`
 	// Returns the IPv4 DNS name of the specified bucket.
@@ -876,6 +878,8 @@ func NewBucket(ctx *pulumi.Context,
 
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"bucketName",
+		"bucketNamePrefix",
+		"bucketNamespace",
 	})
 	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
@@ -926,7 +930,9 @@ type bucketArgs struct {
 	BucketEncryption *BucketEncryption `pulumi:"bucketEncryption"`
 	// A name for the bucket. If you don't specify a name, AWS CloudFormation generates a unique ID and uses that ID for the bucket name. The bucket name must contain only lowercase letters, numbers, periods (.), and dashes (-) and must follow [Amazon S3 bucket restrictions and limitations](https://docs.aws.amazon.com/AmazonS3/latest/dev/BucketRestrictions.html). For more information, see [Rules for naming Amazon S3 buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html) in the *Amazon S3 User Guide*.
 	//   If you specify a name, you can't perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you need to replace the resource, specify a new name.
-	BucketName *string `pulumi:"bucketName"`
+	BucketName       *string          `pulumi:"bucketName"`
+	BucketNamePrefix *string          `pulumi:"bucketNamePrefix"`
+	BucketNamespace  *BucketNamespace `pulumi:"bucketNamespace"`
 	// Describes the cross-origin access configuration for objects in an Amazon S3 bucket. For more information, see [Enabling Cross-Origin Resource Sharing](https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html) in the *Amazon S3 User Guide*.
 	CorsConfiguration *BucketCorsConfiguration `pulumi:"corsConfiguration"`
 	// Defines how Amazon S3 handles Intelligent-Tiering storage.
@@ -988,7 +994,9 @@ type BucketArgs struct {
 	BucketEncryption BucketEncryptionPtrInput
 	// A name for the bucket. If you don't specify a name, AWS CloudFormation generates a unique ID and uses that ID for the bucket name. The bucket name must contain only lowercase letters, numbers, periods (.), and dashes (-) and must follow [Amazon S3 bucket restrictions and limitations](https://docs.aws.amazon.com/AmazonS3/latest/dev/BucketRestrictions.html). For more information, see [Rules for naming Amazon S3 buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html) in the *Amazon S3 User Guide*.
 	//   If you specify a name, you can't perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you need to replace the resource, specify a new name.
-	BucketName pulumi.StringPtrInput
+	BucketName       pulumi.StringPtrInput
+	BucketNamePrefix pulumi.StringPtrInput
+	BucketNamespace  BucketNamespacePtrInput
 	// Describes the cross-origin access configuration for objects in an Amazon S3 bucket. For more information, see [Enabling Cross-Origin Resource Sharing](https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html) in the *Amazon S3 User Guide*.
 	CorsConfiguration BucketCorsConfigurationPtrInput
 	// Defines how Amazon S3 handles Intelligent-Tiering storage.
@@ -1111,6 +1119,14 @@ func (o BucketOutput) BucketEncryption() BucketEncryptionPtrOutput {
 //	If you specify a name, you can't perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you need to replace the resource, specify a new name.
 func (o BucketOutput) BucketName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Bucket) pulumi.StringPtrOutput { return v.BucketName }).(pulumi.StringPtrOutput)
+}
+
+func (o BucketOutput) BucketNamePrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Bucket) pulumi.StringPtrOutput { return v.BucketNamePrefix }).(pulumi.StringPtrOutput)
+}
+
+func (o BucketOutput) BucketNamespace() BucketNamespacePtrOutput {
+	return o.ApplyT(func(v *Bucket) BucketNamespacePtrOutput { return v.BucketNamespace }).(BucketNamespacePtrOutput)
 }
 
 // Describes the cross-origin access configuration for objects in an Amazon S3 bucket. For more information, see [Enabling Cross-Origin Resource Sharing](https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html) in the *Amazon S3 User Guide*.

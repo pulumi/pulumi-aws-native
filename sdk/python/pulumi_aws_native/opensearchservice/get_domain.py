@@ -26,7 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetDomainResult:
-    def __init__(__self__, access_policies=None, advanced_options=None, advanced_security_options=None, aiml_options=None, arn=None, cluster_config=None, cognito_options=None, domain_arn=None, domain_endpoint=None, domain_endpoint_options=None, domain_endpoint_v2=None, domain_endpoints=None, ebs_options=None, encryption_at_rest_options=None, engine_version=None, id=None, identity_center_options=None, ip_address_type=None, log_publishing_options=None, node_to_node_encryption_options=None, off_peak_window_options=None, service_software_options=None, skip_shard_migration_wait=None, snapshot_options=None, software_update_options=None, tags=None, vpc_options=None):
+    def __init__(__self__, access_policies=None, advanced_options=None, advanced_security_options=None, aiml_options=None, arn=None, cluster_config=None, cognito_options=None, deployment_strategy_options=None, domain_arn=None, domain_endpoint=None, domain_endpoint_options=None, domain_endpoint_v2=None, domain_endpoints=None, ebs_options=None, encryption_at_rest_options=None, engine_version=None, id=None, identity_center_options=None, ip_address_type=None, log_publishing_options=None, node_to_node_encryption_options=None, off_peak_window_options=None, service_software_options=None, skip_shard_migration_wait=None, snapshot_options=None, software_update_options=None, tags=None, vpc_options=None):
         if access_policies and not isinstance(access_policies, dict):
             raise TypeError("Expected argument 'access_policies' to be a dict")
         pulumi.set(__self__, "access_policies", access_policies)
@@ -48,6 +48,9 @@ class GetDomainResult:
         if cognito_options and not isinstance(cognito_options, dict):
             raise TypeError("Expected argument 'cognito_options' to be a dict")
         pulumi.set(__self__, "cognito_options", cognito_options)
+        if deployment_strategy_options and not isinstance(deployment_strategy_options, dict):
+            raise TypeError("Expected argument 'deployment_strategy_options' to be a dict")
+        pulumi.set(__self__, "deployment_strategy_options", deployment_strategy_options)
         if domain_arn and not isinstance(domain_arn, str):
             raise TypeError("Expected argument 'domain_arn' to be a str")
         pulumi.set(__self__, "domain_arn", domain_arn)
@@ -168,6 +171,11 @@ class GetDomainResult:
         Configures OpenSearch Service to use Amazon Cognito authentication for OpenSearch Dashboards.
         """
         return pulumi.get(self, "cognito_options")
+
+    @_builtins.property
+    @pulumi.getter(name="deploymentStrategyOptions")
+    def deployment_strategy_options(self) -> Optional['outputs.DomainDeploymentStrategyOptions']:
+        return pulumi.get(self, "deployment_strategy_options")
 
     @_builtins.property
     @pulumi.getter(name="domainArn")
@@ -340,6 +348,7 @@ class AwaitableGetDomainResult(GetDomainResult):
             arn=self.arn,
             cluster_config=self.cluster_config,
             cognito_options=self.cognito_options,
+            deployment_strategy_options=self.deployment_strategy_options,
             domain_arn=self.domain_arn,
             domain_endpoint=self.domain_endpoint,
             domain_endpoint_options=self.domain_endpoint_options,
@@ -387,6 +396,7 @@ def get_domain(domain_name: Optional[_builtins.str] = None,
         arn=pulumi.get(__ret__, 'arn'),
         cluster_config=pulumi.get(__ret__, 'cluster_config'),
         cognito_options=pulumi.get(__ret__, 'cognito_options'),
+        deployment_strategy_options=pulumi.get(__ret__, 'deployment_strategy_options'),
         domain_arn=pulumi.get(__ret__, 'domain_arn'),
         domain_endpoint=pulumi.get(__ret__, 'domain_endpoint'),
         domain_endpoint_options=pulumi.get(__ret__, 'domain_endpoint_options'),
@@ -431,6 +441,7 @@ def get_domain_output(domain_name: Optional[pulumi.Input[_builtins.str]] = None,
         arn=pulumi.get(__response__, 'arn'),
         cluster_config=pulumi.get(__response__, 'cluster_config'),
         cognito_options=pulumi.get(__response__, 'cognito_options'),
+        deployment_strategy_options=pulumi.get(__response__, 'deployment_strategy_options'),
         domain_arn=pulumi.get(__response__, 'domain_arn'),
         domain_endpoint=pulumi.get(__response__, 'domain_endpoint'),
         domain_endpoint_options=pulumi.get(__response__, 'domain_endpoint_options'),

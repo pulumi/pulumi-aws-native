@@ -17,6 +17,12 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'CatalogDataLakeAccessProperties',
+    'CatalogDataLakePrincipal',
+    'CatalogFederatedCatalog',
+    'CatalogPrincipalPermissions',
+    'CatalogProperties',
+    'CatalogTargetRedshiftCatalog',
     'CrawlerCatalogTarget',
     'CrawlerDeltaTarget',
     'CrawlerDynamoDbTarget',
@@ -53,6 +59,362 @@ __all__ = [
     'UsageProfileConfigurationObject',
     'UsageProfileProfileConfiguration',
 ]
+
+@pulumi.output_type
+class CatalogDataLakeAccessProperties(dict):
+    """
+    Data lake access properties for the catalog.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allowFullTableExternalDataAccess":
+            suggest = "allow_full_table_external_data_access"
+        elif key == "catalogType":
+            suggest = "catalog_type"
+        elif key == "dataLakeAccess":
+            suggest = "data_lake_access"
+        elif key == "dataTransferRole":
+            suggest = "data_transfer_role"
+        elif key == "kmsKey":
+            suggest = "kms_key"
+        elif key == "managedWorkgroupName":
+            suggest = "managed_workgroup_name"
+        elif key == "managedWorkgroupStatus":
+            suggest = "managed_workgroup_status"
+        elif key == "redshiftDatabaseName":
+            suggest = "redshift_database_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CatalogDataLakeAccessProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CatalogDataLakeAccessProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CatalogDataLakeAccessProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 allow_full_table_external_data_access: Optional['CatalogDataLakeAccessPropertiesAllowFullTableExternalDataAccess'] = None,
+                 catalog_type: Optional[_builtins.str] = None,
+                 data_lake_access: Optional[_builtins.bool] = None,
+                 data_transfer_role: Optional[_builtins.str] = None,
+                 kms_key: Optional[_builtins.str] = None,
+                 managed_workgroup_name: Optional[_builtins.str] = None,
+                 managed_workgroup_status: Optional[_builtins.str] = None,
+                 redshift_database_name: Optional[_builtins.str] = None):
+        """
+        Data lake access properties for the catalog.
+
+        :param 'CatalogDataLakeAccessPropertiesAllowFullTableExternalDataAccess' allow_full_table_external_data_access: Allows third-party engines to access data in Amazon S3 locations that are registered with Lake Formation.
+        :param _builtins.str catalog_type: Specifies a federated catalog type for the native catalog resource.
+        :param _builtins.bool data_lake_access: Turns on or off data lake access for Apache Spark applications that access Amazon Redshift databases in the Data Catalog from any non-Redshift engine.
+        :param _builtins.str data_transfer_role: A role that will be assumed by Glue for transferring data into/out of the staging bucket during a query.
+        :param _builtins.str kms_key: An encryption key that will be used for the staging bucket that will be created along with the catalog.
+        :param _builtins.str managed_workgroup_name: The name of the managed workgroup associated with the catalog.
+        :param _builtins.str managed_workgroup_status: The status of the managed workgroup.
+        :param _builtins.str redshift_database_name: The name of the Redshift database.
+        """
+        if allow_full_table_external_data_access is not None:
+            pulumi.set(__self__, "allow_full_table_external_data_access", allow_full_table_external_data_access)
+        if catalog_type is not None:
+            pulumi.set(__self__, "catalog_type", catalog_type)
+        if data_lake_access is not None:
+            pulumi.set(__self__, "data_lake_access", data_lake_access)
+        if data_transfer_role is not None:
+            pulumi.set(__self__, "data_transfer_role", data_transfer_role)
+        if kms_key is not None:
+            pulumi.set(__self__, "kms_key", kms_key)
+        if managed_workgroup_name is not None:
+            pulumi.set(__self__, "managed_workgroup_name", managed_workgroup_name)
+        if managed_workgroup_status is not None:
+            pulumi.set(__self__, "managed_workgroup_status", managed_workgroup_status)
+        if redshift_database_name is not None:
+            pulumi.set(__self__, "redshift_database_name", redshift_database_name)
+
+    @_builtins.property
+    @pulumi.getter(name="allowFullTableExternalDataAccess")
+    def allow_full_table_external_data_access(self) -> Optional['CatalogDataLakeAccessPropertiesAllowFullTableExternalDataAccess']:
+        """
+        Allows third-party engines to access data in Amazon S3 locations that are registered with Lake Formation.
+        """
+        return pulumi.get(self, "allow_full_table_external_data_access")
+
+    @_builtins.property
+    @pulumi.getter(name="catalogType")
+    def catalog_type(self) -> Optional[_builtins.str]:
+        """
+        Specifies a federated catalog type for the native catalog resource.
+        """
+        return pulumi.get(self, "catalog_type")
+
+    @_builtins.property
+    @pulumi.getter(name="dataLakeAccess")
+    def data_lake_access(self) -> Optional[_builtins.bool]:
+        """
+        Turns on or off data lake access for Apache Spark applications that access Amazon Redshift databases in the Data Catalog from any non-Redshift engine.
+        """
+        return pulumi.get(self, "data_lake_access")
+
+    @_builtins.property
+    @pulumi.getter(name="dataTransferRole")
+    def data_transfer_role(self) -> Optional[_builtins.str]:
+        """
+        A role that will be assumed by Glue for transferring data into/out of the staging bucket during a query.
+        """
+        return pulumi.get(self, "data_transfer_role")
+
+    @_builtins.property
+    @pulumi.getter(name="kmsKey")
+    def kms_key(self) -> Optional[_builtins.str]:
+        """
+        An encryption key that will be used for the staging bucket that will be created along with the catalog.
+        """
+        return pulumi.get(self, "kms_key")
+
+    @_builtins.property
+    @pulumi.getter(name="managedWorkgroupName")
+    def managed_workgroup_name(self) -> Optional[_builtins.str]:
+        """
+        The name of the managed workgroup associated with the catalog.
+        """
+        return pulumi.get(self, "managed_workgroup_name")
+
+    @_builtins.property
+    @pulumi.getter(name="managedWorkgroupStatus")
+    def managed_workgroup_status(self) -> Optional[_builtins.str]:
+        """
+        The status of the managed workgroup.
+        """
+        return pulumi.get(self, "managed_workgroup_status")
+
+    @_builtins.property
+    @pulumi.getter(name="redshiftDatabaseName")
+    def redshift_database_name(self) -> Optional[_builtins.str]:
+        """
+        The name of the Redshift database.
+        """
+        return pulumi.get(self, "redshift_database_name")
+
+
+@pulumi.output_type
+class CatalogDataLakePrincipal(dict):
+    """
+    The Lake Formation principal.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataLakePrincipalIdentifier":
+            suggest = "data_lake_principal_identifier"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CatalogDataLakePrincipal. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CatalogDataLakePrincipal.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CatalogDataLakePrincipal.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 data_lake_principal_identifier: Optional[_builtins.str] = None):
+        """
+        The Lake Formation principal.
+
+        :param _builtins.str data_lake_principal_identifier: An identifier for the Lake Formation principal.
+        """
+        if data_lake_principal_identifier is not None:
+            pulumi.set(__self__, "data_lake_principal_identifier", data_lake_principal_identifier)
+
+    @_builtins.property
+    @pulumi.getter(name="dataLakePrincipalIdentifier")
+    def data_lake_principal_identifier(self) -> Optional[_builtins.str]:
+        """
+        An identifier for the Lake Formation principal.
+        """
+        return pulumi.get(self, "data_lake_principal_identifier")
+
+
+@pulumi.output_type
+class CatalogFederatedCatalog(dict):
+    """
+    A FederatedCatalog structure that references an entity outside the Glue Data Catalog.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "connectionName":
+            suggest = "connection_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CatalogFederatedCatalog. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CatalogFederatedCatalog.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CatalogFederatedCatalog.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 connection_name: Optional[_builtins.str] = None,
+                 identifier: Optional[_builtins.str] = None):
+        """
+        A FederatedCatalog structure that references an entity outside the Glue Data Catalog.
+
+        :param _builtins.str connection_name: The name of the connection to an external data source.
+        :param _builtins.str identifier: A unique identifier for the federated catalog.
+        """
+        if connection_name is not None:
+            pulumi.set(__self__, "connection_name", connection_name)
+        if identifier is not None:
+            pulumi.set(__self__, "identifier", identifier)
+
+    @_builtins.property
+    @pulumi.getter(name="connectionName")
+    def connection_name(self) -> Optional[_builtins.str]:
+        """
+        The name of the connection to an external data source.
+        """
+        return pulumi.get(self, "connection_name")
+
+    @_builtins.property
+    @pulumi.getter
+    def identifier(self) -> Optional[_builtins.str]:
+        """
+        A unique identifier for the federated catalog.
+        """
+        return pulumi.get(self, "identifier")
+
+
+@pulumi.output_type
+class CatalogPrincipalPermissions(dict):
+    """
+    Permissions granted to a principal.
+    """
+    def __init__(__self__, *,
+                 permissions: Optional[Sequence['CatalogPrincipalPermissionsPermissionsItem']] = None,
+                 principal: Optional['outputs.CatalogDataLakePrincipal'] = None):
+        """
+        Permissions granted to a principal.
+
+        :param Sequence['CatalogPrincipalPermissionsPermissionsItem'] permissions: The permissions that are granted to the principal.
+        """
+        if permissions is not None:
+            pulumi.set(__self__, "permissions", permissions)
+        if principal is not None:
+            pulumi.set(__self__, "principal", principal)
+
+    @_builtins.property
+    @pulumi.getter
+    def permissions(self) -> Optional[Sequence['CatalogPrincipalPermissionsPermissionsItem']]:
+        """
+        The permissions that are granted to the principal.
+        """
+        return pulumi.get(self, "permissions")
+
+    @_builtins.property
+    @pulumi.getter
+    def principal(self) -> Optional['outputs.CatalogDataLakePrincipal']:
+        return pulumi.get(self, "principal")
+
+
+@pulumi.output_type
+class CatalogProperties(dict):
+    """
+    A structure that specifies data lake access properties and other custom properties.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "customProperties":
+            suggest = "custom_properties"
+        elif key == "dataLakeAccessProperties":
+            suggest = "data_lake_access_properties"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CatalogProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CatalogProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CatalogProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 custom_properties: Optional[Mapping[str, _builtins.str]] = None,
+                 data_lake_access_properties: Optional['outputs.CatalogDataLakeAccessProperties'] = None):
+        """
+        A structure that specifies data lake access properties and other custom properties.
+
+        :param Mapping[str, _builtins.str] custom_properties: Additional key-value properties for the catalog.
+        """
+        if custom_properties is not None:
+            pulumi.set(__self__, "custom_properties", custom_properties)
+        if data_lake_access_properties is not None:
+            pulumi.set(__self__, "data_lake_access_properties", data_lake_access_properties)
+
+    @_builtins.property
+    @pulumi.getter(name="customProperties")
+    def custom_properties(self) -> Optional[Mapping[str, _builtins.str]]:
+        """
+        Additional key-value properties for the catalog.
+        """
+        return pulumi.get(self, "custom_properties")
+
+    @_builtins.property
+    @pulumi.getter(name="dataLakeAccessProperties")
+    def data_lake_access_properties(self) -> Optional['outputs.CatalogDataLakeAccessProperties']:
+        return pulumi.get(self, "data_lake_access_properties")
+
+
+@pulumi.output_type
+class CatalogTargetRedshiftCatalog(dict):
+    """
+    A structure that describes a target catalog for resource linking.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "catalogArn":
+            suggest = "catalog_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CatalogTargetRedshiftCatalog. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CatalogTargetRedshiftCatalog.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CatalogTargetRedshiftCatalog.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 catalog_arn: _builtins.str):
+        """
+        A structure that describes a target catalog for resource linking.
+
+        :param _builtins.str catalog_arn: The Amazon Resource Name (ARN) of the catalog resource.
+        """
+        pulumi.set(__self__, "catalog_arn", catalog_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="catalogArn")
+    def catalog_arn(self) -> _builtins.str:
+        """
+        The Amazon Resource Name (ARN) of the catalog resource.
+        """
+        return pulumi.get(self, "catalog_arn")
+
 
 @pulumi.output_type
 class CrawlerCatalogTarget(dict):

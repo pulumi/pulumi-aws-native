@@ -106,7 +106,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     declare public readonly deferMaintenance: pulumi.Output<boolean | undefined>;
     /**
-     * An integer indicating the duration of the maintenance window in days. If you specify a duration, you can't specify an end time. The duration must be 45 days or less.
+     * An integer indicating the duration of the maintenance window in days. If you specify a duration, you can't specify an end time. The duration must be 60 days or less.
      */
     declare public readonly deferMaintenanceDuration: pulumi.Output<number | undefined>;
     /**
@@ -485,7 +485,7 @@ export interface ClusterArgs {
      */
     deferMaintenance?: pulumi.Input<boolean>;
     /**
-     * An integer indicating the duration of the maintenance window in days. If you specify a duration, you can't specify an end time. The duration must be 45 days or less.
+     * An integer indicating the duration of the maintenance window in days. If you specify a duration, you can't specify an end time. The duration must be 60 days or less.
      */
     deferMaintenanceDuration?: pulumi.Input<number>;
     /**

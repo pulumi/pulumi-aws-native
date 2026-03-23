@@ -29,6 +29,7 @@ export interface GetFarmResult {
      * The Amazon Resource Name (ARN) assigned to the farm.
      */
     readonly arn?: string;
+    readonly costScaleFactor?: number;
     /**
      * A description of the farm that helps identify what the farm is used for.
      *

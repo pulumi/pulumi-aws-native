@@ -61,6 +61,7 @@ export interface GetDomainResult {
      * Configures OpenSearch Service to use Amazon Cognito authentication for OpenSearch Dashboards.
      */
     readonly cognitoOptions?: outputs.opensearchservice.DomainCognitoOptions;
+    readonly deploymentStrategyOptions?: outputs.opensearchservice.DomainDeploymentStrategyOptions;
     /**
      * The Amazon Resource Name (ARN) of the domain. See [Identifiers for IAM Entities](https://docs.aws.amazon.com/IAM/latest/UserGuide/index.html) in *Using AWS Identity and Access Management* for more information.
      */

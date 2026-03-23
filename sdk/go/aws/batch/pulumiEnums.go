@@ -1004,6 +1004,669 @@ func (in *jobQueueStateEnumPtr) ToJobQueueStateEnumPtrOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, in).(JobQueueStateEnumPtrOutput)
 }
 
+// Whether preemption is enabled within the quota share.
+type QuotaSharePreemptionConfigurationInSharePreemption string
+
+const (
+	QuotaSharePreemptionConfigurationInSharePreemptionEnabled  = QuotaSharePreemptionConfigurationInSharePreemption("ENABLED")
+	QuotaSharePreemptionConfigurationInSharePreemptionDisabled = QuotaSharePreemptionConfigurationInSharePreemption("DISABLED")
+)
+
+func (QuotaSharePreemptionConfigurationInSharePreemption) ElementType() reflect.Type {
+	return reflect.TypeOf((*QuotaSharePreemptionConfigurationInSharePreemption)(nil)).Elem()
+}
+
+func (e QuotaSharePreemptionConfigurationInSharePreemption) ToQuotaSharePreemptionConfigurationInSharePreemptionOutput() QuotaSharePreemptionConfigurationInSharePreemptionOutput {
+	return pulumi.ToOutput(e).(QuotaSharePreemptionConfigurationInSharePreemptionOutput)
+}
+
+func (e QuotaSharePreemptionConfigurationInSharePreemption) ToQuotaSharePreemptionConfigurationInSharePreemptionOutputWithContext(ctx context.Context) QuotaSharePreemptionConfigurationInSharePreemptionOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(QuotaSharePreemptionConfigurationInSharePreemptionOutput)
+}
+
+func (e QuotaSharePreemptionConfigurationInSharePreemption) ToQuotaSharePreemptionConfigurationInSharePreemptionPtrOutput() QuotaSharePreemptionConfigurationInSharePreemptionPtrOutput {
+	return e.ToQuotaSharePreemptionConfigurationInSharePreemptionPtrOutputWithContext(context.Background())
+}
+
+func (e QuotaSharePreemptionConfigurationInSharePreemption) ToQuotaSharePreemptionConfigurationInSharePreemptionPtrOutputWithContext(ctx context.Context) QuotaSharePreemptionConfigurationInSharePreemptionPtrOutput {
+	return QuotaSharePreemptionConfigurationInSharePreemption(e).ToQuotaSharePreemptionConfigurationInSharePreemptionOutputWithContext(ctx).ToQuotaSharePreemptionConfigurationInSharePreemptionPtrOutputWithContext(ctx)
+}
+
+func (e QuotaSharePreemptionConfigurationInSharePreemption) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e QuotaSharePreemptionConfigurationInSharePreemption) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e QuotaSharePreemptionConfigurationInSharePreemption) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e QuotaSharePreemptionConfigurationInSharePreemption) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type QuotaSharePreemptionConfigurationInSharePreemptionOutput struct{ *pulumi.OutputState }
+
+func (QuotaSharePreemptionConfigurationInSharePreemptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*QuotaSharePreemptionConfigurationInSharePreemption)(nil)).Elem()
+}
+
+func (o QuotaSharePreemptionConfigurationInSharePreemptionOutput) ToQuotaSharePreemptionConfigurationInSharePreemptionOutput() QuotaSharePreemptionConfigurationInSharePreemptionOutput {
+	return o
+}
+
+func (o QuotaSharePreemptionConfigurationInSharePreemptionOutput) ToQuotaSharePreemptionConfigurationInSharePreemptionOutputWithContext(ctx context.Context) QuotaSharePreemptionConfigurationInSharePreemptionOutput {
+	return o
+}
+
+func (o QuotaSharePreemptionConfigurationInSharePreemptionOutput) ToQuotaSharePreemptionConfigurationInSharePreemptionPtrOutput() QuotaSharePreemptionConfigurationInSharePreemptionPtrOutput {
+	return o.ToQuotaSharePreemptionConfigurationInSharePreemptionPtrOutputWithContext(context.Background())
+}
+
+func (o QuotaSharePreemptionConfigurationInSharePreemptionOutput) ToQuotaSharePreemptionConfigurationInSharePreemptionPtrOutputWithContext(ctx context.Context) QuotaSharePreemptionConfigurationInSharePreemptionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v QuotaSharePreemptionConfigurationInSharePreemption) *QuotaSharePreemptionConfigurationInSharePreemption {
+		return &v
+	}).(QuotaSharePreemptionConfigurationInSharePreemptionPtrOutput)
+}
+
+func (o QuotaSharePreemptionConfigurationInSharePreemptionOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o QuotaSharePreemptionConfigurationInSharePreemptionOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e QuotaSharePreemptionConfigurationInSharePreemption) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o QuotaSharePreemptionConfigurationInSharePreemptionOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o QuotaSharePreemptionConfigurationInSharePreemptionOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e QuotaSharePreemptionConfigurationInSharePreemption) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type QuotaSharePreemptionConfigurationInSharePreemptionPtrOutput struct{ *pulumi.OutputState }
+
+func (QuotaSharePreemptionConfigurationInSharePreemptionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**QuotaSharePreemptionConfigurationInSharePreemption)(nil)).Elem()
+}
+
+func (o QuotaSharePreemptionConfigurationInSharePreemptionPtrOutput) ToQuotaSharePreemptionConfigurationInSharePreemptionPtrOutput() QuotaSharePreemptionConfigurationInSharePreemptionPtrOutput {
+	return o
+}
+
+func (o QuotaSharePreemptionConfigurationInSharePreemptionPtrOutput) ToQuotaSharePreemptionConfigurationInSharePreemptionPtrOutputWithContext(ctx context.Context) QuotaSharePreemptionConfigurationInSharePreemptionPtrOutput {
+	return o
+}
+
+func (o QuotaSharePreemptionConfigurationInSharePreemptionPtrOutput) Elem() QuotaSharePreemptionConfigurationInSharePreemptionOutput {
+	return o.ApplyT(func(v *QuotaSharePreemptionConfigurationInSharePreemption) QuotaSharePreemptionConfigurationInSharePreemption {
+		if v != nil {
+			return *v
+		}
+		var ret QuotaSharePreemptionConfigurationInSharePreemption
+		return ret
+	}).(QuotaSharePreemptionConfigurationInSharePreemptionOutput)
+}
+
+func (o QuotaSharePreemptionConfigurationInSharePreemptionPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o QuotaSharePreemptionConfigurationInSharePreemptionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *QuotaSharePreemptionConfigurationInSharePreemption) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// QuotaSharePreemptionConfigurationInSharePreemptionInput is an input type that accepts values of the QuotaSharePreemptionConfigurationInSharePreemption enum
+// A concrete instance of `QuotaSharePreemptionConfigurationInSharePreemptionInput` can be one of the following:
+//
+//	QuotaSharePreemptionConfigurationInSharePreemptionEnabled
+//	QuotaSharePreemptionConfigurationInSharePreemptionDisabled
+type QuotaSharePreemptionConfigurationInSharePreemptionInput interface {
+	pulumi.Input
+
+	ToQuotaSharePreemptionConfigurationInSharePreemptionOutput() QuotaSharePreemptionConfigurationInSharePreemptionOutput
+	ToQuotaSharePreemptionConfigurationInSharePreemptionOutputWithContext(context.Context) QuotaSharePreemptionConfigurationInSharePreemptionOutput
+}
+
+var quotaSharePreemptionConfigurationInSharePreemptionPtrType = reflect.TypeOf((**QuotaSharePreemptionConfigurationInSharePreemption)(nil)).Elem()
+
+type QuotaSharePreemptionConfigurationInSharePreemptionPtrInput interface {
+	pulumi.Input
+
+	ToQuotaSharePreemptionConfigurationInSharePreemptionPtrOutput() QuotaSharePreemptionConfigurationInSharePreemptionPtrOutput
+	ToQuotaSharePreemptionConfigurationInSharePreemptionPtrOutputWithContext(context.Context) QuotaSharePreemptionConfigurationInSharePreemptionPtrOutput
+}
+
+type quotaSharePreemptionConfigurationInSharePreemptionPtr string
+
+func QuotaSharePreemptionConfigurationInSharePreemptionPtr(v string) QuotaSharePreemptionConfigurationInSharePreemptionPtrInput {
+	return (*quotaSharePreemptionConfigurationInSharePreemptionPtr)(&v)
+}
+
+func (*quotaSharePreemptionConfigurationInSharePreemptionPtr) ElementType() reflect.Type {
+	return quotaSharePreemptionConfigurationInSharePreemptionPtrType
+}
+
+func (in *quotaSharePreemptionConfigurationInSharePreemptionPtr) ToQuotaSharePreemptionConfigurationInSharePreemptionPtrOutput() QuotaSharePreemptionConfigurationInSharePreemptionPtrOutput {
+	return pulumi.ToOutput(in).(QuotaSharePreemptionConfigurationInSharePreemptionPtrOutput)
+}
+
+func (in *quotaSharePreemptionConfigurationInSharePreemptionPtr) ToQuotaSharePreemptionConfigurationInSharePreemptionPtrOutputWithContext(ctx context.Context) QuotaSharePreemptionConfigurationInSharePreemptionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(QuotaSharePreemptionConfigurationInSharePreemptionPtrOutput)
+}
+
+// The resource sharing strategy.
+type QuotaShareResourceSharingConfigurationStrategy string
+
+const (
+	QuotaShareResourceSharingConfigurationStrategyReserve       = QuotaShareResourceSharingConfigurationStrategy("RESERVE")
+	QuotaShareResourceSharingConfigurationStrategyLend          = QuotaShareResourceSharingConfigurationStrategy("LEND")
+	QuotaShareResourceSharingConfigurationStrategyLendAndBorrow = QuotaShareResourceSharingConfigurationStrategy("LEND_AND_BORROW")
+)
+
+func (QuotaShareResourceSharingConfigurationStrategy) ElementType() reflect.Type {
+	return reflect.TypeOf((*QuotaShareResourceSharingConfigurationStrategy)(nil)).Elem()
+}
+
+func (e QuotaShareResourceSharingConfigurationStrategy) ToQuotaShareResourceSharingConfigurationStrategyOutput() QuotaShareResourceSharingConfigurationStrategyOutput {
+	return pulumi.ToOutput(e).(QuotaShareResourceSharingConfigurationStrategyOutput)
+}
+
+func (e QuotaShareResourceSharingConfigurationStrategy) ToQuotaShareResourceSharingConfigurationStrategyOutputWithContext(ctx context.Context) QuotaShareResourceSharingConfigurationStrategyOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(QuotaShareResourceSharingConfigurationStrategyOutput)
+}
+
+func (e QuotaShareResourceSharingConfigurationStrategy) ToQuotaShareResourceSharingConfigurationStrategyPtrOutput() QuotaShareResourceSharingConfigurationStrategyPtrOutput {
+	return e.ToQuotaShareResourceSharingConfigurationStrategyPtrOutputWithContext(context.Background())
+}
+
+func (e QuotaShareResourceSharingConfigurationStrategy) ToQuotaShareResourceSharingConfigurationStrategyPtrOutputWithContext(ctx context.Context) QuotaShareResourceSharingConfigurationStrategyPtrOutput {
+	return QuotaShareResourceSharingConfigurationStrategy(e).ToQuotaShareResourceSharingConfigurationStrategyOutputWithContext(ctx).ToQuotaShareResourceSharingConfigurationStrategyPtrOutputWithContext(ctx)
+}
+
+func (e QuotaShareResourceSharingConfigurationStrategy) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e QuotaShareResourceSharingConfigurationStrategy) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e QuotaShareResourceSharingConfigurationStrategy) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e QuotaShareResourceSharingConfigurationStrategy) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type QuotaShareResourceSharingConfigurationStrategyOutput struct{ *pulumi.OutputState }
+
+func (QuotaShareResourceSharingConfigurationStrategyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*QuotaShareResourceSharingConfigurationStrategy)(nil)).Elem()
+}
+
+func (o QuotaShareResourceSharingConfigurationStrategyOutput) ToQuotaShareResourceSharingConfigurationStrategyOutput() QuotaShareResourceSharingConfigurationStrategyOutput {
+	return o
+}
+
+func (o QuotaShareResourceSharingConfigurationStrategyOutput) ToQuotaShareResourceSharingConfigurationStrategyOutputWithContext(ctx context.Context) QuotaShareResourceSharingConfigurationStrategyOutput {
+	return o
+}
+
+func (o QuotaShareResourceSharingConfigurationStrategyOutput) ToQuotaShareResourceSharingConfigurationStrategyPtrOutput() QuotaShareResourceSharingConfigurationStrategyPtrOutput {
+	return o.ToQuotaShareResourceSharingConfigurationStrategyPtrOutputWithContext(context.Background())
+}
+
+func (o QuotaShareResourceSharingConfigurationStrategyOutput) ToQuotaShareResourceSharingConfigurationStrategyPtrOutputWithContext(ctx context.Context) QuotaShareResourceSharingConfigurationStrategyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v QuotaShareResourceSharingConfigurationStrategy) *QuotaShareResourceSharingConfigurationStrategy {
+		return &v
+	}).(QuotaShareResourceSharingConfigurationStrategyPtrOutput)
+}
+
+func (o QuotaShareResourceSharingConfigurationStrategyOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o QuotaShareResourceSharingConfigurationStrategyOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e QuotaShareResourceSharingConfigurationStrategy) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o QuotaShareResourceSharingConfigurationStrategyOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o QuotaShareResourceSharingConfigurationStrategyOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e QuotaShareResourceSharingConfigurationStrategy) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type QuotaShareResourceSharingConfigurationStrategyPtrOutput struct{ *pulumi.OutputState }
+
+func (QuotaShareResourceSharingConfigurationStrategyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**QuotaShareResourceSharingConfigurationStrategy)(nil)).Elem()
+}
+
+func (o QuotaShareResourceSharingConfigurationStrategyPtrOutput) ToQuotaShareResourceSharingConfigurationStrategyPtrOutput() QuotaShareResourceSharingConfigurationStrategyPtrOutput {
+	return o
+}
+
+func (o QuotaShareResourceSharingConfigurationStrategyPtrOutput) ToQuotaShareResourceSharingConfigurationStrategyPtrOutputWithContext(ctx context.Context) QuotaShareResourceSharingConfigurationStrategyPtrOutput {
+	return o
+}
+
+func (o QuotaShareResourceSharingConfigurationStrategyPtrOutput) Elem() QuotaShareResourceSharingConfigurationStrategyOutput {
+	return o.ApplyT(func(v *QuotaShareResourceSharingConfigurationStrategy) QuotaShareResourceSharingConfigurationStrategy {
+		if v != nil {
+			return *v
+		}
+		var ret QuotaShareResourceSharingConfigurationStrategy
+		return ret
+	}).(QuotaShareResourceSharingConfigurationStrategyOutput)
+}
+
+func (o QuotaShareResourceSharingConfigurationStrategyPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o QuotaShareResourceSharingConfigurationStrategyPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *QuotaShareResourceSharingConfigurationStrategy) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// QuotaShareResourceSharingConfigurationStrategyInput is an input type that accepts values of the QuotaShareResourceSharingConfigurationStrategy enum
+// A concrete instance of `QuotaShareResourceSharingConfigurationStrategyInput` can be one of the following:
+//
+//	QuotaShareResourceSharingConfigurationStrategyReserve
+//	QuotaShareResourceSharingConfigurationStrategyLend
+//	QuotaShareResourceSharingConfigurationStrategyLendAndBorrow
+type QuotaShareResourceSharingConfigurationStrategyInput interface {
+	pulumi.Input
+
+	ToQuotaShareResourceSharingConfigurationStrategyOutput() QuotaShareResourceSharingConfigurationStrategyOutput
+	ToQuotaShareResourceSharingConfigurationStrategyOutputWithContext(context.Context) QuotaShareResourceSharingConfigurationStrategyOutput
+}
+
+var quotaShareResourceSharingConfigurationStrategyPtrType = reflect.TypeOf((**QuotaShareResourceSharingConfigurationStrategy)(nil)).Elem()
+
+type QuotaShareResourceSharingConfigurationStrategyPtrInput interface {
+	pulumi.Input
+
+	ToQuotaShareResourceSharingConfigurationStrategyPtrOutput() QuotaShareResourceSharingConfigurationStrategyPtrOutput
+	ToQuotaShareResourceSharingConfigurationStrategyPtrOutputWithContext(context.Context) QuotaShareResourceSharingConfigurationStrategyPtrOutput
+}
+
+type quotaShareResourceSharingConfigurationStrategyPtr string
+
+func QuotaShareResourceSharingConfigurationStrategyPtr(v string) QuotaShareResourceSharingConfigurationStrategyPtrInput {
+	return (*quotaShareResourceSharingConfigurationStrategyPtr)(&v)
+}
+
+func (*quotaShareResourceSharingConfigurationStrategyPtr) ElementType() reflect.Type {
+	return quotaShareResourceSharingConfigurationStrategyPtrType
+}
+
+func (in *quotaShareResourceSharingConfigurationStrategyPtr) ToQuotaShareResourceSharingConfigurationStrategyPtrOutput() QuotaShareResourceSharingConfigurationStrategyPtrOutput {
+	return pulumi.ToOutput(in).(QuotaShareResourceSharingConfigurationStrategyPtrOutput)
+}
+
+func (in *quotaShareResourceSharingConfigurationStrategyPtr) ToQuotaShareResourceSharingConfigurationStrategyPtrOutputWithContext(ctx context.Context) QuotaShareResourceSharingConfigurationStrategyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(QuotaShareResourceSharingConfigurationStrategyPtrOutput)
+}
+
+// The state of the quota share.
+type QuotaShareStateEnum string
+
+const (
+	QuotaShareStateEnumEnabled  = QuotaShareStateEnum("ENABLED")
+	QuotaShareStateEnumDisabled = QuotaShareStateEnum("DISABLED")
+)
+
+func (QuotaShareStateEnum) ElementType() reflect.Type {
+	return reflect.TypeOf((*QuotaShareStateEnum)(nil)).Elem()
+}
+
+func (e QuotaShareStateEnum) ToQuotaShareStateEnumOutput() QuotaShareStateEnumOutput {
+	return pulumi.ToOutput(e).(QuotaShareStateEnumOutput)
+}
+
+func (e QuotaShareStateEnum) ToQuotaShareStateEnumOutputWithContext(ctx context.Context) QuotaShareStateEnumOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(QuotaShareStateEnumOutput)
+}
+
+func (e QuotaShareStateEnum) ToQuotaShareStateEnumPtrOutput() QuotaShareStateEnumPtrOutput {
+	return e.ToQuotaShareStateEnumPtrOutputWithContext(context.Background())
+}
+
+func (e QuotaShareStateEnum) ToQuotaShareStateEnumPtrOutputWithContext(ctx context.Context) QuotaShareStateEnumPtrOutput {
+	return QuotaShareStateEnum(e).ToQuotaShareStateEnumOutputWithContext(ctx).ToQuotaShareStateEnumPtrOutputWithContext(ctx)
+}
+
+func (e QuotaShareStateEnum) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e QuotaShareStateEnum) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e QuotaShareStateEnum) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e QuotaShareStateEnum) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type QuotaShareStateEnumOutput struct{ *pulumi.OutputState }
+
+func (QuotaShareStateEnumOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*QuotaShareStateEnum)(nil)).Elem()
+}
+
+func (o QuotaShareStateEnumOutput) ToQuotaShareStateEnumOutput() QuotaShareStateEnumOutput {
+	return o
+}
+
+func (o QuotaShareStateEnumOutput) ToQuotaShareStateEnumOutputWithContext(ctx context.Context) QuotaShareStateEnumOutput {
+	return o
+}
+
+func (o QuotaShareStateEnumOutput) ToQuotaShareStateEnumPtrOutput() QuotaShareStateEnumPtrOutput {
+	return o.ToQuotaShareStateEnumPtrOutputWithContext(context.Background())
+}
+
+func (o QuotaShareStateEnumOutput) ToQuotaShareStateEnumPtrOutputWithContext(ctx context.Context) QuotaShareStateEnumPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v QuotaShareStateEnum) *QuotaShareStateEnum {
+		return &v
+	}).(QuotaShareStateEnumPtrOutput)
+}
+
+func (o QuotaShareStateEnumOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o QuotaShareStateEnumOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e QuotaShareStateEnum) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o QuotaShareStateEnumOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o QuotaShareStateEnumOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e QuotaShareStateEnum) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type QuotaShareStateEnumPtrOutput struct{ *pulumi.OutputState }
+
+func (QuotaShareStateEnumPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**QuotaShareStateEnum)(nil)).Elem()
+}
+
+func (o QuotaShareStateEnumPtrOutput) ToQuotaShareStateEnumPtrOutput() QuotaShareStateEnumPtrOutput {
+	return o
+}
+
+func (o QuotaShareStateEnumPtrOutput) ToQuotaShareStateEnumPtrOutputWithContext(ctx context.Context) QuotaShareStateEnumPtrOutput {
+	return o
+}
+
+func (o QuotaShareStateEnumPtrOutput) Elem() QuotaShareStateEnumOutput {
+	return o.ApplyT(func(v *QuotaShareStateEnum) QuotaShareStateEnum {
+		if v != nil {
+			return *v
+		}
+		var ret QuotaShareStateEnum
+		return ret
+	}).(QuotaShareStateEnumOutput)
+}
+
+func (o QuotaShareStateEnumPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o QuotaShareStateEnumPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *QuotaShareStateEnum) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// QuotaShareStateEnumInput is an input type that accepts values of the QuotaShareStateEnum enum
+// A concrete instance of `QuotaShareStateEnumInput` can be one of the following:
+//
+//	QuotaShareStateEnumEnabled
+//	QuotaShareStateEnumDisabled
+type QuotaShareStateEnumInput interface {
+	pulumi.Input
+
+	ToQuotaShareStateEnumOutput() QuotaShareStateEnumOutput
+	ToQuotaShareStateEnumOutputWithContext(context.Context) QuotaShareStateEnumOutput
+}
+
+var quotaShareStateEnumPtrType = reflect.TypeOf((**QuotaShareStateEnum)(nil)).Elem()
+
+type QuotaShareStateEnumPtrInput interface {
+	pulumi.Input
+
+	ToQuotaShareStateEnumPtrOutput() QuotaShareStateEnumPtrOutput
+	ToQuotaShareStateEnumPtrOutputWithContext(context.Context) QuotaShareStateEnumPtrOutput
+}
+
+type quotaShareStateEnumPtr string
+
+func QuotaShareStateEnumPtr(v string) QuotaShareStateEnumPtrInput {
+	return (*quotaShareStateEnumPtr)(&v)
+}
+
+func (*quotaShareStateEnumPtr) ElementType() reflect.Type {
+	return quotaShareStateEnumPtrType
+}
+
+func (in *quotaShareStateEnumPtr) ToQuotaShareStateEnumPtrOutput() QuotaShareStateEnumPtrOutput {
+	return pulumi.ToOutput(in).(QuotaShareStateEnumPtrOutput)
+}
+
+func (in *quotaShareStateEnumPtr) ToQuotaShareStateEnumPtrOutputWithContext(ctx context.Context) QuotaShareStateEnumPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(QuotaShareStateEnumPtrOutput)
+}
+
+type SchedulingPolicyQuotaSharePolicyIdleResourceAssignmentStrategy string
+
+const (
+	SchedulingPolicyQuotaSharePolicyIdleResourceAssignmentStrategyFifo = SchedulingPolicyQuotaSharePolicyIdleResourceAssignmentStrategy("FIFO")
+)
+
+func (SchedulingPolicyQuotaSharePolicyIdleResourceAssignmentStrategy) ElementType() reflect.Type {
+	return reflect.TypeOf((*SchedulingPolicyQuotaSharePolicyIdleResourceAssignmentStrategy)(nil)).Elem()
+}
+
+func (e SchedulingPolicyQuotaSharePolicyIdleResourceAssignmentStrategy) ToSchedulingPolicyQuotaSharePolicyIdleResourceAssignmentStrategyOutput() SchedulingPolicyQuotaSharePolicyIdleResourceAssignmentStrategyOutput {
+	return pulumi.ToOutput(e).(SchedulingPolicyQuotaSharePolicyIdleResourceAssignmentStrategyOutput)
+}
+
+func (e SchedulingPolicyQuotaSharePolicyIdleResourceAssignmentStrategy) ToSchedulingPolicyQuotaSharePolicyIdleResourceAssignmentStrategyOutputWithContext(ctx context.Context) SchedulingPolicyQuotaSharePolicyIdleResourceAssignmentStrategyOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(SchedulingPolicyQuotaSharePolicyIdleResourceAssignmentStrategyOutput)
+}
+
+func (e SchedulingPolicyQuotaSharePolicyIdleResourceAssignmentStrategy) ToSchedulingPolicyQuotaSharePolicyIdleResourceAssignmentStrategyPtrOutput() SchedulingPolicyQuotaSharePolicyIdleResourceAssignmentStrategyPtrOutput {
+	return e.ToSchedulingPolicyQuotaSharePolicyIdleResourceAssignmentStrategyPtrOutputWithContext(context.Background())
+}
+
+func (e SchedulingPolicyQuotaSharePolicyIdleResourceAssignmentStrategy) ToSchedulingPolicyQuotaSharePolicyIdleResourceAssignmentStrategyPtrOutputWithContext(ctx context.Context) SchedulingPolicyQuotaSharePolicyIdleResourceAssignmentStrategyPtrOutput {
+	return SchedulingPolicyQuotaSharePolicyIdleResourceAssignmentStrategy(e).ToSchedulingPolicyQuotaSharePolicyIdleResourceAssignmentStrategyOutputWithContext(ctx).ToSchedulingPolicyQuotaSharePolicyIdleResourceAssignmentStrategyPtrOutputWithContext(ctx)
+}
+
+func (e SchedulingPolicyQuotaSharePolicyIdleResourceAssignmentStrategy) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SchedulingPolicyQuotaSharePolicyIdleResourceAssignmentStrategy) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SchedulingPolicyQuotaSharePolicyIdleResourceAssignmentStrategy) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e SchedulingPolicyQuotaSharePolicyIdleResourceAssignmentStrategy) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type SchedulingPolicyQuotaSharePolicyIdleResourceAssignmentStrategyOutput struct{ *pulumi.OutputState }
+
+func (SchedulingPolicyQuotaSharePolicyIdleResourceAssignmentStrategyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SchedulingPolicyQuotaSharePolicyIdleResourceAssignmentStrategy)(nil)).Elem()
+}
+
+func (o SchedulingPolicyQuotaSharePolicyIdleResourceAssignmentStrategyOutput) ToSchedulingPolicyQuotaSharePolicyIdleResourceAssignmentStrategyOutput() SchedulingPolicyQuotaSharePolicyIdleResourceAssignmentStrategyOutput {
+	return o
+}
+
+func (o SchedulingPolicyQuotaSharePolicyIdleResourceAssignmentStrategyOutput) ToSchedulingPolicyQuotaSharePolicyIdleResourceAssignmentStrategyOutputWithContext(ctx context.Context) SchedulingPolicyQuotaSharePolicyIdleResourceAssignmentStrategyOutput {
+	return o
+}
+
+func (o SchedulingPolicyQuotaSharePolicyIdleResourceAssignmentStrategyOutput) ToSchedulingPolicyQuotaSharePolicyIdleResourceAssignmentStrategyPtrOutput() SchedulingPolicyQuotaSharePolicyIdleResourceAssignmentStrategyPtrOutput {
+	return o.ToSchedulingPolicyQuotaSharePolicyIdleResourceAssignmentStrategyPtrOutputWithContext(context.Background())
+}
+
+func (o SchedulingPolicyQuotaSharePolicyIdleResourceAssignmentStrategyOutput) ToSchedulingPolicyQuotaSharePolicyIdleResourceAssignmentStrategyPtrOutputWithContext(ctx context.Context) SchedulingPolicyQuotaSharePolicyIdleResourceAssignmentStrategyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SchedulingPolicyQuotaSharePolicyIdleResourceAssignmentStrategy) *SchedulingPolicyQuotaSharePolicyIdleResourceAssignmentStrategy {
+		return &v
+	}).(SchedulingPolicyQuotaSharePolicyIdleResourceAssignmentStrategyPtrOutput)
+}
+
+func (o SchedulingPolicyQuotaSharePolicyIdleResourceAssignmentStrategyOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o SchedulingPolicyQuotaSharePolicyIdleResourceAssignmentStrategyOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SchedulingPolicyQuotaSharePolicyIdleResourceAssignmentStrategy) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o SchedulingPolicyQuotaSharePolicyIdleResourceAssignmentStrategyOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SchedulingPolicyQuotaSharePolicyIdleResourceAssignmentStrategyOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SchedulingPolicyQuotaSharePolicyIdleResourceAssignmentStrategy) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type SchedulingPolicyQuotaSharePolicyIdleResourceAssignmentStrategyPtrOutput struct{ *pulumi.OutputState }
+
+func (SchedulingPolicyQuotaSharePolicyIdleResourceAssignmentStrategyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SchedulingPolicyQuotaSharePolicyIdleResourceAssignmentStrategy)(nil)).Elem()
+}
+
+func (o SchedulingPolicyQuotaSharePolicyIdleResourceAssignmentStrategyPtrOutput) ToSchedulingPolicyQuotaSharePolicyIdleResourceAssignmentStrategyPtrOutput() SchedulingPolicyQuotaSharePolicyIdleResourceAssignmentStrategyPtrOutput {
+	return o
+}
+
+func (o SchedulingPolicyQuotaSharePolicyIdleResourceAssignmentStrategyPtrOutput) ToSchedulingPolicyQuotaSharePolicyIdleResourceAssignmentStrategyPtrOutputWithContext(ctx context.Context) SchedulingPolicyQuotaSharePolicyIdleResourceAssignmentStrategyPtrOutput {
+	return o
+}
+
+func (o SchedulingPolicyQuotaSharePolicyIdleResourceAssignmentStrategyPtrOutput) Elem() SchedulingPolicyQuotaSharePolicyIdleResourceAssignmentStrategyOutput {
+	return o.ApplyT(func(v *SchedulingPolicyQuotaSharePolicyIdleResourceAssignmentStrategy) SchedulingPolicyQuotaSharePolicyIdleResourceAssignmentStrategy {
+		if v != nil {
+			return *v
+		}
+		var ret SchedulingPolicyQuotaSharePolicyIdleResourceAssignmentStrategy
+		return ret
+	}).(SchedulingPolicyQuotaSharePolicyIdleResourceAssignmentStrategyOutput)
+}
+
+func (o SchedulingPolicyQuotaSharePolicyIdleResourceAssignmentStrategyPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SchedulingPolicyQuotaSharePolicyIdleResourceAssignmentStrategyPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *SchedulingPolicyQuotaSharePolicyIdleResourceAssignmentStrategy) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// SchedulingPolicyQuotaSharePolicyIdleResourceAssignmentStrategyInput is an input type that accepts values of the SchedulingPolicyQuotaSharePolicyIdleResourceAssignmentStrategy enum
+// A concrete instance of `SchedulingPolicyQuotaSharePolicyIdleResourceAssignmentStrategyInput` can be one of the following:
+//
+//	SchedulingPolicyQuotaSharePolicyIdleResourceAssignmentStrategyFifo
+type SchedulingPolicyQuotaSharePolicyIdleResourceAssignmentStrategyInput interface {
+	pulumi.Input
+
+	ToSchedulingPolicyQuotaSharePolicyIdleResourceAssignmentStrategyOutput() SchedulingPolicyQuotaSharePolicyIdleResourceAssignmentStrategyOutput
+	ToSchedulingPolicyQuotaSharePolicyIdleResourceAssignmentStrategyOutputWithContext(context.Context) SchedulingPolicyQuotaSharePolicyIdleResourceAssignmentStrategyOutput
+}
+
+var schedulingPolicyQuotaSharePolicyIdleResourceAssignmentStrategyPtrType = reflect.TypeOf((**SchedulingPolicyQuotaSharePolicyIdleResourceAssignmentStrategy)(nil)).Elem()
+
+type SchedulingPolicyQuotaSharePolicyIdleResourceAssignmentStrategyPtrInput interface {
+	pulumi.Input
+
+	ToSchedulingPolicyQuotaSharePolicyIdleResourceAssignmentStrategyPtrOutput() SchedulingPolicyQuotaSharePolicyIdleResourceAssignmentStrategyPtrOutput
+	ToSchedulingPolicyQuotaSharePolicyIdleResourceAssignmentStrategyPtrOutputWithContext(context.Context) SchedulingPolicyQuotaSharePolicyIdleResourceAssignmentStrategyPtrOutput
+}
+
+type schedulingPolicyQuotaSharePolicyIdleResourceAssignmentStrategyPtr string
+
+func SchedulingPolicyQuotaSharePolicyIdleResourceAssignmentStrategyPtr(v string) SchedulingPolicyQuotaSharePolicyIdleResourceAssignmentStrategyPtrInput {
+	return (*schedulingPolicyQuotaSharePolicyIdleResourceAssignmentStrategyPtr)(&v)
+}
+
+func (*schedulingPolicyQuotaSharePolicyIdleResourceAssignmentStrategyPtr) ElementType() reflect.Type {
+	return schedulingPolicyQuotaSharePolicyIdleResourceAssignmentStrategyPtrType
+}
+
+func (in *schedulingPolicyQuotaSharePolicyIdleResourceAssignmentStrategyPtr) ToSchedulingPolicyQuotaSharePolicyIdleResourceAssignmentStrategyPtrOutput() SchedulingPolicyQuotaSharePolicyIdleResourceAssignmentStrategyPtrOutput {
+	return pulumi.ToOutput(in).(SchedulingPolicyQuotaSharePolicyIdleResourceAssignmentStrategyPtrOutput)
+}
+
+func (in *schedulingPolicyQuotaSharePolicyIdleResourceAssignmentStrategyPtr) ToSchedulingPolicyQuotaSharePolicyIdleResourceAssignmentStrategyPtrOutputWithContext(ctx context.Context) SchedulingPolicyQuotaSharePolicyIdleResourceAssignmentStrategyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(SchedulingPolicyQuotaSharePolicyIdleResourceAssignmentStrategyPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ComputeEnvironmentLaunchTemplateSpecificationOverrideUserdataTypeInput)(nil)).Elem(), ComputeEnvironmentLaunchTemplateSpecificationOverrideUserdataType("EKS_BOOTSTRAP_SH"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ComputeEnvironmentLaunchTemplateSpecificationOverrideUserdataTypePtrInput)(nil)).Elem(), ComputeEnvironmentLaunchTemplateSpecificationOverrideUserdataType("EKS_BOOTSTRAP_SH"))
@@ -1017,6 +1680,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*JobQueueJobStateTimeLimitActionStatePtrInput)(nil)).Elem(), JobQueueJobStateTimeLimitActionState("RUNNABLE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*JobQueueStateEnumInput)(nil)).Elem(), JobQueueStateEnum("DISABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*JobQueueStateEnumPtrInput)(nil)).Elem(), JobQueueStateEnum("DISABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*QuotaSharePreemptionConfigurationInSharePreemptionInput)(nil)).Elem(), QuotaSharePreemptionConfigurationInSharePreemption("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*QuotaSharePreemptionConfigurationInSharePreemptionPtrInput)(nil)).Elem(), QuotaSharePreemptionConfigurationInSharePreemption("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*QuotaShareResourceSharingConfigurationStrategyInput)(nil)).Elem(), QuotaShareResourceSharingConfigurationStrategy("RESERVE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*QuotaShareResourceSharingConfigurationStrategyPtrInput)(nil)).Elem(), QuotaShareResourceSharingConfigurationStrategy("RESERVE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*QuotaShareStateEnumInput)(nil)).Elem(), QuotaShareStateEnum("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*QuotaShareStateEnumPtrInput)(nil)).Elem(), QuotaShareStateEnum("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SchedulingPolicyQuotaSharePolicyIdleResourceAssignmentStrategyInput)(nil)).Elem(), SchedulingPolicyQuotaSharePolicyIdleResourceAssignmentStrategy("FIFO"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SchedulingPolicyQuotaSharePolicyIdleResourceAssignmentStrategyPtrInput)(nil)).Elem(), SchedulingPolicyQuotaSharePolicyIdleResourceAssignmentStrategy("FIFO"))
 	pulumi.RegisterOutputType(ComputeEnvironmentLaunchTemplateSpecificationOverrideUserdataTypeOutput{})
 	pulumi.RegisterOutputType(ComputeEnvironmentLaunchTemplateSpecificationOverrideUserdataTypePtrOutput{})
 	pulumi.RegisterOutputType(ComputeEnvironmentLaunchTemplateSpecificationUserdataTypeOutput{})
@@ -1029,4 +1700,12 @@ func init() {
 	pulumi.RegisterOutputType(JobQueueJobStateTimeLimitActionStatePtrOutput{})
 	pulumi.RegisterOutputType(JobQueueStateEnumOutput{})
 	pulumi.RegisterOutputType(JobQueueStateEnumPtrOutput{})
+	pulumi.RegisterOutputType(QuotaSharePreemptionConfigurationInSharePreemptionOutput{})
+	pulumi.RegisterOutputType(QuotaSharePreemptionConfigurationInSharePreemptionPtrOutput{})
+	pulumi.RegisterOutputType(QuotaShareResourceSharingConfigurationStrategyOutput{})
+	pulumi.RegisterOutputType(QuotaShareResourceSharingConfigurationStrategyPtrOutput{})
+	pulumi.RegisterOutputType(QuotaShareStateEnumOutput{})
+	pulumi.RegisterOutputType(QuotaShareStateEnumPtrOutput{})
+	pulumi.RegisterOutputType(SchedulingPolicyQuotaSharePolicyIdleResourceAssignmentStrategyOutput{})
+	pulumi.RegisterOutputType(SchedulingPolicyQuotaSharePolicyIdleResourceAssignmentStrategyPtrOutput{})
 }

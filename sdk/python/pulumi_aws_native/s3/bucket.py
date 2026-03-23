@@ -30,6 +30,8 @@ class BucketArgs:
                  analytics_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['BucketAnalyticsConfigurationArgs']]]] = None,
                  bucket_encryption: Optional[pulumi.Input['BucketEncryptionArgs']] = None,
                  bucket_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 bucket_name_prefix: Optional[pulumi.Input[_builtins.str]] = None,
+                 bucket_namespace: Optional[pulumi.Input['BucketNamespace']] = None,
                  cors_configuration: Optional[pulumi.Input['BucketCorsConfigurationArgs']] = None,
                  intelligent_tiering_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['BucketIntelligentTieringConfigurationArgs']]]] = None,
                  inventory_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['BucketInventoryConfigurationArgs']]]] = None,
@@ -98,6 +100,10 @@ class BucketArgs:
             pulumi.set(__self__, "bucket_encryption", bucket_encryption)
         if bucket_name is not None:
             pulumi.set(__self__, "bucket_name", bucket_name)
+        if bucket_name_prefix is not None:
+            pulumi.set(__self__, "bucket_name_prefix", bucket_name_prefix)
+        if bucket_namespace is not None:
+            pulumi.set(__self__, "bucket_namespace", bucket_namespace)
         if cors_configuration is not None:
             pulumi.set(__self__, "cors_configuration", cors_configuration)
         if intelligent_tiering_configurations is not None:
@@ -208,6 +214,24 @@ class BucketArgs:
     @bucket_name.setter
     def bucket_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "bucket_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="bucketNamePrefix")
+    def bucket_name_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "bucket_name_prefix")
+
+    @bucket_name_prefix.setter
+    def bucket_name_prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "bucket_name_prefix", value)
+
+    @_builtins.property
+    @pulumi.getter(name="bucketNamespace")
+    def bucket_namespace(self) -> Optional[pulumi.Input['BucketNamespace']]:
+        return pulumi.get(self, "bucket_namespace")
+
+    @bucket_namespace.setter
+    def bucket_namespace(self, value: Optional[pulumi.Input['BucketNamespace']]):
+        pulumi.set(self, "bucket_namespace", value)
 
     @_builtins.property
     @pulumi.getter(name="corsConfiguration")
@@ -434,6 +458,8 @@ class Bucket(pulumi.CustomResource):
                  analytics_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BucketAnalyticsConfigurationArgs', 'BucketAnalyticsConfigurationArgsDict']]]]] = None,
                  bucket_encryption: Optional[pulumi.Input[Union['BucketEncryptionArgs', 'BucketEncryptionArgsDict']]] = None,
                  bucket_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 bucket_name_prefix: Optional[pulumi.Input[_builtins.str]] = None,
+                 bucket_namespace: Optional[pulumi.Input['BucketNamespace']] = None,
                  cors_configuration: Optional[pulumi.Input[Union['BucketCorsConfigurationArgs', 'BucketCorsConfigurationArgsDict']]] = None,
                  intelligent_tiering_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BucketIntelligentTieringConfigurationArgs', 'BucketIntelligentTieringConfigurationArgsDict']]]]] = None,
                  inventory_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BucketInventoryConfigurationArgs', 'BucketInventoryConfigurationArgsDict']]]]] = None,
@@ -1499,6 +1525,8 @@ class Bucket(pulumi.CustomResource):
                  analytics_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BucketAnalyticsConfigurationArgs', 'BucketAnalyticsConfigurationArgsDict']]]]] = None,
                  bucket_encryption: Optional[pulumi.Input[Union['BucketEncryptionArgs', 'BucketEncryptionArgsDict']]] = None,
                  bucket_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 bucket_name_prefix: Optional[pulumi.Input[_builtins.str]] = None,
+                 bucket_namespace: Optional[pulumi.Input['BucketNamespace']] = None,
                  cors_configuration: Optional[pulumi.Input[Union['BucketCorsConfigurationArgs', 'BucketCorsConfigurationArgsDict']]] = None,
                  intelligent_tiering_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BucketIntelligentTieringConfigurationArgs', 'BucketIntelligentTieringConfigurationArgsDict']]]]] = None,
                  inventory_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BucketInventoryConfigurationArgs', 'BucketInventoryConfigurationArgsDict']]]]] = None,
@@ -1531,6 +1559,8 @@ class Bucket(pulumi.CustomResource):
             __props__.__dict__["analytics_configurations"] = analytics_configurations
             __props__.__dict__["bucket_encryption"] = bucket_encryption
             __props__.__dict__["bucket_name"] = bucket_name
+            __props__.__dict__["bucket_name_prefix"] = bucket_name_prefix
+            __props__.__dict__["bucket_namespace"] = bucket_namespace
             __props__.__dict__["cors_configuration"] = cors_configuration
             __props__.__dict__["intelligent_tiering_configurations"] = intelligent_tiering_configurations
             __props__.__dict__["inventory_configurations"] = inventory_configurations
@@ -1553,7 +1583,7 @@ class Bucket(pulumi.CustomResource):
             __props__.__dict__["dual_stack_domain_name"] = None
             __props__.__dict__["regional_domain_name"] = None
             __props__.__dict__["website_url"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["bucketName"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["bucketName", "bucketNamePrefix", "bucketNamespace"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Bucket, __self__).__init__(
             'aws-native:s3:Bucket',
@@ -1584,6 +1614,8 @@ class Bucket(pulumi.CustomResource):
         __props__.__dict__["arn"] = None
         __props__.__dict__["bucket_encryption"] = None
         __props__.__dict__["bucket_name"] = None
+        __props__.__dict__["bucket_name_prefix"] = None
+        __props__.__dict__["bucket_namespace"] = None
         __props__.__dict__["cors_configuration"] = None
         __props__.__dict__["domain_name"] = None
         __props__.__dict__["dual_stack_domain_name"] = None
@@ -1668,6 +1700,16 @@ class Bucket(pulumi.CustomResource):
           If you specify a name, you can't perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you need to replace the resource, specify a new name.
         """
         return pulumi.get(self, "bucket_name")
+
+    @_builtins.property
+    @pulumi.getter(name="bucketNamePrefix")
+    def bucket_name_prefix(self) -> pulumi.Output[Optional[_builtins.str]]:
+        return pulumi.get(self, "bucket_name_prefix")
+
+    @_builtins.property
+    @pulumi.getter(name="bucketNamespace")
+    def bucket_namespace(self) -> pulumi.Output[Optional['BucketNamespace']]:
+        return pulumi.get(self, "bucket_namespace")
 
     @_builtins.property
     @pulumi.getter(name="corsConfiguration")

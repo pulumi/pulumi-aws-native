@@ -24,10 +24,13 @@ __all__ = [
 
 @pulumi.output_type
 class GetFarmResult:
-    def __init__(__self__, arn=None, description=None, display_name=None, farm_id=None, tags=None):
+    def __init__(__self__, arn=None, cost_scale_factor=None, description=None, display_name=None, farm_id=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
+        if cost_scale_factor and not isinstance(cost_scale_factor, float):
+            raise TypeError("Expected argument 'cost_scale_factor' to be a float")
+        pulumi.set(__self__, "cost_scale_factor", cost_scale_factor)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -48,6 +51,11 @@ class GetFarmResult:
         The Amazon Resource Name (ARN) assigned to the farm.
         """
         return pulumi.get(self, "arn")
+
+    @_builtins.property
+    @pulumi.getter(name="costScaleFactor")
+    def cost_scale_factor(self) -> Optional[_builtins.float]:
+        return pulumi.get(self, "cost_scale_factor")
 
     @_builtins.property
     @pulumi.getter
@@ -93,6 +101,7 @@ class AwaitableGetFarmResult(GetFarmResult):
             yield self
         return GetFarmResult(
             arn=self.arn,
+            cost_scale_factor=self.cost_scale_factor,
             description=self.description,
             display_name=self.display_name,
             farm_id=self.farm_id,
@@ -114,6 +123,7 @@ def get_farm(arn: Optional[_builtins.str] = None,
 
     return AwaitableGetFarmResult(
         arn=pulumi.get(__ret__, 'arn'),
+        cost_scale_factor=pulumi.get(__ret__, 'cost_scale_factor'),
         description=pulumi.get(__ret__, 'description'),
         display_name=pulumi.get(__ret__, 'display_name'),
         farm_id=pulumi.get(__ret__, 'farm_id'),
@@ -132,6 +142,7 @@ def get_farm_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
     __ret__ = pulumi.runtime.invoke_output('aws-native:deadline:getFarm', __args__, opts=opts, typ=GetFarmResult)
     return __ret__.apply(lambda __response__: GetFarmResult(
         arn=pulumi.get(__response__, 'arn'),
+        cost_scale_factor=pulumi.get(__response__, 'cost_scale_factor'),
         description=pulumi.get(__response__, 'description'),
         display_name=pulumi.get(__response__, 'display_name'),
         farm_id=pulumi.get(__response__, 'farm_id'),

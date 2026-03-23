@@ -367,6 +367,8 @@ class CapacityProviderInstanceLaunchTemplate(dict):
             suggest = "capacity_reservations"
         elif key == "fipsEnabled":
             suggest = "fips_enabled"
+        elif key == "instanceMetadataTagsPropagation":
+            suggest = "instance_metadata_tags_propagation"
         elif key == "instanceRequirements":
             suggest = "instance_requirements"
         elif key == "storageConfiguration":
@@ -389,6 +391,7 @@ class CapacityProviderInstanceLaunchTemplate(dict):
                  capacity_option_type: Optional['CapacityProviderInstanceLaunchTemplateCapacityOptionType'] = None,
                  capacity_reservations: Optional['outputs.CapacityProviderCapacityReservationRequest'] = None,
                  fips_enabled: Optional[_builtins.bool] = None,
+                 instance_metadata_tags_propagation: Optional[_builtins.bool] = None,
                  instance_requirements: Optional['outputs.CapacityProviderInstanceRequirementsRequest'] = None,
                  monitoring: Optional['CapacityProviderManagedInstancesMonitoringOptions'] = None,
                  storage_configuration: Optional['outputs.CapacityProviderManagedInstancesStorageConfiguration'] = None):
@@ -424,6 +427,8 @@ class CapacityProviderInstanceLaunchTemplate(dict):
             pulumi.set(__self__, "capacity_reservations", capacity_reservations)
         if fips_enabled is not None:
             pulumi.set(__self__, "fips_enabled", fips_enabled)
+        if instance_metadata_tags_propagation is not None:
+            pulumi.set(__self__, "instance_metadata_tags_propagation", instance_metadata_tags_propagation)
         if instance_requirements is not None:
             pulumi.set(__self__, "instance_requirements", instance_requirements)
         if monitoring is not None:
@@ -475,6 +480,11 @@ class CapacityProviderInstanceLaunchTemplate(dict):
     @pulumi.getter(name="fipsEnabled")
     def fips_enabled(self) -> Optional[_builtins.bool]:
         return pulumi.get(self, "fips_enabled")
+
+    @_builtins.property
+    @pulumi.getter(name="instanceMetadataTagsPropagation")
+    def instance_metadata_tags_propagation(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "instance_metadata_tags_propagation")
 
     @_builtins.property
     @pulumi.getter(name="instanceRequirements")

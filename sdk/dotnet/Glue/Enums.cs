@@ -8,6 +8,134 @@ using Pulumi;
 namespace Pulumi.AwsNative.Glue
 {
     /// <summary>
+    /// Allows third-party engines to access data in Amazon S3 locations that are registered with Lake Formation.
+    /// </summary>
+    [EnumType]
+    public readonly struct CatalogAllowFullTableExternalDataAccess : IEquatable<CatalogAllowFullTableExternalDataAccess>
+    {
+        private readonly string _value;
+
+        private CatalogAllowFullTableExternalDataAccess(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static CatalogAllowFullTableExternalDataAccess True { get; } = new CatalogAllowFullTableExternalDataAccess("True");
+        public static CatalogAllowFullTableExternalDataAccess False { get; } = new CatalogAllowFullTableExternalDataAccess("False");
+
+        public static bool operator ==(CatalogAllowFullTableExternalDataAccess left, CatalogAllowFullTableExternalDataAccess right) => left.Equals(right);
+        public static bool operator !=(CatalogAllowFullTableExternalDataAccess left, CatalogAllowFullTableExternalDataAccess right) => !left.Equals(right);
+
+        public static explicit operator string(CatalogAllowFullTableExternalDataAccess value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is CatalogAllowFullTableExternalDataAccess other && Equals(other);
+        public bool Equals(CatalogAllowFullTableExternalDataAccess other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Allows third-party engines to access data in Amazon S3 locations that are registered with Lake Formation.
+    /// </summary>
+    [EnumType]
+    public readonly struct CatalogDataLakeAccessPropertiesAllowFullTableExternalDataAccess : IEquatable<CatalogDataLakeAccessPropertiesAllowFullTableExternalDataAccess>
+    {
+        private readonly string _value;
+
+        private CatalogDataLakeAccessPropertiesAllowFullTableExternalDataAccess(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static CatalogDataLakeAccessPropertiesAllowFullTableExternalDataAccess True { get; } = new CatalogDataLakeAccessPropertiesAllowFullTableExternalDataAccess("True");
+        public static CatalogDataLakeAccessPropertiesAllowFullTableExternalDataAccess False { get; } = new CatalogDataLakeAccessPropertiesAllowFullTableExternalDataAccess("False");
+
+        public static bool operator ==(CatalogDataLakeAccessPropertiesAllowFullTableExternalDataAccess left, CatalogDataLakeAccessPropertiesAllowFullTableExternalDataAccess right) => left.Equals(right);
+        public static bool operator !=(CatalogDataLakeAccessPropertiesAllowFullTableExternalDataAccess left, CatalogDataLakeAccessPropertiesAllowFullTableExternalDataAccess right) => !left.Equals(right);
+
+        public static explicit operator string(CatalogDataLakeAccessPropertiesAllowFullTableExternalDataAccess value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is CatalogDataLakeAccessPropertiesAllowFullTableExternalDataAccess other && Equals(other);
+        public bool Equals(CatalogDataLakeAccessPropertiesAllowFullTableExternalDataAccess other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Specifies whether to overwrite child resource permissions with the default permissions.
+    /// </summary>
+    [EnumType]
+    public readonly struct CatalogOverwriteChildResourcePermissionsWithDefault : IEquatable<CatalogOverwriteChildResourcePermissionsWithDefault>
+    {
+        private readonly string _value;
+
+        private CatalogOverwriteChildResourcePermissionsWithDefault(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static CatalogOverwriteChildResourcePermissionsWithDefault Accept { get; } = new CatalogOverwriteChildResourcePermissionsWithDefault("Accept");
+        public static CatalogOverwriteChildResourcePermissionsWithDefault Deny { get; } = new CatalogOverwriteChildResourcePermissionsWithDefault("Deny");
+
+        public static bool operator ==(CatalogOverwriteChildResourcePermissionsWithDefault left, CatalogOverwriteChildResourcePermissionsWithDefault right) => left.Equals(right);
+        public static bool operator !=(CatalogOverwriteChildResourcePermissionsWithDefault left, CatalogOverwriteChildResourcePermissionsWithDefault right) => !left.Equals(right);
+
+        public static explicit operator string(CatalogOverwriteChildResourcePermissionsWithDefault value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is CatalogOverwriteChildResourcePermissionsWithDefault other && Equals(other);
+        public bool Equals(CatalogOverwriteChildResourcePermissionsWithDefault other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct CatalogPrincipalPermissionsPermissionsItem : IEquatable<CatalogPrincipalPermissionsPermissionsItem>
+    {
+        private readonly string _value;
+
+        private CatalogPrincipalPermissionsPermissionsItem(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static CatalogPrincipalPermissionsPermissionsItem All { get; } = new CatalogPrincipalPermissionsPermissionsItem("ALL");
+        public static CatalogPrincipalPermissionsPermissionsItem Select { get; } = new CatalogPrincipalPermissionsPermissionsItem("SELECT");
+        public static CatalogPrincipalPermissionsPermissionsItem Alter { get; } = new CatalogPrincipalPermissionsPermissionsItem("ALTER");
+        public static CatalogPrincipalPermissionsPermissionsItem Drop { get; } = new CatalogPrincipalPermissionsPermissionsItem("DROP");
+        public static CatalogPrincipalPermissionsPermissionsItem Delete { get; } = new CatalogPrincipalPermissionsPermissionsItem("DELETE");
+        public static CatalogPrincipalPermissionsPermissionsItem Insert { get; } = new CatalogPrincipalPermissionsPermissionsItem("INSERT");
+        public static CatalogPrincipalPermissionsPermissionsItem CreateDatabase { get; } = new CatalogPrincipalPermissionsPermissionsItem("CREATE_DATABASE");
+        public static CatalogPrincipalPermissionsPermissionsItem CreateTable { get; } = new CatalogPrincipalPermissionsPermissionsItem("CREATE_TABLE");
+        public static CatalogPrincipalPermissionsPermissionsItem DataLocationAccess { get; } = new CatalogPrincipalPermissionsPermissionsItem("DATA_LOCATION_ACCESS");
+
+        public static bool operator ==(CatalogPrincipalPermissionsPermissionsItem left, CatalogPrincipalPermissionsPermissionsItem right) => left.Equals(right);
+        public static bool operator !=(CatalogPrincipalPermissionsPermissionsItem left, CatalogPrincipalPermissionsPermissionsItem right) => !left.Equals(right);
+
+        public static explicit operator string(CatalogPrincipalPermissionsPermissionsItem value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is CatalogPrincipalPermissionsPermissionsItem other && Equals(other);
+        public bool Equals(CatalogPrincipalPermissionsPermissionsItem other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// TThe type of predefined worker that is allocated when a job runs.
     /// </summary>
     [EnumType]

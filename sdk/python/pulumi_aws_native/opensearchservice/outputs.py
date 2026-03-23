@@ -24,6 +24,7 @@ __all__ = [
     'DomainClusterConfig',
     'DomainCognitoOptions',
     'DomainColdStorageOptions',
+    'DomainDeploymentStrategyOptions',
     'DomainEbsOptions',
     'DomainEncryptionAtRestOptions',
     'DomainEndpointOptions',
@@ -619,6 +620,36 @@ class DomainColdStorageOptions(dict):
         Whether to enable or disable cold storage on the domain. You must enable UltraWarm storage to enable cold storage.
         """
         return pulumi.get(self, "enabled")
+
+
+@pulumi.output_type
+class DomainDeploymentStrategyOptions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "deploymentStrategy":
+            suggest = "deployment_strategy"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DomainDeploymentStrategyOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DomainDeploymentStrategyOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DomainDeploymentStrategyOptions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 deployment_strategy: Optional['DomainDeploymentStrategyOptionsDeploymentStrategy'] = None):
+        if deployment_strategy is not None:
+            pulumi.set(__self__, "deployment_strategy", deployment_strategy)
+
+    @_builtins.property
+    @pulumi.getter(name="deploymentStrategy")
+    def deployment_strategy(self) -> Optional['DomainDeploymentStrategyOptionsDeploymentStrategy']:
+        return pulumi.get(self, "deployment_strategy")
 
 
 @pulumi.output_type

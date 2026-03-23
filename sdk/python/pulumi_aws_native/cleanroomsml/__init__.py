@@ -7,6 +7,10 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from ._enums import *
+from .configured_model_algorithm import *
+from .configured_model_algorithm_association import *
+from .get_configured_model_algorithm import *
+from .get_configured_model_algorithm_association import *
 from .get_training_dataset import *
 from .training_dataset import *
 from ._inputs import *

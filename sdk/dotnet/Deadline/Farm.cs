@@ -21,6 +21,9 @@ namespace Pulumi.AwsNative.Deadline
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        [Output("costScaleFactor")]
+        public Output<double?> CostScaleFactor { get; private set; } = null!;
+
         /// <summary>
         /// A description of the farm that helps identify what the farm is used for.
         /// 
@@ -104,6 +107,9 @@ namespace Pulumi.AwsNative.Deadline
 
     public sealed class FarmArgs : global::Pulumi.ResourceArgs
     {
+        [Input("costScaleFactor")]
+        public Input<double>? CostScaleFactor { get; set; }
+
         /// <summary>
         /// A description of the farm that helps identify what the farm is used for.
         /// 

@@ -382,6 +382,144 @@ type CollectionTag struct {
 	Value string `pulumi:"value"`
 }
 
+// Vector search configuration options for the collection
+type CollectionVectorOptions struct {
+	ServerlessVectorAcceleration *CollectionServerlessVectorAcceleration `pulumi:"serverlessVectorAcceleration"`
+}
+
+// CollectionVectorOptionsInput is an input type that accepts CollectionVectorOptionsArgs and CollectionVectorOptionsOutput values.
+// You can construct a concrete instance of `CollectionVectorOptionsInput` via:
+//
+//	CollectionVectorOptionsArgs{...}
+type CollectionVectorOptionsInput interface {
+	pulumi.Input
+
+	ToCollectionVectorOptionsOutput() CollectionVectorOptionsOutput
+	ToCollectionVectorOptionsOutputWithContext(context.Context) CollectionVectorOptionsOutput
+}
+
+// Vector search configuration options for the collection
+type CollectionVectorOptionsArgs struct {
+	ServerlessVectorAcceleration CollectionServerlessVectorAccelerationPtrInput `pulumi:"serverlessVectorAcceleration"`
+}
+
+func (CollectionVectorOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CollectionVectorOptions)(nil)).Elem()
+}
+
+func (i CollectionVectorOptionsArgs) ToCollectionVectorOptionsOutput() CollectionVectorOptionsOutput {
+	return i.ToCollectionVectorOptionsOutputWithContext(context.Background())
+}
+
+func (i CollectionVectorOptionsArgs) ToCollectionVectorOptionsOutputWithContext(ctx context.Context) CollectionVectorOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CollectionVectorOptionsOutput)
+}
+
+func (i CollectionVectorOptionsArgs) ToCollectionVectorOptionsPtrOutput() CollectionVectorOptionsPtrOutput {
+	return i.ToCollectionVectorOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i CollectionVectorOptionsArgs) ToCollectionVectorOptionsPtrOutputWithContext(ctx context.Context) CollectionVectorOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CollectionVectorOptionsOutput).ToCollectionVectorOptionsPtrOutputWithContext(ctx)
+}
+
+// CollectionVectorOptionsPtrInput is an input type that accepts CollectionVectorOptionsArgs, CollectionVectorOptionsPtr and CollectionVectorOptionsPtrOutput values.
+// You can construct a concrete instance of `CollectionVectorOptionsPtrInput` via:
+//
+//	        CollectionVectorOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type CollectionVectorOptionsPtrInput interface {
+	pulumi.Input
+
+	ToCollectionVectorOptionsPtrOutput() CollectionVectorOptionsPtrOutput
+	ToCollectionVectorOptionsPtrOutputWithContext(context.Context) CollectionVectorOptionsPtrOutput
+}
+
+type collectionVectorOptionsPtrType CollectionVectorOptionsArgs
+
+func CollectionVectorOptionsPtr(v *CollectionVectorOptionsArgs) CollectionVectorOptionsPtrInput {
+	return (*collectionVectorOptionsPtrType)(v)
+}
+
+func (*collectionVectorOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CollectionVectorOptions)(nil)).Elem()
+}
+
+func (i *collectionVectorOptionsPtrType) ToCollectionVectorOptionsPtrOutput() CollectionVectorOptionsPtrOutput {
+	return i.ToCollectionVectorOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *collectionVectorOptionsPtrType) ToCollectionVectorOptionsPtrOutputWithContext(ctx context.Context) CollectionVectorOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CollectionVectorOptionsPtrOutput)
+}
+
+// Vector search configuration options for the collection
+type CollectionVectorOptionsOutput struct{ *pulumi.OutputState }
+
+func (CollectionVectorOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CollectionVectorOptions)(nil)).Elem()
+}
+
+func (o CollectionVectorOptionsOutput) ToCollectionVectorOptionsOutput() CollectionVectorOptionsOutput {
+	return o
+}
+
+func (o CollectionVectorOptionsOutput) ToCollectionVectorOptionsOutputWithContext(ctx context.Context) CollectionVectorOptionsOutput {
+	return o
+}
+
+func (o CollectionVectorOptionsOutput) ToCollectionVectorOptionsPtrOutput() CollectionVectorOptionsPtrOutput {
+	return o.ToCollectionVectorOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o CollectionVectorOptionsOutput) ToCollectionVectorOptionsPtrOutputWithContext(ctx context.Context) CollectionVectorOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CollectionVectorOptions) *CollectionVectorOptions {
+		return &v
+	}).(CollectionVectorOptionsPtrOutput)
+}
+
+func (o CollectionVectorOptionsOutput) ServerlessVectorAcceleration() CollectionServerlessVectorAccelerationPtrOutput {
+	return o.ApplyT(func(v CollectionVectorOptions) *CollectionServerlessVectorAcceleration {
+		return v.ServerlessVectorAcceleration
+	}).(CollectionServerlessVectorAccelerationPtrOutput)
+}
+
+type CollectionVectorOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (CollectionVectorOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CollectionVectorOptions)(nil)).Elem()
+}
+
+func (o CollectionVectorOptionsPtrOutput) ToCollectionVectorOptionsPtrOutput() CollectionVectorOptionsPtrOutput {
+	return o
+}
+
+func (o CollectionVectorOptionsPtrOutput) ToCollectionVectorOptionsPtrOutputWithContext(ctx context.Context) CollectionVectorOptionsPtrOutput {
+	return o
+}
+
+func (o CollectionVectorOptionsPtrOutput) Elem() CollectionVectorOptionsOutput {
+	return o.ApplyT(func(v *CollectionVectorOptions) CollectionVectorOptions {
+		if v != nil {
+			return *v
+		}
+		var ret CollectionVectorOptions
+		return ret
+	}).(CollectionVectorOptionsOutput)
+}
+
+func (o CollectionVectorOptionsPtrOutput) ServerlessVectorAcceleration() CollectionServerlessVectorAccelerationPtrOutput {
+	return o.ApplyT(func(v *CollectionVectorOptions) *CollectionServerlessVectorAcceleration {
+		if v == nil {
+			return nil
+		}
+		return v.ServerlessVectorAcceleration
+	}).(CollectionServerlessVectorAccelerationPtrOutput)
+}
+
 type IndexPropertyMapping struct {
 	// Dimension size for vector fields, defines the number of dimensions in the vector
 	Dimension *int `pulumi:"dimension"`
@@ -1956,6 +2094,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CollectionEncryptionConfigPtrInput)(nil)).Elem(), CollectionEncryptionConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CollectionGroupCapacityLimitsInput)(nil)).Elem(), CollectionGroupCapacityLimitsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CollectionGroupCapacityLimitsPtrInput)(nil)).Elem(), CollectionGroupCapacityLimitsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CollectionVectorOptionsInput)(nil)).Elem(), CollectionVectorOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CollectionVectorOptionsPtrInput)(nil)).Elem(), CollectionVectorOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IndexPropertyMappingInput)(nil)).Elem(), IndexPropertyMappingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IndexPropertyMappingMapInput)(nil)).Elem(), IndexPropertyMappingMap{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IndexPropertyMappingMethodPropertiesInput)(nil)).Elem(), IndexPropertyMappingMethodPropertiesArgs{})
@@ -1978,6 +2118,8 @@ func init() {
 	pulumi.RegisterOutputType(CollectionEncryptionConfigPtrOutput{})
 	pulumi.RegisterOutputType(CollectionGroupCapacityLimitsOutput{})
 	pulumi.RegisterOutputType(CollectionGroupCapacityLimitsPtrOutput{})
+	pulumi.RegisterOutputType(CollectionVectorOptionsOutput{})
+	pulumi.RegisterOutputType(CollectionVectorOptionsPtrOutput{})
 	pulumi.RegisterOutputType(IndexPropertyMappingOutput{})
 	pulumi.RegisterOutputType(IndexPropertyMappingMapOutput{})
 	pulumi.RegisterOutputType(IndexPropertyMappingMethodPropertiesOutput{})

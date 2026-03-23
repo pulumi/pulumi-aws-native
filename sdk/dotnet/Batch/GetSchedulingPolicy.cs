@@ -71,15 +71,19 @@ namespace Pulumi.AwsNative.Batch
         /// The fair-share scheduling policy details.
         /// </summary>
         public readonly Outputs.SchedulingPolicyFairsharePolicy? FairsharePolicy;
+        public readonly Outputs.SchedulingPolicyQuotaSharePolicy? QuotaSharePolicy;
 
         [OutputConstructor]
         private GetSchedulingPolicyResult(
             string? arn,
 
-            Outputs.SchedulingPolicyFairsharePolicy? fairsharePolicy)
+            Outputs.SchedulingPolicyFairsharePolicy? fairsharePolicy,
+
+            Outputs.SchedulingPolicyQuotaSharePolicy? quotaSharePolicy)
         {
             Arn = arn;
             FairsharePolicy = fairsharePolicy;
+            QuotaSharePolicy = quotaSharePolicy;
         }
     }
 }

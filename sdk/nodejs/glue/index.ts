@@ -5,6 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { CatalogArgs } from "./catalog";
+export type Catalog = import("./catalog").Catalog;
+export const Catalog: typeof import("./catalog").Catalog = null as any;
+utilities.lazyLoad(exports, ["Catalog"], () => require("./catalog"));
+
 export { CrawlerArgs } from "./crawler";
 export type Crawler = import("./crawler").Crawler;
 export const Crawler: typeof import("./crawler").Crawler = null as any;
@@ -14,6 +19,11 @@ export { DatabaseArgs } from "./database";
 export type Database = import("./database").Database;
 export const Database: typeof import("./database").Database = null as any;
 utilities.lazyLoad(exports, ["Database"], () => require("./database"));
+
+export { GetCatalogArgs, GetCatalogResult, GetCatalogOutputArgs } from "./getCatalog";
+export const getCatalog: typeof import("./getCatalog").getCatalog = null as any;
+export const getCatalogOutput: typeof import("./getCatalog").getCatalogOutput = null as any;
+utilities.lazyLoad(exports, ["getCatalog","getCatalogOutput"], () => require("./getCatalog"));
 
 export { GetCrawlerArgs, GetCrawlerResult, GetCrawlerOutputArgs } from "./getCrawler";
 export const getCrawler: typeof import("./getCrawler").getCrawler = null as any;
@@ -128,6 +138,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws-native:glue:Catalog":
+                return new Catalog(name, <any>undefined, { urn })
             case "aws-native:glue:Crawler":
                 return new Crawler(name, <any>undefined, { urn })
             case "aws-native:glue:Database":

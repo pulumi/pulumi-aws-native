@@ -9,6 +9,7 @@ from enum import Enum
 __all__ = [
     'AccessPolicyType',
     'CollectionGroupStandbyReplicas',
+    'CollectionServerlessVectorAcceleration',
     'CollectionStandbyReplicas',
     'CollectionType',
     'IndexPropertyMappingMethodPropertiesEngine',
@@ -36,6 +37,16 @@ class CollectionGroupStandbyReplicas(_builtins.str, Enum):
     """
     ENABLED = "ENABLED"
     DISABLED = "DISABLED"
+
+
+@pulumi.type_token("aws-native:opensearchserverless:CollectionServerlessVectorAcceleration")
+class CollectionServerlessVectorAcceleration(_builtins.str, Enum):
+    """
+    Indicates whether GPU acceleration is enabled for vector indexing
+    """
+    ENABLED = "ENABLED"
+    DISABLED = "DISABLED"
+    ALLOWED = "ALLOWED"
 
 
 @pulumi.type_token("aws-native:opensearchserverless:CollectionStandbyReplicas")

@@ -25,7 +25,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetGatewayResult:
-    def __init__(__self__, authorizer_configuration=None, authorizer_type=None, created_at=None, description=None, exception_level=None, gateway_arn=None, gateway_identifier=None, gateway_url=None, interceptor_configurations=None, kms_key_arn=None, name=None, protocol_configuration=None, protocol_type=None, role_arn=None, status=None, status_reasons=None, tags=None, updated_at=None, workload_identity_details=None):
+    def __init__(__self__, authorizer_configuration=None, authorizer_type=None, created_at=None, description=None, exception_level=None, gateway_arn=None, gateway_identifier=None, gateway_url=None, interceptor_configurations=None, kms_key_arn=None, name=None, policy_engine_configuration=None, protocol_configuration=None, protocol_type=None, role_arn=None, status=None, status_reasons=None, tags=None, updated_at=None, workload_identity_details=None):
         if authorizer_configuration and not isinstance(authorizer_configuration, dict):
             raise TypeError("Expected argument 'authorizer_configuration' to be a dict")
         pulumi.set(__self__, "authorizer_configuration", authorizer_configuration)
@@ -59,6 +59,9 @@ class GetGatewayResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if policy_engine_configuration and not isinstance(policy_engine_configuration, dict):
+            raise TypeError("Expected argument 'policy_engine_configuration' to be a dict")
+        pulumi.set(__self__, "policy_engine_configuration", policy_engine_configuration)
         if protocol_configuration and not isinstance(protocol_configuration, dict):
             raise TypeError("Expected argument 'protocol_configuration' to be a dict")
         pulumi.set(__self__, "protocol_configuration", protocol_configuration)
@@ -164,6 +167,11 @@ class GetGatewayResult:
         return pulumi.get(self, "name")
 
     @_builtins.property
+    @pulumi.getter(name="policyEngineConfiguration")
+    def policy_engine_configuration(self) -> Optional['outputs.GatewayPolicyEngineConfiguration']:
+        return pulumi.get(self, "policy_engine_configuration")
+
+    @_builtins.property
     @pulumi.getter(name="protocolConfiguration")
     def protocol_configuration(self) -> Optional['outputs.GatewayProtocolConfigurationProperties']:
         """
@@ -236,6 +244,7 @@ class AwaitableGetGatewayResult(GetGatewayResult):
             interceptor_configurations=self.interceptor_configurations,
             kms_key_arn=self.kms_key_arn,
             name=self.name,
+            policy_engine_configuration=self.policy_engine_configuration,
             protocol_configuration=self.protocol_configuration,
             protocol_type=self.protocol_type,
             role_arn=self.role_arn,
@@ -268,6 +277,7 @@ def get_gateway(gateway_identifier: Optional[_builtins.str] = None,
         interceptor_configurations=pulumi.get(__ret__, 'interceptor_configurations'),
         kms_key_arn=pulumi.get(__ret__, 'kms_key_arn'),
         name=pulumi.get(__ret__, 'name'),
+        policy_engine_configuration=pulumi.get(__ret__, 'policy_engine_configuration'),
         protocol_configuration=pulumi.get(__ret__, 'protocol_configuration'),
         protocol_type=pulumi.get(__ret__, 'protocol_type'),
         role_arn=pulumi.get(__ret__, 'role_arn'),
@@ -297,6 +307,7 @@ def get_gateway_output(gateway_identifier: Optional[pulumi.Input[_builtins.str]]
         interceptor_configurations=pulumi.get(__response__, 'interceptor_configurations'),
         kms_key_arn=pulumi.get(__response__, 'kms_key_arn'),
         name=pulumi.get(__response__, 'name'),
+        policy_engine_configuration=pulumi.get(__response__, 'policy_engine_configuration'),
         protocol_configuration=pulumi.get(__response__, 'protocol_configuration'),
         protocol_type=pulumi.get(__response__, 'protocol_type'),
         role_arn=pulumi.get(__response__, 'role_arn'),

@@ -20,7 +20,8 @@ type SchedulingPolicy struct {
 	// The fair-share scheduling policy details.
 	FairsharePolicy SchedulingPolicyFairsharePolicyPtrOutput `pulumi:"fairsharePolicy"`
 	// Name of Scheduling Policy.
-	Name pulumi.StringPtrOutput `pulumi:"name"`
+	Name             pulumi.StringPtrOutput                    `pulumi:"name"`
+	QuotaSharePolicy SchedulingPolicyQuotaSharePolicyPtrOutput `pulumi:"quotaSharePolicy"`
 	// A key-value pair to associate with a resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
@@ -73,7 +74,8 @@ type schedulingPolicyArgs struct {
 	// The fair-share scheduling policy details.
 	FairsharePolicy *SchedulingPolicyFairsharePolicy `pulumi:"fairsharePolicy"`
 	// Name of Scheduling Policy.
-	Name *string `pulumi:"name"`
+	Name             *string                           `pulumi:"name"`
+	QuotaSharePolicy *SchedulingPolicyQuotaSharePolicy `pulumi:"quotaSharePolicy"`
 	// A key-value pair to associate with a resource.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -83,7 +85,8 @@ type SchedulingPolicyArgs struct {
 	// The fair-share scheduling policy details.
 	FairsharePolicy SchedulingPolicyFairsharePolicyPtrInput
 	// Name of Scheduling Policy.
-	Name pulumi.StringPtrInput
+	Name             pulumi.StringPtrInput
+	QuotaSharePolicy SchedulingPolicyQuotaSharePolicyPtrInput
 	// A key-value pair to associate with a resource.
 	Tags pulumi.StringMapInput
 }
@@ -138,6 +141,10 @@ func (o SchedulingPolicyOutput) FairsharePolicy() SchedulingPolicyFairsharePolic
 // Name of Scheduling Policy.
 func (o SchedulingPolicyOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SchedulingPolicy) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o SchedulingPolicyOutput) QuotaSharePolicy() SchedulingPolicyQuotaSharePolicyPtrOutput {
+	return o.ApplyT(func(v *SchedulingPolicy) SchedulingPolicyQuotaSharePolicyPtrOutput { return v.QuotaSharePolicy }).(SchedulingPolicyQuotaSharePolicyPtrOutput)
 }
 
 // A key-value pair to associate with a resource.

@@ -185,6 +185,11 @@ export const getIpamPrefixListResolver: typeof import("./getIpamPrefixListResolv
 export const getIpamPrefixListResolverOutput: typeof import("./getIpamPrefixListResolver").getIpamPrefixListResolverOutput = null as any;
 utilities.lazyLoad(exports, ["getIpamPrefixListResolver","getIpamPrefixListResolverOutput"], () => require("./getIpamPrefixListResolver"));
 
+export { GetIpamPrefixListResolverTargetArgs, GetIpamPrefixListResolverTargetResult, GetIpamPrefixListResolverTargetOutputArgs } from "./getIpamPrefixListResolverTarget";
+export const getIpamPrefixListResolverTarget: typeof import("./getIpamPrefixListResolverTarget").getIpamPrefixListResolverTarget = null as any;
+export const getIpamPrefixListResolverTargetOutput: typeof import("./getIpamPrefixListResolverTarget").getIpamPrefixListResolverTargetOutput = null as any;
+utilities.lazyLoad(exports, ["getIpamPrefixListResolverTarget","getIpamPrefixListResolverTargetOutput"], () => require("./getIpamPrefixListResolverTarget"));
+
 export { GetIpamResourceDiscoveryArgs, GetIpamResourceDiscoveryResult, GetIpamResourceDiscoveryOutputArgs } from "./getIpamResourceDiscovery";
 export const getIpamResourceDiscovery: typeof import("./getIpamResourceDiscovery").getIpamResourceDiscovery = null as any;
 export const getIpamResourceDiscoveryOutput: typeof import("./getIpamResourceDiscovery").getIpamResourceDiscoveryOutput = null as any;
@@ -344,6 +349,11 @@ export { GetSpotFleetArgs, GetSpotFleetResult, GetSpotFleetOutputArgs } from "./
 export const getSpotFleet: typeof import("./getSpotFleet").getSpotFleet = null as any;
 export const getSpotFleetOutput: typeof import("./getSpotFleet").getSpotFleetOutput = null as any;
 utilities.lazyLoad(exports, ["getSpotFleet","getSpotFleetOutput"], () => require("./getSpotFleet"));
+
+export { GetSqlHaStandbyDetectedInstanceArgs, GetSqlHaStandbyDetectedInstanceResult, GetSqlHaStandbyDetectedInstanceOutputArgs } from "./getSqlHaStandbyDetectedInstance";
+export const getSqlHaStandbyDetectedInstance: typeof import("./getSqlHaStandbyDetectedInstance").getSqlHaStandbyDetectedInstance = null as any;
+export const getSqlHaStandbyDetectedInstanceOutput: typeof import("./getSqlHaStandbyDetectedInstance").getSqlHaStandbyDetectedInstanceOutput = null as any;
+utilities.lazyLoad(exports, ["getSqlHaStandbyDetectedInstance","getSqlHaStandbyDetectedInstanceOutput"], () => require("./getSqlHaStandbyDetectedInstance"));
 
 export { GetSubnetArgs, GetSubnetResult, GetSubnetOutputArgs } from "./getSubnet";
 export const getSubnet: typeof import("./getSubnet").getSubnet = null as any;
@@ -595,6 +605,11 @@ export type IpamPrefixListResolver = import("./ipamPrefixListResolver").IpamPref
 export const IpamPrefixListResolver: typeof import("./ipamPrefixListResolver").IpamPrefixListResolver = null as any;
 utilities.lazyLoad(exports, ["IpamPrefixListResolver"], () => require("./ipamPrefixListResolver"));
 
+export { IpamPrefixListResolverTargetArgs } from "./ipamPrefixListResolverTarget";
+export type IpamPrefixListResolverTarget = import("./ipamPrefixListResolverTarget").IpamPrefixListResolverTarget;
+export const IpamPrefixListResolverTarget: typeof import("./ipamPrefixListResolverTarget").IpamPrefixListResolverTarget = null as any;
+utilities.lazyLoad(exports, ["IpamPrefixListResolverTarget"], () => require("./ipamPrefixListResolverTarget"));
+
 export { IpamResourceDiscoveryArgs } from "./ipamResourceDiscovery";
 export type IpamResourceDiscovery = import("./ipamResourceDiscovery").IpamResourceDiscovery;
 export const IpamResourceDiscovery: typeof import("./ipamResourceDiscovery").IpamResourceDiscovery = null as any;
@@ -769,6 +784,11 @@ export { SpotFleetArgs } from "./spotFleet";
 export type SpotFleet = import("./spotFleet").SpotFleet;
 export const SpotFleet: typeof import("./spotFleet").SpotFleet = null as any;
 utilities.lazyLoad(exports, ["SpotFleet"], () => require("./spotFleet"));
+
+export { SqlHaStandbyDetectedInstanceArgs } from "./sqlHaStandbyDetectedInstance";
+export type SqlHaStandbyDetectedInstance = import("./sqlHaStandbyDetectedInstance").SqlHaStandbyDetectedInstance;
+export const SqlHaStandbyDetectedInstance: typeof import("./sqlHaStandbyDetectedInstance").SqlHaStandbyDetectedInstance = null as any;
+utilities.lazyLoad(exports, ["SqlHaStandbyDetectedInstance"], () => require("./sqlHaStandbyDetectedInstance"));
 
 export { SubnetArgs } from "./subnet";
 export type Subnet = import("./subnet").Subnet;
@@ -1054,6 +1074,8 @@ const _module = {
                 return new IpamPoolCidr(name, <any>undefined, { urn })
             case "aws-native:ec2:IpamPrefixListResolver":
                 return new IpamPrefixListResolver(name, <any>undefined, { urn })
+            case "aws-native:ec2:IpamPrefixListResolverTarget":
+                return new IpamPrefixListResolverTarget(name, <any>undefined, { urn })
             case "aws-native:ec2:IpamResourceDiscovery":
                 return new IpamResourceDiscovery(name, <any>undefined, { urn })
             case "aws-native:ec2:IpamResourceDiscoveryAssociation":
@@ -1124,6 +1146,8 @@ const _module = {
                 return new SnapshotBlockPublicAccess(name, <any>undefined, { urn })
             case "aws-native:ec2:SpotFleet":
                 return new SpotFleet(name, <any>undefined, { urn })
+            case "aws-native:ec2:SqlHaStandbyDetectedInstance":
+                return new SqlHaStandbyDetectedInstance(name, <any>undefined, { urn })
             case "aws-native:ec2:Subnet":
                 return new Subnet(name, <any>undefined, { urn })
             case "aws-native:ec2:SubnetCidrBlock":

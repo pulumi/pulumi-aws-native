@@ -133,6 +133,12 @@ namespace Pulumi.AwsNative.MediaConnect
         public Output<string?> StreamId { get; private set; } = null!;
 
         /// <summary>
+        /// Key-value pairs that can be used to tag and organize this flow output.
+        /// </summary>
+        [Output("tags")]
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the VPC interface attachment to use for this output.
         /// </summary>
         [Output("vpcInterfaceAttachment")]
@@ -163,6 +169,7 @@ namespace Pulumi.AwsNative.MediaConnect
                 Version = Utilities.Version,
                 ReplaceOnChanges =
                 {
+                    "flowArn",
                     "name",
                 },
             };
@@ -309,6 +316,18 @@ namespace Pulumi.AwsNative.MediaConnect
         /// </summary>
         [Input("streamId")]
         public Input<string>? StreamId { get; set; }
+
+        [Input("tags")]
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
+        /// <summary>
+        /// Key-value pairs that can be used to tag and organize this flow output.
+        /// </summary>
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
+        {
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            set => _tags = value;
+        }
 
         /// <summary>
         /// The name of the VPC interface attachment to use for this output.

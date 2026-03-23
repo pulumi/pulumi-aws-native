@@ -14,6 +14,7 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from .. import outputs as _root_outputs
 from ._enums import *
 
 __all__ = [
@@ -25,7 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetFlowEntitlementResult:
-    def __init__(__self__, description=None, encryption=None, entitlement_arn=None, entitlement_status=None, flow_arn=None, subscribers=None):
+    def __init__(__self__, description=None, encryption=None, entitlement_arn=None, entitlement_status=None, subscribers=None, tags=None):
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -38,12 +39,12 @@ class GetFlowEntitlementResult:
         if entitlement_status and not isinstance(entitlement_status, str):
             raise TypeError("Expected argument 'entitlement_status' to be a str")
         pulumi.set(__self__, "entitlement_status", entitlement_status)
-        if flow_arn and not isinstance(flow_arn, str):
-            raise TypeError("Expected argument 'flow_arn' to be a str")
-        pulumi.set(__self__, "flow_arn", flow_arn)
         if subscribers and not isinstance(subscribers, list):
             raise TypeError("Expected argument 'subscribers' to be a list")
         pulumi.set(__self__, "subscribers", subscribers)
+        if tags and not isinstance(tags, list):
+            raise TypeError("Expected argument 'tags' to be a list")
+        pulumi.set(__self__, "tags", tags)
 
     @_builtins.property
     @pulumi.getter
@@ -78,20 +79,20 @@ class GetFlowEntitlementResult:
         return pulumi.get(self, "entitlement_status")
 
     @_builtins.property
-    @pulumi.getter(name="flowArn")
-    def flow_arn(self) -> Optional[_builtins.str]:
-        """
-        The ARN of the flow.
-        """
-        return pulumi.get(self, "flow_arn")
-
-    @_builtins.property
     @pulumi.getter
     def subscribers(self) -> Optional[Sequence[_builtins.str]]:
         """
         The AWS account IDs that you want to share your content with. The receiving accounts (subscribers) will be allowed to create their own flow using your content as the source.
         """
         return pulumi.get(self, "subscribers")
+
+    @_builtins.property
+    @pulumi.getter
+    def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        Key-value pairs that can be used to tag and organize this flow entitlement.
+        """
+        return pulumi.get(self, "tags")
 
 
 class AwaitableGetFlowEntitlementResult(GetFlowEntitlementResult):
@@ -104,8 +105,8 @@ class AwaitableGetFlowEntitlementResult(GetFlowEntitlementResult):
             encryption=self.encryption,
             entitlement_arn=self.entitlement_arn,
             entitlement_status=self.entitlement_status,
-            flow_arn=self.flow_arn,
-            subscribers=self.subscribers)
+            subscribers=self.subscribers,
+            tags=self.tags)
 
 
 def get_flow_entitlement(entitlement_arn: Optional[_builtins.str] = None,
@@ -126,8 +127,8 @@ def get_flow_entitlement(entitlement_arn: Optional[_builtins.str] = None,
         encryption=pulumi.get(__ret__, 'encryption'),
         entitlement_arn=pulumi.get(__ret__, 'entitlement_arn'),
         entitlement_status=pulumi.get(__ret__, 'entitlement_status'),
-        flow_arn=pulumi.get(__ret__, 'flow_arn'),
-        subscribers=pulumi.get(__ret__, 'subscribers'))
+        subscribers=pulumi.get(__ret__, 'subscribers'),
+        tags=pulumi.get(__ret__, 'tags'))
 def get_flow_entitlement_output(entitlement_arn: Optional[pulumi.Input[_builtins.str]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFlowEntitlementResult]:
     """
@@ -145,5 +146,5 @@ def get_flow_entitlement_output(entitlement_arn: Optional[pulumi.Input[_builtins
         encryption=pulumi.get(__response__, 'encryption'),
         entitlement_arn=pulumi.get(__response__, 'entitlement_arn'),
         entitlement_status=pulumi.get(__response__, 'entitlement_status'),
-        flow_arn=pulumi.get(__response__, 'flow_arn'),
-        subscribers=pulumi.get(__response__, 'subscribers')))
+        subscribers=pulumi.get(__response__, 'subscribers'),
+        tags=pulumi.get(__response__, 'tags')))

@@ -14,6 +14,8 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._enums import *
 from ._inputs import *
 
@@ -23,9 +25,9 @@ __all__ = ['FlowSourceInitArgs', 'FlowSource']
 class FlowSourceInitArgs:
     def __init__(__self__, *,
                  description: pulumi.Input[_builtins.str],
+                 flow_arn: pulumi.Input[_builtins.str],
                  decryption: Optional[pulumi.Input['FlowSourceEncryptionArgs']] = None,
                  entitlement_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 flow_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  gateway_bridge_source: Optional[pulumi.Input['FlowSourceGatewayBridgeSourceArgs']] = None,
                  ingest_port: Optional[pulumi.Input[_builtins.int]] = None,
                  max_bitrate: Optional[pulumi.Input[_builtins.int]] = None,
@@ -38,15 +40,16 @@ class FlowSourceInitArgs:
                  source_listener_address: Optional[pulumi.Input[_builtins.str]] = None,
                  source_listener_port: Optional[pulumi.Input[_builtins.int]] = None,
                  stream_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
                  vpc_interface_name: Optional[pulumi.Input[_builtins.str]] = None,
                  whitelist_cidr: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a FlowSource resource.
 
         :param pulumi.Input[_builtins.str] description: A description for the source. This value is not used or seen outside of the current AWS Elemental MediaConnect account.
+        :param pulumi.Input[_builtins.str] flow_arn: The ARN of the flow.
         :param pulumi.Input['FlowSourceEncryptionArgs'] decryption: The type of encryption that is used on the content ingested from this source.
         :param pulumi.Input[_builtins.str] entitlement_arn: The ARN of the entitlement that allows you to subscribe to content that comes from another AWS account. The entitlement is set by the content originator and the ARN is generated as part of the originator's flow.
-        :param pulumi.Input[_builtins.str] flow_arn: The ARN of the flow.
         :param pulumi.Input['FlowSourceGatewayBridgeSourceArgs'] gateway_bridge_source: The source configuration for cloud flows receiving a stream from a bridge.
         :param pulumi.Input[_builtins.int] ingest_port: The port that the flow will be listening on for incoming content.
         :param pulumi.Input[_builtins.int] max_bitrate: The smoothing max bitrate for RIST, RTP, and RTP-FEC streams.
@@ -59,16 +62,16 @@ class FlowSourceInitArgs:
         :param pulumi.Input[_builtins.str] source_listener_address: Source IP or domain name for SRT-caller protocol.
         :param pulumi.Input[_builtins.int] source_listener_port: Source port for SRT-caller protocol.
         :param pulumi.Input[_builtins.str] stream_id: The stream ID that you want to use for this transport. This parameter applies only to Zixi-based streams.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: Key-value pairs that can be used to tag and organize this flow source.
         :param pulumi.Input[_builtins.str] vpc_interface_name: The name of the VPC Interface this Source is configured with.
         :param pulumi.Input[_builtins.str] whitelist_cidr: The range of IP addresses that should be allowed to contribute content to your source. These IP addresses should be in the form of a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16.
         """
         pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "flow_arn", flow_arn)
         if decryption is not None:
             pulumi.set(__self__, "decryption", decryption)
         if entitlement_arn is not None:
             pulumi.set(__self__, "entitlement_arn", entitlement_arn)
-        if flow_arn is not None:
-            pulumi.set(__self__, "flow_arn", flow_arn)
         if gateway_bridge_source is not None:
             pulumi.set(__self__, "gateway_bridge_source", gateway_bridge_source)
         if ingest_port is not None:
@@ -93,6 +96,8 @@ class FlowSourceInitArgs:
             pulumi.set(__self__, "source_listener_port", source_listener_port)
         if stream_id is not None:
             pulumi.set(__self__, "stream_id", stream_id)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
         if vpc_interface_name is not None:
             pulumi.set(__self__, "vpc_interface_name", vpc_interface_name)
         if whitelist_cidr is not None:
@@ -109,6 +114,18 @@ class FlowSourceInitArgs:
     @description.setter
     def description(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter(name="flowArn")
+    def flow_arn(self) -> pulumi.Input[_builtins.str]:
+        """
+        The ARN of the flow.
+        """
+        return pulumi.get(self, "flow_arn")
+
+    @flow_arn.setter
+    def flow_arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "flow_arn", value)
 
     @_builtins.property
     @pulumi.getter
@@ -133,18 +150,6 @@ class FlowSourceInitArgs:
     @entitlement_arn.setter
     def entitlement_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "entitlement_arn", value)
-
-    @_builtins.property
-    @pulumi.getter(name="flowArn")
-    def flow_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The ARN of the flow.
-        """
-        return pulumi.get(self, "flow_arn")
-
-    @flow_arn.setter
-    def flow_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "flow_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="gatewayBridgeSource")
@@ -291,6 +296,18 @@ class FlowSourceInitArgs:
         pulumi.set(self, "stream_id", value)
 
     @_builtins.property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        Key-value pairs that can be used to tag and organize this flow source.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+        pulumi.set(self, "tags", value)
+
+    @_builtins.property
     @pulumi.getter(name="vpcInterfaceName")
     def vpc_interface_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -337,11 +354,12 @@ class FlowSource(pulumi.CustomResource):
                  source_listener_address: Optional[pulumi.Input[_builtins.str]] = None,
                  source_listener_port: Optional[pulumi.Input[_builtins.int]] = None,
                  stream_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  vpc_interface_name: Optional[pulumi.Input[_builtins.str]] = None,
                  whitelist_cidr: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Resource schema for AWS::MediaConnect::FlowSource
+        Resource Type definition for AWS::MediaConnect::FlowSource
 
 
         :param str resource_name: The name of the resource.
@@ -362,6 +380,7 @@ class FlowSource(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] source_listener_address: Source IP or domain name for SRT-caller protocol.
         :param pulumi.Input[_builtins.int] source_listener_port: Source port for SRT-caller protocol.
         :param pulumi.Input[_builtins.str] stream_id: The stream ID that you want to use for this transport. This parameter applies only to Zixi-based streams.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Key-value pairs that can be used to tag and organize this flow source.
         :param pulumi.Input[_builtins.str] vpc_interface_name: The name of the VPC Interface this Source is configured with.
         :param pulumi.Input[_builtins.str] whitelist_cidr: The range of IP addresses that should be allowed to contribute content to your source. These IP addresses should be in the form of a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16.
         """
@@ -372,7 +391,7 @@ class FlowSource(pulumi.CustomResource):
                  args: FlowSourceInitArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource schema for AWS::MediaConnect::FlowSource
+        Resource Type definition for AWS::MediaConnect::FlowSource
 
 
         :param str resource_name: The name of the resource.
@@ -406,6 +425,7 @@ class FlowSource(pulumi.CustomResource):
                  source_listener_address: Optional[pulumi.Input[_builtins.str]] = None,
                  source_listener_port: Optional[pulumi.Input[_builtins.int]] = None,
                  stream_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  vpc_interface_name: Optional[pulumi.Input[_builtins.str]] = None,
                  whitelist_cidr: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
@@ -422,6 +442,8 @@ class FlowSource(pulumi.CustomResource):
                 raise TypeError("Missing required property 'description'")
             __props__.__dict__["description"] = description
             __props__.__dict__["entitlement_arn"] = entitlement_arn
+            if flow_arn is None and not opts.urn:
+                raise TypeError("Missing required property 'flow_arn'")
             __props__.__dict__["flow_arn"] = flow_arn
             __props__.__dict__["gateway_bridge_source"] = gateway_bridge_source
             __props__.__dict__["ingest_port"] = ingest_port
@@ -435,12 +457,13 @@ class FlowSource(pulumi.CustomResource):
             __props__.__dict__["source_listener_address"] = source_listener_address
             __props__.__dict__["source_listener_port"] = source_listener_port
             __props__.__dict__["stream_id"] = stream_id
+            __props__.__dict__["tags"] = tags
             __props__.__dict__["vpc_interface_name"] = vpc_interface_name
             __props__.__dict__["whitelist_cidr"] = whitelist_cidr
             __props__.__dict__["ingest_ip"] = None
             __props__.__dict__["source_arn"] = None
             __props__.__dict__["source_ingest_port"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["flowArn", "name", "protocol"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(FlowSource, __self__).__init__(
             'aws-native:mediaconnect:FlowSource',
@@ -483,6 +506,7 @@ class FlowSource(pulumi.CustomResource):
         __props__.__dict__["source_listener_address"] = None
         __props__.__dict__["source_listener_port"] = None
         __props__.__dict__["stream_id"] = None
+        __props__.__dict__["tags"] = None
         __props__.__dict__["vpc_interface_name"] = None
         __props__.__dict__["whitelist_cidr"] = None
         return FlowSource(resource_name, opts=opts, __props__=__props__)
@@ -513,7 +537,7 @@ class FlowSource(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="flowArn")
-    def flow_arn(self) -> pulumi.Output[Optional[_builtins.str]]:
+    def flow_arn(self) -> pulumi.Output[_builtins.str]:
         """
         The ARN of the flow.
         """
@@ -638,6 +662,14 @@ class FlowSource(pulumi.CustomResource):
         The stream ID that you want to use for this transport. This parameter applies only to Zixi-based streams.
         """
         return pulumi.get(self, "stream_id")
+
+    @_builtins.property
+    @pulumi.getter
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        Key-value pairs that can be used to tag and organize this flow source.
+        """
+        return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="vpcInterfaceName")

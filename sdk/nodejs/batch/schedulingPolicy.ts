@@ -49,6 +49,7 @@ export class SchedulingPolicy extends pulumi.CustomResource {
      * Name of Scheduling Policy.
      */
     declare public readonly name: pulumi.Output<string | undefined>;
+    declare public readonly quotaSharePolicy: pulumi.Output<outputs.batch.SchedulingPolicyQuotaSharePolicy | undefined>;
     /**
      * A key-value pair to associate with a resource.
      */
@@ -67,12 +68,14 @@ export class SchedulingPolicy extends pulumi.CustomResource {
         if (!opts.id) {
             resourceInputs["fairsharePolicy"] = args?.fairsharePolicy;
             resourceInputs["name"] = args?.name;
+            resourceInputs["quotaSharePolicy"] = args?.quotaSharePolicy;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["fairsharePolicy"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["quotaSharePolicy"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -94,6 +97,7 @@ export interface SchedulingPolicyArgs {
      * Name of Scheduling Policy.
      */
     name?: pulumi.Input<string>;
+    quotaSharePolicy?: pulumi.Input<inputs.batch.SchedulingPolicyQuotaSharePolicyArgs>;
     /**
      * A key-value pair to associate with a resource.
      */

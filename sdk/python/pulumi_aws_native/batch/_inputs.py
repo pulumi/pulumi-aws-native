@@ -134,8 +134,16 @@ __all__ = [
     'JobQueueJobStateTimeLimitActionArgsDict',
     'JobQueueServiceEnvironmentOrderArgs',
     'JobQueueServiceEnvironmentOrderArgsDict',
+    'QuotaShareCapacityLimitArgs',
+    'QuotaShareCapacityLimitArgsDict',
+    'QuotaSharePreemptionConfigurationArgs',
+    'QuotaSharePreemptionConfigurationArgsDict',
+    'QuotaShareResourceSharingConfigurationArgs',
+    'QuotaShareResourceSharingConfigurationArgsDict',
     'SchedulingPolicyFairsharePolicyArgs',
     'SchedulingPolicyFairsharePolicyArgsDict',
+    'SchedulingPolicyQuotaSharePolicyArgs',
+    'SchedulingPolicyQuotaSharePolicyArgsDict',
     'SchedulingPolicyShareAttributesArgs',
     'SchedulingPolicyShareAttributesArgsDict',
     'ServiceEnvironmentCapacityLimitArgs',
@@ -6735,6 +6743,129 @@ class JobQueueServiceEnvironmentOrderArgs:
         pulumi.set(self, "service_environment", value)
 
 
+class QuotaShareCapacityLimitArgsDict(TypedDict):
+    capacity_unit: pulumi.Input[_builtins.str]
+    """
+    The unit of compute capacity for the capacityLimit.
+    """
+    max_capacity: pulumi.Input[_builtins.int]
+    """
+    The maximum capacity available for the quota share. This value represents the maximum amount of resources that can be allocated to jobs in the quota share without borrowing
+    """
+
+@pulumi.input_type
+class QuotaShareCapacityLimitArgs:
+    def __init__(__self__, *,
+                 capacity_unit: pulumi.Input[_builtins.str],
+                 max_capacity: pulumi.Input[_builtins.int]):
+        """
+        :param pulumi.Input[_builtins.str] capacity_unit: The unit of compute capacity for the capacityLimit.
+        :param pulumi.Input[_builtins.int] max_capacity: The maximum capacity available for the quota share. This value represents the maximum amount of resources that can be allocated to jobs in the quota share without borrowing
+        """
+        pulumi.set(__self__, "capacity_unit", capacity_unit)
+        pulumi.set(__self__, "max_capacity", max_capacity)
+
+    @_builtins.property
+    @pulumi.getter(name="capacityUnit")
+    def capacity_unit(self) -> pulumi.Input[_builtins.str]:
+        """
+        The unit of compute capacity for the capacityLimit.
+        """
+        return pulumi.get(self, "capacity_unit")
+
+    @capacity_unit.setter
+    def capacity_unit(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "capacity_unit", value)
+
+    @_builtins.property
+    @pulumi.getter(name="maxCapacity")
+    def max_capacity(self) -> pulumi.Input[_builtins.int]:
+        """
+        The maximum capacity available for the quota share. This value represents the maximum amount of resources that can be allocated to jobs in the quota share without borrowing
+        """
+        return pulumi.get(self, "max_capacity")
+
+    @max_capacity.setter
+    def max_capacity(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "max_capacity", value)
+
+
+class QuotaSharePreemptionConfigurationArgsDict(TypedDict):
+    in_share_preemption: pulumi.Input['QuotaSharePreemptionConfigurationInSharePreemption']
+    """
+    Whether preemption is enabled within the quota share.
+    """
+
+@pulumi.input_type
+class QuotaSharePreemptionConfigurationArgs:
+    def __init__(__self__, *,
+                 in_share_preemption: pulumi.Input['QuotaSharePreemptionConfigurationInSharePreemption']):
+        """
+        :param pulumi.Input['QuotaSharePreemptionConfigurationInSharePreemption'] in_share_preemption: Whether preemption is enabled within the quota share.
+        """
+        pulumi.set(__self__, "in_share_preemption", in_share_preemption)
+
+    @_builtins.property
+    @pulumi.getter(name="inSharePreemption")
+    def in_share_preemption(self) -> pulumi.Input['QuotaSharePreemptionConfigurationInSharePreemption']:
+        """
+        Whether preemption is enabled within the quota share.
+        """
+        return pulumi.get(self, "in_share_preemption")
+
+    @in_share_preemption.setter
+    def in_share_preemption(self, value: pulumi.Input['QuotaSharePreemptionConfigurationInSharePreemption']):
+        pulumi.set(self, "in_share_preemption", value)
+
+
+class QuotaShareResourceSharingConfigurationArgsDict(TypedDict):
+    strategy: pulumi.Input['QuotaShareResourceSharingConfigurationStrategy']
+    """
+    The resource sharing strategy.
+    """
+    borrow_limit: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The maximum amount of compute capacity that can be borrowed. Use -1 for unlimited borrowing.
+    """
+
+@pulumi.input_type
+class QuotaShareResourceSharingConfigurationArgs:
+    def __init__(__self__, *,
+                 strategy: pulumi.Input['QuotaShareResourceSharingConfigurationStrategy'],
+                 borrow_limit: Optional[pulumi.Input[_builtins.int]] = None):
+        """
+        :param pulumi.Input['QuotaShareResourceSharingConfigurationStrategy'] strategy: The resource sharing strategy.
+        :param pulumi.Input[_builtins.int] borrow_limit: The maximum amount of compute capacity that can be borrowed. Use -1 for unlimited borrowing.
+        """
+        pulumi.set(__self__, "strategy", strategy)
+        if borrow_limit is not None:
+            pulumi.set(__self__, "borrow_limit", borrow_limit)
+
+    @_builtins.property
+    @pulumi.getter
+    def strategy(self) -> pulumi.Input['QuotaShareResourceSharingConfigurationStrategy']:
+        """
+        The resource sharing strategy.
+        """
+        return pulumi.get(self, "strategy")
+
+    @strategy.setter
+    def strategy(self, value: pulumi.Input['QuotaShareResourceSharingConfigurationStrategy']):
+        pulumi.set(self, "strategy", value)
+
+    @_builtins.property
+    @pulumi.getter(name="borrowLimit")
+    def borrow_limit(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        The maximum amount of compute capacity that can be borrowed. Use -1 for unlimited borrowing.
+        """
+        return pulumi.get(self, "borrow_limit")
+
+    @borrow_limit.setter
+    def borrow_limit(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "borrow_limit", value)
+
+
 class SchedulingPolicyFairsharePolicyArgsDict(TypedDict):
     """
     Fair Share Policy for the Job Queue.
@@ -6831,6 +6962,32 @@ class SchedulingPolicyFairsharePolicyArgs:
     @share_distribution.setter
     def share_distribution(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SchedulingPolicyShareAttributesArgs']]]]):
         pulumi.set(self, "share_distribution", value)
+
+
+class SchedulingPolicyQuotaSharePolicyArgsDict(TypedDict):
+    """
+    Quota Share Policy for the Job Queue.
+    """
+    idle_resource_assignment_strategy: NotRequired[pulumi.Input['SchedulingPolicyQuotaSharePolicyIdleResourceAssignmentStrategy']]
+
+@pulumi.input_type
+class SchedulingPolicyQuotaSharePolicyArgs:
+    def __init__(__self__, *,
+                 idle_resource_assignment_strategy: Optional[pulumi.Input['SchedulingPolicyQuotaSharePolicyIdleResourceAssignmentStrategy']] = None):
+        """
+        Quota Share Policy for the Job Queue.
+        """
+        if idle_resource_assignment_strategy is not None:
+            pulumi.set(__self__, "idle_resource_assignment_strategy", idle_resource_assignment_strategy)
+
+    @_builtins.property
+    @pulumi.getter(name="idleResourceAssignmentStrategy")
+    def idle_resource_assignment_strategy(self) -> Optional[pulumi.Input['SchedulingPolicyQuotaSharePolicyIdleResourceAssignmentStrategy']]:
+        return pulumi.get(self, "idle_resource_assignment_strategy")
+
+    @idle_resource_assignment_strategy.setter
+    def idle_resource_assignment_strategy(self, value: Optional[pulumi.Input['SchedulingPolicyQuotaSharePolicyIdleResourceAssignmentStrategy']]):
+        pulumi.set(self, "idle_resource_assignment_strategy", value)
 
 
 class SchedulingPolicyShareAttributesArgsDict(TypedDict):

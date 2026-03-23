@@ -11,7 +11,7 @@ namespace Pulumi.AwsNative.MediaConnect.Outputs
 {
 
     /// <summary>
-    /// Specifies the configuration settings for NDI outputs. Required when the flow includes NDI outputs.
+    /// Specifies the configuration settings for NDI sources and outputs. Required when the flow includes NDI sources or outputs.
     /// </summary>
     [OutputType]
     public sealed class FlowNdiConfig
@@ -25,9 +25,9 @@ namespace Pulumi.AwsNative.MediaConnect.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.FlowNdiDiscoveryServerConfig> NdiDiscoveryServers;
         /// <summary>
-        /// A setting that controls whether NDI outputs can be used in the flow. Must be ENABLED to add NDI outputs. Default is DISABLED.
+        /// A setting that controls whether NDI sources or outputs can be used in the flow. The default value is DISABLED. This value must be set as ENABLED for your flow to support NDI sources or outputs.
         /// </summary>
-        public readonly Pulumi.AwsNative.MediaConnect.FlowNdiConfigNdiState? NdiState;
+        public readonly Pulumi.AwsNative.MediaConnect.FlowNdiState? NdiState;
 
         [OutputConstructor]
         private FlowNdiConfig(
@@ -35,7 +35,7 @@ namespace Pulumi.AwsNative.MediaConnect.Outputs
 
             ImmutableArray<Outputs.FlowNdiDiscoveryServerConfig> ndiDiscoveryServers,
 
-            Pulumi.AwsNative.MediaConnect.FlowNdiConfigNdiState? ndiState)
+            Pulumi.AwsNative.MediaConnect.FlowNdiState? ndiState)
         {
             MachineName = machineName;
             NdiDiscoveryServers = ndiDiscoveryServers;

@@ -141,6 +141,26 @@ export const S3TableIntegrationEncryptionConfigSseAlgorithm = {
  */
 export type S3TableIntegrationEncryptionConfigSseAlgorithm = (typeof S3TableIntegrationEncryptionConfigSseAlgorithm)[keyof typeof S3TableIntegrationEncryptionConfigSseAlgorithm];
 
+export const TelemetryEnrichmentScope = {
+    Account: "ACCOUNT",
+} as const;
+
+/**
+ * Scope of the Telemetry Enrichment
+ */
+export type TelemetryEnrichmentScope = (typeof TelemetryEnrichmentScope)[keyof typeof TelemetryEnrichmentScope];
+
+export const TelemetryEnrichmentStatus = {
+    Running: "RUNNING",
+    Stopped: "STOPPED",
+    Impaired: "IMPAIRED",
+} as const;
+
+/**
+ * Current status of the resource tags for telemetry feature (Running, Stopped, or Impaired).
+ */
+export type TelemetryEnrichmentStatus = (typeof TelemetryEnrichmentStatus)[keyof typeof TelemetryEnrichmentStatus];
+
 export const TelemetryPipelinesTelemetryPipelineStatus = {
     Creating: "CREATING",
     Active: "ACTIVE",

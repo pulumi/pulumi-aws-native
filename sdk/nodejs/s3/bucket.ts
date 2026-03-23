@@ -579,6 +579,8 @@ export class Bucket extends pulumi.CustomResource {
      *   If you specify a name, you can't perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you need to replace the resource, specify a new name.
      */
     declare public readonly bucketName: pulumi.Output<string | undefined>;
+    declare public readonly bucketNamePrefix: pulumi.Output<string | undefined>;
+    declare public readonly bucketNamespace: pulumi.Output<enums.s3.BucketNamespace | undefined>;
     /**
      * Describes the cross-origin access configuration for objects in an Amazon S3 bucket. For more information, see [Enabling Cross-Origin Resource Sharing](https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html) in the *Amazon S3 User Guide*.
      */
@@ -701,6 +703,8 @@ export class Bucket extends pulumi.CustomResource {
             resourceInputs["analyticsConfigurations"] = args?.analyticsConfigurations;
             resourceInputs["bucketEncryption"] = args?.bucketEncryption;
             resourceInputs["bucketName"] = args?.bucketName;
+            resourceInputs["bucketNamePrefix"] = args?.bucketNamePrefix;
+            resourceInputs["bucketNamespace"] = args?.bucketNamespace;
             resourceInputs["corsConfiguration"] = args?.corsConfiguration;
             resourceInputs["intelligentTieringConfigurations"] = args?.intelligentTieringConfigurations;
             resourceInputs["inventoryConfigurations"] = args?.inventoryConfigurations;
@@ -731,6 +735,8 @@ export class Bucket extends pulumi.CustomResource {
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["bucketEncryption"] = undefined /*out*/;
             resourceInputs["bucketName"] = undefined /*out*/;
+            resourceInputs["bucketNamePrefix"] = undefined /*out*/;
+            resourceInputs["bucketNamespace"] = undefined /*out*/;
             resourceInputs["corsConfiguration"] = undefined /*out*/;
             resourceInputs["domainName"] = undefined /*out*/;
             resourceInputs["dualStackDomainName"] = undefined /*out*/;
@@ -754,7 +760,7 @@ export class Bucket extends pulumi.CustomResource {
             resourceInputs["websiteUrl"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["bucketName"] };
+        const replaceOnChanges = { replaceOnChanges: ["bucketName", "bucketNamePrefix", "bucketNamespace"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Bucket.__pulumiType, name, resourceInputs, opts);
     }
@@ -792,6 +798,8 @@ export interface BucketArgs {
      *   If you specify a name, you can't perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you need to replace the resource, specify a new name.
      */
     bucketName?: pulumi.Input<string>;
+    bucketNamePrefix?: pulumi.Input<string>;
+    bucketNamespace?: pulumi.Input<enums.s3.BucketNamespace>;
     /**
      * Describes the cross-origin access configuration for objects in an Amazon S3 bucket. For more information, see [Enabling Cross-Origin Resource Sharing](https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html) in the *Amazon S3 User Guide*.
      */

@@ -12,19 +12,19 @@ namespace Pulumi.AwsNative.MediaConnect
     public static class GetFlowSource
     {
         /// <summary>
-        /// Resource schema for AWS::MediaConnect::FlowSource
+        /// Resource Type definition for AWS::MediaConnect::FlowSource
         /// </summary>
         public static Task<GetFlowSourceResult> InvokeAsync(GetFlowSourceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFlowSourceResult>("aws-native:mediaconnect:getFlowSource", args ?? new GetFlowSourceArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Resource schema for AWS::MediaConnect::FlowSource
+        /// Resource Type definition for AWS::MediaConnect::FlowSource
         /// </summary>
         public static Output<GetFlowSourceResult> Invoke(GetFlowSourceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFlowSourceResult>("aws-native:mediaconnect:getFlowSource", args ?? new GetFlowSourceInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Resource schema for AWS::MediaConnect::FlowSource
+        /// Resource Type definition for AWS::MediaConnect::FlowSource
         /// </summary>
         public static Output<GetFlowSourceResult> Invoke(GetFlowSourceInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetFlowSourceResult>("aws-native:mediaconnect:getFlowSource", args ?? new GetFlowSourceInvokeArgs(), options.WithDefaults());
@@ -76,10 +76,6 @@ namespace Pulumi.AwsNative.MediaConnect
         /// </summary>
         public readonly string? EntitlementArn;
         /// <summary>
-        /// The ARN of the flow.
-        /// </summary>
-        public readonly string? FlowArn;
-        /// <summary>
         /// The source configuration for cloud flows receiving a stream from a bridge.
         /// </summary>
         public readonly Outputs.FlowSourceGatewayBridgeSource? GatewayBridgeSource;
@@ -103,10 +99,6 @@ namespace Pulumi.AwsNative.MediaConnect
         /// The minimum latency in milliseconds.
         /// </summary>
         public readonly int? MinLatency;
-        /// <summary>
-        /// The protocol that is used by the source.
-        /// </summary>
-        public readonly Pulumi.AwsNative.MediaConnect.FlowSourceProtocol? Protocol;
         /// <summary>
         /// The port that the flow uses to send outbound requests to initiate connection with the sender for fujitsu-qos protocol.
         /// </summary>
@@ -136,6 +128,10 @@ namespace Pulumi.AwsNative.MediaConnect
         /// </summary>
         public readonly string? StreamId;
         /// <summary>
+        /// Key-value pairs that can be used to tag and organize this flow source.
+        /// </summary>
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
+        /// <summary>
         /// The name of the VPC Interface this Source is configured with.
         /// </summary>
         public readonly string? VpcInterfaceName;
@@ -152,8 +148,6 @@ namespace Pulumi.AwsNative.MediaConnect
 
             string? entitlementArn,
 
-            string? flowArn,
-
             Outputs.FlowSourceGatewayBridgeSource? gatewayBridgeSource,
 
             string? ingestIp,
@@ -165,8 +159,6 @@ namespace Pulumi.AwsNative.MediaConnect
             int? maxLatency,
 
             int? minLatency,
-
-            Pulumi.AwsNative.MediaConnect.FlowSourceProtocol? protocol,
 
             int? senderControlPort,
 
@@ -182,6 +174,8 @@ namespace Pulumi.AwsNative.MediaConnect
 
             string? streamId,
 
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
+
             string? vpcInterfaceName,
 
             string? whitelistCidr)
@@ -189,14 +183,12 @@ namespace Pulumi.AwsNative.MediaConnect
             Decryption = decryption;
             Description = description;
             EntitlementArn = entitlementArn;
-            FlowArn = flowArn;
             GatewayBridgeSource = gatewayBridgeSource;
             IngestIp = ingestIp;
             IngestPort = ingestPort;
             MaxBitrate = maxBitrate;
             MaxLatency = maxLatency;
             MinLatency = minLatency;
-            Protocol = protocol;
             SenderControlPort = senderControlPort;
             SenderIpAddress = senderIpAddress;
             SourceArn = sourceArn;
@@ -204,6 +196,7 @@ namespace Pulumi.AwsNative.MediaConnect
             SourceListenerAddress = sourceListenerAddress;
             SourceListenerPort = sourceListenerPort;
             StreamId = streamId;
+            Tags = tags;
             VpcInterfaceName = vpcInterfaceName;
             WhitelistCidr = whitelistCidr;
         }

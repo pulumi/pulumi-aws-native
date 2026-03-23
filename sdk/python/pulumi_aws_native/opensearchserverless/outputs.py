@@ -19,6 +19,7 @@ from ._enums import *
 __all__ = [
     'CollectionEncryptionConfig',
     'CollectionGroupCapacityLimits',
+    'CollectionVectorOptions',
     'IndexPropertyMapping',
     'IndexPropertyMappingMethodProperties',
     'IndexPropertyMappingMethodPropertiesParametersProperties',
@@ -161,6 +162,42 @@ class CollectionGroupCapacityLimits(dict):
         The minimum search capacity for collections in the group.
         """
         return pulumi.get(self, "min_search_capacity_in_ocu")
+
+
+@pulumi.output_type
+class CollectionVectorOptions(dict):
+    """
+    Vector search configuration options for the collection
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "serverlessVectorAcceleration":
+            suggest = "serverless_vector_acceleration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CollectionVectorOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CollectionVectorOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CollectionVectorOptions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 serverless_vector_acceleration: Optional['CollectionServerlessVectorAcceleration'] = None):
+        """
+        Vector search configuration options for the collection
+        """
+        if serverless_vector_acceleration is not None:
+            pulumi.set(__self__, "serverless_vector_acceleration", serverless_vector_acceleration)
+
+    @_builtins.property
+    @pulumi.getter(name="serverlessVectorAcceleration")
+    def serverless_vector_acceleration(self) -> Optional['CollectionServerlessVectorAcceleration']:
+        return pulumi.get(self, "serverless_vector_acceleration")
 
 
 @pulumi.output_type

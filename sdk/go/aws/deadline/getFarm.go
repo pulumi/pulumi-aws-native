@@ -30,7 +30,8 @@ type LookupFarmArgs struct {
 
 type LookupFarmResult struct {
 	// The Amazon Resource Name (ARN) assigned to the farm.
-	Arn *string `pulumi:"arn"`
+	Arn             *string  `pulumi:"arn"`
+	CostScaleFactor *float64 `pulumi:"costScaleFactor"`
 	// A description of the farm that helps identify what the farm is used for.
 	//
 	// > This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
@@ -80,6 +81,10 @@ func (o LookupFarmResultOutput) ToLookupFarmResultOutputWithContext(ctx context.
 // The Amazon Resource Name (ARN) assigned to the farm.
 func (o LookupFarmResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupFarmResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupFarmResultOutput) CostScaleFactor() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v LookupFarmResult) *float64 { return v.CostScaleFactor }).(pulumi.Float64PtrOutput)
 }
 
 // A description of the farm that helps identify what the farm is used for.

@@ -30,6 +30,7 @@ class CloudAutonomousVmClusterArgs:
                  db_servers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  display_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 iam_roles: Optional[pulumi.Input[Sequence[pulumi.Input['CloudAutonomousVmClusterIamRoleArgs']]]] = None,
                  is_mtls_enabled_vm_cluster: Optional[pulumi.Input[_builtins.bool]] = None,
                  license_model: Optional[pulumi.Input['CloudAutonomousVmClusterLicenseModel']] = None,
                  maintenance_window: Optional[pulumi.Input['CloudAutonomousVmClusterMaintenanceWindowArgs']] = None,
@@ -49,6 +50,7 @@ class CloudAutonomousVmClusterArgs:
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] db_servers: The list of database servers associated with the Autonomous VM cluster.
         :param pulumi.Input[_builtins.str] description: The user-provided description of the Autonomous VM cluster.
         :param pulumi.Input[_builtins.str] display_name: The display name of the Autonomous VM cluster.
+        :param pulumi.Input[Sequence[pulumi.Input['CloudAutonomousVmClusterIamRoleArgs']]] iam_roles: The AWS Identity and Access Management (IAM) service roles associated with the Autonomous VM cluster.
         :param pulumi.Input[_builtins.bool] is_mtls_enabled_vm_cluster: Indicates whether mutual TLS (mTLS) authentication is enabled for the Autonomous VM cluster.
         :param pulumi.Input['CloudAutonomousVmClusterLicenseModel'] license_model: The Oracle license model that applies to the Autonomous VM cluster. Valid values are LICENSE_INCLUDED or BRING_YOUR_OWN_LICENSE.
         :param pulumi.Input['CloudAutonomousVmClusterMaintenanceWindowArgs'] maintenance_window: The scheduling details for the maintenance window. Patching and system updates take place during the maintenance window.
@@ -72,6 +74,8 @@ class CloudAutonomousVmClusterArgs:
             pulumi.set(__self__, "description", description)
         if display_name is not None:
             pulumi.set(__self__, "display_name", display_name)
+        if iam_roles is not None:
+            pulumi.set(__self__, "iam_roles", iam_roles)
         if is_mtls_enabled_vm_cluster is not None:
             pulumi.set(__self__, "is_mtls_enabled_vm_cluster", is_mtls_enabled_vm_cluster)
         if license_model is not None:
@@ -164,6 +168,18 @@ class CloudAutonomousVmClusterArgs:
     @display_name.setter
     def display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "display_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="iamRoles")
+    def iam_roles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CloudAutonomousVmClusterIamRoleArgs']]]]:
+        """
+        The AWS Identity and Access Management (IAM) service roles associated with the Autonomous VM cluster.
+        """
+        return pulumi.get(self, "iam_roles")
+
+    @iam_roles.setter
+    def iam_roles(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CloudAutonomousVmClusterIamRoleArgs']]]]):
+        pulumi.set(self, "iam_roles", value)
 
     @_builtins.property
     @pulumi.getter(name="isMtlsEnabledVmCluster")
@@ -298,6 +314,7 @@ class CloudAutonomousVmCluster(pulumi.CustomResource):
                  db_servers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  display_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 iam_roles: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CloudAutonomousVmClusterIamRoleArgs', 'CloudAutonomousVmClusterIamRoleArgsDict']]]]] = None,
                  is_mtls_enabled_vm_cluster: Optional[pulumi.Input[_builtins.bool]] = None,
                  license_model: Optional[pulumi.Input['CloudAutonomousVmClusterLicenseModel']] = None,
                  maintenance_window: Optional[pulumi.Input[Union['CloudAutonomousVmClusterMaintenanceWindowArgs', 'CloudAutonomousVmClusterMaintenanceWindowArgsDict']]] = None,
@@ -321,6 +338,7 @@ class CloudAutonomousVmCluster(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] db_servers: The list of database servers associated with the Autonomous VM cluster.
         :param pulumi.Input[_builtins.str] description: The user-provided description of the Autonomous VM cluster.
         :param pulumi.Input[_builtins.str] display_name: The display name of the Autonomous VM cluster.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CloudAutonomousVmClusterIamRoleArgs', 'CloudAutonomousVmClusterIamRoleArgsDict']]]] iam_roles: The AWS Identity and Access Management (IAM) service roles associated with the Autonomous VM cluster.
         :param pulumi.Input[_builtins.bool] is_mtls_enabled_vm_cluster: Indicates whether mutual TLS (mTLS) authentication is enabled for the Autonomous VM cluster.
         :param pulumi.Input['CloudAutonomousVmClusterLicenseModel'] license_model: The Oracle license model that applies to the Autonomous VM cluster. Valid values are LICENSE_INCLUDED or BRING_YOUR_OWN_LICENSE.
         :param pulumi.Input[Union['CloudAutonomousVmClusterMaintenanceWindowArgs', 'CloudAutonomousVmClusterMaintenanceWindowArgsDict']] maintenance_window: The scheduling details for the maintenance window. Patching and system updates take place during the maintenance window.
@@ -363,6 +381,7 @@ class CloudAutonomousVmCluster(pulumi.CustomResource):
                  db_servers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  display_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 iam_roles: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CloudAutonomousVmClusterIamRoleArgs', 'CloudAutonomousVmClusterIamRoleArgsDict']]]]] = None,
                  is_mtls_enabled_vm_cluster: Optional[pulumi.Input[_builtins.bool]] = None,
                  license_model: Optional[pulumi.Input['CloudAutonomousVmClusterLicenseModel']] = None,
                  maintenance_window: Optional[pulumi.Input[Union['CloudAutonomousVmClusterMaintenanceWindowArgs', 'CloudAutonomousVmClusterMaintenanceWindowArgsDict']]] = None,
@@ -388,6 +407,7 @@ class CloudAutonomousVmCluster(pulumi.CustomResource):
             __props__.__dict__["db_servers"] = db_servers
             __props__.__dict__["description"] = description
             __props__.__dict__["display_name"] = display_name
+            __props__.__dict__["iam_roles"] = iam_roles
             __props__.__dict__["is_mtls_enabled_vm_cluster"] = is_mtls_enabled_vm_cluster
             __props__.__dict__["license_model"] = license_model
             __props__.__dict__["maintenance_window"] = maintenance_window
@@ -471,6 +491,7 @@ class CloudAutonomousVmCluster(pulumi.CustomResource):
         __props__.__dict__["domain"] = None
         __props__.__dict__["exadata_storage_in_tbs_lowest_scaled_value"] = None
         __props__.__dict__["hostname"] = None
+        __props__.__dict__["iam_roles"] = None
         __props__.__dict__["is_mtls_enabled_vm_cluster"] = None
         __props__.__dict__["license_model"] = None
         __props__.__dict__["maintenance_window"] = None
@@ -663,6 +684,14 @@ class CloudAutonomousVmCluster(pulumi.CustomResource):
         The hostname for the Autonomous VM cluster.
         """
         return pulumi.get(self, "hostname")
+
+    @_builtins.property
+    @pulumi.getter(name="iamRoles")
+    def iam_roles(self) -> pulumi.Output[Optional[Sequence['outputs.CloudAutonomousVmClusterIamRole']]]:
+        """
+        The AWS Identity and Access Management (IAM) service roles associated with the Autonomous VM cluster.
+        """
+        return pulumi.get(self, "iam_roles")
 
     @_builtins.property
     @pulumi.getter(name="isMtlsEnabledVmCluster")

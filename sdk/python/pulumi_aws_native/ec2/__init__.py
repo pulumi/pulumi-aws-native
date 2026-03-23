@@ -43,6 +43,7 @@ from .get_ipam_allocation import *
 from .get_ipam_pool import *
 from .get_ipam_pool_cidr import *
 from .get_ipam_prefix_list_resolver import *
+from .get_ipam_prefix_list_resolver_target import *
 from .get_ipam_resource_discovery import *
 from .get_ipam_resource_discovery_association import *
 from .get_ipam_scope import *
@@ -75,6 +76,7 @@ from .get_security_group_ingress import *
 from .get_security_group_vpc_association import *
 from .get_snapshot_block_public_access import *
 from .get_spot_fleet import *
+from .get_sql_ha_standby_detected_instance import *
 from .get_subnet import *
 from .get_subnet_cidr_block import *
 from .get_subnet_network_acl_association import *
@@ -125,6 +127,7 @@ from .ipam_allocation import *
 from .ipam_pool import *
 from .ipam_pool_cidr import *
 from .ipam_prefix_list_resolver import *
+from .ipam_prefix_list_resolver_target import *
 from .ipam_resource_discovery import *
 from .ipam_resource_discovery_association import *
 from .ipam_scope import *
@@ -160,6 +163,7 @@ from .security_group_ingress import *
 from .security_group_vpc_association import *
 from .snapshot_block_public_access import *
 from .spot_fleet import *
+from .sql_ha_standby_detected_instance import *
 from .subnet import *
 from .subnet_cidr_block import *
 from .subnet_network_acl_association import *

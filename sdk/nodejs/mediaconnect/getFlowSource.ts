@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource schema for AWS::MediaConnect::FlowSource
+ * Resource Type definition for AWS::MediaConnect::FlowSource
  */
 export function getFlowSource(args: GetFlowSourceArgs, opts?: pulumi.InvokeOptions): Promise<GetFlowSourceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -38,10 +38,6 @@ export interface GetFlowSourceResult {
      */
     readonly entitlementArn?: string;
     /**
-     * The ARN of the flow.
-     */
-    readonly flowArn?: string;
-    /**
      * The source configuration for cloud flows receiving a stream from a bridge.
      */
     readonly gatewayBridgeSource?: outputs.mediaconnect.FlowSourceGatewayBridgeSource;
@@ -65,10 +61,6 @@ export interface GetFlowSourceResult {
      * The minimum latency in milliseconds.
      */
     readonly minLatency?: number;
-    /**
-     * The protocol that is used by the source.
-     */
-    readonly protocol?: enums.mediaconnect.FlowSourceProtocol;
     /**
      * The port that the flow uses to send outbound requests to initiate connection with the sender for fujitsu-qos protocol.
      */
@@ -98,6 +90,10 @@ export interface GetFlowSourceResult {
      */
     readonly streamId?: string;
     /**
+     * Key-value pairs that can be used to tag and organize this flow source.
+     */
+    readonly tags?: outputs.Tag[];
+    /**
      * The name of the VPC Interface this Source is configured with.
      */
     readonly vpcInterfaceName?: string;
@@ -107,7 +103,7 @@ export interface GetFlowSourceResult {
     readonly whitelistCidr?: string;
 }
 /**
- * Resource schema for AWS::MediaConnect::FlowSource
+ * Resource Type definition for AWS::MediaConnect::FlowSource
  */
 export function getFlowSourceOutput(args: GetFlowSourceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFlowSourceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

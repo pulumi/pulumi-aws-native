@@ -2,6 +2,55 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const ConfiguredModelAlgorithmAssociationEntityType = {
+    AllPersonallyIdentifiableInformation: "ALL_PERSONALLY_IDENTIFIABLE_INFORMATION",
+    Numbers: "NUMBERS",
+    Custom: "CUSTOM",
+} as const;
+
+export type ConfiguredModelAlgorithmAssociationEntityType = (typeof ConfiguredModelAlgorithmAssociationEntityType)[keyof typeof ConfiguredModelAlgorithmAssociationEntityType];
+
+export const ConfiguredModelAlgorithmAssociationLogType = {
+    All: "ALL",
+    ErrorSummary: "ERROR_SUMMARY",
+} as const;
+
+export type ConfiguredModelAlgorithmAssociationLogType = (typeof ConfiguredModelAlgorithmAssociationLogType)[keyof typeof ConfiguredModelAlgorithmAssociationLogType];
+
+export const ConfiguredModelAlgorithmAssociationNoiseLevelType = {
+    High: "HIGH",
+    Medium: "MEDIUM",
+    Low: "LOW",
+    None: "NONE",
+} as const;
+
+export type ConfiguredModelAlgorithmAssociationNoiseLevelType = (typeof ConfiguredModelAlgorithmAssociationNoiseLevelType)[keyof typeof ConfiguredModelAlgorithmAssociationNoiseLevelType];
+
+export const ConfiguredModelAlgorithmAssociationTrainedModelArtifactMaxSizeUnitType = {
+    Gb: "GB",
+} as const;
+
+export type ConfiguredModelAlgorithmAssociationTrainedModelArtifactMaxSizeUnitType = (typeof ConfiguredModelAlgorithmAssociationTrainedModelArtifactMaxSizeUnitType)[keyof typeof ConfiguredModelAlgorithmAssociationTrainedModelArtifactMaxSizeUnitType];
+
+export const ConfiguredModelAlgorithmAssociationTrainedModelExportFileType = {
+    Model: "MODEL",
+    OutputType: "OUTPUT",
+} as const;
+
+export type ConfiguredModelAlgorithmAssociationTrainedModelExportFileType = (typeof ConfiguredModelAlgorithmAssociationTrainedModelExportFileType)[keyof typeof ConfiguredModelAlgorithmAssociationTrainedModelExportFileType];
+
+export const ConfiguredModelAlgorithmAssociationTrainedModelExportsMaxSizeUnitType = {
+    Gb: "GB",
+} as const;
+
+export type ConfiguredModelAlgorithmAssociationTrainedModelExportsMaxSizeUnitType = (typeof ConfiguredModelAlgorithmAssociationTrainedModelExportsMaxSizeUnitType)[keyof typeof ConfiguredModelAlgorithmAssociationTrainedModelExportsMaxSizeUnitType];
+
+export const ConfiguredModelAlgorithmAssociationTrainedModelInferenceMaxOutputSizeUnitType = {
+    Gb: "GB",
+} as const;
+
+export type ConfiguredModelAlgorithmAssociationTrainedModelInferenceMaxOutputSizeUnitType = (typeof ConfiguredModelAlgorithmAssociationTrainedModelInferenceMaxOutputSizeUnitType)[keyof typeof ConfiguredModelAlgorithmAssociationTrainedModelInferenceMaxOutputSizeUnitType];
+
 export const TrainingDatasetColumnType = {
     UserId: "USER_ID",
     ItemId: "ITEM_ID",

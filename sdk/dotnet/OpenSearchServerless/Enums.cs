@@ -69,6 +69,38 @@ namespace Pulumi.AwsNative.OpenSearchServerless
     }
 
     /// <summary>
+    /// Indicates whether GPU acceleration is enabled for vector indexing
+    /// </summary>
+    [EnumType]
+    public readonly struct CollectionServerlessVectorAcceleration : IEquatable<CollectionServerlessVectorAcceleration>
+    {
+        private readonly string _value;
+
+        private CollectionServerlessVectorAcceleration(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static CollectionServerlessVectorAcceleration Enabled { get; } = new CollectionServerlessVectorAcceleration("ENABLED");
+        public static CollectionServerlessVectorAcceleration Disabled { get; } = new CollectionServerlessVectorAcceleration("DISABLED");
+        public static CollectionServerlessVectorAcceleration Allowed { get; } = new CollectionServerlessVectorAcceleration("ALLOWED");
+
+        public static bool operator ==(CollectionServerlessVectorAcceleration left, CollectionServerlessVectorAcceleration right) => left.Equals(right);
+        public static bool operator !=(CollectionServerlessVectorAcceleration left, CollectionServerlessVectorAcceleration right) => !left.Equals(right);
+
+        public static explicit operator string(CollectionServerlessVectorAcceleration value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is CollectionServerlessVectorAcceleration other && Equals(other);
+        public bool Equals(CollectionServerlessVectorAcceleration other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The possible standby replicas for the collection
     /// </summary>
     [EnumType]

@@ -65,6 +65,10 @@ namespace Pulumi.AwsNative.MediaConnect.Outputs
         /// </summary>
         public readonly string? Name;
         /// <summary>
+        /// The settings for the NDI flow source. This includes the exact name of the upstream NDI sender that you want to connect to your flow source.
+        /// </summary>
+        public readonly Outputs.FlowNdiSourceSettings? NdiSourceSettings;
+        /// <summary>
         /// The protocol that is used by the source.
         /// </summary>
         public readonly Pulumi.AwsNative.MediaConnect.FlowSourceProtocol? Protocol;
@@ -105,6 +109,10 @@ namespace Pulumi.AwsNative.MediaConnect.Outputs
         /// </summary>
         public readonly string? StreamId;
         /// <summary>
+        /// Key-value pairs that can be used to tag this source.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.FlowTag> Tags;
+        /// <summary>
         /// The name of the VPC Interface this Source is configured with.
         /// </summary>
         public readonly string? VpcInterfaceName;
@@ -139,6 +147,8 @@ namespace Pulumi.AwsNative.MediaConnect.Outputs
 
             string? name,
 
+            Outputs.FlowNdiSourceSettings? ndiSourceSettings,
+
             Pulumi.AwsNative.MediaConnect.FlowSourceProtocol? protocol,
 
             Pulumi.AwsNative.MediaConnect.FlowSourceRouterIntegrationState? routerIntegrationState,
@@ -159,6 +169,8 @@ namespace Pulumi.AwsNative.MediaConnect.Outputs
 
             string? streamId,
 
+            ImmutableArray<Outputs.FlowTag> tags,
+
             string? vpcInterfaceName,
 
             string? whitelistCidr)
@@ -175,6 +187,7 @@ namespace Pulumi.AwsNative.MediaConnect.Outputs
             MediaStreamSourceConfigurations = mediaStreamSourceConfigurations;
             MinLatency = minLatency;
             Name = name;
+            NdiSourceSettings = ndiSourceSettings;
             Protocol = protocol;
             RouterIntegrationState = routerIntegrationState;
             RouterIntegrationTransitDecryption = routerIntegrationTransitDecryption;
@@ -185,6 +198,7 @@ namespace Pulumi.AwsNative.MediaConnect.Outputs
             SourceListenerAddress = sourceListenerAddress;
             SourceListenerPort = sourceListenerPort;
             StreamId = streamId;
+            Tags = tags;
             VpcInterfaceName = vpcInterfaceName;
             WhitelistCidr = whitelistCidr;
         }

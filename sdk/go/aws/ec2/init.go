@@ -67,6 +67,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &IpamPoolCidr{}
 	case "aws-native:ec2:IpamPrefixListResolver":
 		r = &IpamPrefixListResolver{}
+	case "aws-native:ec2:IpamPrefixListResolverTarget":
+		r = &IpamPrefixListResolverTarget{}
 	case "aws-native:ec2:IpamResourceDiscovery":
 		r = &IpamResourceDiscovery{}
 	case "aws-native:ec2:IpamResourceDiscoveryAssociation":
@@ -137,6 +139,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &SnapshotBlockPublicAccess{}
 	case "aws-native:ec2:SpotFleet":
 		r = &SpotFleet{}
+	case "aws-native:ec2:SqlHaStandbyDetectedInstance":
+		r = &SqlHaStandbyDetectedInstance{}
 	case "aws-native:ec2:Subnet":
 		r = &Subnet{}
 	case "aws-native:ec2:SubnetCidrBlock":

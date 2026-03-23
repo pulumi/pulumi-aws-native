@@ -3615,6 +3615,171 @@ func (in *bucketMetricsStatusPtr) ToBucketMetricsStatusPtrOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, in).(BucketMetricsStatusPtrOutput)
 }
 
+type BucketNamespace string
+
+const (
+	BucketNamespaceGlobal          = BucketNamespace("global")
+	BucketNamespaceAccountRegional = BucketNamespace("account-regional")
+)
+
+func (BucketNamespace) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketNamespace)(nil)).Elem()
+}
+
+func (e BucketNamespace) ToBucketNamespaceOutput() BucketNamespaceOutput {
+	return pulumi.ToOutput(e).(BucketNamespaceOutput)
+}
+
+func (e BucketNamespace) ToBucketNamespaceOutputWithContext(ctx context.Context) BucketNamespaceOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(BucketNamespaceOutput)
+}
+
+func (e BucketNamespace) ToBucketNamespacePtrOutput() BucketNamespacePtrOutput {
+	return e.ToBucketNamespacePtrOutputWithContext(context.Background())
+}
+
+func (e BucketNamespace) ToBucketNamespacePtrOutputWithContext(ctx context.Context) BucketNamespacePtrOutput {
+	return BucketNamespace(e).ToBucketNamespaceOutputWithContext(ctx).ToBucketNamespacePtrOutputWithContext(ctx)
+}
+
+func (e BucketNamespace) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e BucketNamespace) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e BucketNamespace) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e BucketNamespace) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type BucketNamespaceOutput struct{ *pulumi.OutputState }
+
+func (BucketNamespaceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketNamespace)(nil)).Elem()
+}
+
+func (o BucketNamespaceOutput) ToBucketNamespaceOutput() BucketNamespaceOutput {
+	return o
+}
+
+func (o BucketNamespaceOutput) ToBucketNamespaceOutputWithContext(ctx context.Context) BucketNamespaceOutput {
+	return o
+}
+
+func (o BucketNamespaceOutput) ToBucketNamespacePtrOutput() BucketNamespacePtrOutput {
+	return o.ToBucketNamespacePtrOutputWithContext(context.Background())
+}
+
+func (o BucketNamespaceOutput) ToBucketNamespacePtrOutputWithContext(ctx context.Context) BucketNamespacePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketNamespace) *BucketNamespace {
+		return &v
+	}).(BucketNamespacePtrOutput)
+}
+
+func (o BucketNamespaceOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o BucketNamespaceOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e BucketNamespace) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o BucketNamespaceOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o BucketNamespaceOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e BucketNamespace) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type BucketNamespacePtrOutput struct{ *pulumi.OutputState }
+
+func (BucketNamespacePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketNamespace)(nil)).Elem()
+}
+
+func (o BucketNamespacePtrOutput) ToBucketNamespacePtrOutput() BucketNamespacePtrOutput {
+	return o
+}
+
+func (o BucketNamespacePtrOutput) ToBucketNamespacePtrOutputWithContext(ctx context.Context) BucketNamespacePtrOutput {
+	return o
+}
+
+func (o BucketNamespacePtrOutput) Elem() BucketNamespaceOutput {
+	return o.ApplyT(func(v *BucketNamespace) BucketNamespace {
+		if v != nil {
+			return *v
+		}
+		var ret BucketNamespace
+		return ret
+	}).(BucketNamespaceOutput)
+}
+
+func (o BucketNamespacePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o BucketNamespacePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *BucketNamespace) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// BucketNamespaceInput is an input type that accepts values of the BucketNamespace enum
+// A concrete instance of `BucketNamespaceInput` can be one of the following:
+//
+//	BucketNamespaceGlobal
+//	BucketNamespaceAccountRegional
+type BucketNamespaceInput interface {
+	pulumi.Input
+
+	ToBucketNamespaceOutput() BucketNamespaceOutput
+	ToBucketNamespaceOutputWithContext(context.Context) BucketNamespaceOutput
+}
+
+var bucketNamespacePtrType = reflect.TypeOf((**BucketNamespace)(nil)).Elem()
+
+type BucketNamespacePtrInput interface {
+	pulumi.Input
+
+	ToBucketNamespacePtrOutput() BucketNamespacePtrOutput
+	ToBucketNamespacePtrOutputWithContext(context.Context) BucketNamespacePtrOutput
+}
+
+type bucketNamespacePtr string
+
+func BucketNamespacePtr(v string) BucketNamespacePtrInput {
+	return (*bucketNamespacePtr)(&v)
+}
+
+func (*bucketNamespacePtr) ElementType() reflect.Type {
+	return bucketNamespacePtrType
+}
+
+func (in *bucketNamespacePtr) ToBucketNamespacePtrOutput() BucketNamespacePtrOutput {
+	return pulumi.ToOutput(in).(BucketNamespacePtrOutput)
+}
+
+func (in *bucketNamespacePtr) ToBucketNamespacePtrOutputWithContext(ctx context.Context) BucketNamespacePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(BucketNamespacePtrOutput)
+}
+
 // The class of storage used to store the object.
 type BucketNoncurrentVersionTransitionStorageClass string
 
@@ -6609,6 +6774,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketMetadataTableEncryptionConfigurationSseAlgorithmPtrInput)(nil)).Elem(), BucketMetadataTableEncryptionConfigurationSseAlgorithm("aws:kms"))
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketMetricsStatusInput)(nil)).Elem(), BucketMetricsStatus("Disabled"))
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketMetricsStatusPtrInput)(nil)).Elem(), BucketMetricsStatus("Disabled"))
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketNamespaceInput)(nil)).Elem(), BucketNamespace("global"))
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketNamespacePtrInput)(nil)).Elem(), BucketNamespace("global"))
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketNoncurrentVersionTransitionStorageClassInput)(nil)).Elem(), BucketNoncurrentVersionTransitionStorageClass("DEEP_ARCHIVE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketNoncurrentVersionTransitionStorageClassPtrInput)(nil)).Elem(), BucketNoncurrentVersionTransitionStorageClass("DEEP_ARCHIVE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketOwnershipControlsRuleObjectOwnershipInput)(nil)).Elem(), BucketOwnershipControlsRuleObjectOwnership("ObjectWriter"))
@@ -6688,6 +6855,8 @@ func init() {
 	pulumi.RegisterOutputType(BucketMetadataTableEncryptionConfigurationSseAlgorithmPtrOutput{})
 	pulumi.RegisterOutputType(BucketMetricsStatusOutput{})
 	pulumi.RegisterOutputType(BucketMetricsStatusPtrOutput{})
+	pulumi.RegisterOutputType(BucketNamespaceOutput{})
+	pulumi.RegisterOutputType(BucketNamespacePtrOutput{})
 	pulumi.RegisterOutputType(BucketNoncurrentVersionTransitionStorageClassOutput{})
 	pulumi.RegisterOutputType(BucketNoncurrentVersionTransitionStorageClassPtrOutput{})
 	pulumi.RegisterOutputType(BucketOwnershipControlsRuleObjectOwnershipOutput{})

@@ -57,6 +57,18 @@ namespace Pulumi.AwsNative.MediaConnect.Inputs
         [Input("mediaStreamType", required: true)]
         public Input<Pulumi.AwsNative.MediaConnect.FlowMediaStreamMediaStreamType> MediaStreamType { get; set; } = null!;
 
+        [Input("tags")]
+        private InputList<Inputs.FlowTagArgs>? _tags;
+
+        /// <summary>
+        /// Key-value pairs that can be used to tag this media stream.
+        /// </summary>
+        public InputList<Inputs.FlowTagArgs> Tags
+        {
+            get => _tags ?? (_tags = new InputList<Inputs.FlowTagArgs>());
+            set => _tags = value;
+        }
+
         /// <summary>
         /// The resolution of the video.
         /// </summary>

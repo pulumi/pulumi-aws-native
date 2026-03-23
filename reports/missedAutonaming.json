@@ -3836,6 +3836,9 @@
   "aws-native:deadline:Farm": {
     "cfTypeName": "AWS::Deadline::Farm",
     "properties": {
+      "costScaleFactor": {
+        "type": "number"
+      },
       "description": {
         "type": "string",
         "description": "A description of the farm that helps identify what the farm is used for.\n\n\u003e This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field."
@@ -5065,25 +5068,25 @@
       },
       "preserveClientIp": {
         "type": "boolean",
-        "description": "If true, the address of the instance connect endpoint client is preserved when connecting to the end resource"
+        "description": "Indicates whether your client's IP address is preserved as the source when you connect to a resource."
       },
       "securityGroupIds": {
         "type": "array",
         "items": {
           "type": "string"
         },
-        "description": "The security group IDs of the instance connect endpoint."
+        "description": "The security groups associated with the endpoint."
       },
       "subnetId": {
         "type": "string",
-        "description": "The subnet id of the instance connect endpoint"
+        "description": "The ID of the subnet in which the EC2 Instance Connect Endpoint was created."
       },
       "tags": {
         "type": "array",
         "items": {
           "$ref": "#/types/aws-native:index:Tag"
         },
-        "description": "The tags of the instance connect endpoint."
+        "description": "The tags assigned to the EC2 Instance Connect Endpoint."
       }
     }
   },
@@ -5297,6 +5300,38 @@
           "$ref": "#/types/aws-native:index:Tag"
         },
         "description": "An array of key-value pairs to apply to this resource."
+      }
+    }
+  },
+  "aws-native:ec2:IpamPrefixListResolverTarget": {
+    "cfTypeName": "AWS::EC2::IPAMPrefixListResolverTarget",
+    "properties": {
+      "desiredVersion": {
+        "type": "integer",
+        "description": "The desired version of the Prefix List Resolver that this Target should synchronize with."
+      },
+      "ipamPrefixListResolverId": {
+        "type": "string",
+        "description": "The Id of the IPAM Prefix List Resolver associated with this Target."
+      },
+      "prefixListId": {
+        "type": "string",
+        "description": "The Id of the Managed Prefix List."
+      },
+      "prefixListRegion": {
+        "type": "string",
+        "description": "The region that the Managed Prefix List is located in."
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:index:Tag"
+        },
+        "description": "An array of key-value pairs to apply to this resource."
+      },
+      "trackLatestVersion": {
+        "type": "boolean",
+        "description": "Indicates whether this Target automatically tracks the latest version of the Prefix List Resolver."
       }
     }
   },
@@ -6228,6 +6263,17 @@
           "$ref": "#/types/aws-native:index:Tag"
         },
         "description": "The tags to specify in SpotFleetRequestConfigData"
+      }
+    }
+  },
+  "aws-native:ec2:SqlHaStandbyDetectedInstance": {
+    "cfTypeName": "AWS::EC2::SqlHaStandbyDetectedInstance",
+    "properties": {
+      "instanceId": {
+        "type": "string"
+      },
+      "sqlServerCredentials": {
+        "type": "string"
       }
     }
   },
@@ -8370,6 +8416,191 @@
           "$ref": "#/types/aws-native:index:Tag"
         },
         "description": "Tags are composed of a Key/Value pair. You can use tags to categorize and track each parameter group. The tag value null is permitted."
+      }
+    }
+  },
+  "aws-native:elasticache:ReplicationGroup": {
+    "cfTypeName": "AWS::ElastiCache::ReplicationGroup",
+    "properties": {
+      "atRestEncryptionEnabled": {
+        "type": "boolean",
+        "description": "A flag that enables encryption at rest when set to true.AtRestEncryptionEnabled after the replication group is created. To enable encryption at rest on a replication group you must set AtRestEncryptionEnabled to true when you create the replication group."
+      },
+      "authToken": {
+        "type": "string",
+        "description": "Reserved parameter. The password used to access a password protected server.AuthToken can be specified only on replication groups where TransitEncryptionEnabled is true. For more information."
+      },
+      "autoMinorVersionUpgrade": {
+        "type": "boolean",
+        "description": "This parameter is currently disabled."
+      },
+      "automaticFailoverEnabled": {
+        "type": "boolean",
+        "description": "Specifies whether a read-only replica is automatically promoted to read/write primary if the existing primary fails. AutomaticFailoverEnabled must be enabled for Redis (cluster mode enabled) replication groups."
+      },
+      "cacheNodeType": {
+        "type": "string",
+        "description": "The compute and memory capacity of the nodes in the node group (shard)."
+      },
+      "cacheParameterGroupName": {
+        "type": "string",
+        "description": "The name of the parameter group to associate with this replication group. If this argument is omitted, the default cache parameter group for the specified engine is used."
+      },
+      "cacheSecurityGroupNames": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "description": "A list of cache security group names to associate with this replication group."
+      },
+      "cacheSubnetGroupName": {
+        "type": "string",
+        "description": "The name of the cache subnet group to be used for the replication group."
+      },
+      "clusterMode": {
+        "type": "string",
+        "description": "Enabled or Disabled. To modify cluster mode from Disabled to Enabled, you must first set the cluster mode to Compatible. Compatible mode allows your Redis OSS clients to connect using both cluster mode enabled and cluster mode disabled. After you migrate all Redis OSS clients to use cluster mode enabled, you can then complete cluster mode configuration and set the cluster mode to Enabled. For more information, see Modify cluster mode."
+      },
+      "dataTieringEnabled": {
+        "type": "boolean",
+        "description": "Enables data tiering. Data tiering is only supported for replication groups using the r6gd node type. This parameter must be set to true when using r6gd nodes."
+      },
+      "engine": {
+        "type": "string",
+        "description": "The name of the cache engine to be used for the clusters in this replication group."
+      },
+      "engineVersion": {
+        "type": "string",
+        "description": "The version number of the cache engine to be used for the clusters in this replication group. To view the supported cache engine versions, use the DescribeCacheEngineVersions operation."
+      },
+      "globalReplicationGroupId": {
+        "type": "string",
+        "description": "The name of the Global datastore"
+      },
+      "ipDiscovery": {
+        "type": "string",
+        "description": "The network type you choose when creating a replication group, either ipv4 | ipv6. IPv6 is supported for workloads using Redis OSS engine version 6.2 onward or Memcached engine version 1.6.6 on all instances built on the Nitro system."
+      },
+      "kmsKeyId": {
+        "type": "string",
+        "description": "The ID of the KMS key used to encrypt the disk on the cluster."
+      },
+      "logDeliveryConfigurations": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:elasticache:ReplicationGroupLogDeliveryConfigurationRequest"
+        },
+        "description": "Specifies the destination, format and type of the logs."
+      },
+      "multiAzEnabled": {
+        "type": "boolean",
+        "description": "A flag indicating if you have Multi-AZ enabled to enhance fault tolerance. For more information, see Minimizing Downtime: Multi-AZ."
+      },
+      "networkType": {
+        "type": "string",
+        "description": "Must be either ipv4 | ipv6 | dual_stack. IPv6 is supported for workloads using Redis OSS engine version 6.2 onward or Memcached engine version 1.6.6 on all instances built on the Nitro system"
+      },
+      "nodeGroupConfiguration": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:elasticache:ReplicationGroupNodeGroupConfiguration"
+        },
+        "description": "NodeGroupConfiguration is a property of the AWS::ElastiCache::ReplicationGroup resource that configures an Amazon ElastiCache (ElastiCache) Redis cluster node group."
+      },
+      "notificationTopicArn": {
+        "type": "string",
+        "description": "The Amazon Resource Name (ARN) of the Amazon Simple Notification Service (SNS) topic to which notifications are sent."
+      },
+      "numCacheClusters": {
+        "type": "integer",
+        "description": "The number of clusters this replication group initially has.This parameter is not used if there is more than one node group (shard). You should use ReplicasPerNodeGroup instead."
+      },
+      "numNodeGroups": {
+        "type": "integer",
+        "description": "An optional parameter that specifies the number of node groups (shards) for this Redis (cluster mode enabled) replication group. For Redis (cluster mode disabled) either omit this parameter or set it to 1."
+      },
+      "port": {
+        "type": "integer",
+        "description": "The port number on which each member of the replication group accepts connections."
+      },
+      "preferredCacheClusterAzs": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "description": "A list of EC2 Availability Zones in which the replication group's clusters are created. The order of the Availability Zones in the list is the order in which clusters are allocated. The primary cluster is created in the first AZ in the list. This parameter is not used if there is more than one node group (shard). You should use NodeGroupConfiguration instead."
+      },
+      "preferredMaintenanceWindow": {
+        "type": "string",
+        "description": "Specifies the weekly time range during which maintenance on the cluster is performed. It is specified as a range in the format ddd:hh24:mi-ddd:hh24:mi (24H Clock UTC). The minimum maintenance window is a 60 minute period."
+      },
+      "primaryClusterId": {
+        "type": "string",
+        "description": "The identifier of the cluster that serves as the primary for this replication group. This cluster must already exist and have a status of available."
+      },
+      "replicasPerNodeGroup": {
+        "type": "integer",
+        "description": "An optional parameter that specifies the number of replica nodes in each node group (shard). Valid values are 0 to 5."
+      },
+      "replicationGroupDescription": {
+        "type": "string",
+        "description": "A user-created description for the replication group."
+      },
+      "replicationGroupId": {
+        "type": "string",
+        "description": "The replication group identifier. This parameter is stored as a lowercase string."
+      },
+      "securityGroupIds": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "description": "One or more Amazon VPC security groups associated with this replication group."
+      },
+      "snapshotArns": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "description": "A list of Amazon Resource Names (ARN) that uniquely identify the Redis RDB snapshot files stored in Amazon S3."
+      },
+      "snapshotName": {
+        "type": "string",
+        "description": "The name of a snapshot from which to restore data into the new replication group. The snapshot status changes to restoring while the new replication group is being created."
+      },
+      "snapshotRetentionLimit": {
+        "type": "integer",
+        "description": "The number of days for which ElastiCache retains automatic snapshots before deleting them. For example, if you set SnapshotRetentionLimit to 5, a snapshot that was taken today is retained for 5 days before being deleted."
+      },
+      "snapshotWindow": {
+        "type": "string",
+        "description": "The daily time range (in UTC) during which ElastiCache begins taking a daily snapshot of your node group (shard)."
+      },
+      "snapshottingClusterId": {
+        "type": "string",
+        "description": "The cluster ID that is used as the daily snapshot source for the replication group. This parameter cannot be set for Redis (cluster mode enabled) replication groups."
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:index:Tag"
+        },
+        "description": "A list of cost allocation tags to be added to this resource. Tags are comma-separated key,value pairs (e.g. Key=myKey, Value=myKeyValue. You can include multiple tags as shown following: Key=myKey, Value=myKeyValue Key=mySecondKey, Value=mySecondKeyValue."
+      },
+      "transitEncryptionEnabled": {
+        "type": "boolean",
+        "description": "A flag that enables in-transit encryption when set to true."
+      },
+      "transitEncryptionMode": {
+        "type": "string",
+        "description": "A setting that allows you to migrate your clients to use in-transit encryption, with no downtime. When setting TransitEncryptionEnabled to true, you can set your TransitEncryptionMode to preferred in the same request, to allow both encrypted and unencrypted connections at the same time. Once you migrate all your Redis OSS clients to use encrypted connections you can modify the value to required to allow encrypted connections only. Setting TransitEncryptionMode to required is a two-step process that requires you to first set the TransitEncryptionMode to preferred, after that you can set TransitEncryptionMode to required. This process will not trigger the replacement of the replication group."
+      },
+      "userGroupIds": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "description": "The ID of user group to associate with the replication group."
       }
     }
   },
@@ -12058,6 +12289,14 @@
       }
     }
   },
+  "aws-native:observabilityadmin:TelemetryEnrichment": {
+    "cfTypeName": "AWS::ObservabilityAdmin::TelemetryEnrichment",
+    "properties": {
+      "scope": {
+        "$ref": "#/types/aws-native:observabilityadmin:TelemetryEnrichmentScope"
+      }
+    }
+  },
   "aws-native:odb:CloudAutonomousVmCluster": {
     "cfTypeName": "AWS::ODB::CloudAutonomousVmCluster",
     "properties": {
@@ -12087,6 +12326,13 @@
       "displayName": {
         "type": "string",
         "description": "The display name of the Autonomous VM cluster."
+      },
+      "iamRoles": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:odb:CloudAutonomousVmClusterIamRole"
+        },
+        "description": "The AWS Identity and Access Management (IAM) service roles associated with the Autonomous VM cluster."
       },
       "isMtlsEnabledVmCluster": {
         "type": "boolean",
@@ -12207,6 +12453,13 @@
         "type": "string",
         "description": "The CIDR range of the client subnet in the ODB network."
       },
+      "crossRegionS3RestoreSources": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "description": "The cross-Region Amazon S3 restore sources for the ODB network."
+      },
       "customDomainName": {
         "type": "string",
         "description": "The domain name to use for the resources in the ODB network."
@@ -12223,6 +12476,14 @@
         "type": "string",
         "description": "The user-friendly name of the ODB network."
       },
+      "kmsAccess": {
+        "$ref": "#/types/aws-native:odb:OdbNetworkKmsAccess",
+        "description": "The AWS Key Management Service (KMS) access configuration for the ODB network."
+      },
+      "kmsPolicyDocument": {
+        "type": "string",
+        "description": "The AWS Key Management Service (KMS) policy document that defines permissions for key usage within the ODB network."
+      },
       "s3Access": {
         "$ref": "#/types/aws-native:odb:OdbNetworkS3Access",
         "description": "Specifies the configuration for Amazon S3 access from the ODB network."
@@ -12230,6 +12491,14 @@
       "s3PolicyDocument": {
         "type": "string",
         "description": "Specifies the endpoint policy for Amazon S3 access from the ODB network."
+      },
+      "stsAccess": {
+        "$ref": "#/types/aws-native:odb:OdbNetworkStsAccess",
+        "description": "The AWS Security Token Service (STS) access configuration for the ODB network."
+      },
+      "stsPolicyDocument": {
+        "type": "string",
+        "description": "The AWS Security Token Service (STS) policy document that defines permissions for token service usage within the ODB network."
       },
       "tags": {
         "type": "array",
@@ -12265,6 +12534,13 @@
       "peerNetworkId": {
         "type": "string",
         "description": "The unique identifier of the peer network."
+      },
+      "peerNetworkRouteTableIds": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "description": "The unique identifier of the VPC route table for which a route to the ODB network is automatically created during peering connection establishment."
       },
       "tags": {
         "type": "array",
@@ -13810,7 +14086,7 @@
       },
       "deferMaintenanceDuration": {
         "type": "integer",
-        "description": "An integer indicating the duration of the maintenance window in days. If you specify a duration, you can't specify an end time. The duration must be 45 days or less."
+        "description": "An integer indicating the duration of the maintenance window in days. If you specify a duration, you can't specify an end time. The duration must be 60 days or less."
       },
       "deferMaintenanceEndTime": {
         "type": "string",
@@ -15279,6 +15555,53 @@
       }
     }
   },
+  "aws-native:servicecatalog:StackSetConstraint": {
+    "cfTypeName": "AWS::ServiceCatalog::StackSetConstraint",
+    "properties": {
+      "acceptLanguage": {
+        "type": "string",
+        "description": "The language code."
+      },
+      "accountList": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "description": "One or more AWS accounts that will have access to the provisioned product."
+      },
+      "adminRole": {
+        "type": "string",
+        "description": "AdminRole ARN."
+      },
+      "description": {
+        "type": "string",
+        "description": "The description of the constraint."
+      },
+      "executionRole": {
+        "type": "string",
+        "description": "ExecutionRole name."
+      },
+      "portfolioId": {
+        "type": "string",
+        "description": "The portfolio identifier."
+      },
+      "productId": {
+        "type": "string",
+        "description": "The product identifier."
+      },
+      "regionList": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "description": "One or more AWS Regions where the provisioned product will be available."
+      },
+      "stackInstanceControl": {
+        "type": "string",
+        "description": "Permission to create, update, and delete stack instances. Choose from ALLOWED and NOT_ALLOWED."
+      }
+    }
+  },
   "aws-native:servicecatalog:TagOption": {
     "cfTypeName": "AWS::ServiceCatalog::TagOption",
     "properties": {
@@ -16512,14 +16835,7 @@
         "$ref": "#/types/aws-native:verifiedpermissions:PolicyStoreEncryptionSettings"
       },
       "schema": {
-        "oneOf": [
-          {
-            "$ref": "#/types/aws-native:verifiedpermissions:PolicyStoreSchemaDefinition0Properties"
-          },
-          {
-            "$ref": "#/types/aws-native:verifiedpermissions:PolicyStoreSchemaDefinition1Properties"
-          }
-        ],
+        "$ref": "#/types/aws-native:verifiedpermissions:PolicyStoreSchemaDefinition",
         "description": "Creates or updates the policy schema in a policy store. Cedar can use the schema to validate any Cedar policies and policy templates submitted to the policy store. Any changes to the schema validate only policies and templates submitted after the schema change. Existing policies and templates are not re-evaluated against the changed schema. If you later update a policy, then it is evaluated against the new schema at that time."
       },
       "tags": {

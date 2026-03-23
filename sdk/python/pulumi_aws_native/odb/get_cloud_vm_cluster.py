@@ -25,7 +25,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetCloudVmClusterResult:
-    def __init__(__self__, cloud_vm_cluster_arn=None, cloud_vm_cluster_id=None, compute_model=None, db_nodes=None, disk_redundancy=None, domain=None, listener_port=None, node_count=None, oci_resource_anchor_name=None, oci_url=None, ocid=None, scan_dns_name=None, scan_ip_ids=None, shape=None, storage_size_in_gbs=None, tags=None, vip_ids=None):
+    def __init__(__self__, cloud_vm_cluster_arn=None, cloud_vm_cluster_id=None, compute_model=None, db_nodes=None, disk_redundancy=None, domain=None, iam_roles=None, listener_port=None, node_count=None, oci_resource_anchor_name=None, oci_url=None, ocid=None, scan_dns_name=None, scan_ip_ids=None, shape=None, storage_size_in_gbs=None, tags=None, vip_ids=None):
         if cloud_vm_cluster_arn and not isinstance(cloud_vm_cluster_arn, str):
             raise TypeError("Expected argument 'cloud_vm_cluster_arn' to be a str")
         pulumi.set(__self__, "cloud_vm_cluster_arn", cloud_vm_cluster_arn)
@@ -44,6 +44,9 @@ class GetCloudVmClusterResult:
         if domain and not isinstance(domain, str):
             raise TypeError("Expected argument 'domain' to be a str")
         pulumi.set(__self__, "domain", domain)
+        if iam_roles and not isinstance(iam_roles, list):
+            raise TypeError("Expected argument 'iam_roles' to be a list")
+        pulumi.set(__self__, "iam_roles", iam_roles)
         if listener_port and not isinstance(listener_port, int):
             raise TypeError("Expected argument 'listener_port' to be a int")
         pulumi.set(__self__, "listener_port", listener_port)
@@ -125,6 +128,14 @@ class GetCloudVmClusterResult:
         The domain of the VM cluster.
         """
         return pulumi.get(self, "domain")
+
+    @_builtins.property
+    @pulumi.getter(name="iamRoles")
+    def iam_roles(self) -> Optional[Sequence['outputs.CloudVmClusterIamRole']]:
+        """
+        The AWS Identity and Access Management (IAM) service roles associated with the VM cluster.
+        """
+        return pulumi.get(self, "iam_roles")
 
     @_builtins.property
     @pulumi.getter(name="listenerPort")
@@ -227,6 +238,7 @@ class AwaitableGetCloudVmClusterResult(GetCloudVmClusterResult):
             db_nodes=self.db_nodes,
             disk_redundancy=self.disk_redundancy,
             domain=self.domain,
+            iam_roles=self.iam_roles,
             listener_port=self.listener_port,
             node_count=self.node_count,
             oci_resource_anchor_name=self.oci_resource_anchor_name,
@@ -260,6 +272,7 @@ def get_cloud_vm_cluster(cloud_vm_cluster_arn: Optional[_builtins.str] = None,
         db_nodes=pulumi.get(__ret__, 'db_nodes'),
         disk_redundancy=pulumi.get(__ret__, 'disk_redundancy'),
         domain=pulumi.get(__ret__, 'domain'),
+        iam_roles=pulumi.get(__ret__, 'iam_roles'),
         listener_port=pulumi.get(__ret__, 'listener_port'),
         node_count=pulumi.get(__ret__, 'node_count'),
         oci_resource_anchor_name=pulumi.get(__ret__, 'oci_resource_anchor_name'),
@@ -290,6 +303,7 @@ def get_cloud_vm_cluster_output(cloud_vm_cluster_arn: Optional[pulumi.Input[_bui
         db_nodes=pulumi.get(__response__, 'db_nodes'),
         disk_redundancy=pulumi.get(__response__, 'disk_redundancy'),
         domain=pulumi.get(__response__, 'domain'),
+        iam_roles=pulumi.get(__response__, 'iam_roles'),
         listener_port=pulumi.get(__response__, 'listener_port'),
         node_count=pulumi.get(__response__, 'node_count'),
         oci_resource_anchor_name=pulumi.get(__response__, 'oci_resource_anchor_name'),

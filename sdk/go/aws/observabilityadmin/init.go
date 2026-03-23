@@ -27,6 +27,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &OrganizationTelemetryRule{}
 	case "aws-native:observabilityadmin:S3TableIntegration":
 		r = &S3TableIntegration{}
+	case "aws-native:observabilityadmin:TelemetryEnrichment":
+		r = &TelemetryEnrichment{}
 	case "aws-native:observabilityadmin:TelemetryPipelines":
 		r = &TelemetryPipelines{}
 	case "aws-native:observabilityadmin:TelemetryRule":

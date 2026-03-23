@@ -68,6 +68,16 @@ export const FlowBlackFramesState = {
  */
 export type FlowBlackFramesState = (typeof FlowBlackFramesState)[keyof typeof FlowBlackFramesState];
 
+export const FlowEncodingProfile = {
+    DistributionH264Default: "DISTRIBUTION_H264_DEFAULT",
+    ContributionH264Default: "CONTRIBUTION_H264_DEFAULT",
+} as const;
+
+/**
+ * The encoding profile to use when transcoding the NDI source to a Transport Stream. You can change this value while a flow is running.
+ */
+export type FlowEncodingProfile = (typeof FlowEncodingProfile)[keyof typeof FlowEncodingProfile];
+
 export const FlowEncryptionAlgorithm = {
     Aes128: "aes128",
     Aes192: "aes192",
@@ -256,15 +266,12 @@ export const FlowMediaStreamVideoFormat = {
  */
 export type FlowMediaStreamVideoFormat = (typeof FlowMediaStreamVideoFormat)[keyof typeof FlowMediaStreamVideoFormat];
 
-export const FlowNdiConfigNdiState = {
+export const FlowNdiState = {
     Enabled: "ENABLED",
     Disabled: "DISABLED",
 } as const;
 
-/**
- * A setting that controls whether NDI outputs can be used in the flow. Must be ENABLED to add NDI outputs. Default is DISABLED.
- */
-export type FlowNdiConfigNdiState = (typeof FlowNdiConfigNdiState)[keyof typeof FlowNdiConfigNdiState];
+export type FlowNdiState = (typeof FlowNdiState)[keyof typeof FlowNdiState];
 
 export const FlowOutputEncodingParametersEncoderProfile = {
     Main: "main",
@@ -332,7 +339,6 @@ export const FlowOutputProtocol = {
     Rtp: "rtp",
     ZixiPull: "zixi-pull",
     Rist: "rist",
-    FujitsuQos: "fujitsu-qos",
     SrtListener: "srt-listener",
     SrtCaller: "srt-caller",
     St2110Jpegxs: "st2110-jpegxs",
@@ -365,10 +371,11 @@ export type FlowSilentAudioState = (typeof FlowSilentAudioState)[keyof typeof Fl
 export const FlowSize = {
     Medium: "MEDIUM",
     Large: "LARGE",
+    Large4x: "LARGE_4X",
 } as const;
 
 /**
- * Determines the processing capacity and feature set of the flow. Set this optional parameter to LARGE if you want to enable NDI outputs on the flow.
+ * Determines the processing capacity and feature set of the flow. Set this optional parameter to LARGE if you want to enable NDI sources or outputs on the flow.
  */
 export type FlowSize = (typeof FlowSize)[keyof typeof FlowSize];
 
@@ -419,11 +426,11 @@ export const FlowSourceProtocol = {
     RtpFec: "rtp-fec",
     Rtp: "rtp",
     Rist: "rist",
-    FujitsuQos: "fujitsu-qos",
     SrtListener: "srt-listener",
     SrtCaller: "srt-caller",
     St2110Jpegxs: "st2110-jpegxs",
     Cdi: "cdi",
+    NdiSpeedHq: "ndi-speed-hq",
 } as const;
 
 /**

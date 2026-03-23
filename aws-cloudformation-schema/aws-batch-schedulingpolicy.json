@@ -1,104 +1,123 @@
 {
-  "sourceUrl" : "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-batch.git",
-  "tagging" : {
-    "permissions" : [ "Batch:TagResource", "Batch:UntagResource" ],
-    "taggable" : true,
-    "tagOnCreate" : true,
-    "tagUpdatable" : false,
-    "tagProperty" : "/properties/Tags",
-    "cloudFormationSystemTags" : false
-  },
-  "handlers" : {
-    "read" : {
-      "permissions" : [ "Batch:DescribeSchedulingPolicies" ]
-    },
-    "create" : {
-      "permissions" : [ "Batch:CreateSchedulingPolicy", "Batch:TagResource" ]
-    },
-    "update" : {
-      "permissions" : [ "Batch:UpdateSchedulingPolicy", "Batch:TagResource", "Batch:UnTagResource" ]
-    },
-    "list" : {
-      "permissions" : [ "Batch:ListSchedulingPolicies", "Batch:DescribeSchedulingPolicies" ]
-    },
-    "delete" : {
-      "permissions" : [ "Batch:DescribeSchedulingPolicies", "Batch:DeleteSchedulingPolicy" ]
-    }
-  },
   "typeName" : "AWS::Batch::SchedulingPolicy",
-  "readOnlyProperties" : [ "/properties/Arn" ],
   "description" : "Resource Type definition for AWS::Batch::SchedulingPolicy",
-  "createOnlyProperties" : [ "/properties/Name", "/properties/Tags" ],
-  "additionalProperties" : false,
-  "primaryIdentifier" : [ "/properties/Arn" ],
+  "sourceUrl" : "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-batch.git",
   "definitions" : {
     "ResourceArn" : {
       "description" : "ARN of the Scheduling Policy.",
       "type" : "string"
     },
-    "FairsharePolicy" : {
-      "description" : "Fair Share Policy for the Job Queue.",
-      "additionalProperties" : false,
+    "QuotaSharePolicy" : {
+      "description" : "Quota Share Policy for the Job Queue.",
       "type" : "object",
       "properties" : {
+        "IdleResourceAssignmentStrategy" : {
+          "type" : "string",
+          "enum" : [ "FIFO" ]
+        }
+      },
+      "additionalProperties" : false
+    },
+    "FairsharePolicy" : {
+      "description" : "Fair Share Policy for the Job Queue.",
+      "type" : "object",
+      "properties" : {
+        "ShareDecaySeconds" : {
+          "type" : "number",
+          "minimum" : 0,
+          "maximum" : 604800
+        },
+        "ComputeReservation" : {
+          "type" : "number",
+          "minimum" : 0,
+          "maximum" : 99
+        },
         "ShareDistribution" : {
           "description" : "List of Share Attributes",
-          "insertionOrder" : false,
           "type" : "array",
+          "insertionOrder" : false,
           "items" : {
             "$ref" : "#/definitions/ShareAttributes"
           }
-        },
-        "ShareDecaySeconds" : {
-          "maximum" : 604800,
-          "type" : "number",
-          "minimum" : 0
-        },
-        "ComputeReservation" : {
-          "maximum" : 99,
-          "type" : "number",
-          "minimum" : 0
         }
       },
-      "required" : [ ]
+      "required" : [ ],
+      "additionalProperties" : false
     },
     "ShareAttributes" : {
-      "additionalProperties" : false,
       "type" : "object",
       "properties" : {
-        "WeightFactor" : {
-          "maximum" : 1000,
-          "type" : "number",
-          "minimum" : 0
-        },
         "ShareIdentifier" : {
           "type" : "string"
+        },
+        "WeightFactor" : {
+          "type" : "number",
+          "minimum" : 0,
+          "maximum" : 1000
         }
       },
-      "required" : [ ]
+      "required" : [ ],
+      "additionalProperties" : false
     }
   },
   "properties" : {
+    "Name" : {
+      "description" : "Name of Scheduling Policy.",
+      "type" : "string",
+      "pattern" : ""
+    },
     "Arn" : {
       "$ref" : "#/definitions/ResourceArn"
     },
     "FairsharePolicy" : {
       "$ref" : "#/definitions/FairsharePolicy"
     },
+    "QuotaSharePolicy" : {
+      "$ref" : "#/definitions/QuotaSharePolicy"
+    },
     "Tags" : {
+      "type" : "object",
+      "description" : "A key-value pair to associate with a resource.",
       "patternProperties" : {
         ".*" : {
           "type" : "string"
         }
       },
-      "description" : "A key-value pair to associate with a resource.",
-      "additionalProperties" : false,
-      "type" : "object"
+      "additionalProperties" : false
+    }
+  },
+  "oneOf" : [ {
+    "required" : [ "FairsharePolicy" ]
+  }, {
+    "required" : [ "QuotaSharePolicy" ]
+  } ],
+  "additionalProperties" : false,
+  "tagging" : {
+    "taggable" : true,
+    "tagOnCreate" : true,
+    "tagUpdatable" : false,
+    "cloudFormationSystemTags" : false,
+    "tagProperty" : "/properties/Tags",
+    "permissions" : [ "Batch:TagResource", "Batch:UntagResource" ]
+  },
+  "primaryIdentifier" : [ "/properties/Arn" ],
+  "createOnlyProperties" : [ "/properties/Name", "/properties/Tags" ],
+  "readOnlyProperties" : [ "/properties/Arn" ],
+  "handlers" : {
+    "create" : {
+      "permissions" : [ "Batch:CreateSchedulingPolicy", "Batch:TagResource" ]
     },
-    "Name" : {
-      "pattern" : "",
-      "description" : "Name of Scheduling Policy.",
-      "type" : "string"
+    "read" : {
+      "permissions" : [ "Batch:DescribeSchedulingPolicies" ]
+    },
+    "update" : {
+      "permissions" : [ "Batch:UpdateSchedulingPolicy", "Batch:TagResource", "Batch:UnTagResource" ]
+    },
+    "delete" : {
+      "permissions" : [ "Batch:DescribeSchedulingPolicies", "Batch:DeleteSchedulingPolicy" ]
+    },
+    "list" : {
+      "permissions" : [ "Batch:ListSchedulingPolicies", "Batch:DescribeSchedulingPolicies" ]
     }
   }
 }

@@ -223,34 +223,6 @@ namespace Pulumi.AwsNative.WorkspacesInstances
     }
 
     [EnumType]
-    public readonly struct WorkspaceInstanceInstanceMarketOptionsRequestMarketType : IEquatable<WorkspaceInstanceInstanceMarketOptionsRequestMarketType>
-    {
-        private readonly string _value;
-
-        private WorkspaceInstanceInstanceMarketOptionsRequestMarketType(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static WorkspaceInstanceInstanceMarketOptionsRequestMarketType Spot { get; } = new WorkspaceInstanceInstanceMarketOptionsRequestMarketType("spot");
-        public static WorkspaceInstanceInstanceMarketOptionsRequestMarketType CapacityBlock { get; } = new WorkspaceInstanceInstanceMarketOptionsRequestMarketType("capacity-block");
-
-        public static bool operator ==(WorkspaceInstanceInstanceMarketOptionsRequestMarketType left, WorkspaceInstanceInstanceMarketOptionsRequestMarketType right) => left.Equals(right);
-        public static bool operator !=(WorkspaceInstanceInstanceMarketOptionsRequestMarketType left, WorkspaceInstanceInstanceMarketOptionsRequestMarketType right) => !left.Equals(right);
-
-        public static explicit operator string(WorkspaceInstanceInstanceMarketOptionsRequestMarketType value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is WorkspaceInstanceInstanceMarketOptionsRequestMarketType other && Equals(other);
-        public bool Equals(WorkspaceInstanceInstanceMarketOptionsRequestMarketType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    [EnumType]
     public readonly struct WorkspaceInstanceInstanceMetadataOptionsRequestHttpEndpoint : IEquatable<WorkspaceInstanceInstanceMetadataOptionsRequestHttpEndpoint>
     {
         private readonly string _value;
@@ -476,62 +448,6 @@ namespace Pulumi.AwsNative.WorkspacesInstances
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is WorkspaceInstanceProvisionState other && Equals(other);
         public bool Equals(WorkspaceInstanceProvisionState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    [EnumType]
-    public readonly struct WorkspaceInstanceSpotMarketOptionsInstanceInterruptionBehavior : IEquatable<WorkspaceInstanceSpotMarketOptionsInstanceInterruptionBehavior>
-    {
-        private readonly string _value;
-
-        private WorkspaceInstanceSpotMarketOptionsInstanceInterruptionBehavior(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static WorkspaceInstanceSpotMarketOptionsInstanceInterruptionBehavior Hibernate { get; } = new WorkspaceInstanceSpotMarketOptionsInstanceInterruptionBehavior("hibernate");
-        public static WorkspaceInstanceSpotMarketOptionsInstanceInterruptionBehavior Stop { get; } = new WorkspaceInstanceSpotMarketOptionsInstanceInterruptionBehavior("stop");
-
-        public static bool operator ==(WorkspaceInstanceSpotMarketOptionsInstanceInterruptionBehavior left, WorkspaceInstanceSpotMarketOptionsInstanceInterruptionBehavior right) => left.Equals(right);
-        public static bool operator !=(WorkspaceInstanceSpotMarketOptionsInstanceInterruptionBehavior left, WorkspaceInstanceSpotMarketOptionsInstanceInterruptionBehavior right) => !left.Equals(right);
-
-        public static explicit operator string(WorkspaceInstanceSpotMarketOptionsInstanceInterruptionBehavior value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is WorkspaceInstanceSpotMarketOptionsInstanceInterruptionBehavior other && Equals(other);
-        public bool Equals(WorkspaceInstanceSpotMarketOptionsInstanceInterruptionBehavior other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    [EnumType]
-    public readonly struct WorkspaceInstanceSpotMarketOptionsSpotInstanceType : IEquatable<WorkspaceInstanceSpotMarketOptionsSpotInstanceType>
-    {
-        private readonly string _value;
-
-        private WorkspaceInstanceSpotMarketOptionsSpotInstanceType(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static WorkspaceInstanceSpotMarketOptionsSpotInstanceType OneTime { get; } = new WorkspaceInstanceSpotMarketOptionsSpotInstanceType("one-time");
-        public static WorkspaceInstanceSpotMarketOptionsSpotInstanceType Persistent { get; } = new WorkspaceInstanceSpotMarketOptionsSpotInstanceType("persistent");
-
-        public static bool operator ==(WorkspaceInstanceSpotMarketOptionsSpotInstanceType left, WorkspaceInstanceSpotMarketOptionsSpotInstanceType right) => left.Equals(right);
-        public static bool operator !=(WorkspaceInstanceSpotMarketOptionsSpotInstanceType left, WorkspaceInstanceSpotMarketOptionsSpotInstanceType right) => !left.Equals(right);
-
-        public static explicit operator string(WorkspaceInstanceSpotMarketOptionsSpotInstanceType value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is WorkspaceInstanceSpotMarketOptionsSpotInstanceType other && Equals(other);
-        public bool Equals(WorkspaceInstanceSpotMarketOptionsSpotInstanceType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

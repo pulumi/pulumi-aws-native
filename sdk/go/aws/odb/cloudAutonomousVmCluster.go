@@ -58,6 +58,8 @@ type CloudAutonomousVmCluster struct {
 	ExadataStorageInTbsLowestScaledValue pulumi.Float64Output `pulumi:"exadataStorageInTbsLowestScaledValue"`
 	// The hostname for the Autonomous VM cluster.
 	Hostname pulumi.StringOutput `pulumi:"hostname"`
+	// The AWS Identity and Access Management (IAM) service roles associated with the Autonomous VM cluster.
+	IamRoles CloudAutonomousVmClusterIamRoleArrayOutput `pulumi:"iamRoles"`
 	// Indicates whether mutual TLS (mTLS) authentication is enabled for the Autonomous VM cluster.
 	IsMtlsEnabledVmCluster pulumi.BoolPtrOutput `pulumi:"isMtlsEnabledVmCluster"`
 	// The Oracle license model that applies to the Autonomous VM cluster. Valid values are LICENSE_INCLUDED or BRING_YOUR_OWN_LICENSE.
@@ -176,6 +178,8 @@ type cloudAutonomousVmClusterArgs struct {
 	Description *string `pulumi:"description"`
 	// The display name of the Autonomous VM cluster.
 	DisplayName *string `pulumi:"displayName"`
+	// The AWS Identity and Access Management (IAM) service roles associated with the Autonomous VM cluster.
+	IamRoles []CloudAutonomousVmClusterIamRole `pulumi:"iamRoles"`
 	// Indicates whether mutual TLS (mTLS) authentication is enabled for the Autonomous VM cluster.
 	IsMtlsEnabledVmCluster *bool `pulumi:"isMtlsEnabledVmCluster"`
 	// The Oracle license model that applies to the Autonomous VM cluster. Valid values are LICENSE_INCLUDED or BRING_YOUR_OWN_LICENSE.
@@ -212,6 +216,8 @@ type CloudAutonomousVmClusterArgs struct {
 	Description pulumi.StringPtrInput
 	// The display name of the Autonomous VM cluster.
 	DisplayName pulumi.StringPtrInput
+	// The AWS Identity and Access Management (IAM) service roles associated with the Autonomous VM cluster.
+	IamRoles CloudAutonomousVmClusterIamRoleArrayInput
 	// Indicates whether mutual TLS (mTLS) authentication is enabled for the Autonomous VM cluster.
 	IsMtlsEnabledVmCluster pulumi.BoolPtrInput
 	// The Oracle license model that applies to the Autonomous VM cluster. Valid values are LICENSE_INCLUDED or BRING_YOUR_OWN_LICENSE.
@@ -376,6 +382,11 @@ func (o CloudAutonomousVmClusterOutput) ExadataStorageInTbsLowestScaledValue() p
 // The hostname for the Autonomous VM cluster.
 func (o CloudAutonomousVmClusterOutput) Hostname() pulumi.StringOutput {
 	return o.ApplyT(func(v *CloudAutonomousVmCluster) pulumi.StringOutput { return v.Hostname }).(pulumi.StringOutput)
+}
+
+// The AWS Identity and Access Management (IAM) service roles associated with the Autonomous VM cluster.
+func (o CloudAutonomousVmClusterOutput) IamRoles() CloudAutonomousVmClusterIamRoleArrayOutput {
+	return o.ApplyT(func(v *CloudAutonomousVmCluster) CloudAutonomousVmClusterIamRoleArrayOutput { return v.IamRoles }).(CloudAutonomousVmClusterIamRoleArrayOutput)
 }
 
 // Indicates whether mutual TLS (mTLS) authentication is enabled for the Autonomous VM cluster.

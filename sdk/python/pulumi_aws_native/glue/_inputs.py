@@ -16,6 +16,18 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'CatalogDataLakeAccessPropertiesArgs',
+    'CatalogDataLakeAccessPropertiesArgsDict',
+    'CatalogDataLakePrincipalArgs',
+    'CatalogDataLakePrincipalArgsDict',
+    'CatalogFederatedCatalogArgs',
+    'CatalogFederatedCatalogArgsDict',
+    'CatalogPrincipalPermissionsArgs',
+    'CatalogPrincipalPermissionsArgsDict',
+    'CatalogPropertiesArgs',
+    'CatalogPropertiesArgsDict',
+    'CatalogTargetRedshiftCatalogArgs',
+    'CatalogTargetRedshiftCatalogArgsDict',
     'CrawlerCatalogTargetArgs',
     'CrawlerCatalogTargetArgsDict',
     'CrawlerDeltaTargetArgs',
@@ -87,6 +99,395 @@ __all__ = [
     'UsageProfileProfileConfigurationArgs',
     'UsageProfileProfileConfigurationArgsDict',
 ]
+
+class CatalogDataLakeAccessPropertiesArgsDict(TypedDict):
+    """
+    Data lake access properties for the catalog.
+    """
+    allow_full_table_external_data_access: NotRequired[pulumi.Input['CatalogDataLakeAccessPropertiesAllowFullTableExternalDataAccess']]
+    """
+    Allows third-party engines to access data in Amazon S3 locations that are registered with Lake Formation.
+    """
+    catalog_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies a federated catalog type for the native catalog resource.
+    """
+    data_lake_access: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Turns on or off data lake access for Apache Spark applications that access Amazon Redshift databases in the Data Catalog from any non-Redshift engine.
+    """
+    data_transfer_role: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A role that will be assumed by Glue for transferring data into/out of the staging bucket during a query.
+    """
+    kms_key: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    An encryption key that will be used for the staging bucket that will be created along with the catalog.
+    """
+    managed_workgroup_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the managed workgroup associated with the catalog.
+    """
+    managed_workgroup_status: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The status of the managed workgroup.
+    """
+    redshift_database_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the Redshift database.
+    """
+
+@pulumi.input_type
+class CatalogDataLakeAccessPropertiesArgs:
+    def __init__(__self__, *,
+                 allow_full_table_external_data_access: Optional[pulumi.Input['CatalogDataLakeAccessPropertiesAllowFullTableExternalDataAccess']] = None,
+                 catalog_type: Optional[pulumi.Input[_builtins.str]] = None,
+                 data_lake_access: Optional[pulumi.Input[_builtins.bool]] = None,
+                 data_transfer_role: Optional[pulumi.Input[_builtins.str]] = None,
+                 kms_key: Optional[pulumi.Input[_builtins.str]] = None,
+                 managed_workgroup_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 managed_workgroup_status: Optional[pulumi.Input[_builtins.str]] = None,
+                 redshift_database_name: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        Data lake access properties for the catalog.
+
+        :param pulumi.Input['CatalogDataLakeAccessPropertiesAllowFullTableExternalDataAccess'] allow_full_table_external_data_access: Allows third-party engines to access data in Amazon S3 locations that are registered with Lake Formation.
+        :param pulumi.Input[_builtins.str] catalog_type: Specifies a federated catalog type for the native catalog resource.
+        :param pulumi.Input[_builtins.bool] data_lake_access: Turns on or off data lake access for Apache Spark applications that access Amazon Redshift databases in the Data Catalog from any non-Redshift engine.
+        :param pulumi.Input[_builtins.str] data_transfer_role: A role that will be assumed by Glue for transferring data into/out of the staging bucket during a query.
+        :param pulumi.Input[_builtins.str] kms_key: An encryption key that will be used for the staging bucket that will be created along with the catalog.
+        :param pulumi.Input[_builtins.str] managed_workgroup_name: The name of the managed workgroup associated with the catalog.
+        :param pulumi.Input[_builtins.str] managed_workgroup_status: The status of the managed workgroup.
+        :param pulumi.Input[_builtins.str] redshift_database_name: The name of the Redshift database.
+        """
+        if allow_full_table_external_data_access is not None:
+            pulumi.set(__self__, "allow_full_table_external_data_access", allow_full_table_external_data_access)
+        if catalog_type is not None:
+            pulumi.set(__self__, "catalog_type", catalog_type)
+        if data_lake_access is not None:
+            pulumi.set(__self__, "data_lake_access", data_lake_access)
+        if data_transfer_role is not None:
+            pulumi.set(__self__, "data_transfer_role", data_transfer_role)
+        if kms_key is not None:
+            pulumi.set(__self__, "kms_key", kms_key)
+        if managed_workgroup_name is not None:
+            pulumi.set(__self__, "managed_workgroup_name", managed_workgroup_name)
+        if managed_workgroup_status is not None:
+            pulumi.set(__self__, "managed_workgroup_status", managed_workgroup_status)
+        if redshift_database_name is not None:
+            pulumi.set(__self__, "redshift_database_name", redshift_database_name)
+
+    @_builtins.property
+    @pulumi.getter(name="allowFullTableExternalDataAccess")
+    def allow_full_table_external_data_access(self) -> Optional[pulumi.Input['CatalogDataLakeAccessPropertiesAllowFullTableExternalDataAccess']]:
+        """
+        Allows third-party engines to access data in Amazon S3 locations that are registered with Lake Formation.
+        """
+        return pulumi.get(self, "allow_full_table_external_data_access")
+
+    @allow_full_table_external_data_access.setter
+    def allow_full_table_external_data_access(self, value: Optional[pulumi.Input['CatalogDataLakeAccessPropertiesAllowFullTableExternalDataAccess']]):
+        pulumi.set(self, "allow_full_table_external_data_access", value)
+
+    @_builtins.property
+    @pulumi.getter(name="catalogType")
+    def catalog_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Specifies a federated catalog type for the native catalog resource.
+        """
+        return pulumi.get(self, "catalog_type")
+
+    @catalog_type.setter
+    def catalog_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "catalog_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="dataLakeAccess")
+    def data_lake_access(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Turns on or off data lake access for Apache Spark applications that access Amazon Redshift databases in the Data Catalog from any non-Redshift engine.
+        """
+        return pulumi.get(self, "data_lake_access")
+
+    @data_lake_access.setter
+    def data_lake_access(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "data_lake_access", value)
+
+    @_builtins.property
+    @pulumi.getter(name="dataTransferRole")
+    def data_transfer_role(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        A role that will be assumed by Glue for transferring data into/out of the staging bucket during a query.
+        """
+        return pulumi.get(self, "data_transfer_role")
+
+    @data_transfer_role.setter
+    def data_transfer_role(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "data_transfer_role", value)
+
+    @_builtins.property
+    @pulumi.getter(name="kmsKey")
+    def kms_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        An encryption key that will be used for the staging bucket that will be created along with the catalog.
+        """
+        return pulumi.get(self, "kms_key")
+
+    @kms_key.setter
+    def kms_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "kms_key", value)
+
+    @_builtins.property
+    @pulumi.getter(name="managedWorkgroupName")
+    def managed_workgroup_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The name of the managed workgroup associated with the catalog.
+        """
+        return pulumi.get(self, "managed_workgroup_name")
+
+    @managed_workgroup_name.setter
+    def managed_workgroup_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "managed_workgroup_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="managedWorkgroupStatus")
+    def managed_workgroup_status(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The status of the managed workgroup.
+        """
+        return pulumi.get(self, "managed_workgroup_status")
+
+    @managed_workgroup_status.setter
+    def managed_workgroup_status(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "managed_workgroup_status", value)
+
+    @_builtins.property
+    @pulumi.getter(name="redshiftDatabaseName")
+    def redshift_database_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The name of the Redshift database.
+        """
+        return pulumi.get(self, "redshift_database_name")
+
+    @redshift_database_name.setter
+    def redshift_database_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "redshift_database_name", value)
+
+
+class CatalogDataLakePrincipalArgsDict(TypedDict):
+    """
+    The Lake Formation principal.
+    """
+    data_lake_principal_identifier: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    An identifier for the Lake Formation principal.
+    """
+
+@pulumi.input_type
+class CatalogDataLakePrincipalArgs:
+    def __init__(__self__, *,
+                 data_lake_principal_identifier: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        The Lake Formation principal.
+
+        :param pulumi.Input[_builtins.str] data_lake_principal_identifier: An identifier for the Lake Formation principal.
+        """
+        if data_lake_principal_identifier is not None:
+            pulumi.set(__self__, "data_lake_principal_identifier", data_lake_principal_identifier)
+
+    @_builtins.property
+    @pulumi.getter(name="dataLakePrincipalIdentifier")
+    def data_lake_principal_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        An identifier for the Lake Formation principal.
+        """
+        return pulumi.get(self, "data_lake_principal_identifier")
+
+    @data_lake_principal_identifier.setter
+    def data_lake_principal_identifier(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "data_lake_principal_identifier", value)
+
+
+class CatalogFederatedCatalogArgsDict(TypedDict):
+    """
+    A FederatedCatalog structure that references an entity outside the Glue Data Catalog.
+    """
+    connection_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the connection to an external data source.
+    """
+    identifier: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A unique identifier for the federated catalog.
+    """
+
+@pulumi.input_type
+class CatalogFederatedCatalogArgs:
+    def __init__(__self__, *,
+                 connection_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 identifier: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        A FederatedCatalog structure that references an entity outside the Glue Data Catalog.
+
+        :param pulumi.Input[_builtins.str] connection_name: The name of the connection to an external data source.
+        :param pulumi.Input[_builtins.str] identifier: A unique identifier for the federated catalog.
+        """
+        if connection_name is not None:
+            pulumi.set(__self__, "connection_name", connection_name)
+        if identifier is not None:
+            pulumi.set(__self__, "identifier", identifier)
+
+    @_builtins.property
+    @pulumi.getter(name="connectionName")
+    def connection_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The name of the connection to an external data source.
+        """
+        return pulumi.get(self, "connection_name")
+
+    @connection_name.setter
+    def connection_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "connection_name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        A unique identifier for the federated catalog.
+        """
+        return pulumi.get(self, "identifier")
+
+    @identifier.setter
+    def identifier(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "identifier", value)
+
+
+class CatalogPrincipalPermissionsArgsDict(TypedDict):
+    """
+    Permissions granted to a principal.
+    """
+    permissions: NotRequired[pulumi.Input[Sequence[pulumi.Input['CatalogPrincipalPermissionsPermissionsItem']]]]
+    """
+    The permissions that are granted to the principal.
+    """
+    principal: NotRequired[pulumi.Input['CatalogDataLakePrincipalArgsDict']]
+
+@pulumi.input_type
+class CatalogPrincipalPermissionsArgs:
+    def __init__(__self__, *,
+                 permissions: Optional[pulumi.Input[Sequence[pulumi.Input['CatalogPrincipalPermissionsPermissionsItem']]]] = None,
+                 principal: Optional[pulumi.Input['CatalogDataLakePrincipalArgs']] = None):
+        """
+        Permissions granted to a principal.
+
+        :param pulumi.Input[Sequence[pulumi.Input['CatalogPrincipalPermissionsPermissionsItem']]] permissions: The permissions that are granted to the principal.
+        """
+        if permissions is not None:
+            pulumi.set(__self__, "permissions", permissions)
+        if principal is not None:
+            pulumi.set(__self__, "principal", principal)
+
+    @_builtins.property
+    @pulumi.getter
+    def permissions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CatalogPrincipalPermissionsPermissionsItem']]]]:
+        """
+        The permissions that are granted to the principal.
+        """
+        return pulumi.get(self, "permissions")
+
+    @permissions.setter
+    def permissions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CatalogPrincipalPermissionsPermissionsItem']]]]):
+        pulumi.set(self, "permissions", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def principal(self) -> Optional[pulumi.Input['CatalogDataLakePrincipalArgs']]:
+        return pulumi.get(self, "principal")
+
+    @principal.setter
+    def principal(self, value: Optional[pulumi.Input['CatalogDataLakePrincipalArgs']]):
+        pulumi.set(self, "principal", value)
+
+
+class CatalogPropertiesArgsDict(TypedDict):
+    """
+    A structure that specifies data lake access properties and other custom properties.
+    """
+    custom_properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    Additional key-value properties for the catalog.
+    """
+    data_lake_access_properties: NotRequired[pulumi.Input['CatalogDataLakeAccessPropertiesArgsDict']]
+
+@pulumi.input_type
+class CatalogPropertiesArgs:
+    def __init__(__self__, *,
+                 custom_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 data_lake_access_properties: Optional[pulumi.Input['CatalogDataLakeAccessPropertiesArgs']] = None):
+        """
+        A structure that specifies data lake access properties and other custom properties.
+
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] custom_properties: Additional key-value properties for the catalog.
+        """
+        if custom_properties is not None:
+            pulumi.set(__self__, "custom_properties", custom_properties)
+        if data_lake_access_properties is not None:
+            pulumi.set(__self__, "data_lake_access_properties", data_lake_access_properties)
+
+    @_builtins.property
+    @pulumi.getter(name="customProperties")
+    def custom_properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+        """
+        Additional key-value properties for the catalog.
+        """
+        return pulumi.get(self, "custom_properties")
+
+    @custom_properties.setter
+    def custom_properties(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "custom_properties", value)
+
+    @_builtins.property
+    @pulumi.getter(name="dataLakeAccessProperties")
+    def data_lake_access_properties(self) -> Optional[pulumi.Input['CatalogDataLakeAccessPropertiesArgs']]:
+        return pulumi.get(self, "data_lake_access_properties")
+
+    @data_lake_access_properties.setter
+    def data_lake_access_properties(self, value: Optional[pulumi.Input['CatalogDataLakeAccessPropertiesArgs']]):
+        pulumi.set(self, "data_lake_access_properties", value)
+
+
+class CatalogTargetRedshiftCatalogArgsDict(TypedDict):
+    """
+    A structure that describes a target catalog for resource linking.
+    """
+    catalog_arn: pulumi.Input[_builtins.str]
+    """
+    The Amazon Resource Name (ARN) of the catalog resource.
+    """
+
+@pulumi.input_type
+class CatalogTargetRedshiftCatalogArgs:
+    def __init__(__self__, *,
+                 catalog_arn: pulumi.Input[_builtins.str]):
+        """
+        A structure that describes a target catalog for resource linking.
+
+        :param pulumi.Input[_builtins.str] catalog_arn: The Amazon Resource Name (ARN) of the catalog resource.
+        """
+        pulumi.set(__self__, "catalog_arn", catalog_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="catalogArn")
+    def catalog_arn(self) -> pulumi.Input[_builtins.str]:
+        """
+        The Amazon Resource Name (ARN) of the catalog resource.
+        """
+        return pulumi.get(self, "catalog_arn")
+
+    @catalog_arn.setter
+    def catalog_arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "catalog_arn", value)
+
 
 class CrawlerCatalogTargetArgsDict(TypedDict):
     """

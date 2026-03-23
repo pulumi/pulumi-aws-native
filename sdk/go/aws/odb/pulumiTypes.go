@@ -13,6 +13,124 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+// An AWS Identity and Access Management (IAM) service role associated with the Autonomous VM cluster.
+type CloudAutonomousVmClusterIamRole struct {
+	// The AWS integration configuration settings for the AWS Identity and Access Management (IAM) service role.
+	AwsIntegration *string `pulumi:"awsIntegration"`
+	// The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) service role.
+	IamRoleArn *string `pulumi:"iamRoleArn"`
+	// The current status of the AWS Identity and Access Management (IAM) service role.
+	Status *string `pulumi:"status"`
+}
+
+// CloudAutonomousVmClusterIamRoleInput is an input type that accepts CloudAutonomousVmClusterIamRoleArgs and CloudAutonomousVmClusterIamRoleOutput values.
+// You can construct a concrete instance of `CloudAutonomousVmClusterIamRoleInput` via:
+//
+//	CloudAutonomousVmClusterIamRoleArgs{...}
+type CloudAutonomousVmClusterIamRoleInput interface {
+	pulumi.Input
+
+	ToCloudAutonomousVmClusterIamRoleOutput() CloudAutonomousVmClusterIamRoleOutput
+	ToCloudAutonomousVmClusterIamRoleOutputWithContext(context.Context) CloudAutonomousVmClusterIamRoleOutput
+}
+
+// An AWS Identity and Access Management (IAM) service role associated with the Autonomous VM cluster.
+type CloudAutonomousVmClusterIamRoleArgs struct {
+	// The AWS integration configuration settings for the AWS Identity and Access Management (IAM) service role.
+	AwsIntegration pulumi.StringPtrInput `pulumi:"awsIntegration"`
+	// The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) service role.
+	IamRoleArn pulumi.StringPtrInput `pulumi:"iamRoleArn"`
+	// The current status of the AWS Identity and Access Management (IAM) service role.
+	Status pulumi.StringPtrInput `pulumi:"status"`
+}
+
+func (CloudAutonomousVmClusterIamRoleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CloudAutonomousVmClusterIamRole)(nil)).Elem()
+}
+
+func (i CloudAutonomousVmClusterIamRoleArgs) ToCloudAutonomousVmClusterIamRoleOutput() CloudAutonomousVmClusterIamRoleOutput {
+	return i.ToCloudAutonomousVmClusterIamRoleOutputWithContext(context.Background())
+}
+
+func (i CloudAutonomousVmClusterIamRoleArgs) ToCloudAutonomousVmClusterIamRoleOutputWithContext(ctx context.Context) CloudAutonomousVmClusterIamRoleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CloudAutonomousVmClusterIamRoleOutput)
+}
+
+// CloudAutonomousVmClusterIamRoleArrayInput is an input type that accepts CloudAutonomousVmClusterIamRoleArray and CloudAutonomousVmClusterIamRoleArrayOutput values.
+// You can construct a concrete instance of `CloudAutonomousVmClusterIamRoleArrayInput` via:
+//
+//	CloudAutonomousVmClusterIamRoleArray{ CloudAutonomousVmClusterIamRoleArgs{...} }
+type CloudAutonomousVmClusterIamRoleArrayInput interface {
+	pulumi.Input
+
+	ToCloudAutonomousVmClusterIamRoleArrayOutput() CloudAutonomousVmClusterIamRoleArrayOutput
+	ToCloudAutonomousVmClusterIamRoleArrayOutputWithContext(context.Context) CloudAutonomousVmClusterIamRoleArrayOutput
+}
+
+type CloudAutonomousVmClusterIamRoleArray []CloudAutonomousVmClusterIamRoleInput
+
+func (CloudAutonomousVmClusterIamRoleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CloudAutonomousVmClusterIamRole)(nil)).Elem()
+}
+
+func (i CloudAutonomousVmClusterIamRoleArray) ToCloudAutonomousVmClusterIamRoleArrayOutput() CloudAutonomousVmClusterIamRoleArrayOutput {
+	return i.ToCloudAutonomousVmClusterIamRoleArrayOutputWithContext(context.Background())
+}
+
+func (i CloudAutonomousVmClusterIamRoleArray) ToCloudAutonomousVmClusterIamRoleArrayOutputWithContext(ctx context.Context) CloudAutonomousVmClusterIamRoleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CloudAutonomousVmClusterIamRoleArrayOutput)
+}
+
+// An AWS Identity and Access Management (IAM) service role associated with the Autonomous VM cluster.
+type CloudAutonomousVmClusterIamRoleOutput struct{ *pulumi.OutputState }
+
+func (CloudAutonomousVmClusterIamRoleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CloudAutonomousVmClusterIamRole)(nil)).Elem()
+}
+
+func (o CloudAutonomousVmClusterIamRoleOutput) ToCloudAutonomousVmClusterIamRoleOutput() CloudAutonomousVmClusterIamRoleOutput {
+	return o
+}
+
+func (o CloudAutonomousVmClusterIamRoleOutput) ToCloudAutonomousVmClusterIamRoleOutputWithContext(ctx context.Context) CloudAutonomousVmClusterIamRoleOutput {
+	return o
+}
+
+// The AWS integration configuration settings for the AWS Identity and Access Management (IAM) service role.
+func (o CloudAutonomousVmClusterIamRoleOutput) AwsIntegration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CloudAutonomousVmClusterIamRole) *string { return v.AwsIntegration }).(pulumi.StringPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) service role.
+func (o CloudAutonomousVmClusterIamRoleOutput) IamRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CloudAutonomousVmClusterIamRole) *string { return v.IamRoleArn }).(pulumi.StringPtrOutput)
+}
+
+// The current status of the AWS Identity and Access Management (IAM) service role.
+func (o CloudAutonomousVmClusterIamRoleOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CloudAutonomousVmClusterIamRole) *string { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+type CloudAutonomousVmClusterIamRoleArrayOutput struct{ *pulumi.OutputState }
+
+func (CloudAutonomousVmClusterIamRoleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CloudAutonomousVmClusterIamRole)(nil)).Elem()
+}
+
+func (o CloudAutonomousVmClusterIamRoleArrayOutput) ToCloudAutonomousVmClusterIamRoleArrayOutput() CloudAutonomousVmClusterIamRoleArrayOutput {
+	return o
+}
+
+func (o CloudAutonomousVmClusterIamRoleArrayOutput) ToCloudAutonomousVmClusterIamRoleArrayOutputWithContext(ctx context.Context) CloudAutonomousVmClusterIamRoleArrayOutput {
+	return o
+}
+
+func (o CloudAutonomousVmClusterIamRoleArrayOutput) Index(i pulumi.IntInput) CloudAutonomousVmClusterIamRoleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CloudAutonomousVmClusterIamRole {
+		return vs[0].([]CloudAutonomousVmClusterIamRole)[vs[1].(int)]
+	}).(CloudAutonomousVmClusterIamRoleOutput)
+}
+
 // The scheduling details for the maintenance window. Patching and system updates take place during the maintenance window.
 type CloudAutonomousVmClusterMaintenanceWindow struct {
 	// The days of the week when maintenance can be performed.
@@ -1076,6 +1194,124 @@ func (o CloudVmClusterDbNodeArrayOutput) Index(i pulumi.IntInput) CloudVmCluster
 	}).(CloudVmClusterDbNodeOutput)
 }
 
+// An AWS Identity and Access Management (IAM) service role associated with the VM cluster.
+type CloudVmClusterIamRole struct {
+	// The AWS integration configuration settings for the AWS Identity and Access Management (IAM) service role.
+	AwsIntegration *string `pulumi:"awsIntegration"`
+	// The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) service role.
+	IamRoleArn *string `pulumi:"iamRoleArn"`
+	// The current status of the AWS Identity and Access Management (IAM) service role.
+	Status *string `pulumi:"status"`
+}
+
+// CloudVmClusterIamRoleInput is an input type that accepts CloudVmClusterIamRoleArgs and CloudVmClusterIamRoleOutput values.
+// You can construct a concrete instance of `CloudVmClusterIamRoleInput` via:
+//
+//	CloudVmClusterIamRoleArgs{...}
+type CloudVmClusterIamRoleInput interface {
+	pulumi.Input
+
+	ToCloudVmClusterIamRoleOutput() CloudVmClusterIamRoleOutput
+	ToCloudVmClusterIamRoleOutputWithContext(context.Context) CloudVmClusterIamRoleOutput
+}
+
+// An AWS Identity and Access Management (IAM) service role associated with the VM cluster.
+type CloudVmClusterIamRoleArgs struct {
+	// The AWS integration configuration settings for the AWS Identity and Access Management (IAM) service role.
+	AwsIntegration pulumi.StringPtrInput `pulumi:"awsIntegration"`
+	// The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) service role.
+	IamRoleArn pulumi.StringPtrInput `pulumi:"iamRoleArn"`
+	// The current status of the AWS Identity and Access Management (IAM) service role.
+	Status pulumi.StringPtrInput `pulumi:"status"`
+}
+
+func (CloudVmClusterIamRoleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CloudVmClusterIamRole)(nil)).Elem()
+}
+
+func (i CloudVmClusterIamRoleArgs) ToCloudVmClusterIamRoleOutput() CloudVmClusterIamRoleOutput {
+	return i.ToCloudVmClusterIamRoleOutputWithContext(context.Background())
+}
+
+func (i CloudVmClusterIamRoleArgs) ToCloudVmClusterIamRoleOutputWithContext(ctx context.Context) CloudVmClusterIamRoleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CloudVmClusterIamRoleOutput)
+}
+
+// CloudVmClusterIamRoleArrayInput is an input type that accepts CloudVmClusterIamRoleArray and CloudVmClusterIamRoleArrayOutput values.
+// You can construct a concrete instance of `CloudVmClusterIamRoleArrayInput` via:
+//
+//	CloudVmClusterIamRoleArray{ CloudVmClusterIamRoleArgs{...} }
+type CloudVmClusterIamRoleArrayInput interface {
+	pulumi.Input
+
+	ToCloudVmClusterIamRoleArrayOutput() CloudVmClusterIamRoleArrayOutput
+	ToCloudVmClusterIamRoleArrayOutputWithContext(context.Context) CloudVmClusterIamRoleArrayOutput
+}
+
+type CloudVmClusterIamRoleArray []CloudVmClusterIamRoleInput
+
+func (CloudVmClusterIamRoleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CloudVmClusterIamRole)(nil)).Elem()
+}
+
+func (i CloudVmClusterIamRoleArray) ToCloudVmClusterIamRoleArrayOutput() CloudVmClusterIamRoleArrayOutput {
+	return i.ToCloudVmClusterIamRoleArrayOutputWithContext(context.Background())
+}
+
+func (i CloudVmClusterIamRoleArray) ToCloudVmClusterIamRoleArrayOutputWithContext(ctx context.Context) CloudVmClusterIamRoleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CloudVmClusterIamRoleArrayOutput)
+}
+
+// An AWS Identity and Access Management (IAM) service role associated with the VM cluster.
+type CloudVmClusterIamRoleOutput struct{ *pulumi.OutputState }
+
+func (CloudVmClusterIamRoleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CloudVmClusterIamRole)(nil)).Elem()
+}
+
+func (o CloudVmClusterIamRoleOutput) ToCloudVmClusterIamRoleOutput() CloudVmClusterIamRoleOutput {
+	return o
+}
+
+func (o CloudVmClusterIamRoleOutput) ToCloudVmClusterIamRoleOutputWithContext(ctx context.Context) CloudVmClusterIamRoleOutput {
+	return o
+}
+
+// The AWS integration configuration settings for the AWS Identity and Access Management (IAM) service role.
+func (o CloudVmClusterIamRoleOutput) AwsIntegration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CloudVmClusterIamRole) *string { return v.AwsIntegration }).(pulumi.StringPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) service role.
+func (o CloudVmClusterIamRoleOutput) IamRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CloudVmClusterIamRole) *string { return v.IamRoleArn }).(pulumi.StringPtrOutput)
+}
+
+// The current status of the AWS Identity and Access Management (IAM) service role.
+func (o CloudVmClusterIamRoleOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CloudVmClusterIamRole) *string { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+type CloudVmClusterIamRoleArrayOutput struct{ *pulumi.OutputState }
+
+func (CloudVmClusterIamRoleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CloudVmClusterIamRole)(nil)).Elem()
+}
+
+func (o CloudVmClusterIamRoleArrayOutput) ToCloudVmClusterIamRoleArrayOutput() CloudVmClusterIamRoleArrayOutput {
+	return o
+}
+
+func (o CloudVmClusterIamRoleArrayOutput) ToCloudVmClusterIamRoleArrayOutputWithContext(ctx context.Context) CloudVmClusterIamRoleArrayOutput {
+	return o
+}
+
+func (o CloudVmClusterIamRoleArrayOutput) Index(i pulumi.IntInput) CloudVmClusterIamRoleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CloudVmClusterIamRole {
+		return vs[0].([]CloudVmClusterIamRole)[vs[1].(int)]
+	}).(CloudVmClusterIamRoleOutput)
+}
+
 // A key-value pair to associate with a resource.
 type CloudVmClusterTag struct {
 	// The key name of the tag. You can specify a value that's 1 to 128 Unicode characters in length and can't be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., :, /, =, +, @, -, and ".
@@ -1185,8 +1421,72 @@ func (o CloudVmClusterTagArrayOutput) Index(i pulumi.IntInput) CloudVmClusterTag
 	}).(CloudVmClusterTagOutput)
 }
 
+// The configuration access for the cross-Region Amazon S3 database restore source for the ODB network.
+type OdbNetworkCrossRegionS3RestoreSourcesAccess struct {
+	// The IPv4 addresses allowed for cross-Region Amazon S3 restore access.
+	Ipv4Addresses []string `pulumi:"ipv4Addresses"`
+	// The AWS-Region for cross-Region Amazon S3 restore access.
+	Region *string `pulumi:"region"`
+	// The current status of the cross-Region Amazon S3 restore access configuration.
+	Status *OdbNetworkManagedResourceStatus `pulumi:"status"`
+}
+
+// The configuration access for the cross-Region Amazon S3 database restore source for the ODB network.
+type OdbNetworkCrossRegionS3RestoreSourcesAccessOutput struct{ *pulumi.OutputState }
+
+func (OdbNetworkCrossRegionS3RestoreSourcesAccessOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OdbNetworkCrossRegionS3RestoreSourcesAccess)(nil)).Elem()
+}
+
+func (o OdbNetworkCrossRegionS3RestoreSourcesAccessOutput) ToOdbNetworkCrossRegionS3RestoreSourcesAccessOutput() OdbNetworkCrossRegionS3RestoreSourcesAccessOutput {
+	return o
+}
+
+func (o OdbNetworkCrossRegionS3RestoreSourcesAccessOutput) ToOdbNetworkCrossRegionS3RestoreSourcesAccessOutputWithContext(ctx context.Context) OdbNetworkCrossRegionS3RestoreSourcesAccessOutput {
+	return o
+}
+
+// The IPv4 addresses allowed for cross-Region Amazon S3 restore access.
+func (o OdbNetworkCrossRegionS3RestoreSourcesAccessOutput) Ipv4Addresses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v OdbNetworkCrossRegionS3RestoreSourcesAccess) []string { return v.Ipv4Addresses }).(pulumi.StringArrayOutput)
+}
+
+// The AWS-Region for cross-Region Amazon S3 restore access.
+func (o OdbNetworkCrossRegionS3RestoreSourcesAccessOutput) Region() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OdbNetworkCrossRegionS3RestoreSourcesAccess) *string { return v.Region }).(pulumi.StringPtrOutput)
+}
+
+// The current status of the cross-Region Amazon S3 restore access configuration.
+func (o OdbNetworkCrossRegionS3RestoreSourcesAccessOutput) Status() OdbNetworkManagedResourceStatusPtrOutput {
+	return o.ApplyT(func(v OdbNetworkCrossRegionS3RestoreSourcesAccess) *OdbNetworkManagedResourceStatus { return v.Status }).(OdbNetworkManagedResourceStatusPtrOutput)
+}
+
+type OdbNetworkCrossRegionS3RestoreSourcesAccessArrayOutput struct{ *pulumi.OutputState }
+
+func (OdbNetworkCrossRegionS3RestoreSourcesAccessArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OdbNetworkCrossRegionS3RestoreSourcesAccess)(nil)).Elem()
+}
+
+func (o OdbNetworkCrossRegionS3RestoreSourcesAccessArrayOutput) ToOdbNetworkCrossRegionS3RestoreSourcesAccessArrayOutput() OdbNetworkCrossRegionS3RestoreSourcesAccessArrayOutput {
+	return o
+}
+
+func (o OdbNetworkCrossRegionS3RestoreSourcesAccessArrayOutput) ToOdbNetworkCrossRegionS3RestoreSourcesAccessArrayOutputWithContext(ctx context.Context) OdbNetworkCrossRegionS3RestoreSourcesAccessArrayOutput {
+	return o
+}
+
+func (o OdbNetworkCrossRegionS3RestoreSourcesAccessArrayOutput) Index(i pulumi.IntInput) OdbNetworkCrossRegionS3RestoreSourcesAccessOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OdbNetworkCrossRegionS3RestoreSourcesAccess {
+		return vs[0].([]OdbNetworkCrossRegionS3RestoreSourcesAccess)[vs[1].(int)]
+	}).(OdbNetworkCrossRegionS3RestoreSourcesAccessOutput)
+}
+
 // The managed services configuration for the ODB network.
 type OdbNetworkManagedServices struct {
+	// The access configuration for the cross-Region Amazon S3 database restore source.
+	CrossRegionS3RestoreSourcesAccess []OdbNetworkCrossRegionS3RestoreSourcesAccess `pulumi:"crossRegionS3RestoreSourcesAccess"`
+	// The AWS Key Management Service (KMS) access configuration.
+	KmsAccess *OdbNetworkManagedServicesKmsAccessProperties `pulumi:"kmsAccess"`
 	// The managed Amazon S3 backup access configuration.
 	ManagedS3BackupAccess *OdbNetworkManagedServicesManagedS3BackupAccessProperties `pulumi:"managedS3BackupAccess"`
 	// The IPv4 CIDR blocks for the managed services.
@@ -1199,6 +1499,8 @@ type OdbNetworkManagedServices struct {
 	ServiceNetworkArn *string `pulumi:"serviceNetworkArn"`
 	// The service network endpoint configuration.
 	ServiceNetworkEndpoint *OdbNetworkManagedServicesServiceNetworkEndpointProperties `pulumi:"serviceNetworkEndpoint"`
+	// The AWS Security Token Service (STS) access configuration.
+	StsAccess *OdbNetworkManagedServicesStsAccessProperties `pulumi:"stsAccess"`
 	// The Zero-ETL access configuration.
 	ZeroEtlAccess *OdbNetworkManagedServicesZeroEtlAccessProperties `pulumi:"zeroEtlAccess"`
 }
@@ -1216,6 +1518,18 @@ func (o OdbNetworkManagedServicesOutput) ToOdbNetworkManagedServicesOutput() Odb
 
 func (o OdbNetworkManagedServicesOutput) ToOdbNetworkManagedServicesOutputWithContext(ctx context.Context) OdbNetworkManagedServicesOutput {
 	return o
+}
+
+// The access configuration for the cross-Region Amazon S3 database restore source.
+func (o OdbNetworkManagedServicesOutput) CrossRegionS3RestoreSourcesAccess() OdbNetworkCrossRegionS3RestoreSourcesAccessArrayOutput {
+	return o.ApplyT(func(v OdbNetworkManagedServices) []OdbNetworkCrossRegionS3RestoreSourcesAccess {
+		return v.CrossRegionS3RestoreSourcesAccess
+	}).(OdbNetworkCrossRegionS3RestoreSourcesAccessArrayOutput)
+}
+
+// The AWS Key Management Service (KMS) access configuration.
+func (o OdbNetworkManagedServicesOutput) KmsAccess() OdbNetworkManagedServicesKmsAccessPropertiesPtrOutput {
+	return o.ApplyT(func(v OdbNetworkManagedServices) *OdbNetworkManagedServicesKmsAccessProperties { return v.KmsAccess }).(OdbNetworkManagedServicesKmsAccessPropertiesPtrOutput)
 }
 
 // The managed Amazon S3 backup access configuration.
@@ -1252,6 +1566,11 @@ func (o OdbNetworkManagedServicesOutput) ServiceNetworkEndpoint() OdbNetworkMana
 	}).(OdbNetworkManagedServicesServiceNetworkEndpointPropertiesPtrOutput)
 }
 
+// The AWS Security Token Service (STS) access configuration.
+func (o OdbNetworkManagedServicesOutput) StsAccess() OdbNetworkManagedServicesStsAccessPropertiesPtrOutput {
+	return o.ApplyT(func(v OdbNetworkManagedServices) *OdbNetworkManagedServicesStsAccessProperties { return v.StsAccess }).(OdbNetworkManagedServicesStsAccessPropertiesPtrOutput)
+}
+
 // The Zero-ETL access configuration.
 func (o OdbNetworkManagedServicesOutput) ZeroEtlAccess() OdbNetworkManagedServicesZeroEtlAccessPropertiesPtrOutput {
 	return o.ApplyT(func(v OdbNetworkManagedServices) *OdbNetworkManagedServicesZeroEtlAccessProperties {
@@ -1281,6 +1600,26 @@ func (o OdbNetworkManagedServicesPtrOutput) Elem() OdbNetworkManagedServicesOutp
 		var ret OdbNetworkManagedServices
 		return ret
 	}).(OdbNetworkManagedServicesOutput)
+}
+
+// The access configuration for the cross-Region Amazon S3 database restore source.
+func (o OdbNetworkManagedServicesPtrOutput) CrossRegionS3RestoreSourcesAccess() OdbNetworkCrossRegionS3RestoreSourcesAccessArrayOutput {
+	return o.ApplyT(func(v *OdbNetworkManagedServices) []OdbNetworkCrossRegionS3RestoreSourcesAccess {
+		if v == nil {
+			return nil
+		}
+		return v.CrossRegionS3RestoreSourcesAccess
+	}).(OdbNetworkCrossRegionS3RestoreSourcesAccessArrayOutput)
+}
+
+// The AWS Key Management Service (KMS) access configuration.
+func (o OdbNetworkManagedServicesPtrOutput) KmsAccess() OdbNetworkManagedServicesKmsAccessPropertiesPtrOutput {
+	return o.ApplyT(func(v *OdbNetworkManagedServices) *OdbNetworkManagedServicesKmsAccessProperties {
+		if v == nil {
+			return nil
+		}
+		return v.KmsAccess
+	}).(OdbNetworkManagedServicesKmsAccessPropertiesPtrOutput)
 }
 
 // The managed Amazon S3 backup access configuration.
@@ -1343,6 +1682,16 @@ func (o OdbNetworkManagedServicesPtrOutput) ServiceNetworkEndpoint() OdbNetworkM
 	}).(OdbNetworkManagedServicesServiceNetworkEndpointPropertiesPtrOutput)
 }
 
+// The AWS Security Token Service (STS) access configuration.
+func (o OdbNetworkManagedServicesPtrOutput) StsAccess() OdbNetworkManagedServicesStsAccessPropertiesPtrOutput {
+	return o.ApplyT(func(v *OdbNetworkManagedServices) *OdbNetworkManagedServicesStsAccessProperties {
+		if v == nil {
+			return nil
+		}
+		return v.StsAccess
+	}).(OdbNetworkManagedServicesStsAccessPropertiesPtrOutput)
+}
+
 // The Zero-ETL access configuration.
 func (o OdbNetworkManagedServicesPtrOutput) ZeroEtlAccess() OdbNetworkManagedServicesZeroEtlAccessPropertiesPtrOutput {
 	return o.ApplyT(func(v *OdbNetworkManagedServices) *OdbNetworkManagedServicesZeroEtlAccessProperties {
@@ -1351,6 +1700,117 @@ func (o OdbNetworkManagedServicesPtrOutput) ZeroEtlAccess() OdbNetworkManagedSer
 		}
 		return v.ZeroEtlAccess
 	}).(OdbNetworkManagedServicesZeroEtlAccessPropertiesPtrOutput)
+}
+
+// The AWS Key Management Service (KMS) access configuration.
+type OdbNetworkManagedServicesKmsAccessProperties struct {
+	// The domain name for the AWS KMS access.
+	DomainName *string `pulumi:"domainName"`
+	// The IPv4 addresses for the AWS KMS access.
+	Ipv4Addresses []string `pulumi:"ipv4Addresses"`
+	// The endpoint policy for the AWS KMS access.
+	KmsPolicyDocument *string `pulumi:"kmsPolicyDocument"`
+	// The status of the AWS KMS access.
+	Status *OdbNetworkManagedResourceStatus `pulumi:"status"`
+}
+
+// The AWS Key Management Service (KMS) access configuration.
+type OdbNetworkManagedServicesKmsAccessPropertiesOutput struct{ *pulumi.OutputState }
+
+func (OdbNetworkManagedServicesKmsAccessPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OdbNetworkManagedServicesKmsAccessProperties)(nil)).Elem()
+}
+
+func (o OdbNetworkManagedServicesKmsAccessPropertiesOutput) ToOdbNetworkManagedServicesKmsAccessPropertiesOutput() OdbNetworkManagedServicesKmsAccessPropertiesOutput {
+	return o
+}
+
+func (o OdbNetworkManagedServicesKmsAccessPropertiesOutput) ToOdbNetworkManagedServicesKmsAccessPropertiesOutputWithContext(ctx context.Context) OdbNetworkManagedServicesKmsAccessPropertiesOutput {
+	return o
+}
+
+// The domain name for the AWS KMS access.
+func (o OdbNetworkManagedServicesKmsAccessPropertiesOutput) DomainName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OdbNetworkManagedServicesKmsAccessProperties) *string { return v.DomainName }).(pulumi.StringPtrOutput)
+}
+
+// The IPv4 addresses for the AWS KMS access.
+func (o OdbNetworkManagedServicesKmsAccessPropertiesOutput) Ipv4Addresses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v OdbNetworkManagedServicesKmsAccessProperties) []string { return v.Ipv4Addresses }).(pulumi.StringArrayOutput)
+}
+
+// The endpoint policy for the AWS KMS access.
+func (o OdbNetworkManagedServicesKmsAccessPropertiesOutput) KmsPolicyDocument() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OdbNetworkManagedServicesKmsAccessProperties) *string { return v.KmsPolicyDocument }).(pulumi.StringPtrOutput)
+}
+
+// The status of the AWS KMS access.
+func (o OdbNetworkManagedServicesKmsAccessPropertiesOutput) Status() OdbNetworkManagedResourceStatusPtrOutput {
+	return o.ApplyT(func(v OdbNetworkManagedServicesKmsAccessProperties) *OdbNetworkManagedResourceStatus { return v.Status }).(OdbNetworkManagedResourceStatusPtrOutput)
+}
+
+type OdbNetworkManagedServicesKmsAccessPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (OdbNetworkManagedServicesKmsAccessPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OdbNetworkManagedServicesKmsAccessProperties)(nil)).Elem()
+}
+
+func (o OdbNetworkManagedServicesKmsAccessPropertiesPtrOutput) ToOdbNetworkManagedServicesKmsAccessPropertiesPtrOutput() OdbNetworkManagedServicesKmsAccessPropertiesPtrOutput {
+	return o
+}
+
+func (o OdbNetworkManagedServicesKmsAccessPropertiesPtrOutput) ToOdbNetworkManagedServicesKmsAccessPropertiesPtrOutputWithContext(ctx context.Context) OdbNetworkManagedServicesKmsAccessPropertiesPtrOutput {
+	return o
+}
+
+func (o OdbNetworkManagedServicesKmsAccessPropertiesPtrOutput) Elem() OdbNetworkManagedServicesKmsAccessPropertiesOutput {
+	return o.ApplyT(func(v *OdbNetworkManagedServicesKmsAccessProperties) OdbNetworkManagedServicesKmsAccessProperties {
+		if v != nil {
+			return *v
+		}
+		var ret OdbNetworkManagedServicesKmsAccessProperties
+		return ret
+	}).(OdbNetworkManagedServicesKmsAccessPropertiesOutput)
+}
+
+// The domain name for the AWS KMS access.
+func (o OdbNetworkManagedServicesKmsAccessPropertiesPtrOutput) DomainName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OdbNetworkManagedServicesKmsAccessProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DomainName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The IPv4 addresses for the AWS KMS access.
+func (o OdbNetworkManagedServicesKmsAccessPropertiesPtrOutput) Ipv4Addresses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *OdbNetworkManagedServicesKmsAccessProperties) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Ipv4Addresses
+	}).(pulumi.StringArrayOutput)
+}
+
+// The endpoint policy for the AWS KMS access.
+func (o OdbNetworkManagedServicesKmsAccessPropertiesPtrOutput) KmsPolicyDocument() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OdbNetworkManagedServicesKmsAccessProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KmsPolicyDocument
+	}).(pulumi.StringPtrOutput)
+}
+
+// The status of the AWS KMS access.
+func (o OdbNetworkManagedServicesKmsAccessPropertiesPtrOutput) Status() OdbNetworkManagedResourceStatusPtrOutput {
+	return o.ApplyT(func(v *OdbNetworkManagedServicesKmsAccessProperties) *OdbNetworkManagedResourceStatus {
+		if v == nil {
+			return nil
+		}
+		return v.Status
+	}).(OdbNetworkManagedResourceStatusPtrOutput)
 }
 
 // The managed Amazon S3 backup access configuration.
@@ -1622,6 +2082,117 @@ func (o OdbNetworkManagedServicesServiceNetworkEndpointPropertiesPtrOutput) VpcE
 	}).(OdbNetworkManagedServicesServiceNetworkEndpointPropertiesVpcEndpointTypePtrOutput)
 }
 
+// The AWS Security Token Service (STS) access configuration.
+type OdbNetworkManagedServicesStsAccessProperties struct {
+	// The domain name for the AWS STS access.
+	DomainName *string `pulumi:"domainName"`
+	// The IPv4 addresses for the AWS STS access.
+	Ipv4Addresses []string `pulumi:"ipv4Addresses"`
+	// The status of the AWS STS access.
+	Status *OdbNetworkManagedResourceStatus `pulumi:"status"`
+	// The endpoint policy for the AWS STS access.
+	StsPolicyDocument *string `pulumi:"stsPolicyDocument"`
+}
+
+// The AWS Security Token Service (STS) access configuration.
+type OdbNetworkManagedServicesStsAccessPropertiesOutput struct{ *pulumi.OutputState }
+
+func (OdbNetworkManagedServicesStsAccessPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OdbNetworkManagedServicesStsAccessProperties)(nil)).Elem()
+}
+
+func (o OdbNetworkManagedServicesStsAccessPropertiesOutput) ToOdbNetworkManagedServicesStsAccessPropertiesOutput() OdbNetworkManagedServicesStsAccessPropertiesOutput {
+	return o
+}
+
+func (o OdbNetworkManagedServicesStsAccessPropertiesOutput) ToOdbNetworkManagedServicesStsAccessPropertiesOutputWithContext(ctx context.Context) OdbNetworkManagedServicesStsAccessPropertiesOutput {
+	return o
+}
+
+// The domain name for the AWS STS access.
+func (o OdbNetworkManagedServicesStsAccessPropertiesOutput) DomainName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OdbNetworkManagedServicesStsAccessProperties) *string { return v.DomainName }).(pulumi.StringPtrOutput)
+}
+
+// The IPv4 addresses for the AWS STS access.
+func (o OdbNetworkManagedServicesStsAccessPropertiesOutput) Ipv4Addresses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v OdbNetworkManagedServicesStsAccessProperties) []string { return v.Ipv4Addresses }).(pulumi.StringArrayOutput)
+}
+
+// The status of the AWS STS access.
+func (o OdbNetworkManagedServicesStsAccessPropertiesOutput) Status() OdbNetworkManagedResourceStatusPtrOutput {
+	return o.ApplyT(func(v OdbNetworkManagedServicesStsAccessProperties) *OdbNetworkManagedResourceStatus { return v.Status }).(OdbNetworkManagedResourceStatusPtrOutput)
+}
+
+// The endpoint policy for the AWS STS access.
+func (o OdbNetworkManagedServicesStsAccessPropertiesOutput) StsPolicyDocument() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OdbNetworkManagedServicesStsAccessProperties) *string { return v.StsPolicyDocument }).(pulumi.StringPtrOutput)
+}
+
+type OdbNetworkManagedServicesStsAccessPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (OdbNetworkManagedServicesStsAccessPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OdbNetworkManagedServicesStsAccessProperties)(nil)).Elem()
+}
+
+func (o OdbNetworkManagedServicesStsAccessPropertiesPtrOutput) ToOdbNetworkManagedServicesStsAccessPropertiesPtrOutput() OdbNetworkManagedServicesStsAccessPropertiesPtrOutput {
+	return o
+}
+
+func (o OdbNetworkManagedServicesStsAccessPropertiesPtrOutput) ToOdbNetworkManagedServicesStsAccessPropertiesPtrOutputWithContext(ctx context.Context) OdbNetworkManagedServicesStsAccessPropertiesPtrOutput {
+	return o
+}
+
+func (o OdbNetworkManagedServicesStsAccessPropertiesPtrOutput) Elem() OdbNetworkManagedServicesStsAccessPropertiesOutput {
+	return o.ApplyT(func(v *OdbNetworkManagedServicesStsAccessProperties) OdbNetworkManagedServicesStsAccessProperties {
+		if v != nil {
+			return *v
+		}
+		var ret OdbNetworkManagedServicesStsAccessProperties
+		return ret
+	}).(OdbNetworkManagedServicesStsAccessPropertiesOutput)
+}
+
+// The domain name for the AWS STS access.
+func (o OdbNetworkManagedServicesStsAccessPropertiesPtrOutput) DomainName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OdbNetworkManagedServicesStsAccessProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DomainName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The IPv4 addresses for the AWS STS access.
+func (o OdbNetworkManagedServicesStsAccessPropertiesPtrOutput) Ipv4Addresses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *OdbNetworkManagedServicesStsAccessProperties) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Ipv4Addresses
+	}).(pulumi.StringArrayOutput)
+}
+
+// The status of the AWS STS access.
+func (o OdbNetworkManagedServicesStsAccessPropertiesPtrOutput) Status() OdbNetworkManagedResourceStatusPtrOutput {
+	return o.ApplyT(func(v *OdbNetworkManagedServicesStsAccessProperties) *OdbNetworkManagedResourceStatus {
+		if v == nil {
+			return nil
+		}
+		return v.Status
+	}).(OdbNetworkManagedResourceStatusPtrOutput)
+}
+
+// The endpoint policy for the AWS STS access.
+func (o OdbNetworkManagedServicesStsAccessPropertiesPtrOutput) StsPolicyDocument() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OdbNetworkManagedServicesStsAccessProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.StsPolicyDocument
+	}).(pulumi.StringPtrOutput)
+}
+
 // The Zero-ETL access configuration.
 type OdbNetworkManagedServicesZeroEtlAccessProperties struct {
 	// The CIDR block for the Zero-ETL access.
@@ -1718,6 +2289,8 @@ type OdbPeeringConnectionTag struct {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*CloudAutonomousVmClusterIamRoleInput)(nil)).Elem(), CloudAutonomousVmClusterIamRoleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CloudAutonomousVmClusterIamRoleArrayInput)(nil)).Elem(), CloudAutonomousVmClusterIamRoleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CloudAutonomousVmClusterMaintenanceWindowInput)(nil)).Elem(), CloudAutonomousVmClusterMaintenanceWindowArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CloudAutonomousVmClusterMaintenanceWindowPtrInput)(nil)).Elem(), CloudAutonomousVmClusterMaintenanceWindowArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CloudExadataInfrastructureCustomerContactInput)(nil)).Elem(), CloudExadataInfrastructureCustomerContactArgs{})
@@ -1728,8 +2301,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CloudVmClusterDataCollectionOptionsPtrInput)(nil)).Elem(), CloudVmClusterDataCollectionOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CloudVmClusterDbNodeInput)(nil)).Elem(), CloudVmClusterDbNodeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CloudVmClusterDbNodeArrayInput)(nil)).Elem(), CloudVmClusterDbNodeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CloudVmClusterIamRoleInput)(nil)).Elem(), CloudVmClusterIamRoleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CloudVmClusterIamRoleArrayInput)(nil)).Elem(), CloudVmClusterIamRoleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CloudVmClusterTagInput)(nil)).Elem(), CloudVmClusterTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CloudVmClusterTagArrayInput)(nil)).Elem(), CloudVmClusterTagArray{})
+	pulumi.RegisterOutputType(CloudAutonomousVmClusterIamRoleOutput{})
+	pulumi.RegisterOutputType(CloudAutonomousVmClusterIamRoleArrayOutput{})
 	pulumi.RegisterOutputType(CloudAutonomousVmClusterMaintenanceWindowOutput{})
 	pulumi.RegisterOutputType(CloudAutonomousVmClusterMaintenanceWindowPtrOutput{})
 	pulumi.RegisterOutputType(CloudExadataInfrastructureCustomerContactOutput{})
@@ -1740,16 +2317,24 @@ func init() {
 	pulumi.RegisterOutputType(CloudVmClusterDataCollectionOptionsPtrOutput{})
 	pulumi.RegisterOutputType(CloudVmClusterDbNodeOutput{})
 	pulumi.RegisterOutputType(CloudVmClusterDbNodeArrayOutput{})
+	pulumi.RegisterOutputType(CloudVmClusterIamRoleOutput{})
+	pulumi.RegisterOutputType(CloudVmClusterIamRoleArrayOutput{})
 	pulumi.RegisterOutputType(CloudVmClusterTagOutput{})
 	pulumi.RegisterOutputType(CloudVmClusterTagArrayOutput{})
+	pulumi.RegisterOutputType(OdbNetworkCrossRegionS3RestoreSourcesAccessOutput{})
+	pulumi.RegisterOutputType(OdbNetworkCrossRegionS3RestoreSourcesAccessArrayOutput{})
 	pulumi.RegisterOutputType(OdbNetworkManagedServicesOutput{})
 	pulumi.RegisterOutputType(OdbNetworkManagedServicesPtrOutput{})
+	pulumi.RegisterOutputType(OdbNetworkManagedServicesKmsAccessPropertiesOutput{})
+	pulumi.RegisterOutputType(OdbNetworkManagedServicesKmsAccessPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(OdbNetworkManagedServicesManagedS3BackupAccessPropertiesOutput{})
 	pulumi.RegisterOutputType(OdbNetworkManagedServicesManagedS3BackupAccessPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(OdbNetworkManagedServicesS3AccessPropertiesOutput{})
 	pulumi.RegisterOutputType(OdbNetworkManagedServicesS3AccessPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(OdbNetworkManagedServicesServiceNetworkEndpointPropertiesOutput{})
 	pulumi.RegisterOutputType(OdbNetworkManagedServicesServiceNetworkEndpointPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(OdbNetworkManagedServicesStsAccessPropertiesOutput{})
+	pulumi.RegisterOutputType(OdbNetworkManagedServicesStsAccessPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(OdbNetworkManagedServicesZeroEtlAccessPropertiesOutput{})
 	pulumi.RegisterOutputType(OdbNetworkManagedServicesZeroEtlAccessPropertiesPtrOutput{})
 }

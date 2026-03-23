@@ -30,6 +30,7 @@ class DomainArgs:
                  aiml_options: Optional[pulumi.Input['DomainAimlOptionsArgs']] = None,
                  cluster_config: Optional[pulumi.Input['DomainClusterConfigArgs']] = None,
                  cognito_options: Optional[pulumi.Input['DomainCognitoOptionsArgs']] = None,
+                 deployment_strategy_options: Optional[pulumi.Input['DomainDeploymentStrategyOptionsArgs']] = None,
                  domain_endpoint_options: Optional[pulumi.Input['DomainEndpointOptionsArgs']] = None,
                  domain_name: Optional[pulumi.Input[_builtins.str]] = None,
                  ebs_options: Optional[pulumi.Input['DomainEbsOptionsArgs']] = None,
@@ -95,6 +96,8 @@ class DomainArgs:
             pulumi.set(__self__, "cluster_config", cluster_config)
         if cognito_options is not None:
             pulumi.set(__self__, "cognito_options", cognito_options)
+        if deployment_strategy_options is not None:
+            pulumi.set(__self__, "deployment_strategy_options", deployment_strategy_options)
         if domain_endpoint_options is not None:
             pulumi.set(__self__, "domain_endpoint_options", domain_endpoint_options)
         if domain_name is not None:
@@ -201,6 +204,15 @@ class DomainArgs:
     @cognito_options.setter
     def cognito_options(self, value: Optional[pulumi.Input['DomainCognitoOptionsArgs']]):
         pulumi.set(self, "cognito_options", value)
+
+    @_builtins.property
+    @pulumi.getter(name="deploymentStrategyOptions")
+    def deployment_strategy_options(self) -> Optional[pulumi.Input['DomainDeploymentStrategyOptionsArgs']]:
+        return pulumi.get(self, "deployment_strategy_options")
+
+    @deployment_strategy_options.setter
+    def deployment_strategy_options(self, value: Optional[pulumi.Input['DomainDeploymentStrategyOptionsArgs']]):
+        pulumi.set(self, "deployment_strategy_options", value)
 
     @_builtins.property
     @pulumi.getter(name="domainEndpointOptions")
@@ -402,6 +414,7 @@ class Domain(pulumi.CustomResource):
                  aiml_options: Optional[pulumi.Input[Union['DomainAimlOptionsArgs', 'DomainAimlOptionsArgsDict']]] = None,
                  cluster_config: Optional[pulumi.Input[Union['DomainClusterConfigArgs', 'DomainClusterConfigArgsDict']]] = None,
                  cognito_options: Optional[pulumi.Input[Union['DomainCognitoOptionsArgs', 'DomainCognitoOptionsArgsDict']]] = None,
+                 deployment_strategy_options: Optional[pulumi.Input[Union['DomainDeploymentStrategyOptionsArgs', 'DomainDeploymentStrategyOptionsArgsDict']]] = None,
                  domain_endpoint_options: Optional[pulumi.Input[Union['DomainEndpointOptionsArgs', 'DomainEndpointOptionsArgsDict']]] = None,
                  domain_name: Optional[pulumi.Input[_builtins.str]] = None,
                  ebs_options: Optional[pulumi.Input[Union['DomainEbsOptionsArgs', 'DomainEbsOptionsArgsDict']]] = None,
@@ -490,6 +503,7 @@ class Domain(pulumi.CustomResource):
                  aiml_options: Optional[pulumi.Input[Union['DomainAimlOptionsArgs', 'DomainAimlOptionsArgsDict']]] = None,
                  cluster_config: Optional[pulumi.Input[Union['DomainClusterConfigArgs', 'DomainClusterConfigArgsDict']]] = None,
                  cognito_options: Optional[pulumi.Input[Union['DomainCognitoOptionsArgs', 'DomainCognitoOptionsArgsDict']]] = None,
+                 deployment_strategy_options: Optional[pulumi.Input[Union['DomainDeploymentStrategyOptionsArgs', 'DomainDeploymentStrategyOptionsArgsDict']]] = None,
                  domain_endpoint_options: Optional[pulumi.Input[Union['DomainEndpointOptionsArgs', 'DomainEndpointOptionsArgsDict']]] = None,
                  domain_name: Optional[pulumi.Input[_builtins.str]] = None,
                  ebs_options: Optional[pulumi.Input[Union['DomainEbsOptionsArgs', 'DomainEbsOptionsArgsDict']]] = None,
@@ -520,6 +534,7 @@ class Domain(pulumi.CustomResource):
             __props__.__dict__["aiml_options"] = aiml_options
             __props__.__dict__["cluster_config"] = cluster_config
             __props__.__dict__["cognito_options"] = cognito_options
+            __props__.__dict__["deployment_strategy_options"] = deployment_strategy_options
             __props__.__dict__["domain_endpoint_options"] = domain_endpoint_options
             __props__.__dict__["domain_name"] = domain_name
             __props__.__dict__["ebs_options"] = ebs_options
@@ -574,6 +589,7 @@ class Domain(pulumi.CustomResource):
         __props__.__dict__["aws_id"] = None
         __props__.__dict__["cluster_config"] = None
         __props__.__dict__["cognito_options"] = None
+        __props__.__dict__["deployment_strategy_options"] = None
         __props__.__dict__["domain_arn"] = None
         __props__.__dict__["domain_endpoint"] = None
         __props__.__dict__["domain_endpoint_options"] = None
@@ -663,6 +679,11 @@ class Domain(pulumi.CustomResource):
         Configures OpenSearch Service to use Amazon Cognito authentication for OpenSearch Dashboards.
         """
         return pulumi.get(self, "cognito_options")
+
+    @_builtins.property
+    @pulumi.getter(name="deploymentStrategyOptions")
+    def deployment_strategy_options(self) -> pulumi.Output[Optional['outputs.DomainDeploymentStrategyOptions']]:
+        return pulumi.get(self, "deployment_strategy_options")
 
     @_builtins.property
     @pulumi.getter(name="domainArn")

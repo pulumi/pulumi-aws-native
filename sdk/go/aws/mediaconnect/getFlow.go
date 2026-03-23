@@ -7,11 +7,12 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource schema for AWS::MediaConnect::Flow
+// Resource Type definition for AWS::MediaConnect::Flow
 func LookupFlow(ctx *pulumi.Context, args *LookupFlowArgs, opts ...pulumi.InvokeOption) (*LookupFlowResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupFlowResult
@@ -30,19 +31,21 @@ type LookupFlowArgs struct {
 type LookupFlowResult struct {
 	// The IP address from which video will be sent to output destinations.
 	EgressIp *string `pulumi:"egressIp"`
+	// The encoding configuration to apply to the NDI source content when transcoding it to a transport stream (TS) for downstream distribution. You can choose between several predefined encoding profiles based on common use cases.
+	EncodingConfig *FlowEncodingConfig `pulumi:"encodingConfig"`
 	// The Amazon Resource Name (ARN), a unique identifier for any AWS resource, of the flow.
 	FlowArn *string `pulumi:"flowArn"`
 	// The Availability Zone that you want to create the flow in. These options are limited to the Availability Zones within the current AWS.(ReadOnly)
 	FlowAvailabilityZone *string `pulumi:"flowAvailabilityZone"`
 	// A prefix for the names of the NDI sources that the flow creates.(ReadOnly)
 	FlowNdiMachineName *string `pulumi:"flowNdiMachineName"`
-	// Determines the processing capacity and feature set of the flow. Set this optional parameter to LARGE if you want to enable NDI outputs on the flow.
+	// Determines the processing capacity and feature set of the flow. Set this optional parameter to LARGE if you want to enable NDI sources or outputs on the flow.
 	FlowSize *FlowSize `pulumi:"flowSize"`
 	// The maintenance settings you want to use for the flow.
 	Maintenance *FlowMaintenance `pulumi:"maintenance"`
 	// The media streams associated with the flow. You can associate any of these media streams with sources and outputs on the flow.
 	MediaStreams []FlowMediaStream `pulumi:"mediaStreams"`
-	// Specifies the configuration settings for NDI outputs. Required when the flow includes NDI outputs.
+	// Specifies the configuration settings for NDI sources and outputs. Required when the flow includes NDI sources or outputs.
 	NdiConfig *FlowNdiConfig `pulumi:"ndiConfig"`
 	// The source of the flow.
 	Source *FlowSourceType `pulumi:"source"`
@@ -50,6 +53,8 @@ type LookupFlowResult struct {
 	SourceFailoverConfig *FlowFailoverConfig `pulumi:"sourceFailoverConfig"`
 	// The source monitoring config of the flow.
 	SourceMonitoringConfig *FlowSourceMonitoringConfig `pulumi:"sourceMonitoringConfig"`
+	// Key-value pairs that can be used to tag this flow.
+	Tags []aws.Tag `pulumi:"tags"`
 	// The VPC interfaces that you added to this flow.
 	VpcInterfaces []FlowVpcInterfaceType `pulumi:"vpcInterfaces"`
 }
@@ -91,6 +96,11 @@ func (o LookupFlowResultOutput) EgressIp() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupFlowResult) *string { return v.EgressIp }).(pulumi.StringPtrOutput)
 }
 
+// The encoding configuration to apply to the NDI source content when transcoding it to a transport stream (TS) for downstream distribution. You can choose between several predefined encoding profiles based on common use cases.
+func (o LookupFlowResultOutput) EncodingConfig() FlowEncodingConfigPtrOutput {
+	return o.ApplyT(func(v LookupFlowResult) *FlowEncodingConfig { return v.EncodingConfig }).(FlowEncodingConfigPtrOutput)
+}
+
 // The Amazon Resource Name (ARN), a unique identifier for any AWS resource, of the flow.
 func (o LookupFlowResultOutput) FlowArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupFlowResult) *string { return v.FlowArn }).(pulumi.StringPtrOutput)
@@ -106,7 +116,7 @@ func (o LookupFlowResultOutput) FlowNdiMachineName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupFlowResult) *string { return v.FlowNdiMachineName }).(pulumi.StringPtrOutput)
 }
 
-// Determines the processing capacity and feature set of the flow. Set this optional parameter to LARGE if you want to enable NDI outputs on the flow.
+// Determines the processing capacity and feature set of the flow. Set this optional parameter to LARGE if you want to enable NDI sources or outputs on the flow.
 func (o LookupFlowResultOutput) FlowSize() FlowSizePtrOutput {
 	return o.ApplyT(func(v LookupFlowResult) *FlowSize { return v.FlowSize }).(FlowSizePtrOutput)
 }
@@ -121,7 +131,7 @@ func (o LookupFlowResultOutput) MediaStreams() FlowMediaStreamArrayOutput {
 	return o.ApplyT(func(v LookupFlowResult) []FlowMediaStream { return v.MediaStreams }).(FlowMediaStreamArrayOutput)
 }
 
-// Specifies the configuration settings for NDI outputs. Required when the flow includes NDI outputs.
+// Specifies the configuration settings for NDI sources and outputs. Required when the flow includes NDI sources or outputs.
 func (o LookupFlowResultOutput) NdiConfig() FlowNdiConfigPtrOutput {
 	return o.ApplyT(func(v LookupFlowResult) *FlowNdiConfig { return v.NdiConfig }).(FlowNdiConfigPtrOutput)
 }
@@ -139,6 +149,11 @@ func (o LookupFlowResultOutput) SourceFailoverConfig() FlowFailoverConfigPtrOutp
 // The source monitoring config of the flow.
 func (o LookupFlowResultOutput) SourceMonitoringConfig() FlowSourceMonitoringConfigPtrOutput {
 	return o.ApplyT(func(v LookupFlowResult) *FlowSourceMonitoringConfig { return v.SourceMonitoringConfig }).(FlowSourceMonitoringConfigPtrOutput)
+}
+
+// Key-value pairs that can be used to tag this flow.
+func (o LookupFlowResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupFlowResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // The VPC interfaces that you added to this flow.

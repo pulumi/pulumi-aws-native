@@ -1762,6 +1762,172 @@ func (o GatewayInterceptionPointArrayOutput) Index(i pulumi.IntInput) GatewayInt
 	}).(GatewayInterceptionPointOutput)
 }
 
+// The enforcement mode for the policy engine. LOG_ONLY - The policy engine evaluates each action against your policies and adds traces on whether tool calls would be allowed or denied, but does not enforce the decision. Use this mode to test and validate policies before enabling enforcement. ENFORCE - The policy engine evaluates actions against your policies and enforces decisions by allowing or denying agent operations. Test and validate policies in LOG_ONLY mode before enabling enforcement to avoid unintended denials or adversely affecting production traffic.
+type GatewayPolicyEngineMode string
+
+const (
+	GatewayPolicyEngineModeLogOnly = GatewayPolicyEngineMode("LOG_ONLY")
+	GatewayPolicyEngineModeEnforce = GatewayPolicyEngineMode("ENFORCE")
+)
+
+func (GatewayPolicyEngineMode) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayPolicyEngineMode)(nil)).Elem()
+}
+
+func (e GatewayPolicyEngineMode) ToGatewayPolicyEngineModeOutput() GatewayPolicyEngineModeOutput {
+	return pulumi.ToOutput(e).(GatewayPolicyEngineModeOutput)
+}
+
+func (e GatewayPolicyEngineMode) ToGatewayPolicyEngineModeOutputWithContext(ctx context.Context) GatewayPolicyEngineModeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(GatewayPolicyEngineModeOutput)
+}
+
+func (e GatewayPolicyEngineMode) ToGatewayPolicyEngineModePtrOutput() GatewayPolicyEngineModePtrOutput {
+	return e.ToGatewayPolicyEngineModePtrOutputWithContext(context.Background())
+}
+
+func (e GatewayPolicyEngineMode) ToGatewayPolicyEngineModePtrOutputWithContext(ctx context.Context) GatewayPolicyEngineModePtrOutput {
+	return GatewayPolicyEngineMode(e).ToGatewayPolicyEngineModeOutputWithContext(ctx).ToGatewayPolicyEngineModePtrOutputWithContext(ctx)
+}
+
+func (e GatewayPolicyEngineMode) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e GatewayPolicyEngineMode) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e GatewayPolicyEngineMode) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e GatewayPolicyEngineMode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type GatewayPolicyEngineModeOutput struct{ *pulumi.OutputState }
+
+func (GatewayPolicyEngineModeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayPolicyEngineMode)(nil)).Elem()
+}
+
+func (o GatewayPolicyEngineModeOutput) ToGatewayPolicyEngineModeOutput() GatewayPolicyEngineModeOutput {
+	return o
+}
+
+func (o GatewayPolicyEngineModeOutput) ToGatewayPolicyEngineModeOutputWithContext(ctx context.Context) GatewayPolicyEngineModeOutput {
+	return o
+}
+
+func (o GatewayPolicyEngineModeOutput) ToGatewayPolicyEngineModePtrOutput() GatewayPolicyEngineModePtrOutput {
+	return o.ToGatewayPolicyEngineModePtrOutputWithContext(context.Background())
+}
+
+func (o GatewayPolicyEngineModeOutput) ToGatewayPolicyEngineModePtrOutputWithContext(ctx context.Context) GatewayPolicyEngineModePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GatewayPolicyEngineMode) *GatewayPolicyEngineMode {
+		return &v
+	}).(GatewayPolicyEngineModePtrOutput)
+}
+
+func (o GatewayPolicyEngineModeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o GatewayPolicyEngineModeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e GatewayPolicyEngineMode) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o GatewayPolicyEngineModeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o GatewayPolicyEngineModeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e GatewayPolicyEngineMode) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type GatewayPolicyEngineModePtrOutput struct{ *pulumi.OutputState }
+
+func (GatewayPolicyEngineModePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewayPolicyEngineMode)(nil)).Elem()
+}
+
+func (o GatewayPolicyEngineModePtrOutput) ToGatewayPolicyEngineModePtrOutput() GatewayPolicyEngineModePtrOutput {
+	return o
+}
+
+func (o GatewayPolicyEngineModePtrOutput) ToGatewayPolicyEngineModePtrOutputWithContext(ctx context.Context) GatewayPolicyEngineModePtrOutput {
+	return o
+}
+
+func (o GatewayPolicyEngineModePtrOutput) Elem() GatewayPolicyEngineModeOutput {
+	return o.ApplyT(func(v *GatewayPolicyEngineMode) GatewayPolicyEngineMode {
+		if v != nil {
+			return *v
+		}
+		var ret GatewayPolicyEngineMode
+		return ret
+	}).(GatewayPolicyEngineModeOutput)
+}
+
+func (o GatewayPolicyEngineModePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o GatewayPolicyEngineModePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *GatewayPolicyEngineMode) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// GatewayPolicyEngineModeInput is an input type that accepts values of the GatewayPolicyEngineMode enum
+// A concrete instance of `GatewayPolicyEngineModeInput` can be one of the following:
+//
+//	GatewayPolicyEngineModeLogOnly
+//	GatewayPolicyEngineModeEnforce
+type GatewayPolicyEngineModeInput interface {
+	pulumi.Input
+
+	ToGatewayPolicyEngineModeOutput() GatewayPolicyEngineModeOutput
+	ToGatewayPolicyEngineModeOutputWithContext(context.Context) GatewayPolicyEngineModeOutput
+}
+
+var gatewayPolicyEngineModePtrType = reflect.TypeOf((**GatewayPolicyEngineMode)(nil)).Elem()
+
+type GatewayPolicyEngineModePtrInput interface {
+	pulumi.Input
+
+	ToGatewayPolicyEngineModePtrOutput() GatewayPolicyEngineModePtrOutput
+	ToGatewayPolicyEngineModePtrOutputWithContext(context.Context) GatewayPolicyEngineModePtrOutput
+}
+
+type gatewayPolicyEngineModePtr string
+
+func GatewayPolicyEngineModePtr(v string) GatewayPolicyEngineModePtrInput {
+	return (*gatewayPolicyEngineModePtr)(&v)
+}
+
+func (*gatewayPolicyEngineModePtr) ElementType() reflect.Type {
+	return gatewayPolicyEngineModePtrType
+}
+
+func (in *gatewayPolicyEngineModePtr) ToGatewayPolicyEngineModePtrOutput() GatewayPolicyEngineModePtrOutput {
+	return pulumi.ToOutput(in).(GatewayPolicyEngineModePtrOutput)
+}
+
+func (in *gatewayPolicyEngineModePtr) ToGatewayPolicyEngineModePtrOutputWithContext(ctx context.Context) GatewayPolicyEngineModePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(GatewayPolicyEngineModePtrOutput)
+}
+
 type GatewayProtocolType string
 
 const (
@@ -7062,6 +7228,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayInterceptionPointInput)(nil)).Elem(), GatewayInterceptionPoint("REQUEST"))
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayInterceptionPointPtrInput)(nil)).Elem(), GatewayInterceptionPoint("REQUEST"))
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayInterceptionPointArrayInput)(nil)).Elem(), GatewayInterceptionPointArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayPolicyEngineModeInput)(nil)).Elem(), GatewayPolicyEngineMode("LOG_ONLY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayPolicyEngineModePtrInput)(nil)).Elem(), GatewayPolicyEngineMode("LOG_ONLY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayProtocolTypeInput)(nil)).Elem(), GatewayProtocolType("MCP"))
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayProtocolTypePtrInput)(nil)).Elem(), GatewayProtocolType("MCP"))
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewaySearchTypeInput)(nil)).Elem(), GatewaySearchType("SEMANTIC"))
@@ -7140,6 +7308,8 @@ func init() {
 	pulumi.RegisterOutputType(GatewayInterceptionPointOutput{})
 	pulumi.RegisterOutputType(GatewayInterceptionPointPtrOutput{})
 	pulumi.RegisterOutputType(GatewayInterceptionPointArrayOutput{})
+	pulumi.RegisterOutputType(GatewayPolicyEngineModeOutput{})
+	pulumi.RegisterOutputType(GatewayPolicyEngineModePtrOutput{})
 	pulumi.RegisterOutputType(GatewayProtocolTypeOutput{})
 	pulumi.RegisterOutputType(GatewayProtocolTypePtrOutput{})
 	pulumi.RegisterOutputType(GatewaySearchTypeOutput{})

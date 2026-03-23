@@ -48,10 +48,8 @@ __all__ = [
     'PolicyStoreDeletionProtectionArgsDict',
     'PolicyStoreEncryptionSettingsArgs',
     'PolicyStoreEncryptionSettingsArgsDict',
-    'PolicyStoreSchemaDefinition0PropertiesArgs',
-    'PolicyStoreSchemaDefinition0PropertiesArgsDict',
-    'PolicyStoreSchemaDefinition1PropertiesArgs',
-    'PolicyStoreSchemaDefinition1PropertiesArgsDict',
+    'PolicyStoreSchemaDefinitionArgs',
+    'PolicyStoreSchemaDefinitionArgsDict',
     'PolicyStoreValidationSettingsArgs',
     'PolicyStoreValidationSettingsArgsDict',
     'PolicyTemplateLinkedPolicyDefinitionArgs',
@@ -496,42 +494,33 @@ class PolicyStoreEncryptionSettingsArgs:
         pass
 
 
-class PolicyStoreSchemaDefinition0PropertiesArgsDict(TypedDict):
-    cedar_json: pulumi.Input[_builtins.str]
+class PolicyStoreSchemaDefinitionArgsDict(TypedDict):
+    cedar_json: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A JSON string representation of the schema supported by applications that use this policy store. For more information, see [Policy store schema](https://docs.aws.amazon.com/verifiedpermissions/latest/userguide/schema.html) in the AVP User Guide.
+    """
 
 @pulumi.input_type
-class PolicyStoreSchemaDefinition0PropertiesArgs:
+class PolicyStoreSchemaDefinitionArgs:
     def __init__(__self__, *,
-                 cedar_json: pulumi.Input[_builtins.str]):
-        pulumi.set(__self__, "cedar_json", cedar_json)
+                 cedar_json: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] cedar_json: A JSON string representation of the schema supported by applications that use this policy store. For more information, see [Policy store schema](https://docs.aws.amazon.com/verifiedpermissions/latest/userguide/schema.html) in the AVP User Guide.
+        """
+        if cedar_json is not None:
+            pulumi.set(__self__, "cedar_json", cedar_json)
 
     @_builtins.property
     @pulumi.getter(name="cedarJson")
-    def cedar_json(self) -> pulumi.Input[_builtins.str]:
+    def cedar_json(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        A JSON string representation of the schema supported by applications that use this policy store. For more information, see [Policy store schema](https://docs.aws.amazon.com/verifiedpermissions/latest/userguide/schema.html) in the AVP User Guide.
+        """
         return pulumi.get(self, "cedar_json")
 
     @cedar_json.setter
-    def cedar_json(self, value: pulumi.Input[_builtins.str]):
+    def cedar_json(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "cedar_json", value)
-
-
-class PolicyStoreSchemaDefinition1PropertiesArgsDict(TypedDict):
-    cedar_format: pulumi.Input[_builtins.str]
-
-@pulumi.input_type
-class PolicyStoreSchemaDefinition1PropertiesArgs:
-    def __init__(__self__, *,
-                 cedar_format: pulumi.Input[_builtins.str]):
-        pulumi.set(__self__, "cedar_format", cedar_format)
-
-    @_builtins.property
-    @pulumi.getter(name="cedarFormat")
-    def cedar_format(self) -> pulumi.Input[_builtins.str]:
-        return pulumi.get(self, "cedar_format")
-
-    @cedar_format.setter
-    def cedar_format(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "cedar_format", value)
 
 
 class PolicyStoreValidationSettingsArgsDict(TypedDict):

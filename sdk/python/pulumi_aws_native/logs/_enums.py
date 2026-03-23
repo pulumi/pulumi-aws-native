@@ -135,6 +135,7 @@ class QueryDefinitionQueryLanguage(_builtins.str, Enum):
 
 @pulumi.type_token("aws-native:logs:ScheduledQueryLastExecutionStatus")
 class ScheduledQueryLastExecutionStatus(_builtins.str, Enum):
+    PENDING = "Pending"
     INVALID_QUERY = "InvalidQuery"
     COMPLETE = "Complete"
     FAILED = "Failed"

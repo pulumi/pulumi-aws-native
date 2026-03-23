@@ -35,6 +35,7 @@ class CloudVmClusterArgs:
                  display_name: Optional[pulumi.Input[_builtins.str]] = None,
                  gi_version: Optional[pulumi.Input[_builtins.str]] = None,
                  hostname: Optional[pulumi.Input[_builtins.str]] = None,
+                 iam_roles: Optional[pulumi.Input[Sequence[pulumi.Input['CloudVmClusterIamRoleArgs']]]] = None,
                  is_local_backup_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  is_sparse_diskgroup_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  license_model: Optional[pulumi.Input['CloudVmClusterLicenseModel']] = None,
@@ -59,6 +60,7 @@ class CloudVmClusterArgs:
         :param pulumi.Input[_builtins.str] display_name: The user-friendly name for the VM cluster.
         :param pulumi.Input[_builtins.str] gi_version: The software version of the Oracle Grid Infrastructure (GI) for the VM cluster.
         :param pulumi.Input[_builtins.str] hostname: The host name for the VM cluster.
+        :param pulumi.Input[Sequence[pulumi.Input['CloudVmClusterIamRoleArgs']]] iam_roles: The AWS Identity and Access Management (IAM) service roles associated with the VM cluster.
         :param pulumi.Input[_builtins.bool] is_local_backup_enabled: Indicates whether database backups to local Exadata storage is enabled for the VM cluster.
         :param pulumi.Input[_builtins.bool] is_sparse_diskgroup_enabled: Indicates whether the VM cluster is configured with a sparse disk group.
         :param pulumi.Input['CloudVmClusterLicenseModel'] license_model: The Oracle license model applied to the VM cluster.
@@ -92,6 +94,8 @@ class CloudVmClusterArgs:
             pulumi.set(__self__, "gi_version", gi_version)
         if hostname is not None:
             pulumi.set(__self__, "hostname", hostname)
+        if iam_roles is not None:
+            pulumi.set(__self__, "iam_roles", iam_roles)
         if is_local_backup_enabled is not None:
             pulumi.set(__self__, "is_local_backup_enabled", is_local_backup_enabled)
         if is_sparse_diskgroup_enabled is not None:
@@ -246,6 +250,18 @@ class CloudVmClusterArgs:
         pulumi.set(self, "hostname", value)
 
     @_builtins.property
+    @pulumi.getter(name="iamRoles")
+    def iam_roles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CloudVmClusterIamRoleArgs']]]]:
+        """
+        The AWS Identity and Access Management (IAM) service roles associated with the VM cluster.
+        """
+        return pulumi.get(self, "iam_roles")
+
+    @iam_roles.setter
+    def iam_roles(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CloudVmClusterIamRoleArgs']]]]):
+        pulumi.set(self, "iam_roles", value)
+
+    @_builtins.property
     @pulumi.getter(name="isLocalBackupEnabled")
     def is_local_backup_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
@@ -383,6 +399,7 @@ class CloudVmCluster(pulumi.CustomResource):
                  display_name: Optional[pulumi.Input[_builtins.str]] = None,
                  gi_version: Optional[pulumi.Input[_builtins.str]] = None,
                  hostname: Optional[pulumi.Input[_builtins.str]] = None,
+                 iam_roles: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CloudVmClusterIamRoleArgs', 'CloudVmClusterIamRoleArgsDict']]]]] = None,
                  is_local_backup_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  is_sparse_diskgroup_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  license_model: Optional[pulumi.Input['CloudVmClusterLicenseModel']] = None,
@@ -411,6 +428,7 @@ class CloudVmCluster(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] display_name: The user-friendly name for the VM cluster.
         :param pulumi.Input[_builtins.str] gi_version: The software version of the Oracle Grid Infrastructure (GI) for the VM cluster.
         :param pulumi.Input[_builtins.str] hostname: The host name for the VM cluster.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CloudVmClusterIamRoleArgs', 'CloudVmClusterIamRoleArgsDict']]]] iam_roles: The AWS Identity and Access Management (IAM) service roles associated with the VM cluster.
         :param pulumi.Input[_builtins.bool] is_local_backup_enabled: Indicates whether database backups to local Exadata storage is enabled for the VM cluster.
         :param pulumi.Input[_builtins.bool] is_sparse_diskgroup_enabled: Indicates whether the VM cluster is configured with a sparse disk group.
         :param pulumi.Input['CloudVmClusterLicenseModel'] license_model: The Oracle license model applied to the VM cluster.
@@ -458,6 +476,7 @@ class CloudVmCluster(pulumi.CustomResource):
                  display_name: Optional[pulumi.Input[_builtins.str]] = None,
                  gi_version: Optional[pulumi.Input[_builtins.str]] = None,
                  hostname: Optional[pulumi.Input[_builtins.str]] = None,
+                 iam_roles: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CloudVmClusterIamRoleArgs', 'CloudVmClusterIamRoleArgsDict']]]]] = None,
                  is_local_backup_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  is_sparse_diskgroup_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  license_model: Optional[pulumi.Input['CloudVmClusterLicenseModel']] = None,
@@ -488,6 +507,7 @@ class CloudVmCluster(pulumi.CustomResource):
             __props__.__dict__["display_name"] = display_name
             __props__.__dict__["gi_version"] = gi_version
             __props__.__dict__["hostname"] = hostname
+            __props__.__dict__["iam_roles"] = iam_roles
             __props__.__dict__["is_local_backup_enabled"] = is_local_backup_enabled
             __props__.__dict__["is_sparse_diskgroup_enabled"] = is_sparse_diskgroup_enabled
             __props__.__dict__["license_model"] = license_model
@@ -553,6 +573,7 @@ class CloudVmCluster(pulumi.CustomResource):
         __props__.__dict__["domain"] = None
         __props__.__dict__["gi_version"] = None
         __props__.__dict__["hostname"] = None
+        __props__.__dict__["iam_roles"] = None
         __props__.__dict__["is_local_backup_enabled"] = None
         __props__.__dict__["is_sparse_diskgroup_enabled"] = None
         __props__.__dict__["license_model"] = None
@@ -702,6 +723,14 @@ class CloudVmCluster(pulumi.CustomResource):
         The host name for the VM cluster.
         """
         return pulumi.get(self, "hostname")
+
+    @_builtins.property
+    @pulumi.getter(name="iamRoles")
+    def iam_roles(self) -> pulumi.Output[Optional[Sequence['outputs.CloudVmClusterIamRole']]]:
+        """
+        The AWS Identity and Access Management (IAM) service roles associated with the VM cluster.
+        """
+        return pulumi.get(self, "iam_roles")
 
     @_builtins.property
     @pulumi.getter(name="isLocalBackupEnabled")

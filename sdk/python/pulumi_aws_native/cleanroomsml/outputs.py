@@ -17,12 +17,533 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'ConfiguredModelAlgorithmAssociationCustomEntityConfig',
+    'ConfiguredModelAlgorithmAssociationLogRedactionConfiguration',
+    'ConfiguredModelAlgorithmAssociationLogsConfigurationPolicy',
+    'ConfiguredModelAlgorithmAssociationMetricsConfigurationPolicy',
+    'ConfiguredModelAlgorithmAssociationPrivacyConfiguration',
+    'ConfiguredModelAlgorithmAssociationPrivacyConfigurationPolicies',
+    'ConfiguredModelAlgorithmAssociationTrainedModelArtifactMaxSize',
+    'ConfiguredModelAlgorithmAssociationTrainedModelExportsConfigurationPolicy',
+    'ConfiguredModelAlgorithmAssociationTrainedModelExportsMaxSize',
+    'ConfiguredModelAlgorithmAssociationTrainedModelInferenceJobsConfigurationPolicy',
+    'ConfiguredModelAlgorithmAssociationTrainedModelInferenceMaxOutputSize',
+    'ConfiguredModelAlgorithmAssociationTrainedModelsConfigurationPolicy',
+    'ConfiguredModelAlgorithmContainerConfig',
+    'ConfiguredModelAlgorithmInferenceContainerConfig',
+    'ConfiguredModelAlgorithmMetricDefinition',
     'TrainingDatasetColumnSchema',
     'TrainingDatasetDataSource',
     'TrainingDatasetDataset',
     'TrainingDatasetDatasetInputConfig',
     'TrainingDatasetGlueDataSource',
 ]
+
+@pulumi.output_type
+class ConfiguredModelAlgorithmAssociationCustomEntityConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "customDataIdentifiers":
+            suggest = "custom_data_identifiers"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConfiguredModelAlgorithmAssociationCustomEntityConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConfiguredModelAlgorithmAssociationCustomEntityConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConfiguredModelAlgorithmAssociationCustomEntityConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 custom_data_identifiers: Sequence[_builtins.str]):
+        pulumi.set(__self__, "custom_data_identifiers", custom_data_identifiers)
+
+    @_builtins.property
+    @pulumi.getter(name="customDataIdentifiers")
+    def custom_data_identifiers(self) -> Sequence[_builtins.str]:
+        return pulumi.get(self, "custom_data_identifiers")
+
+
+@pulumi.output_type
+class ConfiguredModelAlgorithmAssociationLogRedactionConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "entitiesToRedact":
+            suggest = "entities_to_redact"
+        elif key == "customEntityConfig":
+            suggest = "custom_entity_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConfiguredModelAlgorithmAssociationLogRedactionConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConfiguredModelAlgorithmAssociationLogRedactionConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConfiguredModelAlgorithmAssociationLogRedactionConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 entities_to_redact: Sequence['ConfiguredModelAlgorithmAssociationEntityType'],
+                 custom_entity_config: Optional['outputs.ConfiguredModelAlgorithmAssociationCustomEntityConfig'] = None):
+        pulumi.set(__self__, "entities_to_redact", entities_to_redact)
+        if custom_entity_config is not None:
+            pulumi.set(__self__, "custom_entity_config", custom_entity_config)
+
+    @_builtins.property
+    @pulumi.getter(name="entitiesToRedact")
+    def entities_to_redact(self) -> Sequence['ConfiguredModelAlgorithmAssociationEntityType']:
+        return pulumi.get(self, "entities_to_redact")
+
+    @_builtins.property
+    @pulumi.getter(name="customEntityConfig")
+    def custom_entity_config(self) -> Optional['outputs.ConfiguredModelAlgorithmAssociationCustomEntityConfig']:
+        return pulumi.get(self, "custom_entity_config")
+
+
+@pulumi.output_type
+class ConfiguredModelAlgorithmAssociationLogsConfigurationPolicy(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allowedAccountIds":
+            suggest = "allowed_account_ids"
+        elif key == "filterPattern":
+            suggest = "filter_pattern"
+        elif key == "logRedactionConfiguration":
+            suggest = "log_redaction_configuration"
+        elif key == "logType":
+            suggest = "log_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConfiguredModelAlgorithmAssociationLogsConfigurationPolicy. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConfiguredModelAlgorithmAssociationLogsConfigurationPolicy.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConfiguredModelAlgorithmAssociationLogsConfigurationPolicy.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 allowed_account_ids: Sequence[_builtins.str],
+                 filter_pattern: Optional[_builtins.str] = None,
+                 log_redaction_configuration: Optional['outputs.ConfiguredModelAlgorithmAssociationLogRedactionConfiguration'] = None,
+                 log_type: Optional['ConfiguredModelAlgorithmAssociationLogType'] = None):
+        pulumi.set(__self__, "allowed_account_ids", allowed_account_ids)
+        if filter_pattern is not None:
+            pulumi.set(__self__, "filter_pattern", filter_pattern)
+        if log_redaction_configuration is not None:
+            pulumi.set(__self__, "log_redaction_configuration", log_redaction_configuration)
+        if log_type is not None:
+            pulumi.set(__self__, "log_type", log_type)
+
+    @_builtins.property
+    @pulumi.getter(name="allowedAccountIds")
+    def allowed_account_ids(self) -> Sequence[_builtins.str]:
+        return pulumi.get(self, "allowed_account_ids")
+
+    @_builtins.property
+    @pulumi.getter(name="filterPattern")
+    def filter_pattern(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "filter_pattern")
+
+    @_builtins.property
+    @pulumi.getter(name="logRedactionConfiguration")
+    def log_redaction_configuration(self) -> Optional['outputs.ConfiguredModelAlgorithmAssociationLogRedactionConfiguration']:
+        return pulumi.get(self, "log_redaction_configuration")
+
+    @_builtins.property
+    @pulumi.getter(name="logType")
+    def log_type(self) -> Optional['ConfiguredModelAlgorithmAssociationLogType']:
+        return pulumi.get(self, "log_type")
+
+
+@pulumi.output_type
+class ConfiguredModelAlgorithmAssociationMetricsConfigurationPolicy(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "noiseLevel":
+            suggest = "noise_level"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConfiguredModelAlgorithmAssociationMetricsConfigurationPolicy. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConfiguredModelAlgorithmAssociationMetricsConfigurationPolicy.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConfiguredModelAlgorithmAssociationMetricsConfigurationPolicy.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 noise_level: 'ConfiguredModelAlgorithmAssociationNoiseLevelType'):
+        pulumi.set(__self__, "noise_level", noise_level)
+
+    @_builtins.property
+    @pulumi.getter(name="noiseLevel")
+    def noise_level(self) -> 'ConfiguredModelAlgorithmAssociationNoiseLevelType':
+        return pulumi.get(self, "noise_level")
+
+
+@pulumi.output_type
+class ConfiguredModelAlgorithmAssociationPrivacyConfiguration(dict):
+    def __init__(__self__, *,
+                 policies: 'outputs.ConfiguredModelAlgorithmAssociationPrivacyConfigurationPolicies'):
+        pulumi.set(__self__, "policies", policies)
+
+    @_builtins.property
+    @pulumi.getter
+    def policies(self) -> 'outputs.ConfiguredModelAlgorithmAssociationPrivacyConfigurationPolicies':
+        return pulumi.get(self, "policies")
+
+
+@pulumi.output_type
+class ConfiguredModelAlgorithmAssociationPrivacyConfigurationPolicies(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "trainedModelExports":
+            suggest = "trained_model_exports"
+        elif key == "trainedModelInferenceJobs":
+            suggest = "trained_model_inference_jobs"
+        elif key == "trainedModels":
+            suggest = "trained_models"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConfiguredModelAlgorithmAssociationPrivacyConfigurationPolicies. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConfiguredModelAlgorithmAssociationPrivacyConfigurationPolicies.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConfiguredModelAlgorithmAssociationPrivacyConfigurationPolicies.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 trained_model_exports: Optional['outputs.ConfiguredModelAlgorithmAssociationTrainedModelExportsConfigurationPolicy'] = None,
+                 trained_model_inference_jobs: Optional['outputs.ConfiguredModelAlgorithmAssociationTrainedModelInferenceJobsConfigurationPolicy'] = None,
+                 trained_models: Optional['outputs.ConfiguredModelAlgorithmAssociationTrainedModelsConfigurationPolicy'] = None):
+        if trained_model_exports is not None:
+            pulumi.set(__self__, "trained_model_exports", trained_model_exports)
+        if trained_model_inference_jobs is not None:
+            pulumi.set(__self__, "trained_model_inference_jobs", trained_model_inference_jobs)
+        if trained_models is not None:
+            pulumi.set(__self__, "trained_models", trained_models)
+
+    @_builtins.property
+    @pulumi.getter(name="trainedModelExports")
+    def trained_model_exports(self) -> Optional['outputs.ConfiguredModelAlgorithmAssociationTrainedModelExportsConfigurationPolicy']:
+        return pulumi.get(self, "trained_model_exports")
+
+    @_builtins.property
+    @pulumi.getter(name="trainedModelInferenceJobs")
+    def trained_model_inference_jobs(self) -> Optional['outputs.ConfiguredModelAlgorithmAssociationTrainedModelInferenceJobsConfigurationPolicy']:
+        return pulumi.get(self, "trained_model_inference_jobs")
+
+    @_builtins.property
+    @pulumi.getter(name="trainedModels")
+    def trained_models(self) -> Optional['outputs.ConfiguredModelAlgorithmAssociationTrainedModelsConfigurationPolicy']:
+        return pulumi.get(self, "trained_models")
+
+
+@pulumi.output_type
+class ConfiguredModelAlgorithmAssociationTrainedModelArtifactMaxSize(dict):
+    def __init__(__self__, *,
+                 unit: 'ConfiguredModelAlgorithmAssociationTrainedModelArtifactMaxSizeUnitType',
+                 value: _builtins.float):
+        pulumi.set(__self__, "unit", unit)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def unit(self) -> 'ConfiguredModelAlgorithmAssociationTrainedModelArtifactMaxSizeUnitType':
+        return pulumi.get(self, "unit")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.float:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ConfiguredModelAlgorithmAssociationTrainedModelExportsConfigurationPolicy(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "filesToExport":
+            suggest = "files_to_export"
+        elif key == "maxSize":
+            suggest = "max_size"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConfiguredModelAlgorithmAssociationTrainedModelExportsConfigurationPolicy. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConfiguredModelAlgorithmAssociationTrainedModelExportsConfigurationPolicy.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConfiguredModelAlgorithmAssociationTrainedModelExportsConfigurationPolicy.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 files_to_export: Sequence['ConfiguredModelAlgorithmAssociationTrainedModelExportFileType'],
+                 max_size: 'outputs.ConfiguredModelAlgorithmAssociationTrainedModelExportsMaxSize'):
+        pulumi.set(__self__, "files_to_export", files_to_export)
+        pulumi.set(__self__, "max_size", max_size)
+
+    @_builtins.property
+    @pulumi.getter(name="filesToExport")
+    def files_to_export(self) -> Sequence['ConfiguredModelAlgorithmAssociationTrainedModelExportFileType']:
+        return pulumi.get(self, "files_to_export")
+
+    @_builtins.property
+    @pulumi.getter(name="maxSize")
+    def max_size(self) -> 'outputs.ConfiguredModelAlgorithmAssociationTrainedModelExportsMaxSize':
+        return pulumi.get(self, "max_size")
+
+
+@pulumi.output_type
+class ConfiguredModelAlgorithmAssociationTrainedModelExportsMaxSize(dict):
+    def __init__(__self__, *,
+                 unit: 'ConfiguredModelAlgorithmAssociationTrainedModelExportsMaxSizeUnitType',
+                 value: _builtins.float):
+        pulumi.set(__self__, "unit", unit)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def unit(self) -> 'ConfiguredModelAlgorithmAssociationTrainedModelExportsMaxSizeUnitType':
+        return pulumi.get(self, "unit")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.float:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ConfiguredModelAlgorithmAssociationTrainedModelInferenceJobsConfigurationPolicy(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "containerLogs":
+            suggest = "container_logs"
+        elif key == "maxOutputSize":
+            suggest = "max_output_size"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConfiguredModelAlgorithmAssociationTrainedModelInferenceJobsConfigurationPolicy. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConfiguredModelAlgorithmAssociationTrainedModelInferenceJobsConfigurationPolicy.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConfiguredModelAlgorithmAssociationTrainedModelInferenceJobsConfigurationPolicy.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 container_logs: Optional[Sequence['outputs.ConfiguredModelAlgorithmAssociationLogsConfigurationPolicy']] = None,
+                 max_output_size: Optional['outputs.ConfiguredModelAlgorithmAssociationTrainedModelInferenceMaxOutputSize'] = None):
+        if container_logs is not None:
+            pulumi.set(__self__, "container_logs", container_logs)
+        if max_output_size is not None:
+            pulumi.set(__self__, "max_output_size", max_output_size)
+
+    @_builtins.property
+    @pulumi.getter(name="containerLogs")
+    def container_logs(self) -> Optional[Sequence['outputs.ConfiguredModelAlgorithmAssociationLogsConfigurationPolicy']]:
+        return pulumi.get(self, "container_logs")
+
+    @_builtins.property
+    @pulumi.getter(name="maxOutputSize")
+    def max_output_size(self) -> Optional['outputs.ConfiguredModelAlgorithmAssociationTrainedModelInferenceMaxOutputSize']:
+        return pulumi.get(self, "max_output_size")
+
+
+@pulumi.output_type
+class ConfiguredModelAlgorithmAssociationTrainedModelInferenceMaxOutputSize(dict):
+    def __init__(__self__, *,
+                 unit: 'ConfiguredModelAlgorithmAssociationTrainedModelInferenceMaxOutputSizeUnitType',
+                 value: _builtins.float):
+        pulumi.set(__self__, "unit", unit)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def unit(self) -> 'ConfiguredModelAlgorithmAssociationTrainedModelInferenceMaxOutputSizeUnitType':
+        return pulumi.get(self, "unit")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.float:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ConfiguredModelAlgorithmAssociationTrainedModelsConfigurationPolicy(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "containerLogs":
+            suggest = "container_logs"
+        elif key == "containerMetrics":
+            suggest = "container_metrics"
+        elif key == "maxArtifactSize":
+            suggest = "max_artifact_size"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConfiguredModelAlgorithmAssociationTrainedModelsConfigurationPolicy. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConfiguredModelAlgorithmAssociationTrainedModelsConfigurationPolicy.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConfiguredModelAlgorithmAssociationTrainedModelsConfigurationPolicy.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 container_logs: Optional[Sequence['outputs.ConfiguredModelAlgorithmAssociationLogsConfigurationPolicy']] = None,
+                 container_metrics: Optional['outputs.ConfiguredModelAlgorithmAssociationMetricsConfigurationPolicy'] = None,
+                 max_artifact_size: Optional['outputs.ConfiguredModelAlgorithmAssociationTrainedModelArtifactMaxSize'] = None):
+        if container_logs is not None:
+            pulumi.set(__self__, "container_logs", container_logs)
+        if container_metrics is not None:
+            pulumi.set(__self__, "container_metrics", container_metrics)
+        if max_artifact_size is not None:
+            pulumi.set(__self__, "max_artifact_size", max_artifact_size)
+
+    @_builtins.property
+    @pulumi.getter(name="containerLogs")
+    def container_logs(self) -> Optional[Sequence['outputs.ConfiguredModelAlgorithmAssociationLogsConfigurationPolicy']]:
+        return pulumi.get(self, "container_logs")
+
+    @_builtins.property
+    @pulumi.getter(name="containerMetrics")
+    def container_metrics(self) -> Optional['outputs.ConfiguredModelAlgorithmAssociationMetricsConfigurationPolicy']:
+        return pulumi.get(self, "container_metrics")
+
+    @_builtins.property
+    @pulumi.getter(name="maxArtifactSize")
+    def max_artifact_size(self) -> Optional['outputs.ConfiguredModelAlgorithmAssociationTrainedModelArtifactMaxSize']:
+        return pulumi.get(self, "max_artifact_size")
+
+
+@pulumi.output_type
+class ConfiguredModelAlgorithmContainerConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "imageUri":
+            suggest = "image_uri"
+        elif key == "metricDefinitions":
+            suggest = "metric_definitions"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConfiguredModelAlgorithmContainerConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConfiguredModelAlgorithmContainerConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConfiguredModelAlgorithmContainerConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 image_uri: _builtins.str,
+                 arguments: Optional[Sequence[_builtins.str]] = None,
+                 entrypoint: Optional[Sequence[_builtins.str]] = None,
+                 metric_definitions: Optional[Sequence['outputs.ConfiguredModelAlgorithmMetricDefinition']] = None):
+        pulumi.set(__self__, "image_uri", image_uri)
+        if arguments is not None:
+            pulumi.set(__self__, "arguments", arguments)
+        if entrypoint is not None:
+            pulumi.set(__self__, "entrypoint", entrypoint)
+        if metric_definitions is not None:
+            pulumi.set(__self__, "metric_definitions", metric_definitions)
+
+    @_builtins.property
+    @pulumi.getter(name="imageUri")
+    def image_uri(self) -> _builtins.str:
+        return pulumi.get(self, "image_uri")
+
+    @_builtins.property
+    @pulumi.getter
+    def arguments(self) -> Optional[Sequence[_builtins.str]]:
+        return pulumi.get(self, "arguments")
+
+    @_builtins.property
+    @pulumi.getter
+    def entrypoint(self) -> Optional[Sequence[_builtins.str]]:
+        return pulumi.get(self, "entrypoint")
+
+    @_builtins.property
+    @pulumi.getter(name="metricDefinitions")
+    def metric_definitions(self) -> Optional[Sequence['outputs.ConfiguredModelAlgorithmMetricDefinition']]:
+        return pulumi.get(self, "metric_definitions")
+
+
+@pulumi.output_type
+class ConfiguredModelAlgorithmInferenceContainerConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "imageUri":
+            suggest = "image_uri"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConfiguredModelAlgorithmInferenceContainerConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConfiguredModelAlgorithmInferenceContainerConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConfiguredModelAlgorithmInferenceContainerConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 image_uri: _builtins.str):
+        pulumi.set(__self__, "image_uri", image_uri)
+
+    @_builtins.property
+    @pulumi.getter(name="imageUri")
+    def image_uri(self) -> _builtins.str:
+        return pulumi.get(self, "image_uri")
+
+
+@pulumi.output_type
+class ConfiguredModelAlgorithmMetricDefinition(dict):
+    def __init__(__self__, *,
+                 name: _builtins.str,
+                 regex: _builtins.str):
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "regex", regex)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def regex(self) -> _builtins.str:
+        return pulumi.get(self, "regex")
+
 
 @pulumi.output_type
 class TrainingDatasetColumnSchema(dict):

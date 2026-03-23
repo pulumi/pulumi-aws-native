@@ -20,6 +20,8 @@ __all__ = [
     'CollectionEncryptionConfigArgsDict',
     'CollectionGroupCapacityLimitsArgs',
     'CollectionGroupCapacityLimitsArgsDict',
+    'CollectionVectorOptionsArgs',
+    'CollectionVectorOptionsArgsDict',
     'IndexPropertyMappingMethodPropertiesParametersPropertiesArgs',
     'IndexPropertyMappingMethodPropertiesParametersPropertiesArgsDict',
     'IndexPropertyMappingMethodPropertiesArgs',
@@ -181,6 +183,32 @@ class CollectionGroupCapacityLimitsArgs:
     @min_search_capacity_in_ocu.setter
     def min_search_capacity_in_ocu(self, value: Optional[pulumi.Input[_builtins.float]]):
         pulumi.set(self, "min_search_capacity_in_ocu", value)
+
+
+class CollectionVectorOptionsArgsDict(TypedDict):
+    """
+    Vector search configuration options for the collection
+    """
+    serverless_vector_acceleration: NotRequired[pulumi.Input['CollectionServerlessVectorAcceleration']]
+
+@pulumi.input_type
+class CollectionVectorOptionsArgs:
+    def __init__(__self__, *,
+                 serverless_vector_acceleration: Optional[pulumi.Input['CollectionServerlessVectorAcceleration']] = None):
+        """
+        Vector search configuration options for the collection
+        """
+        if serverless_vector_acceleration is not None:
+            pulumi.set(__self__, "serverless_vector_acceleration", serverless_vector_acceleration)
+
+    @_builtins.property
+    @pulumi.getter(name="serverlessVectorAcceleration")
+    def serverless_vector_acceleration(self) -> Optional[pulumi.Input['CollectionServerlessVectorAcceleration']]:
+        return pulumi.get(self, "serverless_vector_acceleration")
+
+    @serverless_vector_acceleration.setter
+    def serverless_vector_acceleration(self, value: Optional[pulumi.Input['CollectionServerlessVectorAcceleration']]):
+        pulumi.set(self, "serverless_vector_acceleration", value)
 
 
 class IndexPropertyMappingMethodPropertiesParametersPropertiesArgsDict(TypedDict):

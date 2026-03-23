@@ -91,7 +91,10 @@ type ImageBuilder struct {
 	// - stream.graphics.gr6f.4xlarge
 	InstanceType pulumi.StringOutput `pulumi:"instanceType"`
 	// A unique name for the image builder.
-	Name pulumi.StringOutput `pulumi:"name"`
+	Name                 pulumi.StringOutput               `pulumi:"name"`
+	RootVolumeConfig     ImageBuilderVolumeConfigPtrOutput `pulumi:"rootVolumeConfig"`
+	SoftwaresToInstall   pulumi.StringArrayOutput          `pulumi:"softwaresToInstall"`
+	SoftwaresToUninstall pulumi.StringArrayOutput          `pulumi:"softwaresToUninstall"`
 	// The URL to start an image builder streaming session, returned as a string.
 	StreamingUrl pulumi.StringOutput `pulumi:"streamingUrl"`
 	// An array of key-value pairs.
@@ -110,6 +113,10 @@ func NewImageBuilder(ctx *pulumi.Context,
 	if args.InstanceType == nil {
 		return nil, errors.New("invalid value for required argument 'InstanceType'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"name",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ImageBuilder
 	err := ctx.RegisterResource("aws-native:appstream:ImageBuilder", name, args, &resource, opts...)
@@ -217,7 +224,10 @@ type imageBuilderArgs struct {
 	// - stream.graphics.gr6f.4xlarge
 	InstanceType string `pulumi:"instanceType"`
 	// A unique name for the image builder.
-	Name *string `pulumi:"name"`
+	Name                 *string                   `pulumi:"name"`
+	RootVolumeConfig     *ImageBuilderVolumeConfig `pulumi:"rootVolumeConfig"`
+	SoftwaresToInstall   []string                  `pulumi:"softwaresToInstall"`
+	SoftwaresToUninstall []string                  `pulumi:"softwaresToUninstall"`
 	// An array of key-value pairs.
 	Tags []aws.Tag `pulumi:"tags"`
 	// The VPC configuration for the image builder. You can specify only one subnet.
@@ -300,7 +310,10 @@ type ImageBuilderArgs struct {
 	// - stream.graphics.gr6f.4xlarge
 	InstanceType pulumi.StringInput
 	// A unique name for the image builder.
-	Name pulumi.StringPtrInput
+	Name                 pulumi.StringPtrInput
+	RootVolumeConfig     ImageBuilderVolumeConfigPtrInput
+	SoftwaresToInstall   pulumi.StringArrayInput
+	SoftwaresToUninstall pulumi.StringArrayInput
 	// An array of key-value pairs.
 	Tags aws.TagArrayInput
 	// The VPC configuration for the image builder. You can specify only one subnet.
@@ -450,6 +463,18 @@ func (o ImageBuilderOutput) InstanceType() pulumi.StringOutput {
 // A unique name for the image builder.
 func (o ImageBuilderOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ImageBuilder) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o ImageBuilderOutput) RootVolumeConfig() ImageBuilderVolumeConfigPtrOutput {
+	return o.ApplyT(func(v *ImageBuilder) ImageBuilderVolumeConfigPtrOutput { return v.RootVolumeConfig }).(ImageBuilderVolumeConfigPtrOutput)
+}
+
+func (o ImageBuilderOutput) SoftwaresToInstall() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ImageBuilder) pulumi.StringArrayOutput { return v.SoftwaresToInstall }).(pulumi.StringArrayOutput)
+}
+
+func (o ImageBuilderOutput) SoftwaresToUninstall() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ImageBuilder) pulumi.StringArrayOutput { return v.SoftwaresToUninstall }).(pulumi.StringArrayOutput)
 }
 
 // The URL to start an image builder streaming session, returned as a string.

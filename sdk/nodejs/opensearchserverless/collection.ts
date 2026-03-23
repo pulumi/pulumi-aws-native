@@ -132,6 +132,7 @@ export class Collection extends pulumi.CustomResource {
      * The type of collection. Possible values are `SEARCH` , `TIMESERIES` , and `VECTORSEARCH` . For more information, see [Choosing a collection type](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-overview.html#serverless-usecase) .
      */
     declare public readonly type: pulumi.Output<enums.opensearchserverless.CollectionType | undefined>;
+    declare public readonly vectorOptions: pulumi.Output<outputs.opensearchserverless.CollectionVectorOptions | undefined>;
 
     /**
      * Create a Collection resource with the given unique name, arguments, and options.
@@ -151,6 +152,7 @@ export class Collection extends pulumi.CustomResource {
             resourceInputs["standbyReplicas"] = args?.standbyReplicas;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["type"] = args?.type;
+            resourceInputs["vectorOptions"] = args?.vectorOptions;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["collectionEndpoint"] = undefined /*out*/;
@@ -169,9 +171,10 @@ export class Collection extends pulumi.CustomResource {
             resourceInputs["standbyReplicas"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["vectorOptions"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["collectionGroupName", "encryptionConfig", "name", "standbyReplicas", "tags[*]", "type"] };
+        const replaceOnChanges = { replaceOnChanges: ["collectionGroupName", "encryptionConfig", "name", "standbyReplicas", "tags[*]", "type", "vectorOptions"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Collection.__pulumiType, name, resourceInputs, opts);
     }
@@ -212,4 +215,5 @@ export interface CollectionArgs {
      * The type of collection. Possible values are `SEARCH` , `TIMESERIES` , and `VECTORSEARCH` . For more information, see [Choosing a collection type](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-overview.html#serverless-usecase) .
      */
     type?: pulumi.Input<enums.opensearchserverless.CollectionType>;
+    vectorOptions?: pulumi.Input<inputs.opensearchserverless.CollectionVectorOptionsArgs>;
 }

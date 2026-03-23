@@ -14,6 +14,7 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from .. import outputs as _root_outputs
 from ._enums import *
 
 __all__ = [
@@ -25,7 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetFlowSourceResult:
-    def __init__(__self__, decryption=None, description=None, entitlement_arn=None, flow_arn=None, gateway_bridge_source=None, ingest_ip=None, ingest_port=None, max_bitrate=None, max_latency=None, min_latency=None, protocol=None, sender_control_port=None, sender_ip_address=None, source_arn=None, source_ingest_port=None, source_listener_address=None, source_listener_port=None, stream_id=None, vpc_interface_name=None, whitelist_cidr=None):
+    def __init__(__self__, decryption=None, description=None, entitlement_arn=None, gateway_bridge_source=None, ingest_ip=None, ingest_port=None, max_bitrate=None, max_latency=None, min_latency=None, sender_control_port=None, sender_ip_address=None, source_arn=None, source_ingest_port=None, source_listener_address=None, source_listener_port=None, stream_id=None, tags=None, vpc_interface_name=None, whitelist_cidr=None):
         if decryption and not isinstance(decryption, dict):
             raise TypeError("Expected argument 'decryption' to be a dict")
         pulumi.set(__self__, "decryption", decryption)
@@ -35,9 +36,6 @@ class GetFlowSourceResult:
         if entitlement_arn and not isinstance(entitlement_arn, str):
             raise TypeError("Expected argument 'entitlement_arn' to be a str")
         pulumi.set(__self__, "entitlement_arn", entitlement_arn)
-        if flow_arn and not isinstance(flow_arn, str):
-            raise TypeError("Expected argument 'flow_arn' to be a str")
-        pulumi.set(__self__, "flow_arn", flow_arn)
         if gateway_bridge_source and not isinstance(gateway_bridge_source, dict):
             raise TypeError("Expected argument 'gateway_bridge_source' to be a dict")
         pulumi.set(__self__, "gateway_bridge_source", gateway_bridge_source)
@@ -56,9 +54,6 @@ class GetFlowSourceResult:
         if min_latency and not isinstance(min_latency, int):
             raise TypeError("Expected argument 'min_latency' to be a int")
         pulumi.set(__self__, "min_latency", min_latency)
-        if protocol and not isinstance(protocol, str):
-            raise TypeError("Expected argument 'protocol' to be a str")
-        pulumi.set(__self__, "protocol", protocol)
         if sender_control_port and not isinstance(sender_control_port, int):
             raise TypeError("Expected argument 'sender_control_port' to be a int")
         pulumi.set(__self__, "sender_control_port", sender_control_port)
@@ -80,6 +75,9 @@ class GetFlowSourceResult:
         if stream_id and not isinstance(stream_id, str):
             raise TypeError("Expected argument 'stream_id' to be a str")
         pulumi.set(__self__, "stream_id", stream_id)
+        if tags and not isinstance(tags, list):
+            raise TypeError("Expected argument 'tags' to be a list")
+        pulumi.set(__self__, "tags", tags)
         if vpc_interface_name and not isinstance(vpc_interface_name, str):
             raise TypeError("Expected argument 'vpc_interface_name' to be a str")
         pulumi.set(__self__, "vpc_interface_name", vpc_interface_name)
@@ -110,14 +108,6 @@ class GetFlowSourceResult:
         The ARN of the entitlement that allows you to subscribe to content that comes from another AWS account. The entitlement is set by the content originator and the ARN is generated as part of the originator's flow.
         """
         return pulumi.get(self, "entitlement_arn")
-
-    @_builtins.property
-    @pulumi.getter(name="flowArn")
-    def flow_arn(self) -> Optional[_builtins.str]:
-        """
-        The ARN of the flow.
-        """
-        return pulumi.get(self, "flow_arn")
 
     @_builtins.property
     @pulumi.getter(name="gatewayBridgeSource")
@@ -166,14 +156,6 @@ class GetFlowSourceResult:
         The minimum latency in milliseconds.
         """
         return pulumi.get(self, "min_latency")
-
-    @_builtins.property
-    @pulumi.getter
-    def protocol(self) -> Optional['FlowSourceProtocol']:
-        """
-        The protocol that is used by the source.
-        """
-        return pulumi.get(self, "protocol")
 
     @_builtins.property
     @pulumi.getter(name="senderControlPort")
@@ -232,6 +214,14 @@ class GetFlowSourceResult:
         return pulumi.get(self, "stream_id")
 
     @_builtins.property
+    @pulumi.getter
+    def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        Key-value pairs that can be used to tag and organize this flow source.
+        """
+        return pulumi.get(self, "tags")
+
+    @_builtins.property
     @pulumi.getter(name="vpcInterfaceName")
     def vpc_interface_name(self) -> Optional[_builtins.str]:
         """
@@ -257,14 +247,12 @@ class AwaitableGetFlowSourceResult(GetFlowSourceResult):
             decryption=self.decryption,
             description=self.description,
             entitlement_arn=self.entitlement_arn,
-            flow_arn=self.flow_arn,
             gateway_bridge_source=self.gateway_bridge_source,
             ingest_ip=self.ingest_ip,
             ingest_port=self.ingest_port,
             max_bitrate=self.max_bitrate,
             max_latency=self.max_latency,
             min_latency=self.min_latency,
-            protocol=self.protocol,
             sender_control_port=self.sender_control_port,
             sender_ip_address=self.sender_ip_address,
             source_arn=self.source_arn,
@@ -272,6 +260,7 @@ class AwaitableGetFlowSourceResult(GetFlowSourceResult):
             source_listener_address=self.source_listener_address,
             source_listener_port=self.source_listener_port,
             stream_id=self.stream_id,
+            tags=self.tags,
             vpc_interface_name=self.vpc_interface_name,
             whitelist_cidr=self.whitelist_cidr)
 
@@ -279,7 +268,7 @@ class AwaitableGetFlowSourceResult(GetFlowSourceResult):
 def get_flow_source(source_arn: Optional[_builtins.str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFlowSourceResult:
     """
-    Resource schema for AWS::MediaConnect::FlowSource
+    Resource Type definition for AWS::MediaConnect::FlowSource
 
 
     :param _builtins.str source_arn: The ARN of the source.
@@ -293,14 +282,12 @@ def get_flow_source(source_arn: Optional[_builtins.str] = None,
         decryption=pulumi.get(__ret__, 'decryption'),
         description=pulumi.get(__ret__, 'description'),
         entitlement_arn=pulumi.get(__ret__, 'entitlement_arn'),
-        flow_arn=pulumi.get(__ret__, 'flow_arn'),
         gateway_bridge_source=pulumi.get(__ret__, 'gateway_bridge_source'),
         ingest_ip=pulumi.get(__ret__, 'ingest_ip'),
         ingest_port=pulumi.get(__ret__, 'ingest_port'),
         max_bitrate=pulumi.get(__ret__, 'max_bitrate'),
         max_latency=pulumi.get(__ret__, 'max_latency'),
         min_latency=pulumi.get(__ret__, 'min_latency'),
-        protocol=pulumi.get(__ret__, 'protocol'),
         sender_control_port=pulumi.get(__ret__, 'sender_control_port'),
         sender_ip_address=pulumi.get(__ret__, 'sender_ip_address'),
         source_arn=pulumi.get(__ret__, 'source_arn'),
@@ -308,12 +295,13 @@ def get_flow_source(source_arn: Optional[_builtins.str] = None,
         source_listener_address=pulumi.get(__ret__, 'source_listener_address'),
         source_listener_port=pulumi.get(__ret__, 'source_listener_port'),
         stream_id=pulumi.get(__ret__, 'stream_id'),
+        tags=pulumi.get(__ret__, 'tags'),
         vpc_interface_name=pulumi.get(__ret__, 'vpc_interface_name'),
         whitelist_cidr=pulumi.get(__ret__, 'whitelist_cidr'))
 def get_flow_source_output(source_arn: Optional[pulumi.Input[_builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFlowSourceResult]:
     """
-    Resource schema for AWS::MediaConnect::FlowSource
+    Resource Type definition for AWS::MediaConnect::FlowSource
 
 
     :param _builtins.str source_arn: The ARN of the source.
@@ -326,14 +314,12 @@ def get_flow_source_output(source_arn: Optional[pulumi.Input[_builtins.str]] = N
         decryption=pulumi.get(__response__, 'decryption'),
         description=pulumi.get(__response__, 'description'),
         entitlement_arn=pulumi.get(__response__, 'entitlement_arn'),
-        flow_arn=pulumi.get(__response__, 'flow_arn'),
         gateway_bridge_source=pulumi.get(__response__, 'gateway_bridge_source'),
         ingest_ip=pulumi.get(__response__, 'ingest_ip'),
         ingest_port=pulumi.get(__response__, 'ingest_port'),
         max_bitrate=pulumi.get(__response__, 'max_bitrate'),
         max_latency=pulumi.get(__response__, 'max_latency'),
         min_latency=pulumi.get(__response__, 'min_latency'),
-        protocol=pulumi.get(__response__, 'protocol'),
         sender_control_port=pulumi.get(__response__, 'sender_control_port'),
         sender_ip_address=pulumi.get(__response__, 'sender_ip_address'),
         source_arn=pulumi.get(__response__, 'source_arn'),
@@ -341,5 +327,6 @@ def get_flow_source_output(source_arn: Optional[pulumi.Input[_builtins.str]] = N
         source_listener_address=pulumi.get(__response__, 'source_listener_address'),
         source_listener_port=pulumi.get(__response__, 'source_listener_port'),
         stream_id=pulumi.get(__response__, 'stream_id'),
+        tags=pulumi.get(__response__, 'tags'),
         vpc_interface_name=pulumi.get(__response__, 'vpc_interface_name'),
         whitelist_cidr=pulumi.get(__response__, 'whitelist_cidr')))

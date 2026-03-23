@@ -38,7 +38,15 @@ export class InstanceConnectEndpoint extends pulumi.CustomResource {
     }
 
     /**
-     * The id of the instance connect endpoint
+     * The Availability Zone of the EC2 Instance Connect Endpoint
+     */
+    declare public /*out*/ readonly availabilityZone: pulumi.Output<string>;
+    /**
+     * The ID of the Availability Zone of the EC2 Instance Connect Endpoint
+     */
+    declare public /*out*/ readonly availabilityZoneId: pulumi.Output<string>;
+    /**
+     * The ID of the EC2 Instance Connect Endpoint.
      */
     declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
@@ -46,21 +54,53 @@ export class InstanceConnectEndpoint extends pulumi.CustomResource {
      */
     declare public readonly clientToken: pulumi.Output<string | undefined>;
     /**
-     * If true, the address of the instance connect endpoint client is preserved when connecting to the end resource
+     * The date and time that the EC2 Instance Connect Endpoint was created
+     */
+    declare public /*out*/ readonly createdAt: pulumi.Output<string>;
+    /**
+     * The Amazon Resource Name (ARN) of the EC2 Instance Connect Endpoint
+     */
+    declare public /*out*/ readonly instanceConnectEndpointArn: pulumi.Output<string>;
+    /**
+     * The ID of the elastic network interface that Amazon EC2 automatically created when creating the EC2 Instance Connect Endpoint
+     */
+    declare public /*out*/ readonly networkInterfaceIds: pulumi.Output<string[]>;
+    /**
+     * The ID of the AWS account that created the EC2 Instance Connect Endpoint
+     */
+    declare public /*out*/ readonly ownerId: pulumi.Output<string>;
+    /**
+     * Indicates whether your client's IP address is preserved as the source when you connect to a resource.
      */
     declare public readonly preserveClientIp: pulumi.Output<boolean | undefined>;
     /**
-     * The security group IDs of the instance connect endpoint.
+     * The public DNS names of the endpoint
+     */
+    declare public /*out*/ readonly publicDnsNames: pulumi.Output<outputs.ec2.InstanceConnectEndpointPublicDnsNames>;
+    /**
+     * The security groups associated with the endpoint.
      */
     declare public readonly securityGroupIds: pulumi.Output<string[] | undefined>;
     /**
-     * The subnet id of the instance connect endpoint
+     * The current state of the EC2 Instance Connect Endpoint
+     */
+    declare public /*out*/ readonly state: pulumi.Output<enums.ec2.InstanceConnectEndpointState>;
+    /**
+     * The message for the current state of the EC2 Instance Connect Endpoint. Can include a failure message
+     */
+    declare public /*out*/ readonly stateMessage: pulumi.Output<string>;
+    /**
+     * The ID of the subnet in which the EC2 Instance Connect Endpoint was created.
      */
     declare public readonly subnetId: pulumi.Output<string>;
     /**
-     * The tags of the instance connect endpoint.
+     * The tags assigned to the EC2 Instance Connect Endpoint.
      */
     declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
+    /**
+     * The ID of the VPC in which the EC2 Instance Connect Endpoint was created
+     */
+    declare public /*out*/ readonly vpcId: pulumi.Output<string>;
 
     /**
      * Create a InstanceConnectEndpoint resource with the given unique name, arguments, and options.
@@ -81,14 +121,34 @@ export class InstanceConnectEndpoint extends pulumi.CustomResource {
             resourceInputs["securityGroupIds"] = args?.securityGroupIds;
             resourceInputs["subnetId"] = args?.subnetId;
             resourceInputs["tags"] = args?.tags;
+            resourceInputs["availabilityZone"] = undefined /*out*/;
+            resourceInputs["availabilityZoneId"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
+            resourceInputs["createdAt"] = undefined /*out*/;
+            resourceInputs["instanceConnectEndpointArn"] = undefined /*out*/;
+            resourceInputs["networkInterfaceIds"] = undefined /*out*/;
+            resourceInputs["ownerId"] = undefined /*out*/;
+            resourceInputs["publicDnsNames"] = undefined /*out*/;
+            resourceInputs["state"] = undefined /*out*/;
+            resourceInputs["stateMessage"] = undefined /*out*/;
+            resourceInputs["vpcId"] = undefined /*out*/;
         } else {
+            resourceInputs["availabilityZone"] = undefined /*out*/;
+            resourceInputs["availabilityZoneId"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["clientToken"] = undefined /*out*/;
+            resourceInputs["createdAt"] = undefined /*out*/;
+            resourceInputs["instanceConnectEndpointArn"] = undefined /*out*/;
+            resourceInputs["networkInterfaceIds"] = undefined /*out*/;
+            resourceInputs["ownerId"] = undefined /*out*/;
             resourceInputs["preserveClientIp"] = undefined /*out*/;
+            resourceInputs["publicDnsNames"] = undefined /*out*/;
             resourceInputs["securityGroupIds"] = undefined /*out*/;
+            resourceInputs["state"] = undefined /*out*/;
+            resourceInputs["stateMessage"] = undefined /*out*/;
             resourceInputs["subnetId"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["vpcId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const replaceOnChanges = { replaceOnChanges: ["clientToken", "preserveClientIp", "securityGroupIds[*]", "subnetId"] };
@@ -106,19 +166,19 @@ export interface InstanceConnectEndpointArgs {
      */
     clientToken?: pulumi.Input<string>;
     /**
-     * If true, the address of the instance connect endpoint client is preserved when connecting to the end resource
+     * Indicates whether your client's IP address is preserved as the source when you connect to a resource.
      */
     preserveClientIp?: pulumi.Input<boolean>;
     /**
-     * The security group IDs of the instance connect endpoint.
+     * The security groups associated with the endpoint.
      */
     securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The subnet id of the instance connect endpoint
+     * The ID of the subnet in which the EC2 Instance Connect Endpoint was created.
      */
     subnetId: pulumi.Input<string>;
     /**
-     * The tags of the instance connect endpoint.
+     * The tags assigned to the EC2 Instance Connect Endpoint.
      */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

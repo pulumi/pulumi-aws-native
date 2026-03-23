@@ -2,6 +2,50 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const CatalogAllowFullTableExternalDataAccess = {
+    True: "True",
+    False: "False",
+} as const;
+
+/**
+ * Allows third-party engines to access data in Amazon S3 locations that are registered with Lake Formation.
+ */
+export type CatalogAllowFullTableExternalDataAccess = (typeof CatalogAllowFullTableExternalDataAccess)[keyof typeof CatalogAllowFullTableExternalDataAccess];
+
+export const CatalogDataLakeAccessPropertiesAllowFullTableExternalDataAccess = {
+    True: "True",
+    False: "False",
+} as const;
+
+/**
+ * Allows third-party engines to access data in Amazon S3 locations that are registered with Lake Formation.
+ */
+export type CatalogDataLakeAccessPropertiesAllowFullTableExternalDataAccess = (typeof CatalogDataLakeAccessPropertiesAllowFullTableExternalDataAccess)[keyof typeof CatalogDataLakeAccessPropertiesAllowFullTableExternalDataAccess];
+
+export const CatalogOverwriteChildResourcePermissionsWithDefault = {
+    Accept: "Accept",
+    Deny: "Deny",
+} as const;
+
+/**
+ * Specifies whether to overwrite child resource permissions with the default permissions.
+ */
+export type CatalogOverwriteChildResourcePermissionsWithDefault = (typeof CatalogOverwriteChildResourcePermissionsWithDefault)[keyof typeof CatalogOverwriteChildResourcePermissionsWithDefault];
+
+export const CatalogPrincipalPermissionsPermissionsItem = {
+    All: "ALL",
+    Select: "SELECT",
+    Alter: "ALTER",
+    Drop: "DROP",
+    Delete: "DELETE",
+    Insert: "INSERT",
+    CreateDatabase: "CREATE_DATABASE",
+    CreateTable: "CREATE_TABLE",
+    DataLocationAccess: "DATA_LOCATION_ACCESS",
+} as const;
+
+export type CatalogPrincipalPermissionsPermissionsItem = (typeof CatalogPrincipalPermissionsPermissionsItem)[keyof typeof CatalogPrincipalPermissionsPermissionsItem];
+
 export const JobWorkerType = {
     Standard: "Standard",
     G1x: "G.1X",

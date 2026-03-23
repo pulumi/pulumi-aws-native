@@ -69,6 +69,10 @@ export class FlowEntitlement extends pulumi.CustomResource {
      * The AWS account IDs that you want to share your content with. The receiving accounts (subscribers) will be allowed to create their own flow using your content as the source.
      */
     declare public readonly subscribers: pulumi.Output<string[]>;
+    /**
+     * Key-value pairs that can be used to tag and organize this flow entitlement.
+     */
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a FlowEntitlement resource with the given unique name, arguments, and options.
@@ -97,6 +101,7 @@ export class FlowEntitlement extends pulumi.CustomResource {
             resourceInputs["flowArn"] = args?.flowArn;
             resourceInputs["name"] = args?.name;
             resourceInputs["subscribers"] = args?.subscribers;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["entitlementArn"] = undefined /*out*/;
         } else {
             resourceInputs["dataTransferSubscriberFeePercent"] = undefined /*out*/;
@@ -107,9 +112,10 @@ export class FlowEntitlement extends pulumi.CustomResource {
             resourceInputs["flowArn"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["subscribers"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["dataTransferSubscriberFeePercent", "name"] };
+        const replaceOnChanges = { replaceOnChanges: ["dataTransferSubscriberFeePercent", "flowArn", "name"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(FlowEntitlement.__pulumiType, name, resourceInputs, opts);
     }
@@ -147,4 +153,8 @@ export interface FlowEntitlementArgs {
      * The AWS account IDs that you want to share your content with. The receiving accounts (subscribers) will be allowed to create their own flow using your content as the source.
      */
     subscribers: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Key-value pairs that can be used to tag and organize this flow entitlement.
+     */
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

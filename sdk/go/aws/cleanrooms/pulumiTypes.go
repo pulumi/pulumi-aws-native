@@ -4583,6 +4583,7 @@ type ConfiguredTableAssociationTag struct {
 }
 
 type ConfiguredTableAthenaTableReference struct {
+	CatalogName    *string                          `pulumi:"catalogName"`
 	DatabaseName   string                           `pulumi:"databaseName"`
 	OutputLocation *string                          `pulumi:"outputLocation"`
 	Region         *ConfiguredTableCommercialRegion `pulumi:"region"`
@@ -4602,6 +4603,7 @@ type ConfiguredTableAthenaTableReferenceInput interface {
 }
 
 type ConfiguredTableAthenaTableReferenceArgs struct {
+	CatalogName    pulumi.StringPtrInput                   `pulumi:"catalogName"`
 	DatabaseName   pulumi.StringInput                      `pulumi:"databaseName"`
 	OutputLocation pulumi.StringPtrInput                   `pulumi:"outputLocation"`
 	Region         ConfiguredTableCommercialRegionPtrInput `pulumi:"region"`
@@ -4633,6 +4635,10 @@ func (o ConfiguredTableAthenaTableReferenceOutput) ToConfiguredTableAthenaTableR
 
 func (o ConfiguredTableAthenaTableReferenceOutput) ToConfiguredTableAthenaTableReferenceOutputWithContext(ctx context.Context) ConfiguredTableAthenaTableReferenceOutput {
 	return o
+}
+
+func (o ConfiguredTableAthenaTableReferenceOutput) CatalogName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConfiguredTableAthenaTableReference) *string { return v.CatalogName }).(pulumi.StringPtrOutput)
 }
 
 func (o ConfiguredTableAthenaTableReferenceOutput) DatabaseName() pulumi.StringOutput {
@@ -4677,6 +4683,15 @@ func (o ConfiguredTableAthenaTableReferencePtrOutput) Elem() ConfiguredTableAthe
 		var ret ConfiguredTableAthenaTableReference
 		return ret
 	}).(ConfiguredTableAthenaTableReferenceOutput)
+}
+
+func (o ConfiguredTableAthenaTableReferencePtrOutput) CatalogName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConfiguredTableAthenaTableReference) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CatalogName
+	}).(pulumi.StringPtrOutput)
 }
 
 func (o ConfiguredTableAthenaTableReferencePtrOutput) DatabaseName() pulumi.StringPtrOutput {

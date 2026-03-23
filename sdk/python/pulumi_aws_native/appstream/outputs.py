@@ -30,6 +30,7 @@ __all__ = [
     'EntitlementAttribute',
     'ImageBuilderAccessEndpoint',
     'ImageBuilderDomainJoinInfo',
+    'ImageBuilderVolumeConfig',
     'ImageBuilderVpcConfig',
 ]
 
@@ -662,6 +663,36 @@ class ImageBuilderDomainJoinInfo(dict):
         The distinguished name of the organizational unit for computer accounts.
         """
         return pulumi.get(self, "organizational_unit_distinguished_name")
+
+
+@pulumi.output_type
+class ImageBuilderVolumeConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "volumeSizeInGb":
+            suggest = "volume_size_in_gb"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ImageBuilderVolumeConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ImageBuilderVolumeConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ImageBuilderVolumeConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 volume_size_in_gb: Optional[_builtins.int] = None):
+        if volume_size_in_gb is not None:
+            pulumi.set(__self__, "volume_size_in_gb", volume_size_in_gb)
+
+    @_builtins.property
+    @pulumi.getter(name="volumeSizeInGb")
+    def volume_size_in_gb(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "volume_size_in_gb")
 
 
 @pulumi.output_type

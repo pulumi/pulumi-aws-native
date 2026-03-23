@@ -67,6 +67,7 @@ namespace Pulumi.AwsNative.Deadline
         /// The Amazon Resource Name (ARN) assigned to the farm.
         /// </summary>
         public readonly string? Arn;
+        public readonly double? CostScaleFactor;
         /// <summary>
         /// A description of the farm that helps identify what the farm is used for.
         /// 
@@ -92,6 +93,8 @@ namespace Pulumi.AwsNative.Deadline
         private GetFarmResult(
             string? arn,
 
+            double? costScaleFactor,
+
             string? description,
 
             string? displayName,
@@ -101,6 +104,7 @@ namespace Pulumi.AwsNative.Deadline
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Arn = arn;
+            CostScaleFactor = costScaleFactor;
             Description = description;
             DisplayName = displayName;
             FarmId = farmId;

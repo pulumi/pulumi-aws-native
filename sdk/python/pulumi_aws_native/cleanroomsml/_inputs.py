@@ -16,6 +16,36 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'ConfiguredModelAlgorithmAssociationCustomEntityConfigArgs',
+    'ConfiguredModelAlgorithmAssociationCustomEntityConfigArgsDict',
+    'ConfiguredModelAlgorithmAssociationLogRedactionConfigurationArgs',
+    'ConfiguredModelAlgorithmAssociationLogRedactionConfigurationArgsDict',
+    'ConfiguredModelAlgorithmAssociationLogsConfigurationPolicyArgs',
+    'ConfiguredModelAlgorithmAssociationLogsConfigurationPolicyArgsDict',
+    'ConfiguredModelAlgorithmAssociationMetricsConfigurationPolicyArgs',
+    'ConfiguredModelAlgorithmAssociationMetricsConfigurationPolicyArgsDict',
+    'ConfiguredModelAlgorithmAssociationPrivacyConfigurationPoliciesArgs',
+    'ConfiguredModelAlgorithmAssociationPrivacyConfigurationPoliciesArgsDict',
+    'ConfiguredModelAlgorithmAssociationPrivacyConfigurationArgs',
+    'ConfiguredModelAlgorithmAssociationPrivacyConfigurationArgsDict',
+    'ConfiguredModelAlgorithmAssociationTrainedModelArtifactMaxSizeArgs',
+    'ConfiguredModelAlgorithmAssociationTrainedModelArtifactMaxSizeArgsDict',
+    'ConfiguredModelAlgorithmAssociationTrainedModelExportsConfigurationPolicyArgs',
+    'ConfiguredModelAlgorithmAssociationTrainedModelExportsConfigurationPolicyArgsDict',
+    'ConfiguredModelAlgorithmAssociationTrainedModelExportsMaxSizeArgs',
+    'ConfiguredModelAlgorithmAssociationTrainedModelExportsMaxSizeArgsDict',
+    'ConfiguredModelAlgorithmAssociationTrainedModelInferenceJobsConfigurationPolicyArgs',
+    'ConfiguredModelAlgorithmAssociationTrainedModelInferenceJobsConfigurationPolicyArgsDict',
+    'ConfiguredModelAlgorithmAssociationTrainedModelInferenceMaxOutputSizeArgs',
+    'ConfiguredModelAlgorithmAssociationTrainedModelInferenceMaxOutputSizeArgsDict',
+    'ConfiguredModelAlgorithmAssociationTrainedModelsConfigurationPolicyArgs',
+    'ConfiguredModelAlgorithmAssociationTrainedModelsConfigurationPolicyArgsDict',
+    'ConfiguredModelAlgorithmContainerConfigArgs',
+    'ConfiguredModelAlgorithmContainerConfigArgsDict',
+    'ConfiguredModelAlgorithmInferenceContainerConfigArgs',
+    'ConfiguredModelAlgorithmInferenceContainerConfigArgsDict',
+    'ConfiguredModelAlgorithmMetricDefinitionArgs',
+    'ConfiguredModelAlgorithmMetricDefinitionArgsDict',
     'TrainingDatasetColumnSchemaArgs',
     'TrainingDatasetColumnSchemaArgsDict',
     'TrainingDatasetDataSourceArgs',
@@ -27,6 +57,510 @@ __all__ = [
     'TrainingDatasetGlueDataSourceArgs',
     'TrainingDatasetGlueDataSourceArgsDict',
 ]
+
+class ConfiguredModelAlgorithmAssociationCustomEntityConfigArgsDict(TypedDict):
+    custom_data_identifiers: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+
+@pulumi.input_type
+class ConfiguredModelAlgorithmAssociationCustomEntityConfigArgs:
+    def __init__(__self__, *,
+                 custom_data_identifiers: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(__self__, "custom_data_identifiers", custom_data_identifiers)
+
+    @_builtins.property
+    @pulumi.getter(name="customDataIdentifiers")
+    def custom_data_identifiers(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        return pulumi.get(self, "custom_data_identifiers")
+
+    @custom_data_identifiers.setter
+    def custom_data_identifiers(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "custom_data_identifiers", value)
+
+
+class ConfiguredModelAlgorithmAssociationLogRedactionConfigurationArgsDict(TypedDict):
+    entities_to_redact: pulumi.Input[Sequence[pulumi.Input['ConfiguredModelAlgorithmAssociationEntityType']]]
+    custom_entity_config: NotRequired[pulumi.Input['ConfiguredModelAlgorithmAssociationCustomEntityConfigArgsDict']]
+
+@pulumi.input_type
+class ConfiguredModelAlgorithmAssociationLogRedactionConfigurationArgs:
+    def __init__(__self__, *,
+                 entities_to_redact: pulumi.Input[Sequence[pulumi.Input['ConfiguredModelAlgorithmAssociationEntityType']]],
+                 custom_entity_config: Optional[pulumi.Input['ConfiguredModelAlgorithmAssociationCustomEntityConfigArgs']] = None):
+        pulumi.set(__self__, "entities_to_redact", entities_to_redact)
+        if custom_entity_config is not None:
+            pulumi.set(__self__, "custom_entity_config", custom_entity_config)
+
+    @_builtins.property
+    @pulumi.getter(name="entitiesToRedact")
+    def entities_to_redact(self) -> pulumi.Input[Sequence[pulumi.Input['ConfiguredModelAlgorithmAssociationEntityType']]]:
+        return pulumi.get(self, "entities_to_redact")
+
+    @entities_to_redact.setter
+    def entities_to_redact(self, value: pulumi.Input[Sequence[pulumi.Input['ConfiguredModelAlgorithmAssociationEntityType']]]):
+        pulumi.set(self, "entities_to_redact", value)
+
+    @_builtins.property
+    @pulumi.getter(name="customEntityConfig")
+    def custom_entity_config(self) -> Optional[pulumi.Input['ConfiguredModelAlgorithmAssociationCustomEntityConfigArgs']]:
+        return pulumi.get(self, "custom_entity_config")
+
+    @custom_entity_config.setter
+    def custom_entity_config(self, value: Optional[pulumi.Input['ConfiguredModelAlgorithmAssociationCustomEntityConfigArgs']]):
+        pulumi.set(self, "custom_entity_config", value)
+
+
+class ConfiguredModelAlgorithmAssociationLogsConfigurationPolicyArgsDict(TypedDict):
+    allowed_account_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    filter_pattern: NotRequired[pulumi.Input[_builtins.str]]
+    log_redaction_configuration: NotRequired[pulumi.Input['ConfiguredModelAlgorithmAssociationLogRedactionConfigurationArgsDict']]
+    log_type: NotRequired[pulumi.Input['ConfiguredModelAlgorithmAssociationLogType']]
+
+@pulumi.input_type
+class ConfiguredModelAlgorithmAssociationLogsConfigurationPolicyArgs:
+    def __init__(__self__, *,
+                 allowed_account_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
+                 filter_pattern: Optional[pulumi.Input[_builtins.str]] = None,
+                 log_redaction_configuration: Optional[pulumi.Input['ConfiguredModelAlgorithmAssociationLogRedactionConfigurationArgs']] = None,
+                 log_type: Optional[pulumi.Input['ConfiguredModelAlgorithmAssociationLogType']] = None):
+        pulumi.set(__self__, "allowed_account_ids", allowed_account_ids)
+        if filter_pattern is not None:
+            pulumi.set(__self__, "filter_pattern", filter_pattern)
+        if log_redaction_configuration is not None:
+            pulumi.set(__self__, "log_redaction_configuration", log_redaction_configuration)
+        if log_type is not None:
+            pulumi.set(__self__, "log_type", log_type)
+
+    @_builtins.property
+    @pulumi.getter(name="allowedAccountIds")
+    def allowed_account_ids(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        return pulumi.get(self, "allowed_account_ids")
+
+    @allowed_account_ids.setter
+    def allowed_account_ids(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "allowed_account_ids", value)
+
+    @_builtins.property
+    @pulumi.getter(name="filterPattern")
+    def filter_pattern(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "filter_pattern")
+
+    @filter_pattern.setter
+    def filter_pattern(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "filter_pattern", value)
+
+    @_builtins.property
+    @pulumi.getter(name="logRedactionConfiguration")
+    def log_redaction_configuration(self) -> Optional[pulumi.Input['ConfiguredModelAlgorithmAssociationLogRedactionConfigurationArgs']]:
+        return pulumi.get(self, "log_redaction_configuration")
+
+    @log_redaction_configuration.setter
+    def log_redaction_configuration(self, value: Optional[pulumi.Input['ConfiguredModelAlgorithmAssociationLogRedactionConfigurationArgs']]):
+        pulumi.set(self, "log_redaction_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="logType")
+    def log_type(self) -> Optional[pulumi.Input['ConfiguredModelAlgorithmAssociationLogType']]:
+        return pulumi.get(self, "log_type")
+
+    @log_type.setter
+    def log_type(self, value: Optional[pulumi.Input['ConfiguredModelAlgorithmAssociationLogType']]):
+        pulumi.set(self, "log_type", value)
+
+
+class ConfiguredModelAlgorithmAssociationMetricsConfigurationPolicyArgsDict(TypedDict):
+    noise_level: pulumi.Input['ConfiguredModelAlgorithmAssociationNoiseLevelType']
+
+@pulumi.input_type
+class ConfiguredModelAlgorithmAssociationMetricsConfigurationPolicyArgs:
+    def __init__(__self__, *,
+                 noise_level: pulumi.Input['ConfiguredModelAlgorithmAssociationNoiseLevelType']):
+        pulumi.set(__self__, "noise_level", noise_level)
+
+    @_builtins.property
+    @pulumi.getter(name="noiseLevel")
+    def noise_level(self) -> pulumi.Input['ConfiguredModelAlgorithmAssociationNoiseLevelType']:
+        return pulumi.get(self, "noise_level")
+
+    @noise_level.setter
+    def noise_level(self, value: pulumi.Input['ConfiguredModelAlgorithmAssociationNoiseLevelType']):
+        pulumi.set(self, "noise_level", value)
+
+
+class ConfiguredModelAlgorithmAssociationPrivacyConfigurationPoliciesArgsDict(TypedDict):
+    trained_model_exports: NotRequired[pulumi.Input['ConfiguredModelAlgorithmAssociationTrainedModelExportsConfigurationPolicyArgsDict']]
+    trained_model_inference_jobs: NotRequired[pulumi.Input['ConfiguredModelAlgorithmAssociationTrainedModelInferenceJobsConfigurationPolicyArgsDict']]
+    trained_models: NotRequired[pulumi.Input['ConfiguredModelAlgorithmAssociationTrainedModelsConfigurationPolicyArgsDict']]
+
+@pulumi.input_type
+class ConfiguredModelAlgorithmAssociationPrivacyConfigurationPoliciesArgs:
+    def __init__(__self__, *,
+                 trained_model_exports: Optional[pulumi.Input['ConfiguredModelAlgorithmAssociationTrainedModelExportsConfigurationPolicyArgs']] = None,
+                 trained_model_inference_jobs: Optional[pulumi.Input['ConfiguredModelAlgorithmAssociationTrainedModelInferenceJobsConfigurationPolicyArgs']] = None,
+                 trained_models: Optional[pulumi.Input['ConfiguredModelAlgorithmAssociationTrainedModelsConfigurationPolicyArgs']] = None):
+        if trained_model_exports is not None:
+            pulumi.set(__self__, "trained_model_exports", trained_model_exports)
+        if trained_model_inference_jobs is not None:
+            pulumi.set(__self__, "trained_model_inference_jobs", trained_model_inference_jobs)
+        if trained_models is not None:
+            pulumi.set(__self__, "trained_models", trained_models)
+
+    @_builtins.property
+    @pulumi.getter(name="trainedModelExports")
+    def trained_model_exports(self) -> Optional[pulumi.Input['ConfiguredModelAlgorithmAssociationTrainedModelExportsConfigurationPolicyArgs']]:
+        return pulumi.get(self, "trained_model_exports")
+
+    @trained_model_exports.setter
+    def trained_model_exports(self, value: Optional[pulumi.Input['ConfiguredModelAlgorithmAssociationTrainedModelExportsConfigurationPolicyArgs']]):
+        pulumi.set(self, "trained_model_exports", value)
+
+    @_builtins.property
+    @pulumi.getter(name="trainedModelInferenceJobs")
+    def trained_model_inference_jobs(self) -> Optional[pulumi.Input['ConfiguredModelAlgorithmAssociationTrainedModelInferenceJobsConfigurationPolicyArgs']]:
+        return pulumi.get(self, "trained_model_inference_jobs")
+
+    @trained_model_inference_jobs.setter
+    def trained_model_inference_jobs(self, value: Optional[pulumi.Input['ConfiguredModelAlgorithmAssociationTrainedModelInferenceJobsConfigurationPolicyArgs']]):
+        pulumi.set(self, "trained_model_inference_jobs", value)
+
+    @_builtins.property
+    @pulumi.getter(name="trainedModels")
+    def trained_models(self) -> Optional[pulumi.Input['ConfiguredModelAlgorithmAssociationTrainedModelsConfigurationPolicyArgs']]:
+        return pulumi.get(self, "trained_models")
+
+    @trained_models.setter
+    def trained_models(self, value: Optional[pulumi.Input['ConfiguredModelAlgorithmAssociationTrainedModelsConfigurationPolicyArgs']]):
+        pulumi.set(self, "trained_models", value)
+
+
+class ConfiguredModelAlgorithmAssociationPrivacyConfigurationArgsDict(TypedDict):
+    policies: pulumi.Input['ConfiguredModelAlgorithmAssociationPrivacyConfigurationPoliciesArgsDict']
+
+@pulumi.input_type
+class ConfiguredModelAlgorithmAssociationPrivacyConfigurationArgs:
+    def __init__(__self__, *,
+                 policies: pulumi.Input['ConfiguredModelAlgorithmAssociationPrivacyConfigurationPoliciesArgs']):
+        pulumi.set(__self__, "policies", policies)
+
+    @_builtins.property
+    @pulumi.getter
+    def policies(self) -> pulumi.Input['ConfiguredModelAlgorithmAssociationPrivacyConfigurationPoliciesArgs']:
+        return pulumi.get(self, "policies")
+
+    @policies.setter
+    def policies(self, value: pulumi.Input['ConfiguredModelAlgorithmAssociationPrivacyConfigurationPoliciesArgs']):
+        pulumi.set(self, "policies", value)
+
+
+class ConfiguredModelAlgorithmAssociationTrainedModelArtifactMaxSizeArgsDict(TypedDict):
+    unit: pulumi.Input['ConfiguredModelAlgorithmAssociationTrainedModelArtifactMaxSizeUnitType']
+    value: pulumi.Input[_builtins.float]
+
+@pulumi.input_type
+class ConfiguredModelAlgorithmAssociationTrainedModelArtifactMaxSizeArgs:
+    def __init__(__self__, *,
+                 unit: pulumi.Input['ConfiguredModelAlgorithmAssociationTrainedModelArtifactMaxSizeUnitType'],
+                 value: pulumi.Input[_builtins.float]):
+        pulumi.set(__self__, "unit", unit)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def unit(self) -> pulumi.Input['ConfiguredModelAlgorithmAssociationTrainedModelArtifactMaxSizeUnitType']:
+        return pulumi.get(self, "unit")
+
+    @unit.setter
+    def unit(self, value: pulumi.Input['ConfiguredModelAlgorithmAssociationTrainedModelArtifactMaxSizeUnitType']):
+        pulumi.set(self, "unit", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[_builtins.float]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[_builtins.float]):
+        pulumi.set(self, "value", value)
+
+
+class ConfiguredModelAlgorithmAssociationTrainedModelExportsConfigurationPolicyArgsDict(TypedDict):
+    files_to_export: pulumi.Input[Sequence[pulumi.Input['ConfiguredModelAlgorithmAssociationTrainedModelExportFileType']]]
+    max_size: pulumi.Input['ConfiguredModelAlgorithmAssociationTrainedModelExportsMaxSizeArgsDict']
+
+@pulumi.input_type
+class ConfiguredModelAlgorithmAssociationTrainedModelExportsConfigurationPolicyArgs:
+    def __init__(__self__, *,
+                 files_to_export: pulumi.Input[Sequence[pulumi.Input['ConfiguredModelAlgorithmAssociationTrainedModelExportFileType']]],
+                 max_size: pulumi.Input['ConfiguredModelAlgorithmAssociationTrainedModelExportsMaxSizeArgs']):
+        pulumi.set(__self__, "files_to_export", files_to_export)
+        pulumi.set(__self__, "max_size", max_size)
+
+    @_builtins.property
+    @pulumi.getter(name="filesToExport")
+    def files_to_export(self) -> pulumi.Input[Sequence[pulumi.Input['ConfiguredModelAlgorithmAssociationTrainedModelExportFileType']]]:
+        return pulumi.get(self, "files_to_export")
+
+    @files_to_export.setter
+    def files_to_export(self, value: pulumi.Input[Sequence[pulumi.Input['ConfiguredModelAlgorithmAssociationTrainedModelExportFileType']]]):
+        pulumi.set(self, "files_to_export", value)
+
+    @_builtins.property
+    @pulumi.getter(name="maxSize")
+    def max_size(self) -> pulumi.Input['ConfiguredModelAlgorithmAssociationTrainedModelExportsMaxSizeArgs']:
+        return pulumi.get(self, "max_size")
+
+    @max_size.setter
+    def max_size(self, value: pulumi.Input['ConfiguredModelAlgorithmAssociationTrainedModelExportsMaxSizeArgs']):
+        pulumi.set(self, "max_size", value)
+
+
+class ConfiguredModelAlgorithmAssociationTrainedModelExportsMaxSizeArgsDict(TypedDict):
+    unit: pulumi.Input['ConfiguredModelAlgorithmAssociationTrainedModelExportsMaxSizeUnitType']
+    value: pulumi.Input[_builtins.float]
+
+@pulumi.input_type
+class ConfiguredModelAlgorithmAssociationTrainedModelExportsMaxSizeArgs:
+    def __init__(__self__, *,
+                 unit: pulumi.Input['ConfiguredModelAlgorithmAssociationTrainedModelExportsMaxSizeUnitType'],
+                 value: pulumi.Input[_builtins.float]):
+        pulumi.set(__self__, "unit", unit)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def unit(self) -> pulumi.Input['ConfiguredModelAlgorithmAssociationTrainedModelExportsMaxSizeUnitType']:
+        return pulumi.get(self, "unit")
+
+    @unit.setter
+    def unit(self, value: pulumi.Input['ConfiguredModelAlgorithmAssociationTrainedModelExportsMaxSizeUnitType']):
+        pulumi.set(self, "unit", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[_builtins.float]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[_builtins.float]):
+        pulumi.set(self, "value", value)
+
+
+class ConfiguredModelAlgorithmAssociationTrainedModelInferenceJobsConfigurationPolicyArgsDict(TypedDict):
+    container_logs: NotRequired[pulumi.Input[Sequence[pulumi.Input['ConfiguredModelAlgorithmAssociationLogsConfigurationPolicyArgsDict']]]]
+    max_output_size: NotRequired[pulumi.Input['ConfiguredModelAlgorithmAssociationTrainedModelInferenceMaxOutputSizeArgsDict']]
+
+@pulumi.input_type
+class ConfiguredModelAlgorithmAssociationTrainedModelInferenceJobsConfigurationPolicyArgs:
+    def __init__(__self__, *,
+                 container_logs: Optional[pulumi.Input[Sequence[pulumi.Input['ConfiguredModelAlgorithmAssociationLogsConfigurationPolicyArgs']]]] = None,
+                 max_output_size: Optional[pulumi.Input['ConfiguredModelAlgorithmAssociationTrainedModelInferenceMaxOutputSizeArgs']] = None):
+        if container_logs is not None:
+            pulumi.set(__self__, "container_logs", container_logs)
+        if max_output_size is not None:
+            pulumi.set(__self__, "max_output_size", max_output_size)
+
+    @_builtins.property
+    @pulumi.getter(name="containerLogs")
+    def container_logs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ConfiguredModelAlgorithmAssociationLogsConfigurationPolicyArgs']]]]:
+        return pulumi.get(self, "container_logs")
+
+    @container_logs.setter
+    def container_logs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ConfiguredModelAlgorithmAssociationLogsConfigurationPolicyArgs']]]]):
+        pulumi.set(self, "container_logs", value)
+
+    @_builtins.property
+    @pulumi.getter(name="maxOutputSize")
+    def max_output_size(self) -> Optional[pulumi.Input['ConfiguredModelAlgorithmAssociationTrainedModelInferenceMaxOutputSizeArgs']]:
+        return pulumi.get(self, "max_output_size")
+
+    @max_output_size.setter
+    def max_output_size(self, value: Optional[pulumi.Input['ConfiguredModelAlgorithmAssociationTrainedModelInferenceMaxOutputSizeArgs']]):
+        pulumi.set(self, "max_output_size", value)
+
+
+class ConfiguredModelAlgorithmAssociationTrainedModelInferenceMaxOutputSizeArgsDict(TypedDict):
+    unit: pulumi.Input['ConfiguredModelAlgorithmAssociationTrainedModelInferenceMaxOutputSizeUnitType']
+    value: pulumi.Input[_builtins.float]
+
+@pulumi.input_type
+class ConfiguredModelAlgorithmAssociationTrainedModelInferenceMaxOutputSizeArgs:
+    def __init__(__self__, *,
+                 unit: pulumi.Input['ConfiguredModelAlgorithmAssociationTrainedModelInferenceMaxOutputSizeUnitType'],
+                 value: pulumi.Input[_builtins.float]):
+        pulumi.set(__self__, "unit", unit)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def unit(self) -> pulumi.Input['ConfiguredModelAlgorithmAssociationTrainedModelInferenceMaxOutputSizeUnitType']:
+        return pulumi.get(self, "unit")
+
+    @unit.setter
+    def unit(self, value: pulumi.Input['ConfiguredModelAlgorithmAssociationTrainedModelInferenceMaxOutputSizeUnitType']):
+        pulumi.set(self, "unit", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[_builtins.float]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[_builtins.float]):
+        pulumi.set(self, "value", value)
+
+
+class ConfiguredModelAlgorithmAssociationTrainedModelsConfigurationPolicyArgsDict(TypedDict):
+    container_logs: NotRequired[pulumi.Input[Sequence[pulumi.Input['ConfiguredModelAlgorithmAssociationLogsConfigurationPolicyArgsDict']]]]
+    container_metrics: NotRequired[pulumi.Input['ConfiguredModelAlgorithmAssociationMetricsConfigurationPolicyArgsDict']]
+    max_artifact_size: NotRequired[pulumi.Input['ConfiguredModelAlgorithmAssociationTrainedModelArtifactMaxSizeArgsDict']]
+
+@pulumi.input_type
+class ConfiguredModelAlgorithmAssociationTrainedModelsConfigurationPolicyArgs:
+    def __init__(__self__, *,
+                 container_logs: Optional[pulumi.Input[Sequence[pulumi.Input['ConfiguredModelAlgorithmAssociationLogsConfigurationPolicyArgs']]]] = None,
+                 container_metrics: Optional[pulumi.Input['ConfiguredModelAlgorithmAssociationMetricsConfigurationPolicyArgs']] = None,
+                 max_artifact_size: Optional[pulumi.Input['ConfiguredModelAlgorithmAssociationTrainedModelArtifactMaxSizeArgs']] = None):
+        if container_logs is not None:
+            pulumi.set(__self__, "container_logs", container_logs)
+        if container_metrics is not None:
+            pulumi.set(__self__, "container_metrics", container_metrics)
+        if max_artifact_size is not None:
+            pulumi.set(__self__, "max_artifact_size", max_artifact_size)
+
+    @_builtins.property
+    @pulumi.getter(name="containerLogs")
+    def container_logs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ConfiguredModelAlgorithmAssociationLogsConfigurationPolicyArgs']]]]:
+        return pulumi.get(self, "container_logs")
+
+    @container_logs.setter
+    def container_logs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ConfiguredModelAlgorithmAssociationLogsConfigurationPolicyArgs']]]]):
+        pulumi.set(self, "container_logs", value)
+
+    @_builtins.property
+    @pulumi.getter(name="containerMetrics")
+    def container_metrics(self) -> Optional[pulumi.Input['ConfiguredModelAlgorithmAssociationMetricsConfigurationPolicyArgs']]:
+        return pulumi.get(self, "container_metrics")
+
+    @container_metrics.setter
+    def container_metrics(self, value: Optional[pulumi.Input['ConfiguredModelAlgorithmAssociationMetricsConfigurationPolicyArgs']]):
+        pulumi.set(self, "container_metrics", value)
+
+    @_builtins.property
+    @pulumi.getter(name="maxArtifactSize")
+    def max_artifact_size(self) -> Optional[pulumi.Input['ConfiguredModelAlgorithmAssociationTrainedModelArtifactMaxSizeArgs']]:
+        return pulumi.get(self, "max_artifact_size")
+
+    @max_artifact_size.setter
+    def max_artifact_size(self, value: Optional[pulumi.Input['ConfiguredModelAlgorithmAssociationTrainedModelArtifactMaxSizeArgs']]):
+        pulumi.set(self, "max_artifact_size", value)
+
+
+class ConfiguredModelAlgorithmContainerConfigArgsDict(TypedDict):
+    image_uri: pulumi.Input[_builtins.str]
+    arguments: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    entrypoint: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    metric_definitions: NotRequired[pulumi.Input[Sequence[pulumi.Input['ConfiguredModelAlgorithmMetricDefinitionArgsDict']]]]
+
+@pulumi.input_type
+class ConfiguredModelAlgorithmContainerConfigArgs:
+    def __init__(__self__, *,
+                 image_uri: pulumi.Input[_builtins.str],
+                 arguments: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 entrypoint: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 metric_definitions: Optional[pulumi.Input[Sequence[pulumi.Input['ConfiguredModelAlgorithmMetricDefinitionArgs']]]] = None):
+        pulumi.set(__self__, "image_uri", image_uri)
+        if arguments is not None:
+            pulumi.set(__self__, "arguments", arguments)
+        if entrypoint is not None:
+            pulumi.set(__self__, "entrypoint", entrypoint)
+        if metric_definitions is not None:
+            pulumi.set(__self__, "metric_definitions", metric_definitions)
+
+    @_builtins.property
+    @pulumi.getter(name="imageUri")
+    def image_uri(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "image_uri")
+
+    @image_uri.setter
+    def image_uri(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "image_uri", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def arguments(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        return pulumi.get(self, "arguments")
+
+    @arguments.setter
+    def arguments(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "arguments", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def entrypoint(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        return pulumi.get(self, "entrypoint")
+
+    @entrypoint.setter
+    def entrypoint(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "entrypoint", value)
+
+    @_builtins.property
+    @pulumi.getter(name="metricDefinitions")
+    def metric_definitions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ConfiguredModelAlgorithmMetricDefinitionArgs']]]]:
+        return pulumi.get(self, "metric_definitions")
+
+    @metric_definitions.setter
+    def metric_definitions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ConfiguredModelAlgorithmMetricDefinitionArgs']]]]):
+        pulumi.set(self, "metric_definitions", value)
+
+
+class ConfiguredModelAlgorithmInferenceContainerConfigArgsDict(TypedDict):
+    image_uri: pulumi.Input[_builtins.str]
+
+@pulumi.input_type
+class ConfiguredModelAlgorithmInferenceContainerConfigArgs:
+    def __init__(__self__, *,
+                 image_uri: pulumi.Input[_builtins.str]):
+        pulumi.set(__self__, "image_uri", image_uri)
+
+    @_builtins.property
+    @pulumi.getter(name="imageUri")
+    def image_uri(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "image_uri")
+
+    @image_uri.setter
+    def image_uri(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "image_uri", value)
+
+
+class ConfiguredModelAlgorithmMetricDefinitionArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    regex: pulumi.Input[_builtins.str]
+
+@pulumi.input_type
+class ConfiguredModelAlgorithmMetricDefinitionArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[_builtins.str],
+                 regex: pulumi.Input[_builtins.str]):
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "regex", regex)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def regex(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "regex")
+
+    @regex.setter
+    def regex(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "regex", value)
+
 
 class TrainingDatasetColumnSchemaArgsDict(TypedDict):
     column_name: pulumi.Input[_builtins.str]

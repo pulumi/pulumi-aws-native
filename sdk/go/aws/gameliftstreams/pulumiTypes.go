@@ -237,8 +237,9 @@ type StreamGroupLocationConfiguration struct {
 	LocationName    string `pulumi:"locationName"`
 	MaximumCapacity *int   `pulumi:"maximumCapacity"`
 	// This shape is deprecated.
-	OnDemandCapacity   *int `pulumi:"onDemandCapacity"`
-	TargetIdleCapacity *int `pulumi:"targetIdleCapacity"`
+	OnDemandCapacity        *int                                `pulumi:"onDemandCapacity"`
+	TargetIdleCapacity      *int                                `pulumi:"targetIdleCapacity"`
+	VpcTransitConfiguration *StreamGroupVpcTransitConfiguration `pulumi:"vpcTransitConfiguration"`
 }
 
 // StreamGroupLocationConfigurationInput is an input type that accepts StreamGroupLocationConfigurationArgs and StreamGroupLocationConfigurationOutput values.
@@ -259,8 +260,9 @@ type StreamGroupLocationConfigurationArgs struct {
 	LocationName    pulumi.StringInput `pulumi:"locationName"`
 	MaximumCapacity pulumi.IntPtrInput `pulumi:"maximumCapacity"`
 	// This shape is deprecated.
-	OnDemandCapacity   pulumi.IntPtrInput `pulumi:"onDemandCapacity"`
-	TargetIdleCapacity pulumi.IntPtrInput `pulumi:"targetIdleCapacity"`
+	OnDemandCapacity        pulumi.IntPtrInput                         `pulumi:"onDemandCapacity"`
+	TargetIdleCapacity      pulumi.IntPtrInput                         `pulumi:"targetIdleCapacity"`
+	VpcTransitConfiguration StreamGroupVpcTransitConfigurationPtrInput `pulumi:"vpcTransitConfiguration"`
 }
 
 func (StreamGroupLocationConfigurationArgs) ElementType() reflect.Type {
@@ -337,6 +339,12 @@ func (o StreamGroupLocationConfigurationOutput) TargetIdleCapacity() pulumi.IntP
 	return o.ApplyT(func(v StreamGroupLocationConfiguration) *int { return v.TargetIdleCapacity }).(pulumi.IntPtrOutput)
 }
 
+func (o StreamGroupLocationConfigurationOutput) VpcTransitConfiguration() StreamGroupVpcTransitConfigurationPtrOutput {
+	return o.ApplyT(func(v StreamGroupLocationConfiguration) *StreamGroupVpcTransitConfiguration {
+		return v.VpcTransitConfiguration
+	}).(StreamGroupVpcTransitConfigurationPtrOutput)
+}
+
 type StreamGroupLocationConfigurationArrayOutput struct{ *pulumi.OutputState }
 
 func (StreamGroupLocationConfigurationArrayOutput) ElementType() reflect.Type {
@@ -357,15 +365,167 @@ func (o StreamGroupLocationConfigurationArrayOutput) Index(i pulumi.IntInput) St
 	}).(StreamGroupLocationConfigurationOutput)
 }
 
+type StreamGroupVpcTransitConfiguration struct {
+	Ipv4CidrBlocks []string `pulumi:"ipv4CidrBlocks"`
+	VpcId          string   `pulumi:"vpcId"`
+}
+
+// StreamGroupVpcTransitConfigurationInput is an input type that accepts StreamGroupVpcTransitConfigurationArgs and StreamGroupVpcTransitConfigurationOutput values.
+// You can construct a concrete instance of `StreamGroupVpcTransitConfigurationInput` via:
+//
+//	StreamGroupVpcTransitConfigurationArgs{...}
+type StreamGroupVpcTransitConfigurationInput interface {
+	pulumi.Input
+
+	ToStreamGroupVpcTransitConfigurationOutput() StreamGroupVpcTransitConfigurationOutput
+	ToStreamGroupVpcTransitConfigurationOutputWithContext(context.Context) StreamGroupVpcTransitConfigurationOutput
+}
+
+type StreamGroupVpcTransitConfigurationArgs struct {
+	Ipv4CidrBlocks pulumi.StringArrayInput `pulumi:"ipv4CidrBlocks"`
+	VpcId          pulumi.StringInput      `pulumi:"vpcId"`
+}
+
+func (StreamGroupVpcTransitConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StreamGroupVpcTransitConfiguration)(nil)).Elem()
+}
+
+func (i StreamGroupVpcTransitConfigurationArgs) ToStreamGroupVpcTransitConfigurationOutput() StreamGroupVpcTransitConfigurationOutput {
+	return i.ToStreamGroupVpcTransitConfigurationOutputWithContext(context.Background())
+}
+
+func (i StreamGroupVpcTransitConfigurationArgs) ToStreamGroupVpcTransitConfigurationOutputWithContext(ctx context.Context) StreamGroupVpcTransitConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamGroupVpcTransitConfigurationOutput)
+}
+
+func (i StreamGroupVpcTransitConfigurationArgs) ToStreamGroupVpcTransitConfigurationPtrOutput() StreamGroupVpcTransitConfigurationPtrOutput {
+	return i.ToStreamGroupVpcTransitConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i StreamGroupVpcTransitConfigurationArgs) ToStreamGroupVpcTransitConfigurationPtrOutputWithContext(ctx context.Context) StreamGroupVpcTransitConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamGroupVpcTransitConfigurationOutput).ToStreamGroupVpcTransitConfigurationPtrOutputWithContext(ctx)
+}
+
+// StreamGroupVpcTransitConfigurationPtrInput is an input type that accepts StreamGroupVpcTransitConfigurationArgs, StreamGroupVpcTransitConfigurationPtr and StreamGroupVpcTransitConfigurationPtrOutput values.
+// You can construct a concrete instance of `StreamGroupVpcTransitConfigurationPtrInput` via:
+//
+//	        StreamGroupVpcTransitConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type StreamGroupVpcTransitConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToStreamGroupVpcTransitConfigurationPtrOutput() StreamGroupVpcTransitConfigurationPtrOutput
+	ToStreamGroupVpcTransitConfigurationPtrOutputWithContext(context.Context) StreamGroupVpcTransitConfigurationPtrOutput
+}
+
+type streamGroupVpcTransitConfigurationPtrType StreamGroupVpcTransitConfigurationArgs
+
+func StreamGroupVpcTransitConfigurationPtr(v *StreamGroupVpcTransitConfigurationArgs) StreamGroupVpcTransitConfigurationPtrInput {
+	return (*streamGroupVpcTransitConfigurationPtrType)(v)
+}
+
+func (*streamGroupVpcTransitConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StreamGroupVpcTransitConfiguration)(nil)).Elem()
+}
+
+func (i *streamGroupVpcTransitConfigurationPtrType) ToStreamGroupVpcTransitConfigurationPtrOutput() StreamGroupVpcTransitConfigurationPtrOutput {
+	return i.ToStreamGroupVpcTransitConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *streamGroupVpcTransitConfigurationPtrType) ToStreamGroupVpcTransitConfigurationPtrOutputWithContext(ctx context.Context) StreamGroupVpcTransitConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamGroupVpcTransitConfigurationPtrOutput)
+}
+
+type StreamGroupVpcTransitConfigurationOutput struct{ *pulumi.OutputState }
+
+func (StreamGroupVpcTransitConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StreamGroupVpcTransitConfiguration)(nil)).Elem()
+}
+
+func (o StreamGroupVpcTransitConfigurationOutput) ToStreamGroupVpcTransitConfigurationOutput() StreamGroupVpcTransitConfigurationOutput {
+	return o
+}
+
+func (o StreamGroupVpcTransitConfigurationOutput) ToStreamGroupVpcTransitConfigurationOutputWithContext(ctx context.Context) StreamGroupVpcTransitConfigurationOutput {
+	return o
+}
+
+func (o StreamGroupVpcTransitConfigurationOutput) ToStreamGroupVpcTransitConfigurationPtrOutput() StreamGroupVpcTransitConfigurationPtrOutput {
+	return o.ToStreamGroupVpcTransitConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o StreamGroupVpcTransitConfigurationOutput) ToStreamGroupVpcTransitConfigurationPtrOutputWithContext(ctx context.Context) StreamGroupVpcTransitConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StreamGroupVpcTransitConfiguration) *StreamGroupVpcTransitConfiguration {
+		return &v
+	}).(StreamGroupVpcTransitConfigurationPtrOutput)
+}
+
+func (o StreamGroupVpcTransitConfigurationOutput) Ipv4CidrBlocks() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v StreamGroupVpcTransitConfiguration) []string { return v.Ipv4CidrBlocks }).(pulumi.StringArrayOutput)
+}
+
+func (o StreamGroupVpcTransitConfigurationOutput) VpcId() pulumi.StringOutput {
+	return o.ApplyT(func(v StreamGroupVpcTransitConfiguration) string { return v.VpcId }).(pulumi.StringOutput)
+}
+
+type StreamGroupVpcTransitConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (StreamGroupVpcTransitConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StreamGroupVpcTransitConfiguration)(nil)).Elem()
+}
+
+func (o StreamGroupVpcTransitConfigurationPtrOutput) ToStreamGroupVpcTransitConfigurationPtrOutput() StreamGroupVpcTransitConfigurationPtrOutput {
+	return o
+}
+
+func (o StreamGroupVpcTransitConfigurationPtrOutput) ToStreamGroupVpcTransitConfigurationPtrOutputWithContext(ctx context.Context) StreamGroupVpcTransitConfigurationPtrOutput {
+	return o
+}
+
+func (o StreamGroupVpcTransitConfigurationPtrOutput) Elem() StreamGroupVpcTransitConfigurationOutput {
+	return o.ApplyT(func(v *StreamGroupVpcTransitConfiguration) StreamGroupVpcTransitConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret StreamGroupVpcTransitConfiguration
+		return ret
+	}).(StreamGroupVpcTransitConfigurationOutput)
+}
+
+func (o StreamGroupVpcTransitConfigurationPtrOutput) Ipv4CidrBlocks() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *StreamGroupVpcTransitConfiguration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Ipv4CidrBlocks
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o StreamGroupVpcTransitConfigurationPtrOutput) VpcId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StreamGroupVpcTransitConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.VpcId
+	}).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationRuntimeEnvironmentInput)(nil)).Elem(), ApplicationRuntimeEnvironmentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StreamGroupDefaultApplicationInput)(nil)).Elem(), StreamGroupDefaultApplicationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StreamGroupDefaultApplicationPtrInput)(nil)).Elem(), StreamGroupDefaultApplicationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StreamGroupLocationConfigurationInput)(nil)).Elem(), StreamGroupLocationConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StreamGroupLocationConfigurationArrayInput)(nil)).Elem(), StreamGroupLocationConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StreamGroupVpcTransitConfigurationInput)(nil)).Elem(), StreamGroupVpcTransitConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StreamGroupVpcTransitConfigurationPtrInput)(nil)).Elem(), StreamGroupVpcTransitConfigurationArgs{})
 	pulumi.RegisterOutputType(ApplicationRuntimeEnvironmentOutput{})
 	pulumi.RegisterOutputType(StreamGroupDefaultApplicationOutput{})
 	pulumi.RegisterOutputType(StreamGroupDefaultApplicationPtrOutput{})
 	pulumi.RegisterOutputType(StreamGroupLocationConfigurationOutput{})
 	pulumi.RegisterOutputType(StreamGroupLocationConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(StreamGroupVpcTransitConfigurationOutput{})
+	pulumi.RegisterOutputType(StreamGroupVpcTransitConfigurationPtrOutput{})
 }

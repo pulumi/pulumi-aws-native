@@ -33,6 +33,9 @@ namespace Pulumi.AwsNative.Batch
         [Output("name")]
         public Output<string?> Name { get; private set; } = null!;
 
+        [Output("quotaSharePolicy")]
+        public Output<Outputs.SchedulingPolicyQuotaSharePolicy?> QuotaSharePolicy { get; private set; } = null!;
+
         /// <summary>
         /// A key-value pair to associate with a resource.
         /// </summary>
@@ -100,6 +103,9 @@ namespace Pulumi.AwsNative.Batch
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        [Input("quotaSharePolicy")]
+        public Input<Inputs.SchedulingPolicyQuotaSharePolicyArgs>? QuotaSharePolicy { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
