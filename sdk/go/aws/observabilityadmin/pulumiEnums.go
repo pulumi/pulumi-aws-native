@@ -2231,6 +2231,262 @@ func (in *s3tableIntegrationEncryptionConfigSseAlgorithmPtr) ToS3TableIntegratio
 	return pulumi.ToOutputWithContext(ctx, in).(S3TableIntegrationEncryptionConfigSseAlgorithmPtrOutput)
 }
 
+// Scope of the Telemetry Enrichment
+type TelemetryEnrichmentScope string
+
+const (
+	TelemetryEnrichmentScopeAccount = TelemetryEnrichmentScope("ACCOUNT")
+)
+
+func (TelemetryEnrichmentScope) ElementType() reflect.Type {
+	return reflect.TypeOf((*TelemetryEnrichmentScope)(nil)).Elem()
+}
+
+func (e TelemetryEnrichmentScope) ToTelemetryEnrichmentScopeOutput() TelemetryEnrichmentScopeOutput {
+	return pulumi.ToOutput(e).(TelemetryEnrichmentScopeOutput)
+}
+
+func (e TelemetryEnrichmentScope) ToTelemetryEnrichmentScopeOutputWithContext(ctx context.Context) TelemetryEnrichmentScopeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(TelemetryEnrichmentScopeOutput)
+}
+
+func (e TelemetryEnrichmentScope) ToTelemetryEnrichmentScopePtrOutput() TelemetryEnrichmentScopePtrOutput {
+	return e.ToTelemetryEnrichmentScopePtrOutputWithContext(context.Background())
+}
+
+func (e TelemetryEnrichmentScope) ToTelemetryEnrichmentScopePtrOutputWithContext(ctx context.Context) TelemetryEnrichmentScopePtrOutput {
+	return TelemetryEnrichmentScope(e).ToTelemetryEnrichmentScopeOutputWithContext(ctx).ToTelemetryEnrichmentScopePtrOutputWithContext(ctx)
+}
+
+func (e TelemetryEnrichmentScope) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TelemetryEnrichmentScope) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TelemetryEnrichmentScope) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e TelemetryEnrichmentScope) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type TelemetryEnrichmentScopeOutput struct{ *pulumi.OutputState }
+
+func (TelemetryEnrichmentScopeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TelemetryEnrichmentScope)(nil)).Elem()
+}
+
+func (o TelemetryEnrichmentScopeOutput) ToTelemetryEnrichmentScopeOutput() TelemetryEnrichmentScopeOutput {
+	return o
+}
+
+func (o TelemetryEnrichmentScopeOutput) ToTelemetryEnrichmentScopeOutputWithContext(ctx context.Context) TelemetryEnrichmentScopeOutput {
+	return o
+}
+
+func (o TelemetryEnrichmentScopeOutput) ToTelemetryEnrichmentScopePtrOutput() TelemetryEnrichmentScopePtrOutput {
+	return o.ToTelemetryEnrichmentScopePtrOutputWithContext(context.Background())
+}
+
+func (o TelemetryEnrichmentScopeOutput) ToTelemetryEnrichmentScopePtrOutputWithContext(ctx context.Context) TelemetryEnrichmentScopePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TelemetryEnrichmentScope) *TelemetryEnrichmentScope {
+		return &v
+	}).(TelemetryEnrichmentScopePtrOutput)
+}
+
+func (o TelemetryEnrichmentScopeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o TelemetryEnrichmentScopeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TelemetryEnrichmentScope) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o TelemetryEnrichmentScopeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TelemetryEnrichmentScopeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TelemetryEnrichmentScope) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type TelemetryEnrichmentScopePtrOutput struct{ *pulumi.OutputState }
+
+func (TelemetryEnrichmentScopePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TelemetryEnrichmentScope)(nil)).Elem()
+}
+
+func (o TelemetryEnrichmentScopePtrOutput) ToTelemetryEnrichmentScopePtrOutput() TelemetryEnrichmentScopePtrOutput {
+	return o
+}
+
+func (o TelemetryEnrichmentScopePtrOutput) ToTelemetryEnrichmentScopePtrOutputWithContext(ctx context.Context) TelemetryEnrichmentScopePtrOutput {
+	return o
+}
+
+func (o TelemetryEnrichmentScopePtrOutput) Elem() TelemetryEnrichmentScopeOutput {
+	return o.ApplyT(func(v *TelemetryEnrichmentScope) TelemetryEnrichmentScope {
+		if v != nil {
+			return *v
+		}
+		var ret TelemetryEnrichmentScope
+		return ret
+	}).(TelemetryEnrichmentScopeOutput)
+}
+
+func (o TelemetryEnrichmentScopePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TelemetryEnrichmentScopePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *TelemetryEnrichmentScope) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// TelemetryEnrichmentScopeInput is an input type that accepts values of the TelemetryEnrichmentScope enum
+// A concrete instance of `TelemetryEnrichmentScopeInput` can be one of the following:
+//
+//	TelemetryEnrichmentScopeAccount
+type TelemetryEnrichmentScopeInput interface {
+	pulumi.Input
+
+	ToTelemetryEnrichmentScopeOutput() TelemetryEnrichmentScopeOutput
+	ToTelemetryEnrichmentScopeOutputWithContext(context.Context) TelemetryEnrichmentScopeOutput
+}
+
+var telemetryEnrichmentScopePtrType = reflect.TypeOf((**TelemetryEnrichmentScope)(nil)).Elem()
+
+type TelemetryEnrichmentScopePtrInput interface {
+	pulumi.Input
+
+	ToTelemetryEnrichmentScopePtrOutput() TelemetryEnrichmentScopePtrOutput
+	ToTelemetryEnrichmentScopePtrOutputWithContext(context.Context) TelemetryEnrichmentScopePtrOutput
+}
+
+type telemetryEnrichmentScopePtr string
+
+func TelemetryEnrichmentScopePtr(v string) TelemetryEnrichmentScopePtrInput {
+	return (*telemetryEnrichmentScopePtr)(&v)
+}
+
+func (*telemetryEnrichmentScopePtr) ElementType() reflect.Type {
+	return telemetryEnrichmentScopePtrType
+}
+
+func (in *telemetryEnrichmentScopePtr) ToTelemetryEnrichmentScopePtrOutput() TelemetryEnrichmentScopePtrOutput {
+	return pulumi.ToOutput(in).(TelemetryEnrichmentScopePtrOutput)
+}
+
+func (in *telemetryEnrichmentScopePtr) ToTelemetryEnrichmentScopePtrOutputWithContext(ctx context.Context) TelemetryEnrichmentScopePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(TelemetryEnrichmentScopePtrOutput)
+}
+
+// Current status of the resource tags for telemetry feature (Running, Stopped, or Impaired).
+type TelemetryEnrichmentStatus string
+
+const (
+	TelemetryEnrichmentStatusRunning  = TelemetryEnrichmentStatus("RUNNING")
+	TelemetryEnrichmentStatusStopped  = TelemetryEnrichmentStatus("STOPPED")
+	TelemetryEnrichmentStatusImpaired = TelemetryEnrichmentStatus("IMPAIRED")
+)
+
+type TelemetryEnrichmentStatusOutput struct{ *pulumi.OutputState }
+
+func (TelemetryEnrichmentStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TelemetryEnrichmentStatus)(nil)).Elem()
+}
+
+func (o TelemetryEnrichmentStatusOutput) ToTelemetryEnrichmentStatusOutput() TelemetryEnrichmentStatusOutput {
+	return o
+}
+
+func (o TelemetryEnrichmentStatusOutput) ToTelemetryEnrichmentStatusOutputWithContext(ctx context.Context) TelemetryEnrichmentStatusOutput {
+	return o
+}
+
+func (o TelemetryEnrichmentStatusOutput) ToTelemetryEnrichmentStatusPtrOutput() TelemetryEnrichmentStatusPtrOutput {
+	return o.ToTelemetryEnrichmentStatusPtrOutputWithContext(context.Background())
+}
+
+func (o TelemetryEnrichmentStatusOutput) ToTelemetryEnrichmentStatusPtrOutputWithContext(ctx context.Context) TelemetryEnrichmentStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TelemetryEnrichmentStatus) *TelemetryEnrichmentStatus {
+		return &v
+	}).(TelemetryEnrichmentStatusPtrOutput)
+}
+
+func (o TelemetryEnrichmentStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o TelemetryEnrichmentStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TelemetryEnrichmentStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o TelemetryEnrichmentStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TelemetryEnrichmentStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TelemetryEnrichmentStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type TelemetryEnrichmentStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (TelemetryEnrichmentStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TelemetryEnrichmentStatus)(nil)).Elem()
+}
+
+func (o TelemetryEnrichmentStatusPtrOutput) ToTelemetryEnrichmentStatusPtrOutput() TelemetryEnrichmentStatusPtrOutput {
+	return o
+}
+
+func (o TelemetryEnrichmentStatusPtrOutput) ToTelemetryEnrichmentStatusPtrOutputWithContext(ctx context.Context) TelemetryEnrichmentStatusPtrOutput {
+	return o
+}
+
+func (o TelemetryEnrichmentStatusPtrOutput) Elem() TelemetryEnrichmentStatusOutput {
+	return o.ApplyT(func(v *TelemetryEnrichmentStatus) TelemetryEnrichmentStatus {
+		if v != nil {
+			return *v
+		}
+		var ret TelemetryEnrichmentStatus
+		return ret
+	}).(TelemetryEnrichmentStatusOutput)
+}
+
+func (o TelemetryEnrichmentStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TelemetryEnrichmentStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *TelemetryEnrichmentStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
 type TelemetryPipelinesTelemetryPipelineStatus string
 
 const (
@@ -4128,6 +4384,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationTelemetryRuleWafLogTypePtrInput)(nil)).Elem(), OrganizationTelemetryRuleWafLogType("WAF_LOGS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*S3TableIntegrationEncryptionConfigSseAlgorithmInput)(nil)).Elem(), S3TableIntegrationEncryptionConfigSseAlgorithm("AES256"))
 	pulumi.RegisterInputType(reflect.TypeOf((*S3TableIntegrationEncryptionConfigSseAlgorithmPtrInput)(nil)).Elem(), S3TableIntegrationEncryptionConfigSseAlgorithm("AES256"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TelemetryEnrichmentScopeInput)(nil)).Elem(), TelemetryEnrichmentScope("ACCOUNT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TelemetryEnrichmentScopePtrInput)(nil)).Elem(), TelemetryEnrichmentScope("ACCOUNT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TelemetryRuleActionInput)(nil)).Elem(), TelemetryRuleAction("ALLOW"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TelemetryRuleActionPtrInput)(nil)).Elem(), TelemetryRuleAction("ALLOW"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TelemetryRuleDestinationTypeInput)(nil)).Elem(), TelemetryRuleDestinationType("cloud-watch-logs"))
@@ -4177,6 +4435,10 @@ func init() {
 	pulumi.RegisterOutputType(OrganizationTelemetryRuleWafLogTypePtrOutput{})
 	pulumi.RegisterOutputType(S3TableIntegrationEncryptionConfigSseAlgorithmOutput{})
 	pulumi.RegisterOutputType(S3TableIntegrationEncryptionConfigSseAlgorithmPtrOutput{})
+	pulumi.RegisterOutputType(TelemetryEnrichmentScopeOutput{})
+	pulumi.RegisterOutputType(TelemetryEnrichmentScopePtrOutput{})
+	pulumi.RegisterOutputType(TelemetryEnrichmentStatusOutput{})
+	pulumi.RegisterOutputType(TelemetryEnrichmentStatusPtrOutput{})
 	pulumi.RegisterOutputType(TelemetryPipelinesTelemetryPipelineStatusOutput{})
 	pulumi.RegisterOutputType(TelemetryPipelinesTelemetryPipelineStatusPtrOutput{})
 	pulumi.RegisterOutputType(TelemetryRuleActionOutput{})

@@ -142,6 +142,12 @@ namespace Pulumi.AwsNative.Odb
         public Output<string> Hostname { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Identity and Access Management (IAM) service roles associated with the Autonomous VM cluster.
+        /// </summary>
+        [Output("iamRoles")]
+        public Output<ImmutableArray<Outputs.CloudAutonomousVmClusterIamRole>> IamRoles { get; private set; } = null!;
+
+        /// <summary>
         /// Indicates whether mutual TLS (mTLS) authentication is enabled for the Autonomous VM cluster.
         /// </summary>
         [Output("isMtlsEnabledVmCluster")]
@@ -383,6 +389,18 @@ namespace Pulumi.AwsNative.Odb
         /// </summary>
         [Input("displayName")]
         public Input<string>? DisplayName { get; set; }
+
+        [Input("iamRoles")]
+        private InputList<Inputs.CloudAutonomousVmClusterIamRoleArgs>? _iamRoles;
+
+        /// <summary>
+        /// The AWS Identity and Access Management (IAM) service roles associated with the Autonomous VM cluster.
+        /// </summary>
+        public InputList<Inputs.CloudAutonomousVmClusterIamRoleArgs> IamRoles
+        {
+            get => _iamRoles ?? (_iamRoles = new InputList<Inputs.CloudAutonomousVmClusterIamRoleArgs>());
+            set => _iamRoles = value;
+        }
 
         /// <summary>
         /// Indicates whether mutual TLS (mTLS) authentication is enabled for the Autonomous VM cluster.

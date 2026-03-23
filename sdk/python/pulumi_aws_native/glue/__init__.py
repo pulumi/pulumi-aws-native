@@ -7,8 +7,10 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from ._enums import *
+from .catalog import *
 from .crawler import *
 from .database import *
+from .get_catalog import *
 from .get_crawler import *
 from .get_database import *
 from .get_identity_center_configuration import *

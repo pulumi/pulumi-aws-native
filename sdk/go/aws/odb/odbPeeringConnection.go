@@ -34,6 +34,8 @@ type OdbPeeringConnection struct {
 	PeerNetworkCidrs pulumi.StringArrayOutput `pulumi:"peerNetworkCidrs"`
 	// The unique identifier of the peer network.
 	PeerNetworkId pulumi.StringPtrOutput `pulumi:"peerNetworkId"`
+	// The unique identifier of the VPC route table for which a route to the ODB network is automatically created during peering connection establishment.
+	PeerNetworkRouteTableIds pulumi.StringArrayOutput `pulumi:"peerNetworkRouteTableIds"`
 	// Tags to assign to the Odb peering connection.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
@@ -48,6 +50,7 @@ func NewOdbPeeringConnection(ctx *pulumi.Context,
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"odbNetworkId",
 		"peerNetworkId",
+		"peerNetworkRouteTableIds[*]",
 	})
 	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
@@ -91,6 +94,8 @@ type odbPeeringConnectionArgs struct {
 	OdbNetworkId *string `pulumi:"odbNetworkId"`
 	// The unique identifier of the peer network.
 	PeerNetworkId *string `pulumi:"peerNetworkId"`
+	// The unique identifier of the VPC route table for which a route to the ODB network is automatically created during peering connection establishment.
+	PeerNetworkRouteTableIds []string `pulumi:"peerNetworkRouteTableIds"`
 	// Tags to assign to the Odb peering connection.
 	Tags []aws.Tag `pulumi:"tags"`
 }
@@ -105,6 +110,8 @@ type OdbPeeringConnectionArgs struct {
 	OdbNetworkId pulumi.StringPtrInput
 	// The unique identifier of the peer network.
 	PeerNetworkId pulumi.StringPtrInput
+	// The unique identifier of the VPC route table for which a route to the ODB network is automatically created during peering connection establishment.
+	PeerNetworkRouteTableIds pulumi.StringArrayInput
 	// Tags to assign to the Odb peering connection.
 	Tags aws.TagArrayInput
 }
@@ -189,6 +196,11 @@ func (o OdbPeeringConnectionOutput) PeerNetworkCidrs() pulumi.StringArrayOutput 
 // The unique identifier of the peer network.
 func (o OdbPeeringConnectionOutput) PeerNetworkId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OdbPeeringConnection) pulumi.StringPtrOutput { return v.PeerNetworkId }).(pulumi.StringPtrOutput)
+}
+
+// The unique identifier of the VPC route table for which a route to the ODB network is automatically created during peering connection establishment.
+func (o OdbPeeringConnectionOutput) PeerNetworkRouteTableIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *OdbPeeringConnection) pulumi.StringArrayOutput { return v.PeerNetworkRouteTableIds }).(pulumi.StringArrayOutput)
 }
 
 // Tags to assign to the Odb peering connection.

@@ -63,6 +63,12 @@ namespace Pulumi.AwsNative.MediaConnect
         [Output("subscribers")]
         public Output<ImmutableArray<string>> Subscribers { get; private set; } = null!;
 
+        /// <summary>
+        /// Key-value pairs that can be used to tag and organize this flow entitlement.
+        /// </summary>
+        [Output("tags")]
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a FlowEntitlement resource with the given unique name, arguments, and options.
@@ -89,6 +95,7 @@ namespace Pulumi.AwsNative.MediaConnect
                 ReplaceOnChanges =
                 {
                     "dataTransferSubscriberFeePercent",
+                    "flowArn",
                     "name",
                 },
             };
@@ -159,6 +166,18 @@ namespace Pulumi.AwsNative.MediaConnect
         {
             get => _subscribers ?? (_subscribers = new InputList<string>());
             set => _subscribers = value;
+        }
+
+        [Input("tags")]
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
+        /// <summary>
+        /// Key-value pairs that can be used to tag and organize this flow entitlement.
+        /// </summary>
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
+        {
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            set => _tags = value;
         }
 
         public FlowEntitlementArgs()

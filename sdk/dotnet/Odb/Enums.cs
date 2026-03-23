@@ -274,6 +274,37 @@ namespace Pulumi.AwsNative.Odb
     }
 
     /// <summary>
+    /// The AWS Key Management Service (KMS) access configuration for the ODB network.
+    /// </summary>
+    [EnumType]
+    public readonly struct OdbNetworkKmsAccess : IEquatable<OdbNetworkKmsAccess>
+    {
+        private readonly string _value;
+
+        private OdbNetworkKmsAccess(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static OdbNetworkKmsAccess Enabled { get; } = new OdbNetworkKmsAccess("ENABLED");
+        public static OdbNetworkKmsAccess Disabled { get; } = new OdbNetworkKmsAccess("DISABLED");
+
+        public static bool operator ==(OdbNetworkKmsAccess left, OdbNetworkKmsAccess right) => left.Equals(right);
+        public static bool operator !=(OdbNetworkKmsAccess left, OdbNetworkKmsAccess right) => !left.Equals(right);
+
+        public static explicit operator string(OdbNetworkKmsAccess value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is OdbNetworkKmsAccess other && Equals(other);
+        public bool Equals(OdbNetworkKmsAccess other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The status of the managed resource access.
     /// </summary>
     [EnumType]
@@ -360,6 +391,37 @@ namespace Pulumi.AwsNative.Odb
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is OdbNetworkS3Access other && Equals(other);
         public bool Equals(OdbNetworkS3Access other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The AWS Security Token Service (STS) access configuration for the ODB network.
+    /// </summary>
+    [EnumType]
+    public readonly struct OdbNetworkStsAccess : IEquatable<OdbNetworkStsAccess>
+    {
+        private readonly string _value;
+
+        private OdbNetworkStsAccess(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static OdbNetworkStsAccess Enabled { get; } = new OdbNetworkStsAccess("ENABLED");
+        public static OdbNetworkStsAccess Disabled { get; } = new OdbNetworkStsAccess("DISABLED");
+
+        public static bool operator ==(OdbNetworkStsAccess left, OdbNetworkStsAccess right) => left.Equals(right);
+        public static bool operator !=(OdbNetworkStsAccess left, OdbNetworkStsAccess right) => !left.Equals(right);
+
+        public static explicit operator string(OdbNetworkStsAccess value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is OdbNetworkStsAccess other && Equals(other);
+        public bool Equals(OdbNetworkStsAccess other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

@@ -70,13 +70,6 @@ export const WorkspaceInstanceInstanceMaintenanceOptionsRequestAutoRecovery = {
 
 export type WorkspaceInstanceInstanceMaintenanceOptionsRequestAutoRecovery = (typeof WorkspaceInstanceInstanceMaintenanceOptionsRequestAutoRecovery)[keyof typeof WorkspaceInstanceInstanceMaintenanceOptionsRequestAutoRecovery];
 
-export const WorkspaceInstanceInstanceMarketOptionsRequestMarketType = {
-    Spot: "spot",
-    CapacityBlock: "capacity-block",
-} as const;
-
-export type WorkspaceInstanceInstanceMarketOptionsRequestMarketType = (typeof WorkspaceInstanceInstanceMarketOptionsRequestMarketType)[keyof typeof WorkspaceInstanceInstanceMarketOptionsRequestMarketType];
-
 export const WorkspaceInstanceInstanceMetadataOptionsRequestHttpEndpoint = {
     Enabled: "enabled",
     Disabled: "disabled",
@@ -141,20 +134,6 @@ export const WorkspaceInstanceProvisionState = {
  * The current state of the workspace instance
  */
 export type WorkspaceInstanceProvisionState = (typeof WorkspaceInstanceProvisionState)[keyof typeof WorkspaceInstanceProvisionState];
-
-export const WorkspaceInstanceSpotMarketOptionsInstanceInterruptionBehavior = {
-    Hibernate: "hibernate",
-    Stop: "stop",
-} as const;
-
-export type WorkspaceInstanceSpotMarketOptionsInstanceInterruptionBehavior = (typeof WorkspaceInstanceSpotMarketOptionsInstanceInterruptionBehavior)[keyof typeof WorkspaceInstanceSpotMarketOptionsInstanceInterruptionBehavior];
-
-export const WorkspaceInstanceSpotMarketOptionsSpotInstanceType = {
-    OneTime: "one-time",
-    Persistent: "persistent",
-} as const;
-
-export type WorkspaceInstanceSpotMarketOptionsSpotInstanceType = (typeof WorkspaceInstanceSpotMarketOptionsSpotInstanceType)[keyof typeof WorkspaceInstanceSpotMarketOptionsSpotInstanceType];
 
 export const WorkspaceInstanceTagSpecificationResourceType = {
     Instance: "instance",

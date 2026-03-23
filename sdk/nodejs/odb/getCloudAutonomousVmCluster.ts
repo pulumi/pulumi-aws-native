@@ -86,6 +86,10 @@ export interface GetCloudAutonomousVmClusterResult {
      */
     readonly hostname?: string;
     /**
+     * The AWS Identity and Access Management (IAM) service roles associated with the Autonomous VM cluster.
+     */
+    readonly iamRoles?: outputs.odb.CloudAutonomousVmClusterIamRole[];
+    /**
      * The minimum value to which you can scale down the maximum number of Autonomous CDBs.
      */
     readonly maxAcdsLowestScaledValue?: number;

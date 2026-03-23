@@ -59,6 +59,8 @@ __all__ = [
     'HibernationOptionsProperties',
     'InstanceAssociationParameter',
     'InstanceBlockDeviceMapping',
+    'InstanceConnectEndpointDnsNames',
+    'InstanceConnectEndpointPublicDnsNames',
     'InstanceEbs',
     'InstanceElasticGpuSpecification',
     'InstanceElasticInferenceAccelerator',
@@ -3449,6 +3451,97 @@ class InstanceBlockDeviceMapping(dict):
         > After the instance is running, modifying this parameter results in instance [replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement) .
         """
         return pulumi.get(self, "virtual_name")
+
+
+@pulumi.output_type
+class InstanceConnectEndpointDnsNames(dict):
+    """
+    The DNS names of the endpoint.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dnsName":
+            suggest = "dns_name"
+        elif key == "fipsDnsName":
+            suggest = "fips_dns_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InstanceConnectEndpointDnsNames. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InstanceConnectEndpointDnsNames.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InstanceConnectEndpointDnsNames.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 dns_name: Optional[_builtins.str] = None,
+                 fips_dns_name: Optional[_builtins.str] = None):
+        """
+        The DNS names of the endpoint.
+
+        :param _builtins.str dns_name: The DNS name of the EC2 Instance Connect Endpoint.
+        :param _builtins.str fips_dns_name: The Federal Information Processing Standards (FIPS) compliant DNS name of the EC2 Instance Connect Endpoint.
+        """
+        if dns_name is not None:
+            pulumi.set(__self__, "dns_name", dns_name)
+        if fips_dns_name is not None:
+            pulumi.set(__self__, "fips_dns_name", fips_dns_name)
+
+    @_builtins.property
+    @pulumi.getter(name="dnsName")
+    def dns_name(self) -> Optional[_builtins.str]:
+        """
+        The DNS name of the EC2 Instance Connect Endpoint.
+        """
+        return pulumi.get(self, "dns_name")
+
+    @_builtins.property
+    @pulumi.getter(name="fipsDnsName")
+    def fips_dns_name(self) -> Optional[_builtins.str]:
+        """
+        The Federal Information Processing Standards (FIPS) compliant DNS name of the EC2 Instance Connect Endpoint.
+        """
+        return pulumi.get(self, "fips_dns_name")
+
+
+@pulumi.output_type
+class InstanceConnectEndpointPublicDnsNames(dict):
+    """
+    The public DNS names of the endpoint, including IPv4-only and dualstack DNS names.
+    """
+    def __init__(__self__, *,
+                 dualstack: Optional['outputs.InstanceConnectEndpointDnsNames'] = None,
+                 ipv4: Optional['outputs.InstanceConnectEndpointDnsNames'] = None):
+        """
+        The public DNS names of the endpoint, including IPv4-only and dualstack DNS names.
+
+        :param 'InstanceConnectEndpointDnsNames' dualstack: The dualstack DNS name of the EC2 Instance Connect Endpoint. A dualstack DNS name supports connections from both IPv4 and IPv6 clients.
+        :param 'InstanceConnectEndpointDnsNames' ipv4: The IPv4-only DNS name of the EC2 Instance Connect Endpoint.
+        """
+        if dualstack is not None:
+            pulumi.set(__self__, "dualstack", dualstack)
+        if ipv4 is not None:
+            pulumi.set(__self__, "ipv4", ipv4)
+
+    @_builtins.property
+    @pulumi.getter
+    def dualstack(self) -> Optional['outputs.InstanceConnectEndpointDnsNames']:
+        """
+        The dualstack DNS name of the EC2 Instance Connect Endpoint. A dualstack DNS name supports connections from both IPv4 and IPv6 clients.
+        """
+        return pulumi.get(self, "dualstack")
+
+    @_builtins.property
+    @pulumi.getter
+    def ipv4(self) -> Optional['outputs.InstanceConnectEndpointDnsNames']:
+        """
+        The IPv4-only DNS name of the EC2 Instance Connect Endpoint.
+        """
+        return pulumi.get(self, "ipv4")
 
 
 @pulumi.output_type

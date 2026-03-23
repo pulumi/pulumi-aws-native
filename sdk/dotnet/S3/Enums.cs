@@ -683,6 +683,34 @@ namespace Pulumi.AwsNative.S3
         public override string ToString() => _value;
     }
 
+    [EnumType]
+    public readonly struct BucketNamespace : IEquatable<BucketNamespace>
+    {
+        private readonly string _value;
+
+        private BucketNamespace(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static BucketNamespace Global { get; } = new BucketNamespace("global");
+        public static BucketNamespace AccountRegional { get; } = new BucketNamespace("account-regional");
+
+        public static bool operator ==(BucketNamespace left, BucketNamespace right) => left.Equals(right);
+        public static bool operator !=(BucketNamespace left, BucketNamespace right) => !left.Equals(right);
+
+        public static explicit operator string(BucketNamespace value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is BucketNamespace other && Equals(other);
+        public bool Equals(BucketNamespace other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     /// <summary>
     /// The class of storage used to store the object.
     /// </summary>

@@ -119,6 +119,7 @@ export const QueryDefinitionQueryLanguage = {
 export type QueryDefinitionQueryLanguage = (typeof QueryDefinitionQueryLanguage)[keyof typeof QueryDefinitionQueryLanguage];
 
 export const ScheduledQueryLastExecutionStatus = {
+    Pending: "Pending",
     InvalidQuery: "InvalidQuery",
     Complete: "Complete",
     Failed: "Failed",

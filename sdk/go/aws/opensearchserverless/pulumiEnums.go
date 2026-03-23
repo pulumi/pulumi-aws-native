@@ -340,6 +340,174 @@ func (in *collectionGroupStandbyReplicasPtr) ToCollectionGroupStandbyReplicasPtr
 	return pulumi.ToOutputWithContext(ctx, in).(CollectionGroupStandbyReplicasPtrOutput)
 }
 
+// Indicates whether GPU acceleration is enabled for vector indexing
+type CollectionServerlessVectorAcceleration string
+
+const (
+	CollectionServerlessVectorAccelerationEnabled  = CollectionServerlessVectorAcceleration("ENABLED")
+	CollectionServerlessVectorAccelerationDisabled = CollectionServerlessVectorAcceleration("DISABLED")
+	CollectionServerlessVectorAccelerationAllowed  = CollectionServerlessVectorAcceleration("ALLOWED")
+)
+
+func (CollectionServerlessVectorAcceleration) ElementType() reflect.Type {
+	return reflect.TypeOf((*CollectionServerlessVectorAcceleration)(nil)).Elem()
+}
+
+func (e CollectionServerlessVectorAcceleration) ToCollectionServerlessVectorAccelerationOutput() CollectionServerlessVectorAccelerationOutput {
+	return pulumi.ToOutput(e).(CollectionServerlessVectorAccelerationOutput)
+}
+
+func (e CollectionServerlessVectorAcceleration) ToCollectionServerlessVectorAccelerationOutputWithContext(ctx context.Context) CollectionServerlessVectorAccelerationOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(CollectionServerlessVectorAccelerationOutput)
+}
+
+func (e CollectionServerlessVectorAcceleration) ToCollectionServerlessVectorAccelerationPtrOutput() CollectionServerlessVectorAccelerationPtrOutput {
+	return e.ToCollectionServerlessVectorAccelerationPtrOutputWithContext(context.Background())
+}
+
+func (e CollectionServerlessVectorAcceleration) ToCollectionServerlessVectorAccelerationPtrOutputWithContext(ctx context.Context) CollectionServerlessVectorAccelerationPtrOutput {
+	return CollectionServerlessVectorAcceleration(e).ToCollectionServerlessVectorAccelerationOutputWithContext(ctx).ToCollectionServerlessVectorAccelerationPtrOutputWithContext(ctx)
+}
+
+func (e CollectionServerlessVectorAcceleration) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e CollectionServerlessVectorAcceleration) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e CollectionServerlessVectorAcceleration) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e CollectionServerlessVectorAcceleration) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type CollectionServerlessVectorAccelerationOutput struct{ *pulumi.OutputState }
+
+func (CollectionServerlessVectorAccelerationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CollectionServerlessVectorAcceleration)(nil)).Elem()
+}
+
+func (o CollectionServerlessVectorAccelerationOutput) ToCollectionServerlessVectorAccelerationOutput() CollectionServerlessVectorAccelerationOutput {
+	return o
+}
+
+func (o CollectionServerlessVectorAccelerationOutput) ToCollectionServerlessVectorAccelerationOutputWithContext(ctx context.Context) CollectionServerlessVectorAccelerationOutput {
+	return o
+}
+
+func (o CollectionServerlessVectorAccelerationOutput) ToCollectionServerlessVectorAccelerationPtrOutput() CollectionServerlessVectorAccelerationPtrOutput {
+	return o.ToCollectionServerlessVectorAccelerationPtrOutputWithContext(context.Background())
+}
+
+func (o CollectionServerlessVectorAccelerationOutput) ToCollectionServerlessVectorAccelerationPtrOutputWithContext(ctx context.Context) CollectionServerlessVectorAccelerationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CollectionServerlessVectorAcceleration) *CollectionServerlessVectorAcceleration {
+		return &v
+	}).(CollectionServerlessVectorAccelerationPtrOutput)
+}
+
+func (o CollectionServerlessVectorAccelerationOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o CollectionServerlessVectorAccelerationOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CollectionServerlessVectorAcceleration) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o CollectionServerlessVectorAccelerationOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CollectionServerlessVectorAccelerationOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CollectionServerlessVectorAcceleration) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type CollectionServerlessVectorAccelerationPtrOutput struct{ *pulumi.OutputState }
+
+func (CollectionServerlessVectorAccelerationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CollectionServerlessVectorAcceleration)(nil)).Elem()
+}
+
+func (o CollectionServerlessVectorAccelerationPtrOutput) ToCollectionServerlessVectorAccelerationPtrOutput() CollectionServerlessVectorAccelerationPtrOutput {
+	return o
+}
+
+func (o CollectionServerlessVectorAccelerationPtrOutput) ToCollectionServerlessVectorAccelerationPtrOutputWithContext(ctx context.Context) CollectionServerlessVectorAccelerationPtrOutput {
+	return o
+}
+
+func (o CollectionServerlessVectorAccelerationPtrOutput) Elem() CollectionServerlessVectorAccelerationOutput {
+	return o.ApplyT(func(v *CollectionServerlessVectorAcceleration) CollectionServerlessVectorAcceleration {
+		if v != nil {
+			return *v
+		}
+		var ret CollectionServerlessVectorAcceleration
+		return ret
+	}).(CollectionServerlessVectorAccelerationOutput)
+}
+
+func (o CollectionServerlessVectorAccelerationPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CollectionServerlessVectorAccelerationPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *CollectionServerlessVectorAcceleration) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// CollectionServerlessVectorAccelerationInput is an input type that accepts values of the CollectionServerlessVectorAcceleration enum
+// A concrete instance of `CollectionServerlessVectorAccelerationInput` can be one of the following:
+//
+//	CollectionServerlessVectorAccelerationEnabled
+//	CollectionServerlessVectorAccelerationDisabled
+//	CollectionServerlessVectorAccelerationAllowed
+type CollectionServerlessVectorAccelerationInput interface {
+	pulumi.Input
+
+	ToCollectionServerlessVectorAccelerationOutput() CollectionServerlessVectorAccelerationOutput
+	ToCollectionServerlessVectorAccelerationOutputWithContext(context.Context) CollectionServerlessVectorAccelerationOutput
+}
+
+var collectionServerlessVectorAccelerationPtrType = reflect.TypeOf((**CollectionServerlessVectorAcceleration)(nil)).Elem()
+
+type CollectionServerlessVectorAccelerationPtrInput interface {
+	pulumi.Input
+
+	ToCollectionServerlessVectorAccelerationPtrOutput() CollectionServerlessVectorAccelerationPtrOutput
+	ToCollectionServerlessVectorAccelerationPtrOutputWithContext(context.Context) CollectionServerlessVectorAccelerationPtrOutput
+}
+
+type collectionServerlessVectorAccelerationPtr string
+
+func CollectionServerlessVectorAccelerationPtr(v string) CollectionServerlessVectorAccelerationPtrInput {
+	return (*collectionServerlessVectorAccelerationPtr)(&v)
+}
+
+func (*collectionServerlessVectorAccelerationPtr) ElementType() reflect.Type {
+	return collectionServerlessVectorAccelerationPtrType
+}
+
+func (in *collectionServerlessVectorAccelerationPtr) ToCollectionServerlessVectorAccelerationPtrOutput() CollectionServerlessVectorAccelerationPtrOutput {
+	return pulumi.ToOutput(in).(CollectionServerlessVectorAccelerationPtrOutput)
+}
+
+func (in *collectionServerlessVectorAccelerationPtr) ToCollectionServerlessVectorAccelerationPtrOutputWithContext(ctx context.Context) CollectionServerlessVectorAccelerationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(CollectionServerlessVectorAccelerationPtrOutput)
+}
+
 // The possible standby replicas for the collection
 type CollectionStandbyReplicas string
 
@@ -1851,6 +2019,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AccessPolicyTypePtrInput)(nil)).Elem(), AccessPolicyType("data"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CollectionGroupStandbyReplicasInput)(nil)).Elem(), CollectionGroupStandbyReplicas("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CollectionGroupStandbyReplicasPtrInput)(nil)).Elem(), CollectionGroupStandbyReplicas("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*CollectionServerlessVectorAccelerationInput)(nil)).Elem(), CollectionServerlessVectorAcceleration("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*CollectionServerlessVectorAccelerationPtrInput)(nil)).Elem(), CollectionServerlessVectorAcceleration("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CollectionStandbyReplicasInput)(nil)).Elem(), CollectionStandbyReplicas("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CollectionStandbyReplicasPtrInput)(nil)).Elem(), CollectionStandbyReplicas("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CollectionTypeInput)(nil)).Elem(), CollectionType("SEARCH"))
@@ -1873,6 +2043,8 @@ func init() {
 	pulumi.RegisterOutputType(AccessPolicyTypePtrOutput{})
 	pulumi.RegisterOutputType(CollectionGroupStandbyReplicasOutput{})
 	pulumi.RegisterOutputType(CollectionGroupStandbyReplicasPtrOutput{})
+	pulumi.RegisterOutputType(CollectionServerlessVectorAccelerationOutput{})
+	pulumi.RegisterOutputType(CollectionServerlessVectorAccelerationPtrOutput{})
 	pulumi.RegisterOutputType(CollectionStandbyReplicasOutput{})
 	pulumi.RegisterOutputType(CollectionStandbyReplicasPtrOutput{})
 	pulumi.RegisterOutputType(CollectionTypeOutput{})

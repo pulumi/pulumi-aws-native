@@ -34,6 +34,9 @@ class ImageBuilderArgs:
                  image_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  image_name: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
+                 root_volume_config: Optional[pulumi.Input['ImageBuilderVolumeConfigArgs']] = None,
+                 softwares_to_install: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 softwares_to_uninstall: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
                  vpc_config: Optional[pulumi.Input['ImageBuilderVpcConfigArgs']] = None):
         """
@@ -127,6 +130,12 @@ class ImageBuilderArgs:
             pulumi.set(__self__, "image_name", image_name)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if root_volume_config is not None:
+            pulumi.set(__self__, "root_volume_config", root_volume_config)
+        if softwares_to_install is not None:
+            pulumi.set(__self__, "softwares_to_install", softwares_to_install)
+        if softwares_to_uninstall is not None:
+            pulumi.set(__self__, "softwares_to_uninstall", softwares_to_uninstall)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if vpc_config is not None:
@@ -318,6 +327,33 @@ class ImageBuilderArgs:
         pulumi.set(self, "name", value)
 
     @_builtins.property
+    @pulumi.getter(name="rootVolumeConfig")
+    def root_volume_config(self) -> Optional[pulumi.Input['ImageBuilderVolumeConfigArgs']]:
+        return pulumi.get(self, "root_volume_config")
+
+    @root_volume_config.setter
+    def root_volume_config(self, value: Optional[pulumi.Input['ImageBuilderVolumeConfigArgs']]):
+        pulumi.set(self, "root_volume_config", value)
+
+    @_builtins.property
+    @pulumi.getter(name="softwaresToInstall")
+    def softwares_to_install(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        return pulumi.get(self, "softwares_to_install")
+
+    @softwares_to_install.setter
+    def softwares_to_install(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "softwares_to_install", value)
+
+    @_builtins.property
+    @pulumi.getter(name="softwaresToUninstall")
+    def softwares_to_uninstall(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        return pulumi.get(self, "softwares_to_uninstall")
+
+    @softwares_to_uninstall.setter
+    def softwares_to_uninstall(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "softwares_to_uninstall", value)
+
+    @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
@@ -359,6 +395,9 @@ class ImageBuilder(pulumi.CustomResource):
                  image_name: Optional[pulumi.Input[_builtins.str]] = None,
                  instance_type: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
+                 root_volume_config: Optional[pulumi.Input[Union['ImageBuilderVolumeConfigArgs', 'ImageBuilderVolumeConfigArgsDict']]] = None,
+                 softwares_to_install: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 softwares_to_uninstall: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  vpc_config: Optional[pulumi.Input[Union['ImageBuilderVpcConfigArgs', 'ImageBuilderVpcConfigArgsDict']]] = None,
                  __props__=None):
@@ -471,6 +510,9 @@ class ImageBuilder(pulumi.CustomResource):
                  image_name: Optional[pulumi.Input[_builtins.str]] = None,
                  instance_type: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
+                 root_volume_config: Optional[pulumi.Input[Union['ImageBuilderVolumeConfigArgs', 'ImageBuilderVolumeConfigArgsDict']]] = None,
+                 softwares_to_install: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 softwares_to_uninstall: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  vpc_config: Optional[pulumi.Input[Union['ImageBuilderVpcConfigArgs', 'ImageBuilderVpcConfigArgsDict']]] = None,
                  __props__=None):
@@ -495,9 +537,14 @@ class ImageBuilder(pulumi.CustomResource):
                 raise TypeError("Missing required property 'instance_type'")
             __props__.__dict__["instance_type"] = instance_type
             __props__.__dict__["name"] = name
+            __props__.__dict__["root_volume_config"] = root_volume_config
+            __props__.__dict__["softwares_to_install"] = softwares_to_install
+            __props__.__dict__["softwares_to_uninstall"] = softwares_to_uninstall
             __props__.__dict__["tags"] = tags
             __props__.__dict__["vpc_config"] = vpc_config
             __props__.__dict__["streaming_url"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(ImageBuilder, __self__).__init__(
             'aws-native:appstream:ImageBuilder',
             resource_name,
@@ -531,6 +578,9 @@ class ImageBuilder(pulumi.CustomResource):
         __props__.__dict__["image_name"] = None
         __props__.__dict__["instance_type"] = None
         __props__.__dict__["name"] = None
+        __props__.__dict__["root_volume_config"] = None
+        __props__.__dict__["softwares_to_install"] = None
+        __props__.__dict__["softwares_to_uninstall"] = None
         __props__.__dict__["streaming_url"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["vpc_config"] = None
@@ -676,6 +726,21 @@ class ImageBuilder(pulumi.CustomResource):
         A unique name for the image builder.
         """
         return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="rootVolumeConfig")
+    def root_volume_config(self) -> pulumi.Output[Optional['outputs.ImageBuilderVolumeConfig']]:
+        return pulumi.get(self, "root_volume_config")
+
+    @_builtins.property
+    @pulumi.getter(name="softwaresToInstall")
+    def softwares_to_install(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+        return pulumi.get(self, "softwares_to_install")
+
+    @_builtins.property
+    @pulumi.getter(name="softwaresToUninstall")
+    def softwares_to_uninstall(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+        return pulumi.get(self, "softwares_to_uninstall")
 
     @_builtins.property
     @pulumi.getter(name="streamingUrl")

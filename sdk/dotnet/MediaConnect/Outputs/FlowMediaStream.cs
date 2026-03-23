@@ -45,6 +45,10 @@ namespace Pulumi.AwsNative.MediaConnect.Outputs
         /// </summary>
         public readonly Pulumi.AwsNative.MediaConnect.FlowMediaStreamMediaStreamType MediaStreamType;
         /// <summary>
+        /// Key-value pairs that can be used to tag this media stream.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.FlowTag> Tags;
+        /// <summary>
         /// The resolution of the video.
         /// </summary>
         public readonly Pulumi.AwsNative.MediaConnect.FlowMediaStreamVideoFormat? VideoFormat;
@@ -65,6 +69,8 @@ namespace Pulumi.AwsNative.MediaConnect.Outputs
 
             Pulumi.AwsNative.MediaConnect.FlowMediaStreamMediaStreamType mediaStreamType,
 
+            ImmutableArray<Outputs.FlowTag> tags,
+
             Pulumi.AwsNative.MediaConnect.FlowMediaStreamVideoFormat? videoFormat)
         {
             Attributes = attributes;
@@ -74,6 +80,7 @@ namespace Pulumi.AwsNative.MediaConnect.Outputs
             MediaStreamId = mediaStreamId;
             MediaStreamName = mediaStreamName;
             MediaStreamType = mediaStreamType;
+            Tags = tags;
             VideoFormat = videoFormat;
         }
     }

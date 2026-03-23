@@ -24,6 +24,16 @@ __all__ = [
     'GlobalReplicationGroupRegionalConfigurationArgsDict',
     'GlobalReplicationGroupReshardingConfigurationArgs',
     'GlobalReplicationGroupReshardingConfigurationArgsDict',
+    'ReplicationGroupCloudWatchLogsDestinationDetailsArgs',
+    'ReplicationGroupCloudWatchLogsDestinationDetailsArgsDict',
+    'ReplicationGroupDestinationDetailsArgs',
+    'ReplicationGroupDestinationDetailsArgsDict',
+    'ReplicationGroupKinesisFirehoseDestinationDetailsArgs',
+    'ReplicationGroupKinesisFirehoseDestinationDetailsArgsDict',
+    'ReplicationGroupLogDeliveryConfigurationRequestArgs',
+    'ReplicationGroupLogDeliveryConfigurationRequestArgsDict',
+    'ReplicationGroupNodeGroupConfigurationArgs',
+    'ReplicationGroupNodeGroupConfigurationArgsDict',
     'ServerlessCacheCacheUsageLimitsArgs',
     'ServerlessCacheCacheUsageLimitsArgsDict',
     'ServerlessCacheDataStorageArgs',
@@ -282,6 +292,320 @@ class GlobalReplicationGroupReshardingConfigurationArgs:
     @preferred_availability_zones.setter
     def preferred_availability_zones(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "preferred_availability_zones", value)
+
+
+class ReplicationGroupCloudWatchLogsDestinationDetailsArgsDict(TypedDict):
+    """
+    The configuration details of the CloudWatch Logs destination. Note that this field is marked as required but only if CloudWatch Logs was chosen as the destination.
+    """
+    log_group: pulumi.Input[_builtins.str]
+    """
+    The name of the CloudWatch Logs log group.
+    """
+
+@pulumi.input_type
+class ReplicationGroupCloudWatchLogsDestinationDetailsArgs:
+    def __init__(__self__, *,
+                 log_group: pulumi.Input[_builtins.str]):
+        """
+        The configuration details of the CloudWatch Logs destination. Note that this field is marked as required but only if CloudWatch Logs was chosen as the destination.
+
+        :param pulumi.Input[_builtins.str] log_group: The name of the CloudWatch Logs log group.
+        """
+        pulumi.set(__self__, "log_group", log_group)
+
+    @_builtins.property
+    @pulumi.getter(name="logGroup")
+    def log_group(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the CloudWatch Logs log group.
+        """
+        return pulumi.get(self, "log_group")
+
+    @log_group.setter
+    def log_group(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "log_group", value)
+
+
+class ReplicationGroupDestinationDetailsArgsDict(TypedDict):
+    """
+    Configuration details of either a CloudWatch Logs destination or Kinesis Data Firehose destination.
+    """
+    cloud_watch_logs_details: NotRequired[pulumi.Input['ReplicationGroupCloudWatchLogsDestinationDetailsArgsDict']]
+    """
+    The configuration details of the CloudWatch Logs destination. Note that this field is marked as required but only if CloudWatch Logs was chosen as the destination.
+    """
+    kinesis_firehose_details: NotRequired[pulumi.Input['ReplicationGroupKinesisFirehoseDestinationDetailsArgsDict']]
+    """
+    The configuration details of the Kinesis Data Firehose destination. Note that this field is marked as required but only if Kinesis Data Firehose was chosen as the destination.
+    """
+
+@pulumi.input_type
+class ReplicationGroupDestinationDetailsArgs:
+    def __init__(__self__, *,
+                 cloud_watch_logs_details: Optional[pulumi.Input['ReplicationGroupCloudWatchLogsDestinationDetailsArgs']] = None,
+                 kinesis_firehose_details: Optional[pulumi.Input['ReplicationGroupKinesisFirehoseDestinationDetailsArgs']] = None):
+        """
+        Configuration details of either a CloudWatch Logs destination or Kinesis Data Firehose destination.
+
+        :param pulumi.Input['ReplicationGroupCloudWatchLogsDestinationDetailsArgs'] cloud_watch_logs_details: The configuration details of the CloudWatch Logs destination. Note that this field is marked as required but only if CloudWatch Logs was chosen as the destination.
+        :param pulumi.Input['ReplicationGroupKinesisFirehoseDestinationDetailsArgs'] kinesis_firehose_details: The configuration details of the Kinesis Data Firehose destination. Note that this field is marked as required but only if Kinesis Data Firehose was chosen as the destination.
+        """
+        if cloud_watch_logs_details is not None:
+            pulumi.set(__self__, "cloud_watch_logs_details", cloud_watch_logs_details)
+        if kinesis_firehose_details is not None:
+            pulumi.set(__self__, "kinesis_firehose_details", kinesis_firehose_details)
+
+    @_builtins.property
+    @pulumi.getter(name="cloudWatchLogsDetails")
+    def cloud_watch_logs_details(self) -> Optional[pulumi.Input['ReplicationGroupCloudWatchLogsDestinationDetailsArgs']]:
+        """
+        The configuration details of the CloudWatch Logs destination. Note that this field is marked as required but only if CloudWatch Logs was chosen as the destination.
+        """
+        return pulumi.get(self, "cloud_watch_logs_details")
+
+    @cloud_watch_logs_details.setter
+    def cloud_watch_logs_details(self, value: Optional[pulumi.Input['ReplicationGroupCloudWatchLogsDestinationDetailsArgs']]):
+        pulumi.set(self, "cloud_watch_logs_details", value)
+
+    @_builtins.property
+    @pulumi.getter(name="kinesisFirehoseDetails")
+    def kinesis_firehose_details(self) -> Optional[pulumi.Input['ReplicationGroupKinesisFirehoseDestinationDetailsArgs']]:
+        """
+        The configuration details of the Kinesis Data Firehose destination. Note that this field is marked as required but only if Kinesis Data Firehose was chosen as the destination.
+        """
+        return pulumi.get(self, "kinesis_firehose_details")
+
+    @kinesis_firehose_details.setter
+    def kinesis_firehose_details(self, value: Optional[pulumi.Input['ReplicationGroupKinesisFirehoseDestinationDetailsArgs']]):
+        pulumi.set(self, "kinesis_firehose_details", value)
+
+
+class ReplicationGroupKinesisFirehoseDestinationDetailsArgsDict(TypedDict):
+    """
+    The configuration details of the Kinesis Data Firehose destination. Note that this field is marked as required but only if Kinesis Data Firehose was chosen as the destination.
+    """
+    delivery_stream: pulumi.Input[_builtins.str]
+    """
+    The name of the Kinesis Data Firehose delivery stream.
+    """
+
+@pulumi.input_type
+class ReplicationGroupKinesisFirehoseDestinationDetailsArgs:
+    def __init__(__self__, *,
+                 delivery_stream: pulumi.Input[_builtins.str]):
+        """
+        The configuration details of the Kinesis Data Firehose destination. Note that this field is marked as required but only if Kinesis Data Firehose was chosen as the destination.
+
+        :param pulumi.Input[_builtins.str] delivery_stream: The name of the Kinesis Data Firehose delivery stream.
+        """
+        pulumi.set(__self__, "delivery_stream", delivery_stream)
+
+    @_builtins.property
+    @pulumi.getter(name="deliveryStream")
+    def delivery_stream(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the Kinesis Data Firehose delivery stream.
+        """
+        return pulumi.get(self, "delivery_stream")
+
+    @delivery_stream.setter
+    def delivery_stream(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "delivery_stream", value)
+
+
+class ReplicationGroupLogDeliveryConfigurationRequestArgsDict(TypedDict):
+    destination_details: pulumi.Input['ReplicationGroupDestinationDetailsArgsDict']
+    """
+    Configuration details of either a CloudWatch Logs destination or Kinesis Data Firehose destination.
+    """
+    destination_type: pulumi.Input[_builtins.str]
+    """
+    Specify either CloudWatch Logs or Kinesis Data Firehose as the destination type. Valid values are either cloudwatch-logs or kinesis-firehose.
+    """
+    log_format: pulumi.Input[_builtins.str]
+    """
+    Valid values are either json or text.
+    """
+    log_type: pulumi.Input[_builtins.str]
+    """
+    Valid value is either slow-log, which refers to slow-log or engine-log.
+    """
+
+@pulumi.input_type
+class ReplicationGroupLogDeliveryConfigurationRequestArgs:
+    def __init__(__self__, *,
+                 destination_details: pulumi.Input['ReplicationGroupDestinationDetailsArgs'],
+                 destination_type: pulumi.Input[_builtins.str],
+                 log_format: pulumi.Input[_builtins.str],
+                 log_type: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input['ReplicationGroupDestinationDetailsArgs'] destination_details: Configuration details of either a CloudWatch Logs destination or Kinesis Data Firehose destination.
+        :param pulumi.Input[_builtins.str] destination_type: Specify either CloudWatch Logs or Kinesis Data Firehose as the destination type. Valid values are either cloudwatch-logs or kinesis-firehose.
+        :param pulumi.Input[_builtins.str] log_format: Valid values are either json or text.
+        :param pulumi.Input[_builtins.str] log_type: Valid value is either slow-log, which refers to slow-log or engine-log.
+        """
+        pulumi.set(__self__, "destination_details", destination_details)
+        pulumi.set(__self__, "destination_type", destination_type)
+        pulumi.set(__self__, "log_format", log_format)
+        pulumi.set(__self__, "log_type", log_type)
+
+    @_builtins.property
+    @pulumi.getter(name="destinationDetails")
+    def destination_details(self) -> pulumi.Input['ReplicationGroupDestinationDetailsArgs']:
+        """
+        Configuration details of either a CloudWatch Logs destination or Kinesis Data Firehose destination.
+        """
+        return pulumi.get(self, "destination_details")
+
+    @destination_details.setter
+    def destination_details(self, value: pulumi.Input['ReplicationGroupDestinationDetailsArgs']):
+        pulumi.set(self, "destination_details", value)
+
+    @_builtins.property
+    @pulumi.getter(name="destinationType")
+    def destination_type(self) -> pulumi.Input[_builtins.str]:
+        """
+        Specify either CloudWatch Logs or Kinesis Data Firehose as the destination type. Valid values are either cloudwatch-logs or kinesis-firehose.
+        """
+        return pulumi.get(self, "destination_type")
+
+    @destination_type.setter
+    def destination_type(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "destination_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="logFormat")
+    def log_format(self) -> pulumi.Input[_builtins.str]:
+        """
+        Valid values are either json or text.
+        """
+        return pulumi.get(self, "log_format")
+
+    @log_format.setter
+    def log_format(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "log_format", value)
+
+    @_builtins.property
+    @pulumi.getter(name="logType")
+    def log_type(self) -> pulumi.Input[_builtins.str]:
+        """
+        Valid value is either slow-log, which refers to slow-log or engine-log.
+        """
+        return pulumi.get(self, "log_type")
+
+    @log_type.setter
+    def log_type(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "log_type", value)
+
+
+class ReplicationGroupNodeGroupConfigurationArgsDict(TypedDict):
+    node_group_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Either the ElastiCache for Redis supplied 4-digit id or a user supplied id for the node group these configuration values apply to.
+    """
+    primary_availability_zone: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Availability Zone where the primary node of this node group (shard) is launched.
+    """
+    replica_availability_zones: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A list of Availability Zones to be used for the read replicas. The number of Availability Zones in this list must match the value of ReplicaCount or ReplicasPerNodeGroup if not specified.
+    """
+    replica_count: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The number of read replica nodes in this node group (shard).
+    """
+    slots: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A string of comma-separated values where the first set of values are the slot numbers (zero based), and the second set of values are the keyspaces for each slot. The following example specifies three slots (numbered 0, 1, and 2): 0,1,2,0-4999,5000-9999,10000-16,383.
+    """
+
+@pulumi.input_type
+class ReplicationGroupNodeGroupConfigurationArgs:
+    def __init__(__self__, *,
+                 node_group_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 primary_availability_zone: Optional[pulumi.Input[_builtins.str]] = None,
+                 replica_availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 replica_count: Optional[pulumi.Input[_builtins.int]] = None,
+                 slots: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] node_group_id: Either the ElastiCache for Redis supplied 4-digit id or a user supplied id for the node group these configuration values apply to.
+        :param pulumi.Input[_builtins.str] primary_availability_zone: The Availability Zone where the primary node of this node group (shard) is launched.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] replica_availability_zones: A list of Availability Zones to be used for the read replicas. The number of Availability Zones in this list must match the value of ReplicaCount or ReplicasPerNodeGroup if not specified.
+        :param pulumi.Input[_builtins.int] replica_count: The number of read replica nodes in this node group (shard).
+        :param pulumi.Input[_builtins.str] slots: A string of comma-separated values where the first set of values are the slot numbers (zero based), and the second set of values are the keyspaces for each slot. The following example specifies three slots (numbered 0, 1, and 2): 0,1,2,0-4999,5000-9999,10000-16,383.
+        """
+        if node_group_id is not None:
+            pulumi.set(__self__, "node_group_id", node_group_id)
+        if primary_availability_zone is not None:
+            pulumi.set(__self__, "primary_availability_zone", primary_availability_zone)
+        if replica_availability_zones is not None:
+            pulumi.set(__self__, "replica_availability_zones", replica_availability_zones)
+        if replica_count is not None:
+            pulumi.set(__self__, "replica_count", replica_count)
+        if slots is not None:
+            pulumi.set(__self__, "slots", slots)
+
+    @_builtins.property
+    @pulumi.getter(name="nodeGroupId")
+    def node_group_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Either the ElastiCache for Redis supplied 4-digit id or a user supplied id for the node group these configuration values apply to.
+        """
+        return pulumi.get(self, "node_group_id")
+
+    @node_group_id.setter
+    def node_group_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "node_group_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="primaryAvailabilityZone")
+    def primary_availability_zone(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The Availability Zone where the primary node of this node group (shard) is launched.
+        """
+        return pulumi.get(self, "primary_availability_zone")
+
+    @primary_availability_zone.setter
+    def primary_availability_zone(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "primary_availability_zone", value)
+
+    @_builtins.property
+    @pulumi.getter(name="replicaAvailabilityZones")
+    def replica_availability_zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        A list of Availability Zones to be used for the read replicas. The number of Availability Zones in this list must match the value of ReplicaCount or ReplicasPerNodeGroup if not specified.
+        """
+        return pulumi.get(self, "replica_availability_zones")
+
+    @replica_availability_zones.setter
+    def replica_availability_zones(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "replica_availability_zones", value)
+
+    @_builtins.property
+    @pulumi.getter(name="replicaCount")
+    def replica_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        The number of read replica nodes in this node group (shard).
+        """
+        return pulumi.get(self, "replica_count")
+
+    @replica_count.setter
+    def replica_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "replica_count", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def slots(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        A string of comma-separated values where the first set of values are the slot numbers (zero based), and the second set of values are the keyspaces for each slot. The following example specifies three slots (numbered 0, 1, and 2): 0,1,2,0-4999,5000-9999,10000-16,383.
+        """
+        return pulumi.get(self, "slots")
+
+    @slots.setter
+    def slots(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "slots", value)
 
 
 class ServerlessCacheCacheUsageLimitsArgsDict(TypedDict):

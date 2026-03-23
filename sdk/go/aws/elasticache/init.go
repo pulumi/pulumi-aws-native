@@ -25,6 +25,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &GlobalReplicationGroup{}
 	case "aws-native:elasticache:ParameterGroup":
 		r = &ParameterGroup{}
+	case "aws-native:elasticache:ReplicationGroup":
+		r = &ReplicationGroup{}
 	case "aws-native:elasticache:ServerlessCache":
 		r = &ServerlessCache{}
 	case "aws-native:elasticache:SubnetGroup":

@@ -134,6 +134,9 @@ export class ImageBuilder extends pulumi.CustomResource {
      * A unique name for the image builder.
      */
     declare public readonly name: pulumi.Output<string>;
+    declare public readonly rootVolumeConfig: pulumi.Output<outputs.appstream.ImageBuilderVolumeConfig | undefined>;
+    declare public readonly softwaresToInstall: pulumi.Output<string[] | undefined>;
+    declare public readonly softwaresToUninstall: pulumi.Output<string[] | undefined>;
     /**
      * The URL to start an image builder streaming session, returned as a string.
      */
@@ -172,6 +175,9 @@ export class ImageBuilder extends pulumi.CustomResource {
             resourceInputs["imageName"] = args?.imageName;
             resourceInputs["instanceType"] = args?.instanceType;
             resourceInputs["name"] = args?.name;
+            resourceInputs["rootVolumeConfig"] = args?.rootVolumeConfig;
+            resourceInputs["softwaresToInstall"] = args?.softwaresToInstall;
+            resourceInputs["softwaresToUninstall"] = args?.softwaresToUninstall;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["vpcConfig"] = args?.vpcConfig;
             resourceInputs["streamingUrl"] = undefined /*out*/;
@@ -187,11 +193,16 @@ export class ImageBuilder extends pulumi.CustomResource {
             resourceInputs["imageName"] = undefined /*out*/;
             resourceInputs["instanceType"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["rootVolumeConfig"] = undefined /*out*/;
+            resourceInputs["softwaresToInstall"] = undefined /*out*/;
+            resourceInputs["softwaresToUninstall"] = undefined /*out*/;
             resourceInputs["streamingUrl"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["vpcConfig"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["name"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(ImageBuilder.__pulumiType, name, resourceInputs, opts);
     }
 }
@@ -297,6 +308,9 @@ export interface ImageBuilderArgs {
      * A unique name for the image builder.
      */
     name?: pulumi.Input<string>;
+    rootVolumeConfig?: pulumi.Input<inputs.appstream.ImageBuilderVolumeConfigArgs>;
+    softwaresToInstall?: pulumi.Input<pulumi.Input<string>[]>;
+    softwaresToUninstall?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * An array of key-value pairs.
      */

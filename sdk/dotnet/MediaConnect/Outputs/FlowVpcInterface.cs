@@ -40,6 +40,10 @@ namespace Pulumi.AwsNative.MediaConnect.Outputs
         /// Subnet must be in the AZ of the Flow
         /// </summary>
         public readonly string SubnetId;
+        /// <summary>
+        /// Key-value pairs that can be used to tag this VPC interface.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.FlowTag> Tags;
 
         [OutputConstructor]
         private FlowVpcInterface(
@@ -53,7 +57,9 @@ namespace Pulumi.AwsNative.MediaConnect.Outputs
 
             ImmutableArray<string> securityGroupIds,
 
-            string subnetId)
+            string subnetId,
+
+            ImmutableArray<Outputs.FlowTag> tags)
         {
             Name = name;
             NetworkInterfaceIds = networkInterfaceIds;
@@ -61,6 +67,7 @@ namespace Pulumi.AwsNative.MediaConnect.Outputs
             RoleArn = roleArn;
             SecurityGroupIds = securityGroupIds;
             SubnetId = subnetId;
+            Tags = tags;
         }
     }
 }

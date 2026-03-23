@@ -92,6 +92,7 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         /// The name for the gateway.
         /// </summary>
         public readonly string? Name;
+        public readonly Outputs.GatewayPolicyEngineConfiguration? PolicyEngineConfiguration;
         /// <summary>
         /// The protocol configuration for the gateway target.
         /// </summary>
@@ -140,6 +141,8 @@ namespace Pulumi.AwsNative.BedrockAgentCore
 
             string? name,
 
+            Outputs.GatewayPolicyEngineConfiguration? policyEngineConfiguration,
+
             Outputs.GatewayProtocolConfigurationProperties? protocolConfiguration,
 
             Pulumi.AwsNative.BedrockAgentCore.GatewayProtocolType? protocolType,
@@ -167,6 +170,7 @@ namespace Pulumi.AwsNative.BedrockAgentCore
             InterceptorConfigurations = interceptorConfigurations;
             KmsKeyArn = kmsKeyArn;
             Name = name;
+            PolicyEngineConfiguration = policyEngineConfiguration;
             ProtocolConfiguration = protocolConfiguration;
             ProtocolType = protocolType;
             RoleArn = roleArn;

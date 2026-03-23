@@ -22,6 +22,7 @@ __all__ = ['FarmArgs', 'Farm']
 class FarmArgs:
     def __init__(__self__, *,
                  display_name: pulumi.Input[_builtins.str],
+                 cost_scale_factor: Optional[pulumi.Input[_builtins.float]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
@@ -38,6 +39,8 @@ class FarmArgs:
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
         pulumi.set(__self__, "display_name", display_name)
+        if cost_scale_factor is not None:
+            pulumi.set(__self__, "cost_scale_factor", cost_scale_factor)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if kms_key_arn is not None:
@@ -58,6 +61,15 @@ class FarmArgs:
     @display_name.setter
     def display_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "display_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="costScaleFactor")
+    def cost_scale_factor(self) -> Optional[pulumi.Input[_builtins.float]]:
+        return pulumi.get(self, "cost_scale_factor")
+
+    @cost_scale_factor.setter
+    def cost_scale_factor(self, value: Optional[pulumi.Input[_builtins.float]]):
+        pulumi.set(self, "cost_scale_factor", value)
 
     @_builtins.property
     @pulumi.getter
@@ -104,6 +116,7 @@ class Farm(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 cost_scale_factor: Optional[pulumi.Input[_builtins.float]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  display_name: Optional[pulumi.Input[_builtins.str]] = None,
                  kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
@@ -149,6 +162,7 @@ class Farm(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 cost_scale_factor: Optional[pulumi.Input[_builtins.float]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  display_name: Optional[pulumi.Input[_builtins.str]] = None,
                  kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
@@ -162,6 +176,7 @@ class Farm(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = FarmArgs.__new__(FarmArgs)
 
+            __props__.__dict__["cost_scale_factor"] = cost_scale_factor
             __props__.__dict__["description"] = description
             if display_name is None and not opts.urn:
                 raise TypeError("Missing required property 'display_name'")
@@ -195,6 +210,7 @@ class Farm(pulumi.CustomResource):
         __props__ = FarmArgs.__new__(FarmArgs)
 
         __props__.__dict__["arn"] = None
+        __props__.__dict__["cost_scale_factor"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["display_name"] = None
         __props__.__dict__["farm_id"] = None
@@ -209,6 +225,11 @@ class Farm(pulumi.CustomResource):
         The Amazon Resource Name (ARN) assigned to the farm.
         """
         return pulumi.get(self, "arn")
+
+    @_builtins.property
+    @pulumi.getter(name="costScaleFactor")
+    def cost_scale_factor(self) -> pulumi.Output[Optional[_builtins.float]]:
+        return pulumi.get(self, "cost_scale_factor")
 
     @_builtins.property
     @pulumi.getter

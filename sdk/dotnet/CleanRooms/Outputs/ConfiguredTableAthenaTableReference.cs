@@ -13,6 +13,7 @@ namespace Pulumi.AwsNative.CleanRooms.Outputs
     [OutputType]
     public sealed class ConfiguredTableAthenaTableReference
     {
+        public readonly string? CatalogName;
         public readonly string DatabaseName;
         public readonly string? OutputLocation;
         public readonly Pulumi.AwsNative.CleanRooms.ConfiguredTableCommercialRegion? Region;
@@ -21,6 +22,8 @@ namespace Pulumi.AwsNative.CleanRooms.Outputs
 
         [OutputConstructor]
         private ConfiguredTableAthenaTableReference(
+            string? catalogName,
+
             string databaseName,
 
             string? outputLocation,
@@ -31,6 +34,7 @@ namespace Pulumi.AwsNative.CleanRooms.Outputs
 
             string workGroup)
         {
+            CatalogName = catalogName;
             DatabaseName = databaseName;
             OutputLocation = outputLocation;
             Region = region;

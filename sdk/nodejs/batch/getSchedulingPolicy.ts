@@ -33,6 +33,7 @@ export interface GetSchedulingPolicyResult {
      * The fair-share scheduling policy details.
      */
     readonly fairsharePolicy?: outputs.batch.SchedulingPolicyFairsharePolicy;
+    readonly quotaSharePolicy?: outputs.batch.SchedulingPolicyQuotaSharePolicy;
 }
 /**
  * Resource Type definition for AWS::Batch::SchedulingPolicy

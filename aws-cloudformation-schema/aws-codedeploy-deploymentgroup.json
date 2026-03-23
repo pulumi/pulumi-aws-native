@@ -580,13 +580,15 @@
   "primaryIdentifier" : [ "/properties/ApplicationName", "/properties/DeploymentGroupName" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "codedeploy:CreateDeploymentGroup", "codedeploy:CreateDeployment", "codedeploy:GetDeployment", "codedeploy:GetDeploymentConfig", "codedeploy:GetApplicationRevision", "codedeploy:ListDeployments", "codedeploy:RegisterApplicationRevision", "codedeploy:RegisterOnPremisesInstance", "codedeploy:TagResource", "codedeploy:UntagResource", "iam:PassRole" ]
+      "permissions" : [ "codedeploy:CreateDeploymentGroup", "codedeploy:CreateDeployment", "codedeploy:GetDeployment", "codedeploy:GetDeploymentConfig", "codedeploy:GetApplicationRevision", "codedeploy:ListDeployments", "codedeploy:RegisterApplicationRevision", "codedeploy:RegisterOnPremisesInstance", "codedeploy:TagResource", "codedeploy:UntagResource", "iam:PassRole" ],
+      "timeoutInMinutes" : 510
     },
     "read" : {
       "permissions" : [ "codedeploy:GetDeploymentGroup", "codedeploy:ListTagsForResource", "codedeploy:ListDeployments", "codedeploy:GetDeployment" ]
     },
     "update" : {
-      "permissions" : [ "codedeploy:UpdateDeploymentGroup", "codedeploy:TagResource", "codedeploy:UntagResource", "codedeploy:GetDeployment", "codedeploy:CreateDeployment", "codedeploy:GetDeploymentConfig", "codedeploy:GetApplicationRevision", "codedeploy:StopDeployment", "codedeploy:ListDeployments", "codedeploy:RegisterApplicationRevision", "codedeploy:RegisterOnPremisesInstance", "iam:PassRole" ]
+      "permissions" : [ "codedeploy:UpdateDeploymentGroup", "codedeploy:TagResource", "codedeploy:UntagResource", "codedeploy:GetDeployment", "codedeploy:CreateDeployment", "codedeploy:GetDeploymentConfig", "codedeploy:GetApplicationRevision", "codedeploy:StopDeployment", "codedeploy:ListDeployments", "codedeploy:RegisterApplicationRevision", "codedeploy:RegisterOnPremisesInstance", "iam:PassRole" ],
+      "timeoutInMinutes" : 990
     },
     "delete" : {
       "permissions" : [ "codedeploy:DeleteDeploymentGroup", "codedeploy:GetDeploymentGroup" ]

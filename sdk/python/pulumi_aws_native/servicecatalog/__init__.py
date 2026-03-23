@@ -18,6 +18,7 @@ from .get_portfolio import *
 from .get_portfolio_share import *
 from .get_resource_update_constraint import *
 from .get_service_action import *
+from .get_stack_set_constraint import *
 from .get_tag_option import *
 from .launch_notification_constraint import *
 from .launch_role_constraint import *
@@ -29,6 +30,7 @@ from .portfolio_share import *
 from .resource_update_constraint import *
 from .service_action import *
 from .service_action_association import *
+from .stack_set_constraint import *
 from .tag_option import *
 from .tag_option_association import *
 from ._inputs import *

@@ -13,6 +13,2194 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type ConfiguredModelAlgorithmAssociationCustomEntityConfig struct {
+	CustomDataIdentifiers []string `pulumi:"customDataIdentifiers"`
+}
+
+// ConfiguredModelAlgorithmAssociationCustomEntityConfigInput is an input type that accepts ConfiguredModelAlgorithmAssociationCustomEntityConfigArgs and ConfiguredModelAlgorithmAssociationCustomEntityConfigOutput values.
+// You can construct a concrete instance of `ConfiguredModelAlgorithmAssociationCustomEntityConfigInput` via:
+//
+//	ConfiguredModelAlgorithmAssociationCustomEntityConfigArgs{...}
+type ConfiguredModelAlgorithmAssociationCustomEntityConfigInput interface {
+	pulumi.Input
+
+	ToConfiguredModelAlgorithmAssociationCustomEntityConfigOutput() ConfiguredModelAlgorithmAssociationCustomEntityConfigOutput
+	ToConfiguredModelAlgorithmAssociationCustomEntityConfigOutputWithContext(context.Context) ConfiguredModelAlgorithmAssociationCustomEntityConfigOutput
+}
+
+type ConfiguredModelAlgorithmAssociationCustomEntityConfigArgs struct {
+	CustomDataIdentifiers pulumi.StringArrayInput `pulumi:"customDataIdentifiers"`
+}
+
+func (ConfiguredModelAlgorithmAssociationCustomEntityConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfiguredModelAlgorithmAssociationCustomEntityConfig)(nil)).Elem()
+}
+
+func (i ConfiguredModelAlgorithmAssociationCustomEntityConfigArgs) ToConfiguredModelAlgorithmAssociationCustomEntityConfigOutput() ConfiguredModelAlgorithmAssociationCustomEntityConfigOutput {
+	return i.ToConfiguredModelAlgorithmAssociationCustomEntityConfigOutputWithContext(context.Background())
+}
+
+func (i ConfiguredModelAlgorithmAssociationCustomEntityConfigArgs) ToConfiguredModelAlgorithmAssociationCustomEntityConfigOutputWithContext(ctx context.Context) ConfiguredModelAlgorithmAssociationCustomEntityConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfiguredModelAlgorithmAssociationCustomEntityConfigOutput)
+}
+
+func (i ConfiguredModelAlgorithmAssociationCustomEntityConfigArgs) ToConfiguredModelAlgorithmAssociationCustomEntityConfigPtrOutput() ConfiguredModelAlgorithmAssociationCustomEntityConfigPtrOutput {
+	return i.ToConfiguredModelAlgorithmAssociationCustomEntityConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ConfiguredModelAlgorithmAssociationCustomEntityConfigArgs) ToConfiguredModelAlgorithmAssociationCustomEntityConfigPtrOutputWithContext(ctx context.Context) ConfiguredModelAlgorithmAssociationCustomEntityConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfiguredModelAlgorithmAssociationCustomEntityConfigOutput).ToConfiguredModelAlgorithmAssociationCustomEntityConfigPtrOutputWithContext(ctx)
+}
+
+// ConfiguredModelAlgorithmAssociationCustomEntityConfigPtrInput is an input type that accepts ConfiguredModelAlgorithmAssociationCustomEntityConfigArgs, ConfiguredModelAlgorithmAssociationCustomEntityConfigPtr and ConfiguredModelAlgorithmAssociationCustomEntityConfigPtrOutput values.
+// You can construct a concrete instance of `ConfiguredModelAlgorithmAssociationCustomEntityConfigPtrInput` via:
+//
+//	        ConfiguredModelAlgorithmAssociationCustomEntityConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type ConfiguredModelAlgorithmAssociationCustomEntityConfigPtrInput interface {
+	pulumi.Input
+
+	ToConfiguredModelAlgorithmAssociationCustomEntityConfigPtrOutput() ConfiguredModelAlgorithmAssociationCustomEntityConfigPtrOutput
+	ToConfiguredModelAlgorithmAssociationCustomEntityConfigPtrOutputWithContext(context.Context) ConfiguredModelAlgorithmAssociationCustomEntityConfigPtrOutput
+}
+
+type configuredModelAlgorithmAssociationCustomEntityConfigPtrType ConfiguredModelAlgorithmAssociationCustomEntityConfigArgs
+
+func ConfiguredModelAlgorithmAssociationCustomEntityConfigPtr(v *ConfiguredModelAlgorithmAssociationCustomEntityConfigArgs) ConfiguredModelAlgorithmAssociationCustomEntityConfigPtrInput {
+	return (*configuredModelAlgorithmAssociationCustomEntityConfigPtrType)(v)
+}
+
+func (*configuredModelAlgorithmAssociationCustomEntityConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfiguredModelAlgorithmAssociationCustomEntityConfig)(nil)).Elem()
+}
+
+func (i *configuredModelAlgorithmAssociationCustomEntityConfigPtrType) ToConfiguredModelAlgorithmAssociationCustomEntityConfigPtrOutput() ConfiguredModelAlgorithmAssociationCustomEntityConfigPtrOutput {
+	return i.ToConfiguredModelAlgorithmAssociationCustomEntityConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *configuredModelAlgorithmAssociationCustomEntityConfigPtrType) ToConfiguredModelAlgorithmAssociationCustomEntityConfigPtrOutputWithContext(ctx context.Context) ConfiguredModelAlgorithmAssociationCustomEntityConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfiguredModelAlgorithmAssociationCustomEntityConfigPtrOutput)
+}
+
+type ConfiguredModelAlgorithmAssociationCustomEntityConfigOutput struct{ *pulumi.OutputState }
+
+func (ConfiguredModelAlgorithmAssociationCustomEntityConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfiguredModelAlgorithmAssociationCustomEntityConfig)(nil)).Elem()
+}
+
+func (o ConfiguredModelAlgorithmAssociationCustomEntityConfigOutput) ToConfiguredModelAlgorithmAssociationCustomEntityConfigOutput() ConfiguredModelAlgorithmAssociationCustomEntityConfigOutput {
+	return o
+}
+
+func (o ConfiguredModelAlgorithmAssociationCustomEntityConfigOutput) ToConfiguredModelAlgorithmAssociationCustomEntityConfigOutputWithContext(ctx context.Context) ConfiguredModelAlgorithmAssociationCustomEntityConfigOutput {
+	return o
+}
+
+func (o ConfiguredModelAlgorithmAssociationCustomEntityConfigOutput) ToConfiguredModelAlgorithmAssociationCustomEntityConfigPtrOutput() ConfiguredModelAlgorithmAssociationCustomEntityConfigPtrOutput {
+	return o.ToConfiguredModelAlgorithmAssociationCustomEntityConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ConfiguredModelAlgorithmAssociationCustomEntityConfigOutput) ToConfiguredModelAlgorithmAssociationCustomEntityConfigPtrOutputWithContext(ctx context.Context) ConfiguredModelAlgorithmAssociationCustomEntityConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfiguredModelAlgorithmAssociationCustomEntityConfig) *ConfiguredModelAlgorithmAssociationCustomEntityConfig {
+		return &v
+	}).(ConfiguredModelAlgorithmAssociationCustomEntityConfigPtrOutput)
+}
+
+func (o ConfiguredModelAlgorithmAssociationCustomEntityConfigOutput) CustomDataIdentifiers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ConfiguredModelAlgorithmAssociationCustomEntityConfig) []string { return v.CustomDataIdentifiers }).(pulumi.StringArrayOutput)
+}
+
+type ConfiguredModelAlgorithmAssociationCustomEntityConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ConfiguredModelAlgorithmAssociationCustomEntityConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfiguredModelAlgorithmAssociationCustomEntityConfig)(nil)).Elem()
+}
+
+func (o ConfiguredModelAlgorithmAssociationCustomEntityConfigPtrOutput) ToConfiguredModelAlgorithmAssociationCustomEntityConfigPtrOutput() ConfiguredModelAlgorithmAssociationCustomEntityConfigPtrOutput {
+	return o
+}
+
+func (o ConfiguredModelAlgorithmAssociationCustomEntityConfigPtrOutput) ToConfiguredModelAlgorithmAssociationCustomEntityConfigPtrOutputWithContext(ctx context.Context) ConfiguredModelAlgorithmAssociationCustomEntityConfigPtrOutput {
+	return o
+}
+
+func (o ConfiguredModelAlgorithmAssociationCustomEntityConfigPtrOutput) Elem() ConfiguredModelAlgorithmAssociationCustomEntityConfigOutput {
+	return o.ApplyT(func(v *ConfiguredModelAlgorithmAssociationCustomEntityConfig) ConfiguredModelAlgorithmAssociationCustomEntityConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ConfiguredModelAlgorithmAssociationCustomEntityConfig
+		return ret
+	}).(ConfiguredModelAlgorithmAssociationCustomEntityConfigOutput)
+}
+
+func (o ConfiguredModelAlgorithmAssociationCustomEntityConfigPtrOutput) CustomDataIdentifiers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ConfiguredModelAlgorithmAssociationCustomEntityConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.CustomDataIdentifiers
+	}).(pulumi.StringArrayOutput)
+}
+
+type ConfiguredModelAlgorithmAssociationLogRedactionConfiguration struct {
+	CustomEntityConfig *ConfiguredModelAlgorithmAssociationCustomEntityConfig `pulumi:"customEntityConfig"`
+	EntitiesToRedact   []ConfiguredModelAlgorithmAssociationEntityType        `pulumi:"entitiesToRedact"`
+}
+
+// ConfiguredModelAlgorithmAssociationLogRedactionConfigurationInput is an input type that accepts ConfiguredModelAlgorithmAssociationLogRedactionConfigurationArgs and ConfiguredModelAlgorithmAssociationLogRedactionConfigurationOutput values.
+// You can construct a concrete instance of `ConfiguredModelAlgorithmAssociationLogRedactionConfigurationInput` via:
+//
+//	ConfiguredModelAlgorithmAssociationLogRedactionConfigurationArgs{...}
+type ConfiguredModelAlgorithmAssociationLogRedactionConfigurationInput interface {
+	pulumi.Input
+
+	ToConfiguredModelAlgorithmAssociationLogRedactionConfigurationOutput() ConfiguredModelAlgorithmAssociationLogRedactionConfigurationOutput
+	ToConfiguredModelAlgorithmAssociationLogRedactionConfigurationOutputWithContext(context.Context) ConfiguredModelAlgorithmAssociationLogRedactionConfigurationOutput
+}
+
+type ConfiguredModelAlgorithmAssociationLogRedactionConfigurationArgs struct {
+	CustomEntityConfig ConfiguredModelAlgorithmAssociationCustomEntityConfigPtrInput `pulumi:"customEntityConfig"`
+	EntitiesToRedact   ConfiguredModelAlgorithmAssociationEntityTypeArrayInput       `pulumi:"entitiesToRedact"`
+}
+
+func (ConfiguredModelAlgorithmAssociationLogRedactionConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfiguredModelAlgorithmAssociationLogRedactionConfiguration)(nil)).Elem()
+}
+
+func (i ConfiguredModelAlgorithmAssociationLogRedactionConfigurationArgs) ToConfiguredModelAlgorithmAssociationLogRedactionConfigurationOutput() ConfiguredModelAlgorithmAssociationLogRedactionConfigurationOutput {
+	return i.ToConfiguredModelAlgorithmAssociationLogRedactionConfigurationOutputWithContext(context.Background())
+}
+
+func (i ConfiguredModelAlgorithmAssociationLogRedactionConfigurationArgs) ToConfiguredModelAlgorithmAssociationLogRedactionConfigurationOutputWithContext(ctx context.Context) ConfiguredModelAlgorithmAssociationLogRedactionConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfiguredModelAlgorithmAssociationLogRedactionConfigurationOutput)
+}
+
+func (i ConfiguredModelAlgorithmAssociationLogRedactionConfigurationArgs) ToConfiguredModelAlgorithmAssociationLogRedactionConfigurationPtrOutput() ConfiguredModelAlgorithmAssociationLogRedactionConfigurationPtrOutput {
+	return i.ToConfiguredModelAlgorithmAssociationLogRedactionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i ConfiguredModelAlgorithmAssociationLogRedactionConfigurationArgs) ToConfiguredModelAlgorithmAssociationLogRedactionConfigurationPtrOutputWithContext(ctx context.Context) ConfiguredModelAlgorithmAssociationLogRedactionConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfiguredModelAlgorithmAssociationLogRedactionConfigurationOutput).ToConfiguredModelAlgorithmAssociationLogRedactionConfigurationPtrOutputWithContext(ctx)
+}
+
+// ConfiguredModelAlgorithmAssociationLogRedactionConfigurationPtrInput is an input type that accepts ConfiguredModelAlgorithmAssociationLogRedactionConfigurationArgs, ConfiguredModelAlgorithmAssociationLogRedactionConfigurationPtr and ConfiguredModelAlgorithmAssociationLogRedactionConfigurationPtrOutput values.
+// You can construct a concrete instance of `ConfiguredModelAlgorithmAssociationLogRedactionConfigurationPtrInput` via:
+//
+//	        ConfiguredModelAlgorithmAssociationLogRedactionConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type ConfiguredModelAlgorithmAssociationLogRedactionConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToConfiguredModelAlgorithmAssociationLogRedactionConfigurationPtrOutput() ConfiguredModelAlgorithmAssociationLogRedactionConfigurationPtrOutput
+	ToConfiguredModelAlgorithmAssociationLogRedactionConfigurationPtrOutputWithContext(context.Context) ConfiguredModelAlgorithmAssociationLogRedactionConfigurationPtrOutput
+}
+
+type configuredModelAlgorithmAssociationLogRedactionConfigurationPtrType ConfiguredModelAlgorithmAssociationLogRedactionConfigurationArgs
+
+func ConfiguredModelAlgorithmAssociationLogRedactionConfigurationPtr(v *ConfiguredModelAlgorithmAssociationLogRedactionConfigurationArgs) ConfiguredModelAlgorithmAssociationLogRedactionConfigurationPtrInput {
+	return (*configuredModelAlgorithmAssociationLogRedactionConfigurationPtrType)(v)
+}
+
+func (*configuredModelAlgorithmAssociationLogRedactionConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfiguredModelAlgorithmAssociationLogRedactionConfiguration)(nil)).Elem()
+}
+
+func (i *configuredModelAlgorithmAssociationLogRedactionConfigurationPtrType) ToConfiguredModelAlgorithmAssociationLogRedactionConfigurationPtrOutput() ConfiguredModelAlgorithmAssociationLogRedactionConfigurationPtrOutput {
+	return i.ToConfiguredModelAlgorithmAssociationLogRedactionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *configuredModelAlgorithmAssociationLogRedactionConfigurationPtrType) ToConfiguredModelAlgorithmAssociationLogRedactionConfigurationPtrOutputWithContext(ctx context.Context) ConfiguredModelAlgorithmAssociationLogRedactionConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfiguredModelAlgorithmAssociationLogRedactionConfigurationPtrOutput)
+}
+
+type ConfiguredModelAlgorithmAssociationLogRedactionConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ConfiguredModelAlgorithmAssociationLogRedactionConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfiguredModelAlgorithmAssociationLogRedactionConfiguration)(nil)).Elem()
+}
+
+func (o ConfiguredModelAlgorithmAssociationLogRedactionConfigurationOutput) ToConfiguredModelAlgorithmAssociationLogRedactionConfigurationOutput() ConfiguredModelAlgorithmAssociationLogRedactionConfigurationOutput {
+	return o
+}
+
+func (o ConfiguredModelAlgorithmAssociationLogRedactionConfigurationOutput) ToConfiguredModelAlgorithmAssociationLogRedactionConfigurationOutputWithContext(ctx context.Context) ConfiguredModelAlgorithmAssociationLogRedactionConfigurationOutput {
+	return o
+}
+
+func (o ConfiguredModelAlgorithmAssociationLogRedactionConfigurationOutput) ToConfiguredModelAlgorithmAssociationLogRedactionConfigurationPtrOutput() ConfiguredModelAlgorithmAssociationLogRedactionConfigurationPtrOutput {
+	return o.ToConfiguredModelAlgorithmAssociationLogRedactionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o ConfiguredModelAlgorithmAssociationLogRedactionConfigurationOutput) ToConfiguredModelAlgorithmAssociationLogRedactionConfigurationPtrOutputWithContext(ctx context.Context) ConfiguredModelAlgorithmAssociationLogRedactionConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfiguredModelAlgorithmAssociationLogRedactionConfiguration) *ConfiguredModelAlgorithmAssociationLogRedactionConfiguration {
+		return &v
+	}).(ConfiguredModelAlgorithmAssociationLogRedactionConfigurationPtrOutput)
+}
+
+func (o ConfiguredModelAlgorithmAssociationLogRedactionConfigurationOutput) CustomEntityConfig() ConfiguredModelAlgorithmAssociationCustomEntityConfigPtrOutput {
+	return o.ApplyT(func(v ConfiguredModelAlgorithmAssociationLogRedactionConfiguration) *ConfiguredModelAlgorithmAssociationCustomEntityConfig {
+		return v.CustomEntityConfig
+	}).(ConfiguredModelAlgorithmAssociationCustomEntityConfigPtrOutput)
+}
+
+func (o ConfiguredModelAlgorithmAssociationLogRedactionConfigurationOutput) EntitiesToRedact() ConfiguredModelAlgorithmAssociationEntityTypeArrayOutput {
+	return o.ApplyT(func(v ConfiguredModelAlgorithmAssociationLogRedactionConfiguration) []ConfiguredModelAlgorithmAssociationEntityType {
+		return v.EntitiesToRedact
+	}).(ConfiguredModelAlgorithmAssociationEntityTypeArrayOutput)
+}
+
+type ConfiguredModelAlgorithmAssociationLogRedactionConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ConfiguredModelAlgorithmAssociationLogRedactionConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfiguredModelAlgorithmAssociationLogRedactionConfiguration)(nil)).Elem()
+}
+
+func (o ConfiguredModelAlgorithmAssociationLogRedactionConfigurationPtrOutput) ToConfiguredModelAlgorithmAssociationLogRedactionConfigurationPtrOutput() ConfiguredModelAlgorithmAssociationLogRedactionConfigurationPtrOutput {
+	return o
+}
+
+func (o ConfiguredModelAlgorithmAssociationLogRedactionConfigurationPtrOutput) ToConfiguredModelAlgorithmAssociationLogRedactionConfigurationPtrOutputWithContext(ctx context.Context) ConfiguredModelAlgorithmAssociationLogRedactionConfigurationPtrOutput {
+	return o
+}
+
+func (o ConfiguredModelAlgorithmAssociationLogRedactionConfigurationPtrOutput) Elem() ConfiguredModelAlgorithmAssociationLogRedactionConfigurationOutput {
+	return o.ApplyT(func(v *ConfiguredModelAlgorithmAssociationLogRedactionConfiguration) ConfiguredModelAlgorithmAssociationLogRedactionConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ConfiguredModelAlgorithmAssociationLogRedactionConfiguration
+		return ret
+	}).(ConfiguredModelAlgorithmAssociationLogRedactionConfigurationOutput)
+}
+
+func (o ConfiguredModelAlgorithmAssociationLogRedactionConfigurationPtrOutput) CustomEntityConfig() ConfiguredModelAlgorithmAssociationCustomEntityConfigPtrOutput {
+	return o.ApplyT(func(v *ConfiguredModelAlgorithmAssociationLogRedactionConfiguration) *ConfiguredModelAlgorithmAssociationCustomEntityConfig {
+		if v == nil {
+			return nil
+		}
+		return v.CustomEntityConfig
+	}).(ConfiguredModelAlgorithmAssociationCustomEntityConfigPtrOutput)
+}
+
+func (o ConfiguredModelAlgorithmAssociationLogRedactionConfigurationPtrOutput) EntitiesToRedact() ConfiguredModelAlgorithmAssociationEntityTypeArrayOutput {
+	return o.ApplyT(func(v *ConfiguredModelAlgorithmAssociationLogRedactionConfiguration) []ConfiguredModelAlgorithmAssociationEntityType {
+		if v == nil {
+			return nil
+		}
+		return v.EntitiesToRedact
+	}).(ConfiguredModelAlgorithmAssociationEntityTypeArrayOutput)
+}
+
+type ConfiguredModelAlgorithmAssociationLogsConfigurationPolicy struct {
+	AllowedAccountIds         []string                                                      `pulumi:"allowedAccountIds"`
+	FilterPattern             *string                                                       `pulumi:"filterPattern"`
+	LogRedactionConfiguration *ConfiguredModelAlgorithmAssociationLogRedactionConfiguration `pulumi:"logRedactionConfiguration"`
+	LogType                   *ConfiguredModelAlgorithmAssociationLogType                   `pulumi:"logType"`
+}
+
+// ConfiguredModelAlgorithmAssociationLogsConfigurationPolicyInput is an input type that accepts ConfiguredModelAlgorithmAssociationLogsConfigurationPolicyArgs and ConfiguredModelAlgorithmAssociationLogsConfigurationPolicyOutput values.
+// You can construct a concrete instance of `ConfiguredModelAlgorithmAssociationLogsConfigurationPolicyInput` via:
+//
+//	ConfiguredModelAlgorithmAssociationLogsConfigurationPolicyArgs{...}
+type ConfiguredModelAlgorithmAssociationLogsConfigurationPolicyInput interface {
+	pulumi.Input
+
+	ToConfiguredModelAlgorithmAssociationLogsConfigurationPolicyOutput() ConfiguredModelAlgorithmAssociationLogsConfigurationPolicyOutput
+	ToConfiguredModelAlgorithmAssociationLogsConfigurationPolicyOutputWithContext(context.Context) ConfiguredModelAlgorithmAssociationLogsConfigurationPolicyOutput
+}
+
+type ConfiguredModelAlgorithmAssociationLogsConfigurationPolicyArgs struct {
+	AllowedAccountIds         pulumi.StringArrayInput                                              `pulumi:"allowedAccountIds"`
+	FilterPattern             pulumi.StringPtrInput                                                `pulumi:"filterPattern"`
+	LogRedactionConfiguration ConfiguredModelAlgorithmAssociationLogRedactionConfigurationPtrInput `pulumi:"logRedactionConfiguration"`
+	LogType                   ConfiguredModelAlgorithmAssociationLogTypePtrInput                   `pulumi:"logType"`
+}
+
+func (ConfiguredModelAlgorithmAssociationLogsConfigurationPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfiguredModelAlgorithmAssociationLogsConfigurationPolicy)(nil)).Elem()
+}
+
+func (i ConfiguredModelAlgorithmAssociationLogsConfigurationPolicyArgs) ToConfiguredModelAlgorithmAssociationLogsConfigurationPolicyOutput() ConfiguredModelAlgorithmAssociationLogsConfigurationPolicyOutput {
+	return i.ToConfiguredModelAlgorithmAssociationLogsConfigurationPolicyOutputWithContext(context.Background())
+}
+
+func (i ConfiguredModelAlgorithmAssociationLogsConfigurationPolicyArgs) ToConfiguredModelAlgorithmAssociationLogsConfigurationPolicyOutputWithContext(ctx context.Context) ConfiguredModelAlgorithmAssociationLogsConfigurationPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfiguredModelAlgorithmAssociationLogsConfigurationPolicyOutput)
+}
+
+// ConfiguredModelAlgorithmAssociationLogsConfigurationPolicyArrayInput is an input type that accepts ConfiguredModelAlgorithmAssociationLogsConfigurationPolicyArray and ConfiguredModelAlgorithmAssociationLogsConfigurationPolicyArrayOutput values.
+// You can construct a concrete instance of `ConfiguredModelAlgorithmAssociationLogsConfigurationPolicyArrayInput` via:
+//
+//	ConfiguredModelAlgorithmAssociationLogsConfigurationPolicyArray{ ConfiguredModelAlgorithmAssociationLogsConfigurationPolicyArgs{...} }
+type ConfiguredModelAlgorithmAssociationLogsConfigurationPolicyArrayInput interface {
+	pulumi.Input
+
+	ToConfiguredModelAlgorithmAssociationLogsConfigurationPolicyArrayOutput() ConfiguredModelAlgorithmAssociationLogsConfigurationPolicyArrayOutput
+	ToConfiguredModelAlgorithmAssociationLogsConfigurationPolicyArrayOutputWithContext(context.Context) ConfiguredModelAlgorithmAssociationLogsConfigurationPolicyArrayOutput
+}
+
+type ConfiguredModelAlgorithmAssociationLogsConfigurationPolicyArray []ConfiguredModelAlgorithmAssociationLogsConfigurationPolicyInput
+
+func (ConfiguredModelAlgorithmAssociationLogsConfigurationPolicyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ConfiguredModelAlgorithmAssociationLogsConfigurationPolicy)(nil)).Elem()
+}
+
+func (i ConfiguredModelAlgorithmAssociationLogsConfigurationPolicyArray) ToConfiguredModelAlgorithmAssociationLogsConfigurationPolicyArrayOutput() ConfiguredModelAlgorithmAssociationLogsConfigurationPolicyArrayOutput {
+	return i.ToConfiguredModelAlgorithmAssociationLogsConfigurationPolicyArrayOutputWithContext(context.Background())
+}
+
+func (i ConfiguredModelAlgorithmAssociationLogsConfigurationPolicyArray) ToConfiguredModelAlgorithmAssociationLogsConfigurationPolicyArrayOutputWithContext(ctx context.Context) ConfiguredModelAlgorithmAssociationLogsConfigurationPolicyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfiguredModelAlgorithmAssociationLogsConfigurationPolicyArrayOutput)
+}
+
+type ConfiguredModelAlgorithmAssociationLogsConfigurationPolicyOutput struct{ *pulumi.OutputState }
+
+func (ConfiguredModelAlgorithmAssociationLogsConfigurationPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfiguredModelAlgorithmAssociationLogsConfigurationPolicy)(nil)).Elem()
+}
+
+func (o ConfiguredModelAlgorithmAssociationLogsConfigurationPolicyOutput) ToConfiguredModelAlgorithmAssociationLogsConfigurationPolicyOutput() ConfiguredModelAlgorithmAssociationLogsConfigurationPolicyOutput {
+	return o
+}
+
+func (o ConfiguredModelAlgorithmAssociationLogsConfigurationPolicyOutput) ToConfiguredModelAlgorithmAssociationLogsConfigurationPolicyOutputWithContext(ctx context.Context) ConfiguredModelAlgorithmAssociationLogsConfigurationPolicyOutput {
+	return o
+}
+
+func (o ConfiguredModelAlgorithmAssociationLogsConfigurationPolicyOutput) AllowedAccountIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ConfiguredModelAlgorithmAssociationLogsConfigurationPolicy) []string {
+		return v.AllowedAccountIds
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o ConfiguredModelAlgorithmAssociationLogsConfigurationPolicyOutput) FilterPattern() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConfiguredModelAlgorithmAssociationLogsConfigurationPolicy) *string { return v.FilterPattern }).(pulumi.StringPtrOutput)
+}
+
+func (o ConfiguredModelAlgorithmAssociationLogsConfigurationPolicyOutput) LogRedactionConfiguration() ConfiguredModelAlgorithmAssociationLogRedactionConfigurationPtrOutput {
+	return o.ApplyT(func(v ConfiguredModelAlgorithmAssociationLogsConfigurationPolicy) *ConfiguredModelAlgorithmAssociationLogRedactionConfiguration {
+		return v.LogRedactionConfiguration
+	}).(ConfiguredModelAlgorithmAssociationLogRedactionConfigurationPtrOutput)
+}
+
+func (o ConfiguredModelAlgorithmAssociationLogsConfigurationPolicyOutput) LogType() ConfiguredModelAlgorithmAssociationLogTypePtrOutput {
+	return o.ApplyT(func(v ConfiguredModelAlgorithmAssociationLogsConfigurationPolicy) *ConfiguredModelAlgorithmAssociationLogType {
+		return v.LogType
+	}).(ConfiguredModelAlgorithmAssociationLogTypePtrOutput)
+}
+
+type ConfiguredModelAlgorithmAssociationLogsConfigurationPolicyArrayOutput struct{ *pulumi.OutputState }
+
+func (ConfiguredModelAlgorithmAssociationLogsConfigurationPolicyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ConfiguredModelAlgorithmAssociationLogsConfigurationPolicy)(nil)).Elem()
+}
+
+func (o ConfiguredModelAlgorithmAssociationLogsConfigurationPolicyArrayOutput) ToConfiguredModelAlgorithmAssociationLogsConfigurationPolicyArrayOutput() ConfiguredModelAlgorithmAssociationLogsConfigurationPolicyArrayOutput {
+	return o
+}
+
+func (o ConfiguredModelAlgorithmAssociationLogsConfigurationPolicyArrayOutput) ToConfiguredModelAlgorithmAssociationLogsConfigurationPolicyArrayOutputWithContext(ctx context.Context) ConfiguredModelAlgorithmAssociationLogsConfigurationPolicyArrayOutput {
+	return o
+}
+
+func (o ConfiguredModelAlgorithmAssociationLogsConfigurationPolicyArrayOutput) Index(i pulumi.IntInput) ConfiguredModelAlgorithmAssociationLogsConfigurationPolicyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ConfiguredModelAlgorithmAssociationLogsConfigurationPolicy {
+		return vs[0].([]ConfiguredModelAlgorithmAssociationLogsConfigurationPolicy)[vs[1].(int)]
+	}).(ConfiguredModelAlgorithmAssociationLogsConfigurationPolicyOutput)
+}
+
+type ConfiguredModelAlgorithmAssociationMetricsConfigurationPolicy struct {
+	NoiseLevel ConfiguredModelAlgorithmAssociationNoiseLevelType `pulumi:"noiseLevel"`
+}
+
+// ConfiguredModelAlgorithmAssociationMetricsConfigurationPolicyInput is an input type that accepts ConfiguredModelAlgorithmAssociationMetricsConfigurationPolicyArgs and ConfiguredModelAlgorithmAssociationMetricsConfigurationPolicyOutput values.
+// You can construct a concrete instance of `ConfiguredModelAlgorithmAssociationMetricsConfigurationPolicyInput` via:
+//
+//	ConfiguredModelAlgorithmAssociationMetricsConfigurationPolicyArgs{...}
+type ConfiguredModelAlgorithmAssociationMetricsConfigurationPolicyInput interface {
+	pulumi.Input
+
+	ToConfiguredModelAlgorithmAssociationMetricsConfigurationPolicyOutput() ConfiguredModelAlgorithmAssociationMetricsConfigurationPolicyOutput
+	ToConfiguredModelAlgorithmAssociationMetricsConfigurationPolicyOutputWithContext(context.Context) ConfiguredModelAlgorithmAssociationMetricsConfigurationPolicyOutput
+}
+
+type ConfiguredModelAlgorithmAssociationMetricsConfigurationPolicyArgs struct {
+	NoiseLevel ConfiguredModelAlgorithmAssociationNoiseLevelTypeInput `pulumi:"noiseLevel"`
+}
+
+func (ConfiguredModelAlgorithmAssociationMetricsConfigurationPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfiguredModelAlgorithmAssociationMetricsConfigurationPolicy)(nil)).Elem()
+}
+
+func (i ConfiguredModelAlgorithmAssociationMetricsConfigurationPolicyArgs) ToConfiguredModelAlgorithmAssociationMetricsConfigurationPolicyOutput() ConfiguredModelAlgorithmAssociationMetricsConfigurationPolicyOutput {
+	return i.ToConfiguredModelAlgorithmAssociationMetricsConfigurationPolicyOutputWithContext(context.Background())
+}
+
+func (i ConfiguredModelAlgorithmAssociationMetricsConfigurationPolicyArgs) ToConfiguredModelAlgorithmAssociationMetricsConfigurationPolicyOutputWithContext(ctx context.Context) ConfiguredModelAlgorithmAssociationMetricsConfigurationPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfiguredModelAlgorithmAssociationMetricsConfigurationPolicyOutput)
+}
+
+func (i ConfiguredModelAlgorithmAssociationMetricsConfigurationPolicyArgs) ToConfiguredModelAlgorithmAssociationMetricsConfigurationPolicyPtrOutput() ConfiguredModelAlgorithmAssociationMetricsConfigurationPolicyPtrOutput {
+	return i.ToConfiguredModelAlgorithmAssociationMetricsConfigurationPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i ConfiguredModelAlgorithmAssociationMetricsConfigurationPolicyArgs) ToConfiguredModelAlgorithmAssociationMetricsConfigurationPolicyPtrOutputWithContext(ctx context.Context) ConfiguredModelAlgorithmAssociationMetricsConfigurationPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfiguredModelAlgorithmAssociationMetricsConfigurationPolicyOutput).ToConfiguredModelAlgorithmAssociationMetricsConfigurationPolicyPtrOutputWithContext(ctx)
+}
+
+// ConfiguredModelAlgorithmAssociationMetricsConfigurationPolicyPtrInput is an input type that accepts ConfiguredModelAlgorithmAssociationMetricsConfigurationPolicyArgs, ConfiguredModelAlgorithmAssociationMetricsConfigurationPolicyPtr and ConfiguredModelAlgorithmAssociationMetricsConfigurationPolicyPtrOutput values.
+// You can construct a concrete instance of `ConfiguredModelAlgorithmAssociationMetricsConfigurationPolicyPtrInput` via:
+//
+//	        ConfiguredModelAlgorithmAssociationMetricsConfigurationPolicyArgs{...}
+//
+//	or:
+//
+//	        nil
+type ConfiguredModelAlgorithmAssociationMetricsConfigurationPolicyPtrInput interface {
+	pulumi.Input
+
+	ToConfiguredModelAlgorithmAssociationMetricsConfigurationPolicyPtrOutput() ConfiguredModelAlgorithmAssociationMetricsConfigurationPolicyPtrOutput
+	ToConfiguredModelAlgorithmAssociationMetricsConfigurationPolicyPtrOutputWithContext(context.Context) ConfiguredModelAlgorithmAssociationMetricsConfigurationPolicyPtrOutput
+}
+
+type configuredModelAlgorithmAssociationMetricsConfigurationPolicyPtrType ConfiguredModelAlgorithmAssociationMetricsConfigurationPolicyArgs
+
+func ConfiguredModelAlgorithmAssociationMetricsConfigurationPolicyPtr(v *ConfiguredModelAlgorithmAssociationMetricsConfigurationPolicyArgs) ConfiguredModelAlgorithmAssociationMetricsConfigurationPolicyPtrInput {
+	return (*configuredModelAlgorithmAssociationMetricsConfigurationPolicyPtrType)(v)
+}
+
+func (*configuredModelAlgorithmAssociationMetricsConfigurationPolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfiguredModelAlgorithmAssociationMetricsConfigurationPolicy)(nil)).Elem()
+}
+
+func (i *configuredModelAlgorithmAssociationMetricsConfigurationPolicyPtrType) ToConfiguredModelAlgorithmAssociationMetricsConfigurationPolicyPtrOutput() ConfiguredModelAlgorithmAssociationMetricsConfigurationPolicyPtrOutput {
+	return i.ToConfiguredModelAlgorithmAssociationMetricsConfigurationPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *configuredModelAlgorithmAssociationMetricsConfigurationPolicyPtrType) ToConfiguredModelAlgorithmAssociationMetricsConfigurationPolicyPtrOutputWithContext(ctx context.Context) ConfiguredModelAlgorithmAssociationMetricsConfigurationPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfiguredModelAlgorithmAssociationMetricsConfigurationPolicyPtrOutput)
+}
+
+type ConfiguredModelAlgorithmAssociationMetricsConfigurationPolicyOutput struct{ *pulumi.OutputState }
+
+func (ConfiguredModelAlgorithmAssociationMetricsConfigurationPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfiguredModelAlgorithmAssociationMetricsConfigurationPolicy)(nil)).Elem()
+}
+
+func (o ConfiguredModelAlgorithmAssociationMetricsConfigurationPolicyOutput) ToConfiguredModelAlgorithmAssociationMetricsConfigurationPolicyOutput() ConfiguredModelAlgorithmAssociationMetricsConfigurationPolicyOutput {
+	return o
+}
+
+func (o ConfiguredModelAlgorithmAssociationMetricsConfigurationPolicyOutput) ToConfiguredModelAlgorithmAssociationMetricsConfigurationPolicyOutputWithContext(ctx context.Context) ConfiguredModelAlgorithmAssociationMetricsConfigurationPolicyOutput {
+	return o
+}
+
+func (o ConfiguredModelAlgorithmAssociationMetricsConfigurationPolicyOutput) ToConfiguredModelAlgorithmAssociationMetricsConfigurationPolicyPtrOutput() ConfiguredModelAlgorithmAssociationMetricsConfigurationPolicyPtrOutput {
+	return o.ToConfiguredModelAlgorithmAssociationMetricsConfigurationPolicyPtrOutputWithContext(context.Background())
+}
+
+func (o ConfiguredModelAlgorithmAssociationMetricsConfigurationPolicyOutput) ToConfiguredModelAlgorithmAssociationMetricsConfigurationPolicyPtrOutputWithContext(ctx context.Context) ConfiguredModelAlgorithmAssociationMetricsConfigurationPolicyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfiguredModelAlgorithmAssociationMetricsConfigurationPolicy) *ConfiguredModelAlgorithmAssociationMetricsConfigurationPolicy {
+		return &v
+	}).(ConfiguredModelAlgorithmAssociationMetricsConfigurationPolicyPtrOutput)
+}
+
+func (o ConfiguredModelAlgorithmAssociationMetricsConfigurationPolicyOutput) NoiseLevel() ConfiguredModelAlgorithmAssociationNoiseLevelTypeOutput {
+	return o.ApplyT(func(v ConfiguredModelAlgorithmAssociationMetricsConfigurationPolicy) ConfiguredModelAlgorithmAssociationNoiseLevelType {
+		return v.NoiseLevel
+	}).(ConfiguredModelAlgorithmAssociationNoiseLevelTypeOutput)
+}
+
+type ConfiguredModelAlgorithmAssociationMetricsConfigurationPolicyPtrOutput struct{ *pulumi.OutputState }
+
+func (ConfiguredModelAlgorithmAssociationMetricsConfigurationPolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfiguredModelAlgorithmAssociationMetricsConfigurationPolicy)(nil)).Elem()
+}
+
+func (o ConfiguredModelAlgorithmAssociationMetricsConfigurationPolicyPtrOutput) ToConfiguredModelAlgorithmAssociationMetricsConfigurationPolicyPtrOutput() ConfiguredModelAlgorithmAssociationMetricsConfigurationPolicyPtrOutput {
+	return o
+}
+
+func (o ConfiguredModelAlgorithmAssociationMetricsConfigurationPolicyPtrOutput) ToConfiguredModelAlgorithmAssociationMetricsConfigurationPolicyPtrOutputWithContext(ctx context.Context) ConfiguredModelAlgorithmAssociationMetricsConfigurationPolicyPtrOutput {
+	return o
+}
+
+func (o ConfiguredModelAlgorithmAssociationMetricsConfigurationPolicyPtrOutput) Elem() ConfiguredModelAlgorithmAssociationMetricsConfigurationPolicyOutput {
+	return o.ApplyT(func(v *ConfiguredModelAlgorithmAssociationMetricsConfigurationPolicy) ConfiguredModelAlgorithmAssociationMetricsConfigurationPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret ConfiguredModelAlgorithmAssociationMetricsConfigurationPolicy
+		return ret
+	}).(ConfiguredModelAlgorithmAssociationMetricsConfigurationPolicyOutput)
+}
+
+func (o ConfiguredModelAlgorithmAssociationMetricsConfigurationPolicyPtrOutput) NoiseLevel() ConfiguredModelAlgorithmAssociationNoiseLevelTypePtrOutput {
+	return o.ApplyT(func(v *ConfiguredModelAlgorithmAssociationMetricsConfigurationPolicy) *ConfiguredModelAlgorithmAssociationNoiseLevelType {
+		if v == nil {
+			return nil
+		}
+		return &v.NoiseLevel
+	}).(ConfiguredModelAlgorithmAssociationNoiseLevelTypePtrOutput)
+}
+
+type ConfiguredModelAlgorithmAssociationPrivacyConfiguration struct {
+	Policies ConfiguredModelAlgorithmAssociationPrivacyConfigurationPolicies `pulumi:"policies"`
+}
+
+// ConfiguredModelAlgorithmAssociationPrivacyConfigurationInput is an input type that accepts ConfiguredModelAlgorithmAssociationPrivacyConfigurationArgs and ConfiguredModelAlgorithmAssociationPrivacyConfigurationOutput values.
+// You can construct a concrete instance of `ConfiguredModelAlgorithmAssociationPrivacyConfigurationInput` via:
+//
+//	ConfiguredModelAlgorithmAssociationPrivacyConfigurationArgs{...}
+type ConfiguredModelAlgorithmAssociationPrivacyConfigurationInput interface {
+	pulumi.Input
+
+	ToConfiguredModelAlgorithmAssociationPrivacyConfigurationOutput() ConfiguredModelAlgorithmAssociationPrivacyConfigurationOutput
+	ToConfiguredModelAlgorithmAssociationPrivacyConfigurationOutputWithContext(context.Context) ConfiguredModelAlgorithmAssociationPrivacyConfigurationOutput
+}
+
+type ConfiguredModelAlgorithmAssociationPrivacyConfigurationArgs struct {
+	Policies ConfiguredModelAlgorithmAssociationPrivacyConfigurationPoliciesInput `pulumi:"policies"`
+}
+
+func (ConfiguredModelAlgorithmAssociationPrivacyConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfiguredModelAlgorithmAssociationPrivacyConfiguration)(nil)).Elem()
+}
+
+func (i ConfiguredModelAlgorithmAssociationPrivacyConfigurationArgs) ToConfiguredModelAlgorithmAssociationPrivacyConfigurationOutput() ConfiguredModelAlgorithmAssociationPrivacyConfigurationOutput {
+	return i.ToConfiguredModelAlgorithmAssociationPrivacyConfigurationOutputWithContext(context.Background())
+}
+
+func (i ConfiguredModelAlgorithmAssociationPrivacyConfigurationArgs) ToConfiguredModelAlgorithmAssociationPrivacyConfigurationOutputWithContext(ctx context.Context) ConfiguredModelAlgorithmAssociationPrivacyConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfiguredModelAlgorithmAssociationPrivacyConfigurationOutput)
+}
+
+func (i ConfiguredModelAlgorithmAssociationPrivacyConfigurationArgs) ToConfiguredModelAlgorithmAssociationPrivacyConfigurationPtrOutput() ConfiguredModelAlgorithmAssociationPrivacyConfigurationPtrOutput {
+	return i.ToConfiguredModelAlgorithmAssociationPrivacyConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i ConfiguredModelAlgorithmAssociationPrivacyConfigurationArgs) ToConfiguredModelAlgorithmAssociationPrivacyConfigurationPtrOutputWithContext(ctx context.Context) ConfiguredModelAlgorithmAssociationPrivacyConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfiguredModelAlgorithmAssociationPrivacyConfigurationOutput).ToConfiguredModelAlgorithmAssociationPrivacyConfigurationPtrOutputWithContext(ctx)
+}
+
+// ConfiguredModelAlgorithmAssociationPrivacyConfigurationPtrInput is an input type that accepts ConfiguredModelAlgorithmAssociationPrivacyConfigurationArgs, ConfiguredModelAlgorithmAssociationPrivacyConfigurationPtr and ConfiguredModelAlgorithmAssociationPrivacyConfigurationPtrOutput values.
+// You can construct a concrete instance of `ConfiguredModelAlgorithmAssociationPrivacyConfigurationPtrInput` via:
+//
+//	        ConfiguredModelAlgorithmAssociationPrivacyConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type ConfiguredModelAlgorithmAssociationPrivacyConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToConfiguredModelAlgorithmAssociationPrivacyConfigurationPtrOutput() ConfiguredModelAlgorithmAssociationPrivacyConfigurationPtrOutput
+	ToConfiguredModelAlgorithmAssociationPrivacyConfigurationPtrOutputWithContext(context.Context) ConfiguredModelAlgorithmAssociationPrivacyConfigurationPtrOutput
+}
+
+type configuredModelAlgorithmAssociationPrivacyConfigurationPtrType ConfiguredModelAlgorithmAssociationPrivacyConfigurationArgs
+
+func ConfiguredModelAlgorithmAssociationPrivacyConfigurationPtr(v *ConfiguredModelAlgorithmAssociationPrivacyConfigurationArgs) ConfiguredModelAlgorithmAssociationPrivacyConfigurationPtrInput {
+	return (*configuredModelAlgorithmAssociationPrivacyConfigurationPtrType)(v)
+}
+
+func (*configuredModelAlgorithmAssociationPrivacyConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfiguredModelAlgorithmAssociationPrivacyConfiguration)(nil)).Elem()
+}
+
+func (i *configuredModelAlgorithmAssociationPrivacyConfigurationPtrType) ToConfiguredModelAlgorithmAssociationPrivacyConfigurationPtrOutput() ConfiguredModelAlgorithmAssociationPrivacyConfigurationPtrOutput {
+	return i.ToConfiguredModelAlgorithmAssociationPrivacyConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *configuredModelAlgorithmAssociationPrivacyConfigurationPtrType) ToConfiguredModelAlgorithmAssociationPrivacyConfigurationPtrOutputWithContext(ctx context.Context) ConfiguredModelAlgorithmAssociationPrivacyConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfiguredModelAlgorithmAssociationPrivacyConfigurationPtrOutput)
+}
+
+type ConfiguredModelAlgorithmAssociationPrivacyConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ConfiguredModelAlgorithmAssociationPrivacyConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfiguredModelAlgorithmAssociationPrivacyConfiguration)(nil)).Elem()
+}
+
+func (o ConfiguredModelAlgorithmAssociationPrivacyConfigurationOutput) ToConfiguredModelAlgorithmAssociationPrivacyConfigurationOutput() ConfiguredModelAlgorithmAssociationPrivacyConfigurationOutput {
+	return o
+}
+
+func (o ConfiguredModelAlgorithmAssociationPrivacyConfigurationOutput) ToConfiguredModelAlgorithmAssociationPrivacyConfigurationOutputWithContext(ctx context.Context) ConfiguredModelAlgorithmAssociationPrivacyConfigurationOutput {
+	return o
+}
+
+func (o ConfiguredModelAlgorithmAssociationPrivacyConfigurationOutput) ToConfiguredModelAlgorithmAssociationPrivacyConfigurationPtrOutput() ConfiguredModelAlgorithmAssociationPrivacyConfigurationPtrOutput {
+	return o.ToConfiguredModelAlgorithmAssociationPrivacyConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o ConfiguredModelAlgorithmAssociationPrivacyConfigurationOutput) ToConfiguredModelAlgorithmAssociationPrivacyConfigurationPtrOutputWithContext(ctx context.Context) ConfiguredModelAlgorithmAssociationPrivacyConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfiguredModelAlgorithmAssociationPrivacyConfiguration) *ConfiguredModelAlgorithmAssociationPrivacyConfiguration {
+		return &v
+	}).(ConfiguredModelAlgorithmAssociationPrivacyConfigurationPtrOutput)
+}
+
+func (o ConfiguredModelAlgorithmAssociationPrivacyConfigurationOutput) Policies() ConfiguredModelAlgorithmAssociationPrivacyConfigurationPoliciesOutput {
+	return o.ApplyT(func(v ConfiguredModelAlgorithmAssociationPrivacyConfiguration) ConfiguredModelAlgorithmAssociationPrivacyConfigurationPolicies {
+		return v.Policies
+	}).(ConfiguredModelAlgorithmAssociationPrivacyConfigurationPoliciesOutput)
+}
+
+type ConfiguredModelAlgorithmAssociationPrivacyConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ConfiguredModelAlgorithmAssociationPrivacyConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfiguredModelAlgorithmAssociationPrivacyConfiguration)(nil)).Elem()
+}
+
+func (o ConfiguredModelAlgorithmAssociationPrivacyConfigurationPtrOutput) ToConfiguredModelAlgorithmAssociationPrivacyConfigurationPtrOutput() ConfiguredModelAlgorithmAssociationPrivacyConfigurationPtrOutput {
+	return o
+}
+
+func (o ConfiguredModelAlgorithmAssociationPrivacyConfigurationPtrOutput) ToConfiguredModelAlgorithmAssociationPrivacyConfigurationPtrOutputWithContext(ctx context.Context) ConfiguredModelAlgorithmAssociationPrivacyConfigurationPtrOutput {
+	return o
+}
+
+func (o ConfiguredModelAlgorithmAssociationPrivacyConfigurationPtrOutput) Elem() ConfiguredModelAlgorithmAssociationPrivacyConfigurationOutput {
+	return o.ApplyT(func(v *ConfiguredModelAlgorithmAssociationPrivacyConfiguration) ConfiguredModelAlgorithmAssociationPrivacyConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ConfiguredModelAlgorithmAssociationPrivacyConfiguration
+		return ret
+	}).(ConfiguredModelAlgorithmAssociationPrivacyConfigurationOutput)
+}
+
+func (o ConfiguredModelAlgorithmAssociationPrivacyConfigurationPtrOutput) Policies() ConfiguredModelAlgorithmAssociationPrivacyConfigurationPoliciesPtrOutput {
+	return o.ApplyT(func(v *ConfiguredModelAlgorithmAssociationPrivacyConfiguration) *ConfiguredModelAlgorithmAssociationPrivacyConfigurationPolicies {
+		if v == nil {
+			return nil
+		}
+		return &v.Policies
+	}).(ConfiguredModelAlgorithmAssociationPrivacyConfigurationPoliciesPtrOutput)
+}
+
+type ConfiguredModelAlgorithmAssociationPrivacyConfigurationPolicies struct {
+	TrainedModelExports       *ConfiguredModelAlgorithmAssociationTrainedModelExportsConfigurationPolicy       `pulumi:"trainedModelExports"`
+	TrainedModelInferenceJobs *ConfiguredModelAlgorithmAssociationTrainedModelInferenceJobsConfigurationPolicy `pulumi:"trainedModelInferenceJobs"`
+	TrainedModels             *ConfiguredModelAlgorithmAssociationTrainedModelsConfigurationPolicy             `pulumi:"trainedModels"`
+}
+
+// ConfiguredModelAlgorithmAssociationPrivacyConfigurationPoliciesInput is an input type that accepts ConfiguredModelAlgorithmAssociationPrivacyConfigurationPoliciesArgs and ConfiguredModelAlgorithmAssociationPrivacyConfigurationPoliciesOutput values.
+// You can construct a concrete instance of `ConfiguredModelAlgorithmAssociationPrivacyConfigurationPoliciesInput` via:
+//
+//	ConfiguredModelAlgorithmAssociationPrivacyConfigurationPoliciesArgs{...}
+type ConfiguredModelAlgorithmAssociationPrivacyConfigurationPoliciesInput interface {
+	pulumi.Input
+
+	ToConfiguredModelAlgorithmAssociationPrivacyConfigurationPoliciesOutput() ConfiguredModelAlgorithmAssociationPrivacyConfigurationPoliciesOutput
+	ToConfiguredModelAlgorithmAssociationPrivacyConfigurationPoliciesOutputWithContext(context.Context) ConfiguredModelAlgorithmAssociationPrivacyConfigurationPoliciesOutput
+}
+
+type ConfiguredModelAlgorithmAssociationPrivacyConfigurationPoliciesArgs struct {
+	TrainedModelExports       ConfiguredModelAlgorithmAssociationTrainedModelExportsConfigurationPolicyPtrInput       `pulumi:"trainedModelExports"`
+	TrainedModelInferenceJobs ConfiguredModelAlgorithmAssociationTrainedModelInferenceJobsConfigurationPolicyPtrInput `pulumi:"trainedModelInferenceJobs"`
+	TrainedModels             ConfiguredModelAlgorithmAssociationTrainedModelsConfigurationPolicyPtrInput             `pulumi:"trainedModels"`
+}
+
+func (ConfiguredModelAlgorithmAssociationPrivacyConfigurationPoliciesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfiguredModelAlgorithmAssociationPrivacyConfigurationPolicies)(nil)).Elem()
+}
+
+func (i ConfiguredModelAlgorithmAssociationPrivacyConfigurationPoliciesArgs) ToConfiguredModelAlgorithmAssociationPrivacyConfigurationPoliciesOutput() ConfiguredModelAlgorithmAssociationPrivacyConfigurationPoliciesOutput {
+	return i.ToConfiguredModelAlgorithmAssociationPrivacyConfigurationPoliciesOutputWithContext(context.Background())
+}
+
+func (i ConfiguredModelAlgorithmAssociationPrivacyConfigurationPoliciesArgs) ToConfiguredModelAlgorithmAssociationPrivacyConfigurationPoliciesOutputWithContext(ctx context.Context) ConfiguredModelAlgorithmAssociationPrivacyConfigurationPoliciesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfiguredModelAlgorithmAssociationPrivacyConfigurationPoliciesOutput)
+}
+
+func (i ConfiguredModelAlgorithmAssociationPrivacyConfigurationPoliciesArgs) ToConfiguredModelAlgorithmAssociationPrivacyConfigurationPoliciesPtrOutput() ConfiguredModelAlgorithmAssociationPrivacyConfigurationPoliciesPtrOutput {
+	return i.ToConfiguredModelAlgorithmAssociationPrivacyConfigurationPoliciesPtrOutputWithContext(context.Background())
+}
+
+func (i ConfiguredModelAlgorithmAssociationPrivacyConfigurationPoliciesArgs) ToConfiguredModelAlgorithmAssociationPrivacyConfigurationPoliciesPtrOutputWithContext(ctx context.Context) ConfiguredModelAlgorithmAssociationPrivacyConfigurationPoliciesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfiguredModelAlgorithmAssociationPrivacyConfigurationPoliciesOutput).ToConfiguredModelAlgorithmAssociationPrivacyConfigurationPoliciesPtrOutputWithContext(ctx)
+}
+
+// ConfiguredModelAlgorithmAssociationPrivacyConfigurationPoliciesPtrInput is an input type that accepts ConfiguredModelAlgorithmAssociationPrivacyConfigurationPoliciesArgs, ConfiguredModelAlgorithmAssociationPrivacyConfigurationPoliciesPtr and ConfiguredModelAlgorithmAssociationPrivacyConfigurationPoliciesPtrOutput values.
+// You can construct a concrete instance of `ConfiguredModelAlgorithmAssociationPrivacyConfigurationPoliciesPtrInput` via:
+//
+//	        ConfiguredModelAlgorithmAssociationPrivacyConfigurationPoliciesArgs{...}
+//
+//	or:
+//
+//	        nil
+type ConfiguredModelAlgorithmAssociationPrivacyConfigurationPoliciesPtrInput interface {
+	pulumi.Input
+
+	ToConfiguredModelAlgorithmAssociationPrivacyConfigurationPoliciesPtrOutput() ConfiguredModelAlgorithmAssociationPrivacyConfigurationPoliciesPtrOutput
+	ToConfiguredModelAlgorithmAssociationPrivacyConfigurationPoliciesPtrOutputWithContext(context.Context) ConfiguredModelAlgorithmAssociationPrivacyConfigurationPoliciesPtrOutput
+}
+
+type configuredModelAlgorithmAssociationPrivacyConfigurationPoliciesPtrType ConfiguredModelAlgorithmAssociationPrivacyConfigurationPoliciesArgs
+
+func ConfiguredModelAlgorithmAssociationPrivacyConfigurationPoliciesPtr(v *ConfiguredModelAlgorithmAssociationPrivacyConfigurationPoliciesArgs) ConfiguredModelAlgorithmAssociationPrivacyConfigurationPoliciesPtrInput {
+	return (*configuredModelAlgorithmAssociationPrivacyConfigurationPoliciesPtrType)(v)
+}
+
+func (*configuredModelAlgorithmAssociationPrivacyConfigurationPoliciesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfiguredModelAlgorithmAssociationPrivacyConfigurationPolicies)(nil)).Elem()
+}
+
+func (i *configuredModelAlgorithmAssociationPrivacyConfigurationPoliciesPtrType) ToConfiguredModelAlgorithmAssociationPrivacyConfigurationPoliciesPtrOutput() ConfiguredModelAlgorithmAssociationPrivacyConfigurationPoliciesPtrOutput {
+	return i.ToConfiguredModelAlgorithmAssociationPrivacyConfigurationPoliciesPtrOutputWithContext(context.Background())
+}
+
+func (i *configuredModelAlgorithmAssociationPrivacyConfigurationPoliciesPtrType) ToConfiguredModelAlgorithmAssociationPrivacyConfigurationPoliciesPtrOutputWithContext(ctx context.Context) ConfiguredModelAlgorithmAssociationPrivacyConfigurationPoliciesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfiguredModelAlgorithmAssociationPrivacyConfigurationPoliciesPtrOutput)
+}
+
+type ConfiguredModelAlgorithmAssociationPrivacyConfigurationPoliciesOutput struct{ *pulumi.OutputState }
+
+func (ConfiguredModelAlgorithmAssociationPrivacyConfigurationPoliciesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfiguredModelAlgorithmAssociationPrivacyConfigurationPolicies)(nil)).Elem()
+}
+
+func (o ConfiguredModelAlgorithmAssociationPrivacyConfigurationPoliciesOutput) ToConfiguredModelAlgorithmAssociationPrivacyConfigurationPoliciesOutput() ConfiguredModelAlgorithmAssociationPrivacyConfigurationPoliciesOutput {
+	return o
+}
+
+func (o ConfiguredModelAlgorithmAssociationPrivacyConfigurationPoliciesOutput) ToConfiguredModelAlgorithmAssociationPrivacyConfigurationPoliciesOutputWithContext(ctx context.Context) ConfiguredModelAlgorithmAssociationPrivacyConfigurationPoliciesOutput {
+	return o
+}
+
+func (o ConfiguredModelAlgorithmAssociationPrivacyConfigurationPoliciesOutput) ToConfiguredModelAlgorithmAssociationPrivacyConfigurationPoliciesPtrOutput() ConfiguredModelAlgorithmAssociationPrivacyConfigurationPoliciesPtrOutput {
+	return o.ToConfiguredModelAlgorithmAssociationPrivacyConfigurationPoliciesPtrOutputWithContext(context.Background())
+}
+
+func (o ConfiguredModelAlgorithmAssociationPrivacyConfigurationPoliciesOutput) ToConfiguredModelAlgorithmAssociationPrivacyConfigurationPoliciesPtrOutputWithContext(ctx context.Context) ConfiguredModelAlgorithmAssociationPrivacyConfigurationPoliciesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfiguredModelAlgorithmAssociationPrivacyConfigurationPolicies) *ConfiguredModelAlgorithmAssociationPrivacyConfigurationPolicies {
+		return &v
+	}).(ConfiguredModelAlgorithmAssociationPrivacyConfigurationPoliciesPtrOutput)
+}
+
+func (o ConfiguredModelAlgorithmAssociationPrivacyConfigurationPoliciesOutput) TrainedModelExports() ConfiguredModelAlgorithmAssociationTrainedModelExportsConfigurationPolicyPtrOutput {
+	return o.ApplyT(func(v ConfiguredModelAlgorithmAssociationPrivacyConfigurationPolicies) *ConfiguredModelAlgorithmAssociationTrainedModelExportsConfigurationPolicy {
+		return v.TrainedModelExports
+	}).(ConfiguredModelAlgorithmAssociationTrainedModelExportsConfigurationPolicyPtrOutput)
+}
+
+func (o ConfiguredModelAlgorithmAssociationPrivacyConfigurationPoliciesOutput) TrainedModelInferenceJobs() ConfiguredModelAlgorithmAssociationTrainedModelInferenceJobsConfigurationPolicyPtrOutput {
+	return o.ApplyT(func(v ConfiguredModelAlgorithmAssociationPrivacyConfigurationPolicies) *ConfiguredModelAlgorithmAssociationTrainedModelInferenceJobsConfigurationPolicy {
+		return v.TrainedModelInferenceJobs
+	}).(ConfiguredModelAlgorithmAssociationTrainedModelInferenceJobsConfigurationPolicyPtrOutput)
+}
+
+func (o ConfiguredModelAlgorithmAssociationPrivacyConfigurationPoliciesOutput) TrainedModels() ConfiguredModelAlgorithmAssociationTrainedModelsConfigurationPolicyPtrOutput {
+	return o.ApplyT(func(v ConfiguredModelAlgorithmAssociationPrivacyConfigurationPolicies) *ConfiguredModelAlgorithmAssociationTrainedModelsConfigurationPolicy {
+		return v.TrainedModels
+	}).(ConfiguredModelAlgorithmAssociationTrainedModelsConfigurationPolicyPtrOutput)
+}
+
+type ConfiguredModelAlgorithmAssociationPrivacyConfigurationPoliciesPtrOutput struct{ *pulumi.OutputState }
+
+func (ConfiguredModelAlgorithmAssociationPrivacyConfigurationPoliciesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfiguredModelAlgorithmAssociationPrivacyConfigurationPolicies)(nil)).Elem()
+}
+
+func (o ConfiguredModelAlgorithmAssociationPrivacyConfigurationPoliciesPtrOutput) ToConfiguredModelAlgorithmAssociationPrivacyConfigurationPoliciesPtrOutput() ConfiguredModelAlgorithmAssociationPrivacyConfigurationPoliciesPtrOutput {
+	return o
+}
+
+func (o ConfiguredModelAlgorithmAssociationPrivacyConfigurationPoliciesPtrOutput) ToConfiguredModelAlgorithmAssociationPrivacyConfigurationPoliciesPtrOutputWithContext(ctx context.Context) ConfiguredModelAlgorithmAssociationPrivacyConfigurationPoliciesPtrOutput {
+	return o
+}
+
+func (o ConfiguredModelAlgorithmAssociationPrivacyConfigurationPoliciesPtrOutput) Elem() ConfiguredModelAlgorithmAssociationPrivacyConfigurationPoliciesOutput {
+	return o.ApplyT(func(v *ConfiguredModelAlgorithmAssociationPrivacyConfigurationPolicies) ConfiguredModelAlgorithmAssociationPrivacyConfigurationPolicies {
+		if v != nil {
+			return *v
+		}
+		var ret ConfiguredModelAlgorithmAssociationPrivacyConfigurationPolicies
+		return ret
+	}).(ConfiguredModelAlgorithmAssociationPrivacyConfigurationPoliciesOutput)
+}
+
+func (o ConfiguredModelAlgorithmAssociationPrivacyConfigurationPoliciesPtrOutput) TrainedModelExports() ConfiguredModelAlgorithmAssociationTrainedModelExportsConfigurationPolicyPtrOutput {
+	return o.ApplyT(func(v *ConfiguredModelAlgorithmAssociationPrivacyConfigurationPolicies) *ConfiguredModelAlgorithmAssociationTrainedModelExportsConfigurationPolicy {
+		if v == nil {
+			return nil
+		}
+		return v.TrainedModelExports
+	}).(ConfiguredModelAlgorithmAssociationTrainedModelExportsConfigurationPolicyPtrOutput)
+}
+
+func (o ConfiguredModelAlgorithmAssociationPrivacyConfigurationPoliciesPtrOutput) TrainedModelInferenceJobs() ConfiguredModelAlgorithmAssociationTrainedModelInferenceJobsConfigurationPolicyPtrOutput {
+	return o.ApplyT(func(v *ConfiguredModelAlgorithmAssociationPrivacyConfigurationPolicies) *ConfiguredModelAlgorithmAssociationTrainedModelInferenceJobsConfigurationPolicy {
+		if v == nil {
+			return nil
+		}
+		return v.TrainedModelInferenceJobs
+	}).(ConfiguredModelAlgorithmAssociationTrainedModelInferenceJobsConfigurationPolicyPtrOutput)
+}
+
+func (o ConfiguredModelAlgorithmAssociationPrivacyConfigurationPoliciesPtrOutput) TrainedModels() ConfiguredModelAlgorithmAssociationTrainedModelsConfigurationPolicyPtrOutput {
+	return o.ApplyT(func(v *ConfiguredModelAlgorithmAssociationPrivacyConfigurationPolicies) *ConfiguredModelAlgorithmAssociationTrainedModelsConfigurationPolicy {
+		if v == nil {
+			return nil
+		}
+		return v.TrainedModels
+	}).(ConfiguredModelAlgorithmAssociationTrainedModelsConfigurationPolicyPtrOutput)
+}
+
+type ConfiguredModelAlgorithmAssociationTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
+type ConfiguredModelAlgorithmAssociationTrainedModelArtifactMaxSize struct {
+	Unit  ConfiguredModelAlgorithmAssociationTrainedModelArtifactMaxSizeUnitType `pulumi:"unit"`
+	Value float64                                                                `pulumi:"value"`
+}
+
+// ConfiguredModelAlgorithmAssociationTrainedModelArtifactMaxSizeInput is an input type that accepts ConfiguredModelAlgorithmAssociationTrainedModelArtifactMaxSizeArgs and ConfiguredModelAlgorithmAssociationTrainedModelArtifactMaxSizeOutput values.
+// You can construct a concrete instance of `ConfiguredModelAlgorithmAssociationTrainedModelArtifactMaxSizeInput` via:
+//
+//	ConfiguredModelAlgorithmAssociationTrainedModelArtifactMaxSizeArgs{...}
+type ConfiguredModelAlgorithmAssociationTrainedModelArtifactMaxSizeInput interface {
+	pulumi.Input
+
+	ToConfiguredModelAlgorithmAssociationTrainedModelArtifactMaxSizeOutput() ConfiguredModelAlgorithmAssociationTrainedModelArtifactMaxSizeOutput
+	ToConfiguredModelAlgorithmAssociationTrainedModelArtifactMaxSizeOutputWithContext(context.Context) ConfiguredModelAlgorithmAssociationTrainedModelArtifactMaxSizeOutput
+}
+
+type ConfiguredModelAlgorithmAssociationTrainedModelArtifactMaxSizeArgs struct {
+	Unit  ConfiguredModelAlgorithmAssociationTrainedModelArtifactMaxSizeUnitTypeInput `pulumi:"unit"`
+	Value pulumi.Float64Input                                                         `pulumi:"value"`
+}
+
+func (ConfiguredModelAlgorithmAssociationTrainedModelArtifactMaxSizeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfiguredModelAlgorithmAssociationTrainedModelArtifactMaxSize)(nil)).Elem()
+}
+
+func (i ConfiguredModelAlgorithmAssociationTrainedModelArtifactMaxSizeArgs) ToConfiguredModelAlgorithmAssociationTrainedModelArtifactMaxSizeOutput() ConfiguredModelAlgorithmAssociationTrainedModelArtifactMaxSizeOutput {
+	return i.ToConfiguredModelAlgorithmAssociationTrainedModelArtifactMaxSizeOutputWithContext(context.Background())
+}
+
+func (i ConfiguredModelAlgorithmAssociationTrainedModelArtifactMaxSizeArgs) ToConfiguredModelAlgorithmAssociationTrainedModelArtifactMaxSizeOutputWithContext(ctx context.Context) ConfiguredModelAlgorithmAssociationTrainedModelArtifactMaxSizeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfiguredModelAlgorithmAssociationTrainedModelArtifactMaxSizeOutput)
+}
+
+func (i ConfiguredModelAlgorithmAssociationTrainedModelArtifactMaxSizeArgs) ToConfiguredModelAlgorithmAssociationTrainedModelArtifactMaxSizePtrOutput() ConfiguredModelAlgorithmAssociationTrainedModelArtifactMaxSizePtrOutput {
+	return i.ToConfiguredModelAlgorithmAssociationTrainedModelArtifactMaxSizePtrOutputWithContext(context.Background())
+}
+
+func (i ConfiguredModelAlgorithmAssociationTrainedModelArtifactMaxSizeArgs) ToConfiguredModelAlgorithmAssociationTrainedModelArtifactMaxSizePtrOutputWithContext(ctx context.Context) ConfiguredModelAlgorithmAssociationTrainedModelArtifactMaxSizePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfiguredModelAlgorithmAssociationTrainedModelArtifactMaxSizeOutput).ToConfiguredModelAlgorithmAssociationTrainedModelArtifactMaxSizePtrOutputWithContext(ctx)
+}
+
+// ConfiguredModelAlgorithmAssociationTrainedModelArtifactMaxSizePtrInput is an input type that accepts ConfiguredModelAlgorithmAssociationTrainedModelArtifactMaxSizeArgs, ConfiguredModelAlgorithmAssociationTrainedModelArtifactMaxSizePtr and ConfiguredModelAlgorithmAssociationTrainedModelArtifactMaxSizePtrOutput values.
+// You can construct a concrete instance of `ConfiguredModelAlgorithmAssociationTrainedModelArtifactMaxSizePtrInput` via:
+//
+//	        ConfiguredModelAlgorithmAssociationTrainedModelArtifactMaxSizeArgs{...}
+//
+//	or:
+//
+//	        nil
+type ConfiguredModelAlgorithmAssociationTrainedModelArtifactMaxSizePtrInput interface {
+	pulumi.Input
+
+	ToConfiguredModelAlgorithmAssociationTrainedModelArtifactMaxSizePtrOutput() ConfiguredModelAlgorithmAssociationTrainedModelArtifactMaxSizePtrOutput
+	ToConfiguredModelAlgorithmAssociationTrainedModelArtifactMaxSizePtrOutputWithContext(context.Context) ConfiguredModelAlgorithmAssociationTrainedModelArtifactMaxSizePtrOutput
+}
+
+type configuredModelAlgorithmAssociationTrainedModelArtifactMaxSizePtrType ConfiguredModelAlgorithmAssociationTrainedModelArtifactMaxSizeArgs
+
+func ConfiguredModelAlgorithmAssociationTrainedModelArtifactMaxSizePtr(v *ConfiguredModelAlgorithmAssociationTrainedModelArtifactMaxSizeArgs) ConfiguredModelAlgorithmAssociationTrainedModelArtifactMaxSizePtrInput {
+	return (*configuredModelAlgorithmAssociationTrainedModelArtifactMaxSizePtrType)(v)
+}
+
+func (*configuredModelAlgorithmAssociationTrainedModelArtifactMaxSizePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfiguredModelAlgorithmAssociationTrainedModelArtifactMaxSize)(nil)).Elem()
+}
+
+func (i *configuredModelAlgorithmAssociationTrainedModelArtifactMaxSizePtrType) ToConfiguredModelAlgorithmAssociationTrainedModelArtifactMaxSizePtrOutput() ConfiguredModelAlgorithmAssociationTrainedModelArtifactMaxSizePtrOutput {
+	return i.ToConfiguredModelAlgorithmAssociationTrainedModelArtifactMaxSizePtrOutputWithContext(context.Background())
+}
+
+func (i *configuredModelAlgorithmAssociationTrainedModelArtifactMaxSizePtrType) ToConfiguredModelAlgorithmAssociationTrainedModelArtifactMaxSizePtrOutputWithContext(ctx context.Context) ConfiguredModelAlgorithmAssociationTrainedModelArtifactMaxSizePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfiguredModelAlgorithmAssociationTrainedModelArtifactMaxSizePtrOutput)
+}
+
+type ConfiguredModelAlgorithmAssociationTrainedModelArtifactMaxSizeOutput struct{ *pulumi.OutputState }
+
+func (ConfiguredModelAlgorithmAssociationTrainedModelArtifactMaxSizeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfiguredModelAlgorithmAssociationTrainedModelArtifactMaxSize)(nil)).Elem()
+}
+
+func (o ConfiguredModelAlgorithmAssociationTrainedModelArtifactMaxSizeOutput) ToConfiguredModelAlgorithmAssociationTrainedModelArtifactMaxSizeOutput() ConfiguredModelAlgorithmAssociationTrainedModelArtifactMaxSizeOutput {
+	return o
+}
+
+func (o ConfiguredModelAlgorithmAssociationTrainedModelArtifactMaxSizeOutput) ToConfiguredModelAlgorithmAssociationTrainedModelArtifactMaxSizeOutputWithContext(ctx context.Context) ConfiguredModelAlgorithmAssociationTrainedModelArtifactMaxSizeOutput {
+	return o
+}
+
+func (o ConfiguredModelAlgorithmAssociationTrainedModelArtifactMaxSizeOutput) ToConfiguredModelAlgorithmAssociationTrainedModelArtifactMaxSizePtrOutput() ConfiguredModelAlgorithmAssociationTrainedModelArtifactMaxSizePtrOutput {
+	return o.ToConfiguredModelAlgorithmAssociationTrainedModelArtifactMaxSizePtrOutputWithContext(context.Background())
+}
+
+func (o ConfiguredModelAlgorithmAssociationTrainedModelArtifactMaxSizeOutput) ToConfiguredModelAlgorithmAssociationTrainedModelArtifactMaxSizePtrOutputWithContext(ctx context.Context) ConfiguredModelAlgorithmAssociationTrainedModelArtifactMaxSizePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfiguredModelAlgorithmAssociationTrainedModelArtifactMaxSize) *ConfiguredModelAlgorithmAssociationTrainedModelArtifactMaxSize {
+		return &v
+	}).(ConfiguredModelAlgorithmAssociationTrainedModelArtifactMaxSizePtrOutput)
+}
+
+func (o ConfiguredModelAlgorithmAssociationTrainedModelArtifactMaxSizeOutput) Unit() ConfiguredModelAlgorithmAssociationTrainedModelArtifactMaxSizeUnitTypeOutput {
+	return o.ApplyT(func(v ConfiguredModelAlgorithmAssociationTrainedModelArtifactMaxSize) ConfiguredModelAlgorithmAssociationTrainedModelArtifactMaxSizeUnitType {
+		return v.Unit
+	}).(ConfiguredModelAlgorithmAssociationTrainedModelArtifactMaxSizeUnitTypeOutput)
+}
+
+func (o ConfiguredModelAlgorithmAssociationTrainedModelArtifactMaxSizeOutput) Value() pulumi.Float64Output {
+	return o.ApplyT(func(v ConfiguredModelAlgorithmAssociationTrainedModelArtifactMaxSize) float64 { return v.Value }).(pulumi.Float64Output)
+}
+
+type ConfiguredModelAlgorithmAssociationTrainedModelArtifactMaxSizePtrOutput struct{ *pulumi.OutputState }
+
+func (ConfiguredModelAlgorithmAssociationTrainedModelArtifactMaxSizePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfiguredModelAlgorithmAssociationTrainedModelArtifactMaxSize)(nil)).Elem()
+}
+
+func (o ConfiguredModelAlgorithmAssociationTrainedModelArtifactMaxSizePtrOutput) ToConfiguredModelAlgorithmAssociationTrainedModelArtifactMaxSizePtrOutput() ConfiguredModelAlgorithmAssociationTrainedModelArtifactMaxSizePtrOutput {
+	return o
+}
+
+func (o ConfiguredModelAlgorithmAssociationTrainedModelArtifactMaxSizePtrOutput) ToConfiguredModelAlgorithmAssociationTrainedModelArtifactMaxSizePtrOutputWithContext(ctx context.Context) ConfiguredModelAlgorithmAssociationTrainedModelArtifactMaxSizePtrOutput {
+	return o
+}
+
+func (o ConfiguredModelAlgorithmAssociationTrainedModelArtifactMaxSizePtrOutput) Elem() ConfiguredModelAlgorithmAssociationTrainedModelArtifactMaxSizeOutput {
+	return o.ApplyT(func(v *ConfiguredModelAlgorithmAssociationTrainedModelArtifactMaxSize) ConfiguredModelAlgorithmAssociationTrainedModelArtifactMaxSize {
+		if v != nil {
+			return *v
+		}
+		var ret ConfiguredModelAlgorithmAssociationTrainedModelArtifactMaxSize
+		return ret
+	}).(ConfiguredModelAlgorithmAssociationTrainedModelArtifactMaxSizeOutput)
+}
+
+func (o ConfiguredModelAlgorithmAssociationTrainedModelArtifactMaxSizePtrOutput) Unit() ConfiguredModelAlgorithmAssociationTrainedModelArtifactMaxSizeUnitTypePtrOutput {
+	return o.ApplyT(func(v *ConfiguredModelAlgorithmAssociationTrainedModelArtifactMaxSize) *ConfiguredModelAlgorithmAssociationTrainedModelArtifactMaxSizeUnitType {
+		if v == nil {
+			return nil
+		}
+		return &v.Unit
+	}).(ConfiguredModelAlgorithmAssociationTrainedModelArtifactMaxSizeUnitTypePtrOutput)
+}
+
+func (o ConfiguredModelAlgorithmAssociationTrainedModelArtifactMaxSizePtrOutput) Value() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *ConfiguredModelAlgorithmAssociationTrainedModelArtifactMaxSize) *float64 {
+		if v == nil {
+			return nil
+		}
+		return &v.Value
+	}).(pulumi.Float64PtrOutput)
+}
+
+type ConfiguredModelAlgorithmAssociationTrainedModelExportsConfigurationPolicy struct {
+	FilesToExport []ConfiguredModelAlgorithmAssociationTrainedModelExportFileType `pulumi:"filesToExport"`
+	MaxSize       ConfiguredModelAlgorithmAssociationTrainedModelExportsMaxSize   `pulumi:"maxSize"`
+}
+
+// ConfiguredModelAlgorithmAssociationTrainedModelExportsConfigurationPolicyInput is an input type that accepts ConfiguredModelAlgorithmAssociationTrainedModelExportsConfigurationPolicyArgs and ConfiguredModelAlgorithmAssociationTrainedModelExportsConfigurationPolicyOutput values.
+// You can construct a concrete instance of `ConfiguredModelAlgorithmAssociationTrainedModelExportsConfigurationPolicyInput` via:
+//
+//	ConfiguredModelAlgorithmAssociationTrainedModelExportsConfigurationPolicyArgs{...}
+type ConfiguredModelAlgorithmAssociationTrainedModelExportsConfigurationPolicyInput interface {
+	pulumi.Input
+
+	ToConfiguredModelAlgorithmAssociationTrainedModelExportsConfigurationPolicyOutput() ConfiguredModelAlgorithmAssociationTrainedModelExportsConfigurationPolicyOutput
+	ToConfiguredModelAlgorithmAssociationTrainedModelExportsConfigurationPolicyOutputWithContext(context.Context) ConfiguredModelAlgorithmAssociationTrainedModelExportsConfigurationPolicyOutput
+}
+
+type ConfiguredModelAlgorithmAssociationTrainedModelExportsConfigurationPolicyArgs struct {
+	FilesToExport ConfiguredModelAlgorithmAssociationTrainedModelExportFileTypeArrayInput `pulumi:"filesToExport"`
+	MaxSize       ConfiguredModelAlgorithmAssociationTrainedModelExportsMaxSizeInput      `pulumi:"maxSize"`
+}
+
+func (ConfiguredModelAlgorithmAssociationTrainedModelExportsConfigurationPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfiguredModelAlgorithmAssociationTrainedModelExportsConfigurationPolicy)(nil)).Elem()
+}
+
+func (i ConfiguredModelAlgorithmAssociationTrainedModelExportsConfigurationPolicyArgs) ToConfiguredModelAlgorithmAssociationTrainedModelExportsConfigurationPolicyOutput() ConfiguredModelAlgorithmAssociationTrainedModelExportsConfigurationPolicyOutput {
+	return i.ToConfiguredModelAlgorithmAssociationTrainedModelExportsConfigurationPolicyOutputWithContext(context.Background())
+}
+
+func (i ConfiguredModelAlgorithmAssociationTrainedModelExportsConfigurationPolicyArgs) ToConfiguredModelAlgorithmAssociationTrainedModelExportsConfigurationPolicyOutputWithContext(ctx context.Context) ConfiguredModelAlgorithmAssociationTrainedModelExportsConfigurationPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfiguredModelAlgorithmAssociationTrainedModelExportsConfigurationPolicyOutput)
+}
+
+func (i ConfiguredModelAlgorithmAssociationTrainedModelExportsConfigurationPolicyArgs) ToConfiguredModelAlgorithmAssociationTrainedModelExportsConfigurationPolicyPtrOutput() ConfiguredModelAlgorithmAssociationTrainedModelExportsConfigurationPolicyPtrOutput {
+	return i.ToConfiguredModelAlgorithmAssociationTrainedModelExportsConfigurationPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i ConfiguredModelAlgorithmAssociationTrainedModelExportsConfigurationPolicyArgs) ToConfiguredModelAlgorithmAssociationTrainedModelExportsConfigurationPolicyPtrOutputWithContext(ctx context.Context) ConfiguredModelAlgorithmAssociationTrainedModelExportsConfigurationPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfiguredModelAlgorithmAssociationTrainedModelExportsConfigurationPolicyOutput).ToConfiguredModelAlgorithmAssociationTrainedModelExportsConfigurationPolicyPtrOutputWithContext(ctx)
+}
+
+// ConfiguredModelAlgorithmAssociationTrainedModelExportsConfigurationPolicyPtrInput is an input type that accepts ConfiguredModelAlgorithmAssociationTrainedModelExportsConfigurationPolicyArgs, ConfiguredModelAlgorithmAssociationTrainedModelExportsConfigurationPolicyPtr and ConfiguredModelAlgorithmAssociationTrainedModelExportsConfigurationPolicyPtrOutput values.
+// You can construct a concrete instance of `ConfiguredModelAlgorithmAssociationTrainedModelExportsConfigurationPolicyPtrInput` via:
+//
+//	        ConfiguredModelAlgorithmAssociationTrainedModelExportsConfigurationPolicyArgs{...}
+//
+//	or:
+//
+//	        nil
+type ConfiguredModelAlgorithmAssociationTrainedModelExportsConfigurationPolicyPtrInput interface {
+	pulumi.Input
+
+	ToConfiguredModelAlgorithmAssociationTrainedModelExportsConfigurationPolicyPtrOutput() ConfiguredModelAlgorithmAssociationTrainedModelExportsConfigurationPolicyPtrOutput
+	ToConfiguredModelAlgorithmAssociationTrainedModelExportsConfigurationPolicyPtrOutputWithContext(context.Context) ConfiguredModelAlgorithmAssociationTrainedModelExportsConfigurationPolicyPtrOutput
+}
+
+type configuredModelAlgorithmAssociationTrainedModelExportsConfigurationPolicyPtrType ConfiguredModelAlgorithmAssociationTrainedModelExportsConfigurationPolicyArgs
+
+func ConfiguredModelAlgorithmAssociationTrainedModelExportsConfigurationPolicyPtr(v *ConfiguredModelAlgorithmAssociationTrainedModelExportsConfigurationPolicyArgs) ConfiguredModelAlgorithmAssociationTrainedModelExportsConfigurationPolicyPtrInput {
+	return (*configuredModelAlgorithmAssociationTrainedModelExportsConfigurationPolicyPtrType)(v)
+}
+
+func (*configuredModelAlgorithmAssociationTrainedModelExportsConfigurationPolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfiguredModelAlgorithmAssociationTrainedModelExportsConfigurationPolicy)(nil)).Elem()
+}
+
+func (i *configuredModelAlgorithmAssociationTrainedModelExportsConfigurationPolicyPtrType) ToConfiguredModelAlgorithmAssociationTrainedModelExportsConfigurationPolicyPtrOutput() ConfiguredModelAlgorithmAssociationTrainedModelExportsConfigurationPolicyPtrOutput {
+	return i.ToConfiguredModelAlgorithmAssociationTrainedModelExportsConfigurationPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *configuredModelAlgorithmAssociationTrainedModelExportsConfigurationPolicyPtrType) ToConfiguredModelAlgorithmAssociationTrainedModelExportsConfigurationPolicyPtrOutputWithContext(ctx context.Context) ConfiguredModelAlgorithmAssociationTrainedModelExportsConfigurationPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfiguredModelAlgorithmAssociationTrainedModelExportsConfigurationPolicyPtrOutput)
+}
+
+type ConfiguredModelAlgorithmAssociationTrainedModelExportsConfigurationPolicyOutput struct{ *pulumi.OutputState }
+
+func (ConfiguredModelAlgorithmAssociationTrainedModelExportsConfigurationPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfiguredModelAlgorithmAssociationTrainedModelExportsConfigurationPolicy)(nil)).Elem()
+}
+
+func (o ConfiguredModelAlgorithmAssociationTrainedModelExportsConfigurationPolicyOutput) ToConfiguredModelAlgorithmAssociationTrainedModelExportsConfigurationPolicyOutput() ConfiguredModelAlgorithmAssociationTrainedModelExportsConfigurationPolicyOutput {
+	return o
+}
+
+func (o ConfiguredModelAlgorithmAssociationTrainedModelExportsConfigurationPolicyOutput) ToConfiguredModelAlgorithmAssociationTrainedModelExportsConfigurationPolicyOutputWithContext(ctx context.Context) ConfiguredModelAlgorithmAssociationTrainedModelExportsConfigurationPolicyOutput {
+	return o
+}
+
+func (o ConfiguredModelAlgorithmAssociationTrainedModelExportsConfigurationPolicyOutput) ToConfiguredModelAlgorithmAssociationTrainedModelExportsConfigurationPolicyPtrOutput() ConfiguredModelAlgorithmAssociationTrainedModelExportsConfigurationPolicyPtrOutput {
+	return o.ToConfiguredModelAlgorithmAssociationTrainedModelExportsConfigurationPolicyPtrOutputWithContext(context.Background())
+}
+
+func (o ConfiguredModelAlgorithmAssociationTrainedModelExportsConfigurationPolicyOutput) ToConfiguredModelAlgorithmAssociationTrainedModelExportsConfigurationPolicyPtrOutputWithContext(ctx context.Context) ConfiguredModelAlgorithmAssociationTrainedModelExportsConfigurationPolicyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfiguredModelAlgorithmAssociationTrainedModelExportsConfigurationPolicy) *ConfiguredModelAlgorithmAssociationTrainedModelExportsConfigurationPolicy {
+		return &v
+	}).(ConfiguredModelAlgorithmAssociationTrainedModelExportsConfigurationPolicyPtrOutput)
+}
+
+func (o ConfiguredModelAlgorithmAssociationTrainedModelExportsConfigurationPolicyOutput) FilesToExport() ConfiguredModelAlgorithmAssociationTrainedModelExportFileTypeArrayOutput {
+	return o.ApplyT(func(v ConfiguredModelAlgorithmAssociationTrainedModelExportsConfigurationPolicy) []ConfiguredModelAlgorithmAssociationTrainedModelExportFileType {
+		return v.FilesToExport
+	}).(ConfiguredModelAlgorithmAssociationTrainedModelExportFileTypeArrayOutput)
+}
+
+func (o ConfiguredModelAlgorithmAssociationTrainedModelExportsConfigurationPolicyOutput) MaxSize() ConfiguredModelAlgorithmAssociationTrainedModelExportsMaxSizeOutput {
+	return o.ApplyT(func(v ConfiguredModelAlgorithmAssociationTrainedModelExportsConfigurationPolicy) ConfiguredModelAlgorithmAssociationTrainedModelExportsMaxSize {
+		return v.MaxSize
+	}).(ConfiguredModelAlgorithmAssociationTrainedModelExportsMaxSizeOutput)
+}
+
+type ConfiguredModelAlgorithmAssociationTrainedModelExportsConfigurationPolicyPtrOutput struct{ *pulumi.OutputState }
+
+func (ConfiguredModelAlgorithmAssociationTrainedModelExportsConfigurationPolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfiguredModelAlgorithmAssociationTrainedModelExportsConfigurationPolicy)(nil)).Elem()
+}
+
+func (o ConfiguredModelAlgorithmAssociationTrainedModelExportsConfigurationPolicyPtrOutput) ToConfiguredModelAlgorithmAssociationTrainedModelExportsConfigurationPolicyPtrOutput() ConfiguredModelAlgorithmAssociationTrainedModelExportsConfigurationPolicyPtrOutput {
+	return o
+}
+
+func (o ConfiguredModelAlgorithmAssociationTrainedModelExportsConfigurationPolicyPtrOutput) ToConfiguredModelAlgorithmAssociationTrainedModelExportsConfigurationPolicyPtrOutputWithContext(ctx context.Context) ConfiguredModelAlgorithmAssociationTrainedModelExportsConfigurationPolicyPtrOutput {
+	return o
+}
+
+func (o ConfiguredModelAlgorithmAssociationTrainedModelExportsConfigurationPolicyPtrOutput) Elem() ConfiguredModelAlgorithmAssociationTrainedModelExportsConfigurationPolicyOutput {
+	return o.ApplyT(func(v *ConfiguredModelAlgorithmAssociationTrainedModelExportsConfigurationPolicy) ConfiguredModelAlgorithmAssociationTrainedModelExportsConfigurationPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret ConfiguredModelAlgorithmAssociationTrainedModelExportsConfigurationPolicy
+		return ret
+	}).(ConfiguredModelAlgorithmAssociationTrainedModelExportsConfigurationPolicyOutput)
+}
+
+func (o ConfiguredModelAlgorithmAssociationTrainedModelExportsConfigurationPolicyPtrOutput) FilesToExport() ConfiguredModelAlgorithmAssociationTrainedModelExportFileTypeArrayOutput {
+	return o.ApplyT(func(v *ConfiguredModelAlgorithmAssociationTrainedModelExportsConfigurationPolicy) []ConfiguredModelAlgorithmAssociationTrainedModelExportFileType {
+		if v == nil {
+			return nil
+		}
+		return v.FilesToExport
+	}).(ConfiguredModelAlgorithmAssociationTrainedModelExportFileTypeArrayOutput)
+}
+
+func (o ConfiguredModelAlgorithmAssociationTrainedModelExportsConfigurationPolicyPtrOutput) MaxSize() ConfiguredModelAlgorithmAssociationTrainedModelExportsMaxSizePtrOutput {
+	return o.ApplyT(func(v *ConfiguredModelAlgorithmAssociationTrainedModelExportsConfigurationPolicy) *ConfiguredModelAlgorithmAssociationTrainedModelExportsMaxSize {
+		if v == nil {
+			return nil
+		}
+		return &v.MaxSize
+	}).(ConfiguredModelAlgorithmAssociationTrainedModelExportsMaxSizePtrOutput)
+}
+
+type ConfiguredModelAlgorithmAssociationTrainedModelExportsMaxSize struct {
+	Unit  ConfiguredModelAlgorithmAssociationTrainedModelExportsMaxSizeUnitType `pulumi:"unit"`
+	Value float64                                                               `pulumi:"value"`
+}
+
+// ConfiguredModelAlgorithmAssociationTrainedModelExportsMaxSizeInput is an input type that accepts ConfiguredModelAlgorithmAssociationTrainedModelExportsMaxSizeArgs and ConfiguredModelAlgorithmAssociationTrainedModelExportsMaxSizeOutput values.
+// You can construct a concrete instance of `ConfiguredModelAlgorithmAssociationTrainedModelExportsMaxSizeInput` via:
+//
+//	ConfiguredModelAlgorithmAssociationTrainedModelExportsMaxSizeArgs{...}
+type ConfiguredModelAlgorithmAssociationTrainedModelExportsMaxSizeInput interface {
+	pulumi.Input
+
+	ToConfiguredModelAlgorithmAssociationTrainedModelExportsMaxSizeOutput() ConfiguredModelAlgorithmAssociationTrainedModelExportsMaxSizeOutput
+	ToConfiguredModelAlgorithmAssociationTrainedModelExportsMaxSizeOutputWithContext(context.Context) ConfiguredModelAlgorithmAssociationTrainedModelExportsMaxSizeOutput
+}
+
+type ConfiguredModelAlgorithmAssociationTrainedModelExportsMaxSizeArgs struct {
+	Unit  ConfiguredModelAlgorithmAssociationTrainedModelExportsMaxSizeUnitTypeInput `pulumi:"unit"`
+	Value pulumi.Float64Input                                                        `pulumi:"value"`
+}
+
+func (ConfiguredModelAlgorithmAssociationTrainedModelExportsMaxSizeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfiguredModelAlgorithmAssociationTrainedModelExportsMaxSize)(nil)).Elem()
+}
+
+func (i ConfiguredModelAlgorithmAssociationTrainedModelExportsMaxSizeArgs) ToConfiguredModelAlgorithmAssociationTrainedModelExportsMaxSizeOutput() ConfiguredModelAlgorithmAssociationTrainedModelExportsMaxSizeOutput {
+	return i.ToConfiguredModelAlgorithmAssociationTrainedModelExportsMaxSizeOutputWithContext(context.Background())
+}
+
+func (i ConfiguredModelAlgorithmAssociationTrainedModelExportsMaxSizeArgs) ToConfiguredModelAlgorithmAssociationTrainedModelExportsMaxSizeOutputWithContext(ctx context.Context) ConfiguredModelAlgorithmAssociationTrainedModelExportsMaxSizeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfiguredModelAlgorithmAssociationTrainedModelExportsMaxSizeOutput)
+}
+
+func (i ConfiguredModelAlgorithmAssociationTrainedModelExportsMaxSizeArgs) ToConfiguredModelAlgorithmAssociationTrainedModelExportsMaxSizePtrOutput() ConfiguredModelAlgorithmAssociationTrainedModelExportsMaxSizePtrOutput {
+	return i.ToConfiguredModelAlgorithmAssociationTrainedModelExportsMaxSizePtrOutputWithContext(context.Background())
+}
+
+func (i ConfiguredModelAlgorithmAssociationTrainedModelExportsMaxSizeArgs) ToConfiguredModelAlgorithmAssociationTrainedModelExportsMaxSizePtrOutputWithContext(ctx context.Context) ConfiguredModelAlgorithmAssociationTrainedModelExportsMaxSizePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfiguredModelAlgorithmAssociationTrainedModelExportsMaxSizeOutput).ToConfiguredModelAlgorithmAssociationTrainedModelExportsMaxSizePtrOutputWithContext(ctx)
+}
+
+// ConfiguredModelAlgorithmAssociationTrainedModelExportsMaxSizePtrInput is an input type that accepts ConfiguredModelAlgorithmAssociationTrainedModelExportsMaxSizeArgs, ConfiguredModelAlgorithmAssociationTrainedModelExportsMaxSizePtr and ConfiguredModelAlgorithmAssociationTrainedModelExportsMaxSizePtrOutput values.
+// You can construct a concrete instance of `ConfiguredModelAlgorithmAssociationTrainedModelExportsMaxSizePtrInput` via:
+//
+//	        ConfiguredModelAlgorithmAssociationTrainedModelExportsMaxSizeArgs{...}
+//
+//	or:
+//
+//	        nil
+type ConfiguredModelAlgorithmAssociationTrainedModelExportsMaxSizePtrInput interface {
+	pulumi.Input
+
+	ToConfiguredModelAlgorithmAssociationTrainedModelExportsMaxSizePtrOutput() ConfiguredModelAlgorithmAssociationTrainedModelExportsMaxSizePtrOutput
+	ToConfiguredModelAlgorithmAssociationTrainedModelExportsMaxSizePtrOutputWithContext(context.Context) ConfiguredModelAlgorithmAssociationTrainedModelExportsMaxSizePtrOutput
+}
+
+type configuredModelAlgorithmAssociationTrainedModelExportsMaxSizePtrType ConfiguredModelAlgorithmAssociationTrainedModelExportsMaxSizeArgs
+
+func ConfiguredModelAlgorithmAssociationTrainedModelExportsMaxSizePtr(v *ConfiguredModelAlgorithmAssociationTrainedModelExportsMaxSizeArgs) ConfiguredModelAlgorithmAssociationTrainedModelExportsMaxSizePtrInput {
+	return (*configuredModelAlgorithmAssociationTrainedModelExportsMaxSizePtrType)(v)
+}
+
+func (*configuredModelAlgorithmAssociationTrainedModelExportsMaxSizePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfiguredModelAlgorithmAssociationTrainedModelExportsMaxSize)(nil)).Elem()
+}
+
+func (i *configuredModelAlgorithmAssociationTrainedModelExportsMaxSizePtrType) ToConfiguredModelAlgorithmAssociationTrainedModelExportsMaxSizePtrOutput() ConfiguredModelAlgorithmAssociationTrainedModelExportsMaxSizePtrOutput {
+	return i.ToConfiguredModelAlgorithmAssociationTrainedModelExportsMaxSizePtrOutputWithContext(context.Background())
+}
+
+func (i *configuredModelAlgorithmAssociationTrainedModelExportsMaxSizePtrType) ToConfiguredModelAlgorithmAssociationTrainedModelExportsMaxSizePtrOutputWithContext(ctx context.Context) ConfiguredModelAlgorithmAssociationTrainedModelExportsMaxSizePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfiguredModelAlgorithmAssociationTrainedModelExportsMaxSizePtrOutput)
+}
+
+type ConfiguredModelAlgorithmAssociationTrainedModelExportsMaxSizeOutput struct{ *pulumi.OutputState }
+
+func (ConfiguredModelAlgorithmAssociationTrainedModelExportsMaxSizeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfiguredModelAlgorithmAssociationTrainedModelExportsMaxSize)(nil)).Elem()
+}
+
+func (o ConfiguredModelAlgorithmAssociationTrainedModelExportsMaxSizeOutput) ToConfiguredModelAlgorithmAssociationTrainedModelExportsMaxSizeOutput() ConfiguredModelAlgorithmAssociationTrainedModelExportsMaxSizeOutput {
+	return o
+}
+
+func (o ConfiguredModelAlgorithmAssociationTrainedModelExportsMaxSizeOutput) ToConfiguredModelAlgorithmAssociationTrainedModelExportsMaxSizeOutputWithContext(ctx context.Context) ConfiguredModelAlgorithmAssociationTrainedModelExportsMaxSizeOutput {
+	return o
+}
+
+func (o ConfiguredModelAlgorithmAssociationTrainedModelExportsMaxSizeOutput) ToConfiguredModelAlgorithmAssociationTrainedModelExportsMaxSizePtrOutput() ConfiguredModelAlgorithmAssociationTrainedModelExportsMaxSizePtrOutput {
+	return o.ToConfiguredModelAlgorithmAssociationTrainedModelExportsMaxSizePtrOutputWithContext(context.Background())
+}
+
+func (o ConfiguredModelAlgorithmAssociationTrainedModelExportsMaxSizeOutput) ToConfiguredModelAlgorithmAssociationTrainedModelExportsMaxSizePtrOutputWithContext(ctx context.Context) ConfiguredModelAlgorithmAssociationTrainedModelExportsMaxSizePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfiguredModelAlgorithmAssociationTrainedModelExportsMaxSize) *ConfiguredModelAlgorithmAssociationTrainedModelExportsMaxSize {
+		return &v
+	}).(ConfiguredModelAlgorithmAssociationTrainedModelExportsMaxSizePtrOutput)
+}
+
+func (o ConfiguredModelAlgorithmAssociationTrainedModelExportsMaxSizeOutput) Unit() ConfiguredModelAlgorithmAssociationTrainedModelExportsMaxSizeUnitTypeOutput {
+	return o.ApplyT(func(v ConfiguredModelAlgorithmAssociationTrainedModelExportsMaxSize) ConfiguredModelAlgorithmAssociationTrainedModelExportsMaxSizeUnitType {
+		return v.Unit
+	}).(ConfiguredModelAlgorithmAssociationTrainedModelExportsMaxSizeUnitTypeOutput)
+}
+
+func (o ConfiguredModelAlgorithmAssociationTrainedModelExportsMaxSizeOutput) Value() pulumi.Float64Output {
+	return o.ApplyT(func(v ConfiguredModelAlgorithmAssociationTrainedModelExportsMaxSize) float64 { return v.Value }).(pulumi.Float64Output)
+}
+
+type ConfiguredModelAlgorithmAssociationTrainedModelExportsMaxSizePtrOutput struct{ *pulumi.OutputState }
+
+func (ConfiguredModelAlgorithmAssociationTrainedModelExportsMaxSizePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfiguredModelAlgorithmAssociationTrainedModelExportsMaxSize)(nil)).Elem()
+}
+
+func (o ConfiguredModelAlgorithmAssociationTrainedModelExportsMaxSizePtrOutput) ToConfiguredModelAlgorithmAssociationTrainedModelExportsMaxSizePtrOutput() ConfiguredModelAlgorithmAssociationTrainedModelExportsMaxSizePtrOutput {
+	return o
+}
+
+func (o ConfiguredModelAlgorithmAssociationTrainedModelExportsMaxSizePtrOutput) ToConfiguredModelAlgorithmAssociationTrainedModelExportsMaxSizePtrOutputWithContext(ctx context.Context) ConfiguredModelAlgorithmAssociationTrainedModelExportsMaxSizePtrOutput {
+	return o
+}
+
+func (o ConfiguredModelAlgorithmAssociationTrainedModelExportsMaxSizePtrOutput) Elem() ConfiguredModelAlgorithmAssociationTrainedModelExportsMaxSizeOutput {
+	return o.ApplyT(func(v *ConfiguredModelAlgorithmAssociationTrainedModelExportsMaxSize) ConfiguredModelAlgorithmAssociationTrainedModelExportsMaxSize {
+		if v != nil {
+			return *v
+		}
+		var ret ConfiguredModelAlgorithmAssociationTrainedModelExportsMaxSize
+		return ret
+	}).(ConfiguredModelAlgorithmAssociationTrainedModelExportsMaxSizeOutput)
+}
+
+func (o ConfiguredModelAlgorithmAssociationTrainedModelExportsMaxSizePtrOutput) Unit() ConfiguredModelAlgorithmAssociationTrainedModelExportsMaxSizeUnitTypePtrOutput {
+	return o.ApplyT(func(v *ConfiguredModelAlgorithmAssociationTrainedModelExportsMaxSize) *ConfiguredModelAlgorithmAssociationTrainedModelExportsMaxSizeUnitType {
+		if v == nil {
+			return nil
+		}
+		return &v.Unit
+	}).(ConfiguredModelAlgorithmAssociationTrainedModelExportsMaxSizeUnitTypePtrOutput)
+}
+
+func (o ConfiguredModelAlgorithmAssociationTrainedModelExportsMaxSizePtrOutput) Value() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *ConfiguredModelAlgorithmAssociationTrainedModelExportsMaxSize) *float64 {
+		if v == nil {
+			return nil
+		}
+		return &v.Value
+	}).(pulumi.Float64PtrOutput)
+}
+
+type ConfiguredModelAlgorithmAssociationTrainedModelInferenceJobsConfigurationPolicy struct {
+	ContainerLogs []ConfiguredModelAlgorithmAssociationLogsConfigurationPolicy           `pulumi:"containerLogs"`
+	MaxOutputSize *ConfiguredModelAlgorithmAssociationTrainedModelInferenceMaxOutputSize `pulumi:"maxOutputSize"`
+}
+
+// ConfiguredModelAlgorithmAssociationTrainedModelInferenceJobsConfigurationPolicyInput is an input type that accepts ConfiguredModelAlgorithmAssociationTrainedModelInferenceJobsConfigurationPolicyArgs and ConfiguredModelAlgorithmAssociationTrainedModelInferenceJobsConfigurationPolicyOutput values.
+// You can construct a concrete instance of `ConfiguredModelAlgorithmAssociationTrainedModelInferenceJobsConfigurationPolicyInput` via:
+//
+//	ConfiguredModelAlgorithmAssociationTrainedModelInferenceJobsConfigurationPolicyArgs{...}
+type ConfiguredModelAlgorithmAssociationTrainedModelInferenceJobsConfigurationPolicyInput interface {
+	pulumi.Input
+
+	ToConfiguredModelAlgorithmAssociationTrainedModelInferenceJobsConfigurationPolicyOutput() ConfiguredModelAlgorithmAssociationTrainedModelInferenceJobsConfigurationPolicyOutput
+	ToConfiguredModelAlgorithmAssociationTrainedModelInferenceJobsConfigurationPolicyOutputWithContext(context.Context) ConfiguredModelAlgorithmAssociationTrainedModelInferenceJobsConfigurationPolicyOutput
+}
+
+type ConfiguredModelAlgorithmAssociationTrainedModelInferenceJobsConfigurationPolicyArgs struct {
+	ContainerLogs ConfiguredModelAlgorithmAssociationLogsConfigurationPolicyArrayInput          `pulumi:"containerLogs"`
+	MaxOutputSize ConfiguredModelAlgorithmAssociationTrainedModelInferenceMaxOutputSizePtrInput `pulumi:"maxOutputSize"`
+}
+
+func (ConfiguredModelAlgorithmAssociationTrainedModelInferenceJobsConfigurationPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfiguredModelAlgorithmAssociationTrainedModelInferenceJobsConfigurationPolicy)(nil)).Elem()
+}
+
+func (i ConfiguredModelAlgorithmAssociationTrainedModelInferenceJobsConfigurationPolicyArgs) ToConfiguredModelAlgorithmAssociationTrainedModelInferenceJobsConfigurationPolicyOutput() ConfiguredModelAlgorithmAssociationTrainedModelInferenceJobsConfigurationPolicyOutput {
+	return i.ToConfiguredModelAlgorithmAssociationTrainedModelInferenceJobsConfigurationPolicyOutputWithContext(context.Background())
+}
+
+func (i ConfiguredModelAlgorithmAssociationTrainedModelInferenceJobsConfigurationPolicyArgs) ToConfiguredModelAlgorithmAssociationTrainedModelInferenceJobsConfigurationPolicyOutputWithContext(ctx context.Context) ConfiguredModelAlgorithmAssociationTrainedModelInferenceJobsConfigurationPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfiguredModelAlgorithmAssociationTrainedModelInferenceJobsConfigurationPolicyOutput)
+}
+
+func (i ConfiguredModelAlgorithmAssociationTrainedModelInferenceJobsConfigurationPolicyArgs) ToConfiguredModelAlgorithmAssociationTrainedModelInferenceJobsConfigurationPolicyPtrOutput() ConfiguredModelAlgorithmAssociationTrainedModelInferenceJobsConfigurationPolicyPtrOutput {
+	return i.ToConfiguredModelAlgorithmAssociationTrainedModelInferenceJobsConfigurationPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i ConfiguredModelAlgorithmAssociationTrainedModelInferenceJobsConfigurationPolicyArgs) ToConfiguredModelAlgorithmAssociationTrainedModelInferenceJobsConfigurationPolicyPtrOutputWithContext(ctx context.Context) ConfiguredModelAlgorithmAssociationTrainedModelInferenceJobsConfigurationPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfiguredModelAlgorithmAssociationTrainedModelInferenceJobsConfigurationPolicyOutput).ToConfiguredModelAlgorithmAssociationTrainedModelInferenceJobsConfigurationPolicyPtrOutputWithContext(ctx)
+}
+
+// ConfiguredModelAlgorithmAssociationTrainedModelInferenceJobsConfigurationPolicyPtrInput is an input type that accepts ConfiguredModelAlgorithmAssociationTrainedModelInferenceJobsConfigurationPolicyArgs, ConfiguredModelAlgorithmAssociationTrainedModelInferenceJobsConfigurationPolicyPtr and ConfiguredModelAlgorithmAssociationTrainedModelInferenceJobsConfigurationPolicyPtrOutput values.
+// You can construct a concrete instance of `ConfiguredModelAlgorithmAssociationTrainedModelInferenceJobsConfigurationPolicyPtrInput` via:
+//
+//	        ConfiguredModelAlgorithmAssociationTrainedModelInferenceJobsConfigurationPolicyArgs{...}
+//
+//	or:
+//
+//	        nil
+type ConfiguredModelAlgorithmAssociationTrainedModelInferenceJobsConfigurationPolicyPtrInput interface {
+	pulumi.Input
+
+	ToConfiguredModelAlgorithmAssociationTrainedModelInferenceJobsConfigurationPolicyPtrOutput() ConfiguredModelAlgorithmAssociationTrainedModelInferenceJobsConfigurationPolicyPtrOutput
+	ToConfiguredModelAlgorithmAssociationTrainedModelInferenceJobsConfigurationPolicyPtrOutputWithContext(context.Context) ConfiguredModelAlgorithmAssociationTrainedModelInferenceJobsConfigurationPolicyPtrOutput
+}
+
+type configuredModelAlgorithmAssociationTrainedModelInferenceJobsConfigurationPolicyPtrType ConfiguredModelAlgorithmAssociationTrainedModelInferenceJobsConfigurationPolicyArgs
+
+func ConfiguredModelAlgorithmAssociationTrainedModelInferenceJobsConfigurationPolicyPtr(v *ConfiguredModelAlgorithmAssociationTrainedModelInferenceJobsConfigurationPolicyArgs) ConfiguredModelAlgorithmAssociationTrainedModelInferenceJobsConfigurationPolicyPtrInput {
+	return (*configuredModelAlgorithmAssociationTrainedModelInferenceJobsConfigurationPolicyPtrType)(v)
+}
+
+func (*configuredModelAlgorithmAssociationTrainedModelInferenceJobsConfigurationPolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfiguredModelAlgorithmAssociationTrainedModelInferenceJobsConfigurationPolicy)(nil)).Elem()
+}
+
+func (i *configuredModelAlgorithmAssociationTrainedModelInferenceJobsConfigurationPolicyPtrType) ToConfiguredModelAlgorithmAssociationTrainedModelInferenceJobsConfigurationPolicyPtrOutput() ConfiguredModelAlgorithmAssociationTrainedModelInferenceJobsConfigurationPolicyPtrOutput {
+	return i.ToConfiguredModelAlgorithmAssociationTrainedModelInferenceJobsConfigurationPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *configuredModelAlgorithmAssociationTrainedModelInferenceJobsConfigurationPolicyPtrType) ToConfiguredModelAlgorithmAssociationTrainedModelInferenceJobsConfigurationPolicyPtrOutputWithContext(ctx context.Context) ConfiguredModelAlgorithmAssociationTrainedModelInferenceJobsConfigurationPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfiguredModelAlgorithmAssociationTrainedModelInferenceJobsConfigurationPolicyPtrOutput)
+}
+
+type ConfiguredModelAlgorithmAssociationTrainedModelInferenceJobsConfigurationPolicyOutput struct{ *pulumi.OutputState }
+
+func (ConfiguredModelAlgorithmAssociationTrainedModelInferenceJobsConfigurationPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfiguredModelAlgorithmAssociationTrainedModelInferenceJobsConfigurationPolicy)(nil)).Elem()
+}
+
+func (o ConfiguredModelAlgorithmAssociationTrainedModelInferenceJobsConfigurationPolicyOutput) ToConfiguredModelAlgorithmAssociationTrainedModelInferenceJobsConfigurationPolicyOutput() ConfiguredModelAlgorithmAssociationTrainedModelInferenceJobsConfigurationPolicyOutput {
+	return o
+}
+
+func (o ConfiguredModelAlgorithmAssociationTrainedModelInferenceJobsConfigurationPolicyOutput) ToConfiguredModelAlgorithmAssociationTrainedModelInferenceJobsConfigurationPolicyOutputWithContext(ctx context.Context) ConfiguredModelAlgorithmAssociationTrainedModelInferenceJobsConfigurationPolicyOutput {
+	return o
+}
+
+func (o ConfiguredModelAlgorithmAssociationTrainedModelInferenceJobsConfigurationPolicyOutput) ToConfiguredModelAlgorithmAssociationTrainedModelInferenceJobsConfigurationPolicyPtrOutput() ConfiguredModelAlgorithmAssociationTrainedModelInferenceJobsConfigurationPolicyPtrOutput {
+	return o.ToConfiguredModelAlgorithmAssociationTrainedModelInferenceJobsConfigurationPolicyPtrOutputWithContext(context.Background())
+}
+
+func (o ConfiguredModelAlgorithmAssociationTrainedModelInferenceJobsConfigurationPolicyOutput) ToConfiguredModelAlgorithmAssociationTrainedModelInferenceJobsConfigurationPolicyPtrOutputWithContext(ctx context.Context) ConfiguredModelAlgorithmAssociationTrainedModelInferenceJobsConfigurationPolicyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfiguredModelAlgorithmAssociationTrainedModelInferenceJobsConfigurationPolicy) *ConfiguredModelAlgorithmAssociationTrainedModelInferenceJobsConfigurationPolicy {
+		return &v
+	}).(ConfiguredModelAlgorithmAssociationTrainedModelInferenceJobsConfigurationPolicyPtrOutput)
+}
+
+func (o ConfiguredModelAlgorithmAssociationTrainedModelInferenceJobsConfigurationPolicyOutput) ContainerLogs() ConfiguredModelAlgorithmAssociationLogsConfigurationPolicyArrayOutput {
+	return o.ApplyT(func(v ConfiguredModelAlgorithmAssociationTrainedModelInferenceJobsConfigurationPolicy) []ConfiguredModelAlgorithmAssociationLogsConfigurationPolicy {
+		return v.ContainerLogs
+	}).(ConfiguredModelAlgorithmAssociationLogsConfigurationPolicyArrayOutput)
+}
+
+func (o ConfiguredModelAlgorithmAssociationTrainedModelInferenceJobsConfigurationPolicyOutput) MaxOutputSize() ConfiguredModelAlgorithmAssociationTrainedModelInferenceMaxOutputSizePtrOutput {
+	return o.ApplyT(func(v ConfiguredModelAlgorithmAssociationTrainedModelInferenceJobsConfigurationPolicy) *ConfiguredModelAlgorithmAssociationTrainedModelInferenceMaxOutputSize {
+		return v.MaxOutputSize
+	}).(ConfiguredModelAlgorithmAssociationTrainedModelInferenceMaxOutputSizePtrOutput)
+}
+
+type ConfiguredModelAlgorithmAssociationTrainedModelInferenceJobsConfigurationPolicyPtrOutput struct{ *pulumi.OutputState }
+
+func (ConfiguredModelAlgorithmAssociationTrainedModelInferenceJobsConfigurationPolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfiguredModelAlgorithmAssociationTrainedModelInferenceJobsConfigurationPolicy)(nil)).Elem()
+}
+
+func (o ConfiguredModelAlgorithmAssociationTrainedModelInferenceJobsConfigurationPolicyPtrOutput) ToConfiguredModelAlgorithmAssociationTrainedModelInferenceJobsConfigurationPolicyPtrOutput() ConfiguredModelAlgorithmAssociationTrainedModelInferenceJobsConfigurationPolicyPtrOutput {
+	return o
+}
+
+func (o ConfiguredModelAlgorithmAssociationTrainedModelInferenceJobsConfigurationPolicyPtrOutput) ToConfiguredModelAlgorithmAssociationTrainedModelInferenceJobsConfigurationPolicyPtrOutputWithContext(ctx context.Context) ConfiguredModelAlgorithmAssociationTrainedModelInferenceJobsConfigurationPolicyPtrOutput {
+	return o
+}
+
+func (o ConfiguredModelAlgorithmAssociationTrainedModelInferenceJobsConfigurationPolicyPtrOutput) Elem() ConfiguredModelAlgorithmAssociationTrainedModelInferenceJobsConfigurationPolicyOutput {
+	return o.ApplyT(func(v *ConfiguredModelAlgorithmAssociationTrainedModelInferenceJobsConfigurationPolicy) ConfiguredModelAlgorithmAssociationTrainedModelInferenceJobsConfigurationPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret ConfiguredModelAlgorithmAssociationTrainedModelInferenceJobsConfigurationPolicy
+		return ret
+	}).(ConfiguredModelAlgorithmAssociationTrainedModelInferenceJobsConfigurationPolicyOutput)
+}
+
+func (o ConfiguredModelAlgorithmAssociationTrainedModelInferenceJobsConfigurationPolicyPtrOutput) ContainerLogs() ConfiguredModelAlgorithmAssociationLogsConfigurationPolicyArrayOutput {
+	return o.ApplyT(func(v *ConfiguredModelAlgorithmAssociationTrainedModelInferenceJobsConfigurationPolicy) []ConfiguredModelAlgorithmAssociationLogsConfigurationPolicy {
+		if v == nil {
+			return nil
+		}
+		return v.ContainerLogs
+	}).(ConfiguredModelAlgorithmAssociationLogsConfigurationPolicyArrayOutput)
+}
+
+func (o ConfiguredModelAlgorithmAssociationTrainedModelInferenceJobsConfigurationPolicyPtrOutput) MaxOutputSize() ConfiguredModelAlgorithmAssociationTrainedModelInferenceMaxOutputSizePtrOutput {
+	return o.ApplyT(func(v *ConfiguredModelAlgorithmAssociationTrainedModelInferenceJobsConfigurationPolicy) *ConfiguredModelAlgorithmAssociationTrainedModelInferenceMaxOutputSize {
+		if v == nil {
+			return nil
+		}
+		return v.MaxOutputSize
+	}).(ConfiguredModelAlgorithmAssociationTrainedModelInferenceMaxOutputSizePtrOutput)
+}
+
+type ConfiguredModelAlgorithmAssociationTrainedModelInferenceMaxOutputSize struct {
+	Unit  ConfiguredModelAlgorithmAssociationTrainedModelInferenceMaxOutputSizeUnitType `pulumi:"unit"`
+	Value float64                                                                       `pulumi:"value"`
+}
+
+// ConfiguredModelAlgorithmAssociationTrainedModelInferenceMaxOutputSizeInput is an input type that accepts ConfiguredModelAlgorithmAssociationTrainedModelInferenceMaxOutputSizeArgs and ConfiguredModelAlgorithmAssociationTrainedModelInferenceMaxOutputSizeOutput values.
+// You can construct a concrete instance of `ConfiguredModelAlgorithmAssociationTrainedModelInferenceMaxOutputSizeInput` via:
+//
+//	ConfiguredModelAlgorithmAssociationTrainedModelInferenceMaxOutputSizeArgs{...}
+type ConfiguredModelAlgorithmAssociationTrainedModelInferenceMaxOutputSizeInput interface {
+	pulumi.Input
+
+	ToConfiguredModelAlgorithmAssociationTrainedModelInferenceMaxOutputSizeOutput() ConfiguredModelAlgorithmAssociationTrainedModelInferenceMaxOutputSizeOutput
+	ToConfiguredModelAlgorithmAssociationTrainedModelInferenceMaxOutputSizeOutputWithContext(context.Context) ConfiguredModelAlgorithmAssociationTrainedModelInferenceMaxOutputSizeOutput
+}
+
+type ConfiguredModelAlgorithmAssociationTrainedModelInferenceMaxOutputSizeArgs struct {
+	Unit  ConfiguredModelAlgorithmAssociationTrainedModelInferenceMaxOutputSizeUnitTypeInput `pulumi:"unit"`
+	Value pulumi.Float64Input                                                                `pulumi:"value"`
+}
+
+func (ConfiguredModelAlgorithmAssociationTrainedModelInferenceMaxOutputSizeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfiguredModelAlgorithmAssociationTrainedModelInferenceMaxOutputSize)(nil)).Elem()
+}
+
+func (i ConfiguredModelAlgorithmAssociationTrainedModelInferenceMaxOutputSizeArgs) ToConfiguredModelAlgorithmAssociationTrainedModelInferenceMaxOutputSizeOutput() ConfiguredModelAlgorithmAssociationTrainedModelInferenceMaxOutputSizeOutput {
+	return i.ToConfiguredModelAlgorithmAssociationTrainedModelInferenceMaxOutputSizeOutputWithContext(context.Background())
+}
+
+func (i ConfiguredModelAlgorithmAssociationTrainedModelInferenceMaxOutputSizeArgs) ToConfiguredModelAlgorithmAssociationTrainedModelInferenceMaxOutputSizeOutputWithContext(ctx context.Context) ConfiguredModelAlgorithmAssociationTrainedModelInferenceMaxOutputSizeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfiguredModelAlgorithmAssociationTrainedModelInferenceMaxOutputSizeOutput)
+}
+
+func (i ConfiguredModelAlgorithmAssociationTrainedModelInferenceMaxOutputSizeArgs) ToConfiguredModelAlgorithmAssociationTrainedModelInferenceMaxOutputSizePtrOutput() ConfiguredModelAlgorithmAssociationTrainedModelInferenceMaxOutputSizePtrOutput {
+	return i.ToConfiguredModelAlgorithmAssociationTrainedModelInferenceMaxOutputSizePtrOutputWithContext(context.Background())
+}
+
+func (i ConfiguredModelAlgorithmAssociationTrainedModelInferenceMaxOutputSizeArgs) ToConfiguredModelAlgorithmAssociationTrainedModelInferenceMaxOutputSizePtrOutputWithContext(ctx context.Context) ConfiguredModelAlgorithmAssociationTrainedModelInferenceMaxOutputSizePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfiguredModelAlgorithmAssociationTrainedModelInferenceMaxOutputSizeOutput).ToConfiguredModelAlgorithmAssociationTrainedModelInferenceMaxOutputSizePtrOutputWithContext(ctx)
+}
+
+// ConfiguredModelAlgorithmAssociationTrainedModelInferenceMaxOutputSizePtrInput is an input type that accepts ConfiguredModelAlgorithmAssociationTrainedModelInferenceMaxOutputSizeArgs, ConfiguredModelAlgorithmAssociationTrainedModelInferenceMaxOutputSizePtr and ConfiguredModelAlgorithmAssociationTrainedModelInferenceMaxOutputSizePtrOutput values.
+// You can construct a concrete instance of `ConfiguredModelAlgorithmAssociationTrainedModelInferenceMaxOutputSizePtrInput` via:
+//
+//	        ConfiguredModelAlgorithmAssociationTrainedModelInferenceMaxOutputSizeArgs{...}
+//
+//	or:
+//
+//	        nil
+type ConfiguredModelAlgorithmAssociationTrainedModelInferenceMaxOutputSizePtrInput interface {
+	pulumi.Input
+
+	ToConfiguredModelAlgorithmAssociationTrainedModelInferenceMaxOutputSizePtrOutput() ConfiguredModelAlgorithmAssociationTrainedModelInferenceMaxOutputSizePtrOutput
+	ToConfiguredModelAlgorithmAssociationTrainedModelInferenceMaxOutputSizePtrOutputWithContext(context.Context) ConfiguredModelAlgorithmAssociationTrainedModelInferenceMaxOutputSizePtrOutput
+}
+
+type configuredModelAlgorithmAssociationTrainedModelInferenceMaxOutputSizePtrType ConfiguredModelAlgorithmAssociationTrainedModelInferenceMaxOutputSizeArgs
+
+func ConfiguredModelAlgorithmAssociationTrainedModelInferenceMaxOutputSizePtr(v *ConfiguredModelAlgorithmAssociationTrainedModelInferenceMaxOutputSizeArgs) ConfiguredModelAlgorithmAssociationTrainedModelInferenceMaxOutputSizePtrInput {
+	return (*configuredModelAlgorithmAssociationTrainedModelInferenceMaxOutputSizePtrType)(v)
+}
+
+func (*configuredModelAlgorithmAssociationTrainedModelInferenceMaxOutputSizePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfiguredModelAlgorithmAssociationTrainedModelInferenceMaxOutputSize)(nil)).Elem()
+}
+
+func (i *configuredModelAlgorithmAssociationTrainedModelInferenceMaxOutputSizePtrType) ToConfiguredModelAlgorithmAssociationTrainedModelInferenceMaxOutputSizePtrOutput() ConfiguredModelAlgorithmAssociationTrainedModelInferenceMaxOutputSizePtrOutput {
+	return i.ToConfiguredModelAlgorithmAssociationTrainedModelInferenceMaxOutputSizePtrOutputWithContext(context.Background())
+}
+
+func (i *configuredModelAlgorithmAssociationTrainedModelInferenceMaxOutputSizePtrType) ToConfiguredModelAlgorithmAssociationTrainedModelInferenceMaxOutputSizePtrOutputWithContext(ctx context.Context) ConfiguredModelAlgorithmAssociationTrainedModelInferenceMaxOutputSizePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfiguredModelAlgorithmAssociationTrainedModelInferenceMaxOutputSizePtrOutput)
+}
+
+type ConfiguredModelAlgorithmAssociationTrainedModelInferenceMaxOutputSizeOutput struct{ *pulumi.OutputState }
+
+func (ConfiguredModelAlgorithmAssociationTrainedModelInferenceMaxOutputSizeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfiguredModelAlgorithmAssociationTrainedModelInferenceMaxOutputSize)(nil)).Elem()
+}
+
+func (o ConfiguredModelAlgorithmAssociationTrainedModelInferenceMaxOutputSizeOutput) ToConfiguredModelAlgorithmAssociationTrainedModelInferenceMaxOutputSizeOutput() ConfiguredModelAlgorithmAssociationTrainedModelInferenceMaxOutputSizeOutput {
+	return o
+}
+
+func (o ConfiguredModelAlgorithmAssociationTrainedModelInferenceMaxOutputSizeOutput) ToConfiguredModelAlgorithmAssociationTrainedModelInferenceMaxOutputSizeOutputWithContext(ctx context.Context) ConfiguredModelAlgorithmAssociationTrainedModelInferenceMaxOutputSizeOutput {
+	return o
+}
+
+func (o ConfiguredModelAlgorithmAssociationTrainedModelInferenceMaxOutputSizeOutput) ToConfiguredModelAlgorithmAssociationTrainedModelInferenceMaxOutputSizePtrOutput() ConfiguredModelAlgorithmAssociationTrainedModelInferenceMaxOutputSizePtrOutput {
+	return o.ToConfiguredModelAlgorithmAssociationTrainedModelInferenceMaxOutputSizePtrOutputWithContext(context.Background())
+}
+
+func (o ConfiguredModelAlgorithmAssociationTrainedModelInferenceMaxOutputSizeOutput) ToConfiguredModelAlgorithmAssociationTrainedModelInferenceMaxOutputSizePtrOutputWithContext(ctx context.Context) ConfiguredModelAlgorithmAssociationTrainedModelInferenceMaxOutputSizePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfiguredModelAlgorithmAssociationTrainedModelInferenceMaxOutputSize) *ConfiguredModelAlgorithmAssociationTrainedModelInferenceMaxOutputSize {
+		return &v
+	}).(ConfiguredModelAlgorithmAssociationTrainedModelInferenceMaxOutputSizePtrOutput)
+}
+
+func (o ConfiguredModelAlgorithmAssociationTrainedModelInferenceMaxOutputSizeOutput) Unit() ConfiguredModelAlgorithmAssociationTrainedModelInferenceMaxOutputSizeUnitTypeOutput {
+	return o.ApplyT(func(v ConfiguredModelAlgorithmAssociationTrainedModelInferenceMaxOutputSize) ConfiguredModelAlgorithmAssociationTrainedModelInferenceMaxOutputSizeUnitType {
+		return v.Unit
+	}).(ConfiguredModelAlgorithmAssociationTrainedModelInferenceMaxOutputSizeUnitTypeOutput)
+}
+
+func (o ConfiguredModelAlgorithmAssociationTrainedModelInferenceMaxOutputSizeOutput) Value() pulumi.Float64Output {
+	return o.ApplyT(func(v ConfiguredModelAlgorithmAssociationTrainedModelInferenceMaxOutputSize) float64 { return v.Value }).(pulumi.Float64Output)
+}
+
+type ConfiguredModelAlgorithmAssociationTrainedModelInferenceMaxOutputSizePtrOutput struct{ *pulumi.OutputState }
+
+func (ConfiguredModelAlgorithmAssociationTrainedModelInferenceMaxOutputSizePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfiguredModelAlgorithmAssociationTrainedModelInferenceMaxOutputSize)(nil)).Elem()
+}
+
+func (o ConfiguredModelAlgorithmAssociationTrainedModelInferenceMaxOutputSizePtrOutput) ToConfiguredModelAlgorithmAssociationTrainedModelInferenceMaxOutputSizePtrOutput() ConfiguredModelAlgorithmAssociationTrainedModelInferenceMaxOutputSizePtrOutput {
+	return o
+}
+
+func (o ConfiguredModelAlgorithmAssociationTrainedModelInferenceMaxOutputSizePtrOutput) ToConfiguredModelAlgorithmAssociationTrainedModelInferenceMaxOutputSizePtrOutputWithContext(ctx context.Context) ConfiguredModelAlgorithmAssociationTrainedModelInferenceMaxOutputSizePtrOutput {
+	return o
+}
+
+func (o ConfiguredModelAlgorithmAssociationTrainedModelInferenceMaxOutputSizePtrOutput) Elem() ConfiguredModelAlgorithmAssociationTrainedModelInferenceMaxOutputSizeOutput {
+	return o.ApplyT(func(v *ConfiguredModelAlgorithmAssociationTrainedModelInferenceMaxOutputSize) ConfiguredModelAlgorithmAssociationTrainedModelInferenceMaxOutputSize {
+		if v != nil {
+			return *v
+		}
+		var ret ConfiguredModelAlgorithmAssociationTrainedModelInferenceMaxOutputSize
+		return ret
+	}).(ConfiguredModelAlgorithmAssociationTrainedModelInferenceMaxOutputSizeOutput)
+}
+
+func (o ConfiguredModelAlgorithmAssociationTrainedModelInferenceMaxOutputSizePtrOutput) Unit() ConfiguredModelAlgorithmAssociationTrainedModelInferenceMaxOutputSizeUnitTypePtrOutput {
+	return o.ApplyT(func(v *ConfiguredModelAlgorithmAssociationTrainedModelInferenceMaxOutputSize) *ConfiguredModelAlgorithmAssociationTrainedModelInferenceMaxOutputSizeUnitType {
+		if v == nil {
+			return nil
+		}
+		return &v.Unit
+	}).(ConfiguredModelAlgorithmAssociationTrainedModelInferenceMaxOutputSizeUnitTypePtrOutput)
+}
+
+func (o ConfiguredModelAlgorithmAssociationTrainedModelInferenceMaxOutputSizePtrOutput) Value() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *ConfiguredModelAlgorithmAssociationTrainedModelInferenceMaxOutputSize) *float64 {
+		if v == nil {
+			return nil
+		}
+		return &v.Value
+	}).(pulumi.Float64PtrOutput)
+}
+
+type ConfiguredModelAlgorithmAssociationTrainedModelsConfigurationPolicy struct {
+	ContainerLogs    []ConfiguredModelAlgorithmAssociationLogsConfigurationPolicy    `pulumi:"containerLogs"`
+	ContainerMetrics *ConfiguredModelAlgorithmAssociationMetricsConfigurationPolicy  `pulumi:"containerMetrics"`
+	MaxArtifactSize  *ConfiguredModelAlgorithmAssociationTrainedModelArtifactMaxSize `pulumi:"maxArtifactSize"`
+}
+
+// ConfiguredModelAlgorithmAssociationTrainedModelsConfigurationPolicyInput is an input type that accepts ConfiguredModelAlgorithmAssociationTrainedModelsConfigurationPolicyArgs and ConfiguredModelAlgorithmAssociationTrainedModelsConfigurationPolicyOutput values.
+// You can construct a concrete instance of `ConfiguredModelAlgorithmAssociationTrainedModelsConfigurationPolicyInput` via:
+//
+//	ConfiguredModelAlgorithmAssociationTrainedModelsConfigurationPolicyArgs{...}
+type ConfiguredModelAlgorithmAssociationTrainedModelsConfigurationPolicyInput interface {
+	pulumi.Input
+
+	ToConfiguredModelAlgorithmAssociationTrainedModelsConfigurationPolicyOutput() ConfiguredModelAlgorithmAssociationTrainedModelsConfigurationPolicyOutput
+	ToConfiguredModelAlgorithmAssociationTrainedModelsConfigurationPolicyOutputWithContext(context.Context) ConfiguredModelAlgorithmAssociationTrainedModelsConfigurationPolicyOutput
+}
+
+type ConfiguredModelAlgorithmAssociationTrainedModelsConfigurationPolicyArgs struct {
+	ContainerLogs    ConfiguredModelAlgorithmAssociationLogsConfigurationPolicyArrayInput   `pulumi:"containerLogs"`
+	ContainerMetrics ConfiguredModelAlgorithmAssociationMetricsConfigurationPolicyPtrInput  `pulumi:"containerMetrics"`
+	MaxArtifactSize  ConfiguredModelAlgorithmAssociationTrainedModelArtifactMaxSizePtrInput `pulumi:"maxArtifactSize"`
+}
+
+func (ConfiguredModelAlgorithmAssociationTrainedModelsConfigurationPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfiguredModelAlgorithmAssociationTrainedModelsConfigurationPolicy)(nil)).Elem()
+}
+
+func (i ConfiguredModelAlgorithmAssociationTrainedModelsConfigurationPolicyArgs) ToConfiguredModelAlgorithmAssociationTrainedModelsConfigurationPolicyOutput() ConfiguredModelAlgorithmAssociationTrainedModelsConfigurationPolicyOutput {
+	return i.ToConfiguredModelAlgorithmAssociationTrainedModelsConfigurationPolicyOutputWithContext(context.Background())
+}
+
+func (i ConfiguredModelAlgorithmAssociationTrainedModelsConfigurationPolicyArgs) ToConfiguredModelAlgorithmAssociationTrainedModelsConfigurationPolicyOutputWithContext(ctx context.Context) ConfiguredModelAlgorithmAssociationTrainedModelsConfigurationPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfiguredModelAlgorithmAssociationTrainedModelsConfigurationPolicyOutput)
+}
+
+func (i ConfiguredModelAlgorithmAssociationTrainedModelsConfigurationPolicyArgs) ToConfiguredModelAlgorithmAssociationTrainedModelsConfigurationPolicyPtrOutput() ConfiguredModelAlgorithmAssociationTrainedModelsConfigurationPolicyPtrOutput {
+	return i.ToConfiguredModelAlgorithmAssociationTrainedModelsConfigurationPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i ConfiguredModelAlgorithmAssociationTrainedModelsConfigurationPolicyArgs) ToConfiguredModelAlgorithmAssociationTrainedModelsConfigurationPolicyPtrOutputWithContext(ctx context.Context) ConfiguredModelAlgorithmAssociationTrainedModelsConfigurationPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfiguredModelAlgorithmAssociationTrainedModelsConfigurationPolicyOutput).ToConfiguredModelAlgorithmAssociationTrainedModelsConfigurationPolicyPtrOutputWithContext(ctx)
+}
+
+// ConfiguredModelAlgorithmAssociationTrainedModelsConfigurationPolicyPtrInput is an input type that accepts ConfiguredModelAlgorithmAssociationTrainedModelsConfigurationPolicyArgs, ConfiguredModelAlgorithmAssociationTrainedModelsConfigurationPolicyPtr and ConfiguredModelAlgorithmAssociationTrainedModelsConfigurationPolicyPtrOutput values.
+// You can construct a concrete instance of `ConfiguredModelAlgorithmAssociationTrainedModelsConfigurationPolicyPtrInput` via:
+//
+//	        ConfiguredModelAlgorithmAssociationTrainedModelsConfigurationPolicyArgs{...}
+//
+//	or:
+//
+//	        nil
+type ConfiguredModelAlgorithmAssociationTrainedModelsConfigurationPolicyPtrInput interface {
+	pulumi.Input
+
+	ToConfiguredModelAlgorithmAssociationTrainedModelsConfigurationPolicyPtrOutput() ConfiguredModelAlgorithmAssociationTrainedModelsConfigurationPolicyPtrOutput
+	ToConfiguredModelAlgorithmAssociationTrainedModelsConfigurationPolicyPtrOutputWithContext(context.Context) ConfiguredModelAlgorithmAssociationTrainedModelsConfigurationPolicyPtrOutput
+}
+
+type configuredModelAlgorithmAssociationTrainedModelsConfigurationPolicyPtrType ConfiguredModelAlgorithmAssociationTrainedModelsConfigurationPolicyArgs
+
+func ConfiguredModelAlgorithmAssociationTrainedModelsConfigurationPolicyPtr(v *ConfiguredModelAlgorithmAssociationTrainedModelsConfigurationPolicyArgs) ConfiguredModelAlgorithmAssociationTrainedModelsConfigurationPolicyPtrInput {
+	return (*configuredModelAlgorithmAssociationTrainedModelsConfigurationPolicyPtrType)(v)
+}
+
+func (*configuredModelAlgorithmAssociationTrainedModelsConfigurationPolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfiguredModelAlgorithmAssociationTrainedModelsConfigurationPolicy)(nil)).Elem()
+}
+
+func (i *configuredModelAlgorithmAssociationTrainedModelsConfigurationPolicyPtrType) ToConfiguredModelAlgorithmAssociationTrainedModelsConfigurationPolicyPtrOutput() ConfiguredModelAlgorithmAssociationTrainedModelsConfigurationPolicyPtrOutput {
+	return i.ToConfiguredModelAlgorithmAssociationTrainedModelsConfigurationPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *configuredModelAlgorithmAssociationTrainedModelsConfigurationPolicyPtrType) ToConfiguredModelAlgorithmAssociationTrainedModelsConfigurationPolicyPtrOutputWithContext(ctx context.Context) ConfiguredModelAlgorithmAssociationTrainedModelsConfigurationPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfiguredModelAlgorithmAssociationTrainedModelsConfigurationPolicyPtrOutput)
+}
+
+type ConfiguredModelAlgorithmAssociationTrainedModelsConfigurationPolicyOutput struct{ *pulumi.OutputState }
+
+func (ConfiguredModelAlgorithmAssociationTrainedModelsConfigurationPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfiguredModelAlgorithmAssociationTrainedModelsConfigurationPolicy)(nil)).Elem()
+}
+
+func (o ConfiguredModelAlgorithmAssociationTrainedModelsConfigurationPolicyOutput) ToConfiguredModelAlgorithmAssociationTrainedModelsConfigurationPolicyOutput() ConfiguredModelAlgorithmAssociationTrainedModelsConfigurationPolicyOutput {
+	return o
+}
+
+func (o ConfiguredModelAlgorithmAssociationTrainedModelsConfigurationPolicyOutput) ToConfiguredModelAlgorithmAssociationTrainedModelsConfigurationPolicyOutputWithContext(ctx context.Context) ConfiguredModelAlgorithmAssociationTrainedModelsConfigurationPolicyOutput {
+	return o
+}
+
+func (o ConfiguredModelAlgorithmAssociationTrainedModelsConfigurationPolicyOutput) ToConfiguredModelAlgorithmAssociationTrainedModelsConfigurationPolicyPtrOutput() ConfiguredModelAlgorithmAssociationTrainedModelsConfigurationPolicyPtrOutput {
+	return o.ToConfiguredModelAlgorithmAssociationTrainedModelsConfigurationPolicyPtrOutputWithContext(context.Background())
+}
+
+func (o ConfiguredModelAlgorithmAssociationTrainedModelsConfigurationPolicyOutput) ToConfiguredModelAlgorithmAssociationTrainedModelsConfigurationPolicyPtrOutputWithContext(ctx context.Context) ConfiguredModelAlgorithmAssociationTrainedModelsConfigurationPolicyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfiguredModelAlgorithmAssociationTrainedModelsConfigurationPolicy) *ConfiguredModelAlgorithmAssociationTrainedModelsConfigurationPolicy {
+		return &v
+	}).(ConfiguredModelAlgorithmAssociationTrainedModelsConfigurationPolicyPtrOutput)
+}
+
+func (o ConfiguredModelAlgorithmAssociationTrainedModelsConfigurationPolicyOutput) ContainerLogs() ConfiguredModelAlgorithmAssociationLogsConfigurationPolicyArrayOutput {
+	return o.ApplyT(func(v ConfiguredModelAlgorithmAssociationTrainedModelsConfigurationPolicy) []ConfiguredModelAlgorithmAssociationLogsConfigurationPolicy {
+		return v.ContainerLogs
+	}).(ConfiguredModelAlgorithmAssociationLogsConfigurationPolicyArrayOutput)
+}
+
+func (o ConfiguredModelAlgorithmAssociationTrainedModelsConfigurationPolicyOutput) ContainerMetrics() ConfiguredModelAlgorithmAssociationMetricsConfigurationPolicyPtrOutput {
+	return o.ApplyT(func(v ConfiguredModelAlgorithmAssociationTrainedModelsConfigurationPolicy) *ConfiguredModelAlgorithmAssociationMetricsConfigurationPolicy {
+		return v.ContainerMetrics
+	}).(ConfiguredModelAlgorithmAssociationMetricsConfigurationPolicyPtrOutput)
+}
+
+func (o ConfiguredModelAlgorithmAssociationTrainedModelsConfigurationPolicyOutput) MaxArtifactSize() ConfiguredModelAlgorithmAssociationTrainedModelArtifactMaxSizePtrOutput {
+	return o.ApplyT(func(v ConfiguredModelAlgorithmAssociationTrainedModelsConfigurationPolicy) *ConfiguredModelAlgorithmAssociationTrainedModelArtifactMaxSize {
+		return v.MaxArtifactSize
+	}).(ConfiguredModelAlgorithmAssociationTrainedModelArtifactMaxSizePtrOutput)
+}
+
+type ConfiguredModelAlgorithmAssociationTrainedModelsConfigurationPolicyPtrOutput struct{ *pulumi.OutputState }
+
+func (ConfiguredModelAlgorithmAssociationTrainedModelsConfigurationPolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfiguredModelAlgorithmAssociationTrainedModelsConfigurationPolicy)(nil)).Elem()
+}
+
+func (o ConfiguredModelAlgorithmAssociationTrainedModelsConfigurationPolicyPtrOutput) ToConfiguredModelAlgorithmAssociationTrainedModelsConfigurationPolicyPtrOutput() ConfiguredModelAlgorithmAssociationTrainedModelsConfigurationPolicyPtrOutput {
+	return o
+}
+
+func (o ConfiguredModelAlgorithmAssociationTrainedModelsConfigurationPolicyPtrOutput) ToConfiguredModelAlgorithmAssociationTrainedModelsConfigurationPolicyPtrOutputWithContext(ctx context.Context) ConfiguredModelAlgorithmAssociationTrainedModelsConfigurationPolicyPtrOutput {
+	return o
+}
+
+func (o ConfiguredModelAlgorithmAssociationTrainedModelsConfigurationPolicyPtrOutput) Elem() ConfiguredModelAlgorithmAssociationTrainedModelsConfigurationPolicyOutput {
+	return o.ApplyT(func(v *ConfiguredModelAlgorithmAssociationTrainedModelsConfigurationPolicy) ConfiguredModelAlgorithmAssociationTrainedModelsConfigurationPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret ConfiguredModelAlgorithmAssociationTrainedModelsConfigurationPolicy
+		return ret
+	}).(ConfiguredModelAlgorithmAssociationTrainedModelsConfigurationPolicyOutput)
+}
+
+func (o ConfiguredModelAlgorithmAssociationTrainedModelsConfigurationPolicyPtrOutput) ContainerLogs() ConfiguredModelAlgorithmAssociationLogsConfigurationPolicyArrayOutput {
+	return o.ApplyT(func(v *ConfiguredModelAlgorithmAssociationTrainedModelsConfigurationPolicy) []ConfiguredModelAlgorithmAssociationLogsConfigurationPolicy {
+		if v == nil {
+			return nil
+		}
+		return v.ContainerLogs
+	}).(ConfiguredModelAlgorithmAssociationLogsConfigurationPolicyArrayOutput)
+}
+
+func (o ConfiguredModelAlgorithmAssociationTrainedModelsConfigurationPolicyPtrOutput) ContainerMetrics() ConfiguredModelAlgorithmAssociationMetricsConfigurationPolicyPtrOutput {
+	return o.ApplyT(func(v *ConfiguredModelAlgorithmAssociationTrainedModelsConfigurationPolicy) *ConfiguredModelAlgorithmAssociationMetricsConfigurationPolicy {
+		if v == nil {
+			return nil
+		}
+		return v.ContainerMetrics
+	}).(ConfiguredModelAlgorithmAssociationMetricsConfigurationPolicyPtrOutput)
+}
+
+func (o ConfiguredModelAlgorithmAssociationTrainedModelsConfigurationPolicyPtrOutput) MaxArtifactSize() ConfiguredModelAlgorithmAssociationTrainedModelArtifactMaxSizePtrOutput {
+	return o.ApplyT(func(v *ConfiguredModelAlgorithmAssociationTrainedModelsConfigurationPolicy) *ConfiguredModelAlgorithmAssociationTrainedModelArtifactMaxSize {
+		if v == nil {
+			return nil
+		}
+		return v.MaxArtifactSize
+	}).(ConfiguredModelAlgorithmAssociationTrainedModelArtifactMaxSizePtrOutput)
+}
+
+type ConfiguredModelAlgorithmContainerConfig struct {
+	Arguments         []string                                   `pulumi:"arguments"`
+	Entrypoint        []string                                   `pulumi:"entrypoint"`
+	ImageUri          string                                     `pulumi:"imageUri"`
+	MetricDefinitions []ConfiguredModelAlgorithmMetricDefinition `pulumi:"metricDefinitions"`
+}
+
+// ConfiguredModelAlgorithmContainerConfigInput is an input type that accepts ConfiguredModelAlgorithmContainerConfigArgs and ConfiguredModelAlgorithmContainerConfigOutput values.
+// You can construct a concrete instance of `ConfiguredModelAlgorithmContainerConfigInput` via:
+//
+//	ConfiguredModelAlgorithmContainerConfigArgs{...}
+type ConfiguredModelAlgorithmContainerConfigInput interface {
+	pulumi.Input
+
+	ToConfiguredModelAlgorithmContainerConfigOutput() ConfiguredModelAlgorithmContainerConfigOutput
+	ToConfiguredModelAlgorithmContainerConfigOutputWithContext(context.Context) ConfiguredModelAlgorithmContainerConfigOutput
+}
+
+type ConfiguredModelAlgorithmContainerConfigArgs struct {
+	Arguments         pulumi.StringArrayInput                            `pulumi:"arguments"`
+	Entrypoint        pulumi.StringArrayInput                            `pulumi:"entrypoint"`
+	ImageUri          pulumi.StringInput                                 `pulumi:"imageUri"`
+	MetricDefinitions ConfiguredModelAlgorithmMetricDefinitionArrayInput `pulumi:"metricDefinitions"`
+}
+
+func (ConfiguredModelAlgorithmContainerConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfiguredModelAlgorithmContainerConfig)(nil)).Elem()
+}
+
+func (i ConfiguredModelAlgorithmContainerConfigArgs) ToConfiguredModelAlgorithmContainerConfigOutput() ConfiguredModelAlgorithmContainerConfigOutput {
+	return i.ToConfiguredModelAlgorithmContainerConfigOutputWithContext(context.Background())
+}
+
+func (i ConfiguredModelAlgorithmContainerConfigArgs) ToConfiguredModelAlgorithmContainerConfigOutputWithContext(ctx context.Context) ConfiguredModelAlgorithmContainerConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfiguredModelAlgorithmContainerConfigOutput)
+}
+
+func (i ConfiguredModelAlgorithmContainerConfigArgs) ToConfiguredModelAlgorithmContainerConfigPtrOutput() ConfiguredModelAlgorithmContainerConfigPtrOutput {
+	return i.ToConfiguredModelAlgorithmContainerConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ConfiguredModelAlgorithmContainerConfigArgs) ToConfiguredModelAlgorithmContainerConfigPtrOutputWithContext(ctx context.Context) ConfiguredModelAlgorithmContainerConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfiguredModelAlgorithmContainerConfigOutput).ToConfiguredModelAlgorithmContainerConfigPtrOutputWithContext(ctx)
+}
+
+// ConfiguredModelAlgorithmContainerConfigPtrInput is an input type that accepts ConfiguredModelAlgorithmContainerConfigArgs, ConfiguredModelAlgorithmContainerConfigPtr and ConfiguredModelAlgorithmContainerConfigPtrOutput values.
+// You can construct a concrete instance of `ConfiguredModelAlgorithmContainerConfigPtrInput` via:
+//
+//	        ConfiguredModelAlgorithmContainerConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type ConfiguredModelAlgorithmContainerConfigPtrInput interface {
+	pulumi.Input
+
+	ToConfiguredModelAlgorithmContainerConfigPtrOutput() ConfiguredModelAlgorithmContainerConfigPtrOutput
+	ToConfiguredModelAlgorithmContainerConfigPtrOutputWithContext(context.Context) ConfiguredModelAlgorithmContainerConfigPtrOutput
+}
+
+type configuredModelAlgorithmContainerConfigPtrType ConfiguredModelAlgorithmContainerConfigArgs
+
+func ConfiguredModelAlgorithmContainerConfigPtr(v *ConfiguredModelAlgorithmContainerConfigArgs) ConfiguredModelAlgorithmContainerConfigPtrInput {
+	return (*configuredModelAlgorithmContainerConfigPtrType)(v)
+}
+
+func (*configuredModelAlgorithmContainerConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfiguredModelAlgorithmContainerConfig)(nil)).Elem()
+}
+
+func (i *configuredModelAlgorithmContainerConfigPtrType) ToConfiguredModelAlgorithmContainerConfigPtrOutput() ConfiguredModelAlgorithmContainerConfigPtrOutput {
+	return i.ToConfiguredModelAlgorithmContainerConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *configuredModelAlgorithmContainerConfigPtrType) ToConfiguredModelAlgorithmContainerConfigPtrOutputWithContext(ctx context.Context) ConfiguredModelAlgorithmContainerConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfiguredModelAlgorithmContainerConfigPtrOutput)
+}
+
+type ConfiguredModelAlgorithmContainerConfigOutput struct{ *pulumi.OutputState }
+
+func (ConfiguredModelAlgorithmContainerConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfiguredModelAlgorithmContainerConfig)(nil)).Elem()
+}
+
+func (o ConfiguredModelAlgorithmContainerConfigOutput) ToConfiguredModelAlgorithmContainerConfigOutput() ConfiguredModelAlgorithmContainerConfigOutput {
+	return o
+}
+
+func (o ConfiguredModelAlgorithmContainerConfigOutput) ToConfiguredModelAlgorithmContainerConfigOutputWithContext(ctx context.Context) ConfiguredModelAlgorithmContainerConfigOutput {
+	return o
+}
+
+func (o ConfiguredModelAlgorithmContainerConfigOutput) ToConfiguredModelAlgorithmContainerConfigPtrOutput() ConfiguredModelAlgorithmContainerConfigPtrOutput {
+	return o.ToConfiguredModelAlgorithmContainerConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ConfiguredModelAlgorithmContainerConfigOutput) ToConfiguredModelAlgorithmContainerConfigPtrOutputWithContext(ctx context.Context) ConfiguredModelAlgorithmContainerConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfiguredModelAlgorithmContainerConfig) *ConfiguredModelAlgorithmContainerConfig {
+		return &v
+	}).(ConfiguredModelAlgorithmContainerConfigPtrOutput)
+}
+
+func (o ConfiguredModelAlgorithmContainerConfigOutput) Arguments() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ConfiguredModelAlgorithmContainerConfig) []string { return v.Arguments }).(pulumi.StringArrayOutput)
+}
+
+func (o ConfiguredModelAlgorithmContainerConfigOutput) Entrypoint() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ConfiguredModelAlgorithmContainerConfig) []string { return v.Entrypoint }).(pulumi.StringArrayOutput)
+}
+
+func (o ConfiguredModelAlgorithmContainerConfigOutput) ImageUri() pulumi.StringOutput {
+	return o.ApplyT(func(v ConfiguredModelAlgorithmContainerConfig) string { return v.ImageUri }).(pulumi.StringOutput)
+}
+
+func (o ConfiguredModelAlgorithmContainerConfigOutput) MetricDefinitions() ConfiguredModelAlgorithmMetricDefinitionArrayOutput {
+	return o.ApplyT(func(v ConfiguredModelAlgorithmContainerConfig) []ConfiguredModelAlgorithmMetricDefinition {
+		return v.MetricDefinitions
+	}).(ConfiguredModelAlgorithmMetricDefinitionArrayOutput)
+}
+
+type ConfiguredModelAlgorithmContainerConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ConfiguredModelAlgorithmContainerConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfiguredModelAlgorithmContainerConfig)(nil)).Elem()
+}
+
+func (o ConfiguredModelAlgorithmContainerConfigPtrOutput) ToConfiguredModelAlgorithmContainerConfigPtrOutput() ConfiguredModelAlgorithmContainerConfigPtrOutput {
+	return o
+}
+
+func (o ConfiguredModelAlgorithmContainerConfigPtrOutput) ToConfiguredModelAlgorithmContainerConfigPtrOutputWithContext(ctx context.Context) ConfiguredModelAlgorithmContainerConfigPtrOutput {
+	return o
+}
+
+func (o ConfiguredModelAlgorithmContainerConfigPtrOutput) Elem() ConfiguredModelAlgorithmContainerConfigOutput {
+	return o.ApplyT(func(v *ConfiguredModelAlgorithmContainerConfig) ConfiguredModelAlgorithmContainerConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ConfiguredModelAlgorithmContainerConfig
+		return ret
+	}).(ConfiguredModelAlgorithmContainerConfigOutput)
+}
+
+func (o ConfiguredModelAlgorithmContainerConfigPtrOutput) Arguments() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ConfiguredModelAlgorithmContainerConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Arguments
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o ConfiguredModelAlgorithmContainerConfigPtrOutput) Entrypoint() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ConfiguredModelAlgorithmContainerConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Entrypoint
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o ConfiguredModelAlgorithmContainerConfigPtrOutput) ImageUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConfiguredModelAlgorithmContainerConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ImageUri
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ConfiguredModelAlgorithmContainerConfigPtrOutput) MetricDefinitions() ConfiguredModelAlgorithmMetricDefinitionArrayOutput {
+	return o.ApplyT(func(v *ConfiguredModelAlgorithmContainerConfig) []ConfiguredModelAlgorithmMetricDefinition {
+		if v == nil {
+			return nil
+		}
+		return v.MetricDefinitions
+	}).(ConfiguredModelAlgorithmMetricDefinitionArrayOutput)
+}
+
+type ConfiguredModelAlgorithmInferenceContainerConfig struct {
+	ImageUri string `pulumi:"imageUri"`
+}
+
+// ConfiguredModelAlgorithmInferenceContainerConfigInput is an input type that accepts ConfiguredModelAlgorithmInferenceContainerConfigArgs and ConfiguredModelAlgorithmInferenceContainerConfigOutput values.
+// You can construct a concrete instance of `ConfiguredModelAlgorithmInferenceContainerConfigInput` via:
+//
+//	ConfiguredModelAlgorithmInferenceContainerConfigArgs{...}
+type ConfiguredModelAlgorithmInferenceContainerConfigInput interface {
+	pulumi.Input
+
+	ToConfiguredModelAlgorithmInferenceContainerConfigOutput() ConfiguredModelAlgorithmInferenceContainerConfigOutput
+	ToConfiguredModelAlgorithmInferenceContainerConfigOutputWithContext(context.Context) ConfiguredModelAlgorithmInferenceContainerConfigOutput
+}
+
+type ConfiguredModelAlgorithmInferenceContainerConfigArgs struct {
+	ImageUri pulumi.StringInput `pulumi:"imageUri"`
+}
+
+func (ConfiguredModelAlgorithmInferenceContainerConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfiguredModelAlgorithmInferenceContainerConfig)(nil)).Elem()
+}
+
+func (i ConfiguredModelAlgorithmInferenceContainerConfigArgs) ToConfiguredModelAlgorithmInferenceContainerConfigOutput() ConfiguredModelAlgorithmInferenceContainerConfigOutput {
+	return i.ToConfiguredModelAlgorithmInferenceContainerConfigOutputWithContext(context.Background())
+}
+
+func (i ConfiguredModelAlgorithmInferenceContainerConfigArgs) ToConfiguredModelAlgorithmInferenceContainerConfigOutputWithContext(ctx context.Context) ConfiguredModelAlgorithmInferenceContainerConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfiguredModelAlgorithmInferenceContainerConfigOutput)
+}
+
+func (i ConfiguredModelAlgorithmInferenceContainerConfigArgs) ToConfiguredModelAlgorithmInferenceContainerConfigPtrOutput() ConfiguredModelAlgorithmInferenceContainerConfigPtrOutput {
+	return i.ToConfiguredModelAlgorithmInferenceContainerConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ConfiguredModelAlgorithmInferenceContainerConfigArgs) ToConfiguredModelAlgorithmInferenceContainerConfigPtrOutputWithContext(ctx context.Context) ConfiguredModelAlgorithmInferenceContainerConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfiguredModelAlgorithmInferenceContainerConfigOutput).ToConfiguredModelAlgorithmInferenceContainerConfigPtrOutputWithContext(ctx)
+}
+
+// ConfiguredModelAlgorithmInferenceContainerConfigPtrInput is an input type that accepts ConfiguredModelAlgorithmInferenceContainerConfigArgs, ConfiguredModelAlgorithmInferenceContainerConfigPtr and ConfiguredModelAlgorithmInferenceContainerConfigPtrOutput values.
+// You can construct a concrete instance of `ConfiguredModelAlgorithmInferenceContainerConfigPtrInput` via:
+//
+//	        ConfiguredModelAlgorithmInferenceContainerConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type ConfiguredModelAlgorithmInferenceContainerConfigPtrInput interface {
+	pulumi.Input
+
+	ToConfiguredModelAlgorithmInferenceContainerConfigPtrOutput() ConfiguredModelAlgorithmInferenceContainerConfigPtrOutput
+	ToConfiguredModelAlgorithmInferenceContainerConfigPtrOutputWithContext(context.Context) ConfiguredModelAlgorithmInferenceContainerConfigPtrOutput
+}
+
+type configuredModelAlgorithmInferenceContainerConfigPtrType ConfiguredModelAlgorithmInferenceContainerConfigArgs
+
+func ConfiguredModelAlgorithmInferenceContainerConfigPtr(v *ConfiguredModelAlgorithmInferenceContainerConfigArgs) ConfiguredModelAlgorithmInferenceContainerConfigPtrInput {
+	return (*configuredModelAlgorithmInferenceContainerConfigPtrType)(v)
+}
+
+func (*configuredModelAlgorithmInferenceContainerConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfiguredModelAlgorithmInferenceContainerConfig)(nil)).Elem()
+}
+
+func (i *configuredModelAlgorithmInferenceContainerConfigPtrType) ToConfiguredModelAlgorithmInferenceContainerConfigPtrOutput() ConfiguredModelAlgorithmInferenceContainerConfigPtrOutput {
+	return i.ToConfiguredModelAlgorithmInferenceContainerConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *configuredModelAlgorithmInferenceContainerConfigPtrType) ToConfiguredModelAlgorithmInferenceContainerConfigPtrOutputWithContext(ctx context.Context) ConfiguredModelAlgorithmInferenceContainerConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfiguredModelAlgorithmInferenceContainerConfigPtrOutput)
+}
+
+type ConfiguredModelAlgorithmInferenceContainerConfigOutput struct{ *pulumi.OutputState }
+
+func (ConfiguredModelAlgorithmInferenceContainerConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfiguredModelAlgorithmInferenceContainerConfig)(nil)).Elem()
+}
+
+func (o ConfiguredModelAlgorithmInferenceContainerConfigOutput) ToConfiguredModelAlgorithmInferenceContainerConfigOutput() ConfiguredModelAlgorithmInferenceContainerConfigOutput {
+	return o
+}
+
+func (o ConfiguredModelAlgorithmInferenceContainerConfigOutput) ToConfiguredModelAlgorithmInferenceContainerConfigOutputWithContext(ctx context.Context) ConfiguredModelAlgorithmInferenceContainerConfigOutput {
+	return o
+}
+
+func (o ConfiguredModelAlgorithmInferenceContainerConfigOutput) ToConfiguredModelAlgorithmInferenceContainerConfigPtrOutput() ConfiguredModelAlgorithmInferenceContainerConfigPtrOutput {
+	return o.ToConfiguredModelAlgorithmInferenceContainerConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ConfiguredModelAlgorithmInferenceContainerConfigOutput) ToConfiguredModelAlgorithmInferenceContainerConfigPtrOutputWithContext(ctx context.Context) ConfiguredModelAlgorithmInferenceContainerConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfiguredModelAlgorithmInferenceContainerConfig) *ConfiguredModelAlgorithmInferenceContainerConfig {
+		return &v
+	}).(ConfiguredModelAlgorithmInferenceContainerConfigPtrOutput)
+}
+
+func (o ConfiguredModelAlgorithmInferenceContainerConfigOutput) ImageUri() pulumi.StringOutput {
+	return o.ApplyT(func(v ConfiguredModelAlgorithmInferenceContainerConfig) string { return v.ImageUri }).(pulumi.StringOutput)
+}
+
+type ConfiguredModelAlgorithmInferenceContainerConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ConfiguredModelAlgorithmInferenceContainerConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfiguredModelAlgorithmInferenceContainerConfig)(nil)).Elem()
+}
+
+func (o ConfiguredModelAlgorithmInferenceContainerConfigPtrOutput) ToConfiguredModelAlgorithmInferenceContainerConfigPtrOutput() ConfiguredModelAlgorithmInferenceContainerConfigPtrOutput {
+	return o
+}
+
+func (o ConfiguredModelAlgorithmInferenceContainerConfigPtrOutput) ToConfiguredModelAlgorithmInferenceContainerConfigPtrOutputWithContext(ctx context.Context) ConfiguredModelAlgorithmInferenceContainerConfigPtrOutput {
+	return o
+}
+
+func (o ConfiguredModelAlgorithmInferenceContainerConfigPtrOutput) Elem() ConfiguredModelAlgorithmInferenceContainerConfigOutput {
+	return o.ApplyT(func(v *ConfiguredModelAlgorithmInferenceContainerConfig) ConfiguredModelAlgorithmInferenceContainerConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ConfiguredModelAlgorithmInferenceContainerConfig
+		return ret
+	}).(ConfiguredModelAlgorithmInferenceContainerConfigOutput)
+}
+
+func (o ConfiguredModelAlgorithmInferenceContainerConfigPtrOutput) ImageUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConfiguredModelAlgorithmInferenceContainerConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ImageUri
+	}).(pulumi.StringPtrOutput)
+}
+
+type ConfiguredModelAlgorithmMetricDefinition struct {
+	Name  string `pulumi:"name"`
+	Regex string `pulumi:"regex"`
+}
+
+// ConfiguredModelAlgorithmMetricDefinitionInput is an input type that accepts ConfiguredModelAlgorithmMetricDefinitionArgs and ConfiguredModelAlgorithmMetricDefinitionOutput values.
+// You can construct a concrete instance of `ConfiguredModelAlgorithmMetricDefinitionInput` via:
+//
+//	ConfiguredModelAlgorithmMetricDefinitionArgs{...}
+type ConfiguredModelAlgorithmMetricDefinitionInput interface {
+	pulumi.Input
+
+	ToConfiguredModelAlgorithmMetricDefinitionOutput() ConfiguredModelAlgorithmMetricDefinitionOutput
+	ToConfiguredModelAlgorithmMetricDefinitionOutputWithContext(context.Context) ConfiguredModelAlgorithmMetricDefinitionOutput
+}
+
+type ConfiguredModelAlgorithmMetricDefinitionArgs struct {
+	Name  pulumi.StringInput `pulumi:"name"`
+	Regex pulumi.StringInput `pulumi:"regex"`
+}
+
+func (ConfiguredModelAlgorithmMetricDefinitionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfiguredModelAlgorithmMetricDefinition)(nil)).Elem()
+}
+
+func (i ConfiguredModelAlgorithmMetricDefinitionArgs) ToConfiguredModelAlgorithmMetricDefinitionOutput() ConfiguredModelAlgorithmMetricDefinitionOutput {
+	return i.ToConfiguredModelAlgorithmMetricDefinitionOutputWithContext(context.Background())
+}
+
+func (i ConfiguredModelAlgorithmMetricDefinitionArgs) ToConfiguredModelAlgorithmMetricDefinitionOutputWithContext(ctx context.Context) ConfiguredModelAlgorithmMetricDefinitionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfiguredModelAlgorithmMetricDefinitionOutput)
+}
+
+// ConfiguredModelAlgorithmMetricDefinitionArrayInput is an input type that accepts ConfiguredModelAlgorithmMetricDefinitionArray and ConfiguredModelAlgorithmMetricDefinitionArrayOutput values.
+// You can construct a concrete instance of `ConfiguredModelAlgorithmMetricDefinitionArrayInput` via:
+//
+//	ConfiguredModelAlgorithmMetricDefinitionArray{ ConfiguredModelAlgorithmMetricDefinitionArgs{...} }
+type ConfiguredModelAlgorithmMetricDefinitionArrayInput interface {
+	pulumi.Input
+
+	ToConfiguredModelAlgorithmMetricDefinitionArrayOutput() ConfiguredModelAlgorithmMetricDefinitionArrayOutput
+	ToConfiguredModelAlgorithmMetricDefinitionArrayOutputWithContext(context.Context) ConfiguredModelAlgorithmMetricDefinitionArrayOutput
+}
+
+type ConfiguredModelAlgorithmMetricDefinitionArray []ConfiguredModelAlgorithmMetricDefinitionInput
+
+func (ConfiguredModelAlgorithmMetricDefinitionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ConfiguredModelAlgorithmMetricDefinition)(nil)).Elem()
+}
+
+func (i ConfiguredModelAlgorithmMetricDefinitionArray) ToConfiguredModelAlgorithmMetricDefinitionArrayOutput() ConfiguredModelAlgorithmMetricDefinitionArrayOutput {
+	return i.ToConfiguredModelAlgorithmMetricDefinitionArrayOutputWithContext(context.Background())
+}
+
+func (i ConfiguredModelAlgorithmMetricDefinitionArray) ToConfiguredModelAlgorithmMetricDefinitionArrayOutputWithContext(ctx context.Context) ConfiguredModelAlgorithmMetricDefinitionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfiguredModelAlgorithmMetricDefinitionArrayOutput)
+}
+
+type ConfiguredModelAlgorithmMetricDefinitionOutput struct{ *pulumi.OutputState }
+
+func (ConfiguredModelAlgorithmMetricDefinitionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfiguredModelAlgorithmMetricDefinition)(nil)).Elem()
+}
+
+func (o ConfiguredModelAlgorithmMetricDefinitionOutput) ToConfiguredModelAlgorithmMetricDefinitionOutput() ConfiguredModelAlgorithmMetricDefinitionOutput {
+	return o
+}
+
+func (o ConfiguredModelAlgorithmMetricDefinitionOutput) ToConfiguredModelAlgorithmMetricDefinitionOutputWithContext(ctx context.Context) ConfiguredModelAlgorithmMetricDefinitionOutput {
+	return o
+}
+
+func (o ConfiguredModelAlgorithmMetricDefinitionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ConfiguredModelAlgorithmMetricDefinition) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o ConfiguredModelAlgorithmMetricDefinitionOutput) Regex() pulumi.StringOutput {
+	return o.ApplyT(func(v ConfiguredModelAlgorithmMetricDefinition) string { return v.Regex }).(pulumi.StringOutput)
+}
+
+type ConfiguredModelAlgorithmMetricDefinitionArrayOutput struct{ *pulumi.OutputState }
+
+func (ConfiguredModelAlgorithmMetricDefinitionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ConfiguredModelAlgorithmMetricDefinition)(nil)).Elem()
+}
+
+func (o ConfiguredModelAlgorithmMetricDefinitionArrayOutput) ToConfiguredModelAlgorithmMetricDefinitionArrayOutput() ConfiguredModelAlgorithmMetricDefinitionArrayOutput {
+	return o
+}
+
+func (o ConfiguredModelAlgorithmMetricDefinitionArrayOutput) ToConfiguredModelAlgorithmMetricDefinitionArrayOutputWithContext(ctx context.Context) ConfiguredModelAlgorithmMetricDefinitionArrayOutput {
+	return o
+}
+
+func (o ConfiguredModelAlgorithmMetricDefinitionArrayOutput) Index(i pulumi.IntInput) ConfiguredModelAlgorithmMetricDefinitionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ConfiguredModelAlgorithmMetricDefinition {
+		return vs[0].([]ConfiguredModelAlgorithmMetricDefinition)[vs[1].(int)]
+	}).(ConfiguredModelAlgorithmMetricDefinitionOutput)
+}
+
+type ConfiguredModelAlgorithmTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
 type TrainingDatasetColumnSchema struct {
 	// The name of a column.
 	ColumnName string `pulumi:"columnName"`
@@ -420,6 +2608,36 @@ type TrainingDatasetTag struct {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredModelAlgorithmAssociationCustomEntityConfigInput)(nil)).Elem(), ConfiguredModelAlgorithmAssociationCustomEntityConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredModelAlgorithmAssociationCustomEntityConfigPtrInput)(nil)).Elem(), ConfiguredModelAlgorithmAssociationCustomEntityConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredModelAlgorithmAssociationLogRedactionConfigurationInput)(nil)).Elem(), ConfiguredModelAlgorithmAssociationLogRedactionConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredModelAlgorithmAssociationLogRedactionConfigurationPtrInput)(nil)).Elem(), ConfiguredModelAlgorithmAssociationLogRedactionConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredModelAlgorithmAssociationLogsConfigurationPolicyInput)(nil)).Elem(), ConfiguredModelAlgorithmAssociationLogsConfigurationPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredModelAlgorithmAssociationLogsConfigurationPolicyArrayInput)(nil)).Elem(), ConfiguredModelAlgorithmAssociationLogsConfigurationPolicyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredModelAlgorithmAssociationMetricsConfigurationPolicyInput)(nil)).Elem(), ConfiguredModelAlgorithmAssociationMetricsConfigurationPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredModelAlgorithmAssociationMetricsConfigurationPolicyPtrInput)(nil)).Elem(), ConfiguredModelAlgorithmAssociationMetricsConfigurationPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredModelAlgorithmAssociationPrivacyConfigurationInput)(nil)).Elem(), ConfiguredModelAlgorithmAssociationPrivacyConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredModelAlgorithmAssociationPrivacyConfigurationPtrInput)(nil)).Elem(), ConfiguredModelAlgorithmAssociationPrivacyConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredModelAlgorithmAssociationPrivacyConfigurationPoliciesInput)(nil)).Elem(), ConfiguredModelAlgorithmAssociationPrivacyConfigurationPoliciesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredModelAlgorithmAssociationPrivacyConfigurationPoliciesPtrInput)(nil)).Elem(), ConfiguredModelAlgorithmAssociationPrivacyConfigurationPoliciesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredModelAlgorithmAssociationTrainedModelArtifactMaxSizeInput)(nil)).Elem(), ConfiguredModelAlgorithmAssociationTrainedModelArtifactMaxSizeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredModelAlgorithmAssociationTrainedModelArtifactMaxSizePtrInput)(nil)).Elem(), ConfiguredModelAlgorithmAssociationTrainedModelArtifactMaxSizeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredModelAlgorithmAssociationTrainedModelExportsConfigurationPolicyInput)(nil)).Elem(), ConfiguredModelAlgorithmAssociationTrainedModelExportsConfigurationPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredModelAlgorithmAssociationTrainedModelExportsConfigurationPolicyPtrInput)(nil)).Elem(), ConfiguredModelAlgorithmAssociationTrainedModelExportsConfigurationPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredModelAlgorithmAssociationTrainedModelExportsMaxSizeInput)(nil)).Elem(), ConfiguredModelAlgorithmAssociationTrainedModelExportsMaxSizeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredModelAlgorithmAssociationTrainedModelExportsMaxSizePtrInput)(nil)).Elem(), ConfiguredModelAlgorithmAssociationTrainedModelExportsMaxSizeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredModelAlgorithmAssociationTrainedModelInferenceJobsConfigurationPolicyInput)(nil)).Elem(), ConfiguredModelAlgorithmAssociationTrainedModelInferenceJobsConfigurationPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredModelAlgorithmAssociationTrainedModelInferenceJobsConfigurationPolicyPtrInput)(nil)).Elem(), ConfiguredModelAlgorithmAssociationTrainedModelInferenceJobsConfigurationPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredModelAlgorithmAssociationTrainedModelInferenceMaxOutputSizeInput)(nil)).Elem(), ConfiguredModelAlgorithmAssociationTrainedModelInferenceMaxOutputSizeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredModelAlgorithmAssociationTrainedModelInferenceMaxOutputSizePtrInput)(nil)).Elem(), ConfiguredModelAlgorithmAssociationTrainedModelInferenceMaxOutputSizeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredModelAlgorithmAssociationTrainedModelsConfigurationPolicyInput)(nil)).Elem(), ConfiguredModelAlgorithmAssociationTrainedModelsConfigurationPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredModelAlgorithmAssociationTrainedModelsConfigurationPolicyPtrInput)(nil)).Elem(), ConfiguredModelAlgorithmAssociationTrainedModelsConfigurationPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredModelAlgorithmContainerConfigInput)(nil)).Elem(), ConfiguredModelAlgorithmContainerConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredModelAlgorithmContainerConfigPtrInput)(nil)).Elem(), ConfiguredModelAlgorithmContainerConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredModelAlgorithmInferenceContainerConfigInput)(nil)).Elem(), ConfiguredModelAlgorithmInferenceContainerConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredModelAlgorithmInferenceContainerConfigPtrInput)(nil)).Elem(), ConfiguredModelAlgorithmInferenceContainerConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredModelAlgorithmMetricDefinitionInput)(nil)).Elem(), ConfiguredModelAlgorithmMetricDefinitionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredModelAlgorithmMetricDefinitionArrayInput)(nil)).Elem(), ConfiguredModelAlgorithmMetricDefinitionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TrainingDatasetColumnSchemaInput)(nil)).Elem(), TrainingDatasetColumnSchemaArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TrainingDatasetColumnSchemaArrayInput)(nil)).Elem(), TrainingDatasetColumnSchemaArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TrainingDatasetDataSourceInput)(nil)).Elem(), TrainingDatasetDataSourceArgs{})
@@ -427,6 +2645,36 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TrainingDatasetDatasetArrayInput)(nil)).Elem(), TrainingDatasetDatasetArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TrainingDatasetDatasetInputConfigInput)(nil)).Elem(), TrainingDatasetDatasetInputConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TrainingDatasetGlueDataSourceInput)(nil)).Elem(), TrainingDatasetGlueDataSourceArgs{})
+	pulumi.RegisterOutputType(ConfiguredModelAlgorithmAssociationCustomEntityConfigOutput{})
+	pulumi.RegisterOutputType(ConfiguredModelAlgorithmAssociationCustomEntityConfigPtrOutput{})
+	pulumi.RegisterOutputType(ConfiguredModelAlgorithmAssociationLogRedactionConfigurationOutput{})
+	pulumi.RegisterOutputType(ConfiguredModelAlgorithmAssociationLogRedactionConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(ConfiguredModelAlgorithmAssociationLogsConfigurationPolicyOutput{})
+	pulumi.RegisterOutputType(ConfiguredModelAlgorithmAssociationLogsConfigurationPolicyArrayOutput{})
+	pulumi.RegisterOutputType(ConfiguredModelAlgorithmAssociationMetricsConfigurationPolicyOutput{})
+	pulumi.RegisterOutputType(ConfiguredModelAlgorithmAssociationMetricsConfigurationPolicyPtrOutput{})
+	pulumi.RegisterOutputType(ConfiguredModelAlgorithmAssociationPrivacyConfigurationOutput{})
+	pulumi.RegisterOutputType(ConfiguredModelAlgorithmAssociationPrivacyConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(ConfiguredModelAlgorithmAssociationPrivacyConfigurationPoliciesOutput{})
+	pulumi.RegisterOutputType(ConfiguredModelAlgorithmAssociationPrivacyConfigurationPoliciesPtrOutput{})
+	pulumi.RegisterOutputType(ConfiguredModelAlgorithmAssociationTrainedModelArtifactMaxSizeOutput{})
+	pulumi.RegisterOutputType(ConfiguredModelAlgorithmAssociationTrainedModelArtifactMaxSizePtrOutput{})
+	pulumi.RegisterOutputType(ConfiguredModelAlgorithmAssociationTrainedModelExportsConfigurationPolicyOutput{})
+	pulumi.RegisterOutputType(ConfiguredModelAlgorithmAssociationTrainedModelExportsConfigurationPolicyPtrOutput{})
+	pulumi.RegisterOutputType(ConfiguredModelAlgorithmAssociationTrainedModelExportsMaxSizeOutput{})
+	pulumi.RegisterOutputType(ConfiguredModelAlgorithmAssociationTrainedModelExportsMaxSizePtrOutput{})
+	pulumi.RegisterOutputType(ConfiguredModelAlgorithmAssociationTrainedModelInferenceJobsConfigurationPolicyOutput{})
+	pulumi.RegisterOutputType(ConfiguredModelAlgorithmAssociationTrainedModelInferenceJobsConfigurationPolicyPtrOutput{})
+	pulumi.RegisterOutputType(ConfiguredModelAlgorithmAssociationTrainedModelInferenceMaxOutputSizeOutput{})
+	pulumi.RegisterOutputType(ConfiguredModelAlgorithmAssociationTrainedModelInferenceMaxOutputSizePtrOutput{})
+	pulumi.RegisterOutputType(ConfiguredModelAlgorithmAssociationTrainedModelsConfigurationPolicyOutput{})
+	pulumi.RegisterOutputType(ConfiguredModelAlgorithmAssociationTrainedModelsConfigurationPolicyPtrOutput{})
+	pulumi.RegisterOutputType(ConfiguredModelAlgorithmContainerConfigOutput{})
+	pulumi.RegisterOutputType(ConfiguredModelAlgorithmContainerConfigPtrOutput{})
+	pulumi.RegisterOutputType(ConfiguredModelAlgorithmInferenceContainerConfigOutput{})
+	pulumi.RegisterOutputType(ConfiguredModelAlgorithmInferenceContainerConfigPtrOutput{})
+	pulumi.RegisterOutputType(ConfiguredModelAlgorithmMetricDefinitionOutput{})
+	pulumi.RegisterOutputType(ConfiguredModelAlgorithmMetricDefinitionArrayOutput{})
 	pulumi.RegisterOutputType(TrainingDatasetColumnSchemaOutput{})
 	pulumi.RegisterOutputType(TrainingDatasetColumnSchemaArrayOutput{})
 	pulumi.RegisterOutputType(TrainingDatasetDataSourceOutput{})

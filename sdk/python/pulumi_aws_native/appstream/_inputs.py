@@ -43,6 +43,8 @@ __all__ = [
     'ImageBuilderAccessEndpointArgsDict',
     'ImageBuilderDomainJoinInfoArgs',
     'ImageBuilderDomainJoinInfoArgsDict',
+    'ImageBuilderVolumeConfigArgs',
+    'ImageBuilderVolumeConfigArgsDict',
     'ImageBuilderVpcConfigArgs',
     'ImageBuilderVpcConfigArgsDict',
 ]
@@ -721,6 +723,26 @@ class ImageBuilderDomainJoinInfoArgs:
     @organizational_unit_distinguished_name.setter
     def organizational_unit_distinguished_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "organizational_unit_distinguished_name", value)
+
+
+class ImageBuilderVolumeConfigArgsDict(TypedDict):
+    volume_size_in_gb: NotRequired[pulumi.Input[_builtins.int]]
+
+@pulumi.input_type
+class ImageBuilderVolumeConfigArgs:
+    def __init__(__self__, *,
+                 volume_size_in_gb: Optional[pulumi.Input[_builtins.int]] = None):
+        if volume_size_in_gb is not None:
+            pulumi.set(__self__, "volume_size_in_gb", volume_size_in_gb)
+
+    @_builtins.property
+    @pulumi.getter(name="volumeSizeInGb")
+    def volume_size_in_gb(self) -> Optional[pulumi.Input[_builtins.int]]:
+        return pulumi.get(self, "volume_size_in_gb")
+
+    @volume_size_in_gb.setter
+    def volume_size_in_gb(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "volume_size_in_gb", value)
 
 
 class ImageBuilderVpcConfigArgsDict(TypedDict):

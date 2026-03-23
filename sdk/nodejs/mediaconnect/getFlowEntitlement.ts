@@ -42,13 +42,13 @@ export interface GetFlowEntitlementResult {
      */
     readonly entitlementStatus?: enums.mediaconnect.FlowEntitlementEntitlementStatus;
     /**
-     * The ARN of the flow.
-     */
-    readonly flowArn?: string;
-    /**
      * The AWS account IDs that you want to share your content with. The receiving accounts (subscribers) will be allowed to create their own flow using your content as the source.
      */
     readonly subscribers?: string[];
+    /**
+     * Key-value pairs that can be used to tag and organize this flow entitlement.
+     */
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Resource schema for AWS::MediaConnect::FlowEntitlement

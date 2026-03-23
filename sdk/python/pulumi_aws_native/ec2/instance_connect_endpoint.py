@@ -13,8 +13,10 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 from .. import _inputs as _root_inputs
 from .. import outputs as _root_outputs
+from ._enums import *
 
 __all__ = ['InstanceConnectEndpointArgs', 'InstanceConnectEndpoint']
 
@@ -29,11 +31,11 @@ class InstanceConnectEndpointArgs:
         """
         The set of arguments for constructing a InstanceConnectEndpoint resource.
 
-        :param pulumi.Input[_builtins.str] subnet_id: The subnet id of the instance connect endpoint
+        :param pulumi.Input[_builtins.str] subnet_id: The ID of the subnet in which the EC2 Instance Connect Endpoint was created.
         :param pulumi.Input[_builtins.str] client_token: The client token of the instance connect endpoint.
-        :param pulumi.Input[_builtins.bool] preserve_client_ip: If true, the address of the instance connect endpoint client is preserved when connecting to the end resource
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: The security group IDs of the instance connect endpoint.
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags of the instance connect endpoint.
+        :param pulumi.Input[_builtins.bool] preserve_client_ip: Indicates whether your client's IP address is preserved as the source when you connect to a resource.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: The security groups associated with the endpoint.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags assigned to the EC2 Instance Connect Endpoint.
         """
         pulumi.set(__self__, "subnet_id", subnet_id)
         if client_token is not None:
@@ -49,7 +51,7 @@ class InstanceConnectEndpointArgs:
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> pulumi.Input[_builtins.str]:
         """
-        The subnet id of the instance connect endpoint
+        The ID of the subnet in which the EC2 Instance Connect Endpoint was created.
         """
         return pulumi.get(self, "subnet_id")
 
@@ -73,7 +75,7 @@ class InstanceConnectEndpointArgs:
     @pulumi.getter(name="preserveClientIp")
     def preserve_client_ip(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        If true, the address of the instance connect endpoint client is preserved when connecting to the end resource
+        Indicates whether your client's IP address is preserved as the source when you connect to a resource.
         """
         return pulumi.get(self, "preserve_client_ip")
 
@@ -85,7 +87,7 @@ class InstanceConnectEndpointArgs:
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        The security group IDs of the instance connect endpoint.
+        The security groups associated with the endpoint.
         """
         return pulumi.get(self, "security_group_ids")
 
@@ -97,7 +99,7 @@ class InstanceConnectEndpointArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
-        The tags of the instance connect endpoint.
+        The tags assigned to the EC2 Instance Connect Endpoint.
         """
         return pulumi.get(self, "tags")
 
@@ -125,10 +127,10 @@ class InstanceConnectEndpoint(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] client_token: The client token of the instance connect endpoint.
-        :param pulumi.Input[_builtins.bool] preserve_client_ip: If true, the address of the instance connect endpoint client is preserved when connecting to the end resource
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: The security group IDs of the instance connect endpoint.
-        :param pulumi.Input[_builtins.str] subnet_id: The subnet id of the instance connect endpoint
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags of the instance connect endpoint.
+        :param pulumi.Input[_builtins.bool] preserve_client_ip: Indicates whether your client's IP address is preserved as the source when you connect to a resource.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: The security groups associated with the endpoint.
+        :param pulumi.Input[_builtins.str] subnet_id: The ID of the subnet in which the EC2 Instance Connect Endpoint was created.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags assigned to the EC2 Instance Connect Endpoint.
         """
         ...
     @overload
@@ -176,7 +178,17 @@ class InstanceConnectEndpoint(pulumi.CustomResource):
                 raise TypeError("Missing required property 'subnet_id'")
             __props__.__dict__["subnet_id"] = subnet_id
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["availability_zone"] = None
+            __props__.__dict__["availability_zone_id"] = None
             __props__.__dict__["aws_id"] = None
+            __props__.__dict__["created_at"] = None
+            __props__.__dict__["instance_connect_endpoint_arn"] = None
+            __props__.__dict__["network_interface_ids"] = None
+            __props__.__dict__["owner_id"] = None
+            __props__.__dict__["public_dns_names"] = None
+            __props__.__dict__["state"] = None
+            __props__.__dict__["state_message"] = None
+            __props__.__dict__["vpc_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["clientToken", "preserveClientIp", "securityGroupIds[*]", "subnetId"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(InstanceConnectEndpoint, __self__).__init__(
@@ -201,19 +213,45 @@ class InstanceConnectEndpoint(pulumi.CustomResource):
 
         __props__ = InstanceConnectEndpointArgs.__new__(InstanceConnectEndpointArgs)
 
+        __props__.__dict__["availability_zone"] = None
+        __props__.__dict__["availability_zone_id"] = None
         __props__.__dict__["aws_id"] = None
         __props__.__dict__["client_token"] = None
+        __props__.__dict__["created_at"] = None
+        __props__.__dict__["instance_connect_endpoint_arn"] = None
+        __props__.__dict__["network_interface_ids"] = None
+        __props__.__dict__["owner_id"] = None
         __props__.__dict__["preserve_client_ip"] = None
+        __props__.__dict__["public_dns_names"] = None
         __props__.__dict__["security_group_ids"] = None
+        __props__.__dict__["state"] = None
+        __props__.__dict__["state_message"] = None
         __props__.__dict__["subnet_id"] = None
         __props__.__dict__["tags"] = None
+        __props__.__dict__["vpc_id"] = None
         return InstanceConnectEndpoint(resource_name, opts=opts, __props__=__props__)
+
+    @_builtins.property
+    @pulumi.getter(name="availabilityZone")
+    def availability_zone(self) -> pulumi.Output[_builtins.str]:
+        """
+        The Availability Zone of the EC2 Instance Connect Endpoint
+        """
+        return pulumi.get(self, "availability_zone")
+
+    @_builtins.property
+    @pulumi.getter(name="availabilityZoneId")
+    def availability_zone_id(self) -> pulumi.Output[_builtins.str]:
+        """
+        The ID of the Availability Zone of the EC2 Instance Connect Endpoint
+        """
+        return pulumi.get(self, "availability_zone_id")
 
     @_builtins.property
     @pulumi.getter(name="awsId")
     def aws_id(self) -> pulumi.Output[_builtins.str]:
         """
-        The id of the instance connect endpoint
+        The ID of the EC2 Instance Connect Endpoint.
         """
         return pulumi.get(self, "aws_id")
 
@@ -226,26 +264,82 @@ class InstanceConnectEndpoint(pulumi.CustomResource):
         return pulumi.get(self, "client_token")
 
     @_builtins.property
+    @pulumi.getter(name="createdAt")
+    def created_at(self) -> pulumi.Output[_builtins.str]:
+        """
+        The date and time that the EC2 Instance Connect Endpoint was created
+        """
+        return pulumi.get(self, "created_at")
+
+    @_builtins.property
+    @pulumi.getter(name="instanceConnectEndpointArn")
+    def instance_connect_endpoint_arn(self) -> pulumi.Output[_builtins.str]:
+        """
+        The Amazon Resource Name (ARN) of the EC2 Instance Connect Endpoint
+        """
+        return pulumi.get(self, "instance_connect_endpoint_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="networkInterfaceIds")
+    def network_interface_ids(self) -> pulumi.Output[Sequence[_builtins.str]]:
+        """
+        The ID of the elastic network interface that Amazon EC2 automatically created when creating the EC2 Instance Connect Endpoint
+        """
+        return pulumi.get(self, "network_interface_ids")
+
+    @_builtins.property
+    @pulumi.getter(name="ownerId")
+    def owner_id(self) -> pulumi.Output[_builtins.str]:
+        """
+        The ID of the AWS account that created the EC2 Instance Connect Endpoint
+        """
+        return pulumi.get(self, "owner_id")
+
+    @_builtins.property
     @pulumi.getter(name="preserveClientIp")
     def preserve_client_ip(self) -> pulumi.Output[Optional[_builtins.bool]]:
         """
-        If true, the address of the instance connect endpoint client is preserved when connecting to the end resource
+        Indicates whether your client's IP address is preserved as the source when you connect to a resource.
         """
         return pulumi.get(self, "preserve_client_ip")
+
+    @_builtins.property
+    @pulumi.getter(name="publicDnsNames")
+    def public_dns_names(self) -> pulumi.Output['outputs.InstanceConnectEndpointPublicDnsNames']:
+        """
+        The public DNS names of the endpoint
+        """
+        return pulumi.get(self, "public_dns_names")
 
     @_builtins.property
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
         """
-        The security group IDs of the instance connect endpoint.
+        The security groups associated with the endpoint.
         """
         return pulumi.get(self, "security_group_ids")
+
+    @_builtins.property
+    @pulumi.getter
+    def state(self) -> pulumi.Output['InstanceConnectEndpointState']:
+        """
+        The current state of the EC2 Instance Connect Endpoint
+        """
+        return pulumi.get(self, "state")
+
+    @_builtins.property
+    @pulumi.getter(name="stateMessage")
+    def state_message(self) -> pulumi.Output[_builtins.str]:
+        """
+        The message for the current state of the EC2 Instance Connect Endpoint. Can include a failure message
+        """
+        return pulumi.get(self, "state_message")
 
     @_builtins.property
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> pulumi.Output[_builtins.str]:
         """
-        The subnet id of the instance connect endpoint
+        The ID of the subnet in which the EC2 Instance Connect Endpoint was created.
         """
         return pulumi.get(self, "subnet_id")
 
@@ -253,7 +347,15 @@ class InstanceConnectEndpoint(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
-        The tags of the instance connect endpoint.
+        The tags assigned to the EC2 Instance Connect Endpoint.
         """
         return pulumi.get(self, "tags")
+
+    @_builtins.property
+    @pulumi.getter(name="vpcId")
+    def vpc_id(self) -> pulumi.Output[_builtins.str]:
+        """
+        The ID of the VPC in which the EC2 Instance Connect Endpoint was created
+        """
+        return pulumi.get(self, "vpc_id")
 

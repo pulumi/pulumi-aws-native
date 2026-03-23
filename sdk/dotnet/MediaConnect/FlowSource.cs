@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.MediaConnect
 {
     /// <summary>
-    /// Resource schema for AWS::MediaConnect::FlowSource
+    /// Resource Type definition for AWS::MediaConnect::FlowSource
     /// </summary>
     [AwsNativeResourceType("aws-native:mediaconnect:FlowSource")]
     public partial class FlowSource : global::Pulumi.CustomResource
@@ -37,7 +37,7 @@ namespace Pulumi.AwsNative.MediaConnect
         /// The ARN of the flow.
         /// </summary>
         [Output("flowArn")]
-        public Output<string?> FlowArn { get; private set; } = null!;
+        public Output<string> FlowArn { get; private set; } = null!;
 
         /// <summary>
         /// The source configuration for cloud flows receiving a stream from a bridge.
@@ -130,6 +130,12 @@ namespace Pulumi.AwsNative.MediaConnect
         public Output<string?> StreamId { get; private set; } = null!;
 
         /// <summary>
+        /// Key-value pairs that can be used to tag and organize this flow source.
+        /// </summary>
+        [Output("tags")]
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the VPC Interface this Source is configured with.
         /// </summary>
         [Output("vpcInterfaceName")]
@@ -166,7 +172,9 @@ namespace Pulumi.AwsNative.MediaConnect
                 Version = Utilities.Version,
                 ReplaceOnChanges =
                 {
+                    "flowArn",
                     "name",
+                    "protocol",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -211,8 +219,8 @@ namespace Pulumi.AwsNative.MediaConnect
         /// <summary>
         /// The ARN of the flow.
         /// </summary>
-        [Input("flowArn")]
-        public Input<string>? FlowArn { get; set; }
+        [Input("flowArn", required: true)]
+        public Input<string> FlowArn { get; set; } = null!;
 
         /// <summary>
         /// The source configuration for cloud flows receiving a stream from a bridge.
@@ -285,6 +293,18 @@ namespace Pulumi.AwsNative.MediaConnect
         /// </summary>
         [Input("streamId")]
         public Input<string>? StreamId { get; set; }
+
+        [Input("tags")]
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
+        /// <summary>
+        /// Key-value pairs that can be used to tag and organize this flow source.
+        /// </summary>
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
+        {
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            set => _tags = value;
+        }
 
         /// <summary>
         /// The name of the VPC Interface this Source is configured with.

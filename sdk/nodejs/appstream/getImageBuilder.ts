@@ -60,10 +60,6 @@ export interface GetImageBuilderResult {
      */
     readonly imageArn?: string;
     /**
-     * The name of the image used to create the image builder.
-     */
-    readonly imageName?: string;
-    /**
      * The instance type to use when launching the image builder. The following instance types are available:
      *
      * - stream.standard.small
@@ -118,10 +114,7 @@ export interface GetImageBuilderResult {
      * - stream.graphics.gr6f.4xlarge
      */
     readonly instanceType?: string;
-    /**
-     * A unique name for the image builder.
-     */
-    readonly name?: string;
+    readonly rootVolumeConfig?: outputs.appstream.ImageBuilderVolumeConfig;
     /**
      * The URL to start an image builder streaming session, returned as a string.
      */

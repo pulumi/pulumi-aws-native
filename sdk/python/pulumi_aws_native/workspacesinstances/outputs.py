@@ -31,7 +31,6 @@ __all__ = [
     'WorkspaceInstanceHibernationOptionsRequest',
     'WorkspaceInstanceIamInstanceProfileSpecification',
     'WorkspaceInstanceInstanceMaintenanceOptionsRequest',
-    'WorkspaceInstanceInstanceMarketOptionsRequest',
     'WorkspaceInstanceInstanceMetadataOptionsRequest',
     'WorkspaceInstanceInstanceNetworkInterfaceSpecification',
     'WorkspaceInstanceInstanceNetworkPerformanceOptionsRequest',
@@ -39,7 +38,6 @@ __all__ = [
     'WorkspaceInstancePlacement',
     'WorkspaceInstancePrivateDnsNameOptionsRequest',
     'WorkspaceInstanceRunInstancesMonitoringEnabled',
-    'WorkspaceInstanceSpotMarketOptions',
     'WorkspaceInstanceTag',
     'WorkspaceInstanceTagSpecification',
 ]
@@ -73,8 +71,6 @@ class ManagedInstanceProperties(dict):
             suggest = "hibernation_options"
         elif key == "iamInstanceProfile":
             suggest = "iam_instance_profile"
-        elif key == "instanceMarketOptions":
-            suggest = "instance_market_options"
         elif key == "ipv6AddressCount":
             suggest = "ipv6_address_count"
         elif key == "keyName":
@@ -122,7 +118,6 @@ class ManagedInstanceProperties(dict):
                  enclave_options: Optional['outputs.WorkspaceInstanceEnclaveOptionsRequest'] = None,
                  hibernation_options: Optional['outputs.WorkspaceInstanceHibernationOptionsRequest'] = None,
                  iam_instance_profile: Optional['outputs.WorkspaceInstanceIamInstanceProfileSpecification'] = None,
-                 instance_market_options: Optional['outputs.WorkspaceInstanceInstanceMarketOptionsRequest'] = None,
                  ipv6_address_count: Optional[_builtins.int] = None,
                  key_name: Optional[_builtins.str] = None,
                  license_specifications: Optional[Sequence['outputs.WorkspaceInstanceLicenseConfigurationRequest']] = None,
@@ -158,8 +153,6 @@ class ManagedInstanceProperties(dict):
             pulumi.set(__self__, "hibernation_options", hibernation_options)
         if iam_instance_profile is not None:
             pulumi.set(__self__, "iam_instance_profile", iam_instance_profile)
-        if instance_market_options is not None:
-            pulumi.set(__self__, "instance_market_options", instance_market_options)
         if ipv6_address_count is not None:
             pulumi.set(__self__, "ipv6_address_count", ipv6_address_count)
         if key_name is not None:
@@ -246,11 +239,6 @@ class ManagedInstanceProperties(dict):
     @pulumi.getter(name="iamInstanceProfile")
     def iam_instance_profile(self) -> Optional['outputs.WorkspaceInstanceIamInstanceProfileSpecification']:
         return pulumi.get(self, "iam_instance_profile")
-
-    @_builtins.property
-    @pulumi.getter(name="instanceMarketOptions")
-    def instance_market_options(self) -> Optional['outputs.WorkspaceInstanceInstanceMarketOptionsRequest']:
-        return pulumi.get(self, "instance_market_options")
 
     @_builtins.property
     @pulumi.getter(name="ipv6AddressCount")
@@ -781,46 +769,6 @@ class WorkspaceInstanceInstanceMaintenanceOptionsRequest(dict):
 
 
 @pulumi.output_type
-class WorkspaceInstanceInstanceMarketOptionsRequest(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "marketType":
-            suggest = "market_type"
-        elif key == "spotOptions":
-            suggest = "spot_options"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in WorkspaceInstanceInstanceMarketOptionsRequest. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        WorkspaceInstanceInstanceMarketOptionsRequest.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        WorkspaceInstanceInstanceMarketOptionsRequest.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 market_type: Optional['WorkspaceInstanceInstanceMarketOptionsRequestMarketType'] = None,
-                 spot_options: Optional['outputs.WorkspaceInstanceSpotMarketOptions'] = None):
-        if market_type is not None:
-            pulumi.set(__self__, "market_type", market_type)
-        if spot_options is not None:
-            pulumi.set(__self__, "spot_options", spot_options)
-
-    @_builtins.property
-    @pulumi.getter(name="marketType")
-    def market_type(self) -> Optional['WorkspaceInstanceInstanceMarketOptionsRequestMarketType']:
-        return pulumi.get(self, "market_type")
-
-    @_builtins.property
-    @pulumi.getter(name="spotOptions")
-    def spot_options(self) -> Optional['outputs.WorkspaceInstanceSpotMarketOptions']:
-        return pulumi.get(self, "spot_options")
-
-
-@pulumi.output_type
 class WorkspaceInstanceInstanceMetadataOptionsRequest(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -1135,66 +1083,6 @@ class WorkspaceInstanceRunInstancesMonitoringEnabled(dict):
     @pulumi.getter
     def enabled(self) -> Optional[_builtins.bool]:
         return pulumi.get(self, "enabled")
-
-
-@pulumi.output_type
-class WorkspaceInstanceSpotMarketOptions(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "instanceInterruptionBehavior":
-            suggest = "instance_interruption_behavior"
-        elif key == "maxPrice":
-            suggest = "max_price"
-        elif key == "spotInstanceType":
-            suggest = "spot_instance_type"
-        elif key == "validUntilUtc":
-            suggest = "valid_until_utc"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in WorkspaceInstanceSpotMarketOptions. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        WorkspaceInstanceSpotMarketOptions.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        WorkspaceInstanceSpotMarketOptions.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 instance_interruption_behavior: Optional['WorkspaceInstanceSpotMarketOptionsInstanceInterruptionBehavior'] = None,
-                 max_price: Optional[_builtins.str] = None,
-                 spot_instance_type: Optional['WorkspaceInstanceSpotMarketOptionsSpotInstanceType'] = None,
-                 valid_until_utc: Optional[_builtins.str] = None):
-        if instance_interruption_behavior is not None:
-            pulumi.set(__self__, "instance_interruption_behavior", instance_interruption_behavior)
-        if max_price is not None:
-            pulumi.set(__self__, "max_price", max_price)
-        if spot_instance_type is not None:
-            pulumi.set(__self__, "spot_instance_type", spot_instance_type)
-        if valid_until_utc is not None:
-            pulumi.set(__self__, "valid_until_utc", valid_until_utc)
-
-    @_builtins.property
-    @pulumi.getter(name="instanceInterruptionBehavior")
-    def instance_interruption_behavior(self) -> Optional['WorkspaceInstanceSpotMarketOptionsInstanceInterruptionBehavior']:
-        return pulumi.get(self, "instance_interruption_behavior")
-
-    @_builtins.property
-    @pulumi.getter(name="maxPrice")
-    def max_price(self) -> Optional[_builtins.str]:
-        return pulumi.get(self, "max_price")
-
-    @_builtins.property
-    @pulumi.getter(name="spotInstanceType")
-    def spot_instance_type(self) -> Optional['WorkspaceInstanceSpotMarketOptionsSpotInstanceType']:
-        return pulumi.get(self, "spot_instance_type")
-
-    @_builtins.property
-    @pulumi.getter(name="validUntilUtc")
-    def valid_until_utc(self) -> Optional[_builtins.str]:
-        return pulumi.get(self, "valid_until_utc")
 
 
 @pulumi.output_type

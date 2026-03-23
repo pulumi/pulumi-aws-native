@@ -7,10 +7,54 @@ import pulumi
 from enum import Enum
 
 __all__ = [
+    'CatalogAllowFullTableExternalDataAccess',
+    'CatalogDataLakeAccessPropertiesAllowFullTableExternalDataAccess',
+    'CatalogOverwriteChildResourcePermissionsWithDefault',
+    'CatalogPrincipalPermissionsPermissionsItem',
     'JobWorkerType',
     'SchemaCompatibility',
     'SchemaDataFormat',
 ]
+
+
+@pulumi.type_token("aws-native:glue:CatalogAllowFullTableExternalDataAccess")
+class CatalogAllowFullTableExternalDataAccess(_builtins.str, Enum):
+    """
+    Allows third-party engines to access data in Amazon S3 locations that are registered with Lake Formation.
+    """
+    TRUE = "True"
+    FALSE = "False"
+
+
+@pulumi.type_token("aws-native:glue:CatalogDataLakeAccessPropertiesAllowFullTableExternalDataAccess")
+class CatalogDataLakeAccessPropertiesAllowFullTableExternalDataAccess(_builtins.str, Enum):
+    """
+    Allows third-party engines to access data in Amazon S3 locations that are registered with Lake Formation.
+    """
+    TRUE = "True"
+    FALSE = "False"
+
+
+@pulumi.type_token("aws-native:glue:CatalogOverwriteChildResourcePermissionsWithDefault")
+class CatalogOverwriteChildResourcePermissionsWithDefault(_builtins.str, Enum):
+    """
+    Specifies whether to overwrite child resource permissions with the default permissions.
+    """
+    ACCEPT = "Accept"
+    DENY = "Deny"
+
+
+@pulumi.type_token("aws-native:glue:CatalogPrincipalPermissionsPermissionsItem")
+class CatalogPrincipalPermissionsPermissionsItem(_builtins.str, Enum):
+    ALL = "ALL"
+    SELECT = "SELECT"
+    ALTER = "ALTER"
+    DROP = "DROP"
+    DELETE = "DELETE"
+    INSERT = "INSERT"
+    CREATE_DATABASE = "CREATE_DATABASE"
+    CREATE_TABLE = "CREATE_TABLE"
+    DATA_LOCATION_ACCESS = "DATA_LOCATION_ACCESS"
 
 
 @pulumi.type_token("aws-native:glue:JobWorkerType")

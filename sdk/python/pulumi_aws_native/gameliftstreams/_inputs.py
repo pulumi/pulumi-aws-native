@@ -21,6 +21,8 @@ __all__ = [
     'StreamGroupDefaultApplicationArgsDict',
     'StreamGroupLocationConfigurationArgs',
     'StreamGroupLocationConfigurationArgsDict',
+    'StreamGroupVpcTransitConfigurationArgs',
+    'StreamGroupVpcTransitConfigurationArgsDict',
 ]
 
 class ApplicationRuntimeEnvironmentArgsDict(TypedDict):
@@ -134,6 +136,7 @@ class StreamGroupLocationConfigurationArgsDict(TypedDict):
     This shape is deprecated.
     """
     target_idle_capacity: NotRequired[pulumi.Input[_builtins.int]]
+    vpc_transit_configuration: NotRequired[pulumi.Input['StreamGroupVpcTransitConfigurationArgsDict']]
 
 @pulumi.input_type
 class StreamGroupLocationConfigurationArgs:
@@ -142,7 +145,8 @@ class StreamGroupLocationConfigurationArgs:
                  always_on_capacity: Optional[pulumi.Input[_builtins.int]] = None,
                  maximum_capacity: Optional[pulumi.Input[_builtins.int]] = None,
                  on_demand_capacity: Optional[pulumi.Input[_builtins.int]] = None,
-                 target_idle_capacity: Optional[pulumi.Input[_builtins.int]] = None):
+                 target_idle_capacity: Optional[pulumi.Input[_builtins.int]] = None,
+                 vpc_transit_configuration: Optional[pulumi.Input['StreamGroupVpcTransitConfigurationArgs']] = None):
         """
         :param pulumi.Input[_builtins.str] location_name: A location's name. For example, `us-east-1` . For a complete list of locations that Amazon GameLift Streams supports, refer to [Regions, quotas, and limitations](https://docs.aws.amazon.com/gameliftstreams/latest/developerguide/regions-quotas.html) in the *Amazon GameLift Streams Developer Guide* .
         :param pulumi.Input[_builtins.int] always_on_capacity: This setting, if non-zero, indicates minimum streaming capacity which is allocated to you and is never released back to the service. You pay for this base level of capacity at all times, whether used or idle.
@@ -157,6 +161,8 @@ class StreamGroupLocationConfigurationArgs:
             pulumi.set(__self__, "on_demand_capacity", on_demand_capacity)
         if target_idle_capacity is not None:
             pulumi.set(__self__, "target_idle_capacity", target_idle_capacity)
+        if vpc_transit_configuration is not None:
+            pulumi.set(__self__, "vpc_transit_configuration", vpc_transit_configuration)
 
     @_builtins.property
     @pulumi.getter(name="locationName")
@@ -211,5 +217,45 @@ class StreamGroupLocationConfigurationArgs:
     @target_idle_capacity.setter
     def target_idle_capacity(self, value: Optional[pulumi.Input[_builtins.int]]):
         pulumi.set(self, "target_idle_capacity", value)
+
+    @_builtins.property
+    @pulumi.getter(name="vpcTransitConfiguration")
+    def vpc_transit_configuration(self) -> Optional[pulumi.Input['StreamGroupVpcTransitConfigurationArgs']]:
+        return pulumi.get(self, "vpc_transit_configuration")
+
+    @vpc_transit_configuration.setter
+    def vpc_transit_configuration(self, value: Optional[pulumi.Input['StreamGroupVpcTransitConfigurationArgs']]):
+        pulumi.set(self, "vpc_transit_configuration", value)
+
+
+class StreamGroupVpcTransitConfigurationArgsDict(TypedDict):
+    ipv4_cidr_blocks: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    vpc_id: pulumi.Input[_builtins.str]
+
+@pulumi.input_type
+class StreamGroupVpcTransitConfigurationArgs:
+    def __init__(__self__, *,
+                 ipv4_cidr_blocks: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
+                 vpc_id: pulumi.Input[_builtins.str]):
+        pulumi.set(__self__, "ipv4_cidr_blocks", ipv4_cidr_blocks)
+        pulumi.set(__self__, "vpc_id", vpc_id)
+
+    @_builtins.property
+    @pulumi.getter(name="ipv4CidrBlocks")
+    def ipv4_cidr_blocks(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        return pulumi.get(self, "ipv4_cidr_blocks")
+
+    @ipv4_cidr_blocks.setter
+    def ipv4_cidr_blocks(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "ipv4_cidr_blocks", value)
+
+    @_builtins.property
+    @pulumi.getter(name="vpcId")
+    def vpc_id(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "vpc_id")
+
+    @vpc_id.setter
+    def vpc_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "vpc_id", value)
 
 

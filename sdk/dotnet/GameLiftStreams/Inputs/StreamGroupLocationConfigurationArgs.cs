@@ -36,6 +36,9 @@ namespace Pulumi.AwsNative.GameLiftStreams.Inputs
         [Input("targetIdleCapacity")]
         public Input<int>? TargetIdleCapacity { get; set; }
 
+        [Input("vpcTransitConfiguration")]
+        public Input<Inputs.StreamGroupVpcTransitConfigurationArgs>? VpcTransitConfiguration { get; set; }
+
         public StreamGroupLocationConfigurationArgs()
         {
         }

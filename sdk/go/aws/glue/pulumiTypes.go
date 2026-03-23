@@ -13,6 +13,988 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+// Data lake access properties for the catalog.
+type CatalogDataLakeAccessProperties struct {
+	// Allows third-party engines to access data in Amazon S3 locations that are registered with Lake Formation.
+	AllowFullTableExternalDataAccess *CatalogDataLakeAccessPropertiesAllowFullTableExternalDataAccess `pulumi:"allowFullTableExternalDataAccess"`
+	// Specifies a federated catalog type for the native catalog resource.
+	CatalogType *string `pulumi:"catalogType"`
+	// Turns on or off data lake access for Apache Spark applications that access Amazon Redshift databases in the Data Catalog from any non-Redshift engine.
+	DataLakeAccess *bool `pulumi:"dataLakeAccess"`
+	// A role that will be assumed by Glue for transferring data into/out of the staging bucket during a query.
+	DataTransferRole *string `pulumi:"dataTransferRole"`
+	// An encryption key that will be used for the staging bucket that will be created along with the catalog.
+	KmsKey *string `pulumi:"kmsKey"`
+	// The name of the managed workgroup associated with the catalog.
+	ManagedWorkgroupName *string `pulumi:"managedWorkgroupName"`
+	// The status of the managed workgroup.
+	ManagedWorkgroupStatus *string `pulumi:"managedWorkgroupStatus"`
+	// The name of the Redshift database.
+	RedshiftDatabaseName *string `pulumi:"redshiftDatabaseName"`
+}
+
+// CatalogDataLakeAccessPropertiesInput is an input type that accepts CatalogDataLakeAccessPropertiesArgs and CatalogDataLakeAccessPropertiesOutput values.
+// You can construct a concrete instance of `CatalogDataLakeAccessPropertiesInput` via:
+//
+//	CatalogDataLakeAccessPropertiesArgs{...}
+type CatalogDataLakeAccessPropertiesInput interface {
+	pulumi.Input
+
+	ToCatalogDataLakeAccessPropertiesOutput() CatalogDataLakeAccessPropertiesOutput
+	ToCatalogDataLakeAccessPropertiesOutputWithContext(context.Context) CatalogDataLakeAccessPropertiesOutput
+}
+
+// Data lake access properties for the catalog.
+type CatalogDataLakeAccessPropertiesArgs struct {
+	// Allows third-party engines to access data in Amazon S3 locations that are registered with Lake Formation.
+	AllowFullTableExternalDataAccess CatalogDataLakeAccessPropertiesAllowFullTableExternalDataAccessPtrInput `pulumi:"allowFullTableExternalDataAccess"`
+	// Specifies a federated catalog type for the native catalog resource.
+	CatalogType pulumi.StringPtrInput `pulumi:"catalogType"`
+	// Turns on or off data lake access for Apache Spark applications that access Amazon Redshift databases in the Data Catalog from any non-Redshift engine.
+	DataLakeAccess pulumi.BoolPtrInput `pulumi:"dataLakeAccess"`
+	// A role that will be assumed by Glue for transferring data into/out of the staging bucket during a query.
+	DataTransferRole pulumi.StringPtrInput `pulumi:"dataTransferRole"`
+	// An encryption key that will be used for the staging bucket that will be created along with the catalog.
+	KmsKey pulumi.StringPtrInput `pulumi:"kmsKey"`
+	// The name of the managed workgroup associated with the catalog.
+	ManagedWorkgroupName pulumi.StringPtrInput `pulumi:"managedWorkgroupName"`
+	// The status of the managed workgroup.
+	ManagedWorkgroupStatus pulumi.StringPtrInput `pulumi:"managedWorkgroupStatus"`
+	// The name of the Redshift database.
+	RedshiftDatabaseName pulumi.StringPtrInput `pulumi:"redshiftDatabaseName"`
+}
+
+func (CatalogDataLakeAccessPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CatalogDataLakeAccessProperties)(nil)).Elem()
+}
+
+func (i CatalogDataLakeAccessPropertiesArgs) ToCatalogDataLakeAccessPropertiesOutput() CatalogDataLakeAccessPropertiesOutput {
+	return i.ToCatalogDataLakeAccessPropertiesOutputWithContext(context.Background())
+}
+
+func (i CatalogDataLakeAccessPropertiesArgs) ToCatalogDataLakeAccessPropertiesOutputWithContext(ctx context.Context) CatalogDataLakeAccessPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogDataLakeAccessPropertiesOutput)
+}
+
+func (i CatalogDataLakeAccessPropertiesArgs) ToCatalogDataLakeAccessPropertiesPtrOutput() CatalogDataLakeAccessPropertiesPtrOutput {
+	return i.ToCatalogDataLakeAccessPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i CatalogDataLakeAccessPropertiesArgs) ToCatalogDataLakeAccessPropertiesPtrOutputWithContext(ctx context.Context) CatalogDataLakeAccessPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogDataLakeAccessPropertiesOutput).ToCatalogDataLakeAccessPropertiesPtrOutputWithContext(ctx)
+}
+
+// CatalogDataLakeAccessPropertiesPtrInput is an input type that accepts CatalogDataLakeAccessPropertiesArgs, CatalogDataLakeAccessPropertiesPtr and CatalogDataLakeAccessPropertiesPtrOutput values.
+// You can construct a concrete instance of `CatalogDataLakeAccessPropertiesPtrInput` via:
+//
+//	        CatalogDataLakeAccessPropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type CatalogDataLakeAccessPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToCatalogDataLakeAccessPropertiesPtrOutput() CatalogDataLakeAccessPropertiesPtrOutput
+	ToCatalogDataLakeAccessPropertiesPtrOutputWithContext(context.Context) CatalogDataLakeAccessPropertiesPtrOutput
+}
+
+type catalogDataLakeAccessPropertiesPtrType CatalogDataLakeAccessPropertiesArgs
+
+func CatalogDataLakeAccessPropertiesPtr(v *CatalogDataLakeAccessPropertiesArgs) CatalogDataLakeAccessPropertiesPtrInput {
+	return (*catalogDataLakeAccessPropertiesPtrType)(v)
+}
+
+func (*catalogDataLakeAccessPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CatalogDataLakeAccessProperties)(nil)).Elem()
+}
+
+func (i *catalogDataLakeAccessPropertiesPtrType) ToCatalogDataLakeAccessPropertiesPtrOutput() CatalogDataLakeAccessPropertiesPtrOutput {
+	return i.ToCatalogDataLakeAccessPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *catalogDataLakeAccessPropertiesPtrType) ToCatalogDataLakeAccessPropertiesPtrOutputWithContext(ctx context.Context) CatalogDataLakeAccessPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogDataLakeAccessPropertiesPtrOutput)
+}
+
+// Data lake access properties for the catalog.
+type CatalogDataLakeAccessPropertiesOutput struct{ *pulumi.OutputState }
+
+func (CatalogDataLakeAccessPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CatalogDataLakeAccessProperties)(nil)).Elem()
+}
+
+func (o CatalogDataLakeAccessPropertiesOutput) ToCatalogDataLakeAccessPropertiesOutput() CatalogDataLakeAccessPropertiesOutput {
+	return o
+}
+
+func (o CatalogDataLakeAccessPropertiesOutput) ToCatalogDataLakeAccessPropertiesOutputWithContext(ctx context.Context) CatalogDataLakeAccessPropertiesOutput {
+	return o
+}
+
+func (o CatalogDataLakeAccessPropertiesOutput) ToCatalogDataLakeAccessPropertiesPtrOutput() CatalogDataLakeAccessPropertiesPtrOutput {
+	return o.ToCatalogDataLakeAccessPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o CatalogDataLakeAccessPropertiesOutput) ToCatalogDataLakeAccessPropertiesPtrOutputWithContext(ctx context.Context) CatalogDataLakeAccessPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CatalogDataLakeAccessProperties) *CatalogDataLakeAccessProperties {
+		return &v
+	}).(CatalogDataLakeAccessPropertiesPtrOutput)
+}
+
+// Allows third-party engines to access data in Amazon S3 locations that are registered with Lake Formation.
+func (o CatalogDataLakeAccessPropertiesOutput) AllowFullTableExternalDataAccess() CatalogDataLakeAccessPropertiesAllowFullTableExternalDataAccessPtrOutput {
+	return o.ApplyT(func(v CatalogDataLakeAccessProperties) *CatalogDataLakeAccessPropertiesAllowFullTableExternalDataAccess {
+		return v.AllowFullTableExternalDataAccess
+	}).(CatalogDataLakeAccessPropertiesAllowFullTableExternalDataAccessPtrOutput)
+}
+
+// Specifies a federated catalog type for the native catalog resource.
+func (o CatalogDataLakeAccessPropertiesOutput) CatalogType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CatalogDataLakeAccessProperties) *string { return v.CatalogType }).(pulumi.StringPtrOutput)
+}
+
+// Turns on or off data lake access for Apache Spark applications that access Amazon Redshift databases in the Data Catalog from any non-Redshift engine.
+func (o CatalogDataLakeAccessPropertiesOutput) DataLakeAccess() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v CatalogDataLakeAccessProperties) *bool { return v.DataLakeAccess }).(pulumi.BoolPtrOutput)
+}
+
+// A role that will be assumed by Glue for transferring data into/out of the staging bucket during a query.
+func (o CatalogDataLakeAccessPropertiesOutput) DataTransferRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CatalogDataLakeAccessProperties) *string { return v.DataTransferRole }).(pulumi.StringPtrOutput)
+}
+
+// An encryption key that will be used for the staging bucket that will be created along with the catalog.
+func (o CatalogDataLakeAccessPropertiesOutput) KmsKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CatalogDataLakeAccessProperties) *string { return v.KmsKey }).(pulumi.StringPtrOutput)
+}
+
+// The name of the managed workgroup associated with the catalog.
+func (o CatalogDataLakeAccessPropertiesOutput) ManagedWorkgroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CatalogDataLakeAccessProperties) *string { return v.ManagedWorkgroupName }).(pulumi.StringPtrOutput)
+}
+
+// The status of the managed workgroup.
+func (o CatalogDataLakeAccessPropertiesOutput) ManagedWorkgroupStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CatalogDataLakeAccessProperties) *string { return v.ManagedWorkgroupStatus }).(pulumi.StringPtrOutput)
+}
+
+// The name of the Redshift database.
+func (o CatalogDataLakeAccessPropertiesOutput) RedshiftDatabaseName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CatalogDataLakeAccessProperties) *string { return v.RedshiftDatabaseName }).(pulumi.StringPtrOutput)
+}
+
+type CatalogDataLakeAccessPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (CatalogDataLakeAccessPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CatalogDataLakeAccessProperties)(nil)).Elem()
+}
+
+func (o CatalogDataLakeAccessPropertiesPtrOutput) ToCatalogDataLakeAccessPropertiesPtrOutput() CatalogDataLakeAccessPropertiesPtrOutput {
+	return o
+}
+
+func (o CatalogDataLakeAccessPropertiesPtrOutput) ToCatalogDataLakeAccessPropertiesPtrOutputWithContext(ctx context.Context) CatalogDataLakeAccessPropertiesPtrOutput {
+	return o
+}
+
+func (o CatalogDataLakeAccessPropertiesPtrOutput) Elem() CatalogDataLakeAccessPropertiesOutput {
+	return o.ApplyT(func(v *CatalogDataLakeAccessProperties) CatalogDataLakeAccessProperties {
+		if v != nil {
+			return *v
+		}
+		var ret CatalogDataLakeAccessProperties
+		return ret
+	}).(CatalogDataLakeAccessPropertiesOutput)
+}
+
+// Allows third-party engines to access data in Amazon S3 locations that are registered with Lake Formation.
+func (o CatalogDataLakeAccessPropertiesPtrOutput) AllowFullTableExternalDataAccess() CatalogDataLakeAccessPropertiesAllowFullTableExternalDataAccessPtrOutput {
+	return o.ApplyT(func(v *CatalogDataLakeAccessProperties) *CatalogDataLakeAccessPropertiesAllowFullTableExternalDataAccess {
+		if v == nil {
+			return nil
+		}
+		return v.AllowFullTableExternalDataAccess
+	}).(CatalogDataLakeAccessPropertiesAllowFullTableExternalDataAccessPtrOutput)
+}
+
+// Specifies a federated catalog type for the native catalog resource.
+func (o CatalogDataLakeAccessPropertiesPtrOutput) CatalogType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CatalogDataLakeAccessProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CatalogType
+	}).(pulumi.StringPtrOutput)
+}
+
+// Turns on or off data lake access for Apache Spark applications that access Amazon Redshift databases in the Data Catalog from any non-Redshift engine.
+func (o CatalogDataLakeAccessPropertiesPtrOutput) DataLakeAccess() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *CatalogDataLakeAccessProperties) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.DataLakeAccess
+	}).(pulumi.BoolPtrOutput)
+}
+
+// A role that will be assumed by Glue for transferring data into/out of the staging bucket during a query.
+func (o CatalogDataLakeAccessPropertiesPtrOutput) DataTransferRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CatalogDataLakeAccessProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DataTransferRole
+	}).(pulumi.StringPtrOutput)
+}
+
+// An encryption key that will be used for the staging bucket that will be created along with the catalog.
+func (o CatalogDataLakeAccessPropertiesPtrOutput) KmsKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CatalogDataLakeAccessProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KmsKey
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the managed workgroup associated with the catalog.
+func (o CatalogDataLakeAccessPropertiesPtrOutput) ManagedWorkgroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CatalogDataLakeAccessProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ManagedWorkgroupName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The status of the managed workgroup.
+func (o CatalogDataLakeAccessPropertiesPtrOutput) ManagedWorkgroupStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CatalogDataLakeAccessProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ManagedWorkgroupStatus
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the Redshift database.
+func (o CatalogDataLakeAccessPropertiesPtrOutput) RedshiftDatabaseName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CatalogDataLakeAccessProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RedshiftDatabaseName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Lake Formation principal.
+type CatalogDataLakePrincipal struct {
+	// An identifier for the Lake Formation principal.
+	DataLakePrincipalIdentifier *string `pulumi:"dataLakePrincipalIdentifier"`
+}
+
+// CatalogDataLakePrincipalInput is an input type that accepts CatalogDataLakePrincipalArgs and CatalogDataLakePrincipalOutput values.
+// You can construct a concrete instance of `CatalogDataLakePrincipalInput` via:
+//
+//	CatalogDataLakePrincipalArgs{...}
+type CatalogDataLakePrincipalInput interface {
+	pulumi.Input
+
+	ToCatalogDataLakePrincipalOutput() CatalogDataLakePrincipalOutput
+	ToCatalogDataLakePrincipalOutputWithContext(context.Context) CatalogDataLakePrincipalOutput
+}
+
+// The Lake Formation principal.
+type CatalogDataLakePrincipalArgs struct {
+	// An identifier for the Lake Formation principal.
+	DataLakePrincipalIdentifier pulumi.StringPtrInput `pulumi:"dataLakePrincipalIdentifier"`
+}
+
+func (CatalogDataLakePrincipalArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CatalogDataLakePrincipal)(nil)).Elem()
+}
+
+func (i CatalogDataLakePrincipalArgs) ToCatalogDataLakePrincipalOutput() CatalogDataLakePrincipalOutput {
+	return i.ToCatalogDataLakePrincipalOutputWithContext(context.Background())
+}
+
+func (i CatalogDataLakePrincipalArgs) ToCatalogDataLakePrincipalOutputWithContext(ctx context.Context) CatalogDataLakePrincipalOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogDataLakePrincipalOutput)
+}
+
+func (i CatalogDataLakePrincipalArgs) ToCatalogDataLakePrincipalPtrOutput() CatalogDataLakePrincipalPtrOutput {
+	return i.ToCatalogDataLakePrincipalPtrOutputWithContext(context.Background())
+}
+
+func (i CatalogDataLakePrincipalArgs) ToCatalogDataLakePrincipalPtrOutputWithContext(ctx context.Context) CatalogDataLakePrincipalPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogDataLakePrincipalOutput).ToCatalogDataLakePrincipalPtrOutputWithContext(ctx)
+}
+
+// CatalogDataLakePrincipalPtrInput is an input type that accepts CatalogDataLakePrincipalArgs, CatalogDataLakePrincipalPtr and CatalogDataLakePrincipalPtrOutput values.
+// You can construct a concrete instance of `CatalogDataLakePrincipalPtrInput` via:
+//
+//	        CatalogDataLakePrincipalArgs{...}
+//
+//	or:
+//
+//	        nil
+type CatalogDataLakePrincipalPtrInput interface {
+	pulumi.Input
+
+	ToCatalogDataLakePrincipalPtrOutput() CatalogDataLakePrincipalPtrOutput
+	ToCatalogDataLakePrincipalPtrOutputWithContext(context.Context) CatalogDataLakePrincipalPtrOutput
+}
+
+type catalogDataLakePrincipalPtrType CatalogDataLakePrincipalArgs
+
+func CatalogDataLakePrincipalPtr(v *CatalogDataLakePrincipalArgs) CatalogDataLakePrincipalPtrInput {
+	return (*catalogDataLakePrincipalPtrType)(v)
+}
+
+func (*catalogDataLakePrincipalPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CatalogDataLakePrincipal)(nil)).Elem()
+}
+
+func (i *catalogDataLakePrincipalPtrType) ToCatalogDataLakePrincipalPtrOutput() CatalogDataLakePrincipalPtrOutput {
+	return i.ToCatalogDataLakePrincipalPtrOutputWithContext(context.Background())
+}
+
+func (i *catalogDataLakePrincipalPtrType) ToCatalogDataLakePrincipalPtrOutputWithContext(ctx context.Context) CatalogDataLakePrincipalPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogDataLakePrincipalPtrOutput)
+}
+
+// The Lake Formation principal.
+type CatalogDataLakePrincipalOutput struct{ *pulumi.OutputState }
+
+func (CatalogDataLakePrincipalOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CatalogDataLakePrincipal)(nil)).Elem()
+}
+
+func (o CatalogDataLakePrincipalOutput) ToCatalogDataLakePrincipalOutput() CatalogDataLakePrincipalOutput {
+	return o
+}
+
+func (o CatalogDataLakePrincipalOutput) ToCatalogDataLakePrincipalOutputWithContext(ctx context.Context) CatalogDataLakePrincipalOutput {
+	return o
+}
+
+func (o CatalogDataLakePrincipalOutput) ToCatalogDataLakePrincipalPtrOutput() CatalogDataLakePrincipalPtrOutput {
+	return o.ToCatalogDataLakePrincipalPtrOutputWithContext(context.Background())
+}
+
+func (o CatalogDataLakePrincipalOutput) ToCatalogDataLakePrincipalPtrOutputWithContext(ctx context.Context) CatalogDataLakePrincipalPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CatalogDataLakePrincipal) *CatalogDataLakePrincipal {
+		return &v
+	}).(CatalogDataLakePrincipalPtrOutput)
+}
+
+// An identifier for the Lake Formation principal.
+func (o CatalogDataLakePrincipalOutput) DataLakePrincipalIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CatalogDataLakePrincipal) *string { return v.DataLakePrincipalIdentifier }).(pulumi.StringPtrOutput)
+}
+
+type CatalogDataLakePrincipalPtrOutput struct{ *pulumi.OutputState }
+
+func (CatalogDataLakePrincipalPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CatalogDataLakePrincipal)(nil)).Elem()
+}
+
+func (o CatalogDataLakePrincipalPtrOutput) ToCatalogDataLakePrincipalPtrOutput() CatalogDataLakePrincipalPtrOutput {
+	return o
+}
+
+func (o CatalogDataLakePrincipalPtrOutput) ToCatalogDataLakePrincipalPtrOutputWithContext(ctx context.Context) CatalogDataLakePrincipalPtrOutput {
+	return o
+}
+
+func (o CatalogDataLakePrincipalPtrOutput) Elem() CatalogDataLakePrincipalOutput {
+	return o.ApplyT(func(v *CatalogDataLakePrincipal) CatalogDataLakePrincipal {
+		if v != nil {
+			return *v
+		}
+		var ret CatalogDataLakePrincipal
+		return ret
+	}).(CatalogDataLakePrincipalOutput)
+}
+
+// An identifier for the Lake Formation principal.
+func (o CatalogDataLakePrincipalPtrOutput) DataLakePrincipalIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CatalogDataLakePrincipal) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DataLakePrincipalIdentifier
+	}).(pulumi.StringPtrOutput)
+}
+
+// A FederatedCatalog structure that references an entity outside the Glue Data Catalog.
+type CatalogFederatedCatalog struct {
+	// The name of the connection to an external data source.
+	ConnectionName *string `pulumi:"connectionName"`
+	// A unique identifier for the federated catalog.
+	Identifier *string `pulumi:"identifier"`
+}
+
+// CatalogFederatedCatalogInput is an input type that accepts CatalogFederatedCatalogArgs and CatalogFederatedCatalogOutput values.
+// You can construct a concrete instance of `CatalogFederatedCatalogInput` via:
+//
+//	CatalogFederatedCatalogArgs{...}
+type CatalogFederatedCatalogInput interface {
+	pulumi.Input
+
+	ToCatalogFederatedCatalogOutput() CatalogFederatedCatalogOutput
+	ToCatalogFederatedCatalogOutputWithContext(context.Context) CatalogFederatedCatalogOutput
+}
+
+// A FederatedCatalog structure that references an entity outside the Glue Data Catalog.
+type CatalogFederatedCatalogArgs struct {
+	// The name of the connection to an external data source.
+	ConnectionName pulumi.StringPtrInput `pulumi:"connectionName"`
+	// A unique identifier for the federated catalog.
+	Identifier pulumi.StringPtrInput `pulumi:"identifier"`
+}
+
+func (CatalogFederatedCatalogArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CatalogFederatedCatalog)(nil)).Elem()
+}
+
+func (i CatalogFederatedCatalogArgs) ToCatalogFederatedCatalogOutput() CatalogFederatedCatalogOutput {
+	return i.ToCatalogFederatedCatalogOutputWithContext(context.Background())
+}
+
+func (i CatalogFederatedCatalogArgs) ToCatalogFederatedCatalogOutputWithContext(ctx context.Context) CatalogFederatedCatalogOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogFederatedCatalogOutput)
+}
+
+func (i CatalogFederatedCatalogArgs) ToCatalogFederatedCatalogPtrOutput() CatalogFederatedCatalogPtrOutput {
+	return i.ToCatalogFederatedCatalogPtrOutputWithContext(context.Background())
+}
+
+func (i CatalogFederatedCatalogArgs) ToCatalogFederatedCatalogPtrOutputWithContext(ctx context.Context) CatalogFederatedCatalogPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogFederatedCatalogOutput).ToCatalogFederatedCatalogPtrOutputWithContext(ctx)
+}
+
+// CatalogFederatedCatalogPtrInput is an input type that accepts CatalogFederatedCatalogArgs, CatalogFederatedCatalogPtr and CatalogFederatedCatalogPtrOutput values.
+// You can construct a concrete instance of `CatalogFederatedCatalogPtrInput` via:
+//
+//	        CatalogFederatedCatalogArgs{...}
+//
+//	or:
+//
+//	        nil
+type CatalogFederatedCatalogPtrInput interface {
+	pulumi.Input
+
+	ToCatalogFederatedCatalogPtrOutput() CatalogFederatedCatalogPtrOutput
+	ToCatalogFederatedCatalogPtrOutputWithContext(context.Context) CatalogFederatedCatalogPtrOutput
+}
+
+type catalogFederatedCatalogPtrType CatalogFederatedCatalogArgs
+
+func CatalogFederatedCatalogPtr(v *CatalogFederatedCatalogArgs) CatalogFederatedCatalogPtrInput {
+	return (*catalogFederatedCatalogPtrType)(v)
+}
+
+func (*catalogFederatedCatalogPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CatalogFederatedCatalog)(nil)).Elem()
+}
+
+func (i *catalogFederatedCatalogPtrType) ToCatalogFederatedCatalogPtrOutput() CatalogFederatedCatalogPtrOutput {
+	return i.ToCatalogFederatedCatalogPtrOutputWithContext(context.Background())
+}
+
+func (i *catalogFederatedCatalogPtrType) ToCatalogFederatedCatalogPtrOutputWithContext(ctx context.Context) CatalogFederatedCatalogPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogFederatedCatalogPtrOutput)
+}
+
+// A FederatedCatalog structure that references an entity outside the Glue Data Catalog.
+type CatalogFederatedCatalogOutput struct{ *pulumi.OutputState }
+
+func (CatalogFederatedCatalogOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CatalogFederatedCatalog)(nil)).Elem()
+}
+
+func (o CatalogFederatedCatalogOutput) ToCatalogFederatedCatalogOutput() CatalogFederatedCatalogOutput {
+	return o
+}
+
+func (o CatalogFederatedCatalogOutput) ToCatalogFederatedCatalogOutputWithContext(ctx context.Context) CatalogFederatedCatalogOutput {
+	return o
+}
+
+func (o CatalogFederatedCatalogOutput) ToCatalogFederatedCatalogPtrOutput() CatalogFederatedCatalogPtrOutput {
+	return o.ToCatalogFederatedCatalogPtrOutputWithContext(context.Background())
+}
+
+func (o CatalogFederatedCatalogOutput) ToCatalogFederatedCatalogPtrOutputWithContext(ctx context.Context) CatalogFederatedCatalogPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CatalogFederatedCatalog) *CatalogFederatedCatalog {
+		return &v
+	}).(CatalogFederatedCatalogPtrOutput)
+}
+
+// The name of the connection to an external data source.
+func (o CatalogFederatedCatalogOutput) ConnectionName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CatalogFederatedCatalog) *string { return v.ConnectionName }).(pulumi.StringPtrOutput)
+}
+
+// A unique identifier for the federated catalog.
+func (o CatalogFederatedCatalogOutput) Identifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CatalogFederatedCatalog) *string { return v.Identifier }).(pulumi.StringPtrOutput)
+}
+
+type CatalogFederatedCatalogPtrOutput struct{ *pulumi.OutputState }
+
+func (CatalogFederatedCatalogPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CatalogFederatedCatalog)(nil)).Elem()
+}
+
+func (o CatalogFederatedCatalogPtrOutput) ToCatalogFederatedCatalogPtrOutput() CatalogFederatedCatalogPtrOutput {
+	return o
+}
+
+func (o CatalogFederatedCatalogPtrOutput) ToCatalogFederatedCatalogPtrOutputWithContext(ctx context.Context) CatalogFederatedCatalogPtrOutput {
+	return o
+}
+
+func (o CatalogFederatedCatalogPtrOutput) Elem() CatalogFederatedCatalogOutput {
+	return o.ApplyT(func(v *CatalogFederatedCatalog) CatalogFederatedCatalog {
+		if v != nil {
+			return *v
+		}
+		var ret CatalogFederatedCatalog
+		return ret
+	}).(CatalogFederatedCatalogOutput)
+}
+
+// The name of the connection to an external data source.
+func (o CatalogFederatedCatalogPtrOutput) ConnectionName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CatalogFederatedCatalog) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ConnectionName
+	}).(pulumi.StringPtrOutput)
+}
+
+// A unique identifier for the federated catalog.
+func (o CatalogFederatedCatalogPtrOutput) Identifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CatalogFederatedCatalog) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Identifier
+	}).(pulumi.StringPtrOutput)
+}
+
+// Permissions granted to a principal.
+type CatalogPrincipalPermissions struct {
+	// The permissions that are granted to the principal.
+	Permissions []CatalogPrincipalPermissionsPermissionsItem `pulumi:"permissions"`
+	Principal   *CatalogDataLakePrincipal                    `pulumi:"principal"`
+}
+
+// CatalogPrincipalPermissionsInput is an input type that accepts CatalogPrincipalPermissionsArgs and CatalogPrincipalPermissionsOutput values.
+// You can construct a concrete instance of `CatalogPrincipalPermissionsInput` via:
+//
+//	CatalogPrincipalPermissionsArgs{...}
+type CatalogPrincipalPermissionsInput interface {
+	pulumi.Input
+
+	ToCatalogPrincipalPermissionsOutput() CatalogPrincipalPermissionsOutput
+	ToCatalogPrincipalPermissionsOutputWithContext(context.Context) CatalogPrincipalPermissionsOutput
+}
+
+// Permissions granted to a principal.
+type CatalogPrincipalPermissionsArgs struct {
+	// The permissions that are granted to the principal.
+	Permissions CatalogPrincipalPermissionsPermissionsItemArrayInput `pulumi:"permissions"`
+	Principal   CatalogDataLakePrincipalPtrInput                     `pulumi:"principal"`
+}
+
+func (CatalogPrincipalPermissionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CatalogPrincipalPermissions)(nil)).Elem()
+}
+
+func (i CatalogPrincipalPermissionsArgs) ToCatalogPrincipalPermissionsOutput() CatalogPrincipalPermissionsOutput {
+	return i.ToCatalogPrincipalPermissionsOutputWithContext(context.Background())
+}
+
+func (i CatalogPrincipalPermissionsArgs) ToCatalogPrincipalPermissionsOutputWithContext(ctx context.Context) CatalogPrincipalPermissionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogPrincipalPermissionsOutput)
+}
+
+// CatalogPrincipalPermissionsArrayInput is an input type that accepts CatalogPrincipalPermissionsArray and CatalogPrincipalPermissionsArrayOutput values.
+// You can construct a concrete instance of `CatalogPrincipalPermissionsArrayInput` via:
+//
+//	CatalogPrincipalPermissionsArray{ CatalogPrincipalPermissionsArgs{...} }
+type CatalogPrincipalPermissionsArrayInput interface {
+	pulumi.Input
+
+	ToCatalogPrincipalPermissionsArrayOutput() CatalogPrincipalPermissionsArrayOutput
+	ToCatalogPrincipalPermissionsArrayOutputWithContext(context.Context) CatalogPrincipalPermissionsArrayOutput
+}
+
+type CatalogPrincipalPermissionsArray []CatalogPrincipalPermissionsInput
+
+func (CatalogPrincipalPermissionsArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CatalogPrincipalPermissions)(nil)).Elem()
+}
+
+func (i CatalogPrincipalPermissionsArray) ToCatalogPrincipalPermissionsArrayOutput() CatalogPrincipalPermissionsArrayOutput {
+	return i.ToCatalogPrincipalPermissionsArrayOutputWithContext(context.Background())
+}
+
+func (i CatalogPrincipalPermissionsArray) ToCatalogPrincipalPermissionsArrayOutputWithContext(ctx context.Context) CatalogPrincipalPermissionsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogPrincipalPermissionsArrayOutput)
+}
+
+// Permissions granted to a principal.
+type CatalogPrincipalPermissionsOutput struct{ *pulumi.OutputState }
+
+func (CatalogPrincipalPermissionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CatalogPrincipalPermissions)(nil)).Elem()
+}
+
+func (o CatalogPrincipalPermissionsOutput) ToCatalogPrincipalPermissionsOutput() CatalogPrincipalPermissionsOutput {
+	return o
+}
+
+func (o CatalogPrincipalPermissionsOutput) ToCatalogPrincipalPermissionsOutputWithContext(ctx context.Context) CatalogPrincipalPermissionsOutput {
+	return o
+}
+
+// The permissions that are granted to the principal.
+func (o CatalogPrincipalPermissionsOutput) Permissions() CatalogPrincipalPermissionsPermissionsItemArrayOutput {
+	return o.ApplyT(func(v CatalogPrincipalPermissions) []CatalogPrincipalPermissionsPermissionsItem { return v.Permissions }).(CatalogPrincipalPermissionsPermissionsItemArrayOutput)
+}
+
+func (o CatalogPrincipalPermissionsOutput) Principal() CatalogDataLakePrincipalPtrOutput {
+	return o.ApplyT(func(v CatalogPrincipalPermissions) *CatalogDataLakePrincipal { return v.Principal }).(CatalogDataLakePrincipalPtrOutput)
+}
+
+type CatalogPrincipalPermissionsArrayOutput struct{ *pulumi.OutputState }
+
+func (CatalogPrincipalPermissionsArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CatalogPrincipalPermissions)(nil)).Elem()
+}
+
+func (o CatalogPrincipalPermissionsArrayOutput) ToCatalogPrincipalPermissionsArrayOutput() CatalogPrincipalPermissionsArrayOutput {
+	return o
+}
+
+func (o CatalogPrincipalPermissionsArrayOutput) ToCatalogPrincipalPermissionsArrayOutputWithContext(ctx context.Context) CatalogPrincipalPermissionsArrayOutput {
+	return o
+}
+
+func (o CatalogPrincipalPermissionsArrayOutput) Index(i pulumi.IntInput) CatalogPrincipalPermissionsOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CatalogPrincipalPermissions {
+		return vs[0].([]CatalogPrincipalPermissions)[vs[1].(int)]
+	}).(CatalogPrincipalPermissionsOutput)
+}
+
+// A structure that specifies data lake access properties and other custom properties.
+type CatalogProperties struct {
+	// Additional key-value properties for the catalog.
+	CustomProperties         map[string]string                `pulumi:"customProperties"`
+	DataLakeAccessProperties *CatalogDataLakeAccessProperties `pulumi:"dataLakeAccessProperties"`
+}
+
+// CatalogPropertiesInput is an input type that accepts CatalogPropertiesArgs and CatalogPropertiesOutput values.
+// You can construct a concrete instance of `CatalogPropertiesInput` via:
+//
+//	CatalogPropertiesArgs{...}
+type CatalogPropertiesInput interface {
+	pulumi.Input
+
+	ToCatalogPropertiesOutput() CatalogPropertiesOutput
+	ToCatalogPropertiesOutputWithContext(context.Context) CatalogPropertiesOutput
+}
+
+// A structure that specifies data lake access properties and other custom properties.
+type CatalogPropertiesArgs struct {
+	// Additional key-value properties for the catalog.
+	CustomProperties         pulumi.StringMapInput                   `pulumi:"customProperties"`
+	DataLakeAccessProperties CatalogDataLakeAccessPropertiesPtrInput `pulumi:"dataLakeAccessProperties"`
+}
+
+func (CatalogPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CatalogProperties)(nil)).Elem()
+}
+
+func (i CatalogPropertiesArgs) ToCatalogPropertiesOutput() CatalogPropertiesOutput {
+	return i.ToCatalogPropertiesOutputWithContext(context.Background())
+}
+
+func (i CatalogPropertiesArgs) ToCatalogPropertiesOutputWithContext(ctx context.Context) CatalogPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogPropertiesOutput)
+}
+
+func (i CatalogPropertiesArgs) ToCatalogPropertiesPtrOutput() CatalogPropertiesPtrOutput {
+	return i.ToCatalogPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i CatalogPropertiesArgs) ToCatalogPropertiesPtrOutputWithContext(ctx context.Context) CatalogPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogPropertiesOutput).ToCatalogPropertiesPtrOutputWithContext(ctx)
+}
+
+// CatalogPropertiesPtrInput is an input type that accepts CatalogPropertiesArgs, CatalogPropertiesPtr and CatalogPropertiesPtrOutput values.
+// You can construct a concrete instance of `CatalogPropertiesPtrInput` via:
+//
+//	        CatalogPropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type CatalogPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToCatalogPropertiesPtrOutput() CatalogPropertiesPtrOutput
+	ToCatalogPropertiesPtrOutputWithContext(context.Context) CatalogPropertiesPtrOutput
+}
+
+type catalogPropertiesPtrType CatalogPropertiesArgs
+
+func CatalogPropertiesPtr(v *CatalogPropertiesArgs) CatalogPropertiesPtrInput {
+	return (*catalogPropertiesPtrType)(v)
+}
+
+func (*catalogPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CatalogProperties)(nil)).Elem()
+}
+
+func (i *catalogPropertiesPtrType) ToCatalogPropertiesPtrOutput() CatalogPropertiesPtrOutput {
+	return i.ToCatalogPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *catalogPropertiesPtrType) ToCatalogPropertiesPtrOutputWithContext(ctx context.Context) CatalogPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogPropertiesPtrOutput)
+}
+
+// A structure that specifies data lake access properties and other custom properties.
+type CatalogPropertiesOutput struct{ *pulumi.OutputState }
+
+func (CatalogPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CatalogProperties)(nil)).Elem()
+}
+
+func (o CatalogPropertiesOutput) ToCatalogPropertiesOutput() CatalogPropertiesOutput {
+	return o
+}
+
+func (o CatalogPropertiesOutput) ToCatalogPropertiesOutputWithContext(ctx context.Context) CatalogPropertiesOutput {
+	return o
+}
+
+func (o CatalogPropertiesOutput) ToCatalogPropertiesPtrOutput() CatalogPropertiesPtrOutput {
+	return o.ToCatalogPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o CatalogPropertiesOutput) ToCatalogPropertiesPtrOutputWithContext(ctx context.Context) CatalogPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CatalogProperties) *CatalogProperties {
+		return &v
+	}).(CatalogPropertiesPtrOutput)
+}
+
+// Additional key-value properties for the catalog.
+func (o CatalogPropertiesOutput) CustomProperties() pulumi.StringMapOutput {
+	return o.ApplyT(func(v CatalogProperties) map[string]string { return v.CustomProperties }).(pulumi.StringMapOutput)
+}
+
+func (o CatalogPropertiesOutput) DataLakeAccessProperties() CatalogDataLakeAccessPropertiesPtrOutput {
+	return o.ApplyT(func(v CatalogProperties) *CatalogDataLakeAccessProperties { return v.DataLakeAccessProperties }).(CatalogDataLakeAccessPropertiesPtrOutput)
+}
+
+type CatalogPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (CatalogPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CatalogProperties)(nil)).Elem()
+}
+
+func (o CatalogPropertiesPtrOutput) ToCatalogPropertiesPtrOutput() CatalogPropertiesPtrOutput {
+	return o
+}
+
+func (o CatalogPropertiesPtrOutput) ToCatalogPropertiesPtrOutputWithContext(ctx context.Context) CatalogPropertiesPtrOutput {
+	return o
+}
+
+func (o CatalogPropertiesPtrOutput) Elem() CatalogPropertiesOutput {
+	return o.ApplyT(func(v *CatalogProperties) CatalogProperties {
+		if v != nil {
+			return *v
+		}
+		var ret CatalogProperties
+		return ret
+	}).(CatalogPropertiesOutput)
+}
+
+// Additional key-value properties for the catalog.
+func (o CatalogPropertiesPtrOutput) CustomProperties() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *CatalogProperties) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.CustomProperties
+	}).(pulumi.StringMapOutput)
+}
+
+func (o CatalogPropertiesPtrOutput) DataLakeAccessProperties() CatalogDataLakeAccessPropertiesPtrOutput {
+	return o.ApplyT(func(v *CatalogProperties) *CatalogDataLakeAccessProperties {
+		if v == nil {
+			return nil
+		}
+		return v.DataLakeAccessProperties
+	}).(CatalogDataLakeAccessPropertiesPtrOutput)
+}
+
+type CatalogTag struct {
+	// The key name of the tag.
+	Key string `pulumi:"key"`
+	// The value for the tag.
+	Value string `pulumi:"value"`
+}
+
+// A structure that describes a target catalog for resource linking.
+type CatalogTargetRedshiftCatalog struct {
+	// The Amazon Resource Name (ARN) of the catalog resource.
+	CatalogArn string `pulumi:"catalogArn"`
+}
+
+// CatalogTargetRedshiftCatalogInput is an input type that accepts CatalogTargetRedshiftCatalogArgs and CatalogTargetRedshiftCatalogOutput values.
+// You can construct a concrete instance of `CatalogTargetRedshiftCatalogInput` via:
+//
+//	CatalogTargetRedshiftCatalogArgs{...}
+type CatalogTargetRedshiftCatalogInput interface {
+	pulumi.Input
+
+	ToCatalogTargetRedshiftCatalogOutput() CatalogTargetRedshiftCatalogOutput
+	ToCatalogTargetRedshiftCatalogOutputWithContext(context.Context) CatalogTargetRedshiftCatalogOutput
+}
+
+// A structure that describes a target catalog for resource linking.
+type CatalogTargetRedshiftCatalogArgs struct {
+	// The Amazon Resource Name (ARN) of the catalog resource.
+	CatalogArn pulumi.StringInput `pulumi:"catalogArn"`
+}
+
+func (CatalogTargetRedshiftCatalogArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CatalogTargetRedshiftCatalog)(nil)).Elem()
+}
+
+func (i CatalogTargetRedshiftCatalogArgs) ToCatalogTargetRedshiftCatalogOutput() CatalogTargetRedshiftCatalogOutput {
+	return i.ToCatalogTargetRedshiftCatalogOutputWithContext(context.Background())
+}
+
+func (i CatalogTargetRedshiftCatalogArgs) ToCatalogTargetRedshiftCatalogOutputWithContext(ctx context.Context) CatalogTargetRedshiftCatalogOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogTargetRedshiftCatalogOutput)
+}
+
+func (i CatalogTargetRedshiftCatalogArgs) ToCatalogTargetRedshiftCatalogPtrOutput() CatalogTargetRedshiftCatalogPtrOutput {
+	return i.ToCatalogTargetRedshiftCatalogPtrOutputWithContext(context.Background())
+}
+
+func (i CatalogTargetRedshiftCatalogArgs) ToCatalogTargetRedshiftCatalogPtrOutputWithContext(ctx context.Context) CatalogTargetRedshiftCatalogPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogTargetRedshiftCatalogOutput).ToCatalogTargetRedshiftCatalogPtrOutputWithContext(ctx)
+}
+
+// CatalogTargetRedshiftCatalogPtrInput is an input type that accepts CatalogTargetRedshiftCatalogArgs, CatalogTargetRedshiftCatalogPtr and CatalogTargetRedshiftCatalogPtrOutput values.
+// You can construct a concrete instance of `CatalogTargetRedshiftCatalogPtrInput` via:
+//
+//	        CatalogTargetRedshiftCatalogArgs{...}
+//
+//	or:
+//
+//	        nil
+type CatalogTargetRedshiftCatalogPtrInput interface {
+	pulumi.Input
+
+	ToCatalogTargetRedshiftCatalogPtrOutput() CatalogTargetRedshiftCatalogPtrOutput
+	ToCatalogTargetRedshiftCatalogPtrOutputWithContext(context.Context) CatalogTargetRedshiftCatalogPtrOutput
+}
+
+type catalogTargetRedshiftCatalogPtrType CatalogTargetRedshiftCatalogArgs
+
+func CatalogTargetRedshiftCatalogPtr(v *CatalogTargetRedshiftCatalogArgs) CatalogTargetRedshiftCatalogPtrInput {
+	return (*catalogTargetRedshiftCatalogPtrType)(v)
+}
+
+func (*catalogTargetRedshiftCatalogPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CatalogTargetRedshiftCatalog)(nil)).Elem()
+}
+
+func (i *catalogTargetRedshiftCatalogPtrType) ToCatalogTargetRedshiftCatalogPtrOutput() CatalogTargetRedshiftCatalogPtrOutput {
+	return i.ToCatalogTargetRedshiftCatalogPtrOutputWithContext(context.Background())
+}
+
+func (i *catalogTargetRedshiftCatalogPtrType) ToCatalogTargetRedshiftCatalogPtrOutputWithContext(ctx context.Context) CatalogTargetRedshiftCatalogPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogTargetRedshiftCatalogPtrOutput)
+}
+
+// A structure that describes a target catalog for resource linking.
+type CatalogTargetRedshiftCatalogOutput struct{ *pulumi.OutputState }
+
+func (CatalogTargetRedshiftCatalogOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CatalogTargetRedshiftCatalog)(nil)).Elem()
+}
+
+func (o CatalogTargetRedshiftCatalogOutput) ToCatalogTargetRedshiftCatalogOutput() CatalogTargetRedshiftCatalogOutput {
+	return o
+}
+
+func (o CatalogTargetRedshiftCatalogOutput) ToCatalogTargetRedshiftCatalogOutputWithContext(ctx context.Context) CatalogTargetRedshiftCatalogOutput {
+	return o
+}
+
+func (o CatalogTargetRedshiftCatalogOutput) ToCatalogTargetRedshiftCatalogPtrOutput() CatalogTargetRedshiftCatalogPtrOutput {
+	return o.ToCatalogTargetRedshiftCatalogPtrOutputWithContext(context.Background())
+}
+
+func (o CatalogTargetRedshiftCatalogOutput) ToCatalogTargetRedshiftCatalogPtrOutputWithContext(ctx context.Context) CatalogTargetRedshiftCatalogPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CatalogTargetRedshiftCatalog) *CatalogTargetRedshiftCatalog {
+		return &v
+	}).(CatalogTargetRedshiftCatalogPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the catalog resource.
+func (o CatalogTargetRedshiftCatalogOutput) CatalogArn() pulumi.StringOutput {
+	return o.ApplyT(func(v CatalogTargetRedshiftCatalog) string { return v.CatalogArn }).(pulumi.StringOutput)
+}
+
+type CatalogTargetRedshiftCatalogPtrOutput struct{ *pulumi.OutputState }
+
+func (CatalogTargetRedshiftCatalogPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CatalogTargetRedshiftCatalog)(nil)).Elem()
+}
+
+func (o CatalogTargetRedshiftCatalogPtrOutput) ToCatalogTargetRedshiftCatalogPtrOutput() CatalogTargetRedshiftCatalogPtrOutput {
+	return o
+}
+
+func (o CatalogTargetRedshiftCatalogPtrOutput) ToCatalogTargetRedshiftCatalogPtrOutputWithContext(ctx context.Context) CatalogTargetRedshiftCatalogPtrOutput {
+	return o
+}
+
+func (o CatalogTargetRedshiftCatalogPtrOutput) Elem() CatalogTargetRedshiftCatalogOutput {
+	return o.ApplyT(func(v *CatalogTargetRedshiftCatalog) CatalogTargetRedshiftCatalog {
+		if v != nil {
+			return *v
+		}
+		var ret CatalogTargetRedshiftCatalog
+		return ret
+	}).(CatalogTargetRedshiftCatalogOutput)
+}
+
+// The Amazon Resource Name (ARN) of the catalog resource.
+func (o CatalogTargetRedshiftCatalogPtrOutput) CatalogArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CatalogTargetRedshiftCatalog) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CatalogArn
+	}).(pulumi.StringPtrOutput)
+}
+
 // Specifies an AWS Glue Data Catalog target.
 type CrawlerCatalogTarget struct {
 	// The name of the connection for an Amazon S3-backed Data Catalog table to be a target of the crawl when using a Catalog connection type paired with a NETWORK Connection type.
@@ -5151,6 +6133,18 @@ type UsageProfileTag struct {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*CatalogDataLakeAccessPropertiesInput)(nil)).Elem(), CatalogDataLakeAccessPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CatalogDataLakeAccessPropertiesPtrInput)(nil)).Elem(), CatalogDataLakeAccessPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CatalogDataLakePrincipalInput)(nil)).Elem(), CatalogDataLakePrincipalArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CatalogDataLakePrincipalPtrInput)(nil)).Elem(), CatalogDataLakePrincipalArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CatalogFederatedCatalogInput)(nil)).Elem(), CatalogFederatedCatalogArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CatalogFederatedCatalogPtrInput)(nil)).Elem(), CatalogFederatedCatalogArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CatalogPrincipalPermissionsInput)(nil)).Elem(), CatalogPrincipalPermissionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CatalogPrincipalPermissionsArrayInput)(nil)).Elem(), CatalogPrincipalPermissionsArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CatalogPropertiesInput)(nil)).Elem(), CatalogPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CatalogPropertiesPtrInput)(nil)).Elem(), CatalogPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CatalogTargetRedshiftCatalogInput)(nil)).Elem(), CatalogTargetRedshiftCatalogArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CatalogTargetRedshiftCatalogPtrInput)(nil)).Elem(), CatalogTargetRedshiftCatalogArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CrawlerCatalogTargetInput)(nil)).Elem(), CrawlerCatalogTargetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CrawlerCatalogTargetArrayInput)(nil)).Elem(), CrawlerCatalogTargetArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CrawlerDeltaTargetInput)(nil)).Elem(), CrawlerDeltaTargetArgs{})
@@ -5217,6 +6211,18 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*UsageProfileConfigurationObjectMapInput)(nil)).Elem(), UsageProfileConfigurationObjectMap{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UsageProfileProfileConfigurationInput)(nil)).Elem(), UsageProfileProfileConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UsageProfileProfileConfigurationPtrInput)(nil)).Elem(), UsageProfileProfileConfigurationArgs{})
+	pulumi.RegisterOutputType(CatalogDataLakeAccessPropertiesOutput{})
+	pulumi.RegisterOutputType(CatalogDataLakeAccessPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(CatalogDataLakePrincipalOutput{})
+	pulumi.RegisterOutputType(CatalogDataLakePrincipalPtrOutput{})
+	pulumi.RegisterOutputType(CatalogFederatedCatalogOutput{})
+	pulumi.RegisterOutputType(CatalogFederatedCatalogPtrOutput{})
+	pulumi.RegisterOutputType(CatalogPrincipalPermissionsOutput{})
+	pulumi.RegisterOutputType(CatalogPrincipalPermissionsArrayOutput{})
+	pulumi.RegisterOutputType(CatalogPropertiesOutput{})
+	pulumi.RegisterOutputType(CatalogPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(CatalogTargetRedshiftCatalogOutput{})
+	pulumi.RegisterOutputType(CatalogTargetRedshiftCatalogPtrOutput{})
 	pulumi.RegisterOutputType(CrawlerCatalogTargetOutput{})
 	pulumi.RegisterOutputType(CrawlerCatalogTargetArrayOutput{})
 	pulumi.RegisterOutputType(CrawlerDeltaTargetOutput{})

@@ -381,6 +381,37 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The enforcement mode for the policy engine. LOG_ONLY - The policy engine evaluates each action against your policies and adds traces on whether tool calls would be allowed or denied, but does not enforce the decision. Use this mode to test and validate policies before enabling enforcement. ENFORCE - The policy engine evaluates actions against your policies and enforces decisions by allowing or denying agent operations. Test and validate policies in LOG_ONLY mode before enabling enforcement to avoid unintended denials or adversely affecting production traffic.
+    /// </summary>
+    [EnumType]
+    public readonly struct GatewayPolicyEngineMode : IEquatable<GatewayPolicyEngineMode>
+    {
+        private readonly string _value;
+
+        private GatewayPolicyEngineMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static GatewayPolicyEngineMode LogOnly { get; } = new GatewayPolicyEngineMode("LOG_ONLY");
+        public static GatewayPolicyEngineMode Enforce { get; } = new GatewayPolicyEngineMode("ENFORCE");
+
+        public static bool operator ==(GatewayPolicyEngineMode left, GatewayPolicyEngineMode right) => left.Equals(right);
+        public static bool operator !=(GatewayPolicyEngineMode left, GatewayPolicyEngineMode right) => !left.Equals(right);
+
+        public static explicit operator string(GatewayPolicyEngineMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is GatewayPolicyEngineMode other && Equals(other);
+        public bool Equals(GatewayPolicyEngineMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     [EnumType]
     public readonly struct GatewayProtocolType : IEquatable<GatewayProtocolType>
     {

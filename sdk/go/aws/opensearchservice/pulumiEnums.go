@@ -176,6 +176,171 @@ func (in *applicationAppConfigTypePtr) ToApplicationAppConfigTypePtrOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, in).(ApplicationAppConfigTypePtrOutput)
 }
 
+type DomainDeploymentStrategyOptionsDeploymentStrategy string
+
+const (
+	DomainDeploymentStrategyOptionsDeploymentStrategyDefault           = DomainDeploymentStrategyOptionsDeploymentStrategy("Default")
+	DomainDeploymentStrategyOptionsDeploymentStrategyCapacityOptimized = DomainDeploymentStrategyOptionsDeploymentStrategy("CapacityOptimized")
+)
+
+func (DomainDeploymentStrategyOptionsDeploymentStrategy) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainDeploymentStrategyOptionsDeploymentStrategy)(nil)).Elem()
+}
+
+func (e DomainDeploymentStrategyOptionsDeploymentStrategy) ToDomainDeploymentStrategyOptionsDeploymentStrategyOutput() DomainDeploymentStrategyOptionsDeploymentStrategyOutput {
+	return pulumi.ToOutput(e).(DomainDeploymentStrategyOptionsDeploymentStrategyOutput)
+}
+
+func (e DomainDeploymentStrategyOptionsDeploymentStrategy) ToDomainDeploymentStrategyOptionsDeploymentStrategyOutputWithContext(ctx context.Context) DomainDeploymentStrategyOptionsDeploymentStrategyOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DomainDeploymentStrategyOptionsDeploymentStrategyOutput)
+}
+
+func (e DomainDeploymentStrategyOptionsDeploymentStrategy) ToDomainDeploymentStrategyOptionsDeploymentStrategyPtrOutput() DomainDeploymentStrategyOptionsDeploymentStrategyPtrOutput {
+	return e.ToDomainDeploymentStrategyOptionsDeploymentStrategyPtrOutputWithContext(context.Background())
+}
+
+func (e DomainDeploymentStrategyOptionsDeploymentStrategy) ToDomainDeploymentStrategyOptionsDeploymentStrategyPtrOutputWithContext(ctx context.Context) DomainDeploymentStrategyOptionsDeploymentStrategyPtrOutput {
+	return DomainDeploymentStrategyOptionsDeploymentStrategy(e).ToDomainDeploymentStrategyOptionsDeploymentStrategyOutputWithContext(ctx).ToDomainDeploymentStrategyOptionsDeploymentStrategyPtrOutputWithContext(ctx)
+}
+
+func (e DomainDeploymentStrategyOptionsDeploymentStrategy) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DomainDeploymentStrategyOptionsDeploymentStrategy) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DomainDeploymentStrategyOptionsDeploymentStrategy) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DomainDeploymentStrategyOptionsDeploymentStrategy) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DomainDeploymentStrategyOptionsDeploymentStrategyOutput struct{ *pulumi.OutputState }
+
+func (DomainDeploymentStrategyOptionsDeploymentStrategyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainDeploymentStrategyOptionsDeploymentStrategy)(nil)).Elem()
+}
+
+func (o DomainDeploymentStrategyOptionsDeploymentStrategyOutput) ToDomainDeploymentStrategyOptionsDeploymentStrategyOutput() DomainDeploymentStrategyOptionsDeploymentStrategyOutput {
+	return o
+}
+
+func (o DomainDeploymentStrategyOptionsDeploymentStrategyOutput) ToDomainDeploymentStrategyOptionsDeploymentStrategyOutputWithContext(ctx context.Context) DomainDeploymentStrategyOptionsDeploymentStrategyOutput {
+	return o
+}
+
+func (o DomainDeploymentStrategyOptionsDeploymentStrategyOutput) ToDomainDeploymentStrategyOptionsDeploymentStrategyPtrOutput() DomainDeploymentStrategyOptionsDeploymentStrategyPtrOutput {
+	return o.ToDomainDeploymentStrategyOptionsDeploymentStrategyPtrOutputWithContext(context.Background())
+}
+
+func (o DomainDeploymentStrategyOptionsDeploymentStrategyOutput) ToDomainDeploymentStrategyOptionsDeploymentStrategyPtrOutputWithContext(ctx context.Context) DomainDeploymentStrategyOptionsDeploymentStrategyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainDeploymentStrategyOptionsDeploymentStrategy) *DomainDeploymentStrategyOptionsDeploymentStrategy {
+		return &v
+	}).(DomainDeploymentStrategyOptionsDeploymentStrategyPtrOutput)
+}
+
+func (o DomainDeploymentStrategyOptionsDeploymentStrategyOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DomainDeploymentStrategyOptionsDeploymentStrategyOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DomainDeploymentStrategyOptionsDeploymentStrategy) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DomainDeploymentStrategyOptionsDeploymentStrategyOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DomainDeploymentStrategyOptionsDeploymentStrategyOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DomainDeploymentStrategyOptionsDeploymentStrategy) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DomainDeploymentStrategyOptionsDeploymentStrategyPtrOutput struct{ *pulumi.OutputState }
+
+func (DomainDeploymentStrategyOptionsDeploymentStrategyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainDeploymentStrategyOptionsDeploymentStrategy)(nil)).Elem()
+}
+
+func (o DomainDeploymentStrategyOptionsDeploymentStrategyPtrOutput) ToDomainDeploymentStrategyOptionsDeploymentStrategyPtrOutput() DomainDeploymentStrategyOptionsDeploymentStrategyPtrOutput {
+	return o
+}
+
+func (o DomainDeploymentStrategyOptionsDeploymentStrategyPtrOutput) ToDomainDeploymentStrategyOptionsDeploymentStrategyPtrOutputWithContext(ctx context.Context) DomainDeploymentStrategyOptionsDeploymentStrategyPtrOutput {
+	return o
+}
+
+func (o DomainDeploymentStrategyOptionsDeploymentStrategyPtrOutput) Elem() DomainDeploymentStrategyOptionsDeploymentStrategyOutput {
+	return o.ApplyT(func(v *DomainDeploymentStrategyOptionsDeploymentStrategy) DomainDeploymentStrategyOptionsDeploymentStrategy {
+		if v != nil {
+			return *v
+		}
+		var ret DomainDeploymentStrategyOptionsDeploymentStrategy
+		return ret
+	}).(DomainDeploymentStrategyOptionsDeploymentStrategyOutput)
+}
+
+func (o DomainDeploymentStrategyOptionsDeploymentStrategyPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DomainDeploymentStrategyOptionsDeploymentStrategyPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DomainDeploymentStrategyOptionsDeploymentStrategy) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DomainDeploymentStrategyOptionsDeploymentStrategyInput is an input type that accepts values of the DomainDeploymentStrategyOptionsDeploymentStrategy enum
+// A concrete instance of `DomainDeploymentStrategyOptionsDeploymentStrategyInput` can be one of the following:
+//
+//	DomainDeploymentStrategyOptionsDeploymentStrategyDefault
+//	DomainDeploymentStrategyOptionsDeploymentStrategyCapacityOptimized
+type DomainDeploymentStrategyOptionsDeploymentStrategyInput interface {
+	pulumi.Input
+
+	ToDomainDeploymentStrategyOptionsDeploymentStrategyOutput() DomainDeploymentStrategyOptionsDeploymentStrategyOutput
+	ToDomainDeploymentStrategyOptionsDeploymentStrategyOutputWithContext(context.Context) DomainDeploymentStrategyOptionsDeploymentStrategyOutput
+}
+
+var domainDeploymentStrategyOptionsDeploymentStrategyPtrType = reflect.TypeOf((**DomainDeploymentStrategyOptionsDeploymentStrategy)(nil)).Elem()
+
+type DomainDeploymentStrategyOptionsDeploymentStrategyPtrInput interface {
+	pulumi.Input
+
+	ToDomainDeploymentStrategyOptionsDeploymentStrategyPtrOutput() DomainDeploymentStrategyOptionsDeploymentStrategyPtrOutput
+	ToDomainDeploymentStrategyOptionsDeploymentStrategyPtrOutputWithContext(context.Context) DomainDeploymentStrategyOptionsDeploymentStrategyPtrOutput
+}
+
+type domainDeploymentStrategyOptionsDeploymentStrategyPtr string
+
+func DomainDeploymentStrategyOptionsDeploymentStrategyPtr(v string) DomainDeploymentStrategyOptionsDeploymentStrategyPtrInput {
+	return (*domainDeploymentStrategyOptionsDeploymentStrategyPtr)(&v)
+}
+
+func (*domainDeploymentStrategyOptionsDeploymentStrategyPtr) ElementType() reflect.Type {
+	return domainDeploymentStrategyOptionsDeploymentStrategyPtrType
+}
+
+func (in *domainDeploymentStrategyOptionsDeploymentStrategyPtr) ToDomainDeploymentStrategyOptionsDeploymentStrategyPtrOutput() DomainDeploymentStrategyOptionsDeploymentStrategyPtrOutput {
+	return pulumi.ToOutput(in).(DomainDeploymentStrategyOptionsDeploymentStrategyPtrOutput)
+}
+
+func (in *domainDeploymentStrategyOptionsDeploymentStrategyPtr) ToDomainDeploymentStrategyOptionsDeploymentStrategyPtrOutputWithContext(ctx context.Context) DomainDeploymentStrategyOptionsDeploymentStrategyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DomainDeploymentStrategyOptionsDeploymentStrategyPtrOutput)
+}
+
 // Defines the type of node, such as coordinating nodes.
 type DomainNodeOptionNodeType string
 
@@ -677,6 +842,8 @@ func (in *domainSubjectKeyIdcTypePtr) ToDomainSubjectKeyIdcTypePtrOutputWithCont
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationAppConfigTypeInput)(nil)).Elem(), ApplicationAppConfigType("opensearchDashboards.dashboardAdmin.users"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationAppConfigTypePtrInput)(nil)).Elem(), ApplicationAppConfigType("opensearchDashboards.dashboardAdmin.users"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainDeploymentStrategyOptionsDeploymentStrategyInput)(nil)).Elem(), DomainDeploymentStrategyOptionsDeploymentStrategy("Default"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainDeploymentStrategyOptionsDeploymentStrategyPtrInput)(nil)).Elem(), DomainDeploymentStrategyOptionsDeploymentStrategy("Default"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainNodeOptionNodeTypeInput)(nil)).Elem(), DomainNodeOptionNodeType("coordinator"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainNodeOptionNodeTypePtrInput)(nil)).Elem(), DomainNodeOptionNodeType("coordinator"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainRolesKeyIdcTypeInput)(nil)).Elem(), DomainRolesKeyIdcType("GroupName"))
@@ -685,6 +852,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainSubjectKeyIdcTypePtrInput)(nil)).Elem(), DomainSubjectKeyIdcType("UserName"))
 	pulumi.RegisterOutputType(ApplicationAppConfigTypeOutput{})
 	pulumi.RegisterOutputType(ApplicationAppConfigTypePtrOutput{})
+	pulumi.RegisterOutputType(DomainDeploymentStrategyOptionsDeploymentStrategyOutput{})
+	pulumi.RegisterOutputType(DomainDeploymentStrategyOptionsDeploymentStrategyPtrOutput{})
 	pulumi.RegisterOutputType(DomainNodeOptionNodeTypeOutput{})
 	pulumi.RegisterOutputType(DomainNodeOptionNodeTypePtrOutput{})
 	pulumi.RegisterOutputType(DomainRolesKeyIdcTypeOutput{})

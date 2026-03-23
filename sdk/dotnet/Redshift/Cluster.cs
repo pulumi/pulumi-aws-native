@@ -116,7 +116,7 @@ namespace Pulumi.AwsNative.Redshift
         public Output<bool?> DeferMaintenance { get; private set; } = null!;
 
         /// <summary>
-        /// An integer indicating the duration of the maintenance window in days. If you specify a duration, you can't specify an end time. The duration must be 45 days or less.
+        /// An integer indicating the duration of the maintenance window in days. If you specify a duration, you can't specify an end time. The duration must be 60 days or less.
         /// </summary>
         [Output("deferMaintenanceDuration")]
         public Output<int?> DeferMaintenanceDuration { get; private set; } = null!;
@@ -517,7 +517,7 @@ namespace Pulumi.AwsNative.Redshift
         public Input<bool>? DeferMaintenance { get; set; }
 
         /// <summary>
-        /// An integer indicating the duration of the maintenance window in days. If you specify a duration, you can't specify an end time. The duration must be 45 days or less.
+        /// An integer indicating the duration of the maintenance window in days. If you specify a duration, you can't specify an end time. The duration must be 60 days or less.
         /// </summary>
         [Input("deferMaintenanceDuration")]
         public Input<int>? DeferMaintenanceDuration { get; set; }

@@ -28,6 +28,7 @@ __all__ = [
     'BucketMetadataDestinationTableBucketType',
     'BucketMetadataTableEncryptionConfigurationSseAlgorithm',
     'BucketMetricsStatus',
+    'BucketNamespace',
     'BucketNoncurrentVersionTransitionStorageClass',
     'BucketOwnershipControlsRuleObjectOwnership',
     'BucketRecordExpirationExpiration',
@@ -261,6 +262,12 @@ class BucketMetricsStatus(_builtins.str, Enum):
     """
     DISABLED = "Disabled"
     ENABLED = "Enabled"
+
+
+@pulumi.type_token("aws-native:s3:BucketNamespace")
+class BucketNamespace(_builtins.str, Enum):
+    GLOBAL_ = "global"
+    ACCOUNT_REGIONAL = "account-regional"
 
 
 @pulumi.type_token("aws-native:s3:BucketNoncurrentVersionTransitionStorageClass")

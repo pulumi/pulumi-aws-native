@@ -72,6 +72,7 @@ export class Gateway extends pulumi.CustomResource {
      * The name for the gateway.
      */
     declare public readonly name: pulumi.Output<string>;
+    declare public readonly policyEngineConfiguration: pulumi.Output<outputs.bedrockagentcore.GatewayPolicyEngineConfiguration | undefined>;
     /**
      * The protocol configuration for the gateway target.
      */
@@ -123,6 +124,7 @@ export class Gateway extends pulumi.CustomResource {
             resourceInputs["interceptorConfigurations"] = args?.interceptorConfigurations;
             resourceInputs["kmsKeyArn"] = args?.kmsKeyArn;
             resourceInputs["name"] = args?.name;
+            resourceInputs["policyEngineConfiguration"] = args?.policyEngineConfiguration;
             resourceInputs["protocolConfiguration"] = args?.protocolConfiguration;
             resourceInputs["protocolType"] = args?.protocolType;
             resourceInputs["roleArn"] = args?.roleArn;
@@ -147,6 +149,7 @@ export class Gateway extends pulumi.CustomResource {
             resourceInputs["interceptorConfigurations"] = undefined /*out*/;
             resourceInputs["kmsKeyArn"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["policyEngineConfiguration"] = undefined /*out*/;
             resourceInputs["protocolConfiguration"] = undefined /*out*/;
             resourceInputs["protocolType"] = undefined /*out*/;
             resourceInputs["roleArn"] = undefined /*out*/;
@@ -187,6 +190,7 @@ export interface GatewayArgs {
      * The name for the gateway.
      */
     name?: pulumi.Input<string>;
+    policyEngineConfiguration?: pulumi.Input<inputs.bedrockagentcore.GatewayPolicyEngineConfigurationArgs>;
     /**
      * The protocol configuration for the gateway target.
      */

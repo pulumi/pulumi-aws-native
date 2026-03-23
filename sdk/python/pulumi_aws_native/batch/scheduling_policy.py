@@ -14,6 +14,7 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['SchedulingPolicyArgs', 'SchedulingPolicy']
@@ -23,6 +24,7 @@ class SchedulingPolicyArgs:
     def __init__(__self__, *,
                  fairshare_policy: Optional[pulumi.Input['SchedulingPolicyFairsharePolicyArgs']] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
+                 quota_share_policy: Optional[pulumi.Input['SchedulingPolicyQuotaSharePolicyArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a SchedulingPolicy resource.
@@ -35,6 +37,8 @@ class SchedulingPolicyArgs:
             pulumi.set(__self__, "fairshare_policy", fairshare_policy)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if quota_share_policy is not None:
+            pulumi.set(__self__, "quota_share_policy", quota_share_policy)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -63,6 +67,15 @@ class SchedulingPolicyArgs:
         pulumi.set(self, "name", value)
 
     @_builtins.property
+    @pulumi.getter(name="quotaSharePolicy")
+    def quota_share_policy(self) -> Optional[pulumi.Input['SchedulingPolicyQuotaSharePolicyArgs']]:
+        return pulumi.get(self, "quota_share_policy")
+
+    @quota_share_policy.setter
+    def quota_share_policy(self, value: Optional[pulumi.Input['SchedulingPolicyQuotaSharePolicyArgs']]):
+        pulumi.set(self, "quota_share_policy", value)
+
+    @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
@@ -83,6 +96,7 @@ class SchedulingPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  fairshare_policy: Optional[pulumi.Input[Union['SchedulingPolicyFairsharePolicyArgs', 'SchedulingPolicyFairsharePolicyArgsDict']]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
+                 quota_share_policy: Optional[pulumi.Input[Union['SchedulingPolicyQuotaSharePolicyArgs', 'SchedulingPolicyQuotaSharePolicyArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
@@ -122,6 +136,7 @@ class SchedulingPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  fairshare_policy: Optional[pulumi.Input[Union['SchedulingPolicyFairsharePolicyArgs', 'SchedulingPolicyFairsharePolicyArgsDict']]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
+                 quota_share_policy: Optional[pulumi.Input[Union['SchedulingPolicyQuotaSharePolicyArgs', 'SchedulingPolicyQuotaSharePolicyArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -134,6 +149,7 @@ class SchedulingPolicy(pulumi.CustomResource):
 
             __props__.__dict__["fairshare_policy"] = fairshare_policy
             __props__.__dict__["name"] = name
+            __props__.__dict__["quota_share_policy"] = quota_share_policy
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name", "tags.*"])
@@ -163,6 +179,7 @@ class SchedulingPolicy(pulumi.CustomResource):
         __props__.__dict__["arn"] = None
         __props__.__dict__["fairshare_policy"] = None
         __props__.__dict__["name"] = None
+        __props__.__dict__["quota_share_policy"] = None
         __props__.__dict__["tags"] = None
         return SchedulingPolicy(resource_name, opts=opts, __props__=__props__)
 
@@ -189,6 +206,11 @@ class SchedulingPolicy(pulumi.CustomResource):
         Name of Scheduling Policy.
         """
         return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="quotaSharePolicy")
+    def quota_share_policy(self) -> pulumi.Output[Optional['outputs.SchedulingPolicyQuotaSharePolicy']]:
+        return pulumi.get(self, "quota_share_policy")
 
     @_builtins.property
     @pulumi.getter

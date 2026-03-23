@@ -60,6 +60,11 @@ export const getServiceAction: typeof import("./getServiceAction").getServiceAct
 export const getServiceActionOutput: typeof import("./getServiceAction").getServiceActionOutput = null as any;
 utilities.lazyLoad(exports, ["getServiceAction","getServiceActionOutput"], () => require("./getServiceAction"));
 
+export { GetStackSetConstraintArgs, GetStackSetConstraintResult, GetStackSetConstraintOutputArgs } from "./getStackSetConstraint";
+export const getStackSetConstraint: typeof import("./getStackSetConstraint").getStackSetConstraint = null as any;
+export const getStackSetConstraintOutput: typeof import("./getStackSetConstraint").getStackSetConstraintOutput = null as any;
+utilities.lazyLoad(exports, ["getStackSetConstraint","getStackSetConstraintOutput"], () => require("./getStackSetConstraint"));
+
 export { GetTagOptionArgs, GetTagOptionResult, GetTagOptionOutputArgs } from "./getTagOption";
 export const getTagOption: typeof import("./getTagOption").getTagOption = null as any;
 export const getTagOptionOutput: typeof import("./getTagOption").getTagOptionOutput = null as any;
@@ -115,6 +120,11 @@ export type ServiceActionAssociation = import("./serviceActionAssociation").Serv
 export const ServiceActionAssociation: typeof import("./serviceActionAssociation").ServiceActionAssociation = null as any;
 utilities.lazyLoad(exports, ["ServiceActionAssociation"], () => require("./serviceActionAssociation"));
 
+export { StackSetConstraintArgs } from "./stackSetConstraint";
+export type StackSetConstraint = import("./stackSetConstraint").StackSetConstraint;
+export const StackSetConstraint: typeof import("./stackSetConstraint").StackSetConstraint = null as any;
+utilities.lazyLoad(exports, ["StackSetConstraint"], () => require("./stackSetConstraint"));
+
 export { TagOptionArgs } from "./tagOption";
 export type TagOption = import("./tagOption").TagOption;
 export const TagOption: typeof import("./tagOption").TagOption = null as any;
@@ -157,6 +167,8 @@ const _module = {
                 return new ServiceAction(name, <any>undefined, { urn })
             case "aws-native:servicecatalog:ServiceActionAssociation":
                 return new ServiceActionAssociation(name, <any>undefined, { urn })
+            case "aws-native:servicecatalog:StackSetConstraint":
+                return new StackSetConstraint(name, <any>undefined, { urn })
             case "aws-native:servicecatalog:TagOption":
                 return new TagOption(name, <any>undefined, { urn })
             case "aws-native:servicecatalog:TagOptionAssociation":

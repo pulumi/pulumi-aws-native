@@ -14,6 +14,7 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from ._enums import *
 
 __all__ = [
     'GetSchedulingPolicyResult',
@@ -24,13 +25,16 @@ __all__ = [
 
 @pulumi.output_type
 class GetSchedulingPolicyResult:
-    def __init__(__self__, arn=None, fairshare_policy=None):
+    def __init__(__self__, arn=None, fairshare_policy=None, quota_share_policy=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
         if fairshare_policy and not isinstance(fairshare_policy, dict):
             raise TypeError("Expected argument 'fairshare_policy' to be a dict")
         pulumi.set(__self__, "fairshare_policy", fairshare_policy)
+        if quota_share_policy and not isinstance(quota_share_policy, dict):
+            raise TypeError("Expected argument 'quota_share_policy' to be a dict")
+        pulumi.set(__self__, "quota_share_policy", quota_share_policy)
 
     @_builtins.property
     @pulumi.getter
@@ -48,6 +52,11 @@ class GetSchedulingPolicyResult:
         """
         return pulumi.get(self, "fairshare_policy")
 
+    @_builtins.property
+    @pulumi.getter(name="quotaSharePolicy")
+    def quota_share_policy(self) -> Optional['outputs.SchedulingPolicyQuotaSharePolicy']:
+        return pulumi.get(self, "quota_share_policy")
+
 
 class AwaitableGetSchedulingPolicyResult(GetSchedulingPolicyResult):
     # pylint: disable=using-constant-test
@@ -56,7 +65,8 @@ class AwaitableGetSchedulingPolicyResult(GetSchedulingPolicyResult):
             yield self
         return GetSchedulingPolicyResult(
             arn=self.arn,
-            fairshare_policy=self.fairshare_policy)
+            fairshare_policy=self.fairshare_policy,
+            quota_share_policy=self.quota_share_policy)
 
 
 def get_scheduling_policy(arn: Optional[_builtins.str] = None,
@@ -74,7 +84,8 @@ def get_scheduling_policy(arn: Optional[_builtins.str] = None,
 
     return AwaitableGetSchedulingPolicyResult(
         arn=pulumi.get(__ret__, 'arn'),
-        fairshare_policy=pulumi.get(__ret__, 'fairshare_policy'))
+        fairshare_policy=pulumi.get(__ret__, 'fairshare_policy'),
+        quota_share_policy=pulumi.get(__ret__, 'quota_share_policy'))
 def get_scheduling_policy_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSchedulingPolicyResult]:
     """
@@ -89,4 +100,5 @@ def get_scheduling_policy_output(arn: Optional[pulumi.Input[_builtins.str]] = No
     __ret__ = pulumi.runtime.invoke_output('aws-native:batch:getSchedulingPolicy', __args__, opts=opts, typ=GetSchedulingPolicyResult)
     return __ret__.apply(lambda __response__: GetSchedulingPolicyResult(
         arn=pulumi.get(__response__, 'arn'),
-        fairshare_policy=pulumi.get(__response__, 'fairshare_policy')))
+        fairshare_policy=pulumi.get(__response__, 'fairshare_policy'),
+        quota_share_policy=pulumi.get(__response__, 'quota_share_policy')))

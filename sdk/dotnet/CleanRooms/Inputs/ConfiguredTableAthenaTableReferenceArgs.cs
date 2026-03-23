@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.CleanRooms.Inputs
 
     public sealed class ConfiguredTableAthenaTableReferenceArgs : global::Pulumi.ResourceArgs
     {
+        [Input("catalogName")]
+        public Input<string>? CatalogName { get; set; }
+
         [Input("databaseName", required: true)]
         public Input<string> DatabaseName { get; set; } = null!;
 

@@ -67,6 +67,9 @@ namespace Pulumi.AwsNative.OpenSearchService
         [Output("cognitoOptions")]
         public Output<Outputs.DomainCognitoOptions?> CognitoOptions { get; private set; } = null!;
 
+        [Output("deploymentStrategyOptions")]
+        public Output<Outputs.DomainDeploymentStrategyOptions?> DeploymentStrategyOptions { get; private set; } = null!;
+
         /// <summary>
         /// The Amazon Resource Name (ARN) of the domain. See [Identifiers for IAM Entities](https://docs.aws.amazon.com/IAM/latest/UserGuide/index.html) in *Using AWS Identity and Access Management* for more information.
         /// </summary>
@@ -282,6 +285,9 @@ namespace Pulumi.AwsNative.OpenSearchService
         /// </summary>
         [Input("cognitoOptions")]
         public Input<Inputs.DomainCognitoOptionsArgs>? CognitoOptions { get; set; }
+
+        [Input("deploymentStrategyOptions")]
+        public Input<Inputs.DomainDeploymentStrategyOptionsArgs>? DeploymentStrategyOptions { get; set; }
 
         /// <summary>
         /// Specifies additional options for the domain endpoint, such as whether to require HTTPS for all traffic or whether to use a custom endpoint rather than the default endpoint.

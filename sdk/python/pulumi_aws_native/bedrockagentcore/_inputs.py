@@ -64,6 +64,8 @@ __all__ = [
     'GatewayLambdaInterceptorConfigurationArgsDict',
     'GatewayMcpGatewayConfigurationArgs',
     'GatewayMcpGatewayConfigurationArgsDict',
+    'GatewayPolicyEngineConfigurationArgs',
+    'GatewayPolicyEngineConfigurationArgsDict',
     'GatewayProtocolConfigurationPropertiesArgs',
     'GatewayProtocolConfigurationPropertiesArgsDict',
     'GatewayTargetApiGatewayTargetConfigurationArgs',
@@ -1276,6 +1278,51 @@ class GatewayMcpGatewayConfigurationArgs:
     @supported_versions.setter
     def supported_versions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "supported_versions", value)
+
+
+class GatewayPolicyEngineConfigurationArgsDict(TypedDict):
+    """
+    The configuration for a policy engine associated with a gateway. A policy engine is a collection of policies that evaluates and authorizes agent tool calls. When associated with a gateway, the policy engine intercepts all agent requests and determines whether to allow or deny each action based on the defined policies.
+    """
+    arn: pulumi.Input[_builtins.str]
+    """
+    The ARN of the policy engine. The policy engine contains Cedar policies that define fine-grained authorization rules specifying who can perform what actions on which resources as agents interact through the gateway.
+    """
+    mode: pulumi.Input['GatewayPolicyEngineMode']
+
+@pulumi.input_type
+class GatewayPolicyEngineConfigurationArgs:
+    def __init__(__self__, *,
+                 arn: pulumi.Input[_builtins.str],
+                 mode: pulumi.Input['GatewayPolicyEngineMode']):
+        """
+        The configuration for a policy engine associated with a gateway. A policy engine is a collection of policies that evaluates and authorizes agent tool calls. When associated with a gateway, the policy engine intercepts all agent requests and determines whether to allow or deny each action based on the defined policies.
+
+        :param pulumi.Input[_builtins.str] arn: The ARN of the policy engine. The policy engine contains Cedar policies that define fine-grained authorization rules specifying who can perform what actions on which resources as agents interact through the gateway.
+        """
+        pulumi.set(__self__, "arn", arn)
+        pulumi.set(__self__, "mode", mode)
+
+    @_builtins.property
+    @pulumi.getter
+    def arn(self) -> pulumi.Input[_builtins.str]:
+        """
+        The ARN of the policy engine. The policy engine contains Cedar policies that define fine-grained authorization rules specifying who can perform what actions on which resources as agents interact through the gateway.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "arn", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def mode(self) -> pulumi.Input['GatewayPolicyEngineMode']:
+        return pulumi.get(self, "mode")
+
+    @mode.setter
+    def mode(self, value: pulumi.Input['GatewayPolicyEngineMode']):
+        pulumi.set(self, "mode", value)
 
 
 class GatewayProtocolConfigurationPropertiesArgsDict(TypedDict):

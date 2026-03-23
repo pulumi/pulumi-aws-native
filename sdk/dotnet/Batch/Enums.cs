@@ -191,4 +191,125 @@ namespace Pulumi.AwsNative.Batch
 
         public override string ToString() => _value;
     }
+
+    /// <summary>
+    /// Whether preemption is enabled within the quota share.
+    /// </summary>
+    [EnumType]
+    public readonly struct QuotaSharePreemptionConfigurationInSharePreemption : IEquatable<QuotaSharePreemptionConfigurationInSharePreemption>
+    {
+        private readonly string _value;
+
+        private QuotaSharePreemptionConfigurationInSharePreemption(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static QuotaSharePreemptionConfigurationInSharePreemption Enabled { get; } = new QuotaSharePreemptionConfigurationInSharePreemption("ENABLED");
+        public static QuotaSharePreemptionConfigurationInSharePreemption Disabled { get; } = new QuotaSharePreemptionConfigurationInSharePreemption("DISABLED");
+
+        public static bool operator ==(QuotaSharePreemptionConfigurationInSharePreemption left, QuotaSharePreemptionConfigurationInSharePreemption right) => left.Equals(right);
+        public static bool operator !=(QuotaSharePreemptionConfigurationInSharePreemption left, QuotaSharePreemptionConfigurationInSharePreemption right) => !left.Equals(right);
+
+        public static explicit operator string(QuotaSharePreemptionConfigurationInSharePreemption value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is QuotaSharePreemptionConfigurationInSharePreemption other && Equals(other);
+        public bool Equals(QuotaSharePreemptionConfigurationInSharePreemption other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The resource sharing strategy.
+    /// </summary>
+    [EnumType]
+    public readonly struct QuotaShareResourceSharingConfigurationStrategy : IEquatable<QuotaShareResourceSharingConfigurationStrategy>
+    {
+        private readonly string _value;
+
+        private QuotaShareResourceSharingConfigurationStrategy(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static QuotaShareResourceSharingConfigurationStrategy Reserve { get; } = new QuotaShareResourceSharingConfigurationStrategy("RESERVE");
+        public static QuotaShareResourceSharingConfigurationStrategy Lend { get; } = new QuotaShareResourceSharingConfigurationStrategy("LEND");
+        public static QuotaShareResourceSharingConfigurationStrategy LendAndBorrow { get; } = new QuotaShareResourceSharingConfigurationStrategy("LEND_AND_BORROW");
+
+        public static bool operator ==(QuotaShareResourceSharingConfigurationStrategy left, QuotaShareResourceSharingConfigurationStrategy right) => left.Equals(right);
+        public static bool operator !=(QuotaShareResourceSharingConfigurationStrategy left, QuotaShareResourceSharingConfigurationStrategy right) => !left.Equals(right);
+
+        public static explicit operator string(QuotaShareResourceSharingConfigurationStrategy value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is QuotaShareResourceSharingConfigurationStrategy other && Equals(other);
+        public bool Equals(QuotaShareResourceSharingConfigurationStrategy other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The state of the quota share.
+    /// </summary>
+    [EnumType]
+    public readonly struct QuotaShareState : IEquatable<QuotaShareState>
+    {
+        private readonly string _value;
+
+        private QuotaShareState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static QuotaShareState Enabled { get; } = new QuotaShareState("ENABLED");
+        public static QuotaShareState Disabled { get; } = new QuotaShareState("DISABLED");
+
+        public static bool operator ==(QuotaShareState left, QuotaShareState right) => left.Equals(right);
+        public static bool operator !=(QuotaShareState left, QuotaShareState right) => !left.Equals(right);
+
+        public static explicit operator string(QuotaShareState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is QuotaShareState other && Equals(other);
+        public bool Equals(QuotaShareState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct SchedulingPolicyQuotaSharePolicyIdleResourceAssignmentStrategy : IEquatable<SchedulingPolicyQuotaSharePolicyIdleResourceAssignmentStrategy>
+    {
+        private readonly string _value;
+
+        private SchedulingPolicyQuotaSharePolicyIdleResourceAssignmentStrategy(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SchedulingPolicyQuotaSharePolicyIdleResourceAssignmentStrategy Fifo { get; } = new SchedulingPolicyQuotaSharePolicyIdleResourceAssignmentStrategy("FIFO");
+
+        public static bool operator ==(SchedulingPolicyQuotaSharePolicyIdleResourceAssignmentStrategy left, SchedulingPolicyQuotaSharePolicyIdleResourceAssignmentStrategy right) => left.Equals(right);
+        public static bool operator !=(SchedulingPolicyQuotaSharePolicyIdleResourceAssignmentStrategy left, SchedulingPolicyQuotaSharePolicyIdleResourceAssignmentStrategy right) => !left.Equals(right);
+
+        public static explicit operator string(SchedulingPolicyQuotaSharePolicyIdleResourceAssignmentStrategy value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SchedulingPolicyQuotaSharePolicyIdleResourceAssignmentStrategy other && Equals(other);
+        public bool Equals(SchedulingPolicyQuotaSharePolicyIdleResourceAssignmentStrategy other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
 }

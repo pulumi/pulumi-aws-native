@@ -10,6 +10,728 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Allows third-party engines to access data in Amazon S3 locations that are registered with Lake Formation.
+type CatalogAllowFullTableExternalDataAccess string
+
+const (
+	CatalogAllowFullTableExternalDataAccessTrue  = CatalogAllowFullTableExternalDataAccess("True")
+	CatalogAllowFullTableExternalDataAccessFalse = CatalogAllowFullTableExternalDataAccess("False")
+)
+
+func (CatalogAllowFullTableExternalDataAccess) ElementType() reflect.Type {
+	return reflect.TypeOf((*CatalogAllowFullTableExternalDataAccess)(nil)).Elem()
+}
+
+func (e CatalogAllowFullTableExternalDataAccess) ToCatalogAllowFullTableExternalDataAccessOutput() CatalogAllowFullTableExternalDataAccessOutput {
+	return pulumi.ToOutput(e).(CatalogAllowFullTableExternalDataAccessOutput)
+}
+
+func (e CatalogAllowFullTableExternalDataAccess) ToCatalogAllowFullTableExternalDataAccessOutputWithContext(ctx context.Context) CatalogAllowFullTableExternalDataAccessOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(CatalogAllowFullTableExternalDataAccessOutput)
+}
+
+func (e CatalogAllowFullTableExternalDataAccess) ToCatalogAllowFullTableExternalDataAccessPtrOutput() CatalogAllowFullTableExternalDataAccessPtrOutput {
+	return e.ToCatalogAllowFullTableExternalDataAccessPtrOutputWithContext(context.Background())
+}
+
+func (e CatalogAllowFullTableExternalDataAccess) ToCatalogAllowFullTableExternalDataAccessPtrOutputWithContext(ctx context.Context) CatalogAllowFullTableExternalDataAccessPtrOutput {
+	return CatalogAllowFullTableExternalDataAccess(e).ToCatalogAllowFullTableExternalDataAccessOutputWithContext(ctx).ToCatalogAllowFullTableExternalDataAccessPtrOutputWithContext(ctx)
+}
+
+func (e CatalogAllowFullTableExternalDataAccess) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e CatalogAllowFullTableExternalDataAccess) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e CatalogAllowFullTableExternalDataAccess) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e CatalogAllowFullTableExternalDataAccess) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type CatalogAllowFullTableExternalDataAccessOutput struct{ *pulumi.OutputState }
+
+func (CatalogAllowFullTableExternalDataAccessOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CatalogAllowFullTableExternalDataAccess)(nil)).Elem()
+}
+
+func (o CatalogAllowFullTableExternalDataAccessOutput) ToCatalogAllowFullTableExternalDataAccessOutput() CatalogAllowFullTableExternalDataAccessOutput {
+	return o
+}
+
+func (o CatalogAllowFullTableExternalDataAccessOutput) ToCatalogAllowFullTableExternalDataAccessOutputWithContext(ctx context.Context) CatalogAllowFullTableExternalDataAccessOutput {
+	return o
+}
+
+func (o CatalogAllowFullTableExternalDataAccessOutput) ToCatalogAllowFullTableExternalDataAccessPtrOutput() CatalogAllowFullTableExternalDataAccessPtrOutput {
+	return o.ToCatalogAllowFullTableExternalDataAccessPtrOutputWithContext(context.Background())
+}
+
+func (o CatalogAllowFullTableExternalDataAccessOutput) ToCatalogAllowFullTableExternalDataAccessPtrOutputWithContext(ctx context.Context) CatalogAllowFullTableExternalDataAccessPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CatalogAllowFullTableExternalDataAccess) *CatalogAllowFullTableExternalDataAccess {
+		return &v
+	}).(CatalogAllowFullTableExternalDataAccessPtrOutput)
+}
+
+func (o CatalogAllowFullTableExternalDataAccessOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o CatalogAllowFullTableExternalDataAccessOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CatalogAllowFullTableExternalDataAccess) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o CatalogAllowFullTableExternalDataAccessOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CatalogAllowFullTableExternalDataAccessOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CatalogAllowFullTableExternalDataAccess) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type CatalogAllowFullTableExternalDataAccessPtrOutput struct{ *pulumi.OutputState }
+
+func (CatalogAllowFullTableExternalDataAccessPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CatalogAllowFullTableExternalDataAccess)(nil)).Elem()
+}
+
+func (o CatalogAllowFullTableExternalDataAccessPtrOutput) ToCatalogAllowFullTableExternalDataAccessPtrOutput() CatalogAllowFullTableExternalDataAccessPtrOutput {
+	return o
+}
+
+func (o CatalogAllowFullTableExternalDataAccessPtrOutput) ToCatalogAllowFullTableExternalDataAccessPtrOutputWithContext(ctx context.Context) CatalogAllowFullTableExternalDataAccessPtrOutput {
+	return o
+}
+
+func (o CatalogAllowFullTableExternalDataAccessPtrOutput) Elem() CatalogAllowFullTableExternalDataAccessOutput {
+	return o.ApplyT(func(v *CatalogAllowFullTableExternalDataAccess) CatalogAllowFullTableExternalDataAccess {
+		if v != nil {
+			return *v
+		}
+		var ret CatalogAllowFullTableExternalDataAccess
+		return ret
+	}).(CatalogAllowFullTableExternalDataAccessOutput)
+}
+
+func (o CatalogAllowFullTableExternalDataAccessPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CatalogAllowFullTableExternalDataAccessPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *CatalogAllowFullTableExternalDataAccess) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// CatalogAllowFullTableExternalDataAccessInput is an input type that accepts values of the CatalogAllowFullTableExternalDataAccess enum
+// A concrete instance of `CatalogAllowFullTableExternalDataAccessInput` can be one of the following:
+//
+//	CatalogAllowFullTableExternalDataAccessTrue
+//	CatalogAllowFullTableExternalDataAccessFalse
+type CatalogAllowFullTableExternalDataAccessInput interface {
+	pulumi.Input
+
+	ToCatalogAllowFullTableExternalDataAccessOutput() CatalogAllowFullTableExternalDataAccessOutput
+	ToCatalogAllowFullTableExternalDataAccessOutputWithContext(context.Context) CatalogAllowFullTableExternalDataAccessOutput
+}
+
+var catalogAllowFullTableExternalDataAccessPtrType = reflect.TypeOf((**CatalogAllowFullTableExternalDataAccess)(nil)).Elem()
+
+type CatalogAllowFullTableExternalDataAccessPtrInput interface {
+	pulumi.Input
+
+	ToCatalogAllowFullTableExternalDataAccessPtrOutput() CatalogAllowFullTableExternalDataAccessPtrOutput
+	ToCatalogAllowFullTableExternalDataAccessPtrOutputWithContext(context.Context) CatalogAllowFullTableExternalDataAccessPtrOutput
+}
+
+type catalogAllowFullTableExternalDataAccessPtr string
+
+func CatalogAllowFullTableExternalDataAccessPtr(v string) CatalogAllowFullTableExternalDataAccessPtrInput {
+	return (*catalogAllowFullTableExternalDataAccessPtr)(&v)
+}
+
+func (*catalogAllowFullTableExternalDataAccessPtr) ElementType() reflect.Type {
+	return catalogAllowFullTableExternalDataAccessPtrType
+}
+
+func (in *catalogAllowFullTableExternalDataAccessPtr) ToCatalogAllowFullTableExternalDataAccessPtrOutput() CatalogAllowFullTableExternalDataAccessPtrOutput {
+	return pulumi.ToOutput(in).(CatalogAllowFullTableExternalDataAccessPtrOutput)
+}
+
+func (in *catalogAllowFullTableExternalDataAccessPtr) ToCatalogAllowFullTableExternalDataAccessPtrOutputWithContext(ctx context.Context) CatalogAllowFullTableExternalDataAccessPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(CatalogAllowFullTableExternalDataAccessPtrOutput)
+}
+
+// Allows third-party engines to access data in Amazon S3 locations that are registered with Lake Formation.
+type CatalogDataLakeAccessPropertiesAllowFullTableExternalDataAccess string
+
+const (
+	CatalogDataLakeAccessPropertiesAllowFullTableExternalDataAccessTrue  = CatalogDataLakeAccessPropertiesAllowFullTableExternalDataAccess("True")
+	CatalogDataLakeAccessPropertiesAllowFullTableExternalDataAccessFalse = CatalogDataLakeAccessPropertiesAllowFullTableExternalDataAccess("False")
+)
+
+func (CatalogDataLakeAccessPropertiesAllowFullTableExternalDataAccess) ElementType() reflect.Type {
+	return reflect.TypeOf((*CatalogDataLakeAccessPropertiesAllowFullTableExternalDataAccess)(nil)).Elem()
+}
+
+func (e CatalogDataLakeAccessPropertiesAllowFullTableExternalDataAccess) ToCatalogDataLakeAccessPropertiesAllowFullTableExternalDataAccessOutput() CatalogDataLakeAccessPropertiesAllowFullTableExternalDataAccessOutput {
+	return pulumi.ToOutput(e).(CatalogDataLakeAccessPropertiesAllowFullTableExternalDataAccessOutput)
+}
+
+func (e CatalogDataLakeAccessPropertiesAllowFullTableExternalDataAccess) ToCatalogDataLakeAccessPropertiesAllowFullTableExternalDataAccessOutputWithContext(ctx context.Context) CatalogDataLakeAccessPropertiesAllowFullTableExternalDataAccessOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(CatalogDataLakeAccessPropertiesAllowFullTableExternalDataAccessOutput)
+}
+
+func (e CatalogDataLakeAccessPropertiesAllowFullTableExternalDataAccess) ToCatalogDataLakeAccessPropertiesAllowFullTableExternalDataAccessPtrOutput() CatalogDataLakeAccessPropertiesAllowFullTableExternalDataAccessPtrOutput {
+	return e.ToCatalogDataLakeAccessPropertiesAllowFullTableExternalDataAccessPtrOutputWithContext(context.Background())
+}
+
+func (e CatalogDataLakeAccessPropertiesAllowFullTableExternalDataAccess) ToCatalogDataLakeAccessPropertiesAllowFullTableExternalDataAccessPtrOutputWithContext(ctx context.Context) CatalogDataLakeAccessPropertiesAllowFullTableExternalDataAccessPtrOutput {
+	return CatalogDataLakeAccessPropertiesAllowFullTableExternalDataAccess(e).ToCatalogDataLakeAccessPropertiesAllowFullTableExternalDataAccessOutputWithContext(ctx).ToCatalogDataLakeAccessPropertiesAllowFullTableExternalDataAccessPtrOutputWithContext(ctx)
+}
+
+func (e CatalogDataLakeAccessPropertiesAllowFullTableExternalDataAccess) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e CatalogDataLakeAccessPropertiesAllowFullTableExternalDataAccess) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e CatalogDataLakeAccessPropertiesAllowFullTableExternalDataAccess) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e CatalogDataLakeAccessPropertiesAllowFullTableExternalDataAccess) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type CatalogDataLakeAccessPropertiesAllowFullTableExternalDataAccessOutput struct{ *pulumi.OutputState }
+
+func (CatalogDataLakeAccessPropertiesAllowFullTableExternalDataAccessOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CatalogDataLakeAccessPropertiesAllowFullTableExternalDataAccess)(nil)).Elem()
+}
+
+func (o CatalogDataLakeAccessPropertiesAllowFullTableExternalDataAccessOutput) ToCatalogDataLakeAccessPropertiesAllowFullTableExternalDataAccessOutput() CatalogDataLakeAccessPropertiesAllowFullTableExternalDataAccessOutput {
+	return o
+}
+
+func (o CatalogDataLakeAccessPropertiesAllowFullTableExternalDataAccessOutput) ToCatalogDataLakeAccessPropertiesAllowFullTableExternalDataAccessOutputWithContext(ctx context.Context) CatalogDataLakeAccessPropertiesAllowFullTableExternalDataAccessOutput {
+	return o
+}
+
+func (o CatalogDataLakeAccessPropertiesAllowFullTableExternalDataAccessOutput) ToCatalogDataLakeAccessPropertiesAllowFullTableExternalDataAccessPtrOutput() CatalogDataLakeAccessPropertiesAllowFullTableExternalDataAccessPtrOutput {
+	return o.ToCatalogDataLakeAccessPropertiesAllowFullTableExternalDataAccessPtrOutputWithContext(context.Background())
+}
+
+func (o CatalogDataLakeAccessPropertiesAllowFullTableExternalDataAccessOutput) ToCatalogDataLakeAccessPropertiesAllowFullTableExternalDataAccessPtrOutputWithContext(ctx context.Context) CatalogDataLakeAccessPropertiesAllowFullTableExternalDataAccessPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CatalogDataLakeAccessPropertiesAllowFullTableExternalDataAccess) *CatalogDataLakeAccessPropertiesAllowFullTableExternalDataAccess {
+		return &v
+	}).(CatalogDataLakeAccessPropertiesAllowFullTableExternalDataAccessPtrOutput)
+}
+
+func (o CatalogDataLakeAccessPropertiesAllowFullTableExternalDataAccessOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o CatalogDataLakeAccessPropertiesAllowFullTableExternalDataAccessOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CatalogDataLakeAccessPropertiesAllowFullTableExternalDataAccess) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o CatalogDataLakeAccessPropertiesAllowFullTableExternalDataAccessOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CatalogDataLakeAccessPropertiesAllowFullTableExternalDataAccessOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CatalogDataLakeAccessPropertiesAllowFullTableExternalDataAccess) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type CatalogDataLakeAccessPropertiesAllowFullTableExternalDataAccessPtrOutput struct{ *pulumi.OutputState }
+
+func (CatalogDataLakeAccessPropertiesAllowFullTableExternalDataAccessPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CatalogDataLakeAccessPropertiesAllowFullTableExternalDataAccess)(nil)).Elem()
+}
+
+func (o CatalogDataLakeAccessPropertiesAllowFullTableExternalDataAccessPtrOutput) ToCatalogDataLakeAccessPropertiesAllowFullTableExternalDataAccessPtrOutput() CatalogDataLakeAccessPropertiesAllowFullTableExternalDataAccessPtrOutput {
+	return o
+}
+
+func (o CatalogDataLakeAccessPropertiesAllowFullTableExternalDataAccessPtrOutput) ToCatalogDataLakeAccessPropertiesAllowFullTableExternalDataAccessPtrOutputWithContext(ctx context.Context) CatalogDataLakeAccessPropertiesAllowFullTableExternalDataAccessPtrOutput {
+	return o
+}
+
+func (o CatalogDataLakeAccessPropertiesAllowFullTableExternalDataAccessPtrOutput) Elem() CatalogDataLakeAccessPropertiesAllowFullTableExternalDataAccessOutput {
+	return o.ApplyT(func(v *CatalogDataLakeAccessPropertiesAllowFullTableExternalDataAccess) CatalogDataLakeAccessPropertiesAllowFullTableExternalDataAccess {
+		if v != nil {
+			return *v
+		}
+		var ret CatalogDataLakeAccessPropertiesAllowFullTableExternalDataAccess
+		return ret
+	}).(CatalogDataLakeAccessPropertiesAllowFullTableExternalDataAccessOutput)
+}
+
+func (o CatalogDataLakeAccessPropertiesAllowFullTableExternalDataAccessPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CatalogDataLakeAccessPropertiesAllowFullTableExternalDataAccessPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *CatalogDataLakeAccessPropertiesAllowFullTableExternalDataAccess) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// CatalogDataLakeAccessPropertiesAllowFullTableExternalDataAccessInput is an input type that accepts values of the CatalogDataLakeAccessPropertiesAllowFullTableExternalDataAccess enum
+// A concrete instance of `CatalogDataLakeAccessPropertiesAllowFullTableExternalDataAccessInput` can be one of the following:
+//
+//	CatalogDataLakeAccessPropertiesAllowFullTableExternalDataAccessTrue
+//	CatalogDataLakeAccessPropertiesAllowFullTableExternalDataAccessFalse
+type CatalogDataLakeAccessPropertiesAllowFullTableExternalDataAccessInput interface {
+	pulumi.Input
+
+	ToCatalogDataLakeAccessPropertiesAllowFullTableExternalDataAccessOutput() CatalogDataLakeAccessPropertiesAllowFullTableExternalDataAccessOutput
+	ToCatalogDataLakeAccessPropertiesAllowFullTableExternalDataAccessOutputWithContext(context.Context) CatalogDataLakeAccessPropertiesAllowFullTableExternalDataAccessOutput
+}
+
+var catalogDataLakeAccessPropertiesAllowFullTableExternalDataAccessPtrType = reflect.TypeOf((**CatalogDataLakeAccessPropertiesAllowFullTableExternalDataAccess)(nil)).Elem()
+
+type CatalogDataLakeAccessPropertiesAllowFullTableExternalDataAccessPtrInput interface {
+	pulumi.Input
+
+	ToCatalogDataLakeAccessPropertiesAllowFullTableExternalDataAccessPtrOutput() CatalogDataLakeAccessPropertiesAllowFullTableExternalDataAccessPtrOutput
+	ToCatalogDataLakeAccessPropertiesAllowFullTableExternalDataAccessPtrOutputWithContext(context.Context) CatalogDataLakeAccessPropertiesAllowFullTableExternalDataAccessPtrOutput
+}
+
+type catalogDataLakeAccessPropertiesAllowFullTableExternalDataAccessPtr string
+
+func CatalogDataLakeAccessPropertiesAllowFullTableExternalDataAccessPtr(v string) CatalogDataLakeAccessPropertiesAllowFullTableExternalDataAccessPtrInput {
+	return (*catalogDataLakeAccessPropertiesAllowFullTableExternalDataAccessPtr)(&v)
+}
+
+func (*catalogDataLakeAccessPropertiesAllowFullTableExternalDataAccessPtr) ElementType() reflect.Type {
+	return catalogDataLakeAccessPropertiesAllowFullTableExternalDataAccessPtrType
+}
+
+func (in *catalogDataLakeAccessPropertiesAllowFullTableExternalDataAccessPtr) ToCatalogDataLakeAccessPropertiesAllowFullTableExternalDataAccessPtrOutput() CatalogDataLakeAccessPropertiesAllowFullTableExternalDataAccessPtrOutput {
+	return pulumi.ToOutput(in).(CatalogDataLakeAccessPropertiesAllowFullTableExternalDataAccessPtrOutput)
+}
+
+func (in *catalogDataLakeAccessPropertiesAllowFullTableExternalDataAccessPtr) ToCatalogDataLakeAccessPropertiesAllowFullTableExternalDataAccessPtrOutputWithContext(ctx context.Context) CatalogDataLakeAccessPropertiesAllowFullTableExternalDataAccessPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(CatalogDataLakeAccessPropertiesAllowFullTableExternalDataAccessPtrOutput)
+}
+
+// Specifies whether to overwrite child resource permissions with the default permissions.
+type CatalogOverwriteChildResourcePermissionsWithDefault string
+
+const (
+	CatalogOverwriteChildResourcePermissionsWithDefaultAccept = CatalogOverwriteChildResourcePermissionsWithDefault("Accept")
+	CatalogOverwriteChildResourcePermissionsWithDefaultDeny   = CatalogOverwriteChildResourcePermissionsWithDefault("Deny")
+)
+
+func (CatalogOverwriteChildResourcePermissionsWithDefault) ElementType() reflect.Type {
+	return reflect.TypeOf((*CatalogOverwriteChildResourcePermissionsWithDefault)(nil)).Elem()
+}
+
+func (e CatalogOverwriteChildResourcePermissionsWithDefault) ToCatalogOverwriteChildResourcePermissionsWithDefaultOutput() CatalogOverwriteChildResourcePermissionsWithDefaultOutput {
+	return pulumi.ToOutput(e).(CatalogOverwriteChildResourcePermissionsWithDefaultOutput)
+}
+
+func (e CatalogOverwriteChildResourcePermissionsWithDefault) ToCatalogOverwriteChildResourcePermissionsWithDefaultOutputWithContext(ctx context.Context) CatalogOverwriteChildResourcePermissionsWithDefaultOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(CatalogOverwriteChildResourcePermissionsWithDefaultOutput)
+}
+
+func (e CatalogOverwriteChildResourcePermissionsWithDefault) ToCatalogOverwriteChildResourcePermissionsWithDefaultPtrOutput() CatalogOverwriteChildResourcePermissionsWithDefaultPtrOutput {
+	return e.ToCatalogOverwriteChildResourcePermissionsWithDefaultPtrOutputWithContext(context.Background())
+}
+
+func (e CatalogOverwriteChildResourcePermissionsWithDefault) ToCatalogOverwriteChildResourcePermissionsWithDefaultPtrOutputWithContext(ctx context.Context) CatalogOverwriteChildResourcePermissionsWithDefaultPtrOutput {
+	return CatalogOverwriteChildResourcePermissionsWithDefault(e).ToCatalogOverwriteChildResourcePermissionsWithDefaultOutputWithContext(ctx).ToCatalogOverwriteChildResourcePermissionsWithDefaultPtrOutputWithContext(ctx)
+}
+
+func (e CatalogOverwriteChildResourcePermissionsWithDefault) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e CatalogOverwriteChildResourcePermissionsWithDefault) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e CatalogOverwriteChildResourcePermissionsWithDefault) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e CatalogOverwriteChildResourcePermissionsWithDefault) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type CatalogOverwriteChildResourcePermissionsWithDefaultOutput struct{ *pulumi.OutputState }
+
+func (CatalogOverwriteChildResourcePermissionsWithDefaultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CatalogOverwriteChildResourcePermissionsWithDefault)(nil)).Elem()
+}
+
+func (o CatalogOverwriteChildResourcePermissionsWithDefaultOutput) ToCatalogOverwriteChildResourcePermissionsWithDefaultOutput() CatalogOverwriteChildResourcePermissionsWithDefaultOutput {
+	return o
+}
+
+func (o CatalogOverwriteChildResourcePermissionsWithDefaultOutput) ToCatalogOverwriteChildResourcePermissionsWithDefaultOutputWithContext(ctx context.Context) CatalogOverwriteChildResourcePermissionsWithDefaultOutput {
+	return o
+}
+
+func (o CatalogOverwriteChildResourcePermissionsWithDefaultOutput) ToCatalogOverwriteChildResourcePermissionsWithDefaultPtrOutput() CatalogOverwriteChildResourcePermissionsWithDefaultPtrOutput {
+	return o.ToCatalogOverwriteChildResourcePermissionsWithDefaultPtrOutputWithContext(context.Background())
+}
+
+func (o CatalogOverwriteChildResourcePermissionsWithDefaultOutput) ToCatalogOverwriteChildResourcePermissionsWithDefaultPtrOutputWithContext(ctx context.Context) CatalogOverwriteChildResourcePermissionsWithDefaultPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CatalogOverwriteChildResourcePermissionsWithDefault) *CatalogOverwriteChildResourcePermissionsWithDefault {
+		return &v
+	}).(CatalogOverwriteChildResourcePermissionsWithDefaultPtrOutput)
+}
+
+func (o CatalogOverwriteChildResourcePermissionsWithDefaultOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o CatalogOverwriteChildResourcePermissionsWithDefaultOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CatalogOverwriteChildResourcePermissionsWithDefault) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o CatalogOverwriteChildResourcePermissionsWithDefaultOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CatalogOverwriteChildResourcePermissionsWithDefaultOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CatalogOverwriteChildResourcePermissionsWithDefault) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type CatalogOverwriteChildResourcePermissionsWithDefaultPtrOutput struct{ *pulumi.OutputState }
+
+func (CatalogOverwriteChildResourcePermissionsWithDefaultPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CatalogOverwriteChildResourcePermissionsWithDefault)(nil)).Elem()
+}
+
+func (o CatalogOverwriteChildResourcePermissionsWithDefaultPtrOutput) ToCatalogOverwriteChildResourcePermissionsWithDefaultPtrOutput() CatalogOverwriteChildResourcePermissionsWithDefaultPtrOutput {
+	return o
+}
+
+func (o CatalogOverwriteChildResourcePermissionsWithDefaultPtrOutput) ToCatalogOverwriteChildResourcePermissionsWithDefaultPtrOutputWithContext(ctx context.Context) CatalogOverwriteChildResourcePermissionsWithDefaultPtrOutput {
+	return o
+}
+
+func (o CatalogOverwriteChildResourcePermissionsWithDefaultPtrOutput) Elem() CatalogOverwriteChildResourcePermissionsWithDefaultOutput {
+	return o.ApplyT(func(v *CatalogOverwriteChildResourcePermissionsWithDefault) CatalogOverwriteChildResourcePermissionsWithDefault {
+		if v != nil {
+			return *v
+		}
+		var ret CatalogOverwriteChildResourcePermissionsWithDefault
+		return ret
+	}).(CatalogOverwriteChildResourcePermissionsWithDefaultOutput)
+}
+
+func (o CatalogOverwriteChildResourcePermissionsWithDefaultPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CatalogOverwriteChildResourcePermissionsWithDefaultPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *CatalogOverwriteChildResourcePermissionsWithDefault) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// CatalogOverwriteChildResourcePermissionsWithDefaultInput is an input type that accepts values of the CatalogOverwriteChildResourcePermissionsWithDefault enum
+// A concrete instance of `CatalogOverwriteChildResourcePermissionsWithDefaultInput` can be one of the following:
+//
+//	CatalogOverwriteChildResourcePermissionsWithDefaultAccept
+//	CatalogOverwriteChildResourcePermissionsWithDefaultDeny
+type CatalogOverwriteChildResourcePermissionsWithDefaultInput interface {
+	pulumi.Input
+
+	ToCatalogOverwriteChildResourcePermissionsWithDefaultOutput() CatalogOverwriteChildResourcePermissionsWithDefaultOutput
+	ToCatalogOverwriteChildResourcePermissionsWithDefaultOutputWithContext(context.Context) CatalogOverwriteChildResourcePermissionsWithDefaultOutput
+}
+
+var catalogOverwriteChildResourcePermissionsWithDefaultPtrType = reflect.TypeOf((**CatalogOverwriteChildResourcePermissionsWithDefault)(nil)).Elem()
+
+type CatalogOverwriteChildResourcePermissionsWithDefaultPtrInput interface {
+	pulumi.Input
+
+	ToCatalogOverwriteChildResourcePermissionsWithDefaultPtrOutput() CatalogOverwriteChildResourcePermissionsWithDefaultPtrOutput
+	ToCatalogOverwriteChildResourcePermissionsWithDefaultPtrOutputWithContext(context.Context) CatalogOverwriteChildResourcePermissionsWithDefaultPtrOutput
+}
+
+type catalogOverwriteChildResourcePermissionsWithDefaultPtr string
+
+func CatalogOverwriteChildResourcePermissionsWithDefaultPtr(v string) CatalogOverwriteChildResourcePermissionsWithDefaultPtrInput {
+	return (*catalogOverwriteChildResourcePermissionsWithDefaultPtr)(&v)
+}
+
+func (*catalogOverwriteChildResourcePermissionsWithDefaultPtr) ElementType() reflect.Type {
+	return catalogOverwriteChildResourcePermissionsWithDefaultPtrType
+}
+
+func (in *catalogOverwriteChildResourcePermissionsWithDefaultPtr) ToCatalogOverwriteChildResourcePermissionsWithDefaultPtrOutput() CatalogOverwriteChildResourcePermissionsWithDefaultPtrOutput {
+	return pulumi.ToOutput(in).(CatalogOverwriteChildResourcePermissionsWithDefaultPtrOutput)
+}
+
+func (in *catalogOverwriteChildResourcePermissionsWithDefaultPtr) ToCatalogOverwriteChildResourcePermissionsWithDefaultPtrOutputWithContext(ctx context.Context) CatalogOverwriteChildResourcePermissionsWithDefaultPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(CatalogOverwriteChildResourcePermissionsWithDefaultPtrOutput)
+}
+
+type CatalogPrincipalPermissionsPermissionsItem string
+
+const (
+	CatalogPrincipalPermissionsPermissionsItemAll                = CatalogPrincipalPermissionsPermissionsItem("ALL")
+	CatalogPrincipalPermissionsPermissionsItemSelect             = CatalogPrincipalPermissionsPermissionsItem("SELECT")
+	CatalogPrincipalPermissionsPermissionsItemAlter              = CatalogPrincipalPermissionsPermissionsItem("ALTER")
+	CatalogPrincipalPermissionsPermissionsItemDrop               = CatalogPrincipalPermissionsPermissionsItem("DROP")
+	CatalogPrincipalPermissionsPermissionsItemDelete             = CatalogPrincipalPermissionsPermissionsItem("DELETE")
+	CatalogPrincipalPermissionsPermissionsItemInsert             = CatalogPrincipalPermissionsPermissionsItem("INSERT")
+	CatalogPrincipalPermissionsPermissionsItemCreateDatabase     = CatalogPrincipalPermissionsPermissionsItem("CREATE_DATABASE")
+	CatalogPrincipalPermissionsPermissionsItemCreateTable        = CatalogPrincipalPermissionsPermissionsItem("CREATE_TABLE")
+	CatalogPrincipalPermissionsPermissionsItemDataLocationAccess = CatalogPrincipalPermissionsPermissionsItem("DATA_LOCATION_ACCESS")
+)
+
+func (CatalogPrincipalPermissionsPermissionsItem) ElementType() reflect.Type {
+	return reflect.TypeOf((*CatalogPrincipalPermissionsPermissionsItem)(nil)).Elem()
+}
+
+func (e CatalogPrincipalPermissionsPermissionsItem) ToCatalogPrincipalPermissionsPermissionsItemOutput() CatalogPrincipalPermissionsPermissionsItemOutput {
+	return pulumi.ToOutput(e).(CatalogPrincipalPermissionsPermissionsItemOutput)
+}
+
+func (e CatalogPrincipalPermissionsPermissionsItem) ToCatalogPrincipalPermissionsPermissionsItemOutputWithContext(ctx context.Context) CatalogPrincipalPermissionsPermissionsItemOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(CatalogPrincipalPermissionsPermissionsItemOutput)
+}
+
+func (e CatalogPrincipalPermissionsPermissionsItem) ToCatalogPrincipalPermissionsPermissionsItemPtrOutput() CatalogPrincipalPermissionsPermissionsItemPtrOutput {
+	return e.ToCatalogPrincipalPermissionsPermissionsItemPtrOutputWithContext(context.Background())
+}
+
+func (e CatalogPrincipalPermissionsPermissionsItem) ToCatalogPrincipalPermissionsPermissionsItemPtrOutputWithContext(ctx context.Context) CatalogPrincipalPermissionsPermissionsItemPtrOutput {
+	return CatalogPrincipalPermissionsPermissionsItem(e).ToCatalogPrincipalPermissionsPermissionsItemOutputWithContext(ctx).ToCatalogPrincipalPermissionsPermissionsItemPtrOutputWithContext(ctx)
+}
+
+func (e CatalogPrincipalPermissionsPermissionsItem) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e CatalogPrincipalPermissionsPermissionsItem) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e CatalogPrincipalPermissionsPermissionsItem) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e CatalogPrincipalPermissionsPermissionsItem) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type CatalogPrincipalPermissionsPermissionsItemOutput struct{ *pulumi.OutputState }
+
+func (CatalogPrincipalPermissionsPermissionsItemOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CatalogPrincipalPermissionsPermissionsItem)(nil)).Elem()
+}
+
+func (o CatalogPrincipalPermissionsPermissionsItemOutput) ToCatalogPrincipalPermissionsPermissionsItemOutput() CatalogPrincipalPermissionsPermissionsItemOutput {
+	return o
+}
+
+func (o CatalogPrincipalPermissionsPermissionsItemOutput) ToCatalogPrincipalPermissionsPermissionsItemOutputWithContext(ctx context.Context) CatalogPrincipalPermissionsPermissionsItemOutput {
+	return o
+}
+
+func (o CatalogPrincipalPermissionsPermissionsItemOutput) ToCatalogPrincipalPermissionsPermissionsItemPtrOutput() CatalogPrincipalPermissionsPermissionsItemPtrOutput {
+	return o.ToCatalogPrincipalPermissionsPermissionsItemPtrOutputWithContext(context.Background())
+}
+
+func (o CatalogPrincipalPermissionsPermissionsItemOutput) ToCatalogPrincipalPermissionsPermissionsItemPtrOutputWithContext(ctx context.Context) CatalogPrincipalPermissionsPermissionsItemPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CatalogPrincipalPermissionsPermissionsItem) *CatalogPrincipalPermissionsPermissionsItem {
+		return &v
+	}).(CatalogPrincipalPermissionsPermissionsItemPtrOutput)
+}
+
+func (o CatalogPrincipalPermissionsPermissionsItemOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o CatalogPrincipalPermissionsPermissionsItemOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CatalogPrincipalPermissionsPermissionsItem) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o CatalogPrincipalPermissionsPermissionsItemOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CatalogPrincipalPermissionsPermissionsItemOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CatalogPrincipalPermissionsPermissionsItem) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type CatalogPrincipalPermissionsPermissionsItemPtrOutput struct{ *pulumi.OutputState }
+
+func (CatalogPrincipalPermissionsPermissionsItemPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CatalogPrincipalPermissionsPermissionsItem)(nil)).Elem()
+}
+
+func (o CatalogPrincipalPermissionsPermissionsItemPtrOutput) ToCatalogPrincipalPermissionsPermissionsItemPtrOutput() CatalogPrincipalPermissionsPermissionsItemPtrOutput {
+	return o
+}
+
+func (o CatalogPrincipalPermissionsPermissionsItemPtrOutput) ToCatalogPrincipalPermissionsPermissionsItemPtrOutputWithContext(ctx context.Context) CatalogPrincipalPermissionsPermissionsItemPtrOutput {
+	return o
+}
+
+func (o CatalogPrincipalPermissionsPermissionsItemPtrOutput) Elem() CatalogPrincipalPermissionsPermissionsItemOutput {
+	return o.ApplyT(func(v *CatalogPrincipalPermissionsPermissionsItem) CatalogPrincipalPermissionsPermissionsItem {
+		if v != nil {
+			return *v
+		}
+		var ret CatalogPrincipalPermissionsPermissionsItem
+		return ret
+	}).(CatalogPrincipalPermissionsPermissionsItemOutput)
+}
+
+func (o CatalogPrincipalPermissionsPermissionsItemPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CatalogPrincipalPermissionsPermissionsItemPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *CatalogPrincipalPermissionsPermissionsItem) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// CatalogPrincipalPermissionsPermissionsItemInput is an input type that accepts values of the CatalogPrincipalPermissionsPermissionsItem enum
+// A concrete instance of `CatalogPrincipalPermissionsPermissionsItemInput` can be one of the following:
+//
+//	CatalogPrincipalPermissionsPermissionsItemAll
+//	CatalogPrincipalPermissionsPermissionsItemSelect
+//	CatalogPrincipalPermissionsPermissionsItemAlter
+//	CatalogPrincipalPermissionsPermissionsItemDrop
+//	CatalogPrincipalPermissionsPermissionsItemDelete
+//	CatalogPrincipalPermissionsPermissionsItemInsert
+//	CatalogPrincipalPermissionsPermissionsItemCreateDatabase
+//	CatalogPrincipalPermissionsPermissionsItemCreateTable
+//	CatalogPrincipalPermissionsPermissionsItemDataLocationAccess
+type CatalogPrincipalPermissionsPermissionsItemInput interface {
+	pulumi.Input
+
+	ToCatalogPrincipalPermissionsPermissionsItemOutput() CatalogPrincipalPermissionsPermissionsItemOutput
+	ToCatalogPrincipalPermissionsPermissionsItemOutputWithContext(context.Context) CatalogPrincipalPermissionsPermissionsItemOutput
+}
+
+var catalogPrincipalPermissionsPermissionsItemPtrType = reflect.TypeOf((**CatalogPrincipalPermissionsPermissionsItem)(nil)).Elem()
+
+type CatalogPrincipalPermissionsPermissionsItemPtrInput interface {
+	pulumi.Input
+
+	ToCatalogPrincipalPermissionsPermissionsItemPtrOutput() CatalogPrincipalPermissionsPermissionsItemPtrOutput
+	ToCatalogPrincipalPermissionsPermissionsItemPtrOutputWithContext(context.Context) CatalogPrincipalPermissionsPermissionsItemPtrOutput
+}
+
+type catalogPrincipalPermissionsPermissionsItemPtr string
+
+func CatalogPrincipalPermissionsPermissionsItemPtr(v string) CatalogPrincipalPermissionsPermissionsItemPtrInput {
+	return (*catalogPrincipalPermissionsPermissionsItemPtr)(&v)
+}
+
+func (*catalogPrincipalPermissionsPermissionsItemPtr) ElementType() reflect.Type {
+	return catalogPrincipalPermissionsPermissionsItemPtrType
+}
+
+func (in *catalogPrincipalPermissionsPermissionsItemPtr) ToCatalogPrincipalPermissionsPermissionsItemPtrOutput() CatalogPrincipalPermissionsPermissionsItemPtrOutput {
+	return pulumi.ToOutput(in).(CatalogPrincipalPermissionsPermissionsItemPtrOutput)
+}
+
+func (in *catalogPrincipalPermissionsPermissionsItemPtr) ToCatalogPrincipalPermissionsPermissionsItemPtrOutputWithContext(ctx context.Context) CatalogPrincipalPermissionsPermissionsItemPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(CatalogPrincipalPermissionsPermissionsItemPtrOutput)
+}
+
+// CatalogPrincipalPermissionsPermissionsItemArrayInput is an input type that accepts CatalogPrincipalPermissionsPermissionsItemArray and CatalogPrincipalPermissionsPermissionsItemArrayOutput values.
+// You can construct a concrete instance of `CatalogPrincipalPermissionsPermissionsItemArrayInput` via:
+//
+//	CatalogPrincipalPermissionsPermissionsItemArray{ CatalogPrincipalPermissionsPermissionsItemArgs{...} }
+type CatalogPrincipalPermissionsPermissionsItemArrayInput interface {
+	pulumi.Input
+
+	ToCatalogPrincipalPermissionsPermissionsItemArrayOutput() CatalogPrincipalPermissionsPermissionsItemArrayOutput
+	ToCatalogPrincipalPermissionsPermissionsItemArrayOutputWithContext(context.Context) CatalogPrincipalPermissionsPermissionsItemArrayOutput
+}
+
+type CatalogPrincipalPermissionsPermissionsItemArray []CatalogPrincipalPermissionsPermissionsItem
+
+func (CatalogPrincipalPermissionsPermissionsItemArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CatalogPrincipalPermissionsPermissionsItem)(nil)).Elem()
+}
+
+func (i CatalogPrincipalPermissionsPermissionsItemArray) ToCatalogPrincipalPermissionsPermissionsItemArrayOutput() CatalogPrincipalPermissionsPermissionsItemArrayOutput {
+	return i.ToCatalogPrincipalPermissionsPermissionsItemArrayOutputWithContext(context.Background())
+}
+
+func (i CatalogPrincipalPermissionsPermissionsItemArray) ToCatalogPrincipalPermissionsPermissionsItemArrayOutputWithContext(ctx context.Context) CatalogPrincipalPermissionsPermissionsItemArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogPrincipalPermissionsPermissionsItemArrayOutput)
+}
+
+type CatalogPrincipalPermissionsPermissionsItemArrayOutput struct{ *pulumi.OutputState }
+
+func (CatalogPrincipalPermissionsPermissionsItemArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CatalogPrincipalPermissionsPermissionsItem)(nil)).Elem()
+}
+
+func (o CatalogPrincipalPermissionsPermissionsItemArrayOutput) ToCatalogPrincipalPermissionsPermissionsItemArrayOutput() CatalogPrincipalPermissionsPermissionsItemArrayOutput {
+	return o
+}
+
+func (o CatalogPrincipalPermissionsPermissionsItemArrayOutput) ToCatalogPrincipalPermissionsPermissionsItemArrayOutputWithContext(ctx context.Context) CatalogPrincipalPermissionsPermissionsItemArrayOutput {
+	return o
+}
+
+func (o CatalogPrincipalPermissionsPermissionsItemArrayOutput) Index(i pulumi.IntInput) CatalogPrincipalPermissionsPermissionsItemOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CatalogPrincipalPermissionsPermissionsItem {
+		return vs[0].([]CatalogPrincipalPermissionsPermissionsItem)[vs[1].(int)]
+	}).(CatalogPrincipalPermissionsPermissionsItemOutput)
+}
+
 // TThe type of predefined worker that is allocated when a job runs.
 type JobWorkerType string
 
@@ -545,12 +1267,30 @@ func (in *schemaDataFormatPtr) ToSchemaDataFormatPtrOutputWithContext(ctx contex
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*CatalogAllowFullTableExternalDataAccessInput)(nil)).Elem(), CatalogAllowFullTableExternalDataAccess("True"))
+	pulumi.RegisterInputType(reflect.TypeOf((*CatalogAllowFullTableExternalDataAccessPtrInput)(nil)).Elem(), CatalogAllowFullTableExternalDataAccess("True"))
+	pulumi.RegisterInputType(reflect.TypeOf((*CatalogDataLakeAccessPropertiesAllowFullTableExternalDataAccessInput)(nil)).Elem(), CatalogDataLakeAccessPropertiesAllowFullTableExternalDataAccess("True"))
+	pulumi.RegisterInputType(reflect.TypeOf((*CatalogDataLakeAccessPropertiesAllowFullTableExternalDataAccessPtrInput)(nil)).Elem(), CatalogDataLakeAccessPropertiesAllowFullTableExternalDataAccess("True"))
+	pulumi.RegisterInputType(reflect.TypeOf((*CatalogOverwriteChildResourcePermissionsWithDefaultInput)(nil)).Elem(), CatalogOverwriteChildResourcePermissionsWithDefault("Accept"))
+	pulumi.RegisterInputType(reflect.TypeOf((*CatalogOverwriteChildResourcePermissionsWithDefaultPtrInput)(nil)).Elem(), CatalogOverwriteChildResourcePermissionsWithDefault("Accept"))
+	pulumi.RegisterInputType(reflect.TypeOf((*CatalogPrincipalPermissionsPermissionsItemInput)(nil)).Elem(), CatalogPrincipalPermissionsPermissionsItem("ALL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*CatalogPrincipalPermissionsPermissionsItemPtrInput)(nil)).Elem(), CatalogPrincipalPermissionsPermissionsItem("ALL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*CatalogPrincipalPermissionsPermissionsItemArrayInput)(nil)).Elem(), CatalogPrincipalPermissionsPermissionsItemArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobWorkerTypeInput)(nil)).Elem(), JobWorkerType("Standard"))
 	pulumi.RegisterInputType(reflect.TypeOf((*JobWorkerTypePtrInput)(nil)).Elem(), JobWorkerType("Standard"))
 	pulumi.RegisterInputType(reflect.TypeOf((*SchemaCompatibilityInput)(nil)).Elem(), SchemaCompatibility("NONE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*SchemaCompatibilityPtrInput)(nil)).Elem(), SchemaCompatibility("NONE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*SchemaDataFormatInput)(nil)).Elem(), SchemaDataFormat("AVRO"))
 	pulumi.RegisterInputType(reflect.TypeOf((*SchemaDataFormatPtrInput)(nil)).Elem(), SchemaDataFormat("AVRO"))
+	pulumi.RegisterOutputType(CatalogAllowFullTableExternalDataAccessOutput{})
+	pulumi.RegisterOutputType(CatalogAllowFullTableExternalDataAccessPtrOutput{})
+	pulumi.RegisterOutputType(CatalogDataLakeAccessPropertiesAllowFullTableExternalDataAccessOutput{})
+	pulumi.RegisterOutputType(CatalogDataLakeAccessPropertiesAllowFullTableExternalDataAccessPtrOutput{})
+	pulumi.RegisterOutputType(CatalogOverwriteChildResourcePermissionsWithDefaultOutput{})
+	pulumi.RegisterOutputType(CatalogOverwriteChildResourcePermissionsWithDefaultPtrOutput{})
+	pulumi.RegisterOutputType(CatalogPrincipalPermissionsPermissionsItemOutput{})
+	pulumi.RegisterOutputType(CatalogPrincipalPermissionsPermissionsItemPtrOutput{})
+	pulumi.RegisterOutputType(CatalogPrincipalPermissionsPermissionsItemArrayOutput{})
 	pulumi.RegisterOutputType(JobWorkerTypeOutput{})
 	pulumi.RegisterOutputType(JobWorkerTypePtrOutput{})
 	pulumi.RegisterOutputType(SchemaCompatibilityOutput{})

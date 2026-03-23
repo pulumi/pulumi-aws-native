@@ -14,7 +14,6 @@ __all__ = [
     'WorkspaceInstanceCreditSpecificationRequestCpuCredits',
     'WorkspaceInstanceEbsBlockDeviceVolumeType',
     'WorkspaceInstanceInstanceMaintenanceOptionsRequestAutoRecovery',
-    'WorkspaceInstanceInstanceMarketOptionsRequestMarketType',
     'WorkspaceInstanceInstanceMetadataOptionsRequestHttpEndpoint',
     'WorkspaceInstanceInstanceMetadataOptionsRequestHttpProtocolIpv6',
     'WorkspaceInstanceInstanceMetadataOptionsRequestHttpTokens',
@@ -23,8 +22,6 @@ __all__ = [
     'WorkspaceInstancePlacementTenancy',
     'WorkspaceInstancePrivateDnsNameOptionsRequestHostnameType',
     'WorkspaceInstanceProvisionState',
-    'WorkspaceInstanceSpotMarketOptionsInstanceInterruptionBehavior',
-    'WorkspaceInstanceSpotMarketOptionsSpotInstanceType',
     'WorkspaceInstanceTagSpecificationResourceType',
 ]
 
@@ -90,12 +87,6 @@ class WorkspaceInstanceInstanceMaintenanceOptionsRequestAutoRecovery(_builtins.s
     DEFAULT = "default"
 
 
-@pulumi.type_token("aws-native:workspacesinstances:WorkspaceInstanceInstanceMarketOptionsRequestMarketType")
-class WorkspaceInstanceInstanceMarketOptionsRequestMarketType(_builtins.str, Enum):
-    SPOT = "spot"
-    CAPACITY_BLOCK = "capacity-block"
-
-
 @pulumi.type_token("aws-native:workspacesinstances:WorkspaceInstanceInstanceMetadataOptionsRequestHttpEndpoint")
 class WorkspaceInstanceInstanceMetadataOptionsRequestHttpEndpoint(_builtins.str, Enum):
     ENABLED = "enabled"
@@ -151,18 +142,6 @@ class WorkspaceInstanceProvisionState(_builtins.str, Enum):
     DEALLOCATED = "DEALLOCATED"
     ERROR_ALLOCATING = "ERROR_ALLOCATING"
     ERROR_DEALLOCATING = "ERROR_DEALLOCATING"
-
-
-@pulumi.type_token("aws-native:workspacesinstances:WorkspaceInstanceSpotMarketOptionsInstanceInterruptionBehavior")
-class WorkspaceInstanceSpotMarketOptionsInstanceInterruptionBehavior(_builtins.str, Enum):
-    HIBERNATE = "hibernate"
-    STOP = "stop"
-
-
-@pulumi.type_token("aws-native:workspacesinstances:WorkspaceInstanceSpotMarketOptionsSpotInstanceType")
-class WorkspaceInstanceSpotMarketOptionsSpotInstanceType(_builtins.str, Enum):
-    ONE_TIME = "one-time"
-    PERSISTENT = "persistent"
 
 
 @pulumi.type_token("aws-native:workspacesinstances:WorkspaceInstanceTagSpecificationResourceType")

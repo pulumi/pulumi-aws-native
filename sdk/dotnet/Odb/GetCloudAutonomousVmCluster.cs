@@ -124,6 +124,10 @@ namespace Pulumi.AwsNative.Odb
         /// </summary>
         public readonly string? Hostname;
         /// <summary>
+        /// The AWS Identity and Access Management (IAM) service roles associated with the Autonomous VM cluster.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.CloudAutonomousVmClusterIamRole> IamRoles;
+        /// <summary>
         /// The minimum value to which you can scale down the maximum number of Autonomous CDBs.
         /// </summary>
         public readonly int? MaxAcdsLowestScaledValue;
@@ -212,6 +216,8 @@ namespace Pulumi.AwsNative.Odb
 
             string? hostname,
 
+            ImmutableArray<Outputs.CloudAutonomousVmClusterIamRole> iamRoles,
+
             int? maxAcdsLowestScaledValue,
 
             int? memorySizeInGbs,
@@ -255,6 +261,7 @@ namespace Pulumi.AwsNative.Odb
             Domain = domain;
             ExadataStorageInTbsLowestScaledValue = exadataStorageInTbsLowestScaledValue;
             Hostname = hostname;
+            IamRoles = iamRoles;
             MaxAcdsLowestScaledValue = maxAcdsLowestScaledValue;
             MemorySizeInGbs = memorySizeInGbs;
             NodeCount = nodeCount;

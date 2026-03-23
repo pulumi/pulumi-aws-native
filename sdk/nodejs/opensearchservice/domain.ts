@@ -73,6 +73,7 @@ export class Domain extends pulumi.CustomResource {
      * Configures OpenSearch Service to use Amazon Cognito authentication for OpenSearch Dashboards.
      */
     declare public readonly cognitoOptions: pulumi.Output<outputs.opensearchservice.DomainCognitoOptions | undefined>;
+    declare public readonly deploymentStrategyOptions: pulumi.Output<outputs.opensearchservice.DomainDeploymentStrategyOptions | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the domain. See [Identifiers for IAM Entities](https://docs.aws.amazon.com/IAM/latest/UserGuide/index.html) in *Using AWS Identity and Access Management* for more information.
      */
@@ -172,6 +173,7 @@ export class Domain extends pulumi.CustomResource {
             resourceInputs["aimlOptions"] = args?.aimlOptions;
             resourceInputs["clusterConfig"] = args?.clusterConfig;
             resourceInputs["cognitoOptions"] = args?.cognitoOptions;
+            resourceInputs["deploymentStrategyOptions"] = args?.deploymentStrategyOptions;
             resourceInputs["domainEndpointOptions"] = args?.domainEndpointOptions;
             resourceInputs["domainName"] = args?.domainName;
             resourceInputs["ebsOptions"] = args?.ebsOptions;
@@ -203,6 +205,7 @@ export class Domain extends pulumi.CustomResource {
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["clusterConfig"] = undefined /*out*/;
             resourceInputs["cognitoOptions"] = undefined /*out*/;
+            resourceInputs["deploymentStrategyOptions"] = undefined /*out*/;
             resourceInputs["domainArn"] = undefined /*out*/;
             resourceInputs["domainEndpoint"] = undefined /*out*/;
             resourceInputs["domainEndpointOptions"] = undefined /*out*/;
@@ -263,6 +266,7 @@ export interface DomainArgs {
      * Configures OpenSearch Service to use Amazon Cognito authentication for OpenSearch Dashboards.
      */
     cognitoOptions?: pulumi.Input<inputs.opensearchservice.DomainCognitoOptionsArgs>;
+    deploymentStrategyOptions?: pulumi.Input<inputs.opensearchservice.DomainDeploymentStrategyOptionsArgs>;
     /**
      * Specifies additional options for the domain endpoint, such as whether to require HTTPS for all traffic or whether to use a custom endpoint rather than the default endpoint.
      */

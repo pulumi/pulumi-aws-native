@@ -17,6 +17,14 @@ namespace Pulumi.AwsNative.Odb.Outputs
     public sealed class OdbNetworkManagedServices
     {
         /// <summary>
+        /// The access configuration for the cross-Region Amazon S3 database restore source.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.OdbNetworkCrossRegionS3RestoreSourcesAccess> CrossRegionS3RestoreSourcesAccess;
+        /// <summary>
+        /// The AWS Key Management Service (KMS) access configuration.
+        /// </summary>
+        public readonly Outputs.OdbNetworkManagedServicesKmsAccessProperties? KmsAccess;
+        /// <summary>
         /// The managed Amazon S3 backup access configuration.
         /// </summary>
         public readonly Outputs.OdbNetworkManagedServicesManagedS3BackupAccessProperties? ManagedS3BackupAccess;
@@ -41,12 +49,20 @@ namespace Pulumi.AwsNative.Odb.Outputs
         /// </summary>
         public readonly Outputs.OdbNetworkManagedServicesServiceNetworkEndpointProperties? ServiceNetworkEndpoint;
         /// <summary>
+        /// The AWS Security Token Service (STS) access configuration.
+        /// </summary>
+        public readonly Outputs.OdbNetworkManagedServicesStsAccessProperties? StsAccess;
+        /// <summary>
         /// The Zero-ETL access configuration.
         /// </summary>
         public readonly Outputs.OdbNetworkManagedServicesZeroEtlAccessProperties? ZeroEtlAccess;
 
         [OutputConstructor]
         private OdbNetworkManagedServices(
+            ImmutableArray<Outputs.OdbNetworkCrossRegionS3RestoreSourcesAccess> crossRegionS3RestoreSourcesAccess,
+
+            Outputs.OdbNetworkManagedServicesKmsAccessProperties? kmsAccess,
+
             Outputs.OdbNetworkManagedServicesManagedS3BackupAccessProperties? managedS3BackupAccess,
 
             ImmutableArray<string> managedServicesIpv4Cidrs,
@@ -59,14 +75,19 @@ namespace Pulumi.AwsNative.Odb.Outputs
 
             Outputs.OdbNetworkManagedServicesServiceNetworkEndpointProperties? serviceNetworkEndpoint,
 
+            Outputs.OdbNetworkManagedServicesStsAccessProperties? stsAccess,
+
             Outputs.OdbNetworkManagedServicesZeroEtlAccessProperties? zeroEtlAccess)
         {
+            CrossRegionS3RestoreSourcesAccess = crossRegionS3RestoreSourcesAccess;
+            KmsAccess = kmsAccess;
             ManagedS3BackupAccess = managedS3BackupAccess;
             ManagedServicesIpv4Cidrs = managedServicesIpv4Cidrs;
             ResourceGatewayArn = resourceGatewayArn;
             S3Access = s3Access;
             ServiceNetworkArn = serviceNetworkArn;
             ServiceNetworkEndpoint = serviceNetworkEndpoint;
+            StsAccess = stsAccess;
             ZeroEtlAccess = zeroEtlAccess;
         }
     }

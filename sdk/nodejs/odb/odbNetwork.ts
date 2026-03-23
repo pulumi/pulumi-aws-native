@@ -54,6 +54,10 @@ export class OdbNetwork extends pulumi.CustomResource {
      */
     declare public readonly clientSubnetCidr: pulumi.Output<string | undefined>;
     /**
+     * The cross-Region Amazon S3 restore sources for the ODB network.
+     */
+    declare public readonly crossRegionS3RestoreSources: pulumi.Output<string[] | undefined>;
+    /**
      * The domain name to use for the resources in the ODB network.
      */
     declare public readonly customDomainName: pulumi.Output<string | undefined>;
@@ -69,6 +73,14 @@ export class OdbNetwork extends pulumi.CustomResource {
      * The user-friendly name of the ODB network.
      */
     declare public readonly displayName: pulumi.Output<string | undefined>;
+    /**
+     * The AWS Key Management Service (KMS) access configuration for the ODB network.
+     */
+    declare public readonly kmsAccess: pulumi.Output<enums.odb.OdbNetworkKmsAccess | undefined>;
+    /**
+     * The AWS Key Management Service (KMS) policy document that defines permissions for key usage within the ODB network.
+     */
+    declare public readonly kmsPolicyDocument: pulumi.Output<string | undefined>;
     declare public /*out*/ readonly managedServices: pulumi.Output<outputs.odb.OdbNetworkManagedServices>;
     /**
      * The unique identifier of the OCI network anchor for the ODB network.
@@ -99,6 +111,14 @@ export class OdbNetwork extends pulumi.CustomResource {
      */
     declare public readonly s3PolicyDocument: pulumi.Output<string | undefined>;
     /**
+     * The AWS Security Token Service (STS) access configuration for the ODB network.
+     */
+    declare public readonly stsAccess: pulumi.Output<enums.odb.OdbNetworkStsAccess | undefined>;
+    /**
+     * The AWS Security Token Service (STS) policy document that defines permissions for token service usage within the ODB network.
+     */
+    declare public readonly stsPolicyDocument: pulumi.Output<string | undefined>;
+    /**
      * Tags to assign to the Odb Network.
      */
     declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
@@ -122,12 +142,17 @@ export class OdbNetwork extends pulumi.CustomResource {
             resourceInputs["availabilityZoneId"] = args?.availabilityZoneId;
             resourceInputs["backupSubnetCidr"] = args?.backupSubnetCidr;
             resourceInputs["clientSubnetCidr"] = args?.clientSubnetCidr;
+            resourceInputs["crossRegionS3RestoreSources"] = args?.crossRegionS3RestoreSources;
             resourceInputs["customDomainName"] = args?.customDomainName;
             resourceInputs["defaultDnsPrefix"] = args?.defaultDnsPrefix;
             resourceInputs["deleteAssociatedResources"] = args?.deleteAssociatedResources;
             resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["kmsAccess"] = args?.kmsAccess;
+            resourceInputs["kmsPolicyDocument"] = args?.kmsPolicyDocument;
             resourceInputs["s3Access"] = args?.s3Access;
             resourceInputs["s3PolicyDocument"] = args?.s3PolicyDocument;
+            resourceInputs["stsAccess"] = args?.stsAccess;
+            resourceInputs["stsPolicyDocument"] = args?.stsPolicyDocument;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["zeroEtlAccess"] = args?.zeroEtlAccess;
             resourceInputs["managedServices"] = undefined /*out*/;
@@ -141,10 +166,13 @@ export class OdbNetwork extends pulumi.CustomResource {
             resourceInputs["availabilityZoneId"] = undefined /*out*/;
             resourceInputs["backupSubnetCidr"] = undefined /*out*/;
             resourceInputs["clientSubnetCidr"] = undefined /*out*/;
+            resourceInputs["crossRegionS3RestoreSources"] = undefined /*out*/;
             resourceInputs["customDomainName"] = undefined /*out*/;
             resourceInputs["defaultDnsPrefix"] = undefined /*out*/;
             resourceInputs["deleteAssociatedResources"] = undefined /*out*/;
             resourceInputs["displayName"] = undefined /*out*/;
+            resourceInputs["kmsAccess"] = undefined /*out*/;
+            resourceInputs["kmsPolicyDocument"] = undefined /*out*/;
             resourceInputs["managedServices"] = undefined /*out*/;
             resourceInputs["ociNetworkAnchorId"] = undefined /*out*/;
             resourceInputs["ociResourceAnchorName"] = undefined /*out*/;
@@ -153,6 +181,8 @@ export class OdbNetwork extends pulumi.CustomResource {
             resourceInputs["odbNetworkId"] = undefined /*out*/;
             resourceInputs["s3Access"] = undefined /*out*/;
             resourceInputs["s3PolicyDocument"] = undefined /*out*/;
+            resourceInputs["stsAccess"] = undefined /*out*/;
+            resourceInputs["stsPolicyDocument"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["zeroEtlAccess"] = undefined /*out*/;
         }
@@ -184,6 +214,10 @@ export interface OdbNetworkArgs {
      */
     clientSubnetCidr?: pulumi.Input<string>;
     /**
+     * The cross-Region Amazon S3 restore sources for the ODB network.
+     */
+    crossRegionS3RestoreSources?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
      * The domain name to use for the resources in the ODB network.
      */
     customDomainName?: pulumi.Input<string>;
@@ -200,6 +234,14 @@ export interface OdbNetworkArgs {
      */
     displayName?: pulumi.Input<string>;
     /**
+     * The AWS Key Management Service (KMS) access configuration for the ODB network.
+     */
+    kmsAccess?: pulumi.Input<enums.odb.OdbNetworkKmsAccess>;
+    /**
+     * The AWS Key Management Service (KMS) policy document that defines permissions for key usage within the ODB network.
+     */
+    kmsPolicyDocument?: pulumi.Input<string>;
+    /**
      * Specifies the configuration for Amazon S3 access from the ODB network.
      */
     s3Access?: pulumi.Input<enums.odb.OdbNetworkS3Access>;
@@ -207,6 +249,14 @@ export interface OdbNetworkArgs {
      * Specifies the endpoint policy for Amazon S3 access from the ODB network.
      */
     s3PolicyDocument?: pulumi.Input<string>;
+    /**
+     * The AWS Security Token Service (STS) access configuration for the ODB network.
+     */
+    stsAccess?: pulumi.Input<enums.odb.OdbNetworkStsAccess>;
+    /**
+     * The AWS Security Token Service (STS) policy document that defines permissions for token service usage within the ODB network.
+     */
+    stsPolicyDocument?: pulumi.Input<string>;
     /**
      * Tags to assign to the Odb Network.
      */

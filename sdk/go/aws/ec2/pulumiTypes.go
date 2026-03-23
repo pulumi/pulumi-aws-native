@@ -7900,6 +7900,160 @@ func (o InstanceBlockDeviceMappingArrayOutput) Index(i pulumi.IntInput) Instance
 	}).(InstanceBlockDeviceMappingOutput)
 }
 
+// The DNS names of the endpoint.
+type InstanceConnectEndpointDnsNames struct {
+	// The DNS name of the EC2 Instance Connect Endpoint.
+	DnsName *string `pulumi:"dnsName"`
+	// The Federal Information Processing Standards (FIPS) compliant DNS name of the EC2 Instance Connect Endpoint.
+	FipsDnsName *string `pulumi:"fipsDnsName"`
+}
+
+// The DNS names of the endpoint.
+type InstanceConnectEndpointDnsNamesOutput struct{ *pulumi.OutputState }
+
+func (InstanceConnectEndpointDnsNamesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceConnectEndpointDnsNames)(nil)).Elem()
+}
+
+func (o InstanceConnectEndpointDnsNamesOutput) ToInstanceConnectEndpointDnsNamesOutput() InstanceConnectEndpointDnsNamesOutput {
+	return o
+}
+
+func (o InstanceConnectEndpointDnsNamesOutput) ToInstanceConnectEndpointDnsNamesOutputWithContext(ctx context.Context) InstanceConnectEndpointDnsNamesOutput {
+	return o
+}
+
+// The DNS name of the EC2 Instance Connect Endpoint.
+func (o InstanceConnectEndpointDnsNamesOutput) DnsName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InstanceConnectEndpointDnsNames) *string { return v.DnsName }).(pulumi.StringPtrOutput)
+}
+
+// The Federal Information Processing Standards (FIPS) compliant DNS name of the EC2 Instance Connect Endpoint.
+func (o InstanceConnectEndpointDnsNamesOutput) FipsDnsName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InstanceConnectEndpointDnsNames) *string { return v.FipsDnsName }).(pulumi.StringPtrOutput)
+}
+
+type InstanceConnectEndpointDnsNamesPtrOutput struct{ *pulumi.OutputState }
+
+func (InstanceConnectEndpointDnsNamesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InstanceConnectEndpointDnsNames)(nil)).Elem()
+}
+
+func (o InstanceConnectEndpointDnsNamesPtrOutput) ToInstanceConnectEndpointDnsNamesPtrOutput() InstanceConnectEndpointDnsNamesPtrOutput {
+	return o
+}
+
+func (o InstanceConnectEndpointDnsNamesPtrOutput) ToInstanceConnectEndpointDnsNamesPtrOutputWithContext(ctx context.Context) InstanceConnectEndpointDnsNamesPtrOutput {
+	return o
+}
+
+func (o InstanceConnectEndpointDnsNamesPtrOutput) Elem() InstanceConnectEndpointDnsNamesOutput {
+	return o.ApplyT(func(v *InstanceConnectEndpointDnsNames) InstanceConnectEndpointDnsNames {
+		if v != nil {
+			return *v
+		}
+		var ret InstanceConnectEndpointDnsNames
+		return ret
+	}).(InstanceConnectEndpointDnsNamesOutput)
+}
+
+// The DNS name of the EC2 Instance Connect Endpoint.
+func (o InstanceConnectEndpointDnsNamesPtrOutput) DnsName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InstanceConnectEndpointDnsNames) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DnsName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Federal Information Processing Standards (FIPS) compliant DNS name of the EC2 Instance Connect Endpoint.
+func (o InstanceConnectEndpointDnsNamesPtrOutput) FipsDnsName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InstanceConnectEndpointDnsNames) *string {
+		if v == nil {
+			return nil
+		}
+		return v.FipsDnsName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The public DNS names of the endpoint, including IPv4-only and dualstack DNS names.
+type InstanceConnectEndpointPublicDnsNames struct {
+	// The dualstack DNS name of the EC2 Instance Connect Endpoint. A dualstack DNS name supports connections from both IPv4 and IPv6 clients.
+	Dualstack *InstanceConnectEndpointDnsNames `pulumi:"dualstack"`
+	// The IPv4-only DNS name of the EC2 Instance Connect Endpoint.
+	Ipv4 *InstanceConnectEndpointDnsNames `pulumi:"ipv4"`
+}
+
+// The public DNS names of the endpoint, including IPv4-only and dualstack DNS names.
+type InstanceConnectEndpointPublicDnsNamesOutput struct{ *pulumi.OutputState }
+
+func (InstanceConnectEndpointPublicDnsNamesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceConnectEndpointPublicDnsNames)(nil)).Elem()
+}
+
+func (o InstanceConnectEndpointPublicDnsNamesOutput) ToInstanceConnectEndpointPublicDnsNamesOutput() InstanceConnectEndpointPublicDnsNamesOutput {
+	return o
+}
+
+func (o InstanceConnectEndpointPublicDnsNamesOutput) ToInstanceConnectEndpointPublicDnsNamesOutputWithContext(ctx context.Context) InstanceConnectEndpointPublicDnsNamesOutput {
+	return o
+}
+
+// The dualstack DNS name of the EC2 Instance Connect Endpoint. A dualstack DNS name supports connections from both IPv4 and IPv6 clients.
+func (o InstanceConnectEndpointPublicDnsNamesOutput) Dualstack() InstanceConnectEndpointDnsNamesPtrOutput {
+	return o.ApplyT(func(v InstanceConnectEndpointPublicDnsNames) *InstanceConnectEndpointDnsNames { return v.Dualstack }).(InstanceConnectEndpointDnsNamesPtrOutput)
+}
+
+// The IPv4-only DNS name of the EC2 Instance Connect Endpoint.
+func (o InstanceConnectEndpointPublicDnsNamesOutput) Ipv4() InstanceConnectEndpointDnsNamesPtrOutput {
+	return o.ApplyT(func(v InstanceConnectEndpointPublicDnsNames) *InstanceConnectEndpointDnsNames { return v.Ipv4 }).(InstanceConnectEndpointDnsNamesPtrOutput)
+}
+
+type InstanceConnectEndpointPublicDnsNamesPtrOutput struct{ *pulumi.OutputState }
+
+func (InstanceConnectEndpointPublicDnsNamesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InstanceConnectEndpointPublicDnsNames)(nil)).Elem()
+}
+
+func (o InstanceConnectEndpointPublicDnsNamesPtrOutput) ToInstanceConnectEndpointPublicDnsNamesPtrOutput() InstanceConnectEndpointPublicDnsNamesPtrOutput {
+	return o
+}
+
+func (o InstanceConnectEndpointPublicDnsNamesPtrOutput) ToInstanceConnectEndpointPublicDnsNamesPtrOutputWithContext(ctx context.Context) InstanceConnectEndpointPublicDnsNamesPtrOutput {
+	return o
+}
+
+func (o InstanceConnectEndpointPublicDnsNamesPtrOutput) Elem() InstanceConnectEndpointPublicDnsNamesOutput {
+	return o.ApplyT(func(v *InstanceConnectEndpointPublicDnsNames) InstanceConnectEndpointPublicDnsNames {
+		if v != nil {
+			return *v
+		}
+		var ret InstanceConnectEndpointPublicDnsNames
+		return ret
+	}).(InstanceConnectEndpointPublicDnsNamesOutput)
+}
+
+// The dualstack DNS name of the EC2 Instance Connect Endpoint. A dualstack DNS name supports connections from both IPv4 and IPv6 clients.
+func (o InstanceConnectEndpointPublicDnsNamesPtrOutput) Dualstack() InstanceConnectEndpointDnsNamesPtrOutput {
+	return o.ApplyT(func(v *InstanceConnectEndpointPublicDnsNames) *InstanceConnectEndpointDnsNames {
+		if v == nil {
+			return nil
+		}
+		return v.Dualstack
+	}).(InstanceConnectEndpointDnsNamesPtrOutput)
+}
+
+// The IPv4-only DNS name of the EC2 Instance Connect Endpoint.
+func (o InstanceConnectEndpointPublicDnsNamesPtrOutput) Ipv4() InstanceConnectEndpointDnsNamesPtrOutput {
+	return o.ApplyT(func(v *InstanceConnectEndpointPublicDnsNames) *InstanceConnectEndpointDnsNames {
+		if v == nil {
+			return nil
+		}
+		return v.Ipv4
+	}).(InstanceConnectEndpointDnsNamesPtrOutput)
+}
+
 // A key-value pair to associate with a resource.
 type InstanceConnectEndpointTag struct {
 	// The tag key.
@@ -11101,6 +11255,14 @@ func (o IpamPrefixListResolverTagPtrOutput) Value() pulumi.StringPtrOutput {
 		}
 		return &v.Value
 	}).(pulumi.StringPtrOutput)
+}
+
+// A key-value pair to associate with a resource.
+type IpamPrefixListResolverTargetTag struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value string `pulumi:"value"`
 }
 
 // A key-value pair to associate with a resource.
@@ -38556,6 +38718,10 @@ func init() {
 	pulumi.RegisterOutputType(InstanceAssociationParameterArrayOutput{})
 	pulumi.RegisterOutputType(InstanceBlockDeviceMappingOutput{})
 	pulumi.RegisterOutputType(InstanceBlockDeviceMappingArrayOutput{})
+	pulumi.RegisterOutputType(InstanceConnectEndpointDnsNamesOutput{})
+	pulumi.RegisterOutputType(InstanceConnectEndpointDnsNamesPtrOutput{})
+	pulumi.RegisterOutputType(InstanceConnectEndpointPublicDnsNamesOutput{})
+	pulumi.RegisterOutputType(InstanceConnectEndpointPublicDnsNamesPtrOutput{})
 	pulumi.RegisterOutputType(InstanceEbsOutput{})
 	pulumi.RegisterOutputType(InstanceEbsPtrOutput{})
 	pulumi.RegisterOutputType(InstanceElasticGpuSpecificationOutput{})

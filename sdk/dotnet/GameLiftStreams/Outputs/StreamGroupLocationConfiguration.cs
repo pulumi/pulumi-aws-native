@@ -27,6 +27,7 @@ namespace Pulumi.AwsNative.GameLiftStreams.Outputs
         /// </summary>
         public readonly int? OnDemandCapacity;
         public readonly int? TargetIdleCapacity;
+        public readonly Outputs.StreamGroupVpcTransitConfiguration? VpcTransitConfiguration;
 
         [OutputConstructor]
         private StreamGroupLocationConfiguration(
@@ -38,13 +39,16 @@ namespace Pulumi.AwsNative.GameLiftStreams.Outputs
 
             int? onDemandCapacity,
 
-            int? targetIdleCapacity)
+            int? targetIdleCapacity,
+
+            Outputs.StreamGroupVpcTransitConfiguration? vpcTransitConfiguration)
         {
             AlwaysOnCapacity = alwaysOnCapacity;
             LocationName = locationName;
             MaximumCapacity = maximumCapacity;
             OnDemandCapacity = onDemandCapacity;
             TargetIdleCapacity = targetIdleCapacity;
+            VpcTransitConfiguration = vpcTransitConfiguration;
         }
     }
 }

@@ -19,20 +19,60 @@ export function getInstanceConnectEndpoint(args: GetInstanceConnectEndpointArgs,
 
 export interface GetInstanceConnectEndpointArgs {
     /**
-     * The id of the instance connect endpoint
+     * The ID of the EC2 Instance Connect Endpoint.
      */
     id: string;
 }
 
 export interface GetInstanceConnectEndpointResult {
     /**
-     * The id of the instance connect endpoint
+     * The Availability Zone of the EC2 Instance Connect Endpoint
+     */
+    readonly availabilityZone?: string;
+    /**
+     * The ID of the Availability Zone of the EC2 Instance Connect Endpoint
+     */
+    readonly availabilityZoneId?: string;
+    /**
+     * The date and time that the EC2 Instance Connect Endpoint was created
+     */
+    readonly createdAt?: string;
+    /**
+     * The ID of the EC2 Instance Connect Endpoint.
      */
     readonly id?: string;
     /**
-     * The tags of the instance connect endpoint.
+     * The Amazon Resource Name (ARN) of the EC2 Instance Connect Endpoint
+     */
+    readonly instanceConnectEndpointArn?: string;
+    /**
+     * The ID of the elastic network interface that Amazon EC2 automatically created when creating the EC2 Instance Connect Endpoint
+     */
+    readonly networkInterfaceIds?: string[];
+    /**
+     * The ID of the AWS account that created the EC2 Instance Connect Endpoint
+     */
+    readonly ownerId?: string;
+    /**
+     * The public DNS names of the endpoint
+     */
+    readonly publicDnsNames?: outputs.ec2.InstanceConnectEndpointPublicDnsNames;
+    /**
+     * The current state of the EC2 Instance Connect Endpoint
+     */
+    readonly state?: enums.ec2.InstanceConnectEndpointState;
+    /**
+     * The message for the current state of the EC2 Instance Connect Endpoint. Can include a failure message
+     */
+    readonly stateMessage?: string;
+    /**
+     * The tags assigned to the EC2 Instance Connect Endpoint.
      */
     readonly tags?: outputs.Tag[];
+    /**
+     * The ID of the VPC in which the EC2 Instance Connect Endpoint was created
+     */
+    readonly vpcId?: string;
 }
 /**
  * Resource Type definition for AWS::EC2::InstanceConnectEndpoint
@@ -46,7 +86,7 @@ export function getInstanceConnectEndpointOutput(args: GetInstanceConnectEndpoin
 
 export interface GetInstanceConnectEndpointOutputArgs {
     /**
-     * The id of the instance connect endpoint
+     * The ID of the EC2 Instance Connect Endpoint.
      */
     id: pulumi.Input<string>;
 }

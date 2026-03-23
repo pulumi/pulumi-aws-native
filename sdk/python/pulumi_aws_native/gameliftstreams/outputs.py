@@ -13,11 +13,13 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 
 __all__ = [
     'ApplicationRuntimeEnvironment',
     'StreamGroupDefaultApplication',
     'StreamGroupLocationConfiguration',
+    'StreamGroupVpcTransitConfiguration',
 ]
 
 @pulumi.output_type
@@ -95,6 +97,8 @@ class StreamGroupLocationConfiguration(dict):
             suggest = "on_demand_capacity"
         elif key == "targetIdleCapacity":
             suggest = "target_idle_capacity"
+        elif key == "vpcTransitConfiguration":
+            suggest = "vpc_transit_configuration"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in StreamGroupLocationConfiguration. Access the value via the '{suggest}' property getter instead.")
@@ -112,7 +116,8 @@ class StreamGroupLocationConfiguration(dict):
                  always_on_capacity: Optional[_builtins.int] = None,
                  maximum_capacity: Optional[_builtins.int] = None,
                  on_demand_capacity: Optional[_builtins.int] = None,
-                 target_idle_capacity: Optional[_builtins.int] = None):
+                 target_idle_capacity: Optional[_builtins.int] = None,
+                 vpc_transit_configuration: Optional['outputs.StreamGroupVpcTransitConfiguration'] = None):
         """
         :param _builtins.str location_name: A location's name. For example, `us-east-1` . For a complete list of locations that Amazon GameLift Streams supports, refer to [Regions, quotas, and limitations](https://docs.aws.amazon.com/gameliftstreams/latest/developerguide/regions-quotas.html) in the *Amazon GameLift Streams Developer Guide* .
         :param _builtins.int always_on_capacity: This setting, if non-zero, indicates minimum streaming capacity which is allocated to you and is never released back to the service. You pay for this base level of capacity at all times, whether used or idle.
@@ -127,6 +132,8 @@ class StreamGroupLocationConfiguration(dict):
             pulumi.set(__self__, "on_demand_capacity", on_demand_capacity)
         if target_idle_capacity is not None:
             pulumi.set(__self__, "target_idle_capacity", target_idle_capacity)
+        if vpc_transit_configuration is not None:
+            pulumi.set(__self__, "vpc_transit_configuration", vpc_transit_configuration)
 
     @_builtins.property
     @pulumi.getter(name="locationName")
@@ -161,5 +168,48 @@ class StreamGroupLocationConfiguration(dict):
     @pulumi.getter(name="targetIdleCapacity")
     def target_idle_capacity(self) -> Optional[_builtins.int]:
         return pulumi.get(self, "target_idle_capacity")
+
+    @_builtins.property
+    @pulumi.getter(name="vpcTransitConfiguration")
+    def vpc_transit_configuration(self) -> Optional['outputs.StreamGroupVpcTransitConfiguration']:
+        return pulumi.get(self, "vpc_transit_configuration")
+
+
+@pulumi.output_type
+class StreamGroupVpcTransitConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ipv4CidrBlocks":
+            suggest = "ipv4_cidr_blocks"
+        elif key == "vpcId":
+            suggest = "vpc_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StreamGroupVpcTransitConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StreamGroupVpcTransitConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StreamGroupVpcTransitConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 ipv4_cidr_blocks: Sequence[_builtins.str],
+                 vpc_id: _builtins.str):
+        pulumi.set(__self__, "ipv4_cidr_blocks", ipv4_cidr_blocks)
+        pulumi.set(__self__, "vpc_id", vpc_id)
+
+    @_builtins.property
+    @pulumi.getter(name="ipv4CidrBlocks")
+    def ipv4_cidr_blocks(self) -> Sequence[_builtins.str]:
+        return pulumi.get(self, "ipv4_cidr_blocks")
+
+    @_builtins.property
+    @pulumi.getter(name="vpcId")
+    def vpc_id(self) -> _builtins.str:
+        return pulumi.get(self, "vpc_id")
 
 

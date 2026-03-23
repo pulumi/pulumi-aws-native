@@ -31,6 +31,7 @@ class GatewayArgs:
                  interceptor_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['GatewayInterceptorConfigurationArgs']]]] = None,
                  kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
+                 policy_engine_configuration: Optional[pulumi.Input['GatewayPolicyEngineConfigurationArgs']] = None,
                  protocol_configuration: Optional[pulumi.Input['GatewayProtocolConfigurationPropertiesArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
@@ -60,6 +61,8 @@ class GatewayArgs:
             pulumi.set(__self__, "kms_key_arn", kms_key_arn)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if policy_engine_configuration is not None:
+            pulumi.set(__self__, "policy_engine_configuration", policy_engine_configuration)
         if protocol_configuration is not None:
             pulumi.set(__self__, "protocol_configuration", protocol_configuration)
         if tags is not None:
@@ -165,6 +168,15 @@ class GatewayArgs:
         pulumi.set(self, "name", value)
 
     @_builtins.property
+    @pulumi.getter(name="policyEngineConfiguration")
+    def policy_engine_configuration(self) -> Optional[pulumi.Input['GatewayPolicyEngineConfigurationArgs']]:
+        return pulumi.get(self, "policy_engine_configuration")
+
+    @policy_engine_configuration.setter
+    def policy_engine_configuration(self, value: Optional[pulumi.Input['GatewayPolicyEngineConfigurationArgs']]):
+        pulumi.set(self, "policy_engine_configuration", value)
+
+    @_builtins.property
     @pulumi.getter(name="protocolConfiguration")
     def protocol_configuration(self) -> Optional[pulumi.Input['GatewayProtocolConfigurationPropertiesArgs']]:
         """
@@ -202,6 +214,7 @@ class Gateway(pulumi.CustomResource):
                  interceptor_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GatewayInterceptorConfigurationArgs', 'GatewayInterceptorConfigurationArgsDict']]]]] = None,
                  kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
+                 policy_engine_configuration: Optional[pulumi.Input[Union['GatewayPolicyEngineConfigurationArgs', 'GatewayPolicyEngineConfigurationArgsDict']]] = None,
                  protocol_configuration: Optional[pulumi.Input[Union['GatewayProtocolConfigurationPropertiesArgs', 'GatewayProtocolConfigurationPropertiesArgsDict']]] = None,
                  protocol_type: Optional[pulumi.Input['GatewayProtocolType']] = None,
                  role_arn: Optional[pulumi.Input[_builtins.str]] = None,
@@ -254,6 +267,7 @@ class Gateway(pulumi.CustomResource):
                  interceptor_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GatewayInterceptorConfigurationArgs', 'GatewayInterceptorConfigurationArgsDict']]]]] = None,
                  kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
+                 policy_engine_configuration: Optional[pulumi.Input[Union['GatewayPolicyEngineConfigurationArgs', 'GatewayPolicyEngineConfigurationArgsDict']]] = None,
                  protocol_configuration: Optional[pulumi.Input[Union['GatewayProtocolConfigurationPropertiesArgs', 'GatewayProtocolConfigurationPropertiesArgsDict']]] = None,
                  protocol_type: Optional[pulumi.Input['GatewayProtocolType']] = None,
                  role_arn: Optional[pulumi.Input[_builtins.str]] = None,
@@ -276,6 +290,7 @@ class Gateway(pulumi.CustomResource):
             __props__.__dict__["interceptor_configurations"] = interceptor_configurations
             __props__.__dict__["kms_key_arn"] = kms_key_arn
             __props__.__dict__["name"] = name
+            __props__.__dict__["policy_engine_configuration"] = policy_engine_configuration
             __props__.__dict__["protocol_configuration"] = protocol_configuration
             if protocol_type is None and not opts.urn:
                 raise TypeError("Missing required property 'protocol_type'")
@@ -325,6 +340,7 @@ class Gateway(pulumi.CustomResource):
         __props__.__dict__["interceptor_configurations"] = None
         __props__.__dict__["kms_key_arn"] = None
         __props__.__dict__["name"] = None
+        __props__.__dict__["policy_engine_configuration"] = None
         __props__.__dict__["protocol_configuration"] = None
         __props__.__dict__["protocol_type"] = None
         __props__.__dict__["role_arn"] = None
@@ -413,6 +429,11 @@ class Gateway(pulumi.CustomResource):
         The name for the gateway.
         """
         return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="policyEngineConfiguration")
+    def policy_engine_configuration(self) -> pulumi.Output[Optional['outputs.GatewayPolicyEngineConfiguration']]:
+        return pulumi.get(self, "policy_engine_configuration")
 
     @_builtins.property
     @pulumi.getter(name="protocolConfiguration")

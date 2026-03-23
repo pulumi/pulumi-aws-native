@@ -134,6 +134,15 @@ namespace Pulumi.AwsNative.AppStream
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        [Output("rootVolumeConfig")]
+        public Output<Outputs.ImageBuilderVolumeConfig?> RootVolumeConfig { get; private set; } = null!;
+
+        [Output("softwaresToInstall")]
+        public Output<ImmutableArray<string>> SoftwaresToInstall { get; private set; } = null!;
+
+        [Output("softwaresToUninstall")]
+        public Output<ImmutableArray<string>> SoftwaresToUninstall { get; private set; } = null!;
+
         /// <summary>
         /// The URL to start an image builder streaming session, returned as a string.
         /// </summary>
@@ -175,6 +184,10 @@ namespace Pulumi.AwsNative.AppStream
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                ReplaceOnChanges =
+                {
+                    "name",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -321,6 +334,25 @@ namespace Pulumi.AwsNative.AppStream
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        [Input("rootVolumeConfig")]
+        public Input<Inputs.ImageBuilderVolumeConfigArgs>? RootVolumeConfig { get; set; }
+
+        [Input("softwaresToInstall")]
+        private InputList<string>? _softwaresToInstall;
+        public InputList<string> SoftwaresToInstall
+        {
+            get => _softwaresToInstall ?? (_softwaresToInstall = new InputList<string>());
+            set => _softwaresToInstall = value;
+        }
+
+        [Input("softwaresToUninstall")]
+        private InputList<string>? _softwaresToUninstall;
+        public InputList<string> SoftwaresToUninstall
+        {
+            get => _softwaresToUninstall ?? (_softwaresToUninstall = new InputList<string>());
+            set => _softwaresToUninstall = value;
+        }
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;

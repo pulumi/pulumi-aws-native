@@ -17,18 +17,90 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'CloudAutonomousVmClusterIamRole',
     'CloudAutonomousVmClusterMaintenanceWindow',
     'CloudExadataInfrastructureCustomerContact',
     'CloudExadataInfrastructureMaintenanceWindow',
     'CloudVmClusterDataCollectionOptions',
     'CloudVmClusterDbNode',
+    'CloudVmClusterIamRole',
     'CloudVmClusterTag',
+    'OdbNetworkCrossRegionS3RestoreSourcesAccess',
     'OdbNetworkManagedServices',
+    'OdbNetworkManagedServicesKmsAccessProperties',
     'OdbNetworkManagedServicesManagedS3BackupAccessProperties',
     'OdbNetworkManagedServicesS3AccessProperties',
     'OdbNetworkManagedServicesServiceNetworkEndpointProperties',
+    'OdbNetworkManagedServicesStsAccessProperties',
     'OdbNetworkManagedServicesZeroEtlAccessProperties',
 ]
+
+@pulumi.output_type
+class CloudAutonomousVmClusterIamRole(dict):
+    """
+    An AWS Identity and Access Management (IAM) service role associated with the Autonomous VM cluster.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "awsIntegration":
+            suggest = "aws_integration"
+        elif key == "iamRoleArn":
+            suggest = "iam_role_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CloudAutonomousVmClusterIamRole. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CloudAutonomousVmClusterIamRole.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CloudAutonomousVmClusterIamRole.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 aws_integration: Optional[_builtins.str] = None,
+                 iam_role_arn: Optional[_builtins.str] = None,
+                 status: Optional[_builtins.str] = None):
+        """
+        An AWS Identity and Access Management (IAM) service role associated with the Autonomous VM cluster.
+
+        :param _builtins.str aws_integration: The AWS integration configuration settings for the AWS Identity and Access Management (IAM) service role.
+        :param _builtins.str iam_role_arn: The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) service role.
+        :param _builtins.str status: The current status of the AWS Identity and Access Management (IAM) service role.
+        """
+        if aws_integration is not None:
+            pulumi.set(__self__, "aws_integration", aws_integration)
+        if iam_role_arn is not None:
+            pulumi.set(__self__, "iam_role_arn", iam_role_arn)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @_builtins.property
+    @pulumi.getter(name="awsIntegration")
+    def aws_integration(self) -> Optional[_builtins.str]:
+        """
+        The AWS integration configuration settings for the AWS Identity and Access Management (IAM) service role.
+        """
+        return pulumi.get(self, "aws_integration")
+
+    @_builtins.property
+    @pulumi.getter(name="iamRoleArn")
+    def iam_role_arn(self) -> Optional[_builtins.str]:
+        """
+        The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) service role.
+        """
+        return pulumi.get(self, "iam_role_arn")
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> Optional[_builtins.str]:
+        """
+        The current status of the AWS Identity and Access Management (IAM) service role.
+        """
+        return pulumi.get(self, "status")
+
 
 @pulumi.output_type
 class CloudAutonomousVmClusterMaintenanceWindow(dict):
@@ -618,6 +690,73 @@ class CloudVmClusterDbNode(dict):
 
 
 @pulumi.output_type
+class CloudVmClusterIamRole(dict):
+    """
+    An AWS Identity and Access Management (IAM) service role associated with the VM cluster.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "awsIntegration":
+            suggest = "aws_integration"
+        elif key == "iamRoleArn":
+            suggest = "iam_role_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CloudVmClusterIamRole. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CloudVmClusterIamRole.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CloudVmClusterIamRole.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 aws_integration: Optional[_builtins.str] = None,
+                 iam_role_arn: Optional[_builtins.str] = None,
+                 status: Optional[_builtins.str] = None):
+        """
+        An AWS Identity and Access Management (IAM) service role associated with the VM cluster.
+
+        :param _builtins.str aws_integration: The AWS integration configuration settings for the AWS Identity and Access Management (IAM) service role.
+        :param _builtins.str iam_role_arn: The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) service role.
+        :param _builtins.str status: The current status of the AWS Identity and Access Management (IAM) service role.
+        """
+        if aws_integration is not None:
+            pulumi.set(__self__, "aws_integration", aws_integration)
+        if iam_role_arn is not None:
+            pulumi.set(__self__, "iam_role_arn", iam_role_arn)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @_builtins.property
+    @pulumi.getter(name="awsIntegration")
+    def aws_integration(self) -> Optional[_builtins.str]:
+        """
+        The AWS integration configuration settings for the AWS Identity and Access Management (IAM) service role.
+        """
+        return pulumi.get(self, "aws_integration")
+
+    @_builtins.property
+    @pulumi.getter(name="iamRoleArn")
+    def iam_role_arn(self) -> Optional[_builtins.str]:
+        """
+        The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) service role.
+        """
+        return pulumi.get(self, "iam_role_arn")
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> Optional[_builtins.str]:
+        """
+        The current status of the AWS Identity and Access Management (IAM) service role.
+        """
+        return pulumi.get(self, "status")
+
+
+@pulumi.output_type
 class CloudVmClusterTag(dict):
     """
     A key-value pair to associate with a resource.
@@ -653,6 +792,71 @@ class CloudVmClusterTag(dict):
 
 
 @pulumi.output_type
+class OdbNetworkCrossRegionS3RestoreSourcesAccess(dict):
+    """
+    The configuration access for the cross-Region Amazon S3 database restore source for the ODB network.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ipv4Addresses":
+            suggest = "ipv4_addresses"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OdbNetworkCrossRegionS3RestoreSourcesAccess. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OdbNetworkCrossRegionS3RestoreSourcesAccess.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OdbNetworkCrossRegionS3RestoreSourcesAccess.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 ipv4_addresses: Optional[Sequence[_builtins.str]] = None,
+                 region: Optional[_builtins.str] = None,
+                 status: Optional['OdbNetworkManagedResourceStatus'] = None):
+        """
+        The configuration access for the cross-Region Amazon S3 database restore source for the ODB network.
+
+        :param Sequence[_builtins.str] ipv4_addresses: The IPv4 addresses allowed for cross-Region Amazon S3 restore access.
+        :param _builtins.str region: The AWS-Region for cross-Region Amazon S3 restore access.
+        :param 'OdbNetworkManagedResourceStatus' status: The current status of the cross-Region Amazon S3 restore access configuration.
+        """
+        if ipv4_addresses is not None:
+            pulumi.set(__self__, "ipv4_addresses", ipv4_addresses)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @_builtins.property
+    @pulumi.getter(name="ipv4Addresses")
+    def ipv4_addresses(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        The IPv4 addresses allowed for cross-Region Amazon S3 restore access.
+        """
+        return pulumi.get(self, "ipv4_addresses")
+
+    @_builtins.property
+    @pulumi.getter
+    def region(self) -> Optional[_builtins.str]:
+        """
+        The AWS-Region for cross-Region Amazon S3 restore access.
+        """
+        return pulumi.get(self, "region")
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> Optional['OdbNetworkManagedResourceStatus']:
+        """
+        The current status of the cross-Region Amazon S3 restore access configuration.
+        """
+        return pulumi.get(self, "status")
+
+
+@pulumi.output_type
 class OdbNetworkManagedServices(dict):
     """
     The managed services configuration for the ODB network.
@@ -660,7 +864,11 @@ class OdbNetworkManagedServices(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "managedS3BackupAccess":
+        if key == "crossRegionS3RestoreSourcesAccess":
+            suggest = "cross_region_s3_restore_sources_access"
+        elif key == "kmsAccess":
+            suggest = "kms_access"
+        elif key == "managedS3BackupAccess":
             suggest = "managed_s3_backup_access"
         elif key == "managedServicesIpv4Cidrs":
             suggest = "managed_services_ipv4_cidrs"
@@ -672,6 +880,8 @@ class OdbNetworkManagedServices(dict):
             suggest = "service_network_arn"
         elif key == "serviceNetworkEndpoint":
             suggest = "service_network_endpoint"
+        elif key == "stsAccess":
+            suggest = "sts_access"
         elif key == "zeroEtlAccess":
             suggest = "zero_etl_access"
 
@@ -687,24 +897,34 @@ class OdbNetworkManagedServices(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 cross_region_s3_restore_sources_access: Optional[Sequence['outputs.OdbNetworkCrossRegionS3RestoreSourcesAccess']] = None,
+                 kms_access: Optional['outputs.OdbNetworkManagedServicesKmsAccessProperties'] = None,
                  managed_s3_backup_access: Optional['outputs.OdbNetworkManagedServicesManagedS3BackupAccessProperties'] = None,
                  managed_services_ipv4_cidrs: Optional[Sequence[_builtins.str]] = None,
                  resource_gateway_arn: Optional[_builtins.str] = None,
                  s3_access: Optional['outputs.OdbNetworkManagedServicesS3AccessProperties'] = None,
                  service_network_arn: Optional[_builtins.str] = None,
                  service_network_endpoint: Optional['outputs.OdbNetworkManagedServicesServiceNetworkEndpointProperties'] = None,
+                 sts_access: Optional['outputs.OdbNetworkManagedServicesStsAccessProperties'] = None,
                  zero_etl_access: Optional['outputs.OdbNetworkManagedServicesZeroEtlAccessProperties'] = None):
         """
         The managed services configuration for the ODB network.
 
+        :param Sequence['OdbNetworkCrossRegionS3RestoreSourcesAccess'] cross_region_s3_restore_sources_access: The access configuration for the cross-Region Amazon S3 database restore source.
+        :param 'OdbNetworkManagedServicesKmsAccessProperties' kms_access: The AWS Key Management Service (KMS) access configuration.
         :param 'OdbNetworkManagedServicesManagedS3BackupAccessProperties' managed_s3_backup_access: The managed Amazon S3 backup access configuration.
         :param Sequence[_builtins.str] managed_services_ipv4_cidrs: The IPv4 CIDR blocks for the managed services.
         :param _builtins.str resource_gateway_arn: The Amazon Resource Name (ARN) of the resource gateway.
         :param 'OdbNetworkManagedServicesS3AccessProperties' s3_access: The Amazon S3 access configuration.
         :param _builtins.str service_network_arn: The Amazon Resource Name (ARN) of the service network.
         :param 'OdbNetworkManagedServicesServiceNetworkEndpointProperties' service_network_endpoint: The service network endpoint configuration.
+        :param 'OdbNetworkManagedServicesStsAccessProperties' sts_access: The AWS Security Token Service (STS) access configuration.
         :param 'OdbNetworkManagedServicesZeroEtlAccessProperties' zero_etl_access: The Zero-ETL access configuration.
         """
+        if cross_region_s3_restore_sources_access is not None:
+            pulumi.set(__self__, "cross_region_s3_restore_sources_access", cross_region_s3_restore_sources_access)
+        if kms_access is not None:
+            pulumi.set(__self__, "kms_access", kms_access)
         if managed_s3_backup_access is not None:
             pulumi.set(__self__, "managed_s3_backup_access", managed_s3_backup_access)
         if managed_services_ipv4_cidrs is not None:
@@ -717,8 +937,26 @@ class OdbNetworkManagedServices(dict):
             pulumi.set(__self__, "service_network_arn", service_network_arn)
         if service_network_endpoint is not None:
             pulumi.set(__self__, "service_network_endpoint", service_network_endpoint)
+        if sts_access is not None:
+            pulumi.set(__self__, "sts_access", sts_access)
         if zero_etl_access is not None:
             pulumi.set(__self__, "zero_etl_access", zero_etl_access)
+
+    @_builtins.property
+    @pulumi.getter(name="crossRegionS3RestoreSourcesAccess")
+    def cross_region_s3_restore_sources_access(self) -> Optional[Sequence['outputs.OdbNetworkCrossRegionS3RestoreSourcesAccess']]:
+        """
+        The access configuration for the cross-Region Amazon S3 database restore source.
+        """
+        return pulumi.get(self, "cross_region_s3_restore_sources_access")
+
+    @_builtins.property
+    @pulumi.getter(name="kmsAccess")
+    def kms_access(self) -> Optional['outputs.OdbNetworkManagedServicesKmsAccessProperties']:
+        """
+        The AWS Key Management Service (KMS) access configuration.
+        """
+        return pulumi.get(self, "kms_access")
 
     @_builtins.property
     @pulumi.getter(name="managedS3BackupAccess")
@@ -769,12 +1007,101 @@ class OdbNetworkManagedServices(dict):
         return pulumi.get(self, "service_network_endpoint")
 
     @_builtins.property
+    @pulumi.getter(name="stsAccess")
+    def sts_access(self) -> Optional['outputs.OdbNetworkManagedServicesStsAccessProperties']:
+        """
+        The AWS Security Token Service (STS) access configuration.
+        """
+        return pulumi.get(self, "sts_access")
+
+    @_builtins.property
     @pulumi.getter(name="zeroEtlAccess")
     def zero_etl_access(self) -> Optional['outputs.OdbNetworkManagedServicesZeroEtlAccessProperties']:
         """
         The Zero-ETL access configuration.
         """
         return pulumi.get(self, "zero_etl_access")
+
+
+@pulumi.output_type
+class OdbNetworkManagedServicesKmsAccessProperties(dict):
+    """
+    The AWS Key Management Service (KMS) access configuration.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "domainName":
+            suggest = "domain_name"
+        elif key == "ipv4Addresses":
+            suggest = "ipv4_addresses"
+        elif key == "kmsPolicyDocument":
+            suggest = "kms_policy_document"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OdbNetworkManagedServicesKmsAccessProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OdbNetworkManagedServicesKmsAccessProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OdbNetworkManagedServicesKmsAccessProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 domain_name: Optional[_builtins.str] = None,
+                 ipv4_addresses: Optional[Sequence[_builtins.str]] = None,
+                 kms_policy_document: Optional[_builtins.str] = None,
+                 status: Optional['OdbNetworkManagedResourceStatus'] = None):
+        """
+        The AWS Key Management Service (KMS) access configuration.
+
+        :param _builtins.str domain_name: The domain name for the AWS KMS access.
+        :param Sequence[_builtins.str] ipv4_addresses: The IPv4 addresses for the AWS KMS access.
+        :param _builtins.str kms_policy_document: The endpoint policy for the AWS KMS access.
+        :param 'OdbNetworkManagedResourceStatus' status: The status of the AWS KMS access.
+        """
+        if domain_name is not None:
+            pulumi.set(__self__, "domain_name", domain_name)
+        if ipv4_addresses is not None:
+            pulumi.set(__self__, "ipv4_addresses", ipv4_addresses)
+        if kms_policy_document is not None:
+            pulumi.set(__self__, "kms_policy_document", kms_policy_document)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @_builtins.property
+    @pulumi.getter(name="domainName")
+    def domain_name(self) -> Optional[_builtins.str]:
+        """
+        The domain name for the AWS KMS access.
+        """
+        return pulumi.get(self, "domain_name")
+
+    @_builtins.property
+    @pulumi.getter(name="ipv4Addresses")
+    def ipv4_addresses(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        The IPv4 addresses for the AWS KMS access.
+        """
+        return pulumi.get(self, "ipv4_addresses")
+
+    @_builtins.property
+    @pulumi.getter(name="kmsPolicyDocument")
+    def kms_policy_document(self) -> Optional[_builtins.str]:
+        """
+        The endpoint policy for the AWS KMS access.
+        """
+        return pulumi.get(self, "kms_policy_document")
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> Optional['OdbNetworkManagedResourceStatus']:
+        """
+        The status of the AWS KMS access.
+        """
+        return pulumi.get(self, "status")
 
 
 @pulumi.output_type
@@ -964,6 +1291,87 @@ class OdbNetworkManagedServicesServiceNetworkEndpointProperties(dict):
         The type of the VPC endpoint.
         """
         return pulumi.get(self, "vpc_endpoint_type")
+
+
+@pulumi.output_type
+class OdbNetworkManagedServicesStsAccessProperties(dict):
+    """
+    The AWS Security Token Service (STS) access configuration.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "domainName":
+            suggest = "domain_name"
+        elif key == "ipv4Addresses":
+            suggest = "ipv4_addresses"
+        elif key == "stsPolicyDocument":
+            suggest = "sts_policy_document"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OdbNetworkManagedServicesStsAccessProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OdbNetworkManagedServicesStsAccessProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OdbNetworkManagedServicesStsAccessProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 domain_name: Optional[_builtins.str] = None,
+                 ipv4_addresses: Optional[Sequence[_builtins.str]] = None,
+                 status: Optional['OdbNetworkManagedResourceStatus'] = None,
+                 sts_policy_document: Optional[_builtins.str] = None):
+        """
+        The AWS Security Token Service (STS) access configuration.
+
+        :param _builtins.str domain_name: The domain name for the AWS STS access.
+        :param Sequence[_builtins.str] ipv4_addresses: The IPv4 addresses for the AWS STS access.
+        :param 'OdbNetworkManagedResourceStatus' status: The status of the AWS STS access.
+        :param _builtins.str sts_policy_document: The endpoint policy for the AWS STS access.
+        """
+        if domain_name is not None:
+            pulumi.set(__self__, "domain_name", domain_name)
+        if ipv4_addresses is not None:
+            pulumi.set(__self__, "ipv4_addresses", ipv4_addresses)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+        if sts_policy_document is not None:
+            pulumi.set(__self__, "sts_policy_document", sts_policy_document)
+
+    @_builtins.property
+    @pulumi.getter(name="domainName")
+    def domain_name(self) -> Optional[_builtins.str]:
+        """
+        The domain name for the AWS STS access.
+        """
+        return pulumi.get(self, "domain_name")
+
+    @_builtins.property
+    @pulumi.getter(name="ipv4Addresses")
+    def ipv4_addresses(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        The IPv4 addresses for the AWS STS access.
+        """
+        return pulumi.get(self, "ipv4_addresses")
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> Optional['OdbNetworkManagedResourceStatus']:
+        """
+        The status of the AWS STS access.
+        """
+        return pulumi.get(self, "status")
+
+    @_builtins.property
+    @pulumi.getter(name="stsPolicyDocument")
+    def sts_policy_document(self) -> Optional[_builtins.str]:
+        """
+        The endpoint policy for the AWS STS access.
+        """
+        return pulumi.get(self, "sts_policy_document")
 
 
 @pulumi.output_type

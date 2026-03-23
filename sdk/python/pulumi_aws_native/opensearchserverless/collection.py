@@ -30,7 +30,8 @@ class CollectionArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  standby_replicas: Optional[pulumi.Input['CollectionStandbyReplicas']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]] = None,
-                 type: Optional[pulumi.Input['CollectionType']] = None):
+                 type: Optional[pulumi.Input['CollectionType']] = None,
+                 vector_options: Optional[pulumi.Input['CollectionVectorOptionsArgs']] = None):
         """
         The set of arguments for constructing a Collection resource.
 
@@ -61,6 +62,8 @@ class CollectionArgs:
             pulumi.set(__self__, "tags", tags)
         if type is not None:
             pulumi.set(__self__, "type", type)
+        if vector_options is not None:
+            pulumi.set(__self__, "vector_options", vector_options)
 
     @_builtins.property
     @pulumi.getter(name="collectionGroupName")
@@ -149,6 +152,15 @@ class CollectionArgs:
     def type(self, value: Optional[pulumi.Input['CollectionType']]):
         pulumi.set(self, "type", value)
 
+    @_builtins.property
+    @pulumi.getter(name="vectorOptions")
+    def vector_options(self) -> Optional[pulumi.Input['CollectionVectorOptionsArgs']]:
+        return pulumi.get(self, "vector_options")
+
+    @vector_options.setter
+    def vector_options(self, value: Optional[pulumi.Input['CollectionVectorOptionsArgs']]):
+        pulumi.set(self, "vector_options", value)
+
 
 @pulumi.type_token("aws-native:opensearchserverless:Collection")
 class Collection(pulumi.CustomResource):
@@ -163,6 +175,7 @@ class Collection(pulumi.CustomResource):
                  standby_replicas: Optional[pulumi.Input['CollectionStandbyReplicas']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
                  type: Optional[pulumi.Input['CollectionType']] = None,
+                 vector_options: Optional[pulumi.Input[Union['CollectionVectorOptionsArgs', 'CollectionVectorOptionsArgsDict']]] = None,
                  __props__=None):
         """
         Amazon OpenSearchServerless collection resource
@@ -291,6 +304,7 @@ class Collection(pulumi.CustomResource):
                  standby_replicas: Optional[pulumi.Input['CollectionStandbyReplicas']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
                  type: Optional[pulumi.Input['CollectionType']] = None,
+                 vector_options: Optional[pulumi.Input[Union['CollectionVectorOptionsArgs', 'CollectionVectorOptionsArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -307,12 +321,13 @@ class Collection(pulumi.CustomResource):
             __props__.__dict__["standby_replicas"] = standby_replicas
             __props__.__dict__["tags"] = tags
             __props__.__dict__["type"] = type
+            __props__.__dict__["vector_options"] = vector_options
             __props__.__dict__["arn"] = None
             __props__.__dict__["aws_id"] = None
             __props__.__dict__["collection_endpoint"] = None
             __props__.__dict__["dashboard_endpoint"] = None
             __props__.__dict__["kms_key_arn"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["collectionGroupName", "encryptionConfig", "name", "standbyReplicas", "tags[*]", "type"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["collectionGroupName", "encryptionConfig", "name", "standbyReplicas", "tags[*]", "type", "vectorOptions"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Collection, __self__).__init__(
             'aws-native:opensearchserverless:Collection',
@@ -348,6 +363,7 @@ class Collection(pulumi.CustomResource):
         __props__.__dict__["standby_replicas"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
+        __props__.__dict__["vector_options"] = None
         return Collection(resource_name, opts=opts, __props__=__props__)
 
     @_builtins.property
@@ -448,4 +464,9 @@ class Collection(pulumi.CustomResource):
         The type of collection. Possible values are `SEARCH` , `TIMESERIES` , and `VECTORSEARCH` . For more information, see [Choosing a collection type](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-overview.html#serverless-usecase) .
         """
         return pulumi.get(self, "type")
+
+    @_builtins.property
+    @pulumi.getter(name="vectorOptions")
+    def vector_options(self) -> pulumi.Output[Optional['outputs.CollectionVectorOptions']]:
+        return pulumi.get(self, "vector_options")
 

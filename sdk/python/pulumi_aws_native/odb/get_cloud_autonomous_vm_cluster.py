@@ -13,6 +13,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 from .. import outputs as _root_outputs
 from ._enums import *
 
@@ -25,7 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetCloudAutonomousVmClusterResult:
-    def __init__(__self__, autonomous_data_storage_percentage=None, available_autonomous_data_storage_size_in_tbs=None, available_container_databases=None, available_cpus=None, cloud_autonomous_vm_cluster_arn=None, cloud_autonomous_vm_cluster_id=None, compute_model=None, cpu_core_count=None, cpu_percentage=None, data_storage_size_in_gbs=None, data_storage_size_in_tbs=None, db_node_storage_size_in_gbs=None, domain=None, exadata_storage_in_tbs_lowest_scaled_value=None, hostname=None, max_acds_lowest_scaled_value=None, memory_size_in_gbs=None, node_count=None, non_provisionable_autonomous_container_databases=None, oci_resource_anchor_name=None, oci_url=None, ocid=None, provisionable_autonomous_container_databases=None, provisioned_autonomous_container_databases=None, provisioned_cpus=None, reclaimable_cpus=None, reserved_cpus=None, shape=None, tags=None):
+    def __init__(__self__, autonomous_data_storage_percentage=None, available_autonomous_data_storage_size_in_tbs=None, available_container_databases=None, available_cpus=None, cloud_autonomous_vm_cluster_arn=None, cloud_autonomous_vm_cluster_id=None, compute_model=None, cpu_core_count=None, cpu_percentage=None, data_storage_size_in_gbs=None, data_storage_size_in_tbs=None, db_node_storage_size_in_gbs=None, domain=None, exadata_storage_in_tbs_lowest_scaled_value=None, hostname=None, iam_roles=None, max_acds_lowest_scaled_value=None, memory_size_in_gbs=None, node_count=None, non_provisionable_autonomous_container_databases=None, oci_resource_anchor_name=None, oci_url=None, ocid=None, provisionable_autonomous_container_databases=None, provisioned_autonomous_container_databases=None, provisioned_cpus=None, reclaimable_cpus=None, reserved_cpus=None, shape=None, tags=None):
         if autonomous_data_storage_percentage and not isinstance(autonomous_data_storage_percentage, float):
             raise TypeError("Expected argument 'autonomous_data_storage_percentage' to be a float")
         pulumi.set(__self__, "autonomous_data_storage_percentage", autonomous_data_storage_percentage)
@@ -71,6 +72,9 @@ class GetCloudAutonomousVmClusterResult:
         if hostname and not isinstance(hostname, str):
             raise TypeError("Expected argument 'hostname' to be a str")
         pulumi.set(__self__, "hostname", hostname)
+        if iam_roles and not isinstance(iam_roles, list):
+            raise TypeError("Expected argument 'iam_roles' to be a list")
+        pulumi.set(__self__, "iam_roles", iam_roles)
         if max_acds_lowest_scaled_value and not isinstance(max_acds_lowest_scaled_value, int):
             raise TypeError("Expected argument 'max_acds_lowest_scaled_value' to be a int")
         pulumi.set(__self__, "max_acds_lowest_scaled_value", max_acds_lowest_scaled_value)
@@ -235,6 +239,14 @@ class GetCloudAutonomousVmClusterResult:
         return pulumi.get(self, "hostname")
 
     @_builtins.property
+    @pulumi.getter(name="iamRoles")
+    def iam_roles(self) -> Optional[Sequence['outputs.CloudAutonomousVmClusterIamRole']]:
+        """
+        The AWS Identity and Access Management (IAM) service roles associated with the Autonomous VM cluster.
+        """
+        return pulumi.get(self, "iam_roles")
+
+    @_builtins.property
     @pulumi.getter(name="maxAcdsLowestScaledValue")
     def max_acds_lowest_scaled_value(self) -> Optional[_builtins.int]:
         """
@@ -368,6 +380,7 @@ class AwaitableGetCloudAutonomousVmClusterResult(GetCloudAutonomousVmClusterResu
             domain=self.domain,
             exadata_storage_in_tbs_lowest_scaled_value=self.exadata_storage_in_tbs_lowest_scaled_value,
             hostname=self.hostname,
+            iam_roles=self.iam_roles,
             max_acds_lowest_scaled_value=self.max_acds_lowest_scaled_value,
             memory_size_in_gbs=self.memory_size_in_gbs,
             node_count=self.node_count,
@@ -413,6 +426,7 @@ def get_cloud_autonomous_vm_cluster(cloud_autonomous_vm_cluster_arn: Optional[_b
         domain=pulumi.get(__ret__, 'domain'),
         exadata_storage_in_tbs_lowest_scaled_value=pulumi.get(__ret__, 'exadata_storage_in_tbs_lowest_scaled_value'),
         hostname=pulumi.get(__ret__, 'hostname'),
+        iam_roles=pulumi.get(__ret__, 'iam_roles'),
         max_acds_lowest_scaled_value=pulumi.get(__ret__, 'max_acds_lowest_scaled_value'),
         memory_size_in_gbs=pulumi.get(__ret__, 'memory_size_in_gbs'),
         node_count=pulumi.get(__ret__, 'node_count'),
@@ -455,6 +469,7 @@ def get_cloud_autonomous_vm_cluster_output(cloud_autonomous_vm_cluster_arn: Opti
         domain=pulumi.get(__response__, 'domain'),
         exadata_storage_in_tbs_lowest_scaled_value=pulumi.get(__response__, 'exadata_storage_in_tbs_lowest_scaled_value'),
         hostname=pulumi.get(__response__, 'hostname'),
+        iam_roles=pulumi.get(__response__, 'iam_roles'),
         max_acds_lowest_scaled_value=pulumi.get(__response__, 'max_acds_lowest_scaled_value'),
         memory_size_in_gbs=pulumi.get(__response__, 'memory_size_in_gbs'),
         node_count=pulumi.get(__response__, 'node_count'),

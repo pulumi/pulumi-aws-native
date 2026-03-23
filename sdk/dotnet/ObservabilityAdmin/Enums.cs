@@ -419,6 +419,68 @@ namespace Pulumi.AwsNative.ObservabilityAdmin
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// Scope of the Telemetry Enrichment
+    /// </summary>
+    [EnumType]
+    public readonly struct TelemetryEnrichmentScope : IEquatable<TelemetryEnrichmentScope>
+    {
+        private readonly string _value;
+
+        private TelemetryEnrichmentScope(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TelemetryEnrichmentScope Account { get; } = new TelemetryEnrichmentScope("ACCOUNT");
+
+        public static bool operator ==(TelemetryEnrichmentScope left, TelemetryEnrichmentScope right) => left.Equals(right);
+        public static bool operator !=(TelemetryEnrichmentScope left, TelemetryEnrichmentScope right) => !left.Equals(right);
+
+        public static explicit operator string(TelemetryEnrichmentScope value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TelemetryEnrichmentScope other && Equals(other);
+        public bool Equals(TelemetryEnrichmentScope other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Current status of the resource tags for telemetry feature (Running, Stopped, or Impaired).
+    /// </summary>
+    [EnumType]
+    public readonly struct TelemetryEnrichmentStatus : IEquatable<TelemetryEnrichmentStatus>
+    {
+        private readonly string _value;
+
+        private TelemetryEnrichmentStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TelemetryEnrichmentStatus Running { get; } = new TelemetryEnrichmentStatus("RUNNING");
+        public static TelemetryEnrichmentStatus Stopped { get; } = new TelemetryEnrichmentStatus("STOPPED");
+        public static TelemetryEnrichmentStatus Impaired { get; } = new TelemetryEnrichmentStatus("IMPAIRED");
+
+        public static bool operator ==(TelemetryEnrichmentStatus left, TelemetryEnrichmentStatus right) => left.Equals(right);
+        public static bool operator !=(TelemetryEnrichmentStatus left, TelemetryEnrichmentStatus right) => !left.Equals(right);
+
+        public static explicit operator string(TelemetryEnrichmentStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TelemetryEnrichmentStatus other && Equals(other);
+        public bool Equals(TelemetryEnrichmentStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     [EnumType]
     public readonly struct TelemetryPipelinesTelemetryPipelineStatus : IEquatable<TelemetryPipelinesTelemetryPipelineStatus>
     {

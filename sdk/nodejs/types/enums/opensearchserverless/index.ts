@@ -21,6 +21,17 @@ export const CollectionGroupStandbyReplicas = {
  */
 export type CollectionGroupStandbyReplicas = (typeof CollectionGroupStandbyReplicas)[keyof typeof CollectionGroupStandbyReplicas];
 
+export const CollectionServerlessVectorAcceleration = {
+    Enabled: "ENABLED",
+    Disabled: "DISABLED",
+    Allowed: "ALLOWED",
+} as const;
+
+/**
+ * Indicates whether GPU acceleration is enabled for vector indexing
+ */
+export type CollectionServerlessVectorAcceleration = (typeof CollectionServerlessVectorAcceleration)[keyof typeof CollectionServerlessVectorAcceleration];
+
 export const CollectionStandbyReplicas = {
     Enabled: "ENABLED",
     Disabled: "DISABLED",

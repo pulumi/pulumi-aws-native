@@ -21,6 +21,10 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "aws-native:cleanroomsml:ConfiguredModelAlgorithm":
+		r = &ConfiguredModelAlgorithm{}
+	case "aws-native:cleanroomsml:ConfiguredModelAlgorithmAssociation":
+		r = &ConfiguredModelAlgorithmAssociation{}
 	case "aws-native:cleanroomsml:TrainingDataset":
 		r = &TrainingDataset{}
 	default:

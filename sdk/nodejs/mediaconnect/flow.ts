@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource schema for AWS::MediaConnect::Flow
+ * Resource Type definition for AWS::MediaConnect::Flow
  */
 export class Flow extends pulumi.CustomResource {
     /**
@@ -46,6 +46,10 @@ export class Flow extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly egressIp: pulumi.Output<string>;
     /**
+     * The encoding configuration to apply to the NDI source content when transcoding it to a transport stream (TS) for downstream distribution. You can choose between several predefined encoding profiles based on common use cases.
+     */
+    declare public readonly encodingConfig: pulumi.Output<outputs.mediaconnect.FlowEncodingConfig | undefined>;
+    /**
      * The Amazon Resource Name (ARN), a unique identifier for any AWS resource, of the flow.
      */
     declare public /*out*/ readonly flowArn: pulumi.Output<string>;
@@ -58,7 +62,7 @@ export class Flow extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly flowNdiMachineName: pulumi.Output<string>;
     /**
-     * Determines the processing capacity and feature set of the flow. Set this optional parameter to LARGE if you want to enable NDI outputs on the flow.
+     * Determines the processing capacity and feature set of the flow. Set this optional parameter to LARGE if you want to enable NDI sources or outputs on the flow.
      */
     declare public readonly flowSize: pulumi.Output<enums.mediaconnect.FlowSize | undefined>;
     /**
@@ -74,7 +78,7 @@ export class Flow extends pulumi.CustomResource {
      */
     declare public readonly name: pulumi.Output<string>;
     /**
-     * Specifies the configuration settings for NDI outputs. Required when the flow includes NDI outputs.
+     * Specifies the configuration settings for NDI sources and outputs. Required when the flow includes NDI sources or outputs.
      */
     declare public readonly ndiConfig: pulumi.Output<outputs.mediaconnect.FlowNdiConfig | undefined>;
     /**
@@ -89,6 +93,10 @@ export class Flow extends pulumi.CustomResource {
      * The source monitoring config of the flow.
      */
     declare public readonly sourceMonitoringConfig: pulumi.Output<outputs.mediaconnect.FlowSourceMonitoringConfig | undefined>;
+    /**
+     * Key-value pairs that can be used to tag this flow.
+     */
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The VPC interfaces that you added to this flow.
      */
@@ -109,6 +117,7 @@ export class Flow extends pulumi.CustomResource {
                 throw new Error("Missing required property 'source'");
             }
             resourceInputs["availabilityZone"] = args?.availabilityZone;
+            resourceInputs["encodingConfig"] = args?.encodingConfig;
             resourceInputs["flowSize"] = args?.flowSize;
             resourceInputs["maintenance"] = args?.maintenance;
             resourceInputs["mediaStreams"] = args?.mediaStreams;
@@ -117,6 +126,7 @@ export class Flow extends pulumi.CustomResource {
             resourceInputs["source"] = args?.source;
             resourceInputs["sourceFailoverConfig"] = args?.sourceFailoverConfig;
             resourceInputs["sourceMonitoringConfig"] = args?.sourceMonitoringConfig;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["vpcInterfaces"] = args?.vpcInterfaces;
             resourceInputs["egressIp"] = undefined /*out*/;
             resourceInputs["flowArn"] = undefined /*out*/;
@@ -125,6 +135,7 @@ export class Flow extends pulumi.CustomResource {
         } else {
             resourceInputs["availabilityZone"] = undefined /*out*/;
             resourceInputs["egressIp"] = undefined /*out*/;
+            resourceInputs["encodingConfig"] = undefined /*out*/;
             resourceInputs["flowArn"] = undefined /*out*/;
             resourceInputs["flowAvailabilityZone"] = undefined /*out*/;
             resourceInputs["flowNdiMachineName"] = undefined /*out*/;
@@ -136,6 +147,7 @@ export class Flow extends pulumi.CustomResource {
             resourceInputs["source"] = undefined /*out*/;
             resourceInputs["sourceFailoverConfig"] = undefined /*out*/;
             resourceInputs["sourceMonitoringConfig"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["vpcInterfaces"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -154,7 +166,11 @@ export interface FlowArgs {
      */
     availabilityZone?: pulumi.Input<string>;
     /**
-     * Determines the processing capacity and feature set of the flow. Set this optional parameter to LARGE if you want to enable NDI outputs on the flow.
+     * The encoding configuration to apply to the NDI source content when transcoding it to a transport stream (TS) for downstream distribution. You can choose between several predefined encoding profiles based on common use cases.
+     */
+    encodingConfig?: pulumi.Input<inputs.mediaconnect.FlowEncodingConfigArgs>;
+    /**
+     * Determines the processing capacity and feature set of the flow. Set this optional parameter to LARGE if you want to enable NDI sources or outputs on the flow.
      */
     flowSize?: pulumi.Input<enums.mediaconnect.FlowSize>;
     /**
@@ -170,7 +186,7 @@ export interface FlowArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * Specifies the configuration settings for NDI outputs. Required when the flow includes NDI outputs.
+     * Specifies the configuration settings for NDI sources and outputs. Required when the flow includes NDI sources or outputs.
      */
     ndiConfig?: pulumi.Input<inputs.mediaconnect.FlowNdiConfigArgs>;
     /**
@@ -185,6 +201,10 @@ export interface FlowArgs {
      * The source monitoring config of the flow.
      */
     sourceMonitoringConfig?: pulumi.Input<inputs.mediaconnect.FlowSourceMonitoringConfigArgs>;
+    /**
+     * Key-value pairs that can be used to tag this flow.
+     */
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
      * The VPC interfaces that you added to this flow.
      */

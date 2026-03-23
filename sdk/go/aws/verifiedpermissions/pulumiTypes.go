@@ -2056,269 +2056,140 @@ func (o PolicyStoreKmsEncryptionStatePtrOutput) Key() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-type PolicyStoreSchemaDefinition0Properties struct {
-	CedarJson string `pulumi:"cedarJson"`
+type PolicyStoreSchemaDefinition struct {
+	// A JSON string representation of the schema supported by applications that use this policy store. For more information, see [Policy store schema](https://docs.aws.amazon.com/verifiedpermissions/latest/userguide/schema.html) in the AVP User Guide.
+	CedarJson *string `pulumi:"cedarJson"`
 }
 
-// PolicyStoreSchemaDefinition0PropertiesInput is an input type that accepts PolicyStoreSchemaDefinition0PropertiesArgs and PolicyStoreSchemaDefinition0PropertiesOutput values.
-// You can construct a concrete instance of `PolicyStoreSchemaDefinition0PropertiesInput` via:
+// PolicyStoreSchemaDefinitionInput is an input type that accepts PolicyStoreSchemaDefinitionArgs and PolicyStoreSchemaDefinitionOutput values.
+// You can construct a concrete instance of `PolicyStoreSchemaDefinitionInput` via:
 //
-//	PolicyStoreSchemaDefinition0PropertiesArgs{...}
-type PolicyStoreSchemaDefinition0PropertiesInput interface {
+//	PolicyStoreSchemaDefinitionArgs{...}
+type PolicyStoreSchemaDefinitionInput interface {
 	pulumi.Input
 
-	ToPolicyStoreSchemaDefinition0PropertiesOutput() PolicyStoreSchemaDefinition0PropertiesOutput
-	ToPolicyStoreSchemaDefinition0PropertiesOutputWithContext(context.Context) PolicyStoreSchemaDefinition0PropertiesOutput
+	ToPolicyStoreSchemaDefinitionOutput() PolicyStoreSchemaDefinitionOutput
+	ToPolicyStoreSchemaDefinitionOutputWithContext(context.Context) PolicyStoreSchemaDefinitionOutput
 }
 
-type PolicyStoreSchemaDefinition0PropertiesArgs struct {
-	CedarJson pulumi.StringInput `pulumi:"cedarJson"`
+type PolicyStoreSchemaDefinitionArgs struct {
+	// A JSON string representation of the schema supported by applications that use this policy store. For more information, see [Policy store schema](https://docs.aws.amazon.com/verifiedpermissions/latest/userguide/schema.html) in the AVP User Guide.
+	CedarJson pulumi.StringPtrInput `pulumi:"cedarJson"`
 }
 
-func (PolicyStoreSchemaDefinition0PropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PolicyStoreSchemaDefinition0Properties)(nil)).Elem()
+func (PolicyStoreSchemaDefinitionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyStoreSchemaDefinition)(nil)).Elem()
 }
 
-func (i PolicyStoreSchemaDefinition0PropertiesArgs) ToPolicyStoreSchemaDefinition0PropertiesOutput() PolicyStoreSchemaDefinition0PropertiesOutput {
-	return i.ToPolicyStoreSchemaDefinition0PropertiesOutputWithContext(context.Background())
+func (i PolicyStoreSchemaDefinitionArgs) ToPolicyStoreSchemaDefinitionOutput() PolicyStoreSchemaDefinitionOutput {
+	return i.ToPolicyStoreSchemaDefinitionOutputWithContext(context.Background())
 }
 
-func (i PolicyStoreSchemaDefinition0PropertiesArgs) ToPolicyStoreSchemaDefinition0PropertiesOutputWithContext(ctx context.Context) PolicyStoreSchemaDefinition0PropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PolicyStoreSchemaDefinition0PropertiesOutput)
+func (i PolicyStoreSchemaDefinitionArgs) ToPolicyStoreSchemaDefinitionOutputWithContext(ctx context.Context) PolicyStoreSchemaDefinitionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyStoreSchemaDefinitionOutput)
 }
 
-func (i PolicyStoreSchemaDefinition0PropertiesArgs) ToPolicyStoreSchemaDefinition0PropertiesPtrOutput() PolicyStoreSchemaDefinition0PropertiesPtrOutput {
-	return i.ToPolicyStoreSchemaDefinition0PropertiesPtrOutputWithContext(context.Background())
+func (i PolicyStoreSchemaDefinitionArgs) ToPolicyStoreSchemaDefinitionPtrOutput() PolicyStoreSchemaDefinitionPtrOutput {
+	return i.ToPolicyStoreSchemaDefinitionPtrOutputWithContext(context.Background())
 }
 
-func (i PolicyStoreSchemaDefinition0PropertiesArgs) ToPolicyStoreSchemaDefinition0PropertiesPtrOutputWithContext(ctx context.Context) PolicyStoreSchemaDefinition0PropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PolicyStoreSchemaDefinition0PropertiesOutput).ToPolicyStoreSchemaDefinition0PropertiesPtrOutputWithContext(ctx)
+func (i PolicyStoreSchemaDefinitionArgs) ToPolicyStoreSchemaDefinitionPtrOutputWithContext(ctx context.Context) PolicyStoreSchemaDefinitionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyStoreSchemaDefinitionOutput).ToPolicyStoreSchemaDefinitionPtrOutputWithContext(ctx)
 }
 
-// PolicyStoreSchemaDefinition0PropertiesPtrInput is an input type that accepts PolicyStoreSchemaDefinition0PropertiesArgs, PolicyStoreSchemaDefinition0PropertiesPtr and PolicyStoreSchemaDefinition0PropertiesPtrOutput values.
-// You can construct a concrete instance of `PolicyStoreSchemaDefinition0PropertiesPtrInput` via:
+// PolicyStoreSchemaDefinitionPtrInput is an input type that accepts PolicyStoreSchemaDefinitionArgs, PolicyStoreSchemaDefinitionPtr and PolicyStoreSchemaDefinitionPtrOutput values.
+// You can construct a concrete instance of `PolicyStoreSchemaDefinitionPtrInput` via:
 //
-//	        PolicyStoreSchemaDefinition0PropertiesArgs{...}
+//	        PolicyStoreSchemaDefinitionArgs{...}
 //
 //	or:
 //
 //	        nil
-type PolicyStoreSchemaDefinition0PropertiesPtrInput interface {
+type PolicyStoreSchemaDefinitionPtrInput interface {
 	pulumi.Input
 
-	ToPolicyStoreSchemaDefinition0PropertiesPtrOutput() PolicyStoreSchemaDefinition0PropertiesPtrOutput
-	ToPolicyStoreSchemaDefinition0PropertiesPtrOutputWithContext(context.Context) PolicyStoreSchemaDefinition0PropertiesPtrOutput
+	ToPolicyStoreSchemaDefinitionPtrOutput() PolicyStoreSchemaDefinitionPtrOutput
+	ToPolicyStoreSchemaDefinitionPtrOutputWithContext(context.Context) PolicyStoreSchemaDefinitionPtrOutput
 }
 
-type policyStoreSchemaDefinition0PropertiesPtrType PolicyStoreSchemaDefinition0PropertiesArgs
+type policyStoreSchemaDefinitionPtrType PolicyStoreSchemaDefinitionArgs
 
-func PolicyStoreSchemaDefinition0PropertiesPtr(v *PolicyStoreSchemaDefinition0PropertiesArgs) PolicyStoreSchemaDefinition0PropertiesPtrInput {
-	return (*policyStoreSchemaDefinition0PropertiesPtrType)(v)
+func PolicyStoreSchemaDefinitionPtr(v *PolicyStoreSchemaDefinitionArgs) PolicyStoreSchemaDefinitionPtrInput {
+	return (*policyStoreSchemaDefinitionPtrType)(v)
 }
 
-func (*policyStoreSchemaDefinition0PropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PolicyStoreSchemaDefinition0Properties)(nil)).Elem()
+func (*policyStoreSchemaDefinitionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PolicyStoreSchemaDefinition)(nil)).Elem()
 }
 
-func (i *policyStoreSchemaDefinition0PropertiesPtrType) ToPolicyStoreSchemaDefinition0PropertiesPtrOutput() PolicyStoreSchemaDefinition0PropertiesPtrOutput {
-	return i.ToPolicyStoreSchemaDefinition0PropertiesPtrOutputWithContext(context.Background())
+func (i *policyStoreSchemaDefinitionPtrType) ToPolicyStoreSchemaDefinitionPtrOutput() PolicyStoreSchemaDefinitionPtrOutput {
+	return i.ToPolicyStoreSchemaDefinitionPtrOutputWithContext(context.Background())
 }
 
-func (i *policyStoreSchemaDefinition0PropertiesPtrType) ToPolicyStoreSchemaDefinition0PropertiesPtrOutputWithContext(ctx context.Context) PolicyStoreSchemaDefinition0PropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PolicyStoreSchemaDefinition0PropertiesPtrOutput)
+func (i *policyStoreSchemaDefinitionPtrType) ToPolicyStoreSchemaDefinitionPtrOutputWithContext(ctx context.Context) PolicyStoreSchemaDefinitionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyStoreSchemaDefinitionPtrOutput)
 }
 
-type PolicyStoreSchemaDefinition0PropertiesOutput struct{ *pulumi.OutputState }
+type PolicyStoreSchemaDefinitionOutput struct{ *pulumi.OutputState }
 
-func (PolicyStoreSchemaDefinition0PropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PolicyStoreSchemaDefinition0Properties)(nil)).Elem()
+func (PolicyStoreSchemaDefinitionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyStoreSchemaDefinition)(nil)).Elem()
 }
 
-func (o PolicyStoreSchemaDefinition0PropertiesOutput) ToPolicyStoreSchemaDefinition0PropertiesOutput() PolicyStoreSchemaDefinition0PropertiesOutput {
+func (o PolicyStoreSchemaDefinitionOutput) ToPolicyStoreSchemaDefinitionOutput() PolicyStoreSchemaDefinitionOutput {
 	return o
 }
 
-func (o PolicyStoreSchemaDefinition0PropertiesOutput) ToPolicyStoreSchemaDefinition0PropertiesOutputWithContext(ctx context.Context) PolicyStoreSchemaDefinition0PropertiesOutput {
+func (o PolicyStoreSchemaDefinitionOutput) ToPolicyStoreSchemaDefinitionOutputWithContext(ctx context.Context) PolicyStoreSchemaDefinitionOutput {
 	return o
 }
 
-func (o PolicyStoreSchemaDefinition0PropertiesOutput) ToPolicyStoreSchemaDefinition0PropertiesPtrOutput() PolicyStoreSchemaDefinition0PropertiesPtrOutput {
-	return o.ToPolicyStoreSchemaDefinition0PropertiesPtrOutputWithContext(context.Background())
+func (o PolicyStoreSchemaDefinitionOutput) ToPolicyStoreSchemaDefinitionPtrOutput() PolicyStoreSchemaDefinitionPtrOutput {
+	return o.ToPolicyStoreSchemaDefinitionPtrOutputWithContext(context.Background())
 }
 
-func (o PolicyStoreSchemaDefinition0PropertiesOutput) ToPolicyStoreSchemaDefinition0PropertiesPtrOutputWithContext(ctx context.Context) PolicyStoreSchemaDefinition0PropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicyStoreSchemaDefinition0Properties) *PolicyStoreSchemaDefinition0Properties {
+func (o PolicyStoreSchemaDefinitionOutput) ToPolicyStoreSchemaDefinitionPtrOutputWithContext(ctx context.Context) PolicyStoreSchemaDefinitionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicyStoreSchemaDefinition) *PolicyStoreSchemaDefinition {
 		return &v
-	}).(PolicyStoreSchemaDefinition0PropertiesPtrOutput)
+	}).(PolicyStoreSchemaDefinitionPtrOutput)
 }
 
-func (o PolicyStoreSchemaDefinition0PropertiesOutput) CedarJson() pulumi.StringOutput {
-	return o.ApplyT(func(v PolicyStoreSchemaDefinition0Properties) string { return v.CedarJson }).(pulumi.StringOutput)
+// A JSON string representation of the schema supported by applications that use this policy store. For more information, see [Policy store schema](https://docs.aws.amazon.com/verifiedpermissions/latest/userguide/schema.html) in the AVP User Guide.
+func (o PolicyStoreSchemaDefinitionOutput) CedarJson() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PolicyStoreSchemaDefinition) *string { return v.CedarJson }).(pulumi.StringPtrOutput)
 }
 
-type PolicyStoreSchemaDefinition0PropertiesPtrOutput struct{ *pulumi.OutputState }
+type PolicyStoreSchemaDefinitionPtrOutput struct{ *pulumi.OutputState }
 
-func (PolicyStoreSchemaDefinition0PropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PolicyStoreSchemaDefinition0Properties)(nil)).Elem()
+func (PolicyStoreSchemaDefinitionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PolicyStoreSchemaDefinition)(nil)).Elem()
 }
 
-func (o PolicyStoreSchemaDefinition0PropertiesPtrOutput) ToPolicyStoreSchemaDefinition0PropertiesPtrOutput() PolicyStoreSchemaDefinition0PropertiesPtrOutput {
+func (o PolicyStoreSchemaDefinitionPtrOutput) ToPolicyStoreSchemaDefinitionPtrOutput() PolicyStoreSchemaDefinitionPtrOutput {
 	return o
 }
 
-func (o PolicyStoreSchemaDefinition0PropertiesPtrOutput) ToPolicyStoreSchemaDefinition0PropertiesPtrOutputWithContext(ctx context.Context) PolicyStoreSchemaDefinition0PropertiesPtrOutput {
+func (o PolicyStoreSchemaDefinitionPtrOutput) ToPolicyStoreSchemaDefinitionPtrOutputWithContext(ctx context.Context) PolicyStoreSchemaDefinitionPtrOutput {
 	return o
 }
 
-func (o PolicyStoreSchemaDefinition0PropertiesPtrOutput) Elem() PolicyStoreSchemaDefinition0PropertiesOutput {
-	return o.ApplyT(func(v *PolicyStoreSchemaDefinition0Properties) PolicyStoreSchemaDefinition0Properties {
+func (o PolicyStoreSchemaDefinitionPtrOutput) Elem() PolicyStoreSchemaDefinitionOutput {
+	return o.ApplyT(func(v *PolicyStoreSchemaDefinition) PolicyStoreSchemaDefinition {
 		if v != nil {
 			return *v
 		}
-		var ret PolicyStoreSchemaDefinition0Properties
+		var ret PolicyStoreSchemaDefinition
 		return ret
-	}).(PolicyStoreSchemaDefinition0PropertiesOutput)
+	}).(PolicyStoreSchemaDefinitionOutput)
 }
 
-func (o PolicyStoreSchemaDefinition0PropertiesPtrOutput) CedarJson() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PolicyStoreSchemaDefinition0Properties) *string {
+// A JSON string representation of the schema supported by applications that use this policy store. For more information, see [Policy store schema](https://docs.aws.amazon.com/verifiedpermissions/latest/userguide/schema.html) in the AVP User Guide.
+func (o PolicyStoreSchemaDefinitionPtrOutput) CedarJson() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PolicyStoreSchemaDefinition) *string {
 		if v == nil {
 			return nil
 		}
-		return &v.CedarJson
-	}).(pulumi.StringPtrOutput)
-}
-
-type PolicyStoreSchemaDefinition1Properties struct {
-	CedarFormat string `pulumi:"cedarFormat"`
-}
-
-// PolicyStoreSchemaDefinition1PropertiesInput is an input type that accepts PolicyStoreSchemaDefinition1PropertiesArgs and PolicyStoreSchemaDefinition1PropertiesOutput values.
-// You can construct a concrete instance of `PolicyStoreSchemaDefinition1PropertiesInput` via:
-//
-//	PolicyStoreSchemaDefinition1PropertiesArgs{...}
-type PolicyStoreSchemaDefinition1PropertiesInput interface {
-	pulumi.Input
-
-	ToPolicyStoreSchemaDefinition1PropertiesOutput() PolicyStoreSchemaDefinition1PropertiesOutput
-	ToPolicyStoreSchemaDefinition1PropertiesOutputWithContext(context.Context) PolicyStoreSchemaDefinition1PropertiesOutput
-}
-
-type PolicyStoreSchemaDefinition1PropertiesArgs struct {
-	CedarFormat pulumi.StringInput `pulumi:"cedarFormat"`
-}
-
-func (PolicyStoreSchemaDefinition1PropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PolicyStoreSchemaDefinition1Properties)(nil)).Elem()
-}
-
-func (i PolicyStoreSchemaDefinition1PropertiesArgs) ToPolicyStoreSchemaDefinition1PropertiesOutput() PolicyStoreSchemaDefinition1PropertiesOutput {
-	return i.ToPolicyStoreSchemaDefinition1PropertiesOutputWithContext(context.Background())
-}
-
-func (i PolicyStoreSchemaDefinition1PropertiesArgs) ToPolicyStoreSchemaDefinition1PropertiesOutputWithContext(ctx context.Context) PolicyStoreSchemaDefinition1PropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PolicyStoreSchemaDefinition1PropertiesOutput)
-}
-
-func (i PolicyStoreSchemaDefinition1PropertiesArgs) ToPolicyStoreSchemaDefinition1PropertiesPtrOutput() PolicyStoreSchemaDefinition1PropertiesPtrOutput {
-	return i.ToPolicyStoreSchemaDefinition1PropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i PolicyStoreSchemaDefinition1PropertiesArgs) ToPolicyStoreSchemaDefinition1PropertiesPtrOutputWithContext(ctx context.Context) PolicyStoreSchemaDefinition1PropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PolicyStoreSchemaDefinition1PropertiesOutput).ToPolicyStoreSchemaDefinition1PropertiesPtrOutputWithContext(ctx)
-}
-
-// PolicyStoreSchemaDefinition1PropertiesPtrInput is an input type that accepts PolicyStoreSchemaDefinition1PropertiesArgs, PolicyStoreSchemaDefinition1PropertiesPtr and PolicyStoreSchemaDefinition1PropertiesPtrOutput values.
-// You can construct a concrete instance of `PolicyStoreSchemaDefinition1PropertiesPtrInput` via:
-//
-//	        PolicyStoreSchemaDefinition1PropertiesArgs{...}
-//
-//	or:
-//
-//	        nil
-type PolicyStoreSchemaDefinition1PropertiesPtrInput interface {
-	pulumi.Input
-
-	ToPolicyStoreSchemaDefinition1PropertiesPtrOutput() PolicyStoreSchemaDefinition1PropertiesPtrOutput
-	ToPolicyStoreSchemaDefinition1PropertiesPtrOutputWithContext(context.Context) PolicyStoreSchemaDefinition1PropertiesPtrOutput
-}
-
-type policyStoreSchemaDefinition1PropertiesPtrType PolicyStoreSchemaDefinition1PropertiesArgs
-
-func PolicyStoreSchemaDefinition1PropertiesPtr(v *PolicyStoreSchemaDefinition1PropertiesArgs) PolicyStoreSchemaDefinition1PropertiesPtrInput {
-	return (*policyStoreSchemaDefinition1PropertiesPtrType)(v)
-}
-
-func (*policyStoreSchemaDefinition1PropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PolicyStoreSchemaDefinition1Properties)(nil)).Elem()
-}
-
-func (i *policyStoreSchemaDefinition1PropertiesPtrType) ToPolicyStoreSchemaDefinition1PropertiesPtrOutput() PolicyStoreSchemaDefinition1PropertiesPtrOutput {
-	return i.ToPolicyStoreSchemaDefinition1PropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i *policyStoreSchemaDefinition1PropertiesPtrType) ToPolicyStoreSchemaDefinition1PropertiesPtrOutputWithContext(ctx context.Context) PolicyStoreSchemaDefinition1PropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PolicyStoreSchemaDefinition1PropertiesPtrOutput)
-}
-
-type PolicyStoreSchemaDefinition1PropertiesOutput struct{ *pulumi.OutputState }
-
-func (PolicyStoreSchemaDefinition1PropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PolicyStoreSchemaDefinition1Properties)(nil)).Elem()
-}
-
-func (o PolicyStoreSchemaDefinition1PropertiesOutput) ToPolicyStoreSchemaDefinition1PropertiesOutput() PolicyStoreSchemaDefinition1PropertiesOutput {
-	return o
-}
-
-func (o PolicyStoreSchemaDefinition1PropertiesOutput) ToPolicyStoreSchemaDefinition1PropertiesOutputWithContext(ctx context.Context) PolicyStoreSchemaDefinition1PropertiesOutput {
-	return o
-}
-
-func (o PolicyStoreSchemaDefinition1PropertiesOutput) ToPolicyStoreSchemaDefinition1PropertiesPtrOutput() PolicyStoreSchemaDefinition1PropertiesPtrOutput {
-	return o.ToPolicyStoreSchemaDefinition1PropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o PolicyStoreSchemaDefinition1PropertiesOutput) ToPolicyStoreSchemaDefinition1PropertiesPtrOutputWithContext(ctx context.Context) PolicyStoreSchemaDefinition1PropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicyStoreSchemaDefinition1Properties) *PolicyStoreSchemaDefinition1Properties {
-		return &v
-	}).(PolicyStoreSchemaDefinition1PropertiesPtrOutput)
-}
-
-func (o PolicyStoreSchemaDefinition1PropertiesOutput) CedarFormat() pulumi.StringOutput {
-	return o.ApplyT(func(v PolicyStoreSchemaDefinition1Properties) string { return v.CedarFormat }).(pulumi.StringOutput)
-}
-
-type PolicyStoreSchemaDefinition1PropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (PolicyStoreSchemaDefinition1PropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PolicyStoreSchemaDefinition1Properties)(nil)).Elem()
-}
-
-func (o PolicyStoreSchemaDefinition1PropertiesPtrOutput) ToPolicyStoreSchemaDefinition1PropertiesPtrOutput() PolicyStoreSchemaDefinition1PropertiesPtrOutput {
-	return o
-}
-
-func (o PolicyStoreSchemaDefinition1PropertiesPtrOutput) ToPolicyStoreSchemaDefinition1PropertiesPtrOutputWithContext(ctx context.Context) PolicyStoreSchemaDefinition1PropertiesPtrOutput {
-	return o
-}
-
-func (o PolicyStoreSchemaDefinition1PropertiesPtrOutput) Elem() PolicyStoreSchemaDefinition1PropertiesOutput {
-	return o.ApplyT(func(v *PolicyStoreSchemaDefinition1Properties) PolicyStoreSchemaDefinition1Properties {
-		if v != nil {
-			return *v
-		}
-		var ret PolicyStoreSchemaDefinition1Properties
-		return ret
-	}).(PolicyStoreSchemaDefinition1PropertiesOutput)
-}
-
-func (o PolicyStoreSchemaDefinition1PropertiesPtrOutput) CedarFormat() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PolicyStoreSchemaDefinition1Properties) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.CedarFormat
+		return v.CedarJson
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -2577,10 +2448,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyStoreDeletionProtectionPtrInput)(nil)).Elem(), PolicyStoreDeletionProtectionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyStoreEncryptionSettingsInput)(nil)).Elem(), PolicyStoreEncryptionSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyStoreEncryptionSettingsPtrInput)(nil)).Elem(), PolicyStoreEncryptionSettingsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PolicyStoreSchemaDefinition0PropertiesInput)(nil)).Elem(), PolicyStoreSchemaDefinition0PropertiesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PolicyStoreSchemaDefinition0PropertiesPtrInput)(nil)).Elem(), PolicyStoreSchemaDefinition0PropertiesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PolicyStoreSchemaDefinition1PropertiesInput)(nil)).Elem(), PolicyStoreSchemaDefinition1PropertiesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PolicyStoreSchemaDefinition1PropertiesPtrInput)(nil)).Elem(), PolicyStoreSchemaDefinition1PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyStoreSchemaDefinitionInput)(nil)).Elem(), PolicyStoreSchemaDefinitionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyStoreSchemaDefinitionPtrInput)(nil)).Elem(), PolicyStoreSchemaDefinitionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyStoreValidationSettingsInput)(nil)).Elem(), PolicyStoreValidationSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyTemplateLinkedPolicyDefinitionInput)(nil)).Elem(), PolicyTemplateLinkedPolicyDefinitionArgs{})
 	pulumi.RegisterOutputType(EncryptionState0PropertiesOutput{})
@@ -2625,10 +2494,8 @@ func init() {
 	pulumi.RegisterOutputType(PolicyStoreEncryptionSettingsPtrOutput{})
 	pulumi.RegisterOutputType(PolicyStoreKmsEncryptionStateOutput{})
 	pulumi.RegisterOutputType(PolicyStoreKmsEncryptionStatePtrOutput{})
-	pulumi.RegisterOutputType(PolicyStoreSchemaDefinition0PropertiesOutput{})
-	pulumi.RegisterOutputType(PolicyStoreSchemaDefinition0PropertiesPtrOutput{})
-	pulumi.RegisterOutputType(PolicyStoreSchemaDefinition1PropertiesOutput{})
-	pulumi.RegisterOutputType(PolicyStoreSchemaDefinition1PropertiesPtrOutput{})
+	pulumi.RegisterOutputType(PolicyStoreSchemaDefinitionOutput{})
+	pulumi.RegisterOutputType(PolicyStoreSchemaDefinitionPtrOutput{})
 	pulumi.RegisterOutputType(PolicyStoreValidationSettingsOutput{})
 	pulumi.RegisterOutputType(PolicyStoreValidationSettingsPtrOutput{})
 	pulumi.RegisterOutputType(PolicyTemplateLinkedPolicyDefinitionOutput{})

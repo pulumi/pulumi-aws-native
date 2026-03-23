@@ -14,6 +14,7 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from .. import outputs as _root_outputs
 from ._enums import *
 
 __all__ = [
@@ -25,10 +26,13 @@ __all__ = [
 
 @pulumi.output_type
 class GetFlowResult:
-    def __init__(__self__, egress_ip=None, flow_arn=None, flow_availability_zone=None, flow_ndi_machine_name=None, flow_size=None, maintenance=None, media_streams=None, ndi_config=None, source=None, source_failover_config=None, source_monitoring_config=None, vpc_interfaces=None):
+    def __init__(__self__, egress_ip=None, encoding_config=None, flow_arn=None, flow_availability_zone=None, flow_ndi_machine_name=None, flow_size=None, maintenance=None, media_streams=None, ndi_config=None, source=None, source_failover_config=None, source_monitoring_config=None, tags=None, vpc_interfaces=None):
         if egress_ip and not isinstance(egress_ip, str):
             raise TypeError("Expected argument 'egress_ip' to be a str")
         pulumi.set(__self__, "egress_ip", egress_ip)
+        if encoding_config and not isinstance(encoding_config, dict):
+            raise TypeError("Expected argument 'encoding_config' to be a dict")
+        pulumi.set(__self__, "encoding_config", encoding_config)
         if flow_arn and not isinstance(flow_arn, str):
             raise TypeError("Expected argument 'flow_arn' to be a str")
         pulumi.set(__self__, "flow_arn", flow_arn)
@@ -59,6 +63,9 @@ class GetFlowResult:
         if source_monitoring_config and not isinstance(source_monitoring_config, dict):
             raise TypeError("Expected argument 'source_monitoring_config' to be a dict")
         pulumi.set(__self__, "source_monitoring_config", source_monitoring_config)
+        if tags and not isinstance(tags, list):
+            raise TypeError("Expected argument 'tags' to be a list")
+        pulumi.set(__self__, "tags", tags)
         if vpc_interfaces and not isinstance(vpc_interfaces, list):
             raise TypeError("Expected argument 'vpc_interfaces' to be a list")
         pulumi.set(__self__, "vpc_interfaces", vpc_interfaces)
@@ -70,6 +77,14 @@ class GetFlowResult:
         The IP address from which video will be sent to output destinations.
         """
         return pulumi.get(self, "egress_ip")
+
+    @_builtins.property
+    @pulumi.getter(name="encodingConfig")
+    def encoding_config(self) -> Optional['outputs.FlowEncodingConfig']:
+        """
+        The encoding configuration to apply to the NDI source content when transcoding it to a transport stream (TS) for downstream distribution. You can choose between several predefined encoding profiles based on common use cases.
+        """
+        return pulumi.get(self, "encoding_config")
 
     @_builtins.property
     @pulumi.getter(name="flowArn")
@@ -99,7 +114,7 @@ class GetFlowResult:
     @pulumi.getter(name="flowSize")
     def flow_size(self) -> Optional['FlowSize']:
         """
-        Determines the processing capacity and feature set of the flow. Set this optional parameter to LARGE if you want to enable NDI outputs on the flow.
+        Determines the processing capacity and feature set of the flow. Set this optional parameter to LARGE if you want to enable NDI sources or outputs on the flow.
         """
         return pulumi.get(self, "flow_size")
 
@@ -123,7 +138,7 @@ class GetFlowResult:
     @pulumi.getter(name="ndiConfig")
     def ndi_config(self) -> Optional['outputs.FlowNdiConfig']:
         """
-        Specifies the configuration settings for NDI outputs. Required when the flow includes NDI outputs.
+        Specifies the configuration settings for NDI sources and outputs. Required when the flow includes NDI sources or outputs.
         """
         return pulumi.get(self, "ndi_config")
 
@@ -152,6 +167,14 @@ class GetFlowResult:
         return pulumi.get(self, "source_monitoring_config")
 
     @_builtins.property
+    @pulumi.getter
+    def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        Key-value pairs that can be used to tag this flow.
+        """
+        return pulumi.get(self, "tags")
+
+    @_builtins.property
     @pulumi.getter(name="vpcInterfaces")
     def vpc_interfaces(self) -> Optional[Sequence['outputs.FlowVpcInterface']]:
         """
@@ -167,6 +190,7 @@ class AwaitableGetFlowResult(GetFlowResult):
             yield self
         return GetFlowResult(
             egress_ip=self.egress_ip,
+            encoding_config=self.encoding_config,
             flow_arn=self.flow_arn,
             flow_availability_zone=self.flow_availability_zone,
             flow_ndi_machine_name=self.flow_ndi_machine_name,
@@ -177,13 +201,14 @@ class AwaitableGetFlowResult(GetFlowResult):
             source=self.source,
             source_failover_config=self.source_failover_config,
             source_monitoring_config=self.source_monitoring_config,
+            tags=self.tags,
             vpc_interfaces=self.vpc_interfaces)
 
 
 def get_flow(flow_arn: Optional[_builtins.str] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFlowResult:
     """
-    Resource schema for AWS::MediaConnect::Flow
+    Resource Type definition for AWS::MediaConnect::Flow
 
 
     :param _builtins.str flow_arn: The Amazon Resource Name (ARN), a unique identifier for any AWS resource, of the flow.
@@ -195,6 +220,7 @@ def get_flow(flow_arn: Optional[_builtins.str] = None,
 
     return AwaitableGetFlowResult(
         egress_ip=pulumi.get(__ret__, 'egress_ip'),
+        encoding_config=pulumi.get(__ret__, 'encoding_config'),
         flow_arn=pulumi.get(__ret__, 'flow_arn'),
         flow_availability_zone=pulumi.get(__ret__, 'flow_availability_zone'),
         flow_ndi_machine_name=pulumi.get(__ret__, 'flow_ndi_machine_name'),
@@ -205,11 +231,12 @@ def get_flow(flow_arn: Optional[_builtins.str] = None,
         source=pulumi.get(__ret__, 'source'),
         source_failover_config=pulumi.get(__ret__, 'source_failover_config'),
         source_monitoring_config=pulumi.get(__ret__, 'source_monitoring_config'),
+        tags=pulumi.get(__ret__, 'tags'),
         vpc_interfaces=pulumi.get(__ret__, 'vpc_interfaces'))
 def get_flow_output(flow_arn: Optional[pulumi.Input[_builtins.str]] = None,
                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFlowResult]:
     """
-    Resource schema for AWS::MediaConnect::Flow
+    Resource Type definition for AWS::MediaConnect::Flow
 
 
     :param _builtins.str flow_arn: The Amazon Resource Name (ARN), a unique identifier for any AWS resource, of the flow.
@@ -220,6 +247,7 @@ def get_flow_output(flow_arn: Optional[pulumi.Input[_builtins.str]] = None,
     __ret__ = pulumi.runtime.invoke_output('aws-native:mediaconnect:getFlow', __args__, opts=opts, typ=GetFlowResult)
     return __ret__.apply(lambda __response__: GetFlowResult(
         egress_ip=pulumi.get(__response__, 'egress_ip'),
+        encoding_config=pulumi.get(__response__, 'encoding_config'),
         flow_arn=pulumi.get(__response__, 'flow_arn'),
         flow_availability_zone=pulumi.get(__response__, 'flow_availability_zone'),
         flow_ndi_machine_name=pulumi.get(__response__, 'flow_ndi_machine_name'),
@@ -230,4 +258,5 @@ def get_flow_output(flow_arn: Optional[pulumi.Input[_builtins.str]] = None,
         source=pulumi.get(__response__, 'source'),
         source_failover_config=pulumi.get(__response__, 'source_failover_config'),
         source_monitoring_config=pulumi.get(__response__, 'source_monitoring_config'),
+        tags=pulumi.get(__response__, 'tags'),
         vpc_interfaces=pulumi.get(__response__, 'vpc_interfaces')))

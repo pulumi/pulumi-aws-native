@@ -41,6 +41,7 @@ __all__ = [
     'GatewayInterceptorInputConfiguration',
     'GatewayLambdaInterceptorConfiguration',
     'GatewayMcpGatewayConfiguration',
+    'GatewayPolicyEngineConfiguration',
     'GatewayProtocolConfigurationProperties',
     'GatewayTargetApiGatewayTargetConfiguration',
     'GatewayTargetApiGatewayToolConfiguration',
@@ -1155,6 +1156,36 @@ class GatewayMcpGatewayConfiguration(dict):
     @pulumi.getter(name="supportedVersions")
     def supported_versions(self) -> Optional[Sequence[_builtins.str]]:
         return pulumi.get(self, "supported_versions")
+
+
+@pulumi.output_type
+class GatewayPolicyEngineConfiguration(dict):
+    """
+    The configuration for a policy engine associated with a gateway. A policy engine is a collection of policies that evaluates and authorizes agent tool calls. When associated with a gateway, the policy engine intercepts all agent requests and determines whether to allow or deny each action based on the defined policies.
+    """
+    def __init__(__self__, *,
+                 arn: _builtins.str,
+                 mode: 'GatewayPolicyEngineMode'):
+        """
+        The configuration for a policy engine associated with a gateway. A policy engine is a collection of policies that evaluates and authorizes agent tool calls. When associated with a gateway, the policy engine intercepts all agent requests and determines whether to allow or deny each action based on the defined policies.
+
+        :param _builtins.str arn: The ARN of the policy engine. The policy engine contains Cedar policies that define fine-grained authorization rules specifying who can perform what actions on which resources as agents interact through the gateway.
+        """
+        pulumi.set(__self__, "arn", arn)
+        pulumi.set(__self__, "mode", mode)
+
+    @_builtins.property
+    @pulumi.getter
+    def arn(self) -> _builtins.str:
+        """
+        The ARN of the policy engine. The policy engine contains Cedar policies that define fine-grained authorization rules specifying who can perform what actions on which resources as agents interact through the gateway.
+        """
+        return pulumi.get(self, "arn")
+
+    @_builtins.property
+    @pulumi.getter
+    def mode(self) -> 'GatewayPolicyEngineMode':
+        return pulumi.get(self, "mode")
 
 
 @pulumi.output_type

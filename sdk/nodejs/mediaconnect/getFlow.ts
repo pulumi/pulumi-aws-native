@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource schema for AWS::MediaConnect::Flow
+ * Resource Type definition for AWS::MediaConnect::Flow
  */
 export function getFlow(args: GetFlowArgs, opts?: pulumi.InvokeOptions): Promise<GetFlowResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -30,6 +30,10 @@ export interface GetFlowResult {
      */
     readonly egressIp?: string;
     /**
+     * The encoding configuration to apply to the NDI source content when transcoding it to a transport stream (TS) for downstream distribution. You can choose between several predefined encoding profiles based on common use cases.
+     */
+    readonly encodingConfig?: outputs.mediaconnect.FlowEncodingConfig;
+    /**
      * The Amazon Resource Name (ARN), a unique identifier for any AWS resource, of the flow.
      */
     readonly flowArn?: string;
@@ -42,7 +46,7 @@ export interface GetFlowResult {
      */
     readonly flowNdiMachineName?: string;
     /**
-     * Determines the processing capacity and feature set of the flow. Set this optional parameter to LARGE if you want to enable NDI outputs on the flow.
+     * Determines the processing capacity and feature set of the flow. Set this optional parameter to LARGE if you want to enable NDI sources or outputs on the flow.
      */
     readonly flowSize?: enums.mediaconnect.FlowSize;
     /**
@@ -54,7 +58,7 @@ export interface GetFlowResult {
      */
     readonly mediaStreams?: outputs.mediaconnect.FlowMediaStream[];
     /**
-     * Specifies the configuration settings for NDI outputs. Required when the flow includes NDI outputs.
+     * Specifies the configuration settings for NDI sources and outputs. Required when the flow includes NDI sources or outputs.
      */
     readonly ndiConfig?: outputs.mediaconnect.FlowNdiConfig;
     /**
@@ -70,12 +74,16 @@ export interface GetFlowResult {
      */
     readonly sourceMonitoringConfig?: outputs.mediaconnect.FlowSourceMonitoringConfig;
     /**
+     * Key-value pairs that can be used to tag this flow.
+     */
+    readonly tags?: outputs.Tag[];
+    /**
      * The VPC interfaces that you added to this flow.
      */
     readonly vpcInterfaces?: outputs.mediaconnect.FlowVpcInterface[];
 }
 /**
- * Resource schema for AWS::MediaConnect::Flow
+ * Resource Type definition for AWS::MediaConnect::Flow
  */
 export function getFlowOutput(args: GetFlowOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFlowResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

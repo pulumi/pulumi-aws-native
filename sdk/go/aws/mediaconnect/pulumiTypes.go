@@ -2967,6 +2967,158 @@ func (o FlowBlackFramesPtrOutput) ThresholdSeconds() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
+type FlowEncodingConfig struct {
+	EncodingProfile *FlowEncodingProfile `pulumi:"encodingProfile"`
+	// The maximum video bitrate to use when transcoding the NDI source to a Transport Stream. This parameter enables you to override the default video bitrate within the encoding profile's supported range. The supported range is 10,000,000 - 50,000,000 bits per second (bps). If you do not specify a value, MediaConnect uses the default value of 20,000,000 bps.
+	VideoMaxBitrate *int `pulumi:"videoMaxBitrate"`
+}
+
+// FlowEncodingConfigInput is an input type that accepts FlowEncodingConfigArgs and FlowEncodingConfigOutput values.
+// You can construct a concrete instance of `FlowEncodingConfigInput` via:
+//
+//	FlowEncodingConfigArgs{...}
+type FlowEncodingConfigInput interface {
+	pulumi.Input
+
+	ToFlowEncodingConfigOutput() FlowEncodingConfigOutput
+	ToFlowEncodingConfigOutputWithContext(context.Context) FlowEncodingConfigOutput
+}
+
+type FlowEncodingConfigArgs struct {
+	EncodingProfile FlowEncodingProfilePtrInput `pulumi:"encodingProfile"`
+	// The maximum video bitrate to use when transcoding the NDI source to a Transport Stream. This parameter enables you to override the default video bitrate within the encoding profile's supported range. The supported range is 10,000,000 - 50,000,000 bits per second (bps). If you do not specify a value, MediaConnect uses the default value of 20,000,000 bps.
+	VideoMaxBitrate pulumi.IntPtrInput `pulumi:"videoMaxBitrate"`
+}
+
+func (FlowEncodingConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowEncodingConfig)(nil)).Elem()
+}
+
+func (i FlowEncodingConfigArgs) ToFlowEncodingConfigOutput() FlowEncodingConfigOutput {
+	return i.ToFlowEncodingConfigOutputWithContext(context.Background())
+}
+
+func (i FlowEncodingConfigArgs) ToFlowEncodingConfigOutputWithContext(ctx context.Context) FlowEncodingConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowEncodingConfigOutput)
+}
+
+func (i FlowEncodingConfigArgs) ToFlowEncodingConfigPtrOutput() FlowEncodingConfigPtrOutput {
+	return i.ToFlowEncodingConfigPtrOutputWithContext(context.Background())
+}
+
+func (i FlowEncodingConfigArgs) ToFlowEncodingConfigPtrOutputWithContext(ctx context.Context) FlowEncodingConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowEncodingConfigOutput).ToFlowEncodingConfigPtrOutputWithContext(ctx)
+}
+
+// FlowEncodingConfigPtrInput is an input type that accepts FlowEncodingConfigArgs, FlowEncodingConfigPtr and FlowEncodingConfigPtrOutput values.
+// You can construct a concrete instance of `FlowEncodingConfigPtrInput` via:
+//
+//	        FlowEncodingConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type FlowEncodingConfigPtrInput interface {
+	pulumi.Input
+
+	ToFlowEncodingConfigPtrOutput() FlowEncodingConfigPtrOutput
+	ToFlowEncodingConfigPtrOutputWithContext(context.Context) FlowEncodingConfigPtrOutput
+}
+
+type flowEncodingConfigPtrType FlowEncodingConfigArgs
+
+func FlowEncodingConfigPtr(v *FlowEncodingConfigArgs) FlowEncodingConfigPtrInput {
+	return (*flowEncodingConfigPtrType)(v)
+}
+
+func (*flowEncodingConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowEncodingConfig)(nil)).Elem()
+}
+
+func (i *flowEncodingConfigPtrType) ToFlowEncodingConfigPtrOutput() FlowEncodingConfigPtrOutput {
+	return i.ToFlowEncodingConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *flowEncodingConfigPtrType) ToFlowEncodingConfigPtrOutputWithContext(ctx context.Context) FlowEncodingConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowEncodingConfigPtrOutput)
+}
+
+type FlowEncodingConfigOutput struct{ *pulumi.OutputState }
+
+func (FlowEncodingConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowEncodingConfig)(nil)).Elem()
+}
+
+func (o FlowEncodingConfigOutput) ToFlowEncodingConfigOutput() FlowEncodingConfigOutput {
+	return o
+}
+
+func (o FlowEncodingConfigOutput) ToFlowEncodingConfigOutputWithContext(ctx context.Context) FlowEncodingConfigOutput {
+	return o
+}
+
+func (o FlowEncodingConfigOutput) ToFlowEncodingConfigPtrOutput() FlowEncodingConfigPtrOutput {
+	return o.ToFlowEncodingConfigPtrOutputWithContext(context.Background())
+}
+
+func (o FlowEncodingConfigOutput) ToFlowEncodingConfigPtrOutputWithContext(ctx context.Context) FlowEncodingConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowEncodingConfig) *FlowEncodingConfig {
+		return &v
+	}).(FlowEncodingConfigPtrOutput)
+}
+
+func (o FlowEncodingConfigOutput) EncodingProfile() FlowEncodingProfilePtrOutput {
+	return o.ApplyT(func(v FlowEncodingConfig) *FlowEncodingProfile { return v.EncodingProfile }).(FlowEncodingProfilePtrOutput)
+}
+
+// The maximum video bitrate to use when transcoding the NDI source to a Transport Stream. This parameter enables you to override the default video bitrate within the encoding profile's supported range. The supported range is 10,000,000 - 50,000,000 bits per second (bps). If you do not specify a value, MediaConnect uses the default value of 20,000,000 bps.
+func (o FlowEncodingConfigOutput) VideoMaxBitrate() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FlowEncodingConfig) *int { return v.VideoMaxBitrate }).(pulumi.IntPtrOutput)
+}
+
+type FlowEncodingConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (FlowEncodingConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowEncodingConfig)(nil)).Elem()
+}
+
+func (o FlowEncodingConfigPtrOutput) ToFlowEncodingConfigPtrOutput() FlowEncodingConfigPtrOutput {
+	return o
+}
+
+func (o FlowEncodingConfigPtrOutput) ToFlowEncodingConfigPtrOutputWithContext(ctx context.Context) FlowEncodingConfigPtrOutput {
+	return o
+}
+
+func (o FlowEncodingConfigPtrOutput) Elem() FlowEncodingConfigOutput {
+	return o.ApplyT(func(v *FlowEncodingConfig) FlowEncodingConfig {
+		if v != nil {
+			return *v
+		}
+		var ret FlowEncodingConfig
+		return ret
+	}).(FlowEncodingConfigOutput)
+}
+
+func (o FlowEncodingConfigPtrOutput) EncodingProfile() FlowEncodingProfilePtrOutput {
+	return o.ApplyT(func(v *FlowEncodingConfig) *FlowEncodingProfile {
+		if v == nil {
+			return nil
+		}
+		return v.EncodingProfile
+	}).(FlowEncodingProfilePtrOutput)
+}
+
+// The maximum video bitrate to use when transcoding the NDI source to a Transport Stream. This parameter enables you to override the default video bitrate within the encoding profile's supported range. The supported range is 10,000,000 - 50,000,000 bits per second (bps). If you do not specify a value, MediaConnect uses the default value of 20,000,000 bps.
+func (o FlowEncodingConfigPtrOutput) VideoMaxBitrate() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FlowEncodingConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.VideoMaxBitrate
+	}).(pulumi.IntPtrOutput)
+}
+
 // Information about the encryption of the flow.
 type FlowEncryption struct {
 	// The type of algorithm that is used for the encryption (such as aes128, aes192, or aes256).
@@ -3549,6 +3701,11 @@ func (o FlowEntitlementEncryptionPtrOutput) Url() pulumi.StringPtrOutput {
 		}
 		return v.Url
 	}).(pulumi.StringPtrOutput)
+}
+
+type FlowEntitlementTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
 }
 
 // The settings for source failover
@@ -4799,6 +4956,8 @@ type FlowMediaStream struct {
 	MediaStreamName string `pulumi:"mediaStreamName"`
 	// The type of media stream.
 	MediaStreamType FlowMediaStreamMediaStreamType `pulumi:"mediaStreamType"`
+	// Key-value pairs that can be used to tag this media stream.
+	Tags []FlowTag `pulumi:"tags"`
 	// The resolution of the video.
 	VideoFormat *FlowMediaStreamVideoFormat `pulumi:"videoFormat"`
 }
@@ -4830,6 +4989,8 @@ type FlowMediaStreamArgs struct {
 	MediaStreamName pulumi.StringInput `pulumi:"mediaStreamName"`
 	// The type of media stream.
 	MediaStreamType FlowMediaStreamMediaStreamTypeInput `pulumi:"mediaStreamType"`
+	// Key-value pairs that can be used to tag this media stream.
+	Tags FlowTagArrayInput `pulumi:"tags"`
 	// The resolution of the video.
 	VideoFormat FlowMediaStreamVideoFormatPtrInput `pulumi:"videoFormat"`
 }
@@ -4919,6 +5080,11 @@ func (o FlowMediaStreamOutput) MediaStreamName() pulumi.StringOutput {
 // The type of media stream.
 func (o FlowMediaStreamOutput) MediaStreamType() FlowMediaStreamMediaStreamTypeOutput {
 	return o.ApplyT(func(v FlowMediaStream) FlowMediaStreamMediaStreamType { return v.MediaStreamType }).(FlowMediaStreamMediaStreamTypeOutput)
+}
+
+// Key-value pairs that can be used to tag this media stream.
+func (o FlowMediaStreamOutput) Tags() FlowTagArrayOutput {
+	return o.ApplyT(func(v FlowMediaStream) []FlowTag { return v.Tags }).(FlowTagArrayOutput)
 }
 
 // The resolution of the video.
@@ -5225,14 +5391,14 @@ func (o FlowMediaStreamSourceConfigurationArrayOutput) Index(i pulumi.IntInput) 
 	}).(FlowMediaStreamSourceConfigurationOutput)
 }
 
-// Specifies the configuration settings for NDI outputs. Required when the flow includes NDI outputs.
+// Specifies the configuration settings for NDI sources and outputs. Required when the flow includes NDI sources or outputs.
 type FlowNdiConfig struct {
 	// A prefix for the names of the NDI sources that the flow creates. If a custom name isn't specified, MediaConnect generates a unique 12-character ID as the prefix.
 	MachineName *string `pulumi:"machineName"`
 	// A list of up to three NDI discovery server configurations. While not required by the API, this configuration is necessary for NDI functionality to work properly.
 	NdiDiscoveryServers []FlowNdiDiscoveryServerConfig `pulumi:"ndiDiscoveryServers"`
-	// A setting that controls whether NDI outputs can be used in the flow. Must be ENABLED to add NDI outputs. Default is DISABLED.
-	NdiState *FlowNdiConfigNdiState `pulumi:"ndiState"`
+	// A setting that controls whether NDI sources or outputs can be used in the flow. The default value is DISABLED. This value must be set as ENABLED for your flow to support NDI sources or outputs.
+	NdiState *FlowNdiState `pulumi:"ndiState"`
 }
 
 // FlowNdiConfigInput is an input type that accepts FlowNdiConfigArgs and FlowNdiConfigOutput values.
@@ -5246,14 +5412,14 @@ type FlowNdiConfigInput interface {
 	ToFlowNdiConfigOutputWithContext(context.Context) FlowNdiConfigOutput
 }
 
-// Specifies the configuration settings for NDI outputs. Required when the flow includes NDI outputs.
+// Specifies the configuration settings for NDI sources and outputs. Required when the flow includes NDI sources or outputs.
 type FlowNdiConfigArgs struct {
 	// A prefix for the names of the NDI sources that the flow creates. If a custom name isn't specified, MediaConnect generates a unique 12-character ID as the prefix.
 	MachineName pulumi.StringPtrInput `pulumi:"machineName"`
 	// A list of up to three NDI discovery server configurations. While not required by the API, this configuration is necessary for NDI functionality to work properly.
 	NdiDiscoveryServers FlowNdiDiscoveryServerConfigArrayInput `pulumi:"ndiDiscoveryServers"`
-	// A setting that controls whether NDI outputs can be used in the flow. Must be ENABLED to add NDI outputs. Default is DISABLED.
-	NdiState FlowNdiConfigNdiStatePtrInput `pulumi:"ndiState"`
+	// A setting that controls whether NDI sources or outputs can be used in the flow. The default value is DISABLED. This value must be set as ENABLED for your flow to support NDI sources or outputs.
+	NdiState FlowNdiStatePtrInput `pulumi:"ndiState"`
 }
 
 func (FlowNdiConfigArgs) ElementType() reflect.Type {
@@ -5309,7 +5475,7 @@ func (i *flowNdiConfigPtrType) ToFlowNdiConfigPtrOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(FlowNdiConfigPtrOutput)
 }
 
-// Specifies the configuration settings for NDI outputs. Required when the flow includes NDI outputs.
+// Specifies the configuration settings for NDI sources and outputs. Required when the flow includes NDI sources or outputs.
 type FlowNdiConfigOutput struct{ *pulumi.OutputState }
 
 func (FlowNdiConfigOutput) ElementType() reflect.Type {
@@ -5344,9 +5510,9 @@ func (o FlowNdiConfigOutput) NdiDiscoveryServers() FlowNdiDiscoveryServerConfigA
 	return o.ApplyT(func(v FlowNdiConfig) []FlowNdiDiscoveryServerConfig { return v.NdiDiscoveryServers }).(FlowNdiDiscoveryServerConfigArrayOutput)
 }
 
-// A setting that controls whether NDI outputs can be used in the flow. Must be ENABLED to add NDI outputs. Default is DISABLED.
-func (o FlowNdiConfigOutput) NdiState() FlowNdiConfigNdiStatePtrOutput {
-	return o.ApplyT(func(v FlowNdiConfig) *FlowNdiConfigNdiState { return v.NdiState }).(FlowNdiConfigNdiStatePtrOutput)
+// A setting that controls whether NDI sources or outputs can be used in the flow. The default value is DISABLED. This value must be set as ENABLED for your flow to support NDI sources or outputs.
+func (o FlowNdiConfigOutput) NdiState() FlowNdiStatePtrOutput {
+	return o.ApplyT(func(v FlowNdiConfig) *FlowNdiState { return v.NdiState }).(FlowNdiStatePtrOutput)
 }
 
 type FlowNdiConfigPtrOutput struct{ *pulumi.OutputState }
@@ -5393,14 +5559,14 @@ func (o FlowNdiConfigPtrOutput) NdiDiscoveryServers() FlowNdiDiscoveryServerConf
 	}).(FlowNdiDiscoveryServerConfigArrayOutput)
 }
 
-// A setting that controls whether NDI outputs can be used in the flow. Must be ENABLED to add NDI outputs. Default is DISABLED.
-func (o FlowNdiConfigPtrOutput) NdiState() FlowNdiConfigNdiStatePtrOutput {
-	return o.ApplyT(func(v *FlowNdiConfig) *FlowNdiConfigNdiState {
+// A setting that controls whether NDI sources or outputs can be used in the flow. The default value is DISABLED. This value must be set as ENABLED for your flow to support NDI sources or outputs.
+func (o FlowNdiConfigPtrOutput) NdiState() FlowNdiStatePtrOutput {
+	return o.ApplyT(func(v *FlowNdiConfig) *FlowNdiState {
 		if v == nil {
 			return nil
 		}
 		return v.NdiState
-	}).(FlowNdiConfigNdiStatePtrOutput)
+	}).(FlowNdiStatePtrOutput)
 }
 
 // Specifies the configuration settings for individual NDI discovery servers. A maximum of 3 servers is allowed.
@@ -5519,6 +5685,139 @@ func (o FlowNdiDiscoveryServerConfigArrayOutput) Index(i pulumi.IntInput) FlowNd
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FlowNdiDiscoveryServerConfig {
 		return vs[0].([]FlowNdiDiscoveryServerConfig)[vs[1].(int)]
 	}).(FlowNdiDiscoveryServerConfigOutput)
+}
+
+type FlowNdiSourceSettings struct {
+	SourceName *string `pulumi:"sourceName"`
+}
+
+// FlowNdiSourceSettingsInput is an input type that accepts FlowNdiSourceSettingsArgs and FlowNdiSourceSettingsOutput values.
+// You can construct a concrete instance of `FlowNdiSourceSettingsInput` via:
+//
+//	FlowNdiSourceSettingsArgs{...}
+type FlowNdiSourceSettingsInput interface {
+	pulumi.Input
+
+	ToFlowNdiSourceSettingsOutput() FlowNdiSourceSettingsOutput
+	ToFlowNdiSourceSettingsOutputWithContext(context.Context) FlowNdiSourceSettingsOutput
+}
+
+type FlowNdiSourceSettingsArgs struct {
+	SourceName pulumi.StringPtrInput `pulumi:"sourceName"`
+}
+
+func (FlowNdiSourceSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowNdiSourceSettings)(nil)).Elem()
+}
+
+func (i FlowNdiSourceSettingsArgs) ToFlowNdiSourceSettingsOutput() FlowNdiSourceSettingsOutput {
+	return i.ToFlowNdiSourceSettingsOutputWithContext(context.Background())
+}
+
+func (i FlowNdiSourceSettingsArgs) ToFlowNdiSourceSettingsOutputWithContext(ctx context.Context) FlowNdiSourceSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowNdiSourceSettingsOutput)
+}
+
+func (i FlowNdiSourceSettingsArgs) ToFlowNdiSourceSettingsPtrOutput() FlowNdiSourceSettingsPtrOutput {
+	return i.ToFlowNdiSourceSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i FlowNdiSourceSettingsArgs) ToFlowNdiSourceSettingsPtrOutputWithContext(ctx context.Context) FlowNdiSourceSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowNdiSourceSettingsOutput).ToFlowNdiSourceSettingsPtrOutputWithContext(ctx)
+}
+
+// FlowNdiSourceSettingsPtrInput is an input type that accepts FlowNdiSourceSettingsArgs, FlowNdiSourceSettingsPtr and FlowNdiSourceSettingsPtrOutput values.
+// You can construct a concrete instance of `FlowNdiSourceSettingsPtrInput` via:
+//
+//	        FlowNdiSourceSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type FlowNdiSourceSettingsPtrInput interface {
+	pulumi.Input
+
+	ToFlowNdiSourceSettingsPtrOutput() FlowNdiSourceSettingsPtrOutput
+	ToFlowNdiSourceSettingsPtrOutputWithContext(context.Context) FlowNdiSourceSettingsPtrOutput
+}
+
+type flowNdiSourceSettingsPtrType FlowNdiSourceSettingsArgs
+
+func FlowNdiSourceSettingsPtr(v *FlowNdiSourceSettingsArgs) FlowNdiSourceSettingsPtrInput {
+	return (*flowNdiSourceSettingsPtrType)(v)
+}
+
+func (*flowNdiSourceSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowNdiSourceSettings)(nil)).Elem()
+}
+
+func (i *flowNdiSourceSettingsPtrType) ToFlowNdiSourceSettingsPtrOutput() FlowNdiSourceSettingsPtrOutput {
+	return i.ToFlowNdiSourceSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *flowNdiSourceSettingsPtrType) ToFlowNdiSourceSettingsPtrOutputWithContext(ctx context.Context) FlowNdiSourceSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowNdiSourceSettingsPtrOutput)
+}
+
+type FlowNdiSourceSettingsOutput struct{ *pulumi.OutputState }
+
+func (FlowNdiSourceSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowNdiSourceSettings)(nil)).Elem()
+}
+
+func (o FlowNdiSourceSettingsOutput) ToFlowNdiSourceSettingsOutput() FlowNdiSourceSettingsOutput {
+	return o
+}
+
+func (o FlowNdiSourceSettingsOutput) ToFlowNdiSourceSettingsOutputWithContext(ctx context.Context) FlowNdiSourceSettingsOutput {
+	return o
+}
+
+func (o FlowNdiSourceSettingsOutput) ToFlowNdiSourceSettingsPtrOutput() FlowNdiSourceSettingsPtrOutput {
+	return o.ToFlowNdiSourceSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o FlowNdiSourceSettingsOutput) ToFlowNdiSourceSettingsPtrOutputWithContext(ctx context.Context) FlowNdiSourceSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowNdiSourceSettings) *FlowNdiSourceSettings {
+		return &v
+	}).(FlowNdiSourceSettingsPtrOutput)
+}
+
+func (o FlowNdiSourceSettingsOutput) SourceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FlowNdiSourceSettings) *string { return v.SourceName }).(pulumi.StringPtrOutput)
+}
+
+type FlowNdiSourceSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (FlowNdiSourceSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowNdiSourceSettings)(nil)).Elem()
+}
+
+func (o FlowNdiSourceSettingsPtrOutput) ToFlowNdiSourceSettingsPtrOutput() FlowNdiSourceSettingsPtrOutput {
+	return o
+}
+
+func (o FlowNdiSourceSettingsPtrOutput) ToFlowNdiSourceSettingsPtrOutputWithContext(ctx context.Context) FlowNdiSourceSettingsPtrOutput {
+	return o
+}
+
+func (o FlowNdiSourceSettingsPtrOutput) Elem() FlowNdiSourceSettingsOutput {
+	return o.ApplyT(func(v *FlowNdiSourceSettings) FlowNdiSourceSettings {
+		if v != nil {
+			return *v
+		}
+		var ret FlowNdiSourceSettings
+		return ret
+	}).(FlowNdiSourceSettingsOutput)
+}
+
+func (o FlowNdiSourceSettingsPtrOutput) SourceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FlowNdiSourceSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SourceName
+	}).(pulumi.StringPtrOutput)
 }
 
 // Configuration settings for automatic encryption key management, where MediaConnect handles key creation and rotation.
@@ -6894,6 +7193,11 @@ func (o FlowOutputSecretsManagerEncryptionKeyConfigurationPtrOutput) SecretArn()
 	}).(pulumi.StringPtrOutput)
 }
 
+type FlowOutputTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
 // The settings for attaching a VPC interface to an output.
 type FlowOutputVpcInterfaceAttachment struct {
 	// The name of the VPC interface to use for this output.
@@ -7378,6 +7682,8 @@ type FlowSourceType struct {
 	MinLatency *int `pulumi:"minLatency"`
 	// The name of the source.
 	Name *string `pulumi:"name"`
+	// The settings for the NDI flow source. This includes the exact name of the upstream NDI sender that you want to connect to your flow source.
+	NdiSourceSettings *FlowNdiSourceSettings `pulumi:"ndiSourceSettings"`
 	// The protocol that is used by the source.
 	Protocol *FlowSourceProtocol `pulumi:"protocol"`
 	// Indicates if router integration is enabled or disabled on the flow source.
@@ -7398,6 +7704,8 @@ type FlowSourceType struct {
 	SourceListenerPort *int `pulumi:"sourceListenerPort"`
 	// The stream ID that you want to use for this transport. This parameter applies only to Zixi-based streams.
 	StreamId *string `pulumi:"streamId"`
+	// Key-value pairs that can be used to tag this source.
+	Tags []FlowTag `pulumi:"tags"`
 	// The name of the VPC Interface this Source is configured with.
 	VpcInterfaceName *string `pulumi:"vpcInterfaceName"`
 	// The range of IP addresses that should be allowed to contribute content to your source. These IP addresses should be in the form of a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16.
@@ -7441,6 +7749,8 @@ type FlowSourceTypeArgs struct {
 	MinLatency pulumi.IntPtrInput `pulumi:"minLatency"`
 	// The name of the source.
 	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The settings for the NDI flow source. This includes the exact name of the upstream NDI sender that you want to connect to your flow source.
+	NdiSourceSettings FlowNdiSourceSettingsPtrInput `pulumi:"ndiSourceSettings"`
 	// The protocol that is used by the source.
 	Protocol FlowSourceProtocolPtrInput `pulumi:"protocol"`
 	// Indicates if router integration is enabled or disabled on the flow source.
@@ -7461,6 +7771,8 @@ type FlowSourceTypeArgs struct {
 	SourceListenerPort pulumi.IntPtrInput `pulumi:"sourceListenerPort"`
 	// The stream ID that you want to use for this transport. This parameter applies only to Zixi-based streams.
 	StreamId pulumi.StringPtrInput `pulumi:"streamId"`
+	// Key-value pairs that can be used to tag this source.
+	Tags FlowTagArrayInput `pulumi:"tags"`
 	// The name of the VPC Interface this Source is configured with.
 	VpcInterfaceName pulumi.StringPtrInput `pulumi:"vpcInterfaceName"`
 	// The range of IP addresses that should be allowed to contribute content to your source. These IP addresses should be in the form of a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16.
@@ -7554,6 +7866,11 @@ func (o FlowSourceTypeOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FlowSourceType) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// The settings for the NDI flow source. This includes the exact name of the upstream NDI sender that you want to connect to your flow source.
+func (o FlowSourceTypeOutput) NdiSourceSettings() FlowNdiSourceSettingsPtrOutput {
+	return o.ApplyT(func(v FlowSourceType) *FlowNdiSourceSettings { return v.NdiSourceSettings }).(FlowNdiSourceSettingsPtrOutput)
+}
+
 // The protocol that is used by the source.
 func (o FlowSourceTypeOutput) Protocol() FlowSourceProtocolPtrOutput {
 	return o.ApplyT(func(v FlowSourceType) *FlowSourceProtocol { return v.Protocol }).(FlowSourceProtocolPtrOutput)
@@ -7602,6 +7919,11 @@ func (o FlowSourceTypeOutput) SourceListenerPort() pulumi.IntPtrOutput {
 // The stream ID that you want to use for this transport. This parameter applies only to Zixi-based streams.
 func (o FlowSourceTypeOutput) StreamId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FlowSourceType) *string { return v.StreamId }).(pulumi.StringPtrOutput)
+}
+
+// Key-value pairs that can be used to tag this source.
+func (o FlowSourceTypeOutput) Tags() FlowTagArrayOutput {
+	return o.ApplyT(func(v FlowSourceType) []FlowTag { return v.Tags }).(FlowTagArrayOutput)
 }
 
 // The name of the VPC Interface this Source is configured with.
@@ -7758,6 +8080,16 @@ func (o FlowSourceTypePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The settings for the NDI flow source. This includes the exact name of the upstream NDI sender that you want to connect to your flow source.
+func (o FlowSourceTypePtrOutput) NdiSourceSettings() FlowNdiSourceSettingsPtrOutput {
+	return o.ApplyT(func(v *FlowSourceType) *FlowNdiSourceSettings {
+		if v == nil {
+			return nil
+		}
+		return v.NdiSourceSettings
+	}).(FlowNdiSourceSettingsPtrOutput)
+}
+
 // The protocol that is used by the source.
 func (o FlowSourceTypePtrOutput) Protocol() FlowSourceProtocolPtrOutput {
 	return o.ApplyT(func(v *FlowSourceType) *FlowSourceProtocol {
@@ -7856,6 +8188,16 @@ func (o FlowSourceTypePtrOutput) StreamId() pulumi.StringPtrOutput {
 		}
 		return v.StreamId
 	}).(pulumi.StringPtrOutput)
+}
+
+// Key-value pairs that can be used to tag this source.
+func (o FlowSourceTypePtrOutput) Tags() FlowTagArrayOutput {
+	return o.ApplyT(func(v *FlowSourceType) []FlowTag {
+		if v == nil {
+			return nil
+		}
+		return v.Tags
+	}).(FlowTagArrayOutput)
 }
 
 // The name of the VPC Interface this Source is configured with.
@@ -8530,6 +8872,11 @@ func (o FlowSourceMonitoringConfigPtrOutput) VideoMonitoringSettings() FlowVideo
 	}).(FlowVideoMonitoringSettingArrayOutput)
 }
 
+type FlowSourceTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
 // The settings for attaching a VPC interface to an resource.
 type FlowSourceVpcInterfaceAttachment struct {
 	// The name of the VPC interface to use for this resource.
@@ -8668,6 +9015,106 @@ func (o FlowSourceVpcInterfaceAttachmentPtrOutput) VpcInterfaceName() pulumi.Str
 		}
 		return v.VpcInterfaceName
 	}).(pulumi.StringPtrOutput)
+}
+
+type FlowTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
+// FlowTagInput is an input type that accepts FlowTagArgs and FlowTagOutput values.
+// You can construct a concrete instance of `FlowTagInput` via:
+//
+//	FlowTagArgs{...}
+type FlowTagInput interface {
+	pulumi.Input
+
+	ToFlowTagOutput() FlowTagOutput
+	ToFlowTagOutputWithContext(context.Context) FlowTagOutput
+}
+
+type FlowTagArgs struct {
+	Key   pulumi.StringInput `pulumi:"key"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (FlowTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowTag)(nil)).Elem()
+}
+
+func (i FlowTagArgs) ToFlowTagOutput() FlowTagOutput {
+	return i.ToFlowTagOutputWithContext(context.Background())
+}
+
+func (i FlowTagArgs) ToFlowTagOutputWithContext(ctx context.Context) FlowTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowTagOutput)
+}
+
+// FlowTagArrayInput is an input type that accepts FlowTagArray and FlowTagArrayOutput values.
+// You can construct a concrete instance of `FlowTagArrayInput` via:
+//
+//	FlowTagArray{ FlowTagArgs{...} }
+type FlowTagArrayInput interface {
+	pulumi.Input
+
+	ToFlowTagArrayOutput() FlowTagArrayOutput
+	ToFlowTagArrayOutputWithContext(context.Context) FlowTagArrayOutput
+}
+
+type FlowTagArray []FlowTagInput
+
+func (FlowTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FlowTag)(nil)).Elem()
+}
+
+func (i FlowTagArray) ToFlowTagArrayOutput() FlowTagArrayOutput {
+	return i.ToFlowTagArrayOutputWithContext(context.Background())
+}
+
+func (i FlowTagArray) ToFlowTagArrayOutputWithContext(ctx context.Context) FlowTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowTagArrayOutput)
+}
+
+type FlowTagOutput struct{ *pulumi.OutputState }
+
+func (FlowTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowTag)(nil)).Elem()
+}
+
+func (o FlowTagOutput) ToFlowTagOutput() FlowTagOutput {
+	return o
+}
+
+func (o FlowTagOutput) ToFlowTagOutputWithContext(ctx context.Context) FlowTagOutput {
+	return o
+}
+
+func (o FlowTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v FlowTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o FlowTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v FlowTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type FlowTagArrayOutput struct{ *pulumi.OutputState }
+
+func (FlowTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FlowTag)(nil)).Elem()
+}
+
+func (o FlowTagArrayOutput) ToFlowTagArrayOutput() FlowTagArrayOutput {
+	return o
+}
+
+func (o FlowTagArrayOutput) ToFlowTagArrayOutputWithContext(ctx context.Context) FlowTagArrayOutput {
+	return o
+}
+
+func (o FlowTagArrayOutput) Index(i pulumi.IntInput) FlowTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FlowTag {
+		return vs[0].([]FlowTag)[vs[1].(int)]
+	}).(FlowTagOutput)
 }
 
 // The configuration that defines how content is encrypted during transit between the MediaConnect router and a MediaConnect flow.
@@ -9220,6 +9667,8 @@ type FlowVpcInterfaceType struct {
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
 	// Subnet must be in the AZ of the Flow
 	SubnetId string `pulumi:"subnetId"`
+	// Key-value pairs that can be used to tag this VPC interface.
+	Tags []FlowTag `pulumi:"tags"`
 }
 
 // FlowVpcInterfaceTypeInput is an input type that accepts FlowVpcInterfaceTypeArgs and FlowVpcInterfaceTypeOutput values.
@@ -9247,6 +9696,8 @@ type FlowVpcInterfaceTypeArgs struct {
 	SecurityGroupIds pulumi.StringArrayInput `pulumi:"securityGroupIds"`
 	// Subnet must be in the AZ of the Flow
 	SubnetId pulumi.StringInput `pulumi:"subnetId"`
+	// Key-value pairs that can be used to tag this VPC interface.
+	Tags FlowTagArrayInput `pulumi:"tags"`
 }
 
 func (FlowVpcInterfaceTypeArgs) ElementType() reflect.Type {
@@ -9329,6 +9780,11 @@ func (o FlowVpcInterfaceTypeOutput) SecurityGroupIds() pulumi.StringArrayOutput 
 // Subnet must be in the AZ of the Flow
 func (o FlowVpcInterfaceTypeOutput) SubnetId() pulumi.StringOutput {
 	return o.ApplyT(func(v FlowVpcInterfaceType) string { return v.SubnetId }).(pulumi.StringOutput)
+}
+
+// Key-value pairs that can be used to tag this VPC interface.
+func (o FlowVpcInterfaceTypeOutput) Tags() FlowTagArrayOutput {
+	return o.ApplyT(func(v FlowVpcInterfaceType) []FlowTag { return v.Tags }).(FlowTagArrayOutput)
 }
 
 type FlowVpcInterfaceTypeArrayOutput struct{ *pulumi.OutputState }
@@ -16818,6 +17274,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowAutomaticEncryptionKeyConfigurationPtrInput)(nil)).Elem(), FlowAutomaticEncryptionKeyConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowBlackFramesInput)(nil)).Elem(), FlowBlackFramesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowBlackFramesPtrInput)(nil)).Elem(), FlowBlackFramesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowEncodingConfigInput)(nil)).Elem(), FlowEncodingConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowEncodingConfigPtrInput)(nil)).Elem(), FlowEncodingConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowEncryptionInput)(nil)).Elem(), FlowEncryptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowEncryptionPtrInput)(nil)).Elem(), FlowEncryptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowEntitlementEncryptionInput)(nil)).Elem(), FlowEntitlementEncryptionArgs{})
@@ -16847,6 +17305,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowNdiConfigPtrInput)(nil)).Elem(), FlowNdiConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowNdiDiscoveryServerConfigInput)(nil)).Elem(), FlowNdiDiscoveryServerConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowNdiDiscoveryServerConfigArrayInput)(nil)).Elem(), FlowNdiDiscoveryServerConfigArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowNdiSourceSettingsInput)(nil)).Elem(), FlowNdiSourceSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowNdiSourceSettingsPtrInput)(nil)).Elem(), FlowNdiSourceSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowOutputAutomaticEncryptionKeyConfigurationInput)(nil)).Elem(), FlowOutputAutomaticEncryptionKeyConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowOutputAutomaticEncryptionKeyConfigurationPtrInput)(nil)).Elem(), FlowOutputAutomaticEncryptionKeyConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowOutputDestinationConfigurationInput)(nil)).Elem(), FlowOutputDestinationConfigurationArgs{})
@@ -16881,6 +17341,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowSourceMonitoringConfigPtrInput)(nil)).Elem(), FlowSourceMonitoringConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowSourceVpcInterfaceAttachmentInput)(nil)).Elem(), FlowSourceVpcInterfaceAttachmentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowSourceVpcInterfaceAttachmentPtrInput)(nil)).Elem(), FlowSourceVpcInterfaceAttachmentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowTagInput)(nil)).Elem(), FlowTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowTagArrayInput)(nil)).Elem(), FlowTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowTransitEncryptionInput)(nil)).Elem(), FlowTransitEncryptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowTransitEncryptionPtrInput)(nil)).Elem(), FlowTransitEncryptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowTransitEncryptionKeyConfiguration0PropertiesInput)(nil)).Elem(), FlowTransitEncryptionKeyConfiguration0PropertiesArgs{})
@@ -17017,6 +17479,8 @@ func init() {
 	pulumi.RegisterOutputType(FlowAutomaticEncryptionKeyConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(FlowBlackFramesOutput{})
 	pulumi.RegisterOutputType(FlowBlackFramesPtrOutput{})
+	pulumi.RegisterOutputType(FlowEncodingConfigOutput{})
+	pulumi.RegisterOutputType(FlowEncodingConfigPtrOutput{})
 	pulumi.RegisterOutputType(FlowEncryptionOutput{})
 	pulumi.RegisterOutputType(FlowEncryptionPtrOutput{})
 	pulumi.RegisterOutputType(FlowEntitlementEncryptionOutput{})
@@ -17046,6 +17510,8 @@ func init() {
 	pulumi.RegisterOutputType(FlowNdiConfigPtrOutput{})
 	pulumi.RegisterOutputType(FlowNdiDiscoveryServerConfigOutput{})
 	pulumi.RegisterOutputType(FlowNdiDiscoveryServerConfigArrayOutput{})
+	pulumi.RegisterOutputType(FlowNdiSourceSettingsOutput{})
+	pulumi.RegisterOutputType(FlowNdiSourceSettingsPtrOutput{})
 	pulumi.RegisterOutputType(FlowOutputAutomaticEncryptionKeyConfigurationOutput{})
 	pulumi.RegisterOutputType(FlowOutputAutomaticEncryptionKeyConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(FlowOutputDestinationConfigurationOutput{})
@@ -17081,6 +17547,8 @@ func init() {
 	pulumi.RegisterOutputType(FlowSourceMonitoringConfigPtrOutput{})
 	pulumi.RegisterOutputType(FlowSourceVpcInterfaceAttachmentOutput{})
 	pulumi.RegisterOutputType(FlowSourceVpcInterfaceAttachmentPtrOutput{})
+	pulumi.RegisterOutputType(FlowTagOutput{})
+	pulumi.RegisterOutputType(FlowTagArrayOutput{})
 	pulumi.RegisterOutputType(FlowTransitEncryptionOutput{})
 	pulumi.RegisterOutputType(FlowTransitEncryptionPtrOutput{})
 	pulumi.RegisterOutputType(FlowTransitEncryptionKeyConfiguration0PropertiesOutput{})

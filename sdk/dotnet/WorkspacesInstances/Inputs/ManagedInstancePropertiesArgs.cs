@@ -50,9 +50,6 @@ namespace Pulumi.AwsNative.WorkspacesInstances.Inputs
         [Input("imageId", required: true)]
         public Input<string> ImageId { get; set; } = null!;
 
-        [Input("instanceMarketOptions")]
-        public Input<Inputs.WorkspaceInstanceInstanceMarketOptionsRequestArgs>? InstanceMarketOptions { get; set; }
-
         [Input("instanceType", required: true)]
         public Input<string> InstanceType { get; set; } = null!;
 

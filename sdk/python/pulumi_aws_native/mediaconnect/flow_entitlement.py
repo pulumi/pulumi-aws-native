@@ -14,6 +14,8 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._enums import *
 from ._inputs import *
 
@@ -28,7 +30,8 @@ class FlowEntitlementArgs:
                  data_transfer_subscriber_fee_percent: Optional[pulumi.Input[_builtins.int]] = None,
                  encryption: Optional[pulumi.Input['FlowEntitlementEncryptionArgs']] = None,
                  entitlement_status: Optional[pulumi.Input['FlowEntitlementEntitlementStatus']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a FlowEntitlement resource.
 
@@ -39,6 +42,7 @@ class FlowEntitlementArgs:
         :param pulumi.Input['FlowEntitlementEncryptionArgs'] encryption: The type of encryption that will be used on the output that is associated with this entitlement.
         :param pulumi.Input['FlowEntitlementEntitlementStatus'] entitlement_status:  An indication of whether the entitlement is enabled.
         :param pulumi.Input[_builtins.str] name: The name of the entitlement.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: Key-value pairs that can be used to tag and organize this flow entitlement.
         """
         pulumi.set(__self__, "description", description)
         pulumi.set(__self__, "flow_arn", flow_arn)
@@ -51,6 +55,8 @@ class FlowEntitlementArgs:
             pulumi.set(__self__, "entitlement_status", entitlement_status)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
 
     @_builtins.property
     @pulumi.getter
@@ -136,6 +142,18 @@ class FlowEntitlementArgs:
     def name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "name", value)
 
+    @_builtins.property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        Key-value pairs that can be used to tag and organize this flow entitlement.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+        pulumi.set(self, "tags", value)
+
 
 @pulumi.type_token("aws-native:mediaconnect:FlowEntitlement")
 class FlowEntitlement(pulumi.CustomResource):
@@ -150,6 +168,7 @@ class FlowEntitlement(pulumi.CustomResource):
                  flow_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  subscribers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource schema for AWS::MediaConnect::FlowEntitlement
@@ -164,6 +183,7 @@ class FlowEntitlement(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] flow_arn: The ARN of the flow.
         :param pulumi.Input[_builtins.str] name: The name of the entitlement.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subscribers: The AWS account IDs that you want to share your content with. The receiving accounts (subscribers) will be allowed to create their own flow using your content as the source.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Key-value pairs that can be used to tag and organize this flow entitlement.
         """
         ...
     @overload
@@ -197,6 +217,7 @@ class FlowEntitlement(pulumi.CustomResource):
                  flow_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  subscribers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -219,8 +240,9 @@ class FlowEntitlement(pulumi.CustomResource):
             if subscribers is None and not opts.urn:
                 raise TypeError("Missing required property 'subscribers'")
             __props__.__dict__["subscribers"] = subscribers
+            __props__.__dict__["tags"] = tags
             __props__.__dict__["entitlement_arn"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["dataTransferSubscriberFeePercent", "name"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["dataTransferSubscriberFeePercent", "flowArn", "name"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(FlowEntitlement, __self__).__init__(
             'aws-native:mediaconnect:FlowEntitlement',
@@ -252,6 +274,7 @@ class FlowEntitlement(pulumi.CustomResource):
         __props__.__dict__["flow_arn"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["subscribers"] = None
+        __props__.__dict__["tags"] = None
         return FlowEntitlement(resource_name, opts=opts, __props__=__props__)
 
     @_builtins.property
@@ -317,4 +340,12 @@ class FlowEntitlement(pulumi.CustomResource):
         The AWS account IDs that you want to share your content with. The receiving accounts (subscribers) will be allowed to create their own flow using your content as the source.
         """
         return pulumi.get(self, "subscribers")
+
+    @_builtins.property
+    @pulumi.getter
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        Key-value pairs that can be used to tag and organize this flow entitlement.
+        """
+        return pulumi.get(self, "tags")
 

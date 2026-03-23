@@ -40,6 +40,12 @@ namespace Pulumi.AwsNative.Odb
         public Output<string?> ClientSubnetCidr { get; private set; } = null!;
 
         /// <summary>
+        /// The cross-Region Amazon S3 restore sources for the ODB network.
+        /// </summary>
+        [Output("crossRegionS3RestoreSources")]
+        public Output<ImmutableArray<string>> CrossRegionS3RestoreSources { get; private set; } = null!;
+
+        /// <summary>
         /// The domain name to use for the resources in the ODB network.
         /// </summary>
         [Output("customDomainName")]
@@ -62,6 +68,18 @@ namespace Pulumi.AwsNative.Odb
         /// </summary>
         [Output("displayName")]
         public Output<string?> DisplayName { get; private set; } = null!;
+
+        /// <summary>
+        /// The AWS Key Management Service (KMS) access configuration for the ODB network.
+        /// </summary>
+        [Output("kmsAccess")]
+        public Output<Pulumi.AwsNative.Odb.OdbNetworkKmsAccess?> KmsAccess { get; private set; } = null!;
+
+        /// <summary>
+        /// The AWS Key Management Service (KMS) policy document that defines permissions for key usage within the ODB network.
+        /// </summary>
+        [Output("kmsPolicyDocument")]
+        public Output<string?> KmsPolicyDocument { get; private set; } = null!;
 
         [Output("managedServices")]
         public Output<Outputs.OdbNetworkManagedServices> ManagedServices { get; private set; } = null!;
@@ -107,6 +125,18 @@ namespace Pulumi.AwsNative.Odb
         /// </summary>
         [Output("s3PolicyDocument")]
         public Output<string?> S3PolicyDocument { get; private set; } = null!;
+
+        /// <summary>
+        /// The AWS Security Token Service (STS) access configuration for the ODB network.
+        /// </summary>
+        [Output("stsAccess")]
+        public Output<Pulumi.AwsNative.Odb.OdbNetworkStsAccess?> StsAccess { get; private set; } = null!;
+
+        /// <summary>
+        /// The AWS Security Token Service (STS) policy document that defines permissions for token service usage within the ODB network.
+        /// </summary>
+        [Output("stsPolicyDocument")]
+        public Output<string?> StsPolicyDocument { get; private set; } = null!;
 
         /// <summary>
         /// Tags to assign to the Odb Network.
@@ -198,6 +228,18 @@ namespace Pulumi.AwsNative.Odb
         [Input("clientSubnetCidr")]
         public Input<string>? ClientSubnetCidr { get; set; }
 
+        [Input("crossRegionS3RestoreSources")]
+        private InputList<string>? _crossRegionS3RestoreSources;
+
+        /// <summary>
+        /// The cross-Region Amazon S3 restore sources for the ODB network.
+        /// </summary>
+        public InputList<string> CrossRegionS3RestoreSources
+        {
+            get => _crossRegionS3RestoreSources ?? (_crossRegionS3RestoreSources = new InputList<string>());
+            set => _crossRegionS3RestoreSources = value;
+        }
+
         /// <summary>
         /// The domain name to use for the resources in the ODB network.
         /// </summary>
@@ -223,6 +265,18 @@ namespace Pulumi.AwsNative.Odb
         public Input<string>? DisplayName { get; set; }
 
         /// <summary>
+        /// The AWS Key Management Service (KMS) access configuration for the ODB network.
+        /// </summary>
+        [Input("kmsAccess")]
+        public Input<Pulumi.AwsNative.Odb.OdbNetworkKmsAccess>? KmsAccess { get; set; }
+
+        /// <summary>
+        /// The AWS Key Management Service (KMS) policy document that defines permissions for key usage within the ODB network.
+        /// </summary>
+        [Input("kmsPolicyDocument")]
+        public Input<string>? KmsPolicyDocument { get; set; }
+
+        /// <summary>
         /// Specifies the configuration for Amazon S3 access from the ODB network.
         /// </summary>
         [Input("s3Access")]
@@ -233,6 +287,18 @@ namespace Pulumi.AwsNative.Odb
         /// </summary>
         [Input("s3PolicyDocument")]
         public Input<string>? S3PolicyDocument { get; set; }
+
+        /// <summary>
+        /// The AWS Security Token Service (STS) access configuration for the ODB network.
+        /// </summary>
+        [Input("stsAccess")]
+        public Input<Pulumi.AwsNative.Odb.OdbNetworkStsAccess>? StsAccess { get; set; }
+
+        /// <summary>
+        /// The AWS Security Token Service (STS) policy document that defines permissions for token service usage within the ODB network.
+        /// </summary>
+        [Input("stsPolicyDocument")]
+        public Input<string>? StsPolicyDocument { get; set; }
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;

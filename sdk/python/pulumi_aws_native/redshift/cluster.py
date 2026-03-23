@@ -99,7 +99,7 @@ class ClusterArgs:
         :param pulumi.Input[_builtins.str] cluster_subnet_group_name: The name of a cluster subnet group to be associated with this cluster.
         :param pulumi.Input[_builtins.str] cluster_version: The version of the Amazon Redshift engine software that you want to deploy on the cluster.The version selected runs on all the nodes in the cluster.
         :param pulumi.Input[_builtins.bool] defer_maintenance: A boolean indicating whether to enable the deferred maintenance window.
-        :param pulumi.Input[_builtins.int] defer_maintenance_duration: An integer indicating the duration of the maintenance window in days. If you specify a duration, you can't specify an end time. The duration must be 45 days or less.
+        :param pulumi.Input[_builtins.int] defer_maintenance_duration: An integer indicating the duration of the maintenance window in days. If you specify a duration, you can't specify an end time. The duration must be 60 days or less.
         :param pulumi.Input[_builtins.str] defer_maintenance_end_time: A timestamp indicating end time for the deferred maintenance window. If you specify an end time, you can't specify a duration.
         :param pulumi.Input[_builtins.str] defer_maintenance_start_time: A timestamp indicating the start time for the deferred maintenance window.
         :param pulumi.Input[_builtins.str] destination_region: The destination AWS Region that you want to copy snapshots to. Constraints: Must be the name of a valid AWS Region. For more information, see Regions and Endpoints in the Amazon Web Services [https://docs.aws.amazon.com/general/latest/gr/rande.html#redshift_region] General Reference
@@ -460,7 +460,7 @@ class ClusterArgs:
     @pulumi.getter(name="deferMaintenanceDuration")
     def defer_maintenance_duration(self) -> Optional[pulumi.Input[_builtins.int]]:
         """
-        An integer indicating the duration of the maintenance window in days. If you specify a duration, you can't specify an end time. The duration must be 45 days or less.
+        An integer indicating the duration of the maintenance window in days. If you specify a duration, you can't specify an end time. The duration must be 60 days or less.
         """
         return pulumi.get(self, "defer_maintenance_duration")
 
@@ -973,7 +973,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] cluster_version: The version of the Amazon Redshift engine software that you want to deploy on the cluster.The version selected runs on all the nodes in the cluster.
         :param pulumi.Input[_builtins.str] db_name: The name of the first database to be created when the cluster is created. To create additional databases after the cluster is created, connect to the cluster with a SQL client and use SQL commands to create a database.
         :param pulumi.Input[_builtins.bool] defer_maintenance: A boolean indicating whether to enable the deferred maintenance window.
-        :param pulumi.Input[_builtins.int] defer_maintenance_duration: An integer indicating the duration of the maintenance window in days. If you specify a duration, you can't specify an end time. The duration must be 45 days or less.
+        :param pulumi.Input[_builtins.int] defer_maintenance_duration: An integer indicating the duration of the maintenance window in days. If you specify a duration, you can't specify an end time. The duration must be 60 days or less.
         :param pulumi.Input[_builtins.str] defer_maintenance_end_time: A timestamp indicating end time for the deferred maintenance window. If you specify an end time, you can't specify a duration.
         :param pulumi.Input[_builtins.str] defer_maintenance_start_time: A timestamp indicating the start time for the deferred maintenance window.
         :param pulumi.Input[_builtins.str] destination_region: The destination AWS Region that you want to copy snapshots to. Constraints: Must be the name of a valid AWS Region. For more information, see Regions and Endpoints in the Amazon Web Services [https://docs.aws.amazon.com/general/latest/gr/rande.html#redshift_region] General Reference
@@ -1389,7 +1389,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="deferMaintenanceDuration")
     def defer_maintenance_duration(self) -> pulumi.Output[Optional[_builtins.int]]:
         """
-        An integer indicating the duration of the maintenance window in days. If you specify a duration, you can't specify an end time. The duration must be 45 days or less.
+        An integer indicating the duration of the maintenance window in days. If you specify a duration, you can't specify an end time. The duration must be 60 days or less.
         """
         return pulumi.get(self, "defer_maintenance_duration")
 

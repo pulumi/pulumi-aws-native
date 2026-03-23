@@ -47,8 +47,6 @@ type LookupImageBuilderResult struct {
 	IamRoleArn *string `pulumi:"iamRoleArn"`
 	// The ARN of the public, private, or shared image to use.
 	ImageArn *string `pulumi:"imageArn"`
-	// The name of the image used to create the image builder.
-	ImageName *string `pulumi:"imageName"`
 	// The instance type to use when launching the image builder. The following instance types are available:
 	//
 	// - stream.standard.small
@@ -101,9 +99,8 @@ type LookupImageBuilderResult struct {
 	// - stream.graphics.g6f.2xlarge
 	// - stream.graphics.g6f.4xlarge
 	// - stream.graphics.gr6f.4xlarge
-	InstanceType *string `pulumi:"instanceType"`
-	// A unique name for the image builder.
-	Name *string `pulumi:"name"`
+	InstanceType     *string                   `pulumi:"instanceType"`
+	RootVolumeConfig *ImageBuilderVolumeConfig `pulumi:"rootVolumeConfig"`
 	// The URL to start an image builder streaming session, returned as a string.
 	StreamingUrl *string `pulumi:"streamingUrl"`
 	// An array of key-value pairs.
@@ -186,11 +183,6 @@ func (o LookupImageBuilderResultOutput) ImageArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupImageBuilderResult) *string { return v.ImageArn }).(pulumi.StringPtrOutput)
 }
 
-// The name of the image used to create the image builder.
-func (o LookupImageBuilderResultOutput) ImageName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupImageBuilderResult) *string { return v.ImageName }).(pulumi.StringPtrOutput)
-}
-
 // The instance type to use when launching the image builder. The following instance types are available:
 //
 // - stream.standard.small
@@ -247,9 +239,8 @@ func (o LookupImageBuilderResultOutput) InstanceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupImageBuilderResult) *string { return v.InstanceType }).(pulumi.StringPtrOutput)
 }
 
-// A unique name for the image builder.
-func (o LookupImageBuilderResultOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupImageBuilderResult) *string { return v.Name }).(pulumi.StringPtrOutput)
+func (o LookupImageBuilderResultOutput) RootVolumeConfig() ImageBuilderVolumeConfigPtrOutput {
+	return o.ApplyT(func(v LookupImageBuilderResult) *ImageBuilderVolumeConfig { return v.RootVolumeConfig }).(ImageBuilderVolumeConfigPtrOutput)
 }
 
 // The URL to start an image builder streaming session, returned as a string.

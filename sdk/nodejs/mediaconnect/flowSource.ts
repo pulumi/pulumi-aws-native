@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource schema for AWS::MediaConnect::FlowSource
+ * Resource Type definition for AWS::MediaConnect::FlowSource
  */
 export class FlowSource extends pulumi.CustomResource {
     /**
@@ -52,7 +52,7 @@ export class FlowSource extends pulumi.CustomResource {
     /**
      * The ARN of the flow.
      */
-    declare public readonly flowArn: pulumi.Output<string | undefined>;
+    declare public readonly flowArn: pulumi.Output<string>;
     /**
      * The source configuration for cloud flows receiving a stream from a bridge.
      */
@@ -114,6 +114,10 @@ export class FlowSource extends pulumi.CustomResource {
      */
     declare public readonly streamId: pulumi.Output<string | undefined>;
     /**
+     * Key-value pairs that can be used to tag and organize this flow source.
+     */
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
+    /**
      * The name of the VPC Interface this Source is configured with.
      */
     declare public readonly vpcInterfaceName: pulumi.Output<string | undefined>;
@@ -136,6 +140,9 @@ export class FlowSource extends pulumi.CustomResource {
             if (args?.description === undefined && !opts.urn) {
                 throw new Error("Missing required property 'description'");
             }
+            if (args?.flowArn === undefined && !opts.urn) {
+                throw new Error("Missing required property 'flowArn'");
+            }
             resourceInputs["decryption"] = args?.decryption;
             resourceInputs["description"] = args?.description;
             resourceInputs["entitlementArn"] = args?.entitlementArn;
@@ -152,6 +159,7 @@ export class FlowSource extends pulumi.CustomResource {
             resourceInputs["sourceListenerAddress"] = args?.sourceListenerAddress;
             resourceInputs["sourceListenerPort"] = args?.sourceListenerPort;
             resourceInputs["streamId"] = args?.streamId;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["vpcInterfaceName"] = args?.vpcInterfaceName;
             resourceInputs["whitelistCidr"] = args?.whitelistCidr;
             resourceInputs["ingestIp"] = undefined /*out*/;
@@ -177,11 +185,12 @@ export class FlowSource extends pulumi.CustomResource {
             resourceInputs["sourceListenerAddress"] = undefined /*out*/;
             resourceInputs["sourceListenerPort"] = undefined /*out*/;
             resourceInputs["streamId"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["vpcInterfaceName"] = undefined /*out*/;
             resourceInputs["whitelistCidr"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["name"] };
+        const replaceOnChanges = { replaceOnChanges: ["flowArn", "name", "protocol"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(FlowSource.__pulumiType, name, resourceInputs, opts);
     }
@@ -206,7 +215,7 @@ export interface FlowSourceArgs {
     /**
      * The ARN of the flow.
      */
-    flowArn?: pulumi.Input<string>;
+    flowArn: pulumi.Input<string>;
     /**
      * The source configuration for cloud flows receiving a stream from a bridge.
      */
@@ -255,6 +264,10 @@ export interface FlowSourceArgs {
      * The stream ID that you want to use for this transport. This parameter applies only to Zixi-based streams.
      */
     streamId?: pulumi.Input<string>;
+    /**
+     * Key-value pairs that can be used to tag and organize this flow source.
+     */
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
      * The name of the VPC Interface this Source is configured with.
      */

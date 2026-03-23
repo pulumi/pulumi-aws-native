@@ -66,6 +66,7 @@ import * as ecs from "./ecs";
 import * as efs from "./efs";
 import * as eks from "./eks";
 import * as elasticache from "./elasticache";
+import * as elementalinference from "./elementalinference";
 import * as emr from "./emr";
 import * as emrcontainers from "./emrcontainers";
 import * as emrserverless from "./emrserverless";
@@ -156,6 +157,7 @@ import * as resourceexplorer2 from "./resourceexplorer2";
 import * as resourcegroups from "./resourcegroups";
 import * as rolesanywhere from "./rolesanywhere";
 import * as route53 from "./route53";
+import * as route53globalresolver from "./route53globalresolver";
 import * as route53profiles from "./route53profiles";
 import * as route53recoverycontrol from "./route53recoverycontrol";
 import * as route53resolver from "./route53resolver";
@@ -262,6 +264,7 @@ export {
     efs,
     eks,
     elasticache,
+    elementalinference,
     emr,
     emrcontainers,
     emrserverless,
@@ -352,6 +355,7 @@ export {
     resourcegroups,
     rolesanywhere,
     route53,
+    route53globalresolver,
     route53profiles,
     route53recoverycontrol,
     route53resolver,

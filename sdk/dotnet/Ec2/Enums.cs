@@ -744,6 +744,7 @@ namespace Pulumi.AwsNative.Ec2
 
         public static Ec2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityType OnDemand { get; } = new Ec2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityType("on-demand");
         public static Ec2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityType Spot { get; } = new Ec2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityType("spot");
+        public static Ec2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityType ReservedCapacity { get; } = new Ec2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityType("reserved-capacity");
 
         public static bool operator ==(Ec2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityType left, Ec2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityType right) => left.Equals(right);
         public static bool operator !=(Ec2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityType left, Ec2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityType right) => !left.Equals(right);
@@ -1079,6 +1080,44 @@ namespace Pulumi.AwsNative.Ec2
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is InstanceAffinity other && Equals(other);
         public bool Equals(InstanceAffinity other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The current state of the EC2 Instance Connect Endpoint
+    /// </summary>
+    [EnumType]
+    public readonly struct InstanceConnectEndpointState : IEquatable<InstanceConnectEndpointState>
+    {
+        private readonly string _value;
+
+        private InstanceConnectEndpointState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static InstanceConnectEndpointState CreateInProgress { get; } = new InstanceConnectEndpointState("create-in-progress");
+        public static InstanceConnectEndpointState CreateComplete { get; } = new InstanceConnectEndpointState("create-complete");
+        public static InstanceConnectEndpointState CreateFailed { get; } = new InstanceConnectEndpointState("create-failed");
+        public static InstanceConnectEndpointState DeleteInProgress { get; } = new InstanceConnectEndpointState("delete-in-progress");
+        public static InstanceConnectEndpointState DeleteComplete { get; } = new InstanceConnectEndpointState("delete-complete");
+        public static InstanceConnectEndpointState DeleteFailed { get; } = new InstanceConnectEndpointState("delete-failed");
+        public static InstanceConnectEndpointState UpdateInProgress { get; } = new InstanceConnectEndpointState("update-in-progress");
+        public static InstanceConnectEndpointState UpdateComplete { get; } = new InstanceConnectEndpointState("update-complete");
+        public static InstanceConnectEndpointState UpdateFailed { get; } = new InstanceConnectEndpointState("update-failed");
+
+        public static bool operator ==(InstanceConnectEndpointState left, InstanceConnectEndpointState right) => left.Equals(right);
+        public static bool operator !=(InstanceConnectEndpointState left, InstanceConnectEndpointState right) => !left.Equals(right);
+
+        public static explicit operator string(InstanceConnectEndpointState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is InstanceConnectEndpointState other && Equals(other);
+        public bool Equals(InstanceConnectEndpointState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -2684,6 +2723,70 @@ namespace Pulumi.AwsNative.Ec2
     }
 
     /// <summary>
+    /// The SQL Server high availability status of the EC2 instance.
+    /// </summary>
+    [EnumType]
+    public readonly struct SqlHaStandbyDetectedInstanceHaStatus : IEquatable<SqlHaStandbyDetectedInstanceHaStatus>
+    {
+        private readonly string _value;
+
+        private SqlHaStandbyDetectedInstanceHaStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SqlHaStandbyDetectedInstanceHaStatus Processing { get; } = new SqlHaStandbyDetectedInstanceHaStatus("processing");
+        public static SqlHaStandbyDetectedInstanceHaStatus Active { get; } = new SqlHaStandbyDetectedInstanceHaStatus("active");
+        public static SqlHaStandbyDetectedInstanceHaStatus Standby { get; } = new SqlHaStandbyDetectedInstanceHaStatus("standby");
+        public static SqlHaStandbyDetectedInstanceHaStatus Invalid { get; } = new SqlHaStandbyDetectedInstanceHaStatus("invalid");
+
+        public static bool operator ==(SqlHaStandbyDetectedInstanceHaStatus left, SqlHaStandbyDetectedInstanceHaStatus right) => left.Equals(right);
+        public static bool operator !=(SqlHaStandbyDetectedInstanceHaStatus left, SqlHaStandbyDetectedInstanceHaStatus right) => !left.Equals(right);
+
+        public static explicit operator string(SqlHaStandbyDetectedInstanceHaStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SqlHaStandbyDetectedInstanceHaStatus other && Equals(other);
+        public bool Equals(SqlHaStandbyDetectedInstanceHaStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The SQL Server license type of the EC2 instance.
+    /// </summary>
+    [EnumType]
+    public readonly struct SqlHaStandbyDetectedInstanceSqlServerLicenseUsage : IEquatable<SqlHaStandbyDetectedInstanceSqlServerLicenseUsage>
+    {
+        private readonly string _value;
+
+        private SqlHaStandbyDetectedInstanceSqlServerLicenseUsage(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SqlHaStandbyDetectedInstanceSqlServerLicenseUsage Full { get; } = new SqlHaStandbyDetectedInstanceSqlServerLicenseUsage("full");
+        public static SqlHaStandbyDetectedInstanceSqlServerLicenseUsage Waived { get; } = new SqlHaStandbyDetectedInstanceSqlServerLicenseUsage("waived");
+
+        public static bool operator ==(SqlHaStandbyDetectedInstanceSqlServerLicenseUsage left, SqlHaStandbyDetectedInstanceSqlServerLicenseUsage right) => left.Equals(right);
+        public static bool operator !=(SqlHaStandbyDetectedInstanceSqlServerLicenseUsage left, SqlHaStandbyDetectedInstanceSqlServerLicenseUsage right) => !left.Equals(right);
+
+        public static explicit operator string(SqlHaStandbyDetectedInstanceSqlServerLicenseUsage value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SqlHaStandbyDetectedInstanceSqlServerLicenseUsage other && Equals(other);
+        public bool Equals(SqlHaStandbyDetectedInstanceSqlServerLicenseUsage other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The network service traffic that is associated with the traffic mirror filter.
     /// </summary>
     [EnumType]
@@ -2760,6 +2863,7 @@ namespace Pulumi.AwsNative.Ec2
         public static TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceType Peering { get; } = new TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceType("peering");
         public static TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceType NetworkFunction { get; } = new TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceType("network-function");
         public static TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceType VpnConcentrator { get; } = new TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceType("vpn-concentrator");
+        public static TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceType ClientVpn { get; } = new TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceType("client-vpn");
 
         public static bool operator ==(TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceType left, TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceType right) => left.Equals(right);
         public static bool operator !=(TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceType left, TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceType right) => !left.Equals(right);

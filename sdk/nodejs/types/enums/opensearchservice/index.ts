@@ -12,6 +12,13 @@ export const ApplicationAppConfigType = {
  */
 export type ApplicationAppConfigType = (typeof ApplicationAppConfigType)[keyof typeof ApplicationAppConfigType];
 
+export const DomainDeploymentStrategyOptionsDeploymentStrategy = {
+    Default: "Default",
+    CapacityOptimized: "CapacityOptimized",
+} as const;
+
+export type DomainDeploymentStrategyOptionsDeploymentStrategy = (typeof DomainDeploymentStrategyOptionsDeploymentStrategy)[keyof typeof DomainDeploymentStrategyOptionsDeploymentStrategy];
+
 export const DomainNodeOptionNodeType = {
     Coordinator: "coordinator",
 } as const;

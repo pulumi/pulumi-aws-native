@@ -115,6 +115,10 @@ export class FlowOutput extends pulumi.CustomResource {
      */
     declare public readonly streamId: pulumi.Output<string | undefined>;
     /**
+     * Key-value pairs that can be used to tag and organize this flow output.
+     */
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
+    /**
      * The name of the VPC interface attachment to use for this output.
      */
     declare public readonly vpcInterfaceAttachment: pulumi.Output<outputs.mediaconnect.FlowOutputVpcInterfaceAttachment | undefined>;
@@ -152,6 +156,7 @@ export class FlowOutput extends pulumi.CustomResource {
             resourceInputs["routerIntegrationTransitEncryption"] = args?.routerIntegrationTransitEncryption;
             resourceInputs["smoothingLatency"] = args?.smoothingLatency;
             resourceInputs["streamId"] = args?.streamId;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["vpcInterfaceAttachment"] = args?.vpcInterfaceAttachment;
             resourceInputs["outputArn"] = undefined /*out*/;
         } else {
@@ -175,10 +180,11 @@ export class FlowOutput extends pulumi.CustomResource {
             resourceInputs["routerIntegrationTransitEncryption"] = undefined /*out*/;
             resourceInputs["smoothingLatency"] = undefined /*out*/;
             resourceInputs["streamId"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["vpcInterfaceAttachment"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["name"] };
+        const replaceOnChanges = { replaceOnChanges: ["flowArn", "name"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(FlowOutput.__pulumiType, name, resourceInputs, opts);
     }
@@ -261,6 +267,10 @@ export interface FlowOutputArgs {
      * The stream ID that you want to use for this transport. This parameter applies only to Zixi-based streams.
      */
     streamId?: pulumi.Input<string>;
+    /**
+     * Key-value pairs that can be used to tag and organize this flow output.
+     */
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
      * The name of the VPC interface attachment to use for this output.
      */

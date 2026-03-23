@@ -9,12 +9,14 @@ import typing
 from ._enums import *
 from .get_global_replication_group import *
 from .get_parameter_group import *
+from .get_replication_group import *
 from .get_serverless_cache import *
 from .get_subnet_group import *
 from .get_user import *
 from .get_user_group import *
 from .global_replication_group import *
 from .parameter_group import *
+from .replication_group import *
 from .serverless_cache import *
 from .subnet_group import *
 from .user import *

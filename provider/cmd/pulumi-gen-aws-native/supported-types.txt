@@ -126,6 +126,7 @@ AWS::Batch::ComputeEnvironment
 AWS::Batch::ConsumableResource
 AWS::Batch::JobDefinition
 AWS::Batch::JobQueue
+AWS::Batch::QuotaShare
 AWS::Batch::SchedulingPolicy
 AWS::Batch::ServiceEnvironment
 AWS::Bedrock::Agent
@@ -184,6 +185,8 @@ AWS::CleanRooms::IdMappingTable
 AWS::CleanRooms::IdNamespaceAssociation
 AWS::CleanRooms::Membership
 AWS::CleanRooms::PrivacyBudgetTemplate
+AWS::CleanRoomsML::ConfiguredModelAlgorithm
+AWS::CleanRoomsML::ConfiguredModelAlgorithmAssociation
 AWS::CleanRoomsML::TrainingDataset
 AWS::CloudFormation::GuardHook
 AWS::CloudFormation::HookDefaultVersion
@@ -414,6 +417,7 @@ AWS::EC2::IPAMAllocation
 AWS::EC2::IPAMPool
 AWS::EC2::IPAMPoolCidr
 AWS::EC2::IPAMPrefixListResolver
+AWS::EC2::IPAMPrefixListResolverTarget
 AWS::EC2::IPAMResourceDiscovery
 AWS::EC2::IPAMResourceDiscoveryAssociation
 AWS::EC2::IPAMScope
@@ -453,6 +457,7 @@ AWS::EC2::SecurityGroupIngress
 AWS::EC2::SecurityGroupVpcAssociation
 AWS::EC2::SnapshotBlockPublicAccess
 AWS::EC2::SpotFleet
+AWS::EC2::SqlHaStandbyDetectedInstance
 AWS::EC2::Subnet
 AWS::EC2::SubnetCidrBlock
 AWS::EC2::SubnetNetworkAclAssociation
@@ -538,6 +543,7 @@ AWS::EMRServerless::Application
 AWS::EVS::Environment
 AWS::ElastiCache::GlobalReplicationGroup
 AWS::ElastiCache::ParameterGroup
+AWS::ElastiCache::ReplicationGroup
 AWS::ElastiCache::ServerlessCache
 AWS::ElastiCache::SubnetGroup
 AWS::ElastiCache::User
@@ -552,6 +558,7 @@ AWS::ElasticLoadBalancingV2::LoadBalancer
 AWS::ElasticLoadBalancingV2::TargetGroup
 AWS::ElasticLoadBalancingV2::TrustStore
 AWS::ElasticLoadBalancingV2::TrustStoreRevocation
+AWS::ElementalInference::Feed
 AWS::EntityResolution::IdMappingWorkflow
 AWS::EntityResolution::IdNamespace
 AWS::EntityResolution::MatchingWorkflow
@@ -609,6 +616,7 @@ AWS::GlobalAccelerator::Accelerator
 AWS::GlobalAccelerator::CrossAccountAttachment
 AWS::GlobalAccelerator::EndpointGroup
 AWS::GlobalAccelerator::Listener
+AWS::Glue::Catalog
 AWS::Glue::Crawler
 AWS::Glue::Database
 AWS::Glue::IdentityCenterConfiguration
@@ -928,6 +936,7 @@ AWS::Oam::Sink
 AWS::ObservabilityAdmin::OrganizationCentralizationRule
 AWS::ObservabilityAdmin::OrganizationTelemetryRule
 AWS::ObservabilityAdmin::S3TableIntegration
+AWS::ObservabilityAdmin::TelemetryEnrichment
 AWS::ObservabilityAdmin::TelemetryPipelines
 AWS::ObservabilityAdmin::TelemetryRule
 AWS::Omics::AnnotationStore
@@ -1060,6 +1069,13 @@ AWS::Route53::DNSSEC
 AWS::Route53::HealthCheck
 AWS::Route53::HostedZone
 AWS::Route53::KeySigningKey
+AWS::Route53GlobalResolver::AccessSource
+AWS::Route53GlobalResolver::AccessToken
+AWS::Route53GlobalResolver::DnsView
+AWS::Route53GlobalResolver::FirewallDomainList
+AWS::Route53GlobalResolver::FirewallRule
+AWS::Route53GlobalResolver::GlobalResolver
+AWS::Route53GlobalResolver::HostedZoneAssociation
 AWS::Route53Profiles::Profile
 AWS::Route53Profiles::ProfileAssociation
 AWS::Route53Profiles::ProfileResourceAssociation
@@ -1229,12 +1245,14 @@ AWS::ServiceCatalog::PortfolioShare
 AWS::ServiceCatalog::ResourceUpdateConstraint
 AWS::ServiceCatalog::ServiceAction
 AWS::ServiceCatalog::ServiceActionAssociation
+AWS::ServiceCatalog::StackSetConstraint
 AWS::ServiceCatalog::TagOption
 AWS::ServiceCatalog::TagOptionAssociation
 AWS::ServiceCatalogAppRegistry::Application
 AWS::ServiceCatalogAppRegistry::AttributeGroup
 AWS::ServiceCatalogAppRegistry::AttributeGroupAssociation
 AWS::ServiceCatalogAppRegistry::ResourceAssociation
+AWS::ServiceDiscovery::Service
 AWS::Shield::DRTAccess
 AWS::Shield::ProactiveEngagement
 AWS::Shield::Protection

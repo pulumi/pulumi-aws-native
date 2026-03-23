@@ -307,6 +307,7 @@ export type Ec2FleetTagSpecificationResourceType = (typeof Ec2FleetTagSpecificat
 export const Ec2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityType = {
     OnDemand: "on-demand",
     Spot: "spot",
+    ReservedCapacity: "reserved-capacity",
 } as const;
 
 /**
@@ -429,6 +430,23 @@ export const InstanceAffinity = {
  * Indicates whether the instance is associated with a dedicated host. If you want the instance to always restart on the same host on which it was launched, specify host. If you want the instance to restart on any available host, but try to launch onto the last host it ran on (on a best-effort basis), specify default.
  */
 export type InstanceAffinity = (typeof InstanceAffinity)[keyof typeof InstanceAffinity];
+
+export const InstanceConnectEndpointState = {
+    CreateInProgress: "create-in-progress",
+    CreateComplete: "create-complete",
+    CreateFailed: "create-failed",
+    DeleteInProgress: "delete-in-progress",
+    DeleteComplete: "delete-complete",
+    DeleteFailed: "delete-failed",
+    UpdateInProgress: "update-in-progress",
+    UpdateComplete: "update-complete",
+    UpdateFailed: "update-failed",
+} as const;
+
+/**
+ * The current state of the EC2 Instance Connect Endpoint
+ */
+export type InstanceConnectEndpointState = (typeof InstanceConnectEndpointState)[keyof typeof InstanceConnectEndpointState];
 
 export const InstanceMetadataOptionsHttpEndpoint = {
     Disabled: "disabled",
@@ -1019,6 +1037,28 @@ export const SpotFleetTagSpecificationResourceType = {
  */
 export type SpotFleetTagSpecificationResourceType = (typeof SpotFleetTagSpecificationResourceType)[keyof typeof SpotFleetTagSpecificationResourceType];
 
+export const SqlHaStandbyDetectedInstanceHaStatus = {
+    Processing: "processing",
+    Active: "active",
+    Standby: "standby",
+    Invalid: "invalid",
+} as const;
+
+/**
+ * The SQL Server high availability status of the EC2 instance.
+ */
+export type SqlHaStandbyDetectedInstanceHaStatus = (typeof SqlHaStandbyDetectedInstanceHaStatus)[keyof typeof SqlHaStandbyDetectedInstanceHaStatus];
+
+export const SqlHaStandbyDetectedInstanceSqlServerLicenseUsage = {
+    Full: "full",
+    Waived: "waived",
+} as const;
+
+/**
+ * The SQL Server license type of the EC2 instance.
+ */
+export type SqlHaStandbyDetectedInstanceSqlServerLicenseUsage = (typeof SqlHaStandbyDetectedInstanceSqlServerLicenseUsage)[keyof typeof SqlHaStandbyDetectedInstanceSqlServerLicenseUsage];
+
 export const TrafficMirrorFilterTrafficMirrorNetworkService = {
     AmazonDns: "amazon-dns",
 } as const;
@@ -1045,6 +1085,7 @@ export const TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceTy
     Peering: "peering",
     NetworkFunction: "network-function",
     VpnConcentrator: "vpn-concentrator",
+    ClientVpn: "client-vpn",
 } as const;
 
 export type TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceType = (typeof TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceType)[keyof typeof TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceType];

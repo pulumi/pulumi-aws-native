@@ -38,6 +38,7 @@ __all__ = [
     'HostMaintenance',
     'HostRecovery',
     'InstanceAffinity',
+    'InstanceConnectEndpointState',
     'InstanceMetadataOptionsHttpEndpoint',
     'InstanceMetadataOptionsHttpProtocolIpv6',
     'InstanceMetadataOptionsHttpTokens',
@@ -86,6 +87,8 @@ __all__ = [
     'SpotFleetSpotCapacityRebalanceReplacementStrategy',
     'SpotFleetSpotPlacementTenancy',
     'SpotFleetTagSpecificationResourceType',
+    'SqlHaStandbyDetectedInstanceHaStatus',
+    'SqlHaStandbyDetectedInstanceSqlServerLicenseUsage',
     'TrafficMirrorFilterTrafficMirrorNetworkService',
     'TransitGatewayEncryptionSupport',
     'TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceType',
@@ -411,6 +414,7 @@ class Ec2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityType(_built
     """
     ON_DEMAND = "on-demand"
     SPOT = "spot"
+    RESERVED_CAPACITY = "reserved-capacity"
 
 
 @pulumi.type_token("aws-native:ec2:Ec2FleetTargetCapacitySpecificationRequestTargetCapacityUnitType")
@@ -517,6 +521,22 @@ class InstanceAffinity(_builtins.str, Enum):
     """
     DEFAULT = "default"
     HOST = "host"
+
+
+@pulumi.type_token("aws-native:ec2:InstanceConnectEndpointState")
+class InstanceConnectEndpointState(_builtins.str, Enum):
+    """
+    The current state of the EC2 Instance Connect Endpoint
+    """
+    CREATE_IN_PROGRESS = "create-in-progress"
+    CREATE_COMPLETE = "create-complete"
+    CREATE_FAILED = "create-failed"
+    DELETE_IN_PROGRESS = "delete-in-progress"
+    DELETE_COMPLETE = "delete-complete"
+    DELETE_FAILED = "delete-failed"
+    UPDATE_IN_PROGRESS = "update-in-progress"
+    UPDATE_COMPLETE = "update-complete"
+    UPDATE_FAILED = "update-failed"
 
 
 @pulumi.type_token("aws-native:ec2:InstanceMetadataOptionsHttpEndpoint")
@@ -1060,6 +1080,26 @@ class SpotFleetTagSpecificationResourceType(_builtins.str, Enum):
     VPN_GATEWAY = "vpn-gateway"
 
 
+@pulumi.type_token("aws-native:ec2:SqlHaStandbyDetectedInstanceHaStatus")
+class SqlHaStandbyDetectedInstanceHaStatus(_builtins.str, Enum):
+    """
+    The SQL Server high availability status of the EC2 instance.
+    """
+    PROCESSING = "processing"
+    ACTIVE = "active"
+    STANDBY = "standby"
+    INVALID = "invalid"
+
+
+@pulumi.type_token("aws-native:ec2:SqlHaStandbyDetectedInstanceSqlServerLicenseUsage")
+class SqlHaStandbyDetectedInstanceSqlServerLicenseUsage(_builtins.str, Enum):
+    """
+    The SQL Server license type of the EC2 instance.
+    """
+    FULL = "full"
+    WAIVED = "waived"
+
+
 @pulumi.type_token("aws-native:ec2:TrafficMirrorFilterTrafficMirrorNetworkService")
 class TrafficMirrorFilterTrafficMirrorNetworkService(_builtins.str, Enum):
     """
@@ -1085,6 +1125,7 @@ class TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceType(_bui
     PEERING = "peering"
     NETWORK_FUNCTION = "network-function"
     VPN_CONCENTRATOR = "vpn-concentrator"
+    CLIENT_VPN = "client-vpn"
 
 
 @pulumi.type_token("aws-native:ec2:TransitGatewayMeteringPolicyEntryTransitGatewayMeteringPayerType")

@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -36,10 +37,10 @@ type LookupFlowEntitlementResult struct {
 	EntitlementArn *string `pulumi:"entitlementArn"`
 	//  An indication of whether the entitlement is enabled.
 	EntitlementStatus *FlowEntitlementEntitlementStatus `pulumi:"entitlementStatus"`
-	// The ARN of the flow.
-	FlowArn *string `pulumi:"flowArn"`
 	// The AWS account IDs that you want to share your content with. The receiving accounts (subscribers) will be allowed to create their own flow using your content as the source.
 	Subscribers []string `pulumi:"subscribers"`
+	// Key-value pairs that can be used to tag and organize this flow entitlement.
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupFlowEntitlementOutput(ctx *pulumi.Context, args LookupFlowEntitlementOutputArgs, opts ...pulumi.InvokeOption) LookupFlowEntitlementResultOutput {
@@ -94,14 +95,14 @@ func (o LookupFlowEntitlementResultOutput) EntitlementStatus() FlowEntitlementEn
 	return o.ApplyT(func(v LookupFlowEntitlementResult) *FlowEntitlementEntitlementStatus { return v.EntitlementStatus }).(FlowEntitlementEntitlementStatusPtrOutput)
 }
 
-// The ARN of the flow.
-func (o LookupFlowEntitlementResultOutput) FlowArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupFlowEntitlementResult) *string { return v.FlowArn }).(pulumi.StringPtrOutput)
-}
-
 // The AWS account IDs that you want to share your content with. The receiving accounts (subscribers) will be allowed to create their own flow using your content as the source.
 func (o LookupFlowEntitlementResultOutput) Subscribers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupFlowEntitlementResult) []string { return v.Subscribers }).(pulumi.StringArrayOutput)
+}
+
+// Key-value pairs that can be used to tag and organize this flow entitlement.
+func (o LookupFlowEntitlementResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupFlowEntitlementResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

@@ -41,6 +41,9 @@ namespace Pulumi.AwsNative.Ecs.Inputs
         [Input("fipsEnabled")]
         public Input<bool>? FipsEnabled { get; set; }
 
+        [Input("instanceMetadataTagsPropagation")]
+        public Input<bool>? InstanceMetadataTagsPropagation { get; set; }
+
         /// <summary>
         /// The instance requirements. You can specify:
         /// 

@@ -12,19 +12,19 @@ namespace Pulumi.AwsNative.MediaConnect
     public static class GetFlow
     {
         /// <summary>
-        /// Resource schema for AWS::MediaConnect::Flow
+        /// Resource Type definition for AWS::MediaConnect::Flow
         /// </summary>
         public static Task<GetFlowResult> InvokeAsync(GetFlowArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFlowResult>("aws-native:mediaconnect:getFlow", args ?? new GetFlowArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Resource schema for AWS::MediaConnect::Flow
+        /// Resource Type definition for AWS::MediaConnect::Flow
         /// </summary>
         public static Output<GetFlowResult> Invoke(GetFlowInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFlowResult>("aws-native:mediaconnect:getFlow", args ?? new GetFlowInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Resource schema for AWS::MediaConnect::Flow
+        /// Resource Type definition for AWS::MediaConnect::Flow
         /// </summary>
         public static Output<GetFlowResult> Invoke(GetFlowInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetFlowResult>("aws-native:mediaconnect:getFlow", args ?? new GetFlowInvokeArgs(), options.WithDefaults());
@@ -68,6 +68,10 @@ namespace Pulumi.AwsNative.MediaConnect
         /// </summary>
         public readonly string? EgressIp;
         /// <summary>
+        /// The encoding configuration to apply to the NDI source content when transcoding it to a transport stream (TS) for downstream distribution. You can choose between several predefined encoding profiles based on common use cases.
+        /// </summary>
+        public readonly Outputs.FlowEncodingConfig? EncodingConfig;
+        /// <summary>
         /// The Amazon Resource Name (ARN), a unique identifier for any AWS resource, of the flow.
         /// </summary>
         public readonly string? FlowArn;
@@ -80,7 +84,7 @@ namespace Pulumi.AwsNative.MediaConnect
         /// </summary>
         public readonly string? FlowNdiMachineName;
         /// <summary>
-        /// Determines the processing capacity and feature set of the flow. Set this optional parameter to LARGE if you want to enable NDI outputs on the flow.
+        /// Determines the processing capacity and feature set of the flow. Set this optional parameter to LARGE if you want to enable NDI sources or outputs on the flow.
         /// </summary>
         public readonly Pulumi.AwsNative.MediaConnect.FlowSize? FlowSize;
         /// <summary>
@@ -92,7 +96,7 @@ namespace Pulumi.AwsNative.MediaConnect
         /// </summary>
         public readonly ImmutableArray<Outputs.FlowMediaStream> MediaStreams;
         /// <summary>
-        /// Specifies the configuration settings for NDI outputs. Required when the flow includes NDI outputs.
+        /// Specifies the configuration settings for NDI sources and outputs. Required when the flow includes NDI sources or outputs.
         /// </summary>
         public readonly Outputs.FlowNdiConfig? NdiConfig;
         /// <summary>
@@ -108,6 +112,10 @@ namespace Pulumi.AwsNative.MediaConnect
         /// </summary>
         public readonly Outputs.FlowSourceMonitoringConfig? SourceMonitoringConfig;
         /// <summary>
+        /// Key-value pairs that can be used to tag this flow.
+        /// </summary>
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
+        /// <summary>
         /// The VPC interfaces that you added to this flow.
         /// </summary>
         public readonly ImmutableArray<Outputs.FlowVpcInterface> VpcInterfaces;
@@ -115,6 +123,8 @@ namespace Pulumi.AwsNative.MediaConnect
         [OutputConstructor]
         private GetFlowResult(
             string? egressIp,
+
+            Outputs.FlowEncodingConfig? encodingConfig,
 
             string? flowArn,
 
@@ -136,9 +146,12 @@ namespace Pulumi.AwsNative.MediaConnect
 
             Outputs.FlowSourceMonitoringConfig? sourceMonitoringConfig,
 
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
+
             ImmutableArray<Outputs.FlowVpcInterface> vpcInterfaces)
         {
             EgressIp = egressIp;
+            EncodingConfig = encodingConfig;
             FlowArn = flowArn;
             FlowAvailabilityZone = flowAvailabilityZone;
             FlowNdiMachineName = flowNdiMachineName;
@@ -149,6 +162,7 @@ namespace Pulumi.AwsNative.MediaConnect
             Source = source;
             SourceFailoverConfig = sourceFailoverConfig;
             SourceMonitoringConfig = sourceMonitoringConfig;
+            Tags = tags;
             VpcInterfaces = vpcInterfaces;
         }
     }

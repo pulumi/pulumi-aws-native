@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.MediaConnect
 {
     /// <summary>
-    /// Resource schema for AWS::MediaConnect::Flow
+    /// Resource Type definition for AWS::MediaConnect::Flow
     /// </summary>
     [AwsNativeResourceType("aws-native:mediaconnect:Flow")]
     public partial class Flow : global::Pulumi.CustomResource
@@ -26,6 +26,12 @@ namespace Pulumi.AwsNative.MediaConnect
         /// </summary>
         [Output("egressIp")]
         public Output<string> EgressIp { get; private set; } = null!;
+
+        /// <summary>
+        /// The encoding configuration to apply to the NDI source content when transcoding it to a transport stream (TS) for downstream distribution. You can choose between several predefined encoding profiles based on common use cases.
+        /// </summary>
+        [Output("encodingConfig")]
+        public Output<Outputs.FlowEncodingConfig?> EncodingConfig { get; private set; } = null!;
 
         /// <summary>
         /// The Amazon Resource Name (ARN), a unique identifier for any AWS resource, of the flow.
@@ -46,7 +52,7 @@ namespace Pulumi.AwsNative.MediaConnect
         public Output<string> FlowNdiMachineName { get; private set; } = null!;
 
         /// <summary>
-        /// Determines the processing capacity and feature set of the flow. Set this optional parameter to LARGE if you want to enable NDI outputs on the flow.
+        /// Determines the processing capacity and feature set of the flow. Set this optional parameter to LARGE if you want to enable NDI sources or outputs on the flow.
         /// </summary>
         [Output("flowSize")]
         public Output<Pulumi.AwsNative.MediaConnect.FlowSize?> FlowSize { get; private set; } = null!;
@@ -70,7 +76,7 @@ namespace Pulumi.AwsNative.MediaConnect
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the configuration settings for NDI outputs. Required when the flow includes NDI outputs.
+        /// Specifies the configuration settings for NDI sources and outputs. Required when the flow includes NDI sources or outputs.
         /// </summary>
         [Output("ndiConfig")]
         public Output<Outputs.FlowNdiConfig?> NdiConfig { get; private set; } = null!;
@@ -92,6 +98,12 @@ namespace Pulumi.AwsNative.MediaConnect
         /// </summary>
         [Output("sourceMonitoringConfig")]
         public Output<Outputs.FlowSourceMonitoringConfig?> SourceMonitoringConfig { get; private set; } = null!;
+
+        /// <summary>
+        /// Key-value pairs that can be used to tag this flow.
+        /// </summary>
+        [Output("tags")]
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         /// <summary>
         /// The VPC interfaces that you added to this flow.
@@ -157,7 +169,13 @@ namespace Pulumi.AwsNative.MediaConnect
         public Input<string>? AvailabilityZone { get; set; }
 
         /// <summary>
-        /// Determines the processing capacity and feature set of the flow. Set this optional parameter to LARGE if you want to enable NDI outputs on the flow.
+        /// The encoding configuration to apply to the NDI source content when transcoding it to a transport stream (TS) for downstream distribution. You can choose between several predefined encoding profiles based on common use cases.
+        /// </summary>
+        [Input("encodingConfig")]
+        public Input<Inputs.FlowEncodingConfigArgs>? EncodingConfig { get; set; }
+
+        /// <summary>
+        /// Determines the processing capacity and feature set of the flow. Set this optional parameter to LARGE if you want to enable NDI sources or outputs on the flow.
         /// </summary>
         [Input("flowSize")]
         public Input<Pulumi.AwsNative.MediaConnect.FlowSize>? FlowSize { get; set; }
@@ -187,7 +205,7 @@ namespace Pulumi.AwsNative.MediaConnect
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Specifies the configuration settings for NDI outputs. Required when the flow includes NDI outputs.
+        /// Specifies the configuration settings for NDI sources and outputs. Required when the flow includes NDI sources or outputs.
         /// </summary>
         [Input("ndiConfig")]
         public Input<Inputs.FlowNdiConfigArgs>? NdiConfig { get; set; }
@@ -209,6 +227,18 @@ namespace Pulumi.AwsNative.MediaConnect
         /// </summary>
         [Input("sourceMonitoringConfig")]
         public Input<Inputs.FlowSourceMonitoringConfigArgs>? SourceMonitoringConfig { get; set; }
+
+        [Input("tags")]
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
+        /// <summary>
+        /// Key-value pairs that can be used to tag this flow.
+        /// </summary>
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
+        {
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            set => _tags = value;
+        }
 
         [Input("vpcInterfaces")]
         private InputList<Inputs.FlowVpcInterfaceArgs>? _vpcInterfaces;

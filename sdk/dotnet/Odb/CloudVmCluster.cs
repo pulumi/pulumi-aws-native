@@ -112,6 +112,12 @@ namespace Pulumi.AwsNative.Odb
         public Output<string?> Hostname { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Identity and Access Management (IAM) service roles associated with the VM cluster.
+        /// </summary>
+        [Output("iamRoles")]
+        public Output<ImmutableArray<Outputs.CloudVmClusterIamRole>> IamRoles { get; private set; } = null!;
+
+        /// <summary>
         /// Indicates whether database backups to local Exadata storage is enabled for the VM cluster.
         /// </summary>
         [Output("isLocalBackupEnabled")]
@@ -376,6 +382,18 @@ namespace Pulumi.AwsNative.Odb
         /// </summary>
         [Input("hostname")]
         public Input<string>? Hostname { get; set; }
+
+        [Input("iamRoles")]
+        private InputList<Inputs.CloudVmClusterIamRoleArgs>? _iamRoles;
+
+        /// <summary>
+        /// The AWS Identity and Access Management (IAM) service roles associated with the VM cluster.
+        /// </summary>
+        public InputList<Inputs.CloudVmClusterIamRoleArgs> IamRoles
+        {
+            get => _iamRoles ?? (_iamRoles = new InputList<Inputs.CloudVmClusterIamRoleArgs>());
+            set => _iamRoles = value;
+        }
 
         /// <summary>
         /// Indicates whether database backups to local Exadata storage is enabled for the VM cluster.

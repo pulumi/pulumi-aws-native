@@ -8,11 +8,12 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource schema for AWS::MediaConnect::Flow
+// Resource Type definition for AWS::MediaConnect::Flow
 type Flow struct {
 	pulumi.CustomResourceState
 
@@ -20,13 +21,15 @@ type Flow struct {
 	AvailabilityZone pulumi.StringPtrOutput `pulumi:"availabilityZone"`
 	// The IP address from which video will be sent to output destinations.
 	EgressIp pulumi.StringOutput `pulumi:"egressIp"`
+	// The encoding configuration to apply to the NDI source content when transcoding it to a transport stream (TS) for downstream distribution. You can choose between several predefined encoding profiles based on common use cases.
+	EncodingConfig FlowEncodingConfigPtrOutput `pulumi:"encodingConfig"`
 	// The Amazon Resource Name (ARN), a unique identifier for any AWS resource, of the flow.
 	FlowArn pulumi.StringOutput `pulumi:"flowArn"`
 	// The Availability Zone that you want to create the flow in. These options are limited to the Availability Zones within the current AWS.(ReadOnly)
 	FlowAvailabilityZone pulumi.StringOutput `pulumi:"flowAvailabilityZone"`
 	// A prefix for the names of the NDI sources that the flow creates.(ReadOnly)
 	FlowNdiMachineName pulumi.StringOutput `pulumi:"flowNdiMachineName"`
-	// Determines the processing capacity and feature set of the flow. Set this optional parameter to LARGE if you want to enable NDI outputs on the flow.
+	// Determines the processing capacity and feature set of the flow. Set this optional parameter to LARGE if you want to enable NDI sources or outputs on the flow.
 	FlowSize FlowSizePtrOutput `pulumi:"flowSize"`
 	// The maintenance settings you want to use for the flow.
 	Maintenance FlowMaintenancePtrOutput `pulumi:"maintenance"`
@@ -34,7 +37,7 @@ type Flow struct {
 	MediaStreams FlowMediaStreamArrayOutput `pulumi:"mediaStreams"`
 	// The name of the flow.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Specifies the configuration settings for NDI outputs. Required when the flow includes NDI outputs.
+	// Specifies the configuration settings for NDI sources and outputs. Required when the flow includes NDI sources or outputs.
 	NdiConfig FlowNdiConfigPtrOutput `pulumi:"ndiConfig"`
 	// The source of the flow.
 	Source FlowSourceTypeOutput `pulumi:"source"`
@@ -42,6 +45,8 @@ type Flow struct {
 	SourceFailoverConfig FlowFailoverConfigPtrOutput `pulumi:"sourceFailoverConfig"`
 	// The source monitoring config of the flow.
 	SourceMonitoringConfig FlowSourceMonitoringConfigPtrOutput `pulumi:"sourceMonitoringConfig"`
+	// Key-value pairs that can be used to tag this flow.
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// The VPC interfaces that you added to this flow.
 	VpcInterfaces FlowVpcInterfaceTypeArrayOutput `pulumi:"vpcInterfaces"`
 }
@@ -97,7 +102,9 @@ func (FlowState) ElementType() reflect.Type {
 type flowArgs struct {
 	// The Availability Zone that you want to create the flow in. These options are limited to the Availability Zones within the current AWS.
 	AvailabilityZone *string `pulumi:"availabilityZone"`
-	// Determines the processing capacity and feature set of the flow. Set this optional parameter to LARGE if you want to enable NDI outputs on the flow.
+	// The encoding configuration to apply to the NDI source content when transcoding it to a transport stream (TS) for downstream distribution. You can choose between several predefined encoding profiles based on common use cases.
+	EncodingConfig *FlowEncodingConfig `pulumi:"encodingConfig"`
+	// Determines the processing capacity and feature set of the flow. Set this optional parameter to LARGE if you want to enable NDI sources or outputs on the flow.
 	FlowSize *FlowSize `pulumi:"flowSize"`
 	// The maintenance settings you want to use for the flow.
 	Maintenance *FlowMaintenance `pulumi:"maintenance"`
@@ -105,7 +112,7 @@ type flowArgs struct {
 	MediaStreams []FlowMediaStream `pulumi:"mediaStreams"`
 	// The name of the flow.
 	Name *string `pulumi:"name"`
-	// Specifies the configuration settings for NDI outputs. Required when the flow includes NDI outputs.
+	// Specifies the configuration settings for NDI sources and outputs. Required when the flow includes NDI sources or outputs.
 	NdiConfig *FlowNdiConfig `pulumi:"ndiConfig"`
 	// The source of the flow.
 	Source FlowSourceType `pulumi:"source"`
@@ -113,6 +120,8 @@ type flowArgs struct {
 	SourceFailoverConfig *FlowFailoverConfig `pulumi:"sourceFailoverConfig"`
 	// The source monitoring config of the flow.
 	SourceMonitoringConfig *FlowSourceMonitoringConfig `pulumi:"sourceMonitoringConfig"`
+	// Key-value pairs that can be used to tag this flow.
+	Tags []aws.Tag `pulumi:"tags"`
 	// The VPC interfaces that you added to this flow.
 	VpcInterfaces []FlowVpcInterfaceType `pulumi:"vpcInterfaces"`
 }
@@ -121,7 +130,9 @@ type flowArgs struct {
 type FlowArgs struct {
 	// The Availability Zone that you want to create the flow in. These options are limited to the Availability Zones within the current AWS.
 	AvailabilityZone pulumi.StringPtrInput
-	// Determines the processing capacity and feature set of the flow. Set this optional parameter to LARGE if you want to enable NDI outputs on the flow.
+	// The encoding configuration to apply to the NDI source content when transcoding it to a transport stream (TS) for downstream distribution. You can choose between several predefined encoding profiles based on common use cases.
+	EncodingConfig FlowEncodingConfigPtrInput
+	// Determines the processing capacity and feature set of the flow. Set this optional parameter to LARGE if you want to enable NDI sources or outputs on the flow.
 	FlowSize FlowSizePtrInput
 	// The maintenance settings you want to use for the flow.
 	Maintenance FlowMaintenancePtrInput
@@ -129,7 +140,7 @@ type FlowArgs struct {
 	MediaStreams FlowMediaStreamArrayInput
 	// The name of the flow.
 	Name pulumi.StringPtrInput
-	// Specifies the configuration settings for NDI outputs. Required when the flow includes NDI outputs.
+	// Specifies the configuration settings for NDI sources and outputs. Required when the flow includes NDI sources or outputs.
 	NdiConfig FlowNdiConfigPtrInput
 	// The source of the flow.
 	Source FlowSourceTypeInput
@@ -137,6 +148,8 @@ type FlowArgs struct {
 	SourceFailoverConfig FlowFailoverConfigPtrInput
 	// The source monitoring config of the flow.
 	SourceMonitoringConfig FlowSourceMonitoringConfigPtrInput
+	// Key-value pairs that can be used to tag this flow.
+	Tags aws.TagArrayInput
 	// The VPC interfaces that you added to this flow.
 	VpcInterfaces FlowVpcInterfaceTypeArrayInput
 }
@@ -188,6 +201,11 @@ func (o FlowOutput) EgressIp() pulumi.StringOutput {
 	return o.ApplyT(func(v *Flow) pulumi.StringOutput { return v.EgressIp }).(pulumi.StringOutput)
 }
 
+// The encoding configuration to apply to the NDI source content when transcoding it to a transport stream (TS) for downstream distribution. You can choose between several predefined encoding profiles based on common use cases.
+func (o FlowOutput) EncodingConfig() FlowEncodingConfigPtrOutput {
+	return o.ApplyT(func(v *Flow) FlowEncodingConfigPtrOutput { return v.EncodingConfig }).(FlowEncodingConfigPtrOutput)
+}
+
 // The Amazon Resource Name (ARN), a unique identifier for any AWS resource, of the flow.
 func (o FlowOutput) FlowArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Flow) pulumi.StringOutput { return v.FlowArn }).(pulumi.StringOutput)
@@ -203,7 +221,7 @@ func (o FlowOutput) FlowNdiMachineName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Flow) pulumi.StringOutput { return v.FlowNdiMachineName }).(pulumi.StringOutput)
 }
 
-// Determines the processing capacity and feature set of the flow. Set this optional parameter to LARGE if you want to enable NDI outputs on the flow.
+// Determines the processing capacity and feature set of the flow. Set this optional parameter to LARGE if you want to enable NDI sources or outputs on the flow.
 func (o FlowOutput) FlowSize() FlowSizePtrOutput {
 	return o.ApplyT(func(v *Flow) FlowSizePtrOutput { return v.FlowSize }).(FlowSizePtrOutput)
 }
@@ -223,7 +241,7 @@ func (o FlowOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Flow) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Specifies the configuration settings for NDI outputs. Required when the flow includes NDI outputs.
+// Specifies the configuration settings for NDI sources and outputs. Required when the flow includes NDI sources or outputs.
 func (o FlowOutput) NdiConfig() FlowNdiConfigPtrOutput {
 	return o.ApplyT(func(v *Flow) FlowNdiConfigPtrOutput { return v.NdiConfig }).(FlowNdiConfigPtrOutput)
 }
@@ -241,6 +259,11 @@ func (o FlowOutput) SourceFailoverConfig() FlowFailoverConfigPtrOutput {
 // The source monitoring config of the flow.
 func (o FlowOutput) SourceMonitoringConfig() FlowSourceMonitoringConfigPtrOutput {
 	return o.ApplyT(func(v *Flow) FlowSourceMonitoringConfigPtrOutput { return v.SourceMonitoringConfig }).(FlowSourceMonitoringConfigPtrOutput)
+}
+
+// Key-value pairs that can be used to tag this flow.
+func (o FlowOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Flow) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // The VPC interfaces that you added to this flow.

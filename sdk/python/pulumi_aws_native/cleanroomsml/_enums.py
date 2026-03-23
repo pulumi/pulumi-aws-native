@@ -7,10 +7,59 @@ import pulumi
 from enum import Enum
 
 __all__ = [
+    'ConfiguredModelAlgorithmAssociationEntityType',
+    'ConfiguredModelAlgorithmAssociationLogType',
+    'ConfiguredModelAlgorithmAssociationNoiseLevelType',
+    'ConfiguredModelAlgorithmAssociationTrainedModelArtifactMaxSizeUnitType',
+    'ConfiguredModelAlgorithmAssociationTrainedModelExportFileType',
+    'ConfiguredModelAlgorithmAssociationTrainedModelExportsMaxSizeUnitType',
+    'ConfiguredModelAlgorithmAssociationTrainedModelInferenceMaxOutputSizeUnitType',
     'TrainingDatasetColumnType',
     'TrainingDatasetDatasetType',
     'TrainingDatasetStatus',
 ]
+
+
+@pulumi.type_token("aws-native:cleanroomsml:ConfiguredModelAlgorithmAssociationEntityType")
+class ConfiguredModelAlgorithmAssociationEntityType(_builtins.str, Enum):
+    ALL_PERSONALLY_IDENTIFIABLE_INFORMATION = "ALL_PERSONALLY_IDENTIFIABLE_INFORMATION"
+    NUMBERS = "NUMBERS"
+    CUSTOM = "CUSTOM"
+
+
+@pulumi.type_token("aws-native:cleanroomsml:ConfiguredModelAlgorithmAssociationLogType")
+class ConfiguredModelAlgorithmAssociationLogType(_builtins.str, Enum):
+    ALL = "ALL"
+    ERROR_SUMMARY = "ERROR_SUMMARY"
+
+
+@pulumi.type_token("aws-native:cleanroomsml:ConfiguredModelAlgorithmAssociationNoiseLevelType")
+class ConfiguredModelAlgorithmAssociationNoiseLevelType(_builtins.str, Enum):
+    HIGH = "HIGH"
+    MEDIUM = "MEDIUM"
+    LOW = "LOW"
+    NONE = "NONE"
+
+
+@pulumi.type_token("aws-native:cleanroomsml:ConfiguredModelAlgorithmAssociationTrainedModelArtifactMaxSizeUnitType")
+class ConfiguredModelAlgorithmAssociationTrainedModelArtifactMaxSizeUnitType(_builtins.str, Enum):
+    GB = "GB"
+
+
+@pulumi.type_token("aws-native:cleanroomsml:ConfiguredModelAlgorithmAssociationTrainedModelExportFileType")
+class ConfiguredModelAlgorithmAssociationTrainedModelExportFileType(_builtins.str, Enum):
+    MODEL = "MODEL"
+    OUTPUT_TYPE = "OUTPUT"
+
+
+@pulumi.type_token("aws-native:cleanroomsml:ConfiguredModelAlgorithmAssociationTrainedModelExportsMaxSizeUnitType")
+class ConfiguredModelAlgorithmAssociationTrainedModelExportsMaxSizeUnitType(_builtins.str, Enum):
+    GB = "GB"
+
+
+@pulumi.type_token("aws-native:cleanroomsml:ConfiguredModelAlgorithmAssociationTrainedModelInferenceMaxOutputSizeUnitType")
+class ConfiguredModelAlgorithmAssociationTrainedModelInferenceMaxOutputSizeUnitType(_builtins.str, Enum):
+    GB = "GB"
 
 
 @pulumi.type_token("aws-native:cleanroomsml:TrainingDatasetColumnType")

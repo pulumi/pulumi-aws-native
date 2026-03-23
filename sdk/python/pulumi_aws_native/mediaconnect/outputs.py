@@ -36,6 +36,7 @@ __all__ = [
     'FlowAudioMonitoringSetting',
     'FlowAutomaticEncryptionKeyConfiguration',
     'FlowBlackFrames',
+    'FlowEncodingConfig',
     'FlowEncryption',
     'FlowEntitlementEncryption',
     'FlowFailoverConfig',
@@ -51,6 +52,7 @@ __all__ = [
     'FlowMediaStreamSourceConfiguration',
     'FlowNdiConfig',
     'FlowNdiDiscoveryServerConfig',
+    'FlowNdiSourceSettings',
     'FlowOutputAutomaticEncryptionKeyConfiguration',
     'FlowOutputDestinationConfiguration',
     'FlowOutputEncodingParameters',
@@ -69,6 +71,7 @@ __all__ = [
     'FlowSourceGatewayBridgeSource',
     'FlowSourceMonitoringConfig',
     'FlowSourceVpcInterfaceAttachment',
+    'FlowTag',
     'FlowTransitEncryption',
     'FlowTransitEncryptionKeyConfiguration0Properties',
     'FlowTransitEncryptionKeyConfiguration1Properties',
@@ -1193,6 +1196,52 @@ class FlowBlackFrames(dict):
 
 
 @pulumi.output_type
+class FlowEncodingConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "encodingProfile":
+            suggest = "encoding_profile"
+        elif key == "videoMaxBitrate":
+            suggest = "video_max_bitrate"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FlowEncodingConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FlowEncodingConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FlowEncodingConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 encoding_profile: Optional['FlowEncodingProfile'] = None,
+                 video_max_bitrate: Optional[_builtins.int] = None):
+        """
+        :param _builtins.int video_max_bitrate: The maximum video bitrate to use when transcoding the NDI source to a Transport Stream. This parameter enables you to override the default video bitrate within the encoding profile's supported range. The supported range is 10,000,000 - 50,000,000 bits per second (bps). If you do not specify a value, MediaConnect uses the default value of 20,000,000 bps.
+        """
+        if encoding_profile is not None:
+            pulumi.set(__self__, "encoding_profile", encoding_profile)
+        if video_max_bitrate is not None:
+            pulumi.set(__self__, "video_max_bitrate", video_max_bitrate)
+
+    @_builtins.property
+    @pulumi.getter(name="encodingProfile")
+    def encoding_profile(self) -> Optional['FlowEncodingProfile']:
+        return pulumi.get(self, "encoding_profile")
+
+    @_builtins.property
+    @pulumi.getter(name="videoMaxBitrate")
+    def video_max_bitrate(self) -> Optional[_builtins.int]:
+        """
+        The maximum video bitrate to use when transcoding the NDI source to a Transport Stream. This parameter enables you to override the default video bitrate within the encoding profile's supported range. The supported range is 10,000,000 - 50,000,000 bits per second (bps). If you do not specify a value, MediaConnect uses the default value of 20,000,000 bps.
+        """
+        return pulumi.get(self, "video_max_bitrate")
+
+
+@pulumi.output_type
 class FlowEncryption(dict):
     """
     Information about the encryption of the flow.
@@ -1993,6 +2042,7 @@ class FlowMediaStream(dict):
                  clock_rate: Optional[_builtins.int] = None,
                  description: Optional[_builtins.str] = None,
                  fmt: Optional[_builtins.int] = None,
+                 tags: Optional[Sequence['outputs.FlowTag']] = None,
                  video_format: Optional['FlowMediaStreamVideoFormat'] = None):
         """
         A single track or stream of media that contains video, audio, or ancillary data. After you add a media stream to a flow, you can associate it with sources and outputs on that flow, as long as they use the CDI protocol or the ST 2110 JPEG XS protocol. Each source or output can consist of one or many media streams.
@@ -2004,6 +2054,7 @@ class FlowMediaStream(dict):
         :param _builtins.int clock_rate: The sample rate for the stream. This value in measured in kHz.
         :param _builtins.str description: A description that can help you quickly identify what your media stream is used for.
         :param _builtins.int fmt: The format type number (sometimes referred to as RTP payload type) of the media stream. MediaConnect assigns this value to the media stream. For ST 2110 JPEG XS outputs, you need to provide this value to the receiver.
+        :param Sequence['FlowTag'] tags: Key-value pairs that can be used to tag this media stream.
         :param 'FlowMediaStreamVideoFormat' video_format: The resolution of the video.
         """
         pulumi.set(__self__, "media_stream_id", media_stream_id)
@@ -2017,6 +2068,8 @@ class FlowMediaStream(dict):
             pulumi.set(__self__, "description", description)
         if fmt is not None:
             pulumi.set(__self__, "fmt", fmt)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
         if video_format is not None:
             pulumi.set(__self__, "video_format", video_format)
 
@@ -2075,6 +2128,14 @@ class FlowMediaStream(dict):
         The format type number (sometimes referred to as RTP payload type) of the media stream. MediaConnect assigns this value to the media stream. For ST 2110 JPEG XS outputs, you need to provide this value to the receiver.
         """
         return pulumi.get(self, "fmt")
+
+    @_builtins.property
+    @pulumi.getter
+    def tags(self) -> Optional[Sequence['outputs.FlowTag']]:
+        """
+        Key-value pairs that can be used to tag this media stream.
+        """
+        return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="videoFormat")
@@ -2191,7 +2252,7 @@ class FlowMediaStreamSourceConfiguration(dict):
 @pulumi.output_type
 class FlowNdiConfig(dict):
     """
-    Specifies the configuration settings for NDI outputs. Required when the flow includes NDI outputs.
+    Specifies the configuration settings for NDI sources and outputs. Required when the flow includes NDI sources or outputs.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -2217,13 +2278,13 @@ class FlowNdiConfig(dict):
     def __init__(__self__, *,
                  machine_name: Optional[_builtins.str] = None,
                  ndi_discovery_servers: Optional[Sequence['outputs.FlowNdiDiscoveryServerConfig']] = None,
-                 ndi_state: Optional['FlowNdiConfigNdiState'] = None):
+                 ndi_state: Optional['FlowNdiState'] = None):
         """
-        Specifies the configuration settings for NDI outputs. Required when the flow includes NDI outputs.
+        Specifies the configuration settings for NDI sources and outputs. Required when the flow includes NDI sources or outputs.
 
         :param _builtins.str machine_name: A prefix for the names of the NDI sources that the flow creates. If a custom name isn't specified, MediaConnect generates a unique 12-character ID as the prefix.
         :param Sequence['FlowNdiDiscoveryServerConfig'] ndi_discovery_servers: A list of up to three NDI discovery server configurations. While not required by the API, this configuration is necessary for NDI functionality to work properly.
-        :param 'FlowNdiConfigNdiState' ndi_state: A setting that controls whether NDI outputs can be used in the flow. Must be ENABLED to add NDI outputs. Default is DISABLED.
+        :param 'FlowNdiState' ndi_state: A setting that controls whether NDI sources or outputs can be used in the flow. The default value is DISABLED. This value must be set as ENABLED for your flow to support NDI sources or outputs.
         """
         if machine_name is not None:
             pulumi.set(__self__, "machine_name", machine_name)
@@ -2250,9 +2311,9 @@ class FlowNdiConfig(dict):
 
     @_builtins.property
     @pulumi.getter(name="ndiState")
-    def ndi_state(self) -> Optional['FlowNdiConfigNdiState']:
+    def ndi_state(self) -> Optional['FlowNdiState']:
         """
-        A setting that controls whether NDI outputs can be used in the flow. Must be ENABLED to add NDI outputs. Default is DISABLED.
+        A setting that controls whether NDI sources or outputs can be used in the flow. The default value is DISABLED. This value must be set as ENABLED for your flow to support NDI sources or outputs.
         """
         return pulumi.get(self, "ndi_state")
 
@@ -2322,6 +2383,36 @@ class FlowNdiDiscoveryServerConfig(dict):
         The port for the NDI discovery server. Defaults to 5959 if a custom port isn't specified.
         """
         return pulumi.get(self, "discovery_server_port")
+
+
+@pulumi.output_type
+class FlowNdiSourceSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sourceName":
+            suggest = "source_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FlowNdiSourceSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FlowNdiSourceSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FlowNdiSourceSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 source_name: Optional[_builtins.str] = None):
+        if source_name is not None:
+            pulumi.set(__self__, "source_name", source_name)
+
+    @_builtins.property
+    @pulumi.getter(name="sourceName")
+    def source_name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "source_name")
 
 
 @pulumi.output_type
@@ -2961,6 +3052,8 @@ class FlowSource(dict):
             suggest = "media_stream_source_configurations"
         elif key == "minLatency":
             suggest = "min_latency"
+        elif key == "ndiSourceSettings":
+            suggest = "ndi_source_settings"
         elif key == "routerIntegrationState":
             suggest = "router_integration_state"
         elif key == "routerIntegrationTransitDecryption":
@@ -3008,6 +3101,7 @@ class FlowSource(dict):
                  media_stream_source_configurations: Optional[Sequence['outputs.FlowMediaStreamSourceConfiguration']] = None,
                  min_latency: Optional[_builtins.int] = None,
                  name: Optional[_builtins.str] = None,
+                 ndi_source_settings: Optional['outputs.FlowNdiSourceSettings'] = None,
                  protocol: Optional['FlowSourceProtocol'] = None,
                  router_integration_state: Optional['FlowSourceRouterIntegrationState'] = None,
                  router_integration_transit_decryption: Optional['outputs.FlowTransitEncryption'] = None,
@@ -3018,6 +3112,7 @@ class FlowSource(dict):
                  source_listener_address: Optional[_builtins.str] = None,
                  source_listener_port: Optional[_builtins.int] = None,
                  stream_id: Optional[_builtins.str] = None,
+                 tags: Optional[Sequence['outputs.FlowTag']] = None,
                  vpc_interface_name: Optional[_builtins.str] = None,
                  whitelist_cidr: Optional[_builtins.str] = None):
         """
@@ -3035,6 +3130,7 @@ class FlowSource(dict):
         :param Sequence['FlowMediaStreamSourceConfiguration'] media_stream_source_configurations: The media stream that is associated with the source, and the parameters for that association.
         :param _builtins.int min_latency: The minimum latency in milliseconds.
         :param _builtins.str name: The name of the source.
+        :param 'FlowNdiSourceSettings' ndi_source_settings: The settings for the NDI flow source. This includes the exact name of the upstream NDI sender that you want to connect to your flow source.
         :param 'FlowSourceProtocol' protocol: The protocol that is used by the source.
         :param 'FlowSourceRouterIntegrationState' router_integration_state: Indicates if router integration is enabled or disabled on the flow source.
         :param 'FlowTransitEncryption' router_integration_transit_decryption: The decryption configuration for the flow source when router integration is enabled.
@@ -3045,6 +3141,7 @@ class FlowSource(dict):
         :param _builtins.str source_listener_address: Source IP or domain name for SRT-caller protocol.
         :param _builtins.int source_listener_port: Source port for SRT-caller protocol.
         :param _builtins.str stream_id: The stream ID that you want to use for this transport. This parameter applies only to Zixi-based streams.
+        :param Sequence['FlowTag'] tags: Key-value pairs that can be used to tag this source.
         :param _builtins.str vpc_interface_name: The name of the VPC Interface this Source is configured with.
         :param _builtins.str whitelist_cidr: The range of IP addresses that should be allowed to contribute content to your source. These IP addresses should be in the form of a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16.
         """
@@ -3072,6 +3169,8 @@ class FlowSource(dict):
             pulumi.set(__self__, "min_latency", min_latency)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if ndi_source_settings is not None:
+            pulumi.set(__self__, "ndi_source_settings", ndi_source_settings)
         if protocol is not None:
             pulumi.set(__self__, "protocol", protocol)
         if router_integration_state is not None:
@@ -3092,6 +3191,8 @@ class FlowSource(dict):
             pulumi.set(__self__, "source_listener_port", source_listener_port)
         if stream_id is not None:
             pulumi.set(__self__, "stream_id", stream_id)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
         if vpc_interface_name is not None:
             pulumi.set(__self__, "vpc_interface_name", vpc_interface_name)
         if whitelist_cidr is not None:
@@ -3194,6 +3295,14 @@ class FlowSource(dict):
         return pulumi.get(self, "name")
 
     @_builtins.property
+    @pulumi.getter(name="ndiSourceSettings")
+    def ndi_source_settings(self) -> Optional['outputs.FlowNdiSourceSettings']:
+        """
+        The settings for the NDI flow source. This includes the exact name of the upstream NDI sender that you want to connect to your flow source.
+        """
+        return pulumi.get(self, "ndi_source_settings")
+
+    @_builtins.property
     @pulumi.getter
     def protocol(self) -> Optional['FlowSourceProtocol']:
         """
@@ -3272,6 +3381,14 @@ class FlowSource(dict):
         The stream ID that you want to use for this transport. This parameter applies only to Zixi-based streams.
         """
         return pulumi.get(self, "stream_id")
+
+    @_builtins.property
+    @pulumi.getter
+    def tags(self) -> Optional[Sequence['outputs.FlowTag']]:
+        """
+        Key-value pairs that can be used to tag this source.
+        """
+        return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="vpcInterfaceName")
@@ -3615,6 +3732,25 @@ class FlowSourceVpcInterfaceAttachment(dict):
 
 
 @pulumi.output_type
+class FlowTag(dict):
+    def __init__(__self__, *,
+                 key: _builtins.str,
+                 value: _builtins.str):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
 class FlowTransitEncryption(dict):
     """
     The configuration that defines how content is encrypted during transit between the MediaConnect router and a MediaConnect flow.
@@ -3803,7 +3939,8 @@ class FlowVpcInterface(dict):
                  security_group_ids: Sequence[_builtins.str],
                  subnet_id: _builtins.str,
                  network_interface_ids: Optional[Sequence[_builtins.str]] = None,
-                 network_interface_type: Optional['FlowVpcInterfaceNetworkInterfaceType'] = None):
+                 network_interface_type: Optional['FlowVpcInterfaceNetworkInterfaceType'] = None,
+                 tags: Optional[Sequence['outputs.FlowTag']] = None):
         """
         The details of a VPC interface.
 
@@ -3813,6 +3950,7 @@ class FlowVpcInterface(dict):
         :param _builtins.str subnet_id: Subnet must be in the AZ of the Flow
         :param Sequence[_builtins.str] network_interface_ids: IDs of the network interfaces created in customer's account by MediaConnect.
         :param 'FlowVpcInterfaceNetworkInterfaceType' network_interface_type: The type of network adapter that you want MediaConnect to use on this interface. If you don't set this value, it defaults to ENA.
+        :param Sequence['FlowTag'] tags: Key-value pairs that can be used to tag this VPC interface.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "role_arn", role_arn)
@@ -3822,6 +3960,8 @@ class FlowVpcInterface(dict):
             pulumi.set(__self__, "network_interface_ids", network_interface_ids)
         if network_interface_type is not None:
             pulumi.set(__self__, "network_interface_type", network_interface_type)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
 
     @_builtins.property
     @pulumi.getter
@@ -3870,6 +4010,14 @@ class FlowVpcInterface(dict):
         The type of network adapter that you want MediaConnect to use on this interface. If you don't set this value, it defaults to ENA.
         """
         return pulumi.get(self, "network_interface_type")
+
+    @_builtins.property
+    @pulumi.getter
+    def tags(self) -> Optional[Sequence['outputs.FlowTag']]:
+        """
+        Key-value pairs that can be used to tag this VPC interface.
+        """
+        return pulumi.get(self, "tags")
 
 
 @pulumi.output_type

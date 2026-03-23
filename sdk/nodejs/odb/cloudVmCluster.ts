@@ -102,6 +102,10 @@ export class CloudVmCluster extends pulumi.CustomResource {
      */
     declare public readonly hostname: pulumi.Output<string | undefined>;
     /**
+     * The AWS Identity and Access Management (IAM) service roles associated with the VM cluster.
+     */
+    declare public readonly iamRoles: pulumi.Output<outputs.odb.CloudVmClusterIamRole[] | undefined>;
+    /**
      * Indicates whether database backups to local Exadata storage is enabled for the VM cluster.
      */
     declare public readonly isLocalBackupEnabled: pulumi.Output<boolean | undefined>;
@@ -204,6 +208,7 @@ export class CloudVmCluster extends pulumi.CustomResource {
             resourceInputs["displayName"] = args?.displayName;
             resourceInputs["giVersion"] = args?.giVersion;
             resourceInputs["hostname"] = args?.hostname;
+            resourceInputs["iamRoles"] = args?.iamRoles;
             resourceInputs["isLocalBackupEnabled"] = args?.isLocalBackupEnabled;
             resourceInputs["isSparseDiskgroupEnabled"] = args?.isSparseDiskgroupEnabled;
             resourceInputs["licenseModel"] = args?.licenseModel;
@@ -246,6 +251,7 @@ export class CloudVmCluster extends pulumi.CustomResource {
             resourceInputs["domain"] = undefined /*out*/;
             resourceInputs["giVersion"] = undefined /*out*/;
             resourceInputs["hostname"] = undefined /*out*/;
+            resourceInputs["iamRoles"] = undefined /*out*/;
             resourceInputs["isLocalBackupEnabled"] = undefined /*out*/;
             resourceInputs["isSparseDiskgroupEnabled"] = undefined /*out*/;
             resourceInputs["licenseModel"] = undefined /*out*/;
@@ -322,6 +328,10 @@ export interface CloudVmClusterArgs {
      * The host name for the VM cluster.
      */
     hostname?: pulumi.Input<string>;
+    /**
+     * The AWS Identity and Access Management (IAM) service roles associated with the VM cluster.
+     */
+    iamRoles?: pulumi.Input<pulumi.Input<inputs.odb.CloudVmClusterIamRoleArgs>[]>;
     /**
      * Indicates whether database backups to local Exadata storage is enabled for the VM cluster.
      */

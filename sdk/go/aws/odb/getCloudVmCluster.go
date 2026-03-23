@@ -41,6 +41,8 @@ type LookupCloudVmClusterResult struct {
 	DiskRedundancy *string `pulumi:"diskRedundancy"`
 	// The domain of the VM cluster.
 	Domain *string `pulumi:"domain"`
+	// The AWS Identity and Access Management (IAM) service roles associated with the VM cluster.
+	IamRoles []CloudVmClusterIamRole `pulumi:"iamRoles"`
 	// The port number configured for the listener on the VM cluster.
 	ListenerPort *int `pulumi:"listenerPort"`
 	// The number of nodes in the VM cluster.
@@ -125,6 +127,11 @@ func (o LookupCloudVmClusterResultOutput) DiskRedundancy() pulumi.StringPtrOutpu
 // The domain of the VM cluster.
 func (o LookupCloudVmClusterResultOutput) Domain() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupCloudVmClusterResult) *string { return v.Domain }).(pulumi.StringPtrOutput)
+}
+
+// The AWS Identity and Access Management (IAM) service roles associated with the VM cluster.
+func (o LookupCloudVmClusterResultOutput) IamRoles() CloudVmClusterIamRoleArrayOutput {
+	return o.ApplyT(func(v LookupCloudVmClusterResult) []CloudVmClusterIamRole { return v.IamRoles }).(CloudVmClusterIamRoleArrayOutput)
 }
 
 // The port number configured for the listener on the VM cluster.

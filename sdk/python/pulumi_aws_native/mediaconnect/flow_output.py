@@ -14,6 +14,8 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._enums import *
 from ._inputs import *
 
@@ -41,6 +43,7 @@ class FlowOutputArgs:
                  router_integration_transit_encryption: Optional[pulumi.Input['FlowOutputFlowTransitEncryptionArgs']] = None,
                  smoothing_latency: Optional[pulumi.Input[_builtins.int]] = None,
                  stream_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
                  vpc_interface_attachment: Optional[pulumi.Input['FlowOutputVpcInterfaceAttachmentArgs']] = None):
         """
         The set of arguments for constructing a FlowOutput resource.
@@ -63,6 +66,7 @@ class FlowOutputArgs:
         :param pulumi.Input['FlowOutputFlowTransitEncryptionArgs'] router_integration_transit_encryption: Encryption information.
         :param pulumi.Input[_builtins.int] smoothing_latency: The smoothing latency in milliseconds for RIST, RTP, and RTP-FEC streams.
         :param pulumi.Input[_builtins.str] stream_id: The stream ID that you want to use for this transport. This parameter applies only to Zixi-based streams.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: Key-value pairs that can be used to tag and organize this flow output.
         :param pulumi.Input['FlowOutputVpcInterfaceAttachmentArgs'] vpc_interface_attachment: The name of the VPC interface attachment to use for this output.
         """
         pulumi.set(__self__, "flow_arn", flow_arn)
@@ -102,6 +106,8 @@ class FlowOutputArgs:
             pulumi.set(__self__, "smoothing_latency", smoothing_latency)
         if stream_id is not None:
             pulumi.set(__self__, "stream_id", stream_id)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
         if vpc_interface_attachment is not None:
             pulumi.set(__self__, "vpc_interface_attachment", vpc_interface_attachment)
 
@@ -331,6 +337,18 @@ class FlowOutputArgs:
         pulumi.set(self, "stream_id", value)
 
     @_builtins.property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        Key-value pairs that can be used to tag and organize this flow output.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+        pulumi.set(self, "tags", value)
+
+    @_builtins.property
     @pulumi.getter(name="vpcInterfaceAttachment")
     def vpc_interface_attachment(self) -> Optional[pulumi.Input['FlowOutputVpcInterfaceAttachmentArgs']]:
         """
@@ -368,6 +386,7 @@ class FlowOutput(pulumi.CustomResource):
                  router_integration_transit_encryption: Optional[pulumi.Input[Union['FlowOutputFlowTransitEncryptionArgs', 'FlowOutputFlowTransitEncryptionArgsDict']]] = None,
                  smoothing_latency: Optional[pulumi.Input[_builtins.int]] = None,
                  stream_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  vpc_interface_attachment: Optional[pulumi.Input[Union['FlowOutputVpcInterfaceAttachmentArgs', 'FlowOutputVpcInterfaceAttachmentArgsDict']]] = None,
                  __props__=None):
         """
@@ -394,6 +413,7 @@ class FlowOutput(pulumi.CustomResource):
         :param pulumi.Input[Union['FlowOutputFlowTransitEncryptionArgs', 'FlowOutputFlowTransitEncryptionArgsDict']] router_integration_transit_encryption: Encryption information.
         :param pulumi.Input[_builtins.int] smoothing_latency: The smoothing latency in milliseconds for RIST, RTP, and RTP-FEC streams.
         :param pulumi.Input[_builtins.str] stream_id: The stream ID that you want to use for this transport. This parameter applies only to Zixi-based streams.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Key-value pairs that can be used to tag and organize this flow output.
         :param pulumi.Input[Union['FlowOutputVpcInterfaceAttachmentArgs', 'FlowOutputVpcInterfaceAttachmentArgsDict']] vpc_interface_attachment: The name of the VPC interface attachment to use for this output.
         """
         ...
@@ -440,6 +460,7 @@ class FlowOutput(pulumi.CustomResource):
                  router_integration_transit_encryption: Optional[pulumi.Input[Union['FlowOutputFlowTransitEncryptionArgs', 'FlowOutputFlowTransitEncryptionArgsDict']]] = None,
                  smoothing_latency: Optional[pulumi.Input[_builtins.int]] = None,
                  stream_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  vpc_interface_attachment: Optional[pulumi.Input[Union['FlowOutputVpcInterfaceAttachmentArgs', 'FlowOutputVpcInterfaceAttachmentArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -471,9 +492,10 @@ class FlowOutput(pulumi.CustomResource):
             __props__.__dict__["router_integration_transit_encryption"] = router_integration_transit_encryption
             __props__.__dict__["smoothing_latency"] = smoothing_latency
             __props__.__dict__["stream_id"] = stream_id
+            __props__.__dict__["tags"] = tags
             __props__.__dict__["vpc_interface_attachment"] = vpc_interface_attachment
             __props__.__dict__["output_arn"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["flowArn", "name"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(FlowOutput, __self__).__init__(
             'aws-native:mediaconnect:FlowOutput',
@@ -517,6 +539,7 @@ class FlowOutput(pulumi.CustomResource):
         __props__.__dict__["router_integration_transit_encryption"] = None
         __props__.__dict__["smoothing_latency"] = None
         __props__.__dict__["stream_id"] = None
+        __props__.__dict__["tags"] = None
         __props__.__dict__["vpc_interface_attachment"] = None
         return FlowOutput(resource_name, opts=opts, __props__=__props__)
 
@@ -676,6 +699,14 @@ class FlowOutput(pulumi.CustomResource):
         The stream ID that you want to use for this transport. This parameter applies only to Zixi-based streams.
         """
         return pulumi.get(self, "stream_id")
+
+    @_builtins.property
+    @pulumi.getter
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        Key-value pairs that can be used to tag and organize this flow output.
+        """
+        return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="vpcInterfaceAttachment")

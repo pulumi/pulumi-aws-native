@@ -34,6 +34,7 @@ namespace Pulumi.AwsNative.Ecs.Outputs
         /// </summary>
         public readonly string Ec2InstanceProfileArn;
         public readonly bool? FipsEnabled;
+        public readonly bool? InstanceMetadataTagsPropagation;
         /// <summary>
         /// The instance requirements. You can specify:
         /// 
@@ -66,6 +67,8 @@ namespace Pulumi.AwsNative.Ecs.Outputs
 
             bool? fipsEnabled,
 
+            bool? instanceMetadataTagsPropagation,
+
             Outputs.CapacityProviderInstanceRequirementsRequest? instanceRequirements,
 
             Pulumi.AwsNative.Ecs.CapacityProviderManagedInstancesMonitoringOptions? monitoring,
@@ -78,6 +81,7 @@ namespace Pulumi.AwsNative.Ecs.Outputs
             CapacityReservations = capacityReservations;
             Ec2InstanceProfileArn = ec2InstanceProfileArn;
             FipsEnabled = fipsEnabled;
+            InstanceMetadataTagsPropagation = instanceMetadataTagsPropagation;
             InstanceRequirements = instanceRequirements;
             Monitoring = monitoring;
             NetworkConfiguration = networkConfiguration;

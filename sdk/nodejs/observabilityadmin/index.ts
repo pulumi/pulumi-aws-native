@@ -20,6 +20,11 @@ export const getS3TableIntegration: typeof import("./getS3TableIntegration").get
 export const getS3TableIntegrationOutput: typeof import("./getS3TableIntegration").getS3TableIntegrationOutput = null as any;
 utilities.lazyLoad(exports, ["getS3TableIntegration","getS3TableIntegrationOutput"], () => require("./getS3TableIntegration"));
 
+export { GetTelemetryEnrichmentArgs, GetTelemetryEnrichmentResult, GetTelemetryEnrichmentOutputArgs } from "./getTelemetryEnrichment";
+export const getTelemetryEnrichment: typeof import("./getTelemetryEnrichment").getTelemetryEnrichment = null as any;
+export const getTelemetryEnrichmentOutput: typeof import("./getTelemetryEnrichment").getTelemetryEnrichmentOutput = null as any;
+utilities.lazyLoad(exports, ["getTelemetryEnrichment","getTelemetryEnrichmentOutput"], () => require("./getTelemetryEnrichment"));
+
 export { GetTelemetryPipelinesArgs, GetTelemetryPipelinesResult, GetTelemetryPipelinesOutputArgs } from "./getTelemetryPipelines";
 export const getTelemetryPipelines: typeof import("./getTelemetryPipelines").getTelemetryPipelines = null as any;
 export const getTelemetryPipelinesOutput: typeof import("./getTelemetryPipelines").getTelemetryPipelinesOutput = null as any;
@@ -45,6 +50,11 @@ export type S3TableIntegration = import("./s3tableIntegration").S3TableIntegrati
 export const S3TableIntegration: typeof import("./s3tableIntegration").S3TableIntegration = null as any;
 utilities.lazyLoad(exports, ["S3TableIntegration"], () => require("./s3tableIntegration"));
 
+export { TelemetryEnrichmentArgs } from "./telemetryEnrichment";
+export type TelemetryEnrichment = import("./telemetryEnrichment").TelemetryEnrichment;
+export const TelemetryEnrichment: typeof import("./telemetryEnrichment").TelemetryEnrichment = null as any;
+utilities.lazyLoad(exports, ["TelemetryEnrichment"], () => require("./telemetryEnrichment"));
+
 export { TelemetryPipelinesArgs } from "./telemetryPipelines";
 export type TelemetryPipelines = import("./telemetryPipelines").TelemetryPipelines;
 export const TelemetryPipelines: typeof import("./telemetryPipelines").TelemetryPipelines = null as any;
@@ -69,6 +79,8 @@ const _module = {
                 return new OrganizationTelemetryRule(name, <any>undefined, { urn })
             case "aws-native:observabilityadmin:S3TableIntegration":
                 return new S3TableIntegration(name, <any>undefined, { urn })
+            case "aws-native:observabilityadmin:TelemetryEnrichment":
+                return new TelemetryEnrichment(name, <any>undefined, { urn })
             case "aws-native:observabilityadmin:TelemetryPipelines":
                 return new TelemetryPipelines(name, <any>undefined, { urn })
             case "aws-native:observabilityadmin:TelemetryRule":

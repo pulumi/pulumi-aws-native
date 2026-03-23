@@ -160,6 +160,9 @@ namespace Pulumi.AwsNative.OpenSearchServerless
         [Output("type")]
         public Output<Pulumi.AwsNative.OpenSearchServerless.CollectionType?> Type { get; private set; } = null!;
 
+        [Output("vectorOptions")]
+        public Output<Outputs.CollectionVectorOptions?> VectorOptions { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a Collection resource with the given unique name, arguments, and options.
@@ -191,6 +194,7 @@ namespace Pulumi.AwsNative.OpenSearchServerless
                     "standbyReplicas",
                     "tags[*]",
                     "type",
+                    "vectorOptions",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -264,6 +268,9 @@ namespace Pulumi.AwsNative.OpenSearchServerless
         /// </summary>
         [Input("type")]
         public Input<Pulumi.AwsNative.OpenSearchServerless.CollectionType>? Type { get; set; }
+
+        [Input("vectorOptions")]
+        public Input<Inputs.CollectionVectorOptionsArgs>? VectorOptions { get; set; }
 
         public CollectionArgs()
         {

@@ -14,6 +14,7 @@ __all__ = [
     'BridgeSourceProtocolEnum',
     'BridgeStateEnum',
     'FlowBlackFramesState',
+    'FlowEncodingProfile',
     'FlowEncryptionAlgorithm',
     'FlowEncryptionKeyType',
     'FlowEntitlementEncryptionAlgorithm',
@@ -30,7 +31,7 @@ __all__ = [
     'FlowMediaStreamMediaStreamType',
     'FlowMediaStreamSourceConfigurationEncodingName',
     'FlowMediaStreamVideoFormat',
-    'FlowNdiConfigNdiState',
+    'FlowNdiState',
     'FlowOutputEncodingParametersEncoderProfile',
     'FlowOutputEncryptionAlgorithm',
     'FlowOutputEncryptionKeyType',
@@ -135,6 +136,15 @@ class FlowBlackFramesState(_builtins.str, Enum):
     """
     ENABLED = "ENABLED"
     DISABLED = "DISABLED"
+
+
+@pulumi.type_token("aws-native:mediaconnect:FlowEncodingProfile")
+class FlowEncodingProfile(_builtins.str, Enum):
+    """
+    The encoding profile to use when transcoding the NDI source to a Transport Stream. You can change this value while a flow is running.
+    """
+    DISTRIBUTION_H264_DEFAULT = "DISTRIBUTION_H264_DEFAULT"
+    CONTRIBUTION_H264_DEFAULT = "CONTRIBUTION_H264_DEFAULT"
 
 
 @pulumi.type_token("aws-native:mediaconnect:FlowEncryptionAlgorithm")
@@ -309,11 +319,8 @@ class FlowMediaStreamVideoFormat(_builtins.str, Enum):
     FLOW_MEDIA_STREAM_VIDEO_FORMAT_480P = "480p"
 
 
-@pulumi.type_token("aws-native:mediaconnect:FlowNdiConfigNdiState")
-class FlowNdiConfigNdiState(_builtins.str, Enum):
-    """
-    A setting that controls whether NDI outputs can be used in the flow. Must be ENABLED to add NDI outputs. Default is DISABLED.
-    """
+@pulumi.type_token("aws-native:mediaconnect:FlowNdiState")
+class FlowNdiState(_builtins.str, Enum):
     ENABLED = "ENABLED"
     DISABLED = "DISABLED"
 
@@ -382,7 +389,6 @@ class FlowOutputProtocol(_builtins.str, Enum):
     RTP = "rtp"
     ZIXI_PULL = "zixi-pull"
     RIST = "rist"
-    FUJITSU_QOS = "fujitsu-qos"
     SRT_LISTENER = "srt-listener"
     SRT_CALLER = "srt-caller"
     ST2110_JPEGXS = "st2110-jpegxs"
@@ -408,10 +414,11 @@ class FlowSilentAudioState(_builtins.str, Enum):
 @pulumi.type_token("aws-native:mediaconnect:FlowSize")
 class FlowSize(_builtins.str, Enum):
     """
-    Determines the processing capacity and feature set of the flow. Set this optional parameter to LARGE if you want to enable NDI outputs on the flow.
+    Determines the processing capacity and feature set of the flow. Set this optional parameter to LARGE if you want to enable NDI sources or outputs on the flow.
     """
     MEDIUM = "MEDIUM"
     LARGE = "LARGE"
+    LARGE4X = "LARGE_4X"
 
 
 @pulumi.type_token("aws-native:mediaconnect:FlowSourceEncryptionAlgorithm")
@@ -461,11 +468,11 @@ class FlowSourceProtocol(_builtins.str, Enum):
     RTP_FEC = "rtp-fec"
     RTP = "rtp"
     RIST = "rist"
-    FUJITSU_QOS = "fujitsu-qos"
     SRT_LISTENER = "srt-listener"
     SRT_CALLER = "srt-caller"
     ST2110_JPEGXS = "st2110-jpegxs"
     CDI = "cdi"
+    NDI_SPEED_HQ = "ndi-speed-hq"
 
 
 @pulumi.type_token("aws-native:mediaconnect:FlowSourceRouterIntegrationState")

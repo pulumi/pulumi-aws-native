@@ -24,15 +24,35 @@ func LookupInstanceConnectEndpoint(ctx *pulumi.Context, args *LookupInstanceConn
 }
 
 type LookupInstanceConnectEndpointArgs struct {
-	// The id of the instance connect endpoint
+	// The ID of the EC2 Instance Connect Endpoint.
 	Id string `pulumi:"id"`
 }
 
 type LookupInstanceConnectEndpointResult struct {
-	// The id of the instance connect endpoint
+	// The Availability Zone of the EC2 Instance Connect Endpoint
+	AvailabilityZone *string `pulumi:"availabilityZone"`
+	// The ID of the Availability Zone of the EC2 Instance Connect Endpoint
+	AvailabilityZoneId *string `pulumi:"availabilityZoneId"`
+	// The date and time that the EC2 Instance Connect Endpoint was created
+	CreatedAt *string `pulumi:"createdAt"`
+	// The ID of the EC2 Instance Connect Endpoint.
 	Id *string `pulumi:"id"`
-	// The tags of the instance connect endpoint.
+	// The Amazon Resource Name (ARN) of the EC2 Instance Connect Endpoint
+	InstanceConnectEndpointArn *string `pulumi:"instanceConnectEndpointArn"`
+	// The ID of the elastic network interface that Amazon EC2 automatically created when creating the EC2 Instance Connect Endpoint
+	NetworkInterfaceIds []string `pulumi:"networkInterfaceIds"`
+	// The ID of the AWS account that created the EC2 Instance Connect Endpoint
+	OwnerId *string `pulumi:"ownerId"`
+	// The public DNS names of the endpoint
+	PublicDnsNames *InstanceConnectEndpointPublicDnsNames `pulumi:"publicDnsNames"`
+	// The current state of the EC2 Instance Connect Endpoint
+	State *InstanceConnectEndpointStateEnum `pulumi:"state"`
+	// The message for the current state of the EC2 Instance Connect Endpoint. Can include a failure message
+	StateMessage *string `pulumi:"stateMessage"`
+	// The tags assigned to the EC2 Instance Connect Endpoint.
 	Tags []aws.Tag `pulumi:"tags"`
+	// The ID of the VPC in which the EC2 Instance Connect Endpoint was created
+	VpcId *string `pulumi:"vpcId"`
 }
 
 func LookupInstanceConnectEndpointOutput(ctx *pulumi.Context, args LookupInstanceConnectEndpointOutputArgs, opts ...pulumi.InvokeOption) LookupInstanceConnectEndpointResultOutput {
@@ -45,7 +65,7 @@ func LookupInstanceConnectEndpointOutput(ctx *pulumi.Context, args LookupInstanc
 }
 
 type LookupInstanceConnectEndpointOutputArgs struct {
-	// The id of the instance connect endpoint
+	// The ID of the EC2 Instance Connect Endpoint.
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
@@ -67,14 +87,66 @@ func (o LookupInstanceConnectEndpointResultOutput) ToLookupInstanceConnectEndpoi
 	return o
 }
 
-// The id of the instance connect endpoint
+// The Availability Zone of the EC2 Instance Connect Endpoint
+func (o LookupInstanceConnectEndpointResultOutput) AvailabilityZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupInstanceConnectEndpointResult) *string { return v.AvailabilityZone }).(pulumi.StringPtrOutput)
+}
+
+// The ID of the Availability Zone of the EC2 Instance Connect Endpoint
+func (o LookupInstanceConnectEndpointResultOutput) AvailabilityZoneId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupInstanceConnectEndpointResult) *string { return v.AvailabilityZoneId }).(pulumi.StringPtrOutput)
+}
+
+// The date and time that the EC2 Instance Connect Endpoint was created
+func (o LookupInstanceConnectEndpointResultOutput) CreatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupInstanceConnectEndpointResult) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
+}
+
+// The ID of the EC2 Instance Connect Endpoint.
 func (o LookupInstanceConnectEndpointResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupInstanceConnectEndpointResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// The tags of the instance connect endpoint.
+// The Amazon Resource Name (ARN) of the EC2 Instance Connect Endpoint
+func (o LookupInstanceConnectEndpointResultOutput) InstanceConnectEndpointArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupInstanceConnectEndpointResult) *string { return v.InstanceConnectEndpointArn }).(pulumi.StringPtrOutput)
+}
+
+// The ID of the elastic network interface that Amazon EC2 automatically created when creating the EC2 Instance Connect Endpoint
+func (o LookupInstanceConnectEndpointResultOutput) NetworkInterfaceIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupInstanceConnectEndpointResult) []string { return v.NetworkInterfaceIds }).(pulumi.StringArrayOutput)
+}
+
+// The ID of the AWS account that created the EC2 Instance Connect Endpoint
+func (o LookupInstanceConnectEndpointResultOutput) OwnerId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupInstanceConnectEndpointResult) *string { return v.OwnerId }).(pulumi.StringPtrOutput)
+}
+
+// The public DNS names of the endpoint
+func (o LookupInstanceConnectEndpointResultOutput) PublicDnsNames() InstanceConnectEndpointPublicDnsNamesPtrOutput {
+	return o.ApplyT(func(v LookupInstanceConnectEndpointResult) *InstanceConnectEndpointPublicDnsNames {
+		return v.PublicDnsNames
+	}).(InstanceConnectEndpointPublicDnsNamesPtrOutput)
+}
+
+// The current state of the EC2 Instance Connect Endpoint
+func (o LookupInstanceConnectEndpointResultOutput) State() InstanceConnectEndpointStateEnumPtrOutput {
+	return o.ApplyT(func(v LookupInstanceConnectEndpointResult) *InstanceConnectEndpointStateEnum { return v.State }).(InstanceConnectEndpointStateEnumPtrOutput)
+}
+
+// The message for the current state of the EC2 Instance Connect Endpoint. Can include a failure message
+func (o LookupInstanceConnectEndpointResultOutput) StateMessage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupInstanceConnectEndpointResult) *string { return v.StateMessage }).(pulumi.StringPtrOutput)
+}
+
+// The tags assigned to the EC2 Instance Connect Endpoint.
 func (o LookupInstanceConnectEndpointResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupInstanceConnectEndpointResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
+}
+
+// The ID of the VPC in which the EC2 Instance Connect Endpoint was created
+func (o LookupInstanceConnectEndpointResultOutput) VpcId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupInstanceConnectEndpointResult) *string { return v.VpcId }).(pulumi.StringPtrOutput)
 }
 
 func init() {

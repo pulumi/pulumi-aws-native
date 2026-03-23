@@ -38,6 +38,34 @@ namespace Pulumi.AwsNative.OpenSearchService
         public override string ToString() => _value;
     }
 
+    [EnumType]
+    public readonly struct DomainDeploymentStrategyOptionsDeploymentStrategy : IEquatable<DomainDeploymentStrategyOptionsDeploymentStrategy>
+    {
+        private readonly string _value;
+
+        private DomainDeploymentStrategyOptionsDeploymentStrategy(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DomainDeploymentStrategyOptionsDeploymentStrategy Default { get; } = new DomainDeploymentStrategyOptionsDeploymentStrategy("Default");
+        public static DomainDeploymentStrategyOptionsDeploymentStrategy CapacityOptimized { get; } = new DomainDeploymentStrategyOptionsDeploymentStrategy("CapacityOptimized");
+
+        public static bool operator ==(DomainDeploymentStrategyOptionsDeploymentStrategy left, DomainDeploymentStrategyOptionsDeploymentStrategy right) => left.Equals(right);
+        public static bool operator !=(DomainDeploymentStrategyOptionsDeploymentStrategy left, DomainDeploymentStrategyOptionsDeploymentStrategy right) => !left.Equals(right);
+
+        public static explicit operator string(DomainDeploymentStrategyOptionsDeploymentStrategy value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DomainDeploymentStrategyOptionsDeploymentStrategy other && Equals(other);
+        public bool Equals(DomainDeploymentStrategyOptionsDeploymentStrategy other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     /// <summary>
     /// Defines the type of node, such as coordinating nodes.
     /// </summary>

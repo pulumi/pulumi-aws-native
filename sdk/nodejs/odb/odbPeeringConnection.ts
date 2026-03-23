@@ -74,6 +74,10 @@ export class OdbPeeringConnection extends pulumi.CustomResource {
      */
     declare public readonly peerNetworkId: pulumi.Output<string | undefined>;
     /**
+     * The unique identifier of the VPC route table for which a route to the ODB network is automatically created during peering connection establishment.
+     */
+    declare public readonly peerNetworkRouteTableIds: pulumi.Output<string[] | undefined>;
+    /**
      * Tags to assign to the Odb peering connection.
      */
     declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
@@ -93,6 +97,7 @@ export class OdbPeeringConnection extends pulumi.CustomResource {
             resourceInputs["displayName"] = args?.displayName;
             resourceInputs["odbNetworkId"] = args?.odbNetworkId;
             resourceInputs["peerNetworkId"] = args?.peerNetworkId;
+            resourceInputs["peerNetworkRouteTableIds"] = args?.peerNetworkRouteTableIds;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["odbNetworkArn"] = undefined /*out*/;
             resourceInputs["odbPeeringConnectionArn"] = undefined /*out*/;
@@ -109,10 +114,11 @@ export class OdbPeeringConnection extends pulumi.CustomResource {
             resourceInputs["peerNetworkArn"] = undefined /*out*/;
             resourceInputs["peerNetworkCidrs"] = undefined /*out*/;
             resourceInputs["peerNetworkId"] = undefined /*out*/;
+            resourceInputs["peerNetworkRouteTableIds"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["odbNetworkId", "peerNetworkId"] };
+        const replaceOnChanges = { replaceOnChanges: ["odbNetworkId", "peerNetworkId", "peerNetworkRouteTableIds[*]"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(OdbPeeringConnection.__pulumiType, name, resourceInputs, opts);
     }
@@ -138,6 +144,10 @@ export interface OdbPeeringConnectionArgs {
      * The unique identifier of the peer network.
      */
     peerNetworkId?: pulumi.Input<string>;
+    /**
+     * The unique identifier of the VPC route table for which a route to the ODB network is automatically created during peering connection establishment.
+     */
+    peerNetworkRouteTableIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Tags to assign to the Odb peering connection.
      */

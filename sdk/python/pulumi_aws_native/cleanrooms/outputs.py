@@ -1665,6 +1665,8 @@ class ConfiguredTableAthenaTableReference(dict):
             suggest = "table_name"
         elif key == "workGroup":
             suggest = "work_group"
+        elif key == "catalogName":
+            suggest = "catalog_name"
         elif key == "outputLocation":
             suggest = "output_location"
 
@@ -1683,11 +1685,14 @@ class ConfiguredTableAthenaTableReference(dict):
                  database_name: _builtins.str,
                  table_name: _builtins.str,
                  work_group: _builtins.str,
+                 catalog_name: Optional[_builtins.str] = None,
                  output_location: Optional[_builtins.str] = None,
                  region: Optional['ConfiguredTableCommercialRegion'] = None):
         pulumi.set(__self__, "database_name", database_name)
         pulumi.set(__self__, "table_name", table_name)
         pulumi.set(__self__, "work_group", work_group)
+        if catalog_name is not None:
+            pulumi.set(__self__, "catalog_name", catalog_name)
         if output_location is not None:
             pulumi.set(__self__, "output_location", output_location)
         if region is not None:
@@ -1707,6 +1712,11 @@ class ConfiguredTableAthenaTableReference(dict):
     @pulumi.getter(name="workGroup")
     def work_group(self) -> _builtins.str:
         return pulumi.get(self, "work_group")
+
+    @_builtins.property
+    @pulumi.getter(name="catalogName")
+    def catalog_name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "catalog_name")
 
     @_builtins.property
     @pulumi.getter(name="outputLocation")

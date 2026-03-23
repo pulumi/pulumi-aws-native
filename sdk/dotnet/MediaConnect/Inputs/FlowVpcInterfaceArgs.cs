@@ -63,6 +63,18 @@ namespace Pulumi.AwsNative.MediaConnect.Inputs
         [Input("subnetId", required: true)]
         public Input<string> SubnetId { get; set; } = null!;
 
+        [Input("tags")]
+        private InputList<Inputs.FlowTagArgs>? _tags;
+
+        /// <summary>
+        /// Key-value pairs that can be used to tag this VPC interface.
+        /// </summary>
+        public InputList<Inputs.FlowTagArgs> Tags
+        {
+            get => _tags ?? (_tags = new InputList<Inputs.FlowTagArgs>());
+            set => _tags = value;
+        }
+
         public FlowVpcInterfaceArgs()
         {
         }

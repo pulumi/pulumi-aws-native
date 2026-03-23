@@ -3795,8 +3795,9 @@ func (in *ec2FleetTagSpecificationResourceTypePtr) ToEc2FleetTagSpecificationRes
 type Ec2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityType string
 
 const (
-	Ec2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityTypeOnDemand = Ec2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityType("on-demand")
-	Ec2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityTypeSpot     = Ec2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityType("spot")
+	Ec2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityTypeOnDemand         = Ec2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityType("on-demand")
+	Ec2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityTypeSpot             = Ec2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityType("spot")
+	Ec2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityTypeReservedCapacity = Ec2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityType("reserved-capacity")
 )
 
 func (Ec2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityType) ElementType() reflect.Type {
@@ -3923,6 +3924,7 @@ func (o Ec2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityTypePtrOu
 //
 //	Ec2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityTypeOnDemand
 //	Ec2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityTypeSpot
+//	Ec2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityTypeReservedCapacity
 type Ec2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityTypeInput interface {
 	pulumi.Input
 
@@ -5639,6 +5641,104 @@ func (in *instanceAffinityPtr) ToInstanceAffinityPtrOutput() InstanceAffinityPtr
 
 func (in *instanceAffinityPtr) ToInstanceAffinityPtrOutputWithContext(ctx context.Context) InstanceAffinityPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(InstanceAffinityPtrOutput)
+}
+
+// The current state of the EC2 Instance Connect Endpoint
+type InstanceConnectEndpointStateEnum string
+
+const (
+	InstanceConnectEndpointStateEnumCreateInProgress = InstanceConnectEndpointStateEnum("create-in-progress")
+	InstanceConnectEndpointStateEnumCreateComplete   = InstanceConnectEndpointStateEnum("create-complete")
+	InstanceConnectEndpointStateEnumCreateFailed     = InstanceConnectEndpointStateEnum("create-failed")
+	InstanceConnectEndpointStateEnumDeleteInProgress = InstanceConnectEndpointStateEnum("delete-in-progress")
+	InstanceConnectEndpointStateEnumDeleteComplete   = InstanceConnectEndpointStateEnum("delete-complete")
+	InstanceConnectEndpointStateEnumDeleteFailed     = InstanceConnectEndpointStateEnum("delete-failed")
+	InstanceConnectEndpointStateEnumUpdateInProgress = InstanceConnectEndpointStateEnum("update-in-progress")
+	InstanceConnectEndpointStateEnumUpdateComplete   = InstanceConnectEndpointStateEnum("update-complete")
+	InstanceConnectEndpointStateEnumUpdateFailed     = InstanceConnectEndpointStateEnum("update-failed")
+)
+
+type InstanceConnectEndpointStateEnumOutput struct{ *pulumi.OutputState }
+
+func (InstanceConnectEndpointStateEnumOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceConnectEndpointStateEnum)(nil)).Elem()
+}
+
+func (o InstanceConnectEndpointStateEnumOutput) ToInstanceConnectEndpointStateEnumOutput() InstanceConnectEndpointStateEnumOutput {
+	return o
+}
+
+func (o InstanceConnectEndpointStateEnumOutput) ToInstanceConnectEndpointStateEnumOutputWithContext(ctx context.Context) InstanceConnectEndpointStateEnumOutput {
+	return o
+}
+
+func (o InstanceConnectEndpointStateEnumOutput) ToInstanceConnectEndpointStateEnumPtrOutput() InstanceConnectEndpointStateEnumPtrOutput {
+	return o.ToInstanceConnectEndpointStateEnumPtrOutputWithContext(context.Background())
+}
+
+func (o InstanceConnectEndpointStateEnumOutput) ToInstanceConnectEndpointStateEnumPtrOutputWithContext(ctx context.Context) InstanceConnectEndpointStateEnumPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InstanceConnectEndpointStateEnum) *InstanceConnectEndpointStateEnum {
+		return &v
+	}).(InstanceConnectEndpointStateEnumPtrOutput)
+}
+
+func (o InstanceConnectEndpointStateEnumOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o InstanceConnectEndpointStateEnumOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e InstanceConnectEndpointStateEnum) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o InstanceConnectEndpointStateEnumOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o InstanceConnectEndpointStateEnumOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e InstanceConnectEndpointStateEnum) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type InstanceConnectEndpointStateEnumPtrOutput struct{ *pulumi.OutputState }
+
+func (InstanceConnectEndpointStateEnumPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InstanceConnectEndpointStateEnum)(nil)).Elem()
+}
+
+func (o InstanceConnectEndpointStateEnumPtrOutput) ToInstanceConnectEndpointStateEnumPtrOutput() InstanceConnectEndpointStateEnumPtrOutput {
+	return o
+}
+
+func (o InstanceConnectEndpointStateEnumPtrOutput) ToInstanceConnectEndpointStateEnumPtrOutputWithContext(ctx context.Context) InstanceConnectEndpointStateEnumPtrOutput {
+	return o
+}
+
+func (o InstanceConnectEndpointStateEnumPtrOutput) Elem() InstanceConnectEndpointStateEnumOutput {
+	return o.ApplyT(func(v *InstanceConnectEndpointStateEnum) InstanceConnectEndpointStateEnum {
+		if v != nil {
+			return *v
+		}
+		var ret InstanceConnectEndpointStateEnum
+		return ret
+	}).(InstanceConnectEndpointStateEnumOutput)
+}
+
+func (o InstanceConnectEndpointStateEnumPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o InstanceConnectEndpointStateEnumPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *InstanceConnectEndpointStateEnum) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
 }
 
 // Enables or disables the HTTP metadata endpoint on your instances. If you specify a value of disabled, you cannot access your instance metadata.
@@ -13615,6 +13715,190 @@ func (in *spotFleetTagSpecificationResourceTypePtr) ToSpotFleetTagSpecificationR
 	return pulumi.ToOutputWithContext(ctx, in).(SpotFleetTagSpecificationResourceTypePtrOutput)
 }
 
+// The SQL Server high availability status of the EC2 instance.
+type SqlHaStandbyDetectedInstanceHaStatus string
+
+const (
+	SqlHaStandbyDetectedInstanceHaStatusProcessing = SqlHaStandbyDetectedInstanceHaStatus("processing")
+	SqlHaStandbyDetectedInstanceHaStatusActive     = SqlHaStandbyDetectedInstanceHaStatus("active")
+	SqlHaStandbyDetectedInstanceHaStatusStandby    = SqlHaStandbyDetectedInstanceHaStatus("standby")
+	SqlHaStandbyDetectedInstanceHaStatusInvalid    = SqlHaStandbyDetectedInstanceHaStatus("invalid")
+)
+
+type SqlHaStandbyDetectedInstanceHaStatusOutput struct{ *pulumi.OutputState }
+
+func (SqlHaStandbyDetectedInstanceHaStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SqlHaStandbyDetectedInstanceHaStatus)(nil)).Elem()
+}
+
+func (o SqlHaStandbyDetectedInstanceHaStatusOutput) ToSqlHaStandbyDetectedInstanceHaStatusOutput() SqlHaStandbyDetectedInstanceHaStatusOutput {
+	return o
+}
+
+func (o SqlHaStandbyDetectedInstanceHaStatusOutput) ToSqlHaStandbyDetectedInstanceHaStatusOutputWithContext(ctx context.Context) SqlHaStandbyDetectedInstanceHaStatusOutput {
+	return o
+}
+
+func (o SqlHaStandbyDetectedInstanceHaStatusOutput) ToSqlHaStandbyDetectedInstanceHaStatusPtrOutput() SqlHaStandbyDetectedInstanceHaStatusPtrOutput {
+	return o.ToSqlHaStandbyDetectedInstanceHaStatusPtrOutputWithContext(context.Background())
+}
+
+func (o SqlHaStandbyDetectedInstanceHaStatusOutput) ToSqlHaStandbyDetectedInstanceHaStatusPtrOutputWithContext(ctx context.Context) SqlHaStandbyDetectedInstanceHaStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SqlHaStandbyDetectedInstanceHaStatus) *SqlHaStandbyDetectedInstanceHaStatus {
+		return &v
+	}).(SqlHaStandbyDetectedInstanceHaStatusPtrOutput)
+}
+
+func (o SqlHaStandbyDetectedInstanceHaStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o SqlHaStandbyDetectedInstanceHaStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SqlHaStandbyDetectedInstanceHaStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o SqlHaStandbyDetectedInstanceHaStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SqlHaStandbyDetectedInstanceHaStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SqlHaStandbyDetectedInstanceHaStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type SqlHaStandbyDetectedInstanceHaStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (SqlHaStandbyDetectedInstanceHaStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SqlHaStandbyDetectedInstanceHaStatus)(nil)).Elem()
+}
+
+func (o SqlHaStandbyDetectedInstanceHaStatusPtrOutput) ToSqlHaStandbyDetectedInstanceHaStatusPtrOutput() SqlHaStandbyDetectedInstanceHaStatusPtrOutput {
+	return o
+}
+
+func (o SqlHaStandbyDetectedInstanceHaStatusPtrOutput) ToSqlHaStandbyDetectedInstanceHaStatusPtrOutputWithContext(ctx context.Context) SqlHaStandbyDetectedInstanceHaStatusPtrOutput {
+	return o
+}
+
+func (o SqlHaStandbyDetectedInstanceHaStatusPtrOutput) Elem() SqlHaStandbyDetectedInstanceHaStatusOutput {
+	return o.ApplyT(func(v *SqlHaStandbyDetectedInstanceHaStatus) SqlHaStandbyDetectedInstanceHaStatus {
+		if v != nil {
+			return *v
+		}
+		var ret SqlHaStandbyDetectedInstanceHaStatus
+		return ret
+	}).(SqlHaStandbyDetectedInstanceHaStatusOutput)
+}
+
+func (o SqlHaStandbyDetectedInstanceHaStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SqlHaStandbyDetectedInstanceHaStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *SqlHaStandbyDetectedInstanceHaStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// The SQL Server license type of the EC2 instance.
+type SqlHaStandbyDetectedInstanceSqlServerLicenseUsage string
+
+const (
+	SqlHaStandbyDetectedInstanceSqlServerLicenseUsageFull   = SqlHaStandbyDetectedInstanceSqlServerLicenseUsage("full")
+	SqlHaStandbyDetectedInstanceSqlServerLicenseUsageWaived = SqlHaStandbyDetectedInstanceSqlServerLicenseUsage("waived")
+)
+
+type SqlHaStandbyDetectedInstanceSqlServerLicenseUsageOutput struct{ *pulumi.OutputState }
+
+func (SqlHaStandbyDetectedInstanceSqlServerLicenseUsageOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SqlHaStandbyDetectedInstanceSqlServerLicenseUsage)(nil)).Elem()
+}
+
+func (o SqlHaStandbyDetectedInstanceSqlServerLicenseUsageOutput) ToSqlHaStandbyDetectedInstanceSqlServerLicenseUsageOutput() SqlHaStandbyDetectedInstanceSqlServerLicenseUsageOutput {
+	return o
+}
+
+func (o SqlHaStandbyDetectedInstanceSqlServerLicenseUsageOutput) ToSqlHaStandbyDetectedInstanceSqlServerLicenseUsageOutputWithContext(ctx context.Context) SqlHaStandbyDetectedInstanceSqlServerLicenseUsageOutput {
+	return o
+}
+
+func (o SqlHaStandbyDetectedInstanceSqlServerLicenseUsageOutput) ToSqlHaStandbyDetectedInstanceSqlServerLicenseUsagePtrOutput() SqlHaStandbyDetectedInstanceSqlServerLicenseUsagePtrOutput {
+	return o.ToSqlHaStandbyDetectedInstanceSqlServerLicenseUsagePtrOutputWithContext(context.Background())
+}
+
+func (o SqlHaStandbyDetectedInstanceSqlServerLicenseUsageOutput) ToSqlHaStandbyDetectedInstanceSqlServerLicenseUsagePtrOutputWithContext(ctx context.Context) SqlHaStandbyDetectedInstanceSqlServerLicenseUsagePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SqlHaStandbyDetectedInstanceSqlServerLicenseUsage) *SqlHaStandbyDetectedInstanceSqlServerLicenseUsage {
+		return &v
+	}).(SqlHaStandbyDetectedInstanceSqlServerLicenseUsagePtrOutput)
+}
+
+func (o SqlHaStandbyDetectedInstanceSqlServerLicenseUsageOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o SqlHaStandbyDetectedInstanceSqlServerLicenseUsageOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SqlHaStandbyDetectedInstanceSqlServerLicenseUsage) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o SqlHaStandbyDetectedInstanceSqlServerLicenseUsageOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SqlHaStandbyDetectedInstanceSqlServerLicenseUsageOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SqlHaStandbyDetectedInstanceSqlServerLicenseUsage) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type SqlHaStandbyDetectedInstanceSqlServerLicenseUsagePtrOutput struct{ *pulumi.OutputState }
+
+func (SqlHaStandbyDetectedInstanceSqlServerLicenseUsagePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SqlHaStandbyDetectedInstanceSqlServerLicenseUsage)(nil)).Elem()
+}
+
+func (o SqlHaStandbyDetectedInstanceSqlServerLicenseUsagePtrOutput) ToSqlHaStandbyDetectedInstanceSqlServerLicenseUsagePtrOutput() SqlHaStandbyDetectedInstanceSqlServerLicenseUsagePtrOutput {
+	return o
+}
+
+func (o SqlHaStandbyDetectedInstanceSqlServerLicenseUsagePtrOutput) ToSqlHaStandbyDetectedInstanceSqlServerLicenseUsagePtrOutputWithContext(ctx context.Context) SqlHaStandbyDetectedInstanceSqlServerLicenseUsagePtrOutput {
+	return o
+}
+
+func (o SqlHaStandbyDetectedInstanceSqlServerLicenseUsagePtrOutput) Elem() SqlHaStandbyDetectedInstanceSqlServerLicenseUsageOutput {
+	return o.ApplyT(func(v *SqlHaStandbyDetectedInstanceSqlServerLicenseUsage) SqlHaStandbyDetectedInstanceSqlServerLicenseUsage {
+		if v != nil {
+			return *v
+		}
+		var ret SqlHaStandbyDetectedInstanceSqlServerLicenseUsage
+		return ret
+	}).(SqlHaStandbyDetectedInstanceSqlServerLicenseUsageOutput)
+}
+
+func (o SqlHaStandbyDetectedInstanceSqlServerLicenseUsagePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SqlHaStandbyDetectedInstanceSqlServerLicenseUsagePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *SqlHaStandbyDetectedInstanceSqlServerLicenseUsage) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
 // The network service traffic that is associated with the traffic mirror filter.
 type TrafficMirrorFilterTrafficMirrorNetworkService string
 
@@ -13999,6 +14283,7 @@ const (
 	TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceTypePeering              = TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceType("peering")
 	TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceTypeNetworkFunction      = TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceType("network-function")
 	TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceTypeVpnConcentrator      = TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceType("vpn-concentrator")
+	TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceTypeClientVpn            = TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceType("client-vpn")
 )
 
 func (TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceType) ElementType() reflect.Type {
@@ -14129,6 +14414,7 @@ func (o TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceTypePtr
 //	TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceTypePeering
 //	TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceTypeNetworkFunction
 //	TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceTypeVpnConcentrator
+//	TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceTypeClientVpn
 type TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceTypeInput interface {
 	pulumi.Input
 
@@ -19464,6 +19750,8 @@ func init() {
 	pulumi.RegisterOutputType(HostRecoveryPtrOutput{})
 	pulumi.RegisterOutputType(InstanceAffinityOutput{})
 	pulumi.RegisterOutputType(InstanceAffinityPtrOutput{})
+	pulumi.RegisterOutputType(InstanceConnectEndpointStateEnumOutput{})
+	pulumi.RegisterOutputType(InstanceConnectEndpointStateEnumPtrOutput{})
 	pulumi.RegisterOutputType(InstanceMetadataOptionsHttpEndpointOutput{})
 	pulumi.RegisterOutputType(InstanceMetadataOptionsHttpEndpointPtrOutput{})
 	pulumi.RegisterOutputType(InstanceMetadataOptionsHttpProtocolIpv6Output{})
@@ -19567,6 +19855,10 @@ func init() {
 	pulumi.RegisterOutputType(SpotFleetSpotPlacementTenancyPtrOutput{})
 	pulumi.RegisterOutputType(SpotFleetTagSpecificationResourceTypeOutput{})
 	pulumi.RegisterOutputType(SpotFleetTagSpecificationResourceTypePtrOutput{})
+	pulumi.RegisterOutputType(SqlHaStandbyDetectedInstanceHaStatusOutput{})
+	pulumi.RegisterOutputType(SqlHaStandbyDetectedInstanceHaStatusPtrOutput{})
+	pulumi.RegisterOutputType(SqlHaStandbyDetectedInstanceSqlServerLicenseUsageOutput{})
+	pulumi.RegisterOutputType(SqlHaStandbyDetectedInstanceSqlServerLicenseUsagePtrOutput{})
 	pulumi.RegisterOutputType(TrafficMirrorFilterTrafficMirrorNetworkServiceOutput{})
 	pulumi.RegisterOutputType(TrafficMirrorFilterTrafficMirrorNetworkServicePtrOutput{})
 	pulumi.RegisterOutputType(TrafficMirrorFilterTrafficMirrorNetworkServiceArrayOutput{})

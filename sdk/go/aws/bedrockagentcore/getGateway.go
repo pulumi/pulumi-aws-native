@@ -45,7 +45,8 @@ type LookupGatewayResult struct {
 	// The KMS key ARN for the gateway.
 	KmsKeyArn *string `pulumi:"kmsKeyArn"`
 	// The name for the gateway.
-	Name *string `pulumi:"name"`
+	Name                      *string                           `pulumi:"name"`
+	PolicyEngineConfiguration *GatewayPolicyEngineConfiguration `pulumi:"policyEngineConfiguration"`
 	// The protocol configuration for the gateway target.
 	ProtocolConfiguration *GatewayProtocolConfigurationProperties `pulumi:"protocolConfiguration"`
 	// The protocol type for the gateway target.
@@ -144,6 +145,10 @@ func (o LookupGatewayResultOutput) KmsKeyArn() pulumi.StringPtrOutput {
 // The name for the gateway.
 func (o LookupGatewayResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupGatewayResult) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupGatewayResultOutput) PolicyEngineConfiguration() GatewayPolicyEngineConfigurationPtrOutput {
+	return o.ApplyT(func(v LookupGatewayResult) *GatewayPolicyEngineConfiguration { return v.PolicyEngineConfiguration }).(GatewayPolicyEngineConfigurationPtrOutput)
 }
 
 // The protocol configuration for the gateway target.

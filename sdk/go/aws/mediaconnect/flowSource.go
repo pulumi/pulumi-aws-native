@@ -8,11 +8,12 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource schema for AWS::MediaConnect::FlowSource
+// Resource Type definition for AWS::MediaConnect::FlowSource
 type FlowSource struct {
 	pulumi.CustomResourceState
 
@@ -23,7 +24,7 @@ type FlowSource struct {
 	// The ARN of the entitlement that allows you to subscribe to content that comes from another AWS account. The entitlement is set by the content originator and the ARN is generated as part of the originator's flow.
 	EntitlementArn pulumi.StringPtrOutput `pulumi:"entitlementArn"`
 	// The ARN of the flow.
-	FlowArn pulumi.StringPtrOutput `pulumi:"flowArn"`
+	FlowArn pulumi.StringOutput `pulumi:"flowArn"`
 	// The source configuration for cloud flows receiving a stream from a bridge.
 	GatewayBridgeSource FlowSourceGatewayBridgeSourcePtrOutput `pulumi:"gatewayBridgeSource"`
 	// The IP address that the flow will be listening on for incoming content.
@@ -54,6 +55,8 @@ type FlowSource struct {
 	SourceListenerPort pulumi.IntPtrOutput `pulumi:"sourceListenerPort"`
 	// The stream ID that you want to use for this transport. This parameter applies only to Zixi-based streams.
 	StreamId pulumi.StringPtrOutput `pulumi:"streamId"`
+	// Key-value pairs that can be used to tag and organize this flow source.
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// The name of the VPC Interface this Source is configured with.
 	VpcInterfaceName pulumi.StringPtrOutput `pulumi:"vpcInterfaceName"`
 	// The range of IP addresses that should be allowed to contribute content to your source. These IP addresses should be in the form of a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16.
@@ -70,8 +73,13 @@ func NewFlowSource(ctx *pulumi.Context,
 	if args.Description == nil {
 		return nil, errors.New("invalid value for required argument 'Description'")
 	}
+	if args.FlowArn == nil {
+		return nil, errors.New("invalid value for required argument 'FlowArn'")
+	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"flowArn",
 		"name",
+		"protocol",
 	})
 	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
@@ -114,7 +122,7 @@ type flowSourceArgs struct {
 	// The ARN of the entitlement that allows you to subscribe to content that comes from another AWS account. The entitlement is set by the content originator and the ARN is generated as part of the originator's flow.
 	EntitlementArn *string `pulumi:"entitlementArn"`
 	// The ARN of the flow.
-	FlowArn *string `pulumi:"flowArn"`
+	FlowArn string `pulumi:"flowArn"`
 	// The source configuration for cloud flows receiving a stream from a bridge.
 	GatewayBridgeSource *FlowSourceGatewayBridgeSource `pulumi:"gatewayBridgeSource"`
 	// The port that the flow will be listening on for incoming content.
@@ -139,6 +147,8 @@ type flowSourceArgs struct {
 	SourceListenerPort *int `pulumi:"sourceListenerPort"`
 	// The stream ID that you want to use for this transport. This parameter applies only to Zixi-based streams.
 	StreamId *string `pulumi:"streamId"`
+	// Key-value pairs that can be used to tag and organize this flow source.
+	Tags []aws.Tag `pulumi:"tags"`
 	// The name of the VPC Interface this Source is configured with.
 	VpcInterfaceName *string `pulumi:"vpcInterfaceName"`
 	// The range of IP addresses that should be allowed to contribute content to your source. These IP addresses should be in the form of a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16.
@@ -154,7 +164,7 @@ type FlowSourceArgs struct {
 	// The ARN of the entitlement that allows you to subscribe to content that comes from another AWS account. The entitlement is set by the content originator and the ARN is generated as part of the originator's flow.
 	EntitlementArn pulumi.StringPtrInput
 	// The ARN of the flow.
-	FlowArn pulumi.StringPtrInput
+	FlowArn pulumi.StringInput
 	// The source configuration for cloud flows receiving a stream from a bridge.
 	GatewayBridgeSource FlowSourceGatewayBridgeSourcePtrInput
 	// The port that the flow will be listening on for incoming content.
@@ -179,6 +189,8 @@ type FlowSourceArgs struct {
 	SourceListenerPort pulumi.IntPtrInput
 	// The stream ID that you want to use for this transport. This parameter applies only to Zixi-based streams.
 	StreamId pulumi.StringPtrInput
+	// Key-value pairs that can be used to tag and organize this flow source.
+	Tags aws.TagArrayInput
 	// The name of the VPC Interface this Source is configured with.
 	VpcInterfaceName pulumi.StringPtrInput
 	// The range of IP addresses that should be allowed to contribute content to your source. These IP addresses should be in the form of a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16.
@@ -238,8 +250,8 @@ func (o FlowSourceOutput) EntitlementArn() pulumi.StringPtrOutput {
 }
 
 // The ARN of the flow.
-func (o FlowSourceOutput) FlowArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *FlowSource) pulumi.StringPtrOutput { return v.FlowArn }).(pulumi.StringPtrOutput)
+func (o FlowSourceOutput) FlowArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *FlowSource) pulumi.StringOutput { return v.FlowArn }).(pulumi.StringOutput)
 }
 
 // The source configuration for cloud flows receiving a stream from a bridge.
@@ -315,6 +327,11 @@ func (o FlowSourceOutput) SourceListenerPort() pulumi.IntPtrOutput {
 // The stream ID that you want to use for this transport. This parameter applies only to Zixi-based streams.
 func (o FlowSourceOutput) StreamId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowSource) pulumi.StringPtrOutput { return v.StreamId }).(pulumi.StringPtrOutput)
+}
+
+// Key-value pairs that can be used to tag and organize this flow source.
+func (o FlowSourceOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *FlowSource) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // The name of the VPC Interface this Source is configured with.

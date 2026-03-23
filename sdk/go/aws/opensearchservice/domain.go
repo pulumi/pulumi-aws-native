@@ -35,7 +35,8 @@ type Domain struct {
 	// Container for the cluster configuration of a domain.
 	ClusterConfig DomainClusterConfigPtrOutput `pulumi:"clusterConfig"`
 	// Configures OpenSearch Service to use Amazon Cognito authentication for OpenSearch Dashboards.
-	CognitoOptions DomainCognitoOptionsPtrOutput `pulumi:"cognitoOptions"`
+	CognitoOptions            DomainCognitoOptionsPtrOutput            `pulumi:"cognitoOptions"`
+	DeploymentStrategyOptions DomainDeploymentStrategyOptionsPtrOutput `pulumi:"deploymentStrategyOptions"`
 	// The Amazon Resource Name (ARN) of the domain. See [Identifiers for IAM Entities](https://docs.aws.amazon.com/IAM/latest/UserGuide/index.html) in *Using AWS Identity and Access Management* for more information.
 	DomainArn pulumi.StringOutput `pulumi:"domainArn"`
 	// The domain-specific endpoint used for requests to the OpenSearch APIs, such as `search-mystack-1ab2cdefghij-ab1c2deckoyb3hofw7wpqa3cm.us-west-1.es.amazonaws.com` .
@@ -144,7 +145,8 @@ type domainArgs struct {
 	// Container for the cluster configuration of a domain.
 	ClusterConfig *DomainClusterConfig `pulumi:"clusterConfig"`
 	// Configures OpenSearch Service to use Amazon Cognito authentication for OpenSearch Dashboards.
-	CognitoOptions *DomainCognitoOptions `pulumi:"cognitoOptions"`
+	CognitoOptions            *DomainCognitoOptions            `pulumi:"cognitoOptions"`
+	DeploymentStrategyOptions *DomainDeploymentStrategyOptions `pulumi:"deploymentStrategyOptions"`
 	// Specifies additional options for the domain endpoint, such as whether to require HTTPS for all traffic or whether to use a custom endpoint rather than the default endpoint.
 	DomainEndpointOptions *DomainEndpointOptions `pulumi:"domainEndpointOptions"`
 	// A name for the OpenSearch Service domain. The name must have a minimum length of 3 and a maximum length of 28. If you don't specify a name, CloudFormation generates a unique physical ID and uses that ID for the domain name. For more information, see [Name Type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html) .
@@ -203,7 +205,8 @@ type DomainArgs struct {
 	// Container for the cluster configuration of a domain.
 	ClusterConfig DomainClusterConfigPtrInput
 	// Configures OpenSearch Service to use Amazon Cognito authentication for OpenSearch Dashboards.
-	CognitoOptions DomainCognitoOptionsPtrInput
+	CognitoOptions            DomainCognitoOptionsPtrInput
+	DeploymentStrategyOptions DomainDeploymentStrategyOptionsPtrInput
 	// Specifies additional options for the domain endpoint, such as whether to require HTTPS for all traffic or whether to use a custom endpoint rather than the default endpoint.
 	DomainEndpointOptions DomainEndpointOptionsPtrInput
 	// A name for the OpenSearch Service domain. The name must have a minimum length of 3 and a maximum length of 28. If you don't specify a name, CloudFormation generates a unique physical ID and uses that ID for the domain name. For more information, see [Name Type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html) .
@@ -324,6 +327,10 @@ func (o DomainOutput) ClusterConfig() DomainClusterConfigPtrOutput {
 // Configures OpenSearch Service to use Amazon Cognito authentication for OpenSearch Dashboards.
 func (o DomainOutput) CognitoOptions() DomainCognitoOptionsPtrOutput {
 	return o.ApplyT(func(v *Domain) DomainCognitoOptionsPtrOutput { return v.CognitoOptions }).(DomainCognitoOptionsPtrOutput)
+}
+
+func (o DomainOutput) DeploymentStrategyOptions() DomainDeploymentStrategyOptionsPtrOutput {
+	return o.ApplyT(func(v *Domain) DomainDeploymentStrategyOptionsPtrOutput { return v.DeploymentStrategyOptions }).(DomainDeploymentStrategyOptionsPtrOutput)
 }
 
 // The Amazon Resource Name (ARN) of the domain. See [Identifiers for IAM Entities](https://docs.aws.amazon.com/IAM/latest/UserGuide/index.html) in *Using AWS Identity and Access Management* for more information.

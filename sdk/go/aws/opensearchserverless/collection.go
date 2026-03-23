@@ -122,7 +122,8 @@ type Collection struct {
 	// List of tags to be added to the resource
 	Tags aws.CreateOnlyTagArrayOutput `pulumi:"tags"`
 	// The type of collection. Possible values are `SEARCH` , `TIMESERIES` , and `VECTORSEARCH` . For more information, see [Choosing a collection type](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-overview.html#serverless-usecase) .
-	Type CollectionTypePtrOutput `pulumi:"type"`
+	Type          CollectionTypePtrOutput          `pulumi:"type"`
+	VectorOptions CollectionVectorOptionsPtrOutput `pulumi:"vectorOptions"`
 }
 
 // NewCollection registers a new resource with the given unique name, arguments, and options.
@@ -139,6 +140,7 @@ func NewCollection(ctx *pulumi.Context,
 		"standbyReplicas",
 		"tags[*]",
 		"type",
+		"vectorOptions",
 	})
 	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
@@ -192,7 +194,8 @@ type collectionArgs struct {
 	// List of tags to be added to the resource
 	Tags []aws.CreateOnlyTag `pulumi:"tags"`
 	// The type of collection. Possible values are `SEARCH` , `TIMESERIES` , and `VECTORSEARCH` . For more information, see [Choosing a collection type](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-overview.html#serverless-usecase) .
-	Type *CollectionType `pulumi:"type"`
+	Type          *CollectionType          `pulumi:"type"`
+	VectorOptions *CollectionVectorOptions `pulumi:"vectorOptions"`
 }
 
 // The set of arguments for constructing a Collection resource.
@@ -215,7 +218,8 @@ type CollectionArgs struct {
 	// List of tags to be added to the resource
 	Tags aws.CreateOnlyTagArrayInput
 	// The type of collection. Possible values are `SEARCH` , `TIMESERIES` , and `VECTORSEARCH` . For more information, see [Choosing a collection type](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-overview.html#serverless-usecase) .
-	Type CollectionTypePtrInput
+	Type          CollectionTypePtrInput
+	VectorOptions CollectionVectorOptionsPtrInput
 }
 
 func (CollectionArgs) ElementType() reflect.Type {
@@ -318,6 +322,10 @@ func (o CollectionOutput) Tags() aws.CreateOnlyTagArrayOutput {
 // The type of collection. Possible values are `SEARCH` , `TIMESERIES` , and `VECTORSEARCH` . For more information, see [Choosing a collection type](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-overview.html#serverless-usecase) .
 func (o CollectionOutput) Type() CollectionTypePtrOutput {
 	return o.ApplyT(func(v *Collection) CollectionTypePtrOutput { return v.Type }).(CollectionTypePtrOutput)
+}
+
+func (o CollectionOutput) VectorOptions() CollectionVectorOptionsPtrOutput {
+	return o.ApplyT(func(v *Collection) CollectionVectorOptionsPtrOutput { return v.VectorOptions }).(CollectionVectorOptionsPtrOutput)
 }
 
 func init() {

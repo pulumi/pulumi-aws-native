@@ -59,6 +59,8 @@ type LookupCloudAutonomousVmClusterResult struct {
 	ExadataStorageInTbsLowestScaledValue *float64 `pulumi:"exadataStorageInTbsLowestScaledValue"`
 	// The hostname for the Autonomous VM cluster.
 	Hostname *string `pulumi:"hostname"`
+	// The AWS Identity and Access Management (IAM) service roles associated with the Autonomous VM cluster.
+	IamRoles []CloudAutonomousVmClusterIamRole `pulumi:"iamRoles"`
 	// The minimum value to which you can scale down the maximum number of Autonomous CDBs.
 	MaxAcdsLowestScaledValue *int `pulumi:"maxAcdsLowestScaledValue"`
 	// The total amount of memory allocated to the Autonomous VM cluster, in gigabytes (GB).
@@ -198,6 +200,11 @@ func (o LookupCloudAutonomousVmClusterResultOutput) ExadataStorageInTbsLowestSca
 // The hostname for the Autonomous VM cluster.
 func (o LookupCloudAutonomousVmClusterResultOutput) Hostname() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupCloudAutonomousVmClusterResult) *string { return v.Hostname }).(pulumi.StringPtrOutput)
+}
+
+// The AWS Identity and Access Management (IAM) service roles associated with the Autonomous VM cluster.
+func (o LookupCloudAutonomousVmClusterResultOutput) IamRoles() CloudAutonomousVmClusterIamRoleArrayOutput {
+	return o.ApplyT(func(v LookupCloudAutonomousVmClusterResult) []CloudAutonomousVmClusterIamRole { return v.IamRoles }).(CloudAutonomousVmClusterIamRoleArrayOutput)
 }
 
 // The minimum value to which you can scale down the maximum number of Autonomous CDBs.

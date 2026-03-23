@@ -17,18 +17,38 @@ import (
 type InstanceConnectEndpoint struct {
 	pulumi.CustomResourceState
 
-	// The id of the instance connect endpoint
+	// The Availability Zone of the EC2 Instance Connect Endpoint
+	AvailabilityZone pulumi.StringOutput `pulumi:"availabilityZone"`
+	// The ID of the Availability Zone of the EC2 Instance Connect Endpoint
+	AvailabilityZoneId pulumi.StringOutput `pulumi:"availabilityZoneId"`
+	// The ID of the EC2 Instance Connect Endpoint.
 	AwsId pulumi.StringOutput `pulumi:"awsId"`
 	// The client token of the instance connect endpoint.
 	ClientToken pulumi.StringPtrOutput `pulumi:"clientToken"`
-	// If true, the address of the instance connect endpoint client is preserved when connecting to the end resource
+	// The date and time that the EC2 Instance Connect Endpoint was created
+	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
+	// The Amazon Resource Name (ARN) of the EC2 Instance Connect Endpoint
+	InstanceConnectEndpointArn pulumi.StringOutput `pulumi:"instanceConnectEndpointArn"`
+	// The ID of the elastic network interface that Amazon EC2 automatically created when creating the EC2 Instance Connect Endpoint
+	NetworkInterfaceIds pulumi.StringArrayOutput `pulumi:"networkInterfaceIds"`
+	// The ID of the AWS account that created the EC2 Instance Connect Endpoint
+	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
+	// Indicates whether your client's IP address is preserved as the source when you connect to a resource.
 	PreserveClientIp pulumi.BoolPtrOutput `pulumi:"preserveClientIp"`
-	// The security group IDs of the instance connect endpoint.
+	// The public DNS names of the endpoint
+	PublicDnsNames InstanceConnectEndpointPublicDnsNamesOutput `pulumi:"publicDnsNames"`
+	// The security groups associated with the endpoint.
 	SecurityGroupIds pulumi.StringArrayOutput `pulumi:"securityGroupIds"`
-	// The subnet id of the instance connect endpoint
+	// The current state of the EC2 Instance Connect Endpoint
+	State InstanceConnectEndpointStateEnumOutput `pulumi:"state"`
+	// The message for the current state of the EC2 Instance Connect Endpoint. Can include a failure message
+	StateMessage pulumi.StringOutput `pulumi:"stateMessage"`
+	// The ID of the subnet in which the EC2 Instance Connect Endpoint was created.
 	SubnetId pulumi.StringOutput `pulumi:"subnetId"`
-	// The tags of the instance connect endpoint.
+	// The tags assigned to the EC2 Instance Connect Endpoint.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
+	// The ID of the VPC in which the EC2 Instance Connect Endpoint was created
+	VpcId pulumi.StringOutput `pulumi:"vpcId"`
 }
 
 // NewInstanceConnectEndpoint registers a new resource with the given unique name, arguments, and options.
@@ -83,13 +103,13 @@ func (InstanceConnectEndpointState) ElementType() reflect.Type {
 type instanceConnectEndpointArgs struct {
 	// The client token of the instance connect endpoint.
 	ClientToken *string `pulumi:"clientToken"`
-	// If true, the address of the instance connect endpoint client is preserved when connecting to the end resource
+	// Indicates whether your client's IP address is preserved as the source when you connect to a resource.
 	PreserveClientIp *bool `pulumi:"preserveClientIp"`
-	// The security group IDs of the instance connect endpoint.
+	// The security groups associated with the endpoint.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
-	// The subnet id of the instance connect endpoint
+	// The ID of the subnet in which the EC2 Instance Connect Endpoint was created.
 	SubnetId string `pulumi:"subnetId"`
-	// The tags of the instance connect endpoint.
+	// The tags assigned to the EC2 Instance Connect Endpoint.
 	Tags []aws.Tag `pulumi:"tags"`
 }
 
@@ -97,13 +117,13 @@ type instanceConnectEndpointArgs struct {
 type InstanceConnectEndpointArgs struct {
 	// The client token of the instance connect endpoint.
 	ClientToken pulumi.StringPtrInput
-	// If true, the address of the instance connect endpoint client is preserved when connecting to the end resource
+	// Indicates whether your client's IP address is preserved as the source when you connect to a resource.
 	PreserveClientIp pulumi.BoolPtrInput
-	// The security group IDs of the instance connect endpoint.
+	// The security groups associated with the endpoint.
 	SecurityGroupIds pulumi.StringArrayInput
-	// The subnet id of the instance connect endpoint
+	// The ID of the subnet in which the EC2 Instance Connect Endpoint was created.
 	SubnetId pulumi.StringInput
-	// The tags of the instance connect endpoint.
+	// The tags assigned to the EC2 Instance Connect Endpoint.
 	Tags aws.TagArrayInput
 }
 
@@ -144,7 +164,17 @@ func (o InstanceConnectEndpointOutput) ToInstanceConnectEndpointOutputWithContex
 	return o
 }
 
-// The id of the instance connect endpoint
+// The Availability Zone of the EC2 Instance Connect Endpoint
+func (o InstanceConnectEndpointOutput) AvailabilityZone() pulumi.StringOutput {
+	return o.ApplyT(func(v *InstanceConnectEndpoint) pulumi.StringOutput { return v.AvailabilityZone }).(pulumi.StringOutput)
+}
+
+// The ID of the Availability Zone of the EC2 Instance Connect Endpoint
+func (o InstanceConnectEndpointOutput) AvailabilityZoneId() pulumi.StringOutput {
+	return o.ApplyT(func(v *InstanceConnectEndpoint) pulumi.StringOutput { return v.AvailabilityZoneId }).(pulumi.StringOutput)
+}
+
+// The ID of the EC2 Instance Connect Endpoint.
 func (o InstanceConnectEndpointOutput) AwsId() pulumi.StringOutput {
 	return o.ApplyT(func(v *InstanceConnectEndpoint) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
@@ -154,24 +184,64 @@ func (o InstanceConnectEndpointOutput) ClientToken() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InstanceConnectEndpoint) pulumi.StringPtrOutput { return v.ClientToken }).(pulumi.StringPtrOutput)
 }
 
-// If true, the address of the instance connect endpoint client is preserved when connecting to the end resource
+// The date and time that the EC2 Instance Connect Endpoint was created
+func (o InstanceConnectEndpointOutput) CreatedAt() pulumi.StringOutput {
+	return o.ApplyT(func(v *InstanceConnectEndpoint) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
+}
+
+// The Amazon Resource Name (ARN) of the EC2 Instance Connect Endpoint
+func (o InstanceConnectEndpointOutput) InstanceConnectEndpointArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *InstanceConnectEndpoint) pulumi.StringOutput { return v.InstanceConnectEndpointArn }).(pulumi.StringOutput)
+}
+
+// The ID of the elastic network interface that Amazon EC2 automatically created when creating the EC2 Instance Connect Endpoint
+func (o InstanceConnectEndpointOutput) NetworkInterfaceIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *InstanceConnectEndpoint) pulumi.StringArrayOutput { return v.NetworkInterfaceIds }).(pulumi.StringArrayOutput)
+}
+
+// The ID of the AWS account that created the EC2 Instance Connect Endpoint
+func (o InstanceConnectEndpointOutput) OwnerId() pulumi.StringOutput {
+	return o.ApplyT(func(v *InstanceConnectEndpoint) pulumi.StringOutput { return v.OwnerId }).(pulumi.StringOutput)
+}
+
+// Indicates whether your client's IP address is preserved as the source when you connect to a resource.
 func (o InstanceConnectEndpointOutput) PreserveClientIp() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *InstanceConnectEndpoint) pulumi.BoolPtrOutput { return v.PreserveClientIp }).(pulumi.BoolPtrOutput)
 }
 
-// The security group IDs of the instance connect endpoint.
+// The public DNS names of the endpoint
+func (o InstanceConnectEndpointOutput) PublicDnsNames() InstanceConnectEndpointPublicDnsNamesOutput {
+	return o.ApplyT(func(v *InstanceConnectEndpoint) InstanceConnectEndpointPublicDnsNamesOutput { return v.PublicDnsNames }).(InstanceConnectEndpointPublicDnsNamesOutput)
+}
+
+// The security groups associated with the endpoint.
 func (o InstanceConnectEndpointOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *InstanceConnectEndpoint) pulumi.StringArrayOutput { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
 }
 
-// The subnet id of the instance connect endpoint
+// The current state of the EC2 Instance Connect Endpoint
+func (o InstanceConnectEndpointOutput) State() InstanceConnectEndpointStateEnumOutput {
+	return o.ApplyT(func(v *InstanceConnectEndpoint) InstanceConnectEndpointStateEnumOutput { return v.State }).(InstanceConnectEndpointStateEnumOutput)
+}
+
+// The message for the current state of the EC2 Instance Connect Endpoint. Can include a failure message
+func (o InstanceConnectEndpointOutput) StateMessage() pulumi.StringOutput {
+	return o.ApplyT(func(v *InstanceConnectEndpoint) pulumi.StringOutput { return v.StateMessage }).(pulumi.StringOutput)
+}
+
+// The ID of the subnet in which the EC2 Instance Connect Endpoint was created.
 func (o InstanceConnectEndpointOutput) SubnetId() pulumi.StringOutput {
 	return o.ApplyT(func(v *InstanceConnectEndpoint) pulumi.StringOutput { return v.SubnetId }).(pulumi.StringOutput)
 }
 
-// The tags of the instance connect endpoint.
+// The tags assigned to the EC2 Instance Connect Endpoint.
 func (o InstanceConnectEndpointOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *InstanceConnectEndpoint) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
+}
+
+// The ID of the VPC in which the EC2 Instance Connect Endpoint was created
+func (o InstanceConnectEndpointOutput) VpcId() pulumi.StringOutput {
+	return o.ApplyT(func(v *InstanceConnectEndpoint) pulumi.StringOutput { return v.VpcId }).(pulumi.StringOutput)
 }
 
 func init() {

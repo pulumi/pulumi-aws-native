@@ -122,6 +122,10 @@ export class CloudAutonomousVmCluster extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly hostname: pulumi.Output<string>;
     /**
+     * The AWS Identity and Access Management (IAM) service roles associated with the Autonomous VM cluster.
+     */
+    declare public readonly iamRoles: pulumi.Output<outputs.odb.CloudAutonomousVmClusterIamRole[] | undefined>;
+    /**
      * Indicates whether mutual TLS (mTLS) authentication is enabled for the Autonomous VM cluster.
      */
     declare public readonly isMtlsEnabledVmCluster: pulumi.Output<boolean | undefined>;
@@ -231,6 +235,7 @@ export class CloudAutonomousVmCluster extends pulumi.CustomResource {
             resourceInputs["dbServers"] = args?.dbServers;
             resourceInputs["description"] = args?.description;
             resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["iamRoles"] = args?.iamRoles;
             resourceInputs["isMtlsEnabledVmCluster"] = args?.isMtlsEnabledVmCluster;
             resourceInputs["licenseModel"] = args?.licenseModel;
             resourceInputs["maintenanceWindow"] = args?.maintenanceWindow;
@@ -291,6 +296,7 @@ export class CloudAutonomousVmCluster extends pulumi.CustomResource {
             resourceInputs["domain"] = undefined /*out*/;
             resourceInputs["exadataStorageInTbsLowestScaledValue"] = undefined /*out*/;
             resourceInputs["hostname"] = undefined /*out*/;
+            resourceInputs["iamRoles"] = undefined /*out*/;
             resourceInputs["isMtlsEnabledVmCluster"] = undefined /*out*/;
             resourceInputs["licenseModel"] = undefined /*out*/;
             resourceInputs["maintenanceWindow"] = undefined /*out*/;
@@ -350,6 +356,10 @@ export interface CloudAutonomousVmClusterArgs {
      * The display name of the Autonomous VM cluster.
      */
     displayName?: pulumi.Input<string>;
+    /**
+     * The AWS Identity and Access Management (IAM) service roles associated with the Autonomous VM cluster.
+     */
+    iamRoles?: pulumi.Input<pulumi.Input<inputs.odb.CloudAutonomousVmClusterIamRoleArgs>[]>;
     /**
      * Indicates whether mutual TLS (mTLS) authentication is enabled for the Autonomous VM cluster.
      */

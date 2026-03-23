@@ -80,13 +80,13 @@ namespace Pulumi.AwsNative.MediaConnect
         /// </summary>
         public readonly Pulumi.AwsNative.MediaConnect.FlowEntitlementEntitlementStatus? EntitlementStatus;
         /// <summary>
-        /// The ARN of the flow.
-        /// </summary>
-        public readonly string? FlowArn;
-        /// <summary>
         /// The AWS account IDs that you want to share your content with. The receiving accounts (subscribers) will be allowed to create their own flow using your content as the source.
         /// </summary>
         public readonly ImmutableArray<string> Subscribers;
+        /// <summary>
+        /// Key-value pairs that can be used to tag and organize this flow entitlement.
+        /// </summary>
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetFlowEntitlementResult(
@@ -98,16 +98,16 @@ namespace Pulumi.AwsNative.MediaConnect
 
             Pulumi.AwsNative.MediaConnect.FlowEntitlementEntitlementStatus? entitlementStatus,
 
-            string? flowArn,
+            ImmutableArray<string> subscribers,
 
-            ImmutableArray<string> subscribers)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Description = description;
             Encryption = encryption;
             EntitlementArn = entitlementArn;
             EntitlementStatus = entitlementStatus;
-            FlowArn = flowArn;
             Subscribers = subscribers;
+            Tags = tags;
         }
     }
 }

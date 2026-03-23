@@ -221,6 +221,37 @@ namespace Pulumi.AwsNative.MediaConnect
     }
 
     /// <summary>
+    /// The encoding profile to use when transcoding the NDI source to a Transport Stream. You can change this value while a flow is running.
+    /// </summary>
+    [EnumType]
+    public readonly struct FlowEncodingProfile : IEquatable<FlowEncodingProfile>
+    {
+        private readonly string _value;
+
+        private FlowEncodingProfile(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static FlowEncodingProfile DistributionH264Default { get; } = new FlowEncodingProfile("DISTRIBUTION_H264_DEFAULT");
+        public static FlowEncodingProfile ContributionH264Default { get; } = new FlowEncodingProfile("CONTRIBUTION_H264_DEFAULT");
+
+        public static bool operator ==(FlowEncodingProfile left, FlowEncodingProfile right) => left.Equals(right);
+        public static bool operator !=(FlowEncodingProfile left, FlowEncodingProfile right) => !left.Equals(right);
+
+        public static explicit operator string(FlowEncodingProfile value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is FlowEncodingProfile other && Equals(other);
+        public bool Equals(FlowEncodingProfile other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The type of algorithm that is used for the encryption (such as aes128, aes192, or aes256).
     /// </summary>
     [EnumType]
@@ -744,30 +775,27 @@ namespace Pulumi.AwsNative.MediaConnect
         public override string ToString() => _value;
     }
 
-    /// <summary>
-    /// A setting that controls whether NDI outputs can be used in the flow. Must be ENABLED to add NDI outputs. Default is DISABLED.
-    /// </summary>
     [EnumType]
-    public readonly struct FlowNdiConfigNdiState : IEquatable<FlowNdiConfigNdiState>
+    public readonly struct FlowNdiState : IEquatable<FlowNdiState>
     {
         private readonly string _value;
 
-        private FlowNdiConfigNdiState(string value)
+        private FlowNdiState(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static FlowNdiConfigNdiState Enabled { get; } = new FlowNdiConfigNdiState("ENABLED");
-        public static FlowNdiConfigNdiState Disabled { get; } = new FlowNdiConfigNdiState("DISABLED");
+        public static FlowNdiState Enabled { get; } = new FlowNdiState("ENABLED");
+        public static FlowNdiState Disabled { get; } = new FlowNdiState("DISABLED");
 
-        public static bool operator ==(FlowNdiConfigNdiState left, FlowNdiConfigNdiState right) => left.Equals(right);
-        public static bool operator !=(FlowNdiConfigNdiState left, FlowNdiConfigNdiState right) => !left.Equals(right);
+        public static bool operator ==(FlowNdiState left, FlowNdiState right) => left.Equals(right);
+        public static bool operator !=(FlowNdiState left, FlowNdiState right) => !left.Equals(right);
 
-        public static explicit operator string(FlowNdiConfigNdiState value) => value._value;
+        public static explicit operator string(FlowNdiState value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is FlowNdiConfigNdiState other && Equals(other);
-        public bool Equals(FlowNdiConfigNdiState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is FlowNdiState other && Equals(other);
+        public bool Equals(FlowNdiState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -979,7 +1007,6 @@ namespace Pulumi.AwsNative.MediaConnect
         public static FlowOutputProtocol Rtp { get; } = new FlowOutputProtocol("rtp");
         public static FlowOutputProtocol ZixiPull { get; } = new FlowOutputProtocol("zixi-pull");
         public static FlowOutputProtocol Rist { get; } = new FlowOutputProtocol("rist");
-        public static FlowOutputProtocol FujitsuQos { get; } = new FlowOutputProtocol("fujitsu-qos");
         public static FlowOutputProtocol SrtListener { get; } = new FlowOutputProtocol("srt-listener");
         public static FlowOutputProtocol SrtCaller { get; } = new FlowOutputProtocol("srt-caller");
         public static FlowOutputProtocol St2110Jpegxs { get; } = new FlowOutputProtocol("st2110-jpegxs");
@@ -1061,7 +1088,7 @@ namespace Pulumi.AwsNative.MediaConnect
     }
 
     /// <summary>
-    /// Determines the processing capacity and feature set of the flow. Set this optional parameter to LARGE if you want to enable NDI outputs on the flow.
+    /// Determines the processing capacity and feature set of the flow. Set this optional parameter to LARGE if you want to enable NDI sources or outputs on the flow.
     /// </summary>
     [EnumType]
     public readonly struct FlowSize : IEquatable<FlowSize>
@@ -1075,6 +1102,7 @@ namespace Pulumi.AwsNative.MediaConnect
 
         public static FlowSize Medium { get; } = new FlowSize("MEDIUM");
         public static FlowSize Large { get; } = new FlowSize("LARGE");
+        public static FlowSize Large4x { get; } = new FlowSize("LARGE_4X");
 
         public static bool operator ==(FlowSize left, FlowSize right) => left.Equals(right);
         public static bool operator !=(FlowSize left, FlowSize right) => !left.Equals(right);
@@ -1234,11 +1262,11 @@ namespace Pulumi.AwsNative.MediaConnect
         public static FlowSourceProtocol RtpFec { get; } = new FlowSourceProtocol("rtp-fec");
         public static FlowSourceProtocol Rtp { get; } = new FlowSourceProtocol("rtp");
         public static FlowSourceProtocol Rist { get; } = new FlowSourceProtocol("rist");
-        public static FlowSourceProtocol FujitsuQos { get; } = new FlowSourceProtocol("fujitsu-qos");
         public static FlowSourceProtocol SrtListener { get; } = new FlowSourceProtocol("srt-listener");
         public static FlowSourceProtocol SrtCaller { get; } = new FlowSourceProtocol("srt-caller");
         public static FlowSourceProtocol St2110Jpegxs { get; } = new FlowSourceProtocol("st2110-jpegxs");
         public static FlowSourceProtocol Cdi { get; } = new FlowSourceProtocol("cdi");
+        public static FlowSourceProtocol NdiSpeedHq { get; } = new FlowSourceProtocol("ndi-speed-hq");
 
         public static bool operator ==(FlowSourceProtocol left, FlowSourceProtocol right) => left.Equals(right);
         public static bool operator !=(FlowSourceProtocol left, FlowSourceProtocol right) => !left.Equals(right);

@@ -24,7 +24,6 @@ namespace Pulumi.AwsNative.WorkspacesInstances.Outputs
         public readonly Outputs.WorkspaceInstanceHibernationOptionsRequest? HibernationOptions;
         public readonly Outputs.WorkspaceInstanceIamInstanceProfileSpecification? IamInstanceProfile;
         public readonly string ImageId;
-        public readonly Outputs.WorkspaceInstanceInstanceMarketOptionsRequest? InstanceMarketOptions;
         public readonly string InstanceType;
         public readonly int? Ipv6AddressCount;
         public readonly string? KeyName;
@@ -63,8 +62,6 @@ namespace Pulumi.AwsNative.WorkspacesInstances.Outputs
             Outputs.WorkspaceInstanceIamInstanceProfileSpecification? iamInstanceProfile,
 
             string imageId,
-
-            Outputs.WorkspaceInstanceInstanceMarketOptionsRequest? instanceMarketOptions,
 
             string instanceType,
 
@@ -105,7 +102,6 @@ namespace Pulumi.AwsNative.WorkspacesInstances.Outputs
             HibernationOptions = hibernationOptions;
             IamInstanceProfile = iamInstanceProfile;
             ImageId = imageId;
-            InstanceMarketOptions = instanceMarketOptions;
             InstanceType = instanceType;
             Ipv6AddressCount = ipv6AddressCount;
             KeyName = keyName;

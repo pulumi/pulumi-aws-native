@@ -2837,6 +2837,161 @@ func (o GatewayMcpGatewayConfigurationPtrOutput) SupportedVersions() pulumi.Stri
 	}).(pulumi.StringArrayOutput)
 }
 
+// The configuration for a policy engine associated with a gateway. A policy engine is a collection of policies that evaluates and authorizes agent tool calls. When associated with a gateway, the policy engine intercepts all agent requests and determines whether to allow or deny each action based on the defined policies.
+type GatewayPolicyEngineConfiguration struct {
+	// The ARN of the policy engine. The policy engine contains Cedar policies that define fine-grained authorization rules specifying who can perform what actions on which resources as agents interact through the gateway.
+	Arn  string                  `pulumi:"arn"`
+	Mode GatewayPolicyEngineMode `pulumi:"mode"`
+}
+
+// GatewayPolicyEngineConfigurationInput is an input type that accepts GatewayPolicyEngineConfigurationArgs and GatewayPolicyEngineConfigurationOutput values.
+// You can construct a concrete instance of `GatewayPolicyEngineConfigurationInput` via:
+//
+//	GatewayPolicyEngineConfigurationArgs{...}
+type GatewayPolicyEngineConfigurationInput interface {
+	pulumi.Input
+
+	ToGatewayPolicyEngineConfigurationOutput() GatewayPolicyEngineConfigurationOutput
+	ToGatewayPolicyEngineConfigurationOutputWithContext(context.Context) GatewayPolicyEngineConfigurationOutput
+}
+
+// The configuration for a policy engine associated with a gateway. A policy engine is a collection of policies that evaluates and authorizes agent tool calls. When associated with a gateway, the policy engine intercepts all agent requests and determines whether to allow or deny each action based on the defined policies.
+type GatewayPolicyEngineConfigurationArgs struct {
+	// The ARN of the policy engine. The policy engine contains Cedar policies that define fine-grained authorization rules specifying who can perform what actions on which resources as agents interact through the gateway.
+	Arn  pulumi.StringInput           `pulumi:"arn"`
+	Mode GatewayPolicyEngineModeInput `pulumi:"mode"`
+}
+
+func (GatewayPolicyEngineConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayPolicyEngineConfiguration)(nil)).Elem()
+}
+
+func (i GatewayPolicyEngineConfigurationArgs) ToGatewayPolicyEngineConfigurationOutput() GatewayPolicyEngineConfigurationOutput {
+	return i.ToGatewayPolicyEngineConfigurationOutputWithContext(context.Background())
+}
+
+func (i GatewayPolicyEngineConfigurationArgs) ToGatewayPolicyEngineConfigurationOutputWithContext(ctx context.Context) GatewayPolicyEngineConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayPolicyEngineConfigurationOutput)
+}
+
+func (i GatewayPolicyEngineConfigurationArgs) ToGatewayPolicyEngineConfigurationPtrOutput() GatewayPolicyEngineConfigurationPtrOutput {
+	return i.ToGatewayPolicyEngineConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i GatewayPolicyEngineConfigurationArgs) ToGatewayPolicyEngineConfigurationPtrOutputWithContext(ctx context.Context) GatewayPolicyEngineConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayPolicyEngineConfigurationOutput).ToGatewayPolicyEngineConfigurationPtrOutputWithContext(ctx)
+}
+
+// GatewayPolicyEngineConfigurationPtrInput is an input type that accepts GatewayPolicyEngineConfigurationArgs, GatewayPolicyEngineConfigurationPtr and GatewayPolicyEngineConfigurationPtrOutput values.
+// You can construct a concrete instance of `GatewayPolicyEngineConfigurationPtrInput` via:
+//
+//	        GatewayPolicyEngineConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type GatewayPolicyEngineConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToGatewayPolicyEngineConfigurationPtrOutput() GatewayPolicyEngineConfigurationPtrOutput
+	ToGatewayPolicyEngineConfigurationPtrOutputWithContext(context.Context) GatewayPolicyEngineConfigurationPtrOutput
+}
+
+type gatewayPolicyEngineConfigurationPtrType GatewayPolicyEngineConfigurationArgs
+
+func GatewayPolicyEngineConfigurationPtr(v *GatewayPolicyEngineConfigurationArgs) GatewayPolicyEngineConfigurationPtrInput {
+	return (*gatewayPolicyEngineConfigurationPtrType)(v)
+}
+
+func (*gatewayPolicyEngineConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewayPolicyEngineConfiguration)(nil)).Elem()
+}
+
+func (i *gatewayPolicyEngineConfigurationPtrType) ToGatewayPolicyEngineConfigurationPtrOutput() GatewayPolicyEngineConfigurationPtrOutput {
+	return i.ToGatewayPolicyEngineConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *gatewayPolicyEngineConfigurationPtrType) ToGatewayPolicyEngineConfigurationPtrOutputWithContext(ctx context.Context) GatewayPolicyEngineConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayPolicyEngineConfigurationPtrOutput)
+}
+
+// The configuration for a policy engine associated with a gateway. A policy engine is a collection of policies that evaluates and authorizes agent tool calls. When associated with a gateway, the policy engine intercepts all agent requests and determines whether to allow or deny each action based on the defined policies.
+type GatewayPolicyEngineConfigurationOutput struct{ *pulumi.OutputState }
+
+func (GatewayPolicyEngineConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayPolicyEngineConfiguration)(nil)).Elem()
+}
+
+func (o GatewayPolicyEngineConfigurationOutput) ToGatewayPolicyEngineConfigurationOutput() GatewayPolicyEngineConfigurationOutput {
+	return o
+}
+
+func (o GatewayPolicyEngineConfigurationOutput) ToGatewayPolicyEngineConfigurationOutputWithContext(ctx context.Context) GatewayPolicyEngineConfigurationOutput {
+	return o
+}
+
+func (o GatewayPolicyEngineConfigurationOutput) ToGatewayPolicyEngineConfigurationPtrOutput() GatewayPolicyEngineConfigurationPtrOutput {
+	return o.ToGatewayPolicyEngineConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o GatewayPolicyEngineConfigurationOutput) ToGatewayPolicyEngineConfigurationPtrOutputWithContext(ctx context.Context) GatewayPolicyEngineConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GatewayPolicyEngineConfiguration) *GatewayPolicyEngineConfiguration {
+		return &v
+	}).(GatewayPolicyEngineConfigurationPtrOutput)
+}
+
+// The ARN of the policy engine. The policy engine contains Cedar policies that define fine-grained authorization rules specifying who can perform what actions on which resources as agents interact through the gateway.
+func (o GatewayPolicyEngineConfigurationOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v GatewayPolicyEngineConfiguration) string { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o GatewayPolicyEngineConfigurationOutput) Mode() GatewayPolicyEngineModeOutput {
+	return o.ApplyT(func(v GatewayPolicyEngineConfiguration) GatewayPolicyEngineMode { return v.Mode }).(GatewayPolicyEngineModeOutput)
+}
+
+type GatewayPolicyEngineConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (GatewayPolicyEngineConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewayPolicyEngineConfiguration)(nil)).Elem()
+}
+
+func (o GatewayPolicyEngineConfigurationPtrOutput) ToGatewayPolicyEngineConfigurationPtrOutput() GatewayPolicyEngineConfigurationPtrOutput {
+	return o
+}
+
+func (o GatewayPolicyEngineConfigurationPtrOutput) ToGatewayPolicyEngineConfigurationPtrOutputWithContext(ctx context.Context) GatewayPolicyEngineConfigurationPtrOutput {
+	return o
+}
+
+func (o GatewayPolicyEngineConfigurationPtrOutput) Elem() GatewayPolicyEngineConfigurationOutput {
+	return o.ApplyT(func(v *GatewayPolicyEngineConfiguration) GatewayPolicyEngineConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret GatewayPolicyEngineConfiguration
+		return ret
+	}).(GatewayPolicyEngineConfigurationOutput)
+}
+
+// The ARN of the policy engine. The policy engine contains Cedar policies that define fine-grained authorization rules specifying who can perform what actions on which resources as agents interact through the gateway.
+func (o GatewayPolicyEngineConfigurationPtrOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GatewayPolicyEngineConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Arn
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o GatewayPolicyEngineConfigurationPtrOutput) Mode() GatewayPolicyEngineModePtrOutput {
+	return o.ApplyT(func(v *GatewayPolicyEngineConfiguration) *GatewayPolicyEngineMode {
+		if v == nil {
+			return nil
+		}
+		return &v.Mode
+	}).(GatewayPolicyEngineModePtrOutput)
+}
+
 type GatewayProtocolConfiguration0Properties struct {
 	Mcp GatewayMcpGatewayConfiguration `pulumi:"mcp"`
 }
@@ -13843,6 +13998,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayLambdaInterceptorConfigurationInput)(nil)).Elem(), GatewayLambdaInterceptorConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayMcpGatewayConfigurationInput)(nil)).Elem(), GatewayMcpGatewayConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayMcpGatewayConfigurationPtrInput)(nil)).Elem(), GatewayMcpGatewayConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayPolicyEngineConfigurationInput)(nil)).Elem(), GatewayPolicyEngineConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayPolicyEngineConfigurationPtrInput)(nil)).Elem(), GatewayPolicyEngineConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayProtocolConfigurationPropertiesInput)(nil)).Elem(), GatewayProtocolConfigurationPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayProtocolConfigurationPropertiesPtrInput)(nil)).Elem(), GatewayProtocolConfigurationPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetApiGatewayTargetConfigurationInput)(nil)).Elem(), GatewayTargetApiGatewayTargetConfigurationArgs{})
@@ -14022,6 +14179,8 @@ func init() {
 	pulumi.RegisterOutputType(GatewayLambdaInterceptorConfigurationOutput{})
 	pulumi.RegisterOutputType(GatewayMcpGatewayConfigurationOutput{})
 	pulumi.RegisterOutputType(GatewayMcpGatewayConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(GatewayPolicyEngineConfigurationOutput{})
+	pulumi.RegisterOutputType(GatewayPolicyEngineConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(GatewayProtocolConfigurationPropertiesOutput{})
 	pulumi.RegisterOutputType(GatewayProtocolConfigurationPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(GatewayTargetApiGatewayTargetConfigurationOutput{})

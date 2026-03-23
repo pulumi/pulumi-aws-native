@@ -1335,6 +1335,7 @@ func (in *queryDefinitionQueryLanguagePtr) ToQueryDefinitionQueryLanguagePtrOutp
 type ScheduledQueryLastExecutionStatus string
 
 const (
+	ScheduledQueryLastExecutionStatusPending      = ScheduledQueryLastExecutionStatus("Pending")
 	ScheduledQueryLastExecutionStatusInvalidQuery = ScheduledQueryLastExecutionStatus("InvalidQuery")
 	ScheduledQueryLastExecutionStatusComplete     = ScheduledQueryLastExecutionStatus("Complete")
 	ScheduledQueryLastExecutionStatusFailed       = ScheduledQueryLastExecutionStatus("Failed")

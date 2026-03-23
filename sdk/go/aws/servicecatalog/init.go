@@ -45,6 +45,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ServiceAction{}
 	case "aws-native:servicecatalog:ServiceActionAssociation":
 		r = &ServiceActionAssociation{}
+	case "aws-native:servicecatalog:StackSetConstraint":
+		r = &StackSetConstraint{}
 	case "aws-native:servicecatalog:TagOption":
 		r = &TagOption{}
 	case "aws-native:servicecatalog:TagOptionAssociation":
