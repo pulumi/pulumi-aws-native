@@ -3185,6 +3185,214 @@ func (o Ec2FleetInstanceRequirementsRequestLocalStorageTypesItemArrayOutput) Ind
 	}).(Ec2FleetInstanceRequirementsRequestLocalStorageTypesItemOutput)
 }
 
+type Ec2FleetReservedCapacityOptionsRequestReservationTypesItem string
+
+const (
+	Ec2FleetReservedCapacityOptionsRequestReservationTypesItemInterruptibleCapacityReservation = Ec2FleetReservedCapacityOptionsRequestReservationTypesItem("interruptible-capacity-reservation")
+)
+
+func (Ec2FleetReservedCapacityOptionsRequestReservationTypesItem) ElementType() reflect.Type {
+	return reflect.TypeOf((*Ec2FleetReservedCapacityOptionsRequestReservationTypesItem)(nil)).Elem()
+}
+
+func (e Ec2FleetReservedCapacityOptionsRequestReservationTypesItem) ToEc2FleetReservedCapacityOptionsRequestReservationTypesItemOutput() Ec2FleetReservedCapacityOptionsRequestReservationTypesItemOutput {
+	return pulumi.ToOutput(e).(Ec2FleetReservedCapacityOptionsRequestReservationTypesItemOutput)
+}
+
+func (e Ec2FleetReservedCapacityOptionsRequestReservationTypesItem) ToEc2FleetReservedCapacityOptionsRequestReservationTypesItemOutputWithContext(ctx context.Context) Ec2FleetReservedCapacityOptionsRequestReservationTypesItemOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(Ec2FleetReservedCapacityOptionsRequestReservationTypesItemOutput)
+}
+
+func (e Ec2FleetReservedCapacityOptionsRequestReservationTypesItem) ToEc2FleetReservedCapacityOptionsRequestReservationTypesItemPtrOutput() Ec2FleetReservedCapacityOptionsRequestReservationTypesItemPtrOutput {
+	return e.ToEc2FleetReservedCapacityOptionsRequestReservationTypesItemPtrOutputWithContext(context.Background())
+}
+
+func (e Ec2FleetReservedCapacityOptionsRequestReservationTypesItem) ToEc2FleetReservedCapacityOptionsRequestReservationTypesItemPtrOutputWithContext(ctx context.Context) Ec2FleetReservedCapacityOptionsRequestReservationTypesItemPtrOutput {
+	return Ec2FleetReservedCapacityOptionsRequestReservationTypesItem(e).ToEc2FleetReservedCapacityOptionsRequestReservationTypesItemOutputWithContext(ctx).ToEc2FleetReservedCapacityOptionsRequestReservationTypesItemPtrOutputWithContext(ctx)
+}
+
+func (e Ec2FleetReservedCapacityOptionsRequestReservationTypesItem) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e Ec2FleetReservedCapacityOptionsRequestReservationTypesItem) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e Ec2FleetReservedCapacityOptionsRequestReservationTypesItem) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e Ec2FleetReservedCapacityOptionsRequestReservationTypesItem) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type Ec2FleetReservedCapacityOptionsRequestReservationTypesItemOutput struct{ *pulumi.OutputState }
+
+func (Ec2FleetReservedCapacityOptionsRequestReservationTypesItemOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Ec2FleetReservedCapacityOptionsRequestReservationTypesItem)(nil)).Elem()
+}
+
+func (o Ec2FleetReservedCapacityOptionsRequestReservationTypesItemOutput) ToEc2FleetReservedCapacityOptionsRequestReservationTypesItemOutput() Ec2FleetReservedCapacityOptionsRequestReservationTypesItemOutput {
+	return o
+}
+
+func (o Ec2FleetReservedCapacityOptionsRequestReservationTypesItemOutput) ToEc2FleetReservedCapacityOptionsRequestReservationTypesItemOutputWithContext(ctx context.Context) Ec2FleetReservedCapacityOptionsRequestReservationTypesItemOutput {
+	return o
+}
+
+func (o Ec2FleetReservedCapacityOptionsRequestReservationTypesItemOutput) ToEc2FleetReservedCapacityOptionsRequestReservationTypesItemPtrOutput() Ec2FleetReservedCapacityOptionsRequestReservationTypesItemPtrOutput {
+	return o.ToEc2FleetReservedCapacityOptionsRequestReservationTypesItemPtrOutputWithContext(context.Background())
+}
+
+func (o Ec2FleetReservedCapacityOptionsRequestReservationTypesItemOutput) ToEc2FleetReservedCapacityOptionsRequestReservationTypesItemPtrOutputWithContext(ctx context.Context) Ec2FleetReservedCapacityOptionsRequestReservationTypesItemPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Ec2FleetReservedCapacityOptionsRequestReservationTypesItem) *Ec2FleetReservedCapacityOptionsRequestReservationTypesItem {
+		return &v
+	}).(Ec2FleetReservedCapacityOptionsRequestReservationTypesItemPtrOutput)
+}
+
+func (o Ec2FleetReservedCapacityOptionsRequestReservationTypesItemOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o Ec2FleetReservedCapacityOptionsRequestReservationTypesItemOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e Ec2FleetReservedCapacityOptionsRequestReservationTypesItem) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o Ec2FleetReservedCapacityOptionsRequestReservationTypesItemOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o Ec2FleetReservedCapacityOptionsRequestReservationTypesItemOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e Ec2FleetReservedCapacityOptionsRequestReservationTypesItem) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type Ec2FleetReservedCapacityOptionsRequestReservationTypesItemPtrOutput struct{ *pulumi.OutputState }
+
+func (Ec2FleetReservedCapacityOptionsRequestReservationTypesItemPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Ec2FleetReservedCapacityOptionsRequestReservationTypesItem)(nil)).Elem()
+}
+
+func (o Ec2FleetReservedCapacityOptionsRequestReservationTypesItemPtrOutput) ToEc2FleetReservedCapacityOptionsRequestReservationTypesItemPtrOutput() Ec2FleetReservedCapacityOptionsRequestReservationTypesItemPtrOutput {
+	return o
+}
+
+func (o Ec2FleetReservedCapacityOptionsRequestReservationTypesItemPtrOutput) ToEc2FleetReservedCapacityOptionsRequestReservationTypesItemPtrOutputWithContext(ctx context.Context) Ec2FleetReservedCapacityOptionsRequestReservationTypesItemPtrOutput {
+	return o
+}
+
+func (o Ec2FleetReservedCapacityOptionsRequestReservationTypesItemPtrOutput) Elem() Ec2FleetReservedCapacityOptionsRequestReservationTypesItemOutput {
+	return o.ApplyT(func(v *Ec2FleetReservedCapacityOptionsRequestReservationTypesItem) Ec2FleetReservedCapacityOptionsRequestReservationTypesItem {
+		if v != nil {
+			return *v
+		}
+		var ret Ec2FleetReservedCapacityOptionsRequestReservationTypesItem
+		return ret
+	}).(Ec2FleetReservedCapacityOptionsRequestReservationTypesItemOutput)
+}
+
+func (o Ec2FleetReservedCapacityOptionsRequestReservationTypesItemPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o Ec2FleetReservedCapacityOptionsRequestReservationTypesItemPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *Ec2FleetReservedCapacityOptionsRequestReservationTypesItem) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// Ec2FleetReservedCapacityOptionsRequestReservationTypesItemInput is an input type that accepts values of the Ec2FleetReservedCapacityOptionsRequestReservationTypesItem enum
+// A concrete instance of `Ec2FleetReservedCapacityOptionsRequestReservationTypesItemInput` can be one of the following:
+//
+//	Ec2FleetReservedCapacityOptionsRequestReservationTypesItemInterruptibleCapacityReservation
+type Ec2FleetReservedCapacityOptionsRequestReservationTypesItemInput interface {
+	pulumi.Input
+
+	ToEc2FleetReservedCapacityOptionsRequestReservationTypesItemOutput() Ec2FleetReservedCapacityOptionsRequestReservationTypesItemOutput
+	ToEc2FleetReservedCapacityOptionsRequestReservationTypesItemOutputWithContext(context.Context) Ec2FleetReservedCapacityOptionsRequestReservationTypesItemOutput
+}
+
+var ec2FleetReservedCapacityOptionsRequestReservationTypesItemPtrType = reflect.TypeOf((**Ec2FleetReservedCapacityOptionsRequestReservationTypesItem)(nil)).Elem()
+
+type Ec2FleetReservedCapacityOptionsRequestReservationTypesItemPtrInput interface {
+	pulumi.Input
+
+	ToEc2FleetReservedCapacityOptionsRequestReservationTypesItemPtrOutput() Ec2FleetReservedCapacityOptionsRequestReservationTypesItemPtrOutput
+	ToEc2FleetReservedCapacityOptionsRequestReservationTypesItemPtrOutputWithContext(context.Context) Ec2FleetReservedCapacityOptionsRequestReservationTypesItemPtrOutput
+}
+
+type ec2FleetReservedCapacityOptionsRequestReservationTypesItemPtr string
+
+func Ec2FleetReservedCapacityOptionsRequestReservationTypesItemPtr(v string) Ec2FleetReservedCapacityOptionsRequestReservationTypesItemPtrInput {
+	return (*ec2FleetReservedCapacityOptionsRequestReservationTypesItemPtr)(&v)
+}
+
+func (*ec2FleetReservedCapacityOptionsRequestReservationTypesItemPtr) ElementType() reflect.Type {
+	return ec2FleetReservedCapacityOptionsRequestReservationTypesItemPtrType
+}
+
+func (in *ec2FleetReservedCapacityOptionsRequestReservationTypesItemPtr) ToEc2FleetReservedCapacityOptionsRequestReservationTypesItemPtrOutput() Ec2FleetReservedCapacityOptionsRequestReservationTypesItemPtrOutput {
+	return pulumi.ToOutput(in).(Ec2FleetReservedCapacityOptionsRequestReservationTypesItemPtrOutput)
+}
+
+func (in *ec2FleetReservedCapacityOptionsRequestReservationTypesItemPtr) ToEc2FleetReservedCapacityOptionsRequestReservationTypesItemPtrOutputWithContext(ctx context.Context) Ec2FleetReservedCapacityOptionsRequestReservationTypesItemPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(Ec2FleetReservedCapacityOptionsRequestReservationTypesItemPtrOutput)
+}
+
+// Ec2FleetReservedCapacityOptionsRequestReservationTypesItemArrayInput is an input type that accepts Ec2FleetReservedCapacityOptionsRequestReservationTypesItemArray and Ec2FleetReservedCapacityOptionsRequestReservationTypesItemArrayOutput values.
+// You can construct a concrete instance of `Ec2FleetReservedCapacityOptionsRequestReservationTypesItemArrayInput` via:
+//
+//	Ec2FleetReservedCapacityOptionsRequestReservationTypesItemArray{ Ec2FleetReservedCapacityOptionsRequestReservationTypesItemArgs{...} }
+type Ec2FleetReservedCapacityOptionsRequestReservationTypesItemArrayInput interface {
+	pulumi.Input
+
+	ToEc2FleetReservedCapacityOptionsRequestReservationTypesItemArrayOutput() Ec2FleetReservedCapacityOptionsRequestReservationTypesItemArrayOutput
+	ToEc2FleetReservedCapacityOptionsRequestReservationTypesItemArrayOutputWithContext(context.Context) Ec2FleetReservedCapacityOptionsRequestReservationTypesItemArrayOutput
+}
+
+type Ec2FleetReservedCapacityOptionsRequestReservationTypesItemArray []Ec2FleetReservedCapacityOptionsRequestReservationTypesItem
+
+func (Ec2FleetReservedCapacityOptionsRequestReservationTypesItemArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]Ec2FleetReservedCapacityOptionsRequestReservationTypesItem)(nil)).Elem()
+}
+
+func (i Ec2FleetReservedCapacityOptionsRequestReservationTypesItemArray) ToEc2FleetReservedCapacityOptionsRequestReservationTypesItemArrayOutput() Ec2FleetReservedCapacityOptionsRequestReservationTypesItemArrayOutput {
+	return i.ToEc2FleetReservedCapacityOptionsRequestReservationTypesItemArrayOutputWithContext(context.Background())
+}
+
+func (i Ec2FleetReservedCapacityOptionsRequestReservationTypesItemArray) ToEc2FleetReservedCapacityOptionsRequestReservationTypesItemArrayOutputWithContext(ctx context.Context) Ec2FleetReservedCapacityOptionsRequestReservationTypesItemArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(Ec2FleetReservedCapacityOptionsRequestReservationTypesItemArrayOutput)
+}
+
+type Ec2FleetReservedCapacityOptionsRequestReservationTypesItemArrayOutput struct{ *pulumi.OutputState }
+
+func (Ec2FleetReservedCapacityOptionsRequestReservationTypesItemArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]Ec2FleetReservedCapacityOptionsRequestReservationTypesItem)(nil)).Elem()
+}
+
+func (o Ec2FleetReservedCapacityOptionsRequestReservationTypesItemArrayOutput) ToEc2FleetReservedCapacityOptionsRequestReservationTypesItemArrayOutput() Ec2FleetReservedCapacityOptionsRequestReservationTypesItemArrayOutput {
+	return o
+}
+
+func (o Ec2FleetReservedCapacityOptionsRequestReservationTypesItemArrayOutput) ToEc2FleetReservedCapacityOptionsRequestReservationTypesItemArrayOutputWithContext(ctx context.Context) Ec2FleetReservedCapacityOptionsRequestReservationTypesItemArrayOutput {
+	return o
+}
+
+func (o Ec2FleetReservedCapacityOptionsRequestReservationTypesItemArrayOutput) Index(i pulumi.IntInput) Ec2FleetReservedCapacityOptionsRequestReservationTypesItemOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Ec2FleetReservedCapacityOptionsRequestReservationTypesItem {
+		return vs[0].([]Ec2FleetReservedCapacityOptionsRequestReservationTypesItem)[vs[1].(int)]
+	}).(Ec2FleetReservedCapacityOptionsRequestReservationTypesItemOutput)
+}
+
 // Indicates how to allocate the target Spot Instance capacity across the Spot Instance pools specified by the EC2 Fleet.
 //
 // If the allocation strategy is `lowestPrice` , EC2 Fleet launches instances from the Spot Instance pools with the lowest price. This is the default allocation strategy.
@@ -19499,6 +19707,9 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetInstanceRequirementsRequestLocalStorageTypesItemInput)(nil)).Elem(), Ec2FleetInstanceRequirementsRequestLocalStorageTypesItem("hdd"))
 	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetInstanceRequirementsRequestLocalStorageTypesItemPtrInput)(nil)).Elem(), Ec2FleetInstanceRequirementsRequestLocalStorageTypesItem("hdd"))
 	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetInstanceRequirementsRequestLocalStorageTypesItemArrayInput)(nil)).Elem(), Ec2FleetInstanceRequirementsRequestLocalStorageTypesItemArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetReservedCapacityOptionsRequestReservationTypesItemInput)(nil)).Elem(), Ec2FleetReservedCapacityOptionsRequestReservationTypesItem("interruptible-capacity-reservation"))
+	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetReservedCapacityOptionsRequestReservationTypesItemPtrInput)(nil)).Elem(), Ec2FleetReservedCapacityOptionsRequestReservationTypesItem("interruptible-capacity-reservation"))
+	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetReservedCapacityOptionsRequestReservationTypesItemArrayInput)(nil)).Elem(), Ec2FleetReservedCapacityOptionsRequestReservationTypesItemArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetSpotOptionsRequestAllocationStrategyInput)(nil)).Elem(), Ec2FleetSpotOptionsRequestAllocationStrategy("lowest-price"))
 	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetSpotOptionsRequestAllocationStrategyPtrInput)(nil)).Elem(), Ec2FleetSpotOptionsRequestAllocationStrategy("lowest-price"))
 	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetSpotOptionsRequestInstanceInterruptionBehaviorInput)(nil)).Elem(), Ec2FleetSpotOptionsRequestInstanceInterruptionBehavior("hibernate"))
@@ -19722,6 +19933,9 @@ func init() {
 	pulumi.RegisterOutputType(Ec2FleetInstanceRequirementsRequestLocalStorageTypesItemOutput{})
 	pulumi.RegisterOutputType(Ec2FleetInstanceRequirementsRequestLocalStorageTypesItemPtrOutput{})
 	pulumi.RegisterOutputType(Ec2FleetInstanceRequirementsRequestLocalStorageTypesItemArrayOutput{})
+	pulumi.RegisterOutputType(Ec2FleetReservedCapacityOptionsRequestReservationTypesItemOutput{})
+	pulumi.RegisterOutputType(Ec2FleetReservedCapacityOptionsRequestReservationTypesItemPtrOutput{})
+	pulumi.RegisterOutputType(Ec2FleetReservedCapacityOptionsRequestReservationTypesItemArrayOutput{})
 	pulumi.RegisterOutputType(Ec2FleetSpotOptionsRequestAllocationStrategyOutput{})
 	pulumi.RegisterOutputType(Ec2FleetSpotOptionsRequestAllocationStrategyPtrOutput{})
 	pulumi.RegisterOutputType(Ec2FleetSpotOptionsRequestInstanceInterruptionBehaviorOutput{})

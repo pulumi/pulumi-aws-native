@@ -70,10 +70,20 @@ export const getImageBuilder: typeof import("./getImageBuilder").getImageBuilder
 export const getImageBuilderOutput: typeof import("./getImageBuilder").getImageBuilderOutput = null as any;
 utilities.lazyLoad(exports, ["getImageBuilder","getImageBuilderOutput"], () => require("./getImageBuilder"));
 
+export { GetStackArgs, GetStackResult, GetStackOutputArgs } from "./getStack";
+export const getStack: typeof import("./getStack").getStack = null as any;
+export const getStackOutput: typeof import("./getStack").getStackOutput = null as any;
+utilities.lazyLoad(exports, ["getStack","getStackOutput"], () => require("./getStack"));
+
 export { ImageBuilderArgs } from "./imageBuilder";
 export type ImageBuilder = import("./imageBuilder").ImageBuilder;
 export const ImageBuilder: typeof import("./imageBuilder").ImageBuilder = null as any;
 utilities.lazyLoad(exports, ["ImageBuilder"], () => require("./imageBuilder"));
+
+export { StackArgs } from "./stack";
+export type Stack = import("./stack").Stack;
+export const Stack: typeof import("./stack").Stack = null as any;
+utilities.lazyLoad(exports, ["Stack"], () => require("./stack"));
 
 
 const _module = {
@@ -96,6 +106,8 @@ const _module = {
                 return new Entitlement(name, <any>undefined, { urn })
             case "aws-native:appstream:ImageBuilder":
                 return new ImageBuilder(name, <any>undefined, { urn })
+            case "aws-native:appstream:Stack":
+                return new Stack(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

@@ -28,7 +28,7 @@ type OnlineEvaluationConfig struct {
 	// The list of evaluators to apply during online evaluation.
 	Evaluators OnlineEvaluationConfigEvaluatorReferenceArrayOutput `pulumi:"evaluators"`
 	// The execution status indicating whether the online evaluation is currently running.
-	ExecutionStatus OnlineEvaluationConfigExecutionStatusOutput `pulumi:"executionStatus"`
+	ExecutionStatus OnlineEvaluationConfigExecutionStatusPtrOutput `pulumi:"executionStatus"`
 	// The Amazon Resource Name (ARN) of the online evaluation configuration.
 	OnlineEvaluationConfigArn pulumi.StringOutput `pulumi:"onlineEvaluationConfigArn"`
 	// The unique identifier of the online evaluation configuration.
@@ -111,6 +111,8 @@ type onlineEvaluationConfigArgs struct {
 	EvaluationExecutionRoleArn string `pulumi:"evaluationExecutionRoleArn"`
 	// The list of evaluators to apply during online evaluation.
 	Evaluators []OnlineEvaluationConfigEvaluatorReference `pulumi:"evaluators"`
+	// The execution status indicating whether the online evaluation is currently running.
+	ExecutionStatus *OnlineEvaluationConfigExecutionStatus `pulumi:"executionStatus"`
 	// The name of the online evaluation configuration. Must be unique within your account.
 	OnlineEvaluationConfigName *string `pulumi:"onlineEvaluationConfigName"`
 	// The evaluation rule that defines sampling configuration, filters, and session detection settings.
@@ -129,6 +131,8 @@ type OnlineEvaluationConfigArgs struct {
 	EvaluationExecutionRoleArn pulumi.StringInput
 	// The list of evaluators to apply during online evaluation.
 	Evaluators OnlineEvaluationConfigEvaluatorReferenceArrayInput
+	// The execution status indicating whether the online evaluation is currently running.
+	ExecutionStatus OnlineEvaluationConfigExecutionStatusPtrInput
 	// The name of the online evaluation configuration. Must be unique within your account.
 	OnlineEvaluationConfigName pulumi.StringPtrInput
 	// The evaluation rule that defines sampling configuration, filters, and session detection settings.
@@ -204,8 +208,10 @@ func (o OnlineEvaluationConfigOutput) Evaluators() OnlineEvaluationConfigEvaluat
 }
 
 // The execution status indicating whether the online evaluation is currently running.
-func (o OnlineEvaluationConfigOutput) ExecutionStatus() OnlineEvaluationConfigExecutionStatusOutput {
-	return o.ApplyT(func(v *OnlineEvaluationConfig) OnlineEvaluationConfigExecutionStatusOutput { return v.ExecutionStatus }).(OnlineEvaluationConfigExecutionStatusOutput)
+func (o OnlineEvaluationConfigOutput) ExecutionStatus() OnlineEvaluationConfigExecutionStatusPtrOutput {
+	return o.ApplyT(func(v *OnlineEvaluationConfig) OnlineEvaluationConfigExecutionStatusPtrOutput {
+		return v.ExecutionStatus
+	}).(OnlineEvaluationConfigExecutionStatusPtrOutput)
 }
 
 // The Amazon Resource Name (ARN) of the online evaluation configuration.

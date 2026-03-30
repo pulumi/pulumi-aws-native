@@ -60,7 +60,7 @@ export class OnlineEvaluationConfig extends pulumi.CustomResource {
     /**
      * The execution status indicating whether the online evaluation is currently running.
      */
-    declare public /*out*/ readonly executionStatus: pulumi.Output<enums.bedrockagentcore.OnlineEvaluationConfigExecutionStatus>;
+    declare public readonly executionStatus: pulumi.Output<enums.bedrockagentcore.OnlineEvaluationConfigExecutionStatus | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the online evaluation configuration.
      */
@@ -121,11 +121,11 @@ export class OnlineEvaluationConfig extends pulumi.CustomResource {
             resourceInputs["description"] = args?.description;
             resourceInputs["evaluationExecutionRoleArn"] = args?.evaluationExecutionRoleArn;
             resourceInputs["evaluators"] = args?.evaluators;
+            resourceInputs["executionStatus"] = args?.executionStatus;
             resourceInputs["onlineEvaluationConfigName"] = args?.onlineEvaluationConfigName;
             resourceInputs["rule"] = args?.rule;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["createdAt"] = undefined /*out*/;
-            resourceInputs["executionStatus"] = undefined /*out*/;
             resourceInputs["onlineEvaluationConfigArn"] = undefined /*out*/;
             resourceInputs["onlineEvaluationConfigId"] = undefined /*out*/;
             resourceInputs["outputConfig"] = undefined /*out*/;
@@ -174,6 +174,10 @@ export interface OnlineEvaluationConfigArgs {
      * The list of evaluators to apply during online evaluation.
      */
     evaluators: pulumi.Input<pulumi.Input<inputs.bedrockagentcore.OnlineEvaluationConfigEvaluatorReferenceArgs>[]>;
+    /**
+     * The execution status indicating whether the online evaluation is currently running.
+     */
+    executionStatus?: pulumi.Input<enums.bedrockagentcore.OnlineEvaluationConfigExecutionStatus>;
     /**
      * The name of the online evaluation configuration. Must be unique within your account.
      */

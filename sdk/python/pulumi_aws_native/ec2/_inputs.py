@@ -74,6 +74,8 @@ __all__ = [
     'Ec2FleetPerformanceFactorReferenceRequestArgsDict',
     'Ec2FleetPlacementArgs',
     'Ec2FleetPlacementArgsDict',
+    'Ec2FleetReservedCapacityOptionsRequestArgs',
+    'Ec2FleetReservedCapacityOptionsRequestArgsDict',
     'Ec2FleetSpotOptionsRequestArgs',
     'Ec2FleetSpotOptionsRequestArgsDict',
     'Ec2FleetTagSpecificationArgs',
@@ -3698,6 +3700,26 @@ class Ec2FleetPlacementArgs:
     @tenancy.setter
     def tenancy(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "tenancy", value)
+
+
+class Ec2FleetReservedCapacityOptionsRequestArgsDict(TypedDict):
+    reservation_types: NotRequired[pulumi.Input[Sequence[pulumi.Input['Ec2FleetReservedCapacityOptionsRequestReservationTypesItem']]]]
+
+@pulumi.input_type
+class Ec2FleetReservedCapacityOptionsRequestArgs:
+    def __init__(__self__, *,
+                 reservation_types: Optional[pulumi.Input[Sequence[pulumi.Input['Ec2FleetReservedCapacityOptionsRequestReservationTypesItem']]]] = None):
+        if reservation_types is not None:
+            pulumi.set(__self__, "reservation_types", reservation_types)
+
+    @_builtins.property
+    @pulumi.getter(name="reservationTypes")
+    def reservation_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['Ec2FleetReservedCapacityOptionsRequestReservationTypesItem']]]]:
+        return pulumi.get(self, "reservation_types")
+
+    @reservation_types.setter
+    def reservation_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['Ec2FleetReservedCapacityOptionsRequestReservationTypesItem']]]]):
+        pulumi.set(self, "reservation_types", value)
 
 
 class Ec2FleetSpotOptionsRequestArgsDict(TypedDict):

@@ -22,31 +22,37 @@ namespace Pulumi.AwsNative.ServiceDiscovery
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The unique identifier for the service.
+        /// The ID of the service.
         /// </summary>
         [Output("awsId")]
         public Output<string> AwsId { get; private set; } = null!;
 
         /// <summary>
-        /// A description for the service.
+        /// The description of the service.
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// DNS-related configurations for the service.
+        /// A complex type that contains information about the Route 53 DNS records that you want AWS Cloud Map to create when you register an instance.
+        /// 
+        /// &gt; The record types of a service can only be changed by deleting the service and recreating it with a new `Dnsconfig` .
         /// </summary>
         [Output("dnsConfig")]
         public Output<Outputs.ServiceDnsConfig?> DnsConfig { get; private set; } = null!;
 
         /// <summary>
-        /// Settings for health checks. Used when routing is DNS-based.
+        /// *Public DNS and HTTP namespaces only.* A complex type that contains settings for an optional health check. If you specify settings for a health check, AWS Cloud Map associates the health check with the records that you specify in `DnsConfig` .
+        /// 
+        /// For information about the charges for health checks, see [Amazon Route 53 Pricing](https://docs.aws.amazon.com/route53/pricing/) .
         /// </summary>
         [Output("healthCheckConfig")]
         public Output<Outputs.ServiceHealthCheckConfig?> HealthCheckConfig { get; private set; } = null!;
 
         /// <summary>
-        /// Settings for custom health checks.
+        /// A complex type that contains information about an optional custom health check.
+        /// 
+        /// &gt; If you specify a health check configuration, you can specify either `HealthCheckCustomConfig` or `HealthCheckConfig` but not both.
         /// </summary>
         [Output("healthCheckCustomConfig")]
         public Output<Outputs.ServiceHealthCheckCustomConfig?> HealthCheckCustomConfig { get; private set; } = null!;
@@ -58,25 +64,27 @@ namespace Pulumi.AwsNative.ServiceDiscovery
         public Output<string?> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the namespace in which the service is created.
+        /// The ID or Amazon Resource Name (ARN) of the namespace that you want to use to create the service. For namespaces shared with your AWS account, specify the namespace ARN. For more information about shared namespaces, see [Cross-account AWS Cloud Map namespace sharing](https://docs.aws.amazon.com/cloud-map/latest/dg/sharing-namespaces.html) in the *AWS Cloud Map Developer Guide* .
         /// </summary>
         [Output("namespaceId")]
         public Output<string?> NamespaceId { get; private set; } = null!;
 
         /// <summary>
-        /// A string map that contains attributes and values for the service. You can specify a maximum of 30 key-value pairs.
+        /// A complex type that contains information about attributes associated with a specific service.
+        /// 
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ServiceDiscovery::Service` for more information about the expected schema for this property.
         /// </summary>
         [Output("serviceAttributes")]
-        public Output<ImmutableDictionary<string, string>?> ServiceAttributes { get; private set; } = null!;
+        public Output<object?> ServiceAttributes { get; private set; } = null!;
 
         /// <summary>
-        /// An array of key-value pairs to associate with the service.
+        /// The tags for the service. Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum length of 256 characters.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// The type of service. Supported values are HTTP or DNS.
+        /// If present, specifies that the service instances are only discoverable using the `DiscoverInstances` API operation. No DNS records is registered for the service instances. The only valid value is `HTTP` .
         /// </summary>
         [Output("type")]
         public Output<string?> Type { get; private set; } = null!;
@@ -134,25 +142,31 @@ namespace Pulumi.AwsNative.ServiceDiscovery
     public sealed class ServiceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A description for the service.
+        /// The description of the service.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// DNS-related configurations for the service.
+        /// A complex type that contains information about the Route 53 DNS records that you want AWS Cloud Map to create when you register an instance.
+        /// 
+        /// &gt; The record types of a service can only be changed by deleting the service and recreating it with a new `Dnsconfig` .
         /// </summary>
         [Input("dnsConfig")]
         public Input<Inputs.ServiceDnsConfigArgs>? DnsConfig { get; set; }
 
         /// <summary>
-        /// Settings for health checks. Used when routing is DNS-based.
+        /// *Public DNS and HTTP namespaces only.* A complex type that contains settings for an optional health check. If you specify settings for a health check, AWS Cloud Map associates the health check with the records that you specify in `DnsConfig` .
+        /// 
+        /// For information about the charges for health checks, see [Amazon Route 53 Pricing](https://docs.aws.amazon.com/route53/pricing/) .
         /// </summary>
         [Input("healthCheckConfig")]
         public Input<Inputs.ServiceHealthCheckConfigArgs>? HealthCheckConfig { get; set; }
 
         /// <summary>
-        /// Settings for custom health checks.
+        /// A complex type that contains information about an optional custom health check.
+        /// 
+        /// &gt; If you specify a health check configuration, you can specify either `HealthCheckCustomConfig` or `HealthCheckConfig` but not both.
         /// </summary>
         [Input("healthCheckCustomConfig")]
         public Input<Inputs.ServiceHealthCheckCustomConfigArgs>? HealthCheckCustomConfig { get; set; }
@@ -164,28 +178,24 @@ namespace Pulumi.AwsNative.ServiceDiscovery
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The ID of the namespace in which the service is created.
+        /// The ID or Amazon Resource Name (ARN) of the namespace that you want to use to create the service. For namespaces shared with your AWS account, specify the namespace ARN. For more information about shared namespaces, see [Cross-account AWS Cloud Map namespace sharing](https://docs.aws.amazon.com/cloud-map/latest/dg/sharing-namespaces.html) in the *AWS Cloud Map Developer Guide* .
         /// </summary>
         [Input("namespaceId")]
         public Input<string>? NamespaceId { get; set; }
 
-        [Input("serviceAttributes")]
-        private InputMap<string>? _serviceAttributes;
-
         /// <summary>
-        /// A string map that contains attributes and values for the service. You can specify a maximum of 30 key-value pairs.
+        /// A complex type that contains information about attributes associated with a specific service.
+        /// 
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ServiceDiscovery::Service` for more information about the expected schema for this property.
         /// </summary>
-        public InputMap<string> ServiceAttributes
-        {
-            get => _serviceAttributes ?? (_serviceAttributes = new InputMap<string>());
-            set => _serviceAttributes = value;
-        }
+        [Input("serviceAttributes")]
+        public Input<object>? ServiceAttributes { get; set; }
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
-        /// An array of key-value pairs to associate with the service.
+        /// The tags for the service. Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum length of 256 characters.
         /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
@@ -194,7 +204,7 @@ namespace Pulumi.AwsNative.ServiceDiscovery
         }
 
         /// <summary>
-        /// The type of service. Supported values are HTTP or DNS.
+        /// If present, specifies that the service instances are only discoverable using the `DiscoverInstances` API operation. No DNS records is registered for the service instances. The only valid value is `HTTP` .
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

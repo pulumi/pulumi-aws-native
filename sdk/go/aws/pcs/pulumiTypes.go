@@ -29,6 +29,14 @@ type ClusterAuthKey struct {
 	SecretVersion string `pulumi:"secretVersion"`
 }
 
+// Additional cgroup configuration settings.
+type ClusterCgroupCustomSetting struct {
+	// The cgroup.conf parameter name.
+	ParameterName string `pulumi:"parameterName"`
+	// The value for the cgroup.conf parameter.
+	ParameterValue string `pulumi:"parameterValue"`
+}
+
 // An endpoint available for interaction with the scheduler.
 type ClusterEndpoint struct {
 	// The endpoint's IPv6 address.
@@ -182,6 +190,14 @@ type ClusterSlurmCustomSetting struct {
 type ClusterSlurmRest struct {
 	// The default value is `NONE`. A value of `STANDARD` means that Slurm Rest is enabled.
 	Mode ClusterSlurmRestMode `pulumi:"mode"`
+}
+
+// Additional slurmdbd configuration settings.
+type ClusterSlurmdbdCustomSetting struct {
+	// The slurmdbd.conf parameter name.
+	ParameterName string `pulumi:"parameterName"`
+	// The value for the slurmdbd.conf parameter.
+	ParameterValue string `pulumi:"parameterValue"`
 }
 
 // An error that occurred during resource provisioning.

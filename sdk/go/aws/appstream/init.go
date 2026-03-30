@@ -37,6 +37,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Entitlement{}
 	case "aws-native:appstream:ImageBuilder":
 		r = &ImageBuilder{}
+	case "aws-native:appstream:Stack":
+		r = &Stack{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

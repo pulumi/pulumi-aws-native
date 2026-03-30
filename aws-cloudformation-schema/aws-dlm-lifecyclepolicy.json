@@ -414,6 +414,13 @@
         "Count" : {
           "type" : "integer"
         },
+        "AvailabilityZoneIds" : {
+          "type" : "array",
+          "uniqueItems" : false,
+          "items" : {
+            "type" : "string"
+          }
+        },
         "AvailabilityZones" : {
           "type" : "array",
           "uniqueItems" : false,

@@ -24,6 +24,7 @@ __all__ = [
     'Ec2FleetInstanceRequirementsRequestInstanceGenerationsItem',
     'Ec2FleetInstanceRequirementsRequestLocalStorage',
     'Ec2FleetInstanceRequirementsRequestLocalStorageTypesItem',
+    'Ec2FleetReservedCapacityOptionsRequestReservationTypesItem',
     'Ec2FleetSpotOptionsRequestAllocationStrategy',
     'Ec2FleetSpotOptionsRequestInstanceInterruptionBehavior',
     'Ec2FleetTagSpecificationResourceType',
@@ -319,6 +320,11 @@ class Ec2FleetInstanceRequirementsRequestLocalStorage(_builtins.str, Enum):
 class Ec2FleetInstanceRequirementsRequestLocalStorageTypesItem(_builtins.str, Enum):
     HDD = "hdd"
     SSD = "ssd"
+
+
+@pulumi.type_token("aws-native:ec2:Ec2FleetReservedCapacityOptionsRequestReservationTypesItem")
+class Ec2FleetReservedCapacityOptionsRequestReservationTypesItem(_builtins.str, Enum):
+    INTERRUPTIBLE_CAPACITY_RESERVATION = "interruptible-capacity-reservation"
 
 
 @pulumi.type_token("aws-native:ec2:Ec2FleetSpotOptionsRequestAllocationStrategy")

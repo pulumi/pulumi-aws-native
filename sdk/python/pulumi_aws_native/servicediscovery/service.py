@@ -29,21 +29,29 @@ class ServiceArgs:
                  health_check_custom_config: Optional[pulumi.Input['ServiceHealthCheckCustomConfigArgs']] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  namespace_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_attributes: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 service_attributes: Optional[Any] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
                  type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Service resource.
 
-        :param pulumi.Input[_builtins.str] description: A description for the service.
-        :param pulumi.Input['ServiceDnsConfigArgs'] dns_config: DNS-related configurations for the service.
-        :param pulumi.Input['ServiceHealthCheckConfigArgs'] health_check_config: Settings for health checks. Used when routing is DNS-based.
-        :param pulumi.Input['ServiceHealthCheckCustomConfigArgs'] health_check_custom_config: Settings for custom health checks.
+        :param pulumi.Input[_builtins.str] description: The description of the service.
+        :param pulumi.Input['ServiceDnsConfigArgs'] dns_config: A complex type that contains information about the Route 53 DNS records that you want AWS Cloud Map to create when you register an instance.
+               
+               > The record types of a service can only be changed by deleting the service and recreating it with a new `Dnsconfig` .
+        :param pulumi.Input['ServiceHealthCheckConfigArgs'] health_check_config: *Public DNS and HTTP namespaces only.* A complex type that contains settings for an optional health check. If you specify settings for a health check, AWS Cloud Map associates the health check with the records that you specify in `DnsConfig` .
+               
+               For information about the charges for health checks, see [Amazon Route 53 Pricing](https://docs.aws.amazon.com/route53/pricing/) .
+        :param pulumi.Input['ServiceHealthCheckCustomConfigArgs'] health_check_custom_config: A complex type that contains information about an optional custom health check.
+               
+               > If you specify a health check configuration, you can specify either `HealthCheckCustomConfig` or `HealthCheckConfig` but not both.
         :param pulumi.Input[_builtins.str] name: The name of the service.
-        :param pulumi.Input[_builtins.str] namespace_id: The ID of the namespace in which the service is created.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] service_attributes: A string map that contains attributes and values for the service. You can specify a maximum of 30 key-value pairs.
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to associate with the service.
-        :param pulumi.Input[_builtins.str] type: The type of service. Supported values are HTTP or DNS.
+        :param pulumi.Input[_builtins.str] namespace_id: The ID or Amazon Resource Name (ARN) of the namespace that you want to use to create the service. For namespaces shared with your AWS account, specify the namespace ARN. For more information about shared namespaces, see [Cross-account AWS Cloud Map namespace sharing](https://docs.aws.amazon.com/cloud-map/latest/dg/sharing-namespaces.html) in the *AWS Cloud Map Developer Guide* .
+        :param Any service_attributes: A complex type that contains information about attributes associated with a specific service.
+               
+               Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ServiceDiscovery::Service` for more information about the expected schema for this property.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags for the service. Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum length of 256 characters.
+        :param pulumi.Input[_builtins.str] type: If present, specifies that the service instances are only discoverable using the `DiscoverInstances` API operation. No DNS records is registered for the service instances. The only valid value is `HTTP` .
         """
         if description is not None:
             pulumi.set(__self__, "description", description)
@@ -68,7 +76,7 @@ class ServiceArgs:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        A description for the service.
+        The description of the service.
         """
         return pulumi.get(self, "description")
 
@@ -80,7 +88,9 @@ class ServiceArgs:
     @pulumi.getter(name="dnsConfig")
     def dns_config(self) -> Optional[pulumi.Input['ServiceDnsConfigArgs']]:
         """
-        DNS-related configurations for the service.
+        A complex type that contains information about the Route 53 DNS records that you want AWS Cloud Map to create when you register an instance.
+
+        > The record types of a service can only be changed by deleting the service and recreating it with a new `Dnsconfig` .
         """
         return pulumi.get(self, "dns_config")
 
@@ -92,7 +102,9 @@ class ServiceArgs:
     @pulumi.getter(name="healthCheckConfig")
     def health_check_config(self) -> Optional[pulumi.Input['ServiceHealthCheckConfigArgs']]:
         """
-        Settings for health checks. Used when routing is DNS-based.
+        *Public DNS and HTTP namespaces only.* A complex type that contains settings for an optional health check. If you specify settings for a health check, AWS Cloud Map associates the health check with the records that you specify in `DnsConfig` .
+
+        For information about the charges for health checks, see [Amazon Route 53 Pricing](https://docs.aws.amazon.com/route53/pricing/) .
         """
         return pulumi.get(self, "health_check_config")
 
@@ -104,7 +116,9 @@ class ServiceArgs:
     @pulumi.getter(name="healthCheckCustomConfig")
     def health_check_custom_config(self) -> Optional[pulumi.Input['ServiceHealthCheckCustomConfigArgs']]:
         """
-        Settings for custom health checks.
+        A complex type that contains information about an optional custom health check.
+
+        > If you specify a health check configuration, you can specify either `HealthCheckCustomConfig` or `HealthCheckConfig` but not both.
         """
         return pulumi.get(self, "health_check_custom_config")
 
@@ -128,7 +142,7 @@ class ServiceArgs:
     @pulumi.getter(name="namespaceId")
     def namespace_id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The ID of the namespace in which the service is created.
+        The ID or Amazon Resource Name (ARN) of the namespace that you want to use to create the service. For namespaces shared with your AWS account, specify the namespace ARN. For more information about shared namespaces, see [Cross-account AWS Cloud Map namespace sharing](https://docs.aws.amazon.com/cloud-map/latest/dg/sharing-namespaces.html) in the *AWS Cloud Map Developer Guide* .
         """
         return pulumi.get(self, "namespace_id")
 
@@ -138,21 +152,23 @@ class ServiceArgs:
 
     @_builtins.property
     @pulumi.getter(name="serviceAttributes")
-    def service_attributes(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def service_attributes(self) -> Optional[Any]:
         """
-        A string map that contains attributes and values for the service. You can specify a maximum of 30 key-value pairs.
+        A complex type that contains information about attributes associated with a specific service.
+
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ServiceDiscovery::Service` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "service_attributes")
 
     @service_attributes.setter
-    def service_attributes(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def service_attributes(self, value: Optional[Any]):
         pulumi.set(self, "service_attributes", value)
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
-        An array of key-value pairs to associate with the service.
+        The tags for the service. Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum length of 256 characters.
         """
         return pulumi.get(self, "tags")
 
@@ -164,7 +180,7 @@ class ServiceArgs:
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The type of service. Supported values are HTTP or DNS.
+        If present, specifies that the service instances are only discoverable using the `DiscoverInstances` API operation. No DNS records is registered for the service instances. The only valid value is `HTTP` .
         """
         return pulumi.get(self, "type")
 
@@ -185,7 +201,7 @@ class Service(pulumi.CustomResource):
                  health_check_custom_config: Optional[pulumi.Input[Union['ServiceHealthCheckCustomConfigArgs', 'ServiceHealthCheckCustomConfigArgsDict']]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  namespace_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_attributes: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 service_attributes: Optional[Any] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  type: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
@@ -195,15 +211,23 @@ class Service(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] description: A description for the service.
-        :param pulumi.Input[Union['ServiceDnsConfigArgs', 'ServiceDnsConfigArgsDict']] dns_config: DNS-related configurations for the service.
-        :param pulumi.Input[Union['ServiceHealthCheckConfigArgs', 'ServiceHealthCheckConfigArgsDict']] health_check_config: Settings for health checks. Used when routing is DNS-based.
-        :param pulumi.Input[Union['ServiceHealthCheckCustomConfigArgs', 'ServiceHealthCheckCustomConfigArgsDict']] health_check_custom_config: Settings for custom health checks.
+        :param pulumi.Input[_builtins.str] description: The description of the service.
+        :param pulumi.Input[Union['ServiceDnsConfigArgs', 'ServiceDnsConfigArgsDict']] dns_config: A complex type that contains information about the Route 53 DNS records that you want AWS Cloud Map to create when you register an instance.
+               
+               > The record types of a service can only be changed by deleting the service and recreating it with a new `Dnsconfig` .
+        :param pulumi.Input[Union['ServiceHealthCheckConfigArgs', 'ServiceHealthCheckConfigArgsDict']] health_check_config: *Public DNS and HTTP namespaces only.* A complex type that contains settings for an optional health check. If you specify settings for a health check, AWS Cloud Map associates the health check with the records that you specify in `DnsConfig` .
+               
+               For information about the charges for health checks, see [Amazon Route 53 Pricing](https://docs.aws.amazon.com/route53/pricing/) .
+        :param pulumi.Input[Union['ServiceHealthCheckCustomConfigArgs', 'ServiceHealthCheckCustomConfigArgsDict']] health_check_custom_config: A complex type that contains information about an optional custom health check.
+               
+               > If you specify a health check configuration, you can specify either `HealthCheckCustomConfig` or `HealthCheckConfig` but not both.
         :param pulumi.Input[_builtins.str] name: The name of the service.
-        :param pulumi.Input[_builtins.str] namespace_id: The ID of the namespace in which the service is created.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] service_attributes: A string map that contains attributes and values for the service. You can specify a maximum of 30 key-value pairs.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to associate with the service.
-        :param pulumi.Input[_builtins.str] type: The type of service. Supported values are HTTP or DNS.
+        :param pulumi.Input[_builtins.str] namespace_id: The ID or Amazon Resource Name (ARN) of the namespace that you want to use to create the service. For namespaces shared with your AWS account, specify the namespace ARN. For more information about shared namespaces, see [Cross-account AWS Cloud Map namespace sharing](https://docs.aws.amazon.com/cloud-map/latest/dg/sharing-namespaces.html) in the *AWS Cloud Map Developer Guide* .
+        :param Any service_attributes: A complex type that contains information about attributes associated with a specific service.
+               
+               Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ServiceDiscovery::Service` for more information about the expected schema for this property.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags for the service. Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum length of 256 characters.
+        :param pulumi.Input[_builtins.str] type: If present, specifies that the service instances are only discoverable using the `DiscoverInstances` API operation. No DNS records is registered for the service instances. The only valid value is `HTTP` .
         """
         ...
     @overload
@@ -236,7 +260,7 @@ class Service(pulumi.CustomResource):
                  health_check_custom_config: Optional[pulumi.Input[Union['ServiceHealthCheckCustomConfigArgs', 'ServiceHealthCheckCustomConfigArgsDict']]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  namespace_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_attributes: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 service_attributes: Optional[Any] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  type: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
@@ -308,7 +332,7 @@ class Service(pulumi.CustomResource):
     @pulumi.getter(name="awsId")
     def aws_id(self) -> pulumi.Output[_builtins.str]:
         """
-        The unique identifier for the service.
+        The ID of the service.
         """
         return pulumi.get(self, "aws_id")
 
@@ -316,7 +340,7 @@ class Service(pulumi.CustomResource):
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        A description for the service.
+        The description of the service.
         """
         return pulumi.get(self, "description")
 
@@ -324,7 +348,9 @@ class Service(pulumi.CustomResource):
     @pulumi.getter(name="dnsConfig")
     def dns_config(self) -> pulumi.Output[Optional['outputs.ServiceDnsConfig']]:
         """
-        DNS-related configurations for the service.
+        A complex type that contains information about the Route 53 DNS records that you want AWS Cloud Map to create when you register an instance.
+
+        > The record types of a service can only be changed by deleting the service and recreating it with a new `Dnsconfig` .
         """
         return pulumi.get(self, "dns_config")
 
@@ -332,7 +358,9 @@ class Service(pulumi.CustomResource):
     @pulumi.getter(name="healthCheckConfig")
     def health_check_config(self) -> pulumi.Output[Optional['outputs.ServiceHealthCheckConfig']]:
         """
-        Settings for health checks. Used when routing is DNS-based.
+        *Public DNS and HTTP namespaces only.* A complex type that contains settings for an optional health check. If you specify settings for a health check, AWS Cloud Map associates the health check with the records that you specify in `DnsConfig` .
+
+        For information about the charges for health checks, see [Amazon Route 53 Pricing](https://docs.aws.amazon.com/route53/pricing/) .
         """
         return pulumi.get(self, "health_check_config")
 
@@ -340,7 +368,9 @@ class Service(pulumi.CustomResource):
     @pulumi.getter(name="healthCheckCustomConfig")
     def health_check_custom_config(self) -> pulumi.Output[Optional['outputs.ServiceHealthCheckCustomConfig']]:
         """
-        Settings for custom health checks.
+        A complex type that contains information about an optional custom health check.
+
+        > If you specify a health check configuration, you can specify either `HealthCheckCustomConfig` or `HealthCheckConfig` but not both.
         """
         return pulumi.get(self, "health_check_custom_config")
 
@@ -356,15 +386,17 @@ class Service(pulumi.CustomResource):
     @pulumi.getter(name="namespaceId")
     def namespace_id(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The ID of the namespace in which the service is created.
+        The ID or Amazon Resource Name (ARN) of the namespace that you want to use to create the service. For namespaces shared with your AWS account, specify the namespace ARN. For more information about shared namespaces, see [Cross-account AWS Cloud Map namespace sharing](https://docs.aws.amazon.com/cloud-map/latest/dg/sharing-namespaces.html) in the *AWS Cloud Map Developer Guide* .
         """
         return pulumi.get(self, "namespace_id")
 
     @_builtins.property
     @pulumi.getter(name="serviceAttributes")
-    def service_attributes(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
+    def service_attributes(self) -> pulumi.Output[Optional[Any]]:
         """
-        A string map that contains attributes and values for the service. You can specify a maximum of 30 key-value pairs.
+        A complex type that contains information about attributes associated with a specific service.
+
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ServiceDiscovery::Service` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "service_attributes")
 
@@ -372,7 +404,7 @@ class Service(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
-        An array of key-value pairs to associate with the service.
+        The tags for the service. Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum length of 256 characters.
         """
         return pulumi.get(self, "tags")
 
@@ -380,7 +412,7 @@ class Service(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The type of service. Supported values are HTTP or DNS.
+        If present, specifies that the service instances are only discoverable using the `DiscoverInstances` API operation. No DNS records is registered for the service instances. The only valid value is `HTTP` .
         """
         return pulumi.get(self, "type")
 

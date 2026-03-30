@@ -10,10 +10,20 @@ export type AnnotationStore = import("./annotationStore").AnnotationStore;
 export const AnnotationStore: typeof import("./annotationStore").AnnotationStore = null as any;
 utilities.lazyLoad(exports, ["AnnotationStore"], () => require("./annotationStore"));
 
+export { ConfigurationArgs } from "./configuration";
+export type Configuration = import("./configuration").Configuration;
+export const Configuration: typeof import("./configuration").Configuration = null as any;
+utilities.lazyLoad(exports, ["Configuration"], () => require("./configuration"));
+
 export { GetAnnotationStoreArgs, GetAnnotationStoreResult, GetAnnotationStoreOutputArgs } from "./getAnnotationStore";
 export const getAnnotationStore: typeof import("./getAnnotationStore").getAnnotationStore = null as any;
 export const getAnnotationStoreOutput: typeof import("./getAnnotationStore").getAnnotationStoreOutput = null as any;
 utilities.lazyLoad(exports, ["getAnnotationStore","getAnnotationStoreOutput"], () => require("./getAnnotationStore"));
+
+export { GetConfigurationArgs, GetConfigurationResult, GetConfigurationOutputArgs } from "./getConfiguration";
+export const getConfiguration: typeof import("./getConfiguration").getConfiguration = null as any;
+export const getConfigurationOutput: typeof import("./getConfiguration").getConfigurationOutput = null as any;
+utilities.lazyLoad(exports, ["getConfiguration","getConfigurationOutput"], () => require("./getConfiguration"));
 
 export { GetReferenceStoreArgs, GetReferenceStoreResult, GetReferenceStoreOutputArgs } from "./getReferenceStore";
 export const getReferenceStore: typeof import("./getReferenceStore").getReferenceStore = null as any;
@@ -85,6 +95,8 @@ const _module = {
         switch (type) {
             case "aws-native:omics:AnnotationStore":
                 return new AnnotationStore(name, <any>undefined, { urn })
+            case "aws-native:omics:Configuration":
+                return new Configuration(name, <any>undefined, { urn })
             case "aws-native:omics:ReferenceStore":
                 return new ReferenceStore(name, <any>undefined, { urn })
             case "aws-native:omics:RunGroup":

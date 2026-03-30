@@ -63,6 +63,7 @@ export class Ec2Fleet extends pulumi.CustomResource {
      * Indicates whether EC2 Fleet should replace unhealthy Spot Instances. Supported only for fleets of type `maintain` . For more information, see [EC2 Fleet health checks](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/manage-ec2-fleet.html#ec2-fleet-health-checks) in the *Amazon EC2 User Guide* .
      */
     declare public readonly replaceUnhealthyInstances: pulumi.Output<boolean | undefined>;
+    declare public readonly reservedCapacityOptions: pulumi.Output<outputs.ec2.Ec2FleetReservedCapacityOptionsRequest | undefined>;
     /**
      * Describes the configuration of Spot Instances in an EC2 Fleet.
      */
@@ -124,6 +125,7 @@ export class Ec2Fleet extends pulumi.CustomResource {
             resourceInputs["launchTemplateConfigs"] = args?.launchTemplateConfigs;
             resourceInputs["onDemandOptions"] = args?.onDemandOptions;
             resourceInputs["replaceUnhealthyInstances"] = args?.replaceUnhealthyInstances;
+            resourceInputs["reservedCapacityOptions"] = args?.reservedCapacityOptions;
             resourceInputs["spotOptions"] = args?.spotOptions;
             resourceInputs["tagSpecifications"] = args?.tagSpecifications;
             resourceInputs["targetCapacitySpecification"] = args?.targetCapacitySpecification;
@@ -139,6 +141,7 @@ export class Ec2Fleet extends pulumi.CustomResource {
             resourceInputs["launchTemplateConfigs"] = undefined /*out*/;
             resourceInputs["onDemandOptions"] = undefined /*out*/;
             resourceInputs["replaceUnhealthyInstances"] = undefined /*out*/;
+            resourceInputs["reservedCapacityOptions"] = undefined /*out*/;
             resourceInputs["spotOptions"] = undefined /*out*/;
             resourceInputs["tagSpecifications"] = undefined /*out*/;
             resourceInputs["targetCapacitySpecification"] = undefined /*out*/;
@@ -148,7 +151,7 @@ export class Ec2Fleet extends pulumi.CustomResource {
             resourceInputs["validUntil"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["launchTemplateConfigs[*]", "onDemandOptions", "replaceUnhealthyInstances", "spotOptions", "tagSpecifications[*]", "targetCapacitySpecification.defaultTargetCapacityType", "targetCapacitySpecification.targetCapacityUnitType", "terminateInstancesWithExpiration", "type", "validFrom", "validUntil"] };
+        const replaceOnChanges = { replaceOnChanges: ["launchTemplateConfigs[*]", "onDemandOptions", "replaceUnhealthyInstances", "reservedCapacityOptions", "spotOptions", "tagSpecifications[*]", "targetCapacitySpecification.defaultTargetCapacityType", "targetCapacitySpecification.targetCapacityUnitType", "terminateInstancesWithExpiration", "type", "validFrom", "validUntil"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Ec2Fleet.__pulumiType, name, resourceInputs, opts);
     }
@@ -180,6 +183,7 @@ export interface Ec2FleetArgs {
      * Indicates whether EC2 Fleet should replace unhealthy Spot Instances. Supported only for fleets of type `maintain` . For more information, see [EC2 Fleet health checks](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/manage-ec2-fleet.html#ec2-fleet-health-checks) in the *Amazon EC2 User Guide* .
      */
     replaceUnhealthyInstances?: pulumi.Input<boolean>;
+    reservedCapacityOptions?: pulumi.Input<inputs.ec2.Ec2FleetReservedCapacityOptionsRequestArgs>;
     /**
      * Describes the configuration of Spot Instances in an EC2 Fleet.
      */

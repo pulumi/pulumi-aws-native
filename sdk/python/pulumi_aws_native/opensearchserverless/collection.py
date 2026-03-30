@@ -326,6 +326,7 @@ class Collection(pulumi.CustomResource):
             __props__.__dict__["aws_id"] = None
             __props__.__dict__["collection_endpoint"] = None
             __props__.__dict__["dashboard_endpoint"] = None
+            __props__.__dict__["fips_endpoints"] = None
             __props__.__dict__["kms_key_arn"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["collectionGroupName", "encryptionConfig", "name", "standbyReplicas", "tags[*]", "type", "vectorOptions"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
@@ -358,6 +359,7 @@ class Collection(pulumi.CustomResource):
         __props__.__dict__["dashboard_endpoint"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["encryption_config"] = None
+        __props__.__dict__["fips_endpoints"] = None
         __props__.__dict__["kms_key_arn"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["standby_replicas"] = None
@@ -418,6 +420,11 @@ class Collection(pulumi.CustomResource):
     @pulumi.getter(name="encryptionConfig")
     def encryption_config(self) -> pulumi.Output[Optional['outputs.CollectionEncryptionConfig']]:
         return pulumi.get(self, "encryption_config")
+
+    @_builtins.property
+    @pulumi.getter(name="fipsEndpoints")
+    def fips_endpoints(self) -> pulumi.Output['outputs.CollectionFipsEndpoints']:
+        return pulumi.get(self, "fips_endpoints")
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyArn")

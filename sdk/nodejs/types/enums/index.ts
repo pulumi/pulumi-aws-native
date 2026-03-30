@@ -23,6 +23,7 @@ import * as autoscaling from "./autoscaling";
 import * as b2bi from "./b2bi";
 import * as backup from "./backup";
 import * as batch from "./batch";
+import * as bcmdataexports from "./bcmdataexports";
 import * as bedrock from "./bedrock";
 import * as bedrockagentcore from "./bedrockagentcore";
 import * as billing from "./billing";
@@ -56,6 +57,7 @@ import * as datasync from "./datasync";
 import * as datazone from "./datazone";
 import * as deadline from "./deadline";
 import * as devicefarm from "./devicefarm";
+import * as devopsagent from "./devopsagent";
 import * as devopsguru from "./devopsguru";
 import * as dms from "./dms";
 import * as docdb from "./docdb";
@@ -92,6 +94,7 @@ import * as healthlake from "./healthlake";
 import * as iam from "./iam";
 import * as imagebuilder from "./imagebuilder";
 import * as inspectorv2 from "./inspectorv2";
+import * as interconnect from "./interconnect";
 import * as internetmonitor from "./internetmonitor";
 import * as iot from "./iot";
 import * as iotanalytics from "./iotanalytics";
@@ -221,6 +224,7 @@ export {
     b2bi,
     backup,
     batch,
+    bcmdataexports,
     bedrock,
     bedrockagentcore,
     billing,
@@ -254,6 +258,7 @@ export {
     datazone,
     deadline,
     devicefarm,
+    devopsagent,
     devopsguru,
     dms,
     docdb,
@@ -290,6 +295,7 @@ export {
     iam,
     imagebuilder,
     inspectorv2,
+    interconnect,
     internetmonitor,
     iot,
     iotanalytics,

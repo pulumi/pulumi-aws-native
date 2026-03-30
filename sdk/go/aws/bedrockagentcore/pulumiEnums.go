@@ -5474,6 +5474,42 @@ const (
 	OnlineEvaluationConfigExecutionStatusDisabled = OnlineEvaluationConfigExecutionStatus("DISABLED")
 )
 
+func (OnlineEvaluationConfigExecutionStatus) ElementType() reflect.Type {
+	return reflect.TypeOf((*OnlineEvaluationConfigExecutionStatus)(nil)).Elem()
+}
+
+func (e OnlineEvaluationConfigExecutionStatus) ToOnlineEvaluationConfigExecutionStatusOutput() OnlineEvaluationConfigExecutionStatusOutput {
+	return pulumi.ToOutput(e).(OnlineEvaluationConfigExecutionStatusOutput)
+}
+
+func (e OnlineEvaluationConfigExecutionStatus) ToOnlineEvaluationConfigExecutionStatusOutputWithContext(ctx context.Context) OnlineEvaluationConfigExecutionStatusOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(OnlineEvaluationConfigExecutionStatusOutput)
+}
+
+func (e OnlineEvaluationConfigExecutionStatus) ToOnlineEvaluationConfigExecutionStatusPtrOutput() OnlineEvaluationConfigExecutionStatusPtrOutput {
+	return e.ToOnlineEvaluationConfigExecutionStatusPtrOutputWithContext(context.Background())
+}
+
+func (e OnlineEvaluationConfigExecutionStatus) ToOnlineEvaluationConfigExecutionStatusPtrOutputWithContext(ctx context.Context) OnlineEvaluationConfigExecutionStatusPtrOutput {
+	return OnlineEvaluationConfigExecutionStatus(e).ToOnlineEvaluationConfigExecutionStatusOutputWithContext(ctx).ToOnlineEvaluationConfigExecutionStatusPtrOutputWithContext(ctx)
+}
+
+func (e OnlineEvaluationConfigExecutionStatus) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e OnlineEvaluationConfigExecutionStatus) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e OnlineEvaluationConfigExecutionStatus) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e OnlineEvaluationConfigExecutionStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
 type OnlineEvaluationConfigExecutionStatusOutput struct{ *pulumi.OutputState }
 
 func (OnlineEvaluationConfigExecutionStatusOutput) ElementType() reflect.Type {
@@ -5555,6 +5591,45 @@ func (o OnlineEvaluationConfigExecutionStatusPtrOutput) ToStringPtrOutputWithCon
 		v := string(*e)
 		return &v
 	}).(pulumi.StringPtrOutput)
+}
+
+// OnlineEvaluationConfigExecutionStatusInput is an input type that accepts values of the OnlineEvaluationConfigExecutionStatus enum
+// A concrete instance of `OnlineEvaluationConfigExecutionStatusInput` can be one of the following:
+//
+//	OnlineEvaluationConfigExecutionStatusEnabled
+//	OnlineEvaluationConfigExecutionStatusDisabled
+type OnlineEvaluationConfigExecutionStatusInput interface {
+	pulumi.Input
+
+	ToOnlineEvaluationConfigExecutionStatusOutput() OnlineEvaluationConfigExecutionStatusOutput
+	ToOnlineEvaluationConfigExecutionStatusOutputWithContext(context.Context) OnlineEvaluationConfigExecutionStatusOutput
+}
+
+var onlineEvaluationConfigExecutionStatusPtrType = reflect.TypeOf((**OnlineEvaluationConfigExecutionStatus)(nil)).Elem()
+
+type OnlineEvaluationConfigExecutionStatusPtrInput interface {
+	pulumi.Input
+
+	ToOnlineEvaluationConfigExecutionStatusPtrOutput() OnlineEvaluationConfigExecutionStatusPtrOutput
+	ToOnlineEvaluationConfigExecutionStatusPtrOutputWithContext(context.Context) OnlineEvaluationConfigExecutionStatusPtrOutput
+}
+
+type onlineEvaluationConfigExecutionStatusPtr string
+
+func OnlineEvaluationConfigExecutionStatusPtr(v string) OnlineEvaluationConfigExecutionStatusPtrInput {
+	return (*onlineEvaluationConfigExecutionStatusPtr)(&v)
+}
+
+func (*onlineEvaluationConfigExecutionStatusPtr) ElementType() reflect.Type {
+	return onlineEvaluationConfigExecutionStatusPtrType
+}
+
+func (in *onlineEvaluationConfigExecutionStatusPtr) ToOnlineEvaluationConfigExecutionStatusPtrOutput() OnlineEvaluationConfigExecutionStatusPtrOutput {
+	return pulumi.ToOutput(in).(OnlineEvaluationConfigExecutionStatusPtrOutput)
+}
+
+func (in *onlineEvaluationConfigExecutionStatusPtr) ToOnlineEvaluationConfigExecutionStatusPtrOutputWithContext(ctx context.Context) OnlineEvaluationConfigExecutionStatusPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(OnlineEvaluationConfigExecutionStatusPtrOutput)
 }
 
 // The comparison operator to use for filtering.
@@ -7269,6 +7344,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MemoryUserPreferenceMemoryStrategyStatusPtrInput)(nil)).Elem(), MemoryUserPreferenceMemoryStrategyStatus("CREATING"))
 	pulumi.RegisterInputType(reflect.TypeOf((*MemoryUserPreferenceMemoryStrategyTypeInput)(nil)).Elem(), MemoryUserPreferenceMemoryStrategyType("SEMANTIC"))
 	pulumi.RegisterInputType(reflect.TypeOf((*MemoryUserPreferenceMemoryStrategyTypePtrInput)(nil)).Elem(), MemoryUserPreferenceMemoryStrategyType("SEMANTIC"))
+	pulumi.RegisterInputType(reflect.TypeOf((*OnlineEvaluationConfigExecutionStatusInput)(nil)).Elem(), OnlineEvaluationConfigExecutionStatus("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*OnlineEvaluationConfigExecutionStatusPtrInput)(nil)).Elem(), OnlineEvaluationConfigExecutionStatus("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*OnlineEvaluationConfigFilterOperatorInput)(nil)).Elem(), OnlineEvaluationConfigFilterOperator("Equals"))
 	pulumi.RegisterInputType(reflect.TypeOf((*OnlineEvaluationConfigFilterOperatorPtrInput)(nil)).Elem(), OnlineEvaluationConfigFilterOperator("Equals"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyValidationModeInput)(nil)).Elem(), PolicyValidationMode("FAIL_ON_ANY_FINDINGS"))

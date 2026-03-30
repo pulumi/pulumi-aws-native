@@ -826,6 +826,101 @@ func (o AnnotationStoreStoreStatusPtrOutput) ToStringPtrOutputWithContext(ctx co
 	}).(pulumi.StringPtrOutput)
 }
 
+// Current configuration status.
+type ConfigurationStatus string
+
+const (
+	ConfigurationStatusCreating = ConfigurationStatus("CREATING")
+	ConfigurationStatusActive   = ConfigurationStatus("ACTIVE")
+	ConfigurationStatusUpdating = ConfigurationStatus("UPDATING")
+	ConfigurationStatusDeleting = ConfigurationStatus("DELETING")
+	ConfigurationStatusDeleted  = ConfigurationStatus("DELETED")
+	ConfigurationStatusFailed   = ConfigurationStatus("FAILED")
+)
+
+type ConfigurationStatusOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationStatus)(nil)).Elem()
+}
+
+func (o ConfigurationStatusOutput) ToConfigurationStatusOutput() ConfigurationStatusOutput {
+	return o
+}
+
+func (o ConfigurationStatusOutput) ToConfigurationStatusOutputWithContext(ctx context.Context) ConfigurationStatusOutput {
+	return o
+}
+
+func (o ConfigurationStatusOutput) ToConfigurationStatusPtrOutput() ConfigurationStatusPtrOutput {
+	return o.ToConfigurationStatusPtrOutputWithContext(context.Background())
+}
+
+func (o ConfigurationStatusOutput) ToConfigurationStatusPtrOutputWithContext(ctx context.Context) ConfigurationStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfigurationStatus) *ConfigurationStatus {
+		return &v
+	}).(ConfigurationStatusPtrOutput)
+}
+
+func (o ConfigurationStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ConfigurationStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ConfigurationStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ConfigurationStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ConfigurationStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ConfigurationStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ConfigurationStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigurationStatus)(nil)).Elem()
+}
+
+func (o ConfigurationStatusPtrOutput) ToConfigurationStatusPtrOutput() ConfigurationStatusPtrOutput {
+	return o
+}
+
+func (o ConfigurationStatusPtrOutput) ToConfigurationStatusPtrOutputWithContext(ctx context.Context) ConfigurationStatusPtrOutput {
+	return o
+}
+
+func (o ConfigurationStatusPtrOutput) Elem() ConfigurationStatusOutput {
+	return o.ApplyT(func(v *ConfigurationStatus) ConfigurationStatus {
+		if v != nil {
+			return *v
+		}
+		var ret ConfigurationStatus
+		return ret
+	}).(ConfigurationStatusOutput)
+}
+
+func (o ConfigurationStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ConfigurationStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ConfigurationStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
 type ReferenceStoreEncryptionType string
 
 const (
@@ -3405,6 +3500,8 @@ func init() {
 	pulumi.RegisterOutputType(AnnotationStoreStoreFormatPtrOutput{})
 	pulumi.RegisterOutputType(AnnotationStoreStoreStatusOutput{})
 	pulumi.RegisterOutputType(AnnotationStoreStoreStatusPtrOutput{})
+	pulumi.RegisterOutputType(ConfigurationStatusOutput{})
+	pulumi.RegisterOutputType(ConfigurationStatusPtrOutput{})
 	pulumi.RegisterOutputType(ReferenceStoreEncryptionTypeOutput{})
 	pulumi.RegisterOutputType(ReferenceStoreEncryptionTypePtrOutput{})
 	pulumi.RegisterOutputType(SequenceStoreETagAlgorithmFamilyOutput{})

@@ -49,7 +49,7 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         /// The execution status indicating whether the online evaluation is currently running.
         /// </summary>
         [Output("executionStatus")]
-        public Output<Pulumi.AwsNative.BedrockAgentCore.OnlineEvaluationConfigExecutionStatus> ExecutionStatus { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.BedrockAgentCore.OnlineEvaluationConfigExecutionStatus?> ExecutionStatus { get; private set; } = null!;
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the online evaluation configuration.
@@ -177,6 +177,12 @@ namespace Pulumi.AwsNative.BedrockAgentCore
             get => _evaluators ?? (_evaluators = new InputList<Inputs.OnlineEvaluationConfigEvaluatorReferenceArgs>());
             set => _evaluators = value;
         }
+
+        /// <summary>
+        /// The execution status indicating whether the online evaluation is currently running.
+        /// </summary>
+        [Input("executionStatus")]
+        public Input<Pulumi.AwsNative.BedrockAgentCore.OnlineEvaluationConfigExecutionStatus>? ExecutionStatus { get; set; }
 
         /// <summary>
         /// The name of the online evaluation configuration. Must be unique within your account.

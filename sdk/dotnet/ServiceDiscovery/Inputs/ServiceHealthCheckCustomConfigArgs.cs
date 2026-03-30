@@ -10,13 +10,14 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ServiceDiscovery.Inputs
 {
 
-    /// <summary>
-    /// Configurations for custom health checks for the service.
-    /// </summary>
     public sealed class ServiceHealthCheckCustomConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The number of consecutive health check failures required before the service is considered unhealthy.
+        /// &gt; This parameter is no longer supported and is always set to 1. AWS Cloud Map waits for approximately 30 seconds after receiving an `UpdateInstanceCustomHealthStatus` request before changing the status of the service instance. 
+        /// 
+        /// The number of 30-second intervals that you want AWS Cloud Map to wait after receiving an `UpdateInstanceCustomHealthStatus` request before it changes the health status of a service instance.
+        /// 
+        /// Sending a second or subsequent `UpdateInstanceCustomHealthStatus` request with the same value before 30 seconds has passed doesn't accelerate the change. AWS Cloud Map still waits `30` seconds after the first request to make the change.
         /// </summary>
         [Input("failureThreshold")]
         public Input<double>? FailureThreshold { get; set; }

@@ -47,6 +47,16 @@ __all__ = [
     'ImageBuilderVolumeConfigArgsDict',
     'ImageBuilderVpcConfigArgs',
     'ImageBuilderVpcConfigArgsDict',
+    'StackAccessEndpointArgs',
+    'StackAccessEndpointArgsDict',
+    'StackApplicationSettingsArgs',
+    'StackApplicationSettingsArgsDict',
+    'StackStorageConnectorArgs',
+    'StackStorageConnectorArgsDict',
+    'StackStreamingExperienceSettingsArgs',
+    'StackStreamingExperienceSettingsArgsDict',
+    'StackUserSettingArgs',
+    'StackUserSettingArgsDict',
 ]
 
 class AppBlockBuilderAccessEndpointArgsDict(TypedDict):
@@ -792,5 +802,289 @@ class ImageBuilderVpcConfigArgs:
     @subnet_ids.setter
     def subnet_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "subnet_ids", value)
+
+
+class StackAccessEndpointArgsDict(TypedDict):
+    """
+    Describes an interface VPC endpoint (interface endpoint) that lets you create a private connection between the virtual private cloud (VPC) that you specify and AppStream 2.0. When you specify an interface endpoint for a stack, users of the stack can connect to AppStream 2.0 only through that endpoint. When you specify an interface endpoint for an image builder, administrators can connect to the image builder only through that endpoint.
+    """
+    endpoint_type: pulumi.Input[_builtins.str]
+    """
+    The type of interface endpoint.
+    """
+    vpce_id: pulumi.Input[_builtins.str]
+    """
+    The identifier (ID) of the VPC in which the interface endpoint is used.
+    """
+
+@pulumi.input_type
+class StackAccessEndpointArgs:
+    def __init__(__self__, *,
+                 endpoint_type: pulumi.Input[_builtins.str],
+                 vpce_id: pulumi.Input[_builtins.str]):
+        """
+        Describes an interface VPC endpoint (interface endpoint) that lets you create a private connection between the virtual private cloud (VPC) that you specify and AppStream 2.0. When you specify an interface endpoint for a stack, users of the stack can connect to AppStream 2.0 only through that endpoint. When you specify an interface endpoint for an image builder, administrators can connect to the image builder only through that endpoint.
+
+        :param pulumi.Input[_builtins.str] endpoint_type: The type of interface endpoint.
+        :param pulumi.Input[_builtins.str] vpce_id: The identifier (ID) of the VPC in which the interface endpoint is used.
+        """
+        pulumi.set(__self__, "endpoint_type", endpoint_type)
+        pulumi.set(__self__, "vpce_id", vpce_id)
+
+    @_builtins.property
+    @pulumi.getter(name="endpointType")
+    def endpoint_type(self) -> pulumi.Input[_builtins.str]:
+        """
+        The type of interface endpoint.
+        """
+        return pulumi.get(self, "endpoint_type")
+
+    @endpoint_type.setter
+    def endpoint_type(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "endpoint_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="vpceId")
+    def vpce_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        The identifier (ID) of the VPC in which the interface endpoint is used.
+        """
+        return pulumi.get(self, "vpce_id")
+
+    @vpce_id.setter
+    def vpce_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "vpce_id", value)
+
+
+class StackApplicationSettingsArgsDict(TypedDict):
+    """
+    The persistent application settings for users of a stack.
+    """
+    enabled: pulumi.Input[_builtins.bool]
+    """
+    Enables or disables persistent application settings for users during their streaming sessions.
+    """
+    settings_group: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The path prefix for the S3 bucket where users’ persistent application settings are stored. You can allow the same persistent application settings to be used across multiple stacks by specifying the same settings group for each stack.
+    """
+
+@pulumi.input_type
+class StackApplicationSettingsArgs:
+    def __init__(__self__, *,
+                 enabled: pulumi.Input[_builtins.bool],
+                 settings_group: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        The persistent application settings for users of a stack.
+
+        :param pulumi.Input[_builtins.bool] enabled: Enables or disables persistent application settings for users during their streaming sessions.
+        :param pulumi.Input[_builtins.str] settings_group: The path prefix for the S3 bucket where users’ persistent application settings are stored. You can allow the same persistent application settings to be used across multiple stacks by specifying the same settings group for each stack.
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        if settings_group is not None:
+            pulumi.set(__self__, "settings_group", settings_group)
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> pulumi.Input[_builtins.bool]:
+        """
+        Enables or disables persistent application settings for users during their streaming sessions.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: pulumi.Input[_builtins.bool]):
+        pulumi.set(self, "enabled", value)
+
+    @_builtins.property
+    @pulumi.getter(name="settingsGroup")
+    def settings_group(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The path prefix for the S3 bucket where users’ persistent application settings are stored. You can allow the same persistent application settings to be used across multiple stacks by specifying the same settings group for each stack.
+        """
+        return pulumi.get(self, "settings_group")
+
+    @settings_group.setter
+    def settings_group(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "settings_group", value)
+
+
+class StackStorageConnectorArgsDict(TypedDict):
+    """
+    A connector that enables persistent storage for users.
+    """
+    connector_type: pulumi.Input[_builtins.str]
+    """
+    The type of storage connector.
+    """
+    domains: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The names of the domains for the account.
+    """
+    resource_identifier: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ARN of the storage connector.
+    """
+
+@pulumi.input_type
+class StackStorageConnectorArgs:
+    def __init__(__self__, *,
+                 connector_type: pulumi.Input[_builtins.str],
+                 domains: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 resource_identifier: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        A connector that enables persistent storage for users.
+
+        :param pulumi.Input[_builtins.str] connector_type: The type of storage connector.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] domains: The names of the domains for the account.
+        :param pulumi.Input[_builtins.str] resource_identifier: The ARN of the storage connector.
+        """
+        pulumi.set(__self__, "connector_type", connector_type)
+        if domains is not None:
+            pulumi.set(__self__, "domains", domains)
+        if resource_identifier is not None:
+            pulumi.set(__self__, "resource_identifier", resource_identifier)
+
+    @_builtins.property
+    @pulumi.getter(name="connectorType")
+    def connector_type(self) -> pulumi.Input[_builtins.str]:
+        """
+        The type of storage connector.
+        """
+        return pulumi.get(self, "connector_type")
+
+    @connector_type.setter
+    def connector_type(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "connector_type", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def domains(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        The names of the domains for the account.
+        """
+        return pulumi.get(self, "domains")
+
+    @domains.setter
+    def domains(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "domains", value)
+
+    @_builtins.property
+    @pulumi.getter(name="resourceIdentifier")
+    def resource_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The ARN of the storage connector.
+        """
+        return pulumi.get(self, "resource_identifier")
+
+    @resource_identifier.setter
+    def resource_identifier(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "resource_identifier", value)
+
+
+class StackStreamingExperienceSettingsArgsDict(TypedDict):
+    """
+    The streaming protocol that you want your stack to prefer. This can be UDP or TCP. Currently, UDP is only supported in the Windows native client.
+    """
+    preferred_protocol: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The preferred protocol that you want to use while streaming your application.
+    """
+
+@pulumi.input_type
+class StackStreamingExperienceSettingsArgs:
+    def __init__(__self__, *,
+                 preferred_protocol: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        The streaming protocol that you want your stack to prefer. This can be UDP or TCP. Currently, UDP is only supported in the Windows native client.
+
+        :param pulumi.Input[_builtins.str] preferred_protocol: The preferred protocol that you want to use while streaming your application.
+        """
+        if preferred_protocol is not None:
+            pulumi.set(__self__, "preferred_protocol", preferred_protocol)
+
+    @_builtins.property
+    @pulumi.getter(name="preferredProtocol")
+    def preferred_protocol(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The preferred protocol that you want to use while streaming your application.
+        """
+        return pulumi.get(self, "preferred_protocol")
+
+    @preferred_protocol.setter
+    def preferred_protocol(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "preferred_protocol", value)
+
+
+class StackUserSettingArgsDict(TypedDict):
+    """
+    Specifies an action and whether the action is enabled or disabled for users during their streaming sessions.
+    """
+    action: pulumi.Input[_builtins.str]
+    """
+    The action that is enabled or disabled.
+    """
+    permission: pulumi.Input[_builtins.str]
+    """
+    Indicates whether the action is enabled or disabled.
+    """
+    maximum_length: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Specifies the number of characters that can be copied by end users from the local device to the remote session, and to the local device from the remote session. This can be specified only for the CLIPBOARD_COPY_FROM_LOCAL_DEVICE and CLIPBOARD_COPY_TO_LOCAL_DEVICE actions. This defaults to 20,971,520 (20 MB) when unspecified and the permission is ENABLED. This can't be specified when the permission is DISABLED. The value can be between 1 and 20,971,520 (20 MB).
+    """
+
+@pulumi.input_type
+class StackUserSettingArgs:
+    def __init__(__self__, *,
+                 action: pulumi.Input[_builtins.str],
+                 permission: pulumi.Input[_builtins.str],
+                 maximum_length: Optional[pulumi.Input[_builtins.int]] = None):
+        """
+        Specifies an action and whether the action is enabled or disabled for users during their streaming sessions.
+
+        :param pulumi.Input[_builtins.str] action: The action that is enabled or disabled.
+        :param pulumi.Input[_builtins.str] permission: Indicates whether the action is enabled or disabled.
+        :param pulumi.Input[_builtins.int] maximum_length: Specifies the number of characters that can be copied by end users from the local device to the remote session, and to the local device from the remote session. This can be specified only for the CLIPBOARD_COPY_FROM_LOCAL_DEVICE and CLIPBOARD_COPY_TO_LOCAL_DEVICE actions. This defaults to 20,971,520 (20 MB) when unspecified and the permission is ENABLED. This can't be specified when the permission is DISABLED. The value can be between 1 and 20,971,520 (20 MB).
+        """
+        pulumi.set(__self__, "action", action)
+        pulumi.set(__self__, "permission", permission)
+        if maximum_length is not None:
+            pulumi.set(__self__, "maximum_length", maximum_length)
+
+    @_builtins.property
+    @pulumi.getter
+    def action(self) -> pulumi.Input[_builtins.str]:
+        """
+        The action that is enabled or disabled.
+        """
+        return pulumi.get(self, "action")
+
+    @action.setter
+    def action(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "action", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def permission(self) -> pulumi.Input[_builtins.str]:
+        """
+        Indicates whether the action is enabled or disabled.
+        """
+        return pulumi.get(self, "permission")
+
+    @permission.setter
+    def permission(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "permission", value)
+
+    @_builtins.property
+    @pulumi.getter(name="maximumLength")
+    def maximum_length(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        Specifies the number of characters that can be copied by end users from the local device to the remote session, and to the local device from the remote session. This can be specified only for the CLIPBOARD_COPY_FROM_LOCAL_DEVICE and CLIPBOARD_COPY_TO_LOCAL_DEVICE actions. This defaults to 20,971,520 (20 MB) when unspecified and the permission is ENABLED. This can't be specified when the permission is DISABLED. The value can be between 1 and 20,971,520 (20 MB).
+        """
+        return pulumi.get(self, "maximum_length")
+
+    @maximum_length.setter
+    def maximum_length(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "maximum_length", value)
 
 

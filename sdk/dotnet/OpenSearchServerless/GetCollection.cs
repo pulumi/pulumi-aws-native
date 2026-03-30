@@ -79,6 +79,7 @@ namespace Pulumi.AwsNative.OpenSearchServerless
         /// The description of the collection
         /// </summary>
         public readonly string? Description;
+        public readonly Outputs.CollectionFipsEndpoints? FipsEndpoints;
         /// <summary>
         /// The identifier of the collection
         /// </summary>
@@ -98,6 +99,8 @@ namespace Pulumi.AwsNative.OpenSearchServerless
 
             string? description,
 
+            Outputs.CollectionFipsEndpoints? fipsEndpoints,
+
             string? id,
 
             string? kmsKeyArn)
@@ -106,6 +109,7 @@ namespace Pulumi.AwsNative.OpenSearchServerless
             CollectionEndpoint = collectionEndpoint;
             DashboardEndpoint = dashboardEndpoint;
             Description = description;
+            FipsEndpoints = fipsEndpoints;
             Id = id;
             KmsKeyArn = kmsKeyArn;
         }

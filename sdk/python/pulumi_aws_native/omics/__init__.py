@@ -8,7 +8,9 @@ import typing
 # Export this package's modules as members:
 from ._enums import *
 from .annotation_store import *
+from .configuration import *
 from .get_annotation_store import *
+from .get_configuration import *
 from .get_reference_store import *
 from .get_run_group import *
 from .get_sequence_store import *

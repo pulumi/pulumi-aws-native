@@ -55,6 +55,11 @@ export const getObjectType: typeof import("./getObjectType").getObjectType = nul
 export const getObjectTypeOutput: typeof import("./getObjectType").getObjectTypeOutput = null as any;
 utilities.lazyLoad(exports, ["getObjectType","getObjectTypeOutput"], () => require("./getObjectType"));
 
+export { GetRecommenderArgs, GetRecommenderResult, GetRecommenderOutputArgs } from "./getRecommender";
+export const getRecommender: typeof import("./getRecommender").getRecommender = null as any;
+export const getRecommenderOutput: typeof import("./getRecommender").getRecommenderOutput = null as any;
+utilities.lazyLoad(exports, ["getRecommender","getRecommenderOutput"], () => require("./getRecommender"));
+
 export { GetSegmentDefinitionArgs, GetSegmentDefinitionResult, GetSegmentDefinitionOutputArgs } from "./getSegmentDefinition";
 export const getSegmentDefinition: typeof import("./getSegmentDefinition").getSegmentDefinition = null as any;
 export const getSegmentDefinitionOutput: typeof import("./getSegmentDefinition").getSegmentDefinitionOutput = null as any;
@@ -69,6 +74,11 @@ export { ObjectTypeArgs } from "./objectType";
 export type ObjectType = import("./objectType").ObjectType;
 export const ObjectType: typeof import("./objectType").ObjectType = null as any;
 utilities.lazyLoad(exports, ["ObjectType"], () => require("./objectType"));
+
+export { RecommenderArgs } from "./recommender";
+export type Recommender = import("./recommender").Recommender;
+export const Recommender: typeof import("./recommender").Recommender = null as any;
+utilities.lazyLoad(exports, ["Recommender"], () => require("./recommender"));
 
 export { SegmentDefinitionArgs } from "./segmentDefinition";
 export type SegmentDefinition = import("./segmentDefinition").SegmentDefinition;
@@ -95,6 +105,8 @@ const _module = {
                 return new Integration(name, <any>undefined, { urn })
             case "aws-native:customerprofiles:ObjectType":
                 return new ObjectType(name, <any>undefined, { urn })
+            case "aws-native:customerprofiles:Recommender":
+                return new Recommender(name, <any>undefined, { urn })
             case "aws-native:customerprofiles:SegmentDefinition":
                 return new SegmentDefinition(name, <any>undefined, { urn })
             default:

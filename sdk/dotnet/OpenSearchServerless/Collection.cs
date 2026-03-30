@@ -124,6 +124,9 @@ namespace Pulumi.AwsNative.OpenSearchServerless
         [Output("encryptionConfig")]
         public Output<Outputs.CollectionEncryptionConfig?> EncryptionConfig { get; private set; } = null!;
 
+        [Output("fipsEndpoints")]
+        public Output<Outputs.CollectionFipsEndpoints> FipsEndpoints { get; private set; } = null!;
+
         /// <summary>
         /// Key Management Service key used to encrypt the collection.
         /// </summary>

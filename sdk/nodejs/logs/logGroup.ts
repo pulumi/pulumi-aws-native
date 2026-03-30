@@ -45,6 +45,7 @@ export class LogGroup extends pulumi.CustomResource {
      * The ARN of the log group, such as `arn:aws:logs:us-west-1:123456789012:log-group:/mystack-testgroup-12ABC1AB12A1:*`
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
+    declare public readonly bearerTokenAuthenticationEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Creates a data protection policy and assigns it to the log group. A data protection policy can help safeguard sensitive data that's ingested by the log group by auditing and masking the sensitive log data. When a user who does not have permission to view masked data views a log event that includes masked data, the sensitive data is replaced by asterisks.
      *
@@ -108,6 +109,7 @@ export class LogGroup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            resourceInputs["bearerTokenAuthenticationEnabled"] = args?.bearerTokenAuthenticationEnabled;
             resourceInputs["dataProtectionPolicy"] = args?.dataProtectionPolicy;
             resourceInputs["deletionProtectionEnabled"] = args?.deletionProtectionEnabled;
             resourceInputs["fieldIndexPolicies"] = args?.fieldIndexPolicies;
@@ -120,6 +122,7 @@ export class LogGroup extends pulumi.CustomResource {
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["bearerTokenAuthenticationEnabled"] = undefined /*out*/;
             resourceInputs["dataProtectionPolicy"] = undefined /*out*/;
             resourceInputs["deletionProtectionEnabled"] = undefined /*out*/;
             resourceInputs["fieldIndexPolicies"] = undefined /*out*/;
@@ -141,6 +144,7 @@ export class LogGroup extends pulumi.CustomResource {
  * The set of arguments for constructing a LogGroup resource.
  */
 export interface LogGroupArgs {
+    bearerTokenAuthenticationEnabled?: pulumi.Input<boolean>;
     /**
      * Creates a data protection policy and assigns it to the log group. A data protection policy can help safeguard sensitive data that's ingested by the log group by auditing and masking the sensitive log data. When a user who does not have permission to view masked data views a log event that includes masked data, the sensitive data is replaced by asterisks.
      *

@@ -7023,6 +7023,696 @@ type ObjectTypeTag struct {
 	Value string `pulumi:"value"`
 }
 
+// Configuration for the recommender
+type RecommenderConfig struct {
+	EventsConfig *RecommenderEventsConfig `pulumi:"eventsConfig"`
+}
+
+// RecommenderConfigInput is an input type that accepts RecommenderConfigArgs and RecommenderConfigOutput values.
+// You can construct a concrete instance of `RecommenderConfigInput` via:
+//
+//	RecommenderConfigArgs{...}
+type RecommenderConfigInput interface {
+	pulumi.Input
+
+	ToRecommenderConfigOutput() RecommenderConfigOutput
+	ToRecommenderConfigOutputWithContext(context.Context) RecommenderConfigOutput
+}
+
+// Configuration for the recommender
+type RecommenderConfigArgs struct {
+	EventsConfig RecommenderEventsConfigPtrInput `pulumi:"eventsConfig"`
+}
+
+func (RecommenderConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RecommenderConfig)(nil)).Elem()
+}
+
+func (i RecommenderConfigArgs) ToRecommenderConfigOutput() RecommenderConfigOutput {
+	return i.ToRecommenderConfigOutputWithContext(context.Background())
+}
+
+func (i RecommenderConfigArgs) ToRecommenderConfigOutputWithContext(ctx context.Context) RecommenderConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RecommenderConfigOutput)
+}
+
+func (i RecommenderConfigArgs) ToRecommenderConfigPtrOutput() RecommenderConfigPtrOutput {
+	return i.ToRecommenderConfigPtrOutputWithContext(context.Background())
+}
+
+func (i RecommenderConfigArgs) ToRecommenderConfigPtrOutputWithContext(ctx context.Context) RecommenderConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RecommenderConfigOutput).ToRecommenderConfigPtrOutputWithContext(ctx)
+}
+
+// RecommenderConfigPtrInput is an input type that accepts RecommenderConfigArgs, RecommenderConfigPtr and RecommenderConfigPtrOutput values.
+// You can construct a concrete instance of `RecommenderConfigPtrInput` via:
+//
+//	        RecommenderConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type RecommenderConfigPtrInput interface {
+	pulumi.Input
+
+	ToRecommenderConfigPtrOutput() RecommenderConfigPtrOutput
+	ToRecommenderConfigPtrOutputWithContext(context.Context) RecommenderConfigPtrOutput
+}
+
+type recommenderConfigPtrType RecommenderConfigArgs
+
+func RecommenderConfigPtr(v *RecommenderConfigArgs) RecommenderConfigPtrInput {
+	return (*recommenderConfigPtrType)(v)
+}
+
+func (*recommenderConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RecommenderConfig)(nil)).Elem()
+}
+
+func (i *recommenderConfigPtrType) ToRecommenderConfigPtrOutput() RecommenderConfigPtrOutput {
+	return i.ToRecommenderConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *recommenderConfigPtrType) ToRecommenderConfigPtrOutputWithContext(ctx context.Context) RecommenderConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RecommenderConfigPtrOutput)
+}
+
+// Configuration for the recommender
+type RecommenderConfigOutput struct{ *pulumi.OutputState }
+
+func (RecommenderConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RecommenderConfig)(nil)).Elem()
+}
+
+func (o RecommenderConfigOutput) ToRecommenderConfigOutput() RecommenderConfigOutput {
+	return o
+}
+
+func (o RecommenderConfigOutput) ToRecommenderConfigOutputWithContext(ctx context.Context) RecommenderConfigOutput {
+	return o
+}
+
+func (o RecommenderConfigOutput) ToRecommenderConfigPtrOutput() RecommenderConfigPtrOutput {
+	return o.ToRecommenderConfigPtrOutputWithContext(context.Background())
+}
+
+func (o RecommenderConfigOutput) ToRecommenderConfigPtrOutputWithContext(ctx context.Context) RecommenderConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RecommenderConfig) *RecommenderConfig {
+		return &v
+	}).(RecommenderConfigPtrOutput)
+}
+
+func (o RecommenderConfigOutput) EventsConfig() RecommenderEventsConfigPtrOutput {
+	return o.ApplyT(func(v RecommenderConfig) *RecommenderEventsConfig { return v.EventsConfig }).(RecommenderEventsConfigPtrOutput)
+}
+
+type RecommenderConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (RecommenderConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RecommenderConfig)(nil)).Elem()
+}
+
+func (o RecommenderConfigPtrOutput) ToRecommenderConfigPtrOutput() RecommenderConfigPtrOutput {
+	return o
+}
+
+func (o RecommenderConfigPtrOutput) ToRecommenderConfigPtrOutputWithContext(ctx context.Context) RecommenderConfigPtrOutput {
+	return o
+}
+
+func (o RecommenderConfigPtrOutput) Elem() RecommenderConfigOutput {
+	return o.ApplyT(func(v *RecommenderConfig) RecommenderConfig {
+		if v != nil {
+			return *v
+		}
+		var ret RecommenderConfig
+		return ret
+	}).(RecommenderConfigOutput)
+}
+
+func (o RecommenderConfigPtrOutput) EventsConfig() RecommenderEventsConfigPtrOutput {
+	return o.ApplyT(func(v *RecommenderConfig) *RecommenderEventsConfig {
+		if v == nil {
+			return nil
+		}
+		return v.EventsConfig
+	}).(RecommenderEventsConfigPtrOutput)
+}
+
+// Event parameters with type and value threshold
+type RecommenderEventParameters struct {
+	// The type of event
+	EventType string `pulumi:"eventType"`
+	// The threshold of the event type. Only events with a value greater or equal to this threshold will be considered for solution creation.
+	EventValueThreshold *float64 `pulumi:"eventValueThreshold"`
+}
+
+// RecommenderEventParametersInput is an input type that accepts RecommenderEventParametersArgs and RecommenderEventParametersOutput values.
+// You can construct a concrete instance of `RecommenderEventParametersInput` via:
+//
+//	RecommenderEventParametersArgs{...}
+type RecommenderEventParametersInput interface {
+	pulumi.Input
+
+	ToRecommenderEventParametersOutput() RecommenderEventParametersOutput
+	ToRecommenderEventParametersOutputWithContext(context.Context) RecommenderEventParametersOutput
+}
+
+// Event parameters with type and value threshold
+type RecommenderEventParametersArgs struct {
+	// The type of event
+	EventType pulumi.StringInput `pulumi:"eventType"`
+	// The threshold of the event type. Only events with a value greater or equal to this threshold will be considered for solution creation.
+	EventValueThreshold pulumi.Float64PtrInput `pulumi:"eventValueThreshold"`
+}
+
+func (RecommenderEventParametersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RecommenderEventParameters)(nil)).Elem()
+}
+
+func (i RecommenderEventParametersArgs) ToRecommenderEventParametersOutput() RecommenderEventParametersOutput {
+	return i.ToRecommenderEventParametersOutputWithContext(context.Background())
+}
+
+func (i RecommenderEventParametersArgs) ToRecommenderEventParametersOutputWithContext(ctx context.Context) RecommenderEventParametersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RecommenderEventParametersOutput)
+}
+
+// RecommenderEventParametersArrayInput is an input type that accepts RecommenderEventParametersArray and RecommenderEventParametersArrayOutput values.
+// You can construct a concrete instance of `RecommenderEventParametersArrayInput` via:
+//
+//	RecommenderEventParametersArray{ RecommenderEventParametersArgs{...} }
+type RecommenderEventParametersArrayInput interface {
+	pulumi.Input
+
+	ToRecommenderEventParametersArrayOutput() RecommenderEventParametersArrayOutput
+	ToRecommenderEventParametersArrayOutputWithContext(context.Context) RecommenderEventParametersArrayOutput
+}
+
+type RecommenderEventParametersArray []RecommenderEventParametersInput
+
+func (RecommenderEventParametersArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RecommenderEventParameters)(nil)).Elem()
+}
+
+func (i RecommenderEventParametersArray) ToRecommenderEventParametersArrayOutput() RecommenderEventParametersArrayOutput {
+	return i.ToRecommenderEventParametersArrayOutputWithContext(context.Background())
+}
+
+func (i RecommenderEventParametersArray) ToRecommenderEventParametersArrayOutputWithContext(ctx context.Context) RecommenderEventParametersArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RecommenderEventParametersArrayOutput)
+}
+
+// Event parameters with type and value threshold
+type RecommenderEventParametersOutput struct{ *pulumi.OutputState }
+
+func (RecommenderEventParametersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RecommenderEventParameters)(nil)).Elem()
+}
+
+func (o RecommenderEventParametersOutput) ToRecommenderEventParametersOutput() RecommenderEventParametersOutput {
+	return o
+}
+
+func (o RecommenderEventParametersOutput) ToRecommenderEventParametersOutputWithContext(ctx context.Context) RecommenderEventParametersOutput {
+	return o
+}
+
+// The type of event
+func (o RecommenderEventParametersOutput) EventType() pulumi.StringOutput {
+	return o.ApplyT(func(v RecommenderEventParameters) string { return v.EventType }).(pulumi.StringOutput)
+}
+
+// The threshold of the event type. Only events with a value greater or equal to this threshold will be considered for solution creation.
+func (o RecommenderEventParametersOutput) EventValueThreshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v RecommenderEventParameters) *float64 { return v.EventValueThreshold }).(pulumi.Float64PtrOutput)
+}
+
+type RecommenderEventParametersArrayOutput struct{ *pulumi.OutputState }
+
+func (RecommenderEventParametersArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RecommenderEventParameters)(nil)).Elem()
+}
+
+func (o RecommenderEventParametersArrayOutput) ToRecommenderEventParametersArrayOutput() RecommenderEventParametersArrayOutput {
+	return o
+}
+
+func (o RecommenderEventParametersArrayOutput) ToRecommenderEventParametersArrayOutputWithContext(ctx context.Context) RecommenderEventParametersArrayOutput {
+	return o
+}
+
+func (o RecommenderEventParametersArrayOutput) Index(i pulumi.IntInput) RecommenderEventParametersOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RecommenderEventParameters {
+		return vs[0].([]RecommenderEventParameters)[vs[1].(int)]
+	}).(RecommenderEventParametersOutput)
+}
+
+// Configuration for events used in the recommender
+type RecommenderEventsConfig struct {
+	// List of event parameters with their value thresholds
+	EventParametersList []RecommenderEventParameters `pulumi:"eventParametersList"`
+}
+
+// RecommenderEventsConfigInput is an input type that accepts RecommenderEventsConfigArgs and RecommenderEventsConfigOutput values.
+// You can construct a concrete instance of `RecommenderEventsConfigInput` via:
+//
+//	RecommenderEventsConfigArgs{...}
+type RecommenderEventsConfigInput interface {
+	pulumi.Input
+
+	ToRecommenderEventsConfigOutput() RecommenderEventsConfigOutput
+	ToRecommenderEventsConfigOutputWithContext(context.Context) RecommenderEventsConfigOutput
+}
+
+// Configuration for events used in the recommender
+type RecommenderEventsConfigArgs struct {
+	// List of event parameters with their value thresholds
+	EventParametersList RecommenderEventParametersArrayInput `pulumi:"eventParametersList"`
+}
+
+func (RecommenderEventsConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RecommenderEventsConfig)(nil)).Elem()
+}
+
+func (i RecommenderEventsConfigArgs) ToRecommenderEventsConfigOutput() RecommenderEventsConfigOutput {
+	return i.ToRecommenderEventsConfigOutputWithContext(context.Background())
+}
+
+func (i RecommenderEventsConfigArgs) ToRecommenderEventsConfigOutputWithContext(ctx context.Context) RecommenderEventsConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RecommenderEventsConfigOutput)
+}
+
+func (i RecommenderEventsConfigArgs) ToRecommenderEventsConfigPtrOutput() RecommenderEventsConfigPtrOutput {
+	return i.ToRecommenderEventsConfigPtrOutputWithContext(context.Background())
+}
+
+func (i RecommenderEventsConfigArgs) ToRecommenderEventsConfigPtrOutputWithContext(ctx context.Context) RecommenderEventsConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RecommenderEventsConfigOutput).ToRecommenderEventsConfigPtrOutputWithContext(ctx)
+}
+
+// RecommenderEventsConfigPtrInput is an input type that accepts RecommenderEventsConfigArgs, RecommenderEventsConfigPtr and RecommenderEventsConfigPtrOutput values.
+// You can construct a concrete instance of `RecommenderEventsConfigPtrInput` via:
+//
+//	        RecommenderEventsConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type RecommenderEventsConfigPtrInput interface {
+	pulumi.Input
+
+	ToRecommenderEventsConfigPtrOutput() RecommenderEventsConfigPtrOutput
+	ToRecommenderEventsConfigPtrOutputWithContext(context.Context) RecommenderEventsConfigPtrOutput
+}
+
+type recommenderEventsConfigPtrType RecommenderEventsConfigArgs
+
+func RecommenderEventsConfigPtr(v *RecommenderEventsConfigArgs) RecommenderEventsConfigPtrInput {
+	return (*recommenderEventsConfigPtrType)(v)
+}
+
+func (*recommenderEventsConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RecommenderEventsConfig)(nil)).Elem()
+}
+
+func (i *recommenderEventsConfigPtrType) ToRecommenderEventsConfigPtrOutput() RecommenderEventsConfigPtrOutput {
+	return i.ToRecommenderEventsConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *recommenderEventsConfigPtrType) ToRecommenderEventsConfigPtrOutputWithContext(ctx context.Context) RecommenderEventsConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RecommenderEventsConfigPtrOutput)
+}
+
+// Configuration for events used in the recommender
+type RecommenderEventsConfigOutput struct{ *pulumi.OutputState }
+
+func (RecommenderEventsConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RecommenderEventsConfig)(nil)).Elem()
+}
+
+func (o RecommenderEventsConfigOutput) ToRecommenderEventsConfigOutput() RecommenderEventsConfigOutput {
+	return o
+}
+
+func (o RecommenderEventsConfigOutput) ToRecommenderEventsConfigOutputWithContext(ctx context.Context) RecommenderEventsConfigOutput {
+	return o
+}
+
+func (o RecommenderEventsConfigOutput) ToRecommenderEventsConfigPtrOutput() RecommenderEventsConfigPtrOutput {
+	return o.ToRecommenderEventsConfigPtrOutputWithContext(context.Background())
+}
+
+func (o RecommenderEventsConfigOutput) ToRecommenderEventsConfigPtrOutputWithContext(ctx context.Context) RecommenderEventsConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RecommenderEventsConfig) *RecommenderEventsConfig {
+		return &v
+	}).(RecommenderEventsConfigPtrOutput)
+}
+
+// List of event parameters with their value thresholds
+func (o RecommenderEventsConfigOutput) EventParametersList() RecommenderEventParametersArrayOutput {
+	return o.ApplyT(func(v RecommenderEventsConfig) []RecommenderEventParameters { return v.EventParametersList }).(RecommenderEventParametersArrayOutput)
+}
+
+type RecommenderEventsConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (RecommenderEventsConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RecommenderEventsConfig)(nil)).Elem()
+}
+
+func (o RecommenderEventsConfigPtrOutput) ToRecommenderEventsConfigPtrOutput() RecommenderEventsConfigPtrOutput {
+	return o
+}
+
+func (o RecommenderEventsConfigPtrOutput) ToRecommenderEventsConfigPtrOutputWithContext(ctx context.Context) RecommenderEventsConfigPtrOutput {
+	return o
+}
+
+func (o RecommenderEventsConfigPtrOutput) Elem() RecommenderEventsConfigOutput {
+	return o.ApplyT(func(v *RecommenderEventsConfig) RecommenderEventsConfig {
+		if v != nil {
+			return *v
+		}
+		var ret RecommenderEventsConfig
+		return ret
+	}).(RecommenderEventsConfigOutput)
+}
+
+// List of event parameters with their value thresholds
+func (o RecommenderEventsConfigPtrOutput) EventParametersList() RecommenderEventParametersArrayOutput {
+	return o.ApplyT(func(v *RecommenderEventsConfig) []RecommenderEventParameters {
+		if v == nil {
+			return nil
+		}
+		return v.EventParametersList
+	}).(RecommenderEventParametersArrayOutput)
+}
+
+type RecommenderTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
+type RecommenderTrainingMetrics struct {
+	// Training metrics by type
+	Metrics *RecommenderTrainingMetricsMetricsProperties `pulumi:"metrics"`
+	// Timestamp of the training metrics
+	Time *string `pulumi:"time"`
+}
+
+type RecommenderTrainingMetricsOutput struct{ *pulumi.OutputState }
+
+func (RecommenderTrainingMetricsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RecommenderTrainingMetrics)(nil)).Elem()
+}
+
+func (o RecommenderTrainingMetricsOutput) ToRecommenderTrainingMetricsOutput() RecommenderTrainingMetricsOutput {
+	return o
+}
+
+func (o RecommenderTrainingMetricsOutput) ToRecommenderTrainingMetricsOutputWithContext(ctx context.Context) RecommenderTrainingMetricsOutput {
+	return o
+}
+
+// Training metrics by type
+func (o RecommenderTrainingMetricsOutput) Metrics() RecommenderTrainingMetricsMetricsPropertiesPtrOutput {
+	return o.ApplyT(func(v RecommenderTrainingMetrics) *RecommenderTrainingMetricsMetricsProperties { return v.Metrics }).(RecommenderTrainingMetricsMetricsPropertiesPtrOutput)
+}
+
+// Timestamp of the training metrics
+func (o RecommenderTrainingMetricsOutput) Time() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RecommenderTrainingMetrics) *string { return v.Time }).(pulumi.StringPtrOutput)
+}
+
+type RecommenderTrainingMetricsArrayOutput struct{ *pulumi.OutputState }
+
+func (RecommenderTrainingMetricsArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RecommenderTrainingMetrics)(nil)).Elem()
+}
+
+func (o RecommenderTrainingMetricsArrayOutput) ToRecommenderTrainingMetricsArrayOutput() RecommenderTrainingMetricsArrayOutput {
+	return o
+}
+
+func (o RecommenderTrainingMetricsArrayOutput) ToRecommenderTrainingMetricsArrayOutputWithContext(ctx context.Context) RecommenderTrainingMetricsArrayOutput {
+	return o
+}
+
+func (o RecommenderTrainingMetricsArrayOutput) Index(i pulumi.IntInput) RecommenderTrainingMetricsOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RecommenderTrainingMetrics {
+		return vs[0].([]RecommenderTrainingMetrics)[vs[1].(int)]
+	}).(RecommenderTrainingMetricsOutput)
+}
+
+// Training metrics by type
+type RecommenderTrainingMetricsMetricsProperties struct {
+	Coverage   *float64 `pulumi:"coverage"`
+	Freshness  *float64 `pulumi:"freshness"`
+	Hit        *float64 `pulumi:"hit"`
+	Popularity *float64 `pulumi:"popularity"`
+	Recall     *float64 `pulumi:"recall"`
+	Similarity *float64 `pulumi:"similarity"`
+}
+
+// Training metrics by type
+type RecommenderTrainingMetricsMetricsPropertiesOutput struct{ *pulumi.OutputState }
+
+func (RecommenderTrainingMetricsMetricsPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RecommenderTrainingMetricsMetricsProperties)(nil)).Elem()
+}
+
+func (o RecommenderTrainingMetricsMetricsPropertiesOutput) ToRecommenderTrainingMetricsMetricsPropertiesOutput() RecommenderTrainingMetricsMetricsPropertiesOutput {
+	return o
+}
+
+func (o RecommenderTrainingMetricsMetricsPropertiesOutput) ToRecommenderTrainingMetricsMetricsPropertiesOutputWithContext(ctx context.Context) RecommenderTrainingMetricsMetricsPropertiesOutput {
+	return o
+}
+
+func (o RecommenderTrainingMetricsMetricsPropertiesOutput) Coverage() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v RecommenderTrainingMetricsMetricsProperties) *float64 { return v.Coverage }).(pulumi.Float64PtrOutput)
+}
+
+func (o RecommenderTrainingMetricsMetricsPropertiesOutput) Freshness() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v RecommenderTrainingMetricsMetricsProperties) *float64 { return v.Freshness }).(pulumi.Float64PtrOutput)
+}
+
+func (o RecommenderTrainingMetricsMetricsPropertiesOutput) Hit() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v RecommenderTrainingMetricsMetricsProperties) *float64 { return v.Hit }).(pulumi.Float64PtrOutput)
+}
+
+func (o RecommenderTrainingMetricsMetricsPropertiesOutput) Popularity() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v RecommenderTrainingMetricsMetricsProperties) *float64 { return v.Popularity }).(pulumi.Float64PtrOutput)
+}
+
+func (o RecommenderTrainingMetricsMetricsPropertiesOutput) Recall() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v RecommenderTrainingMetricsMetricsProperties) *float64 { return v.Recall }).(pulumi.Float64PtrOutput)
+}
+
+func (o RecommenderTrainingMetricsMetricsPropertiesOutput) Similarity() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v RecommenderTrainingMetricsMetricsProperties) *float64 { return v.Similarity }).(pulumi.Float64PtrOutput)
+}
+
+type RecommenderTrainingMetricsMetricsPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (RecommenderTrainingMetricsMetricsPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RecommenderTrainingMetricsMetricsProperties)(nil)).Elem()
+}
+
+func (o RecommenderTrainingMetricsMetricsPropertiesPtrOutput) ToRecommenderTrainingMetricsMetricsPropertiesPtrOutput() RecommenderTrainingMetricsMetricsPropertiesPtrOutput {
+	return o
+}
+
+func (o RecommenderTrainingMetricsMetricsPropertiesPtrOutput) ToRecommenderTrainingMetricsMetricsPropertiesPtrOutputWithContext(ctx context.Context) RecommenderTrainingMetricsMetricsPropertiesPtrOutput {
+	return o
+}
+
+func (o RecommenderTrainingMetricsMetricsPropertiesPtrOutput) Elem() RecommenderTrainingMetricsMetricsPropertiesOutput {
+	return o.ApplyT(func(v *RecommenderTrainingMetricsMetricsProperties) RecommenderTrainingMetricsMetricsProperties {
+		if v != nil {
+			return *v
+		}
+		var ret RecommenderTrainingMetricsMetricsProperties
+		return ret
+	}).(RecommenderTrainingMetricsMetricsPropertiesOutput)
+}
+
+func (o RecommenderTrainingMetricsMetricsPropertiesPtrOutput) Coverage() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *RecommenderTrainingMetricsMetricsProperties) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.Coverage
+	}).(pulumi.Float64PtrOutput)
+}
+
+func (o RecommenderTrainingMetricsMetricsPropertiesPtrOutput) Freshness() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *RecommenderTrainingMetricsMetricsProperties) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.Freshness
+	}).(pulumi.Float64PtrOutput)
+}
+
+func (o RecommenderTrainingMetricsMetricsPropertiesPtrOutput) Hit() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *RecommenderTrainingMetricsMetricsProperties) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.Hit
+	}).(pulumi.Float64PtrOutput)
+}
+
+func (o RecommenderTrainingMetricsMetricsPropertiesPtrOutput) Popularity() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *RecommenderTrainingMetricsMetricsProperties) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.Popularity
+	}).(pulumi.Float64PtrOutput)
+}
+
+func (o RecommenderTrainingMetricsMetricsPropertiesPtrOutput) Recall() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *RecommenderTrainingMetricsMetricsProperties) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.Recall
+	}).(pulumi.Float64PtrOutput)
+}
+
+func (o RecommenderTrainingMetricsMetricsPropertiesPtrOutput) Similarity() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *RecommenderTrainingMetricsMetricsProperties) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.Similarity
+	}).(pulumi.Float64PtrOutput)
+}
+
+// Information about the latest recommender update
+type RecommenderUpdate struct {
+	// The timestamp of when the update was created
+	CreationDateTime *string `pulumi:"creationDateTime"`
+	// The reason for update failure
+	FailureReason *string `pulumi:"failureReason"`
+	// The timestamp of when the update was last modified
+	LastUpdatedDateTime *string            `pulumi:"lastUpdatedDateTime"`
+	RecommenderConfig   *RecommenderConfig `pulumi:"recommenderConfig"`
+	Status              *RecommenderStatus `pulumi:"status"`
+}
+
+// Information about the latest recommender update
+type RecommenderUpdateOutput struct{ *pulumi.OutputState }
+
+func (RecommenderUpdateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RecommenderUpdate)(nil)).Elem()
+}
+
+func (o RecommenderUpdateOutput) ToRecommenderUpdateOutput() RecommenderUpdateOutput {
+	return o
+}
+
+func (o RecommenderUpdateOutput) ToRecommenderUpdateOutputWithContext(ctx context.Context) RecommenderUpdateOutput {
+	return o
+}
+
+// The timestamp of when the update was created
+func (o RecommenderUpdateOutput) CreationDateTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RecommenderUpdate) *string { return v.CreationDateTime }).(pulumi.StringPtrOutput)
+}
+
+// The reason for update failure
+func (o RecommenderUpdateOutput) FailureReason() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RecommenderUpdate) *string { return v.FailureReason }).(pulumi.StringPtrOutput)
+}
+
+// The timestamp of when the update was last modified
+func (o RecommenderUpdateOutput) LastUpdatedDateTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RecommenderUpdate) *string { return v.LastUpdatedDateTime }).(pulumi.StringPtrOutput)
+}
+
+func (o RecommenderUpdateOutput) RecommenderConfig() RecommenderConfigPtrOutput {
+	return o.ApplyT(func(v RecommenderUpdate) *RecommenderConfig { return v.RecommenderConfig }).(RecommenderConfigPtrOutput)
+}
+
+func (o RecommenderUpdateOutput) Status() RecommenderStatusPtrOutput {
+	return o.ApplyT(func(v RecommenderUpdate) *RecommenderStatus { return v.Status }).(RecommenderStatusPtrOutput)
+}
+
+type RecommenderUpdatePtrOutput struct{ *pulumi.OutputState }
+
+func (RecommenderUpdatePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RecommenderUpdate)(nil)).Elem()
+}
+
+func (o RecommenderUpdatePtrOutput) ToRecommenderUpdatePtrOutput() RecommenderUpdatePtrOutput {
+	return o
+}
+
+func (o RecommenderUpdatePtrOutput) ToRecommenderUpdatePtrOutputWithContext(ctx context.Context) RecommenderUpdatePtrOutput {
+	return o
+}
+
+func (o RecommenderUpdatePtrOutput) Elem() RecommenderUpdateOutput {
+	return o.ApplyT(func(v *RecommenderUpdate) RecommenderUpdate {
+		if v != nil {
+			return *v
+		}
+		var ret RecommenderUpdate
+		return ret
+	}).(RecommenderUpdateOutput)
+}
+
+// The timestamp of when the update was created
+func (o RecommenderUpdatePtrOutput) CreationDateTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RecommenderUpdate) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CreationDateTime
+	}).(pulumi.StringPtrOutput)
+}
+
+// The reason for update failure
+func (o RecommenderUpdatePtrOutput) FailureReason() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RecommenderUpdate) *string {
+		if v == nil {
+			return nil
+		}
+		return v.FailureReason
+	}).(pulumi.StringPtrOutput)
+}
+
+// The timestamp of when the update was last modified
+func (o RecommenderUpdatePtrOutput) LastUpdatedDateTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RecommenderUpdate) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LastUpdatedDateTime
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o RecommenderUpdatePtrOutput) RecommenderConfig() RecommenderConfigPtrOutput {
+	return o.ApplyT(func(v *RecommenderUpdate) *RecommenderConfig {
+		if v == nil {
+			return nil
+		}
+		return v.RecommenderConfig
+	}).(RecommenderConfigPtrOutput)
+}
+
+func (o RecommenderUpdatePtrOutput) Status() RecommenderStatusPtrOutput {
+	return o.ApplyT(func(v *RecommenderUpdate) *RecommenderStatus {
+		if v == nil {
+			return nil
+		}
+		return v.Status
+	}).(RecommenderStatusPtrOutput)
+}
+
 // The address based criteria for the segment.
 type SegmentDefinitionAddressDimension struct {
 	City       *SegmentDefinitionProfileDimension `pulumi:"city"`
@@ -9157,6 +9847,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ObjectTypeKeyArrayInput)(nil)).Elem(), ObjectTypeKeyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ObjectTypeKeyMapInput)(nil)).Elem(), ObjectTypeKeyMapArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ObjectTypeKeyMapArrayInput)(nil)).Elem(), ObjectTypeKeyMapArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RecommenderConfigInput)(nil)).Elem(), RecommenderConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RecommenderConfigPtrInput)(nil)).Elem(), RecommenderConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RecommenderEventParametersInput)(nil)).Elem(), RecommenderEventParametersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RecommenderEventParametersArrayInput)(nil)).Elem(), RecommenderEventParametersArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RecommenderEventsConfigInput)(nil)).Elem(), RecommenderEventsConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RecommenderEventsConfigPtrInput)(nil)).Elem(), RecommenderEventsConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SegmentDefinitionAddressDimensionInput)(nil)).Elem(), SegmentDefinitionAddressDimensionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SegmentDefinitionAddressDimensionPtrInput)(nil)).Elem(), SegmentDefinitionAddressDimensionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SegmentDefinitionAttributeDimensionInput)(nil)).Elem(), SegmentDefinitionAttributeDimensionArgs{})
@@ -9276,6 +9972,18 @@ func init() {
 	pulumi.RegisterOutputType(ObjectTypeKeyArrayOutput{})
 	pulumi.RegisterOutputType(ObjectTypeKeyMapOutput{})
 	pulumi.RegisterOutputType(ObjectTypeKeyMapArrayOutput{})
+	pulumi.RegisterOutputType(RecommenderConfigOutput{})
+	pulumi.RegisterOutputType(RecommenderConfigPtrOutput{})
+	pulumi.RegisterOutputType(RecommenderEventParametersOutput{})
+	pulumi.RegisterOutputType(RecommenderEventParametersArrayOutput{})
+	pulumi.RegisterOutputType(RecommenderEventsConfigOutput{})
+	pulumi.RegisterOutputType(RecommenderEventsConfigPtrOutput{})
+	pulumi.RegisterOutputType(RecommenderTrainingMetricsOutput{})
+	pulumi.RegisterOutputType(RecommenderTrainingMetricsArrayOutput{})
+	pulumi.RegisterOutputType(RecommenderTrainingMetricsMetricsPropertiesOutput{})
+	pulumi.RegisterOutputType(RecommenderTrainingMetricsMetricsPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(RecommenderUpdateOutput{})
+	pulumi.RegisterOutputType(RecommenderUpdatePtrOutput{})
 	pulumi.RegisterOutputType(SegmentDefinitionAddressDimensionOutput{})
 	pulumi.RegisterOutputType(SegmentDefinitionAddressDimensionPtrOutput{})
 	pulumi.RegisterOutputType(SegmentDefinitionAttributeDimensionOutput{})

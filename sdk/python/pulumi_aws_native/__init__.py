@@ -77,6 +77,8 @@ if typing.TYPE_CHECKING:
     backupgateway = __backupgateway
     import pulumi_aws_native.batch as __batch
     batch = __batch
+    import pulumi_aws_native.bcmdataexports as __bcmdataexports
+    bcmdataexports = __bcmdataexports
     import pulumi_aws_native.bedrock as __bedrock
     bedrock = __bedrock
     import pulumi_aws_native.bedrockagentcore as __bedrockagentcore
@@ -163,6 +165,8 @@ if typing.TYPE_CHECKING:
     detective = __detective
     import pulumi_aws_native.devicefarm as __devicefarm
     devicefarm = __devicefarm
+    import pulumi_aws_native.devopsagent as __devopsagent
+    devopsagent = __devopsagent
     import pulumi_aws_native.devopsguru as __devopsguru
     devopsguru = __devopsguru
     import pulumi_aws_native.directconnect as __directconnect
@@ -255,6 +259,8 @@ if typing.TYPE_CHECKING:
     inspector = __inspector
     import pulumi_aws_native.inspectorv2 as __inspectorv2
     inspectorv2 = __inspectorv2
+    import pulumi_aws_native.interconnect as __interconnect
+    interconnect = __interconnect
     import pulumi_aws_native.internetmonitor as __internetmonitor
     internetmonitor = __internetmonitor
     import pulumi_aws_native.invoicing as __invoicing
@@ -539,6 +545,7 @@ else:
     backup = _utilities.lazy_import('pulumi_aws_native.backup')
     backupgateway = _utilities.lazy_import('pulumi_aws_native.backupgateway')
     batch = _utilities.lazy_import('pulumi_aws_native.batch')
+    bcmdataexports = _utilities.lazy_import('pulumi_aws_native.bcmdataexports')
     bedrock = _utilities.lazy_import('pulumi_aws_native.bedrock')
     bedrockagentcore = _utilities.lazy_import('pulumi_aws_native.bedrockagentcore')
     bedrockmantle = _utilities.lazy_import('pulumi_aws_native.bedrockmantle')
@@ -582,6 +589,7 @@ else:
     deadline = _utilities.lazy_import('pulumi_aws_native.deadline')
     detective = _utilities.lazy_import('pulumi_aws_native.detective')
     devicefarm = _utilities.lazy_import('pulumi_aws_native.devicefarm')
+    devopsagent = _utilities.lazy_import('pulumi_aws_native.devopsagent')
     devopsguru = _utilities.lazy_import('pulumi_aws_native.devopsguru')
     directconnect = _utilities.lazy_import('pulumi_aws_native.directconnect')
     directoryservice = _utilities.lazy_import('pulumi_aws_native.directoryservice')
@@ -628,6 +636,7 @@ else:
     imagebuilder = _utilities.lazy_import('pulumi_aws_native.imagebuilder')
     inspector = _utilities.lazy_import('pulumi_aws_native.inspector')
     inspectorv2 = _utilities.lazy_import('pulumi_aws_native.inspectorv2')
+    interconnect = _utilities.lazy_import('pulumi_aws_native.interconnect')
     internetmonitor = _utilities.lazy_import('pulumi_aws_native.internetmonitor')
     invoicing = _utilities.lazy_import('pulumi_aws_native.invoicing')
     iot = _utilities.lazy_import('pulumi_aws_native.iot')
@@ -950,7 +959,8 @@ _utilities.register(
    "aws-native:appstream:ApplicationFleetAssociation": "ApplicationFleetAssociation",
    "aws-native:appstream:DirectoryConfig": "DirectoryConfig",
    "aws-native:appstream:Entitlement": "Entitlement",
-   "aws-native:appstream:ImageBuilder": "ImageBuilder"
+   "aws-native:appstream:ImageBuilder": "ImageBuilder",
+   "aws-native:appstream:Stack": "Stack"
   }
  },
  {
@@ -1078,6 +1088,14 @@ _utilities.register(
    "aws-native:batch:QuotaShare": "QuotaShare",
    "aws-native:batch:SchedulingPolicy": "SchedulingPolicy",
    "aws-native:batch:ServiceEnvironment": "ServiceEnvironment"
+  }
+ },
+ {
+  "pkg": "aws-native",
+  "mod": "bcmdataexports",
+  "fqn": "pulumi_aws_native.bcmdataexports",
+  "classes": {
+   "aws-native:bcmdataexports:Export": "Export"
   }
  },
  {
@@ -1505,6 +1523,7 @@ _utilities.register(
    "aws-native:customerprofiles:EventTrigger": "EventTrigger",
    "aws-native:customerprofiles:Integration": "Integration",
    "aws-native:customerprofiles:ObjectType": "ObjectType",
+   "aws-native:customerprofiles:Recommender": "Recommender",
    "aws-native:customerprofiles:SegmentDefinition": "SegmentDefinition"
   }
  },
@@ -1621,6 +1640,16 @@ _utilities.register(
    "aws-native:devicefarm:Project": "Project",
    "aws-native:devicefarm:TestGridProject": "TestGridProject",
    "aws-native:devicefarm:VpceConfiguration": "VpceConfiguration"
+  }
+ },
+ {
+  "pkg": "aws-native",
+  "mod": "devopsagent",
+  "fqn": "pulumi_aws_native.devopsagent",
+  "classes": {
+   "aws-native:devopsagent:AgentSpace": "AgentSpace",
+   "aws-native:devopsagent:Association": "Association",
+   "aws-native:devopsagent:Service": "Service"
   }
  },
  {
@@ -2255,6 +2284,14 @@ _utilities.register(
  },
  {
   "pkg": "aws-native",
+  "mod": "interconnect",
+  "fqn": "pulumi_aws_native.interconnect",
+  "classes": {
+   "aws-native:interconnect:Connection": "Connection"
+  }
+ },
+ {
+  "pkg": "aws-native",
   "mod": "internetmonitor",
   "fqn": "pulumi_aws_native.internetmonitor",
   "classes": {
@@ -2852,6 +2889,7 @@ _utilities.register(
   "fqn": "pulumi_aws_native.omics",
   "classes": {
    "aws-native:omics:AnnotationStore": "AnnotationStore",
+   "aws-native:omics:Configuration": "Configuration",
    "aws-native:omics:ReferenceStore": "ReferenceStore",
    "aws-native:omics:RunGroup": "RunGroup",
    "aws-native:omics:SequenceStore": "SequenceStore",

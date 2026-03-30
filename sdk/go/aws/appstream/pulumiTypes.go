@@ -1869,6 +1869,658 @@ func (o ImageBuilderVpcConfigPtrOutput) SubnetIds() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
+// Describes an interface VPC endpoint (interface endpoint) that lets you create a private connection between the virtual private cloud (VPC) that you specify and AppStream 2.0. When you specify an interface endpoint for a stack, users of the stack can connect to AppStream 2.0 only through that endpoint. When you specify an interface endpoint for an image builder, administrators can connect to the image builder only through that endpoint.
+type StackAccessEndpoint struct {
+	// The type of interface endpoint.
+	EndpointType string `pulumi:"endpointType"`
+	// The identifier (ID) of the VPC in which the interface endpoint is used.
+	VpceId string `pulumi:"vpceId"`
+}
+
+// StackAccessEndpointInput is an input type that accepts StackAccessEndpointArgs and StackAccessEndpointOutput values.
+// You can construct a concrete instance of `StackAccessEndpointInput` via:
+//
+//	StackAccessEndpointArgs{...}
+type StackAccessEndpointInput interface {
+	pulumi.Input
+
+	ToStackAccessEndpointOutput() StackAccessEndpointOutput
+	ToStackAccessEndpointOutputWithContext(context.Context) StackAccessEndpointOutput
+}
+
+// Describes an interface VPC endpoint (interface endpoint) that lets you create a private connection between the virtual private cloud (VPC) that you specify and AppStream 2.0. When you specify an interface endpoint for a stack, users of the stack can connect to AppStream 2.0 only through that endpoint. When you specify an interface endpoint for an image builder, administrators can connect to the image builder only through that endpoint.
+type StackAccessEndpointArgs struct {
+	// The type of interface endpoint.
+	EndpointType pulumi.StringInput `pulumi:"endpointType"`
+	// The identifier (ID) of the VPC in which the interface endpoint is used.
+	VpceId pulumi.StringInput `pulumi:"vpceId"`
+}
+
+func (StackAccessEndpointArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StackAccessEndpoint)(nil)).Elem()
+}
+
+func (i StackAccessEndpointArgs) ToStackAccessEndpointOutput() StackAccessEndpointOutput {
+	return i.ToStackAccessEndpointOutputWithContext(context.Background())
+}
+
+func (i StackAccessEndpointArgs) ToStackAccessEndpointOutputWithContext(ctx context.Context) StackAccessEndpointOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StackAccessEndpointOutput)
+}
+
+// StackAccessEndpointArrayInput is an input type that accepts StackAccessEndpointArray and StackAccessEndpointArrayOutput values.
+// You can construct a concrete instance of `StackAccessEndpointArrayInput` via:
+//
+//	StackAccessEndpointArray{ StackAccessEndpointArgs{...} }
+type StackAccessEndpointArrayInput interface {
+	pulumi.Input
+
+	ToStackAccessEndpointArrayOutput() StackAccessEndpointArrayOutput
+	ToStackAccessEndpointArrayOutputWithContext(context.Context) StackAccessEndpointArrayOutput
+}
+
+type StackAccessEndpointArray []StackAccessEndpointInput
+
+func (StackAccessEndpointArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StackAccessEndpoint)(nil)).Elem()
+}
+
+func (i StackAccessEndpointArray) ToStackAccessEndpointArrayOutput() StackAccessEndpointArrayOutput {
+	return i.ToStackAccessEndpointArrayOutputWithContext(context.Background())
+}
+
+func (i StackAccessEndpointArray) ToStackAccessEndpointArrayOutputWithContext(ctx context.Context) StackAccessEndpointArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StackAccessEndpointArrayOutput)
+}
+
+// Describes an interface VPC endpoint (interface endpoint) that lets you create a private connection between the virtual private cloud (VPC) that you specify and AppStream 2.0. When you specify an interface endpoint for a stack, users of the stack can connect to AppStream 2.0 only through that endpoint. When you specify an interface endpoint for an image builder, administrators can connect to the image builder only through that endpoint.
+type StackAccessEndpointOutput struct{ *pulumi.OutputState }
+
+func (StackAccessEndpointOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StackAccessEndpoint)(nil)).Elem()
+}
+
+func (o StackAccessEndpointOutput) ToStackAccessEndpointOutput() StackAccessEndpointOutput {
+	return o
+}
+
+func (o StackAccessEndpointOutput) ToStackAccessEndpointOutputWithContext(ctx context.Context) StackAccessEndpointOutput {
+	return o
+}
+
+// The type of interface endpoint.
+func (o StackAccessEndpointOutput) EndpointType() pulumi.StringOutput {
+	return o.ApplyT(func(v StackAccessEndpoint) string { return v.EndpointType }).(pulumi.StringOutput)
+}
+
+// The identifier (ID) of the VPC in which the interface endpoint is used.
+func (o StackAccessEndpointOutput) VpceId() pulumi.StringOutput {
+	return o.ApplyT(func(v StackAccessEndpoint) string { return v.VpceId }).(pulumi.StringOutput)
+}
+
+type StackAccessEndpointArrayOutput struct{ *pulumi.OutputState }
+
+func (StackAccessEndpointArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StackAccessEndpoint)(nil)).Elem()
+}
+
+func (o StackAccessEndpointArrayOutput) ToStackAccessEndpointArrayOutput() StackAccessEndpointArrayOutput {
+	return o
+}
+
+func (o StackAccessEndpointArrayOutput) ToStackAccessEndpointArrayOutputWithContext(ctx context.Context) StackAccessEndpointArrayOutput {
+	return o
+}
+
+func (o StackAccessEndpointArrayOutput) Index(i pulumi.IntInput) StackAccessEndpointOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) StackAccessEndpoint {
+		return vs[0].([]StackAccessEndpoint)[vs[1].(int)]
+	}).(StackAccessEndpointOutput)
+}
+
+// The persistent application settings for users of a stack.
+type StackApplicationSettings struct {
+	// Enables or disables persistent application settings for users during their streaming sessions.
+	Enabled bool `pulumi:"enabled"`
+	// The path prefix for the S3 bucket where users’ persistent application settings are stored. You can allow the same persistent application settings to be used across multiple stacks by specifying the same settings group for each stack.
+	SettingsGroup *string `pulumi:"settingsGroup"`
+}
+
+// StackApplicationSettingsInput is an input type that accepts StackApplicationSettingsArgs and StackApplicationSettingsOutput values.
+// You can construct a concrete instance of `StackApplicationSettingsInput` via:
+//
+//	StackApplicationSettingsArgs{...}
+type StackApplicationSettingsInput interface {
+	pulumi.Input
+
+	ToStackApplicationSettingsOutput() StackApplicationSettingsOutput
+	ToStackApplicationSettingsOutputWithContext(context.Context) StackApplicationSettingsOutput
+}
+
+// The persistent application settings for users of a stack.
+type StackApplicationSettingsArgs struct {
+	// Enables or disables persistent application settings for users during their streaming sessions.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// The path prefix for the S3 bucket where users’ persistent application settings are stored. You can allow the same persistent application settings to be used across multiple stacks by specifying the same settings group for each stack.
+	SettingsGroup pulumi.StringPtrInput `pulumi:"settingsGroup"`
+}
+
+func (StackApplicationSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StackApplicationSettings)(nil)).Elem()
+}
+
+func (i StackApplicationSettingsArgs) ToStackApplicationSettingsOutput() StackApplicationSettingsOutput {
+	return i.ToStackApplicationSettingsOutputWithContext(context.Background())
+}
+
+func (i StackApplicationSettingsArgs) ToStackApplicationSettingsOutputWithContext(ctx context.Context) StackApplicationSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StackApplicationSettingsOutput)
+}
+
+func (i StackApplicationSettingsArgs) ToStackApplicationSettingsPtrOutput() StackApplicationSettingsPtrOutput {
+	return i.ToStackApplicationSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i StackApplicationSettingsArgs) ToStackApplicationSettingsPtrOutputWithContext(ctx context.Context) StackApplicationSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StackApplicationSettingsOutput).ToStackApplicationSettingsPtrOutputWithContext(ctx)
+}
+
+// StackApplicationSettingsPtrInput is an input type that accepts StackApplicationSettingsArgs, StackApplicationSettingsPtr and StackApplicationSettingsPtrOutput values.
+// You can construct a concrete instance of `StackApplicationSettingsPtrInput` via:
+//
+//	        StackApplicationSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type StackApplicationSettingsPtrInput interface {
+	pulumi.Input
+
+	ToStackApplicationSettingsPtrOutput() StackApplicationSettingsPtrOutput
+	ToStackApplicationSettingsPtrOutputWithContext(context.Context) StackApplicationSettingsPtrOutput
+}
+
+type stackApplicationSettingsPtrType StackApplicationSettingsArgs
+
+func StackApplicationSettingsPtr(v *StackApplicationSettingsArgs) StackApplicationSettingsPtrInput {
+	return (*stackApplicationSettingsPtrType)(v)
+}
+
+func (*stackApplicationSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StackApplicationSettings)(nil)).Elem()
+}
+
+func (i *stackApplicationSettingsPtrType) ToStackApplicationSettingsPtrOutput() StackApplicationSettingsPtrOutput {
+	return i.ToStackApplicationSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *stackApplicationSettingsPtrType) ToStackApplicationSettingsPtrOutputWithContext(ctx context.Context) StackApplicationSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StackApplicationSettingsPtrOutput)
+}
+
+// The persistent application settings for users of a stack.
+type StackApplicationSettingsOutput struct{ *pulumi.OutputState }
+
+func (StackApplicationSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StackApplicationSettings)(nil)).Elem()
+}
+
+func (o StackApplicationSettingsOutput) ToStackApplicationSettingsOutput() StackApplicationSettingsOutput {
+	return o
+}
+
+func (o StackApplicationSettingsOutput) ToStackApplicationSettingsOutputWithContext(ctx context.Context) StackApplicationSettingsOutput {
+	return o
+}
+
+func (o StackApplicationSettingsOutput) ToStackApplicationSettingsPtrOutput() StackApplicationSettingsPtrOutput {
+	return o.ToStackApplicationSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o StackApplicationSettingsOutput) ToStackApplicationSettingsPtrOutputWithContext(ctx context.Context) StackApplicationSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StackApplicationSettings) *StackApplicationSettings {
+		return &v
+	}).(StackApplicationSettingsPtrOutput)
+}
+
+// Enables or disables persistent application settings for users during their streaming sessions.
+func (o StackApplicationSettingsOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v StackApplicationSettings) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// The path prefix for the S3 bucket where users’ persistent application settings are stored. You can allow the same persistent application settings to be used across multiple stacks by specifying the same settings group for each stack.
+func (o StackApplicationSettingsOutput) SettingsGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StackApplicationSettings) *string { return v.SettingsGroup }).(pulumi.StringPtrOutput)
+}
+
+type StackApplicationSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (StackApplicationSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StackApplicationSettings)(nil)).Elem()
+}
+
+func (o StackApplicationSettingsPtrOutput) ToStackApplicationSettingsPtrOutput() StackApplicationSettingsPtrOutput {
+	return o
+}
+
+func (o StackApplicationSettingsPtrOutput) ToStackApplicationSettingsPtrOutputWithContext(ctx context.Context) StackApplicationSettingsPtrOutput {
+	return o
+}
+
+func (o StackApplicationSettingsPtrOutput) Elem() StackApplicationSettingsOutput {
+	return o.ApplyT(func(v *StackApplicationSettings) StackApplicationSettings {
+		if v != nil {
+			return *v
+		}
+		var ret StackApplicationSettings
+		return ret
+	}).(StackApplicationSettingsOutput)
+}
+
+// Enables or disables persistent application settings for users during their streaming sessions.
+func (o StackApplicationSettingsPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *StackApplicationSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The path prefix for the S3 bucket where users’ persistent application settings are stored. You can allow the same persistent application settings to be used across multiple stacks by specifying the same settings group for each stack.
+func (o StackApplicationSettingsPtrOutput) SettingsGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StackApplicationSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SettingsGroup
+	}).(pulumi.StringPtrOutput)
+}
+
+// A connector that enables persistent storage for users.
+type StackStorageConnector struct {
+	// The type of storage connector.
+	ConnectorType string `pulumi:"connectorType"`
+	// The names of the domains for the account.
+	Domains []string `pulumi:"domains"`
+	// The ARN of the storage connector.
+	ResourceIdentifier *string `pulumi:"resourceIdentifier"`
+}
+
+// StackStorageConnectorInput is an input type that accepts StackStorageConnectorArgs and StackStorageConnectorOutput values.
+// You can construct a concrete instance of `StackStorageConnectorInput` via:
+//
+//	StackStorageConnectorArgs{...}
+type StackStorageConnectorInput interface {
+	pulumi.Input
+
+	ToStackStorageConnectorOutput() StackStorageConnectorOutput
+	ToStackStorageConnectorOutputWithContext(context.Context) StackStorageConnectorOutput
+}
+
+// A connector that enables persistent storage for users.
+type StackStorageConnectorArgs struct {
+	// The type of storage connector.
+	ConnectorType pulumi.StringInput `pulumi:"connectorType"`
+	// The names of the domains for the account.
+	Domains pulumi.StringArrayInput `pulumi:"domains"`
+	// The ARN of the storage connector.
+	ResourceIdentifier pulumi.StringPtrInput `pulumi:"resourceIdentifier"`
+}
+
+func (StackStorageConnectorArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StackStorageConnector)(nil)).Elem()
+}
+
+func (i StackStorageConnectorArgs) ToStackStorageConnectorOutput() StackStorageConnectorOutput {
+	return i.ToStackStorageConnectorOutputWithContext(context.Background())
+}
+
+func (i StackStorageConnectorArgs) ToStackStorageConnectorOutputWithContext(ctx context.Context) StackStorageConnectorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StackStorageConnectorOutput)
+}
+
+// StackStorageConnectorArrayInput is an input type that accepts StackStorageConnectorArray and StackStorageConnectorArrayOutput values.
+// You can construct a concrete instance of `StackStorageConnectorArrayInput` via:
+//
+//	StackStorageConnectorArray{ StackStorageConnectorArgs{...} }
+type StackStorageConnectorArrayInput interface {
+	pulumi.Input
+
+	ToStackStorageConnectorArrayOutput() StackStorageConnectorArrayOutput
+	ToStackStorageConnectorArrayOutputWithContext(context.Context) StackStorageConnectorArrayOutput
+}
+
+type StackStorageConnectorArray []StackStorageConnectorInput
+
+func (StackStorageConnectorArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StackStorageConnector)(nil)).Elem()
+}
+
+func (i StackStorageConnectorArray) ToStackStorageConnectorArrayOutput() StackStorageConnectorArrayOutput {
+	return i.ToStackStorageConnectorArrayOutputWithContext(context.Background())
+}
+
+func (i StackStorageConnectorArray) ToStackStorageConnectorArrayOutputWithContext(ctx context.Context) StackStorageConnectorArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StackStorageConnectorArrayOutput)
+}
+
+// A connector that enables persistent storage for users.
+type StackStorageConnectorOutput struct{ *pulumi.OutputState }
+
+func (StackStorageConnectorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StackStorageConnector)(nil)).Elem()
+}
+
+func (o StackStorageConnectorOutput) ToStackStorageConnectorOutput() StackStorageConnectorOutput {
+	return o
+}
+
+func (o StackStorageConnectorOutput) ToStackStorageConnectorOutputWithContext(ctx context.Context) StackStorageConnectorOutput {
+	return o
+}
+
+// The type of storage connector.
+func (o StackStorageConnectorOutput) ConnectorType() pulumi.StringOutput {
+	return o.ApplyT(func(v StackStorageConnector) string { return v.ConnectorType }).(pulumi.StringOutput)
+}
+
+// The names of the domains for the account.
+func (o StackStorageConnectorOutput) Domains() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v StackStorageConnector) []string { return v.Domains }).(pulumi.StringArrayOutput)
+}
+
+// The ARN of the storage connector.
+func (o StackStorageConnectorOutput) ResourceIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StackStorageConnector) *string { return v.ResourceIdentifier }).(pulumi.StringPtrOutput)
+}
+
+type StackStorageConnectorArrayOutput struct{ *pulumi.OutputState }
+
+func (StackStorageConnectorArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StackStorageConnector)(nil)).Elem()
+}
+
+func (o StackStorageConnectorArrayOutput) ToStackStorageConnectorArrayOutput() StackStorageConnectorArrayOutput {
+	return o
+}
+
+func (o StackStorageConnectorArrayOutput) ToStackStorageConnectorArrayOutputWithContext(ctx context.Context) StackStorageConnectorArrayOutput {
+	return o
+}
+
+func (o StackStorageConnectorArrayOutput) Index(i pulumi.IntInput) StackStorageConnectorOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) StackStorageConnector {
+		return vs[0].([]StackStorageConnector)[vs[1].(int)]
+	}).(StackStorageConnectorOutput)
+}
+
+// The streaming protocol that you want your stack to prefer. This can be UDP or TCP. Currently, UDP is only supported in the Windows native client.
+type StackStreamingExperienceSettings struct {
+	// The preferred protocol that you want to use while streaming your application.
+	PreferredProtocol *string `pulumi:"preferredProtocol"`
+}
+
+// StackStreamingExperienceSettingsInput is an input type that accepts StackStreamingExperienceSettingsArgs and StackStreamingExperienceSettingsOutput values.
+// You can construct a concrete instance of `StackStreamingExperienceSettingsInput` via:
+//
+//	StackStreamingExperienceSettingsArgs{...}
+type StackStreamingExperienceSettingsInput interface {
+	pulumi.Input
+
+	ToStackStreamingExperienceSettingsOutput() StackStreamingExperienceSettingsOutput
+	ToStackStreamingExperienceSettingsOutputWithContext(context.Context) StackStreamingExperienceSettingsOutput
+}
+
+// The streaming protocol that you want your stack to prefer. This can be UDP or TCP. Currently, UDP is only supported in the Windows native client.
+type StackStreamingExperienceSettingsArgs struct {
+	// The preferred protocol that you want to use while streaming your application.
+	PreferredProtocol pulumi.StringPtrInput `pulumi:"preferredProtocol"`
+}
+
+func (StackStreamingExperienceSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StackStreamingExperienceSettings)(nil)).Elem()
+}
+
+func (i StackStreamingExperienceSettingsArgs) ToStackStreamingExperienceSettingsOutput() StackStreamingExperienceSettingsOutput {
+	return i.ToStackStreamingExperienceSettingsOutputWithContext(context.Background())
+}
+
+func (i StackStreamingExperienceSettingsArgs) ToStackStreamingExperienceSettingsOutputWithContext(ctx context.Context) StackStreamingExperienceSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StackStreamingExperienceSettingsOutput)
+}
+
+func (i StackStreamingExperienceSettingsArgs) ToStackStreamingExperienceSettingsPtrOutput() StackStreamingExperienceSettingsPtrOutput {
+	return i.ToStackStreamingExperienceSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i StackStreamingExperienceSettingsArgs) ToStackStreamingExperienceSettingsPtrOutputWithContext(ctx context.Context) StackStreamingExperienceSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StackStreamingExperienceSettingsOutput).ToStackStreamingExperienceSettingsPtrOutputWithContext(ctx)
+}
+
+// StackStreamingExperienceSettingsPtrInput is an input type that accepts StackStreamingExperienceSettingsArgs, StackStreamingExperienceSettingsPtr and StackStreamingExperienceSettingsPtrOutput values.
+// You can construct a concrete instance of `StackStreamingExperienceSettingsPtrInput` via:
+//
+//	        StackStreamingExperienceSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type StackStreamingExperienceSettingsPtrInput interface {
+	pulumi.Input
+
+	ToStackStreamingExperienceSettingsPtrOutput() StackStreamingExperienceSettingsPtrOutput
+	ToStackStreamingExperienceSettingsPtrOutputWithContext(context.Context) StackStreamingExperienceSettingsPtrOutput
+}
+
+type stackStreamingExperienceSettingsPtrType StackStreamingExperienceSettingsArgs
+
+func StackStreamingExperienceSettingsPtr(v *StackStreamingExperienceSettingsArgs) StackStreamingExperienceSettingsPtrInput {
+	return (*stackStreamingExperienceSettingsPtrType)(v)
+}
+
+func (*stackStreamingExperienceSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StackStreamingExperienceSettings)(nil)).Elem()
+}
+
+func (i *stackStreamingExperienceSettingsPtrType) ToStackStreamingExperienceSettingsPtrOutput() StackStreamingExperienceSettingsPtrOutput {
+	return i.ToStackStreamingExperienceSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *stackStreamingExperienceSettingsPtrType) ToStackStreamingExperienceSettingsPtrOutputWithContext(ctx context.Context) StackStreamingExperienceSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StackStreamingExperienceSettingsPtrOutput)
+}
+
+// The streaming protocol that you want your stack to prefer. This can be UDP or TCP. Currently, UDP is only supported in the Windows native client.
+type StackStreamingExperienceSettingsOutput struct{ *pulumi.OutputState }
+
+func (StackStreamingExperienceSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StackStreamingExperienceSettings)(nil)).Elem()
+}
+
+func (o StackStreamingExperienceSettingsOutput) ToStackStreamingExperienceSettingsOutput() StackStreamingExperienceSettingsOutput {
+	return o
+}
+
+func (o StackStreamingExperienceSettingsOutput) ToStackStreamingExperienceSettingsOutputWithContext(ctx context.Context) StackStreamingExperienceSettingsOutput {
+	return o
+}
+
+func (o StackStreamingExperienceSettingsOutput) ToStackStreamingExperienceSettingsPtrOutput() StackStreamingExperienceSettingsPtrOutput {
+	return o.ToStackStreamingExperienceSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o StackStreamingExperienceSettingsOutput) ToStackStreamingExperienceSettingsPtrOutputWithContext(ctx context.Context) StackStreamingExperienceSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StackStreamingExperienceSettings) *StackStreamingExperienceSettings {
+		return &v
+	}).(StackStreamingExperienceSettingsPtrOutput)
+}
+
+// The preferred protocol that you want to use while streaming your application.
+func (o StackStreamingExperienceSettingsOutput) PreferredProtocol() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StackStreamingExperienceSettings) *string { return v.PreferredProtocol }).(pulumi.StringPtrOutput)
+}
+
+type StackStreamingExperienceSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (StackStreamingExperienceSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StackStreamingExperienceSettings)(nil)).Elem()
+}
+
+func (o StackStreamingExperienceSettingsPtrOutput) ToStackStreamingExperienceSettingsPtrOutput() StackStreamingExperienceSettingsPtrOutput {
+	return o
+}
+
+func (o StackStreamingExperienceSettingsPtrOutput) ToStackStreamingExperienceSettingsPtrOutputWithContext(ctx context.Context) StackStreamingExperienceSettingsPtrOutput {
+	return o
+}
+
+func (o StackStreamingExperienceSettingsPtrOutput) Elem() StackStreamingExperienceSettingsOutput {
+	return o.ApplyT(func(v *StackStreamingExperienceSettings) StackStreamingExperienceSettings {
+		if v != nil {
+			return *v
+		}
+		var ret StackStreamingExperienceSettings
+		return ret
+	}).(StackStreamingExperienceSettingsOutput)
+}
+
+// The preferred protocol that you want to use while streaming your application.
+func (o StackStreamingExperienceSettingsPtrOutput) PreferredProtocol() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StackStreamingExperienceSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PreferredProtocol
+	}).(pulumi.StringPtrOutput)
+}
+
+// The tag of the stack.
+type StackTag struct {
+	// The key of the tag.
+	Key string `pulumi:"key"`
+	// The value of the tag.
+	Value string `pulumi:"value"`
+}
+
+// Specifies an action and whether the action is enabled or disabled for users during their streaming sessions.
+type StackUserSetting struct {
+	// The action that is enabled or disabled.
+	Action string `pulumi:"action"`
+	// Specifies the number of characters that can be copied by end users from the local device to the remote session, and to the local device from the remote session. This can be specified only for the CLIPBOARD_COPY_FROM_LOCAL_DEVICE and CLIPBOARD_COPY_TO_LOCAL_DEVICE actions. This defaults to 20,971,520 (20 MB) when unspecified and the permission is ENABLED. This can't be specified when the permission is DISABLED. The value can be between 1 and 20,971,520 (20 MB).
+	MaximumLength *int `pulumi:"maximumLength"`
+	// Indicates whether the action is enabled or disabled.
+	Permission string `pulumi:"permission"`
+}
+
+// StackUserSettingInput is an input type that accepts StackUserSettingArgs and StackUserSettingOutput values.
+// You can construct a concrete instance of `StackUserSettingInput` via:
+//
+//	StackUserSettingArgs{...}
+type StackUserSettingInput interface {
+	pulumi.Input
+
+	ToStackUserSettingOutput() StackUserSettingOutput
+	ToStackUserSettingOutputWithContext(context.Context) StackUserSettingOutput
+}
+
+// Specifies an action and whether the action is enabled or disabled for users during their streaming sessions.
+type StackUserSettingArgs struct {
+	// The action that is enabled or disabled.
+	Action pulumi.StringInput `pulumi:"action"`
+	// Specifies the number of characters that can be copied by end users from the local device to the remote session, and to the local device from the remote session. This can be specified only for the CLIPBOARD_COPY_FROM_LOCAL_DEVICE and CLIPBOARD_COPY_TO_LOCAL_DEVICE actions. This defaults to 20,971,520 (20 MB) when unspecified and the permission is ENABLED. This can't be specified when the permission is DISABLED. The value can be between 1 and 20,971,520 (20 MB).
+	MaximumLength pulumi.IntPtrInput `pulumi:"maximumLength"`
+	// Indicates whether the action is enabled or disabled.
+	Permission pulumi.StringInput `pulumi:"permission"`
+}
+
+func (StackUserSettingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StackUserSetting)(nil)).Elem()
+}
+
+func (i StackUserSettingArgs) ToStackUserSettingOutput() StackUserSettingOutput {
+	return i.ToStackUserSettingOutputWithContext(context.Background())
+}
+
+func (i StackUserSettingArgs) ToStackUserSettingOutputWithContext(ctx context.Context) StackUserSettingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StackUserSettingOutput)
+}
+
+// StackUserSettingArrayInput is an input type that accepts StackUserSettingArray and StackUserSettingArrayOutput values.
+// You can construct a concrete instance of `StackUserSettingArrayInput` via:
+//
+//	StackUserSettingArray{ StackUserSettingArgs{...} }
+type StackUserSettingArrayInput interface {
+	pulumi.Input
+
+	ToStackUserSettingArrayOutput() StackUserSettingArrayOutput
+	ToStackUserSettingArrayOutputWithContext(context.Context) StackUserSettingArrayOutput
+}
+
+type StackUserSettingArray []StackUserSettingInput
+
+func (StackUserSettingArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StackUserSetting)(nil)).Elem()
+}
+
+func (i StackUserSettingArray) ToStackUserSettingArrayOutput() StackUserSettingArrayOutput {
+	return i.ToStackUserSettingArrayOutputWithContext(context.Background())
+}
+
+func (i StackUserSettingArray) ToStackUserSettingArrayOutputWithContext(ctx context.Context) StackUserSettingArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StackUserSettingArrayOutput)
+}
+
+// Specifies an action and whether the action is enabled or disabled for users during their streaming sessions.
+type StackUserSettingOutput struct{ *pulumi.OutputState }
+
+func (StackUserSettingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StackUserSetting)(nil)).Elem()
+}
+
+func (o StackUserSettingOutput) ToStackUserSettingOutput() StackUserSettingOutput {
+	return o
+}
+
+func (o StackUserSettingOutput) ToStackUserSettingOutputWithContext(ctx context.Context) StackUserSettingOutput {
+	return o
+}
+
+// The action that is enabled or disabled.
+func (o StackUserSettingOutput) Action() pulumi.StringOutput {
+	return o.ApplyT(func(v StackUserSetting) string { return v.Action }).(pulumi.StringOutput)
+}
+
+// Specifies the number of characters that can be copied by end users from the local device to the remote session, and to the local device from the remote session. This can be specified only for the CLIPBOARD_COPY_FROM_LOCAL_DEVICE and CLIPBOARD_COPY_TO_LOCAL_DEVICE actions. This defaults to 20,971,520 (20 MB) when unspecified and the permission is ENABLED. This can't be specified when the permission is DISABLED. The value can be between 1 and 20,971,520 (20 MB).
+func (o StackUserSettingOutput) MaximumLength() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v StackUserSetting) *int { return v.MaximumLength }).(pulumi.IntPtrOutput)
+}
+
+// Indicates whether the action is enabled or disabled.
+func (o StackUserSettingOutput) Permission() pulumi.StringOutput {
+	return o.ApplyT(func(v StackUserSetting) string { return v.Permission }).(pulumi.StringOutput)
+}
+
+type StackUserSettingArrayOutput struct{ *pulumi.OutputState }
+
+func (StackUserSettingArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StackUserSetting)(nil)).Elem()
+}
+
+func (o StackUserSettingArrayOutput) ToStackUserSettingArrayOutput() StackUserSettingArrayOutput {
+	return o
+}
+
+func (o StackUserSettingArrayOutput) ToStackUserSettingArrayOutputWithContext(ctx context.Context) StackUserSettingArrayOutput {
+	return o
+}
+
+func (o StackUserSettingArrayOutput) Index(i pulumi.IntInput) StackUserSettingOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) StackUserSetting {
+		return vs[0].([]StackUserSetting)[vs[1].(int)]
+	}).(StackUserSettingOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AppBlockBuilderAccessEndpointInput)(nil)).Elem(), AppBlockBuilderAccessEndpointArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AppBlockBuilderAccessEndpointArrayInput)(nil)).Elem(), AppBlockBuilderAccessEndpointArray{})
@@ -1895,6 +2547,16 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ImageBuilderVolumeConfigPtrInput)(nil)).Elem(), ImageBuilderVolumeConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ImageBuilderVpcConfigInput)(nil)).Elem(), ImageBuilderVpcConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ImageBuilderVpcConfigPtrInput)(nil)).Elem(), ImageBuilderVpcConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StackAccessEndpointInput)(nil)).Elem(), StackAccessEndpointArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StackAccessEndpointArrayInput)(nil)).Elem(), StackAccessEndpointArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StackApplicationSettingsInput)(nil)).Elem(), StackApplicationSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StackApplicationSettingsPtrInput)(nil)).Elem(), StackApplicationSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StackStorageConnectorInput)(nil)).Elem(), StackStorageConnectorArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StackStorageConnectorArrayInput)(nil)).Elem(), StackStorageConnectorArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StackStreamingExperienceSettingsInput)(nil)).Elem(), StackStreamingExperienceSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StackStreamingExperienceSettingsPtrInput)(nil)).Elem(), StackStreamingExperienceSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StackUserSettingInput)(nil)).Elem(), StackUserSettingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StackUserSettingArrayInput)(nil)).Elem(), StackUserSettingArray{})
 	pulumi.RegisterOutputType(AppBlockBuilderAccessEndpointOutput{})
 	pulumi.RegisterOutputType(AppBlockBuilderAccessEndpointArrayOutput{})
 	pulumi.RegisterOutputType(AppBlockBuilderVpcConfigOutput{})
@@ -1923,4 +2585,14 @@ func init() {
 	pulumi.RegisterOutputType(ImageBuilderVolumeConfigPtrOutput{})
 	pulumi.RegisterOutputType(ImageBuilderVpcConfigOutput{})
 	pulumi.RegisterOutputType(ImageBuilderVpcConfigPtrOutput{})
+	pulumi.RegisterOutputType(StackAccessEndpointOutput{})
+	pulumi.RegisterOutputType(StackAccessEndpointArrayOutput{})
+	pulumi.RegisterOutputType(StackApplicationSettingsOutput{})
+	pulumi.RegisterOutputType(StackApplicationSettingsPtrOutput{})
+	pulumi.RegisterOutputType(StackStorageConnectorOutput{})
+	pulumi.RegisterOutputType(StackStorageConnectorArrayOutput{})
+	pulumi.RegisterOutputType(StackStreamingExperienceSettingsOutput{})
+	pulumi.RegisterOutputType(StackStreamingExperienceSettingsPtrOutput{})
+	pulumi.RegisterOutputType(StackUserSettingOutput{})
+	pulumi.RegisterOutputType(StackUserSettingArrayOutput{})
 }
