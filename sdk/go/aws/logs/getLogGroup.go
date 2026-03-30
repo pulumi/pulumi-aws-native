@@ -35,7 +35,8 @@ type LookupLogGroupArgs struct {
 
 type LookupLogGroupResult struct {
 	// The ARN of the log group, such as `arn:aws:logs:us-west-1:123456789012:log-group:/mystack-testgroup-12ABC1AB12A1:*`
-	Arn *string `pulumi:"arn"`
+	Arn                              *string `pulumi:"arn"`
+	BearerTokenAuthenticationEnabled *bool   `pulumi:"bearerTokenAuthenticationEnabled"`
 	// Creates a data protection policy and assigns it to the log group. A data protection policy can help safeguard sensitive data that's ingested by the log group by auditing and masking the sensitive log data. When a user who does not have permission to view masked data views a log event that includes masked data, the sensitive data is replaced by asterisks.
 	//
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Logs::LogGroup` for more information about the expected schema for this property.
@@ -104,6 +105,10 @@ func (o LookupLogGroupResultOutput) ToLookupLogGroupResultOutputWithContext(ctx 
 // The ARN of the log group, such as `arn:aws:logs:us-west-1:123456789012:log-group:/mystack-testgroup-12ABC1AB12A1:*`
 func (o LookupLogGroupResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupLogGroupResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupLogGroupResultOutput) BearerTokenAuthenticationEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupLogGroupResult) *bool { return v.BearerTokenAuthenticationEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // Creates a data protection policy and assigns it to the log group. A data protection policy can help safeguard sensitive data that's ingested by the log group by auditing and masking the sensitive log data. When a user who does not have permission to view masked data views a log event that includes masked data, the sensitive data is replaced by asterisks.

@@ -106,6 +106,7 @@ export class Collection extends pulumi.CustomResource {
      */
     declare public readonly description: pulumi.Output<string | undefined>;
     declare public readonly encryptionConfig: pulumi.Output<outputs.opensearchserverless.CollectionEncryptionConfig | undefined>;
+    declare public /*out*/ readonly fipsEndpoints: pulumi.Output<outputs.opensearchserverless.CollectionFipsEndpoints>;
     /**
      * Key Management Service key used to encrypt the collection.
      */
@@ -157,6 +158,7 @@ export class Collection extends pulumi.CustomResource {
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["collectionEndpoint"] = undefined /*out*/;
             resourceInputs["dashboardEndpoint"] = undefined /*out*/;
+            resourceInputs["fipsEndpoints"] = undefined /*out*/;
             resourceInputs["kmsKeyArn"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;
@@ -166,6 +168,7 @@ export class Collection extends pulumi.CustomResource {
             resourceInputs["dashboardEndpoint"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["encryptionConfig"] = undefined /*out*/;
+            resourceInputs["fipsEndpoints"] = undefined /*out*/;
             resourceInputs["kmsKeyArn"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["standbyReplicas"] = undefined /*out*/;

@@ -21,17 +21,89 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         [Input("addOrRunAnomalyDetectionForAnalyses")]
         public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? AddOrRunAnomalyDetectionForAnalyses { get; set; }
 
+        [Input("amazonBedrockArsAction")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? AmazonBedrockArsAction { get; set; }
+
+        [Input("amazonBedrockFsAction")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? AmazonBedrockFsAction { get; set; }
+
+        [Input("amazonBedrockKrsAction")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? AmazonBedrockKrsAction { get; set; }
+
+        [Input("amazonSThreeAction")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? AmazonSThreeAction { get; set; }
+
         /// <summary>
         /// The ability to perform analysis-related actions.
         /// </summary>
         [Input("analysis")]
         public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? Analysis { get; set; }
 
+        [Input("approveFlowShareRequests")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? ApproveFlowShareRequests { get; set; }
+
+        [Input("asanaAction")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? AsanaAction { get; set; }
+
         [Input("automate")]
         public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? Automate { get; set; }
 
+        [Input("bambooHrAction")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? BambooHrAction { get; set; }
+
+        [Input("boxAgentAction")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? BoxAgentAction { get; set; }
+
+        [Input("buildCalculatedFieldWithQ")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? BuildCalculatedFieldWithQ { get; set; }
+
+        [Input("canvaAgentAction")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? CanvaAgentAction { get; set; }
+
         [Input("chatAgent")]
         public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? ChatAgent { get; set; }
+
+        [Input("comprehendAction")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? ComprehendAction { get; set; }
+
+        [Input("comprehendMedicalAction")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? ComprehendMedicalAction { get; set; }
+
+        [Input("confluenceAction")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? ConfluenceAction { get; set; }
+
+        [Input("createAndUpdateAmazonBedrockArsAction")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? CreateAndUpdateAmazonBedrockArsAction { get; set; }
+
+        [Input("createAndUpdateAmazonBedrockFsAction")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? CreateAndUpdateAmazonBedrockFsAction { get; set; }
+
+        [Input("createAndUpdateAmazonBedrockKrsAction")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? CreateAndUpdateAmazonBedrockKrsAction { get; set; }
+
+        [Input("createAndUpdateAmazonSThreeAction")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? CreateAndUpdateAmazonSThreeAction { get; set; }
+
+        [Input("createAndUpdateAsanaAction")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? CreateAndUpdateAsanaAction { get; set; }
+
+        [Input("createAndUpdateBambooHrAction")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? CreateAndUpdateBambooHrAction { get; set; }
+
+        [Input("createAndUpdateBoxAgentAction")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? CreateAndUpdateBoxAgentAction { get; set; }
+
+        [Input("createAndUpdateCanvaAgentAction")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? CreateAndUpdateCanvaAgentAction { get; set; }
+
+        [Input("createAndUpdateComprehendAction")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? CreateAndUpdateComprehendAction { get; set; }
+
+        [Input("createAndUpdateComprehendMedicalAction")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? CreateAndUpdateComprehendMedicalAction { get; set; }
+
+        [Input("createAndUpdateConfluenceAction")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? CreateAndUpdateConfluenceAction { get; set; }
 
         /// <summary>
         /// The ability to create and update email reports.
@@ -51,6 +123,102 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         [Input("createAndUpdateDatasets")]
         public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? CreateAndUpdateDatasets { get; set; }
 
+        [Input("createAndUpdateFactSetAction")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? CreateAndUpdateFactSetAction { get; set; }
+
+        [Input("createAndUpdateGenericHttpAction")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? CreateAndUpdateGenericHttpAction { get; set; }
+
+        [Input("createAndUpdateGithubAction")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? CreateAndUpdateGithubAction { get; set; }
+
+        [Input("createAndUpdateGoogleCalendarAction")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? CreateAndUpdateGoogleCalendarAction { get; set; }
+
+        [Input("createAndUpdateHubspotAction")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? CreateAndUpdateHubspotAction { get; set; }
+
+        [Input("createAndUpdateHuggingFaceAction")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? CreateAndUpdateHuggingFaceAction { get; set; }
+
+        [Input("createAndUpdateIntercomAction")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? CreateAndUpdateIntercomAction { get; set; }
+
+        [Input("createAndUpdateJiraAction")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? CreateAndUpdateJiraAction { get; set; }
+
+        [Input("createAndUpdateKnowledgeBases")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? CreateAndUpdateKnowledgeBases { get; set; }
+
+        [Input("createAndUpdateLinearAction")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? CreateAndUpdateLinearAction { get; set; }
+
+        [Input("createAndUpdateMcpAction")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? CreateAndUpdateMcpAction { get; set; }
+
+        [Input("createAndUpdateMondayAction")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? CreateAndUpdateMondayAction { get; set; }
+
+        [Input("createAndUpdateMsExchangeAction")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? CreateAndUpdateMsExchangeAction { get; set; }
+
+        [Input("createAndUpdateMsTeamsAction")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? CreateAndUpdateMsTeamsAction { get; set; }
+
+        [Input("createAndUpdateNewRelicAction")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? CreateAndUpdateNewRelicAction { get; set; }
+
+        [Input("createAndUpdateNotionAction")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? CreateAndUpdateNotionAction { get; set; }
+
+        [Input("createAndUpdateOneDriveAction")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? CreateAndUpdateOneDriveAction { get; set; }
+
+        [Input("createAndUpdateOpenApiAction")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? CreateAndUpdateOpenApiAction { get; set; }
+
+        [Input("createAndUpdatePagerDutyAction")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? CreateAndUpdatePagerDutyAction { get; set; }
+
+        [Input("createAndUpdateSalesforceAction")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? CreateAndUpdateSalesforceAction { get; set; }
+
+        [Input("createAndUpdateSandPGlobalEnergyAction")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? CreateAndUpdateSandPGlobalEnergyAction { get; set; }
+
+        [Input("createAndUpdateSandPgmiAction")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? CreateAndUpdateSandPgmiAction { get; set; }
+
+        [Input("createAndUpdateSapBillOfMaterialAction")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? CreateAndUpdateSapBillOfMaterialAction { get; set; }
+
+        [Input("createAndUpdateSapBusinessPartnerAction")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? CreateAndUpdateSapBusinessPartnerAction { get; set; }
+
+        [Input("createAndUpdateSapMaterialStockAction")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? CreateAndUpdateSapMaterialStockAction { get; set; }
+
+        [Input("createAndUpdateSapPhysicalInventoryAction")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? CreateAndUpdateSapPhysicalInventoryAction { get; set; }
+
+        [Input("createAndUpdateSapProductMasterDataAction")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? CreateAndUpdateSapProductMasterDataAction { get; set; }
+
+        [Input("createAndUpdateServiceNowAction")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? CreateAndUpdateServiceNowAction { get; set; }
+
+        [Input("createAndUpdateSharePointAction")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? CreateAndUpdateSharePointAction { get; set; }
+
+        [Input("createAndUpdateSlackAction")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? CreateAndUpdateSlackAction { get; set; }
+
+        [Input("createAndUpdateSmartsheetAction")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? CreateAndUpdateSmartsheetAction { get; set; }
+
+        [Input("createAndUpdateTextractAction")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? CreateAndUpdateTextractAction { get; set; }
+
         /// <summary>
         /// The ability to export to Create and Update themes.
         /// </summary>
@@ -63,8 +231,14 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         [Input("createAndUpdateThresholdAlerts")]
         public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? CreateAndUpdateThresholdAlerts { get; set; }
 
+        [Input("createAndUpdateZendeskAction")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? CreateAndUpdateZendeskAction { get; set; }
+
         [Input("createChatAgents")]
         public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? CreateChatAgents { get; set; }
+
+        [Input("createDashboardExecutiveSummaryWithQ")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? CreateDashboardExecutiveSummaryWithQ { get; set; }
 
         /// <summary>
         /// The ability to create shared folders.
@@ -83,6 +257,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         /// </summary>
         [Input("dashboard")]
         public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? Dashboard { get; set; }
+
+        [Input("editVisualWithQ")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? EditVisualWithQ { get; set; }
 
         /// <summary>
         /// The ability to export to CSV files from the UI.
@@ -120,8 +297,29 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         [Input("exportToPdfInScheduledReports")]
         public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? ExportToPdfInScheduledReports { get; set; }
 
+        [Input("extension")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? Extension { get; set; }
+
+        [Input("factSetAction")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? FactSetAction { get; set; }
+
         [Input("flow")]
         public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? Flow { get; set; }
+
+        [Input("genericHttpAction")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? GenericHttpAction { get; set; }
+
+        [Input("githubAction")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? GithubAction { get; set; }
+
+        [Input("googleCalendarAction")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? GoogleCalendarAction { get; set; }
+
+        [Input("hubspotAction")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? HubspotAction { get; set; }
+
+        [Input("huggingFaceAction")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? HuggingFaceAction { get; set; }
 
         /// <summary>
         /// The ability to include content in scheduled email reports.
@@ -129,8 +327,47 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         [Input("includeContentInScheduledReportsEmail")]
         public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? IncludeContentInScheduledReportsEmail { get; set; }
 
+        [Input("intercomAction")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? IntercomAction { get; set; }
+
+        [Input("jiraAction")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? JiraAction { get; set; }
+
         [Input("knowledgeBase")]
         public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? KnowledgeBase { get; set; }
+
+        [Input("linearAction")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? LinearAction { get; set; }
+
+        [Input("manageSharedFolders")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? ManageSharedFolders { get; set; }
+
+        [Input("mcpAction")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? McpAction { get; set; }
+
+        [Input("mondayAction")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? MondayAction { get; set; }
+
+        [Input("msExchangeAction")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? MsExchangeAction { get; set; }
+
+        [Input("msTeamsAction")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? MsTeamsAction { get; set; }
+
+        [Input("newRelicAction")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? NewRelicAction { get; set; }
+
+        [Input("notionAction")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? NotionAction { get; set; }
+
+        [Input("oneDriveAction")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? OneDriveAction { get; set; }
+
+        [Input("openApiAction")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? OpenApiAction { get; set; }
+
+        [Input("pagerDutyAction")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? PagerDutyAction { get; set; }
 
         [Input("performFlowUiTask")]
         public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? PerformFlowUiTask { get; set; }
@@ -153,11 +390,71 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         [Input("research")]
         public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? Research { get; set; }
 
+        [Input("salesforceAction")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? SalesforceAction { get; set; }
+
+        [Input("sandPGlobalEnergyAction")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? SandPGlobalEnergyAction { get; set; }
+
+        [Input("sandPgmiAction")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? SandPgmiAction { get; set; }
+
+        [Input("sapBillOfMaterialAction")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? SapBillOfMaterialAction { get; set; }
+
+        [Input("sapBusinessPartnerAction")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? SapBusinessPartnerAction { get; set; }
+
+        [Input("sapMaterialStockAction")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? SapMaterialStockAction { get; set; }
+
+        [Input("sapPhysicalInventoryAction")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? SapPhysicalInventoryAction { get; set; }
+
+        [Input("sapProductMasterDataAction")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? SapProductMasterDataAction { get; set; }
+
+        [Input("serviceNowAction")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? ServiceNowAction { get; set; }
+
+        [Input("shareAmazonBedrockArsAction")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? ShareAmazonBedrockArsAction { get; set; }
+
+        [Input("shareAmazonBedrockFsAction")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? ShareAmazonBedrockFsAction { get; set; }
+
+        [Input("shareAmazonBedrockKrsAction")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? ShareAmazonBedrockKrsAction { get; set; }
+
+        [Input("shareAmazonSThreeAction")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? ShareAmazonSThreeAction { get; set; }
+
         /// <summary>
         /// The ability to share analyses.
         /// </summary>
         [Input("shareAnalyses")]
         public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? ShareAnalyses { get; set; }
+
+        [Input("shareAsanaAction")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? ShareAsanaAction { get; set; }
+
+        [Input("shareBambooHrAction")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? ShareBambooHrAction { get; set; }
+
+        [Input("shareBoxAgentAction")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? ShareBoxAgentAction { get; set; }
+
+        [Input("shareCanvaAgentAction")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? ShareCanvaAgentAction { get; set; }
+
+        [Input("shareComprehendAction")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? ShareComprehendAction { get; set; }
+
+        [Input("shareComprehendMedicalAction")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? ShareComprehendMedicalAction { get; set; }
+
+        [Input("shareConfluenceAction")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? ShareConfluenceAction { get; set; }
 
         /// <summary>
         /// The ability to share dashboards.
@@ -177,6 +474,114 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         [Input("shareDatasets")]
         public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? ShareDatasets { get; set; }
 
+        [Input("shareFactSetAction")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? ShareFactSetAction { get; set; }
+
+        [Input("shareGenericHttpAction")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? ShareGenericHttpAction { get; set; }
+
+        [Input("shareGithubAction")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? ShareGithubAction { get; set; }
+
+        [Input("shareGoogleCalendarAction")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? ShareGoogleCalendarAction { get; set; }
+
+        [Input("shareHubspotAction")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? ShareHubspotAction { get; set; }
+
+        [Input("shareHuggingFaceAction")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? ShareHuggingFaceAction { get; set; }
+
+        [Input("shareIntercomAction")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? ShareIntercomAction { get; set; }
+
+        [Input("shareJiraAction")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? ShareJiraAction { get; set; }
+
+        [Input("shareKnowledgeBases")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? ShareKnowledgeBases { get; set; }
+
+        [Input("shareLinearAction")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? ShareLinearAction { get; set; }
+
+        [Input("shareMcpAction")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? ShareMcpAction { get; set; }
+
+        [Input("shareMondayAction")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? ShareMondayAction { get; set; }
+
+        [Input("shareMsExchangeAction")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? ShareMsExchangeAction { get; set; }
+
+        [Input("shareMsTeamsAction")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? ShareMsTeamsAction { get; set; }
+
+        [Input("shareNewRelicAction")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? ShareNewRelicAction { get; set; }
+
+        [Input("shareNotionAction")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? ShareNotionAction { get; set; }
+
+        [Input("shareOneDriveAction")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? ShareOneDriveAction { get; set; }
+
+        [Input("shareOpenApiAction")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? ShareOpenApiAction { get; set; }
+
+        [Input("sharePagerDutyAction")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? SharePagerDutyAction { get; set; }
+
+        [Input("sharePointAction")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? SharePointAction { get; set; }
+
+        [Input("shareSalesforceAction")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? ShareSalesforceAction { get; set; }
+
+        [Input("shareSandPGlobalEnergyAction")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? ShareSandPGlobalEnergyAction { get; set; }
+
+        [Input("shareSandPgmiAction")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? ShareSandPgmiAction { get; set; }
+
+        [Input("shareSapBillOfMaterialAction")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? ShareSapBillOfMaterialAction { get; set; }
+
+        [Input("shareSapBusinessPartnerAction")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? ShareSapBusinessPartnerAction { get; set; }
+
+        [Input("shareSapMaterialStockAction")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? ShareSapMaterialStockAction { get; set; }
+
+        [Input("shareSapPhysicalInventoryAction")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? ShareSapPhysicalInventoryAction { get; set; }
+
+        [Input("shareSapProductMasterDataAction")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? ShareSapProductMasterDataAction { get; set; }
+
+        [Input("shareServiceNowAction")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? ShareServiceNowAction { get; set; }
+
+        [Input("shareSharePointAction")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? ShareSharePointAction { get; set; }
+
+        [Input("shareSlackAction")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? ShareSlackAction { get; set; }
+
+        [Input("shareSmartsheetAction")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? ShareSmartsheetAction { get; set; }
+
+        [Input("shareTextractAction")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? ShareTextractAction { get; set; }
+
+        [Input("shareZendeskAction")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? ShareZendeskAction { get; set; }
+
+        [Input("slackAction")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? SlackAction { get; set; }
+
+        [Input("smartsheetAction")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? SmartsheetAction { get; set; }
+
         [Input("space")]
         public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? Space { get; set; }
 
@@ -186,17 +591,155 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         [Input("subscribeDashboardEmailReports")]
         public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? SubscribeDashboardEmailReports { get; set; }
 
+        [Input("textractAction")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? TextractAction { get; set; }
+
+        [Input("topic")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? Topic { get; set; }
+
         [Input("useAgentWebSearch")]
         public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? UseAgentWebSearch { get; set; }
 
+        [Input("useAmazonBedrockArsAction")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? UseAmazonBedrockArsAction { get; set; }
+
+        [Input("useAmazonBedrockFsAction")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? UseAmazonBedrockFsAction { get; set; }
+
+        [Input("useAmazonBedrockKrsAction")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? UseAmazonBedrockKrsAction { get; set; }
+
+        [Input("useAmazonSThreeAction")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? UseAmazonSThreeAction { get; set; }
+
+        [Input("useAsanaAction")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? UseAsanaAction { get; set; }
+
+        [Input("useBambooHrAction")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? UseBambooHrAction { get; set; }
+
         [Input("useBedrockModels")]
         public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? UseBedrockModels { get; set; }
+
+        [Input("useBoxAgentAction")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? UseBoxAgentAction { get; set; }
+
+        [Input("useCanvaAgentAction")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? UseCanvaAgentAction { get; set; }
+
+        [Input("useComprehendAction")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? UseComprehendAction { get; set; }
+
+        [Input("useComprehendMedicalAction")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? UseComprehendMedicalAction { get; set; }
+
+        [Input("useConfluenceAction")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? UseConfluenceAction { get; set; }
+
+        [Input("useFactSetAction")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? UseFactSetAction { get; set; }
+
+        [Input("useGenericHttpAction")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? UseGenericHttpAction { get; set; }
+
+        [Input("useGithubAction")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? UseGithubAction { get; set; }
+
+        [Input("useGoogleCalendarAction")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? UseGoogleCalendarAction { get; set; }
+
+        [Input("useHubspotAction")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? UseHubspotAction { get; set; }
+
+        [Input("useHuggingFaceAction")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? UseHuggingFaceAction { get; set; }
+
+        [Input("useIntercomAction")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? UseIntercomAction { get; set; }
+
+        [Input("useJiraAction")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? UseJiraAction { get; set; }
+
+        [Input("useLinearAction")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? UseLinearAction { get; set; }
+
+        [Input("useMcpAction")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? UseMcpAction { get; set; }
+
+        [Input("useMondayAction")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? UseMondayAction { get; set; }
+
+        [Input("useMsExchangeAction")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? UseMsExchangeAction { get; set; }
+
+        [Input("useMsTeamsAction")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? UseMsTeamsAction { get; set; }
+
+        [Input("useNewRelicAction")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? UseNewRelicAction { get; set; }
+
+        [Input("useNotionAction")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? UseNotionAction { get; set; }
+
+        [Input("useOneDriveAction")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? UseOneDriveAction { get; set; }
+
+        [Input("useOpenApiAction")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? UseOpenApiAction { get; set; }
+
+        [Input("usePagerDutyAction")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? UsePagerDutyAction { get; set; }
+
+        [Input("useSalesforceAction")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? UseSalesforceAction { get; set; }
+
+        [Input("useSandPGlobalEnergyAction")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? UseSandPGlobalEnergyAction { get; set; }
+
+        [Input("useSandPgmiAction")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? UseSandPgmiAction { get; set; }
+
+        [Input("useSapBillOfMaterialAction")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? UseSapBillOfMaterialAction { get; set; }
+
+        [Input("useSapBusinessPartnerAction")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? UseSapBusinessPartnerAction { get; set; }
+
+        [Input("useSapMaterialStockAction")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? UseSapMaterialStockAction { get; set; }
+
+        [Input("useSapPhysicalInventoryAction")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? UseSapPhysicalInventoryAction { get; set; }
+
+        [Input("useSapProductMasterDataAction")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? UseSapProductMasterDataAction { get; set; }
+
+        [Input("useServiceNowAction")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? UseServiceNowAction { get; set; }
+
+        [Input("useSharePointAction")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? UseSharePointAction { get; set; }
+
+        [Input("useSlackAction")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? UseSlackAction { get; set; }
+
+        [Input("useSmartsheetAction")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? UseSmartsheetAction { get; set; }
+
+        [Input("useTextractAction")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? UseTextractAction { get; set; }
+
+        [Input("useZendeskAction")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? UseZendeskAction { get; set; }
 
         /// <summary>
         /// The ability to view account SPICE capacity.
         /// </summary>
         [Input("viewAccountSpiceCapacity")]
         public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? ViewAccountSpiceCapacity { get; set; }
+
+        [Input("zendeskAction")]
+        public Input<Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState>? ZendeskAction { get; set; }
 
         public CustomPermissionsCapabilitiesArgs()
         {

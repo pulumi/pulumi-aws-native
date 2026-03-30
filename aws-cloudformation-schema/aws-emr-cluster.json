@@ -5,7 +5,7 @@
   "properties" : {
     "Steps" : {
       "type" : "array",
-      "uniqueItems" : true,
+      "uniqueItems" : false,
       "items" : {
         "$ref" : "#/definitions/StepConfig"
       }
@@ -37,7 +37,7 @@
     },
     "BootstrapActions" : {
       "type" : "array",
-      "uniqueItems" : true,
+      "uniqueItems" : false,
       "items" : {
         "$ref" : "#/definitions/BootstrapActionConfig"
       }
@@ -49,7 +49,7 @@
       "type" : "array",
       "uniqueItems" : true,
       "items" : {
-        "$ref" : "#/definitions/Configuration"
+        "$ref" : "#/definitions/EMRConfiguration"
       }
     },
     "ReleaseLabel" : {
@@ -87,6 +87,9 @@
     "AutoScalingRole" : {
       "type" : "string"
     },
+    "MonitoringConfiguration" : {
+      "$ref" : "#/definitions/MonitoringConfiguration"
+    },
     "CustomAmiId" : {
       "type" : "string"
     },
@@ -105,17 +108,38 @@
     "JobFlowRole" : {
       "type" : "string"
     },
-    "VisibleToAllUsers" : {
-      "type" : "boolean"
-    },
-    "SecurityConfiguration" : {
+    "Id" : {
       "type" : "string"
     },
-    "Id" : {
+    "SecurityConfiguration" : {
       "type" : "string"
     }
   },
   "definitions" : {
+    "EMRConfiguration" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "ConfigurationProperties" : {
+          "type" : "object",
+          "patternProperties" : {
+            "[a-zA-Z0-9]+" : {
+              "type" : "string"
+            }
+          }
+        },
+        "Configurations" : {
+          "type" : "array",
+          "uniqueItems" : true,
+          "items" : {
+            "$ref" : "#/definitions/EMRConfiguration"
+          }
+        },
+        "Classification" : {
+          "type" : "string"
+        }
+      }
+    },
     "EbsConfiguration" : {
       "type" : "object",
       "additionalProperties" : false,
@@ -144,30 +168,6 @@
         }
       }
     },
-    "Configuration" : {
-      "type" : "object",
-      "additionalProperties" : false,
-      "properties" : {
-        "ConfigurationProperties" : {
-          "type" : "object",
-          "patternProperties" : {
-            "[a-zA-Z0-9]+" : {
-              "type" : "string"
-            }
-          }
-        },
-        "Configurations" : {
-          "type" : "array",
-          "uniqueItems" : true,
-          "items" : {
-            "$ref" : "#/definitions/Configuration"
-          }
-        },
-        "Classification" : {
-          "type" : "string"
-        }
-      }
-    },
     "OnDemandResizingSpecification" : {
       "type" : "object",
       "additionalProperties" : false,
@@ -175,11 +175,11 @@
         "CapacityReservationOptions" : {
           "$ref" : "#/definitions/OnDemandCapacityReservationOptions"
         },
-        "AllocationStrategy" : {
-          "type" : "string"
-        },
         "TimeoutDurationMinutes" : {
           "type" : "integer"
+        },
+        "AllocationStrategy" : {
+          "type" : "string"
         }
       }
     },
@@ -253,7 +253,7 @@
           "type" : "array",
           "uniqueItems" : true,
           "items" : {
-            "$ref" : "#/definitions/Configuration"
+            "$ref" : "#/definitions/EMRConfiguration"
           }
         },
         "InstanceType" : {
@@ -290,7 +290,7 @@
         },
         "Args" : {
           "type" : "array",
-          "uniqueItems" : true,
+          "uniqueItems" : false,
           "items" : {
             "type" : "string"
           }
@@ -412,7 +412,7 @@
           "type" : "array",
           "uniqueItems" : true,
           "items" : {
-            "$ref" : "#/definitions/Configuration"
+            "$ref" : "#/definitions/EMRConfiguration"
           }
         },
         "InstanceType" : {
@@ -433,7 +433,7 @@
       "properties" : {
         "Args" : {
           "type" : "array",
-          "uniqueItems" : true,
+          "uniqueItems" : false,
           "items" : {
             "type" : "string"
           }
@@ -587,15 +587,15 @@
         "MasterInstanceGroup" : {
           "$ref" : "#/definitions/InstanceGroupConfig"
         },
-        "Placement" : {
-          "$ref" : "#/definitions/PlacementType"
-        },
         "TaskInstanceFleets" : {
           "type" : "array",
           "uniqueItems" : true,
           "items" : {
             "$ref" : "#/definitions/InstanceFleetConfig"
           }
+        },
+        "Placement" : {
+          "$ref" : "#/definitions/PlacementType"
         },
         "Ec2SubnetId" : {
           "type" : "string"
@@ -637,6 +637,37 @@
         }
       },
       "required" : [ "SimpleScalingPolicyConfiguration" ]
+    },
+    "MonitoringConfiguration" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "CloudWatchLogConfiguration" : {
+          "$ref" : "#/definitions/CloudWatchLogConfiguration"
+        }
+      }
+    },
+    "CloudWatchLogConfiguration" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "Enabled" : {
+          "type" : "boolean"
+        },
+        "LogStreamNamePrefix" : {
+          "type" : "string"
+        },
+        "LogGroupName" : {
+          "type" : "string"
+        },
+        "LogTypes" : {
+          "type" : "object"
+        },
+        "EncryptionKeyArn" : {
+          "type" : "string"
+        }
+      },
+      "required" : [ "Enabled" ]
     },
     "EbsBlockDeviceConfig" : {
       "type" : "object",
@@ -722,11 +753,11 @@
       "type" : "object",
       "additionalProperties" : false,
       "properties" : {
-        "AllocationStrategy" : {
-          "type" : "string"
-        },
         "TimeoutDurationMinutes" : {
           "type" : "integer"
+        },
+        "AllocationStrategy" : {
+          "type" : "string"
         }
       }
     },
@@ -812,7 +843,7 @@
         },
         "Args" : {
           "type" : "array",
-          "uniqueItems" : true,
+          "uniqueItems" : false,
           "items" : {
             "type" : "string"
           }
@@ -827,7 +858,7 @@
     }
   },
   "required" : [ "Instances", "ServiceRole", "JobFlowRole", "Name" ],
-  "createOnlyProperties" : [ "/properties/Steps", "/properties/EbsRootVolumeSize", "/properties/SecurityConfiguration", "/properties/ScaleDownBehavior", "/properties/Configurations", "/properties/ReleaseLabel", "/properties/BootstrapActions", "/properties/EbsRootVolumeIops", "/properties/KerberosAttributes", "/properties/ServiceRole", "/properties/LogEncryptionKmsKeyId", "/properties/Name", "/properties/EbsRootVolumeThroughput", "/properties/JobFlowRole", "/properties/AdditionalInfo", "/properties/LogUri", "/properties/CustomAmiId", "/properties/PlacementGroupConfigs", "/properties/OSReleaseLabel", "/properties/AutoScalingRole", "/properties/Applications" ],
+  "createOnlyProperties" : [ "/properties/Steps", "/properties/EbsRootVolumeSize", "/properties/SecurityConfiguration", "/properties/ScaleDownBehavior", "/properties/Configurations", "/properties/ReleaseLabel", "/properties/BootstrapActions", "/properties/KerberosAttributes", "/properties/EbsRootVolumeIops", "/properties/MonitoringConfiguration", "/properties/ServiceRole", "/properties/LogEncryptionKmsKeyId", "/properties/Name", "/properties/EbsRootVolumeThroughput", "/properties/JobFlowRole", "/properties/LogUri", "/properties/AdditionalInfo", "/properties/PlacementGroupConfigs", "/properties/CustomAmiId", "/properties/OSReleaseLabel", "/properties/AutoScalingRole", "/properties/Applications" ],
   "primaryIdentifier" : [ "/properties/Id" ],
   "readOnlyProperties" : [ "/properties/Id", "/properties/MasterPublicDNS" ]
 }

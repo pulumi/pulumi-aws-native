@@ -25,6 +25,9 @@ namespace Pulumi.AwsNative.Logs
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        [Output("bearerTokenAuthenticationEnabled")]
+        public Output<bool?> BearerTokenAuthenticationEnabled { get; private set; } = null!;
+
         /// <summary>
         /// Creates a data protection policy and assigns it to the log group. A data protection policy can help safeguard sensitive data that's ingested by the log group by auditing and masking the sensitive log data. When a user who does not have permission to view masked data views a log event that includes masked data, the sensitive data is replaced by asterisks.
         /// 
@@ -143,6 +146,9 @@ namespace Pulumi.AwsNative.Logs
 
     public sealed class LogGroupArgs : global::Pulumi.ResourceArgs
     {
+        [Input("bearerTokenAuthenticationEnabled")]
+        public Input<bool>? BearerTokenAuthenticationEnabled { get; set; }
+
         /// <summary>
         /// Creates a data protection policy and assigns it to the log group. A data protection policy can help safeguard sensitive data that's ingested by the log group by auditing and masking the sensitive log data. When a user who does not have permission to view masked data views a log event that includes masked data, the sensitive data is replaced by asterisks.
         /// 

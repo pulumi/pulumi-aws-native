@@ -1566,6 +1566,26 @@
       }
     }
   },
+  "aws-native:bcmdataexports:Export": {
+    "cfTypeName": "AWS::BCMDataExports::Export",
+    "properties": {
+      "export": {
+        "$ref": "#/types/aws-native:bcmdataexports:Export",
+        "description": "The details that are available for an export.",
+        "language": {
+          "csharp": {
+            "name": "ExportValue"
+          }
+        }
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:index:Tag"
+        }
+      }
+    }
+  },
   "aws-native:bedrock:AutomatedReasoningPolicyVersion": {
     "cfTypeName": "AWS::Bedrock::AutomatedReasoningPolicyVersion",
     "properties": {
@@ -4194,6 +4214,54 @@
       }
     }
   },
+  "aws-native:devopsagent:Association": {
+    "cfTypeName": "AWS::DevOpsAgent::Association",
+    "properties": {
+      "agentSpaceId": {
+        "type": "string",
+        "description": "The unique identifier of the AgentSpace"
+      },
+      "configuration": {
+        "$ref": "#/types/aws-native:devopsagent:AssociationServiceConfiguration",
+        "description": "The configuration that directs how AgentSpace interacts with the given service"
+      },
+      "linkedAssociationIds": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "description": "Set of linked association IDs for parent-child relationships"
+      },
+      "serviceId": {
+        "type": "string",
+        "description": "The identifier for the associated service"
+      }
+    }
+  },
+  "aws-native:devopsagent:Service": {
+    "cfTypeName": "AWS::DevOpsAgent::Service",
+    "properties": {
+      "kmsKeyArn": {
+        "type": "string",
+        "description": "The ARN of the KMS key to use for encryption."
+      },
+      "serviceDetails": {
+        "$ref": "#/types/aws-native:devopsagent:ServiceDetails",
+        "description": "Service-specific configuration details for create operation"
+      },
+      "serviceType": {
+        "$ref": "#/types/aws-native:devopsagent:ServiceType",
+        "description": "The type of service being registered"
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:index:Tag"
+        },
+        "description": "An array of key-value pairs to apply to this resource."
+      }
+    }
+  },
   "aws-native:devopsguru:LogAnomalyDetectionIntegration": {
     "cfTypeName": "AWS::DevOpsGuru::LogAnomalyDetectionIntegration",
     "properties": {}
@@ -4617,6 +4685,9 @@
       "replaceUnhealthyInstances": {
         "type": "boolean",
         "description": "Indicates whether EC2 Fleet should replace unhealthy Spot Instances. Supported only for fleets of type `maintain` . For more information, see [EC2 Fleet health checks](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/manage-ec2-fleet.html#ec2-fleet-health-checks) in the *Amazon EC2 User Guide* ."
+      },
+      "reservedCapacityOptions": {
+        "$ref": "#/types/aws-native:ec2:Ec2FleetReservedCapacityOptionsRequest"
       },
       "spotOptions": {
         "$ref": "#/types/aws-native:ec2:Ec2FleetSpotOptionsRequest",
@@ -9824,6 +9895,42 @@
       "targets": {
         "$ref": "#/types/aws-native:inspectorv2:CisScanConfigurationCisTargets",
         "description": "The CIS scan configuration's targets."
+      }
+    }
+  },
+  "aws-native:interconnect:Connection": {
+    "cfTypeName": "AWS::Interconnect::Connection",
+    "properties": {
+      "activationKey": {
+        "type": "string",
+        "description": "The activation key for accepting a connection proposal from a partner CSP. Mutually exclusive with EnvironmentId."
+      },
+      "attachPoint": {
+        "$ref": "#/types/aws-native:interconnect:ConnectionAttachPoint",
+        "description": "The logical attachment point in your AWS network where the managed connection will be connected."
+      },
+      "bandwidth": {
+        "type": "string",
+        "description": "The bandwidth of the connection (e.g., 50Mbps, 1Gbps). Required when creating a connection through AWS."
+      },
+      "description": {
+        "type": "string",
+        "description": "A description of the connection."
+      },
+      "environmentId": {
+        "type": "string",
+        "description": "The ID of the environment for the connection. Required when creating a connection through AWS. Mutually exclusive with ActivationKey."
+      },
+      "remoteOwnerAccount": {
+        "type": "string",
+        "description": "The account ID of the remote owner. Required when creating a connection through AWS."
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:index:Tag"
+        },
+        "description": "An array of key-value pairs to apply to this resource."
       }
     }
   },

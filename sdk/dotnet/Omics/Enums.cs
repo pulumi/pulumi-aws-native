@@ -159,6 +159,41 @@ namespace Pulumi.AwsNative.Omics
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// Current configuration status.
+    /// </summary>
+    [EnumType]
+    public readonly struct ConfigurationStatus : IEquatable<ConfigurationStatus>
+    {
+        private readonly string _value;
+
+        private ConfigurationStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ConfigurationStatus Creating { get; } = new ConfigurationStatus("CREATING");
+        public static ConfigurationStatus Active { get; } = new ConfigurationStatus("ACTIVE");
+        public static ConfigurationStatus Updating { get; } = new ConfigurationStatus("UPDATING");
+        public static ConfigurationStatus Deleting { get; } = new ConfigurationStatus("DELETING");
+        public static ConfigurationStatus Deleted { get; } = new ConfigurationStatus("DELETED");
+        public static ConfigurationStatus Failed { get; } = new ConfigurationStatus("FAILED");
+
+        public static bool operator ==(ConfigurationStatus left, ConfigurationStatus right) => left.Equals(right);
+        public static bool operator !=(ConfigurationStatus left, ConfigurationStatus right) => !left.Equals(right);
+
+        public static explicit operator string(ConfigurationStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ConfigurationStatus other && Equals(other);
+        public bool Equals(ConfigurationStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     [EnumType]
     public readonly struct ReferenceStoreEncryptionType : IEquatable<ReferenceStoreEncryptionType>
     {

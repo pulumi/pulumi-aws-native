@@ -1020,10 +1020,11 @@ func (o OrganizationCentralizationRuleLogsEncryptionConfigurationPtrOutput) KmsK
 }
 
 type OrganizationCentralizationRuleSourceLogsConfiguration struct {
+	DataSourceSelectionCriteria *string `pulumi:"dataSourceSelectionCriteria"`
 	// A strategy determining whether to centralize source log groups that are encrypted with customer managed KMS keys (CMK). ALLOW will consider CMK encrypted source log groups for centralization while SKIP will skip CMK encrypted source log groups from centralization.
 	EncryptedLogGroupStrategy OrganizationCentralizationRuleSourceLogsConfigurationEncryptedLogGroupStrategy `pulumi:"encryptedLogGroupStrategy"`
 	// The selection criteria that specifies which source log groups to centralize. The selection criteria uses the same format as OAM link filters.
-	LogGroupSelectionCriteria string `pulumi:"logGroupSelectionCriteria"`
+	LogGroupSelectionCriteria *string `pulumi:"logGroupSelectionCriteria"`
 }
 
 // OrganizationCentralizationRuleSourceLogsConfigurationInput is an input type that accepts OrganizationCentralizationRuleSourceLogsConfigurationArgs and OrganizationCentralizationRuleSourceLogsConfigurationOutput values.
@@ -1038,10 +1039,11 @@ type OrganizationCentralizationRuleSourceLogsConfigurationInput interface {
 }
 
 type OrganizationCentralizationRuleSourceLogsConfigurationArgs struct {
+	DataSourceSelectionCriteria pulumi.StringPtrInput `pulumi:"dataSourceSelectionCriteria"`
 	// A strategy determining whether to centralize source log groups that are encrypted with customer managed KMS keys (CMK). ALLOW will consider CMK encrypted source log groups for centralization while SKIP will skip CMK encrypted source log groups from centralization.
 	EncryptedLogGroupStrategy OrganizationCentralizationRuleSourceLogsConfigurationEncryptedLogGroupStrategyInput `pulumi:"encryptedLogGroupStrategy"`
 	// The selection criteria that specifies which source log groups to centralize. The selection criteria uses the same format as OAM link filters.
-	LogGroupSelectionCriteria pulumi.StringInput `pulumi:"logGroupSelectionCriteria"`
+	LogGroupSelectionCriteria pulumi.StringPtrInput `pulumi:"logGroupSelectionCriteria"`
 }
 
 func (OrganizationCentralizationRuleSourceLogsConfigurationArgs) ElementType() reflect.Type {
@@ -1121,6 +1123,12 @@ func (o OrganizationCentralizationRuleSourceLogsConfigurationOutput) ToOrganizat
 	}).(OrganizationCentralizationRuleSourceLogsConfigurationPtrOutput)
 }
 
+func (o OrganizationCentralizationRuleSourceLogsConfigurationOutput) DataSourceSelectionCriteria() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OrganizationCentralizationRuleSourceLogsConfiguration) *string {
+		return v.DataSourceSelectionCriteria
+	}).(pulumi.StringPtrOutput)
+}
+
 // A strategy determining whether to centralize source log groups that are encrypted with customer managed KMS keys (CMK). ALLOW will consider CMK encrypted source log groups for centralization while SKIP will skip CMK encrypted source log groups from centralization.
 func (o OrganizationCentralizationRuleSourceLogsConfigurationOutput) EncryptedLogGroupStrategy() OrganizationCentralizationRuleSourceLogsConfigurationEncryptedLogGroupStrategyOutput {
 	return o.ApplyT(func(v OrganizationCentralizationRuleSourceLogsConfiguration) OrganizationCentralizationRuleSourceLogsConfigurationEncryptedLogGroupStrategy {
@@ -1129,10 +1137,10 @@ func (o OrganizationCentralizationRuleSourceLogsConfigurationOutput) EncryptedLo
 }
 
 // The selection criteria that specifies which source log groups to centralize. The selection criteria uses the same format as OAM link filters.
-func (o OrganizationCentralizationRuleSourceLogsConfigurationOutput) LogGroupSelectionCriteria() pulumi.StringOutput {
-	return o.ApplyT(func(v OrganizationCentralizationRuleSourceLogsConfiguration) string {
+func (o OrganizationCentralizationRuleSourceLogsConfigurationOutput) LogGroupSelectionCriteria() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OrganizationCentralizationRuleSourceLogsConfiguration) *string {
 		return v.LogGroupSelectionCriteria
-	}).(pulumi.StringOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 type OrganizationCentralizationRuleSourceLogsConfigurationPtrOutput struct{ *pulumi.OutputState }
@@ -1159,6 +1167,15 @@ func (o OrganizationCentralizationRuleSourceLogsConfigurationPtrOutput) Elem() O
 	}).(OrganizationCentralizationRuleSourceLogsConfigurationOutput)
 }
 
+func (o OrganizationCentralizationRuleSourceLogsConfigurationPtrOutput) DataSourceSelectionCriteria() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OrganizationCentralizationRuleSourceLogsConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DataSourceSelectionCriteria
+	}).(pulumi.StringPtrOutput)
+}
+
 // A strategy determining whether to centralize source log groups that are encrypted with customer managed KMS keys (CMK). ALLOW will consider CMK encrypted source log groups for centralization while SKIP will skip CMK encrypted source log groups from centralization.
 func (o OrganizationCentralizationRuleSourceLogsConfigurationPtrOutput) EncryptedLogGroupStrategy() OrganizationCentralizationRuleSourceLogsConfigurationEncryptedLogGroupStrategyPtrOutput {
 	return o.ApplyT(func(v *OrganizationCentralizationRuleSourceLogsConfiguration) *OrganizationCentralizationRuleSourceLogsConfigurationEncryptedLogGroupStrategy {
@@ -1175,7 +1192,7 @@ func (o OrganizationCentralizationRuleSourceLogsConfigurationPtrOutput) LogGroup
 		if v == nil {
 			return nil
 		}
-		return &v.LogGroupSelectionCriteria
+		return v.LogGroupSelectionCriteria
 	}).(pulumi.StringPtrOutput)
 }
 

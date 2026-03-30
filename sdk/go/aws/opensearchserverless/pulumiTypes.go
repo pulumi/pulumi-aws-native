@@ -172,6 +172,75 @@ func (o CollectionEncryptionConfigPtrOutput) KmsKeyArn() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
+type CollectionFipsEndpoints struct {
+	CollectionEndpoint *string `pulumi:"collectionEndpoint"`
+	DashboardEndpoint  *string `pulumi:"dashboardEndpoint"`
+}
+
+type CollectionFipsEndpointsOutput struct{ *pulumi.OutputState }
+
+func (CollectionFipsEndpointsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CollectionFipsEndpoints)(nil)).Elem()
+}
+
+func (o CollectionFipsEndpointsOutput) ToCollectionFipsEndpointsOutput() CollectionFipsEndpointsOutput {
+	return o
+}
+
+func (o CollectionFipsEndpointsOutput) ToCollectionFipsEndpointsOutputWithContext(ctx context.Context) CollectionFipsEndpointsOutput {
+	return o
+}
+
+func (o CollectionFipsEndpointsOutput) CollectionEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CollectionFipsEndpoints) *string { return v.CollectionEndpoint }).(pulumi.StringPtrOutput)
+}
+
+func (o CollectionFipsEndpointsOutput) DashboardEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CollectionFipsEndpoints) *string { return v.DashboardEndpoint }).(pulumi.StringPtrOutput)
+}
+
+type CollectionFipsEndpointsPtrOutput struct{ *pulumi.OutputState }
+
+func (CollectionFipsEndpointsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CollectionFipsEndpoints)(nil)).Elem()
+}
+
+func (o CollectionFipsEndpointsPtrOutput) ToCollectionFipsEndpointsPtrOutput() CollectionFipsEndpointsPtrOutput {
+	return o
+}
+
+func (o CollectionFipsEndpointsPtrOutput) ToCollectionFipsEndpointsPtrOutputWithContext(ctx context.Context) CollectionFipsEndpointsPtrOutput {
+	return o
+}
+
+func (o CollectionFipsEndpointsPtrOutput) Elem() CollectionFipsEndpointsOutput {
+	return o.ApplyT(func(v *CollectionFipsEndpoints) CollectionFipsEndpoints {
+		if v != nil {
+			return *v
+		}
+		var ret CollectionFipsEndpoints
+		return ret
+	}).(CollectionFipsEndpointsOutput)
+}
+
+func (o CollectionFipsEndpointsPtrOutput) CollectionEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CollectionFipsEndpoints) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CollectionEndpoint
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o CollectionFipsEndpointsPtrOutput) DashboardEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CollectionFipsEndpoints) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DashboardEndpoint
+	}).(pulumi.StringPtrOutput)
+}
+
 type CollectionGroupCapacityLimits struct {
 	// The maximum indexing capacity for collections in the group.
 	MaxIndexingCapacityInOcu *float64 `pulumi:"maxIndexingCapacityInOcu"`
@@ -2116,6 +2185,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SecurityConfigSamlConfigOptionsPtrInput)(nil)).Elem(), SecurityConfigSamlConfigOptionsArgs{})
 	pulumi.RegisterOutputType(CollectionEncryptionConfigOutput{})
 	pulumi.RegisterOutputType(CollectionEncryptionConfigPtrOutput{})
+	pulumi.RegisterOutputType(CollectionFipsEndpointsOutput{})
+	pulumi.RegisterOutputType(CollectionFipsEndpointsPtrOutput{})
 	pulumi.RegisterOutputType(CollectionGroupCapacityLimitsOutput{})
 	pulumi.RegisterOutputType(CollectionGroupCapacityLimitsPtrOutput{})
 	pulumi.RegisterOutputType(CollectionVectorOptionsOutput{})

@@ -283,9 +283,10 @@
   },
   "additionalProperties" : false,
   "required" : [ "OnlineEvaluationConfigName", "DataSourceConfig", "EvaluationExecutionRoleArn", "Evaluators", "Rule" ],
-  "readOnlyProperties" : [ "/properties/OnlineEvaluationConfigId", "/properties/OnlineEvaluationConfigArn", "/properties/Status", "/properties/ExecutionStatus", "/properties/OutputConfig", "/properties/CreatedAt", "/properties/UpdatedAt" ],
+  "readOnlyProperties" : [ "/properties/OnlineEvaluationConfigId", "/properties/OnlineEvaluationConfigArn", "/properties/Status", "/properties/OutputConfig", "/properties/CreatedAt", "/properties/UpdatedAt" ],
   "createOnlyProperties" : [ "/properties/OnlineEvaluationConfigName" ],
   "primaryIdentifier" : [ "/properties/OnlineEvaluationConfigArn" ],
+  "additionalIdentifiers" : [ [ "/properties/OnlineEvaluationConfigId" ] ],
   "tagging" : {
     "taggable" : true,
     "tagOnCreate" : true,

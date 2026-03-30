@@ -102,6 +102,12 @@ __all__ = [
     'ObjectTypeKeyMapArgsDict',
     'ObjectTypeKeyArgs',
     'ObjectTypeKeyArgsDict',
+    'RecommenderConfigArgs',
+    'RecommenderConfigArgsDict',
+    'RecommenderEventParametersArgs',
+    'RecommenderEventParametersArgsDict',
+    'RecommenderEventsConfigArgs',
+    'RecommenderEventsConfigArgsDict',
     'SegmentDefinitionAddressDimensionArgs',
     'SegmentDefinitionAddressDimensionArgsDict',
     'SegmentDefinitionAttributeDimensionArgs',
@@ -2913,6 +2919,118 @@ class ObjectTypeKeyArgs:
     @standard_identifiers.setter
     def standard_identifiers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ObjectTypeKeyStandardIdentifiersItem']]]]):
         pulumi.set(self, "standard_identifiers", value)
+
+
+class RecommenderConfigArgsDict(TypedDict):
+    """
+    Configuration for the recommender
+    """
+    events_config: NotRequired[pulumi.Input['RecommenderEventsConfigArgsDict']]
+
+@pulumi.input_type
+class RecommenderConfigArgs:
+    def __init__(__self__, *,
+                 events_config: Optional[pulumi.Input['RecommenderEventsConfigArgs']] = None):
+        """
+        Configuration for the recommender
+        """
+        if events_config is not None:
+            pulumi.set(__self__, "events_config", events_config)
+
+    @_builtins.property
+    @pulumi.getter(name="eventsConfig")
+    def events_config(self) -> Optional[pulumi.Input['RecommenderEventsConfigArgs']]:
+        return pulumi.get(self, "events_config")
+
+    @events_config.setter
+    def events_config(self, value: Optional[pulumi.Input['RecommenderEventsConfigArgs']]):
+        pulumi.set(self, "events_config", value)
+
+
+class RecommenderEventParametersArgsDict(TypedDict):
+    """
+    Event parameters with type and value threshold
+    """
+    event_type: pulumi.Input[_builtins.str]
+    """
+    The type of event
+    """
+    event_value_threshold: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    The threshold of the event type. Only events with a value greater or equal to this threshold will be considered for solution creation.
+    """
+
+@pulumi.input_type
+class RecommenderEventParametersArgs:
+    def __init__(__self__, *,
+                 event_type: pulumi.Input[_builtins.str],
+                 event_value_threshold: Optional[pulumi.Input[_builtins.float]] = None):
+        """
+        Event parameters with type and value threshold
+
+        :param pulumi.Input[_builtins.str] event_type: The type of event
+        :param pulumi.Input[_builtins.float] event_value_threshold: The threshold of the event type. Only events with a value greater or equal to this threshold will be considered for solution creation.
+        """
+        pulumi.set(__self__, "event_type", event_type)
+        if event_value_threshold is not None:
+            pulumi.set(__self__, "event_value_threshold", event_value_threshold)
+
+    @_builtins.property
+    @pulumi.getter(name="eventType")
+    def event_type(self) -> pulumi.Input[_builtins.str]:
+        """
+        The type of event
+        """
+        return pulumi.get(self, "event_type")
+
+    @event_type.setter
+    def event_type(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "event_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="eventValueThreshold")
+    def event_value_threshold(self) -> Optional[pulumi.Input[_builtins.float]]:
+        """
+        The threshold of the event type. Only events with a value greater or equal to this threshold will be considered for solution creation.
+        """
+        return pulumi.get(self, "event_value_threshold")
+
+    @event_value_threshold.setter
+    def event_value_threshold(self, value: Optional[pulumi.Input[_builtins.float]]):
+        pulumi.set(self, "event_value_threshold", value)
+
+
+class RecommenderEventsConfigArgsDict(TypedDict):
+    """
+    Configuration for events used in the recommender
+    """
+    event_parameters_list: pulumi.Input[Sequence[pulumi.Input['RecommenderEventParametersArgsDict']]]
+    """
+    List of event parameters with their value thresholds
+    """
+
+@pulumi.input_type
+class RecommenderEventsConfigArgs:
+    def __init__(__self__, *,
+                 event_parameters_list: pulumi.Input[Sequence[pulumi.Input['RecommenderEventParametersArgs']]]):
+        """
+        Configuration for events used in the recommender
+
+        :param pulumi.Input[Sequence[pulumi.Input['RecommenderEventParametersArgs']]] event_parameters_list: List of event parameters with their value thresholds
+        """
+        pulumi.set(__self__, "event_parameters_list", event_parameters_list)
+
+    @_builtins.property
+    @pulumi.getter(name="eventParametersList")
+    def event_parameters_list(self) -> pulumi.Input[Sequence[pulumi.Input['RecommenderEventParametersArgs']]]:
+        """
+        List of event parameters with their value thresholds
+        """
+        return pulumi.get(self, "event_parameters_list")
+
+    @event_parameters_list.setter
+    def event_parameters_list(self, value: pulumi.Input[Sequence[pulumi.Input['RecommenderEventParametersArgs']]]):
+        pulumi.set(self, "event_parameters_list", value)
 
 
 class SegmentDefinitionAddressDimensionArgsDict(TypedDict):

@@ -32,6 +32,11 @@ __all__ = [
     'ImageBuilderDomainJoinInfo',
     'ImageBuilderVolumeConfig',
     'ImageBuilderVpcConfig',
+    'StackAccessEndpoint',
+    'StackApplicationSettings',
+    'StackStorageConnector',
+    'StackStreamingExperienceSettings',
+    'StackUserSetting',
 ]
 
 @pulumi.output_type
@@ -743,5 +748,280 @@ class ImageBuilderVpcConfig(dict):
         The identifier of the subnet to which a network interface is attached from the image builder instance. An image builder instance can use one subnet.
         """
         return pulumi.get(self, "subnet_ids")
+
+
+@pulumi.output_type
+class StackAccessEndpoint(dict):
+    """
+    Describes an interface VPC endpoint (interface endpoint) that lets you create a private connection between the virtual private cloud (VPC) that you specify and AppStream 2.0. When you specify an interface endpoint for a stack, users of the stack can connect to AppStream 2.0 only through that endpoint. When you specify an interface endpoint for an image builder, administrators can connect to the image builder only through that endpoint.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "endpointType":
+            suggest = "endpoint_type"
+        elif key == "vpceId":
+            suggest = "vpce_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StackAccessEndpoint. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StackAccessEndpoint.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StackAccessEndpoint.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 endpoint_type: _builtins.str,
+                 vpce_id: _builtins.str):
+        """
+        Describes an interface VPC endpoint (interface endpoint) that lets you create a private connection between the virtual private cloud (VPC) that you specify and AppStream 2.0. When you specify an interface endpoint for a stack, users of the stack can connect to AppStream 2.0 only through that endpoint. When you specify an interface endpoint for an image builder, administrators can connect to the image builder only through that endpoint.
+
+        :param _builtins.str endpoint_type: The type of interface endpoint.
+        :param _builtins.str vpce_id: The identifier (ID) of the VPC in which the interface endpoint is used.
+        """
+        pulumi.set(__self__, "endpoint_type", endpoint_type)
+        pulumi.set(__self__, "vpce_id", vpce_id)
+
+    @_builtins.property
+    @pulumi.getter(name="endpointType")
+    def endpoint_type(self) -> _builtins.str:
+        """
+        The type of interface endpoint.
+        """
+        return pulumi.get(self, "endpoint_type")
+
+    @_builtins.property
+    @pulumi.getter(name="vpceId")
+    def vpce_id(self) -> _builtins.str:
+        """
+        The identifier (ID) of the VPC in which the interface endpoint is used.
+        """
+        return pulumi.get(self, "vpce_id")
+
+
+@pulumi.output_type
+class StackApplicationSettings(dict):
+    """
+    The persistent application settings for users of a stack.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "settingsGroup":
+            suggest = "settings_group"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StackApplicationSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StackApplicationSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StackApplicationSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enabled: _builtins.bool,
+                 settings_group: Optional[_builtins.str] = None):
+        """
+        The persistent application settings for users of a stack.
+
+        :param _builtins.bool enabled: Enables or disables persistent application settings for users during their streaming sessions.
+        :param _builtins.str settings_group: The path prefix for the S3 bucket where users’ persistent application settings are stored. You can allow the same persistent application settings to be used across multiple stacks by specifying the same settings group for each stack.
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        if settings_group is not None:
+            pulumi.set(__self__, "settings_group", settings_group)
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> _builtins.bool:
+        """
+        Enables or disables persistent application settings for users during their streaming sessions.
+        """
+        return pulumi.get(self, "enabled")
+
+    @_builtins.property
+    @pulumi.getter(name="settingsGroup")
+    def settings_group(self) -> Optional[_builtins.str]:
+        """
+        The path prefix for the S3 bucket where users’ persistent application settings are stored. You can allow the same persistent application settings to be used across multiple stacks by specifying the same settings group for each stack.
+        """
+        return pulumi.get(self, "settings_group")
+
+
+@pulumi.output_type
+class StackStorageConnector(dict):
+    """
+    A connector that enables persistent storage for users.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "connectorType":
+            suggest = "connector_type"
+        elif key == "resourceIdentifier":
+            suggest = "resource_identifier"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StackStorageConnector. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StackStorageConnector.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StackStorageConnector.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 connector_type: _builtins.str,
+                 domains: Optional[Sequence[_builtins.str]] = None,
+                 resource_identifier: Optional[_builtins.str] = None):
+        """
+        A connector that enables persistent storage for users.
+
+        :param _builtins.str connector_type: The type of storage connector.
+        :param Sequence[_builtins.str] domains: The names of the domains for the account.
+        :param _builtins.str resource_identifier: The ARN of the storage connector.
+        """
+        pulumi.set(__self__, "connector_type", connector_type)
+        if domains is not None:
+            pulumi.set(__self__, "domains", domains)
+        if resource_identifier is not None:
+            pulumi.set(__self__, "resource_identifier", resource_identifier)
+
+    @_builtins.property
+    @pulumi.getter(name="connectorType")
+    def connector_type(self) -> _builtins.str:
+        """
+        The type of storage connector.
+        """
+        return pulumi.get(self, "connector_type")
+
+    @_builtins.property
+    @pulumi.getter
+    def domains(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        The names of the domains for the account.
+        """
+        return pulumi.get(self, "domains")
+
+    @_builtins.property
+    @pulumi.getter(name="resourceIdentifier")
+    def resource_identifier(self) -> Optional[_builtins.str]:
+        """
+        The ARN of the storage connector.
+        """
+        return pulumi.get(self, "resource_identifier")
+
+
+@pulumi.output_type
+class StackStreamingExperienceSettings(dict):
+    """
+    The streaming protocol that you want your stack to prefer. This can be UDP or TCP. Currently, UDP is only supported in the Windows native client.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "preferredProtocol":
+            suggest = "preferred_protocol"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StackStreamingExperienceSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StackStreamingExperienceSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StackStreamingExperienceSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 preferred_protocol: Optional[_builtins.str] = None):
+        """
+        The streaming protocol that you want your stack to prefer. This can be UDP or TCP. Currently, UDP is only supported in the Windows native client.
+
+        :param _builtins.str preferred_protocol: The preferred protocol that you want to use while streaming your application.
+        """
+        if preferred_protocol is not None:
+            pulumi.set(__self__, "preferred_protocol", preferred_protocol)
+
+    @_builtins.property
+    @pulumi.getter(name="preferredProtocol")
+    def preferred_protocol(self) -> Optional[_builtins.str]:
+        """
+        The preferred protocol that you want to use while streaming your application.
+        """
+        return pulumi.get(self, "preferred_protocol")
+
+
+@pulumi.output_type
+class StackUserSetting(dict):
+    """
+    Specifies an action and whether the action is enabled or disabled for users during their streaming sessions.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maximumLength":
+            suggest = "maximum_length"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StackUserSetting. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StackUserSetting.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StackUserSetting.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 action: _builtins.str,
+                 permission: _builtins.str,
+                 maximum_length: Optional[_builtins.int] = None):
+        """
+        Specifies an action and whether the action is enabled or disabled for users during their streaming sessions.
+
+        :param _builtins.str action: The action that is enabled or disabled.
+        :param _builtins.str permission: Indicates whether the action is enabled or disabled.
+        :param _builtins.int maximum_length: Specifies the number of characters that can be copied by end users from the local device to the remote session, and to the local device from the remote session. This can be specified only for the CLIPBOARD_COPY_FROM_LOCAL_DEVICE and CLIPBOARD_COPY_TO_LOCAL_DEVICE actions. This defaults to 20,971,520 (20 MB) when unspecified and the permission is ENABLED. This can't be specified when the permission is DISABLED. The value can be between 1 and 20,971,520 (20 MB).
+        """
+        pulumi.set(__self__, "action", action)
+        pulumi.set(__self__, "permission", permission)
+        if maximum_length is not None:
+            pulumi.set(__self__, "maximum_length", maximum_length)
+
+    @_builtins.property
+    @pulumi.getter
+    def action(self) -> _builtins.str:
+        """
+        The action that is enabled or disabled.
+        """
+        return pulumi.get(self, "action")
+
+    @_builtins.property
+    @pulumi.getter
+    def permission(self) -> _builtins.str:
+        """
+        Indicates whether the action is enabled or disabled.
+        """
+        return pulumi.get(self, "permission")
+
+    @_builtins.property
+    @pulumi.getter(name="maximumLength")
+    def maximum_length(self) -> Optional[_builtins.int]:
+        """
+        Specifies the number of characters that can be copied by end users from the local device to the remote session, and to the local device from the remote session. This can be specified only for the CLIPBOARD_COPY_FROM_LOCAL_DEVICE and CLIPBOARD_COPY_TO_LOCAL_DEVICE actions. This defaults to 20,971,520 (20 MB) when unspecified and the permission is ENABLED. This can't be specified when the permission is DISABLED. The value can be between 1 and 20,971,520 (20 MB).
+        """
+        return pulumi.get(self, "maximum_length")
 
 

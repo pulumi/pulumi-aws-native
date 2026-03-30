@@ -63,6 +63,12 @@ __all__ = [
     'ObjectTypeFieldMap',
     'ObjectTypeKey',
     'ObjectTypeKeyMap',
+    'RecommenderConfig',
+    'RecommenderEventParameters',
+    'RecommenderEventsConfig',
+    'RecommenderTrainingMetrics',
+    'RecommenderTrainingMetricsMetricsProperties',
+    'RecommenderUpdate',
     'SegmentDefinitionAddressDimension',
     'SegmentDefinitionAttributeDimension',
     'SegmentDefinitionCalculatedAttributeDimension',
@@ -2631,6 +2637,313 @@ class ObjectTypeKeyMap(dict):
         A list of ObjectTypeKey.
         """
         return pulumi.get(self, "object_type_key_list")
+
+
+@pulumi.output_type
+class RecommenderConfig(dict):
+    """
+    Configuration for the recommender
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "eventsConfig":
+            suggest = "events_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RecommenderConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RecommenderConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RecommenderConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 events_config: Optional['outputs.RecommenderEventsConfig'] = None):
+        """
+        Configuration for the recommender
+        """
+        if events_config is not None:
+            pulumi.set(__self__, "events_config", events_config)
+
+    @_builtins.property
+    @pulumi.getter(name="eventsConfig")
+    def events_config(self) -> Optional['outputs.RecommenderEventsConfig']:
+        return pulumi.get(self, "events_config")
+
+
+@pulumi.output_type
+class RecommenderEventParameters(dict):
+    """
+    Event parameters with type and value threshold
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "eventType":
+            suggest = "event_type"
+        elif key == "eventValueThreshold":
+            suggest = "event_value_threshold"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RecommenderEventParameters. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RecommenderEventParameters.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RecommenderEventParameters.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 event_type: _builtins.str,
+                 event_value_threshold: Optional[_builtins.float] = None):
+        """
+        Event parameters with type and value threshold
+
+        :param _builtins.str event_type: The type of event
+        :param _builtins.float event_value_threshold: The threshold of the event type. Only events with a value greater or equal to this threshold will be considered for solution creation.
+        """
+        pulumi.set(__self__, "event_type", event_type)
+        if event_value_threshold is not None:
+            pulumi.set(__self__, "event_value_threshold", event_value_threshold)
+
+    @_builtins.property
+    @pulumi.getter(name="eventType")
+    def event_type(self) -> _builtins.str:
+        """
+        The type of event
+        """
+        return pulumi.get(self, "event_type")
+
+    @_builtins.property
+    @pulumi.getter(name="eventValueThreshold")
+    def event_value_threshold(self) -> Optional[_builtins.float]:
+        """
+        The threshold of the event type. Only events with a value greater or equal to this threshold will be considered for solution creation.
+        """
+        return pulumi.get(self, "event_value_threshold")
+
+
+@pulumi.output_type
+class RecommenderEventsConfig(dict):
+    """
+    Configuration for events used in the recommender
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "eventParametersList":
+            suggest = "event_parameters_list"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RecommenderEventsConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RecommenderEventsConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RecommenderEventsConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 event_parameters_list: Sequence['outputs.RecommenderEventParameters']):
+        """
+        Configuration for events used in the recommender
+
+        :param Sequence['RecommenderEventParameters'] event_parameters_list: List of event parameters with their value thresholds
+        """
+        pulumi.set(__self__, "event_parameters_list", event_parameters_list)
+
+    @_builtins.property
+    @pulumi.getter(name="eventParametersList")
+    def event_parameters_list(self) -> Sequence['outputs.RecommenderEventParameters']:
+        """
+        List of event parameters with their value thresholds
+        """
+        return pulumi.get(self, "event_parameters_list")
+
+
+@pulumi.output_type
+class RecommenderTrainingMetrics(dict):
+    def __init__(__self__, *,
+                 metrics: Optional['outputs.RecommenderTrainingMetricsMetricsProperties'] = None,
+                 time: Optional[_builtins.str] = None):
+        """
+        :param 'RecommenderTrainingMetricsMetricsProperties' metrics: Training metrics by type
+        :param _builtins.str time: Timestamp of the training metrics
+        """
+        if metrics is not None:
+            pulumi.set(__self__, "metrics", metrics)
+        if time is not None:
+            pulumi.set(__self__, "time", time)
+
+    @_builtins.property
+    @pulumi.getter
+    def metrics(self) -> Optional['outputs.RecommenderTrainingMetricsMetricsProperties']:
+        """
+        Training metrics by type
+        """
+        return pulumi.get(self, "metrics")
+
+    @_builtins.property
+    @pulumi.getter
+    def time(self) -> Optional[_builtins.str]:
+        """
+        Timestamp of the training metrics
+        """
+        return pulumi.get(self, "time")
+
+
+@pulumi.output_type
+class RecommenderTrainingMetricsMetricsProperties(dict):
+    """
+    Training metrics by type
+    """
+    def __init__(__self__, *,
+                 coverage: Optional[_builtins.float] = None,
+                 freshness: Optional[_builtins.float] = None,
+                 hit: Optional[_builtins.float] = None,
+                 popularity: Optional[_builtins.float] = None,
+                 recall: Optional[_builtins.float] = None,
+                 similarity: Optional[_builtins.float] = None):
+        """
+        Training metrics by type
+        """
+        if coverage is not None:
+            pulumi.set(__self__, "coverage", coverage)
+        if freshness is not None:
+            pulumi.set(__self__, "freshness", freshness)
+        if hit is not None:
+            pulumi.set(__self__, "hit", hit)
+        if popularity is not None:
+            pulumi.set(__self__, "popularity", popularity)
+        if recall is not None:
+            pulumi.set(__self__, "recall", recall)
+        if similarity is not None:
+            pulumi.set(__self__, "similarity", similarity)
+
+    @_builtins.property
+    @pulumi.getter
+    def coverage(self) -> Optional[_builtins.float]:
+        return pulumi.get(self, "coverage")
+
+    @_builtins.property
+    @pulumi.getter
+    def freshness(self) -> Optional[_builtins.float]:
+        return pulumi.get(self, "freshness")
+
+    @_builtins.property
+    @pulumi.getter
+    def hit(self) -> Optional[_builtins.float]:
+        return pulumi.get(self, "hit")
+
+    @_builtins.property
+    @pulumi.getter
+    def popularity(self) -> Optional[_builtins.float]:
+        return pulumi.get(self, "popularity")
+
+    @_builtins.property
+    @pulumi.getter
+    def recall(self) -> Optional[_builtins.float]:
+        return pulumi.get(self, "recall")
+
+    @_builtins.property
+    @pulumi.getter
+    def similarity(self) -> Optional[_builtins.float]:
+        return pulumi.get(self, "similarity")
+
+
+@pulumi.output_type
+class RecommenderUpdate(dict):
+    """
+    Information about the latest recommender update
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "creationDateTime":
+            suggest = "creation_date_time"
+        elif key == "failureReason":
+            suggest = "failure_reason"
+        elif key == "lastUpdatedDateTime":
+            suggest = "last_updated_date_time"
+        elif key == "recommenderConfig":
+            suggest = "recommender_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RecommenderUpdate. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RecommenderUpdate.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RecommenderUpdate.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 creation_date_time: Optional[_builtins.str] = None,
+                 failure_reason: Optional[_builtins.str] = None,
+                 last_updated_date_time: Optional[_builtins.str] = None,
+                 recommender_config: Optional['outputs.RecommenderConfig'] = None,
+                 status: Optional['RecommenderStatus'] = None):
+        """
+        Information about the latest recommender update
+
+        :param _builtins.str creation_date_time: The timestamp of when the update was created
+        :param _builtins.str failure_reason: The reason for update failure
+        :param _builtins.str last_updated_date_time: The timestamp of when the update was last modified
+        """
+        if creation_date_time is not None:
+            pulumi.set(__self__, "creation_date_time", creation_date_time)
+        if failure_reason is not None:
+            pulumi.set(__self__, "failure_reason", failure_reason)
+        if last_updated_date_time is not None:
+            pulumi.set(__self__, "last_updated_date_time", last_updated_date_time)
+        if recommender_config is not None:
+            pulumi.set(__self__, "recommender_config", recommender_config)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @_builtins.property
+    @pulumi.getter(name="creationDateTime")
+    def creation_date_time(self) -> Optional[_builtins.str]:
+        """
+        The timestamp of when the update was created
+        """
+        return pulumi.get(self, "creation_date_time")
+
+    @_builtins.property
+    @pulumi.getter(name="failureReason")
+    def failure_reason(self) -> Optional[_builtins.str]:
+        """
+        The reason for update failure
+        """
+        return pulumi.get(self, "failure_reason")
+
+    @_builtins.property
+    @pulumi.getter(name="lastUpdatedDateTime")
+    def last_updated_date_time(self) -> Optional[_builtins.str]:
+        """
+        The timestamp of when the update was last modified
+        """
+        return pulumi.get(self, "last_updated_date_time")
+
+    @_builtins.property
+    @pulumi.getter(name="recommenderConfig")
+    def recommender_config(self) -> Optional['outputs.RecommenderConfig']:
+        return pulumi.get(self, "recommender_config")
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> Optional['RecommenderStatus']:
+        return pulumi.get(self, "status")
 
 
 @pulumi.output_type

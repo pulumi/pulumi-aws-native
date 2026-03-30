@@ -606,6 +606,203 @@ func (o AnnotationStoreTsvStoreOptionsPtrOutput) Schema() AnnotationStoreSchemaV
 	}).(AnnotationStoreSchemaValueTypeMapArrayOutput)
 }
 
+type ConfigurationRunConfigurations struct {
+	VpcConfig *ConfigurationVpcConfig `pulumi:"vpcConfig"`
+}
+
+// ConfigurationRunConfigurationsInput is an input type that accepts ConfigurationRunConfigurationsArgs and ConfigurationRunConfigurationsOutput values.
+// You can construct a concrete instance of `ConfigurationRunConfigurationsInput` via:
+//
+//	ConfigurationRunConfigurationsArgs{...}
+type ConfigurationRunConfigurationsInput interface {
+	pulumi.Input
+
+	ToConfigurationRunConfigurationsOutput() ConfigurationRunConfigurationsOutput
+	ToConfigurationRunConfigurationsOutputWithContext(context.Context) ConfigurationRunConfigurationsOutput
+}
+
+type ConfigurationRunConfigurationsArgs struct {
+	VpcConfig ConfigurationVpcConfigPtrInput `pulumi:"vpcConfig"`
+}
+
+func (ConfigurationRunConfigurationsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationRunConfigurations)(nil)).Elem()
+}
+
+func (i ConfigurationRunConfigurationsArgs) ToConfigurationRunConfigurationsOutput() ConfigurationRunConfigurationsOutput {
+	return i.ToConfigurationRunConfigurationsOutputWithContext(context.Background())
+}
+
+func (i ConfigurationRunConfigurationsArgs) ToConfigurationRunConfigurationsOutputWithContext(ctx context.Context) ConfigurationRunConfigurationsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationRunConfigurationsOutput)
+}
+
+type ConfigurationRunConfigurationsOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationRunConfigurationsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationRunConfigurations)(nil)).Elem()
+}
+
+func (o ConfigurationRunConfigurationsOutput) ToConfigurationRunConfigurationsOutput() ConfigurationRunConfigurationsOutput {
+	return o
+}
+
+func (o ConfigurationRunConfigurationsOutput) ToConfigurationRunConfigurationsOutputWithContext(ctx context.Context) ConfigurationRunConfigurationsOutput {
+	return o
+}
+
+func (o ConfigurationRunConfigurationsOutput) VpcConfig() ConfigurationVpcConfigPtrOutput {
+	return o.ApplyT(func(v ConfigurationRunConfigurations) *ConfigurationVpcConfig { return v.VpcConfig }).(ConfigurationVpcConfigPtrOutput)
+}
+
+type ConfigurationVpcConfig struct {
+	SecurityGroupIds []string `pulumi:"securityGroupIds"`
+	SubnetIds        []string `pulumi:"subnetIds"`
+}
+
+// ConfigurationVpcConfigInput is an input type that accepts ConfigurationVpcConfigArgs and ConfigurationVpcConfigOutput values.
+// You can construct a concrete instance of `ConfigurationVpcConfigInput` via:
+//
+//	ConfigurationVpcConfigArgs{...}
+type ConfigurationVpcConfigInput interface {
+	pulumi.Input
+
+	ToConfigurationVpcConfigOutput() ConfigurationVpcConfigOutput
+	ToConfigurationVpcConfigOutputWithContext(context.Context) ConfigurationVpcConfigOutput
+}
+
+type ConfigurationVpcConfigArgs struct {
+	SecurityGroupIds pulumi.StringArrayInput `pulumi:"securityGroupIds"`
+	SubnetIds        pulumi.StringArrayInput `pulumi:"subnetIds"`
+}
+
+func (ConfigurationVpcConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationVpcConfig)(nil)).Elem()
+}
+
+func (i ConfigurationVpcConfigArgs) ToConfigurationVpcConfigOutput() ConfigurationVpcConfigOutput {
+	return i.ToConfigurationVpcConfigOutputWithContext(context.Background())
+}
+
+func (i ConfigurationVpcConfigArgs) ToConfigurationVpcConfigOutputWithContext(ctx context.Context) ConfigurationVpcConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationVpcConfigOutput)
+}
+
+func (i ConfigurationVpcConfigArgs) ToConfigurationVpcConfigPtrOutput() ConfigurationVpcConfigPtrOutput {
+	return i.ToConfigurationVpcConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ConfigurationVpcConfigArgs) ToConfigurationVpcConfigPtrOutputWithContext(ctx context.Context) ConfigurationVpcConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationVpcConfigOutput).ToConfigurationVpcConfigPtrOutputWithContext(ctx)
+}
+
+// ConfigurationVpcConfigPtrInput is an input type that accepts ConfigurationVpcConfigArgs, ConfigurationVpcConfigPtr and ConfigurationVpcConfigPtrOutput values.
+// You can construct a concrete instance of `ConfigurationVpcConfigPtrInput` via:
+//
+//	        ConfigurationVpcConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type ConfigurationVpcConfigPtrInput interface {
+	pulumi.Input
+
+	ToConfigurationVpcConfigPtrOutput() ConfigurationVpcConfigPtrOutput
+	ToConfigurationVpcConfigPtrOutputWithContext(context.Context) ConfigurationVpcConfigPtrOutput
+}
+
+type configurationVpcConfigPtrType ConfigurationVpcConfigArgs
+
+func ConfigurationVpcConfigPtr(v *ConfigurationVpcConfigArgs) ConfigurationVpcConfigPtrInput {
+	return (*configurationVpcConfigPtrType)(v)
+}
+
+func (*configurationVpcConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigurationVpcConfig)(nil)).Elem()
+}
+
+func (i *configurationVpcConfigPtrType) ToConfigurationVpcConfigPtrOutput() ConfigurationVpcConfigPtrOutput {
+	return i.ToConfigurationVpcConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *configurationVpcConfigPtrType) ToConfigurationVpcConfigPtrOutputWithContext(ctx context.Context) ConfigurationVpcConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationVpcConfigPtrOutput)
+}
+
+type ConfigurationVpcConfigOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationVpcConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationVpcConfig)(nil)).Elem()
+}
+
+func (o ConfigurationVpcConfigOutput) ToConfigurationVpcConfigOutput() ConfigurationVpcConfigOutput {
+	return o
+}
+
+func (o ConfigurationVpcConfigOutput) ToConfigurationVpcConfigOutputWithContext(ctx context.Context) ConfigurationVpcConfigOutput {
+	return o
+}
+
+func (o ConfigurationVpcConfigOutput) ToConfigurationVpcConfigPtrOutput() ConfigurationVpcConfigPtrOutput {
+	return o.ToConfigurationVpcConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ConfigurationVpcConfigOutput) ToConfigurationVpcConfigPtrOutputWithContext(ctx context.Context) ConfigurationVpcConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfigurationVpcConfig) *ConfigurationVpcConfig {
+		return &v
+	}).(ConfigurationVpcConfigPtrOutput)
+}
+
+func (o ConfigurationVpcConfigOutput) SecurityGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ConfigurationVpcConfig) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
+}
+
+func (o ConfigurationVpcConfigOutput) SubnetIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ConfigurationVpcConfig) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
+}
+
+type ConfigurationVpcConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationVpcConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigurationVpcConfig)(nil)).Elem()
+}
+
+func (o ConfigurationVpcConfigPtrOutput) ToConfigurationVpcConfigPtrOutput() ConfigurationVpcConfigPtrOutput {
+	return o
+}
+
+func (o ConfigurationVpcConfigPtrOutput) ToConfigurationVpcConfigPtrOutputWithContext(ctx context.Context) ConfigurationVpcConfigPtrOutput {
+	return o
+}
+
+func (o ConfigurationVpcConfigPtrOutput) Elem() ConfigurationVpcConfigOutput {
+	return o.ApplyT(func(v *ConfigurationVpcConfig) ConfigurationVpcConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ConfigurationVpcConfig
+		return ret
+	}).(ConfigurationVpcConfigOutput)
+}
+
+func (o ConfigurationVpcConfigPtrOutput) SecurityGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ConfigurationVpcConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SecurityGroupIds
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o ConfigurationVpcConfigPtrOutput) SubnetIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ConfigurationVpcConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SubnetIds
+	}).(pulumi.StringArrayOutput)
+}
+
 // Server-side encryption (SSE) settings for a store.
 type ReferenceStoreSseConfig struct {
 	// An encryption key ARN.
@@ -2872,6 +3069,9 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AnnotationStoreStoreOptionsPropertiesPtrInput)(nil)).Elem(), AnnotationStoreStoreOptionsPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnnotationStoreTsvStoreOptionsInput)(nil)).Elem(), AnnotationStoreTsvStoreOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnnotationStoreTsvStoreOptionsPtrInput)(nil)).Elem(), AnnotationStoreTsvStoreOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationRunConfigurationsInput)(nil)).Elem(), ConfigurationRunConfigurationsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationVpcConfigInput)(nil)).Elem(), ConfigurationVpcConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationVpcConfigPtrInput)(nil)).Elem(), ConfigurationVpcConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReferenceStoreSseConfigInput)(nil)).Elem(), ReferenceStoreSseConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReferenceStoreSseConfigPtrInput)(nil)).Elem(), ReferenceStoreSseConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SequenceStoreSseConfigInput)(nil)).Elem(), SequenceStoreSseConfigArgs{})
@@ -2912,6 +3112,9 @@ func init() {
 	pulumi.RegisterOutputType(AnnotationStoreStoreOptionsPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(AnnotationStoreTsvStoreOptionsOutput{})
 	pulumi.RegisterOutputType(AnnotationStoreTsvStoreOptionsPtrOutput{})
+	pulumi.RegisterOutputType(ConfigurationRunConfigurationsOutput{})
+	pulumi.RegisterOutputType(ConfigurationVpcConfigOutput{})
+	pulumi.RegisterOutputType(ConfigurationVpcConfigPtrOutput{})
 	pulumi.RegisterOutputType(ReferenceStoreSseConfigOutput{})
 	pulumi.RegisterOutputType(ReferenceStoreSseConfigPtrOutput{})
 	pulumi.RegisterOutputType(SequenceStoreSseConfigOutput{})

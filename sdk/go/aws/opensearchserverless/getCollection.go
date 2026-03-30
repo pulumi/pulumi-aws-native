@@ -35,7 +35,8 @@ type LookupCollectionResult struct {
 	// The OpenSearch Dashboards endpoint for the collection.
 	DashboardEndpoint *string `pulumi:"dashboardEndpoint"`
 	// The description of the collection
-	Description *string `pulumi:"description"`
+	Description   *string                  `pulumi:"description"`
+	FipsEndpoints *CollectionFipsEndpoints `pulumi:"fipsEndpoints"`
 	// The identifier of the collection
 	Id *string `pulumi:"id"`
 	// Key Management Service key used to encrypt the collection.
@@ -92,6 +93,10 @@ func (o LookupCollectionResultOutput) DashboardEndpoint() pulumi.StringPtrOutput
 // The description of the collection
 func (o LookupCollectionResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupCollectionResult) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupCollectionResultOutput) FipsEndpoints() CollectionFipsEndpointsPtrOutput {
+	return o.ApplyT(func(v LookupCollectionResult) *CollectionFipsEndpoints { return v.FipsEndpoints }).(CollectionFipsEndpointsPtrOutput)
 }
 
 // The identifier of the collection

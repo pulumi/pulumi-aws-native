@@ -577,6 +577,33 @@ namespace Pulumi.AwsNative.Ec2
         public override string ToString() => _value;
     }
 
+    [EnumType]
+    public readonly struct Ec2FleetReservedCapacityOptionsRequestReservationTypesItem : IEquatable<Ec2FleetReservedCapacityOptionsRequestReservationTypesItem>
+    {
+        private readonly string _value;
+
+        private Ec2FleetReservedCapacityOptionsRequestReservationTypesItem(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static Ec2FleetReservedCapacityOptionsRequestReservationTypesItem InterruptibleCapacityReservation { get; } = new Ec2FleetReservedCapacityOptionsRequestReservationTypesItem("interruptible-capacity-reservation");
+
+        public static bool operator ==(Ec2FleetReservedCapacityOptionsRequestReservationTypesItem left, Ec2FleetReservedCapacityOptionsRequestReservationTypesItem right) => left.Equals(right);
+        public static bool operator !=(Ec2FleetReservedCapacityOptionsRequestReservationTypesItem left, Ec2FleetReservedCapacityOptionsRequestReservationTypesItem right) => !left.Equals(right);
+
+        public static explicit operator string(Ec2FleetReservedCapacityOptionsRequestReservationTypesItem value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is Ec2FleetReservedCapacityOptionsRequestReservationTypesItem other && Equals(other);
+        public bool Equals(Ec2FleetReservedCapacityOptionsRequestReservationTypesItem other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     /// <summary>
     /// Indicates how to allocate the target Spot Instance capacity across the Spot Instance pools specified by the EC2 Fleet.
     /// 

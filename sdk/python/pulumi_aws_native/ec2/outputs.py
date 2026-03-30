@@ -49,6 +49,7 @@ __all__ = [
     'Ec2FleetOnDemandOptionsRequest',
     'Ec2FleetPerformanceFactorReferenceRequest',
     'Ec2FleetPlacement',
+    'Ec2FleetReservedCapacityOptionsRequest',
     'Ec2FleetSpotOptionsRequest',
     'Ec2FleetTag',
     'Ec2FleetTagSpecification',
@@ -2871,6 +2872,36 @@ class Ec2FleetPlacement(dict):
         This parameter is not supported for [CreateFleet](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet) . The `host` tenancy is not supported for [ImportInstance](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ImportInstance.html) or for T3 instances that are configured for the `unlimited` CPU credit option.
         """
         return pulumi.get(self, "tenancy")
+
+
+@pulumi.output_type
+class Ec2FleetReservedCapacityOptionsRequest(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "reservationTypes":
+            suggest = "reservation_types"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in Ec2FleetReservedCapacityOptionsRequest. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        Ec2FleetReservedCapacityOptionsRequest.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        Ec2FleetReservedCapacityOptionsRequest.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 reservation_types: Optional[Sequence['Ec2FleetReservedCapacityOptionsRequestReservationTypesItem']] = None):
+        if reservation_types is not None:
+            pulumi.set(__self__, "reservation_types", reservation_types)
+
+    @_builtins.property
+    @pulumi.getter(name="reservationTypes")
+    def reservation_types(self) -> Optional[Sequence['Ec2FleetReservedCapacityOptionsRequestReservationTypesItem']]:
+        return pulumi.get(self, "reservation_types")
 
 
 @pulumi.output_type

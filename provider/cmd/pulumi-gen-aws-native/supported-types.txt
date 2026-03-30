@@ -81,6 +81,7 @@ AWS::AppStream::ApplicationFleetAssociation
 AWS::AppStream::DirectoryConfig
 AWS::AppStream::Entitlement
 AWS::AppStream::ImageBuilder
+AWS::AppStream::Stack
 AWS::AppSync::Api
 AWS::AppSync::ChannelNamespace
 AWS::AppSync::DataSource
@@ -112,6 +113,7 @@ AWS::B2BI::Capability
 AWS::B2BI::Partnership
 AWS::B2BI::Profile
 AWS::B2BI::Transformer
+AWS::BCMDataExports::Export
 AWS::Backup::BackupPlan
 AWS::Backup::BackupSelection
 AWS::Backup::BackupVault
@@ -317,6 +319,7 @@ AWS::CustomerProfiles::EventStream
 AWS::CustomerProfiles::EventTrigger
 AWS::CustomerProfiles::Integration
 AWS::CustomerProfiles::ObjectType
+AWS::CustomerProfiles::Recommender
 AWS::CustomerProfiles::SegmentDefinition
 AWS::DAX::SubnetGroup
 AWS::DMS::DataMigration
@@ -377,6 +380,9 @@ AWS::Deadline::StorageProfile
 AWS::Detective::Graph
 AWS::Detective::MemberInvitation
 AWS::Detective::OrganizationAdmin
+AWS::DevOpsAgent::AgentSpace
+AWS::DevOpsAgent::Association
+AWS::DevOpsAgent::Service
 AWS::DevOpsGuru::LogAnomalyDetectionIntegration
 AWS::DevOpsGuru::NotificationChannel
 AWS::DevOpsGuru::ResourceCollection
@@ -691,6 +697,7 @@ AWS::InspectorV2::CisScanConfiguration
 AWS::InspectorV2::CodeSecurityIntegration
 AWS::InspectorV2::CodeSecurityScanConfiguration
 AWS::InspectorV2::Filter
+AWS::Interconnect::Connection
 AWS::InternetMonitor::Monitor
 AWS::Invoicing::InvoiceUnit
 AWS::IoT::AccountAuditConfiguration
@@ -940,6 +947,7 @@ AWS::ObservabilityAdmin::TelemetryEnrichment
 AWS::ObservabilityAdmin::TelemetryPipelines
 AWS::ObservabilityAdmin::TelemetryRule
 AWS::Omics::AnnotationStore
+AWS::Omics::Configuration
 AWS::Omics::ReferenceStore
 AWS::Omics::RunGroup
 AWS::Omics::SequenceStore
@@ -1445,6 +1453,7 @@ MongoDB::Atlas::LDAPConfiguration
 MongoDB::Atlas::LDAPVerify
 MongoDB::Atlas::LogIntegration
 MongoDB::Atlas::MaintenanceWindow
+MongoDB::Atlas::MongoDbEmployeeAccessGrant
 MongoDB::Atlas::NetworkContainer
 MongoDB::Atlas::NetworkPeering
 MongoDB::Atlas::OnlineArchive
@@ -1459,12 +1468,18 @@ MongoDB::Atlas::PrivatelinkEndpointServiceDataFederationOnlineArchive
 MongoDB::Atlas::Project
 MongoDB::Atlas::ProjectInvitation
 MongoDB::Atlas::ProjectIpAccessList
+MongoDB::Atlas::ProjectServiceAccount
+MongoDB::Atlas::ProjectServiceAccountAccessListEntry
+MongoDB::Atlas::ProjectServiceAccountSecret
 MongoDB::Atlas::ResourcePolicy
 MongoDB::Atlas::SearchDeployment
 MongoDB::Atlas::SearchIndex
 MongoDB::Atlas::ServerlessInstance
 MongoDB::Atlas::ServerlessPrivateEndpoint
 MongoDB::Atlas::ServiceAccount
+MongoDB::Atlas::ServiceAccountAccessListEntry
+MongoDB::Atlas::ServiceAccountProjectAssignment
+MongoDB::Atlas::ServiceAccountSecret
 MongoDB::Atlas::StreamConnection
 MongoDB::Atlas::StreamInstance
 MongoDB::Atlas::StreamPrivatelinkEndpoint

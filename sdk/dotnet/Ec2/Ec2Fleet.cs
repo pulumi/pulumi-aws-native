@@ -53,6 +53,9 @@ namespace Pulumi.AwsNative.Ec2
         [Output("replaceUnhealthyInstances")]
         public Output<bool?> ReplaceUnhealthyInstances { get; private set; } = null!;
 
+        [Output("reservedCapacityOptions")]
+        public Output<Outputs.Ec2FleetReservedCapacityOptionsRequest?> ReservedCapacityOptions { get; private set; } = null!;
+
         /// <summary>
         /// Describes the configuration of Spot Instances in an EC2 Fleet.
         /// </summary>
@@ -133,6 +136,7 @@ namespace Pulumi.AwsNative.Ec2
                     "launchTemplateConfigs[*]",
                     "onDemandOptions",
                     "replaceUnhealthyInstances",
+                    "reservedCapacityOptions",
                     "spotOptions",
                     "tagSpecifications[*]",
                     "targetCapacitySpecification.defaultTargetCapacityType",
@@ -201,6 +205,9 @@ namespace Pulumi.AwsNative.Ec2
         /// </summary>
         [Input("replaceUnhealthyInstances")]
         public Input<bool>? ReplaceUnhealthyInstances { get; set; }
+
+        [Input("reservedCapacityOptions")]
+        public Input<Inputs.Ec2FleetReservedCapacityOptionsRequestArgs>? ReservedCapacityOptions { get; set; }
 
         /// <summary>
         /// Describes the configuration of Spot Instances in an EC2 Fleet.

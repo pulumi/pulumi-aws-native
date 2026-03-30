@@ -107,6 +107,7 @@ type Collection struct {
 	// The description of the collection
 	Description      pulumi.StringPtrOutput              `pulumi:"description"`
 	EncryptionConfig CollectionEncryptionConfigPtrOutput `pulumi:"encryptionConfig"`
+	FipsEndpoints    CollectionFipsEndpointsOutput       `pulumi:"fipsEndpoints"`
 	// Key Management Service key used to encrypt the collection.
 	KmsKeyArn pulumi.StringOutput `pulumi:"kmsKeyArn"`
 	// The name of the collection.
@@ -291,6 +292,10 @@ func (o CollectionOutput) Description() pulumi.StringPtrOutput {
 
 func (o CollectionOutput) EncryptionConfig() CollectionEncryptionConfigPtrOutput {
 	return o.ApplyT(func(v *Collection) CollectionEncryptionConfigPtrOutput { return v.EncryptionConfig }).(CollectionEncryptionConfigPtrOutput)
+}
+
+func (o CollectionOutput) FipsEndpoints() CollectionFipsEndpointsOutput {
+	return o.ApplyT(func(v *Collection) CollectionFipsEndpointsOutput { return v.FipsEndpoints }).(CollectionFipsEndpointsOutput)
 }
 
 // Key Management Service key used to encrypt the collection.

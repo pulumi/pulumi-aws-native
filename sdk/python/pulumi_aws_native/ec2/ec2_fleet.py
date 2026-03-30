@@ -28,6 +28,7 @@ class Ec2FleetArgs:
                  excess_capacity_termination_policy: Optional[pulumi.Input['Ec2FleetExcessCapacityTerminationPolicy']] = None,
                  on_demand_options: Optional[pulumi.Input['Ec2FleetOnDemandOptionsRequestArgs']] = None,
                  replace_unhealthy_instances: Optional[pulumi.Input[_builtins.bool]] = None,
+                 reserved_capacity_options: Optional[pulumi.Input['Ec2FleetReservedCapacityOptionsRequestArgs']] = None,
                  spot_options: Optional[pulumi.Input['Ec2FleetSpotOptionsRequestArgs']] = None,
                  tag_specifications: Optional[pulumi.Input[Sequence[pulumi.Input['Ec2FleetTagSpecificationArgs']]]] = None,
                  terminate_instances_with_expiration: Optional[pulumi.Input[_builtins.bool]] = None,
@@ -72,6 +73,8 @@ class Ec2FleetArgs:
             pulumi.set(__self__, "on_demand_options", on_demand_options)
         if replace_unhealthy_instances is not None:
             pulumi.set(__self__, "replace_unhealthy_instances", replace_unhealthy_instances)
+        if reserved_capacity_options is not None:
+            pulumi.set(__self__, "reserved_capacity_options", reserved_capacity_options)
         if spot_options is not None:
             pulumi.set(__self__, "spot_options", spot_options)
         if tag_specifications is not None:
@@ -158,6 +161,15 @@ class Ec2FleetArgs:
     @replace_unhealthy_instances.setter
     def replace_unhealthy_instances(self, value: Optional[pulumi.Input[_builtins.bool]]):
         pulumi.set(self, "replace_unhealthy_instances", value)
+
+    @_builtins.property
+    @pulumi.getter(name="reservedCapacityOptions")
+    def reserved_capacity_options(self) -> Optional[pulumi.Input['Ec2FleetReservedCapacityOptionsRequestArgs']]:
+        return pulumi.get(self, "reserved_capacity_options")
+
+    @reserved_capacity_options.setter
+    def reserved_capacity_options(self, value: Optional[pulumi.Input['Ec2FleetReservedCapacityOptionsRequestArgs']]):
+        pulumi.set(self, "reserved_capacity_options", value)
 
     @_builtins.property
     @pulumi.getter(name="spotOptions")
@@ -253,6 +265,7 @@ class Ec2Fleet(pulumi.CustomResource):
                  launch_template_configs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['Ec2FleetFleetLaunchTemplateConfigRequestArgs', 'Ec2FleetFleetLaunchTemplateConfigRequestArgsDict']]]]] = None,
                  on_demand_options: Optional[pulumi.Input[Union['Ec2FleetOnDemandOptionsRequestArgs', 'Ec2FleetOnDemandOptionsRequestArgsDict']]] = None,
                  replace_unhealthy_instances: Optional[pulumi.Input[_builtins.bool]] = None,
+                 reserved_capacity_options: Optional[pulumi.Input[Union['Ec2FleetReservedCapacityOptionsRequestArgs', 'Ec2FleetReservedCapacityOptionsRequestArgsDict']]] = None,
                  spot_options: Optional[pulumi.Input[Union['Ec2FleetSpotOptionsRequestArgs', 'Ec2FleetSpotOptionsRequestArgsDict']]] = None,
                  tag_specifications: Optional[pulumi.Input[Sequence[pulumi.Input[Union['Ec2FleetTagSpecificationArgs', 'Ec2FleetTagSpecificationArgsDict']]]]] = None,
                  target_capacity_specification: Optional[pulumi.Input[Union['Ec2FleetTargetCapacitySpecificationRequestArgs', 'Ec2FleetTargetCapacitySpecificationRequestArgsDict']]] = None,
@@ -322,6 +335,7 @@ class Ec2Fleet(pulumi.CustomResource):
                  launch_template_configs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['Ec2FleetFleetLaunchTemplateConfigRequestArgs', 'Ec2FleetFleetLaunchTemplateConfigRequestArgsDict']]]]] = None,
                  on_demand_options: Optional[pulumi.Input[Union['Ec2FleetOnDemandOptionsRequestArgs', 'Ec2FleetOnDemandOptionsRequestArgsDict']]] = None,
                  replace_unhealthy_instances: Optional[pulumi.Input[_builtins.bool]] = None,
+                 reserved_capacity_options: Optional[pulumi.Input[Union['Ec2FleetReservedCapacityOptionsRequestArgs', 'Ec2FleetReservedCapacityOptionsRequestArgsDict']]] = None,
                  spot_options: Optional[pulumi.Input[Union['Ec2FleetSpotOptionsRequestArgs', 'Ec2FleetSpotOptionsRequestArgsDict']]] = None,
                  tag_specifications: Optional[pulumi.Input[Sequence[pulumi.Input[Union['Ec2FleetTagSpecificationArgs', 'Ec2FleetTagSpecificationArgsDict']]]]] = None,
                  target_capacity_specification: Optional[pulumi.Input[Union['Ec2FleetTargetCapacitySpecificationRequestArgs', 'Ec2FleetTargetCapacitySpecificationRequestArgsDict']]] = None,
@@ -345,6 +359,7 @@ class Ec2Fleet(pulumi.CustomResource):
             __props__.__dict__["launch_template_configs"] = launch_template_configs
             __props__.__dict__["on_demand_options"] = on_demand_options
             __props__.__dict__["replace_unhealthy_instances"] = replace_unhealthy_instances
+            __props__.__dict__["reserved_capacity_options"] = reserved_capacity_options
             __props__.__dict__["spot_options"] = spot_options
             __props__.__dict__["tag_specifications"] = tag_specifications
             if target_capacity_specification is None and not opts.urn:
@@ -355,7 +370,7 @@ class Ec2Fleet(pulumi.CustomResource):
             __props__.__dict__["valid_from"] = valid_from
             __props__.__dict__["valid_until"] = valid_until
             __props__.__dict__["fleet_id"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["launchTemplateConfigs[*]", "onDemandOptions", "replaceUnhealthyInstances", "spotOptions", "tagSpecifications[*]", "targetCapacitySpecification.defaultTargetCapacityType", "targetCapacitySpecification.targetCapacityUnitType", "terminateInstancesWithExpiration", "type", "validFrom", "validUntil"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["launchTemplateConfigs[*]", "onDemandOptions", "replaceUnhealthyInstances", "reservedCapacityOptions", "spotOptions", "tagSpecifications[*]", "targetCapacitySpecification.defaultTargetCapacityType", "targetCapacitySpecification.targetCapacityUnitType", "terminateInstancesWithExpiration", "type", "validFrom", "validUntil"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Ec2Fleet, __self__).__init__(
             'aws-native:ec2:Ec2Fleet',
@@ -385,6 +400,7 @@ class Ec2Fleet(pulumi.CustomResource):
         __props__.__dict__["launch_template_configs"] = None
         __props__.__dict__["on_demand_options"] = None
         __props__.__dict__["replace_unhealthy_instances"] = None
+        __props__.__dict__["reserved_capacity_options"] = None
         __props__.__dict__["spot_options"] = None
         __props__.__dict__["tag_specifications"] = None
         __props__.__dict__["target_capacity_specification"] = None
@@ -443,6 +459,11 @@ class Ec2Fleet(pulumi.CustomResource):
         Indicates whether EC2 Fleet should replace unhealthy Spot Instances. Supported only for fleets of type `maintain` . For more information, see [EC2 Fleet health checks](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/manage-ec2-fleet.html#ec2-fleet-health-checks) in the *Amazon EC2 User Guide* .
         """
         return pulumi.get(self, "replace_unhealthy_instances")
+
+    @_builtins.property
+    @pulumi.getter(name="reservedCapacityOptions")
+    def reserved_capacity_options(self) -> pulumi.Output[Optional['outputs.Ec2FleetReservedCapacityOptionsRequest']]:
+        return pulumi.get(self, "reserved_capacity_options")
 
     @_builtins.property
     @pulumi.getter(name="spotOptions")

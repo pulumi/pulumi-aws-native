@@ -4442,6 +4442,103 @@ func (o ObjectTypeKeyStandardIdentifiersItemArrayOutput) Index(i pulumi.IntInput
 	}).(ObjectTypeKeyStandardIdentifiersItemOutput)
 }
 
+// The status of the recommender
+type RecommenderStatus string
+
+const (
+	RecommenderStatusPending    = RecommenderStatus("PENDING")
+	RecommenderStatusInProgress = RecommenderStatus("IN_PROGRESS")
+	RecommenderStatusStopping   = RecommenderStatus("STOPPING")
+	RecommenderStatusStarting   = RecommenderStatus("STARTING")
+	RecommenderStatusActive     = RecommenderStatus("ACTIVE")
+	RecommenderStatusInactive   = RecommenderStatus("INACTIVE")
+	RecommenderStatusFailed     = RecommenderStatus("FAILED")
+	RecommenderStatusDeleting   = RecommenderStatus("DELETING")
+)
+
+type RecommenderStatusOutput struct{ *pulumi.OutputState }
+
+func (RecommenderStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RecommenderStatus)(nil)).Elem()
+}
+
+func (o RecommenderStatusOutput) ToRecommenderStatusOutput() RecommenderStatusOutput {
+	return o
+}
+
+func (o RecommenderStatusOutput) ToRecommenderStatusOutputWithContext(ctx context.Context) RecommenderStatusOutput {
+	return o
+}
+
+func (o RecommenderStatusOutput) ToRecommenderStatusPtrOutput() RecommenderStatusPtrOutput {
+	return o.ToRecommenderStatusPtrOutputWithContext(context.Background())
+}
+
+func (o RecommenderStatusOutput) ToRecommenderStatusPtrOutputWithContext(ctx context.Context) RecommenderStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RecommenderStatus) *RecommenderStatus {
+		return &v
+	}).(RecommenderStatusPtrOutput)
+}
+
+func (o RecommenderStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o RecommenderStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RecommenderStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o RecommenderStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RecommenderStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RecommenderStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type RecommenderStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (RecommenderStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RecommenderStatus)(nil)).Elem()
+}
+
+func (o RecommenderStatusPtrOutput) ToRecommenderStatusPtrOutput() RecommenderStatusPtrOutput {
+	return o
+}
+
+func (o RecommenderStatusPtrOutput) ToRecommenderStatusPtrOutputWithContext(ctx context.Context) RecommenderStatusPtrOutput {
+	return o
+}
+
+func (o RecommenderStatusPtrOutput) Elem() RecommenderStatusOutput {
+	return o.ApplyT(func(v *RecommenderStatus) RecommenderStatus {
+		if v != nil {
+			return *v
+		}
+		var ret RecommenderStatus
+		return ret
+	}).(RecommenderStatusOutput)
+}
+
+func (o RecommenderStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RecommenderStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *RecommenderStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
 // The type of segment dimension to use.
 type SegmentDefinitionAttributeDimensionType string
 
@@ -5894,6 +5991,8 @@ func init() {
 	pulumi.RegisterOutputType(ObjectTypeKeyStandardIdentifiersItemOutput{})
 	pulumi.RegisterOutputType(ObjectTypeKeyStandardIdentifiersItemPtrOutput{})
 	pulumi.RegisterOutputType(ObjectTypeKeyStandardIdentifiersItemArrayOutput{})
+	pulumi.RegisterOutputType(RecommenderStatusOutput{})
+	pulumi.RegisterOutputType(RecommenderStatusPtrOutput{})
 	pulumi.RegisterOutputType(SegmentDefinitionAttributeDimensionTypeOutput{})
 	pulumi.RegisterOutputType(SegmentDefinitionAttributeDimensionTypePtrOutput{})
 	pulumi.RegisterOutputType(SegmentDefinitionDateDimensionTypeOutput{})

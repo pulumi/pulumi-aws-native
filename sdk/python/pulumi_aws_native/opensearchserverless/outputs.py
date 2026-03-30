@@ -18,6 +18,7 @@ from ._enums import *
 
 __all__ = [
     'CollectionEncryptionConfig',
+    'CollectionFipsEndpoints',
     'CollectionGroupCapacityLimits',
     'CollectionVectorOptions',
     'IndexPropertyMapping',
@@ -84,6 +85,46 @@ class CollectionEncryptionConfig(dict):
         Key Management Service key used to encrypt the collection.
         """
         return pulumi.get(self, "kms_key_arn")
+
+
+@pulumi.output_type
+class CollectionFipsEndpoints(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "collectionEndpoint":
+            suggest = "collection_endpoint"
+        elif key == "dashboardEndpoint":
+            suggest = "dashboard_endpoint"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CollectionFipsEndpoints. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CollectionFipsEndpoints.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CollectionFipsEndpoints.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 collection_endpoint: Optional[_builtins.str] = None,
+                 dashboard_endpoint: Optional[_builtins.str] = None):
+        if collection_endpoint is not None:
+            pulumi.set(__self__, "collection_endpoint", collection_endpoint)
+        if dashboard_endpoint is not None:
+            pulumi.set(__self__, "dashboard_endpoint", dashboard_endpoint)
+
+    @_builtins.property
+    @pulumi.getter(name="collectionEndpoint")
+    def collection_endpoint(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "collection_endpoint")
+
+    @_builtins.property
+    @pulumi.getter(name="dashboardEndpoint")
+    def dashboard_endpoint(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "dashboard_endpoint")
 
 
 @pulumi.output_type

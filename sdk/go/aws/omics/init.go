@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "aws-native:omics:AnnotationStore":
 		r = &AnnotationStore{}
+	case "aws-native:omics:Configuration":
+		r = &Configuration{}
 	case "aws-native:omics:ReferenceStore":
 		r = &ReferenceStore{}
 	case "aws-native:omics:RunGroup":

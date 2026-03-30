@@ -417,6 +417,8 @@ class OrganizationCentralizationRuleSourceLogsConfiguration(dict):
         suggest = None
         if key == "encryptedLogGroupStrategy":
             suggest = "encrypted_log_group_strategy"
+        elif key == "dataSourceSelectionCriteria":
+            suggest = "data_source_selection_criteria"
         elif key == "logGroupSelectionCriteria":
             suggest = "log_group_selection_criteria"
 
@@ -433,13 +435,17 @@ class OrganizationCentralizationRuleSourceLogsConfiguration(dict):
 
     def __init__(__self__, *,
                  encrypted_log_group_strategy: 'OrganizationCentralizationRuleSourceLogsConfigurationEncryptedLogGroupStrategy',
-                 log_group_selection_criteria: _builtins.str):
+                 data_source_selection_criteria: Optional[_builtins.str] = None,
+                 log_group_selection_criteria: Optional[_builtins.str] = None):
         """
         :param 'OrganizationCentralizationRuleSourceLogsConfigurationEncryptedLogGroupStrategy' encrypted_log_group_strategy: A strategy determining whether to centralize source log groups that are encrypted with customer managed KMS keys (CMK). ALLOW will consider CMK encrypted source log groups for centralization while SKIP will skip CMK encrypted source log groups from centralization.
         :param _builtins.str log_group_selection_criteria: The selection criteria that specifies which source log groups to centralize. The selection criteria uses the same format as OAM link filters.
         """
         pulumi.set(__self__, "encrypted_log_group_strategy", encrypted_log_group_strategy)
-        pulumi.set(__self__, "log_group_selection_criteria", log_group_selection_criteria)
+        if data_source_selection_criteria is not None:
+            pulumi.set(__self__, "data_source_selection_criteria", data_source_selection_criteria)
+        if log_group_selection_criteria is not None:
+            pulumi.set(__self__, "log_group_selection_criteria", log_group_selection_criteria)
 
     @_builtins.property
     @pulumi.getter(name="encryptedLogGroupStrategy")
@@ -450,8 +456,13 @@ class OrganizationCentralizationRuleSourceLogsConfiguration(dict):
         return pulumi.get(self, "encrypted_log_group_strategy")
 
     @_builtins.property
+    @pulumi.getter(name="dataSourceSelectionCriteria")
+    def data_source_selection_criteria(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "data_source_selection_criteria")
+
+    @_builtins.property
     @pulumi.getter(name="logGroupSelectionCriteria")
-    def log_group_selection_criteria(self) -> _builtins.str:
+    def log_group_selection_criteria(self) -> Optional[_builtins.str]:
         """
         The selection criteria that specifies which source log groups to centralize. The selection criteria uses the same format as OAM link filters.
         """

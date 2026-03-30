@@ -21,6 +21,8 @@ __all__ = [
     'AnnotationStoreSseConfig',
     'AnnotationStoreStoreOptionsProperties',
     'AnnotationStoreTsvStoreOptions',
+    'ConfigurationRunConfigurations',
+    'ConfigurationVpcConfig',
     'ReferenceStoreSseConfig',
     'SequenceStoreSseConfig',
     'VariantStoreReferenceItem',
@@ -196,6 +198,76 @@ class AnnotationStoreTsvStoreOptions(dict):
     @pulumi.getter
     def schema(self) -> Optional[Sequence[Mapping[str, 'AnnotationStoreSchemaValueType']]]:
         return pulumi.get(self, "schema")
+
+
+@pulumi.output_type
+class ConfigurationRunConfigurations(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "vpcConfig":
+            suggest = "vpc_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConfigurationRunConfigurations. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConfigurationRunConfigurations.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConfigurationRunConfigurations.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 vpc_config: Optional['outputs.ConfigurationVpcConfig'] = None):
+        if vpc_config is not None:
+            pulumi.set(__self__, "vpc_config", vpc_config)
+
+    @_builtins.property
+    @pulumi.getter(name="vpcConfig")
+    def vpc_config(self) -> Optional['outputs.ConfigurationVpcConfig']:
+        return pulumi.get(self, "vpc_config")
+
+
+@pulumi.output_type
+class ConfigurationVpcConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "securityGroupIds":
+            suggest = "security_group_ids"
+        elif key == "subnetIds":
+            suggest = "subnet_ids"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConfigurationVpcConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConfigurationVpcConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConfigurationVpcConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 security_group_ids: Optional[Sequence[_builtins.str]] = None,
+                 subnet_ids: Optional[Sequence[_builtins.str]] = None):
+        if security_group_ids is not None:
+            pulumi.set(__self__, "security_group_ids", security_group_ids)
+        if subnet_ids is not None:
+            pulumi.set(__self__, "subnet_ids", subnet_ids)
+
+    @_builtins.property
+    @pulumi.getter(name="securityGroupIds")
+    def security_group_ids(self) -> Optional[Sequence[_builtins.str]]:
+        return pulumi.get(self, "security_group_ids")
+
+    @_builtins.property
+    @pulumi.getter(name="subnetIds")
+    def subnet_ids(self) -> Optional[Sequence[_builtins.str]]:
+        return pulumi.get(self, "subnet_ids")
 
 
 @pulumi.output_type

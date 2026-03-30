@@ -25,10 +25,13 @@ __all__ = [
 
 @pulumi.output_type
 class GetLogGroupResult:
-    def __init__(__self__, arn=None, data_protection_policy=None, deletion_protection_enabled=None, field_index_policies=None, kms_key_id=None, log_group_class=None, resource_policy_document=None, retention_in_days=None, tags=None):
+    def __init__(__self__, arn=None, bearer_token_authentication_enabled=None, data_protection_policy=None, deletion_protection_enabled=None, field_index_policies=None, kms_key_id=None, log_group_class=None, resource_policy_document=None, retention_in_days=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
+        if bearer_token_authentication_enabled and not isinstance(bearer_token_authentication_enabled, bool):
+            raise TypeError("Expected argument 'bearer_token_authentication_enabled' to be a bool")
+        pulumi.set(__self__, "bearer_token_authentication_enabled", bearer_token_authentication_enabled)
         if data_protection_policy and not isinstance(data_protection_policy, dict):
             raise TypeError("Expected argument 'data_protection_policy' to be a dict")
         pulumi.set(__self__, "data_protection_policy", data_protection_policy)
@@ -61,6 +64,11 @@ class GetLogGroupResult:
         The ARN of the log group, such as `arn:aws:logs:us-west-1:123456789012:log-group:/mystack-testgroup-12ABC1AB12A1:*`
         """
         return pulumi.get(self, "arn")
+
+    @_builtins.property
+    @pulumi.getter(name="bearerTokenAuthenticationEnabled")
+    def bearer_token_authentication_enabled(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "bearer_token_authentication_enabled")
 
     @_builtins.property
     @pulumi.getter(name="dataProtectionPolicy")
@@ -149,6 +157,7 @@ class AwaitableGetLogGroupResult(GetLogGroupResult):
             yield self
         return GetLogGroupResult(
             arn=self.arn,
+            bearer_token_authentication_enabled=self.bearer_token_authentication_enabled,
             data_protection_policy=self.data_protection_policy,
             deletion_protection_enabled=self.deletion_protection_enabled,
             field_index_policies=self.field_index_policies,
@@ -178,6 +187,7 @@ def get_log_group(log_group_name: Optional[_builtins.str] = None,
 
     return AwaitableGetLogGroupResult(
         arn=pulumi.get(__ret__, 'arn'),
+        bearer_token_authentication_enabled=pulumi.get(__ret__, 'bearer_token_authentication_enabled'),
         data_protection_policy=pulumi.get(__ret__, 'data_protection_policy'),
         deletion_protection_enabled=pulumi.get(__ret__, 'deletion_protection_enabled'),
         field_index_policies=pulumi.get(__ret__, 'field_index_policies'),
@@ -204,6 +214,7 @@ def get_log_group_output(log_group_name: Optional[pulumi.Input[_builtins.str]] =
     __ret__ = pulumi.runtime.invoke_output('aws-native:logs:getLogGroup', __args__, opts=opts, typ=GetLogGroupResult)
     return __ret__.apply(lambda __response__: GetLogGroupResult(
         arn=pulumi.get(__response__, 'arn'),
+        bearer_token_authentication_enabled=pulumi.get(__response__, 'bearer_token_authentication_enabled'),
         data_protection_policy=pulumi.get(__response__, 'data_protection_policy'),
         deletion_protection_enabled=pulumi.get(__response__, 'deletion_protection_enabled'),
         field_index_policies=pulumi.get(__response__, 'field_index_policies'),

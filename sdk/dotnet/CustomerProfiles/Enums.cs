@@ -938,6 +938,43 @@ namespace Pulumi.AwsNative.CustomerProfiles
     }
 
     /// <summary>
+    /// The status of the recommender
+    /// </summary>
+    [EnumType]
+    public readonly struct RecommenderStatus : IEquatable<RecommenderStatus>
+    {
+        private readonly string _value;
+
+        private RecommenderStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RecommenderStatus Pending { get; } = new RecommenderStatus("PENDING");
+        public static RecommenderStatus InProgress { get; } = new RecommenderStatus("IN_PROGRESS");
+        public static RecommenderStatus Stopping { get; } = new RecommenderStatus("STOPPING");
+        public static RecommenderStatus Starting { get; } = new RecommenderStatus("STARTING");
+        public static RecommenderStatus Active { get; } = new RecommenderStatus("ACTIVE");
+        public static RecommenderStatus Inactive { get; } = new RecommenderStatus("INACTIVE");
+        public static RecommenderStatus Failed { get; } = new RecommenderStatus("FAILED");
+        public static RecommenderStatus Deleting { get; } = new RecommenderStatus("DELETING");
+
+        public static bool operator ==(RecommenderStatus left, RecommenderStatus right) => left.Equals(right);
+        public static bool operator !=(RecommenderStatus left, RecommenderStatus right) => !left.Equals(right);
+
+        public static explicit operator string(RecommenderStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RecommenderStatus other && Equals(other);
+        public bool Equals(RecommenderStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The type of segment dimension to use.
     /// </summary>
     [EnumType]

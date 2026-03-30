@@ -24,6 +24,10 @@ __all__ = [
     'AnnotationStoreStoreOptionsPropertiesArgsDict',
     'AnnotationStoreTsvStoreOptionsArgs',
     'AnnotationStoreTsvStoreOptionsArgsDict',
+    'ConfigurationRunConfigurationsArgs',
+    'ConfigurationRunConfigurationsArgsDict',
+    'ConfigurationVpcConfigArgs',
+    'ConfigurationVpcConfigArgsDict',
     'ReferenceStoreSseConfigArgs',
     'ReferenceStoreSseConfigArgsDict',
     'SequenceStoreSseConfigArgs',
@@ -197,6 +201,59 @@ class AnnotationStoreTsvStoreOptionsArgs:
     @schema.setter
     def schema(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, pulumi.Input['AnnotationStoreSchemaValueType']]]]]]):
         pulumi.set(self, "schema", value)
+
+
+class ConfigurationRunConfigurationsArgsDict(TypedDict):
+    vpc_config: NotRequired[pulumi.Input['ConfigurationVpcConfigArgsDict']]
+
+@pulumi.input_type
+class ConfigurationRunConfigurationsArgs:
+    def __init__(__self__, *,
+                 vpc_config: Optional[pulumi.Input['ConfigurationVpcConfigArgs']] = None):
+        if vpc_config is not None:
+            pulumi.set(__self__, "vpc_config", vpc_config)
+
+    @_builtins.property
+    @pulumi.getter(name="vpcConfig")
+    def vpc_config(self) -> Optional[pulumi.Input['ConfigurationVpcConfigArgs']]:
+        return pulumi.get(self, "vpc_config")
+
+    @vpc_config.setter
+    def vpc_config(self, value: Optional[pulumi.Input['ConfigurationVpcConfigArgs']]):
+        pulumi.set(self, "vpc_config", value)
+
+
+class ConfigurationVpcConfigArgsDict(TypedDict):
+    security_group_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    subnet_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+
+@pulumi.input_type
+class ConfigurationVpcConfigArgs:
+    def __init__(__self__, *,
+                 security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        if security_group_ids is not None:
+            pulumi.set(__self__, "security_group_ids", security_group_ids)
+        if subnet_ids is not None:
+            pulumi.set(__self__, "subnet_ids", subnet_ids)
+
+    @_builtins.property
+    @pulumi.getter(name="securityGroupIds")
+    def security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        return pulumi.get(self, "security_group_ids")
+
+    @security_group_ids.setter
+    def security_group_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "security_group_ids", value)
+
+    @_builtins.property
+    @pulumi.getter(name="subnetIds")
+    def subnet_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        return pulumi.get(self, "subnet_ids")
+
+    @subnet_ids.setter
+    def subnet_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "subnet_ids", value)
 
 
 class ReferenceStoreSseConfigArgsDict(TypedDict):

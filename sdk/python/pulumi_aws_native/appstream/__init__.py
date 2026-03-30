@@ -19,6 +19,8 @@ from .get_application import *
 from .get_directory_config import *
 from .get_entitlement import *
 from .get_image_builder import *
+from .get_stack import *
 from .image_builder import *
+from .stack import *
 from ._inputs import *
 from . import outputs

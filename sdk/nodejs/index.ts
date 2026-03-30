@@ -92,6 +92,7 @@ import * as b2bi from "./b2bi";
 import * as backup from "./backup";
 import * as backupgateway from "./backupgateway";
 import * as batch from "./batch";
+import * as bcmdataexports from "./bcmdataexports";
 import * as bedrock from "./bedrock";
 import * as bedrockagentcore from "./bedrockagentcore";
 import * as bedrockmantle from "./bedrockmantle";
@@ -135,6 +136,7 @@ import * as dax from "./dax";
 import * as deadline from "./deadline";
 import * as detective from "./detective";
 import * as devicefarm from "./devicefarm";
+import * as devopsagent from "./devopsagent";
 import * as devopsguru from "./devopsguru";
 import * as directconnect from "./directconnect";
 import * as directoryservice from "./directoryservice";
@@ -181,6 +183,7 @@ import * as identitystore from "./identitystore";
 import * as imagebuilder from "./imagebuilder";
 import * as inspector from "./inspector";
 import * as inspectorv2 from "./inspectorv2";
+import * as interconnect from "./interconnect";
 import * as internetmonitor from "./internetmonitor";
 import * as invoicing from "./invoicing";
 import * as iot from "./iot";
@@ -339,6 +342,7 @@ export {
     backup,
     backupgateway,
     batch,
+    bcmdataexports,
     bedrock,
     bedrockagentcore,
     bedrockmantle,
@@ -382,6 +386,7 @@ export {
     deadline,
     detective,
     devicefarm,
+    devopsagent,
     devopsguru,
     directconnect,
     directoryservice,
@@ -428,6 +433,7 @@ export {
     imagebuilder,
     inspector,
     inspectorv2,
+    interconnect,
     internetmonitor,
     invoicing,
     iot,

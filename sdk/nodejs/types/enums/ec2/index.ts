@@ -215,6 +215,12 @@ export const Ec2FleetInstanceRequirementsRequestLocalStorageTypesItem = {
 
 export type Ec2FleetInstanceRequirementsRequestLocalStorageTypesItem = (typeof Ec2FleetInstanceRequirementsRequestLocalStorageTypesItem)[keyof typeof Ec2FleetInstanceRequirementsRequestLocalStorageTypesItem];
 
+export const Ec2FleetReservedCapacityOptionsRequestReservationTypesItem = {
+    InterruptibleCapacityReservation: "interruptible-capacity-reservation",
+} as const;
+
+export type Ec2FleetReservedCapacityOptionsRequestReservationTypesItem = (typeof Ec2FleetReservedCapacityOptionsRequestReservationTypesItem)[keyof typeof Ec2FleetReservedCapacityOptionsRequestReservationTypesItem];
+
 export const Ec2FleetSpotOptionsRequestAllocationStrategy = {
     LowestPrice: "lowest-price",
     Diversified: "diversified",

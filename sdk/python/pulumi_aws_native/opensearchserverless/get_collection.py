@@ -13,6 +13,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 
 __all__ = [
     'GetCollectionResult',
@@ -23,7 +24,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetCollectionResult:
-    def __init__(__self__, arn=None, collection_endpoint=None, dashboard_endpoint=None, description=None, id=None, kms_key_arn=None):
+    def __init__(__self__, arn=None, collection_endpoint=None, dashboard_endpoint=None, description=None, fips_endpoints=None, id=None, kms_key_arn=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -36,6 +37,9 @@ class GetCollectionResult:
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
+        if fips_endpoints and not isinstance(fips_endpoints, dict):
+            raise TypeError("Expected argument 'fips_endpoints' to be a dict")
+        pulumi.set(__self__, "fips_endpoints", fips_endpoints)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -76,6 +80,11 @@ class GetCollectionResult:
         return pulumi.get(self, "description")
 
     @_builtins.property
+    @pulumi.getter(name="fipsEndpoints")
+    def fips_endpoints(self) -> Optional['outputs.CollectionFipsEndpoints']:
+        return pulumi.get(self, "fips_endpoints")
+
+    @_builtins.property
     @pulumi.getter
     def id(self) -> Optional[_builtins.str]:
         """
@@ -102,6 +111,7 @@ class AwaitableGetCollectionResult(GetCollectionResult):
             collection_endpoint=self.collection_endpoint,
             dashboard_endpoint=self.dashboard_endpoint,
             description=self.description,
+            fips_endpoints=self.fips_endpoints,
             id=self.id,
             kms_key_arn=self.kms_key_arn)
 
@@ -124,6 +134,7 @@ def get_collection(id: Optional[_builtins.str] = None,
         collection_endpoint=pulumi.get(__ret__, 'collection_endpoint'),
         dashboard_endpoint=pulumi.get(__ret__, 'dashboard_endpoint'),
         description=pulumi.get(__ret__, 'description'),
+        fips_endpoints=pulumi.get(__ret__, 'fips_endpoints'),
         id=pulumi.get(__ret__, 'id'),
         kms_key_arn=pulumi.get(__ret__, 'kms_key_arn'))
 def get_collection_output(id: Optional[pulumi.Input[_builtins.str]] = None,
@@ -143,5 +154,6 @@ def get_collection_output(id: Optional[pulumi.Input[_builtins.str]] = None,
         collection_endpoint=pulumi.get(__response__, 'collection_endpoint'),
         dashboard_endpoint=pulumi.get(__response__, 'dashboard_endpoint'),
         description=pulumi.get(__response__, 'description'),
+        fips_endpoints=pulumi.get(__response__, 'fips_endpoints'),
         id=pulumi.get(__response__, 'id'),
         kms_key_arn=pulumi.get(__response__, 'kms_key_arn')))

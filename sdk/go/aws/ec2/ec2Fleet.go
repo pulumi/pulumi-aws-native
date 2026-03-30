@@ -29,7 +29,8 @@ type Ec2Fleet struct {
 	// Describes the configuration of On-Demand Instances in an EC2 Fleet.
 	OnDemandOptions Ec2FleetOnDemandOptionsRequestPtrOutput `pulumi:"onDemandOptions"`
 	// Indicates whether EC2 Fleet should replace unhealthy Spot Instances. Supported only for fleets of type `maintain` . For more information, see [EC2 Fleet health checks](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/manage-ec2-fleet.html#ec2-fleet-health-checks) in the *Amazon EC2 User Guide* .
-	ReplaceUnhealthyInstances pulumi.BoolPtrOutput `pulumi:"replaceUnhealthyInstances"`
+	ReplaceUnhealthyInstances pulumi.BoolPtrOutput                            `pulumi:"replaceUnhealthyInstances"`
+	ReservedCapacityOptions   Ec2FleetReservedCapacityOptionsRequestPtrOutput `pulumi:"reservedCapacityOptions"`
 	// Describes the configuration of Spot Instances in an EC2 Fleet.
 	SpotOptions Ec2FleetSpotOptionsRequestPtrOutput `pulumi:"spotOptions"`
 	// The key-value pair for tagging the EC2 Fleet request on creation. For more information, see [Tag your resources](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#tag-resources) .
@@ -73,6 +74,7 @@ func NewEc2Fleet(ctx *pulumi.Context,
 		"launchTemplateConfigs[*]",
 		"onDemandOptions",
 		"replaceUnhealthyInstances",
+		"reservedCapacityOptions",
 		"spotOptions",
 		"tagSpecifications[*]",
 		"targetCapacitySpecification.defaultTargetCapacityType",
@@ -127,7 +129,8 @@ type ec2FleetArgs struct {
 	// Describes the configuration of On-Demand Instances in an EC2 Fleet.
 	OnDemandOptions *Ec2FleetOnDemandOptionsRequest `pulumi:"onDemandOptions"`
 	// Indicates whether EC2 Fleet should replace unhealthy Spot Instances. Supported only for fleets of type `maintain` . For more information, see [EC2 Fleet health checks](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/manage-ec2-fleet.html#ec2-fleet-health-checks) in the *Amazon EC2 User Guide* .
-	ReplaceUnhealthyInstances *bool `pulumi:"replaceUnhealthyInstances"`
+	ReplaceUnhealthyInstances *bool                                   `pulumi:"replaceUnhealthyInstances"`
+	ReservedCapacityOptions   *Ec2FleetReservedCapacityOptionsRequest `pulumi:"reservedCapacityOptions"`
 	// Describes the configuration of Spot Instances in an EC2 Fleet.
 	SpotOptions *Ec2FleetSpotOptionsRequest `pulumi:"spotOptions"`
 	// The key-value pair for tagging the EC2 Fleet request on creation. For more information, see [Tag your resources](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#tag-resources) .
@@ -168,6 +171,7 @@ type Ec2FleetArgs struct {
 	OnDemandOptions Ec2FleetOnDemandOptionsRequestPtrInput
 	// Indicates whether EC2 Fleet should replace unhealthy Spot Instances. Supported only for fleets of type `maintain` . For more information, see [EC2 Fleet health checks](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/manage-ec2-fleet.html#ec2-fleet-health-checks) in the *Amazon EC2 User Guide* .
 	ReplaceUnhealthyInstances pulumi.BoolPtrInput
+	ReservedCapacityOptions   Ec2FleetReservedCapacityOptionsRequestPtrInput
 	// Describes the configuration of Spot Instances in an EC2 Fleet.
 	SpotOptions Ec2FleetSpotOptionsRequestPtrInput
 	// The key-value pair for tagging the EC2 Fleet request on creation. For more information, see [Tag your resources](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#tag-resources) .
@@ -263,6 +267,10 @@ func (o Ec2FleetOutput) OnDemandOptions() Ec2FleetOnDemandOptionsRequestPtrOutpu
 // Indicates whether EC2 Fleet should replace unhealthy Spot Instances. Supported only for fleets of type `maintain` . For more information, see [EC2 Fleet health checks](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/manage-ec2-fleet.html#ec2-fleet-health-checks) in the *Amazon EC2 User Guide* .
 func (o Ec2FleetOutput) ReplaceUnhealthyInstances() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Ec2Fleet) pulumi.BoolPtrOutput { return v.ReplaceUnhealthyInstances }).(pulumi.BoolPtrOutput)
+}
+
+func (o Ec2FleetOutput) ReservedCapacityOptions() Ec2FleetReservedCapacityOptionsRequestPtrOutput {
+	return o.ApplyT(func(v *Ec2Fleet) Ec2FleetReservedCapacityOptionsRequestPtrOutput { return v.ReservedCapacityOptions }).(Ec2FleetReservedCapacityOptionsRequestPtrOutput)
 }
 
 // Describes the configuration of Spot Instances in an EC2 Fleet.

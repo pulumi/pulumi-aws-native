@@ -49,6 +49,20 @@ export const AnnotationStoreStoreStatus = {
 
 export type AnnotationStoreStoreStatus = (typeof AnnotationStoreStoreStatus)[keyof typeof AnnotationStoreStoreStatus];
 
+export const ConfigurationStatus = {
+    Creating: "CREATING",
+    Active: "ACTIVE",
+    Updating: "UPDATING",
+    Deleting: "DELETING",
+    Deleted: "DELETED",
+    Failed: "FAILED",
+} as const;
+
+/**
+ * Current configuration status.
+ */
+export type ConfigurationStatus = (typeof ConfigurationStatus)[keyof typeof ConfigurationStatus];
+
 export const ReferenceStoreEncryptionType = {
     Kms: "KMS",
 } as const;

@@ -386,6 +386,22 @@ export const ObjectTypeKeyStandardIdentifiersItem = {
 
 export type ObjectTypeKeyStandardIdentifiersItem = (typeof ObjectTypeKeyStandardIdentifiersItem)[keyof typeof ObjectTypeKeyStandardIdentifiersItem];
 
+export const RecommenderStatus = {
+    Pending: "PENDING",
+    InProgress: "IN_PROGRESS",
+    Stopping: "STOPPING",
+    Starting: "STARTING",
+    Active: "ACTIVE",
+    Inactive: "INACTIVE",
+    Failed: "FAILED",
+    Deleting: "DELETING",
+} as const;
+
+/**
+ * The status of the recommender
+ */
+export type RecommenderStatus = (typeof RecommenderStatus)[keyof typeof RecommenderStatus];
+
 export const SegmentDefinitionAttributeDimensionType = {
     Inclusive: "INCLUSIVE",
     Exclusive: "EXCLUSIVE",

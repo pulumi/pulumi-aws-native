@@ -22,6 +22,7 @@ __all__ = ['LogGroupArgs', 'LogGroup']
 @pulumi.input_type
 class LogGroupArgs:
     def __init__(__self__, *,
+                 bearer_token_authentication_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  data_protection_policy: Optional[Any] = None,
                  deletion_protection_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  field_index_policies: Optional[pulumi.Input[Sequence[Any]]] = None,
@@ -59,6 +60,8 @@ class LogGroupArgs:
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to the log group.
                 For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).
         """
+        if bearer_token_authentication_enabled is not None:
+            pulumi.set(__self__, "bearer_token_authentication_enabled", bearer_token_authentication_enabled)
         if data_protection_policy is not None:
             pulumi.set(__self__, "data_protection_policy", data_protection_policy)
         if deletion_protection_enabled is not None:
@@ -77,6 +80,15 @@ class LogGroupArgs:
             pulumi.set(__self__, "retention_in_days", retention_in_days)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+
+    @_builtins.property
+    @pulumi.getter(name="bearerTokenAuthenticationEnabled")
+    def bearer_token_authentication_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        return pulumi.get(self, "bearer_token_authentication_enabled")
+
+    @bearer_token_authentication_enabled.setter
+    def bearer_token_authentication_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "bearer_token_authentication_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="dataProtectionPolicy")
@@ -208,6 +220,7 @@ class LogGroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 bearer_token_authentication_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  data_protection_policy: Optional[Any] = None,
                  deletion_protection_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  field_index_policies: Optional[pulumi.Input[Sequence[Any]]] = None,
@@ -282,6 +295,7 @@ class LogGroup(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 bearer_token_authentication_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  data_protection_policy: Optional[Any] = None,
                  deletion_protection_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  field_index_policies: Optional[pulumi.Input[Sequence[Any]]] = None,
@@ -300,6 +314,7 @@ class LogGroup(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = LogGroupArgs.__new__(LogGroupArgs)
 
+            __props__.__dict__["bearer_token_authentication_enabled"] = bearer_token_authentication_enabled
             __props__.__dict__["data_protection_policy"] = data_protection_policy
             __props__.__dict__["deletion_protection_enabled"] = deletion_protection_enabled
             __props__.__dict__["field_index_policies"] = field_index_policies
@@ -335,6 +350,7 @@ class LogGroup(pulumi.CustomResource):
         __props__ = LogGroupArgs.__new__(LogGroupArgs)
 
         __props__.__dict__["arn"] = None
+        __props__.__dict__["bearer_token_authentication_enabled"] = None
         __props__.__dict__["data_protection_policy"] = None
         __props__.__dict__["deletion_protection_enabled"] = None
         __props__.__dict__["field_index_policies"] = None
@@ -353,6 +369,11 @@ class LogGroup(pulumi.CustomResource):
         The ARN of the log group, such as `arn:aws:logs:us-west-1:123456789012:log-group:/mystack-testgroup-12ABC1AB12A1:*`
         """
         return pulumi.get(self, "arn")
+
+    @_builtins.property
+    @pulumi.getter(name="bearerTokenAuthenticationEnabled")
+    def bearer_token_authentication_enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        return pulumi.get(self, "bearer_token_authentication_enabled")
 
     @_builtins.property
     @pulumi.getter(name="dataProtectionPolicy")

@@ -12,6 +12,7 @@ __all__ = [
     'AnnotationStoreSchemaValueType',
     'AnnotationStoreStoreFormat',
     'AnnotationStoreStoreStatus',
+    'ConfigurationStatus',
     'ReferenceStoreEncryptionType',
     'SequenceStoreETagAlgorithmFamily',
     'SequenceStoreEncryptionType',
@@ -72,6 +73,19 @@ class AnnotationStoreStoreStatus(_builtins.str, Enum):
     UPDATING = "UPDATING"
     DELETING = "DELETING"
     ACTIVE = "ACTIVE"
+    FAILED = "FAILED"
+
+
+@pulumi.type_token("aws-native:omics:ConfigurationStatus")
+class ConfigurationStatus(_builtins.str, Enum):
+    """
+    Current configuration status.
+    """
+    CREATING = "CREATING"
+    ACTIVE = "ACTIVE"
+    UPDATING = "UPDATING"
+    DELETING = "DELETING"
+    DELETED = "DELETED"
     FAILED = "FAILED"
 
 
