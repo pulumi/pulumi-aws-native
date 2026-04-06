@@ -163,6 +163,36 @@ namespace Pulumi.AwsNative.S3Tables
     }
 
     /// <summary>
+    /// The type of the top-level schema, which is always 'struct'
+    /// </summary>
+    [EnumType]
+    public readonly struct TableIcebergSchemaV2SchemaV2FieldType : IEquatable<TableIcebergSchemaV2SchemaV2FieldType>
+    {
+        private readonly string _value;
+
+        private TableIcebergSchemaV2SchemaV2FieldType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TableIcebergSchemaV2SchemaV2FieldType Struct { get; } = new TableIcebergSchemaV2SchemaV2FieldType("struct");
+
+        public static bool operator ==(TableIcebergSchemaV2SchemaV2FieldType left, TableIcebergSchemaV2SchemaV2FieldType right) => left.Equals(right);
+        public static bool operator !=(TableIcebergSchemaV2SchemaV2FieldType left, TableIcebergSchemaV2SchemaV2FieldType right) => !left.Equals(right);
+
+        public static explicit operator string(TableIcebergSchemaV2SchemaV2FieldType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TableIcebergSchemaV2SchemaV2FieldType other && Equals(other);
+        public bool Equals(TableIcebergSchemaV2SchemaV2FieldType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Sort direction (asc or desc)
     /// </summary>
     [EnumType]

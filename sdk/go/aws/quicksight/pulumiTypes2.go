@@ -27655,7 +27655,7 @@ func (o DataSetAppendedColumnArrayOutput) Index(i pulumi.IntInput) DataSetAppend
 // <p>A calculated column for a dataset.</p>
 type DataSetCalculatedColumn struct {
 	// <p>A unique ID to identify a calculated column. During a dataset update, if the column ID
-	//             of a calculated column matches that of an existing calculated column, Amazon Quick Suite
+	//             of a calculated column matches that of an existing calculated column, Amazon QuickSight
 	//             preserves the existing calculated column.</p>
 	ColumnId string `pulumi:"columnId"`
 	// <p>Column name.</p>
@@ -27678,7 +27678,7 @@ type DataSetCalculatedColumnInput interface {
 // <p>A calculated column for a dataset.</p>
 type DataSetCalculatedColumnArgs struct {
 	// <p>A unique ID to identify a calculated column. During a dataset update, if the column ID
-	//             of a calculated column matches that of an existing calculated column, Amazon Quick Suite
+	//             of a calculated column matches that of an existing calculated column, Amazon QuickSight
 	//             preserves the existing calculated column.</p>
 	ColumnId pulumi.StringInput `pulumi:"columnId"`
 	// <p>Column name.</p>
@@ -27741,7 +27741,7 @@ func (o DataSetCalculatedColumnOutput) ToDataSetCalculatedColumnOutputWithContex
 
 // <p>A unique ID to identify a calculated column. During a dataset update, if the column ID
 //
-//	of a calculated column matches that of an existing calculated column, Amazon Quick Suite
+//	of a calculated column matches that of an existing calculated column, Amazon QuickSight
 //	preserves the existing calculated column.</p>
 func (o DataSetCalculatedColumnOutput) ColumnId() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSetCalculatedColumn) string { return v.ColumnId }).(pulumi.StringOutput)
@@ -27782,7 +27782,7 @@ type DataSetCastColumnTypeOperation struct {
 	// <p>Column name.</p>
 	ColumnName string `pulumi:"columnName"`
 	// <p>When casting a column from string to datetime type, you can supply a string in a
-	//             format supported by Amazon Quick Suite to denote the source data format.</p>
+	//             format supported by Amazon QuickSight to denote the source data format.</p>
 	Format *string `pulumi:"format"`
 	// New column data type.
 	NewColumnType DataSetColumnDataType `pulumi:"newColumnType"`
@@ -27806,7 +27806,7 @@ type DataSetCastColumnTypeOperationArgs struct {
 	// <p>Column name.</p>
 	ColumnName pulumi.StringInput `pulumi:"columnName"`
 	// <p>When casting a column from string to datetime type, you can supply a string in a
-	//             format supported by Amazon Quick Suite to denote the source data format.</p>
+	//             format supported by Amazon QuickSight to denote the source data format.</p>
 	Format pulumi.StringPtrInput `pulumi:"format"`
 	// New column data type.
 	NewColumnType DataSetColumnDataTypeInput `pulumi:"newColumnType"`
@@ -27924,7 +27924,7 @@ func (o DataSetCastColumnTypeOperationOutput) ColumnName() pulumi.StringOutput {
 
 // <p>When casting a column from string to datetime type, you can supply a string in a
 //
-//	format supported by Amazon Quick Suite to denote the source data format.</p>
+//	format supported by Amazon QuickSight to denote the source data format.</p>
 func (o DataSetCastColumnTypeOperationOutput) Format() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataSetCastColumnTypeOperation) *string { return v.Format }).(pulumi.StringPtrOutput)
 }
@@ -27975,7 +27975,7 @@ func (o DataSetCastColumnTypeOperationPtrOutput) ColumnName() pulumi.StringPtrOu
 
 // <p>When casting a column from string to datetime type, you can supply a string in a
 //
-//	format supported by Amazon Quick Suite to denote the source data format.</p>
+//	format supported by Amazon QuickSight to denote the source data format.</p>
 func (o DataSetCastColumnTypeOperationPtrOutput) Format() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSetCastColumnTypeOperation) *string {
 		if v == nil {
@@ -28342,7 +28342,7 @@ func (o DataSetColumnDescriptionPtrOutput) Text() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// <p>Groupings of columns that work together in certain Amazon Quick Suite features. This is
+// <p>Groupings of columns that work together in certain Amazon QuickSight features. This is
 //
 //	a variant type structure. For this structure to be valid, only one of the attributes can
 //	be non-null.</p>
@@ -28362,7 +28362,7 @@ type DataSetColumnGroupInput interface {
 	ToDataSetColumnGroupOutputWithContext(context.Context) DataSetColumnGroupOutput
 }
 
-// <p>Groupings of columns that work together in certain Amazon Quick Suite features. This is
+// <p>Groupings of columns that work together in certain Amazon QuickSight features. This is
 //
 //	a variant type structure. For this structure to be valid, only one of the attributes can
 //	be non-null.</p>
@@ -28408,7 +28408,7 @@ func (i DataSetColumnGroupArray) ToDataSetColumnGroupArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(DataSetColumnGroupArrayOutput)
 }
 
-// <p>Groupings of columns that work together in certain Amazon Quick Suite features. This is
+// <p>Groupings of columns that work together in certain Amazon QuickSight features. This is
 //
 //	a variant type structure. For this structure to be valid, only one of the attributes can
 //	be non-null.</p>
@@ -28561,7 +28561,7 @@ func (o DataSetColumnIdMappingArrayOutput) Index(i pulumi.IntInput) DataSetColum
 type DataSetColumnLevelPermissionRule struct {
 	// <p>An array of column names.</p>
 	ColumnNames []string `pulumi:"columnNames"`
-	// <p>An array of Amazon Resource Names (ARNs) for Quick Suite users or groups.</p>
+	// <p>An array of Amazon Resource Names (ARNs) for Amazon QuickSight users or groups.</p>
 	Principals []string `pulumi:"principals"`
 }
 
@@ -28586,7 +28586,7 @@ type DataSetColumnLevelPermissionRuleInput interface {
 type DataSetColumnLevelPermissionRuleArgs struct {
 	// <p>An array of column names.</p>
 	ColumnNames pulumi.StringArrayInput `pulumi:"columnNames"`
-	// <p>An array of Amazon Resource Names (ARNs) for Quick Suite users or groups.</p>
+	// <p>An array of Amazon Resource Names (ARNs) for Amazon QuickSight users or groups.</p>
 	Principals pulumi.StringArrayInput `pulumi:"principals"`
 }
 
@@ -28653,7 +28653,7 @@ func (o DataSetColumnLevelPermissionRuleOutput) ColumnNames() pulumi.StringArray
 	return o.ApplyT(func(v DataSetColumnLevelPermissionRule) []string { return v.ColumnNames }).(pulumi.StringArrayOutput)
 }
 
-// <p>An array of Amazon Resource Names (ARNs) for Quick Suite users or groups.</p>
+// <p>An array of Amazon Resource Names (ARNs) for Amazon QuickSight users or groups.</p>
 func (o DataSetColumnLevelPermissionRuleOutput) Principals() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DataSetColumnLevelPermissionRule) []string { return v.Principals }).(pulumi.StringArrayOutput)
 }
@@ -33811,7 +33811,7 @@ func (o DataSetJoinInstructionPtrOutput) Type() DataSetJoinTypePtrOutput {
 // <p>Properties associated with the columns participating in a join.</p>
 type DataSetJoinKeyProperties struct {
 	// <p>A value that indicates that a row in a table is uniquely identified by the columns in
-	//             a join key. This is used by Quick Suite to optimize query performance.</p>
+	//             a join key. This is used by Amazon QuickSight to optimize query performance.</p>
 	UniqueKey *bool `pulumi:"uniqueKey"`
 }
 
@@ -33829,7 +33829,7 @@ type DataSetJoinKeyPropertiesInput interface {
 // <p>Properties associated with the columns participating in a join.</p>
 type DataSetJoinKeyPropertiesArgs struct {
 	// <p>A value that indicates that a row in a table is uniquely identified by the columns in
-	//             a join key. This is used by Quick Suite to optimize query performance.</p>
+	//             a join key. This is used by Amazon QuickSight to optimize query performance.</p>
 	UniqueKey pulumi.BoolPtrInput `pulumi:"uniqueKey"`
 }
 
@@ -33913,7 +33913,7 @@ func (o DataSetJoinKeyPropertiesOutput) ToDataSetJoinKeyPropertiesPtrOutputWithC
 
 // <p>A value that indicates that a row in a table is uniquely identified by the columns in
 //
-//	a join key. This is used by Quick Suite to optimize query performance.</p>
+//	a join key. This is used by Amazon QuickSight to optimize query performance.</p>
 func (o DataSetJoinKeyPropertiesOutput) UniqueKey() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DataSetJoinKeyProperties) *bool { return v.UniqueKey }).(pulumi.BoolPtrOutput)
 }
@@ -33944,7 +33944,7 @@ func (o DataSetJoinKeyPropertiesPtrOutput) Elem() DataSetJoinKeyPropertiesOutput
 
 // <p>A value that indicates that a row in a table is uniquely identified by the columns in
 //
-//	a join key. This is used by Quick Suite to optimize query performance.</p>
+//	a join key. This is used by Amazon QuickSight to optimize query performance.</p>
 func (o DataSetJoinKeyPropertiesPtrOutput) UniqueKey() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DataSetJoinKeyProperties) *bool {
 		if v == nil {
@@ -38220,10 +38220,10 @@ type DataSetResourcePermission struct {
 	//             following:</p>
 	//          <ul>
 	//             <li>
-	//                <p>The ARN of an Amazon Quick Suite user or group associated with a data source or dataset. (This is common.)</p>
+	//                <p>The ARN of an Amazon QuickSight user or group associated with a data source or dataset. (This is common.)</p>
 	//             </li>
 	//             <li>
-	//                <p>The ARN of an Amazon Quick Suite user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
+	//                <p>The ARN of an Amazon QuickSight user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
 	//             </li>
 	//             <li>
 	//                <p>The ARN of an Amazon Web Services account root: This is an IAM ARN rather than a QuickSight
@@ -38253,10 +38253,10 @@ type DataSetResourcePermissionArgs struct {
 	//             following:</p>
 	//          <ul>
 	//             <li>
-	//                <p>The ARN of an Amazon Quick Suite user or group associated with a data source or dataset. (This is common.)</p>
+	//                <p>The ARN of an Amazon QuickSight user or group associated with a data source or dataset. (This is common.)</p>
 	//             </li>
 	//             <li>
-	//                <p>The ARN of an Amazon Quick Suite user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
+	//                <p>The ARN of an Amazon QuickSight user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
 	//             </li>
 	//             <li>
 	//                <p>The ARN of an Amazon Web Services account root: This is an IAM ARN rather than a QuickSight
@@ -38329,10 +38329,10 @@ func (o DataSetResourcePermissionOutput) Actions() pulumi.StringArrayOutput {
 //	   following:</p>
 //	<ul>
 //	   <li>
-//	      <p>The ARN of an Amazon Quick Suite user or group associated with a data source or dataset. (This is common.)</p>
+//	      <p>The ARN of an Amazon QuickSight user or group associated with a data source or dataset. (This is common.)</p>
 //	   </li>
 //	   <li>
-//	      <p>The ARN of an Amazon Quick Suite user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
+//	      <p>The ARN of an Amazon QuickSight user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
 //	   </li>
 //	   <li>
 //	      <p>The ARN of an Amazon Web Services account root: This is an IAM ARN rather than a QuickSight
@@ -38519,7 +38519,7 @@ func (o DataSetRowLevelPermissionConfigurationPtrOutput) TagConfiguration() Data
 // <p>Information about a dataset that contains permissions for row-level security (RLS).
 //
 //	   The permissions dataset maps fields to users or groups. For more information, see
-//	   <a href="https://docs.aws.amazon.com/quicksight/latest/user/restrict-access-to-a-data-set-using-row-level-security.html">Using Row-Level Security (RLS) to Restrict Access to a Dataset</a> in the <i>Amazon Quick Suite User
+//	   <a href="https://docs.aws.amazon.com/quicksight/latest/user/restrict-access-to-a-data-set-using-row-level-security.html">Using Row-Level Security (RLS) to Restrict Access to a Dataset</a> in the <i>Amazon QuickSight User
 //	       Guide</i>.</p>
 //	<p>The option to deny permissions by setting <code>PermissionPolicy</code> to <code>DENY_ACCESS</code> is
 //	   not supported for new RLS datasets.</p>
@@ -38552,7 +38552,7 @@ type DataSetRowLevelPermissionDataSetInput interface {
 // <p>Information about a dataset that contains permissions for row-level security (RLS).
 //
 //	   The permissions dataset maps fields to users or groups. For more information, see
-//	   <a href="https://docs.aws.amazon.com/quicksight/latest/user/restrict-access-to-a-data-set-using-row-level-security.html">Using Row-Level Security (RLS) to Restrict Access to a Dataset</a> in the <i>Amazon Quick Suite User
+//	   <a href="https://docs.aws.amazon.com/quicksight/latest/user/restrict-access-to-a-data-set-using-row-level-security.html">Using Row-Level Security (RLS) to Restrict Access to a Dataset</a> in the <i>Amazon QuickSight User
 //	       Guide</i>.</p>
 //	<p>The option to deny permissions by setting <code>PermissionPolicy</code> to <code>DENY_ACCESS</code> is
 //	   not supported for new RLS datasets.</p>
@@ -38627,7 +38627,7 @@ func (i *dataSetRowLevelPermissionDataSetPtrType) ToDataSetRowLevelPermissionDat
 // <p>Information about a dataset that contains permissions for row-level security (RLS).
 //
 //	   The permissions dataset maps fields to users or groups. For more information, see
-//	   <a href="https://docs.aws.amazon.com/quicksight/latest/user/restrict-access-to-a-data-set-using-row-level-security.html">Using Row-Level Security (RLS) to Restrict Access to a Dataset</a> in the <i>Amazon Quick Suite User
+//	   <a href="https://docs.aws.amazon.com/quicksight/latest/user/restrict-access-to-a-data-set-using-row-level-security.html">Using Row-Level Security (RLS) to Restrict Access to a Dataset</a> in the <i>Amazon QuickSight User
 //	       Guide</i>.</p>
 //	<p>The option to deny permissions by setting <code>PermissionPolicy</code> to <code>DENY_ACCESS</code> is
 //	   not supported for new RLS datasets.</p>
@@ -45519,7 +45519,7 @@ func (o DataSourceOracleParametersPtrOutput) UseServiceName() pulumi.BoolPtrOutp
 	}).(pulumi.BoolPtrOutput)
 }
 
-// <p>The parameters that Amazon Quick Suite uses to connect to your underlying data source.
+// <p>The parameters that Amazon QuickSight uses to connect to your underlying data source.
 //
 //	This is a variant type structure. For this structure to be valid, only one of the
 //	attributes can be non-null.</p>
@@ -45551,7 +45551,8 @@ type DataSourceParameters struct {
 	// The parameters for Amazon Redshift.
 	RedshiftParameters *DataSourceRedshiftParameters `pulumi:"redshiftParameters"`
 	// The parameters for S3.
-	S3Parameters *DataSourceS3Parameters `pulumi:"s3Parameters"`
+	S3Parameters       *DataSourceS3Parameters       `pulumi:"s3Parameters"`
+	S3TablesParameters *DataSourceS3TablesParameters `pulumi:"s3TablesParameters"`
 	// The parameters for Snowflake.
 	SnowflakeParameters *DataSourceSnowflakeParameters `pulumi:"snowflakeParameters"`
 	// The parameters for Spark.
@@ -45577,7 +45578,7 @@ type DataSourceParametersInput interface {
 	ToDataSourceParametersOutputWithContext(context.Context) DataSourceParametersOutput
 }
 
-// <p>The parameters that Amazon Quick Suite uses to connect to your underlying data source.
+// <p>The parameters that Amazon QuickSight uses to connect to your underlying data source.
 //
 //	This is a variant type structure. For this structure to be valid, only one of the
 //	attributes can be non-null.</p>
@@ -45609,7 +45610,8 @@ type DataSourceParametersArgs struct {
 	// The parameters for Amazon Redshift.
 	RedshiftParameters DataSourceRedshiftParametersPtrInput `pulumi:"redshiftParameters"`
 	// The parameters for S3.
-	S3Parameters DataSourceS3ParametersPtrInput `pulumi:"s3Parameters"`
+	S3Parameters       DataSourceS3ParametersPtrInput       `pulumi:"s3Parameters"`
+	S3TablesParameters DataSourceS3TablesParametersPtrInput `pulumi:"s3TablesParameters"`
 	// The parameters for Snowflake.
 	SnowflakeParameters DataSourceSnowflakeParametersPtrInput `pulumi:"snowflakeParameters"`
 	// The parameters for Spark.
@@ -45702,7 +45704,7 @@ func (i DataSourceParametersArray) ToDataSourceParametersArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(DataSourceParametersArrayOutput)
 }
 
-// <p>The parameters that Amazon Quick Suite uses to connect to your underlying data source.
+// <p>The parameters that Amazon QuickSight uses to connect to your underlying data source.
 //
 //	This is a variant type structure. For this structure to be valid, only one of the
 //	attributes can be non-null.</p>
@@ -45804,6 +45806,10 @@ func (o DataSourceParametersOutput) RedshiftParameters() DataSourceRedshiftParam
 // The parameters for S3.
 func (o DataSourceParametersOutput) S3Parameters() DataSourceS3ParametersPtrOutput {
 	return o.ApplyT(func(v DataSourceParameters) *DataSourceS3Parameters { return v.S3Parameters }).(DataSourceS3ParametersPtrOutput)
+}
+
+func (o DataSourceParametersOutput) S3TablesParameters() DataSourceS3TablesParametersPtrOutput {
+	return o.ApplyT(func(v DataSourceParameters) *DataSourceS3TablesParameters { return v.S3TablesParameters }).(DataSourceS3TablesParametersPtrOutput)
 }
 
 // The parameters for Snowflake.
@@ -45998,6 +46004,15 @@ func (o DataSourceParametersPtrOutput) S3Parameters() DataSourceS3ParametersPtrO
 		}
 		return v.S3Parameters
 	}).(DataSourceS3ParametersPtrOutput)
+}
+
+func (o DataSourceParametersPtrOutput) S3TablesParameters() DataSourceS3TablesParametersPtrOutput {
+	return o.ApplyT(func(v *DataSourceParameters) *DataSourceS3TablesParameters {
+		if v == nil {
+			return nil
+		}
+		return v.S3TablesParameters
+	}).(DataSourceS3TablesParametersPtrOutput)
 }
 
 // The parameters for Snowflake.
@@ -46595,18 +46610,18 @@ func (o DataSourceRdsParametersPtrOutput) InstanceId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// <p>A structure that grants Quick Suite access to your cluster and make a call to the <code>redshift:GetClusterCredentials</code> API. For more information on the <code>redshift:GetClusterCredentials</code> API, see <a href="https://docs.aws.amazon.com/redshift/latest/APIReference/API_GetClusterCredentials.html">
+// <p>A structure that grants Amazon QuickSight access to your cluster and make a call to the <code>redshift:GetClusterCredentials</code> API. For more information on the <code>redshift:GetClusterCredentials</code> API, see <a href="https://docs.aws.amazon.com/redshift/latest/APIReference/API_GetClusterCredentials.html">
 //
 //	   <code>GetClusterCredentials</code>
 //	</a>.</p>
 type DataSourceRedshiftIamParameters struct {
-	// <p>Automatically creates a database user. If your database doesn't have a <code>DatabaseUser</code>, set this parameter to <code>True</code>. If there is no <code>DatabaseUser</code>, Amazon Quick Suite can't connect to your cluster. The <code>RoleArn</code> that you use for this operation must grant access to <code>redshift:CreateClusterUser</code> to successfully create the user.</p>
+	// <p>Automatically creates a database user. If your database doesn't have a <code>DatabaseUser</code>, set this parameter to <code>True</code>. If there is no <code>DatabaseUser</code>, Amazon QuickSight can't connect to your cluster. The <code>RoleArn</code> that you use for this operation must grant access to <code>redshift:CreateClusterUser</code> to successfully create the user.</p>
 	AutoCreateDatabaseUser *bool `pulumi:"autoCreateDatabaseUser"`
-	// <p>A list of groups whose permissions will be granted to Quick Suite to access the cluster. These permissions are combined with the permissions granted to Quick Suite by the <code>DatabaseUser</code>. If you choose to include this parameter, the <code>RoleArn</code> must grant access to <code>redshift:JoinGroup</code>.</p>
+	// <p>A list of groups whose permissions will be granted to Amazon QuickSight to access the cluster. These permissions are combined with the permissions granted to Amazon QuickSight by the <code>DatabaseUser</code>. If you choose to include this parameter, the <code>RoleArn</code> must grant access to <code>redshift:JoinGroup</code>.</p>
 	DatabaseGroups []string `pulumi:"databaseGroups"`
-	// <p>The user whose permissions and group memberships will be used by Quick Suite to access the cluster. If this user already exists in your database, Quick Suite is granted the same permissions that the user has. If the user doesn't exist, set the value of <code>AutoCreateDatabaseUser</code> to <code>True</code> to create a new user with PUBLIC permissions.</p>
+	// <p>The user whose permissions and group memberships will be used by Amazon QuickSight to access the cluster. If this user already exists in your database, Amazon QuickSight is granted the same permissions that the user has. If the user doesn't exist, set the value of <code>AutoCreateDatabaseUser</code> to <code>True</code> to create a new user with PUBLIC permissions.</p>
 	DatabaseUser *string `pulumi:"databaseUser"`
-	// <p>Use the <code>RoleArn</code> structure to allow Quick Suite to call <code>redshift:GetClusterCredentials</code> on your cluster. The calling principal must have <code>iam:PassRole</code> access to pass the role to Quick Suite. The role's trust policy must allow the Quick Suite service principal to assume the role.</p>
+	// <p>Use the <code>RoleArn</code> structure to allow Amazon QuickSight to call <code>redshift:GetClusterCredentials</code> on your cluster. The calling principal must have <code>iam:PassRole</code> access to pass the role to Amazon QuickSight. The role's trust policy must allow the Amazon QuickSight service principal to assume the role.</p>
 	RoleArn string `pulumi:"roleArn"`
 }
 
@@ -46621,18 +46636,18 @@ type DataSourceRedshiftIamParametersInput interface {
 	ToDataSourceRedshiftIamParametersOutputWithContext(context.Context) DataSourceRedshiftIamParametersOutput
 }
 
-// <p>A structure that grants Quick Suite access to your cluster and make a call to the <code>redshift:GetClusterCredentials</code> API. For more information on the <code>redshift:GetClusterCredentials</code> API, see <a href="https://docs.aws.amazon.com/redshift/latest/APIReference/API_GetClusterCredentials.html">
+// <p>A structure that grants Amazon QuickSight access to your cluster and make a call to the <code>redshift:GetClusterCredentials</code> API. For more information on the <code>redshift:GetClusterCredentials</code> API, see <a href="https://docs.aws.amazon.com/redshift/latest/APIReference/API_GetClusterCredentials.html">
 //
 //	   <code>GetClusterCredentials</code>
 //	</a>.</p>
 type DataSourceRedshiftIamParametersArgs struct {
-	// <p>Automatically creates a database user. If your database doesn't have a <code>DatabaseUser</code>, set this parameter to <code>True</code>. If there is no <code>DatabaseUser</code>, Amazon Quick Suite can't connect to your cluster. The <code>RoleArn</code> that you use for this operation must grant access to <code>redshift:CreateClusterUser</code> to successfully create the user.</p>
+	// <p>Automatically creates a database user. If your database doesn't have a <code>DatabaseUser</code>, set this parameter to <code>True</code>. If there is no <code>DatabaseUser</code>, Amazon QuickSight can't connect to your cluster. The <code>RoleArn</code> that you use for this operation must grant access to <code>redshift:CreateClusterUser</code> to successfully create the user.</p>
 	AutoCreateDatabaseUser pulumi.BoolPtrInput `pulumi:"autoCreateDatabaseUser"`
-	// <p>A list of groups whose permissions will be granted to Quick Suite to access the cluster. These permissions are combined with the permissions granted to Quick Suite by the <code>DatabaseUser</code>. If you choose to include this parameter, the <code>RoleArn</code> must grant access to <code>redshift:JoinGroup</code>.</p>
+	// <p>A list of groups whose permissions will be granted to Amazon QuickSight to access the cluster. These permissions are combined with the permissions granted to Amazon QuickSight by the <code>DatabaseUser</code>. If you choose to include this parameter, the <code>RoleArn</code> must grant access to <code>redshift:JoinGroup</code>.</p>
 	DatabaseGroups pulumi.StringArrayInput `pulumi:"databaseGroups"`
-	// <p>The user whose permissions and group memberships will be used by Quick Suite to access the cluster. If this user already exists in your database, Quick Suite is granted the same permissions that the user has. If the user doesn't exist, set the value of <code>AutoCreateDatabaseUser</code> to <code>True</code> to create a new user with PUBLIC permissions.</p>
+	// <p>The user whose permissions and group memberships will be used by Amazon QuickSight to access the cluster. If this user already exists in your database, Amazon QuickSight is granted the same permissions that the user has. If the user doesn't exist, set the value of <code>AutoCreateDatabaseUser</code> to <code>True</code> to create a new user with PUBLIC permissions.</p>
 	DatabaseUser pulumi.StringPtrInput `pulumi:"databaseUser"`
-	// <p>Use the <code>RoleArn</code> structure to allow Quick Suite to call <code>redshift:GetClusterCredentials</code> on your cluster. The calling principal must have <code>iam:PassRole</code> access to pass the role to Quick Suite. The role's trust policy must allow the Quick Suite service principal to assume the role.</p>
+	// <p>Use the <code>RoleArn</code> structure to allow Amazon QuickSight to call <code>redshift:GetClusterCredentials</code> on your cluster. The calling principal must have <code>iam:PassRole</code> access to pass the role to Amazon QuickSight. The role's trust policy must allow the Amazon QuickSight service principal to assume the role.</p>
 	RoleArn pulumi.StringInput `pulumi:"roleArn"`
 }
 
@@ -46689,7 +46704,7 @@ func (i *dataSourceRedshiftIamParametersPtrType) ToDataSourceRedshiftIamParamete
 	return pulumi.ToOutputWithContext(ctx, i).(DataSourceRedshiftIamParametersPtrOutput)
 }
 
-// <p>A structure that grants Quick Suite access to your cluster and make a call to the <code>redshift:GetClusterCredentials</code> API. For more information on the <code>redshift:GetClusterCredentials</code> API, see <a href="https://docs.aws.amazon.com/redshift/latest/APIReference/API_GetClusterCredentials.html">
+// <p>A structure that grants Amazon QuickSight access to your cluster and make a call to the <code>redshift:GetClusterCredentials</code> API. For more information on the <code>redshift:GetClusterCredentials</code> API, see <a href="https://docs.aws.amazon.com/redshift/latest/APIReference/API_GetClusterCredentials.html">
 //
 //	   <code>GetClusterCredentials</code>
 //	</a>.</p>
@@ -46717,22 +46732,22 @@ func (o DataSourceRedshiftIamParametersOutput) ToDataSourceRedshiftIamParameters
 	}).(DataSourceRedshiftIamParametersPtrOutput)
 }
 
-// <p>Automatically creates a database user. If your database doesn't have a <code>DatabaseUser</code>, set this parameter to <code>True</code>. If there is no <code>DatabaseUser</code>, Amazon Quick Suite can't connect to your cluster. The <code>RoleArn</code> that you use for this operation must grant access to <code>redshift:CreateClusterUser</code> to successfully create the user.</p>
+// <p>Automatically creates a database user. If your database doesn't have a <code>DatabaseUser</code>, set this parameter to <code>True</code>. If there is no <code>DatabaseUser</code>, Amazon QuickSight can't connect to your cluster. The <code>RoleArn</code> that you use for this operation must grant access to <code>redshift:CreateClusterUser</code> to successfully create the user.</p>
 func (o DataSourceRedshiftIamParametersOutput) AutoCreateDatabaseUser() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DataSourceRedshiftIamParameters) *bool { return v.AutoCreateDatabaseUser }).(pulumi.BoolPtrOutput)
 }
 
-// <p>A list of groups whose permissions will be granted to Quick Suite to access the cluster. These permissions are combined with the permissions granted to Quick Suite by the <code>DatabaseUser</code>. If you choose to include this parameter, the <code>RoleArn</code> must grant access to <code>redshift:JoinGroup</code>.</p>
+// <p>A list of groups whose permissions will be granted to Amazon QuickSight to access the cluster. These permissions are combined with the permissions granted to Amazon QuickSight by the <code>DatabaseUser</code>. If you choose to include this parameter, the <code>RoleArn</code> must grant access to <code>redshift:JoinGroup</code>.</p>
 func (o DataSourceRedshiftIamParametersOutput) DatabaseGroups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DataSourceRedshiftIamParameters) []string { return v.DatabaseGroups }).(pulumi.StringArrayOutput)
 }
 
-// <p>The user whose permissions and group memberships will be used by Quick Suite to access the cluster. If this user already exists in your database, Quick Suite is granted the same permissions that the user has. If the user doesn't exist, set the value of <code>AutoCreateDatabaseUser</code> to <code>True</code> to create a new user with PUBLIC permissions.</p>
+// <p>The user whose permissions and group memberships will be used by Amazon QuickSight to access the cluster. If this user already exists in your database, Amazon QuickSight is granted the same permissions that the user has. If the user doesn't exist, set the value of <code>AutoCreateDatabaseUser</code> to <code>True</code> to create a new user with PUBLIC permissions.</p>
 func (o DataSourceRedshiftIamParametersOutput) DatabaseUser() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataSourceRedshiftIamParameters) *string { return v.DatabaseUser }).(pulumi.StringPtrOutput)
 }
 
-// <p>Use the <code>RoleArn</code> structure to allow Quick Suite to call <code>redshift:GetClusterCredentials</code> on your cluster. The calling principal must have <code>iam:PassRole</code> access to pass the role to Quick Suite. The role's trust policy must allow the Quick Suite service principal to assume the role.</p>
+// <p>Use the <code>RoleArn</code> structure to allow Amazon QuickSight to call <code>redshift:GetClusterCredentials</code> on your cluster. The calling principal must have <code>iam:PassRole</code> access to pass the role to Amazon QuickSight. The role's trust policy must allow the Amazon QuickSight service principal to assume the role.</p>
 func (o DataSourceRedshiftIamParametersOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceRedshiftIamParameters) string { return v.RoleArn }).(pulumi.StringOutput)
 }
@@ -46761,7 +46776,7 @@ func (o DataSourceRedshiftIamParametersPtrOutput) Elem() DataSourceRedshiftIamPa
 	}).(DataSourceRedshiftIamParametersOutput)
 }
 
-// <p>Automatically creates a database user. If your database doesn't have a <code>DatabaseUser</code>, set this parameter to <code>True</code>. If there is no <code>DatabaseUser</code>, Amazon Quick Suite can't connect to your cluster. The <code>RoleArn</code> that you use for this operation must grant access to <code>redshift:CreateClusterUser</code> to successfully create the user.</p>
+// <p>Automatically creates a database user. If your database doesn't have a <code>DatabaseUser</code>, set this parameter to <code>True</code>. If there is no <code>DatabaseUser</code>, Amazon QuickSight can't connect to your cluster. The <code>RoleArn</code> that you use for this operation must grant access to <code>redshift:CreateClusterUser</code> to successfully create the user.</p>
 func (o DataSourceRedshiftIamParametersPtrOutput) AutoCreateDatabaseUser() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DataSourceRedshiftIamParameters) *bool {
 		if v == nil {
@@ -46771,7 +46786,7 @@ func (o DataSourceRedshiftIamParametersPtrOutput) AutoCreateDatabaseUser() pulum
 	}).(pulumi.BoolPtrOutput)
 }
 
-// <p>A list of groups whose permissions will be granted to Quick Suite to access the cluster. These permissions are combined with the permissions granted to Quick Suite by the <code>DatabaseUser</code>. If you choose to include this parameter, the <code>RoleArn</code> must grant access to <code>redshift:JoinGroup</code>.</p>
+// <p>A list of groups whose permissions will be granted to Amazon QuickSight to access the cluster. These permissions are combined with the permissions granted to Amazon QuickSight by the <code>DatabaseUser</code>. If you choose to include this parameter, the <code>RoleArn</code> must grant access to <code>redshift:JoinGroup</code>.</p>
 func (o DataSourceRedshiftIamParametersPtrOutput) DatabaseGroups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DataSourceRedshiftIamParameters) []string {
 		if v == nil {
@@ -46781,7 +46796,7 @@ func (o DataSourceRedshiftIamParametersPtrOutput) DatabaseGroups() pulumi.String
 	}).(pulumi.StringArrayOutput)
 }
 
-// <p>The user whose permissions and group memberships will be used by Quick Suite to access the cluster. If this user already exists in your database, Quick Suite is granted the same permissions that the user has. If the user doesn't exist, set the value of <code>AutoCreateDatabaseUser</code> to <code>True</code> to create a new user with PUBLIC permissions.</p>
+// <p>The user whose permissions and group memberships will be used by Amazon QuickSight to access the cluster. If this user already exists in your database, Amazon QuickSight is granted the same permissions that the user has. If the user doesn't exist, set the value of <code>AutoCreateDatabaseUser</code> to <code>True</code> to create a new user with PUBLIC permissions.</p>
 func (o DataSourceRedshiftIamParametersPtrOutput) DatabaseUser() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceRedshiftIamParameters) *string {
 		if v == nil {
@@ -46791,7 +46806,7 @@ func (o DataSourceRedshiftIamParametersPtrOutput) DatabaseUser() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// <p>Use the <code>RoleArn</code> structure to allow Quick Suite to call <code>redshift:GetClusterCredentials</code> on your cluster. The calling principal must have <code>iam:PassRole</code> access to pass the role to Quick Suite. The role's trust policy must allow the Quick Suite service principal to assume the role.</p>
+// <p>Use the <code>RoleArn</code> structure to allow Amazon QuickSight to call <code>redshift:GetClusterCredentials</code> on your cluster. The calling principal must have <code>iam:PassRole</code> access to pass the role to Amazon QuickSight. The role's trust policy must allow the Amazon QuickSight service principal to assume the role.</p>
 func (o DataSourceRedshiftIamParametersPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceRedshiftIamParameters) *string {
 		if v == nil {
@@ -47066,10 +47081,10 @@ type DataSourceResourcePermission struct {
 	//             following:</p>
 	//          <ul>
 	//             <li>
-	//                <p>The ARN of an Amazon Quick Suite user or group associated with a data source or dataset. (This is common.)</p>
+	//                <p>The ARN of an Amazon QuickSight user or group associated with a data source or dataset. (This is common.)</p>
 	//             </li>
 	//             <li>
-	//                <p>The ARN of an Amazon Quick Suite user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
+	//                <p>The ARN of an Amazon QuickSight user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
 	//             </li>
 	//             <li>
 	//                <p>The ARN of an Amazon Web Services account root: This is an IAM ARN rather than a QuickSight
@@ -47100,10 +47115,10 @@ type DataSourceResourcePermissionArgs struct {
 	//             following:</p>
 	//          <ul>
 	//             <li>
-	//                <p>The ARN of an Amazon Quick Suite user or group associated with a data source or dataset. (This is common.)</p>
+	//                <p>The ARN of an Amazon QuickSight user or group associated with a data source or dataset. (This is common.)</p>
 	//             </li>
 	//             <li>
-	//                <p>The ARN of an Amazon Quick Suite user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
+	//                <p>The ARN of an Amazon QuickSight user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
 	//             </li>
 	//             <li>
 	//                <p>The ARN of an Amazon Web Services account root: This is an IAM ARN rather than a QuickSight
@@ -47177,10 +47192,10 @@ func (o DataSourceResourcePermissionOutput) Actions() pulumi.StringArrayOutput {
 //	   following:</p>
 //	<ul>
 //	   <li>
-//	      <p>The ARN of an Amazon Quick Suite user or group associated with a data source or dataset. (This is common.)</p>
+//	      <p>The ARN of an Amazon QuickSight user or group associated with a data source or dataset. (This is common.)</p>
 //	   </li>
 //	   <li>
-//	      <p>The ARN of an Amazon Quick Suite user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
+//	      <p>The ARN of an Amazon QuickSight user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
 //	   </li>
 //	   <li>
 //	      <p>The ARN of an Amazon Web Services account root: This is an IAM ARN rather than a QuickSight
@@ -47372,6 +47387,139 @@ func (o DataSourceS3ParametersPtrOutput) RoleArn() pulumi.StringPtrOutput {
 			return nil
 		}
 		return v.RoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
+type DataSourceS3TablesParameters struct {
+	TableBucketArn *string `pulumi:"tableBucketArn"`
+}
+
+// DataSourceS3TablesParametersInput is an input type that accepts DataSourceS3TablesParametersArgs and DataSourceS3TablesParametersOutput values.
+// You can construct a concrete instance of `DataSourceS3TablesParametersInput` via:
+//
+//	DataSourceS3TablesParametersArgs{...}
+type DataSourceS3TablesParametersInput interface {
+	pulumi.Input
+
+	ToDataSourceS3TablesParametersOutput() DataSourceS3TablesParametersOutput
+	ToDataSourceS3TablesParametersOutputWithContext(context.Context) DataSourceS3TablesParametersOutput
+}
+
+type DataSourceS3TablesParametersArgs struct {
+	TableBucketArn pulumi.StringPtrInput `pulumi:"tableBucketArn"`
+}
+
+func (DataSourceS3TablesParametersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceS3TablesParameters)(nil)).Elem()
+}
+
+func (i DataSourceS3TablesParametersArgs) ToDataSourceS3TablesParametersOutput() DataSourceS3TablesParametersOutput {
+	return i.ToDataSourceS3TablesParametersOutputWithContext(context.Background())
+}
+
+func (i DataSourceS3TablesParametersArgs) ToDataSourceS3TablesParametersOutputWithContext(ctx context.Context) DataSourceS3TablesParametersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceS3TablesParametersOutput)
+}
+
+func (i DataSourceS3TablesParametersArgs) ToDataSourceS3TablesParametersPtrOutput() DataSourceS3TablesParametersPtrOutput {
+	return i.ToDataSourceS3TablesParametersPtrOutputWithContext(context.Background())
+}
+
+func (i DataSourceS3TablesParametersArgs) ToDataSourceS3TablesParametersPtrOutputWithContext(ctx context.Context) DataSourceS3TablesParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceS3TablesParametersOutput).ToDataSourceS3TablesParametersPtrOutputWithContext(ctx)
+}
+
+// DataSourceS3TablesParametersPtrInput is an input type that accepts DataSourceS3TablesParametersArgs, DataSourceS3TablesParametersPtr and DataSourceS3TablesParametersPtrOutput values.
+// You can construct a concrete instance of `DataSourceS3TablesParametersPtrInput` via:
+//
+//	        DataSourceS3TablesParametersArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataSourceS3TablesParametersPtrInput interface {
+	pulumi.Input
+
+	ToDataSourceS3TablesParametersPtrOutput() DataSourceS3TablesParametersPtrOutput
+	ToDataSourceS3TablesParametersPtrOutputWithContext(context.Context) DataSourceS3TablesParametersPtrOutput
+}
+
+type dataSourceS3TablesParametersPtrType DataSourceS3TablesParametersArgs
+
+func DataSourceS3TablesParametersPtr(v *DataSourceS3TablesParametersArgs) DataSourceS3TablesParametersPtrInput {
+	return (*dataSourceS3TablesParametersPtrType)(v)
+}
+
+func (*dataSourceS3TablesParametersPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceS3TablesParameters)(nil)).Elem()
+}
+
+func (i *dataSourceS3TablesParametersPtrType) ToDataSourceS3TablesParametersPtrOutput() DataSourceS3TablesParametersPtrOutput {
+	return i.ToDataSourceS3TablesParametersPtrOutputWithContext(context.Background())
+}
+
+func (i *dataSourceS3TablesParametersPtrType) ToDataSourceS3TablesParametersPtrOutputWithContext(ctx context.Context) DataSourceS3TablesParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceS3TablesParametersPtrOutput)
+}
+
+type DataSourceS3TablesParametersOutput struct{ *pulumi.OutputState }
+
+func (DataSourceS3TablesParametersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceS3TablesParameters)(nil)).Elem()
+}
+
+func (o DataSourceS3TablesParametersOutput) ToDataSourceS3TablesParametersOutput() DataSourceS3TablesParametersOutput {
+	return o
+}
+
+func (o DataSourceS3TablesParametersOutput) ToDataSourceS3TablesParametersOutputWithContext(ctx context.Context) DataSourceS3TablesParametersOutput {
+	return o
+}
+
+func (o DataSourceS3TablesParametersOutput) ToDataSourceS3TablesParametersPtrOutput() DataSourceS3TablesParametersPtrOutput {
+	return o.ToDataSourceS3TablesParametersPtrOutputWithContext(context.Background())
+}
+
+func (o DataSourceS3TablesParametersOutput) ToDataSourceS3TablesParametersPtrOutputWithContext(ctx context.Context) DataSourceS3TablesParametersPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSourceS3TablesParameters) *DataSourceS3TablesParameters {
+		return &v
+	}).(DataSourceS3TablesParametersPtrOutput)
+}
+
+func (o DataSourceS3TablesParametersOutput) TableBucketArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataSourceS3TablesParameters) *string { return v.TableBucketArn }).(pulumi.StringPtrOutput)
+}
+
+type DataSourceS3TablesParametersPtrOutput struct{ *pulumi.OutputState }
+
+func (DataSourceS3TablesParametersPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceS3TablesParameters)(nil)).Elem()
+}
+
+func (o DataSourceS3TablesParametersPtrOutput) ToDataSourceS3TablesParametersPtrOutput() DataSourceS3TablesParametersPtrOutput {
+	return o
+}
+
+func (o DataSourceS3TablesParametersPtrOutput) ToDataSourceS3TablesParametersPtrOutputWithContext(ctx context.Context) DataSourceS3TablesParametersPtrOutput {
+	return o
+}
+
+func (o DataSourceS3TablesParametersPtrOutput) Elem() DataSourceS3TablesParametersOutput {
+	return o.ApplyT(func(v *DataSourceS3TablesParameters) DataSourceS3TablesParameters {
+		if v != nil {
+			return *v
+		}
+		var ret DataSourceS3TablesParameters
+		return ret
+	}).(DataSourceS3TablesParametersOutput)
+}
+
+func (o DataSourceS3TablesParametersPtrOutput) TableBucketArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataSourceS3TablesParameters) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TableBucketArn
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -47947,7 +48095,7 @@ func (o DataSourceSqlServerParametersPtrOutput) Port() pulumi.Float64PtrOutput {
 	}).(pulumi.Float64PtrOutput)
 }
 
-// <p>Secure Socket Layer (SSL) properties that apply when Quick Suite connects to your
+// <p>Secure Socket Layer (SSL) properties that apply when Amazon QuickSight connects to your
 //
 //	underlying data source.</p>
 type DataSourceSslProperties struct {
@@ -47966,7 +48114,7 @@ type DataSourceSslPropertiesInput interface {
 	ToDataSourceSslPropertiesOutputWithContext(context.Context) DataSourceSslPropertiesOutput
 }
 
-// <p>Secure Socket Layer (SSL) properties that apply when Quick Suite connects to your
+// <p>Secure Socket Layer (SSL) properties that apply when Amazon QuickSight connects to your
 //
 //	underlying data source.</p>
 type DataSourceSslPropertiesArgs struct {
@@ -48027,7 +48175,7 @@ func (i *dataSourceSslPropertiesPtrType) ToDataSourceSslPropertiesPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(DataSourceSslPropertiesPtrOutput)
 }
 
-// <p>Secure Socket Layer (SSL) properties that apply when Quick Suite connects to your
+// <p>Secure Socket Layer (SSL) properties that apply when Amazon QuickSight connects to your
 //
 //	underlying data source.</p>
 type DataSourceSslPropertiesOutput struct{ *pulumi.OutputState }
@@ -84395,116 +84543,6 @@ func (o TemplateGaugeChartConditionalFormattingPtrOutput) ConditionalFormattingO
 	}).(TemplateGaugeChartConditionalFormattingOptionArrayOutput)
 }
 
-type TemplateGaugeChartConditionalFormattingOption struct {
-	// The options that determine the presentation of the arc of a `GaugeChartVisual` .
-	Arc *TemplateGaugeChartArcConditionalFormatting `pulumi:"arc"`
-	// The conditional formatting for the primary value of a `GaugeChartVisual` .
-	PrimaryValue *TemplateGaugeChartPrimaryValueConditionalFormatting `pulumi:"primaryValue"`
-}
-
-// TemplateGaugeChartConditionalFormattingOptionInput is an input type that accepts TemplateGaugeChartConditionalFormattingOptionArgs and TemplateGaugeChartConditionalFormattingOptionOutput values.
-// You can construct a concrete instance of `TemplateGaugeChartConditionalFormattingOptionInput` via:
-//
-//	TemplateGaugeChartConditionalFormattingOptionArgs{...}
-type TemplateGaugeChartConditionalFormattingOptionInput interface {
-	pulumi.Input
-
-	ToTemplateGaugeChartConditionalFormattingOptionOutput() TemplateGaugeChartConditionalFormattingOptionOutput
-	ToTemplateGaugeChartConditionalFormattingOptionOutputWithContext(context.Context) TemplateGaugeChartConditionalFormattingOptionOutput
-}
-
-type TemplateGaugeChartConditionalFormattingOptionArgs struct {
-	// The options that determine the presentation of the arc of a `GaugeChartVisual` .
-	Arc TemplateGaugeChartArcConditionalFormattingPtrInput `pulumi:"arc"`
-	// The conditional formatting for the primary value of a `GaugeChartVisual` .
-	PrimaryValue TemplateGaugeChartPrimaryValueConditionalFormattingPtrInput `pulumi:"primaryValue"`
-}
-
-func (TemplateGaugeChartConditionalFormattingOptionArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TemplateGaugeChartConditionalFormattingOption)(nil)).Elem()
-}
-
-func (i TemplateGaugeChartConditionalFormattingOptionArgs) ToTemplateGaugeChartConditionalFormattingOptionOutput() TemplateGaugeChartConditionalFormattingOptionOutput {
-	return i.ToTemplateGaugeChartConditionalFormattingOptionOutputWithContext(context.Background())
-}
-
-func (i TemplateGaugeChartConditionalFormattingOptionArgs) ToTemplateGaugeChartConditionalFormattingOptionOutputWithContext(ctx context.Context) TemplateGaugeChartConditionalFormattingOptionOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateGaugeChartConditionalFormattingOptionOutput)
-}
-
-// TemplateGaugeChartConditionalFormattingOptionArrayInput is an input type that accepts TemplateGaugeChartConditionalFormattingOptionArray and TemplateGaugeChartConditionalFormattingOptionArrayOutput values.
-// You can construct a concrete instance of `TemplateGaugeChartConditionalFormattingOptionArrayInput` via:
-//
-//	TemplateGaugeChartConditionalFormattingOptionArray{ TemplateGaugeChartConditionalFormattingOptionArgs{...} }
-type TemplateGaugeChartConditionalFormattingOptionArrayInput interface {
-	pulumi.Input
-
-	ToTemplateGaugeChartConditionalFormattingOptionArrayOutput() TemplateGaugeChartConditionalFormattingOptionArrayOutput
-	ToTemplateGaugeChartConditionalFormattingOptionArrayOutputWithContext(context.Context) TemplateGaugeChartConditionalFormattingOptionArrayOutput
-}
-
-type TemplateGaugeChartConditionalFormattingOptionArray []TemplateGaugeChartConditionalFormattingOptionInput
-
-func (TemplateGaugeChartConditionalFormattingOptionArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TemplateGaugeChartConditionalFormattingOption)(nil)).Elem()
-}
-
-func (i TemplateGaugeChartConditionalFormattingOptionArray) ToTemplateGaugeChartConditionalFormattingOptionArrayOutput() TemplateGaugeChartConditionalFormattingOptionArrayOutput {
-	return i.ToTemplateGaugeChartConditionalFormattingOptionArrayOutputWithContext(context.Background())
-}
-
-func (i TemplateGaugeChartConditionalFormattingOptionArray) ToTemplateGaugeChartConditionalFormattingOptionArrayOutputWithContext(ctx context.Context) TemplateGaugeChartConditionalFormattingOptionArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateGaugeChartConditionalFormattingOptionArrayOutput)
-}
-
-type TemplateGaugeChartConditionalFormattingOptionOutput struct{ *pulumi.OutputState }
-
-func (TemplateGaugeChartConditionalFormattingOptionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TemplateGaugeChartConditionalFormattingOption)(nil)).Elem()
-}
-
-func (o TemplateGaugeChartConditionalFormattingOptionOutput) ToTemplateGaugeChartConditionalFormattingOptionOutput() TemplateGaugeChartConditionalFormattingOptionOutput {
-	return o
-}
-
-func (o TemplateGaugeChartConditionalFormattingOptionOutput) ToTemplateGaugeChartConditionalFormattingOptionOutputWithContext(ctx context.Context) TemplateGaugeChartConditionalFormattingOptionOutput {
-	return o
-}
-
-// The options that determine the presentation of the arc of a `GaugeChartVisual` .
-func (o TemplateGaugeChartConditionalFormattingOptionOutput) Arc() TemplateGaugeChartArcConditionalFormattingPtrOutput {
-	return o.ApplyT(func(v TemplateGaugeChartConditionalFormattingOption) *TemplateGaugeChartArcConditionalFormatting {
-		return v.Arc
-	}).(TemplateGaugeChartArcConditionalFormattingPtrOutput)
-}
-
-// The conditional formatting for the primary value of a `GaugeChartVisual` .
-func (o TemplateGaugeChartConditionalFormattingOptionOutput) PrimaryValue() TemplateGaugeChartPrimaryValueConditionalFormattingPtrOutput {
-	return o.ApplyT(func(v TemplateGaugeChartConditionalFormattingOption) *TemplateGaugeChartPrimaryValueConditionalFormatting {
-		return v.PrimaryValue
-	}).(TemplateGaugeChartPrimaryValueConditionalFormattingPtrOutput)
-}
-
-type TemplateGaugeChartConditionalFormattingOptionArrayOutput struct{ *pulumi.OutputState }
-
-func (TemplateGaugeChartConditionalFormattingOptionArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TemplateGaugeChartConditionalFormattingOption)(nil)).Elem()
-}
-
-func (o TemplateGaugeChartConditionalFormattingOptionArrayOutput) ToTemplateGaugeChartConditionalFormattingOptionArrayOutput() TemplateGaugeChartConditionalFormattingOptionArrayOutput {
-	return o
-}
-
-func (o TemplateGaugeChartConditionalFormattingOptionArrayOutput) ToTemplateGaugeChartConditionalFormattingOptionArrayOutputWithContext(ctx context.Context) TemplateGaugeChartConditionalFormattingOptionArrayOutput {
-	return o
-}
-
-func (o TemplateGaugeChartConditionalFormattingOptionArrayOutput) Index(i pulumi.IntInput) TemplateGaugeChartConditionalFormattingOptionOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TemplateGaugeChartConditionalFormattingOption {
-		return vs[0].([]TemplateGaugeChartConditionalFormattingOption)[vs[1].(int)]
-	}).(TemplateGaugeChartConditionalFormattingOptionOutput)
-}
-
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardReferenceLineLabelConfigurationInput)(nil)).Elem(), DashboardReferenceLineLabelConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardReferenceLineLabelConfigurationPtrInput)(nil)).Elem(), DashboardReferenceLineLabelConfigurationArgs{})
@@ -85059,6 +85097,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceResourcePermissionArrayInput)(nil)).Elem(), DataSourceResourcePermissionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceS3ParametersInput)(nil)).Elem(), DataSourceS3ParametersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceS3ParametersPtrInput)(nil)).Elem(), DataSourceS3ParametersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceS3TablesParametersInput)(nil)).Elem(), DataSourceS3TablesParametersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceS3TablesParametersPtrInput)(nil)).Elem(), DataSourceS3TablesParametersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceSnowflakeParametersInput)(nil)).Elem(), DataSourceSnowflakeParametersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceSnowflakeParametersPtrInput)(nil)).Elem(), DataSourceSnowflakeParametersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceSparkParametersInput)(nil)).Elem(), DataSourceSparkParametersArgs{})
@@ -85485,8 +85525,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateGaugeChartColorConfigurationPtrInput)(nil)).Elem(), TemplateGaugeChartColorConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateGaugeChartConditionalFormattingInput)(nil)).Elem(), TemplateGaugeChartConditionalFormattingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateGaugeChartConditionalFormattingPtrInput)(nil)).Elem(), TemplateGaugeChartConditionalFormattingArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TemplateGaugeChartConditionalFormattingOptionInput)(nil)).Elem(), TemplateGaugeChartConditionalFormattingOptionArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TemplateGaugeChartConditionalFormattingOptionArrayInput)(nil)).Elem(), TemplateGaugeChartConditionalFormattingOptionArray{})
 	pulumi.RegisterOutputType(DashboardReferenceLineLabelConfigurationOutput{})
 	pulumi.RegisterOutputType(DashboardReferenceLineLabelConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DashboardReferenceLineStaticDataConfigurationOutput{})
@@ -86046,6 +86084,8 @@ func init() {
 	pulumi.RegisterOutputType(DataSourceResourcePermissionArrayOutput{})
 	pulumi.RegisterOutputType(DataSourceS3ParametersOutput{})
 	pulumi.RegisterOutputType(DataSourceS3ParametersPtrOutput{})
+	pulumi.RegisterOutputType(DataSourceS3TablesParametersOutput{})
+	pulumi.RegisterOutputType(DataSourceS3TablesParametersPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceSnowflakeParametersOutput{})
 	pulumi.RegisterOutputType(DataSourceSnowflakeParametersPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceSparkParametersOutput{})
@@ -86476,6 +86516,4 @@ func init() {
 	pulumi.RegisterOutputType(TemplateGaugeChartColorConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(TemplateGaugeChartConditionalFormattingOutput{})
 	pulumi.RegisterOutputType(TemplateGaugeChartConditionalFormattingPtrOutput{})
-	pulumi.RegisterOutputType(TemplateGaugeChartConditionalFormattingOptionOutput{})
-	pulumi.RegisterOutputType(TemplateGaugeChartConditionalFormattingOptionArrayOutput{})
 }

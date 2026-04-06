@@ -50,6 +50,8 @@ type LookupProjectResult struct {
 	Name *string `pulumi:"name"`
 	// The status of the project.
 	ProjectStatus *ProjectStatus `pulumi:"projectStatus"`
+	// The resource tags of the project.
+	ResourceTags []ProjectResourceTag `pulumi:"resourceTags"`
 }
 
 func LookupProjectOutput(ctx *pulumi.Context, args LookupProjectOutputArgs, opts ...pulumi.InvokeOption) LookupProjectResultOutput {
@@ -134,6 +136,11 @@ func (o LookupProjectResultOutput) Name() pulumi.StringPtrOutput {
 // The status of the project.
 func (o LookupProjectResultOutput) ProjectStatus() ProjectStatusPtrOutput {
 	return o.ApplyT(func(v LookupProjectResult) *ProjectStatus { return v.ProjectStatus }).(ProjectStatusPtrOutput)
+}
+
+// The resource tags of the project.
+func (o LookupProjectResultOutput) ResourceTags() ProjectResourceTagArrayOutput {
+	return o.ApplyT(func(v LookupProjectResult) []ProjectResourceTag { return v.ResourceTags }).(ProjectResourceTagArrayOutput)
 }
 
 func init() {

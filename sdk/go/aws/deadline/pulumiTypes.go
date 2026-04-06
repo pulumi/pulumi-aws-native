@@ -1027,11 +1027,175 @@ func (o FleetConfiguration1PropertiesPtrOutput) ServiceManagedEc2() FleetService
 	}).(FleetServiceManagedEc2FleetConfigurationPtrOutput)
 }
 
+type FleetCustomerManagedAutoScalingConfiguration struct {
+	ScaleOutWorkersPerMinute  *int `pulumi:"scaleOutWorkersPerMinute"`
+	StandbyWorkerCount        *int `pulumi:"standbyWorkerCount"`
+	WorkerIdleDurationSeconds *int `pulumi:"workerIdleDurationSeconds"`
+}
+
+// FleetCustomerManagedAutoScalingConfigurationInput is an input type that accepts FleetCustomerManagedAutoScalingConfigurationArgs and FleetCustomerManagedAutoScalingConfigurationOutput values.
+// You can construct a concrete instance of `FleetCustomerManagedAutoScalingConfigurationInput` via:
+//
+//	FleetCustomerManagedAutoScalingConfigurationArgs{...}
+type FleetCustomerManagedAutoScalingConfigurationInput interface {
+	pulumi.Input
+
+	ToFleetCustomerManagedAutoScalingConfigurationOutput() FleetCustomerManagedAutoScalingConfigurationOutput
+	ToFleetCustomerManagedAutoScalingConfigurationOutputWithContext(context.Context) FleetCustomerManagedAutoScalingConfigurationOutput
+}
+
+type FleetCustomerManagedAutoScalingConfigurationArgs struct {
+	ScaleOutWorkersPerMinute  pulumi.IntPtrInput `pulumi:"scaleOutWorkersPerMinute"`
+	StandbyWorkerCount        pulumi.IntPtrInput `pulumi:"standbyWorkerCount"`
+	WorkerIdleDurationSeconds pulumi.IntPtrInput `pulumi:"workerIdleDurationSeconds"`
+}
+
+func (FleetCustomerManagedAutoScalingConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FleetCustomerManagedAutoScalingConfiguration)(nil)).Elem()
+}
+
+func (i FleetCustomerManagedAutoScalingConfigurationArgs) ToFleetCustomerManagedAutoScalingConfigurationOutput() FleetCustomerManagedAutoScalingConfigurationOutput {
+	return i.ToFleetCustomerManagedAutoScalingConfigurationOutputWithContext(context.Background())
+}
+
+func (i FleetCustomerManagedAutoScalingConfigurationArgs) ToFleetCustomerManagedAutoScalingConfigurationOutputWithContext(ctx context.Context) FleetCustomerManagedAutoScalingConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FleetCustomerManagedAutoScalingConfigurationOutput)
+}
+
+func (i FleetCustomerManagedAutoScalingConfigurationArgs) ToFleetCustomerManagedAutoScalingConfigurationPtrOutput() FleetCustomerManagedAutoScalingConfigurationPtrOutput {
+	return i.ToFleetCustomerManagedAutoScalingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i FleetCustomerManagedAutoScalingConfigurationArgs) ToFleetCustomerManagedAutoScalingConfigurationPtrOutputWithContext(ctx context.Context) FleetCustomerManagedAutoScalingConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FleetCustomerManagedAutoScalingConfigurationOutput).ToFleetCustomerManagedAutoScalingConfigurationPtrOutputWithContext(ctx)
+}
+
+// FleetCustomerManagedAutoScalingConfigurationPtrInput is an input type that accepts FleetCustomerManagedAutoScalingConfigurationArgs, FleetCustomerManagedAutoScalingConfigurationPtr and FleetCustomerManagedAutoScalingConfigurationPtrOutput values.
+// You can construct a concrete instance of `FleetCustomerManagedAutoScalingConfigurationPtrInput` via:
+//
+//	        FleetCustomerManagedAutoScalingConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type FleetCustomerManagedAutoScalingConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToFleetCustomerManagedAutoScalingConfigurationPtrOutput() FleetCustomerManagedAutoScalingConfigurationPtrOutput
+	ToFleetCustomerManagedAutoScalingConfigurationPtrOutputWithContext(context.Context) FleetCustomerManagedAutoScalingConfigurationPtrOutput
+}
+
+type fleetCustomerManagedAutoScalingConfigurationPtrType FleetCustomerManagedAutoScalingConfigurationArgs
+
+func FleetCustomerManagedAutoScalingConfigurationPtr(v *FleetCustomerManagedAutoScalingConfigurationArgs) FleetCustomerManagedAutoScalingConfigurationPtrInput {
+	return (*fleetCustomerManagedAutoScalingConfigurationPtrType)(v)
+}
+
+func (*fleetCustomerManagedAutoScalingConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FleetCustomerManagedAutoScalingConfiguration)(nil)).Elem()
+}
+
+func (i *fleetCustomerManagedAutoScalingConfigurationPtrType) ToFleetCustomerManagedAutoScalingConfigurationPtrOutput() FleetCustomerManagedAutoScalingConfigurationPtrOutput {
+	return i.ToFleetCustomerManagedAutoScalingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *fleetCustomerManagedAutoScalingConfigurationPtrType) ToFleetCustomerManagedAutoScalingConfigurationPtrOutputWithContext(ctx context.Context) FleetCustomerManagedAutoScalingConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FleetCustomerManagedAutoScalingConfigurationPtrOutput)
+}
+
+type FleetCustomerManagedAutoScalingConfigurationOutput struct{ *pulumi.OutputState }
+
+func (FleetCustomerManagedAutoScalingConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FleetCustomerManagedAutoScalingConfiguration)(nil)).Elem()
+}
+
+func (o FleetCustomerManagedAutoScalingConfigurationOutput) ToFleetCustomerManagedAutoScalingConfigurationOutput() FleetCustomerManagedAutoScalingConfigurationOutput {
+	return o
+}
+
+func (o FleetCustomerManagedAutoScalingConfigurationOutput) ToFleetCustomerManagedAutoScalingConfigurationOutputWithContext(ctx context.Context) FleetCustomerManagedAutoScalingConfigurationOutput {
+	return o
+}
+
+func (o FleetCustomerManagedAutoScalingConfigurationOutput) ToFleetCustomerManagedAutoScalingConfigurationPtrOutput() FleetCustomerManagedAutoScalingConfigurationPtrOutput {
+	return o.ToFleetCustomerManagedAutoScalingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o FleetCustomerManagedAutoScalingConfigurationOutput) ToFleetCustomerManagedAutoScalingConfigurationPtrOutputWithContext(ctx context.Context) FleetCustomerManagedAutoScalingConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FleetCustomerManagedAutoScalingConfiguration) *FleetCustomerManagedAutoScalingConfiguration {
+		return &v
+	}).(FleetCustomerManagedAutoScalingConfigurationPtrOutput)
+}
+
+func (o FleetCustomerManagedAutoScalingConfigurationOutput) ScaleOutWorkersPerMinute() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FleetCustomerManagedAutoScalingConfiguration) *int { return v.ScaleOutWorkersPerMinute }).(pulumi.IntPtrOutput)
+}
+
+func (o FleetCustomerManagedAutoScalingConfigurationOutput) StandbyWorkerCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FleetCustomerManagedAutoScalingConfiguration) *int { return v.StandbyWorkerCount }).(pulumi.IntPtrOutput)
+}
+
+func (o FleetCustomerManagedAutoScalingConfigurationOutput) WorkerIdleDurationSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FleetCustomerManagedAutoScalingConfiguration) *int { return v.WorkerIdleDurationSeconds }).(pulumi.IntPtrOutput)
+}
+
+type FleetCustomerManagedAutoScalingConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (FleetCustomerManagedAutoScalingConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FleetCustomerManagedAutoScalingConfiguration)(nil)).Elem()
+}
+
+func (o FleetCustomerManagedAutoScalingConfigurationPtrOutput) ToFleetCustomerManagedAutoScalingConfigurationPtrOutput() FleetCustomerManagedAutoScalingConfigurationPtrOutput {
+	return o
+}
+
+func (o FleetCustomerManagedAutoScalingConfigurationPtrOutput) ToFleetCustomerManagedAutoScalingConfigurationPtrOutputWithContext(ctx context.Context) FleetCustomerManagedAutoScalingConfigurationPtrOutput {
+	return o
+}
+
+func (o FleetCustomerManagedAutoScalingConfigurationPtrOutput) Elem() FleetCustomerManagedAutoScalingConfigurationOutput {
+	return o.ApplyT(func(v *FleetCustomerManagedAutoScalingConfiguration) FleetCustomerManagedAutoScalingConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret FleetCustomerManagedAutoScalingConfiguration
+		return ret
+	}).(FleetCustomerManagedAutoScalingConfigurationOutput)
+}
+
+func (o FleetCustomerManagedAutoScalingConfigurationPtrOutput) ScaleOutWorkersPerMinute() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FleetCustomerManagedAutoScalingConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ScaleOutWorkersPerMinute
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o FleetCustomerManagedAutoScalingConfigurationPtrOutput) StandbyWorkerCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FleetCustomerManagedAutoScalingConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.StandbyWorkerCount
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o FleetCustomerManagedAutoScalingConfigurationPtrOutput) WorkerIdleDurationSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FleetCustomerManagedAutoScalingConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.WorkerIdleDurationSeconds
+	}).(pulumi.IntPtrOutput)
+}
+
 type FleetCustomerManagedFleetConfiguration struct {
-	Mode               FleetAutoScalingMode                   `pulumi:"mode"`
-	StorageProfileId   *string                                `pulumi:"storageProfileId"`
-	TagPropagationMode *FleetTagPropagationMode               `pulumi:"tagPropagationMode"`
-	WorkerCapabilities FleetCustomerManagedWorkerCapabilities `pulumi:"workerCapabilities"`
+	AutoScalingConfiguration *FleetCustomerManagedAutoScalingConfiguration `pulumi:"autoScalingConfiguration"`
+	Mode                     FleetAutoScalingMode                          `pulumi:"mode"`
+	StorageProfileId         *string                                       `pulumi:"storageProfileId"`
+	TagPropagationMode       *FleetTagPropagationMode                      `pulumi:"tagPropagationMode"`
+	WorkerCapabilities       FleetCustomerManagedWorkerCapabilities        `pulumi:"workerCapabilities"`
 }
 
 // FleetCustomerManagedFleetConfigurationInput is an input type that accepts FleetCustomerManagedFleetConfigurationArgs and FleetCustomerManagedFleetConfigurationOutput values.
@@ -1046,10 +1210,11 @@ type FleetCustomerManagedFleetConfigurationInput interface {
 }
 
 type FleetCustomerManagedFleetConfigurationArgs struct {
-	Mode               FleetAutoScalingModeInput                   `pulumi:"mode"`
-	StorageProfileId   pulumi.StringPtrInput                       `pulumi:"storageProfileId"`
-	TagPropagationMode FleetTagPropagationModePtrInput             `pulumi:"tagPropagationMode"`
-	WorkerCapabilities FleetCustomerManagedWorkerCapabilitiesInput `pulumi:"workerCapabilities"`
+	AutoScalingConfiguration FleetCustomerManagedAutoScalingConfigurationPtrInput `pulumi:"autoScalingConfiguration"`
+	Mode                     FleetAutoScalingModeInput                            `pulumi:"mode"`
+	StorageProfileId         pulumi.StringPtrInput                                `pulumi:"storageProfileId"`
+	TagPropagationMode       FleetTagPropagationModePtrInput                      `pulumi:"tagPropagationMode"`
+	WorkerCapabilities       FleetCustomerManagedWorkerCapabilitiesInput          `pulumi:"workerCapabilities"`
 }
 
 func (FleetCustomerManagedFleetConfigurationArgs) ElementType() reflect.Type {
@@ -1076,6 +1241,12 @@ func (o FleetCustomerManagedFleetConfigurationOutput) ToFleetCustomerManagedFlee
 
 func (o FleetCustomerManagedFleetConfigurationOutput) ToFleetCustomerManagedFleetConfigurationOutputWithContext(ctx context.Context) FleetCustomerManagedFleetConfigurationOutput {
 	return o
+}
+
+func (o FleetCustomerManagedFleetConfigurationOutput) AutoScalingConfiguration() FleetCustomerManagedAutoScalingConfigurationPtrOutput {
+	return o.ApplyT(func(v FleetCustomerManagedFleetConfiguration) *FleetCustomerManagedAutoScalingConfiguration {
+		return v.AutoScalingConfiguration
+	}).(FleetCustomerManagedAutoScalingConfigurationPtrOutput)
 }
 
 func (o FleetCustomerManagedFleetConfigurationOutput) Mode() FleetAutoScalingModeOutput {
@@ -1118,6 +1289,15 @@ func (o FleetCustomerManagedFleetConfigurationPtrOutput) Elem() FleetCustomerMan
 		var ret FleetCustomerManagedFleetConfiguration
 		return ret
 	}).(FleetCustomerManagedFleetConfigurationOutput)
+}
+
+func (o FleetCustomerManagedFleetConfigurationPtrOutput) AutoScalingConfiguration() FleetCustomerManagedAutoScalingConfigurationPtrOutput {
+	return o.ApplyT(func(v *FleetCustomerManagedFleetConfiguration) *FleetCustomerManagedAutoScalingConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.AutoScalingConfiguration
+	}).(FleetCustomerManagedAutoScalingConfigurationPtrOutput)
 }
 
 func (o FleetCustomerManagedFleetConfigurationPtrOutput) Mode() FleetAutoScalingModePtrOutput {
@@ -1810,11 +1990,175 @@ func (o FleetMemoryMiBRangePtrOutput) Min() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
+type FleetServiceManagedEc2AutoScalingConfiguration struct {
+	ScaleOutWorkersPerMinute  *int `pulumi:"scaleOutWorkersPerMinute"`
+	StandbyWorkerCount        *int `pulumi:"standbyWorkerCount"`
+	WorkerIdleDurationSeconds *int `pulumi:"workerIdleDurationSeconds"`
+}
+
+// FleetServiceManagedEc2AutoScalingConfigurationInput is an input type that accepts FleetServiceManagedEc2AutoScalingConfigurationArgs and FleetServiceManagedEc2AutoScalingConfigurationOutput values.
+// You can construct a concrete instance of `FleetServiceManagedEc2AutoScalingConfigurationInput` via:
+//
+//	FleetServiceManagedEc2AutoScalingConfigurationArgs{...}
+type FleetServiceManagedEc2AutoScalingConfigurationInput interface {
+	pulumi.Input
+
+	ToFleetServiceManagedEc2AutoScalingConfigurationOutput() FleetServiceManagedEc2AutoScalingConfigurationOutput
+	ToFleetServiceManagedEc2AutoScalingConfigurationOutputWithContext(context.Context) FleetServiceManagedEc2AutoScalingConfigurationOutput
+}
+
+type FleetServiceManagedEc2AutoScalingConfigurationArgs struct {
+	ScaleOutWorkersPerMinute  pulumi.IntPtrInput `pulumi:"scaleOutWorkersPerMinute"`
+	StandbyWorkerCount        pulumi.IntPtrInput `pulumi:"standbyWorkerCount"`
+	WorkerIdleDurationSeconds pulumi.IntPtrInput `pulumi:"workerIdleDurationSeconds"`
+}
+
+func (FleetServiceManagedEc2AutoScalingConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FleetServiceManagedEc2AutoScalingConfiguration)(nil)).Elem()
+}
+
+func (i FleetServiceManagedEc2AutoScalingConfigurationArgs) ToFleetServiceManagedEc2AutoScalingConfigurationOutput() FleetServiceManagedEc2AutoScalingConfigurationOutput {
+	return i.ToFleetServiceManagedEc2AutoScalingConfigurationOutputWithContext(context.Background())
+}
+
+func (i FleetServiceManagedEc2AutoScalingConfigurationArgs) ToFleetServiceManagedEc2AutoScalingConfigurationOutputWithContext(ctx context.Context) FleetServiceManagedEc2AutoScalingConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FleetServiceManagedEc2AutoScalingConfigurationOutput)
+}
+
+func (i FleetServiceManagedEc2AutoScalingConfigurationArgs) ToFleetServiceManagedEc2AutoScalingConfigurationPtrOutput() FleetServiceManagedEc2AutoScalingConfigurationPtrOutput {
+	return i.ToFleetServiceManagedEc2AutoScalingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i FleetServiceManagedEc2AutoScalingConfigurationArgs) ToFleetServiceManagedEc2AutoScalingConfigurationPtrOutputWithContext(ctx context.Context) FleetServiceManagedEc2AutoScalingConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FleetServiceManagedEc2AutoScalingConfigurationOutput).ToFleetServiceManagedEc2AutoScalingConfigurationPtrOutputWithContext(ctx)
+}
+
+// FleetServiceManagedEc2AutoScalingConfigurationPtrInput is an input type that accepts FleetServiceManagedEc2AutoScalingConfigurationArgs, FleetServiceManagedEc2AutoScalingConfigurationPtr and FleetServiceManagedEc2AutoScalingConfigurationPtrOutput values.
+// You can construct a concrete instance of `FleetServiceManagedEc2AutoScalingConfigurationPtrInput` via:
+//
+//	        FleetServiceManagedEc2AutoScalingConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type FleetServiceManagedEc2AutoScalingConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToFleetServiceManagedEc2AutoScalingConfigurationPtrOutput() FleetServiceManagedEc2AutoScalingConfigurationPtrOutput
+	ToFleetServiceManagedEc2AutoScalingConfigurationPtrOutputWithContext(context.Context) FleetServiceManagedEc2AutoScalingConfigurationPtrOutput
+}
+
+type fleetServiceManagedEc2AutoScalingConfigurationPtrType FleetServiceManagedEc2AutoScalingConfigurationArgs
+
+func FleetServiceManagedEc2AutoScalingConfigurationPtr(v *FleetServiceManagedEc2AutoScalingConfigurationArgs) FleetServiceManagedEc2AutoScalingConfigurationPtrInput {
+	return (*fleetServiceManagedEc2AutoScalingConfigurationPtrType)(v)
+}
+
+func (*fleetServiceManagedEc2AutoScalingConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FleetServiceManagedEc2AutoScalingConfiguration)(nil)).Elem()
+}
+
+func (i *fleetServiceManagedEc2AutoScalingConfigurationPtrType) ToFleetServiceManagedEc2AutoScalingConfigurationPtrOutput() FleetServiceManagedEc2AutoScalingConfigurationPtrOutput {
+	return i.ToFleetServiceManagedEc2AutoScalingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *fleetServiceManagedEc2AutoScalingConfigurationPtrType) ToFleetServiceManagedEc2AutoScalingConfigurationPtrOutputWithContext(ctx context.Context) FleetServiceManagedEc2AutoScalingConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FleetServiceManagedEc2AutoScalingConfigurationPtrOutput)
+}
+
+type FleetServiceManagedEc2AutoScalingConfigurationOutput struct{ *pulumi.OutputState }
+
+func (FleetServiceManagedEc2AutoScalingConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FleetServiceManagedEc2AutoScalingConfiguration)(nil)).Elem()
+}
+
+func (o FleetServiceManagedEc2AutoScalingConfigurationOutput) ToFleetServiceManagedEc2AutoScalingConfigurationOutput() FleetServiceManagedEc2AutoScalingConfigurationOutput {
+	return o
+}
+
+func (o FleetServiceManagedEc2AutoScalingConfigurationOutput) ToFleetServiceManagedEc2AutoScalingConfigurationOutputWithContext(ctx context.Context) FleetServiceManagedEc2AutoScalingConfigurationOutput {
+	return o
+}
+
+func (o FleetServiceManagedEc2AutoScalingConfigurationOutput) ToFleetServiceManagedEc2AutoScalingConfigurationPtrOutput() FleetServiceManagedEc2AutoScalingConfigurationPtrOutput {
+	return o.ToFleetServiceManagedEc2AutoScalingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o FleetServiceManagedEc2AutoScalingConfigurationOutput) ToFleetServiceManagedEc2AutoScalingConfigurationPtrOutputWithContext(ctx context.Context) FleetServiceManagedEc2AutoScalingConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FleetServiceManagedEc2AutoScalingConfiguration) *FleetServiceManagedEc2AutoScalingConfiguration {
+		return &v
+	}).(FleetServiceManagedEc2AutoScalingConfigurationPtrOutput)
+}
+
+func (o FleetServiceManagedEc2AutoScalingConfigurationOutput) ScaleOutWorkersPerMinute() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FleetServiceManagedEc2AutoScalingConfiguration) *int { return v.ScaleOutWorkersPerMinute }).(pulumi.IntPtrOutput)
+}
+
+func (o FleetServiceManagedEc2AutoScalingConfigurationOutput) StandbyWorkerCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FleetServiceManagedEc2AutoScalingConfiguration) *int { return v.StandbyWorkerCount }).(pulumi.IntPtrOutput)
+}
+
+func (o FleetServiceManagedEc2AutoScalingConfigurationOutput) WorkerIdleDurationSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FleetServiceManagedEc2AutoScalingConfiguration) *int { return v.WorkerIdleDurationSeconds }).(pulumi.IntPtrOutput)
+}
+
+type FleetServiceManagedEc2AutoScalingConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (FleetServiceManagedEc2AutoScalingConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FleetServiceManagedEc2AutoScalingConfiguration)(nil)).Elem()
+}
+
+func (o FleetServiceManagedEc2AutoScalingConfigurationPtrOutput) ToFleetServiceManagedEc2AutoScalingConfigurationPtrOutput() FleetServiceManagedEc2AutoScalingConfigurationPtrOutput {
+	return o
+}
+
+func (o FleetServiceManagedEc2AutoScalingConfigurationPtrOutput) ToFleetServiceManagedEc2AutoScalingConfigurationPtrOutputWithContext(ctx context.Context) FleetServiceManagedEc2AutoScalingConfigurationPtrOutput {
+	return o
+}
+
+func (o FleetServiceManagedEc2AutoScalingConfigurationPtrOutput) Elem() FleetServiceManagedEc2AutoScalingConfigurationOutput {
+	return o.ApplyT(func(v *FleetServiceManagedEc2AutoScalingConfiguration) FleetServiceManagedEc2AutoScalingConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret FleetServiceManagedEc2AutoScalingConfiguration
+		return ret
+	}).(FleetServiceManagedEc2AutoScalingConfigurationOutput)
+}
+
+func (o FleetServiceManagedEc2AutoScalingConfigurationPtrOutput) ScaleOutWorkersPerMinute() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FleetServiceManagedEc2AutoScalingConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ScaleOutWorkersPerMinute
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o FleetServiceManagedEc2AutoScalingConfigurationPtrOutput) StandbyWorkerCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FleetServiceManagedEc2AutoScalingConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.StandbyWorkerCount
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o FleetServiceManagedEc2AutoScalingConfigurationPtrOutput) WorkerIdleDurationSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FleetServiceManagedEc2AutoScalingConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.WorkerIdleDurationSeconds
+	}).(pulumi.IntPtrOutput)
+}
+
 type FleetServiceManagedEc2FleetConfiguration struct {
-	InstanceCapabilities  FleetServiceManagedEc2InstanceCapabilities  `pulumi:"instanceCapabilities"`
-	InstanceMarketOptions FleetServiceManagedEc2InstanceMarketOptions `pulumi:"instanceMarketOptions"`
-	StorageProfileId      *string                                     `pulumi:"storageProfileId"`
-	VpcConfiguration      *FleetVpcConfiguration                      `pulumi:"vpcConfiguration"`
+	AutoScalingConfiguration *FleetServiceManagedEc2AutoScalingConfiguration `pulumi:"autoScalingConfiguration"`
+	InstanceCapabilities     FleetServiceManagedEc2InstanceCapabilities      `pulumi:"instanceCapabilities"`
+	InstanceMarketOptions    FleetServiceManagedEc2InstanceMarketOptions     `pulumi:"instanceMarketOptions"`
+	StorageProfileId         *string                                         `pulumi:"storageProfileId"`
+	VpcConfiguration         *FleetVpcConfiguration                          `pulumi:"vpcConfiguration"`
 }
 
 // FleetServiceManagedEc2FleetConfigurationInput is an input type that accepts FleetServiceManagedEc2FleetConfigurationArgs and FleetServiceManagedEc2FleetConfigurationOutput values.
@@ -1829,10 +2173,11 @@ type FleetServiceManagedEc2FleetConfigurationInput interface {
 }
 
 type FleetServiceManagedEc2FleetConfigurationArgs struct {
-	InstanceCapabilities  FleetServiceManagedEc2InstanceCapabilitiesInput  `pulumi:"instanceCapabilities"`
-	InstanceMarketOptions FleetServiceManagedEc2InstanceMarketOptionsInput `pulumi:"instanceMarketOptions"`
-	StorageProfileId      pulumi.StringPtrInput                            `pulumi:"storageProfileId"`
-	VpcConfiguration      FleetVpcConfigurationPtrInput                    `pulumi:"vpcConfiguration"`
+	AutoScalingConfiguration FleetServiceManagedEc2AutoScalingConfigurationPtrInput `pulumi:"autoScalingConfiguration"`
+	InstanceCapabilities     FleetServiceManagedEc2InstanceCapabilitiesInput        `pulumi:"instanceCapabilities"`
+	InstanceMarketOptions    FleetServiceManagedEc2InstanceMarketOptionsInput       `pulumi:"instanceMarketOptions"`
+	StorageProfileId         pulumi.StringPtrInput                                  `pulumi:"storageProfileId"`
+	VpcConfiguration         FleetVpcConfigurationPtrInput                          `pulumi:"vpcConfiguration"`
 }
 
 func (FleetServiceManagedEc2FleetConfigurationArgs) ElementType() reflect.Type {
@@ -1859,6 +2204,12 @@ func (o FleetServiceManagedEc2FleetConfigurationOutput) ToFleetServiceManagedEc2
 
 func (o FleetServiceManagedEc2FleetConfigurationOutput) ToFleetServiceManagedEc2FleetConfigurationOutputWithContext(ctx context.Context) FleetServiceManagedEc2FleetConfigurationOutput {
 	return o
+}
+
+func (o FleetServiceManagedEc2FleetConfigurationOutput) AutoScalingConfiguration() FleetServiceManagedEc2AutoScalingConfigurationPtrOutput {
+	return o.ApplyT(func(v FleetServiceManagedEc2FleetConfiguration) *FleetServiceManagedEc2AutoScalingConfiguration {
+		return v.AutoScalingConfiguration
+	}).(FleetServiceManagedEc2AutoScalingConfigurationPtrOutput)
 }
 
 func (o FleetServiceManagedEc2FleetConfigurationOutput) InstanceCapabilities() FleetServiceManagedEc2InstanceCapabilitiesOutput {
@@ -1903,6 +2254,15 @@ func (o FleetServiceManagedEc2FleetConfigurationPtrOutput) Elem() FleetServiceMa
 		var ret FleetServiceManagedEc2FleetConfiguration
 		return ret
 	}).(FleetServiceManagedEc2FleetConfigurationOutput)
+}
+
+func (o FleetServiceManagedEc2FleetConfigurationPtrOutput) AutoScalingConfiguration() FleetServiceManagedEc2AutoScalingConfigurationPtrOutput {
+	return o.ApplyT(func(v *FleetServiceManagedEc2FleetConfiguration) *FleetServiceManagedEc2AutoScalingConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.AutoScalingConfiguration
+	}).(FleetServiceManagedEc2AutoScalingConfigurationPtrOutput)
 }
 
 func (o FleetServiceManagedEc2FleetConfigurationPtrOutput) InstanceCapabilities() FleetServiceManagedEc2InstanceCapabilitiesPtrOutput {
@@ -3283,6 +3643,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetAttributeCapabilityArrayInput)(nil)).Elem(), FleetAttributeCapabilityArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetConfiguration0PropertiesInput)(nil)).Elem(), FleetConfiguration0PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetConfiguration1PropertiesInput)(nil)).Elem(), FleetConfiguration1PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FleetCustomerManagedAutoScalingConfigurationInput)(nil)).Elem(), FleetCustomerManagedAutoScalingConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FleetCustomerManagedAutoScalingConfigurationPtrInput)(nil)).Elem(), FleetCustomerManagedAutoScalingConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetCustomerManagedFleetConfigurationInput)(nil)).Elem(), FleetCustomerManagedFleetConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetCustomerManagedWorkerCapabilitiesInput)(nil)).Elem(), FleetCustomerManagedWorkerCapabilitiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetEc2EbsVolumeInput)(nil)).Elem(), FleetEc2EbsVolumeArgs{})
@@ -3290,6 +3652,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetHostConfigurationInput)(nil)).Elem(), FleetHostConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetHostConfigurationPtrInput)(nil)).Elem(), FleetHostConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetMemoryMiBRangeInput)(nil)).Elem(), FleetMemoryMiBRangeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FleetServiceManagedEc2AutoScalingConfigurationInput)(nil)).Elem(), FleetServiceManagedEc2AutoScalingConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FleetServiceManagedEc2AutoScalingConfigurationPtrInput)(nil)).Elem(), FleetServiceManagedEc2AutoScalingConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetServiceManagedEc2FleetConfigurationInput)(nil)).Elem(), FleetServiceManagedEc2FleetConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetServiceManagedEc2InstanceCapabilitiesInput)(nil)).Elem(), FleetServiceManagedEc2InstanceCapabilitiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetServiceManagedEc2InstanceMarketOptionsInput)(nil)).Elem(), FleetServiceManagedEc2InstanceMarketOptionsArgs{})
@@ -3324,6 +3688,8 @@ func init() {
 	pulumi.RegisterOutputType(FleetConfiguration0PropertiesPtrOutput{})
 	pulumi.RegisterOutputType(FleetConfiguration1PropertiesOutput{})
 	pulumi.RegisterOutputType(FleetConfiguration1PropertiesPtrOutput{})
+	pulumi.RegisterOutputType(FleetCustomerManagedAutoScalingConfigurationOutput{})
+	pulumi.RegisterOutputType(FleetCustomerManagedAutoScalingConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(FleetCustomerManagedFleetConfigurationOutput{})
 	pulumi.RegisterOutputType(FleetCustomerManagedFleetConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(FleetCustomerManagedWorkerCapabilitiesOutput{})
@@ -3334,6 +3700,8 @@ func init() {
 	pulumi.RegisterOutputType(FleetHostConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(FleetMemoryMiBRangeOutput{})
 	pulumi.RegisterOutputType(FleetMemoryMiBRangePtrOutput{})
+	pulumi.RegisterOutputType(FleetServiceManagedEc2AutoScalingConfigurationOutput{})
+	pulumi.RegisterOutputType(FleetServiceManagedEc2AutoScalingConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(FleetServiceManagedEc2FleetConfigurationOutput{})
 	pulumi.RegisterOutputType(FleetServiceManagedEc2FleetConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(FleetServiceManagedEc2InstanceCapabilitiesOutput{})

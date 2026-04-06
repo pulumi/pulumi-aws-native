@@ -30,6 +30,7 @@ type LookupProjectProfileArgs struct {
 }
 
 type LookupProjectProfileResult struct {
+	AllowCustomProjectResourceTags *bool `pulumi:"allowCustomProjectResourceTags"`
 	// The timestamp of when the project profile was created.
 	CreatedAt *string `pulumi:"createdAt"`
 	// The user who created the project profile.
@@ -49,7 +50,9 @@ type LookupProjectProfileResult struct {
 	// The timestamp at which a project profile was last updated.
 	LastUpdatedAt *string `pulumi:"lastUpdatedAt"`
 	// The name of a project profile.
-	Name *string `pulumi:"name"`
+	Name                           *string                              `pulumi:"name"`
+	ProjectResourceTags            []ProjectProfileResourceTagParameter `pulumi:"projectResourceTags"`
+	ProjectResourceTagsDescription *string                              `pulumi:"projectResourceTagsDescription"`
 	// The status of a project profile.
 	Status *ProjectProfileStatus `pulumi:"status"`
 }
@@ -86,6 +89,10 @@ func (o LookupProjectProfileResultOutput) ToLookupProjectProfileResultOutput() L
 
 func (o LookupProjectProfileResultOutput) ToLookupProjectProfileResultOutputWithContext(ctx context.Context) LookupProjectProfileResultOutput {
 	return o
+}
+
+func (o LookupProjectProfileResultOutput) AllowCustomProjectResourceTags() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupProjectProfileResult) *bool { return v.AllowCustomProjectResourceTags }).(pulumi.BoolPtrOutput)
 }
 
 // The timestamp of when the project profile was created.
@@ -138,6 +145,14 @@ func (o LookupProjectProfileResultOutput) LastUpdatedAt() pulumi.StringPtrOutput
 // The name of a project profile.
 func (o LookupProjectProfileResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupProjectProfileResult) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupProjectProfileResultOutput) ProjectResourceTags() ProjectProfileResourceTagParameterArrayOutput {
+	return o.ApplyT(func(v LookupProjectProfileResult) []ProjectProfileResourceTagParameter { return v.ProjectResourceTags }).(ProjectProfileResourceTagParameterArrayOutput)
+}
+
+func (o LookupProjectProfileResultOutput) ProjectResourceTagsDescription() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupProjectProfileResult) *string { return v.ProjectResourceTagsDescription }).(pulumi.StringPtrOutput)
 }
 
 // The status of a project profile.

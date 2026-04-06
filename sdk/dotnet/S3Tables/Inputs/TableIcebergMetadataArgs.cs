@@ -11,7 +11,7 @@ namespace Pulumi.AwsNative.S3Tables.Inputs
 {
 
     /// <summary>
-    /// Contains details about the metadata for an Iceberg table.
+    /// Contains details about the metadata for an Iceberg table. Specify either IcebergSchema (for simple flat schemas with primitive types only) or IcebergSchemaV2 (for schemas with nested types like struct, list, map), but not both.
     /// </summary>
     public sealed class TableIcebergMetadataArgs : global::Pulumi.ResourceArgs
     {
@@ -19,10 +19,16 @@ namespace Pulumi.AwsNative.S3Tables.Inputs
         public Input<Inputs.TableIcebergPartitionSpecArgs>? IcebergPartitionSpec { get; set; }
 
         /// <summary>
-        /// The schema for an Iceberg table.
+        /// Schema definition for flat tables with primitive types only. Mutually exclusive with IcebergSchemaV2.
         /// </summary>
-        [Input("icebergSchema", required: true)]
-        public Input<Inputs.TableIcebergSchemaArgs> IcebergSchema { get; set; } = null!;
+        [Input("icebergSchema")]
+        public Input<Inputs.TableIcebergSchemaArgs>? IcebergSchema { get; set; }
+
+        /// <summary>
+        /// Schema definition that supports Apache Iceberg nested types (struct, list, map) and primitive types. Mutually exclusive with IcebergSchema.
+        /// </summary>
+        [Input("icebergSchemaV2")]
+        public Input<Inputs.TableIcebergSchemaV2Args>? IcebergSchemaV2 { get; set; }
 
         [Input("icebergSortOrder")]
         public Input<Inputs.TableIcebergSortOrderArgs>? IcebergSortOrder { get; set; }

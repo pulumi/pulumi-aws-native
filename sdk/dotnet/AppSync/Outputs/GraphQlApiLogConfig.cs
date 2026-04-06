@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.AppSync.Outputs
         /// <summary>
         /// The service role that AWS AppSync will assume to publish to Amazon CloudWatch Logs in your account.
         /// </summary>
-        public readonly string? CloudWatchLogsRoleArn;
+        public readonly string CloudWatchLogsRoleArn;
         /// <summary>
         /// Set to TRUE to exclude sections that contain information such as headers, context, and evaluated mapping templates, regardless of logging level.
         /// </summary>
@@ -24,15 +24,15 @@ namespace Pulumi.AwsNative.AppSync.Outputs
         /// <summary>
         /// The field logging level. Values can be NONE, ERROR, INFO, DEBUG, or ALL.
         /// </summary>
-        public readonly string? FieldLogLevel;
+        public readonly string FieldLogLevel;
 
         [OutputConstructor]
         private GraphQlApiLogConfig(
-            string? cloudWatchLogsRoleArn,
+            string cloudWatchLogsRoleArn,
 
             bool? excludeVerboseContent,
 
-            string? fieldLogLevel)
+            string fieldLogLevel)
         {
             CloudWatchLogsRoleArn = cloudWatchLogsRoleArn;
             ExcludeVerboseContent = excludeVerboseContent;

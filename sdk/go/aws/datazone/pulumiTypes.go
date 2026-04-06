@@ -2893,6 +2893,276 @@ func (o ConnectionPropertiesInput0PropertiesPtrOutput) AthenaProperties() Connec
 	}).(ConnectionAthenaPropertiesInputPtrOutput)
 }
 
+type ConnectionPropertiesInput10Properties struct {
+	WorkflowsMwaaProperties ConnectionWorkflowsMwaaPropertiesInput `pulumi:"workflowsMwaaProperties"`
+}
+
+// ConnectionPropertiesInput10PropertiesInput is an input type that accepts ConnectionPropertiesInput10PropertiesArgs and ConnectionPropertiesInput10PropertiesOutput values.
+// You can construct a concrete instance of `ConnectionPropertiesInput10PropertiesInput` via:
+//
+//	ConnectionPropertiesInput10PropertiesArgs{...}
+type ConnectionPropertiesInput10PropertiesInput interface {
+	pulumi.Input
+
+	ToConnectionPropertiesInput10PropertiesOutput() ConnectionPropertiesInput10PropertiesOutput
+	ToConnectionPropertiesInput10PropertiesOutputWithContext(context.Context) ConnectionPropertiesInput10PropertiesOutput
+}
+
+type ConnectionPropertiesInput10PropertiesArgs struct {
+	WorkflowsMwaaProperties ConnectionWorkflowsMwaaPropertiesInputInput `pulumi:"workflowsMwaaProperties"`
+}
+
+func (ConnectionPropertiesInput10PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionPropertiesInput10Properties)(nil)).Elem()
+}
+
+func (i ConnectionPropertiesInput10PropertiesArgs) ToConnectionPropertiesInput10PropertiesOutput() ConnectionPropertiesInput10PropertiesOutput {
+	return i.ToConnectionPropertiesInput10PropertiesOutputWithContext(context.Background())
+}
+
+func (i ConnectionPropertiesInput10PropertiesArgs) ToConnectionPropertiesInput10PropertiesOutputWithContext(ctx context.Context) ConnectionPropertiesInput10PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionPropertiesInput10PropertiesOutput)
+}
+
+func (i ConnectionPropertiesInput10PropertiesArgs) ToConnectionPropertiesInput10PropertiesPtrOutput() ConnectionPropertiesInput10PropertiesPtrOutput {
+	return i.ToConnectionPropertiesInput10PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i ConnectionPropertiesInput10PropertiesArgs) ToConnectionPropertiesInput10PropertiesPtrOutputWithContext(ctx context.Context) ConnectionPropertiesInput10PropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionPropertiesInput10PropertiesOutput).ToConnectionPropertiesInput10PropertiesPtrOutputWithContext(ctx)
+}
+
+// ConnectionPropertiesInput10PropertiesPtrInput is an input type that accepts ConnectionPropertiesInput10PropertiesArgs, ConnectionPropertiesInput10PropertiesPtr and ConnectionPropertiesInput10PropertiesPtrOutput values.
+// You can construct a concrete instance of `ConnectionPropertiesInput10PropertiesPtrInput` via:
+//
+//	        ConnectionPropertiesInput10PropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type ConnectionPropertiesInput10PropertiesPtrInput interface {
+	pulumi.Input
+
+	ToConnectionPropertiesInput10PropertiesPtrOutput() ConnectionPropertiesInput10PropertiesPtrOutput
+	ToConnectionPropertiesInput10PropertiesPtrOutputWithContext(context.Context) ConnectionPropertiesInput10PropertiesPtrOutput
+}
+
+type connectionPropertiesInput10PropertiesPtrType ConnectionPropertiesInput10PropertiesArgs
+
+func ConnectionPropertiesInput10PropertiesPtr(v *ConnectionPropertiesInput10PropertiesArgs) ConnectionPropertiesInput10PropertiesPtrInput {
+	return (*connectionPropertiesInput10PropertiesPtrType)(v)
+}
+
+func (*connectionPropertiesInput10PropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionPropertiesInput10Properties)(nil)).Elem()
+}
+
+func (i *connectionPropertiesInput10PropertiesPtrType) ToConnectionPropertiesInput10PropertiesPtrOutput() ConnectionPropertiesInput10PropertiesPtrOutput {
+	return i.ToConnectionPropertiesInput10PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *connectionPropertiesInput10PropertiesPtrType) ToConnectionPropertiesInput10PropertiesPtrOutputWithContext(ctx context.Context) ConnectionPropertiesInput10PropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionPropertiesInput10PropertiesPtrOutput)
+}
+
+type ConnectionPropertiesInput10PropertiesOutput struct{ *pulumi.OutputState }
+
+func (ConnectionPropertiesInput10PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionPropertiesInput10Properties)(nil)).Elem()
+}
+
+func (o ConnectionPropertiesInput10PropertiesOutput) ToConnectionPropertiesInput10PropertiesOutput() ConnectionPropertiesInput10PropertiesOutput {
+	return o
+}
+
+func (o ConnectionPropertiesInput10PropertiesOutput) ToConnectionPropertiesInput10PropertiesOutputWithContext(ctx context.Context) ConnectionPropertiesInput10PropertiesOutput {
+	return o
+}
+
+func (o ConnectionPropertiesInput10PropertiesOutput) ToConnectionPropertiesInput10PropertiesPtrOutput() ConnectionPropertiesInput10PropertiesPtrOutput {
+	return o.ToConnectionPropertiesInput10PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectionPropertiesInput10PropertiesOutput) ToConnectionPropertiesInput10PropertiesPtrOutputWithContext(ctx context.Context) ConnectionPropertiesInput10PropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectionPropertiesInput10Properties) *ConnectionPropertiesInput10Properties {
+		return &v
+	}).(ConnectionPropertiesInput10PropertiesPtrOutput)
+}
+
+func (o ConnectionPropertiesInput10PropertiesOutput) WorkflowsMwaaProperties() ConnectionWorkflowsMwaaPropertiesInputOutput {
+	return o.ApplyT(func(v ConnectionPropertiesInput10Properties) ConnectionWorkflowsMwaaPropertiesInput {
+		return v.WorkflowsMwaaProperties
+	}).(ConnectionWorkflowsMwaaPropertiesInputOutput)
+}
+
+type ConnectionPropertiesInput10PropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (ConnectionPropertiesInput10PropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionPropertiesInput10Properties)(nil)).Elem()
+}
+
+func (o ConnectionPropertiesInput10PropertiesPtrOutput) ToConnectionPropertiesInput10PropertiesPtrOutput() ConnectionPropertiesInput10PropertiesPtrOutput {
+	return o
+}
+
+func (o ConnectionPropertiesInput10PropertiesPtrOutput) ToConnectionPropertiesInput10PropertiesPtrOutputWithContext(ctx context.Context) ConnectionPropertiesInput10PropertiesPtrOutput {
+	return o
+}
+
+func (o ConnectionPropertiesInput10PropertiesPtrOutput) Elem() ConnectionPropertiesInput10PropertiesOutput {
+	return o.ApplyT(func(v *ConnectionPropertiesInput10Properties) ConnectionPropertiesInput10Properties {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectionPropertiesInput10Properties
+		return ret
+	}).(ConnectionPropertiesInput10PropertiesOutput)
+}
+
+func (o ConnectionPropertiesInput10PropertiesPtrOutput) WorkflowsMwaaProperties() ConnectionWorkflowsMwaaPropertiesInputPtrOutput {
+	return o.ApplyT(func(v *ConnectionPropertiesInput10Properties) *ConnectionWorkflowsMwaaPropertiesInput {
+		if v == nil {
+			return nil
+		}
+		return &v.WorkflowsMwaaProperties
+	}).(ConnectionWorkflowsMwaaPropertiesInputPtrOutput)
+}
+
+type ConnectionPropertiesInput11Properties struct {
+	WorkflowsServerlessProperties ConnectionWorkflowsServerlessPropertiesInput `pulumi:"workflowsServerlessProperties"`
+}
+
+// ConnectionPropertiesInput11PropertiesInput is an input type that accepts ConnectionPropertiesInput11PropertiesArgs and ConnectionPropertiesInput11PropertiesOutput values.
+// You can construct a concrete instance of `ConnectionPropertiesInput11PropertiesInput` via:
+//
+//	ConnectionPropertiesInput11PropertiesArgs{...}
+type ConnectionPropertiesInput11PropertiesInput interface {
+	pulumi.Input
+
+	ToConnectionPropertiesInput11PropertiesOutput() ConnectionPropertiesInput11PropertiesOutput
+	ToConnectionPropertiesInput11PropertiesOutputWithContext(context.Context) ConnectionPropertiesInput11PropertiesOutput
+}
+
+type ConnectionPropertiesInput11PropertiesArgs struct {
+	WorkflowsServerlessProperties ConnectionWorkflowsServerlessPropertiesInputInput `pulumi:"workflowsServerlessProperties"`
+}
+
+func (ConnectionPropertiesInput11PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionPropertiesInput11Properties)(nil)).Elem()
+}
+
+func (i ConnectionPropertiesInput11PropertiesArgs) ToConnectionPropertiesInput11PropertiesOutput() ConnectionPropertiesInput11PropertiesOutput {
+	return i.ToConnectionPropertiesInput11PropertiesOutputWithContext(context.Background())
+}
+
+func (i ConnectionPropertiesInput11PropertiesArgs) ToConnectionPropertiesInput11PropertiesOutputWithContext(ctx context.Context) ConnectionPropertiesInput11PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionPropertiesInput11PropertiesOutput)
+}
+
+func (i ConnectionPropertiesInput11PropertiesArgs) ToConnectionPropertiesInput11PropertiesPtrOutput() ConnectionPropertiesInput11PropertiesPtrOutput {
+	return i.ToConnectionPropertiesInput11PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i ConnectionPropertiesInput11PropertiesArgs) ToConnectionPropertiesInput11PropertiesPtrOutputWithContext(ctx context.Context) ConnectionPropertiesInput11PropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionPropertiesInput11PropertiesOutput).ToConnectionPropertiesInput11PropertiesPtrOutputWithContext(ctx)
+}
+
+// ConnectionPropertiesInput11PropertiesPtrInput is an input type that accepts ConnectionPropertiesInput11PropertiesArgs, ConnectionPropertiesInput11PropertiesPtr and ConnectionPropertiesInput11PropertiesPtrOutput values.
+// You can construct a concrete instance of `ConnectionPropertiesInput11PropertiesPtrInput` via:
+//
+//	        ConnectionPropertiesInput11PropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type ConnectionPropertiesInput11PropertiesPtrInput interface {
+	pulumi.Input
+
+	ToConnectionPropertiesInput11PropertiesPtrOutput() ConnectionPropertiesInput11PropertiesPtrOutput
+	ToConnectionPropertiesInput11PropertiesPtrOutputWithContext(context.Context) ConnectionPropertiesInput11PropertiesPtrOutput
+}
+
+type connectionPropertiesInput11PropertiesPtrType ConnectionPropertiesInput11PropertiesArgs
+
+func ConnectionPropertiesInput11PropertiesPtr(v *ConnectionPropertiesInput11PropertiesArgs) ConnectionPropertiesInput11PropertiesPtrInput {
+	return (*connectionPropertiesInput11PropertiesPtrType)(v)
+}
+
+func (*connectionPropertiesInput11PropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionPropertiesInput11Properties)(nil)).Elem()
+}
+
+func (i *connectionPropertiesInput11PropertiesPtrType) ToConnectionPropertiesInput11PropertiesPtrOutput() ConnectionPropertiesInput11PropertiesPtrOutput {
+	return i.ToConnectionPropertiesInput11PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *connectionPropertiesInput11PropertiesPtrType) ToConnectionPropertiesInput11PropertiesPtrOutputWithContext(ctx context.Context) ConnectionPropertiesInput11PropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionPropertiesInput11PropertiesPtrOutput)
+}
+
+type ConnectionPropertiesInput11PropertiesOutput struct{ *pulumi.OutputState }
+
+func (ConnectionPropertiesInput11PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionPropertiesInput11Properties)(nil)).Elem()
+}
+
+func (o ConnectionPropertiesInput11PropertiesOutput) ToConnectionPropertiesInput11PropertiesOutput() ConnectionPropertiesInput11PropertiesOutput {
+	return o
+}
+
+func (o ConnectionPropertiesInput11PropertiesOutput) ToConnectionPropertiesInput11PropertiesOutputWithContext(ctx context.Context) ConnectionPropertiesInput11PropertiesOutput {
+	return o
+}
+
+func (o ConnectionPropertiesInput11PropertiesOutput) ToConnectionPropertiesInput11PropertiesPtrOutput() ConnectionPropertiesInput11PropertiesPtrOutput {
+	return o.ToConnectionPropertiesInput11PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectionPropertiesInput11PropertiesOutput) ToConnectionPropertiesInput11PropertiesPtrOutputWithContext(ctx context.Context) ConnectionPropertiesInput11PropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectionPropertiesInput11Properties) *ConnectionPropertiesInput11Properties {
+		return &v
+	}).(ConnectionPropertiesInput11PropertiesPtrOutput)
+}
+
+func (o ConnectionPropertiesInput11PropertiesOutput) WorkflowsServerlessProperties() ConnectionWorkflowsServerlessPropertiesInputOutput {
+	return o.ApplyT(func(v ConnectionPropertiesInput11Properties) ConnectionWorkflowsServerlessPropertiesInput {
+		return v.WorkflowsServerlessProperties
+	}).(ConnectionWorkflowsServerlessPropertiesInputOutput)
+}
+
+type ConnectionPropertiesInput11PropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (ConnectionPropertiesInput11PropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionPropertiesInput11Properties)(nil)).Elem()
+}
+
+func (o ConnectionPropertiesInput11PropertiesPtrOutput) ToConnectionPropertiesInput11PropertiesPtrOutput() ConnectionPropertiesInput11PropertiesPtrOutput {
+	return o
+}
+
+func (o ConnectionPropertiesInput11PropertiesPtrOutput) ToConnectionPropertiesInput11PropertiesPtrOutputWithContext(ctx context.Context) ConnectionPropertiesInput11PropertiesPtrOutput {
+	return o
+}
+
+func (o ConnectionPropertiesInput11PropertiesPtrOutput) Elem() ConnectionPropertiesInput11PropertiesOutput {
+	return o.ApplyT(func(v *ConnectionPropertiesInput11Properties) ConnectionPropertiesInput11Properties {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectionPropertiesInput11Properties
+		return ret
+	}).(ConnectionPropertiesInput11PropertiesOutput)
+}
+
+func (o ConnectionPropertiesInput11PropertiesPtrOutput) WorkflowsServerlessProperties() ConnectionWorkflowsServerlessPropertiesInputPtrOutput {
+	return o.ApplyT(func(v *ConnectionPropertiesInput11Properties) *ConnectionWorkflowsServerlessPropertiesInput {
+		if v == nil {
+			return nil
+		}
+		return &v.WorkflowsServerlessProperties
+	}).(ConnectionWorkflowsServerlessPropertiesInputPtrOutput)
+}
+
 type ConnectionPropertiesInput1Properties struct {
 	GlueProperties ConnectionGluePropertiesInput `pulumi:"glueProperties"`
 }
@@ -5926,6 +6196,267 @@ func (o ConnectionUsernamePasswordPtrOutput) Username() pulumi.StringPtrOutput {
 		}
 		return &v.Username
 	}).(pulumi.StringPtrOutput)
+}
+
+// Workflows MWAA Properties Input
+type ConnectionWorkflowsMwaaPropertiesInput struct {
+	// The name of the MWAA environment.
+	MwaaEnvironmentName *string `pulumi:"mwaaEnvironmentName"`
+}
+
+// ConnectionWorkflowsMwaaPropertiesInputInput is an input type that accepts ConnectionWorkflowsMwaaPropertiesInputArgs and ConnectionWorkflowsMwaaPropertiesInputOutput values.
+// You can construct a concrete instance of `ConnectionWorkflowsMwaaPropertiesInputInput` via:
+//
+//	ConnectionWorkflowsMwaaPropertiesInputArgs{...}
+type ConnectionWorkflowsMwaaPropertiesInputInput interface {
+	pulumi.Input
+
+	ToConnectionWorkflowsMwaaPropertiesInputOutput() ConnectionWorkflowsMwaaPropertiesInputOutput
+	ToConnectionWorkflowsMwaaPropertiesInputOutputWithContext(context.Context) ConnectionWorkflowsMwaaPropertiesInputOutput
+}
+
+// Workflows MWAA Properties Input
+type ConnectionWorkflowsMwaaPropertiesInputArgs struct {
+	// The name of the MWAA environment.
+	MwaaEnvironmentName pulumi.StringPtrInput `pulumi:"mwaaEnvironmentName"`
+}
+
+func (ConnectionWorkflowsMwaaPropertiesInputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionWorkflowsMwaaPropertiesInput)(nil)).Elem()
+}
+
+func (i ConnectionWorkflowsMwaaPropertiesInputArgs) ToConnectionWorkflowsMwaaPropertiesInputOutput() ConnectionWorkflowsMwaaPropertiesInputOutput {
+	return i.ToConnectionWorkflowsMwaaPropertiesInputOutputWithContext(context.Background())
+}
+
+func (i ConnectionWorkflowsMwaaPropertiesInputArgs) ToConnectionWorkflowsMwaaPropertiesInputOutputWithContext(ctx context.Context) ConnectionWorkflowsMwaaPropertiesInputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionWorkflowsMwaaPropertiesInputOutput)
+}
+
+func (i ConnectionWorkflowsMwaaPropertiesInputArgs) ToConnectionWorkflowsMwaaPropertiesInputPtrOutput() ConnectionWorkflowsMwaaPropertiesInputPtrOutput {
+	return i.ToConnectionWorkflowsMwaaPropertiesInputPtrOutputWithContext(context.Background())
+}
+
+func (i ConnectionWorkflowsMwaaPropertiesInputArgs) ToConnectionWorkflowsMwaaPropertiesInputPtrOutputWithContext(ctx context.Context) ConnectionWorkflowsMwaaPropertiesInputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionWorkflowsMwaaPropertiesInputOutput).ToConnectionWorkflowsMwaaPropertiesInputPtrOutputWithContext(ctx)
+}
+
+// ConnectionWorkflowsMwaaPropertiesInputPtrInput is an input type that accepts ConnectionWorkflowsMwaaPropertiesInputArgs, ConnectionWorkflowsMwaaPropertiesInputPtr and ConnectionWorkflowsMwaaPropertiesInputPtrOutput values.
+// You can construct a concrete instance of `ConnectionWorkflowsMwaaPropertiesInputPtrInput` via:
+//
+//	        ConnectionWorkflowsMwaaPropertiesInputArgs{...}
+//
+//	or:
+//
+//	        nil
+type ConnectionWorkflowsMwaaPropertiesInputPtrInput interface {
+	pulumi.Input
+
+	ToConnectionWorkflowsMwaaPropertiesInputPtrOutput() ConnectionWorkflowsMwaaPropertiesInputPtrOutput
+	ToConnectionWorkflowsMwaaPropertiesInputPtrOutputWithContext(context.Context) ConnectionWorkflowsMwaaPropertiesInputPtrOutput
+}
+
+type connectionWorkflowsMwaaPropertiesInputPtrType ConnectionWorkflowsMwaaPropertiesInputArgs
+
+func ConnectionWorkflowsMwaaPropertiesInputPtr(v *ConnectionWorkflowsMwaaPropertiesInputArgs) ConnectionWorkflowsMwaaPropertiesInputPtrInput {
+	return (*connectionWorkflowsMwaaPropertiesInputPtrType)(v)
+}
+
+func (*connectionWorkflowsMwaaPropertiesInputPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionWorkflowsMwaaPropertiesInput)(nil)).Elem()
+}
+
+func (i *connectionWorkflowsMwaaPropertiesInputPtrType) ToConnectionWorkflowsMwaaPropertiesInputPtrOutput() ConnectionWorkflowsMwaaPropertiesInputPtrOutput {
+	return i.ToConnectionWorkflowsMwaaPropertiesInputPtrOutputWithContext(context.Background())
+}
+
+func (i *connectionWorkflowsMwaaPropertiesInputPtrType) ToConnectionWorkflowsMwaaPropertiesInputPtrOutputWithContext(ctx context.Context) ConnectionWorkflowsMwaaPropertiesInputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionWorkflowsMwaaPropertiesInputPtrOutput)
+}
+
+// Workflows MWAA Properties Input
+type ConnectionWorkflowsMwaaPropertiesInputOutput struct{ *pulumi.OutputState }
+
+func (ConnectionWorkflowsMwaaPropertiesInputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionWorkflowsMwaaPropertiesInput)(nil)).Elem()
+}
+
+func (o ConnectionWorkflowsMwaaPropertiesInputOutput) ToConnectionWorkflowsMwaaPropertiesInputOutput() ConnectionWorkflowsMwaaPropertiesInputOutput {
+	return o
+}
+
+func (o ConnectionWorkflowsMwaaPropertiesInputOutput) ToConnectionWorkflowsMwaaPropertiesInputOutputWithContext(ctx context.Context) ConnectionWorkflowsMwaaPropertiesInputOutput {
+	return o
+}
+
+func (o ConnectionWorkflowsMwaaPropertiesInputOutput) ToConnectionWorkflowsMwaaPropertiesInputPtrOutput() ConnectionWorkflowsMwaaPropertiesInputPtrOutput {
+	return o.ToConnectionWorkflowsMwaaPropertiesInputPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectionWorkflowsMwaaPropertiesInputOutput) ToConnectionWorkflowsMwaaPropertiesInputPtrOutputWithContext(ctx context.Context) ConnectionWorkflowsMwaaPropertiesInputPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectionWorkflowsMwaaPropertiesInput) *ConnectionWorkflowsMwaaPropertiesInput {
+		return &v
+	}).(ConnectionWorkflowsMwaaPropertiesInputPtrOutput)
+}
+
+// The name of the MWAA environment.
+func (o ConnectionWorkflowsMwaaPropertiesInputOutput) MwaaEnvironmentName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectionWorkflowsMwaaPropertiesInput) *string { return v.MwaaEnvironmentName }).(pulumi.StringPtrOutput)
+}
+
+type ConnectionWorkflowsMwaaPropertiesInputPtrOutput struct{ *pulumi.OutputState }
+
+func (ConnectionWorkflowsMwaaPropertiesInputPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionWorkflowsMwaaPropertiesInput)(nil)).Elem()
+}
+
+func (o ConnectionWorkflowsMwaaPropertiesInputPtrOutput) ToConnectionWorkflowsMwaaPropertiesInputPtrOutput() ConnectionWorkflowsMwaaPropertiesInputPtrOutput {
+	return o
+}
+
+func (o ConnectionWorkflowsMwaaPropertiesInputPtrOutput) ToConnectionWorkflowsMwaaPropertiesInputPtrOutputWithContext(ctx context.Context) ConnectionWorkflowsMwaaPropertiesInputPtrOutput {
+	return o
+}
+
+func (o ConnectionWorkflowsMwaaPropertiesInputPtrOutput) Elem() ConnectionWorkflowsMwaaPropertiesInputOutput {
+	return o.ApplyT(func(v *ConnectionWorkflowsMwaaPropertiesInput) ConnectionWorkflowsMwaaPropertiesInput {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectionWorkflowsMwaaPropertiesInput
+		return ret
+	}).(ConnectionWorkflowsMwaaPropertiesInputOutput)
+}
+
+// The name of the MWAA environment.
+func (o ConnectionWorkflowsMwaaPropertiesInputPtrOutput) MwaaEnvironmentName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectionWorkflowsMwaaPropertiesInput) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MwaaEnvironmentName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Workflows Serverless Properties Input
+type ConnectionWorkflowsServerlessPropertiesInput struct {
+}
+
+// ConnectionWorkflowsServerlessPropertiesInputInput is an input type that accepts ConnectionWorkflowsServerlessPropertiesInputArgs and ConnectionWorkflowsServerlessPropertiesInputOutput values.
+// You can construct a concrete instance of `ConnectionWorkflowsServerlessPropertiesInputInput` via:
+//
+//	ConnectionWorkflowsServerlessPropertiesInputArgs{...}
+type ConnectionWorkflowsServerlessPropertiesInputInput interface {
+	pulumi.Input
+
+	ToConnectionWorkflowsServerlessPropertiesInputOutput() ConnectionWorkflowsServerlessPropertiesInputOutput
+	ToConnectionWorkflowsServerlessPropertiesInputOutputWithContext(context.Context) ConnectionWorkflowsServerlessPropertiesInputOutput
+}
+
+// Workflows Serverless Properties Input
+type ConnectionWorkflowsServerlessPropertiesInputArgs struct {
+}
+
+func (ConnectionWorkflowsServerlessPropertiesInputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionWorkflowsServerlessPropertiesInput)(nil)).Elem()
+}
+
+func (i ConnectionWorkflowsServerlessPropertiesInputArgs) ToConnectionWorkflowsServerlessPropertiesInputOutput() ConnectionWorkflowsServerlessPropertiesInputOutput {
+	return i.ToConnectionWorkflowsServerlessPropertiesInputOutputWithContext(context.Background())
+}
+
+func (i ConnectionWorkflowsServerlessPropertiesInputArgs) ToConnectionWorkflowsServerlessPropertiesInputOutputWithContext(ctx context.Context) ConnectionWorkflowsServerlessPropertiesInputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionWorkflowsServerlessPropertiesInputOutput)
+}
+
+func (i ConnectionWorkflowsServerlessPropertiesInputArgs) ToConnectionWorkflowsServerlessPropertiesInputPtrOutput() ConnectionWorkflowsServerlessPropertiesInputPtrOutput {
+	return i.ToConnectionWorkflowsServerlessPropertiesInputPtrOutputWithContext(context.Background())
+}
+
+func (i ConnectionWorkflowsServerlessPropertiesInputArgs) ToConnectionWorkflowsServerlessPropertiesInputPtrOutputWithContext(ctx context.Context) ConnectionWorkflowsServerlessPropertiesInputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionWorkflowsServerlessPropertiesInputOutput).ToConnectionWorkflowsServerlessPropertiesInputPtrOutputWithContext(ctx)
+}
+
+// ConnectionWorkflowsServerlessPropertiesInputPtrInput is an input type that accepts ConnectionWorkflowsServerlessPropertiesInputArgs, ConnectionWorkflowsServerlessPropertiesInputPtr and ConnectionWorkflowsServerlessPropertiesInputPtrOutput values.
+// You can construct a concrete instance of `ConnectionWorkflowsServerlessPropertiesInputPtrInput` via:
+//
+//	        ConnectionWorkflowsServerlessPropertiesInputArgs{...}
+//
+//	or:
+//
+//	        nil
+type ConnectionWorkflowsServerlessPropertiesInputPtrInput interface {
+	pulumi.Input
+
+	ToConnectionWorkflowsServerlessPropertiesInputPtrOutput() ConnectionWorkflowsServerlessPropertiesInputPtrOutput
+	ToConnectionWorkflowsServerlessPropertiesInputPtrOutputWithContext(context.Context) ConnectionWorkflowsServerlessPropertiesInputPtrOutput
+}
+
+type connectionWorkflowsServerlessPropertiesInputPtrType ConnectionWorkflowsServerlessPropertiesInputArgs
+
+func ConnectionWorkflowsServerlessPropertiesInputPtr(v *ConnectionWorkflowsServerlessPropertiesInputArgs) ConnectionWorkflowsServerlessPropertiesInputPtrInput {
+	return (*connectionWorkflowsServerlessPropertiesInputPtrType)(v)
+}
+
+func (*connectionWorkflowsServerlessPropertiesInputPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionWorkflowsServerlessPropertiesInput)(nil)).Elem()
+}
+
+func (i *connectionWorkflowsServerlessPropertiesInputPtrType) ToConnectionWorkflowsServerlessPropertiesInputPtrOutput() ConnectionWorkflowsServerlessPropertiesInputPtrOutput {
+	return i.ToConnectionWorkflowsServerlessPropertiesInputPtrOutputWithContext(context.Background())
+}
+
+func (i *connectionWorkflowsServerlessPropertiesInputPtrType) ToConnectionWorkflowsServerlessPropertiesInputPtrOutputWithContext(ctx context.Context) ConnectionWorkflowsServerlessPropertiesInputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionWorkflowsServerlessPropertiesInputPtrOutput)
+}
+
+// Workflows Serverless Properties Input
+type ConnectionWorkflowsServerlessPropertiesInputOutput struct{ *pulumi.OutputState }
+
+func (ConnectionWorkflowsServerlessPropertiesInputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionWorkflowsServerlessPropertiesInput)(nil)).Elem()
+}
+
+func (o ConnectionWorkflowsServerlessPropertiesInputOutput) ToConnectionWorkflowsServerlessPropertiesInputOutput() ConnectionWorkflowsServerlessPropertiesInputOutput {
+	return o
+}
+
+func (o ConnectionWorkflowsServerlessPropertiesInputOutput) ToConnectionWorkflowsServerlessPropertiesInputOutputWithContext(ctx context.Context) ConnectionWorkflowsServerlessPropertiesInputOutput {
+	return o
+}
+
+func (o ConnectionWorkflowsServerlessPropertiesInputOutput) ToConnectionWorkflowsServerlessPropertiesInputPtrOutput() ConnectionWorkflowsServerlessPropertiesInputPtrOutput {
+	return o.ToConnectionWorkflowsServerlessPropertiesInputPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectionWorkflowsServerlessPropertiesInputOutput) ToConnectionWorkflowsServerlessPropertiesInputPtrOutputWithContext(ctx context.Context) ConnectionWorkflowsServerlessPropertiesInputPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectionWorkflowsServerlessPropertiesInput) *ConnectionWorkflowsServerlessPropertiesInput {
+		return &v
+	}).(ConnectionWorkflowsServerlessPropertiesInputPtrOutput)
+}
+
+type ConnectionWorkflowsServerlessPropertiesInputPtrOutput struct{ *pulumi.OutputState }
+
+func (ConnectionWorkflowsServerlessPropertiesInputPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionWorkflowsServerlessPropertiesInput)(nil)).Elem()
+}
+
+func (o ConnectionWorkflowsServerlessPropertiesInputPtrOutput) ToConnectionWorkflowsServerlessPropertiesInputPtrOutput() ConnectionWorkflowsServerlessPropertiesInputPtrOutput {
+	return o
+}
+
+func (o ConnectionWorkflowsServerlessPropertiesInputPtrOutput) ToConnectionWorkflowsServerlessPropertiesInputPtrOutputWithContext(ctx context.Context) ConnectionWorkflowsServerlessPropertiesInputPtrOutput {
+	return o
+}
+
+func (o ConnectionWorkflowsServerlessPropertiesInputPtrOutput) Elem() ConnectionWorkflowsServerlessPropertiesInputOutput {
+	return o.ApplyT(func(v *ConnectionWorkflowsServerlessPropertiesInput) ConnectionWorkflowsServerlessPropertiesInput {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectionWorkflowsServerlessPropertiesInput
+		return ret
+	}).(ConnectionWorkflowsServerlessPropertiesInputOutput)
 }
 
 // Specifies the configuration of the data source. It can be set to either glueRunConfiguration or redshiftRunConfiguration or sageMakerRunConfiguration.
@@ -15277,6 +15808,212 @@ func (o ProjectProfileRegionOutput) RegionName() pulumi.StringOutput {
 	return o.ApplyT(func(v ProjectProfileRegion) string { return v.RegionName }).(pulumi.StringOutput)
 }
 
+type ProjectProfileResourceTagParameter struct {
+	IsValueEditable bool   `pulumi:"isValueEditable"`
+	Key             string `pulumi:"key"`
+	Value           string `pulumi:"value"`
+}
+
+// ProjectProfileResourceTagParameterInput is an input type that accepts ProjectProfileResourceTagParameterArgs and ProjectProfileResourceTagParameterOutput values.
+// You can construct a concrete instance of `ProjectProfileResourceTagParameterInput` via:
+//
+//	ProjectProfileResourceTagParameterArgs{...}
+type ProjectProfileResourceTagParameterInput interface {
+	pulumi.Input
+
+	ToProjectProfileResourceTagParameterOutput() ProjectProfileResourceTagParameterOutput
+	ToProjectProfileResourceTagParameterOutputWithContext(context.Context) ProjectProfileResourceTagParameterOutput
+}
+
+type ProjectProfileResourceTagParameterArgs struct {
+	IsValueEditable pulumi.BoolInput   `pulumi:"isValueEditable"`
+	Key             pulumi.StringInput `pulumi:"key"`
+	Value           pulumi.StringInput `pulumi:"value"`
+}
+
+func (ProjectProfileResourceTagParameterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectProfileResourceTagParameter)(nil)).Elem()
+}
+
+func (i ProjectProfileResourceTagParameterArgs) ToProjectProfileResourceTagParameterOutput() ProjectProfileResourceTagParameterOutput {
+	return i.ToProjectProfileResourceTagParameterOutputWithContext(context.Background())
+}
+
+func (i ProjectProfileResourceTagParameterArgs) ToProjectProfileResourceTagParameterOutputWithContext(ctx context.Context) ProjectProfileResourceTagParameterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectProfileResourceTagParameterOutput)
+}
+
+// ProjectProfileResourceTagParameterArrayInput is an input type that accepts ProjectProfileResourceTagParameterArray and ProjectProfileResourceTagParameterArrayOutput values.
+// You can construct a concrete instance of `ProjectProfileResourceTagParameterArrayInput` via:
+//
+//	ProjectProfileResourceTagParameterArray{ ProjectProfileResourceTagParameterArgs{...} }
+type ProjectProfileResourceTagParameterArrayInput interface {
+	pulumi.Input
+
+	ToProjectProfileResourceTagParameterArrayOutput() ProjectProfileResourceTagParameterArrayOutput
+	ToProjectProfileResourceTagParameterArrayOutputWithContext(context.Context) ProjectProfileResourceTagParameterArrayOutput
+}
+
+type ProjectProfileResourceTagParameterArray []ProjectProfileResourceTagParameterInput
+
+func (ProjectProfileResourceTagParameterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ProjectProfileResourceTagParameter)(nil)).Elem()
+}
+
+func (i ProjectProfileResourceTagParameterArray) ToProjectProfileResourceTagParameterArrayOutput() ProjectProfileResourceTagParameterArrayOutput {
+	return i.ToProjectProfileResourceTagParameterArrayOutputWithContext(context.Background())
+}
+
+func (i ProjectProfileResourceTagParameterArray) ToProjectProfileResourceTagParameterArrayOutputWithContext(ctx context.Context) ProjectProfileResourceTagParameterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectProfileResourceTagParameterArrayOutput)
+}
+
+type ProjectProfileResourceTagParameterOutput struct{ *pulumi.OutputState }
+
+func (ProjectProfileResourceTagParameterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectProfileResourceTagParameter)(nil)).Elem()
+}
+
+func (o ProjectProfileResourceTagParameterOutput) ToProjectProfileResourceTagParameterOutput() ProjectProfileResourceTagParameterOutput {
+	return o
+}
+
+func (o ProjectProfileResourceTagParameterOutput) ToProjectProfileResourceTagParameterOutputWithContext(ctx context.Context) ProjectProfileResourceTagParameterOutput {
+	return o
+}
+
+func (o ProjectProfileResourceTagParameterOutput) IsValueEditable() pulumi.BoolOutput {
+	return o.ApplyT(func(v ProjectProfileResourceTagParameter) bool { return v.IsValueEditable }).(pulumi.BoolOutput)
+}
+
+func (o ProjectProfileResourceTagParameterOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v ProjectProfileResourceTagParameter) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o ProjectProfileResourceTagParameterOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v ProjectProfileResourceTagParameter) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type ProjectProfileResourceTagParameterArrayOutput struct{ *pulumi.OutputState }
+
+func (ProjectProfileResourceTagParameterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ProjectProfileResourceTagParameter)(nil)).Elem()
+}
+
+func (o ProjectProfileResourceTagParameterArrayOutput) ToProjectProfileResourceTagParameterArrayOutput() ProjectProfileResourceTagParameterArrayOutput {
+	return o
+}
+
+func (o ProjectProfileResourceTagParameterArrayOutput) ToProjectProfileResourceTagParameterArrayOutputWithContext(ctx context.Context) ProjectProfileResourceTagParameterArrayOutput {
+	return o
+}
+
+func (o ProjectProfileResourceTagParameterArrayOutput) Index(i pulumi.IntInput) ProjectProfileResourceTagParameterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ProjectProfileResourceTagParameter {
+		return vs[0].([]ProjectProfileResourceTagParameter)[vs[1].(int)]
+	}).(ProjectProfileResourceTagParameterOutput)
+}
+
+type ProjectResourceTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
+// ProjectResourceTagInput is an input type that accepts ProjectResourceTagArgs and ProjectResourceTagOutput values.
+// You can construct a concrete instance of `ProjectResourceTagInput` via:
+//
+//	ProjectResourceTagArgs{...}
+type ProjectResourceTagInput interface {
+	pulumi.Input
+
+	ToProjectResourceTagOutput() ProjectResourceTagOutput
+	ToProjectResourceTagOutputWithContext(context.Context) ProjectResourceTagOutput
+}
+
+type ProjectResourceTagArgs struct {
+	Key   pulumi.StringInput `pulumi:"key"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (ProjectResourceTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectResourceTag)(nil)).Elem()
+}
+
+func (i ProjectResourceTagArgs) ToProjectResourceTagOutput() ProjectResourceTagOutput {
+	return i.ToProjectResourceTagOutputWithContext(context.Background())
+}
+
+func (i ProjectResourceTagArgs) ToProjectResourceTagOutputWithContext(ctx context.Context) ProjectResourceTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectResourceTagOutput)
+}
+
+// ProjectResourceTagArrayInput is an input type that accepts ProjectResourceTagArray and ProjectResourceTagArrayOutput values.
+// You can construct a concrete instance of `ProjectResourceTagArrayInput` via:
+//
+//	ProjectResourceTagArray{ ProjectResourceTagArgs{...} }
+type ProjectResourceTagArrayInput interface {
+	pulumi.Input
+
+	ToProjectResourceTagArrayOutput() ProjectResourceTagArrayOutput
+	ToProjectResourceTagArrayOutputWithContext(context.Context) ProjectResourceTagArrayOutput
+}
+
+type ProjectResourceTagArray []ProjectResourceTagInput
+
+func (ProjectResourceTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ProjectResourceTag)(nil)).Elem()
+}
+
+func (i ProjectResourceTagArray) ToProjectResourceTagArrayOutput() ProjectResourceTagArrayOutput {
+	return i.ToProjectResourceTagArrayOutputWithContext(context.Background())
+}
+
+func (i ProjectResourceTagArray) ToProjectResourceTagArrayOutputWithContext(ctx context.Context) ProjectResourceTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectResourceTagArrayOutput)
+}
+
+type ProjectResourceTagOutput struct{ *pulumi.OutputState }
+
+func (ProjectResourceTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectResourceTag)(nil)).Elem()
+}
+
+func (o ProjectResourceTagOutput) ToProjectResourceTagOutput() ProjectResourceTagOutput {
+	return o
+}
+
+func (o ProjectResourceTagOutput) ToProjectResourceTagOutputWithContext(ctx context.Context) ProjectResourceTagOutput {
+	return o
+}
+
+func (o ProjectResourceTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v ProjectResourceTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o ProjectResourceTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v ProjectResourceTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type ProjectResourceTagArrayOutput struct{ *pulumi.OutputState }
+
+func (ProjectResourceTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ProjectResourceTag)(nil)).Elem()
+}
+
+func (o ProjectResourceTagArrayOutput) ToProjectResourceTagArrayOutput() ProjectResourceTagArrayOutput {
+	return o
+}
+
+func (o ProjectResourceTagArrayOutput) ToProjectResourceTagArrayOutputWithContext(ctx context.Context) ProjectResourceTagArrayOutput {
+	return o
+}
+
+func (o ProjectResourceTagArrayOutput) Index(i pulumi.IntInput) ProjectResourceTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ProjectResourceTag {
+		return vs[0].([]ProjectResourceTag)[vs[1].(int)]
+	}).(ProjectResourceTagOutput)
+}
+
 // The details of the subscription target configuration.
 type SubscriptionTargetForm struct {
 	// The content of the subscription target configuration.
@@ -15685,6 +16422,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionPhysicalConnectionRequirementsPtrInput)(nil)).Elem(), ConnectionPhysicalConnectionRequirementsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionPropertiesInput0PropertiesInput)(nil)).Elem(), ConnectionPropertiesInput0PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionPropertiesInput0PropertiesPtrInput)(nil)).Elem(), ConnectionPropertiesInput0PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionPropertiesInput10PropertiesInput)(nil)).Elem(), ConnectionPropertiesInput10PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionPropertiesInput10PropertiesPtrInput)(nil)).Elem(), ConnectionPropertiesInput10PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionPropertiesInput11PropertiesInput)(nil)).Elem(), ConnectionPropertiesInput11PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionPropertiesInput11PropertiesPtrInput)(nil)).Elem(), ConnectionPropertiesInput11PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionPropertiesInput1PropertiesInput)(nil)).Elem(), ConnectionPropertiesInput1PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionPropertiesInput1PropertiesPtrInput)(nil)).Elem(), ConnectionPropertiesInput1PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionPropertiesInput2PropertiesInput)(nil)).Elem(), ConnectionPropertiesInput2PropertiesArgs{})
@@ -15725,6 +16466,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionSparkGluePropertiesInputPtrInput)(nil)).Elem(), ConnectionSparkGluePropertiesInputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionUsernamePasswordInput)(nil)).Elem(), ConnectionUsernamePasswordArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionUsernamePasswordPtrInput)(nil)).Elem(), ConnectionUsernamePasswordArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionWorkflowsMwaaPropertiesInputInput)(nil)).Elem(), ConnectionWorkflowsMwaaPropertiesInputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionWorkflowsMwaaPropertiesInputPtrInput)(nil)).Elem(), ConnectionWorkflowsMwaaPropertiesInputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionWorkflowsServerlessPropertiesInputInput)(nil)).Elem(), ConnectionWorkflowsServerlessPropertiesInputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionWorkflowsServerlessPropertiesInputPtrInput)(nil)).Elem(), ConnectionWorkflowsServerlessPropertiesInputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceConfigurationInput0PropertiesInput)(nil)).Elem(), DataSourceConfigurationInput0PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceConfigurationInput0PropertiesPtrInput)(nil)).Elem(), DataSourceConfigurationInput0PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceConfigurationInput1PropertiesInput)(nil)).Elem(), DataSourceConfigurationInput1PropertiesArgs{})
@@ -15863,6 +16608,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectProfileEnvironmentConfigurationParametersDetailsInput)(nil)).Elem(), ProjectProfileEnvironmentConfigurationParametersDetailsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectProfileEnvironmentConfigurationParametersDetailsPtrInput)(nil)).Elem(), ProjectProfileEnvironmentConfigurationParametersDetailsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectProfileRegionInput)(nil)).Elem(), ProjectProfileRegionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProjectProfileResourceTagParameterInput)(nil)).Elem(), ProjectProfileResourceTagParameterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProjectProfileResourceTagParameterArrayInput)(nil)).Elem(), ProjectProfileResourceTagParameterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProjectResourceTagInput)(nil)).Elem(), ProjectResourceTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProjectResourceTagArrayInput)(nil)).Elem(), ProjectResourceTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SubscriptionTargetFormInput)(nil)).Elem(), SubscriptionTargetFormArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SubscriptionTargetFormArrayInput)(nil)).Elem(), SubscriptionTargetFormArray{})
 	pulumi.RegisterOutputType(ConnectionAmazonQPropertiesInputOutput{})
@@ -15899,6 +16648,10 @@ func init() {
 	pulumi.RegisterOutputType(ConnectionPhysicalConnectionRequirementsPtrOutput{})
 	pulumi.RegisterOutputType(ConnectionPropertiesInput0PropertiesOutput{})
 	pulumi.RegisterOutputType(ConnectionPropertiesInput0PropertiesPtrOutput{})
+	pulumi.RegisterOutputType(ConnectionPropertiesInput10PropertiesOutput{})
+	pulumi.RegisterOutputType(ConnectionPropertiesInput10PropertiesPtrOutput{})
+	pulumi.RegisterOutputType(ConnectionPropertiesInput11PropertiesOutput{})
+	pulumi.RegisterOutputType(ConnectionPropertiesInput11PropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ConnectionPropertiesInput1PropertiesOutput{})
 	pulumi.RegisterOutputType(ConnectionPropertiesInput1PropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ConnectionPropertiesInput2PropertiesOutput{})
@@ -15939,6 +16692,10 @@ func init() {
 	pulumi.RegisterOutputType(ConnectionSparkGluePropertiesInputPtrOutput{})
 	pulumi.RegisterOutputType(ConnectionUsernamePasswordOutput{})
 	pulumi.RegisterOutputType(ConnectionUsernamePasswordPtrOutput{})
+	pulumi.RegisterOutputType(ConnectionWorkflowsMwaaPropertiesInputOutput{})
+	pulumi.RegisterOutputType(ConnectionWorkflowsMwaaPropertiesInputPtrOutput{})
+	pulumi.RegisterOutputType(ConnectionWorkflowsServerlessPropertiesInputOutput{})
+	pulumi.RegisterOutputType(ConnectionWorkflowsServerlessPropertiesInputPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceConfigurationInput0PropertiesOutput{})
 	pulumi.RegisterOutputType(DataSourceConfigurationInput0PropertiesPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceConfigurationInput1PropertiesOutput{})
@@ -16078,6 +16835,10 @@ func init() {
 	pulumi.RegisterOutputType(ProjectProfileEnvironmentConfigurationParametersDetailsOutput{})
 	pulumi.RegisterOutputType(ProjectProfileEnvironmentConfigurationParametersDetailsPtrOutput{})
 	pulumi.RegisterOutputType(ProjectProfileRegionOutput{})
+	pulumi.RegisterOutputType(ProjectProfileResourceTagParameterOutput{})
+	pulumi.RegisterOutputType(ProjectProfileResourceTagParameterArrayOutput{})
+	pulumi.RegisterOutputType(ProjectResourceTagOutput{})
+	pulumi.RegisterOutputType(ProjectResourceTagArrayOutput{})
 	pulumi.RegisterOutputType(SubscriptionTargetFormOutput{})
 	pulumi.RegisterOutputType(SubscriptionTargetFormArrayOutput{})
 	pulumi.RegisterOutputType(UserProfileDetails0PropertiesOutput{})

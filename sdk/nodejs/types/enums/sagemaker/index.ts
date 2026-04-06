@@ -1013,6 +1013,16 @@ export const ModelCardStatus = {
  */
 export type ModelCardStatus = (typeof ModelCardStatus)[keyof typeof ModelCardStatus];
 
+export const ModelContainerDefinitionMode = {
+    SingleModel: "SingleModel",
+    MultiModel: "MultiModel",
+} as const;
+
+/**
+ * Whether the container hosts a single model or multiple models.
+ */
+export type ModelContainerDefinitionMode = (typeof ModelContainerDefinitionMode)[keyof typeof ModelContainerDefinitionMode];
+
 export const ModelExplainabilityJobDefinitionBatchTransformInputS3DataDistributionType = {
     FullyReplicated: "FullyReplicated",
     ShardedByS3Key: "ShardedByS3Key",
@@ -1062,6 +1072,36 @@ export const ModelExplainabilityJobDefinitionS3OutputS3UploadMode = {
  * Whether to upload the results of the monitoring job continuously or after the job completes.
  */
 export type ModelExplainabilityJobDefinitionS3OutputS3UploadMode = (typeof ModelExplainabilityJobDefinitionS3OutputS3UploadMode)[keyof typeof ModelExplainabilityJobDefinitionS3OutputS3UploadMode];
+
+export const ModelImageConfigRepositoryAccessMode = {
+    Platform: "Platform",
+    Vpc: "Vpc",
+} as const;
+
+/**
+ * Set this to one of the following values: Platform - The model image is hosted in Amazon ECR. Vpc - The model image is hosted in a private Docker registry in your VPC.
+ */
+export type ModelImageConfigRepositoryAccessMode = (typeof ModelImageConfigRepositoryAccessMode)[keyof typeof ModelImageConfigRepositoryAccessMode];
+
+export const ModelInferenceExecutionConfigMode = {
+    Serial: "Serial",
+    Direct: "Direct",
+} as const;
+
+/**
+ * How containers in a multi-container are run.
+ */
+export type ModelInferenceExecutionConfigMode = (typeof ModelInferenceExecutionConfigMode)[keyof typeof ModelInferenceExecutionConfigMode];
+
+export const ModelMultiModelConfigModelCacheSetting = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * Whether to cache models for a multi-model endpoint. By default, multi-model endpoints cache models so that a model does not have to be loaded into memory each time it is invoked. Some use cases do not benefit from model caching. For example, if an endpoint hosts a large number of models that are each invoked infrequently, the endpoint might perform better if you disable model caching. To disable model caching, set the value of this parameter to `Disabled`.
+ */
+export type ModelMultiModelConfigModelCacheSetting = (typeof ModelMultiModelConfigModelCacheSetting)[keyof typeof ModelMultiModelConfigModelCacheSetting];
 
 export const ModelPackageGroupStatus = {
     Pending: "Pending",
@@ -1268,6 +1308,26 @@ export const ModelQualityJobDefinitionS3OutputS3UploadMode = {
  * Whether to upload the results of the monitoring job continuously or after the job completes.
  */
 export type ModelQualityJobDefinitionS3OutputS3UploadMode = (typeof ModelQualityJobDefinitionS3OutputS3UploadMode)[keyof typeof ModelQualityJobDefinitionS3OutputS3UploadMode];
+
+export const ModelS3DataSourceCompressionType = {
+    None: "None",
+    Gzip: "Gzip",
+} as const;
+
+/**
+ * Specifies how the ML model data is prepared.
+ */
+export type ModelS3DataSourceCompressionType = (typeof ModelS3DataSourceCompressionType)[keyof typeof ModelS3DataSourceCompressionType];
+
+export const ModelS3DataSourceS3DataType = {
+    S3Prefix: "S3Prefix",
+    S3Object: "S3Object",
+} as const;
+
+/**
+ * Specifies the type of ML model data to deploy.
+ */
+export type ModelS3DataSourceS3DataType = (typeof ModelS3DataSourceS3DataType)[keyof typeof ModelS3DataSourceS3DataType];
 
 export const MonitoringScheduleBatchTransformInputS3DataDistributionType = {
     FullyReplicated: "FullyReplicated",

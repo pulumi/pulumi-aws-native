@@ -24,6 +24,8 @@ __all__ = [
     'MetricFilterDimensionArgsDict',
     'MetricFilterMetricTransformationArgs',
     'MetricFilterMetricTransformationArgsDict',
+    'QueryDefinitionQueryParameterArgs',
+    'QueryDefinitionQueryParameterArgsDict',
     'ResourceConfigPropertiesArgs',
     'ResourceConfigPropertiesArgsDict',
     'ScheduledQueryDestinationConfigurationArgs',
@@ -459,6 +461,79 @@ class MetricFilterMetricTransformationArgs:
     @unit.setter
     def unit(self, value: Optional[pulumi.Input['MetricFilterMetricTransformationUnit']]):
         pulumi.set(self, "unit", value)
+
+
+class QueryDefinitionQueryParameterArgsDict(TypedDict):
+    """
+    This structure defines a query parameter for a saved CloudWatch Logs Insights query definition. Query parameters are supported only for Logs Insights QL queries. They are placeholder variables that you can reference in a query string using the {{parameterName}} syntax. Each parameter can include a default value and a description.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the query parameter. A query parameter name must start with a letter or underscore, and contain only letters, digits, and underscores.
+    """
+    default_value: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The default value to use for this query parameter if no value is supplied at execution time.
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A description of the query parameter that explains its purpose or expected values.
+    """
+
+@pulumi.input_type
+class QueryDefinitionQueryParameterArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[_builtins.str],
+                 default_value: Optional[pulumi.Input[_builtins.str]] = None,
+                 description: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        This structure defines a query parameter for a saved CloudWatch Logs Insights query definition. Query parameters are supported only for Logs Insights QL queries. They are placeholder variables that you can reference in a query string using the {{parameterName}} syntax. Each parameter can include a default value and a description.
+
+        :param pulumi.Input[_builtins.str] name: The name of the query parameter. A query parameter name must start with a letter or underscore, and contain only letters, digits, and underscores.
+        :param pulumi.Input[_builtins.str] default_value: The default value to use for this query parameter if no value is supplied at execution time.
+        :param pulumi.Input[_builtins.str] description: A description of the query parameter that explains its purpose or expected values.
+        """
+        pulumi.set(__self__, "name", name)
+        if default_value is not None:
+            pulumi.set(__self__, "default_value", default_value)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the query parameter. A query parameter name must start with a letter or underscore, and contain only letters, digits, and underscores.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="defaultValue")
+    def default_value(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The default value to use for this query parameter if no value is supplied at execution time.
+        """
+        return pulumi.get(self, "default_value")
+
+    @default_value.setter
+    def default_value(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "default_value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        A description of the query parameter that explains its purpose or expected values.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "description", value)
 
 
 class ResourceConfigPropertiesArgsDict(TypedDict):

@@ -16,11 +16,16 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Outputs
     [OutputType]
     public sealed class EvaluatorConfig
     {
-        public readonly Outputs.EvaluatorLlmAsAJudgeEvaluatorConfig LlmAsAJudge;
+        public readonly Outputs.EvaluatorCodeBasedEvaluatorConfig? CodeBased;
+        public readonly Outputs.EvaluatorLlmAsAJudgeEvaluatorConfig? LlmAsAJudge;
 
         [OutputConstructor]
-        private EvaluatorConfig(Outputs.EvaluatorLlmAsAJudgeEvaluatorConfig llmAsAJudge)
+        private EvaluatorConfig(
+            Outputs.EvaluatorCodeBasedEvaluatorConfig? codeBased,
+
+            Outputs.EvaluatorLlmAsAJudgeEvaluatorConfig? llmAsAJudge)
         {
+            CodeBased = codeBased;
             LlmAsAJudge = llmAsAJudge;
         }
     }

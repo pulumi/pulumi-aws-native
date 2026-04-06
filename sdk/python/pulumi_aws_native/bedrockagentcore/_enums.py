@@ -42,6 +42,7 @@ __all__ = [
     'MemorySummaryMemoryStrategyType',
     'MemoryUserPreferenceMemoryStrategyStatus',
     'MemoryUserPreferenceMemoryStrategyType',
+    'OAuth2CredentialProviderCredentialProviderVendor',
     'OnlineEvaluationConfigExecutionStatus',
     'OnlineEvaluationConfigFilterOperator',
     'OnlineEvaluationConfigStatus',
@@ -392,6 +393,38 @@ class MemoryUserPreferenceMemoryStrategyType(_builtins.str, Enum):
     EPISODIC = "EPISODIC"
 
 
+@pulumi.type_token("aws-native:bedrockagentcore:OAuth2CredentialProviderCredentialProviderVendor")
+class OAuth2CredentialProviderCredentialProviderVendor(_builtins.str, Enum):
+    """
+    The vendor of the OAuth2 credential provider
+    """
+    GOOGLE_OAUTH2 = "GoogleOauth2"
+    GITHUB_OAUTH2 = "GithubOauth2"
+    SLACK_OAUTH2 = "SlackOauth2"
+    SALESFORCE_OAUTH2 = "SalesforceOauth2"
+    MICROSOFT_OAUTH2 = "MicrosoftOauth2"
+    CUSTOM_OAUTH2 = "CustomOauth2"
+    ATLASSIAN_OAUTH2 = "AtlassianOauth2"
+    LINKEDIN_OAUTH2 = "LinkedinOauth2"
+    X_OAUTH2 = "XOauth2"
+    OKTA_OAUTH2 = "OktaOauth2"
+    ONE_LOGIN_OAUTH2 = "OneLoginOauth2"
+    PING_ONE_OAUTH2 = "PingOneOauth2"
+    FACEBOOK_OAUTH2 = "FacebookOauth2"
+    YANDEX_OAUTH2 = "YandexOauth2"
+    REDDIT_OAUTH2 = "RedditOauth2"
+    ZOOM_OAUTH2 = "ZoomOauth2"
+    TWITCH_OAUTH2 = "TwitchOauth2"
+    SPOTIFY_OAUTH2 = "SpotifyOauth2"
+    DROPBOX_OAUTH2 = "DropboxOauth2"
+    NOTION_OAUTH2 = "NotionOauth2"
+    HUBSPOT_OAUTH2 = "HubspotOauth2"
+    CYBER_ARK_OAUTH2 = "CyberArkOauth2"
+    FUSION_AUTH_OAUTH2 = "FusionAuthOauth2"
+    AUTH0_OAUTH2 = "Auth0Oauth2"
+    COGNITO_OAUTH2 = "CognitoOauth2"
+
+
 @pulumi.type_token("aws-native:bedrockagentcore:OnlineEvaluationConfigExecutionStatus")
 class OnlineEvaluationConfigExecutionStatus(_builtins.str, Enum):
     ENABLED = "ENABLED"
@@ -463,6 +496,7 @@ class RuntimeAgentManagedRuntimeType(_builtins.str, Enum):
     PYTHON311 = "PYTHON_3_11"
     PYTHON312 = "PYTHON_3_12"
     PYTHON313 = "PYTHON_3_13"
+    PYTHON314 = "PYTHON_3_14"
 
 
 @pulumi.type_token("aws-native:bedrockagentcore:RuntimeAgentStatus")
@@ -518,3 +552,4 @@ class RuntimeProtocolConfiguration(_builtins.str, Enum):
     MCP = "MCP"
     HTTP = "HTTP"
     A2A = "A2A"
+    AGUI = "AGUI"

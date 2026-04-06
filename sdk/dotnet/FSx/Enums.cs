@@ -37,6 +37,41 @@ namespace Pulumi.AwsNative.FSx
     }
 
     /// <summary>
+    /// The lifecycle status of the S3 access point attachment.
+    /// </summary>
+    [EnumType]
+    public readonly struct S3AccessPointAttachmentLifecycle : IEquatable<S3AccessPointAttachmentLifecycle>
+    {
+        private readonly string _value;
+
+        private S3AccessPointAttachmentLifecycle(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static S3AccessPointAttachmentLifecycle Available { get; } = new S3AccessPointAttachmentLifecycle("AVAILABLE");
+        public static S3AccessPointAttachmentLifecycle Creating { get; } = new S3AccessPointAttachmentLifecycle("CREATING");
+        public static S3AccessPointAttachmentLifecycle Deleting { get; } = new S3AccessPointAttachmentLifecycle("DELETING");
+        public static S3AccessPointAttachmentLifecycle Failed { get; } = new S3AccessPointAttachmentLifecycle("FAILED");
+        public static S3AccessPointAttachmentLifecycle Misconfigured { get; } = new S3AccessPointAttachmentLifecycle("MISCONFIGURED");
+        public static S3AccessPointAttachmentLifecycle Updating { get; } = new S3AccessPointAttachmentLifecycle("UPDATING");
+
+        public static bool operator ==(S3AccessPointAttachmentLifecycle left, S3AccessPointAttachmentLifecycle right) => left.Equals(right);
+        public static bool operator !=(S3AccessPointAttachmentLifecycle left, S3AccessPointAttachmentLifecycle right) => !left.Equals(right);
+
+        public static explicit operator string(S3AccessPointAttachmentLifecycle value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is S3AccessPointAttachmentLifecycle other && Equals(other);
+        public bool Equals(S3AccessPointAttachmentLifecycle other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Specifies the FSx for ONTAP user identity type, accepts either UNIX or WINDOWS.
     /// </summary>
     [EnumType]

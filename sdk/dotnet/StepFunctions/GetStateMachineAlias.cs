@@ -79,6 +79,7 @@ namespace Pulumi.AwsNative.StepFunctions
         /// &gt; `RoutingConfiguration` and `DeploymentPreference` are mutually exclusive properties. You must define only one of these properties.
         /// </summary>
         public readonly ImmutableArray<Outputs.StateMachineAliasRoutingConfigurationVersion> RoutingConfiguration;
+        public readonly string? StateMachineArn;
 
         [OutputConstructor]
         private GetStateMachineAliasResult(
@@ -86,11 +87,14 @@ namespace Pulumi.AwsNative.StepFunctions
 
             string? description,
 
-            ImmutableArray<Outputs.StateMachineAliasRoutingConfigurationVersion> routingConfiguration)
+            ImmutableArray<Outputs.StateMachineAliasRoutingConfigurationVersion> routingConfiguration,
+
+            string? stateMachineArn)
         {
             Arn = arn;
             Description = description;
             RoutingConfiguration = routingConfiguration;
+            StateMachineArn = stateMachineArn;
         }
     }
 }

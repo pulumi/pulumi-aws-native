@@ -115,6 +115,11 @@ export const getMlflowTrackingServer: typeof import("./getMlflowTrackingServer")
 export const getMlflowTrackingServerOutput: typeof import("./getMlflowTrackingServer").getMlflowTrackingServerOutput = null as any;
 utilities.lazyLoad(exports, ["getMlflowTrackingServer","getMlflowTrackingServerOutput"], () => require("./getMlflowTrackingServer"));
 
+export { GetModelArgs, GetModelResult, GetModelOutputArgs } from "./getModel";
+export const getModel: typeof import("./getModel").getModel = null as any;
+export const getModelOutput: typeof import("./getModel").getModelOutput = null as any;
+utilities.lazyLoad(exports, ["getModel","getModelOutput"], () => require("./getModel"));
+
 export { GetModelBiasJobDefinitionArgs, GetModelBiasJobDefinitionResult, GetModelBiasJobDefinitionOutputArgs } from "./getModelBiasJobDefinition";
 export const getModelBiasJobDefinition: typeof import("./getModelBiasJobDefinition").getModelBiasJobDefinition = null as any;
 export const getModelBiasJobDefinitionOutput: typeof import("./getModelBiasJobDefinition").getModelBiasJobDefinitionOutput = null as any;
@@ -209,6 +214,11 @@ export { MlflowTrackingServerArgs } from "./mlflowTrackingServer";
 export type MlflowTrackingServer = import("./mlflowTrackingServer").MlflowTrackingServer;
 export const MlflowTrackingServer: typeof import("./mlflowTrackingServer").MlflowTrackingServer = null as any;
 utilities.lazyLoad(exports, ["MlflowTrackingServer"], () => require("./mlflowTrackingServer"));
+
+export { ModelArgs } from "./model";
+export type Model = import("./model").Model;
+export const Model: typeof import("./model").Model = null as any;
+utilities.lazyLoad(exports, ["Model"], () => require("./model"));
 
 export { ModelBiasJobDefinitionArgs } from "./modelBiasJobDefinition";
 export type ModelBiasJobDefinition = import("./modelBiasJobDefinition").ModelBiasJobDefinition;
@@ -316,6 +326,8 @@ const _module = {
                 return new InferenceExperiment(name, <any>undefined, { urn })
             case "aws-native:sagemaker:MlflowTrackingServer":
                 return new MlflowTrackingServer(name, <any>undefined, { urn })
+            case "aws-native:sagemaker:Model":
+                return new Model(name, <any>undefined, { urn })
             case "aws-native:sagemaker:ModelBiasJobDefinition":
                 return new ModelBiasJobDefinition(name, <any>undefined, { urn })
             case "aws-native:sagemaker:ModelCard":

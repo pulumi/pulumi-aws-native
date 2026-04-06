@@ -37,6 +37,7 @@ export class ProjectProfile extends pulumi.CustomResource {
         return obj['__pulumiType'] === ProjectProfile.__pulumiType;
     }
 
+    declare public readonly allowCustomProjectResourceTags: pulumi.Output<boolean | undefined>;
     /**
      * The ID of the project profile.
      */
@@ -85,6 +86,8 @@ export class ProjectProfile extends pulumi.CustomResource {
      * The name of a project profile.
      */
     declare public readonly name: pulumi.Output<string>;
+    declare public readonly projectResourceTags: pulumi.Output<outputs.datazone.ProjectProfileResourceTagParameter[] | undefined>;
+    declare public readonly projectResourceTagsDescription: pulumi.Output<string | undefined>;
     /**
      * The status of a project profile.
      */
@@ -102,11 +105,14 @@ export class ProjectProfile extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            resourceInputs["allowCustomProjectResourceTags"] = args?.allowCustomProjectResourceTags;
             resourceInputs["description"] = args?.description;
             resourceInputs["domainIdentifier"] = args?.domainIdentifier;
             resourceInputs["domainUnitIdentifier"] = args?.domainUnitIdentifier;
             resourceInputs["environmentConfigurations"] = args?.environmentConfigurations;
             resourceInputs["name"] = args?.name;
+            resourceInputs["projectResourceTags"] = args?.projectResourceTags;
+            resourceInputs["projectResourceTagsDescription"] = args?.projectResourceTagsDescription;
             resourceInputs["status"] = args?.status;
             resourceInputs["useDefaultConfigurations"] = args?.useDefaultConfigurations;
             resourceInputs["awsId"] = undefined /*out*/;
@@ -117,6 +123,7 @@ export class ProjectProfile extends pulumi.CustomResource {
             resourceInputs["identifier"] = undefined /*out*/;
             resourceInputs["lastUpdatedAt"] = undefined /*out*/;
         } else {
+            resourceInputs["allowCustomProjectResourceTags"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["createdBy"] = undefined /*out*/;
@@ -129,6 +136,8 @@ export class ProjectProfile extends pulumi.CustomResource {
             resourceInputs["identifier"] = undefined /*out*/;
             resourceInputs["lastUpdatedAt"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["projectResourceTags"] = undefined /*out*/;
+            resourceInputs["projectResourceTagsDescription"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
             resourceInputs["useDefaultConfigurations"] = undefined /*out*/;
         }
@@ -143,6 +152,7 @@ export class ProjectProfile extends pulumi.CustomResource {
  * The set of arguments for constructing a ProjectProfile resource.
  */
 export interface ProjectProfileArgs {
+    allowCustomProjectResourceTags?: pulumi.Input<boolean>;
     /**
      * The description of the project profile.
      */
@@ -163,6 +173,8 @@ export interface ProjectProfileArgs {
      * The name of a project profile.
      */
     name?: pulumi.Input<string>;
+    projectResourceTags?: pulumi.Input<pulumi.Input<inputs.datazone.ProjectProfileResourceTagParameterArgs>[]>;
+    projectResourceTagsDescription?: pulumi.Input<string>;
     /**
      * The status of a project profile.
      */

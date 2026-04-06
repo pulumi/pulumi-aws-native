@@ -173,6 +173,7 @@ import * as s3tables from "./s3tables";
 import * as s3vectors from "./s3vectors";
 import * as sagemaker from "./sagemaker";
 import * as scheduler from "./scheduler";
+import * as securityagent from "./securityagent";
 import * as securityhub from "./securityhub";
 import * as securitylake from "./securitylake";
 import * as servicecatalog from "./servicecatalog";
@@ -374,6 +375,7 @@ export {
     s3vectors,
     sagemaker,
     scheduler,
+    securityagent,
     securityhub,
     securitylake,
     servicecatalog,

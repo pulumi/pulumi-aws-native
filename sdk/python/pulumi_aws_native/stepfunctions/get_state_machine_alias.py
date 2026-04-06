@@ -24,7 +24,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetStateMachineAliasResult:
-    def __init__(__self__, arn=None, description=None, routing_configuration=None):
+    def __init__(__self__, arn=None, description=None, routing_configuration=None, state_machine_arn=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -34,6 +34,9 @@ class GetStateMachineAliasResult:
         if routing_configuration and not isinstance(routing_configuration, list):
             raise TypeError("Expected argument 'routing_configuration' to be a list")
         pulumi.set(__self__, "routing_configuration", routing_configuration)
+        if state_machine_arn and not isinstance(state_machine_arn, str):
+            raise TypeError("Expected argument 'state_machine_arn' to be a str")
+        pulumi.set(__self__, "state_machine_arn", state_machine_arn)
 
     @_builtins.property
     @pulumi.getter
@@ -63,6 +66,11 @@ class GetStateMachineAliasResult:
         """
         return pulumi.get(self, "routing_configuration")
 
+    @_builtins.property
+    @pulumi.getter(name="stateMachineArn")
+    def state_machine_arn(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "state_machine_arn")
+
 
 class AwaitableGetStateMachineAliasResult(GetStateMachineAliasResult):
     # pylint: disable=using-constant-test
@@ -72,7 +80,8 @@ class AwaitableGetStateMachineAliasResult(GetStateMachineAliasResult):
         return GetStateMachineAliasResult(
             arn=self.arn,
             description=self.description,
-            routing_configuration=self.routing_configuration)
+            routing_configuration=self.routing_configuration,
+            state_machine_arn=self.state_machine_arn)
 
 
 def get_state_machine_alias(arn: Optional[_builtins.str] = None,
@@ -91,7 +100,8 @@ def get_state_machine_alias(arn: Optional[_builtins.str] = None,
     return AwaitableGetStateMachineAliasResult(
         arn=pulumi.get(__ret__, 'arn'),
         description=pulumi.get(__ret__, 'description'),
-        routing_configuration=pulumi.get(__ret__, 'routing_configuration'))
+        routing_configuration=pulumi.get(__ret__, 'routing_configuration'),
+        state_machine_arn=pulumi.get(__ret__, 'state_machine_arn'))
 def get_state_machine_alias_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStateMachineAliasResult]:
     """
@@ -107,4 +117,5 @@ def get_state_machine_alias_output(arn: Optional[pulumi.Input[_builtins.str]] = 
     return __ret__.apply(lambda __response__: GetStateMachineAliasResult(
         arn=pulumi.get(__response__, 'arn'),
         description=pulumi.get(__response__, 'description'),
-        routing_configuration=pulumi.get(__response__, 'routing_configuration')))
+        routing_configuration=pulumi.get(__response__, 'routing_configuration'),
+        state_machine_arn=pulumi.get(__response__, 'state_machine_arn')))

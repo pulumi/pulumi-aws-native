@@ -29,6 +29,7 @@ class RuntimeArgs:
                  authorizer_configuration: Optional[pulumi.Input['RuntimeAuthorizerConfigurationArgs']] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  environment_variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 filesystem_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['RuntimeFilesystemConfigurationArgs']]]] = None,
                  lifecycle_configuration: Optional[pulumi.Input['RuntimeLifecycleConfigurationArgs']] = None,
                  protocol_configuration: Optional[pulumi.Input['RuntimeProtocolConfiguration']] = None,
                  request_header_configuration: Optional[pulumi.Input['RuntimeRequestHeaderConfigurationArgs']] = None,
@@ -43,6 +44,7 @@ class RuntimeArgs:
         :param pulumi.Input['RuntimeAuthorizerConfigurationArgs'] authorizer_configuration: Authorizer configuration for the agent runtime
         :param pulumi.Input[_builtins.str] description: Description of the resource
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] environment_variables: Environment variables for the agent runtime
+        :param pulumi.Input[Sequence[pulumi.Input['RuntimeFilesystemConfigurationArgs']]] filesystem_configurations: Filesystem configurations for the agent runtime
         :param pulumi.Input['RuntimeLifecycleConfigurationArgs'] lifecycle_configuration: Lifecycle configuration for managing runtime sessions
         :param pulumi.Input['RuntimeProtocolConfiguration'] protocol_configuration: Protocol configuration for the agent runtime
         :param pulumi.Input['RuntimeRequestHeaderConfigurationArgs'] request_header_configuration: Configuration for HTTP request headers
@@ -58,6 +60,8 @@ class RuntimeArgs:
             pulumi.set(__self__, "description", description)
         if environment_variables is not None:
             pulumi.set(__self__, "environment_variables", environment_variables)
+        if filesystem_configurations is not None:
+            pulumi.set(__self__, "filesystem_configurations", filesystem_configurations)
         if lifecycle_configuration is not None:
             pulumi.set(__self__, "lifecycle_configuration", lifecycle_configuration)
         if protocol_configuration is not None:
@@ -152,6 +156,18 @@ class RuntimeArgs:
         pulumi.set(self, "environment_variables", value)
 
     @_builtins.property
+    @pulumi.getter(name="filesystemConfigurations")
+    def filesystem_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RuntimeFilesystemConfigurationArgs']]]]:
+        """
+        Filesystem configurations for the agent runtime
+        """
+        return pulumi.get(self, "filesystem_configurations")
+
+    @filesystem_configurations.setter
+    def filesystem_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RuntimeFilesystemConfigurationArgs']]]]):
+        pulumi.set(self, "filesystem_configurations", value)
+
+    @_builtins.property
     @pulumi.getter(name="lifecycleConfiguration")
     def lifecycle_configuration(self) -> Optional[pulumi.Input['RuntimeLifecycleConfigurationArgs']]:
         """
@@ -211,6 +227,7 @@ class Runtime(pulumi.CustomResource):
                  authorizer_configuration: Optional[pulumi.Input[Union['RuntimeAuthorizerConfigurationArgs', 'RuntimeAuthorizerConfigurationArgsDict']]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  environment_variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 filesystem_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RuntimeFilesystemConfigurationArgs', 'RuntimeFilesystemConfigurationArgsDict']]]]] = None,
                  lifecycle_configuration: Optional[pulumi.Input[Union['RuntimeLifecycleConfigurationArgs', 'RuntimeLifecycleConfigurationArgsDict']]] = None,
                  network_configuration: Optional[pulumi.Input[Union['RuntimeNetworkConfigurationArgs', 'RuntimeNetworkConfigurationArgsDict']]] = None,
                  protocol_configuration: Optional[pulumi.Input['RuntimeProtocolConfiguration']] = None,
@@ -229,6 +246,7 @@ class Runtime(pulumi.CustomResource):
         :param pulumi.Input[Union['RuntimeAuthorizerConfigurationArgs', 'RuntimeAuthorizerConfigurationArgsDict']] authorizer_configuration: Authorizer configuration for the agent runtime
         :param pulumi.Input[_builtins.str] description: Description of the resource
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] environment_variables: Environment variables for the agent runtime
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RuntimeFilesystemConfigurationArgs', 'RuntimeFilesystemConfigurationArgsDict']]]] filesystem_configurations: Filesystem configurations for the agent runtime
         :param pulumi.Input[Union['RuntimeLifecycleConfigurationArgs', 'RuntimeLifecycleConfigurationArgsDict']] lifecycle_configuration: Lifecycle configuration for managing runtime sessions
         :param pulumi.Input[Union['RuntimeNetworkConfigurationArgs', 'RuntimeNetworkConfigurationArgsDict']] network_configuration: Network access configuration for the Agent
         :param pulumi.Input['RuntimeProtocolConfiguration'] protocol_configuration: Protocol configuration for the agent runtime
@@ -266,6 +284,7 @@ class Runtime(pulumi.CustomResource):
                  authorizer_configuration: Optional[pulumi.Input[Union['RuntimeAuthorizerConfigurationArgs', 'RuntimeAuthorizerConfigurationArgsDict']]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  environment_variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 filesystem_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RuntimeFilesystemConfigurationArgs', 'RuntimeFilesystemConfigurationArgsDict']]]]] = None,
                  lifecycle_configuration: Optional[pulumi.Input[Union['RuntimeLifecycleConfigurationArgs', 'RuntimeLifecycleConfigurationArgsDict']]] = None,
                  network_configuration: Optional[pulumi.Input[Union['RuntimeNetworkConfigurationArgs', 'RuntimeNetworkConfigurationArgsDict']]] = None,
                  protocol_configuration: Optional[pulumi.Input['RuntimeProtocolConfiguration']] = None,
@@ -290,6 +309,7 @@ class Runtime(pulumi.CustomResource):
             __props__.__dict__["authorizer_configuration"] = authorizer_configuration
             __props__.__dict__["description"] = description
             __props__.__dict__["environment_variables"] = environment_variables
+            __props__.__dict__["filesystem_configurations"] = filesystem_configurations
             __props__.__dict__["lifecycle_configuration"] = lifecycle_configuration
             if network_configuration is None and not opts.urn:
                 raise TypeError("Missing required property 'network_configuration'")
@@ -342,6 +362,7 @@ class Runtime(pulumi.CustomResource):
         __props__.__dict__["description"] = None
         __props__.__dict__["environment_variables"] = None
         __props__.__dict__["failure_reason"] = None
+        __props__.__dict__["filesystem_configurations"] = None
         __props__.__dict__["last_updated_at"] = None
         __props__.__dict__["lifecycle_configuration"] = None
         __props__.__dict__["network_configuration"] = None
@@ -432,6 +453,14 @@ class Runtime(pulumi.CustomResource):
         The reason for failure if the agent is in a failed state.
         """
         return pulumi.get(self, "failure_reason")
+
+    @_builtins.property
+    @pulumi.getter(name="filesystemConfigurations")
+    def filesystem_configurations(self) -> pulumi.Output[Optional[Sequence['outputs.RuntimeFilesystemConfiguration']]]:
+        """
+        Filesystem configurations for the agent runtime
+        """
+        return pulumi.get(self, "filesystem_configurations")
 
     @_builtins.property
     @pulumi.getter(name="lastUpdatedAt")

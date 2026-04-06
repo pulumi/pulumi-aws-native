@@ -5612,6 +5612,340 @@ func (in *segmentDefinitionRangeOverrideUnitPtr) ToSegmentDefinitionRangeOverrid
 	return pulumi.ToOutputWithContext(ctx, in).(SegmentDefinitionRangeOverrideUnitPtrOutput)
 }
 
+// The data type of the sort attribute (e.g., string, number, date).
+type SegmentDefinitionSegmentSortDataType string
+
+const (
+	SegmentDefinitionSegmentSortDataTypeString = SegmentDefinitionSegmentSortDataType("STRING")
+	SegmentDefinitionSegmentSortDataTypeNumber = SegmentDefinitionSegmentSortDataType("NUMBER")
+	SegmentDefinitionSegmentSortDataTypeDate   = SegmentDefinitionSegmentSortDataType("DATE")
+)
+
+func (SegmentDefinitionSegmentSortDataType) ElementType() reflect.Type {
+	return reflect.TypeOf((*SegmentDefinitionSegmentSortDataType)(nil)).Elem()
+}
+
+func (e SegmentDefinitionSegmentSortDataType) ToSegmentDefinitionSegmentSortDataTypeOutput() SegmentDefinitionSegmentSortDataTypeOutput {
+	return pulumi.ToOutput(e).(SegmentDefinitionSegmentSortDataTypeOutput)
+}
+
+func (e SegmentDefinitionSegmentSortDataType) ToSegmentDefinitionSegmentSortDataTypeOutputWithContext(ctx context.Context) SegmentDefinitionSegmentSortDataTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(SegmentDefinitionSegmentSortDataTypeOutput)
+}
+
+func (e SegmentDefinitionSegmentSortDataType) ToSegmentDefinitionSegmentSortDataTypePtrOutput() SegmentDefinitionSegmentSortDataTypePtrOutput {
+	return e.ToSegmentDefinitionSegmentSortDataTypePtrOutputWithContext(context.Background())
+}
+
+func (e SegmentDefinitionSegmentSortDataType) ToSegmentDefinitionSegmentSortDataTypePtrOutputWithContext(ctx context.Context) SegmentDefinitionSegmentSortDataTypePtrOutput {
+	return SegmentDefinitionSegmentSortDataType(e).ToSegmentDefinitionSegmentSortDataTypeOutputWithContext(ctx).ToSegmentDefinitionSegmentSortDataTypePtrOutputWithContext(ctx)
+}
+
+func (e SegmentDefinitionSegmentSortDataType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SegmentDefinitionSegmentSortDataType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SegmentDefinitionSegmentSortDataType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e SegmentDefinitionSegmentSortDataType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type SegmentDefinitionSegmentSortDataTypeOutput struct{ *pulumi.OutputState }
+
+func (SegmentDefinitionSegmentSortDataTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SegmentDefinitionSegmentSortDataType)(nil)).Elem()
+}
+
+func (o SegmentDefinitionSegmentSortDataTypeOutput) ToSegmentDefinitionSegmentSortDataTypeOutput() SegmentDefinitionSegmentSortDataTypeOutput {
+	return o
+}
+
+func (o SegmentDefinitionSegmentSortDataTypeOutput) ToSegmentDefinitionSegmentSortDataTypeOutputWithContext(ctx context.Context) SegmentDefinitionSegmentSortDataTypeOutput {
+	return o
+}
+
+func (o SegmentDefinitionSegmentSortDataTypeOutput) ToSegmentDefinitionSegmentSortDataTypePtrOutput() SegmentDefinitionSegmentSortDataTypePtrOutput {
+	return o.ToSegmentDefinitionSegmentSortDataTypePtrOutputWithContext(context.Background())
+}
+
+func (o SegmentDefinitionSegmentSortDataTypeOutput) ToSegmentDefinitionSegmentSortDataTypePtrOutputWithContext(ctx context.Context) SegmentDefinitionSegmentSortDataTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SegmentDefinitionSegmentSortDataType) *SegmentDefinitionSegmentSortDataType {
+		return &v
+	}).(SegmentDefinitionSegmentSortDataTypePtrOutput)
+}
+
+func (o SegmentDefinitionSegmentSortDataTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o SegmentDefinitionSegmentSortDataTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SegmentDefinitionSegmentSortDataType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o SegmentDefinitionSegmentSortDataTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SegmentDefinitionSegmentSortDataTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SegmentDefinitionSegmentSortDataType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type SegmentDefinitionSegmentSortDataTypePtrOutput struct{ *pulumi.OutputState }
+
+func (SegmentDefinitionSegmentSortDataTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SegmentDefinitionSegmentSortDataType)(nil)).Elem()
+}
+
+func (o SegmentDefinitionSegmentSortDataTypePtrOutput) ToSegmentDefinitionSegmentSortDataTypePtrOutput() SegmentDefinitionSegmentSortDataTypePtrOutput {
+	return o
+}
+
+func (o SegmentDefinitionSegmentSortDataTypePtrOutput) ToSegmentDefinitionSegmentSortDataTypePtrOutputWithContext(ctx context.Context) SegmentDefinitionSegmentSortDataTypePtrOutput {
+	return o
+}
+
+func (o SegmentDefinitionSegmentSortDataTypePtrOutput) Elem() SegmentDefinitionSegmentSortDataTypeOutput {
+	return o.ApplyT(func(v *SegmentDefinitionSegmentSortDataType) SegmentDefinitionSegmentSortDataType {
+		if v != nil {
+			return *v
+		}
+		var ret SegmentDefinitionSegmentSortDataType
+		return ret
+	}).(SegmentDefinitionSegmentSortDataTypeOutput)
+}
+
+func (o SegmentDefinitionSegmentSortDataTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SegmentDefinitionSegmentSortDataTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *SegmentDefinitionSegmentSortDataType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// SegmentDefinitionSegmentSortDataTypeInput is an input type that accepts values of the SegmentDefinitionSegmentSortDataType enum
+// A concrete instance of `SegmentDefinitionSegmentSortDataTypeInput` can be one of the following:
+//
+//	SegmentDefinitionSegmentSortDataTypeString
+//	SegmentDefinitionSegmentSortDataTypeNumber
+//	SegmentDefinitionSegmentSortDataTypeDate
+type SegmentDefinitionSegmentSortDataTypeInput interface {
+	pulumi.Input
+
+	ToSegmentDefinitionSegmentSortDataTypeOutput() SegmentDefinitionSegmentSortDataTypeOutput
+	ToSegmentDefinitionSegmentSortDataTypeOutputWithContext(context.Context) SegmentDefinitionSegmentSortDataTypeOutput
+}
+
+var segmentDefinitionSegmentSortDataTypePtrType = reflect.TypeOf((**SegmentDefinitionSegmentSortDataType)(nil)).Elem()
+
+type SegmentDefinitionSegmentSortDataTypePtrInput interface {
+	pulumi.Input
+
+	ToSegmentDefinitionSegmentSortDataTypePtrOutput() SegmentDefinitionSegmentSortDataTypePtrOutput
+	ToSegmentDefinitionSegmentSortDataTypePtrOutputWithContext(context.Context) SegmentDefinitionSegmentSortDataTypePtrOutput
+}
+
+type segmentDefinitionSegmentSortDataTypePtr string
+
+func SegmentDefinitionSegmentSortDataTypePtr(v string) SegmentDefinitionSegmentSortDataTypePtrInput {
+	return (*segmentDefinitionSegmentSortDataTypePtr)(&v)
+}
+
+func (*segmentDefinitionSegmentSortDataTypePtr) ElementType() reflect.Type {
+	return segmentDefinitionSegmentSortDataTypePtrType
+}
+
+func (in *segmentDefinitionSegmentSortDataTypePtr) ToSegmentDefinitionSegmentSortDataTypePtrOutput() SegmentDefinitionSegmentSortDataTypePtrOutput {
+	return pulumi.ToOutput(in).(SegmentDefinitionSegmentSortDataTypePtrOutput)
+}
+
+func (in *segmentDefinitionSegmentSortDataTypePtr) ToSegmentDefinitionSegmentSortDataTypePtrOutputWithContext(ctx context.Context) SegmentDefinitionSegmentSortDataTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(SegmentDefinitionSegmentSortDataTypePtrOutput)
+}
+
+// The sort order for the attribute (ascending or descending).
+type SegmentDefinitionSegmentSortOrder string
+
+const (
+	SegmentDefinitionSegmentSortOrderAsc  = SegmentDefinitionSegmentSortOrder("ASC")
+	SegmentDefinitionSegmentSortOrderDesc = SegmentDefinitionSegmentSortOrder("DESC")
+)
+
+func (SegmentDefinitionSegmentSortOrder) ElementType() reflect.Type {
+	return reflect.TypeOf((*SegmentDefinitionSegmentSortOrder)(nil)).Elem()
+}
+
+func (e SegmentDefinitionSegmentSortOrder) ToSegmentDefinitionSegmentSortOrderOutput() SegmentDefinitionSegmentSortOrderOutput {
+	return pulumi.ToOutput(e).(SegmentDefinitionSegmentSortOrderOutput)
+}
+
+func (e SegmentDefinitionSegmentSortOrder) ToSegmentDefinitionSegmentSortOrderOutputWithContext(ctx context.Context) SegmentDefinitionSegmentSortOrderOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(SegmentDefinitionSegmentSortOrderOutput)
+}
+
+func (e SegmentDefinitionSegmentSortOrder) ToSegmentDefinitionSegmentSortOrderPtrOutput() SegmentDefinitionSegmentSortOrderPtrOutput {
+	return e.ToSegmentDefinitionSegmentSortOrderPtrOutputWithContext(context.Background())
+}
+
+func (e SegmentDefinitionSegmentSortOrder) ToSegmentDefinitionSegmentSortOrderPtrOutputWithContext(ctx context.Context) SegmentDefinitionSegmentSortOrderPtrOutput {
+	return SegmentDefinitionSegmentSortOrder(e).ToSegmentDefinitionSegmentSortOrderOutputWithContext(ctx).ToSegmentDefinitionSegmentSortOrderPtrOutputWithContext(ctx)
+}
+
+func (e SegmentDefinitionSegmentSortOrder) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SegmentDefinitionSegmentSortOrder) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SegmentDefinitionSegmentSortOrder) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e SegmentDefinitionSegmentSortOrder) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type SegmentDefinitionSegmentSortOrderOutput struct{ *pulumi.OutputState }
+
+func (SegmentDefinitionSegmentSortOrderOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SegmentDefinitionSegmentSortOrder)(nil)).Elem()
+}
+
+func (o SegmentDefinitionSegmentSortOrderOutput) ToSegmentDefinitionSegmentSortOrderOutput() SegmentDefinitionSegmentSortOrderOutput {
+	return o
+}
+
+func (o SegmentDefinitionSegmentSortOrderOutput) ToSegmentDefinitionSegmentSortOrderOutputWithContext(ctx context.Context) SegmentDefinitionSegmentSortOrderOutput {
+	return o
+}
+
+func (o SegmentDefinitionSegmentSortOrderOutput) ToSegmentDefinitionSegmentSortOrderPtrOutput() SegmentDefinitionSegmentSortOrderPtrOutput {
+	return o.ToSegmentDefinitionSegmentSortOrderPtrOutputWithContext(context.Background())
+}
+
+func (o SegmentDefinitionSegmentSortOrderOutput) ToSegmentDefinitionSegmentSortOrderPtrOutputWithContext(ctx context.Context) SegmentDefinitionSegmentSortOrderPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SegmentDefinitionSegmentSortOrder) *SegmentDefinitionSegmentSortOrder {
+		return &v
+	}).(SegmentDefinitionSegmentSortOrderPtrOutput)
+}
+
+func (o SegmentDefinitionSegmentSortOrderOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o SegmentDefinitionSegmentSortOrderOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SegmentDefinitionSegmentSortOrder) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o SegmentDefinitionSegmentSortOrderOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SegmentDefinitionSegmentSortOrderOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SegmentDefinitionSegmentSortOrder) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type SegmentDefinitionSegmentSortOrderPtrOutput struct{ *pulumi.OutputState }
+
+func (SegmentDefinitionSegmentSortOrderPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SegmentDefinitionSegmentSortOrder)(nil)).Elem()
+}
+
+func (o SegmentDefinitionSegmentSortOrderPtrOutput) ToSegmentDefinitionSegmentSortOrderPtrOutput() SegmentDefinitionSegmentSortOrderPtrOutput {
+	return o
+}
+
+func (o SegmentDefinitionSegmentSortOrderPtrOutput) ToSegmentDefinitionSegmentSortOrderPtrOutputWithContext(ctx context.Context) SegmentDefinitionSegmentSortOrderPtrOutput {
+	return o
+}
+
+func (o SegmentDefinitionSegmentSortOrderPtrOutput) Elem() SegmentDefinitionSegmentSortOrderOutput {
+	return o.ApplyT(func(v *SegmentDefinitionSegmentSortOrder) SegmentDefinitionSegmentSortOrder {
+		if v != nil {
+			return *v
+		}
+		var ret SegmentDefinitionSegmentSortOrder
+		return ret
+	}).(SegmentDefinitionSegmentSortOrderOutput)
+}
+
+func (o SegmentDefinitionSegmentSortOrderPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SegmentDefinitionSegmentSortOrderPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *SegmentDefinitionSegmentSortOrder) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// SegmentDefinitionSegmentSortOrderInput is an input type that accepts values of the SegmentDefinitionSegmentSortOrder enum
+// A concrete instance of `SegmentDefinitionSegmentSortOrderInput` can be one of the following:
+//
+//	SegmentDefinitionSegmentSortOrderAsc
+//	SegmentDefinitionSegmentSortOrderDesc
+type SegmentDefinitionSegmentSortOrderInput interface {
+	pulumi.Input
+
+	ToSegmentDefinitionSegmentSortOrderOutput() SegmentDefinitionSegmentSortOrderOutput
+	ToSegmentDefinitionSegmentSortOrderOutputWithContext(context.Context) SegmentDefinitionSegmentSortOrderOutput
+}
+
+var segmentDefinitionSegmentSortOrderPtrType = reflect.TypeOf((**SegmentDefinitionSegmentSortOrder)(nil)).Elem()
+
+type SegmentDefinitionSegmentSortOrderPtrInput interface {
+	pulumi.Input
+
+	ToSegmentDefinitionSegmentSortOrderPtrOutput() SegmentDefinitionSegmentSortOrderPtrOutput
+	ToSegmentDefinitionSegmentSortOrderPtrOutputWithContext(context.Context) SegmentDefinitionSegmentSortOrderPtrOutput
+}
+
+type segmentDefinitionSegmentSortOrderPtr string
+
+func SegmentDefinitionSegmentSortOrderPtr(v string) SegmentDefinitionSegmentSortOrderPtrInput {
+	return (*segmentDefinitionSegmentSortOrderPtr)(&v)
+}
+
+func (*segmentDefinitionSegmentSortOrderPtr) ElementType() reflect.Type {
+	return segmentDefinitionSegmentSortOrderPtrType
+}
+
+func (in *segmentDefinitionSegmentSortOrderPtr) ToSegmentDefinitionSegmentSortOrderPtrOutput() SegmentDefinitionSegmentSortOrderPtrOutput {
+	return pulumi.ToOutput(in).(SegmentDefinitionSegmentSortOrderPtrOutput)
+}
+
+func (in *segmentDefinitionSegmentSortOrderPtr) ToSegmentDefinitionSegmentSortOrderPtrOutputWithContext(ctx context.Context) SegmentDefinitionSegmentSortOrderPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(SegmentDefinitionSegmentSortOrderPtrOutput)
+}
+
 // The SQL query that defines the segment criteria.
 type SegmentDefinitionSegmentType string
 
@@ -5701,6 +6035,172 @@ func (o SegmentDefinitionSegmentTypePtrOutput) ToStringPtrOutputWithContext(ctx 
 		v := string(*e)
 		return &v
 	}).(pulumi.StringPtrOutput)
+}
+
+// The type of attribute (e.g., profile, calculated).
+type SegmentDefinitionSortAttributeType string
+
+const (
+	SegmentDefinitionSortAttributeTypeProfile    = SegmentDefinitionSortAttributeType("PROFILE")
+	SegmentDefinitionSortAttributeTypeCalculated = SegmentDefinitionSortAttributeType("CALCULATED")
+)
+
+func (SegmentDefinitionSortAttributeType) ElementType() reflect.Type {
+	return reflect.TypeOf((*SegmentDefinitionSortAttributeType)(nil)).Elem()
+}
+
+func (e SegmentDefinitionSortAttributeType) ToSegmentDefinitionSortAttributeTypeOutput() SegmentDefinitionSortAttributeTypeOutput {
+	return pulumi.ToOutput(e).(SegmentDefinitionSortAttributeTypeOutput)
+}
+
+func (e SegmentDefinitionSortAttributeType) ToSegmentDefinitionSortAttributeTypeOutputWithContext(ctx context.Context) SegmentDefinitionSortAttributeTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(SegmentDefinitionSortAttributeTypeOutput)
+}
+
+func (e SegmentDefinitionSortAttributeType) ToSegmentDefinitionSortAttributeTypePtrOutput() SegmentDefinitionSortAttributeTypePtrOutput {
+	return e.ToSegmentDefinitionSortAttributeTypePtrOutputWithContext(context.Background())
+}
+
+func (e SegmentDefinitionSortAttributeType) ToSegmentDefinitionSortAttributeTypePtrOutputWithContext(ctx context.Context) SegmentDefinitionSortAttributeTypePtrOutput {
+	return SegmentDefinitionSortAttributeType(e).ToSegmentDefinitionSortAttributeTypeOutputWithContext(ctx).ToSegmentDefinitionSortAttributeTypePtrOutputWithContext(ctx)
+}
+
+func (e SegmentDefinitionSortAttributeType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SegmentDefinitionSortAttributeType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SegmentDefinitionSortAttributeType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e SegmentDefinitionSortAttributeType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type SegmentDefinitionSortAttributeTypeOutput struct{ *pulumi.OutputState }
+
+func (SegmentDefinitionSortAttributeTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SegmentDefinitionSortAttributeType)(nil)).Elem()
+}
+
+func (o SegmentDefinitionSortAttributeTypeOutput) ToSegmentDefinitionSortAttributeTypeOutput() SegmentDefinitionSortAttributeTypeOutput {
+	return o
+}
+
+func (o SegmentDefinitionSortAttributeTypeOutput) ToSegmentDefinitionSortAttributeTypeOutputWithContext(ctx context.Context) SegmentDefinitionSortAttributeTypeOutput {
+	return o
+}
+
+func (o SegmentDefinitionSortAttributeTypeOutput) ToSegmentDefinitionSortAttributeTypePtrOutput() SegmentDefinitionSortAttributeTypePtrOutput {
+	return o.ToSegmentDefinitionSortAttributeTypePtrOutputWithContext(context.Background())
+}
+
+func (o SegmentDefinitionSortAttributeTypeOutput) ToSegmentDefinitionSortAttributeTypePtrOutputWithContext(ctx context.Context) SegmentDefinitionSortAttributeTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SegmentDefinitionSortAttributeType) *SegmentDefinitionSortAttributeType {
+		return &v
+	}).(SegmentDefinitionSortAttributeTypePtrOutput)
+}
+
+func (o SegmentDefinitionSortAttributeTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o SegmentDefinitionSortAttributeTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SegmentDefinitionSortAttributeType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o SegmentDefinitionSortAttributeTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SegmentDefinitionSortAttributeTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SegmentDefinitionSortAttributeType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type SegmentDefinitionSortAttributeTypePtrOutput struct{ *pulumi.OutputState }
+
+func (SegmentDefinitionSortAttributeTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SegmentDefinitionSortAttributeType)(nil)).Elem()
+}
+
+func (o SegmentDefinitionSortAttributeTypePtrOutput) ToSegmentDefinitionSortAttributeTypePtrOutput() SegmentDefinitionSortAttributeTypePtrOutput {
+	return o
+}
+
+func (o SegmentDefinitionSortAttributeTypePtrOutput) ToSegmentDefinitionSortAttributeTypePtrOutputWithContext(ctx context.Context) SegmentDefinitionSortAttributeTypePtrOutput {
+	return o
+}
+
+func (o SegmentDefinitionSortAttributeTypePtrOutput) Elem() SegmentDefinitionSortAttributeTypeOutput {
+	return o.ApplyT(func(v *SegmentDefinitionSortAttributeType) SegmentDefinitionSortAttributeType {
+		if v != nil {
+			return *v
+		}
+		var ret SegmentDefinitionSortAttributeType
+		return ret
+	}).(SegmentDefinitionSortAttributeTypeOutput)
+}
+
+func (o SegmentDefinitionSortAttributeTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SegmentDefinitionSortAttributeTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *SegmentDefinitionSortAttributeType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// SegmentDefinitionSortAttributeTypeInput is an input type that accepts values of the SegmentDefinitionSortAttributeType enum
+// A concrete instance of `SegmentDefinitionSortAttributeTypeInput` can be one of the following:
+//
+//	SegmentDefinitionSortAttributeTypeProfile
+//	SegmentDefinitionSortAttributeTypeCalculated
+type SegmentDefinitionSortAttributeTypeInput interface {
+	pulumi.Input
+
+	ToSegmentDefinitionSortAttributeTypeOutput() SegmentDefinitionSortAttributeTypeOutput
+	ToSegmentDefinitionSortAttributeTypeOutputWithContext(context.Context) SegmentDefinitionSortAttributeTypeOutput
+}
+
+var segmentDefinitionSortAttributeTypePtrType = reflect.TypeOf((**SegmentDefinitionSortAttributeType)(nil)).Elem()
+
+type SegmentDefinitionSortAttributeTypePtrInput interface {
+	pulumi.Input
+
+	ToSegmentDefinitionSortAttributeTypePtrOutput() SegmentDefinitionSortAttributeTypePtrOutput
+	ToSegmentDefinitionSortAttributeTypePtrOutputWithContext(context.Context) SegmentDefinitionSortAttributeTypePtrOutput
+}
+
+type segmentDefinitionSortAttributeTypePtr string
+
+func SegmentDefinitionSortAttributeTypePtr(v string) SegmentDefinitionSortAttributeTypePtrInput {
+	return (*segmentDefinitionSortAttributeTypePtr)(&v)
+}
+
+func (*segmentDefinitionSortAttributeTypePtr) ElementType() reflect.Type {
+	return segmentDefinitionSortAttributeTypePtrType
+}
+
+func (in *segmentDefinitionSortAttributeTypePtr) ToSegmentDefinitionSortAttributeTypePtrOutput() SegmentDefinitionSortAttributeTypePtrOutput {
+	return pulumi.ToOutput(in).(SegmentDefinitionSortAttributeTypePtrOutput)
+}
+
+func (in *segmentDefinitionSortAttributeTypePtr) ToSegmentDefinitionSortAttributeTypePtrOutputWithContext(ctx context.Context) SegmentDefinitionSortAttributeTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(SegmentDefinitionSortAttributeTypePtrOutput)
 }
 
 // The type of segment dimension to use for a string dimension.
@@ -5936,6 +6436,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SegmentDefinitionProfileTypeDimensionTypePtrInput)(nil)).Elem(), SegmentDefinitionProfileTypeDimensionType("INCLUSIVE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*SegmentDefinitionRangeOverrideUnitInput)(nil)).Elem(), SegmentDefinitionRangeOverrideUnit("DAYS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*SegmentDefinitionRangeOverrideUnitPtrInput)(nil)).Elem(), SegmentDefinitionRangeOverrideUnit("DAYS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SegmentDefinitionSegmentSortDataTypeInput)(nil)).Elem(), SegmentDefinitionSegmentSortDataType("STRING"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SegmentDefinitionSegmentSortDataTypePtrInput)(nil)).Elem(), SegmentDefinitionSegmentSortDataType("STRING"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SegmentDefinitionSegmentSortOrderInput)(nil)).Elem(), SegmentDefinitionSegmentSortOrder("ASC"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SegmentDefinitionSegmentSortOrderPtrInput)(nil)).Elem(), SegmentDefinitionSegmentSortOrder("ASC"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SegmentDefinitionSortAttributeTypeInput)(nil)).Elem(), SegmentDefinitionSortAttributeType("PROFILE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SegmentDefinitionSortAttributeTypePtrInput)(nil)).Elem(), SegmentDefinitionSortAttributeType("PROFILE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*SegmentDefinitionStringDimensionTypeInput)(nil)).Elem(), SegmentDefinitionStringDimensionType("INCLUSIVE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*SegmentDefinitionStringDimensionTypePtrInput)(nil)).Elem(), SegmentDefinitionStringDimensionType("INCLUSIVE"))
 	pulumi.RegisterOutputType(CalculatedAttributeDefinitionRangeUnitOutput{})
@@ -6006,8 +6512,14 @@ func init() {
 	pulumi.RegisterOutputType(SegmentDefinitionProfileTypeDimensionTypePtrOutput{})
 	pulumi.RegisterOutputType(SegmentDefinitionRangeOverrideUnitOutput{})
 	pulumi.RegisterOutputType(SegmentDefinitionRangeOverrideUnitPtrOutput{})
+	pulumi.RegisterOutputType(SegmentDefinitionSegmentSortDataTypeOutput{})
+	pulumi.RegisterOutputType(SegmentDefinitionSegmentSortDataTypePtrOutput{})
+	pulumi.RegisterOutputType(SegmentDefinitionSegmentSortOrderOutput{})
+	pulumi.RegisterOutputType(SegmentDefinitionSegmentSortOrderPtrOutput{})
 	pulumi.RegisterOutputType(SegmentDefinitionSegmentTypeOutput{})
 	pulumi.RegisterOutputType(SegmentDefinitionSegmentTypePtrOutput{})
+	pulumi.RegisterOutputType(SegmentDefinitionSortAttributeTypeOutput{})
+	pulumi.RegisterOutputType(SegmentDefinitionSortAttributeTypePtrOutput{})
 	pulumi.RegisterOutputType(SegmentDefinitionStringDimensionTypeOutput{})
 	pulumi.RegisterOutputType(SegmentDefinitionStringDimensionTypePtrOutput{})
 }

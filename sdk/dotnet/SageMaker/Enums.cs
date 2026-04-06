@@ -2384,6 +2384,37 @@ namespace Pulumi.AwsNative.SageMaker
     }
 
     /// <summary>
+    /// Whether the container hosts a single model or multiple models.
+    /// </summary>
+    [EnumType]
+    public readonly struct ModelContainerDefinitionMode : IEquatable<ModelContainerDefinitionMode>
+    {
+        private readonly string _value;
+
+        private ModelContainerDefinitionMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ModelContainerDefinitionMode SingleModel { get; } = new ModelContainerDefinitionMode("SingleModel");
+        public static ModelContainerDefinitionMode MultiModel { get; } = new ModelContainerDefinitionMode("MultiModel");
+
+        public static bool operator ==(ModelContainerDefinitionMode left, ModelContainerDefinitionMode right) => left.Equals(right);
+        public static bool operator !=(ModelContainerDefinitionMode left, ModelContainerDefinitionMode right) => !left.Equals(right);
+
+        public static explicit operator string(ModelContainerDefinitionMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ModelContainerDefinitionMode other && Equals(other);
+        public bool Equals(ModelContainerDefinitionMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
     /// </summary>
     [EnumType]
@@ -2531,6 +2562,99 @@ namespace Pulumi.AwsNative.SageMaker
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is ModelExplainabilityJobDefinitionS3OutputS3UploadMode other && Equals(other);
         public bool Equals(ModelExplainabilityJobDefinitionS3OutputS3UploadMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Set this to one of the following values: Platform - The model image is hosted in Amazon ECR. Vpc - The model image is hosted in a private Docker registry in your VPC.
+    /// </summary>
+    [EnumType]
+    public readonly struct ModelImageConfigRepositoryAccessMode : IEquatable<ModelImageConfigRepositoryAccessMode>
+    {
+        private readonly string _value;
+
+        private ModelImageConfigRepositoryAccessMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ModelImageConfigRepositoryAccessMode Platform { get; } = new ModelImageConfigRepositoryAccessMode("Platform");
+        public static ModelImageConfigRepositoryAccessMode Vpc { get; } = new ModelImageConfigRepositoryAccessMode("Vpc");
+
+        public static bool operator ==(ModelImageConfigRepositoryAccessMode left, ModelImageConfigRepositoryAccessMode right) => left.Equals(right);
+        public static bool operator !=(ModelImageConfigRepositoryAccessMode left, ModelImageConfigRepositoryAccessMode right) => !left.Equals(right);
+
+        public static explicit operator string(ModelImageConfigRepositoryAccessMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ModelImageConfigRepositoryAccessMode other && Equals(other);
+        public bool Equals(ModelImageConfigRepositoryAccessMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// How containers in a multi-container are run.
+    /// </summary>
+    [EnumType]
+    public readonly struct ModelInferenceExecutionConfigMode : IEquatable<ModelInferenceExecutionConfigMode>
+    {
+        private readonly string _value;
+
+        private ModelInferenceExecutionConfigMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ModelInferenceExecutionConfigMode Serial { get; } = new ModelInferenceExecutionConfigMode("Serial");
+        public static ModelInferenceExecutionConfigMode Direct { get; } = new ModelInferenceExecutionConfigMode("Direct");
+
+        public static bool operator ==(ModelInferenceExecutionConfigMode left, ModelInferenceExecutionConfigMode right) => left.Equals(right);
+        public static bool operator !=(ModelInferenceExecutionConfigMode left, ModelInferenceExecutionConfigMode right) => !left.Equals(right);
+
+        public static explicit operator string(ModelInferenceExecutionConfigMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ModelInferenceExecutionConfigMode other && Equals(other);
+        public bool Equals(ModelInferenceExecutionConfigMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Whether to cache models for a multi-model endpoint. By default, multi-model endpoints cache models so that a model does not have to be loaded into memory each time it is invoked. Some use cases do not benefit from model caching. For example, if an endpoint hosts a large number of models that are each invoked infrequently, the endpoint might perform better if you disable model caching. To disable model caching, set the value of this parameter to `Disabled`.
+    /// </summary>
+    [EnumType]
+    public readonly struct ModelMultiModelConfigModelCacheSetting : IEquatable<ModelMultiModelConfigModelCacheSetting>
+    {
+        private readonly string _value;
+
+        private ModelMultiModelConfigModelCacheSetting(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ModelMultiModelConfigModelCacheSetting Enabled { get; } = new ModelMultiModelConfigModelCacheSetting("Enabled");
+        public static ModelMultiModelConfigModelCacheSetting Disabled { get; } = new ModelMultiModelConfigModelCacheSetting("Disabled");
+
+        public static bool operator ==(ModelMultiModelConfigModelCacheSetting left, ModelMultiModelConfigModelCacheSetting right) => left.Equals(right);
+        public static bool operator !=(ModelMultiModelConfigModelCacheSetting left, ModelMultiModelConfigModelCacheSetting right) => !left.Equals(right);
+
+        public static explicit operator string(ModelMultiModelConfigModelCacheSetting value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ModelMultiModelConfigModelCacheSetting other && Equals(other);
+        public bool Equals(ModelMultiModelConfigModelCacheSetting other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -3136,6 +3260,68 @@ namespace Pulumi.AwsNative.SageMaker
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is ModelQualityJobDefinitionS3OutputS3UploadMode other && Equals(other);
         public bool Equals(ModelQualityJobDefinitionS3OutputS3UploadMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Specifies how the ML model data is prepared.
+    /// </summary>
+    [EnumType]
+    public readonly struct ModelS3DataSourceCompressionType : IEquatable<ModelS3DataSourceCompressionType>
+    {
+        private readonly string _value;
+
+        private ModelS3DataSourceCompressionType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ModelS3DataSourceCompressionType None { get; } = new ModelS3DataSourceCompressionType("None");
+        public static ModelS3DataSourceCompressionType Gzip { get; } = new ModelS3DataSourceCompressionType("Gzip");
+
+        public static bool operator ==(ModelS3DataSourceCompressionType left, ModelS3DataSourceCompressionType right) => left.Equals(right);
+        public static bool operator !=(ModelS3DataSourceCompressionType left, ModelS3DataSourceCompressionType right) => !left.Equals(right);
+
+        public static explicit operator string(ModelS3DataSourceCompressionType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ModelS3DataSourceCompressionType other && Equals(other);
+        public bool Equals(ModelS3DataSourceCompressionType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Specifies the type of ML model data to deploy.
+    /// </summary>
+    [EnumType]
+    public readonly struct ModelS3DataSourceS3DataType : IEquatable<ModelS3DataSourceS3DataType>
+    {
+        private readonly string _value;
+
+        private ModelS3DataSourceS3DataType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ModelS3DataSourceS3DataType S3Prefix { get; } = new ModelS3DataSourceS3DataType("S3Prefix");
+        public static ModelS3DataSourceS3DataType S3Object { get; } = new ModelS3DataSourceS3DataType("S3Object");
+
+        public static bool operator ==(ModelS3DataSourceS3DataType left, ModelS3DataSourceS3DataType right) => left.Equals(right);
+        public static bool operator !=(ModelS3DataSourceS3DataType left, ModelS3DataSourceS3DataType right) => !left.Equals(right);
+
+        public static explicit operator string(ModelS3DataSourceS3DataType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ModelS3DataSourceS3DataType other && Equals(other);
+        public bool Equals(ModelS3DataSourceS3DataType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

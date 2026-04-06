@@ -1177,6 +1177,69 @@ namespace Pulumi.AwsNative.CustomerProfiles
     }
 
     /// <summary>
+    /// The data type of the sort attribute (e.g., string, number, date).
+    /// </summary>
+    [EnumType]
+    public readonly struct SegmentDefinitionSegmentSortDataType : IEquatable<SegmentDefinitionSegmentSortDataType>
+    {
+        private readonly string _value;
+
+        private SegmentDefinitionSegmentSortDataType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SegmentDefinitionSegmentSortDataType String { get; } = new SegmentDefinitionSegmentSortDataType("STRING");
+        public static SegmentDefinitionSegmentSortDataType Number { get; } = new SegmentDefinitionSegmentSortDataType("NUMBER");
+        public static SegmentDefinitionSegmentSortDataType Date { get; } = new SegmentDefinitionSegmentSortDataType("DATE");
+
+        public static bool operator ==(SegmentDefinitionSegmentSortDataType left, SegmentDefinitionSegmentSortDataType right) => left.Equals(right);
+        public static bool operator !=(SegmentDefinitionSegmentSortDataType left, SegmentDefinitionSegmentSortDataType right) => !left.Equals(right);
+
+        public static explicit operator string(SegmentDefinitionSegmentSortDataType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SegmentDefinitionSegmentSortDataType other && Equals(other);
+        public bool Equals(SegmentDefinitionSegmentSortDataType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The sort order for the attribute (ascending or descending).
+    /// </summary>
+    [EnumType]
+    public readonly struct SegmentDefinitionSegmentSortOrder : IEquatable<SegmentDefinitionSegmentSortOrder>
+    {
+        private readonly string _value;
+
+        private SegmentDefinitionSegmentSortOrder(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SegmentDefinitionSegmentSortOrder Asc { get; } = new SegmentDefinitionSegmentSortOrder("ASC");
+        public static SegmentDefinitionSegmentSortOrder Desc { get; } = new SegmentDefinitionSegmentSortOrder("DESC");
+
+        public static bool operator ==(SegmentDefinitionSegmentSortOrder left, SegmentDefinitionSegmentSortOrder right) => left.Equals(right);
+        public static bool operator !=(SegmentDefinitionSegmentSortOrder left, SegmentDefinitionSegmentSortOrder right) => !left.Equals(right);
+
+        public static explicit operator string(SegmentDefinitionSegmentSortOrder value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SegmentDefinitionSegmentSortOrder other && Equals(other);
+        public bool Equals(SegmentDefinitionSegmentSortOrder other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The SQL query that defines the segment criteria.
     /// </summary>
     [EnumType]
@@ -1200,6 +1263,37 @@ namespace Pulumi.AwsNative.CustomerProfiles
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is SegmentDefinitionSegmentType other && Equals(other);
         public bool Equals(SegmentDefinitionSegmentType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The type of attribute (e.g., profile, calculated).
+    /// </summary>
+    [EnumType]
+    public readonly struct SegmentDefinitionSortAttributeType : IEquatable<SegmentDefinitionSortAttributeType>
+    {
+        private readonly string _value;
+
+        private SegmentDefinitionSortAttributeType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SegmentDefinitionSortAttributeType Profile { get; } = new SegmentDefinitionSortAttributeType("PROFILE");
+        public static SegmentDefinitionSortAttributeType Calculated { get; } = new SegmentDefinitionSortAttributeType("CALCULATED");
+
+        public static bool operator ==(SegmentDefinitionSortAttributeType left, SegmentDefinitionSortAttributeType right) => left.Equals(right);
+        public static bool operator !=(SegmentDefinitionSortAttributeType left, SegmentDefinitionSortAttributeType right) => !left.Equals(right);
+
+        public static explicit operator string(SegmentDefinitionSortAttributeType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SegmentDefinitionSortAttributeType other && Equals(other);
+        public bool Equals(SegmentDefinitionSortAttributeType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

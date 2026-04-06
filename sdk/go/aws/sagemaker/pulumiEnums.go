@@ -11347,6 +11347,172 @@ func (in *modelCardStatusPtr) ToModelCardStatusPtrOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, in).(ModelCardStatusPtrOutput)
 }
 
+// Whether the container hosts a single model or multiple models.
+type ModelContainerDefinitionMode string
+
+const (
+	ModelContainerDefinitionModeSingleModel = ModelContainerDefinitionMode("SingleModel")
+	ModelContainerDefinitionModeMultiModel  = ModelContainerDefinitionMode("MultiModel")
+)
+
+func (ModelContainerDefinitionMode) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelContainerDefinitionMode)(nil)).Elem()
+}
+
+func (e ModelContainerDefinitionMode) ToModelContainerDefinitionModeOutput() ModelContainerDefinitionModeOutput {
+	return pulumi.ToOutput(e).(ModelContainerDefinitionModeOutput)
+}
+
+func (e ModelContainerDefinitionMode) ToModelContainerDefinitionModeOutputWithContext(ctx context.Context) ModelContainerDefinitionModeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ModelContainerDefinitionModeOutput)
+}
+
+func (e ModelContainerDefinitionMode) ToModelContainerDefinitionModePtrOutput() ModelContainerDefinitionModePtrOutput {
+	return e.ToModelContainerDefinitionModePtrOutputWithContext(context.Background())
+}
+
+func (e ModelContainerDefinitionMode) ToModelContainerDefinitionModePtrOutputWithContext(ctx context.Context) ModelContainerDefinitionModePtrOutput {
+	return ModelContainerDefinitionMode(e).ToModelContainerDefinitionModeOutputWithContext(ctx).ToModelContainerDefinitionModePtrOutputWithContext(ctx)
+}
+
+func (e ModelContainerDefinitionMode) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ModelContainerDefinitionMode) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ModelContainerDefinitionMode) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ModelContainerDefinitionMode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ModelContainerDefinitionModeOutput struct{ *pulumi.OutputState }
+
+func (ModelContainerDefinitionModeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelContainerDefinitionMode)(nil)).Elem()
+}
+
+func (o ModelContainerDefinitionModeOutput) ToModelContainerDefinitionModeOutput() ModelContainerDefinitionModeOutput {
+	return o
+}
+
+func (o ModelContainerDefinitionModeOutput) ToModelContainerDefinitionModeOutputWithContext(ctx context.Context) ModelContainerDefinitionModeOutput {
+	return o
+}
+
+func (o ModelContainerDefinitionModeOutput) ToModelContainerDefinitionModePtrOutput() ModelContainerDefinitionModePtrOutput {
+	return o.ToModelContainerDefinitionModePtrOutputWithContext(context.Background())
+}
+
+func (o ModelContainerDefinitionModeOutput) ToModelContainerDefinitionModePtrOutputWithContext(ctx context.Context) ModelContainerDefinitionModePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ModelContainerDefinitionMode) *ModelContainerDefinitionMode {
+		return &v
+	}).(ModelContainerDefinitionModePtrOutput)
+}
+
+func (o ModelContainerDefinitionModeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ModelContainerDefinitionModeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ModelContainerDefinitionMode) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ModelContainerDefinitionModeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ModelContainerDefinitionModeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ModelContainerDefinitionMode) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ModelContainerDefinitionModePtrOutput struct{ *pulumi.OutputState }
+
+func (ModelContainerDefinitionModePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelContainerDefinitionMode)(nil)).Elem()
+}
+
+func (o ModelContainerDefinitionModePtrOutput) ToModelContainerDefinitionModePtrOutput() ModelContainerDefinitionModePtrOutput {
+	return o
+}
+
+func (o ModelContainerDefinitionModePtrOutput) ToModelContainerDefinitionModePtrOutputWithContext(ctx context.Context) ModelContainerDefinitionModePtrOutput {
+	return o
+}
+
+func (o ModelContainerDefinitionModePtrOutput) Elem() ModelContainerDefinitionModeOutput {
+	return o.ApplyT(func(v *ModelContainerDefinitionMode) ModelContainerDefinitionMode {
+		if v != nil {
+			return *v
+		}
+		var ret ModelContainerDefinitionMode
+		return ret
+	}).(ModelContainerDefinitionModeOutput)
+}
+
+func (o ModelContainerDefinitionModePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ModelContainerDefinitionModePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ModelContainerDefinitionMode) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ModelContainerDefinitionModeInput is an input type that accepts values of the ModelContainerDefinitionMode enum
+// A concrete instance of `ModelContainerDefinitionModeInput` can be one of the following:
+//
+//	ModelContainerDefinitionModeSingleModel
+//	ModelContainerDefinitionModeMultiModel
+type ModelContainerDefinitionModeInput interface {
+	pulumi.Input
+
+	ToModelContainerDefinitionModeOutput() ModelContainerDefinitionModeOutput
+	ToModelContainerDefinitionModeOutputWithContext(context.Context) ModelContainerDefinitionModeOutput
+}
+
+var modelContainerDefinitionModePtrType = reflect.TypeOf((**ModelContainerDefinitionMode)(nil)).Elem()
+
+type ModelContainerDefinitionModePtrInput interface {
+	pulumi.Input
+
+	ToModelContainerDefinitionModePtrOutput() ModelContainerDefinitionModePtrOutput
+	ToModelContainerDefinitionModePtrOutputWithContext(context.Context) ModelContainerDefinitionModePtrOutput
+}
+
+type modelContainerDefinitionModePtr string
+
+func ModelContainerDefinitionModePtr(v string) ModelContainerDefinitionModePtrInput {
+	return (*modelContainerDefinitionModePtr)(&v)
+}
+
+func (*modelContainerDefinitionModePtr) ElementType() reflect.Type {
+	return modelContainerDefinitionModePtrType
+}
+
+func (in *modelContainerDefinitionModePtr) ToModelContainerDefinitionModePtrOutput() ModelContainerDefinitionModePtrOutput {
+	return pulumi.ToOutput(in).(ModelContainerDefinitionModePtrOutput)
+}
+
+func (in *modelContainerDefinitionModePtr) ToModelContainerDefinitionModePtrOutputWithContext(ctx context.Context) ModelContainerDefinitionModePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ModelContainerDefinitionModePtrOutput)
+}
+
 // Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
 type ModelExplainabilityJobDefinitionBatchTransformInputS3DataDistributionType string
 
@@ -12175,6 +12341,504 @@ func (in *modelExplainabilityJobDefinitionS3OutputS3UploadModePtr) ToModelExplai
 
 func (in *modelExplainabilityJobDefinitionS3OutputS3UploadModePtr) ToModelExplainabilityJobDefinitionS3OutputS3UploadModePtrOutputWithContext(ctx context.Context) ModelExplainabilityJobDefinitionS3OutputS3UploadModePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ModelExplainabilityJobDefinitionS3OutputS3UploadModePtrOutput)
+}
+
+// Set this to one of the following values: Platform - The model image is hosted in Amazon ECR. Vpc - The model image is hosted in a private Docker registry in your VPC.
+type ModelImageConfigRepositoryAccessMode string
+
+const (
+	ModelImageConfigRepositoryAccessModePlatform = ModelImageConfigRepositoryAccessMode("Platform")
+	ModelImageConfigRepositoryAccessModeVpc      = ModelImageConfigRepositoryAccessMode("Vpc")
+)
+
+func (ModelImageConfigRepositoryAccessMode) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelImageConfigRepositoryAccessMode)(nil)).Elem()
+}
+
+func (e ModelImageConfigRepositoryAccessMode) ToModelImageConfigRepositoryAccessModeOutput() ModelImageConfigRepositoryAccessModeOutput {
+	return pulumi.ToOutput(e).(ModelImageConfigRepositoryAccessModeOutput)
+}
+
+func (e ModelImageConfigRepositoryAccessMode) ToModelImageConfigRepositoryAccessModeOutputWithContext(ctx context.Context) ModelImageConfigRepositoryAccessModeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ModelImageConfigRepositoryAccessModeOutput)
+}
+
+func (e ModelImageConfigRepositoryAccessMode) ToModelImageConfigRepositoryAccessModePtrOutput() ModelImageConfigRepositoryAccessModePtrOutput {
+	return e.ToModelImageConfigRepositoryAccessModePtrOutputWithContext(context.Background())
+}
+
+func (e ModelImageConfigRepositoryAccessMode) ToModelImageConfigRepositoryAccessModePtrOutputWithContext(ctx context.Context) ModelImageConfigRepositoryAccessModePtrOutput {
+	return ModelImageConfigRepositoryAccessMode(e).ToModelImageConfigRepositoryAccessModeOutputWithContext(ctx).ToModelImageConfigRepositoryAccessModePtrOutputWithContext(ctx)
+}
+
+func (e ModelImageConfigRepositoryAccessMode) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ModelImageConfigRepositoryAccessMode) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ModelImageConfigRepositoryAccessMode) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ModelImageConfigRepositoryAccessMode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ModelImageConfigRepositoryAccessModeOutput struct{ *pulumi.OutputState }
+
+func (ModelImageConfigRepositoryAccessModeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelImageConfigRepositoryAccessMode)(nil)).Elem()
+}
+
+func (o ModelImageConfigRepositoryAccessModeOutput) ToModelImageConfigRepositoryAccessModeOutput() ModelImageConfigRepositoryAccessModeOutput {
+	return o
+}
+
+func (o ModelImageConfigRepositoryAccessModeOutput) ToModelImageConfigRepositoryAccessModeOutputWithContext(ctx context.Context) ModelImageConfigRepositoryAccessModeOutput {
+	return o
+}
+
+func (o ModelImageConfigRepositoryAccessModeOutput) ToModelImageConfigRepositoryAccessModePtrOutput() ModelImageConfigRepositoryAccessModePtrOutput {
+	return o.ToModelImageConfigRepositoryAccessModePtrOutputWithContext(context.Background())
+}
+
+func (o ModelImageConfigRepositoryAccessModeOutput) ToModelImageConfigRepositoryAccessModePtrOutputWithContext(ctx context.Context) ModelImageConfigRepositoryAccessModePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ModelImageConfigRepositoryAccessMode) *ModelImageConfigRepositoryAccessMode {
+		return &v
+	}).(ModelImageConfigRepositoryAccessModePtrOutput)
+}
+
+func (o ModelImageConfigRepositoryAccessModeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ModelImageConfigRepositoryAccessModeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ModelImageConfigRepositoryAccessMode) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ModelImageConfigRepositoryAccessModeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ModelImageConfigRepositoryAccessModeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ModelImageConfigRepositoryAccessMode) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ModelImageConfigRepositoryAccessModePtrOutput struct{ *pulumi.OutputState }
+
+func (ModelImageConfigRepositoryAccessModePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelImageConfigRepositoryAccessMode)(nil)).Elem()
+}
+
+func (o ModelImageConfigRepositoryAccessModePtrOutput) ToModelImageConfigRepositoryAccessModePtrOutput() ModelImageConfigRepositoryAccessModePtrOutput {
+	return o
+}
+
+func (o ModelImageConfigRepositoryAccessModePtrOutput) ToModelImageConfigRepositoryAccessModePtrOutputWithContext(ctx context.Context) ModelImageConfigRepositoryAccessModePtrOutput {
+	return o
+}
+
+func (o ModelImageConfigRepositoryAccessModePtrOutput) Elem() ModelImageConfigRepositoryAccessModeOutput {
+	return o.ApplyT(func(v *ModelImageConfigRepositoryAccessMode) ModelImageConfigRepositoryAccessMode {
+		if v != nil {
+			return *v
+		}
+		var ret ModelImageConfigRepositoryAccessMode
+		return ret
+	}).(ModelImageConfigRepositoryAccessModeOutput)
+}
+
+func (o ModelImageConfigRepositoryAccessModePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ModelImageConfigRepositoryAccessModePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ModelImageConfigRepositoryAccessMode) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ModelImageConfigRepositoryAccessModeInput is an input type that accepts values of the ModelImageConfigRepositoryAccessMode enum
+// A concrete instance of `ModelImageConfigRepositoryAccessModeInput` can be one of the following:
+//
+//	ModelImageConfigRepositoryAccessModePlatform
+//	ModelImageConfigRepositoryAccessModeVpc
+type ModelImageConfigRepositoryAccessModeInput interface {
+	pulumi.Input
+
+	ToModelImageConfigRepositoryAccessModeOutput() ModelImageConfigRepositoryAccessModeOutput
+	ToModelImageConfigRepositoryAccessModeOutputWithContext(context.Context) ModelImageConfigRepositoryAccessModeOutput
+}
+
+var modelImageConfigRepositoryAccessModePtrType = reflect.TypeOf((**ModelImageConfigRepositoryAccessMode)(nil)).Elem()
+
+type ModelImageConfigRepositoryAccessModePtrInput interface {
+	pulumi.Input
+
+	ToModelImageConfigRepositoryAccessModePtrOutput() ModelImageConfigRepositoryAccessModePtrOutput
+	ToModelImageConfigRepositoryAccessModePtrOutputWithContext(context.Context) ModelImageConfigRepositoryAccessModePtrOutput
+}
+
+type modelImageConfigRepositoryAccessModePtr string
+
+func ModelImageConfigRepositoryAccessModePtr(v string) ModelImageConfigRepositoryAccessModePtrInput {
+	return (*modelImageConfigRepositoryAccessModePtr)(&v)
+}
+
+func (*modelImageConfigRepositoryAccessModePtr) ElementType() reflect.Type {
+	return modelImageConfigRepositoryAccessModePtrType
+}
+
+func (in *modelImageConfigRepositoryAccessModePtr) ToModelImageConfigRepositoryAccessModePtrOutput() ModelImageConfigRepositoryAccessModePtrOutput {
+	return pulumi.ToOutput(in).(ModelImageConfigRepositoryAccessModePtrOutput)
+}
+
+func (in *modelImageConfigRepositoryAccessModePtr) ToModelImageConfigRepositoryAccessModePtrOutputWithContext(ctx context.Context) ModelImageConfigRepositoryAccessModePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ModelImageConfigRepositoryAccessModePtrOutput)
+}
+
+// How containers in a multi-container are run.
+type ModelInferenceExecutionConfigMode string
+
+const (
+	ModelInferenceExecutionConfigModeSerial = ModelInferenceExecutionConfigMode("Serial")
+	ModelInferenceExecutionConfigModeDirect = ModelInferenceExecutionConfigMode("Direct")
+)
+
+func (ModelInferenceExecutionConfigMode) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelInferenceExecutionConfigMode)(nil)).Elem()
+}
+
+func (e ModelInferenceExecutionConfigMode) ToModelInferenceExecutionConfigModeOutput() ModelInferenceExecutionConfigModeOutput {
+	return pulumi.ToOutput(e).(ModelInferenceExecutionConfigModeOutput)
+}
+
+func (e ModelInferenceExecutionConfigMode) ToModelInferenceExecutionConfigModeOutputWithContext(ctx context.Context) ModelInferenceExecutionConfigModeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ModelInferenceExecutionConfigModeOutput)
+}
+
+func (e ModelInferenceExecutionConfigMode) ToModelInferenceExecutionConfigModePtrOutput() ModelInferenceExecutionConfigModePtrOutput {
+	return e.ToModelInferenceExecutionConfigModePtrOutputWithContext(context.Background())
+}
+
+func (e ModelInferenceExecutionConfigMode) ToModelInferenceExecutionConfigModePtrOutputWithContext(ctx context.Context) ModelInferenceExecutionConfigModePtrOutput {
+	return ModelInferenceExecutionConfigMode(e).ToModelInferenceExecutionConfigModeOutputWithContext(ctx).ToModelInferenceExecutionConfigModePtrOutputWithContext(ctx)
+}
+
+func (e ModelInferenceExecutionConfigMode) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ModelInferenceExecutionConfigMode) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ModelInferenceExecutionConfigMode) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ModelInferenceExecutionConfigMode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ModelInferenceExecutionConfigModeOutput struct{ *pulumi.OutputState }
+
+func (ModelInferenceExecutionConfigModeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelInferenceExecutionConfigMode)(nil)).Elem()
+}
+
+func (o ModelInferenceExecutionConfigModeOutput) ToModelInferenceExecutionConfigModeOutput() ModelInferenceExecutionConfigModeOutput {
+	return o
+}
+
+func (o ModelInferenceExecutionConfigModeOutput) ToModelInferenceExecutionConfigModeOutputWithContext(ctx context.Context) ModelInferenceExecutionConfigModeOutput {
+	return o
+}
+
+func (o ModelInferenceExecutionConfigModeOutput) ToModelInferenceExecutionConfigModePtrOutput() ModelInferenceExecutionConfigModePtrOutput {
+	return o.ToModelInferenceExecutionConfigModePtrOutputWithContext(context.Background())
+}
+
+func (o ModelInferenceExecutionConfigModeOutput) ToModelInferenceExecutionConfigModePtrOutputWithContext(ctx context.Context) ModelInferenceExecutionConfigModePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ModelInferenceExecutionConfigMode) *ModelInferenceExecutionConfigMode {
+		return &v
+	}).(ModelInferenceExecutionConfigModePtrOutput)
+}
+
+func (o ModelInferenceExecutionConfigModeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ModelInferenceExecutionConfigModeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ModelInferenceExecutionConfigMode) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ModelInferenceExecutionConfigModeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ModelInferenceExecutionConfigModeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ModelInferenceExecutionConfigMode) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ModelInferenceExecutionConfigModePtrOutput struct{ *pulumi.OutputState }
+
+func (ModelInferenceExecutionConfigModePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelInferenceExecutionConfigMode)(nil)).Elem()
+}
+
+func (o ModelInferenceExecutionConfigModePtrOutput) ToModelInferenceExecutionConfigModePtrOutput() ModelInferenceExecutionConfigModePtrOutput {
+	return o
+}
+
+func (o ModelInferenceExecutionConfigModePtrOutput) ToModelInferenceExecutionConfigModePtrOutputWithContext(ctx context.Context) ModelInferenceExecutionConfigModePtrOutput {
+	return o
+}
+
+func (o ModelInferenceExecutionConfigModePtrOutput) Elem() ModelInferenceExecutionConfigModeOutput {
+	return o.ApplyT(func(v *ModelInferenceExecutionConfigMode) ModelInferenceExecutionConfigMode {
+		if v != nil {
+			return *v
+		}
+		var ret ModelInferenceExecutionConfigMode
+		return ret
+	}).(ModelInferenceExecutionConfigModeOutput)
+}
+
+func (o ModelInferenceExecutionConfigModePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ModelInferenceExecutionConfigModePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ModelInferenceExecutionConfigMode) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ModelInferenceExecutionConfigModeInput is an input type that accepts values of the ModelInferenceExecutionConfigMode enum
+// A concrete instance of `ModelInferenceExecutionConfigModeInput` can be one of the following:
+//
+//	ModelInferenceExecutionConfigModeSerial
+//	ModelInferenceExecutionConfigModeDirect
+type ModelInferenceExecutionConfigModeInput interface {
+	pulumi.Input
+
+	ToModelInferenceExecutionConfigModeOutput() ModelInferenceExecutionConfigModeOutput
+	ToModelInferenceExecutionConfigModeOutputWithContext(context.Context) ModelInferenceExecutionConfigModeOutput
+}
+
+var modelInferenceExecutionConfigModePtrType = reflect.TypeOf((**ModelInferenceExecutionConfigMode)(nil)).Elem()
+
+type ModelInferenceExecutionConfigModePtrInput interface {
+	pulumi.Input
+
+	ToModelInferenceExecutionConfigModePtrOutput() ModelInferenceExecutionConfigModePtrOutput
+	ToModelInferenceExecutionConfigModePtrOutputWithContext(context.Context) ModelInferenceExecutionConfigModePtrOutput
+}
+
+type modelInferenceExecutionConfigModePtr string
+
+func ModelInferenceExecutionConfigModePtr(v string) ModelInferenceExecutionConfigModePtrInput {
+	return (*modelInferenceExecutionConfigModePtr)(&v)
+}
+
+func (*modelInferenceExecutionConfigModePtr) ElementType() reflect.Type {
+	return modelInferenceExecutionConfigModePtrType
+}
+
+func (in *modelInferenceExecutionConfigModePtr) ToModelInferenceExecutionConfigModePtrOutput() ModelInferenceExecutionConfigModePtrOutput {
+	return pulumi.ToOutput(in).(ModelInferenceExecutionConfigModePtrOutput)
+}
+
+func (in *modelInferenceExecutionConfigModePtr) ToModelInferenceExecutionConfigModePtrOutputWithContext(ctx context.Context) ModelInferenceExecutionConfigModePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ModelInferenceExecutionConfigModePtrOutput)
+}
+
+// Whether to cache models for a multi-model endpoint. By default, multi-model endpoints cache models so that a model does not have to be loaded into memory each time it is invoked. Some use cases do not benefit from model caching. For example, if an endpoint hosts a large number of models that are each invoked infrequently, the endpoint might perform better if you disable model caching. To disable model caching, set the value of this parameter to `Disabled`.
+type ModelMultiModelConfigModelCacheSetting string
+
+const (
+	ModelMultiModelConfigModelCacheSettingEnabled  = ModelMultiModelConfigModelCacheSetting("Enabled")
+	ModelMultiModelConfigModelCacheSettingDisabled = ModelMultiModelConfigModelCacheSetting("Disabled")
+)
+
+func (ModelMultiModelConfigModelCacheSetting) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelMultiModelConfigModelCacheSetting)(nil)).Elem()
+}
+
+func (e ModelMultiModelConfigModelCacheSetting) ToModelMultiModelConfigModelCacheSettingOutput() ModelMultiModelConfigModelCacheSettingOutput {
+	return pulumi.ToOutput(e).(ModelMultiModelConfigModelCacheSettingOutput)
+}
+
+func (e ModelMultiModelConfigModelCacheSetting) ToModelMultiModelConfigModelCacheSettingOutputWithContext(ctx context.Context) ModelMultiModelConfigModelCacheSettingOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ModelMultiModelConfigModelCacheSettingOutput)
+}
+
+func (e ModelMultiModelConfigModelCacheSetting) ToModelMultiModelConfigModelCacheSettingPtrOutput() ModelMultiModelConfigModelCacheSettingPtrOutput {
+	return e.ToModelMultiModelConfigModelCacheSettingPtrOutputWithContext(context.Background())
+}
+
+func (e ModelMultiModelConfigModelCacheSetting) ToModelMultiModelConfigModelCacheSettingPtrOutputWithContext(ctx context.Context) ModelMultiModelConfigModelCacheSettingPtrOutput {
+	return ModelMultiModelConfigModelCacheSetting(e).ToModelMultiModelConfigModelCacheSettingOutputWithContext(ctx).ToModelMultiModelConfigModelCacheSettingPtrOutputWithContext(ctx)
+}
+
+func (e ModelMultiModelConfigModelCacheSetting) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ModelMultiModelConfigModelCacheSetting) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ModelMultiModelConfigModelCacheSetting) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ModelMultiModelConfigModelCacheSetting) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ModelMultiModelConfigModelCacheSettingOutput struct{ *pulumi.OutputState }
+
+func (ModelMultiModelConfigModelCacheSettingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelMultiModelConfigModelCacheSetting)(nil)).Elem()
+}
+
+func (o ModelMultiModelConfigModelCacheSettingOutput) ToModelMultiModelConfigModelCacheSettingOutput() ModelMultiModelConfigModelCacheSettingOutput {
+	return o
+}
+
+func (o ModelMultiModelConfigModelCacheSettingOutput) ToModelMultiModelConfigModelCacheSettingOutputWithContext(ctx context.Context) ModelMultiModelConfigModelCacheSettingOutput {
+	return o
+}
+
+func (o ModelMultiModelConfigModelCacheSettingOutput) ToModelMultiModelConfigModelCacheSettingPtrOutput() ModelMultiModelConfigModelCacheSettingPtrOutput {
+	return o.ToModelMultiModelConfigModelCacheSettingPtrOutputWithContext(context.Background())
+}
+
+func (o ModelMultiModelConfigModelCacheSettingOutput) ToModelMultiModelConfigModelCacheSettingPtrOutputWithContext(ctx context.Context) ModelMultiModelConfigModelCacheSettingPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ModelMultiModelConfigModelCacheSetting) *ModelMultiModelConfigModelCacheSetting {
+		return &v
+	}).(ModelMultiModelConfigModelCacheSettingPtrOutput)
+}
+
+func (o ModelMultiModelConfigModelCacheSettingOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ModelMultiModelConfigModelCacheSettingOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ModelMultiModelConfigModelCacheSetting) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ModelMultiModelConfigModelCacheSettingOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ModelMultiModelConfigModelCacheSettingOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ModelMultiModelConfigModelCacheSetting) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ModelMultiModelConfigModelCacheSettingPtrOutput struct{ *pulumi.OutputState }
+
+func (ModelMultiModelConfigModelCacheSettingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelMultiModelConfigModelCacheSetting)(nil)).Elem()
+}
+
+func (o ModelMultiModelConfigModelCacheSettingPtrOutput) ToModelMultiModelConfigModelCacheSettingPtrOutput() ModelMultiModelConfigModelCacheSettingPtrOutput {
+	return o
+}
+
+func (o ModelMultiModelConfigModelCacheSettingPtrOutput) ToModelMultiModelConfigModelCacheSettingPtrOutputWithContext(ctx context.Context) ModelMultiModelConfigModelCacheSettingPtrOutput {
+	return o
+}
+
+func (o ModelMultiModelConfigModelCacheSettingPtrOutput) Elem() ModelMultiModelConfigModelCacheSettingOutput {
+	return o.ApplyT(func(v *ModelMultiModelConfigModelCacheSetting) ModelMultiModelConfigModelCacheSetting {
+		if v != nil {
+			return *v
+		}
+		var ret ModelMultiModelConfigModelCacheSetting
+		return ret
+	}).(ModelMultiModelConfigModelCacheSettingOutput)
+}
+
+func (o ModelMultiModelConfigModelCacheSettingPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ModelMultiModelConfigModelCacheSettingPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ModelMultiModelConfigModelCacheSetting) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ModelMultiModelConfigModelCacheSettingInput is an input type that accepts values of the ModelMultiModelConfigModelCacheSetting enum
+// A concrete instance of `ModelMultiModelConfigModelCacheSettingInput` can be one of the following:
+//
+//	ModelMultiModelConfigModelCacheSettingEnabled
+//	ModelMultiModelConfigModelCacheSettingDisabled
+type ModelMultiModelConfigModelCacheSettingInput interface {
+	pulumi.Input
+
+	ToModelMultiModelConfigModelCacheSettingOutput() ModelMultiModelConfigModelCacheSettingOutput
+	ToModelMultiModelConfigModelCacheSettingOutputWithContext(context.Context) ModelMultiModelConfigModelCacheSettingOutput
+}
+
+var modelMultiModelConfigModelCacheSettingPtrType = reflect.TypeOf((**ModelMultiModelConfigModelCacheSetting)(nil)).Elem()
+
+type ModelMultiModelConfigModelCacheSettingPtrInput interface {
+	pulumi.Input
+
+	ToModelMultiModelConfigModelCacheSettingPtrOutput() ModelMultiModelConfigModelCacheSettingPtrOutput
+	ToModelMultiModelConfigModelCacheSettingPtrOutputWithContext(context.Context) ModelMultiModelConfigModelCacheSettingPtrOutput
+}
+
+type modelMultiModelConfigModelCacheSettingPtr string
+
+func ModelMultiModelConfigModelCacheSettingPtr(v string) ModelMultiModelConfigModelCacheSettingPtrInput {
+	return (*modelMultiModelConfigModelCacheSettingPtr)(&v)
+}
+
+func (*modelMultiModelConfigModelCacheSettingPtr) ElementType() reflect.Type {
+	return modelMultiModelConfigModelCacheSettingPtrType
+}
+
+func (in *modelMultiModelConfigModelCacheSettingPtr) ToModelMultiModelConfigModelCacheSettingPtrOutput() ModelMultiModelConfigModelCacheSettingPtrOutput {
+	return pulumi.ToOutput(in).(ModelMultiModelConfigModelCacheSettingPtrOutput)
+}
+
+func (in *modelMultiModelConfigModelCacheSettingPtr) ToModelMultiModelConfigModelCacheSettingPtrOutputWithContext(ctx context.Context) ModelMultiModelConfigModelCacheSettingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ModelMultiModelConfigModelCacheSettingPtrOutput)
 }
 
 // The status of a modelpackage group job.
@@ -15204,6 +15868,338 @@ func (in *modelQualityJobDefinitionS3OutputS3UploadModePtr) ToModelQualityJobDef
 
 func (in *modelQualityJobDefinitionS3OutputS3UploadModePtr) ToModelQualityJobDefinitionS3OutputS3UploadModePtrOutputWithContext(ctx context.Context) ModelQualityJobDefinitionS3OutputS3UploadModePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ModelQualityJobDefinitionS3OutputS3UploadModePtrOutput)
+}
+
+// Specifies how the ML model data is prepared.
+type ModelS3DataSourceCompressionType string
+
+const (
+	ModelS3DataSourceCompressionTypeNone = ModelS3DataSourceCompressionType("None")
+	ModelS3DataSourceCompressionTypeGzip = ModelS3DataSourceCompressionType("Gzip")
+)
+
+func (ModelS3DataSourceCompressionType) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelS3DataSourceCompressionType)(nil)).Elem()
+}
+
+func (e ModelS3DataSourceCompressionType) ToModelS3DataSourceCompressionTypeOutput() ModelS3DataSourceCompressionTypeOutput {
+	return pulumi.ToOutput(e).(ModelS3DataSourceCompressionTypeOutput)
+}
+
+func (e ModelS3DataSourceCompressionType) ToModelS3DataSourceCompressionTypeOutputWithContext(ctx context.Context) ModelS3DataSourceCompressionTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ModelS3DataSourceCompressionTypeOutput)
+}
+
+func (e ModelS3DataSourceCompressionType) ToModelS3DataSourceCompressionTypePtrOutput() ModelS3DataSourceCompressionTypePtrOutput {
+	return e.ToModelS3DataSourceCompressionTypePtrOutputWithContext(context.Background())
+}
+
+func (e ModelS3DataSourceCompressionType) ToModelS3DataSourceCompressionTypePtrOutputWithContext(ctx context.Context) ModelS3DataSourceCompressionTypePtrOutput {
+	return ModelS3DataSourceCompressionType(e).ToModelS3DataSourceCompressionTypeOutputWithContext(ctx).ToModelS3DataSourceCompressionTypePtrOutputWithContext(ctx)
+}
+
+func (e ModelS3DataSourceCompressionType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ModelS3DataSourceCompressionType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ModelS3DataSourceCompressionType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ModelS3DataSourceCompressionType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ModelS3DataSourceCompressionTypeOutput struct{ *pulumi.OutputState }
+
+func (ModelS3DataSourceCompressionTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelS3DataSourceCompressionType)(nil)).Elem()
+}
+
+func (o ModelS3DataSourceCompressionTypeOutput) ToModelS3DataSourceCompressionTypeOutput() ModelS3DataSourceCompressionTypeOutput {
+	return o
+}
+
+func (o ModelS3DataSourceCompressionTypeOutput) ToModelS3DataSourceCompressionTypeOutputWithContext(ctx context.Context) ModelS3DataSourceCompressionTypeOutput {
+	return o
+}
+
+func (o ModelS3DataSourceCompressionTypeOutput) ToModelS3DataSourceCompressionTypePtrOutput() ModelS3DataSourceCompressionTypePtrOutput {
+	return o.ToModelS3DataSourceCompressionTypePtrOutputWithContext(context.Background())
+}
+
+func (o ModelS3DataSourceCompressionTypeOutput) ToModelS3DataSourceCompressionTypePtrOutputWithContext(ctx context.Context) ModelS3DataSourceCompressionTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ModelS3DataSourceCompressionType) *ModelS3DataSourceCompressionType {
+		return &v
+	}).(ModelS3DataSourceCompressionTypePtrOutput)
+}
+
+func (o ModelS3DataSourceCompressionTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ModelS3DataSourceCompressionTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ModelS3DataSourceCompressionType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ModelS3DataSourceCompressionTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ModelS3DataSourceCompressionTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ModelS3DataSourceCompressionType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ModelS3DataSourceCompressionTypePtrOutput struct{ *pulumi.OutputState }
+
+func (ModelS3DataSourceCompressionTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelS3DataSourceCompressionType)(nil)).Elem()
+}
+
+func (o ModelS3DataSourceCompressionTypePtrOutput) ToModelS3DataSourceCompressionTypePtrOutput() ModelS3DataSourceCompressionTypePtrOutput {
+	return o
+}
+
+func (o ModelS3DataSourceCompressionTypePtrOutput) ToModelS3DataSourceCompressionTypePtrOutputWithContext(ctx context.Context) ModelS3DataSourceCompressionTypePtrOutput {
+	return o
+}
+
+func (o ModelS3DataSourceCompressionTypePtrOutput) Elem() ModelS3DataSourceCompressionTypeOutput {
+	return o.ApplyT(func(v *ModelS3DataSourceCompressionType) ModelS3DataSourceCompressionType {
+		if v != nil {
+			return *v
+		}
+		var ret ModelS3DataSourceCompressionType
+		return ret
+	}).(ModelS3DataSourceCompressionTypeOutput)
+}
+
+func (o ModelS3DataSourceCompressionTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ModelS3DataSourceCompressionTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ModelS3DataSourceCompressionType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ModelS3DataSourceCompressionTypeInput is an input type that accepts values of the ModelS3DataSourceCompressionType enum
+// A concrete instance of `ModelS3DataSourceCompressionTypeInput` can be one of the following:
+//
+//	ModelS3DataSourceCompressionTypeNone
+//	ModelS3DataSourceCompressionTypeGzip
+type ModelS3DataSourceCompressionTypeInput interface {
+	pulumi.Input
+
+	ToModelS3DataSourceCompressionTypeOutput() ModelS3DataSourceCompressionTypeOutput
+	ToModelS3DataSourceCompressionTypeOutputWithContext(context.Context) ModelS3DataSourceCompressionTypeOutput
+}
+
+var modelS3DataSourceCompressionTypePtrType = reflect.TypeOf((**ModelS3DataSourceCompressionType)(nil)).Elem()
+
+type ModelS3DataSourceCompressionTypePtrInput interface {
+	pulumi.Input
+
+	ToModelS3DataSourceCompressionTypePtrOutput() ModelS3DataSourceCompressionTypePtrOutput
+	ToModelS3DataSourceCompressionTypePtrOutputWithContext(context.Context) ModelS3DataSourceCompressionTypePtrOutput
+}
+
+type modelS3DataSourceCompressionTypePtr string
+
+func ModelS3DataSourceCompressionTypePtr(v string) ModelS3DataSourceCompressionTypePtrInput {
+	return (*modelS3DataSourceCompressionTypePtr)(&v)
+}
+
+func (*modelS3DataSourceCompressionTypePtr) ElementType() reflect.Type {
+	return modelS3DataSourceCompressionTypePtrType
+}
+
+func (in *modelS3DataSourceCompressionTypePtr) ToModelS3DataSourceCompressionTypePtrOutput() ModelS3DataSourceCompressionTypePtrOutput {
+	return pulumi.ToOutput(in).(ModelS3DataSourceCompressionTypePtrOutput)
+}
+
+func (in *modelS3DataSourceCompressionTypePtr) ToModelS3DataSourceCompressionTypePtrOutputWithContext(ctx context.Context) ModelS3DataSourceCompressionTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ModelS3DataSourceCompressionTypePtrOutput)
+}
+
+// Specifies the type of ML model data to deploy.
+type ModelS3DataSourceS3DataType string
+
+const (
+	ModelS3DataSourceS3DataTypeS3Prefix = ModelS3DataSourceS3DataType("S3Prefix")
+	ModelS3DataSourceS3DataTypeS3Object = ModelS3DataSourceS3DataType("S3Object")
+)
+
+func (ModelS3DataSourceS3DataType) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelS3DataSourceS3DataType)(nil)).Elem()
+}
+
+func (e ModelS3DataSourceS3DataType) ToModelS3DataSourceS3DataTypeOutput() ModelS3DataSourceS3DataTypeOutput {
+	return pulumi.ToOutput(e).(ModelS3DataSourceS3DataTypeOutput)
+}
+
+func (e ModelS3DataSourceS3DataType) ToModelS3DataSourceS3DataTypeOutputWithContext(ctx context.Context) ModelS3DataSourceS3DataTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ModelS3DataSourceS3DataTypeOutput)
+}
+
+func (e ModelS3DataSourceS3DataType) ToModelS3DataSourceS3DataTypePtrOutput() ModelS3DataSourceS3DataTypePtrOutput {
+	return e.ToModelS3DataSourceS3DataTypePtrOutputWithContext(context.Background())
+}
+
+func (e ModelS3DataSourceS3DataType) ToModelS3DataSourceS3DataTypePtrOutputWithContext(ctx context.Context) ModelS3DataSourceS3DataTypePtrOutput {
+	return ModelS3DataSourceS3DataType(e).ToModelS3DataSourceS3DataTypeOutputWithContext(ctx).ToModelS3DataSourceS3DataTypePtrOutputWithContext(ctx)
+}
+
+func (e ModelS3DataSourceS3DataType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ModelS3DataSourceS3DataType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ModelS3DataSourceS3DataType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ModelS3DataSourceS3DataType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ModelS3DataSourceS3DataTypeOutput struct{ *pulumi.OutputState }
+
+func (ModelS3DataSourceS3DataTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelS3DataSourceS3DataType)(nil)).Elem()
+}
+
+func (o ModelS3DataSourceS3DataTypeOutput) ToModelS3DataSourceS3DataTypeOutput() ModelS3DataSourceS3DataTypeOutput {
+	return o
+}
+
+func (o ModelS3DataSourceS3DataTypeOutput) ToModelS3DataSourceS3DataTypeOutputWithContext(ctx context.Context) ModelS3DataSourceS3DataTypeOutput {
+	return o
+}
+
+func (o ModelS3DataSourceS3DataTypeOutput) ToModelS3DataSourceS3DataTypePtrOutput() ModelS3DataSourceS3DataTypePtrOutput {
+	return o.ToModelS3DataSourceS3DataTypePtrOutputWithContext(context.Background())
+}
+
+func (o ModelS3DataSourceS3DataTypeOutput) ToModelS3DataSourceS3DataTypePtrOutputWithContext(ctx context.Context) ModelS3DataSourceS3DataTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ModelS3DataSourceS3DataType) *ModelS3DataSourceS3DataType {
+		return &v
+	}).(ModelS3DataSourceS3DataTypePtrOutput)
+}
+
+func (o ModelS3DataSourceS3DataTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ModelS3DataSourceS3DataTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ModelS3DataSourceS3DataType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ModelS3DataSourceS3DataTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ModelS3DataSourceS3DataTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ModelS3DataSourceS3DataType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ModelS3DataSourceS3DataTypePtrOutput struct{ *pulumi.OutputState }
+
+func (ModelS3DataSourceS3DataTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelS3DataSourceS3DataType)(nil)).Elem()
+}
+
+func (o ModelS3DataSourceS3DataTypePtrOutput) ToModelS3DataSourceS3DataTypePtrOutput() ModelS3DataSourceS3DataTypePtrOutput {
+	return o
+}
+
+func (o ModelS3DataSourceS3DataTypePtrOutput) ToModelS3DataSourceS3DataTypePtrOutputWithContext(ctx context.Context) ModelS3DataSourceS3DataTypePtrOutput {
+	return o
+}
+
+func (o ModelS3DataSourceS3DataTypePtrOutput) Elem() ModelS3DataSourceS3DataTypeOutput {
+	return o.ApplyT(func(v *ModelS3DataSourceS3DataType) ModelS3DataSourceS3DataType {
+		if v != nil {
+			return *v
+		}
+		var ret ModelS3DataSourceS3DataType
+		return ret
+	}).(ModelS3DataSourceS3DataTypeOutput)
+}
+
+func (o ModelS3DataSourceS3DataTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ModelS3DataSourceS3DataTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ModelS3DataSourceS3DataType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ModelS3DataSourceS3DataTypeInput is an input type that accepts values of the ModelS3DataSourceS3DataType enum
+// A concrete instance of `ModelS3DataSourceS3DataTypeInput` can be one of the following:
+//
+//	ModelS3DataSourceS3DataTypeS3Prefix
+//	ModelS3DataSourceS3DataTypeS3Object
+type ModelS3DataSourceS3DataTypeInput interface {
+	pulumi.Input
+
+	ToModelS3DataSourceS3DataTypeOutput() ModelS3DataSourceS3DataTypeOutput
+	ToModelS3DataSourceS3DataTypeOutputWithContext(context.Context) ModelS3DataSourceS3DataTypeOutput
+}
+
+var modelS3DataSourceS3DataTypePtrType = reflect.TypeOf((**ModelS3DataSourceS3DataType)(nil)).Elem()
+
+type ModelS3DataSourceS3DataTypePtrInput interface {
+	pulumi.Input
+
+	ToModelS3DataSourceS3DataTypePtrOutput() ModelS3DataSourceS3DataTypePtrOutput
+	ToModelS3DataSourceS3DataTypePtrOutputWithContext(context.Context) ModelS3DataSourceS3DataTypePtrOutput
+}
+
+type modelS3DataSourceS3DataTypePtr string
+
+func ModelS3DataSourceS3DataTypePtr(v string) ModelS3DataSourceS3DataTypePtrInput {
+	return (*modelS3DataSourceS3DataTypePtr)(&v)
+}
+
+func (*modelS3DataSourceS3DataTypePtr) ElementType() reflect.Type {
+	return modelS3DataSourceS3DataTypePtrType
+}
+
+func (in *modelS3DataSourceS3DataTypePtr) ToModelS3DataSourceS3DataTypePtrOutput() ModelS3DataSourceS3DataTypePtrOutput {
+	return pulumi.ToOutput(in).(ModelS3DataSourceS3DataTypePtrOutput)
+}
+
+func (in *modelS3DataSourceS3DataTypePtr) ToModelS3DataSourceS3DataTypePtrOutputWithContext(ctx context.Context) ModelS3DataSourceS3DataTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ModelS3DataSourceS3DataTypePtrOutput)
 }
 
 // Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
@@ -22923,6 +23919,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelCardSimpleMetricTypePtrInput)(nil)).Elem(), ModelCardSimpleMetricType("number"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelCardStatusInput)(nil)).Elem(), ModelCardStatus("Draft"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelCardStatusPtrInput)(nil)).Elem(), ModelCardStatus("Draft"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelContainerDefinitionModeInput)(nil)).Elem(), ModelContainerDefinitionMode("SingleModel"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelContainerDefinitionModePtrInput)(nil)).Elem(), ModelContainerDefinitionMode("SingleModel"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelExplainabilityJobDefinitionBatchTransformInputS3DataDistributionTypeInput)(nil)).Elem(), ModelExplainabilityJobDefinitionBatchTransformInputS3DataDistributionType("FullyReplicated"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelExplainabilityJobDefinitionBatchTransformInputS3DataDistributionTypePtrInput)(nil)).Elem(), ModelExplainabilityJobDefinitionBatchTransformInputS3DataDistributionType("FullyReplicated"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelExplainabilityJobDefinitionBatchTransformInputS3InputModeInput)(nil)).Elem(), ModelExplainabilityJobDefinitionBatchTransformInputS3InputMode("Pipe"))
@@ -22933,6 +23931,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelExplainabilityJobDefinitionEndpointInputS3InputModePtrInput)(nil)).Elem(), ModelExplainabilityJobDefinitionEndpointInputS3InputMode("Pipe"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelExplainabilityJobDefinitionS3OutputS3UploadModeInput)(nil)).Elem(), ModelExplainabilityJobDefinitionS3OutputS3UploadMode("Continuous"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelExplainabilityJobDefinitionS3OutputS3UploadModePtrInput)(nil)).Elem(), ModelExplainabilityJobDefinitionS3OutputS3UploadMode("Continuous"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelImageConfigRepositoryAccessModeInput)(nil)).Elem(), ModelImageConfigRepositoryAccessMode("Platform"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelImageConfigRepositoryAccessModePtrInput)(nil)).Elem(), ModelImageConfigRepositoryAccessMode("Platform"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelInferenceExecutionConfigModeInput)(nil)).Elem(), ModelInferenceExecutionConfigMode("Serial"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelInferenceExecutionConfigModePtrInput)(nil)).Elem(), ModelInferenceExecutionConfigMode("Serial"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelMultiModelConfigModelCacheSettingInput)(nil)).Elem(), ModelMultiModelConfigModelCacheSetting("Enabled"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelMultiModelConfigModelCacheSettingPtrInput)(nil)).Elem(), ModelMultiModelConfigModelCacheSetting("Enabled"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelPackageModelApprovalStatusInput)(nil)).Elem(), ModelPackageModelApprovalStatus("Approved"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelPackageModelApprovalStatusPtrInput)(nil)).Elem(), ModelPackageModelApprovalStatus("Approved"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelPackageModelCardModelCardStatusInput)(nil)).Elem(), ModelPackageModelCardModelCardStatus("Draft"))
@@ -22967,6 +23971,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelQualityJobDefinitionProblemTypePtrInput)(nil)).Elem(), ModelQualityJobDefinitionProblemType("BinaryClassification"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelQualityJobDefinitionS3OutputS3UploadModeInput)(nil)).Elem(), ModelQualityJobDefinitionS3OutputS3UploadMode("Continuous"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelQualityJobDefinitionS3OutputS3UploadModePtrInput)(nil)).Elem(), ModelQualityJobDefinitionS3OutputS3UploadMode("Continuous"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelS3DataSourceCompressionTypeInput)(nil)).Elem(), ModelS3DataSourceCompressionType("None"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelS3DataSourceCompressionTypePtrInput)(nil)).Elem(), ModelS3DataSourceCompressionType("None"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelS3DataSourceS3DataTypeInput)(nil)).Elem(), ModelS3DataSourceS3DataType("S3Prefix"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelS3DataSourceS3DataTypePtrInput)(nil)).Elem(), ModelS3DataSourceS3DataType("S3Prefix"))
 	pulumi.RegisterInputType(reflect.TypeOf((*MonitoringScheduleBatchTransformInputS3DataDistributionTypeInput)(nil)).Elem(), MonitoringScheduleBatchTransformInputS3DataDistributionType("FullyReplicated"))
 	pulumi.RegisterInputType(reflect.TypeOf((*MonitoringScheduleBatchTransformInputS3DataDistributionTypePtrInput)(nil)).Elem(), MonitoringScheduleBatchTransformInputS3DataDistributionType("FullyReplicated"))
 	pulumi.RegisterInputType(reflect.TypeOf((*MonitoringScheduleBatchTransformInputS3InputModeInput)(nil)).Elem(), MonitoringScheduleBatchTransformInputS3InputMode("Pipe"))
@@ -23180,6 +24188,8 @@ func init() {
 	pulumi.RegisterOutputType(ModelCardSimpleMetricTypePtrOutput{})
 	pulumi.RegisterOutputType(ModelCardStatusOutput{})
 	pulumi.RegisterOutputType(ModelCardStatusPtrOutput{})
+	pulumi.RegisterOutputType(ModelContainerDefinitionModeOutput{})
+	pulumi.RegisterOutputType(ModelContainerDefinitionModePtrOutput{})
 	pulumi.RegisterOutputType(ModelExplainabilityJobDefinitionBatchTransformInputS3DataDistributionTypeOutput{})
 	pulumi.RegisterOutputType(ModelExplainabilityJobDefinitionBatchTransformInputS3DataDistributionTypePtrOutput{})
 	pulumi.RegisterOutputType(ModelExplainabilityJobDefinitionBatchTransformInputS3InputModeOutput{})
@@ -23190,6 +24200,12 @@ func init() {
 	pulumi.RegisterOutputType(ModelExplainabilityJobDefinitionEndpointInputS3InputModePtrOutput{})
 	pulumi.RegisterOutputType(ModelExplainabilityJobDefinitionS3OutputS3UploadModeOutput{})
 	pulumi.RegisterOutputType(ModelExplainabilityJobDefinitionS3OutputS3UploadModePtrOutput{})
+	pulumi.RegisterOutputType(ModelImageConfigRepositoryAccessModeOutput{})
+	pulumi.RegisterOutputType(ModelImageConfigRepositoryAccessModePtrOutput{})
+	pulumi.RegisterOutputType(ModelInferenceExecutionConfigModeOutput{})
+	pulumi.RegisterOutputType(ModelInferenceExecutionConfigModePtrOutput{})
+	pulumi.RegisterOutputType(ModelMultiModelConfigModelCacheSettingOutput{})
+	pulumi.RegisterOutputType(ModelMultiModelConfigModelCacheSettingPtrOutput{})
 	pulumi.RegisterOutputType(ModelPackageGroupStatusOutput{})
 	pulumi.RegisterOutputType(ModelPackageGroupStatusPtrOutput{})
 	pulumi.RegisterOutputType(ModelPackageModelApprovalStatusOutput{})
@@ -23228,6 +24244,10 @@ func init() {
 	pulumi.RegisterOutputType(ModelQualityJobDefinitionProblemTypePtrOutput{})
 	pulumi.RegisterOutputType(ModelQualityJobDefinitionS3OutputS3UploadModeOutput{})
 	pulumi.RegisterOutputType(ModelQualityJobDefinitionS3OutputS3UploadModePtrOutput{})
+	pulumi.RegisterOutputType(ModelS3DataSourceCompressionTypeOutput{})
+	pulumi.RegisterOutputType(ModelS3DataSourceCompressionTypePtrOutput{})
+	pulumi.RegisterOutputType(ModelS3DataSourceS3DataTypeOutput{})
+	pulumi.RegisterOutputType(ModelS3DataSourceS3DataTypePtrOutput{})
 	pulumi.RegisterOutputType(MonitoringScheduleBatchTransformInputS3DataDistributionTypeOutput{})
 	pulumi.RegisterOutputType(MonitoringScheduleBatchTransformInputS3DataDistributionTypePtrOutput{})
 	pulumi.RegisterOutputType(MonitoringScheduleBatchTransformInputS3InputModeOutput{})

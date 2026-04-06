@@ -98,6 +98,10 @@ namespace Pulumi.AwsNative.Eks
         /// The Kubernetes version to use for your managed nodes.
         /// </summary>
         public readonly string? Version;
+        /// <summary>
+        /// The warm pool configuration details for the Auto Scaling group that is created for the node group.
+        /// </summary>
+        public readonly Outputs.NodegroupWarmPoolConfig? WarmPoolConfig;
 
         [OutputConstructor]
         private GetNodegroupResult(
@@ -121,7 +125,9 @@ namespace Pulumi.AwsNative.Eks
 
             Outputs.NodegroupUpdateConfig? updateConfig,
 
-            string? version)
+            string? version,
+
+            Outputs.NodegroupWarmPoolConfig? warmPoolConfig)
         {
             Arn = arn;
             Id = id;
@@ -134,6 +140,7 @@ namespace Pulumi.AwsNative.Eks
             Taints = taints;
             UpdateConfig = updateConfig;
             Version = version;
+            WarmPoolConfig = warmPoolConfig;
         }
     }
 }

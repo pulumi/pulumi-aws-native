@@ -880,7 +880,8 @@ type CapacityProviderInstanceLaunchTemplate struct {
 	// - Instance requirements such as vCPU count, memory, network performance, and accelerator specifications
 	//
 	// Amazon ECS automatically selects the instances that match the specified criteria.
-	InstanceRequirements *CapacityProviderInstanceRequirementsRequest `pulumi:"instanceRequirements"`
+	InstanceRequirements      *CapacityProviderInstanceRequirementsRequest               `pulumi:"instanceRequirements"`
+	LocalStorageConfiguration *CapacityProviderManagedInstancesLocalStorageConfiguration `pulumi:"localStorageConfiguration"`
 	// CloudWatch provides two categories of monitoring: basic monitoring and detailed monitoring. By default, your managed instance is configured for basic monitoring. You can optionally enable detailed monitoring to help you more quickly identify and act on operational issues. You can enable or turn off detailed monitoring at launch or when the managed instance is running or stopped. For more information, see [Detailed monitoring for Amazon ECS Managed Instances](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/detailed-monitoring-managed-instances.html) in the Amazon ECS Developer Guide.
 	Monitoring *CapacityProviderManagedInstancesMonitoringOptions `pulumi:"monitoring"`
 	// The network configuration for Amazon ECS Managed Instances. This specifies the subnets and security groups that instances use for network connectivity.
@@ -925,7 +926,8 @@ type CapacityProviderInstanceLaunchTemplateArgs struct {
 	// - Instance requirements such as vCPU count, memory, network performance, and accelerator specifications
 	//
 	// Amazon ECS automatically selects the instances that match the specified criteria.
-	InstanceRequirements CapacityProviderInstanceRequirementsRequestPtrInput `pulumi:"instanceRequirements"`
+	InstanceRequirements      CapacityProviderInstanceRequirementsRequestPtrInput               `pulumi:"instanceRequirements"`
+	LocalStorageConfiguration CapacityProviderManagedInstancesLocalStorageConfigurationPtrInput `pulumi:"localStorageConfiguration"`
 	// CloudWatch provides two categories of monitoring: basic monitoring and detailed monitoring. By default, your managed instance is configured for basic monitoring. You can optionally enable detailed monitoring to help you more quickly identify and act on operational issues. You can enable or turn off detailed monitoring at launch or when the managed instance is running or stopped. For more information, see [Detailed monitoring for Amazon ECS Managed Instances](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/detailed-monitoring-managed-instances.html) in the Amazon ECS Developer Guide.
 	Monitoring CapacityProviderManagedInstancesMonitoringOptionsPtrInput `pulumi:"monitoring"`
 	// The network configuration for Amazon ECS Managed Instances. This specifies the subnets and security groups that instances use for network connectivity.
@@ -1060,6 +1062,12 @@ func (o CapacityProviderInstanceLaunchTemplateOutput) InstanceRequirements() Cap
 	}).(CapacityProviderInstanceRequirementsRequestPtrOutput)
 }
 
+func (o CapacityProviderInstanceLaunchTemplateOutput) LocalStorageConfiguration() CapacityProviderManagedInstancesLocalStorageConfigurationPtrOutput {
+	return o.ApplyT(func(v CapacityProviderInstanceLaunchTemplate) *CapacityProviderManagedInstancesLocalStorageConfiguration {
+		return v.LocalStorageConfiguration
+	}).(CapacityProviderManagedInstancesLocalStorageConfigurationPtrOutput)
+}
+
 // CloudWatch provides two categories of monitoring: basic monitoring and detailed monitoring. By default, your managed instance is configured for basic monitoring. You can optionally enable detailed monitoring to help you more quickly identify and act on operational issues. You can enable or turn off detailed monitoring at launch or when the managed instance is running or stopped. For more information, see [Detailed monitoring for Amazon ECS Managed Instances](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/detailed-monitoring-managed-instances.html) in the Amazon ECS Developer Guide.
 func (o CapacityProviderInstanceLaunchTemplateOutput) Monitoring() CapacityProviderManagedInstancesMonitoringOptionsPtrOutput {
 	return o.ApplyT(func(v CapacityProviderInstanceLaunchTemplate) *CapacityProviderManagedInstancesMonitoringOptions {
@@ -1176,6 +1184,15 @@ func (o CapacityProviderInstanceLaunchTemplatePtrOutput) InstanceRequirements() 
 		}
 		return v.InstanceRequirements
 	}).(CapacityProviderInstanceRequirementsRequestPtrOutput)
+}
+
+func (o CapacityProviderInstanceLaunchTemplatePtrOutput) LocalStorageConfiguration() CapacityProviderManagedInstancesLocalStorageConfigurationPtrOutput {
+	return o.ApplyT(func(v *CapacityProviderInstanceLaunchTemplate) *CapacityProviderManagedInstancesLocalStorageConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.LocalStorageConfiguration
+	}).(CapacityProviderManagedInstancesLocalStorageConfigurationPtrOutput)
 }
 
 // CloudWatch provides two categories of monitoring: basic monitoring and detailed monitoring. By default, your managed instance is configured for basic monitoring. You can optionally enable detailed monitoring to help you more quickly identify and act on operational issues. You can enable or turn off detailed monitoring at launch or when the managed instance is running or stopped. For more information, see [Detailed monitoring for Amazon ECS Managed Instances](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/detailed-monitoring-managed-instances.html) in the Amazon ECS Developer Guide.
@@ -1822,6 +1839,139 @@ func (o CapacityProviderInstanceRequirementsRequestPtrOutput) VCpuCount() Capaci
 		}
 		return &v.VCpuCount
 	}).(CapacityProviderVCpuCountRangeRequestPtrOutput)
+}
+
+type CapacityProviderManagedInstancesLocalStorageConfiguration struct {
+	UseLocalStorage *bool `pulumi:"useLocalStorage"`
+}
+
+// CapacityProviderManagedInstancesLocalStorageConfigurationInput is an input type that accepts CapacityProviderManagedInstancesLocalStorageConfigurationArgs and CapacityProviderManagedInstancesLocalStorageConfigurationOutput values.
+// You can construct a concrete instance of `CapacityProviderManagedInstancesLocalStorageConfigurationInput` via:
+//
+//	CapacityProviderManagedInstancesLocalStorageConfigurationArgs{...}
+type CapacityProviderManagedInstancesLocalStorageConfigurationInput interface {
+	pulumi.Input
+
+	ToCapacityProviderManagedInstancesLocalStorageConfigurationOutput() CapacityProviderManagedInstancesLocalStorageConfigurationOutput
+	ToCapacityProviderManagedInstancesLocalStorageConfigurationOutputWithContext(context.Context) CapacityProviderManagedInstancesLocalStorageConfigurationOutput
+}
+
+type CapacityProviderManagedInstancesLocalStorageConfigurationArgs struct {
+	UseLocalStorage pulumi.BoolPtrInput `pulumi:"useLocalStorage"`
+}
+
+func (CapacityProviderManagedInstancesLocalStorageConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityProviderManagedInstancesLocalStorageConfiguration)(nil)).Elem()
+}
+
+func (i CapacityProviderManagedInstancesLocalStorageConfigurationArgs) ToCapacityProviderManagedInstancesLocalStorageConfigurationOutput() CapacityProviderManagedInstancesLocalStorageConfigurationOutput {
+	return i.ToCapacityProviderManagedInstancesLocalStorageConfigurationOutputWithContext(context.Background())
+}
+
+func (i CapacityProviderManagedInstancesLocalStorageConfigurationArgs) ToCapacityProviderManagedInstancesLocalStorageConfigurationOutputWithContext(ctx context.Context) CapacityProviderManagedInstancesLocalStorageConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderManagedInstancesLocalStorageConfigurationOutput)
+}
+
+func (i CapacityProviderManagedInstancesLocalStorageConfigurationArgs) ToCapacityProviderManagedInstancesLocalStorageConfigurationPtrOutput() CapacityProviderManagedInstancesLocalStorageConfigurationPtrOutput {
+	return i.ToCapacityProviderManagedInstancesLocalStorageConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i CapacityProviderManagedInstancesLocalStorageConfigurationArgs) ToCapacityProviderManagedInstancesLocalStorageConfigurationPtrOutputWithContext(ctx context.Context) CapacityProviderManagedInstancesLocalStorageConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderManagedInstancesLocalStorageConfigurationOutput).ToCapacityProviderManagedInstancesLocalStorageConfigurationPtrOutputWithContext(ctx)
+}
+
+// CapacityProviderManagedInstancesLocalStorageConfigurationPtrInput is an input type that accepts CapacityProviderManagedInstancesLocalStorageConfigurationArgs, CapacityProviderManagedInstancesLocalStorageConfigurationPtr and CapacityProviderManagedInstancesLocalStorageConfigurationPtrOutput values.
+// You can construct a concrete instance of `CapacityProviderManagedInstancesLocalStorageConfigurationPtrInput` via:
+//
+//	        CapacityProviderManagedInstancesLocalStorageConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type CapacityProviderManagedInstancesLocalStorageConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToCapacityProviderManagedInstancesLocalStorageConfigurationPtrOutput() CapacityProviderManagedInstancesLocalStorageConfigurationPtrOutput
+	ToCapacityProviderManagedInstancesLocalStorageConfigurationPtrOutputWithContext(context.Context) CapacityProviderManagedInstancesLocalStorageConfigurationPtrOutput
+}
+
+type capacityProviderManagedInstancesLocalStorageConfigurationPtrType CapacityProviderManagedInstancesLocalStorageConfigurationArgs
+
+func CapacityProviderManagedInstancesLocalStorageConfigurationPtr(v *CapacityProviderManagedInstancesLocalStorageConfigurationArgs) CapacityProviderManagedInstancesLocalStorageConfigurationPtrInput {
+	return (*capacityProviderManagedInstancesLocalStorageConfigurationPtrType)(v)
+}
+
+func (*capacityProviderManagedInstancesLocalStorageConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CapacityProviderManagedInstancesLocalStorageConfiguration)(nil)).Elem()
+}
+
+func (i *capacityProviderManagedInstancesLocalStorageConfigurationPtrType) ToCapacityProviderManagedInstancesLocalStorageConfigurationPtrOutput() CapacityProviderManagedInstancesLocalStorageConfigurationPtrOutput {
+	return i.ToCapacityProviderManagedInstancesLocalStorageConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *capacityProviderManagedInstancesLocalStorageConfigurationPtrType) ToCapacityProviderManagedInstancesLocalStorageConfigurationPtrOutputWithContext(ctx context.Context) CapacityProviderManagedInstancesLocalStorageConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderManagedInstancesLocalStorageConfigurationPtrOutput)
+}
+
+type CapacityProviderManagedInstancesLocalStorageConfigurationOutput struct{ *pulumi.OutputState }
+
+func (CapacityProviderManagedInstancesLocalStorageConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityProviderManagedInstancesLocalStorageConfiguration)(nil)).Elem()
+}
+
+func (o CapacityProviderManagedInstancesLocalStorageConfigurationOutput) ToCapacityProviderManagedInstancesLocalStorageConfigurationOutput() CapacityProviderManagedInstancesLocalStorageConfigurationOutput {
+	return o
+}
+
+func (o CapacityProviderManagedInstancesLocalStorageConfigurationOutput) ToCapacityProviderManagedInstancesLocalStorageConfigurationOutputWithContext(ctx context.Context) CapacityProviderManagedInstancesLocalStorageConfigurationOutput {
+	return o
+}
+
+func (o CapacityProviderManagedInstancesLocalStorageConfigurationOutput) ToCapacityProviderManagedInstancesLocalStorageConfigurationPtrOutput() CapacityProviderManagedInstancesLocalStorageConfigurationPtrOutput {
+	return o.ToCapacityProviderManagedInstancesLocalStorageConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o CapacityProviderManagedInstancesLocalStorageConfigurationOutput) ToCapacityProviderManagedInstancesLocalStorageConfigurationPtrOutputWithContext(ctx context.Context) CapacityProviderManagedInstancesLocalStorageConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CapacityProviderManagedInstancesLocalStorageConfiguration) *CapacityProviderManagedInstancesLocalStorageConfiguration {
+		return &v
+	}).(CapacityProviderManagedInstancesLocalStorageConfigurationPtrOutput)
+}
+
+func (o CapacityProviderManagedInstancesLocalStorageConfigurationOutput) UseLocalStorage() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v CapacityProviderManagedInstancesLocalStorageConfiguration) *bool { return v.UseLocalStorage }).(pulumi.BoolPtrOutput)
+}
+
+type CapacityProviderManagedInstancesLocalStorageConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (CapacityProviderManagedInstancesLocalStorageConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CapacityProviderManagedInstancesLocalStorageConfiguration)(nil)).Elem()
+}
+
+func (o CapacityProviderManagedInstancesLocalStorageConfigurationPtrOutput) ToCapacityProviderManagedInstancesLocalStorageConfigurationPtrOutput() CapacityProviderManagedInstancesLocalStorageConfigurationPtrOutput {
+	return o
+}
+
+func (o CapacityProviderManagedInstancesLocalStorageConfigurationPtrOutput) ToCapacityProviderManagedInstancesLocalStorageConfigurationPtrOutputWithContext(ctx context.Context) CapacityProviderManagedInstancesLocalStorageConfigurationPtrOutput {
+	return o
+}
+
+func (o CapacityProviderManagedInstancesLocalStorageConfigurationPtrOutput) Elem() CapacityProviderManagedInstancesLocalStorageConfigurationOutput {
+	return o.ApplyT(func(v *CapacityProviderManagedInstancesLocalStorageConfiguration) CapacityProviderManagedInstancesLocalStorageConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret CapacityProviderManagedInstancesLocalStorageConfiguration
+		return ret
+	}).(CapacityProviderManagedInstancesLocalStorageConfigurationOutput)
+}
+
+func (o CapacityProviderManagedInstancesLocalStorageConfigurationPtrOutput) UseLocalStorage() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *CapacityProviderManagedInstancesLocalStorageConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.UseLocalStorage
+	}).(pulumi.BoolPtrOutput)
 }
 
 type CapacityProviderManagedInstancesNetworkConfiguration struct {
@@ -4993,6 +5143,2899 @@ type ClusterTag struct {
 	Key *string `pulumi:"key"`
 	// The optional part of a key-value pair that make up a tag. A ``value`` acts as a descriptor within a tag category (key).
 	Value *string `pulumi:"value"`
+}
+
+type DaemonAlarmConfiguration struct {
+	AlarmNames []string `pulumi:"alarmNames"`
+	Enable     *bool    `pulumi:"enable"`
+}
+
+// DaemonAlarmConfigurationInput is an input type that accepts DaemonAlarmConfigurationArgs and DaemonAlarmConfigurationOutput values.
+// You can construct a concrete instance of `DaemonAlarmConfigurationInput` via:
+//
+//	DaemonAlarmConfigurationArgs{...}
+type DaemonAlarmConfigurationInput interface {
+	pulumi.Input
+
+	ToDaemonAlarmConfigurationOutput() DaemonAlarmConfigurationOutput
+	ToDaemonAlarmConfigurationOutputWithContext(context.Context) DaemonAlarmConfigurationOutput
+}
+
+type DaemonAlarmConfigurationArgs struct {
+	AlarmNames pulumi.StringArrayInput `pulumi:"alarmNames"`
+	Enable     pulumi.BoolPtrInput     `pulumi:"enable"`
+}
+
+func (DaemonAlarmConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DaemonAlarmConfiguration)(nil)).Elem()
+}
+
+func (i DaemonAlarmConfigurationArgs) ToDaemonAlarmConfigurationOutput() DaemonAlarmConfigurationOutput {
+	return i.ToDaemonAlarmConfigurationOutputWithContext(context.Background())
+}
+
+func (i DaemonAlarmConfigurationArgs) ToDaemonAlarmConfigurationOutputWithContext(ctx context.Context) DaemonAlarmConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DaemonAlarmConfigurationOutput)
+}
+
+func (i DaemonAlarmConfigurationArgs) ToDaemonAlarmConfigurationPtrOutput() DaemonAlarmConfigurationPtrOutput {
+	return i.ToDaemonAlarmConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i DaemonAlarmConfigurationArgs) ToDaemonAlarmConfigurationPtrOutputWithContext(ctx context.Context) DaemonAlarmConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DaemonAlarmConfigurationOutput).ToDaemonAlarmConfigurationPtrOutputWithContext(ctx)
+}
+
+// DaemonAlarmConfigurationPtrInput is an input type that accepts DaemonAlarmConfigurationArgs, DaemonAlarmConfigurationPtr and DaemonAlarmConfigurationPtrOutput values.
+// You can construct a concrete instance of `DaemonAlarmConfigurationPtrInput` via:
+//
+//	        DaemonAlarmConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type DaemonAlarmConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToDaemonAlarmConfigurationPtrOutput() DaemonAlarmConfigurationPtrOutput
+	ToDaemonAlarmConfigurationPtrOutputWithContext(context.Context) DaemonAlarmConfigurationPtrOutput
+}
+
+type daemonAlarmConfigurationPtrType DaemonAlarmConfigurationArgs
+
+func DaemonAlarmConfigurationPtr(v *DaemonAlarmConfigurationArgs) DaemonAlarmConfigurationPtrInput {
+	return (*daemonAlarmConfigurationPtrType)(v)
+}
+
+func (*daemonAlarmConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DaemonAlarmConfiguration)(nil)).Elem()
+}
+
+func (i *daemonAlarmConfigurationPtrType) ToDaemonAlarmConfigurationPtrOutput() DaemonAlarmConfigurationPtrOutput {
+	return i.ToDaemonAlarmConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *daemonAlarmConfigurationPtrType) ToDaemonAlarmConfigurationPtrOutputWithContext(ctx context.Context) DaemonAlarmConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DaemonAlarmConfigurationPtrOutput)
+}
+
+type DaemonAlarmConfigurationOutput struct{ *pulumi.OutputState }
+
+func (DaemonAlarmConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DaemonAlarmConfiguration)(nil)).Elem()
+}
+
+func (o DaemonAlarmConfigurationOutput) ToDaemonAlarmConfigurationOutput() DaemonAlarmConfigurationOutput {
+	return o
+}
+
+func (o DaemonAlarmConfigurationOutput) ToDaemonAlarmConfigurationOutputWithContext(ctx context.Context) DaemonAlarmConfigurationOutput {
+	return o
+}
+
+func (o DaemonAlarmConfigurationOutput) ToDaemonAlarmConfigurationPtrOutput() DaemonAlarmConfigurationPtrOutput {
+	return o.ToDaemonAlarmConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o DaemonAlarmConfigurationOutput) ToDaemonAlarmConfigurationPtrOutputWithContext(ctx context.Context) DaemonAlarmConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DaemonAlarmConfiguration) *DaemonAlarmConfiguration {
+		return &v
+	}).(DaemonAlarmConfigurationPtrOutput)
+}
+
+func (o DaemonAlarmConfigurationOutput) AlarmNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DaemonAlarmConfiguration) []string { return v.AlarmNames }).(pulumi.StringArrayOutput)
+}
+
+func (o DaemonAlarmConfigurationOutput) Enable() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DaemonAlarmConfiguration) *bool { return v.Enable }).(pulumi.BoolPtrOutput)
+}
+
+type DaemonAlarmConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (DaemonAlarmConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DaemonAlarmConfiguration)(nil)).Elem()
+}
+
+func (o DaemonAlarmConfigurationPtrOutput) ToDaemonAlarmConfigurationPtrOutput() DaemonAlarmConfigurationPtrOutput {
+	return o
+}
+
+func (o DaemonAlarmConfigurationPtrOutput) ToDaemonAlarmConfigurationPtrOutputWithContext(ctx context.Context) DaemonAlarmConfigurationPtrOutput {
+	return o
+}
+
+func (o DaemonAlarmConfigurationPtrOutput) Elem() DaemonAlarmConfigurationOutput {
+	return o.ApplyT(func(v *DaemonAlarmConfiguration) DaemonAlarmConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret DaemonAlarmConfiguration
+		return ret
+	}).(DaemonAlarmConfigurationOutput)
+}
+
+func (o DaemonAlarmConfigurationPtrOutput) AlarmNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DaemonAlarmConfiguration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AlarmNames
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o DaemonAlarmConfigurationPtrOutput) Enable() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DaemonAlarmConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enable
+	}).(pulumi.BoolPtrOutput)
+}
+
+type DaemonDeploymentConfiguration struct {
+	Alarms            *DaemonAlarmConfiguration `pulumi:"alarms"`
+	BakeTimeInMinutes *int                      `pulumi:"bakeTimeInMinutes"`
+	DrainPercent      *float64                  `pulumi:"drainPercent"`
+}
+
+// DaemonDeploymentConfigurationInput is an input type that accepts DaemonDeploymentConfigurationArgs and DaemonDeploymentConfigurationOutput values.
+// You can construct a concrete instance of `DaemonDeploymentConfigurationInput` via:
+//
+//	DaemonDeploymentConfigurationArgs{...}
+type DaemonDeploymentConfigurationInput interface {
+	pulumi.Input
+
+	ToDaemonDeploymentConfigurationOutput() DaemonDeploymentConfigurationOutput
+	ToDaemonDeploymentConfigurationOutputWithContext(context.Context) DaemonDeploymentConfigurationOutput
+}
+
+type DaemonDeploymentConfigurationArgs struct {
+	Alarms            DaemonAlarmConfigurationPtrInput `pulumi:"alarms"`
+	BakeTimeInMinutes pulumi.IntPtrInput               `pulumi:"bakeTimeInMinutes"`
+	DrainPercent      pulumi.Float64PtrInput           `pulumi:"drainPercent"`
+}
+
+func (DaemonDeploymentConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DaemonDeploymentConfiguration)(nil)).Elem()
+}
+
+func (i DaemonDeploymentConfigurationArgs) ToDaemonDeploymentConfigurationOutput() DaemonDeploymentConfigurationOutput {
+	return i.ToDaemonDeploymentConfigurationOutputWithContext(context.Background())
+}
+
+func (i DaemonDeploymentConfigurationArgs) ToDaemonDeploymentConfigurationOutputWithContext(ctx context.Context) DaemonDeploymentConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DaemonDeploymentConfigurationOutput)
+}
+
+func (i DaemonDeploymentConfigurationArgs) ToDaemonDeploymentConfigurationPtrOutput() DaemonDeploymentConfigurationPtrOutput {
+	return i.ToDaemonDeploymentConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i DaemonDeploymentConfigurationArgs) ToDaemonDeploymentConfigurationPtrOutputWithContext(ctx context.Context) DaemonDeploymentConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DaemonDeploymentConfigurationOutput).ToDaemonDeploymentConfigurationPtrOutputWithContext(ctx)
+}
+
+// DaemonDeploymentConfigurationPtrInput is an input type that accepts DaemonDeploymentConfigurationArgs, DaemonDeploymentConfigurationPtr and DaemonDeploymentConfigurationPtrOutput values.
+// You can construct a concrete instance of `DaemonDeploymentConfigurationPtrInput` via:
+//
+//	        DaemonDeploymentConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type DaemonDeploymentConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToDaemonDeploymentConfigurationPtrOutput() DaemonDeploymentConfigurationPtrOutput
+	ToDaemonDeploymentConfigurationPtrOutputWithContext(context.Context) DaemonDeploymentConfigurationPtrOutput
+}
+
+type daemonDeploymentConfigurationPtrType DaemonDeploymentConfigurationArgs
+
+func DaemonDeploymentConfigurationPtr(v *DaemonDeploymentConfigurationArgs) DaemonDeploymentConfigurationPtrInput {
+	return (*daemonDeploymentConfigurationPtrType)(v)
+}
+
+func (*daemonDeploymentConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DaemonDeploymentConfiguration)(nil)).Elem()
+}
+
+func (i *daemonDeploymentConfigurationPtrType) ToDaemonDeploymentConfigurationPtrOutput() DaemonDeploymentConfigurationPtrOutput {
+	return i.ToDaemonDeploymentConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *daemonDeploymentConfigurationPtrType) ToDaemonDeploymentConfigurationPtrOutputWithContext(ctx context.Context) DaemonDeploymentConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DaemonDeploymentConfigurationPtrOutput)
+}
+
+type DaemonDeploymentConfigurationOutput struct{ *pulumi.OutputState }
+
+func (DaemonDeploymentConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DaemonDeploymentConfiguration)(nil)).Elem()
+}
+
+func (o DaemonDeploymentConfigurationOutput) ToDaemonDeploymentConfigurationOutput() DaemonDeploymentConfigurationOutput {
+	return o
+}
+
+func (o DaemonDeploymentConfigurationOutput) ToDaemonDeploymentConfigurationOutputWithContext(ctx context.Context) DaemonDeploymentConfigurationOutput {
+	return o
+}
+
+func (o DaemonDeploymentConfigurationOutput) ToDaemonDeploymentConfigurationPtrOutput() DaemonDeploymentConfigurationPtrOutput {
+	return o.ToDaemonDeploymentConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o DaemonDeploymentConfigurationOutput) ToDaemonDeploymentConfigurationPtrOutputWithContext(ctx context.Context) DaemonDeploymentConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DaemonDeploymentConfiguration) *DaemonDeploymentConfiguration {
+		return &v
+	}).(DaemonDeploymentConfigurationPtrOutput)
+}
+
+func (o DaemonDeploymentConfigurationOutput) Alarms() DaemonAlarmConfigurationPtrOutput {
+	return o.ApplyT(func(v DaemonDeploymentConfiguration) *DaemonAlarmConfiguration { return v.Alarms }).(DaemonAlarmConfigurationPtrOutput)
+}
+
+func (o DaemonDeploymentConfigurationOutput) BakeTimeInMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DaemonDeploymentConfiguration) *int { return v.BakeTimeInMinutes }).(pulumi.IntPtrOutput)
+}
+
+func (o DaemonDeploymentConfigurationOutput) DrainPercent() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v DaemonDeploymentConfiguration) *float64 { return v.DrainPercent }).(pulumi.Float64PtrOutput)
+}
+
+type DaemonDeploymentConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (DaemonDeploymentConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DaemonDeploymentConfiguration)(nil)).Elem()
+}
+
+func (o DaemonDeploymentConfigurationPtrOutput) ToDaemonDeploymentConfigurationPtrOutput() DaemonDeploymentConfigurationPtrOutput {
+	return o
+}
+
+func (o DaemonDeploymentConfigurationPtrOutput) ToDaemonDeploymentConfigurationPtrOutputWithContext(ctx context.Context) DaemonDeploymentConfigurationPtrOutput {
+	return o
+}
+
+func (o DaemonDeploymentConfigurationPtrOutput) Elem() DaemonDeploymentConfigurationOutput {
+	return o.ApplyT(func(v *DaemonDeploymentConfiguration) DaemonDeploymentConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret DaemonDeploymentConfiguration
+		return ret
+	}).(DaemonDeploymentConfigurationOutput)
+}
+
+func (o DaemonDeploymentConfigurationPtrOutput) Alarms() DaemonAlarmConfigurationPtrOutput {
+	return o.ApplyT(func(v *DaemonDeploymentConfiguration) *DaemonAlarmConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.Alarms
+	}).(DaemonAlarmConfigurationPtrOutput)
+}
+
+func (o DaemonDeploymentConfigurationPtrOutput) BakeTimeInMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DaemonDeploymentConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.BakeTimeInMinutes
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o DaemonDeploymentConfigurationPtrOutput) DrainPercent() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *DaemonDeploymentConfiguration) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.DrainPercent
+	}).(pulumi.Float64PtrOutput)
+}
+
+type DaemonTag struct {
+	Key   string  `pulumi:"key"`
+	Value *string `pulumi:"value"`
+}
+
+type DaemonTaskDefinitionContainerDependency struct {
+	Condition     *string `pulumi:"condition"`
+	ContainerName *string `pulumi:"containerName"`
+}
+
+// DaemonTaskDefinitionContainerDependencyInput is an input type that accepts DaemonTaskDefinitionContainerDependencyArgs and DaemonTaskDefinitionContainerDependencyOutput values.
+// You can construct a concrete instance of `DaemonTaskDefinitionContainerDependencyInput` via:
+//
+//	DaemonTaskDefinitionContainerDependencyArgs{...}
+type DaemonTaskDefinitionContainerDependencyInput interface {
+	pulumi.Input
+
+	ToDaemonTaskDefinitionContainerDependencyOutput() DaemonTaskDefinitionContainerDependencyOutput
+	ToDaemonTaskDefinitionContainerDependencyOutputWithContext(context.Context) DaemonTaskDefinitionContainerDependencyOutput
+}
+
+type DaemonTaskDefinitionContainerDependencyArgs struct {
+	Condition     pulumi.StringPtrInput `pulumi:"condition"`
+	ContainerName pulumi.StringPtrInput `pulumi:"containerName"`
+}
+
+func (DaemonTaskDefinitionContainerDependencyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DaemonTaskDefinitionContainerDependency)(nil)).Elem()
+}
+
+func (i DaemonTaskDefinitionContainerDependencyArgs) ToDaemonTaskDefinitionContainerDependencyOutput() DaemonTaskDefinitionContainerDependencyOutput {
+	return i.ToDaemonTaskDefinitionContainerDependencyOutputWithContext(context.Background())
+}
+
+func (i DaemonTaskDefinitionContainerDependencyArgs) ToDaemonTaskDefinitionContainerDependencyOutputWithContext(ctx context.Context) DaemonTaskDefinitionContainerDependencyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DaemonTaskDefinitionContainerDependencyOutput)
+}
+
+// DaemonTaskDefinitionContainerDependencyArrayInput is an input type that accepts DaemonTaskDefinitionContainerDependencyArray and DaemonTaskDefinitionContainerDependencyArrayOutput values.
+// You can construct a concrete instance of `DaemonTaskDefinitionContainerDependencyArrayInput` via:
+//
+//	DaemonTaskDefinitionContainerDependencyArray{ DaemonTaskDefinitionContainerDependencyArgs{...} }
+type DaemonTaskDefinitionContainerDependencyArrayInput interface {
+	pulumi.Input
+
+	ToDaemonTaskDefinitionContainerDependencyArrayOutput() DaemonTaskDefinitionContainerDependencyArrayOutput
+	ToDaemonTaskDefinitionContainerDependencyArrayOutputWithContext(context.Context) DaemonTaskDefinitionContainerDependencyArrayOutput
+}
+
+type DaemonTaskDefinitionContainerDependencyArray []DaemonTaskDefinitionContainerDependencyInput
+
+func (DaemonTaskDefinitionContainerDependencyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DaemonTaskDefinitionContainerDependency)(nil)).Elem()
+}
+
+func (i DaemonTaskDefinitionContainerDependencyArray) ToDaemonTaskDefinitionContainerDependencyArrayOutput() DaemonTaskDefinitionContainerDependencyArrayOutput {
+	return i.ToDaemonTaskDefinitionContainerDependencyArrayOutputWithContext(context.Background())
+}
+
+func (i DaemonTaskDefinitionContainerDependencyArray) ToDaemonTaskDefinitionContainerDependencyArrayOutputWithContext(ctx context.Context) DaemonTaskDefinitionContainerDependencyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DaemonTaskDefinitionContainerDependencyArrayOutput)
+}
+
+type DaemonTaskDefinitionContainerDependencyOutput struct{ *pulumi.OutputState }
+
+func (DaemonTaskDefinitionContainerDependencyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DaemonTaskDefinitionContainerDependency)(nil)).Elem()
+}
+
+func (o DaemonTaskDefinitionContainerDependencyOutput) ToDaemonTaskDefinitionContainerDependencyOutput() DaemonTaskDefinitionContainerDependencyOutput {
+	return o
+}
+
+func (o DaemonTaskDefinitionContainerDependencyOutput) ToDaemonTaskDefinitionContainerDependencyOutputWithContext(ctx context.Context) DaemonTaskDefinitionContainerDependencyOutput {
+	return o
+}
+
+func (o DaemonTaskDefinitionContainerDependencyOutput) Condition() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DaemonTaskDefinitionContainerDependency) *string { return v.Condition }).(pulumi.StringPtrOutput)
+}
+
+func (o DaemonTaskDefinitionContainerDependencyOutput) ContainerName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DaemonTaskDefinitionContainerDependency) *string { return v.ContainerName }).(pulumi.StringPtrOutput)
+}
+
+type DaemonTaskDefinitionContainerDependencyArrayOutput struct{ *pulumi.OutputState }
+
+func (DaemonTaskDefinitionContainerDependencyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DaemonTaskDefinitionContainerDependency)(nil)).Elem()
+}
+
+func (o DaemonTaskDefinitionContainerDependencyArrayOutput) ToDaemonTaskDefinitionContainerDependencyArrayOutput() DaemonTaskDefinitionContainerDependencyArrayOutput {
+	return o
+}
+
+func (o DaemonTaskDefinitionContainerDependencyArrayOutput) ToDaemonTaskDefinitionContainerDependencyArrayOutputWithContext(ctx context.Context) DaemonTaskDefinitionContainerDependencyArrayOutput {
+	return o
+}
+
+func (o DaemonTaskDefinitionContainerDependencyArrayOutput) Index(i pulumi.IntInput) DaemonTaskDefinitionContainerDependencyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DaemonTaskDefinitionContainerDependency {
+		return vs[0].([]DaemonTaskDefinitionContainerDependency)[vs[1].(int)]
+	}).(DaemonTaskDefinitionContainerDependencyOutput)
+}
+
+// Container definition for daemon task definition
+type DaemonTaskDefinitionDaemonContainerDefinition struct {
+	Command                []string                                   `pulumi:"command"`
+	Cpu                    *int                                       `pulumi:"cpu"`
+	DependsOn              []DaemonTaskDefinitionContainerDependency  `pulumi:"dependsOn"`
+	EntryPoint             []string                                   `pulumi:"entryPoint"`
+	Environment            []DaemonTaskDefinitionKeyValuePair         `pulumi:"environment"`
+	EnvironmentFiles       []DaemonTaskDefinitionEnvironmentFile      `pulumi:"environmentFiles"`
+	Essential              *bool                                      `pulumi:"essential"`
+	FirelensConfiguration  *DaemonTaskDefinitionFirelensConfiguration `pulumi:"firelensConfiguration"`
+	HealthCheck            *DaemonTaskDefinitionHealthCheck           `pulumi:"healthCheck"`
+	Image                  string                                     `pulumi:"image"`
+	Interactive            *bool                                      `pulumi:"interactive"`
+	LinuxParameters        *DaemonTaskDefinitionLinuxParameters       `pulumi:"linuxParameters"`
+	LogConfiguration       *DaemonTaskDefinitionLogConfiguration      `pulumi:"logConfiguration"`
+	Memory                 *int                                       `pulumi:"memory"`
+	MemoryReservation      *int                                       `pulumi:"memoryReservation"`
+	MountPoints            []DaemonTaskDefinitionMountPoint           `pulumi:"mountPoints"`
+	Name                   string                                     `pulumi:"name"`
+	Privileged             *bool                                      `pulumi:"privileged"`
+	PseudoTerminal         *bool                                      `pulumi:"pseudoTerminal"`
+	ReadonlyRootFilesystem *bool                                      `pulumi:"readonlyRootFilesystem"`
+	RepositoryCredentials  *DaemonTaskDefinitionRepositoryCredentials `pulumi:"repositoryCredentials"`
+	RestartPolicy          *DaemonTaskDefinitionRestartPolicy         `pulumi:"restartPolicy"`
+	Secrets                []DaemonTaskDefinitionSecret               `pulumi:"secrets"`
+	StartTimeout           *int                                       `pulumi:"startTimeout"`
+	StopTimeout            *int                                       `pulumi:"stopTimeout"`
+	SystemControls         []DaemonTaskDefinitionSystemControl        `pulumi:"systemControls"`
+	Ulimits                []DaemonTaskDefinitionUlimit               `pulumi:"ulimits"`
+	User                   *string                                    `pulumi:"user"`
+	WorkingDirectory       *string                                    `pulumi:"workingDirectory"`
+}
+
+// DaemonTaskDefinitionDaemonContainerDefinitionInput is an input type that accepts DaemonTaskDefinitionDaemonContainerDefinitionArgs and DaemonTaskDefinitionDaemonContainerDefinitionOutput values.
+// You can construct a concrete instance of `DaemonTaskDefinitionDaemonContainerDefinitionInput` via:
+//
+//	DaemonTaskDefinitionDaemonContainerDefinitionArgs{...}
+type DaemonTaskDefinitionDaemonContainerDefinitionInput interface {
+	pulumi.Input
+
+	ToDaemonTaskDefinitionDaemonContainerDefinitionOutput() DaemonTaskDefinitionDaemonContainerDefinitionOutput
+	ToDaemonTaskDefinitionDaemonContainerDefinitionOutputWithContext(context.Context) DaemonTaskDefinitionDaemonContainerDefinitionOutput
+}
+
+// Container definition for daemon task definition
+type DaemonTaskDefinitionDaemonContainerDefinitionArgs struct {
+	Command                pulumi.StringArrayInput                           `pulumi:"command"`
+	Cpu                    pulumi.IntPtrInput                                `pulumi:"cpu"`
+	DependsOn              DaemonTaskDefinitionContainerDependencyArrayInput `pulumi:"dependsOn"`
+	EntryPoint             pulumi.StringArrayInput                           `pulumi:"entryPoint"`
+	Environment            DaemonTaskDefinitionKeyValuePairArrayInput        `pulumi:"environment"`
+	EnvironmentFiles       DaemonTaskDefinitionEnvironmentFileArrayInput     `pulumi:"environmentFiles"`
+	Essential              pulumi.BoolPtrInput                               `pulumi:"essential"`
+	FirelensConfiguration  DaemonTaskDefinitionFirelensConfigurationPtrInput `pulumi:"firelensConfiguration"`
+	HealthCheck            DaemonTaskDefinitionHealthCheckPtrInput           `pulumi:"healthCheck"`
+	Image                  pulumi.StringInput                                `pulumi:"image"`
+	Interactive            pulumi.BoolPtrInput                               `pulumi:"interactive"`
+	LinuxParameters        DaemonTaskDefinitionLinuxParametersPtrInput       `pulumi:"linuxParameters"`
+	LogConfiguration       DaemonTaskDefinitionLogConfigurationPtrInput      `pulumi:"logConfiguration"`
+	Memory                 pulumi.IntPtrInput                                `pulumi:"memory"`
+	MemoryReservation      pulumi.IntPtrInput                                `pulumi:"memoryReservation"`
+	MountPoints            DaemonTaskDefinitionMountPointArrayInput          `pulumi:"mountPoints"`
+	Name                   pulumi.StringInput                                `pulumi:"name"`
+	Privileged             pulumi.BoolPtrInput                               `pulumi:"privileged"`
+	PseudoTerminal         pulumi.BoolPtrInput                               `pulumi:"pseudoTerminal"`
+	ReadonlyRootFilesystem pulumi.BoolPtrInput                               `pulumi:"readonlyRootFilesystem"`
+	RepositoryCredentials  DaemonTaskDefinitionRepositoryCredentialsPtrInput `pulumi:"repositoryCredentials"`
+	RestartPolicy          DaemonTaskDefinitionRestartPolicyPtrInput         `pulumi:"restartPolicy"`
+	Secrets                DaemonTaskDefinitionSecretArrayInput              `pulumi:"secrets"`
+	StartTimeout           pulumi.IntPtrInput                                `pulumi:"startTimeout"`
+	StopTimeout            pulumi.IntPtrInput                                `pulumi:"stopTimeout"`
+	SystemControls         DaemonTaskDefinitionSystemControlArrayInput       `pulumi:"systemControls"`
+	Ulimits                DaemonTaskDefinitionUlimitArrayInput              `pulumi:"ulimits"`
+	User                   pulumi.StringPtrInput                             `pulumi:"user"`
+	WorkingDirectory       pulumi.StringPtrInput                             `pulumi:"workingDirectory"`
+}
+
+func (DaemonTaskDefinitionDaemonContainerDefinitionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DaemonTaskDefinitionDaemonContainerDefinition)(nil)).Elem()
+}
+
+func (i DaemonTaskDefinitionDaemonContainerDefinitionArgs) ToDaemonTaskDefinitionDaemonContainerDefinitionOutput() DaemonTaskDefinitionDaemonContainerDefinitionOutput {
+	return i.ToDaemonTaskDefinitionDaemonContainerDefinitionOutputWithContext(context.Background())
+}
+
+func (i DaemonTaskDefinitionDaemonContainerDefinitionArgs) ToDaemonTaskDefinitionDaemonContainerDefinitionOutputWithContext(ctx context.Context) DaemonTaskDefinitionDaemonContainerDefinitionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DaemonTaskDefinitionDaemonContainerDefinitionOutput)
+}
+
+// DaemonTaskDefinitionDaemonContainerDefinitionArrayInput is an input type that accepts DaemonTaskDefinitionDaemonContainerDefinitionArray and DaemonTaskDefinitionDaemonContainerDefinitionArrayOutput values.
+// You can construct a concrete instance of `DaemonTaskDefinitionDaemonContainerDefinitionArrayInput` via:
+//
+//	DaemonTaskDefinitionDaemonContainerDefinitionArray{ DaemonTaskDefinitionDaemonContainerDefinitionArgs{...} }
+type DaemonTaskDefinitionDaemonContainerDefinitionArrayInput interface {
+	pulumi.Input
+
+	ToDaemonTaskDefinitionDaemonContainerDefinitionArrayOutput() DaemonTaskDefinitionDaemonContainerDefinitionArrayOutput
+	ToDaemonTaskDefinitionDaemonContainerDefinitionArrayOutputWithContext(context.Context) DaemonTaskDefinitionDaemonContainerDefinitionArrayOutput
+}
+
+type DaemonTaskDefinitionDaemonContainerDefinitionArray []DaemonTaskDefinitionDaemonContainerDefinitionInput
+
+func (DaemonTaskDefinitionDaemonContainerDefinitionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DaemonTaskDefinitionDaemonContainerDefinition)(nil)).Elem()
+}
+
+func (i DaemonTaskDefinitionDaemonContainerDefinitionArray) ToDaemonTaskDefinitionDaemonContainerDefinitionArrayOutput() DaemonTaskDefinitionDaemonContainerDefinitionArrayOutput {
+	return i.ToDaemonTaskDefinitionDaemonContainerDefinitionArrayOutputWithContext(context.Background())
+}
+
+func (i DaemonTaskDefinitionDaemonContainerDefinitionArray) ToDaemonTaskDefinitionDaemonContainerDefinitionArrayOutputWithContext(ctx context.Context) DaemonTaskDefinitionDaemonContainerDefinitionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DaemonTaskDefinitionDaemonContainerDefinitionArrayOutput)
+}
+
+// Container definition for daemon task definition
+type DaemonTaskDefinitionDaemonContainerDefinitionOutput struct{ *pulumi.OutputState }
+
+func (DaemonTaskDefinitionDaemonContainerDefinitionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DaemonTaskDefinitionDaemonContainerDefinition)(nil)).Elem()
+}
+
+func (o DaemonTaskDefinitionDaemonContainerDefinitionOutput) ToDaemonTaskDefinitionDaemonContainerDefinitionOutput() DaemonTaskDefinitionDaemonContainerDefinitionOutput {
+	return o
+}
+
+func (o DaemonTaskDefinitionDaemonContainerDefinitionOutput) ToDaemonTaskDefinitionDaemonContainerDefinitionOutputWithContext(ctx context.Context) DaemonTaskDefinitionDaemonContainerDefinitionOutput {
+	return o
+}
+
+func (o DaemonTaskDefinitionDaemonContainerDefinitionOutput) Command() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DaemonTaskDefinitionDaemonContainerDefinition) []string { return v.Command }).(pulumi.StringArrayOutput)
+}
+
+func (o DaemonTaskDefinitionDaemonContainerDefinitionOutput) Cpu() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DaemonTaskDefinitionDaemonContainerDefinition) *int { return v.Cpu }).(pulumi.IntPtrOutput)
+}
+
+func (o DaemonTaskDefinitionDaemonContainerDefinitionOutput) DependsOn() DaemonTaskDefinitionContainerDependencyArrayOutput {
+	return o.ApplyT(func(v DaemonTaskDefinitionDaemonContainerDefinition) []DaemonTaskDefinitionContainerDependency {
+		return v.DependsOn
+	}).(DaemonTaskDefinitionContainerDependencyArrayOutput)
+}
+
+func (o DaemonTaskDefinitionDaemonContainerDefinitionOutput) EntryPoint() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DaemonTaskDefinitionDaemonContainerDefinition) []string { return v.EntryPoint }).(pulumi.StringArrayOutput)
+}
+
+func (o DaemonTaskDefinitionDaemonContainerDefinitionOutput) Environment() DaemonTaskDefinitionKeyValuePairArrayOutput {
+	return o.ApplyT(func(v DaemonTaskDefinitionDaemonContainerDefinition) []DaemonTaskDefinitionKeyValuePair {
+		return v.Environment
+	}).(DaemonTaskDefinitionKeyValuePairArrayOutput)
+}
+
+func (o DaemonTaskDefinitionDaemonContainerDefinitionOutput) EnvironmentFiles() DaemonTaskDefinitionEnvironmentFileArrayOutput {
+	return o.ApplyT(func(v DaemonTaskDefinitionDaemonContainerDefinition) []DaemonTaskDefinitionEnvironmentFile {
+		return v.EnvironmentFiles
+	}).(DaemonTaskDefinitionEnvironmentFileArrayOutput)
+}
+
+func (o DaemonTaskDefinitionDaemonContainerDefinitionOutput) Essential() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DaemonTaskDefinitionDaemonContainerDefinition) *bool { return v.Essential }).(pulumi.BoolPtrOutput)
+}
+
+func (o DaemonTaskDefinitionDaemonContainerDefinitionOutput) FirelensConfiguration() DaemonTaskDefinitionFirelensConfigurationPtrOutput {
+	return o.ApplyT(func(v DaemonTaskDefinitionDaemonContainerDefinition) *DaemonTaskDefinitionFirelensConfiguration {
+		return v.FirelensConfiguration
+	}).(DaemonTaskDefinitionFirelensConfigurationPtrOutput)
+}
+
+func (o DaemonTaskDefinitionDaemonContainerDefinitionOutput) HealthCheck() DaemonTaskDefinitionHealthCheckPtrOutput {
+	return o.ApplyT(func(v DaemonTaskDefinitionDaemonContainerDefinition) *DaemonTaskDefinitionHealthCheck {
+		return v.HealthCheck
+	}).(DaemonTaskDefinitionHealthCheckPtrOutput)
+}
+
+func (o DaemonTaskDefinitionDaemonContainerDefinitionOutput) Image() pulumi.StringOutput {
+	return o.ApplyT(func(v DaemonTaskDefinitionDaemonContainerDefinition) string { return v.Image }).(pulumi.StringOutput)
+}
+
+func (o DaemonTaskDefinitionDaemonContainerDefinitionOutput) Interactive() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DaemonTaskDefinitionDaemonContainerDefinition) *bool { return v.Interactive }).(pulumi.BoolPtrOutput)
+}
+
+func (o DaemonTaskDefinitionDaemonContainerDefinitionOutput) LinuxParameters() DaemonTaskDefinitionLinuxParametersPtrOutput {
+	return o.ApplyT(func(v DaemonTaskDefinitionDaemonContainerDefinition) *DaemonTaskDefinitionLinuxParameters {
+		return v.LinuxParameters
+	}).(DaemonTaskDefinitionLinuxParametersPtrOutput)
+}
+
+func (o DaemonTaskDefinitionDaemonContainerDefinitionOutput) LogConfiguration() DaemonTaskDefinitionLogConfigurationPtrOutput {
+	return o.ApplyT(func(v DaemonTaskDefinitionDaemonContainerDefinition) *DaemonTaskDefinitionLogConfiguration {
+		return v.LogConfiguration
+	}).(DaemonTaskDefinitionLogConfigurationPtrOutput)
+}
+
+func (o DaemonTaskDefinitionDaemonContainerDefinitionOutput) Memory() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DaemonTaskDefinitionDaemonContainerDefinition) *int { return v.Memory }).(pulumi.IntPtrOutput)
+}
+
+func (o DaemonTaskDefinitionDaemonContainerDefinitionOutput) MemoryReservation() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DaemonTaskDefinitionDaemonContainerDefinition) *int { return v.MemoryReservation }).(pulumi.IntPtrOutput)
+}
+
+func (o DaemonTaskDefinitionDaemonContainerDefinitionOutput) MountPoints() DaemonTaskDefinitionMountPointArrayOutput {
+	return o.ApplyT(func(v DaemonTaskDefinitionDaemonContainerDefinition) []DaemonTaskDefinitionMountPoint {
+		return v.MountPoints
+	}).(DaemonTaskDefinitionMountPointArrayOutput)
+}
+
+func (o DaemonTaskDefinitionDaemonContainerDefinitionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v DaemonTaskDefinitionDaemonContainerDefinition) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o DaemonTaskDefinitionDaemonContainerDefinitionOutput) Privileged() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DaemonTaskDefinitionDaemonContainerDefinition) *bool { return v.Privileged }).(pulumi.BoolPtrOutput)
+}
+
+func (o DaemonTaskDefinitionDaemonContainerDefinitionOutput) PseudoTerminal() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DaemonTaskDefinitionDaemonContainerDefinition) *bool { return v.PseudoTerminal }).(pulumi.BoolPtrOutput)
+}
+
+func (o DaemonTaskDefinitionDaemonContainerDefinitionOutput) ReadonlyRootFilesystem() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DaemonTaskDefinitionDaemonContainerDefinition) *bool { return v.ReadonlyRootFilesystem }).(pulumi.BoolPtrOutput)
+}
+
+func (o DaemonTaskDefinitionDaemonContainerDefinitionOutput) RepositoryCredentials() DaemonTaskDefinitionRepositoryCredentialsPtrOutput {
+	return o.ApplyT(func(v DaemonTaskDefinitionDaemonContainerDefinition) *DaemonTaskDefinitionRepositoryCredentials {
+		return v.RepositoryCredentials
+	}).(DaemonTaskDefinitionRepositoryCredentialsPtrOutput)
+}
+
+func (o DaemonTaskDefinitionDaemonContainerDefinitionOutput) RestartPolicy() DaemonTaskDefinitionRestartPolicyPtrOutput {
+	return o.ApplyT(func(v DaemonTaskDefinitionDaemonContainerDefinition) *DaemonTaskDefinitionRestartPolicy {
+		return v.RestartPolicy
+	}).(DaemonTaskDefinitionRestartPolicyPtrOutput)
+}
+
+func (o DaemonTaskDefinitionDaemonContainerDefinitionOutput) Secrets() DaemonTaskDefinitionSecretArrayOutput {
+	return o.ApplyT(func(v DaemonTaskDefinitionDaemonContainerDefinition) []DaemonTaskDefinitionSecret { return v.Secrets }).(DaemonTaskDefinitionSecretArrayOutput)
+}
+
+func (o DaemonTaskDefinitionDaemonContainerDefinitionOutput) StartTimeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DaemonTaskDefinitionDaemonContainerDefinition) *int { return v.StartTimeout }).(pulumi.IntPtrOutput)
+}
+
+func (o DaemonTaskDefinitionDaemonContainerDefinitionOutput) StopTimeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DaemonTaskDefinitionDaemonContainerDefinition) *int { return v.StopTimeout }).(pulumi.IntPtrOutput)
+}
+
+func (o DaemonTaskDefinitionDaemonContainerDefinitionOutput) SystemControls() DaemonTaskDefinitionSystemControlArrayOutput {
+	return o.ApplyT(func(v DaemonTaskDefinitionDaemonContainerDefinition) []DaemonTaskDefinitionSystemControl {
+		return v.SystemControls
+	}).(DaemonTaskDefinitionSystemControlArrayOutput)
+}
+
+func (o DaemonTaskDefinitionDaemonContainerDefinitionOutput) Ulimits() DaemonTaskDefinitionUlimitArrayOutput {
+	return o.ApplyT(func(v DaemonTaskDefinitionDaemonContainerDefinition) []DaemonTaskDefinitionUlimit { return v.Ulimits }).(DaemonTaskDefinitionUlimitArrayOutput)
+}
+
+func (o DaemonTaskDefinitionDaemonContainerDefinitionOutput) User() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DaemonTaskDefinitionDaemonContainerDefinition) *string { return v.User }).(pulumi.StringPtrOutput)
+}
+
+func (o DaemonTaskDefinitionDaemonContainerDefinitionOutput) WorkingDirectory() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DaemonTaskDefinitionDaemonContainerDefinition) *string { return v.WorkingDirectory }).(pulumi.StringPtrOutput)
+}
+
+type DaemonTaskDefinitionDaemonContainerDefinitionArrayOutput struct{ *pulumi.OutputState }
+
+func (DaemonTaskDefinitionDaemonContainerDefinitionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DaemonTaskDefinitionDaemonContainerDefinition)(nil)).Elem()
+}
+
+func (o DaemonTaskDefinitionDaemonContainerDefinitionArrayOutput) ToDaemonTaskDefinitionDaemonContainerDefinitionArrayOutput() DaemonTaskDefinitionDaemonContainerDefinitionArrayOutput {
+	return o
+}
+
+func (o DaemonTaskDefinitionDaemonContainerDefinitionArrayOutput) ToDaemonTaskDefinitionDaemonContainerDefinitionArrayOutputWithContext(ctx context.Context) DaemonTaskDefinitionDaemonContainerDefinitionArrayOutput {
+	return o
+}
+
+func (o DaemonTaskDefinitionDaemonContainerDefinitionArrayOutput) Index(i pulumi.IntInput) DaemonTaskDefinitionDaemonContainerDefinitionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DaemonTaskDefinitionDaemonContainerDefinition {
+		return vs[0].([]DaemonTaskDefinitionDaemonContainerDefinition)[vs[1].(int)]
+	}).(DaemonTaskDefinitionDaemonContainerDefinitionOutput)
+}
+
+type DaemonTaskDefinitionDevice struct {
+	ContainerPath *string  `pulumi:"containerPath"`
+	HostPath      *string  `pulumi:"hostPath"`
+	Permissions   []string `pulumi:"permissions"`
+}
+
+// DaemonTaskDefinitionDeviceInput is an input type that accepts DaemonTaskDefinitionDeviceArgs and DaemonTaskDefinitionDeviceOutput values.
+// You can construct a concrete instance of `DaemonTaskDefinitionDeviceInput` via:
+//
+//	DaemonTaskDefinitionDeviceArgs{...}
+type DaemonTaskDefinitionDeviceInput interface {
+	pulumi.Input
+
+	ToDaemonTaskDefinitionDeviceOutput() DaemonTaskDefinitionDeviceOutput
+	ToDaemonTaskDefinitionDeviceOutputWithContext(context.Context) DaemonTaskDefinitionDeviceOutput
+}
+
+type DaemonTaskDefinitionDeviceArgs struct {
+	ContainerPath pulumi.StringPtrInput   `pulumi:"containerPath"`
+	HostPath      pulumi.StringPtrInput   `pulumi:"hostPath"`
+	Permissions   pulumi.StringArrayInput `pulumi:"permissions"`
+}
+
+func (DaemonTaskDefinitionDeviceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DaemonTaskDefinitionDevice)(nil)).Elem()
+}
+
+func (i DaemonTaskDefinitionDeviceArgs) ToDaemonTaskDefinitionDeviceOutput() DaemonTaskDefinitionDeviceOutput {
+	return i.ToDaemonTaskDefinitionDeviceOutputWithContext(context.Background())
+}
+
+func (i DaemonTaskDefinitionDeviceArgs) ToDaemonTaskDefinitionDeviceOutputWithContext(ctx context.Context) DaemonTaskDefinitionDeviceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DaemonTaskDefinitionDeviceOutput)
+}
+
+// DaemonTaskDefinitionDeviceArrayInput is an input type that accepts DaemonTaskDefinitionDeviceArray and DaemonTaskDefinitionDeviceArrayOutput values.
+// You can construct a concrete instance of `DaemonTaskDefinitionDeviceArrayInput` via:
+//
+//	DaemonTaskDefinitionDeviceArray{ DaemonTaskDefinitionDeviceArgs{...} }
+type DaemonTaskDefinitionDeviceArrayInput interface {
+	pulumi.Input
+
+	ToDaemonTaskDefinitionDeviceArrayOutput() DaemonTaskDefinitionDeviceArrayOutput
+	ToDaemonTaskDefinitionDeviceArrayOutputWithContext(context.Context) DaemonTaskDefinitionDeviceArrayOutput
+}
+
+type DaemonTaskDefinitionDeviceArray []DaemonTaskDefinitionDeviceInput
+
+func (DaemonTaskDefinitionDeviceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DaemonTaskDefinitionDevice)(nil)).Elem()
+}
+
+func (i DaemonTaskDefinitionDeviceArray) ToDaemonTaskDefinitionDeviceArrayOutput() DaemonTaskDefinitionDeviceArrayOutput {
+	return i.ToDaemonTaskDefinitionDeviceArrayOutputWithContext(context.Background())
+}
+
+func (i DaemonTaskDefinitionDeviceArray) ToDaemonTaskDefinitionDeviceArrayOutputWithContext(ctx context.Context) DaemonTaskDefinitionDeviceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DaemonTaskDefinitionDeviceArrayOutput)
+}
+
+type DaemonTaskDefinitionDeviceOutput struct{ *pulumi.OutputState }
+
+func (DaemonTaskDefinitionDeviceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DaemonTaskDefinitionDevice)(nil)).Elem()
+}
+
+func (o DaemonTaskDefinitionDeviceOutput) ToDaemonTaskDefinitionDeviceOutput() DaemonTaskDefinitionDeviceOutput {
+	return o
+}
+
+func (o DaemonTaskDefinitionDeviceOutput) ToDaemonTaskDefinitionDeviceOutputWithContext(ctx context.Context) DaemonTaskDefinitionDeviceOutput {
+	return o
+}
+
+func (o DaemonTaskDefinitionDeviceOutput) ContainerPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DaemonTaskDefinitionDevice) *string { return v.ContainerPath }).(pulumi.StringPtrOutput)
+}
+
+func (o DaemonTaskDefinitionDeviceOutput) HostPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DaemonTaskDefinitionDevice) *string { return v.HostPath }).(pulumi.StringPtrOutput)
+}
+
+func (o DaemonTaskDefinitionDeviceOutput) Permissions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DaemonTaskDefinitionDevice) []string { return v.Permissions }).(pulumi.StringArrayOutput)
+}
+
+type DaemonTaskDefinitionDeviceArrayOutput struct{ *pulumi.OutputState }
+
+func (DaemonTaskDefinitionDeviceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DaemonTaskDefinitionDevice)(nil)).Elem()
+}
+
+func (o DaemonTaskDefinitionDeviceArrayOutput) ToDaemonTaskDefinitionDeviceArrayOutput() DaemonTaskDefinitionDeviceArrayOutput {
+	return o
+}
+
+func (o DaemonTaskDefinitionDeviceArrayOutput) ToDaemonTaskDefinitionDeviceArrayOutputWithContext(ctx context.Context) DaemonTaskDefinitionDeviceArrayOutput {
+	return o
+}
+
+func (o DaemonTaskDefinitionDeviceArrayOutput) Index(i pulumi.IntInput) DaemonTaskDefinitionDeviceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DaemonTaskDefinitionDevice {
+		return vs[0].([]DaemonTaskDefinitionDevice)[vs[1].(int)]
+	}).(DaemonTaskDefinitionDeviceOutput)
+}
+
+type DaemonTaskDefinitionEnvironmentFile struct {
+	Type  *string `pulumi:"type"`
+	Value *string `pulumi:"value"`
+}
+
+// DaemonTaskDefinitionEnvironmentFileInput is an input type that accepts DaemonTaskDefinitionEnvironmentFileArgs and DaemonTaskDefinitionEnvironmentFileOutput values.
+// You can construct a concrete instance of `DaemonTaskDefinitionEnvironmentFileInput` via:
+//
+//	DaemonTaskDefinitionEnvironmentFileArgs{...}
+type DaemonTaskDefinitionEnvironmentFileInput interface {
+	pulumi.Input
+
+	ToDaemonTaskDefinitionEnvironmentFileOutput() DaemonTaskDefinitionEnvironmentFileOutput
+	ToDaemonTaskDefinitionEnvironmentFileOutputWithContext(context.Context) DaemonTaskDefinitionEnvironmentFileOutput
+}
+
+type DaemonTaskDefinitionEnvironmentFileArgs struct {
+	Type  pulumi.StringPtrInput `pulumi:"type"`
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (DaemonTaskDefinitionEnvironmentFileArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DaemonTaskDefinitionEnvironmentFile)(nil)).Elem()
+}
+
+func (i DaemonTaskDefinitionEnvironmentFileArgs) ToDaemonTaskDefinitionEnvironmentFileOutput() DaemonTaskDefinitionEnvironmentFileOutput {
+	return i.ToDaemonTaskDefinitionEnvironmentFileOutputWithContext(context.Background())
+}
+
+func (i DaemonTaskDefinitionEnvironmentFileArgs) ToDaemonTaskDefinitionEnvironmentFileOutputWithContext(ctx context.Context) DaemonTaskDefinitionEnvironmentFileOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DaemonTaskDefinitionEnvironmentFileOutput)
+}
+
+// DaemonTaskDefinitionEnvironmentFileArrayInput is an input type that accepts DaemonTaskDefinitionEnvironmentFileArray and DaemonTaskDefinitionEnvironmentFileArrayOutput values.
+// You can construct a concrete instance of `DaemonTaskDefinitionEnvironmentFileArrayInput` via:
+//
+//	DaemonTaskDefinitionEnvironmentFileArray{ DaemonTaskDefinitionEnvironmentFileArgs{...} }
+type DaemonTaskDefinitionEnvironmentFileArrayInput interface {
+	pulumi.Input
+
+	ToDaemonTaskDefinitionEnvironmentFileArrayOutput() DaemonTaskDefinitionEnvironmentFileArrayOutput
+	ToDaemonTaskDefinitionEnvironmentFileArrayOutputWithContext(context.Context) DaemonTaskDefinitionEnvironmentFileArrayOutput
+}
+
+type DaemonTaskDefinitionEnvironmentFileArray []DaemonTaskDefinitionEnvironmentFileInput
+
+func (DaemonTaskDefinitionEnvironmentFileArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DaemonTaskDefinitionEnvironmentFile)(nil)).Elem()
+}
+
+func (i DaemonTaskDefinitionEnvironmentFileArray) ToDaemonTaskDefinitionEnvironmentFileArrayOutput() DaemonTaskDefinitionEnvironmentFileArrayOutput {
+	return i.ToDaemonTaskDefinitionEnvironmentFileArrayOutputWithContext(context.Background())
+}
+
+func (i DaemonTaskDefinitionEnvironmentFileArray) ToDaemonTaskDefinitionEnvironmentFileArrayOutputWithContext(ctx context.Context) DaemonTaskDefinitionEnvironmentFileArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DaemonTaskDefinitionEnvironmentFileArrayOutput)
+}
+
+type DaemonTaskDefinitionEnvironmentFileOutput struct{ *pulumi.OutputState }
+
+func (DaemonTaskDefinitionEnvironmentFileOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DaemonTaskDefinitionEnvironmentFile)(nil)).Elem()
+}
+
+func (o DaemonTaskDefinitionEnvironmentFileOutput) ToDaemonTaskDefinitionEnvironmentFileOutput() DaemonTaskDefinitionEnvironmentFileOutput {
+	return o
+}
+
+func (o DaemonTaskDefinitionEnvironmentFileOutput) ToDaemonTaskDefinitionEnvironmentFileOutputWithContext(ctx context.Context) DaemonTaskDefinitionEnvironmentFileOutput {
+	return o
+}
+
+func (o DaemonTaskDefinitionEnvironmentFileOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DaemonTaskDefinitionEnvironmentFile) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+func (o DaemonTaskDefinitionEnvironmentFileOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DaemonTaskDefinitionEnvironmentFile) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type DaemonTaskDefinitionEnvironmentFileArrayOutput struct{ *pulumi.OutputState }
+
+func (DaemonTaskDefinitionEnvironmentFileArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DaemonTaskDefinitionEnvironmentFile)(nil)).Elem()
+}
+
+func (o DaemonTaskDefinitionEnvironmentFileArrayOutput) ToDaemonTaskDefinitionEnvironmentFileArrayOutput() DaemonTaskDefinitionEnvironmentFileArrayOutput {
+	return o
+}
+
+func (o DaemonTaskDefinitionEnvironmentFileArrayOutput) ToDaemonTaskDefinitionEnvironmentFileArrayOutputWithContext(ctx context.Context) DaemonTaskDefinitionEnvironmentFileArrayOutput {
+	return o
+}
+
+func (o DaemonTaskDefinitionEnvironmentFileArrayOutput) Index(i pulumi.IntInput) DaemonTaskDefinitionEnvironmentFileOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DaemonTaskDefinitionEnvironmentFile {
+		return vs[0].([]DaemonTaskDefinitionEnvironmentFile)[vs[1].(int)]
+	}).(DaemonTaskDefinitionEnvironmentFileOutput)
+}
+
+type DaemonTaskDefinitionFirelensConfiguration struct {
+	Options map[string]string `pulumi:"options"`
+	Type    *string           `pulumi:"type"`
+}
+
+// DaemonTaskDefinitionFirelensConfigurationInput is an input type that accepts DaemonTaskDefinitionFirelensConfigurationArgs and DaemonTaskDefinitionFirelensConfigurationOutput values.
+// You can construct a concrete instance of `DaemonTaskDefinitionFirelensConfigurationInput` via:
+//
+//	DaemonTaskDefinitionFirelensConfigurationArgs{...}
+type DaemonTaskDefinitionFirelensConfigurationInput interface {
+	pulumi.Input
+
+	ToDaemonTaskDefinitionFirelensConfigurationOutput() DaemonTaskDefinitionFirelensConfigurationOutput
+	ToDaemonTaskDefinitionFirelensConfigurationOutputWithContext(context.Context) DaemonTaskDefinitionFirelensConfigurationOutput
+}
+
+type DaemonTaskDefinitionFirelensConfigurationArgs struct {
+	Options pulumi.StringMapInput `pulumi:"options"`
+	Type    pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (DaemonTaskDefinitionFirelensConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DaemonTaskDefinitionFirelensConfiguration)(nil)).Elem()
+}
+
+func (i DaemonTaskDefinitionFirelensConfigurationArgs) ToDaemonTaskDefinitionFirelensConfigurationOutput() DaemonTaskDefinitionFirelensConfigurationOutput {
+	return i.ToDaemonTaskDefinitionFirelensConfigurationOutputWithContext(context.Background())
+}
+
+func (i DaemonTaskDefinitionFirelensConfigurationArgs) ToDaemonTaskDefinitionFirelensConfigurationOutputWithContext(ctx context.Context) DaemonTaskDefinitionFirelensConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DaemonTaskDefinitionFirelensConfigurationOutput)
+}
+
+func (i DaemonTaskDefinitionFirelensConfigurationArgs) ToDaemonTaskDefinitionFirelensConfigurationPtrOutput() DaemonTaskDefinitionFirelensConfigurationPtrOutput {
+	return i.ToDaemonTaskDefinitionFirelensConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i DaemonTaskDefinitionFirelensConfigurationArgs) ToDaemonTaskDefinitionFirelensConfigurationPtrOutputWithContext(ctx context.Context) DaemonTaskDefinitionFirelensConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DaemonTaskDefinitionFirelensConfigurationOutput).ToDaemonTaskDefinitionFirelensConfigurationPtrOutputWithContext(ctx)
+}
+
+// DaemonTaskDefinitionFirelensConfigurationPtrInput is an input type that accepts DaemonTaskDefinitionFirelensConfigurationArgs, DaemonTaskDefinitionFirelensConfigurationPtr and DaemonTaskDefinitionFirelensConfigurationPtrOutput values.
+// You can construct a concrete instance of `DaemonTaskDefinitionFirelensConfigurationPtrInput` via:
+//
+//	        DaemonTaskDefinitionFirelensConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type DaemonTaskDefinitionFirelensConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToDaemonTaskDefinitionFirelensConfigurationPtrOutput() DaemonTaskDefinitionFirelensConfigurationPtrOutput
+	ToDaemonTaskDefinitionFirelensConfigurationPtrOutputWithContext(context.Context) DaemonTaskDefinitionFirelensConfigurationPtrOutput
+}
+
+type daemonTaskDefinitionFirelensConfigurationPtrType DaemonTaskDefinitionFirelensConfigurationArgs
+
+func DaemonTaskDefinitionFirelensConfigurationPtr(v *DaemonTaskDefinitionFirelensConfigurationArgs) DaemonTaskDefinitionFirelensConfigurationPtrInput {
+	return (*daemonTaskDefinitionFirelensConfigurationPtrType)(v)
+}
+
+func (*daemonTaskDefinitionFirelensConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DaemonTaskDefinitionFirelensConfiguration)(nil)).Elem()
+}
+
+func (i *daemonTaskDefinitionFirelensConfigurationPtrType) ToDaemonTaskDefinitionFirelensConfigurationPtrOutput() DaemonTaskDefinitionFirelensConfigurationPtrOutput {
+	return i.ToDaemonTaskDefinitionFirelensConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *daemonTaskDefinitionFirelensConfigurationPtrType) ToDaemonTaskDefinitionFirelensConfigurationPtrOutputWithContext(ctx context.Context) DaemonTaskDefinitionFirelensConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DaemonTaskDefinitionFirelensConfigurationPtrOutput)
+}
+
+type DaemonTaskDefinitionFirelensConfigurationOutput struct{ *pulumi.OutputState }
+
+func (DaemonTaskDefinitionFirelensConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DaemonTaskDefinitionFirelensConfiguration)(nil)).Elem()
+}
+
+func (o DaemonTaskDefinitionFirelensConfigurationOutput) ToDaemonTaskDefinitionFirelensConfigurationOutput() DaemonTaskDefinitionFirelensConfigurationOutput {
+	return o
+}
+
+func (o DaemonTaskDefinitionFirelensConfigurationOutput) ToDaemonTaskDefinitionFirelensConfigurationOutputWithContext(ctx context.Context) DaemonTaskDefinitionFirelensConfigurationOutput {
+	return o
+}
+
+func (o DaemonTaskDefinitionFirelensConfigurationOutput) ToDaemonTaskDefinitionFirelensConfigurationPtrOutput() DaemonTaskDefinitionFirelensConfigurationPtrOutput {
+	return o.ToDaemonTaskDefinitionFirelensConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o DaemonTaskDefinitionFirelensConfigurationOutput) ToDaemonTaskDefinitionFirelensConfigurationPtrOutputWithContext(ctx context.Context) DaemonTaskDefinitionFirelensConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DaemonTaskDefinitionFirelensConfiguration) *DaemonTaskDefinitionFirelensConfiguration {
+		return &v
+	}).(DaemonTaskDefinitionFirelensConfigurationPtrOutput)
+}
+
+func (o DaemonTaskDefinitionFirelensConfigurationOutput) Options() pulumi.StringMapOutput {
+	return o.ApplyT(func(v DaemonTaskDefinitionFirelensConfiguration) map[string]string { return v.Options }).(pulumi.StringMapOutput)
+}
+
+func (o DaemonTaskDefinitionFirelensConfigurationOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DaemonTaskDefinitionFirelensConfiguration) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type DaemonTaskDefinitionFirelensConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (DaemonTaskDefinitionFirelensConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DaemonTaskDefinitionFirelensConfiguration)(nil)).Elem()
+}
+
+func (o DaemonTaskDefinitionFirelensConfigurationPtrOutput) ToDaemonTaskDefinitionFirelensConfigurationPtrOutput() DaemonTaskDefinitionFirelensConfigurationPtrOutput {
+	return o
+}
+
+func (o DaemonTaskDefinitionFirelensConfigurationPtrOutput) ToDaemonTaskDefinitionFirelensConfigurationPtrOutputWithContext(ctx context.Context) DaemonTaskDefinitionFirelensConfigurationPtrOutput {
+	return o
+}
+
+func (o DaemonTaskDefinitionFirelensConfigurationPtrOutput) Elem() DaemonTaskDefinitionFirelensConfigurationOutput {
+	return o.ApplyT(func(v *DaemonTaskDefinitionFirelensConfiguration) DaemonTaskDefinitionFirelensConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret DaemonTaskDefinitionFirelensConfiguration
+		return ret
+	}).(DaemonTaskDefinitionFirelensConfigurationOutput)
+}
+
+func (o DaemonTaskDefinitionFirelensConfigurationPtrOutput) Options() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *DaemonTaskDefinitionFirelensConfiguration) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.Options
+	}).(pulumi.StringMapOutput)
+}
+
+func (o DaemonTaskDefinitionFirelensConfigurationPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DaemonTaskDefinitionFirelensConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+type DaemonTaskDefinitionHealthCheck struct {
+	Command     []string `pulumi:"command"`
+	Interval    *int     `pulumi:"interval"`
+	Retries     *int     `pulumi:"retries"`
+	StartPeriod *int     `pulumi:"startPeriod"`
+	Timeout     *int     `pulumi:"timeout"`
+}
+
+// DaemonTaskDefinitionHealthCheckInput is an input type that accepts DaemonTaskDefinitionHealthCheckArgs and DaemonTaskDefinitionHealthCheckOutput values.
+// You can construct a concrete instance of `DaemonTaskDefinitionHealthCheckInput` via:
+//
+//	DaemonTaskDefinitionHealthCheckArgs{...}
+type DaemonTaskDefinitionHealthCheckInput interface {
+	pulumi.Input
+
+	ToDaemonTaskDefinitionHealthCheckOutput() DaemonTaskDefinitionHealthCheckOutput
+	ToDaemonTaskDefinitionHealthCheckOutputWithContext(context.Context) DaemonTaskDefinitionHealthCheckOutput
+}
+
+type DaemonTaskDefinitionHealthCheckArgs struct {
+	Command     pulumi.StringArrayInput `pulumi:"command"`
+	Interval    pulumi.IntPtrInput      `pulumi:"interval"`
+	Retries     pulumi.IntPtrInput      `pulumi:"retries"`
+	StartPeriod pulumi.IntPtrInput      `pulumi:"startPeriod"`
+	Timeout     pulumi.IntPtrInput      `pulumi:"timeout"`
+}
+
+func (DaemonTaskDefinitionHealthCheckArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DaemonTaskDefinitionHealthCheck)(nil)).Elem()
+}
+
+func (i DaemonTaskDefinitionHealthCheckArgs) ToDaemonTaskDefinitionHealthCheckOutput() DaemonTaskDefinitionHealthCheckOutput {
+	return i.ToDaemonTaskDefinitionHealthCheckOutputWithContext(context.Background())
+}
+
+func (i DaemonTaskDefinitionHealthCheckArgs) ToDaemonTaskDefinitionHealthCheckOutputWithContext(ctx context.Context) DaemonTaskDefinitionHealthCheckOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DaemonTaskDefinitionHealthCheckOutput)
+}
+
+func (i DaemonTaskDefinitionHealthCheckArgs) ToDaemonTaskDefinitionHealthCheckPtrOutput() DaemonTaskDefinitionHealthCheckPtrOutput {
+	return i.ToDaemonTaskDefinitionHealthCheckPtrOutputWithContext(context.Background())
+}
+
+func (i DaemonTaskDefinitionHealthCheckArgs) ToDaemonTaskDefinitionHealthCheckPtrOutputWithContext(ctx context.Context) DaemonTaskDefinitionHealthCheckPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DaemonTaskDefinitionHealthCheckOutput).ToDaemonTaskDefinitionHealthCheckPtrOutputWithContext(ctx)
+}
+
+// DaemonTaskDefinitionHealthCheckPtrInput is an input type that accepts DaemonTaskDefinitionHealthCheckArgs, DaemonTaskDefinitionHealthCheckPtr and DaemonTaskDefinitionHealthCheckPtrOutput values.
+// You can construct a concrete instance of `DaemonTaskDefinitionHealthCheckPtrInput` via:
+//
+//	        DaemonTaskDefinitionHealthCheckArgs{...}
+//
+//	or:
+//
+//	        nil
+type DaemonTaskDefinitionHealthCheckPtrInput interface {
+	pulumi.Input
+
+	ToDaemonTaskDefinitionHealthCheckPtrOutput() DaemonTaskDefinitionHealthCheckPtrOutput
+	ToDaemonTaskDefinitionHealthCheckPtrOutputWithContext(context.Context) DaemonTaskDefinitionHealthCheckPtrOutput
+}
+
+type daemonTaskDefinitionHealthCheckPtrType DaemonTaskDefinitionHealthCheckArgs
+
+func DaemonTaskDefinitionHealthCheckPtr(v *DaemonTaskDefinitionHealthCheckArgs) DaemonTaskDefinitionHealthCheckPtrInput {
+	return (*daemonTaskDefinitionHealthCheckPtrType)(v)
+}
+
+func (*daemonTaskDefinitionHealthCheckPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DaemonTaskDefinitionHealthCheck)(nil)).Elem()
+}
+
+func (i *daemonTaskDefinitionHealthCheckPtrType) ToDaemonTaskDefinitionHealthCheckPtrOutput() DaemonTaskDefinitionHealthCheckPtrOutput {
+	return i.ToDaemonTaskDefinitionHealthCheckPtrOutputWithContext(context.Background())
+}
+
+func (i *daemonTaskDefinitionHealthCheckPtrType) ToDaemonTaskDefinitionHealthCheckPtrOutputWithContext(ctx context.Context) DaemonTaskDefinitionHealthCheckPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DaemonTaskDefinitionHealthCheckPtrOutput)
+}
+
+type DaemonTaskDefinitionHealthCheckOutput struct{ *pulumi.OutputState }
+
+func (DaemonTaskDefinitionHealthCheckOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DaemonTaskDefinitionHealthCheck)(nil)).Elem()
+}
+
+func (o DaemonTaskDefinitionHealthCheckOutput) ToDaemonTaskDefinitionHealthCheckOutput() DaemonTaskDefinitionHealthCheckOutput {
+	return o
+}
+
+func (o DaemonTaskDefinitionHealthCheckOutput) ToDaemonTaskDefinitionHealthCheckOutputWithContext(ctx context.Context) DaemonTaskDefinitionHealthCheckOutput {
+	return o
+}
+
+func (o DaemonTaskDefinitionHealthCheckOutput) ToDaemonTaskDefinitionHealthCheckPtrOutput() DaemonTaskDefinitionHealthCheckPtrOutput {
+	return o.ToDaemonTaskDefinitionHealthCheckPtrOutputWithContext(context.Background())
+}
+
+func (o DaemonTaskDefinitionHealthCheckOutput) ToDaemonTaskDefinitionHealthCheckPtrOutputWithContext(ctx context.Context) DaemonTaskDefinitionHealthCheckPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DaemonTaskDefinitionHealthCheck) *DaemonTaskDefinitionHealthCheck {
+		return &v
+	}).(DaemonTaskDefinitionHealthCheckPtrOutput)
+}
+
+func (o DaemonTaskDefinitionHealthCheckOutput) Command() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DaemonTaskDefinitionHealthCheck) []string { return v.Command }).(pulumi.StringArrayOutput)
+}
+
+func (o DaemonTaskDefinitionHealthCheckOutput) Interval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DaemonTaskDefinitionHealthCheck) *int { return v.Interval }).(pulumi.IntPtrOutput)
+}
+
+func (o DaemonTaskDefinitionHealthCheckOutput) Retries() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DaemonTaskDefinitionHealthCheck) *int { return v.Retries }).(pulumi.IntPtrOutput)
+}
+
+func (o DaemonTaskDefinitionHealthCheckOutput) StartPeriod() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DaemonTaskDefinitionHealthCheck) *int { return v.StartPeriod }).(pulumi.IntPtrOutput)
+}
+
+func (o DaemonTaskDefinitionHealthCheckOutput) Timeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DaemonTaskDefinitionHealthCheck) *int { return v.Timeout }).(pulumi.IntPtrOutput)
+}
+
+type DaemonTaskDefinitionHealthCheckPtrOutput struct{ *pulumi.OutputState }
+
+func (DaemonTaskDefinitionHealthCheckPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DaemonTaskDefinitionHealthCheck)(nil)).Elem()
+}
+
+func (o DaemonTaskDefinitionHealthCheckPtrOutput) ToDaemonTaskDefinitionHealthCheckPtrOutput() DaemonTaskDefinitionHealthCheckPtrOutput {
+	return o
+}
+
+func (o DaemonTaskDefinitionHealthCheckPtrOutput) ToDaemonTaskDefinitionHealthCheckPtrOutputWithContext(ctx context.Context) DaemonTaskDefinitionHealthCheckPtrOutput {
+	return o
+}
+
+func (o DaemonTaskDefinitionHealthCheckPtrOutput) Elem() DaemonTaskDefinitionHealthCheckOutput {
+	return o.ApplyT(func(v *DaemonTaskDefinitionHealthCheck) DaemonTaskDefinitionHealthCheck {
+		if v != nil {
+			return *v
+		}
+		var ret DaemonTaskDefinitionHealthCheck
+		return ret
+	}).(DaemonTaskDefinitionHealthCheckOutput)
+}
+
+func (o DaemonTaskDefinitionHealthCheckPtrOutput) Command() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DaemonTaskDefinitionHealthCheck) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Command
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o DaemonTaskDefinitionHealthCheckPtrOutput) Interval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DaemonTaskDefinitionHealthCheck) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Interval
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o DaemonTaskDefinitionHealthCheckPtrOutput) Retries() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DaemonTaskDefinitionHealthCheck) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Retries
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o DaemonTaskDefinitionHealthCheckPtrOutput) StartPeriod() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DaemonTaskDefinitionHealthCheck) *int {
+		if v == nil {
+			return nil
+		}
+		return v.StartPeriod
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o DaemonTaskDefinitionHealthCheckPtrOutput) Timeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DaemonTaskDefinitionHealthCheck) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Timeout
+	}).(pulumi.IntPtrOutput)
+}
+
+type DaemonTaskDefinitionHostVolumeProperties struct {
+	SourcePath *string `pulumi:"sourcePath"`
+}
+
+// DaemonTaskDefinitionHostVolumePropertiesInput is an input type that accepts DaemonTaskDefinitionHostVolumePropertiesArgs and DaemonTaskDefinitionHostVolumePropertiesOutput values.
+// You can construct a concrete instance of `DaemonTaskDefinitionHostVolumePropertiesInput` via:
+//
+//	DaemonTaskDefinitionHostVolumePropertiesArgs{...}
+type DaemonTaskDefinitionHostVolumePropertiesInput interface {
+	pulumi.Input
+
+	ToDaemonTaskDefinitionHostVolumePropertiesOutput() DaemonTaskDefinitionHostVolumePropertiesOutput
+	ToDaemonTaskDefinitionHostVolumePropertiesOutputWithContext(context.Context) DaemonTaskDefinitionHostVolumePropertiesOutput
+}
+
+type DaemonTaskDefinitionHostVolumePropertiesArgs struct {
+	SourcePath pulumi.StringPtrInput `pulumi:"sourcePath"`
+}
+
+func (DaemonTaskDefinitionHostVolumePropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DaemonTaskDefinitionHostVolumeProperties)(nil)).Elem()
+}
+
+func (i DaemonTaskDefinitionHostVolumePropertiesArgs) ToDaemonTaskDefinitionHostVolumePropertiesOutput() DaemonTaskDefinitionHostVolumePropertiesOutput {
+	return i.ToDaemonTaskDefinitionHostVolumePropertiesOutputWithContext(context.Background())
+}
+
+func (i DaemonTaskDefinitionHostVolumePropertiesArgs) ToDaemonTaskDefinitionHostVolumePropertiesOutputWithContext(ctx context.Context) DaemonTaskDefinitionHostVolumePropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DaemonTaskDefinitionHostVolumePropertiesOutput)
+}
+
+func (i DaemonTaskDefinitionHostVolumePropertiesArgs) ToDaemonTaskDefinitionHostVolumePropertiesPtrOutput() DaemonTaskDefinitionHostVolumePropertiesPtrOutput {
+	return i.ToDaemonTaskDefinitionHostVolumePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i DaemonTaskDefinitionHostVolumePropertiesArgs) ToDaemonTaskDefinitionHostVolumePropertiesPtrOutputWithContext(ctx context.Context) DaemonTaskDefinitionHostVolumePropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DaemonTaskDefinitionHostVolumePropertiesOutput).ToDaemonTaskDefinitionHostVolumePropertiesPtrOutputWithContext(ctx)
+}
+
+// DaemonTaskDefinitionHostVolumePropertiesPtrInput is an input type that accepts DaemonTaskDefinitionHostVolumePropertiesArgs, DaemonTaskDefinitionHostVolumePropertiesPtr and DaemonTaskDefinitionHostVolumePropertiesPtrOutput values.
+// You can construct a concrete instance of `DaemonTaskDefinitionHostVolumePropertiesPtrInput` via:
+//
+//	        DaemonTaskDefinitionHostVolumePropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type DaemonTaskDefinitionHostVolumePropertiesPtrInput interface {
+	pulumi.Input
+
+	ToDaemonTaskDefinitionHostVolumePropertiesPtrOutput() DaemonTaskDefinitionHostVolumePropertiesPtrOutput
+	ToDaemonTaskDefinitionHostVolumePropertiesPtrOutputWithContext(context.Context) DaemonTaskDefinitionHostVolumePropertiesPtrOutput
+}
+
+type daemonTaskDefinitionHostVolumePropertiesPtrType DaemonTaskDefinitionHostVolumePropertiesArgs
+
+func DaemonTaskDefinitionHostVolumePropertiesPtr(v *DaemonTaskDefinitionHostVolumePropertiesArgs) DaemonTaskDefinitionHostVolumePropertiesPtrInput {
+	return (*daemonTaskDefinitionHostVolumePropertiesPtrType)(v)
+}
+
+func (*daemonTaskDefinitionHostVolumePropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DaemonTaskDefinitionHostVolumeProperties)(nil)).Elem()
+}
+
+func (i *daemonTaskDefinitionHostVolumePropertiesPtrType) ToDaemonTaskDefinitionHostVolumePropertiesPtrOutput() DaemonTaskDefinitionHostVolumePropertiesPtrOutput {
+	return i.ToDaemonTaskDefinitionHostVolumePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *daemonTaskDefinitionHostVolumePropertiesPtrType) ToDaemonTaskDefinitionHostVolumePropertiesPtrOutputWithContext(ctx context.Context) DaemonTaskDefinitionHostVolumePropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DaemonTaskDefinitionHostVolumePropertiesPtrOutput)
+}
+
+type DaemonTaskDefinitionHostVolumePropertiesOutput struct{ *pulumi.OutputState }
+
+func (DaemonTaskDefinitionHostVolumePropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DaemonTaskDefinitionHostVolumeProperties)(nil)).Elem()
+}
+
+func (o DaemonTaskDefinitionHostVolumePropertiesOutput) ToDaemonTaskDefinitionHostVolumePropertiesOutput() DaemonTaskDefinitionHostVolumePropertiesOutput {
+	return o
+}
+
+func (o DaemonTaskDefinitionHostVolumePropertiesOutput) ToDaemonTaskDefinitionHostVolumePropertiesOutputWithContext(ctx context.Context) DaemonTaskDefinitionHostVolumePropertiesOutput {
+	return o
+}
+
+func (o DaemonTaskDefinitionHostVolumePropertiesOutput) ToDaemonTaskDefinitionHostVolumePropertiesPtrOutput() DaemonTaskDefinitionHostVolumePropertiesPtrOutput {
+	return o.ToDaemonTaskDefinitionHostVolumePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o DaemonTaskDefinitionHostVolumePropertiesOutput) ToDaemonTaskDefinitionHostVolumePropertiesPtrOutputWithContext(ctx context.Context) DaemonTaskDefinitionHostVolumePropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DaemonTaskDefinitionHostVolumeProperties) *DaemonTaskDefinitionHostVolumeProperties {
+		return &v
+	}).(DaemonTaskDefinitionHostVolumePropertiesPtrOutput)
+}
+
+func (o DaemonTaskDefinitionHostVolumePropertiesOutput) SourcePath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DaemonTaskDefinitionHostVolumeProperties) *string { return v.SourcePath }).(pulumi.StringPtrOutput)
+}
+
+type DaemonTaskDefinitionHostVolumePropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (DaemonTaskDefinitionHostVolumePropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DaemonTaskDefinitionHostVolumeProperties)(nil)).Elem()
+}
+
+func (o DaemonTaskDefinitionHostVolumePropertiesPtrOutput) ToDaemonTaskDefinitionHostVolumePropertiesPtrOutput() DaemonTaskDefinitionHostVolumePropertiesPtrOutput {
+	return o
+}
+
+func (o DaemonTaskDefinitionHostVolumePropertiesPtrOutput) ToDaemonTaskDefinitionHostVolumePropertiesPtrOutputWithContext(ctx context.Context) DaemonTaskDefinitionHostVolumePropertiesPtrOutput {
+	return o
+}
+
+func (o DaemonTaskDefinitionHostVolumePropertiesPtrOutput) Elem() DaemonTaskDefinitionHostVolumePropertiesOutput {
+	return o.ApplyT(func(v *DaemonTaskDefinitionHostVolumeProperties) DaemonTaskDefinitionHostVolumeProperties {
+		if v != nil {
+			return *v
+		}
+		var ret DaemonTaskDefinitionHostVolumeProperties
+		return ret
+	}).(DaemonTaskDefinitionHostVolumePropertiesOutput)
+}
+
+func (o DaemonTaskDefinitionHostVolumePropertiesPtrOutput) SourcePath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DaemonTaskDefinitionHostVolumeProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SourcePath
+	}).(pulumi.StringPtrOutput)
+}
+
+type DaemonTaskDefinitionKernelCapabilities struct {
+	Add  []string `pulumi:"add"`
+	Drop []string `pulumi:"drop"`
+}
+
+// DaemonTaskDefinitionKernelCapabilitiesInput is an input type that accepts DaemonTaskDefinitionKernelCapabilitiesArgs and DaemonTaskDefinitionKernelCapabilitiesOutput values.
+// You can construct a concrete instance of `DaemonTaskDefinitionKernelCapabilitiesInput` via:
+//
+//	DaemonTaskDefinitionKernelCapabilitiesArgs{...}
+type DaemonTaskDefinitionKernelCapabilitiesInput interface {
+	pulumi.Input
+
+	ToDaemonTaskDefinitionKernelCapabilitiesOutput() DaemonTaskDefinitionKernelCapabilitiesOutput
+	ToDaemonTaskDefinitionKernelCapabilitiesOutputWithContext(context.Context) DaemonTaskDefinitionKernelCapabilitiesOutput
+}
+
+type DaemonTaskDefinitionKernelCapabilitiesArgs struct {
+	Add  pulumi.StringArrayInput `pulumi:"add"`
+	Drop pulumi.StringArrayInput `pulumi:"drop"`
+}
+
+func (DaemonTaskDefinitionKernelCapabilitiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DaemonTaskDefinitionKernelCapabilities)(nil)).Elem()
+}
+
+func (i DaemonTaskDefinitionKernelCapabilitiesArgs) ToDaemonTaskDefinitionKernelCapabilitiesOutput() DaemonTaskDefinitionKernelCapabilitiesOutput {
+	return i.ToDaemonTaskDefinitionKernelCapabilitiesOutputWithContext(context.Background())
+}
+
+func (i DaemonTaskDefinitionKernelCapabilitiesArgs) ToDaemonTaskDefinitionKernelCapabilitiesOutputWithContext(ctx context.Context) DaemonTaskDefinitionKernelCapabilitiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DaemonTaskDefinitionKernelCapabilitiesOutput)
+}
+
+func (i DaemonTaskDefinitionKernelCapabilitiesArgs) ToDaemonTaskDefinitionKernelCapabilitiesPtrOutput() DaemonTaskDefinitionKernelCapabilitiesPtrOutput {
+	return i.ToDaemonTaskDefinitionKernelCapabilitiesPtrOutputWithContext(context.Background())
+}
+
+func (i DaemonTaskDefinitionKernelCapabilitiesArgs) ToDaemonTaskDefinitionKernelCapabilitiesPtrOutputWithContext(ctx context.Context) DaemonTaskDefinitionKernelCapabilitiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DaemonTaskDefinitionKernelCapabilitiesOutput).ToDaemonTaskDefinitionKernelCapabilitiesPtrOutputWithContext(ctx)
+}
+
+// DaemonTaskDefinitionKernelCapabilitiesPtrInput is an input type that accepts DaemonTaskDefinitionKernelCapabilitiesArgs, DaemonTaskDefinitionKernelCapabilitiesPtr and DaemonTaskDefinitionKernelCapabilitiesPtrOutput values.
+// You can construct a concrete instance of `DaemonTaskDefinitionKernelCapabilitiesPtrInput` via:
+//
+//	        DaemonTaskDefinitionKernelCapabilitiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type DaemonTaskDefinitionKernelCapabilitiesPtrInput interface {
+	pulumi.Input
+
+	ToDaemonTaskDefinitionKernelCapabilitiesPtrOutput() DaemonTaskDefinitionKernelCapabilitiesPtrOutput
+	ToDaemonTaskDefinitionKernelCapabilitiesPtrOutputWithContext(context.Context) DaemonTaskDefinitionKernelCapabilitiesPtrOutput
+}
+
+type daemonTaskDefinitionKernelCapabilitiesPtrType DaemonTaskDefinitionKernelCapabilitiesArgs
+
+func DaemonTaskDefinitionKernelCapabilitiesPtr(v *DaemonTaskDefinitionKernelCapabilitiesArgs) DaemonTaskDefinitionKernelCapabilitiesPtrInput {
+	return (*daemonTaskDefinitionKernelCapabilitiesPtrType)(v)
+}
+
+func (*daemonTaskDefinitionKernelCapabilitiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DaemonTaskDefinitionKernelCapabilities)(nil)).Elem()
+}
+
+func (i *daemonTaskDefinitionKernelCapabilitiesPtrType) ToDaemonTaskDefinitionKernelCapabilitiesPtrOutput() DaemonTaskDefinitionKernelCapabilitiesPtrOutput {
+	return i.ToDaemonTaskDefinitionKernelCapabilitiesPtrOutputWithContext(context.Background())
+}
+
+func (i *daemonTaskDefinitionKernelCapabilitiesPtrType) ToDaemonTaskDefinitionKernelCapabilitiesPtrOutputWithContext(ctx context.Context) DaemonTaskDefinitionKernelCapabilitiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DaemonTaskDefinitionKernelCapabilitiesPtrOutput)
+}
+
+type DaemonTaskDefinitionKernelCapabilitiesOutput struct{ *pulumi.OutputState }
+
+func (DaemonTaskDefinitionKernelCapabilitiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DaemonTaskDefinitionKernelCapabilities)(nil)).Elem()
+}
+
+func (o DaemonTaskDefinitionKernelCapabilitiesOutput) ToDaemonTaskDefinitionKernelCapabilitiesOutput() DaemonTaskDefinitionKernelCapabilitiesOutput {
+	return o
+}
+
+func (o DaemonTaskDefinitionKernelCapabilitiesOutput) ToDaemonTaskDefinitionKernelCapabilitiesOutputWithContext(ctx context.Context) DaemonTaskDefinitionKernelCapabilitiesOutput {
+	return o
+}
+
+func (o DaemonTaskDefinitionKernelCapabilitiesOutput) ToDaemonTaskDefinitionKernelCapabilitiesPtrOutput() DaemonTaskDefinitionKernelCapabilitiesPtrOutput {
+	return o.ToDaemonTaskDefinitionKernelCapabilitiesPtrOutputWithContext(context.Background())
+}
+
+func (o DaemonTaskDefinitionKernelCapabilitiesOutput) ToDaemonTaskDefinitionKernelCapabilitiesPtrOutputWithContext(ctx context.Context) DaemonTaskDefinitionKernelCapabilitiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DaemonTaskDefinitionKernelCapabilities) *DaemonTaskDefinitionKernelCapabilities {
+		return &v
+	}).(DaemonTaskDefinitionKernelCapabilitiesPtrOutput)
+}
+
+func (o DaemonTaskDefinitionKernelCapabilitiesOutput) Add() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DaemonTaskDefinitionKernelCapabilities) []string { return v.Add }).(pulumi.StringArrayOutput)
+}
+
+func (o DaemonTaskDefinitionKernelCapabilitiesOutput) Drop() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DaemonTaskDefinitionKernelCapabilities) []string { return v.Drop }).(pulumi.StringArrayOutput)
+}
+
+type DaemonTaskDefinitionKernelCapabilitiesPtrOutput struct{ *pulumi.OutputState }
+
+func (DaemonTaskDefinitionKernelCapabilitiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DaemonTaskDefinitionKernelCapabilities)(nil)).Elem()
+}
+
+func (o DaemonTaskDefinitionKernelCapabilitiesPtrOutput) ToDaemonTaskDefinitionKernelCapabilitiesPtrOutput() DaemonTaskDefinitionKernelCapabilitiesPtrOutput {
+	return o
+}
+
+func (o DaemonTaskDefinitionKernelCapabilitiesPtrOutput) ToDaemonTaskDefinitionKernelCapabilitiesPtrOutputWithContext(ctx context.Context) DaemonTaskDefinitionKernelCapabilitiesPtrOutput {
+	return o
+}
+
+func (o DaemonTaskDefinitionKernelCapabilitiesPtrOutput) Elem() DaemonTaskDefinitionKernelCapabilitiesOutput {
+	return o.ApplyT(func(v *DaemonTaskDefinitionKernelCapabilities) DaemonTaskDefinitionKernelCapabilities {
+		if v != nil {
+			return *v
+		}
+		var ret DaemonTaskDefinitionKernelCapabilities
+		return ret
+	}).(DaemonTaskDefinitionKernelCapabilitiesOutput)
+}
+
+func (o DaemonTaskDefinitionKernelCapabilitiesPtrOutput) Add() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DaemonTaskDefinitionKernelCapabilities) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Add
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o DaemonTaskDefinitionKernelCapabilitiesPtrOutput) Drop() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DaemonTaskDefinitionKernelCapabilities) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Drop
+	}).(pulumi.StringArrayOutput)
+}
+
+type DaemonTaskDefinitionKeyValuePair struct {
+	Name  *string `pulumi:"name"`
+	Value *string `pulumi:"value"`
+}
+
+// DaemonTaskDefinitionKeyValuePairInput is an input type that accepts DaemonTaskDefinitionKeyValuePairArgs and DaemonTaskDefinitionKeyValuePairOutput values.
+// You can construct a concrete instance of `DaemonTaskDefinitionKeyValuePairInput` via:
+//
+//	DaemonTaskDefinitionKeyValuePairArgs{...}
+type DaemonTaskDefinitionKeyValuePairInput interface {
+	pulumi.Input
+
+	ToDaemonTaskDefinitionKeyValuePairOutput() DaemonTaskDefinitionKeyValuePairOutput
+	ToDaemonTaskDefinitionKeyValuePairOutputWithContext(context.Context) DaemonTaskDefinitionKeyValuePairOutput
+}
+
+type DaemonTaskDefinitionKeyValuePairArgs struct {
+	Name  pulumi.StringPtrInput `pulumi:"name"`
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (DaemonTaskDefinitionKeyValuePairArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DaemonTaskDefinitionKeyValuePair)(nil)).Elem()
+}
+
+func (i DaemonTaskDefinitionKeyValuePairArgs) ToDaemonTaskDefinitionKeyValuePairOutput() DaemonTaskDefinitionKeyValuePairOutput {
+	return i.ToDaemonTaskDefinitionKeyValuePairOutputWithContext(context.Background())
+}
+
+func (i DaemonTaskDefinitionKeyValuePairArgs) ToDaemonTaskDefinitionKeyValuePairOutputWithContext(ctx context.Context) DaemonTaskDefinitionKeyValuePairOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DaemonTaskDefinitionKeyValuePairOutput)
+}
+
+// DaemonTaskDefinitionKeyValuePairArrayInput is an input type that accepts DaemonTaskDefinitionKeyValuePairArray and DaemonTaskDefinitionKeyValuePairArrayOutput values.
+// You can construct a concrete instance of `DaemonTaskDefinitionKeyValuePairArrayInput` via:
+//
+//	DaemonTaskDefinitionKeyValuePairArray{ DaemonTaskDefinitionKeyValuePairArgs{...} }
+type DaemonTaskDefinitionKeyValuePairArrayInput interface {
+	pulumi.Input
+
+	ToDaemonTaskDefinitionKeyValuePairArrayOutput() DaemonTaskDefinitionKeyValuePairArrayOutput
+	ToDaemonTaskDefinitionKeyValuePairArrayOutputWithContext(context.Context) DaemonTaskDefinitionKeyValuePairArrayOutput
+}
+
+type DaemonTaskDefinitionKeyValuePairArray []DaemonTaskDefinitionKeyValuePairInput
+
+func (DaemonTaskDefinitionKeyValuePairArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DaemonTaskDefinitionKeyValuePair)(nil)).Elem()
+}
+
+func (i DaemonTaskDefinitionKeyValuePairArray) ToDaemonTaskDefinitionKeyValuePairArrayOutput() DaemonTaskDefinitionKeyValuePairArrayOutput {
+	return i.ToDaemonTaskDefinitionKeyValuePairArrayOutputWithContext(context.Background())
+}
+
+func (i DaemonTaskDefinitionKeyValuePairArray) ToDaemonTaskDefinitionKeyValuePairArrayOutputWithContext(ctx context.Context) DaemonTaskDefinitionKeyValuePairArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DaemonTaskDefinitionKeyValuePairArrayOutput)
+}
+
+type DaemonTaskDefinitionKeyValuePairOutput struct{ *pulumi.OutputState }
+
+func (DaemonTaskDefinitionKeyValuePairOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DaemonTaskDefinitionKeyValuePair)(nil)).Elem()
+}
+
+func (o DaemonTaskDefinitionKeyValuePairOutput) ToDaemonTaskDefinitionKeyValuePairOutput() DaemonTaskDefinitionKeyValuePairOutput {
+	return o
+}
+
+func (o DaemonTaskDefinitionKeyValuePairOutput) ToDaemonTaskDefinitionKeyValuePairOutputWithContext(ctx context.Context) DaemonTaskDefinitionKeyValuePairOutput {
+	return o
+}
+
+func (o DaemonTaskDefinitionKeyValuePairOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DaemonTaskDefinitionKeyValuePair) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o DaemonTaskDefinitionKeyValuePairOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DaemonTaskDefinitionKeyValuePair) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type DaemonTaskDefinitionKeyValuePairArrayOutput struct{ *pulumi.OutputState }
+
+func (DaemonTaskDefinitionKeyValuePairArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DaemonTaskDefinitionKeyValuePair)(nil)).Elem()
+}
+
+func (o DaemonTaskDefinitionKeyValuePairArrayOutput) ToDaemonTaskDefinitionKeyValuePairArrayOutput() DaemonTaskDefinitionKeyValuePairArrayOutput {
+	return o
+}
+
+func (o DaemonTaskDefinitionKeyValuePairArrayOutput) ToDaemonTaskDefinitionKeyValuePairArrayOutputWithContext(ctx context.Context) DaemonTaskDefinitionKeyValuePairArrayOutput {
+	return o
+}
+
+func (o DaemonTaskDefinitionKeyValuePairArrayOutput) Index(i pulumi.IntInput) DaemonTaskDefinitionKeyValuePairOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DaemonTaskDefinitionKeyValuePair {
+		return vs[0].([]DaemonTaskDefinitionKeyValuePair)[vs[1].(int)]
+	}).(DaemonTaskDefinitionKeyValuePairOutput)
+}
+
+type DaemonTaskDefinitionLinuxParameters struct {
+	Capabilities       *DaemonTaskDefinitionKernelCapabilities `pulumi:"capabilities"`
+	Devices            []DaemonTaskDefinitionDevice            `pulumi:"devices"`
+	InitProcessEnabled *bool                                   `pulumi:"initProcessEnabled"`
+	Tmpfs              []DaemonTaskDefinitionTmpfs             `pulumi:"tmpfs"`
+}
+
+// DaemonTaskDefinitionLinuxParametersInput is an input type that accepts DaemonTaskDefinitionLinuxParametersArgs and DaemonTaskDefinitionLinuxParametersOutput values.
+// You can construct a concrete instance of `DaemonTaskDefinitionLinuxParametersInput` via:
+//
+//	DaemonTaskDefinitionLinuxParametersArgs{...}
+type DaemonTaskDefinitionLinuxParametersInput interface {
+	pulumi.Input
+
+	ToDaemonTaskDefinitionLinuxParametersOutput() DaemonTaskDefinitionLinuxParametersOutput
+	ToDaemonTaskDefinitionLinuxParametersOutputWithContext(context.Context) DaemonTaskDefinitionLinuxParametersOutput
+}
+
+type DaemonTaskDefinitionLinuxParametersArgs struct {
+	Capabilities       DaemonTaskDefinitionKernelCapabilitiesPtrInput `pulumi:"capabilities"`
+	Devices            DaemonTaskDefinitionDeviceArrayInput           `pulumi:"devices"`
+	InitProcessEnabled pulumi.BoolPtrInput                            `pulumi:"initProcessEnabled"`
+	Tmpfs              DaemonTaskDefinitionTmpfsArrayInput            `pulumi:"tmpfs"`
+}
+
+func (DaemonTaskDefinitionLinuxParametersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DaemonTaskDefinitionLinuxParameters)(nil)).Elem()
+}
+
+func (i DaemonTaskDefinitionLinuxParametersArgs) ToDaemonTaskDefinitionLinuxParametersOutput() DaemonTaskDefinitionLinuxParametersOutput {
+	return i.ToDaemonTaskDefinitionLinuxParametersOutputWithContext(context.Background())
+}
+
+func (i DaemonTaskDefinitionLinuxParametersArgs) ToDaemonTaskDefinitionLinuxParametersOutputWithContext(ctx context.Context) DaemonTaskDefinitionLinuxParametersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DaemonTaskDefinitionLinuxParametersOutput)
+}
+
+func (i DaemonTaskDefinitionLinuxParametersArgs) ToDaemonTaskDefinitionLinuxParametersPtrOutput() DaemonTaskDefinitionLinuxParametersPtrOutput {
+	return i.ToDaemonTaskDefinitionLinuxParametersPtrOutputWithContext(context.Background())
+}
+
+func (i DaemonTaskDefinitionLinuxParametersArgs) ToDaemonTaskDefinitionLinuxParametersPtrOutputWithContext(ctx context.Context) DaemonTaskDefinitionLinuxParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DaemonTaskDefinitionLinuxParametersOutput).ToDaemonTaskDefinitionLinuxParametersPtrOutputWithContext(ctx)
+}
+
+// DaemonTaskDefinitionLinuxParametersPtrInput is an input type that accepts DaemonTaskDefinitionLinuxParametersArgs, DaemonTaskDefinitionLinuxParametersPtr and DaemonTaskDefinitionLinuxParametersPtrOutput values.
+// You can construct a concrete instance of `DaemonTaskDefinitionLinuxParametersPtrInput` via:
+//
+//	        DaemonTaskDefinitionLinuxParametersArgs{...}
+//
+//	or:
+//
+//	        nil
+type DaemonTaskDefinitionLinuxParametersPtrInput interface {
+	pulumi.Input
+
+	ToDaemonTaskDefinitionLinuxParametersPtrOutput() DaemonTaskDefinitionLinuxParametersPtrOutput
+	ToDaemonTaskDefinitionLinuxParametersPtrOutputWithContext(context.Context) DaemonTaskDefinitionLinuxParametersPtrOutput
+}
+
+type daemonTaskDefinitionLinuxParametersPtrType DaemonTaskDefinitionLinuxParametersArgs
+
+func DaemonTaskDefinitionLinuxParametersPtr(v *DaemonTaskDefinitionLinuxParametersArgs) DaemonTaskDefinitionLinuxParametersPtrInput {
+	return (*daemonTaskDefinitionLinuxParametersPtrType)(v)
+}
+
+func (*daemonTaskDefinitionLinuxParametersPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DaemonTaskDefinitionLinuxParameters)(nil)).Elem()
+}
+
+func (i *daemonTaskDefinitionLinuxParametersPtrType) ToDaemonTaskDefinitionLinuxParametersPtrOutput() DaemonTaskDefinitionLinuxParametersPtrOutput {
+	return i.ToDaemonTaskDefinitionLinuxParametersPtrOutputWithContext(context.Background())
+}
+
+func (i *daemonTaskDefinitionLinuxParametersPtrType) ToDaemonTaskDefinitionLinuxParametersPtrOutputWithContext(ctx context.Context) DaemonTaskDefinitionLinuxParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DaemonTaskDefinitionLinuxParametersPtrOutput)
+}
+
+type DaemonTaskDefinitionLinuxParametersOutput struct{ *pulumi.OutputState }
+
+func (DaemonTaskDefinitionLinuxParametersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DaemonTaskDefinitionLinuxParameters)(nil)).Elem()
+}
+
+func (o DaemonTaskDefinitionLinuxParametersOutput) ToDaemonTaskDefinitionLinuxParametersOutput() DaemonTaskDefinitionLinuxParametersOutput {
+	return o
+}
+
+func (o DaemonTaskDefinitionLinuxParametersOutput) ToDaemonTaskDefinitionLinuxParametersOutputWithContext(ctx context.Context) DaemonTaskDefinitionLinuxParametersOutput {
+	return o
+}
+
+func (o DaemonTaskDefinitionLinuxParametersOutput) ToDaemonTaskDefinitionLinuxParametersPtrOutput() DaemonTaskDefinitionLinuxParametersPtrOutput {
+	return o.ToDaemonTaskDefinitionLinuxParametersPtrOutputWithContext(context.Background())
+}
+
+func (o DaemonTaskDefinitionLinuxParametersOutput) ToDaemonTaskDefinitionLinuxParametersPtrOutputWithContext(ctx context.Context) DaemonTaskDefinitionLinuxParametersPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DaemonTaskDefinitionLinuxParameters) *DaemonTaskDefinitionLinuxParameters {
+		return &v
+	}).(DaemonTaskDefinitionLinuxParametersPtrOutput)
+}
+
+func (o DaemonTaskDefinitionLinuxParametersOutput) Capabilities() DaemonTaskDefinitionKernelCapabilitiesPtrOutput {
+	return o.ApplyT(func(v DaemonTaskDefinitionLinuxParameters) *DaemonTaskDefinitionKernelCapabilities {
+		return v.Capabilities
+	}).(DaemonTaskDefinitionKernelCapabilitiesPtrOutput)
+}
+
+func (o DaemonTaskDefinitionLinuxParametersOutput) Devices() DaemonTaskDefinitionDeviceArrayOutput {
+	return o.ApplyT(func(v DaemonTaskDefinitionLinuxParameters) []DaemonTaskDefinitionDevice { return v.Devices }).(DaemonTaskDefinitionDeviceArrayOutput)
+}
+
+func (o DaemonTaskDefinitionLinuxParametersOutput) InitProcessEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DaemonTaskDefinitionLinuxParameters) *bool { return v.InitProcessEnabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o DaemonTaskDefinitionLinuxParametersOutput) Tmpfs() DaemonTaskDefinitionTmpfsArrayOutput {
+	return o.ApplyT(func(v DaemonTaskDefinitionLinuxParameters) []DaemonTaskDefinitionTmpfs { return v.Tmpfs }).(DaemonTaskDefinitionTmpfsArrayOutput)
+}
+
+type DaemonTaskDefinitionLinuxParametersPtrOutput struct{ *pulumi.OutputState }
+
+func (DaemonTaskDefinitionLinuxParametersPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DaemonTaskDefinitionLinuxParameters)(nil)).Elem()
+}
+
+func (o DaemonTaskDefinitionLinuxParametersPtrOutput) ToDaemonTaskDefinitionLinuxParametersPtrOutput() DaemonTaskDefinitionLinuxParametersPtrOutput {
+	return o
+}
+
+func (o DaemonTaskDefinitionLinuxParametersPtrOutput) ToDaemonTaskDefinitionLinuxParametersPtrOutputWithContext(ctx context.Context) DaemonTaskDefinitionLinuxParametersPtrOutput {
+	return o
+}
+
+func (o DaemonTaskDefinitionLinuxParametersPtrOutput) Elem() DaemonTaskDefinitionLinuxParametersOutput {
+	return o.ApplyT(func(v *DaemonTaskDefinitionLinuxParameters) DaemonTaskDefinitionLinuxParameters {
+		if v != nil {
+			return *v
+		}
+		var ret DaemonTaskDefinitionLinuxParameters
+		return ret
+	}).(DaemonTaskDefinitionLinuxParametersOutput)
+}
+
+func (o DaemonTaskDefinitionLinuxParametersPtrOutput) Capabilities() DaemonTaskDefinitionKernelCapabilitiesPtrOutput {
+	return o.ApplyT(func(v *DaemonTaskDefinitionLinuxParameters) *DaemonTaskDefinitionKernelCapabilities {
+		if v == nil {
+			return nil
+		}
+		return v.Capabilities
+	}).(DaemonTaskDefinitionKernelCapabilitiesPtrOutput)
+}
+
+func (o DaemonTaskDefinitionLinuxParametersPtrOutput) Devices() DaemonTaskDefinitionDeviceArrayOutput {
+	return o.ApplyT(func(v *DaemonTaskDefinitionLinuxParameters) []DaemonTaskDefinitionDevice {
+		if v == nil {
+			return nil
+		}
+		return v.Devices
+	}).(DaemonTaskDefinitionDeviceArrayOutput)
+}
+
+func (o DaemonTaskDefinitionLinuxParametersPtrOutput) InitProcessEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DaemonTaskDefinitionLinuxParameters) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.InitProcessEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o DaemonTaskDefinitionLinuxParametersPtrOutput) Tmpfs() DaemonTaskDefinitionTmpfsArrayOutput {
+	return o.ApplyT(func(v *DaemonTaskDefinitionLinuxParameters) []DaemonTaskDefinitionTmpfs {
+		if v == nil {
+			return nil
+		}
+		return v.Tmpfs
+	}).(DaemonTaskDefinitionTmpfsArrayOutput)
+}
+
+type DaemonTaskDefinitionLogConfiguration struct {
+	LogDriver     string                       `pulumi:"logDriver"`
+	Options       map[string]string            `pulumi:"options"`
+	SecretOptions []DaemonTaskDefinitionSecret `pulumi:"secretOptions"`
+}
+
+// DaemonTaskDefinitionLogConfigurationInput is an input type that accepts DaemonTaskDefinitionLogConfigurationArgs and DaemonTaskDefinitionLogConfigurationOutput values.
+// You can construct a concrete instance of `DaemonTaskDefinitionLogConfigurationInput` via:
+//
+//	DaemonTaskDefinitionLogConfigurationArgs{...}
+type DaemonTaskDefinitionLogConfigurationInput interface {
+	pulumi.Input
+
+	ToDaemonTaskDefinitionLogConfigurationOutput() DaemonTaskDefinitionLogConfigurationOutput
+	ToDaemonTaskDefinitionLogConfigurationOutputWithContext(context.Context) DaemonTaskDefinitionLogConfigurationOutput
+}
+
+type DaemonTaskDefinitionLogConfigurationArgs struct {
+	LogDriver     pulumi.StringInput                   `pulumi:"logDriver"`
+	Options       pulumi.StringMapInput                `pulumi:"options"`
+	SecretOptions DaemonTaskDefinitionSecretArrayInput `pulumi:"secretOptions"`
+}
+
+func (DaemonTaskDefinitionLogConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DaemonTaskDefinitionLogConfiguration)(nil)).Elem()
+}
+
+func (i DaemonTaskDefinitionLogConfigurationArgs) ToDaemonTaskDefinitionLogConfigurationOutput() DaemonTaskDefinitionLogConfigurationOutput {
+	return i.ToDaemonTaskDefinitionLogConfigurationOutputWithContext(context.Background())
+}
+
+func (i DaemonTaskDefinitionLogConfigurationArgs) ToDaemonTaskDefinitionLogConfigurationOutputWithContext(ctx context.Context) DaemonTaskDefinitionLogConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DaemonTaskDefinitionLogConfigurationOutput)
+}
+
+func (i DaemonTaskDefinitionLogConfigurationArgs) ToDaemonTaskDefinitionLogConfigurationPtrOutput() DaemonTaskDefinitionLogConfigurationPtrOutput {
+	return i.ToDaemonTaskDefinitionLogConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i DaemonTaskDefinitionLogConfigurationArgs) ToDaemonTaskDefinitionLogConfigurationPtrOutputWithContext(ctx context.Context) DaemonTaskDefinitionLogConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DaemonTaskDefinitionLogConfigurationOutput).ToDaemonTaskDefinitionLogConfigurationPtrOutputWithContext(ctx)
+}
+
+// DaemonTaskDefinitionLogConfigurationPtrInput is an input type that accepts DaemonTaskDefinitionLogConfigurationArgs, DaemonTaskDefinitionLogConfigurationPtr and DaemonTaskDefinitionLogConfigurationPtrOutput values.
+// You can construct a concrete instance of `DaemonTaskDefinitionLogConfigurationPtrInput` via:
+//
+//	        DaemonTaskDefinitionLogConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type DaemonTaskDefinitionLogConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToDaemonTaskDefinitionLogConfigurationPtrOutput() DaemonTaskDefinitionLogConfigurationPtrOutput
+	ToDaemonTaskDefinitionLogConfigurationPtrOutputWithContext(context.Context) DaemonTaskDefinitionLogConfigurationPtrOutput
+}
+
+type daemonTaskDefinitionLogConfigurationPtrType DaemonTaskDefinitionLogConfigurationArgs
+
+func DaemonTaskDefinitionLogConfigurationPtr(v *DaemonTaskDefinitionLogConfigurationArgs) DaemonTaskDefinitionLogConfigurationPtrInput {
+	return (*daemonTaskDefinitionLogConfigurationPtrType)(v)
+}
+
+func (*daemonTaskDefinitionLogConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DaemonTaskDefinitionLogConfiguration)(nil)).Elem()
+}
+
+func (i *daemonTaskDefinitionLogConfigurationPtrType) ToDaemonTaskDefinitionLogConfigurationPtrOutput() DaemonTaskDefinitionLogConfigurationPtrOutput {
+	return i.ToDaemonTaskDefinitionLogConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *daemonTaskDefinitionLogConfigurationPtrType) ToDaemonTaskDefinitionLogConfigurationPtrOutputWithContext(ctx context.Context) DaemonTaskDefinitionLogConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DaemonTaskDefinitionLogConfigurationPtrOutput)
+}
+
+type DaemonTaskDefinitionLogConfigurationOutput struct{ *pulumi.OutputState }
+
+func (DaemonTaskDefinitionLogConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DaemonTaskDefinitionLogConfiguration)(nil)).Elem()
+}
+
+func (o DaemonTaskDefinitionLogConfigurationOutput) ToDaemonTaskDefinitionLogConfigurationOutput() DaemonTaskDefinitionLogConfigurationOutput {
+	return o
+}
+
+func (o DaemonTaskDefinitionLogConfigurationOutput) ToDaemonTaskDefinitionLogConfigurationOutputWithContext(ctx context.Context) DaemonTaskDefinitionLogConfigurationOutput {
+	return o
+}
+
+func (o DaemonTaskDefinitionLogConfigurationOutput) ToDaemonTaskDefinitionLogConfigurationPtrOutput() DaemonTaskDefinitionLogConfigurationPtrOutput {
+	return o.ToDaemonTaskDefinitionLogConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o DaemonTaskDefinitionLogConfigurationOutput) ToDaemonTaskDefinitionLogConfigurationPtrOutputWithContext(ctx context.Context) DaemonTaskDefinitionLogConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DaemonTaskDefinitionLogConfiguration) *DaemonTaskDefinitionLogConfiguration {
+		return &v
+	}).(DaemonTaskDefinitionLogConfigurationPtrOutput)
+}
+
+func (o DaemonTaskDefinitionLogConfigurationOutput) LogDriver() pulumi.StringOutput {
+	return o.ApplyT(func(v DaemonTaskDefinitionLogConfiguration) string { return v.LogDriver }).(pulumi.StringOutput)
+}
+
+func (o DaemonTaskDefinitionLogConfigurationOutput) Options() pulumi.StringMapOutput {
+	return o.ApplyT(func(v DaemonTaskDefinitionLogConfiguration) map[string]string { return v.Options }).(pulumi.StringMapOutput)
+}
+
+func (o DaemonTaskDefinitionLogConfigurationOutput) SecretOptions() DaemonTaskDefinitionSecretArrayOutput {
+	return o.ApplyT(func(v DaemonTaskDefinitionLogConfiguration) []DaemonTaskDefinitionSecret { return v.SecretOptions }).(DaemonTaskDefinitionSecretArrayOutput)
+}
+
+type DaemonTaskDefinitionLogConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (DaemonTaskDefinitionLogConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DaemonTaskDefinitionLogConfiguration)(nil)).Elem()
+}
+
+func (o DaemonTaskDefinitionLogConfigurationPtrOutput) ToDaemonTaskDefinitionLogConfigurationPtrOutput() DaemonTaskDefinitionLogConfigurationPtrOutput {
+	return o
+}
+
+func (o DaemonTaskDefinitionLogConfigurationPtrOutput) ToDaemonTaskDefinitionLogConfigurationPtrOutputWithContext(ctx context.Context) DaemonTaskDefinitionLogConfigurationPtrOutput {
+	return o
+}
+
+func (o DaemonTaskDefinitionLogConfigurationPtrOutput) Elem() DaemonTaskDefinitionLogConfigurationOutput {
+	return o.ApplyT(func(v *DaemonTaskDefinitionLogConfiguration) DaemonTaskDefinitionLogConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret DaemonTaskDefinitionLogConfiguration
+		return ret
+	}).(DaemonTaskDefinitionLogConfigurationOutput)
+}
+
+func (o DaemonTaskDefinitionLogConfigurationPtrOutput) LogDriver() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DaemonTaskDefinitionLogConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.LogDriver
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o DaemonTaskDefinitionLogConfigurationPtrOutput) Options() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *DaemonTaskDefinitionLogConfiguration) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.Options
+	}).(pulumi.StringMapOutput)
+}
+
+func (o DaemonTaskDefinitionLogConfigurationPtrOutput) SecretOptions() DaemonTaskDefinitionSecretArrayOutput {
+	return o.ApplyT(func(v *DaemonTaskDefinitionLogConfiguration) []DaemonTaskDefinitionSecret {
+		if v == nil {
+			return nil
+		}
+		return v.SecretOptions
+	}).(DaemonTaskDefinitionSecretArrayOutput)
+}
+
+type DaemonTaskDefinitionMountPoint struct {
+	ContainerPath *string `pulumi:"containerPath"`
+	ReadOnly      *bool   `pulumi:"readOnly"`
+	SourceVolume  *string `pulumi:"sourceVolume"`
+}
+
+// DaemonTaskDefinitionMountPointInput is an input type that accepts DaemonTaskDefinitionMountPointArgs and DaemonTaskDefinitionMountPointOutput values.
+// You can construct a concrete instance of `DaemonTaskDefinitionMountPointInput` via:
+//
+//	DaemonTaskDefinitionMountPointArgs{...}
+type DaemonTaskDefinitionMountPointInput interface {
+	pulumi.Input
+
+	ToDaemonTaskDefinitionMountPointOutput() DaemonTaskDefinitionMountPointOutput
+	ToDaemonTaskDefinitionMountPointOutputWithContext(context.Context) DaemonTaskDefinitionMountPointOutput
+}
+
+type DaemonTaskDefinitionMountPointArgs struct {
+	ContainerPath pulumi.StringPtrInput `pulumi:"containerPath"`
+	ReadOnly      pulumi.BoolPtrInput   `pulumi:"readOnly"`
+	SourceVolume  pulumi.StringPtrInput `pulumi:"sourceVolume"`
+}
+
+func (DaemonTaskDefinitionMountPointArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DaemonTaskDefinitionMountPoint)(nil)).Elem()
+}
+
+func (i DaemonTaskDefinitionMountPointArgs) ToDaemonTaskDefinitionMountPointOutput() DaemonTaskDefinitionMountPointOutput {
+	return i.ToDaemonTaskDefinitionMountPointOutputWithContext(context.Background())
+}
+
+func (i DaemonTaskDefinitionMountPointArgs) ToDaemonTaskDefinitionMountPointOutputWithContext(ctx context.Context) DaemonTaskDefinitionMountPointOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DaemonTaskDefinitionMountPointOutput)
+}
+
+// DaemonTaskDefinitionMountPointArrayInput is an input type that accepts DaemonTaskDefinitionMountPointArray and DaemonTaskDefinitionMountPointArrayOutput values.
+// You can construct a concrete instance of `DaemonTaskDefinitionMountPointArrayInput` via:
+//
+//	DaemonTaskDefinitionMountPointArray{ DaemonTaskDefinitionMountPointArgs{...} }
+type DaemonTaskDefinitionMountPointArrayInput interface {
+	pulumi.Input
+
+	ToDaemonTaskDefinitionMountPointArrayOutput() DaemonTaskDefinitionMountPointArrayOutput
+	ToDaemonTaskDefinitionMountPointArrayOutputWithContext(context.Context) DaemonTaskDefinitionMountPointArrayOutput
+}
+
+type DaemonTaskDefinitionMountPointArray []DaemonTaskDefinitionMountPointInput
+
+func (DaemonTaskDefinitionMountPointArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DaemonTaskDefinitionMountPoint)(nil)).Elem()
+}
+
+func (i DaemonTaskDefinitionMountPointArray) ToDaemonTaskDefinitionMountPointArrayOutput() DaemonTaskDefinitionMountPointArrayOutput {
+	return i.ToDaemonTaskDefinitionMountPointArrayOutputWithContext(context.Background())
+}
+
+func (i DaemonTaskDefinitionMountPointArray) ToDaemonTaskDefinitionMountPointArrayOutputWithContext(ctx context.Context) DaemonTaskDefinitionMountPointArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DaemonTaskDefinitionMountPointArrayOutput)
+}
+
+type DaemonTaskDefinitionMountPointOutput struct{ *pulumi.OutputState }
+
+func (DaemonTaskDefinitionMountPointOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DaemonTaskDefinitionMountPoint)(nil)).Elem()
+}
+
+func (o DaemonTaskDefinitionMountPointOutput) ToDaemonTaskDefinitionMountPointOutput() DaemonTaskDefinitionMountPointOutput {
+	return o
+}
+
+func (o DaemonTaskDefinitionMountPointOutput) ToDaemonTaskDefinitionMountPointOutputWithContext(ctx context.Context) DaemonTaskDefinitionMountPointOutput {
+	return o
+}
+
+func (o DaemonTaskDefinitionMountPointOutput) ContainerPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DaemonTaskDefinitionMountPoint) *string { return v.ContainerPath }).(pulumi.StringPtrOutput)
+}
+
+func (o DaemonTaskDefinitionMountPointOutput) ReadOnly() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DaemonTaskDefinitionMountPoint) *bool { return v.ReadOnly }).(pulumi.BoolPtrOutput)
+}
+
+func (o DaemonTaskDefinitionMountPointOutput) SourceVolume() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DaemonTaskDefinitionMountPoint) *string { return v.SourceVolume }).(pulumi.StringPtrOutput)
+}
+
+type DaemonTaskDefinitionMountPointArrayOutput struct{ *pulumi.OutputState }
+
+func (DaemonTaskDefinitionMountPointArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DaemonTaskDefinitionMountPoint)(nil)).Elem()
+}
+
+func (o DaemonTaskDefinitionMountPointArrayOutput) ToDaemonTaskDefinitionMountPointArrayOutput() DaemonTaskDefinitionMountPointArrayOutput {
+	return o
+}
+
+func (o DaemonTaskDefinitionMountPointArrayOutput) ToDaemonTaskDefinitionMountPointArrayOutputWithContext(ctx context.Context) DaemonTaskDefinitionMountPointArrayOutput {
+	return o
+}
+
+func (o DaemonTaskDefinitionMountPointArrayOutput) Index(i pulumi.IntInput) DaemonTaskDefinitionMountPointOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DaemonTaskDefinitionMountPoint {
+		return vs[0].([]DaemonTaskDefinitionMountPoint)[vs[1].(int)]
+	}).(DaemonTaskDefinitionMountPointOutput)
+}
+
+type DaemonTaskDefinitionRepositoryCredentials struct {
+	CredentialsParameter *string `pulumi:"credentialsParameter"`
+}
+
+// DaemonTaskDefinitionRepositoryCredentialsInput is an input type that accepts DaemonTaskDefinitionRepositoryCredentialsArgs and DaemonTaskDefinitionRepositoryCredentialsOutput values.
+// You can construct a concrete instance of `DaemonTaskDefinitionRepositoryCredentialsInput` via:
+//
+//	DaemonTaskDefinitionRepositoryCredentialsArgs{...}
+type DaemonTaskDefinitionRepositoryCredentialsInput interface {
+	pulumi.Input
+
+	ToDaemonTaskDefinitionRepositoryCredentialsOutput() DaemonTaskDefinitionRepositoryCredentialsOutput
+	ToDaemonTaskDefinitionRepositoryCredentialsOutputWithContext(context.Context) DaemonTaskDefinitionRepositoryCredentialsOutput
+}
+
+type DaemonTaskDefinitionRepositoryCredentialsArgs struct {
+	CredentialsParameter pulumi.StringPtrInput `pulumi:"credentialsParameter"`
+}
+
+func (DaemonTaskDefinitionRepositoryCredentialsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DaemonTaskDefinitionRepositoryCredentials)(nil)).Elem()
+}
+
+func (i DaemonTaskDefinitionRepositoryCredentialsArgs) ToDaemonTaskDefinitionRepositoryCredentialsOutput() DaemonTaskDefinitionRepositoryCredentialsOutput {
+	return i.ToDaemonTaskDefinitionRepositoryCredentialsOutputWithContext(context.Background())
+}
+
+func (i DaemonTaskDefinitionRepositoryCredentialsArgs) ToDaemonTaskDefinitionRepositoryCredentialsOutputWithContext(ctx context.Context) DaemonTaskDefinitionRepositoryCredentialsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DaemonTaskDefinitionRepositoryCredentialsOutput)
+}
+
+func (i DaemonTaskDefinitionRepositoryCredentialsArgs) ToDaemonTaskDefinitionRepositoryCredentialsPtrOutput() DaemonTaskDefinitionRepositoryCredentialsPtrOutput {
+	return i.ToDaemonTaskDefinitionRepositoryCredentialsPtrOutputWithContext(context.Background())
+}
+
+func (i DaemonTaskDefinitionRepositoryCredentialsArgs) ToDaemonTaskDefinitionRepositoryCredentialsPtrOutputWithContext(ctx context.Context) DaemonTaskDefinitionRepositoryCredentialsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DaemonTaskDefinitionRepositoryCredentialsOutput).ToDaemonTaskDefinitionRepositoryCredentialsPtrOutputWithContext(ctx)
+}
+
+// DaemonTaskDefinitionRepositoryCredentialsPtrInput is an input type that accepts DaemonTaskDefinitionRepositoryCredentialsArgs, DaemonTaskDefinitionRepositoryCredentialsPtr and DaemonTaskDefinitionRepositoryCredentialsPtrOutput values.
+// You can construct a concrete instance of `DaemonTaskDefinitionRepositoryCredentialsPtrInput` via:
+//
+//	        DaemonTaskDefinitionRepositoryCredentialsArgs{...}
+//
+//	or:
+//
+//	        nil
+type DaemonTaskDefinitionRepositoryCredentialsPtrInput interface {
+	pulumi.Input
+
+	ToDaemonTaskDefinitionRepositoryCredentialsPtrOutput() DaemonTaskDefinitionRepositoryCredentialsPtrOutput
+	ToDaemonTaskDefinitionRepositoryCredentialsPtrOutputWithContext(context.Context) DaemonTaskDefinitionRepositoryCredentialsPtrOutput
+}
+
+type daemonTaskDefinitionRepositoryCredentialsPtrType DaemonTaskDefinitionRepositoryCredentialsArgs
+
+func DaemonTaskDefinitionRepositoryCredentialsPtr(v *DaemonTaskDefinitionRepositoryCredentialsArgs) DaemonTaskDefinitionRepositoryCredentialsPtrInput {
+	return (*daemonTaskDefinitionRepositoryCredentialsPtrType)(v)
+}
+
+func (*daemonTaskDefinitionRepositoryCredentialsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DaemonTaskDefinitionRepositoryCredentials)(nil)).Elem()
+}
+
+func (i *daemonTaskDefinitionRepositoryCredentialsPtrType) ToDaemonTaskDefinitionRepositoryCredentialsPtrOutput() DaemonTaskDefinitionRepositoryCredentialsPtrOutput {
+	return i.ToDaemonTaskDefinitionRepositoryCredentialsPtrOutputWithContext(context.Background())
+}
+
+func (i *daemonTaskDefinitionRepositoryCredentialsPtrType) ToDaemonTaskDefinitionRepositoryCredentialsPtrOutputWithContext(ctx context.Context) DaemonTaskDefinitionRepositoryCredentialsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DaemonTaskDefinitionRepositoryCredentialsPtrOutput)
+}
+
+type DaemonTaskDefinitionRepositoryCredentialsOutput struct{ *pulumi.OutputState }
+
+func (DaemonTaskDefinitionRepositoryCredentialsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DaemonTaskDefinitionRepositoryCredentials)(nil)).Elem()
+}
+
+func (o DaemonTaskDefinitionRepositoryCredentialsOutput) ToDaemonTaskDefinitionRepositoryCredentialsOutput() DaemonTaskDefinitionRepositoryCredentialsOutput {
+	return o
+}
+
+func (o DaemonTaskDefinitionRepositoryCredentialsOutput) ToDaemonTaskDefinitionRepositoryCredentialsOutputWithContext(ctx context.Context) DaemonTaskDefinitionRepositoryCredentialsOutput {
+	return o
+}
+
+func (o DaemonTaskDefinitionRepositoryCredentialsOutput) ToDaemonTaskDefinitionRepositoryCredentialsPtrOutput() DaemonTaskDefinitionRepositoryCredentialsPtrOutput {
+	return o.ToDaemonTaskDefinitionRepositoryCredentialsPtrOutputWithContext(context.Background())
+}
+
+func (o DaemonTaskDefinitionRepositoryCredentialsOutput) ToDaemonTaskDefinitionRepositoryCredentialsPtrOutputWithContext(ctx context.Context) DaemonTaskDefinitionRepositoryCredentialsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DaemonTaskDefinitionRepositoryCredentials) *DaemonTaskDefinitionRepositoryCredentials {
+		return &v
+	}).(DaemonTaskDefinitionRepositoryCredentialsPtrOutput)
+}
+
+func (o DaemonTaskDefinitionRepositoryCredentialsOutput) CredentialsParameter() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DaemonTaskDefinitionRepositoryCredentials) *string { return v.CredentialsParameter }).(pulumi.StringPtrOutput)
+}
+
+type DaemonTaskDefinitionRepositoryCredentialsPtrOutput struct{ *pulumi.OutputState }
+
+func (DaemonTaskDefinitionRepositoryCredentialsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DaemonTaskDefinitionRepositoryCredentials)(nil)).Elem()
+}
+
+func (o DaemonTaskDefinitionRepositoryCredentialsPtrOutput) ToDaemonTaskDefinitionRepositoryCredentialsPtrOutput() DaemonTaskDefinitionRepositoryCredentialsPtrOutput {
+	return o
+}
+
+func (o DaemonTaskDefinitionRepositoryCredentialsPtrOutput) ToDaemonTaskDefinitionRepositoryCredentialsPtrOutputWithContext(ctx context.Context) DaemonTaskDefinitionRepositoryCredentialsPtrOutput {
+	return o
+}
+
+func (o DaemonTaskDefinitionRepositoryCredentialsPtrOutput) Elem() DaemonTaskDefinitionRepositoryCredentialsOutput {
+	return o.ApplyT(func(v *DaemonTaskDefinitionRepositoryCredentials) DaemonTaskDefinitionRepositoryCredentials {
+		if v != nil {
+			return *v
+		}
+		var ret DaemonTaskDefinitionRepositoryCredentials
+		return ret
+	}).(DaemonTaskDefinitionRepositoryCredentialsOutput)
+}
+
+func (o DaemonTaskDefinitionRepositoryCredentialsPtrOutput) CredentialsParameter() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DaemonTaskDefinitionRepositoryCredentials) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CredentialsParameter
+	}).(pulumi.StringPtrOutput)
+}
+
+type DaemonTaskDefinitionRestartPolicy struct {
+	Enabled              *bool `pulumi:"enabled"`
+	IgnoredExitCodes     []int `pulumi:"ignoredExitCodes"`
+	RestartAttemptPeriod *int  `pulumi:"restartAttemptPeriod"`
+}
+
+// DaemonTaskDefinitionRestartPolicyInput is an input type that accepts DaemonTaskDefinitionRestartPolicyArgs and DaemonTaskDefinitionRestartPolicyOutput values.
+// You can construct a concrete instance of `DaemonTaskDefinitionRestartPolicyInput` via:
+//
+//	DaemonTaskDefinitionRestartPolicyArgs{...}
+type DaemonTaskDefinitionRestartPolicyInput interface {
+	pulumi.Input
+
+	ToDaemonTaskDefinitionRestartPolicyOutput() DaemonTaskDefinitionRestartPolicyOutput
+	ToDaemonTaskDefinitionRestartPolicyOutputWithContext(context.Context) DaemonTaskDefinitionRestartPolicyOutput
+}
+
+type DaemonTaskDefinitionRestartPolicyArgs struct {
+	Enabled              pulumi.BoolPtrInput  `pulumi:"enabled"`
+	IgnoredExitCodes     pulumi.IntArrayInput `pulumi:"ignoredExitCodes"`
+	RestartAttemptPeriod pulumi.IntPtrInput   `pulumi:"restartAttemptPeriod"`
+}
+
+func (DaemonTaskDefinitionRestartPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DaemonTaskDefinitionRestartPolicy)(nil)).Elem()
+}
+
+func (i DaemonTaskDefinitionRestartPolicyArgs) ToDaemonTaskDefinitionRestartPolicyOutput() DaemonTaskDefinitionRestartPolicyOutput {
+	return i.ToDaemonTaskDefinitionRestartPolicyOutputWithContext(context.Background())
+}
+
+func (i DaemonTaskDefinitionRestartPolicyArgs) ToDaemonTaskDefinitionRestartPolicyOutputWithContext(ctx context.Context) DaemonTaskDefinitionRestartPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DaemonTaskDefinitionRestartPolicyOutput)
+}
+
+func (i DaemonTaskDefinitionRestartPolicyArgs) ToDaemonTaskDefinitionRestartPolicyPtrOutput() DaemonTaskDefinitionRestartPolicyPtrOutput {
+	return i.ToDaemonTaskDefinitionRestartPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i DaemonTaskDefinitionRestartPolicyArgs) ToDaemonTaskDefinitionRestartPolicyPtrOutputWithContext(ctx context.Context) DaemonTaskDefinitionRestartPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DaemonTaskDefinitionRestartPolicyOutput).ToDaemonTaskDefinitionRestartPolicyPtrOutputWithContext(ctx)
+}
+
+// DaemonTaskDefinitionRestartPolicyPtrInput is an input type that accepts DaemonTaskDefinitionRestartPolicyArgs, DaemonTaskDefinitionRestartPolicyPtr and DaemonTaskDefinitionRestartPolicyPtrOutput values.
+// You can construct a concrete instance of `DaemonTaskDefinitionRestartPolicyPtrInput` via:
+//
+//	        DaemonTaskDefinitionRestartPolicyArgs{...}
+//
+//	or:
+//
+//	        nil
+type DaemonTaskDefinitionRestartPolicyPtrInput interface {
+	pulumi.Input
+
+	ToDaemonTaskDefinitionRestartPolicyPtrOutput() DaemonTaskDefinitionRestartPolicyPtrOutput
+	ToDaemonTaskDefinitionRestartPolicyPtrOutputWithContext(context.Context) DaemonTaskDefinitionRestartPolicyPtrOutput
+}
+
+type daemonTaskDefinitionRestartPolicyPtrType DaemonTaskDefinitionRestartPolicyArgs
+
+func DaemonTaskDefinitionRestartPolicyPtr(v *DaemonTaskDefinitionRestartPolicyArgs) DaemonTaskDefinitionRestartPolicyPtrInput {
+	return (*daemonTaskDefinitionRestartPolicyPtrType)(v)
+}
+
+func (*daemonTaskDefinitionRestartPolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DaemonTaskDefinitionRestartPolicy)(nil)).Elem()
+}
+
+func (i *daemonTaskDefinitionRestartPolicyPtrType) ToDaemonTaskDefinitionRestartPolicyPtrOutput() DaemonTaskDefinitionRestartPolicyPtrOutput {
+	return i.ToDaemonTaskDefinitionRestartPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *daemonTaskDefinitionRestartPolicyPtrType) ToDaemonTaskDefinitionRestartPolicyPtrOutputWithContext(ctx context.Context) DaemonTaskDefinitionRestartPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DaemonTaskDefinitionRestartPolicyPtrOutput)
+}
+
+type DaemonTaskDefinitionRestartPolicyOutput struct{ *pulumi.OutputState }
+
+func (DaemonTaskDefinitionRestartPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DaemonTaskDefinitionRestartPolicy)(nil)).Elem()
+}
+
+func (o DaemonTaskDefinitionRestartPolicyOutput) ToDaemonTaskDefinitionRestartPolicyOutput() DaemonTaskDefinitionRestartPolicyOutput {
+	return o
+}
+
+func (o DaemonTaskDefinitionRestartPolicyOutput) ToDaemonTaskDefinitionRestartPolicyOutputWithContext(ctx context.Context) DaemonTaskDefinitionRestartPolicyOutput {
+	return o
+}
+
+func (o DaemonTaskDefinitionRestartPolicyOutput) ToDaemonTaskDefinitionRestartPolicyPtrOutput() DaemonTaskDefinitionRestartPolicyPtrOutput {
+	return o.ToDaemonTaskDefinitionRestartPolicyPtrOutputWithContext(context.Background())
+}
+
+func (o DaemonTaskDefinitionRestartPolicyOutput) ToDaemonTaskDefinitionRestartPolicyPtrOutputWithContext(ctx context.Context) DaemonTaskDefinitionRestartPolicyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DaemonTaskDefinitionRestartPolicy) *DaemonTaskDefinitionRestartPolicy {
+		return &v
+	}).(DaemonTaskDefinitionRestartPolicyPtrOutput)
+}
+
+func (o DaemonTaskDefinitionRestartPolicyOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DaemonTaskDefinitionRestartPolicy) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o DaemonTaskDefinitionRestartPolicyOutput) IgnoredExitCodes() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v DaemonTaskDefinitionRestartPolicy) []int { return v.IgnoredExitCodes }).(pulumi.IntArrayOutput)
+}
+
+func (o DaemonTaskDefinitionRestartPolicyOutput) RestartAttemptPeriod() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DaemonTaskDefinitionRestartPolicy) *int { return v.RestartAttemptPeriod }).(pulumi.IntPtrOutput)
+}
+
+type DaemonTaskDefinitionRestartPolicyPtrOutput struct{ *pulumi.OutputState }
+
+func (DaemonTaskDefinitionRestartPolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DaemonTaskDefinitionRestartPolicy)(nil)).Elem()
+}
+
+func (o DaemonTaskDefinitionRestartPolicyPtrOutput) ToDaemonTaskDefinitionRestartPolicyPtrOutput() DaemonTaskDefinitionRestartPolicyPtrOutput {
+	return o
+}
+
+func (o DaemonTaskDefinitionRestartPolicyPtrOutput) ToDaemonTaskDefinitionRestartPolicyPtrOutputWithContext(ctx context.Context) DaemonTaskDefinitionRestartPolicyPtrOutput {
+	return o
+}
+
+func (o DaemonTaskDefinitionRestartPolicyPtrOutput) Elem() DaemonTaskDefinitionRestartPolicyOutput {
+	return o.ApplyT(func(v *DaemonTaskDefinitionRestartPolicy) DaemonTaskDefinitionRestartPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret DaemonTaskDefinitionRestartPolicy
+		return ret
+	}).(DaemonTaskDefinitionRestartPolicyOutput)
+}
+
+func (o DaemonTaskDefinitionRestartPolicyPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DaemonTaskDefinitionRestartPolicy) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o DaemonTaskDefinitionRestartPolicyPtrOutput) IgnoredExitCodes() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v *DaemonTaskDefinitionRestartPolicy) []int {
+		if v == nil {
+			return nil
+		}
+		return v.IgnoredExitCodes
+	}).(pulumi.IntArrayOutput)
+}
+
+func (o DaemonTaskDefinitionRestartPolicyPtrOutput) RestartAttemptPeriod() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DaemonTaskDefinitionRestartPolicy) *int {
+		if v == nil {
+			return nil
+		}
+		return v.RestartAttemptPeriod
+	}).(pulumi.IntPtrOutput)
+}
+
+type DaemonTaskDefinitionSecret struct {
+	Name      string `pulumi:"name"`
+	ValueFrom string `pulumi:"valueFrom"`
+}
+
+// DaemonTaskDefinitionSecretInput is an input type that accepts DaemonTaskDefinitionSecretArgs and DaemonTaskDefinitionSecretOutput values.
+// You can construct a concrete instance of `DaemonTaskDefinitionSecretInput` via:
+//
+//	DaemonTaskDefinitionSecretArgs{...}
+type DaemonTaskDefinitionSecretInput interface {
+	pulumi.Input
+
+	ToDaemonTaskDefinitionSecretOutput() DaemonTaskDefinitionSecretOutput
+	ToDaemonTaskDefinitionSecretOutputWithContext(context.Context) DaemonTaskDefinitionSecretOutput
+}
+
+type DaemonTaskDefinitionSecretArgs struct {
+	Name      pulumi.StringInput `pulumi:"name"`
+	ValueFrom pulumi.StringInput `pulumi:"valueFrom"`
+}
+
+func (DaemonTaskDefinitionSecretArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DaemonTaskDefinitionSecret)(nil)).Elem()
+}
+
+func (i DaemonTaskDefinitionSecretArgs) ToDaemonTaskDefinitionSecretOutput() DaemonTaskDefinitionSecretOutput {
+	return i.ToDaemonTaskDefinitionSecretOutputWithContext(context.Background())
+}
+
+func (i DaemonTaskDefinitionSecretArgs) ToDaemonTaskDefinitionSecretOutputWithContext(ctx context.Context) DaemonTaskDefinitionSecretOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DaemonTaskDefinitionSecretOutput)
+}
+
+// DaemonTaskDefinitionSecretArrayInput is an input type that accepts DaemonTaskDefinitionSecretArray and DaemonTaskDefinitionSecretArrayOutput values.
+// You can construct a concrete instance of `DaemonTaskDefinitionSecretArrayInput` via:
+//
+//	DaemonTaskDefinitionSecretArray{ DaemonTaskDefinitionSecretArgs{...} }
+type DaemonTaskDefinitionSecretArrayInput interface {
+	pulumi.Input
+
+	ToDaemonTaskDefinitionSecretArrayOutput() DaemonTaskDefinitionSecretArrayOutput
+	ToDaemonTaskDefinitionSecretArrayOutputWithContext(context.Context) DaemonTaskDefinitionSecretArrayOutput
+}
+
+type DaemonTaskDefinitionSecretArray []DaemonTaskDefinitionSecretInput
+
+func (DaemonTaskDefinitionSecretArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DaemonTaskDefinitionSecret)(nil)).Elem()
+}
+
+func (i DaemonTaskDefinitionSecretArray) ToDaemonTaskDefinitionSecretArrayOutput() DaemonTaskDefinitionSecretArrayOutput {
+	return i.ToDaemonTaskDefinitionSecretArrayOutputWithContext(context.Background())
+}
+
+func (i DaemonTaskDefinitionSecretArray) ToDaemonTaskDefinitionSecretArrayOutputWithContext(ctx context.Context) DaemonTaskDefinitionSecretArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DaemonTaskDefinitionSecretArrayOutput)
+}
+
+type DaemonTaskDefinitionSecretOutput struct{ *pulumi.OutputState }
+
+func (DaemonTaskDefinitionSecretOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DaemonTaskDefinitionSecret)(nil)).Elem()
+}
+
+func (o DaemonTaskDefinitionSecretOutput) ToDaemonTaskDefinitionSecretOutput() DaemonTaskDefinitionSecretOutput {
+	return o
+}
+
+func (o DaemonTaskDefinitionSecretOutput) ToDaemonTaskDefinitionSecretOutputWithContext(ctx context.Context) DaemonTaskDefinitionSecretOutput {
+	return o
+}
+
+func (o DaemonTaskDefinitionSecretOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v DaemonTaskDefinitionSecret) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o DaemonTaskDefinitionSecretOutput) ValueFrom() pulumi.StringOutput {
+	return o.ApplyT(func(v DaemonTaskDefinitionSecret) string { return v.ValueFrom }).(pulumi.StringOutput)
+}
+
+type DaemonTaskDefinitionSecretArrayOutput struct{ *pulumi.OutputState }
+
+func (DaemonTaskDefinitionSecretArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DaemonTaskDefinitionSecret)(nil)).Elem()
+}
+
+func (o DaemonTaskDefinitionSecretArrayOutput) ToDaemonTaskDefinitionSecretArrayOutput() DaemonTaskDefinitionSecretArrayOutput {
+	return o
+}
+
+func (o DaemonTaskDefinitionSecretArrayOutput) ToDaemonTaskDefinitionSecretArrayOutputWithContext(ctx context.Context) DaemonTaskDefinitionSecretArrayOutput {
+	return o
+}
+
+func (o DaemonTaskDefinitionSecretArrayOutput) Index(i pulumi.IntInput) DaemonTaskDefinitionSecretOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DaemonTaskDefinitionSecret {
+		return vs[0].([]DaemonTaskDefinitionSecret)[vs[1].(int)]
+	}).(DaemonTaskDefinitionSecretOutput)
+}
+
+type DaemonTaskDefinitionSystemControl struct {
+	Namespace *string `pulumi:"namespace"`
+	Value     *string `pulumi:"value"`
+}
+
+// DaemonTaskDefinitionSystemControlInput is an input type that accepts DaemonTaskDefinitionSystemControlArgs and DaemonTaskDefinitionSystemControlOutput values.
+// You can construct a concrete instance of `DaemonTaskDefinitionSystemControlInput` via:
+//
+//	DaemonTaskDefinitionSystemControlArgs{...}
+type DaemonTaskDefinitionSystemControlInput interface {
+	pulumi.Input
+
+	ToDaemonTaskDefinitionSystemControlOutput() DaemonTaskDefinitionSystemControlOutput
+	ToDaemonTaskDefinitionSystemControlOutputWithContext(context.Context) DaemonTaskDefinitionSystemControlOutput
+}
+
+type DaemonTaskDefinitionSystemControlArgs struct {
+	Namespace pulumi.StringPtrInput `pulumi:"namespace"`
+	Value     pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (DaemonTaskDefinitionSystemControlArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DaemonTaskDefinitionSystemControl)(nil)).Elem()
+}
+
+func (i DaemonTaskDefinitionSystemControlArgs) ToDaemonTaskDefinitionSystemControlOutput() DaemonTaskDefinitionSystemControlOutput {
+	return i.ToDaemonTaskDefinitionSystemControlOutputWithContext(context.Background())
+}
+
+func (i DaemonTaskDefinitionSystemControlArgs) ToDaemonTaskDefinitionSystemControlOutputWithContext(ctx context.Context) DaemonTaskDefinitionSystemControlOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DaemonTaskDefinitionSystemControlOutput)
+}
+
+// DaemonTaskDefinitionSystemControlArrayInput is an input type that accepts DaemonTaskDefinitionSystemControlArray and DaemonTaskDefinitionSystemControlArrayOutput values.
+// You can construct a concrete instance of `DaemonTaskDefinitionSystemControlArrayInput` via:
+//
+//	DaemonTaskDefinitionSystemControlArray{ DaemonTaskDefinitionSystemControlArgs{...} }
+type DaemonTaskDefinitionSystemControlArrayInput interface {
+	pulumi.Input
+
+	ToDaemonTaskDefinitionSystemControlArrayOutput() DaemonTaskDefinitionSystemControlArrayOutput
+	ToDaemonTaskDefinitionSystemControlArrayOutputWithContext(context.Context) DaemonTaskDefinitionSystemControlArrayOutput
+}
+
+type DaemonTaskDefinitionSystemControlArray []DaemonTaskDefinitionSystemControlInput
+
+func (DaemonTaskDefinitionSystemControlArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DaemonTaskDefinitionSystemControl)(nil)).Elem()
+}
+
+func (i DaemonTaskDefinitionSystemControlArray) ToDaemonTaskDefinitionSystemControlArrayOutput() DaemonTaskDefinitionSystemControlArrayOutput {
+	return i.ToDaemonTaskDefinitionSystemControlArrayOutputWithContext(context.Background())
+}
+
+func (i DaemonTaskDefinitionSystemControlArray) ToDaemonTaskDefinitionSystemControlArrayOutputWithContext(ctx context.Context) DaemonTaskDefinitionSystemControlArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DaemonTaskDefinitionSystemControlArrayOutput)
+}
+
+type DaemonTaskDefinitionSystemControlOutput struct{ *pulumi.OutputState }
+
+func (DaemonTaskDefinitionSystemControlOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DaemonTaskDefinitionSystemControl)(nil)).Elem()
+}
+
+func (o DaemonTaskDefinitionSystemControlOutput) ToDaemonTaskDefinitionSystemControlOutput() DaemonTaskDefinitionSystemControlOutput {
+	return o
+}
+
+func (o DaemonTaskDefinitionSystemControlOutput) ToDaemonTaskDefinitionSystemControlOutputWithContext(ctx context.Context) DaemonTaskDefinitionSystemControlOutput {
+	return o
+}
+
+func (o DaemonTaskDefinitionSystemControlOutput) Namespace() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DaemonTaskDefinitionSystemControl) *string { return v.Namespace }).(pulumi.StringPtrOutput)
+}
+
+func (o DaemonTaskDefinitionSystemControlOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DaemonTaskDefinitionSystemControl) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type DaemonTaskDefinitionSystemControlArrayOutput struct{ *pulumi.OutputState }
+
+func (DaemonTaskDefinitionSystemControlArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DaemonTaskDefinitionSystemControl)(nil)).Elem()
+}
+
+func (o DaemonTaskDefinitionSystemControlArrayOutput) ToDaemonTaskDefinitionSystemControlArrayOutput() DaemonTaskDefinitionSystemControlArrayOutput {
+	return o
+}
+
+func (o DaemonTaskDefinitionSystemControlArrayOutput) ToDaemonTaskDefinitionSystemControlArrayOutputWithContext(ctx context.Context) DaemonTaskDefinitionSystemControlArrayOutput {
+	return o
+}
+
+func (o DaemonTaskDefinitionSystemControlArrayOutput) Index(i pulumi.IntInput) DaemonTaskDefinitionSystemControlOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DaemonTaskDefinitionSystemControl {
+		return vs[0].([]DaemonTaskDefinitionSystemControl)[vs[1].(int)]
+	}).(DaemonTaskDefinitionSystemControlOutput)
+}
+
+type DaemonTaskDefinitionTag struct {
+	Key   *string `pulumi:"key"`
+	Value *string `pulumi:"value"`
+}
+
+type DaemonTaskDefinitionTmpfs struct {
+	ContainerPath *string  `pulumi:"containerPath"`
+	MountOptions  []string `pulumi:"mountOptions"`
+	Size          int      `pulumi:"size"`
+}
+
+// DaemonTaskDefinitionTmpfsInput is an input type that accepts DaemonTaskDefinitionTmpfsArgs and DaemonTaskDefinitionTmpfsOutput values.
+// You can construct a concrete instance of `DaemonTaskDefinitionTmpfsInput` via:
+//
+//	DaemonTaskDefinitionTmpfsArgs{...}
+type DaemonTaskDefinitionTmpfsInput interface {
+	pulumi.Input
+
+	ToDaemonTaskDefinitionTmpfsOutput() DaemonTaskDefinitionTmpfsOutput
+	ToDaemonTaskDefinitionTmpfsOutputWithContext(context.Context) DaemonTaskDefinitionTmpfsOutput
+}
+
+type DaemonTaskDefinitionTmpfsArgs struct {
+	ContainerPath pulumi.StringPtrInput   `pulumi:"containerPath"`
+	MountOptions  pulumi.StringArrayInput `pulumi:"mountOptions"`
+	Size          pulumi.IntInput         `pulumi:"size"`
+}
+
+func (DaemonTaskDefinitionTmpfsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DaemonTaskDefinitionTmpfs)(nil)).Elem()
+}
+
+func (i DaemonTaskDefinitionTmpfsArgs) ToDaemonTaskDefinitionTmpfsOutput() DaemonTaskDefinitionTmpfsOutput {
+	return i.ToDaemonTaskDefinitionTmpfsOutputWithContext(context.Background())
+}
+
+func (i DaemonTaskDefinitionTmpfsArgs) ToDaemonTaskDefinitionTmpfsOutputWithContext(ctx context.Context) DaemonTaskDefinitionTmpfsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DaemonTaskDefinitionTmpfsOutput)
+}
+
+// DaemonTaskDefinitionTmpfsArrayInput is an input type that accepts DaemonTaskDefinitionTmpfsArray and DaemonTaskDefinitionTmpfsArrayOutput values.
+// You can construct a concrete instance of `DaemonTaskDefinitionTmpfsArrayInput` via:
+//
+//	DaemonTaskDefinitionTmpfsArray{ DaemonTaskDefinitionTmpfsArgs{...} }
+type DaemonTaskDefinitionTmpfsArrayInput interface {
+	pulumi.Input
+
+	ToDaemonTaskDefinitionTmpfsArrayOutput() DaemonTaskDefinitionTmpfsArrayOutput
+	ToDaemonTaskDefinitionTmpfsArrayOutputWithContext(context.Context) DaemonTaskDefinitionTmpfsArrayOutput
+}
+
+type DaemonTaskDefinitionTmpfsArray []DaemonTaskDefinitionTmpfsInput
+
+func (DaemonTaskDefinitionTmpfsArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DaemonTaskDefinitionTmpfs)(nil)).Elem()
+}
+
+func (i DaemonTaskDefinitionTmpfsArray) ToDaemonTaskDefinitionTmpfsArrayOutput() DaemonTaskDefinitionTmpfsArrayOutput {
+	return i.ToDaemonTaskDefinitionTmpfsArrayOutputWithContext(context.Background())
+}
+
+func (i DaemonTaskDefinitionTmpfsArray) ToDaemonTaskDefinitionTmpfsArrayOutputWithContext(ctx context.Context) DaemonTaskDefinitionTmpfsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DaemonTaskDefinitionTmpfsArrayOutput)
+}
+
+type DaemonTaskDefinitionTmpfsOutput struct{ *pulumi.OutputState }
+
+func (DaemonTaskDefinitionTmpfsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DaemonTaskDefinitionTmpfs)(nil)).Elem()
+}
+
+func (o DaemonTaskDefinitionTmpfsOutput) ToDaemonTaskDefinitionTmpfsOutput() DaemonTaskDefinitionTmpfsOutput {
+	return o
+}
+
+func (o DaemonTaskDefinitionTmpfsOutput) ToDaemonTaskDefinitionTmpfsOutputWithContext(ctx context.Context) DaemonTaskDefinitionTmpfsOutput {
+	return o
+}
+
+func (o DaemonTaskDefinitionTmpfsOutput) ContainerPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DaemonTaskDefinitionTmpfs) *string { return v.ContainerPath }).(pulumi.StringPtrOutput)
+}
+
+func (o DaemonTaskDefinitionTmpfsOutput) MountOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DaemonTaskDefinitionTmpfs) []string { return v.MountOptions }).(pulumi.StringArrayOutput)
+}
+
+func (o DaemonTaskDefinitionTmpfsOutput) Size() pulumi.IntOutput {
+	return o.ApplyT(func(v DaemonTaskDefinitionTmpfs) int { return v.Size }).(pulumi.IntOutput)
+}
+
+type DaemonTaskDefinitionTmpfsArrayOutput struct{ *pulumi.OutputState }
+
+func (DaemonTaskDefinitionTmpfsArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DaemonTaskDefinitionTmpfs)(nil)).Elem()
+}
+
+func (o DaemonTaskDefinitionTmpfsArrayOutput) ToDaemonTaskDefinitionTmpfsArrayOutput() DaemonTaskDefinitionTmpfsArrayOutput {
+	return o
+}
+
+func (o DaemonTaskDefinitionTmpfsArrayOutput) ToDaemonTaskDefinitionTmpfsArrayOutputWithContext(ctx context.Context) DaemonTaskDefinitionTmpfsArrayOutput {
+	return o
+}
+
+func (o DaemonTaskDefinitionTmpfsArrayOutput) Index(i pulumi.IntInput) DaemonTaskDefinitionTmpfsOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DaemonTaskDefinitionTmpfs {
+		return vs[0].([]DaemonTaskDefinitionTmpfs)[vs[1].(int)]
+	}).(DaemonTaskDefinitionTmpfsOutput)
+}
+
+type DaemonTaskDefinitionUlimit struct {
+	HardLimit int    `pulumi:"hardLimit"`
+	Name      string `pulumi:"name"`
+	SoftLimit int    `pulumi:"softLimit"`
+}
+
+// DaemonTaskDefinitionUlimitInput is an input type that accepts DaemonTaskDefinitionUlimitArgs and DaemonTaskDefinitionUlimitOutput values.
+// You can construct a concrete instance of `DaemonTaskDefinitionUlimitInput` via:
+//
+//	DaemonTaskDefinitionUlimitArgs{...}
+type DaemonTaskDefinitionUlimitInput interface {
+	pulumi.Input
+
+	ToDaemonTaskDefinitionUlimitOutput() DaemonTaskDefinitionUlimitOutput
+	ToDaemonTaskDefinitionUlimitOutputWithContext(context.Context) DaemonTaskDefinitionUlimitOutput
+}
+
+type DaemonTaskDefinitionUlimitArgs struct {
+	HardLimit pulumi.IntInput    `pulumi:"hardLimit"`
+	Name      pulumi.StringInput `pulumi:"name"`
+	SoftLimit pulumi.IntInput    `pulumi:"softLimit"`
+}
+
+func (DaemonTaskDefinitionUlimitArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DaemonTaskDefinitionUlimit)(nil)).Elem()
+}
+
+func (i DaemonTaskDefinitionUlimitArgs) ToDaemonTaskDefinitionUlimitOutput() DaemonTaskDefinitionUlimitOutput {
+	return i.ToDaemonTaskDefinitionUlimitOutputWithContext(context.Background())
+}
+
+func (i DaemonTaskDefinitionUlimitArgs) ToDaemonTaskDefinitionUlimitOutputWithContext(ctx context.Context) DaemonTaskDefinitionUlimitOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DaemonTaskDefinitionUlimitOutput)
+}
+
+// DaemonTaskDefinitionUlimitArrayInput is an input type that accepts DaemonTaskDefinitionUlimitArray and DaemonTaskDefinitionUlimitArrayOutput values.
+// You can construct a concrete instance of `DaemonTaskDefinitionUlimitArrayInput` via:
+//
+//	DaemonTaskDefinitionUlimitArray{ DaemonTaskDefinitionUlimitArgs{...} }
+type DaemonTaskDefinitionUlimitArrayInput interface {
+	pulumi.Input
+
+	ToDaemonTaskDefinitionUlimitArrayOutput() DaemonTaskDefinitionUlimitArrayOutput
+	ToDaemonTaskDefinitionUlimitArrayOutputWithContext(context.Context) DaemonTaskDefinitionUlimitArrayOutput
+}
+
+type DaemonTaskDefinitionUlimitArray []DaemonTaskDefinitionUlimitInput
+
+func (DaemonTaskDefinitionUlimitArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DaemonTaskDefinitionUlimit)(nil)).Elem()
+}
+
+func (i DaemonTaskDefinitionUlimitArray) ToDaemonTaskDefinitionUlimitArrayOutput() DaemonTaskDefinitionUlimitArrayOutput {
+	return i.ToDaemonTaskDefinitionUlimitArrayOutputWithContext(context.Background())
+}
+
+func (i DaemonTaskDefinitionUlimitArray) ToDaemonTaskDefinitionUlimitArrayOutputWithContext(ctx context.Context) DaemonTaskDefinitionUlimitArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DaemonTaskDefinitionUlimitArrayOutput)
+}
+
+type DaemonTaskDefinitionUlimitOutput struct{ *pulumi.OutputState }
+
+func (DaemonTaskDefinitionUlimitOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DaemonTaskDefinitionUlimit)(nil)).Elem()
+}
+
+func (o DaemonTaskDefinitionUlimitOutput) ToDaemonTaskDefinitionUlimitOutput() DaemonTaskDefinitionUlimitOutput {
+	return o
+}
+
+func (o DaemonTaskDefinitionUlimitOutput) ToDaemonTaskDefinitionUlimitOutputWithContext(ctx context.Context) DaemonTaskDefinitionUlimitOutput {
+	return o
+}
+
+func (o DaemonTaskDefinitionUlimitOutput) HardLimit() pulumi.IntOutput {
+	return o.ApplyT(func(v DaemonTaskDefinitionUlimit) int { return v.HardLimit }).(pulumi.IntOutput)
+}
+
+func (o DaemonTaskDefinitionUlimitOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v DaemonTaskDefinitionUlimit) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o DaemonTaskDefinitionUlimitOutput) SoftLimit() pulumi.IntOutput {
+	return o.ApplyT(func(v DaemonTaskDefinitionUlimit) int { return v.SoftLimit }).(pulumi.IntOutput)
+}
+
+type DaemonTaskDefinitionUlimitArrayOutput struct{ *pulumi.OutputState }
+
+func (DaemonTaskDefinitionUlimitArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DaemonTaskDefinitionUlimit)(nil)).Elem()
+}
+
+func (o DaemonTaskDefinitionUlimitArrayOutput) ToDaemonTaskDefinitionUlimitArrayOutput() DaemonTaskDefinitionUlimitArrayOutput {
+	return o
+}
+
+func (o DaemonTaskDefinitionUlimitArrayOutput) ToDaemonTaskDefinitionUlimitArrayOutputWithContext(ctx context.Context) DaemonTaskDefinitionUlimitArrayOutput {
+	return o
+}
+
+func (o DaemonTaskDefinitionUlimitArrayOutput) Index(i pulumi.IntInput) DaemonTaskDefinitionUlimitOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DaemonTaskDefinitionUlimit {
+		return vs[0].([]DaemonTaskDefinitionUlimit)[vs[1].(int)]
+	}).(DaemonTaskDefinitionUlimitOutput)
+}
+
+type DaemonTaskDefinitionVolume struct {
+	Host *DaemonTaskDefinitionHostVolumeProperties `pulumi:"host"`
+	Name *string                                   `pulumi:"name"`
+}
+
+// DaemonTaskDefinitionVolumeInput is an input type that accepts DaemonTaskDefinitionVolumeArgs and DaemonTaskDefinitionVolumeOutput values.
+// You can construct a concrete instance of `DaemonTaskDefinitionVolumeInput` via:
+//
+//	DaemonTaskDefinitionVolumeArgs{...}
+type DaemonTaskDefinitionVolumeInput interface {
+	pulumi.Input
+
+	ToDaemonTaskDefinitionVolumeOutput() DaemonTaskDefinitionVolumeOutput
+	ToDaemonTaskDefinitionVolumeOutputWithContext(context.Context) DaemonTaskDefinitionVolumeOutput
+}
+
+type DaemonTaskDefinitionVolumeArgs struct {
+	Host DaemonTaskDefinitionHostVolumePropertiesPtrInput `pulumi:"host"`
+	Name pulumi.StringPtrInput                            `pulumi:"name"`
+}
+
+func (DaemonTaskDefinitionVolumeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DaemonTaskDefinitionVolume)(nil)).Elem()
+}
+
+func (i DaemonTaskDefinitionVolumeArgs) ToDaemonTaskDefinitionVolumeOutput() DaemonTaskDefinitionVolumeOutput {
+	return i.ToDaemonTaskDefinitionVolumeOutputWithContext(context.Background())
+}
+
+func (i DaemonTaskDefinitionVolumeArgs) ToDaemonTaskDefinitionVolumeOutputWithContext(ctx context.Context) DaemonTaskDefinitionVolumeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DaemonTaskDefinitionVolumeOutput)
+}
+
+// DaemonTaskDefinitionVolumeArrayInput is an input type that accepts DaemonTaskDefinitionVolumeArray and DaemonTaskDefinitionVolumeArrayOutput values.
+// You can construct a concrete instance of `DaemonTaskDefinitionVolumeArrayInput` via:
+//
+//	DaemonTaskDefinitionVolumeArray{ DaemonTaskDefinitionVolumeArgs{...} }
+type DaemonTaskDefinitionVolumeArrayInput interface {
+	pulumi.Input
+
+	ToDaemonTaskDefinitionVolumeArrayOutput() DaemonTaskDefinitionVolumeArrayOutput
+	ToDaemonTaskDefinitionVolumeArrayOutputWithContext(context.Context) DaemonTaskDefinitionVolumeArrayOutput
+}
+
+type DaemonTaskDefinitionVolumeArray []DaemonTaskDefinitionVolumeInput
+
+func (DaemonTaskDefinitionVolumeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DaemonTaskDefinitionVolume)(nil)).Elem()
+}
+
+func (i DaemonTaskDefinitionVolumeArray) ToDaemonTaskDefinitionVolumeArrayOutput() DaemonTaskDefinitionVolumeArrayOutput {
+	return i.ToDaemonTaskDefinitionVolumeArrayOutputWithContext(context.Background())
+}
+
+func (i DaemonTaskDefinitionVolumeArray) ToDaemonTaskDefinitionVolumeArrayOutputWithContext(ctx context.Context) DaemonTaskDefinitionVolumeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DaemonTaskDefinitionVolumeArrayOutput)
+}
+
+type DaemonTaskDefinitionVolumeOutput struct{ *pulumi.OutputState }
+
+func (DaemonTaskDefinitionVolumeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DaemonTaskDefinitionVolume)(nil)).Elem()
+}
+
+func (o DaemonTaskDefinitionVolumeOutput) ToDaemonTaskDefinitionVolumeOutput() DaemonTaskDefinitionVolumeOutput {
+	return o
+}
+
+func (o DaemonTaskDefinitionVolumeOutput) ToDaemonTaskDefinitionVolumeOutputWithContext(ctx context.Context) DaemonTaskDefinitionVolumeOutput {
+	return o
+}
+
+func (o DaemonTaskDefinitionVolumeOutput) Host() DaemonTaskDefinitionHostVolumePropertiesPtrOutput {
+	return o.ApplyT(func(v DaemonTaskDefinitionVolume) *DaemonTaskDefinitionHostVolumeProperties { return v.Host }).(DaemonTaskDefinitionHostVolumePropertiesPtrOutput)
+}
+
+func (o DaemonTaskDefinitionVolumeOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DaemonTaskDefinitionVolume) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+type DaemonTaskDefinitionVolumeArrayOutput struct{ *pulumi.OutputState }
+
+func (DaemonTaskDefinitionVolumeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DaemonTaskDefinitionVolume)(nil)).Elem()
+}
+
+func (o DaemonTaskDefinitionVolumeArrayOutput) ToDaemonTaskDefinitionVolumeArrayOutput() DaemonTaskDefinitionVolumeArrayOutput {
+	return o
+}
+
+func (o DaemonTaskDefinitionVolumeArrayOutput) ToDaemonTaskDefinitionVolumeArrayOutputWithContext(ctx context.Context) DaemonTaskDefinitionVolumeArrayOutput {
+	return o
+}
+
+func (o DaemonTaskDefinitionVolumeArrayOutput) Index(i pulumi.IntInput) DaemonTaskDefinitionVolumeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DaemonTaskDefinitionVolume {
+		return vs[0].([]DaemonTaskDefinitionVolume)[vs[1].(int)]
+	}).(DaemonTaskDefinitionVolumeOutput)
 }
 
 type ExpressGatewayServiceAutoScalingArns struct {
@@ -19720,6 +22763,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderInstanceLaunchTemplatePtrInput)(nil)).Elem(), CapacityProviderInstanceLaunchTemplateArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderInstanceRequirementsRequestInput)(nil)).Elem(), CapacityProviderInstanceRequirementsRequestArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderInstanceRequirementsRequestPtrInput)(nil)).Elem(), CapacityProviderInstanceRequirementsRequestArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderManagedInstancesLocalStorageConfigurationInput)(nil)).Elem(), CapacityProviderManagedInstancesLocalStorageConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderManagedInstancesLocalStorageConfigurationPtrInput)(nil)).Elem(), CapacityProviderManagedInstancesLocalStorageConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderManagedInstancesNetworkConfigurationInput)(nil)).Elem(), CapacityProviderManagedInstancesNetworkConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderManagedInstancesNetworkConfigurationPtrInput)(nil)).Elem(), CapacityProviderManagedInstancesNetworkConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderManagedInstancesProviderInput)(nil)).Elem(), CapacityProviderManagedInstancesProviderArgs{})
@@ -19758,6 +22803,48 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterServiceConnectDefaultsPtrInput)(nil)).Elem(), ClusterServiceConnectDefaultsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterSettingsInput)(nil)).Elem(), ClusterSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterSettingsArrayInput)(nil)).Elem(), ClusterSettingsArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DaemonAlarmConfigurationInput)(nil)).Elem(), DaemonAlarmConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DaemonAlarmConfigurationPtrInput)(nil)).Elem(), DaemonAlarmConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DaemonDeploymentConfigurationInput)(nil)).Elem(), DaemonDeploymentConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DaemonDeploymentConfigurationPtrInput)(nil)).Elem(), DaemonDeploymentConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DaemonTaskDefinitionContainerDependencyInput)(nil)).Elem(), DaemonTaskDefinitionContainerDependencyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DaemonTaskDefinitionContainerDependencyArrayInput)(nil)).Elem(), DaemonTaskDefinitionContainerDependencyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DaemonTaskDefinitionDaemonContainerDefinitionInput)(nil)).Elem(), DaemonTaskDefinitionDaemonContainerDefinitionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DaemonTaskDefinitionDaemonContainerDefinitionArrayInput)(nil)).Elem(), DaemonTaskDefinitionDaemonContainerDefinitionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DaemonTaskDefinitionDeviceInput)(nil)).Elem(), DaemonTaskDefinitionDeviceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DaemonTaskDefinitionDeviceArrayInput)(nil)).Elem(), DaemonTaskDefinitionDeviceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DaemonTaskDefinitionEnvironmentFileInput)(nil)).Elem(), DaemonTaskDefinitionEnvironmentFileArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DaemonTaskDefinitionEnvironmentFileArrayInput)(nil)).Elem(), DaemonTaskDefinitionEnvironmentFileArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DaemonTaskDefinitionFirelensConfigurationInput)(nil)).Elem(), DaemonTaskDefinitionFirelensConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DaemonTaskDefinitionFirelensConfigurationPtrInput)(nil)).Elem(), DaemonTaskDefinitionFirelensConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DaemonTaskDefinitionHealthCheckInput)(nil)).Elem(), DaemonTaskDefinitionHealthCheckArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DaemonTaskDefinitionHealthCheckPtrInput)(nil)).Elem(), DaemonTaskDefinitionHealthCheckArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DaemonTaskDefinitionHostVolumePropertiesInput)(nil)).Elem(), DaemonTaskDefinitionHostVolumePropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DaemonTaskDefinitionHostVolumePropertiesPtrInput)(nil)).Elem(), DaemonTaskDefinitionHostVolumePropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DaemonTaskDefinitionKernelCapabilitiesInput)(nil)).Elem(), DaemonTaskDefinitionKernelCapabilitiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DaemonTaskDefinitionKernelCapabilitiesPtrInput)(nil)).Elem(), DaemonTaskDefinitionKernelCapabilitiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DaemonTaskDefinitionKeyValuePairInput)(nil)).Elem(), DaemonTaskDefinitionKeyValuePairArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DaemonTaskDefinitionKeyValuePairArrayInput)(nil)).Elem(), DaemonTaskDefinitionKeyValuePairArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DaemonTaskDefinitionLinuxParametersInput)(nil)).Elem(), DaemonTaskDefinitionLinuxParametersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DaemonTaskDefinitionLinuxParametersPtrInput)(nil)).Elem(), DaemonTaskDefinitionLinuxParametersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DaemonTaskDefinitionLogConfigurationInput)(nil)).Elem(), DaemonTaskDefinitionLogConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DaemonTaskDefinitionLogConfigurationPtrInput)(nil)).Elem(), DaemonTaskDefinitionLogConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DaemonTaskDefinitionMountPointInput)(nil)).Elem(), DaemonTaskDefinitionMountPointArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DaemonTaskDefinitionMountPointArrayInput)(nil)).Elem(), DaemonTaskDefinitionMountPointArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DaemonTaskDefinitionRepositoryCredentialsInput)(nil)).Elem(), DaemonTaskDefinitionRepositoryCredentialsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DaemonTaskDefinitionRepositoryCredentialsPtrInput)(nil)).Elem(), DaemonTaskDefinitionRepositoryCredentialsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DaemonTaskDefinitionRestartPolicyInput)(nil)).Elem(), DaemonTaskDefinitionRestartPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DaemonTaskDefinitionRestartPolicyPtrInput)(nil)).Elem(), DaemonTaskDefinitionRestartPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DaemonTaskDefinitionSecretInput)(nil)).Elem(), DaemonTaskDefinitionSecretArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DaemonTaskDefinitionSecretArrayInput)(nil)).Elem(), DaemonTaskDefinitionSecretArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DaemonTaskDefinitionSystemControlInput)(nil)).Elem(), DaemonTaskDefinitionSystemControlArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DaemonTaskDefinitionSystemControlArrayInput)(nil)).Elem(), DaemonTaskDefinitionSystemControlArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DaemonTaskDefinitionTmpfsInput)(nil)).Elem(), DaemonTaskDefinitionTmpfsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DaemonTaskDefinitionTmpfsArrayInput)(nil)).Elem(), DaemonTaskDefinitionTmpfsArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DaemonTaskDefinitionUlimitInput)(nil)).Elem(), DaemonTaskDefinitionUlimitArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DaemonTaskDefinitionUlimitArrayInput)(nil)).Elem(), DaemonTaskDefinitionUlimitArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DaemonTaskDefinitionVolumeInput)(nil)).Elem(), DaemonTaskDefinitionVolumeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DaemonTaskDefinitionVolumeArrayInput)(nil)).Elem(), DaemonTaskDefinitionVolumeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ExpressGatewayServiceAwsLogsConfigurationInput)(nil)).Elem(), ExpressGatewayServiceAwsLogsConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ExpressGatewayServiceAwsLogsConfigurationPtrInput)(nil)).Elem(), ExpressGatewayServiceAwsLogsConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ExpressGatewayServiceExpressGatewayContainerInput)(nil)).Elem(), ExpressGatewayServiceExpressGatewayContainerArgs{})
@@ -19929,6 +23016,8 @@ func init() {
 	pulumi.RegisterOutputType(CapacityProviderInstanceLaunchTemplatePtrOutput{})
 	pulumi.RegisterOutputType(CapacityProviderInstanceRequirementsRequestOutput{})
 	pulumi.RegisterOutputType(CapacityProviderInstanceRequirementsRequestPtrOutput{})
+	pulumi.RegisterOutputType(CapacityProviderManagedInstancesLocalStorageConfigurationOutput{})
+	pulumi.RegisterOutputType(CapacityProviderManagedInstancesLocalStorageConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(CapacityProviderManagedInstancesNetworkConfigurationOutput{})
 	pulumi.RegisterOutputType(CapacityProviderManagedInstancesNetworkConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(CapacityProviderManagedInstancesProviderOutput{})
@@ -19967,6 +23056,48 @@ func init() {
 	pulumi.RegisterOutputType(ClusterServiceConnectDefaultsPtrOutput{})
 	pulumi.RegisterOutputType(ClusterSettingsOutput{})
 	pulumi.RegisterOutputType(ClusterSettingsArrayOutput{})
+	pulumi.RegisterOutputType(DaemonAlarmConfigurationOutput{})
+	pulumi.RegisterOutputType(DaemonAlarmConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(DaemonDeploymentConfigurationOutput{})
+	pulumi.RegisterOutputType(DaemonDeploymentConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(DaemonTaskDefinitionContainerDependencyOutput{})
+	pulumi.RegisterOutputType(DaemonTaskDefinitionContainerDependencyArrayOutput{})
+	pulumi.RegisterOutputType(DaemonTaskDefinitionDaemonContainerDefinitionOutput{})
+	pulumi.RegisterOutputType(DaemonTaskDefinitionDaemonContainerDefinitionArrayOutput{})
+	pulumi.RegisterOutputType(DaemonTaskDefinitionDeviceOutput{})
+	pulumi.RegisterOutputType(DaemonTaskDefinitionDeviceArrayOutput{})
+	pulumi.RegisterOutputType(DaemonTaskDefinitionEnvironmentFileOutput{})
+	pulumi.RegisterOutputType(DaemonTaskDefinitionEnvironmentFileArrayOutput{})
+	pulumi.RegisterOutputType(DaemonTaskDefinitionFirelensConfigurationOutput{})
+	pulumi.RegisterOutputType(DaemonTaskDefinitionFirelensConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(DaemonTaskDefinitionHealthCheckOutput{})
+	pulumi.RegisterOutputType(DaemonTaskDefinitionHealthCheckPtrOutput{})
+	pulumi.RegisterOutputType(DaemonTaskDefinitionHostVolumePropertiesOutput{})
+	pulumi.RegisterOutputType(DaemonTaskDefinitionHostVolumePropertiesPtrOutput{})
+	pulumi.RegisterOutputType(DaemonTaskDefinitionKernelCapabilitiesOutput{})
+	pulumi.RegisterOutputType(DaemonTaskDefinitionKernelCapabilitiesPtrOutput{})
+	pulumi.RegisterOutputType(DaemonTaskDefinitionKeyValuePairOutput{})
+	pulumi.RegisterOutputType(DaemonTaskDefinitionKeyValuePairArrayOutput{})
+	pulumi.RegisterOutputType(DaemonTaskDefinitionLinuxParametersOutput{})
+	pulumi.RegisterOutputType(DaemonTaskDefinitionLinuxParametersPtrOutput{})
+	pulumi.RegisterOutputType(DaemonTaskDefinitionLogConfigurationOutput{})
+	pulumi.RegisterOutputType(DaemonTaskDefinitionLogConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(DaemonTaskDefinitionMountPointOutput{})
+	pulumi.RegisterOutputType(DaemonTaskDefinitionMountPointArrayOutput{})
+	pulumi.RegisterOutputType(DaemonTaskDefinitionRepositoryCredentialsOutput{})
+	pulumi.RegisterOutputType(DaemonTaskDefinitionRepositoryCredentialsPtrOutput{})
+	pulumi.RegisterOutputType(DaemonTaskDefinitionRestartPolicyOutput{})
+	pulumi.RegisterOutputType(DaemonTaskDefinitionRestartPolicyPtrOutput{})
+	pulumi.RegisterOutputType(DaemonTaskDefinitionSecretOutput{})
+	pulumi.RegisterOutputType(DaemonTaskDefinitionSecretArrayOutput{})
+	pulumi.RegisterOutputType(DaemonTaskDefinitionSystemControlOutput{})
+	pulumi.RegisterOutputType(DaemonTaskDefinitionSystemControlArrayOutput{})
+	pulumi.RegisterOutputType(DaemonTaskDefinitionTmpfsOutput{})
+	pulumi.RegisterOutputType(DaemonTaskDefinitionTmpfsArrayOutput{})
+	pulumi.RegisterOutputType(DaemonTaskDefinitionUlimitOutput{})
+	pulumi.RegisterOutputType(DaemonTaskDefinitionUlimitArrayOutput{})
+	pulumi.RegisterOutputType(DaemonTaskDefinitionVolumeOutput{})
+	pulumi.RegisterOutputType(DaemonTaskDefinitionVolumeArrayOutput{})
 	pulumi.RegisterOutputType(ExpressGatewayServiceAutoScalingArnsOutput{})
 	pulumi.RegisterOutputType(ExpressGatewayServiceAutoScalingArnsPtrOutput{})
 	pulumi.RegisterOutputType(ExpressGatewayServiceAwsLogsConfigurationOutput{})

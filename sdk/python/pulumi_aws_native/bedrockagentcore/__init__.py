@@ -7,12 +7,14 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from ._enums import *
+from .api_key_credential_provider import *
 from .browser_custom import *
 from .browser_profile import *
 from .code_interpreter_custom import *
 from .evaluator import *
 from .gateway import *
 from .gateway_target import *
+from .get_api_key_credential_provider import *
 from .get_browser_custom import *
 from .get_browser_profile import *
 from .get_code_interpreter_custom import *
@@ -20,6 +22,7 @@ from .get_evaluator import *
 from .get_gateway import *
 from .get_gateway_target import *
 from .get_memory import *
+from .get_o_auth2_credential_provider import *
 from .get_online_evaluation_config import *
 from .get_policy import *
 from .get_policy_engine import *
@@ -27,6 +30,7 @@ from .get_runtime import *
 from .get_runtime_endpoint import *
 from .get_workload_identity import *
 from .memory import *
+from .o_auth2_credential_provider import *
 from .online_evaluation_config import *
 from .policy import *
 from .policy_engine import *

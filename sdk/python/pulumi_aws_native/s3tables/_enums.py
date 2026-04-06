@@ -12,6 +12,7 @@ __all__ = [
     'TableBucketStorageClassConfigurationStorageClass',
     'TableBucketUnreferencedFileRemovalStatus',
     'TableCompactionStatus',
+    'TableIcebergSchemaV2SchemaV2FieldType',
     'TableIcebergSortFieldDirection',
     'TableIcebergSortFieldNullOrder',
     'TableOpenTableFormat',
@@ -64,6 +65,14 @@ class TableCompactionStatus(_builtins.str, Enum):
     """
     ENABLED = "enabled"
     DISABLED = "disabled"
+
+
+@pulumi.type_token("aws-native:s3tables:TableIcebergSchemaV2SchemaV2FieldType")
+class TableIcebergSchemaV2SchemaV2FieldType(_builtins.str, Enum):
+    """
+    The type of the top-level schema, which is always 'struct'
+    """
+    STRUCT = "struct"
 
 
 @pulumi.type_token("aws-native:s3tables:TableIcebergSortFieldDirection")

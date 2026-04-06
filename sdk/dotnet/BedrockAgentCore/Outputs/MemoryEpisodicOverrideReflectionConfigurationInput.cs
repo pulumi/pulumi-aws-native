@@ -15,6 +15,7 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Outputs
     {
         public readonly string AppendToPrompt;
         public readonly string ModelId;
+        public readonly ImmutableArray<string> NamespaceTemplates;
         public readonly ImmutableArray<string> Namespaces;
 
         [OutputConstructor]
@@ -23,10 +24,13 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Outputs
 
             string modelId,
 
+            ImmutableArray<string> namespaceTemplates,
+
             ImmutableArray<string> namespaces)
         {
             AppendToPrompt = appendToPrompt;
             ModelId = modelId;
+            NamespaceTemplates = namespaceTemplates;
             Namespaces = namespaces;
         }
     }

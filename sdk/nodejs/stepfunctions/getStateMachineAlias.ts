@@ -41,6 +41,7 @@ export interface GetStateMachineAliasResult {
      * > `RoutingConfiguration` and `DeploymentPreference` are mutually exclusive properties. You must define only one of these properties.
      */
     readonly routingConfiguration?: outputs.stepfunctions.StateMachineAliasRoutingConfigurationVersion[];
+    readonly stateMachineArn?: string;
 }
 /**
  * Resource schema for StateMachineAlias

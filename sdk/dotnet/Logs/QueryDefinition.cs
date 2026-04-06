@@ -28,6 +28,12 @@ namespace Pulumi.AwsNative.Logs
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// Use this parameter to include specific query parameters as part of your query definition. Query parameters are supported only for Logs Insights QL queries. Query parameters allow you to use placeholder variables in your query string that are substituted with values at execution time. Use the {{parameterName}} syntax in your query string to reference a parameter.
+        /// </summary>
+        [Output("parameters")]
+        public Output<ImmutableArray<Outputs.QueryDefinitionQueryParameter>> Parameters { get; private set; } = null!;
+
+        /// <summary>
         /// Unique identifier of a query definition
         /// </summary>
         [Output("queryDefinitionId")]
@@ -107,6 +113,18 @@ namespace Pulumi.AwsNative.Logs
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        [Input("parameters")]
+        private InputList<Inputs.QueryDefinitionQueryParameterArgs>? _parameters;
+
+        /// <summary>
+        /// Use this parameter to include specific query parameters as part of your query definition. Query parameters are supported only for Logs Insights QL queries. Query parameters allow you to use placeholder variables in your query string that are substituted with values at execution time. Use the {{parameterName}} syntax in your query string to reference a parameter.
+        /// </summary>
+        public InputList<Inputs.QueryDefinitionQueryParameterArgs> Parameters
+        {
+            get => _parameters ?? (_parameters = new InputList<Inputs.QueryDefinitionQueryParameterArgs>());
+            set => _parameters = value;
+        }
 
         /// <summary>
         /// Query language of the query string. Possible values are CWLI, SQL, PPL, with CWLI being the default.

@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.DataZone
     [AwsNativeResourceType("aws-native:datazone:ProjectProfile")]
     public partial class ProjectProfile : global::Pulumi.CustomResource
     {
+        [Output("allowCustomProjectResourceTags")]
+        public Output<bool?> AllowCustomProjectResourceTags { get; private set; } = null!;
+
         /// <summary>
         /// The ID of the project profile.
         /// </summary>
@@ -87,6 +90,12 @@ namespace Pulumi.AwsNative.DataZone
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        [Output("projectResourceTags")]
+        public Output<ImmutableArray<Outputs.ProjectProfileResourceTagParameter>> ProjectResourceTags { get; private set; } = null!;
+
+        [Output("projectResourceTagsDescription")]
+        public Output<string?> ProjectResourceTagsDescription { get; private set; } = null!;
+
         /// <summary>
         /// The status of a project profile.
         /// </summary>
@@ -146,6 +155,9 @@ namespace Pulumi.AwsNative.DataZone
 
     public sealed class ProjectProfileArgs : global::Pulumi.ResourceArgs
     {
+        [Input("allowCustomProjectResourceTags")]
+        public Input<bool>? AllowCustomProjectResourceTags { get; set; }
+
         /// <summary>
         /// The description of the project profile.
         /// </summary>
@@ -181,6 +193,17 @@ namespace Pulumi.AwsNative.DataZone
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        [Input("projectResourceTags")]
+        private InputList<Inputs.ProjectProfileResourceTagParameterArgs>? _projectResourceTags;
+        public InputList<Inputs.ProjectProfileResourceTagParameterArgs> ProjectResourceTags
+        {
+            get => _projectResourceTags ?? (_projectResourceTags = new InputList<Inputs.ProjectProfileResourceTagParameterArgs>());
+            set => _projectResourceTags = value;
+        }
+
+        [Input("projectResourceTagsDescription")]
+        public Input<string>? ProjectResourceTagsDescription { get; set; }
 
         /// <summary>
         /// The status of a project profile.

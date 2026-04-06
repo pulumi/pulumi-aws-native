@@ -10,10 +10,14 @@ from ._enums import *
 from .capacity_provider import *
 from .cluster import *
 from .cluster_capacity_provider_associations import *
+from .daemon import *
+from .daemon_task_definition import *
 from .express_gateway_service import *
 from .get_capacity_provider import *
 from .get_cluster import *
 from .get_cluster_capacity_provider_associations import *
+from .get_daemon import *
+from .get_daemon_task_definition import *
 from .get_express_gateway_service import *
 from .get_primary_task_set import *
 from .get_service import *

@@ -222,6 +222,101 @@ func (o DataRepositoryAssociationEventTypeArrayOutput) Index(i pulumi.IntInput) 
 	}).(DataRepositoryAssociationEventTypeOutput)
 }
 
+// The lifecycle status of the S3 access point attachment.
+type S3AccessPointAttachmentLifecycle string
+
+const (
+	S3AccessPointAttachmentLifecycleAvailable     = S3AccessPointAttachmentLifecycle("AVAILABLE")
+	S3AccessPointAttachmentLifecycleCreating      = S3AccessPointAttachmentLifecycle("CREATING")
+	S3AccessPointAttachmentLifecycleDeleting      = S3AccessPointAttachmentLifecycle("DELETING")
+	S3AccessPointAttachmentLifecycleFailed        = S3AccessPointAttachmentLifecycle("FAILED")
+	S3AccessPointAttachmentLifecycleMisconfigured = S3AccessPointAttachmentLifecycle("MISCONFIGURED")
+	S3AccessPointAttachmentLifecycleUpdating      = S3AccessPointAttachmentLifecycle("UPDATING")
+)
+
+type S3AccessPointAttachmentLifecycleOutput struct{ *pulumi.OutputState }
+
+func (S3AccessPointAttachmentLifecycleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*S3AccessPointAttachmentLifecycle)(nil)).Elem()
+}
+
+func (o S3AccessPointAttachmentLifecycleOutput) ToS3AccessPointAttachmentLifecycleOutput() S3AccessPointAttachmentLifecycleOutput {
+	return o
+}
+
+func (o S3AccessPointAttachmentLifecycleOutput) ToS3AccessPointAttachmentLifecycleOutputWithContext(ctx context.Context) S3AccessPointAttachmentLifecycleOutput {
+	return o
+}
+
+func (o S3AccessPointAttachmentLifecycleOutput) ToS3AccessPointAttachmentLifecyclePtrOutput() S3AccessPointAttachmentLifecyclePtrOutput {
+	return o.ToS3AccessPointAttachmentLifecyclePtrOutputWithContext(context.Background())
+}
+
+func (o S3AccessPointAttachmentLifecycleOutput) ToS3AccessPointAttachmentLifecyclePtrOutputWithContext(ctx context.Context) S3AccessPointAttachmentLifecyclePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v S3AccessPointAttachmentLifecycle) *S3AccessPointAttachmentLifecycle {
+		return &v
+	}).(S3AccessPointAttachmentLifecyclePtrOutput)
+}
+
+func (o S3AccessPointAttachmentLifecycleOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o S3AccessPointAttachmentLifecycleOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e S3AccessPointAttachmentLifecycle) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o S3AccessPointAttachmentLifecycleOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o S3AccessPointAttachmentLifecycleOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e S3AccessPointAttachmentLifecycle) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type S3AccessPointAttachmentLifecyclePtrOutput struct{ *pulumi.OutputState }
+
+func (S3AccessPointAttachmentLifecyclePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**S3AccessPointAttachmentLifecycle)(nil)).Elem()
+}
+
+func (o S3AccessPointAttachmentLifecyclePtrOutput) ToS3AccessPointAttachmentLifecyclePtrOutput() S3AccessPointAttachmentLifecyclePtrOutput {
+	return o
+}
+
+func (o S3AccessPointAttachmentLifecyclePtrOutput) ToS3AccessPointAttachmentLifecyclePtrOutputWithContext(ctx context.Context) S3AccessPointAttachmentLifecyclePtrOutput {
+	return o
+}
+
+func (o S3AccessPointAttachmentLifecyclePtrOutput) Elem() S3AccessPointAttachmentLifecycleOutput {
+	return o.ApplyT(func(v *S3AccessPointAttachmentLifecycle) S3AccessPointAttachmentLifecycle {
+		if v != nil {
+			return *v
+		}
+		var ret S3AccessPointAttachmentLifecycle
+		return ret
+	}).(S3AccessPointAttachmentLifecycleOutput)
+}
+
+func (o S3AccessPointAttachmentLifecyclePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o S3AccessPointAttachmentLifecyclePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *S3AccessPointAttachmentLifecycle) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
 // Specifies the FSx for ONTAP user identity type, accepts either UNIX or WINDOWS.
 type S3AccessPointAttachmentOntapFileSystemIdentityType string
 
@@ -731,6 +826,8 @@ func init() {
 	pulumi.RegisterOutputType(DataRepositoryAssociationEventTypeOutput{})
 	pulumi.RegisterOutputType(DataRepositoryAssociationEventTypePtrOutput{})
 	pulumi.RegisterOutputType(DataRepositoryAssociationEventTypeArrayOutput{})
+	pulumi.RegisterOutputType(S3AccessPointAttachmentLifecycleOutput{})
+	pulumi.RegisterOutputType(S3AccessPointAttachmentLifecyclePtrOutput{})
 	pulumi.RegisterOutputType(S3AccessPointAttachmentOntapFileSystemIdentityTypeOutput{})
 	pulumi.RegisterOutputType(S3AccessPointAttachmentOntapFileSystemIdentityTypePtrOutput{})
 	pulumi.RegisterOutputType(S3AccessPointAttachmentOpenZfsFileSystemIdentityTypeOutput{})

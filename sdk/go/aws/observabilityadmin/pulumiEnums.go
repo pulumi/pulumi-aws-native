@@ -1353,6 +1353,7 @@ const (
 	OrganizationTelemetryRuleResourceTypeAwsCloudTrail                         = OrganizationTelemetryRuleResourceType("AWS::CloudTrail")
 	OrganizationTelemetryRuleResourceTypeAwseksCluster                         = OrganizationTelemetryRuleResourceType("AWS::EKS::Cluster")
 	OrganizationTelemetryRuleResourceTypeAwsElasticLoadBalancingV2LoadBalancer = OrganizationTelemetryRuleResourceType("AWS::ElasticLoadBalancingV2::LoadBalancer")
+	OrganizationTelemetryRuleResourceTypeAwsec2Instance                        = OrganizationTelemetryRuleResourceType("AWS::EC2::Instance")
 )
 
 func (OrganizationTelemetryRuleResourceType) ElementType() reflect.Type {
@@ -1482,6 +1483,7 @@ func (o OrganizationTelemetryRuleResourceTypePtrOutput) ToStringPtrOutputWithCon
 //	OrganizationTelemetryRuleResourceTypeAwsCloudTrail
 //	OrganizationTelemetryRuleResourceTypeAwseksCluster
 //	OrganizationTelemetryRuleResourceTypeAwsElasticLoadBalancingV2LoadBalancer
+//	OrganizationTelemetryRuleResourceTypeAwsec2Instance
 type OrganizationTelemetryRuleResourceTypeInput interface {
 	pulumi.Input
 
@@ -1741,7 +1743,8 @@ func (o OrganizationTelemetryRuleTelemetrySourceTypeArrayOutput) Index(i pulumi.
 type OrganizationTelemetryRuleTelemetryType string
 
 const (
-	OrganizationTelemetryRuleTelemetryTypeLogs = OrganizationTelemetryRuleTelemetryType("Logs")
+	OrganizationTelemetryRuleTelemetryTypeLogs    = OrganizationTelemetryRuleTelemetryType("Logs")
+	OrganizationTelemetryRuleTelemetryTypeMetrics = OrganizationTelemetryRuleTelemetryType("Metrics")
 )
 
 func (OrganizationTelemetryRuleTelemetryType) ElementType() reflect.Type {
@@ -1867,6 +1870,7 @@ func (o OrganizationTelemetryRuleTelemetryTypePtrOutput) ToStringPtrOutputWithCo
 // A concrete instance of `OrganizationTelemetryRuleTelemetryTypeInput` can be one of the following:
 //
 //	OrganizationTelemetryRuleTelemetryTypeLogs
+//	OrganizationTelemetryRuleTelemetryTypeMetrics
 type OrganizationTelemetryRuleTelemetryTypeInput interface {
 	pulumi.Input
 
@@ -3426,6 +3430,7 @@ const (
 	TelemetryRuleResourceTypeAwsCloudTrail                         = TelemetryRuleResourceType("AWS::CloudTrail")
 	TelemetryRuleResourceTypeAwseksCluster                         = TelemetryRuleResourceType("AWS::EKS::Cluster")
 	TelemetryRuleResourceTypeAwsElasticLoadBalancingV2LoadBalancer = TelemetryRuleResourceType("AWS::ElasticLoadBalancingV2::LoadBalancer")
+	TelemetryRuleResourceTypeAwsec2Instance                        = TelemetryRuleResourceType("AWS::EC2::Instance")
 	TelemetryRuleResourceTypeAwsBedrockAgentCoreRuntime            = TelemetryRuleResourceType("AWS::BedrockAgentCore::Runtime")
 	TelemetryRuleResourceTypeAwsBedrockAgentCoreBrowser            = TelemetryRuleResourceType("AWS::BedrockAgentCore::Browser")
 	TelemetryRuleResourceTypeAwsBedrockAgentCoreCodeInterpreter    = TelemetryRuleResourceType("AWS::BedrockAgentCore::CodeInterpreter")
@@ -3558,6 +3563,7 @@ func (o TelemetryRuleResourceTypePtrOutput) ToStringPtrOutputWithContext(ctx con
 //	TelemetryRuleResourceTypeAwsCloudTrail
 //	TelemetryRuleResourceTypeAwseksCluster
 //	TelemetryRuleResourceTypeAwsElasticLoadBalancingV2LoadBalancer
+//	TelemetryRuleResourceTypeAwsec2Instance
 //	TelemetryRuleResourceTypeAwsBedrockAgentCoreRuntime
 //	TelemetryRuleResourceTypeAwsBedrockAgentCoreBrowser
 //	TelemetryRuleResourceTypeAwsBedrockAgentCoreCodeInterpreter
@@ -4030,8 +4036,9 @@ func (o TelemetryRuleTelemetrySourceTypeArrayOutput) Index(i pulumi.IntInput) Te
 type TelemetryRuleTelemetryType string
 
 const (
-	TelemetryRuleTelemetryTypeLogs   = TelemetryRuleTelemetryType("Logs")
-	TelemetryRuleTelemetryTypeTraces = TelemetryRuleTelemetryType("Traces")
+	TelemetryRuleTelemetryTypeLogs    = TelemetryRuleTelemetryType("Logs")
+	TelemetryRuleTelemetryTypeTraces  = TelemetryRuleTelemetryType("Traces")
+	TelemetryRuleTelemetryTypeMetrics = TelemetryRuleTelemetryType("Metrics")
 )
 
 func (TelemetryRuleTelemetryType) ElementType() reflect.Type {
@@ -4158,6 +4165,7 @@ func (o TelemetryRuleTelemetryTypePtrOutput) ToStringPtrOutputWithContext(ctx co
 //
 //	TelemetryRuleTelemetryTypeLogs
 //	TelemetryRuleTelemetryTypeTraces
+//	TelemetryRuleTelemetryTypeMetrics
 type TelemetryRuleTelemetryTypeInput interface {
 	pulumi.Input
 

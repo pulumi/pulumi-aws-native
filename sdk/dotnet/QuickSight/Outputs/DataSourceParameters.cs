@@ -11,7 +11,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 {
 
     /// <summary>
-    /// &lt;p&gt;The parameters that Amazon Quick Suite uses to connect to your underlying data source.
+    /// &lt;p&gt;The parameters that Amazon QuickSight uses to connect to your underlying data source.
     ///             This is a variant type structure. For this structure to be valid, only one of the
     ///             attributes can be non-null.&lt;/p&gt;
     /// </summary>
@@ -74,6 +74,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// The parameters for S3.
         /// </summary>
         public readonly Outputs.DataSourceS3Parameters? S3Parameters;
+        public readonly Outputs.DataSourceS3TablesParameters? S3TablesParameters;
         /// <summary>
         /// The parameters for Snowflake.
         /// </summary>
@@ -129,6 +130,8 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 
             Outputs.DataSourceS3Parameters? s3Parameters,
 
+            Outputs.DataSourceS3TablesParameters? s3TablesParameters,
+
             Outputs.DataSourceSnowflakeParameters? snowflakeParameters,
 
             Outputs.DataSourceSparkParameters? sparkParameters,
@@ -155,6 +158,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
             RdsParameters = rdsParameters;
             RedshiftParameters = redshiftParameters;
             S3Parameters = s3Parameters;
+            S3TablesParameters = s3TablesParameters;
             SnowflakeParameters = snowflakeParameters;
             SparkParameters = sparkParameters;
             SqlServerParameters = sqlServerParameters;

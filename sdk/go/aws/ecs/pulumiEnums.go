@@ -3159,6 +3159,261 @@ const (
 	ClusterCapacityProviderAssociationsCapacityProvider0FargateSpot = ClusterCapacityProviderAssociationsCapacityProvider0("FARGATE_SPOT")
 )
 
+type DaemonPropagateTags string
+
+const (
+	DaemonPropagateTagsDaemon = DaemonPropagateTags("DAEMON")
+	DaemonPropagateTagsNone   = DaemonPropagateTags("NONE")
+)
+
+func (DaemonPropagateTags) ElementType() reflect.Type {
+	return reflect.TypeOf((*DaemonPropagateTags)(nil)).Elem()
+}
+
+func (e DaemonPropagateTags) ToDaemonPropagateTagsOutput() DaemonPropagateTagsOutput {
+	return pulumi.ToOutput(e).(DaemonPropagateTagsOutput)
+}
+
+func (e DaemonPropagateTags) ToDaemonPropagateTagsOutputWithContext(ctx context.Context) DaemonPropagateTagsOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DaemonPropagateTagsOutput)
+}
+
+func (e DaemonPropagateTags) ToDaemonPropagateTagsPtrOutput() DaemonPropagateTagsPtrOutput {
+	return e.ToDaemonPropagateTagsPtrOutputWithContext(context.Background())
+}
+
+func (e DaemonPropagateTags) ToDaemonPropagateTagsPtrOutputWithContext(ctx context.Context) DaemonPropagateTagsPtrOutput {
+	return DaemonPropagateTags(e).ToDaemonPropagateTagsOutputWithContext(ctx).ToDaemonPropagateTagsPtrOutputWithContext(ctx)
+}
+
+func (e DaemonPropagateTags) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DaemonPropagateTags) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DaemonPropagateTags) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DaemonPropagateTags) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DaemonPropagateTagsOutput struct{ *pulumi.OutputState }
+
+func (DaemonPropagateTagsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DaemonPropagateTags)(nil)).Elem()
+}
+
+func (o DaemonPropagateTagsOutput) ToDaemonPropagateTagsOutput() DaemonPropagateTagsOutput {
+	return o
+}
+
+func (o DaemonPropagateTagsOutput) ToDaemonPropagateTagsOutputWithContext(ctx context.Context) DaemonPropagateTagsOutput {
+	return o
+}
+
+func (o DaemonPropagateTagsOutput) ToDaemonPropagateTagsPtrOutput() DaemonPropagateTagsPtrOutput {
+	return o.ToDaemonPropagateTagsPtrOutputWithContext(context.Background())
+}
+
+func (o DaemonPropagateTagsOutput) ToDaemonPropagateTagsPtrOutputWithContext(ctx context.Context) DaemonPropagateTagsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DaemonPropagateTags) *DaemonPropagateTags {
+		return &v
+	}).(DaemonPropagateTagsPtrOutput)
+}
+
+func (o DaemonPropagateTagsOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DaemonPropagateTagsOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DaemonPropagateTags) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DaemonPropagateTagsOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DaemonPropagateTagsOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DaemonPropagateTags) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DaemonPropagateTagsPtrOutput struct{ *pulumi.OutputState }
+
+func (DaemonPropagateTagsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DaemonPropagateTags)(nil)).Elem()
+}
+
+func (o DaemonPropagateTagsPtrOutput) ToDaemonPropagateTagsPtrOutput() DaemonPropagateTagsPtrOutput {
+	return o
+}
+
+func (o DaemonPropagateTagsPtrOutput) ToDaemonPropagateTagsPtrOutputWithContext(ctx context.Context) DaemonPropagateTagsPtrOutput {
+	return o
+}
+
+func (o DaemonPropagateTagsPtrOutput) Elem() DaemonPropagateTagsOutput {
+	return o.ApplyT(func(v *DaemonPropagateTags) DaemonPropagateTags {
+		if v != nil {
+			return *v
+		}
+		var ret DaemonPropagateTags
+		return ret
+	}).(DaemonPropagateTagsOutput)
+}
+
+func (o DaemonPropagateTagsPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DaemonPropagateTagsPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DaemonPropagateTags) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DaemonPropagateTagsInput is an input type that accepts values of the DaemonPropagateTags enum
+// A concrete instance of `DaemonPropagateTagsInput` can be one of the following:
+//
+//	DaemonPropagateTagsDaemon
+//	DaemonPropagateTagsNone
+type DaemonPropagateTagsInput interface {
+	pulumi.Input
+
+	ToDaemonPropagateTagsOutput() DaemonPropagateTagsOutput
+	ToDaemonPropagateTagsOutputWithContext(context.Context) DaemonPropagateTagsOutput
+}
+
+var daemonPropagateTagsPtrType = reflect.TypeOf((**DaemonPropagateTags)(nil)).Elem()
+
+type DaemonPropagateTagsPtrInput interface {
+	pulumi.Input
+
+	ToDaemonPropagateTagsPtrOutput() DaemonPropagateTagsPtrOutput
+	ToDaemonPropagateTagsPtrOutputWithContext(context.Context) DaemonPropagateTagsPtrOutput
+}
+
+type daemonPropagateTagsPtr string
+
+func DaemonPropagateTagsPtr(v string) DaemonPropagateTagsPtrInput {
+	return (*daemonPropagateTagsPtr)(&v)
+}
+
+func (*daemonPropagateTagsPtr) ElementType() reflect.Type {
+	return daemonPropagateTagsPtrType
+}
+
+func (in *daemonPropagateTagsPtr) ToDaemonPropagateTagsPtrOutput() DaemonPropagateTagsPtrOutput {
+	return pulumi.ToOutput(in).(DaemonPropagateTagsPtrOutput)
+}
+
+func (in *daemonPropagateTagsPtr) ToDaemonPropagateTagsPtrOutputWithContext(ctx context.Context) DaemonPropagateTagsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DaemonPropagateTagsPtrOutput)
+}
+
+type DaemonStatus string
+
+const (
+	DaemonStatusActive           = DaemonStatus("ACTIVE")
+	DaemonStatusDeleteInProgress = DaemonStatus("DELETE_IN_PROGRESS")
+)
+
+type DaemonStatusOutput struct{ *pulumi.OutputState }
+
+func (DaemonStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DaemonStatus)(nil)).Elem()
+}
+
+func (o DaemonStatusOutput) ToDaemonStatusOutput() DaemonStatusOutput {
+	return o
+}
+
+func (o DaemonStatusOutput) ToDaemonStatusOutputWithContext(ctx context.Context) DaemonStatusOutput {
+	return o
+}
+
+func (o DaemonStatusOutput) ToDaemonStatusPtrOutput() DaemonStatusPtrOutput {
+	return o.ToDaemonStatusPtrOutputWithContext(context.Background())
+}
+
+func (o DaemonStatusOutput) ToDaemonStatusPtrOutputWithContext(ctx context.Context) DaemonStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DaemonStatus) *DaemonStatus {
+		return &v
+	}).(DaemonStatusPtrOutput)
+}
+
+func (o DaemonStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DaemonStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DaemonStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DaemonStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DaemonStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DaemonStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DaemonStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (DaemonStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DaemonStatus)(nil)).Elem()
+}
+
+func (o DaemonStatusPtrOutput) ToDaemonStatusPtrOutput() DaemonStatusPtrOutput {
+	return o
+}
+
+func (o DaemonStatusPtrOutput) ToDaemonStatusPtrOutputWithContext(ctx context.Context) DaemonStatusPtrOutput {
+	return o
+}
+
+func (o DaemonStatusPtrOutput) Elem() DaemonStatusOutput {
+	return o.ApplyT(func(v *DaemonStatus) DaemonStatus {
+		if v != nil {
+			return *v
+		}
+		var ret DaemonStatus
+		return ret
+	}).(DaemonStatusOutput)
+}
+
+func (o DaemonStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DaemonStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DaemonStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
 type ExpressGatewayServiceAccessType string
 
 const (
@@ -6997,6 +7252,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderManagedScalingStatusPtrInput)(nil)).Elem(), CapacityProviderManagedScalingStatus("DISABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterCapacityProviderAssociationsCapacityProviderInput)(nil)).Elem(), ClusterCapacityProviderAssociationsCapacityProvider("FARGATE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterCapacityProviderAssociationsCapacityProviderPtrInput)(nil)).Elem(), ClusterCapacityProviderAssociationsCapacityProvider("FARGATE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DaemonPropagateTagsInput)(nil)).Elem(), DaemonPropagateTags("DAEMON"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DaemonPropagateTagsPtrInput)(nil)).Elem(), DaemonPropagateTags("DAEMON"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ExpressGatewayServiceScalingMetricInput)(nil)).Elem(), ExpressGatewayServiceScalingMetric("AVERAGE_CPU"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ExpressGatewayServiceScalingMetricPtrInput)(nil)).Elem(), ExpressGatewayServiceScalingMetric("AVERAGE_CPU"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceAvailabilityZoneRebalancingInput)(nil)).Elem(), ServiceAvailabilityZoneRebalancing("ENABLED"))
@@ -7080,6 +7337,10 @@ func init() {
 	pulumi.RegisterOutputType(CapacityProviderManagedScalingStatusPtrOutput{})
 	pulumi.RegisterOutputType(ClusterCapacityProviderAssociationsCapacityProviderOutput{})
 	pulumi.RegisterOutputType(ClusterCapacityProviderAssociationsCapacityProviderPtrOutput{})
+	pulumi.RegisterOutputType(DaemonPropagateTagsOutput{})
+	pulumi.RegisterOutputType(DaemonPropagateTagsPtrOutput{})
+	pulumi.RegisterOutputType(DaemonStatusOutput{})
+	pulumi.RegisterOutputType(DaemonStatusPtrOutput{})
 	pulumi.RegisterOutputType(ExpressGatewayServiceAccessTypeOutput{})
 	pulumi.RegisterOutputType(ExpressGatewayServiceAccessTypePtrOutput{})
 	pulumi.RegisterOutputType(ExpressGatewayServiceScalingMetricOutput{})

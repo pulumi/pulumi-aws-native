@@ -26,6 +26,7 @@ class TableBucketArgs:
     def __init__(__self__, *,
                  encryption_configuration: Optional[pulumi.Input['TableBucketEncryptionConfigurationArgs']] = None,
                  metrics_configuration: Optional[pulumi.Input['TableBucketMetricsConfigurationArgs']] = None,
+                 replication_configuration: Optional[pulumi.Input['TableBucketReplicationConfigurationArgs']] = None,
                  storage_class_configuration: Optional[pulumi.Input['TableBucketStorageClassConfigurationArgs']] = None,
                  table_bucket_name: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
@@ -43,6 +44,8 @@ class TableBucketArgs:
             pulumi.set(__self__, "encryption_configuration", encryption_configuration)
         if metrics_configuration is not None:
             pulumi.set(__self__, "metrics_configuration", metrics_configuration)
+        if replication_configuration is not None:
+            pulumi.set(__self__, "replication_configuration", replication_configuration)
         if storage_class_configuration is not None:
             pulumi.set(__self__, "storage_class_configuration", storage_class_configuration)
         if table_bucket_name is not None:
@@ -72,6 +75,15 @@ class TableBucketArgs:
     @metrics_configuration.setter
     def metrics_configuration(self, value: Optional[pulumi.Input['TableBucketMetricsConfigurationArgs']]):
         pulumi.set(self, "metrics_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="replicationConfiguration")
+    def replication_configuration(self) -> Optional[pulumi.Input['TableBucketReplicationConfigurationArgs']]:
+        return pulumi.get(self, "replication_configuration")
+
+    @replication_configuration.setter
+    def replication_configuration(self, value: Optional[pulumi.Input['TableBucketReplicationConfigurationArgs']]):
+        pulumi.set(self, "replication_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="storageClassConfiguration")
@@ -130,6 +142,7 @@ class TableBucket(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  encryption_configuration: Optional[pulumi.Input[Union['TableBucketEncryptionConfigurationArgs', 'TableBucketEncryptionConfigurationArgsDict']]] = None,
                  metrics_configuration: Optional[pulumi.Input[Union['TableBucketMetricsConfigurationArgs', 'TableBucketMetricsConfigurationArgsDict']]] = None,
+                 replication_configuration: Optional[pulumi.Input[Union['TableBucketReplicationConfigurationArgs', 'TableBucketReplicationConfigurationArgsDict']]] = None,
                  storage_class_configuration: Optional[pulumi.Input[Union['TableBucketStorageClassConfigurationArgs', 'TableBucketStorageClassConfigurationArgsDict']]] = None,
                  table_bucket_name: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
@@ -174,6 +187,7 @@ class TableBucket(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  encryption_configuration: Optional[pulumi.Input[Union['TableBucketEncryptionConfigurationArgs', 'TableBucketEncryptionConfigurationArgsDict']]] = None,
                  metrics_configuration: Optional[pulumi.Input[Union['TableBucketMetricsConfigurationArgs', 'TableBucketMetricsConfigurationArgsDict']]] = None,
+                 replication_configuration: Optional[pulumi.Input[Union['TableBucketReplicationConfigurationArgs', 'TableBucketReplicationConfigurationArgsDict']]] = None,
                  storage_class_configuration: Optional[pulumi.Input[Union['TableBucketStorageClassConfigurationArgs', 'TableBucketStorageClassConfigurationArgsDict']]] = None,
                  table_bucket_name: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
@@ -189,6 +203,7 @@ class TableBucket(pulumi.CustomResource):
 
             __props__.__dict__["encryption_configuration"] = encryption_configuration
             __props__.__dict__["metrics_configuration"] = metrics_configuration
+            __props__.__dict__["replication_configuration"] = replication_configuration
             __props__.__dict__["storage_class_configuration"] = storage_class_configuration
             __props__.__dict__["table_bucket_name"] = table_bucket_name
             __props__.__dict__["tags"] = tags
@@ -220,6 +235,7 @@ class TableBucket(pulumi.CustomResource):
 
         __props__.__dict__["encryption_configuration"] = None
         __props__.__dict__["metrics_configuration"] = None
+        __props__.__dict__["replication_configuration"] = None
         __props__.__dict__["storage_class_configuration"] = None
         __props__.__dict__["table_bucket_arn"] = None
         __props__.__dict__["table_bucket_name"] = None
@@ -239,6 +255,11 @@ class TableBucket(pulumi.CustomResource):
     @pulumi.getter(name="metricsConfiguration")
     def metrics_configuration(self) -> pulumi.Output[Optional['outputs.TableBucketMetricsConfiguration']]:
         return pulumi.get(self, "metrics_configuration")
+
+    @_builtins.property
+    @pulumi.getter(name="replicationConfiguration")
+    def replication_configuration(self) -> pulumi.Output[Optional['outputs.TableBucketReplicationConfiguration']]:
+        return pulumi.get(self, "replication_configuration")
 
     @_builtins.property
     @pulumi.getter(name="storageClassConfiguration")

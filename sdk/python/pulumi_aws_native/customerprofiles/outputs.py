@@ -83,6 +83,8 @@ __all__ = [
     'SegmentDefinitionProfileTypeDimension',
     'SegmentDefinitionRangeOverride',
     'SegmentDefinitionSegmentGroup',
+    'SegmentDefinitionSegmentSort',
+    'SegmentDefinitionSortAttribute',
     'SegmentDefinitionSourceSegment',
 ]
 
@@ -3770,6 +3772,92 @@ class SegmentDefinitionSegmentGroup(dict):
         Defines whether to include or exclude the profiles that fit the segment criteria.
         """
         return pulumi.get(self, "include")
+
+
+@pulumi.output_type
+class SegmentDefinitionSegmentSort(dict):
+    """
+    Defines how segments should be sorted and ordered in the results.
+    """
+    def __init__(__self__, *,
+                 attributes: Sequence['outputs.SegmentDefinitionSortAttribute']):
+        """
+        Defines how segments should be sorted and ordered in the results.
+
+        :param Sequence['SegmentDefinitionSortAttribute'] attributes: A list of attributes used to sort the segments and their ordering preferences.
+        """
+        pulumi.set(__self__, "attributes", attributes)
+
+    @_builtins.property
+    @pulumi.getter
+    def attributes(self) -> Sequence['outputs.SegmentDefinitionSortAttribute']:
+        """
+        A list of attributes used to sort the segments and their ordering preferences.
+        """
+        return pulumi.get(self, "attributes")
+
+
+@pulumi.output_type
+class SegmentDefinitionSortAttribute(dict):
+    """
+    Defines the characteristics and rules for sorting by a specific attribute.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataType":
+            suggest = "data_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SegmentDefinitionSortAttribute. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SegmentDefinitionSortAttribute.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SegmentDefinitionSortAttribute.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: _builtins.str,
+                 order: 'SegmentDefinitionSegmentSortOrder',
+                 data_type: Optional['SegmentDefinitionSegmentSortDataType'] = None,
+                 type: Optional['SegmentDefinitionSortAttributeType'] = None):
+        """
+        Defines the characteristics and rules for sorting by a specific attribute.
+
+        :param _builtins.str name: The name of the attribute to sort by.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "order", order)
+        if data_type is not None:
+            pulumi.set(__self__, "data_type", data_type)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        The name of the attribute to sort by.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def order(self) -> 'SegmentDefinitionSegmentSortOrder':
+        return pulumi.get(self, "order")
+
+    @_builtins.property
+    @pulumi.getter(name="dataType")
+    def data_type(self) -> Optional['SegmentDefinitionSegmentSortDataType']:
+        return pulumi.get(self, "data_type")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> Optional['SegmentDefinitionSortAttributeType']:
+        return pulumi.get(self, "type")
 
 
 @pulumi.output_type

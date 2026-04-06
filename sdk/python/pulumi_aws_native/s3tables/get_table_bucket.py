@@ -26,13 +26,16 @@ __all__ = [
 
 @pulumi.output_type
 class GetTableBucketResult:
-    def __init__(__self__, encryption_configuration=None, metrics_configuration=None, storage_class_configuration=None, table_bucket_arn=None, tags=None, unreferenced_file_removal=None):
+    def __init__(__self__, encryption_configuration=None, metrics_configuration=None, replication_configuration=None, storage_class_configuration=None, table_bucket_arn=None, tags=None, unreferenced_file_removal=None):
         if encryption_configuration and not isinstance(encryption_configuration, dict):
             raise TypeError("Expected argument 'encryption_configuration' to be a dict")
         pulumi.set(__self__, "encryption_configuration", encryption_configuration)
         if metrics_configuration and not isinstance(metrics_configuration, dict):
             raise TypeError("Expected argument 'metrics_configuration' to be a dict")
         pulumi.set(__self__, "metrics_configuration", metrics_configuration)
+        if replication_configuration and not isinstance(replication_configuration, dict):
+            raise TypeError("Expected argument 'replication_configuration' to be a dict")
+        pulumi.set(__self__, "replication_configuration", replication_configuration)
         if storage_class_configuration and not isinstance(storage_class_configuration, dict):
             raise TypeError("Expected argument 'storage_class_configuration' to be a dict")
         pulumi.set(__self__, "storage_class_configuration", storage_class_configuration)
@@ -58,6 +61,11 @@ class GetTableBucketResult:
     @pulumi.getter(name="metricsConfiguration")
     def metrics_configuration(self) -> Optional['outputs.TableBucketMetricsConfiguration']:
         return pulumi.get(self, "metrics_configuration")
+
+    @_builtins.property
+    @pulumi.getter(name="replicationConfiguration")
+    def replication_configuration(self) -> Optional['outputs.TableBucketReplicationConfiguration']:
+        return pulumi.get(self, "replication_configuration")
 
     @_builtins.property
     @pulumi.getter(name="storageClassConfiguration")
@@ -100,6 +108,7 @@ class AwaitableGetTableBucketResult(GetTableBucketResult):
         return GetTableBucketResult(
             encryption_configuration=self.encryption_configuration,
             metrics_configuration=self.metrics_configuration,
+            replication_configuration=self.replication_configuration,
             storage_class_configuration=self.storage_class_configuration,
             table_bucket_arn=self.table_bucket_arn,
             tags=self.tags,
@@ -122,6 +131,7 @@ def get_table_bucket(table_bucket_arn: Optional[_builtins.str] = None,
     return AwaitableGetTableBucketResult(
         encryption_configuration=pulumi.get(__ret__, 'encryption_configuration'),
         metrics_configuration=pulumi.get(__ret__, 'metrics_configuration'),
+        replication_configuration=pulumi.get(__ret__, 'replication_configuration'),
         storage_class_configuration=pulumi.get(__ret__, 'storage_class_configuration'),
         table_bucket_arn=pulumi.get(__ret__, 'table_bucket_arn'),
         tags=pulumi.get(__ret__, 'tags'),
@@ -141,6 +151,7 @@ def get_table_bucket_output(table_bucket_arn: Optional[pulumi.Input[_builtins.st
     return __ret__.apply(lambda __response__: GetTableBucketResult(
         encryption_configuration=pulumi.get(__response__, 'encryption_configuration'),
         metrics_configuration=pulumi.get(__response__, 'metrics_configuration'),
+        replication_configuration=pulumi.get(__response__, 'replication_configuration'),
         storage_class_configuration=pulumi.get(__response__, 'storage_class_configuration'),
         table_bucket_arn=pulumi.get(__response__, 'table_bucket_arn'),
         tags=pulumi.get(__response__, 'tags'),

@@ -1739,10 +1739,10 @@ class GraphQlApiLogConfig(dict):
         suggest = None
         if key == "cloudWatchLogsRoleArn":
             suggest = "cloud_watch_logs_role_arn"
-        elif key == "excludeVerboseContent":
-            suggest = "exclude_verbose_content"
         elif key == "fieldLogLevel":
             suggest = "field_log_level"
+        elif key == "excludeVerboseContent":
+            suggest = "exclude_verbose_content"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in GraphQlApiLogConfig. Access the value via the '{suggest}' property getter instead.")
@@ -1756,28 +1756,34 @@ class GraphQlApiLogConfig(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 cloud_watch_logs_role_arn: Optional[_builtins.str] = None,
-                 exclude_verbose_content: Optional[_builtins.bool] = None,
-                 field_log_level: Optional[_builtins.str] = None):
+                 cloud_watch_logs_role_arn: _builtins.str,
+                 field_log_level: _builtins.str,
+                 exclude_verbose_content: Optional[_builtins.bool] = None):
         """
         :param _builtins.str cloud_watch_logs_role_arn: The service role that AWS AppSync will assume to publish to Amazon CloudWatch Logs in your account.
-        :param _builtins.bool exclude_verbose_content: Set to TRUE to exclude sections that contain information such as headers, context, and evaluated mapping templates, regardless of logging level.
         :param _builtins.str field_log_level: The field logging level. Values can be NONE, ERROR, INFO, DEBUG, or ALL.
+        :param _builtins.bool exclude_verbose_content: Set to TRUE to exclude sections that contain information such as headers, context, and evaluated mapping templates, regardless of logging level.
         """
-        if cloud_watch_logs_role_arn is not None:
-            pulumi.set(__self__, "cloud_watch_logs_role_arn", cloud_watch_logs_role_arn)
+        pulumi.set(__self__, "cloud_watch_logs_role_arn", cloud_watch_logs_role_arn)
+        pulumi.set(__self__, "field_log_level", field_log_level)
         if exclude_verbose_content is not None:
             pulumi.set(__self__, "exclude_verbose_content", exclude_verbose_content)
-        if field_log_level is not None:
-            pulumi.set(__self__, "field_log_level", field_log_level)
 
     @_builtins.property
     @pulumi.getter(name="cloudWatchLogsRoleArn")
-    def cloud_watch_logs_role_arn(self) -> Optional[_builtins.str]:
+    def cloud_watch_logs_role_arn(self) -> _builtins.str:
         """
         The service role that AWS AppSync will assume to publish to Amazon CloudWatch Logs in your account.
         """
         return pulumi.get(self, "cloud_watch_logs_role_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="fieldLogLevel")
+    def field_log_level(self) -> _builtins.str:
+        """
+        The field logging level. Values can be NONE, ERROR, INFO, DEBUG, or ALL.
+        """
+        return pulumi.get(self, "field_log_level")
 
     @_builtins.property
     @pulumi.getter(name="excludeVerboseContent")
@@ -1786,14 +1792,6 @@ class GraphQlApiLogConfig(dict):
         Set to TRUE to exclude sections that contain information such as headers, context, and evaluated mapping templates, regardless of logging level.
         """
         return pulumi.get(self, "exclude_verbose_content")
-
-    @_builtins.property
-    @pulumi.getter(name="fieldLogLevel")
-    def field_log_level(self) -> Optional[_builtins.str]:
-        """
-        The field logging level. Values can be NONE, ERROR, INFO, DEBUG, or ALL.
-        """
-        return pulumi.get(self, "field_log_level")
 
 
 @pulumi.output_type

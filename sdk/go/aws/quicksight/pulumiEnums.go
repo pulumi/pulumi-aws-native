@@ -48899,6 +48899,7 @@ const (
 	DataSourceTypeSharepoint                   = DataSourceType("SHAREPOINT")
 	DataSourceTypeOneDrive                     = DataSourceType("ONE_DRIVE")
 	DataSourceTypeWebCrawler                   = DataSourceType("WEB_CRAWLER")
+	DataSourceTypeBox                          = DataSourceType("BOX")
 )
 
 func (DataSourceType) ElementType() reflect.Type {
@@ -49075,6 +49076,7 @@ func (o DataSourceTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Contex
 //	DataSourceTypeSharepoint
 //	DataSourceTypeOneDrive
 //	DataSourceTypeWebCrawler
+//	DataSourceTypeBox
 type DataSourceTypeInput interface {
 	pulumi.Input
 

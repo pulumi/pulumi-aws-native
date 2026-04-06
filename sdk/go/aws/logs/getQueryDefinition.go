@@ -32,6 +32,8 @@ type LookupQueryDefinitionResult struct {
 	LogGroupNames []string `pulumi:"logGroupNames"`
 	// A name for the saved query definition
 	Name *string `pulumi:"name"`
+	// Use this parameter to include specific query parameters as part of your query definition. Query parameters are supported only for Logs Insights QL queries. Query parameters allow you to use placeholder variables in your query string that are substituted with values at execution time. Use the {{parameterName}} syntax in your query string to reference a parameter.
+	Parameters []QueryDefinitionQueryParameter `pulumi:"parameters"`
 	// Unique identifier of a query definition
 	QueryDefinitionId *string `pulumi:"queryDefinitionId"`
 	// Query language of the query string. Possible values are CWLI, SQL, PPL, with CWLI being the default.
@@ -80,6 +82,11 @@ func (o LookupQueryDefinitionResultOutput) LogGroupNames() pulumi.StringArrayOut
 // A name for the saved query definition
 func (o LookupQueryDefinitionResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupQueryDefinitionResult) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Use this parameter to include specific query parameters as part of your query definition. Query parameters are supported only for Logs Insights QL queries. Query parameters allow you to use placeholder variables in your query string that are substituted with values at execution time. Use the {{parameterName}} syntax in your query string to reference a parameter.
+func (o LookupQueryDefinitionResultOutput) Parameters() QueryDefinitionQueryParameterArrayOutput {
+	return o.ApplyT(func(v LookupQueryDefinitionResult) []QueryDefinitionQueryParameter { return v.Parameters }).(QueryDefinitionQueryParameterArrayOutput)
 }
 
 // Unique identifier of a query definition

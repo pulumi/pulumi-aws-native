@@ -2662,6 +2662,7 @@ class DataSourceType(_builtins.str, Enum):
     SHAREPOINT = "SHAREPOINT"
     ONE_DRIVE = "ONE_DRIVE"
     WEB_CRAWLER = "WEB_CRAWLER"
+    BOX = "BOX"
 
 
 @pulumi.type_token("aws-native:quicksight:FolderSharingModel")

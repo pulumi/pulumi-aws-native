@@ -53,6 +53,7 @@ AWS::ApiGatewayV2::Model
 AWS::ApiGatewayV2::Route
 AWS::ApiGatewayV2::RouteResponse
 AWS::ApiGatewayV2::RoutingRule
+AWS::ApiGatewayV2::Stage
 AWS::ApiGatewayV2::VpcLink
 AWS::AppConfig::Application
 AWS::AppConfig::ConfigurationProfile
@@ -148,6 +149,7 @@ AWS::Bedrock::IntelligentPromptRouter
 AWS::Bedrock::KnowledgeBase
 AWS::Bedrock::Prompt
 AWS::Bedrock::PromptVersion
+AWS::BedrockAgentCore::ApiKeyCredentialProvider
 AWS::BedrockAgentCore::BrowserCustom
 AWS::BedrockAgentCore::BrowserProfile
 AWS::BedrockAgentCore::CodeInterpreterCustom
@@ -155,6 +157,7 @@ AWS::BedrockAgentCore::Evaluator
 AWS::BedrockAgentCore::Gateway
 AWS::BedrockAgentCore::GatewayTarget
 AWS::BedrockAgentCore::Memory
+AWS::BedrockAgentCore::OAuth2CredentialProvider
 AWS::BedrockAgentCore::OnlineEvaluationConfig
 AWS::BedrockAgentCore::Policy
 AWS::BedrockAgentCore::PolicyEngine
@@ -521,6 +524,8 @@ AWS::ECR::SigningConfiguration
 AWS::ECS::CapacityProvider
 AWS::ECS::Cluster
 AWS::ECS::ClusterCapacityProviderAssociations
+AWS::ECS::Daemon
+AWS::ECS::DaemonTaskDefinition
 AWS::ECS::ExpressGatewayService
 AWS::ECS::PrimaryTaskSet
 AWS::ECS::Service
@@ -558,6 +563,7 @@ AWS::ElasticBeanstalk::Application
 AWS::ElasticBeanstalk::ApplicationVersion
 AWS::ElasticBeanstalk::ConfigurationTemplate
 AWS::ElasticBeanstalk::Environment
+AWS::ElasticLoadBalancing::LoadBalancer
 AWS::ElasticLoadBalancingV2::Listener
 AWS::ElasticLoadBalancingV2::ListenerRule
 AWS::ElasticLoadBalancingV2::LoadBalancer
@@ -1202,6 +1208,7 @@ AWS::SageMaker::ImageVersion
 AWS::SageMaker::InferenceComponent
 AWS::SageMaker::InferenceExperiment
 AWS::SageMaker::MlflowTrackingServer
+AWS::SageMaker::Model
 AWS::SageMaker::ModelBiasJobDefinition
 AWS::SageMaker::ModelCard
 AWS::SageMaker::ModelExplainabilityJobDefinition
@@ -1222,6 +1229,10 @@ AWS::SecretsManager::ResourcePolicy
 AWS::SecretsManager::RotationSchedule
 AWS::SecretsManager::Secret
 AWS::SecretsManager::SecretTargetAttachment
+AWS::SecurityAgent::AgentSpace
+AWS::SecurityAgent::Application
+AWS::SecurityAgent::Pentest
+AWS::SecurityAgent::TargetDomain
 AWS::SecurityHub::AggregatorV2
 AWS::SecurityHub::AutomationRule
 AWS::SecurityHub::AutomationRuleV2

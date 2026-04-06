@@ -25,7 +25,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetDbClusterResult:
-    def __init__(__self__, allocated_storage=None, associated_roles=None, auto_minor_version_upgrade=None, backtrack_window=None, backup_retention_period=None, copy_tags_to_snapshot=None, database_insights_mode=None, db_cluster_arn=None, db_cluster_instance_class=None, db_cluster_parameter_group_name=None, db_cluster_resource_id=None, deletion_protection=None, domain=None, domain_iam_role_name=None, enable_cloudwatch_logs_exports=None, enable_global_write_forwarding=None, enable_http_endpoint=None, enable_iam_database_authentication=None, enable_local_write_forwarding=None, endpoint=None, engine=None, engine_lifecycle_support=None, engine_version=None, global_cluster_identifier=None, iops=None, manage_master_user_password=None, master_user_secret=None, master_username=None, monitoring_interval=None, monitoring_role_arn=None, network_type=None, performance_insights_enabled=None, performance_insights_kms_key_id=None, performance_insights_retention_period=None, port=None, preferred_backup_window=None, preferred_maintenance_window=None, read_endpoint=None, replication_source_identifier=None, scaling_configuration=None, serverless_v2_scaling_configuration=None, storage_throughput=None, storage_type=None, tags=None, vpc_security_group_ids=None):
+    def __init__(__self__, allocated_storage=None, associated_roles=None, auto_minor_version_upgrade=None, backtrack_window=None, backup_retention_period=None, copy_tags_to_snapshot=None, database_insights_mode=None, db_cluster_arn=None, db_cluster_instance_class=None, db_cluster_parameter_group_name=None, db_cluster_resource_id=None, deletion_protection=None, domain=None, domain_iam_role_name=None, enable_cloudwatch_logs_exports=None, enable_global_write_forwarding=None, enable_http_endpoint=None, enable_iam_database_authentication=None, enable_local_write_forwarding=None, endpoint=None, engine=None, engine_lifecycle_support=None, engine_version=None, global_cluster_identifier=None, iops=None, manage_master_user_password=None, master_user_secret=None, master_username=None, monitoring_interval=None, monitoring_role_arn=None, network_type=None, performance_insights_enabled=None, performance_insights_kms_key_id=None, performance_insights_retention_period=None, port=None, preferred_backup_window=None, preferred_maintenance_window=None, read_endpoint=None, replication_source_identifier=None, scaling_configuration=None, serverless_v2_scaling_configuration=None, storage_encryption_type=None, storage_throughput=None, storage_type=None, tags=None, vpc_security_group_ids=None):
         if allocated_storage and not isinstance(allocated_storage, int):
             raise TypeError("Expected argument 'allocated_storage' to be a int")
         pulumi.set(__self__, "allocated_storage", allocated_storage)
@@ -149,6 +149,9 @@ class GetDbClusterResult:
         if serverless_v2_scaling_configuration and not isinstance(serverless_v2_scaling_configuration, dict):
             raise TypeError("Expected argument 'serverless_v2_scaling_configuration' to be a dict")
         pulumi.set(__self__, "serverless_v2_scaling_configuration", serverless_v2_scaling_configuration)
+        if storage_encryption_type and not isinstance(storage_encryption_type, str):
+            raise TypeError("Expected argument 'storage_encryption_type' to be a str")
+        pulumi.set(__self__, "storage_encryption_type", storage_encryption_type)
         if storage_throughput and not isinstance(storage_throughput, int):
             raise TypeError("Expected argument 'storage_throughput' to be a int")
         pulumi.set(__self__, "storage_throughput", storage_throughput)
@@ -628,6 +631,11 @@ class GetDbClusterResult:
         return pulumi.get(self, "serverless_v2_scaling_configuration")
 
     @_builtins.property
+    @pulumi.getter(name="storageEncryptionType")
+    def storage_encryption_type(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "storage_encryption_type")
+
+    @_builtins.property
     @pulumi.getter(name="storageThroughput")
     def storage_throughput(self) -> Optional[_builtins.int]:
         """
@@ -725,6 +733,7 @@ class AwaitableGetDbClusterResult(GetDbClusterResult):
             replication_source_identifier=self.replication_source_identifier,
             scaling_configuration=self.scaling_configuration,
             serverless_v2_scaling_configuration=self.serverless_v2_scaling_configuration,
+            storage_encryption_type=self.storage_encryption_type,
             storage_throughput=self.storage_throughput,
             storage_type=self.storage_type,
             tags=self.tags,
@@ -809,6 +818,7 @@ def get_db_cluster(db_cluster_identifier: Optional[_builtins.str] = None,
         replication_source_identifier=pulumi.get(__ret__, 'replication_source_identifier'),
         scaling_configuration=pulumi.get(__ret__, 'scaling_configuration'),
         serverless_v2_scaling_configuration=pulumi.get(__ret__, 'serverless_v2_scaling_configuration'),
+        storage_encryption_type=pulumi.get(__ret__, 'storage_encryption_type'),
         storage_throughput=pulumi.get(__ret__, 'storage_throughput'),
         storage_type=pulumi.get(__ret__, 'storage_type'),
         tags=pulumi.get(__ret__, 'tags'),
@@ -890,6 +900,7 @@ def get_db_cluster_output(db_cluster_identifier: Optional[pulumi.Input[_builtins
         replication_source_identifier=pulumi.get(__response__, 'replication_source_identifier'),
         scaling_configuration=pulumi.get(__response__, 'scaling_configuration'),
         serverless_v2_scaling_configuration=pulumi.get(__response__, 'serverless_v2_scaling_configuration'),
+        storage_encryption_type=pulumi.get(__response__, 'storage_encryption_type'),
         storage_throughput=pulumi.get(__response__, 'storage_throughput'),
         storage_type=pulumi.get(__response__, 'storage_type'),
         tags=pulumi.get(__response__, 'tags'),

@@ -88,6 +88,10 @@ namespace Pulumi.AwsNative.CustomerProfiles
         /// </summary>
         public readonly string? SegmentDefinitionArn;
         /// <summary>
+        /// The segment sort configuration for ordering segment results.
+        /// </summary>
+        public readonly Outputs.SegmentDefinitionSegmentSort? SegmentSort;
+        /// <summary>
         /// The SQL query that defines the segment criteria.
         /// </summary>
         public readonly Pulumi.AwsNative.CustomerProfiles.SegmentDefinitionSegmentType? SegmentType;
@@ -104,6 +108,8 @@ namespace Pulumi.AwsNative.CustomerProfiles
 
             string? segmentDefinitionArn,
 
+            Outputs.SegmentDefinitionSegmentSort? segmentSort,
+
             Pulumi.AwsNative.CustomerProfiles.SegmentDefinitionSegmentType? segmentType,
 
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
@@ -111,6 +117,7 @@ namespace Pulumi.AwsNative.CustomerProfiles
             CreatedAt = createdAt;
             Description = description;
             SegmentDefinitionArn = segmentDefinitionArn;
+            SegmentSort = segmentSort;
             SegmentType = segmentType;
             Tags = tags;
         }

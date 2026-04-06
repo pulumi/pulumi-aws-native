@@ -50,6 +50,10 @@ __all__ = [
     'ConnectionPhysicalConnectionRequirementsArgsDict',
     'ConnectionPropertiesInput0PropertiesArgs',
     'ConnectionPropertiesInput0PropertiesArgsDict',
+    'ConnectionPropertiesInput10PropertiesArgs',
+    'ConnectionPropertiesInput10PropertiesArgsDict',
+    'ConnectionPropertiesInput11PropertiesArgs',
+    'ConnectionPropertiesInput11PropertiesArgsDict',
     'ConnectionPropertiesInput1PropertiesArgs',
     'ConnectionPropertiesInput1PropertiesArgsDict',
     'ConnectionPropertiesInput2PropertiesArgs',
@@ -90,6 +94,10 @@ __all__ = [
     'ConnectionSparkGluePropertiesInputArgsDict',
     'ConnectionUsernamePasswordArgs',
     'ConnectionUsernamePasswordArgsDict',
+    'ConnectionWorkflowsMwaaPropertiesInputArgs',
+    'ConnectionWorkflowsMwaaPropertiesInputArgsDict',
+    'ConnectionWorkflowsServerlessPropertiesInputArgs',
+    'ConnectionWorkflowsServerlessPropertiesInputArgsDict',
     'DataSourceConfigurationInput0PropertiesArgs',
     'DataSourceConfigurationInput0PropertiesArgsDict',
     'DataSourceConfigurationInput1PropertiesArgs',
@@ -234,6 +242,10 @@ __all__ = [
     'ProjectProfileEnvironmentConfigurationArgsDict',
     'ProjectProfileRegionArgs',
     'ProjectProfileRegionArgsDict',
+    'ProjectProfileResourceTagParameterArgs',
+    'ProjectProfileResourceTagParameterArgsDict',
+    'ProjectResourceTagArgs',
+    'ProjectResourceTagArgsDict',
     'SubscriptionTargetFormArgs',
     'SubscriptionTargetFormArgsDict',
 ]
@@ -1178,6 +1190,44 @@ class ConnectionPropertiesInput0PropertiesArgs:
         pulumi.set(self, "athena_properties", value)
 
 
+class ConnectionPropertiesInput10PropertiesArgsDict(TypedDict):
+    workflows_mwaa_properties: pulumi.Input['ConnectionWorkflowsMwaaPropertiesInputArgsDict']
+
+@pulumi.input_type
+class ConnectionPropertiesInput10PropertiesArgs:
+    def __init__(__self__, *,
+                 workflows_mwaa_properties: pulumi.Input['ConnectionWorkflowsMwaaPropertiesInputArgs']):
+        pulumi.set(__self__, "workflows_mwaa_properties", workflows_mwaa_properties)
+
+    @_builtins.property
+    @pulumi.getter(name="workflowsMwaaProperties")
+    def workflows_mwaa_properties(self) -> pulumi.Input['ConnectionWorkflowsMwaaPropertiesInputArgs']:
+        return pulumi.get(self, "workflows_mwaa_properties")
+
+    @workflows_mwaa_properties.setter
+    def workflows_mwaa_properties(self, value: pulumi.Input['ConnectionWorkflowsMwaaPropertiesInputArgs']):
+        pulumi.set(self, "workflows_mwaa_properties", value)
+
+
+class ConnectionPropertiesInput11PropertiesArgsDict(TypedDict):
+    workflows_serverless_properties: pulumi.Input['ConnectionWorkflowsServerlessPropertiesInputArgsDict']
+
+@pulumi.input_type
+class ConnectionPropertiesInput11PropertiesArgs:
+    def __init__(__self__, *,
+                 workflows_serverless_properties: pulumi.Input['ConnectionWorkflowsServerlessPropertiesInputArgs']):
+        pulumi.set(__self__, "workflows_serverless_properties", workflows_serverless_properties)
+
+    @_builtins.property
+    @pulumi.getter(name="workflowsServerlessProperties")
+    def workflows_serverless_properties(self) -> pulumi.Input['ConnectionWorkflowsServerlessPropertiesInputArgs']:
+        return pulumi.get(self, "workflows_serverless_properties")
+
+    @workflows_serverless_properties.setter
+    def workflows_serverless_properties(self, value: pulumi.Input['ConnectionWorkflowsServerlessPropertiesInputArgs']):
+        pulumi.set(self, "workflows_serverless_properties", value)
+
+
 class ConnectionPropertiesInput1PropertiesArgsDict(TypedDict):
     glue_properties: pulumi.Input['ConnectionGluePropertiesInputArgsDict']
 
@@ -1903,6 +1953,55 @@ class ConnectionUsernamePasswordArgs:
     @username.setter
     def username(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "username", value)
+
+
+class ConnectionWorkflowsMwaaPropertiesInputArgsDict(TypedDict):
+    """
+    Workflows MWAA Properties Input
+    """
+    mwaa_environment_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the MWAA environment.
+    """
+
+@pulumi.input_type
+class ConnectionWorkflowsMwaaPropertiesInputArgs:
+    def __init__(__self__, *,
+                 mwaa_environment_name: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        Workflows MWAA Properties Input
+
+        :param pulumi.Input[_builtins.str] mwaa_environment_name: The name of the MWAA environment.
+        """
+        if mwaa_environment_name is not None:
+            pulumi.set(__self__, "mwaa_environment_name", mwaa_environment_name)
+
+    @_builtins.property
+    @pulumi.getter(name="mwaaEnvironmentName")
+    def mwaa_environment_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The name of the MWAA environment.
+        """
+        return pulumi.get(self, "mwaa_environment_name")
+
+    @mwaa_environment_name.setter
+    def mwaa_environment_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "mwaa_environment_name", value)
+
+
+class ConnectionWorkflowsServerlessPropertiesInputArgsDict(TypedDict):
+    """
+    Workflows Serverless Properties Input
+    """
+    pass
+
+@pulumi.input_type
+class ConnectionWorkflowsServerlessPropertiesInputArgs:
+    def __init__(__self__):
+        """
+        Workflows Serverless Properties Input
+        """
+        pass
 
 
 class DataSourceConfigurationInput0PropertiesArgsDict(TypedDict):
@@ -4297,6 +4396,80 @@ class ProjectProfileRegionArgs:
     @region_name.setter
     def region_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "region_name", value)
+
+
+class ProjectProfileResourceTagParameterArgsDict(TypedDict):
+    is_value_editable: pulumi.Input[_builtins.bool]
+    key: pulumi.Input[_builtins.str]
+    value: pulumi.Input[_builtins.str]
+
+@pulumi.input_type
+class ProjectProfileResourceTagParameterArgs:
+    def __init__(__self__, *,
+                 is_value_editable: pulumi.Input[_builtins.bool],
+                 key: pulumi.Input[_builtins.str],
+                 value: pulumi.Input[_builtins.str]):
+        pulumi.set(__self__, "is_value_editable", is_value_editable)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter(name="isValueEditable")
+    def is_value_editable(self) -> pulumi.Input[_builtins.bool]:
+        return pulumi.get(self, "is_value_editable")
+
+    @is_value_editable.setter
+    def is_value_editable(self, value: pulumi.Input[_builtins.bool]):
+        pulumi.set(self, "is_value_editable", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "key", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "value", value)
+
+
+class ProjectResourceTagArgsDict(TypedDict):
+    key: pulumi.Input[_builtins.str]
+    value: pulumi.Input[_builtins.str]
+
+@pulumi.input_type
+class ProjectResourceTagArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[_builtins.str],
+                 value: pulumi.Input[_builtins.str]):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "key", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "value", value)
 
 
 class SubscriptionTargetFormArgsDict(TypedDict):

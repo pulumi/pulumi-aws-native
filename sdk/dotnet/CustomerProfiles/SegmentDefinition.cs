@@ -58,6 +58,12 @@ namespace Pulumi.AwsNative.CustomerProfiles
         public Output<Outputs.SegmentDefinitionSegmentGroup?> SegmentGroups { get; private set; } = null!;
 
         /// <summary>
+        /// The segment sort configuration for ordering segment results.
+        /// </summary>
+        [Output("segmentSort")]
+        public Output<Outputs.SegmentDefinitionSegmentSort?> SegmentSort { get; private set; } = null!;
+
+        /// <summary>
         /// The SQL query that defines the segment criteria.
         /// </summary>
         [Output("segmentSqlQuery")]
@@ -157,6 +163,12 @@ namespace Pulumi.AwsNative.CustomerProfiles
         /// </summary>
         [Input("segmentGroups")]
         public Input<Inputs.SegmentDefinitionSegmentGroupArgs>? SegmentGroups { get; set; }
+
+        /// <summary>
+        /// The segment sort configuration for ordering segment results.
+        /// </summary>
+        [Input("segmentSort")]
+        public Input<Inputs.SegmentDefinitionSegmentSortArgs>? SegmentSort { get; set; }
 
         /// <summary>
         /// The SQL query that defines the segment criteria.

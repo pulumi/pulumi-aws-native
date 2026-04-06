@@ -63,6 +63,10 @@ export interface GetNodegroupResult {
      * The Kubernetes version to use for your managed nodes.
      */
     readonly version?: string;
+    /**
+     * The warm pool configuration details for the Auto Scaling group that is created for the node group.
+     */
+    readonly warmPoolConfig?: outputs.eks.NodegroupWarmPoolConfig;
 }
 /**
  * Resource schema for AWS::EKS::Nodegroup

@@ -43,6 +43,10 @@ export interface GetSegmentDefinitionResult {
      */
     readonly segmentDefinitionArn?: string;
     /**
+     * The segment sort configuration for ordering segment results.
+     */
+    readonly segmentSort?: outputs.customerprofiles.SegmentDefinitionSegmentSort;
+    /**
      * The SQL query that defines the segment criteria.
      */
     readonly segmentType?: enums.customerprofiles.SegmentDefinitionSegmentType;

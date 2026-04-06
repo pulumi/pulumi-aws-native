@@ -42,6 +42,7 @@ export class TableBucket extends pulumi.CustomResource {
      */
     declare public readonly encryptionConfiguration: pulumi.Output<outputs.s3tables.TableBucketEncryptionConfiguration | undefined>;
     declare public readonly metricsConfiguration: pulumi.Output<outputs.s3tables.TableBucketMetricsConfiguration | undefined>;
+    declare public readonly replicationConfiguration: pulumi.Output<outputs.s3tables.TableBucketReplicationConfiguration | undefined>;
     /**
      * The configuration details for the storage class of tables or table buckets. This allows you to optimize storage costs by selecting the appropriate storage class based on your access patterns and performance requirements.
      */
@@ -76,6 +77,7 @@ export class TableBucket extends pulumi.CustomResource {
         if (!opts.id) {
             resourceInputs["encryptionConfiguration"] = args?.encryptionConfiguration;
             resourceInputs["metricsConfiguration"] = args?.metricsConfiguration;
+            resourceInputs["replicationConfiguration"] = args?.replicationConfiguration;
             resourceInputs["storageClassConfiguration"] = args?.storageClassConfiguration;
             resourceInputs["tableBucketName"] = args?.tableBucketName;
             resourceInputs["tags"] = args?.tags;
@@ -84,6 +86,7 @@ export class TableBucket extends pulumi.CustomResource {
         } else {
             resourceInputs["encryptionConfiguration"] = undefined /*out*/;
             resourceInputs["metricsConfiguration"] = undefined /*out*/;
+            resourceInputs["replicationConfiguration"] = undefined /*out*/;
             resourceInputs["storageClassConfiguration"] = undefined /*out*/;
             resourceInputs["tableBucketArn"] = undefined /*out*/;
             resourceInputs["tableBucketName"] = undefined /*out*/;
@@ -106,6 +109,7 @@ export interface TableBucketArgs {
      */
     encryptionConfiguration?: pulumi.Input<inputs.s3tables.TableBucketEncryptionConfigurationArgs>;
     metricsConfiguration?: pulumi.Input<inputs.s3tables.TableBucketMetricsConfigurationArgs>;
+    replicationConfiguration?: pulumi.Input<inputs.s3tables.TableBucketReplicationConfigurationArgs>;
     /**
      * The configuration details for the storage class of tables or table buckets. This allows you to optimize storage costs by selecting the appropriate storage class based on your access patterns and performance requirements.
      */

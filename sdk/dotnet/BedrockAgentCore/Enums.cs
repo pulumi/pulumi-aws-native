@@ -1111,6 +1111,60 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The vendor of the OAuth2 credential provider
+    /// </summary>
+    [EnumType]
+    public readonly struct OAuth2CredentialProviderCredentialProviderVendor : IEquatable<OAuth2CredentialProviderCredentialProviderVendor>
+    {
+        private readonly string _value;
+
+        private OAuth2CredentialProviderCredentialProviderVendor(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static OAuth2CredentialProviderCredentialProviderVendor GoogleOauth2 { get; } = new OAuth2CredentialProviderCredentialProviderVendor("GoogleOauth2");
+        public static OAuth2CredentialProviderCredentialProviderVendor GithubOauth2 { get; } = new OAuth2CredentialProviderCredentialProviderVendor("GithubOauth2");
+        public static OAuth2CredentialProviderCredentialProviderVendor SlackOauth2 { get; } = new OAuth2CredentialProviderCredentialProviderVendor("SlackOauth2");
+        public static OAuth2CredentialProviderCredentialProviderVendor SalesforceOauth2 { get; } = new OAuth2CredentialProviderCredentialProviderVendor("SalesforceOauth2");
+        public static OAuth2CredentialProviderCredentialProviderVendor MicrosoftOauth2 { get; } = new OAuth2CredentialProviderCredentialProviderVendor("MicrosoftOauth2");
+        public static OAuth2CredentialProviderCredentialProviderVendor CustomOauth2 { get; } = new OAuth2CredentialProviderCredentialProviderVendor("CustomOauth2");
+        public static OAuth2CredentialProviderCredentialProviderVendor AtlassianOauth2 { get; } = new OAuth2CredentialProviderCredentialProviderVendor("AtlassianOauth2");
+        public static OAuth2CredentialProviderCredentialProviderVendor LinkedinOauth2 { get; } = new OAuth2CredentialProviderCredentialProviderVendor("LinkedinOauth2");
+        public static OAuth2CredentialProviderCredentialProviderVendor XOauth2 { get; } = new OAuth2CredentialProviderCredentialProviderVendor("XOauth2");
+        public static OAuth2CredentialProviderCredentialProviderVendor OktaOauth2 { get; } = new OAuth2CredentialProviderCredentialProviderVendor("OktaOauth2");
+        public static OAuth2CredentialProviderCredentialProviderVendor OneLoginOauth2 { get; } = new OAuth2CredentialProviderCredentialProviderVendor("OneLoginOauth2");
+        public static OAuth2CredentialProviderCredentialProviderVendor PingOneOauth2 { get; } = new OAuth2CredentialProviderCredentialProviderVendor("PingOneOauth2");
+        public static OAuth2CredentialProviderCredentialProviderVendor FacebookOauth2 { get; } = new OAuth2CredentialProviderCredentialProviderVendor("FacebookOauth2");
+        public static OAuth2CredentialProviderCredentialProviderVendor YandexOauth2 { get; } = new OAuth2CredentialProviderCredentialProviderVendor("YandexOauth2");
+        public static OAuth2CredentialProviderCredentialProviderVendor RedditOauth2 { get; } = new OAuth2CredentialProviderCredentialProviderVendor("RedditOauth2");
+        public static OAuth2CredentialProviderCredentialProviderVendor ZoomOauth2 { get; } = new OAuth2CredentialProviderCredentialProviderVendor("ZoomOauth2");
+        public static OAuth2CredentialProviderCredentialProviderVendor TwitchOauth2 { get; } = new OAuth2CredentialProviderCredentialProviderVendor("TwitchOauth2");
+        public static OAuth2CredentialProviderCredentialProviderVendor SpotifyOauth2 { get; } = new OAuth2CredentialProviderCredentialProviderVendor("SpotifyOauth2");
+        public static OAuth2CredentialProviderCredentialProviderVendor DropboxOauth2 { get; } = new OAuth2CredentialProviderCredentialProviderVendor("DropboxOauth2");
+        public static OAuth2CredentialProviderCredentialProviderVendor NotionOauth2 { get; } = new OAuth2CredentialProviderCredentialProviderVendor("NotionOauth2");
+        public static OAuth2CredentialProviderCredentialProviderVendor HubspotOauth2 { get; } = new OAuth2CredentialProviderCredentialProviderVendor("HubspotOauth2");
+        public static OAuth2CredentialProviderCredentialProviderVendor CyberArkOauth2 { get; } = new OAuth2CredentialProviderCredentialProviderVendor("CyberArkOauth2");
+        public static OAuth2CredentialProviderCredentialProviderVendor FusionAuthOauth2 { get; } = new OAuth2CredentialProviderCredentialProviderVendor("FusionAuthOauth2");
+        public static OAuth2CredentialProviderCredentialProviderVendor Auth0Oauth2 { get; } = new OAuth2CredentialProviderCredentialProviderVendor("Auth0Oauth2");
+        public static OAuth2CredentialProviderCredentialProviderVendor CognitoOauth2 { get; } = new OAuth2CredentialProviderCredentialProviderVendor("CognitoOauth2");
+
+        public static bool operator ==(OAuth2CredentialProviderCredentialProviderVendor left, OAuth2CredentialProviderCredentialProviderVendor right) => left.Equals(right);
+        public static bool operator !=(OAuth2CredentialProviderCredentialProviderVendor left, OAuth2CredentialProviderCredentialProviderVendor right) => !left.Equals(right);
+
+        public static explicit operator string(OAuth2CredentialProviderCredentialProviderVendor value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is OAuth2CredentialProviderCredentialProviderVendor other && Equals(other);
+        public bool Equals(OAuth2CredentialProviderCredentialProviderVendor other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     [EnumType]
     public readonly struct OnlineEvaluationConfigExecutionStatus : IEquatable<OnlineEvaluationConfigExecutionStatus>
     {
@@ -1322,6 +1376,7 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         public static RuntimeAgentManagedRuntimeType Python311 { get; } = new RuntimeAgentManagedRuntimeType("PYTHON_3_11");
         public static RuntimeAgentManagedRuntimeType Python312 { get; } = new RuntimeAgentManagedRuntimeType("PYTHON_3_12");
         public static RuntimeAgentManagedRuntimeType Python313 { get; } = new RuntimeAgentManagedRuntimeType("PYTHON_3_13");
+        public static RuntimeAgentManagedRuntimeType Python314 { get; } = new RuntimeAgentManagedRuntimeType("PYTHON_3_14");
 
         public static bool operator ==(RuntimeAgentManagedRuntimeType left, RuntimeAgentManagedRuntimeType right) => left.Equals(right);
         public static bool operator !=(RuntimeAgentManagedRuntimeType left, RuntimeAgentManagedRuntimeType right) => !left.Equals(right);
@@ -1509,6 +1564,7 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         public static RuntimeProtocolConfiguration Mcp { get; } = new RuntimeProtocolConfiguration("MCP");
         public static RuntimeProtocolConfiguration Http { get; } = new RuntimeProtocolConfiguration("HTTP");
         public static RuntimeProtocolConfiguration A2a { get; } = new RuntimeProtocolConfiguration("A2A");
+        public static RuntimeProtocolConfiguration Agui { get; } = new RuntimeProtocolConfiguration("AGUI");
 
         public static bool operator ==(RuntimeProtocolConfiguration left, RuntimeProtocolConfiguration right) => left.Equals(right);
         public static bool operator !=(RuntimeProtocolConfiguration left, RuntimeProtocolConfiguration right) => !left.Equals(right);

@@ -13,6 +13,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 from ._enums import *
 
 __all__ = [
@@ -24,7 +25,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetProjectResult:
-    def __init__(__self__, created_at=None, created_by=None, description=None, domain_id=None, domain_unit_id=None, glossary_terms=None, id=None, last_updated_at=None, name=None, project_status=None):
+    def __init__(__self__, created_at=None, created_by=None, description=None, domain_id=None, domain_unit_id=None, glossary_terms=None, id=None, last_updated_at=None, name=None, project_status=None, resource_tags=None):
         if created_at and not isinstance(created_at, str):
             raise TypeError("Expected argument 'created_at' to be a str")
         pulumi.set(__self__, "created_at", created_at)
@@ -55,6 +56,9 @@ class GetProjectResult:
         if project_status and not isinstance(project_status, str):
             raise TypeError("Expected argument 'project_status' to be a str")
         pulumi.set(__self__, "project_status", project_status)
+        if resource_tags and not isinstance(resource_tags, list):
+            raise TypeError("Expected argument 'resource_tags' to be a list")
+        pulumi.set(__self__, "resource_tags", resource_tags)
 
     @_builtins.property
     @pulumi.getter(name="createdAt")
@@ -136,6 +140,14 @@ class GetProjectResult:
         """
         return pulumi.get(self, "project_status")
 
+    @_builtins.property
+    @pulumi.getter(name="resourceTags")
+    def resource_tags(self) -> Optional[Sequence['outputs.ProjectResourceTag']]:
+        """
+        The resource tags of the project.
+        """
+        return pulumi.get(self, "resource_tags")
+
 
 class AwaitableGetProjectResult(GetProjectResult):
     # pylint: disable=using-constant-test
@@ -152,7 +164,8 @@ class AwaitableGetProjectResult(GetProjectResult):
             id=self.id,
             last_updated_at=self.last_updated_at,
             name=self.name,
-            project_status=self.project_status)
+            project_status=self.project_status,
+            resource_tags=self.resource_tags)
 
 
 def get_project(domain_id: Optional[_builtins.str] = None,
@@ -181,7 +194,8 @@ def get_project(domain_id: Optional[_builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         last_updated_at=pulumi.get(__ret__, 'last_updated_at'),
         name=pulumi.get(__ret__, 'name'),
-        project_status=pulumi.get(__ret__, 'project_status'))
+        project_status=pulumi.get(__ret__, 'project_status'),
+        resource_tags=pulumi.get(__ret__, 'resource_tags'))
 def get_project_output(domain_id: Optional[pulumi.Input[_builtins.str]] = None,
                        id: Optional[pulumi.Input[_builtins.str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetProjectResult]:
@@ -207,4 +221,5 @@ def get_project_output(domain_id: Optional[pulumi.Input[_builtins.str]] = None,
         id=pulumi.get(__response__, 'id'),
         last_updated_at=pulumi.get(__response__, 'last_updated_at'),
         name=pulumi.get(__response__, 'name'),
-        project_status=pulumi.get(__response__, 'project_status')))
+        project_status=pulumi.get(__response__, 'project_status'),
+        resource_tags=pulumi.get(__response__, 'resource_tags')))

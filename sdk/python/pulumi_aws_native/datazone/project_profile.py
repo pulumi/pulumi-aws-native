@@ -22,11 +22,14 @@ __all__ = ['ProjectProfileArgs', 'ProjectProfile']
 @pulumi.input_type
 class ProjectProfileArgs:
     def __init__(__self__, *,
+                 allow_custom_project_resource_tags: Optional[pulumi.Input[_builtins.bool]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  domain_identifier: Optional[pulumi.Input[_builtins.str]] = None,
                  domain_unit_identifier: Optional[pulumi.Input[_builtins.str]] = None,
                  environment_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['ProjectProfileEnvironmentConfigurationArgs']]]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
+                 project_resource_tags: Optional[pulumi.Input[Sequence[pulumi.Input['ProjectProfileResourceTagParameterArgs']]]] = None,
+                 project_resource_tags_description: Optional[pulumi.Input[_builtins.str]] = None,
                  status: Optional[pulumi.Input['ProjectProfileStatus']] = None,
                  use_default_configurations: Optional[pulumi.Input[_builtins.bool]] = None):
         """
@@ -39,6 +42,8 @@ class ProjectProfileArgs:
         :param pulumi.Input[_builtins.str] name: The name of a project profile.
         :param pulumi.Input['ProjectProfileStatus'] status: The status of a project profile.
         """
+        if allow_custom_project_resource_tags is not None:
+            pulumi.set(__self__, "allow_custom_project_resource_tags", allow_custom_project_resource_tags)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if domain_identifier is not None:
@@ -49,10 +54,23 @@ class ProjectProfileArgs:
             pulumi.set(__self__, "environment_configurations", environment_configurations)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if project_resource_tags is not None:
+            pulumi.set(__self__, "project_resource_tags", project_resource_tags)
+        if project_resource_tags_description is not None:
+            pulumi.set(__self__, "project_resource_tags_description", project_resource_tags_description)
         if status is not None:
             pulumi.set(__self__, "status", status)
         if use_default_configurations is not None:
             pulumi.set(__self__, "use_default_configurations", use_default_configurations)
+
+    @_builtins.property
+    @pulumi.getter(name="allowCustomProjectResourceTags")
+    def allow_custom_project_resource_tags(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        return pulumi.get(self, "allow_custom_project_resource_tags")
+
+    @allow_custom_project_resource_tags.setter
+    def allow_custom_project_resource_tags(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "allow_custom_project_resource_tags", value)
 
     @_builtins.property
     @pulumi.getter
@@ -115,6 +133,24 @@ class ProjectProfileArgs:
         pulumi.set(self, "name", value)
 
     @_builtins.property
+    @pulumi.getter(name="projectResourceTags")
+    def project_resource_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ProjectProfileResourceTagParameterArgs']]]]:
+        return pulumi.get(self, "project_resource_tags")
+
+    @project_resource_tags.setter
+    def project_resource_tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ProjectProfileResourceTagParameterArgs']]]]):
+        pulumi.set(self, "project_resource_tags", value)
+
+    @_builtins.property
+    @pulumi.getter(name="projectResourceTagsDescription")
+    def project_resource_tags_description(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "project_resource_tags_description")
+
+    @project_resource_tags_description.setter
+    def project_resource_tags_description(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "project_resource_tags_description", value)
+
+    @_builtins.property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input['ProjectProfileStatus']]:
         """
@@ -142,11 +178,14 @@ class ProjectProfile(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 allow_custom_project_resource_tags: Optional[pulumi.Input[_builtins.bool]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  domain_identifier: Optional[pulumi.Input[_builtins.str]] = None,
                  domain_unit_identifier: Optional[pulumi.Input[_builtins.str]] = None,
                  environment_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProjectProfileEnvironmentConfigurationArgs', 'ProjectProfileEnvironmentConfigurationArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
+                 project_resource_tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProjectProfileResourceTagParameterArgs', 'ProjectProfileResourceTagParameterArgsDict']]]]] = None,
+                 project_resource_tags_description: Optional[pulumi.Input[_builtins.str]] = None,
                  status: Optional[pulumi.Input['ProjectProfileStatus']] = None,
                  use_default_configurations: Optional[pulumi.Input[_builtins.bool]] = None,
                  __props__=None):
@@ -188,11 +227,14 @@ class ProjectProfile(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 allow_custom_project_resource_tags: Optional[pulumi.Input[_builtins.bool]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  domain_identifier: Optional[pulumi.Input[_builtins.str]] = None,
                  domain_unit_identifier: Optional[pulumi.Input[_builtins.str]] = None,
                  environment_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProjectProfileEnvironmentConfigurationArgs', 'ProjectProfileEnvironmentConfigurationArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
+                 project_resource_tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProjectProfileResourceTagParameterArgs', 'ProjectProfileResourceTagParameterArgsDict']]]]] = None,
+                 project_resource_tags_description: Optional[pulumi.Input[_builtins.str]] = None,
                  status: Optional[pulumi.Input['ProjectProfileStatus']] = None,
                  use_default_configurations: Optional[pulumi.Input[_builtins.bool]] = None,
                  __props__=None):
@@ -204,11 +246,14 @@ class ProjectProfile(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ProjectProfileArgs.__new__(ProjectProfileArgs)
 
+            __props__.__dict__["allow_custom_project_resource_tags"] = allow_custom_project_resource_tags
             __props__.__dict__["description"] = description
             __props__.__dict__["domain_identifier"] = domain_identifier
             __props__.__dict__["domain_unit_identifier"] = domain_unit_identifier
             __props__.__dict__["environment_configurations"] = environment_configurations
             __props__.__dict__["name"] = name
+            __props__.__dict__["project_resource_tags"] = project_resource_tags
+            __props__.__dict__["project_resource_tags_description"] = project_resource_tags_description
             __props__.__dict__["status"] = status
             __props__.__dict__["use_default_configurations"] = use_default_configurations
             __props__.__dict__["aws_id"] = None
@@ -242,6 +287,7 @@ class ProjectProfile(pulumi.CustomResource):
 
         __props__ = ProjectProfileArgs.__new__(ProjectProfileArgs)
 
+        __props__.__dict__["allow_custom_project_resource_tags"] = None
         __props__.__dict__["aws_id"] = None
         __props__.__dict__["created_at"] = None
         __props__.__dict__["created_by"] = None
@@ -254,9 +300,16 @@ class ProjectProfile(pulumi.CustomResource):
         __props__.__dict__["identifier"] = None
         __props__.__dict__["last_updated_at"] = None
         __props__.__dict__["name"] = None
+        __props__.__dict__["project_resource_tags"] = None
+        __props__.__dict__["project_resource_tags_description"] = None
         __props__.__dict__["status"] = None
         __props__.__dict__["use_default_configurations"] = None
         return ProjectProfile(resource_name, opts=opts, __props__=__props__)
+
+    @_builtins.property
+    @pulumi.getter(name="allowCustomProjectResourceTags")
+    def allow_custom_project_resource_tags(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        return pulumi.get(self, "allow_custom_project_resource_tags")
 
     @_builtins.property
     @pulumi.getter(name="awsId")
@@ -353,6 +406,16 @@ class ProjectProfile(pulumi.CustomResource):
         The name of a project profile.
         """
         return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="projectResourceTags")
+    def project_resource_tags(self) -> pulumi.Output[Optional[Sequence['outputs.ProjectProfileResourceTagParameter']]]:
+        return pulumi.get(self, "project_resource_tags")
+
+    @_builtins.property
+    @pulumi.getter(name="projectResourceTagsDescription")
+    def project_resource_tags_description(self) -> pulumi.Output[Optional[_builtins.str]]:
+        return pulumi.get(self, "project_resource_tags_description")
 
     @_builtins.property
     @pulumi.getter

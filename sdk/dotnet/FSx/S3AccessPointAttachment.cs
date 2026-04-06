@@ -16,6 +16,12 @@ namespace Pulumi.AwsNative.FSx
     public partial class S3AccessPointAttachment : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// The lifecycle status of the S3 access point attachment.
+        /// </summary>
+        [Output("lifecycle")]
+        public Output<Pulumi.AwsNative.FSx.S3AccessPointAttachmentLifecycle> Lifecycle { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the S3 access point attachment; also used for the name of the S3 access point.
         /// </summary>
         [Output("name")]

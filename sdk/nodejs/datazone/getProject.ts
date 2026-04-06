@@ -70,6 +70,10 @@ export interface GetProjectResult {
      * The status of the project.
      */
     readonly projectStatus?: enums.datazone.ProjectStatus;
+    /**
+     * The resource tags of the project.
+     */
+    readonly resourceTags?: outputs.datazone.ProjectResourceTag[];
 }
 /**
  * Amazon DataZone projects are business use case–based groupings of people, assets (data), and tools used to simplify access to the AWS analytics.

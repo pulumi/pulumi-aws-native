@@ -8,6 +8,7 @@ from enum import Enum
 
 __all__ = [
     'DataRepositoryAssociationEventType',
+    'S3AccessPointAttachmentLifecycle',
     'S3AccessPointAttachmentOntapFileSystemIdentityType',
     'S3AccessPointAttachmentOpenZfsFileSystemIdentityType',
     'S3AccessPointAttachmentType',
@@ -19,6 +20,19 @@ class DataRepositoryAssociationEventType(_builtins.str, Enum):
     NEW = "NEW"
     CHANGED = "CHANGED"
     DELETED = "DELETED"
+
+
+@pulumi.type_token("aws-native:fsx:S3AccessPointAttachmentLifecycle")
+class S3AccessPointAttachmentLifecycle(_builtins.str, Enum):
+    """
+    The lifecycle status of the S3 access point attachment.
+    """
+    AVAILABLE = "AVAILABLE"
+    CREATING = "CREATING"
+    DELETING = "DELETING"
+    FAILED = "FAILED"
+    MISCONFIGURED = "MISCONFIGURED"
+    UPDATING = "UPDATING"
 
 
 @pulumi.type_token("aws-native:fsx:S3AccessPointAttachmentOntapFileSystemIdentityType")

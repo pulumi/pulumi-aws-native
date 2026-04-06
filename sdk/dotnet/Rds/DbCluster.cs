@@ -620,6 +620,9 @@ namespace Pulumi.AwsNative.Rds
         [Output("storageEncrypted")]
         public Output<bool?> StorageEncrypted { get; private set; } = null!;
 
+        [Output("storageEncryptionType")]
+        public Output<string> StorageEncryptionType { get; private set; } = null!;
+
         /// <summary>
         /// The storage throughput for the DB cluster. The throughput is automatically set based on the IOPS that you provision, and is not configurable.
         /// 

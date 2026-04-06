@@ -15,8 +15,11 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Inputs
     /// </summary>
     public sealed class EvaluatorConfigArgs : global::Pulumi.ResourceArgs
     {
-        [Input("llmAsAJudge", required: true)]
-        public Input<Inputs.EvaluatorLlmAsAJudgeEvaluatorConfigArgs> LlmAsAJudge { get; set; } = null!;
+        [Input("codeBased")]
+        public Input<Inputs.EvaluatorCodeBasedEvaluatorConfigArgs>? CodeBased { get; set; }
+
+        [Input("llmAsAJudge")]
+        public Input<Inputs.EvaluatorLlmAsAJudgeEvaluatorConfigArgs>? LlmAsAJudge { get; set; }
 
         public EvaluatorConfigArgs()
         {

@@ -18,8 +18,8 @@ namespace Pulumi.AwsNative.KafkaConnect.Inputs
         /// <summary>
         /// Specifies how many MSK Connect Units (MCU) are allocated to the connector.
         /// </summary>
-        [Input("mcuCount")]
-        public Input<int>? McuCount { get; set; }
+        [Input("mcuCount", required: true)]
+        public Input<int> McuCount { get; set; } = null!;
 
         /// <summary>
         /// Number of workers for a connector.

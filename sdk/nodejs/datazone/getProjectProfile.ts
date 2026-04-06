@@ -30,6 +30,7 @@ export interface GetProjectProfileArgs {
 }
 
 export interface GetProjectProfileResult {
+    readonly allowCustomProjectResourceTags?: boolean;
     /**
      * The timestamp of when the project profile was created.
      */
@@ -70,6 +71,8 @@ export interface GetProjectProfileResult {
      * The name of a project profile.
      */
     readonly name?: string;
+    readonly projectResourceTags?: outputs.datazone.ProjectProfileResourceTagParameter[];
+    readonly projectResourceTagsDescription?: string;
     /**
      * The status of a project profile.
      */

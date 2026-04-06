@@ -1785,48 +1785,58 @@ class GraphQlApiLambdaAuthorizerConfigArgs:
 
 
 class GraphQlApiLogConfigArgsDict(TypedDict):
-    cloud_watch_logs_role_arn: NotRequired[pulumi.Input[_builtins.str]]
+    cloud_watch_logs_role_arn: pulumi.Input[_builtins.str]
     """
     The service role that AWS AppSync will assume to publish to Amazon CloudWatch Logs in your account.
+    """
+    field_log_level: pulumi.Input[_builtins.str]
+    """
+    The field logging level. Values can be NONE, ERROR, INFO, DEBUG, or ALL.
     """
     exclude_verbose_content: NotRequired[pulumi.Input[_builtins.bool]]
     """
     Set to TRUE to exclude sections that contain information such as headers, context, and evaluated mapping templates, regardless of logging level.
     """
-    field_log_level: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    The field logging level. Values can be NONE, ERROR, INFO, DEBUG, or ALL.
-    """
 
 @pulumi.input_type
 class GraphQlApiLogConfigArgs:
     def __init__(__self__, *,
-                 cloud_watch_logs_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 exclude_verbose_content: Optional[pulumi.Input[_builtins.bool]] = None,
-                 field_log_level: Optional[pulumi.Input[_builtins.str]] = None):
+                 cloud_watch_logs_role_arn: pulumi.Input[_builtins.str],
+                 field_log_level: pulumi.Input[_builtins.str],
+                 exclude_verbose_content: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.str] cloud_watch_logs_role_arn: The service role that AWS AppSync will assume to publish to Amazon CloudWatch Logs in your account.
-        :param pulumi.Input[_builtins.bool] exclude_verbose_content: Set to TRUE to exclude sections that contain information such as headers, context, and evaluated mapping templates, regardless of logging level.
         :param pulumi.Input[_builtins.str] field_log_level: The field logging level. Values can be NONE, ERROR, INFO, DEBUG, or ALL.
+        :param pulumi.Input[_builtins.bool] exclude_verbose_content: Set to TRUE to exclude sections that contain information such as headers, context, and evaluated mapping templates, regardless of logging level.
         """
-        if cloud_watch_logs_role_arn is not None:
-            pulumi.set(__self__, "cloud_watch_logs_role_arn", cloud_watch_logs_role_arn)
+        pulumi.set(__self__, "cloud_watch_logs_role_arn", cloud_watch_logs_role_arn)
+        pulumi.set(__self__, "field_log_level", field_log_level)
         if exclude_verbose_content is not None:
             pulumi.set(__self__, "exclude_verbose_content", exclude_verbose_content)
-        if field_log_level is not None:
-            pulumi.set(__self__, "field_log_level", field_log_level)
 
     @_builtins.property
     @pulumi.getter(name="cloudWatchLogsRoleArn")
-    def cloud_watch_logs_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cloud_watch_logs_role_arn(self) -> pulumi.Input[_builtins.str]:
         """
         The service role that AWS AppSync will assume to publish to Amazon CloudWatch Logs in your account.
         """
         return pulumi.get(self, "cloud_watch_logs_role_arn")
 
     @cloud_watch_logs_role_arn.setter
-    def cloud_watch_logs_role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cloud_watch_logs_role_arn(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "cloud_watch_logs_role_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="fieldLogLevel")
+    def field_log_level(self) -> pulumi.Input[_builtins.str]:
+        """
+        The field logging level. Values can be NONE, ERROR, INFO, DEBUG, or ALL.
+        """
+        return pulumi.get(self, "field_log_level")
+
+    @field_log_level.setter
+    def field_log_level(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "field_log_level", value)
 
     @_builtins.property
     @pulumi.getter(name="excludeVerboseContent")
@@ -1839,18 +1849,6 @@ class GraphQlApiLogConfigArgs:
     @exclude_verbose_content.setter
     def exclude_verbose_content(self, value: Optional[pulumi.Input[_builtins.bool]]):
         pulumi.set(self, "exclude_verbose_content", value)
-
-    @_builtins.property
-    @pulumi.getter(name="fieldLogLevel")
-    def field_log_level(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The field logging level. Values can be NONE, ERROR, INFO, DEBUG, or ALL.
-        """
-        return pulumi.get(self, "field_log_level")
-
-    @field_log_level.setter
-    def field_log_level(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "field_log_level", value)
 
 
 class GraphQlApiOpenIdConnectConfigArgsDict(TypedDict):

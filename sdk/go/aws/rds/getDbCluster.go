@@ -276,6 +276,7 @@ type LookupDbClusterResult struct {
 	//  This property is only supported for Aurora Serverless v2. For Aurora Serverless v1, Use the ``ScalingConfiguration`` property.
 	//  Valid for: Aurora Serverless v2 DB clusters only
 	ServerlessV2ScalingConfiguration *DbClusterServerlessV2ScalingConfiguration `pulumi:"serverlessV2ScalingConfiguration"`
+	StorageEncryptionType            *string                                    `pulumi:"storageEncryptionType"`
 	// The storage throughput for the DB cluster. The throughput is automatically set based on the IOPS that you provision, and is not configurable.
 	//
 	// This setting is only for non-Aurora Multi-AZ DB clusters.
@@ -726,6 +727,10 @@ func (o LookupDbClusterResultOutput) ServerlessV2ScalingConfiguration() DbCluste
 	return o.ApplyT(func(v LookupDbClusterResult) *DbClusterServerlessV2ScalingConfiguration {
 		return v.ServerlessV2ScalingConfiguration
 	}).(DbClusterServerlessV2ScalingConfigurationPtrOutput)
+}
+
+func (o LookupDbClusterResultOutput) StorageEncryptionType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDbClusterResult) *string { return v.StorageEncryptionType }).(pulumi.StringPtrOutput)
 }
 
 // The storage throughput for the DB cluster. The throughput is automatically set based on the IOPS that you provision, and is not configurable.

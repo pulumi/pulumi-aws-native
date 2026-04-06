@@ -91,6 +91,7 @@ export const OrganizationTelemetryRuleResourceType = {
     AwsCloudTrail: "AWS::CloudTrail",
     AwseksCluster: "AWS::EKS::Cluster",
     AwsElasticLoadBalancingV2LoadBalancer: "AWS::ElasticLoadBalancingV2::LoadBalancer",
+    Awsec2Instance: "AWS::EC2::Instance",
 } as const;
 
 /**
@@ -115,6 +116,7 @@ export type OrganizationTelemetryRuleTelemetrySourceType = (typeof OrganizationT
 
 export const OrganizationTelemetryRuleTelemetryType = {
     Logs: "Logs",
+    Metrics: "Metrics",
 } as const;
 
 /**
@@ -231,6 +233,7 @@ export const TelemetryRuleResourceType = {
     AwsCloudTrail: "AWS::CloudTrail",
     AwseksCluster: "AWS::EKS::Cluster",
     AwsElasticLoadBalancingV2LoadBalancer: "AWS::ElasticLoadBalancingV2::LoadBalancer",
+    Awsec2Instance: "AWS::EC2::Instance",
     AwsBedrockAgentCoreRuntime: "AWS::BedrockAgentCore::Runtime",
     AwsBedrockAgentCoreBrowser: "AWS::BedrockAgentCore::Browser",
     AwsBedrockAgentCoreCodeInterpreter: "AWS::BedrockAgentCore::CodeInterpreter",
@@ -266,6 +269,7 @@ export type TelemetryRuleTelemetrySourceType = (typeof TelemetryRuleTelemetrySou
 export const TelemetryRuleTelemetryType = {
     Logs: "Logs",
     Traces: "Traces",
+    Metrics: "Metrics",
 } as const;
 
 /**

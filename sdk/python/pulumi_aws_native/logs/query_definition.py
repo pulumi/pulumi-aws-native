@@ -13,7 +13,9 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 from ._enums import *
+from ._inputs import *
 
 __all__ = ['QueryDefinitionArgs', 'QueryDefinition']
 
@@ -23,6 +25,7 @@ class QueryDefinitionArgs:
                  query_string: pulumi.Input[_builtins.str],
                  log_group_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
+                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input['QueryDefinitionQueryParameterArgs']]]] = None,
                  query_language: Optional[pulumi.Input['QueryDefinitionQueryLanguage']] = None):
         """
         The set of arguments for constructing a QueryDefinition resource.
@@ -30,6 +33,7 @@ class QueryDefinitionArgs:
         :param pulumi.Input[_builtins.str] query_string: The query string to use for this definition
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] log_group_names: Optionally define specific log groups as part of your query definition
         :param pulumi.Input[_builtins.str] name: A name for the saved query definition
+        :param pulumi.Input[Sequence[pulumi.Input['QueryDefinitionQueryParameterArgs']]] parameters: Use this parameter to include specific query parameters as part of your query definition. Query parameters are supported only for Logs Insights QL queries. Query parameters allow you to use placeholder variables in your query string that are substituted with values at execution time. Use the {{parameterName}} syntax in your query string to reference a parameter.
         :param pulumi.Input['QueryDefinitionQueryLanguage'] query_language: Query language of the query string. Possible values are CWLI, SQL, PPL, with CWLI being the default.
         """
         pulumi.set(__self__, "query_string", query_string)
@@ -37,6 +41,8 @@ class QueryDefinitionArgs:
             pulumi.set(__self__, "log_group_names", log_group_names)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
         if query_language is not None:
             pulumi.set(__self__, "query_language", query_language)
 
@@ -77,6 +83,18 @@ class QueryDefinitionArgs:
         pulumi.set(self, "name", value)
 
     @_builtins.property
+    @pulumi.getter
+    def parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['QueryDefinitionQueryParameterArgs']]]]:
+        """
+        Use this parameter to include specific query parameters as part of your query definition. Query parameters are supported only for Logs Insights QL queries. Query parameters allow you to use placeholder variables in your query string that are substituted with values at execution time. Use the {{parameterName}} syntax in your query string to reference a parameter.
+        """
+        return pulumi.get(self, "parameters")
+
+    @parameters.setter
+    def parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['QueryDefinitionQueryParameterArgs']]]]):
+        pulumi.set(self, "parameters", value)
+
+    @_builtins.property
     @pulumi.getter(name="queryLanguage")
     def query_language(self) -> Optional[pulumi.Input['QueryDefinitionQueryLanguage']]:
         """
@@ -97,6 +115,7 @@ class QueryDefinition(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  log_group_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
+                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['QueryDefinitionQueryParameterArgs', 'QueryDefinitionQueryParameterArgsDict']]]]] = None,
                  query_language: Optional[pulumi.Input['QueryDefinitionQueryLanguage']] = None,
                  query_string: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
@@ -108,6 +127,7 @@ class QueryDefinition(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] log_group_names: Optionally define specific log groups as part of your query definition
         :param pulumi.Input[_builtins.str] name: A name for the saved query definition
+        :param pulumi.Input[Sequence[pulumi.Input[Union['QueryDefinitionQueryParameterArgs', 'QueryDefinitionQueryParameterArgsDict']]]] parameters: Use this parameter to include specific query parameters as part of your query definition. Query parameters are supported only for Logs Insights QL queries. Query parameters allow you to use placeholder variables in your query string that are substituted with values at execution time. Use the {{parameterName}} syntax in your query string to reference a parameter.
         :param pulumi.Input['QueryDefinitionQueryLanguage'] query_language: Query language of the query string. Possible values are CWLI, SQL, PPL, with CWLI being the default.
         :param pulumi.Input[_builtins.str] query_string: The query string to use for this definition
         """
@@ -138,6 +158,7 @@ class QueryDefinition(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  log_group_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
+                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['QueryDefinitionQueryParameterArgs', 'QueryDefinitionQueryParameterArgsDict']]]]] = None,
                  query_language: Optional[pulumi.Input['QueryDefinitionQueryLanguage']] = None,
                  query_string: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
@@ -151,6 +172,7 @@ class QueryDefinition(pulumi.CustomResource):
 
             __props__.__dict__["log_group_names"] = log_group_names
             __props__.__dict__["name"] = name
+            __props__.__dict__["parameters"] = parameters
             __props__.__dict__["query_language"] = query_language
             if query_string is None and not opts.urn:
                 raise TypeError("Missing required property 'query_string'")
@@ -180,6 +202,7 @@ class QueryDefinition(pulumi.CustomResource):
 
         __props__.__dict__["log_group_names"] = None
         __props__.__dict__["name"] = None
+        __props__.__dict__["parameters"] = None
         __props__.__dict__["query_definition_id"] = None
         __props__.__dict__["query_language"] = None
         __props__.__dict__["query_string"] = None
@@ -200,6 +223,14 @@ class QueryDefinition(pulumi.CustomResource):
         A name for the saved query definition
         """
         return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def parameters(self) -> pulumi.Output[Optional[Sequence['outputs.QueryDefinitionQueryParameter']]]:
+        """
+        Use this parameter to include specific query parameters as part of your query definition. Query parameters are supported only for Logs Insights QL queries. Query parameters allow you to use placeholder variables in your query string that are substituted with values at execution time. Use the {{parameterName}} syntax in your query string to reference a parameter.
+        """
+        return pulumi.get(self, "parameters")
 
     @_builtins.property
     @pulumi.getter(name="queryDefinitionId")

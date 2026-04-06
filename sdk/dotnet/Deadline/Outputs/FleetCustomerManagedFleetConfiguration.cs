@@ -13,6 +13,7 @@ namespace Pulumi.AwsNative.Deadline.Outputs
     [OutputType]
     public sealed class FleetCustomerManagedFleetConfiguration
     {
+        public readonly Outputs.FleetCustomerManagedAutoScalingConfiguration? AutoScalingConfiguration;
         public readonly Pulumi.AwsNative.Deadline.FleetAutoScalingMode Mode;
         public readonly string? StorageProfileId;
         public readonly Pulumi.AwsNative.Deadline.FleetTagPropagationMode? TagPropagationMode;
@@ -20,6 +21,8 @@ namespace Pulumi.AwsNative.Deadline.Outputs
 
         [OutputConstructor]
         private FleetCustomerManagedFleetConfiguration(
+            Outputs.FleetCustomerManagedAutoScalingConfiguration? autoScalingConfiguration,
+
             Pulumi.AwsNative.Deadline.FleetAutoScalingMode mode,
 
             string? storageProfileId,
@@ -28,6 +31,7 @@ namespace Pulumi.AwsNative.Deadline.Outputs
 
             Outputs.FleetCustomerManagedWorkerCapabilities workerCapabilities)
         {
+            AutoScalingConfiguration = autoScalingConfiguration;
             Mode = mode;
             StorageProfileId = storageProfileId;
             TagPropagationMode = tagPropagationMode;

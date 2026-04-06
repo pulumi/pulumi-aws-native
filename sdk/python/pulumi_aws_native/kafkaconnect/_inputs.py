@@ -620,29 +620,40 @@ class ConnectorProvisionedCapacityArgsDict(TypedDict):
     """
     Details about a fixed capacity allocated to a connector.
     """
+    mcu_count: pulumi.Input[_builtins.int]
+    """
+    Specifies how many MSK Connect Units (MCU) are allocated to the connector.
+    """
     worker_count: pulumi.Input[_builtins.int]
     """
     Number of workers for a connector.
-    """
-    mcu_count: NotRequired[pulumi.Input[_builtins.int]]
-    """
-    Specifies how many MSK Connect Units (MCU) are allocated to the connector.
     """
 
 @pulumi.input_type
 class ConnectorProvisionedCapacityArgs:
     def __init__(__self__, *,
-                 worker_count: pulumi.Input[_builtins.int],
-                 mcu_count: Optional[pulumi.Input[_builtins.int]] = None):
+                 mcu_count: pulumi.Input[_builtins.int],
+                 worker_count: pulumi.Input[_builtins.int]):
         """
         Details about a fixed capacity allocated to a connector.
 
-        :param pulumi.Input[_builtins.int] worker_count: Number of workers for a connector.
         :param pulumi.Input[_builtins.int] mcu_count: Specifies how many MSK Connect Units (MCU) are allocated to the connector.
+        :param pulumi.Input[_builtins.int] worker_count: Number of workers for a connector.
         """
+        pulumi.set(__self__, "mcu_count", mcu_count)
         pulumi.set(__self__, "worker_count", worker_count)
-        if mcu_count is not None:
-            pulumi.set(__self__, "mcu_count", mcu_count)
+
+    @_builtins.property
+    @pulumi.getter(name="mcuCount")
+    def mcu_count(self) -> pulumi.Input[_builtins.int]:
+        """
+        Specifies how many MSK Connect Units (MCU) are allocated to the connector.
+        """
+        return pulumi.get(self, "mcu_count")
+
+    @mcu_count.setter
+    def mcu_count(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "mcu_count", value)
 
     @_builtins.property
     @pulumi.getter(name="workerCount")
@@ -655,18 +666,6 @@ class ConnectorProvisionedCapacityArgs:
     @worker_count.setter
     def worker_count(self, value: pulumi.Input[_builtins.int]):
         pulumi.set(self, "worker_count", value)
-
-    @_builtins.property
-    @pulumi.getter(name="mcuCount")
-    def mcu_count(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Specifies how many MSK Connect Units (MCU) are allocated to the connector.
-        """
-        return pulumi.get(self, "mcu_count")
-
-    @mcu_count.setter
-    def mcu_count(self, value: Optional[pulumi.Input[_builtins.int]]):
-        pulumi.set(self, "mcu_count", value)
 
 
 class ConnectorS3LogDeliveryArgsDict(TypedDict):

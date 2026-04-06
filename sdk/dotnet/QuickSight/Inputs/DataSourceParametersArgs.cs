@@ -11,7 +11,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 {
 
     /// <summary>
-    /// &lt;p&gt;The parameters that Amazon Quick Suite uses to connect to your underlying data source.
+    /// &lt;p&gt;The parameters that Amazon QuickSight uses to connect to your underlying data source.
     ///             This is a variant type structure. For this structure to be valid, only one of the
     ///             attributes can be non-null.&lt;/p&gt;
     /// </summary>
@@ -100,6 +100,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         /// </summary>
         [Input("s3Parameters")]
         public Input<Inputs.DataSourceS3ParametersArgs>? S3Parameters { get; set; }
+
+        [Input("s3TablesParameters")]
+        public Input<Inputs.DataSourceS3TablesParametersArgs>? S3TablesParameters { get; set; }
 
         /// <summary>
         /// The parameters for Snowflake.

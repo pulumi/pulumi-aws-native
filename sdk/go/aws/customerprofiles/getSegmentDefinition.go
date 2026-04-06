@@ -37,6 +37,8 @@ type LookupSegmentDefinitionResult struct {
 	Description *string `pulumi:"description"`
 	// The Amazon Resource Name (ARN) of the segment definition.
 	SegmentDefinitionArn *string `pulumi:"segmentDefinitionArn"`
+	// The segment sort configuration for ordering segment results.
+	SegmentSort *SegmentDefinitionSegmentSort `pulumi:"segmentSort"`
 	// The SQL query that defines the segment criteria.
 	SegmentType *SegmentDefinitionSegmentType `pulumi:"segmentType"`
 	// The tags used to organize, track, or control access for this resource.
@@ -90,6 +92,11 @@ func (o LookupSegmentDefinitionResultOutput) Description() pulumi.StringPtrOutpu
 // The Amazon Resource Name (ARN) of the segment definition.
 func (o LookupSegmentDefinitionResultOutput) SegmentDefinitionArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupSegmentDefinitionResult) *string { return v.SegmentDefinitionArn }).(pulumi.StringPtrOutput)
+}
+
+// The segment sort configuration for ordering segment results.
+func (o LookupSegmentDefinitionResultOutput) SegmentSort() SegmentDefinitionSegmentSortPtrOutput {
+	return o.ApplyT(func(v LookupSegmentDefinitionResult) *SegmentDefinitionSegmentSort { return v.SegmentSort }).(SegmentDefinitionSegmentSortPtrOutput)
 }
 
 // The SQL query that defines the segment criteria.

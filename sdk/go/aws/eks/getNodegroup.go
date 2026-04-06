@@ -48,6 +48,8 @@ type LookupNodegroupResult struct {
 	UpdateConfig *NodegroupUpdateConfig `pulumi:"updateConfig"`
 	// The Kubernetes version to use for your managed nodes.
 	Version *string `pulumi:"version"`
+	// The warm pool configuration details for the Auto Scaling group that is created for the node group.
+	WarmPoolConfig *NodegroupWarmPoolConfig `pulumi:"warmPoolConfig"`
 }
 
 func LookupNodegroupOutput(ctx *pulumi.Context, args LookupNodegroupOutputArgs, opts ...pulumi.InvokeOption) LookupNodegroupResultOutput {
@@ -133,6 +135,11 @@ func (o LookupNodegroupResultOutput) UpdateConfig() NodegroupUpdateConfigPtrOutp
 // The Kubernetes version to use for your managed nodes.
 func (o LookupNodegroupResultOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupNodegroupResult) *string { return v.Version }).(pulumi.StringPtrOutput)
+}
+
+// The warm pool configuration details for the Auto Scaling group that is created for the node group.
+func (o LookupNodegroupResultOutput) WarmPoolConfig() NodegroupWarmPoolConfigPtrOutput {
+	return o.ApplyT(func(v LookupNodegroupResult) *NodegroupWarmPoolConfig { return v.WarmPoolConfig }).(NodegroupWarmPoolConfigPtrOutput)
 }
 
 func init() {

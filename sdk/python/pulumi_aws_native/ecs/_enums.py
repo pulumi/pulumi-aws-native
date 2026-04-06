@@ -25,6 +25,8 @@ __all__ = [
     'CapacityProviderManagedScalingStatus',
     'ClusterCapacityProviderAssociationsCapacityProvider',
     'ClusterCapacityProviderAssociationsCapacityProvider0',
+    'DaemonPropagateTags',
+    'DaemonStatus',
     'ExpressGatewayServiceAccessType',
     'ExpressGatewayServiceScalingMetric',
     'ExpressGatewayServiceStatusCode',
@@ -223,6 +225,18 @@ class ClusterCapacityProviderAssociationsCapacityProvider0(_builtins.str, Enum):
     """
     FARGATE = "FARGATE"
     FARGATE_SPOT = "FARGATE_SPOT"
+
+
+@pulumi.type_token("aws-native:ecs:DaemonPropagateTags")
+class DaemonPropagateTags(_builtins.str, Enum):
+    DAEMON = "DAEMON"
+    NONE = "NONE"
+
+
+@pulumi.type_token("aws-native:ecs:DaemonStatus")
+class DaemonStatus(_builtins.str, Enum):
+    ACTIVE = "ACTIVE"
+    DELETE_IN_PROGRESS = "DELETE_IN_PROGRESS"
 
 
 @pulumi.type_token("aws-native:ecs:ExpressGatewayServiceAccessType")

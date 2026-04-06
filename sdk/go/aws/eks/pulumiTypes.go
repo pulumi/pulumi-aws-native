@@ -6010,6 +6010,222 @@ func (o NodegroupUpdateConfigPtrOutput) UpdateStrategy() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
+// The warm pool configuration for the node group.
+type NodegroupWarmPoolConfig struct {
+	// Enable or disable warm pool for the node group.
+	Enabled *bool `pulumi:"enabled"`
+	// The maximum number of instances that are allowed to be in the warm pool.
+	MaxGroupPreparedCapacity *int `pulumi:"maxGroupPreparedCapacity"`
+	// The minimum number of instances to maintain in the warm pool.
+	MinSize *int `pulumi:"minSize"`
+	// The desired state of warm pool instances.
+	PoolState *string `pulumi:"poolState"`
+	// Whether to return instances to the warm pool during scale-in instead of terminating them.
+	ReuseOnScaleIn *bool `pulumi:"reuseOnScaleIn"`
+}
+
+// NodegroupWarmPoolConfigInput is an input type that accepts NodegroupWarmPoolConfigArgs and NodegroupWarmPoolConfigOutput values.
+// You can construct a concrete instance of `NodegroupWarmPoolConfigInput` via:
+//
+//	NodegroupWarmPoolConfigArgs{...}
+type NodegroupWarmPoolConfigInput interface {
+	pulumi.Input
+
+	ToNodegroupWarmPoolConfigOutput() NodegroupWarmPoolConfigOutput
+	ToNodegroupWarmPoolConfigOutputWithContext(context.Context) NodegroupWarmPoolConfigOutput
+}
+
+// The warm pool configuration for the node group.
+type NodegroupWarmPoolConfigArgs struct {
+	// Enable or disable warm pool for the node group.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// The maximum number of instances that are allowed to be in the warm pool.
+	MaxGroupPreparedCapacity pulumi.IntPtrInput `pulumi:"maxGroupPreparedCapacity"`
+	// The minimum number of instances to maintain in the warm pool.
+	MinSize pulumi.IntPtrInput `pulumi:"minSize"`
+	// The desired state of warm pool instances.
+	PoolState pulumi.StringPtrInput `pulumi:"poolState"`
+	// Whether to return instances to the warm pool during scale-in instead of terminating them.
+	ReuseOnScaleIn pulumi.BoolPtrInput `pulumi:"reuseOnScaleIn"`
+}
+
+func (NodegroupWarmPoolConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NodegroupWarmPoolConfig)(nil)).Elem()
+}
+
+func (i NodegroupWarmPoolConfigArgs) ToNodegroupWarmPoolConfigOutput() NodegroupWarmPoolConfigOutput {
+	return i.ToNodegroupWarmPoolConfigOutputWithContext(context.Background())
+}
+
+func (i NodegroupWarmPoolConfigArgs) ToNodegroupWarmPoolConfigOutputWithContext(ctx context.Context) NodegroupWarmPoolConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NodegroupWarmPoolConfigOutput)
+}
+
+func (i NodegroupWarmPoolConfigArgs) ToNodegroupWarmPoolConfigPtrOutput() NodegroupWarmPoolConfigPtrOutput {
+	return i.ToNodegroupWarmPoolConfigPtrOutputWithContext(context.Background())
+}
+
+func (i NodegroupWarmPoolConfigArgs) ToNodegroupWarmPoolConfigPtrOutputWithContext(ctx context.Context) NodegroupWarmPoolConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NodegroupWarmPoolConfigOutput).ToNodegroupWarmPoolConfigPtrOutputWithContext(ctx)
+}
+
+// NodegroupWarmPoolConfigPtrInput is an input type that accepts NodegroupWarmPoolConfigArgs, NodegroupWarmPoolConfigPtr and NodegroupWarmPoolConfigPtrOutput values.
+// You can construct a concrete instance of `NodegroupWarmPoolConfigPtrInput` via:
+//
+//	        NodegroupWarmPoolConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type NodegroupWarmPoolConfigPtrInput interface {
+	pulumi.Input
+
+	ToNodegroupWarmPoolConfigPtrOutput() NodegroupWarmPoolConfigPtrOutput
+	ToNodegroupWarmPoolConfigPtrOutputWithContext(context.Context) NodegroupWarmPoolConfigPtrOutput
+}
+
+type nodegroupWarmPoolConfigPtrType NodegroupWarmPoolConfigArgs
+
+func NodegroupWarmPoolConfigPtr(v *NodegroupWarmPoolConfigArgs) NodegroupWarmPoolConfigPtrInput {
+	return (*nodegroupWarmPoolConfigPtrType)(v)
+}
+
+func (*nodegroupWarmPoolConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**NodegroupWarmPoolConfig)(nil)).Elem()
+}
+
+func (i *nodegroupWarmPoolConfigPtrType) ToNodegroupWarmPoolConfigPtrOutput() NodegroupWarmPoolConfigPtrOutput {
+	return i.ToNodegroupWarmPoolConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *nodegroupWarmPoolConfigPtrType) ToNodegroupWarmPoolConfigPtrOutputWithContext(ctx context.Context) NodegroupWarmPoolConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NodegroupWarmPoolConfigPtrOutput)
+}
+
+// The warm pool configuration for the node group.
+type NodegroupWarmPoolConfigOutput struct{ *pulumi.OutputState }
+
+func (NodegroupWarmPoolConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NodegroupWarmPoolConfig)(nil)).Elem()
+}
+
+func (o NodegroupWarmPoolConfigOutput) ToNodegroupWarmPoolConfigOutput() NodegroupWarmPoolConfigOutput {
+	return o
+}
+
+func (o NodegroupWarmPoolConfigOutput) ToNodegroupWarmPoolConfigOutputWithContext(ctx context.Context) NodegroupWarmPoolConfigOutput {
+	return o
+}
+
+func (o NodegroupWarmPoolConfigOutput) ToNodegroupWarmPoolConfigPtrOutput() NodegroupWarmPoolConfigPtrOutput {
+	return o.ToNodegroupWarmPoolConfigPtrOutputWithContext(context.Background())
+}
+
+func (o NodegroupWarmPoolConfigOutput) ToNodegroupWarmPoolConfigPtrOutputWithContext(ctx context.Context) NodegroupWarmPoolConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NodegroupWarmPoolConfig) *NodegroupWarmPoolConfig {
+		return &v
+	}).(NodegroupWarmPoolConfigPtrOutput)
+}
+
+// Enable or disable warm pool for the node group.
+func (o NodegroupWarmPoolConfigOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v NodegroupWarmPoolConfig) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// The maximum number of instances that are allowed to be in the warm pool.
+func (o NodegroupWarmPoolConfigOutput) MaxGroupPreparedCapacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v NodegroupWarmPoolConfig) *int { return v.MaxGroupPreparedCapacity }).(pulumi.IntPtrOutput)
+}
+
+// The minimum number of instances to maintain in the warm pool.
+func (o NodegroupWarmPoolConfigOutput) MinSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v NodegroupWarmPoolConfig) *int { return v.MinSize }).(pulumi.IntPtrOutput)
+}
+
+// The desired state of warm pool instances.
+func (o NodegroupWarmPoolConfigOutput) PoolState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NodegroupWarmPoolConfig) *string { return v.PoolState }).(pulumi.StringPtrOutput)
+}
+
+// Whether to return instances to the warm pool during scale-in instead of terminating them.
+func (o NodegroupWarmPoolConfigOutput) ReuseOnScaleIn() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v NodegroupWarmPoolConfig) *bool { return v.ReuseOnScaleIn }).(pulumi.BoolPtrOutput)
+}
+
+type NodegroupWarmPoolConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (NodegroupWarmPoolConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NodegroupWarmPoolConfig)(nil)).Elem()
+}
+
+func (o NodegroupWarmPoolConfigPtrOutput) ToNodegroupWarmPoolConfigPtrOutput() NodegroupWarmPoolConfigPtrOutput {
+	return o
+}
+
+func (o NodegroupWarmPoolConfigPtrOutput) ToNodegroupWarmPoolConfigPtrOutputWithContext(ctx context.Context) NodegroupWarmPoolConfigPtrOutput {
+	return o
+}
+
+func (o NodegroupWarmPoolConfigPtrOutput) Elem() NodegroupWarmPoolConfigOutput {
+	return o.ApplyT(func(v *NodegroupWarmPoolConfig) NodegroupWarmPoolConfig {
+		if v != nil {
+			return *v
+		}
+		var ret NodegroupWarmPoolConfig
+		return ret
+	}).(NodegroupWarmPoolConfigOutput)
+}
+
+// Enable or disable warm pool for the node group.
+func (o NodegroupWarmPoolConfigPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *NodegroupWarmPoolConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The maximum number of instances that are allowed to be in the warm pool.
+func (o NodegroupWarmPoolConfigPtrOutput) MaxGroupPreparedCapacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *NodegroupWarmPoolConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxGroupPreparedCapacity
+	}).(pulumi.IntPtrOutput)
+}
+
+// The minimum number of instances to maintain in the warm pool.
+func (o NodegroupWarmPoolConfigPtrOutput) MinSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *NodegroupWarmPoolConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MinSize
+	}).(pulumi.IntPtrOutput)
+}
+
+// The desired state of warm pool instances.
+func (o NodegroupWarmPoolConfigPtrOutput) PoolState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NodegroupWarmPoolConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PoolState
+	}).(pulumi.StringPtrOutput)
+}
+
+// Whether to return instances to the warm pool during scale-in instead of terminating them.
+func (o NodegroupWarmPoolConfigPtrOutput) ReuseOnScaleIn() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *NodegroupWarmPoolConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.ReuseOnScaleIn
+	}).(pulumi.BoolPtrOutput)
+}
+
 // A key-value pair to associate with a resource.
 type PodIdentityAssociationTag struct {
 	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -6099,6 +6315,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*NodegroupTaintArrayInput)(nil)).Elem(), NodegroupTaintArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NodegroupUpdateConfigInput)(nil)).Elem(), NodegroupUpdateConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NodegroupUpdateConfigPtrInput)(nil)).Elem(), NodegroupUpdateConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NodegroupWarmPoolConfigInput)(nil)).Elem(), NodegroupWarmPoolConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NodegroupWarmPoolConfigPtrInput)(nil)).Elem(), NodegroupWarmPoolConfigArgs{})
 	pulumi.RegisterOutputType(AccessEntryAccessPolicyOutput{})
 	pulumi.RegisterOutputType(AccessEntryAccessPolicyArrayOutput{})
 	pulumi.RegisterOutputType(AccessEntryAccessScopeOutput{})
@@ -6180,4 +6398,6 @@ func init() {
 	pulumi.RegisterOutputType(NodegroupTaintArrayOutput{})
 	pulumi.RegisterOutputType(NodegroupUpdateConfigOutput{})
 	pulumi.RegisterOutputType(NodegroupUpdateConfigPtrOutput{})
+	pulumi.RegisterOutputType(NodegroupWarmPoolConfigOutput{})
+	pulumi.RegisterOutputType(NodegroupWarmPoolConfigPtrOutput{})
 }

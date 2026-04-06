@@ -40,7 +40,8 @@ class NodegroupArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  taints: Optional[pulumi.Input[Sequence[pulumi.Input['NodegroupTaintArgs']]]] = None,
                  update_config: Optional[pulumi.Input['NodegroupUpdateConfigArgs']] = None,
-                 version: Optional[pulumi.Input[_builtins.str]] = None):
+                 version: Optional[pulumi.Input[_builtins.str]] = None,
+                 warm_pool_config: Optional[pulumi.Input['NodegroupWarmPoolConfigArgs']] = None):
         """
         The set of arguments for constructing a Nodegroup resource.
 
@@ -63,6 +64,7 @@ class NodegroupArgs:
         :param pulumi.Input[Sequence[pulumi.Input['NodegroupTaintArgs']]] taints: The Kubernetes taints to be applied to the nodes in the node group when they are created.
         :param pulumi.Input['NodegroupUpdateConfigArgs'] update_config: The node group update configuration.
         :param pulumi.Input[_builtins.str] version: The Kubernetes version to use for your managed nodes.
+        :param pulumi.Input['NodegroupWarmPoolConfigArgs'] warm_pool_config: The warm pool configuration details for the Auto Scaling group that is created for the node group.
         """
         pulumi.set(__self__, "cluster_name", cluster_name)
         pulumi.set(__self__, "node_role", node_role)
@@ -99,6 +101,8 @@ class NodegroupArgs:
             pulumi.set(__self__, "update_config", update_config)
         if version is not None:
             pulumi.set(__self__, "version", version)
+        if warm_pool_config is not None:
+            pulumi.set(__self__, "warm_pool_config", warm_pool_config)
 
     @_builtins.property
     @pulumi.getter(name="clusterName")
@@ -328,6 +332,18 @@ class NodegroupArgs:
     def version(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "version", value)
 
+    @_builtins.property
+    @pulumi.getter(name="warmPoolConfig")
+    def warm_pool_config(self) -> Optional[pulumi.Input['NodegroupWarmPoolConfigArgs']]:
+        """
+        The warm pool configuration details for the Auto Scaling group that is created for the node group.
+        """
+        return pulumi.get(self, "warm_pool_config")
+
+    @warm_pool_config.setter
+    def warm_pool_config(self, value: Optional[pulumi.Input['NodegroupWarmPoolConfigArgs']]):
+        pulumi.set(self, "warm_pool_config", value)
+
 
 @pulumi.type_token("aws-native:eks:Nodegroup")
 class Nodegroup(pulumi.CustomResource):
@@ -354,6 +370,7 @@ class Nodegroup(pulumi.CustomResource):
                  taints: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NodegroupTaintArgs', 'NodegroupTaintArgsDict']]]]] = None,
                  update_config: Optional[pulumi.Input[Union['NodegroupUpdateConfigArgs', 'NodegroupUpdateConfigArgsDict']]] = None,
                  version: Optional[pulumi.Input[_builtins.str]] = None,
+                 warm_pool_config: Optional[pulumi.Input[Union['NodegroupWarmPoolConfigArgs', 'NodegroupWarmPoolConfigArgsDict']]] = None,
                  __props__=None):
         """
         Resource schema for AWS::EKS::Nodegroup
@@ -430,6 +447,7 @@ class Nodegroup(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['NodegroupTaintArgs', 'NodegroupTaintArgsDict']]]] taints: The Kubernetes taints to be applied to the nodes in the node group when they are created.
         :param pulumi.Input[Union['NodegroupUpdateConfigArgs', 'NodegroupUpdateConfigArgsDict']] update_config: The node group update configuration.
         :param pulumi.Input[_builtins.str] version: The Kubernetes version to use for your managed nodes.
+        :param pulumi.Input[Union['NodegroupWarmPoolConfigArgs', 'NodegroupWarmPoolConfigArgsDict']] warm_pool_config: The warm pool configuration details for the Auto Scaling group that is created for the node group.
         """
         ...
     @overload
@@ -525,6 +543,7 @@ class Nodegroup(pulumi.CustomResource):
                  taints: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NodegroupTaintArgs', 'NodegroupTaintArgsDict']]]]] = None,
                  update_config: Optional[pulumi.Input[Union['NodegroupUpdateConfigArgs', 'NodegroupUpdateConfigArgsDict']]] = None,
                  version: Optional[pulumi.Input[_builtins.str]] = None,
+                 warm_pool_config: Optional[pulumi.Input[Union['NodegroupWarmPoolConfigArgs', 'NodegroupWarmPoolConfigArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -559,6 +578,7 @@ class Nodegroup(pulumi.CustomResource):
             __props__.__dict__["taints"] = taints
             __props__.__dict__["update_config"] = update_config
             __props__.__dict__["version"] = version
+            __props__.__dict__["warm_pool_config"] = warm_pool_config
             __props__.__dict__["arn"] = None
             __props__.__dict__["aws_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["amiType", "capacityType", "clusterName", "diskSize", "instanceTypes[*]", "nodeRole", "nodegroupName", "remoteAccess", "subnets[*]"])
@@ -606,6 +626,7 @@ class Nodegroup(pulumi.CustomResource):
         __props__.__dict__["taints"] = None
         __props__.__dict__["update_config"] = None
         __props__.__dict__["version"] = None
+        __props__.__dict__["warm_pool_config"] = None
         return Nodegroup(resource_name, opts=opts, __props__=__props__)
 
     @_builtins.property
@@ -772,4 +793,12 @@ class Nodegroup(pulumi.CustomResource):
         The Kubernetes version to use for your managed nodes.
         """
         return pulumi.get(self, "version")
+
+    @_builtins.property
+    @pulumi.getter(name="warmPoolConfig")
+    def warm_pool_config(self) -> pulumi.Output[Optional['outputs.NodegroupWarmPoolConfig']]:
+        """
+        The warm pool configuration details for the Auto Scaling group that is created for the node group.
+        """
+        return pulumi.get(self, "warm_pool_config")
 

@@ -5,6 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { ApiKeyCredentialProviderArgs } from "./apiKeyCredentialProvider";
+export type ApiKeyCredentialProvider = import("./apiKeyCredentialProvider").ApiKeyCredentialProvider;
+export const ApiKeyCredentialProvider: typeof import("./apiKeyCredentialProvider").ApiKeyCredentialProvider = null as any;
+utilities.lazyLoad(exports, ["ApiKeyCredentialProvider"], () => require("./apiKeyCredentialProvider"));
+
 export { BrowserCustomArgs } from "./browserCustom";
 export type BrowserCustom = import("./browserCustom").BrowserCustom;
 export const BrowserCustom: typeof import("./browserCustom").BrowserCustom = null as any;
@@ -34,6 +39,11 @@ export { GatewayTargetArgs } from "./gatewayTarget";
 export type GatewayTarget = import("./gatewayTarget").GatewayTarget;
 export const GatewayTarget: typeof import("./gatewayTarget").GatewayTarget = null as any;
 utilities.lazyLoad(exports, ["GatewayTarget"], () => require("./gatewayTarget"));
+
+export { GetApiKeyCredentialProviderArgs, GetApiKeyCredentialProviderResult, GetApiKeyCredentialProviderOutputArgs } from "./getApiKeyCredentialProvider";
+export const getApiKeyCredentialProvider: typeof import("./getApiKeyCredentialProvider").getApiKeyCredentialProvider = null as any;
+export const getApiKeyCredentialProviderOutput: typeof import("./getApiKeyCredentialProvider").getApiKeyCredentialProviderOutput = null as any;
+utilities.lazyLoad(exports, ["getApiKeyCredentialProvider","getApiKeyCredentialProviderOutput"], () => require("./getApiKeyCredentialProvider"));
 
 export { GetBrowserCustomArgs, GetBrowserCustomResult, GetBrowserCustomOutputArgs } from "./getBrowserCustom";
 export const getBrowserCustom: typeof import("./getBrowserCustom").getBrowserCustom = null as any;
@@ -70,6 +80,11 @@ export const getMemory: typeof import("./getMemory").getMemory = null as any;
 export const getMemoryOutput: typeof import("./getMemory").getMemoryOutput = null as any;
 utilities.lazyLoad(exports, ["getMemory","getMemoryOutput"], () => require("./getMemory"));
 
+export { GetOAuth2CredentialProviderArgs, GetOAuth2CredentialProviderResult, GetOAuth2CredentialProviderOutputArgs } from "./getOAuth2CredentialProvider";
+export const getOAuth2CredentialProvider: typeof import("./getOAuth2CredentialProvider").getOAuth2CredentialProvider = null as any;
+export const getOAuth2CredentialProviderOutput: typeof import("./getOAuth2CredentialProvider").getOAuth2CredentialProviderOutput = null as any;
+utilities.lazyLoad(exports, ["getOAuth2CredentialProvider","getOAuth2CredentialProviderOutput"], () => require("./getOAuth2CredentialProvider"));
+
 export { GetOnlineEvaluationConfigArgs, GetOnlineEvaluationConfigResult, GetOnlineEvaluationConfigOutputArgs } from "./getOnlineEvaluationConfig";
 export const getOnlineEvaluationConfig: typeof import("./getOnlineEvaluationConfig").getOnlineEvaluationConfig = null as any;
 export const getOnlineEvaluationConfigOutput: typeof import("./getOnlineEvaluationConfig").getOnlineEvaluationConfigOutput = null as any;
@@ -104,6 +119,11 @@ export { MemoryArgs } from "./memory";
 export type Memory = import("./memory").Memory;
 export const Memory: typeof import("./memory").Memory = null as any;
 utilities.lazyLoad(exports, ["Memory"], () => require("./memory"));
+
+export { OAuth2CredentialProviderArgs } from "./oauth2CredentialProvider";
+export type OAuth2CredentialProvider = import("./oauth2CredentialProvider").OAuth2CredentialProvider;
+export const OAuth2CredentialProvider: typeof import("./oauth2CredentialProvider").OAuth2CredentialProvider = null as any;
+utilities.lazyLoad(exports, ["OAuth2CredentialProvider"], () => require("./oauth2CredentialProvider"));
 
 export { OnlineEvaluationConfigArgs } from "./onlineEvaluationConfig";
 export type OnlineEvaluationConfig = import("./onlineEvaluationConfig").OnlineEvaluationConfig;
@@ -143,6 +163,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws-native:bedrockagentcore:ApiKeyCredentialProvider":
+                return new ApiKeyCredentialProvider(name, <any>undefined, { urn })
             case "aws-native:bedrockagentcore:BrowserCustom":
                 return new BrowserCustom(name, <any>undefined, { urn })
             case "aws-native:bedrockagentcore:BrowserProfile":
@@ -157,6 +179,8 @@ const _module = {
                 return new GatewayTarget(name, <any>undefined, { urn })
             case "aws-native:bedrockagentcore:Memory":
                 return new Memory(name, <any>undefined, { urn })
+            case "aws-native:bedrockagentcore:OAuth2CredentialProvider":
+                return new OAuth2CredentialProvider(name, <any>undefined, { urn })
             case "aws-native:bedrockagentcore:OnlineEvaluationConfig":
                 return new OnlineEvaluationConfig(name, <any>undefined, { urn })
             case "aws-native:bedrockagentcore:Policy":
