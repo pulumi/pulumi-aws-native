@@ -11,16 +11,20 @@ namespace Pulumi.AwsNative.S3Tables.Outputs
 {
 
     /// <summary>
-    /// Contains details about the metadata for an Iceberg table.
+    /// Contains details about the metadata for an Iceberg table. Specify either IcebergSchema (for simple flat schemas with primitive types only) or IcebergSchemaV2 (for schemas with nested types like struct, list, map), but not both.
     /// </summary>
     [OutputType]
     public sealed class TableIcebergMetadata
     {
         public readonly Outputs.TableIcebergPartitionSpec? IcebergPartitionSpec;
         /// <summary>
-        /// The schema for an Iceberg table.
+        /// Schema definition for flat tables with primitive types only. Mutually exclusive with IcebergSchemaV2.
         /// </summary>
-        public readonly Outputs.TableIcebergSchema IcebergSchema;
+        public readonly Outputs.TableIcebergSchema? IcebergSchema;
+        /// <summary>
+        /// Schema definition that supports Apache Iceberg nested types (struct, list, map) and primitive types. Mutually exclusive with IcebergSchema.
+        /// </summary>
+        public readonly Outputs.TableIcebergSchemaV2? IcebergSchemaV2;
         public readonly Outputs.TableIcebergSortOrder? IcebergSortOrder;
         public readonly ImmutableDictionary<string, string>? TableProperties;
 
@@ -28,7 +32,9 @@ namespace Pulumi.AwsNative.S3Tables.Outputs
         private TableIcebergMetadata(
             Outputs.TableIcebergPartitionSpec? icebergPartitionSpec,
 
-            Outputs.TableIcebergSchema icebergSchema,
+            Outputs.TableIcebergSchema? icebergSchema,
+
+            Outputs.TableIcebergSchemaV2? icebergSchemaV2,
 
             Outputs.TableIcebergSortOrder? icebergSortOrder,
 
@@ -36,6 +42,7 @@ namespace Pulumi.AwsNative.S3Tables.Outputs
         {
             IcebergPartitionSpec = icebergPartitionSpec;
             IcebergSchema = icebergSchema;
+            IcebergSchemaV2 = icebergSchemaV2;
             IcebergSortOrder = icebergSortOrder;
             TableProperties = tableProperties;
         }

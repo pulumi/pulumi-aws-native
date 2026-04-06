@@ -384,6 +384,365 @@ func (o TableBucketPolicyResourcePolicyPtrOutput) Elem() TableBucketPolicyResour
 	}).(TableBucketPolicyResourcePolicyOutput)
 }
 
+// Specifies replication configuration for the table bucket
+type TableBucketReplicationConfiguration struct {
+	// The ARN of the IAM role to use for replication
+	Role string `pulumi:"role"`
+	// List of replication rules
+	Rules []TableBucketReplicationRule `pulumi:"rules"`
+}
+
+// TableBucketReplicationConfigurationInput is an input type that accepts TableBucketReplicationConfigurationArgs and TableBucketReplicationConfigurationOutput values.
+// You can construct a concrete instance of `TableBucketReplicationConfigurationInput` via:
+//
+//	TableBucketReplicationConfigurationArgs{...}
+type TableBucketReplicationConfigurationInput interface {
+	pulumi.Input
+
+	ToTableBucketReplicationConfigurationOutput() TableBucketReplicationConfigurationOutput
+	ToTableBucketReplicationConfigurationOutputWithContext(context.Context) TableBucketReplicationConfigurationOutput
+}
+
+// Specifies replication configuration for the table bucket
+type TableBucketReplicationConfigurationArgs struct {
+	// The ARN of the IAM role to use for replication
+	Role pulumi.StringInput `pulumi:"role"`
+	// List of replication rules
+	Rules TableBucketReplicationRuleArrayInput `pulumi:"rules"`
+}
+
+func (TableBucketReplicationConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableBucketReplicationConfiguration)(nil)).Elem()
+}
+
+func (i TableBucketReplicationConfigurationArgs) ToTableBucketReplicationConfigurationOutput() TableBucketReplicationConfigurationOutput {
+	return i.ToTableBucketReplicationConfigurationOutputWithContext(context.Background())
+}
+
+func (i TableBucketReplicationConfigurationArgs) ToTableBucketReplicationConfigurationOutputWithContext(ctx context.Context) TableBucketReplicationConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableBucketReplicationConfigurationOutput)
+}
+
+func (i TableBucketReplicationConfigurationArgs) ToTableBucketReplicationConfigurationPtrOutput() TableBucketReplicationConfigurationPtrOutput {
+	return i.ToTableBucketReplicationConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i TableBucketReplicationConfigurationArgs) ToTableBucketReplicationConfigurationPtrOutputWithContext(ctx context.Context) TableBucketReplicationConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableBucketReplicationConfigurationOutput).ToTableBucketReplicationConfigurationPtrOutputWithContext(ctx)
+}
+
+// TableBucketReplicationConfigurationPtrInput is an input type that accepts TableBucketReplicationConfigurationArgs, TableBucketReplicationConfigurationPtr and TableBucketReplicationConfigurationPtrOutput values.
+// You can construct a concrete instance of `TableBucketReplicationConfigurationPtrInput` via:
+//
+//	        TableBucketReplicationConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type TableBucketReplicationConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToTableBucketReplicationConfigurationPtrOutput() TableBucketReplicationConfigurationPtrOutput
+	ToTableBucketReplicationConfigurationPtrOutputWithContext(context.Context) TableBucketReplicationConfigurationPtrOutput
+}
+
+type tableBucketReplicationConfigurationPtrType TableBucketReplicationConfigurationArgs
+
+func TableBucketReplicationConfigurationPtr(v *TableBucketReplicationConfigurationArgs) TableBucketReplicationConfigurationPtrInput {
+	return (*tableBucketReplicationConfigurationPtrType)(v)
+}
+
+func (*tableBucketReplicationConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableBucketReplicationConfiguration)(nil)).Elem()
+}
+
+func (i *tableBucketReplicationConfigurationPtrType) ToTableBucketReplicationConfigurationPtrOutput() TableBucketReplicationConfigurationPtrOutput {
+	return i.ToTableBucketReplicationConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *tableBucketReplicationConfigurationPtrType) ToTableBucketReplicationConfigurationPtrOutputWithContext(ctx context.Context) TableBucketReplicationConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableBucketReplicationConfigurationPtrOutput)
+}
+
+// Specifies replication configuration for the table bucket
+type TableBucketReplicationConfigurationOutput struct{ *pulumi.OutputState }
+
+func (TableBucketReplicationConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableBucketReplicationConfiguration)(nil)).Elem()
+}
+
+func (o TableBucketReplicationConfigurationOutput) ToTableBucketReplicationConfigurationOutput() TableBucketReplicationConfigurationOutput {
+	return o
+}
+
+func (o TableBucketReplicationConfigurationOutput) ToTableBucketReplicationConfigurationOutputWithContext(ctx context.Context) TableBucketReplicationConfigurationOutput {
+	return o
+}
+
+func (o TableBucketReplicationConfigurationOutput) ToTableBucketReplicationConfigurationPtrOutput() TableBucketReplicationConfigurationPtrOutput {
+	return o.ToTableBucketReplicationConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o TableBucketReplicationConfigurationOutput) ToTableBucketReplicationConfigurationPtrOutputWithContext(ctx context.Context) TableBucketReplicationConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TableBucketReplicationConfiguration) *TableBucketReplicationConfiguration {
+		return &v
+	}).(TableBucketReplicationConfigurationPtrOutput)
+}
+
+// The ARN of the IAM role to use for replication
+func (o TableBucketReplicationConfigurationOutput) Role() pulumi.StringOutput {
+	return o.ApplyT(func(v TableBucketReplicationConfiguration) string { return v.Role }).(pulumi.StringOutput)
+}
+
+// List of replication rules
+func (o TableBucketReplicationConfigurationOutput) Rules() TableBucketReplicationRuleArrayOutput {
+	return o.ApplyT(func(v TableBucketReplicationConfiguration) []TableBucketReplicationRule { return v.Rules }).(TableBucketReplicationRuleArrayOutput)
+}
+
+type TableBucketReplicationConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (TableBucketReplicationConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableBucketReplicationConfiguration)(nil)).Elem()
+}
+
+func (o TableBucketReplicationConfigurationPtrOutput) ToTableBucketReplicationConfigurationPtrOutput() TableBucketReplicationConfigurationPtrOutput {
+	return o
+}
+
+func (o TableBucketReplicationConfigurationPtrOutput) ToTableBucketReplicationConfigurationPtrOutputWithContext(ctx context.Context) TableBucketReplicationConfigurationPtrOutput {
+	return o
+}
+
+func (o TableBucketReplicationConfigurationPtrOutput) Elem() TableBucketReplicationConfigurationOutput {
+	return o.ApplyT(func(v *TableBucketReplicationConfiguration) TableBucketReplicationConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret TableBucketReplicationConfiguration
+		return ret
+	}).(TableBucketReplicationConfigurationOutput)
+}
+
+// The ARN of the IAM role to use for replication
+func (o TableBucketReplicationConfigurationPtrOutput) Role() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TableBucketReplicationConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Role
+	}).(pulumi.StringPtrOutput)
+}
+
+// List of replication rules
+func (o TableBucketReplicationConfigurationPtrOutput) Rules() TableBucketReplicationRuleArrayOutput {
+	return o.ApplyT(func(v *TableBucketReplicationConfiguration) []TableBucketReplicationRule {
+		if v == nil {
+			return nil
+		}
+		return v.Rules
+	}).(TableBucketReplicationRuleArrayOutput)
+}
+
+// A replication destination
+type TableBucketReplicationDestination struct {
+	// The ARN of the destination table bucket
+	DestinationTableBucketArn string `pulumi:"destinationTableBucketArn"`
+}
+
+// TableBucketReplicationDestinationInput is an input type that accepts TableBucketReplicationDestinationArgs and TableBucketReplicationDestinationOutput values.
+// You can construct a concrete instance of `TableBucketReplicationDestinationInput` via:
+//
+//	TableBucketReplicationDestinationArgs{...}
+type TableBucketReplicationDestinationInput interface {
+	pulumi.Input
+
+	ToTableBucketReplicationDestinationOutput() TableBucketReplicationDestinationOutput
+	ToTableBucketReplicationDestinationOutputWithContext(context.Context) TableBucketReplicationDestinationOutput
+}
+
+// A replication destination
+type TableBucketReplicationDestinationArgs struct {
+	// The ARN of the destination table bucket
+	DestinationTableBucketArn pulumi.StringInput `pulumi:"destinationTableBucketArn"`
+}
+
+func (TableBucketReplicationDestinationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableBucketReplicationDestination)(nil)).Elem()
+}
+
+func (i TableBucketReplicationDestinationArgs) ToTableBucketReplicationDestinationOutput() TableBucketReplicationDestinationOutput {
+	return i.ToTableBucketReplicationDestinationOutputWithContext(context.Background())
+}
+
+func (i TableBucketReplicationDestinationArgs) ToTableBucketReplicationDestinationOutputWithContext(ctx context.Context) TableBucketReplicationDestinationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableBucketReplicationDestinationOutput)
+}
+
+// TableBucketReplicationDestinationArrayInput is an input type that accepts TableBucketReplicationDestinationArray and TableBucketReplicationDestinationArrayOutput values.
+// You can construct a concrete instance of `TableBucketReplicationDestinationArrayInput` via:
+//
+//	TableBucketReplicationDestinationArray{ TableBucketReplicationDestinationArgs{...} }
+type TableBucketReplicationDestinationArrayInput interface {
+	pulumi.Input
+
+	ToTableBucketReplicationDestinationArrayOutput() TableBucketReplicationDestinationArrayOutput
+	ToTableBucketReplicationDestinationArrayOutputWithContext(context.Context) TableBucketReplicationDestinationArrayOutput
+}
+
+type TableBucketReplicationDestinationArray []TableBucketReplicationDestinationInput
+
+func (TableBucketReplicationDestinationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TableBucketReplicationDestination)(nil)).Elem()
+}
+
+func (i TableBucketReplicationDestinationArray) ToTableBucketReplicationDestinationArrayOutput() TableBucketReplicationDestinationArrayOutput {
+	return i.ToTableBucketReplicationDestinationArrayOutputWithContext(context.Background())
+}
+
+func (i TableBucketReplicationDestinationArray) ToTableBucketReplicationDestinationArrayOutputWithContext(ctx context.Context) TableBucketReplicationDestinationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableBucketReplicationDestinationArrayOutput)
+}
+
+// A replication destination
+type TableBucketReplicationDestinationOutput struct{ *pulumi.OutputState }
+
+func (TableBucketReplicationDestinationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableBucketReplicationDestination)(nil)).Elem()
+}
+
+func (o TableBucketReplicationDestinationOutput) ToTableBucketReplicationDestinationOutput() TableBucketReplicationDestinationOutput {
+	return o
+}
+
+func (o TableBucketReplicationDestinationOutput) ToTableBucketReplicationDestinationOutputWithContext(ctx context.Context) TableBucketReplicationDestinationOutput {
+	return o
+}
+
+// The ARN of the destination table bucket
+func (o TableBucketReplicationDestinationOutput) DestinationTableBucketArn() pulumi.StringOutput {
+	return o.ApplyT(func(v TableBucketReplicationDestination) string { return v.DestinationTableBucketArn }).(pulumi.StringOutput)
+}
+
+type TableBucketReplicationDestinationArrayOutput struct{ *pulumi.OutputState }
+
+func (TableBucketReplicationDestinationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TableBucketReplicationDestination)(nil)).Elem()
+}
+
+func (o TableBucketReplicationDestinationArrayOutput) ToTableBucketReplicationDestinationArrayOutput() TableBucketReplicationDestinationArrayOutput {
+	return o
+}
+
+func (o TableBucketReplicationDestinationArrayOutput) ToTableBucketReplicationDestinationArrayOutputWithContext(ctx context.Context) TableBucketReplicationDestinationArrayOutput {
+	return o
+}
+
+func (o TableBucketReplicationDestinationArrayOutput) Index(i pulumi.IntInput) TableBucketReplicationDestinationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TableBucketReplicationDestination {
+		return vs[0].([]TableBucketReplicationDestination)[vs[1].(int)]
+	}).(TableBucketReplicationDestinationOutput)
+}
+
+// A replication rule for the table bucket
+type TableBucketReplicationRule struct {
+	// List of replication destinations
+	Destinations []TableBucketReplicationDestination `pulumi:"destinations"`
+}
+
+// TableBucketReplicationRuleInput is an input type that accepts TableBucketReplicationRuleArgs and TableBucketReplicationRuleOutput values.
+// You can construct a concrete instance of `TableBucketReplicationRuleInput` via:
+//
+//	TableBucketReplicationRuleArgs{...}
+type TableBucketReplicationRuleInput interface {
+	pulumi.Input
+
+	ToTableBucketReplicationRuleOutput() TableBucketReplicationRuleOutput
+	ToTableBucketReplicationRuleOutputWithContext(context.Context) TableBucketReplicationRuleOutput
+}
+
+// A replication rule for the table bucket
+type TableBucketReplicationRuleArgs struct {
+	// List of replication destinations
+	Destinations TableBucketReplicationDestinationArrayInput `pulumi:"destinations"`
+}
+
+func (TableBucketReplicationRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableBucketReplicationRule)(nil)).Elem()
+}
+
+func (i TableBucketReplicationRuleArgs) ToTableBucketReplicationRuleOutput() TableBucketReplicationRuleOutput {
+	return i.ToTableBucketReplicationRuleOutputWithContext(context.Background())
+}
+
+func (i TableBucketReplicationRuleArgs) ToTableBucketReplicationRuleOutputWithContext(ctx context.Context) TableBucketReplicationRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableBucketReplicationRuleOutput)
+}
+
+// TableBucketReplicationRuleArrayInput is an input type that accepts TableBucketReplicationRuleArray and TableBucketReplicationRuleArrayOutput values.
+// You can construct a concrete instance of `TableBucketReplicationRuleArrayInput` via:
+//
+//	TableBucketReplicationRuleArray{ TableBucketReplicationRuleArgs{...} }
+type TableBucketReplicationRuleArrayInput interface {
+	pulumi.Input
+
+	ToTableBucketReplicationRuleArrayOutput() TableBucketReplicationRuleArrayOutput
+	ToTableBucketReplicationRuleArrayOutputWithContext(context.Context) TableBucketReplicationRuleArrayOutput
+}
+
+type TableBucketReplicationRuleArray []TableBucketReplicationRuleInput
+
+func (TableBucketReplicationRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TableBucketReplicationRule)(nil)).Elem()
+}
+
+func (i TableBucketReplicationRuleArray) ToTableBucketReplicationRuleArrayOutput() TableBucketReplicationRuleArrayOutput {
+	return i.ToTableBucketReplicationRuleArrayOutputWithContext(context.Background())
+}
+
+func (i TableBucketReplicationRuleArray) ToTableBucketReplicationRuleArrayOutputWithContext(ctx context.Context) TableBucketReplicationRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableBucketReplicationRuleArrayOutput)
+}
+
+// A replication rule for the table bucket
+type TableBucketReplicationRuleOutput struct{ *pulumi.OutputState }
+
+func (TableBucketReplicationRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableBucketReplicationRule)(nil)).Elem()
+}
+
+func (o TableBucketReplicationRuleOutput) ToTableBucketReplicationRuleOutput() TableBucketReplicationRuleOutput {
+	return o
+}
+
+func (o TableBucketReplicationRuleOutput) ToTableBucketReplicationRuleOutputWithContext(ctx context.Context) TableBucketReplicationRuleOutput {
+	return o
+}
+
+// List of replication destinations
+func (o TableBucketReplicationRuleOutput) Destinations() TableBucketReplicationDestinationArrayOutput {
+	return o.ApplyT(func(v TableBucketReplicationRule) []TableBucketReplicationDestination { return v.Destinations }).(TableBucketReplicationDestinationArrayOutput)
+}
+
+type TableBucketReplicationRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (TableBucketReplicationRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TableBucketReplicationRule)(nil)).Elem()
+}
+
+func (o TableBucketReplicationRuleArrayOutput) ToTableBucketReplicationRuleArrayOutput() TableBucketReplicationRuleArrayOutput {
+	return o
+}
+
+func (o TableBucketReplicationRuleArrayOutput) ToTableBucketReplicationRuleArrayOutputWithContext(ctx context.Context) TableBucketReplicationRuleArrayOutput {
+	return o
+}
+
+func (o TableBucketReplicationRuleArrayOutput) Index(i pulumi.IntInput) TableBucketReplicationRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TableBucketReplicationRule {
+		return vs[0].([]TableBucketReplicationRule)[vs[1].(int)]
+	}).(TableBucketReplicationRuleOutput)
+}
+
 // Specifies storage class settings for the table bucket
 type TableBucketStorageClassConfiguration struct {
 	// The storage class for the table bucket
@@ -870,11 +1229,13 @@ func (o TableCompactionPtrOutput) TargetFileSizeMb() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Contains details about the metadata for an Iceberg table.
+// Contains details about the metadata for an Iceberg table. Specify either IcebergSchema (for simple flat schemas with primitive types only) or IcebergSchemaV2 (for schemas with nested types like struct, list, map), but not both.
 type TableIcebergMetadata struct {
 	IcebergPartitionSpec *TableIcebergPartitionSpec `pulumi:"icebergPartitionSpec"`
-	// The schema for an Iceberg table.
-	IcebergSchema    TableIcebergSchema     `pulumi:"icebergSchema"`
+	// Schema definition for flat tables with primitive types only. Mutually exclusive with IcebergSchemaV2.
+	IcebergSchema *TableIcebergSchema `pulumi:"icebergSchema"`
+	// Schema definition that supports Apache Iceberg nested types (struct, list, map) and primitive types. Mutually exclusive with IcebergSchema.
+	IcebergSchemaV2  *TableIcebergSchemaV2  `pulumi:"icebergSchemaV2"`
 	IcebergSortOrder *TableIcebergSortOrder `pulumi:"icebergSortOrder"`
 	TableProperties  map[string]string      `pulumi:"tableProperties"`
 }
@@ -890,11 +1251,13 @@ type TableIcebergMetadataInput interface {
 	ToTableIcebergMetadataOutputWithContext(context.Context) TableIcebergMetadataOutput
 }
 
-// Contains details about the metadata for an Iceberg table.
+// Contains details about the metadata for an Iceberg table. Specify either IcebergSchema (for simple flat schemas with primitive types only) or IcebergSchemaV2 (for schemas with nested types like struct, list, map), but not both.
 type TableIcebergMetadataArgs struct {
 	IcebergPartitionSpec TableIcebergPartitionSpecPtrInput `pulumi:"icebergPartitionSpec"`
-	// The schema for an Iceberg table.
-	IcebergSchema    TableIcebergSchemaInput       `pulumi:"icebergSchema"`
+	// Schema definition for flat tables with primitive types only. Mutually exclusive with IcebergSchemaV2.
+	IcebergSchema TableIcebergSchemaPtrInput `pulumi:"icebergSchema"`
+	// Schema definition that supports Apache Iceberg nested types (struct, list, map) and primitive types. Mutually exclusive with IcebergSchema.
+	IcebergSchemaV2  TableIcebergSchemaV2PtrInput  `pulumi:"icebergSchemaV2"`
 	IcebergSortOrder TableIcebergSortOrderPtrInput `pulumi:"icebergSortOrder"`
 	TableProperties  pulumi.StringMapInput         `pulumi:"tableProperties"`
 }
@@ -952,7 +1315,7 @@ func (i *tableIcebergMetadataPtrType) ToTableIcebergMetadataPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(TableIcebergMetadataPtrOutput)
 }
 
-// Contains details about the metadata for an Iceberg table.
+// Contains details about the metadata for an Iceberg table. Specify either IcebergSchema (for simple flat schemas with primitive types only) or IcebergSchemaV2 (for schemas with nested types like struct, list, map), but not both.
 type TableIcebergMetadataOutput struct{ *pulumi.OutputState }
 
 func (TableIcebergMetadataOutput) ElementType() reflect.Type {
@@ -981,9 +1344,14 @@ func (o TableIcebergMetadataOutput) IcebergPartitionSpec() TableIcebergPartition
 	return o.ApplyT(func(v TableIcebergMetadata) *TableIcebergPartitionSpec { return v.IcebergPartitionSpec }).(TableIcebergPartitionSpecPtrOutput)
 }
 
-// The schema for an Iceberg table.
-func (o TableIcebergMetadataOutput) IcebergSchema() TableIcebergSchemaOutput {
-	return o.ApplyT(func(v TableIcebergMetadata) TableIcebergSchema { return v.IcebergSchema }).(TableIcebergSchemaOutput)
+// Schema definition for flat tables with primitive types only. Mutually exclusive with IcebergSchemaV2.
+func (o TableIcebergMetadataOutput) IcebergSchema() TableIcebergSchemaPtrOutput {
+	return o.ApplyT(func(v TableIcebergMetadata) *TableIcebergSchema { return v.IcebergSchema }).(TableIcebergSchemaPtrOutput)
+}
+
+// Schema definition that supports Apache Iceberg nested types (struct, list, map) and primitive types. Mutually exclusive with IcebergSchema.
+func (o TableIcebergMetadataOutput) IcebergSchemaV2() TableIcebergSchemaV2PtrOutput {
+	return o.ApplyT(func(v TableIcebergMetadata) *TableIcebergSchemaV2 { return v.IcebergSchemaV2 }).(TableIcebergSchemaV2PtrOutput)
 }
 
 func (o TableIcebergMetadataOutput) IcebergSortOrder() TableIcebergSortOrderPtrOutput {
@@ -1027,14 +1395,24 @@ func (o TableIcebergMetadataPtrOutput) IcebergPartitionSpec() TableIcebergPartit
 	}).(TableIcebergPartitionSpecPtrOutput)
 }
 
-// The schema for an Iceberg table.
+// Schema definition for flat tables with primitive types only. Mutually exclusive with IcebergSchemaV2.
 func (o TableIcebergMetadataPtrOutput) IcebergSchema() TableIcebergSchemaPtrOutput {
 	return o.ApplyT(func(v *TableIcebergMetadata) *TableIcebergSchema {
 		if v == nil {
 			return nil
 		}
-		return &v.IcebergSchema
+		return v.IcebergSchema
 	}).(TableIcebergSchemaPtrOutput)
+}
+
+// Schema definition that supports Apache Iceberg nested types (struct, list, map) and primitive types. Mutually exclusive with IcebergSchema.
+func (o TableIcebergMetadataPtrOutput) IcebergSchemaV2() TableIcebergSchemaV2PtrOutput {
+	return o.ApplyT(func(v *TableIcebergMetadata) *TableIcebergSchemaV2 {
+		if v == nil {
+			return nil
+		}
+		return v.IcebergSchemaV2
+	}).(TableIcebergSchemaV2PtrOutput)
 }
 
 func (o TableIcebergMetadataPtrOutput) IcebergSortOrder() TableIcebergSortOrderPtrOutput {
@@ -1479,6 +1857,203 @@ func (o TableIcebergSchemaPtrOutput) SchemaFieldList() TableSchemaFieldArrayOutp
 		}
 		return v.SchemaFieldList
 	}).(TableSchemaFieldArrayOutput)
+}
+
+// Contains details about the schema version 2 (V2) for an Iceberg table that supports Apache Iceberg Nested Types (struct, list, map). Primitive types are also supported.
+type TableIcebergSchemaV2 struct {
+	// A list of field IDs that are used as the identifier fields for the table. Identifier fields uniquely identify a row in the table.
+	IdentifierFieldIds []int `pulumi:"identifierFieldIds"`
+	// An optional unique identifier for the schema
+	SchemaId *int `pulumi:"schemaId"`
+	// The schema fields for the table
+	SchemaV2FieldList []TableSchemaV2Field `pulumi:"schemaV2FieldList"`
+	// The type of the top-level schema, which is always 'struct'
+	SchemaV2FieldType TableIcebergSchemaV2SchemaV2FieldType `pulumi:"schemaV2FieldType"`
+}
+
+// TableIcebergSchemaV2Input is an input type that accepts TableIcebergSchemaV2Args and TableIcebergSchemaV2Output values.
+// You can construct a concrete instance of `TableIcebergSchemaV2Input` via:
+//
+//	TableIcebergSchemaV2Args{...}
+type TableIcebergSchemaV2Input interface {
+	pulumi.Input
+
+	ToTableIcebergSchemaV2Output() TableIcebergSchemaV2Output
+	ToTableIcebergSchemaV2OutputWithContext(context.Context) TableIcebergSchemaV2Output
+}
+
+// Contains details about the schema version 2 (V2) for an Iceberg table that supports Apache Iceberg Nested Types (struct, list, map). Primitive types are also supported.
+type TableIcebergSchemaV2Args struct {
+	// A list of field IDs that are used as the identifier fields for the table. Identifier fields uniquely identify a row in the table.
+	IdentifierFieldIds pulumi.IntArrayInput `pulumi:"identifierFieldIds"`
+	// An optional unique identifier for the schema
+	SchemaId pulumi.IntPtrInput `pulumi:"schemaId"`
+	// The schema fields for the table
+	SchemaV2FieldList TableSchemaV2FieldArrayInput `pulumi:"schemaV2FieldList"`
+	// The type of the top-level schema, which is always 'struct'
+	SchemaV2FieldType TableIcebergSchemaV2SchemaV2FieldTypeInput `pulumi:"schemaV2FieldType"`
+}
+
+func (TableIcebergSchemaV2Args) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableIcebergSchemaV2)(nil)).Elem()
+}
+
+func (i TableIcebergSchemaV2Args) ToTableIcebergSchemaV2Output() TableIcebergSchemaV2Output {
+	return i.ToTableIcebergSchemaV2OutputWithContext(context.Background())
+}
+
+func (i TableIcebergSchemaV2Args) ToTableIcebergSchemaV2OutputWithContext(ctx context.Context) TableIcebergSchemaV2Output {
+	return pulumi.ToOutputWithContext(ctx, i).(TableIcebergSchemaV2Output)
+}
+
+func (i TableIcebergSchemaV2Args) ToTableIcebergSchemaV2PtrOutput() TableIcebergSchemaV2PtrOutput {
+	return i.ToTableIcebergSchemaV2PtrOutputWithContext(context.Background())
+}
+
+func (i TableIcebergSchemaV2Args) ToTableIcebergSchemaV2PtrOutputWithContext(ctx context.Context) TableIcebergSchemaV2PtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableIcebergSchemaV2Output).ToTableIcebergSchemaV2PtrOutputWithContext(ctx)
+}
+
+// TableIcebergSchemaV2PtrInput is an input type that accepts TableIcebergSchemaV2Args, TableIcebergSchemaV2Ptr and TableIcebergSchemaV2PtrOutput values.
+// You can construct a concrete instance of `TableIcebergSchemaV2PtrInput` via:
+//
+//	        TableIcebergSchemaV2Args{...}
+//
+//	or:
+//
+//	        nil
+type TableIcebergSchemaV2PtrInput interface {
+	pulumi.Input
+
+	ToTableIcebergSchemaV2PtrOutput() TableIcebergSchemaV2PtrOutput
+	ToTableIcebergSchemaV2PtrOutputWithContext(context.Context) TableIcebergSchemaV2PtrOutput
+}
+
+type tableIcebergSchemaV2PtrType TableIcebergSchemaV2Args
+
+func TableIcebergSchemaV2Ptr(v *TableIcebergSchemaV2Args) TableIcebergSchemaV2PtrInput {
+	return (*tableIcebergSchemaV2PtrType)(v)
+}
+
+func (*tableIcebergSchemaV2PtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableIcebergSchemaV2)(nil)).Elem()
+}
+
+func (i *tableIcebergSchemaV2PtrType) ToTableIcebergSchemaV2PtrOutput() TableIcebergSchemaV2PtrOutput {
+	return i.ToTableIcebergSchemaV2PtrOutputWithContext(context.Background())
+}
+
+func (i *tableIcebergSchemaV2PtrType) ToTableIcebergSchemaV2PtrOutputWithContext(ctx context.Context) TableIcebergSchemaV2PtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableIcebergSchemaV2PtrOutput)
+}
+
+// Contains details about the schema version 2 (V2) for an Iceberg table that supports Apache Iceberg Nested Types (struct, list, map). Primitive types are also supported.
+type TableIcebergSchemaV2Output struct{ *pulumi.OutputState }
+
+func (TableIcebergSchemaV2Output) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableIcebergSchemaV2)(nil)).Elem()
+}
+
+func (o TableIcebergSchemaV2Output) ToTableIcebergSchemaV2Output() TableIcebergSchemaV2Output {
+	return o
+}
+
+func (o TableIcebergSchemaV2Output) ToTableIcebergSchemaV2OutputWithContext(ctx context.Context) TableIcebergSchemaV2Output {
+	return o
+}
+
+func (o TableIcebergSchemaV2Output) ToTableIcebergSchemaV2PtrOutput() TableIcebergSchemaV2PtrOutput {
+	return o.ToTableIcebergSchemaV2PtrOutputWithContext(context.Background())
+}
+
+func (o TableIcebergSchemaV2Output) ToTableIcebergSchemaV2PtrOutputWithContext(ctx context.Context) TableIcebergSchemaV2PtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TableIcebergSchemaV2) *TableIcebergSchemaV2 {
+		return &v
+	}).(TableIcebergSchemaV2PtrOutput)
+}
+
+// A list of field IDs that are used as the identifier fields for the table. Identifier fields uniquely identify a row in the table.
+func (o TableIcebergSchemaV2Output) IdentifierFieldIds() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v TableIcebergSchemaV2) []int { return v.IdentifierFieldIds }).(pulumi.IntArrayOutput)
+}
+
+// An optional unique identifier for the schema
+func (o TableIcebergSchemaV2Output) SchemaId() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v TableIcebergSchemaV2) *int { return v.SchemaId }).(pulumi.IntPtrOutput)
+}
+
+// The schema fields for the table
+func (o TableIcebergSchemaV2Output) SchemaV2FieldList() TableSchemaV2FieldArrayOutput {
+	return o.ApplyT(func(v TableIcebergSchemaV2) []TableSchemaV2Field { return v.SchemaV2FieldList }).(TableSchemaV2FieldArrayOutput)
+}
+
+// The type of the top-level schema, which is always 'struct'
+func (o TableIcebergSchemaV2Output) SchemaV2FieldType() TableIcebergSchemaV2SchemaV2FieldTypeOutput {
+	return o.ApplyT(func(v TableIcebergSchemaV2) TableIcebergSchemaV2SchemaV2FieldType { return v.SchemaV2FieldType }).(TableIcebergSchemaV2SchemaV2FieldTypeOutput)
+}
+
+type TableIcebergSchemaV2PtrOutput struct{ *pulumi.OutputState }
+
+func (TableIcebergSchemaV2PtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableIcebergSchemaV2)(nil)).Elem()
+}
+
+func (o TableIcebergSchemaV2PtrOutput) ToTableIcebergSchemaV2PtrOutput() TableIcebergSchemaV2PtrOutput {
+	return o
+}
+
+func (o TableIcebergSchemaV2PtrOutput) ToTableIcebergSchemaV2PtrOutputWithContext(ctx context.Context) TableIcebergSchemaV2PtrOutput {
+	return o
+}
+
+func (o TableIcebergSchemaV2PtrOutput) Elem() TableIcebergSchemaV2Output {
+	return o.ApplyT(func(v *TableIcebergSchemaV2) TableIcebergSchemaV2 {
+		if v != nil {
+			return *v
+		}
+		var ret TableIcebergSchemaV2
+		return ret
+	}).(TableIcebergSchemaV2Output)
+}
+
+// A list of field IDs that are used as the identifier fields for the table. Identifier fields uniquely identify a row in the table.
+func (o TableIcebergSchemaV2PtrOutput) IdentifierFieldIds() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v *TableIcebergSchemaV2) []int {
+		if v == nil {
+			return nil
+		}
+		return v.IdentifierFieldIds
+	}).(pulumi.IntArrayOutput)
+}
+
+// An optional unique identifier for the schema
+func (o TableIcebergSchemaV2PtrOutput) SchemaId() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *TableIcebergSchemaV2) *int {
+		if v == nil {
+			return nil
+		}
+		return v.SchemaId
+	}).(pulumi.IntPtrOutput)
+}
+
+// The schema fields for the table
+func (o TableIcebergSchemaV2PtrOutput) SchemaV2FieldList() TableSchemaV2FieldArrayOutput {
+	return o.ApplyT(func(v *TableIcebergSchemaV2) []TableSchemaV2Field {
+		if v == nil {
+			return nil
+		}
+		return v.SchemaV2FieldList
+	}).(TableSchemaV2FieldArrayOutput)
+}
+
+// The type of the top-level schema, which is always 'struct'
+func (o TableIcebergSchemaV2PtrOutput) SchemaV2FieldType() TableIcebergSchemaV2SchemaV2FieldTypePtrOutput {
+	return o.ApplyT(func(v *TableIcebergSchemaV2) *TableIcebergSchemaV2SchemaV2FieldType {
+		if v == nil {
+			return nil
+		}
+		return &v.SchemaV2FieldType
+	}).(TableIcebergSchemaV2SchemaV2FieldTypePtrOutput)
 }
 
 // A sort field specification for an Iceberg table
@@ -1964,6 +2539,142 @@ func (o TableSchemaFieldArrayOutput) Index(i pulumi.IntInput) TableSchemaFieldOu
 	}).(TableSchemaFieldOutput)
 }
 
+// Contains details about a schema field for an Iceberg table that supports nested types (struct, list, map)
+type TableSchemaV2Field struct {
+	// Optional documentation for the field
+	Doc *string `pulumi:"doc"`
+	// The unique identifier for the field
+	Id int `pulumi:"id"`
+	// The name of the field
+	Name string `pulumi:"name"`
+	// A Boolean value that specifies whether values are required for each row in this field
+	Required bool `pulumi:"required"`
+	// The field type. For primitive types, use a string (e.g., 'int', 'string', 'long'). For nested types, use an object (e.g., {'type': 'struct', 'fields': [...]} for struct, {'type': 'list', 'element-id': N, 'element': 'type'} for list, {'type': 'map', 'key-id': N, 'key': 'type', 'value-id': N, 'value': 'type'} for map).
+	Type interface{} `pulumi:"type"`
+}
+
+// TableSchemaV2FieldInput is an input type that accepts TableSchemaV2FieldArgs and TableSchemaV2FieldOutput values.
+// You can construct a concrete instance of `TableSchemaV2FieldInput` via:
+//
+//	TableSchemaV2FieldArgs{...}
+type TableSchemaV2FieldInput interface {
+	pulumi.Input
+
+	ToTableSchemaV2FieldOutput() TableSchemaV2FieldOutput
+	ToTableSchemaV2FieldOutputWithContext(context.Context) TableSchemaV2FieldOutput
+}
+
+// Contains details about a schema field for an Iceberg table that supports nested types (struct, list, map)
+type TableSchemaV2FieldArgs struct {
+	// Optional documentation for the field
+	Doc pulumi.StringPtrInput `pulumi:"doc"`
+	// The unique identifier for the field
+	Id pulumi.IntInput `pulumi:"id"`
+	// The name of the field
+	Name pulumi.StringInput `pulumi:"name"`
+	// A Boolean value that specifies whether values are required for each row in this field
+	Required pulumi.BoolInput `pulumi:"required"`
+	// The field type. For primitive types, use a string (e.g., 'int', 'string', 'long'). For nested types, use an object (e.g., {'type': 'struct', 'fields': [...]} for struct, {'type': 'list', 'element-id': N, 'element': 'type'} for list, {'type': 'map', 'key-id': N, 'key': 'type', 'value-id': N, 'value': 'type'} for map).
+	Type pulumi.Input `pulumi:"type"`
+}
+
+func (TableSchemaV2FieldArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableSchemaV2Field)(nil)).Elem()
+}
+
+func (i TableSchemaV2FieldArgs) ToTableSchemaV2FieldOutput() TableSchemaV2FieldOutput {
+	return i.ToTableSchemaV2FieldOutputWithContext(context.Background())
+}
+
+func (i TableSchemaV2FieldArgs) ToTableSchemaV2FieldOutputWithContext(ctx context.Context) TableSchemaV2FieldOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableSchemaV2FieldOutput)
+}
+
+// TableSchemaV2FieldArrayInput is an input type that accepts TableSchemaV2FieldArray and TableSchemaV2FieldArrayOutput values.
+// You can construct a concrete instance of `TableSchemaV2FieldArrayInput` via:
+//
+//	TableSchemaV2FieldArray{ TableSchemaV2FieldArgs{...} }
+type TableSchemaV2FieldArrayInput interface {
+	pulumi.Input
+
+	ToTableSchemaV2FieldArrayOutput() TableSchemaV2FieldArrayOutput
+	ToTableSchemaV2FieldArrayOutputWithContext(context.Context) TableSchemaV2FieldArrayOutput
+}
+
+type TableSchemaV2FieldArray []TableSchemaV2FieldInput
+
+func (TableSchemaV2FieldArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TableSchemaV2Field)(nil)).Elem()
+}
+
+func (i TableSchemaV2FieldArray) ToTableSchemaV2FieldArrayOutput() TableSchemaV2FieldArrayOutput {
+	return i.ToTableSchemaV2FieldArrayOutputWithContext(context.Background())
+}
+
+func (i TableSchemaV2FieldArray) ToTableSchemaV2FieldArrayOutputWithContext(ctx context.Context) TableSchemaV2FieldArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableSchemaV2FieldArrayOutput)
+}
+
+// Contains details about a schema field for an Iceberg table that supports nested types (struct, list, map)
+type TableSchemaV2FieldOutput struct{ *pulumi.OutputState }
+
+func (TableSchemaV2FieldOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableSchemaV2Field)(nil)).Elem()
+}
+
+func (o TableSchemaV2FieldOutput) ToTableSchemaV2FieldOutput() TableSchemaV2FieldOutput {
+	return o
+}
+
+func (o TableSchemaV2FieldOutput) ToTableSchemaV2FieldOutputWithContext(ctx context.Context) TableSchemaV2FieldOutput {
+	return o
+}
+
+// Optional documentation for the field
+func (o TableSchemaV2FieldOutput) Doc() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TableSchemaV2Field) *string { return v.Doc }).(pulumi.StringPtrOutput)
+}
+
+// The unique identifier for the field
+func (o TableSchemaV2FieldOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v TableSchemaV2Field) int { return v.Id }).(pulumi.IntOutput)
+}
+
+// The name of the field
+func (o TableSchemaV2FieldOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v TableSchemaV2Field) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// A Boolean value that specifies whether values are required for each row in this field
+func (o TableSchemaV2FieldOutput) Required() pulumi.BoolOutput {
+	return o.ApplyT(func(v TableSchemaV2Field) bool { return v.Required }).(pulumi.BoolOutput)
+}
+
+// The field type. For primitive types, use a string (e.g., 'int', 'string', 'long'). For nested types, use an object (e.g., {'type': 'struct', 'fields': [...]} for struct, {'type': 'list', 'element-id': N, 'element': 'type'} for list, {'type': 'map', 'key-id': N, 'key': 'type', 'value-id': N, 'value': 'type'} for map).
+func (o TableSchemaV2FieldOutput) Type() pulumi.AnyOutput {
+	return o.ApplyT(func(v TableSchemaV2Field) interface{} { return v.Type }).(pulumi.AnyOutput)
+}
+
+type TableSchemaV2FieldArrayOutput struct{ *pulumi.OutputState }
+
+func (TableSchemaV2FieldArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TableSchemaV2Field)(nil)).Elem()
+}
+
+func (o TableSchemaV2FieldArrayOutput) ToTableSchemaV2FieldArrayOutput() TableSchemaV2FieldArrayOutput {
+	return o
+}
+
+func (o TableSchemaV2FieldArrayOutput) ToTableSchemaV2FieldArrayOutputWithContext(ctx context.Context) TableSchemaV2FieldArrayOutput {
+	return o
+}
+
+func (o TableSchemaV2FieldArrayOutput) Index(i pulumi.IntInput) TableSchemaV2FieldOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TableSchemaV2Field {
+		return vs[0].([]TableSchemaV2Field)[vs[1].(int)]
+	}).(TableSchemaV2FieldOutput)
+}
+
 // Contains details about the snapshot management settings for an Iceberg table. A snapshot is expired when it exceeds MinSnapshotsToKeep and MaxSnapshotAgeHours.
 type TableSnapshotManagement struct {
 	// The maximum age of a snapshot before it can be expired.
@@ -2297,6 +3008,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TableBucketMetricsConfigurationInput)(nil)).Elem(), TableBucketMetricsConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableBucketMetricsConfigurationPtrInput)(nil)).Elem(), TableBucketMetricsConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableBucketPolicyResourcePolicyInput)(nil)).Elem(), TableBucketPolicyResourcePolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableBucketReplicationConfigurationInput)(nil)).Elem(), TableBucketReplicationConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableBucketReplicationConfigurationPtrInput)(nil)).Elem(), TableBucketReplicationConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableBucketReplicationDestinationInput)(nil)).Elem(), TableBucketReplicationDestinationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableBucketReplicationDestinationArrayInput)(nil)).Elem(), TableBucketReplicationDestinationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableBucketReplicationRuleInput)(nil)).Elem(), TableBucketReplicationRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableBucketReplicationRuleArrayInput)(nil)).Elem(), TableBucketReplicationRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableBucketStorageClassConfigurationInput)(nil)).Elem(), TableBucketStorageClassConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableBucketStorageClassConfigurationPtrInput)(nil)).Elem(), TableBucketStorageClassConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableBucketUnreferencedFileRemovalInput)(nil)).Elem(), TableBucketUnreferencedFileRemovalArgs{})
@@ -2311,6 +3028,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TableIcebergPartitionSpecPtrInput)(nil)).Elem(), TableIcebergPartitionSpecArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableIcebergSchemaInput)(nil)).Elem(), TableIcebergSchemaArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableIcebergSchemaPtrInput)(nil)).Elem(), TableIcebergSchemaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableIcebergSchemaV2Input)(nil)).Elem(), TableIcebergSchemaV2Args{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableIcebergSchemaV2PtrInput)(nil)).Elem(), TableIcebergSchemaV2Args{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableIcebergSortFieldInput)(nil)).Elem(), TableIcebergSortFieldArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableIcebergSortFieldArrayInput)(nil)).Elem(), TableIcebergSortFieldArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableIcebergSortOrderInput)(nil)).Elem(), TableIcebergSortOrderArgs{})
@@ -2318,6 +3037,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TablePolicyResourcePolicyInput)(nil)).Elem(), TablePolicyResourcePolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableSchemaFieldInput)(nil)).Elem(), TableSchemaFieldArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableSchemaFieldArrayInput)(nil)).Elem(), TableSchemaFieldArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableSchemaV2FieldInput)(nil)).Elem(), TableSchemaV2FieldArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableSchemaV2FieldArrayInput)(nil)).Elem(), TableSchemaV2FieldArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableSnapshotManagementInput)(nil)).Elem(), TableSnapshotManagementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableSnapshotManagementPtrInput)(nil)).Elem(), TableSnapshotManagementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableStorageClassConfigurationInput)(nil)).Elem(), TableStorageClassConfigurationArgs{})
@@ -2328,6 +3049,12 @@ func init() {
 	pulumi.RegisterOutputType(TableBucketMetricsConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(TableBucketPolicyResourcePolicyOutput{})
 	pulumi.RegisterOutputType(TableBucketPolicyResourcePolicyPtrOutput{})
+	pulumi.RegisterOutputType(TableBucketReplicationConfigurationOutput{})
+	pulumi.RegisterOutputType(TableBucketReplicationConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(TableBucketReplicationDestinationOutput{})
+	pulumi.RegisterOutputType(TableBucketReplicationDestinationArrayOutput{})
+	pulumi.RegisterOutputType(TableBucketReplicationRuleOutput{})
+	pulumi.RegisterOutputType(TableBucketReplicationRuleArrayOutput{})
 	pulumi.RegisterOutputType(TableBucketStorageClassConfigurationOutput{})
 	pulumi.RegisterOutputType(TableBucketStorageClassConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(TableBucketUnreferencedFileRemovalOutput{})
@@ -2342,6 +3069,8 @@ func init() {
 	pulumi.RegisterOutputType(TableIcebergPartitionSpecPtrOutput{})
 	pulumi.RegisterOutputType(TableIcebergSchemaOutput{})
 	pulumi.RegisterOutputType(TableIcebergSchemaPtrOutput{})
+	pulumi.RegisterOutputType(TableIcebergSchemaV2Output{})
+	pulumi.RegisterOutputType(TableIcebergSchemaV2PtrOutput{})
 	pulumi.RegisterOutputType(TableIcebergSortFieldOutput{})
 	pulumi.RegisterOutputType(TableIcebergSortFieldArrayOutput{})
 	pulumi.RegisterOutputType(TableIcebergSortOrderOutput{})
@@ -2350,6 +3079,8 @@ func init() {
 	pulumi.RegisterOutputType(TablePolicyResourcePolicyPtrOutput{})
 	pulumi.RegisterOutputType(TableSchemaFieldOutput{})
 	pulumi.RegisterOutputType(TableSchemaFieldArrayOutput{})
+	pulumi.RegisterOutputType(TableSchemaV2FieldOutput{})
+	pulumi.RegisterOutputType(TableSchemaV2FieldArrayOutput{})
 	pulumi.RegisterOutputType(TableSnapshotManagementOutput{})
 	pulumi.RegisterOutputType(TableSnapshotManagementPtrOutput{})
 	pulumi.RegisterOutputType(TableStorageClassConfigurationOutput{})

@@ -17,8 +17,9 @@ type TableBucket struct {
 	pulumi.CustomResourceState
 
 	// Configuration specifying how data should be encrypted. This structure defines the encryption algorithm and optional KMS key to be used for server-side encryption.
-	EncryptionConfiguration TableBucketEncryptionConfigurationPtrOutput `pulumi:"encryptionConfiguration"`
-	MetricsConfiguration    TableBucketMetricsConfigurationPtrOutput    `pulumi:"metricsConfiguration"`
+	EncryptionConfiguration  TableBucketEncryptionConfigurationPtrOutput  `pulumi:"encryptionConfiguration"`
+	MetricsConfiguration     TableBucketMetricsConfigurationPtrOutput     `pulumi:"metricsConfiguration"`
+	ReplicationConfiguration TableBucketReplicationConfigurationPtrOutput `pulumi:"replicationConfiguration"`
 	// The configuration details for the storage class of tables or table buckets. This allows you to optimize storage costs by selecting the appropriate storage class based on your access patterns and performance requirements.
 	StorageClassConfiguration TableBucketStorageClassConfigurationPtrOutput `pulumi:"storageClassConfiguration"`
 	// The Amazon Resource Name (ARN) of the table bucket.
@@ -76,8 +77,9 @@ func (TableBucketState) ElementType() reflect.Type {
 
 type tableBucketArgs struct {
 	// Configuration specifying how data should be encrypted. This structure defines the encryption algorithm and optional KMS key to be used for server-side encryption.
-	EncryptionConfiguration *TableBucketEncryptionConfiguration `pulumi:"encryptionConfiguration"`
-	MetricsConfiguration    *TableBucketMetricsConfiguration    `pulumi:"metricsConfiguration"`
+	EncryptionConfiguration  *TableBucketEncryptionConfiguration  `pulumi:"encryptionConfiguration"`
+	MetricsConfiguration     *TableBucketMetricsConfiguration     `pulumi:"metricsConfiguration"`
+	ReplicationConfiguration *TableBucketReplicationConfiguration `pulumi:"replicationConfiguration"`
 	// The configuration details for the storage class of tables or table buckets. This allows you to optimize storage costs by selecting the appropriate storage class based on your access patterns and performance requirements.
 	StorageClassConfiguration *TableBucketStorageClassConfiguration `pulumi:"storageClassConfiguration"`
 	// The name for the table bucket.
@@ -91,8 +93,9 @@ type tableBucketArgs struct {
 // The set of arguments for constructing a TableBucket resource.
 type TableBucketArgs struct {
 	// Configuration specifying how data should be encrypted. This structure defines the encryption algorithm and optional KMS key to be used for server-side encryption.
-	EncryptionConfiguration TableBucketEncryptionConfigurationPtrInput
-	MetricsConfiguration    TableBucketMetricsConfigurationPtrInput
+	EncryptionConfiguration  TableBucketEncryptionConfigurationPtrInput
+	MetricsConfiguration     TableBucketMetricsConfigurationPtrInput
+	ReplicationConfiguration TableBucketReplicationConfigurationPtrInput
 	// The configuration details for the storage class of tables or table buckets. This allows you to optimize storage costs by selecting the appropriate storage class based on your access patterns and performance requirements.
 	StorageClassConfiguration TableBucketStorageClassConfigurationPtrInput
 	// The name for the table bucket.
@@ -147,6 +150,10 @@ func (o TableBucketOutput) EncryptionConfiguration() TableBucketEncryptionConfig
 
 func (o TableBucketOutput) MetricsConfiguration() TableBucketMetricsConfigurationPtrOutput {
 	return o.ApplyT(func(v *TableBucket) TableBucketMetricsConfigurationPtrOutput { return v.MetricsConfiguration }).(TableBucketMetricsConfigurationPtrOutput)
+}
+
+func (o TableBucketOutput) ReplicationConfiguration() TableBucketReplicationConfigurationPtrOutput {
+	return o.ApplyT(func(v *TableBucket) TableBucketReplicationConfigurationPtrOutput { return v.ReplicationConfiguration }).(TableBucketReplicationConfigurationPtrOutput)
 }
 
 // The configuration details for the storage class of tables or table buckets. This allows you to optimize storage costs by selecting the appropriate storage class based on your access patterns and performance requirements.

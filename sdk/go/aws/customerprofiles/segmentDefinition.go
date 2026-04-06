@@ -31,6 +31,8 @@ type SegmentDefinition struct {
 	SegmentDefinitionName pulumi.StringOutput `pulumi:"segmentDefinitionName"`
 	// An array that defines the set of segment criteria to evaluate when handling segment groups for the segment.
 	SegmentGroups SegmentDefinitionSegmentGroupPtrOutput `pulumi:"segmentGroups"`
+	// The segment sort configuration for ordering segment results.
+	SegmentSort SegmentDefinitionSegmentSortPtrOutput `pulumi:"segmentSort"`
 	// The SQL query that defines the segment criteria.
 	SegmentSqlQuery pulumi.StringPtrOutput `pulumi:"segmentSqlQuery"`
 	// The SQL query that defines the segment criteria.
@@ -103,6 +105,8 @@ type segmentDefinitionArgs struct {
 	SegmentDefinitionName *string `pulumi:"segmentDefinitionName"`
 	// An array that defines the set of segment criteria to evaluate when handling segment groups for the segment.
 	SegmentGroups *SegmentDefinitionSegmentGroup `pulumi:"segmentGroups"`
+	// The segment sort configuration for ordering segment results.
+	SegmentSort *SegmentDefinitionSegmentSort `pulumi:"segmentSort"`
 	// The SQL query that defines the segment criteria.
 	SegmentSqlQuery *string `pulumi:"segmentSqlQuery"`
 	// The tags used to organize, track, or control access for this resource.
@@ -121,6 +125,8 @@ type SegmentDefinitionArgs struct {
 	SegmentDefinitionName pulumi.StringPtrInput
 	// An array that defines the set of segment criteria to evaluate when handling segment groups for the segment.
 	SegmentGroups SegmentDefinitionSegmentGroupPtrInput
+	// The segment sort configuration for ordering segment results.
+	SegmentSort SegmentDefinitionSegmentSortPtrInput
 	// The SQL query that defines the segment criteria.
 	SegmentSqlQuery pulumi.StringPtrInput
 	// The tags used to organize, track, or control access for this resource.
@@ -197,6 +203,11 @@ func (o SegmentDefinitionOutput) SegmentDefinitionName() pulumi.StringOutput {
 // An array that defines the set of segment criteria to evaluate when handling segment groups for the segment.
 func (o SegmentDefinitionOutput) SegmentGroups() SegmentDefinitionSegmentGroupPtrOutput {
 	return o.ApplyT(func(v *SegmentDefinition) SegmentDefinitionSegmentGroupPtrOutput { return v.SegmentGroups }).(SegmentDefinitionSegmentGroupPtrOutput)
+}
+
+// The segment sort configuration for ordering segment results.
+func (o SegmentDefinitionOutput) SegmentSort() SegmentDefinitionSegmentSortPtrOutput {
+	return o.ApplyT(func(v *SegmentDefinition) SegmentDefinitionSegmentSortPtrOutput { return v.SegmentSort }).(SegmentDefinitionSegmentSortPtrOutput)
 }
 
 // The SQL query that defines the segment criteria.

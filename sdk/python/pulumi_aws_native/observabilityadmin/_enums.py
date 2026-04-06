@@ -121,6 +121,7 @@ class OrganizationTelemetryRuleResourceType(_builtins.str, Enum):
     AWS_CLOUD_TRAIL = "AWS::CloudTrail"
     AWSEKS_CLUSTER = "AWS::EKS::Cluster"
     AWS_ELASTIC_LOAD_BALANCING_V2_LOAD_BALANCER = "AWS::ElasticLoadBalancingV2::LoadBalancer"
+    AWSEC2_INSTANCE = "AWS::EC2::Instance"
 
 
 @pulumi.type_token("aws-native:observabilityadmin:OrganizationTelemetryRuleTelemetrySourceType")
@@ -143,6 +144,7 @@ class OrganizationTelemetryRuleTelemetryType(_builtins.str, Enum):
     Telemetry Type associated with the Organization Telemetry Rule
     """
     LOGS = "Logs"
+    METRICS = "Metrics"
 
 
 @pulumi.type_token("aws-native:observabilityadmin:OrganizationTelemetryRuleWafLogType")
@@ -248,6 +250,7 @@ class TelemetryRuleResourceType(_builtins.str, Enum):
     AWS_CLOUD_TRAIL = "AWS::CloudTrail"
     AWSEKS_CLUSTER = "AWS::EKS::Cluster"
     AWS_ELASTIC_LOAD_BALANCING_V2_LOAD_BALANCER = "AWS::ElasticLoadBalancingV2::LoadBalancer"
+    AWSEC2_INSTANCE = "AWS::EC2::Instance"
     AWS_BEDROCK_AGENT_CORE_RUNTIME = "AWS::BedrockAgentCore::Runtime"
     AWS_BEDROCK_AGENT_CORE_BROWSER = "AWS::BedrockAgentCore::Browser"
     AWS_BEDROCK_AGENT_CORE_CODE_INTERPRETER = "AWS::BedrockAgentCore::CodeInterpreter"
@@ -280,6 +283,7 @@ class TelemetryRuleTelemetryType(_builtins.str, Enum):
     """
     LOGS = "Logs"
     TRACES = "Traces"
+    METRICS = "Metrics"
 
 
 @pulumi.type_token("aws-native:observabilityadmin:TelemetryRuleWafLogType")

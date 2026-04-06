@@ -520,6 +520,7 @@ export class DbCluster extends pulumi.CustomResource {
      *   Valid for: Aurora DB clusters and Multi-AZ DB clusters
      */
     declare public readonly storageEncrypted: pulumi.Output<boolean | undefined>;
+    declare public /*out*/ readonly storageEncryptionType: pulumi.Output<string>;
     /**
      * The storage throughput for the DB cluster. The throughput is automatically set based on the IOPS that you provision, and is not configurable.
      *
@@ -636,6 +637,7 @@ export class DbCluster extends pulumi.CustomResource {
             resourceInputs["dbClusterResourceId"] = undefined /*out*/;
             resourceInputs["endpoint"] = undefined /*out*/;
             resourceInputs["readEndpoint"] = undefined /*out*/;
+            resourceInputs["storageEncryptionType"] = undefined /*out*/;
             resourceInputs["storageThroughput"] = undefined /*out*/;
         } else {
             resourceInputs["allocatedStorage"] = undefined /*out*/;
@@ -699,6 +701,7 @@ export class DbCluster extends pulumi.CustomResource {
             resourceInputs["sourceDbClusterResourceId"] = undefined /*out*/;
             resourceInputs["sourceRegion"] = undefined /*out*/;
             resourceInputs["storageEncrypted"] = undefined /*out*/;
+            resourceInputs["storageEncryptionType"] = undefined /*out*/;
             resourceInputs["storageThroughput"] = undefined /*out*/;
             resourceInputs["storageType"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;

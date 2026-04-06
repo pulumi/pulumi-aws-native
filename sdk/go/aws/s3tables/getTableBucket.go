@@ -30,8 +30,9 @@ type LookupTableBucketArgs struct {
 
 type LookupTableBucketResult struct {
 	// Configuration specifying how data should be encrypted. This structure defines the encryption algorithm and optional KMS key to be used for server-side encryption.
-	EncryptionConfiguration *TableBucketEncryptionConfiguration `pulumi:"encryptionConfiguration"`
-	MetricsConfiguration    *TableBucketMetricsConfiguration    `pulumi:"metricsConfiguration"`
+	EncryptionConfiguration  *TableBucketEncryptionConfiguration  `pulumi:"encryptionConfiguration"`
+	MetricsConfiguration     *TableBucketMetricsConfiguration     `pulumi:"metricsConfiguration"`
+	ReplicationConfiguration *TableBucketReplicationConfiguration `pulumi:"replicationConfiguration"`
 	// The configuration details for the storage class of tables or table buckets. This allows you to optimize storage costs by selecting the appropriate storage class based on your access patterns and performance requirements.
 	StorageClassConfiguration *TableBucketStorageClassConfiguration `pulumi:"storageClassConfiguration"`
 	// The Amazon Resource Name (ARN) of the table bucket.
@@ -81,6 +82,12 @@ func (o LookupTableBucketResultOutput) EncryptionConfiguration() TableBucketEncr
 
 func (o LookupTableBucketResultOutput) MetricsConfiguration() TableBucketMetricsConfigurationPtrOutput {
 	return o.ApplyT(func(v LookupTableBucketResult) *TableBucketMetricsConfiguration { return v.MetricsConfiguration }).(TableBucketMetricsConfigurationPtrOutput)
+}
+
+func (o LookupTableBucketResultOutput) ReplicationConfiguration() TableBucketReplicationConfigurationPtrOutput {
+	return o.ApplyT(func(v LookupTableBucketResult) *TableBucketReplicationConfiguration {
+		return v.ReplicationConfiguration
+	}).(TableBucketReplicationConfigurationPtrOutput)
 }
 
 // The configuration details for the storage class of tables or table buckets. This allows you to optimize storage costs by selecting the appropriate storage class based on your access patterns and performance requirements.

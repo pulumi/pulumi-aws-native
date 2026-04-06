@@ -13,6 +13,71 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+// Contains information about the API key secret in AWS Secrets Manager
+type ApiKeyCredentialProviderApiKeySecretArn struct {
+	// The ARN of the secret in AWS Secrets Manager
+	SecretArn string `pulumi:"secretArn"`
+}
+
+// Contains information about the API key secret in AWS Secrets Manager
+type ApiKeyCredentialProviderApiKeySecretArnOutput struct{ *pulumi.OutputState }
+
+func (ApiKeyCredentialProviderApiKeySecretArnOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiKeyCredentialProviderApiKeySecretArn)(nil)).Elem()
+}
+
+func (o ApiKeyCredentialProviderApiKeySecretArnOutput) ToApiKeyCredentialProviderApiKeySecretArnOutput() ApiKeyCredentialProviderApiKeySecretArnOutput {
+	return o
+}
+
+func (o ApiKeyCredentialProviderApiKeySecretArnOutput) ToApiKeyCredentialProviderApiKeySecretArnOutputWithContext(ctx context.Context) ApiKeyCredentialProviderApiKeySecretArnOutput {
+	return o
+}
+
+// The ARN of the secret in AWS Secrets Manager
+func (o ApiKeyCredentialProviderApiKeySecretArnOutput) SecretArn() pulumi.StringOutput {
+	return o.ApplyT(func(v ApiKeyCredentialProviderApiKeySecretArn) string { return v.SecretArn }).(pulumi.StringOutput)
+}
+
+type ApiKeyCredentialProviderApiKeySecretArnPtrOutput struct{ *pulumi.OutputState }
+
+func (ApiKeyCredentialProviderApiKeySecretArnPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApiKeyCredentialProviderApiKeySecretArn)(nil)).Elem()
+}
+
+func (o ApiKeyCredentialProviderApiKeySecretArnPtrOutput) ToApiKeyCredentialProviderApiKeySecretArnPtrOutput() ApiKeyCredentialProviderApiKeySecretArnPtrOutput {
+	return o
+}
+
+func (o ApiKeyCredentialProviderApiKeySecretArnPtrOutput) ToApiKeyCredentialProviderApiKeySecretArnPtrOutputWithContext(ctx context.Context) ApiKeyCredentialProviderApiKeySecretArnPtrOutput {
+	return o
+}
+
+func (o ApiKeyCredentialProviderApiKeySecretArnPtrOutput) Elem() ApiKeyCredentialProviderApiKeySecretArnOutput {
+	return o.ApplyT(func(v *ApiKeyCredentialProviderApiKeySecretArn) ApiKeyCredentialProviderApiKeySecretArn {
+		if v != nil {
+			return *v
+		}
+		var ret ApiKeyCredentialProviderApiKeySecretArn
+		return ret
+	}).(ApiKeyCredentialProviderApiKeySecretArnOutput)
+}
+
+// The ARN of the secret in AWS Secrets Manager
+func (o ApiKeyCredentialProviderApiKeySecretArnPtrOutput) SecretArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApiKeyCredentialProviderApiKeySecretArn) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SecretArn
+	}).(pulumi.StringPtrOutput)
+}
+
+type ApiKeyCredentialProviderTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
 // Network configuration for browser
 type BrowserCustomBrowserNetworkConfiguration struct {
 	// The network mode.
@@ -936,6 +1001,47 @@ func (i EvaluatorBedrockEvaluatorModelConfigArgs) ToEvaluatorBedrockEvaluatorMod
 	return pulumi.ToOutputWithContext(ctx, i).(EvaluatorBedrockEvaluatorModelConfigOutput)
 }
 
+func (i EvaluatorBedrockEvaluatorModelConfigArgs) ToEvaluatorBedrockEvaluatorModelConfigPtrOutput() EvaluatorBedrockEvaluatorModelConfigPtrOutput {
+	return i.ToEvaluatorBedrockEvaluatorModelConfigPtrOutputWithContext(context.Background())
+}
+
+func (i EvaluatorBedrockEvaluatorModelConfigArgs) ToEvaluatorBedrockEvaluatorModelConfigPtrOutputWithContext(ctx context.Context) EvaluatorBedrockEvaluatorModelConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EvaluatorBedrockEvaluatorModelConfigOutput).ToEvaluatorBedrockEvaluatorModelConfigPtrOutputWithContext(ctx)
+}
+
+// EvaluatorBedrockEvaluatorModelConfigPtrInput is an input type that accepts EvaluatorBedrockEvaluatorModelConfigArgs, EvaluatorBedrockEvaluatorModelConfigPtr and EvaluatorBedrockEvaluatorModelConfigPtrOutput values.
+// You can construct a concrete instance of `EvaluatorBedrockEvaluatorModelConfigPtrInput` via:
+//
+//	        EvaluatorBedrockEvaluatorModelConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type EvaluatorBedrockEvaluatorModelConfigPtrInput interface {
+	pulumi.Input
+
+	ToEvaluatorBedrockEvaluatorModelConfigPtrOutput() EvaluatorBedrockEvaluatorModelConfigPtrOutput
+	ToEvaluatorBedrockEvaluatorModelConfigPtrOutputWithContext(context.Context) EvaluatorBedrockEvaluatorModelConfigPtrOutput
+}
+
+type evaluatorBedrockEvaluatorModelConfigPtrType EvaluatorBedrockEvaluatorModelConfigArgs
+
+func EvaluatorBedrockEvaluatorModelConfigPtr(v *EvaluatorBedrockEvaluatorModelConfigArgs) EvaluatorBedrockEvaluatorModelConfigPtrInput {
+	return (*evaluatorBedrockEvaluatorModelConfigPtrType)(v)
+}
+
+func (*evaluatorBedrockEvaluatorModelConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EvaluatorBedrockEvaluatorModelConfig)(nil)).Elem()
+}
+
+func (i *evaluatorBedrockEvaluatorModelConfigPtrType) ToEvaluatorBedrockEvaluatorModelConfigPtrOutput() EvaluatorBedrockEvaluatorModelConfigPtrOutput {
+	return i.ToEvaluatorBedrockEvaluatorModelConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *evaluatorBedrockEvaluatorModelConfigPtrType) ToEvaluatorBedrockEvaluatorModelConfigPtrOutputWithContext(ctx context.Context) EvaluatorBedrockEvaluatorModelConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EvaluatorBedrockEvaluatorModelConfigPtrOutput)
+}
+
 // The configuration for using Amazon Bedrock models in evaluator assessments.
 type EvaluatorBedrockEvaluatorModelConfigOutput struct{ *pulumi.OutputState }
 
@@ -949,6 +1055,16 @@ func (o EvaluatorBedrockEvaluatorModelConfigOutput) ToEvaluatorBedrockEvaluatorM
 
 func (o EvaluatorBedrockEvaluatorModelConfigOutput) ToEvaluatorBedrockEvaluatorModelConfigOutputWithContext(ctx context.Context) EvaluatorBedrockEvaluatorModelConfigOutput {
 	return o
+}
+
+func (o EvaluatorBedrockEvaluatorModelConfigOutput) ToEvaluatorBedrockEvaluatorModelConfigPtrOutput() EvaluatorBedrockEvaluatorModelConfigPtrOutput {
+	return o.ToEvaluatorBedrockEvaluatorModelConfigPtrOutputWithContext(context.Background())
+}
+
+func (o EvaluatorBedrockEvaluatorModelConfigOutput) ToEvaluatorBedrockEvaluatorModelConfigPtrOutputWithContext(ctx context.Context) EvaluatorBedrockEvaluatorModelConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EvaluatorBedrockEvaluatorModelConfig) *EvaluatorBedrockEvaluatorModelConfig {
+		return &v
+	}).(EvaluatorBedrockEvaluatorModelConfigPtrOutput)
 }
 
 // Additional model-specific request fields.
@@ -1129,9 +1245,146 @@ func (o EvaluatorCategoricalScaleDefinitionArrayOutput) Index(i pulumi.IntInput)
 	}).(EvaluatorCategoricalScaleDefinitionOutput)
 }
 
+// The configuration for code-based evaluation using a Lambda function.
+type EvaluatorCodeBasedEvaluatorConfig struct {
+	LambdaConfig EvaluatorLambdaEvaluatorConfig `pulumi:"lambdaConfig"`
+}
+
+// EvaluatorCodeBasedEvaluatorConfigInput is an input type that accepts EvaluatorCodeBasedEvaluatorConfigArgs and EvaluatorCodeBasedEvaluatorConfigOutput values.
+// You can construct a concrete instance of `EvaluatorCodeBasedEvaluatorConfigInput` via:
+//
+//	EvaluatorCodeBasedEvaluatorConfigArgs{...}
+type EvaluatorCodeBasedEvaluatorConfigInput interface {
+	pulumi.Input
+
+	ToEvaluatorCodeBasedEvaluatorConfigOutput() EvaluatorCodeBasedEvaluatorConfigOutput
+	ToEvaluatorCodeBasedEvaluatorConfigOutputWithContext(context.Context) EvaluatorCodeBasedEvaluatorConfigOutput
+}
+
+// The configuration for code-based evaluation using a Lambda function.
+type EvaluatorCodeBasedEvaluatorConfigArgs struct {
+	LambdaConfig EvaluatorLambdaEvaluatorConfigInput `pulumi:"lambdaConfig"`
+}
+
+func (EvaluatorCodeBasedEvaluatorConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EvaluatorCodeBasedEvaluatorConfig)(nil)).Elem()
+}
+
+func (i EvaluatorCodeBasedEvaluatorConfigArgs) ToEvaluatorCodeBasedEvaluatorConfigOutput() EvaluatorCodeBasedEvaluatorConfigOutput {
+	return i.ToEvaluatorCodeBasedEvaluatorConfigOutputWithContext(context.Background())
+}
+
+func (i EvaluatorCodeBasedEvaluatorConfigArgs) ToEvaluatorCodeBasedEvaluatorConfigOutputWithContext(ctx context.Context) EvaluatorCodeBasedEvaluatorConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EvaluatorCodeBasedEvaluatorConfigOutput)
+}
+
+func (i EvaluatorCodeBasedEvaluatorConfigArgs) ToEvaluatorCodeBasedEvaluatorConfigPtrOutput() EvaluatorCodeBasedEvaluatorConfigPtrOutput {
+	return i.ToEvaluatorCodeBasedEvaluatorConfigPtrOutputWithContext(context.Background())
+}
+
+func (i EvaluatorCodeBasedEvaluatorConfigArgs) ToEvaluatorCodeBasedEvaluatorConfigPtrOutputWithContext(ctx context.Context) EvaluatorCodeBasedEvaluatorConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EvaluatorCodeBasedEvaluatorConfigOutput).ToEvaluatorCodeBasedEvaluatorConfigPtrOutputWithContext(ctx)
+}
+
+// EvaluatorCodeBasedEvaluatorConfigPtrInput is an input type that accepts EvaluatorCodeBasedEvaluatorConfigArgs, EvaluatorCodeBasedEvaluatorConfigPtr and EvaluatorCodeBasedEvaluatorConfigPtrOutput values.
+// You can construct a concrete instance of `EvaluatorCodeBasedEvaluatorConfigPtrInput` via:
+//
+//	        EvaluatorCodeBasedEvaluatorConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type EvaluatorCodeBasedEvaluatorConfigPtrInput interface {
+	pulumi.Input
+
+	ToEvaluatorCodeBasedEvaluatorConfigPtrOutput() EvaluatorCodeBasedEvaluatorConfigPtrOutput
+	ToEvaluatorCodeBasedEvaluatorConfigPtrOutputWithContext(context.Context) EvaluatorCodeBasedEvaluatorConfigPtrOutput
+}
+
+type evaluatorCodeBasedEvaluatorConfigPtrType EvaluatorCodeBasedEvaluatorConfigArgs
+
+func EvaluatorCodeBasedEvaluatorConfigPtr(v *EvaluatorCodeBasedEvaluatorConfigArgs) EvaluatorCodeBasedEvaluatorConfigPtrInput {
+	return (*evaluatorCodeBasedEvaluatorConfigPtrType)(v)
+}
+
+func (*evaluatorCodeBasedEvaluatorConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EvaluatorCodeBasedEvaluatorConfig)(nil)).Elem()
+}
+
+func (i *evaluatorCodeBasedEvaluatorConfigPtrType) ToEvaluatorCodeBasedEvaluatorConfigPtrOutput() EvaluatorCodeBasedEvaluatorConfigPtrOutput {
+	return i.ToEvaluatorCodeBasedEvaluatorConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *evaluatorCodeBasedEvaluatorConfigPtrType) ToEvaluatorCodeBasedEvaluatorConfigPtrOutputWithContext(ctx context.Context) EvaluatorCodeBasedEvaluatorConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EvaluatorCodeBasedEvaluatorConfigPtrOutput)
+}
+
+// The configuration for code-based evaluation using a Lambda function.
+type EvaluatorCodeBasedEvaluatorConfigOutput struct{ *pulumi.OutputState }
+
+func (EvaluatorCodeBasedEvaluatorConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EvaluatorCodeBasedEvaluatorConfig)(nil)).Elem()
+}
+
+func (o EvaluatorCodeBasedEvaluatorConfigOutput) ToEvaluatorCodeBasedEvaluatorConfigOutput() EvaluatorCodeBasedEvaluatorConfigOutput {
+	return o
+}
+
+func (o EvaluatorCodeBasedEvaluatorConfigOutput) ToEvaluatorCodeBasedEvaluatorConfigOutputWithContext(ctx context.Context) EvaluatorCodeBasedEvaluatorConfigOutput {
+	return o
+}
+
+func (o EvaluatorCodeBasedEvaluatorConfigOutput) ToEvaluatorCodeBasedEvaluatorConfigPtrOutput() EvaluatorCodeBasedEvaluatorConfigPtrOutput {
+	return o.ToEvaluatorCodeBasedEvaluatorConfigPtrOutputWithContext(context.Background())
+}
+
+func (o EvaluatorCodeBasedEvaluatorConfigOutput) ToEvaluatorCodeBasedEvaluatorConfigPtrOutputWithContext(ctx context.Context) EvaluatorCodeBasedEvaluatorConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EvaluatorCodeBasedEvaluatorConfig) *EvaluatorCodeBasedEvaluatorConfig {
+		return &v
+	}).(EvaluatorCodeBasedEvaluatorConfigPtrOutput)
+}
+
+func (o EvaluatorCodeBasedEvaluatorConfigOutput) LambdaConfig() EvaluatorLambdaEvaluatorConfigOutput {
+	return o.ApplyT(func(v EvaluatorCodeBasedEvaluatorConfig) EvaluatorLambdaEvaluatorConfig { return v.LambdaConfig }).(EvaluatorLambdaEvaluatorConfigOutput)
+}
+
+type EvaluatorCodeBasedEvaluatorConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (EvaluatorCodeBasedEvaluatorConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EvaluatorCodeBasedEvaluatorConfig)(nil)).Elem()
+}
+
+func (o EvaluatorCodeBasedEvaluatorConfigPtrOutput) ToEvaluatorCodeBasedEvaluatorConfigPtrOutput() EvaluatorCodeBasedEvaluatorConfigPtrOutput {
+	return o
+}
+
+func (o EvaluatorCodeBasedEvaluatorConfigPtrOutput) ToEvaluatorCodeBasedEvaluatorConfigPtrOutputWithContext(ctx context.Context) EvaluatorCodeBasedEvaluatorConfigPtrOutput {
+	return o
+}
+
+func (o EvaluatorCodeBasedEvaluatorConfigPtrOutput) Elem() EvaluatorCodeBasedEvaluatorConfigOutput {
+	return o.ApplyT(func(v *EvaluatorCodeBasedEvaluatorConfig) EvaluatorCodeBasedEvaluatorConfig {
+		if v != nil {
+			return *v
+		}
+		var ret EvaluatorCodeBasedEvaluatorConfig
+		return ret
+	}).(EvaluatorCodeBasedEvaluatorConfigOutput)
+}
+
+func (o EvaluatorCodeBasedEvaluatorConfigPtrOutput) LambdaConfig() EvaluatorLambdaEvaluatorConfigPtrOutput {
+	return o.ApplyT(func(v *EvaluatorCodeBasedEvaluatorConfig) *EvaluatorLambdaEvaluatorConfig {
+		if v == nil {
+			return nil
+		}
+		return &v.LambdaConfig
+	}).(EvaluatorLambdaEvaluatorConfigPtrOutput)
+}
+
 // The configuration that defines how an evaluator assesses agent performance.
 type EvaluatorConfig struct {
-	LlmAsAJudge EvaluatorLlmAsAJudgeEvaluatorConfig `pulumi:"llmAsAJudge"`
+	CodeBased   *EvaluatorCodeBasedEvaluatorConfig   `pulumi:"codeBased"`
+	LlmAsAJudge *EvaluatorLlmAsAJudgeEvaluatorConfig `pulumi:"llmAsAJudge"`
 }
 
 // EvaluatorConfigInput is an input type that accepts EvaluatorConfigArgs and EvaluatorConfigOutput values.
@@ -1147,7 +1400,8 @@ type EvaluatorConfigInput interface {
 
 // The configuration that defines how an evaluator assesses agent performance.
 type EvaluatorConfigArgs struct {
-	LlmAsAJudge EvaluatorLlmAsAJudgeEvaluatorConfigInput `pulumi:"llmAsAJudge"`
+	CodeBased   EvaluatorCodeBasedEvaluatorConfigPtrInput   `pulumi:"codeBased"`
+	LlmAsAJudge EvaluatorLlmAsAJudgeEvaluatorConfigPtrInput `pulumi:"llmAsAJudge"`
 }
 
 func (EvaluatorConfigArgs) ElementType() reflect.Type {
@@ -1177,8 +1431,12 @@ func (o EvaluatorConfigOutput) ToEvaluatorConfigOutputWithContext(ctx context.Co
 	return o
 }
 
-func (o EvaluatorConfigOutput) LlmAsAJudge() EvaluatorLlmAsAJudgeEvaluatorConfigOutput {
-	return o.ApplyT(func(v EvaluatorConfig) EvaluatorLlmAsAJudgeEvaluatorConfig { return v.LlmAsAJudge }).(EvaluatorLlmAsAJudgeEvaluatorConfigOutput)
+func (o EvaluatorConfigOutput) CodeBased() EvaluatorCodeBasedEvaluatorConfigPtrOutput {
+	return o.ApplyT(func(v EvaluatorConfig) *EvaluatorCodeBasedEvaluatorConfig { return v.CodeBased }).(EvaluatorCodeBasedEvaluatorConfigPtrOutput)
+}
+
+func (o EvaluatorConfigOutput) LlmAsAJudge() EvaluatorLlmAsAJudgeEvaluatorConfigPtrOutput {
+	return o.ApplyT(func(v EvaluatorConfig) *EvaluatorLlmAsAJudgeEvaluatorConfig { return v.LlmAsAJudge }).(EvaluatorLlmAsAJudgeEvaluatorConfigPtrOutput)
 }
 
 type EvaluatorConfigPtrOutput struct{ *pulumi.OutputState }
@@ -1205,12 +1463,21 @@ func (o EvaluatorConfigPtrOutput) Elem() EvaluatorConfigOutput {
 	}).(EvaluatorConfigOutput)
 }
 
+func (o EvaluatorConfigPtrOutput) CodeBased() EvaluatorCodeBasedEvaluatorConfigPtrOutput {
+	return o.ApplyT(func(v *EvaluatorConfig) *EvaluatorCodeBasedEvaluatorConfig {
+		if v == nil {
+			return nil
+		}
+		return v.CodeBased
+	}).(EvaluatorCodeBasedEvaluatorConfigPtrOutput)
+}
+
 func (o EvaluatorConfigPtrOutput) LlmAsAJudge() EvaluatorLlmAsAJudgeEvaluatorConfigPtrOutput {
 	return o.ApplyT(func(v *EvaluatorConfig) *EvaluatorLlmAsAJudgeEvaluatorConfig {
 		if v == nil {
 			return nil
 		}
-		return &v.LlmAsAJudge
+		return v.LlmAsAJudge
 	}).(EvaluatorLlmAsAJudgeEvaluatorConfigPtrOutput)
 }
 
@@ -1392,6 +1659,165 @@ func (o EvaluatorInferenceConfigurationPtrOutput) TopP() pulumi.Float64PtrOutput
 	}).(pulumi.Float64PtrOutput)
 }
 
+// The Lambda function configuration for code-based evaluation.
+type EvaluatorLambdaEvaluatorConfig struct {
+	// The ARN of the Lambda function used for evaluation.
+	LambdaArn string `pulumi:"lambdaArn"`
+	// The timeout in seconds for the Lambda function invocation.
+	LambdaTimeoutInSeconds *int `pulumi:"lambdaTimeoutInSeconds"`
+}
+
+// EvaluatorLambdaEvaluatorConfigInput is an input type that accepts EvaluatorLambdaEvaluatorConfigArgs and EvaluatorLambdaEvaluatorConfigOutput values.
+// You can construct a concrete instance of `EvaluatorLambdaEvaluatorConfigInput` via:
+//
+//	EvaluatorLambdaEvaluatorConfigArgs{...}
+type EvaluatorLambdaEvaluatorConfigInput interface {
+	pulumi.Input
+
+	ToEvaluatorLambdaEvaluatorConfigOutput() EvaluatorLambdaEvaluatorConfigOutput
+	ToEvaluatorLambdaEvaluatorConfigOutputWithContext(context.Context) EvaluatorLambdaEvaluatorConfigOutput
+}
+
+// The Lambda function configuration for code-based evaluation.
+type EvaluatorLambdaEvaluatorConfigArgs struct {
+	// The ARN of the Lambda function used for evaluation.
+	LambdaArn pulumi.StringInput `pulumi:"lambdaArn"`
+	// The timeout in seconds for the Lambda function invocation.
+	LambdaTimeoutInSeconds pulumi.IntPtrInput `pulumi:"lambdaTimeoutInSeconds"`
+}
+
+func (EvaluatorLambdaEvaluatorConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EvaluatorLambdaEvaluatorConfig)(nil)).Elem()
+}
+
+func (i EvaluatorLambdaEvaluatorConfigArgs) ToEvaluatorLambdaEvaluatorConfigOutput() EvaluatorLambdaEvaluatorConfigOutput {
+	return i.ToEvaluatorLambdaEvaluatorConfigOutputWithContext(context.Background())
+}
+
+func (i EvaluatorLambdaEvaluatorConfigArgs) ToEvaluatorLambdaEvaluatorConfigOutputWithContext(ctx context.Context) EvaluatorLambdaEvaluatorConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EvaluatorLambdaEvaluatorConfigOutput)
+}
+
+func (i EvaluatorLambdaEvaluatorConfigArgs) ToEvaluatorLambdaEvaluatorConfigPtrOutput() EvaluatorLambdaEvaluatorConfigPtrOutput {
+	return i.ToEvaluatorLambdaEvaluatorConfigPtrOutputWithContext(context.Background())
+}
+
+func (i EvaluatorLambdaEvaluatorConfigArgs) ToEvaluatorLambdaEvaluatorConfigPtrOutputWithContext(ctx context.Context) EvaluatorLambdaEvaluatorConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EvaluatorLambdaEvaluatorConfigOutput).ToEvaluatorLambdaEvaluatorConfigPtrOutputWithContext(ctx)
+}
+
+// EvaluatorLambdaEvaluatorConfigPtrInput is an input type that accepts EvaluatorLambdaEvaluatorConfigArgs, EvaluatorLambdaEvaluatorConfigPtr and EvaluatorLambdaEvaluatorConfigPtrOutput values.
+// You can construct a concrete instance of `EvaluatorLambdaEvaluatorConfigPtrInput` via:
+//
+//	        EvaluatorLambdaEvaluatorConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type EvaluatorLambdaEvaluatorConfigPtrInput interface {
+	pulumi.Input
+
+	ToEvaluatorLambdaEvaluatorConfigPtrOutput() EvaluatorLambdaEvaluatorConfigPtrOutput
+	ToEvaluatorLambdaEvaluatorConfigPtrOutputWithContext(context.Context) EvaluatorLambdaEvaluatorConfigPtrOutput
+}
+
+type evaluatorLambdaEvaluatorConfigPtrType EvaluatorLambdaEvaluatorConfigArgs
+
+func EvaluatorLambdaEvaluatorConfigPtr(v *EvaluatorLambdaEvaluatorConfigArgs) EvaluatorLambdaEvaluatorConfigPtrInput {
+	return (*evaluatorLambdaEvaluatorConfigPtrType)(v)
+}
+
+func (*evaluatorLambdaEvaluatorConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EvaluatorLambdaEvaluatorConfig)(nil)).Elem()
+}
+
+func (i *evaluatorLambdaEvaluatorConfigPtrType) ToEvaluatorLambdaEvaluatorConfigPtrOutput() EvaluatorLambdaEvaluatorConfigPtrOutput {
+	return i.ToEvaluatorLambdaEvaluatorConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *evaluatorLambdaEvaluatorConfigPtrType) ToEvaluatorLambdaEvaluatorConfigPtrOutputWithContext(ctx context.Context) EvaluatorLambdaEvaluatorConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EvaluatorLambdaEvaluatorConfigPtrOutput)
+}
+
+// The Lambda function configuration for code-based evaluation.
+type EvaluatorLambdaEvaluatorConfigOutput struct{ *pulumi.OutputState }
+
+func (EvaluatorLambdaEvaluatorConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EvaluatorLambdaEvaluatorConfig)(nil)).Elem()
+}
+
+func (o EvaluatorLambdaEvaluatorConfigOutput) ToEvaluatorLambdaEvaluatorConfigOutput() EvaluatorLambdaEvaluatorConfigOutput {
+	return o
+}
+
+func (o EvaluatorLambdaEvaluatorConfigOutput) ToEvaluatorLambdaEvaluatorConfigOutputWithContext(ctx context.Context) EvaluatorLambdaEvaluatorConfigOutput {
+	return o
+}
+
+func (o EvaluatorLambdaEvaluatorConfigOutput) ToEvaluatorLambdaEvaluatorConfigPtrOutput() EvaluatorLambdaEvaluatorConfigPtrOutput {
+	return o.ToEvaluatorLambdaEvaluatorConfigPtrOutputWithContext(context.Background())
+}
+
+func (o EvaluatorLambdaEvaluatorConfigOutput) ToEvaluatorLambdaEvaluatorConfigPtrOutputWithContext(ctx context.Context) EvaluatorLambdaEvaluatorConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EvaluatorLambdaEvaluatorConfig) *EvaluatorLambdaEvaluatorConfig {
+		return &v
+	}).(EvaluatorLambdaEvaluatorConfigPtrOutput)
+}
+
+// The ARN of the Lambda function used for evaluation.
+func (o EvaluatorLambdaEvaluatorConfigOutput) LambdaArn() pulumi.StringOutput {
+	return o.ApplyT(func(v EvaluatorLambdaEvaluatorConfig) string { return v.LambdaArn }).(pulumi.StringOutput)
+}
+
+// The timeout in seconds for the Lambda function invocation.
+func (o EvaluatorLambdaEvaluatorConfigOutput) LambdaTimeoutInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v EvaluatorLambdaEvaluatorConfig) *int { return v.LambdaTimeoutInSeconds }).(pulumi.IntPtrOutput)
+}
+
+type EvaluatorLambdaEvaluatorConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (EvaluatorLambdaEvaluatorConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EvaluatorLambdaEvaluatorConfig)(nil)).Elem()
+}
+
+func (o EvaluatorLambdaEvaluatorConfigPtrOutput) ToEvaluatorLambdaEvaluatorConfigPtrOutput() EvaluatorLambdaEvaluatorConfigPtrOutput {
+	return o
+}
+
+func (o EvaluatorLambdaEvaluatorConfigPtrOutput) ToEvaluatorLambdaEvaluatorConfigPtrOutputWithContext(ctx context.Context) EvaluatorLambdaEvaluatorConfigPtrOutput {
+	return o
+}
+
+func (o EvaluatorLambdaEvaluatorConfigPtrOutput) Elem() EvaluatorLambdaEvaluatorConfigOutput {
+	return o.ApplyT(func(v *EvaluatorLambdaEvaluatorConfig) EvaluatorLambdaEvaluatorConfig {
+		if v != nil {
+			return *v
+		}
+		var ret EvaluatorLambdaEvaluatorConfig
+		return ret
+	}).(EvaluatorLambdaEvaluatorConfigOutput)
+}
+
+// The ARN of the Lambda function used for evaluation.
+func (o EvaluatorLambdaEvaluatorConfigPtrOutput) LambdaArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EvaluatorLambdaEvaluatorConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.LambdaArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The timeout in seconds for the Lambda function invocation.
+func (o EvaluatorLambdaEvaluatorConfigPtrOutput) LambdaTimeoutInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EvaluatorLambdaEvaluatorConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.LambdaTimeoutInSeconds
+	}).(pulumi.IntPtrOutput)
+}
+
 // The configuration for LLM-as-a-Judge evaluation.
 type EvaluatorLlmAsAJudgeEvaluatorConfig struct {
 	// The evaluation instructions that guide the language model in assessing agent performance.
@@ -1431,6 +1857,47 @@ func (i EvaluatorLlmAsAJudgeEvaluatorConfigArgs) ToEvaluatorLlmAsAJudgeEvaluator
 	return pulumi.ToOutputWithContext(ctx, i).(EvaluatorLlmAsAJudgeEvaluatorConfigOutput)
 }
 
+func (i EvaluatorLlmAsAJudgeEvaluatorConfigArgs) ToEvaluatorLlmAsAJudgeEvaluatorConfigPtrOutput() EvaluatorLlmAsAJudgeEvaluatorConfigPtrOutput {
+	return i.ToEvaluatorLlmAsAJudgeEvaluatorConfigPtrOutputWithContext(context.Background())
+}
+
+func (i EvaluatorLlmAsAJudgeEvaluatorConfigArgs) ToEvaluatorLlmAsAJudgeEvaluatorConfigPtrOutputWithContext(ctx context.Context) EvaluatorLlmAsAJudgeEvaluatorConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EvaluatorLlmAsAJudgeEvaluatorConfigOutput).ToEvaluatorLlmAsAJudgeEvaluatorConfigPtrOutputWithContext(ctx)
+}
+
+// EvaluatorLlmAsAJudgeEvaluatorConfigPtrInput is an input type that accepts EvaluatorLlmAsAJudgeEvaluatorConfigArgs, EvaluatorLlmAsAJudgeEvaluatorConfigPtr and EvaluatorLlmAsAJudgeEvaluatorConfigPtrOutput values.
+// You can construct a concrete instance of `EvaluatorLlmAsAJudgeEvaluatorConfigPtrInput` via:
+//
+//	        EvaluatorLlmAsAJudgeEvaluatorConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type EvaluatorLlmAsAJudgeEvaluatorConfigPtrInput interface {
+	pulumi.Input
+
+	ToEvaluatorLlmAsAJudgeEvaluatorConfigPtrOutput() EvaluatorLlmAsAJudgeEvaluatorConfigPtrOutput
+	ToEvaluatorLlmAsAJudgeEvaluatorConfigPtrOutputWithContext(context.Context) EvaluatorLlmAsAJudgeEvaluatorConfigPtrOutput
+}
+
+type evaluatorLlmAsAJudgeEvaluatorConfigPtrType EvaluatorLlmAsAJudgeEvaluatorConfigArgs
+
+func EvaluatorLlmAsAJudgeEvaluatorConfigPtr(v *EvaluatorLlmAsAJudgeEvaluatorConfigArgs) EvaluatorLlmAsAJudgeEvaluatorConfigPtrInput {
+	return (*evaluatorLlmAsAJudgeEvaluatorConfigPtrType)(v)
+}
+
+func (*evaluatorLlmAsAJudgeEvaluatorConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EvaluatorLlmAsAJudgeEvaluatorConfig)(nil)).Elem()
+}
+
+func (i *evaluatorLlmAsAJudgeEvaluatorConfigPtrType) ToEvaluatorLlmAsAJudgeEvaluatorConfigPtrOutput() EvaluatorLlmAsAJudgeEvaluatorConfigPtrOutput {
+	return i.ToEvaluatorLlmAsAJudgeEvaluatorConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *evaluatorLlmAsAJudgeEvaluatorConfigPtrType) ToEvaluatorLlmAsAJudgeEvaluatorConfigPtrOutputWithContext(ctx context.Context) EvaluatorLlmAsAJudgeEvaluatorConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EvaluatorLlmAsAJudgeEvaluatorConfigPtrOutput)
+}
+
 // The configuration for LLM-as-a-Judge evaluation.
 type EvaluatorLlmAsAJudgeEvaluatorConfigOutput struct{ *pulumi.OutputState }
 
@@ -1444,6 +1911,16 @@ func (o EvaluatorLlmAsAJudgeEvaluatorConfigOutput) ToEvaluatorLlmAsAJudgeEvaluat
 
 func (o EvaluatorLlmAsAJudgeEvaluatorConfigOutput) ToEvaluatorLlmAsAJudgeEvaluatorConfigOutputWithContext(ctx context.Context) EvaluatorLlmAsAJudgeEvaluatorConfigOutput {
 	return o
+}
+
+func (o EvaluatorLlmAsAJudgeEvaluatorConfigOutput) ToEvaluatorLlmAsAJudgeEvaluatorConfigPtrOutput() EvaluatorLlmAsAJudgeEvaluatorConfigPtrOutput {
+	return o.ToEvaluatorLlmAsAJudgeEvaluatorConfigPtrOutputWithContext(context.Background())
+}
+
+func (o EvaluatorLlmAsAJudgeEvaluatorConfigOutput) ToEvaluatorLlmAsAJudgeEvaluatorConfigPtrOutputWithContext(ctx context.Context) EvaluatorLlmAsAJudgeEvaluatorConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EvaluatorLlmAsAJudgeEvaluatorConfig) *EvaluatorLlmAsAJudgeEvaluatorConfig {
+		return &v
+	}).(EvaluatorLlmAsAJudgeEvaluatorConfigPtrOutput)
 }
 
 // The evaluation instructions that guide the language model in assessing agent performance.
@@ -1544,6 +2021,47 @@ func (i EvaluatorModelConfigArgs) ToEvaluatorModelConfigOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(EvaluatorModelConfigOutput)
 }
 
+func (i EvaluatorModelConfigArgs) ToEvaluatorModelConfigPtrOutput() EvaluatorModelConfigPtrOutput {
+	return i.ToEvaluatorModelConfigPtrOutputWithContext(context.Background())
+}
+
+func (i EvaluatorModelConfigArgs) ToEvaluatorModelConfigPtrOutputWithContext(ctx context.Context) EvaluatorModelConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EvaluatorModelConfigOutput).ToEvaluatorModelConfigPtrOutputWithContext(ctx)
+}
+
+// EvaluatorModelConfigPtrInput is an input type that accepts EvaluatorModelConfigArgs, EvaluatorModelConfigPtr and EvaluatorModelConfigPtrOutput values.
+// You can construct a concrete instance of `EvaluatorModelConfigPtrInput` via:
+//
+//	        EvaluatorModelConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type EvaluatorModelConfigPtrInput interface {
+	pulumi.Input
+
+	ToEvaluatorModelConfigPtrOutput() EvaluatorModelConfigPtrOutput
+	ToEvaluatorModelConfigPtrOutputWithContext(context.Context) EvaluatorModelConfigPtrOutput
+}
+
+type evaluatorModelConfigPtrType EvaluatorModelConfigArgs
+
+func EvaluatorModelConfigPtr(v *EvaluatorModelConfigArgs) EvaluatorModelConfigPtrInput {
+	return (*evaluatorModelConfigPtrType)(v)
+}
+
+func (*evaluatorModelConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EvaluatorModelConfig)(nil)).Elem()
+}
+
+func (i *evaluatorModelConfigPtrType) ToEvaluatorModelConfigPtrOutput() EvaluatorModelConfigPtrOutput {
+	return i.ToEvaluatorModelConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *evaluatorModelConfigPtrType) ToEvaluatorModelConfigPtrOutputWithContext(ctx context.Context) EvaluatorModelConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EvaluatorModelConfigPtrOutput)
+}
+
 // The model configuration that specifies which foundation model to use for evaluation.
 type EvaluatorModelConfigOutput struct{ *pulumi.OutputState }
 
@@ -1557,6 +2075,16 @@ func (o EvaluatorModelConfigOutput) ToEvaluatorModelConfigOutput() EvaluatorMode
 
 func (o EvaluatorModelConfigOutput) ToEvaluatorModelConfigOutputWithContext(ctx context.Context) EvaluatorModelConfigOutput {
 	return o
+}
+
+func (o EvaluatorModelConfigOutput) ToEvaluatorModelConfigPtrOutput() EvaluatorModelConfigPtrOutput {
+	return o.ToEvaluatorModelConfigPtrOutputWithContext(context.Background())
+}
+
+func (o EvaluatorModelConfigOutput) ToEvaluatorModelConfigPtrOutputWithContext(ctx context.Context) EvaluatorModelConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EvaluatorModelConfig) *EvaluatorModelConfig {
+		return &v
+	}).(EvaluatorModelConfigPtrOutput)
 }
 
 func (o EvaluatorModelConfigOutput) BedrockEvaluatorModelConfig() EvaluatorBedrockEvaluatorModelConfigOutput {
@@ -1751,6 +2279,47 @@ func (i EvaluatorRatingScaleArgs) ToEvaluatorRatingScaleOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(EvaluatorRatingScaleOutput)
 }
 
+func (i EvaluatorRatingScaleArgs) ToEvaluatorRatingScalePtrOutput() EvaluatorRatingScalePtrOutput {
+	return i.ToEvaluatorRatingScalePtrOutputWithContext(context.Background())
+}
+
+func (i EvaluatorRatingScaleArgs) ToEvaluatorRatingScalePtrOutputWithContext(ctx context.Context) EvaluatorRatingScalePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EvaluatorRatingScaleOutput).ToEvaluatorRatingScalePtrOutputWithContext(ctx)
+}
+
+// EvaluatorRatingScalePtrInput is an input type that accepts EvaluatorRatingScaleArgs, EvaluatorRatingScalePtr and EvaluatorRatingScalePtrOutput values.
+// You can construct a concrete instance of `EvaluatorRatingScalePtrInput` via:
+//
+//	        EvaluatorRatingScaleArgs{...}
+//
+//	or:
+//
+//	        nil
+type EvaluatorRatingScalePtrInput interface {
+	pulumi.Input
+
+	ToEvaluatorRatingScalePtrOutput() EvaluatorRatingScalePtrOutput
+	ToEvaluatorRatingScalePtrOutputWithContext(context.Context) EvaluatorRatingScalePtrOutput
+}
+
+type evaluatorRatingScalePtrType EvaluatorRatingScaleArgs
+
+func EvaluatorRatingScalePtr(v *EvaluatorRatingScaleArgs) EvaluatorRatingScalePtrInput {
+	return (*evaluatorRatingScalePtrType)(v)
+}
+
+func (*evaluatorRatingScalePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EvaluatorRatingScale)(nil)).Elem()
+}
+
+func (i *evaluatorRatingScalePtrType) ToEvaluatorRatingScalePtrOutput() EvaluatorRatingScalePtrOutput {
+	return i.ToEvaluatorRatingScalePtrOutputWithContext(context.Background())
+}
+
+func (i *evaluatorRatingScalePtrType) ToEvaluatorRatingScalePtrOutputWithContext(ctx context.Context) EvaluatorRatingScalePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EvaluatorRatingScalePtrOutput)
+}
+
 // The rating scale that defines how evaluators should score agent performance.
 type EvaluatorRatingScaleOutput struct{ *pulumi.OutputState }
 
@@ -1764,6 +2333,16 @@ func (o EvaluatorRatingScaleOutput) ToEvaluatorRatingScaleOutput() EvaluatorRati
 
 func (o EvaluatorRatingScaleOutput) ToEvaluatorRatingScaleOutputWithContext(ctx context.Context) EvaluatorRatingScaleOutput {
 	return o
+}
+
+func (o EvaluatorRatingScaleOutput) ToEvaluatorRatingScalePtrOutput() EvaluatorRatingScalePtrOutput {
+	return o.ToEvaluatorRatingScalePtrOutputWithContext(context.Background())
+}
+
+func (o EvaluatorRatingScaleOutput) ToEvaluatorRatingScalePtrOutputWithContext(ctx context.Context) EvaluatorRatingScalePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EvaluatorRatingScale) *EvaluatorRatingScale {
+		return &v
+	}).(EvaluatorRatingScalePtrOutput)
 }
 
 func (o EvaluatorRatingScaleOutput) Categorical() EvaluatorCategoricalScaleDefinitionArrayOutput {
@@ -6342,10 +6921,11 @@ func (o MemoryCustomConfigurationInputPtrOutput) UserPreferenceOverride() Memory
 type MemoryCustomMemoryStrategy struct {
 	Configuration *MemoryCustomConfigurationInput `pulumi:"configuration"`
 	// Creation timestamp of the memory strategy
-	CreatedAt   *string  `pulumi:"createdAt"`
-	Description *string  `pulumi:"description"`
-	Name        string   `pulumi:"name"`
-	Namespaces  []string `pulumi:"namespaces"`
+	CreatedAt          *string  `pulumi:"createdAt"`
+	Description        *string  `pulumi:"description"`
+	Name               string   `pulumi:"name"`
+	NamespaceTemplates []string `pulumi:"namespaceTemplates"`
+	Namespaces         []string `pulumi:"namespaces"`
 	// Status of the memory strategy
 	Status *MemoryCustomMemoryStrategyStatus `pulumi:"status"`
 	// Unique identifier for the memory strategy
@@ -6370,10 +6950,11 @@ type MemoryCustomMemoryStrategyInput interface {
 type MemoryCustomMemoryStrategyArgs struct {
 	Configuration MemoryCustomConfigurationInputPtrInput `pulumi:"configuration"`
 	// Creation timestamp of the memory strategy
-	CreatedAt   pulumi.StringPtrInput   `pulumi:"createdAt"`
-	Description pulumi.StringPtrInput   `pulumi:"description"`
-	Name        pulumi.StringInput      `pulumi:"name"`
-	Namespaces  pulumi.StringArrayInput `pulumi:"namespaces"`
+	CreatedAt          pulumi.StringPtrInput   `pulumi:"createdAt"`
+	Description        pulumi.StringPtrInput   `pulumi:"description"`
+	Name               pulumi.StringInput      `pulumi:"name"`
+	NamespaceTemplates pulumi.StringArrayInput `pulumi:"namespaceTemplates"`
+	Namespaces         pulumi.StringArrayInput `pulumi:"namespaces"`
 	// Status of the memory strategy
 	Status MemoryCustomMemoryStrategyStatusPtrInput `pulumi:"status"`
 	// Unique identifier for the memory strategy
@@ -6478,6 +7059,10 @@ func (o MemoryCustomMemoryStrategyOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v MemoryCustomMemoryStrategy) string { return v.Name }).(pulumi.StringOutput)
 }
 
+func (o MemoryCustomMemoryStrategyOutput) NamespaceTemplates() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v MemoryCustomMemoryStrategy) []string { return v.NamespaceTemplates }).(pulumi.StringArrayOutput)
+}
+
 func (o MemoryCustomMemoryStrategyOutput) Namespaces() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v MemoryCustomMemoryStrategy) []string { return v.Namespaces }).(pulumi.StringArrayOutput)
 }
@@ -6563,6 +7148,15 @@ func (o MemoryCustomMemoryStrategyPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+func (o MemoryCustomMemoryStrategyPtrOutput) NamespaceTemplates() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *MemoryCustomMemoryStrategy) []string {
+		if v == nil {
+			return nil
+		}
+		return v.NamespaceTemplates
+	}).(pulumi.StringArrayOutput)
+}
+
 func (o MemoryCustomMemoryStrategyPtrOutput) Namespaces() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *MemoryCustomMemoryStrategy) []string {
 		if v == nil {
@@ -6617,6 +7211,7 @@ type MemoryEpisodicMemoryStrategy struct {
 	CreatedAt               *string                                     `pulumi:"createdAt"`
 	Description             *string                                     `pulumi:"description"`
 	Name                    string                                      `pulumi:"name"`
+	NamespaceTemplates      []string                                    `pulumi:"namespaceTemplates"`
 	Namespaces              []string                                    `pulumi:"namespaces"`
 	ReflectionConfiguration *MemoryEpisodicReflectionConfigurationInput `pulumi:"reflectionConfiguration"`
 	// Status of the memory strategy
@@ -6645,6 +7240,7 @@ type MemoryEpisodicMemoryStrategyArgs struct {
 	CreatedAt               pulumi.StringPtrInput                              `pulumi:"createdAt"`
 	Description             pulumi.StringPtrInput                              `pulumi:"description"`
 	Name                    pulumi.StringInput                                 `pulumi:"name"`
+	NamespaceTemplates      pulumi.StringArrayInput                            `pulumi:"namespaceTemplates"`
 	Namespaces              pulumi.StringArrayInput                            `pulumi:"namespaces"`
 	ReflectionConfiguration MemoryEpisodicReflectionConfigurationInputPtrInput `pulumi:"reflectionConfiguration"`
 	// Status of the memory strategy
@@ -6747,6 +7343,10 @@ func (o MemoryEpisodicMemoryStrategyOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v MemoryEpisodicMemoryStrategy) string { return v.Name }).(pulumi.StringOutput)
 }
 
+func (o MemoryEpisodicMemoryStrategyOutput) NamespaceTemplates() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v MemoryEpisodicMemoryStrategy) []string { return v.NamespaceTemplates }).(pulumi.StringArrayOutput)
+}
+
 func (o MemoryEpisodicMemoryStrategyOutput) Namespaces() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v MemoryEpisodicMemoryStrategy) []string { return v.Namespaces }).(pulumi.StringArrayOutput)
 }
@@ -6827,6 +7427,15 @@ func (o MemoryEpisodicMemoryStrategyPtrOutput) Name() pulumi.StringPtrOutput {
 		}
 		return &v.Name
 	}).(pulumi.StringPtrOutput)
+}
+
+func (o MemoryEpisodicMemoryStrategyPtrOutput) NamespaceTemplates() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *MemoryEpisodicMemoryStrategy) []string {
+		if v == nil {
+			return nil
+		}
+		return v.NamespaceTemplates
+	}).(pulumi.StringArrayOutput)
 }
 
 func (o MemoryEpisodicMemoryStrategyPtrOutput) Namespaces() pulumi.StringArrayOutput {
@@ -7353,9 +7962,10 @@ func (o MemoryEpisodicOverrideExtractionConfigurationInputPtrOutput) ModelId() p
 }
 
 type MemoryEpisodicOverrideReflectionConfigurationInput struct {
-	AppendToPrompt string   `pulumi:"appendToPrompt"`
-	ModelId        string   `pulumi:"modelId"`
-	Namespaces     []string `pulumi:"namespaces"`
+	AppendToPrompt     string   `pulumi:"appendToPrompt"`
+	ModelId            string   `pulumi:"modelId"`
+	NamespaceTemplates []string `pulumi:"namespaceTemplates"`
+	Namespaces         []string `pulumi:"namespaces"`
 }
 
 // MemoryEpisodicOverrideReflectionConfigurationInputInput is an input type that accepts MemoryEpisodicOverrideReflectionConfigurationInputArgs and MemoryEpisodicOverrideReflectionConfigurationInputOutput values.
@@ -7370,9 +7980,10 @@ type MemoryEpisodicOverrideReflectionConfigurationInputInput interface {
 }
 
 type MemoryEpisodicOverrideReflectionConfigurationInputArgs struct {
-	AppendToPrompt pulumi.StringInput      `pulumi:"appendToPrompt"`
-	ModelId        pulumi.StringInput      `pulumi:"modelId"`
-	Namespaces     pulumi.StringArrayInput `pulumi:"namespaces"`
+	AppendToPrompt     pulumi.StringInput      `pulumi:"appendToPrompt"`
+	ModelId            pulumi.StringInput      `pulumi:"modelId"`
+	NamespaceTemplates pulumi.StringArrayInput `pulumi:"namespaceTemplates"`
+	Namespaces         pulumi.StringArrayInput `pulumi:"namespaces"`
 }
 
 func (MemoryEpisodicOverrideReflectionConfigurationInputArgs) ElementType() reflect.Type {
@@ -7460,6 +8071,10 @@ func (o MemoryEpisodicOverrideReflectionConfigurationInputOutput) ModelId() pulu
 	return o.ApplyT(func(v MemoryEpisodicOverrideReflectionConfigurationInput) string { return v.ModelId }).(pulumi.StringOutput)
 }
 
+func (o MemoryEpisodicOverrideReflectionConfigurationInputOutput) NamespaceTemplates() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v MemoryEpisodicOverrideReflectionConfigurationInput) []string { return v.NamespaceTemplates }).(pulumi.StringArrayOutput)
+}
+
 func (o MemoryEpisodicOverrideReflectionConfigurationInputOutput) Namespaces() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v MemoryEpisodicOverrideReflectionConfigurationInput) []string { return v.Namespaces }).(pulumi.StringArrayOutput)
 }
@@ -7506,6 +8121,15 @@ func (o MemoryEpisodicOverrideReflectionConfigurationInputPtrOutput) ModelId() p
 	}).(pulumi.StringPtrOutput)
 }
 
+func (o MemoryEpisodicOverrideReflectionConfigurationInputPtrOutput) NamespaceTemplates() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *MemoryEpisodicOverrideReflectionConfigurationInput) []string {
+		if v == nil {
+			return nil
+		}
+		return v.NamespaceTemplates
+	}).(pulumi.StringArrayOutput)
+}
+
 func (o MemoryEpisodicOverrideReflectionConfigurationInputPtrOutput) Namespaces() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *MemoryEpisodicOverrideReflectionConfigurationInput) []string {
 		if v == nil {
@@ -7516,7 +8140,8 @@ func (o MemoryEpisodicOverrideReflectionConfigurationInputPtrOutput) Namespaces(
 }
 
 type MemoryEpisodicReflectionConfigurationInput struct {
-	Namespaces []string `pulumi:"namespaces"`
+	NamespaceTemplates []string `pulumi:"namespaceTemplates"`
+	Namespaces         []string `pulumi:"namespaces"`
 }
 
 // MemoryEpisodicReflectionConfigurationInputInput is an input type that accepts MemoryEpisodicReflectionConfigurationInputArgs and MemoryEpisodicReflectionConfigurationInputOutput values.
@@ -7531,7 +8156,8 @@ type MemoryEpisodicReflectionConfigurationInputInput interface {
 }
 
 type MemoryEpisodicReflectionConfigurationInputArgs struct {
-	Namespaces pulumi.StringArrayInput `pulumi:"namespaces"`
+	NamespaceTemplates pulumi.StringArrayInput `pulumi:"namespaceTemplates"`
+	Namespaces         pulumi.StringArrayInput `pulumi:"namespaces"`
 }
 
 func (MemoryEpisodicReflectionConfigurationInputArgs) ElementType() reflect.Type {
@@ -7611,6 +8237,10 @@ func (o MemoryEpisodicReflectionConfigurationInputOutput) ToMemoryEpisodicReflec
 	}).(MemoryEpisodicReflectionConfigurationInputPtrOutput)
 }
 
+func (o MemoryEpisodicReflectionConfigurationInputOutput) NamespaceTemplates() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v MemoryEpisodicReflectionConfigurationInput) []string { return v.NamespaceTemplates }).(pulumi.StringArrayOutput)
+}
+
 func (o MemoryEpisodicReflectionConfigurationInputOutput) Namespaces() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v MemoryEpisodicReflectionConfigurationInput) []string { return v.Namespaces }).(pulumi.StringArrayOutput)
 }
@@ -7637,6 +8267,15 @@ func (o MemoryEpisodicReflectionConfigurationInputPtrOutput) Elem() MemoryEpisod
 		var ret MemoryEpisodicReflectionConfigurationInput
 		return ret
 	}).(MemoryEpisodicReflectionConfigurationInputOutput)
+}
+
+func (o MemoryEpisodicReflectionConfigurationInputPtrOutput) NamespaceTemplates() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *MemoryEpisodicReflectionConfigurationInput) []string {
+		if v == nil {
+			return nil
+		}
+		return v.NamespaceTemplates
+	}).(pulumi.StringArrayOutput)
 }
 
 func (o MemoryEpisodicReflectionConfigurationInputPtrOutput) Namespaces() pulumi.StringArrayOutput {
@@ -8244,10 +8883,11 @@ func (o MemorySelfManagedConfigurationPtrOutput) TriggerConditions() MemoryTrigg
 
 type MemorySemanticMemoryStrategy struct {
 	// Creation timestamp of the memory strategy
-	CreatedAt   *string  `pulumi:"createdAt"`
-	Description *string  `pulumi:"description"`
-	Name        string   `pulumi:"name"`
-	Namespaces  []string `pulumi:"namespaces"`
+	CreatedAt          *string  `pulumi:"createdAt"`
+	Description        *string  `pulumi:"description"`
+	Name               string   `pulumi:"name"`
+	NamespaceTemplates []string `pulumi:"namespaceTemplates"`
+	Namespaces         []string `pulumi:"namespaces"`
 	// Status of the memory strategy
 	Status *MemorySemanticMemoryStrategyStatus `pulumi:"status"`
 	// Unique identifier for the memory strategy
@@ -8271,10 +8911,11 @@ type MemorySemanticMemoryStrategyInput interface {
 
 type MemorySemanticMemoryStrategyArgs struct {
 	// Creation timestamp of the memory strategy
-	CreatedAt   pulumi.StringPtrInput   `pulumi:"createdAt"`
-	Description pulumi.StringPtrInput   `pulumi:"description"`
-	Name        pulumi.StringInput      `pulumi:"name"`
-	Namespaces  pulumi.StringArrayInput `pulumi:"namespaces"`
+	CreatedAt          pulumi.StringPtrInput   `pulumi:"createdAt"`
+	Description        pulumi.StringPtrInput   `pulumi:"description"`
+	Name               pulumi.StringInput      `pulumi:"name"`
+	NamespaceTemplates pulumi.StringArrayInput `pulumi:"namespaceTemplates"`
+	Namespaces         pulumi.StringArrayInput `pulumi:"namespaces"`
 	// Status of the memory strategy
 	Status MemorySemanticMemoryStrategyStatusPtrInput `pulumi:"status"`
 	// Unique identifier for the memory strategy
@@ -8375,6 +9016,10 @@ func (o MemorySemanticMemoryStrategyOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v MemorySemanticMemoryStrategy) string { return v.Name }).(pulumi.StringOutput)
 }
 
+func (o MemorySemanticMemoryStrategyOutput) NamespaceTemplates() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v MemorySemanticMemoryStrategy) []string { return v.NamespaceTemplates }).(pulumi.StringArrayOutput)
+}
+
 func (o MemorySemanticMemoryStrategyOutput) Namespaces() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v MemorySemanticMemoryStrategy) []string { return v.Namespaces }).(pulumi.StringArrayOutput)
 }
@@ -8449,6 +9094,15 @@ func (o MemorySemanticMemoryStrategyPtrOutput) Name() pulumi.StringPtrOutput {
 		}
 		return &v.Name
 	}).(pulumi.StringPtrOutput)
+}
+
+func (o MemorySemanticMemoryStrategyPtrOutput) NamespaceTemplates() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *MemorySemanticMemoryStrategy) []string {
+		if v == nil {
+			return nil
+		}
+		return v.NamespaceTemplates
+	}).(pulumi.StringArrayOutput)
 }
 
 func (o MemorySemanticMemoryStrategyPtrOutput) Namespaces() pulumi.StringArrayOutput {
@@ -9295,10 +9949,11 @@ func (o MemoryStreamDeliveryResourcesPtrOutput) Resources() MemoryStreamDelivery
 
 type MemorySummaryMemoryStrategy struct {
 	// Creation timestamp of the memory strategy
-	CreatedAt   *string  `pulumi:"createdAt"`
-	Description *string  `pulumi:"description"`
-	Name        string   `pulumi:"name"`
-	Namespaces  []string `pulumi:"namespaces"`
+	CreatedAt          *string  `pulumi:"createdAt"`
+	Description        *string  `pulumi:"description"`
+	Name               string   `pulumi:"name"`
+	NamespaceTemplates []string `pulumi:"namespaceTemplates"`
+	Namespaces         []string `pulumi:"namespaces"`
 	// Status of the memory strategy
 	Status *MemorySummaryMemoryStrategyStatus `pulumi:"status"`
 	// Unique identifier for the memory strategy
@@ -9322,10 +9977,11 @@ type MemorySummaryMemoryStrategyInput interface {
 
 type MemorySummaryMemoryStrategyArgs struct {
 	// Creation timestamp of the memory strategy
-	CreatedAt   pulumi.StringPtrInput   `pulumi:"createdAt"`
-	Description pulumi.StringPtrInput   `pulumi:"description"`
-	Name        pulumi.StringInput      `pulumi:"name"`
-	Namespaces  pulumi.StringArrayInput `pulumi:"namespaces"`
+	CreatedAt          pulumi.StringPtrInput   `pulumi:"createdAt"`
+	Description        pulumi.StringPtrInput   `pulumi:"description"`
+	Name               pulumi.StringInput      `pulumi:"name"`
+	NamespaceTemplates pulumi.StringArrayInput `pulumi:"namespaceTemplates"`
+	Namespaces         pulumi.StringArrayInput `pulumi:"namespaces"`
 	// Status of the memory strategy
 	Status MemorySummaryMemoryStrategyStatusPtrInput `pulumi:"status"`
 	// Unique identifier for the memory strategy
@@ -9426,6 +10082,10 @@ func (o MemorySummaryMemoryStrategyOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v MemorySummaryMemoryStrategy) string { return v.Name }).(pulumi.StringOutput)
 }
 
+func (o MemorySummaryMemoryStrategyOutput) NamespaceTemplates() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v MemorySummaryMemoryStrategy) []string { return v.NamespaceTemplates }).(pulumi.StringArrayOutput)
+}
+
 func (o MemorySummaryMemoryStrategyOutput) Namespaces() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v MemorySummaryMemoryStrategy) []string { return v.Namespaces }).(pulumi.StringArrayOutput)
 }
@@ -9500,6 +10160,15 @@ func (o MemorySummaryMemoryStrategyPtrOutput) Name() pulumi.StringPtrOutput {
 		}
 		return &v.Name
 	}).(pulumi.StringPtrOutput)
+}
+
+func (o MemorySummaryMemoryStrategyPtrOutput) NamespaceTemplates() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *MemorySummaryMemoryStrategy) []string {
+		if v == nil {
+			return nil
+		}
+		return v.NamespaceTemplates
+	}).(pulumi.StringArrayOutput)
 }
 
 func (o MemorySummaryMemoryStrategyPtrOutput) Namespaces() pulumi.StringArrayOutput {
@@ -10208,10 +10877,11 @@ func (o MemoryTriggerConditionInputArrayOutput) Index(i pulumi.IntInput) MemoryT
 
 type MemoryUserPreferenceMemoryStrategy struct {
 	// Creation timestamp of the memory strategy
-	CreatedAt   *string  `pulumi:"createdAt"`
-	Description *string  `pulumi:"description"`
-	Name        string   `pulumi:"name"`
-	Namespaces  []string `pulumi:"namespaces"`
+	CreatedAt          *string  `pulumi:"createdAt"`
+	Description        *string  `pulumi:"description"`
+	Name               string   `pulumi:"name"`
+	NamespaceTemplates []string `pulumi:"namespaceTemplates"`
+	Namespaces         []string `pulumi:"namespaces"`
 	// Status of the memory strategy
 	Status *MemoryUserPreferenceMemoryStrategyStatus `pulumi:"status"`
 	// Unique identifier for the memory strategy
@@ -10235,10 +10905,11 @@ type MemoryUserPreferenceMemoryStrategyInput interface {
 
 type MemoryUserPreferenceMemoryStrategyArgs struct {
 	// Creation timestamp of the memory strategy
-	CreatedAt   pulumi.StringPtrInput   `pulumi:"createdAt"`
-	Description pulumi.StringPtrInput   `pulumi:"description"`
-	Name        pulumi.StringInput      `pulumi:"name"`
-	Namespaces  pulumi.StringArrayInput `pulumi:"namespaces"`
+	CreatedAt          pulumi.StringPtrInput   `pulumi:"createdAt"`
+	Description        pulumi.StringPtrInput   `pulumi:"description"`
+	Name               pulumi.StringInput      `pulumi:"name"`
+	NamespaceTemplates pulumi.StringArrayInput `pulumi:"namespaceTemplates"`
+	Namespaces         pulumi.StringArrayInput `pulumi:"namespaces"`
 	// Status of the memory strategy
 	Status MemoryUserPreferenceMemoryStrategyStatusPtrInput `pulumi:"status"`
 	// Unique identifier for the memory strategy
@@ -10339,6 +11010,10 @@ func (o MemoryUserPreferenceMemoryStrategyOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v MemoryUserPreferenceMemoryStrategy) string { return v.Name }).(pulumi.StringOutput)
 }
 
+func (o MemoryUserPreferenceMemoryStrategyOutput) NamespaceTemplates() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v MemoryUserPreferenceMemoryStrategy) []string { return v.NamespaceTemplates }).(pulumi.StringArrayOutput)
+}
+
 func (o MemoryUserPreferenceMemoryStrategyOutput) Namespaces() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v MemoryUserPreferenceMemoryStrategy) []string { return v.Namespaces }).(pulumi.StringArrayOutput)
 }
@@ -10413,6 +11088,15 @@ func (o MemoryUserPreferenceMemoryStrategyPtrOutput) Name() pulumi.StringPtrOutp
 		}
 		return &v.Name
 	}).(pulumi.StringPtrOutput)
+}
+
+func (o MemoryUserPreferenceMemoryStrategyPtrOutput) NamespaceTemplates() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *MemoryUserPreferenceMemoryStrategy) []string {
+		if v == nil {
+			return nil
+		}
+		return v.NamespaceTemplates
+	}).(pulumi.StringArrayOutput)
 }
 
 func (o MemoryUserPreferenceMemoryStrategyPtrOutput) Namespaces() pulumi.StringArrayOutput {
@@ -10910,6 +11594,2236 @@ func (o MemoryUserPreferenceOverrideExtractionConfigurationInputPtrOutput) Model
 		}
 		return &v.ModelId
 	}).(pulumi.StringPtrOutput)
+}
+
+// Input configuration for an Atlassian OAuth2 provider
+type OAuth2CredentialProviderAtlassianOauth2ProviderConfigInput struct {
+	ClientId     string `pulumi:"clientId"`
+	ClientSecret string `pulumi:"clientSecret"`
+}
+
+// OAuth2CredentialProviderAtlassianOauth2ProviderConfigInputInput is an input type that accepts OAuth2CredentialProviderAtlassianOauth2ProviderConfigInputArgs and OAuth2CredentialProviderAtlassianOauth2ProviderConfigInputOutput values.
+// You can construct a concrete instance of `OAuth2CredentialProviderAtlassianOauth2ProviderConfigInputInput` via:
+//
+//	OAuth2CredentialProviderAtlassianOauth2ProviderConfigInputArgs{...}
+type OAuth2CredentialProviderAtlassianOauth2ProviderConfigInputInput interface {
+	pulumi.Input
+
+	ToOAuth2CredentialProviderAtlassianOauth2ProviderConfigInputOutput() OAuth2CredentialProviderAtlassianOauth2ProviderConfigInputOutput
+	ToOAuth2CredentialProviderAtlassianOauth2ProviderConfigInputOutputWithContext(context.Context) OAuth2CredentialProviderAtlassianOauth2ProviderConfigInputOutput
+}
+
+// Input configuration for an Atlassian OAuth2 provider
+type OAuth2CredentialProviderAtlassianOauth2ProviderConfigInputArgs struct {
+	ClientId     pulumi.StringInput `pulumi:"clientId"`
+	ClientSecret pulumi.StringInput `pulumi:"clientSecret"`
+}
+
+func (OAuth2CredentialProviderAtlassianOauth2ProviderConfigInputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OAuth2CredentialProviderAtlassianOauth2ProviderConfigInput)(nil)).Elem()
+}
+
+func (i OAuth2CredentialProviderAtlassianOauth2ProviderConfigInputArgs) ToOAuth2CredentialProviderAtlassianOauth2ProviderConfigInputOutput() OAuth2CredentialProviderAtlassianOauth2ProviderConfigInputOutput {
+	return i.ToOAuth2CredentialProviderAtlassianOauth2ProviderConfigInputOutputWithContext(context.Background())
+}
+
+func (i OAuth2CredentialProviderAtlassianOauth2ProviderConfigInputArgs) ToOAuth2CredentialProviderAtlassianOauth2ProviderConfigInputOutputWithContext(ctx context.Context) OAuth2CredentialProviderAtlassianOauth2ProviderConfigInputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OAuth2CredentialProviderAtlassianOauth2ProviderConfigInputOutput)
+}
+
+func (i OAuth2CredentialProviderAtlassianOauth2ProviderConfigInputArgs) ToOAuth2CredentialProviderAtlassianOauth2ProviderConfigInputPtrOutput() OAuth2CredentialProviderAtlassianOauth2ProviderConfigInputPtrOutput {
+	return i.ToOAuth2CredentialProviderAtlassianOauth2ProviderConfigInputPtrOutputWithContext(context.Background())
+}
+
+func (i OAuth2CredentialProviderAtlassianOauth2ProviderConfigInputArgs) ToOAuth2CredentialProviderAtlassianOauth2ProviderConfigInputPtrOutputWithContext(ctx context.Context) OAuth2CredentialProviderAtlassianOauth2ProviderConfigInputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OAuth2CredentialProviderAtlassianOauth2ProviderConfigInputOutput).ToOAuth2CredentialProviderAtlassianOauth2ProviderConfigInputPtrOutputWithContext(ctx)
+}
+
+// OAuth2CredentialProviderAtlassianOauth2ProviderConfigInputPtrInput is an input type that accepts OAuth2CredentialProviderAtlassianOauth2ProviderConfigInputArgs, OAuth2CredentialProviderAtlassianOauth2ProviderConfigInputPtr and OAuth2CredentialProviderAtlassianOauth2ProviderConfigInputPtrOutput values.
+// You can construct a concrete instance of `OAuth2CredentialProviderAtlassianOauth2ProviderConfigInputPtrInput` via:
+//
+//	        OAuth2CredentialProviderAtlassianOauth2ProviderConfigInputArgs{...}
+//
+//	or:
+//
+//	        nil
+type OAuth2CredentialProviderAtlassianOauth2ProviderConfigInputPtrInput interface {
+	pulumi.Input
+
+	ToOAuth2CredentialProviderAtlassianOauth2ProviderConfigInputPtrOutput() OAuth2CredentialProviderAtlassianOauth2ProviderConfigInputPtrOutput
+	ToOAuth2CredentialProviderAtlassianOauth2ProviderConfigInputPtrOutputWithContext(context.Context) OAuth2CredentialProviderAtlassianOauth2ProviderConfigInputPtrOutput
+}
+
+type oauth2CredentialProviderAtlassianOauth2ProviderConfigInputPtrType OAuth2CredentialProviderAtlassianOauth2ProviderConfigInputArgs
+
+func OAuth2CredentialProviderAtlassianOauth2ProviderConfigInputPtr(v *OAuth2CredentialProviderAtlassianOauth2ProviderConfigInputArgs) OAuth2CredentialProviderAtlassianOauth2ProviderConfigInputPtrInput {
+	return (*oauth2CredentialProviderAtlassianOauth2ProviderConfigInputPtrType)(v)
+}
+
+func (*oauth2CredentialProviderAtlassianOauth2ProviderConfigInputPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OAuth2CredentialProviderAtlassianOauth2ProviderConfigInput)(nil)).Elem()
+}
+
+func (i *oauth2CredentialProviderAtlassianOauth2ProviderConfigInputPtrType) ToOAuth2CredentialProviderAtlassianOauth2ProviderConfigInputPtrOutput() OAuth2CredentialProviderAtlassianOauth2ProviderConfigInputPtrOutput {
+	return i.ToOAuth2CredentialProviderAtlassianOauth2ProviderConfigInputPtrOutputWithContext(context.Background())
+}
+
+func (i *oauth2CredentialProviderAtlassianOauth2ProviderConfigInputPtrType) ToOAuth2CredentialProviderAtlassianOauth2ProviderConfigInputPtrOutputWithContext(ctx context.Context) OAuth2CredentialProviderAtlassianOauth2ProviderConfigInputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OAuth2CredentialProviderAtlassianOauth2ProviderConfigInputPtrOutput)
+}
+
+// Input configuration for an Atlassian OAuth2 provider
+type OAuth2CredentialProviderAtlassianOauth2ProviderConfigInputOutput struct{ *pulumi.OutputState }
+
+func (OAuth2CredentialProviderAtlassianOauth2ProviderConfigInputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OAuth2CredentialProviderAtlassianOauth2ProviderConfigInput)(nil)).Elem()
+}
+
+func (o OAuth2CredentialProviderAtlassianOauth2ProviderConfigInputOutput) ToOAuth2CredentialProviderAtlassianOauth2ProviderConfigInputOutput() OAuth2CredentialProviderAtlassianOauth2ProviderConfigInputOutput {
+	return o
+}
+
+func (o OAuth2CredentialProviderAtlassianOauth2ProviderConfigInputOutput) ToOAuth2CredentialProviderAtlassianOauth2ProviderConfigInputOutputWithContext(ctx context.Context) OAuth2CredentialProviderAtlassianOauth2ProviderConfigInputOutput {
+	return o
+}
+
+func (o OAuth2CredentialProviderAtlassianOauth2ProviderConfigInputOutput) ToOAuth2CredentialProviderAtlassianOauth2ProviderConfigInputPtrOutput() OAuth2CredentialProviderAtlassianOauth2ProviderConfigInputPtrOutput {
+	return o.ToOAuth2CredentialProviderAtlassianOauth2ProviderConfigInputPtrOutputWithContext(context.Background())
+}
+
+func (o OAuth2CredentialProviderAtlassianOauth2ProviderConfigInputOutput) ToOAuth2CredentialProviderAtlassianOauth2ProviderConfigInputPtrOutputWithContext(ctx context.Context) OAuth2CredentialProviderAtlassianOauth2ProviderConfigInputPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OAuth2CredentialProviderAtlassianOauth2ProviderConfigInput) *OAuth2CredentialProviderAtlassianOauth2ProviderConfigInput {
+		return &v
+	}).(OAuth2CredentialProviderAtlassianOauth2ProviderConfigInputPtrOutput)
+}
+
+func (o OAuth2CredentialProviderAtlassianOauth2ProviderConfigInputOutput) ClientId() pulumi.StringOutput {
+	return o.ApplyT(func(v OAuth2CredentialProviderAtlassianOauth2ProviderConfigInput) string { return v.ClientId }).(pulumi.StringOutput)
+}
+
+func (o OAuth2CredentialProviderAtlassianOauth2ProviderConfigInputOutput) ClientSecret() pulumi.StringOutput {
+	return o.ApplyT(func(v OAuth2CredentialProviderAtlassianOauth2ProviderConfigInput) string { return v.ClientSecret }).(pulumi.StringOutput)
+}
+
+type OAuth2CredentialProviderAtlassianOauth2ProviderConfigInputPtrOutput struct{ *pulumi.OutputState }
+
+func (OAuth2CredentialProviderAtlassianOauth2ProviderConfigInputPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OAuth2CredentialProviderAtlassianOauth2ProviderConfigInput)(nil)).Elem()
+}
+
+func (o OAuth2CredentialProviderAtlassianOauth2ProviderConfigInputPtrOutput) ToOAuth2CredentialProviderAtlassianOauth2ProviderConfigInputPtrOutput() OAuth2CredentialProviderAtlassianOauth2ProviderConfigInputPtrOutput {
+	return o
+}
+
+func (o OAuth2CredentialProviderAtlassianOauth2ProviderConfigInputPtrOutput) ToOAuth2CredentialProviderAtlassianOauth2ProviderConfigInputPtrOutputWithContext(ctx context.Context) OAuth2CredentialProviderAtlassianOauth2ProviderConfigInputPtrOutput {
+	return o
+}
+
+func (o OAuth2CredentialProviderAtlassianOauth2ProviderConfigInputPtrOutput) Elem() OAuth2CredentialProviderAtlassianOauth2ProviderConfigInputOutput {
+	return o.ApplyT(func(v *OAuth2CredentialProviderAtlassianOauth2ProviderConfigInput) OAuth2CredentialProviderAtlassianOauth2ProviderConfigInput {
+		if v != nil {
+			return *v
+		}
+		var ret OAuth2CredentialProviderAtlassianOauth2ProviderConfigInput
+		return ret
+	}).(OAuth2CredentialProviderAtlassianOauth2ProviderConfigInputOutput)
+}
+
+func (o OAuth2CredentialProviderAtlassianOauth2ProviderConfigInputPtrOutput) ClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OAuth2CredentialProviderAtlassianOauth2ProviderConfigInput) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ClientId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o OAuth2CredentialProviderAtlassianOauth2ProviderConfigInputPtrOutput) ClientSecret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OAuth2CredentialProviderAtlassianOauth2ProviderConfigInput) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ClientSecret
+	}).(pulumi.StringPtrOutput)
+}
+
+// Contains information about a secret in AWS Secrets Manager
+type OAuth2CredentialProviderClientSecretArn struct {
+	// The ARN of the secret in AWS Secrets Manager
+	SecretArn string `pulumi:"secretArn"`
+}
+
+// Contains information about a secret in AWS Secrets Manager
+type OAuth2CredentialProviderClientSecretArnOutput struct{ *pulumi.OutputState }
+
+func (OAuth2CredentialProviderClientSecretArnOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OAuth2CredentialProviderClientSecretArn)(nil)).Elem()
+}
+
+func (o OAuth2CredentialProviderClientSecretArnOutput) ToOAuth2CredentialProviderClientSecretArnOutput() OAuth2CredentialProviderClientSecretArnOutput {
+	return o
+}
+
+func (o OAuth2CredentialProviderClientSecretArnOutput) ToOAuth2CredentialProviderClientSecretArnOutputWithContext(ctx context.Context) OAuth2CredentialProviderClientSecretArnOutput {
+	return o
+}
+
+// The ARN of the secret in AWS Secrets Manager
+func (o OAuth2CredentialProviderClientSecretArnOutput) SecretArn() pulumi.StringOutput {
+	return o.ApplyT(func(v OAuth2CredentialProviderClientSecretArn) string { return v.SecretArn }).(pulumi.StringOutput)
+}
+
+type OAuth2CredentialProviderClientSecretArnPtrOutput struct{ *pulumi.OutputState }
+
+func (OAuth2CredentialProviderClientSecretArnPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OAuth2CredentialProviderClientSecretArn)(nil)).Elem()
+}
+
+func (o OAuth2CredentialProviderClientSecretArnPtrOutput) ToOAuth2CredentialProviderClientSecretArnPtrOutput() OAuth2CredentialProviderClientSecretArnPtrOutput {
+	return o
+}
+
+func (o OAuth2CredentialProviderClientSecretArnPtrOutput) ToOAuth2CredentialProviderClientSecretArnPtrOutputWithContext(ctx context.Context) OAuth2CredentialProviderClientSecretArnPtrOutput {
+	return o
+}
+
+func (o OAuth2CredentialProviderClientSecretArnPtrOutput) Elem() OAuth2CredentialProviderClientSecretArnOutput {
+	return o.ApplyT(func(v *OAuth2CredentialProviderClientSecretArn) OAuth2CredentialProviderClientSecretArn {
+		if v != nil {
+			return *v
+		}
+		var ret OAuth2CredentialProviderClientSecretArn
+		return ret
+	}).(OAuth2CredentialProviderClientSecretArnOutput)
+}
+
+// The ARN of the secret in AWS Secrets Manager
+func (o OAuth2CredentialProviderClientSecretArnPtrOutput) SecretArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OAuth2CredentialProviderClientSecretArn) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SecretArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// Input configuration for a custom OAuth2 provider
+type OAuth2CredentialProviderCustomOauth2ProviderConfigInput struct {
+	// The client ID for the custom OAuth2 provider
+	ClientId string `pulumi:"clientId"`
+	// The client secret for the custom OAuth2 provider
+	ClientSecret   string                                  `pulumi:"clientSecret"`
+	OauthDiscovery OAuth2CredentialProviderOauth2Discovery `pulumi:"oauthDiscovery"`
+}
+
+// OAuth2CredentialProviderCustomOauth2ProviderConfigInputInput is an input type that accepts OAuth2CredentialProviderCustomOauth2ProviderConfigInputArgs and OAuth2CredentialProviderCustomOauth2ProviderConfigInputOutput values.
+// You can construct a concrete instance of `OAuth2CredentialProviderCustomOauth2ProviderConfigInputInput` via:
+//
+//	OAuth2CredentialProviderCustomOauth2ProviderConfigInputArgs{...}
+type OAuth2CredentialProviderCustomOauth2ProviderConfigInputInput interface {
+	pulumi.Input
+
+	ToOAuth2CredentialProviderCustomOauth2ProviderConfigInputOutput() OAuth2CredentialProviderCustomOauth2ProviderConfigInputOutput
+	ToOAuth2CredentialProviderCustomOauth2ProviderConfigInputOutputWithContext(context.Context) OAuth2CredentialProviderCustomOauth2ProviderConfigInputOutput
+}
+
+// Input configuration for a custom OAuth2 provider
+type OAuth2CredentialProviderCustomOauth2ProviderConfigInputArgs struct {
+	// The client ID for the custom OAuth2 provider
+	ClientId pulumi.StringInput `pulumi:"clientId"`
+	// The client secret for the custom OAuth2 provider
+	ClientSecret   pulumi.StringInput                           `pulumi:"clientSecret"`
+	OauthDiscovery OAuth2CredentialProviderOauth2DiscoveryInput `pulumi:"oauthDiscovery"`
+}
+
+func (OAuth2CredentialProviderCustomOauth2ProviderConfigInputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OAuth2CredentialProviderCustomOauth2ProviderConfigInput)(nil)).Elem()
+}
+
+func (i OAuth2CredentialProviderCustomOauth2ProviderConfigInputArgs) ToOAuth2CredentialProviderCustomOauth2ProviderConfigInputOutput() OAuth2CredentialProviderCustomOauth2ProviderConfigInputOutput {
+	return i.ToOAuth2CredentialProviderCustomOauth2ProviderConfigInputOutputWithContext(context.Background())
+}
+
+func (i OAuth2CredentialProviderCustomOauth2ProviderConfigInputArgs) ToOAuth2CredentialProviderCustomOauth2ProviderConfigInputOutputWithContext(ctx context.Context) OAuth2CredentialProviderCustomOauth2ProviderConfigInputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OAuth2CredentialProviderCustomOauth2ProviderConfigInputOutput)
+}
+
+func (i OAuth2CredentialProviderCustomOauth2ProviderConfigInputArgs) ToOAuth2CredentialProviderCustomOauth2ProviderConfigInputPtrOutput() OAuth2CredentialProviderCustomOauth2ProviderConfigInputPtrOutput {
+	return i.ToOAuth2CredentialProviderCustomOauth2ProviderConfigInputPtrOutputWithContext(context.Background())
+}
+
+func (i OAuth2CredentialProviderCustomOauth2ProviderConfigInputArgs) ToOAuth2CredentialProviderCustomOauth2ProviderConfigInputPtrOutputWithContext(ctx context.Context) OAuth2CredentialProviderCustomOauth2ProviderConfigInputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OAuth2CredentialProviderCustomOauth2ProviderConfigInputOutput).ToOAuth2CredentialProviderCustomOauth2ProviderConfigInputPtrOutputWithContext(ctx)
+}
+
+// OAuth2CredentialProviderCustomOauth2ProviderConfigInputPtrInput is an input type that accepts OAuth2CredentialProviderCustomOauth2ProviderConfigInputArgs, OAuth2CredentialProviderCustomOauth2ProviderConfigInputPtr and OAuth2CredentialProviderCustomOauth2ProviderConfigInputPtrOutput values.
+// You can construct a concrete instance of `OAuth2CredentialProviderCustomOauth2ProviderConfigInputPtrInput` via:
+//
+//	        OAuth2CredentialProviderCustomOauth2ProviderConfigInputArgs{...}
+//
+//	or:
+//
+//	        nil
+type OAuth2CredentialProviderCustomOauth2ProviderConfigInputPtrInput interface {
+	pulumi.Input
+
+	ToOAuth2CredentialProviderCustomOauth2ProviderConfigInputPtrOutput() OAuth2CredentialProviderCustomOauth2ProviderConfigInputPtrOutput
+	ToOAuth2CredentialProviderCustomOauth2ProviderConfigInputPtrOutputWithContext(context.Context) OAuth2CredentialProviderCustomOauth2ProviderConfigInputPtrOutput
+}
+
+type oauth2CredentialProviderCustomOauth2ProviderConfigInputPtrType OAuth2CredentialProviderCustomOauth2ProviderConfigInputArgs
+
+func OAuth2CredentialProviderCustomOauth2ProviderConfigInputPtr(v *OAuth2CredentialProviderCustomOauth2ProviderConfigInputArgs) OAuth2CredentialProviderCustomOauth2ProviderConfigInputPtrInput {
+	return (*oauth2CredentialProviderCustomOauth2ProviderConfigInputPtrType)(v)
+}
+
+func (*oauth2CredentialProviderCustomOauth2ProviderConfigInputPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OAuth2CredentialProviderCustomOauth2ProviderConfigInput)(nil)).Elem()
+}
+
+func (i *oauth2CredentialProviderCustomOauth2ProviderConfigInputPtrType) ToOAuth2CredentialProviderCustomOauth2ProviderConfigInputPtrOutput() OAuth2CredentialProviderCustomOauth2ProviderConfigInputPtrOutput {
+	return i.ToOAuth2CredentialProviderCustomOauth2ProviderConfigInputPtrOutputWithContext(context.Background())
+}
+
+func (i *oauth2CredentialProviderCustomOauth2ProviderConfigInputPtrType) ToOAuth2CredentialProviderCustomOauth2ProviderConfigInputPtrOutputWithContext(ctx context.Context) OAuth2CredentialProviderCustomOauth2ProviderConfigInputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OAuth2CredentialProviderCustomOauth2ProviderConfigInputPtrOutput)
+}
+
+// Input configuration for a custom OAuth2 provider
+type OAuth2CredentialProviderCustomOauth2ProviderConfigInputOutput struct{ *pulumi.OutputState }
+
+func (OAuth2CredentialProviderCustomOauth2ProviderConfigInputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OAuth2CredentialProviderCustomOauth2ProviderConfigInput)(nil)).Elem()
+}
+
+func (o OAuth2CredentialProviderCustomOauth2ProviderConfigInputOutput) ToOAuth2CredentialProviderCustomOauth2ProviderConfigInputOutput() OAuth2CredentialProviderCustomOauth2ProviderConfigInputOutput {
+	return o
+}
+
+func (o OAuth2CredentialProviderCustomOauth2ProviderConfigInputOutput) ToOAuth2CredentialProviderCustomOauth2ProviderConfigInputOutputWithContext(ctx context.Context) OAuth2CredentialProviderCustomOauth2ProviderConfigInputOutput {
+	return o
+}
+
+func (o OAuth2CredentialProviderCustomOauth2ProviderConfigInputOutput) ToOAuth2CredentialProviderCustomOauth2ProviderConfigInputPtrOutput() OAuth2CredentialProviderCustomOauth2ProviderConfigInputPtrOutput {
+	return o.ToOAuth2CredentialProviderCustomOauth2ProviderConfigInputPtrOutputWithContext(context.Background())
+}
+
+func (o OAuth2CredentialProviderCustomOauth2ProviderConfigInputOutput) ToOAuth2CredentialProviderCustomOauth2ProviderConfigInputPtrOutputWithContext(ctx context.Context) OAuth2CredentialProviderCustomOauth2ProviderConfigInputPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OAuth2CredentialProviderCustomOauth2ProviderConfigInput) *OAuth2CredentialProviderCustomOauth2ProviderConfigInput {
+		return &v
+	}).(OAuth2CredentialProviderCustomOauth2ProviderConfigInputPtrOutput)
+}
+
+// The client ID for the custom OAuth2 provider
+func (o OAuth2CredentialProviderCustomOauth2ProviderConfigInputOutput) ClientId() pulumi.StringOutput {
+	return o.ApplyT(func(v OAuth2CredentialProviderCustomOauth2ProviderConfigInput) string { return v.ClientId }).(pulumi.StringOutput)
+}
+
+// The client secret for the custom OAuth2 provider
+func (o OAuth2CredentialProviderCustomOauth2ProviderConfigInputOutput) ClientSecret() pulumi.StringOutput {
+	return o.ApplyT(func(v OAuth2CredentialProviderCustomOauth2ProviderConfigInput) string { return v.ClientSecret }).(pulumi.StringOutput)
+}
+
+func (o OAuth2CredentialProviderCustomOauth2ProviderConfigInputOutput) OauthDiscovery() OAuth2CredentialProviderOauth2DiscoveryOutput {
+	return o.ApplyT(func(v OAuth2CredentialProviderCustomOauth2ProviderConfigInput) OAuth2CredentialProviderOauth2Discovery {
+		return v.OauthDiscovery
+	}).(OAuth2CredentialProviderOauth2DiscoveryOutput)
+}
+
+type OAuth2CredentialProviderCustomOauth2ProviderConfigInputPtrOutput struct{ *pulumi.OutputState }
+
+func (OAuth2CredentialProviderCustomOauth2ProviderConfigInputPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OAuth2CredentialProviderCustomOauth2ProviderConfigInput)(nil)).Elem()
+}
+
+func (o OAuth2CredentialProviderCustomOauth2ProviderConfigInputPtrOutput) ToOAuth2CredentialProviderCustomOauth2ProviderConfigInputPtrOutput() OAuth2CredentialProviderCustomOauth2ProviderConfigInputPtrOutput {
+	return o
+}
+
+func (o OAuth2CredentialProviderCustomOauth2ProviderConfigInputPtrOutput) ToOAuth2CredentialProviderCustomOauth2ProviderConfigInputPtrOutputWithContext(ctx context.Context) OAuth2CredentialProviderCustomOauth2ProviderConfigInputPtrOutput {
+	return o
+}
+
+func (o OAuth2CredentialProviderCustomOauth2ProviderConfigInputPtrOutput) Elem() OAuth2CredentialProviderCustomOauth2ProviderConfigInputOutput {
+	return o.ApplyT(func(v *OAuth2CredentialProviderCustomOauth2ProviderConfigInput) OAuth2CredentialProviderCustomOauth2ProviderConfigInput {
+		if v != nil {
+			return *v
+		}
+		var ret OAuth2CredentialProviderCustomOauth2ProviderConfigInput
+		return ret
+	}).(OAuth2CredentialProviderCustomOauth2ProviderConfigInputOutput)
+}
+
+// The client ID for the custom OAuth2 provider
+func (o OAuth2CredentialProviderCustomOauth2ProviderConfigInputPtrOutput) ClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OAuth2CredentialProviderCustomOauth2ProviderConfigInput) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ClientId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The client secret for the custom OAuth2 provider
+func (o OAuth2CredentialProviderCustomOauth2ProviderConfigInputPtrOutput) ClientSecret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OAuth2CredentialProviderCustomOauth2ProviderConfigInput) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ClientSecret
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o OAuth2CredentialProviderCustomOauth2ProviderConfigInputPtrOutput) OauthDiscovery() OAuth2CredentialProviderOauth2DiscoveryPtrOutput {
+	return o.ApplyT(func(v *OAuth2CredentialProviderCustomOauth2ProviderConfigInput) *OAuth2CredentialProviderOauth2Discovery {
+		if v == nil {
+			return nil
+		}
+		return &v.OauthDiscovery
+	}).(OAuth2CredentialProviderOauth2DiscoveryPtrOutput)
+}
+
+// Input configuration for a GitHub OAuth2 provider
+type OAuth2CredentialProviderGithubOauth2ProviderConfigInput struct {
+	ClientId     string `pulumi:"clientId"`
+	ClientSecret string `pulumi:"clientSecret"`
+}
+
+// OAuth2CredentialProviderGithubOauth2ProviderConfigInputInput is an input type that accepts OAuth2CredentialProviderGithubOauth2ProviderConfigInputArgs and OAuth2CredentialProviderGithubOauth2ProviderConfigInputOutput values.
+// You can construct a concrete instance of `OAuth2CredentialProviderGithubOauth2ProviderConfigInputInput` via:
+//
+//	OAuth2CredentialProviderGithubOauth2ProviderConfigInputArgs{...}
+type OAuth2CredentialProviderGithubOauth2ProviderConfigInputInput interface {
+	pulumi.Input
+
+	ToOAuth2CredentialProviderGithubOauth2ProviderConfigInputOutput() OAuth2CredentialProviderGithubOauth2ProviderConfigInputOutput
+	ToOAuth2CredentialProviderGithubOauth2ProviderConfigInputOutputWithContext(context.Context) OAuth2CredentialProviderGithubOauth2ProviderConfigInputOutput
+}
+
+// Input configuration for a GitHub OAuth2 provider
+type OAuth2CredentialProviderGithubOauth2ProviderConfigInputArgs struct {
+	ClientId     pulumi.StringInput `pulumi:"clientId"`
+	ClientSecret pulumi.StringInput `pulumi:"clientSecret"`
+}
+
+func (OAuth2CredentialProviderGithubOauth2ProviderConfigInputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OAuth2CredentialProviderGithubOauth2ProviderConfigInput)(nil)).Elem()
+}
+
+func (i OAuth2CredentialProviderGithubOauth2ProviderConfigInputArgs) ToOAuth2CredentialProviderGithubOauth2ProviderConfigInputOutput() OAuth2CredentialProviderGithubOauth2ProviderConfigInputOutput {
+	return i.ToOAuth2CredentialProviderGithubOauth2ProviderConfigInputOutputWithContext(context.Background())
+}
+
+func (i OAuth2CredentialProviderGithubOauth2ProviderConfigInputArgs) ToOAuth2CredentialProviderGithubOauth2ProviderConfigInputOutputWithContext(ctx context.Context) OAuth2CredentialProviderGithubOauth2ProviderConfigInputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OAuth2CredentialProviderGithubOauth2ProviderConfigInputOutput)
+}
+
+func (i OAuth2CredentialProviderGithubOauth2ProviderConfigInputArgs) ToOAuth2CredentialProviderGithubOauth2ProviderConfigInputPtrOutput() OAuth2CredentialProviderGithubOauth2ProviderConfigInputPtrOutput {
+	return i.ToOAuth2CredentialProviderGithubOauth2ProviderConfigInputPtrOutputWithContext(context.Background())
+}
+
+func (i OAuth2CredentialProviderGithubOauth2ProviderConfigInputArgs) ToOAuth2CredentialProviderGithubOauth2ProviderConfigInputPtrOutputWithContext(ctx context.Context) OAuth2CredentialProviderGithubOauth2ProviderConfigInputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OAuth2CredentialProviderGithubOauth2ProviderConfigInputOutput).ToOAuth2CredentialProviderGithubOauth2ProviderConfigInputPtrOutputWithContext(ctx)
+}
+
+// OAuth2CredentialProviderGithubOauth2ProviderConfigInputPtrInput is an input type that accepts OAuth2CredentialProviderGithubOauth2ProviderConfigInputArgs, OAuth2CredentialProviderGithubOauth2ProviderConfigInputPtr and OAuth2CredentialProviderGithubOauth2ProviderConfigInputPtrOutput values.
+// You can construct a concrete instance of `OAuth2CredentialProviderGithubOauth2ProviderConfigInputPtrInput` via:
+//
+//	        OAuth2CredentialProviderGithubOauth2ProviderConfigInputArgs{...}
+//
+//	or:
+//
+//	        nil
+type OAuth2CredentialProviderGithubOauth2ProviderConfigInputPtrInput interface {
+	pulumi.Input
+
+	ToOAuth2CredentialProviderGithubOauth2ProviderConfigInputPtrOutput() OAuth2CredentialProviderGithubOauth2ProviderConfigInputPtrOutput
+	ToOAuth2CredentialProviderGithubOauth2ProviderConfigInputPtrOutputWithContext(context.Context) OAuth2CredentialProviderGithubOauth2ProviderConfigInputPtrOutput
+}
+
+type oauth2CredentialProviderGithubOauth2ProviderConfigInputPtrType OAuth2CredentialProviderGithubOauth2ProviderConfigInputArgs
+
+func OAuth2CredentialProviderGithubOauth2ProviderConfigInputPtr(v *OAuth2CredentialProviderGithubOauth2ProviderConfigInputArgs) OAuth2CredentialProviderGithubOauth2ProviderConfigInputPtrInput {
+	return (*oauth2CredentialProviderGithubOauth2ProviderConfigInputPtrType)(v)
+}
+
+func (*oauth2CredentialProviderGithubOauth2ProviderConfigInputPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OAuth2CredentialProviderGithubOauth2ProviderConfigInput)(nil)).Elem()
+}
+
+func (i *oauth2CredentialProviderGithubOauth2ProviderConfigInputPtrType) ToOAuth2CredentialProviderGithubOauth2ProviderConfigInputPtrOutput() OAuth2CredentialProviderGithubOauth2ProviderConfigInputPtrOutput {
+	return i.ToOAuth2CredentialProviderGithubOauth2ProviderConfigInputPtrOutputWithContext(context.Background())
+}
+
+func (i *oauth2CredentialProviderGithubOauth2ProviderConfigInputPtrType) ToOAuth2CredentialProviderGithubOauth2ProviderConfigInputPtrOutputWithContext(ctx context.Context) OAuth2CredentialProviderGithubOauth2ProviderConfigInputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OAuth2CredentialProviderGithubOauth2ProviderConfigInputPtrOutput)
+}
+
+// Input configuration for a GitHub OAuth2 provider
+type OAuth2CredentialProviderGithubOauth2ProviderConfigInputOutput struct{ *pulumi.OutputState }
+
+func (OAuth2CredentialProviderGithubOauth2ProviderConfigInputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OAuth2CredentialProviderGithubOauth2ProviderConfigInput)(nil)).Elem()
+}
+
+func (o OAuth2CredentialProviderGithubOauth2ProviderConfigInputOutput) ToOAuth2CredentialProviderGithubOauth2ProviderConfigInputOutput() OAuth2CredentialProviderGithubOauth2ProviderConfigInputOutput {
+	return o
+}
+
+func (o OAuth2CredentialProviderGithubOauth2ProviderConfigInputOutput) ToOAuth2CredentialProviderGithubOauth2ProviderConfigInputOutputWithContext(ctx context.Context) OAuth2CredentialProviderGithubOauth2ProviderConfigInputOutput {
+	return o
+}
+
+func (o OAuth2CredentialProviderGithubOauth2ProviderConfigInputOutput) ToOAuth2CredentialProviderGithubOauth2ProviderConfigInputPtrOutput() OAuth2CredentialProviderGithubOauth2ProviderConfigInputPtrOutput {
+	return o.ToOAuth2CredentialProviderGithubOauth2ProviderConfigInputPtrOutputWithContext(context.Background())
+}
+
+func (o OAuth2CredentialProviderGithubOauth2ProviderConfigInputOutput) ToOAuth2CredentialProviderGithubOauth2ProviderConfigInputPtrOutputWithContext(ctx context.Context) OAuth2CredentialProviderGithubOauth2ProviderConfigInputPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OAuth2CredentialProviderGithubOauth2ProviderConfigInput) *OAuth2CredentialProviderGithubOauth2ProviderConfigInput {
+		return &v
+	}).(OAuth2CredentialProviderGithubOauth2ProviderConfigInputPtrOutput)
+}
+
+func (o OAuth2CredentialProviderGithubOauth2ProviderConfigInputOutput) ClientId() pulumi.StringOutput {
+	return o.ApplyT(func(v OAuth2CredentialProviderGithubOauth2ProviderConfigInput) string { return v.ClientId }).(pulumi.StringOutput)
+}
+
+func (o OAuth2CredentialProviderGithubOauth2ProviderConfigInputOutput) ClientSecret() pulumi.StringOutput {
+	return o.ApplyT(func(v OAuth2CredentialProviderGithubOauth2ProviderConfigInput) string { return v.ClientSecret }).(pulumi.StringOutput)
+}
+
+type OAuth2CredentialProviderGithubOauth2ProviderConfigInputPtrOutput struct{ *pulumi.OutputState }
+
+func (OAuth2CredentialProviderGithubOauth2ProviderConfigInputPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OAuth2CredentialProviderGithubOauth2ProviderConfigInput)(nil)).Elem()
+}
+
+func (o OAuth2CredentialProviderGithubOauth2ProviderConfigInputPtrOutput) ToOAuth2CredentialProviderGithubOauth2ProviderConfigInputPtrOutput() OAuth2CredentialProviderGithubOauth2ProviderConfigInputPtrOutput {
+	return o
+}
+
+func (o OAuth2CredentialProviderGithubOauth2ProviderConfigInputPtrOutput) ToOAuth2CredentialProviderGithubOauth2ProviderConfigInputPtrOutputWithContext(ctx context.Context) OAuth2CredentialProviderGithubOauth2ProviderConfigInputPtrOutput {
+	return o
+}
+
+func (o OAuth2CredentialProviderGithubOauth2ProviderConfigInputPtrOutput) Elem() OAuth2CredentialProviderGithubOauth2ProviderConfigInputOutput {
+	return o.ApplyT(func(v *OAuth2CredentialProviderGithubOauth2ProviderConfigInput) OAuth2CredentialProviderGithubOauth2ProviderConfigInput {
+		if v != nil {
+			return *v
+		}
+		var ret OAuth2CredentialProviderGithubOauth2ProviderConfigInput
+		return ret
+	}).(OAuth2CredentialProviderGithubOauth2ProviderConfigInputOutput)
+}
+
+func (o OAuth2CredentialProviderGithubOauth2ProviderConfigInputPtrOutput) ClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OAuth2CredentialProviderGithubOauth2ProviderConfigInput) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ClientId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o OAuth2CredentialProviderGithubOauth2ProviderConfigInputPtrOutput) ClientSecret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OAuth2CredentialProviderGithubOauth2ProviderConfigInput) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ClientSecret
+	}).(pulumi.StringPtrOutput)
+}
+
+// Input configuration for a Google OAuth2 provider
+type OAuth2CredentialProviderGoogleOauth2ProviderConfigInput struct {
+	ClientId     string `pulumi:"clientId"`
+	ClientSecret string `pulumi:"clientSecret"`
+}
+
+// OAuth2CredentialProviderGoogleOauth2ProviderConfigInputInput is an input type that accepts OAuth2CredentialProviderGoogleOauth2ProviderConfigInputArgs and OAuth2CredentialProviderGoogleOauth2ProviderConfigInputOutput values.
+// You can construct a concrete instance of `OAuth2CredentialProviderGoogleOauth2ProviderConfigInputInput` via:
+//
+//	OAuth2CredentialProviderGoogleOauth2ProviderConfigInputArgs{...}
+type OAuth2CredentialProviderGoogleOauth2ProviderConfigInputInput interface {
+	pulumi.Input
+
+	ToOAuth2CredentialProviderGoogleOauth2ProviderConfigInputOutput() OAuth2CredentialProviderGoogleOauth2ProviderConfigInputOutput
+	ToOAuth2CredentialProviderGoogleOauth2ProviderConfigInputOutputWithContext(context.Context) OAuth2CredentialProviderGoogleOauth2ProviderConfigInputOutput
+}
+
+// Input configuration for a Google OAuth2 provider
+type OAuth2CredentialProviderGoogleOauth2ProviderConfigInputArgs struct {
+	ClientId     pulumi.StringInput `pulumi:"clientId"`
+	ClientSecret pulumi.StringInput `pulumi:"clientSecret"`
+}
+
+func (OAuth2CredentialProviderGoogleOauth2ProviderConfigInputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OAuth2CredentialProviderGoogleOauth2ProviderConfigInput)(nil)).Elem()
+}
+
+func (i OAuth2CredentialProviderGoogleOauth2ProviderConfigInputArgs) ToOAuth2CredentialProviderGoogleOauth2ProviderConfigInputOutput() OAuth2CredentialProviderGoogleOauth2ProviderConfigInputOutput {
+	return i.ToOAuth2CredentialProviderGoogleOauth2ProviderConfigInputOutputWithContext(context.Background())
+}
+
+func (i OAuth2CredentialProviderGoogleOauth2ProviderConfigInputArgs) ToOAuth2CredentialProviderGoogleOauth2ProviderConfigInputOutputWithContext(ctx context.Context) OAuth2CredentialProviderGoogleOauth2ProviderConfigInputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OAuth2CredentialProviderGoogleOauth2ProviderConfigInputOutput)
+}
+
+func (i OAuth2CredentialProviderGoogleOauth2ProviderConfigInputArgs) ToOAuth2CredentialProviderGoogleOauth2ProviderConfigInputPtrOutput() OAuth2CredentialProviderGoogleOauth2ProviderConfigInputPtrOutput {
+	return i.ToOAuth2CredentialProviderGoogleOauth2ProviderConfigInputPtrOutputWithContext(context.Background())
+}
+
+func (i OAuth2CredentialProviderGoogleOauth2ProviderConfigInputArgs) ToOAuth2CredentialProviderGoogleOauth2ProviderConfigInputPtrOutputWithContext(ctx context.Context) OAuth2CredentialProviderGoogleOauth2ProviderConfigInputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OAuth2CredentialProviderGoogleOauth2ProviderConfigInputOutput).ToOAuth2CredentialProviderGoogleOauth2ProviderConfigInputPtrOutputWithContext(ctx)
+}
+
+// OAuth2CredentialProviderGoogleOauth2ProviderConfigInputPtrInput is an input type that accepts OAuth2CredentialProviderGoogleOauth2ProviderConfigInputArgs, OAuth2CredentialProviderGoogleOauth2ProviderConfigInputPtr and OAuth2CredentialProviderGoogleOauth2ProviderConfigInputPtrOutput values.
+// You can construct a concrete instance of `OAuth2CredentialProviderGoogleOauth2ProviderConfigInputPtrInput` via:
+//
+//	        OAuth2CredentialProviderGoogleOauth2ProviderConfigInputArgs{...}
+//
+//	or:
+//
+//	        nil
+type OAuth2CredentialProviderGoogleOauth2ProviderConfigInputPtrInput interface {
+	pulumi.Input
+
+	ToOAuth2CredentialProviderGoogleOauth2ProviderConfigInputPtrOutput() OAuth2CredentialProviderGoogleOauth2ProviderConfigInputPtrOutput
+	ToOAuth2CredentialProviderGoogleOauth2ProviderConfigInputPtrOutputWithContext(context.Context) OAuth2CredentialProviderGoogleOauth2ProviderConfigInputPtrOutput
+}
+
+type oauth2CredentialProviderGoogleOauth2ProviderConfigInputPtrType OAuth2CredentialProviderGoogleOauth2ProviderConfigInputArgs
+
+func OAuth2CredentialProviderGoogleOauth2ProviderConfigInputPtr(v *OAuth2CredentialProviderGoogleOauth2ProviderConfigInputArgs) OAuth2CredentialProviderGoogleOauth2ProviderConfigInputPtrInput {
+	return (*oauth2CredentialProviderGoogleOauth2ProviderConfigInputPtrType)(v)
+}
+
+func (*oauth2CredentialProviderGoogleOauth2ProviderConfigInputPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OAuth2CredentialProviderGoogleOauth2ProviderConfigInput)(nil)).Elem()
+}
+
+func (i *oauth2CredentialProviderGoogleOauth2ProviderConfigInputPtrType) ToOAuth2CredentialProviderGoogleOauth2ProviderConfigInputPtrOutput() OAuth2CredentialProviderGoogleOauth2ProviderConfigInputPtrOutput {
+	return i.ToOAuth2CredentialProviderGoogleOauth2ProviderConfigInputPtrOutputWithContext(context.Background())
+}
+
+func (i *oauth2CredentialProviderGoogleOauth2ProviderConfigInputPtrType) ToOAuth2CredentialProviderGoogleOauth2ProviderConfigInputPtrOutputWithContext(ctx context.Context) OAuth2CredentialProviderGoogleOauth2ProviderConfigInputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OAuth2CredentialProviderGoogleOauth2ProviderConfigInputPtrOutput)
+}
+
+// Input configuration for a Google OAuth2 provider
+type OAuth2CredentialProviderGoogleOauth2ProviderConfigInputOutput struct{ *pulumi.OutputState }
+
+func (OAuth2CredentialProviderGoogleOauth2ProviderConfigInputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OAuth2CredentialProviderGoogleOauth2ProviderConfigInput)(nil)).Elem()
+}
+
+func (o OAuth2CredentialProviderGoogleOauth2ProviderConfigInputOutput) ToOAuth2CredentialProviderGoogleOauth2ProviderConfigInputOutput() OAuth2CredentialProviderGoogleOauth2ProviderConfigInputOutput {
+	return o
+}
+
+func (o OAuth2CredentialProviderGoogleOauth2ProviderConfigInputOutput) ToOAuth2CredentialProviderGoogleOauth2ProviderConfigInputOutputWithContext(ctx context.Context) OAuth2CredentialProviderGoogleOauth2ProviderConfigInputOutput {
+	return o
+}
+
+func (o OAuth2CredentialProviderGoogleOauth2ProviderConfigInputOutput) ToOAuth2CredentialProviderGoogleOauth2ProviderConfigInputPtrOutput() OAuth2CredentialProviderGoogleOauth2ProviderConfigInputPtrOutput {
+	return o.ToOAuth2CredentialProviderGoogleOauth2ProviderConfigInputPtrOutputWithContext(context.Background())
+}
+
+func (o OAuth2CredentialProviderGoogleOauth2ProviderConfigInputOutput) ToOAuth2CredentialProviderGoogleOauth2ProviderConfigInputPtrOutputWithContext(ctx context.Context) OAuth2CredentialProviderGoogleOauth2ProviderConfigInputPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OAuth2CredentialProviderGoogleOauth2ProviderConfigInput) *OAuth2CredentialProviderGoogleOauth2ProviderConfigInput {
+		return &v
+	}).(OAuth2CredentialProviderGoogleOauth2ProviderConfigInputPtrOutput)
+}
+
+func (o OAuth2CredentialProviderGoogleOauth2ProviderConfigInputOutput) ClientId() pulumi.StringOutput {
+	return o.ApplyT(func(v OAuth2CredentialProviderGoogleOauth2ProviderConfigInput) string { return v.ClientId }).(pulumi.StringOutput)
+}
+
+func (o OAuth2CredentialProviderGoogleOauth2ProviderConfigInputOutput) ClientSecret() pulumi.StringOutput {
+	return o.ApplyT(func(v OAuth2CredentialProviderGoogleOauth2ProviderConfigInput) string { return v.ClientSecret }).(pulumi.StringOutput)
+}
+
+type OAuth2CredentialProviderGoogleOauth2ProviderConfigInputPtrOutput struct{ *pulumi.OutputState }
+
+func (OAuth2CredentialProviderGoogleOauth2ProviderConfigInputPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OAuth2CredentialProviderGoogleOauth2ProviderConfigInput)(nil)).Elem()
+}
+
+func (o OAuth2CredentialProviderGoogleOauth2ProviderConfigInputPtrOutput) ToOAuth2CredentialProviderGoogleOauth2ProviderConfigInputPtrOutput() OAuth2CredentialProviderGoogleOauth2ProviderConfigInputPtrOutput {
+	return o
+}
+
+func (o OAuth2CredentialProviderGoogleOauth2ProviderConfigInputPtrOutput) ToOAuth2CredentialProviderGoogleOauth2ProviderConfigInputPtrOutputWithContext(ctx context.Context) OAuth2CredentialProviderGoogleOauth2ProviderConfigInputPtrOutput {
+	return o
+}
+
+func (o OAuth2CredentialProviderGoogleOauth2ProviderConfigInputPtrOutput) Elem() OAuth2CredentialProviderGoogleOauth2ProviderConfigInputOutput {
+	return o.ApplyT(func(v *OAuth2CredentialProviderGoogleOauth2ProviderConfigInput) OAuth2CredentialProviderGoogleOauth2ProviderConfigInput {
+		if v != nil {
+			return *v
+		}
+		var ret OAuth2CredentialProviderGoogleOauth2ProviderConfigInput
+		return ret
+	}).(OAuth2CredentialProviderGoogleOauth2ProviderConfigInputOutput)
+}
+
+func (o OAuth2CredentialProviderGoogleOauth2ProviderConfigInputPtrOutput) ClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OAuth2CredentialProviderGoogleOauth2ProviderConfigInput) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ClientId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o OAuth2CredentialProviderGoogleOauth2ProviderConfigInputPtrOutput) ClientSecret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OAuth2CredentialProviderGoogleOauth2ProviderConfigInput) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ClientSecret
+	}).(pulumi.StringPtrOutput)
+}
+
+// Input configuration for a supported non-custom OAuth2 provider
+type OAuth2CredentialProviderIncludedOauth2ProviderConfigInput struct {
+	// OAuth2 authorization endpoint for your isolated OAuth2 application tenant
+	AuthorizationEndpoint *string `pulumi:"authorizationEndpoint"`
+	ClientId              string  `pulumi:"clientId"`
+	ClientSecret          string  `pulumi:"clientSecret"`
+	// Token issuer of your isolated OAuth2 application tenant
+	Issuer *string `pulumi:"issuer"`
+	// OAuth2 token endpoint for your isolated OAuth2 application tenant
+	TokenEndpoint *string `pulumi:"tokenEndpoint"`
+}
+
+// OAuth2CredentialProviderIncludedOauth2ProviderConfigInputInput is an input type that accepts OAuth2CredentialProviderIncludedOauth2ProviderConfigInputArgs and OAuth2CredentialProviderIncludedOauth2ProviderConfigInputOutput values.
+// You can construct a concrete instance of `OAuth2CredentialProviderIncludedOauth2ProviderConfigInputInput` via:
+//
+//	OAuth2CredentialProviderIncludedOauth2ProviderConfigInputArgs{...}
+type OAuth2CredentialProviderIncludedOauth2ProviderConfigInputInput interface {
+	pulumi.Input
+
+	ToOAuth2CredentialProviderIncludedOauth2ProviderConfigInputOutput() OAuth2CredentialProviderIncludedOauth2ProviderConfigInputOutput
+	ToOAuth2CredentialProviderIncludedOauth2ProviderConfigInputOutputWithContext(context.Context) OAuth2CredentialProviderIncludedOauth2ProviderConfigInputOutput
+}
+
+// Input configuration for a supported non-custom OAuth2 provider
+type OAuth2CredentialProviderIncludedOauth2ProviderConfigInputArgs struct {
+	// OAuth2 authorization endpoint for your isolated OAuth2 application tenant
+	AuthorizationEndpoint pulumi.StringPtrInput `pulumi:"authorizationEndpoint"`
+	ClientId              pulumi.StringInput    `pulumi:"clientId"`
+	ClientSecret          pulumi.StringInput    `pulumi:"clientSecret"`
+	// Token issuer of your isolated OAuth2 application tenant
+	Issuer pulumi.StringPtrInput `pulumi:"issuer"`
+	// OAuth2 token endpoint for your isolated OAuth2 application tenant
+	TokenEndpoint pulumi.StringPtrInput `pulumi:"tokenEndpoint"`
+}
+
+func (OAuth2CredentialProviderIncludedOauth2ProviderConfigInputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OAuth2CredentialProviderIncludedOauth2ProviderConfigInput)(nil)).Elem()
+}
+
+func (i OAuth2CredentialProviderIncludedOauth2ProviderConfigInputArgs) ToOAuth2CredentialProviderIncludedOauth2ProviderConfigInputOutput() OAuth2CredentialProviderIncludedOauth2ProviderConfigInputOutput {
+	return i.ToOAuth2CredentialProviderIncludedOauth2ProviderConfigInputOutputWithContext(context.Background())
+}
+
+func (i OAuth2CredentialProviderIncludedOauth2ProviderConfigInputArgs) ToOAuth2CredentialProviderIncludedOauth2ProviderConfigInputOutputWithContext(ctx context.Context) OAuth2CredentialProviderIncludedOauth2ProviderConfigInputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OAuth2CredentialProviderIncludedOauth2ProviderConfigInputOutput)
+}
+
+func (i OAuth2CredentialProviderIncludedOauth2ProviderConfigInputArgs) ToOAuth2CredentialProviderIncludedOauth2ProviderConfigInputPtrOutput() OAuth2CredentialProviderIncludedOauth2ProviderConfigInputPtrOutput {
+	return i.ToOAuth2CredentialProviderIncludedOauth2ProviderConfigInputPtrOutputWithContext(context.Background())
+}
+
+func (i OAuth2CredentialProviderIncludedOauth2ProviderConfigInputArgs) ToOAuth2CredentialProviderIncludedOauth2ProviderConfigInputPtrOutputWithContext(ctx context.Context) OAuth2CredentialProviderIncludedOauth2ProviderConfigInputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OAuth2CredentialProviderIncludedOauth2ProviderConfigInputOutput).ToOAuth2CredentialProviderIncludedOauth2ProviderConfigInputPtrOutputWithContext(ctx)
+}
+
+// OAuth2CredentialProviderIncludedOauth2ProviderConfigInputPtrInput is an input type that accepts OAuth2CredentialProviderIncludedOauth2ProviderConfigInputArgs, OAuth2CredentialProviderIncludedOauth2ProviderConfigInputPtr and OAuth2CredentialProviderIncludedOauth2ProviderConfigInputPtrOutput values.
+// You can construct a concrete instance of `OAuth2CredentialProviderIncludedOauth2ProviderConfigInputPtrInput` via:
+//
+//	        OAuth2CredentialProviderIncludedOauth2ProviderConfigInputArgs{...}
+//
+//	or:
+//
+//	        nil
+type OAuth2CredentialProviderIncludedOauth2ProviderConfigInputPtrInput interface {
+	pulumi.Input
+
+	ToOAuth2CredentialProviderIncludedOauth2ProviderConfigInputPtrOutput() OAuth2CredentialProviderIncludedOauth2ProviderConfigInputPtrOutput
+	ToOAuth2CredentialProviderIncludedOauth2ProviderConfigInputPtrOutputWithContext(context.Context) OAuth2CredentialProviderIncludedOauth2ProviderConfigInputPtrOutput
+}
+
+type oauth2CredentialProviderIncludedOauth2ProviderConfigInputPtrType OAuth2CredentialProviderIncludedOauth2ProviderConfigInputArgs
+
+func OAuth2CredentialProviderIncludedOauth2ProviderConfigInputPtr(v *OAuth2CredentialProviderIncludedOauth2ProviderConfigInputArgs) OAuth2CredentialProviderIncludedOauth2ProviderConfigInputPtrInput {
+	return (*oauth2CredentialProviderIncludedOauth2ProviderConfigInputPtrType)(v)
+}
+
+func (*oauth2CredentialProviderIncludedOauth2ProviderConfigInputPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OAuth2CredentialProviderIncludedOauth2ProviderConfigInput)(nil)).Elem()
+}
+
+func (i *oauth2CredentialProviderIncludedOauth2ProviderConfigInputPtrType) ToOAuth2CredentialProviderIncludedOauth2ProviderConfigInputPtrOutput() OAuth2CredentialProviderIncludedOauth2ProviderConfigInputPtrOutput {
+	return i.ToOAuth2CredentialProviderIncludedOauth2ProviderConfigInputPtrOutputWithContext(context.Background())
+}
+
+func (i *oauth2CredentialProviderIncludedOauth2ProviderConfigInputPtrType) ToOAuth2CredentialProviderIncludedOauth2ProviderConfigInputPtrOutputWithContext(ctx context.Context) OAuth2CredentialProviderIncludedOauth2ProviderConfigInputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OAuth2CredentialProviderIncludedOauth2ProviderConfigInputPtrOutput)
+}
+
+// Input configuration for a supported non-custom OAuth2 provider
+type OAuth2CredentialProviderIncludedOauth2ProviderConfigInputOutput struct{ *pulumi.OutputState }
+
+func (OAuth2CredentialProviderIncludedOauth2ProviderConfigInputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OAuth2CredentialProviderIncludedOauth2ProviderConfigInput)(nil)).Elem()
+}
+
+func (o OAuth2CredentialProviderIncludedOauth2ProviderConfigInputOutput) ToOAuth2CredentialProviderIncludedOauth2ProviderConfigInputOutput() OAuth2CredentialProviderIncludedOauth2ProviderConfigInputOutput {
+	return o
+}
+
+func (o OAuth2CredentialProviderIncludedOauth2ProviderConfigInputOutput) ToOAuth2CredentialProviderIncludedOauth2ProviderConfigInputOutputWithContext(ctx context.Context) OAuth2CredentialProviderIncludedOauth2ProviderConfigInputOutput {
+	return o
+}
+
+func (o OAuth2CredentialProviderIncludedOauth2ProviderConfigInputOutput) ToOAuth2CredentialProviderIncludedOauth2ProviderConfigInputPtrOutput() OAuth2CredentialProviderIncludedOauth2ProviderConfigInputPtrOutput {
+	return o.ToOAuth2CredentialProviderIncludedOauth2ProviderConfigInputPtrOutputWithContext(context.Background())
+}
+
+func (o OAuth2CredentialProviderIncludedOauth2ProviderConfigInputOutput) ToOAuth2CredentialProviderIncludedOauth2ProviderConfigInputPtrOutputWithContext(ctx context.Context) OAuth2CredentialProviderIncludedOauth2ProviderConfigInputPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OAuth2CredentialProviderIncludedOauth2ProviderConfigInput) *OAuth2CredentialProviderIncludedOauth2ProviderConfigInput {
+		return &v
+	}).(OAuth2CredentialProviderIncludedOauth2ProviderConfigInputPtrOutput)
+}
+
+// OAuth2 authorization endpoint for your isolated OAuth2 application tenant
+func (o OAuth2CredentialProviderIncludedOauth2ProviderConfigInputOutput) AuthorizationEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OAuth2CredentialProviderIncludedOauth2ProviderConfigInput) *string {
+		return v.AuthorizationEndpoint
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o OAuth2CredentialProviderIncludedOauth2ProviderConfigInputOutput) ClientId() pulumi.StringOutput {
+	return o.ApplyT(func(v OAuth2CredentialProviderIncludedOauth2ProviderConfigInput) string { return v.ClientId }).(pulumi.StringOutput)
+}
+
+func (o OAuth2CredentialProviderIncludedOauth2ProviderConfigInputOutput) ClientSecret() pulumi.StringOutput {
+	return o.ApplyT(func(v OAuth2CredentialProviderIncludedOauth2ProviderConfigInput) string { return v.ClientSecret }).(pulumi.StringOutput)
+}
+
+// Token issuer of your isolated OAuth2 application tenant
+func (o OAuth2CredentialProviderIncludedOauth2ProviderConfigInputOutput) Issuer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OAuth2CredentialProviderIncludedOauth2ProviderConfigInput) *string { return v.Issuer }).(pulumi.StringPtrOutput)
+}
+
+// OAuth2 token endpoint for your isolated OAuth2 application tenant
+func (o OAuth2CredentialProviderIncludedOauth2ProviderConfigInputOutput) TokenEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OAuth2CredentialProviderIncludedOauth2ProviderConfigInput) *string { return v.TokenEndpoint }).(pulumi.StringPtrOutput)
+}
+
+type OAuth2CredentialProviderIncludedOauth2ProviderConfigInputPtrOutput struct{ *pulumi.OutputState }
+
+func (OAuth2CredentialProviderIncludedOauth2ProviderConfigInputPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OAuth2CredentialProviderIncludedOauth2ProviderConfigInput)(nil)).Elem()
+}
+
+func (o OAuth2CredentialProviderIncludedOauth2ProviderConfigInputPtrOutput) ToOAuth2CredentialProviderIncludedOauth2ProviderConfigInputPtrOutput() OAuth2CredentialProviderIncludedOauth2ProviderConfigInputPtrOutput {
+	return o
+}
+
+func (o OAuth2CredentialProviderIncludedOauth2ProviderConfigInputPtrOutput) ToOAuth2CredentialProviderIncludedOauth2ProviderConfigInputPtrOutputWithContext(ctx context.Context) OAuth2CredentialProviderIncludedOauth2ProviderConfigInputPtrOutput {
+	return o
+}
+
+func (o OAuth2CredentialProviderIncludedOauth2ProviderConfigInputPtrOutput) Elem() OAuth2CredentialProviderIncludedOauth2ProviderConfigInputOutput {
+	return o.ApplyT(func(v *OAuth2CredentialProviderIncludedOauth2ProviderConfigInput) OAuth2CredentialProviderIncludedOauth2ProviderConfigInput {
+		if v != nil {
+			return *v
+		}
+		var ret OAuth2CredentialProviderIncludedOauth2ProviderConfigInput
+		return ret
+	}).(OAuth2CredentialProviderIncludedOauth2ProviderConfigInputOutput)
+}
+
+// OAuth2 authorization endpoint for your isolated OAuth2 application tenant
+func (o OAuth2CredentialProviderIncludedOauth2ProviderConfigInputPtrOutput) AuthorizationEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OAuth2CredentialProviderIncludedOauth2ProviderConfigInput) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AuthorizationEndpoint
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o OAuth2CredentialProviderIncludedOauth2ProviderConfigInputPtrOutput) ClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OAuth2CredentialProviderIncludedOauth2ProviderConfigInput) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ClientId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o OAuth2CredentialProviderIncludedOauth2ProviderConfigInputPtrOutput) ClientSecret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OAuth2CredentialProviderIncludedOauth2ProviderConfigInput) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ClientSecret
+	}).(pulumi.StringPtrOutput)
+}
+
+// Token issuer of your isolated OAuth2 application tenant
+func (o OAuth2CredentialProviderIncludedOauth2ProviderConfigInputPtrOutput) Issuer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OAuth2CredentialProviderIncludedOauth2ProviderConfigInput) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Issuer
+	}).(pulumi.StringPtrOutput)
+}
+
+// OAuth2 token endpoint for your isolated OAuth2 application tenant
+func (o OAuth2CredentialProviderIncludedOauth2ProviderConfigInputPtrOutput) TokenEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OAuth2CredentialProviderIncludedOauth2ProviderConfigInput) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TokenEndpoint
+	}).(pulumi.StringPtrOutput)
+}
+
+// Input configuration for a LinkedIn OAuth2 provider
+type OAuth2CredentialProviderLinkedinOauth2ProviderConfigInput struct {
+	ClientId     string `pulumi:"clientId"`
+	ClientSecret string `pulumi:"clientSecret"`
+}
+
+// OAuth2CredentialProviderLinkedinOauth2ProviderConfigInputInput is an input type that accepts OAuth2CredentialProviderLinkedinOauth2ProviderConfigInputArgs and OAuth2CredentialProviderLinkedinOauth2ProviderConfigInputOutput values.
+// You can construct a concrete instance of `OAuth2CredentialProviderLinkedinOauth2ProviderConfigInputInput` via:
+//
+//	OAuth2CredentialProviderLinkedinOauth2ProviderConfigInputArgs{...}
+type OAuth2CredentialProviderLinkedinOauth2ProviderConfigInputInput interface {
+	pulumi.Input
+
+	ToOAuth2CredentialProviderLinkedinOauth2ProviderConfigInputOutput() OAuth2CredentialProviderLinkedinOauth2ProviderConfigInputOutput
+	ToOAuth2CredentialProviderLinkedinOauth2ProviderConfigInputOutputWithContext(context.Context) OAuth2CredentialProviderLinkedinOauth2ProviderConfigInputOutput
+}
+
+// Input configuration for a LinkedIn OAuth2 provider
+type OAuth2CredentialProviderLinkedinOauth2ProviderConfigInputArgs struct {
+	ClientId     pulumi.StringInput `pulumi:"clientId"`
+	ClientSecret pulumi.StringInput `pulumi:"clientSecret"`
+}
+
+func (OAuth2CredentialProviderLinkedinOauth2ProviderConfigInputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OAuth2CredentialProviderLinkedinOauth2ProviderConfigInput)(nil)).Elem()
+}
+
+func (i OAuth2CredentialProviderLinkedinOauth2ProviderConfigInputArgs) ToOAuth2CredentialProviderLinkedinOauth2ProviderConfigInputOutput() OAuth2CredentialProviderLinkedinOauth2ProviderConfigInputOutput {
+	return i.ToOAuth2CredentialProviderLinkedinOauth2ProviderConfigInputOutputWithContext(context.Background())
+}
+
+func (i OAuth2CredentialProviderLinkedinOauth2ProviderConfigInputArgs) ToOAuth2CredentialProviderLinkedinOauth2ProviderConfigInputOutputWithContext(ctx context.Context) OAuth2CredentialProviderLinkedinOauth2ProviderConfigInputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OAuth2CredentialProviderLinkedinOauth2ProviderConfigInputOutput)
+}
+
+func (i OAuth2CredentialProviderLinkedinOauth2ProviderConfigInputArgs) ToOAuth2CredentialProviderLinkedinOauth2ProviderConfigInputPtrOutput() OAuth2CredentialProviderLinkedinOauth2ProviderConfigInputPtrOutput {
+	return i.ToOAuth2CredentialProviderLinkedinOauth2ProviderConfigInputPtrOutputWithContext(context.Background())
+}
+
+func (i OAuth2CredentialProviderLinkedinOauth2ProviderConfigInputArgs) ToOAuth2CredentialProviderLinkedinOauth2ProviderConfigInputPtrOutputWithContext(ctx context.Context) OAuth2CredentialProviderLinkedinOauth2ProviderConfigInputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OAuth2CredentialProviderLinkedinOauth2ProviderConfigInputOutput).ToOAuth2CredentialProviderLinkedinOauth2ProviderConfigInputPtrOutputWithContext(ctx)
+}
+
+// OAuth2CredentialProviderLinkedinOauth2ProviderConfigInputPtrInput is an input type that accepts OAuth2CredentialProviderLinkedinOauth2ProviderConfigInputArgs, OAuth2CredentialProviderLinkedinOauth2ProviderConfigInputPtr and OAuth2CredentialProviderLinkedinOauth2ProviderConfigInputPtrOutput values.
+// You can construct a concrete instance of `OAuth2CredentialProviderLinkedinOauth2ProviderConfigInputPtrInput` via:
+//
+//	        OAuth2CredentialProviderLinkedinOauth2ProviderConfigInputArgs{...}
+//
+//	or:
+//
+//	        nil
+type OAuth2CredentialProviderLinkedinOauth2ProviderConfigInputPtrInput interface {
+	pulumi.Input
+
+	ToOAuth2CredentialProviderLinkedinOauth2ProviderConfigInputPtrOutput() OAuth2CredentialProviderLinkedinOauth2ProviderConfigInputPtrOutput
+	ToOAuth2CredentialProviderLinkedinOauth2ProviderConfigInputPtrOutputWithContext(context.Context) OAuth2CredentialProviderLinkedinOauth2ProviderConfigInputPtrOutput
+}
+
+type oauth2CredentialProviderLinkedinOauth2ProviderConfigInputPtrType OAuth2CredentialProviderLinkedinOauth2ProviderConfigInputArgs
+
+func OAuth2CredentialProviderLinkedinOauth2ProviderConfigInputPtr(v *OAuth2CredentialProviderLinkedinOauth2ProviderConfigInputArgs) OAuth2CredentialProviderLinkedinOauth2ProviderConfigInputPtrInput {
+	return (*oauth2CredentialProviderLinkedinOauth2ProviderConfigInputPtrType)(v)
+}
+
+func (*oauth2CredentialProviderLinkedinOauth2ProviderConfigInputPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OAuth2CredentialProviderLinkedinOauth2ProviderConfigInput)(nil)).Elem()
+}
+
+func (i *oauth2CredentialProviderLinkedinOauth2ProviderConfigInputPtrType) ToOAuth2CredentialProviderLinkedinOauth2ProviderConfigInputPtrOutput() OAuth2CredentialProviderLinkedinOauth2ProviderConfigInputPtrOutput {
+	return i.ToOAuth2CredentialProviderLinkedinOauth2ProviderConfigInputPtrOutputWithContext(context.Background())
+}
+
+func (i *oauth2CredentialProviderLinkedinOauth2ProviderConfigInputPtrType) ToOAuth2CredentialProviderLinkedinOauth2ProviderConfigInputPtrOutputWithContext(ctx context.Context) OAuth2CredentialProviderLinkedinOauth2ProviderConfigInputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OAuth2CredentialProviderLinkedinOauth2ProviderConfigInputPtrOutput)
+}
+
+// Input configuration for a LinkedIn OAuth2 provider
+type OAuth2CredentialProviderLinkedinOauth2ProviderConfigInputOutput struct{ *pulumi.OutputState }
+
+func (OAuth2CredentialProviderLinkedinOauth2ProviderConfigInputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OAuth2CredentialProviderLinkedinOauth2ProviderConfigInput)(nil)).Elem()
+}
+
+func (o OAuth2CredentialProviderLinkedinOauth2ProviderConfigInputOutput) ToOAuth2CredentialProviderLinkedinOauth2ProviderConfigInputOutput() OAuth2CredentialProviderLinkedinOauth2ProviderConfigInputOutput {
+	return o
+}
+
+func (o OAuth2CredentialProviderLinkedinOauth2ProviderConfigInputOutput) ToOAuth2CredentialProviderLinkedinOauth2ProviderConfigInputOutputWithContext(ctx context.Context) OAuth2CredentialProviderLinkedinOauth2ProviderConfigInputOutput {
+	return o
+}
+
+func (o OAuth2CredentialProviderLinkedinOauth2ProviderConfigInputOutput) ToOAuth2CredentialProviderLinkedinOauth2ProviderConfigInputPtrOutput() OAuth2CredentialProviderLinkedinOauth2ProviderConfigInputPtrOutput {
+	return o.ToOAuth2CredentialProviderLinkedinOauth2ProviderConfigInputPtrOutputWithContext(context.Background())
+}
+
+func (o OAuth2CredentialProviderLinkedinOauth2ProviderConfigInputOutput) ToOAuth2CredentialProviderLinkedinOauth2ProviderConfigInputPtrOutputWithContext(ctx context.Context) OAuth2CredentialProviderLinkedinOauth2ProviderConfigInputPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OAuth2CredentialProviderLinkedinOauth2ProviderConfigInput) *OAuth2CredentialProviderLinkedinOauth2ProviderConfigInput {
+		return &v
+	}).(OAuth2CredentialProviderLinkedinOauth2ProviderConfigInputPtrOutput)
+}
+
+func (o OAuth2CredentialProviderLinkedinOauth2ProviderConfigInputOutput) ClientId() pulumi.StringOutput {
+	return o.ApplyT(func(v OAuth2CredentialProviderLinkedinOauth2ProviderConfigInput) string { return v.ClientId }).(pulumi.StringOutput)
+}
+
+func (o OAuth2CredentialProviderLinkedinOauth2ProviderConfigInputOutput) ClientSecret() pulumi.StringOutput {
+	return o.ApplyT(func(v OAuth2CredentialProviderLinkedinOauth2ProviderConfigInput) string { return v.ClientSecret }).(pulumi.StringOutput)
+}
+
+type OAuth2CredentialProviderLinkedinOauth2ProviderConfigInputPtrOutput struct{ *pulumi.OutputState }
+
+func (OAuth2CredentialProviderLinkedinOauth2ProviderConfigInputPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OAuth2CredentialProviderLinkedinOauth2ProviderConfigInput)(nil)).Elem()
+}
+
+func (o OAuth2CredentialProviderLinkedinOauth2ProviderConfigInputPtrOutput) ToOAuth2CredentialProviderLinkedinOauth2ProviderConfigInputPtrOutput() OAuth2CredentialProviderLinkedinOauth2ProviderConfigInputPtrOutput {
+	return o
+}
+
+func (o OAuth2CredentialProviderLinkedinOauth2ProviderConfigInputPtrOutput) ToOAuth2CredentialProviderLinkedinOauth2ProviderConfigInputPtrOutputWithContext(ctx context.Context) OAuth2CredentialProviderLinkedinOauth2ProviderConfigInputPtrOutput {
+	return o
+}
+
+func (o OAuth2CredentialProviderLinkedinOauth2ProviderConfigInputPtrOutput) Elem() OAuth2CredentialProviderLinkedinOauth2ProviderConfigInputOutput {
+	return o.ApplyT(func(v *OAuth2CredentialProviderLinkedinOauth2ProviderConfigInput) OAuth2CredentialProviderLinkedinOauth2ProviderConfigInput {
+		if v != nil {
+			return *v
+		}
+		var ret OAuth2CredentialProviderLinkedinOauth2ProviderConfigInput
+		return ret
+	}).(OAuth2CredentialProviderLinkedinOauth2ProviderConfigInputOutput)
+}
+
+func (o OAuth2CredentialProviderLinkedinOauth2ProviderConfigInputPtrOutput) ClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OAuth2CredentialProviderLinkedinOauth2ProviderConfigInput) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ClientId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o OAuth2CredentialProviderLinkedinOauth2ProviderConfigInputPtrOutput) ClientSecret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OAuth2CredentialProviderLinkedinOauth2ProviderConfigInput) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ClientSecret
+	}).(pulumi.StringPtrOutput)
+}
+
+// Input configuration for a Microsoft OAuth2 provider
+type OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInput struct {
+	ClientId     string `pulumi:"clientId"`
+	ClientSecret string `pulumi:"clientSecret"`
+	// The Microsoft Entra ID tenant ID
+	TenantId *string `pulumi:"tenantId"`
+}
+
+// OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInputInput is an input type that accepts OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInputArgs and OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInputOutput values.
+// You can construct a concrete instance of `OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInputInput` via:
+//
+//	OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInputArgs{...}
+type OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInputInput interface {
+	pulumi.Input
+
+	ToOAuth2CredentialProviderMicrosoftOauth2ProviderConfigInputOutput() OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInputOutput
+	ToOAuth2CredentialProviderMicrosoftOauth2ProviderConfigInputOutputWithContext(context.Context) OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInputOutput
+}
+
+// Input configuration for a Microsoft OAuth2 provider
+type OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInputArgs struct {
+	ClientId     pulumi.StringInput `pulumi:"clientId"`
+	ClientSecret pulumi.StringInput `pulumi:"clientSecret"`
+	// The Microsoft Entra ID tenant ID
+	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
+}
+
+func (OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInput)(nil)).Elem()
+}
+
+func (i OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInputArgs) ToOAuth2CredentialProviderMicrosoftOauth2ProviderConfigInputOutput() OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInputOutput {
+	return i.ToOAuth2CredentialProviderMicrosoftOauth2ProviderConfigInputOutputWithContext(context.Background())
+}
+
+func (i OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInputArgs) ToOAuth2CredentialProviderMicrosoftOauth2ProviderConfigInputOutputWithContext(ctx context.Context) OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInputOutput)
+}
+
+func (i OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInputArgs) ToOAuth2CredentialProviderMicrosoftOauth2ProviderConfigInputPtrOutput() OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInputPtrOutput {
+	return i.ToOAuth2CredentialProviderMicrosoftOauth2ProviderConfigInputPtrOutputWithContext(context.Background())
+}
+
+func (i OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInputArgs) ToOAuth2CredentialProviderMicrosoftOauth2ProviderConfigInputPtrOutputWithContext(ctx context.Context) OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInputOutput).ToOAuth2CredentialProviderMicrosoftOauth2ProviderConfigInputPtrOutputWithContext(ctx)
+}
+
+// OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInputPtrInput is an input type that accepts OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInputArgs, OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInputPtr and OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInputPtrOutput values.
+// You can construct a concrete instance of `OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInputPtrInput` via:
+//
+//	        OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInputArgs{...}
+//
+//	or:
+//
+//	        nil
+type OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInputPtrInput interface {
+	pulumi.Input
+
+	ToOAuth2CredentialProviderMicrosoftOauth2ProviderConfigInputPtrOutput() OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInputPtrOutput
+	ToOAuth2CredentialProviderMicrosoftOauth2ProviderConfigInputPtrOutputWithContext(context.Context) OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInputPtrOutput
+}
+
+type oauth2CredentialProviderMicrosoftOauth2ProviderConfigInputPtrType OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInputArgs
+
+func OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInputPtr(v *OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInputArgs) OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInputPtrInput {
+	return (*oauth2CredentialProviderMicrosoftOauth2ProviderConfigInputPtrType)(v)
+}
+
+func (*oauth2CredentialProviderMicrosoftOauth2ProviderConfigInputPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInput)(nil)).Elem()
+}
+
+func (i *oauth2CredentialProviderMicrosoftOauth2ProviderConfigInputPtrType) ToOAuth2CredentialProviderMicrosoftOauth2ProviderConfigInputPtrOutput() OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInputPtrOutput {
+	return i.ToOAuth2CredentialProviderMicrosoftOauth2ProviderConfigInputPtrOutputWithContext(context.Background())
+}
+
+func (i *oauth2CredentialProviderMicrosoftOauth2ProviderConfigInputPtrType) ToOAuth2CredentialProviderMicrosoftOauth2ProviderConfigInputPtrOutputWithContext(ctx context.Context) OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInputPtrOutput)
+}
+
+// Input configuration for a Microsoft OAuth2 provider
+type OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInputOutput struct{ *pulumi.OutputState }
+
+func (OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInput)(nil)).Elem()
+}
+
+func (o OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInputOutput) ToOAuth2CredentialProviderMicrosoftOauth2ProviderConfigInputOutput() OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInputOutput {
+	return o
+}
+
+func (o OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInputOutput) ToOAuth2CredentialProviderMicrosoftOauth2ProviderConfigInputOutputWithContext(ctx context.Context) OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInputOutput {
+	return o
+}
+
+func (o OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInputOutput) ToOAuth2CredentialProviderMicrosoftOauth2ProviderConfigInputPtrOutput() OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInputPtrOutput {
+	return o.ToOAuth2CredentialProviderMicrosoftOauth2ProviderConfigInputPtrOutputWithContext(context.Background())
+}
+
+func (o OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInputOutput) ToOAuth2CredentialProviderMicrosoftOauth2ProviderConfigInputPtrOutputWithContext(ctx context.Context) OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInputPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInput) *OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInput {
+		return &v
+	}).(OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInputPtrOutput)
+}
+
+func (o OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInputOutput) ClientId() pulumi.StringOutput {
+	return o.ApplyT(func(v OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInput) string { return v.ClientId }).(pulumi.StringOutput)
+}
+
+func (o OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInputOutput) ClientSecret() pulumi.StringOutput {
+	return o.ApplyT(func(v OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInput) string { return v.ClientSecret }).(pulumi.StringOutput)
+}
+
+// The Microsoft Entra ID tenant ID
+func (o OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInputOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInput) *string { return v.TenantId }).(pulumi.StringPtrOutput)
+}
+
+type OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInputPtrOutput struct{ *pulumi.OutputState }
+
+func (OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInputPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInput)(nil)).Elem()
+}
+
+func (o OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInputPtrOutput) ToOAuth2CredentialProviderMicrosoftOauth2ProviderConfigInputPtrOutput() OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInputPtrOutput {
+	return o
+}
+
+func (o OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInputPtrOutput) ToOAuth2CredentialProviderMicrosoftOauth2ProviderConfigInputPtrOutputWithContext(ctx context.Context) OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInputPtrOutput {
+	return o
+}
+
+func (o OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInputPtrOutput) Elem() OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInputOutput {
+	return o.ApplyT(func(v *OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInput) OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInput {
+		if v != nil {
+			return *v
+		}
+		var ret OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInput
+		return ret
+	}).(OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInputOutput)
+}
+
+func (o OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInputPtrOutput) ClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInput) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ClientId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInputPtrOutput) ClientSecret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInput) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ClientSecret
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Microsoft Entra ID tenant ID
+func (o OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInputPtrOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInput) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TenantId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Authorization server metadata for the OAuth2 provider
+type OAuth2CredentialProviderOauth2AuthorizationServerMetadata struct {
+	// The authorization endpoint URL
+	AuthorizationEndpoint string `pulumi:"authorizationEndpoint"`
+	// The issuer URL for the OAuth2 authorization server
+	Issuer string `pulumi:"issuer"`
+	// The supported response types
+	ResponseTypes []string `pulumi:"responseTypes"`
+	// The token endpoint URL
+	TokenEndpoint string `pulumi:"tokenEndpoint"`
+}
+
+// OAuth2CredentialProviderOauth2AuthorizationServerMetadataInput is an input type that accepts OAuth2CredentialProviderOauth2AuthorizationServerMetadataArgs and OAuth2CredentialProviderOauth2AuthorizationServerMetadataOutput values.
+// You can construct a concrete instance of `OAuth2CredentialProviderOauth2AuthorizationServerMetadataInput` via:
+//
+//	OAuth2CredentialProviderOauth2AuthorizationServerMetadataArgs{...}
+type OAuth2CredentialProviderOauth2AuthorizationServerMetadataInput interface {
+	pulumi.Input
+
+	ToOAuth2CredentialProviderOauth2AuthorizationServerMetadataOutput() OAuth2CredentialProviderOauth2AuthorizationServerMetadataOutput
+	ToOAuth2CredentialProviderOauth2AuthorizationServerMetadataOutputWithContext(context.Context) OAuth2CredentialProviderOauth2AuthorizationServerMetadataOutput
+}
+
+// Authorization server metadata for the OAuth2 provider
+type OAuth2CredentialProviderOauth2AuthorizationServerMetadataArgs struct {
+	// The authorization endpoint URL
+	AuthorizationEndpoint pulumi.StringInput `pulumi:"authorizationEndpoint"`
+	// The issuer URL for the OAuth2 authorization server
+	Issuer pulumi.StringInput `pulumi:"issuer"`
+	// The supported response types
+	ResponseTypes pulumi.StringArrayInput `pulumi:"responseTypes"`
+	// The token endpoint URL
+	TokenEndpoint pulumi.StringInput `pulumi:"tokenEndpoint"`
+}
+
+func (OAuth2CredentialProviderOauth2AuthorizationServerMetadataArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OAuth2CredentialProviderOauth2AuthorizationServerMetadata)(nil)).Elem()
+}
+
+func (i OAuth2CredentialProviderOauth2AuthorizationServerMetadataArgs) ToOAuth2CredentialProviderOauth2AuthorizationServerMetadataOutput() OAuth2CredentialProviderOauth2AuthorizationServerMetadataOutput {
+	return i.ToOAuth2CredentialProviderOauth2AuthorizationServerMetadataOutputWithContext(context.Background())
+}
+
+func (i OAuth2CredentialProviderOauth2AuthorizationServerMetadataArgs) ToOAuth2CredentialProviderOauth2AuthorizationServerMetadataOutputWithContext(ctx context.Context) OAuth2CredentialProviderOauth2AuthorizationServerMetadataOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OAuth2CredentialProviderOauth2AuthorizationServerMetadataOutput)
+}
+
+func (i OAuth2CredentialProviderOauth2AuthorizationServerMetadataArgs) ToOAuth2CredentialProviderOauth2AuthorizationServerMetadataPtrOutput() OAuth2CredentialProviderOauth2AuthorizationServerMetadataPtrOutput {
+	return i.ToOAuth2CredentialProviderOauth2AuthorizationServerMetadataPtrOutputWithContext(context.Background())
+}
+
+func (i OAuth2CredentialProviderOauth2AuthorizationServerMetadataArgs) ToOAuth2CredentialProviderOauth2AuthorizationServerMetadataPtrOutputWithContext(ctx context.Context) OAuth2CredentialProviderOauth2AuthorizationServerMetadataPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OAuth2CredentialProviderOauth2AuthorizationServerMetadataOutput).ToOAuth2CredentialProviderOauth2AuthorizationServerMetadataPtrOutputWithContext(ctx)
+}
+
+// OAuth2CredentialProviderOauth2AuthorizationServerMetadataPtrInput is an input type that accepts OAuth2CredentialProviderOauth2AuthorizationServerMetadataArgs, OAuth2CredentialProviderOauth2AuthorizationServerMetadataPtr and OAuth2CredentialProviderOauth2AuthorizationServerMetadataPtrOutput values.
+// You can construct a concrete instance of `OAuth2CredentialProviderOauth2AuthorizationServerMetadataPtrInput` via:
+//
+//	        OAuth2CredentialProviderOauth2AuthorizationServerMetadataArgs{...}
+//
+//	or:
+//
+//	        nil
+type OAuth2CredentialProviderOauth2AuthorizationServerMetadataPtrInput interface {
+	pulumi.Input
+
+	ToOAuth2CredentialProviderOauth2AuthorizationServerMetadataPtrOutput() OAuth2CredentialProviderOauth2AuthorizationServerMetadataPtrOutput
+	ToOAuth2CredentialProviderOauth2AuthorizationServerMetadataPtrOutputWithContext(context.Context) OAuth2CredentialProviderOauth2AuthorizationServerMetadataPtrOutput
+}
+
+type oauth2CredentialProviderOauth2AuthorizationServerMetadataPtrType OAuth2CredentialProviderOauth2AuthorizationServerMetadataArgs
+
+func OAuth2CredentialProviderOauth2AuthorizationServerMetadataPtr(v *OAuth2CredentialProviderOauth2AuthorizationServerMetadataArgs) OAuth2CredentialProviderOauth2AuthorizationServerMetadataPtrInput {
+	return (*oauth2CredentialProviderOauth2AuthorizationServerMetadataPtrType)(v)
+}
+
+func (*oauth2CredentialProviderOauth2AuthorizationServerMetadataPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OAuth2CredentialProviderOauth2AuthorizationServerMetadata)(nil)).Elem()
+}
+
+func (i *oauth2CredentialProviderOauth2AuthorizationServerMetadataPtrType) ToOAuth2CredentialProviderOauth2AuthorizationServerMetadataPtrOutput() OAuth2CredentialProviderOauth2AuthorizationServerMetadataPtrOutput {
+	return i.ToOAuth2CredentialProviderOauth2AuthorizationServerMetadataPtrOutputWithContext(context.Background())
+}
+
+func (i *oauth2CredentialProviderOauth2AuthorizationServerMetadataPtrType) ToOAuth2CredentialProviderOauth2AuthorizationServerMetadataPtrOutputWithContext(ctx context.Context) OAuth2CredentialProviderOauth2AuthorizationServerMetadataPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OAuth2CredentialProviderOauth2AuthorizationServerMetadataPtrOutput)
+}
+
+// Authorization server metadata for the OAuth2 provider
+type OAuth2CredentialProviderOauth2AuthorizationServerMetadataOutput struct{ *pulumi.OutputState }
+
+func (OAuth2CredentialProviderOauth2AuthorizationServerMetadataOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OAuth2CredentialProviderOauth2AuthorizationServerMetadata)(nil)).Elem()
+}
+
+func (o OAuth2CredentialProviderOauth2AuthorizationServerMetadataOutput) ToOAuth2CredentialProviderOauth2AuthorizationServerMetadataOutput() OAuth2CredentialProviderOauth2AuthorizationServerMetadataOutput {
+	return o
+}
+
+func (o OAuth2CredentialProviderOauth2AuthorizationServerMetadataOutput) ToOAuth2CredentialProviderOauth2AuthorizationServerMetadataOutputWithContext(ctx context.Context) OAuth2CredentialProviderOauth2AuthorizationServerMetadataOutput {
+	return o
+}
+
+func (o OAuth2CredentialProviderOauth2AuthorizationServerMetadataOutput) ToOAuth2CredentialProviderOauth2AuthorizationServerMetadataPtrOutput() OAuth2CredentialProviderOauth2AuthorizationServerMetadataPtrOutput {
+	return o.ToOAuth2CredentialProviderOauth2AuthorizationServerMetadataPtrOutputWithContext(context.Background())
+}
+
+func (o OAuth2CredentialProviderOauth2AuthorizationServerMetadataOutput) ToOAuth2CredentialProviderOauth2AuthorizationServerMetadataPtrOutputWithContext(ctx context.Context) OAuth2CredentialProviderOauth2AuthorizationServerMetadataPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OAuth2CredentialProviderOauth2AuthorizationServerMetadata) *OAuth2CredentialProviderOauth2AuthorizationServerMetadata {
+		return &v
+	}).(OAuth2CredentialProviderOauth2AuthorizationServerMetadataPtrOutput)
+}
+
+// The authorization endpoint URL
+func (o OAuth2CredentialProviderOauth2AuthorizationServerMetadataOutput) AuthorizationEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v OAuth2CredentialProviderOauth2AuthorizationServerMetadata) string {
+		return v.AuthorizationEndpoint
+	}).(pulumi.StringOutput)
+}
+
+// The issuer URL for the OAuth2 authorization server
+func (o OAuth2CredentialProviderOauth2AuthorizationServerMetadataOutput) Issuer() pulumi.StringOutput {
+	return o.ApplyT(func(v OAuth2CredentialProviderOauth2AuthorizationServerMetadata) string { return v.Issuer }).(pulumi.StringOutput)
+}
+
+// The supported response types
+func (o OAuth2CredentialProviderOauth2AuthorizationServerMetadataOutput) ResponseTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v OAuth2CredentialProviderOauth2AuthorizationServerMetadata) []string { return v.ResponseTypes }).(pulumi.StringArrayOutput)
+}
+
+// The token endpoint URL
+func (o OAuth2CredentialProviderOauth2AuthorizationServerMetadataOutput) TokenEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v OAuth2CredentialProviderOauth2AuthorizationServerMetadata) string { return v.TokenEndpoint }).(pulumi.StringOutput)
+}
+
+type OAuth2CredentialProviderOauth2AuthorizationServerMetadataPtrOutput struct{ *pulumi.OutputState }
+
+func (OAuth2CredentialProviderOauth2AuthorizationServerMetadataPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OAuth2CredentialProviderOauth2AuthorizationServerMetadata)(nil)).Elem()
+}
+
+func (o OAuth2CredentialProviderOauth2AuthorizationServerMetadataPtrOutput) ToOAuth2CredentialProviderOauth2AuthorizationServerMetadataPtrOutput() OAuth2CredentialProviderOauth2AuthorizationServerMetadataPtrOutput {
+	return o
+}
+
+func (o OAuth2CredentialProviderOauth2AuthorizationServerMetadataPtrOutput) ToOAuth2CredentialProviderOauth2AuthorizationServerMetadataPtrOutputWithContext(ctx context.Context) OAuth2CredentialProviderOauth2AuthorizationServerMetadataPtrOutput {
+	return o
+}
+
+func (o OAuth2CredentialProviderOauth2AuthorizationServerMetadataPtrOutput) Elem() OAuth2CredentialProviderOauth2AuthorizationServerMetadataOutput {
+	return o.ApplyT(func(v *OAuth2CredentialProviderOauth2AuthorizationServerMetadata) OAuth2CredentialProviderOauth2AuthorizationServerMetadata {
+		if v != nil {
+			return *v
+		}
+		var ret OAuth2CredentialProviderOauth2AuthorizationServerMetadata
+		return ret
+	}).(OAuth2CredentialProviderOauth2AuthorizationServerMetadataOutput)
+}
+
+// The authorization endpoint URL
+func (o OAuth2CredentialProviderOauth2AuthorizationServerMetadataPtrOutput) AuthorizationEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OAuth2CredentialProviderOauth2AuthorizationServerMetadata) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AuthorizationEndpoint
+	}).(pulumi.StringPtrOutput)
+}
+
+// The issuer URL for the OAuth2 authorization server
+func (o OAuth2CredentialProviderOauth2AuthorizationServerMetadataPtrOutput) Issuer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OAuth2CredentialProviderOauth2AuthorizationServerMetadata) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Issuer
+	}).(pulumi.StringPtrOutput)
+}
+
+// The supported response types
+func (o OAuth2CredentialProviderOauth2AuthorizationServerMetadataPtrOutput) ResponseTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *OAuth2CredentialProviderOauth2AuthorizationServerMetadata) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ResponseTypes
+	}).(pulumi.StringArrayOutput)
+}
+
+// The token endpoint URL
+func (o OAuth2CredentialProviderOauth2AuthorizationServerMetadataPtrOutput) TokenEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OAuth2CredentialProviderOauth2AuthorizationServerMetadata) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TokenEndpoint
+	}).(pulumi.StringPtrOutput)
+}
+
+// Discovery information for an OAuth2 provider
+type OAuth2CredentialProviderOauth2Discovery struct {
+	AuthorizationServerMetadata *OAuth2CredentialProviderOauth2AuthorizationServerMetadata `pulumi:"authorizationServerMetadata"`
+	// The discovery URL for the OAuth2 provider
+	DiscoveryUrl *string `pulumi:"discoveryUrl"`
+}
+
+// OAuth2CredentialProviderOauth2DiscoveryInput is an input type that accepts OAuth2CredentialProviderOauth2DiscoveryArgs and OAuth2CredentialProviderOauth2DiscoveryOutput values.
+// You can construct a concrete instance of `OAuth2CredentialProviderOauth2DiscoveryInput` via:
+//
+//	OAuth2CredentialProviderOauth2DiscoveryArgs{...}
+type OAuth2CredentialProviderOauth2DiscoveryInput interface {
+	pulumi.Input
+
+	ToOAuth2CredentialProviderOauth2DiscoveryOutput() OAuth2CredentialProviderOauth2DiscoveryOutput
+	ToOAuth2CredentialProviderOauth2DiscoveryOutputWithContext(context.Context) OAuth2CredentialProviderOauth2DiscoveryOutput
+}
+
+// Discovery information for an OAuth2 provider
+type OAuth2CredentialProviderOauth2DiscoveryArgs struct {
+	AuthorizationServerMetadata OAuth2CredentialProviderOauth2AuthorizationServerMetadataPtrInput `pulumi:"authorizationServerMetadata"`
+	// The discovery URL for the OAuth2 provider
+	DiscoveryUrl pulumi.StringPtrInput `pulumi:"discoveryUrl"`
+}
+
+func (OAuth2CredentialProviderOauth2DiscoveryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OAuth2CredentialProviderOauth2Discovery)(nil)).Elem()
+}
+
+func (i OAuth2CredentialProviderOauth2DiscoveryArgs) ToOAuth2CredentialProviderOauth2DiscoveryOutput() OAuth2CredentialProviderOauth2DiscoveryOutput {
+	return i.ToOAuth2CredentialProviderOauth2DiscoveryOutputWithContext(context.Background())
+}
+
+func (i OAuth2CredentialProviderOauth2DiscoveryArgs) ToOAuth2CredentialProviderOauth2DiscoveryOutputWithContext(ctx context.Context) OAuth2CredentialProviderOauth2DiscoveryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OAuth2CredentialProviderOauth2DiscoveryOutput)
+}
+
+func (i OAuth2CredentialProviderOauth2DiscoveryArgs) ToOAuth2CredentialProviderOauth2DiscoveryPtrOutput() OAuth2CredentialProviderOauth2DiscoveryPtrOutput {
+	return i.ToOAuth2CredentialProviderOauth2DiscoveryPtrOutputWithContext(context.Background())
+}
+
+func (i OAuth2CredentialProviderOauth2DiscoveryArgs) ToOAuth2CredentialProviderOauth2DiscoveryPtrOutputWithContext(ctx context.Context) OAuth2CredentialProviderOauth2DiscoveryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OAuth2CredentialProviderOauth2DiscoveryOutput).ToOAuth2CredentialProviderOauth2DiscoveryPtrOutputWithContext(ctx)
+}
+
+// OAuth2CredentialProviderOauth2DiscoveryPtrInput is an input type that accepts OAuth2CredentialProviderOauth2DiscoveryArgs, OAuth2CredentialProviderOauth2DiscoveryPtr and OAuth2CredentialProviderOauth2DiscoveryPtrOutput values.
+// You can construct a concrete instance of `OAuth2CredentialProviderOauth2DiscoveryPtrInput` via:
+//
+//	        OAuth2CredentialProviderOauth2DiscoveryArgs{...}
+//
+//	or:
+//
+//	        nil
+type OAuth2CredentialProviderOauth2DiscoveryPtrInput interface {
+	pulumi.Input
+
+	ToOAuth2CredentialProviderOauth2DiscoveryPtrOutput() OAuth2CredentialProviderOauth2DiscoveryPtrOutput
+	ToOAuth2CredentialProviderOauth2DiscoveryPtrOutputWithContext(context.Context) OAuth2CredentialProviderOauth2DiscoveryPtrOutput
+}
+
+type oauth2CredentialProviderOauth2DiscoveryPtrType OAuth2CredentialProviderOauth2DiscoveryArgs
+
+func OAuth2CredentialProviderOauth2DiscoveryPtr(v *OAuth2CredentialProviderOauth2DiscoveryArgs) OAuth2CredentialProviderOauth2DiscoveryPtrInput {
+	return (*oauth2CredentialProviderOauth2DiscoveryPtrType)(v)
+}
+
+func (*oauth2CredentialProviderOauth2DiscoveryPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OAuth2CredentialProviderOauth2Discovery)(nil)).Elem()
+}
+
+func (i *oauth2CredentialProviderOauth2DiscoveryPtrType) ToOAuth2CredentialProviderOauth2DiscoveryPtrOutput() OAuth2CredentialProviderOauth2DiscoveryPtrOutput {
+	return i.ToOAuth2CredentialProviderOauth2DiscoveryPtrOutputWithContext(context.Background())
+}
+
+func (i *oauth2CredentialProviderOauth2DiscoveryPtrType) ToOAuth2CredentialProviderOauth2DiscoveryPtrOutputWithContext(ctx context.Context) OAuth2CredentialProviderOauth2DiscoveryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OAuth2CredentialProviderOauth2DiscoveryPtrOutput)
+}
+
+// Discovery information for an OAuth2 provider
+type OAuth2CredentialProviderOauth2DiscoveryOutput struct{ *pulumi.OutputState }
+
+func (OAuth2CredentialProviderOauth2DiscoveryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OAuth2CredentialProviderOauth2Discovery)(nil)).Elem()
+}
+
+func (o OAuth2CredentialProviderOauth2DiscoveryOutput) ToOAuth2CredentialProviderOauth2DiscoveryOutput() OAuth2CredentialProviderOauth2DiscoveryOutput {
+	return o
+}
+
+func (o OAuth2CredentialProviderOauth2DiscoveryOutput) ToOAuth2CredentialProviderOauth2DiscoveryOutputWithContext(ctx context.Context) OAuth2CredentialProviderOauth2DiscoveryOutput {
+	return o
+}
+
+func (o OAuth2CredentialProviderOauth2DiscoveryOutput) ToOAuth2CredentialProviderOauth2DiscoveryPtrOutput() OAuth2CredentialProviderOauth2DiscoveryPtrOutput {
+	return o.ToOAuth2CredentialProviderOauth2DiscoveryPtrOutputWithContext(context.Background())
+}
+
+func (o OAuth2CredentialProviderOauth2DiscoveryOutput) ToOAuth2CredentialProviderOauth2DiscoveryPtrOutputWithContext(ctx context.Context) OAuth2CredentialProviderOauth2DiscoveryPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OAuth2CredentialProviderOauth2Discovery) *OAuth2CredentialProviderOauth2Discovery {
+		return &v
+	}).(OAuth2CredentialProviderOauth2DiscoveryPtrOutput)
+}
+
+func (o OAuth2CredentialProviderOauth2DiscoveryOutput) AuthorizationServerMetadata() OAuth2CredentialProviderOauth2AuthorizationServerMetadataPtrOutput {
+	return o.ApplyT(func(v OAuth2CredentialProviderOauth2Discovery) *OAuth2CredentialProviderOauth2AuthorizationServerMetadata {
+		return v.AuthorizationServerMetadata
+	}).(OAuth2CredentialProviderOauth2AuthorizationServerMetadataPtrOutput)
+}
+
+// The discovery URL for the OAuth2 provider
+func (o OAuth2CredentialProviderOauth2DiscoveryOutput) DiscoveryUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OAuth2CredentialProviderOauth2Discovery) *string { return v.DiscoveryUrl }).(pulumi.StringPtrOutput)
+}
+
+type OAuth2CredentialProviderOauth2DiscoveryPtrOutput struct{ *pulumi.OutputState }
+
+func (OAuth2CredentialProviderOauth2DiscoveryPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OAuth2CredentialProviderOauth2Discovery)(nil)).Elem()
+}
+
+func (o OAuth2CredentialProviderOauth2DiscoveryPtrOutput) ToOAuth2CredentialProviderOauth2DiscoveryPtrOutput() OAuth2CredentialProviderOauth2DiscoveryPtrOutput {
+	return o
+}
+
+func (o OAuth2CredentialProviderOauth2DiscoveryPtrOutput) ToOAuth2CredentialProviderOauth2DiscoveryPtrOutputWithContext(ctx context.Context) OAuth2CredentialProviderOauth2DiscoveryPtrOutput {
+	return o
+}
+
+func (o OAuth2CredentialProviderOauth2DiscoveryPtrOutput) Elem() OAuth2CredentialProviderOauth2DiscoveryOutput {
+	return o.ApplyT(func(v *OAuth2CredentialProviderOauth2Discovery) OAuth2CredentialProviderOauth2Discovery {
+		if v != nil {
+			return *v
+		}
+		var ret OAuth2CredentialProviderOauth2Discovery
+		return ret
+	}).(OAuth2CredentialProviderOauth2DiscoveryOutput)
+}
+
+func (o OAuth2CredentialProviderOauth2DiscoveryPtrOutput) AuthorizationServerMetadata() OAuth2CredentialProviderOauth2AuthorizationServerMetadataPtrOutput {
+	return o.ApplyT(func(v *OAuth2CredentialProviderOauth2Discovery) *OAuth2CredentialProviderOauth2AuthorizationServerMetadata {
+		if v == nil {
+			return nil
+		}
+		return v.AuthorizationServerMetadata
+	}).(OAuth2CredentialProviderOauth2AuthorizationServerMetadataPtrOutput)
+}
+
+// The discovery URL for the OAuth2 provider
+func (o OAuth2CredentialProviderOauth2DiscoveryPtrOutput) DiscoveryUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OAuth2CredentialProviderOauth2Discovery) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DiscoveryUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+// Input configuration for an OAuth2 provider
+type OAuth2CredentialProviderOauth2ProviderConfigInput struct {
+	AtlassianOauth2ProviderConfig  *OAuth2CredentialProviderAtlassianOauth2ProviderConfigInput  `pulumi:"atlassianOauth2ProviderConfig"`
+	CustomOauth2ProviderConfig     *OAuth2CredentialProviderCustomOauth2ProviderConfigInput     `pulumi:"customOauth2ProviderConfig"`
+	GithubOauth2ProviderConfig     *OAuth2CredentialProviderGithubOauth2ProviderConfigInput     `pulumi:"githubOauth2ProviderConfig"`
+	GoogleOauth2ProviderConfig     *OAuth2CredentialProviderGoogleOauth2ProviderConfigInput     `pulumi:"googleOauth2ProviderConfig"`
+	IncludedOauth2ProviderConfig   *OAuth2CredentialProviderIncludedOauth2ProviderConfigInput   `pulumi:"includedOauth2ProviderConfig"`
+	LinkedinOauth2ProviderConfig   *OAuth2CredentialProviderLinkedinOauth2ProviderConfigInput   `pulumi:"linkedinOauth2ProviderConfig"`
+	MicrosoftOauth2ProviderConfig  *OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInput  `pulumi:"microsoftOauth2ProviderConfig"`
+	SalesforceOauth2ProviderConfig *OAuth2CredentialProviderSalesforceOauth2ProviderConfigInput `pulumi:"salesforceOauth2ProviderConfig"`
+	SlackOauth2ProviderConfig      *OAuth2CredentialProviderSlackOauth2ProviderConfigInput      `pulumi:"slackOauth2ProviderConfig"`
+}
+
+// OAuth2CredentialProviderOauth2ProviderConfigInputInput is an input type that accepts OAuth2CredentialProviderOauth2ProviderConfigInputArgs and OAuth2CredentialProviderOauth2ProviderConfigInputOutput values.
+// You can construct a concrete instance of `OAuth2CredentialProviderOauth2ProviderConfigInputInput` via:
+//
+//	OAuth2CredentialProviderOauth2ProviderConfigInputArgs{...}
+type OAuth2CredentialProviderOauth2ProviderConfigInputInput interface {
+	pulumi.Input
+
+	ToOAuth2CredentialProviderOauth2ProviderConfigInputOutput() OAuth2CredentialProviderOauth2ProviderConfigInputOutput
+	ToOAuth2CredentialProviderOauth2ProviderConfigInputOutputWithContext(context.Context) OAuth2CredentialProviderOauth2ProviderConfigInputOutput
+}
+
+// Input configuration for an OAuth2 provider
+type OAuth2CredentialProviderOauth2ProviderConfigInputArgs struct {
+	AtlassianOauth2ProviderConfig  OAuth2CredentialProviderAtlassianOauth2ProviderConfigInputPtrInput  `pulumi:"atlassianOauth2ProviderConfig"`
+	CustomOauth2ProviderConfig     OAuth2CredentialProviderCustomOauth2ProviderConfigInputPtrInput     `pulumi:"customOauth2ProviderConfig"`
+	GithubOauth2ProviderConfig     OAuth2CredentialProviderGithubOauth2ProviderConfigInputPtrInput     `pulumi:"githubOauth2ProviderConfig"`
+	GoogleOauth2ProviderConfig     OAuth2CredentialProviderGoogleOauth2ProviderConfigInputPtrInput     `pulumi:"googleOauth2ProviderConfig"`
+	IncludedOauth2ProviderConfig   OAuth2CredentialProviderIncludedOauth2ProviderConfigInputPtrInput   `pulumi:"includedOauth2ProviderConfig"`
+	LinkedinOauth2ProviderConfig   OAuth2CredentialProviderLinkedinOauth2ProviderConfigInputPtrInput   `pulumi:"linkedinOauth2ProviderConfig"`
+	MicrosoftOauth2ProviderConfig  OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInputPtrInput  `pulumi:"microsoftOauth2ProviderConfig"`
+	SalesforceOauth2ProviderConfig OAuth2CredentialProviderSalesforceOauth2ProviderConfigInputPtrInput `pulumi:"salesforceOauth2ProviderConfig"`
+	SlackOauth2ProviderConfig      OAuth2CredentialProviderSlackOauth2ProviderConfigInputPtrInput      `pulumi:"slackOauth2ProviderConfig"`
+}
+
+func (OAuth2CredentialProviderOauth2ProviderConfigInputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OAuth2CredentialProviderOauth2ProviderConfigInput)(nil)).Elem()
+}
+
+func (i OAuth2CredentialProviderOauth2ProviderConfigInputArgs) ToOAuth2CredentialProviderOauth2ProviderConfigInputOutput() OAuth2CredentialProviderOauth2ProviderConfigInputOutput {
+	return i.ToOAuth2CredentialProviderOauth2ProviderConfigInputOutputWithContext(context.Background())
+}
+
+func (i OAuth2CredentialProviderOauth2ProviderConfigInputArgs) ToOAuth2CredentialProviderOauth2ProviderConfigInputOutputWithContext(ctx context.Context) OAuth2CredentialProviderOauth2ProviderConfigInputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OAuth2CredentialProviderOauth2ProviderConfigInputOutput)
+}
+
+func (i OAuth2CredentialProviderOauth2ProviderConfigInputArgs) ToOAuth2CredentialProviderOauth2ProviderConfigInputPtrOutput() OAuth2CredentialProviderOauth2ProviderConfigInputPtrOutput {
+	return i.ToOAuth2CredentialProviderOauth2ProviderConfigInputPtrOutputWithContext(context.Background())
+}
+
+func (i OAuth2CredentialProviderOauth2ProviderConfigInputArgs) ToOAuth2CredentialProviderOauth2ProviderConfigInputPtrOutputWithContext(ctx context.Context) OAuth2CredentialProviderOauth2ProviderConfigInputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OAuth2CredentialProviderOauth2ProviderConfigInputOutput).ToOAuth2CredentialProviderOauth2ProviderConfigInputPtrOutputWithContext(ctx)
+}
+
+// OAuth2CredentialProviderOauth2ProviderConfigInputPtrInput is an input type that accepts OAuth2CredentialProviderOauth2ProviderConfigInputArgs, OAuth2CredentialProviderOauth2ProviderConfigInputPtr and OAuth2CredentialProviderOauth2ProviderConfigInputPtrOutput values.
+// You can construct a concrete instance of `OAuth2CredentialProviderOauth2ProviderConfigInputPtrInput` via:
+//
+//	        OAuth2CredentialProviderOauth2ProviderConfigInputArgs{...}
+//
+//	or:
+//
+//	        nil
+type OAuth2CredentialProviderOauth2ProviderConfigInputPtrInput interface {
+	pulumi.Input
+
+	ToOAuth2CredentialProviderOauth2ProviderConfigInputPtrOutput() OAuth2CredentialProviderOauth2ProviderConfigInputPtrOutput
+	ToOAuth2CredentialProviderOauth2ProviderConfigInputPtrOutputWithContext(context.Context) OAuth2CredentialProviderOauth2ProviderConfigInputPtrOutput
+}
+
+type oauth2CredentialProviderOauth2ProviderConfigInputPtrType OAuth2CredentialProviderOauth2ProviderConfigInputArgs
+
+func OAuth2CredentialProviderOauth2ProviderConfigInputPtr(v *OAuth2CredentialProviderOauth2ProviderConfigInputArgs) OAuth2CredentialProviderOauth2ProviderConfigInputPtrInput {
+	return (*oauth2CredentialProviderOauth2ProviderConfigInputPtrType)(v)
+}
+
+func (*oauth2CredentialProviderOauth2ProviderConfigInputPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OAuth2CredentialProviderOauth2ProviderConfigInput)(nil)).Elem()
+}
+
+func (i *oauth2CredentialProviderOauth2ProviderConfigInputPtrType) ToOAuth2CredentialProviderOauth2ProviderConfigInputPtrOutput() OAuth2CredentialProviderOauth2ProviderConfigInputPtrOutput {
+	return i.ToOAuth2CredentialProviderOauth2ProviderConfigInputPtrOutputWithContext(context.Background())
+}
+
+func (i *oauth2CredentialProviderOauth2ProviderConfigInputPtrType) ToOAuth2CredentialProviderOauth2ProviderConfigInputPtrOutputWithContext(ctx context.Context) OAuth2CredentialProviderOauth2ProviderConfigInputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OAuth2CredentialProviderOauth2ProviderConfigInputPtrOutput)
+}
+
+// Input configuration for an OAuth2 provider
+type OAuth2CredentialProviderOauth2ProviderConfigInputOutput struct{ *pulumi.OutputState }
+
+func (OAuth2CredentialProviderOauth2ProviderConfigInputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OAuth2CredentialProviderOauth2ProviderConfigInput)(nil)).Elem()
+}
+
+func (o OAuth2CredentialProviderOauth2ProviderConfigInputOutput) ToOAuth2CredentialProviderOauth2ProviderConfigInputOutput() OAuth2CredentialProviderOauth2ProviderConfigInputOutput {
+	return o
+}
+
+func (o OAuth2CredentialProviderOauth2ProviderConfigInputOutput) ToOAuth2CredentialProviderOauth2ProviderConfigInputOutputWithContext(ctx context.Context) OAuth2CredentialProviderOauth2ProviderConfigInputOutput {
+	return o
+}
+
+func (o OAuth2CredentialProviderOauth2ProviderConfigInputOutput) ToOAuth2CredentialProviderOauth2ProviderConfigInputPtrOutput() OAuth2CredentialProviderOauth2ProviderConfigInputPtrOutput {
+	return o.ToOAuth2CredentialProviderOauth2ProviderConfigInputPtrOutputWithContext(context.Background())
+}
+
+func (o OAuth2CredentialProviderOauth2ProviderConfigInputOutput) ToOAuth2CredentialProviderOauth2ProviderConfigInputPtrOutputWithContext(ctx context.Context) OAuth2CredentialProviderOauth2ProviderConfigInputPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OAuth2CredentialProviderOauth2ProviderConfigInput) *OAuth2CredentialProviderOauth2ProviderConfigInput {
+		return &v
+	}).(OAuth2CredentialProviderOauth2ProviderConfigInputPtrOutput)
+}
+
+func (o OAuth2CredentialProviderOauth2ProviderConfigInputOutput) AtlassianOauth2ProviderConfig() OAuth2CredentialProviderAtlassianOauth2ProviderConfigInputPtrOutput {
+	return o.ApplyT(func(v OAuth2CredentialProviderOauth2ProviderConfigInput) *OAuth2CredentialProviderAtlassianOauth2ProviderConfigInput {
+		return v.AtlassianOauth2ProviderConfig
+	}).(OAuth2CredentialProviderAtlassianOauth2ProviderConfigInputPtrOutput)
+}
+
+func (o OAuth2CredentialProviderOauth2ProviderConfigInputOutput) CustomOauth2ProviderConfig() OAuth2CredentialProviderCustomOauth2ProviderConfigInputPtrOutput {
+	return o.ApplyT(func(v OAuth2CredentialProviderOauth2ProviderConfigInput) *OAuth2CredentialProviderCustomOauth2ProviderConfigInput {
+		return v.CustomOauth2ProviderConfig
+	}).(OAuth2CredentialProviderCustomOauth2ProviderConfigInputPtrOutput)
+}
+
+func (o OAuth2CredentialProviderOauth2ProviderConfigInputOutput) GithubOauth2ProviderConfig() OAuth2CredentialProviderGithubOauth2ProviderConfigInputPtrOutput {
+	return o.ApplyT(func(v OAuth2CredentialProviderOauth2ProviderConfigInput) *OAuth2CredentialProviderGithubOauth2ProviderConfigInput {
+		return v.GithubOauth2ProviderConfig
+	}).(OAuth2CredentialProviderGithubOauth2ProviderConfigInputPtrOutput)
+}
+
+func (o OAuth2CredentialProviderOauth2ProviderConfigInputOutput) GoogleOauth2ProviderConfig() OAuth2CredentialProviderGoogleOauth2ProviderConfigInputPtrOutput {
+	return o.ApplyT(func(v OAuth2CredentialProviderOauth2ProviderConfigInput) *OAuth2CredentialProviderGoogleOauth2ProviderConfigInput {
+		return v.GoogleOauth2ProviderConfig
+	}).(OAuth2CredentialProviderGoogleOauth2ProviderConfigInputPtrOutput)
+}
+
+func (o OAuth2CredentialProviderOauth2ProviderConfigInputOutput) IncludedOauth2ProviderConfig() OAuth2CredentialProviderIncludedOauth2ProviderConfigInputPtrOutput {
+	return o.ApplyT(func(v OAuth2CredentialProviderOauth2ProviderConfigInput) *OAuth2CredentialProviderIncludedOauth2ProviderConfigInput {
+		return v.IncludedOauth2ProviderConfig
+	}).(OAuth2CredentialProviderIncludedOauth2ProviderConfigInputPtrOutput)
+}
+
+func (o OAuth2CredentialProviderOauth2ProviderConfigInputOutput) LinkedinOauth2ProviderConfig() OAuth2CredentialProviderLinkedinOauth2ProviderConfigInputPtrOutput {
+	return o.ApplyT(func(v OAuth2CredentialProviderOauth2ProviderConfigInput) *OAuth2CredentialProviderLinkedinOauth2ProviderConfigInput {
+		return v.LinkedinOauth2ProviderConfig
+	}).(OAuth2CredentialProviderLinkedinOauth2ProviderConfigInputPtrOutput)
+}
+
+func (o OAuth2CredentialProviderOauth2ProviderConfigInputOutput) MicrosoftOauth2ProviderConfig() OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInputPtrOutput {
+	return o.ApplyT(func(v OAuth2CredentialProviderOauth2ProviderConfigInput) *OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInput {
+		return v.MicrosoftOauth2ProviderConfig
+	}).(OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInputPtrOutput)
+}
+
+func (o OAuth2CredentialProviderOauth2ProviderConfigInputOutput) SalesforceOauth2ProviderConfig() OAuth2CredentialProviderSalesforceOauth2ProviderConfigInputPtrOutput {
+	return o.ApplyT(func(v OAuth2CredentialProviderOauth2ProviderConfigInput) *OAuth2CredentialProviderSalesforceOauth2ProviderConfigInput {
+		return v.SalesforceOauth2ProviderConfig
+	}).(OAuth2CredentialProviderSalesforceOauth2ProviderConfigInputPtrOutput)
+}
+
+func (o OAuth2CredentialProviderOauth2ProviderConfigInputOutput) SlackOauth2ProviderConfig() OAuth2CredentialProviderSlackOauth2ProviderConfigInputPtrOutput {
+	return o.ApplyT(func(v OAuth2CredentialProviderOauth2ProviderConfigInput) *OAuth2CredentialProviderSlackOauth2ProviderConfigInput {
+		return v.SlackOauth2ProviderConfig
+	}).(OAuth2CredentialProviderSlackOauth2ProviderConfigInputPtrOutput)
+}
+
+type OAuth2CredentialProviderOauth2ProviderConfigInputPtrOutput struct{ *pulumi.OutputState }
+
+func (OAuth2CredentialProviderOauth2ProviderConfigInputPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OAuth2CredentialProviderOauth2ProviderConfigInput)(nil)).Elem()
+}
+
+func (o OAuth2CredentialProviderOauth2ProviderConfigInputPtrOutput) ToOAuth2CredentialProviderOauth2ProviderConfigInputPtrOutput() OAuth2CredentialProviderOauth2ProviderConfigInputPtrOutput {
+	return o
+}
+
+func (o OAuth2CredentialProviderOauth2ProviderConfigInputPtrOutput) ToOAuth2CredentialProviderOauth2ProviderConfigInputPtrOutputWithContext(ctx context.Context) OAuth2CredentialProviderOauth2ProviderConfigInputPtrOutput {
+	return o
+}
+
+func (o OAuth2CredentialProviderOauth2ProviderConfigInputPtrOutput) Elem() OAuth2CredentialProviderOauth2ProviderConfigInputOutput {
+	return o.ApplyT(func(v *OAuth2CredentialProviderOauth2ProviderConfigInput) OAuth2CredentialProviderOauth2ProviderConfigInput {
+		if v != nil {
+			return *v
+		}
+		var ret OAuth2CredentialProviderOauth2ProviderConfigInput
+		return ret
+	}).(OAuth2CredentialProviderOauth2ProviderConfigInputOutput)
+}
+
+func (o OAuth2CredentialProviderOauth2ProviderConfigInputPtrOutput) AtlassianOauth2ProviderConfig() OAuth2CredentialProviderAtlassianOauth2ProviderConfigInputPtrOutput {
+	return o.ApplyT(func(v *OAuth2CredentialProviderOauth2ProviderConfigInput) *OAuth2CredentialProviderAtlassianOauth2ProviderConfigInput {
+		if v == nil {
+			return nil
+		}
+		return v.AtlassianOauth2ProviderConfig
+	}).(OAuth2CredentialProviderAtlassianOauth2ProviderConfigInputPtrOutput)
+}
+
+func (o OAuth2CredentialProviderOauth2ProviderConfigInputPtrOutput) CustomOauth2ProviderConfig() OAuth2CredentialProviderCustomOauth2ProviderConfigInputPtrOutput {
+	return o.ApplyT(func(v *OAuth2CredentialProviderOauth2ProviderConfigInput) *OAuth2CredentialProviderCustomOauth2ProviderConfigInput {
+		if v == nil {
+			return nil
+		}
+		return v.CustomOauth2ProviderConfig
+	}).(OAuth2CredentialProviderCustomOauth2ProviderConfigInputPtrOutput)
+}
+
+func (o OAuth2CredentialProviderOauth2ProviderConfigInputPtrOutput) GithubOauth2ProviderConfig() OAuth2CredentialProviderGithubOauth2ProviderConfigInputPtrOutput {
+	return o.ApplyT(func(v *OAuth2CredentialProviderOauth2ProviderConfigInput) *OAuth2CredentialProviderGithubOauth2ProviderConfigInput {
+		if v == nil {
+			return nil
+		}
+		return v.GithubOauth2ProviderConfig
+	}).(OAuth2CredentialProviderGithubOauth2ProviderConfigInputPtrOutput)
+}
+
+func (o OAuth2CredentialProviderOauth2ProviderConfigInputPtrOutput) GoogleOauth2ProviderConfig() OAuth2CredentialProviderGoogleOauth2ProviderConfigInputPtrOutput {
+	return o.ApplyT(func(v *OAuth2CredentialProviderOauth2ProviderConfigInput) *OAuth2CredentialProviderGoogleOauth2ProviderConfigInput {
+		if v == nil {
+			return nil
+		}
+		return v.GoogleOauth2ProviderConfig
+	}).(OAuth2CredentialProviderGoogleOauth2ProviderConfigInputPtrOutput)
+}
+
+func (o OAuth2CredentialProviderOauth2ProviderConfigInputPtrOutput) IncludedOauth2ProviderConfig() OAuth2CredentialProviderIncludedOauth2ProviderConfigInputPtrOutput {
+	return o.ApplyT(func(v *OAuth2CredentialProviderOauth2ProviderConfigInput) *OAuth2CredentialProviderIncludedOauth2ProviderConfigInput {
+		if v == nil {
+			return nil
+		}
+		return v.IncludedOauth2ProviderConfig
+	}).(OAuth2CredentialProviderIncludedOauth2ProviderConfigInputPtrOutput)
+}
+
+func (o OAuth2CredentialProviderOauth2ProviderConfigInputPtrOutput) LinkedinOauth2ProviderConfig() OAuth2CredentialProviderLinkedinOauth2ProviderConfigInputPtrOutput {
+	return o.ApplyT(func(v *OAuth2CredentialProviderOauth2ProviderConfigInput) *OAuth2CredentialProviderLinkedinOauth2ProviderConfigInput {
+		if v == nil {
+			return nil
+		}
+		return v.LinkedinOauth2ProviderConfig
+	}).(OAuth2CredentialProviderLinkedinOauth2ProviderConfigInputPtrOutput)
+}
+
+func (o OAuth2CredentialProviderOauth2ProviderConfigInputPtrOutput) MicrosoftOauth2ProviderConfig() OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInputPtrOutput {
+	return o.ApplyT(func(v *OAuth2CredentialProviderOauth2ProviderConfigInput) *OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInput {
+		if v == nil {
+			return nil
+		}
+		return v.MicrosoftOauth2ProviderConfig
+	}).(OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInputPtrOutput)
+}
+
+func (o OAuth2CredentialProviderOauth2ProviderConfigInputPtrOutput) SalesforceOauth2ProviderConfig() OAuth2CredentialProviderSalesforceOauth2ProviderConfigInputPtrOutput {
+	return o.ApplyT(func(v *OAuth2CredentialProviderOauth2ProviderConfigInput) *OAuth2CredentialProviderSalesforceOauth2ProviderConfigInput {
+		if v == nil {
+			return nil
+		}
+		return v.SalesforceOauth2ProviderConfig
+	}).(OAuth2CredentialProviderSalesforceOauth2ProviderConfigInputPtrOutput)
+}
+
+func (o OAuth2CredentialProviderOauth2ProviderConfigInputPtrOutput) SlackOauth2ProviderConfig() OAuth2CredentialProviderSlackOauth2ProviderConfigInputPtrOutput {
+	return o.ApplyT(func(v *OAuth2CredentialProviderOauth2ProviderConfigInput) *OAuth2CredentialProviderSlackOauth2ProviderConfigInput {
+		if v == nil {
+			return nil
+		}
+		return v.SlackOauth2ProviderConfig
+	}).(OAuth2CredentialProviderSlackOauth2ProviderConfigInputPtrOutput)
+}
+
+// Output configuration for an OAuth2 provider
+type OAuth2CredentialProviderOauth2ProviderConfigOutput struct {
+	ClientId       *string                                  `pulumi:"clientId"`
+	OauthDiscovery *OAuth2CredentialProviderOauth2Discovery `pulumi:"oauthDiscovery"`
+}
+
+// Output configuration for an OAuth2 provider
+type OAuth2CredentialProviderOauth2ProviderConfigOutputOutput struct{ *pulumi.OutputState }
+
+func (OAuth2CredentialProviderOauth2ProviderConfigOutputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OAuth2CredentialProviderOauth2ProviderConfigOutput)(nil)).Elem()
+}
+
+func (o OAuth2CredentialProviderOauth2ProviderConfigOutputOutput) ToOAuth2CredentialProviderOauth2ProviderConfigOutputOutput() OAuth2CredentialProviderOauth2ProviderConfigOutputOutput {
+	return o
+}
+
+func (o OAuth2CredentialProviderOauth2ProviderConfigOutputOutput) ToOAuth2CredentialProviderOauth2ProviderConfigOutputOutputWithContext(ctx context.Context) OAuth2CredentialProviderOauth2ProviderConfigOutputOutput {
+	return o
+}
+
+func (o OAuth2CredentialProviderOauth2ProviderConfigOutputOutput) ClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OAuth2CredentialProviderOauth2ProviderConfigOutput) *string { return v.ClientId }).(pulumi.StringPtrOutput)
+}
+
+func (o OAuth2CredentialProviderOauth2ProviderConfigOutputOutput) OauthDiscovery() OAuth2CredentialProviderOauth2DiscoveryPtrOutput {
+	return o.ApplyT(func(v OAuth2CredentialProviderOauth2ProviderConfigOutput) *OAuth2CredentialProviderOauth2Discovery {
+		return v.OauthDiscovery
+	}).(OAuth2CredentialProviderOauth2DiscoveryPtrOutput)
+}
+
+type OAuth2CredentialProviderOauth2ProviderConfigOutputPtrOutput struct{ *pulumi.OutputState }
+
+func (OAuth2CredentialProviderOauth2ProviderConfigOutputPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OAuth2CredentialProviderOauth2ProviderConfigOutput)(nil)).Elem()
+}
+
+func (o OAuth2CredentialProviderOauth2ProviderConfigOutputPtrOutput) ToOAuth2CredentialProviderOauth2ProviderConfigOutputPtrOutput() OAuth2CredentialProviderOauth2ProviderConfigOutputPtrOutput {
+	return o
+}
+
+func (o OAuth2CredentialProviderOauth2ProviderConfigOutputPtrOutput) ToOAuth2CredentialProviderOauth2ProviderConfigOutputPtrOutputWithContext(ctx context.Context) OAuth2CredentialProviderOauth2ProviderConfigOutputPtrOutput {
+	return o
+}
+
+func (o OAuth2CredentialProviderOauth2ProviderConfigOutputPtrOutput) Elem() OAuth2CredentialProviderOauth2ProviderConfigOutputOutput {
+	return o.ApplyT(func(v *OAuth2CredentialProviderOauth2ProviderConfigOutput) OAuth2CredentialProviderOauth2ProviderConfigOutput {
+		if v != nil {
+			return *v
+		}
+		var ret OAuth2CredentialProviderOauth2ProviderConfigOutput
+		return ret
+	}).(OAuth2CredentialProviderOauth2ProviderConfigOutputOutput)
+}
+
+func (o OAuth2CredentialProviderOauth2ProviderConfigOutputPtrOutput) ClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OAuth2CredentialProviderOauth2ProviderConfigOutput) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ClientId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o OAuth2CredentialProviderOauth2ProviderConfigOutputPtrOutput) OauthDiscovery() OAuth2CredentialProviderOauth2DiscoveryPtrOutput {
+	return o.ApplyT(func(v *OAuth2CredentialProviderOauth2ProviderConfigOutput) *OAuth2CredentialProviderOauth2Discovery {
+		if v == nil {
+			return nil
+		}
+		return v.OauthDiscovery
+	}).(OAuth2CredentialProviderOauth2DiscoveryPtrOutput)
+}
+
+// Input configuration for a Salesforce OAuth2 provider
+type OAuth2CredentialProviderSalesforceOauth2ProviderConfigInput struct {
+	ClientId     string `pulumi:"clientId"`
+	ClientSecret string `pulumi:"clientSecret"`
+}
+
+// OAuth2CredentialProviderSalesforceOauth2ProviderConfigInputInput is an input type that accepts OAuth2CredentialProviderSalesforceOauth2ProviderConfigInputArgs and OAuth2CredentialProviderSalesforceOauth2ProviderConfigInputOutput values.
+// You can construct a concrete instance of `OAuth2CredentialProviderSalesforceOauth2ProviderConfigInputInput` via:
+//
+//	OAuth2CredentialProviderSalesforceOauth2ProviderConfigInputArgs{...}
+type OAuth2CredentialProviderSalesforceOauth2ProviderConfigInputInput interface {
+	pulumi.Input
+
+	ToOAuth2CredentialProviderSalesforceOauth2ProviderConfigInputOutput() OAuth2CredentialProviderSalesforceOauth2ProviderConfigInputOutput
+	ToOAuth2CredentialProviderSalesforceOauth2ProviderConfigInputOutputWithContext(context.Context) OAuth2CredentialProviderSalesforceOauth2ProviderConfigInputOutput
+}
+
+// Input configuration for a Salesforce OAuth2 provider
+type OAuth2CredentialProviderSalesforceOauth2ProviderConfigInputArgs struct {
+	ClientId     pulumi.StringInput `pulumi:"clientId"`
+	ClientSecret pulumi.StringInput `pulumi:"clientSecret"`
+}
+
+func (OAuth2CredentialProviderSalesforceOauth2ProviderConfigInputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OAuth2CredentialProviderSalesforceOauth2ProviderConfigInput)(nil)).Elem()
+}
+
+func (i OAuth2CredentialProviderSalesforceOauth2ProviderConfigInputArgs) ToOAuth2CredentialProviderSalesforceOauth2ProviderConfigInputOutput() OAuth2CredentialProviderSalesforceOauth2ProviderConfigInputOutput {
+	return i.ToOAuth2CredentialProviderSalesforceOauth2ProviderConfigInputOutputWithContext(context.Background())
+}
+
+func (i OAuth2CredentialProviderSalesforceOauth2ProviderConfigInputArgs) ToOAuth2CredentialProviderSalesforceOauth2ProviderConfigInputOutputWithContext(ctx context.Context) OAuth2CredentialProviderSalesforceOauth2ProviderConfigInputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OAuth2CredentialProviderSalesforceOauth2ProviderConfigInputOutput)
+}
+
+func (i OAuth2CredentialProviderSalesforceOauth2ProviderConfigInputArgs) ToOAuth2CredentialProviderSalesforceOauth2ProviderConfigInputPtrOutput() OAuth2CredentialProviderSalesforceOauth2ProviderConfigInputPtrOutput {
+	return i.ToOAuth2CredentialProviderSalesforceOauth2ProviderConfigInputPtrOutputWithContext(context.Background())
+}
+
+func (i OAuth2CredentialProviderSalesforceOauth2ProviderConfigInputArgs) ToOAuth2CredentialProviderSalesforceOauth2ProviderConfigInputPtrOutputWithContext(ctx context.Context) OAuth2CredentialProviderSalesforceOauth2ProviderConfigInputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OAuth2CredentialProviderSalesforceOauth2ProviderConfigInputOutput).ToOAuth2CredentialProviderSalesforceOauth2ProviderConfigInputPtrOutputWithContext(ctx)
+}
+
+// OAuth2CredentialProviderSalesforceOauth2ProviderConfigInputPtrInput is an input type that accepts OAuth2CredentialProviderSalesforceOauth2ProviderConfigInputArgs, OAuth2CredentialProviderSalesforceOauth2ProviderConfigInputPtr and OAuth2CredentialProviderSalesforceOauth2ProviderConfigInputPtrOutput values.
+// You can construct a concrete instance of `OAuth2CredentialProviderSalesforceOauth2ProviderConfigInputPtrInput` via:
+//
+//	        OAuth2CredentialProviderSalesforceOauth2ProviderConfigInputArgs{...}
+//
+//	or:
+//
+//	        nil
+type OAuth2CredentialProviderSalesforceOauth2ProviderConfigInputPtrInput interface {
+	pulumi.Input
+
+	ToOAuth2CredentialProviderSalesforceOauth2ProviderConfigInputPtrOutput() OAuth2CredentialProviderSalesforceOauth2ProviderConfigInputPtrOutput
+	ToOAuth2CredentialProviderSalesforceOauth2ProviderConfigInputPtrOutputWithContext(context.Context) OAuth2CredentialProviderSalesforceOauth2ProviderConfigInputPtrOutput
+}
+
+type oauth2CredentialProviderSalesforceOauth2ProviderConfigInputPtrType OAuth2CredentialProviderSalesforceOauth2ProviderConfigInputArgs
+
+func OAuth2CredentialProviderSalesforceOauth2ProviderConfigInputPtr(v *OAuth2CredentialProviderSalesforceOauth2ProviderConfigInputArgs) OAuth2CredentialProviderSalesforceOauth2ProviderConfigInputPtrInput {
+	return (*oauth2CredentialProviderSalesforceOauth2ProviderConfigInputPtrType)(v)
+}
+
+func (*oauth2CredentialProviderSalesforceOauth2ProviderConfigInputPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OAuth2CredentialProviderSalesforceOauth2ProviderConfigInput)(nil)).Elem()
+}
+
+func (i *oauth2CredentialProviderSalesforceOauth2ProviderConfigInputPtrType) ToOAuth2CredentialProviderSalesforceOauth2ProviderConfigInputPtrOutput() OAuth2CredentialProviderSalesforceOauth2ProviderConfigInputPtrOutput {
+	return i.ToOAuth2CredentialProviderSalesforceOauth2ProviderConfigInputPtrOutputWithContext(context.Background())
+}
+
+func (i *oauth2CredentialProviderSalesforceOauth2ProviderConfigInputPtrType) ToOAuth2CredentialProviderSalesforceOauth2ProviderConfigInputPtrOutputWithContext(ctx context.Context) OAuth2CredentialProviderSalesforceOauth2ProviderConfigInputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OAuth2CredentialProviderSalesforceOauth2ProviderConfigInputPtrOutput)
+}
+
+// Input configuration for a Salesforce OAuth2 provider
+type OAuth2CredentialProviderSalesforceOauth2ProviderConfigInputOutput struct{ *pulumi.OutputState }
+
+func (OAuth2CredentialProviderSalesforceOauth2ProviderConfigInputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OAuth2CredentialProviderSalesforceOauth2ProviderConfigInput)(nil)).Elem()
+}
+
+func (o OAuth2CredentialProviderSalesforceOauth2ProviderConfigInputOutput) ToOAuth2CredentialProviderSalesforceOauth2ProviderConfigInputOutput() OAuth2CredentialProviderSalesforceOauth2ProviderConfigInputOutput {
+	return o
+}
+
+func (o OAuth2CredentialProviderSalesforceOauth2ProviderConfigInputOutput) ToOAuth2CredentialProviderSalesforceOauth2ProviderConfigInputOutputWithContext(ctx context.Context) OAuth2CredentialProviderSalesforceOauth2ProviderConfigInputOutput {
+	return o
+}
+
+func (o OAuth2CredentialProviderSalesforceOauth2ProviderConfigInputOutput) ToOAuth2CredentialProviderSalesforceOauth2ProviderConfigInputPtrOutput() OAuth2CredentialProviderSalesforceOauth2ProviderConfigInputPtrOutput {
+	return o.ToOAuth2CredentialProviderSalesforceOauth2ProviderConfigInputPtrOutputWithContext(context.Background())
+}
+
+func (o OAuth2CredentialProviderSalesforceOauth2ProviderConfigInputOutput) ToOAuth2CredentialProviderSalesforceOauth2ProviderConfigInputPtrOutputWithContext(ctx context.Context) OAuth2CredentialProviderSalesforceOauth2ProviderConfigInputPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OAuth2CredentialProviderSalesforceOauth2ProviderConfigInput) *OAuth2CredentialProviderSalesforceOauth2ProviderConfigInput {
+		return &v
+	}).(OAuth2CredentialProviderSalesforceOauth2ProviderConfigInputPtrOutput)
+}
+
+func (o OAuth2CredentialProviderSalesforceOauth2ProviderConfigInputOutput) ClientId() pulumi.StringOutput {
+	return o.ApplyT(func(v OAuth2CredentialProviderSalesforceOauth2ProviderConfigInput) string { return v.ClientId }).(pulumi.StringOutput)
+}
+
+func (o OAuth2CredentialProviderSalesforceOauth2ProviderConfigInputOutput) ClientSecret() pulumi.StringOutput {
+	return o.ApplyT(func(v OAuth2CredentialProviderSalesforceOauth2ProviderConfigInput) string { return v.ClientSecret }).(pulumi.StringOutput)
+}
+
+type OAuth2CredentialProviderSalesforceOauth2ProviderConfigInputPtrOutput struct{ *pulumi.OutputState }
+
+func (OAuth2CredentialProviderSalesforceOauth2ProviderConfigInputPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OAuth2CredentialProviderSalesforceOauth2ProviderConfigInput)(nil)).Elem()
+}
+
+func (o OAuth2CredentialProviderSalesforceOauth2ProviderConfigInputPtrOutput) ToOAuth2CredentialProviderSalesforceOauth2ProviderConfigInputPtrOutput() OAuth2CredentialProviderSalesforceOauth2ProviderConfigInputPtrOutput {
+	return o
+}
+
+func (o OAuth2CredentialProviderSalesforceOauth2ProviderConfigInputPtrOutput) ToOAuth2CredentialProviderSalesforceOauth2ProviderConfigInputPtrOutputWithContext(ctx context.Context) OAuth2CredentialProviderSalesforceOauth2ProviderConfigInputPtrOutput {
+	return o
+}
+
+func (o OAuth2CredentialProviderSalesforceOauth2ProviderConfigInputPtrOutput) Elem() OAuth2CredentialProviderSalesforceOauth2ProviderConfigInputOutput {
+	return o.ApplyT(func(v *OAuth2CredentialProviderSalesforceOauth2ProviderConfigInput) OAuth2CredentialProviderSalesforceOauth2ProviderConfigInput {
+		if v != nil {
+			return *v
+		}
+		var ret OAuth2CredentialProviderSalesforceOauth2ProviderConfigInput
+		return ret
+	}).(OAuth2CredentialProviderSalesforceOauth2ProviderConfigInputOutput)
+}
+
+func (o OAuth2CredentialProviderSalesforceOauth2ProviderConfigInputPtrOutput) ClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OAuth2CredentialProviderSalesforceOauth2ProviderConfigInput) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ClientId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o OAuth2CredentialProviderSalesforceOauth2ProviderConfigInputPtrOutput) ClientSecret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OAuth2CredentialProviderSalesforceOauth2ProviderConfigInput) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ClientSecret
+	}).(pulumi.StringPtrOutput)
+}
+
+// Input configuration for a Slack OAuth2 provider
+type OAuth2CredentialProviderSlackOauth2ProviderConfigInput struct {
+	ClientId     string `pulumi:"clientId"`
+	ClientSecret string `pulumi:"clientSecret"`
+}
+
+// OAuth2CredentialProviderSlackOauth2ProviderConfigInputInput is an input type that accepts OAuth2CredentialProviderSlackOauth2ProviderConfigInputArgs and OAuth2CredentialProviderSlackOauth2ProviderConfigInputOutput values.
+// You can construct a concrete instance of `OAuth2CredentialProviderSlackOauth2ProviderConfigInputInput` via:
+//
+//	OAuth2CredentialProviderSlackOauth2ProviderConfigInputArgs{...}
+type OAuth2CredentialProviderSlackOauth2ProviderConfigInputInput interface {
+	pulumi.Input
+
+	ToOAuth2CredentialProviderSlackOauth2ProviderConfigInputOutput() OAuth2CredentialProviderSlackOauth2ProviderConfigInputOutput
+	ToOAuth2CredentialProviderSlackOauth2ProviderConfigInputOutputWithContext(context.Context) OAuth2CredentialProviderSlackOauth2ProviderConfigInputOutput
+}
+
+// Input configuration for a Slack OAuth2 provider
+type OAuth2CredentialProviderSlackOauth2ProviderConfigInputArgs struct {
+	ClientId     pulumi.StringInput `pulumi:"clientId"`
+	ClientSecret pulumi.StringInput `pulumi:"clientSecret"`
+}
+
+func (OAuth2CredentialProviderSlackOauth2ProviderConfigInputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OAuth2CredentialProviderSlackOauth2ProviderConfigInput)(nil)).Elem()
+}
+
+func (i OAuth2CredentialProviderSlackOauth2ProviderConfigInputArgs) ToOAuth2CredentialProviderSlackOauth2ProviderConfigInputOutput() OAuth2CredentialProviderSlackOauth2ProviderConfigInputOutput {
+	return i.ToOAuth2CredentialProviderSlackOauth2ProviderConfigInputOutputWithContext(context.Background())
+}
+
+func (i OAuth2CredentialProviderSlackOauth2ProviderConfigInputArgs) ToOAuth2CredentialProviderSlackOauth2ProviderConfigInputOutputWithContext(ctx context.Context) OAuth2CredentialProviderSlackOauth2ProviderConfigInputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OAuth2CredentialProviderSlackOauth2ProviderConfigInputOutput)
+}
+
+func (i OAuth2CredentialProviderSlackOauth2ProviderConfigInputArgs) ToOAuth2CredentialProviderSlackOauth2ProviderConfigInputPtrOutput() OAuth2CredentialProviderSlackOauth2ProviderConfigInputPtrOutput {
+	return i.ToOAuth2CredentialProviderSlackOauth2ProviderConfigInputPtrOutputWithContext(context.Background())
+}
+
+func (i OAuth2CredentialProviderSlackOauth2ProviderConfigInputArgs) ToOAuth2CredentialProviderSlackOauth2ProviderConfigInputPtrOutputWithContext(ctx context.Context) OAuth2CredentialProviderSlackOauth2ProviderConfigInputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OAuth2CredentialProviderSlackOauth2ProviderConfigInputOutput).ToOAuth2CredentialProviderSlackOauth2ProviderConfigInputPtrOutputWithContext(ctx)
+}
+
+// OAuth2CredentialProviderSlackOauth2ProviderConfigInputPtrInput is an input type that accepts OAuth2CredentialProviderSlackOauth2ProviderConfigInputArgs, OAuth2CredentialProviderSlackOauth2ProviderConfigInputPtr and OAuth2CredentialProviderSlackOauth2ProviderConfigInputPtrOutput values.
+// You can construct a concrete instance of `OAuth2CredentialProviderSlackOauth2ProviderConfigInputPtrInput` via:
+//
+//	        OAuth2CredentialProviderSlackOauth2ProviderConfigInputArgs{...}
+//
+//	or:
+//
+//	        nil
+type OAuth2CredentialProviderSlackOauth2ProviderConfigInputPtrInput interface {
+	pulumi.Input
+
+	ToOAuth2CredentialProviderSlackOauth2ProviderConfigInputPtrOutput() OAuth2CredentialProviderSlackOauth2ProviderConfigInputPtrOutput
+	ToOAuth2CredentialProviderSlackOauth2ProviderConfigInputPtrOutputWithContext(context.Context) OAuth2CredentialProviderSlackOauth2ProviderConfigInputPtrOutput
+}
+
+type oauth2CredentialProviderSlackOauth2ProviderConfigInputPtrType OAuth2CredentialProviderSlackOauth2ProviderConfigInputArgs
+
+func OAuth2CredentialProviderSlackOauth2ProviderConfigInputPtr(v *OAuth2CredentialProviderSlackOauth2ProviderConfigInputArgs) OAuth2CredentialProviderSlackOauth2ProviderConfigInputPtrInput {
+	return (*oauth2CredentialProviderSlackOauth2ProviderConfigInputPtrType)(v)
+}
+
+func (*oauth2CredentialProviderSlackOauth2ProviderConfigInputPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OAuth2CredentialProviderSlackOauth2ProviderConfigInput)(nil)).Elem()
+}
+
+func (i *oauth2CredentialProviderSlackOauth2ProviderConfigInputPtrType) ToOAuth2CredentialProviderSlackOauth2ProviderConfigInputPtrOutput() OAuth2CredentialProviderSlackOauth2ProviderConfigInputPtrOutput {
+	return i.ToOAuth2CredentialProviderSlackOauth2ProviderConfigInputPtrOutputWithContext(context.Background())
+}
+
+func (i *oauth2CredentialProviderSlackOauth2ProviderConfigInputPtrType) ToOAuth2CredentialProviderSlackOauth2ProviderConfigInputPtrOutputWithContext(ctx context.Context) OAuth2CredentialProviderSlackOauth2ProviderConfigInputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OAuth2CredentialProviderSlackOauth2ProviderConfigInputPtrOutput)
+}
+
+// Input configuration for a Slack OAuth2 provider
+type OAuth2CredentialProviderSlackOauth2ProviderConfigInputOutput struct{ *pulumi.OutputState }
+
+func (OAuth2CredentialProviderSlackOauth2ProviderConfigInputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OAuth2CredentialProviderSlackOauth2ProviderConfigInput)(nil)).Elem()
+}
+
+func (o OAuth2CredentialProviderSlackOauth2ProviderConfigInputOutput) ToOAuth2CredentialProviderSlackOauth2ProviderConfigInputOutput() OAuth2CredentialProviderSlackOauth2ProviderConfigInputOutput {
+	return o
+}
+
+func (o OAuth2CredentialProviderSlackOauth2ProviderConfigInputOutput) ToOAuth2CredentialProviderSlackOauth2ProviderConfigInputOutputWithContext(ctx context.Context) OAuth2CredentialProviderSlackOauth2ProviderConfigInputOutput {
+	return o
+}
+
+func (o OAuth2CredentialProviderSlackOauth2ProviderConfigInputOutput) ToOAuth2CredentialProviderSlackOauth2ProviderConfigInputPtrOutput() OAuth2CredentialProviderSlackOauth2ProviderConfigInputPtrOutput {
+	return o.ToOAuth2CredentialProviderSlackOauth2ProviderConfigInputPtrOutputWithContext(context.Background())
+}
+
+func (o OAuth2CredentialProviderSlackOauth2ProviderConfigInputOutput) ToOAuth2CredentialProviderSlackOauth2ProviderConfigInputPtrOutputWithContext(ctx context.Context) OAuth2CredentialProviderSlackOauth2ProviderConfigInputPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OAuth2CredentialProviderSlackOauth2ProviderConfigInput) *OAuth2CredentialProviderSlackOauth2ProviderConfigInput {
+		return &v
+	}).(OAuth2CredentialProviderSlackOauth2ProviderConfigInputPtrOutput)
+}
+
+func (o OAuth2CredentialProviderSlackOauth2ProviderConfigInputOutput) ClientId() pulumi.StringOutput {
+	return o.ApplyT(func(v OAuth2CredentialProviderSlackOauth2ProviderConfigInput) string { return v.ClientId }).(pulumi.StringOutput)
+}
+
+func (o OAuth2CredentialProviderSlackOauth2ProviderConfigInputOutput) ClientSecret() pulumi.StringOutput {
+	return o.ApplyT(func(v OAuth2CredentialProviderSlackOauth2ProviderConfigInput) string { return v.ClientSecret }).(pulumi.StringOutput)
+}
+
+type OAuth2CredentialProviderSlackOauth2ProviderConfigInputPtrOutput struct{ *pulumi.OutputState }
+
+func (OAuth2CredentialProviderSlackOauth2ProviderConfigInputPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OAuth2CredentialProviderSlackOauth2ProviderConfigInput)(nil)).Elem()
+}
+
+func (o OAuth2CredentialProviderSlackOauth2ProviderConfigInputPtrOutput) ToOAuth2CredentialProviderSlackOauth2ProviderConfigInputPtrOutput() OAuth2CredentialProviderSlackOauth2ProviderConfigInputPtrOutput {
+	return o
+}
+
+func (o OAuth2CredentialProviderSlackOauth2ProviderConfigInputPtrOutput) ToOAuth2CredentialProviderSlackOauth2ProviderConfigInputPtrOutputWithContext(ctx context.Context) OAuth2CredentialProviderSlackOauth2ProviderConfigInputPtrOutput {
+	return o
+}
+
+func (o OAuth2CredentialProviderSlackOauth2ProviderConfigInputPtrOutput) Elem() OAuth2CredentialProviderSlackOauth2ProviderConfigInputOutput {
+	return o.ApplyT(func(v *OAuth2CredentialProviderSlackOauth2ProviderConfigInput) OAuth2CredentialProviderSlackOauth2ProviderConfigInput {
+		if v != nil {
+			return *v
+		}
+		var ret OAuth2CredentialProviderSlackOauth2ProviderConfigInput
+		return ret
+	}).(OAuth2CredentialProviderSlackOauth2ProviderConfigInputOutput)
+}
+
+func (o OAuth2CredentialProviderSlackOauth2ProviderConfigInputPtrOutput) ClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OAuth2CredentialProviderSlackOauth2ProviderConfigInput) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ClientId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o OAuth2CredentialProviderSlackOauth2ProviderConfigInputPtrOutput) ClientSecret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OAuth2CredentialProviderSlackOauth2ProviderConfigInput) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ClientSecret
+	}).(pulumi.StringPtrOutput)
+}
+
+type OAuth2CredentialProviderTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
 }
 
 // The configuration for reading agent traces from CloudWatch logs.
@@ -13167,6 +16081,103 @@ func (o RuntimeCustomJwtAuthorizerConfigurationPtrOutput) DiscoveryUrl() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
+// Filesystem configuration for the runtime
+type RuntimeFilesystemConfiguration struct {
+	SessionStorage *RuntimeSessionStorageConfiguration `pulumi:"sessionStorage"`
+}
+
+// RuntimeFilesystemConfigurationInput is an input type that accepts RuntimeFilesystemConfigurationArgs and RuntimeFilesystemConfigurationOutput values.
+// You can construct a concrete instance of `RuntimeFilesystemConfigurationInput` via:
+//
+//	RuntimeFilesystemConfigurationArgs{...}
+type RuntimeFilesystemConfigurationInput interface {
+	pulumi.Input
+
+	ToRuntimeFilesystemConfigurationOutput() RuntimeFilesystemConfigurationOutput
+	ToRuntimeFilesystemConfigurationOutputWithContext(context.Context) RuntimeFilesystemConfigurationOutput
+}
+
+// Filesystem configuration for the runtime
+type RuntimeFilesystemConfigurationArgs struct {
+	SessionStorage RuntimeSessionStorageConfigurationPtrInput `pulumi:"sessionStorage"`
+}
+
+func (RuntimeFilesystemConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuntimeFilesystemConfiguration)(nil)).Elem()
+}
+
+func (i RuntimeFilesystemConfigurationArgs) ToRuntimeFilesystemConfigurationOutput() RuntimeFilesystemConfigurationOutput {
+	return i.ToRuntimeFilesystemConfigurationOutputWithContext(context.Background())
+}
+
+func (i RuntimeFilesystemConfigurationArgs) ToRuntimeFilesystemConfigurationOutputWithContext(ctx context.Context) RuntimeFilesystemConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuntimeFilesystemConfigurationOutput)
+}
+
+// RuntimeFilesystemConfigurationArrayInput is an input type that accepts RuntimeFilesystemConfigurationArray and RuntimeFilesystemConfigurationArrayOutput values.
+// You can construct a concrete instance of `RuntimeFilesystemConfigurationArrayInput` via:
+//
+//	RuntimeFilesystemConfigurationArray{ RuntimeFilesystemConfigurationArgs{...} }
+type RuntimeFilesystemConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToRuntimeFilesystemConfigurationArrayOutput() RuntimeFilesystemConfigurationArrayOutput
+	ToRuntimeFilesystemConfigurationArrayOutputWithContext(context.Context) RuntimeFilesystemConfigurationArrayOutput
+}
+
+type RuntimeFilesystemConfigurationArray []RuntimeFilesystemConfigurationInput
+
+func (RuntimeFilesystemConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RuntimeFilesystemConfiguration)(nil)).Elem()
+}
+
+func (i RuntimeFilesystemConfigurationArray) ToRuntimeFilesystemConfigurationArrayOutput() RuntimeFilesystemConfigurationArrayOutput {
+	return i.ToRuntimeFilesystemConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i RuntimeFilesystemConfigurationArray) ToRuntimeFilesystemConfigurationArrayOutputWithContext(ctx context.Context) RuntimeFilesystemConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuntimeFilesystemConfigurationArrayOutput)
+}
+
+// Filesystem configuration for the runtime
+type RuntimeFilesystemConfigurationOutput struct{ *pulumi.OutputState }
+
+func (RuntimeFilesystemConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuntimeFilesystemConfiguration)(nil)).Elem()
+}
+
+func (o RuntimeFilesystemConfigurationOutput) ToRuntimeFilesystemConfigurationOutput() RuntimeFilesystemConfigurationOutput {
+	return o
+}
+
+func (o RuntimeFilesystemConfigurationOutput) ToRuntimeFilesystemConfigurationOutputWithContext(ctx context.Context) RuntimeFilesystemConfigurationOutput {
+	return o
+}
+
+func (o RuntimeFilesystemConfigurationOutput) SessionStorage() RuntimeSessionStorageConfigurationPtrOutput {
+	return o.ApplyT(func(v RuntimeFilesystemConfiguration) *RuntimeSessionStorageConfiguration { return v.SessionStorage }).(RuntimeSessionStorageConfigurationPtrOutput)
+}
+
+type RuntimeFilesystemConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (RuntimeFilesystemConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RuntimeFilesystemConfiguration)(nil)).Elem()
+}
+
+func (o RuntimeFilesystemConfigurationArrayOutput) ToRuntimeFilesystemConfigurationArrayOutput() RuntimeFilesystemConfigurationArrayOutput {
+	return o
+}
+
+func (o RuntimeFilesystemConfigurationArrayOutput) ToRuntimeFilesystemConfigurationArrayOutputWithContext(ctx context.Context) RuntimeFilesystemConfigurationArrayOutput {
+	return o
+}
+
+func (o RuntimeFilesystemConfigurationArrayOutput) Index(i pulumi.IntInput) RuntimeFilesystemConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RuntimeFilesystemConfiguration {
+		return vs[0].([]RuntimeFilesystemConfiguration)[vs[1].(int)]
+	}).(RuntimeFilesystemConfigurationOutput)
+}
+
 // Configuration for managing the lifecycle of runtime sessions and resources
 type RuntimeLifecycleConfiguration struct {
 	// Timeout in seconds for idle runtime sessions
@@ -13741,6 +16752,142 @@ func (o RuntimeS3LocationPtrOutput) VersionId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Configuration for session storage
+type RuntimeSessionStorageConfiguration struct {
+	MountPath string `pulumi:"mountPath"`
+}
+
+// RuntimeSessionStorageConfigurationInput is an input type that accepts RuntimeSessionStorageConfigurationArgs and RuntimeSessionStorageConfigurationOutput values.
+// You can construct a concrete instance of `RuntimeSessionStorageConfigurationInput` via:
+//
+//	RuntimeSessionStorageConfigurationArgs{...}
+type RuntimeSessionStorageConfigurationInput interface {
+	pulumi.Input
+
+	ToRuntimeSessionStorageConfigurationOutput() RuntimeSessionStorageConfigurationOutput
+	ToRuntimeSessionStorageConfigurationOutputWithContext(context.Context) RuntimeSessionStorageConfigurationOutput
+}
+
+// Configuration for session storage
+type RuntimeSessionStorageConfigurationArgs struct {
+	MountPath pulumi.StringInput `pulumi:"mountPath"`
+}
+
+func (RuntimeSessionStorageConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuntimeSessionStorageConfiguration)(nil)).Elem()
+}
+
+func (i RuntimeSessionStorageConfigurationArgs) ToRuntimeSessionStorageConfigurationOutput() RuntimeSessionStorageConfigurationOutput {
+	return i.ToRuntimeSessionStorageConfigurationOutputWithContext(context.Background())
+}
+
+func (i RuntimeSessionStorageConfigurationArgs) ToRuntimeSessionStorageConfigurationOutputWithContext(ctx context.Context) RuntimeSessionStorageConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuntimeSessionStorageConfigurationOutput)
+}
+
+func (i RuntimeSessionStorageConfigurationArgs) ToRuntimeSessionStorageConfigurationPtrOutput() RuntimeSessionStorageConfigurationPtrOutput {
+	return i.ToRuntimeSessionStorageConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i RuntimeSessionStorageConfigurationArgs) ToRuntimeSessionStorageConfigurationPtrOutputWithContext(ctx context.Context) RuntimeSessionStorageConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuntimeSessionStorageConfigurationOutput).ToRuntimeSessionStorageConfigurationPtrOutputWithContext(ctx)
+}
+
+// RuntimeSessionStorageConfigurationPtrInput is an input type that accepts RuntimeSessionStorageConfigurationArgs, RuntimeSessionStorageConfigurationPtr and RuntimeSessionStorageConfigurationPtrOutput values.
+// You can construct a concrete instance of `RuntimeSessionStorageConfigurationPtrInput` via:
+//
+//	        RuntimeSessionStorageConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type RuntimeSessionStorageConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToRuntimeSessionStorageConfigurationPtrOutput() RuntimeSessionStorageConfigurationPtrOutput
+	ToRuntimeSessionStorageConfigurationPtrOutputWithContext(context.Context) RuntimeSessionStorageConfigurationPtrOutput
+}
+
+type runtimeSessionStorageConfigurationPtrType RuntimeSessionStorageConfigurationArgs
+
+func RuntimeSessionStorageConfigurationPtr(v *RuntimeSessionStorageConfigurationArgs) RuntimeSessionStorageConfigurationPtrInput {
+	return (*runtimeSessionStorageConfigurationPtrType)(v)
+}
+
+func (*runtimeSessionStorageConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuntimeSessionStorageConfiguration)(nil)).Elem()
+}
+
+func (i *runtimeSessionStorageConfigurationPtrType) ToRuntimeSessionStorageConfigurationPtrOutput() RuntimeSessionStorageConfigurationPtrOutput {
+	return i.ToRuntimeSessionStorageConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *runtimeSessionStorageConfigurationPtrType) ToRuntimeSessionStorageConfigurationPtrOutputWithContext(ctx context.Context) RuntimeSessionStorageConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuntimeSessionStorageConfigurationPtrOutput)
+}
+
+// Configuration for session storage
+type RuntimeSessionStorageConfigurationOutput struct{ *pulumi.OutputState }
+
+func (RuntimeSessionStorageConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuntimeSessionStorageConfiguration)(nil)).Elem()
+}
+
+func (o RuntimeSessionStorageConfigurationOutput) ToRuntimeSessionStorageConfigurationOutput() RuntimeSessionStorageConfigurationOutput {
+	return o
+}
+
+func (o RuntimeSessionStorageConfigurationOutput) ToRuntimeSessionStorageConfigurationOutputWithContext(ctx context.Context) RuntimeSessionStorageConfigurationOutput {
+	return o
+}
+
+func (o RuntimeSessionStorageConfigurationOutput) ToRuntimeSessionStorageConfigurationPtrOutput() RuntimeSessionStorageConfigurationPtrOutput {
+	return o.ToRuntimeSessionStorageConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o RuntimeSessionStorageConfigurationOutput) ToRuntimeSessionStorageConfigurationPtrOutputWithContext(ctx context.Context) RuntimeSessionStorageConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuntimeSessionStorageConfiguration) *RuntimeSessionStorageConfiguration {
+		return &v
+	}).(RuntimeSessionStorageConfigurationPtrOutput)
+}
+
+func (o RuntimeSessionStorageConfigurationOutput) MountPath() pulumi.StringOutput {
+	return o.ApplyT(func(v RuntimeSessionStorageConfiguration) string { return v.MountPath }).(pulumi.StringOutput)
+}
+
+type RuntimeSessionStorageConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (RuntimeSessionStorageConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuntimeSessionStorageConfiguration)(nil)).Elem()
+}
+
+func (o RuntimeSessionStorageConfigurationPtrOutput) ToRuntimeSessionStorageConfigurationPtrOutput() RuntimeSessionStorageConfigurationPtrOutput {
+	return o
+}
+
+func (o RuntimeSessionStorageConfigurationPtrOutput) ToRuntimeSessionStorageConfigurationPtrOutputWithContext(ctx context.Context) RuntimeSessionStorageConfigurationPtrOutput {
+	return o
+}
+
+func (o RuntimeSessionStorageConfigurationPtrOutput) Elem() RuntimeSessionStorageConfigurationOutput {
+	return o.ApplyT(func(v *RuntimeSessionStorageConfiguration) RuntimeSessionStorageConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret RuntimeSessionStorageConfiguration
+		return ret
+	}).(RuntimeSessionStorageConfigurationOutput)
+}
+
+func (o RuntimeSessionStorageConfigurationPtrOutput) MountPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RuntimeSessionStorageConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.MountPath
+	}).(pulumi.StringPtrOutput)
+}
+
 // Network mode configuration for VPC
 type RuntimeVpcConfig struct {
 	SecurityGroups []string `pulumi:"securityGroups"`
@@ -13973,16 +17120,24 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CodeInterpreterCustomVpcConfigInput)(nil)).Elem(), CodeInterpreterCustomVpcConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CodeInterpreterCustomVpcConfigPtrInput)(nil)).Elem(), CodeInterpreterCustomVpcConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EvaluatorBedrockEvaluatorModelConfigInput)(nil)).Elem(), EvaluatorBedrockEvaluatorModelConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EvaluatorBedrockEvaluatorModelConfigPtrInput)(nil)).Elem(), EvaluatorBedrockEvaluatorModelConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EvaluatorCategoricalScaleDefinitionInput)(nil)).Elem(), EvaluatorCategoricalScaleDefinitionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EvaluatorCategoricalScaleDefinitionArrayInput)(nil)).Elem(), EvaluatorCategoricalScaleDefinitionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EvaluatorCodeBasedEvaluatorConfigInput)(nil)).Elem(), EvaluatorCodeBasedEvaluatorConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EvaluatorCodeBasedEvaluatorConfigPtrInput)(nil)).Elem(), EvaluatorCodeBasedEvaluatorConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EvaluatorConfigInput)(nil)).Elem(), EvaluatorConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EvaluatorInferenceConfigurationInput)(nil)).Elem(), EvaluatorInferenceConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EvaluatorInferenceConfigurationPtrInput)(nil)).Elem(), EvaluatorInferenceConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EvaluatorLambdaEvaluatorConfigInput)(nil)).Elem(), EvaluatorLambdaEvaluatorConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EvaluatorLambdaEvaluatorConfigPtrInput)(nil)).Elem(), EvaluatorLambdaEvaluatorConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EvaluatorLlmAsAJudgeEvaluatorConfigInput)(nil)).Elem(), EvaluatorLlmAsAJudgeEvaluatorConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EvaluatorLlmAsAJudgeEvaluatorConfigPtrInput)(nil)).Elem(), EvaluatorLlmAsAJudgeEvaluatorConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EvaluatorModelConfigInput)(nil)).Elem(), EvaluatorModelConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EvaluatorModelConfigPtrInput)(nil)).Elem(), EvaluatorModelConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EvaluatorNumericalScaleDefinitionInput)(nil)).Elem(), EvaluatorNumericalScaleDefinitionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EvaluatorNumericalScaleDefinitionArrayInput)(nil)).Elem(), EvaluatorNumericalScaleDefinitionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EvaluatorRatingScaleInput)(nil)).Elem(), EvaluatorRatingScaleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EvaluatorRatingScalePtrInput)(nil)).Elem(), EvaluatorRatingScaleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayAuthorizerConfigurationPropertiesInput)(nil)).Elem(), GatewayAuthorizerConfigurationPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayAuthorizerConfigurationPropertiesPtrInput)(nil)).Elem(), GatewayAuthorizerConfigurationPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayAuthorizingClaimMatchValueTypeInput)(nil)).Elem(), GatewayAuthorizingClaimMatchValueTypeArgs{})
@@ -14099,6 +17254,30 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MemoryUserPreferenceOverrideConsolidationConfigurationInputPtrInput)(nil)).Elem(), MemoryUserPreferenceOverrideConsolidationConfigurationInputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MemoryUserPreferenceOverrideExtractionConfigurationInputInput)(nil)).Elem(), MemoryUserPreferenceOverrideExtractionConfigurationInputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MemoryUserPreferenceOverrideExtractionConfigurationInputPtrInput)(nil)).Elem(), MemoryUserPreferenceOverrideExtractionConfigurationInputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OAuth2CredentialProviderAtlassianOauth2ProviderConfigInputInput)(nil)).Elem(), OAuth2CredentialProviderAtlassianOauth2ProviderConfigInputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OAuth2CredentialProviderAtlassianOauth2ProviderConfigInputPtrInput)(nil)).Elem(), OAuth2CredentialProviderAtlassianOauth2ProviderConfigInputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OAuth2CredentialProviderCustomOauth2ProviderConfigInputInput)(nil)).Elem(), OAuth2CredentialProviderCustomOauth2ProviderConfigInputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OAuth2CredentialProviderCustomOauth2ProviderConfigInputPtrInput)(nil)).Elem(), OAuth2CredentialProviderCustomOauth2ProviderConfigInputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OAuth2CredentialProviderGithubOauth2ProviderConfigInputInput)(nil)).Elem(), OAuth2CredentialProviderGithubOauth2ProviderConfigInputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OAuth2CredentialProviderGithubOauth2ProviderConfigInputPtrInput)(nil)).Elem(), OAuth2CredentialProviderGithubOauth2ProviderConfigInputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OAuth2CredentialProviderGoogleOauth2ProviderConfigInputInput)(nil)).Elem(), OAuth2CredentialProviderGoogleOauth2ProviderConfigInputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OAuth2CredentialProviderGoogleOauth2ProviderConfigInputPtrInput)(nil)).Elem(), OAuth2CredentialProviderGoogleOauth2ProviderConfigInputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OAuth2CredentialProviderIncludedOauth2ProviderConfigInputInput)(nil)).Elem(), OAuth2CredentialProviderIncludedOauth2ProviderConfigInputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OAuth2CredentialProviderIncludedOauth2ProviderConfigInputPtrInput)(nil)).Elem(), OAuth2CredentialProviderIncludedOauth2ProviderConfigInputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OAuth2CredentialProviderLinkedinOauth2ProviderConfigInputInput)(nil)).Elem(), OAuth2CredentialProviderLinkedinOauth2ProviderConfigInputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OAuth2CredentialProviderLinkedinOauth2ProviderConfigInputPtrInput)(nil)).Elem(), OAuth2CredentialProviderLinkedinOauth2ProviderConfigInputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInputInput)(nil)).Elem(), OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInputPtrInput)(nil)).Elem(), OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OAuth2CredentialProviderOauth2AuthorizationServerMetadataInput)(nil)).Elem(), OAuth2CredentialProviderOauth2AuthorizationServerMetadataArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OAuth2CredentialProviderOauth2AuthorizationServerMetadataPtrInput)(nil)).Elem(), OAuth2CredentialProviderOauth2AuthorizationServerMetadataArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OAuth2CredentialProviderOauth2DiscoveryInput)(nil)).Elem(), OAuth2CredentialProviderOauth2DiscoveryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OAuth2CredentialProviderOauth2DiscoveryPtrInput)(nil)).Elem(), OAuth2CredentialProviderOauth2DiscoveryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OAuth2CredentialProviderOauth2ProviderConfigInputInput)(nil)).Elem(), OAuth2CredentialProviderOauth2ProviderConfigInputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OAuth2CredentialProviderOauth2ProviderConfigInputPtrInput)(nil)).Elem(), OAuth2CredentialProviderOauth2ProviderConfigInputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OAuth2CredentialProviderSalesforceOauth2ProviderConfigInputInput)(nil)).Elem(), OAuth2CredentialProviderSalesforceOauth2ProviderConfigInputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OAuth2CredentialProviderSalesforceOauth2ProviderConfigInputPtrInput)(nil)).Elem(), OAuth2CredentialProviderSalesforceOauth2ProviderConfigInputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OAuth2CredentialProviderSlackOauth2ProviderConfigInputInput)(nil)).Elem(), OAuth2CredentialProviderSlackOauth2ProviderConfigInputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OAuth2CredentialProviderSlackOauth2ProviderConfigInputPtrInput)(nil)).Elem(), OAuth2CredentialProviderSlackOauth2ProviderConfigInputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OnlineEvaluationConfigCloudWatchLogsInputConfigInput)(nil)).Elem(), OnlineEvaluationConfigCloudWatchLogsInputConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OnlineEvaluationConfigDataSourceConfigInput)(nil)).Elem(), OnlineEvaluationConfigDataSourceConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OnlineEvaluationConfigEvaluatorReferenceInput)(nil)).Elem(), OnlineEvaluationConfigEvaluatorReferenceArgs{})
@@ -14127,6 +17306,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeCustomClaimValidationTypeArrayInput)(nil)).Elem(), RuntimeCustomClaimValidationTypeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeCustomJwtAuthorizerConfigurationInput)(nil)).Elem(), RuntimeCustomJwtAuthorizerConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeCustomJwtAuthorizerConfigurationPtrInput)(nil)).Elem(), RuntimeCustomJwtAuthorizerConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeFilesystemConfigurationInput)(nil)).Elem(), RuntimeFilesystemConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeFilesystemConfigurationArrayInput)(nil)).Elem(), RuntimeFilesystemConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeLifecycleConfigurationInput)(nil)).Elem(), RuntimeLifecycleConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeLifecycleConfigurationPtrInput)(nil)).Elem(), RuntimeLifecycleConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeNetworkConfigurationInput)(nil)).Elem(), RuntimeNetworkConfigurationArgs{})
@@ -14134,8 +17315,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeRequestHeaderConfigurationPtrInput)(nil)).Elem(), RuntimeRequestHeaderConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeS3LocationInput)(nil)).Elem(), RuntimeS3LocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeS3LocationPtrInput)(nil)).Elem(), RuntimeS3LocationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeSessionStorageConfigurationInput)(nil)).Elem(), RuntimeSessionStorageConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeSessionStorageConfigurationPtrInput)(nil)).Elem(), RuntimeSessionStorageConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeVpcConfigInput)(nil)).Elem(), RuntimeVpcConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeVpcConfigPtrInput)(nil)).Elem(), RuntimeVpcConfigArgs{})
+	pulumi.RegisterOutputType(ApiKeyCredentialProviderApiKeySecretArnOutput{})
+	pulumi.RegisterOutputType(ApiKeyCredentialProviderApiKeySecretArnPtrOutput{})
 	pulumi.RegisterOutputType(BrowserCustomBrowserNetworkConfigurationOutput{})
 	pulumi.RegisterOutputType(BrowserCustomBrowserSigningOutput{})
 	pulumi.RegisterOutputType(BrowserCustomBrowserSigningPtrOutput{})
@@ -14152,10 +17337,14 @@ func init() {
 	pulumi.RegisterOutputType(EvaluatorBedrockEvaluatorModelConfigPtrOutput{})
 	pulumi.RegisterOutputType(EvaluatorCategoricalScaleDefinitionOutput{})
 	pulumi.RegisterOutputType(EvaluatorCategoricalScaleDefinitionArrayOutput{})
+	pulumi.RegisterOutputType(EvaluatorCodeBasedEvaluatorConfigOutput{})
+	pulumi.RegisterOutputType(EvaluatorCodeBasedEvaluatorConfigPtrOutput{})
 	pulumi.RegisterOutputType(EvaluatorConfigOutput{})
 	pulumi.RegisterOutputType(EvaluatorConfigPtrOutput{})
 	pulumi.RegisterOutputType(EvaluatorInferenceConfigurationOutput{})
 	pulumi.RegisterOutputType(EvaluatorInferenceConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(EvaluatorLambdaEvaluatorConfigOutput{})
+	pulumi.RegisterOutputType(EvaluatorLambdaEvaluatorConfigPtrOutput{})
 	pulumi.RegisterOutputType(EvaluatorLlmAsAJudgeEvaluatorConfigOutput{})
 	pulumi.RegisterOutputType(EvaluatorLlmAsAJudgeEvaluatorConfigPtrOutput{})
 	pulumi.RegisterOutputType(EvaluatorModelConfigOutput{})
@@ -14297,6 +17486,34 @@ func init() {
 	pulumi.RegisterOutputType(MemoryUserPreferenceOverrideConsolidationConfigurationInputPtrOutput{})
 	pulumi.RegisterOutputType(MemoryUserPreferenceOverrideExtractionConfigurationInputOutput{})
 	pulumi.RegisterOutputType(MemoryUserPreferenceOverrideExtractionConfigurationInputPtrOutput{})
+	pulumi.RegisterOutputType(OAuth2CredentialProviderAtlassianOauth2ProviderConfigInputOutput{})
+	pulumi.RegisterOutputType(OAuth2CredentialProviderAtlassianOauth2ProviderConfigInputPtrOutput{})
+	pulumi.RegisterOutputType(OAuth2CredentialProviderClientSecretArnOutput{})
+	pulumi.RegisterOutputType(OAuth2CredentialProviderClientSecretArnPtrOutput{})
+	pulumi.RegisterOutputType(OAuth2CredentialProviderCustomOauth2ProviderConfigInputOutput{})
+	pulumi.RegisterOutputType(OAuth2CredentialProviderCustomOauth2ProviderConfigInputPtrOutput{})
+	pulumi.RegisterOutputType(OAuth2CredentialProviderGithubOauth2ProviderConfigInputOutput{})
+	pulumi.RegisterOutputType(OAuth2CredentialProviderGithubOauth2ProviderConfigInputPtrOutput{})
+	pulumi.RegisterOutputType(OAuth2CredentialProviderGoogleOauth2ProviderConfigInputOutput{})
+	pulumi.RegisterOutputType(OAuth2CredentialProviderGoogleOauth2ProviderConfigInputPtrOutput{})
+	pulumi.RegisterOutputType(OAuth2CredentialProviderIncludedOauth2ProviderConfigInputOutput{})
+	pulumi.RegisterOutputType(OAuth2CredentialProviderIncludedOauth2ProviderConfigInputPtrOutput{})
+	pulumi.RegisterOutputType(OAuth2CredentialProviderLinkedinOauth2ProviderConfigInputOutput{})
+	pulumi.RegisterOutputType(OAuth2CredentialProviderLinkedinOauth2ProviderConfigInputPtrOutput{})
+	pulumi.RegisterOutputType(OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInputOutput{})
+	pulumi.RegisterOutputType(OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInputPtrOutput{})
+	pulumi.RegisterOutputType(OAuth2CredentialProviderOauth2AuthorizationServerMetadataOutput{})
+	pulumi.RegisterOutputType(OAuth2CredentialProviderOauth2AuthorizationServerMetadataPtrOutput{})
+	pulumi.RegisterOutputType(OAuth2CredentialProviderOauth2DiscoveryOutput{})
+	pulumi.RegisterOutputType(OAuth2CredentialProviderOauth2DiscoveryPtrOutput{})
+	pulumi.RegisterOutputType(OAuth2CredentialProviderOauth2ProviderConfigInputOutput{})
+	pulumi.RegisterOutputType(OAuth2CredentialProviderOauth2ProviderConfigInputPtrOutput{})
+	pulumi.RegisterOutputType(OAuth2CredentialProviderOauth2ProviderConfigOutputOutput{})
+	pulumi.RegisterOutputType(OAuth2CredentialProviderOauth2ProviderConfigOutputPtrOutput{})
+	pulumi.RegisterOutputType(OAuth2CredentialProviderSalesforceOauth2ProviderConfigInputOutput{})
+	pulumi.RegisterOutputType(OAuth2CredentialProviderSalesforceOauth2ProviderConfigInputPtrOutput{})
+	pulumi.RegisterOutputType(OAuth2CredentialProviderSlackOauth2ProviderConfigInputOutput{})
+	pulumi.RegisterOutputType(OAuth2CredentialProviderSlackOauth2ProviderConfigInputPtrOutput{})
 	pulumi.RegisterOutputType(OnlineEvaluationConfigCloudWatchLogsInputConfigOutput{})
 	pulumi.RegisterOutputType(OnlineEvaluationConfigCloudWatchLogsInputConfigPtrOutput{})
 	pulumi.RegisterOutputType(OnlineEvaluationConfigCloudWatchOutputConfigOutput{})
@@ -14336,6 +17553,8 @@ func init() {
 	pulumi.RegisterOutputType(RuntimeCustomClaimValidationTypeArrayOutput{})
 	pulumi.RegisterOutputType(RuntimeCustomJwtAuthorizerConfigurationOutput{})
 	pulumi.RegisterOutputType(RuntimeCustomJwtAuthorizerConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(RuntimeFilesystemConfigurationOutput{})
+	pulumi.RegisterOutputType(RuntimeFilesystemConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(RuntimeLifecycleConfigurationOutput{})
 	pulumi.RegisterOutputType(RuntimeLifecycleConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(RuntimeNetworkConfigurationOutput{})
@@ -14344,6 +17563,8 @@ func init() {
 	pulumi.RegisterOutputType(RuntimeRequestHeaderConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(RuntimeS3LocationOutput{})
 	pulumi.RegisterOutputType(RuntimeS3LocationPtrOutput{})
+	pulumi.RegisterOutputType(RuntimeSessionStorageConfigurationOutput{})
+	pulumi.RegisterOutputType(RuntimeSessionStorageConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(RuntimeVpcConfigOutput{})
 	pulumi.RegisterOutputType(RuntimeVpcConfigPtrOutput{})
 	pulumi.RegisterOutputType(RuntimeWorkloadIdentityDetailsOutput{})

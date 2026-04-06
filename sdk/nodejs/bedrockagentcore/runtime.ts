@@ -78,6 +78,10 @@ export class Runtime extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly failureReason: pulumi.Output<string>;
     /**
+     * Filesystem configurations for the agent runtime
+     */
+    declare public readonly filesystemConfigurations: pulumi.Output<outputs.bedrockagentcore.RuntimeFilesystemConfiguration[] | undefined>;
+    /**
      * When resource was last updated
      */
     declare public /*out*/ readonly lastUpdatedAt: pulumi.Output<string>;
@@ -142,6 +146,7 @@ export class Runtime extends pulumi.CustomResource {
             resourceInputs["authorizerConfiguration"] = args?.authorizerConfiguration;
             resourceInputs["description"] = args?.description;
             resourceInputs["environmentVariables"] = args?.environmentVariables;
+            resourceInputs["filesystemConfigurations"] = args?.filesystemConfigurations;
             resourceInputs["lifecycleConfiguration"] = args?.lifecycleConfiguration;
             resourceInputs["networkConfiguration"] = args?.networkConfiguration;
             resourceInputs["protocolConfiguration"] = args?.protocolConfiguration;
@@ -167,6 +172,7 @@ export class Runtime extends pulumi.CustomResource {
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["environmentVariables"] = undefined /*out*/;
             resourceInputs["failureReason"] = undefined /*out*/;
+            resourceInputs["filesystemConfigurations"] = undefined /*out*/;
             resourceInputs["lastUpdatedAt"] = undefined /*out*/;
             resourceInputs["lifecycleConfiguration"] = undefined /*out*/;
             resourceInputs["networkConfiguration"] = undefined /*out*/;
@@ -208,6 +214,10 @@ export interface RuntimeArgs {
      * Environment variables for the agent runtime
      */
     environmentVariables?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Filesystem configurations for the agent runtime
+     */
+    filesystemConfigurations?: pulumi.Input<pulumi.Input<inputs.bedrockagentcore.RuntimeFilesystemConfigurationArgs>[]>;
     /**
      * Lifecycle configuration for managing runtime sessions
      */

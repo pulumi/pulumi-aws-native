@@ -43,6 +43,7 @@ type StateMachineAlias struct {
 	//
 	// > `RoutingConfiguration` and `DeploymentPreference` are mutually exclusive properties. You must define only one of these properties.
 	RoutingConfiguration StateMachineAliasRoutingConfigurationVersionArrayOutput `pulumi:"routingConfiguration"`
+	StateMachineArn      pulumi.StringPtrOutput                                  `pulumi:"stateMachineArn"`
 }
 
 // NewStateMachineAlias registers a new resource with the given unique name, arguments, and options.
@@ -115,6 +116,7 @@ type stateMachineAliasArgs struct {
 	//
 	// > `RoutingConfiguration` and `DeploymentPreference` are mutually exclusive properties. You must define only one of these properties.
 	RoutingConfiguration []StateMachineAliasRoutingConfigurationVersion `pulumi:"routingConfiguration"`
+	StateMachineArn      *string                                        `pulumi:"stateMachineArn"`
 }
 
 // The set of arguments for constructing a StateMachineAlias resource.
@@ -145,6 +147,7 @@ type StateMachineAliasArgs struct {
 	//
 	// > `RoutingConfiguration` and `DeploymentPreference` are mutually exclusive properties. You must define only one of these properties.
 	RoutingConfiguration StateMachineAliasRoutingConfigurationVersionArrayInput
+	StateMachineArn      pulumi.StringPtrInput
 }
 
 func (StateMachineAliasArgs) ElementType() reflect.Type {
@@ -229,6 +232,10 @@ func (o StateMachineAliasOutput) RoutingConfiguration() StateMachineAliasRouting
 	return o.ApplyT(func(v *StateMachineAlias) StateMachineAliasRoutingConfigurationVersionArrayOutput {
 		return v.RoutingConfiguration
 	}).(StateMachineAliasRoutingConfigurationVersionArrayOutput)
+}
+
+func (o StateMachineAliasOutput) StateMachineArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StateMachineAlias) pulumi.StringPtrOutput { return v.StateMachineArn }).(pulumi.StringPtrOutput)
 }
 
 func init() {

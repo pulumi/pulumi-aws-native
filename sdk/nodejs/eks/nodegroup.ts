@@ -170,6 +170,10 @@ export class Nodegroup extends pulumi.CustomResource {
      * The Kubernetes version to use for your managed nodes.
      */
     declare public readonly version: pulumi.Output<string | undefined>;
+    /**
+     * The warm pool configuration details for the Auto Scaling group that is created for the node group.
+     */
+    declare public readonly warmPoolConfig: pulumi.Output<outputs.eks.NodegroupWarmPoolConfig | undefined>;
 
     /**
      * Create a Nodegroup resource with the given unique name, arguments, and options.
@@ -210,6 +214,7 @@ export class Nodegroup extends pulumi.CustomResource {
             resourceInputs["taints"] = args?.taints;
             resourceInputs["updateConfig"] = args?.updateConfig;
             resourceInputs["version"] = args?.version;
+            resourceInputs["warmPoolConfig"] = args?.warmPoolConfig;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
         } else {
@@ -234,6 +239,7 @@ export class Nodegroup extends pulumi.CustomResource {
             resourceInputs["taints"] = undefined /*out*/;
             resourceInputs["updateConfig"] = undefined /*out*/;
             resourceInputs["version"] = undefined /*out*/;
+            resourceInputs["warmPoolConfig"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const replaceOnChanges = { replaceOnChanges: ["amiType", "capacityType", "clusterName", "diskSize", "instanceTypes[*]", "nodeRole", "nodegroupName", "remoteAccess", "subnets[*]"] };
@@ -322,4 +328,8 @@ export interface NodegroupArgs {
      * The Kubernetes version to use for your managed nodes.
      */
     version?: pulumi.Input<string>;
+    /**
+     * The warm pool configuration details for the Auto Scaling group that is created for the node group.
+     */
+    warmPoolConfig?: pulumi.Input<inputs.eks.NodegroupWarmPoolConfigArgs>;
 }

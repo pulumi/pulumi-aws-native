@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.Deadline.Inputs
 
     public sealed class FleetCustomerManagedFleetConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        [Input("autoScalingConfiguration")]
+        public Input<Inputs.FleetCustomerManagedAutoScalingConfigurationArgs>? AutoScalingConfiguration { get; set; }
+
         [Input("mode", required: true)]
         public Input<Pulumi.AwsNative.Deadline.FleetAutoScalingMode> Mode { get; set; } = null!;
 

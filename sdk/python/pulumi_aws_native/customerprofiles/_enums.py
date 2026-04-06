@@ -40,7 +40,10 @@ __all__ = [
     'SegmentDefinitionProfileType',
     'SegmentDefinitionProfileTypeDimensionType',
     'SegmentDefinitionRangeOverrideUnit',
+    'SegmentDefinitionSegmentSortDataType',
+    'SegmentDefinitionSegmentSortOrder',
     'SegmentDefinitionSegmentType',
+    'SegmentDefinitionSortAttributeType',
     'SegmentDefinitionStringDimensionType',
 ]
 
@@ -488,6 +491,25 @@ class SegmentDefinitionRangeOverrideUnit(_builtins.str, Enum):
     DAYS = "DAYS"
 
 
+@pulumi.type_token("aws-native:customerprofiles:SegmentDefinitionSegmentSortDataType")
+class SegmentDefinitionSegmentSortDataType(_builtins.str, Enum):
+    """
+    The data type of the sort attribute (e.g., string, number, date).
+    """
+    STRING = "STRING"
+    NUMBER = "NUMBER"
+    DATE = "DATE"
+
+
+@pulumi.type_token("aws-native:customerprofiles:SegmentDefinitionSegmentSortOrder")
+class SegmentDefinitionSegmentSortOrder(_builtins.str, Enum):
+    """
+    The sort order for the attribute (ascending or descending).
+    """
+    ASC = "ASC"
+    DESC = "DESC"
+
+
 @pulumi.type_token("aws-native:customerprofiles:SegmentDefinitionSegmentType")
 class SegmentDefinitionSegmentType(_builtins.str, Enum):
     """
@@ -495,6 +517,15 @@ class SegmentDefinitionSegmentType(_builtins.str, Enum):
     """
     CLASSIC = "CLASSIC"
     ENHANCED = "ENHANCED"
+
+
+@pulumi.type_token("aws-native:customerprofiles:SegmentDefinitionSortAttributeType")
+class SegmentDefinitionSortAttributeType(_builtins.str, Enum):
+    """
+    The type of attribute (e.g., profile, calculated).
+    """
+    PROFILE = "PROFILE"
+    CALCULATED = "CALCULATED"
 
 
 @pulumi.type_token("aws-native:customerprofiles:SegmentDefinitionStringDimensionType")

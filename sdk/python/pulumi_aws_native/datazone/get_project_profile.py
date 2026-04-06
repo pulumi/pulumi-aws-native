@@ -25,7 +25,10 @@ __all__ = [
 
 @pulumi.output_type
 class GetProjectProfileResult:
-    def __init__(__self__, created_at=None, created_by=None, description=None, domain_id=None, domain_unit_id=None, environment_configurations=None, id=None, identifier=None, last_updated_at=None, name=None, status=None):
+    def __init__(__self__, allow_custom_project_resource_tags=None, created_at=None, created_by=None, description=None, domain_id=None, domain_unit_id=None, environment_configurations=None, id=None, identifier=None, last_updated_at=None, name=None, project_resource_tags=None, project_resource_tags_description=None, status=None):
+        if allow_custom_project_resource_tags and not isinstance(allow_custom_project_resource_tags, bool):
+            raise TypeError("Expected argument 'allow_custom_project_resource_tags' to be a bool")
+        pulumi.set(__self__, "allow_custom_project_resource_tags", allow_custom_project_resource_tags)
         if created_at and not isinstance(created_at, str):
             raise TypeError("Expected argument 'created_at' to be a str")
         pulumi.set(__self__, "created_at", created_at)
@@ -56,9 +59,20 @@ class GetProjectProfileResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if project_resource_tags and not isinstance(project_resource_tags, list):
+            raise TypeError("Expected argument 'project_resource_tags' to be a list")
+        pulumi.set(__self__, "project_resource_tags", project_resource_tags)
+        if project_resource_tags_description and not isinstance(project_resource_tags_description, str):
+            raise TypeError("Expected argument 'project_resource_tags_description' to be a str")
+        pulumi.set(__self__, "project_resource_tags_description", project_resource_tags_description)
         if status and not isinstance(status, str):
             raise TypeError("Expected argument 'status' to be a str")
         pulumi.set(__self__, "status", status)
+
+    @_builtins.property
+    @pulumi.getter(name="allowCustomProjectResourceTags")
+    def allow_custom_project_resource_tags(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "allow_custom_project_resource_tags")
 
     @_builtins.property
     @pulumi.getter(name="createdAt")
@@ -141,6 +155,16 @@ class GetProjectProfileResult:
         return pulumi.get(self, "name")
 
     @_builtins.property
+    @pulumi.getter(name="projectResourceTags")
+    def project_resource_tags(self) -> Optional[Sequence['outputs.ProjectProfileResourceTagParameter']]:
+        return pulumi.get(self, "project_resource_tags")
+
+    @_builtins.property
+    @pulumi.getter(name="projectResourceTagsDescription")
+    def project_resource_tags_description(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "project_resource_tags_description")
+
+    @_builtins.property
     @pulumi.getter
     def status(self) -> Optional['ProjectProfileStatus']:
         """
@@ -155,6 +179,7 @@ class AwaitableGetProjectProfileResult(GetProjectProfileResult):
         if False:
             yield self
         return GetProjectProfileResult(
+            allow_custom_project_resource_tags=self.allow_custom_project_resource_tags,
             created_at=self.created_at,
             created_by=self.created_by,
             description=self.description,
@@ -165,6 +190,8 @@ class AwaitableGetProjectProfileResult(GetProjectProfileResult):
             identifier=self.identifier,
             last_updated_at=self.last_updated_at,
             name=self.name,
+            project_resource_tags=self.project_resource_tags,
+            project_resource_tags_description=self.project_resource_tags_description,
             status=self.status)
 
 
@@ -185,6 +212,7 @@ def get_project_profile(domain_identifier: Optional[_builtins.str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:datazone:getProjectProfile', __args__, opts=opts, typ=GetProjectProfileResult).value
 
     return AwaitableGetProjectProfileResult(
+        allow_custom_project_resource_tags=pulumi.get(__ret__, 'allow_custom_project_resource_tags'),
         created_at=pulumi.get(__ret__, 'created_at'),
         created_by=pulumi.get(__ret__, 'created_by'),
         description=pulumi.get(__ret__, 'description'),
@@ -195,6 +223,8 @@ def get_project_profile(domain_identifier: Optional[_builtins.str] = None,
         identifier=pulumi.get(__ret__, 'identifier'),
         last_updated_at=pulumi.get(__ret__, 'last_updated_at'),
         name=pulumi.get(__ret__, 'name'),
+        project_resource_tags=pulumi.get(__ret__, 'project_resource_tags'),
+        project_resource_tags_description=pulumi.get(__ret__, 'project_resource_tags_description'),
         status=pulumi.get(__ret__, 'status'))
 def get_project_profile_output(domain_identifier: Optional[pulumi.Input[_builtins.str]] = None,
                                identifier: Optional[pulumi.Input[_builtins.str]] = None,
@@ -212,6 +242,7 @@ def get_project_profile_output(domain_identifier: Optional[pulumi.Input[_builtin
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:datazone:getProjectProfile', __args__, opts=opts, typ=GetProjectProfileResult)
     return __ret__.apply(lambda __response__: GetProjectProfileResult(
+        allow_custom_project_resource_tags=pulumi.get(__response__, 'allow_custom_project_resource_tags'),
         created_at=pulumi.get(__response__, 'created_at'),
         created_by=pulumi.get(__response__, 'created_by'),
         description=pulumi.get(__response__, 'description'),
@@ -222,4 +253,6 @@ def get_project_profile_output(domain_identifier: Optional[pulumi.Input[_builtin
         identifier=pulumi.get(__response__, 'identifier'),
         last_updated_at=pulumi.get(__response__, 'last_updated_at'),
         name=pulumi.get(__response__, 'name'),
+        project_resource_tags=pulumi.get(__response__, 'project_resource_tags'),
+        project_resource_tags_description=pulumi.get(__response__, 'project_resource_tags_description'),
         status=pulumi.get(__response__, 'status')))

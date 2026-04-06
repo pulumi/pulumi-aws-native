@@ -24,6 +24,14 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Inputs
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        [Input("namespaceTemplates")]
+        private InputList<string>? _namespaceTemplates;
+        public InputList<string> NamespaceTemplates
+        {
+            get => _namespaceTemplates ?? (_namespaceTemplates = new InputList<string>());
+            set => _namespaceTemplates = value;
+        }
+
         [Input("namespaces")]
         private InputList<string>? _namespaces;
         public InputList<string> Namespaces

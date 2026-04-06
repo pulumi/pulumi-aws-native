@@ -840,6 +840,170 @@ func (in *tableCompactionStatusPtr) ToTableCompactionStatusPtrOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, in).(TableCompactionStatusPtrOutput)
 }
 
+// The type of the top-level schema, which is always 'struct'
+type TableIcebergSchemaV2SchemaV2FieldType string
+
+const (
+	TableIcebergSchemaV2SchemaV2FieldTypeStruct = TableIcebergSchemaV2SchemaV2FieldType("struct")
+)
+
+func (TableIcebergSchemaV2SchemaV2FieldType) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableIcebergSchemaV2SchemaV2FieldType)(nil)).Elem()
+}
+
+func (e TableIcebergSchemaV2SchemaV2FieldType) ToTableIcebergSchemaV2SchemaV2FieldTypeOutput() TableIcebergSchemaV2SchemaV2FieldTypeOutput {
+	return pulumi.ToOutput(e).(TableIcebergSchemaV2SchemaV2FieldTypeOutput)
+}
+
+func (e TableIcebergSchemaV2SchemaV2FieldType) ToTableIcebergSchemaV2SchemaV2FieldTypeOutputWithContext(ctx context.Context) TableIcebergSchemaV2SchemaV2FieldTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(TableIcebergSchemaV2SchemaV2FieldTypeOutput)
+}
+
+func (e TableIcebergSchemaV2SchemaV2FieldType) ToTableIcebergSchemaV2SchemaV2FieldTypePtrOutput() TableIcebergSchemaV2SchemaV2FieldTypePtrOutput {
+	return e.ToTableIcebergSchemaV2SchemaV2FieldTypePtrOutputWithContext(context.Background())
+}
+
+func (e TableIcebergSchemaV2SchemaV2FieldType) ToTableIcebergSchemaV2SchemaV2FieldTypePtrOutputWithContext(ctx context.Context) TableIcebergSchemaV2SchemaV2FieldTypePtrOutput {
+	return TableIcebergSchemaV2SchemaV2FieldType(e).ToTableIcebergSchemaV2SchemaV2FieldTypeOutputWithContext(ctx).ToTableIcebergSchemaV2SchemaV2FieldTypePtrOutputWithContext(ctx)
+}
+
+func (e TableIcebergSchemaV2SchemaV2FieldType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TableIcebergSchemaV2SchemaV2FieldType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TableIcebergSchemaV2SchemaV2FieldType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e TableIcebergSchemaV2SchemaV2FieldType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type TableIcebergSchemaV2SchemaV2FieldTypeOutput struct{ *pulumi.OutputState }
+
+func (TableIcebergSchemaV2SchemaV2FieldTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableIcebergSchemaV2SchemaV2FieldType)(nil)).Elem()
+}
+
+func (o TableIcebergSchemaV2SchemaV2FieldTypeOutput) ToTableIcebergSchemaV2SchemaV2FieldTypeOutput() TableIcebergSchemaV2SchemaV2FieldTypeOutput {
+	return o
+}
+
+func (o TableIcebergSchemaV2SchemaV2FieldTypeOutput) ToTableIcebergSchemaV2SchemaV2FieldTypeOutputWithContext(ctx context.Context) TableIcebergSchemaV2SchemaV2FieldTypeOutput {
+	return o
+}
+
+func (o TableIcebergSchemaV2SchemaV2FieldTypeOutput) ToTableIcebergSchemaV2SchemaV2FieldTypePtrOutput() TableIcebergSchemaV2SchemaV2FieldTypePtrOutput {
+	return o.ToTableIcebergSchemaV2SchemaV2FieldTypePtrOutputWithContext(context.Background())
+}
+
+func (o TableIcebergSchemaV2SchemaV2FieldTypeOutput) ToTableIcebergSchemaV2SchemaV2FieldTypePtrOutputWithContext(ctx context.Context) TableIcebergSchemaV2SchemaV2FieldTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TableIcebergSchemaV2SchemaV2FieldType) *TableIcebergSchemaV2SchemaV2FieldType {
+		return &v
+	}).(TableIcebergSchemaV2SchemaV2FieldTypePtrOutput)
+}
+
+func (o TableIcebergSchemaV2SchemaV2FieldTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o TableIcebergSchemaV2SchemaV2FieldTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TableIcebergSchemaV2SchemaV2FieldType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o TableIcebergSchemaV2SchemaV2FieldTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TableIcebergSchemaV2SchemaV2FieldTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TableIcebergSchemaV2SchemaV2FieldType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type TableIcebergSchemaV2SchemaV2FieldTypePtrOutput struct{ *pulumi.OutputState }
+
+func (TableIcebergSchemaV2SchemaV2FieldTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableIcebergSchemaV2SchemaV2FieldType)(nil)).Elem()
+}
+
+func (o TableIcebergSchemaV2SchemaV2FieldTypePtrOutput) ToTableIcebergSchemaV2SchemaV2FieldTypePtrOutput() TableIcebergSchemaV2SchemaV2FieldTypePtrOutput {
+	return o
+}
+
+func (o TableIcebergSchemaV2SchemaV2FieldTypePtrOutput) ToTableIcebergSchemaV2SchemaV2FieldTypePtrOutputWithContext(ctx context.Context) TableIcebergSchemaV2SchemaV2FieldTypePtrOutput {
+	return o
+}
+
+func (o TableIcebergSchemaV2SchemaV2FieldTypePtrOutput) Elem() TableIcebergSchemaV2SchemaV2FieldTypeOutput {
+	return o.ApplyT(func(v *TableIcebergSchemaV2SchemaV2FieldType) TableIcebergSchemaV2SchemaV2FieldType {
+		if v != nil {
+			return *v
+		}
+		var ret TableIcebergSchemaV2SchemaV2FieldType
+		return ret
+	}).(TableIcebergSchemaV2SchemaV2FieldTypeOutput)
+}
+
+func (o TableIcebergSchemaV2SchemaV2FieldTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TableIcebergSchemaV2SchemaV2FieldTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *TableIcebergSchemaV2SchemaV2FieldType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// TableIcebergSchemaV2SchemaV2FieldTypeInput is an input type that accepts values of the TableIcebergSchemaV2SchemaV2FieldType enum
+// A concrete instance of `TableIcebergSchemaV2SchemaV2FieldTypeInput` can be one of the following:
+//
+//	TableIcebergSchemaV2SchemaV2FieldTypeStruct
+type TableIcebergSchemaV2SchemaV2FieldTypeInput interface {
+	pulumi.Input
+
+	ToTableIcebergSchemaV2SchemaV2FieldTypeOutput() TableIcebergSchemaV2SchemaV2FieldTypeOutput
+	ToTableIcebergSchemaV2SchemaV2FieldTypeOutputWithContext(context.Context) TableIcebergSchemaV2SchemaV2FieldTypeOutput
+}
+
+var tableIcebergSchemaV2SchemaV2FieldTypePtrType = reflect.TypeOf((**TableIcebergSchemaV2SchemaV2FieldType)(nil)).Elem()
+
+type TableIcebergSchemaV2SchemaV2FieldTypePtrInput interface {
+	pulumi.Input
+
+	ToTableIcebergSchemaV2SchemaV2FieldTypePtrOutput() TableIcebergSchemaV2SchemaV2FieldTypePtrOutput
+	ToTableIcebergSchemaV2SchemaV2FieldTypePtrOutputWithContext(context.Context) TableIcebergSchemaV2SchemaV2FieldTypePtrOutput
+}
+
+type tableIcebergSchemaV2SchemaV2FieldTypePtr string
+
+func TableIcebergSchemaV2SchemaV2FieldTypePtr(v string) TableIcebergSchemaV2SchemaV2FieldTypePtrInput {
+	return (*tableIcebergSchemaV2SchemaV2FieldTypePtr)(&v)
+}
+
+func (*tableIcebergSchemaV2SchemaV2FieldTypePtr) ElementType() reflect.Type {
+	return tableIcebergSchemaV2SchemaV2FieldTypePtrType
+}
+
+func (in *tableIcebergSchemaV2SchemaV2FieldTypePtr) ToTableIcebergSchemaV2SchemaV2FieldTypePtrOutput() TableIcebergSchemaV2SchemaV2FieldTypePtrOutput {
+	return pulumi.ToOutput(in).(TableIcebergSchemaV2SchemaV2FieldTypePtrOutput)
+}
+
+func (in *tableIcebergSchemaV2SchemaV2FieldTypePtr) ToTableIcebergSchemaV2SchemaV2FieldTypePtrOutputWithContext(ctx context.Context) TableIcebergSchemaV2SchemaV2FieldTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(TableIcebergSchemaV2SchemaV2FieldTypePtrOutput)
+}
+
 // Sort direction (asc or desc)
 type TableIcebergSortFieldDirection string
 
@@ -1843,6 +2007,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TableBucketUnreferencedFileRemovalStatusPtrInput)(nil)).Elem(), TableBucketUnreferencedFileRemovalStatus("Enabled"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TableCompactionStatusInput)(nil)).Elem(), TableCompactionStatus("enabled"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TableCompactionStatusPtrInput)(nil)).Elem(), TableCompactionStatus("enabled"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TableIcebergSchemaV2SchemaV2FieldTypeInput)(nil)).Elem(), TableIcebergSchemaV2SchemaV2FieldType("struct"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TableIcebergSchemaV2SchemaV2FieldTypePtrInput)(nil)).Elem(), TableIcebergSchemaV2SchemaV2FieldType("struct"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TableIcebergSortFieldDirectionInput)(nil)).Elem(), TableIcebergSortFieldDirection("asc"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TableIcebergSortFieldDirectionPtrInput)(nil)).Elem(), TableIcebergSortFieldDirection("asc"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TableIcebergSortFieldNullOrderInput)(nil)).Elem(), TableIcebergSortFieldNullOrder("nulls-first"))
@@ -1865,6 +2031,8 @@ func init() {
 	pulumi.RegisterOutputType(TableBucketUnreferencedFileRemovalStatusPtrOutput{})
 	pulumi.RegisterOutputType(TableCompactionStatusOutput{})
 	pulumi.RegisterOutputType(TableCompactionStatusPtrOutput{})
+	pulumi.RegisterOutputType(TableIcebergSchemaV2SchemaV2FieldTypeOutput{})
+	pulumi.RegisterOutputType(TableIcebergSchemaV2SchemaV2FieldTypePtrOutput{})
 	pulumi.RegisterOutputType(TableIcebergSortFieldDirectionOutput{})
 	pulumi.RegisterOutputType(TableIcebergSortFieldDirectionPtrOutput{})
 	pulumi.RegisterOutputType(TableIcebergSortFieldNullOrderOutput{})

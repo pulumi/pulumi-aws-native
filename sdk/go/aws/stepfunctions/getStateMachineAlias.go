@@ -38,6 +38,7 @@ type LookupStateMachineAliasResult struct {
 	//
 	// > `RoutingConfiguration` and `DeploymentPreference` are mutually exclusive properties. You must define only one of these properties.
 	RoutingConfiguration []StateMachineAliasRoutingConfigurationVersion `pulumi:"routingConfiguration"`
+	StateMachineArn      *string                                        `pulumi:"stateMachineArn"`
 }
 
 func LookupStateMachineAliasOutput(ctx *pulumi.Context, args LookupStateMachineAliasOutputArgs, opts ...pulumi.InvokeOption) LookupStateMachineAliasResultOutput {
@@ -91,6 +92,10 @@ func (o LookupStateMachineAliasResultOutput) RoutingConfiguration() StateMachine
 	return o.ApplyT(func(v LookupStateMachineAliasResult) []StateMachineAliasRoutingConfigurationVersion {
 		return v.RoutingConfiguration
 	}).(StateMachineAliasRoutingConfigurationVersionArrayOutput)
+}
+
+func (o LookupStateMachineAliasResultOutput) StateMachineArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupStateMachineAliasResult) *string { return v.StateMachineArn }).(pulumi.StringPtrOutput)
 }
 
 func init() {

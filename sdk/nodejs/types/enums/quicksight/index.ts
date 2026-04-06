@@ -2496,6 +2496,7 @@ export const DataSourceType = {
     Sharepoint: "SHAREPOINT",
     OneDrive: "ONE_DRIVE",
     WebCrawler: "WEB_CRAWLER",
+    Box: "BOX",
 } as const;
 
 export type DataSourceType = (typeof DataSourceType)[keyof typeof DataSourceType];

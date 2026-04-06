@@ -137,6 +137,8 @@ type Nodegroup struct {
 	UpdateConfig NodegroupUpdateConfigPtrOutput `pulumi:"updateConfig"`
 	// The Kubernetes version to use for your managed nodes.
 	Version pulumi.StringPtrOutput `pulumi:"version"`
+	// The warm pool configuration details for the Auto Scaling group that is created for the node group.
+	WarmPoolConfig NodegroupWarmPoolConfigPtrOutput `pulumi:"warmPoolConfig"`
 }
 
 // NewNodegroup registers a new resource with the given unique name, arguments, and options.
@@ -238,6 +240,8 @@ type nodegroupArgs struct {
 	UpdateConfig *NodegroupUpdateConfig `pulumi:"updateConfig"`
 	// The Kubernetes version to use for your managed nodes.
 	Version *string `pulumi:"version"`
+	// The warm pool configuration details for the Auto Scaling group that is created for the node group.
+	WarmPoolConfig *NodegroupWarmPoolConfig `pulumi:"warmPoolConfig"`
 }
 
 // The set of arguments for constructing a Nodegroup resource.
@@ -280,6 +284,8 @@ type NodegroupArgs struct {
 	UpdateConfig NodegroupUpdateConfigPtrInput
 	// The Kubernetes version to use for your managed nodes.
 	Version pulumi.StringPtrInput
+	// The warm pool configuration details for the Auto Scaling group that is created for the node group.
+	WarmPoolConfig NodegroupWarmPoolConfigPtrInput
 }
 
 func (NodegroupArgs) ElementType() reflect.Type {
@@ -421,6 +427,11 @@ func (o NodegroupOutput) UpdateConfig() NodegroupUpdateConfigPtrOutput {
 // The Kubernetes version to use for your managed nodes.
 func (o NodegroupOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Nodegroup) pulumi.StringPtrOutput { return v.Version }).(pulumi.StringPtrOutput)
+}
+
+// The warm pool configuration details for the Auto Scaling group that is created for the node group.
+func (o NodegroupOutput) WarmPoolConfig() NodegroupWarmPoolConfigPtrOutput {
+	return o.ApplyT(func(v *Nodegroup) NodegroupWarmPoolConfigPtrOutput { return v.WarmPoolConfig }).(NodegroupWarmPoolConfigPtrOutput)
 }
 
 func init() {

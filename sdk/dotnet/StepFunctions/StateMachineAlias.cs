@@ -63,6 +63,9 @@ namespace Pulumi.AwsNative.StepFunctions
         [Output("routingConfiguration")]
         public Output<ImmutableArray<Outputs.StateMachineAliasRoutingConfigurationVersion>> RoutingConfiguration { get; private set; } = null!;
 
+        [Output("stateMachineArn")]
+        public Output<string?> StateMachineArn { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a StateMachineAlias resource with the given unique name, arguments, and options.
@@ -159,6 +162,9 @@ namespace Pulumi.AwsNative.StepFunctions
             get => _routingConfiguration ?? (_routingConfiguration = new InputList<Inputs.StateMachineAliasRoutingConfigurationVersionArgs>());
             set => _routingConfiguration = value;
         }
+
+        [Input("stateMachineArn")]
+        public Input<string>? StateMachineArn { get; set; }
 
         public StateMachineAliasArgs()
         {

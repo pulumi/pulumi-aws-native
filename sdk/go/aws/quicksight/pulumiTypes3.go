@@ -13,6 +13,116 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type TemplateGaugeChartConditionalFormattingOption struct {
+	// The options that determine the presentation of the arc of a `GaugeChartVisual` .
+	Arc *TemplateGaugeChartArcConditionalFormatting `pulumi:"arc"`
+	// The conditional formatting for the primary value of a `GaugeChartVisual` .
+	PrimaryValue *TemplateGaugeChartPrimaryValueConditionalFormatting `pulumi:"primaryValue"`
+}
+
+// TemplateGaugeChartConditionalFormattingOptionInput is an input type that accepts TemplateGaugeChartConditionalFormattingOptionArgs and TemplateGaugeChartConditionalFormattingOptionOutput values.
+// You can construct a concrete instance of `TemplateGaugeChartConditionalFormattingOptionInput` via:
+//
+//	TemplateGaugeChartConditionalFormattingOptionArgs{...}
+type TemplateGaugeChartConditionalFormattingOptionInput interface {
+	pulumi.Input
+
+	ToTemplateGaugeChartConditionalFormattingOptionOutput() TemplateGaugeChartConditionalFormattingOptionOutput
+	ToTemplateGaugeChartConditionalFormattingOptionOutputWithContext(context.Context) TemplateGaugeChartConditionalFormattingOptionOutput
+}
+
+type TemplateGaugeChartConditionalFormattingOptionArgs struct {
+	// The options that determine the presentation of the arc of a `GaugeChartVisual` .
+	Arc TemplateGaugeChartArcConditionalFormattingPtrInput `pulumi:"arc"`
+	// The conditional formatting for the primary value of a `GaugeChartVisual` .
+	PrimaryValue TemplateGaugeChartPrimaryValueConditionalFormattingPtrInput `pulumi:"primaryValue"`
+}
+
+func (TemplateGaugeChartConditionalFormattingOptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateGaugeChartConditionalFormattingOption)(nil)).Elem()
+}
+
+func (i TemplateGaugeChartConditionalFormattingOptionArgs) ToTemplateGaugeChartConditionalFormattingOptionOutput() TemplateGaugeChartConditionalFormattingOptionOutput {
+	return i.ToTemplateGaugeChartConditionalFormattingOptionOutputWithContext(context.Background())
+}
+
+func (i TemplateGaugeChartConditionalFormattingOptionArgs) ToTemplateGaugeChartConditionalFormattingOptionOutputWithContext(ctx context.Context) TemplateGaugeChartConditionalFormattingOptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateGaugeChartConditionalFormattingOptionOutput)
+}
+
+// TemplateGaugeChartConditionalFormattingOptionArrayInput is an input type that accepts TemplateGaugeChartConditionalFormattingOptionArray and TemplateGaugeChartConditionalFormattingOptionArrayOutput values.
+// You can construct a concrete instance of `TemplateGaugeChartConditionalFormattingOptionArrayInput` via:
+//
+//	TemplateGaugeChartConditionalFormattingOptionArray{ TemplateGaugeChartConditionalFormattingOptionArgs{...} }
+type TemplateGaugeChartConditionalFormattingOptionArrayInput interface {
+	pulumi.Input
+
+	ToTemplateGaugeChartConditionalFormattingOptionArrayOutput() TemplateGaugeChartConditionalFormattingOptionArrayOutput
+	ToTemplateGaugeChartConditionalFormattingOptionArrayOutputWithContext(context.Context) TemplateGaugeChartConditionalFormattingOptionArrayOutput
+}
+
+type TemplateGaugeChartConditionalFormattingOptionArray []TemplateGaugeChartConditionalFormattingOptionInput
+
+func (TemplateGaugeChartConditionalFormattingOptionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TemplateGaugeChartConditionalFormattingOption)(nil)).Elem()
+}
+
+func (i TemplateGaugeChartConditionalFormattingOptionArray) ToTemplateGaugeChartConditionalFormattingOptionArrayOutput() TemplateGaugeChartConditionalFormattingOptionArrayOutput {
+	return i.ToTemplateGaugeChartConditionalFormattingOptionArrayOutputWithContext(context.Background())
+}
+
+func (i TemplateGaugeChartConditionalFormattingOptionArray) ToTemplateGaugeChartConditionalFormattingOptionArrayOutputWithContext(ctx context.Context) TemplateGaugeChartConditionalFormattingOptionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateGaugeChartConditionalFormattingOptionArrayOutput)
+}
+
+type TemplateGaugeChartConditionalFormattingOptionOutput struct{ *pulumi.OutputState }
+
+func (TemplateGaugeChartConditionalFormattingOptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateGaugeChartConditionalFormattingOption)(nil)).Elem()
+}
+
+func (o TemplateGaugeChartConditionalFormattingOptionOutput) ToTemplateGaugeChartConditionalFormattingOptionOutput() TemplateGaugeChartConditionalFormattingOptionOutput {
+	return o
+}
+
+func (o TemplateGaugeChartConditionalFormattingOptionOutput) ToTemplateGaugeChartConditionalFormattingOptionOutputWithContext(ctx context.Context) TemplateGaugeChartConditionalFormattingOptionOutput {
+	return o
+}
+
+// The options that determine the presentation of the arc of a `GaugeChartVisual` .
+func (o TemplateGaugeChartConditionalFormattingOptionOutput) Arc() TemplateGaugeChartArcConditionalFormattingPtrOutput {
+	return o.ApplyT(func(v TemplateGaugeChartConditionalFormattingOption) *TemplateGaugeChartArcConditionalFormatting {
+		return v.Arc
+	}).(TemplateGaugeChartArcConditionalFormattingPtrOutput)
+}
+
+// The conditional formatting for the primary value of a `GaugeChartVisual` .
+func (o TemplateGaugeChartConditionalFormattingOptionOutput) PrimaryValue() TemplateGaugeChartPrimaryValueConditionalFormattingPtrOutput {
+	return o.ApplyT(func(v TemplateGaugeChartConditionalFormattingOption) *TemplateGaugeChartPrimaryValueConditionalFormatting {
+		return v.PrimaryValue
+	}).(TemplateGaugeChartPrimaryValueConditionalFormattingPtrOutput)
+}
+
+type TemplateGaugeChartConditionalFormattingOptionArrayOutput struct{ *pulumi.OutputState }
+
+func (TemplateGaugeChartConditionalFormattingOptionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TemplateGaugeChartConditionalFormattingOption)(nil)).Elem()
+}
+
+func (o TemplateGaugeChartConditionalFormattingOptionArrayOutput) ToTemplateGaugeChartConditionalFormattingOptionArrayOutput() TemplateGaugeChartConditionalFormattingOptionArrayOutput {
+	return o
+}
+
+func (o TemplateGaugeChartConditionalFormattingOptionArrayOutput) ToTemplateGaugeChartConditionalFormattingOptionArrayOutputWithContext(ctx context.Context) TemplateGaugeChartConditionalFormattingOptionArrayOutput {
+	return o
+}
+
+func (o TemplateGaugeChartConditionalFormattingOptionArrayOutput) Index(i pulumi.IntInput) TemplateGaugeChartConditionalFormattingOptionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TemplateGaugeChartConditionalFormattingOption {
+		return vs[0].([]TemplateGaugeChartConditionalFormattingOption)[vs[1].(int)]
+	}).(TemplateGaugeChartConditionalFormattingOptionOutput)
+}
+
 type TemplateGaugeChartConfiguration struct {
 	// The color configuration of a `GaugeChartVisual` .
 	ColorConfiguration *TemplateGaugeChartColorConfiguration `pulumi:"colorConfiguration"`
@@ -63077,6 +63187,8 @@ type VpcConnectionTag struct {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateGaugeChartConditionalFormattingOptionInput)(nil)).Elem(), TemplateGaugeChartConditionalFormattingOptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateGaugeChartConditionalFormattingOptionArrayInput)(nil)).Elem(), TemplateGaugeChartConditionalFormattingOptionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateGaugeChartConfigurationInput)(nil)).Elem(), TemplateGaugeChartConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateGaugeChartConfigurationPtrInput)(nil)).Elem(), TemplateGaugeChartConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateGaugeChartFieldWellsInput)(nil)).Elem(), TemplateGaugeChartFieldWellsArgs{})
@@ -63778,6 +63890,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicSemanticTypePtrInput)(nil)).Elem(), TopicSemanticTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicSingularFilterConstantInput)(nil)).Elem(), TopicSingularFilterConstantArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicSingularFilterConstantPtrInput)(nil)).Elem(), TopicSingularFilterConstantArgs{})
+	pulumi.RegisterOutputType(TemplateGaugeChartConditionalFormattingOptionOutput{})
+	pulumi.RegisterOutputType(TemplateGaugeChartConditionalFormattingOptionArrayOutput{})
 	pulumi.RegisterOutputType(TemplateGaugeChartConfigurationOutput{})
 	pulumi.RegisterOutputType(TemplateGaugeChartConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(TemplateGaugeChartFieldWellsOutput{})

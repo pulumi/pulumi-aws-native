@@ -34,6 +34,10 @@ export interface GetQueryDefinitionResult {
      */
     readonly name?: string;
     /**
+     * Use this parameter to include specific query parameters as part of your query definition. Query parameters are supported only for Logs Insights QL queries. Query parameters allow you to use placeholder variables in your query string that are substituted with values at execution time. Use the {{parameterName}} syntax in your query string to reference a parameter.
+     */
+    readonly parameters?: outputs.logs.QueryDefinitionQueryParameter[];
+    /**
      * Unique identifier of a query definition
      */
     readonly queryDefinitionId?: string;

@@ -46,6 +46,8 @@ type LookupRuntimeResult struct {
 	EnvironmentVariables map[string]string `pulumi:"environmentVariables"`
 	// The reason for failure if the agent is in a failed state.
 	FailureReason *string `pulumi:"failureReason"`
+	// Filesystem configurations for the agent runtime
+	FilesystemConfigurations []RuntimeFilesystemConfiguration `pulumi:"filesystemConfigurations"`
 	// When resource was last updated
 	LastUpdatedAt *string `pulumi:"lastUpdatedAt"`
 	// Lifecycle configuration for managing runtime sessions
@@ -141,6 +143,11 @@ func (o LookupRuntimeResultOutput) EnvironmentVariables() pulumi.StringMapOutput
 // The reason for failure if the agent is in a failed state.
 func (o LookupRuntimeResultOutput) FailureReason() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupRuntimeResult) *string { return v.FailureReason }).(pulumi.StringPtrOutput)
+}
+
+// Filesystem configurations for the agent runtime
+func (o LookupRuntimeResultOutput) FilesystemConfigurations() RuntimeFilesystemConfigurationArrayOutput {
+	return o.ApplyT(func(v LookupRuntimeResult) []RuntimeFilesystemConfiguration { return v.FilesystemConfigurations }).(RuntimeFilesystemConfigurationArrayOutput)
 }
 
 // When resource was last updated

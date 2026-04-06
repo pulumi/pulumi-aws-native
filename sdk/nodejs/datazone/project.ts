@@ -90,6 +90,10 @@ export class Project extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly projectStatus: pulumi.Output<enums.datazone.ProjectStatus>;
     /**
+     * The resource tags of the project.
+     */
+    declare public readonly resourceTags: pulumi.Output<outputs.datazone.ProjectResourceTag[] | undefined>;
+    /**
      * The user parameters of the project.
      */
     declare public readonly userParameters: pulumi.Output<outputs.datazone.ProjectEnvironmentConfigurationUserParameter[] | undefined>;
@@ -115,6 +119,7 @@ export class Project extends pulumi.CustomResource {
             resourceInputs["name"] = args?.name;
             resourceInputs["projectProfileId"] = args?.projectProfileId;
             resourceInputs["projectProfileVersion"] = args?.projectProfileVersion;
+            resourceInputs["resourceTags"] = args?.resourceTags;
             resourceInputs["userParameters"] = args?.userParameters;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
@@ -136,6 +141,7 @@ export class Project extends pulumi.CustomResource {
             resourceInputs["projectProfileId"] = undefined /*out*/;
             resourceInputs["projectProfileVersion"] = undefined /*out*/;
             resourceInputs["projectStatus"] = undefined /*out*/;
+            resourceInputs["resourceTags"] = undefined /*out*/;
             resourceInputs["userParameters"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -177,6 +183,10 @@ export interface ProjectArgs {
      * The project profile version to which the project should be updated. You can only specify the following string for this parameter: latest.
      */
     projectProfileVersion?: pulumi.Input<string>;
+    /**
+     * The resource tags of the project.
+     */
+    resourceTags?: pulumi.Input<pulumi.Input<inputs.datazone.ProjectResourceTagArgs>[]>;
     /**
      * The user parameters of the project.
      */

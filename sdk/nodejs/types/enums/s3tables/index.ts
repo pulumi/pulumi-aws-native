@@ -52,6 +52,15 @@ export const TableCompactionStatus = {
  */
 export type TableCompactionStatus = (typeof TableCompactionStatus)[keyof typeof TableCompactionStatus];
 
+export const TableIcebergSchemaV2SchemaV2FieldType = {
+    Struct: "struct",
+} as const;
+
+/**
+ * The type of the top-level schema, which is always 'struct'
+ */
+export type TableIcebergSchemaV2SchemaV2FieldType = (typeof TableIcebergSchemaV2SchemaV2FieldType)[keyof typeof TableIcebergSchemaV2SchemaV2FieldType];
+
 export const TableIcebergSortFieldDirection = {
     Asc: "asc",
     Desc: "desc",

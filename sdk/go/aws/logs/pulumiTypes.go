@@ -715,6 +715,124 @@ func (o MetricFilterMetricTransformationArrayOutput) Index(i pulumi.IntInput) Me
 	}).(MetricFilterMetricTransformationOutput)
 }
 
+// This structure defines a query parameter for a saved CloudWatch Logs Insights query definition. Query parameters are supported only for Logs Insights QL queries. They are placeholder variables that you can reference in a query string using the {{parameterName}} syntax. Each parameter can include a default value and a description.
+type QueryDefinitionQueryParameter struct {
+	// The default value to use for this query parameter if no value is supplied at execution time.
+	DefaultValue *string `pulumi:"defaultValue"`
+	// A description of the query parameter that explains its purpose or expected values.
+	Description *string `pulumi:"description"`
+	// The name of the query parameter. A query parameter name must start with a letter or underscore, and contain only letters, digits, and underscores.
+	Name string `pulumi:"name"`
+}
+
+// QueryDefinitionQueryParameterInput is an input type that accepts QueryDefinitionQueryParameterArgs and QueryDefinitionQueryParameterOutput values.
+// You can construct a concrete instance of `QueryDefinitionQueryParameterInput` via:
+//
+//	QueryDefinitionQueryParameterArgs{...}
+type QueryDefinitionQueryParameterInput interface {
+	pulumi.Input
+
+	ToQueryDefinitionQueryParameterOutput() QueryDefinitionQueryParameterOutput
+	ToQueryDefinitionQueryParameterOutputWithContext(context.Context) QueryDefinitionQueryParameterOutput
+}
+
+// This structure defines a query parameter for a saved CloudWatch Logs Insights query definition. Query parameters are supported only for Logs Insights QL queries. They are placeholder variables that you can reference in a query string using the {{parameterName}} syntax. Each parameter can include a default value and a description.
+type QueryDefinitionQueryParameterArgs struct {
+	// The default value to use for this query parameter if no value is supplied at execution time.
+	DefaultValue pulumi.StringPtrInput `pulumi:"defaultValue"`
+	// A description of the query parameter that explains its purpose or expected values.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// The name of the query parameter. A query parameter name must start with a letter or underscore, and contain only letters, digits, and underscores.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (QueryDefinitionQueryParameterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*QueryDefinitionQueryParameter)(nil)).Elem()
+}
+
+func (i QueryDefinitionQueryParameterArgs) ToQueryDefinitionQueryParameterOutput() QueryDefinitionQueryParameterOutput {
+	return i.ToQueryDefinitionQueryParameterOutputWithContext(context.Background())
+}
+
+func (i QueryDefinitionQueryParameterArgs) ToQueryDefinitionQueryParameterOutputWithContext(ctx context.Context) QueryDefinitionQueryParameterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(QueryDefinitionQueryParameterOutput)
+}
+
+// QueryDefinitionQueryParameterArrayInput is an input type that accepts QueryDefinitionQueryParameterArray and QueryDefinitionQueryParameterArrayOutput values.
+// You can construct a concrete instance of `QueryDefinitionQueryParameterArrayInput` via:
+//
+//	QueryDefinitionQueryParameterArray{ QueryDefinitionQueryParameterArgs{...} }
+type QueryDefinitionQueryParameterArrayInput interface {
+	pulumi.Input
+
+	ToQueryDefinitionQueryParameterArrayOutput() QueryDefinitionQueryParameterArrayOutput
+	ToQueryDefinitionQueryParameterArrayOutputWithContext(context.Context) QueryDefinitionQueryParameterArrayOutput
+}
+
+type QueryDefinitionQueryParameterArray []QueryDefinitionQueryParameterInput
+
+func (QueryDefinitionQueryParameterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]QueryDefinitionQueryParameter)(nil)).Elem()
+}
+
+func (i QueryDefinitionQueryParameterArray) ToQueryDefinitionQueryParameterArrayOutput() QueryDefinitionQueryParameterArrayOutput {
+	return i.ToQueryDefinitionQueryParameterArrayOutputWithContext(context.Background())
+}
+
+func (i QueryDefinitionQueryParameterArray) ToQueryDefinitionQueryParameterArrayOutputWithContext(ctx context.Context) QueryDefinitionQueryParameterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(QueryDefinitionQueryParameterArrayOutput)
+}
+
+// This structure defines a query parameter for a saved CloudWatch Logs Insights query definition. Query parameters are supported only for Logs Insights QL queries. They are placeholder variables that you can reference in a query string using the {{parameterName}} syntax. Each parameter can include a default value and a description.
+type QueryDefinitionQueryParameterOutput struct{ *pulumi.OutputState }
+
+func (QueryDefinitionQueryParameterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*QueryDefinitionQueryParameter)(nil)).Elem()
+}
+
+func (o QueryDefinitionQueryParameterOutput) ToQueryDefinitionQueryParameterOutput() QueryDefinitionQueryParameterOutput {
+	return o
+}
+
+func (o QueryDefinitionQueryParameterOutput) ToQueryDefinitionQueryParameterOutputWithContext(ctx context.Context) QueryDefinitionQueryParameterOutput {
+	return o
+}
+
+// The default value to use for this query parameter if no value is supplied at execution time.
+func (o QueryDefinitionQueryParameterOutput) DefaultValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v QueryDefinitionQueryParameter) *string { return v.DefaultValue }).(pulumi.StringPtrOutput)
+}
+
+// A description of the query parameter that explains its purpose or expected values.
+func (o QueryDefinitionQueryParameterOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v QueryDefinitionQueryParameter) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The name of the query parameter. A query parameter name must start with a letter or underscore, and contain only letters, digits, and underscores.
+func (o QueryDefinitionQueryParameterOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v QueryDefinitionQueryParameter) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type QueryDefinitionQueryParameterArrayOutput struct{ *pulumi.OutputState }
+
+func (QueryDefinitionQueryParameterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]QueryDefinitionQueryParameter)(nil)).Elem()
+}
+
+func (o QueryDefinitionQueryParameterArrayOutput) ToQueryDefinitionQueryParameterArrayOutput() QueryDefinitionQueryParameterArrayOutput {
+	return o
+}
+
+func (o QueryDefinitionQueryParameterArrayOutput) ToQueryDefinitionQueryParameterArrayOutputWithContext(ctx context.Context) QueryDefinitionQueryParameterArrayOutput {
+	return o
+}
+
+func (o QueryDefinitionQueryParameterArrayOutput) Index(i pulumi.IntInput) QueryDefinitionQueryParameterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) QueryDefinitionQueryParameter {
+		return vs[0].([]QueryDefinitionQueryParameter)[vs[1].(int)]
+	}).(QueryDefinitionQueryParameterOutput)
+}
+
 // OpenSearchResourceConfig for the given Integration
 type ResourceConfigProperties struct {
 	// This structure contains configuration details about an integration between CloudWatch Logs and OpenSearch Service.
@@ -5665,6 +5783,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MetricFilterDimensionArrayInput)(nil)).Elem(), MetricFilterDimensionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MetricFilterMetricTransformationInput)(nil)).Elem(), MetricFilterMetricTransformationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MetricFilterMetricTransformationArrayInput)(nil)).Elem(), MetricFilterMetricTransformationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*QueryDefinitionQueryParameterInput)(nil)).Elem(), QueryDefinitionQueryParameterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*QueryDefinitionQueryParameterArrayInput)(nil)).Elem(), QueryDefinitionQueryParameterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResourceConfigPropertiesInput)(nil)).Elem(), ResourceConfigPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScheduledQueryDestinationConfigurationInput)(nil)).Elem(), ScheduledQueryDestinationConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScheduledQueryDestinationConfigurationPtrInput)(nil)).Elem(), ScheduledQueryDestinationConfigurationArgs{})
@@ -5740,6 +5860,8 @@ func init() {
 	pulumi.RegisterOutputType(MetricFilterDimensionArrayOutput{})
 	pulumi.RegisterOutputType(MetricFilterMetricTransformationOutput{})
 	pulumi.RegisterOutputType(MetricFilterMetricTransformationArrayOutput{})
+	pulumi.RegisterOutputType(QueryDefinitionQueryParameterOutput{})
+	pulumi.RegisterOutputType(QueryDefinitionQueryParameterArrayOutput{})
 	pulumi.RegisterOutputType(ResourceConfigPropertiesOutput{})
 	pulumi.RegisterOutputType(ScheduledQueryDestinationConfigurationOutput{})
 	pulumi.RegisterOutputType(ScheduledQueryDestinationConfigurationPtrOutput{})

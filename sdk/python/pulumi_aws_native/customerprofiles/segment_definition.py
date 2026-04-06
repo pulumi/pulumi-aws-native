@@ -29,6 +29,7 @@ class SegmentDefinitionArgs:
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  segment_definition_name: Optional[pulumi.Input[_builtins.str]] = None,
                  segment_groups: Optional[pulumi.Input['SegmentDefinitionSegmentGroupArgs']] = None,
+                 segment_sort: Optional[pulumi.Input['SegmentDefinitionSegmentSortArgs']] = None,
                  segment_sql_query: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
@@ -39,6 +40,7 @@ class SegmentDefinitionArgs:
         :param pulumi.Input[_builtins.str] description: The description of the segment definition.
         :param pulumi.Input[_builtins.str] segment_definition_name: The unique name of the segment definition.
         :param pulumi.Input['SegmentDefinitionSegmentGroupArgs'] segment_groups: An array that defines the set of segment criteria to evaluate when handling segment groups for the segment.
+        :param pulumi.Input['SegmentDefinitionSegmentSortArgs'] segment_sort: The segment sort configuration for ordering segment results.
         :param pulumi.Input[_builtins.str] segment_sql_query: The SQL query that defines the segment criteria.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags used to organize, track, or control access for this resource.
         """
@@ -50,6 +52,8 @@ class SegmentDefinitionArgs:
             pulumi.set(__self__, "segment_definition_name", segment_definition_name)
         if segment_groups is not None:
             pulumi.set(__self__, "segment_groups", segment_groups)
+        if segment_sort is not None:
+            pulumi.set(__self__, "segment_sort", segment_sort)
         if segment_sql_query is not None:
             pulumi.set(__self__, "segment_sql_query", segment_sql_query)
         if tags is not None:
@@ -116,6 +120,18 @@ class SegmentDefinitionArgs:
         pulumi.set(self, "segment_groups", value)
 
     @_builtins.property
+    @pulumi.getter(name="segmentSort")
+    def segment_sort(self) -> Optional[pulumi.Input['SegmentDefinitionSegmentSortArgs']]:
+        """
+        The segment sort configuration for ordering segment results.
+        """
+        return pulumi.get(self, "segment_sort")
+
+    @segment_sort.setter
+    def segment_sort(self, value: Optional[pulumi.Input['SegmentDefinitionSegmentSortArgs']]):
+        pulumi.set(self, "segment_sort", value)
+
+    @_builtins.property
     @pulumi.getter(name="segmentSqlQuery")
     def segment_sql_query(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -151,6 +167,7 @@ class SegmentDefinition(pulumi.CustomResource):
                  domain_name: Optional[pulumi.Input[_builtins.str]] = None,
                  segment_definition_name: Optional[pulumi.Input[_builtins.str]] = None,
                  segment_groups: Optional[pulumi.Input[Union['SegmentDefinitionSegmentGroupArgs', 'SegmentDefinitionSegmentGroupArgsDict']]] = None,
+                 segment_sort: Optional[pulumi.Input[Union['SegmentDefinitionSegmentSortArgs', 'SegmentDefinitionSegmentSortArgsDict']]] = None,
                  segment_sql_query: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
@@ -165,6 +182,7 @@ class SegmentDefinition(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] domain_name: The unique name of the domain.
         :param pulumi.Input[_builtins.str] segment_definition_name: The unique name of the segment definition.
         :param pulumi.Input[Union['SegmentDefinitionSegmentGroupArgs', 'SegmentDefinitionSegmentGroupArgsDict']] segment_groups: An array that defines the set of segment criteria to evaluate when handling segment groups for the segment.
+        :param pulumi.Input[Union['SegmentDefinitionSegmentSortArgs', 'SegmentDefinitionSegmentSortArgsDict']] segment_sort: The segment sort configuration for ordering segment results.
         :param pulumi.Input[_builtins.str] segment_sql_query: The SQL query that defines the segment criteria.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags used to organize, track, or control access for this resource.
         """
@@ -198,6 +216,7 @@ class SegmentDefinition(pulumi.CustomResource):
                  domain_name: Optional[pulumi.Input[_builtins.str]] = None,
                  segment_definition_name: Optional[pulumi.Input[_builtins.str]] = None,
                  segment_groups: Optional[pulumi.Input[Union['SegmentDefinitionSegmentGroupArgs', 'SegmentDefinitionSegmentGroupArgsDict']]] = None,
+                 segment_sort: Optional[pulumi.Input[Union['SegmentDefinitionSegmentSortArgs', 'SegmentDefinitionSegmentSortArgsDict']]] = None,
                  segment_sql_query: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
@@ -218,6 +237,7 @@ class SegmentDefinition(pulumi.CustomResource):
             __props__.__dict__["domain_name"] = domain_name
             __props__.__dict__["segment_definition_name"] = segment_definition_name
             __props__.__dict__["segment_groups"] = segment_groups
+            __props__.__dict__["segment_sort"] = segment_sort
             __props__.__dict__["segment_sql_query"] = segment_sql_query
             __props__.__dict__["tags"] = tags
             __props__.__dict__["created_at"] = None
@@ -254,6 +274,7 @@ class SegmentDefinition(pulumi.CustomResource):
         __props__.__dict__["segment_definition_arn"] = None
         __props__.__dict__["segment_definition_name"] = None
         __props__.__dict__["segment_groups"] = None
+        __props__.__dict__["segment_sort"] = None
         __props__.__dict__["segment_sql_query"] = None
         __props__.__dict__["segment_type"] = None
         __props__.__dict__["tags"] = None
@@ -314,6 +335,14 @@ class SegmentDefinition(pulumi.CustomResource):
         An array that defines the set of segment criteria to evaluate when handling segment groups for the segment.
         """
         return pulumi.get(self, "segment_groups")
+
+    @_builtins.property
+    @pulumi.getter(name="segmentSort")
+    def segment_sort(self) -> pulumi.Output[Optional['outputs.SegmentDefinitionSegmentSort']]:
+        """
+        The segment sort configuration for ordering segment results.
+        """
+        return pulumi.get(self, "segment_sort")
 
     @_builtins.property
     @pulumi.getter(name="segmentSqlQuery")

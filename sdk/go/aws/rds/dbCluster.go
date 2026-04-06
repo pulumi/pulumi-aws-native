@@ -381,7 +381,8 @@ type DbCluster struct {
 	//  If you specify the ``SnapshotIdentifier`` and the specified snapshot isn't encrypted, you can use this property to specify that the restored DB cluster is encrypted. Specify the ``KmsKeyId`` property for the KMS key to use for encryption. If you don't want the restored DB cluster to be encrypted, then don't set this property or set it to ``false``.
 	//   If you specify both the ``StorageEncrypted`` and ``SnapshotIdentifier`` properties without specifying the ``KmsKeyId`` property, then the restored DB cluster inherits the encryption settings from the DB snapshot that provide.
 	//   Valid for: Aurora DB clusters and Multi-AZ DB clusters
-	StorageEncrypted pulumi.BoolPtrOutput `pulumi:"storageEncrypted"`
+	StorageEncrypted      pulumi.BoolPtrOutput `pulumi:"storageEncrypted"`
+	StorageEncryptionType pulumi.StringOutput  `pulumi:"storageEncryptionType"`
 	// The storage throughput for the DB cluster. The throughput is automatically set based on the IOPS that you provision, and is not configurable.
 	//
 	// This setting is only for non-Aurora Multi-AZ DB clusters.
@@ -1839,6 +1840,10 @@ func (o DbClusterOutput) SourceRegion() pulumi.StringPtrOutput {
 //	 Valid for: Aurora DB clusters and Multi-AZ DB clusters
 func (o DbClusterOutput) StorageEncrypted() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DbCluster) pulumi.BoolPtrOutput { return v.StorageEncrypted }).(pulumi.BoolPtrOutput)
+}
+
+func (o DbClusterOutput) StorageEncryptionType() pulumi.StringOutput {
+	return o.ApplyT(func(v *DbCluster) pulumi.StringOutput { return v.StorageEncryptionType }).(pulumi.StringOutput)
 }
 
 // The storage throughput for the DB cluster. The throughput is automatically set based on the IOPS that you provision, and is not configurable.

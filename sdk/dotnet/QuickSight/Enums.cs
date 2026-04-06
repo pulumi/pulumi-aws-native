@@ -8663,6 +8663,7 @@ namespace Pulumi.AwsNative.QuickSight
         public static DataSourceType Sharepoint { get; } = new DataSourceType("SHAREPOINT");
         public static DataSourceType OneDrive { get; } = new DataSourceType("ONE_DRIVE");
         public static DataSourceType WebCrawler { get; } = new DataSourceType("WEB_CRAWLER");
+        public static DataSourceType Box { get; } = new DataSourceType("BOX");
 
         public static bool operator ==(DataSourceType left, DataSourceType right) => left.Equals(right);
         public static bool operator !=(DataSourceType left, DataSourceType right) => !left.Equals(right);

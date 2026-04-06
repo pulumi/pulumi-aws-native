@@ -20,6 +20,9 @@ __all__ = [
     'TableBucketEncryptionConfiguration',
     'TableBucketMetricsConfiguration',
     'TableBucketPolicyResourcePolicy',
+    'TableBucketReplicationConfiguration',
+    'TableBucketReplicationDestination',
+    'TableBucketReplicationRule',
     'TableBucketStorageClassConfiguration',
     'TableBucketUnreferencedFileRemoval',
     'TableCompaction',
@@ -27,10 +30,12 @@ __all__ = [
     'TableIcebergPartitionField',
     'TableIcebergPartitionSpec',
     'TableIcebergSchema',
+    'TableIcebergSchemaV2',
     'TableIcebergSortField',
     'TableIcebergSortOrder',
     'TablePolicyResourcePolicy',
     'TableSchemaField',
+    'TableSchemaV2Field',
     'TableSnapshotManagement',
     'TableStorageClassConfiguration',
 ]
@@ -124,6 +129,103 @@ class TableBucketPolicyResourcePolicy(dict):
         A policy document containing permissions to add to the specified table bucket. In IAM, you must provide policy documents in JSON format. However, in CloudFormation you can provide the policy in JSON or YAML format because CloudFormation converts YAML to JSON before submitting it to IAM.
         """
         pass
+
+
+@pulumi.output_type
+class TableBucketReplicationConfiguration(dict):
+    """
+    Specifies replication configuration for the table bucket
+    """
+    def __init__(__self__, *,
+                 role: _builtins.str,
+                 rules: Sequence['outputs.TableBucketReplicationRule']):
+        """
+        Specifies replication configuration for the table bucket
+
+        :param _builtins.str role: The ARN of the IAM role to use for replication
+        :param Sequence['TableBucketReplicationRule'] rules: List of replication rules
+        """
+        pulumi.set(__self__, "role", role)
+        pulumi.set(__self__, "rules", rules)
+
+    @_builtins.property
+    @pulumi.getter
+    def role(self) -> _builtins.str:
+        """
+        The ARN of the IAM role to use for replication
+        """
+        return pulumi.get(self, "role")
+
+    @_builtins.property
+    @pulumi.getter
+    def rules(self) -> Sequence['outputs.TableBucketReplicationRule']:
+        """
+        List of replication rules
+        """
+        return pulumi.get(self, "rules")
+
+
+@pulumi.output_type
+class TableBucketReplicationDestination(dict):
+    """
+    A replication destination
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "destinationTableBucketArn":
+            suggest = "destination_table_bucket_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TableBucketReplicationDestination. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TableBucketReplicationDestination.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TableBucketReplicationDestination.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 destination_table_bucket_arn: _builtins.str):
+        """
+        A replication destination
+
+        :param _builtins.str destination_table_bucket_arn: The ARN of the destination table bucket
+        """
+        pulumi.set(__self__, "destination_table_bucket_arn", destination_table_bucket_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="destinationTableBucketArn")
+    def destination_table_bucket_arn(self) -> _builtins.str:
+        """
+        The ARN of the destination table bucket
+        """
+        return pulumi.get(self, "destination_table_bucket_arn")
+
+
+@pulumi.output_type
+class TableBucketReplicationRule(dict):
+    """
+    A replication rule for the table bucket
+    """
+    def __init__(__self__, *,
+                 destinations: Sequence['outputs.TableBucketReplicationDestination']):
+        """
+        A replication rule for the table bucket
+
+        :param Sequence['TableBucketReplicationDestination'] destinations: List of replication destinations
+        """
+        pulumi.set(__self__, "destinations", destinations)
+
+    @_builtins.property
+    @pulumi.getter
+    def destinations(self) -> Sequence['outputs.TableBucketReplicationDestination']:
+        """
+        List of replication destinations
+        """
+        return pulumi.get(self, "destinations")
 
 
 @pulumi.output_type
@@ -290,15 +392,17 @@ class TableCompaction(dict):
 @pulumi.output_type
 class TableIcebergMetadata(dict):
     """
-    Contains details about the metadata for an Iceberg table.
+    Contains details about the metadata for an Iceberg table. Specify either IcebergSchema (for simple flat schemas with primitive types only) or IcebergSchemaV2 (for schemas with nested types like struct, list, map), but not both.
     """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "icebergSchema":
-            suggest = "iceberg_schema"
-        elif key == "icebergPartitionSpec":
+        if key == "icebergPartitionSpec":
             suggest = "iceberg_partition_spec"
+        elif key == "icebergSchema":
+            suggest = "iceberg_schema"
+        elif key == "icebergSchemaV2":
+            suggest = "iceberg_schema_v2"
         elif key == "icebergSortOrder":
             suggest = "iceberg_sort_order"
         elif key == "tableProperties":
@@ -316,35 +420,48 @@ class TableIcebergMetadata(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 iceberg_schema: 'outputs.TableIcebergSchema',
                  iceberg_partition_spec: Optional['outputs.TableIcebergPartitionSpec'] = None,
+                 iceberg_schema: Optional['outputs.TableIcebergSchema'] = None,
+                 iceberg_schema_v2: Optional['outputs.TableIcebergSchemaV2'] = None,
                  iceberg_sort_order: Optional['outputs.TableIcebergSortOrder'] = None,
                  table_properties: Optional[Mapping[str, _builtins.str]] = None):
         """
-        Contains details about the metadata for an Iceberg table.
+        Contains details about the metadata for an Iceberg table. Specify either IcebergSchema (for simple flat schemas with primitive types only) or IcebergSchemaV2 (for schemas with nested types like struct, list, map), but not both.
 
-        :param 'TableIcebergSchema' iceberg_schema: The schema for an Iceberg table.
+        :param 'TableIcebergSchema' iceberg_schema: Schema definition for flat tables with primitive types only. Mutually exclusive with IcebergSchemaV2.
+        :param 'TableIcebergSchemaV2' iceberg_schema_v2: Schema definition that supports Apache Iceberg nested types (struct, list, map) and primitive types. Mutually exclusive with IcebergSchema.
         """
-        pulumi.set(__self__, "iceberg_schema", iceberg_schema)
         if iceberg_partition_spec is not None:
             pulumi.set(__self__, "iceberg_partition_spec", iceberg_partition_spec)
+        if iceberg_schema is not None:
+            pulumi.set(__self__, "iceberg_schema", iceberg_schema)
+        if iceberg_schema_v2 is not None:
+            pulumi.set(__self__, "iceberg_schema_v2", iceberg_schema_v2)
         if iceberg_sort_order is not None:
             pulumi.set(__self__, "iceberg_sort_order", iceberg_sort_order)
         if table_properties is not None:
             pulumi.set(__self__, "table_properties", table_properties)
 
     @_builtins.property
+    @pulumi.getter(name="icebergPartitionSpec")
+    def iceberg_partition_spec(self) -> Optional['outputs.TableIcebergPartitionSpec']:
+        return pulumi.get(self, "iceberg_partition_spec")
+
+    @_builtins.property
     @pulumi.getter(name="icebergSchema")
-    def iceberg_schema(self) -> 'outputs.TableIcebergSchema':
+    def iceberg_schema(self) -> Optional['outputs.TableIcebergSchema']:
         """
-        The schema for an Iceberg table.
+        Schema definition for flat tables with primitive types only. Mutually exclusive with IcebergSchemaV2.
         """
         return pulumi.get(self, "iceberg_schema")
 
     @_builtins.property
-    @pulumi.getter(name="icebergPartitionSpec")
-    def iceberg_partition_spec(self) -> Optional['outputs.TableIcebergPartitionSpec']:
-        return pulumi.get(self, "iceberg_partition_spec")
+    @pulumi.getter(name="icebergSchemaV2")
+    def iceberg_schema_v2(self) -> Optional['outputs.TableIcebergSchemaV2']:
+        """
+        Schema definition that supports Apache Iceberg nested types (struct, list, map) and primitive types. Mutually exclusive with IcebergSchema.
+        """
+        return pulumi.get(self, "iceberg_schema_v2")
 
     @_builtins.property
     @pulumi.getter(name="icebergSortOrder")
@@ -523,6 +640,87 @@ class TableIcebergSchema(dict):
         The schema fields for the table
         """
         return pulumi.get(self, "schema_field_list")
+
+
+@pulumi.output_type
+class TableIcebergSchemaV2(dict):
+    """
+    Contains details about the schema version 2 (V2) for an Iceberg table that supports Apache Iceberg Nested Types (struct, list, map). Primitive types are also supported.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "schemaV2FieldList":
+            suggest = "schema_v2_field_list"
+        elif key == "schemaV2FieldType":
+            suggest = "schema_v2_field_type"
+        elif key == "identifierFieldIds":
+            suggest = "identifier_field_ids"
+        elif key == "schemaId":
+            suggest = "schema_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TableIcebergSchemaV2. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TableIcebergSchemaV2.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TableIcebergSchemaV2.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 schema_v2_field_list: Sequence['outputs.TableSchemaV2Field'],
+                 schema_v2_field_type: 'TableIcebergSchemaV2SchemaV2FieldType',
+                 identifier_field_ids: Optional[Sequence[_builtins.int]] = None,
+                 schema_id: Optional[_builtins.int] = None):
+        """
+        Contains details about the schema version 2 (V2) for an Iceberg table that supports Apache Iceberg Nested Types (struct, list, map). Primitive types are also supported.
+
+        :param Sequence['TableSchemaV2Field'] schema_v2_field_list: The schema fields for the table
+        :param 'TableIcebergSchemaV2SchemaV2FieldType' schema_v2_field_type: The type of the top-level schema, which is always 'struct'
+        :param Sequence[_builtins.int] identifier_field_ids: A list of field IDs that are used as the identifier fields for the table. Identifier fields uniquely identify a row in the table.
+        :param _builtins.int schema_id: An optional unique identifier for the schema
+        """
+        pulumi.set(__self__, "schema_v2_field_list", schema_v2_field_list)
+        pulumi.set(__self__, "schema_v2_field_type", schema_v2_field_type)
+        if identifier_field_ids is not None:
+            pulumi.set(__self__, "identifier_field_ids", identifier_field_ids)
+        if schema_id is not None:
+            pulumi.set(__self__, "schema_id", schema_id)
+
+    @_builtins.property
+    @pulumi.getter(name="schemaV2FieldList")
+    def schema_v2_field_list(self) -> Sequence['outputs.TableSchemaV2Field']:
+        """
+        The schema fields for the table
+        """
+        return pulumi.get(self, "schema_v2_field_list")
+
+    @_builtins.property
+    @pulumi.getter(name="schemaV2FieldType")
+    def schema_v2_field_type(self) -> 'TableIcebergSchemaV2SchemaV2FieldType':
+        """
+        The type of the top-level schema, which is always 'struct'
+        """
+        return pulumi.get(self, "schema_v2_field_type")
+
+    @_builtins.property
+    @pulumi.getter(name="identifierFieldIds")
+    def identifier_field_ids(self) -> Optional[Sequence[_builtins.int]]:
+        """
+        A list of field IDs that are used as the identifier fields for the table. Identifier fields uniquely identify a row in the table.
+        """
+        return pulumi.get(self, "identifier_field_ids")
+
+    @_builtins.property
+    @pulumi.getter(name="schemaId")
+    def schema_id(self) -> Optional[_builtins.int]:
+        """
+        An optional unique identifier for the schema
+        """
+        return pulumi.get(self, "schema_id")
 
 
 @pulumi.output_type
@@ -720,6 +918,74 @@ class TableSchemaField(dict):
         A Boolean value that specifies whether values are required for each row in this field
         """
         return pulumi.get(self, "required")
+
+
+@pulumi.output_type
+class TableSchemaV2Field(dict):
+    """
+    Contains details about a schema field for an Iceberg table that supports nested types (struct, list, map)
+    """
+    def __init__(__self__, *,
+                 id: _builtins.int,
+                 name: _builtins.str,
+                 required: _builtins.bool,
+                 type: Any,
+                 doc: Optional[_builtins.str] = None):
+        """
+        Contains details about a schema field for an Iceberg table that supports nested types (struct, list, map)
+
+        :param _builtins.int id: The unique identifier for the field
+        :param _builtins.str name: The name of the field
+        :param _builtins.bool required: A Boolean value that specifies whether values are required for each row in this field
+        :param Union[_builtins.str, Any] type: The field type. For primitive types, use a string (e.g., 'int', 'string', 'long'). For nested types, use an object (e.g., {'type': 'struct', 'fields': [...]} for struct, {'type': 'list', 'element-id': N, 'element': 'type'} for list, {'type': 'map', 'key-id': N, 'key': 'type', 'value-id': N, 'value': 'type'} for map).
+        :param _builtins.str doc: Optional documentation for the field
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "required", required)
+        pulumi.set(__self__, "type", type)
+        if doc is not None:
+            pulumi.set(__self__, "doc", doc)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> _builtins.int:
+        """
+        The unique identifier for the field
+        """
+        return pulumi.get(self, "id")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        The name of the field
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def required(self) -> _builtins.bool:
+        """
+        A Boolean value that specifies whether values are required for each row in this field
+        """
+        return pulumi.get(self, "required")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> Any:
+        """
+        The field type. For primitive types, use a string (e.g., 'int', 'string', 'long'). For nested types, use an object (e.g., {'type': 'struct', 'fields': [...]} for struct, {'type': 'list', 'element-id': N, 'element': 'type'} for list, {'type': 'map', 'key-id': N, 'key': 'type', 'value-id': N, 'value': 'type'} for map).
+        """
+        return pulumi.get(self, "type")
+
+    @_builtins.property
+    @pulumi.getter
+    def doc(self) -> Optional[_builtins.str]:
+        """
+        Optional documentation for the field
+        """
+        return pulumi.get(self, "doc")
 
 
 @pulumi.output_type

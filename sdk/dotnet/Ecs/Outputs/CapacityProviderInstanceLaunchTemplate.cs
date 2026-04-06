@@ -44,6 +44,7 @@ namespace Pulumi.AwsNative.Ecs.Outputs
         /// Amazon ECS automatically selects the instances that match the specified criteria.
         /// </summary>
         public readonly Outputs.CapacityProviderInstanceRequirementsRequest? InstanceRequirements;
+        public readonly Outputs.CapacityProviderManagedInstancesLocalStorageConfiguration? LocalStorageConfiguration;
         /// <summary>
         /// CloudWatch provides two categories of monitoring: basic monitoring and detailed monitoring. By default, your managed instance is configured for basic monitoring. You can optionally enable detailed monitoring to help you more quickly identify and act on operational issues. You can enable or turn off detailed monitoring at launch or when the managed instance is running or stopped. For more information, see [Detailed monitoring for Amazon ECS Managed Instances](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/detailed-monitoring-managed-instances.html) in the Amazon ECS Developer Guide.
         /// </summary>
@@ -71,6 +72,8 @@ namespace Pulumi.AwsNative.Ecs.Outputs
 
             Outputs.CapacityProviderInstanceRequirementsRequest? instanceRequirements,
 
+            Outputs.CapacityProviderManagedInstancesLocalStorageConfiguration? localStorageConfiguration,
+
             Pulumi.AwsNative.Ecs.CapacityProviderManagedInstancesMonitoringOptions? monitoring,
 
             Outputs.CapacityProviderManagedInstancesNetworkConfiguration networkConfiguration,
@@ -83,6 +86,7 @@ namespace Pulumi.AwsNative.Ecs.Outputs
             FipsEnabled = fipsEnabled;
             InstanceMetadataTagsPropagation = instanceMetadataTagsPropagation;
             InstanceRequirements = instanceRequirements;
+            LocalStorageConfiguration = localStorageConfiguration;
             Monitoring = monitoring;
             NetworkConfiguration = networkConfiguration;
             StorageConfiguration = storageConfiguration;

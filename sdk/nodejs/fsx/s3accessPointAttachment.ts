@@ -38,6 +38,10 @@ export class S3AccessPointAttachment extends pulumi.CustomResource {
     }
 
     /**
+     * The lifecycle status of the S3 access point attachment.
+     */
+    declare public /*out*/ readonly lifecycle: pulumi.Output<enums.fsx.S3AccessPointAttachmentLifecycle>;
+    /**
      * The name of the S3 access point attachment; also used for the name of the S3 access point.
      */
     declare public readonly name: pulumi.Output<string>;
@@ -77,7 +81,9 @@ export class S3AccessPointAttachment extends pulumi.CustomResource {
             resourceInputs["openZfsConfiguration"] = args?.openZfsConfiguration;
             resourceInputs["s3AccessPoint"] = args?.s3AccessPoint;
             resourceInputs["type"] = args?.type;
+            resourceInputs["lifecycle"] = undefined /*out*/;
         } else {
+            resourceInputs["lifecycle"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["ontapConfiguration"] = undefined /*out*/;
             resourceInputs["openZfsConfiguration"] = undefined /*out*/;

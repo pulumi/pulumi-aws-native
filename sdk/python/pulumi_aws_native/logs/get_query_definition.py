@@ -13,6 +13,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 from ._enums import *
 
 __all__ = [
@@ -24,13 +25,16 @@ __all__ = [
 
 @pulumi.output_type
 class GetQueryDefinitionResult:
-    def __init__(__self__, log_group_names=None, name=None, query_definition_id=None, query_language=None, query_string=None):
+    def __init__(__self__, log_group_names=None, name=None, parameters=None, query_definition_id=None, query_language=None, query_string=None):
         if log_group_names and not isinstance(log_group_names, list):
             raise TypeError("Expected argument 'log_group_names' to be a list")
         pulumi.set(__self__, "log_group_names", log_group_names)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if parameters and not isinstance(parameters, list):
+            raise TypeError("Expected argument 'parameters' to be a list")
+        pulumi.set(__self__, "parameters", parameters)
         if query_definition_id and not isinstance(query_definition_id, str):
             raise TypeError("Expected argument 'query_definition_id' to be a str")
         pulumi.set(__self__, "query_definition_id", query_definition_id)
@@ -56,6 +60,14 @@ class GetQueryDefinitionResult:
         A name for the saved query definition
         """
         return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def parameters(self) -> Optional[Sequence['outputs.QueryDefinitionQueryParameter']]:
+        """
+        Use this parameter to include specific query parameters as part of your query definition. Query parameters are supported only for Logs Insights QL queries. Query parameters allow you to use placeholder variables in your query string that are substituted with values at execution time. Use the {{parameterName}} syntax in your query string to reference a parameter.
+        """
+        return pulumi.get(self, "parameters")
 
     @_builtins.property
     @pulumi.getter(name="queryDefinitionId")
@@ -90,6 +102,7 @@ class AwaitableGetQueryDefinitionResult(GetQueryDefinitionResult):
         return GetQueryDefinitionResult(
             log_group_names=self.log_group_names,
             name=self.name,
+            parameters=self.parameters,
             query_definition_id=self.query_definition_id,
             query_language=self.query_language,
             query_string=self.query_string)
@@ -111,6 +124,7 @@ def get_query_definition(query_definition_id: Optional[_builtins.str] = None,
     return AwaitableGetQueryDefinitionResult(
         log_group_names=pulumi.get(__ret__, 'log_group_names'),
         name=pulumi.get(__ret__, 'name'),
+        parameters=pulumi.get(__ret__, 'parameters'),
         query_definition_id=pulumi.get(__ret__, 'query_definition_id'),
         query_language=pulumi.get(__ret__, 'query_language'),
         query_string=pulumi.get(__ret__, 'query_string'))
@@ -129,6 +143,7 @@ def get_query_definition_output(query_definition_id: Optional[pulumi.Input[_buil
     return __ret__.apply(lambda __response__: GetQueryDefinitionResult(
         log_group_names=pulumi.get(__response__, 'log_group_names'),
         name=pulumi.get(__response__, 'name'),
+        parameters=pulumi.get(__response__, 'parameters'),
         query_definition_id=pulumi.get(__response__, 'query_definition_id'),
         query_language=pulumi.get(__response__, 'query_language'),
         query_string=pulumi.get(__response__, 'query_string')))

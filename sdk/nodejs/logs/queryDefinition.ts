@@ -46,6 +46,10 @@ export class QueryDefinition extends pulumi.CustomResource {
      */
     declare public readonly name: pulumi.Output<string>;
     /**
+     * Use this parameter to include specific query parameters as part of your query definition. Query parameters are supported only for Logs Insights QL queries. Query parameters allow you to use placeholder variables in your query string that are substituted with values at execution time. Use the {{parameterName}} syntax in your query string to reference a parameter.
+     */
+    declare public readonly parameters: pulumi.Output<outputs.logs.QueryDefinitionQueryParameter[] | undefined>;
+    /**
      * Unique identifier of a query definition
      */
     declare public /*out*/ readonly queryDefinitionId: pulumi.Output<string>;
@@ -74,12 +78,14 @@ export class QueryDefinition extends pulumi.CustomResource {
             }
             resourceInputs["logGroupNames"] = args?.logGroupNames;
             resourceInputs["name"] = args?.name;
+            resourceInputs["parameters"] = args?.parameters;
             resourceInputs["queryLanguage"] = args?.queryLanguage;
             resourceInputs["queryString"] = args?.queryString;
             resourceInputs["queryDefinitionId"] = undefined /*out*/;
         } else {
             resourceInputs["logGroupNames"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["parameters"] = undefined /*out*/;
             resourceInputs["queryDefinitionId"] = undefined /*out*/;
             resourceInputs["queryLanguage"] = undefined /*out*/;
             resourceInputs["queryString"] = undefined /*out*/;
@@ -101,6 +107,10 @@ export interface QueryDefinitionArgs {
      * A name for the saved query definition
      */
     name?: pulumi.Input<string>;
+    /**
+     * Use this parameter to include specific query parameters as part of your query definition. Query parameters are supported only for Logs Insights QL queries. Query parameters allow you to use placeholder variables in your query string that are substituted with values at execution time. Use the {{parameterName}} syntax in your query string to reference a parameter.
+     */
+    parameters?: pulumi.Input<pulumi.Input<inputs.logs.QueryDefinitionQueryParameterArgs>[]>;
     /**
      * Query language of the query string. Possible values are CWLI, SQL, PPL, with CWLI being the default.
      */

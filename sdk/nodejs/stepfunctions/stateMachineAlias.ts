@@ -75,6 +75,7 @@ export class StateMachineAlias extends pulumi.CustomResource {
      * > `RoutingConfiguration` and `DeploymentPreference` are mutually exclusive properties. You must define only one of these properties.
      */
     declare public readonly routingConfiguration: pulumi.Output<outputs.stepfunctions.StateMachineAliasRoutingConfigurationVersion[] | undefined>;
+    declare public readonly stateMachineArn: pulumi.Output<string | undefined>;
 
     /**
      * Create a StateMachineAlias resource with the given unique name, arguments, and options.
@@ -91,6 +92,7 @@ export class StateMachineAlias extends pulumi.CustomResource {
             resourceInputs["description"] = args?.description;
             resourceInputs["name"] = args?.name;
             resourceInputs["routingConfiguration"] = args?.routingConfiguration;
+            resourceInputs["stateMachineArn"] = args?.stateMachineArn;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;
@@ -98,6 +100,7 @@ export class StateMachineAlias extends pulumi.CustomResource {
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["routingConfiguration"] = undefined /*out*/;
+            resourceInputs["stateMachineArn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const replaceOnChanges = { replaceOnChanges: ["name"] };
@@ -144,4 +147,5 @@ export interface StateMachineAliasArgs {
      * > `RoutingConfiguration` and `DeploymentPreference` are mutually exclusive properties. You must define only one of these properties.
      */
     routingConfiguration?: pulumi.Input<pulumi.Input<inputs.stepfunctions.StateMachineAliasRoutingConfigurationVersionArgs>[]>;
+    stateMachineArn?: pulumi.Input<string>;
 }

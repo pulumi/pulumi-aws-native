@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.KafkaConnect.Outputs
         /// <summary>
         /// Specifies how many MSK Connect Units (MCU) are allocated to the connector.
         /// </summary>
-        public readonly int? McuCount;
+        public readonly int McuCount;
         /// <summary>
         /// Number of workers for a connector.
         /// </summary>
@@ -27,7 +27,7 @@ namespace Pulumi.AwsNative.KafkaConnect.Outputs
 
         [OutputConstructor]
         private ConnectorProvisionedCapacity(
-            int? mcuCount,
+            int mcuCount,
 
             int workerCount)
         {

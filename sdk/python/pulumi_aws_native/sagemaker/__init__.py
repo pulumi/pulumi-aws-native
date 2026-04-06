@@ -29,6 +29,7 @@ from .get_image_version import *
 from .get_inference_component import *
 from .get_inference_experiment import *
 from .get_mlflow_tracking_server import *
+from .get_model import *
 from .get_model_bias_job_definition import *
 from .get_model_card import *
 from .get_model_explainability_job_definition import *
@@ -48,6 +49,7 @@ from .image_version import *
 from .inference_component import *
 from .inference_experiment import *
 from .mlflow_tracking_server import *
+from .model import *
 from .model_bias_job_definition import *
 from .model_card import *
 from .model_explainability_job_definition import *

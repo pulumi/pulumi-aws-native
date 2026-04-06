@@ -371,6 +371,39 @@ export const MemoryUserPreferenceMemoryStrategyType = {
  */
 export type MemoryUserPreferenceMemoryStrategyType = (typeof MemoryUserPreferenceMemoryStrategyType)[keyof typeof MemoryUserPreferenceMemoryStrategyType];
 
+export const OAuth2CredentialProviderCredentialProviderVendor = {
+    GoogleOauth2: "GoogleOauth2",
+    GithubOauth2: "GithubOauth2",
+    SlackOauth2: "SlackOauth2",
+    SalesforceOauth2: "SalesforceOauth2",
+    MicrosoftOauth2: "MicrosoftOauth2",
+    CustomOauth2: "CustomOauth2",
+    AtlassianOauth2: "AtlassianOauth2",
+    LinkedinOauth2: "LinkedinOauth2",
+    XOauth2: "XOauth2",
+    OktaOauth2: "OktaOauth2",
+    OneLoginOauth2: "OneLoginOauth2",
+    PingOneOauth2: "PingOneOauth2",
+    FacebookOauth2: "FacebookOauth2",
+    YandexOauth2: "YandexOauth2",
+    RedditOauth2: "RedditOauth2",
+    ZoomOauth2: "ZoomOauth2",
+    TwitchOauth2: "TwitchOauth2",
+    SpotifyOauth2: "SpotifyOauth2",
+    DropboxOauth2: "DropboxOauth2",
+    NotionOauth2: "NotionOauth2",
+    HubspotOauth2: "HubspotOauth2",
+    CyberArkOauth2: "CyberArkOauth2",
+    FusionAuthOauth2: "FusionAuthOauth2",
+    Auth0Oauth2: "Auth0Oauth2",
+    CognitoOauth2: "CognitoOauth2",
+} as const;
+
+/**
+ * The vendor of the OAuth2 credential provider
+ */
+export type OAuth2CredentialProviderCredentialProviderVendor = (typeof OAuth2CredentialProviderCredentialProviderVendor)[keyof typeof OAuth2CredentialProviderCredentialProviderVendor];
+
 export const OnlineEvaluationConfigExecutionStatus = {
     Enabled: "ENABLED",
     Disabled: "DISABLED",
@@ -444,6 +477,7 @@ export const RuntimeAgentManagedRuntimeType = {
     Python311: "PYTHON_3_11",
     Python312: "PYTHON_3_12",
     Python313: "PYTHON_3_13",
+    Python314: "PYTHON_3_14",
 } as const;
 
 /**
@@ -508,6 +542,7 @@ export const RuntimeProtocolConfiguration = {
     Mcp: "MCP",
     Http: "HTTP",
     A2a: "A2A",
+    Agui: "AGUI",
 } as const;
 
 export type RuntimeProtocolConfiguration = (typeof RuntimeProtocolConfiguration)[keyof typeof RuntimeProtocolConfiguration];

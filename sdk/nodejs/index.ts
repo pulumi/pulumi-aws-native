@@ -152,6 +152,7 @@ import * as efs from "./efs";
 import * as eks from "./eks";
 import * as elasticache from "./elasticache";
 import * as elasticbeanstalk from "./elasticbeanstalk";
+import * as elasticloadbalancing from "./elasticloadbalancing";
 import * as elasticloadbalancingv2 from "./elasticloadbalancingv2";
 import * as elementalinference from "./elementalinference";
 import * as emr from "./emr";
@@ -278,6 +279,7 @@ import * as s3vectors from "./s3vectors";
 import * as sagemaker from "./sagemaker";
 import * as scheduler from "./scheduler";
 import * as secretsmanager from "./secretsmanager";
+import * as securityagent from "./securityagent";
 import * as securityhub from "./securityhub";
 import * as securitylake from "./securitylake";
 import * as servicecatalog from "./servicecatalog";
@@ -402,6 +404,7 @@ export {
     eks,
     elasticache,
     elasticbeanstalk,
+    elasticloadbalancing,
     elasticloadbalancingv2,
     elementalinference,
     emr,
@@ -528,6 +531,7 @@ export {
     sagemaker,
     scheduler,
     secretsmanager,
+    securityagent,
     securityhub,
     securitylake,
     servicecatalog,

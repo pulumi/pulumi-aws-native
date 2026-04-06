@@ -85,6 +85,11 @@ export const getRoutingRule: typeof import("./getRoutingRule").getRoutingRule = 
 export const getRoutingRuleOutput: typeof import("./getRoutingRule").getRoutingRuleOutput = null as any;
 utilities.lazyLoad(exports, ["getRoutingRule","getRoutingRuleOutput"], () => require("./getRoutingRule"));
 
+export { GetStageArgs, GetStageResult, GetStageOutputArgs } from "./getStage";
+export const getStage: typeof import("./getStage").getStage = null as any;
+export const getStageOutput: typeof import("./getStage").getStageOutput = null as any;
+utilities.lazyLoad(exports, ["getStage","getStageOutput"], () => require("./getStage"));
+
 export { GetVpcLinkArgs, GetVpcLinkResult, GetVpcLinkOutputArgs } from "./getVpcLink";
 export const getVpcLink: typeof import("./getVpcLink").getVpcLink = null as any;
 export const getVpcLinkOutput: typeof import("./getVpcLink").getVpcLinkOutput = null as any;
@@ -119,6 +124,11 @@ export { RoutingRuleArgs } from "./routingRule";
 export type RoutingRule = import("./routingRule").RoutingRule;
 export const RoutingRule: typeof import("./routingRule").RoutingRule = null as any;
 utilities.lazyLoad(exports, ["RoutingRule"], () => require("./routingRule"));
+
+export { StageArgs } from "./stage";
+export type Stage = import("./stage").Stage;
+export const Stage: typeof import("./stage").Stage = null as any;
+utilities.lazyLoad(exports, ["Stage"], () => require("./stage"));
 
 export { VpcLinkArgs } from "./vpcLink";
 export type VpcLink = import("./vpcLink").VpcLink;
@@ -155,6 +165,8 @@ const _module = {
                 return new RouteResponse(name, <any>undefined, { urn })
             case "aws-native:apigatewayv2:RoutingRule":
                 return new RoutingRule(name, <any>undefined, { urn })
+            case "aws-native:apigatewayv2:Stage":
+                return new Stage(name, <any>undefined, { urn })
             case "aws-native:apigatewayv2:VpcLink":
                 return new VpcLink(name, <any>undefined, { urn })
             default:

@@ -75,6 +75,7 @@ namespace Pulumi.AwsNative.DataZone
     [OutputType]
     public sealed class GetProjectProfileResult
     {
+        public readonly bool? AllowCustomProjectResourceTags;
         /// <summary>
         /// The timestamp of when the project profile was created.
         /// </summary>
@@ -115,6 +116,8 @@ namespace Pulumi.AwsNative.DataZone
         /// The name of a project profile.
         /// </summary>
         public readonly string? Name;
+        public readonly ImmutableArray<Outputs.ProjectProfileResourceTagParameter> ProjectResourceTags;
+        public readonly string? ProjectResourceTagsDescription;
         /// <summary>
         /// The status of a project profile.
         /// </summary>
@@ -122,6 +125,8 @@ namespace Pulumi.AwsNative.DataZone
 
         [OutputConstructor]
         private GetProjectProfileResult(
+            bool? allowCustomProjectResourceTags,
+
             string? createdAt,
 
             string? createdBy,
@@ -142,8 +147,13 @@ namespace Pulumi.AwsNative.DataZone
 
             string? name,
 
+            ImmutableArray<Outputs.ProjectProfileResourceTagParameter> projectResourceTags,
+
+            string? projectResourceTagsDescription,
+
             Pulumi.AwsNative.DataZone.ProjectProfileStatus? status)
         {
+            AllowCustomProjectResourceTags = allowCustomProjectResourceTags;
             CreatedAt = createdAt;
             CreatedBy = createdBy;
             Description = description;
@@ -154,6 +164,8 @@ namespace Pulumi.AwsNative.DataZone
             Identifier = identifier;
             LastUpdatedAt = lastUpdatedAt;
             Name = name;
+            ProjectResourceTags = projectResourceTags;
+            ProjectResourceTagsDescription = projectResourceTagsDescription;
             Status = status;
         }
     }

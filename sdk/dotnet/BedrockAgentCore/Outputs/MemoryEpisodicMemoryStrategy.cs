@@ -19,6 +19,7 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Outputs
         public readonly string? CreatedAt;
         public readonly string? Description;
         public readonly string Name;
+        public readonly ImmutableArray<string> NamespaceTemplates;
         public readonly ImmutableArray<string> Namespaces;
         public readonly Outputs.MemoryEpisodicReflectionConfigurationInput? ReflectionConfiguration;
         /// <summary>
@@ -46,6 +47,8 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Outputs
 
             string name,
 
+            ImmutableArray<string> namespaceTemplates,
+
             ImmutableArray<string> namespaces,
 
             Outputs.MemoryEpisodicReflectionConfigurationInput? reflectionConfiguration,
@@ -61,6 +64,7 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Outputs
             CreatedAt = createdAt;
             Description = description;
             Name = name;
+            NamespaceTemplates = namespaceTemplates;
             Namespaces = namespaces;
             ReflectionConfiguration = reflectionConfiguration;
             Status = status;

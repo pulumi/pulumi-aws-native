@@ -1214,7 +1214,7 @@ func (o ConnectorPluginArrayOutput) Index(i pulumi.IntInput) ConnectorPluginOutp
 // Details about a fixed capacity allocated to a connector.
 type ConnectorProvisionedCapacity struct {
 	// Specifies how many MSK Connect Units (MCU) are allocated to the connector.
-	McuCount *int `pulumi:"mcuCount"`
+	McuCount int `pulumi:"mcuCount"`
 	// Number of workers for a connector.
 	WorkerCount int `pulumi:"workerCount"`
 }
@@ -1233,7 +1233,7 @@ type ConnectorProvisionedCapacityInput interface {
 // Details about a fixed capacity allocated to a connector.
 type ConnectorProvisionedCapacityArgs struct {
 	// Specifies how many MSK Connect Units (MCU) are allocated to the connector.
-	McuCount pulumi.IntPtrInput `pulumi:"mcuCount"`
+	McuCount pulumi.IntInput `pulumi:"mcuCount"`
 	// Number of workers for a connector.
 	WorkerCount pulumi.IntInput `pulumi:"workerCount"`
 }
@@ -1317,8 +1317,8 @@ func (o ConnectorProvisionedCapacityOutput) ToConnectorProvisionedCapacityPtrOut
 }
 
 // Specifies how many MSK Connect Units (MCU) are allocated to the connector.
-func (o ConnectorProvisionedCapacityOutput) McuCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ConnectorProvisionedCapacity) *int { return v.McuCount }).(pulumi.IntPtrOutput)
+func (o ConnectorProvisionedCapacityOutput) McuCount() pulumi.IntOutput {
+	return o.ApplyT(func(v ConnectorProvisionedCapacity) int { return v.McuCount }).(pulumi.IntOutput)
 }
 
 // Number of workers for a connector.
@@ -1356,7 +1356,7 @@ func (o ConnectorProvisionedCapacityPtrOutput) McuCount() pulumi.IntPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return v.McuCount
+		return &v.McuCount
 	}).(pulumi.IntPtrOutput)
 }
 

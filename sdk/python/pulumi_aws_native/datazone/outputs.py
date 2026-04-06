@@ -34,6 +34,8 @@ __all__ = [
     'ConnectionOAuth2Properties',
     'ConnectionPhysicalConnectionRequirements',
     'ConnectionPropertiesInput0Properties',
+    'ConnectionPropertiesInput10Properties',
+    'ConnectionPropertiesInput11Properties',
     'ConnectionPropertiesInput1Properties',
     'ConnectionPropertiesInput2Properties',
     'ConnectionPropertiesInput3Properties',
@@ -54,6 +56,8 @@ __all__ = [
     'ConnectionSparkGlueArgs',
     'ConnectionSparkGluePropertiesInput',
     'ConnectionUsernamePassword',
+    'ConnectionWorkflowsMwaaPropertiesInput',
+    'ConnectionWorkflowsServerlessPropertiesInput',
     'DataSourceConfigurationInput0Properties',
     'DataSourceConfigurationInput1Properties',
     'DataSourceConfigurationInput2Properties',
@@ -126,6 +130,8 @@ __all__ = [
     'ProjectProfileEnvironmentConfigurationParameter',
     'ProjectProfileEnvironmentConfigurationParametersDetails',
     'ProjectProfileRegion',
+    'ProjectProfileResourceTagParameter',
+    'ProjectResourceTag',
     'SubscriptionTargetForm',
     'UserProfileDetails0Properties',
     'UserProfileDetails1Properties',
@@ -1095,6 +1101,64 @@ class ConnectionPropertiesInput0Properties(dict):
 
 
 @pulumi.output_type
+class ConnectionPropertiesInput10Properties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "workflowsMwaaProperties":
+            suggest = "workflows_mwaa_properties"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectionPropertiesInput10Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectionPropertiesInput10Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectionPropertiesInput10Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 workflows_mwaa_properties: 'outputs.ConnectionWorkflowsMwaaPropertiesInput'):
+        pulumi.set(__self__, "workflows_mwaa_properties", workflows_mwaa_properties)
+
+    @_builtins.property
+    @pulumi.getter(name="workflowsMwaaProperties")
+    def workflows_mwaa_properties(self) -> 'outputs.ConnectionWorkflowsMwaaPropertiesInput':
+        return pulumi.get(self, "workflows_mwaa_properties")
+
+
+@pulumi.output_type
+class ConnectionPropertiesInput11Properties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "workflowsServerlessProperties":
+            suggest = "workflows_serverless_properties"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectionPropertiesInput11Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectionPropertiesInput11Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectionPropertiesInput11Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 workflows_serverless_properties: 'outputs.ConnectionWorkflowsServerlessPropertiesInput'):
+        pulumi.set(__self__, "workflows_serverless_properties", workflows_serverless_properties)
+
+    @_builtins.property
+    @pulumi.getter(name="workflowsServerlessProperties")
+    def workflows_serverless_properties(self) -> 'outputs.ConnectionWorkflowsServerlessPropertiesInput':
+        return pulumi.get(self, "workflows_serverless_properties")
+
+
+@pulumi.output_type
 class ConnectionPropertiesInput1Properties(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -1884,6 +1948,59 @@ class ConnectionUsernamePassword(dict):
     @pulumi.getter
     def username(self) -> _builtins.str:
         return pulumi.get(self, "username")
+
+
+@pulumi.output_type
+class ConnectionWorkflowsMwaaPropertiesInput(dict):
+    """
+    Workflows MWAA Properties Input
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "mwaaEnvironmentName":
+            suggest = "mwaa_environment_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectionWorkflowsMwaaPropertiesInput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectionWorkflowsMwaaPropertiesInput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectionWorkflowsMwaaPropertiesInput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 mwaa_environment_name: Optional[_builtins.str] = None):
+        """
+        Workflows MWAA Properties Input
+
+        :param _builtins.str mwaa_environment_name: The name of the MWAA environment.
+        """
+        if mwaa_environment_name is not None:
+            pulumi.set(__self__, "mwaa_environment_name", mwaa_environment_name)
+
+    @_builtins.property
+    @pulumi.getter(name="mwaaEnvironmentName")
+    def mwaa_environment_name(self) -> Optional[_builtins.str]:
+        """
+        The name of the MWAA environment.
+        """
+        return pulumi.get(self, "mwaa_environment_name")
+
+
+@pulumi.output_type
+class ConnectionWorkflowsServerlessPropertiesInput(dict):
+    """
+    Workflows Serverless Properties Input
+    """
+    def __init__(__self__):
+        """
+        Workflows Serverless Properties Input
+        """
+        pass
 
 
 @pulumi.output_type
@@ -4459,6 +4576,68 @@ class ProjectProfileRegion(dict):
         The AWS Region name.
         """
         return pulumi.get(self, "region_name")
+
+
+@pulumi.output_type
+class ProjectProfileResourceTagParameter(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "isValueEditable":
+            suggest = "is_value_editable"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ProjectProfileResourceTagParameter. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ProjectProfileResourceTagParameter.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ProjectProfileResourceTagParameter.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 is_value_editable: _builtins.bool,
+                 key: _builtins.str,
+                 value: _builtins.str):
+        pulumi.set(__self__, "is_value_editable", is_value_editable)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter(name="isValueEditable")
+    def is_value_editable(self) -> _builtins.bool:
+        return pulumi.get(self, "is_value_editable")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ProjectResourceTag(dict):
+    def __init__(__self__, *,
+                 key: _builtins.str,
+                 value: _builtins.str):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        return pulumi.get(self, "value")
 
 
 @pulumi.output_type

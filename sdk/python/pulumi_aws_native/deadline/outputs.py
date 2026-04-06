@@ -26,11 +26,13 @@ __all__ = [
     'FleetCapabilities',
     'FleetConfiguration0Properties',
     'FleetConfiguration1Properties',
+    'FleetCustomerManagedAutoScalingConfiguration',
     'FleetCustomerManagedFleetConfiguration',
     'FleetCustomerManagedWorkerCapabilities',
     'FleetEc2EbsVolume',
     'FleetHostConfiguration',
     'FleetMemoryMiBRange',
+    'FleetServiceManagedEc2AutoScalingConfiguration',
     'FleetServiceManagedEc2FleetConfiguration',
     'FleetServiceManagedEc2InstanceCapabilities',
     'FleetServiceManagedEc2InstanceMarketOptions',
@@ -283,12 +285,64 @@ class FleetConfiguration1Properties(dict):
 
 
 @pulumi.output_type
+class FleetCustomerManagedAutoScalingConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "scaleOutWorkersPerMinute":
+            suggest = "scale_out_workers_per_minute"
+        elif key == "standbyWorkerCount":
+            suggest = "standby_worker_count"
+        elif key == "workerIdleDurationSeconds":
+            suggest = "worker_idle_duration_seconds"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FleetCustomerManagedAutoScalingConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FleetCustomerManagedAutoScalingConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FleetCustomerManagedAutoScalingConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 scale_out_workers_per_minute: Optional[_builtins.int] = None,
+                 standby_worker_count: Optional[_builtins.int] = None,
+                 worker_idle_duration_seconds: Optional[_builtins.int] = None):
+        if scale_out_workers_per_minute is not None:
+            pulumi.set(__self__, "scale_out_workers_per_minute", scale_out_workers_per_minute)
+        if standby_worker_count is not None:
+            pulumi.set(__self__, "standby_worker_count", standby_worker_count)
+        if worker_idle_duration_seconds is not None:
+            pulumi.set(__self__, "worker_idle_duration_seconds", worker_idle_duration_seconds)
+
+    @_builtins.property
+    @pulumi.getter(name="scaleOutWorkersPerMinute")
+    def scale_out_workers_per_minute(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "scale_out_workers_per_minute")
+
+    @_builtins.property
+    @pulumi.getter(name="standbyWorkerCount")
+    def standby_worker_count(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "standby_worker_count")
+
+    @_builtins.property
+    @pulumi.getter(name="workerIdleDurationSeconds")
+    def worker_idle_duration_seconds(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "worker_idle_duration_seconds")
+
+
+@pulumi.output_type
 class FleetCustomerManagedFleetConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
         if key == "workerCapabilities":
             suggest = "worker_capabilities"
+        elif key == "autoScalingConfiguration":
+            suggest = "auto_scaling_configuration"
         elif key == "storageProfileId":
             suggest = "storage_profile_id"
         elif key == "tagPropagationMode":
@@ -308,10 +362,13 @@ class FleetCustomerManagedFleetConfiguration(dict):
     def __init__(__self__, *,
                  mode: 'FleetAutoScalingMode',
                  worker_capabilities: 'outputs.FleetCustomerManagedWorkerCapabilities',
+                 auto_scaling_configuration: Optional['outputs.FleetCustomerManagedAutoScalingConfiguration'] = None,
                  storage_profile_id: Optional[_builtins.str] = None,
                  tag_propagation_mode: Optional['FleetTagPropagationMode'] = None):
         pulumi.set(__self__, "mode", mode)
         pulumi.set(__self__, "worker_capabilities", worker_capabilities)
+        if auto_scaling_configuration is not None:
+            pulumi.set(__self__, "auto_scaling_configuration", auto_scaling_configuration)
         if storage_profile_id is not None:
             pulumi.set(__self__, "storage_profile_id", storage_profile_id)
         if tag_propagation_mode is not None:
@@ -326,6 +383,11 @@ class FleetCustomerManagedFleetConfiguration(dict):
     @pulumi.getter(name="workerCapabilities")
     def worker_capabilities(self) -> 'outputs.FleetCustomerManagedWorkerCapabilities':
         return pulumi.get(self, "worker_capabilities")
+
+    @_builtins.property
+    @pulumi.getter(name="autoScalingConfiguration")
+    def auto_scaling_configuration(self) -> Optional['outputs.FleetCustomerManagedAutoScalingConfiguration']:
+        return pulumi.get(self, "auto_scaling_configuration")
 
     @_builtins.property
     @pulumi.getter(name="storageProfileId")
@@ -578,6 +640,56 @@ class FleetMemoryMiBRange(dict):
 
 
 @pulumi.output_type
+class FleetServiceManagedEc2AutoScalingConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "scaleOutWorkersPerMinute":
+            suggest = "scale_out_workers_per_minute"
+        elif key == "standbyWorkerCount":
+            suggest = "standby_worker_count"
+        elif key == "workerIdleDurationSeconds":
+            suggest = "worker_idle_duration_seconds"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FleetServiceManagedEc2AutoScalingConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FleetServiceManagedEc2AutoScalingConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FleetServiceManagedEc2AutoScalingConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 scale_out_workers_per_minute: Optional[_builtins.int] = None,
+                 standby_worker_count: Optional[_builtins.int] = None,
+                 worker_idle_duration_seconds: Optional[_builtins.int] = None):
+        if scale_out_workers_per_minute is not None:
+            pulumi.set(__self__, "scale_out_workers_per_minute", scale_out_workers_per_minute)
+        if standby_worker_count is not None:
+            pulumi.set(__self__, "standby_worker_count", standby_worker_count)
+        if worker_idle_duration_seconds is not None:
+            pulumi.set(__self__, "worker_idle_duration_seconds", worker_idle_duration_seconds)
+
+    @_builtins.property
+    @pulumi.getter(name="scaleOutWorkersPerMinute")
+    def scale_out_workers_per_minute(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "scale_out_workers_per_minute")
+
+    @_builtins.property
+    @pulumi.getter(name="standbyWorkerCount")
+    def standby_worker_count(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "standby_worker_count")
+
+    @_builtins.property
+    @pulumi.getter(name="workerIdleDurationSeconds")
+    def worker_idle_duration_seconds(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "worker_idle_duration_seconds")
+
+
+@pulumi.output_type
 class FleetServiceManagedEc2FleetConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -586,6 +698,8 @@ class FleetServiceManagedEc2FleetConfiguration(dict):
             suggest = "instance_capabilities"
         elif key == "instanceMarketOptions":
             suggest = "instance_market_options"
+        elif key == "autoScalingConfiguration":
+            suggest = "auto_scaling_configuration"
         elif key == "storageProfileId":
             suggest = "storage_profile_id"
         elif key == "vpcConfiguration":
@@ -605,10 +719,13 @@ class FleetServiceManagedEc2FleetConfiguration(dict):
     def __init__(__self__, *,
                  instance_capabilities: 'outputs.FleetServiceManagedEc2InstanceCapabilities',
                  instance_market_options: 'outputs.FleetServiceManagedEc2InstanceMarketOptions',
+                 auto_scaling_configuration: Optional['outputs.FleetServiceManagedEc2AutoScalingConfiguration'] = None,
                  storage_profile_id: Optional[_builtins.str] = None,
                  vpc_configuration: Optional['outputs.FleetVpcConfiguration'] = None):
         pulumi.set(__self__, "instance_capabilities", instance_capabilities)
         pulumi.set(__self__, "instance_market_options", instance_market_options)
+        if auto_scaling_configuration is not None:
+            pulumi.set(__self__, "auto_scaling_configuration", auto_scaling_configuration)
         if storage_profile_id is not None:
             pulumi.set(__self__, "storage_profile_id", storage_profile_id)
         if vpc_configuration is not None:
@@ -623,6 +740,11 @@ class FleetServiceManagedEc2FleetConfiguration(dict):
     @pulumi.getter(name="instanceMarketOptions")
     def instance_market_options(self) -> 'outputs.FleetServiceManagedEc2InstanceMarketOptions':
         return pulumi.get(self, "instance_market_options")
+
+    @_builtins.property
+    @pulumi.getter(name="autoScalingConfiguration")
+    def auto_scaling_configuration(self) -> Optional['outputs.FleetServiceManagedEc2AutoScalingConfiguration']:
+        return pulumi.get(self, "auto_scaling_configuration")
 
     @_builtins.property
     @pulumi.getter(name="storageProfileId")

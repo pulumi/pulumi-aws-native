@@ -36,6 +36,8 @@ type Runtime struct {
 	EnvironmentVariables pulumi.StringMapOutput `pulumi:"environmentVariables"`
 	// The reason for failure if the agent is in a failed state.
 	FailureReason pulumi.StringOutput `pulumi:"failureReason"`
+	// Filesystem configurations for the agent runtime
+	FilesystemConfigurations RuntimeFilesystemConfigurationArrayOutput `pulumi:"filesystemConfigurations"`
 	// When resource was last updated
 	LastUpdatedAt pulumi.StringOutput `pulumi:"lastUpdatedAt"`
 	// Lifecycle configuration for managing runtime sessions
@@ -122,6 +124,8 @@ type runtimeArgs struct {
 	Description *string `pulumi:"description"`
 	// Environment variables for the agent runtime
 	EnvironmentVariables map[string]string `pulumi:"environmentVariables"`
+	// Filesystem configurations for the agent runtime
+	FilesystemConfigurations []RuntimeFilesystemConfiguration `pulumi:"filesystemConfigurations"`
 	// Lifecycle configuration for managing runtime sessions
 	LifecycleConfiguration *RuntimeLifecycleConfiguration `pulumi:"lifecycleConfiguration"`
 	// Network access configuration for the Agent
@@ -148,6 +152,8 @@ type RuntimeArgs struct {
 	Description pulumi.StringPtrInput
 	// Environment variables for the agent runtime
 	EnvironmentVariables pulumi.StringMapInput
+	// Filesystem configurations for the agent runtime
+	FilesystemConfigurations RuntimeFilesystemConfigurationArrayInput
 	// Lifecycle configuration for managing runtime sessions
 	LifecycleConfiguration RuntimeLifecycleConfigurationPtrInput
 	// Network access configuration for the Agent
@@ -247,6 +253,11 @@ func (o RuntimeOutput) EnvironmentVariables() pulumi.StringMapOutput {
 // The reason for failure if the agent is in a failed state.
 func (o RuntimeOutput) FailureReason() pulumi.StringOutput {
 	return o.ApplyT(func(v *Runtime) pulumi.StringOutput { return v.FailureReason }).(pulumi.StringOutput)
+}
+
+// Filesystem configurations for the agent runtime
+func (o RuntimeOutput) FilesystemConfigurations() RuntimeFilesystemConfigurationArrayOutput {
+	return o.ApplyT(func(v *Runtime) RuntimeFilesystemConfigurationArrayOutput { return v.FilesystemConfigurations }).(RuntimeFilesystemConfigurationArrayOutput)
 }
 
 // When resource was last updated

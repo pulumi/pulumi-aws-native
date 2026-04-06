@@ -55,6 +55,9 @@ namespace Pulumi.AwsNative.Ecs.Inputs
         [Input("instanceRequirements")]
         public Input<Inputs.CapacityProviderInstanceRequirementsRequestArgs>? InstanceRequirements { get; set; }
 
+        [Input("localStorageConfiguration")]
+        public Input<Inputs.CapacityProviderManagedInstancesLocalStorageConfigurationArgs>? LocalStorageConfiguration { get; set; }
+
         /// <summary>
         /// CloudWatch provides two categories of monitoring: basic monitoring and detailed monitoring. By default, your managed instance is configured for basic monitoring. You can optionally enable detailed monitoring to help you more quickly identify and act on operational issues. You can enable or turn off detailed monitoring at launch or when the managed instance is running or stopped. For more information, see [Detailed monitoring for Amazon ECS Managed Instances](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/detailed-monitoring-managed-instances.html) in the Amazon ECS Developer Guide.
         /// </summary>

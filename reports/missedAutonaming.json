@@ -1678,6 +1678,13 @@
         },
         "description": "Environment variables for the agent runtime"
       },
+      "filesystemConfigurations": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:bedrockagentcore:RuntimeFilesystemConfiguration"
+        },
+        "description": "Filesystem configurations for the agent runtime"
+      },
       "lifecycleConfiguration": {
         "$ref": "#/types/aws-native:bedrockagentcore:RuntimeLifecycleConfiguration",
         "description": "Lifecycle configuration for managing runtime sessions"
@@ -8028,6 +8035,44 @@
           "$ref": "#/types/aws-native:ecs:ClusterCapacityProviderAssociationsCapacityProviderStrategy"
         },
         "description": "The default capacity provider strategy to associate with the cluster."
+      }
+    }
+  },
+  "aws-native:ecs:DaemonTaskDefinition": {
+    "cfTypeName": "AWS::ECS::DaemonTaskDefinition",
+    "properties": {
+      "containerDefinitions": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:ecs:DaemonTaskDefinitionDaemonContainerDefinition"
+        }
+      },
+      "cpu": {
+        "type": "string"
+      },
+      "executionRoleArn": {
+        "type": "string"
+      },
+      "family": {
+        "type": "string"
+      },
+      "memory": {
+        "type": "string"
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:index:Tag"
+        }
+      },
+      "taskRoleArn": {
+        "type": "string"
+      },
+      "volumes": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:ecs:DaemonTaskDefinitionVolume"
+        }
       }
     }
   },
@@ -15135,6 +15180,63 @@
       "targetType": {
         "type": "string",
         "description": "A string that defines the type of service or database associated with the secret. This value instructs Secrets Manager how to update the secret with the details of the service or database. This value must be one of the following:\n\n- AWS::RDS::DBInstance\n- AWS::RDS::DBCluster\n- AWS::Redshift::Cluster\n- AWS::RedshiftServerless::Namespace\n- AWS::DocDB::DBInstance\n- AWS::DocDB::DBCluster\n- AWS::DocDBElastic::Cluster"
+      }
+    }
+  },
+  "aws-native:securityagent:Application": {
+    "cfTypeName": "AWS::SecurityAgent::Application",
+    "properties": {
+      "defaultKmsKeyId": {
+        "type": "string",
+        "description": "Identifier of a KMS key. Can be a key ID, key ARN, alias name, or alias ARN."
+      },
+      "idCConfiguration": {
+        "$ref": "#/types/aws-native:securityagent:ApplicationIdCConfiguration"
+      },
+      "roleArn": {
+        "type": "string"
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:index:Tag"
+        },
+        "description": "Tags for the application"
+      }
+    }
+  },
+  "aws-native:securityagent:Pentest": {
+    "cfTypeName": "AWS::SecurityAgent::Pentest",
+    "properties": {
+      "agentSpaceId": {
+        "type": "string"
+      },
+      "assets": {
+        "$ref": "#/types/aws-native:securityagent:PentestAssets"
+      },
+      "codeRemediationStrategy": {
+        "$ref": "#/types/aws-native:securityagent:PentestCodeRemediationStrategy"
+      },
+      "excludeRiskTypes": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:securityagent:PentestRiskType"
+        }
+      },
+      "logConfig": {
+        "$ref": "#/types/aws-native:securityagent:PentestCloudWatchLog"
+      },
+      "networkTrafficConfig": {
+        "$ref": "#/types/aws-native:securityagent:PentestNetworkTrafficConfig"
+      },
+      "serviceRole": {
+        "type": "string"
+      },
+      "title": {
+        "type": "string"
+      },
+      "vpcConfig": {
+        "$ref": "#/types/aws-native:securityagent:PentestVpcConfig"
       }
     }
   },

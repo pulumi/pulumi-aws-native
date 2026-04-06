@@ -49,6 +49,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &InferenceExperiment{}
 	case "aws-native:sagemaker:MlflowTrackingServer":
 		r = &MlflowTrackingServer{}
+	case "aws-native:sagemaker:Model":
+		r = &Model{}
 	case "aws-native:sagemaker:ModelBiasJobDefinition":
 		r = &ModelBiasJobDefinition{}
 	case "aws-native:sagemaker:ModelCard":

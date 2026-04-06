@@ -13,6 +13,7 @@ namespace Pulumi.AwsNative.Deadline.Outputs
     [OutputType]
     public sealed class FleetServiceManagedEc2FleetConfiguration
     {
+        public readonly Outputs.FleetServiceManagedEc2AutoScalingConfiguration? AutoScalingConfiguration;
         public readonly Outputs.FleetServiceManagedEc2InstanceCapabilities InstanceCapabilities;
         public readonly Outputs.FleetServiceManagedEc2InstanceMarketOptions InstanceMarketOptions;
         public readonly string? StorageProfileId;
@@ -20,6 +21,8 @@ namespace Pulumi.AwsNative.Deadline.Outputs
 
         [OutputConstructor]
         private FleetServiceManagedEc2FleetConfiguration(
+            Outputs.FleetServiceManagedEc2AutoScalingConfiguration? autoScalingConfiguration,
+
             Outputs.FleetServiceManagedEc2InstanceCapabilities instanceCapabilities,
 
             Outputs.FleetServiceManagedEc2InstanceMarketOptions instanceMarketOptions,
@@ -28,6 +31,7 @@ namespace Pulumi.AwsNative.Deadline.Outputs
 
             Outputs.FleetVpcConfiguration? vpcConfiguration)
         {
+            AutoScalingConfiguration = autoScalingConfiguration;
             InstanceCapabilities = instanceCapabilities;
             InstanceMarketOptions = instanceMarketOptions;
             StorageProfileId = storageProfileId;

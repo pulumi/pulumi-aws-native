@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.Deadline.Inputs
 
     public sealed class FleetServiceManagedEc2FleetConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        [Input("autoScalingConfiguration")]
+        public Input<Inputs.FleetServiceManagedEc2AutoScalingConfigurationArgs>? AutoScalingConfiguration { get; set; }
+
         [Input("instanceCapabilities", required: true)]
         public Input<Inputs.FleetServiceManagedEc2InstanceCapabilitiesArgs> InstanceCapabilities { get; set; } = null!;
 

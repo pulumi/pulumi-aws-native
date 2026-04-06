@@ -578,6 +578,62 @@ namespace Pulumi.AwsNative.Ecs
     }
 
     [EnumType]
+    public readonly struct DaemonPropagateTags : IEquatable<DaemonPropagateTags>
+    {
+        private readonly string _value;
+
+        private DaemonPropagateTags(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DaemonPropagateTags Daemon { get; } = new DaemonPropagateTags("DAEMON");
+        public static DaemonPropagateTags None { get; } = new DaemonPropagateTags("NONE");
+
+        public static bool operator ==(DaemonPropagateTags left, DaemonPropagateTags right) => left.Equals(right);
+        public static bool operator !=(DaemonPropagateTags left, DaemonPropagateTags right) => !left.Equals(right);
+
+        public static explicit operator string(DaemonPropagateTags value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DaemonPropagateTags other && Equals(other);
+        public bool Equals(DaemonPropagateTags other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct DaemonStatus : IEquatable<DaemonStatus>
+    {
+        private readonly string _value;
+
+        private DaemonStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DaemonStatus Active { get; } = new DaemonStatus("ACTIVE");
+        public static DaemonStatus DeleteInProgress { get; } = new DaemonStatus("DELETE_IN_PROGRESS");
+
+        public static bool operator ==(DaemonStatus left, DaemonStatus right) => left.Equals(right);
+        public static bool operator !=(DaemonStatus left, DaemonStatus right) => !left.Equals(right);
+
+        public static explicit operator string(DaemonStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DaemonStatus other && Equals(other);
+        public bool Equals(DaemonStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct ExpressGatewayServiceAccessType : IEquatable<ExpressGatewayServiceAccessType>
     {
         private readonly string _value;

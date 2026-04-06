@@ -25,7 +25,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetNodegroupResult:
-    def __init__(__self__, arn=None, id=None, labels=None, launch_template=None, node_repair_config=None, release_version=None, scaling_config=None, tags=None, taints=None, update_config=None, version=None):
+    def __init__(__self__, arn=None, id=None, labels=None, launch_template=None, node_repair_config=None, release_version=None, scaling_config=None, tags=None, taints=None, update_config=None, version=None, warm_pool_config=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -59,6 +59,9 @@ class GetNodegroupResult:
         if version and not isinstance(version, str):
             raise TypeError("Expected argument 'version' to be a str")
         pulumi.set(__self__, "version", version)
+        if warm_pool_config and not isinstance(warm_pool_config, dict):
+            raise TypeError("Expected argument 'warm_pool_config' to be a dict")
+        pulumi.set(__self__, "warm_pool_config", warm_pool_config)
 
     @_builtins.property
     @pulumi.getter
@@ -145,6 +148,14 @@ class GetNodegroupResult:
         """
         return pulumi.get(self, "version")
 
+    @_builtins.property
+    @pulumi.getter(name="warmPoolConfig")
+    def warm_pool_config(self) -> Optional['outputs.NodegroupWarmPoolConfig']:
+        """
+        The warm pool configuration details for the Auto Scaling group that is created for the node group.
+        """
+        return pulumi.get(self, "warm_pool_config")
+
 
 class AwaitableGetNodegroupResult(GetNodegroupResult):
     # pylint: disable=using-constant-test
@@ -162,7 +173,8 @@ class AwaitableGetNodegroupResult(GetNodegroupResult):
             tags=self.tags,
             taints=self.taints,
             update_config=self.update_config,
-            version=self.version)
+            version=self.version,
+            warm_pool_config=self.warm_pool_config)
 
 
 def get_nodegroup(id: Optional[_builtins.str] = None,
@@ -186,7 +198,8 @@ def get_nodegroup(id: Optional[_builtins.str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         taints=pulumi.get(__ret__, 'taints'),
         update_config=pulumi.get(__ret__, 'update_config'),
-        version=pulumi.get(__ret__, 'version'))
+        version=pulumi.get(__ret__, 'version'),
+        warm_pool_config=pulumi.get(__ret__, 'warm_pool_config'))
 def get_nodegroup_output(id: Optional[pulumi.Input[_builtins.str]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNodegroupResult]:
     """
@@ -207,4 +220,5 @@ def get_nodegroup_output(id: Optional[pulumi.Input[_builtins.str]] = None,
         tags=pulumi.get(__response__, 'tags'),
         taints=pulumi.get(__response__, 'taints'),
         update_config=pulumi.get(__response__, 'update_config'),
-        version=pulumi.get(__response__, 'version')))
+        version=pulumi.get(__response__, 'version'),
+        warm_pool_config=pulumi.get(__response__, 'warm_pool_config')))

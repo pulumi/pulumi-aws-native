@@ -34,10 +34,14 @@ __all__ = [
     'EvaluatorBedrockEvaluatorModelConfigArgsDict',
     'EvaluatorCategoricalScaleDefinitionArgs',
     'EvaluatorCategoricalScaleDefinitionArgsDict',
+    'EvaluatorCodeBasedEvaluatorConfigArgs',
+    'EvaluatorCodeBasedEvaluatorConfigArgsDict',
     'EvaluatorConfigArgs',
     'EvaluatorConfigArgsDict',
     'EvaluatorInferenceConfigurationArgs',
     'EvaluatorInferenceConfigurationArgsDict',
+    'EvaluatorLambdaEvaluatorConfigArgs',
+    'EvaluatorLambdaEvaluatorConfigArgsDict',
     'EvaluatorLlmAsAJudgeEvaluatorConfigArgs',
     'EvaluatorLlmAsAJudgeEvaluatorConfigArgsDict',
     'EvaluatorModelConfigArgs',
@@ -180,6 +184,30 @@ __all__ = [
     'MemoryUserPreferenceOverrideExtractionConfigurationInputArgsDict',
     'MemoryUserPreferenceOverrideArgs',
     'MemoryUserPreferenceOverrideArgsDict',
+    'OAuth2CredentialProviderAtlassianOauth2ProviderConfigInputArgs',
+    'OAuth2CredentialProviderAtlassianOauth2ProviderConfigInputArgsDict',
+    'OAuth2CredentialProviderCustomOauth2ProviderConfigInputArgs',
+    'OAuth2CredentialProviderCustomOauth2ProviderConfigInputArgsDict',
+    'OAuth2CredentialProviderGithubOauth2ProviderConfigInputArgs',
+    'OAuth2CredentialProviderGithubOauth2ProviderConfigInputArgsDict',
+    'OAuth2CredentialProviderGoogleOauth2ProviderConfigInputArgs',
+    'OAuth2CredentialProviderGoogleOauth2ProviderConfigInputArgsDict',
+    'OAuth2CredentialProviderIncludedOauth2ProviderConfigInputArgs',
+    'OAuth2CredentialProviderIncludedOauth2ProviderConfigInputArgsDict',
+    'OAuth2CredentialProviderLinkedinOauth2ProviderConfigInputArgs',
+    'OAuth2CredentialProviderLinkedinOauth2ProviderConfigInputArgsDict',
+    'OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInputArgs',
+    'OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInputArgsDict',
+    'OAuth2CredentialProviderOauth2AuthorizationServerMetadataArgs',
+    'OAuth2CredentialProviderOauth2AuthorizationServerMetadataArgsDict',
+    'OAuth2CredentialProviderOauth2DiscoveryArgs',
+    'OAuth2CredentialProviderOauth2DiscoveryArgsDict',
+    'OAuth2CredentialProviderOauth2ProviderConfigInputArgs',
+    'OAuth2CredentialProviderOauth2ProviderConfigInputArgsDict',
+    'OAuth2CredentialProviderSalesforceOauth2ProviderConfigInputArgs',
+    'OAuth2CredentialProviderSalesforceOauth2ProviderConfigInputArgsDict',
+    'OAuth2CredentialProviderSlackOauth2ProviderConfigInputArgs',
+    'OAuth2CredentialProviderSlackOauth2ProviderConfigInputArgsDict',
     'OnlineEvaluationConfigCloudWatchLogsInputConfigArgs',
     'OnlineEvaluationConfigCloudWatchLogsInputConfigArgsDict',
     'OnlineEvaluationConfigDataSourceConfigArgs',
@@ -218,6 +246,8 @@ __all__ = [
     'RuntimeCustomClaimValidationTypeArgsDict',
     'RuntimeCustomJwtAuthorizerConfigurationArgs',
     'RuntimeCustomJwtAuthorizerConfigurationArgsDict',
+    'RuntimeFilesystemConfigurationArgs',
+    'RuntimeFilesystemConfigurationArgsDict',
     'RuntimeLifecycleConfigurationArgs',
     'RuntimeLifecycleConfigurationArgsDict',
     'RuntimeNetworkConfigurationArgs',
@@ -226,6 +256,8 @@ __all__ = [
     'RuntimeRequestHeaderConfigurationArgsDict',
     'RuntimeS3LocationArgs',
     'RuntimeS3LocationArgsDict',
+    'RuntimeSessionStorageConfigurationArgs',
+    'RuntimeSessionStorageConfigurationArgsDict',
     'RuntimeVpcConfigArgs',
     'RuntimeVpcConfigArgsDict',
 ]
@@ -646,28 +678,67 @@ class EvaluatorCategoricalScaleDefinitionArgs:
         pulumi.set(self, "label", value)
 
 
+class EvaluatorCodeBasedEvaluatorConfigArgsDict(TypedDict):
+    """
+    The configuration for code-based evaluation using a Lambda function.
+    """
+    lambda_config: pulumi.Input['EvaluatorLambdaEvaluatorConfigArgsDict']
+
+@pulumi.input_type
+class EvaluatorCodeBasedEvaluatorConfigArgs:
+    def __init__(__self__, *,
+                 lambda_config: pulumi.Input['EvaluatorLambdaEvaluatorConfigArgs']):
+        """
+        The configuration for code-based evaluation using a Lambda function.
+        """
+        pulumi.set(__self__, "lambda_config", lambda_config)
+
+    @_builtins.property
+    @pulumi.getter(name="lambdaConfig")
+    def lambda_config(self) -> pulumi.Input['EvaluatorLambdaEvaluatorConfigArgs']:
+        return pulumi.get(self, "lambda_config")
+
+    @lambda_config.setter
+    def lambda_config(self, value: pulumi.Input['EvaluatorLambdaEvaluatorConfigArgs']):
+        pulumi.set(self, "lambda_config", value)
+
+
 class EvaluatorConfigArgsDict(TypedDict):
     """
     The configuration that defines how an evaluator assesses agent performance.
     """
-    llm_as_a_judge: pulumi.Input['EvaluatorLlmAsAJudgeEvaluatorConfigArgsDict']
+    code_based: NotRequired[pulumi.Input['EvaluatorCodeBasedEvaluatorConfigArgsDict']]
+    llm_as_a_judge: NotRequired[pulumi.Input['EvaluatorLlmAsAJudgeEvaluatorConfigArgsDict']]
 
 @pulumi.input_type
 class EvaluatorConfigArgs:
     def __init__(__self__, *,
-                 llm_as_a_judge: pulumi.Input['EvaluatorLlmAsAJudgeEvaluatorConfigArgs']):
+                 code_based: Optional[pulumi.Input['EvaluatorCodeBasedEvaluatorConfigArgs']] = None,
+                 llm_as_a_judge: Optional[pulumi.Input['EvaluatorLlmAsAJudgeEvaluatorConfigArgs']] = None):
         """
         The configuration that defines how an evaluator assesses agent performance.
         """
-        pulumi.set(__self__, "llm_as_a_judge", llm_as_a_judge)
+        if code_based is not None:
+            pulumi.set(__self__, "code_based", code_based)
+        if llm_as_a_judge is not None:
+            pulumi.set(__self__, "llm_as_a_judge", llm_as_a_judge)
+
+    @_builtins.property
+    @pulumi.getter(name="codeBased")
+    def code_based(self) -> Optional[pulumi.Input['EvaluatorCodeBasedEvaluatorConfigArgs']]:
+        return pulumi.get(self, "code_based")
+
+    @code_based.setter
+    def code_based(self, value: Optional[pulumi.Input['EvaluatorCodeBasedEvaluatorConfigArgs']]):
+        pulumi.set(self, "code_based", value)
 
     @_builtins.property
     @pulumi.getter(name="llmAsAJudge")
-    def llm_as_a_judge(self) -> pulumi.Input['EvaluatorLlmAsAJudgeEvaluatorConfigArgs']:
+    def llm_as_a_judge(self) -> Optional[pulumi.Input['EvaluatorLlmAsAJudgeEvaluatorConfigArgs']]:
         return pulumi.get(self, "llm_as_a_judge")
 
     @llm_as_a_judge.setter
-    def llm_as_a_judge(self, value: pulumi.Input['EvaluatorLlmAsAJudgeEvaluatorConfigArgs']):
+    def llm_as_a_judge(self, value: Optional[pulumi.Input['EvaluatorLlmAsAJudgeEvaluatorConfigArgs']]):
         pulumi.set(self, "llm_as_a_judge", value)
 
 
@@ -743,6 +814,59 @@ class EvaluatorInferenceConfigurationArgs:
     @top_p.setter
     def top_p(self, value: Optional[pulumi.Input[_builtins.float]]):
         pulumi.set(self, "top_p", value)
+
+
+class EvaluatorLambdaEvaluatorConfigArgsDict(TypedDict):
+    """
+    The Lambda function configuration for code-based evaluation.
+    """
+    lambda_arn: pulumi.Input[_builtins.str]
+    """
+    The ARN of the Lambda function used for evaluation.
+    """
+    lambda_timeout_in_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The timeout in seconds for the Lambda function invocation.
+    """
+
+@pulumi.input_type
+class EvaluatorLambdaEvaluatorConfigArgs:
+    def __init__(__self__, *,
+                 lambda_arn: pulumi.Input[_builtins.str],
+                 lambda_timeout_in_seconds: Optional[pulumi.Input[_builtins.int]] = None):
+        """
+        The Lambda function configuration for code-based evaluation.
+
+        :param pulumi.Input[_builtins.str] lambda_arn: The ARN of the Lambda function used for evaluation.
+        :param pulumi.Input[_builtins.int] lambda_timeout_in_seconds: The timeout in seconds for the Lambda function invocation.
+        """
+        pulumi.set(__self__, "lambda_arn", lambda_arn)
+        if lambda_timeout_in_seconds is not None:
+            pulumi.set(__self__, "lambda_timeout_in_seconds", lambda_timeout_in_seconds)
+
+    @_builtins.property
+    @pulumi.getter(name="lambdaArn")
+    def lambda_arn(self) -> pulumi.Input[_builtins.str]:
+        """
+        The ARN of the Lambda function used for evaluation.
+        """
+        return pulumi.get(self, "lambda_arn")
+
+    @lambda_arn.setter
+    def lambda_arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "lambda_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="lambdaTimeoutInSeconds")
+    def lambda_timeout_in_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        The timeout in seconds for the Lambda function invocation.
+        """
+        return pulumi.get(self, "lambda_timeout_in_seconds")
+
+    @lambda_timeout_in_seconds.setter
+    def lambda_timeout_in_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "lambda_timeout_in_seconds", value)
 
 
 class EvaluatorLlmAsAJudgeEvaluatorConfigArgsDict(TypedDict):
@@ -2322,6 +2446,7 @@ class MemoryCustomMemoryStrategyArgsDict(TypedDict):
     Creation timestamp of the memory strategy
     """
     description: NotRequired[pulumi.Input[_builtins.str]]
+    namespace_templates: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
     namespaces: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
     status: NotRequired[pulumi.Input['MemoryCustomMemoryStrategyStatus']]
     """
@@ -2347,6 +2472,7 @@ class MemoryCustomMemoryStrategyArgs:
                  configuration: Optional[pulumi.Input['MemoryCustomConfigurationInputArgs']] = None,
                  created_at: Optional[pulumi.Input[_builtins.str]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
+                 namespace_templates: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  namespaces: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  status: Optional[pulumi.Input['MemoryCustomMemoryStrategyStatus']] = None,
                  strategy_id: Optional[pulumi.Input[_builtins.str]] = None,
@@ -2366,6 +2492,8 @@ class MemoryCustomMemoryStrategyArgs:
             pulumi.set(__self__, "created_at", created_at)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if namespace_templates is not None:
+            pulumi.set(__self__, "namespace_templates", namespace_templates)
         if namespaces is not None:
             pulumi.set(__self__, "namespaces", namespaces)
         if status is not None:
@@ -2415,6 +2543,15 @@ class MemoryCustomMemoryStrategyArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter(name="namespaceTemplates")
+    def namespace_templates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        return pulumi.get(self, "namespace_templates")
+
+    @namespace_templates.setter
+    def namespace_templates(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "namespace_templates", value)
 
     @_builtins.property
     @pulumi.getter
@@ -2481,6 +2618,7 @@ class MemoryEpisodicMemoryStrategyArgsDict(TypedDict):
     Creation timestamp of the memory strategy
     """
     description: NotRequired[pulumi.Input[_builtins.str]]
+    namespace_templates: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
     namespaces: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
     reflection_configuration: NotRequired[pulumi.Input['MemoryEpisodicReflectionConfigurationInputArgsDict']]
     status: NotRequired[pulumi.Input['MemoryEpisodicMemoryStrategyStatus']]
@@ -2506,6 +2644,7 @@ class MemoryEpisodicMemoryStrategyArgs:
                  name: pulumi.Input[_builtins.str],
                  created_at: Optional[pulumi.Input[_builtins.str]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
+                 namespace_templates: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  namespaces: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  reflection_configuration: Optional[pulumi.Input['MemoryEpisodicReflectionConfigurationInputArgs']] = None,
                  status: Optional[pulumi.Input['MemoryEpisodicMemoryStrategyStatus']] = None,
@@ -2524,6 +2663,8 @@ class MemoryEpisodicMemoryStrategyArgs:
             pulumi.set(__self__, "created_at", created_at)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if namespace_templates is not None:
+            pulumi.set(__self__, "namespace_templates", namespace_templates)
         if namespaces is not None:
             pulumi.set(__self__, "namespaces", namespaces)
         if reflection_configuration is not None:
@@ -2566,6 +2707,15 @@ class MemoryEpisodicMemoryStrategyArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter(name="namespaceTemplates")
+    def namespace_templates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        return pulumi.get(self, "namespace_templates")
+
+    @namespace_templates.setter
+    def namespace_templates(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "namespace_templates", value)
 
     @_builtins.property
     @pulumi.getter
@@ -2699,6 +2849,7 @@ class MemoryEpisodicOverrideExtractionConfigurationInputArgs:
 class MemoryEpisodicOverrideReflectionConfigurationInputArgsDict(TypedDict):
     append_to_prompt: pulumi.Input[_builtins.str]
     model_id: pulumi.Input[_builtins.str]
+    namespace_templates: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
     namespaces: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
 
 @pulumi.input_type
@@ -2706,9 +2857,12 @@ class MemoryEpisodicOverrideReflectionConfigurationInputArgs:
     def __init__(__self__, *,
                  append_to_prompt: pulumi.Input[_builtins.str],
                  model_id: pulumi.Input[_builtins.str],
+                 namespace_templates: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  namespaces: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         pulumi.set(__self__, "append_to_prompt", append_to_prompt)
         pulumi.set(__self__, "model_id", model_id)
+        if namespace_templates is not None:
+            pulumi.set(__self__, "namespace_templates", namespace_templates)
         if namespaces is not None:
             pulumi.set(__self__, "namespaces", namespaces)
 
@@ -2729,6 +2883,15 @@ class MemoryEpisodicOverrideReflectionConfigurationInputArgs:
     @model_id.setter
     def model_id(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "model_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="namespaceTemplates")
+    def namespace_templates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        return pulumi.get(self, "namespace_templates")
+
+    @namespace_templates.setter
+    def namespace_templates(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "namespace_templates", value)
 
     @_builtins.property
     @pulumi.getter
@@ -2787,21 +2950,35 @@ class MemoryEpisodicOverrideArgs:
 
 
 class MemoryEpisodicReflectionConfigurationInputArgsDict(TypedDict):
-    namespaces: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    namespace_templates: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    namespaces: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
 
 @pulumi.input_type
 class MemoryEpisodicReflectionConfigurationInputArgs:
     def __init__(__self__, *,
-                 namespaces: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
-        pulumi.set(__self__, "namespaces", namespaces)
+                 namespace_templates: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 namespaces: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        if namespace_templates is not None:
+            pulumi.set(__self__, "namespace_templates", namespace_templates)
+        if namespaces is not None:
+            pulumi.set(__self__, "namespaces", namespaces)
+
+    @_builtins.property
+    @pulumi.getter(name="namespaceTemplates")
+    def namespace_templates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        return pulumi.get(self, "namespace_templates")
+
+    @namespace_templates.setter
+    def namespace_templates(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "namespace_templates", value)
 
     @_builtins.property
     @pulumi.getter
-    def namespaces(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+    def namespaces(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "namespaces")
 
     @namespaces.setter
-    def namespaces(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+    def namespaces(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "namespaces", value)
 
 
@@ -2942,6 +3119,7 @@ class MemorySemanticMemoryStrategyArgsDict(TypedDict):
     Creation timestamp of the memory strategy
     """
     description: NotRequired[pulumi.Input[_builtins.str]]
+    namespace_templates: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
     namespaces: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
     status: NotRequired[pulumi.Input['MemorySemanticMemoryStrategyStatus']]
     """
@@ -2966,6 +3144,7 @@ class MemorySemanticMemoryStrategyArgs:
                  name: pulumi.Input[_builtins.str],
                  created_at: Optional[pulumi.Input[_builtins.str]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
+                 namespace_templates: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  namespaces: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  status: Optional[pulumi.Input['MemorySemanticMemoryStrategyStatus']] = None,
                  strategy_id: Optional[pulumi.Input[_builtins.str]] = None,
@@ -2983,6 +3162,8 @@ class MemorySemanticMemoryStrategyArgs:
             pulumi.set(__self__, "created_at", created_at)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if namespace_templates is not None:
+            pulumi.set(__self__, "namespace_templates", namespace_templates)
         if namespaces is not None:
             pulumi.set(__self__, "namespaces", namespaces)
         if status is not None:
@@ -3023,6 +3204,15 @@ class MemorySemanticMemoryStrategyArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter(name="namespaceTemplates")
+    def namespace_templates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        return pulumi.get(self, "namespace_templates")
+
+    @namespace_templates.setter
+    def namespace_templates(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "namespace_templates", value)
 
     @_builtins.property
     @pulumi.getter
@@ -3295,6 +3485,7 @@ class MemorySummaryMemoryStrategyArgsDict(TypedDict):
     Creation timestamp of the memory strategy
     """
     description: NotRequired[pulumi.Input[_builtins.str]]
+    namespace_templates: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
     namespaces: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
     status: NotRequired[pulumi.Input['MemorySummaryMemoryStrategyStatus']]
     """
@@ -3319,6 +3510,7 @@ class MemorySummaryMemoryStrategyArgs:
                  name: pulumi.Input[_builtins.str],
                  created_at: Optional[pulumi.Input[_builtins.str]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
+                 namespace_templates: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  namespaces: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  status: Optional[pulumi.Input['MemorySummaryMemoryStrategyStatus']] = None,
                  strategy_id: Optional[pulumi.Input[_builtins.str]] = None,
@@ -3336,6 +3528,8 @@ class MemorySummaryMemoryStrategyArgs:
             pulumi.set(__self__, "created_at", created_at)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if namespace_templates is not None:
+            pulumi.set(__self__, "namespace_templates", namespace_templates)
         if namespaces is not None:
             pulumi.set(__self__, "namespaces", namespaces)
         if status is not None:
@@ -3376,6 +3570,15 @@ class MemorySummaryMemoryStrategyArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter(name="namespaceTemplates")
+    def namespace_templates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        return pulumi.get(self, "namespace_templates")
+
+    @namespace_templates.setter
+    def namespace_templates(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "namespace_templates", value)
 
     @_builtins.property
     @pulumi.getter
@@ -3579,6 +3782,7 @@ class MemoryUserPreferenceMemoryStrategyArgsDict(TypedDict):
     Creation timestamp of the memory strategy
     """
     description: NotRequired[pulumi.Input[_builtins.str]]
+    namespace_templates: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
     namespaces: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
     status: NotRequired[pulumi.Input['MemoryUserPreferenceMemoryStrategyStatus']]
     """
@@ -3603,6 +3807,7 @@ class MemoryUserPreferenceMemoryStrategyArgs:
                  name: pulumi.Input[_builtins.str],
                  created_at: Optional[pulumi.Input[_builtins.str]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
+                 namespace_templates: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  namespaces: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  status: Optional[pulumi.Input['MemoryUserPreferenceMemoryStrategyStatus']] = None,
                  strategy_id: Optional[pulumi.Input[_builtins.str]] = None,
@@ -3620,6 +3825,8 @@ class MemoryUserPreferenceMemoryStrategyArgs:
             pulumi.set(__self__, "created_at", created_at)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if namespace_templates is not None:
+            pulumi.set(__self__, "namespace_templates", namespace_templates)
         if namespaces is not None:
             pulumi.set(__self__, "namespaces", namespaces)
         if status is not None:
@@ -3660,6 +3867,15 @@ class MemoryUserPreferenceMemoryStrategyArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter(name="namespaceTemplates")
+    def namespace_templates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        return pulumi.get(self, "namespace_templates")
+
+    @namespace_templates.setter
+    def namespace_templates(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "namespace_templates", value)
 
     @_builtins.property
     @pulumi.getter
@@ -3812,6 +4028,716 @@ class MemoryUserPreferenceOverrideArgs:
     @extraction.setter
     def extraction(self, value: Optional[pulumi.Input['MemoryUserPreferenceOverrideExtractionConfigurationInputArgs']]):
         pulumi.set(self, "extraction", value)
+
+
+class OAuth2CredentialProviderAtlassianOauth2ProviderConfigInputArgsDict(TypedDict):
+    """
+    Input configuration for an Atlassian OAuth2 provider
+    """
+    client_id: pulumi.Input[_builtins.str]
+    client_secret: pulumi.Input[_builtins.str]
+
+@pulumi.input_type
+class OAuth2CredentialProviderAtlassianOauth2ProviderConfigInputArgs:
+    def __init__(__self__, *,
+                 client_id: pulumi.Input[_builtins.str],
+                 client_secret: pulumi.Input[_builtins.str]):
+        """
+        Input configuration for an Atlassian OAuth2 provider
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "client_secret", client_secret)
+
+    @_builtins.property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "client_id")
+
+    @client_id.setter
+    def client_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "client_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="clientSecret")
+    def client_secret(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "client_secret")
+
+    @client_secret.setter
+    def client_secret(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "client_secret", value)
+
+
+class OAuth2CredentialProviderCustomOauth2ProviderConfigInputArgsDict(TypedDict):
+    """
+    Input configuration for a custom OAuth2 provider
+    """
+    client_id: pulumi.Input[_builtins.str]
+    """
+    The client ID for the custom OAuth2 provider
+    """
+    client_secret: pulumi.Input[_builtins.str]
+    """
+    The client secret for the custom OAuth2 provider
+    """
+    oauth_discovery: pulumi.Input['OAuth2CredentialProviderOauth2DiscoveryArgsDict']
+
+@pulumi.input_type
+class OAuth2CredentialProviderCustomOauth2ProviderConfigInputArgs:
+    def __init__(__self__, *,
+                 client_id: pulumi.Input[_builtins.str],
+                 client_secret: pulumi.Input[_builtins.str],
+                 oauth_discovery: pulumi.Input['OAuth2CredentialProviderOauth2DiscoveryArgs']):
+        """
+        Input configuration for a custom OAuth2 provider
+
+        :param pulumi.Input[_builtins.str] client_id: The client ID for the custom OAuth2 provider
+        :param pulumi.Input[_builtins.str] client_secret: The client secret for the custom OAuth2 provider
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "client_secret", client_secret)
+        pulumi.set(__self__, "oauth_discovery", oauth_discovery)
+
+    @_builtins.property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        The client ID for the custom OAuth2 provider
+        """
+        return pulumi.get(self, "client_id")
+
+    @client_id.setter
+    def client_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "client_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="clientSecret")
+    def client_secret(self) -> pulumi.Input[_builtins.str]:
+        """
+        The client secret for the custom OAuth2 provider
+        """
+        return pulumi.get(self, "client_secret")
+
+    @client_secret.setter
+    def client_secret(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "client_secret", value)
+
+    @_builtins.property
+    @pulumi.getter(name="oauthDiscovery")
+    def oauth_discovery(self) -> pulumi.Input['OAuth2CredentialProviderOauth2DiscoveryArgs']:
+        return pulumi.get(self, "oauth_discovery")
+
+    @oauth_discovery.setter
+    def oauth_discovery(self, value: pulumi.Input['OAuth2CredentialProviderOauth2DiscoveryArgs']):
+        pulumi.set(self, "oauth_discovery", value)
+
+
+class OAuth2CredentialProviderGithubOauth2ProviderConfigInputArgsDict(TypedDict):
+    """
+    Input configuration for a GitHub OAuth2 provider
+    """
+    client_id: pulumi.Input[_builtins.str]
+    client_secret: pulumi.Input[_builtins.str]
+
+@pulumi.input_type
+class OAuth2CredentialProviderGithubOauth2ProviderConfigInputArgs:
+    def __init__(__self__, *,
+                 client_id: pulumi.Input[_builtins.str],
+                 client_secret: pulumi.Input[_builtins.str]):
+        """
+        Input configuration for a GitHub OAuth2 provider
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "client_secret", client_secret)
+
+    @_builtins.property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "client_id")
+
+    @client_id.setter
+    def client_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "client_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="clientSecret")
+    def client_secret(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "client_secret")
+
+    @client_secret.setter
+    def client_secret(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "client_secret", value)
+
+
+class OAuth2CredentialProviderGoogleOauth2ProviderConfigInputArgsDict(TypedDict):
+    """
+    Input configuration for a Google OAuth2 provider
+    """
+    client_id: pulumi.Input[_builtins.str]
+    client_secret: pulumi.Input[_builtins.str]
+
+@pulumi.input_type
+class OAuth2CredentialProviderGoogleOauth2ProviderConfigInputArgs:
+    def __init__(__self__, *,
+                 client_id: pulumi.Input[_builtins.str],
+                 client_secret: pulumi.Input[_builtins.str]):
+        """
+        Input configuration for a Google OAuth2 provider
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "client_secret", client_secret)
+
+    @_builtins.property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "client_id")
+
+    @client_id.setter
+    def client_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "client_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="clientSecret")
+    def client_secret(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "client_secret")
+
+    @client_secret.setter
+    def client_secret(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "client_secret", value)
+
+
+class OAuth2CredentialProviderIncludedOauth2ProviderConfigInputArgsDict(TypedDict):
+    """
+    Input configuration for a supported non-custom OAuth2 provider
+    """
+    client_id: pulumi.Input[_builtins.str]
+    client_secret: pulumi.Input[_builtins.str]
+    authorization_endpoint: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    OAuth2 authorization endpoint for your isolated OAuth2 application tenant
+    """
+    issuer: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Token issuer of your isolated OAuth2 application tenant
+    """
+    token_endpoint: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    OAuth2 token endpoint for your isolated OAuth2 application tenant
+    """
+
+@pulumi.input_type
+class OAuth2CredentialProviderIncludedOauth2ProviderConfigInputArgs:
+    def __init__(__self__, *,
+                 client_id: pulumi.Input[_builtins.str],
+                 client_secret: pulumi.Input[_builtins.str],
+                 authorization_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
+                 issuer: Optional[pulumi.Input[_builtins.str]] = None,
+                 token_endpoint: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        Input configuration for a supported non-custom OAuth2 provider
+
+        :param pulumi.Input[_builtins.str] authorization_endpoint: OAuth2 authorization endpoint for your isolated OAuth2 application tenant
+        :param pulumi.Input[_builtins.str] issuer: Token issuer of your isolated OAuth2 application tenant
+        :param pulumi.Input[_builtins.str] token_endpoint: OAuth2 token endpoint for your isolated OAuth2 application tenant
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "client_secret", client_secret)
+        if authorization_endpoint is not None:
+            pulumi.set(__self__, "authorization_endpoint", authorization_endpoint)
+        if issuer is not None:
+            pulumi.set(__self__, "issuer", issuer)
+        if token_endpoint is not None:
+            pulumi.set(__self__, "token_endpoint", token_endpoint)
+
+    @_builtins.property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "client_id")
+
+    @client_id.setter
+    def client_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "client_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="clientSecret")
+    def client_secret(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "client_secret")
+
+    @client_secret.setter
+    def client_secret(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "client_secret", value)
+
+    @_builtins.property
+    @pulumi.getter(name="authorizationEndpoint")
+    def authorization_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        OAuth2 authorization endpoint for your isolated OAuth2 application tenant
+        """
+        return pulumi.get(self, "authorization_endpoint")
+
+    @authorization_endpoint.setter
+    def authorization_endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "authorization_endpoint", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def issuer(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Token issuer of your isolated OAuth2 application tenant
+        """
+        return pulumi.get(self, "issuer")
+
+    @issuer.setter
+    def issuer(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "issuer", value)
+
+    @_builtins.property
+    @pulumi.getter(name="tokenEndpoint")
+    def token_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        OAuth2 token endpoint for your isolated OAuth2 application tenant
+        """
+        return pulumi.get(self, "token_endpoint")
+
+    @token_endpoint.setter
+    def token_endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "token_endpoint", value)
+
+
+class OAuth2CredentialProviderLinkedinOauth2ProviderConfigInputArgsDict(TypedDict):
+    """
+    Input configuration for a LinkedIn OAuth2 provider
+    """
+    client_id: pulumi.Input[_builtins.str]
+    client_secret: pulumi.Input[_builtins.str]
+
+@pulumi.input_type
+class OAuth2CredentialProviderLinkedinOauth2ProviderConfigInputArgs:
+    def __init__(__self__, *,
+                 client_id: pulumi.Input[_builtins.str],
+                 client_secret: pulumi.Input[_builtins.str]):
+        """
+        Input configuration for a LinkedIn OAuth2 provider
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "client_secret", client_secret)
+
+    @_builtins.property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "client_id")
+
+    @client_id.setter
+    def client_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "client_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="clientSecret")
+    def client_secret(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "client_secret")
+
+    @client_secret.setter
+    def client_secret(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "client_secret", value)
+
+
+class OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInputArgsDict(TypedDict):
+    """
+    Input configuration for a Microsoft OAuth2 provider
+    """
+    client_id: pulumi.Input[_builtins.str]
+    client_secret: pulumi.Input[_builtins.str]
+    tenant_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Microsoft Entra ID tenant ID
+    """
+
+@pulumi.input_type
+class OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInputArgs:
+    def __init__(__self__, *,
+                 client_id: pulumi.Input[_builtins.str],
+                 client_secret: pulumi.Input[_builtins.str],
+                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        Input configuration for a Microsoft OAuth2 provider
+
+        :param pulumi.Input[_builtins.str] tenant_id: The Microsoft Entra ID tenant ID
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "client_secret", client_secret)
+        if tenant_id is not None:
+            pulumi.set(__self__, "tenant_id", tenant_id)
+
+    @_builtins.property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "client_id")
+
+    @client_id.setter
+    def client_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "client_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="clientSecret")
+    def client_secret(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "client_secret")
+
+    @client_secret.setter
+    def client_secret(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "client_secret", value)
+
+    @_builtins.property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The Microsoft Entra ID tenant ID
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @tenant_id.setter
+    def tenant_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "tenant_id", value)
+
+
+class OAuth2CredentialProviderOauth2AuthorizationServerMetadataArgsDict(TypedDict):
+    """
+    Authorization server metadata for the OAuth2 provider
+    """
+    authorization_endpoint: pulumi.Input[_builtins.str]
+    """
+    The authorization endpoint URL
+    """
+    issuer: pulumi.Input[_builtins.str]
+    """
+    The issuer URL for the OAuth2 authorization server
+    """
+    token_endpoint: pulumi.Input[_builtins.str]
+    """
+    The token endpoint URL
+    """
+    response_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The supported response types
+    """
+
+@pulumi.input_type
+class OAuth2CredentialProviderOauth2AuthorizationServerMetadataArgs:
+    def __init__(__self__, *,
+                 authorization_endpoint: pulumi.Input[_builtins.str],
+                 issuer: pulumi.Input[_builtins.str],
+                 token_endpoint: pulumi.Input[_builtins.str],
+                 response_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        Authorization server metadata for the OAuth2 provider
+
+        :param pulumi.Input[_builtins.str] authorization_endpoint: The authorization endpoint URL
+        :param pulumi.Input[_builtins.str] issuer: The issuer URL for the OAuth2 authorization server
+        :param pulumi.Input[_builtins.str] token_endpoint: The token endpoint URL
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] response_types: The supported response types
+        """
+        pulumi.set(__self__, "authorization_endpoint", authorization_endpoint)
+        pulumi.set(__self__, "issuer", issuer)
+        pulumi.set(__self__, "token_endpoint", token_endpoint)
+        if response_types is not None:
+            pulumi.set(__self__, "response_types", response_types)
+
+    @_builtins.property
+    @pulumi.getter(name="authorizationEndpoint")
+    def authorization_endpoint(self) -> pulumi.Input[_builtins.str]:
+        """
+        The authorization endpoint URL
+        """
+        return pulumi.get(self, "authorization_endpoint")
+
+    @authorization_endpoint.setter
+    def authorization_endpoint(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "authorization_endpoint", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def issuer(self) -> pulumi.Input[_builtins.str]:
+        """
+        The issuer URL for the OAuth2 authorization server
+        """
+        return pulumi.get(self, "issuer")
+
+    @issuer.setter
+    def issuer(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "issuer", value)
+
+    @_builtins.property
+    @pulumi.getter(name="tokenEndpoint")
+    def token_endpoint(self) -> pulumi.Input[_builtins.str]:
+        """
+        The token endpoint URL
+        """
+        return pulumi.get(self, "token_endpoint")
+
+    @token_endpoint.setter
+    def token_endpoint(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "token_endpoint", value)
+
+    @_builtins.property
+    @pulumi.getter(name="responseTypes")
+    def response_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        The supported response types
+        """
+        return pulumi.get(self, "response_types")
+
+    @response_types.setter
+    def response_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "response_types", value)
+
+
+class OAuth2CredentialProviderOauth2DiscoveryArgsDict(TypedDict):
+    """
+    Discovery information for an OAuth2 provider
+    """
+    authorization_server_metadata: NotRequired[pulumi.Input['OAuth2CredentialProviderOauth2AuthorizationServerMetadataArgsDict']]
+    discovery_url: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The discovery URL for the OAuth2 provider
+    """
+
+@pulumi.input_type
+class OAuth2CredentialProviderOauth2DiscoveryArgs:
+    def __init__(__self__, *,
+                 authorization_server_metadata: Optional[pulumi.Input['OAuth2CredentialProviderOauth2AuthorizationServerMetadataArgs']] = None,
+                 discovery_url: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        Discovery information for an OAuth2 provider
+
+        :param pulumi.Input[_builtins.str] discovery_url: The discovery URL for the OAuth2 provider
+        """
+        if authorization_server_metadata is not None:
+            pulumi.set(__self__, "authorization_server_metadata", authorization_server_metadata)
+        if discovery_url is not None:
+            pulumi.set(__self__, "discovery_url", discovery_url)
+
+    @_builtins.property
+    @pulumi.getter(name="authorizationServerMetadata")
+    def authorization_server_metadata(self) -> Optional[pulumi.Input['OAuth2CredentialProviderOauth2AuthorizationServerMetadataArgs']]:
+        return pulumi.get(self, "authorization_server_metadata")
+
+    @authorization_server_metadata.setter
+    def authorization_server_metadata(self, value: Optional[pulumi.Input['OAuth2CredentialProviderOauth2AuthorizationServerMetadataArgs']]):
+        pulumi.set(self, "authorization_server_metadata", value)
+
+    @_builtins.property
+    @pulumi.getter(name="discoveryUrl")
+    def discovery_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The discovery URL for the OAuth2 provider
+        """
+        return pulumi.get(self, "discovery_url")
+
+    @discovery_url.setter
+    def discovery_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "discovery_url", value)
+
+
+class OAuth2CredentialProviderOauth2ProviderConfigInputArgsDict(TypedDict):
+    """
+    Input configuration for an OAuth2 provider
+    """
+    atlassian_oauth2_provider_config: NotRequired[pulumi.Input['OAuth2CredentialProviderAtlassianOauth2ProviderConfigInputArgsDict']]
+    custom_oauth2_provider_config: NotRequired[pulumi.Input['OAuth2CredentialProviderCustomOauth2ProviderConfigInputArgsDict']]
+    github_oauth2_provider_config: NotRequired[pulumi.Input['OAuth2CredentialProviderGithubOauth2ProviderConfigInputArgsDict']]
+    google_oauth2_provider_config: NotRequired[pulumi.Input['OAuth2CredentialProviderGoogleOauth2ProviderConfigInputArgsDict']]
+    included_oauth2_provider_config: NotRequired[pulumi.Input['OAuth2CredentialProviderIncludedOauth2ProviderConfigInputArgsDict']]
+    linkedin_oauth2_provider_config: NotRequired[pulumi.Input['OAuth2CredentialProviderLinkedinOauth2ProviderConfigInputArgsDict']]
+    microsoft_oauth2_provider_config: NotRequired[pulumi.Input['OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInputArgsDict']]
+    salesforce_oauth2_provider_config: NotRequired[pulumi.Input['OAuth2CredentialProviderSalesforceOauth2ProviderConfigInputArgsDict']]
+    slack_oauth2_provider_config: NotRequired[pulumi.Input['OAuth2CredentialProviderSlackOauth2ProviderConfigInputArgsDict']]
+
+@pulumi.input_type
+class OAuth2CredentialProviderOauth2ProviderConfigInputArgs:
+    def __init__(__self__, *,
+                 atlassian_oauth2_provider_config: Optional[pulumi.Input['OAuth2CredentialProviderAtlassianOauth2ProviderConfigInputArgs']] = None,
+                 custom_oauth2_provider_config: Optional[pulumi.Input['OAuth2CredentialProviderCustomOauth2ProviderConfigInputArgs']] = None,
+                 github_oauth2_provider_config: Optional[pulumi.Input['OAuth2CredentialProviderGithubOauth2ProviderConfigInputArgs']] = None,
+                 google_oauth2_provider_config: Optional[pulumi.Input['OAuth2CredentialProviderGoogleOauth2ProviderConfigInputArgs']] = None,
+                 included_oauth2_provider_config: Optional[pulumi.Input['OAuth2CredentialProviderIncludedOauth2ProviderConfigInputArgs']] = None,
+                 linkedin_oauth2_provider_config: Optional[pulumi.Input['OAuth2CredentialProviderLinkedinOauth2ProviderConfigInputArgs']] = None,
+                 microsoft_oauth2_provider_config: Optional[pulumi.Input['OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInputArgs']] = None,
+                 salesforce_oauth2_provider_config: Optional[pulumi.Input['OAuth2CredentialProviderSalesforceOauth2ProviderConfigInputArgs']] = None,
+                 slack_oauth2_provider_config: Optional[pulumi.Input['OAuth2CredentialProviderSlackOauth2ProviderConfigInputArgs']] = None):
+        """
+        Input configuration for an OAuth2 provider
+        """
+        if atlassian_oauth2_provider_config is not None:
+            pulumi.set(__self__, "atlassian_oauth2_provider_config", atlassian_oauth2_provider_config)
+        if custom_oauth2_provider_config is not None:
+            pulumi.set(__self__, "custom_oauth2_provider_config", custom_oauth2_provider_config)
+        if github_oauth2_provider_config is not None:
+            pulumi.set(__self__, "github_oauth2_provider_config", github_oauth2_provider_config)
+        if google_oauth2_provider_config is not None:
+            pulumi.set(__self__, "google_oauth2_provider_config", google_oauth2_provider_config)
+        if included_oauth2_provider_config is not None:
+            pulumi.set(__self__, "included_oauth2_provider_config", included_oauth2_provider_config)
+        if linkedin_oauth2_provider_config is not None:
+            pulumi.set(__self__, "linkedin_oauth2_provider_config", linkedin_oauth2_provider_config)
+        if microsoft_oauth2_provider_config is not None:
+            pulumi.set(__self__, "microsoft_oauth2_provider_config", microsoft_oauth2_provider_config)
+        if salesforce_oauth2_provider_config is not None:
+            pulumi.set(__self__, "salesforce_oauth2_provider_config", salesforce_oauth2_provider_config)
+        if slack_oauth2_provider_config is not None:
+            pulumi.set(__self__, "slack_oauth2_provider_config", slack_oauth2_provider_config)
+
+    @_builtins.property
+    @pulumi.getter(name="atlassianOauth2ProviderConfig")
+    def atlassian_oauth2_provider_config(self) -> Optional[pulumi.Input['OAuth2CredentialProviderAtlassianOauth2ProviderConfigInputArgs']]:
+        return pulumi.get(self, "atlassian_oauth2_provider_config")
+
+    @atlassian_oauth2_provider_config.setter
+    def atlassian_oauth2_provider_config(self, value: Optional[pulumi.Input['OAuth2CredentialProviderAtlassianOauth2ProviderConfigInputArgs']]):
+        pulumi.set(self, "atlassian_oauth2_provider_config", value)
+
+    @_builtins.property
+    @pulumi.getter(name="customOauth2ProviderConfig")
+    def custom_oauth2_provider_config(self) -> Optional[pulumi.Input['OAuth2CredentialProviderCustomOauth2ProviderConfigInputArgs']]:
+        return pulumi.get(self, "custom_oauth2_provider_config")
+
+    @custom_oauth2_provider_config.setter
+    def custom_oauth2_provider_config(self, value: Optional[pulumi.Input['OAuth2CredentialProviderCustomOauth2ProviderConfigInputArgs']]):
+        pulumi.set(self, "custom_oauth2_provider_config", value)
+
+    @_builtins.property
+    @pulumi.getter(name="githubOauth2ProviderConfig")
+    def github_oauth2_provider_config(self) -> Optional[pulumi.Input['OAuth2CredentialProviderGithubOauth2ProviderConfigInputArgs']]:
+        return pulumi.get(self, "github_oauth2_provider_config")
+
+    @github_oauth2_provider_config.setter
+    def github_oauth2_provider_config(self, value: Optional[pulumi.Input['OAuth2CredentialProviderGithubOauth2ProviderConfigInputArgs']]):
+        pulumi.set(self, "github_oauth2_provider_config", value)
+
+    @_builtins.property
+    @pulumi.getter(name="googleOauth2ProviderConfig")
+    def google_oauth2_provider_config(self) -> Optional[pulumi.Input['OAuth2CredentialProviderGoogleOauth2ProviderConfigInputArgs']]:
+        return pulumi.get(self, "google_oauth2_provider_config")
+
+    @google_oauth2_provider_config.setter
+    def google_oauth2_provider_config(self, value: Optional[pulumi.Input['OAuth2CredentialProviderGoogleOauth2ProviderConfigInputArgs']]):
+        pulumi.set(self, "google_oauth2_provider_config", value)
+
+    @_builtins.property
+    @pulumi.getter(name="includedOauth2ProviderConfig")
+    def included_oauth2_provider_config(self) -> Optional[pulumi.Input['OAuth2CredentialProviderIncludedOauth2ProviderConfigInputArgs']]:
+        return pulumi.get(self, "included_oauth2_provider_config")
+
+    @included_oauth2_provider_config.setter
+    def included_oauth2_provider_config(self, value: Optional[pulumi.Input['OAuth2CredentialProviderIncludedOauth2ProviderConfigInputArgs']]):
+        pulumi.set(self, "included_oauth2_provider_config", value)
+
+    @_builtins.property
+    @pulumi.getter(name="linkedinOauth2ProviderConfig")
+    def linkedin_oauth2_provider_config(self) -> Optional[pulumi.Input['OAuth2CredentialProviderLinkedinOauth2ProviderConfigInputArgs']]:
+        return pulumi.get(self, "linkedin_oauth2_provider_config")
+
+    @linkedin_oauth2_provider_config.setter
+    def linkedin_oauth2_provider_config(self, value: Optional[pulumi.Input['OAuth2CredentialProviderLinkedinOauth2ProviderConfigInputArgs']]):
+        pulumi.set(self, "linkedin_oauth2_provider_config", value)
+
+    @_builtins.property
+    @pulumi.getter(name="microsoftOauth2ProviderConfig")
+    def microsoft_oauth2_provider_config(self) -> Optional[pulumi.Input['OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInputArgs']]:
+        return pulumi.get(self, "microsoft_oauth2_provider_config")
+
+    @microsoft_oauth2_provider_config.setter
+    def microsoft_oauth2_provider_config(self, value: Optional[pulumi.Input['OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInputArgs']]):
+        pulumi.set(self, "microsoft_oauth2_provider_config", value)
+
+    @_builtins.property
+    @pulumi.getter(name="salesforceOauth2ProviderConfig")
+    def salesforce_oauth2_provider_config(self) -> Optional[pulumi.Input['OAuth2CredentialProviderSalesforceOauth2ProviderConfigInputArgs']]:
+        return pulumi.get(self, "salesforce_oauth2_provider_config")
+
+    @salesforce_oauth2_provider_config.setter
+    def salesforce_oauth2_provider_config(self, value: Optional[pulumi.Input['OAuth2CredentialProviderSalesforceOauth2ProviderConfigInputArgs']]):
+        pulumi.set(self, "salesforce_oauth2_provider_config", value)
+
+    @_builtins.property
+    @pulumi.getter(name="slackOauth2ProviderConfig")
+    def slack_oauth2_provider_config(self) -> Optional[pulumi.Input['OAuth2CredentialProviderSlackOauth2ProviderConfigInputArgs']]:
+        return pulumi.get(self, "slack_oauth2_provider_config")
+
+    @slack_oauth2_provider_config.setter
+    def slack_oauth2_provider_config(self, value: Optional[pulumi.Input['OAuth2CredentialProviderSlackOauth2ProviderConfigInputArgs']]):
+        pulumi.set(self, "slack_oauth2_provider_config", value)
+
+
+class OAuth2CredentialProviderSalesforceOauth2ProviderConfigInputArgsDict(TypedDict):
+    """
+    Input configuration for a Salesforce OAuth2 provider
+    """
+    client_id: pulumi.Input[_builtins.str]
+    client_secret: pulumi.Input[_builtins.str]
+
+@pulumi.input_type
+class OAuth2CredentialProviderSalesforceOauth2ProviderConfigInputArgs:
+    def __init__(__self__, *,
+                 client_id: pulumi.Input[_builtins.str],
+                 client_secret: pulumi.Input[_builtins.str]):
+        """
+        Input configuration for a Salesforce OAuth2 provider
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "client_secret", client_secret)
+
+    @_builtins.property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "client_id")
+
+    @client_id.setter
+    def client_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "client_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="clientSecret")
+    def client_secret(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "client_secret")
+
+    @client_secret.setter
+    def client_secret(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "client_secret", value)
+
+
+class OAuth2CredentialProviderSlackOauth2ProviderConfigInputArgsDict(TypedDict):
+    """
+    Input configuration for a Slack OAuth2 provider
+    """
+    client_id: pulumi.Input[_builtins.str]
+    client_secret: pulumi.Input[_builtins.str]
+
+@pulumi.input_type
+class OAuth2CredentialProviderSlackOauth2ProviderConfigInputArgs:
+    def __init__(__self__, *,
+                 client_id: pulumi.Input[_builtins.str],
+                 client_secret: pulumi.Input[_builtins.str]):
+        """
+        Input configuration for a Slack OAuth2 provider
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "client_secret", client_secret)
+
+    @_builtins.property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "client_id")
+
+    @client_id.setter
+    def client_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "client_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="clientSecret")
+    def client_secret(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "client_secret")
+
+    @client_secret.setter
+    def client_secret(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "client_secret", value)
 
 
 class OnlineEvaluationConfigCloudWatchLogsInputConfigArgsDict(TypedDict):
@@ -4648,6 +5574,32 @@ class RuntimeCustomJwtAuthorizerConfigurationArgs:
         pulumi.set(self, "custom_claims", value)
 
 
+class RuntimeFilesystemConfigurationArgsDict(TypedDict):
+    """
+    Filesystem configuration for the runtime
+    """
+    session_storage: NotRequired[pulumi.Input['RuntimeSessionStorageConfigurationArgsDict']]
+
+@pulumi.input_type
+class RuntimeFilesystemConfigurationArgs:
+    def __init__(__self__, *,
+                 session_storage: Optional[pulumi.Input['RuntimeSessionStorageConfigurationArgs']] = None):
+        """
+        Filesystem configuration for the runtime
+        """
+        if session_storage is not None:
+            pulumi.set(__self__, "session_storage", session_storage)
+
+    @_builtins.property
+    @pulumi.getter(name="sessionStorage")
+    def session_storage(self) -> Optional[pulumi.Input['RuntimeSessionStorageConfigurationArgs']]:
+        return pulumi.get(self, "session_storage")
+
+    @session_storage.setter
+    def session_storage(self, value: Optional[pulumi.Input['RuntimeSessionStorageConfigurationArgs']]):
+        pulumi.set(self, "session_storage", value)
+
+
 class RuntimeLifecycleConfigurationArgsDict(TypedDict):
     """
     Configuration for managing the lifecycle of runtime sessions and resources
@@ -4839,6 +5791,31 @@ class RuntimeS3LocationArgs:
     @version_id.setter
     def version_id(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "version_id", value)
+
+
+class RuntimeSessionStorageConfigurationArgsDict(TypedDict):
+    """
+    Configuration for session storage
+    """
+    mount_path: pulumi.Input[_builtins.str]
+
+@pulumi.input_type
+class RuntimeSessionStorageConfigurationArgs:
+    def __init__(__self__, *,
+                 mount_path: pulumi.Input[_builtins.str]):
+        """
+        Configuration for session storage
+        """
+        pulumi.set(__self__, "mount_path", mount_path)
+
+    @_builtins.property
+    @pulumi.getter(name="mountPath")
+    def mount_path(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "mount_path")
+
+    @mount_path.setter
+    def mount_path(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "mount_path", value)
 
 
 class RuntimeVpcConfigArgsDict(TypedDict):

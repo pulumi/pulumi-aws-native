@@ -16,6 +16,8 @@ import (
 type S3AccessPointAttachment struct {
 	pulumi.CustomResourceState
 
+	// The lifecycle status of the S3 access point attachment.
+	Lifecycle S3AccessPointAttachmentLifecycleOutput `pulumi:"lifecycle"`
 	// The name of the S3 access point attachment; also used for the name of the S3 access point.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The OntapConfiguration of the S3 access point attachment.
@@ -140,6 +142,11 @@ func (o S3AccessPointAttachmentOutput) ToS3AccessPointAttachmentOutput() S3Acces
 
 func (o S3AccessPointAttachmentOutput) ToS3AccessPointAttachmentOutputWithContext(ctx context.Context) S3AccessPointAttachmentOutput {
 	return o
+}
+
+// The lifecycle status of the S3 access point attachment.
+func (o S3AccessPointAttachmentOutput) Lifecycle() S3AccessPointAttachmentLifecycleOutput {
+	return o.ApplyT(func(v *S3AccessPointAttachment) S3AccessPointAttachmentLifecycleOutput { return v.Lifecycle }).(S3AccessPointAttachmentLifecycleOutput)
 }
 
 // The name of the S3 access point attachment; also used for the name of the S3 access point.

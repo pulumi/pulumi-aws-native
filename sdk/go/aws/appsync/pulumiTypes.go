@@ -4865,11 +4865,11 @@ func (o GraphQlApiLambdaAuthorizerConfigPtrOutput) IdentityValidationExpression(
 
 type GraphQlApiLogConfig struct {
 	// The service role that AWS AppSync will assume to publish to Amazon CloudWatch Logs in your account.
-	CloudWatchLogsRoleArn *string `pulumi:"cloudWatchLogsRoleArn"`
+	CloudWatchLogsRoleArn string `pulumi:"cloudWatchLogsRoleArn"`
 	// Set to TRUE to exclude sections that contain information such as headers, context, and evaluated mapping templates, regardless of logging level.
 	ExcludeVerboseContent *bool `pulumi:"excludeVerboseContent"`
 	// The field logging level. Values can be NONE, ERROR, INFO, DEBUG, or ALL.
-	FieldLogLevel *string `pulumi:"fieldLogLevel"`
+	FieldLogLevel string `pulumi:"fieldLogLevel"`
 }
 
 // GraphQlApiLogConfigInput is an input type that accepts GraphQlApiLogConfigArgs and GraphQlApiLogConfigOutput values.
@@ -4885,11 +4885,11 @@ type GraphQlApiLogConfigInput interface {
 
 type GraphQlApiLogConfigArgs struct {
 	// The service role that AWS AppSync will assume to publish to Amazon CloudWatch Logs in your account.
-	CloudWatchLogsRoleArn pulumi.StringPtrInput `pulumi:"cloudWatchLogsRoleArn"`
+	CloudWatchLogsRoleArn pulumi.StringInput `pulumi:"cloudWatchLogsRoleArn"`
 	// Set to TRUE to exclude sections that contain information such as headers, context, and evaluated mapping templates, regardless of logging level.
 	ExcludeVerboseContent pulumi.BoolPtrInput `pulumi:"excludeVerboseContent"`
 	// The field logging level. Values can be NONE, ERROR, INFO, DEBUG, or ALL.
-	FieldLogLevel pulumi.StringPtrInput `pulumi:"fieldLogLevel"`
+	FieldLogLevel pulumi.StringInput `pulumi:"fieldLogLevel"`
 }
 
 func (GraphQlApiLogConfigArgs) ElementType() reflect.Type {
@@ -4970,8 +4970,8 @@ func (o GraphQlApiLogConfigOutput) ToGraphQlApiLogConfigPtrOutputWithContext(ctx
 }
 
 // The service role that AWS AppSync will assume to publish to Amazon CloudWatch Logs in your account.
-func (o GraphQlApiLogConfigOutput) CloudWatchLogsRoleArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GraphQlApiLogConfig) *string { return v.CloudWatchLogsRoleArn }).(pulumi.StringPtrOutput)
+func (o GraphQlApiLogConfigOutput) CloudWatchLogsRoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v GraphQlApiLogConfig) string { return v.CloudWatchLogsRoleArn }).(pulumi.StringOutput)
 }
 
 // Set to TRUE to exclude sections that contain information such as headers, context, and evaluated mapping templates, regardless of logging level.
@@ -4980,8 +4980,8 @@ func (o GraphQlApiLogConfigOutput) ExcludeVerboseContent() pulumi.BoolPtrOutput 
 }
 
 // The field logging level. Values can be NONE, ERROR, INFO, DEBUG, or ALL.
-func (o GraphQlApiLogConfigOutput) FieldLogLevel() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GraphQlApiLogConfig) *string { return v.FieldLogLevel }).(pulumi.StringPtrOutput)
+func (o GraphQlApiLogConfigOutput) FieldLogLevel() pulumi.StringOutput {
+	return o.ApplyT(func(v GraphQlApiLogConfig) string { return v.FieldLogLevel }).(pulumi.StringOutput)
 }
 
 type GraphQlApiLogConfigPtrOutput struct{ *pulumi.OutputState }
@@ -5014,7 +5014,7 @@ func (o GraphQlApiLogConfigPtrOutput) CloudWatchLogsRoleArn() pulumi.StringPtrOu
 		if v == nil {
 			return nil
 		}
-		return v.CloudWatchLogsRoleArn
+		return &v.CloudWatchLogsRoleArn
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -5034,7 +5034,7 @@ func (o GraphQlApiLogConfigPtrOutput) FieldLogLevel() pulumi.StringPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return v.FieldLogLevel
+		return &v.FieldLogLevel
 	}).(pulumi.StringPtrOutput)
 }
 

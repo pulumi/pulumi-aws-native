@@ -21,6 +21,7 @@ __all__ = [
     'IntegrationOpenSearchResourceConfig',
     'MetricFilterDimension',
     'MetricFilterMetricTransformation',
+    'QueryDefinitionQueryParameter',
     'ResourceConfigProperties',
     'ScheduledQueryDestinationConfiguration',
     'ScheduledQueryS3Configuration',
@@ -355,6 +356,70 @@ class MetricFilterMetricTransformation(dict):
         The unit to assign to the metric. If you omit this, the unit is set as ``None``.
         """
         return pulumi.get(self, "unit")
+
+
+@pulumi.output_type
+class QueryDefinitionQueryParameter(dict):
+    """
+    This structure defines a query parameter for a saved CloudWatch Logs Insights query definition. Query parameters are supported only for Logs Insights QL queries. They are placeholder variables that you can reference in a query string using the {{parameterName}} syntax. Each parameter can include a default value and a description.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "defaultValue":
+            suggest = "default_value"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in QueryDefinitionQueryParameter. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        QueryDefinitionQueryParameter.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        QueryDefinitionQueryParameter.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: _builtins.str,
+                 default_value: Optional[_builtins.str] = None,
+                 description: Optional[_builtins.str] = None):
+        """
+        This structure defines a query parameter for a saved CloudWatch Logs Insights query definition. Query parameters are supported only for Logs Insights QL queries. They are placeholder variables that you can reference in a query string using the {{parameterName}} syntax. Each parameter can include a default value and a description.
+
+        :param _builtins.str name: The name of the query parameter. A query parameter name must start with a letter or underscore, and contain only letters, digits, and underscores.
+        :param _builtins.str default_value: The default value to use for this query parameter if no value is supplied at execution time.
+        :param _builtins.str description: A description of the query parameter that explains its purpose or expected values.
+        """
+        pulumi.set(__self__, "name", name)
+        if default_value is not None:
+            pulumi.set(__self__, "default_value", default_value)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        The name of the query parameter. A query parameter name must start with a letter or underscore, and contain only letters, digits, and underscores.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="defaultValue")
+    def default_value(self) -> Optional[_builtins.str]:
+        """
+        The default value to use for this query parameter if no value is supplied at execution time.
+        """
+        return pulumi.get(self, "default_value")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[_builtins.str]:
+        """
+        A description of the query parameter that explains its purpose or expected values.
+        """
+        return pulumi.get(self, "description")
 
 
 @pulumi.output_type

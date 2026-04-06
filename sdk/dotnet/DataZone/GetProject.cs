@@ -115,6 +115,10 @@ namespace Pulumi.AwsNative.DataZone
         /// The status of the project.
         /// </summary>
         public readonly Pulumi.AwsNative.DataZone.ProjectStatus? ProjectStatus;
+        /// <summary>
+        /// The resource tags of the project.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ProjectResourceTag> ResourceTags;
 
         [OutputConstructor]
         private GetProjectResult(
@@ -136,7 +140,9 @@ namespace Pulumi.AwsNative.DataZone
 
             string? name,
 
-            Pulumi.AwsNative.DataZone.ProjectStatus? projectStatus)
+            Pulumi.AwsNative.DataZone.ProjectStatus? projectStatus,
+
+            ImmutableArray<Outputs.ProjectResourceTag> resourceTags)
         {
             CreatedAt = createdAt;
             CreatedBy = createdBy;
@@ -148,6 +154,7 @@ namespace Pulumi.AwsNative.DataZone
             LastUpdatedAt = lastUpdatedAt;
             Name = name;
             ProjectStatus = projectStatus;
+            ResourceTags = resourceTags;
         }
     }
 }

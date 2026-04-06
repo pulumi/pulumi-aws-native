@@ -426,6 +426,7 @@ namespace Pulumi.AwsNative.Rds
         ///  Valid for: Aurora Serverless v2 DB clusters only
         /// </summary>
         public readonly Outputs.DbClusterServerlessV2ScalingConfiguration? ServerlessV2ScalingConfiguration;
+        public readonly string? StorageEncryptionType;
         /// <summary>
         /// The storage throughput for the DB cluster. The throughput is automatically set based on the IOPS that you provision, and is not configurable.
         /// 
@@ -545,6 +546,8 @@ namespace Pulumi.AwsNative.Rds
 
             Outputs.DbClusterServerlessV2ScalingConfiguration? serverlessV2ScalingConfiguration,
 
+            string? storageEncryptionType,
+
             int? storageThroughput,
 
             string? storageType,
@@ -594,6 +597,7 @@ namespace Pulumi.AwsNative.Rds
             ReplicationSourceIdentifier = replicationSourceIdentifier;
             ScalingConfiguration = scalingConfiguration;
             ServerlessV2ScalingConfiguration = serverlessV2ScalingConfiguration;
+            StorageEncryptionType = storageEncryptionType;
             StorageThroughput = storageThroughput;
             StorageType = storageType;
             Tags = tags;

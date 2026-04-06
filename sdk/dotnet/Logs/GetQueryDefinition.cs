@@ -72,6 +72,10 @@ namespace Pulumi.AwsNative.Logs
         /// </summary>
         public readonly string? Name;
         /// <summary>
+        /// Use this parameter to include specific query parameters as part of your query definition. Query parameters are supported only for Logs Insights QL queries. Query parameters allow you to use placeholder variables in your query string that are substituted with values at execution time. Use the {{parameterName}} syntax in your query string to reference a parameter.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.QueryDefinitionQueryParameter> Parameters;
+        /// <summary>
         /// Unique identifier of a query definition
         /// </summary>
         public readonly string? QueryDefinitionId;
@@ -90,6 +94,8 @@ namespace Pulumi.AwsNative.Logs
 
             string? name,
 
+            ImmutableArray<Outputs.QueryDefinitionQueryParameter> parameters,
+
             string? queryDefinitionId,
 
             Pulumi.AwsNative.Logs.QueryDefinitionQueryLanguage? queryLanguage,
@@ -98,6 +104,7 @@ namespace Pulumi.AwsNative.Logs
         {
             LogGroupNames = logGroupNames;
             Name = name;
+            Parameters = parameters;
             QueryDefinitionId = queryDefinitionId;
             QueryLanguage = queryLanguage;
             QueryString = queryString;

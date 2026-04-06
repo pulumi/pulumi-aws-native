@@ -94,6 +94,12 @@ namespace Pulumi.AwsNative.DataZone
         public Output<Pulumi.AwsNative.DataZone.ProjectStatus> ProjectStatus { get; private set; } = null!;
 
         /// <summary>
+        /// The resource tags of the project.
+        /// </summary>
+        [Output("resourceTags")]
+        public Output<ImmutableArray<Outputs.ProjectResourceTag>> ResourceTags { get; private set; } = null!;
+
+        /// <summary>
         /// The user parameters of the project.
         /// </summary>
         [Output("userParameters")]
@@ -196,6 +202,18 @@ namespace Pulumi.AwsNative.DataZone
         /// </summary>
         [Input("projectProfileVersion")]
         public Input<string>? ProjectProfileVersion { get; set; }
+
+        [Input("resourceTags")]
+        private InputList<Inputs.ProjectResourceTagArgs>? _resourceTags;
+
+        /// <summary>
+        /// The resource tags of the project.
+        /// </summary>
+        public InputList<Inputs.ProjectResourceTagArgs> ResourceTags
+        {
+            get => _resourceTags ?? (_resourceTags = new InputList<Inputs.ProjectResourceTagArgs>());
+            set => _resourceTags = value;
+        }
 
         [Input("userParameters")]
         private InputList<Inputs.ProjectEnvironmentConfigurationUserParameterArgs>? _userParameters;

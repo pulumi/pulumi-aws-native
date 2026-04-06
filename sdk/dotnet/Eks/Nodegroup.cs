@@ -210,6 +210,12 @@ namespace Pulumi.AwsNative.Eks
         [Output("version")]
         public Output<string?> Version { get; private set; } = null!;
 
+        /// <summary>
+        /// The warm pool configuration details for the Auto Scaling group that is created for the node group.
+        /// </summary>
+        [Output("warmPoolConfig")]
+        public Output<Outputs.NodegroupWarmPoolConfig?> WarmPoolConfig { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a Nodegroup resource with the given unique name, arguments, and options.
@@ -410,6 +416,12 @@ namespace Pulumi.AwsNative.Eks
         /// </summary>
         [Input("version")]
         public Input<string>? Version { get; set; }
+
+        /// <summary>
+        /// The warm pool configuration details for the Auto Scaling group that is created for the node group.
+        /// </summary>
+        [Input("warmPoolConfig")]
+        public Input<Inputs.NodegroupWarmPoolConfigArgs>? WarmPoolConfig { get; set; }
 
         public NodegroupArgs()
         {

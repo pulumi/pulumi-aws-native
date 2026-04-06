@@ -17,6 +17,7 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'ApiKeyCredentialProviderApiKeySecretArn',
     'BrowserCustomBrowserNetworkConfiguration',
     'BrowserCustomBrowserSigning',
     'BrowserCustomRecordingConfig',
@@ -26,8 +27,10 @@ __all__ = [
     'CodeInterpreterCustomVpcConfig',
     'EvaluatorBedrockEvaluatorModelConfig',
     'EvaluatorCategoricalScaleDefinition',
+    'EvaluatorCodeBasedEvaluatorConfig',
     'EvaluatorConfig',
     'EvaluatorInferenceConfiguration',
+    'EvaluatorLambdaEvaluatorConfig',
     'EvaluatorLlmAsAJudgeEvaluatorConfig',
     'EvaluatorModelConfig',
     'EvaluatorNumericalScaleDefinition',
@@ -100,6 +103,20 @@ __all__ = [
     'MemoryUserPreferenceOverride',
     'MemoryUserPreferenceOverrideConsolidationConfigurationInput',
     'MemoryUserPreferenceOverrideExtractionConfigurationInput',
+    'OAuth2CredentialProviderAtlassianOauth2ProviderConfigInput',
+    'OAuth2CredentialProviderClientSecretArn',
+    'OAuth2CredentialProviderCustomOauth2ProviderConfigInput',
+    'OAuth2CredentialProviderGithubOauth2ProviderConfigInput',
+    'OAuth2CredentialProviderGoogleOauth2ProviderConfigInput',
+    'OAuth2CredentialProviderIncludedOauth2ProviderConfigInput',
+    'OAuth2CredentialProviderLinkedinOauth2ProviderConfigInput',
+    'OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInput',
+    'OAuth2CredentialProviderOauth2AuthorizationServerMetadata',
+    'OAuth2CredentialProviderOauth2Discovery',
+    'OAuth2CredentialProviderOauth2ProviderConfigInput',
+    'OAuth2CredentialProviderOauth2ProviderConfigOutput',
+    'OAuth2CredentialProviderSalesforceOauth2ProviderConfigInput',
+    'OAuth2CredentialProviderSlackOauth2ProviderConfigInput',
     'OnlineEvaluationConfigCloudWatchLogsInputConfig',
     'OnlineEvaluationConfigCloudWatchOutputConfig',
     'OnlineEvaluationConfigDataSourceConfig',
@@ -121,13 +138,55 @@ __all__ = [
     'RuntimeContainerConfiguration',
     'RuntimeCustomClaimValidationType',
     'RuntimeCustomJwtAuthorizerConfiguration',
+    'RuntimeFilesystemConfiguration',
     'RuntimeLifecycleConfiguration',
     'RuntimeNetworkConfiguration',
     'RuntimeRequestHeaderConfiguration',
     'RuntimeS3Location',
+    'RuntimeSessionStorageConfiguration',
     'RuntimeVpcConfig',
     'RuntimeWorkloadIdentityDetails',
 ]
+
+@pulumi.output_type
+class ApiKeyCredentialProviderApiKeySecretArn(dict):
+    """
+    Contains information about the API key secret in AWS Secrets Manager
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "secretArn":
+            suggest = "secret_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApiKeyCredentialProviderApiKeySecretArn. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApiKeyCredentialProviderApiKeySecretArn.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApiKeyCredentialProviderApiKeySecretArn.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 secret_arn: _builtins.str):
+        """
+        Contains information about the API key secret in AWS Secrets Manager
+
+        :param _builtins.str secret_arn: The ARN of the secret in AWS Secrets Manager
+        """
+        pulumi.set(__self__, "secret_arn", secret_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="secretArn")
+    def secret_arn(self) -> _builtins.str:
+        """
+        The ARN of the secret in AWS Secrets Manager
+        """
+        return pulumi.get(self, "secret_arn")
+
 
 @pulumi.output_type
 class BrowserCustomBrowserNetworkConfiguration(dict):
@@ -518,6 +577,41 @@ class EvaluatorCategoricalScaleDefinition(dict):
 
 
 @pulumi.output_type
+class EvaluatorCodeBasedEvaluatorConfig(dict):
+    """
+    The configuration for code-based evaluation using a Lambda function.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "lambdaConfig":
+            suggest = "lambda_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EvaluatorCodeBasedEvaluatorConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EvaluatorCodeBasedEvaluatorConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EvaluatorCodeBasedEvaluatorConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 lambda_config: 'outputs.EvaluatorLambdaEvaluatorConfig'):
+        """
+        The configuration for code-based evaluation using a Lambda function.
+        """
+        pulumi.set(__self__, "lambda_config", lambda_config)
+
+    @_builtins.property
+    @pulumi.getter(name="lambdaConfig")
+    def lambda_config(self) -> 'outputs.EvaluatorLambdaEvaluatorConfig':
+        return pulumi.get(self, "lambda_config")
+
+
+@pulumi.output_type
 class EvaluatorConfig(dict):
     """
     The configuration that defines how an evaluator assesses agent performance.
@@ -525,7 +619,9 @@ class EvaluatorConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "llmAsAJudge":
+        if key == "codeBased":
+            suggest = "code_based"
+        elif key == "llmAsAJudge":
             suggest = "llm_as_a_judge"
 
         if suggest:
@@ -540,15 +636,24 @@ class EvaluatorConfig(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 llm_as_a_judge: 'outputs.EvaluatorLlmAsAJudgeEvaluatorConfig'):
+                 code_based: Optional['outputs.EvaluatorCodeBasedEvaluatorConfig'] = None,
+                 llm_as_a_judge: Optional['outputs.EvaluatorLlmAsAJudgeEvaluatorConfig'] = None):
         """
         The configuration that defines how an evaluator assesses agent performance.
         """
-        pulumi.set(__self__, "llm_as_a_judge", llm_as_a_judge)
+        if code_based is not None:
+            pulumi.set(__self__, "code_based", code_based)
+        if llm_as_a_judge is not None:
+            pulumi.set(__self__, "llm_as_a_judge", llm_as_a_judge)
+
+    @_builtins.property
+    @pulumi.getter(name="codeBased")
+    def code_based(self) -> Optional['outputs.EvaluatorCodeBasedEvaluatorConfig']:
+        return pulumi.get(self, "code_based")
 
     @_builtins.property
     @pulumi.getter(name="llmAsAJudge")
-    def llm_as_a_judge(self) -> 'outputs.EvaluatorLlmAsAJudgeEvaluatorConfig':
+    def llm_as_a_judge(self) -> Optional['outputs.EvaluatorLlmAsAJudgeEvaluatorConfig']:
         return pulumi.get(self, "llm_as_a_judge")
 
 
@@ -617,6 +722,60 @@ class EvaluatorInferenceConfiguration(dict):
         The top-p sampling parameter that controls the diversity of the model's responses.
         """
         return pulumi.get(self, "top_p")
+
+
+@pulumi.output_type
+class EvaluatorLambdaEvaluatorConfig(dict):
+    """
+    The Lambda function configuration for code-based evaluation.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "lambdaArn":
+            suggest = "lambda_arn"
+        elif key == "lambdaTimeoutInSeconds":
+            suggest = "lambda_timeout_in_seconds"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EvaluatorLambdaEvaluatorConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EvaluatorLambdaEvaluatorConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EvaluatorLambdaEvaluatorConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 lambda_arn: _builtins.str,
+                 lambda_timeout_in_seconds: Optional[_builtins.int] = None):
+        """
+        The Lambda function configuration for code-based evaluation.
+
+        :param _builtins.str lambda_arn: The ARN of the Lambda function used for evaluation.
+        :param _builtins.int lambda_timeout_in_seconds: The timeout in seconds for the Lambda function invocation.
+        """
+        pulumi.set(__self__, "lambda_arn", lambda_arn)
+        if lambda_timeout_in_seconds is not None:
+            pulumi.set(__self__, "lambda_timeout_in_seconds", lambda_timeout_in_seconds)
+
+    @_builtins.property
+    @pulumi.getter(name="lambdaArn")
+    def lambda_arn(self) -> _builtins.str:
+        """
+        The ARN of the Lambda function used for evaluation.
+        """
+        return pulumi.get(self, "lambda_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="lambdaTimeoutInSeconds")
+    def lambda_timeout_in_seconds(self) -> Optional[_builtins.int]:
+        """
+        The timeout in seconds for the Lambda function invocation.
+        """
+        return pulumi.get(self, "lambda_timeout_in_seconds")
 
 
 @pulumi.output_type
@@ -2231,6 +2390,8 @@ class MemoryCustomMemoryStrategy(dict):
         suggest = None
         if key == "createdAt":
             suggest = "created_at"
+        elif key == "namespaceTemplates":
+            suggest = "namespace_templates"
         elif key == "strategyId":
             suggest = "strategy_id"
         elif key == "updatedAt":
@@ -2252,6 +2413,7 @@ class MemoryCustomMemoryStrategy(dict):
                  configuration: Optional['outputs.MemoryCustomConfigurationInput'] = None,
                  created_at: Optional[_builtins.str] = None,
                  description: Optional[_builtins.str] = None,
+                 namespace_templates: Optional[Sequence[_builtins.str]] = None,
                  namespaces: Optional[Sequence[_builtins.str]] = None,
                  status: Optional['MemoryCustomMemoryStrategyStatus'] = None,
                  strategy_id: Optional[_builtins.str] = None,
@@ -2271,6 +2433,8 @@ class MemoryCustomMemoryStrategy(dict):
             pulumi.set(__self__, "created_at", created_at)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if namespace_templates is not None:
+            pulumi.set(__self__, "namespace_templates", namespace_templates)
         if namespaces is not None:
             pulumi.set(__self__, "namespaces", namespaces)
         if status is not None:
@@ -2304,6 +2468,11 @@ class MemoryCustomMemoryStrategy(dict):
     @pulumi.getter
     def description(self) -> Optional[_builtins.str]:
         return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter(name="namespaceTemplates")
+    def namespace_templates(self) -> Optional[Sequence[_builtins.str]]:
+        return pulumi.get(self, "namespace_templates")
 
     @_builtins.property
     @pulumi.getter
@@ -2350,6 +2519,8 @@ class MemoryEpisodicMemoryStrategy(dict):
         suggest = None
         if key == "createdAt":
             suggest = "created_at"
+        elif key == "namespaceTemplates":
+            suggest = "namespace_templates"
         elif key == "reflectionConfiguration":
             suggest = "reflection_configuration"
         elif key == "strategyId":
@@ -2372,6 +2543,7 @@ class MemoryEpisodicMemoryStrategy(dict):
                  name: _builtins.str,
                  created_at: Optional[_builtins.str] = None,
                  description: Optional[_builtins.str] = None,
+                 namespace_templates: Optional[Sequence[_builtins.str]] = None,
                  namespaces: Optional[Sequence[_builtins.str]] = None,
                  reflection_configuration: Optional['outputs.MemoryEpisodicReflectionConfigurationInput'] = None,
                  status: Optional['MemoryEpisodicMemoryStrategyStatus'] = None,
@@ -2390,6 +2562,8 @@ class MemoryEpisodicMemoryStrategy(dict):
             pulumi.set(__self__, "created_at", created_at)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if namespace_templates is not None:
+            pulumi.set(__self__, "namespace_templates", namespace_templates)
         if namespaces is not None:
             pulumi.set(__self__, "namespaces", namespaces)
         if reflection_configuration is not None:
@@ -2420,6 +2594,11 @@ class MemoryEpisodicMemoryStrategy(dict):
     @pulumi.getter
     def description(self) -> Optional[_builtins.str]:
         return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter(name="namespaceTemplates")
+    def namespace_templates(self) -> Optional[Sequence[_builtins.str]]:
+        return pulumi.get(self, "namespace_templates")
 
     @_builtins.property
     @pulumi.getter
@@ -2578,6 +2757,8 @@ class MemoryEpisodicOverrideReflectionConfigurationInput(dict):
             suggest = "append_to_prompt"
         elif key == "modelId":
             suggest = "model_id"
+        elif key == "namespaceTemplates":
+            suggest = "namespace_templates"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in MemoryEpisodicOverrideReflectionConfigurationInput. Access the value via the '{suggest}' property getter instead.")
@@ -2593,9 +2774,12 @@ class MemoryEpisodicOverrideReflectionConfigurationInput(dict):
     def __init__(__self__, *,
                  append_to_prompt: _builtins.str,
                  model_id: _builtins.str,
+                 namespace_templates: Optional[Sequence[_builtins.str]] = None,
                  namespaces: Optional[Sequence[_builtins.str]] = None):
         pulumi.set(__self__, "append_to_prompt", append_to_prompt)
         pulumi.set(__self__, "model_id", model_id)
+        if namespace_templates is not None:
+            pulumi.set(__self__, "namespace_templates", namespace_templates)
         if namespaces is not None:
             pulumi.set(__self__, "namespaces", namespaces)
 
@@ -2610,6 +2794,11 @@ class MemoryEpisodicOverrideReflectionConfigurationInput(dict):
         return pulumi.get(self, "model_id")
 
     @_builtins.property
+    @pulumi.getter(name="namespaceTemplates")
+    def namespace_templates(self) -> Optional[Sequence[_builtins.str]]:
+        return pulumi.get(self, "namespace_templates")
+
+    @_builtins.property
     @pulumi.getter
     def namespaces(self) -> Optional[Sequence[_builtins.str]]:
         return pulumi.get(self, "namespaces")
@@ -2617,13 +2806,39 @@ class MemoryEpisodicOverrideReflectionConfigurationInput(dict):
 
 @pulumi.output_type
 class MemoryEpisodicReflectionConfigurationInput(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "namespaceTemplates":
+            suggest = "namespace_templates"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MemoryEpisodicReflectionConfigurationInput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MemoryEpisodicReflectionConfigurationInput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MemoryEpisodicReflectionConfigurationInput.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
-                 namespaces: Sequence[_builtins.str]):
-        pulumi.set(__self__, "namespaces", namespaces)
+                 namespace_templates: Optional[Sequence[_builtins.str]] = None,
+                 namespaces: Optional[Sequence[_builtins.str]] = None):
+        if namespace_templates is not None:
+            pulumi.set(__self__, "namespace_templates", namespace_templates)
+        if namespaces is not None:
+            pulumi.set(__self__, "namespaces", namespaces)
+
+    @_builtins.property
+    @pulumi.getter(name="namespaceTemplates")
+    def namespace_templates(self) -> Optional[Sequence[_builtins.str]]:
+        return pulumi.get(self, "namespace_templates")
 
     @_builtins.property
     @pulumi.getter
-    def namespaces(self) -> Sequence[_builtins.str]:
+    def namespaces(self) -> Optional[Sequence[_builtins.str]]:
         return pulumi.get(self, "namespaces")
 
 
@@ -2792,6 +3007,8 @@ class MemorySemanticMemoryStrategy(dict):
         suggest = None
         if key == "createdAt":
             suggest = "created_at"
+        elif key == "namespaceTemplates":
+            suggest = "namespace_templates"
         elif key == "strategyId":
             suggest = "strategy_id"
         elif key == "updatedAt":
@@ -2812,6 +3029,7 @@ class MemorySemanticMemoryStrategy(dict):
                  name: _builtins.str,
                  created_at: Optional[_builtins.str] = None,
                  description: Optional[_builtins.str] = None,
+                 namespace_templates: Optional[Sequence[_builtins.str]] = None,
                  namespaces: Optional[Sequence[_builtins.str]] = None,
                  status: Optional['MemorySemanticMemoryStrategyStatus'] = None,
                  strategy_id: Optional[_builtins.str] = None,
@@ -2829,6 +3047,8 @@ class MemorySemanticMemoryStrategy(dict):
             pulumi.set(__self__, "created_at", created_at)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if namespace_templates is not None:
+            pulumi.set(__self__, "namespace_templates", namespace_templates)
         if namespaces is not None:
             pulumi.set(__self__, "namespaces", namespaces)
         if status is not None:
@@ -2857,6 +3077,11 @@ class MemorySemanticMemoryStrategy(dict):
     @pulumi.getter
     def description(self) -> Optional[_builtins.str]:
         return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter(name="namespaceTemplates")
+    def namespace_templates(self) -> Optional[Sequence[_builtins.str]]:
+        return pulumi.get(self, "namespace_templates")
 
     @_builtins.property
     @pulumi.getter
@@ -3095,6 +3320,8 @@ class MemorySummaryMemoryStrategy(dict):
         suggest = None
         if key == "createdAt":
             suggest = "created_at"
+        elif key == "namespaceTemplates":
+            suggest = "namespace_templates"
         elif key == "strategyId":
             suggest = "strategy_id"
         elif key == "updatedAt":
@@ -3115,6 +3342,7 @@ class MemorySummaryMemoryStrategy(dict):
                  name: _builtins.str,
                  created_at: Optional[_builtins.str] = None,
                  description: Optional[_builtins.str] = None,
+                 namespace_templates: Optional[Sequence[_builtins.str]] = None,
                  namespaces: Optional[Sequence[_builtins.str]] = None,
                  status: Optional['MemorySummaryMemoryStrategyStatus'] = None,
                  strategy_id: Optional[_builtins.str] = None,
@@ -3132,6 +3360,8 @@ class MemorySummaryMemoryStrategy(dict):
             pulumi.set(__self__, "created_at", created_at)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if namespace_templates is not None:
+            pulumi.set(__self__, "namespace_templates", namespace_templates)
         if namespaces is not None:
             pulumi.set(__self__, "namespaces", namespaces)
         if status is not None:
@@ -3160,6 +3390,11 @@ class MemorySummaryMemoryStrategy(dict):
     @pulumi.getter
     def description(self) -> Optional[_builtins.str]:
         return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter(name="namespaceTemplates")
+    def namespace_templates(self) -> Optional[Sequence[_builtins.str]]:
+        return pulumi.get(self, "namespace_templates")
 
     @_builtins.property
     @pulumi.getter
@@ -3367,6 +3602,8 @@ class MemoryUserPreferenceMemoryStrategy(dict):
         suggest = None
         if key == "createdAt":
             suggest = "created_at"
+        elif key == "namespaceTemplates":
+            suggest = "namespace_templates"
         elif key == "strategyId":
             suggest = "strategy_id"
         elif key == "updatedAt":
@@ -3387,6 +3624,7 @@ class MemoryUserPreferenceMemoryStrategy(dict):
                  name: _builtins.str,
                  created_at: Optional[_builtins.str] = None,
                  description: Optional[_builtins.str] = None,
+                 namespace_templates: Optional[Sequence[_builtins.str]] = None,
                  namespaces: Optional[Sequence[_builtins.str]] = None,
                  status: Optional['MemoryUserPreferenceMemoryStrategyStatus'] = None,
                  strategy_id: Optional[_builtins.str] = None,
@@ -3404,6 +3642,8 @@ class MemoryUserPreferenceMemoryStrategy(dict):
             pulumi.set(__self__, "created_at", created_at)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if namespace_templates is not None:
+            pulumi.set(__self__, "namespace_templates", namespace_templates)
         if namespaces is not None:
             pulumi.set(__self__, "namespaces", namespaces)
         if status is not None:
@@ -3432,6 +3672,11 @@ class MemoryUserPreferenceMemoryStrategy(dict):
     @pulumi.getter
     def description(self) -> Optional[_builtins.str]:
         return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter(name="namespaceTemplates")
+    def namespace_templates(self) -> Optional[Sequence[_builtins.str]]:
+        return pulumi.get(self, "namespace_templates")
 
     @_builtins.property
     @pulumi.getter
@@ -3566,6 +3811,807 @@ class MemoryUserPreferenceOverrideExtractionConfigurationInput(dict):
     @pulumi.getter(name="modelId")
     def model_id(self) -> _builtins.str:
         return pulumi.get(self, "model_id")
+
+
+@pulumi.output_type
+class OAuth2CredentialProviderAtlassianOauth2ProviderConfigInput(dict):
+    """
+    Input configuration for an Atlassian OAuth2 provider
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientId":
+            suggest = "client_id"
+        elif key == "clientSecret":
+            suggest = "client_secret"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OAuth2CredentialProviderAtlassianOauth2ProviderConfigInput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OAuth2CredentialProviderAtlassianOauth2ProviderConfigInput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OAuth2CredentialProviderAtlassianOauth2ProviderConfigInput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 client_id: _builtins.str,
+                 client_secret: _builtins.str):
+        """
+        Input configuration for an Atlassian OAuth2 provider
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "client_secret", client_secret)
+
+    @_builtins.property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> _builtins.str:
+        return pulumi.get(self, "client_id")
+
+    @_builtins.property
+    @pulumi.getter(name="clientSecret")
+    def client_secret(self) -> _builtins.str:
+        return pulumi.get(self, "client_secret")
+
+
+@pulumi.output_type
+class OAuth2CredentialProviderClientSecretArn(dict):
+    """
+    Contains information about a secret in AWS Secrets Manager
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "secretArn":
+            suggest = "secret_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OAuth2CredentialProviderClientSecretArn. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OAuth2CredentialProviderClientSecretArn.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OAuth2CredentialProviderClientSecretArn.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 secret_arn: _builtins.str):
+        """
+        Contains information about a secret in AWS Secrets Manager
+
+        :param _builtins.str secret_arn: The ARN of the secret in AWS Secrets Manager
+        """
+        pulumi.set(__self__, "secret_arn", secret_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="secretArn")
+    def secret_arn(self) -> _builtins.str:
+        """
+        The ARN of the secret in AWS Secrets Manager
+        """
+        return pulumi.get(self, "secret_arn")
+
+
+@pulumi.output_type
+class OAuth2CredentialProviderCustomOauth2ProviderConfigInput(dict):
+    """
+    Input configuration for a custom OAuth2 provider
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientId":
+            suggest = "client_id"
+        elif key == "clientSecret":
+            suggest = "client_secret"
+        elif key == "oauthDiscovery":
+            suggest = "oauth_discovery"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OAuth2CredentialProviderCustomOauth2ProviderConfigInput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OAuth2CredentialProviderCustomOauth2ProviderConfigInput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OAuth2CredentialProviderCustomOauth2ProviderConfigInput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 client_id: _builtins.str,
+                 client_secret: _builtins.str,
+                 oauth_discovery: 'outputs.OAuth2CredentialProviderOauth2Discovery'):
+        """
+        Input configuration for a custom OAuth2 provider
+
+        :param _builtins.str client_id: The client ID for the custom OAuth2 provider
+        :param _builtins.str client_secret: The client secret for the custom OAuth2 provider
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "client_secret", client_secret)
+        pulumi.set(__self__, "oauth_discovery", oauth_discovery)
+
+    @_builtins.property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> _builtins.str:
+        """
+        The client ID for the custom OAuth2 provider
+        """
+        return pulumi.get(self, "client_id")
+
+    @_builtins.property
+    @pulumi.getter(name="clientSecret")
+    def client_secret(self) -> _builtins.str:
+        """
+        The client secret for the custom OAuth2 provider
+        """
+        return pulumi.get(self, "client_secret")
+
+    @_builtins.property
+    @pulumi.getter(name="oauthDiscovery")
+    def oauth_discovery(self) -> 'outputs.OAuth2CredentialProviderOauth2Discovery':
+        return pulumi.get(self, "oauth_discovery")
+
+
+@pulumi.output_type
+class OAuth2CredentialProviderGithubOauth2ProviderConfigInput(dict):
+    """
+    Input configuration for a GitHub OAuth2 provider
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientId":
+            suggest = "client_id"
+        elif key == "clientSecret":
+            suggest = "client_secret"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OAuth2CredentialProviderGithubOauth2ProviderConfigInput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OAuth2CredentialProviderGithubOauth2ProviderConfigInput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OAuth2CredentialProviderGithubOauth2ProviderConfigInput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 client_id: _builtins.str,
+                 client_secret: _builtins.str):
+        """
+        Input configuration for a GitHub OAuth2 provider
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "client_secret", client_secret)
+
+    @_builtins.property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> _builtins.str:
+        return pulumi.get(self, "client_id")
+
+    @_builtins.property
+    @pulumi.getter(name="clientSecret")
+    def client_secret(self) -> _builtins.str:
+        return pulumi.get(self, "client_secret")
+
+
+@pulumi.output_type
+class OAuth2CredentialProviderGoogleOauth2ProviderConfigInput(dict):
+    """
+    Input configuration for a Google OAuth2 provider
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientId":
+            suggest = "client_id"
+        elif key == "clientSecret":
+            suggest = "client_secret"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OAuth2CredentialProviderGoogleOauth2ProviderConfigInput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OAuth2CredentialProviderGoogleOauth2ProviderConfigInput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OAuth2CredentialProviderGoogleOauth2ProviderConfigInput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 client_id: _builtins.str,
+                 client_secret: _builtins.str):
+        """
+        Input configuration for a Google OAuth2 provider
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "client_secret", client_secret)
+
+    @_builtins.property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> _builtins.str:
+        return pulumi.get(self, "client_id")
+
+    @_builtins.property
+    @pulumi.getter(name="clientSecret")
+    def client_secret(self) -> _builtins.str:
+        return pulumi.get(self, "client_secret")
+
+
+@pulumi.output_type
+class OAuth2CredentialProviderIncludedOauth2ProviderConfigInput(dict):
+    """
+    Input configuration for a supported non-custom OAuth2 provider
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientId":
+            suggest = "client_id"
+        elif key == "clientSecret":
+            suggest = "client_secret"
+        elif key == "authorizationEndpoint":
+            suggest = "authorization_endpoint"
+        elif key == "tokenEndpoint":
+            suggest = "token_endpoint"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OAuth2CredentialProviderIncludedOauth2ProviderConfigInput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OAuth2CredentialProviderIncludedOauth2ProviderConfigInput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OAuth2CredentialProviderIncludedOauth2ProviderConfigInput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 client_id: _builtins.str,
+                 client_secret: _builtins.str,
+                 authorization_endpoint: Optional[_builtins.str] = None,
+                 issuer: Optional[_builtins.str] = None,
+                 token_endpoint: Optional[_builtins.str] = None):
+        """
+        Input configuration for a supported non-custom OAuth2 provider
+
+        :param _builtins.str authorization_endpoint: OAuth2 authorization endpoint for your isolated OAuth2 application tenant
+        :param _builtins.str issuer: Token issuer of your isolated OAuth2 application tenant
+        :param _builtins.str token_endpoint: OAuth2 token endpoint for your isolated OAuth2 application tenant
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "client_secret", client_secret)
+        if authorization_endpoint is not None:
+            pulumi.set(__self__, "authorization_endpoint", authorization_endpoint)
+        if issuer is not None:
+            pulumi.set(__self__, "issuer", issuer)
+        if token_endpoint is not None:
+            pulumi.set(__self__, "token_endpoint", token_endpoint)
+
+    @_builtins.property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> _builtins.str:
+        return pulumi.get(self, "client_id")
+
+    @_builtins.property
+    @pulumi.getter(name="clientSecret")
+    def client_secret(self) -> _builtins.str:
+        return pulumi.get(self, "client_secret")
+
+    @_builtins.property
+    @pulumi.getter(name="authorizationEndpoint")
+    def authorization_endpoint(self) -> Optional[_builtins.str]:
+        """
+        OAuth2 authorization endpoint for your isolated OAuth2 application tenant
+        """
+        return pulumi.get(self, "authorization_endpoint")
+
+    @_builtins.property
+    @pulumi.getter
+    def issuer(self) -> Optional[_builtins.str]:
+        """
+        Token issuer of your isolated OAuth2 application tenant
+        """
+        return pulumi.get(self, "issuer")
+
+    @_builtins.property
+    @pulumi.getter(name="tokenEndpoint")
+    def token_endpoint(self) -> Optional[_builtins.str]:
+        """
+        OAuth2 token endpoint for your isolated OAuth2 application tenant
+        """
+        return pulumi.get(self, "token_endpoint")
+
+
+@pulumi.output_type
+class OAuth2CredentialProviderLinkedinOauth2ProviderConfigInput(dict):
+    """
+    Input configuration for a LinkedIn OAuth2 provider
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientId":
+            suggest = "client_id"
+        elif key == "clientSecret":
+            suggest = "client_secret"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OAuth2CredentialProviderLinkedinOauth2ProviderConfigInput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OAuth2CredentialProviderLinkedinOauth2ProviderConfigInput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OAuth2CredentialProviderLinkedinOauth2ProviderConfigInput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 client_id: _builtins.str,
+                 client_secret: _builtins.str):
+        """
+        Input configuration for a LinkedIn OAuth2 provider
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "client_secret", client_secret)
+
+    @_builtins.property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> _builtins.str:
+        return pulumi.get(self, "client_id")
+
+    @_builtins.property
+    @pulumi.getter(name="clientSecret")
+    def client_secret(self) -> _builtins.str:
+        return pulumi.get(self, "client_secret")
+
+
+@pulumi.output_type
+class OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInput(dict):
+    """
+    Input configuration for a Microsoft OAuth2 provider
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientId":
+            suggest = "client_id"
+        elif key == "clientSecret":
+            suggest = "client_secret"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 client_id: _builtins.str,
+                 client_secret: _builtins.str,
+                 tenant_id: Optional[_builtins.str] = None):
+        """
+        Input configuration for a Microsoft OAuth2 provider
+
+        :param _builtins.str tenant_id: The Microsoft Entra ID tenant ID
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "client_secret", client_secret)
+        if tenant_id is not None:
+            pulumi.set(__self__, "tenant_id", tenant_id)
+
+    @_builtins.property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> _builtins.str:
+        return pulumi.get(self, "client_id")
+
+    @_builtins.property
+    @pulumi.getter(name="clientSecret")
+    def client_secret(self) -> _builtins.str:
+        return pulumi.get(self, "client_secret")
+
+    @_builtins.property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> Optional[_builtins.str]:
+        """
+        The Microsoft Entra ID tenant ID
+        """
+        return pulumi.get(self, "tenant_id")
+
+
+@pulumi.output_type
+class OAuth2CredentialProviderOauth2AuthorizationServerMetadata(dict):
+    """
+    Authorization server metadata for the OAuth2 provider
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authorizationEndpoint":
+            suggest = "authorization_endpoint"
+        elif key == "tokenEndpoint":
+            suggest = "token_endpoint"
+        elif key == "responseTypes":
+            suggest = "response_types"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OAuth2CredentialProviderOauth2AuthorizationServerMetadata. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OAuth2CredentialProviderOauth2AuthorizationServerMetadata.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OAuth2CredentialProviderOauth2AuthorizationServerMetadata.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 authorization_endpoint: _builtins.str,
+                 issuer: _builtins.str,
+                 token_endpoint: _builtins.str,
+                 response_types: Optional[Sequence[_builtins.str]] = None):
+        """
+        Authorization server metadata for the OAuth2 provider
+
+        :param _builtins.str authorization_endpoint: The authorization endpoint URL
+        :param _builtins.str issuer: The issuer URL for the OAuth2 authorization server
+        :param _builtins.str token_endpoint: The token endpoint URL
+        :param Sequence[_builtins.str] response_types: The supported response types
+        """
+        pulumi.set(__self__, "authorization_endpoint", authorization_endpoint)
+        pulumi.set(__self__, "issuer", issuer)
+        pulumi.set(__self__, "token_endpoint", token_endpoint)
+        if response_types is not None:
+            pulumi.set(__self__, "response_types", response_types)
+
+    @_builtins.property
+    @pulumi.getter(name="authorizationEndpoint")
+    def authorization_endpoint(self) -> _builtins.str:
+        """
+        The authorization endpoint URL
+        """
+        return pulumi.get(self, "authorization_endpoint")
+
+    @_builtins.property
+    @pulumi.getter
+    def issuer(self) -> _builtins.str:
+        """
+        The issuer URL for the OAuth2 authorization server
+        """
+        return pulumi.get(self, "issuer")
+
+    @_builtins.property
+    @pulumi.getter(name="tokenEndpoint")
+    def token_endpoint(self) -> _builtins.str:
+        """
+        The token endpoint URL
+        """
+        return pulumi.get(self, "token_endpoint")
+
+    @_builtins.property
+    @pulumi.getter(name="responseTypes")
+    def response_types(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        The supported response types
+        """
+        return pulumi.get(self, "response_types")
+
+
+@pulumi.output_type
+class OAuth2CredentialProviderOauth2Discovery(dict):
+    """
+    Discovery information for an OAuth2 provider
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authorizationServerMetadata":
+            suggest = "authorization_server_metadata"
+        elif key == "discoveryUrl":
+            suggest = "discovery_url"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OAuth2CredentialProviderOauth2Discovery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OAuth2CredentialProviderOauth2Discovery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OAuth2CredentialProviderOauth2Discovery.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 authorization_server_metadata: Optional['outputs.OAuth2CredentialProviderOauth2AuthorizationServerMetadata'] = None,
+                 discovery_url: Optional[_builtins.str] = None):
+        """
+        Discovery information for an OAuth2 provider
+
+        :param _builtins.str discovery_url: The discovery URL for the OAuth2 provider
+        """
+        if authorization_server_metadata is not None:
+            pulumi.set(__self__, "authorization_server_metadata", authorization_server_metadata)
+        if discovery_url is not None:
+            pulumi.set(__self__, "discovery_url", discovery_url)
+
+    @_builtins.property
+    @pulumi.getter(name="authorizationServerMetadata")
+    def authorization_server_metadata(self) -> Optional['outputs.OAuth2CredentialProviderOauth2AuthorizationServerMetadata']:
+        return pulumi.get(self, "authorization_server_metadata")
+
+    @_builtins.property
+    @pulumi.getter(name="discoveryUrl")
+    def discovery_url(self) -> Optional[_builtins.str]:
+        """
+        The discovery URL for the OAuth2 provider
+        """
+        return pulumi.get(self, "discovery_url")
+
+
+@pulumi.output_type
+class OAuth2CredentialProviderOauth2ProviderConfigInput(dict):
+    """
+    Input configuration for an OAuth2 provider
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "atlassianOauth2ProviderConfig":
+            suggest = "atlassian_oauth2_provider_config"
+        elif key == "customOauth2ProviderConfig":
+            suggest = "custom_oauth2_provider_config"
+        elif key == "githubOauth2ProviderConfig":
+            suggest = "github_oauth2_provider_config"
+        elif key == "googleOauth2ProviderConfig":
+            suggest = "google_oauth2_provider_config"
+        elif key == "includedOauth2ProviderConfig":
+            suggest = "included_oauth2_provider_config"
+        elif key == "linkedinOauth2ProviderConfig":
+            suggest = "linkedin_oauth2_provider_config"
+        elif key == "microsoftOauth2ProviderConfig":
+            suggest = "microsoft_oauth2_provider_config"
+        elif key == "salesforceOauth2ProviderConfig":
+            suggest = "salesforce_oauth2_provider_config"
+        elif key == "slackOauth2ProviderConfig":
+            suggest = "slack_oauth2_provider_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OAuth2CredentialProviderOauth2ProviderConfigInput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OAuth2CredentialProviderOauth2ProviderConfigInput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OAuth2CredentialProviderOauth2ProviderConfigInput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 atlassian_oauth2_provider_config: Optional['outputs.OAuth2CredentialProviderAtlassianOauth2ProviderConfigInput'] = None,
+                 custom_oauth2_provider_config: Optional['outputs.OAuth2CredentialProviderCustomOauth2ProviderConfigInput'] = None,
+                 github_oauth2_provider_config: Optional['outputs.OAuth2CredentialProviderGithubOauth2ProviderConfigInput'] = None,
+                 google_oauth2_provider_config: Optional['outputs.OAuth2CredentialProviderGoogleOauth2ProviderConfigInput'] = None,
+                 included_oauth2_provider_config: Optional['outputs.OAuth2CredentialProviderIncludedOauth2ProviderConfigInput'] = None,
+                 linkedin_oauth2_provider_config: Optional['outputs.OAuth2CredentialProviderLinkedinOauth2ProviderConfigInput'] = None,
+                 microsoft_oauth2_provider_config: Optional['outputs.OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInput'] = None,
+                 salesforce_oauth2_provider_config: Optional['outputs.OAuth2CredentialProviderSalesforceOauth2ProviderConfigInput'] = None,
+                 slack_oauth2_provider_config: Optional['outputs.OAuth2CredentialProviderSlackOauth2ProviderConfigInput'] = None):
+        """
+        Input configuration for an OAuth2 provider
+        """
+        if atlassian_oauth2_provider_config is not None:
+            pulumi.set(__self__, "atlassian_oauth2_provider_config", atlassian_oauth2_provider_config)
+        if custom_oauth2_provider_config is not None:
+            pulumi.set(__self__, "custom_oauth2_provider_config", custom_oauth2_provider_config)
+        if github_oauth2_provider_config is not None:
+            pulumi.set(__self__, "github_oauth2_provider_config", github_oauth2_provider_config)
+        if google_oauth2_provider_config is not None:
+            pulumi.set(__self__, "google_oauth2_provider_config", google_oauth2_provider_config)
+        if included_oauth2_provider_config is not None:
+            pulumi.set(__self__, "included_oauth2_provider_config", included_oauth2_provider_config)
+        if linkedin_oauth2_provider_config is not None:
+            pulumi.set(__self__, "linkedin_oauth2_provider_config", linkedin_oauth2_provider_config)
+        if microsoft_oauth2_provider_config is not None:
+            pulumi.set(__self__, "microsoft_oauth2_provider_config", microsoft_oauth2_provider_config)
+        if salesforce_oauth2_provider_config is not None:
+            pulumi.set(__self__, "salesforce_oauth2_provider_config", salesforce_oauth2_provider_config)
+        if slack_oauth2_provider_config is not None:
+            pulumi.set(__self__, "slack_oauth2_provider_config", slack_oauth2_provider_config)
+
+    @_builtins.property
+    @pulumi.getter(name="atlassianOauth2ProviderConfig")
+    def atlassian_oauth2_provider_config(self) -> Optional['outputs.OAuth2CredentialProviderAtlassianOauth2ProviderConfigInput']:
+        return pulumi.get(self, "atlassian_oauth2_provider_config")
+
+    @_builtins.property
+    @pulumi.getter(name="customOauth2ProviderConfig")
+    def custom_oauth2_provider_config(self) -> Optional['outputs.OAuth2CredentialProviderCustomOauth2ProviderConfigInput']:
+        return pulumi.get(self, "custom_oauth2_provider_config")
+
+    @_builtins.property
+    @pulumi.getter(name="githubOauth2ProviderConfig")
+    def github_oauth2_provider_config(self) -> Optional['outputs.OAuth2CredentialProviderGithubOauth2ProviderConfigInput']:
+        return pulumi.get(self, "github_oauth2_provider_config")
+
+    @_builtins.property
+    @pulumi.getter(name="googleOauth2ProviderConfig")
+    def google_oauth2_provider_config(self) -> Optional['outputs.OAuth2CredentialProviderGoogleOauth2ProviderConfigInput']:
+        return pulumi.get(self, "google_oauth2_provider_config")
+
+    @_builtins.property
+    @pulumi.getter(name="includedOauth2ProviderConfig")
+    def included_oauth2_provider_config(self) -> Optional['outputs.OAuth2CredentialProviderIncludedOauth2ProviderConfigInput']:
+        return pulumi.get(self, "included_oauth2_provider_config")
+
+    @_builtins.property
+    @pulumi.getter(name="linkedinOauth2ProviderConfig")
+    def linkedin_oauth2_provider_config(self) -> Optional['outputs.OAuth2CredentialProviderLinkedinOauth2ProviderConfigInput']:
+        return pulumi.get(self, "linkedin_oauth2_provider_config")
+
+    @_builtins.property
+    @pulumi.getter(name="microsoftOauth2ProviderConfig")
+    def microsoft_oauth2_provider_config(self) -> Optional['outputs.OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInput']:
+        return pulumi.get(self, "microsoft_oauth2_provider_config")
+
+    @_builtins.property
+    @pulumi.getter(name="salesforceOauth2ProviderConfig")
+    def salesforce_oauth2_provider_config(self) -> Optional['outputs.OAuth2CredentialProviderSalesforceOauth2ProviderConfigInput']:
+        return pulumi.get(self, "salesforce_oauth2_provider_config")
+
+    @_builtins.property
+    @pulumi.getter(name="slackOauth2ProviderConfig")
+    def slack_oauth2_provider_config(self) -> Optional['outputs.OAuth2CredentialProviderSlackOauth2ProviderConfigInput']:
+        return pulumi.get(self, "slack_oauth2_provider_config")
+
+
+@pulumi.output_type
+class OAuth2CredentialProviderOauth2ProviderConfigOutput(dict):
+    """
+    Output configuration for an OAuth2 provider
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientId":
+            suggest = "client_id"
+        elif key == "oauthDiscovery":
+            suggest = "oauth_discovery"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OAuth2CredentialProviderOauth2ProviderConfigOutput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OAuth2CredentialProviderOauth2ProviderConfigOutput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OAuth2CredentialProviderOauth2ProviderConfigOutput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 client_id: Optional[_builtins.str] = None,
+                 oauth_discovery: Optional['outputs.OAuth2CredentialProviderOauth2Discovery'] = None):
+        """
+        Output configuration for an OAuth2 provider
+        """
+        if client_id is not None:
+            pulumi.set(__self__, "client_id", client_id)
+        if oauth_discovery is not None:
+            pulumi.set(__self__, "oauth_discovery", oauth_discovery)
+
+    @_builtins.property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "client_id")
+
+    @_builtins.property
+    @pulumi.getter(name="oauthDiscovery")
+    def oauth_discovery(self) -> Optional['outputs.OAuth2CredentialProviderOauth2Discovery']:
+        return pulumi.get(self, "oauth_discovery")
+
+
+@pulumi.output_type
+class OAuth2CredentialProviderSalesforceOauth2ProviderConfigInput(dict):
+    """
+    Input configuration for a Salesforce OAuth2 provider
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientId":
+            suggest = "client_id"
+        elif key == "clientSecret":
+            suggest = "client_secret"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OAuth2CredentialProviderSalesforceOauth2ProviderConfigInput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OAuth2CredentialProviderSalesforceOauth2ProviderConfigInput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OAuth2CredentialProviderSalesforceOauth2ProviderConfigInput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 client_id: _builtins.str,
+                 client_secret: _builtins.str):
+        """
+        Input configuration for a Salesforce OAuth2 provider
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "client_secret", client_secret)
+
+    @_builtins.property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> _builtins.str:
+        return pulumi.get(self, "client_id")
+
+    @_builtins.property
+    @pulumi.getter(name="clientSecret")
+    def client_secret(self) -> _builtins.str:
+        return pulumi.get(self, "client_secret")
+
+
+@pulumi.output_type
+class OAuth2CredentialProviderSlackOauth2ProviderConfigInput(dict):
+    """
+    Input configuration for a Slack OAuth2 provider
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientId":
+            suggest = "client_id"
+        elif key == "clientSecret":
+            suggest = "client_secret"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OAuth2CredentialProviderSlackOauth2ProviderConfigInput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OAuth2CredentialProviderSlackOauth2ProviderConfigInput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OAuth2CredentialProviderSlackOauth2ProviderConfigInput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 client_id: _builtins.str,
+                 client_secret: _builtins.str):
+        """
+        Input configuration for a Slack OAuth2 provider
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "client_secret", client_secret)
+
+    @_builtins.property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> _builtins.str:
+        return pulumi.get(self, "client_id")
+
+    @_builtins.property
+    @pulumi.getter(name="clientSecret")
+    def client_secret(self) -> _builtins.str:
+        return pulumi.get(self, "client_secret")
 
 
 @pulumi.output_type
@@ -4484,6 +5530,42 @@ class RuntimeCustomJwtAuthorizerConfiguration(dict):
 
 
 @pulumi.output_type
+class RuntimeFilesystemConfiguration(dict):
+    """
+    Filesystem configuration for the runtime
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sessionStorage":
+            suggest = "session_storage"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuntimeFilesystemConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuntimeFilesystemConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuntimeFilesystemConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 session_storage: Optional['outputs.RuntimeSessionStorageConfiguration'] = None):
+        """
+        Filesystem configuration for the runtime
+        """
+        if session_storage is not None:
+            pulumi.set(__self__, "session_storage", session_storage)
+
+    @_builtins.property
+    @pulumi.getter(name="sessionStorage")
+    def session_storage(self) -> Optional['outputs.RuntimeSessionStorageConfiguration']:
+        return pulumi.get(self, "session_storage")
+
+
+@pulumi.output_type
 class RuntimeLifecycleConfiguration(dict):
     """
     Configuration for managing the lifecycle of runtime sessions and resources
@@ -4680,6 +5762,41 @@ class RuntimeS3Location(dict):
         S3 object version ID
         """
         return pulumi.get(self, "version_id")
+
+
+@pulumi.output_type
+class RuntimeSessionStorageConfiguration(dict):
+    """
+    Configuration for session storage
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "mountPath":
+            suggest = "mount_path"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuntimeSessionStorageConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuntimeSessionStorageConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuntimeSessionStorageConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 mount_path: _builtins.str):
+        """
+        Configuration for session storage
+        """
+        pulumi.set(__self__, "mount_path", mount_path)
+
+    @_builtins.property
+    @pulumi.getter(name="mountPath")
+    def mount_path(self) -> _builtins.str:
+        return pulumi.get(self, "mount_path")
 
 
 @pulumi.output_type

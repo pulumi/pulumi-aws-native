@@ -21,6 +21,8 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "aws-native:bedrockagentcore:ApiKeyCredentialProvider":
+		r = &ApiKeyCredentialProvider{}
 	case "aws-native:bedrockagentcore:BrowserCustom":
 		r = &BrowserCustom{}
 	case "aws-native:bedrockagentcore:BrowserProfile":
@@ -35,6 +37,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &GatewayTarget{}
 	case "aws-native:bedrockagentcore:Memory":
 		r = &Memory{}
+	case "aws-native:bedrockagentcore:OAuth2CredentialProvider":
+		r = &OAuth2CredentialProvider{}
 	case "aws-native:bedrockagentcore:OnlineEvaluationConfig":
 		r = &OnlineEvaluationConfig{}
 	case "aws-native:bedrockagentcore:Policy":

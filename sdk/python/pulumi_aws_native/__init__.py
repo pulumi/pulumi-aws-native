@@ -197,6 +197,8 @@ if typing.TYPE_CHECKING:
     elasticache = __elasticache
     import pulumi_aws_native.elasticbeanstalk as __elasticbeanstalk
     elasticbeanstalk = __elasticbeanstalk
+    import pulumi_aws_native.elasticloadbalancing as __elasticloadbalancing
+    elasticloadbalancing = __elasticloadbalancing
     import pulumi_aws_native.elasticloadbalancingv2 as __elasticloadbalancingv2
     elasticloadbalancingv2 = __elasticloadbalancingv2
     import pulumi_aws_native.elementalinference as __elementalinference
@@ -449,6 +451,8 @@ if typing.TYPE_CHECKING:
     scheduler = __scheduler
     import pulumi_aws_native.secretsmanager as __secretsmanager
     secretsmanager = __secretsmanager
+    import pulumi_aws_native.securityagent as __securityagent
+    securityagent = __securityagent
     import pulumi_aws_native.securityhub as __securityhub
     securityhub = __securityhub
     import pulumi_aws_native.securitylake as __securitylake
@@ -605,6 +609,7 @@ else:
     eks = _utilities.lazy_import('pulumi_aws_native.eks')
     elasticache = _utilities.lazy_import('pulumi_aws_native.elasticache')
     elasticbeanstalk = _utilities.lazy_import('pulumi_aws_native.elasticbeanstalk')
+    elasticloadbalancing = _utilities.lazy_import('pulumi_aws_native.elasticloadbalancing')
     elasticloadbalancingv2 = _utilities.lazy_import('pulumi_aws_native.elasticloadbalancingv2')
     elementalinference = _utilities.lazy_import('pulumi_aws_native.elementalinference')
     emr = _utilities.lazy_import('pulumi_aws_native.emr')
@@ -731,6 +736,7 @@ else:
     sagemaker = _utilities.lazy_import('pulumi_aws_native.sagemaker')
     scheduler = _utilities.lazy_import('pulumi_aws_native.scheduler')
     secretsmanager = _utilities.lazy_import('pulumi_aws_native.secretsmanager')
+    securityagent = _utilities.lazy_import('pulumi_aws_native.securityagent')
     securityhub = _utilities.lazy_import('pulumi_aws_native.securityhub')
     securitylake = _utilities.lazy_import('pulumi_aws_native.securitylake')
     servicecatalog = _utilities.lazy_import('pulumi_aws_native.servicecatalog')
@@ -870,6 +876,7 @@ _utilities.register(
    "aws-native:apigatewayv2:Route": "Route",
    "aws-native:apigatewayv2:RouteResponse": "RouteResponse",
    "aws-native:apigatewayv2:RoutingRule": "RoutingRule",
+   "aws-native:apigatewayv2:Stage": "Stage",
    "aws-native:apigatewayv2:VpcLink": "VpcLink"
   }
  },
@@ -1127,6 +1134,7 @@ _utilities.register(
   "mod": "bedrockagentcore",
   "fqn": "pulumi_aws_native.bedrockagentcore",
   "classes": {
+   "aws-native:bedrockagentcore:ApiKeyCredentialProvider": "ApiKeyCredentialProvider",
    "aws-native:bedrockagentcore:BrowserCustom": "BrowserCustom",
    "aws-native:bedrockagentcore:BrowserProfile": "BrowserProfile",
    "aws-native:bedrockagentcore:CodeInterpreterCustom": "CodeInterpreterCustom",
@@ -1134,6 +1142,7 @@ _utilities.register(
    "aws-native:bedrockagentcore:Gateway": "Gateway",
    "aws-native:bedrockagentcore:GatewayTarget": "GatewayTarget",
    "aws-native:bedrockagentcore:Memory": "Memory",
+   "aws-native:bedrockagentcore:OAuth2CredentialProvider": "OAuth2CredentialProvider",
    "aws-native:bedrockagentcore:OnlineEvaluationConfig": "OnlineEvaluationConfig",
    "aws-native:bedrockagentcore:Policy": "Policy",
    "aws-native:bedrockagentcore:PolicyEngine": "PolicyEngine",
@@ -1865,6 +1874,8 @@ _utilities.register(
    "aws-native:ecs:CapacityProvider": "CapacityProvider",
    "aws-native:ecs:Cluster": "Cluster",
    "aws-native:ecs:ClusterCapacityProviderAssociations": "ClusterCapacityProviderAssociations",
+   "aws-native:ecs:Daemon": "Daemon",
+   "aws-native:ecs:DaemonTaskDefinition": "DaemonTaskDefinition",
    "aws-native:ecs:ExpressGatewayService": "ExpressGatewayService",
    "aws-native:ecs:PrimaryTaskSet": "PrimaryTaskSet",
    "aws-native:ecs:Service": "Service",
@@ -1920,6 +1931,14 @@ _utilities.register(
    "aws-native:elasticbeanstalk:ApplicationVersion": "ApplicationVersion",
    "aws-native:elasticbeanstalk:ConfigurationTemplate": "ConfigurationTemplate",
    "aws-native:elasticbeanstalk:Environment": "Environment"
+  }
+ },
+ {
+  "pkg": "aws-native",
+  "mod": "elasticloadbalancing",
+  "fqn": "pulumi_aws_native.elasticloadbalancing",
+  "classes": {
+   "aws-native:elasticloadbalancing:LoadBalancer": "LoadBalancer"
   }
  },
  {
@@ -3385,6 +3404,7 @@ _utilities.register(
    "aws-native:sagemaker:InferenceComponent": "InferenceComponent",
    "aws-native:sagemaker:InferenceExperiment": "InferenceExperiment",
    "aws-native:sagemaker:MlflowTrackingServer": "MlflowTrackingServer",
+   "aws-native:sagemaker:Model": "Model",
    "aws-native:sagemaker:ModelBiasJobDefinition": "ModelBiasJobDefinition",
    "aws-native:sagemaker:ModelCard": "ModelCard",
    "aws-native:sagemaker:ModelExplainabilityJobDefinition": "ModelExplainabilityJobDefinition",
@@ -3419,6 +3439,17 @@ _utilities.register(
    "aws-native:secretsmanager:RotationSchedule": "RotationSchedule",
    "aws-native:secretsmanager:Secret": "Secret",
    "aws-native:secretsmanager:SecretTargetAttachment": "SecretTargetAttachment"
+  }
+ },
+ {
+  "pkg": "aws-native",
+  "mod": "securityagent",
+  "fqn": "pulumi_aws_native.securityagent",
+  "classes": {
+   "aws-native:securityagent:AgentSpace": "AgentSpace",
+   "aws-native:securityagent:Application": "Application",
+   "aws-native:securityagent:Pentest": "Pentest",
+   "aws-native:securityagent:TargetDomain": "TargetDomain"
   }
  },
  {

@@ -19,6 +19,7 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Outputs
         public readonly string? CreatedAt;
         public readonly string? Description;
         public readonly string Name;
+        public readonly ImmutableArray<string> NamespaceTemplates;
         public readonly ImmutableArray<string> Namespaces;
         /// <summary>
         /// Status of the memory strategy
@@ -45,6 +46,8 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Outputs
 
             string name,
 
+            ImmutableArray<string> namespaceTemplates,
+
             ImmutableArray<string> namespaces,
 
             Pulumi.AwsNative.BedrockAgentCore.MemorySemanticMemoryStrategyStatus? status,
@@ -58,6 +61,7 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Outputs
             CreatedAt = createdAt;
             Description = description;
             Name = name;
+            NamespaceTemplates = namespaceTemplates;
             Namespaces = namespaces;
             Status = status;
             StrategyId = strategyId;

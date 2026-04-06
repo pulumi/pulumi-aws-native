@@ -15,8 +15,8 @@ namespace Pulumi.AwsNative.AppSync.Inputs
         /// <summary>
         /// The service role that AWS AppSync will assume to publish to Amazon CloudWatch Logs in your account.
         /// </summary>
-        [Input("cloudWatchLogsRoleArn")]
-        public Input<string>? CloudWatchLogsRoleArn { get; set; }
+        [Input("cloudWatchLogsRoleArn", required: true)]
+        public Input<string> CloudWatchLogsRoleArn { get; set; } = null!;
 
         /// <summary>
         /// Set to TRUE to exclude sections that contain information such as headers, context, and evaluated mapping templates, regardless of logging level.
@@ -27,8 +27,8 @@ namespace Pulumi.AwsNative.AppSync.Inputs
         /// <summary>
         /// The field logging level. Values can be NONE, ERROR, INFO, DEBUG, or ALL.
         /// </summary>
-        [Input("fieldLogLevel")]
-        public Input<string>? FieldLogLevel { get; set; }
+        [Input("fieldLogLevel", required: true)]
+        public Input<string> FieldLogLevel { get; set; } = null!;
 
         public GraphQlApiLogConfigArgs()
         {

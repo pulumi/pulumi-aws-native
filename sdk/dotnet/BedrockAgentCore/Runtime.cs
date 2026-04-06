@@ -76,6 +76,12 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         public Output<string> FailureReason { get; private set; } = null!;
 
         /// <summary>
+        /// Filesystem configurations for the agent runtime
+        /// </summary>
+        [Output("filesystemConfigurations")]
+        public Output<ImmutableArray<Outputs.RuntimeFilesystemConfiguration>> FilesystemConfigurations { get; private set; } = null!;
+
+        /// <summary>
         /// When resource was last updated
         /// </summary>
         [Output("lastUpdatedAt")]
@@ -212,6 +218,18 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         {
             get => _environmentVariables ?? (_environmentVariables = new InputMap<string>());
             set => _environmentVariables = value;
+        }
+
+        [Input("filesystemConfigurations")]
+        private InputList<Inputs.RuntimeFilesystemConfigurationArgs>? _filesystemConfigurations;
+
+        /// <summary>
+        /// Filesystem configurations for the agent runtime
+        /// </summary>
+        public InputList<Inputs.RuntimeFilesystemConfigurationArgs> FilesystemConfigurations
+        {
+            get => _filesystemConfigurations ?? (_filesystemConfigurations = new InputList<Inputs.RuntimeFilesystemConfigurationArgs>());
+            set => _filesystemConfigurations = value;
         }
 
         /// <summary>

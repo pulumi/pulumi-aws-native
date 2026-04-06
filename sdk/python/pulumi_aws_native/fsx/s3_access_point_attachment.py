@@ -177,6 +177,7 @@ class S3AccessPointAttachment(pulumi.CustomResource):
             if type is None and not opts.urn:
                 raise TypeError("Missing required property 'type'")
             __props__.__dict__["type"] = type
+            __props__.__dict__["lifecycle"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name", "ontapConfiguration", "openZfsConfiguration", "s3AccessPoint", "type"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(S3AccessPointAttachment, __self__).__init__(
@@ -201,12 +202,21 @@ class S3AccessPointAttachment(pulumi.CustomResource):
 
         __props__ = S3AccessPointAttachmentArgs.__new__(S3AccessPointAttachmentArgs)
 
+        __props__.__dict__["lifecycle"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["ontap_configuration"] = None
         __props__.__dict__["open_zfs_configuration"] = None
         __props__.__dict__["s3_access_point"] = None
         __props__.__dict__["type"] = None
         return S3AccessPointAttachment(resource_name, opts=opts, __props__=__props__)
+
+    @_builtins.property
+    @pulumi.getter
+    def lifecycle(self) -> pulumi.Output['S3AccessPointAttachmentLifecycle']:
+        """
+        The lifecycle status of the S3 access point attachment.
+        """
+        return pulumi.get(self, "lifecycle")
 
     @_builtins.property
     @pulumi.getter

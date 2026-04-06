@@ -68,6 +68,7 @@ namespace Pulumi.AwsNative.S3Tables
         /// </summary>
         public readonly Outputs.TableBucketEncryptionConfiguration? EncryptionConfiguration;
         public readonly Outputs.TableBucketMetricsConfiguration? MetricsConfiguration;
+        public readonly Outputs.TableBucketReplicationConfiguration? ReplicationConfiguration;
         /// <summary>
         /// The configuration details for the storage class of tables or table buckets. This allows you to optimize storage costs by selecting the appropriate storage class based on your access patterns and performance requirements.
         /// </summary>
@@ -91,6 +92,8 @@ namespace Pulumi.AwsNative.S3Tables
 
             Outputs.TableBucketMetricsConfiguration? metricsConfiguration,
 
+            Outputs.TableBucketReplicationConfiguration? replicationConfiguration,
+
             Outputs.TableBucketStorageClassConfiguration? storageClassConfiguration,
 
             string? tableBucketArn,
@@ -101,6 +104,7 @@ namespace Pulumi.AwsNative.S3Tables
         {
             EncryptionConfiguration = encryptionConfiguration;
             MetricsConfiguration = metricsConfiguration;
+            ReplicationConfiguration = replicationConfiguration;
             StorageClassConfiguration = storageClassConfiguration;
             TableBucketArn = tableBucketArn;
             Tags = tags;

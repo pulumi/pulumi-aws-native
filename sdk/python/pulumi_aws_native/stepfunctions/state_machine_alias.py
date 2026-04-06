@@ -25,7 +25,8 @@ class StateMachineAliasArgs:
                  deployment_preference: Optional[pulumi.Input['StateMachineAliasDeploymentPreferenceArgs']] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
-                 routing_configuration: Optional[pulumi.Input[Sequence[pulumi.Input['StateMachineAliasRoutingConfigurationVersionArgs']]]] = None):
+                 routing_configuration: Optional[pulumi.Input[Sequence[pulumi.Input['StateMachineAliasRoutingConfigurationVersionArgs']]]] = None,
+                 state_machine_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a StateMachineAlias resource.
 
@@ -60,6 +61,8 @@ class StateMachineAliasArgs:
             pulumi.set(__self__, "name", name)
         if routing_configuration is not None:
             pulumi.set(__self__, "routing_configuration", routing_configuration)
+        if state_machine_arn is not None:
+            pulumi.set(__self__, "state_machine_arn", state_machine_arn)
 
     @_builtins.property
     @pulumi.getter(name="deploymentPreference")
@@ -127,6 +130,15 @@ class StateMachineAliasArgs:
     def routing_configuration(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['StateMachineAliasRoutingConfigurationVersionArgs']]]]):
         pulumi.set(self, "routing_configuration", value)
 
+    @_builtins.property
+    @pulumi.getter(name="stateMachineArn")
+    def state_machine_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "state_machine_arn")
+
+    @state_machine_arn.setter
+    def state_machine_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "state_machine_arn", value)
+
 
 @pulumi.type_token("aws-native:stepfunctions:StateMachineAlias")
 class StateMachineAlias(pulumi.CustomResource):
@@ -138,6 +150,7 @@ class StateMachineAlias(pulumi.CustomResource):
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  routing_configuration: Optional[pulumi.Input[Sequence[pulumi.Input[Union['StateMachineAliasRoutingConfigurationVersionArgs', 'StateMachineAliasRoutingConfigurationVersionArgsDict']]]]] = None,
+                 state_machine_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
         Resource schema for StateMachineAlias
@@ -197,6 +210,7 @@ class StateMachineAlias(pulumi.CustomResource):
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  routing_configuration: Optional[pulumi.Input[Sequence[pulumi.Input[Union['StateMachineAliasRoutingConfigurationVersionArgs', 'StateMachineAliasRoutingConfigurationVersionArgsDict']]]]] = None,
+                 state_machine_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -210,6 +224,7 @@ class StateMachineAlias(pulumi.CustomResource):
             __props__.__dict__["description"] = description
             __props__.__dict__["name"] = name
             __props__.__dict__["routing_configuration"] = routing_configuration
+            __props__.__dict__["state_machine_arn"] = state_machine_arn
             __props__.__dict__["arn"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
@@ -240,6 +255,7 @@ class StateMachineAlias(pulumi.CustomResource):
         __props__.__dict__["description"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["routing_configuration"] = None
+        __props__.__dict__["state_machine_arn"] = None
         return StateMachineAlias(resource_name, opts=opts, __props__=__props__)
 
     @_builtins.property
@@ -299,4 +315,9 @@ class StateMachineAlias(pulumi.CustomResource):
         > `RoutingConfiguration` and `DeploymentPreference` are mutually exclusive properties. You must define only one of these properties.
         """
         return pulumi.get(self, "routing_configuration")
+
+    @_builtins.property
+    @pulumi.getter(name="stateMachineArn")
+    def state_machine_arn(self) -> pulumi.Output[Optional[_builtins.str]]:
+        return pulumi.get(self, "state_machine_arn")
 

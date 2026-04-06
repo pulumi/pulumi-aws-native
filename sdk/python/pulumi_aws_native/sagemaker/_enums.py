@@ -72,11 +72,15 @@ __all__ = [
     'ModelCardRiskRating',
     'ModelCardSimpleMetricType',
     'ModelCardStatus',
+    'ModelContainerDefinitionMode',
     'ModelExplainabilityJobDefinitionBatchTransformInputS3DataDistributionType',
     'ModelExplainabilityJobDefinitionBatchTransformInputS3InputMode',
     'ModelExplainabilityJobDefinitionEndpointInputS3DataDistributionType',
     'ModelExplainabilityJobDefinitionEndpointInputS3InputMode',
     'ModelExplainabilityJobDefinitionS3OutputS3UploadMode',
+    'ModelImageConfigRepositoryAccessMode',
+    'ModelInferenceExecutionConfigMode',
+    'ModelMultiModelConfigModelCacheSetting',
     'ModelPackageGroupStatus',
     'ModelPackageModelApprovalStatus',
     'ModelPackageModelCardModelCardStatus',
@@ -96,6 +100,8 @@ __all__ = [
     'ModelQualityJobDefinitionEndpointInputS3InputMode',
     'ModelQualityJobDefinitionProblemType',
     'ModelQualityJobDefinitionS3OutputS3UploadMode',
+    'ModelS3DataSourceCompressionType',
+    'ModelS3DataSourceS3DataType',
     'MonitoringScheduleBatchTransformInputS3DataDistributionType',
     'MonitoringScheduleBatchTransformInputS3InputMode',
     'MonitoringScheduleEndpointInputS3DataDistributionType',
@@ -1085,6 +1091,15 @@ class ModelCardStatus(_builtins.str, Enum):
     ARCHIVED = "Archived"
 
 
+@pulumi.type_token("aws-native:sagemaker:ModelContainerDefinitionMode")
+class ModelContainerDefinitionMode(_builtins.str, Enum):
+    """
+    Whether the container hosts a single model or multiple models.
+    """
+    SINGLE_MODEL = "SingleModel"
+    MULTI_MODEL = "MultiModel"
+
+
 @pulumi.type_token("aws-native:sagemaker:ModelExplainabilityJobDefinitionBatchTransformInputS3DataDistributionType")
 class ModelExplainabilityJobDefinitionBatchTransformInputS3DataDistributionType(_builtins.str, Enum):
     """
@@ -1128,6 +1143,33 @@ class ModelExplainabilityJobDefinitionS3OutputS3UploadMode(_builtins.str, Enum):
     """
     CONTINUOUS = "Continuous"
     END_OF_JOB = "EndOfJob"
+
+
+@pulumi.type_token("aws-native:sagemaker:ModelImageConfigRepositoryAccessMode")
+class ModelImageConfigRepositoryAccessMode(_builtins.str, Enum):
+    """
+    Set this to one of the following values: Platform - The model image is hosted in Amazon ECR. Vpc - The model image is hosted in a private Docker registry in your VPC.
+    """
+    PLATFORM = "Platform"
+    VPC = "Vpc"
+
+
+@pulumi.type_token("aws-native:sagemaker:ModelInferenceExecutionConfigMode")
+class ModelInferenceExecutionConfigMode(_builtins.str, Enum):
+    """
+    How containers in a multi-container are run.
+    """
+    SERIAL = "Serial"
+    DIRECT = "Direct"
+
+
+@pulumi.type_token("aws-native:sagemaker:ModelMultiModelConfigModelCacheSetting")
+class ModelMultiModelConfigModelCacheSetting(_builtins.str, Enum):
+    """
+    Whether to cache models for a multi-model endpoint. By default, multi-model endpoints cache models so that a model does not have to be loaded into memory each time it is invoked. Some use cases do not benefit from model caching. For example, if an endpoint hosts a large number of models that are each invoked infrequently, the endpoint might perform better if you disable model caching. To disable model caching, set the value of this parameter to `Disabled`.
+    """
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
 
 
 @pulumi.type_token("aws-native:sagemaker:ModelPackageGroupStatus")
@@ -1315,6 +1357,24 @@ class ModelQualityJobDefinitionS3OutputS3UploadMode(_builtins.str, Enum):
     """
     CONTINUOUS = "Continuous"
     END_OF_JOB = "EndOfJob"
+
+
+@pulumi.type_token("aws-native:sagemaker:ModelS3DataSourceCompressionType")
+class ModelS3DataSourceCompressionType(_builtins.str, Enum):
+    """
+    Specifies how the ML model data is prepared.
+    """
+    NONE = "None"
+    GZIP = "Gzip"
+
+
+@pulumi.type_token("aws-native:sagemaker:ModelS3DataSourceS3DataType")
+class ModelS3DataSourceS3DataType(_builtins.str, Enum):
+    """
+    Specifies the type of ML model data to deploy.
+    """
+    S3_PREFIX = "S3Prefix"
+    S3_OBJECT = "S3Object"
 
 
 @pulumi.type_token("aws-native:sagemaker:MonitoringScheduleBatchTransformInputS3DataDistributionType")

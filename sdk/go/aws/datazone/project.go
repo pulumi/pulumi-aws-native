@@ -42,6 +42,8 @@ type Project struct {
 	ProjectProfileVersion pulumi.StringPtrOutput `pulumi:"projectProfileVersion"`
 	// The status of the project.
 	ProjectStatus ProjectStatusOutput `pulumi:"projectStatus"`
+	// The resource tags of the project.
+	ResourceTags ProjectResourceTagArrayOutput `pulumi:"resourceTags"`
 	// The user parameters of the project.
 	UserParameters ProjectEnvironmentConfigurationUserParameterArrayOutput `pulumi:"userParameters"`
 }
@@ -108,6 +110,8 @@ type projectArgs struct {
 	ProjectProfileId *string `pulumi:"projectProfileId"`
 	// The project profile version to which the project should be updated. You can only specify the following string for this parameter: latest.
 	ProjectProfileVersion *string `pulumi:"projectProfileVersion"`
+	// The resource tags of the project.
+	ResourceTags []ProjectResourceTag `pulumi:"resourceTags"`
 	// The user parameters of the project.
 	UserParameters []ProjectEnvironmentConfigurationUserParameter `pulumi:"userParameters"`
 }
@@ -128,6 +132,8 @@ type ProjectArgs struct {
 	ProjectProfileId pulumi.StringPtrInput
 	// The project profile version to which the project should be updated. You can only specify the following string for this parameter: latest.
 	ProjectProfileVersion pulumi.StringPtrInput
+	// The resource tags of the project.
+	ResourceTags ProjectResourceTagArrayInput
 	// The user parameters of the project.
 	UserParameters ProjectEnvironmentConfigurationUserParameterArrayInput
 }
@@ -232,6 +238,11 @@ func (o ProjectOutput) ProjectProfileVersion() pulumi.StringPtrOutput {
 // The status of the project.
 func (o ProjectOutput) ProjectStatus() ProjectStatusOutput {
 	return o.ApplyT(func(v *Project) ProjectStatusOutput { return v.ProjectStatus }).(ProjectStatusOutput)
+}
+
+// The resource tags of the project.
+func (o ProjectOutput) ResourceTags() ProjectResourceTagArrayOutput {
+	return o.ApplyT(func(v *Project) ProjectResourceTagArrayOutput { return v.ResourceTags }).(ProjectResourceTagArrayOutput)
 }
 
 // The user parameters of the project.

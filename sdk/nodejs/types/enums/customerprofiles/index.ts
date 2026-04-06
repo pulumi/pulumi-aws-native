@@ -478,6 +478,27 @@ export const SegmentDefinitionRangeOverrideUnit = {
  */
 export type SegmentDefinitionRangeOverrideUnit = (typeof SegmentDefinitionRangeOverrideUnit)[keyof typeof SegmentDefinitionRangeOverrideUnit];
 
+export const SegmentDefinitionSegmentSortDataType = {
+    String: "STRING",
+    Number: "NUMBER",
+    Date: "DATE",
+} as const;
+
+/**
+ * The data type of the sort attribute (e.g., string, number, date).
+ */
+export type SegmentDefinitionSegmentSortDataType = (typeof SegmentDefinitionSegmentSortDataType)[keyof typeof SegmentDefinitionSegmentSortDataType];
+
+export const SegmentDefinitionSegmentSortOrder = {
+    Asc: "ASC",
+    Desc: "DESC",
+} as const;
+
+/**
+ * The sort order for the attribute (ascending or descending).
+ */
+export type SegmentDefinitionSegmentSortOrder = (typeof SegmentDefinitionSegmentSortOrder)[keyof typeof SegmentDefinitionSegmentSortOrder];
+
 export const SegmentDefinitionSegmentType = {
     Classic: "CLASSIC",
     Enhanced: "ENHANCED",
@@ -487,6 +508,16 @@ export const SegmentDefinitionSegmentType = {
  * The SQL query that defines the segment criteria.
  */
 export type SegmentDefinitionSegmentType = (typeof SegmentDefinitionSegmentType)[keyof typeof SegmentDefinitionSegmentType];
+
+export const SegmentDefinitionSortAttributeType = {
+    Profile: "PROFILE",
+    Calculated: "CALCULATED",
+} as const;
+
+/**
+ * The type of attribute (e.g., profile, calculated).
+ */
+export type SegmentDefinitionSortAttributeType = (typeof SegmentDefinitionSortAttributeType)[keyof typeof SegmentDefinitionSortAttributeType];
 
 export const SegmentDefinitionStringDimensionType = {
     Inclusive: "INCLUSIVE",

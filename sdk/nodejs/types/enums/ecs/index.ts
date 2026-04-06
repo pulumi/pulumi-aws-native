@@ -194,6 +194,20 @@ export const ClusterCapacityProviderAssociationsCapacityProvider0 = {
  */
 export type ClusterCapacityProviderAssociationsCapacityProvider0 = (typeof ClusterCapacityProviderAssociationsCapacityProvider0)[keyof typeof ClusterCapacityProviderAssociationsCapacityProvider0];
 
+export const DaemonPropagateTags = {
+    Daemon: "DAEMON",
+    None: "NONE",
+} as const;
+
+export type DaemonPropagateTags = (typeof DaemonPropagateTags)[keyof typeof DaemonPropagateTags];
+
+export const DaemonStatus = {
+    Active: "ACTIVE",
+    DeleteInProgress: "DELETE_IN_PROGRESS",
+} as const;
+
+export type DaemonStatus = (typeof DaemonStatus)[keyof typeof DaemonStatus];
+
 export const ExpressGatewayServiceAccessType = {
     Public: "PUBLIC",
     Private: "PRIVATE",

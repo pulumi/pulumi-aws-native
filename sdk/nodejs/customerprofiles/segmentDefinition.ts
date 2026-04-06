@@ -66,6 +66,10 @@ export class SegmentDefinition extends pulumi.CustomResource {
      */
     declare public readonly segmentGroups: pulumi.Output<outputs.customerprofiles.SegmentDefinitionSegmentGroup | undefined>;
     /**
+     * The segment sort configuration for ordering segment results.
+     */
+    declare public readonly segmentSort: pulumi.Output<outputs.customerprofiles.SegmentDefinitionSegmentSort | undefined>;
+    /**
      * The SQL query that defines the segment criteria.
      */
     declare public readonly segmentSqlQuery: pulumi.Output<string | undefined>;
@@ -100,6 +104,7 @@ export class SegmentDefinition extends pulumi.CustomResource {
             resourceInputs["domainName"] = args?.domainName;
             resourceInputs["segmentDefinitionName"] = args?.segmentDefinitionName;
             resourceInputs["segmentGroups"] = args?.segmentGroups;
+            resourceInputs["segmentSort"] = args?.segmentSort;
             resourceInputs["segmentSqlQuery"] = args?.segmentSqlQuery;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["createdAt"] = undefined /*out*/;
@@ -113,6 +118,7 @@ export class SegmentDefinition extends pulumi.CustomResource {
             resourceInputs["segmentDefinitionArn"] = undefined /*out*/;
             resourceInputs["segmentDefinitionName"] = undefined /*out*/;
             resourceInputs["segmentGroups"] = undefined /*out*/;
+            resourceInputs["segmentSort"] = undefined /*out*/;
             resourceInputs["segmentSqlQuery"] = undefined /*out*/;
             resourceInputs["segmentType"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
@@ -148,6 +154,10 @@ export interface SegmentDefinitionArgs {
      * An array that defines the set of segment criteria to evaluate when handling segment groups for the segment.
      */
     segmentGroups?: pulumi.Input<inputs.customerprofiles.SegmentDefinitionSegmentGroupArgs>;
+    /**
+     * The segment sort configuration for ordering segment results.
+     */
+    segmentSort?: pulumi.Input<inputs.customerprofiles.SegmentDefinitionSegmentSortArgs>;
     /**
      * The SQL query that defines the segment criteria.
      */

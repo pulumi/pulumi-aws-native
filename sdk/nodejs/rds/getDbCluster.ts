@@ -349,6 +349,7 @@ export interface GetDbClusterResult {
      *  Valid for: Aurora Serverless v2 DB clusters only
      */
     readonly serverlessV2ScalingConfiguration?: outputs.rds.DbClusterServerlessV2ScalingConfiguration;
+    readonly storageEncryptionType?: string;
     /**
      * The storage throughput for the DB cluster. The throughput is automatically set based on the IOPS that you provision, and is not configurable.
      *

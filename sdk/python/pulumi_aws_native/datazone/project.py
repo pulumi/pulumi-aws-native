@@ -29,6 +29,7 @@ class ProjectArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  project_profile_id: Optional[pulumi.Input[_builtins.str]] = None,
                  project_profile_version: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_tags: Optional[pulumi.Input[Sequence[pulumi.Input['ProjectResourceTagArgs']]]] = None,
                  user_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['ProjectEnvironmentConfigurationUserParameterArgs']]]] = None):
         """
         The set of arguments for constructing a Project resource.
@@ -40,6 +41,7 @@ class ProjectArgs:
         :param pulumi.Input[_builtins.str] name: The name of the Amazon DataZone project.
         :param pulumi.Input[_builtins.str] project_profile_id: The project profile ID.
         :param pulumi.Input[_builtins.str] project_profile_version: The project profile version to which the project should be updated. You can only specify the following string for this parameter: latest.
+        :param pulumi.Input[Sequence[pulumi.Input['ProjectResourceTagArgs']]] resource_tags: The resource tags of the project.
         :param pulumi.Input[Sequence[pulumi.Input['ProjectEnvironmentConfigurationUserParameterArgs']]] user_parameters: The user parameters of the project.
         """
         pulumi.set(__self__, "domain_identifier", domain_identifier)
@@ -55,6 +57,8 @@ class ProjectArgs:
             pulumi.set(__self__, "project_profile_id", project_profile_id)
         if project_profile_version is not None:
             pulumi.set(__self__, "project_profile_version", project_profile_version)
+        if resource_tags is not None:
+            pulumi.set(__self__, "resource_tags", resource_tags)
         if user_parameters is not None:
             pulumi.set(__self__, "user_parameters", user_parameters)
 
@@ -143,6 +147,18 @@ class ProjectArgs:
         pulumi.set(self, "project_profile_version", value)
 
     @_builtins.property
+    @pulumi.getter(name="resourceTags")
+    def resource_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ProjectResourceTagArgs']]]]:
+        """
+        The resource tags of the project.
+        """
+        return pulumi.get(self, "resource_tags")
+
+    @resource_tags.setter
+    def resource_tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ProjectResourceTagArgs']]]]):
+        pulumi.set(self, "resource_tags", value)
+
+    @_builtins.property
     @pulumi.getter(name="userParameters")
     def user_parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ProjectEnvironmentConfigurationUserParameterArgs']]]]:
         """
@@ -168,6 +184,7 @@ class Project(pulumi.CustomResource):
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  project_profile_id: Optional[pulumi.Input[_builtins.str]] = None,
                  project_profile_version: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProjectResourceTagArgs', 'ProjectResourceTagArgsDict']]]]] = None,
                  user_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProjectEnvironmentConfigurationUserParameterArgs', 'ProjectEnvironmentConfigurationUserParameterArgsDict']]]]] = None,
                  __props__=None):
         """
@@ -183,6 +200,7 @@ class Project(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] name: The name of the Amazon DataZone project.
         :param pulumi.Input[_builtins.str] project_profile_id: The project profile ID.
         :param pulumi.Input[_builtins.str] project_profile_version: The project profile version to which the project should be updated. You can only specify the following string for this parameter: latest.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ProjectResourceTagArgs', 'ProjectResourceTagArgsDict']]]] resource_tags: The resource tags of the project.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ProjectEnvironmentConfigurationUserParameterArgs', 'ProjectEnvironmentConfigurationUserParameterArgsDict']]]] user_parameters: The user parameters of the project.
         """
         ...
@@ -217,6 +235,7 @@ class Project(pulumi.CustomResource):
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  project_profile_id: Optional[pulumi.Input[_builtins.str]] = None,
                  project_profile_version: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProjectResourceTagArgs', 'ProjectResourceTagArgsDict']]]]] = None,
                  user_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProjectEnvironmentConfigurationUserParameterArgs', 'ProjectEnvironmentConfigurationUserParameterArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -236,6 +255,7 @@ class Project(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             __props__.__dict__["project_profile_id"] = project_profile_id
             __props__.__dict__["project_profile_version"] = project_profile_version
+            __props__.__dict__["resource_tags"] = resource_tags
             __props__.__dict__["user_parameters"] = user_parameters
             __props__.__dict__["aws_id"] = None
             __props__.__dict__["created_at"] = None
@@ -280,6 +300,7 @@ class Project(pulumi.CustomResource):
         __props__.__dict__["project_profile_id"] = None
         __props__.__dict__["project_profile_version"] = None
         __props__.__dict__["project_status"] = None
+        __props__.__dict__["resource_tags"] = None
         __props__.__dict__["user_parameters"] = None
         return Project(resource_name, opts=opts, __props__=__props__)
 
@@ -386,6 +407,14 @@ class Project(pulumi.CustomResource):
         The status of the project.
         """
         return pulumi.get(self, "project_status")
+
+    @_builtins.property
+    @pulumi.getter(name="resourceTags")
+    def resource_tags(self) -> pulumi.Output[Optional[Sequence['outputs.ProjectResourceTag']]]:
+        """
+        The resource tags of the project.
+        """
+        return pulumi.get(self, "resource_tags")
 
     @_builtins.property
     @pulumi.getter(name="userParameters")

@@ -10,6 +10,20 @@ export const DataRepositoryAssociationEventType = {
 
 export type DataRepositoryAssociationEventType = (typeof DataRepositoryAssociationEventType)[keyof typeof DataRepositoryAssociationEventType];
 
+export const S3AccessPointAttachmentLifecycle = {
+    Available: "AVAILABLE",
+    Creating: "CREATING",
+    Deleting: "DELETING",
+    Failed: "FAILED",
+    Misconfigured: "MISCONFIGURED",
+    Updating: "UPDATING",
+} as const;
+
+/**
+ * The lifecycle status of the S3 access point attachment.
+ */
+export type S3AccessPointAttachmentLifecycle = (typeof S3AccessPointAttachmentLifecycle)[keyof typeof S3AccessPointAttachmentLifecycle];
+
 export const S3AccessPointAttachmentOntapFileSystemIdentityType = {
     Unix: "UNIX",
     Windows: "WINDOWS",

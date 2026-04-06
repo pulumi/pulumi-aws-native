@@ -276,6 +276,7 @@ namespace Pulumi.AwsNative.ObservabilityAdmin
         public static OrganizationTelemetryRuleResourceType AwsCloudTrail { get; } = new OrganizationTelemetryRuleResourceType("AWS::CloudTrail");
         public static OrganizationTelemetryRuleResourceType AwseksCluster { get; } = new OrganizationTelemetryRuleResourceType("AWS::EKS::Cluster");
         public static OrganizationTelemetryRuleResourceType AwsElasticLoadBalancingV2LoadBalancer { get; } = new OrganizationTelemetryRuleResourceType("AWS::ElasticLoadBalancingV2::LoadBalancer");
+        public static OrganizationTelemetryRuleResourceType Awsec2Instance { get; } = new OrganizationTelemetryRuleResourceType("AWS::EC2::Instance");
 
         public static bool operator ==(OrganizationTelemetryRuleResourceType left, OrganizationTelemetryRuleResourceType right) => left.Equals(right);
         public static bool operator !=(OrganizationTelemetryRuleResourceType left, OrganizationTelemetryRuleResourceType right) => !left.Equals(right);
@@ -342,6 +343,7 @@ namespace Pulumi.AwsNative.ObservabilityAdmin
         }
 
         public static OrganizationTelemetryRuleTelemetryType Logs { get; } = new OrganizationTelemetryRuleTelemetryType("Logs");
+        public static OrganizationTelemetryRuleTelemetryType Metrics { get; } = new OrganizationTelemetryRuleTelemetryType("Metrics");
 
         public static bool operator ==(OrganizationTelemetryRuleTelemetryType left, OrganizationTelemetryRuleTelemetryType right) => left.Equals(right);
         public static bool operator !=(OrganizationTelemetryRuleTelemetryType left, OrganizationTelemetryRuleTelemetryType right) => !left.Equals(right);
@@ -689,6 +691,7 @@ namespace Pulumi.AwsNative.ObservabilityAdmin
         public static TelemetryRuleResourceType AwsCloudTrail { get; } = new TelemetryRuleResourceType("AWS::CloudTrail");
         public static TelemetryRuleResourceType AwseksCluster { get; } = new TelemetryRuleResourceType("AWS::EKS::Cluster");
         public static TelemetryRuleResourceType AwsElasticLoadBalancingV2LoadBalancer { get; } = new TelemetryRuleResourceType("AWS::ElasticLoadBalancingV2::LoadBalancer");
+        public static TelemetryRuleResourceType Awsec2Instance { get; } = new TelemetryRuleResourceType("AWS::EC2::Instance");
         public static TelemetryRuleResourceType AwsBedrockAgentCoreRuntime { get; } = new TelemetryRuleResourceType("AWS::BedrockAgentCore::Runtime");
         public static TelemetryRuleResourceType AwsBedrockAgentCoreBrowser { get; } = new TelemetryRuleResourceType("AWS::BedrockAgentCore::Browser");
         public static TelemetryRuleResourceType AwsBedrockAgentCoreCodeInterpreter { get; } = new TelemetryRuleResourceType("AWS::BedrockAgentCore::CodeInterpreter");
@@ -787,6 +790,7 @@ namespace Pulumi.AwsNative.ObservabilityAdmin
 
         public static TelemetryRuleTelemetryType Logs { get; } = new TelemetryRuleTelemetryType("Logs");
         public static TelemetryRuleTelemetryType Traces { get; } = new TelemetryRuleTelemetryType("Traces");
+        public static TelemetryRuleTelemetryType Metrics { get; } = new TelemetryRuleTelemetryType("Metrics");
 
         public static bool operator ==(TelemetryRuleTelemetryType left, TelemetryRuleTelemetryType right) => left.Equals(right);
         public static bool operator !=(TelemetryRuleTelemetryType left, TelemetryRuleTelemetryType right) => !left.Equals(right);

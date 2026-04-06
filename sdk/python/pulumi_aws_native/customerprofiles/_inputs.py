@@ -136,6 +136,10 @@ __all__ = [
     'SegmentDefinitionRangeOverrideArgsDict',
     'SegmentDefinitionSegmentGroupArgs',
     'SegmentDefinitionSegmentGroupArgsDict',
+    'SegmentDefinitionSegmentSortArgs',
+    'SegmentDefinitionSegmentSortArgsDict',
+    'SegmentDefinitionSortAttributeArgs',
+    'SegmentDefinitionSortAttributeArgsDict',
     'SegmentDefinitionSourceSegmentArgs',
     'SegmentDefinitionSourceSegmentArgsDict',
 ]
@@ -3948,6 +3952,110 @@ class SegmentDefinitionSegmentGroupArgs:
     @include.setter
     def include(self, value: Optional[pulumi.Input['SegmentDefinitionIncludeOptions']]):
         pulumi.set(self, "include", value)
+
+
+class SegmentDefinitionSegmentSortArgsDict(TypedDict):
+    """
+    Defines how segments should be sorted and ordered in the results.
+    """
+    attributes: pulumi.Input[Sequence[pulumi.Input['SegmentDefinitionSortAttributeArgsDict']]]
+    """
+    A list of attributes used to sort the segments and their ordering preferences.
+    """
+
+@pulumi.input_type
+class SegmentDefinitionSegmentSortArgs:
+    def __init__(__self__, *,
+                 attributes: pulumi.Input[Sequence[pulumi.Input['SegmentDefinitionSortAttributeArgs']]]):
+        """
+        Defines how segments should be sorted and ordered in the results.
+
+        :param pulumi.Input[Sequence[pulumi.Input['SegmentDefinitionSortAttributeArgs']]] attributes: A list of attributes used to sort the segments and their ordering preferences.
+        """
+        pulumi.set(__self__, "attributes", attributes)
+
+    @_builtins.property
+    @pulumi.getter
+    def attributes(self) -> pulumi.Input[Sequence[pulumi.Input['SegmentDefinitionSortAttributeArgs']]]:
+        """
+        A list of attributes used to sort the segments and their ordering preferences.
+        """
+        return pulumi.get(self, "attributes")
+
+    @attributes.setter
+    def attributes(self, value: pulumi.Input[Sequence[pulumi.Input['SegmentDefinitionSortAttributeArgs']]]):
+        pulumi.set(self, "attributes", value)
+
+
+class SegmentDefinitionSortAttributeArgsDict(TypedDict):
+    """
+    Defines the characteristics and rules for sorting by a specific attribute.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the attribute to sort by.
+    """
+    order: pulumi.Input['SegmentDefinitionSegmentSortOrder']
+    data_type: NotRequired[pulumi.Input['SegmentDefinitionSegmentSortDataType']]
+    type: NotRequired[pulumi.Input['SegmentDefinitionSortAttributeType']]
+
+@pulumi.input_type
+class SegmentDefinitionSortAttributeArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[_builtins.str],
+                 order: pulumi.Input['SegmentDefinitionSegmentSortOrder'],
+                 data_type: Optional[pulumi.Input['SegmentDefinitionSegmentSortDataType']] = None,
+                 type: Optional[pulumi.Input['SegmentDefinitionSortAttributeType']] = None):
+        """
+        Defines the characteristics and rules for sorting by a specific attribute.
+
+        :param pulumi.Input[_builtins.str] name: The name of the attribute to sort by.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "order", order)
+        if data_type is not None:
+            pulumi.set(__self__, "data_type", data_type)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the attribute to sort by.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def order(self) -> pulumi.Input['SegmentDefinitionSegmentSortOrder']:
+        return pulumi.get(self, "order")
+
+    @order.setter
+    def order(self, value: pulumi.Input['SegmentDefinitionSegmentSortOrder']):
+        pulumi.set(self, "order", value)
+
+    @_builtins.property
+    @pulumi.getter(name="dataType")
+    def data_type(self) -> Optional[pulumi.Input['SegmentDefinitionSegmentSortDataType']]:
+        return pulumi.get(self, "data_type")
+
+    @data_type.setter
+    def data_type(self, value: Optional[pulumi.Input['SegmentDefinitionSegmentSortDataType']]):
+        pulumi.set(self, "data_type", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input['SegmentDefinitionSortAttributeType']]:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input['SegmentDefinitionSortAttributeType']]):
+        pulumi.set(self, "type", value)
 
 
 class SegmentDefinitionSourceSegmentArgsDict(TypedDict):

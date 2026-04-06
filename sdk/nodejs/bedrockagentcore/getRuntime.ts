@@ -62,6 +62,10 @@ export interface GetRuntimeResult {
      */
     readonly failureReason?: string;
     /**
+     * Filesystem configurations for the agent runtime
+     */
+    readonly filesystemConfigurations?: outputs.bedrockagentcore.RuntimeFilesystemConfiguration[];
+    /**
      * When resource was last updated
      */
     readonly lastUpdatedAt?: string;

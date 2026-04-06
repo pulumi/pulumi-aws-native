@@ -15,6 +15,11 @@ export const getDataRepositoryAssociation: typeof import("./getDataRepositoryAss
 export const getDataRepositoryAssociationOutput: typeof import("./getDataRepositoryAssociation").getDataRepositoryAssociationOutput = null as any;
 utilities.lazyLoad(exports, ["getDataRepositoryAssociation","getDataRepositoryAssociationOutput"], () => require("./getDataRepositoryAssociation"));
 
+export { GetS3AccessPointAttachmentArgs, GetS3AccessPointAttachmentResult, GetS3AccessPointAttachmentOutputArgs } from "./getS3AccessPointAttachment";
+export const getS3AccessPointAttachment: typeof import("./getS3AccessPointAttachment").getS3AccessPointAttachment = null as any;
+export const getS3AccessPointAttachmentOutput: typeof import("./getS3AccessPointAttachment").getS3AccessPointAttachmentOutput = null as any;
+utilities.lazyLoad(exports, ["getS3AccessPointAttachment","getS3AccessPointAttachmentOutput"], () => require("./getS3AccessPointAttachment"));
+
 export { S3AccessPointAttachmentArgs } from "./s3accessPointAttachment";
 export type S3AccessPointAttachment = import("./s3accessPointAttachment").S3AccessPointAttachment;
 export const S3AccessPointAttachment: typeof import("./s3accessPointAttachment").S3AccessPointAttachment = null as any;

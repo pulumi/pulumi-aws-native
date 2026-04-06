@@ -127,6 +127,7 @@ __all__ = [
     'InferenceExperimentSchedule',
     'InferenceExperimentShadowModeConfig',
     'InferenceExperimentShadowModelVariantConfig',
+    'ModelAccessConfig',
     'ModelBiasJobDefinitionBatchTransformInput',
     'ModelBiasJobDefinitionClusterConfig',
     'ModelBiasJobDefinitionConstraintsResource',
@@ -171,6 +172,8 @@ __all__ = [
     'ModelCardTrainingHyperParameter',
     'ModelCardTrainingMetric',
     'ModelCardUserContext',
+    'ModelContainerDefinition',
+    'ModelDataSource',
     'ModelExplainabilityJobDefinitionBatchTransformInput',
     'ModelExplainabilityJobDefinitionClusterConfig',
     'ModelExplainabilityJobDefinitionConstraintsResource',
@@ -188,6 +191,10 @@ __all__ = [
     'ModelExplainabilityJobDefinitionS3Output',
     'ModelExplainabilityJobDefinitionStoppingCondition',
     'ModelExplainabilityJobDefinitionVpcConfig',
+    'ModelHubAccessConfig',
+    'ModelImageConfig',
+    'ModelInferenceExecutionConfig',
+    'ModelMultiModelConfig',
     'ModelPackageAdditionalInferenceSpecificationDefinition',
     'ModelPackageBias',
     'ModelPackageContainerDefinition',
@@ -242,6 +249,9 @@ __all__ = [
     'ModelQualityJobDefinitionS3Output',
     'ModelQualityJobDefinitionStoppingCondition',
     'ModelQualityJobDefinitionVpcConfig',
+    'ModelRepositoryAuthConfig',
+    'ModelS3DataSource',
+    'ModelVpcConfig',
     'MonitoringScheduleBaselineConfig',
     'MonitoringScheduleBatchTransformInput',
     'MonitoringScheduleClusterConfig',
@@ -7019,6 +7029,46 @@ class InferenceExperimentShadowModelVariantConfig(dict):
 
 
 @pulumi.output_type
+class ModelAccessConfig(dict):
+    """
+    The access configuration file to control access to the ML model. You can explicitly accept the model end-user license agreement (EULA) within the `ModelAccessConfig`.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "acceptEula":
+            suggest = "accept_eula"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ModelAccessConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ModelAccessConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ModelAccessConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 accept_eula: _builtins.bool):
+        """
+        The access configuration file to control access to the ML model. You can explicitly accept the model end-user license agreement (EULA) within the `ModelAccessConfig`.
+
+        :param _builtins.bool accept_eula: Specifies agreement to the model end-user license agreement (EULA). The `AcceptEula` value must be explicitly defined as `True` in order to accept the EULA that this model requires. You are responsible for reviewing and complying with any applicable license terms and making sure they are acceptable for your use case before downloading or using a model.
+        """
+        pulumi.set(__self__, "accept_eula", accept_eula)
+
+    @_builtins.property
+    @pulumi.getter(name="acceptEula")
+    def accept_eula(self) -> _builtins.bool:
+        """
+        Specifies agreement to the model end-user license agreement (EULA). The `AcceptEula` value must be explicitly defined as `True` in order to accept the EULA that this model requires. You are responsible for reviewing and complying with any applicable license terms and making sure they are acceptable for your use case before downloading or using a model.
+        """
+        return pulumi.get(self, "accept_eula")
+
+
+@pulumi.output_type
 class ModelBiasJobDefinitionBatchTransformInput(dict):
     """
     The batch transform input for a monitoring job.
@@ -9980,6 +10030,227 @@ class ModelCardUserContext(dict):
 
 
 @pulumi.output_type
+class ModelContainerDefinition(dict):
+    """
+    Describes the container, as part of model definition.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "containerHostname":
+            suggest = "container_hostname"
+        elif key == "imageConfig":
+            suggest = "image_config"
+        elif key == "inferenceSpecificationName":
+            suggest = "inference_specification_name"
+        elif key == "modelDataSource":
+            suggest = "model_data_source"
+        elif key == "modelDataUrl":
+            suggest = "model_data_url"
+        elif key == "modelPackageName":
+            suggest = "model_package_name"
+        elif key == "multiModelConfig":
+            suggest = "multi_model_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ModelContainerDefinition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ModelContainerDefinition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ModelContainerDefinition.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 container_hostname: Optional[_builtins.str] = None,
+                 environment: Optional[Any] = None,
+                 image: Optional[_builtins.str] = None,
+                 image_config: Optional['outputs.ModelImageConfig'] = None,
+                 inference_specification_name: Optional[_builtins.str] = None,
+                 mode: Optional['ModelContainerDefinitionMode'] = None,
+                 model_data_source: Optional['outputs.ModelDataSource'] = None,
+                 model_data_url: Optional[_builtins.str] = None,
+                 model_package_name: Optional[_builtins.str] = None,
+                 multi_model_config: Optional['outputs.ModelMultiModelConfig'] = None):
+        """
+        Describes the container, as part of model definition.
+
+        :param _builtins.str container_hostname: This parameter is ignored for models that contain only a PrimaryContainer.
+               
+               When a ContainerDefinition is part of an inference pipeline, the value of the parameter uniquely identifies the container for the purposes of logging and metrics. For information, see [Use Logs and Metrics to Monitor an Inference Pipeline](https://docs.aws.amazon.com/sagemaker/latest/dg/inference-pipeline-logs-metrics.html). If you don't specify a value for this parameter for a ContainerDefinition that is part of an inference pipeline, a unique name is automatically assigned based on the position of the ContainerDefinition in the pipeline. If you specify a value for the ContainerHostName for any ContainerDefinition that is part of an inference pipeline, you must specify a value for the ContainerHostName parameter of every ContainerDefinition in that pipeline.
+        :param Any environment: The environment variables to set in the Docker container. Don't include any sensitive data in your environment variables.
+               
+               The maximum length of each key and value in the Environment map is 1024 bytes. The maximum length of all keys and values in the map, combined, is 32 KB. If you pass multiple containers to a CreateModel request, then the maximum length of all of their maps, combined, is also 32 KB.
+        :param _builtins.str image: The path where inference code is stored. This can be either in Amazon EC2 Container Registry or in a Docker registry that is accessible from the same VPC that you configure for your endpoint. If you are using your own custom algorithm instead of an algorithm provided by SageMaker, the inference code must meet SageMaker requirements. SageMaker supports both registry/repository[:tag] and registry/repository[@digest] image path formats. For more information, see [Using Your Own Algorithms with Amazon SageMaker](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms.html).
+        :param 'ModelImageConfig' image_config: Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC). For information about storing containers in a private Docker registry, see [Use a Private Docker Registry for Real-Time Inference Containers](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-containers-inference-private.html) .
+               
+               > The model artifacts in an Amazon S3 bucket and the Docker image for inference container in Amazon EC2 Container Registry must be in the same region as the model or endpoint you are creating.
+        :param _builtins.str inference_specification_name: The inference specification name in the model package version.
+        :param 'ModelContainerDefinitionMode' mode: Whether the container hosts a single model or multiple models.
+        :param 'ModelDataSource' model_data_source: Specifies the location of ML model data to deploy.
+               
+               > Currently you cannot use `ModelDataSource` in conjunction with SageMaker batch transform, SageMaker serverless endpoints, SageMaker multi-model endpoints, and SageMaker Marketplace.
+        :param _builtins.str model_data_url: The S3 path where the model artifacts, which result from model training, are stored. This path must point to a single gzip compressed tar archive (.tar.gz suffix). The S3 path is required for SageMaker built-in algorithms, but not if you use your own algorithms. For more information on built-in algorithms, see [Common Parameters](https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-algo-docker-registry-paths.html).
+               
+               If you provide a value for this parameter, SageMaker uses AWS Security Token Service to download model artifacts from the S3 path you provide. AWS STS is activated in your AWS account by default. If you previously deactivated AWS STS for a region, you need to reactivate AWS STS for that region. For more information, see [Activating and Deactivating AWS STS in an AWS Region](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html) in the AWS Identity and Access Management User Guide
+        :param _builtins.str model_package_name: The name or Amazon Resource Name (ARN) of the model package to use to create the model.
+        :param 'ModelMultiModelConfig' multi_model_config: Specifies additional configuration for multi-model endpoints.
+        """
+        if container_hostname is not None:
+            pulumi.set(__self__, "container_hostname", container_hostname)
+        if environment is not None:
+            pulumi.set(__self__, "environment", environment)
+        if image is not None:
+            pulumi.set(__self__, "image", image)
+        if image_config is not None:
+            pulumi.set(__self__, "image_config", image_config)
+        if inference_specification_name is not None:
+            pulumi.set(__self__, "inference_specification_name", inference_specification_name)
+        if mode is not None:
+            pulumi.set(__self__, "mode", mode)
+        if model_data_source is not None:
+            pulumi.set(__self__, "model_data_source", model_data_source)
+        if model_data_url is not None:
+            pulumi.set(__self__, "model_data_url", model_data_url)
+        if model_package_name is not None:
+            pulumi.set(__self__, "model_package_name", model_package_name)
+        if multi_model_config is not None:
+            pulumi.set(__self__, "multi_model_config", multi_model_config)
+
+    @_builtins.property
+    @pulumi.getter(name="containerHostname")
+    def container_hostname(self) -> Optional[_builtins.str]:
+        """
+        This parameter is ignored for models that contain only a PrimaryContainer.
+
+        When a ContainerDefinition is part of an inference pipeline, the value of the parameter uniquely identifies the container for the purposes of logging and metrics. For information, see [Use Logs and Metrics to Monitor an Inference Pipeline](https://docs.aws.amazon.com/sagemaker/latest/dg/inference-pipeline-logs-metrics.html). If you don't specify a value for this parameter for a ContainerDefinition that is part of an inference pipeline, a unique name is automatically assigned based on the position of the ContainerDefinition in the pipeline. If you specify a value for the ContainerHostName for any ContainerDefinition that is part of an inference pipeline, you must specify a value for the ContainerHostName parameter of every ContainerDefinition in that pipeline.
+        """
+        return pulumi.get(self, "container_hostname")
+
+    @_builtins.property
+    @pulumi.getter
+    def environment(self) -> Optional[Any]:
+        """
+        The environment variables to set in the Docker container. Don't include any sensitive data in your environment variables.
+
+        The maximum length of each key and value in the Environment map is 1024 bytes. The maximum length of all keys and values in the map, combined, is 32 KB. If you pass multiple containers to a CreateModel request, then the maximum length of all of their maps, combined, is also 32 KB.
+        """
+        return pulumi.get(self, "environment")
+
+    @_builtins.property
+    @pulumi.getter
+    def image(self) -> Optional[_builtins.str]:
+        """
+        The path where inference code is stored. This can be either in Amazon EC2 Container Registry or in a Docker registry that is accessible from the same VPC that you configure for your endpoint. If you are using your own custom algorithm instead of an algorithm provided by SageMaker, the inference code must meet SageMaker requirements. SageMaker supports both registry/repository[:tag] and registry/repository[@digest] image path formats. For more information, see [Using Your Own Algorithms with Amazon SageMaker](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms.html).
+        """
+        return pulumi.get(self, "image")
+
+    @_builtins.property
+    @pulumi.getter(name="imageConfig")
+    def image_config(self) -> Optional['outputs.ModelImageConfig']:
+        """
+        Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC). For information about storing containers in a private Docker registry, see [Use a Private Docker Registry for Real-Time Inference Containers](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-containers-inference-private.html) .
+
+        > The model artifacts in an Amazon S3 bucket and the Docker image for inference container in Amazon EC2 Container Registry must be in the same region as the model or endpoint you are creating.
+        """
+        return pulumi.get(self, "image_config")
+
+    @_builtins.property
+    @pulumi.getter(name="inferenceSpecificationName")
+    def inference_specification_name(self) -> Optional[_builtins.str]:
+        """
+        The inference specification name in the model package version.
+        """
+        return pulumi.get(self, "inference_specification_name")
+
+    @_builtins.property
+    @pulumi.getter
+    def mode(self) -> Optional['ModelContainerDefinitionMode']:
+        """
+        Whether the container hosts a single model or multiple models.
+        """
+        return pulumi.get(self, "mode")
+
+    @_builtins.property
+    @pulumi.getter(name="modelDataSource")
+    def model_data_source(self) -> Optional['outputs.ModelDataSource']:
+        """
+        Specifies the location of ML model data to deploy.
+
+        > Currently you cannot use `ModelDataSource` in conjunction with SageMaker batch transform, SageMaker serverless endpoints, SageMaker multi-model endpoints, and SageMaker Marketplace.
+        """
+        return pulumi.get(self, "model_data_source")
+
+    @_builtins.property
+    @pulumi.getter(name="modelDataUrl")
+    def model_data_url(self) -> Optional[_builtins.str]:
+        """
+        The S3 path where the model artifacts, which result from model training, are stored. This path must point to a single gzip compressed tar archive (.tar.gz suffix). The S3 path is required for SageMaker built-in algorithms, but not if you use your own algorithms. For more information on built-in algorithms, see [Common Parameters](https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-algo-docker-registry-paths.html).
+
+        If you provide a value for this parameter, SageMaker uses AWS Security Token Service to download model artifacts from the S3 path you provide. AWS STS is activated in your AWS account by default. If you previously deactivated AWS STS for a region, you need to reactivate AWS STS for that region. For more information, see [Activating and Deactivating AWS STS in an AWS Region](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html) in the AWS Identity and Access Management User Guide
+        """
+        return pulumi.get(self, "model_data_url")
+
+    @_builtins.property
+    @pulumi.getter(name="modelPackageName")
+    def model_package_name(self) -> Optional[_builtins.str]:
+        """
+        The name or Amazon Resource Name (ARN) of the model package to use to create the model.
+        """
+        return pulumi.get(self, "model_package_name")
+
+    @_builtins.property
+    @pulumi.getter(name="multiModelConfig")
+    def multi_model_config(self) -> Optional['outputs.ModelMultiModelConfig']:
+        """
+        Specifies additional configuration for multi-model endpoints.
+        """
+        return pulumi.get(self, "multi_model_config")
+
+
+@pulumi.output_type
+class ModelDataSource(dict):
+    """
+    Specifies the location of ML model data to deploy. If specified, you must specify one and only one of the available data sources.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "s3DataSource":
+            suggest = "s3_data_source"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ModelDataSource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ModelDataSource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ModelDataSource.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 s3_data_source: 'outputs.ModelS3DataSource'):
+        """
+        Specifies the location of ML model data to deploy. If specified, you must specify one and only one of the available data sources.
+
+        :param 'ModelS3DataSource' s3_data_source: Specifies the S3 location of ML model data to deploy.
+        """
+        pulumi.set(__self__, "s3_data_source", s3_data_source)
+
+    @_builtins.property
+    @pulumi.getter(name="s3DataSource")
+    def s3_data_source(self) -> 'outputs.ModelS3DataSource':
+        """
+        Specifies the S3 location of ML model data to deploy.
+        """
+        return pulumi.get(self, "s3_data_source")
+
+
+@pulumi.output_type
 class ModelExplainabilityJobDefinitionBatchTransformInput(dict):
     """
     The batch transform input for a monitoring job.
@@ -10976,6 +11247,164 @@ class ModelExplainabilityJobDefinitionVpcConfig(dict):
         The ID of the subnets in the VPC to which you want to connect to your monitoring jobs.
         """
         return pulumi.get(self, "subnets")
+
+
+@pulumi.output_type
+class ModelHubAccessConfig(dict):
+    """
+    Configuration information specifying which hub contents have accessible deployment options.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "hubContentArn":
+            suggest = "hub_content_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ModelHubAccessConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ModelHubAccessConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ModelHubAccessConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 hub_content_arn: _builtins.str):
+        """
+        Configuration information specifying which hub contents have accessible deployment options.
+
+        :param _builtins.str hub_content_arn: The ARN of the hub content for which deployment access is allowed.
+        """
+        pulumi.set(__self__, "hub_content_arn", hub_content_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="hubContentArn")
+    def hub_content_arn(self) -> _builtins.str:
+        """
+        The ARN of the hub content for which deployment access is allowed.
+        """
+        return pulumi.get(self, "hub_content_arn")
+
+
+@pulumi.output_type
+class ModelImageConfig(dict):
+    """
+    Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC).
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "repositoryAccessMode":
+            suggest = "repository_access_mode"
+        elif key == "repositoryAuthConfig":
+            suggest = "repository_auth_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ModelImageConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ModelImageConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ModelImageConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 repository_access_mode: 'ModelImageConfigRepositoryAccessMode',
+                 repository_auth_config: Optional['outputs.ModelRepositoryAuthConfig'] = None):
+        """
+        Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC).
+
+        :param 'ModelImageConfigRepositoryAccessMode' repository_access_mode: Set this to one of the following values: Platform - The model image is hosted in Amazon ECR. Vpc - The model image is hosted in a private Docker registry in your VPC.
+        :param 'ModelRepositoryAuthConfig' repository_auth_config: (Optional) Specifies an authentication configuration for the private docker registry where your model image is hosted. Specify a value for this property only if you specified `Vpc` as the value for the `RepositoryAccessMode` field, and the private Docker registry where the model image is hosted requires authentication.
+        """
+        pulumi.set(__self__, "repository_access_mode", repository_access_mode)
+        if repository_auth_config is not None:
+            pulumi.set(__self__, "repository_auth_config", repository_auth_config)
+
+    @_builtins.property
+    @pulumi.getter(name="repositoryAccessMode")
+    def repository_access_mode(self) -> 'ModelImageConfigRepositoryAccessMode':
+        """
+        Set this to one of the following values: Platform - The model image is hosted in Amazon ECR. Vpc - The model image is hosted in a private Docker registry in your VPC.
+        """
+        return pulumi.get(self, "repository_access_mode")
+
+    @_builtins.property
+    @pulumi.getter(name="repositoryAuthConfig")
+    def repository_auth_config(self) -> Optional['outputs.ModelRepositoryAuthConfig']:
+        """
+        (Optional) Specifies an authentication configuration for the private docker registry where your model image is hosted. Specify a value for this property only if you specified `Vpc` as the value for the `RepositoryAccessMode` field, and the private Docker registry where the model image is hosted requires authentication.
+        """
+        return pulumi.get(self, "repository_auth_config")
+
+
+@pulumi.output_type
+class ModelInferenceExecutionConfig(dict):
+    """
+    Specifies details about how containers in a multi-container endpoint are run.
+    """
+    def __init__(__self__, *,
+                 mode: 'ModelInferenceExecutionConfigMode'):
+        """
+        Specifies details about how containers in a multi-container endpoint are run.
+
+        :param 'ModelInferenceExecutionConfigMode' mode: How containers in a multi-container are run.
+        """
+        pulumi.set(__self__, "mode", mode)
+
+    @_builtins.property
+    @pulumi.getter
+    def mode(self) -> 'ModelInferenceExecutionConfigMode':
+        """
+        How containers in a multi-container are run.
+        """
+        return pulumi.get(self, "mode")
+
+
+@pulumi.output_type
+class ModelMultiModelConfig(dict):
+    """
+    Specifies additional configuration for multi-model endpoints.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "modelCacheSetting":
+            suggest = "model_cache_setting"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ModelMultiModelConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ModelMultiModelConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ModelMultiModelConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 model_cache_setting: Optional['ModelMultiModelConfigModelCacheSetting'] = None):
+        """
+        Specifies additional configuration for multi-model endpoints.
+
+        :param 'ModelMultiModelConfigModelCacheSetting' model_cache_setting: Whether to cache models for a multi-model endpoint. By default, multi-model endpoints cache models so that a model does not have to be loaded into memory each time it is invoked. Some use cases do not benefit from model caching. For example, if an endpoint hosts a large number of models that are each invoked infrequently, the endpoint might perform better if you disable model caching. To disable model caching, set the value of this parameter to `Disabled`.
+        """
+        if model_cache_setting is not None:
+            pulumi.set(__self__, "model_cache_setting", model_cache_setting)
+
+    @_builtins.property
+    @pulumi.getter(name="modelCacheSetting")
+    def model_cache_setting(self) -> Optional['ModelMultiModelConfigModelCacheSetting']:
+        """
+        Whether to cache models for a multi-model endpoint. By default, multi-model endpoints cache models so that a model does not have to be loaded into memory each time it is invoked. Some use cases do not benefit from model caching. For example, if an endpoint hosts a large number of models that are each invoked infrequently, the endpoint might perform better if you disable model caching. To disable model caching, set the value of this parameter to `Disabled`.
+        """
+        return pulumi.get(self, "model_cache_setting")
 
 
 @pulumi.output_type
@@ -14276,6 +14705,187 @@ class ModelQualityJobDefinitionVpcConfig(dict):
     def subnets(self) -> Sequence[_builtins.str]:
         """
         The ID of the subnets in the VPC to which you want to connect to your monitoring jobs.
+        """
+        return pulumi.get(self, "subnets")
+
+
+@pulumi.output_type
+class ModelRepositoryAuthConfig(dict):
+    """
+    Specifies an authentication configuration for the private docker registry where your model image is hosted. Specify a value for this property only if you specified `Vpc` as the value for the `RepositoryAccessMode` field of the `ImageConfig` object that you passed to a call to `CreateModel` and the private Docker registry where the model image is hosted requires authentication.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "repositoryCredentialsProviderArn":
+            suggest = "repository_credentials_provider_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ModelRepositoryAuthConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ModelRepositoryAuthConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ModelRepositoryAuthConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 repository_credentials_provider_arn: _builtins.str):
+        """
+        Specifies an authentication configuration for the private docker registry where your model image is hosted. Specify a value for this property only if you specified `Vpc` as the value for the `RepositoryAccessMode` field of the `ImageConfig` object that you passed to a call to `CreateModel` and the private Docker registry where the model image is hosted requires authentication.
+
+        :param _builtins.str repository_credentials_provider_arn: The Amazon Resource Name (ARN) of an AWS Lambda function that provides credentials to authenticate to the private Docker registry where your model image is hosted. For information about how to create an AWS Lambda function, see [Create a Lambda function with the console](https://docs.aws.amazon.com/lambda/latest/dg/getting-started-create-function.html) in the AWS Lambda Developer Guide
+        """
+        pulumi.set(__self__, "repository_credentials_provider_arn", repository_credentials_provider_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="repositoryCredentialsProviderArn")
+    def repository_credentials_provider_arn(self) -> _builtins.str:
+        """
+        The Amazon Resource Name (ARN) of an AWS Lambda function that provides credentials to authenticate to the private Docker registry where your model image is hosted. For information about how to create an AWS Lambda function, see [Create a Lambda function with the console](https://docs.aws.amazon.com/lambda/latest/dg/getting-started-create-function.html) in the AWS Lambda Developer Guide
+        """
+        return pulumi.get(self, "repository_credentials_provider_arn")
+
+
+@pulumi.output_type
+class ModelS3DataSource(dict):
+    """
+    Specifies the S3 location of ML model data to deploy.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "compressionType":
+            suggest = "compression_type"
+        elif key == "s3DataType":
+            suggest = "s3_data_type"
+        elif key == "s3Uri":
+            suggest = "s3_uri"
+        elif key == "hubAccessConfig":
+            suggest = "hub_access_config"
+        elif key == "modelAccessConfig":
+            suggest = "model_access_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ModelS3DataSource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ModelS3DataSource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ModelS3DataSource.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 compression_type: 'ModelS3DataSourceCompressionType',
+                 s3_data_type: 'ModelS3DataSourceS3DataType',
+                 s3_uri: _builtins.str,
+                 hub_access_config: Optional['outputs.ModelHubAccessConfig'] = None,
+                 model_access_config: Optional['outputs.ModelAccessConfig'] = None):
+        """
+        Specifies the S3 location of ML model data to deploy.
+
+        :param 'ModelS3DataSourceCompressionType' compression_type: Specifies how the ML model data is prepared.
+        :param 'ModelS3DataSourceS3DataType' s3_data_type: Specifies the type of ML model data to deploy.
+        :param _builtins.str s3_uri: Specifies the S3 path of ML model data to deploy.
+        :param 'ModelHubAccessConfig' hub_access_config: The configuration for a private hub model reference that points to a SageMaker JumpStart public hub model.
+        """
+        pulumi.set(__self__, "compression_type", compression_type)
+        pulumi.set(__self__, "s3_data_type", s3_data_type)
+        pulumi.set(__self__, "s3_uri", s3_uri)
+        if hub_access_config is not None:
+            pulumi.set(__self__, "hub_access_config", hub_access_config)
+        if model_access_config is not None:
+            pulumi.set(__self__, "model_access_config", model_access_config)
+
+    @_builtins.property
+    @pulumi.getter(name="compressionType")
+    def compression_type(self) -> 'ModelS3DataSourceCompressionType':
+        """
+        Specifies how the ML model data is prepared.
+        """
+        return pulumi.get(self, "compression_type")
+
+    @_builtins.property
+    @pulumi.getter(name="s3DataType")
+    def s3_data_type(self) -> 'ModelS3DataSourceS3DataType':
+        """
+        Specifies the type of ML model data to deploy.
+        """
+        return pulumi.get(self, "s3_data_type")
+
+    @_builtins.property
+    @pulumi.getter(name="s3Uri")
+    def s3_uri(self) -> _builtins.str:
+        """
+        Specifies the S3 path of ML model data to deploy.
+        """
+        return pulumi.get(self, "s3_uri")
+
+    @_builtins.property
+    @pulumi.getter(name="hubAccessConfig")
+    def hub_access_config(self) -> Optional['outputs.ModelHubAccessConfig']:
+        """
+        The configuration for a private hub model reference that points to a SageMaker JumpStart public hub model.
+        """
+        return pulumi.get(self, "hub_access_config")
+
+    @_builtins.property
+    @pulumi.getter(name="modelAccessConfig")
+    def model_access_config(self) -> Optional['outputs.ModelAccessConfig']:
+        return pulumi.get(self, "model_access_config")
+
+
+@pulumi.output_type
+class ModelVpcConfig(dict):
+    """
+    Specifies an Amazon Virtual Private Cloud (VPC) that your SageMaker jobs, hosted models, and compute resources have access to. You can control access to and from your resources by configuring a VPC. For more information, see [Give SageMaker Access to Resources in your Amazon VPC](https://docs.aws.amazon.com/sagemaker/latest/dg/infrastructure-give-access.html).
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "securityGroupIds":
+            suggest = "security_group_ids"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ModelVpcConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ModelVpcConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ModelVpcConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 security_group_ids: Sequence[_builtins.str],
+                 subnets: Sequence[_builtins.str]):
+        """
+        Specifies an Amazon Virtual Private Cloud (VPC) that your SageMaker jobs, hosted models, and compute resources have access to. You can control access to and from your resources by configuring a VPC. For more information, see [Give SageMaker Access to Resources in your Amazon VPC](https://docs.aws.amazon.com/sagemaker/latest/dg/infrastructure-give-access.html).
+
+        :param Sequence[_builtins.str] security_group_ids: The VPC security group IDs, in the form `sg-xxxxxxxx`. Specify the security groups for the VPC that is specified in the `Subnets` field.
+        :param Sequence[_builtins.str] subnets: The ID of the subnets in the VPC to which you want to connect your training job or model. For information about the availability of specific instance types, see [Supported Instance Types and Availability Zones](https://docs.aws.amazon.com/sagemaker/latest/dg/instance-types-az.html).
+        """
+        pulumi.set(__self__, "security_group_ids", security_group_ids)
+        pulumi.set(__self__, "subnets", subnets)
+
+    @_builtins.property
+    @pulumi.getter(name="securityGroupIds")
+    def security_group_ids(self) -> Sequence[_builtins.str]:
+        """
+        The VPC security group IDs, in the form `sg-xxxxxxxx`. Specify the security groups for the VPC that is specified in the `Subnets` field.
+        """
+        return pulumi.get(self, "security_group_ids")
+
+    @_builtins.property
+    @pulumi.getter
+    def subnets(self) -> Sequence[_builtins.str]:
+        """
+        The ID of the subnets in the VPC to which you want to connect your training job or model. For information about the availability of specific instance types, see [Supported Instance Types and Availability Zones](https://docs.aws.amazon.com/sagemaker/latest/dg/instance-types-az.html).
         """
         return pulumi.get(self, "subnets")
 

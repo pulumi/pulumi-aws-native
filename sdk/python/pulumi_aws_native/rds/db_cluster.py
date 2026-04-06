@@ -2071,6 +2071,7 @@ class DbCluster(pulumi.CustomResource):
             __props__.__dict__["db_cluster_resource_id"] = None
             __props__.__dict__["endpoint"] = None
             __props__.__dict__["read_endpoint"] = None
+            __props__.__dict__["storage_encryption_type"] = None
             __props__.__dict__["storage_throughput"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["availabilityZones[*]", "clusterScalabilityType", "databaseName", "dbClusterIdentifier", "dbSubnetGroupName", "dbSystemId", "engineMode", "kmsKeyId", "publiclyAccessible", "restoreToTime", "restoreType", "snapshotIdentifier", "sourceDbClusterIdentifier", "sourceDbClusterResourceId", "sourceRegion", "storageEncrypted", "useLatestRestorableTime"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
@@ -2157,6 +2158,7 @@ class DbCluster(pulumi.CustomResource):
         __props__.__dict__["source_db_cluster_resource_id"] = None
         __props__.__dict__["source_region"] = None
         __props__.__dict__["storage_encrypted"] = None
+        __props__.__dict__["storage_encryption_type"] = None
         __props__.__dict__["storage_throughput"] = None
         __props__.__dict__["storage_type"] = None
         __props__.__dict__["tags"] = None
@@ -2874,6 +2876,11 @@ class DbCluster(pulumi.CustomResource):
           Valid for: Aurora DB clusters and Multi-AZ DB clusters
         """
         return pulumi.get(self, "storage_encrypted")
+
+    @_builtins.property
+    @pulumi.getter(name="storageEncryptionType")
+    def storage_encryption_type(self) -> pulumi.Output[_builtins.str]:
+        return pulumi.get(self, "storage_encryption_type")
 
     @_builtins.property
     @pulumi.getter(name="storageThroughput")

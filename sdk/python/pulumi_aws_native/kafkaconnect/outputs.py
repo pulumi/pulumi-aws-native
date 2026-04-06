@@ -615,10 +615,10 @@ class ConnectorProvisionedCapacity(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "workerCount":
-            suggest = "worker_count"
-        elif key == "mcuCount":
+        if key == "mcuCount":
             suggest = "mcu_count"
+        elif key == "workerCount":
+            suggest = "worker_count"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in ConnectorProvisionedCapacity. Access the value via the '{suggest}' property getter instead.")
@@ -632,17 +632,24 @@ class ConnectorProvisionedCapacity(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 worker_count: _builtins.int,
-                 mcu_count: Optional[_builtins.int] = None):
+                 mcu_count: _builtins.int,
+                 worker_count: _builtins.int):
         """
         Details about a fixed capacity allocated to a connector.
 
-        :param _builtins.int worker_count: Number of workers for a connector.
         :param _builtins.int mcu_count: Specifies how many MSK Connect Units (MCU) are allocated to the connector.
+        :param _builtins.int worker_count: Number of workers for a connector.
         """
+        pulumi.set(__self__, "mcu_count", mcu_count)
         pulumi.set(__self__, "worker_count", worker_count)
-        if mcu_count is not None:
-            pulumi.set(__self__, "mcu_count", mcu_count)
+
+    @_builtins.property
+    @pulumi.getter(name="mcuCount")
+    def mcu_count(self) -> _builtins.int:
+        """
+        Specifies how many MSK Connect Units (MCU) are allocated to the connector.
+        """
+        return pulumi.get(self, "mcu_count")
 
     @_builtins.property
     @pulumi.getter(name="workerCount")
@@ -651,14 +658,6 @@ class ConnectorProvisionedCapacity(dict):
         Number of workers for a connector.
         """
         return pulumi.get(self, "worker_count")
-
-    @_builtins.property
-    @pulumi.getter(name="mcuCount")
-    def mcu_count(self) -> Optional[_builtins.int]:
-        """
-        Specifies how many MSK Connect Units (MCU) are allocated to the connector.
-        """
-        return pulumi.get(self, "mcu_count")
 
 
 @pulumi.output_type

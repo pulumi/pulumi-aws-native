@@ -20,6 +20,16 @@ export type ClusterCapacityProviderAssociations = import("./clusterCapacityProvi
 export const ClusterCapacityProviderAssociations: typeof import("./clusterCapacityProviderAssociations").ClusterCapacityProviderAssociations = null as any;
 utilities.lazyLoad(exports, ["ClusterCapacityProviderAssociations"], () => require("./clusterCapacityProviderAssociations"));
 
+export { DaemonArgs } from "./daemon";
+export type Daemon = import("./daemon").Daemon;
+export const Daemon: typeof import("./daemon").Daemon = null as any;
+utilities.lazyLoad(exports, ["Daemon"], () => require("./daemon"));
+
+export { DaemonTaskDefinitionArgs } from "./daemonTaskDefinition";
+export type DaemonTaskDefinition = import("./daemonTaskDefinition").DaemonTaskDefinition;
+export const DaemonTaskDefinition: typeof import("./daemonTaskDefinition").DaemonTaskDefinition = null as any;
+utilities.lazyLoad(exports, ["DaemonTaskDefinition"], () => require("./daemonTaskDefinition"));
+
 export { ExpressGatewayServiceArgs } from "./expressGatewayService";
 export type ExpressGatewayService = import("./expressGatewayService").ExpressGatewayService;
 export const ExpressGatewayService: typeof import("./expressGatewayService").ExpressGatewayService = null as any;
@@ -39,6 +49,16 @@ export { GetClusterCapacityProviderAssociationsArgs, GetClusterCapacityProviderA
 export const getClusterCapacityProviderAssociations: typeof import("./getClusterCapacityProviderAssociations").getClusterCapacityProviderAssociations = null as any;
 export const getClusterCapacityProviderAssociationsOutput: typeof import("./getClusterCapacityProviderAssociations").getClusterCapacityProviderAssociationsOutput = null as any;
 utilities.lazyLoad(exports, ["getClusterCapacityProviderAssociations","getClusterCapacityProviderAssociationsOutput"], () => require("./getClusterCapacityProviderAssociations"));
+
+export { GetDaemonArgs, GetDaemonResult, GetDaemonOutputArgs } from "./getDaemon";
+export const getDaemon: typeof import("./getDaemon").getDaemon = null as any;
+export const getDaemonOutput: typeof import("./getDaemon").getDaemonOutput = null as any;
+utilities.lazyLoad(exports, ["getDaemon","getDaemonOutput"], () => require("./getDaemon"));
+
+export { GetDaemonTaskDefinitionArgs, GetDaemonTaskDefinitionResult, GetDaemonTaskDefinitionOutputArgs } from "./getDaemonTaskDefinition";
+export const getDaemonTaskDefinition: typeof import("./getDaemonTaskDefinition").getDaemonTaskDefinition = null as any;
+export const getDaemonTaskDefinitionOutput: typeof import("./getDaemonTaskDefinition").getDaemonTaskDefinitionOutput = null as any;
+utilities.lazyLoad(exports, ["getDaemonTaskDefinition","getDaemonTaskDefinitionOutput"], () => require("./getDaemonTaskDefinition"));
 
 export { GetExpressGatewayServiceArgs, GetExpressGatewayServiceResult, GetExpressGatewayServiceOutputArgs } from "./getExpressGatewayService";
 export const getExpressGatewayService: typeof import("./getExpressGatewayService").getExpressGatewayService = null as any;
@@ -99,6 +119,10 @@ const _module = {
                 return new Cluster(name, <any>undefined, { urn })
             case "aws-native:ecs:ClusterCapacityProviderAssociations":
                 return new ClusterCapacityProviderAssociations(name, <any>undefined, { urn })
+            case "aws-native:ecs:Daemon":
+                return new Daemon(name, <any>undefined, { urn })
+            case "aws-native:ecs:DaemonTaskDefinition":
+                return new DaemonTaskDefinition(name, <any>undefined, { urn })
             case "aws-native:ecs:ExpressGatewayService":
                 return new ExpressGatewayService(name, <any>undefined, { urn })
             case "aws-native:ecs:PrimaryTaskSet":

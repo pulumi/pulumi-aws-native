@@ -25,7 +25,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetRuntimeResult:
-    def __init__(__self__, agent_runtime_arn=None, agent_runtime_artifact=None, agent_runtime_id=None, agent_runtime_version=None, authorizer_configuration=None, created_at=None, description=None, environment_variables=None, failure_reason=None, last_updated_at=None, lifecycle_configuration=None, network_configuration=None, protocol_configuration=None, request_header_configuration=None, role_arn=None, status=None, tags=None, workload_identity_details=None):
+    def __init__(__self__, agent_runtime_arn=None, agent_runtime_artifact=None, agent_runtime_id=None, agent_runtime_version=None, authorizer_configuration=None, created_at=None, description=None, environment_variables=None, failure_reason=None, filesystem_configurations=None, last_updated_at=None, lifecycle_configuration=None, network_configuration=None, protocol_configuration=None, request_header_configuration=None, role_arn=None, status=None, tags=None, workload_identity_details=None):
         if agent_runtime_arn and not isinstance(agent_runtime_arn, str):
             raise TypeError("Expected argument 'agent_runtime_arn' to be a str")
         pulumi.set(__self__, "agent_runtime_arn", agent_runtime_arn)
@@ -53,6 +53,9 @@ class GetRuntimeResult:
         if failure_reason and not isinstance(failure_reason, str):
             raise TypeError("Expected argument 'failure_reason' to be a str")
         pulumi.set(__self__, "failure_reason", failure_reason)
+        if filesystem_configurations and not isinstance(filesystem_configurations, list):
+            raise TypeError("Expected argument 'filesystem_configurations' to be a list")
+        pulumi.set(__self__, "filesystem_configurations", filesystem_configurations)
         if last_updated_at and not isinstance(last_updated_at, str):
             raise TypeError("Expected argument 'last_updated_at' to be a str")
         pulumi.set(__self__, "last_updated_at", last_updated_at)
@@ -154,6 +157,14 @@ class GetRuntimeResult:
         return pulumi.get(self, "failure_reason")
 
     @_builtins.property
+    @pulumi.getter(name="filesystemConfigurations")
+    def filesystem_configurations(self) -> Optional[Sequence['outputs.RuntimeFilesystemConfiguration']]:
+        """
+        Filesystem configurations for the agent runtime
+        """
+        return pulumi.get(self, "filesystem_configurations")
+
+    @_builtins.property
     @pulumi.getter(name="lastUpdatedAt")
     def last_updated_at(self) -> Optional[_builtins.str]:
         """
@@ -241,6 +252,7 @@ class AwaitableGetRuntimeResult(GetRuntimeResult):
             description=self.description,
             environment_variables=self.environment_variables,
             failure_reason=self.failure_reason,
+            filesystem_configurations=self.filesystem_configurations,
             last_updated_at=self.last_updated_at,
             lifecycle_configuration=self.lifecycle_configuration,
             network_configuration=self.network_configuration,
@@ -275,6 +287,7 @@ def get_runtime(agent_runtime_id: Optional[_builtins.str] = None,
         description=pulumi.get(__ret__, 'description'),
         environment_variables=pulumi.get(__ret__, 'environment_variables'),
         failure_reason=pulumi.get(__ret__, 'failure_reason'),
+        filesystem_configurations=pulumi.get(__ret__, 'filesystem_configurations'),
         last_updated_at=pulumi.get(__ret__, 'last_updated_at'),
         lifecycle_configuration=pulumi.get(__ret__, 'lifecycle_configuration'),
         network_configuration=pulumi.get(__ret__, 'network_configuration'),
@@ -306,6 +319,7 @@ def get_runtime_output(agent_runtime_id: Optional[pulumi.Input[_builtins.str]] =
         description=pulumi.get(__response__, 'description'),
         environment_variables=pulumi.get(__response__, 'environment_variables'),
         failure_reason=pulumi.get(__response__, 'failure_reason'),
+        filesystem_configurations=pulumi.get(__response__, 'filesystem_configurations'),
         last_updated_at=pulumi.get(__response__, 'last_updated_at'),
         lifecycle_configuration=pulumi.get(__response__, 'lifecycle_configuration'),
         network_configuration=pulumi.get(__response__, 'network_configuration'),

@@ -98,6 +98,8 @@ __all__ = [
     'NodegroupTaintArgsDict',
     'NodegroupUpdateConfigArgs',
     'NodegroupUpdateConfigArgsDict',
+    'NodegroupWarmPoolConfigArgs',
+    'NodegroupWarmPoolConfigArgsDict',
 ]
 
 class AccessEntryAccessPolicyArgsDict(TypedDict):
@@ -2491,5 +2493,119 @@ class NodegroupUpdateConfigArgs:
     @update_strategy.setter
     def update_strategy(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "update_strategy", value)
+
+
+class NodegroupWarmPoolConfigArgsDict(TypedDict):
+    """
+    The warm pool configuration for the node group.
+    """
+    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Enable or disable warm pool for the node group.
+    """
+    max_group_prepared_capacity: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The maximum number of instances that are allowed to be in the warm pool.
+    """
+    min_size: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The minimum number of instances to maintain in the warm pool.
+    """
+    pool_state: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The desired state of warm pool instances.
+    """
+    reuse_on_scale_in: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether to return instances to the warm pool during scale-in instead of terminating them.
+    """
+
+@pulumi.input_type
+class NodegroupWarmPoolConfigArgs:
+    def __init__(__self__, *,
+                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
+                 max_group_prepared_capacity: Optional[pulumi.Input[_builtins.int]] = None,
+                 min_size: Optional[pulumi.Input[_builtins.int]] = None,
+                 pool_state: Optional[pulumi.Input[_builtins.str]] = None,
+                 reuse_on_scale_in: Optional[pulumi.Input[_builtins.bool]] = None):
+        """
+        The warm pool configuration for the node group.
+
+        :param pulumi.Input[_builtins.bool] enabled: Enable or disable warm pool for the node group.
+        :param pulumi.Input[_builtins.int] max_group_prepared_capacity: The maximum number of instances that are allowed to be in the warm pool.
+        :param pulumi.Input[_builtins.int] min_size: The minimum number of instances to maintain in the warm pool.
+        :param pulumi.Input[_builtins.str] pool_state: The desired state of warm pool instances.
+        :param pulumi.Input[_builtins.bool] reuse_on_scale_in: Whether to return instances to the warm pool during scale-in instead of terminating them.
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if max_group_prepared_capacity is not None:
+            pulumi.set(__self__, "max_group_prepared_capacity", max_group_prepared_capacity)
+        if min_size is not None:
+            pulumi.set(__self__, "min_size", min_size)
+        if pool_state is not None:
+            pulumi.set(__self__, "pool_state", pool_state)
+        if reuse_on_scale_in is not None:
+            pulumi.set(__self__, "reuse_on_scale_in", reuse_on_scale_in)
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Enable or disable warm pool for the node group.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "enabled", value)
+
+    @_builtins.property
+    @pulumi.getter(name="maxGroupPreparedCapacity")
+    def max_group_prepared_capacity(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        The maximum number of instances that are allowed to be in the warm pool.
+        """
+        return pulumi.get(self, "max_group_prepared_capacity")
+
+    @max_group_prepared_capacity.setter
+    def max_group_prepared_capacity(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "max_group_prepared_capacity", value)
+
+    @_builtins.property
+    @pulumi.getter(name="minSize")
+    def min_size(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        The minimum number of instances to maintain in the warm pool.
+        """
+        return pulumi.get(self, "min_size")
+
+    @min_size.setter
+    def min_size(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "min_size", value)
+
+    @_builtins.property
+    @pulumi.getter(name="poolState")
+    def pool_state(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The desired state of warm pool instances.
+        """
+        return pulumi.get(self, "pool_state")
+
+    @pool_state.setter
+    def pool_state(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "pool_state", value)
+
+    @_builtins.property
+    @pulumi.getter(name="reuseOnScaleIn")
+    def reuse_on_scale_in(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Whether to return instances to the warm pool during scale-in instead of terminating them.
+        """
+        return pulumi.get(self, "reuse_on_scale_in")
+
+    @reuse_on_scale_in.setter
+    def reuse_on_scale_in(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "reuse_on_scale_in", value)
 
 

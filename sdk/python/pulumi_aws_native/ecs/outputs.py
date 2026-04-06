@@ -24,6 +24,7 @@ __all__ = [
     'CapacityProviderCapacityReservationRequest',
     'CapacityProviderInstanceLaunchTemplate',
     'CapacityProviderInstanceRequirementsRequest',
+    'CapacityProviderManagedInstancesLocalStorageConfiguration',
     'CapacityProviderManagedInstancesNetworkConfiguration',
     'CapacityProviderManagedInstancesProvider',
     'CapacityProviderManagedInstancesProviderInfrastructureOptimizationProperties',
@@ -43,6 +44,27 @@ __all__ = [
     'ClusterManagedStorageConfiguration',
     'ClusterServiceConnectDefaults',
     'ClusterSettings',
+    'DaemonAlarmConfiguration',
+    'DaemonDeploymentConfiguration',
+    'DaemonTaskDefinitionContainerDependency',
+    'DaemonTaskDefinitionDaemonContainerDefinition',
+    'DaemonTaskDefinitionDevice',
+    'DaemonTaskDefinitionEnvironmentFile',
+    'DaemonTaskDefinitionFirelensConfiguration',
+    'DaemonTaskDefinitionHealthCheck',
+    'DaemonTaskDefinitionHostVolumeProperties',
+    'DaemonTaskDefinitionKernelCapabilities',
+    'DaemonTaskDefinitionKeyValuePair',
+    'DaemonTaskDefinitionLinuxParameters',
+    'DaemonTaskDefinitionLogConfiguration',
+    'DaemonTaskDefinitionMountPoint',
+    'DaemonTaskDefinitionRepositoryCredentials',
+    'DaemonTaskDefinitionRestartPolicy',
+    'DaemonTaskDefinitionSecret',
+    'DaemonTaskDefinitionSystemControl',
+    'DaemonTaskDefinitionTmpfs',
+    'DaemonTaskDefinitionUlimit',
+    'DaemonTaskDefinitionVolume',
     'ExpressGatewayServiceAutoScalingArns',
     'ExpressGatewayServiceAwsLogsConfiguration',
     'ExpressGatewayServiceConfiguration',
@@ -371,6 +393,8 @@ class CapacityProviderInstanceLaunchTemplate(dict):
             suggest = "instance_metadata_tags_propagation"
         elif key == "instanceRequirements":
             suggest = "instance_requirements"
+        elif key == "localStorageConfiguration":
+            suggest = "local_storage_configuration"
         elif key == "storageConfiguration":
             suggest = "storage_configuration"
 
@@ -393,6 +417,7 @@ class CapacityProviderInstanceLaunchTemplate(dict):
                  fips_enabled: Optional[_builtins.bool] = None,
                  instance_metadata_tags_propagation: Optional[_builtins.bool] = None,
                  instance_requirements: Optional['outputs.CapacityProviderInstanceRequirementsRequest'] = None,
+                 local_storage_configuration: Optional['outputs.CapacityProviderManagedInstancesLocalStorageConfiguration'] = None,
                  monitoring: Optional['CapacityProviderManagedInstancesMonitoringOptions'] = None,
                  storage_configuration: Optional['outputs.CapacityProviderManagedInstancesStorageConfiguration'] = None):
         """
@@ -431,6 +456,8 @@ class CapacityProviderInstanceLaunchTemplate(dict):
             pulumi.set(__self__, "instance_metadata_tags_propagation", instance_metadata_tags_propagation)
         if instance_requirements is not None:
             pulumi.set(__self__, "instance_requirements", instance_requirements)
+        if local_storage_configuration is not None:
+            pulumi.set(__self__, "local_storage_configuration", local_storage_configuration)
         if monitoring is not None:
             pulumi.set(__self__, "monitoring", monitoring)
         if storage_configuration is not None:
@@ -498,6 +525,11 @@ class CapacityProviderInstanceLaunchTemplate(dict):
         Amazon ECS automatically selects the instances that match the specified criteria.
         """
         return pulumi.get(self, "instance_requirements")
+
+    @_builtins.property
+    @pulumi.getter(name="localStorageConfiguration")
+    def local_storage_configuration(self) -> Optional['outputs.CapacityProviderManagedInstancesLocalStorageConfiguration']:
+        return pulumi.get(self, "local_storage_configuration")
 
     @_builtins.property
     @pulumi.getter
@@ -870,6 +902,36 @@ class CapacityProviderInstanceRequirementsRequest(dict):
         The minimum and maximum total local storage in gigabytes (GB) for instance types with local storage.
         """
         return pulumi.get(self, "total_local_storage_gb")
+
+
+@pulumi.output_type
+class CapacityProviderManagedInstancesLocalStorageConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "useLocalStorage":
+            suggest = "use_local_storage"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CapacityProviderManagedInstancesLocalStorageConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CapacityProviderManagedInstancesLocalStorageConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CapacityProviderManagedInstancesLocalStorageConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 use_local_storage: Optional[_builtins.bool] = None):
+        if use_local_storage is not None:
+            pulumi.set(__self__, "use_local_storage", use_local_storage)
+
+    @_builtins.property
+    @pulumi.getter(name="useLocalStorage")
+    def use_local_storage(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "use_local_storage")
 
 
 @pulumi.output_type
@@ -1881,6 +1943,1043 @@ class ClusterSettings(dict):
          If a cluster value is specified, it will override the ``containerInsights`` value set with [PutAccountSetting](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PutAccountSetting.html) or [PutAccountSettingDefault](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PutAccountSettingDefault.html).
         """
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class DaemonAlarmConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "alarmNames":
+            suggest = "alarm_names"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DaemonAlarmConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DaemonAlarmConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DaemonAlarmConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 alarm_names: Optional[Sequence[_builtins.str]] = None,
+                 enable: Optional[_builtins.bool] = None):
+        if alarm_names is not None:
+            pulumi.set(__self__, "alarm_names", alarm_names)
+        if enable is not None:
+            pulumi.set(__self__, "enable", enable)
+
+    @_builtins.property
+    @pulumi.getter(name="alarmNames")
+    def alarm_names(self) -> Optional[Sequence[_builtins.str]]:
+        return pulumi.get(self, "alarm_names")
+
+    @_builtins.property
+    @pulumi.getter
+    def enable(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "enable")
+
+
+@pulumi.output_type
+class DaemonDeploymentConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "bakeTimeInMinutes":
+            suggest = "bake_time_in_minutes"
+        elif key == "drainPercent":
+            suggest = "drain_percent"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DaemonDeploymentConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DaemonDeploymentConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DaemonDeploymentConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 alarms: Optional['outputs.DaemonAlarmConfiguration'] = None,
+                 bake_time_in_minutes: Optional[_builtins.int] = None,
+                 drain_percent: Optional[_builtins.float] = None):
+        if alarms is not None:
+            pulumi.set(__self__, "alarms", alarms)
+        if bake_time_in_minutes is not None:
+            pulumi.set(__self__, "bake_time_in_minutes", bake_time_in_minutes)
+        if drain_percent is not None:
+            pulumi.set(__self__, "drain_percent", drain_percent)
+
+    @_builtins.property
+    @pulumi.getter
+    def alarms(self) -> Optional['outputs.DaemonAlarmConfiguration']:
+        return pulumi.get(self, "alarms")
+
+    @_builtins.property
+    @pulumi.getter(name="bakeTimeInMinutes")
+    def bake_time_in_minutes(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "bake_time_in_minutes")
+
+    @_builtins.property
+    @pulumi.getter(name="drainPercent")
+    def drain_percent(self) -> Optional[_builtins.float]:
+        return pulumi.get(self, "drain_percent")
+
+
+@pulumi.output_type
+class DaemonTaskDefinitionContainerDependency(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "containerName":
+            suggest = "container_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DaemonTaskDefinitionContainerDependency. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DaemonTaskDefinitionContainerDependency.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DaemonTaskDefinitionContainerDependency.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 condition: Optional[_builtins.str] = None,
+                 container_name: Optional[_builtins.str] = None):
+        if condition is not None:
+            pulumi.set(__self__, "condition", condition)
+        if container_name is not None:
+            pulumi.set(__self__, "container_name", container_name)
+
+    @_builtins.property
+    @pulumi.getter
+    def condition(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "condition")
+
+    @_builtins.property
+    @pulumi.getter(name="containerName")
+    def container_name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "container_name")
+
+
+@pulumi.output_type
+class DaemonTaskDefinitionDaemonContainerDefinition(dict):
+    """
+    Container definition for daemon task definition
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dependsOn":
+            suggest = "depends_on"
+        elif key == "entryPoint":
+            suggest = "entry_point"
+        elif key == "environmentFiles":
+            suggest = "environment_files"
+        elif key == "firelensConfiguration":
+            suggest = "firelens_configuration"
+        elif key == "healthCheck":
+            suggest = "health_check"
+        elif key == "linuxParameters":
+            suggest = "linux_parameters"
+        elif key == "logConfiguration":
+            suggest = "log_configuration"
+        elif key == "memoryReservation":
+            suggest = "memory_reservation"
+        elif key == "mountPoints":
+            suggest = "mount_points"
+        elif key == "pseudoTerminal":
+            suggest = "pseudo_terminal"
+        elif key == "readonlyRootFilesystem":
+            suggest = "readonly_root_filesystem"
+        elif key == "repositoryCredentials":
+            suggest = "repository_credentials"
+        elif key == "restartPolicy":
+            suggest = "restart_policy"
+        elif key == "startTimeout":
+            suggest = "start_timeout"
+        elif key == "stopTimeout":
+            suggest = "stop_timeout"
+        elif key == "systemControls":
+            suggest = "system_controls"
+        elif key == "workingDirectory":
+            suggest = "working_directory"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DaemonTaskDefinitionDaemonContainerDefinition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DaemonTaskDefinitionDaemonContainerDefinition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DaemonTaskDefinitionDaemonContainerDefinition.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 image: _builtins.str,
+                 name: _builtins.str,
+                 command: Optional[Sequence[_builtins.str]] = None,
+                 cpu: Optional[_builtins.int] = None,
+                 depends_on: Optional[Sequence['outputs.DaemonTaskDefinitionContainerDependency']] = None,
+                 entry_point: Optional[Sequence[_builtins.str]] = None,
+                 environment: Optional[Sequence['outputs.DaemonTaskDefinitionKeyValuePair']] = None,
+                 environment_files: Optional[Sequence['outputs.DaemonTaskDefinitionEnvironmentFile']] = None,
+                 essential: Optional[_builtins.bool] = None,
+                 firelens_configuration: Optional['outputs.DaemonTaskDefinitionFirelensConfiguration'] = None,
+                 health_check: Optional['outputs.DaemonTaskDefinitionHealthCheck'] = None,
+                 interactive: Optional[_builtins.bool] = None,
+                 linux_parameters: Optional['outputs.DaemonTaskDefinitionLinuxParameters'] = None,
+                 log_configuration: Optional['outputs.DaemonTaskDefinitionLogConfiguration'] = None,
+                 memory: Optional[_builtins.int] = None,
+                 memory_reservation: Optional[_builtins.int] = None,
+                 mount_points: Optional[Sequence['outputs.DaemonTaskDefinitionMountPoint']] = None,
+                 privileged: Optional[_builtins.bool] = None,
+                 pseudo_terminal: Optional[_builtins.bool] = None,
+                 readonly_root_filesystem: Optional[_builtins.bool] = None,
+                 repository_credentials: Optional['outputs.DaemonTaskDefinitionRepositoryCredentials'] = None,
+                 restart_policy: Optional['outputs.DaemonTaskDefinitionRestartPolicy'] = None,
+                 secrets: Optional[Sequence['outputs.DaemonTaskDefinitionSecret']] = None,
+                 start_timeout: Optional[_builtins.int] = None,
+                 stop_timeout: Optional[_builtins.int] = None,
+                 system_controls: Optional[Sequence['outputs.DaemonTaskDefinitionSystemControl']] = None,
+                 ulimits: Optional[Sequence['outputs.DaemonTaskDefinitionUlimit']] = None,
+                 user: Optional[_builtins.str] = None,
+                 working_directory: Optional[_builtins.str] = None):
+        """
+        Container definition for daemon task definition
+        """
+        pulumi.set(__self__, "image", image)
+        pulumi.set(__self__, "name", name)
+        if command is not None:
+            pulumi.set(__self__, "command", command)
+        if cpu is not None:
+            pulumi.set(__self__, "cpu", cpu)
+        if depends_on is not None:
+            pulumi.set(__self__, "depends_on", depends_on)
+        if entry_point is not None:
+            pulumi.set(__self__, "entry_point", entry_point)
+        if environment is not None:
+            pulumi.set(__self__, "environment", environment)
+        if environment_files is not None:
+            pulumi.set(__self__, "environment_files", environment_files)
+        if essential is not None:
+            pulumi.set(__self__, "essential", essential)
+        if firelens_configuration is not None:
+            pulumi.set(__self__, "firelens_configuration", firelens_configuration)
+        if health_check is not None:
+            pulumi.set(__self__, "health_check", health_check)
+        if interactive is not None:
+            pulumi.set(__self__, "interactive", interactive)
+        if linux_parameters is not None:
+            pulumi.set(__self__, "linux_parameters", linux_parameters)
+        if log_configuration is not None:
+            pulumi.set(__self__, "log_configuration", log_configuration)
+        if memory is not None:
+            pulumi.set(__self__, "memory", memory)
+        if memory_reservation is not None:
+            pulumi.set(__self__, "memory_reservation", memory_reservation)
+        if mount_points is not None:
+            pulumi.set(__self__, "mount_points", mount_points)
+        if privileged is not None:
+            pulumi.set(__self__, "privileged", privileged)
+        if pseudo_terminal is not None:
+            pulumi.set(__self__, "pseudo_terminal", pseudo_terminal)
+        if readonly_root_filesystem is not None:
+            pulumi.set(__self__, "readonly_root_filesystem", readonly_root_filesystem)
+        if repository_credentials is not None:
+            pulumi.set(__self__, "repository_credentials", repository_credentials)
+        if restart_policy is not None:
+            pulumi.set(__self__, "restart_policy", restart_policy)
+        if secrets is not None:
+            pulumi.set(__self__, "secrets", secrets)
+        if start_timeout is not None:
+            pulumi.set(__self__, "start_timeout", start_timeout)
+        if stop_timeout is not None:
+            pulumi.set(__self__, "stop_timeout", stop_timeout)
+        if system_controls is not None:
+            pulumi.set(__self__, "system_controls", system_controls)
+        if ulimits is not None:
+            pulumi.set(__self__, "ulimits", ulimits)
+        if user is not None:
+            pulumi.set(__self__, "user", user)
+        if working_directory is not None:
+            pulumi.set(__self__, "working_directory", working_directory)
+
+    @_builtins.property
+    @pulumi.getter
+    def image(self) -> _builtins.str:
+        return pulumi.get(self, "image")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def command(self) -> Optional[Sequence[_builtins.str]]:
+        return pulumi.get(self, "command")
+
+    @_builtins.property
+    @pulumi.getter
+    def cpu(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "cpu")
+
+    @_builtins.property
+    @pulumi.getter(name="dependsOn")
+    def depends_on(self) -> Optional[Sequence['outputs.DaemonTaskDefinitionContainerDependency']]:
+        return pulumi.get(self, "depends_on")
+
+    @_builtins.property
+    @pulumi.getter(name="entryPoint")
+    def entry_point(self) -> Optional[Sequence[_builtins.str]]:
+        return pulumi.get(self, "entry_point")
+
+    @_builtins.property
+    @pulumi.getter
+    def environment(self) -> Optional[Sequence['outputs.DaemonTaskDefinitionKeyValuePair']]:
+        return pulumi.get(self, "environment")
+
+    @_builtins.property
+    @pulumi.getter(name="environmentFiles")
+    def environment_files(self) -> Optional[Sequence['outputs.DaemonTaskDefinitionEnvironmentFile']]:
+        return pulumi.get(self, "environment_files")
+
+    @_builtins.property
+    @pulumi.getter
+    def essential(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "essential")
+
+    @_builtins.property
+    @pulumi.getter(name="firelensConfiguration")
+    def firelens_configuration(self) -> Optional['outputs.DaemonTaskDefinitionFirelensConfiguration']:
+        return pulumi.get(self, "firelens_configuration")
+
+    @_builtins.property
+    @pulumi.getter(name="healthCheck")
+    def health_check(self) -> Optional['outputs.DaemonTaskDefinitionHealthCheck']:
+        return pulumi.get(self, "health_check")
+
+    @_builtins.property
+    @pulumi.getter
+    def interactive(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "interactive")
+
+    @_builtins.property
+    @pulumi.getter(name="linuxParameters")
+    def linux_parameters(self) -> Optional['outputs.DaemonTaskDefinitionLinuxParameters']:
+        return pulumi.get(self, "linux_parameters")
+
+    @_builtins.property
+    @pulumi.getter(name="logConfiguration")
+    def log_configuration(self) -> Optional['outputs.DaemonTaskDefinitionLogConfiguration']:
+        return pulumi.get(self, "log_configuration")
+
+    @_builtins.property
+    @pulumi.getter
+    def memory(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "memory")
+
+    @_builtins.property
+    @pulumi.getter(name="memoryReservation")
+    def memory_reservation(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "memory_reservation")
+
+    @_builtins.property
+    @pulumi.getter(name="mountPoints")
+    def mount_points(self) -> Optional[Sequence['outputs.DaemonTaskDefinitionMountPoint']]:
+        return pulumi.get(self, "mount_points")
+
+    @_builtins.property
+    @pulumi.getter
+    def privileged(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "privileged")
+
+    @_builtins.property
+    @pulumi.getter(name="pseudoTerminal")
+    def pseudo_terminal(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "pseudo_terminal")
+
+    @_builtins.property
+    @pulumi.getter(name="readonlyRootFilesystem")
+    def readonly_root_filesystem(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "readonly_root_filesystem")
+
+    @_builtins.property
+    @pulumi.getter(name="repositoryCredentials")
+    def repository_credentials(self) -> Optional['outputs.DaemonTaskDefinitionRepositoryCredentials']:
+        return pulumi.get(self, "repository_credentials")
+
+    @_builtins.property
+    @pulumi.getter(name="restartPolicy")
+    def restart_policy(self) -> Optional['outputs.DaemonTaskDefinitionRestartPolicy']:
+        return pulumi.get(self, "restart_policy")
+
+    @_builtins.property
+    @pulumi.getter
+    def secrets(self) -> Optional[Sequence['outputs.DaemonTaskDefinitionSecret']]:
+        return pulumi.get(self, "secrets")
+
+    @_builtins.property
+    @pulumi.getter(name="startTimeout")
+    def start_timeout(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "start_timeout")
+
+    @_builtins.property
+    @pulumi.getter(name="stopTimeout")
+    def stop_timeout(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "stop_timeout")
+
+    @_builtins.property
+    @pulumi.getter(name="systemControls")
+    def system_controls(self) -> Optional[Sequence['outputs.DaemonTaskDefinitionSystemControl']]:
+        return pulumi.get(self, "system_controls")
+
+    @_builtins.property
+    @pulumi.getter
+    def ulimits(self) -> Optional[Sequence['outputs.DaemonTaskDefinitionUlimit']]:
+        return pulumi.get(self, "ulimits")
+
+    @_builtins.property
+    @pulumi.getter
+    def user(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "user")
+
+    @_builtins.property
+    @pulumi.getter(name="workingDirectory")
+    def working_directory(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "working_directory")
+
+
+@pulumi.output_type
+class DaemonTaskDefinitionDevice(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "containerPath":
+            suggest = "container_path"
+        elif key == "hostPath":
+            suggest = "host_path"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DaemonTaskDefinitionDevice. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DaemonTaskDefinitionDevice.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DaemonTaskDefinitionDevice.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 container_path: Optional[_builtins.str] = None,
+                 host_path: Optional[_builtins.str] = None,
+                 permissions: Optional[Sequence[_builtins.str]] = None):
+        if container_path is not None:
+            pulumi.set(__self__, "container_path", container_path)
+        if host_path is not None:
+            pulumi.set(__self__, "host_path", host_path)
+        if permissions is not None:
+            pulumi.set(__self__, "permissions", permissions)
+
+    @_builtins.property
+    @pulumi.getter(name="containerPath")
+    def container_path(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "container_path")
+
+    @_builtins.property
+    @pulumi.getter(name="hostPath")
+    def host_path(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "host_path")
+
+    @_builtins.property
+    @pulumi.getter
+    def permissions(self) -> Optional[Sequence[_builtins.str]]:
+        return pulumi.get(self, "permissions")
+
+
+@pulumi.output_type
+class DaemonTaskDefinitionEnvironmentFile(dict):
+    def __init__(__self__, *,
+                 type: Optional[_builtins.str] = None,
+                 value: Optional[_builtins.str] = None):
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "type")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class DaemonTaskDefinitionFirelensConfiguration(dict):
+    def __init__(__self__, *,
+                 options: Optional[Mapping[str, _builtins.str]] = None,
+                 type: Optional[_builtins.str] = None):
+        if options is not None:
+            pulumi.set(__self__, "options", options)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter
+    def options(self) -> Optional[Mapping[str, _builtins.str]]:
+        return pulumi.get(self, "options")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class DaemonTaskDefinitionHealthCheck(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "startPeriod":
+            suggest = "start_period"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DaemonTaskDefinitionHealthCheck. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DaemonTaskDefinitionHealthCheck.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DaemonTaskDefinitionHealthCheck.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 command: Optional[Sequence[_builtins.str]] = None,
+                 interval: Optional[_builtins.int] = None,
+                 retries: Optional[_builtins.int] = None,
+                 start_period: Optional[_builtins.int] = None,
+                 timeout: Optional[_builtins.int] = None):
+        if command is not None:
+            pulumi.set(__self__, "command", command)
+        if interval is not None:
+            pulumi.set(__self__, "interval", interval)
+        if retries is not None:
+            pulumi.set(__self__, "retries", retries)
+        if start_period is not None:
+            pulumi.set(__self__, "start_period", start_period)
+        if timeout is not None:
+            pulumi.set(__self__, "timeout", timeout)
+
+    @_builtins.property
+    @pulumi.getter
+    def command(self) -> Optional[Sequence[_builtins.str]]:
+        return pulumi.get(self, "command")
+
+    @_builtins.property
+    @pulumi.getter
+    def interval(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "interval")
+
+    @_builtins.property
+    @pulumi.getter
+    def retries(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "retries")
+
+    @_builtins.property
+    @pulumi.getter(name="startPeriod")
+    def start_period(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "start_period")
+
+    @_builtins.property
+    @pulumi.getter
+    def timeout(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "timeout")
+
+
+@pulumi.output_type
+class DaemonTaskDefinitionHostVolumeProperties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sourcePath":
+            suggest = "source_path"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DaemonTaskDefinitionHostVolumeProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DaemonTaskDefinitionHostVolumeProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DaemonTaskDefinitionHostVolumeProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 source_path: Optional[_builtins.str] = None):
+        if source_path is not None:
+            pulumi.set(__self__, "source_path", source_path)
+
+    @_builtins.property
+    @pulumi.getter(name="sourcePath")
+    def source_path(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "source_path")
+
+
+@pulumi.output_type
+class DaemonTaskDefinitionKernelCapabilities(dict):
+    def __init__(__self__, *,
+                 add: Optional[Sequence[_builtins.str]] = None,
+                 drop: Optional[Sequence[_builtins.str]] = None):
+        if add is not None:
+            pulumi.set(__self__, "add", add)
+        if drop is not None:
+            pulumi.set(__self__, "drop", drop)
+
+    @_builtins.property
+    @pulumi.getter
+    def add(self) -> Optional[Sequence[_builtins.str]]:
+        return pulumi.get(self, "add")
+
+    @_builtins.property
+    @pulumi.getter
+    def drop(self) -> Optional[Sequence[_builtins.str]]:
+        return pulumi.get(self, "drop")
+
+
+@pulumi.output_type
+class DaemonTaskDefinitionKeyValuePair(dict):
+    def __init__(__self__, *,
+                 name: Optional[_builtins.str] = None,
+                 value: Optional[_builtins.str] = None):
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class DaemonTaskDefinitionLinuxParameters(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "initProcessEnabled":
+            suggest = "init_process_enabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DaemonTaskDefinitionLinuxParameters. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DaemonTaskDefinitionLinuxParameters.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DaemonTaskDefinitionLinuxParameters.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 capabilities: Optional['outputs.DaemonTaskDefinitionKernelCapabilities'] = None,
+                 devices: Optional[Sequence['outputs.DaemonTaskDefinitionDevice']] = None,
+                 init_process_enabled: Optional[_builtins.bool] = None,
+                 tmpfs: Optional[Sequence['outputs.DaemonTaskDefinitionTmpfs']] = None):
+        if capabilities is not None:
+            pulumi.set(__self__, "capabilities", capabilities)
+        if devices is not None:
+            pulumi.set(__self__, "devices", devices)
+        if init_process_enabled is not None:
+            pulumi.set(__self__, "init_process_enabled", init_process_enabled)
+        if tmpfs is not None:
+            pulumi.set(__self__, "tmpfs", tmpfs)
+
+    @_builtins.property
+    @pulumi.getter
+    def capabilities(self) -> Optional['outputs.DaemonTaskDefinitionKernelCapabilities']:
+        return pulumi.get(self, "capabilities")
+
+    @_builtins.property
+    @pulumi.getter
+    def devices(self) -> Optional[Sequence['outputs.DaemonTaskDefinitionDevice']]:
+        return pulumi.get(self, "devices")
+
+    @_builtins.property
+    @pulumi.getter(name="initProcessEnabled")
+    def init_process_enabled(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "init_process_enabled")
+
+    @_builtins.property
+    @pulumi.getter
+    def tmpfs(self) -> Optional[Sequence['outputs.DaemonTaskDefinitionTmpfs']]:
+        return pulumi.get(self, "tmpfs")
+
+
+@pulumi.output_type
+class DaemonTaskDefinitionLogConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "logDriver":
+            suggest = "log_driver"
+        elif key == "secretOptions":
+            suggest = "secret_options"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DaemonTaskDefinitionLogConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DaemonTaskDefinitionLogConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DaemonTaskDefinitionLogConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 log_driver: _builtins.str,
+                 options: Optional[Mapping[str, _builtins.str]] = None,
+                 secret_options: Optional[Sequence['outputs.DaemonTaskDefinitionSecret']] = None):
+        pulumi.set(__self__, "log_driver", log_driver)
+        if options is not None:
+            pulumi.set(__self__, "options", options)
+        if secret_options is not None:
+            pulumi.set(__self__, "secret_options", secret_options)
+
+    @_builtins.property
+    @pulumi.getter(name="logDriver")
+    def log_driver(self) -> _builtins.str:
+        return pulumi.get(self, "log_driver")
+
+    @_builtins.property
+    @pulumi.getter
+    def options(self) -> Optional[Mapping[str, _builtins.str]]:
+        return pulumi.get(self, "options")
+
+    @_builtins.property
+    @pulumi.getter(name="secretOptions")
+    def secret_options(self) -> Optional[Sequence['outputs.DaemonTaskDefinitionSecret']]:
+        return pulumi.get(self, "secret_options")
+
+
+@pulumi.output_type
+class DaemonTaskDefinitionMountPoint(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "containerPath":
+            suggest = "container_path"
+        elif key == "readOnly":
+            suggest = "read_only"
+        elif key == "sourceVolume":
+            suggest = "source_volume"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DaemonTaskDefinitionMountPoint. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DaemonTaskDefinitionMountPoint.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DaemonTaskDefinitionMountPoint.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 container_path: Optional[_builtins.str] = None,
+                 read_only: Optional[_builtins.bool] = None,
+                 source_volume: Optional[_builtins.str] = None):
+        if container_path is not None:
+            pulumi.set(__self__, "container_path", container_path)
+        if read_only is not None:
+            pulumi.set(__self__, "read_only", read_only)
+        if source_volume is not None:
+            pulumi.set(__self__, "source_volume", source_volume)
+
+    @_builtins.property
+    @pulumi.getter(name="containerPath")
+    def container_path(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "container_path")
+
+    @_builtins.property
+    @pulumi.getter(name="readOnly")
+    def read_only(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "read_only")
+
+    @_builtins.property
+    @pulumi.getter(name="sourceVolume")
+    def source_volume(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "source_volume")
+
+
+@pulumi.output_type
+class DaemonTaskDefinitionRepositoryCredentials(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "credentialsParameter":
+            suggest = "credentials_parameter"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DaemonTaskDefinitionRepositoryCredentials. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DaemonTaskDefinitionRepositoryCredentials.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DaemonTaskDefinitionRepositoryCredentials.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 credentials_parameter: Optional[_builtins.str] = None):
+        if credentials_parameter is not None:
+            pulumi.set(__self__, "credentials_parameter", credentials_parameter)
+
+    @_builtins.property
+    @pulumi.getter(name="credentialsParameter")
+    def credentials_parameter(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "credentials_parameter")
+
+
+@pulumi.output_type
+class DaemonTaskDefinitionRestartPolicy(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ignoredExitCodes":
+            suggest = "ignored_exit_codes"
+        elif key == "restartAttemptPeriod":
+            suggest = "restart_attempt_period"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DaemonTaskDefinitionRestartPolicy. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DaemonTaskDefinitionRestartPolicy.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DaemonTaskDefinitionRestartPolicy.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enabled: Optional[_builtins.bool] = None,
+                 ignored_exit_codes: Optional[Sequence[_builtins.int]] = None,
+                 restart_attempt_period: Optional[_builtins.int] = None):
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if ignored_exit_codes is not None:
+            pulumi.set(__self__, "ignored_exit_codes", ignored_exit_codes)
+        if restart_attempt_period is not None:
+            pulumi.set(__self__, "restart_attempt_period", restart_attempt_period)
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "enabled")
+
+    @_builtins.property
+    @pulumi.getter(name="ignoredExitCodes")
+    def ignored_exit_codes(self) -> Optional[Sequence[_builtins.int]]:
+        return pulumi.get(self, "ignored_exit_codes")
+
+    @_builtins.property
+    @pulumi.getter(name="restartAttemptPeriod")
+    def restart_attempt_period(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "restart_attempt_period")
+
+
+@pulumi.output_type
+class DaemonTaskDefinitionSecret(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "valueFrom":
+            suggest = "value_from"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DaemonTaskDefinitionSecret. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DaemonTaskDefinitionSecret.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DaemonTaskDefinitionSecret.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: _builtins.str,
+                 value_from: _builtins.str):
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value_from", value_from)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="valueFrom")
+    def value_from(self) -> _builtins.str:
+        return pulumi.get(self, "value_from")
+
+
+@pulumi.output_type
+class DaemonTaskDefinitionSystemControl(dict):
+    def __init__(__self__, *,
+                 namespace: Optional[_builtins.str] = None,
+                 value: Optional[_builtins.str] = None):
+        if namespace is not None:
+            pulumi.set(__self__, "namespace", namespace)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def namespace(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "namespace")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class DaemonTaskDefinitionTmpfs(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "containerPath":
+            suggest = "container_path"
+        elif key == "mountOptions":
+            suggest = "mount_options"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DaemonTaskDefinitionTmpfs. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DaemonTaskDefinitionTmpfs.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DaemonTaskDefinitionTmpfs.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 size: _builtins.int,
+                 container_path: Optional[_builtins.str] = None,
+                 mount_options: Optional[Sequence[_builtins.str]] = None):
+        pulumi.set(__self__, "size", size)
+        if container_path is not None:
+            pulumi.set(__self__, "container_path", container_path)
+        if mount_options is not None:
+            pulumi.set(__self__, "mount_options", mount_options)
+
+    @_builtins.property
+    @pulumi.getter
+    def size(self) -> _builtins.int:
+        return pulumi.get(self, "size")
+
+    @_builtins.property
+    @pulumi.getter(name="containerPath")
+    def container_path(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "container_path")
+
+    @_builtins.property
+    @pulumi.getter(name="mountOptions")
+    def mount_options(self) -> Optional[Sequence[_builtins.str]]:
+        return pulumi.get(self, "mount_options")
+
+
+@pulumi.output_type
+class DaemonTaskDefinitionUlimit(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "hardLimit":
+            suggest = "hard_limit"
+        elif key == "softLimit":
+            suggest = "soft_limit"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DaemonTaskDefinitionUlimit. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DaemonTaskDefinitionUlimit.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DaemonTaskDefinitionUlimit.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 hard_limit: _builtins.int,
+                 name: _builtins.str,
+                 soft_limit: _builtins.int):
+        pulumi.set(__self__, "hard_limit", hard_limit)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "soft_limit", soft_limit)
+
+    @_builtins.property
+    @pulumi.getter(name="hardLimit")
+    def hard_limit(self) -> _builtins.int:
+        return pulumi.get(self, "hard_limit")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="softLimit")
+    def soft_limit(self) -> _builtins.int:
+        return pulumi.get(self, "soft_limit")
+
+
+@pulumi.output_type
+class DaemonTaskDefinitionVolume(dict):
+    def __init__(__self__, *,
+                 host: Optional['outputs.DaemonTaskDefinitionHostVolumeProperties'] = None,
+                 name: Optional[_builtins.str] = None):
+        if host is not None:
+            pulumi.set(__self__, "host", host)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @_builtins.property
+    @pulumi.getter
+    def host(self) -> Optional['outputs.DaemonTaskDefinitionHostVolumeProperties']:
+        return pulumi.get(self, "host")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "name")
 
 
 @pulumi.output_type

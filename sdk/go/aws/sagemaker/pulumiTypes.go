@@ -17063,6 +17063,146 @@ type MlflowTrackingServerTag struct {
 	Value string `pulumi:"value"`
 }
 
+// The access configuration file to control access to the ML model. You can explicitly accept the model end-user license agreement (EULA) within the `ModelAccessConfig`.
+type ModelAccessConfig struct {
+	// Specifies agreement to the model end-user license agreement (EULA). The `AcceptEula` value must be explicitly defined as `True` in order to accept the EULA that this model requires. You are responsible for reviewing and complying with any applicable license terms and making sure they are acceptable for your use case before downloading or using a model.
+	AcceptEula bool `pulumi:"acceptEula"`
+}
+
+// ModelAccessConfigInput is an input type that accepts ModelAccessConfigArgs and ModelAccessConfigOutput values.
+// You can construct a concrete instance of `ModelAccessConfigInput` via:
+//
+//	ModelAccessConfigArgs{...}
+type ModelAccessConfigInput interface {
+	pulumi.Input
+
+	ToModelAccessConfigOutput() ModelAccessConfigOutput
+	ToModelAccessConfigOutputWithContext(context.Context) ModelAccessConfigOutput
+}
+
+// The access configuration file to control access to the ML model. You can explicitly accept the model end-user license agreement (EULA) within the `ModelAccessConfig`.
+type ModelAccessConfigArgs struct {
+	// Specifies agreement to the model end-user license agreement (EULA). The `AcceptEula` value must be explicitly defined as `True` in order to accept the EULA that this model requires. You are responsible for reviewing and complying with any applicable license terms and making sure they are acceptable for your use case before downloading or using a model.
+	AcceptEula pulumi.BoolInput `pulumi:"acceptEula"`
+}
+
+func (ModelAccessConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelAccessConfig)(nil)).Elem()
+}
+
+func (i ModelAccessConfigArgs) ToModelAccessConfigOutput() ModelAccessConfigOutput {
+	return i.ToModelAccessConfigOutputWithContext(context.Background())
+}
+
+func (i ModelAccessConfigArgs) ToModelAccessConfigOutputWithContext(ctx context.Context) ModelAccessConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelAccessConfigOutput)
+}
+
+func (i ModelAccessConfigArgs) ToModelAccessConfigPtrOutput() ModelAccessConfigPtrOutput {
+	return i.ToModelAccessConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ModelAccessConfigArgs) ToModelAccessConfigPtrOutputWithContext(ctx context.Context) ModelAccessConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelAccessConfigOutput).ToModelAccessConfigPtrOutputWithContext(ctx)
+}
+
+// ModelAccessConfigPtrInput is an input type that accepts ModelAccessConfigArgs, ModelAccessConfigPtr and ModelAccessConfigPtrOutput values.
+// You can construct a concrete instance of `ModelAccessConfigPtrInput` via:
+//
+//	        ModelAccessConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type ModelAccessConfigPtrInput interface {
+	pulumi.Input
+
+	ToModelAccessConfigPtrOutput() ModelAccessConfigPtrOutput
+	ToModelAccessConfigPtrOutputWithContext(context.Context) ModelAccessConfigPtrOutput
+}
+
+type modelAccessConfigPtrType ModelAccessConfigArgs
+
+func ModelAccessConfigPtr(v *ModelAccessConfigArgs) ModelAccessConfigPtrInput {
+	return (*modelAccessConfigPtrType)(v)
+}
+
+func (*modelAccessConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelAccessConfig)(nil)).Elem()
+}
+
+func (i *modelAccessConfigPtrType) ToModelAccessConfigPtrOutput() ModelAccessConfigPtrOutput {
+	return i.ToModelAccessConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *modelAccessConfigPtrType) ToModelAccessConfigPtrOutputWithContext(ctx context.Context) ModelAccessConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelAccessConfigPtrOutput)
+}
+
+// The access configuration file to control access to the ML model. You can explicitly accept the model end-user license agreement (EULA) within the `ModelAccessConfig`.
+type ModelAccessConfigOutput struct{ *pulumi.OutputState }
+
+func (ModelAccessConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelAccessConfig)(nil)).Elem()
+}
+
+func (o ModelAccessConfigOutput) ToModelAccessConfigOutput() ModelAccessConfigOutput {
+	return o
+}
+
+func (o ModelAccessConfigOutput) ToModelAccessConfigOutputWithContext(ctx context.Context) ModelAccessConfigOutput {
+	return o
+}
+
+func (o ModelAccessConfigOutput) ToModelAccessConfigPtrOutput() ModelAccessConfigPtrOutput {
+	return o.ToModelAccessConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ModelAccessConfigOutput) ToModelAccessConfigPtrOutputWithContext(ctx context.Context) ModelAccessConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ModelAccessConfig) *ModelAccessConfig {
+		return &v
+	}).(ModelAccessConfigPtrOutput)
+}
+
+// Specifies agreement to the model end-user license agreement (EULA). The `AcceptEula` value must be explicitly defined as `True` in order to accept the EULA that this model requires. You are responsible for reviewing and complying with any applicable license terms and making sure they are acceptable for your use case before downloading or using a model.
+func (o ModelAccessConfigOutput) AcceptEula() pulumi.BoolOutput {
+	return o.ApplyT(func(v ModelAccessConfig) bool { return v.AcceptEula }).(pulumi.BoolOutput)
+}
+
+type ModelAccessConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ModelAccessConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelAccessConfig)(nil)).Elem()
+}
+
+func (o ModelAccessConfigPtrOutput) ToModelAccessConfigPtrOutput() ModelAccessConfigPtrOutput {
+	return o
+}
+
+func (o ModelAccessConfigPtrOutput) ToModelAccessConfigPtrOutputWithContext(ctx context.Context) ModelAccessConfigPtrOutput {
+	return o
+}
+
+func (o ModelAccessConfigPtrOutput) Elem() ModelAccessConfigOutput {
+	return o.ApplyT(func(v *ModelAccessConfig) ModelAccessConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ModelAccessConfig
+		return ret
+	}).(ModelAccessConfigOutput)
+}
+
+// Specifies agreement to the model end-user license agreement (EULA). The `AcceptEula` value must be explicitly defined as `True` in order to accept the EULA that this model requires. You are responsible for reviewing and complying with any applicable license terms and making sure they are acceptable for your use case before downloading or using a model.
+func (o ModelAccessConfigPtrOutput) AcceptEula() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ModelAccessConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.AcceptEula
+	}).(pulumi.BoolPtrOutput)
+}
+
 // The batch transform input for a monitoring job.
 type ModelBiasJobDefinitionBatchTransformInput struct {
 	// A URI that identifies the Amazon S3 storage location where Batch Transform Job captures data.
@@ -23639,6 +23779,542 @@ func (o ModelCardUserContextPtrOutput) UserProfileName() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
+// Describes the container, as part of model definition.
+type ModelContainerDefinition struct {
+	// This parameter is ignored for models that contain only a PrimaryContainer.
+	//
+	// When a ContainerDefinition is part of an inference pipeline, the value of the parameter uniquely identifies the container for the purposes of logging and metrics. For information, see [Use Logs and Metrics to Monitor an Inference Pipeline](https://docs.aws.amazon.com/sagemaker/latest/dg/inference-pipeline-logs-metrics.html). If you don't specify a value for this parameter for a ContainerDefinition that is part of an inference pipeline, a unique name is automatically assigned based on the position of the ContainerDefinition in the pipeline. If you specify a value for the ContainerHostName for any ContainerDefinition that is part of an inference pipeline, you must specify a value for the ContainerHostName parameter of every ContainerDefinition in that pipeline.
+	ContainerHostname *string `pulumi:"containerHostname"`
+	// The environment variables to set in the Docker container. Don't include any sensitive data in your environment variables.
+	//
+	// The maximum length of each key and value in the Environment map is 1024 bytes. The maximum length of all keys and values in the map, combined, is 32 KB. If you pass multiple containers to a CreateModel request, then the maximum length of all of their maps, combined, is also 32 KB.
+	Environment interface{} `pulumi:"environment"`
+	// The path where inference code is stored. This can be either in Amazon EC2 Container Registry or in a Docker registry that is accessible from the same VPC that you configure for your endpoint. If you are using your own custom algorithm instead of an algorithm provided by SageMaker, the inference code must meet SageMaker requirements. SageMaker supports both registry/repository[:tag] and registry/repository[@digest] image path formats. For more information, see [Using Your Own Algorithms with Amazon SageMaker](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms.html).
+	Image *string `pulumi:"image"`
+	// Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC). For information about storing containers in a private Docker registry, see [Use a Private Docker Registry for Real-Time Inference Containers](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-containers-inference-private.html) .
+	//
+	// > The model artifacts in an Amazon S3 bucket and the Docker image for inference container in Amazon EC2 Container Registry must be in the same region as the model or endpoint you are creating.
+	ImageConfig *ModelImageConfig `pulumi:"imageConfig"`
+	// The inference specification name in the model package version.
+	InferenceSpecificationName *string `pulumi:"inferenceSpecificationName"`
+	// Whether the container hosts a single model or multiple models.
+	Mode *ModelContainerDefinitionMode `pulumi:"mode"`
+	// Specifies the location of ML model data to deploy.
+	//
+	// > Currently you cannot use `ModelDataSource` in conjunction with SageMaker batch transform, SageMaker serverless endpoints, SageMaker multi-model endpoints, and SageMaker Marketplace.
+	ModelDataSource *ModelDataSource `pulumi:"modelDataSource"`
+	// The S3 path where the model artifacts, which result from model training, are stored. This path must point to a single gzip compressed tar archive (.tar.gz suffix). The S3 path is required for SageMaker built-in algorithms, but not if you use your own algorithms. For more information on built-in algorithms, see [Common Parameters](https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-algo-docker-registry-paths.html).
+	//
+	// If you provide a value for this parameter, SageMaker uses AWS Security Token Service to download model artifacts from the S3 path you provide. AWS STS is activated in your AWS account by default. If you previously deactivated AWS STS for a region, you need to reactivate AWS STS for that region. For more information, see [Activating and Deactivating AWS STS in an AWS Region](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html) in the AWS Identity and Access Management User Guide
+	ModelDataUrl *string `pulumi:"modelDataUrl"`
+	// The name or Amazon Resource Name (ARN) of the model package to use to create the model.
+	ModelPackageName *string `pulumi:"modelPackageName"`
+	// Specifies additional configuration for multi-model endpoints.
+	MultiModelConfig *ModelMultiModelConfig `pulumi:"multiModelConfig"`
+}
+
+// ModelContainerDefinitionInput is an input type that accepts ModelContainerDefinitionArgs and ModelContainerDefinitionOutput values.
+// You can construct a concrete instance of `ModelContainerDefinitionInput` via:
+//
+//	ModelContainerDefinitionArgs{...}
+type ModelContainerDefinitionInput interface {
+	pulumi.Input
+
+	ToModelContainerDefinitionOutput() ModelContainerDefinitionOutput
+	ToModelContainerDefinitionOutputWithContext(context.Context) ModelContainerDefinitionOutput
+}
+
+// Describes the container, as part of model definition.
+type ModelContainerDefinitionArgs struct {
+	// This parameter is ignored for models that contain only a PrimaryContainer.
+	//
+	// When a ContainerDefinition is part of an inference pipeline, the value of the parameter uniquely identifies the container for the purposes of logging and metrics. For information, see [Use Logs and Metrics to Monitor an Inference Pipeline](https://docs.aws.amazon.com/sagemaker/latest/dg/inference-pipeline-logs-metrics.html). If you don't specify a value for this parameter for a ContainerDefinition that is part of an inference pipeline, a unique name is automatically assigned based on the position of the ContainerDefinition in the pipeline. If you specify a value for the ContainerHostName for any ContainerDefinition that is part of an inference pipeline, you must specify a value for the ContainerHostName parameter of every ContainerDefinition in that pipeline.
+	ContainerHostname pulumi.StringPtrInput `pulumi:"containerHostname"`
+	// The environment variables to set in the Docker container. Don't include any sensitive data in your environment variables.
+	//
+	// The maximum length of each key and value in the Environment map is 1024 bytes. The maximum length of all keys and values in the map, combined, is 32 KB. If you pass multiple containers to a CreateModel request, then the maximum length of all of their maps, combined, is also 32 KB.
+	Environment pulumi.Input `pulumi:"environment"`
+	// The path where inference code is stored. This can be either in Amazon EC2 Container Registry or in a Docker registry that is accessible from the same VPC that you configure for your endpoint. If you are using your own custom algorithm instead of an algorithm provided by SageMaker, the inference code must meet SageMaker requirements. SageMaker supports both registry/repository[:tag] and registry/repository[@digest] image path formats. For more information, see [Using Your Own Algorithms with Amazon SageMaker](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms.html).
+	Image pulumi.StringPtrInput `pulumi:"image"`
+	// Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC). For information about storing containers in a private Docker registry, see [Use a Private Docker Registry for Real-Time Inference Containers](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-containers-inference-private.html) .
+	//
+	// > The model artifacts in an Amazon S3 bucket and the Docker image for inference container in Amazon EC2 Container Registry must be in the same region as the model or endpoint you are creating.
+	ImageConfig ModelImageConfigPtrInput `pulumi:"imageConfig"`
+	// The inference specification name in the model package version.
+	InferenceSpecificationName pulumi.StringPtrInput `pulumi:"inferenceSpecificationName"`
+	// Whether the container hosts a single model or multiple models.
+	Mode ModelContainerDefinitionModePtrInput `pulumi:"mode"`
+	// Specifies the location of ML model data to deploy.
+	//
+	// > Currently you cannot use `ModelDataSource` in conjunction with SageMaker batch transform, SageMaker serverless endpoints, SageMaker multi-model endpoints, and SageMaker Marketplace.
+	ModelDataSource ModelDataSourcePtrInput `pulumi:"modelDataSource"`
+	// The S3 path where the model artifacts, which result from model training, are stored. This path must point to a single gzip compressed tar archive (.tar.gz suffix). The S3 path is required for SageMaker built-in algorithms, but not if you use your own algorithms. For more information on built-in algorithms, see [Common Parameters](https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-algo-docker-registry-paths.html).
+	//
+	// If you provide a value for this parameter, SageMaker uses AWS Security Token Service to download model artifacts from the S3 path you provide. AWS STS is activated in your AWS account by default. If you previously deactivated AWS STS for a region, you need to reactivate AWS STS for that region. For more information, see [Activating and Deactivating AWS STS in an AWS Region](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html) in the AWS Identity and Access Management User Guide
+	ModelDataUrl pulumi.StringPtrInput `pulumi:"modelDataUrl"`
+	// The name or Amazon Resource Name (ARN) of the model package to use to create the model.
+	ModelPackageName pulumi.StringPtrInput `pulumi:"modelPackageName"`
+	// Specifies additional configuration for multi-model endpoints.
+	MultiModelConfig ModelMultiModelConfigPtrInput `pulumi:"multiModelConfig"`
+}
+
+func (ModelContainerDefinitionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelContainerDefinition)(nil)).Elem()
+}
+
+func (i ModelContainerDefinitionArgs) ToModelContainerDefinitionOutput() ModelContainerDefinitionOutput {
+	return i.ToModelContainerDefinitionOutputWithContext(context.Background())
+}
+
+func (i ModelContainerDefinitionArgs) ToModelContainerDefinitionOutputWithContext(ctx context.Context) ModelContainerDefinitionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelContainerDefinitionOutput)
+}
+
+func (i ModelContainerDefinitionArgs) ToModelContainerDefinitionPtrOutput() ModelContainerDefinitionPtrOutput {
+	return i.ToModelContainerDefinitionPtrOutputWithContext(context.Background())
+}
+
+func (i ModelContainerDefinitionArgs) ToModelContainerDefinitionPtrOutputWithContext(ctx context.Context) ModelContainerDefinitionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelContainerDefinitionOutput).ToModelContainerDefinitionPtrOutputWithContext(ctx)
+}
+
+// ModelContainerDefinitionPtrInput is an input type that accepts ModelContainerDefinitionArgs, ModelContainerDefinitionPtr and ModelContainerDefinitionPtrOutput values.
+// You can construct a concrete instance of `ModelContainerDefinitionPtrInput` via:
+//
+//	        ModelContainerDefinitionArgs{...}
+//
+//	or:
+//
+//	        nil
+type ModelContainerDefinitionPtrInput interface {
+	pulumi.Input
+
+	ToModelContainerDefinitionPtrOutput() ModelContainerDefinitionPtrOutput
+	ToModelContainerDefinitionPtrOutputWithContext(context.Context) ModelContainerDefinitionPtrOutput
+}
+
+type modelContainerDefinitionPtrType ModelContainerDefinitionArgs
+
+func ModelContainerDefinitionPtr(v *ModelContainerDefinitionArgs) ModelContainerDefinitionPtrInput {
+	return (*modelContainerDefinitionPtrType)(v)
+}
+
+func (*modelContainerDefinitionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelContainerDefinition)(nil)).Elem()
+}
+
+func (i *modelContainerDefinitionPtrType) ToModelContainerDefinitionPtrOutput() ModelContainerDefinitionPtrOutput {
+	return i.ToModelContainerDefinitionPtrOutputWithContext(context.Background())
+}
+
+func (i *modelContainerDefinitionPtrType) ToModelContainerDefinitionPtrOutputWithContext(ctx context.Context) ModelContainerDefinitionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelContainerDefinitionPtrOutput)
+}
+
+// ModelContainerDefinitionArrayInput is an input type that accepts ModelContainerDefinitionArray and ModelContainerDefinitionArrayOutput values.
+// You can construct a concrete instance of `ModelContainerDefinitionArrayInput` via:
+//
+//	ModelContainerDefinitionArray{ ModelContainerDefinitionArgs{...} }
+type ModelContainerDefinitionArrayInput interface {
+	pulumi.Input
+
+	ToModelContainerDefinitionArrayOutput() ModelContainerDefinitionArrayOutput
+	ToModelContainerDefinitionArrayOutputWithContext(context.Context) ModelContainerDefinitionArrayOutput
+}
+
+type ModelContainerDefinitionArray []ModelContainerDefinitionInput
+
+func (ModelContainerDefinitionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ModelContainerDefinition)(nil)).Elem()
+}
+
+func (i ModelContainerDefinitionArray) ToModelContainerDefinitionArrayOutput() ModelContainerDefinitionArrayOutput {
+	return i.ToModelContainerDefinitionArrayOutputWithContext(context.Background())
+}
+
+func (i ModelContainerDefinitionArray) ToModelContainerDefinitionArrayOutputWithContext(ctx context.Context) ModelContainerDefinitionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelContainerDefinitionArrayOutput)
+}
+
+// Describes the container, as part of model definition.
+type ModelContainerDefinitionOutput struct{ *pulumi.OutputState }
+
+func (ModelContainerDefinitionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelContainerDefinition)(nil)).Elem()
+}
+
+func (o ModelContainerDefinitionOutput) ToModelContainerDefinitionOutput() ModelContainerDefinitionOutput {
+	return o
+}
+
+func (o ModelContainerDefinitionOutput) ToModelContainerDefinitionOutputWithContext(ctx context.Context) ModelContainerDefinitionOutput {
+	return o
+}
+
+func (o ModelContainerDefinitionOutput) ToModelContainerDefinitionPtrOutput() ModelContainerDefinitionPtrOutput {
+	return o.ToModelContainerDefinitionPtrOutputWithContext(context.Background())
+}
+
+func (o ModelContainerDefinitionOutput) ToModelContainerDefinitionPtrOutputWithContext(ctx context.Context) ModelContainerDefinitionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ModelContainerDefinition) *ModelContainerDefinition {
+		return &v
+	}).(ModelContainerDefinitionPtrOutput)
+}
+
+// This parameter is ignored for models that contain only a PrimaryContainer.
+//
+// When a ContainerDefinition is part of an inference pipeline, the value of the parameter uniquely identifies the container for the purposes of logging and metrics. For information, see [Use Logs and Metrics to Monitor an Inference Pipeline](https://docs.aws.amazon.com/sagemaker/latest/dg/inference-pipeline-logs-metrics.html). If you don't specify a value for this parameter for a ContainerDefinition that is part of an inference pipeline, a unique name is automatically assigned based on the position of the ContainerDefinition in the pipeline. If you specify a value for the ContainerHostName for any ContainerDefinition that is part of an inference pipeline, you must specify a value for the ContainerHostName parameter of every ContainerDefinition in that pipeline.
+func (o ModelContainerDefinitionOutput) ContainerHostname() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ModelContainerDefinition) *string { return v.ContainerHostname }).(pulumi.StringPtrOutput)
+}
+
+// The environment variables to set in the Docker container. Don't include any sensitive data in your environment variables.
+//
+// The maximum length of each key and value in the Environment map is 1024 bytes. The maximum length of all keys and values in the map, combined, is 32 KB. If you pass multiple containers to a CreateModel request, then the maximum length of all of their maps, combined, is also 32 KB.
+func (o ModelContainerDefinitionOutput) Environment() pulumi.AnyOutput {
+	return o.ApplyT(func(v ModelContainerDefinition) interface{} { return v.Environment }).(pulumi.AnyOutput)
+}
+
+// The path where inference code is stored. This can be either in Amazon EC2 Container Registry or in a Docker registry that is accessible from the same VPC that you configure for your endpoint. If you are using your own custom algorithm instead of an algorithm provided by SageMaker, the inference code must meet SageMaker requirements. SageMaker supports both registry/repository[:tag] and registry/repository[@digest] image path formats. For more information, see [Using Your Own Algorithms with Amazon SageMaker](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms.html).
+func (o ModelContainerDefinitionOutput) Image() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ModelContainerDefinition) *string { return v.Image }).(pulumi.StringPtrOutput)
+}
+
+// Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC). For information about storing containers in a private Docker registry, see [Use a Private Docker Registry for Real-Time Inference Containers](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-containers-inference-private.html) .
+//
+// > The model artifacts in an Amazon S3 bucket and the Docker image for inference container in Amazon EC2 Container Registry must be in the same region as the model or endpoint you are creating.
+func (o ModelContainerDefinitionOutput) ImageConfig() ModelImageConfigPtrOutput {
+	return o.ApplyT(func(v ModelContainerDefinition) *ModelImageConfig { return v.ImageConfig }).(ModelImageConfigPtrOutput)
+}
+
+// The inference specification name in the model package version.
+func (o ModelContainerDefinitionOutput) InferenceSpecificationName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ModelContainerDefinition) *string { return v.InferenceSpecificationName }).(pulumi.StringPtrOutput)
+}
+
+// Whether the container hosts a single model or multiple models.
+func (o ModelContainerDefinitionOutput) Mode() ModelContainerDefinitionModePtrOutput {
+	return o.ApplyT(func(v ModelContainerDefinition) *ModelContainerDefinitionMode { return v.Mode }).(ModelContainerDefinitionModePtrOutput)
+}
+
+// Specifies the location of ML model data to deploy.
+//
+// > Currently you cannot use `ModelDataSource` in conjunction with SageMaker batch transform, SageMaker serverless endpoints, SageMaker multi-model endpoints, and SageMaker Marketplace.
+func (o ModelContainerDefinitionOutput) ModelDataSource() ModelDataSourcePtrOutput {
+	return o.ApplyT(func(v ModelContainerDefinition) *ModelDataSource { return v.ModelDataSource }).(ModelDataSourcePtrOutput)
+}
+
+// The S3 path where the model artifacts, which result from model training, are stored. This path must point to a single gzip compressed tar archive (.tar.gz suffix). The S3 path is required for SageMaker built-in algorithms, but not if you use your own algorithms. For more information on built-in algorithms, see [Common Parameters](https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-algo-docker-registry-paths.html).
+//
+// If you provide a value for this parameter, SageMaker uses AWS Security Token Service to download model artifacts from the S3 path you provide. AWS STS is activated in your AWS account by default. If you previously deactivated AWS STS for a region, you need to reactivate AWS STS for that region. For more information, see [Activating and Deactivating AWS STS in an AWS Region](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html) in the AWS Identity and Access Management User Guide
+func (o ModelContainerDefinitionOutput) ModelDataUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ModelContainerDefinition) *string { return v.ModelDataUrl }).(pulumi.StringPtrOutput)
+}
+
+// The name or Amazon Resource Name (ARN) of the model package to use to create the model.
+func (o ModelContainerDefinitionOutput) ModelPackageName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ModelContainerDefinition) *string { return v.ModelPackageName }).(pulumi.StringPtrOutput)
+}
+
+// Specifies additional configuration for multi-model endpoints.
+func (o ModelContainerDefinitionOutput) MultiModelConfig() ModelMultiModelConfigPtrOutput {
+	return o.ApplyT(func(v ModelContainerDefinition) *ModelMultiModelConfig { return v.MultiModelConfig }).(ModelMultiModelConfigPtrOutput)
+}
+
+type ModelContainerDefinitionPtrOutput struct{ *pulumi.OutputState }
+
+func (ModelContainerDefinitionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelContainerDefinition)(nil)).Elem()
+}
+
+func (o ModelContainerDefinitionPtrOutput) ToModelContainerDefinitionPtrOutput() ModelContainerDefinitionPtrOutput {
+	return o
+}
+
+func (o ModelContainerDefinitionPtrOutput) ToModelContainerDefinitionPtrOutputWithContext(ctx context.Context) ModelContainerDefinitionPtrOutput {
+	return o
+}
+
+func (o ModelContainerDefinitionPtrOutput) Elem() ModelContainerDefinitionOutput {
+	return o.ApplyT(func(v *ModelContainerDefinition) ModelContainerDefinition {
+		if v != nil {
+			return *v
+		}
+		var ret ModelContainerDefinition
+		return ret
+	}).(ModelContainerDefinitionOutput)
+}
+
+// This parameter is ignored for models that contain only a PrimaryContainer.
+//
+// When a ContainerDefinition is part of an inference pipeline, the value of the parameter uniquely identifies the container for the purposes of logging and metrics. For information, see [Use Logs and Metrics to Monitor an Inference Pipeline](https://docs.aws.amazon.com/sagemaker/latest/dg/inference-pipeline-logs-metrics.html). If you don't specify a value for this parameter for a ContainerDefinition that is part of an inference pipeline, a unique name is automatically assigned based on the position of the ContainerDefinition in the pipeline. If you specify a value for the ContainerHostName for any ContainerDefinition that is part of an inference pipeline, you must specify a value for the ContainerHostName parameter of every ContainerDefinition in that pipeline.
+func (o ModelContainerDefinitionPtrOutput) ContainerHostname() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ModelContainerDefinition) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ContainerHostname
+	}).(pulumi.StringPtrOutput)
+}
+
+// The environment variables to set in the Docker container. Don't include any sensitive data in your environment variables.
+//
+// The maximum length of each key and value in the Environment map is 1024 bytes. The maximum length of all keys and values in the map, combined, is 32 KB. If you pass multiple containers to a CreateModel request, then the maximum length of all of their maps, combined, is also 32 KB.
+func (o ModelContainerDefinitionPtrOutput) Environment() pulumi.AnyOutput {
+	return o.ApplyT(func(v *ModelContainerDefinition) interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.Environment
+	}).(pulumi.AnyOutput)
+}
+
+// The path where inference code is stored. This can be either in Amazon EC2 Container Registry or in a Docker registry that is accessible from the same VPC that you configure for your endpoint. If you are using your own custom algorithm instead of an algorithm provided by SageMaker, the inference code must meet SageMaker requirements. SageMaker supports both registry/repository[:tag] and registry/repository[@digest] image path formats. For more information, see [Using Your Own Algorithms with Amazon SageMaker](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms.html).
+func (o ModelContainerDefinitionPtrOutput) Image() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ModelContainerDefinition) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Image
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC). For information about storing containers in a private Docker registry, see [Use a Private Docker Registry for Real-Time Inference Containers](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-containers-inference-private.html) .
+//
+// > The model artifacts in an Amazon S3 bucket and the Docker image for inference container in Amazon EC2 Container Registry must be in the same region as the model or endpoint you are creating.
+func (o ModelContainerDefinitionPtrOutput) ImageConfig() ModelImageConfigPtrOutput {
+	return o.ApplyT(func(v *ModelContainerDefinition) *ModelImageConfig {
+		if v == nil {
+			return nil
+		}
+		return v.ImageConfig
+	}).(ModelImageConfigPtrOutput)
+}
+
+// The inference specification name in the model package version.
+func (o ModelContainerDefinitionPtrOutput) InferenceSpecificationName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ModelContainerDefinition) *string {
+		if v == nil {
+			return nil
+		}
+		return v.InferenceSpecificationName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Whether the container hosts a single model or multiple models.
+func (o ModelContainerDefinitionPtrOutput) Mode() ModelContainerDefinitionModePtrOutput {
+	return o.ApplyT(func(v *ModelContainerDefinition) *ModelContainerDefinitionMode {
+		if v == nil {
+			return nil
+		}
+		return v.Mode
+	}).(ModelContainerDefinitionModePtrOutput)
+}
+
+// Specifies the location of ML model data to deploy.
+//
+// > Currently you cannot use `ModelDataSource` in conjunction with SageMaker batch transform, SageMaker serverless endpoints, SageMaker multi-model endpoints, and SageMaker Marketplace.
+func (o ModelContainerDefinitionPtrOutput) ModelDataSource() ModelDataSourcePtrOutput {
+	return o.ApplyT(func(v *ModelContainerDefinition) *ModelDataSource {
+		if v == nil {
+			return nil
+		}
+		return v.ModelDataSource
+	}).(ModelDataSourcePtrOutput)
+}
+
+// The S3 path where the model artifacts, which result from model training, are stored. This path must point to a single gzip compressed tar archive (.tar.gz suffix). The S3 path is required for SageMaker built-in algorithms, but not if you use your own algorithms. For more information on built-in algorithms, see [Common Parameters](https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-algo-docker-registry-paths.html).
+//
+// If you provide a value for this parameter, SageMaker uses AWS Security Token Service to download model artifacts from the S3 path you provide. AWS STS is activated in your AWS account by default. If you previously deactivated AWS STS for a region, you need to reactivate AWS STS for that region. For more information, see [Activating and Deactivating AWS STS in an AWS Region](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html) in the AWS Identity and Access Management User Guide
+func (o ModelContainerDefinitionPtrOutput) ModelDataUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ModelContainerDefinition) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ModelDataUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name or Amazon Resource Name (ARN) of the model package to use to create the model.
+func (o ModelContainerDefinitionPtrOutput) ModelPackageName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ModelContainerDefinition) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ModelPackageName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies additional configuration for multi-model endpoints.
+func (o ModelContainerDefinitionPtrOutput) MultiModelConfig() ModelMultiModelConfigPtrOutput {
+	return o.ApplyT(func(v *ModelContainerDefinition) *ModelMultiModelConfig {
+		if v == nil {
+			return nil
+		}
+		return v.MultiModelConfig
+	}).(ModelMultiModelConfigPtrOutput)
+}
+
+type ModelContainerDefinitionArrayOutput struct{ *pulumi.OutputState }
+
+func (ModelContainerDefinitionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ModelContainerDefinition)(nil)).Elem()
+}
+
+func (o ModelContainerDefinitionArrayOutput) ToModelContainerDefinitionArrayOutput() ModelContainerDefinitionArrayOutput {
+	return o
+}
+
+func (o ModelContainerDefinitionArrayOutput) ToModelContainerDefinitionArrayOutputWithContext(ctx context.Context) ModelContainerDefinitionArrayOutput {
+	return o
+}
+
+func (o ModelContainerDefinitionArrayOutput) Index(i pulumi.IntInput) ModelContainerDefinitionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ModelContainerDefinition {
+		return vs[0].([]ModelContainerDefinition)[vs[1].(int)]
+	}).(ModelContainerDefinitionOutput)
+}
+
+// Specifies the location of ML model data to deploy. If specified, you must specify one and only one of the available data sources.
+type ModelDataSource struct {
+	// Specifies the S3 location of ML model data to deploy.
+	S3DataSource ModelS3DataSource `pulumi:"s3DataSource"`
+}
+
+// ModelDataSourceInput is an input type that accepts ModelDataSourceArgs and ModelDataSourceOutput values.
+// You can construct a concrete instance of `ModelDataSourceInput` via:
+//
+//	ModelDataSourceArgs{...}
+type ModelDataSourceInput interface {
+	pulumi.Input
+
+	ToModelDataSourceOutput() ModelDataSourceOutput
+	ToModelDataSourceOutputWithContext(context.Context) ModelDataSourceOutput
+}
+
+// Specifies the location of ML model data to deploy. If specified, you must specify one and only one of the available data sources.
+type ModelDataSourceArgs struct {
+	// Specifies the S3 location of ML model data to deploy.
+	S3DataSource ModelS3DataSourceInput `pulumi:"s3DataSource"`
+}
+
+func (ModelDataSourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelDataSource)(nil)).Elem()
+}
+
+func (i ModelDataSourceArgs) ToModelDataSourceOutput() ModelDataSourceOutput {
+	return i.ToModelDataSourceOutputWithContext(context.Background())
+}
+
+func (i ModelDataSourceArgs) ToModelDataSourceOutputWithContext(ctx context.Context) ModelDataSourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelDataSourceOutput)
+}
+
+func (i ModelDataSourceArgs) ToModelDataSourcePtrOutput() ModelDataSourcePtrOutput {
+	return i.ToModelDataSourcePtrOutputWithContext(context.Background())
+}
+
+func (i ModelDataSourceArgs) ToModelDataSourcePtrOutputWithContext(ctx context.Context) ModelDataSourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelDataSourceOutput).ToModelDataSourcePtrOutputWithContext(ctx)
+}
+
+// ModelDataSourcePtrInput is an input type that accepts ModelDataSourceArgs, ModelDataSourcePtr and ModelDataSourcePtrOutput values.
+// You can construct a concrete instance of `ModelDataSourcePtrInput` via:
+//
+//	        ModelDataSourceArgs{...}
+//
+//	or:
+//
+//	        nil
+type ModelDataSourcePtrInput interface {
+	pulumi.Input
+
+	ToModelDataSourcePtrOutput() ModelDataSourcePtrOutput
+	ToModelDataSourcePtrOutputWithContext(context.Context) ModelDataSourcePtrOutput
+}
+
+type modelDataSourcePtrType ModelDataSourceArgs
+
+func ModelDataSourcePtr(v *ModelDataSourceArgs) ModelDataSourcePtrInput {
+	return (*modelDataSourcePtrType)(v)
+}
+
+func (*modelDataSourcePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelDataSource)(nil)).Elem()
+}
+
+func (i *modelDataSourcePtrType) ToModelDataSourcePtrOutput() ModelDataSourcePtrOutput {
+	return i.ToModelDataSourcePtrOutputWithContext(context.Background())
+}
+
+func (i *modelDataSourcePtrType) ToModelDataSourcePtrOutputWithContext(ctx context.Context) ModelDataSourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelDataSourcePtrOutput)
+}
+
+// Specifies the location of ML model data to deploy. If specified, you must specify one and only one of the available data sources.
+type ModelDataSourceOutput struct{ *pulumi.OutputState }
+
+func (ModelDataSourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelDataSource)(nil)).Elem()
+}
+
+func (o ModelDataSourceOutput) ToModelDataSourceOutput() ModelDataSourceOutput {
+	return o
+}
+
+func (o ModelDataSourceOutput) ToModelDataSourceOutputWithContext(ctx context.Context) ModelDataSourceOutput {
+	return o
+}
+
+func (o ModelDataSourceOutput) ToModelDataSourcePtrOutput() ModelDataSourcePtrOutput {
+	return o.ToModelDataSourcePtrOutputWithContext(context.Background())
+}
+
+func (o ModelDataSourceOutput) ToModelDataSourcePtrOutputWithContext(ctx context.Context) ModelDataSourcePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ModelDataSource) *ModelDataSource {
+		return &v
+	}).(ModelDataSourcePtrOutput)
+}
+
+// Specifies the S3 location of ML model data to deploy.
+func (o ModelDataSourceOutput) S3DataSource() ModelS3DataSourceOutput {
+	return o.ApplyT(func(v ModelDataSource) ModelS3DataSource { return v.S3DataSource }).(ModelS3DataSourceOutput)
+}
+
+type ModelDataSourcePtrOutput struct{ *pulumi.OutputState }
+
+func (ModelDataSourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelDataSource)(nil)).Elem()
+}
+
+func (o ModelDataSourcePtrOutput) ToModelDataSourcePtrOutput() ModelDataSourcePtrOutput {
+	return o
+}
+
+func (o ModelDataSourcePtrOutput) ToModelDataSourcePtrOutputWithContext(ctx context.Context) ModelDataSourcePtrOutput {
+	return o
+}
+
+func (o ModelDataSourcePtrOutput) Elem() ModelDataSourceOutput {
+	return o.ApplyT(func(v *ModelDataSource) ModelDataSource {
+		if v != nil {
+			return *v
+		}
+		var ret ModelDataSource
+		return ret
+	}).(ModelDataSourceOutput)
+}
+
+// Specifies the S3 location of ML model data to deploy.
+func (o ModelDataSourcePtrOutput) S3DataSource() ModelS3DataSourcePtrOutput {
+	return o.ApplyT(func(v *ModelDataSource) *ModelS3DataSource {
+		if v == nil {
+			return nil
+		}
+		return &v.S3DataSource
+	}).(ModelS3DataSourcePtrOutput)
+}
+
 // The batch transform input for a monitoring job.
 type ModelExplainabilityJobDefinitionBatchTransformInput struct {
 	// A URI that identifies the Amazon S3 storage location where Batch Transform Job captures data.
@@ -25943,6 +26619,585 @@ func (o ModelExplainabilityJobDefinitionVpcConfigPtrOutput) Subnets() pulumi.Str
 		}
 		return v.Subnets
 	}).(pulumi.StringArrayOutput)
+}
+
+// Configuration information specifying which hub contents have accessible deployment options.
+type ModelHubAccessConfig struct {
+	// The ARN of the hub content for which deployment access is allowed.
+	HubContentArn string `pulumi:"hubContentArn"`
+}
+
+// ModelHubAccessConfigInput is an input type that accepts ModelHubAccessConfigArgs and ModelHubAccessConfigOutput values.
+// You can construct a concrete instance of `ModelHubAccessConfigInput` via:
+//
+//	ModelHubAccessConfigArgs{...}
+type ModelHubAccessConfigInput interface {
+	pulumi.Input
+
+	ToModelHubAccessConfigOutput() ModelHubAccessConfigOutput
+	ToModelHubAccessConfigOutputWithContext(context.Context) ModelHubAccessConfigOutput
+}
+
+// Configuration information specifying which hub contents have accessible deployment options.
+type ModelHubAccessConfigArgs struct {
+	// The ARN of the hub content for which deployment access is allowed.
+	HubContentArn pulumi.StringInput `pulumi:"hubContentArn"`
+}
+
+func (ModelHubAccessConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelHubAccessConfig)(nil)).Elem()
+}
+
+func (i ModelHubAccessConfigArgs) ToModelHubAccessConfigOutput() ModelHubAccessConfigOutput {
+	return i.ToModelHubAccessConfigOutputWithContext(context.Background())
+}
+
+func (i ModelHubAccessConfigArgs) ToModelHubAccessConfigOutputWithContext(ctx context.Context) ModelHubAccessConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelHubAccessConfigOutput)
+}
+
+func (i ModelHubAccessConfigArgs) ToModelHubAccessConfigPtrOutput() ModelHubAccessConfigPtrOutput {
+	return i.ToModelHubAccessConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ModelHubAccessConfigArgs) ToModelHubAccessConfigPtrOutputWithContext(ctx context.Context) ModelHubAccessConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelHubAccessConfigOutput).ToModelHubAccessConfigPtrOutputWithContext(ctx)
+}
+
+// ModelHubAccessConfigPtrInput is an input type that accepts ModelHubAccessConfigArgs, ModelHubAccessConfigPtr and ModelHubAccessConfigPtrOutput values.
+// You can construct a concrete instance of `ModelHubAccessConfigPtrInput` via:
+//
+//	        ModelHubAccessConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type ModelHubAccessConfigPtrInput interface {
+	pulumi.Input
+
+	ToModelHubAccessConfigPtrOutput() ModelHubAccessConfigPtrOutput
+	ToModelHubAccessConfigPtrOutputWithContext(context.Context) ModelHubAccessConfigPtrOutput
+}
+
+type modelHubAccessConfigPtrType ModelHubAccessConfigArgs
+
+func ModelHubAccessConfigPtr(v *ModelHubAccessConfigArgs) ModelHubAccessConfigPtrInput {
+	return (*modelHubAccessConfigPtrType)(v)
+}
+
+func (*modelHubAccessConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelHubAccessConfig)(nil)).Elem()
+}
+
+func (i *modelHubAccessConfigPtrType) ToModelHubAccessConfigPtrOutput() ModelHubAccessConfigPtrOutput {
+	return i.ToModelHubAccessConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *modelHubAccessConfigPtrType) ToModelHubAccessConfigPtrOutputWithContext(ctx context.Context) ModelHubAccessConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelHubAccessConfigPtrOutput)
+}
+
+// Configuration information specifying which hub contents have accessible deployment options.
+type ModelHubAccessConfigOutput struct{ *pulumi.OutputState }
+
+func (ModelHubAccessConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelHubAccessConfig)(nil)).Elem()
+}
+
+func (o ModelHubAccessConfigOutput) ToModelHubAccessConfigOutput() ModelHubAccessConfigOutput {
+	return o
+}
+
+func (o ModelHubAccessConfigOutput) ToModelHubAccessConfigOutputWithContext(ctx context.Context) ModelHubAccessConfigOutput {
+	return o
+}
+
+func (o ModelHubAccessConfigOutput) ToModelHubAccessConfigPtrOutput() ModelHubAccessConfigPtrOutput {
+	return o.ToModelHubAccessConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ModelHubAccessConfigOutput) ToModelHubAccessConfigPtrOutputWithContext(ctx context.Context) ModelHubAccessConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ModelHubAccessConfig) *ModelHubAccessConfig {
+		return &v
+	}).(ModelHubAccessConfigPtrOutput)
+}
+
+// The ARN of the hub content for which deployment access is allowed.
+func (o ModelHubAccessConfigOutput) HubContentArn() pulumi.StringOutput {
+	return o.ApplyT(func(v ModelHubAccessConfig) string { return v.HubContentArn }).(pulumi.StringOutput)
+}
+
+type ModelHubAccessConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ModelHubAccessConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelHubAccessConfig)(nil)).Elem()
+}
+
+func (o ModelHubAccessConfigPtrOutput) ToModelHubAccessConfigPtrOutput() ModelHubAccessConfigPtrOutput {
+	return o
+}
+
+func (o ModelHubAccessConfigPtrOutput) ToModelHubAccessConfigPtrOutputWithContext(ctx context.Context) ModelHubAccessConfigPtrOutput {
+	return o
+}
+
+func (o ModelHubAccessConfigPtrOutput) Elem() ModelHubAccessConfigOutput {
+	return o.ApplyT(func(v *ModelHubAccessConfig) ModelHubAccessConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ModelHubAccessConfig
+		return ret
+	}).(ModelHubAccessConfigOutput)
+}
+
+// The ARN of the hub content for which deployment access is allowed.
+func (o ModelHubAccessConfigPtrOutput) HubContentArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ModelHubAccessConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.HubContentArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC).
+type ModelImageConfig struct {
+	// Set this to one of the following values: Platform - The model image is hosted in Amazon ECR. Vpc - The model image is hosted in a private Docker registry in your VPC.
+	RepositoryAccessMode ModelImageConfigRepositoryAccessMode `pulumi:"repositoryAccessMode"`
+	// (Optional) Specifies an authentication configuration for the private docker registry where your model image is hosted. Specify a value for this property only if you specified `Vpc` as the value for the `RepositoryAccessMode` field, and the private Docker registry where the model image is hosted requires authentication.
+	RepositoryAuthConfig *ModelRepositoryAuthConfig `pulumi:"repositoryAuthConfig"`
+}
+
+// ModelImageConfigInput is an input type that accepts ModelImageConfigArgs and ModelImageConfigOutput values.
+// You can construct a concrete instance of `ModelImageConfigInput` via:
+//
+//	ModelImageConfigArgs{...}
+type ModelImageConfigInput interface {
+	pulumi.Input
+
+	ToModelImageConfigOutput() ModelImageConfigOutput
+	ToModelImageConfigOutputWithContext(context.Context) ModelImageConfigOutput
+}
+
+// Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC).
+type ModelImageConfigArgs struct {
+	// Set this to one of the following values: Platform - The model image is hosted in Amazon ECR. Vpc - The model image is hosted in a private Docker registry in your VPC.
+	RepositoryAccessMode ModelImageConfigRepositoryAccessModeInput `pulumi:"repositoryAccessMode"`
+	// (Optional) Specifies an authentication configuration for the private docker registry where your model image is hosted. Specify a value for this property only if you specified `Vpc` as the value for the `RepositoryAccessMode` field, and the private Docker registry where the model image is hosted requires authentication.
+	RepositoryAuthConfig ModelRepositoryAuthConfigPtrInput `pulumi:"repositoryAuthConfig"`
+}
+
+func (ModelImageConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelImageConfig)(nil)).Elem()
+}
+
+func (i ModelImageConfigArgs) ToModelImageConfigOutput() ModelImageConfigOutput {
+	return i.ToModelImageConfigOutputWithContext(context.Background())
+}
+
+func (i ModelImageConfigArgs) ToModelImageConfigOutputWithContext(ctx context.Context) ModelImageConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelImageConfigOutput)
+}
+
+func (i ModelImageConfigArgs) ToModelImageConfigPtrOutput() ModelImageConfigPtrOutput {
+	return i.ToModelImageConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ModelImageConfigArgs) ToModelImageConfigPtrOutputWithContext(ctx context.Context) ModelImageConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelImageConfigOutput).ToModelImageConfigPtrOutputWithContext(ctx)
+}
+
+// ModelImageConfigPtrInput is an input type that accepts ModelImageConfigArgs, ModelImageConfigPtr and ModelImageConfigPtrOutput values.
+// You can construct a concrete instance of `ModelImageConfigPtrInput` via:
+//
+//	        ModelImageConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type ModelImageConfigPtrInput interface {
+	pulumi.Input
+
+	ToModelImageConfigPtrOutput() ModelImageConfigPtrOutput
+	ToModelImageConfigPtrOutputWithContext(context.Context) ModelImageConfigPtrOutput
+}
+
+type modelImageConfigPtrType ModelImageConfigArgs
+
+func ModelImageConfigPtr(v *ModelImageConfigArgs) ModelImageConfigPtrInput {
+	return (*modelImageConfigPtrType)(v)
+}
+
+func (*modelImageConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelImageConfig)(nil)).Elem()
+}
+
+func (i *modelImageConfigPtrType) ToModelImageConfigPtrOutput() ModelImageConfigPtrOutput {
+	return i.ToModelImageConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *modelImageConfigPtrType) ToModelImageConfigPtrOutputWithContext(ctx context.Context) ModelImageConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelImageConfigPtrOutput)
+}
+
+// Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC).
+type ModelImageConfigOutput struct{ *pulumi.OutputState }
+
+func (ModelImageConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelImageConfig)(nil)).Elem()
+}
+
+func (o ModelImageConfigOutput) ToModelImageConfigOutput() ModelImageConfigOutput {
+	return o
+}
+
+func (o ModelImageConfigOutput) ToModelImageConfigOutputWithContext(ctx context.Context) ModelImageConfigOutput {
+	return o
+}
+
+func (o ModelImageConfigOutput) ToModelImageConfigPtrOutput() ModelImageConfigPtrOutput {
+	return o.ToModelImageConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ModelImageConfigOutput) ToModelImageConfigPtrOutputWithContext(ctx context.Context) ModelImageConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ModelImageConfig) *ModelImageConfig {
+		return &v
+	}).(ModelImageConfigPtrOutput)
+}
+
+// Set this to one of the following values: Platform - The model image is hosted in Amazon ECR. Vpc - The model image is hosted in a private Docker registry in your VPC.
+func (o ModelImageConfigOutput) RepositoryAccessMode() ModelImageConfigRepositoryAccessModeOutput {
+	return o.ApplyT(func(v ModelImageConfig) ModelImageConfigRepositoryAccessMode { return v.RepositoryAccessMode }).(ModelImageConfigRepositoryAccessModeOutput)
+}
+
+// (Optional) Specifies an authentication configuration for the private docker registry where your model image is hosted. Specify a value for this property only if you specified `Vpc` as the value for the `RepositoryAccessMode` field, and the private Docker registry where the model image is hosted requires authentication.
+func (o ModelImageConfigOutput) RepositoryAuthConfig() ModelRepositoryAuthConfigPtrOutput {
+	return o.ApplyT(func(v ModelImageConfig) *ModelRepositoryAuthConfig { return v.RepositoryAuthConfig }).(ModelRepositoryAuthConfigPtrOutput)
+}
+
+type ModelImageConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ModelImageConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelImageConfig)(nil)).Elem()
+}
+
+func (o ModelImageConfigPtrOutput) ToModelImageConfigPtrOutput() ModelImageConfigPtrOutput {
+	return o
+}
+
+func (o ModelImageConfigPtrOutput) ToModelImageConfigPtrOutputWithContext(ctx context.Context) ModelImageConfigPtrOutput {
+	return o
+}
+
+func (o ModelImageConfigPtrOutput) Elem() ModelImageConfigOutput {
+	return o.ApplyT(func(v *ModelImageConfig) ModelImageConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ModelImageConfig
+		return ret
+	}).(ModelImageConfigOutput)
+}
+
+// Set this to one of the following values: Platform - The model image is hosted in Amazon ECR. Vpc - The model image is hosted in a private Docker registry in your VPC.
+func (o ModelImageConfigPtrOutput) RepositoryAccessMode() ModelImageConfigRepositoryAccessModePtrOutput {
+	return o.ApplyT(func(v *ModelImageConfig) *ModelImageConfigRepositoryAccessMode {
+		if v == nil {
+			return nil
+		}
+		return &v.RepositoryAccessMode
+	}).(ModelImageConfigRepositoryAccessModePtrOutput)
+}
+
+// (Optional) Specifies an authentication configuration for the private docker registry where your model image is hosted. Specify a value for this property only if you specified `Vpc` as the value for the `RepositoryAccessMode` field, and the private Docker registry where the model image is hosted requires authentication.
+func (o ModelImageConfigPtrOutput) RepositoryAuthConfig() ModelRepositoryAuthConfigPtrOutput {
+	return o.ApplyT(func(v *ModelImageConfig) *ModelRepositoryAuthConfig {
+		if v == nil {
+			return nil
+		}
+		return v.RepositoryAuthConfig
+	}).(ModelRepositoryAuthConfigPtrOutput)
+}
+
+// Specifies details about how containers in a multi-container endpoint are run.
+type ModelInferenceExecutionConfig struct {
+	// How containers in a multi-container are run.
+	Mode ModelInferenceExecutionConfigMode `pulumi:"mode"`
+}
+
+// ModelInferenceExecutionConfigInput is an input type that accepts ModelInferenceExecutionConfigArgs and ModelInferenceExecutionConfigOutput values.
+// You can construct a concrete instance of `ModelInferenceExecutionConfigInput` via:
+//
+//	ModelInferenceExecutionConfigArgs{...}
+type ModelInferenceExecutionConfigInput interface {
+	pulumi.Input
+
+	ToModelInferenceExecutionConfigOutput() ModelInferenceExecutionConfigOutput
+	ToModelInferenceExecutionConfigOutputWithContext(context.Context) ModelInferenceExecutionConfigOutput
+}
+
+// Specifies details about how containers in a multi-container endpoint are run.
+type ModelInferenceExecutionConfigArgs struct {
+	// How containers in a multi-container are run.
+	Mode ModelInferenceExecutionConfigModeInput `pulumi:"mode"`
+}
+
+func (ModelInferenceExecutionConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelInferenceExecutionConfig)(nil)).Elem()
+}
+
+func (i ModelInferenceExecutionConfigArgs) ToModelInferenceExecutionConfigOutput() ModelInferenceExecutionConfigOutput {
+	return i.ToModelInferenceExecutionConfigOutputWithContext(context.Background())
+}
+
+func (i ModelInferenceExecutionConfigArgs) ToModelInferenceExecutionConfigOutputWithContext(ctx context.Context) ModelInferenceExecutionConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelInferenceExecutionConfigOutput)
+}
+
+func (i ModelInferenceExecutionConfigArgs) ToModelInferenceExecutionConfigPtrOutput() ModelInferenceExecutionConfigPtrOutput {
+	return i.ToModelInferenceExecutionConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ModelInferenceExecutionConfigArgs) ToModelInferenceExecutionConfigPtrOutputWithContext(ctx context.Context) ModelInferenceExecutionConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelInferenceExecutionConfigOutput).ToModelInferenceExecutionConfigPtrOutputWithContext(ctx)
+}
+
+// ModelInferenceExecutionConfigPtrInput is an input type that accepts ModelInferenceExecutionConfigArgs, ModelInferenceExecutionConfigPtr and ModelInferenceExecutionConfigPtrOutput values.
+// You can construct a concrete instance of `ModelInferenceExecutionConfigPtrInput` via:
+//
+//	        ModelInferenceExecutionConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type ModelInferenceExecutionConfigPtrInput interface {
+	pulumi.Input
+
+	ToModelInferenceExecutionConfigPtrOutput() ModelInferenceExecutionConfigPtrOutput
+	ToModelInferenceExecutionConfigPtrOutputWithContext(context.Context) ModelInferenceExecutionConfigPtrOutput
+}
+
+type modelInferenceExecutionConfigPtrType ModelInferenceExecutionConfigArgs
+
+func ModelInferenceExecutionConfigPtr(v *ModelInferenceExecutionConfigArgs) ModelInferenceExecutionConfigPtrInput {
+	return (*modelInferenceExecutionConfigPtrType)(v)
+}
+
+func (*modelInferenceExecutionConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelInferenceExecutionConfig)(nil)).Elem()
+}
+
+func (i *modelInferenceExecutionConfigPtrType) ToModelInferenceExecutionConfigPtrOutput() ModelInferenceExecutionConfigPtrOutput {
+	return i.ToModelInferenceExecutionConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *modelInferenceExecutionConfigPtrType) ToModelInferenceExecutionConfigPtrOutputWithContext(ctx context.Context) ModelInferenceExecutionConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelInferenceExecutionConfigPtrOutput)
+}
+
+// Specifies details about how containers in a multi-container endpoint are run.
+type ModelInferenceExecutionConfigOutput struct{ *pulumi.OutputState }
+
+func (ModelInferenceExecutionConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelInferenceExecutionConfig)(nil)).Elem()
+}
+
+func (o ModelInferenceExecutionConfigOutput) ToModelInferenceExecutionConfigOutput() ModelInferenceExecutionConfigOutput {
+	return o
+}
+
+func (o ModelInferenceExecutionConfigOutput) ToModelInferenceExecutionConfigOutputWithContext(ctx context.Context) ModelInferenceExecutionConfigOutput {
+	return o
+}
+
+func (o ModelInferenceExecutionConfigOutput) ToModelInferenceExecutionConfigPtrOutput() ModelInferenceExecutionConfigPtrOutput {
+	return o.ToModelInferenceExecutionConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ModelInferenceExecutionConfigOutput) ToModelInferenceExecutionConfigPtrOutputWithContext(ctx context.Context) ModelInferenceExecutionConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ModelInferenceExecutionConfig) *ModelInferenceExecutionConfig {
+		return &v
+	}).(ModelInferenceExecutionConfigPtrOutput)
+}
+
+// How containers in a multi-container are run.
+func (o ModelInferenceExecutionConfigOutput) Mode() ModelInferenceExecutionConfigModeOutput {
+	return o.ApplyT(func(v ModelInferenceExecutionConfig) ModelInferenceExecutionConfigMode { return v.Mode }).(ModelInferenceExecutionConfigModeOutput)
+}
+
+type ModelInferenceExecutionConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ModelInferenceExecutionConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelInferenceExecutionConfig)(nil)).Elem()
+}
+
+func (o ModelInferenceExecutionConfigPtrOutput) ToModelInferenceExecutionConfigPtrOutput() ModelInferenceExecutionConfigPtrOutput {
+	return o
+}
+
+func (o ModelInferenceExecutionConfigPtrOutput) ToModelInferenceExecutionConfigPtrOutputWithContext(ctx context.Context) ModelInferenceExecutionConfigPtrOutput {
+	return o
+}
+
+func (o ModelInferenceExecutionConfigPtrOutput) Elem() ModelInferenceExecutionConfigOutput {
+	return o.ApplyT(func(v *ModelInferenceExecutionConfig) ModelInferenceExecutionConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ModelInferenceExecutionConfig
+		return ret
+	}).(ModelInferenceExecutionConfigOutput)
+}
+
+// How containers in a multi-container are run.
+func (o ModelInferenceExecutionConfigPtrOutput) Mode() ModelInferenceExecutionConfigModePtrOutput {
+	return o.ApplyT(func(v *ModelInferenceExecutionConfig) *ModelInferenceExecutionConfigMode {
+		if v == nil {
+			return nil
+		}
+		return &v.Mode
+	}).(ModelInferenceExecutionConfigModePtrOutput)
+}
+
+// Specifies additional configuration for multi-model endpoints.
+type ModelMultiModelConfig struct {
+	// Whether to cache models for a multi-model endpoint. By default, multi-model endpoints cache models so that a model does not have to be loaded into memory each time it is invoked. Some use cases do not benefit from model caching. For example, if an endpoint hosts a large number of models that are each invoked infrequently, the endpoint might perform better if you disable model caching. To disable model caching, set the value of this parameter to `Disabled`.
+	ModelCacheSetting *ModelMultiModelConfigModelCacheSetting `pulumi:"modelCacheSetting"`
+}
+
+// ModelMultiModelConfigInput is an input type that accepts ModelMultiModelConfigArgs and ModelMultiModelConfigOutput values.
+// You can construct a concrete instance of `ModelMultiModelConfigInput` via:
+//
+//	ModelMultiModelConfigArgs{...}
+type ModelMultiModelConfigInput interface {
+	pulumi.Input
+
+	ToModelMultiModelConfigOutput() ModelMultiModelConfigOutput
+	ToModelMultiModelConfigOutputWithContext(context.Context) ModelMultiModelConfigOutput
+}
+
+// Specifies additional configuration for multi-model endpoints.
+type ModelMultiModelConfigArgs struct {
+	// Whether to cache models for a multi-model endpoint. By default, multi-model endpoints cache models so that a model does not have to be loaded into memory each time it is invoked. Some use cases do not benefit from model caching. For example, if an endpoint hosts a large number of models that are each invoked infrequently, the endpoint might perform better if you disable model caching. To disable model caching, set the value of this parameter to `Disabled`.
+	ModelCacheSetting ModelMultiModelConfigModelCacheSettingPtrInput `pulumi:"modelCacheSetting"`
+}
+
+func (ModelMultiModelConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelMultiModelConfig)(nil)).Elem()
+}
+
+func (i ModelMultiModelConfigArgs) ToModelMultiModelConfigOutput() ModelMultiModelConfigOutput {
+	return i.ToModelMultiModelConfigOutputWithContext(context.Background())
+}
+
+func (i ModelMultiModelConfigArgs) ToModelMultiModelConfigOutputWithContext(ctx context.Context) ModelMultiModelConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelMultiModelConfigOutput)
+}
+
+func (i ModelMultiModelConfigArgs) ToModelMultiModelConfigPtrOutput() ModelMultiModelConfigPtrOutput {
+	return i.ToModelMultiModelConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ModelMultiModelConfigArgs) ToModelMultiModelConfigPtrOutputWithContext(ctx context.Context) ModelMultiModelConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelMultiModelConfigOutput).ToModelMultiModelConfigPtrOutputWithContext(ctx)
+}
+
+// ModelMultiModelConfigPtrInput is an input type that accepts ModelMultiModelConfigArgs, ModelMultiModelConfigPtr and ModelMultiModelConfigPtrOutput values.
+// You can construct a concrete instance of `ModelMultiModelConfigPtrInput` via:
+//
+//	        ModelMultiModelConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type ModelMultiModelConfigPtrInput interface {
+	pulumi.Input
+
+	ToModelMultiModelConfigPtrOutput() ModelMultiModelConfigPtrOutput
+	ToModelMultiModelConfigPtrOutputWithContext(context.Context) ModelMultiModelConfigPtrOutput
+}
+
+type modelMultiModelConfigPtrType ModelMultiModelConfigArgs
+
+func ModelMultiModelConfigPtr(v *ModelMultiModelConfigArgs) ModelMultiModelConfigPtrInput {
+	return (*modelMultiModelConfigPtrType)(v)
+}
+
+func (*modelMultiModelConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelMultiModelConfig)(nil)).Elem()
+}
+
+func (i *modelMultiModelConfigPtrType) ToModelMultiModelConfigPtrOutput() ModelMultiModelConfigPtrOutput {
+	return i.ToModelMultiModelConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *modelMultiModelConfigPtrType) ToModelMultiModelConfigPtrOutputWithContext(ctx context.Context) ModelMultiModelConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelMultiModelConfigPtrOutput)
+}
+
+// Specifies additional configuration for multi-model endpoints.
+type ModelMultiModelConfigOutput struct{ *pulumi.OutputState }
+
+func (ModelMultiModelConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelMultiModelConfig)(nil)).Elem()
+}
+
+func (o ModelMultiModelConfigOutput) ToModelMultiModelConfigOutput() ModelMultiModelConfigOutput {
+	return o
+}
+
+func (o ModelMultiModelConfigOutput) ToModelMultiModelConfigOutputWithContext(ctx context.Context) ModelMultiModelConfigOutput {
+	return o
+}
+
+func (o ModelMultiModelConfigOutput) ToModelMultiModelConfigPtrOutput() ModelMultiModelConfigPtrOutput {
+	return o.ToModelMultiModelConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ModelMultiModelConfigOutput) ToModelMultiModelConfigPtrOutputWithContext(ctx context.Context) ModelMultiModelConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ModelMultiModelConfig) *ModelMultiModelConfig {
+		return &v
+	}).(ModelMultiModelConfigPtrOutput)
+}
+
+// Whether to cache models for a multi-model endpoint. By default, multi-model endpoints cache models so that a model does not have to be loaded into memory each time it is invoked. Some use cases do not benefit from model caching. For example, if an endpoint hosts a large number of models that are each invoked infrequently, the endpoint might perform better if you disable model caching. To disable model caching, set the value of this parameter to `Disabled`.
+func (o ModelMultiModelConfigOutput) ModelCacheSetting() ModelMultiModelConfigModelCacheSettingPtrOutput {
+	return o.ApplyT(func(v ModelMultiModelConfig) *ModelMultiModelConfigModelCacheSetting { return v.ModelCacheSetting }).(ModelMultiModelConfigModelCacheSettingPtrOutput)
+}
+
+type ModelMultiModelConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ModelMultiModelConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelMultiModelConfig)(nil)).Elem()
+}
+
+func (o ModelMultiModelConfigPtrOutput) ToModelMultiModelConfigPtrOutput() ModelMultiModelConfigPtrOutput {
+	return o
+}
+
+func (o ModelMultiModelConfigPtrOutput) ToModelMultiModelConfigPtrOutputWithContext(ctx context.Context) ModelMultiModelConfigPtrOutput {
+	return o
+}
+
+func (o ModelMultiModelConfigPtrOutput) Elem() ModelMultiModelConfigOutput {
+	return o.ApplyT(func(v *ModelMultiModelConfig) ModelMultiModelConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ModelMultiModelConfig
+		return ret
+	}).(ModelMultiModelConfigOutput)
+}
+
+// Whether to cache models for a multi-model endpoint. By default, multi-model endpoints cache models so that a model does not have to be loaded into memory each time it is invoked. Some use cases do not benefit from model caching. For example, if an endpoint hosts a large number of models that are each invoked infrequently, the endpoint might perform better if you disable model caching. To disable model caching, set the value of this parameter to `Disabled`.
+func (o ModelMultiModelConfigPtrOutput) ModelCacheSetting() ModelMultiModelConfigModelCacheSettingPtrOutput {
+	return o.ApplyT(func(v *ModelMultiModelConfig) *ModelMultiModelConfigModelCacheSetting {
+		if v == nil {
+			return nil
+		}
+		return v.ModelCacheSetting
+	}).(ModelMultiModelConfigModelCacheSettingPtrOutput)
 }
 
 // Additional Inference Specification specifies details about inference jobs that can be run with models based on this model package.AdditionalInferenceSpecifications can be added to existing model packages using AdditionalInferenceSpecificationsToAdd.
@@ -33621,6 +34876,524 @@ func (o ModelQualityJobDefinitionVpcConfigPtrOutput) SecurityGroupIds() pulumi.S
 // The ID of the subnets in the VPC to which you want to connect to your monitoring jobs.
 func (o ModelQualityJobDefinitionVpcConfigPtrOutput) Subnets() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ModelQualityJobDefinitionVpcConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Subnets
+	}).(pulumi.StringArrayOutput)
+}
+
+// Specifies an authentication configuration for the private docker registry where your model image is hosted. Specify a value for this property only if you specified `Vpc` as the value for the `RepositoryAccessMode` field of the `ImageConfig` object that you passed to a call to `CreateModel` and the private Docker registry where the model image is hosted requires authentication.
+type ModelRepositoryAuthConfig struct {
+	// The Amazon Resource Name (ARN) of an AWS Lambda function that provides credentials to authenticate to the private Docker registry where your model image is hosted. For information about how to create an AWS Lambda function, see [Create a Lambda function with the console](https://docs.aws.amazon.com/lambda/latest/dg/getting-started-create-function.html) in the AWS Lambda Developer Guide
+	RepositoryCredentialsProviderArn string `pulumi:"repositoryCredentialsProviderArn"`
+}
+
+// ModelRepositoryAuthConfigInput is an input type that accepts ModelRepositoryAuthConfigArgs and ModelRepositoryAuthConfigOutput values.
+// You can construct a concrete instance of `ModelRepositoryAuthConfigInput` via:
+//
+//	ModelRepositoryAuthConfigArgs{...}
+type ModelRepositoryAuthConfigInput interface {
+	pulumi.Input
+
+	ToModelRepositoryAuthConfigOutput() ModelRepositoryAuthConfigOutput
+	ToModelRepositoryAuthConfigOutputWithContext(context.Context) ModelRepositoryAuthConfigOutput
+}
+
+// Specifies an authentication configuration for the private docker registry where your model image is hosted. Specify a value for this property only if you specified `Vpc` as the value for the `RepositoryAccessMode` field of the `ImageConfig` object that you passed to a call to `CreateModel` and the private Docker registry where the model image is hosted requires authentication.
+type ModelRepositoryAuthConfigArgs struct {
+	// The Amazon Resource Name (ARN) of an AWS Lambda function that provides credentials to authenticate to the private Docker registry where your model image is hosted. For information about how to create an AWS Lambda function, see [Create a Lambda function with the console](https://docs.aws.amazon.com/lambda/latest/dg/getting-started-create-function.html) in the AWS Lambda Developer Guide
+	RepositoryCredentialsProviderArn pulumi.StringInput `pulumi:"repositoryCredentialsProviderArn"`
+}
+
+func (ModelRepositoryAuthConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelRepositoryAuthConfig)(nil)).Elem()
+}
+
+func (i ModelRepositoryAuthConfigArgs) ToModelRepositoryAuthConfigOutput() ModelRepositoryAuthConfigOutput {
+	return i.ToModelRepositoryAuthConfigOutputWithContext(context.Background())
+}
+
+func (i ModelRepositoryAuthConfigArgs) ToModelRepositoryAuthConfigOutputWithContext(ctx context.Context) ModelRepositoryAuthConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelRepositoryAuthConfigOutput)
+}
+
+func (i ModelRepositoryAuthConfigArgs) ToModelRepositoryAuthConfigPtrOutput() ModelRepositoryAuthConfigPtrOutput {
+	return i.ToModelRepositoryAuthConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ModelRepositoryAuthConfigArgs) ToModelRepositoryAuthConfigPtrOutputWithContext(ctx context.Context) ModelRepositoryAuthConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelRepositoryAuthConfigOutput).ToModelRepositoryAuthConfigPtrOutputWithContext(ctx)
+}
+
+// ModelRepositoryAuthConfigPtrInput is an input type that accepts ModelRepositoryAuthConfigArgs, ModelRepositoryAuthConfigPtr and ModelRepositoryAuthConfigPtrOutput values.
+// You can construct a concrete instance of `ModelRepositoryAuthConfigPtrInput` via:
+//
+//	        ModelRepositoryAuthConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type ModelRepositoryAuthConfigPtrInput interface {
+	pulumi.Input
+
+	ToModelRepositoryAuthConfigPtrOutput() ModelRepositoryAuthConfigPtrOutput
+	ToModelRepositoryAuthConfigPtrOutputWithContext(context.Context) ModelRepositoryAuthConfigPtrOutput
+}
+
+type modelRepositoryAuthConfigPtrType ModelRepositoryAuthConfigArgs
+
+func ModelRepositoryAuthConfigPtr(v *ModelRepositoryAuthConfigArgs) ModelRepositoryAuthConfigPtrInput {
+	return (*modelRepositoryAuthConfigPtrType)(v)
+}
+
+func (*modelRepositoryAuthConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelRepositoryAuthConfig)(nil)).Elem()
+}
+
+func (i *modelRepositoryAuthConfigPtrType) ToModelRepositoryAuthConfigPtrOutput() ModelRepositoryAuthConfigPtrOutput {
+	return i.ToModelRepositoryAuthConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *modelRepositoryAuthConfigPtrType) ToModelRepositoryAuthConfigPtrOutputWithContext(ctx context.Context) ModelRepositoryAuthConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelRepositoryAuthConfigPtrOutput)
+}
+
+// Specifies an authentication configuration for the private docker registry where your model image is hosted. Specify a value for this property only if you specified `Vpc` as the value for the `RepositoryAccessMode` field of the `ImageConfig` object that you passed to a call to `CreateModel` and the private Docker registry where the model image is hosted requires authentication.
+type ModelRepositoryAuthConfigOutput struct{ *pulumi.OutputState }
+
+func (ModelRepositoryAuthConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelRepositoryAuthConfig)(nil)).Elem()
+}
+
+func (o ModelRepositoryAuthConfigOutput) ToModelRepositoryAuthConfigOutput() ModelRepositoryAuthConfigOutput {
+	return o
+}
+
+func (o ModelRepositoryAuthConfigOutput) ToModelRepositoryAuthConfigOutputWithContext(ctx context.Context) ModelRepositoryAuthConfigOutput {
+	return o
+}
+
+func (o ModelRepositoryAuthConfigOutput) ToModelRepositoryAuthConfigPtrOutput() ModelRepositoryAuthConfigPtrOutput {
+	return o.ToModelRepositoryAuthConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ModelRepositoryAuthConfigOutput) ToModelRepositoryAuthConfigPtrOutputWithContext(ctx context.Context) ModelRepositoryAuthConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ModelRepositoryAuthConfig) *ModelRepositoryAuthConfig {
+		return &v
+	}).(ModelRepositoryAuthConfigPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of an AWS Lambda function that provides credentials to authenticate to the private Docker registry where your model image is hosted. For information about how to create an AWS Lambda function, see [Create a Lambda function with the console](https://docs.aws.amazon.com/lambda/latest/dg/getting-started-create-function.html) in the AWS Lambda Developer Guide
+func (o ModelRepositoryAuthConfigOutput) RepositoryCredentialsProviderArn() pulumi.StringOutput {
+	return o.ApplyT(func(v ModelRepositoryAuthConfig) string { return v.RepositoryCredentialsProviderArn }).(pulumi.StringOutput)
+}
+
+type ModelRepositoryAuthConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ModelRepositoryAuthConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelRepositoryAuthConfig)(nil)).Elem()
+}
+
+func (o ModelRepositoryAuthConfigPtrOutput) ToModelRepositoryAuthConfigPtrOutput() ModelRepositoryAuthConfigPtrOutput {
+	return o
+}
+
+func (o ModelRepositoryAuthConfigPtrOutput) ToModelRepositoryAuthConfigPtrOutputWithContext(ctx context.Context) ModelRepositoryAuthConfigPtrOutput {
+	return o
+}
+
+func (o ModelRepositoryAuthConfigPtrOutput) Elem() ModelRepositoryAuthConfigOutput {
+	return o.ApplyT(func(v *ModelRepositoryAuthConfig) ModelRepositoryAuthConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ModelRepositoryAuthConfig
+		return ret
+	}).(ModelRepositoryAuthConfigOutput)
+}
+
+// The Amazon Resource Name (ARN) of an AWS Lambda function that provides credentials to authenticate to the private Docker registry where your model image is hosted. For information about how to create an AWS Lambda function, see [Create a Lambda function with the console](https://docs.aws.amazon.com/lambda/latest/dg/getting-started-create-function.html) in the AWS Lambda Developer Guide
+func (o ModelRepositoryAuthConfigPtrOutput) RepositoryCredentialsProviderArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ModelRepositoryAuthConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RepositoryCredentialsProviderArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the S3 location of ML model data to deploy.
+type ModelS3DataSource struct {
+	// Specifies how the ML model data is prepared.
+	CompressionType ModelS3DataSourceCompressionType `pulumi:"compressionType"`
+	// The configuration for a private hub model reference that points to a SageMaker JumpStart public hub model.
+	HubAccessConfig   *ModelHubAccessConfig `pulumi:"hubAccessConfig"`
+	ModelAccessConfig *ModelAccessConfig    `pulumi:"modelAccessConfig"`
+	// Specifies the type of ML model data to deploy.
+	S3DataType ModelS3DataSourceS3DataType `pulumi:"s3DataType"`
+	// Specifies the S3 path of ML model data to deploy.
+	S3Uri string `pulumi:"s3Uri"`
+}
+
+// ModelS3DataSourceInput is an input type that accepts ModelS3DataSourceArgs and ModelS3DataSourceOutput values.
+// You can construct a concrete instance of `ModelS3DataSourceInput` via:
+//
+//	ModelS3DataSourceArgs{...}
+type ModelS3DataSourceInput interface {
+	pulumi.Input
+
+	ToModelS3DataSourceOutput() ModelS3DataSourceOutput
+	ToModelS3DataSourceOutputWithContext(context.Context) ModelS3DataSourceOutput
+}
+
+// Specifies the S3 location of ML model data to deploy.
+type ModelS3DataSourceArgs struct {
+	// Specifies how the ML model data is prepared.
+	CompressionType ModelS3DataSourceCompressionTypeInput `pulumi:"compressionType"`
+	// The configuration for a private hub model reference that points to a SageMaker JumpStart public hub model.
+	HubAccessConfig   ModelHubAccessConfigPtrInput `pulumi:"hubAccessConfig"`
+	ModelAccessConfig ModelAccessConfigPtrInput    `pulumi:"modelAccessConfig"`
+	// Specifies the type of ML model data to deploy.
+	S3DataType ModelS3DataSourceS3DataTypeInput `pulumi:"s3DataType"`
+	// Specifies the S3 path of ML model data to deploy.
+	S3Uri pulumi.StringInput `pulumi:"s3Uri"`
+}
+
+func (ModelS3DataSourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelS3DataSource)(nil)).Elem()
+}
+
+func (i ModelS3DataSourceArgs) ToModelS3DataSourceOutput() ModelS3DataSourceOutput {
+	return i.ToModelS3DataSourceOutputWithContext(context.Background())
+}
+
+func (i ModelS3DataSourceArgs) ToModelS3DataSourceOutputWithContext(ctx context.Context) ModelS3DataSourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelS3DataSourceOutput)
+}
+
+func (i ModelS3DataSourceArgs) ToModelS3DataSourcePtrOutput() ModelS3DataSourcePtrOutput {
+	return i.ToModelS3DataSourcePtrOutputWithContext(context.Background())
+}
+
+func (i ModelS3DataSourceArgs) ToModelS3DataSourcePtrOutputWithContext(ctx context.Context) ModelS3DataSourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelS3DataSourceOutput).ToModelS3DataSourcePtrOutputWithContext(ctx)
+}
+
+// ModelS3DataSourcePtrInput is an input type that accepts ModelS3DataSourceArgs, ModelS3DataSourcePtr and ModelS3DataSourcePtrOutput values.
+// You can construct a concrete instance of `ModelS3DataSourcePtrInput` via:
+//
+//	        ModelS3DataSourceArgs{...}
+//
+//	or:
+//
+//	        nil
+type ModelS3DataSourcePtrInput interface {
+	pulumi.Input
+
+	ToModelS3DataSourcePtrOutput() ModelS3DataSourcePtrOutput
+	ToModelS3DataSourcePtrOutputWithContext(context.Context) ModelS3DataSourcePtrOutput
+}
+
+type modelS3DataSourcePtrType ModelS3DataSourceArgs
+
+func ModelS3DataSourcePtr(v *ModelS3DataSourceArgs) ModelS3DataSourcePtrInput {
+	return (*modelS3DataSourcePtrType)(v)
+}
+
+func (*modelS3DataSourcePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelS3DataSource)(nil)).Elem()
+}
+
+func (i *modelS3DataSourcePtrType) ToModelS3DataSourcePtrOutput() ModelS3DataSourcePtrOutput {
+	return i.ToModelS3DataSourcePtrOutputWithContext(context.Background())
+}
+
+func (i *modelS3DataSourcePtrType) ToModelS3DataSourcePtrOutputWithContext(ctx context.Context) ModelS3DataSourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelS3DataSourcePtrOutput)
+}
+
+// Specifies the S3 location of ML model data to deploy.
+type ModelS3DataSourceOutput struct{ *pulumi.OutputState }
+
+func (ModelS3DataSourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelS3DataSource)(nil)).Elem()
+}
+
+func (o ModelS3DataSourceOutput) ToModelS3DataSourceOutput() ModelS3DataSourceOutput {
+	return o
+}
+
+func (o ModelS3DataSourceOutput) ToModelS3DataSourceOutputWithContext(ctx context.Context) ModelS3DataSourceOutput {
+	return o
+}
+
+func (o ModelS3DataSourceOutput) ToModelS3DataSourcePtrOutput() ModelS3DataSourcePtrOutput {
+	return o.ToModelS3DataSourcePtrOutputWithContext(context.Background())
+}
+
+func (o ModelS3DataSourceOutput) ToModelS3DataSourcePtrOutputWithContext(ctx context.Context) ModelS3DataSourcePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ModelS3DataSource) *ModelS3DataSource {
+		return &v
+	}).(ModelS3DataSourcePtrOutput)
+}
+
+// Specifies how the ML model data is prepared.
+func (o ModelS3DataSourceOutput) CompressionType() ModelS3DataSourceCompressionTypeOutput {
+	return o.ApplyT(func(v ModelS3DataSource) ModelS3DataSourceCompressionType { return v.CompressionType }).(ModelS3DataSourceCompressionTypeOutput)
+}
+
+// The configuration for a private hub model reference that points to a SageMaker JumpStart public hub model.
+func (o ModelS3DataSourceOutput) HubAccessConfig() ModelHubAccessConfigPtrOutput {
+	return o.ApplyT(func(v ModelS3DataSource) *ModelHubAccessConfig { return v.HubAccessConfig }).(ModelHubAccessConfigPtrOutput)
+}
+
+func (o ModelS3DataSourceOutput) ModelAccessConfig() ModelAccessConfigPtrOutput {
+	return o.ApplyT(func(v ModelS3DataSource) *ModelAccessConfig { return v.ModelAccessConfig }).(ModelAccessConfigPtrOutput)
+}
+
+// Specifies the type of ML model data to deploy.
+func (o ModelS3DataSourceOutput) S3DataType() ModelS3DataSourceS3DataTypeOutput {
+	return o.ApplyT(func(v ModelS3DataSource) ModelS3DataSourceS3DataType { return v.S3DataType }).(ModelS3DataSourceS3DataTypeOutput)
+}
+
+// Specifies the S3 path of ML model data to deploy.
+func (o ModelS3DataSourceOutput) S3Uri() pulumi.StringOutput {
+	return o.ApplyT(func(v ModelS3DataSource) string { return v.S3Uri }).(pulumi.StringOutput)
+}
+
+type ModelS3DataSourcePtrOutput struct{ *pulumi.OutputState }
+
+func (ModelS3DataSourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelS3DataSource)(nil)).Elem()
+}
+
+func (o ModelS3DataSourcePtrOutput) ToModelS3DataSourcePtrOutput() ModelS3DataSourcePtrOutput {
+	return o
+}
+
+func (o ModelS3DataSourcePtrOutput) ToModelS3DataSourcePtrOutputWithContext(ctx context.Context) ModelS3DataSourcePtrOutput {
+	return o
+}
+
+func (o ModelS3DataSourcePtrOutput) Elem() ModelS3DataSourceOutput {
+	return o.ApplyT(func(v *ModelS3DataSource) ModelS3DataSource {
+		if v != nil {
+			return *v
+		}
+		var ret ModelS3DataSource
+		return ret
+	}).(ModelS3DataSourceOutput)
+}
+
+// Specifies how the ML model data is prepared.
+func (o ModelS3DataSourcePtrOutput) CompressionType() ModelS3DataSourceCompressionTypePtrOutput {
+	return o.ApplyT(func(v *ModelS3DataSource) *ModelS3DataSourceCompressionType {
+		if v == nil {
+			return nil
+		}
+		return &v.CompressionType
+	}).(ModelS3DataSourceCompressionTypePtrOutput)
+}
+
+// The configuration for a private hub model reference that points to a SageMaker JumpStart public hub model.
+func (o ModelS3DataSourcePtrOutput) HubAccessConfig() ModelHubAccessConfigPtrOutput {
+	return o.ApplyT(func(v *ModelS3DataSource) *ModelHubAccessConfig {
+		if v == nil {
+			return nil
+		}
+		return v.HubAccessConfig
+	}).(ModelHubAccessConfigPtrOutput)
+}
+
+func (o ModelS3DataSourcePtrOutput) ModelAccessConfig() ModelAccessConfigPtrOutput {
+	return o.ApplyT(func(v *ModelS3DataSource) *ModelAccessConfig {
+		if v == nil {
+			return nil
+		}
+		return v.ModelAccessConfig
+	}).(ModelAccessConfigPtrOutput)
+}
+
+// Specifies the type of ML model data to deploy.
+func (o ModelS3DataSourcePtrOutput) S3DataType() ModelS3DataSourceS3DataTypePtrOutput {
+	return o.ApplyT(func(v *ModelS3DataSource) *ModelS3DataSourceS3DataType {
+		if v == nil {
+			return nil
+		}
+		return &v.S3DataType
+	}).(ModelS3DataSourceS3DataTypePtrOutput)
+}
+
+// Specifies the S3 path of ML model data to deploy.
+func (o ModelS3DataSourcePtrOutput) S3Uri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ModelS3DataSource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.S3Uri
+	}).(pulumi.StringPtrOutput)
+}
+
+type ModelTag struct {
+	// The tag value.
+	Key string `pulumi:"key"`
+	// The tag key. Tag keys must be unique per resource.
+	Value string `pulumi:"value"`
+}
+
+// Specifies an Amazon Virtual Private Cloud (VPC) that your SageMaker jobs, hosted models, and compute resources have access to. You can control access to and from your resources by configuring a VPC. For more information, see [Give SageMaker Access to Resources in your Amazon VPC](https://docs.aws.amazon.com/sagemaker/latest/dg/infrastructure-give-access.html).
+type ModelVpcConfig struct {
+	// The VPC security group IDs, in the form `sg-xxxxxxxx`. Specify the security groups for the VPC that is specified in the `Subnets` field.
+	SecurityGroupIds []string `pulumi:"securityGroupIds"`
+	// The ID of the subnets in the VPC to which you want to connect your training job or model. For information about the availability of specific instance types, see [Supported Instance Types and Availability Zones](https://docs.aws.amazon.com/sagemaker/latest/dg/instance-types-az.html).
+	Subnets []string `pulumi:"subnets"`
+}
+
+// ModelVpcConfigInput is an input type that accepts ModelVpcConfigArgs and ModelVpcConfigOutput values.
+// You can construct a concrete instance of `ModelVpcConfigInput` via:
+//
+//	ModelVpcConfigArgs{...}
+type ModelVpcConfigInput interface {
+	pulumi.Input
+
+	ToModelVpcConfigOutput() ModelVpcConfigOutput
+	ToModelVpcConfigOutputWithContext(context.Context) ModelVpcConfigOutput
+}
+
+// Specifies an Amazon Virtual Private Cloud (VPC) that your SageMaker jobs, hosted models, and compute resources have access to. You can control access to and from your resources by configuring a VPC. For more information, see [Give SageMaker Access to Resources in your Amazon VPC](https://docs.aws.amazon.com/sagemaker/latest/dg/infrastructure-give-access.html).
+type ModelVpcConfigArgs struct {
+	// The VPC security group IDs, in the form `sg-xxxxxxxx`. Specify the security groups for the VPC that is specified in the `Subnets` field.
+	SecurityGroupIds pulumi.StringArrayInput `pulumi:"securityGroupIds"`
+	// The ID of the subnets in the VPC to which you want to connect your training job or model. For information about the availability of specific instance types, see [Supported Instance Types and Availability Zones](https://docs.aws.amazon.com/sagemaker/latest/dg/instance-types-az.html).
+	Subnets pulumi.StringArrayInput `pulumi:"subnets"`
+}
+
+func (ModelVpcConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelVpcConfig)(nil)).Elem()
+}
+
+func (i ModelVpcConfigArgs) ToModelVpcConfigOutput() ModelVpcConfigOutput {
+	return i.ToModelVpcConfigOutputWithContext(context.Background())
+}
+
+func (i ModelVpcConfigArgs) ToModelVpcConfigOutputWithContext(ctx context.Context) ModelVpcConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelVpcConfigOutput)
+}
+
+func (i ModelVpcConfigArgs) ToModelVpcConfigPtrOutput() ModelVpcConfigPtrOutput {
+	return i.ToModelVpcConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ModelVpcConfigArgs) ToModelVpcConfigPtrOutputWithContext(ctx context.Context) ModelVpcConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelVpcConfigOutput).ToModelVpcConfigPtrOutputWithContext(ctx)
+}
+
+// ModelVpcConfigPtrInput is an input type that accepts ModelVpcConfigArgs, ModelVpcConfigPtr and ModelVpcConfigPtrOutput values.
+// You can construct a concrete instance of `ModelVpcConfigPtrInput` via:
+//
+//	        ModelVpcConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type ModelVpcConfigPtrInput interface {
+	pulumi.Input
+
+	ToModelVpcConfigPtrOutput() ModelVpcConfigPtrOutput
+	ToModelVpcConfigPtrOutputWithContext(context.Context) ModelVpcConfigPtrOutput
+}
+
+type modelVpcConfigPtrType ModelVpcConfigArgs
+
+func ModelVpcConfigPtr(v *ModelVpcConfigArgs) ModelVpcConfigPtrInput {
+	return (*modelVpcConfigPtrType)(v)
+}
+
+func (*modelVpcConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelVpcConfig)(nil)).Elem()
+}
+
+func (i *modelVpcConfigPtrType) ToModelVpcConfigPtrOutput() ModelVpcConfigPtrOutput {
+	return i.ToModelVpcConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *modelVpcConfigPtrType) ToModelVpcConfigPtrOutputWithContext(ctx context.Context) ModelVpcConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelVpcConfigPtrOutput)
+}
+
+// Specifies an Amazon Virtual Private Cloud (VPC) that your SageMaker jobs, hosted models, and compute resources have access to. You can control access to and from your resources by configuring a VPC. For more information, see [Give SageMaker Access to Resources in your Amazon VPC](https://docs.aws.amazon.com/sagemaker/latest/dg/infrastructure-give-access.html).
+type ModelVpcConfigOutput struct{ *pulumi.OutputState }
+
+func (ModelVpcConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelVpcConfig)(nil)).Elem()
+}
+
+func (o ModelVpcConfigOutput) ToModelVpcConfigOutput() ModelVpcConfigOutput {
+	return o
+}
+
+func (o ModelVpcConfigOutput) ToModelVpcConfigOutputWithContext(ctx context.Context) ModelVpcConfigOutput {
+	return o
+}
+
+func (o ModelVpcConfigOutput) ToModelVpcConfigPtrOutput() ModelVpcConfigPtrOutput {
+	return o.ToModelVpcConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ModelVpcConfigOutput) ToModelVpcConfigPtrOutputWithContext(ctx context.Context) ModelVpcConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ModelVpcConfig) *ModelVpcConfig {
+		return &v
+	}).(ModelVpcConfigPtrOutput)
+}
+
+// The VPC security group IDs, in the form `sg-xxxxxxxx`. Specify the security groups for the VPC that is specified in the `Subnets` field.
+func (o ModelVpcConfigOutput) SecurityGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ModelVpcConfig) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
+}
+
+// The ID of the subnets in the VPC to which you want to connect your training job or model. For information about the availability of specific instance types, see [Supported Instance Types and Availability Zones](https://docs.aws.amazon.com/sagemaker/latest/dg/instance-types-az.html).
+func (o ModelVpcConfigOutput) Subnets() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ModelVpcConfig) []string { return v.Subnets }).(pulumi.StringArrayOutput)
+}
+
+type ModelVpcConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ModelVpcConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelVpcConfig)(nil)).Elem()
+}
+
+func (o ModelVpcConfigPtrOutput) ToModelVpcConfigPtrOutput() ModelVpcConfigPtrOutput {
+	return o
+}
+
+func (o ModelVpcConfigPtrOutput) ToModelVpcConfigPtrOutputWithContext(ctx context.Context) ModelVpcConfigPtrOutput {
+	return o
+}
+
+func (o ModelVpcConfigPtrOutput) Elem() ModelVpcConfigOutput {
+	return o.ApplyT(func(v *ModelVpcConfig) ModelVpcConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ModelVpcConfig
+		return ret
+	}).(ModelVpcConfigOutput)
+}
+
+// The VPC security group IDs, in the form `sg-xxxxxxxx`. Specify the security groups for the VPC that is specified in the `Subnets` field.
+func (o ModelVpcConfigPtrOutput) SecurityGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ModelVpcConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SecurityGroupIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// The ID of the subnets in the VPC to which you want to connect your training job or model. For information about the availability of specific instance types, see [Supported Instance Types and Availability Zones](https://docs.aws.amazon.com/sagemaker/latest/dg/instance-types-az.html).
+func (o ModelVpcConfigPtrOutput) Subnets() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ModelVpcConfig) []string {
 		if v == nil {
 			return nil
 		}
@@ -48866,6 +50639,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*InferenceExperimentShadowModeConfigPtrInput)(nil)).Elem(), InferenceExperimentShadowModeConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InferenceExperimentShadowModelVariantConfigInput)(nil)).Elem(), InferenceExperimentShadowModelVariantConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InferenceExperimentShadowModelVariantConfigArrayInput)(nil)).Elem(), InferenceExperimentShadowModelVariantConfigArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelAccessConfigInput)(nil)).Elem(), ModelAccessConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelAccessConfigPtrInput)(nil)).Elem(), ModelAccessConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelBiasJobDefinitionBatchTransformInputInput)(nil)).Elem(), ModelBiasJobDefinitionBatchTransformInputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelBiasJobDefinitionBatchTransformInputPtrInput)(nil)).Elem(), ModelBiasJobDefinitionBatchTransformInputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelBiasJobDefinitionClusterConfigInput)(nil)).Elem(), ModelBiasJobDefinitionClusterConfigArgs{})
@@ -48942,6 +50717,11 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelCardTrainingMetricArrayInput)(nil)).Elem(), ModelCardTrainingMetricArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelCardUserContextInput)(nil)).Elem(), ModelCardUserContextArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelCardUserContextPtrInput)(nil)).Elem(), ModelCardUserContextArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelContainerDefinitionInput)(nil)).Elem(), ModelContainerDefinitionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelContainerDefinitionPtrInput)(nil)).Elem(), ModelContainerDefinitionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelContainerDefinitionArrayInput)(nil)).Elem(), ModelContainerDefinitionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelDataSourceInput)(nil)).Elem(), ModelDataSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelDataSourcePtrInput)(nil)).Elem(), ModelDataSourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelExplainabilityJobDefinitionBatchTransformInputInput)(nil)).Elem(), ModelExplainabilityJobDefinitionBatchTransformInputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelExplainabilityJobDefinitionBatchTransformInputPtrInput)(nil)).Elem(), ModelExplainabilityJobDefinitionBatchTransformInputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelExplainabilityJobDefinitionClusterConfigInput)(nil)).Elem(), ModelExplainabilityJobDefinitionClusterConfigArgs{})
@@ -48970,6 +50750,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelExplainabilityJobDefinitionStoppingConditionPtrInput)(nil)).Elem(), ModelExplainabilityJobDefinitionStoppingConditionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelExplainabilityJobDefinitionVpcConfigInput)(nil)).Elem(), ModelExplainabilityJobDefinitionVpcConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelExplainabilityJobDefinitionVpcConfigPtrInput)(nil)).Elem(), ModelExplainabilityJobDefinitionVpcConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelHubAccessConfigInput)(nil)).Elem(), ModelHubAccessConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelHubAccessConfigPtrInput)(nil)).Elem(), ModelHubAccessConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelImageConfigInput)(nil)).Elem(), ModelImageConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelImageConfigPtrInput)(nil)).Elem(), ModelImageConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelInferenceExecutionConfigInput)(nil)).Elem(), ModelInferenceExecutionConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelInferenceExecutionConfigPtrInput)(nil)).Elem(), ModelInferenceExecutionConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelMultiModelConfigInput)(nil)).Elem(), ModelMultiModelConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelMultiModelConfigPtrInput)(nil)).Elem(), ModelMultiModelConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelPackageAdditionalInferenceSpecificationDefinitionInput)(nil)).Elem(), ModelPackageAdditionalInferenceSpecificationDefinitionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelPackageAdditionalInferenceSpecificationDefinitionArrayInput)(nil)).Elem(), ModelPackageAdditionalInferenceSpecificationDefinitionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelPackageBiasInput)(nil)).Elem(), ModelPackageBiasArgs{})
@@ -49065,6 +50853,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelQualityJobDefinitionStoppingConditionPtrInput)(nil)).Elem(), ModelQualityJobDefinitionStoppingConditionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelQualityJobDefinitionVpcConfigInput)(nil)).Elem(), ModelQualityJobDefinitionVpcConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelQualityJobDefinitionVpcConfigPtrInput)(nil)).Elem(), ModelQualityJobDefinitionVpcConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelRepositoryAuthConfigInput)(nil)).Elem(), ModelRepositoryAuthConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelRepositoryAuthConfigPtrInput)(nil)).Elem(), ModelRepositoryAuthConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelS3DataSourceInput)(nil)).Elem(), ModelS3DataSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelS3DataSourcePtrInput)(nil)).Elem(), ModelS3DataSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelVpcConfigInput)(nil)).Elem(), ModelVpcConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelVpcConfigPtrInput)(nil)).Elem(), ModelVpcConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MonitoringScheduleBaselineConfigInput)(nil)).Elem(), MonitoringScheduleBaselineConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MonitoringScheduleBaselineConfigPtrInput)(nil)).Elem(), MonitoringScheduleBaselineConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MonitoringScheduleBatchTransformInputInput)(nil)).Elem(), MonitoringScheduleBatchTransformInputArgs{})
@@ -49451,6 +51245,8 @@ func init() {
 	pulumi.RegisterOutputType(InferenceExperimentShadowModeConfigPtrOutput{})
 	pulumi.RegisterOutputType(InferenceExperimentShadowModelVariantConfigOutput{})
 	pulumi.RegisterOutputType(InferenceExperimentShadowModelVariantConfigArrayOutput{})
+	pulumi.RegisterOutputType(ModelAccessConfigOutput{})
+	pulumi.RegisterOutputType(ModelAccessConfigPtrOutput{})
 	pulumi.RegisterOutputType(ModelBiasJobDefinitionBatchTransformInputOutput{})
 	pulumi.RegisterOutputType(ModelBiasJobDefinitionBatchTransformInputPtrOutput{})
 	pulumi.RegisterOutputType(ModelBiasJobDefinitionClusterConfigOutput{})
@@ -49528,6 +51324,11 @@ func init() {
 	pulumi.RegisterOutputType(ModelCardTrainingMetricArrayOutput{})
 	pulumi.RegisterOutputType(ModelCardUserContextOutput{})
 	pulumi.RegisterOutputType(ModelCardUserContextPtrOutput{})
+	pulumi.RegisterOutputType(ModelContainerDefinitionOutput{})
+	pulumi.RegisterOutputType(ModelContainerDefinitionPtrOutput{})
+	pulumi.RegisterOutputType(ModelContainerDefinitionArrayOutput{})
+	pulumi.RegisterOutputType(ModelDataSourceOutput{})
+	pulumi.RegisterOutputType(ModelDataSourcePtrOutput{})
 	pulumi.RegisterOutputType(ModelExplainabilityJobDefinitionBatchTransformInputOutput{})
 	pulumi.RegisterOutputType(ModelExplainabilityJobDefinitionBatchTransformInputPtrOutput{})
 	pulumi.RegisterOutputType(ModelExplainabilityJobDefinitionClusterConfigOutput{})
@@ -49556,6 +51357,14 @@ func init() {
 	pulumi.RegisterOutputType(ModelExplainabilityJobDefinitionStoppingConditionPtrOutput{})
 	pulumi.RegisterOutputType(ModelExplainabilityJobDefinitionVpcConfigOutput{})
 	pulumi.RegisterOutputType(ModelExplainabilityJobDefinitionVpcConfigPtrOutput{})
+	pulumi.RegisterOutputType(ModelHubAccessConfigOutput{})
+	pulumi.RegisterOutputType(ModelHubAccessConfigPtrOutput{})
+	pulumi.RegisterOutputType(ModelImageConfigOutput{})
+	pulumi.RegisterOutputType(ModelImageConfigPtrOutput{})
+	pulumi.RegisterOutputType(ModelInferenceExecutionConfigOutput{})
+	pulumi.RegisterOutputType(ModelInferenceExecutionConfigPtrOutput{})
+	pulumi.RegisterOutputType(ModelMultiModelConfigOutput{})
+	pulumi.RegisterOutputType(ModelMultiModelConfigPtrOutput{})
 	pulumi.RegisterOutputType(ModelPackageAdditionalInferenceSpecificationDefinitionOutput{})
 	pulumi.RegisterOutputType(ModelPackageAdditionalInferenceSpecificationDefinitionArrayOutput{})
 	pulumi.RegisterOutputType(ModelPackageBiasOutput{})
@@ -49651,6 +51460,12 @@ func init() {
 	pulumi.RegisterOutputType(ModelQualityJobDefinitionStoppingConditionPtrOutput{})
 	pulumi.RegisterOutputType(ModelQualityJobDefinitionVpcConfigOutput{})
 	pulumi.RegisterOutputType(ModelQualityJobDefinitionVpcConfigPtrOutput{})
+	pulumi.RegisterOutputType(ModelRepositoryAuthConfigOutput{})
+	pulumi.RegisterOutputType(ModelRepositoryAuthConfigPtrOutput{})
+	pulumi.RegisterOutputType(ModelS3DataSourceOutput{})
+	pulumi.RegisterOutputType(ModelS3DataSourcePtrOutput{})
+	pulumi.RegisterOutputType(ModelVpcConfigOutput{})
+	pulumi.RegisterOutputType(ModelVpcConfigPtrOutput{})
 	pulumi.RegisterOutputType(MonitoringScheduleBaselineConfigOutput{})
 	pulumi.RegisterOutputType(MonitoringScheduleBaselineConfigPtrOutput{})
 	pulumi.RegisterOutputType(MonitoringScheduleBatchTransformInputOutput{})
