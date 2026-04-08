@@ -11,7 +11,7 @@ __all__ = [
 ]
 
 
-@pulumi.type_token("aws-native:index/Region:Region")
+@pulumi.type_token("aws-native:index:Region")
 class Region(_builtins.str, Enum):
     """
     A Region represents any valid Amazon region that may be targeted with deployments.

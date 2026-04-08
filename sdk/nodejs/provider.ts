@@ -7,8 +7,6 @@ import * as outputs from "./types/output";
 import * as enums from "./types/enums";
 import * as utilities from "./utilities";
 
-import {Region} from "./index";
-
 /**
  * The provider type for the AWS Cloud Control package. By default, resources use package-wide configuration settings, however an explicit `Provider` instance may be created and passed during resource construction to achieve fine-grained programmatic control over provider settings. See the [documentation](https://www.pulumi.com/docs/reference/programming-model/#providers) for more information.
  */
@@ -31,10 +29,6 @@ export class Provider extends pulumi.ProviderResource {
      * The profile for API operations. If not set, the default profile created with `aws configure` will be used.
      */
     declare public readonly profile: pulumi.Output<string | undefined>;
-    /**
-     * The region where AWS operations will take place. Examples are `us-east-1`, `us-west-2`, etc.
-     */
-    declare public readonly region: pulumi.Output<Region | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role for Cloud Control API to use when performing this resource operation. Note, this is a unique feature for server side security enforcement, not to be confused with assumeRole, which is used to obtain temporary client credentials. If you do not specify a role, Cloud Control API uses a temporary session created using your AWS user credentials instead.
      */
@@ -137,7 +131,7 @@ export interface ProviderArgs {
     /**
      * The region where AWS operations will take place. Examples are `us-east-1`, `us-west-2`, etc.
      */
-    region: pulumi.Input<Region>;
+    region: pulumi.Input<enums.Region>;
     /**
      * The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role for Cloud Control API to use when performing this resource operation. Note, this is a unique feature for server side security enforcement, not to be confused with assumeRole, which is used to obtain temporary client credentials. If you do not specify a role, Cloud Control API uses a temporary session created using your AWS user credentials instead.
      */
