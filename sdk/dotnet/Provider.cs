@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative
         public Output<string?> Profile { get; private set; } = null!;
 
         /// <summary>
+        /// The region where AWS operations will take place. Examples are `us-east-1`, `us-west-2`, etc.
+        /// </summary>
+        [Output("region")]
+        public Output<string?> Region { get; private set; } = null!;
+
+        /// <summary>
         /// The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role for Cloud Control API to use when performing this resource operation. Note, this is a unique feature for server side security enforcement, not to be confused with assumeRole, which is used to obtain temporary client credentials. If you do not specify a role, Cloud Control API uses a temporary session created using your AWS user credentials instead.
         /// </summary>
         [Output("roleArn")]
@@ -158,8 +164,8 @@ namespace Pulumi.AwsNative
         /// <summary>
         /// The region where AWS operations will take place. Examples are `us-east-1`, `us-west-2`, etc.
         /// </summary>
-        [Input("region", required: true, json: true)]
-        public Input<Pulumi.AwsNative.Region> Region { get; set; } = null!;
+        [Input("region", required: true)]
+        public Input<string> Region { get; set; } = null!;
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role for Cloud Control API to use when performing this resource operation. Note, this is a unique feature for server side security enforcement, not to be confused with assumeRole, which is used to obtain temporary client credentials. If you do not specify a role, Cloud Control API uses a temporary session created using your AWS user credentials instead.
