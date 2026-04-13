@@ -38,6 +38,10 @@ export interface GetApplicationResult {
      */
     readonly applicationSourceConfig?: outputs.appintegrations.ApplicationSourceConfigProperties;
     /**
+     * The type of application
+     */
+    readonly applicationType?: enums.appintegrations.ApplicationType;
+    /**
      * The application description.
      */
     readonly description?: string;

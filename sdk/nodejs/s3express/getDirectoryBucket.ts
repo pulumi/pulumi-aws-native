@@ -42,6 +42,10 @@ export interface GetDirectoryBucketResult {
      */
     readonly lifecycleConfiguration?: outputs.s3express.DirectoryBucketLifecycleConfiguration;
     /**
+     * Specifies the metrics configurations for the Amazon S3 Express bucket.
+     */
+    readonly metricsConfigurations?: outputs.s3express.DirectoryBucketMetricsConfiguration[];
+    /**
      * An array of tags that you can apply to the S3 directory bucket. Tags are key-value pairs of metadata used to categorize and organize your buckets, track costs, and control access. For more information, see [Using tags with directory buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/directory-buckets-tagging.html) .
      */
     readonly tags?: outputs.Tag[];

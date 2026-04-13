@@ -1479,6 +1479,8 @@ class FunctionCode(dict):
             suggest = "s3_bucket"
         elif key == "s3Key":
             suggest = "s3_key"
+        elif key == "s3ObjectStorageMode":
+            suggest = "s3_object_storage_mode"
         elif key == "s3ObjectVersion":
             suggest = "s3_object_version"
         elif key == "sourceKmsKeyArn":
@@ -1501,6 +1503,7 @@ class FunctionCode(dict):
                  image_uri: Optional[_builtins.str] = None,
                  s3_bucket: Optional[_builtins.str] = None,
                  s3_key: Optional[_builtins.str] = None,
+                 s3_object_storage_mode: Optional['FunctionCodeS3ObjectStorageMode'] = None,
                  s3_object_version: Optional[_builtins.str] = None,
                  source_kms_key_arn: Optional[_builtins.str] = None,
                  zip_file: Optional[_builtins.str] = None):
@@ -1526,6 +1529,8 @@ class FunctionCode(dict):
             pulumi.set(__self__, "s3_bucket", s3_bucket)
         if s3_key is not None:
             pulumi.set(__self__, "s3_key", s3_key)
+        if s3_object_storage_mode is not None:
+            pulumi.set(__self__, "s3_object_storage_mode", s3_object_storage_mode)
         if s3_object_version is not None:
             pulumi.set(__self__, "s3_object_version", s3_object_version)
         if source_kms_key_arn is not None:
@@ -1556,6 +1561,11 @@ class FunctionCode(dict):
         The Amazon S3 key of the deployment package.
         """
         return pulumi.get(self, "s3_key")
+
+    @_builtins.property
+    @pulumi.getter(name="s3ObjectStorageMode")
+    def s3_object_storage_mode(self) -> Optional['FunctionCodeS3ObjectStorageMode']:
+        return pulumi.get(self, "s3_object_storage_mode")
 
     @_builtins.property
     @pulumi.getter(name="s3ObjectVersion")

@@ -23,6 +23,7 @@ __all__ = [
     'DirectoryBucketAbortIncompleteMultipartUpload',
     'DirectoryBucketBucketEncryption',
     'DirectoryBucketLifecycleConfiguration',
+    'DirectoryBucketMetricsConfiguration',
     'DirectoryBucketRule',
     'DirectoryBucketServerSideEncryptionByDefault',
     'DirectoryBucketServerSideEncryptionRule',
@@ -284,6 +285,71 @@ class DirectoryBucketLifecycleConfiguration(dict):
         A lifecycle rule for individual objects in an Amazon S3 Express bucket.
         """
         return pulumi.get(self, "rules")
+
+
+@pulumi.output_type
+class DirectoryBucketMetricsConfiguration(dict):
+    """
+    Specifies a metrics configuration for the CloudWatch request metrics from an Amazon S3 Express bucket.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accessPointArn":
+            suggest = "access_point_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DirectoryBucketMetricsConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DirectoryBucketMetricsConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DirectoryBucketMetricsConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 access_point_arn: Optional[_builtins.str] = None,
+                 id: Optional[_builtins.str] = None,
+                 prefix: Optional[_builtins.str] = None):
+        """
+        Specifies a metrics configuration for the CloudWatch request metrics from an Amazon S3 Express bucket.
+
+        :param _builtins.str access_point_arn: The access point ARN used when evaluating a metrics filter.
+        :param _builtins.str id: The ID used to identify the metrics configuration.
+        :param _builtins.str prefix: The prefix used when evaluating a metrics filter.
+        """
+        if access_point_arn is not None:
+            pulumi.set(__self__, "access_point_arn", access_point_arn)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if prefix is not None:
+            pulumi.set(__self__, "prefix", prefix)
+
+    @_builtins.property
+    @pulumi.getter(name="accessPointArn")
+    def access_point_arn(self) -> Optional[_builtins.str]:
+        """
+        The access point ARN used when evaluating a metrics filter.
+        """
+        return pulumi.get(self, "access_point_arn")
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> Optional[_builtins.str]:
+        """
+        The ID used to identify the metrics configuration.
+        """
+        return pulumi.get(self, "id")
+
+    @_builtins.property
+    @pulumi.getter
+    def prefix(self) -> Optional[_builtins.str]:
+        """
+        The prefix used when evaluating a metrics filter.
+        """
+        return pulumi.get(self, "prefix")
 
 
 @pulumi.output_type

@@ -61,6 +61,7 @@ export class Campaign extends pulumi.CustomResource {
      * The identifier of the Amazon Connect instance. You can find the `instanceId` in the ARN of the instance.
      */
     declare public readonly connectInstanceId: pulumi.Output<string>;
+    declare public readonly entryLimitsConfig: pulumi.Output<outputs.connectcampaignsv2.CampaignEntryLimitsConfig | undefined>;
     /**
      * The name of the outbound campaign.
      */
@@ -101,6 +102,7 @@ export class Campaign extends pulumi.CustomResource {
             resourceInputs["communicationTimeConfig"] = args?.communicationTimeConfig;
             resourceInputs["connectCampaignFlowArn"] = args?.connectCampaignFlowArn;
             resourceInputs["connectInstanceId"] = args?.connectInstanceId;
+            resourceInputs["entryLimitsConfig"] = args?.entryLimitsConfig;
             resourceInputs["name"] = args?.name;
             resourceInputs["schedule"] = args?.schedule;
             resourceInputs["source"] = args?.source;
@@ -114,6 +116,7 @@ export class Campaign extends pulumi.CustomResource {
             resourceInputs["communicationTimeConfig"] = undefined /*out*/;
             resourceInputs["connectCampaignFlowArn"] = undefined /*out*/;
             resourceInputs["connectInstanceId"] = undefined /*out*/;
+            resourceInputs["entryLimitsConfig"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["schedule"] = undefined /*out*/;
             resourceInputs["source"] = undefined /*out*/;
@@ -151,6 +154,7 @@ export interface CampaignArgs {
      * The identifier of the Amazon Connect instance. You can find the `instanceId` in the ARN of the instance.
      */
     connectInstanceId: pulumi.Input<string>;
+    entryLimitsConfig?: pulumi.Input<inputs.connectcampaignsv2.CampaignEntryLimitsConfigArgs>;
     /**
      * The name of the outbound campaign.
      */

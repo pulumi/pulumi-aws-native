@@ -38,6 +38,8 @@ __all__ = [
     'CampaignEmailOutboundConfigArgsDict',
     'CampaignEmailOutboundModeArgs',
     'CampaignEmailOutboundModeArgsDict',
+    'CampaignEntryLimitsConfigArgs',
+    'CampaignEntryLimitsConfigArgsDict',
     'CampaignEventTriggerArgs',
     'CampaignEventTriggerArgsDict',
     'CampaignLocalTimeZoneConfigArgs',
@@ -711,6 +713,58 @@ class CampaignEmailOutboundModeArgs:
     @agentless_config.setter
     def agentless_config(self, value: Optional[pulumi.Input['CampaignAgentlessConfigArgs']]):
         pulumi.set(self, "agentless_config", value)
+
+
+class CampaignEntryLimitsConfigArgsDict(TypedDict):
+    """
+    Entry limits config for a campaign
+    """
+    max_entry_count: pulumi.Input[_builtins.int]
+    """
+    Maximum number of entries per participant. 0 indicates unlimited entries.
+    """
+    min_entry_interval: pulumi.Input[_builtins.str]
+    """
+    Minimum time interval between entries for the same participant in ISO 8601 duration format
+    """
+
+@pulumi.input_type
+class CampaignEntryLimitsConfigArgs:
+    def __init__(__self__, *,
+                 max_entry_count: pulumi.Input[_builtins.int],
+                 min_entry_interval: pulumi.Input[_builtins.str]):
+        """
+        Entry limits config for a campaign
+
+        :param pulumi.Input[_builtins.int] max_entry_count: Maximum number of entries per participant. 0 indicates unlimited entries.
+        :param pulumi.Input[_builtins.str] min_entry_interval: Minimum time interval between entries for the same participant in ISO 8601 duration format
+        """
+        pulumi.set(__self__, "max_entry_count", max_entry_count)
+        pulumi.set(__self__, "min_entry_interval", min_entry_interval)
+
+    @_builtins.property
+    @pulumi.getter(name="maxEntryCount")
+    def max_entry_count(self) -> pulumi.Input[_builtins.int]:
+        """
+        Maximum number of entries per participant. 0 indicates unlimited entries.
+        """
+        return pulumi.get(self, "max_entry_count")
+
+    @max_entry_count.setter
+    def max_entry_count(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "max_entry_count", value)
+
+    @_builtins.property
+    @pulumi.getter(name="minEntryInterval")
+    def min_entry_interval(self) -> pulumi.Input[_builtins.str]:
+        """
+        Minimum time interval between entries for the same participant in ISO 8601 duration format
+        """
+        return pulumi.get(self, "min_entry_interval")
+
+    @min_entry_interval.setter
+    def min_entry_interval(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "min_entry_interval", value)
 
 
 class CampaignEventTriggerArgsDict(TypedDict):

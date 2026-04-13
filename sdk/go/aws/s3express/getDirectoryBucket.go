@@ -37,6 +37,8 @@ type LookupDirectoryBucketResult struct {
 	BucketEncryption *DirectoryBucketBucketEncryption `pulumi:"bucketEncryption"`
 	// Lifecycle rules that define how Amazon S3 Express manages objects during their lifetime.
 	LifecycleConfiguration *DirectoryBucketLifecycleConfiguration `pulumi:"lifecycleConfiguration"`
+	// Specifies the metrics configurations for the Amazon S3 Express bucket.
+	MetricsConfigurations []DirectoryBucketMetricsConfiguration `pulumi:"metricsConfigurations"`
 	// An array of tags that you can apply to the S3 directory bucket. Tags are key-value pairs of metadata used to categorize and organize your buckets, track costs, and control access. For more information, see [Using tags with directory buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/directory-buckets-tagging.html) .
 	Tags []aws.Tag `pulumi:"tags"`
 }
@@ -93,6 +95,13 @@ func (o LookupDirectoryBucketResultOutput) LifecycleConfiguration() DirectoryBuc
 	return o.ApplyT(func(v LookupDirectoryBucketResult) *DirectoryBucketLifecycleConfiguration {
 		return v.LifecycleConfiguration
 	}).(DirectoryBucketLifecycleConfigurationPtrOutput)
+}
+
+// Specifies the metrics configurations for the Amazon S3 Express bucket.
+func (o LookupDirectoryBucketResultOutput) MetricsConfigurations() DirectoryBucketMetricsConfigurationArrayOutput {
+	return o.ApplyT(func(v LookupDirectoryBucketResult) []DirectoryBucketMetricsConfiguration {
+		return v.MetricsConfigurations
+	}).(DirectoryBucketMetricsConfigurationArrayOutput)
 }
 
 // An array of tags that you can apply to the S3 directory bucket. Tags are key-value pairs of metadata used to categorize and organize your buckets, track costs, and control access. For more information, see [Using tags with directory buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/directory-buckets-tagging.html) .

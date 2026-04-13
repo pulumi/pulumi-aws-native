@@ -79,6 +79,8 @@ if typing.TYPE_CHECKING:
     batch = __batch
     import pulumi_aws_native.bcmdataexports as __bcmdataexports
     bcmdataexports = __bcmdataexports
+    import pulumi_aws_native.bcmpricingcalculator as __bcmpricingcalculator
+    bcmpricingcalculator = __bcmpricingcalculator
     import pulumi_aws_native.bedrock as __bedrock
     bedrock = __bedrock
     import pulumi_aws_native.bedrockagentcore as __bedrockagentcore
@@ -87,6 +89,8 @@ if typing.TYPE_CHECKING:
     bedrockmantle = __bedrockmantle
     import pulumi_aws_native.billing as __billing
     billing = __billing
+    import pulumi_aws_native.braket as __braket
+    braket = __braket
     import pulumi_aws_native.budgets as __budgets
     budgets = __budgets
     import pulumi_aws_native.cases as __cases
@@ -437,6 +441,8 @@ if typing.TYPE_CHECKING:
     s3 = __s3
     import pulumi_aws_native.s3express as __s3express
     s3express = __s3express
+    import pulumi_aws_native.s3files as __s3files
+    s3files = __s3files
     import pulumi_aws_native.s3objectlambda as __s3objectlambda
     s3objectlambda = __s3objectlambda
     import pulumi_aws_native.s3outposts as __s3outposts
@@ -550,10 +556,12 @@ else:
     backupgateway = _utilities.lazy_import('pulumi_aws_native.backupgateway')
     batch = _utilities.lazy_import('pulumi_aws_native.batch')
     bcmdataexports = _utilities.lazy_import('pulumi_aws_native.bcmdataexports')
+    bcmpricingcalculator = _utilities.lazy_import('pulumi_aws_native.bcmpricingcalculator')
     bedrock = _utilities.lazy_import('pulumi_aws_native.bedrock')
     bedrockagentcore = _utilities.lazy_import('pulumi_aws_native.bedrockagentcore')
     bedrockmantle = _utilities.lazy_import('pulumi_aws_native.bedrockmantle')
     billing = _utilities.lazy_import('pulumi_aws_native.billing')
+    braket = _utilities.lazy_import('pulumi_aws_native.braket')
     budgets = _utilities.lazy_import('pulumi_aws_native.budgets')
     cases = _utilities.lazy_import('pulumi_aws_native.cases')
     cassandra = _utilities.lazy_import('pulumi_aws_native.cassandra')
@@ -729,6 +737,7 @@ else:
     rum = _utilities.lazy_import('pulumi_aws_native.rum')
     s3 = _utilities.lazy_import('pulumi_aws_native.s3')
     s3express = _utilities.lazy_import('pulumi_aws_native.s3express')
+    s3files = _utilities.lazy_import('pulumi_aws_native.s3files')
     s3objectlambda = _utilities.lazy_import('pulumi_aws_native.s3objectlambda')
     s3outposts = _utilities.lazy_import('pulumi_aws_native.s3outposts')
     s3tables = _utilities.lazy_import('pulumi_aws_native.s3tables')
@@ -1107,6 +1116,14 @@ _utilities.register(
  },
  {
   "pkg": "aws-native",
+  "mod": "bcmpricingcalculator",
+  "fqn": "pulumi_aws_native.bcmpricingcalculator",
+  "classes": {
+   "aws-native:bcmpricingcalculator:BillScenario": "BillScenario"
+  }
+ },
+ {
+  "pkg": "aws-native",
   "mod": "bedrock",
   "fqn": "pulumi_aws_native.bedrock",
   "classes": {
@@ -1116,8 +1133,10 @@ _utilities.register(
    "aws-native:bedrock:AutomatedReasoningPolicy": "AutomatedReasoningPolicy",
    "aws-native:bedrock:AutomatedReasoningPolicyVersion": "AutomatedReasoningPolicyVersion",
    "aws-native:bedrock:Blueprint": "Blueprint",
+   "aws-native:bedrock:DataAutomationLibrary": "DataAutomationLibrary",
    "aws-native:bedrock:DataAutomationProject": "DataAutomationProject",
    "aws-native:bedrock:DataSource": "DataSource",
+   "aws-native:bedrock:EnforcedGuardrailConfiguration": "EnforcedGuardrailConfiguration",
    "aws-native:bedrock:Flow": "Flow",
    "aws-native:bedrock:FlowAlias": "FlowAlias",
    "aws-native:bedrock:FlowVersion": "FlowVersion",
@@ -1126,7 +1145,8 @@ _utilities.register(
    "aws-native:bedrock:IntelligentPromptRouter": "IntelligentPromptRouter",
    "aws-native:bedrock:KnowledgeBase": "KnowledgeBase",
    "aws-native:bedrock:Prompt": "Prompt",
-   "aws-native:bedrock:PromptVersion": "PromptVersion"
+   "aws-native:bedrock:PromptVersion": "PromptVersion",
+   "aws-native:bedrock:ResourcePolicy": "ResourcePolicy"
   }
  },
  {
@@ -1165,6 +1185,14 @@ _utilities.register(
   "fqn": "pulumi_aws_native.billing",
   "classes": {
    "aws-native:billing:BillingView": "BillingView"
+  }
+ },
+ {
+  "pkg": "aws-native",
+  "mod": "braket",
+  "fqn": "pulumi_aws_native.braket",
+  "classes": {
+   "aws-native:braket:SpendingLimit": "SpendingLimit"
   }
  },
  {
@@ -3341,6 +3369,17 @@ _utilities.register(
    "aws-native:s3express:AccessPoint": "AccessPoint",
    "aws-native:s3express:BucketPolicy": "BucketPolicy",
    "aws-native:s3express:DirectoryBucket": "DirectoryBucket"
+  }
+ },
+ {
+  "pkg": "aws-native",
+  "mod": "s3files",
+  "fqn": "pulumi_aws_native.s3files",
+  "classes": {
+   "aws-native:s3files:AccessPoint": "AccessPoint",
+   "aws-native:s3files:FileSystem": "FileSystem",
+   "aws-native:s3files:FileSystemPolicy": "FileSystemPolicy",
+   "aws-native:s3files:MountTarget": "MountTarget"
   }
  },
  {

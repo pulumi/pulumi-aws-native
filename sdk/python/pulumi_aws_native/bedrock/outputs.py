@@ -47,6 +47,8 @@ __all__ = [
     'AutomatedReasoningPolicyPolicyDefinitionType',
     'AutomatedReasoningPolicyPolicyDefinitionTypeValue',
     'AutomatedReasoningPolicyPolicyDefinitionVariable',
+    'DataAutomationLibraryEncryptionConfiguration',
+    'DataAutomationLibraryEntityTypeInfo',
     'DataAutomationProjectAudioExtractionCategory',
     'DataAutomationProjectAudioExtractionCategoryTypeConfiguration',
     'DataAutomationProjectAudioLanguageConfiguration',
@@ -127,6 +129,8 @@ __all__ = [
     'DataSourceWebCrawlerLimits',
     'DataSourceWebDataSourceConfiguration',
     'DataSourceWebSourceConfiguration',
+    'EnforcedGuardrailConfigurationModelEnforcement',
+    'EnforcedGuardrailConfigurationSelectiveContentGuarding',
     'FlowAdditionalModelRequestFields',
     'FlowAgentFlowNodeConfiguration',
     'FlowAliasConcurrencyConfiguration',
@@ -1985,6 +1989,106 @@ class AutomatedReasoningPolicyPolicyDefinitionVariable(dict):
         A type for this variable.
         """
         return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class DataAutomationLibraryEncryptionConfiguration(dict):
+    """
+    KMS Encryption Configuration
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "kmsKeyId":
+            suggest = "kms_key_id"
+        elif key == "kmsEncryptionContext":
+            suggest = "kms_encryption_context"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataAutomationLibraryEncryptionConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataAutomationLibraryEncryptionConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataAutomationLibraryEncryptionConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 kms_key_id: _builtins.str,
+                 kms_encryption_context: Optional[Mapping[str, _builtins.str]] = None):
+        """
+        KMS Encryption Configuration
+
+        :param _builtins.str kms_key_id: KMS Key Identifier
+        """
+        pulumi.set(__self__, "kms_key_id", kms_key_id)
+        if kms_encryption_context is not None:
+            pulumi.set(__self__, "kms_encryption_context", kms_encryption_context)
+
+    @_builtins.property
+    @pulumi.getter(name="kmsKeyId")
+    def kms_key_id(self) -> _builtins.str:
+        """
+        KMS Key Identifier
+        """
+        return pulumi.get(self, "kms_key_id")
+
+    @_builtins.property
+    @pulumi.getter(name="kmsEncryptionContext")
+    def kms_encryption_context(self) -> Optional[Mapping[str, _builtins.str]]:
+        return pulumi.get(self, "kms_encryption_context")
+
+
+@pulumi.output_type
+class DataAutomationLibraryEntityTypeInfo(dict):
+    """
+    Information about an entity type in the DataAutomationLibrary
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "entityType":
+            suggest = "entity_type"
+        elif key == "entityMetadata":
+            suggest = "entity_metadata"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataAutomationLibraryEntityTypeInfo. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataAutomationLibraryEntityTypeInfo.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataAutomationLibraryEntityTypeInfo.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 entity_type: 'DataAutomationLibraryEntityType',
+                 entity_metadata: Optional[_builtins.str] = None):
+        """
+        Information about an entity type in the DataAutomationLibrary
+
+        :param _builtins.str entity_metadata: JSON string representing relevant metadata for the entity type
+        """
+        pulumi.set(__self__, "entity_type", entity_type)
+        if entity_metadata is not None:
+            pulumi.set(__self__, "entity_metadata", entity_metadata)
+
+    @_builtins.property
+    @pulumi.getter(name="entityType")
+    def entity_type(self) -> 'DataAutomationLibraryEntityType':
+        return pulumi.get(self, "entity_type")
+
+    @_builtins.property
+    @pulumi.getter(name="entityMetadata")
+    def entity_metadata(self) -> Optional[_builtins.str]:
+        """
+        JSON string representing relevant metadata for the entity type
+        """
+        return pulumi.get(self, "entity_metadata")
 
 
 @pulumi.output_type
@@ -5781,6 +5885,95 @@ class DataSourceWebSourceConfiguration(dict):
         The configuration of the URL/URLs.
         """
         return pulumi.get(self, "url_configuration")
+
+
+@pulumi.output_type
+class EnforcedGuardrailConfigurationModelEnforcement(dict):
+    """
+    Model-specific information for the enforced guardrail configuration. If not present, the configuration is enforced on all models
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "excludedModels":
+            suggest = "excluded_models"
+        elif key == "includedModels":
+            suggest = "included_models"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EnforcedGuardrailConfigurationModelEnforcement. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EnforcedGuardrailConfigurationModelEnforcement.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EnforcedGuardrailConfigurationModelEnforcement.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 excluded_models: Sequence[_builtins.str],
+                 included_models: Sequence[_builtins.str]):
+        """
+        Model-specific information for the enforced guardrail configuration. If not present, the configuration is enforced on all models
+
+        :param Sequence[_builtins.str] excluded_models: Models to exclude from enforcement. If a model is in both lists, it is excluded
+        :param Sequence[_builtins.str] included_models: Models to enforce the guardrail on
+        """
+        pulumi.set(__self__, "excluded_models", excluded_models)
+        pulumi.set(__self__, "included_models", included_models)
+
+    @_builtins.property
+    @pulumi.getter(name="excludedModels")
+    def excluded_models(self) -> Sequence[_builtins.str]:
+        """
+        Models to exclude from enforcement. If a model is in both lists, it is excluded
+        """
+        return pulumi.get(self, "excluded_models")
+
+    @_builtins.property
+    @pulumi.getter(name="includedModels")
+    def included_models(self) -> Sequence[_builtins.str]:
+        """
+        Models to enforce the guardrail on
+        """
+        return pulumi.get(self, "included_models")
+
+
+@pulumi.output_type
+class EnforcedGuardrailConfigurationSelectiveContentGuarding(dict):
+    """
+    Selective content guarding controls for enforced guardrails
+    """
+    def __init__(__self__, *,
+                 messages: Optional['EnforcedGuardrailConfigurationSelectiveContentGuardingMessages'] = None,
+                 system: Optional['EnforcedGuardrailConfigurationSelectiveContentGuardingSystem'] = None):
+        """
+        Selective content guarding controls for enforced guardrails
+
+        :param 'EnforcedGuardrailConfigurationSelectiveContentGuardingMessages' messages: Selective guarding mode for user messages
+        :param 'EnforcedGuardrailConfigurationSelectiveContentGuardingSystem' system: Selective guarding mode for system prompts
+        """
+        if messages is not None:
+            pulumi.set(__self__, "messages", messages)
+        if system is not None:
+            pulumi.set(__self__, "system", system)
+
+    @_builtins.property
+    @pulumi.getter
+    def messages(self) -> Optional['EnforcedGuardrailConfigurationSelectiveContentGuardingMessages']:
+        """
+        Selective guarding mode for user messages
+        """
+        return pulumi.get(self, "messages")
+
+    @_builtins.property
+    @pulumi.getter
+    def system(self) -> Optional['EnforcedGuardrailConfigurationSelectiveContentGuardingSystem']:
+        """
+        Selective guarding mode for system prompts
+        """
+        return pulumi.get(self, "system")
 
 
 @pulumi.output_type

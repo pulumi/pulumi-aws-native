@@ -35,6 +35,11 @@ export type Blueprint = import("./blueprint").Blueprint;
 export const Blueprint: typeof import("./blueprint").Blueprint = null as any;
 utilities.lazyLoad(exports, ["Blueprint"], () => require("./blueprint"));
 
+export { DataAutomationLibraryArgs } from "./dataAutomationLibrary";
+export type DataAutomationLibrary = import("./dataAutomationLibrary").DataAutomationLibrary;
+export const DataAutomationLibrary: typeof import("./dataAutomationLibrary").DataAutomationLibrary = null as any;
+utilities.lazyLoad(exports, ["DataAutomationLibrary"], () => require("./dataAutomationLibrary"));
+
 export { DataAutomationProjectArgs } from "./dataAutomationProject";
 export type DataAutomationProject = import("./dataAutomationProject").DataAutomationProject;
 export const DataAutomationProject: typeof import("./dataAutomationProject").DataAutomationProject = null as any;
@@ -44,6 +49,11 @@ export { DataSourceArgs } from "./dataSource";
 export type DataSource = import("./dataSource").DataSource;
 export const DataSource: typeof import("./dataSource").DataSource = null as any;
 utilities.lazyLoad(exports, ["DataSource"], () => require("./dataSource"));
+
+export { EnforcedGuardrailConfigurationArgs } from "./enforcedGuardrailConfiguration";
+export type EnforcedGuardrailConfiguration = import("./enforcedGuardrailConfiguration").EnforcedGuardrailConfiguration;
+export const EnforcedGuardrailConfiguration: typeof import("./enforcedGuardrailConfiguration").EnforcedGuardrailConfiguration = null as any;
+utilities.lazyLoad(exports, ["EnforcedGuardrailConfiguration"], () => require("./enforcedGuardrailConfiguration"));
 
 export { FlowArgs } from "./flow";
 export type Flow = import("./flow").Flow;
@@ -90,6 +100,11 @@ export const getBlueprint: typeof import("./getBlueprint").getBlueprint = null a
 export const getBlueprintOutput: typeof import("./getBlueprint").getBlueprintOutput = null as any;
 utilities.lazyLoad(exports, ["getBlueprint","getBlueprintOutput"], () => require("./getBlueprint"));
 
+export { GetDataAutomationLibraryArgs, GetDataAutomationLibraryResult, GetDataAutomationLibraryOutputArgs } from "./getDataAutomationLibrary";
+export const getDataAutomationLibrary: typeof import("./getDataAutomationLibrary").getDataAutomationLibrary = null as any;
+export const getDataAutomationLibraryOutput: typeof import("./getDataAutomationLibrary").getDataAutomationLibraryOutput = null as any;
+utilities.lazyLoad(exports, ["getDataAutomationLibrary","getDataAutomationLibraryOutput"], () => require("./getDataAutomationLibrary"));
+
 export { GetDataAutomationProjectArgs, GetDataAutomationProjectResult, GetDataAutomationProjectOutputArgs } from "./getDataAutomationProject";
 export const getDataAutomationProject: typeof import("./getDataAutomationProject").getDataAutomationProject = null as any;
 export const getDataAutomationProjectOutput: typeof import("./getDataAutomationProject").getDataAutomationProjectOutput = null as any;
@@ -99,6 +114,11 @@ export { GetDataSourceArgs, GetDataSourceResult, GetDataSourceOutputArgs } from 
 export const getDataSource: typeof import("./getDataSource").getDataSource = null as any;
 export const getDataSourceOutput: typeof import("./getDataSource").getDataSourceOutput = null as any;
 utilities.lazyLoad(exports, ["getDataSource","getDataSourceOutput"], () => require("./getDataSource"));
+
+export { GetEnforcedGuardrailConfigurationArgs, GetEnforcedGuardrailConfigurationResult, GetEnforcedGuardrailConfigurationOutputArgs } from "./getEnforcedGuardrailConfiguration";
+export const getEnforcedGuardrailConfiguration: typeof import("./getEnforcedGuardrailConfiguration").getEnforcedGuardrailConfiguration = null as any;
+export const getEnforcedGuardrailConfigurationOutput: typeof import("./getEnforcedGuardrailConfiguration").getEnforcedGuardrailConfigurationOutput = null as any;
+utilities.lazyLoad(exports, ["getEnforcedGuardrailConfiguration","getEnforcedGuardrailConfigurationOutput"], () => require("./getEnforcedGuardrailConfiguration"));
 
 export { GetFlowArgs, GetFlowResult, GetFlowOutputArgs } from "./getFlow";
 export const getFlow: typeof import("./getFlow").getFlow = null as any;
@@ -145,6 +165,11 @@ export const getPromptVersion: typeof import("./getPromptVersion").getPromptVers
 export const getPromptVersionOutput: typeof import("./getPromptVersion").getPromptVersionOutput = null as any;
 utilities.lazyLoad(exports, ["getPromptVersion","getPromptVersionOutput"], () => require("./getPromptVersion"));
 
+export { GetResourcePolicyArgs, GetResourcePolicyResult, GetResourcePolicyOutputArgs } from "./getResourcePolicy";
+export const getResourcePolicy: typeof import("./getResourcePolicy").getResourcePolicy = null as any;
+export const getResourcePolicyOutput: typeof import("./getResourcePolicy").getResourcePolicyOutput = null as any;
+utilities.lazyLoad(exports, ["getResourcePolicy","getResourcePolicyOutput"], () => require("./getResourcePolicy"));
+
 export { GuardrailArgs } from "./guardrail";
 export type Guardrail = import("./guardrail").Guardrail;
 export const Guardrail: typeof import("./guardrail").Guardrail = null as any;
@@ -175,6 +200,11 @@ export type PromptVersion = import("./promptVersion").PromptVersion;
 export const PromptVersion: typeof import("./promptVersion").PromptVersion = null as any;
 utilities.lazyLoad(exports, ["PromptVersion"], () => require("./promptVersion"));
 
+export { ResourcePolicyArgs } from "./resourcePolicy";
+export type ResourcePolicy = import("./resourcePolicy").ResourcePolicy;
+export const ResourcePolicy: typeof import("./resourcePolicy").ResourcePolicy = null as any;
+utilities.lazyLoad(exports, ["ResourcePolicy"], () => require("./resourcePolicy"));
+
 
 // Export enums:
 export * from "../types/enums/bedrock";
@@ -195,10 +225,14 @@ const _module = {
                 return new AutomatedReasoningPolicyVersion(name, <any>undefined, { urn })
             case "aws-native:bedrock:Blueprint":
                 return new Blueprint(name, <any>undefined, { urn })
+            case "aws-native:bedrock:DataAutomationLibrary":
+                return new DataAutomationLibrary(name, <any>undefined, { urn })
             case "aws-native:bedrock:DataAutomationProject":
                 return new DataAutomationProject(name, <any>undefined, { urn })
             case "aws-native:bedrock:DataSource":
                 return new DataSource(name, <any>undefined, { urn })
+            case "aws-native:bedrock:EnforcedGuardrailConfiguration":
+                return new EnforcedGuardrailConfiguration(name, <any>undefined, { urn })
             case "aws-native:bedrock:Flow":
                 return new Flow(name, <any>undefined, { urn })
             case "aws-native:bedrock:FlowAlias":
@@ -217,6 +251,8 @@ const _module = {
                 return new Prompt(name, <any>undefined, { urn })
             case "aws-native:bedrock:PromptVersion":
                 return new PromptVersion(name, <any>undefined, { urn })
+            case "aws-native:bedrock:ResourcePolicy":
+                return new ResourcePolicy(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

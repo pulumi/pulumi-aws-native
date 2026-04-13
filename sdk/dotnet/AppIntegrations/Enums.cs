@@ -34,4 +34,36 @@ namespace Pulumi.AwsNative.AppIntegrations
 
         public override string ToString() => _value;
     }
+
+    /// <summary>
+    /// The type of application
+    /// </summary>
+    [EnumType]
+    public readonly struct ApplicationType : IEquatable<ApplicationType>
+    {
+        private readonly string _value;
+
+        private ApplicationType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ApplicationType Standard { get; } = new ApplicationType("STANDARD");
+        public static ApplicationType Service { get; } = new ApplicationType("SERVICE");
+        public static ApplicationType McpServer { get; } = new ApplicationType("MCP_SERVER");
+
+        public static bool operator ==(ApplicationType left, ApplicationType right) => left.Equals(right);
+        public static bool operator !=(ApplicationType left, ApplicationType right) => !left.Equals(right);
+
+        public static explicit operator string(ApplicationType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ApplicationType other && Equals(other);
+        public bool Equals(ApplicationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
 }

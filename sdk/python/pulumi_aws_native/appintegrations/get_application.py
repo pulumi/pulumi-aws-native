@@ -26,7 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetApplicationResult:
-    def __init__(__self__, application_arn=None, application_config=None, application_source_config=None, description=None, id=None, iframe_config=None, initialization_timeout=None, is_service=None, name=None, namespace=None, permissions=None, tags=None):
+    def __init__(__self__, application_arn=None, application_config=None, application_source_config=None, application_type=None, description=None, id=None, iframe_config=None, initialization_timeout=None, is_service=None, name=None, namespace=None, permissions=None, tags=None):
         if application_arn and not isinstance(application_arn, str):
             raise TypeError("Expected argument 'application_arn' to be a str")
         pulumi.set(__self__, "application_arn", application_arn)
@@ -36,6 +36,9 @@ class GetApplicationResult:
         if application_source_config and not isinstance(application_source_config, dict):
             raise TypeError("Expected argument 'application_source_config' to be a dict")
         pulumi.set(__self__, "application_source_config", application_source_config)
+        if application_type and not isinstance(application_type, str):
+            raise TypeError("Expected argument 'application_type' to be a str")
+        pulumi.set(__self__, "application_type", application_type)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -87,6 +90,14 @@ class GetApplicationResult:
         Application source config
         """
         return pulumi.get(self, "application_source_config")
+
+    @_builtins.property
+    @pulumi.getter(name="applicationType")
+    def application_type(self) -> Optional['ApplicationType']:
+        """
+        The type of application
+        """
+        return pulumi.get(self, "application_type")
 
     @_builtins.property
     @pulumi.getter
@@ -170,6 +181,7 @@ class AwaitableGetApplicationResult(GetApplicationResult):
             application_arn=self.application_arn,
             application_config=self.application_config,
             application_source_config=self.application_source_config,
+            application_type=self.application_type,
             description=self.description,
             id=self.id,
             iframe_config=self.iframe_config,
@@ -198,6 +210,7 @@ def get_application(application_arn: Optional[_builtins.str] = None,
         application_arn=pulumi.get(__ret__, 'application_arn'),
         application_config=pulumi.get(__ret__, 'application_config'),
         application_source_config=pulumi.get(__ret__, 'application_source_config'),
+        application_type=pulumi.get(__ret__, 'application_type'),
         description=pulumi.get(__ret__, 'description'),
         id=pulumi.get(__ret__, 'id'),
         iframe_config=pulumi.get(__ret__, 'iframe_config'),
@@ -223,6 +236,7 @@ def get_application_output(application_arn: Optional[pulumi.Input[_builtins.str]
         application_arn=pulumi.get(__response__, 'application_arn'),
         application_config=pulumi.get(__response__, 'application_config'),
         application_source_config=pulumi.get(__response__, 'application_source_config'),
+        application_type=pulumi.get(__response__, 'application_type'),
         description=pulumi.get(__response__, 'description'),
         id=pulumi.get(__response__, 'id'),
         iframe_config=pulumi.get(__response__, 'iframe_config'),

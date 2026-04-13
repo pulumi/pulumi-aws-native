@@ -29,6 +29,7 @@ class CampaignArgs:
                  communication_limits_override: Optional[pulumi.Input['CampaignCommunicationLimitsConfigArgs']] = None,
                  communication_time_config: Optional[pulumi.Input['CampaignCommunicationTimeConfigArgs']] = None,
                  connect_campaign_flow_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 entry_limits_config: Optional[pulumi.Input['CampaignEntryLimitsConfigArgs']] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  schedule: Optional[pulumi.Input['CampaignScheduleArgs']] = None,
                  source: Optional[pulumi.Input['CampaignSourceArgs']] = None,
@@ -57,6 +58,8 @@ class CampaignArgs:
             pulumi.set(__self__, "communication_time_config", communication_time_config)
         if connect_campaign_flow_arn is not None:
             pulumi.set(__self__, "connect_campaign_flow_arn", connect_campaign_flow_arn)
+        if entry_limits_config is not None:
+            pulumi.set(__self__, "entry_limits_config", entry_limits_config)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if schedule is not None:
@@ -127,6 +130,15 @@ class CampaignArgs:
     @connect_campaign_flow_arn.setter
     def connect_campaign_flow_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "connect_campaign_flow_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="entryLimitsConfig")
+    def entry_limits_config(self) -> Optional[pulumi.Input['CampaignEntryLimitsConfigArgs']]:
+        return pulumi.get(self, "entry_limits_config")
+
+    @entry_limits_config.setter
+    def entry_limits_config(self, value: Optional[pulumi.Input['CampaignEntryLimitsConfigArgs']]):
+        pulumi.set(self, "entry_limits_config", value)
 
     @_builtins.property
     @pulumi.getter
@@ -200,6 +212,7 @@ class Campaign(pulumi.CustomResource):
                  communication_time_config: Optional[pulumi.Input[Union['CampaignCommunicationTimeConfigArgs', 'CampaignCommunicationTimeConfigArgsDict']]] = None,
                  connect_campaign_flow_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  connect_instance_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 entry_limits_config: Optional[pulumi.Input[Union['CampaignEntryLimitsConfigArgs', 'CampaignEntryLimitsConfigArgsDict']]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  schedule: Optional[pulumi.Input[Union['CampaignScheduleArgs', 'CampaignScheduleArgsDict']]] = None,
                  source: Optional[pulumi.Input[Union['CampaignSourceArgs', 'CampaignSourceArgsDict']]] = None,
@@ -253,6 +266,7 @@ class Campaign(pulumi.CustomResource):
                  communication_time_config: Optional[pulumi.Input[Union['CampaignCommunicationTimeConfigArgs', 'CampaignCommunicationTimeConfigArgsDict']]] = None,
                  connect_campaign_flow_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  connect_instance_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 entry_limits_config: Optional[pulumi.Input[Union['CampaignEntryLimitsConfigArgs', 'CampaignEntryLimitsConfigArgsDict']]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  schedule: Optional[pulumi.Input[Union['CampaignScheduleArgs', 'CampaignScheduleArgsDict']]] = None,
                  source: Optional[pulumi.Input[Union['CampaignSourceArgs', 'CampaignSourceArgsDict']]] = None,
@@ -274,6 +288,7 @@ class Campaign(pulumi.CustomResource):
             if connect_instance_id is None and not opts.urn:
                 raise TypeError("Missing required property 'connect_instance_id'")
             __props__.__dict__["connect_instance_id"] = connect_instance_id
+            __props__.__dict__["entry_limits_config"] = entry_limits_config
             __props__.__dict__["name"] = name
             __props__.__dict__["schedule"] = schedule
             __props__.__dict__["source"] = source
@@ -310,6 +325,7 @@ class Campaign(pulumi.CustomResource):
         __props__.__dict__["communication_time_config"] = None
         __props__.__dict__["connect_campaign_flow_arn"] = None
         __props__.__dict__["connect_instance_id"] = None
+        __props__.__dict__["entry_limits_config"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["schedule"] = None
         __props__.__dict__["source"] = None
@@ -364,6 +380,11 @@ class Campaign(pulumi.CustomResource):
         The identifier of the Amazon Connect instance. You can find the `instanceId` in the ARN of the instance.
         """
         return pulumi.get(self, "connect_instance_id")
+
+    @_builtins.property
+    @pulumi.getter(name="entryLimitsConfig")
+    def entry_limits_config(self) -> pulumi.Output[Optional['outputs.CampaignEntryLimitsConfig']]:
+        return pulumi.get(self, "entry_limits_config")
 
     @_builtins.property
     @pulumi.getter

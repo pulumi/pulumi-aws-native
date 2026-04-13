@@ -25,7 +25,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetAlarmResult:
-    def __init__(__self__, actions_enabled=None, alarm_actions=None, alarm_description=None, arn=None, comparison_operator=None, datapoints_to_alarm=None, dimensions=None, evaluate_low_sample_count_percentile=None, evaluation_periods=None, extended_statistic=None, insufficient_data_actions=None, metric_name=None, metrics=None, namespace=None, ok_actions=None, period=None, statistic=None, tags=None, threshold=None, threshold_metric_id=None, treat_missing_data=None, unit=None):
+    def __init__(__self__, actions_enabled=None, alarm_actions=None, alarm_description=None, arn=None, comparison_operator=None, datapoints_to_alarm=None, dimensions=None, evaluate_low_sample_count_percentile=None, evaluation_criteria=None, evaluation_interval=None, evaluation_periods=None, extended_statistic=None, insufficient_data_actions=None, metric_name=None, metrics=None, namespace=None, ok_actions=None, period=None, statistic=None, tags=None, threshold=None, threshold_metric_id=None, treat_missing_data=None, unit=None):
         if actions_enabled and not isinstance(actions_enabled, bool):
             raise TypeError("Expected argument 'actions_enabled' to be a bool")
         pulumi.set(__self__, "actions_enabled", actions_enabled)
@@ -50,6 +50,12 @@ class GetAlarmResult:
         if evaluate_low_sample_count_percentile and not isinstance(evaluate_low_sample_count_percentile, str):
             raise TypeError("Expected argument 'evaluate_low_sample_count_percentile' to be a str")
         pulumi.set(__self__, "evaluate_low_sample_count_percentile", evaluate_low_sample_count_percentile)
+        if evaluation_criteria and not isinstance(evaluation_criteria, dict):
+            raise TypeError("Expected argument 'evaluation_criteria' to be a dict")
+        pulumi.set(__self__, "evaluation_criteria", evaluation_criteria)
+        if evaluation_interval and not isinstance(evaluation_interval, int):
+            raise TypeError("Expected argument 'evaluation_interval' to be a int")
+        pulumi.set(__self__, "evaluation_interval", evaluation_interval)
         if evaluation_periods and not isinstance(evaluation_periods, int):
             raise TypeError("Expected argument 'evaluation_periods' to be a int")
         pulumi.set(__self__, "evaluation_periods", evaluation_periods)
@@ -157,6 +163,16 @@ class GetAlarmResult:
         Used only for alarms based on percentiles. If ``ignore``, the alarm state does not change during periods with too few data points to be statistically significant. If ``evaluate`` or this parameter is not used, the alarm is always evaluated and possibly changes state no matter how many data points are available.
         """
         return pulumi.get(self, "evaluate_low_sample_count_percentile")
+
+    @_builtins.property
+    @pulumi.getter(name="evaluationCriteria")
+    def evaluation_criteria(self) -> Optional['outputs.AlarmEvaluationCriteria']:
+        return pulumi.get(self, "evaluation_criteria")
+
+    @_builtins.property
+    @pulumi.getter(name="evaluationInterval")
+    def evaluation_interval(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "evaluation_interval")
 
     @_builtins.property
     @pulumi.getter(name="evaluationPeriods")
@@ -297,6 +313,8 @@ class AwaitableGetAlarmResult(GetAlarmResult):
             datapoints_to_alarm=self.datapoints_to_alarm,
             dimensions=self.dimensions,
             evaluate_low_sample_count_percentile=self.evaluate_low_sample_count_percentile,
+            evaluation_criteria=self.evaluation_criteria,
+            evaluation_interval=self.evaluation_interval,
             evaluation_periods=self.evaluation_periods,
             extended_statistic=self.extended_statistic,
             insufficient_data_actions=self.insufficient_data_actions,
@@ -338,6 +356,8 @@ def get_alarm(alarm_name: Optional[_builtins.str] = None,
         datapoints_to_alarm=pulumi.get(__ret__, 'datapoints_to_alarm'),
         dimensions=pulumi.get(__ret__, 'dimensions'),
         evaluate_low_sample_count_percentile=pulumi.get(__ret__, 'evaluate_low_sample_count_percentile'),
+        evaluation_criteria=pulumi.get(__ret__, 'evaluation_criteria'),
+        evaluation_interval=pulumi.get(__ret__, 'evaluation_interval'),
         evaluation_periods=pulumi.get(__ret__, 'evaluation_periods'),
         extended_statistic=pulumi.get(__ret__, 'extended_statistic'),
         insufficient_data_actions=pulumi.get(__ret__, 'insufficient_data_actions'),
@@ -376,6 +396,8 @@ def get_alarm_output(alarm_name: Optional[pulumi.Input[_builtins.str]] = None,
         datapoints_to_alarm=pulumi.get(__response__, 'datapoints_to_alarm'),
         dimensions=pulumi.get(__response__, 'dimensions'),
         evaluate_low_sample_count_percentile=pulumi.get(__response__, 'evaluate_low_sample_count_percentile'),
+        evaluation_criteria=pulumi.get(__response__, 'evaluation_criteria'),
+        evaluation_interval=pulumi.get(__response__, 'evaluation_interval'),
         evaluation_periods=pulumi.get(__response__, 'evaluation_periods'),
         extended_statistic=pulumi.get(__response__, 'extended_statistic'),
         insufficient_data_actions=pulumi.get(__response__, 'insufficient_data_actions'),

@@ -7,23 +7,23 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.ElasticLoadBalancing.Outputs
+namespace Pulumi.AwsNative.BcmPricingCalculator.Outputs
 {
 
     [OutputType]
-    public sealed class LoadBalancerPolicyItem
+    public sealed class BillScenarioBillInterval
     {
-        public readonly string? Name;
-        public readonly string? Value;
+        public readonly string? End;
+        public readonly string? Start;
 
         [OutputConstructor]
-        private LoadBalancerPolicyItem(
-            string? name,
+        private BillScenarioBillInterval(
+            string? end,
 
-            string? value)
+            string? start)
         {
-            Name = name;
-            Value = value;
+            End = end;
+            Start = start;
         }
     }
 }

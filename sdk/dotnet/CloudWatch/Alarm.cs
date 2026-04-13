@@ -73,6 +73,12 @@ namespace Pulumi.AwsNative.CloudWatch
         [Output("evaluateLowSampleCountPercentile")]
         public Output<string?> EvaluateLowSampleCountPercentile { get; private set; } = null!;
 
+        [Output("evaluationCriteria")]
+        public Output<Outputs.AlarmEvaluationCriteria?> EvaluationCriteria { get; private set; } = null!;
+
+        [Output("evaluationInterval")]
+        public Output<int?> EvaluationInterval { get; private set; } = null!;
+
         /// <summary>
         /// The number of periods over which data is compared to the specified threshold. If you are setting an alarm that requires that a number of consecutive data points be breaching to trigger the alarm, this value specifies that number. If you are setting an "M out of N" alarm, this value is the N, and ``DatapointsToAlarm`` is the M.
         ///  For more information, see [Evaluating an Alarm](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#alarm-evaluation) in the *User Guide*.
@@ -279,6 +285,12 @@ namespace Pulumi.AwsNative.CloudWatch
         /// </summary>
         [Input("evaluateLowSampleCountPercentile")]
         public Input<string>? EvaluateLowSampleCountPercentile { get; set; }
+
+        [Input("evaluationCriteria")]
+        public Input<Inputs.AlarmEvaluationCriteriaArgs>? EvaluationCriteria { get; set; }
+
+        [Input("evaluationInterval")]
+        public Input<int>? EvaluationInterval { get; set; }
 
         /// <summary>
         /// The number of periods over which data is compared to the specified threshold. If you are setting an alarm that requires that a number of consecutive data points be breaching to trigger the alarm, this value specifies that number. If you are setting an "M out of N" alarm, this value is the N, and ``DatapointsToAlarm`` is the M.

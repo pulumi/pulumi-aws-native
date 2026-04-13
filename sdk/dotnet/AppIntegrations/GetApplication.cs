@@ -76,6 +76,10 @@ namespace Pulumi.AwsNative.AppIntegrations
         /// </summary>
         public readonly Outputs.ApplicationSourceConfigProperties? ApplicationSourceConfig;
         /// <summary>
+        /// The type of application
+        /// </summary>
+        public readonly Pulumi.AwsNative.AppIntegrations.ApplicationType? ApplicationType;
+        /// <summary>
         /// The application description.
         /// </summary>
         public readonly string? Description;
@@ -120,6 +124,8 @@ namespace Pulumi.AwsNative.AppIntegrations
 
             Outputs.ApplicationSourceConfigProperties? applicationSourceConfig,
 
+            Pulumi.AwsNative.AppIntegrations.ApplicationType? applicationType,
+
             string? description,
 
             string? id,
@@ -141,6 +147,7 @@ namespace Pulumi.AwsNative.AppIntegrations
             ApplicationArn = applicationArn;
             ApplicationConfig = applicationConfig;
             ApplicationSourceConfig = applicationSourceConfig;
+            ApplicationType = applicationType;
             Description = description;
             Id = id;
             IframeConfig = iframeConfig;

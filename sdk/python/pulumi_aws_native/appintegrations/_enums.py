@@ -8,6 +8,7 @@ from enum import Enum
 
 __all__ = [
     'ApplicationContactHandlingScope',
+    'ApplicationType',
 ]
 
 
@@ -15,3 +16,13 @@ __all__ = [
 class ApplicationContactHandlingScope(_builtins.str, Enum):
     CROSS_CONTACTS = "CROSS_CONTACTS"
     PER_CONTACT = "PER_CONTACT"
+
+
+@pulumi.type_token("aws-native:appintegrations:ApplicationType")
+class ApplicationType(_builtins.str, Enum):
+    """
+    The type of application
+    """
+    STANDARD = "STANDARD"
+    SERVICE = "SERVICE"
+    MCP_SERVER = "MCP_SERVER"

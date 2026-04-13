@@ -34,16 +34,10 @@ namespace Pulumi.AwsNative.ApiGatewayV2
     public sealed class GetStageArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The API identifier.
+        /// The identifier.
         /// </summary>
-        [Input("apiId", required: true)]
-        public string ApiId { get; set; } = null!;
-
-        /// <summary>
-        /// The stage name. Stage names can contain only alphanumeric characters, hyphens, and underscores, or be $default. Maximum length is 128 characters.
-        /// </summary>
-        [Input("stageName", required: true)]
-        public string StageName { get; set; } = null!;
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetStageArgs()
         {
@@ -54,16 +48,10 @@ namespace Pulumi.AwsNative.ApiGatewayV2
     public sealed class GetStageInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The API identifier.
+        /// The identifier.
         /// </summary>
-        [Input("apiId", required: true)]
-        public Input<string> ApiId { get; set; } = null!;
-
-        /// <summary>
-        /// The stage name. Stage names can contain only alphanumeric characters, hyphens, and underscores, or be $default. Maximum length is 128 characters.
-        /// </summary>
-        [Input("stageName", required: true)]
-        public Input<string> StageName { get; set; } = null!;
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetStageInvokeArgs()
         {
@@ -80,11 +68,11 @@ namespace Pulumi.AwsNative.ApiGatewayV2
         /// </summary>
         public readonly Outputs.StageAccessLogSettings? AccessLogSettings;
         /// <summary>
-        /// Specifies whether updates to an API automatically trigger a new deployment. The default value is false.
+        /// Specifies whether updates to an API automatically trigger a new deployment. The default value is `false` .
         /// </summary>
         public readonly bool? AutoDeploy;
         /// <summary>
-        /// The identifier of a client certificate for a Stage. Supported only for WebSocket APIs.
+        /// The identifier of a client certificate for a `Stage` . Supported only for WebSocket APIs.
         /// </summary>
         public readonly string? ClientCertificateId;
         /// <summary>
@@ -92,7 +80,7 @@ namespace Pulumi.AwsNative.ApiGatewayV2
         /// </summary>
         public readonly Outputs.StageRouteSettings? DefaultRouteSettings;
         /// <summary>
-        /// The deployment identifier for the API stage. Can't be updated if autoDeploy is enabled.
+        /// The deployment identifier for the API stage. Can't be updated if `autoDeploy` is enabled.
         /// </summary>
         public readonly string? DeploymentId;
         /// <summary>
@@ -100,13 +88,17 @@ namespace Pulumi.AwsNative.ApiGatewayV2
         /// </summary>
         public readonly string? Description;
         /// <summary>
+        /// The identifier.
+        /// </summary>
+        public readonly string? Id;
+        /// <summary>
         /// Route settings for the stage.
         /// 
         /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::Stage` for more information about the expected schema for this property.
         /// </summary>
         public readonly object? RouteSettings;
         /// <summary>
-        /// A map that defines the stage variables for a Stage. Variable names can have alphanumeric and underscore characters, and the values must match [A-Za-z0-9-._~:/?#&amp;=,]+.
+        /// A map that defines the stage variables for a `Stage` . Variable names can have alphanumeric and underscore characters, and the values must match [A-Za-z0-9-._~:/?#&amp;=,]+.
         /// 
         /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::Stage` for more information about the expected schema for this property.
         /// </summary>
@@ -132,6 +124,8 @@ namespace Pulumi.AwsNative.ApiGatewayV2
 
             string? description,
 
+            string? id,
+
             object? routeSettings,
 
             object? stageVariables,
@@ -144,6 +138,7 @@ namespace Pulumi.AwsNative.ApiGatewayV2
             DefaultRouteSettings = defaultRouteSettings;
             DeploymentId = deploymentId;
             Description = description;
+            Id = id;
             RouteSettings = routeSettings;
             StageVariables = stageVariables;
             Tags = tags;

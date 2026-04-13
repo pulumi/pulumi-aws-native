@@ -138,6 +138,7 @@ __all__ = [
     'TaskDefinitionResourceRequirement',
     'TaskDefinitionRestartPolicy',
     'TaskDefinitionRuntimePlatform',
+    'TaskDefinitionS3FilesVolumeConfiguration',
     'TaskDefinitionSecret',
     'TaskDefinitionSystemControl',
     'TaskDefinitionTmpfs',
@@ -4850,11 +4851,13 @@ class ServiceDeploymentConfiguration(dict):
         Optional deployment parameters that control how many tasks run during a deployment and the ordering of stopping and starting tasks.
 
         :param 'ServiceDeploymentAlarms' alarms: Information about the CloudWatch alarms.
-        :param _builtins.int bake_time_in_minutes: The duration when both blue and green service revisions are running simultaneously after the production traffic has shifted.
+        :param _builtins.int bake_time_in_minutes: The duration waiting before terminating the previous service revision and marking a deployment complete.
                 The following rules apply when you don't specify a value:
-                 +  For rolling deployments, the value is set to 3 hours (180 minutes).
-                 +  When you use an external deployment controller (``EXTERNAL``), or the ACD blue/green deployment controller (``CODE_DEPLOY``), the value is set to 3 hours (180 minutes).
-                 +  For all other cases, the value is set to 36 hours (2160 minutes).
+                 +  For blue/green, linear, and canary deployments, the value is set to 15 minutes.
+                 +  For rolling deployments, there is no bake time set by default.
+                 +  The external deployment controller (``EXTERNAL``) and the ACD blue/green deployment controller (``CODE_DEPLOY``) do not support the ``BakeTimeInMinutes`` parameter.
+                 
+                 If you provide a bake time for a rolling deployment, the CloudFormation handler timeout is increased to the maximum of 36 hours, matching the timeout for blue/green, linear, and canary deployments.
         :param 'ServiceCanaryConfiguration' canary_configuration: Configuration for canary deployment strategy. Only valid when the deployment strategy is ``CANARY``. This configuration enables shifting a fixed percentage of traffic for testing, followed by shifting the remaining traffic after a bake period.
         :param 'ServiceDeploymentCircuitBreaker' deployment_circuit_breaker: The deployment circuit breaker can only be used for services using the rolling update (``ECS``) deployment type.
                  The *deployment circuit breaker* determines whether a service deployment will fail if the service can't reach a steady state. If you use the deployment circuit breaker, a service deployment will transition to a failed state and stop launching new tasks. If you use the rollback option, when a service deployment fails, the service is rolled back to the last deployment that completed successfully. For more information, see [Rolling update](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-type-ecs.html) in the *Amazon Elastic Container Service Developer Guide*
@@ -4918,11 +4921,13 @@ class ServiceDeploymentConfiguration(dict):
     @pulumi.getter(name="bakeTimeInMinutes")
     def bake_time_in_minutes(self) -> Optional[_builtins.int]:
         """
-        The duration when both blue and green service revisions are running simultaneously after the production traffic has shifted.
+        The duration waiting before terminating the previous service revision and marking a deployment complete.
          The following rules apply when you don't specify a value:
-          +  For rolling deployments, the value is set to 3 hours (180 minutes).
-          +  When you use an external deployment controller (``EXTERNAL``), or the ACD blue/green deployment controller (``CODE_DEPLOY``), the value is set to 3 hours (180 minutes).
-          +  For all other cases, the value is set to 36 hours (2160 minutes).
+          +  For blue/green, linear, and canary deployments, the value is set to 15 minutes.
+          +  For rolling deployments, there is no bake time set by default.
+          +  The external deployment controller (``EXTERNAL``) and the ACD blue/green deployment controller (``CODE_DEPLOY``) do not support the ``BakeTimeInMinutes`` parameter.
+          
+          If you provide a bake time for a rolling deployment, the CloudFormation handler timeout is increased to the maximum of 36 hours, matching the timeout for blue/green, linear, and canary deployments.
         """
         return pulumi.get(self, "bake_time_in_minutes")
 
@@ -8935,6 +8940,65 @@ class TaskDefinitionRuntimePlatform(dict):
 
 
 @pulumi.output_type
+class TaskDefinitionS3FilesVolumeConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fileSystemArn":
+            suggest = "file_system_arn"
+        elif key == "accessPointArn":
+            suggest = "access_point_arn"
+        elif key == "rootDirectory":
+            suggest = "root_directory"
+        elif key == "transitEncryptionPort":
+            suggest = "transit_encryption_port"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TaskDefinitionS3FilesVolumeConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TaskDefinitionS3FilesVolumeConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TaskDefinitionS3FilesVolumeConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 file_system_arn: _builtins.str,
+                 access_point_arn: Optional[_builtins.str] = None,
+                 root_directory: Optional[_builtins.str] = None,
+                 transit_encryption_port: Optional[_builtins.int] = None):
+        pulumi.set(__self__, "file_system_arn", file_system_arn)
+        if access_point_arn is not None:
+            pulumi.set(__self__, "access_point_arn", access_point_arn)
+        if root_directory is not None:
+            pulumi.set(__self__, "root_directory", root_directory)
+        if transit_encryption_port is not None:
+            pulumi.set(__self__, "transit_encryption_port", transit_encryption_port)
+
+    @_builtins.property
+    @pulumi.getter(name="fileSystemArn")
+    def file_system_arn(self) -> _builtins.str:
+        return pulumi.get(self, "file_system_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="accessPointArn")
+    def access_point_arn(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "access_point_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="rootDirectory")
+    def root_directory(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "root_directory")
+
+    @_builtins.property
+    @pulumi.getter(name="transitEncryptionPort")
+    def transit_encryption_port(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "transit_encryption_port")
+
+
+@pulumi.output_type
 class TaskDefinitionSecret(dict):
     """
     An object representing the secret to expose to your container. Secrets can be exposed to a container in the following ways:
@@ -9211,6 +9275,8 @@ class TaskDefinitionVolume(dict):
             suggest = "efs_volume_configuration"
         elif key == "fSxWindowsFileServerVolumeConfiguration":
             suggest = "f_sx_windows_file_server_volume_configuration"
+        elif key == "s3FilesVolumeConfiguration":
+            suggest = "s3_files_volume_configuration"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in TaskDefinitionVolume. Access the value via the '{suggest}' property getter instead.")
@@ -9229,7 +9295,8 @@ class TaskDefinitionVolume(dict):
                  efs_volume_configuration: Optional['outputs.TaskDefinitionEfsVolumeConfiguration'] = None,
                  f_sx_windows_file_server_volume_configuration: Optional['outputs.TaskDefinitionFSxWindowsFileServerVolumeConfiguration'] = None,
                  host: Optional['outputs.TaskDefinitionHostVolumeProperties'] = None,
-                 name: Optional[_builtins.str] = None):
+                 name: Optional[_builtins.str] = None,
+                 s3_files_volume_configuration: Optional['outputs.TaskDefinitionS3FilesVolumeConfiguration'] = None):
         """
         The data volume configuration for tasks launched using this task definition. Specifying a volume configuration in a task definition is optional. The volume configuration may contain multiple volumes but only one volume configured at launch is supported. Each volume defined in the volume configuration may only specify a ``name`` and one of either ``configuredAtLaunch``, ``dockerVolumeConfiguration``, ``efsVolumeConfiguration``, ``fsxWindowsFileServerVolumeConfiguration``, or ``host``. If an empty volume configuration is specified, by default Amazon ECS uses a host volume. For more information, see [Using data volumes in tasks](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_data_volumes.html).
 
@@ -9259,6 +9326,8 @@ class TaskDefinitionVolume(dict):
             pulumi.set(__self__, "host", host)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if s3_files_volume_configuration is not None:
+            pulumi.set(__self__, "s3_files_volume_configuration", s3_files_volume_configuration)
 
     @_builtins.property
     @pulumi.getter(name="configuredAtLaunch")
@@ -9314,6 +9383,11 @@ class TaskDefinitionVolume(dict):
          When a volume is using the ``efsVolumeConfiguration``, the name is required.
         """
         return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="s3FilesVolumeConfiguration")
+    def s3_files_volume_configuration(self) -> Optional['outputs.TaskDefinitionS3FilesVolumeConfiguration']:
+        return pulumi.get(self, "s3_files_volume_configuration")
 
 
 @pulumi.output_type

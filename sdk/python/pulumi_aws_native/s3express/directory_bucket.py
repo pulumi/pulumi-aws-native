@@ -29,6 +29,7 @@ class DirectoryBucketArgs:
                  bucket_encryption: Optional[pulumi.Input['DirectoryBucketBucketEncryptionArgs']] = None,
                  bucket_name: Optional[pulumi.Input[_builtins.str]] = None,
                  lifecycle_configuration: Optional[pulumi.Input['DirectoryBucketLifecycleConfigurationArgs']] = None,
+                 metrics_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['DirectoryBucketMetricsConfigurationArgs']]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a DirectoryBucket resource.
@@ -38,6 +39,7 @@ class DirectoryBucketArgs:
         :param pulumi.Input['DirectoryBucketBucketEncryptionArgs'] bucket_encryption: Specifies default encryption for a bucket using server-side encryption with Amazon S3 managed keys (SSE-S3) or AWS KMS keys (SSE-KMS). For information about default encryption for directory buckets, see [Setting and monitoring default encryption for directory buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-bucket-encryption.html) in the *Amazon S3 User Guide* .
         :param pulumi.Input[_builtins.str] bucket_name: Specifies a name for the bucket. The bucket name must contain only lowercase letters, numbers, and hyphens (-). A directory bucket name must be unique in the chosen Availability Zone or Local Zone. The bucket name must also follow the format 'bucket_base_name--zone_id--x-s3'. The zone_id can be the ID of an Availability Zone or a Local Zone. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the bucket name.
         :param pulumi.Input['DirectoryBucketLifecycleConfigurationArgs'] lifecycle_configuration: Lifecycle rules that define how Amazon S3 Express manages objects during their lifetime.
+        :param pulumi.Input[Sequence[pulumi.Input['DirectoryBucketMetricsConfigurationArgs']]] metrics_configurations: Specifies the metrics configurations for the Amazon S3 Express bucket.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of tags that you can apply to the S3 directory bucket. Tags are key-value pairs of metadata used to categorize and organize your buckets, track costs, and control access. For more information, see [Using tags with directory buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/directory-buckets-tagging.html) .
         """
         pulumi.set(__self__, "data_redundancy", data_redundancy)
@@ -48,6 +50,8 @@ class DirectoryBucketArgs:
             pulumi.set(__self__, "bucket_name", bucket_name)
         if lifecycle_configuration is not None:
             pulumi.set(__self__, "lifecycle_configuration", lifecycle_configuration)
+        if metrics_configurations is not None:
+            pulumi.set(__self__, "metrics_configurations", metrics_configurations)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -112,6 +116,18 @@ class DirectoryBucketArgs:
         pulumi.set(self, "lifecycle_configuration", value)
 
     @_builtins.property
+    @pulumi.getter(name="metricsConfigurations")
+    def metrics_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DirectoryBucketMetricsConfigurationArgs']]]]:
+        """
+        Specifies the metrics configurations for the Amazon S3 Express bucket.
+        """
+        return pulumi.get(self, "metrics_configurations")
+
+    @metrics_configurations.setter
+    def metrics_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DirectoryBucketMetricsConfigurationArgs']]]]):
+        pulumi.set(self, "metrics_configurations", value)
+
+    @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
@@ -135,6 +151,7 @@ class DirectoryBucket(pulumi.CustomResource):
                  data_redundancy: Optional[pulumi.Input['DirectoryBucketDataRedundancy']] = None,
                  lifecycle_configuration: Optional[pulumi.Input[Union['DirectoryBucketLifecycleConfigurationArgs', 'DirectoryBucketLifecycleConfigurationArgsDict']]] = None,
                  location_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 metrics_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DirectoryBucketMetricsConfigurationArgs', 'DirectoryBucketMetricsConfigurationArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
@@ -148,6 +165,7 @@ class DirectoryBucket(pulumi.CustomResource):
         :param pulumi.Input['DirectoryBucketDataRedundancy'] data_redundancy: Specifies the number of Availability Zone or Local Zone that's used for redundancy for the bucket.
         :param pulumi.Input[Union['DirectoryBucketLifecycleConfigurationArgs', 'DirectoryBucketLifecycleConfigurationArgsDict']] lifecycle_configuration: Lifecycle rules that define how Amazon S3 Express manages objects during their lifetime.
         :param pulumi.Input[_builtins.str] location_name: Specifies the Zone ID of the Availability Zone or Local Zone where the directory bucket will be created. An example Availability Zone ID value is 'use1-az5'.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DirectoryBucketMetricsConfigurationArgs', 'DirectoryBucketMetricsConfigurationArgsDict']]]] metrics_configurations: Specifies the metrics configurations for the Amazon S3 Express bucket.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of tags that you can apply to the S3 directory bucket. Tags are key-value pairs of metadata used to categorize and organize your buckets, track costs, and control access. For more information, see [Using tags with directory buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/directory-buckets-tagging.html) .
         """
         ...
@@ -180,6 +198,7 @@ class DirectoryBucket(pulumi.CustomResource):
                  data_redundancy: Optional[pulumi.Input['DirectoryBucketDataRedundancy']] = None,
                  lifecycle_configuration: Optional[pulumi.Input[Union['DirectoryBucketLifecycleConfigurationArgs', 'DirectoryBucketLifecycleConfigurationArgsDict']]] = None,
                  location_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 metrics_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DirectoryBucketMetricsConfigurationArgs', 'DirectoryBucketMetricsConfigurationArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -199,6 +218,7 @@ class DirectoryBucket(pulumi.CustomResource):
             if location_name is None and not opts.urn:
                 raise TypeError("Missing required property 'location_name'")
             __props__.__dict__["location_name"] = location_name
+            __props__.__dict__["metrics_configurations"] = metrics_configurations
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["availability_zone_name"] = None
@@ -233,6 +253,7 @@ class DirectoryBucket(pulumi.CustomResource):
         __props__.__dict__["data_redundancy"] = None
         __props__.__dict__["lifecycle_configuration"] = None
         __props__.__dict__["location_name"] = None
+        __props__.__dict__["metrics_configurations"] = None
         __props__.__dict__["tags"] = None
         return DirectoryBucket(resource_name, opts=opts, __props__=__props__)
 
@@ -291,6 +312,14 @@ class DirectoryBucket(pulumi.CustomResource):
         Specifies the Zone ID of the Availability Zone or Local Zone where the directory bucket will be created. An example Availability Zone ID value is 'use1-az5'.
         """
         return pulumi.get(self, "location_name")
+
+    @_builtins.property
+    @pulumi.getter(name="metricsConfigurations")
+    def metrics_configurations(self) -> pulumi.Output[Optional[Sequence['outputs.DirectoryBucketMetricsConfiguration']]]:
+        """
+        Specifies the metrics configurations for the Amazon S3 Express bucket.
+        """
+        return pulumi.get(self, "metrics_configurations")
 
     @_builtins.property
     @pulumi.getter

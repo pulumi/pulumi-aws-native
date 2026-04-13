@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ElasticLoadBalancing.Inputs
 {
 
-    /// <summary>
-    /// Information about a policy for application-controlled session stickiness.
-    /// </summary>
     public sealed class LoadBalancerAppCookieStickinessPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>

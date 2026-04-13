@@ -31,6 +31,8 @@ class AlarmArgs:
                  datapoints_to_alarm: Optional[pulumi.Input[_builtins.int]] = None,
                  dimensions: Optional[pulumi.Input[Sequence[pulumi.Input['AlarmDimensionArgs']]]] = None,
                  evaluate_low_sample_count_percentile: Optional[pulumi.Input[_builtins.str]] = None,
+                 evaluation_criteria: Optional[pulumi.Input['AlarmEvaluationCriteriaArgs']] = None,
+                 evaluation_interval: Optional[pulumi.Input[_builtins.int]] = None,
                  evaluation_periods: Optional[pulumi.Input[_builtins.int]] = None,
                  extended_statistic: Optional[pulumi.Input[_builtins.str]] = None,
                  insufficient_data_actions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -101,6 +103,10 @@ class AlarmArgs:
             pulumi.set(__self__, "dimensions", dimensions)
         if evaluate_low_sample_count_percentile is not None:
             pulumi.set(__self__, "evaluate_low_sample_count_percentile", evaluate_low_sample_count_percentile)
+        if evaluation_criteria is not None:
+            pulumi.set(__self__, "evaluation_criteria", evaluation_criteria)
+        if evaluation_interval is not None:
+            pulumi.set(__self__, "evaluation_interval", evaluation_interval)
         if evaluation_periods is not None:
             pulumi.set(__self__, "evaluation_periods", evaluation_periods)
         if extended_statistic is not None:
@@ -227,6 +233,24 @@ class AlarmArgs:
     @evaluate_low_sample_count_percentile.setter
     def evaluate_low_sample_count_percentile(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "evaluate_low_sample_count_percentile", value)
+
+    @_builtins.property
+    @pulumi.getter(name="evaluationCriteria")
+    def evaluation_criteria(self) -> Optional[pulumi.Input['AlarmEvaluationCriteriaArgs']]:
+        return pulumi.get(self, "evaluation_criteria")
+
+    @evaluation_criteria.setter
+    def evaluation_criteria(self, value: Optional[pulumi.Input['AlarmEvaluationCriteriaArgs']]):
+        pulumi.set(self, "evaluation_criteria", value)
+
+    @_builtins.property
+    @pulumi.getter(name="evaluationInterval")
+    def evaluation_interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+        return pulumi.get(self, "evaluation_interval")
+
+    @evaluation_interval.setter
+    def evaluation_interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "evaluation_interval", value)
 
     @_builtins.property
     @pulumi.getter(name="evaluationPeriods")
@@ -423,6 +447,8 @@ class Alarm(pulumi.CustomResource):
                  datapoints_to_alarm: Optional[pulumi.Input[_builtins.int]] = None,
                  dimensions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AlarmDimensionArgs', 'AlarmDimensionArgsDict']]]]] = None,
                  evaluate_low_sample_count_percentile: Optional[pulumi.Input[_builtins.str]] = None,
+                 evaluation_criteria: Optional[pulumi.Input[Union['AlarmEvaluationCriteriaArgs', 'AlarmEvaluationCriteriaArgsDict']]] = None,
+                 evaluation_interval: Optional[pulumi.Input[_builtins.int]] = None,
                  evaluation_periods: Optional[pulumi.Input[_builtins.int]] = None,
                  extended_statistic: Optional[pulumi.Input[_builtins.str]] = None,
                  insufficient_data_actions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -518,6 +544,8 @@ class Alarm(pulumi.CustomResource):
                  datapoints_to_alarm: Optional[pulumi.Input[_builtins.int]] = None,
                  dimensions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AlarmDimensionArgs', 'AlarmDimensionArgsDict']]]]] = None,
                  evaluate_low_sample_count_percentile: Optional[pulumi.Input[_builtins.str]] = None,
+                 evaluation_criteria: Optional[pulumi.Input[Union['AlarmEvaluationCriteriaArgs', 'AlarmEvaluationCriteriaArgsDict']]] = None,
+                 evaluation_interval: Optional[pulumi.Input[_builtins.int]] = None,
                  evaluation_periods: Optional[pulumi.Input[_builtins.int]] = None,
                  extended_statistic: Optional[pulumi.Input[_builtins.str]] = None,
                  insufficient_data_actions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -549,6 +577,8 @@ class Alarm(pulumi.CustomResource):
             __props__.__dict__["datapoints_to_alarm"] = datapoints_to_alarm
             __props__.__dict__["dimensions"] = dimensions
             __props__.__dict__["evaluate_low_sample_count_percentile"] = evaluate_low_sample_count_percentile
+            __props__.__dict__["evaluation_criteria"] = evaluation_criteria
+            __props__.__dict__["evaluation_interval"] = evaluation_interval
             __props__.__dict__["evaluation_periods"] = evaluation_periods
             __props__.__dict__["extended_statistic"] = extended_statistic
             __props__.__dict__["insufficient_data_actions"] = insufficient_data_actions
@@ -597,6 +627,8 @@ class Alarm(pulumi.CustomResource):
         __props__.__dict__["datapoints_to_alarm"] = None
         __props__.__dict__["dimensions"] = None
         __props__.__dict__["evaluate_low_sample_count_percentile"] = None
+        __props__.__dict__["evaluation_criteria"] = None
+        __props__.__dict__["evaluation_interval"] = None
         __props__.__dict__["evaluation_periods"] = None
         __props__.__dict__["extended_statistic"] = None
         __props__.__dict__["insufficient_data_actions"] = None
@@ -686,6 +718,16 @@ class Alarm(pulumi.CustomResource):
         Used only for alarms based on percentiles. If ``ignore``, the alarm state does not change during periods with too few data points to be statistically significant. If ``evaluate`` or this parameter is not used, the alarm is always evaluated and possibly changes state no matter how many data points are available.
         """
         return pulumi.get(self, "evaluate_low_sample_count_percentile")
+
+    @_builtins.property
+    @pulumi.getter(name="evaluationCriteria")
+    def evaluation_criteria(self) -> pulumi.Output[Optional['outputs.AlarmEvaluationCriteria']]:
+        return pulumi.get(self, "evaluation_criteria")
+
+    @_builtins.property
+    @pulumi.getter(name="evaluationInterval")
+    def evaluation_interval(self) -> pulumi.Output[Optional[_builtins.int]]:
+        return pulumi.get(self, "evaluation_interval")
 
     @_builtins.property
     @pulumi.getter(name="evaluationPeriods")

@@ -33,10 +33,14 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &AutomatedReasoningPolicyVersion{}
 	case "aws-native:bedrock:Blueprint":
 		r = &Blueprint{}
+	case "aws-native:bedrock:DataAutomationLibrary":
+		r = &DataAutomationLibrary{}
 	case "aws-native:bedrock:DataAutomationProject":
 		r = &DataAutomationProject{}
 	case "aws-native:bedrock:DataSource":
 		r = &DataSource{}
+	case "aws-native:bedrock:EnforcedGuardrailConfiguration":
+		r = &EnforcedGuardrailConfiguration{}
 	case "aws-native:bedrock:Flow":
 		r = &Flow{}
 	case "aws-native:bedrock:FlowAlias":
@@ -55,6 +59,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Prompt{}
 	case "aws-native:bedrock:PromptVersion":
 		r = &PromptVersion{}
+	case "aws-native:bedrock:ResourcePolicy":
+		r = &ResourcePolicy{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

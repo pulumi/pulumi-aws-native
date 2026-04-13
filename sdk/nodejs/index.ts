@@ -93,10 +93,12 @@ import * as backup from "./backup";
 import * as backupgateway from "./backupgateway";
 import * as batch from "./batch";
 import * as bcmdataexports from "./bcmdataexports";
+import * as bcmpricingcalculator from "./bcmpricingcalculator";
 import * as bedrock from "./bedrock";
 import * as bedrockagentcore from "./bedrockagentcore";
 import * as bedrockmantle from "./bedrockmantle";
 import * as billing from "./billing";
+import * as braket from "./braket";
 import * as budgets from "./budgets";
 import * as cases from "./cases";
 import * as cassandra from "./cassandra";
@@ -272,6 +274,7 @@ import * as rtbfabric from "./rtbfabric";
 import * as rum from "./rum";
 import * as s3 from "./s3";
 import * as s3express from "./s3express";
+import * as s3files from "./s3files";
 import * as s3objectlambda from "./s3objectlambda";
 import * as s3outposts from "./s3outposts";
 import * as s3tables from "./s3tables";
@@ -345,10 +348,12 @@ export {
     backupgateway,
     batch,
     bcmdataexports,
+    bcmpricingcalculator,
     bedrock,
     bedrockagentcore,
     bedrockmantle,
     billing,
+    braket,
     budgets,
     cases,
     cassandra,
@@ -524,6 +529,7 @@ export {
     rum,
     s3,
     s3express,
+    s3files,
     s3objectlambda,
     s3outposts,
     s3tables,

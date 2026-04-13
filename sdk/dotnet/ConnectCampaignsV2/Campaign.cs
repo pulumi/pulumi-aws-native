@@ -51,6 +51,9 @@ namespace Pulumi.AwsNative.ConnectCampaignsV2
         [Output("connectInstanceId")]
         public Output<string> ConnectInstanceId { get; private set; } = null!;
 
+        [Output("entryLimitsConfig")]
+        public Output<Outputs.CampaignEntryLimitsConfig?> EntryLimitsConfig { get; private set; } = null!;
+
         /// <summary>
         /// The name of the outbound campaign.
         /// </summary>
@@ -159,6 +162,9 @@ namespace Pulumi.AwsNative.ConnectCampaignsV2
         /// </summary>
         [Input("connectInstanceId", required: true)]
         public Input<string> ConnectInstanceId { get; set; } = null!;
+
+        [Input("entryLimitsConfig")]
+        public Input<Inputs.CampaignEntryLimitsConfigArgs>? EntryLimitsConfig { get; set; }
 
         /// <summary>
         /// The name of the outbound campaign.

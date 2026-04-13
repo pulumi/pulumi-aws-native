@@ -83,6 +83,7 @@ namespace Pulumi.AwsNative.ConnectCampaignsV2
         /// The Amazon Resource Name (ARN) of the Amazon Connect campaign flow associated with the outbound campaign.
         /// </summary>
         public readonly string? ConnectCampaignFlowArn;
+        public readonly Outputs.CampaignEntryLimitsConfig? EntryLimitsConfig;
         /// <summary>
         /// The name of the outbound campaign.
         /// </summary>
@@ -116,6 +117,8 @@ namespace Pulumi.AwsNative.ConnectCampaignsV2
 
             string? connectCampaignFlowArn,
 
+            Outputs.CampaignEntryLimitsConfig? entryLimitsConfig,
+
             string? name,
 
             Outputs.CampaignSchedule? schedule,
@@ -131,6 +134,7 @@ namespace Pulumi.AwsNative.ConnectCampaignsV2
             CommunicationLimitsOverride = communicationLimitsOverride;
             CommunicationTimeConfig = communicationTimeConfig;
             ConnectCampaignFlowArn = connectCampaignFlowArn;
+            EntryLimitsConfig = entryLimitsConfig;
             Name = name;
             Schedule = schedule;
             Source = source;

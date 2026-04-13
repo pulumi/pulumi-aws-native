@@ -2858,6 +2858,187 @@ func (in *blueprintTypePtr) ToBlueprintTypePtrOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, in).(BlueprintTypePtrOutput)
 }
 
+// Entity types supported in DataAutomationLibraries
+type DataAutomationLibraryEntityType string
+
+const (
+	DataAutomationLibraryEntityTypeVocabulary = DataAutomationLibraryEntityType("VOCABULARY")
+)
+
+type DataAutomationLibraryEntityTypeOutput struct{ *pulumi.OutputState }
+
+func (DataAutomationLibraryEntityTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataAutomationLibraryEntityType)(nil)).Elem()
+}
+
+func (o DataAutomationLibraryEntityTypeOutput) ToDataAutomationLibraryEntityTypeOutput() DataAutomationLibraryEntityTypeOutput {
+	return o
+}
+
+func (o DataAutomationLibraryEntityTypeOutput) ToDataAutomationLibraryEntityTypeOutputWithContext(ctx context.Context) DataAutomationLibraryEntityTypeOutput {
+	return o
+}
+
+func (o DataAutomationLibraryEntityTypeOutput) ToDataAutomationLibraryEntityTypePtrOutput() DataAutomationLibraryEntityTypePtrOutput {
+	return o.ToDataAutomationLibraryEntityTypePtrOutputWithContext(context.Background())
+}
+
+func (o DataAutomationLibraryEntityTypeOutput) ToDataAutomationLibraryEntityTypePtrOutputWithContext(ctx context.Context) DataAutomationLibraryEntityTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataAutomationLibraryEntityType) *DataAutomationLibraryEntityType {
+		return &v
+	}).(DataAutomationLibraryEntityTypePtrOutput)
+}
+
+func (o DataAutomationLibraryEntityTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DataAutomationLibraryEntityTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DataAutomationLibraryEntityType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DataAutomationLibraryEntityTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DataAutomationLibraryEntityTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DataAutomationLibraryEntityType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DataAutomationLibraryEntityTypePtrOutput struct{ *pulumi.OutputState }
+
+func (DataAutomationLibraryEntityTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataAutomationLibraryEntityType)(nil)).Elem()
+}
+
+func (o DataAutomationLibraryEntityTypePtrOutput) ToDataAutomationLibraryEntityTypePtrOutput() DataAutomationLibraryEntityTypePtrOutput {
+	return o
+}
+
+func (o DataAutomationLibraryEntityTypePtrOutput) ToDataAutomationLibraryEntityTypePtrOutputWithContext(ctx context.Context) DataAutomationLibraryEntityTypePtrOutput {
+	return o
+}
+
+func (o DataAutomationLibraryEntityTypePtrOutput) Elem() DataAutomationLibraryEntityTypeOutput {
+	return o.ApplyT(func(v *DataAutomationLibraryEntityType) DataAutomationLibraryEntityType {
+		if v != nil {
+			return *v
+		}
+		var ret DataAutomationLibraryEntityType
+		return ret
+	}).(DataAutomationLibraryEntityTypeOutput)
+}
+
+func (o DataAutomationLibraryEntityTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DataAutomationLibraryEntityTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DataAutomationLibraryEntityType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// Status of DataAutomationLibrary
+type DataAutomationLibraryStatus string
+
+const (
+	DataAutomationLibraryStatusActive   = DataAutomationLibraryStatus("ACTIVE")
+	DataAutomationLibraryStatusDeleting = DataAutomationLibraryStatus("DELETING")
+)
+
+type DataAutomationLibraryStatusOutput struct{ *pulumi.OutputState }
+
+func (DataAutomationLibraryStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataAutomationLibraryStatus)(nil)).Elem()
+}
+
+func (o DataAutomationLibraryStatusOutput) ToDataAutomationLibraryStatusOutput() DataAutomationLibraryStatusOutput {
+	return o
+}
+
+func (o DataAutomationLibraryStatusOutput) ToDataAutomationLibraryStatusOutputWithContext(ctx context.Context) DataAutomationLibraryStatusOutput {
+	return o
+}
+
+func (o DataAutomationLibraryStatusOutput) ToDataAutomationLibraryStatusPtrOutput() DataAutomationLibraryStatusPtrOutput {
+	return o.ToDataAutomationLibraryStatusPtrOutputWithContext(context.Background())
+}
+
+func (o DataAutomationLibraryStatusOutput) ToDataAutomationLibraryStatusPtrOutputWithContext(ctx context.Context) DataAutomationLibraryStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataAutomationLibraryStatus) *DataAutomationLibraryStatus {
+		return &v
+	}).(DataAutomationLibraryStatusPtrOutput)
+}
+
+func (o DataAutomationLibraryStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DataAutomationLibraryStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DataAutomationLibraryStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DataAutomationLibraryStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DataAutomationLibraryStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DataAutomationLibraryStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DataAutomationLibraryStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (DataAutomationLibraryStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataAutomationLibraryStatus)(nil)).Elem()
+}
+
+func (o DataAutomationLibraryStatusPtrOutput) ToDataAutomationLibraryStatusPtrOutput() DataAutomationLibraryStatusPtrOutput {
+	return o
+}
+
+func (o DataAutomationLibraryStatusPtrOutput) ToDataAutomationLibraryStatusPtrOutputWithContext(ctx context.Context) DataAutomationLibraryStatusPtrOutput {
+	return o
+}
+
+func (o DataAutomationLibraryStatusPtrOutput) Elem() DataAutomationLibraryStatusOutput {
+	return o.ApplyT(func(v *DataAutomationLibraryStatus) DataAutomationLibraryStatus {
+		if v != nil {
+			return *v
+		}
+		var ret DataAutomationLibraryStatus
+		return ret
+	}).(DataAutomationLibraryStatusOutput)
+}
+
+func (o DataAutomationLibraryStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DataAutomationLibraryStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DataAutomationLibraryStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
 type DataAutomationProjectAudioExtractionCategoryType string
 
 const (
@@ -9189,6 +9370,428 @@ func (in *dataSourceWebScopeTypePtr) ToDataSourceWebScopeTypePtrOutput() DataSou
 
 func (in *dataSourceWebScopeTypePtr) ToDataSourceWebScopeTypePtrOutputWithContext(ctx context.Context) DataSourceWebScopeTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DataSourceWebScopeTypePtrOutput)
+}
+
+// Configuration owner type
+type EnforcedGuardrailConfigurationConfigOwner string
+
+const (
+	EnforcedGuardrailConfigurationConfigOwnerAccount = EnforcedGuardrailConfigurationConfigOwner("ACCOUNT")
+)
+
+type EnforcedGuardrailConfigurationConfigOwnerOutput struct{ *pulumi.OutputState }
+
+func (EnforcedGuardrailConfigurationConfigOwnerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EnforcedGuardrailConfigurationConfigOwner)(nil)).Elem()
+}
+
+func (o EnforcedGuardrailConfigurationConfigOwnerOutput) ToEnforcedGuardrailConfigurationConfigOwnerOutput() EnforcedGuardrailConfigurationConfigOwnerOutput {
+	return o
+}
+
+func (o EnforcedGuardrailConfigurationConfigOwnerOutput) ToEnforcedGuardrailConfigurationConfigOwnerOutputWithContext(ctx context.Context) EnforcedGuardrailConfigurationConfigOwnerOutput {
+	return o
+}
+
+func (o EnforcedGuardrailConfigurationConfigOwnerOutput) ToEnforcedGuardrailConfigurationConfigOwnerPtrOutput() EnforcedGuardrailConfigurationConfigOwnerPtrOutput {
+	return o.ToEnforcedGuardrailConfigurationConfigOwnerPtrOutputWithContext(context.Background())
+}
+
+func (o EnforcedGuardrailConfigurationConfigOwnerOutput) ToEnforcedGuardrailConfigurationConfigOwnerPtrOutputWithContext(ctx context.Context) EnforcedGuardrailConfigurationConfigOwnerPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EnforcedGuardrailConfigurationConfigOwner) *EnforcedGuardrailConfigurationConfigOwner {
+		return &v
+	}).(EnforcedGuardrailConfigurationConfigOwnerPtrOutput)
+}
+
+func (o EnforcedGuardrailConfigurationConfigOwnerOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o EnforcedGuardrailConfigurationConfigOwnerOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e EnforcedGuardrailConfigurationConfigOwner) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o EnforcedGuardrailConfigurationConfigOwnerOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o EnforcedGuardrailConfigurationConfigOwnerOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e EnforcedGuardrailConfigurationConfigOwner) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type EnforcedGuardrailConfigurationConfigOwnerPtrOutput struct{ *pulumi.OutputState }
+
+func (EnforcedGuardrailConfigurationConfigOwnerPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EnforcedGuardrailConfigurationConfigOwner)(nil)).Elem()
+}
+
+func (o EnforcedGuardrailConfigurationConfigOwnerPtrOutput) ToEnforcedGuardrailConfigurationConfigOwnerPtrOutput() EnforcedGuardrailConfigurationConfigOwnerPtrOutput {
+	return o
+}
+
+func (o EnforcedGuardrailConfigurationConfigOwnerPtrOutput) ToEnforcedGuardrailConfigurationConfigOwnerPtrOutputWithContext(ctx context.Context) EnforcedGuardrailConfigurationConfigOwnerPtrOutput {
+	return o
+}
+
+func (o EnforcedGuardrailConfigurationConfigOwnerPtrOutput) Elem() EnforcedGuardrailConfigurationConfigOwnerOutput {
+	return o.ApplyT(func(v *EnforcedGuardrailConfigurationConfigOwner) EnforcedGuardrailConfigurationConfigOwner {
+		if v != nil {
+			return *v
+		}
+		var ret EnforcedGuardrailConfigurationConfigOwner
+		return ret
+	}).(EnforcedGuardrailConfigurationConfigOwnerOutput)
+}
+
+func (o EnforcedGuardrailConfigurationConfigOwnerPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o EnforcedGuardrailConfigurationConfigOwnerPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *EnforcedGuardrailConfigurationConfigOwner) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// Selective guarding mode for user messages
+type EnforcedGuardrailConfigurationSelectiveContentGuardingMessages string
+
+const (
+	EnforcedGuardrailConfigurationSelectiveContentGuardingMessagesSelective     = EnforcedGuardrailConfigurationSelectiveContentGuardingMessages("SELECTIVE")
+	EnforcedGuardrailConfigurationSelectiveContentGuardingMessagesComprehensive = EnforcedGuardrailConfigurationSelectiveContentGuardingMessages("COMPREHENSIVE")
+)
+
+func (EnforcedGuardrailConfigurationSelectiveContentGuardingMessages) ElementType() reflect.Type {
+	return reflect.TypeOf((*EnforcedGuardrailConfigurationSelectiveContentGuardingMessages)(nil)).Elem()
+}
+
+func (e EnforcedGuardrailConfigurationSelectiveContentGuardingMessages) ToEnforcedGuardrailConfigurationSelectiveContentGuardingMessagesOutput() EnforcedGuardrailConfigurationSelectiveContentGuardingMessagesOutput {
+	return pulumi.ToOutput(e).(EnforcedGuardrailConfigurationSelectiveContentGuardingMessagesOutput)
+}
+
+func (e EnforcedGuardrailConfigurationSelectiveContentGuardingMessages) ToEnforcedGuardrailConfigurationSelectiveContentGuardingMessagesOutputWithContext(ctx context.Context) EnforcedGuardrailConfigurationSelectiveContentGuardingMessagesOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(EnforcedGuardrailConfigurationSelectiveContentGuardingMessagesOutput)
+}
+
+func (e EnforcedGuardrailConfigurationSelectiveContentGuardingMessages) ToEnforcedGuardrailConfigurationSelectiveContentGuardingMessagesPtrOutput() EnforcedGuardrailConfigurationSelectiveContentGuardingMessagesPtrOutput {
+	return e.ToEnforcedGuardrailConfigurationSelectiveContentGuardingMessagesPtrOutputWithContext(context.Background())
+}
+
+func (e EnforcedGuardrailConfigurationSelectiveContentGuardingMessages) ToEnforcedGuardrailConfigurationSelectiveContentGuardingMessagesPtrOutputWithContext(ctx context.Context) EnforcedGuardrailConfigurationSelectiveContentGuardingMessagesPtrOutput {
+	return EnforcedGuardrailConfigurationSelectiveContentGuardingMessages(e).ToEnforcedGuardrailConfigurationSelectiveContentGuardingMessagesOutputWithContext(ctx).ToEnforcedGuardrailConfigurationSelectiveContentGuardingMessagesPtrOutputWithContext(ctx)
+}
+
+func (e EnforcedGuardrailConfigurationSelectiveContentGuardingMessages) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e EnforcedGuardrailConfigurationSelectiveContentGuardingMessages) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e EnforcedGuardrailConfigurationSelectiveContentGuardingMessages) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e EnforcedGuardrailConfigurationSelectiveContentGuardingMessages) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type EnforcedGuardrailConfigurationSelectiveContentGuardingMessagesOutput struct{ *pulumi.OutputState }
+
+func (EnforcedGuardrailConfigurationSelectiveContentGuardingMessagesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EnforcedGuardrailConfigurationSelectiveContentGuardingMessages)(nil)).Elem()
+}
+
+func (o EnforcedGuardrailConfigurationSelectiveContentGuardingMessagesOutput) ToEnforcedGuardrailConfigurationSelectiveContentGuardingMessagesOutput() EnforcedGuardrailConfigurationSelectiveContentGuardingMessagesOutput {
+	return o
+}
+
+func (o EnforcedGuardrailConfigurationSelectiveContentGuardingMessagesOutput) ToEnforcedGuardrailConfigurationSelectiveContentGuardingMessagesOutputWithContext(ctx context.Context) EnforcedGuardrailConfigurationSelectiveContentGuardingMessagesOutput {
+	return o
+}
+
+func (o EnforcedGuardrailConfigurationSelectiveContentGuardingMessagesOutput) ToEnforcedGuardrailConfigurationSelectiveContentGuardingMessagesPtrOutput() EnforcedGuardrailConfigurationSelectiveContentGuardingMessagesPtrOutput {
+	return o.ToEnforcedGuardrailConfigurationSelectiveContentGuardingMessagesPtrOutputWithContext(context.Background())
+}
+
+func (o EnforcedGuardrailConfigurationSelectiveContentGuardingMessagesOutput) ToEnforcedGuardrailConfigurationSelectiveContentGuardingMessagesPtrOutputWithContext(ctx context.Context) EnforcedGuardrailConfigurationSelectiveContentGuardingMessagesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EnforcedGuardrailConfigurationSelectiveContentGuardingMessages) *EnforcedGuardrailConfigurationSelectiveContentGuardingMessages {
+		return &v
+	}).(EnforcedGuardrailConfigurationSelectiveContentGuardingMessagesPtrOutput)
+}
+
+func (o EnforcedGuardrailConfigurationSelectiveContentGuardingMessagesOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o EnforcedGuardrailConfigurationSelectiveContentGuardingMessagesOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e EnforcedGuardrailConfigurationSelectiveContentGuardingMessages) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o EnforcedGuardrailConfigurationSelectiveContentGuardingMessagesOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o EnforcedGuardrailConfigurationSelectiveContentGuardingMessagesOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e EnforcedGuardrailConfigurationSelectiveContentGuardingMessages) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type EnforcedGuardrailConfigurationSelectiveContentGuardingMessagesPtrOutput struct{ *pulumi.OutputState }
+
+func (EnforcedGuardrailConfigurationSelectiveContentGuardingMessagesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EnforcedGuardrailConfigurationSelectiveContentGuardingMessages)(nil)).Elem()
+}
+
+func (o EnforcedGuardrailConfigurationSelectiveContentGuardingMessagesPtrOutput) ToEnforcedGuardrailConfigurationSelectiveContentGuardingMessagesPtrOutput() EnforcedGuardrailConfigurationSelectiveContentGuardingMessagesPtrOutput {
+	return o
+}
+
+func (o EnforcedGuardrailConfigurationSelectiveContentGuardingMessagesPtrOutput) ToEnforcedGuardrailConfigurationSelectiveContentGuardingMessagesPtrOutputWithContext(ctx context.Context) EnforcedGuardrailConfigurationSelectiveContentGuardingMessagesPtrOutput {
+	return o
+}
+
+func (o EnforcedGuardrailConfigurationSelectiveContentGuardingMessagesPtrOutput) Elem() EnforcedGuardrailConfigurationSelectiveContentGuardingMessagesOutput {
+	return o.ApplyT(func(v *EnforcedGuardrailConfigurationSelectiveContentGuardingMessages) EnforcedGuardrailConfigurationSelectiveContentGuardingMessages {
+		if v != nil {
+			return *v
+		}
+		var ret EnforcedGuardrailConfigurationSelectiveContentGuardingMessages
+		return ret
+	}).(EnforcedGuardrailConfigurationSelectiveContentGuardingMessagesOutput)
+}
+
+func (o EnforcedGuardrailConfigurationSelectiveContentGuardingMessagesPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o EnforcedGuardrailConfigurationSelectiveContentGuardingMessagesPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *EnforcedGuardrailConfigurationSelectiveContentGuardingMessages) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// EnforcedGuardrailConfigurationSelectiveContentGuardingMessagesInput is an input type that accepts values of the EnforcedGuardrailConfigurationSelectiveContentGuardingMessages enum
+// A concrete instance of `EnforcedGuardrailConfigurationSelectiveContentGuardingMessagesInput` can be one of the following:
+//
+//	EnforcedGuardrailConfigurationSelectiveContentGuardingMessagesSelective
+//	EnforcedGuardrailConfigurationSelectiveContentGuardingMessagesComprehensive
+type EnforcedGuardrailConfigurationSelectiveContentGuardingMessagesInput interface {
+	pulumi.Input
+
+	ToEnforcedGuardrailConfigurationSelectiveContentGuardingMessagesOutput() EnforcedGuardrailConfigurationSelectiveContentGuardingMessagesOutput
+	ToEnforcedGuardrailConfigurationSelectiveContentGuardingMessagesOutputWithContext(context.Context) EnforcedGuardrailConfigurationSelectiveContentGuardingMessagesOutput
+}
+
+var enforcedGuardrailConfigurationSelectiveContentGuardingMessagesPtrType = reflect.TypeOf((**EnforcedGuardrailConfigurationSelectiveContentGuardingMessages)(nil)).Elem()
+
+type EnforcedGuardrailConfigurationSelectiveContentGuardingMessagesPtrInput interface {
+	pulumi.Input
+
+	ToEnforcedGuardrailConfigurationSelectiveContentGuardingMessagesPtrOutput() EnforcedGuardrailConfigurationSelectiveContentGuardingMessagesPtrOutput
+	ToEnforcedGuardrailConfigurationSelectiveContentGuardingMessagesPtrOutputWithContext(context.Context) EnforcedGuardrailConfigurationSelectiveContentGuardingMessagesPtrOutput
+}
+
+type enforcedGuardrailConfigurationSelectiveContentGuardingMessagesPtr string
+
+func EnforcedGuardrailConfigurationSelectiveContentGuardingMessagesPtr(v string) EnforcedGuardrailConfigurationSelectiveContentGuardingMessagesPtrInput {
+	return (*enforcedGuardrailConfigurationSelectiveContentGuardingMessagesPtr)(&v)
+}
+
+func (*enforcedGuardrailConfigurationSelectiveContentGuardingMessagesPtr) ElementType() reflect.Type {
+	return enforcedGuardrailConfigurationSelectiveContentGuardingMessagesPtrType
+}
+
+func (in *enforcedGuardrailConfigurationSelectiveContentGuardingMessagesPtr) ToEnforcedGuardrailConfigurationSelectiveContentGuardingMessagesPtrOutput() EnforcedGuardrailConfigurationSelectiveContentGuardingMessagesPtrOutput {
+	return pulumi.ToOutput(in).(EnforcedGuardrailConfigurationSelectiveContentGuardingMessagesPtrOutput)
+}
+
+func (in *enforcedGuardrailConfigurationSelectiveContentGuardingMessagesPtr) ToEnforcedGuardrailConfigurationSelectiveContentGuardingMessagesPtrOutputWithContext(ctx context.Context) EnforcedGuardrailConfigurationSelectiveContentGuardingMessagesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(EnforcedGuardrailConfigurationSelectiveContentGuardingMessagesPtrOutput)
+}
+
+// Selective guarding mode for system prompts
+type EnforcedGuardrailConfigurationSelectiveContentGuardingSystem string
+
+const (
+	EnforcedGuardrailConfigurationSelectiveContentGuardingSystemSelective     = EnforcedGuardrailConfigurationSelectiveContentGuardingSystem("SELECTIVE")
+	EnforcedGuardrailConfigurationSelectiveContentGuardingSystemComprehensive = EnforcedGuardrailConfigurationSelectiveContentGuardingSystem("COMPREHENSIVE")
+)
+
+func (EnforcedGuardrailConfigurationSelectiveContentGuardingSystem) ElementType() reflect.Type {
+	return reflect.TypeOf((*EnforcedGuardrailConfigurationSelectiveContentGuardingSystem)(nil)).Elem()
+}
+
+func (e EnforcedGuardrailConfigurationSelectiveContentGuardingSystem) ToEnforcedGuardrailConfigurationSelectiveContentGuardingSystemOutput() EnforcedGuardrailConfigurationSelectiveContentGuardingSystemOutput {
+	return pulumi.ToOutput(e).(EnforcedGuardrailConfigurationSelectiveContentGuardingSystemOutput)
+}
+
+func (e EnforcedGuardrailConfigurationSelectiveContentGuardingSystem) ToEnforcedGuardrailConfigurationSelectiveContentGuardingSystemOutputWithContext(ctx context.Context) EnforcedGuardrailConfigurationSelectiveContentGuardingSystemOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(EnforcedGuardrailConfigurationSelectiveContentGuardingSystemOutput)
+}
+
+func (e EnforcedGuardrailConfigurationSelectiveContentGuardingSystem) ToEnforcedGuardrailConfigurationSelectiveContentGuardingSystemPtrOutput() EnforcedGuardrailConfigurationSelectiveContentGuardingSystemPtrOutput {
+	return e.ToEnforcedGuardrailConfigurationSelectiveContentGuardingSystemPtrOutputWithContext(context.Background())
+}
+
+func (e EnforcedGuardrailConfigurationSelectiveContentGuardingSystem) ToEnforcedGuardrailConfigurationSelectiveContentGuardingSystemPtrOutputWithContext(ctx context.Context) EnforcedGuardrailConfigurationSelectiveContentGuardingSystemPtrOutput {
+	return EnforcedGuardrailConfigurationSelectiveContentGuardingSystem(e).ToEnforcedGuardrailConfigurationSelectiveContentGuardingSystemOutputWithContext(ctx).ToEnforcedGuardrailConfigurationSelectiveContentGuardingSystemPtrOutputWithContext(ctx)
+}
+
+func (e EnforcedGuardrailConfigurationSelectiveContentGuardingSystem) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e EnforcedGuardrailConfigurationSelectiveContentGuardingSystem) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e EnforcedGuardrailConfigurationSelectiveContentGuardingSystem) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e EnforcedGuardrailConfigurationSelectiveContentGuardingSystem) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type EnforcedGuardrailConfigurationSelectiveContentGuardingSystemOutput struct{ *pulumi.OutputState }
+
+func (EnforcedGuardrailConfigurationSelectiveContentGuardingSystemOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EnforcedGuardrailConfigurationSelectiveContentGuardingSystem)(nil)).Elem()
+}
+
+func (o EnforcedGuardrailConfigurationSelectiveContentGuardingSystemOutput) ToEnforcedGuardrailConfigurationSelectiveContentGuardingSystemOutput() EnforcedGuardrailConfigurationSelectiveContentGuardingSystemOutput {
+	return o
+}
+
+func (o EnforcedGuardrailConfigurationSelectiveContentGuardingSystemOutput) ToEnforcedGuardrailConfigurationSelectiveContentGuardingSystemOutputWithContext(ctx context.Context) EnforcedGuardrailConfigurationSelectiveContentGuardingSystemOutput {
+	return o
+}
+
+func (o EnforcedGuardrailConfigurationSelectiveContentGuardingSystemOutput) ToEnforcedGuardrailConfigurationSelectiveContentGuardingSystemPtrOutput() EnforcedGuardrailConfigurationSelectiveContentGuardingSystemPtrOutput {
+	return o.ToEnforcedGuardrailConfigurationSelectiveContentGuardingSystemPtrOutputWithContext(context.Background())
+}
+
+func (o EnforcedGuardrailConfigurationSelectiveContentGuardingSystemOutput) ToEnforcedGuardrailConfigurationSelectiveContentGuardingSystemPtrOutputWithContext(ctx context.Context) EnforcedGuardrailConfigurationSelectiveContentGuardingSystemPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EnforcedGuardrailConfigurationSelectiveContentGuardingSystem) *EnforcedGuardrailConfigurationSelectiveContentGuardingSystem {
+		return &v
+	}).(EnforcedGuardrailConfigurationSelectiveContentGuardingSystemPtrOutput)
+}
+
+func (o EnforcedGuardrailConfigurationSelectiveContentGuardingSystemOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o EnforcedGuardrailConfigurationSelectiveContentGuardingSystemOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e EnforcedGuardrailConfigurationSelectiveContentGuardingSystem) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o EnforcedGuardrailConfigurationSelectiveContentGuardingSystemOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o EnforcedGuardrailConfigurationSelectiveContentGuardingSystemOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e EnforcedGuardrailConfigurationSelectiveContentGuardingSystem) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type EnforcedGuardrailConfigurationSelectiveContentGuardingSystemPtrOutput struct{ *pulumi.OutputState }
+
+func (EnforcedGuardrailConfigurationSelectiveContentGuardingSystemPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EnforcedGuardrailConfigurationSelectiveContentGuardingSystem)(nil)).Elem()
+}
+
+func (o EnforcedGuardrailConfigurationSelectiveContentGuardingSystemPtrOutput) ToEnforcedGuardrailConfigurationSelectiveContentGuardingSystemPtrOutput() EnforcedGuardrailConfigurationSelectiveContentGuardingSystemPtrOutput {
+	return o
+}
+
+func (o EnforcedGuardrailConfigurationSelectiveContentGuardingSystemPtrOutput) ToEnforcedGuardrailConfigurationSelectiveContentGuardingSystemPtrOutputWithContext(ctx context.Context) EnforcedGuardrailConfigurationSelectiveContentGuardingSystemPtrOutput {
+	return o
+}
+
+func (o EnforcedGuardrailConfigurationSelectiveContentGuardingSystemPtrOutput) Elem() EnforcedGuardrailConfigurationSelectiveContentGuardingSystemOutput {
+	return o.ApplyT(func(v *EnforcedGuardrailConfigurationSelectiveContentGuardingSystem) EnforcedGuardrailConfigurationSelectiveContentGuardingSystem {
+		if v != nil {
+			return *v
+		}
+		var ret EnforcedGuardrailConfigurationSelectiveContentGuardingSystem
+		return ret
+	}).(EnforcedGuardrailConfigurationSelectiveContentGuardingSystemOutput)
+}
+
+func (o EnforcedGuardrailConfigurationSelectiveContentGuardingSystemPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o EnforcedGuardrailConfigurationSelectiveContentGuardingSystemPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *EnforcedGuardrailConfigurationSelectiveContentGuardingSystem) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// EnforcedGuardrailConfigurationSelectiveContentGuardingSystemInput is an input type that accepts values of the EnforcedGuardrailConfigurationSelectiveContentGuardingSystem enum
+// A concrete instance of `EnforcedGuardrailConfigurationSelectiveContentGuardingSystemInput` can be one of the following:
+//
+//	EnforcedGuardrailConfigurationSelectiveContentGuardingSystemSelective
+//	EnforcedGuardrailConfigurationSelectiveContentGuardingSystemComprehensive
+type EnforcedGuardrailConfigurationSelectiveContentGuardingSystemInput interface {
+	pulumi.Input
+
+	ToEnforcedGuardrailConfigurationSelectiveContentGuardingSystemOutput() EnforcedGuardrailConfigurationSelectiveContentGuardingSystemOutput
+	ToEnforcedGuardrailConfigurationSelectiveContentGuardingSystemOutputWithContext(context.Context) EnforcedGuardrailConfigurationSelectiveContentGuardingSystemOutput
+}
+
+var enforcedGuardrailConfigurationSelectiveContentGuardingSystemPtrType = reflect.TypeOf((**EnforcedGuardrailConfigurationSelectiveContentGuardingSystem)(nil)).Elem()
+
+type EnforcedGuardrailConfigurationSelectiveContentGuardingSystemPtrInput interface {
+	pulumi.Input
+
+	ToEnforcedGuardrailConfigurationSelectiveContentGuardingSystemPtrOutput() EnforcedGuardrailConfigurationSelectiveContentGuardingSystemPtrOutput
+	ToEnforcedGuardrailConfigurationSelectiveContentGuardingSystemPtrOutputWithContext(context.Context) EnforcedGuardrailConfigurationSelectiveContentGuardingSystemPtrOutput
+}
+
+type enforcedGuardrailConfigurationSelectiveContentGuardingSystemPtr string
+
+func EnforcedGuardrailConfigurationSelectiveContentGuardingSystemPtr(v string) EnforcedGuardrailConfigurationSelectiveContentGuardingSystemPtrInput {
+	return (*enforcedGuardrailConfigurationSelectiveContentGuardingSystemPtr)(&v)
+}
+
+func (*enforcedGuardrailConfigurationSelectiveContentGuardingSystemPtr) ElementType() reflect.Type {
+	return enforcedGuardrailConfigurationSelectiveContentGuardingSystemPtrType
+}
+
+func (in *enforcedGuardrailConfigurationSelectiveContentGuardingSystemPtr) ToEnforcedGuardrailConfigurationSelectiveContentGuardingSystemPtrOutput() EnforcedGuardrailConfigurationSelectiveContentGuardingSystemPtrOutput {
+	return pulumi.ToOutput(in).(EnforcedGuardrailConfigurationSelectiveContentGuardingSystemPtrOutput)
+}
+
+func (in *enforcedGuardrailConfigurationSelectiveContentGuardingSystemPtr) ToEnforcedGuardrailConfigurationSelectiveContentGuardingSystemPtrOutputWithContext(ctx context.Context) EnforcedGuardrailConfigurationSelectiveContentGuardingSystemPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(EnforcedGuardrailConfigurationSelectiveContentGuardingSystemPtrOutput)
 }
 
 type FlowAliasConcurrencyType string
@@ -17157,6 +17760,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceTypePtrInput)(nil)).Elem(), DataSourceType("S3"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceWebScopeTypeInput)(nil)).Elem(), DataSourceWebScopeType("HOST_ONLY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceWebScopeTypePtrInput)(nil)).Elem(), DataSourceWebScopeType("HOST_ONLY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*EnforcedGuardrailConfigurationSelectiveContentGuardingMessagesInput)(nil)).Elem(), EnforcedGuardrailConfigurationSelectiveContentGuardingMessages("SELECTIVE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*EnforcedGuardrailConfigurationSelectiveContentGuardingMessagesPtrInput)(nil)).Elem(), EnforcedGuardrailConfigurationSelectiveContentGuardingMessages("SELECTIVE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*EnforcedGuardrailConfigurationSelectiveContentGuardingSystemInput)(nil)).Elem(), EnforcedGuardrailConfigurationSelectiveContentGuardingSystem("SELECTIVE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*EnforcedGuardrailConfigurationSelectiveContentGuardingSystemPtrInput)(nil)).Elem(), EnforcedGuardrailConfigurationSelectiveContentGuardingSystem("SELECTIVE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowAliasConcurrencyTypeInput)(nil)).Elem(), FlowAliasConcurrencyType("Automatic"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowAliasConcurrencyTypePtrInput)(nil)).Elem(), FlowAliasConcurrencyType("Automatic"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowConnectionTypeInput)(nil)).Elem(), FlowConnectionType("Data"))
@@ -17271,6 +17878,10 @@ func init() {
 	pulumi.RegisterOutputType(BlueprintStagePtrOutput{})
 	pulumi.RegisterOutputType(BlueprintTypeOutput{})
 	pulumi.RegisterOutputType(BlueprintTypePtrOutput{})
+	pulumi.RegisterOutputType(DataAutomationLibraryEntityTypeOutput{})
+	pulumi.RegisterOutputType(DataAutomationLibraryEntityTypePtrOutput{})
+	pulumi.RegisterOutputType(DataAutomationLibraryStatusOutput{})
+	pulumi.RegisterOutputType(DataAutomationLibraryStatusPtrOutput{})
 	pulumi.RegisterOutputType(DataAutomationProjectAudioExtractionCategoryTypeOutput{})
 	pulumi.RegisterOutputType(DataAutomationProjectAudioExtractionCategoryTypePtrOutput{})
 	pulumi.RegisterOutputType(DataAutomationProjectAudioExtractionCategoryTypeArrayOutput{})
@@ -17354,6 +17965,12 @@ func init() {
 	pulumi.RegisterOutputType(DataSourceTypePtrOutput{})
 	pulumi.RegisterOutputType(DataSourceWebScopeTypeOutput{})
 	pulumi.RegisterOutputType(DataSourceWebScopeTypePtrOutput{})
+	pulumi.RegisterOutputType(EnforcedGuardrailConfigurationConfigOwnerOutput{})
+	pulumi.RegisterOutputType(EnforcedGuardrailConfigurationConfigOwnerPtrOutput{})
+	pulumi.RegisterOutputType(EnforcedGuardrailConfigurationSelectiveContentGuardingMessagesOutput{})
+	pulumi.RegisterOutputType(EnforcedGuardrailConfigurationSelectiveContentGuardingMessagesPtrOutput{})
+	pulumi.RegisterOutputType(EnforcedGuardrailConfigurationSelectiveContentGuardingSystemOutput{})
+	pulumi.RegisterOutputType(EnforcedGuardrailConfigurationSelectiveContentGuardingSystemPtrOutput{})
 	pulumi.RegisterOutputType(FlowAliasConcurrencyTypeOutput{})
 	pulumi.RegisterOutputType(FlowAliasConcurrencyTypePtrOutput{})
 	pulumi.RegisterOutputType(FlowConnectionTypeOutput{})
