@@ -72,6 +72,8 @@ __all__ = [
     'AutomatedReasoningPolicyPolicyDefinitionVariableArgsDict',
     'AutomatedReasoningPolicyPolicyDefinitionArgs',
     'AutomatedReasoningPolicyPolicyDefinitionArgsDict',
+    'DataAutomationLibraryEncryptionConfigurationArgs',
+    'DataAutomationLibraryEncryptionConfigurationArgsDict',
     'DataAutomationProjectAudioExtractionCategoryTypeConfigurationArgs',
     'DataAutomationProjectAudioExtractionCategoryTypeConfigurationArgsDict',
     'DataAutomationProjectAudioExtractionCategoryArgs',
@@ -232,6 +234,10 @@ __all__ = [
     'DataSourceWebDataSourceConfigurationArgsDict',
     'DataSourceWebSourceConfigurationArgs',
     'DataSourceWebSourceConfigurationArgsDict',
+    'EnforcedGuardrailConfigurationModelEnforcementArgs',
+    'EnforcedGuardrailConfigurationModelEnforcementArgsDict',
+    'EnforcedGuardrailConfigurationSelectiveContentGuardingArgs',
+    'EnforcedGuardrailConfigurationSelectiveContentGuardingArgsDict',
     'FlowAdditionalModelRequestFieldsArgs',
     'FlowAdditionalModelRequestFieldsArgsDict',
     'FlowAgentFlowNodeConfigurationArgs',
@@ -2307,6 +2313,52 @@ class AutomatedReasoningPolicyPolicyDefinitionArgs:
     @version.setter
     def version(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "version", value)
+
+
+class DataAutomationLibraryEncryptionConfigurationArgsDict(TypedDict):
+    """
+    KMS Encryption Configuration
+    """
+    kms_key_id: pulumi.Input[_builtins.str]
+    """
+    KMS Key Identifier
+    """
+    kms_encryption_context: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+
+@pulumi.input_type
+class DataAutomationLibraryEncryptionConfigurationArgs:
+    def __init__(__self__, *,
+                 kms_key_id: pulumi.Input[_builtins.str],
+                 kms_encryption_context: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+        """
+        KMS Encryption Configuration
+
+        :param pulumi.Input[_builtins.str] kms_key_id: KMS Key Identifier
+        """
+        pulumi.set(__self__, "kms_key_id", kms_key_id)
+        if kms_encryption_context is not None:
+            pulumi.set(__self__, "kms_encryption_context", kms_encryption_context)
+
+    @_builtins.property
+    @pulumi.getter(name="kmsKeyId")
+    def kms_key_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        KMS Key Identifier
+        """
+        return pulumi.get(self, "kms_key_id")
+
+    @kms_key_id.setter
+    def kms_key_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "kms_key_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="kmsEncryptionContext")
+    def kms_encryption_context(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+        return pulumi.get(self, "kms_encryption_context")
+
+    @kms_encryption_context.setter
+    def kms_encryption_context(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "kms_encryption_context", value)
 
 
 class DataAutomationProjectAudioExtractionCategoryTypeConfigurationArgsDict(TypedDict):
@@ -6567,6 +6619,112 @@ class DataSourceWebSourceConfigurationArgs:
     @url_configuration.setter
     def url_configuration(self, value: pulumi.Input['DataSourceUrlConfigurationArgs']):
         pulumi.set(self, "url_configuration", value)
+
+
+class EnforcedGuardrailConfigurationModelEnforcementArgsDict(TypedDict):
+    """
+    Model-specific information for the enforced guardrail configuration. If not present, the configuration is enforced on all models
+    """
+    excluded_models: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    Models to exclude from enforcement. If a model is in both lists, it is excluded
+    """
+    included_models: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    Models to enforce the guardrail on
+    """
+
+@pulumi.input_type
+class EnforcedGuardrailConfigurationModelEnforcementArgs:
+    def __init__(__self__, *,
+                 excluded_models: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
+                 included_models: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        """
+        Model-specific information for the enforced guardrail configuration. If not present, the configuration is enforced on all models
+
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] excluded_models: Models to exclude from enforcement. If a model is in both lists, it is excluded
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] included_models: Models to enforce the guardrail on
+        """
+        pulumi.set(__self__, "excluded_models", excluded_models)
+        pulumi.set(__self__, "included_models", included_models)
+
+    @_builtins.property
+    @pulumi.getter(name="excludedModels")
+    def excluded_models(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        """
+        Models to exclude from enforcement. If a model is in both lists, it is excluded
+        """
+        return pulumi.get(self, "excluded_models")
+
+    @excluded_models.setter
+    def excluded_models(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "excluded_models", value)
+
+    @_builtins.property
+    @pulumi.getter(name="includedModels")
+    def included_models(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        """
+        Models to enforce the guardrail on
+        """
+        return pulumi.get(self, "included_models")
+
+    @included_models.setter
+    def included_models(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "included_models", value)
+
+
+class EnforcedGuardrailConfigurationSelectiveContentGuardingArgsDict(TypedDict):
+    """
+    Selective content guarding controls for enforced guardrails
+    """
+    messages: NotRequired[pulumi.Input['EnforcedGuardrailConfigurationSelectiveContentGuardingMessages']]
+    """
+    Selective guarding mode for user messages
+    """
+    system: NotRequired[pulumi.Input['EnforcedGuardrailConfigurationSelectiveContentGuardingSystem']]
+    """
+    Selective guarding mode for system prompts
+    """
+
+@pulumi.input_type
+class EnforcedGuardrailConfigurationSelectiveContentGuardingArgs:
+    def __init__(__self__, *,
+                 messages: Optional[pulumi.Input['EnforcedGuardrailConfigurationSelectiveContentGuardingMessages']] = None,
+                 system: Optional[pulumi.Input['EnforcedGuardrailConfigurationSelectiveContentGuardingSystem']] = None):
+        """
+        Selective content guarding controls for enforced guardrails
+
+        :param pulumi.Input['EnforcedGuardrailConfigurationSelectiveContentGuardingMessages'] messages: Selective guarding mode for user messages
+        :param pulumi.Input['EnforcedGuardrailConfigurationSelectiveContentGuardingSystem'] system: Selective guarding mode for system prompts
+        """
+        if messages is not None:
+            pulumi.set(__self__, "messages", messages)
+        if system is not None:
+            pulumi.set(__self__, "system", system)
+
+    @_builtins.property
+    @pulumi.getter
+    def messages(self) -> Optional[pulumi.Input['EnforcedGuardrailConfigurationSelectiveContentGuardingMessages']]:
+        """
+        Selective guarding mode for user messages
+        """
+        return pulumi.get(self, "messages")
+
+    @messages.setter
+    def messages(self, value: Optional[pulumi.Input['EnforcedGuardrailConfigurationSelectiveContentGuardingMessages']]):
+        pulumi.set(self, "messages", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def system(self) -> Optional[pulumi.Input['EnforcedGuardrailConfigurationSelectiveContentGuardingSystem']]:
+        """
+        Selective guarding mode for system prompts
+        """
+        return pulumi.get(self, "system")
+
+    @system.setter
+    def system(self, value: Optional[pulumi.Input['EnforcedGuardrailConfigurationSelectiveContentGuardingSystem']]):
+        pulumi.set(self, "system", value)
 
 
 class FlowAdditionalModelRequestFieldsArgsDict(TypedDict):

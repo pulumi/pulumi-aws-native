@@ -10,11 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ElasticLoadBalancing.Outputs
 {
 
-    /// <summary>
-    /// The health check settings to use when evaluating the health of your EC2 instances.
-    /// 
-    /// Update requires replacement if you did not previously specify health check settings or if you are removing the health check settings. Otherwise, update requires no interruption.
-    /// </summary>
     [OutputType]
     public sealed class LoadBalancerHealthCheck
     {
@@ -27,7 +22,15 @@ namespace Pulumi.AwsNative.ElasticLoadBalancing.Outputs
         /// </summary>
         public readonly string Interval;
         /// <summary>
-        /// The instance being checked.
+        /// The instance being checked. The protocol is either TCP, HTTP, HTTPS, or SSL. The range of valid ports is one (1) through 65535.
+        /// 
+        /// TCP is the default, specified as a TCP: port pair, for example "TCP:5000". In this case, a health check simply attempts to open a TCP connection to the instance on the specified port. Failure to connect within the configured timeout is considered unhealthy.
+        /// 
+        /// SSL is also specified as SSL: port pair, for example, SSL:5000.
+        /// 
+        /// For HTTP/HTTPS, you must include a ping path in the string. HTTP is specified as a HTTP:port;/;PathToPing; grouping, for example "HTTP:80/weather/us/wa/seattle". In this case, a HTTP GET request is issued to the instance on the given port and path. Any answer other than "200 OK" within the timeout period is considered unhealthy.
+        /// 
+        /// The total length of the HTTP ping target must be 1024 16-bit Unicode characters or less.
         /// </summary>
         public readonly string Target;
         /// <summary>

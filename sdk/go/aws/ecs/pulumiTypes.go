@@ -12296,11 +12296,13 @@ func (o ServiceDeploymentCircuitBreakerPtrOutput) Rollback() pulumi.BoolPtrOutpu
 type ServiceDeploymentConfiguration struct {
 	// Information about the CloudWatch alarms.
 	Alarms *ServiceDeploymentAlarms `pulumi:"alarms"`
-	// The duration when both blue and green service revisions are running simultaneously after the production traffic has shifted.
+	// The duration waiting before terminating the previous service revision and marking a deployment complete.
 	//  The following rules apply when you don't specify a value:
-	//   +  For rolling deployments, the value is set to 3 hours (180 minutes).
-	//   +  When you use an external deployment controller (``EXTERNAL``), or the ACD blue/green deployment controller (``CODE_DEPLOY``), the value is set to 3 hours (180 minutes).
-	//   +  For all other cases, the value is set to 36 hours (2160 minutes).
+	//   +  For blue/green, linear, and canary deployments, the value is set to 15 minutes.
+	//   +  For rolling deployments, there is no bake time set by default.
+	//   +  The external deployment controller (``EXTERNAL``) and the ACD blue/green deployment controller (``CODE_DEPLOY``) do not support the ``BakeTimeInMinutes`` parameter.
+	//
+	//   If you provide a bake time for a rolling deployment, the CloudFormation handler timeout is increased to the maximum of 36 hours, matching the timeout for blue/green, linear, and canary deployments.
 	BakeTimeInMinutes *int `pulumi:"bakeTimeInMinutes"`
 	// Configuration for canary deployment strategy. Only valid when the deployment strategy is ``CANARY``. This configuration enables shifting a fixed percentage of traffic for testing, followed by shifting the remaining traffic after a bake period.
 	CanaryConfiguration *ServiceCanaryConfiguration `pulumi:"canaryConfiguration"`
@@ -12357,11 +12359,13 @@ type ServiceDeploymentConfigurationInput interface {
 type ServiceDeploymentConfigurationArgs struct {
 	// Information about the CloudWatch alarms.
 	Alarms ServiceDeploymentAlarmsPtrInput `pulumi:"alarms"`
-	// The duration when both blue and green service revisions are running simultaneously after the production traffic has shifted.
+	// The duration waiting before terminating the previous service revision and marking a deployment complete.
 	//  The following rules apply when you don't specify a value:
-	//   +  For rolling deployments, the value is set to 3 hours (180 minutes).
-	//   +  When you use an external deployment controller (``EXTERNAL``), or the ACD blue/green deployment controller (``CODE_DEPLOY``), the value is set to 3 hours (180 minutes).
-	//   +  For all other cases, the value is set to 36 hours (2160 minutes).
+	//   +  For blue/green, linear, and canary deployments, the value is set to 15 minutes.
+	//   +  For rolling deployments, there is no bake time set by default.
+	//   +  The external deployment controller (``EXTERNAL``) and the ACD blue/green deployment controller (``CODE_DEPLOY``) do not support the ``BakeTimeInMinutes`` parameter.
+	//
+	//   If you provide a bake time for a rolling deployment, the CloudFormation handler timeout is increased to the maximum of 36 hours, matching the timeout for blue/green, linear, and canary deployments.
 	BakeTimeInMinutes pulumi.IntPtrInput `pulumi:"bakeTimeInMinutes"`
 	// Configuration for canary deployment strategy. Only valid when the deployment strategy is ``CANARY``. This configuration enables shifting a fixed percentage of traffic for testing, followed by shifting the remaining traffic after a bake period.
 	CanaryConfiguration ServiceCanaryConfigurationPtrInput `pulumi:"canaryConfiguration"`
@@ -12486,12 +12490,14 @@ func (o ServiceDeploymentConfigurationOutput) Alarms() ServiceDeploymentAlarmsPt
 	return o.ApplyT(func(v ServiceDeploymentConfiguration) *ServiceDeploymentAlarms { return v.Alarms }).(ServiceDeploymentAlarmsPtrOutput)
 }
 
-// The duration when both blue and green service revisions are running simultaneously after the production traffic has shifted.
+// The duration waiting before terminating the previous service revision and marking a deployment complete.
 //
 //	The following rules apply when you don't specify a value:
-//	 +  For rolling deployments, the value is set to 3 hours (180 minutes).
-//	 +  When you use an external deployment controller (``EXTERNAL``), or the ACD blue/green deployment controller (``CODE_DEPLOY``), the value is set to 3 hours (180 minutes).
-//	 +  For all other cases, the value is set to 36 hours (2160 minutes).
+//	 +  For blue/green, linear, and canary deployments, the value is set to 15 minutes.
+//	 +  For rolling deployments, there is no bake time set by default.
+//	 +  The external deployment controller (``EXTERNAL``) and the ACD blue/green deployment controller (``CODE_DEPLOY``) do not support the ``BakeTimeInMinutes`` parameter.
+//
+//	 If you provide a bake time for a rolling deployment, the CloudFormation handler timeout is increased to the maximum of 36 hours, matching the timeout for blue/green, linear, and canary deployments.
 func (o ServiceDeploymentConfigurationOutput) BakeTimeInMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ServiceDeploymentConfiguration) *int { return v.BakeTimeInMinutes }).(pulumi.IntPtrOutput)
 }
@@ -12594,12 +12600,14 @@ func (o ServiceDeploymentConfigurationPtrOutput) Alarms() ServiceDeploymentAlarm
 	}).(ServiceDeploymentAlarmsPtrOutput)
 }
 
-// The duration when both blue and green service revisions are running simultaneously after the production traffic has shifted.
+// The duration waiting before terminating the previous service revision and marking a deployment complete.
 //
 //	The following rules apply when you don't specify a value:
-//	 +  For rolling deployments, the value is set to 3 hours (180 minutes).
-//	 +  When you use an external deployment controller (``EXTERNAL``), or the ACD blue/green deployment controller (``CODE_DEPLOY``), the value is set to 3 hours (180 minutes).
-//	 +  For all other cases, the value is set to 36 hours (2160 minutes).
+//	 +  For blue/green, linear, and canary deployments, the value is set to 15 minutes.
+//	 +  For rolling deployments, there is no bake time set by default.
+//	 +  The external deployment controller (``EXTERNAL``) and the ACD blue/green deployment controller (``CODE_DEPLOY``) do not support the ``BakeTimeInMinutes`` parameter.
+//
+//	 If you provide a bake time for a rolling deployment, the CloudFormation handler timeout is increased to the maximum of 36 hours, matching the timeout for blue/green, linear, and canary deployments.
 func (o ServiceDeploymentConfigurationPtrOutput) BakeTimeInMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ServiceDeploymentConfiguration) *int {
 		if v == nil {
@@ -20983,6 +20991,184 @@ func (o TaskDefinitionRuntimePlatformPtrOutput) OperatingSystemFamily() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
+type TaskDefinitionS3FilesVolumeConfiguration struct {
+	AccessPointArn        *string `pulumi:"accessPointArn"`
+	FileSystemArn         string  `pulumi:"fileSystemArn"`
+	RootDirectory         *string `pulumi:"rootDirectory"`
+	TransitEncryptionPort *int    `pulumi:"transitEncryptionPort"`
+}
+
+// TaskDefinitionS3FilesVolumeConfigurationInput is an input type that accepts TaskDefinitionS3FilesVolumeConfigurationArgs and TaskDefinitionS3FilesVolumeConfigurationOutput values.
+// You can construct a concrete instance of `TaskDefinitionS3FilesVolumeConfigurationInput` via:
+//
+//	TaskDefinitionS3FilesVolumeConfigurationArgs{...}
+type TaskDefinitionS3FilesVolumeConfigurationInput interface {
+	pulumi.Input
+
+	ToTaskDefinitionS3FilesVolumeConfigurationOutput() TaskDefinitionS3FilesVolumeConfigurationOutput
+	ToTaskDefinitionS3FilesVolumeConfigurationOutputWithContext(context.Context) TaskDefinitionS3FilesVolumeConfigurationOutput
+}
+
+type TaskDefinitionS3FilesVolumeConfigurationArgs struct {
+	AccessPointArn        pulumi.StringPtrInput `pulumi:"accessPointArn"`
+	FileSystemArn         pulumi.StringInput    `pulumi:"fileSystemArn"`
+	RootDirectory         pulumi.StringPtrInput `pulumi:"rootDirectory"`
+	TransitEncryptionPort pulumi.IntPtrInput    `pulumi:"transitEncryptionPort"`
+}
+
+func (TaskDefinitionS3FilesVolumeConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskDefinitionS3FilesVolumeConfiguration)(nil)).Elem()
+}
+
+func (i TaskDefinitionS3FilesVolumeConfigurationArgs) ToTaskDefinitionS3FilesVolumeConfigurationOutput() TaskDefinitionS3FilesVolumeConfigurationOutput {
+	return i.ToTaskDefinitionS3FilesVolumeConfigurationOutputWithContext(context.Background())
+}
+
+func (i TaskDefinitionS3FilesVolumeConfigurationArgs) ToTaskDefinitionS3FilesVolumeConfigurationOutputWithContext(ctx context.Context) TaskDefinitionS3FilesVolumeConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskDefinitionS3FilesVolumeConfigurationOutput)
+}
+
+func (i TaskDefinitionS3FilesVolumeConfigurationArgs) ToTaskDefinitionS3FilesVolumeConfigurationPtrOutput() TaskDefinitionS3FilesVolumeConfigurationPtrOutput {
+	return i.ToTaskDefinitionS3FilesVolumeConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i TaskDefinitionS3FilesVolumeConfigurationArgs) ToTaskDefinitionS3FilesVolumeConfigurationPtrOutputWithContext(ctx context.Context) TaskDefinitionS3FilesVolumeConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskDefinitionS3FilesVolumeConfigurationOutput).ToTaskDefinitionS3FilesVolumeConfigurationPtrOutputWithContext(ctx)
+}
+
+// TaskDefinitionS3FilesVolumeConfigurationPtrInput is an input type that accepts TaskDefinitionS3FilesVolumeConfigurationArgs, TaskDefinitionS3FilesVolumeConfigurationPtr and TaskDefinitionS3FilesVolumeConfigurationPtrOutput values.
+// You can construct a concrete instance of `TaskDefinitionS3FilesVolumeConfigurationPtrInput` via:
+//
+//	        TaskDefinitionS3FilesVolumeConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type TaskDefinitionS3FilesVolumeConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToTaskDefinitionS3FilesVolumeConfigurationPtrOutput() TaskDefinitionS3FilesVolumeConfigurationPtrOutput
+	ToTaskDefinitionS3FilesVolumeConfigurationPtrOutputWithContext(context.Context) TaskDefinitionS3FilesVolumeConfigurationPtrOutput
+}
+
+type taskDefinitionS3FilesVolumeConfigurationPtrType TaskDefinitionS3FilesVolumeConfigurationArgs
+
+func TaskDefinitionS3FilesVolumeConfigurationPtr(v *TaskDefinitionS3FilesVolumeConfigurationArgs) TaskDefinitionS3FilesVolumeConfigurationPtrInput {
+	return (*taskDefinitionS3FilesVolumeConfigurationPtrType)(v)
+}
+
+func (*taskDefinitionS3FilesVolumeConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TaskDefinitionS3FilesVolumeConfiguration)(nil)).Elem()
+}
+
+func (i *taskDefinitionS3FilesVolumeConfigurationPtrType) ToTaskDefinitionS3FilesVolumeConfigurationPtrOutput() TaskDefinitionS3FilesVolumeConfigurationPtrOutput {
+	return i.ToTaskDefinitionS3FilesVolumeConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *taskDefinitionS3FilesVolumeConfigurationPtrType) ToTaskDefinitionS3FilesVolumeConfigurationPtrOutputWithContext(ctx context.Context) TaskDefinitionS3FilesVolumeConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskDefinitionS3FilesVolumeConfigurationPtrOutput)
+}
+
+type TaskDefinitionS3FilesVolumeConfigurationOutput struct{ *pulumi.OutputState }
+
+func (TaskDefinitionS3FilesVolumeConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskDefinitionS3FilesVolumeConfiguration)(nil)).Elem()
+}
+
+func (o TaskDefinitionS3FilesVolumeConfigurationOutput) ToTaskDefinitionS3FilesVolumeConfigurationOutput() TaskDefinitionS3FilesVolumeConfigurationOutput {
+	return o
+}
+
+func (o TaskDefinitionS3FilesVolumeConfigurationOutput) ToTaskDefinitionS3FilesVolumeConfigurationOutputWithContext(ctx context.Context) TaskDefinitionS3FilesVolumeConfigurationOutput {
+	return o
+}
+
+func (o TaskDefinitionS3FilesVolumeConfigurationOutput) ToTaskDefinitionS3FilesVolumeConfigurationPtrOutput() TaskDefinitionS3FilesVolumeConfigurationPtrOutput {
+	return o.ToTaskDefinitionS3FilesVolumeConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o TaskDefinitionS3FilesVolumeConfigurationOutput) ToTaskDefinitionS3FilesVolumeConfigurationPtrOutputWithContext(ctx context.Context) TaskDefinitionS3FilesVolumeConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TaskDefinitionS3FilesVolumeConfiguration) *TaskDefinitionS3FilesVolumeConfiguration {
+		return &v
+	}).(TaskDefinitionS3FilesVolumeConfigurationPtrOutput)
+}
+
+func (o TaskDefinitionS3FilesVolumeConfigurationOutput) AccessPointArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskDefinitionS3FilesVolumeConfiguration) *string { return v.AccessPointArn }).(pulumi.StringPtrOutput)
+}
+
+func (o TaskDefinitionS3FilesVolumeConfigurationOutput) FileSystemArn() pulumi.StringOutput {
+	return o.ApplyT(func(v TaskDefinitionS3FilesVolumeConfiguration) string { return v.FileSystemArn }).(pulumi.StringOutput)
+}
+
+func (o TaskDefinitionS3FilesVolumeConfigurationOutput) RootDirectory() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskDefinitionS3FilesVolumeConfiguration) *string { return v.RootDirectory }).(pulumi.StringPtrOutput)
+}
+
+func (o TaskDefinitionS3FilesVolumeConfigurationOutput) TransitEncryptionPort() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v TaskDefinitionS3FilesVolumeConfiguration) *int { return v.TransitEncryptionPort }).(pulumi.IntPtrOutput)
+}
+
+type TaskDefinitionS3FilesVolumeConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (TaskDefinitionS3FilesVolumeConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TaskDefinitionS3FilesVolumeConfiguration)(nil)).Elem()
+}
+
+func (o TaskDefinitionS3FilesVolumeConfigurationPtrOutput) ToTaskDefinitionS3FilesVolumeConfigurationPtrOutput() TaskDefinitionS3FilesVolumeConfigurationPtrOutput {
+	return o
+}
+
+func (o TaskDefinitionS3FilesVolumeConfigurationPtrOutput) ToTaskDefinitionS3FilesVolumeConfigurationPtrOutputWithContext(ctx context.Context) TaskDefinitionS3FilesVolumeConfigurationPtrOutput {
+	return o
+}
+
+func (o TaskDefinitionS3FilesVolumeConfigurationPtrOutput) Elem() TaskDefinitionS3FilesVolumeConfigurationOutput {
+	return o.ApplyT(func(v *TaskDefinitionS3FilesVolumeConfiguration) TaskDefinitionS3FilesVolumeConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret TaskDefinitionS3FilesVolumeConfiguration
+		return ret
+	}).(TaskDefinitionS3FilesVolumeConfigurationOutput)
+}
+
+func (o TaskDefinitionS3FilesVolumeConfigurationPtrOutput) AccessPointArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TaskDefinitionS3FilesVolumeConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AccessPointArn
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o TaskDefinitionS3FilesVolumeConfigurationPtrOutput) FileSystemArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TaskDefinitionS3FilesVolumeConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.FileSystemArn
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o TaskDefinitionS3FilesVolumeConfigurationPtrOutput) RootDirectory() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TaskDefinitionS3FilesVolumeConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RootDirectory
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o TaskDefinitionS3FilesVolumeConfigurationPtrOutput) TransitEncryptionPort() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *TaskDefinitionS3FilesVolumeConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.TransitEncryptionPort
+	}).(pulumi.IntPtrOutput)
+}
+
 // An object representing the secret to expose to your container. Secrets can be exposed to a container in the following ways:
 //
 //   - To inject sensitive data into your containers as environment variables, use the “secrets“ container definition parameter.
@@ -21555,7 +21741,8 @@ type TaskDefinitionVolume struct {
 	//  When using a volume configured at launch, the ``name`` is required and must also be specified as the volume name in the ``ServiceVolumeConfiguration`` or ``TaskVolumeConfiguration`` parameter when creating your service or standalone task.
 	//  For all other types of volumes, this name is referenced in the ``sourceVolume`` parameter of the ``mountPoints`` object in the container definition.
 	//  When a volume is using the ``efsVolumeConfiguration``, the name is required.
-	Name *string `pulumi:"name"`
+	Name                       *string                                   `pulumi:"name"`
+	S3FilesVolumeConfiguration *TaskDefinitionS3FilesVolumeConfiguration `pulumi:"s3FilesVolumeConfiguration"`
 }
 
 // TaskDefinitionVolumeInput is an input type that accepts TaskDefinitionVolumeArgs and TaskDefinitionVolumeOutput values.
@@ -21589,7 +21776,8 @@ type TaskDefinitionVolumeArgs struct {
 	//  When using a volume configured at launch, the ``name`` is required and must also be specified as the volume name in the ``ServiceVolumeConfiguration`` or ``TaskVolumeConfiguration`` parameter when creating your service or standalone task.
 	//  For all other types of volumes, this name is referenced in the ``sourceVolume`` parameter of the ``mountPoints`` object in the container definition.
 	//  When a volume is using the ``efsVolumeConfiguration``, the name is required.
-	Name pulumi.StringPtrInput `pulumi:"name"`
+	Name                       pulumi.StringPtrInput                            `pulumi:"name"`
+	S3FilesVolumeConfiguration TaskDefinitionS3FilesVolumeConfigurationPtrInput `pulumi:"s3FilesVolumeConfiguration"`
 }
 
 func (TaskDefinitionVolumeArgs) ElementType() reflect.Type {
@@ -21687,6 +21875,12 @@ func (o TaskDefinitionVolumeOutput) Host() TaskDefinitionHostVolumePropertiesPtr
 //	When a volume is using the ``efsVolumeConfiguration``, the name is required.
 func (o TaskDefinitionVolumeOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TaskDefinitionVolume) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o TaskDefinitionVolumeOutput) S3FilesVolumeConfiguration() TaskDefinitionS3FilesVolumeConfigurationPtrOutput {
+	return o.ApplyT(func(v TaskDefinitionVolume) *TaskDefinitionS3FilesVolumeConfiguration {
+		return v.S3FilesVolumeConfiguration
+	}).(TaskDefinitionS3FilesVolumeConfigurationPtrOutput)
 }
 
 type TaskDefinitionVolumeArrayOutput struct{ *pulumi.OutputState }
@@ -22978,6 +23172,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskDefinitionRestartPolicyPtrInput)(nil)).Elem(), TaskDefinitionRestartPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskDefinitionRuntimePlatformInput)(nil)).Elem(), TaskDefinitionRuntimePlatformArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskDefinitionRuntimePlatformPtrInput)(nil)).Elem(), TaskDefinitionRuntimePlatformArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TaskDefinitionS3FilesVolumeConfigurationInput)(nil)).Elem(), TaskDefinitionS3FilesVolumeConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TaskDefinitionS3FilesVolumeConfigurationPtrInput)(nil)).Elem(), TaskDefinitionS3FilesVolumeConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskDefinitionSecretInput)(nil)).Elem(), TaskDefinitionSecretArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskDefinitionSecretArrayInput)(nil)).Elem(), TaskDefinitionSecretArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskDefinitionSystemControlInput)(nil)).Elem(), TaskDefinitionSystemControlArgs{})
@@ -23244,6 +23440,8 @@ func init() {
 	pulumi.RegisterOutputType(TaskDefinitionRestartPolicyPtrOutput{})
 	pulumi.RegisterOutputType(TaskDefinitionRuntimePlatformOutput{})
 	pulumi.RegisterOutputType(TaskDefinitionRuntimePlatformPtrOutput{})
+	pulumi.RegisterOutputType(TaskDefinitionS3FilesVolumeConfigurationOutput{})
+	pulumi.RegisterOutputType(TaskDefinitionS3FilesVolumeConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(TaskDefinitionSecretOutput{})
 	pulumi.RegisterOutputType(TaskDefinitionSecretArrayOutput{})
 	pulumi.RegisterOutputType(TaskDefinitionSystemControlOutput{})

@@ -8,3 +8,14 @@ export const ApplicationContactHandlingScope = {
 } as const;
 
 export type ApplicationContactHandlingScope = (typeof ApplicationContactHandlingScope)[keyof typeof ApplicationContactHandlingScope];
+
+export const ApplicationType = {
+    Standard: "STANDARD",
+    Service: "SERVICE",
+    McpServer: "MCP_SERVER",
+} as const;
+
+/**
+ * The type of application
+ */
+export type ApplicationType = (typeof ApplicationType)[keyof typeof ApplicationType];

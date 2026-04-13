@@ -37,26 +37,48 @@ class LoadBalancerArgs:
                  policies: Optional[pulumi.Input[Sequence[pulumi.Input['LoadBalancerPoliciesArgs']]]] = None,
                  scheme: Optional[pulumi.Input[_builtins.str]] = None,
                  security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 source_security_group_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 source_security_group_owner_alias: Optional[pulumi.Input[_builtins.str]] = None,
                  subnets: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a LoadBalancer resource.
 
-        :param pulumi.Input[Sequence[pulumi.Input['LoadBalancerListenersArgs']]] listeners: The Listeners for the load balancer. You can specify at most one listener per port.
+        :param pulumi.Input[Sequence[pulumi.Input['LoadBalancerListenersArgs']]] listeners: The listeners for the load balancer. You can specify at most one listener per port.
+               
+               If you update the properties for a listener, AWS CloudFormation deletes the existing listener and creates a new one with the specified properties. While the new listener is being created, clients cannot connect to the load balancer.
         :param pulumi.Input['LoadBalancerAccessLoggingPolicyArgs'] access_logging_policy: Information about where and how access logs are stored for the load balancer.
         :param pulumi.Input[Sequence[pulumi.Input['LoadBalancerAppCookieStickinessPolicyArgs']]] app_cookie_stickiness_policy: Information about a policy for application-controlled session stickiness.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] availability_zones: The Availability Zones for a load balancer in a default VPC. For a load balancer in a nondefault VPC, specify Subnets instead.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] availability_zones: The Availability Zones for a load balancer in a default VPC. For a load balancer in a nondefault VPC, specify `Subnets` instead.
+               
+               Update requires replacement if you did not previously specify an Availability Zone or if you are removing all Availability Zones. Otherwise, update requires no interruption.
         :param pulumi.Input['LoadBalancerConnectionDrainingPolicyArgs'] connection_draining_policy: If enabled, the load balancer allows existing requests to complete before the load balancer shifts traffic away from a deregistered or unhealthy instance.
+               
+               For more information, see [Configure connection draining](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-conn-drain.html) in the *User Guide for Classic Load Balancers* .
         :param pulumi.Input['LoadBalancerConnectionSettingsArgs'] connection_settings: If enabled, the load balancer allows the connections to remain idle (no data is sent over the connection) for the specified duration.
+               
+               By default, Elastic Load Balancing maintains a 60-second idle connection timeout for both front-end and back-end connections of your load balancer. For more information, see [Configure idle connection timeout](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-idle-timeout.html) in the *User Guide for Classic Load Balancers* .
         :param pulumi.Input[_builtins.bool] cross_zone: If enabled, the load balancer routes the request traffic evenly across all instances regardless of the Availability Zones.
+               
+               For more information, see [Configure cross-zone load balancing](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-disable-crosszone-lb.html) in the *User Guide for Classic Load Balancers* .
         :param pulumi.Input['LoadBalancerHealthCheckArgs'] health_check: The health check settings to use when evaluating the health of your EC2 instances.
+               
+               Update requires replacement if you did not previously specify health check settings or if you are removing the health check settings. Otherwise, update requires no interruption.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] instances: The IDs of the instances for the load balancer.
         :param pulumi.Input[Sequence[pulumi.Input['LoadBalancerLbCookieStickinessPolicyArgs']]] lb_cookie_stickiness_policy: Information about a policy for duration-based session stickiness.
         :param pulumi.Input[_builtins.str] load_balancer_name: The name of the load balancer. This name must be unique within your set of load balancers for the region.
+               
+               If you don't specify a name, AWS CloudFormation generates a unique physical ID for the load balancer. For more information, see [Name Type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html) . If you specify a name, you cannot perform updates that require replacement of this resource, but you can perform other updates. To replace the resource, specify a new name.
         :param pulumi.Input[Sequence[pulumi.Input['LoadBalancerPoliciesArgs']]] policies: The policies defined for your Classic Load Balancer. Specify only back-end server policies.
         :param pulumi.Input[_builtins.str] scheme: The type of load balancer. Valid only for load balancers in a VPC.
+               
+               If `Scheme` is `internet-facing` , the load balancer has a public DNS name that resolves to a public IP address.
+               
+               If `Scheme` is `internal` , the load balancer has a public DNS name that resolves to a private IP address.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_groups: The security groups for the load balancer. Valid only for load balancers in a VPC.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnets: The IDs of the subnets for the load balancer. You can specify at most one subnet per Availability Zone.
+               
+               Update requires replacement if you did not previously specify a subnet or if you are removing all subnets. Otherwise, update requires no interruption. To update to a different subnet in the current Availability Zone, you must first update to a subnet in a different Availability Zone, then update to the new subnet in the original Availability Zone.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags associated with a load balancer.
         """
         pulumi.set(__self__, "listeners", listeners)
@@ -86,6 +108,10 @@ class LoadBalancerArgs:
             pulumi.set(__self__, "scheme", scheme)
         if security_groups is not None:
             pulumi.set(__self__, "security_groups", security_groups)
+        if source_security_group_group_name is not None:
+            pulumi.set(__self__, "source_security_group_group_name", source_security_group_group_name)
+        if source_security_group_owner_alias is not None:
+            pulumi.set(__self__, "source_security_group_owner_alias", source_security_group_owner_alias)
         if subnets is not None:
             pulumi.set(__self__, "subnets", subnets)
         if tags is not None:
@@ -95,7 +121,9 @@ class LoadBalancerArgs:
     @pulumi.getter
     def listeners(self) -> pulumi.Input[Sequence[pulumi.Input['LoadBalancerListenersArgs']]]:
         """
-        The Listeners for the load balancer. You can specify at most one listener per port.
+        The listeners for the load balancer. You can specify at most one listener per port.
+
+        If you update the properties for a listener, AWS CloudFormation deletes the existing listener and creates a new one with the specified properties. While the new listener is being created, clients cannot connect to the load balancer.
         """
         return pulumi.get(self, "listeners")
 
@@ -131,7 +159,9 @@ class LoadBalancerArgs:
     @pulumi.getter(name="availabilityZones")
     def availability_zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        The Availability Zones for a load balancer in a default VPC. For a load balancer in a nondefault VPC, specify Subnets instead.
+        The Availability Zones for a load balancer in a default VPC. For a load balancer in a nondefault VPC, specify `Subnets` instead.
+
+        Update requires replacement if you did not previously specify an Availability Zone or if you are removing all Availability Zones. Otherwise, update requires no interruption.
         """
         return pulumi.get(self, "availability_zones")
 
@@ -144,6 +174,8 @@ class LoadBalancerArgs:
     def connection_draining_policy(self) -> Optional[pulumi.Input['LoadBalancerConnectionDrainingPolicyArgs']]:
         """
         If enabled, the load balancer allows existing requests to complete before the load balancer shifts traffic away from a deregistered or unhealthy instance.
+
+        For more information, see [Configure connection draining](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-conn-drain.html) in the *User Guide for Classic Load Balancers* .
         """
         return pulumi.get(self, "connection_draining_policy")
 
@@ -156,6 +188,8 @@ class LoadBalancerArgs:
     def connection_settings(self) -> Optional[pulumi.Input['LoadBalancerConnectionSettingsArgs']]:
         """
         If enabled, the load balancer allows the connections to remain idle (no data is sent over the connection) for the specified duration.
+
+        By default, Elastic Load Balancing maintains a 60-second idle connection timeout for both front-end and back-end connections of your load balancer. For more information, see [Configure idle connection timeout](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-idle-timeout.html) in the *User Guide for Classic Load Balancers* .
         """
         return pulumi.get(self, "connection_settings")
 
@@ -168,6 +202,8 @@ class LoadBalancerArgs:
     def cross_zone(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
         If enabled, the load balancer routes the request traffic evenly across all instances regardless of the Availability Zones.
+
+        For more information, see [Configure cross-zone load balancing](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-disable-crosszone-lb.html) in the *User Guide for Classic Load Balancers* .
         """
         return pulumi.get(self, "cross_zone")
 
@@ -180,6 +216,8 @@ class LoadBalancerArgs:
     def health_check(self) -> Optional[pulumi.Input['LoadBalancerHealthCheckArgs']]:
         """
         The health check settings to use when evaluating the health of your EC2 instances.
+
+        Update requires replacement if you did not previously specify health check settings or if you are removing the health check settings. Otherwise, update requires no interruption.
         """
         return pulumi.get(self, "health_check")
 
@@ -216,6 +254,8 @@ class LoadBalancerArgs:
     def load_balancer_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The name of the load balancer. This name must be unique within your set of load balancers for the region.
+
+        If you don't specify a name, AWS CloudFormation generates a unique physical ID for the load balancer. For more information, see [Name Type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html) . If you specify a name, you cannot perform updates that require replacement of this resource, but you can perform other updates. To replace the resource, specify a new name.
         """
         return pulumi.get(self, "load_balancer_name")
 
@@ -240,6 +280,10 @@ class LoadBalancerArgs:
     def scheme(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The type of load balancer. Valid only for load balancers in a VPC.
+
+        If `Scheme` is `internet-facing` , the load balancer has a public DNS name that resolves to a public IP address.
+
+        If `Scheme` is `internal` , the load balancer has a public DNS name that resolves to a private IP address.
         """
         return pulumi.get(self, "scheme")
 
@@ -260,10 +304,30 @@ class LoadBalancerArgs:
         pulumi.set(self, "security_groups", value)
 
     @_builtins.property
+    @pulumi.getter(name="sourceSecurityGroupGroupName")
+    def source_security_group_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "source_security_group_group_name")
+
+    @source_security_group_group_name.setter
+    def source_security_group_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "source_security_group_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sourceSecurityGroupOwnerAlias")
+    def source_security_group_owner_alias(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "source_security_group_owner_alias")
+
+    @source_security_group_owner_alias.setter
+    def source_security_group_owner_alias(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "source_security_group_owner_alias", value)
+
+    @_builtins.property
     @pulumi.getter
     def subnets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The IDs of the subnets for the load balancer. You can specify at most one subnet per Availability Zone.
+
+        Update requires replacement if you did not previously specify a subnet or if you are removing all subnets. Otherwise, update requires no interruption. To update to a different subnet in the current Availability Zone, you must first update to a subnet in a different Availability Zone, then update to the new subnet in the original Availability Zone.
         """
         return pulumi.get(self, "subnets")
 
@@ -304,6 +368,8 @@ class LoadBalancer(pulumi.CustomResource):
                  policies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LoadBalancerPoliciesArgs', 'LoadBalancerPoliciesArgsDict']]]]] = None,
                  scheme: Optional[pulumi.Input[_builtins.str]] = None,
                  security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 source_security_group_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 source_security_group_owner_alias: Optional[pulumi.Input[_builtins.str]] = None,
                  subnets: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
@@ -315,19 +381,39 @@ class LoadBalancer(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['LoadBalancerAccessLoggingPolicyArgs', 'LoadBalancerAccessLoggingPolicyArgsDict']] access_logging_policy: Information about where and how access logs are stored for the load balancer.
         :param pulumi.Input[Sequence[pulumi.Input[Union['LoadBalancerAppCookieStickinessPolicyArgs', 'LoadBalancerAppCookieStickinessPolicyArgsDict']]]] app_cookie_stickiness_policy: Information about a policy for application-controlled session stickiness.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] availability_zones: The Availability Zones for a load balancer in a default VPC. For a load balancer in a nondefault VPC, specify Subnets instead.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] availability_zones: The Availability Zones for a load balancer in a default VPC. For a load balancer in a nondefault VPC, specify `Subnets` instead.
+               
+               Update requires replacement if you did not previously specify an Availability Zone or if you are removing all Availability Zones. Otherwise, update requires no interruption.
         :param pulumi.Input[Union['LoadBalancerConnectionDrainingPolicyArgs', 'LoadBalancerConnectionDrainingPolicyArgsDict']] connection_draining_policy: If enabled, the load balancer allows existing requests to complete before the load balancer shifts traffic away from a deregistered or unhealthy instance.
+               
+               For more information, see [Configure connection draining](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-conn-drain.html) in the *User Guide for Classic Load Balancers* .
         :param pulumi.Input[Union['LoadBalancerConnectionSettingsArgs', 'LoadBalancerConnectionSettingsArgsDict']] connection_settings: If enabled, the load balancer allows the connections to remain idle (no data is sent over the connection) for the specified duration.
+               
+               By default, Elastic Load Balancing maintains a 60-second idle connection timeout for both front-end and back-end connections of your load balancer. For more information, see [Configure idle connection timeout](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-idle-timeout.html) in the *User Guide for Classic Load Balancers* .
         :param pulumi.Input[_builtins.bool] cross_zone: If enabled, the load balancer routes the request traffic evenly across all instances regardless of the Availability Zones.
+               
+               For more information, see [Configure cross-zone load balancing](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-disable-crosszone-lb.html) in the *User Guide for Classic Load Balancers* .
         :param pulumi.Input[Union['LoadBalancerHealthCheckArgs', 'LoadBalancerHealthCheckArgsDict']] health_check: The health check settings to use when evaluating the health of your EC2 instances.
+               
+               Update requires replacement if you did not previously specify health check settings or if you are removing the health check settings. Otherwise, update requires no interruption.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] instances: The IDs of the instances for the load balancer.
         :param pulumi.Input[Sequence[pulumi.Input[Union['LoadBalancerLbCookieStickinessPolicyArgs', 'LoadBalancerLbCookieStickinessPolicyArgsDict']]]] lb_cookie_stickiness_policy: Information about a policy for duration-based session stickiness.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['LoadBalancerListenersArgs', 'LoadBalancerListenersArgsDict']]]] listeners: The Listeners for the load balancer. You can specify at most one listener per port.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['LoadBalancerListenersArgs', 'LoadBalancerListenersArgsDict']]]] listeners: The listeners for the load balancer. You can specify at most one listener per port.
+               
+               If you update the properties for a listener, AWS CloudFormation deletes the existing listener and creates a new one with the specified properties. While the new listener is being created, clients cannot connect to the load balancer.
         :param pulumi.Input[_builtins.str] load_balancer_name: The name of the load balancer. This name must be unique within your set of load balancers for the region.
+               
+               If you don't specify a name, AWS CloudFormation generates a unique physical ID for the load balancer. For more information, see [Name Type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html) . If you specify a name, you cannot perform updates that require replacement of this resource, but you can perform other updates. To replace the resource, specify a new name.
         :param pulumi.Input[Sequence[pulumi.Input[Union['LoadBalancerPoliciesArgs', 'LoadBalancerPoliciesArgsDict']]]] policies: The policies defined for your Classic Load Balancer. Specify only back-end server policies.
         :param pulumi.Input[_builtins.str] scheme: The type of load balancer. Valid only for load balancers in a VPC.
+               
+               If `Scheme` is `internet-facing` , the load balancer has a public DNS name that resolves to a public IP address.
+               
+               If `Scheme` is `internal` , the load balancer has a public DNS name that resolves to a private IP address.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_groups: The security groups for the load balancer. Valid only for load balancers in a VPC.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnets: The IDs of the subnets for the load balancer. You can specify at most one subnet per Availability Zone.
+               
+               Update requires replacement if you did not previously specify a subnet or if you are removing all subnets. Otherwise, update requires no interruption. To update to a different subnet in the current Availability Zone, you must first update to a subnet in a different Availability Zone, then update to the new subnet in the original Availability Zone.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags associated with a load balancer.
         """
         ...
@@ -369,6 +455,8 @@ class LoadBalancer(pulumi.CustomResource):
                  policies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LoadBalancerPoliciesArgs', 'LoadBalancerPoliciesArgsDict']]]]] = None,
                  scheme: Optional[pulumi.Input[_builtins.str]] = None,
                  security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 source_security_group_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 source_security_group_owner_alias: Optional[pulumi.Input[_builtins.str]] = None,
                  subnets: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
@@ -396,12 +484,14 @@ class LoadBalancer(pulumi.CustomResource):
             __props__.__dict__["policies"] = policies
             __props__.__dict__["scheme"] = scheme
             __props__.__dict__["security_groups"] = security_groups
+            __props__.__dict__["source_security_group_group_name"] = source_security_group_group_name
+            __props__.__dict__["source_security_group_owner_alias"] = source_security_group_owner_alias
             __props__.__dict__["subnets"] = subnets
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["aws_id"] = None
             __props__.__dict__["canonical_hosted_zone_name"] = None
             __props__.__dict__["canonical_hosted_zone_name_id"] = None
             __props__.__dict__["dns_name"] = None
-            __props__.__dict__["source_security_group"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["loadBalancerName", "scheme"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(LoadBalancer, __self__).__init__(
@@ -429,6 +519,7 @@ class LoadBalancer(pulumi.CustomResource):
         __props__.__dict__["access_logging_policy"] = None
         __props__.__dict__["app_cookie_stickiness_policy"] = None
         __props__.__dict__["availability_zones"] = None
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["canonical_hosted_zone_name"] = None
         __props__.__dict__["canonical_hosted_zone_name_id"] = None
         __props__.__dict__["connection_draining_policy"] = None
@@ -443,7 +534,8 @@ class LoadBalancer(pulumi.CustomResource):
         __props__.__dict__["policies"] = None
         __props__.__dict__["scheme"] = None
         __props__.__dict__["security_groups"] = None
-        __props__.__dict__["source_security_group"] = None
+        __props__.__dict__["source_security_group_group_name"] = None
+        __props__.__dict__["source_security_group_owner_alias"] = None
         __props__.__dict__["subnets"] = None
         __props__.__dict__["tags"] = None
         return LoadBalancer(resource_name, opts=opts, __props__=__props__)
@@ -468,15 +560,22 @@ class LoadBalancer(pulumi.CustomResource):
     @pulumi.getter(name="availabilityZones")
     def availability_zones(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
         """
-        The Availability Zones for a load balancer in a default VPC. For a load balancer in a nondefault VPC, specify Subnets instead.
+        The Availability Zones for a load balancer in a default VPC. For a load balancer in a nondefault VPC, specify `Subnets` instead.
+
+        Update requires replacement if you did not previously specify an Availability Zone or if you are removing all Availability Zones. Otherwise, update requires no interruption.
         """
         return pulumi.get(self, "availability_zones")
+
+    @_builtins.property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[_builtins.str]:
+        return pulumi.get(self, "aws_id")
 
     @_builtins.property
     @pulumi.getter(name="canonicalHostedZoneName")
     def canonical_hosted_zone_name(self) -> pulumi.Output[_builtins.str]:
         """
-        The name of the Route 53 hosted zone that is associated with the load balancer. Internal-facing load balancers.
+        The name of the Route 53 hosted zone that is associated with the load balancer. Internal-facing load balancers don't use this value, use `DNSName` instead.
         """
         return pulumi.get(self, "canonical_hosted_zone_name")
 
@@ -493,6 +592,8 @@ class LoadBalancer(pulumi.CustomResource):
     def connection_draining_policy(self) -> pulumi.Output[Optional['outputs.LoadBalancerConnectionDrainingPolicy']]:
         """
         If enabled, the load balancer allows existing requests to complete before the load balancer shifts traffic away from a deregistered or unhealthy instance.
+
+        For more information, see [Configure connection draining](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-conn-drain.html) in the *User Guide for Classic Load Balancers* .
         """
         return pulumi.get(self, "connection_draining_policy")
 
@@ -501,6 +602,8 @@ class LoadBalancer(pulumi.CustomResource):
     def connection_settings(self) -> pulumi.Output[Optional['outputs.LoadBalancerConnectionSettings']]:
         """
         If enabled, the load balancer allows the connections to remain idle (no data is sent over the connection) for the specified duration.
+
+        By default, Elastic Load Balancing maintains a 60-second idle connection timeout for both front-end and back-end connections of your load balancer. For more information, see [Configure idle connection timeout](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-idle-timeout.html) in the *User Guide for Classic Load Balancers* .
         """
         return pulumi.get(self, "connection_settings")
 
@@ -509,6 +612,8 @@ class LoadBalancer(pulumi.CustomResource):
     def cross_zone(self) -> pulumi.Output[Optional[_builtins.bool]]:
         """
         If enabled, the load balancer routes the request traffic evenly across all instances regardless of the Availability Zones.
+
+        For more information, see [Configure cross-zone load balancing](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-disable-crosszone-lb.html) in the *User Guide for Classic Load Balancers* .
         """
         return pulumi.get(self, "cross_zone")
 
@@ -516,7 +621,7 @@ class LoadBalancer(pulumi.CustomResource):
     @pulumi.getter(name="dnsName")
     def dns_name(self) -> pulumi.Output[_builtins.str]:
         """
-        The DNS name for the load balancer
+        The DNS name for the load balancer.
         """
         return pulumi.get(self, "dns_name")
 
@@ -525,6 +630,8 @@ class LoadBalancer(pulumi.CustomResource):
     def health_check(self) -> pulumi.Output[Optional['outputs.LoadBalancerHealthCheck']]:
         """
         The health check settings to use when evaluating the health of your EC2 instances.
+
+        Update requires replacement if you did not previously specify health check settings or if you are removing the health check settings. Otherwise, update requires no interruption.
         """
         return pulumi.get(self, "health_check")
 
@@ -548,7 +655,9 @@ class LoadBalancer(pulumi.CustomResource):
     @pulumi.getter
     def listeners(self) -> pulumi.Output[Sequence['outputs.LoadBalancerListeners']]:
         """
-        The Listeners for the load balancer. You can specify at most one listener per port.
+        The listeners for the load balancer. You can specify at most one listener per port.
+
+        If you update the properties for a listener, AWS CloudFormation deletes the existing listener and creates a new one with the specified properties. While the new listener is being created, clients cannot connect to the load balancer.
         """
         return pulumi.get(self, "listeners")
 
@@ -557,6 +666,8 @@ class LoadBalancer(pulumi.CustomResource):
     def load_balancer_name(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
         The name of the load balancer. This name must be unique within your set of load balancers for the region.
+
+        If you don't specify a name, AWS CloudFormation generates a unique physical ID for the load balancer. For more information, see [Name Type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html) . If you specify a name, you cannot perform updates that require replacement of this resource, but you can perform other updates. To replace the resource, specify a new name.
         """
         return pulumi.get(self, "load_balancer_name")
 
@@ -573,6 +684,10 @@ class LoadBalancer(pulumi.CustomResource):
     def scheme(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
         The type of load balancer. Valid only for load balancers in a VPC.
+
+        If `Scheme` is `internet-facing` , the load balancer has a public DNS name that resolves to a public IP address.
+
+        If `Scheme` is `internal` , the load balancer has a public DNS name that resolves to a private IP address.
         """
         return pulumi.get(self, "scheme")
 
@@ -585,15 +700,22 @@ class LoadBalancer(pulumi.CustomResource):
         return pulumi.get(self, "security_groups")
 
     @_builtins.property
-    @pulumi.getter(name="sourceSecurityGroup")
-    def source_security_group(self) -> pulumi.Output['outputs.LoadBalancerSourceSecurityGroup']:
-        return pulumi.get(self, "source_security_group")
+    @pulumi.getter(name="sourceSecurityGroupGroupName")
+    def source_security_group_group_name(self) -> pulumi.Output[Optional[_builtins.str]]:
+        return pulumi.get(self, "source_security_group_group_name")
+
+    @_builtins.property
+    @pulumi.getter(name="sourceSecurityGroupOwnerAlias")
+    def source_security_group_owner_alias(self) -> pulumi.Output[Optional[_builtins.str]]:
+        return pulumi.get(self, "source_security_group_owner_alias")
 
     @_builtins.property
     @pulumi.getter
     def subnets(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
         """
         The IDs of the subnets for the load balancer. You can specify at most one subnet per Availability Zone.
+
+        Update requires replacement if you did not previously specify a subnet or if you are removing all subnets. Otherwise, update requires no interruption. To update to a different subnet in the current Availability Zone, you must first update to a subnet in a different Availability Zone, then update to the new subnet in the original Availability Zone.
         """
         return pulumi.get(self, "subnets")
 

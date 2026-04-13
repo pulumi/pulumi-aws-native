@@ -66,6 +66,10 @@ export class DirectoryBucket extends pulumi.CustomResource {
      */
     declare public readonly locationName: pulumi.Output<string>;
     /**
+     * Specifies the metrics configurations for the Amazon S3 Express bucket.
+     */
+    declare public readonly metricsConfigurations: pulumi.Output<outputs.s3express.DirectoryBucketMetricsConfiguration[] | undefined>;
+    /**
      * An array of tags that you can apply to the S3 directory bucket. Tags are key-value pairs of metadata used to categorize and organize your buckets, track costs, and control access. For more information, see [Using tags with directory buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/directory-buckets-tagging.html) .
      */
     declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
@@ -92,6 +96,7 @@ export class DirectoryBucket extends pulumi.CustomResource {
             resourceInputs["dataRedundancy"] = args?.dataRedundancy;
             resourceInputs["lifecycleConfiguration"] = args?.lifecycleConfiguration;
             resourceInputs["locationName"] = args?.locationName;
+            resourceInputs["metricsConfigurations"] = args?.metricsConfigurations;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["availabilityZoneName"] = undefined /*out*/;
@@ -103,6 +108,7 @@ export class DirectoryBucket extends pulumi.CustomResource {
             resourceInputs["dataRedundancy"] = undefined /*out*/;
             resourceInputs["lifecycleConfiguration"] = undefined /*out*/;
             resourceInputs["locationName"] = undefined /*out*/;
+            resourceInputs["metricsConfigurations"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -136,6 +142,10 @@ export interface DirectoryBucketArgs {
      * Specifies the Zone ID of the Availability Zone or Local Zone where the directory bucket will be created. An example Availability Zone ID value is 'use1-az5'.
      */
     locationName: pulumi.Input<string>;
+    /**
+     * Specifies the metrics configurations for the Amazon S3 Express bucket.
+     */
+    metricsConfigurations?: pulumi.Input<pulumi.Input<inputs.s3express.DirectoryBucketMetricsConfigurationArgs>[]>;
     /**
      * An array of tags that you can apply to the S3 directory bucket. Tags are key-value pairs of metadata used to categorize and organize your buckets, track costs, and control access. For more information, see [Using tags with directory buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/directory-buckets-tagging.html) .
      */

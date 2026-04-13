@@ -20,13 +20,15 @@ type Stage struct {
 	AccessLogSettings StageAccessLogSettingsPtrOutput `pulumi:"accessLogSettings"`
 	// The API identifier.
 	ApiId pulumi.StringOutput `pulumi:"apiId"`
-	// Specifies whether updates to an API automatically trigger a new deployment. The default value is false.
+	// Specifies whether updates to an API automatically trigger a new deployment. The default value is `false` .
 	AutoDeploy pulumi.BoolPtrOutput `pulumi:"autoDeploy"`
-	// The identifier of a client certificate for a Stage. Supported only for WebSocket APIs.
+	// The identifier.
+	AwsId pulumi.StringOutput `pulumi:"awsId"`
+	// The identifier of a client certificate for a `Stage` . Supported only for WebSocket APIs.
 	ClientCertificateId pulumi.StringPtrOutput `pulumi:"clientCertificateId"`
 	// The default route settings for the stage.
 	DefaultRouteSettings StageRouteSettingsPtrOutput `pulumi:"defaultRouteSettings"`
-	// The deployment identifier for the API stage. Can't be updated if autoDeploy is enabled.
+	// The deployment identifier for the API stage. Can't be updated if `autoDeploy` is enabled.
 	DeploymentId pulumi.StringPtrOutput `pulumi:"deploymentId"`
 	// The description for the API stage.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
@@ -34,9 +36,9 @@ type Stage struct {
 	//
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::Stage` for more information about the expected schema for this property.
 	RouteSettings pulumi.AnyOutput `pulumi:"routeSettings"`
-	// The stage name. Stage names can contain only alphanumeric characters, hyphens, and underscores, or be $default. Maximum length is 128 characters.
+	// The stage name. Stage names can contain only alphanumeric characters, hyphens, and underscores, or be `$default` . Maximum length is 128 characters.
 	StageName pulumi.StringOutput `pulumi:"stageName"`
-	// A map that defines the stage variables for a Stage. Variable names can have alphanumeric and underscore characters, and the values must match [A-Za-z0-9-._~:/?#&=,]+.
+	// A map that defines the stage variables for a `Stage` . Variable names can have alphanumeric and underscore characters, and the values must match [A-Za-z0-9-._~:/?#&=,]+.
 	//
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::Stage` for more information about the expected schema for this property.
 	StageVariables pulumi.AnyOutput `pulumi:"stageVariables"`
@@ -98,13 +100,13 @@ type stageArgs struct {
 	AccessLogSettings *StageAccessLogSettings `pulumi:"accessLogSettings"`
 	// The API identifier.
 	ApiId string `pulumi:"apiId"`
-	// Specifies whether updates to an API automatically trigger a new deployment. The default value is false.
+	// Specifies whether updates to an API automatically trigger a new deployment. The default value is `false` .
 	AutoDeploy *bool `pulumi:"autoDeploy"`
-	// The identifier of a client certificate for a Stage. Supported only for WebSocket APIs.
+	// The identifier of a client certificate for a `Stage` . Supported only for WebSocket APIs.
 	ClientCertificateId *string `pulumi:"clientCertificateId"`
 	// The default route settings for the stage.
 	DefaultRouteSettings *StageRouteSettings `pulumi:"defaultRouteSettings"`
-	// The deployment identifier for the API stage. Can't be updated if autoDeploy is enabled.
+	// The deployment identifier for the API stage. Can't be updated if `autoDeploy` is enabled.
 	DeploymentId *string `pulumi:"deploymentId"`
 	// The description for the API stage.
 	Description *string `pulumi:"description"`
@@ -112,9 +114,9 @@ type stageArgs struct {
 	//
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::Stage` for more information about the expected schema for this property.
 	RouteSettings interface{} `pulumi:"routeSettings"`
-	// The stage name. Stage names can contain only alphanumeric characters, hyphens, and underscores, or be $default. Maximum length is 128 characters.
+	// The stage name. Stage names can contain only alphanumeric characters, hyphens, and underscores, or be `$default` . Maximum length is 128 characters.
 	StageName *string `pulumi:"stageName"`
-	// A map that defines the stage variables for a Stage. Variable names can have alphanumeric and underscore characters, and the values must match [A-Za-z0-9-._~:/?#&=,]+.
+	// A map that defines the stage variables for a `Stage` . Variable names can have alphanumeric and underscore characters, and the values must match [A-Za-z0-9-._~:/?#&=,]+.
 	//
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::Stage` for more information about the expected schema for this property.
 	StageVariables interface{} `pulumi:"stageVariables"`
@@ -130,13 +132,13 @@ type StageArgs struct {
 	AccessLogSettings StageAccessLogSettingsPtrInput
 	// The API identifier.
 	ApiId pulumi.StringInput
-	// Specifies whether updates to an API automatically trigger a new deployment. The default value is false.
+	// Specifies whether updates to an API automatically trigger a new deployment. The default value is `false` .
 	AutoDeploy pulumi.BoolPtrInput
-	// The identifier of a client certificate for a Stage. Supported only for WebSocket APIs.
+	// The identifier of a client certificate for a `Stage` . Supported only for WebSocket APIs.
 	ClientCertificateId pulumi.StringPtrInput
 	// The default route settings for the stage.
 	DefaultRouteSettings StageRouteSettingsPtrInput
-	// The deployment identifier for the API stage. Can't be updated if autoDeploy is enabled.
+	// The deployment identifier for the API stage. Can't be updated if `autoDeploy` is enabled.
 	DeploymentId pulumi.StringPtrInput
 	// The description for the API stage.
 	Description pulumi.StringPtrInput
@@ -144,9 +146,9 @@ type StageArgs struct {
 	//
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::Stage` for more information about the expected schema for this property.
 	RouteSettings pulumi.Input
-	// The stage name. Stage names can contain only alphanumeric characters, hyphens, and underscores, or be $default. Maximum length is 128 characters.
+	// The stage name. Stage names can contain only alphanumeric characters, hyphens, and underscores, or be `$default` . Maximum length is 128 characters.
 	StageName pulumi.StringPtrInput
-	// A map that defines the stage variables for a Stage. Variable names can have alphanumeric and underscore characters, and the values must match [A-Za-z0-9-._~:/?#&=,]+.
+	// A map that defines the stage variables for a `Stage` . Variable names can have alphanumeric and underscore characters, and the values must match [A-Za-z0-9-._~:/?#&=,]+.
 	//
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::Stage` for more information about the expected schema for this property.
 	StageVariables pulumi.Input
@@ -203,12 +205,17 @@ func (o StageOutput) ApiId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Stage) pulumi.StringOutput { return v.ApiId }).(pulumi.StringOutput)
 }
 
-// Specifies whether updates to an API automatically trigger a new deployment. The default value is false.
+// Specifies whether updates to an API automatically trigger a new deployment. The default value is `false` .
 func (o StageOutput) AutoDeploy() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Stage) pulumi.BoolPtrOutput { return v.AutoDeploy }).(pulumi.BoolPtrOutput)
 }
 
-// The identifier of a client certificate for a Stage. Supported only for WebSocket APIs.
+// The identifier.
+func (o StageOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Stage) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
+}
+
+// The identifier of a client certificate for a `Stage` . Supported only for WebSocket APIs.
 func (o StageOutput) ClientCertificateId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Stage) pulumi.StringPtrOutput { return v.ClientCertificateId }).(pulumi.StringPtrOutput)
 }
@@ -218,7 +225,7 @@ func (o StageOutput) DefaultRouteSettings() StageRouteSettingsPtrOutput {
 	return o.ApplyT(func(v *Stage) StageRouteSettingsPtrOutput { return v.DefaultRouteSettings }).(StageRouteSettingsPtrOutput)
 }
 
-// The deployment identifier for the API stage. Can't be updated if autoDeploy is enabled.
+// The deployment identifier for the API stage. Can't be updated if `autoDeploy` is enabled.
 func (o StageOutput) DeploymentId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Stage) pulumi.StringPtrOutput { return v.DeploymentId }).(pulumi.StringPtrOutput)
 }
@@ -235,12 +242,12 @@ func (o StageOutput) RouteSettings() pulumi.AnyOutput {
 	return o.ApplyT(func(v *Stage) pulumi.AnyOutput { return v.RouteSettings }).(pulumi.AnyOutput)
 }
 
-// The stage name. Stage names can contain only alphanumeric characters, hyphens, and underscores, or be $default. Maximum length is 128 characters.
+// The stage name. Stage names can contain only alphanumeric characters, hyphens, and underscores, or be `$default` . Maximum length is 128 characters.
 func (o StageOutput) StageName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Stage) pulumi.StringOutput { return v.StageName }).(pulumi.StringOutput)
 }
 
-// A map that defines the stage variables for a Stage. Variable names can have alphanumeric and underscore characters, and the values must match [A-Za-z0-9-._~:/?#&=,]+.
+// A map that defines the stage variables for a `Stage` . Variable names can have alphanumeric and underscore characters, and the values must match [A-Za-z0-9-._~:/?#&=,]+.
 //
 // Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::Stage` for more information about the expected schema for this property.
 func (o StageOutput) StageVariables() pulumi.AnyOutput {

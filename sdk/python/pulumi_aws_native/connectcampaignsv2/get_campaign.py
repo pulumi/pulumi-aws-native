@@ -26,7 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetCampaignResult:
-    def __init__(__self__, arn=None, channel_subtype_config=None, communication_limits_override=None, communication_time_config=None, connect_campaign_flow_arn=None, name=None, schedule=None, source=None, tags=None, type=None):
+    def __init__(__self__, arn=None, channel_subtype_config=None, communication_limits_override=None, communication_time_config=None, connect_campaign_flow_arn=None, entry_limits_config=None, name=None, schedule=None, source=None, tags=None, type=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -42,6 +42,9 @@ class GetCampaignResult:
         if connect_campaign_flow_arn and not isinstance(connect_campaign_flow_arn, str):
             raise TypeError("Expected argument 'connect_campaign_flow_arn' to be a str")
         pulumi.set(__self__, "connect_campaign_flow_arn", connect_campaign_flow_arn)
+        if entry_limits_config and not isinstance(entry_limits_config, dict):
+            raise TypeError("Expected argument 'entry_limits_config' to be a dict")
+        pulumi.set(__self__, "entry_limits_config", entry_limits_config)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -99,6 +102,11 @@ class GetCampaignResult:
         return pulumi.get(self, "connect_campaign_flow_arn")
 
     @_builtins.property
+    @pulumi.getter(name="entryLimitsConfig")
+    def entry_limits_config(self) -> Optional['outputs.CampaignEntryLimitsConfig']:
+        return pulumi.get(self, "entry_limits_config")
+
+    @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[_builtins.str]:
         """
@@ -150,6 +158,7 @@ class AwaitableGetCampaignResult(GetCampaignResult):
             communication_limits_override=self.communication_limits_override,
             communication_time_config=self.communication_time_config,
             connect_campaign_flow_arn=self.connect_campaign_flow_arn,
+            entry_limits_config=self.entry_limits_config,
             name=self.name,
             schedule=self.schedule,
             source=self.source,
@@ -176,6 +185,7 @@ def get_campaign(arn: Optional[_builtins.str] = None,
         communication_limits_override=pulumi.get(__ret__, 'communication_limits_override'),
         communication_time_config=pulumi.get(__ret__, 'communication_time_config'),
         connect_campaign_flow_arn=pulumi.get(__ret__, 'connect_campaign_flow_arn'),
+        entry_limits_config=pulumi.get(__ret__, 'entry_limits_config'),
         name=pulumi.get(__ret__, 'name'),
         schedule=pulumi.get(__ret__, 'schedule'),
         source=pulumi.get(__ret__, 'source'),
@@ -199,6 +209,7 @@ def get_campaign_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
         communication_limits_override=pulumi.get(__response__, 'communication_limits_override'),
         communication_time_config=pulumi.get(__response__, 'communication_time_config'),
         connect_campaign_flow_arn=pulumi.get(__response__, 'connect_campaign_flow_arn'),
+        entry_limits_config=pulumi.get(__response__, 'entry_limits_config'),
         name=pulumi.get(__response__, 'name'),
         schedule=pulumi.get(__response__, 'schedule'),
         source=pulumi.get(__response__, 'source'),

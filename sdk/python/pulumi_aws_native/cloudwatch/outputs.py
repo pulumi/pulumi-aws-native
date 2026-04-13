@@ -18,9 +18,11 @@ from ._enums import *
 
 __all__ = [
     'AlarmDimension',
+    'AlarmEvaluationCriteria',
     'AlarmMetric',
     'AlarmMetricDataQuery',
     'AlarmMetricStat',
+    'AlarmPromQlCriteria',
     'MetricStreamFilter',
     'MetricStreamStatisticsConfiguration',
     'MetricStreamStatisticsMetric',
@@ -61,6 +63,36 @@ class AlarmDimension(dict):
         The value for the dimension, from 1–255 characters in length.
         """
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class AlarmEvaluationCriteria(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "promQlCriteria":
+            suggest = "prom_ql_criteria"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AlarmEvaluationCriteria. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AlarmEvaluationCriteria.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AlarmEvaluationCriteria.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 prom_ql_criteria: Optional['outputs.AlarmPromQlCriteria'] = None):
+        if prom_ql_criteria is not None:
+            pulumi.set(__self__, "prom_ql_criteria", prom_ql_criteria)
+
+    @_builtins.property
+    @pulumi.getter(name="promQlCriteria")
+    def prom_ql_criteria(self) -> Optional['outputs.AlarmPromQlCriteria']:
+        return pulumi.get(self, "prom_ql_criteria")
 
 
 @pulumi.output_type
@@ -321,6 +353,68 @@ class AlarmMetricStat(dict):
          Valid values are: Seconds, Microseconds, Milliseconds, Bytes, Kilobytes, Megabytes, Gigabytes, Terabytes, Bits, Kilobits, Megabits, Gigabits, Terabits, Percent, Count, Bytes/Second, Kilobytes/Second, Megabytes/Second, Gigabytes/Second, Terabytes/Second, Bits/Second, Kilobits/Second, Megabits/Second, Gigabits/Second, Terabits/Second, Count/Second, or None.
         """
         return pulumi.get(self, "unit")
+
+
+@pulumi.output_type
+class AlarmPromQlCriteria(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "pendingPeriod":
+            suggest = "pending_period"
+        elif key == "recoveryPeriod":
+            suggest = "recovery_period"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AlarmPromQlCriteria. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AlarmPromQlCriteria.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AlarmPromQlCriteria.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 pending_period: Optional[_builtins.int] = None,
+                 query: Optional[_builtins.str] = None,
+                 recovery_period: Optional[_builtins.int] = None):
+        """
+        :param _builtins.int pending_period: The pending period for the alarm.
+        :param _builtins.str query: The PromQL query string.
+        :param _builtins.int recovery_period: The recovery period for the alarm.
+        """
+        if pending_period is not None:
+            pulumi.set(__self__, "pending_period", pending_period)
+        if query is not None:
+            pulumi.set(__self__, "query", query)
+        if recovery_period is not None:
+            pulumi.set(__self__, "recovery_period", recovery_period)
+
+    @_builtins.property
+    @pulumi.getter(name="pendingPeriod")
+    def pending_period(self) -> Optional[_builtins.int]:
+        """
+        The pending period for the alarm.
+        """
+        return pulumi.get(self, "pending_period")
+
+    @_builtins.property
+    @pulumi.getter
+    def query(self) -> Optional[_builtins.str]:
+        """
+        The PromQL query string.
+        """
+        return pulumi.get(self, "query")
+
+    @_builtins.property
+    @pulumi.getter(name="recoveryPeriod")
+    def recovery_period(self) -> Optional[_builtins.int]:
+        """
+        The recovery period for the alarm.
+        """
+        return pulumi.get(self, "recovery_period")
 
 
 @pulumi.output_type

@@ -1,5 +1,7 @@
+AWS::ApiGatewayV2::Stage
 AWS::DAX::SubnetGroup
 AWS::DataSync::StorageSystem
+AWS::ElasticLoadBalancing::LoadBalancer
 AWS::GameCast::Application
 AWS::GameCast::StreamGroup
 AWS::IoTFleetHub::Application
@@ -20,3 +22,5 @@ AWSQS::Kubernetes::Resource
 MongoDB::Atlas::DataLakePipeline
 MongoDB::Atlas::DataLakes
 MongoDB::Atlas::PrivateEndpointADL
+MongoDB::Atlas::ServerlessInstance
+MongoDB::Atlas::ServerlessPrivateEndpoint

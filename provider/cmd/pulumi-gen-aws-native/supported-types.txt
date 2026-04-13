@@ -132,14 +132,17 @@ AWS::Batch::JobQueue
 AWS::Batch::QuotaShare
 AWS::Batch::SchedulingPolicy
 AWS::Batch::ServiceEnvironment
+AWS::BcmPricingCalculator::BillScenario
 AWS::Bedrock::Agent
 AWS::Bedrock::AgentAlias
 AWS::Bedrock::ApplicationInferenceProfile
 AWS::Bedrock::AutomatedReasoningPolicy
 AWS::Bedrock::AutomatedReasoningPolicyVersion
 AWS::Bedrock::Blueprint
+AWS::Bedrock::DataAutomationLibrary
 AWS::Bedrock::DataAutomationProject
 AWS::Bedrock::DataSource
+AWS::Bedrock::EnforcedGuardrailConfiguration
 AWS::Bedrock::Flow
 AWS::Bedrock::FlowAlias
 AWS::Bedrock::FlowVersion
@@ -149,6 +152,7 @@ AWS::Bedrock::IntelligentPromptRouter
 AWS::Bedrock::KnowledgeBase
 AWS::Bedrock::Prompt
 AWS::Bedrock::PromptVersion
+AWS::Bedrock::ResourcePolicy
 AWS::BedrockAgentCore::ApiKeyCredentialProvider
 AWS::BedrockAgentCore::BrowserCustom
 AWS::BedrockAgentCore::BrowserProfile
@@ -166,6 +170,7 @@ AWS::BedrockAgentCore::RuntimeEndpoint
 AWS::BedrockAgentCore::WorkloadIdentity
 AWS::BedrockMantle::Project
 AWS::Billing::BillingView
+AWS::Braket::SpendingLimit
 AWS::Budgets::BudgetsAction
 AWS::CE::AnomalyMonitor
 AWS::CE::AnomalySubscription
@@ -1125,6 +1130,10 @@ AWS::S3::StorageLensGroup
 AWS::S3Express::AccessPoint
 AWS::S3Express::BucketPolicy
 AWS::S3Express::DirectoryBucket
+AWS::S3Files::AccessPoint
+AWS::S3Files::FileSystem
+AWS::S3Files::FileSystemPolicy
+AWS::S3Files::MountTarget
 AWS::S3ObjectLambda::AccessPoint
 AWS::S3ObjectLambda::AccessPointPolicy
 AWS::S3Outposts::AccessPoint

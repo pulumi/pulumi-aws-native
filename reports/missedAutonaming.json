@@ -1606,6 +1606,25 @@
       }
     }
   },
+  "aws-native:bedrock:EnforcedGuardrailConfiguration": {
+    "cfTypeName": "AWS::Bedrock::EnforcedGuardrailConfiguration",
+    "properties": {
+      "guardrailIdentifier": {
+        "type": "string",
+        "description": "Identifier for the guardrail, could be the ID or the ARN"
+      },
+      "guardrailVersion": {
+        "type": "string",
+        "description": "Numerical guardrail version (not DRAFT)"
+      },
+      "modelEnforcement": {
+        "$ref": "#/types/aws-native:bedrock:EnforcedGuardrailConfigurationModelEnforcement"
+      },
+      "selectiveContentGuarding": {
+        "$ref": "#/types/aws-native:bedrock:EnforcedGuardrailConfigurationSelectiveContentGuarding"
+      }
+    }
+  },
   "aws-native:bedrock:FlowVersion": {
     "cfTypeName": "AWS::Bedrock::FlowVersion",
     "properties": {
@@ -1649,6 +1668,19 @@
           "type": "string"
         },
         "description": "A map of tags attached to the prompt version and their values."
+      }
+    }
+  },
+  "aws-native:bedrock:ResourcePolicy": {
+    "cfTypeName": "AWS::Bedrock::ResourcePolicy",
+    "properties": {
+      "policyDocument": {
+        "$ref": "pulumi.json#/Any",
+        "description": "The IAM policy document defining access permissions for the guardrail and guardrail profile resources\n\nSearch the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Bedrock::ResourcePolicy` for more information about the expected schema for this property."
+      },
+      "resourceArn": {
+        "type": "string",
+        "description": "The ARN of the Bedrock Guardrail or Guardrail Profile resource"
       }
     }
   },
@@ -1711,6 +1743,34 @@
           "type": "string"
         },
         "description": "The tags for the agent."
+      }
+    }
+  },
+  "aws-native:braket:SpendingLimit": {
+    "cfTypeName": "AWS::Braket::SpendingLimit",
+    "properties": {
+      "deviceArn": {
+        "type": "string",
+        "description": "The Amazon Resource Name (ARN) of the quantum device to apply the spending limit to."
+      },
+      "spendingLimit": {
+        "type": "string",
+        "description": "The maximum amount that can be spent on the specified device, in USD.",
+        "language": {
+          "csharp": {
+            "name": "SpendingLimitValue"
+          }
+        }
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:index:Tag"
+        },
+        "description": "The tags to apply to the spending limit."
+      },
+      "timePeriod": {
+        "$ref": "#/types/aws-native:braket:SpendingLimitTimePeriod"
       }
     }
   },
@@ -14921,6 +14981,103 @@
       "policyDocument": {
         "$ref": "pulumi.json#/Any",
         "description": "A policy document containing permissions to add to the specified bucket. In IAM, you must provide policy documents in JSON format. However, in CloudFormation you can provide the policy in JSON or YAML format because CloudFormation converts YAML to JSON before submitting it to IAM.\n\nSearch the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::S3Express::BucketPolicy` for more information about the expected schema for this property."
+      }
+    }
+  },
+  "aws-native:s3files:AccessPoint": {
+    "cfTypeName": "AWS::S3Files::AccessPoint",
+    "properties": {
+      "clientToken": {
+        "type": "string",
+        "description": "(optional) A string of up to 64 ASCII characters that Amazon EFS uses to ensure idempotent creation."
+      },
+      "fileSystemId": {
+        "type": "string",
+        "description": "The ID of the S3 Files file system that the access point provides access to."
+      },
+      "posixUser": {
+        "$ref": "#/types/aws-native:s3files:AccessPointPosixUser",
+        "description": "The operating system user and group applied to all compute drive requests made using the access point."
+      },
+      "rootDirectory": {
+        "$ref": "#/types/aws-native:s3files:AccessPointRootDirectory",
+        "description": "Specifies the directory on the Amazon EFS file system that the access point exposes as the root directory of your file system to NFS clients using the access point. The clients using the access point can only access the root directory and below. If the RootDirectory\u003ePath specified does not exist, EFS creates it and applies the CreationPermissions settings when a client connects to an access point. When specifying a RootDirectory, you need to provide the Path, and the CreationPermissions is optional."
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:index:Tag"
+        }
+      }
+    }
+  },
+  "aws-native:s3files:FileSystem": {
+    "cfTypeName": "AWS::S3Files::FileSystem",
+    "properties": {
+      "acceptBucketWarning": {
+        "type": "boolean"
+      },
+      "bucket": {
+        "type": "string"
+      },
+      "clientToken": {
+        "type": "string"
+      },
+      "kmsKeyId": {
+        "type": "string"
+      },
+      "prefix": {
+        "type": "string"
+      },
+      "roleArn": {
+        "type": "string"
+      },
+      "synchronizationConfiguration": {
+        "$ref": "#/types/aws-native:s3files:FileSystemSynchronizationConfiguration"
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:index:Tag"
+        }
+      }
+    }
+  },
+  "aws-native:s3files:FileSystemPolicy": {
+    "cfTypeName": "AWS::S3Files::FileSystemPolicy",
+    "properties": {
+      "fileSystemId": {
+        "type": "string"
+      },
+      "policy": {
+        "$ref": "pulumi.json#/Any",
+        "description": "Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::S3Files::FileSystemPolicy` for more information about the expected schema for this property."
+      }
+    }
+  },
+  "aws-native:s3files:MountTarget": {
+    "cfTypeName": "AWS::S3Files::MountTarget",
+    "properties": {
+      "fileSystemId": {
+        "type": "string"
+      },
+      "ipAddressType": {
+        "$ref": "#/types/aws-native:s3files:MountTargetIpAddressType"
+      },
+      "ipv4Address": {
+        "type": "string"
+      },
+      "ipv6Address": {
+        "type": "string"
+      },
+      "securityGroups": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "subnetId": {
+        "type": "string"
       }
     }
   },

@@ -28,6 +28,7 @@ __all__ = [
     'CampaignEmailChannelSubtypeConfig',
     'CampaignEmailOutboundConfig',
     'CampaignEmailOutboundMode',
+    'CampaignEntryLimitsConfig',
     'CampaignEventTrigger',
     'CampaignLocalTimeZoneConfig',
     'CampaignOpenHours',
@@ -628,6 +629,59 @@ class CampaignEmailOutboundMode(dict):
         The agentless outbound mode configuration for email.
         """
         return pulumi.get(self, "agentless_config")
+
+
+@pulumi.output_type
+class CampaignEntryLimitsConfig(dict):
+    """
+    Entry limits config for a campaign
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxEntryCount":
+            suggest = "max_entry_count"
+        elif key == "minEntryInterval":
+            suggest = "min_entry_interval"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CampaignEntryLimitsConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CampaignEntryLimitsConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CampaignEntryLimitsConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 max_entry_count: _builtins.int,
+                 min_entry_interval: _builtins.str):
+        """
+        Entry limits config for a campaign
+
+        :param _builtins.int max_entry_count: Maximum number of entries per participant. 0 indicates unlimited entries.
+        :param _builtins.str min_entry_interval: Minimum time interval between entries for the same participant in ISO 8601 duration format
+        """
+        pulumi.set(__self__, "max_entry_count", max_entry_count)
+        pulumi.set(__self__, "min_entry_interval", min_entry_interval)
+
+    @_builtins.property
+    @pulumi.getter(name="maxEntryCount")
+    def max_entry_count(self) -> _builtins.int:
+        """
+        Maximum number of entries per participant. 0 indicates unlimited entries.
+        """
+        return pulumi.get(self, "max_entry_count")
+
+    @_builtins.property
+    @pulumi.getter(name="minEntryInterval")
+    def min_entry_interval(self) -> _builtins.str:
+        """
+        Minimum time interval between entries for the same participant in ISO 8601 duration format
+        """
+        return pulumi.get(self, "min_entry_interval")
 
 
 @pulumi.output_type

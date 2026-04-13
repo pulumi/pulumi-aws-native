@@ -612,6 +612,67 @@ namespace Pulumi.AwsNative.Bedrock
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// Entity types supported in DataAutomationLibraries
+    /// </summary>
+    [EnumType]
+    public readonly struct DataAutomationLibraryEntityType : IEquatable<DataAutomationLibraryEntityType>
+    {
+        private readonly string _value;
+
+        private DataAutomationLibraryEntityType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DataAutomationLibraryEntityType Vocabulary { get; } = new DataAutomationLibraryEntityType("VOCABULARY");
+
+        public static bool operator ==(DataAutomationLibraryEntityType left, DataAutomationLibraryEntityType right) => left.Equals(right);
+        public static bool operator !=(DataAutomationLibraryEntityType left, DataAutomationLibraryEntityType right) => !left.Equals(right);
+
+        public static explicit operator string(DataAutomationLibraryEntityType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DataAutomationLibraryEntityType other && Equals(other);
+        public bool Equals(DataAutomationLibraryEntityType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Status of DataAutomationLibrary
+    /// </summary>
+    [EnumType]
+    public readonly struct DataAutomationLibraryStatus : IEquatable<DataAutomationLibraryStatus>
+    {
+        private readonly string _value;
+
+        private DataAutomationLibraryStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DataAutomationLibraryStatus Active { get; } = new DataAutomationLibraryStatus("ACTIVE");
+        public static DataAutomationLibraryStatus Deleting { get; } = new DataAutomationLibraryStatus("DELETING");
+
+        public static bool operator ==(DataAutomationLibraryStatus left, DataAutomationLibraryStatus right) => left.Equals(right);
+        public static bool operator !=(DataAutomationLibraryStatus left, DataAutomationLibraryStatus right) => !left.Equals(right);
+
+        public static explicit operator string(DataAutomationLibraryStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DataAutomationLibraryStatus other && Equals(other);
+        public bool Equals(DataAutomationLibraryStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     [EnumType]
     public readonly struct DataAutomationProjectAudioExtractionCategoryType : IEquatable<DataAutomationProjectAudioExtractionCategoryType>
     {
@@ -1723,6 +1784,98 @@ namespace Pulumi.AwsNative.Bedrock
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is DataSourceWebScopeType other && Equals(other);
         public bool Equals(DataSourceWebScopeType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Configuration owner type
+    /// </summary>
+    [EnumType]
+    public readonly struct EnforcedGuardrailConfigurationConfigOwner : IEquatable<EnforcedGuardrailConfigurationConfigOwner>
+    {
+        private readonly string _value;
+
+        private EnforcedGuardrailConfigurationConfigOwner(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static EnforcedGuardrailConfigurationConfigOwner Account { get; } = new EnforcedGuardrailConfigurationConfigOwner("ACCOUNT");
+
+        public static bool operator ==(EnforcedGuardrailConfigurationConfigOwner left, EnforcedGuardrailConfigurationConfigOwner right) => left.Equals(right);
+        public static bool operator !=(EnforcedGuardrailConfigurationConfigOwner left, EnforcedGuardrailConfigurationConfigOwner right) => !left.Equals(right);
+
+        public static explicit operator string(EnforcedGuardrailConfigurationConfigOwner value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is EnforcedGuardrailConfigurationConfigOwner other && Equals(other);
+        public bool Equals(EnforcedGuardrailConfigurationConfigOwner other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Selective guarding mode for user messages
+    /// </summary>
+    [EnumType]
+    public readonly struct EnforcedGuardrailConfigurationSelectiveContentGuardingMessages : IEquatable<EnforcedGuardrailConfigurationSelectiveContentGuardingMessages>
+    {
+        private readonly string _value;
+
+        private EnforcedGuardrailConfigurationSelectiveContentGuardingMessages(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static EnforcedGuardrailConfigurationSelectiveContentGuardingMessages Selective { get; } = new EnforcedGuardrailConfigurationSelectiveContentGuardingMessages("SELECTIVE");
+        public static EnforcedGuardrailConfigurationSelectiveContentGuardingMessages Comprehensive { get; } = new EnforcedGuardrailConfigurationSelectiveContentGuardingMessages("COMPREHENSIVE");
+
+        public static bool operator ==(EnforcedGuardrailConfigurationSelectiveContentGuardingMessages left, EnforcedGuardrailConfigurationSelectiveContentGuardingMessages right) => left.Equals(right);
+        public static bool operator !=(EnforcedGuardrailConfigurationSelectiveContentGuardingMessages left, EnforcedGuardrailConfigurationSelectiveContentGuardingMessages right) => !left.Equals(right);
+
+        public static explicit operator string(EnforcedGuardrailConfigurationSelectiveContentGuardingMessages value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is EnforcedGuardrailConfigurationSelectiveContentGuardingMessages other && Equals(other);
+        public bool Equals(EnforcedGuardrailConfigurationSelectiveContentGuardingMessages other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Selective guarding mode for system prompts
+    /// </summary>
+    [EnumType]
+    public readonly struct EnforcedGuardrailConfigurationSelectiveContentGuardingSystem : IEquatable<EnforcedGuardrailConfigurationSelectiveContentGuardingSystem>
+    {
+        private readonly string _value;
+
+        private EnforcedGuardrailConfigurationSelectiveContentGuardingSystem(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static EnforcedGuardrailConfigurationSelectiveContentGuardingSystem Selective { get; } = new EnforcedGuardrailConfigurationSelectiveContentGuardingSystem("SELECTIVE");
+        public static EnforcedGuardrailConfigurationSelectiveContentGuardingSystem Comprehensive { get; } = new EnforcedGuardrailConfigurationSelectiveContentGuardingSystem("COMPREHENSIVE");
+
+        public static bool operator ==(EnforcedGuardrailConfigurationSelectiveContentGuardingSystem left, EnforcedGuardrailConfigurationSelectiveContentGuardingSystem right) => left.Equals(right);
+        public static bool operator !=(EnforcedGuardrailConfigurationSelectiveContentGuardingSystem left, EnforcedGuardrailConfigurationSelectiveContentGuardingSystem right) => !left.Equals(right);
+
+        public static explicit operator string(EnforcedGuardrailConfigurationSelectiveContentGuardingSystem value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is EnforcedGuardrailConfigurationSelectiveContentGuardingSystem other && Equals(other);
+        public bool Equals(EnforcedGuardrailConfigurationSelectiveContentGuardingSystem other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

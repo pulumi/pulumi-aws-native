@@ -26,6 +26,8 @@ __all__ = [
     'ApplicationInferenceProfileInferenceProfileType',
     'BlueprintStage',
     'BlueprintType',
+    'DataAutomationLibraryEntityType',
+    'DataAutomationLibraryStatus',
     'DataAutomationProjectAudioExtractionCategoryType',
     'DataAutomationProjectAudioGenerativeOutputLanguage',
     'DataAutomationProjectAudioStandardGenerativeFieldType',
@@ -62,6 +64,9 @@ __all__ = [
     'DataSourceTransformationStepToApply',
     'DataSourceType',
     'DataSourceWebScopeType',
+    'EnforcedGuardrailConfigurationConfigOwner',
+    'EnforcedGuardrailConfigurationSelectiveContentGuardingMessages',
+    'EnforcedGuardrailConfigurationSelectiveContentGuardingSystem',
     'FlowAliasConcurrencyType',
     'FlowConnectionType',
     'FlowNodeInputCategory',
@@ -304,6 +309,23 @@ class BlueprintType(_builtins.str, Enum):
     IMAGE = "IMAGE"
     AUDIO = "AUDIO"
     VIDEO = "VIDEO"
+
+
+@pulumi.type_token("aws-native:bedrock:DataAutomationLibraryEntityType")
+class DataAutomationLibraryEntityType(_builtins.str, Enum):
+    """
+    Entity types supported in DataAutomationLibraries
+    """
+    VOCABULARY = "VOCABULARY"
+
+
+@pulumi.type_token("aws-native:bedrock:DataAutomationLibraryStatus")
+class DataAutomationLibraryStatus(_builtins.str, Enum):
+    """
+    Status of DataAutomationLibrary
+    """
+    ACTIVE = "ACTIVE"
+    DELETING = "DELETING"
 
 
 @pulumi.type_token("aws-native:bedrock:DataAutomationProjectAudioExtractionCategoryType")
@@ -630,6 +652,32 @@ class DataSourceWebScopeType(_builtins.str, Enum):
     """
     HOST_ONLY = "HOST_ONLY"
     SUBDOMAINS = "SUBDOMAINS"
+
+
+@pulumi.type_token("aws-native:bedrock:EnforcedGuardrailConfigurationConfigOwner")
+class EnforcedGuardrailConfigurationConfigOwner(_builtins.str, Enum):
+    """
+    Configuration owner type
+    """
+    ACCOUNT = "ACCOUNT"
+
+
+@pulumi.type_token("aws-native:bedrock:EnforcedGuardrailConfigurationSelectiveContentGuardingMessages")
+class EnforcedGuardrailConfigurationSelectiveContentGuardingMessages(_builtins.str, Enum):
+    """
+    Selective guarding mode for user messages
+    """
+    SELECTIVE = "SELECTIVE"
+    COMPREHENSIVE = "COMPREHENSIVE"
+
+
+@pulumi.type_token("aws-native:bedrock:EnforcedGuardrailConfigurationSelectiveContentGuardingSystem")
+class EnforcedGuardrailConfigurationSelectiveContentGuardingSystem(_builtins.str, Enum):
+    """
+    Selective guarding mode for system prompts
+    """
+    SELECTIVE = "SELECTIVE"
+    COMPREHENSIVE = "COMPREHENSIVE"
 
 
 @pulumi.type_token("aws-native:bedrock:FlowAliasConcurrencyType")

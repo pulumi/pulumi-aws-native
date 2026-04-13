@@ -50,13 +50,17 @@ export class Application extends pulumi.CustomResource {
      */
     declare public readonly applicationSourceConfig: pulumi.Output<outputs.appintegrations.ApplicationSourceConfigProperties>;
     /**
+     * The type of application
+     */
+    declare public readonly applicationType: pulumi.Output<enums.appintegrations.ApplicationType | undefined>;
+    /**
      * The id of the application.
      */
     declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
      * The application description.
      */
-    declare public readonly description: pulumi.Output<string>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The iframe configuration
      */
@@ -100,14 +104,12 @@ export class Application extends pulumi.CustomResource {
             if (args?.applicationSourceConfig === undefined && !opts.urn) {
                 throw new Error("Missing required property 'applicationSourceConfig'");
             }
-            if (args?.description === undefined && !opts.urn) {
-                throw new Error("Missing required property 'description'");
-            }
             if (args?.namespace === undefined && !opts.urn) {
                 throw new Error("Missing required property 'namespace'");
             }
             resourceInputs["applicationConfig"] = args?.applicationConfig;
             resourceInputs["applicationSourceConfig"] = args?.applicationSourceConfig;
+            resourceInputs["applicationType"] = args?.applicationType;
             resourceInputs["description"] = args?.description;
             resourceInputs["iframeConfig"] = args?.iframeConfig;
             resourceInputs["initializationTimeout"] = args?.initializationTimeout;
@@ -122,6 +124,7 @@ export class Application extends pulumi.CustomResource {
             resourceInputs["applicationArn"] = undefined /*out*/;
             resourceInputs["applicationConfig"] = undefined /*out*/;
             resourceInputs["applicationSourceConfig"] = undefined /*out*/;
+            resourceInputs["applicationType"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["iframeConfig"] = undefined /*out*/;
@@ -150,9 +153,13 @@ export interface ApplicationArgs {
      */
     applicationSourceConfig: pulumi.Input<inputs.appintegrations.ApplicationSourceConfigPropertiesArgs>;
     /**
+     * The type of application
+     */
+    applicationType?: pulumi.Input<enums.appintegrations.ApplicationType>;
+    /**
      * The application description.
      */
-    description: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The iframe configuration
      */

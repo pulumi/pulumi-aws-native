@@ -13,7 +13,6 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
-// Information about where and how access logs are stored for the load balancer.
 type LoadBalancerAccessLoggingPolicy struct {
 	// The interval for publishing the access logs. You can specify an interval of either 5 minutes or 60 minutes.
 	//
@@ -23,7 +22,7 @@ type LoadBalancerAccessLoggingPolicy struct {
 	Enabled bool `pulumi:"enabled"`
 	// The name of the Amazon S3 bucket where the access logs are stored.
 	S3BucketName string `pulumi:"s3BucketName"`
-	// The logical hierarchy you created for your Amazon S3 bucket, for example `my-bucket-prefix/prod`. If the prefix is not provided, the log is placed at the root level of the bucket.
+	// The logical hierarchy you created for your Amazon S3 bucket, for example `my-bucket-prefix/prod` . If the prefix is not provided, the log is placed at the root level of the bucket.
 	S3BucketPrefix *string `pulumi:"s3BucketPrefix"`
 }
 
@@ -38,7 +37,6 @@ type LoadBalancerAccessLoggingPolicyInput interface {
 	ToLoadBalancerAccessLoggingPolicyOutputWithContext(context.Context) LoadBalancerAccessLoggingPolicyOutput
 }
 
-// Information about where and how access logs are stored for the load balancer.
 type LoadBalancerAccessLoggingPolicyArgs struct {
 	// The interval for publishing the access logs. You can specify an interval of either 5 minutes or 60 minutes.
 	//
@@ -48,7 +46,7 @@ type LoadBalancerAccessLoggingPolicyArgs struct {
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
 	// The name of the Amazon S3 bucket where the access logs are stored.
 	S3BucketName pulumi.StringInput `pulumi:"s3BucketName"`
-	// The logical hierarchy you created for your Amazon S3 bucket, for example `my-bucket-prefix/prod`. If the prefix is not provided, the log is placed at the root level of the bucket.
+	// The logical hierarchy you created for your Amazon S3 bucket, for example `my-bucket-prefix/prod` . If the prefix is not provided, the log is placed at the root level of the bucket.
 	S3BucketPrefix pulumi.StringPtrInput `pulumi:"s3BucketPrefix"`
 }
 
@@ -105,7 +103,6 @@ func (i *loadBalancerAccessLoggingPolicyPtrType) ToLoadBalancerAccessLoggingPoli
 	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerAccessLoggingPolicyPtrOutput)
 }
 
-// Information about where and how access logs are stored for the load balancer.
 type LoadBalancerAccessLoggingPolicyOutput struct{ *pulumi.OutputState }
 
 func (LoadBalancerAccessLoggingPolicyOutput) ElementType() reflect.Type {
@@ -147,7 +144,7 @@ func (o LoadBalancerAccessLoggingPolicyOutput) S3BucketName() pulumi.StringOutpu
 	return o.ApplyT(func(v LoadBalancerAccessLoggingPolicy) string { return v.S3BucketName }).(pulumi.StringOutput)
 }
 
-// The logical hierarchy you created for your Amazon S3 bucket, for example `my-bucket-prefix/prod`. If the prefix is not provided, the log is placed at the root level of the bucket.
+// The logical hierarchy you created for your Amazon S3 bucket, for example `my-bucket-prefix/prod` . If the prefix is not provided, the log is placed at the root level of the bucket.
 func (o LoadBalancerAccessLoggingPolicyOutput) S3BucketPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LoadBalancerAccessLoggingPolicy) *string { return v.S3BucketPrefix }).(pulumi.StringPtrOutput)
 }
@@ -208,7 +205,7 @@ func (o LoadBalancerAccessLoggingPolicyPtrOutput) S3BucketName() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// The logical hierarchy you created for your Amazon S3 bucket, for example `my-bucket-prefix/prod`. If the prefix is not provided, the log is placed at the root level of the bucket.
+// The logical hierarchy you created for your Amazon S3 bucket, for example `my-bucket-prefix/prod` . If the prefix is not provided, the log is placed at the root level of the bucket.
 func (o LoadBalancerAccessLoggingPolicyPtrOutput) S3BucketPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LoadBalancerAccessLoggingPolicy) *string {
 		if v == nil {
@@ -218,7 +215,6 @@ func (o LoadBalancerAccessLoggingPolicyPtrOutput) S3BucketPrefix() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// Information about a policy for application-controlled session stickiness.
 type LoadBalancerAppCookieStickinessPolicy struct {
 	// The name of the application cookie used for stickiness.
 	CookieName string `pulumi:"cookieName"`
@@ -237,7 +233,6 @@ type LoadBalancerAppCookieStickinessPolicyInput interface {
 	ToLoadBalancerAppCookieStickinessPolicyOutputWithContext(context.Context) LoadBalancerAppCookieStickinessPolicyOutput
 }
 
-// Information about a policy for application-controlled session stickiness.
 type LoadBalancerAppCookieStickinessPolicyArgs struct {
 	// The name of the application cookie used for stickiness.
 	CookieName pulumi.StringInput `pulumi:"cookieName"`
@@ -282,7 +277,6 @@ func (i LoadBalancerAppCookieStickinessPolicyArray) ToLoadBalancerAppCookieStick
 	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerAppCookieStickinessPolicyArrayOutput)
 }
 
-// Information about a policy for application-controlled session stickiness.
 type LoadBalancerAppCookieStickinessPolicyOutput struct{ *pulumi.OutputState }
 
 func (LoadBalancerAppCookieStickinessPolicyOutput) ElementType() reflect.Type {
@@ -327,7 +321,6 @@ func (o LoadBalancerAppCookieStickinessPolicyArrayOutput) Index(i pulumi.IntInpu
 	}).(LoadBalancerAppCookieStickinessPolicyOutput)
 }
 
-// If enabled, the load balancer allows existing requests to complete before the load balancer shifts traffic away from a deregistered or unhealthy instance.
 type LoadBalancerConnectionDrainingPolicy struct {
 	// Specifies whether connection draining is enabled for the load balancer.
 	Enabled bool `pulumi:"enabled"`
@@ -346,7 +339,6 @@ type LoadBalancerConnectionDrainingPolicyInput interface {
 	ToLoadBalancerConnectionDrainingPolicyOutputWithContext(context.Context) LoadBalancerConnectionDrainingPolicyOutput
 }
 
-// If enabled, the load balancer allows existing requests to complete before the load balancer shifts traffic away from a deregistered or unhealthy instance.
 type LoadBalancerConnectionDrainingPolicyArgs struct {
 	// Specifies whether connection draining is enabled for the load balancer.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
@@ -407,7 +399,6 @@ func (i *loadBalancerConnectionDrainingPolicyPtrType) ToLoadBalancerConnectionDr
 	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerConnectionDrainingPolicyPtrOutput)
 }
 
-// If enabled, the load balancer allows existing requests to complete before the load balancer shifts traffic away from a deregistered or unhealthy instance.
 type LoadBalancerConnectionDrainingPolicyOutput struct{ *pulumi.OutputState }
 
 func (LoadBalancerConnectionDrainingPolicyOutput) ElementType() reflect.Type {
@@ -486,7 +477,6 @@ func (o LoadBalancerConnectionDrainingPolicyPtrOutput) Timeout() pulumi.IntPtrOu
 	}).(pulumi.IntPtrOutput)
 }
 
-// If enabled, the load balancer allows the connections to remain idle (no data is sent over the connection) for the specified duration.
 type LoadBalancerConnectionSettings struct {
 	// The time, in seconds, that the connection is allowed to be idle (no data has been sent over the connection) before it is closed by the load balancer.
 	IdleTimeout int `pulumi:"idleTimeout"`
@@ -503,7 +493,6 @@ type LoadBalancerConnectionSettingsInput interface {
 	ToLoadBalancerConnectionSettingsOutputWithContext(context.Context) LoadBalancerConnectionSettingsOutput
 }
 
-// If enabled, the load balancer allows the connections to remain idle (no data is sent over the connection) for the specified duration.
 type LoadBalancerConnectionSettingsArgs struct {
 	// The time, in seconds, that the connection is allowed to be idle (no data has been sent over the connection) before it is closed by the load balancer.
 	IdleTimeout pulumi.IntInput `pulumi:"idleTimeout"`
@@ -562,7 +551,6 @@ func (i *loadBalancerConnectionSettingsPtrType) ToLoadBalancerConnectionSettings
 	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerConnectionSettingsPtrOutput)
 }
 
-// If enabled, the load balancer allows the connections to remain idle (no data is sent over the connection) for the specified duration.
 type LoadBalancerConnectionSettingsOutput struct{ *pulumi.OutputState }
 
 func (LoadBalancerConnectionSettingsOutput) ElementType() reflect.Type {
@@ -626,15 +614,20 @@ func (o LoadBalancerConnectionSettingsPtrOutput) IdleTimeout() pulumi.IntPtrOutp
 	}).(pulumi.IntPtrOutput)
 }
 
-// The health check settings to use when evaluating the health of your EC2 instances.
-//
-// Update requires replacement if you did not previously specify health check settings or if you are removing the health check settings. Otherwise, update requires no interruption.
 type LoadBalancerHealthCheck struct {
 	// The number of consecutive health checks successes required before moving the instance to the `Healthy` state.
 	HealthyThreshold string `pulumi:"healthyThreshold"`
 	// The approximate interval, in seconds, between health checks of an individual instance.
 	Interval string `pulumi:"interval"`
-	// The instance being checked.
+	// The instance being checked. The protocol is either TCP, HTTP, HTTPS, or SSL. The range of valid ports is one (1) through 65535.
+	//
+	// TCP is the default, specified as a TCP: port pair, for example "TCP:5000". In this case, a health check simply attempts to open a TCP connection to the instance on the specified port. Failure to connect within the configured timeout is considered unhealthy.
+	//
+	// SSL is also specified as SSL: port pair, for example, SSL:5000.
+	//
+	// For HTTP/HTTPS, you must include a ping path in the string. HTTP is specified as a HTTP:port;/;PathToPing; grouping, for example "HTTP:80/weather/us/wa/seattle". In this case, a HTTP GET request is issued to the instance on the given port and path. Any answer other than "200 OK" within the timeout period is considered unhealthy.
+	//
+	// The total length of the HTTP ping target must be 1024 16-bit Unicode characters or less.
 	Target string `pulumi:"target"`
 	// The amount of time, in seconds, during which no response means a failed health check.
 	//
@@ -655,15 +648,20 @@ type LoadBalancerHealthCheckInput interface {
 	ToLoadBalancerHealthCheckOutputWithContext(context.Context) LoadBalancerHealthCheckOutput
 }
 
-// The health check settings to use when evaluating the health of your EC2 instances.
-//
-// Update requires replacement if you did not previously specify health check settings or if you are removing the health check settings. Otherwise, update requires no interruption.
 type LoadBalancerHealthCheckArgs struct {
 	// The number of consecutive health checks successes required before moving the instance to the `Healthy` state.
 	HealthyThreshold pulumi.StringInput `pulumi:"healthyThreshold"`
 	// The approximate interval, in seconds, between health checks of an individual instance.
 	Interval pulumi.StringInput `pulumi:"interval"`
-	// The instance being checked.
+	// The instance being checked. The protocol is either TCP, HTTP, HTTPS, or SSL. The range of valid ports is one (1) through 65535.
+	//
+	// TCP is the default, specified as a TCP: port pair, for example "TCP:5000". In this case, a health check simply attempts to open a TCP connection to the instance on the specified port. Failure to connect within the configured timeout is considered unhealthy.
+	//
+	// SSL is also specified as SSL: port pair, for example, SSL:5000.
+	//
+	// For HTTP/HTTPS, you must include a ping path in the string. HTTP is specified as a HTTP:port;/;PathToPing; grouping, for example "HTTP:80/weather/us/wa/seattle". In this case, a HTTP GET request is issued to the instance on the given port and path. Any answer other than "200 OK" within the timeout period is considered unhealthy.
+	//
+	// The total length of the HTTP ping target must be 1024 16-bit Unicode characters or less.
 	Target pulumi.StringInput `pulumi:"target"`
 	// The amount of time, in seconds, during which no response means a failed health check.
 	//
@@ -726,9 +724,6 @@ func (i *loadBalancerHealthCheckPtrType) ToLoadBalancerHealthCheckPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerHealthCheckPtrOutput)
 }
 
-// The health check settings to use when evaluating the health of your EC2 instances.
-//
-// Update requires replacement if you did not previously specify health check settings or if you are removing the health check settings. Otherwise, update requires no interruption.
 type LoadBalancerHealthCheckOutput struct{ *pulumi.OutputState }
 
 func (LoadBalancerHealthCheckOutput) ElementType() reflect.Type {
@@ -763,7 +758,15 @@ func (o LoadBalancerHealthCheckOutput) Interval() pulumi.StringOutput {
 	return o.ApplyT(func(v LoadBalancerHealthCheck) string { return v.Interval }).(pulumi.StringOutput)
 }
 
-// The instance being checked.
+// The instance being checked. The protocol is either TCP, HTTP, HTTPS, or SSL. The range of valid ports is one (1) through 65535.
+//
+// TCP is the default, specified as a TCP: port pair, for example "TCP:5000". In this case, a health check simply attempts to open a TCP connection to the instance on the specified port. Failure to connect within the configured timeout is considered unhealthy.
+//
+// SSL is also specified as SSL: port pair, for example, SSL:5000.
+//
+// For HTTP/HTTPS, you must include a ping path in the string. HTTP is specified as a HTTP:port;/;PathToPing; grouping, for example "HTTP:80/weather/us/wa/seattle". In this case, a HTTP GET request is issued to the instance on the given port and path. Any answer other than "200 OK" within the timeout period is considered unhealthy.
+//
+// The total length of the HTTP ping target must be 1024 16-bit Unicode characters or less.
 func (o LoadBalancerHealthCheckOutput) Target() pulumi.StringOutput {
 	return o.ApplyT(func(v LoadBalancerHealthCheck) string { return v.Target }).(pulumi.StringOutput)
 }
@@ -824,7 +827,15 @@ func (o LoadBalancerHealthCheckPtrOutput) Interval() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The instance being checked.
+// The instance being checked. The protocol is either TCP, HTTP, HTTPS, or SSL. The range of valid ports is one (1) through 65535.
+//
+// TCP is the default, specified as a TCP: port pair, for example "TCP:5000". In this case, a health check simply attempts to open a TCP connection to the instance on the specified port. Failure to connect within the configured timeout is considered unhealthy.
+//
+// SSL is also specified as SSL: port pair, for example, SSL:5000.
+//
+// For HTTP/HTTPS, you must include a ping path in the string. HTTP is specified as a HTTP:port;/;PathToPing; grouping, for example "HTTP:80/weather/us/wa/seattle". In this case, a HTTP GET request is issued to the instance on the given port and path. Any answer other than "200 OK" within the timeout period is considered unhealthy.
+//
+// The total length of the HTTP ping target must be 1024 16-bit Unicode characters or less.
 func (o LoadBalancerHealthCheckPtrOutput) Target() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LoadBalancerHealthCheck) *string {
 		if v == nil {
@@ -856,7 +867,6 @@ func (o LoadBalancerHealthCheckPtrOutput) UnhealthyThreshold() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// Information about a policy for duration-based session stickiness.
 type LoadBalancerLbCookieStickinessPolicy struct {
 	// The time period, in seconds, after which the cookie should be considered stale. If this parameter is not specified, the stickiness session lasts for the duration of the browser session.
 	CookieExpirationPeriod *string `pulumi:"cookieExpirationPeriod"`
@@ -875,7 +885,6 @@ type LoadBalancerLbCookieStickinessPolicyInput interface {
 	ToLoadBalancerLbCookieStickinessPolicyOutputWithContext(context.Context) LoadBalancerLbCookieStickinessPolicyOutput
 }
 
-// Information about a policy for duration-based session stickiness.
 type LoadBalancerLbCookieStickinessPolicyArgs struct {
 	// The time period, in seconds, after which the cookie should be considered stale. If this parameter is not specified, the stickiness session lasts for the duration of the browser session.
 	CookieExpirationPeriod pulumi.StringPtrInput `pulumi:"cookieExpirationPeriod"`
@@ -920,7 +929,6 @@ func (i LoadBalancerLbCookieStickinessPolicyArray) ToLoadBalancerLbCookieStickin
 	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerLbCookieStickinessPolicyArrayOutput)
 }
 
-// Information about a policy for duration-based session stickiness.
 type LoadBalancerLbCookieStickinessPolicyOutput struct{ *pulumi.OutputState }
 
 func (LoadBalancerLbCookieStickinessPolicyOutput) ElementType() reflect.Type {
@@ -1127,7 +1135,7 @@ func (o LoadBalancerListenersArrayOutput) Index(i pulumi.IntInput) LoadBalancerL
 
 type LoadBalancerPolicies struct {
 	// The policy attributes.
-	Attributes []LoadBalancerPolicyItem `pulumi:"attributes"`
+	Attributes []interface{} `pulumi:"attributes"`
 	// The instance ports for the policy. Required only for some policy types.
 	InstancePorts []string `pulumi:"instancePorts"`
 	// The load balancer ports for the policy. Required only for some policy types.
@@ -1151,7 +1159,7 @@ type LoadBalancerPoliciesInput interface {
 
 type LoadBalancerPoliciesArgs struct {
 	// The policy attributes.
-	Attributes LoadBalancerPolicyItemArrayInput `pulumi:"attributes"`
+	Attributes pulumi.ArrayInput `pulumi:"attributes"`
 	// The instance ports for the policy. Required only for some policy types.
 	InstancePorts pulumi.StringArrayInput `pulumi:"instancePorts"`
 	// The load balancer ports for the policy. Required only for some policy types.
@@ -1214,8 +1222,8 @@ func (o LoadBalancerPoliciesOutput) ToLoadBalancerPoliciesOutputWithContext(ctx 
 }
 
 // The policy attributes.
-func (o LoadBalancerPoliciesOutput) Attributes() LoadBalancerPolicyItemArrayOutput {
-	return o.ApplyT(func(v LoadBalancerPolicies) []LoadBalancerPolicyItem { return v.Attributes }).(LoadBalancerPolicyItemArrayOutput)
+func (o LoadBalancerPoliciesOutput) Attributes() pulumi.ArrayOutput {
+	return o.ApplyT(func(v LoadBalancerPolicies) []interface{} { return v.Attributes }).(pulumi.ArrayOutput)
 }
 
 // The instance ports for the policy. Required only for some policy types.
@@ -1258,185 +1266,10 @@ func (o LoadBalancerPoliciesArrayOutput) Index(i pulumi.IntInput) LoadBalancerPo
 	}).(LoadBalancerPoliciesOutput)
 }
 
-type LoadBalancerPolicyItem struct {
-	Name  *string `pulumi:"name"`
-	Value *string `pulumi:"value"`
-}
-
-// LoadBalancerPolicyItemInput is an input type that accepts LoadBalancerPolicyItemArgs and LoadBalancerPolicyItemOutput values.
-// You can construct a concrete instance of `LoadBalancerPolicyItemInput` via:
-//
-//	LoadBalancerPolicyItemArgs{...}
-type LoadBalancerPolicyItemInput interface {
-	pulumi.Input
-
-	ToLoadBalancerPolicyItemOutput() LoadBalancerPolicyItemOutput
-	ToLoadBalancerPolicyItemOutputWithContext(context.Context) LoadBalancerPolicyItemOutput
-}
-
-type LoadBalancerPolicyItemArgs struct {
-	Name  pulumi.StringPtrInput `pulumi:"name"`
-	Value pulumi.StringPtrInput `pulumi:"value"`
-}
-
-func (LoadBalancerPolicyItemArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*LoadBalancerPolicyItem)(nil)).Elem()
-}
-
-func (i LoadBalancerPolicyItemArgs) ToLoadBalancerPolicyItemOutput() LoadBalancerPolicyItemOutput {
-	return i.ToLoadBalancerPolicyItemOutputWithContext(context.Background())
-}
-
-func (i LoadBalancerPolicyItemArgs) ToLoadBalancerPolicyItemOutputWithContext(ctx context.Context) LoadBalancerPolicyItemOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerPolicyItemOutput)
-}
-
-// LoadBalancerPolicyItemArrayInput is an input type that accepts LoadBalancerPolicyItemArray and LoadBalancerPolicyItemArrayOutput values.
-// You can construct a concrete instance of `LoadBalancerPolicyItemArrayInput` via:
-//
-//	LoadBalancerPolicyItemArray{ LoadBalancerPolicyItemArgs{...} }
-type LoadBalancerPolicyItemArrayInput interface {
-	pulumi.Input
-
-	ToLoadBalancerPolicyItemArrayOutput() LoadBalancerPolicyItemArrayOutput
-	ToLoadBalancerPolicyItemArrayOutputWithContext(context.Context) LoadBalancerPolicyItemArrayOutput
-}
-
-type LoadBalancerPolicyItemArray []LoadBalancerPolicyItemInput
-
-func (LoadBalancerPolicyItemArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]LoadBalancerPolicyItem)(nil)).Elem()
-}
-
-func (i LoadBalancerPolicyItemArray) ToLoadBalancerPolicyItemArrayOutput() LoadBalancerPolicyItemArrayOutput {
-	return i.ToLoadBalancerPolicyItemArrayOutputWithContext(context.Background())
-}
-
-func (i LoadBalancerPolicyItemArray) ToLoadBalancerPolicyItemArrayOutputWithContext(ctx context.Context) LoadBalancerPolicyItemArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerPolicyItemArrayOutput)
-}
-
-type LoadBalancerPolicyItemOutput struct{ *pulumi.OutputState }
-
-func (LoadBalancerPolicyItemOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LoadBalancerPolicyItem)(nil)).Elem()
-}
-
-func (o LoadBalancerPolicyItemOutput) ToLoadBalancerPolicyItemOutput() LoadBalancerPolicyItemOutput {
-	return o
-}
-
-func (o LoadBalancerPolicyItemOutput) ToLoadBalancerPolicyItemOutputWithContext(ctx context.Context) LoadBalancerPolicyItemOutput {
-	return o
-}
-
-func (o LoadBalancerPolicyItemOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LoadBalancerPolicyItem) *string { return v.Name }).(pulumi.StringPtrOutput)
-}
-
-func (o LoadBalancerPolicyItemOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LoadBalancerPolicyItem) *string { return v.Value }).(pulumi.StringPtrOutput)
-}
-
-type LoadBalancerPolicyItemArrayOutput struct{ *pulumi.OutputState }
-
-func (LoadBalancerPolicyItemArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]LoadBalancerPolicyItem)(nil)).Elem()
-}
-
-func (o LoadBalancerPolicyItemArrayOutput) ToLoadBalancerPolicyItemArrayOutput() LoadBalancerPolicyItemArrayOutput {
-	return o
-}
-
-func (o LoadBalancerPolicyItemArrayOutput) ToLoadBalancerPolicyItemArrayOutputWithContext(ctx context.Context) LoadBalancerPolicyItemArrayOutput {
-	return o
-}
-
-func (o LoadBalancerPolicyItemArrayOutput) Index(i pulumi.IntInput) LoadBalancerPolicyItemOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LoadBalancerPolicyItem {
-		return vs[0].([]LoadBalancerPolicyItem)[vs[1].(int)]
-	}).(LoadBalancerPolicyItemOutput)
-}
-
-type LoadBalancerSourceSecurityGroup struct {
-	// The name of the security group that you can use as part of your inbound rules for your load balancer's back-end instances.
-	GroupName *string `pulumi:"groupName"`
-	// The owner of the source security group.
-	OwnerAlias *string `pulumi:"ownerAlias"`
-}
-
-type LoadBalancerSourceSecurityGroupOutput struct{ *pulumi.OutputState }
-
-func (LoadBalancerSourceSecurityGroupOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LoadBalancerSourceSecurityGroup)(nil)).Elem()
-}
-
-func (o LoadBalancerSourceSecurityGroupOutput) ToLoadBalancerSourceSecurityGroupOutput() LoadBalancerSourceSecurityGroupOutput {
-	return o
-}
-
-func (o LoadBalancerSourceSecurityGroupOutput) ToLoadBalancerSourceSecurityGroupOutputWithContext(ctx context.Context) LoadBalancerSourceSecurityGroupOutput {
-	return o
-}
-
-// The name of the security group that you can use as part of your inbound rules for your load balancer's back-end instances.
-func (o LoadBalancerSourceSecurityGroupOutput) GroupName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LoadBalancerSourceSecurityGroup) *string { return v.GroupName }).(pulumi.StringPtrOutput)
-}
-
-// The owner of the source security group.
-func (o LoadBalancerSourceSecurityGroupOutput) OwnerAlias() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LoadBalancerSourceSecurityGroup) *string { return v.OwnerAlias }).(pulumi.StringPtrOutput)
-}
-
-type LoadBalancerSourceSecurityGroupPtrOutput struct{ *pulumi.OutputState }
-
-func (LoadBalancerSourceSecurityGroupPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**LoadBalancerSourceSecurityGroup)(nil)).Elem()
-}
-
-func (o LoadBalancerSourceSecurityGroupPtrOutput) ToLoadBalancerSourceSecurityGroupPtrOutput() LoadBalancerSourceSecurityGroupPtrOutput {
-	return o
-}
-
-func (o LoadBalancerSourceSecurityGroupPtrOutput) ToLoadBalancerSourceSecurityGroupPtrOutputWithContext(ctx context.Context) LoadBalancerSourceSecurityGroupPtrOutput {
-	return o
-}
-
-func (o LoadBalancerSourceSecurityGroupPtrOutput) Elem() LoadBalancerSourceSecurityGroupOutput {
-	return o.ApplyT(func(v *LoadBalancerSourceSecurityGroup) LoadBalancerSourceSecurityGroup {
-		if v != nil {
-			return *v
-		}
-		var ret LoadBalancerSourceSecurityGroup
-		return ret
-	}).(LoadBalancerSourceSecurityGroupOutput)
-}
-
-// The name of the security group that you can use as part of your inbound rules for your load balancer's back-end instances.
-func (o LoadBalancerSourceSecurityGroupPtrOutput) GroupName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LoadBalancerSourceSecurityGroup) *string {
-		if v == nil {
-			return nil
-		}
-		return v.GroupName
-	}).(pulumi.StringPtrOutput)
-}
-
-// The owner of the source security group.
-func (o LoadBalancerSourceSecurityGroupPtrOutput) OwnerAlias() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LoadBalancerSourceSecurityGroup) *string {
-		if v == nil {
-			return nil
-		}
-		return v.OwnerAlias
-	}).(pulumi.StringPtrOutput)
-}
-
 type LoadBalancerTag struct {
-	// The key name of the tag. You can specify a value that's 1 to 128 Unicode characters in length and can't be prefixed with `aws:`. You can use any of the following characters: the set of Unicode letters, digits, whitespace, `_`, `.`, `/`, `=`, `+`, and `-`.
+	// The key of the tag.
 	Key string `pulumi:"key"`
-	// The value for the tag. You can specify a value that's 1 to 256 characters in length.
+	// The value of the tag.
 	Value string `pulumi:"value"`
 }
 
@@ -1457,8 +1290,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LoadBalancerListenersArrayInput)(nil)).Elem(), LoadBalancerListenersArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LoadBalancerPoliciesInput)(nil)).Elem(), LoadBalancerPoliciesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LoadBalancerPoliciesArrayInput)(nil)).Elem(), LoadBalancerPoliciesArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*LoadBalancerPolicyItemInput)(nil)).Elem(), LoadBalancerPolicyItemArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*LoadBalancerPolicyItemArrayInput)(nil)).Elem(), LoadBalancerPolicyItemArray{})
 	pulumi.RegisterOutputType(LoadBalancerAccessLoggingPolicyOutput{})
 	pulumi.RegisterOutputType(LoadBalancerAccessLoggingPolicyPtrOutput{})
 	pulumi.RegisterOutputType(LoadBalancerAppCookieStickinessPolicyOutput{})
@@ -1475,8 +1306,4 @@ func init() {
 	pulumi.RegisterOutputType(LoadBalancerListenersArrayOutput{})
 	pulumi.RegisterOutputType(LoadBalancerPoliciesOutput{})
 	pulumi.RegisterOutputType(LoadBalancerPoliciesArrayOutput{})
-	pulumi.RegisterOutputType(LoadBalancerPolicyItemOutput{})
-	pulumi.RegisterOutputType(LoadBalancerPolicyItemArrayOutput{})
-	pulumi.RegisterOutputType(LoadBalancerSourceSecurityGroupOutput{})
-	pulumi.RegisterOutputType(LoadBalancerSourceSecurityGroupPtrOutput{})
 }

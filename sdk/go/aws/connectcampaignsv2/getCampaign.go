@@ -38,7 +38,8 @@ type LookupCampaignResult struct {
 	// Contains communication time configuration for an outbound campaign.
 	CommunicationTimeConfig *CampaignCommunicationTimeConfig `pulumi:"communicationTimeConfig"`
 	// The Amazon Resource Name (ARN) of the Amazon Connect campaign flow associated with the outbound campaign.
-	ConnectCampaignFlowArn *string `pulumi:"connectCampaignFlowArn"`
+	ConnectCampaignFlowArn *string                    `pulumi:"connectCampaignFlowArn"`
+	EntryLimitsConfig      *CampaignEntryLimitsConfig `pulumi:"entryLimitsConfig"`
 	// The name of the outbound campaign.
 	Name *string `pulumi:"name"`
 	// Contains the schedule configuration.
@@ -106,6 +107,10 @@ func (o LookupCampaignResultOutput) CommunicationTimeConfig() CampaignCommunicat
 // The Amazon Resource Name (ARN) of the Amazon Connect campaign flow associated with the outbound campaign.
 func (o LookupCampaignResultOutput) ConnectCampaignFlowArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupCampaignResult) *string { return v.ConnectCampaignFlowArn }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupCampaignResultOutput) EntryLimitsConfig() CampaignEntryLimitsConfigPtrOutput {
+	return o.ApplyT(func(v LookupCampaignResult) *CampaignEntryLimitsConfig { return v.EntryLimitsConfig }).(CampaignEntryLimitsConfigPtrOutput)
 }
 
 // The name of the outbound campaign.

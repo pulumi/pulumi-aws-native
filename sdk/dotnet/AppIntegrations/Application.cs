@@ -34,6 +34,12 @@ namespace Pulumi.AwsNative.AppIntegrations
         public Output<Outputs.ApplicationSourceConfigProperties> ApplicationSourceConfig { get; private set; } = null!;
 
         /// <summary>
+        /// The type of application
+        /// </summary>
+        [Output("applicationType")]
+        public Output<Pulumi.AwsNative.AppIntegrations.ApplicationType?> ApplicationType { get; private set; } = null!;
+
+        /// <summary>
         /// The id of the application.
         /// </summary>
         [Output("awsId")]
@@ -43,7 +49,7 @@ namespace Pulumi.AwsNative.AppIntegrations
         /// The application description.
         /// </summary>
         [Output("description")]
-        public Output<string> Description { get; private set; } = null!;
+        public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
         /// The iframe configuration
@@ -145,10 +151,16 @@ namespace Pulumi.AwsNative.AppIntegrations
         public Input<Inputs.ApplicationSourceConfigPropertiesArgs> ApplicationSourceConfig { get; set; } = null!;
 
         /// <summary>
+        /// The type of application
+        /// </summary>
+        [Input("applicationType")]
+        public Input<Pulumi.AwsNative.AppIntegrations.ApplicationType>? ApplicationType { get; set; }
+
+        /// <summary>
         /// The application description.
         /// </summary>
-        [Input("description", required: true)]
-        public Input<string> Description { get; set; } = null!;
+        [Input("description")]
+        public Input<string>? Description { get; set; }
 
         /// <summary>
         /// The iframe configuration

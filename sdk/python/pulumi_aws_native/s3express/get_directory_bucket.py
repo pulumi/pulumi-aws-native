@@ -26,7 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetDirectoryBucketResult:
-    def __init__(__self__, arn=None, availability_zone_name=None, bucket_encryption=None, lifecycle_configuration=None, tags=None):
+    def __init__(__self__, arn=None, availability_zone_name=None, bucket_encryption=None, lifecycle_configuration=None, metrics_configurations=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -39,6 +39,9 @@ class GetDirectoryBucketResult:
         if lifecycle_configuration and not isinstance(lifecycle_configuration, dict):
             raise TypeError("Expected argument 'lifecycle_configuration' to be a dict")
         pulumi.set(__self__, "lifecycle_configuration", lifecycle_configuration)
+        if metrics_configurations and not isinstance(metrics_configurations, list):
+            raise TypeError("Expected argument 'metrics_configurations' to be a list")
+        pulumi.set(__self__, "metrics_configurations", metrics_configurations)
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
@@ -76,6 +79,14 @@ class GetDirectoryBucketResult:
         return pulumi.get(self, "lifecycle_configuration")
 
     @_builtins.property
+    @pulumi.getter(name="metricsConfigurations")
+    def metrics_configurations(self) -> Optional[Sequence['outputs.DirectoryBucketMetricsConfiguration']]:
+        """
+        Specifies the metrics configurations for the Amazon S3 Express bucket.
+        """
+        return pulumi.get(self, "metrics_configurations")
+
+    @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
         """
@@ -94,6 +105,7 @@ class AwaitableGetDirectoryBucketResult(GetDirectoryBucketResult):
             availability_zone_name=self.availability_zone_name,
             bucket_encryption=self.bucket_encryption,
             lifecycle_configuration=self.lifecycle_configuration,
+            metrics_configurations=self.metrics_configurations,
             tags=self.tags)
 
 
@@ -115,6 +127,7 @@ def get_directory_bucket(bucket_name: Optional[_builtins.str] = None,
         availability_zone_name=pulumi.get(__ret__, 'availability_zone_name'),
         bucket_encryption=pulumi.get(__ret__, 'bucket_encryption'),
         lifecycle_configuration=pulumi.get(__ret__, 'lifecycle_configuration'),
+        metrics_configurations=pulumi.get(__ret__, 'metrics_configurations'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_directory_bucket_output(bucket_name: Optional[pulumi.Input[_builtins.str]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDirectoryBucketResult]:
@@ -133,4 +146,5 @@ def get_directory_bucket_output(bucket_name: Optional[pulumi.Input[_builtins.str
         availability_zone_name=pulumi.get(__response__, 'availability_zone_name'),
         bucket_encryption=pulumi.get(__response__, 'bucket_encryption'),
         lifecycle_configuration=pulumi.get(__response__, 'lifecycle_configuration'),
+        metrics_configurations=pulumi.get(__response__, 'metrics_configurations'),
         tags=pulumi.get(__response__, 'tags')))

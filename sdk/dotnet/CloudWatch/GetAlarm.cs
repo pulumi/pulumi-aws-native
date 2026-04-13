@@ -104,6 +104,8 @@ namespace Pulumi.AwsNative.CloudWatch
         /// Used only for alarms based on percentiles. If ``ignore``, the alarm state does not change during periods with too few data points to be statistically significant. If ``evaluate`` or this parameter is not used, the alarm is always evaluated and possibly changes state no matter how many data points are available.
         /// </summary>
         public readonly string? EvaluateLowSampleCountPercentile;
+        public readonly Outputs.AlarmEvaluationCriteria? EvaluationCriteria;
+        public readonly int? EvaluationInterval;
         /// <summary>
         /// The number of periods over which data is compared to the specified threshold. If you are setting an alarm that requires that a number of consecutive data points be breaching to trigger the alarm, this value specifies that number. If you are setting an "M out of N" alarm, this value is the N, and ``DatapointsToAlarm`` is the M.
         ///  For more information, see [Evaluating an Alarm](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#alarm-evaluation) in the *User Guide*.
@@ -191,6 +193,10 @@ namespace Pulumi.AwsNative.CloudWatch
 
             string? evaluateLowSampleCountPercentile,
 
+            Outputs.AlarmEvaluationCriteria? evaluationCriteria,
+
+            int? evaluationInterval,
+
             int? evaluationPeriods,
 
             string? extendedStatistic,
@@ -227,6 +233,8 @@ namespace Pulumi.AwsNative.CloudWatch
             DatapointsToAlarm = datapointsToAlarm;
             Dimensions = dimensions;
             EvaluateLowSampleCountPercentile = evaluateLowSampleCountPercentile;
+            EvaluationCriteria = evaluationCriteria;
+            EvaluationInterval = evaluationInterval;
             EvaluationPeriods = evaluationPeriods;
             ExtendedStatistic = extendedStatistic;
             InsufficientDataActions = insufficientDataActions;
