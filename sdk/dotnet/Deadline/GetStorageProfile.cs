@@ -12,19 +12,19 @@ namespace Pulumi.AwsNative.Deadline
     public static class GetStorageProfile
     {
         /// <summary>
-        /// Definition of AWS::Deadline::StorageProfile Resource Type
+        /// Resource Type definition for AWS::Deadline::StorageProfile
         /// </summary>
         public static Task<GetStorageProfileResult> InvokeAsync(GetStorageProfileArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetStorageProfileResult>("aws-native:deadline:getStorageProfile", args ?? new GetStorageProfileArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Definition of AWS::Deadline::StorageProfile Resource Type
+        /// Resource Type definition for AWS::Deadline::StorageProfile
         /// </summary>
         public static Output<GetStorageProfileResult> Invoke(GetStorageProfileInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetStorageProfileResult>("aws-native:deadline:getStorageProfile", args ?? new GetStorageProfileInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Definition of AWS::Deadline::StorageProfile Resource Type
+        /// Resource Type definition for AWS::Deadline::StorageProfile
         /// </summary>
         public static Output<GetStorageProfileResult> Invoke(GetStorageProfileInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetStorageProfileResult>("aws-native:deadline:getStorageProfile", args ?? new GetStorageProfileInvokeArgs(), options.WithDefaults());

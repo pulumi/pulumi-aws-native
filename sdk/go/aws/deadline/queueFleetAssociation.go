@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Definition of AWS::Deadline::QueueFleetAssociation Resource Type
+// Resource Type definition for AWS::Deadline::QueueFleetAssociation
 type QueueFleetAssociation struct {
 	pulumi.CustomResourceState
 

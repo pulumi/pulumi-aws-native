@@ -193,7 +193,7 @@ namespace Pulumi.AwsNative.Batch
     }
 
     /// <summary>
-    /// Whether preemption is enabled within the quota share.
+    /// Specifies whether jobs within a quota share can be preempted by another, higher priority job in the same quota share.
     /// </summary>
     [EnumType]
     public readonly struct QuotaSharePreemptionConfigurationInSharePreemption : IEquatable<QuotaSharePreemptionConfigurationInSharePreemption>
@@ -224,7 +224,7 @@ namespace Pulumi.AwsNative.Batch
     }
 
     /// <summary>
-    /// The resource sharing strategy.
+    /// The resource sharing strategy for the quota share. The `RESERVE` strategy allows a quota share to reserve idle capacity for itself. `LEND` configures the share to lend its idle capacity to another share in need of capacity. The `LEND_AND_BORROW` strategy configures the share to borrow idle capacity from an underutilized share, as well as lend to another share.
     /// </summary>
     [EnumType]
     public readonly struct QuotaShareResourceSharingConfigurationStrategy : IEquatable<QuotaShareResourceSharingConfigurationStrategy>
@@ -256,7 +256,7 @@ namespace Pulumi.AwsNative.Batch
     }
 
     /// <summary>
-    /// The state of the quota share.
+    /// The state of the quota share. If the quota share is `ENABLED`, it is able to accept jobs. If the quota share is `DISABLED`, new jobs won't be accepted but jobs already submitted can finish. The default state is `ENABLED`.
     /// </summary>
     [EnumType]
     public readonly struct QuotaShareState : IEquatable<QuotaShareState>

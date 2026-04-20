@@ -229,6 +229,9 @@ class ClusterCapacityProviderAssociationsCapacityProvider0(_builtins.str, Enum):
 
 @pulumi.type_token("aws-native:ecs:DaemonPropagateTags")
 class DaemonPropagateTags(_builtins.str, Enum):
+    """
+    Specifies whether tags are propagated from the daemon to the daemon tasks.
+    """
     DAEMON = "DAEMON"
     NONE = "NONE"
 
@@ -375,10 +378,7 @@ class ServiceDeploymentLifecycleHookLifecycleStagesItem(_builtins.str, Enum):
 @pulumi.type_token("aws-native:ecs:ServiceEbsTagSpecificationPropagateTags")
 class ServiceEbsTagSpecificationPropagateTags(_builtins.str, Enum):
     """
-    Determines whether to propagate the tags from the task definition to 
-    the Amazon EBS volume. Tags can only propagate to a ``SERVICE`` specified in 
-    ``ServiceVolumeConfiguration``. If no value is specified, the tags aren't 
-    propagated.
+    Determines whether to propagate the tags from the task definition to the Amazon EBS volume. Tags can only propagate to a ``SERVICE`` specified in ``ServiceVolumeConfiguration``. If no value is specified, the tags aren't propagated.
     """
     SERVICE = "SERVICE"
     TASK_DEFINITION = "TASK_DEFINITION"

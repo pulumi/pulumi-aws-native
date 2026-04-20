@@ -420,6 +420,7 @@ class Ec2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityType(_built
     """
     ON_DEMAND = "on-demand"
     SPOT = "spot"
+    CAPACITY_BLOCK = "capacity-block"
     RESERVED_CAPACITY = "reserved-capacity"
 
 

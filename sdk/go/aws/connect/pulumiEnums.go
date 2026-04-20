@@ -2370,6 +2370,9 @@ const (
 	EvaluationFormLanguageConfigurationFormLanguageFrFr = EvaluationFormLanguageConfigurationFormLanguage("fr-FR")
 	EvaluationFormLanguageConfigurationFormLanguageItIt = EvaluationFormLanguageConfigurationFormLanguage("it-IT")
 	EvaluationFormLanguageConfigurationFormLanguagePtBr = EvaluationFormLanguageConfigurationFormLanguage("pt-BR")
+	EvaluationFormLanguageConfigurationFormLanguageJaJp = EvaluationFormLanguageConfigurationFormLanguage("ja-JP")
+	EvaluationFormLanguageConfigurationFormLanguageKoKr = EvaluationFormLanguageConfigurationFormLanguage("ko-KR")
+	EvaluationFormLanguageConfigurationFormLanguageZhCn = EvaluationFormLanguageConfigurationFormLanguage("zh-CN")
 )
 
 func (EvaluationFormLanguageConfigurationFormLanguage) ElementType() reflect.Type {
@@ -2500,6 +2503,9 @@ func (o EvaluationFormLanguageConfigurationFormLanguagePtrOutput) ToStringPtrOut
 //	EvaluationFormLanguageConfigurationFormLanguageFrFr
 //	EvaluationFormLanguageConfigurationFormLanguageItIt
 //	EvaluationFormLanguageConfigurationFormLanguagePtBr
+//	EvaluationFormLanguageConfigurationFormLanguageJaJp
+//	EvaluationFormLanguageConfigurationFormLanguageKoKr
+//	EvaluationFormLanguageConfigurationFormLanguageZhCn
 type EvaluationFormLanguageConfigurationFormLanguageInput interface {
 	pulumi.Input
 
@@ -4241,6 +4247,7 @@ type EvaluationFormTargetConfigurationContactInteractionType string
 const (
 	EvaluationFormTargetConfigurationContactInteractionTypeAgent     = EvaluationFormTargetConfigurationContactInteractionType("AGENT")
 	EvaluationFormTargetConfigurationContactInteractionTypeAutomated = EvaluationFormTargetConfigurationContactInteractionType("AUTOMATED")
+	EvaluationFormTargetConfigurationContactInteractionTypeCustomer  = EvaluationFormTargetConfigurationContactInteractionType("CUSTOMER")
 )
 
 func (EvaluationFormTargetConfigurationContactInteractionType) ElementType() reflect.Type {
@@ -4367,6 +4374,7 @@ func (o EvaluationFormTargetConfigurationContactInteractionTypePtrOutput) ToStri
 //
 //	EvaluationFormTargetConfigurationContactInteractionTypeAgent
 //	EvaluationFormTargetConfigurationContactInteractionTypeAutomated
+//	EvaluationFormTargetConfigurationContactInteractionTypeCustomer
 type EvaluationFormTargetConfigurationContactInteractionTypeInput interface {
 	pulumi.Input
 

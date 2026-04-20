@@ -65,6 +65,7 @@ export class Connector extends pulumi.CustomResource {
      * Detailed error message when Connector in ERRORED status
      */
     declare public /*out*/ readonly errorMessage: pulumi.Output<string>;
+    declare public readonly ipAddressType: pulumi.Output<enums.transfer.ConnectorIpAddressType | undefined>;
     /**
      * Specifies the logging role for the connector.
      */
@@ -112,6 +113,7 @@ export class Connector extends pulumi.CustomResource {
             resourceInputs["as2Config"] = args?.as2Config;
             resourceInputs["egressConfig"] = args?.egressConfig;
             resourceInputs["egressType"] = args?.egressType;
+            resourceInputs["ipAddressType"] = args?.ipAddressType;
             resourceInputs["loggingRole"] = args?.loggingRole;
             resourceInputs["securityPolicyName"] = args?.securityPolicyName;
             resourceInputs["sftpConfig"] = args?.sftpConfig;
@@ -130,6 +132,7 @@ export class Connector extends pulumi.CustomResource {
             resourceInputs["egressConfig"] = undefined /*out*/;
             resourceInputs["egressType"] = undefined /*out*/;
             resourceInputs["errorMessage"] = undefined /*out*/;
+            resourceInputs["ipAddressType"] = undefined /*out*/;
             resourceInputs["loggingRole"] = undefined /*out*/;
             resourceInputs["securityPolicyName"] = undefined /*out*/;
             resourceInputs["serviceManagedEgressIpAddresses"] = undefined /*out*/;
@@ -163,6 +166,7 @@ export interface ConnectorArgs {
      * Specifies the egress type for the connector.
      */
     egressType?: pulumi.Input<enums.transfer.ConnectorEgressType>;
+    ipAddressType?: pulumi.Input<enums.transfer.ConnectorIpAddressType>;
     /**
      * Specifies the logging role for the connector.
      */

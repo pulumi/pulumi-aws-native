@@ -5090,6 +5090,146 @@ func (o ConfigurationLatestRevisionPtrOutput) Revision() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
+// Configuration for log delivery for the replicator.
+type LogDelivery struct {
+	// The replicator logs configuration.
+	ReplicatorLogDelivery *ReplicatorLogDelivery `pulumi:"replicatorLogDelivery"`
+}
+
+// LogDeliveryInput is an input type that accepts LogDeliveryArgs and LogDeliveryOutput values.
+// You can construct a concrete instance of `LogDeliveryInput` via:
+//
+//	LogDeliveryArgs{...}
+type LogDeliveryInput interface {
+	pulumi.Input
+
+	ToLogDeliveryOutput() LogDeliveryOutput
+	ToLogDeliveryOutputWithContext(context.Context) LogDeliveryOutput
+}
+
+// Configuration for log delivery for the replicator.
+type LogDeliveryArgs struct {
+	// The replicator logs configuration.
+	ReplicatorLogDelivery ReplicatorLogDeliveryPtrInput `pulumi:"replicatorLogDelivery"`
+}
+
+func (LogDeliveryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogDelivery)(nil)).Elem()
+}
+
+func (i LogDeliveryArgs) ToLogDeliveryOutput() LogDeliveryOutput {
+	return i.ToLogDeliveryOutputWithContext(context.Background())
+}
+
+func (i LogDeliveryArgs) ToLogDeliveryOutputWithContext(ctx context.Context) LogDeliveryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogDeliveryOutput)
+}
+
+func (i LogDeliveryArgs) ToLogDeliveryPtrOutput() LogDeliveryPtrOutput {
+	return i.ToLogDeliveryPtrOutputWithContext(context.Background())
+}
+
+func (i LogDeliveryArgs) ToLogDeliveryPtrOutputWithContext(ctx context.Context) LogDeliveryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogDeliveryOutput).ToLogDeliveryPtrOutputWithContext(ctx)
+}
+
+// LogDeliveryPtrInput is an input type that accepts LogDeliveryArgs, LogDeliveryPtr and LogDeliveryPtrOutput values.
+// You can construct a concrete instance of `LogDeliveryPtrInput` via:
+//
+//	        LogDeliveryArgs{...}
+//
+//	or:
+//
+//	        nil
+type LogDeliveryPtrInput interface {
+	pulumi.Input
+
+	ToLogDeliveryPtrOutput() LogDeliveryPtrOutput
+	ToLogDeliveryPtrOutputWithContext(context.Context) LogDeliveryPtrOutput
+}
+
+type logDeliveryPtrType LogDeliveryArgs
+
+func LogDeliveryPtr(v *LogDeliveryArgs) LogDeliveryPtrInput {
+	return (*logDeliveryPtrType)(v)
+}
+
+func (*logDeliveryPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LogDelivery)(nil)).Elem()
+}
+
+func (i *logDeliveryPtrType) ToLogDeliveryPtrOutput() LogDeliveryPtrOutput {
+	return i.ToLogDeliveryPtrOutputWithContext(context.Background())
+}
+
+func (i *logDeliveryPtrType) ToLogDeliveryPtrOutputWithContext(ctx context.Context) LogDeliveryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogDeliveryPtrOutput)
+}
+
+// Configuration for log delivery for the replicator.
+type LogDeliveryOutput struct{ *pulumi.OutputState }
+
+func (LogDeliveryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogDelivery)(nil)).Elem()
+}
+
+func (o LogDeliveryOutput) ToLogDeliveryOutput() LogDeliveryOutput {
+	return o
+}
+
+func (o LogDeliveryOutput) ToLogDeliveryOutputWithContext(ctx context.Context) LogDeliveryOutput {
+	return o
+}
+
+func (o LogDeliveryOutput) ToLogDeliveryPtrOutput() LogDeliveryPtrOutput {
+	return o.ToLogDeliveryPtrOutputWithContext(context.Background())
+}
+
+func (o LogDeliveryOutput) ToLogDeliveryPtrOutputWithContext(ctx context.Context) LogDeliveryPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LogDelivery) *LogDelivery {
+		return &v
+	}).(LogDeliveryPtrOutput)
+}
+
+// The replicator logs configuration.
+func (o LogDeliveryOutput) ReplicatorLogDelivery() ReplicatorLogDeliveryPtrOutput {
+	return o.ApplyT(func(v LogDelivery) *ReplicatorLogDelivery { return v.ReplicatorLogDelivery }).(ReplicatorLogDeliveryPtrOutput)
+}
+
+type LogDeliveryPtrOutput struct{ *pulumi.OutputState }
+
+func (LogDeliveryPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LogDelivery)(nil)).Elem()
+}
+
+func (o LogDeliveryPtrOutput) ToLogDeliveryPtrOutput() LogDeliveryPtrOutput {
+	return o
+}
+
+func (o LogDeliveryPtrOutput) ToLogDeliveryPtrOutputWithContext(ctx context.Context) LogDeliveryPtrOutput {
+	return o
+}
+
+func (o LogDeliveryPtrOutput) Elem() LogDeliveryOutput {
+	return o.ApplyT(func(v *LogDelivery) LogDelivery {
+		if v != nil {
+			return *v
+		}
+		var ret LogDelivery
+		return ret
+	}).(LogDeliveryOutput)
+}
+
+// The replicator logs configuration.
+func (o LogDeliveryPtrOutput) ReplicatorLogDelivery() ReplicatorLogDeliveryPtrOutput {
+	return o.ApplyT(func(v *LogDelivery) *ReplicatorLogDelivery {
+		if v == nil {
+			return nil
+		}
+		return v.ReplicatorLogDelivery
+	}).(ReplicatorLogDeliveryPtrOutput)
+}
+
 // Details of an Amazon MSK cluster.
 type ReplicatorAmazonMskCluster struct {
 	// The ARN of an Amazon MSK cluster.
@@ -5125,6 +5265,47 @@ func (i ReplicatorAmazonMskClusterArgs) ToReplicatorAmazonMskClusterOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicatorAmazonMskClusterOutput)
 }
 
+func (i ReplicatorAmazonMskClusterArgs) ToReplicatorAmazonMskClusterPtrOutput() ReplicatorAmazonMskClusterPtrOutput {
+	return i.ToReplicatorAmazonMskClusterPtrOutputWithContext(context.Background())
+}
+
+func (i ReplicatorAmazonMskClusterArgs) ToReplicatorAmazonMskClusterPtrOutputWithContext(ctx context.Context) ReplicatorAmazonMskClusterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicatorAmazonMskClusterOutput).ToReplicatorAmazonMskClusterPtrOutputWithContext(ctx)
+}
+
+// ReplicatorAmazonMskClusterPtrInput is an input type that accepts ReplicatorAmazonMskClusterArgs, ReplicatorAmazonMskClusterPtr and ReplicatorAmazonMskClusterPtrOutput values.
+// You can construct a concrete instance of `ReplicatorAmazonMskClusterPtrInput` via:
+//
+//	        ReplicatorAmazonMskClusterArgs{...}
+//
+//	or:
+//
+//	        nil
+type ReplicatorAmazonMskClusterPtrInput interface {
+	pulumi.Input
+
+	ToReplicatorAmazonMskClusterPtrOutput() ReplicatorAmazonMskClusterPtrOutput
+	ToReplicatorAmazonMskClusterPtrOutputWithContext(context.Context) ReplicatorAmazonMskClusterPtrOutput
+}
+
+type replicatorAmazonMskClusterPtrType ReplicatorAmazonMskClusterArgs
+
+func ReplicatorAmazonMskClusterPtr(v *ReplicatorAmazonMskClusterArgs) ReplicatorAmazonMskClusterPtrInput {
+	return (*replicatorAmazonMskClusterPtrType)(v)
+}
+
+func (*replicatorAmazonMskClusterPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReplicatorAmazonMskCluster)(nil)).Elem()
+}
+
+func (i *replicatorAmazonMskClusterPtrType) ToReplicatorAmazonMskClusterPtrOutput() ReplicatorAmazonMskClusterPtrOutput {
+	return i.ToReplicatorAmazonMskClusterPtrOutputWithContext(context.Background())
+}
+
+func (i *replicatorAmazonMskClusterPtrType) ToReplicatorAmazonMskClusterPtrOutputWithContext(ctx context.Context) ReplicatorAmazonMskClusterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicatorAmazonMskClusterPtrOutput)
+}
+
 // Details of an Amazon MSK cluster.
 type ReplicatorAmazonMskClusterOutput struct{ *pulumi.OutputState }
 
@@ -5140,13 +5321,377 @@ func (o ReplicatorAmazonMskClusterOutput) ToReplicatorAmazonMskClusterOutputWith
 	return o
 }
 
+func (o ReplicatorAmazonMskClusterOutput) ToReplicatorAmazonMskClusterPtrOutput() ReplicatorAmazonMskClusterPtrOutput {
+	return o.ToReplicatorAmazonMskClusterPtrOutputWithContext(context.Background())
+}
+
+func (o ReplicatorAmazonMskClusterOutput) ToReplicatorAmazonMskClusterPtrOutputWithContext(ctx context.Context) ReplicatorAmazonMskClusterPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReplicatorAmazonMskCluster) *ReplicatorAmazonMskCluster {
+		return &v
+	}).(ReplicatorAmazonMskClusterPtrOutput)
+}
+
 // The ARN of an Amazon MSK cluster.
 func (o ReplicatorAmazonMskClusterOutput) MskClusterArn() pulumi.StringOutput {
 	return o.ApplyT(func(v ReplicatorAmazonMskCluster) string { return v.MskClusterArn }).(pulumi.StringOutput)
 }
 
+type ReplicatorAmazonMskClusterPtrOutput struct{ *pulumi.OutputState }
+
+func (ReplicatorAmazonMskClusterPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReplicatorAmazonMskCluster)(nil)).Elem()
+}
+
+func (o ReplicatorAmazonMskClusterPtrOutput) ToReplicatorAmazonMskClusterPtrOutput() ReplicatorAmazonMskClusterPtrOutput {
+	return o
+}
+
+func (o ReplicatorAmazonMskClusterPtrOutput) ToReplicatorAmazonMskClusterPtrOutputWithContext(ctx context.Context) ReplicatorAmazonMskClusterPtrOutput {
+	return o
+}
+
+func (o ReplicatorAmazonMskClusterPtrOutput) Elem() ReplicatorAmazonMskClusterOutput {
+	return o.ApplyT(func(v *ReplicatorAmazonMskCluster) ReplicatorAmazonMskCluster {
+		if v != nil {
+			return *v
+		}
+		var ret ReplicatorAmazonMskCluster
+		return ret
+	}).(ReplicatorAmazonMskClusterOutput)
+}
+
+// The ARN of an Amazon MSK cluster.
+func (o ReplicatorAmazonMskClusterPtrOutput) MskClusterArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReplicatorAmazonMskCluster) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.MskClusterArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// Details of an Apache Kafka cluster.
+type ReplicatorApacheKafkaCluster struct {
+	// The ID of the Apache Kafka cluster.
+	ApacheKafkaClusterId string `pulumi:"apacheKafkaClusterId"`
+	// The bootstrap broker string of the Apache Kafka cluster.
+	BootstrapBrokerString string `pulumi:"bootstrapBrokerString"`
+}
+
+// ReplicatorApacheKafkaClusterInput is an input type that accepts ReplicatorApacheKafkaClusterArgs and ReplicatorApacheKafkaClusterOutput values.
+// You can construct a concrete instance of `ReplicatorApacheKafkaClusterInput` via:
+//
+//	ReplicatorApacheKafkaClusterArgs{...}
+type ReplicatorApacheKafkaClusterInput interface {
+	pulumi.Input
+
+	ToReplicatorApacheKafkaClusterOutput() ReplicatorApacheKafkaClusterOutput
+	ToReplicatorApacheKafkaClusterOutputWithContext(context.Context) ReplicatorApacheKafkaClusterOutput
+}
+
+// Details of an Apache Kafka cluster.
+type ReplicatorApacheKafkaClusterArgs struct {
+	// The ID of the Apache Kafka cluster.
+	ApacheKafkaClusterId pulumi.StringInput `pulumi:"apacheKafkaClusterId"`
+	// The bootstrap broker string of the Apache Kafka cluster.
+	BootstrapBrokerString pulumi.StringInput `pulumi:"bootstrapBrokerString"`
+}
+
+func (ReplicatorApacheKafkaClusterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicatorApacheKafkaCluster)(nil)).Elem()
+}
+
+func (i ReplicatorApacheKafkaClusterArgs) ToReplicatorApacheKafkaClusterOutput() ReplicatorApacheKafkaClusterOutput {
+	return i.ToReplicatorApacheKafkaClusterOutputWithContext(context.Background())
+}
+
+func (i ReplicatorApacheKafkaClusterArgs) ToReplicatorApacheKafkaClusterOutputWithContext(ctx context.Context) ReplicatorApacheKafkaClusterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicatorApacheKafkaClusterOutput)
+}
+
+func (i ReplicatorApacheKafkaClusterArgs) ToReplicatorApacheKafkaClusterPtrOutput() ReplicatorApacheKafkaClusterPtrOutput {
+	return i.ToReplicatorApacheKafkaClusterPtrOutputWithContext(context.Background())
+}
+
+func (i ReplicatorApacheKafkaClusterArgs) ToReplicatorApacheKafkaClusterPtrOutputWithContext(ctx context.Context) ReplicatorApacheKafkaClusterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicatorApacheKafkaClusterOutput).ToReplicatorApacheKafkaClusterPtrOutputWithContext(ctx)
+}
+
+// ReplicatorApacheKafkaClusterPtrInput is an input type that accepts ReplicatorApacheKafkaClusterArgs, ReplicatorApacheKafkaClusterPtr and ReplicatorApacheKafkaClusterPtrOutput values.
+// You can construct a concrete instance of `ReplicatorApacheKafkaClusterPtrInput` via:
+//
+//	        ReplicatorApacheKafkaClusterArgs{...}
+//
+//	or:
+//
+//	        nil
+type ReplicatorApacheKafkaClusterPtrInput interface {
+	pulumi.Input
+
+	ToReplicatorApacheKafkaClusterPtrOutput() ReplicatorApacheKafkaClusterPtrOutput
+	ToReplicatorApacheKafkaClusterPtrOutputWithContext(context.Context) ReplicatorApacheKafkaClusterPtrOutput
+}
+
+type replicatorApacheKafkaClusterPtrType ReplicatorApacheKafkaClusterArgs
+
+func ReplicatorApacheKafkaClusterPtr(v *ReplicatorApacheKafkaClusterArgs) ReplicatorApacheKafkaClusterPtrInput {
+	return (*replicatorApacheKafkaClusterPtrType)(v)
+}
+
+func (*replicatorApacheKafkaClusterPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReplicatorApacheKafkaCluster)(nil)).Elem()
+}
+
+func (i *replicatorApacheKafkaClusterPtrType) ToReplicatorApacheKafkaClusterPtrOutput() ReplicatorApacheKafkaClusterPtrOutput {
+	return i.ToReplicatorApacheKafkaClusterPtrOutputWithContext(context.Background())
+}
+
+func (i *replicatorApacheKafkaClusterPtrType) ToReplicatorApacheKafkaClusterPtrOutputWithContext(ctx context.Context) ReplicatorApacheKafkaClusterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicatorApacheKafkaClusterPtrOutput)
+}
+
+// Details of an Apache Kafka cluster.
+type ReplicatorApacheKafkaClusterOutput struct{ *pulumi.OutputState }
+
+func (ReplicatorApacheKafkaClusterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicatorApacheKafkaCluster)(nil)).Elem()
+}
+
+func (o ReplicatorApacheKafkaClusterOutput) ToReplicatorApacheKafkaClusterOutput() ReplicatorApacheKafkaClusterOutput {
+	return o
+}
+
+func (o ReplicatorApacheKafkaClusterOutput) ToReplicatorApacheKafkaClusterOutputWithContext(ctx context.Context) ReplicatorApacheKafkaClusterOutput {
+	return o
+}
+
+func (o ReplicatorApacheKafkaClusterOutput) ToReplicatorApacheKafkaClusterPtrOutput() ReplicatorApacheKafkaClusterPtrOutput {
+	return o.ToReplicatorApacheKafkaClusterPtrOutputWithContext(context.Background())
+}
+
+func (o ReplicatorApacheKafkaClusterOutput) ToReplicatorApacheKafkaClusterPtrOutputWithContext(ctx context.Context) ReplicatorApacheKafkaClusterPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReplicatorApacheKafkaCluster) *ReplicatorApacheKafkaCluster {
+		return &v
+	}).(ReplicatorApacheKafkaClusterPtrOutput)
+}
+
+// The ID of the Apache Kafka cluster.
+func (o ReplicatorApacheKafkaClusterOutput) ApacheKafkaClusterId() pulumi.StringOutput {
+	return o.ApplyT(func(v ReplicatorApacheKafkaCluster) string { return v.ApacheKafkaClusterId }).(pulumi.StringOutput)
+}
+
+// The bootstrap broker string of the Apache Kafka cluster.
+func (o ReplicatorApacheKafkaClusterOutput) BootstrapBrokerString() pulumi.StringOutput {
+	return o.ApplyT(func(v ReplicatorApacheKafkaCluster) string { return v.BootstrapBrokerString }).(pulumi.StringOutput)
+}
+
+type ReplicatorApacheKafkaClusterPtrOutput struct{ *pulumi.OutputState }
+
+func (ReplicatorApacheKafkaClusterPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReplicatorApacheKafkaCluster)(nil)).Elem()
+}
+
+func (o ReplicatorApacheKafkaClusterPtrOutput) ToReplicatorApacheKafkaClusterPtrOutput() ReplicatorApacheKafkaClusterPtrOutput {
+	return o
+}
+
+func (o ReplicatorApacheKafkaClusterPtrOutput) ToReplicatorApacheKafkaClusterPtrOutputWithContext(ctx context.Context) ReplicatorApacheKafkaClusterPtrOutput {
+	return o
+}
+
+func (o ReplicatorApacheKafkaClusterPtrOutput) Elem() ReplicatorApacheKafkaClusterOutput {
+	return o.ApplyT(func(v *ReplicatorApacheKafkaCluster) ReplicatorApacheKafkaCluster {
+		if v != nil {
+			return *v
+		}
+		var ret ReplicatorApacheKafkaCluster
+		return ret
+	}).(ReplicatorApacheKafkaClusterOutput)
+}
+
+// The ID of the Apache Kafka cluster.
+func (o ReplicatorApacheKafkaClusterPtrOutput) ApacheKafkaClusterId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReplicatorApacheKafkaCluster) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ApacheKafkaClusterId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The bootstrap broker string of the Apache Kafka cluster.
+func (o ReplicatorApacheKafkaClusterPtrOutput) BootstrapBrokerString() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReplicatorApacheKafkaCluster) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.BootstrapBrokerString
+	}).(pulumi.StringPtrOutput)
+}
+
+// Details about delivering logs to CloudWatch Logs.
+type ReplicatorCloudWatchLogs struct {
+	// Whether log delivery to CloudWatch Logs is enabled.
+	Enabled bool `pulumi:"enabled"`
+	// The CloudWatch log group that is the destination for log delivery.
+	LogGroup *string `pulumi:"logGroup"`
+}
+
+// ReplicatorCloudWatchLogsInput is an input type that accepts ReplicatorCloudWatchLogsArgs and ReplicatorCloudWatchLogsOutput values.
+// You can construct a concrete instance of `ReplicatorCloudWatchLogsInput` via:
+//
+//	ReplicatorCloudWatchLogsArgs{...}
+type ReplicatorCloudWatchLogsInput interface {
+	pulumi.Input
+
+	ToReplicatorCloudWatchLogsOutput() ReplicatorCloudWatchLogsOutput
+	ToReplicatorCloudWatchLogsOutputWithContext(context.Context) ReplicatorCloudWatchLogsOutput
+}
+
+// Details about delivering logs to CloudWatch Logs.
+type ReplicatorCloudWatchLogsArgs struct {
+	// Whether log delivery to CloudWatch Logs is enabled.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// The CloudWatch log group that is the destination for log delivery.
+	LogGroup pulumi.StringPtrInput `pulumi:"logGroup"`
+}
+
+func (ReplicatorCloudWatchLogsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicatorCloudWatchLogs)(nil)).Elem()
+}
+
+func (i ReplicatorCloudWatchLogsArgs) ToReplicatorCloudWatchLogsOutput() ReplicatorCloudWatchLogsOutput {
+	return i.ToReplicatorCloudWatchLogsOutputWithContext(context.Background())
+}
+
+func (i ReplicatorCloudWatchLogsArgs) ToReplicatorCloudWatchLogsOutputWithContext(ctx context.Context) ReplicatorCloudWatchLogsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicatorCloudWatchLogsOutput)
+}
+
+func (i ReplicatorCloudWatchLogsArgs) ToReplicatorCloudWatchLogsPtrOutput() ReplicatorCloudWatchLogsPtrOutput {
+	return i.ToReplicatorCloudWatchLogsPtrOutputWithContext(context.Background())
+}
+
+func (i ReplicatorCloudWatchLogsArgs) ToReplicatorCloudWatchLogsPtrOutputWithContext(ctx context.Context) ReplicatorCloudWatchLogsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicatorCloudWatchLogsOutput).ToReplicatorCloudWatchLogsPtrOutputWithContext(ctx)
+}
+
+// ReplicatorCloudWatchLogsPtrInput is an input type that accepts ReplicatorCloudWatchLogsArgs, ReplicatorCloudWatchLogsPtr and ReplicatorCloudWatchLogsPtrOutput values.
+// You can construct a concrete instance of `ReplicatorCloudWatchLogsPtrInput` via:
+//
+//	        ReplicatorCloudWatchLogsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ReplicatorCloudWatchLogsPtrInput interface {
+	pulumi.Input
+
+	ToReplicatorCloudWatchLogsPtrOutput() ReplicatorCloudWatchLogsPtrOutput
+	ToReplicatorCloudWatchLogsPtrOutputWithContext(context.Context) ReplicatorCloudWatchLogsPtrOutput
+}
+
+type replicatorCloudWatchLogsPtrType ReplicatorCloudWatchLogsArgs
+
+func ReplicatorCloudWatchLogsPtr(v *ReplicatorCloudWatchLogsArgs) ReplicatorCloudWatchLogsPtrInput {
+	return (*replicatorCloudWatchLogsPtrType)(v)
+}
+
+func (*replicatorCloudWatchLogsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReplicatorCloudWatchLogs)(nil)).Elem()
+}
+
+func (i *replicatorCloudWatchLogsPtrType) ToReplicatorCloudWatchLogsPtrOutput() ReplicatorCloudWatchLogsPtrOutput {
+	return i.ToReplicatorCloudWatchLogsPtrOutputWithContext(context.Background())
+}
+
+func (i *replicatorCloudWatchLogsPtrType) ToReplicatorCloudWatchLogsPtrOutputWithContext(ctx context.Context) ReplicatorCloudWatchLogsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicatorCloudWatchLogsPtrOutput)
+}
+
+// Details about delivering logs to CloudWatch Logs.
+type ReplicatorCloudWatchLogsOutput struct{ *pulumi.OutputState }
+
+func (ReplicatorCloudWatchLogsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicatorCloudWatchLogs)(nil)).Elem()
+}
+
+func (o ReplicatorCloudWatchLogsOutput) ToReplicatorCloudWatchLogsOutput() ReplicatorCloudWatchLogsOutput {
+	return o
+}
+
+func (o ReplicatorCloudWatchLogsOutput) ToReplicatorCloudWatchLogsOutputWithContext(ctx context.Context) ReplicatorCloudWatchLogsOutput {
+	return o
+}
+
+func (o ReplicatorCloudWatchLogsOutput) ToReplicatorCloudWatchLogsPtrOutput() ReplicatorCloudWatchLogsPtrOutput {
+	return o.ToReplicatorCloudWatchLogsPtrOutputWithContext(context.Background())
+}
+
+func (o ReplicatorCloudWatchLogsOutput) ToReplicatorCloudWatchLogsPtrOutputWithContext(ctx context.Context) ReplicatorCloudWatchLogsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReplicatorCloudWatchLogs) *ReplicatorCloudWatchLogs {
+		return &v
+	}).(ReplicatorCloudWatchLogsPtrOutput)
+}
+
+// Whether log delivery to CloudWatch Logs is enabled.
+func (o ReplicatorCloudWatchLogsOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v ReplicatorCloudWatchLogs) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// The CloudWatch log group that is the destination for log delivery.
+func (o ReplicatorCloudWatchLogsOutput) LogGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReplicatorCloudWatchLogs) *string { return v.LogGroup }).(pulumi.StringPtrOutput)
+}
+
+type ReplicatorCloudWatchLogsPtrOutput struct{ *pulumi.OutputState }
+
+func (ReplicatorCloudWatchLogsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReplicatorCloudWatchLogs)(nil)).Elem()
+}
+
+func (o ReplicatorCloudWatchLogsPtrOutput) ToReplicatorCloudWatchLogsPtrOutput() ReplicatorCloudWatchLogsPtrOutput {
+	return o
+}
+
+func (o ReplicatorCloudWatchLogsPtrOutput) ToReplicatorCloudWatchLogsPtrOutputWithContext(ctx context.Context) ReplicatorCloudWatchLogsPtrOutput {
+	return o
+}
+
+func (o ReplicatorCloudWatchLogsPtrOutput) Elem() ReplicatorCloudWatchLogsOutput {
+	return o.ApplyT(func(v *ReplicatorCloudWatchLogs) ReplicatorCloudWatchLogs {
+		if v != nil {
+			return *v
+		}
+		var ret ReplicatorCloudWatchLogs
+		return ret
+	}).(ReplicatorCloudWatchLogsOutput)
+}
+
+// Whether log delivery to CloudWatch Logs is enabled.
+func (o ReplicatorCloudWatchLogsPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ReplicatorCloudWatchLogs) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The CloudWatch log group that is the destination for log delivery.
+func (o ReplicatorCloudWatchLogsPtrOutput) LogGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReplicatorCloudWatchLogs) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LogGroup
+	}).(pulumi.StringPtrOutput)
+}
+
 // Configuration relating to consumer group replication.
 type ReplicatorConsumerGroupReplication struct {
+	// The consumer group offset synchronization mode.
+	ConsumerGroupOffsetSyncMode *ReplicatorConsumerGroupOffsetSyncMode `pulumi:"consumerGroupOffsetSyncMode"`
 	// List of regular expression patterns indicating the consumer groups that should not be replicated.
 	ConsumerGroupsToExclude []string `pulumi:"consumerGroupsToExclude"`
 	// List of regular expression patterns indicating the consumer groups to copy.
@@ -5170,6 +5715,8 @@ type ReplicatorConsumerGroupReplicationInput interface {
 
 // Configuration relating to consumer group replication.
 type ReplicatorConsumerGroupReplicationArgs struct {
+	// The consumer group offset synchronization mode.
+	ConsumerGroupOffsetSyncMode ReplicatorConsumerGroupOffsetSyncModePtrInput `pulumi:"consumerGroupOffsetSyncMode"`
 	// List of regular expression patterns indicating the consumer groups that should not be replicated.
 	ConsumerGroupsToExclude pulumi.StringArrayInput `pulumi:"consumerGroupsToExclude"`
 	// List of regular expression patterns indicating the consumer groups to copy.
@@ -5207,6 +5754,13 @@ func (o ReplicatorConsumerGroupReplicationOutput) ToReplicatorConsumerGroupRepli
 	return o
 }
 
+// The consumer group offset synchronization mode.
+func (o ReplicatorConsumerGroupReplicationOutput) ConsumerGroupOffsetSyncMode() ReplicatorConsumerGroupOffsetSyncModePtrOutput {
+	return o.ApplyT(func(v ReplicatorConsumerGroupReplication) *ReplicatorConsumerGroupOffsetSyncMode {
+		return v.ConsumerGroupOffsetSyncMode
+	}).(ReplicatorConsumerGroupOffsetSyncModePtrOutput)
+}
+
 // List of regular expression patterns indicating the consumer groups that should not be replicated.
 func (o ReplicatorConsumerGroupReplicationOutput) ConsumerGroupsToExclude() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ReplicatorConsumerGroupReplication) []string { return v.ConsumerGroupsToExclude }).(pulumi.StringArrayOutput)
@@ -5227,12 +5781,177 @@ func (o ReplicatorConsumerGroupReplicationOutput) SynchroniseConsumerGroupOffset
 	return o.ApplyT(func(v ReplicatorConsumerGroupReplication) *bool { return v.SynchroniseConsumerGroupOffsets }).(pulumi.BoolPtrOutput)
 }
 
+// Details about delivering logs to Firehose.
+type ReplicatorFirehose struct {
+	// The Firehose delivery stream that is the destination for log delivery.
+	DeliveryStream *string `pulumi:"deliveryStream"`
+	// Whether log delivery to Firehose is enabled.
+	Enabled bool `pulumi:"enabled"`
+}
+
+// ReplicatorFirehoseInput is an input type that accepts ReplicatorFirehoseArgs and ReplicatorFirehoseOutput values.
+// You can construct a concrete instance of `ReplicatorFirehoseInput` via:
+//
+//	ReplicatorFirehoseArgs{...}
+type ReplicatorFirehoseInput interface {
+	pulumi.Input
+
+	ToReplicatorFirehoseOutput() ReplicatorFirehoseOutput
+	ToReplicatorFirehoseOutputWithContext(context.Context) ReplicatorFirehoseOutput
+}
+
+// Details about delivering logs to Firehose.
+type ReplicatorFirehoseArgs struct {
+	// The Firehose delivery stream that is the destination for log delivery.
+	DeliveryStream pulumi.StringPtrInput `pulumi:"deliveryStream"`
+	// Whether log delivery to Firehose is enabled.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+}
+
+func (ReplicatorFirehoseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicatorFirehose)(nil)).Elem()
+}
+
+func (i ReplicatorFirehoseArgs) ToReplicatorFirehoseOutput() ReplicatorFirehoseOutput {
+	return i.ToReplicatorFirehoseOutputWithContext(context.Background())
+}
+
+func (i ReplicatorFirehoseArgs) ToReplicatorFirehoseOutputWithContext(ctx context.Context) ReplicatorFirehoseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicatorFirehoseOutput)
+}
+
+func (i ReplicatorFirehoseArgs) ToReplicatorFirehosePtrOutput() ReplicatorFirehosePtrOutput {
+	return i.ToReplicatorFirehosePtrOutputWithContext(context.Background())
+}
+
+func (i ReplicatorFirehoseArgs) ToReplicatorFirehosePtrOutputWithContext(ctx context.Context) ReplicatorFirehosePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicatorFirehoseOutput).ToReplicatorFirehosePtrOutputWithContext(ctx)
+}
+
+// ReplicatorFirehosePtrInput is an input type that accepts ReplicatorFirehoseArgs, ReplicatorFirehosePtr and ReplicatorFirehosePtrOutput values.
+// You can construct a concrete instance of `ReplicatorFirehosePtrInput` via:
+//
+//	        ReplicatorFirehoseArgs{...}
+//
+//	or:
+//
+//	        nil
+type ReplicatorFirehosePtrInput interface {
+	pulumi.Input
+
+	ToReplicatorFirehosePtrOutput() ReplicatorFirehosePtrOutput
+	ToReplicatorFirehosePtrOutputWithContext(context.Context) ReplicatorFirehosePtrOutput
+}
+
+type replicatorFirehosePtrType ReplicatorFirehoseArgs
+
+func ReplicatorFirehosePtr(v *ReplicatorFirehoseArgs) ReplicatorFirehosePtrInput {
+	return (*replicatorFirehosePtrType)(v)
+}
+
+func (*replicatorFirehosePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReplicatorFirehose)(nil)).Elem()
+}
+
+func (i *replicatorFirehosePtrType) ToReplicatorFirehosePtrOutput() ReplicatorFirehosePtrOutput {
+	return i.ToReplicatorFirehosePtrOutputWithContext(context.Background())
+}
+
+func (i *replicatorFirehosePtrType) ToReplicatorFirehosePtrOutputWithContext(ctx context.Context) ReplicatorFirehosePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicatorFirehosePtrOutput)
+}
+
+// Details about delivering logs to Firehose.
+type ReplicatorFirehoseOutput struct{ *pulumi.OutputState }
+
+func (ReplicatorFirehoseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicatorFirehose)(nil)).Elem()
+}
+
+func (o ReplicatorFirehoseOutput) ToReplicatorFirehoseOutput() ReplicatorFirehoseOutput {
+	return o
+}
+
+func (o ReplicatorFirehoseOutput) ToReplicatorFirehoseOutputWithContext(ctx context.Context) ReplicatorFirehoseOutput {
+	return o
+}
+
+func (o ReplicatorFirehoseOutput) ToReplicatorFirehosePtrOutput() ReplicatorFirehosePtrOutput {
+	return o.ToReplicatorFirehosePtrOutputWithContext(context.Background())
+}
+
+func (o ReplicatorFirehoseOutput) ToReplicatorFirehosePtrOutputWithContext(ctx context.Context) ReplicatorFirehosePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReplicatorFirehose) *ReplicatorFirehose {
+		return &v
+	}).(ReplicatorFirehosePtrOutput)
+}
+
+// The Firehose delivery stream that is the destination for log delivery.
+func (o ReplicatorFirehoseOutput) DeliveryStream() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReplicatorFirehose) *string { return v.DeliveryStream }).(pulumi.StringPtrOutput)
+}
+
+// Whether log delivery to Firehose is enabled.
+func (o ReplicatorFirehoseOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v ReplicatorFirehose) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+type ReplicatorFirehosePtrOutput struct{ *pulumi.OutputState }
+
+func (ReplicatorFirehosePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReplicatorFirehose)(nil)).Elem()
+}
+
+func (o ReplicatorFirehosePtrOutput) ToReplicatorFirehosePtrOutput() ReplicatorFirehosePtrOutput {
+	return o
+}
+
+func (o ReplicatorFirehosePtrOutput) ToReplicatorFirehosePtrOutputWithContext(ctx context.Context) ReplicatorFirehosePtrOutput {
+	return o
+}
+
+func (o ReplicatorFirehosePtrOutput) Elem() ReplicatorFirehoseOutput {
+	return o.ApplyT(func(v *ReplicatorFirehose) ReplicatorFirehose {
+		if v != nil {
+			return *v
+		}
+		var ret ReplicatorFirehose
+		return ret
+	}).(ReplicatorFirehoseOutput)
+}
+
+// The Firehose delivery stream that is the destination for log delivery.
+func (o ReplicatorFirehosePtrOutput) DeliveryStream() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReplicatorFirehose) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DeliveryStream
+	}).(pulumi.StringPtrOutput)
+}
+
+// Whether log delivery to Firehose is enabled.
+func (o ReplicatorFirehosePtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ReplicatorFirehose) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
 // Details of a Kafka cluster for replication.
 type ReplicatorKafkaCluster struct {
-	// Details of an Amazon MSK cluster. Exactly one of AmazonMskCluster is required.
-	AmazonMskCluster ReplicatorAmazonMskCluster `pulumi:"amazonMskCluster"`
+	// Details of an Amazon MSK cluster.
+	AmazonMskCluster *ReplicatorAmazonMskCluster `pulumi:"amazonMskCluster"`
+	// Details of an Apache Kafka cluster.
+	ApacheKafkaCluster *ReplicatorApacheKafkaCluster `pulumi:"apacheKafkaCluster"`
+	// Details of the client authentication used by the Apache Kafka cluster.
+	ClientAuthentication *ReplicatorKafkaClusterClientAuthentication `pulumi:"clientAuthentication"`
+	// Details of encryption in transit to the Apache Kafka cluster.
+	EncryptionInTransit *ReplicatorKafkaClusterEncryptionInTransit `pulumi:"encryptionInTransit"`
 	// Details of an Amazon VPC which has network connectivity to the Apache Kafka cluster.
-	VpcConfig ReplicatorKafkaClusterClientVpcConfig `pulumi:"vpcConfig"`
+	VpcConfig *ReplicatorKafkaClusterClientVpcConfig `pulumi:"vpcConfig"`
 }
 
 // ReplicatorKafkaClusterInput is an input type that accepts ReplicatorKafkaClusterArgs and ReplicatorKafkaClusterOutput values.
@@ -5248,10 +5967,16 @@ type ReplicatorKafkaClusterInput interface {
 
 // Details of a Kafka cluster for replication.
 type ReplicatorKafkaClusterArgs struct {
-	// Details of an Amazon MSK cluster. Exactly one of AmazonMskCluster is required.
-	AmazonMskCluster ReplicatorAmazonMskClusterInput `pulumi:"amazonMskCluster"`
+	// Details of an Amazon MSK cluster.
+	AmazonMskCluster ReplicatorAmazonMskClusterPtrInput `pulumi:"amazonMskCluster"`
+	// Details of an Apache Kafka cluster.
+	ApacheKafkaCluster ReplicatorApacheKafkaClusterPtrInput `pulumi:"apacheKafkaCluster"`
+	// Details of the client authentication used by the Apache Kafka cluster.
+	ClientAuthentication ReplicatorKafkaClusterClientAuthenticationPtrInput `pulumi:"clientAuthentication"`
+	// Details of encryption in transit to the Apache Kafka cluster.
+	EncryptionInTransit ReplicatorKafkaClusterEncryptionInTransitPtrInput `pulumi:"encryptionInTransit"`
 	// Details of an Amazon VPC which has network connectivity to the Apache Kafka cluster.
-	VpcConfig ReplicatorKafkaClusterClientVpcConfigInput `pulumi:"vpcConfig"`
+	VpcConfig ReplicatorKafkaClusterClientVpcConfigPtrInput `pulumi:"vpcConfig"`
 }
 
 func (ReplicatorKafkaClusterArgs) ElementType() reflect.Type {
@@ -5306,14 +6031,33 @@ func (o ReplicatorKafkaClusterOutput) ToReplicatorKafkaClusterOutputWithContext(
 	return o
 }
 
-// Details of an Amazon MSK cluster. Exactly one of AmazonMskCluster is required.
-func (o ReplicatorKafkaClusterOutput) AmazonMskCluster() ReplicatorAmazonMskClusterOutput {
-	return o.ApplyT(func(v ReplicatorKafkaCluster) ReplicatorAmazonMskCluster { return v.AmazonMskCluster }).(ReplicatorAmazonMskClusterOutput)
+// Details of an Amazon MSK cluster.
+func (o ReplicatorKafkaClusterOutput) AmazonMskCluster() ReplicatorAmazonMskClusterPtrOutput {
+	return o.ApplyT(func(v ReplicatorKafkaCluster) *ReplicatorAmazonMskCluster { return v.AmazonMskCluster }).(ReplicatorAmazonMskClusterPtrOutput)
+}
+
+// Details of an Apache Kafka cluster.
+func (o ReplicatorKafkaClusterOutput) ApacheKafkaCluster() ReplicatorApacheKafkaClusterPtrOutput {
+	return o.ApplyT(func(v ReplicatorKafkaCluster) *ReplicatorApacheKafkaCluster { return v.ApacheKafkaCluster }).(ReplicatorApacheKafkaClusterPtrOutput)
+}
+
+// Details of the client authentication used by the Apache Kafka cluster.
+func (o ReplicatorKafkaClusterOutput) ClientAuthentication() ReplicatorKafkaClusterClientAuthenticationPtrOutput {
+	return o.ApplyT(func(v ReplicatorKafkaCluster) *ReplicatorKafkaClusterClientAuthentication {
+		return v.ClientAuthentication
+	}).(ReplicatorKafkaClusterClientAuthenticationPtrOutput)
+}
+
+// Details of encryption in transit to the Apache Kafka cluster.
+func (o ReplicatorKafkaClusterOutput) EncryptionInTransit() ReplicatorKafkaClusterEncryptionInTransitPtrOutput {
+	return o.ApplyT(func(v ReplicatorKafkaCluster) *ReplicatorKafkaClusterEncryptionInTransit {
+		return v.EncryptionInTransit
+	}).(ReplicatorKafkaClusterEncryptionInTransitPtrOutput)
 }
 
 // Details of an Amazon VPC which has network connectivity to the Apache Kafka cluster.
-func (o ReplicatorKafkaClusterOutput) VpcConfig() ReplicatorKafkaClusterClientVpcConfigOutput {
-	return o.ApplyT(func(v ReplicatorKafkaCluster) ReplicatorKafkaClusterClientVpcConfig { return v.VpcConfig }).(ReplicatorKafkaClusterClientVpcConfigOutput)
+func (o ReplicatorKafkaClusterOutput) VpcConfig() ReplicatorKafkaClusterClientVpcConfigPtrOutput {
+	return o.ApplyT(func(v ReplicatorKafkaCluster) *ReplicatorKafkaClusterClientVpcConfig { return v.VpcConfig }).(ReplicatorKafkaClusterClientVpcConfigPtrOutput)
 }
 
 type ReplicatorKafkaClusterArrayOutput struct{ *pulumi.OutputState }
@@ -5334,6 +6078,148 @@ func (o ReplicatorKafkaClusterArrayOutput) Index(i pulumi.IntInput) ReplicatorKa
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ReplicatorKafkaCluster {
 		return vs[0].([]ReplicatorKafkaCluster)[vs[1].(int)]
 	}).(ReplicatorKafkaClusterOutput)
+}
+
+// Details of the client authentication used by the Apache Kafka cluster.
+type ReplicatorKafkaClusterClientAuthentication struct {
+	// Details for SASL/SCRAM client authentication.
+	SaslScram ReplicatorKafkaClusterSaslScramAuthentication `pulumi:"saslScram"`
+}
+
+// ReplicatorKafkaClusterClientAuthenticationInput is an input type that accepts ReplicatorKafkaClusterClientAuthenticationArgs and ReplicatorKafkaClusterClientAuthenticationOutput values.
+// You can construct a concrete instance of `ReplicatorKafkaClusterClientAuthenticationInput` via:
+//
+//	ReplicatorKafkaClusterClientAuthenticationArgs{...}
+type ReplicatorKafkaClusterClientAuthenticationInput interface {
+	pulumi.Input
+
+	ToReplicatorKafkaClusterClientAuthenticationOutput() ReplicatorKafkaClusterClientAuthenticationOutput
+	ToReplicatorKafkaClusterClientAuthenticationOutputWithContext(context.Context) ReplicatorKafkaClusterClientAuthenticationOutput
+}
+
+// Details of the client authentication used by the Apache Kafka cluster.
+type ReplicatorKafkaClusterClientAuthenticationArgs struct {
+	// Details for SASL/SCRAM client authentication.
+	SaslScram ReplicatorKafkaClusterSaslScramAuthenticationInput `pulumi:"saslScram"`
+}
+
+func (ReplicatorKafkaClusterClientAuthenticationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicatorKafkaClusterClientAuthentication)(nil)).Elem()
+}
+
+func (i ReplicatorKafkaClusterClientAuthenticationArgs) ToReplicatorKafkaClusterClientAuthenticationOutput() ReplicatorKafkaClusterClientAuthenticationOutput {
+	return i.ToReplicatorKafkaClusterClientAuthenticationOutputWithContext(context.Background())
+}
+
+func (i ReplicatorKafkaClusterClientAuthenticationArgs) ToReplicatorKafkaClusterClientAuthenticationOutputWithContext(ctx context.Context) ReplicatorKafkaClusterClientAuthenticationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicatorKafkaClusterClientAuthenticationOutput)
+}
+
+func (i ReplicatorKafkaClusterClientAuthenticationArgs) ToReplicatorKafkaClusterClientAuthenticationPtrOutput() ReplicatorKafkaClusterClientAuthenticationPtrOutput {
+	return i.ToReplicatorKafkaClusterClientAuthenticationPtrOutputWithContext(context.Background())
+}
+
+func (i ReplicatorKafkaClusterClientAuthenticationArgs) ToReplicatorKafkaClusterClientAuthenticationPtrOutputWithContext(ctx context.Context) ReplicatorKafkaClusterClientAuthenticationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicatorKafkaClusterClientAuthenticationOutput).ToReplicatorKafkaClusterClientAuthenticationPtrOutputWithContext(ctx)
+}
+
+// ReplicatorKafkaClusterClientAuthenticationPtrInput is an input type that accepts ReplicatorKafkaClusterClientAuthenticationArgs, ReplicatorKafkaClusterClientAuthenticationPtr and ReplicatorKafkaClusterClientAuthenticationPtrOutput values.
+// You can construct a concrete instance of `ReplicatorKafkaClusterClientAuthenticationPtrInput` via:
+//
+//	        ReplicatorKafkaClusterClientAuthenticationArgs{...}
+//
+//	or:
+//
+//	        nil
+type ReplicatorKafkaClusterClientAuthenticationPtrInput interface {
+	pulumi.Input
+
+	ToReplicatorKafkaClusterClientAuthenticationPtrOutput() ReplicatorKafkaClusterClientAuthenticationPtrOutput
+	ToReplicatorKafkaClusterClientAuthenticationPtrOutputWithContext(context.Context) ReplicatorKafkaClusterClientAuthenticationPtrOutput
+}
+
+type replicatorKafkaClusterClientAuthenticationPtrType ReplicatorKafkaClusterClientAuthenticationArgs
+
+func ReplicatorKafkaClusterClientAuthenticationPtr(v *ReplicatorKafkaClusterClientAuthenticationArgs) ReplicatorKafkaClusterClientAuthenticationPtrInput {
+	return (*replicatorKafkaClusterClientAuthenticationPtrType)(v)
+}
+
+func (*replicatorKafkaClusterClientAuthenticationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReplicatorKafkaClusterClientAuthentication)(nil)).Elem()
+}
+
+func (i *replicatorKafkaClusterClientAuthenticationPtrType) ToReplicatorKafkaClusterClientAuthenticationPtrOutput() ReplicatorKafkaClusterClientAuthenticationPtrOutput {
+	return i.ToReplicatorKafkaClusterClientAuthenticationPtrOutputWithContext(context.Background())
+}
+
+func (i *replicatorKafkaClusterClientAuthenticationPtrType) ToReplicatorKafkaClusterClientAuthenticationPtrOutputWithContext(ctx context.Context) ReplicatorKafkaClusterClientAuthenticationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicatorKafkaClusterClientAuthenticationPtrOutput)
+}
+
+// Details of the client authentication used by the Apache Kafka cluster.
+type ReplicatorKafkaClusterClientAuthenticationOutput struct{ *pulumi.OutputState }
+
+func (ReplicatorKafkaClusterClientAuthenticationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicatorKafkaClusterClientAuthentication)(nil)).Elem()
+}
+
+func (o ReplicatorKafkaClusterClientAuthenticationOutput) ToReplicatorKafkaClusterClientAuthenticationOutput() ReplicatorKafkaClusterClientAuthenticationOutput {
+	return o
+}
+
+func (o ReplicatorKafkaClusterClientAuthenticationOutput) ToReplicatorKafkaClusterClientAuthenticationOutputWithContext(ctx context.Context) ReplicatorKafkaClusterClientAuthenticationOutput {
+	return o
+}
+
+func (o ReplicatorKafkaClusterClientAuthenticationOutput) ToReplicatorKafkaClusterClientAuthenticationPtrOutput() ReplicatorKafkaClusterClientAuthenticationPtrOutput {
+	return o.ToReplicatorKafkaClusterClientAuthenticationPtrOutputWithContext(context.Background())
+}
+
+func (o ReplicatorKafkaClusterClientAuthenticationOutput) ToReplicatorKafkaClusterClientAuthenticationPtrOutputWithContext(ctx context.Context) ReplicatorKafkaClusterClientAuthenticationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReplicatorKafkaClusterClientAuthentication) *ReplicatorKafkaClusterClientAuthentication {
+		return &v
+	}).(ReplicatorKafkaClusterClientAuthenticationPtrOutput)
+}
+
+// Details for SASL/SCRAM client authentication.
+func (o ReplicatorKafkaClusterClientAuthenticationOutput) SaslScram() ReplicatorKafkaClusterSaslScramAuthenticationOutput {
+	return o.ApplyT(func(v ReplicatorKafkaClusterClientAuthentication) ReplicatorKafkaClusterSaslScramAuthentication {
+		return v.SaslScram
+	}).(ReplicatorKafkaClusterSaslScramAuthenticationOutput)
+}
+
+type ReplicatorKafkaClusterClientAuthenticationPtrOutput struct{ *pulumi.OutputState }
+
+func (ReplicatorKafkaClusterClientAuthenticationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReplicatorKafkaClusterClientAuthentication)(nil)).Elem()
+}
+
+func (o ReplicatorKafkaClusterClientAuthenticationPtrOutput) ToReplicatorKafkaClusterClientAuthenticationPtrOutput() ReplicatorKafkaClusterClientAuthenticationPtrOutput {
+	return o
+}
+
+func (o ReplicatorKafkaClusterClientAuthenticationPtrOutput) ToReplicatorKafkaClusterClientAuthenticationPtrOutputWithContext(ctx context.Context) ReplicatorKafkaClusterClientAuthenticationPtrOutput {
+	return o
+}
+
+func (o ReplicatorKafkaClusterClientAuthenticationPtrOutput) Elem() ReplicatorKafkaClusterClientAuthenticationOutput {
+	return o.ApplyT(func(v *ReplicatorKafkaClusterClientAuthentication) ReplicatorKafkaClusterClientAuthentication {
+		if v != nil {
+			return *v
+		}
+		var ret ReplicatorKafkaClusterClientAuthentication
+		return ret
+	}).(ReplicatorKafkaClusterClientAuthenticationOutput)
+}
+
+// Details for SASL/SCRAM client authentication.
+func (o ReplicatorKafkaClusterClientAuthenticationPtrOutput) SaslScram() ReplicatorKafkaClusterSaslScramAuthenticationPtrOutput {
+	return o.ApplyT(func(v *ReplicatorKafkaClusterClientAuthentication) *ReplicatorKafkaClusterSaslScramAuthentication {
+		if v == nil {
+			return nil
+		}
+		return &v.SaslScram
+	}).(ReplicatorKafkaClusterSaslScramAuthenticationPtrOutput)
 }
 
 // Details of an Amazon VPC which has network connectivity to the Kafka cluster.
@@ -5375,6 +6261,47 @@ func (i ReplicatorKafkaClusterClientVpcConfigArgs) ToReplicatorKafkaClusterClien
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicatorKafkaClusterClientVpcConfigOutput)
 }
 
+func (i ReplicatorKafkaClusterClientVpcConfigArgs) ToReplicatorKafkaClusterClientVpcConfigPtrOutput() ReplicatorKafkaClusterClientVpcConfigPtrOutput {
+	return i.ToReplicatorKafkaClusterClientVpcConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ReplicatorKafkaClusterClientVpcConfigArgs) ToReplicatorKafkaClusterClientVpcConfigPtrOutputWithContext(ctx context.Context) ReplicatorKafkaClusterClientVpcConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicatorKafkaClusterClientVpcConfigOutput).ToReplicatorKafkaClusterClientVpcConfigPtrOutputWithContext(ctx)
+}
+
+// ReplicatorKafkaClusterClientVpcConfigPtrInput is an input type that accepts ReplicatorKafkaClusterClientVpcConfigArgs, ReplicatorKafkaClusterClientVpcConfigPtr and ReplicatorKafkaClusterClientVpcConfigPtrOutput values.
+// You can construct a concrete instance of `ReplicatorKafkaClusterClientVpcConfigPtrInput` via:
+//
+//	        ReplicatorKafkaClusterClientVpcConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type ReplicatorKafkaClusterClientVpcConfigPtrInput interface {
+	pulumi.Input
+
+	ToReplicatorKafkaClusterClientVpcConfigPtrOutput() ReplicatorKafkaClusterClientVpcConfigPtrOutput
+	ToReplicatorKafkaClusterClientVpcConfigPtrOutputWithContext(context.Context) ReplicatorKafkaClusterClientVpcConfigPtrOutput
+}
+
+type replicatorKafkaClusterClientVpcConfigPtrType ReplicatorKafkaClusterClientVpcConfigArgs
+
+func ReplicatorKafkaClusterClientVpcConfigPtr(v *ReplicatorKafkaClusterClientVpcConfigArgs) ReplicatorKafkaClusterClientVpcConfigPtrInput {
+	return (*replicatorKafkaClusterClientVpcConfigPtrType)(v)
+}
+
+func (*replicatorKafkaClusterClientVpcConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReplicatorKafkaClusterClientVpcConfig)(nil)).Elem()
+}
+
+func (i *replicatorKafkaClusterClientVpcConfigPtrType) ToReplicatorKafkaClusterClientVpcConfigPtrOutput() ReplicatorKafkaClusterClientVpcConfigPtrOutput {
+	return i.ToReplicatorKafkaClusterClientVpcConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *replicatorKafkaClusterClientVpcConfigPtrType) ToReplicatorKafkaClusterClientVpcConfigPtrOutputWithContext(ctx context.Context) ReplicatorKafkaClusterClientVpcConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicatorKafkaClusterClientVpcConfigPtrOutput)
+}
+
 // Details of an Amazon VPC which has network connectivity to the Kafka cluster.
 type ReplicatorKafkaClusterClientVpcConfigOutput struct{ *pulumi.OutputState }
 
@@ -5390,6 +6317,16 @@ func (o ReplicatorKafkaClusterClientVpcConfigOutput) ToReplicatorKafkaClusterCli
 	return o
 }
 
+func (o ReplicatorKafkaClusterClientVpcConfigOutput) ToReplicatorKafkaClusterClientVpcConfigPtrOutput() ReplicatorKafkaClusterClientVpcConfigPtrOutput {
+	return o.ToReplicatorKafkaClusterClientVpcConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ReplicatorKafkaClusterClientVpcConfigOutput) ToReplicatorKafkaClusterClientVpcConfigPtrOutputWithContext(ctx context.Context) ReplicatorKafkaClusterClientVpcConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReplicatorKafkaClusterClientVpcConfig) *ReplicatorKafkaClusterClientVpcConfig {
+		return &v
+	}).(ReplicatorKafkaClusterClientVpcConfigPtrOutput)
+}
+
 // The AWS security groups to associate with the elastic network interfaces in order to specify what the replicator has access to. If a security group is not specified, the default security group associated with the VPC is used.
 func (o ReplicatorKafkaClusterClientVpcConfigOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ReplicatorKafkaClusterClientVpcConfig) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
@@ -5400,16 +6337,564 @@ func (o ReplicatorKafkaClusterClientVpcConfigOutput) SubnetIds() pulumi.StringAr
 	return o.ApplyT(func(v ReplicatorKafkaClusterClientVpcConfig) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
 }
 
+type ReplicatorKafkaClusterClientVpcConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ReplicatorKafkaClusterClientVpcConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReplicatorKafkaClusterClientVpcConfig)(nil)).Elem()
+}
+
+func (o ReplicatorKafkaClusterClientVpcConfigPtrOutput) ToReplicatorKafkaClusterClientVpcConfigPtrOutput() ReplicatorKafkaClusterClientVpcConfigPtrOutput {
+	return o
+}
+
+func (o ReplicatorKafkaClusterClientVpcConfigPtrOutput) ToReplicatorKafkaClusterClientVpcConfigPtrOutputWithContext(ctx context.Context) ReplicatorKafkaClusterClientVpcConfigPtrOutput {
+	return o
+}
+
+func (o ReplicatorKafkaClusterClientVpcConfigPtrOutput) Elem() ReplicatorKafkaClusterClientVpcConfigOutput {
+	return o.ApplyT(func(v *ReplicatorKafkaClusterClientVpcConfig) ReplicatorKafkaClusterClientVpcConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ReplicatorKafkaClusterClientVpcConfig
+		return ret
+	}).(ReplicatorKafkaClusterClientVpcConfigOutput)
+}
+
+// The AWS security groups to associate with the elastic network interfaces in order to specify what the replicator has access to. If a security group is not specified, the default security group associated with the VPC is used.
+func (o ReplicatorKafkaClusterClientVpcConfigPtrOutput) SecurityGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ReplicatorKafkaClusterClientVpcConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SecurityGroupIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// The list of subnets to connect to in the virtual private cloud (VPC). AWS creates elastic network interfaces inside these subnets.
+func (o ReplicatorKafkaClusterClientVpcConfigPtrOutput) SubnetIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ReplicatorKafkaClusterClientVpcConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SubnetIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// Details of encryption in transit to the Apache Kafka cluster.
+type ReplicatorKafkaClusterEncryptionInTransit struct {
+	// The type of encryption in transit to the Apache Kafka cluster.
+	EncryptionType ReplicatorKafkaClusterEncryptionInTransitType `pulumi:"encryptionType"`
+	// The root CA certificate.
+	RootCaCertificate *string `pulumi:"rootCaCertificate"`
+}
+
+// ReplicatorKafkaClusterEncryptionInTransitInput is an input type that accepts ReplicatorKafkaClusterEncryptionInTransitArgs and ReplicatorKafkaClusterEncryptionInTransitOutput values.
+// You can construct a concrete instance of `ReplicatorKafkaClusterEncryptionInTransitInput` via:
+//
+//	ReplicatorKafkaClusterEncryptionInTransitArgs{...}
+type ReplicatorKafkaClusterEncryptionInTransitInput interface {
+	pulumi.Input
+
+	ToReplicatorKafkaClusterEncryptionInTransitOutput() ReplicatorKafkaClusterEncryptionInTransitOutput
+	ToReplicatorKafkaClusterEncryptionInTransitOutputWithContext(context.Context) ReplicatorKafkaClusterEncryptionInTransitOutput
+}
+
+// Details of encryption in transit to the Apache Kafka cluster.
+type ReplicatorKafkaClusterEncryptionInTransitArgs struct {
+	// The type of encryption in transit to the Apache Kafka cluster.
+	EncryptionType ReplicatorKafkaClusterEncryptionInTransitTypeInput `pulumi:"encryptionType"`
+	// The root CA certificate.
+	RootCaCertificate pulumi.StringPtrInput `pulumi:"rootCaCertificate"`
+}
+
+func (ReplicatorKafkaClusterEncryptionInTransitArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicatorKafkaClusterEncryptionInTransit)(nil)).Elem()
+}
+
+func (i ReplicatorKafkaClusterEncryptionInTransitArgs) ToReplicatorKafkaClusterEncryptionInTransitOutput() ReplicatorKafkaClusterEncryptionInTransitOutput {
+	return i.ToReplicatorKafkaClusterEncryptionInTransitOutputWithContext(context.Background())
+}
+
+func (i ReplicatorKafkaClusterEncryptionInTransitArgs) ToReplicatorKafkaClusterEncryptionInTransitOutputWithContext(ctx context.Context) ReplicatorKafkaClusterEncryptionInTransitOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicatorKafkaClusterEncryptionInTransitOutput)
+}
+
+func (i ReplicatorKafkaClusterEncryptionInTransitArgs) ToReplicatorKafkaClusterEncryptionInTransitPtrOutput() ReplicatorKafkaClusterEncryptionInTransitPtrOutput {
+	return i.ToReplicatorKafkaClusterEncryptionInTransitPtrOutputWithContext(context.Background())
+}
+
+func (i ReplicatorKafkaClusterEncryptionInTransitArgs) ToReplicatorKafkaClusterEncryptionInTransitPtrOutputWithContext(ctx context.Context) ReplicatorKafkaClusterEncryptionInTransitPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicatorKafkaClusterEncryptionInTransitOutput).ToReplicatorKafkaClusterEncryptionInTransitPtrOutputWithContext(ctx)
+}
+
+// ReplicatorKafkaClusterEncryptionInTransitPtrInput is an input type that accepts ReplicatorKafkaClusterEncryptionInTransitArgs, ReplicatorKafkaClusterEncryptionInTransitPtr and ReplicatorKafkaClusterEncryptionInTransitPtrOutput values.
+// You can construct a concrete instance of `ReplicatorKafkaClusterEncryptionInTransitPtrInput` via:
+//
+//	        ReplicatorKafkaClusterEncryptionInTransitArgs{...}
+//
+//	or:
+//
+//	        nil
+type ReplicatorKafkaClusterEncryptionInTransitPtrInput interface {
+	pulumi.Input
+
+	ToReplicatorKafkaClusterEncryptionInTransitPtrOutput() ReplicatorKafkaClusterEncryptionInTransitPtrOutput
+	ToReplicatorKafkaClusterEncryptionInTransitPtrOutputWithContext(context.Context) ReplicatorKafkaClusterEncryptionInTransitPtrOutput
+}
+
+type replicatorKafkaClusterEncryptionInTransitPtrType ReplicatorKafkaClusterEncryptionInTransitArgs
+
+func ReplicatorKafkaClusterEncryptionInTransitPtr(v *ReplicatorKafkaClusterEncryptionInTransitArgs) ReplicatorKafkaClusterEncryptionInTransitPtrInput {
+	return (*replicatorKafkaClusterEncryptionInTransitPtrType)(v)
+}
+
+func (*replicatorKafkaClusterEncryptionInTransitPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReplicatorKafkaClusterEncryptionInTransit)(nil)).Elem()
+}
+
+func (i *replicatorKafkaClusterEncryptionInTransitPtrType) ToReplicatorKafkaClusterEncryptionInTransitPtrOutput() ReplicatorKafkaClusterEncryptionInTransitPtrOutput {
+	return i.ToReplicatorKafkaClusterEncryptionInTransitPtrOutputWithContext(context.Background())
+}
+
+func (i *replicatorKafkaClusterEncryptionInTransitPtrType) ToReplicatorKafkaClusterEncryptionInTransitPtrOutputWithContext(ctx context.Context) ReplicatorKafkaClusterEncryptionInTransitPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicatorKafkaClusterEncryptionInTransitPtrOutput)
+}
+
+// Details of encryption in transit to the Apache Kafka cluster.
+type ReplicatorKafkaClusterEncryptionInTransitOutput struct{ *pulumi.OutputState }
+
+func (ReplicatorKafkaClusterEncryptionInTransitOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicatorKafkaClusterEncryptionInTransit)(nil)).Elem()
+}
+
+func (o ReplicatorKafkaClusterEncryptionInTransitOutput) ToReplicatorKafkaClusterEncryptionInTransitOutput() ReplicatorKafkaClusterEncryptionInTransitOutput {
+	return o
+}
+
+func (o ReplicatorKafkaClusterEncryptionInTransitOutput) ToReplicatorKafkaClusterEncryptionInTransitOutputWithContext(ctx context.Context) ReplicatorKafkaClusterEncryptionInTransitOutput {
+	return o
+}
+
+func (o ReplicatorKafkaClusterEncryptionInTransitOutput) ToReplicatorKafkaClusterEncryptionInTransitPtrOutput() ReplicatorKafkaClusterEncryptionInTransitPtrOutput {
+	return o.ToReplicatorKafkaClusterEncryptionInTransitPtrOutputWithContext(context.Background())
+}
+
+func (o ReplicatorKafkaClusterEncryptionInTransitOutput) ToReplicatorKafkaClusterEncryptionInTransitPtrOutputWithContext(ctx context.Context) ReplicatorKafkaClusterEncryptionInTransitPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReplicatorKafkaClusterEncryptionInTransit) *ReplicatorKafkaClusterEncryptionInTransit {
+		return &v
+	}).(ReplicatorKafkaClusterEncryptionInTransitPtrOutput)
+}
+
+// The type of encryption in transit to the Apache Kafka cluster.
+func (o ReplicatorKafkaClusterEncryptionInTransitOutput) EncryptionType() ReplicatorKafkaClusterEncryptionInTransitTypeOutput {
+	return o.ApplyT(func(v ReplicatorKafkaClusterEncryptionInTransit) ReplicatorKafkaClusterEncryptionInTransitType {
+		return v.EncryptionType
+	}).(ReplicatorKafkaClusterEncryptionInTransitTypeOutput)
+}
+
+// The root CA certificate.
+func (o ReplicatorKafkaClusterEncryptionInTransitOutput) RootCaCertificate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReplicatorKafkaClusterEncryptionInTransit) *string { return v.RootCaCertificate }).(pulumi.StringPtrOutput)
+}
+
+type ReplicatorKafkaClusterEncryptionInTransitPtrOutput struct{ *pulumi.OutputState }
+
+func (ReplicatorKafkaClusterEncryptionInTransitPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReplicatorKafkaClusterEncryptionInTransit)(nil)).Elem()
+}
+
+func (o ReplicatorKafkaClusterEncryptionInTransitPtrOutput) ToReplicatorKafkaClusterEncryptionInTransitPtrOutput() ReplicatorKafkaClusterEncryptionInTransitPtrOutput {
+	return o
+}
+
+func (o ReplicatorKafkaClusterEncryptionInTransitPtrOutput) ToReplicatorKafkaClusterEncryptionInTransitPtrOutputWithContext(ctx context.Context) ReplicatorKafkaClusterEncryptionInTransitPtrOutput {
+	return o
+}
+
+func (o ReplicatorKafkaClusterEncryptionInTransitPtrOutput) Elem() ReplicatorKafkaClusterEncryptionInTransitOutput {
+	return o.ApplyT(func(v *ReplicatorKafkaClusterEncryptionInTransit) ReplicatorKafkaClusterEncryptionInTransit {
+		if v != nil {
+			return *v
+		}
+		var ret ReplicatorKafkaClusterEncryptionInTransit
+		return ret
+	}).(ReplicatorKafkaClusterEncryptionInTransitOutput)
+}
+
+// The type of encryption in transit to the Apache Kafka cluster.
+func (o ReplicatorKafkaClusterEncryptionInTransitPtrOutput) EncryptionType() ReplicatorKafkaClusterEncryptionInTransitTypePtrOutput {
+	return o.ApplyT(func(v *ReplicatorKafkaClusterEncryptionInTransit) *ReplicatorKafkaClusterEncryptionInTransitType {
+		if v == nil {
+			return nil
+		}
+		return &v.EncryptionType
+	}).(ReplicatorKafkaClusterEncryptionInTransitTypePtrOutput)
+}
+
+// The root CA certificate.
+func (o ReplicatorKafkaClusterEncryptionInTransitPtrOutput) RootCaCertificate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReplicatorKafkaClusterEncryptionInTransit) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RootCaCertificate
+	}).(pulumi.StringPtrOutput)
+}
+
+// Details for SASL/SCRAM client authentication.
+type ReplicatorKafkaClusterSaslScramAuthentication struct {
+	// The SASL/SCRAM authentication mechanism.
+	Mechanism ReplicatorKafkaClusterSaslScramMechanism `pulumi:"mechanism"`
+	// The Amazon Resource Name (ARN) of the Secrets Manager secret.
+	SecretArn string `pulumi:"secretArn"`
+}
+
+// ReplicatorKafkaClusterSaslScramAuthenticationInput is an input type that accepts ReplicatorKafkaClusterSaslScramAuthenticationArgs and ReplicatorKafkaClusterSaslScramAuthenticationOutput values.
+// You can construct a concrete instance of `ReplicatorKafkaClusterSaslScramAuthenticationInput` via:
+//
+//	ReplicatorKafkaClusterSaslScramAuthenticationArgs{...}
+type ReplicatorKafkaClusterSaslScramAuthenticationInput interface {
+	pulumi.Input
+
+	ToReplicatorKafkaClusterSaslScramAuthenticationOutput() ReplicatorKafkaClusterSaslScramAuthenticationOutput
+	ToReplicatorKafkaClusterSaslScramAuthenticationOutputWithContext(context.Context) ReplicatorKafkaClusterSaslScramAuthenticationOutput
+}
+
+// Details for SASL/SCRAM client authentication.
+type ReplicatorKafkaClusterSaslScramAuthenticationArgs struct {
+	// The SASL/SCRAM authentication mechanism.
+	Mechanism ReplicatorKafkaClusterSaslScramMechanismInput `pulumi:"mechanism"`
+	// The Amazon Resource Name (ARN) of the Secrets Manager secret.
+	SecretArn pulumi.StringInput `pulumi:"secretArn"`
+}
+
+func (ReplicatorKafkaClusterSaslScramAuthenticationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicatorKafkaClusterSaslScramAuthentication)(nil)).Elem()
+}
+
+func (i ReplicatorKafkaClusterSaslScramAuthenticationArgs) ToReplicatorKafkaClusterSaslScramAuthenticationOutput() ReplicatorKafkaClusterSaslScramAuthenticationOutput {
+	return i.ToReplicatorKafkaClusterSaslScramAuthenticationOutputWithContext(context.Background())
+}
+
+func (i ReplicatorKafkaClusterSaslScramAuthenticationArgs) ToReplicatorKafkaClusterSaslScramAuthenticationOutputWithContext(ctx context.Context) ReplicatorKafkaClusterSaslScramAuthenticationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicatorKafkaClusterSaslScramAuthenticationOutput)
+}
+
+func (i ReplicatorKafkaClusterSaslScramAuthenticationArgs) ToReplicatorKafkaClusterSaslScramAuthenticationPtrOutput() ReplicatorKafkaClusterSaslScramAuthenticationPtrOutput {
+	return i.ToReplicatorKafkaClusterSaslScramAuthenticationPtrOutputWithContext(context.Background())
+}
+
+func (i ReplicatorKafkaClusterSaslScramAuthenticationArgs) ToReplicatorKafkaClusterSaslScramAuthenticationPtrOutputWithContext(ctx context.Context) ReplicatorKafkaClusterSaslScramAuthenticationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicatorKafkaClusterSaslScramAuthenticationOutput).ToReplicatorKafkaClusterSaslScramAuthenticationPtrOutputWithContext(ctx)
+}
+
+// ReplicatorKafkaClusterSaslScramAuthenticationPtrInput is an input type that accepts ReplicatorKafkaClusterSaslScramAuthenticationArgs, ReplicatorKafkaClusterSaslScramAuthenticationPtr and ReplicatorKafkaClusterSaslScramAuthenticationPtrOutput values.
+// You can construct a concrete instance of `ReplicatorKafkaClusterSaslScramAuthenticationPtrInput` via:
+//
+//	        ReplicatorKafkaClusterSaslScramAuthenticationArgs{...}
+//
+//	or:
+//
+//	        nil
+type ReplicatorKafkaClusterSaslScramAuthenticationPtrInput interface {
+	pulumi.Input
+
+	ToReplicatorKafkaClusterSaslScramAuthenticationPtrOutput() ReplicatorKafkaClusterSaslScramAuthenticationPtrOutput
+	ToReplicatorKafkaClusterSaslScramAuthenticationPtrOutputWithContext(context.Context) ReplicatorKafkaClusterSaslScramAuthenticationPtrOutput
+}
+
+type replicatorKafkaClusterSaslScramAuthenticationPtrType ReplicatorKafkaClusterSaslScramAuthenticationArgs
+
+func ReplicatorKafkaClusterSaslScramAuthenticationPtr(v *ReplicatorKafkaClusterSaslScramAuthenticationArgs) ReplicatorKafkaClusterSaslScramAuthenticationPtrInput {
+	return (*replicatorKafkaClusterSaslScramAuthenticationPtrType)(v)
+}
+
+func (*replicatorKafkaClusterSaslScramAuthenticationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReplicatorKafkaClusterSaslScramAuthentication)(nil)).Elem()
+}
+
+func (i *replicatorKafkaClusterSaslScramAuthenticationPtrType) ToReplicatorKafkaClusterSaslScramAuthenticationPtrOutput() ReplicatorKafkaClusterSaslScramAuthenticationPtrOutput {
+	return i.ToReplicatorKafkaClusterSaslScramAuthenticationPtrOutputWithContext(context.Background())
+}
+
+func (i *replicatorKafkaClusterSaslScramAuthenticationPtrType) ToReplicatorKafkaClusterSaslScramAuthenticationPtrOutputWithContext(ctx context.Context) ReplicatorKafkaClusterSaslScramAuthenticationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicatorKafkaClusterSaslScramAuthenticationPtrOutput)
+}
+
+// Details for SASL/SCRAM client authentication.
+type ReplicatorKafkaClusterSaslScramAuthenticationOutput struct{ *pulumi.OutputState }
+
+func (ReplicatorKafkaClusterSaslScramAuthenticationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicatorKafkaClusterSaslScramAuthentication)(nil)).Elem()
+}
+
+func (o ReplicatorKafkaClusterSaslScramAuthenticationOutput) ToReplicatorKafkaClusterSaslScramAuthenticationOutput() ReplicatorKafkaClusterSaslScramAuthenticationOutput {
+	return o
+}
+
+func (o ReplicatorKafkaClusterSaslScramAuthenticationOutput) ToReplicatorKafkaClusterSaslScramAuthenticationOutputWithContext(ctx context.Context) ReplicatorKafkaClusterSaslScramAuthenticationOutput {
+	return o
+}
+
+func (o ReplicatorKafkaClusterSaslScramAuthenticationOutput) ToReplicatorKafkaClusterSaslScramAuthenticationPtrOutput() ReplicatorKafkaClusterSaslScramAuthenticationPtrOutput {
+	return o.ToReplicatorKafkaClusterSaslScramAuthenticationPtrOutputWithContext(context.Background())
+}
+
+func (o ReplicatorKafkaClusterSaslScramAuthenticationOutput) ToReplicatorKafkaClusterSaslScramAuthenticationPtrOutputWithContext(ctx context.Context) ReplicatorKafkaClusterSaslScramAuthenticationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReplicatorKafkaClusterSaslScramAuthentication) *ReplicatorKafkaClusterSaslScramAuthentication {
+		return &v
+	}).(ReplicatorKafkaClusterSaslScramAuthenticationPtrOutput)
+}
+
+// The SASL/SCRAM authentication mechanism.
+func (o ReplicatorKafkaClusterSaslScramAuthenticationOutput) Mechanism() ReplicatorKafkaClusterSaslScramMechanismOutput {
+	return o.ApplyT(func(v ReplicatorKafkaClusterSaslScramAuthentication) ReplicatorKafkaClusterSaslScramMechanism {
+		return v.Mechanism
+	}).(ReplicatorKafkaClusterSaslScramMechanismOutput)
+}
+
+// The Amazon Resource Name (ARN) of the Secrets Manager secret.
+func (o ReplicatorKafkaClusterSaslScramAuthenticationOutput) SecretArn() pulumi.StringOutput {
+	return o.ApplyT(func(v ReplicatorKafkaClusterSaslScramAuthentication) string { return v.SecretArn }).(pulumi.StringOutput)
+}
+
+type ReplicatorKafkaClusterSaslScramAuthenticationPtrOutput struct{ *pulumi.OutputState }
+
+func (ReplicatorKafkaClusterSaslScramAuthenticationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReplicatorKafkaClusterSaslScramAuthentication)(nil)).Elem()
+}
+
+func (o ReplicatorKafkaClusterSaslScramAuthenticationPtrOutput) ToReplicatorKafkaClusterSaslScramAuthenticationPtrOutput() ReplicatorKafkaClusterSaslScramAuthenticationPtrOutput {
+	return o
+}
+
+func (o ReplicatorKafkaClusterSaslScramAuthenticationPtrOutput) ToReplicatorKafkaClusterSaslScramAuthenticationPtrOutputWithContext(ctx context.Context) ReplicatorKafkaClusterSaslScramAuthenticationPtrOutput {
+	return o
+}
+
+func (o ReplicatorKafkaClusterSaslScramAuthenticationPtrOutput) Elem() ReplicatorKafkaClusterSaslScramAuthenticationOutput {
+	return o.ApplyT(func(v *ReplicatorKafkaClusterSaslScramAuthentication) ReplicatorKafkaClusterSaslScramAuthentication {
+		if v != nil {
+			return *v
+		}
+		var ret ReplicatorKafkaClusterSaslScramAuthentication
+		return ret
+	}).(ReplicatorKafkaClusterSaslScramAuthenticationOutput)
+}
+
+// The SASL/SCRAM authentication mechanism.
+func (o ReplicatorKafkaClusterSaslScramAuthenticationPtrOutput) Mechanism() ReplicatorKafkaClusterSaslScramMechanismPtrOutput {
+	return o.ApplyT(func(v *ReplicatorKafkaClusterSaslScramAuthentication) *ReplicatorKafkaClusterSaslScramMechanism {
+		if v == nil {
+			return nil
+		}
+		return &v.Mechanism
+	}).(ReplicatorKafkaClusterSaslScramMechanismPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the Secrets Manager secret.
+func (o ReplicatorKafkaClusterSaslScramAuthenticationPtrOutput) SecretArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReplicatorKafkaClusterSaslScramAuthentication) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SecretArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// Details of the log delivery for the replicator.
+type ReplicatorLogDelivery struct {
+	// Details of the CloudWatch Logs destination for replicator logs.
+	CloudWatchLogs *ReplicatorCloudWatchLogs `pulumi:"cloudWatchLogs"`
+	// Details of the Kinesis Data Firehose delivery stream that is the destination for replicator logs.
+	Firehose *ReplicatorFirehose `pulumi:"firehose"`
+	// Details of the Amazon S3 destination for replicator logs.
+	S3 *ReplicatorS3 `pulumi:"s3"`
+}
+
+// ReplicatorLogDeliveryInput is an input type that accepts ReplicatorLogDeliveryArgs and ReplicatorLogDeliveryOutput values.
+// You can construct a concrete instance of `ReplicatorLogDeliveryInput` via:
+//
+//	ReplicatorLogDeliveryArgs{...}
+type ReplicatorLogDeliveryInput interface {
+	pulumi.Input
+
+	ToReplicatorLogDeliveryOutput() ReplicatorLogDeliveryOutput
+	ToReplicatorLogDeliveryOutputWithContext(context.Context) ReplicatorLogDeliveryOutput
+}
+
+// Details of the log delivery for the replicator.
+type ReplicatorLogDeliveryArgs struct {
+	// Details of the CloudWatch Logs destination for replicator logs.
+	CloudWatchLogs ReplicatorCloudWatchLogsPtrInput `pulumi:"cloudWatchLogs"`
+	// Details of the Kinesis Data Firehose delivery stream that is the destination for replicator logs.
+	Firehose ReplicatorFirehosePtrInput `pulumi:"firehose"`
+	// Details of the Amazon S3 destination for replicator logs.
+	S3 ReplicatorS3PtrInput `pulumi:"s3"`
+}
+
+func (ReplicatorLogDeliveryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicatorLogDelivery)(nil)).Elem()
+}
+
+func (i ReplicatorLogDeliveryArgs) ToReplicatorLogDeliveryOutput() ReplicatorLogDeliveryOutput {
+	return i.ToReplicatorLogDeliveryOutputWithContext(context.Background())
+}
+
+func (i ReplicatorLogDeliveryArgs) ToReplicatorLogDeliveryOutputWithContext(ctx context.Context) ReplicatorLogDeliveryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicatorLogDeliveryOutput)
+}
+
+func (i ReplicatorLogDeliveryArgs) ToReplicatorLogDeliveryPtrOutput() ReplicatorLogDeliveryPtrOutput {
+	return i.ToReplicatorLogDeliveryPtrOutputWithContext(context.Background())
+}
+
+func (i ReplicatorLogDeliveryArgs) ToReplicatorLogDeliveryPtrOutputWithContext(ctx context.Context) ReplicatorLogDeliveryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicatorLogDeliveryOutput).ToReplicatorLogDeliveryPtrOutputWithContext(ctx)
+}
+
+// ReplicatorLogDeliveryPtrInput is an input type that accepts ReplicatorLogDeliveryArgs, ReplicatorLogDeliveryPtr and ReplicatorLogDeliveryPtrOutput values.
+// You can construct a concrete instance of `ReplicatorLogDeliveryPtrInput` via:
+//
+//	        ReplicatorLogDeliveryArgs{...}
+//
+//	or:
+//
+//	        nil
+type ReplicatorLogDeliveryPtrInput interface {
+	pulumi.Input
+
+	ToReplicatorLogDeliveryPtrOutput() ReplicatorLogDeliveryPtrOutput
+	ToReplicatorLogDeliveryPtrOutputWithContext(context.Context) ReplicatorLogDeliveryPtrOutput
+}
+
+type replicatorLogDeliveryPtrType ReplicatorLogDeliveryArgs
+
+func ReplicatorLogDeliveryPtr(v *ReplicatorLogDeliveryArgs) ReplicatorLogDeliveryPtrInput {
+	return (*replicatorLogDeliveryPtrType)(v)
+}
+
+func (*replicatorLogDeliveryPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReplicatorLogDelivery)(nil)).Elem()
+}
+
+func (i *replicatorLogDeliveryPtrType) ToReplicatorLogDeliveryPtrOutput() ReplicatorLogDeliveryPtrOutput {
+	return i.ToReplicatorLogDeliveryPtrOutputWithContext(context.Background())
+}
+
+func (i *replicatorLogDeliveryPtrType) ToReplicatorLogDeliveryPtrOutputWithContext(ctx context.Context) ReplicatorLogDeliveryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicatorLogDeliveryPtrOutput)
+}
+
+// Details of the log delivery for the replicator.
+type ReplicatorLogDeliveryOutput struct{ *pulumi.OutputState }
+
+func (ReplicatorLogDeliveryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicatorLogDelivery)(nil)).Elem()
+}
+
+func (o ReplicatorLogDeliveryOutput) ToReplicatorLogDeliveryOutput() ReplicatorLogDeliveryOutput {
+	return o
+}
+
+func (o ReplicatorLogDeliveryOutput) ToReplicatorLogDeliveryOutputWithContext(ctx context.Context) ReplicatorLogDeliveryOutput {
+	return o
+}
+
+func (o ReplicatorLogDeliveryOutput) ToReplicatorLogDeliveryPtrOutput() ReplicatorLogDeliveryPtrOutput {
+	return o.ToReplicatorLogDeliveryPtrOutputWithContext(context.Background())
+}
+
+func (o ReplicatorLogDeliveryOutput) ToReplicatorLogDeliveryPtrOutputWithContext(ctx context.Context) ReplicatorLogDeliveryPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReplicatorLogDelivery) *ReplicatorLogDelivery {
+		return &v
+	}).(ReplicatorLogDeliveryPtrOutput)
+}
+
+// Details of the CloudWatch Logs destination for replicator logs.
+func (o ReplicatorLogDeliveryOutput) CloudWatchLogs() ReplicatorCloudWatchLogsPtrOutput {
+	return o.ApplyT(func(v ReplicatorLogDelivery) *ReplicatorCloudWatchLogs { return v.CloudWatchLogs }).(ReplicatorCloudWatchLogsPtrOutput)
+}
+
+// Details of the Kinesis Data Firehose delivery stream that is the destination for replicator logs.
+func (o ReplicatorLogDeliveryOutput) Firehose() ReplicatorFirehosePtrOutput {
+	return o.ApplyT(func(v ReplicatorLogDelivery) *ReplicatorFirehose { return v.Firehose }).(ReplicatorFirehosePtrOutput)
+}
+
+// Details of the Amazon S3 destination for replicator logs.
+func (o ReplicatorLogDeliveryOutput) S3() ReplicatorS3PtrOutput {
+	return o.ApplyT(func(v ReplicatorLogDelivery) *ReplicatorS3 { return v.S3 }).(ReplicatorS3PtrOutput)
+}
+
+type ReplicatorLogDeliveryPtrOutput struct{ *pulumi.OutputState }
+
+func (ReplicatorLogDeliveryPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReplicatorLogDelivery)(nil)).Elem()
+}
+
+func (o ReplicatorLogDeliveryPtrOutput) ToReplicatorLogDeliveryPtrOutput() ReplicatorLogDeliveryPtrOutput {
+	return o
+}
+
+func (o ReplicatorLogDeliveryPtrOutput) ToReplicatorLogDeliveryPtrOutputWithContext(ctx context.Context) ReplicatorLogDeliveryPtrOutput {
+	return o
+}
+
+func (o ReplicatorLogDeliveryPtrOutput) Elem() ReplicatorLogDeliveryOutput {
+	return o.ApplyT(func(v *ReplicatorLogDelivery) ReplicatorLogDelivery {
+		if v != nil {
+			return *v
+		}
+		var ret ReplicatorLogDelivery
+		return ret
+	}).(ReplicatorLogDeliveryOutput)
+}
+
+// Details of the CloudWatch Logs destination for replicator logs.
+func (o ReplicatorLogDeliveryPtrOutput) CloudWatchLogs() ReplicatorCloudWatchLogsPtrOutput {
+	return o.ApplyT(func(v *ReplicatorLogDelivery) *ReplicatorCloudWatchLogs {
+		if v == nil {
+			return nil
+		}
+		return v.CloudWatchLogs
+	}).(ReplicatorCloudWatchLogsPtrOutput)
+}
+
+// Details of the Kinesis Data Firehose delivery stream that is the destination for replicator logs.
+func (o ReplicatorLogDeliveryPtrOutput) Firehose() ReplicatorFirehosePtrOutput {
+	return o.ApplyT(func(v *ReplicatorLogDelivery) *ReplicatorFirehose {
+		if v == nil {
+			return nil
+		}
+		return v.Firehose
+	}).(ReplicatorFirehosePtrOutput)
+}
+
+// Details of the Amazon S3 destination for replicator logs.
+func (o ReplicatorLogDeliveryPtrOutput) S3() ReplicatorS3PtrOutput {
+	return o.ApplyT(func(v *ReplicatorLogDelivery) *ReplicatorS3 {
+		if v == nil {
+			return nil
+		}
+		return v.S3
+	}).(ReplicatorS3PtrOutput)
+}
+
 // Specifies configuration for replication between a source and target Kafka cluster.
 type ReplicatorReplicationInfo struct {
 	// Configuration relating to consumer group replication.
 	ConsumerGroupReplication ReplicatorConsumerGroupReplication `pulumi:"consumerGroupReplication"`
 	// Amazon Resource Name of the source Kafka cluster.
-	SourceKafkaClusterArn string `pulumi:"sourceKafkaClusterArn"`
+	SourceKafkaClusterArn *string `pulumi:"sourceKafkaClusterArn"`
+	// The ID of the source Kafka cluster.
+	SourceKafkaClusterId *string `pulumi:"sourceKafkaClusterId"`
 	// The type of compression to use writing records to target Kafka cluster.
 	TargetCompressionType ReplicatorReplicationInfoTargetCompressionType `pulumi:"targetCompressionType"`
 	// Amazon Resource Name of the target Kafka cluster.
-	TargetKafkaClusterArn string `pulumi:"targetKafkaClusterArn"`
+	TargetKafkaClusterArn *string `pulumi:"targetKafkaClusterArn"`
+	// The ID of the target Kafka cluster.
+	TargetKafkaClusterId *string `pulumi:"targetKafkaClusterId"`
 	// Configuration relating to topic replication.
 	TopicReplication ReplicatorTopicReplication `pulumi:"topicReplication"`
 }
@@ -5430,11 +6915,15 @@ type ReplicatorReplicationInfoArgs struct {
 	// Configuration relating to consumer group replication.
 	ConsumerGroupReplication ReplicatorConsumerGroupReplicationInput `pulumi:"consumerGroupReplication"`
 	// Amazon Resource Name of the source Kafka cluster.
-	SourceKafkaClusterArn pulumi.StringInput `pulumi:"sourceKafkaClusterArn"`
+	SourceKafkaClusterArn pulumi.StringPtrInput `pulumi:"sourceKafkaClusterArn"`
+	// The ID of the source Kafka cluster.
+	SourceKafkaClusterId pulumi.StringPtrInput `pulumi:"sourceKafkaClusterId"`
 	// The type of compression to use writing records to target Kafka cluster.
 	TargetCompressionType ReplicatorReplicationInfoTargetCompressionTypeInput `pulumi:"targetCompressionType"`
 	// Amazon Resource Name of the target Kafka cluster.
-	TargetKafkaClusterArn pulumi.StringInput `pulumi:"targetKafkaClusterArn"`
+	TargetKafkaClusterArn pulumi.StringPtrInput `pulumi:"targetKafkaClusterArn"`
+	// The ID of the target Kafka cluster.
+	TargetKafkaClusterId pulumi.StringPtrInput `pulumi:"targetKafkaClusterId"`
 	// Configuration relating to topic replication.
 	TopicReplication ReplicatorTopicReplicationInput `pulumi:"topicReplication"`
 }
@@ -5499,8 +6988,13 @@ func (o ReplicatorReplicationInfoOutput) ConsumerGroupReplication() ReplicatorCo
 }
 
 // Amazon Resource Name of the source Kafka cluster.
-func (o ReplicatorReplicationInfoOutput) SourceKafkaClusterArn() pulumi.StringOutput {
-	return o.ApplyT(func(v ReplicatorReplicationInfo) string { return v.SourceKafkaClusterArn }).(pulumi.StringOutput)
+func (o ReplicatorReplicationInfoOutput) SourceKafkaClusterArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReplicatorReplicationInfo) *string { return v.SourceKafkaClusterArn }).(pulumi.StringPtrOutput)
+}
+
+// The ID of the source Kafka cluster.
+func (o ReplicatorReplicationInfoOutput) SourceKafkaClusterId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReplicatorReplicationInfo) *string { return v.SourceKafkaClusterId }).(pulumi.StringPtrOutput)
 }
 
 // The type of compression to use writing records to target Kafka cluster.
@@ -5511,8 +7005,13 @@ func (o ReplicatorReplicationInfoOutput) TargetCompressionType() ReplicatorRepli
 }
 
 // Amazon Resource Name of the target Kafka cluster.
-func (o ReplicatorReplicationInfoOutput) TargetKafkaClusterArn() pulumi.StringOutput {
-	return o.ApplyT(func(v ReplicatorReplicationInfo) string { return v.TargetKafkaClusterArn }).(pulumi.StringOutput)
+func (o ReplicatorReplicationInfoOutput) TargetKafkaClusterArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReplicatorReplicationInfo) *string { return v.TargetKafkaClusterArn }).(pulumi.StringPtrOutput)
+}
+
+// The ID of the target Kafka cluster.
+func (o ReplicatorReplicationInfoOutput) TargetKafkaClusterId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReplicatorReplicationInfo) *string { return v.TargetKafkaClusterId }).(pulumi.StringPtrOutput)
 }
 
 // Configuration relating to topic replication.
@@ -5822,6 +7321,184 @@ func (o ReplicatorReplicationTopicNameConfigurationPtrOutput) Type() ReplicatorR
 		}
 		return v.Type
 	}).(ReplicatorReplicationTopicNameConfigurationTypePtrOutput)
+}
+
+// Details about delivering logs to S3.
+type ReplicatorS3 struct {
+	// The S3 bucket that is the destination for log delivery.
+	Bucket *string `pulumi:"bucket"`
+	// Whether log delivery to S3 is enabled.
+	Enabled bool `pulumi:"enabled"`
+	// The S3 prefix that is the destination for log delivery.
+	Prefix *string `pulumi:"prefix"`
+}
+
+// ReplicatorS3Input is an input type that accepts ReplicatorS3Args and ReplicatorS3Output values.
+// You can construct a concrete instance of `ReplicatorS3Input` via:
+//
+//	ReplicatorS3Args{...}
+type ReplicatorS3Input interface {
+	pulumi.Input
+
+	ToReplicatorS3Output() ReplicatorS3Output
+	ToReplicatorS3OutputWithContext(context.Context) ReplicatorS3Output
+}
+
+// Details about delivering logs to S3.
+type ReplicatorS3Args struct {
+	// The S3 bucket that is the destination for log delivery.
+	Bucket pulumi.StringPtrInput `pulumi:"bucket"`
+	// Whether log delivery to S3 is enabled.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// The S3 prefix that is the destination for log delivery.
+	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
+}
+
+func (ReplicatorS3Args) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicatorS3)(nil)).Elem()
+}
+
+func (i ReplicatorS3Args) ToReplicatorS3Output() ReplicatorS3Output {
+	return i.ToReplicatorS3OutputWithContext(context.Background())
+}
+
+func (i ReplicatorS3Args) ToReplicatorS3OutputWithContext(ctx context.Context) ReplicatorS3Output {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicatorS3Output)
+}
+
+func (i ReplicatorS3Args) ToReplicatorS3PtrOutput() ReplicatorS3PtrOutput {
+	return i.ToReplicatorS3PtrOutputWithContext(context.Background())
+}
+
+func (i ReplicatorS3Args) ToReplicatorS3PtrOutputWithContext(ctx context.Context) ReplicatorS3PtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicatorS3Output).ToReplicatorS3PtrOutputWithContext(ctx)
+}
+
+// ReplicatorS3PtrInput is an input type that accepts ReplicatorS3Args, ReplicatorS3Ptr and ReplicatorS3PtrOutput values.
+// You can construct a concrete instance of `ReplicatorS3PtrInput` via:
+//
+//	        ReplicatorS3Args{...}
+//
+//	or:
+//
+//	        nil
+type ReplicatorS3PtrInput interface {
+	pulumi.Input
+
+	ToReplicatorS3PtrOutput() ReplicatorS3PtrOutput
+	ToReplicatorS3PtrOutputWithContext(context.Context) ReplicatorS3PtrOutput
+}
+
+type replicatorS3PtrType ReplicatorS3Args
+
+func ReplicatorS3Ptr(v *ReplicatorS3Args) ReplicatorS3PtrInput {
+	return (*replicatorS3PtrType)(v)
+}
+
+func (*replicatorS3PtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReplicatorS3)(nil)).Elem()
+}
+
+func (i *replicatorS3PtrType) ToReplicatorS3PtrOutput() ReplicatorS3PtrOutput {
+	return i.ToReplicatorS3PtrOutputWithContext(context.Background())
+}
+
+func (i *replicatorS3PtrType) ToReplicatorS3PtrOutputWithContext(ctx context.Context) ReplicatorS3PtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicatorS3PtrOutput)
+}
+
+// Details about delivering logs to S3.
+type ReplicatorS3Output struct{ *pulumi.OutputState }
+
+func (ReplicatorS3Output) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicatorS3)(nil)).Elem()
+}
+
+func (o ReplicatorS3Output) ToReplicatorS3Output() ReplicatorS3Output {
+	return o
+}
+
+func (o ReplicatorS3Output) ToReplicatorS3OutputWithContext(ctx context.Context) ReplicatorS3Output {
+	return o
+}
+
+func (o ReplicatorS3Output) ToReplicatorS3PtrOutput() ReplicatorS3PtrOutput {
+	return o.ToReplicatorS3PtrOutputWithContext(context.Background())
+}
+
+func (o ReplicatorS3Output) ToReplicatorS3PtrOutputWithContext(ctx context.Context) ReplicatorS3PtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReplicatorS3) *ReplicatorS3 {
+		return &v
+	}).(ReplicatorS3PtrOutput)
+}
+
+// The S3 bucket that is the destination for log delivery.
+func (o ReplicatorS3Output) Bucket() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReplicatorS3) *string { return v.Bucket }).(pulumi.StringPtrOutput)
+}
+
+// Whether log delivery to S3 is enabled.
+func (o ReplicatorS3Output) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v ReplicatorS3) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// The S3 prefix that is the destination for log delivery.
+func (o ReplicatorS3Output) Prefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReplicatorS3) *string { return v.Prefix }).(pulumi.StringPtrOutput)
+}
+
+type ReplicatorS3PtrOutput struct{ *pulumi.OutputState }
+
+func (ReplicatorS3PtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReplicatorS3)(nil)).Elem()
+}
+
+func (o ReplicatorS3PtrOutput) ToReplicatorS3PtrOutput() ReplicatorS3PtrOutput {
+	return o
+}
+
+func (o ReplicatorS3PtrOutput) ToReplicatorS3PtrOutputWithContext(ctx context.Context) ReplicatorS3PtrOutput {
+	return o
+}
+
+func (o ReplicatorS3PtrOutput) Elem() ReplicatorS3Output {
+	return o.ApplyT(func(v *ReplicatorS3) ReplicatorS3 {
+		if v != nil {
+			return *v
+		}
+		var ret ReplicatorS3
+		return ret
+	}).(ReplicatorS3Output)
+}
+
+// The S3 bucket that is the destination for log delivery.
+func (o ReplicatorS3PtrOutput) Bucket() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReplicatorS3) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Bucket
+	}).(pulumi.StringPtrOutput)
+}
+
+// Whether log delivery to S3 is enabled.
+func (o ReplicatorS3PtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ReplicatorS3) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The S3 prefix that is the destination for log delivery.
+func (o ReplicatorS3PtrOutput) Prefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReplicatorS3) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Prefix
+	}).(pulumi.StringPtrOutput)
 }
 
 type ReplicatorTag struct {
@@ -6259,17 +7936,37 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterVpcConnectivityTlsPtrInput)(nil)).Elem(), ClusterVpcConnectivityTlsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationLatestRevisionInput)(nil)).Elem(), ConfigurationLatestRevisionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationLatestRevisionPtrInput)(nil)).Elem(), ConfigurationLatestRevisionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LogDeliveryInput)(nil)).Elem(), LogDeliveryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LogDeliveryPtrInput)(nil)).Elem(), LogDeliveryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatorAmazonMskClusterInput)(nil)).Elem(), ReplicatorAmazonMskClusterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatorAmazonMskClusterPtrInput)(nil)).Elem(), ReplicatorAmazonMskClusterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatorApacheKafkaClusterInput)(nil)).Elem(), ReplicatorApacheKafkaClusterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatorApacheKafkaClusterPtrInput)(nil)).Elem(), ReplicatorApacheKafkaClusterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatorCloudWatchLogsInput)(nil)).Elem(), ReplicatorCloudWatchLogsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatorCloudWatchLogsPtrInput)(nil)).Elem(), ReplicatorCloudWatchLogsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatorConsumerGroupReplicationInput)(nil)).Elem(), ReplicatorConsumerGroupReplicationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatorFirehoseInput)(nil)).Elem(), ReplicatorFirehoseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatorFirehosePtrInput)(nil)).Elem(), ReplicatorFirehoseArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatorKafkaClusterInput)(nil)).Elem(), ReplicatorKafkaClusterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatorKafkaClusterArrayInput)(nil)).Elem(), ReplicatorKafkaClusterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatorKafkaClusterClientAuthenticationInput)(nil)).Elem(), ReplicatorKafkaClusterClientAuthenticationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatorKafkaClusterClientAuthenticationPtrInput)(nil)).Elem(), ReplicatorKafkaClusterClientAuthenticationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatorKafkaClusterClientVpcConfigInput)(nil)).Elem(), ReplicatorKafkaClusterClientVpcConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatorKafkaClusterClientVpcConfigPtrInput)(nil)).Elem(), ReplicatorKafkaClusterClientVpcConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatorKafkaClusterEncryptionInTransitInput)(nil)).Elem(), ReplicatorKafkaClusterEncryptionInTransitArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatorKafkaClusterEncryptionInTransitPtrInput)(nil)).Elem(), ReplicatorKafkaClusterEncryptionInTransitArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatorKafkaClusterSaslScramAuthenticationInput)(nil)).Elem(), ReplicatorKafkaClusterSaslScramAuthenticationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatorKafkaClusterSaslScramAuthenticationPtrInput)(nil)).Elem(), ReplicatorKafkaClusterSaslScramAuthenticationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatorLogDeliveryInput)(nil)).Elem(), ReplicatorLogDeliveryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatorLogDeliveryPtrInput)(nil)).Elem(), ReplicatorLogDeliveryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatorReplicationInfoInput)(nil)).Elem(), ReplicatorReplicationInfoArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatorReplicationInfoArrayInput)(nil)).Elem(), ReplicatorReplicationInfoArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatorReplicationStartingPositionInput)(nil)).Elem(), ReplicatorReplicationStartingPositionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatorReplicationStartingPositionPtrInput)(nil)).Elem(), ReplicatorReplicationStartingPositionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatorReplicationTopicNameConfigurationInput)(nil)).Elem(), ReplicatorReplicationTopicNameConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatorReplicationTopicNameConfigurationPtrInput)(nil)).Elem(), ReplicatorReplicationTopicNameConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatorS3Input)(nil)).Elem(), ReplicatorS3Args{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatorS3PtrInput)(nil)).Elem(), ReplicatorS3Args{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatorTopicReplicationInput)(nil)).Elem(), ReplicatorTopicReplicationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerlessClusterClientAuthenticationInput)(nil)).Elem(), ServerlessClusterClientAuthenticationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerlessClusterIamInput)(nil)).Elem(), ServerlessClusterIamArgs{})
@@ -6342,17 +8039,37 @@ func init() {
 	pulumi.RegisterOutputType(ClusterVpcConnectivityTlsPtrOutput{})
 	pulumi.RegisterOutputType(ConfigurationLatestRevisionOutput{})
 	pulumi.RegisterOutputType(ConfigurationLatestRevisionPtrOutput{})
+	pulumi.RegisterOutputType(LogDeliveryOutput{})
+	pulumi.RegisterOutputType(LogDeliveryPtrOutput{})
 	pulumi.RegisterOutputType(ReplicatorAmazonMskClusterOutput{})
+	pulumi.RegisterOutputType(ReplicatorAmazonMskClusterPtrOutput{})
+	pulumi.RegisterOutputType(ReplicatorApacheKafkaClusterOutput{})
+	pulumi.RegisterOutputType(ReplicatorApacheKafkaClusterPtrOutput{})
+	pulumi.RegisterOutputType(ReplicatorCloudWatchLogsOutput{})
+	pulumi.RegisterOutputType(ReplicatorCloudWatchLogsPtrOutput{})
 	pulumi.RegisterOutputType(ReplicatorConsumerGroupReplicationOutput{})
+	pulumi.RegisterOutputType(ReplicatorFirehoseOutput{})
+	pulumi.RegisterOutputType(ReplicatorFirehosePtrOutput{})
 	pulumi.RegisterOutputType(ReplicatorKafkaClusterOutput{})
 	pulumi.RegisterOutputType(ReplicatorKafkaClusterArrayOutput{})
+	pulumi.RegisterOutputType(ReplicatorKafkaClusterClientAuthenticationOutput{})
+	pulumi.RegisterOutputType(ReplicatorKafkaClusterClientAuthenticationPtrOutput{})
 	pulumi.RegisterOutputType(ReplicatorKafkaClusterClientVpcConfigOutput{})
+	pulumi.RegisterOutputType(ReplicatorKafkaClusterClientVpcConfigPtrOutput{})
+	pulumi.RegisterOutputType(ReplicatorKafkaClusterEncryptionInTransitOutput{})
+	pulumi.RegisterOutputType(ReplicatorKafkaClusterEncryptionInTransitPtrOutput{})
+	pulumi.RegisterOutputType(ReplicatorKafkaClusterSaslScramAuthenticationOutput{})
+	pulumi.RegisterOutputType(ReplicatorKafkaClusterSaslScramAuthenticationPtrOutput{})
+	pulumi.RegisterOutputType(ReplicatorLogDeliveryOutput{})
+	pulumi.RegisterOutputType(ReplicatorLogDeliveryPtrOutput{})
 	pulumi.RegisterOutputType(ReplicatorReplicationInfoOutput{})
 	pulumi.RegisterOutputType(ReplicatorReplicationInfoArrayOutput{})
 	pulumi.RegisterOutputType(ReplicatorReplicationStartingPositionOutput{})
 	pulumi.RegisterOutputType(ReplicatorReplicationStartingPositionPtrOutput{})
 	pulumi.RegisterOutputType(ReplicatorReplicationTopicNameConfigurationOutput{})
 	pulumi.RegisterOutputType(ReplicatorReplicationTopicNameConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(ReplicatorS3Output{})
+	pulumi.RegisterOutputType(ReplicatorS3PtrOutput{})
 	pulumi.RegisterOutputType(ReplicatorTopicReplicationOutput{})
 	pulumi.RegisterOutputType(ServerlessClusterClientAuthenticationOutput{})
 	pulumi.RegisterOutputType(ServerlessClusterIamOutput{})

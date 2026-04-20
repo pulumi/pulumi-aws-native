@@ -2042,6 +2042,172 @@ func (in *connectorEgressTypePtr) ToConnectorEgressTypePtrOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, in).(ConnectorEgressTypePtrOutput)
 }
 
+// IP address type for Connector
+type ConnectorIpAddressType string
+
+const (
+	ConnectorIpAddressTypeIpv4      = ConnectorIpAddressType("IPV4")
+	ConnectorIpAddressTypeDualstack = ConnectorIpAddressType("DUALSTACK")
+)
+
+func (ConnectorIpAddressType) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectorIpAddressType)(nil)).Elem()
+}
+
+func (e ConnectorIpAddressType) ToConnectorIpAddressTypeOutput() ConnectorIpAddressTypeOutput {
+	return pulumi.ToOutput(e).(ConnectorIpAddressTypeOutput)
+}
+
+func (e ConnectorIpAddressType) ToConnectorIpAddressTypeOutputWithContext(ctx context.Context) ConnectorIpAddressTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ConnectorIpAddressTypeOutput)
+}
+
+func (e ConnectorIpAddressType) ToConnectorIpAddressTypePtrOutput() ConnectorIpAddressTypePtrOutput {
+	return e.ToConnectorIpAddressTypePtrOutputWithContext(context.Background())
+}
+
+func (e ConnectorIpAddressType) ToConnectorIpAddressTypePtrOutputWithContext(ctx context.Context) ConnectorIpAddressTypePtrOutput {
+	return ConnectorIpAddressType(e).ToConnectorIpAddressTypeOutputWithContext(ctx).ToConnectorIpAddressTypePtrOutputWithContext(ctx)
+}
+
+func (e ConnectorIpAddressType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ConnectorIpAddressType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ConnectorIpAddressType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ConnectorIpAddressType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ConnectorIpAddressTypeOutput struct{ *pulumi.OutputState }
+
+func (ConnectorIpAddressTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectorIpAddressType)(nil)).Elem()
+}
+
+func (o ConnectorIpAddressTypeOutput) ToConnectorIpAddressTypeOutput() ConnectorIpAddressTypeOutput {
+	return o
+}
+
+func (o ConnectorIpAddressTypeOutput) ToConnectorIpAddressTypeOutputWithContext(ctx context.Context) ConnectorIpAddressTypeOutput {
+	return o
+}
+
+func (o ConnectorIpAddressTypeOutput) ToConnectorIpAddressTypePtrOutput() ConnectorIpAddressTypePtrOutput {
+	return o.ToConnectorIpAddressTypePtrOutputWithContext(context.Background())
+}
+
+func (o ConnectorIpAddressTypeOutput) ToConnectorIpAddressTypePtrOutputWithContext(ctx context.Context) ConnectorIpAddressTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectorIpAddressType) *ConnectorIpAddressType {
+		return &v
+	}).(ConnectorIpAddressTypePtrOutput)
+}
+
+func (o ConnectorIpAddressTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ConnectorIpAddressTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ConnectorIpAddressType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ConnectorIpAddressTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectorIpAddressTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ConnectorIpAddressType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ConnectorIpAddressTypePtrOutput struct{ *pulumi.OutputState }
+
+func (ConnectorIpAddressTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectorIpAddressType)(nil)).Elem()
+}
+
+func (o ConnectorIpAddressTypePtrOutput) ToConnectorIpAddressTypePtrOutput() ConnectorIpAddressTypePtrOutput {
+	return o
+}
+
+func (o ConnectorIpAddressTypePtrOutput) ToConnectorIpAddressTypePtrOutputWithContext(ctx context.Context) ConnectorIpAddressTypePtrOutput {
+	return o
+}
+
+func (o ConnectorIpAddressTypePtrOutput) Elem() ConnectorIpAddressTypeOutput {
+	return o.ApplyT(func(v *ConnectorIpAddressType) ConnectorIpAddressType {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectorIpAddressType
+		return ret
+	}).(ConnectorIpAddressTypeOutput)
+}
+
+func (o ConnectorIpAddressTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectorIpAddressTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ConnectorIpAddressType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ConnectorIpAddressTypeInput is an input type that accepts values of the ConnectorIpAddressType enum
+// A concrete instance of `ConnectorIpAddressTypeInput` can be one of the following:
+//
+//	ConnectorIpAddressTypeIpv4
+//	ConnectorIpAddressTypeDualstack
+type ConnectorIpAddressTypeInput interface {
+	pulumi.Input
+
+	ToConnectorIpAddressTypeOutput() ConnectorIpAddressTypeOutput
+	ToConnectorIpAddressTypeOutputWithContext(context.Context) ConnectorIpAddressTypeOutput
+}
+
+var connectorIpAddressTypePtrType = reflect.TypeOf((**ConnectorIpAddressType)(nil)).Elem()
+
+type ConnectorIpAddressTypePtrInput interface {
+	pulumi.Input
+
+	ToConnectorIpAddressTypePtrOutput() ConnectorIpAddressTypePtrOutput
+	ToConnectorIpAddressTypePtrOutputWithContext(context.Context) ConnectorIpAddressTypePtrOutput
+}
+
+type connectorIpAddressTypePtr string
+
+func ConnectorIpAddressTypePtr(v string) ConnectorIpAddressTypePtrInput {
+	return (*connectorIpAddressTypePtr)(&v)
+}
+
+func (*connectorIpAddressTypePtr) ElementType() reflect.Type {
+	return connectorIpAddressTypePtrType
+}
+
+func (in *connectorIpAddressTypePtr) ToConnectorIpAddressTypePtrOutput() ConnectorIpAddressTypePtrOutput {
+	return pulumi.ToOutput(in).(ConnectorIpAddressTypePtrOutput)
+}
+
+func (in *connectorIpAddressTypePtr) ToConnectorIpAddressTypePtrOutputWithContext(ctx context.Context) ConnectorIpAddressTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ConnectorIpAddressTypePtrOutput)
+}
+
 type ConnectorStatus string
 
 const (
@@ -5333,6 +5499,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorAs2ConfigPropertiesSigningAlgorithmPtrInput)(nil)).Elem(), ConnectorAs2ConfigPropertiesSigningAlgorithm("SHA256"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorEgressTypeInput)(nil)).Elem(), ConnectorEgressType("SERVICE_MANAGED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorEgressTypePtrInput)(nil)).Elem(), ConnectorEgressType("SERVICE_MANAGED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorIpAddressTypeInput)(nil)).Elem(), ConnectorIpAddressType("IPV4"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorIpAddressTypePtrInput)(nil)).Elem(), ConnectorIpAddressType("IPV4"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ProfileTypeInput)(nil)).Elem(), ProfileType("LOCAL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ProfileTypePtrInput)(nil)).Elem(), ProfileType("LOCAL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerAs2TransportInput)(nil)).Elem(), ServerAs2Transport("HTTP"))
@@ -5397,6 +5565,8 @@ func init() {
 	pulumi.RegisterOutputType(ConnectorAs2ConfigPropertiesSigningAlgorithmPtrOutput{})
 	pulumi.RegisterOutputType(ConnectorEgressTypeOutput{})
 	pulumi.RegisterOutputType(ConnectorEgressTypePtrOutput{})
+	pulumi.RegisterOutputType(ConnectorIpAddressTypeOutput{})
+	pulumi.RegisterOutputType(ConnectorIpAddressTypePtrOutput{})
 	pulumi.RegisterOutputType(ConnectorStatusOutput{})
 	pulumi.RegisterOutputType(ConnectorStatusPtrOutput{})
 	pulumi.RegisterOutputType(ProfileTypeOutput{})

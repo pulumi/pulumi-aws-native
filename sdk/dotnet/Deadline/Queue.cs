@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Deadline
 {
     /// <summary>
-    /// Definition of AWS::Deadline::Queue Resource Type
+    /// Resource Type definition for AWS::Deadline::Queue
     /// </summary>
     [AwsNativeResourceType("aws-native:deadline:Queue")]
     public partial class Queue : global::Pulumi.CustomResource
@@ -84,6 +84,9 @@ namespace Pulumi.AwsNative.Deadline
         /// </summary>
         [Output("roleArn")]
         public Output<string?> RoleArn { get; private set; } = null!;
+
+        [Output("schedulingConfiguration")]
+        public Output<Outputs.QueueSchedulingConfiguration?> SchedulingConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// An array of key-value pairs to apply to this resource.
@@ -209,6 +212,9 @@ namespace Pulumi.AwsNative.Deadline
         /// </summary>
         [Input("roleArn")]
         public Input<string>? RoleArn { get; set; }
+
+        [Input("schedulingConfiguration")]
+        public Input<Inputs.QueueSchedulingConfigurationArgs>? SchedulingConfiguration { get; set; }
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;

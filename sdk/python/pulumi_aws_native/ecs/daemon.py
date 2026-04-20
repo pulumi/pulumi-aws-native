@@ -35,6 +35,14 @@ class DaemonArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Daemon resource.
+
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] capacity_provider_arns: The Amazon Resource Names (ARNs) of the capacity providers associated with the daemon.
+        :param pulumi.Input[_builtins.str] cluster_arn: The Amazon Resource Name (ARN) of the cluster that the daemon is running in.
+        :param pulumi.Input[_builtins.str] daemon_task_definition_arn: The Amazon Resource Name (ARN) of the daemon task definition used by this revision.
+        :param pulumi.Input['DaemonDeploymentConfigurationArgs'] deployment_configuration: The deployment configuration used for this daemon deployment.
+        :param pulumi.Input[_builtins.bool] enable_ecs_managed_tags: Specifies whether Amazon ECS managed tags are turned on for the daemon tasks.
+        :param pulumi.Input[_builtins.bool] enable_execute_command: Specifies whether the execute command functionality is turned on for the daemon tasks.
+        :param pulumi.Input['DaemonPropagateTags'] propagate_tags: Specifies whether tags are propagated from the daemon to the daemon tasks.
         """
         if capacity_provider_arns is not None:
             pulumi.set(__self__, "capacity_provider_arns", capacity_provider_arns)
@@ -58,6 +66,9 @@ class DaemonArgs:
     @_builtins.property
     @pulumi.getter(name="capacityProviderArns")
     def capacity_provider_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        The Amazon Resource Names (ARNs) of the capacity providers associated with the daemon.
+        """
         return pulumi.get(self, "capacity_provider_arns")
 
     @capacity_provider_arns.setter
@@ -67,6 +78,9 @@ class DaemonArgs:
     @_builtins.property
     @pulumi.getter(name="clusterArn")
     def cluster_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The Amazon Resource Name (ARN) of the cluster that the daemon is running in.
+        """
         return pulumi.get(self, "cluster_arn")
 
     @cluster_arn.setter
@@ -85,6 +99,9 @@ class DaemonArgs:
     @_builtins.property
     @pulumi.getter(name="daemonTaskDefinitionArn")
     def daemon_task_definition_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The Amazon Resource Name (ARN) of the daemon task definition used by this revision.
+        """
         return pulumi.get(self, "daemon_task_definition_arn")
 
     @daemon_task_definition_arn.setter
@@ -94,6 +111,9 @@ class DaemonArgs:
     @_builtins.property
     @pulumi.getter(name="deploymentConfiguration")
     def deployment_configuration(self) -> Optional[pulumi.Input['DaemonDeploymentConfigurationArgs']]:
+        """
+        The deployment configuration used for this daemon deployment.
+        """
         return pulumi.get(self, "deployment_configuration")
 
     @deployment_configuration.setter
@@ -103,6 +123,9 @@ class DaemonArgs:
     @_builtins.property
     @pulumi.getter(name="enableEcsManagedTags")
     def enable_ecs_managed_tags(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Specifies whether Amazon ECS managed tags are turned on for the daemon tasks.
+        """
         return pulumi.get(self, "enable_ecs_managed_tags")
 
     @enable_ecs_managed_tags.setter
@@ -112,6 +135,9 @@ class DaemonArgs:
     @_builtins.property
     @pulumi.getter(name="enableExecuteCommand")
     def enable_execute_command(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Specifies whether the execute command functionality is turned on for the daemon tasks.
+        """
         return pulumi.get(self, "enable_execute_command")
 
     @enable_execute_command.setter
@@ -121,6 +147,9 @@ class DaemonArgs:
     @_builtins.property
     @pulumi.getter(name="propagateTags")
     def propagate_tags(self) -> Optional[pulumi.Input['DaemonPropagateTags']]:
+        """
+        Specifies whether tags are propagated from the daemon to the daemon tasks.
+        """
         return pulumi.get(self, "propagate_tags")
 
     @propagate_tags.setter
@@ -154,11 +183,18 @@ class Daemon(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
-        Resource schema for AWS ECS Daemon
+        Information about a daemon resource.
 
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] capacity_provider_arns: The Amazon Resource Names (ARNs) of the capacity providers associated with the daemon.
+        :param pulumi.Input[_builtins.str] cluster_arn: The Amazon Resource Name (ARN) of the cluster that the daemon is running in.
+        :param pulumi.Input[_builtins.str] daemon_task_definition_arn: The Amazon Resource Name (ARN) of the daemon task definition used by this revision.
+        :param pulumi.Input[Union['DaemonDeploymentConfigurationArgs', 'DaemonDeploymentConfigurationArgsDict']] deployment_configuration: The deployment configuration used for this daemon deployment.
+        :param pulumi.Input[_builtins.bool] enable_ecs_managed_tags: Specifies whether Amazon ECS managed tags are turned on for the daemon tasks.
+        :param pulumi.Input[_builtins.bool] enable_execute_command: Specifies whether the execute command functionality is turned on for the daemon tasks.
+        :param pulumi.Input['DaemonPropagateTags'] propagate_tags: Specifies whether tags are propagated from the daemon to the daemon tasks.
         """
         ...
     @overload
@@ -167,7 +203,7 @@ class Daemon(pulumi.CustomResource):
                  args: Optional[DaemonArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource schema for AWS ECS Daemon
+        Information about a daemon resource.
 
 
         :param str resource_name: The name of the resource.
@@ -260,11 +296,17 @@ class Daemon(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="capacityProviderArns")
     def capacity_provider_arns(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+        """
+        The Amazon Resource Names (ARNs) of the capacity providers associated with the daemon.
+        """
         return pulumi.get(self, "capacity_provider_arns")
 
     @_builtins.property
     @pulumi.getter(name="clusterArn")
     def cluster_arn(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The Amazon Resource Name (ARN) of the cluster that the daemon is running in.
+        """
         return pulumi.get(self, "cluster_arn")
 
     @_builtins.property
@@ -290,6 +332,9 @@ class Daemon(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="daemonTaskDefinitionArn")
     def daemon_task_definition_arn(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The Amazon Resource Name (ARN) of the daemon task definition used by this revision.
+        """
         return pulumi.get(self, "daemon_task_definition_arn")
 
     @_builtins.property
@@ -300,21 +345,33 @@ class Daemon(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="deploymentConfiguration")
     def deployment_configuration(self) -> pulumi.Output[Optional['outputs.DaemonDeploymentConfiguration']]:
+        """
+        The deployment configuration used for this daemon deployment.
+        """
         return pulumi.get(self, "deployment_configuration")
 
     @_builtins.property
     @pulumi.getter(name="enableEcsManagedTags")
     def enable_ecs_managed_tags(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Specifies whether Amazon ECS managed tags are turned on for the daemon tasks.
+        """
         return pulumi.get(self, "enable_ecs_managed_tags")
 
     @_builtins.property
     @pulumi.getter(name="enableExecuteCommand")
     def enable_execute_command(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Specifies whether the execute command functionality is turned on for the daemon tasks.
+        """
         return pulumi.get(self, "enable_execute_command")
 
     @_builtins.property
     @pulumi.getter(name="propagateTags")
     def propagate_tags(self) -> pulumi.Output[Optional['DaemonPropagateTags']]:
+        """
+        Specifies whether tags are propagated from the daemon to the daemon tasks.
+        """
         return pulumi.get(self, "propagate_tags")
 
     @_builtins.property

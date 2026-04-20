@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Deadline
 {
     /// <summary>
-    /// Definition of AWS::Deadline::Farm Resource Type
+    /// Resource Type definition for AWS::Deadline::Farm
     /// </summary>
     [AwsNativeResourceType("aws-native:deadline:Farm")]
     public partial class Farm : global::Pulumi.CustomResource

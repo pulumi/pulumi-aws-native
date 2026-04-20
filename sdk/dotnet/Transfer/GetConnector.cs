@@ -91,6 +91,7 @@ namespace Pulumi.AwsNative.Transfer
         /// Detailed error message when Connector in ERRORED status
         /// </summary>
         public readonly string? ErrorMessage;
+        public readonly Pulumi.AwsNative.Transfer.ConnectorIpAddressType? IpAddressType;
         /// <summary>
         /// Specifies the logging role for the connector.
         /// </summary>
@@ -136,6 +137,8 @@ namespace Pulumi.AwsNative.Transfer
 
             string? errorMessage,
 
+            Pulumi.AwsNative.Transfer.ConnectorIpAddressType? ipAddressType,
+
             string? loggingRole,
 
             string? securityPolicyName,
@@ -157,6 +160,7 @@ namespace Pulumi.AwsNative.Transfer
             EgressConfig = egressConfig;
             EgressType = egressType;
             ErrorMessage = errorMessage;
+            IpAddressType = ipAddressType;
             LoggingRole = loggingRole;
             SecurityPolicyName = securityPolicyName;
             ServiceManagedEgressIpAddresses = serviceManagedEgressIpAddresses;

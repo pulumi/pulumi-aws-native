@@ -4005,6 +4005,7 @@ type Ec2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityType string
 const (
 	Ec2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityTypeOnDemand         = Ec2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityType("on-demand")
 	Ec2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityTypeSpot             = Ec2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityType("spot")
+	Ec2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityTypeCapacityBlock    = Ec2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityType("capacity-block")
 	Ec2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityTypeReservedCapacity = Ec2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityType("reserved-capacity")
 )
 
@@ -4132,6 +4133,7 @@ func (o Ec2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityTypePtrOu
 //
 //	Ec2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityTypeOnDemand
 //	Ec2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityTypeSpot
+//	Ec2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityTypeCapacityBlock
 //	Ec2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityTypeReservedCapacity
 type Ec2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityTypeInput interface {
 	pulumi.Input

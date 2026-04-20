@@ -31,6 +31,8 @@ type LookupReplicatorArgs struct {
 type LookupReplicatorResult struct {
 	// The current version of the MSK replicator.
 	CurrentVersion *string `pulumi:"currentVersion"`
+	// Configuration for log delivery for the replicator.
+	LogDelivery *LogDelivery `pulumi:"logDelivery"`
 	// A list of replication configurations, where each configuration targets a given source cluster to target cluster replication flow.
 	ReplicationInfoList []ReplicatorReplicationInfo `pulumi:"replicationInfoList"`
 	// Amazon Resource Name for the created replicator.
@@ -74,6 +76,11 @@ func (o LookupReplicatorResultOutput) ToLookupReplicatorResultOutputWithContext(
 // The current version of the MSK replicator.
 func (o LookupReplicatorResultOutput) CurrentVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupReplicatorResult) *string { return v.CurrentVersion }).(pulumi.StringPtrOutput)
+}
+
+// Configuration for log delivery for the replicator.
+func (o LookupReplicatorResultOutput) LogDelivery() LogDeliveryPtrOutput {
+	return o.ApplyT(func(v LookupReplicatorResult) *LogDelivery { return v.LogDelivery }).(LogDeliveryPtrOutput)
 }
 
 // A list of replication configurations, where each configuration targets a given source cluster to target cluster replication flow.

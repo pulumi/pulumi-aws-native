@@ -12,19 +12,19 @@ namespace Pulumi.AwsNative.Deadline
     public static class GetLimit
     {
         /// <summary>
-        /// Definition of AWS::Deadline::Limit Resource Type
+        /// Resource Type definition for AWS::Deadline::Limit
         /// </summary>
         public static Task<GetLimitResult> InvokeAsync(GetLimitArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLimitResult>("aws-native:deadline:getLimit", args ?? new GetLimitArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Definition of AWS::Deadline::Limit Resource Type
+        /// Resource Type definition for AWS::Deadline::Limit
         /// </summary>
         public static Output<GetLimitResult> Invoke(GetLimitInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLimitResult>("aws-native:deadline:getLimit", args ?? new GetLimitInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Definition of AWS::Deadline::Limit Resource Type
+        /// Resource Type definition for AWS::Deadline::Limit
         /// </summary>
         public static Output<GetLimitResult> Invoke(GetLimitInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetLimitResult>("aws-native:deadline:getLimit", args ?? new GetLimitInvokeArgs(), options.WithDefaults());

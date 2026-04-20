@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Deadline
 {
     /// <summary>
-    /// Definition of AWS::Deadline::MeteredProduct Resource Type
+    /// Resource Type definition for AWS::Deadline::MeteredProduct
     /// </summary>
     [AwsNativeResourceType("aws-native:deadline:MeteredProduct")]
     public partial class MeteredProduct : global::Pulumi.CustomResource

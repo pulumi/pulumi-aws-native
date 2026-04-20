@@ -33,6 +33,7 @@ class QueueArgs:
                  job_run_as_user: Optional[pulumi.Input['QueueJobRunAsUserArgs']] = None,
                  required_file_system_location_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  role_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 scheduling_configuration: Optional[pulumi.Input['QueueSchedulingConfigurationArgs']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Queue resource.
@@ -68,6 +69,8 @@ class QueueArgs:
             pulumi.set(__self__, "required_file_system_location_names", required_file_system_location_names)
         if role_arn is not None:
             pulumi.set(__self__, "role_arn", role_arn)
+        if scheduling_configuration is not None:
+            pulumi.set(__self__, "scheduling_configuration", scheduling_configuration)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -184,6 +187,15 @@ class QueueArgs:
         pulumi.set(self, "role_arn", value)
 
     @_builtins.property
+    @pulumi.getter(name="schedulingConfiguration")
+    def scheduling_configuration(self) -> Optional[pulumi.Input['QueueSchedulingConfigurationArgs']]:
+        return pulumi.get(self, "scheduling_configuration")
+
+    @scheduling_configuration.setter
+    def scheduling_configuration(self, value: Optional[pulumi.Input['QueueSchedulingConfigurationArgs']]):
+        pulumi.set(self, "scheduling_configuration", value)
+
+    @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
@@ -211,10 +223,11 @@ class Queue(pulumi.CustomResource):
                  job_run_as_user: Optional[pulumi.Input[Union['QueueJobRunAsUserArgs', 'QueueJobRunAsUserArgsDict']]] = None,
                  required_file_system_location_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  role_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 scheduling_configuration: Optional[pulumi.Input[Union['QueueSchedulingConfigurationArgs', 'QueueSchedulingConfigurationArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
-        Definition of AWS::Deadline::Queue Resource Type
+        Resource Type definition for AWS::Deadline::Queue
 
 
         :param str resource_name: The name of the resource.
@@ -241,7 +254,7 @@ class Queue(pulumi.CustomResource):
                  args: QueueArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Definition of AWS::Deadline::Queue Resource Type
+        Resource Type definition for AWS::Deadline::Queue
 
 
         :param str resource_name: The name of the resource.
@@ -268,6 +281,7 @@ class Queue(pulumi.CustomResource):
                  job_run_as_user: Optional[pulumi.Input[Union['QueueJobRunAsUserArgs', 'QueueJobRunAsUserArgsDict']]] = None,
                  required_file_system_location_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  role_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 scheduling_configuration: Optional[pulumi.Input[Union['QueueSchedulingConfigurationArgs', 'QueueSchedulingConfigurationArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -291,6 +305,7 @@ class Queue(pulumi.CustomResource):
             __props__.__dict__["job_run_as_user"] = job_run_as_user
             __props__.__dict__["required_file_system_location_names"] = required_file_system_location_names
             __props__.__dict__["role_arn"] = role_arn
+            __props__.__dict__["scheduling_configuration"] = scheduling_configuration
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["queue_id"] = None
@@ -329,6 +344,7 @@ class Queue(pulumi.CustomResource):
         __props__.__dict__["queue_id"] = None
         __props__.__dict__["required_file_system_location_names"] = None
         __props__.__dict__["role_arn"] = None
+        __props__.__dict__["scheduling_configuration"] = None
         __props__.__dict__["tags"] = None
         return Queue(resource_name, opts=opts, __props__=__props__)
 
@@ -423,6 +439,11 @@ class Queue(pulumi.CustomResource):
         The Amazon Resource Name (ARN) of the IAM role that workers use when running jobs in this queue.
         """
         return pulumi.get(self, "role_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="schedulingConfiguration")
+    def scheduling_configuration(self) -> pulumi.Output[Optional['outputs.QueueSchedulingConfiguration']]:
+        return pulumi.get(self, "scheduling_configuration")
 
     @_builtins.property
     @pulumi.getter

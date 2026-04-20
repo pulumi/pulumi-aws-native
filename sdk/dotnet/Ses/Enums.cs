@@ -149,6 +149,7 @@ namespace Pulumi.AwsNative.Ses
 
         public static MailManagerIngressPointIngressPointType Open { get; } = new MailManagerIngressPointIngressPointType("OPEN");
         public static MailManagerIngressPointIngressPointType Auth { get; } = new MailManagerIngressPointIngressPointType("AUTH");
+        public static MailManagerIngressPointIngressPointType Mtls { get; } = new MailManagerIngressPointIngressPointType("MTLS");
 
         public static bool operator ==(MailManagerIngressPointIngressPointType left, MailManagerIngressPointIngressPointType right) => left.Equals(right);
         public static bool operator !=(MailManagerIngressPointIngressPointType left, MailManagerIngressPointIngressPointType right) => !left.Equals(right);
@@ -158,6 +159,35 @@ namespace Pulumi.AwsNative.Ses
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is MailManagerIngressPointIngressPointType other && Equals(other);
         public bool Equals(MailManagerIngressPointIngressPointType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct MailManagerIngressPointTlsPolicy : IEquatable<MailManagerIngressPointTlsPolicy>
+    {
+        private readonly string _value;
+
+        private MailManagerIngressPointTlsPolicy(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static MailManagerIngressPointTlsPolicy Required { get; } = new MailManagerIngressPointTlsPolicy("REQUIRED");
+        public static MailManagerIngressPointTlsPolicy Optional { get; } = new MailManagerIngressPointTlsPolicy("OPTIONAL");
+        public static MailManagerIngressPointTlsPolicy Fips { get; } = new MailManagerIngressPointTlsPolicy("FIPS");
+
+        public static bool operator ==(MailManagerIngressPointTlsPolicy left, MailManagerIngressPointTlsPolicy right) => left.Equals(right);
+        public static bool operator !=(MailManagerIngressPointTlsPolicy left, MailManagerIngressPointTlsPolicy right) => !left.Equals(right);
+
+        public static explicit operator string(MailManagerIngressPointTlsPolicy value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is MailManagerIngressPointTlsPolicy other && Equals(other);
+        public bool Equals(MailManagerIngressPointTlsPolicy other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -186,6 +216,34 @@ namespace Pulumi.AwsNative.Ses
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is MailManagerRuleSetActionFailurePolicy other && Equals(other);
         public bool Equals(MailManagerRuleSetActionFailurePolicy other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct MailManagerRuleSetLambdaInvocationType : IEquatable<MailManagerRuleSetLambdaInvocationType>
+    {
+        private readonly string _value;
+
+        private MailManagerRuleSetLambdaInvocationType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static MailManagerRuleSetLambdaInvocationType Event { get; } = new MailManagerRuleSetLambdaInvocationType("EVENT");
+        public static MailManagerRuleSetLambdaInvocationType RequestResponse { get; } = new MailManagerRuleSetLambdaInvocationType("REQUEST_RESPONSE");
+
+        public static bool operator ==(MailManagerRuleSetLambdaInvocationType left, MailManagerRuleSetLambdaInvocationType right) => left.Equals(right);
+        public static bool operator !=(MailManagerRuleSetLambdaInvocationType left, MailManagerRuleSetLambdaInvocationType right) => !left.Equals(right);
+
+        public static explicit operator string(MailManagerRuleSetLambdaInvocationType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is MailManagerRuleSetLambdaInvocationType other && Equals(other);
+        public bool Equals(MailManagerRuleSetLambdaInvocationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -303,6 +361,40 @@ namespace Pulumi.AwsNative.Ses
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is MailManagerRuleSetRuleBooleanOperator other && Equals(other);
         public bool Equals(MailManagerRuleSetRuleBooleanOperator other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct MailManagerRuleSetRuleClientCertificateAttribute : IEquatable<MailManagerRuleSetRuleClientCertificateAttribute>
+    {
+        private readonly string _value;
+
+        private MailManagerRuleSetRuleClientCertificateAttribute(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static MailManagerRuleSetRuleClientCertificateAttribute Cn { get; } = new MailManagerRuleSetRuleClientCertificateAttribute("CN");
+        public static MailManagerRuleSetRuleClientCertificateAttribute SanRfc822Name { get; } = new MailManagerRuleSetRuleClientCertificateAttribute("SAN_RFC822_NAME");
+        public static MailManagerRuleSetRuleClientCertificateAttribute SanDnsName { get; } = new MailManagerRuleSetRuleClientCertificateAttribute("SAN_DNS_NAME");
+        public static MailManagerRuleSetRuleClientCertificateAttribute SanDirectoryName { get; } = new MailManagerRuleSetRuleClientCertificateAttribute("SAN_DIRECTORY_NAME");
+        public static MailManagerRuleSetRuleClientCertificateAttribute SanUniformResourceIdentifier { get; } = new MailManagerRuleSetRuleClientCertificateAttribute("SAN_UNIFORM_RESOURCE_IDENTIFIER");
+        public static MailManagerRuleSetRuleClientCertificateAttribute SanIpAddress { get; } = new MailManagerRuleSetRuleClientCertificateAttribute("SAN_IP_ADDRESS");
+        public static MailManagerRuleSetRuleClientCertificateAttribute SanRegisteredId { get; } = new MailManagerRuleSetRuleClientCertificateAttribute("SAN_REGISTERED_ID");
+        public static MailManagerRuleSetRuleClientCertificateAttribute SerialNumber { get; } = new MailManagerRuleSetRuleClientCertificateAttribute("SERIAL_NUMBER");
+
+        public static bool operator ==(MailManagerRuleSetRuleClientCertificateAttribute left, MailManagerRuleSetRuleClientCertificateAttribute right) => left.Equals(right);
+        public static bool operator !=(MailManagerRuleSetRuleClientCertificateAttribute left, MailManagerRuleSetRuleClientCertificateAttribute right) => !left.Equals(right);
+
+        public static explicit operator string(MailManagerRuleSetRuleClientCertificateAttribute value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is MailManagerRuleSetRuleClientCertificateAttribute other && Equals(other);
+        public bool Equals(MailManagerRuleSetRuleClientCertificateAttribute other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

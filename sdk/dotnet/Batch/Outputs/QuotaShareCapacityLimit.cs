@@ -14,11 +14,11 @@ namespace Pulumi.AwsNative.Batch.Outputs
     public sealed class QuotaShareCapacityLimit
     {
         /// <summary>
-        /// The unit of compute capacity for the capacityLimit.
+        /// The unit of compute capacity for the capacityLimit. For example, `ml.m5.large`.
         /// </summary>
         public readonly string CapacityUnit;
         /// <summary>
-        /// The maximum capacity available for the quota share. This value represents the maximum amount of resources that can be allocated to jobs in the quota share without borrowing
+        /// The maximum capacity available for the quota share. This value represents the maximum quantity of a resource that can be allocated to jobs in the quota share without borrowing.
         /// </summary>
         public readonly int MaxCapacity;
 

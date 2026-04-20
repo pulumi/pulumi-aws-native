@@ -43,7 +43,7 @@ class CollectionArgs:
                Unique to your account and AWS Region
                Starts with a lowercase letter
                Contains only lowercase letters a-z, the numbers 0-9 and the hyphen (-)
-               Contains between 3 and 32 characters
+               Contains between 3 and 64 characters
         :param pulumi.Input['CollectionStandbyReplicas'] standby_replicas: Indicates whether to use standby replicas for the collection. You can't update this property after the collection is already created. If you attempt to modify this property, the collection continues to use the original value.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]] tags: List of tags to be added to the resource
         :param pulumi.Input['CollectionType'] type: The type of collection. Possible values are `SEARCH` , `TIMESERIES` , and `VECTORSEARCH` . For more information, see [Choosing a collection type](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-overview.html#serverless-usecase) .
@@ -108,7 +108,7 @@ class CollectionArgs:
         Unique to your account and AWS Region
         Starts with a lowercase letter
         Contains only lowercase letters a-z, the numbers 0-9 and the hyphen (-)
-        Contains between 3 and 32 characters
+        Contains between 3 and 64 characters
         """
         return pulumi.get(self, "name")
 
@@ -229,7 +229,7 @@ class Collection(pulumi.CustomResource):
                Unique to your account and AWS Region
                Starts with a lowercase letter
                Contains only lowercase letters a-z, the numbers 0-9 and the hyphen (-)
-               Contains between 3 and 32 characters
+               Contains between 3 and 64 characters
         :param pulumi.Input['CollectionStandbyReplicas'] standby_replicas: Indicates whether to use standby replicas for the collection. You can't update this property after the collection is already created. If you attempt to modify this property, the collection continues to use the original value.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]] tags: List of tags to be added to the resource
         :param pulumi.Input['CollectionType'] type: The type of collection. Possible values are `SEARCH` , `TIMESERIES` , and `VECTORSEARCH` . For more information, see [Choosing a collection type](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-overview.html#serverless-usecase) .
@@ -444,7 +444,7 @@ class Collection(pulumi.CustomResource):
         Unique to your account and AWS Region
         Starts with a lowercase letter
         Contains only lowercase letters a-z, the numbers 0-9 and the hyphen (-)
-        Contains between 3 and 32 characters
+        Contains between 3 and 64 characters
         """
         return pulumi.get(self, "name")
 

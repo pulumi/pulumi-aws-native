@@ -268,6 +268,15 @@
       "minLength" : 1,
       "maxLength" : 255
     },
+    "Ec2PlacementGroupIds" : {
+      "type" : "array",
+      "description" : "The list of EC2 placement group IDs associated with your ODB network.",
+      "uniqueItems" : false,
+      "insertionOrder" : false,
+      "items" : {
+        "type" : "string"
+      }
+    },
     "OciNetworkAnchorId" : {
       "type" : "string",
       "description" : "The unique identifier of the OCI network anchor for the ODB network.",
@@ -346,12 +355,12 @@
   },
   "additionalProperties" : false,
   "createOnlyProperties" : [ "/properties/AvailabilityZone", "/properties/AvailabilityZoneId", "/properties/BackupSubnetCidr", "/properties/ClientSubnetCidr", "/properties/CustomDomainName", "/properties/DefaultDnsPrefix" ],
-  "readOnlyProperties" : [ "/properties/ManagedServices", "/properties/OciNetworkAnchorId", "/properties/OciResourceAnchorName", "/properties/OciVcnUrl", "/properties/OdbNetworkArn", "/properties/OdbNetworkId" ],
+  "readOnlyProperties" : [ "/properties/ManagedServices", "/properties/OciNetworkAnchorId", "/properties/OciResourceAnchorName", "/properties/OciVcnUrl", "/properties/OdbNetworkArn", "/properties/OdbNetworkId", "/properties/Ec2PlacementGroupIds" ],
   "writeOnlyProperties" : [ "/properties/DeleteAssociatedResources", "/properties/DefaultDnsPrefix", "/properties/S3Access", "/properties/S3PolicyDocument", "/properties/KmsAccess", "/properties/KmsPolicyDocument", "/properties/StsAccess", "/properties/StsPolicyDocument", "/properties/CrossRegionS3RestoreSources", "/properties/ZeroEtlAccess" ],
   "primaryIdentifier" : [ "/properties/OdbNetworkArn" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "odb:CreateOdbNetwork", "odb:TagResource", "ec2:DescribeAvailabilityZones", "iam:CreateServiceLinkedRole", "ec2:DescribeVpcs", "ec2:CreateOdbNetworkPeering", "odb:ListTagsForResource", "sts:GetCallerIdentity", "odb:GetOdbNetwork", "odb:ListOdbNetworks", "odb:UpdateOdbNetwork", "vpc-lattice:CreateServiceNetwork", "vpc-lattice:GetServiceNetwork", "vpc-lattice:CreateServiceNetworkResourceAssociation", "vpc-lattice:GetServiceNetworkResourceAssociation", "vpc-lattice:CreateResourceGateway", "vpc-lattice:GetResourceGateway", "vpc-lattice:CreateServiceNetworkVpcEndpointAssociation", "redshiftchannelmanagement:CreateChannel", "ec2:ModifyOdbNetworkPeering", "ec2:DescribeVpcEndpointAssociations", "ec2:CreateVpcEndpoint", "ec2:DescribeVpcEndpoints", "ec2:CreateTags" ],
+      "permissions" : [ "odb:CreateOdbNetwork", "odb:TagResource", "ec2:DescribeAvailabilityZones", "iam:CreateServiceLinkedRole", "ec2:DescribeVpcs", "ec2:CreateOdbNetworkPeering", "odb:ListTagsForResource", "sts:GetCallerIdentity", "odb:GetOdbNetwork", "odb:ListOdbNetworks", "odb:UpdateOdbNetwork", "vpc-lattice:CreateServiceNetwork", "vpc-lattice:GetServiceNetwork", "vpc-lattice:CreateServiceNetworkResourceAssociation", "vpc-lattice:GetServiceNetworkResourceAssociation", "vpc-lattice:CreateResourceGateway", "vpc-lattice:GetResourceGateway", "vpc-lattice:CreateServiceNetworkVpcEndpointAssociation", "redshiftchannelmanagement:CreateChannel", "ec2:ModifyOdbNetworkPeering", "ec2:DescribeVpcEndpointAssociations", "ec2:CreateVpcEndpoint", "ec2:DescribeVpcEndpoints", "ec2:CreateTags", "ec2:CreatePlacementGroup", "ec2:AttachResourcesToPlacementGroup" ],
       "timeoutInMinutes" : 2160
     },
     "read" : {
@@ -361,7 +370,7 @@
       "permissions" : [ "odb:UpdateOdbNetwork", "odb:TagResource", "odb:UntagResource", "ec2:DescribeVpcs", "ec2:CreateOdbNetworkPeering", "ec2:DeleteOdbNetworkPeering", "odb:ListTagsForResource", "sts:GetCallerIdentity", "odb:GetOdbNetwork", "odb:ListOdbNetworks", "vpc-lattice:CreateServiceNetworkResourceAssociation", "vpc-lattice:DeleteServiceNetworkResourceAssociation", "vpc-lattice:GetServiceNetwork", "vpc-lattice:GetServiceNetworkResourceAssociation", "vpc-lattice:GetResourceGateway", "ec2:DescribeVpcEndpointAssociations", "ec2:DescribeVpcEndpoints" ]
     },
     "delete" : {
-      "permissions" : [ "odb:DeleteOdbNetwork", "ec2:DeleteOdbNetworkPeering", "ec2:DescribeVpcs", "odb:ListTagsForResource", "sts:GetCallerIdentity", "odb:GetOdbNetwork", "odb:ListOdbNetworks", "vpc-lattice:DeleteServiceNetwork", "vpc-lattice:GetServiceNetwork", "vpc-lattice:DeleteServiceNetworkResourceAssociation", "vpc-lattice:GetServiceNetworkResourceAssociation", "vpc-lattice:DeleteResourceGateway", "vpc-lattice:GetResourceGateway", "ec2:ModifyOdbNetworkPeering", "ec2:DescribeVpcEndpointAssociations", "ec2:DeleteVpcEndpoints", "ec2:DescribeVpcEndpoints" ],
+      "permissions" : [ "odb:DeleteOdbNetwork", "ec2:DeleteOdbNetworkPeering", "ec2:DescribeVpcs", "odb:ListTagsForResource", "sts:GetCallerIdentity", "odb:GetOdbNetwork", "odb:ListOdbNetworks", "vpc-lattice:DeleteServiceNetwork", "vpc-lattice:GetServiceNetwork", "vpc-lattice:DeleteServiceNetworkResourceAssociation", "vpc-lattice:GetServiceNetworkResourceAssociation", "vpc-lattice:DeleteResourceGateway", "vpc-lattice:GetResourceGateway", "ec2:ModifyOdbNetworkPeering", "ec2:DescribeVpcEndpointAssociations", "ec2:DeleteVpcEndpoints", "ec2:DescribeVpcEndpoints", "ec2:DeletePlacementGroup", "ec2:DetachResourcesFromPlacementGroup" ],
       "timeoutInMinutes" : 2160
     },
     "list" : {

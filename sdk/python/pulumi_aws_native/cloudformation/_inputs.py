@@ -259,7 +259,7 @@ class OptionsPropertiesArgsDict(TypedDict):
     """
     Specifies the S3 location of your input parameters.
     """
-    input_params: NotRequired[pulumi.Input['GuardHookS3LocationArgsDict']]
+    input_params: NotRequired[pulumi.Input[Union['GuardHookS3LocationArgsDict', Sequence[pulumi.Input['GuardHookS3LocationArgsDict']]]]]
     """
     Specifies the S3 location where your input parameters are located.
     """
@@ -267,25 +267,25 @@ class OptionsPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class OptionsPropertiesArgs:
     def __init__(__self__, *,
-                 input_params: Optional[pulumi.Input['GuardHookS3LocationArgs']] = None):
+                 input_params: Optional[pulumi.Input[Union['GuardHookS3LocationArgs', Sequence[pulumi.Input['GuardHookS3LocationArgs']]]]] = None):
         """
         Specifies the S3 location of your input parameters.
 
-        :param pulumi.Input['GuardHookS3LocationArgs'] input_params: Specifies the S3 location where your input parameters are located.
+        :param pulumi.Input[Union['GuardHookS3LocationArgs', Sequence[pulumi.Input['GuardHookS3LocationArgs']]]] input_params: Specifies the S3 location where your input parameters are located.
         """
         if input_params is not None:
             pulumi.set(__self__, "input_params", input_params)
 
     @_builtins.property
     @pulumi.getter(name="inputParams")
-    def input_params(self) -> Optional[pulumi.Input['GuardHookS3LocationArgs']]:
+    def input_params(self) -> Optional[pulumi.Input[Union['GuardHookS3LocationArgs', Sequence[pulumi.Input['GuardHookS3LocationArgs']]]]]:
         """
         Specifies the S3 location where your input parameters are located.
         """
         return pulumi.get(self, "input_params")
 
     @input_params.setter
-    def input_params(self, value: Optional[pulumi.Input['GuardHookS3LocationArgs']]):
+    def input_params(self, value: Optional[pulumi.Input[Union['GuardHookS3LocationArgs', Sequence[pulumi.Input['GuardHookS3LocationArgs']]]]]):
         pulumi.set(self, "input_params", value)
 
 

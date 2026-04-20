@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Definition of AWS::Deadline::Farm Resource Type
+ * Resource Type definition for AWS::Deadline::Farm
  */
 export class Farm extends pulumi.CustomResource {
     /**

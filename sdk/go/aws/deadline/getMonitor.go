@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Definition of AWS::Deadline::Monitor Resource Type
+// Resource Type definition for AWS::Deadline::Monitor
 func LookupMonitor(ctx *pulumi.Context, args *LookupMonitorArgs, opts ...pulumi.InvokeOption) (*LookupMonitorResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupMonitorResult

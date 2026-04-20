@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Definition of AWS::Deadline::MeteredProduct Resource Type
+// Resource Type definition for AWS::Deadline::MeteredProduct
 type MeteredProduct struct {
 	pulumi.CustomResourceState
 

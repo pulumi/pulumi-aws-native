@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Deadline
 {
     /// <summary>
-    /// Definition of AWS::Deadline::Fleet Resource Type
+    /// Resource Type definition for AWS::Deadline::Fleet
     /// </summary>
     [AwsNativeResourceType("aws-native:deadline:Fleet")]
     public partial class Fleet : global::Pulumi.CustomResource

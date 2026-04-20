@@ -32,13 +32,13 @@ class QuotaShareArgs:
         """
         The set of arguments for constructing a QuotaShare resource.
 
-        :param pulumi.Input[Sequence[pulumi.Input['QuotaShareCapacityLimitArgs']]] capacity_limits: The capacity limits for the quota share.
-        :param pulumi.Input[_builtins.str] job_queue: The Amazon Resource Name (ARN) or name of the job queue.
-        :param pulumi.Input['QuotaSharePreemptionConfigurationArgs'] preemption_configuration: The preemption configuration for the quota share.
-        :param pulumi.Input['QuotaShareResourceSharingConfigurationArgs'] resource_sharing_configuration: The resource sharing configuration for the quota share.
-        :param pulumi.Input[_builtins.str] quota_share_name: The name of the quota share.
-        :param pulumi.Input['QuotaShareState'] state: The state of the quota share.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A key-value pair to associate with a resource.
+        :param pulumi.Input[Sequence[pulumi.Input['QuotaShareCapacityLimitArgs']]] capacity_limits: A list that specifies the quantity and type of compute capacity allocated to the quota share.
+        :param pulumi.Input[_builtins.str] job_queue: The AWS Batch job queue associated with the quota share. This can be the job queue name or ARN. A job queue must be in the `VALID` state before you can associate it with a quota share.
+        :param pulumi.Input['QuotaSharePreemptionConfigurationArgs'] preemption_configuration: Specifies the preemption behavior for jobs in a quota share.
+        :param pulumi.Input['QuotaShareResourceSharingConfigurationArgs'] resource_sharing_configuration: Specifies whether a quota share reserves, lends, or both lends and borrows idle compute capacity.
+        :param pulumi.Input[_builtins.str] quota_share_name: The name of the quota share. It can be up to 128 characters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
+        :param pulumi.Input['QuotaShareState'] state: The state of the quota share. If the quota share is `ENABLED`, it is able to accept jobs. If the quota share is `DISABLED`, new jobs won't be accepted but jobs already submitted can finish. The default state is `ENABLED`.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: The tags that you apply to the quota share to help you categorize and organize your resources. Each tag consists of a key and an optional value.
         """
         pulumi.set(__self__, "capacity_limits", capacity_limits)
         pulumi.set(__self__, "job_queue", job_queue)
@@ -55,7 +55,7 @@ class QuotaShareArgs:
     @pulumi.getter(name="capacityLimits")
     def capacity_limits(self) -> pulumi.Input[Sequence[pulumi.Input['QuotaShareCapacityLimitArgs']]]:
         """
-        The capacity limits for the quota share.
+        A list that specifies the quantity and type of compute capacity allocated to the quota share.
         """
         return pulumi.get(self, "capacity_limits")
 
@@ -67,7 +67,7 @@ class QuotaShareArgs:
     @pulumi.getter(name="jobQueue")
     def job_queue(self) -> pulumi.Input[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) or name of the job queue.
+        The AWS Batch job queue associated with the quota share. This can be the job queue name or ARN. A job queue must be in the `VALID` state before you can associate it with a quota share.
         """
         return pulumi.get(self, "job_queue")
 
@@ -79,7 +79,7 @@ class QuotaShareArgs:
     @pulumi.getter(name="preemptionConfiguration")
     def preemption_configuration(self) -> pulumi.Input['QuotaSharePreemptionConfigurationArgs']:
         """
-        The preemption configuration for the quota share.
+        Specifies the preemption behavior for jobs in a quota share.
         """
         return pulumi.get(self, "preemption_configuration")
 
@@ -91,7 +91,7 @@ class QuotaShareArgs:
     @pulumi.getter(name="resourceSharingConfiguration")
     def resource_sharing_configuration(self) -> pulumi.Input['QuotaShareResourceSharingConfigurationArgs']:
         """
-        The resource sharing configuration for the quota share.
+        Specifies whether a quota share reserves, lends, or both lends and borrows idle compute capacity.
         """
         return pulumi.get(self, "resource_sharing_configuration")
 
@@ -103,7 +103,7 @@ class QuotaShareArgs:
     @pulumi.getter(name="quotaShareName")
     def quota_share_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The name of the quota share.
+        The name of the quota share. It can be up to 128 characters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
         """
         return pulumi.get(self, "quota_share_name")
 
@@ -115,7 +115,7 @@ class QuotaShareArgs:
     @pulumi.getter
     def state(self) -> Optional[pulumi.Input['QuotaShareState']]:
         """
-        The state of the quota share.
+        The state of the quota share. If the quota share is `ENABLED`, it is able to accept jobs. If the quota share is `DISABLED`, new jobs won't be accepted but jobs already submitted can finish. The default state is `ENABLED`.
         """
         return pulumi.get(self, "state")
 
@@ -127,7 +127,7 @@ class QuotaShareArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A key-value pair to associate with a resource.
+        The tags that you apply to the quota share to help you categorize and organize your resources. Each tag consists of a key and an optional value.
         """
         return pulumi.get(self, "tags")
 
@@ -151,18 +151,18 @@ class QuotaShare(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
-        Resource Type definition for AWS::Batch::QuotaShare
+        Creates an AWS Batch quota share. Each quota share operates as a virtual queue with a configured compute capacity, resource sharing strategy, and borrow limits.
 
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['QuotaShareCapacityLimitArgs', 'QuotaShareCapacityLimitArgsDict']]]] capacity_limits: The capacity limits for the quota share.
-        :param pulumi.Input[_builtins.str] job_queue: The Amazon Resource Name (ARN) or name of the job queue.
-        :param pulumi.Input[Union['QuotaSharePreemptionConfigurationArgs', 'QuotaSharePreemptionConfigurationArgsDict']] preemption_configuration: The preemption configuration for the quota share.
-        :param pulumi.Input[_builtins.str] quota_share_name: The name of the quota share.
-        :param pulumi.Input[Union['QuotaShareResourceSharingConfigurationArgs', 'QuotaShareResourceSharingConfigurationArgsDict']] resource_sharing_configuration: The resource sharing configuration for the quota share.
-        :param pulumi.Input['QuotaShareState'] state: The state of the quota share.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A key-value pair to associate with a resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['QuotaShareCapacityLimitArgs', 'QuotaShareCapacityLimitArgsDict']]]] capacity_limits: A list that specifies the quantity and type of compute capacity allocated to the quota share.
+        :param pulumi.Input[_builtins.str] job_queue: The AWS Batch job queue associated with the quota share. This can be the job queue name or ARN. A job queue must be in the `VALID` state before you can associate it with a quota share.
+        :param pulumi.Input[Union['QuotaSharePreemptionConfigurationArgs', 'QuotaSharePreemptionConfigurationArgsDict']] preemption_configuration: Specifies the preemption behavior for jobs in a quota share.
+        :param pulumi.Input[_builtins.str] quota_share_name: The name of the quota share. It can be up to 128 characters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
+        :param pulumi.Input[Union['QuotaShareResourceSharingConfigurationArgs', 'QuotaShareResourceSharingConfigurationArgsDict']] resource_sharing_configuration: Specifies whether a quota share reserves, lends, or both lends and borrows idle compute capacity.
+        :param pulumi.Input['QuotaShareState'] state: The state of the quota share. If the quota share is `ENABLED`, it is able to accept jobs. If the quota share is `DISABLED`, new jobs won't be accepted but jobs already submitted can finish. The default state is `ENABLED`.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: The tags that you apply to the quota share to help you categorize and organize your resources. Each tag consists of a key and an optional value.
         """
         ...
     @overload
@@ -171,7 +171,7 @@ class QuotaShare(pulumi.CustomResource):
                  args: QuotaShareArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource Type definition for AWS::Batch::QuotaShare
+        Creates an AWS Batch quota share. Each quota share operates as a virtual queue with a configured compute capacity, resource sharing strategy, and borrow limits.
 
 
         :param str resource_name: The name of the resource.
@@ -259,7 +259,7 @@ class QuotaShare(pulumi.CustomResource):
     @pulumi.getter(name="capacityLimits")
     def capacity_limits(self) -> pulumi.Output[Sequence['outputs.QuotaShareCapacityLimit']]:
         """
-        The capacity limits for the quota share.
+        A list that specifies the quantity and type of compute capacity allocated to the quota share.
         """
         return pulumi.get(self, "capacity_limits")
 
@@ -267,7 +267,7 @@ class QuotaShare(pulumi.CustomResource):
     @pulumi.getter(name="jobQueue")
     def job_queue(self) -> pulumi.Output[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) or name of the job queue.
+        The AWS Batch job queue associated with the quota share. This can be the job queue name or ARN. A job queue must be in the `VALID` state before you can associate it with a quota share.
         """
         return pulumi.get(self, "job_queue")
 
@@ -275,7 +275,7 @@ class QuotaShare(pulumi.CustomResource):
     @pulumi.getter(name="preemptionConfiguration")
     def preemption_configuration(self) -> pulumi.Output['outputs.QuotaSharePreemptionConfiguration']:
         """
-        The preemption configuration for the quota share.
+        Specifies the preemption behavior for jobs in a quota share.
         """
         return pulumi.get(self, "preemption_configuration")
 
@@ -291,7 +291,7 @@ class QuotaShare(pulumi.CustomResource):
     @pulumi.getter(name="quotaShareName")
     def quota_share_name(self) -> pulumi.Output[_builtins.str]:
         """
-        The name of the quota share.
+        The name of the quota share. It can be up to 128 characters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
         """
         return pulumi.get(self, "quota_share_name")
 
@@ -299,7 +299,7 @@ class QuotaShare(pulumi.CustomResource):
     @pulumi.getter(name="resourceSharingConfiguration")
     def resource_sharing_configuration(self) -> pulumi.Output['outputs.QuotaShareResourceSharingConfiguration']:
         """
-        The resource sharing configuration for the quota share.
+        Specifies whether a quota share reserves, lends, or both lends and borrows idle compute capacity.
         """
         return pulumi.get(self, "resource_sharing_configuration")
 
@@ -307,7 +307,7 @@ class QuotaShare(pulumi.CustomResource):
     @pulumi.getter
     def state(self) -> pulumi.Output[Optional['QuotaShareState']]:
         """
-        The state of the quota share.
+        The state of the quota share. If the quota share is `ENABLED`, it is able to accept jobs. If the quota share is `DISABLED`, new jobs won't be accepted but jobs already submitted can finish. The default state is `ENABLED`.
         """
         return pulumi.get(self, "state")
 
@@ -315,7 +315,7 @@ class QuotaShare(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
         """
-        A key-value pair to associate with a resource.
+        The tags that you apply to the quota share to help you categorize and organize your resources. Each tag consists of a key and an optional value.
         """
         return pulumi.get(self, "tags")
 

@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Definition of AWS::Deadline::Queue Resource Type
+// Resource Type definition for AWS::Deadline::Queue
 func LookupQueue(ctx *pulumi.Context, args *LookupQueueArgs, opts ...pulumi.InvokeOption) (*LookupQueueResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupQueueResult
@@ -52,7 +52,8 @@ type LookupQueueResult struct {
 	// The file system location that the queue uses.
 	RequiredFileSystemLocationNames []string `pulumi:"requiredFileSystemLocationNames"`
 	// The Amazon Resource Name (ARN) of the IAM role that workers use when running jobs in this queue.
-	RoleArn *string `pulumi:"roleArn"`
+	RoleArn                 *string                       `pulumi:"roleArn"`
+	SchedulingConfiguration *QueueSchedulingConfiguration `pulumi:"schedulingConfiguration"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []aws.Tag `pulumi:"tags"`
 }
@@ -141,6 +142,10 @@ func (o LookupQueueResultOutput) RequiredFileSystemLocationNames() pulumi.String
 // The Amazon Resource Name (ARN) of the IAM role that workers use when running jobs in this queue.
 func (o LookupQueueResultOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupQueueResult) *string { return v.RoleArn }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupQueueResultOutput) SchedulingConfiguration() QueueSchedulingConfigurationPtrOutput {
+	return o.ApplyT(func(v LookupQueueResult) *QueueSchedulingConfiguration { return v.SchedulingConfiguration }).(QueueSchedulingConfigurationPtrOutput)
 }
 
 // An array of key-value pairs to apply to this resource.

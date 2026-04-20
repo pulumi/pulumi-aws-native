@@ -10,6 +10,11 @@ export const getGraph: typeof import("./getGraph").getGraph = null as any;
 export const getGraphOutput: typeof import("./getGraph").getGraphOutput = null as any;
 utilities.lazyLoad(exports, ["getGraph","getGraphOutput"], () => require("./getGraph"));
 
+export { GetGraphSnapshotArgs, GetGraphSnapshotResult, GetGraphSnapshotOutputArgs } from "./getGraphSnapshot";
+export const getGraphSnapshot: typeof import("./getGraphSnapshot").getGraphSnapshot = null as any;
+export const getGraphSnapshotOutput: typeof import("./getGraphSnapshot").getGraphSnapshotOutput = null as any;
+utilities.lazyLoad(exports, ["getGraphSnapshot","getGraphSnapshotOutput"], () => require("./getGraphSnapshot"));
+
 export { GetPrivateGraphEndpointArgs, GetPrivateGraphEndpointResult, GetPrivateGraphEndpointOutputArgs } from "./getPrivateGraphEndpoint";
 export const getPrivateGraphEndpoint: typeof import("./getPrivateGraphEndpoint").getPrivateGraphEndpoint = null as any;
 export const getPrivateGraphEndpointOutput: typeof import("./getPrivateGraphEndpoint").getPrivateGraphEndpointOutput = null as any;
@@ -20,11 +25,19 @@ export type Graph = import("./graph").Graph;
 export const Graph: typeof import("./graph").Graph = null as any;
 utilities.lazyLoad(exports, ["Graph"], () => require("./graph"));
 
+export { GraphSnapshotArgs } from "./graphSnapshot";
+export type GraphSnapshot = import("./graphSnapshot").GraphSnapshot;
+export const GraphSnapshot: typeof import("./graphSnapshot").GraphSnapshot = null as any;
+utilities.lazyLoad(exports, ["GraphSnapshot"], () => require("./graphSnapshot"));
+
 export { PrivateGraphEndpointArgs } from "./privateGraphEndpoint";
 export type PrivateGraphEndpoint = import("./privateGraphEndpoint").PrivateGraphEndpoint;
 export const PrivateGraphEndpoint: typeof import("./privateGraphEndpoint").PrivateGraphEndpoint = null as any;
 utilities.lazyLoad(exports, ["PrivateGraphEndpoint"], () => require("./privateGraphEndpoint"));
 
+
+// Export enums:
+export * from "../types/enums/neptunegraph";
 
 const _module = {
     version: utilities.getVersion(),
@@ -32,6 +45,8 @@ const _module = {
         switch (type) {
             case "aws-native:neptunegraph:Graph":
                 return new Graph(name, <any>undefined, { urn })
+            case "aws-native:neptunegraph:GraphSnapshot":
+                return new GraphSnapshot(name, <any>undefined, { urn })
             case "aws-native:neptunegraph:PrivateGraphEndpoint":
                 return new PrivateGraphEndpoint(name, <any>undefined, { urn })
             default:

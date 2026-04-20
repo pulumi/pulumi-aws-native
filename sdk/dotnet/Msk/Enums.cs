@@ -166,6 +166,98 @@ namespace Pulumi.AwsNative.Msk
     }
 
     /// <summary>
+    /// The consumer group offset synchronization mode.
+    /// </summary>
+    [EnumType]
+    public readonly struct ReplicatorConsumerGroupOffsetSyncMode : IEquatable<ReplicatorConsumerGroupOffsetSyncMode>
+    {
+        private readonly string _value;
+
+        private ReplicatorConsumerGroupOffsetSyncMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ReplicatorConsumerGroupOffsetSyncMode Legacy { get; } = new ReplicatorConsumerGroupOffsetSyncMode("LEGACY");
+        public static ReplicatorConsumerGroupOffsetSyncMode Enhanced { get; } = new ReplicatorConsumerGroupOffsetSyncMode("ENHANCED");
+
+        public static bool operator ==(ReplicatorConsumerGroupOffsetSyncMode left, ReplicatorConsumerGroupOffsetSyncMode right) => left.Equals(right);
+        public static bool operator !=(ReplicatorConsumerGroupOffsetSyncMode left, ReplicatorConsumerGroupOffsetSyncMode right) => !left.Equals(right);
+
+        public static explicit operator string(ReplicatorConsumerGroupOffsetSyncMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ReplicatorConsumerGroupOffsetSyncMode other && Equals(other);
+        public bool Equals(ReplicatorConsumerGroupOffsetSyncMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The type of encryption in transit to the Apache Kafka cluster.
+    /// </summary>
+    [EnumType]
+    public readonly struct ReplicatorKafkaClusterEncryptionInTransitType : IEquatable<ReplicatorKafkaClusterEncryptionInTransitType>
+    {
+        private readonly string _value;
+
+        private ReplicatorKafkaClusterEncryptionInTransitType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ReplicatorKafkaClusterEncryptionInTransitType Tls { get; } = new ReplicatorKafkaClusterEncryptionInTransitType("TLS");
+
+        public static bool operator ==(ReplicatorKafkaClusterEncryptionInTransitType left, ReplicatorKafkaClusterEncryptionInTransitType right) => left.Equals(right);
+        public static bool operator !=(ReplicatorKafkaClusterEncryptionInTransitType left, ReplicatorKafkaClusterEncryptionInTransitType right) => !left.Equals(right);
+
+        public static explicit operator string(ReplicatorKafkaClusterEncryptionInTransitType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ReplicatorKafkaClusterEncryptionInTransitType other && Equals(other);
+        public bool Equals(ReplicatorKafkaClusterEncryptionInTransitType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The SASL/SCRAM authentication mechanism.
+    /// </summary>
+    [EnumType]
+    public readonly struct ReplicatorKafkaClusterSaslScramMechanism : IEquatable<ReplicatorKafkaClusterSaslScramMechanism>
+    {
+        private readonly string _value;
+
+        private ReplicatorKafkaClusterSaslScramMechanism(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ReplicatorKafkaClusterSaslScramMechanism Sha256 { get; } = new ReplicatorKafkaClusterSaslScramMechanism("SHA256");
+        public static ReplicatorKafkaClusterSaslScramMechanism Sha512 { get; } = new ReplicatorKafkaClusterSaslScramMechanism("SHA512");
+
+        public static bool operator ==(ReplicatorKafkaClusterSaslScramMechanism left, ReplicatorKafkaClusterSaslScramMechanism right) => left.Equals(right);
+        public static bool operator !=(ReplicatorKafkaClusterSaslScramMechanism left, ReplicatorKafkaClusterSaslScramMechanism right) => !left.Equals(right);
+
+        public static explicit operator string(ReplicatorKafkaClusterSaslScramMechanism value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ReplicatorKafkaClusterSaslScramMechanism other && Equals(other);
+        public bool Equals(ReplicatorKafkaClusterSaslScramMechanism other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The type of compression to use writing records to target Kafka cluster.
     /// </summary>
     [EnumType]

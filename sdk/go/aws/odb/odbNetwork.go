@@ -34,6 +34,8 @@ type OdbNetwork struct {
 	DeleteAssociatedResources pulumi.BoolPtrOutput `pulumi:"deleteAssociatedResources"`
 	// The user-friendly name of the ODB network.
 	DisplayName pulumi.StringPtrOutput `pulumi:"displayName"`
+	// The list of EC2 placement group IDs associated with your ODB network.
+	Ec2PlacementGroupIds pulumi.StringArrayOutput `pulumi:"ec2PlacementGroupIds"`
 	// The AWS Key Management Service (KMS) access configuration for the ODB network.
 	KmsAccess OdbNetworkKmsAccessPtrOutput `pulumi:"kmsAccess"`
 	// The AWS Key Management Service (KMS) policy document that defines permissions for key usage within the ODB network.
@@ -266,6 +268,11 @@ func (o OdbNetworkOutput) DeleteAssociatedResources() pulumi.BoolPtrOutput {
 // The user-friendly name of the ODB network.
 func (o OdbNetworkOutput) DisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OdbNetwork) pulumi.StringPtrOutput { return v.DisplayName }).(pulumi.StringPtrOutput)
+}
+
+// The list of EC2 placement group IDs associated with your ODB network.
+func (o OdbNetworkOutput) Ec2PlacementGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *OdbNetwork) pulumi.StringArrayOutput { return v.Ec2PlacementGroupIds }).(pulumi.StringArrayOutput)
 }
 
 // The AWS Key Management Service (KMS) access configuration for the ODB network.

@@ -12,24 +12,31 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource schema for AWS ECS Daemon
+// Information about a daemon resource.
 type Daemon struct {
 	pulumi.CustomResourceState
 
-	CapacityProviderArns    pulumi.StringArrayOutput               `pulumi:"capacityProviderArns"`
-	ClusterArn              pulumi.StringPtrOutput                 `pulumi:"clusterArn"`
-	CreatedAt               pulumi.StringOutput                    `pulumi:"createdAt"`
-	DaemonArn               pulumi.StringOutput                    `pulumi:"daemonArn"`
-	DaemonName              pulumi.StringPtrOutput                 `pulumi:"daemonName"`
-	DaemonStatus            DaemonStatusOutput                     `pulumi:"daemonStatus"`
-	DaemonTaskDefinitionArn pulumi.StringPtrOutput                 `pulumi:"daemonTaskDefinitionArn"`
-	DeploymentArn           pulumi.StringOutput                    `pulumi:"deploymentArn"`
+	// The Amazon Resource Names (ARNs) of the capacity providers associated with the daemon.
+	CapacityProviderArns pulumi.StringArrayOutput `pulumi:"capacityProviderArns"`
+	// The Amazon Resource Name (ARN) of the cluster that the daemon is running in.
+	ClusterArn   pulumi.StringPtrOutput `pulumi:"clusterArn"`
+	CreatedAt    pulumi.StringOutput    `pulumi:"createdAt"`
+	DaemonArn    pulumi.StringOutput    `pulumi:"daemonArn"`
+	DaemonName   pulumi.StringPtrOutput `pulumi:"daemonName"`
+	DaemonStatus DaemonStatusOutput     `pulumi:"daemonStatus"`
+	// The Amazon Resource Name (ARN) of the daemon task definition used by this revision.
+	DaemonTaskDefinitionArn pulumi.StringPtrOutput `pulumi:"daemonTaskDefinitionArn"`
+	DeploymentArn           pulumi.StringOutput    `pulumi:"deploymentArn"`
+	// The deployment configuration used for this daemon deployment.
 	DeploymentConfiguration DaemonDeploymentConfigurationPtrOutput `pulumi:"deploymentConfiguration"`
-	EnableEcsManagedTags    pulumi.BoolPtrOutput                   `pulumi:"enableEcsManagedTags"`
-	EnableExecuteCommand    pulumi.BoolPtrOutput                   `pulumi:"enableExecuteCommand"`
-	PropagateTags           DaemonPropagateTagsPtrOutput           `pulumi:"propagateTags"`
-	Tags                    aws.TagArrayOutput                     `pulumi:"tags"`
-	UpdatedAt               pulumi.StringOutput                    `pulumi:"updatedAt"`
+	// Specifies whether Amazon ECS managed tags are turned on for the daemon tasks.
+	EnableEcsManagedTags pulumi.BoolPtrOutput `pulumi:"enableEcsManagedTags"`
+	// Specifies whether the execute command functionality is turned on for the daemon tasks.
+	EnableExecuteCommand pulumi.BoolPtrOutput `pulumi:"enableExecuteCommand"`
+	// Specifies whether tags are propagated from the daemon to the daemon tasks.
+	PropagateTags DaemonPropagateTagsPtrOutput `pulumi:"propagateTags"`
+	Tags          aws.TagArrayOutput           `pulumi:"tags"`
+	UpdatedAt     pulumi.StringOutput          `pulumi:"updatedAt"`
 }
 
 // NewDaemon registers a new resource with the given unique name, arguments, and options.
@@ -77,28 +84,42 @@ func (DaemonState) ElementType() reflect.Type {
 }
 
 type daemonArgs struct {
-	CapacityProviderArns    []string                       `pulumi:"capacityProviderArns"`
-	ClusterArn              *string                        `pulumi:"clusterArn"`
-	DaemonName              *string                        `pulumi:"daemonName"`
-	DaemonTaskDefinitionArn *string                        `pulumi:"daemonTaskDefinitionArn"`
+	// The Amazon Resource Names (ARNs) of the capacity providers associated with the daemon.
+	CapacityProviderArns []string `pulumi:"capacityProviderArns"`
+	// The Amazon Resource Name (ARN) of the cluster that the daemon is running in.
+	ClusterArn *string `pulumi:"clusterArn"`
+	DaemonName *string `pulumi:"daemonName"`
+	// The Amazon Resource Name (ARN) of the daemon task definition used by this revision.
+	DaemonTaskDefinitionArn *string `pulumi:"daemonTaskDefinitionArn"`
+	// The deployment configuration used for this daemon deployment.
 	DeploymentConfiguration *DaemonDeploymentConfiguration `pulumi:"deploymentConfiguration"`
-	EnableEcsManagedTags    *bool                          `pulumi:"enableEcsManagedTags"`
-	EnableExecuteCommand    *bool                          `pulumi:"enableExecuteCommand"`
-	PropagateTags           *DaemonPropagateTags           `pulumi:"propagateTags"`
-	Tags                    []aws.Tag                      `pulumi:"tags"`
+	// Specifies whether Amazon ECS managed tags are turned on for the daemon tasks.
+	EnableEcsManagedTags *bool `pulumi:"enableEcsManagedTags"`
+	// Specifies whether the execute command functionality is turned on for the daemon tasks.
+	EnableExecuteCommand *bool `pulumi:"enableExecuteCommand"`
+	// Specifies whether tags are propagated from the daemon to the daemon tasks.
+	PropagateTags *DaemonPropagateTags `pulumi:"propagateTags"`
+	Tags          []aws.Tag            `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Daemon resource.
 type DaemonArgs struct {
-	CapacityProviderArns    pulumi.StringArrayInput
-	ClusterArn              pulumi.StringPtrInput
-	DaemonName              pulumi.StringPtrInput
+	// The Amazon Resource Names (ARNs) of the capacity providers associated with the daemon.
+	CapacityProviderArns pulumi.StringArrayInput
+	// The Amazon Resource Name (ARN) of the cluster that the daemon is running in.
+	ClusterArn pulumi.StringPtrInput
+	DaemonName pulumi.StringPtrInput
+	// The Amazon Resource Name (ARN) of the daemon task definition used by this revision.
 	DaemonTaskDefinitionArn pulumi.StringPtrInput
+	// The deployment configuration used for this daemon deployment.
 	DeploymentConfiguration DaemonDeploymentConfigurationPtrInput
-	EnableEcsManagedTags    pulumi.BoolPtrInput
-	EnableExecuteCommand    pulumi.BoolPtrInput
-	PropagateTags           DaemonPropagateTagsPtrInput
-	Tags                    aws.TagArrayInput
+	// Specifies whether Amazon ECS managed tags are turned on for the daemon tasks.
+	EnableEcsManagedTags pulumi.BoolPtrInput
+	// Specifies whether the execute command functionality is turned on for the daemon tasks.
+	EnableExecuteCommand pulumi.BoolPtrInput
+	// Specifies whether tags are propagated from the daemon to the daemon tasks.
+	PropagateTags DaemonPropagateTagsPtrInput
+	Tags          aws.TagArrayInput
 }
 
 func (DaemonArgs) ElementType() reflect.Type {
@@ -138,10 +159,12 @@ func (o DaemonOutput) ToDaemonOutputWithContext(ctx context.Context) DaemonOutpu
 	return o
 }
 
+// The Amazon Resource Names (ARNs) of the capacity providers associated with the daemon.
 func (o DaemonOutput) CapacityProviderArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Daemon) pulumi.StringArrayOutput { return v.CapacityProviderArns }).(pulumi.StringArrayOutput)
 }
 
+// The Amazon Resource Name (ARN) of the cluster that the daemon is running in.
 func (o DaemonOutput) ClusterArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Daemon) pulumi.StringPtrOutput { return v.ClusterArn }).(pulumi.StringPtrOutput)
 }
@@ -162,6 +185,7 @@ func (o DaemonOutput) DaemonStatus() DaemonStatusOutput {
 	return o.ApplyT(func(v *Daemon) DaemonStatusOutput { return v.DaemonStatus }).(DaemonStatusOutput)
 }
 
+// The Amazon Resource Name (ARN) of the daemon task definition used by this revision.
 func (o DaemonOutput) DaemonTaskDefinitionArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Daemon) pulumi.StringPtrOutput { return v.DaemonTaskDefinitionArn }).(pulumi.StringPtrOutput)
 }
@@ -170,18 +194,22 @@ func (o DaemonOutput) DeploymentArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Daemon) pulumi.StringOutput { return v.DeploymentArn }).(pulumi.StringOutput)
 }
 
+// The deployment configuration used for this daemon deployment.
 func (o DaemonOutput) DeploymentConfiguration() DaemonDeploymentConfigurationPtrOutput {
 	return o.ApplyT(func(v *Daemon) DaemonDeploymentConfigurationPtrOutput { return v.DeploymentConfiguration }).(DaemonDeploymentConfigurationPtrOutput)
 }
 
+// Specifies whether Amazon ECS managed tags are turned on for the daemon tasks.
 func (o DaemonOutput) EnableEcsManagedTags() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Daemon) pulumi.BoolPtrOutput { return v.EnableEcsManagedTags }).(pulumi.BoolPtrOutput)
 }
 
+// Specifies whether the execute command functionality is turned on for the daemon tasks.
 func (o DaemonOutput) EnableExecuteCommand() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Daemon) pulumi.BoolPtrOutput { return v.EnableExecuteCommand }).(pulumi.BoolPtrOutput)
 }
 
+// Specifies whether tags are propagated from the daemon to the daemon tasks.
 func (o DaemonOutput) PropagateTags() DaemonPropagateTagsPtrOutput {
 	return o.ApplyT(func(v *Daemon) DaemonPropagateTagsPtrOutput { return v.PropagateTags }).(DaemonPropagateTagsPtrOutput)
 }

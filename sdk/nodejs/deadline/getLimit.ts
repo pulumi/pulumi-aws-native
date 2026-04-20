@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Definition of AWS::Deadline::Limit Resource Type
+ * Resource Type definition for AWS::Deadline::Limit
  */
 export function getLimit(args: GetLimitArgs, opts?: pulumi.InvokeOptions): Promise<GetLimitResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -55,7 +55,7 @@ export interface GetLimitResult {
     readonly maxCount?: number;
 }
 /**
- * Definition of AWS::Deadline::Limit Resource Type
+ * Resource Type definition for AWS::Deadline::Limit
  */
 export function getLimitOutput(args: GetLimitOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLimitResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

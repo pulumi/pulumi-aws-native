@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Definition of AWS::Deadline::StorageProfile Resource Type
+ * Resource Type definition for AWS::Deadline::StorageProfile
  */
 export class StorageProfile extends pulumi.CustomResource {
     /**

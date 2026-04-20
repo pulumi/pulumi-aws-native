@@ -23,6 +23,8 @@ type Replicator struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Specifies a list of Kafka clusters which are targets of the replicator.
 	KafkaClusters ReplicatorKafkaClusterArrayOutput `pulumi:"kafkaClusters"`
+	// Configuration for log delivery for the replicator.
+	LogDelivery LogDeliveryPtrOutput `pulumi:"logDelivery"`
 	// A list of replication configurations, where each configuration targets a given source cluster to target cluster replication flow.
 	ReplicationInfoList ReplicatorReplicationInfoArrayOutput `pulumi:"replicationInfoList"`
 	// Amazon Resource Name for the created replicator.
@@ -54,9 +56,12 @@ func NewReplicator(ctx *pulumi.Context,
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"description",
 		"kafkaClusters[*]",
+		"replicationInfoList[*].consumerGroupReplication.consumerGroupOffsetSyncMode",
 		"replicationInfoList[*].sourceKafkaClusterArn",
+		"replicationInfoList[*].sourceKafkaClusterId",
 		"replicationInfoList[*].targetCompressionType",
 		"replicationInfoList[*].targetKafkaClusterArn",
+		"replicationInfoList[*].targetKafkaClusterId",
 		"replicationInfoList[*].topicReplication.startingPosition",
 		"replicationInfoList[*].topicReplication.topicNameConfiguration",
 		"replicatorName",
@@ -100,6 +105,8 @@ type replicatorArgs struct {
 	Description *string `pulumi:"description"`
 	// Specifies a list of Kafka clusters which are targets of the replicator.
 	KafkaClusters []ReplicatorKafkaCluster `pulumi:"kafkaClusters"`
+	// Configuration for log delivery for the replicator.
+	LogDelivery *LogDelivery `pulumi:"logDelivery"`
 	// A list of replication configurations, where each configuration targets a given source cluster to target cluster replication flow.
 	ReplicationInfoList []ReplicatorReplicationInfo `pulumi:"replicationInfoList"`
 	// The name of the replicator.
@@ -116,6 +123,8 @@ type ReplicatorArgs struct {
 	Description pulumi.StringPtrInput
 	// Specifies a list of Kafka clusters which are targets of the replicator.
 	KafkaClusters ReplicatorKafkaClusterArrayInput
+	// Configuration for log delivery for the replicator.
+	LogDelivery LogDeliveryPtrInput
 	// A list of replication configurations, where each configuration targets a given source cluster to target cluster replication flow.
 	ReplicationInfoList ReplicatorReplicationInfoArrayInput
 	// The name of the replicator.
@@ -176,6 +185,11 @@ func (o ReplicatorOutput) Description() pulumi.StringPtrOutput {
 // Specifies a list of Kafka clusters which are targets of the replicator.
 func (o ReplicatorOutput) KafkaClusters() ReplicatorKafkaClusterArrayOutput {
 	return o.ApplyT(func(v *Replicator) ReplicatorKafkaClusterArrayOutput { return v.KafkaClusters }).(ReplicatorKafkaClusterArrayOutput)
+}
+
+// Configuration for log delivery for the replicator.
+func (o ReplicatorOutput) LogDelivery() LogDeliveryPtrOutput {
+	return o.ApplyT(func(v *Replicator) LogDeliveryPtrOutput { return v.LogDelivery }).(LogDeliveryPtrOutput)
 }
 
 // A list of replication configurations, where each configuration targets a given source cluster to target cluster replication flow.

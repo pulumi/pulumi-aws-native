@@ -11330,9 +11330,9 @@ func (o JobQueueServiceEnvironmentOrderArrayOutput) Index(i pulumi.IntInput) Job
 }
 
 type QuotaShareCapacityLimit struct {
-	// The unit of compute capacity for the capacityLimit.
+	// The unit of compute capacity for the capacityLimit. For example, `ml.m5.large`.
 	CapacityUnit string `pulumi:"capacityUnit"`
-	// The maximum capacity available for the quota share. This value represents the maximum amount of resources that can be allocated to jobs in the quota share without borrowing
+	// The maximum capacity available for the quota share. This value represents the maximum quantity of a resource that can be allocated to jobs in the quota share without borrowing.
 	MaxCapacity int `pulumi:"maxCapacity"`
 }
 
@@ -11348,9 +11348,9 @@ type QuotaShareCapacityLimitInput interface {
 }
 
 type QuotaShareCapacityLimitArgs struct {
-	// The unit of compute capacity for the capacityLimit.
+	// The unit of compute capacity for the capacityLimit. For example, `ml.m5.large`.
 	CapacityUnit pulumi.StringInput `pulumi:"capacityUnit"`
-	// The maximum capacity available for the quota share. This value represents the maximum amount of resources that can be allocated to jobs in the quota share without borrowing
+	// The maximum capacity available for the quota share. This value represents the maximum quantity of a resource that can be allocated to jobs in the quota share without borrowing.
 	MaxCapacity pulumi.IntInput `pulumi:"maxCapacity"`
 }
 
@@ -11405,12 +11405,12 @@ func (o QuotaShareCapacityLimitOutput) ToQuotaShareCapacityLimitOutputWithContex
 	return o
 }
 
-// The unit of compute capacity for the capacityLimit.
+// The unit of compute capacity for the capacityLimit. For example, `ml.m5.large`.
 func (o QuotaShareCapacityLimitOutput) CapacityUnit() pulumi.StringOutput {
 	return o.ApplyT(func(v QuotaShareCapacityLimit) string { return v.CapacityUnit }).(pulumi.StringOutput)
 }
 
-// The maximum capacity available for the quota share. This value represents the maximum amount of resources that can be allocated to jobs in the quota share without borrowing
+// The maximum capacity available for the quota share. This value represents the maximum quantity of a resource that can be allocated to jobs in the quota share without borrowing.
 func (o QuotaShareCapacityLimitOutput) MaxCapacity() pulumi.IntOutput {
 	return o.ApplyT(func(v QuotaShareCapacityLimit) int { return v.MaxCapacity }).(pulumi.IntOutput)
 }
@@ -11436,7 +11436,7 @@ func (o QuotaShareCapacityLimitArrayOutput) Index(i pulumi.IntInput) QuotaShareC
 }
 
 type QuotaSharePreemptionConfiguration struct {
-	// Whether preemption is enabled within the quota share.
+	// Specifies whether jobs within a quota share can be preempted by another, higher priority job in the same quota share.
 	InSharePreemption QuotaSharePreemptionConfigurationInSharePreemption `pulumi:"inSharePreemption"`
 }
 
@@ -11452,7 +11452,7 @@ type QuotaSharePreemptionConfigurationInput interface {
 }
 
 type QuotaSharePreemptionConfigurationArgs struct {
-	// Whether preemption is enabled within the quota share.
+	// Specifies whether jobs within a quota share can be preempted by another, higher priority job in the same quota share.
 	InSharePreemption QuotaSharePreemptionConfigurationInSharePreemptionInput `pulumi:"inSharePreemption"`
 }
 
@@ -11482,7 +11482,7 @@ func (o QuotaSharePreemptionConfigurationOutput) ToQuotaSharePreemptionConfigura
 	return o
 }
 
-// Whether preemption is enabled within the quota share.
+// Specifies whether jobs within a quota share can be preempted by another, higher priority job in the same quota share.
 func (o QuotaSharePreemptionConfigurationOutput) InSharePreemption() QuotaSharePreemptionConfigurationInSharePreemptionOutput {
 	return o.ApplyT(func(v QuotaSharePreemptionConfiguration) QuotaSharePreemptionConfigurationInSharePreemption {
 		return v.InSharePreemption
@@ -11513,7 +11513,7 @@ func (o QuotaSharePreemptionConfigurationPtrOutput) Elem() QuotaSharePreemptionC
 	}).(QuotaSharePreemptionConfigurationOutput)
 }
 
-// Whether preemption is enabled within the quota share.
+// Specifies whether jobs within a quota share can be preempted by another, higher priority job in the same quota share.
 func (o QuotaSharePreemptionConfigurationPtrOutput) InSharePreemption() QuotaSharePreemptionConfigurationInSharePreemptionPtrOutput {
 	return o.ApplyT(func(v *QuotaSharePreemptionConfiguration) *QuotaSharePreemptionConfigurationInSharePreemption {
 		if v == nil {
@@ -11524,9 +11524,9 @@ func (o QuotaSharePreemptionConfigurationPtrOutput) InSharePreemption() QuotaSha
 }
 
 type QuotaShareResourceSharingConfiguration struct {
-	// The maximum amount of compute capacity that can be borrowed. Use -1 for unlimited borrowing.
+	// The maximum percentage of additional capacity that the quota share can borrow from other shares. `BorrowLimit` can only be applied to quota shares with a strategy of `LEND_AND_BORROW`. This value is expressed as a percentage of the quota share's configured CapacityLimits. The `BorrowLimit` is applied uniformly across all capacity units. For example, if the `BorrowLimit` is 200, the quota share can borrow up to 200% of its configured `maxCapacity` for each capacity unit. The default `BorrowLimit` is -1, which indicates unlimited borrowing.
 	BorrowLimit *int `pulumi:"borrowLimit"`
-	// The resource sharing strategy.
+	// The resource sharing strategy for the quota share. The `RESERVE` strategy allows a quota share to reserve idle capacity for itself. `LEND` configures the share to lend its idle capacity to another share in need of capacity. The `LEND_AND_BORROW` strategy configures the share to borrow idle capacity from an underutilized share, as well as lend to another share.
 	Strategy QuotaShareResourceSharingConfigurationStrategy `pulumi:"strategy"`
 }
 
@@ -11542,9 +11542,9 @@ type QuotaShareResourceSharingConfigurationInput interface {
 }
 
 type QuotaShareResourceSharingConfigurationArgs struct {
-	// The maximum amount of compute capacity that can be borrowed. Use -1 for unlimited borrowing.
+	// The maximum percentage of additional capacity that the quota share can borrow from other shares. `BorrowLimit` can only be applied to quota shares with a strategy of `LEND_AND_BORROW`. This value is expressed as a percentage of the quota share's configured CapacityLimits. The `BorrowLimit` is applied uniformly across all capacity units. For example, if the `BorrowLimit` is 200, the quota share can borrow up to 200% of its configured `maxCapacity` for each capacity unit. The default `BorrowLimit` is -1, which indicates unlimited borrowing.
 	BorrowLimit pulumi.IntPtrInput `pulumi:"borrowLimit"`
-	// The resource sharing strategy.
+	// The resource sharing strategy for the quota share. The `RESERVE` strategy allows a quota share to reserve idle capacity for itself. `LEND` configures the share to lend its idle capacity to another share in need of capacity. The `LEND_AND_BORROW` strategy configures the share to borrow idle capacity from an underutilized share, as well as lend to another share.
 	Strategy QuotaShareResourceSharingConfigurationStrategyInput `pulumi:"strategy"`
 }
 
@@ -11574,12 +11574,12 @@ func (o QuotaShareResourceSharingConfigurationOutput) ToQuotaShareResourceSharin
 	return o
 }
 
-// The maximum amount of compute capacity that can be borrowed. Use -1 for unlimited borrowing.
+// The maximum percentage of additional capacity that the quota share can borrow from other shares. `BorrowLimit` can only be applied to quota shares with a strategy of `LEND_AND_BORROW`. This value is expressed as a percentage of the quota share's configured CapacityLimits. The `BorrowLimit` is applied uniformly across all capacity units. For example, if the `BorrowLimit` is 200, the quota share can borrow up to 200% of its configured `maxCapacity` for each capacity unit. The default `BorrowLimit` is -1, which indicates unlimited borrowing.
 func (o QuotaShareResourceSharingConfigurationOutput) BorrowLimit() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v QuotaShareResourceSharingConfiguration) *int { return v.BorrowLimit }).(pulumi.IntPtrOutput)
 }
 
-// The resource sharing strategy.
+// The resource sharing strategy for the quota share. The `RESERVE` strategy allows a quota share to reserve idle capacity for itself. `LEND` configures the share to lend its idle capacity to another share in need of capacity. The `LEND_AND_BORROW` strategy configures the share to borrow idle capacity from an underutilized share, as well as lend to another share.
 func (o QuotaShareResourceSharingConfigurationOutput) Strategy() QuotaShareResourceSharingConfigurationStrategyOutput {
 	return o.ApplyT(func(v QuotaShareResourceSharingConfiguration) QuotaShareResourceSharingConfigurationStrategy {
 		return v.Strategy
@@ -11610,7 +11610,7 @@ func (o QuotaShareResourceSharingConfigurationPtrOutput) Elem() QuotaShareResour
 	}).(QuotaShareResourceSharingConfigurationOutput)
 }
 
-// The maximum amount of compute capacity that can be borrowed. Use -1 for unlimited borrowing.
+// The maximum percentage of additional capacity that the quota share can borrow from other shares. `BorrowLimit` can only be applied to quota shares with a strategy of `LEND_AND_BORROW`. This value is expressed as a percentage of the quota share's configured CapacityLimits. The `BorrowLimit` is applied uniformly across all capacity units. For example, if the `BorrowLimit` is 200, the quota share can borrow up to 200% of its configured `maxCapacity` for each capacity unit. The default `BorrowLimit` is -1, which indicates unlimited borrowing.
 func (o QuotaShareResourceSharingConfigurationPtrOutput) BorrowLimit() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *QuotaShareResourceSharingConfiguration) *int {
 		if v == nil {
@@ -11620,7 +11620,7 @@ func (o QuotaShareResourceSharingConfigurationPtrOutput) BorrowLimit() pulumi.In
 	}).(pulumi.IntPtrOutput)
 }
 
-// The resource sharing strategy.
+// The resource sharing strategy for the quota share. The `RESERVE` strategy allows a quota share to reserve idle capacity for itself. `LEND` configures the share to lend its idle capacity to another share in need of capacity. The `LEND_AND_BORROW` strategy configures the share to borrow idle capacity from an underutilized share, as well as lend to another share.
 func (o QuotaShareResourceSharingConfigurationPtrOutput) Strategy() QuotaShareResourceSharingConfigurationStrategyPtrOutput {
 	return o.ApplyT(func(v *QuotaShareResourceSharingConfiguration) *QuotaShareResourceSharingConfigurationStrategy {
 		if v == nil {

@@ -12,11 +12,14 @@ __all__ = [
     'MailManagerIngressPointIngressPointStatus',
     'MailManagerIngressPointIngressPointStatusToUpdate',
     'MailManagerIngressPointIngressPointType',
+    'MailManagerIngressPointTlsPolicy',
     'MailManagerRuleSetActionFailurePolicy',
+    'MailManagerRuleSetLambdaInvocationType',
     'MailManagerRuleSetMailFrom',
     'MailManagerRuleSetRuleAddressListEmailAttribute',
     'MailManagerRuleSetRuleBooleanEmailAttribute',
     'MailManagerRuleSetRuleBooleanOperator',
+    'MailManagerRuleSetRuleClientCertificateAttribute',
     'MailManagerRuleSetRuleDmarcOperator',
     'MailManagerRuleSetRuleDmarcPolicy',
     'MailManagerRuleSetRuleIpEmailAttribute',
@@ -90,12 +93,26 @@ class MailManagerIngressPointIngressPointStatusToUpdate(_builtins.str, Enum):
 class MailManagerIngressPointIngressPointType(_builtins.str, Enum):
     OPEN = "OPEN"
     AUTH = "AUTH"
+    MTLS = "MTLS"
+
+
+@pulumi.type_token("aws-native:ses:MailManagerIngressPointTlsPolicy")
+class MailManagerIngressPointTlsPolicy(_builtins.str, Enum):
+    REQUIRED = "REQUIRED"
+    OPTIONAL = "OPTIONAL"
+    FIPS = "FIPS"
 
 
 @pulumi.type_token("aws-native:ses:MailManagerRuleSetActionFailurePolicy")
 class MailManagerRuleSetActionFailurePolicy(_builtins.str, Enum):
     CONTINUE_ = "CONTINUE"
     DROP = "DROP"
+
+
+@pulumi.type_token("aws-native:ses:MailManagerRuleSetLambdaInvocationType")
+class MailManagerRuleSetLambdaInvocationType(_builtins.str, Enum):
+    EVENT = "EVENT"
+    REQUEST_RESPONSE = "REQUEST_RESPONSE"
 
 
 @pulumi.type_token("aws-native:ses:MailManagerRuleSetMailFrom")
@@ -125,6 +142,18 @@ class MailManagerRuleSetRuleBooleanEmailAttribute(_builtins.str, Enum):
 class MailManagerRuleSetRuleBooleanOperator(_builtins.str, Enum):
     IS_TRUE = "IS_TRUE"
     IS_FALSE = "IS_FALSE"
+
+
+@pulumi.type_token("aws-native:ses:MailManagerRuleSetRuleClientCertificateAttribute")
+class MailManagerRuleSetRuleClientCertificateAttribute(_builtins.str, Enum):
+    CN = "CN"
+    SAN_RFC822_NAME = "SAN_RFC822_NAME"
+    SAN_DNS_NAME = "SAN_DNS_NAME"
+    SAN_DIRECTORY_NAME = "SAN_DIRECTORY_NAME"
+    SAN_UNIFORM_RESOURCE_IDENTIFIER = "SAN_UNIFORM_RESOURCE_IDENTIFIER"
+    SAN_IP_ADDRESS = "SAN_IP_ADDRESS"
+    SAN_REGISTERED_ID = "SAN_REGISTERED_ID"
+    SERIAL_NUMBER = "SERIAL_NUMBER"
 
 
 @pulumi.type_token("aws-native:ses:MailManagerRuleSetRuleDmarcOperator")

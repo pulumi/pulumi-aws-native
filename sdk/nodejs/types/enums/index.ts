@@ -130,6 +130,7 @@ import * as memorydb from "./memorydb";
 import * as msk from "./msk";
 import * as mwaa from "./mwaa";
 import * as mwaaserverless from "./mwaaserverless";
+import * as neptunegraph from "./neptunegraph";
 import * as networkfirewall from "./networkfirewall";
 import * as oam from "./oam";
 import * as observabilityadmin from "./observabilityadmin";
@@ -159,6 +160,7 @@ import * as refactorspaces from "./refactorspaces";
 import * as resiliencehub from "./resiliencehub";
 import * as resourceexplorer2 from "./resourceexplorer2";
 import * as resourcegroups from "./resourcegroups";
+import * as robomaker from "./robomaker";
 import * as rolesanywhere from "./rolesanywhere";
 import * as route53 from "./route53";
 import * as route53globalresolver from "./route53globalresolver";
@@ -334,6 +336,7 @@ export {
     msk,
     mwaa,
     mwaaserverless,
+    neptunegraph,
     networkfirewall,
     oam,
     observabilityadmin,
@@ -363,6 +366,7 @@ export {
     resiliencehub,
     resourceexplorer2,
     resourcegroups,
+    robomaker,
     rolesanywhere,
     route53,
     route53globalresolver,

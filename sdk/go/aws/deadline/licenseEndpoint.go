@@ -13,7 +13,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Definition of AWS::Deadline::LicenseEndpoint Resource Type
+// Resource Type definition for AWS::Deadline::LicenseEndpoint
 type LicenseEndpoint struct {
 	pulumi.CustomResourceState
 

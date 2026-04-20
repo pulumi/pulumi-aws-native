@@ -21,6 +21,9 @@ __all__ = [
 
 @pulumi.type_token("aws-native:securityagent:PentestAuthenticationProviderType")
 class PentestAuthenticationProviderType(_builtins.str, Enum):
+    """
+    Type of authentication provider
+    """
     SECRETS_MANAGER = "SECRETS_MANAGER"
     AWS_LAMBDA = "AWS_LAMBDA"
     AWS_IAM_ROLE = "AWS_IAM_ROLE"
@@ -29,23 +32,35 @@ class PentestAuthenticationProviderType(_builtins.str, Enum):
 
 @pulumi.type_token("aws-native:securityagent:PentestCodeRemediationStrategy")
 class PentestCodeRemediationStrategy(_builtins.str, Enum):
+    """
+    Strategy for remediating code vulnerabilities discovered during the pentest
+    """
     AUTOMATIC = "AUTOMATIC"
     DISABLED = "DISABLED"
 
 
 @pulumi.type_token("aws-native:securityagent:PentestNetworkTrafficRuleEffect")
 class PentestNetworkTrafficRuleEffect(_builtins.str, Enum):
+    """
+    Whether to allow or deny traffic matching this rule
+    """
     ALLOW = "ALLOW"
     DENY = "DENY"
 
 
 @pulumi.type_token("aws-native:securityagent:PentestNetworkTrafficRuleNetworkTrafficRuleType")
 class PentestNetworkTrafficRuleNetworkTrafficRuleType(_builtins.str, Enum):
+    """
+    Type of pattern matching for this rule
+    """
     URL = "URL"
 
 
 @pulumi.type_token("aws-native:securityagent:PentestRiskType")
 class PentestRiskType(_builtins.str, Enum):
+    """
+    Type of security risk to test for
+    """
     CROSS_SITE_SCRIPTING = "CROSS_SITE_SCRIPTING"
     DEFAULT_CREDENTIALS = "DEFAULT_CREDENTIALS"
     INSECURE_DIRECT_OBJECT_REFERENCE = "INSECURE_DIRECT_OBJECT_REFERENCE"

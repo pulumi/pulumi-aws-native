@@ -48,7 +48,7 @@ export class MailManagerIngressPoint extends pulumi.CustomResource {
     /**
      * The configuration of the ingress endpoint resource.
      */
-    declare public readonly ingressPointConfiguration: pulumi.Output<outputs.ses.MailManagerIngressPointIngressPointConfiguration0Properties | outputs.ses.MailManagerIngressPointIngressPointConfiguration1Properties | undefined>;
+    declare public readonly ingressPointConfiguration: pulumi.Output<outputs.ses.MailManagerIngressPointIngressPointConfiguration0Properties | outputs.ses.MailManagerIngressPointIngressPointConfiguration1Properties | outputs.ses.MailManagerIngressPointIngressPointConfiguration2Properties | undefined>;
     /**
      * The identifier of the ingress endpoint resource.
      */
@@ -77,6 +77,7 @@ export class MailManagerIngressPoint extends pulumi.CustomResource {
      * The tags used to organize, track, or control access for the resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.
      */
     declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tlsPolicy: pulumi.Output<enums.ses.MailManagerIngressPointTlsPolicy | undefined>;
     /**
      * The identifier of an existing traffic policy that you attach to an ingress endpoint resource.
      */
@@ -112,6 +113,7 @@ export class MailManagerIngressPoint extends pulumi.CustomResource {
             resourceInputs["ruleSetId"] = args?.ruleSetId;
             resourceInputs["statusToUpdate"] = args?.statusToUpdate;
             resourceInputs["tags"] = args?.tags;
+            resourceInputs["tlsPolicy"] = args?.tlsPolicy;
             resourceInputs["trafficPolicyId"] = args?.trafficPolicyId;
             resourceInputs["type"] = args?.type;
             resourceInputs["aRecord"] = undefined /*out*/;
@@ -129,6 +131,7 @@ export class MailManagerIngressPoint extends pulumi.CustomResource {
             resourceInputs["status"] = undefined /*out*/;
             resourceInputs["statusToUpdate"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["tlsPolicy"] = undefined /*out*/;
             resourceInputs["trafficPolicyId"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
@@ -146,7 +149,7 @@ export interface MailManagerIngressPointArgs {
     /**
      * The configuration of the ingress endpoint resource.
      */
-    ingressPointConfiguration?: pulumi.Input<inputs.ses.MailManagerIngressPointIngressPointConfiguration0PropertiesArgs | inputs.ses.MailManagerIngressPointIngressPointConfiguration1PropertiesArgs>;
+    ingressPointConfiguration?: pulumi.Input<inputs.ses.MailManagerIngressPointIngressPointConfiguration0PropertiesArgs | inputs.ses.MailManagerIngressPointIngressPointConfiguration1PropertiesArgs | inputs.ses.MailManagerIngressPointIngressPointConfiguration2PropertiesArgs>;
     /**
      * A user friendly name for an ingress endpoint resource.
      */
@@ -167,6 +170,7 @@ export interface MailManagerIngressPointArgs {
      * The tags used to organize, track, or control access for the resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.
      */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tlsPolicy?: pulumi.Input<enums.ses.MailManagerIngressPointTlsPolicy>;
     /**
      * The identifier of an existing traffic policy that you attach to an ingress endpoint resource.
      */

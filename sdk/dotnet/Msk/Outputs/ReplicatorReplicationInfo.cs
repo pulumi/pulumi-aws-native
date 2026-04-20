@@ -23,7 +23,11 @@ namespace Pulumi.AwsNative.Msk.Outputs
         /// <summary>
         /// Amazon Resource Name of the source Kafka cluster.
         /// </summary>
-        public readonly string SourceKafkaClusterArn;
+        public readonly string? SourceKafkaClusterArn;
+        /// <summary>
+        /// The ID of the source Kafka cluster.
+        /// </summary>
+        public readonly string? SourceKafkaClusterId;
         /// <summary>
         /// The type of compression to use writing records to target Kafka cluster.
         /// </summary>
@@ -31,7 +35,11 @@ namespace Pulumi.AwsNative.Msk.Outputs
         /// <summary>
         /// Amazon Resource Name of the target Kafka cluster.
         /// </summary>
-        public readonly string TargetKafkaClusterArn;
+        public readonly string? TargetKafkaClusterArn;
+        /// <summary>
+        /// The ID of the target Kafka cluster.
+        /// </summary>
+        public readonly string? TargetKafkaClusterId;
         /// <summary>
         /// Configuration relating to topic replication.
         /// </summary>
@@ -41,18 +49,24 @@ namespace Pulumi.AwsNative.Msk.Outputs
         private ReplicatorReplicationInfo(
             Outputs.ReplicatorConsumerGroupReplication consumerGroupReplication,
 
-            string sourceKafkaClusterArn,
+            string? sourceKafkaClusterArn,
+
+            string? sourceKafkaClusterId,
 
             Pulumi.AwsNative.Msk.ReplicatorReplicationInfoTargetCompressionType targetCompressionType,
 
-            string targetKafkaClusterArn,
+            string? targetKafkaClusterArn,
+
+            string? targetKafkaClusterId,
 
             Outputs.ReplicatorTopicReplication topicReplication)
         {
             ConsumerGroupReplication = consumerGroupReplication;
             SourceKafkaClusterArn = sourceKafkaClusterArn;
+            SourceKafkaClusterId = sourceKafkaClusterId;
             TargetCompressionType = targetCompressionType;
             TargetKafkaClusterArn = targetKafkaClusterArn;
+            TargetKafkaClusterId = targetKafkaClusterId;
             TopicReplication = topicReplication;
         }
     }

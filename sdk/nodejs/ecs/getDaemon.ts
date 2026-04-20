@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource schema for AWS ECS Daemon
+ * Information about a daemon resource.
  */
 export function getDaemon(args: GetDaemonArgs, opts?: pulumi.InvokeOptions): Promise<GetDaemonResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -30,7 +30,7 @@ export interface GetDaemonResult {
     readonly updatedAt?: string;
 }
 /**
- * Resource schema for AWS ECS Daemon
+ * Information about a daemon resource.
  */
 export function getDaemonOutput(args: GetDaemonOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDaemonResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

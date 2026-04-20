@@ -13,7 +13,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Definition of AWS::Deadline::Queue Resource Type
+// Resource Type definition for AWS::Deadline::Queue
 type Queue struct {
 	pulumi.CustomResourceState
 
@@ -42,7 +42,8 @@ type Queue struct {
 	// The file system location that the queue uses.
 	RequiredFileSystemLocationNames pulumi.StringArrayOutput `pulumi:"requiredFileSystemLocationNames"`
 	// The Amazon Resource Name (ARN) of the IAM role that workers use when running jobs in this queue.
-	RoleArn pulumi.StringPtrOutput `pulumi:"roleArn"`
+	RoleArn                 pulumi.StringPtrOutput                `pulumi:"roleArn"`
+	SchedulingConfiguration QueueSchedulingConfigurationPtrOutput `pulumi:"schedulingConfiguration"`
 	// An array of key-value pairs to apply to this resource.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
@@ -118,7 +119,8 @@ type queueArgs struct {
 	// The file system location that the queue uses.
 	RequiredFileSystemLocationNames []string `pulumi:"requiredFileSystemLocationNames"`
 	// The Amazon Resource Name (ARN) of the IAM role that workers use when running jobs in this queue.
-	RoleArn *string `pulumi:"roleArn"`
+	RoleArn                 *string                       `pulumi:"roleArn"`
+	SchedulingConfiguration *QueueSchedulingConfiguration `pulumi:"schedulingConfiguration"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []aws.Tag `pulumi:"tags"`
 }
@@ -146,7 +148,8 @@ type QueueArgs struct {
 	// The file system location that the queue uses.
 	RequiredFileSystemLocationNames pulumi.StringArrayInput
 	// The Amazon Resource Name (ARN) of the IAM role that workers use when running jobs in this queue.
-	RoleArn pulumi.StringPtrInput
+	RoleArn                 pulumi.StringPtrInput
+	SchedulingConfiguration QueueSchedulingConfigurationPtrInput
 	// An array of key-value pairs to apply to this resource.
 	Tags aws.TagArrayInput
 }
@@ -245,6 +248,10 @@ func (o QueueOutput) RequiredFileSystemLocationNames() pulumi.StringArrayOutput 
 // The Amazon Resource Name (ARN) of the IAM role that workers use when running jobs in this queue.
 func (o QueueOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Queue) pulumi.StringPtrOutput { return v.RoleArn }).(pulumi.StringPtrOutput)
+}
+
+func (o QueueOutput) SchedulingConfiguration() QueueSchedulingConfigurationPtrOutput {
+	return o.ApplyT(func(v *Queue) QueueSchedulingConfigurationPtrOutput { return v.SchedulingConfiguration }).(QueueSchedulingConfigurationPtrOutput)
 }
 
 // An array of key-value pairs to apply to this resource.

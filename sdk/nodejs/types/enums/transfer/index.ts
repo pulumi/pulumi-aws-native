@@ -142,6 +142,16 @@ export const ConnectorEgressType = {
 
 export type ConnectorEgressType = (typeof ConnectorEgressType)[keyof typeof ConnectorEgressType];
 
+export const ConnectorIpAddressType = {
+    Ipv4: "IPV4",
+    Dualstack: "DUALSTACK",
+} as const;
+
+/**
+ * IP address type for Connector
+ */
+export type ConnectorIpAddressType = (typeof ConnectorIpAddressType)[keyof typeof ConnectorIpAddressType];
+
 export const ConnectorStatus = {
     Active: "ACTIVE",
     Pending: "PENDING",

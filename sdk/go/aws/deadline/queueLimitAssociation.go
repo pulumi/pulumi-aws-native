@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Definition of AWS::Deadline::QueueLimitAssociation Resource Type
+// Resource Type definition for AWS::Deadline::QueueLimitAssociation
 type QueueLimitAssociation struct {
 	pulumi.CustomResourceState
 

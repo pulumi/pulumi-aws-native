@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Definition of AWS::Deadline::StorageProfile Resource Type
+// Resource Type definition for AWS::Deadline::StorageProfile
 type StorageProfile struct {
 	pulumi.CustomResourceState
 

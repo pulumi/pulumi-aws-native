@@ -12,19 +12,19 @@ namespace Pulumi.AwsNative.Deadline
     public static class GetFleet
     {
         /// <summary>
-        /// Definition of AWS::Deadline::Fleet Resource Type
+        /// Resource Type definition for AWS::Deadline::Fleet
         /// </summary>
         public static Task<GetFleetResult> InvokeAsync(GetFleetArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFleetResult>("aws-native:deadline:getFleet", args ?? new GetFleetArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Definition of AWS::Deadline::Fleet Resource Type
+        /// Resource Type definition for AWS::Deadline::Fleet
         /// </summary>
         public static Output<GetFleetResult> Invoke(GetFleetInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFleetResult>("aws-native:deadline:getFleet", args ?? new GetFleetInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Definition of AWS::Deadline::Fleet Resource Type
+        /// Resource Type definition for AWS::Deadline::Fleet
         /// </summary>
         public static Output<GetFleetResult> Invoke(GetFleetInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetFleetResult>("aws-native:deadline:getFleet", args ?? new GetFleetInvokeArgs(), options.WithDefaults());

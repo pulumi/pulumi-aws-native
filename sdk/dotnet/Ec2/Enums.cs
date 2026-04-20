@@ -771,6 +771,7 @@ namespace Pulumi.AwsNative.Ec2
 
         public static Ec2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityType OnDemand { get; } = new Ec2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityType("on-demand");
         public static Ec2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityType Spot { get; } = new Ec2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityType("spot");
+        public static Ec2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityType CapacityBlock { get; } = new Ec2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityType("capacity-block");
         public static Ec2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityType ReservedCapacity { get; } = new Ec2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityType("reserved-capacity");
 
         public static bool operator ==(Ec2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityType left, Ec2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityType right) => left.Equals(right);

@@ -118,7 +118,7 @@ export class Collection extends pulumi.CustomResource {
      * Unique to your account and AWS Region
      * Starts with a lowercase letter
      * Contains only lowercase letters a-z, the numbers 0-9 and the hyphen (-)
-     * Contains between 3 and 32 characters
+     * Contains between 3 and 64 characters
      */
     declare public readonly name: pulumi.Output<string>;
     /**
@@ -203,7 +203,7 @@ export interface CollectionArgs {
      * Unique to your account and AWS Region
      * Starts with a lowercase letter
      * Contains only lowercase letters a-z, the numbers 0-9 and the hyphen (-)
-     * Contains between 3 and 32 characters
+     * Contains between 3 and 64 characters
      */
     name?: pulumi.Input<string>;
     /**

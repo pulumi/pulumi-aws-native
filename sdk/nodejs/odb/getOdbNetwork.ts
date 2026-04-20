@@ -29,6 +29,10 @@ export interface GetOdbNetworkResult {
      * The user-friendly name of the ODB network.
      */
     readonly displayName?: string;
+    /**
+     * The list of EC2 placement group IDs associated with your ODB network.
+     */
+    readonly ec2PlacementGroupIds?: string[];
     readonly managedServices?: outputs.odb.OdbNetworkManagedServices;
     /**
      * The unique identifier of the OCI network anchor for the ODB network.

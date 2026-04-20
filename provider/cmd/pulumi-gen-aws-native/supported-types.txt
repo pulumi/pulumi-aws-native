@@ -916,6 +916,7 @@ AWS::Neptune::DBParameterGroup
 AWS::Neptune::DBSubnetGroup
 AWS::Neptune::EventSubscription
 AWS::NeptuneGraph::Graph
+AWS::NeptuneGraph::GraphSnapshot
 AWS::NeptuneGraph::PrivateGraphEndpoint
 AWS::NetworkFirewall::Firewall
 AWS::NetworkFirewall::FirewallPolicy

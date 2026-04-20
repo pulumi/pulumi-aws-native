@@ -81,7 +81,7 @@ class QueueFleetAssociation(pulumi.CustomResource):
                  queue_id: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Definition of AWS::Deadline::QueueFleetAssociation Resource Type
+        Resource Type definition for AWS::Deadline::QueueFleetAssociation
 
 
         :param str resource_name: The name of the resource.
@@ -97,7 +97,7 @@ class QueueFleetAssociation(pulumi.CustomResource):
                  args: QueueFleetAssociationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Definition of AWS::Deadline::QueueFleetAssociation Resource Type
+        Resource Type definition for AWS::Deadline::QueueFleetAssociation
 
 
         :param str resource_name: The name of the resource.

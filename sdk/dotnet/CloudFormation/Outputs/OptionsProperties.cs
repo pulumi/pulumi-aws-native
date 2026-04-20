@@ -19,10 +19,10 @@ namespace Pulumi.AwsNative.CloudFormation.Outputs
         /// <summary>
         /// Specifies the S3 location where your input parameters are located.
         /// </summary>
-        public readonly Outputs.GuardHookS3Location? InputParams;
+        public readonly Union<Outputs.GuardHookS3Location, ImmutableArray<Outputs.GuardHookS3Location>>? InputParams;
 
         [OutputConstructor]
-        private OptionsProperties(Outputs.GuardHookS3Location? inputParams)
+        private OptionsProperties(Union<Outputs.GuardHookS3Location, ImmutableArray<Outputs.GuardHookS3Location>>? inputParams)
         {
             InputParams = inputParams;
         }

@@ -93,7 +93,7 @@ class AwaitableGetDaemonResult(GetDaemonResult):
 def get_daemon(daemon_arn: Optional[_builtins.str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDaemonResult:
     """
-    Resource schema for AWS ECS Daemon
+    Information about a daemon resource.
     """
     __args__ = dict()
     __args__['daemonArn'] = daemon_arn
@@ -110,7 +110,7 @@ def get_daemon(daemon_arn: Optional[_builtins.str] = None,
 def get_daemon_output(daemon_arn: Optional[pulumi.Input[_builtins.str]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDaemonResult]:
     """
-    Resource schema for AWS ECS Daemon
+    Information about a daemon resource.
     """
     __args__ = dict()
     __args__['daemonArn'] = daemon_arn

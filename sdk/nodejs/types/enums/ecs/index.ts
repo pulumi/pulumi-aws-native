@@ -199,6 +199,9 @@ export const DaemonPropagateTags = {
     None: "NONE",
 } as const;
 
+/**
+ * Specifies whether tags are propagated from the daemon to the daemon tasks.
+ */
 export type DaemonPropagateTags = (typeof DaemonPropagateTags)[keyof typeof DaemonPropagateTags];
 
 export const DaemonStatus = {
@@ -357,10 +360,7 @@ export const ServiceEbsTagSpecificationPropagateTags = {
 } as const;
 
 /**
- * Determines whether to propagate the tags from the task definition to 
- * the Amazon EBS volume. Tags can only propagate to a ``SERVICE`` specified in 
- * ``ServiceVolumeConfiguration``. If no value is specified, the tags aren't 
- * propagated.
+ * Determines whether to propagate the tags from the task definition to the Amazon EBS volume. Tags can only propagate to a ``SERVICE`` specified in ``ServiceVolumeConfiguration``. If no value is specified, the tags aren't propagated.
  */
 export type ServiceEbsTagSpecificationPropagateTags = (typeof ServiceEbsTagSpecificationPropagateTags)[keyof typeof ServiceEbsTagSpecificationPropagateTags];
 

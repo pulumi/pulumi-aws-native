@@ -30,8 +30,10 @@ type LookupOdbNetworkArgs struct {
 
 type LookupOdbNetworkResult struct {
 	// The user-friendly name of the ODB network.
-	DisplayName     *string                    `pulumi:"displayName"`
-	ManagedServices *OdbNetworkManagedServices `pulumi:"managedServices"`
+	DisplayName *string `pulumi:"displayName"`
+	// The list of EC2 placement group IDs associated with your ODB network.
+	Ec2PlacementGroupIds []string                   `pulumi:"ec2PlacementGroupIds"`
+	ManagedServices      *OdbNetworkManagedServices `pulumi:"managedServices"`
 	// The unique identifier of the OCI network anchor for the ODB network.
 	OciNetworkAnchorId *string `pulumi:"ociNetworkAnchorId"`
 	// The name of the OCI resource anchor that's associated with the ODB network.
@@ -81,6 +83,11 @@ func (o LookupOdbNetworkResultOutput) ToLookupOdbNetworkResultOutputWithContext(
 // The user-friendly name of the ODB network.
 func (o LookupOdbNetworkResultOutput) DisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupOdbNetworkResult) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
+}
+
+// The list of EC2 placement group IDs associated with your ODB network.
+func (o LookupOdbNetworkResultOutput) Ec2PlacementGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupOdbNetworkResult) []string { return v.Ec2PlacementGroupIds }).(pulumi.StringArrayOutput)
 }
 
 func (o LookupOdbNetworkResultOutput) ManagedServices() OdbNetworkManagedServicesPtrOutput {

@@ -121,7 +121,7 @@
       "properties" : {
         "DefaultTargetCapacityType" : {
           "type" : "string",
-          "enum" : [ "on-demand", "spot", "reserved-capacity" ]
+          "enum" : [ "on-demand", "spot", "capacity-block", "reserved-capacity" ]
         },
         "TargetCapacityUnitType" : {
           "type" : "string",

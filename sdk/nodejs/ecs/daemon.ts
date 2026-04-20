@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource schema for AWS ECS Daemon
+ * Information about a daemon resource.
  */
 export class Daemon extends pulumi.CustomResource {
     /**
@@ -37,17 +37,38 @@ export class Daemon extends pulumi.CustomResource {
         return obj['__pulumiType'] === Daemon.__pulumiType;
     }
 
+    /**
+     * The Amazon Resource Names (ARNs) of the capacity providers associated with the daemon.
+     */
     declare public readonly capacityProviderArns: pulumi.Output<string[] | undefined>;
+    /**
+     * The Amazon Resource Name (ARN) of the cluster that the daemon is running in.
+     */
     declare public readonly clusterArn: pulumi.Output<string | undefined>;
     declare public /*out*/ readonly createdAt: pulumi.Output<string>;
     declare public /*out*/ readonly daemonArn: pulumi.Output<string>;
     declare public readonly daemonName: pulumi.Output<string | undefined>;
     declare public /*out*/ readonly daemonStatus: pulumi.Output<enums.ecs.DaemonStatus>;
+    /**
+     * The Amazon Resource Name (ARN) of the daemon task definition used by this revision.
+     */
     declare public readonly daemonTaskDefinitionArn: pulumi.Output<string | undefined>;
     declare public /*out*/ readonly deploymentArn: pulumi.Output<string>;
+    /**
+     * The deployment configuration used for this daemon deployment.
+     */
     declare public readonly deploymentConfiguration: pulumi.Output<outputs.ecs.DaemonDeploymentConfiguration | undefined>;
+    /**
+     * Specifies whether Amazon ECS managed tags are turned on for the daemon tasks.
+     */
     declare public readonly enableEcsManagedTags: pulumi.Output<boolean | undefined>;
+    /**
+     * Specifies whether the execute command functionality is turned on for the daemon tasks.
+     */
     declare public readonly enableExecuteCommand: pulumi.Output<boolean | undefined>;
+    /**
+     * Specifies whether tags are propagated from the daemon to the daemon tasks.
+     */
     declare public readonly propagateTags: pulumi.Output<enums.ecs.DaemonPropagateTags | undefined>;
     declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     declare public /*out*/ readonly updatedAt: pulumi.Output<string>;
@@ -104,13 +125,34 @@ export class Daemon extends pulumi.CustomResource {
  * The set of arguments for constructing a Daemon resource.
  */
 export interface DaemonArgs {
+    /**
+     * The Amazon Resource Names (ARNs) of the capacity providers associated with the daemon.
+     */
     capacityProviderArns?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The Amazon Resource Name (ARN) of the cluster that the daemon is running in.
+     */
     clusterArn?: pulumi.Input<string>;
     daemonName?: pulumi.Input<string>;
+    /**
+     * The Amazon Resource Name (ARN) of the daemon task definition used by this revision.
+     */
     daemonTaskDefinitionArn?: pulumi.Input<string>;
+    /**
+     * The deployment configuration used for this daemon deployment.
+     */
     deploymentConfiguration?: pulumi.Input<inputs.ecs.DaemonDeploymentConfigurationArgs>;
+    /**
+     * Specifies whether Amazon ECS managed tags are turned on for the daemon tasks.
+     */
     enableEcsManagedTags?: pulumi.Input<boolean>;
+    /**
+     * Specifies whether the execute command functionality is turned on for the daemon tasks.
+     */
     enableExecuteCommand?: pulumi.Input<boolean>;
+    /**
+     * Specifies whether tags are propagated from the daemon to the daemon tasks.
+     */
     propagateTags?: pulumi.Input<enums.ecs.DaemonPropagateTags>;
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

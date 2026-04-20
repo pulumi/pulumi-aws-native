@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Definition of AWS::Deadline::Fleet Resource Type
+ * Resource Type definition for AWS::Deadline::Fleet
  */
 export function getFleet(args: GetFleetArgs, opts?: pulumi.InvokeOptions): Promise<GetFleetResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -86,7 +86,7 @@ export interface GetFleetResult {
     readonly workerCount?: number;
 }
 /**
- * Definition of AWS::Deadline::Fleet Resource Type
+ * Resource Type definition for AWS::Deadline::Fleet
  */
 export function getFleetOutput(args: GetFleetOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFleetResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -67,6 +67,10 @@ namespace Pulumi.AwsNative.Odb
         /// The user-friendly name of the ODB network.
         /// </summary>
         public readonly string? DisplayName;
+        /// <summary>
+        /// The list of EC2 placement group IDs associated with your ODB network.
+        /// </summary>
+        public readonly ImmutableArray<string> Ec2PlacementGroupIds;
         public readonly Outputs.OdbNetworkManagedServices? ManagedServices;
         /// <summary>
         /// The unique identifier of the OCI network anchor for the ODB network.
@@ -97,6 +101,8 @@ namespace Pulumi.AwsNative.Odb
         private GetOdbNetworkResult(
             string? displayName,
 
+            ImmutableArray<string> ec2PlacementGroupIds,
+
             Outputs.OdbNetworkManagedServices? managedServices,
 
             string? ociNetworkAnchorId,
@@ -112,6 +118,7 @@ namespace Pulumi.AwsNative.Odb
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             DisplayName = displayName;
+            Ec2PlacementGroupIds = ec2PlacementGroupIds;
             ManagedServices = managedServices;
             OciNetworkAnchorId = ociNetworkAnchorId;
             OciResourceAnchorName = ociResourceAnchorName;

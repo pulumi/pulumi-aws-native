@@ -12,19 +12,19 @@ namespace Pulumi.AwsNative.Deadline
     public static class GetQueueEnvironment
     {
         /// <summary>
-        /// Definition of AWS::Deadline::QueueEnvironment Resource Type
+        /// Resource Type definition for AWS::Deadline::QueueEnvironment
         /// </summary>
         public static Task<GetQueueEnvironmentResult> InvokeAsync(GetQueueEnvironmentArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetQueueEnvironmentResult>("aws-native:deadline:getQueueEnvironment", args ?? new GetQueueEnvironmentArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Definition of AWS::Deadline::QueueEnvironment Resource Type
+        /// Resource Type definition for AWS::Deadline::QueueEnvironment
         /// </summary>
         public static Output<GetQueueEnvironmentResult> Invoke(GetQueueEnvironmentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetQueueEnvironmentResult>("aws-native:deadline:getQueueEnvironment", args ?? new GetQueueEnvironmentInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Definition of AWS::Deadline::QueueEnvironment Resource Type
+        /// Resource Type definition for AWS::Deadline::QueueEnvironment
         /// </summary>
         public static Output<GetQueueEnvironmentResult> Invoke(GetQueueEnvironmentInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetQueueEnvironmentResult>("aws-native:deadline:getQueueEnvironment", args ?? new GetQueueEnvironmentInvokeArgs(), options.WithDefaults());

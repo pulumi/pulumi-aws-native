@@ -419,6 +419,8 @@ if typing.TYPE_CHECKING:
     resourceexplorer2 = __resourceexplorer2
     import pulumi_aws_native.resourcegroups as __resourcegroups
     resourcegroups = __resourcegroups
+    import pulumi_aws_native.robomaker as __robomaker
+    robomaker = __robomaker
     import pulumi_aws_native.rolesanywhere as __rolesanywhere
     rolesanywhere = __rolesanywhere
     import pulumi_aws_native.route53 as __route53
@@ -726,6 +728,7 @@ else:
     resiliencehub = _utilities.lazy_import('pulumi_aws_native.resiliencehub')
     resourceexplorer2 = _utilities.lazy_import('pulumi_aws_native.resourceexplorer2')
     resourcegroups = _utilities.lazy_import('pulumi_aws_native.resourcegroups')
+    robomaker = _utilities.lazy_import('pulumi_aws_native.robomaker')
     rolesanywhere = _utilities.lazy_import('pulumi_aws_native.rolesanywhere')
     route53 = _utilities.lazy_import('pulumi_aws_native.route53')
     route53globalresolver = _utilities.lazy_import('pulumi_aws_native.route53globalresolver')
@@ -2846,6 +2849,7 @@ _utilities.register(
   "fqn": "pulumi_aws_native.neptunegraph",
   "classes": {
    "aws-native:neptunegraph:Graph": "Graph",
+   "aws-native:neptunegraph:GraphSnapshot": "GraphSnapshot",
    "aws-native:neptunegraph:PrivateGraphEndpoint": "PrivateGraphEndpoint"
   }
  },
@@ -3236,6 +3240,19 @@ _utilities.register(
   "classes": {
    "aws-native:resourcegroups:Group": "Group",
    "aws-native:resourcegroups:TagSyncTask": "TagSyncTask"
+  }
+ },
+ {
+  "pkg": "aws-native",
+  "mod": "robomaker",
+  "fqn": "pulumi_aws_native.robomaker",
+  "classes": {
+   "aws-native:robomaker:Fleet": "Fleet",
+   "aws-native:robomaker:Robot": "Robot",
+   "aws-native:robomaker:RobotApplication": "RobotApplication",
+   "aws-native:robomaker:RobotApplicationVersion": "RobotApplicationVersion",
+   "aws-native:robomaker:SimulationApplication": "SimulationApplication",
+   "aws-native:robomaker:SimulationApplicationVersion": "SimulationApplicationVersion"
   }
  },
  {

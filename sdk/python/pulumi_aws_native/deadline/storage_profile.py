@@ -105,7 +105,7 @@ class StorageProfile(pulumi.CustomResource):
                  os_family: Optional[pulumi.Input['StorageProfileOperatingSystemFamily']] = None,
                  __props__=None):
         """
-        Definition of AWS::Deadline::StorageProfile Resource Type
+        Resource Type definition for AWS::Deadline::StorageProfile
 
 
         :param str resource_name: The name of the resource.
@@ -124,7 +124,7 @@ class StorageProfile(pulumi.CustomResource):
                  args: StorageProfileArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Definition of AWS::Deadline::StorageProfile Resource Type
+        Resource Type definition for AWS::Deadline::StorageProfile
 
 
         :param str resource_name: The name of the resource.

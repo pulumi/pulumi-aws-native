@@ -10,14 +10,20 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Ecs
 {
     /// <summary>
-    /// Resource schema for AWS ECS Daemon
+    /// Information about a daemon resource.
     /// </summary>
     [AwsNativeResourceType("aws-native:ecs:Daemon")]
     public partial class Daemon : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Amazon Resource Names (ARNs) of the capacity providers associated with the daemon.
+        /// </summary>
         [Output("capacityProviderArns")]
         public Output<ImmutableArray<string>> CapacityProviderArns { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the cluster that the daemon is running in.
+        /// </summary>
         [Output("clusterArn")]
         public Output<string?> ClusterArn { get; private set; } = null!;
 
@@ -33,21 +39,36 @@ namespace Pulumi.AwsNative.Ecs
         [Output("daemonStatus")]
         public Output<Pulumi.AwsNative.Ecs.DaemonStatus> DaemonStatus { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the daemon task definition used by this revision.
+        /// </summary>
         [Output("daemonTaskDefinitionArn")]
         public Output<string?> DaemonTaskDefinitionArn { get; private set; } = null!;
 
         [Output("deploymentArn")]
         public Output<string> DeploymentArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The deployment configuration used for this daemon deployment.
+        /// </summary>
         [Output("deploymentConfiguration")]
         public Output<Outputs.DaemonDeploymentConfiguration?> DeploymentConfiguration { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies whether Amazon ECS managed tags are turned on for the daemon tasks.
+        /// </summary>
         [Output("enableEcsManagedTags")]
         public Output<bool?> EnableEcsManagedTags { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies whether the execute command functionality is turned on for the daemon tasks.
+        /// </summary>
         [Output("enableExecuteCommand")]
         public Output<bool?> EnableExecuteCommand { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies whether tags are propagated from the daemon to the daemon tasks.
+        /// </summary>
         [Output("propagateTags")]
         public Output<Pulumi.AwsNative.Ecs.DaemonPropagateTags?> PropagateTags { get; private set; } = null!;
 
@@ -109,30 +130,52 @@ namespace Pulumi.AwsNative.Ecs
     {
         [Input("capacityProviderArns")]
         private InputList<string>? _capacityProviderArns;
+
+        /// <summary>
+        /// The Amazon Resource Names (ARNs) of the capacity providers associated with the daemon.
+        /// </summary>
         public InputList<string> CapacityProviderArns
         {
             get => _capacityProviderArns ?? (_capacityProviderArns = new InputList<string>());
             set => _capacityProviderArns = value;
         }
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the cluster that the daemon is running in.
+        /// </summary>
         [Input("clusterArn")]
         public Input<string>? ClusterArn { get; set; }
 
         [Input("daemonName")]
         public Input<string>? DaemonName { get; set; }
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the daemon task definition used by this revision.
+        /// </summary>
         [Input("daemonTaskDefinitionArn")]
         public Input<string>? DaemonTaskDefinitionArn { get; set; }
 
+        /// <summary>
+        /// The deployment configuration used for this daemon deployment.
+        /// </summary>
         [Input("deploymentConfiguration")]
         public Input<Inputs.DaemonDeploymentConfigurationArgs>? DeploymentConfiguration { get; set; }
 
+        /// <summary>
+        /// Specifies whether Amazon ECS managed tags are turned on for the daemon tasks.
+        /// </summary>
         [Input("enableEcsManagedTags")]
         public Input<bool>? EnableEcsManagedTags { get; set; }
 
+        /// <summary>
+        /// Specifies whether the execute command functionality is turned on for the daemon tasks.
+        /// </summary>
         [Input("enableExecuteCommand")]
         public Input<bool>? EnableExecuteCommand { get; set; }
 
+        /// <summary>
+        /// Specifies whether tags are propagated from the daemon to the daemon tasks.
+        /// </summary>
         [Input("propagateTags")]
         public Input<Pulumi.AwsNative.Ecs.DaemonPropagateTags>? PropagateTags { get; set; }
 

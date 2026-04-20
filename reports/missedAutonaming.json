@@ -4077,6 +4077,10 @@
         "type": "string",
         "description": "The Amazon Resource Name of the IAM Identity Center instance responsible for authenticating monitor users."
       },
+      "identityCenterRegion": {
+        "type": "string",
+        "description": "The AWS region where IAM Identity Center is enabled. Required when Identity Center is in a different region than the monitor."
+      },
       "roleArn": {
         "type": "string",
         "description": "The Amazon Resource Name of the IAM role for the monitor. Users of the monitor use this role to access Deadline Cloud resources."
@@ -4138,6 +4142,9 @@
       "roleArn": {
         "type": "string",
         "description": "The Amazon Resource Name (ARN) of the IAM role that workers use when running jobs in this queue."
+      },
+      "schedulingConfiguration": {
+        "$ref": "#/types/aws-native:deadline:QueueSchedulingConfiguration"
       },
       "tags": {
         "type": "array",
@@ -8105,19 +8112,24 @@
         "type": "array",
         "items": {
           "$ref": "#/types/aws-native:ecs:DaemonTaskDefinitionDaemonContainerDefinition"
-        }
+        },
+        "description": "A list of container definitions in JSON format that describe the containers that make up the daemon task."
       },
       "cpu": {
-        "type": "string"
+        "type": "string",
+        "description": "The number of CPU units used by the daemon task."
       },
       "executionRoleArn": {
-        "type": "string"
+        "type": "string",
+        "description": "The Amazon Resource Name (ARN) of the task execution role that grants the Amazon ECS container agent permission to make Amazon Web Services API calls on your behalf."
       },
       "family": {
-        "type": "string"
+        "type": "string",
+        "description": "The name of a family that this daemon task definition is registered to."
       },
       "memory": {
-        "type": "string"
+        "type": "string",
+        "description": "The amount of memory (in MiB) used by the daemon task."
       },
       "tags": {
         "type": "array",
@@ -8126,13 +8138,15 @@
         }
       },
       "taskRoleArn": {
-        "type": "string"
+        "type": "string",
+        "description": "The short name or full Amazon Resource Name (ARN) of the IAM role that grants containers in the daemon task permission to call Amazon Web Services APIs on your behalf."
       },
       "volumes": {
         "type": "array",
         "items": {
           "$ref": "#/types/aws-native:ecs:DaemonTaskDefinitionVolume"
-        }
+        },
+        "description": "The list of data volume definitions for the daemon task."
       }
     }
   },
@@ -14628,6 +14642,32 @@
       }
     }
   },
+  "aws-native:robomaker:RobotApplicationVersion": {
+    "cfTypeName": "AWS::RoboMaker::RobotApplicationVersion",
+    "properties": {
+      "application": {
+        "type": "string",
+        "description": "The application information for the robot application."
+      },
+      "currentRevisionId": {
+        "type": "string",
+        "description": "The revision ID of robot application."
+      }
+    }
+  },
+  "aws-native:robomaker:SimulationApplicationVersion": {
+    "cfTypeName": "AWS::RoboMaker::SimulationApplicationVersion",
+    "properties": {
+      "application": {
+        "type": "string",
+        "description": "The application information for the simulation application."
+      },
+      "currentRevisionId": {
+        "type": "string",
+        "description": "The revision ID of robot application."
+      }
+    }
+  },
   "aws-native:route53:Dnssec": {
     "cfTypeName": "AWS::Route53::DNSSEC",
     "properties": {
@@ -15366,34 +15406,43 @@
     "cfTypeName": "AWS::SecurityAgent::Pentest",
     "properties": {
       "agentSpaceId": {
-        "type": "string"
+        "type": "string",
+        "description": "Identifier of agent space where the pentest should be created"
       },
       "assets": {
-        "$ref": "#/types/aws-native:securityagent:PentestAssets"
+        "$ref": "#/types/aws-native:securityagent:PentestAssets",
+        "description": "Collection of assets to be tested or used during the penetration test"
       },
       "codeRemediationStrategy": {
-        "$ref": "#/types/aws-native:securityagent:PentestCodeRemediationStrategy"
+        "$ref": "#/types/aws-native:securityagent:PentestCodeRemediationStrategy",
+        "description": "Strategy for code remediation on findings"
       },
       "excludeRiskTypes": {
         "type": "array",
         "items": {
           "$ref": "#/types/aws-native:securityagent:PentestRiskType"
-        }
+        },
+        "description": "A list of risk types excluded from the pentest execution"
       },
       "logConfig": {
-        "$ref": "#/types/aws-native:securityagent:PentestCloudWatchLog"
+        "$ref": "#/types/aws-native:securityagent:PentestCloudWatchLog",
+        "description": "CloudWatch logs config"
       },
       "networkTrafficConfig": {
-        "$ref": "#/types/aws-native:securityagent:PentestNetworkTrafficConfig"
+        "$ref": "#/types/aws-native:securityagent:PentestNetworkTrafficConfig",
+        "description": "Configuration for network traffic filtering"
       },
       "serviceRole": {
-        "type": "string"
+        "type": "string",
+        "description": "Service role for accessing resources"
       },
       "title": {
-        "type": "string"
+        "type": "string",
+        "description": "Title of the penetration test"
       },
       "vpcConfig": {
-        "$ref": "#/types/aws-native:securityagent:PentestVpcConfig"
+        "$ref": "#/types/aws-native:securityagent:PentestVpcConfig",
+        "description": "VPC configuration that the security testing environment accesses"
       }
     }
   },
@@ -16942,6 +16991,9 @@
       "egressType": {
         "$ref": "#/types/aws-native:transfer:ConnectorEgressType",
         "description": "Specifies the egress type for the connector."
+      },
+      "ipAddressType": {
+        "$ref": "#/types/aws-native:transfer:ConnectorIpAddressType"
       },
       "loggingRole": {
         "type": "string",
