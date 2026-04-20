@@ -100,7 +100,7 @@ def get_queue_environment(farm_id: Optional[_builtins.str] = None,
                           queue_id: Optional[_builtins.str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetQueueEnvironmentResult:
     """
-    Definition of AWS::Deadline::QueueEnvironment Resource Type
+    Resource Type definition for AWS::Deadline::QueueEnvironment
 
 
     :param _builtins.str farm_id: The identifier assigned to the farm that contains the queue.
@@ -125,7 +125,7 @@ def get_queue_environment_output(farm_id: Optional[pulumi.Input[_builtins.str]] 
                                  queue_id: Optional[pulumi.Input[_builtins.str]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetQueueEnvironmentResult]:
     """
-    Definition of AWS::Deadline::QueueEnvironment Resource Type
+    Resource Type definition for AWS::Deadline::QueueEnvironment
 
 
     :param _builtins.str farm_id: The identifier assigned to the farm that contains the queue.

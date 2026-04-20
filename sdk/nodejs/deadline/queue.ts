@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Definition of AWS::Deadline::Queue Resource Type
+ * Resource Type definition for AWS::Deadline::Queue
  */
 export class Queue extends pulumi.CustomResource {
     /**
@@ -85,6 +85,7 @@ export class Queue extends pulumi.CustomResource {
      * The Amazon Resource Name (ARN) of the IAM role that workers use when running jobs in this queue.
      */
     declare public readonly roleArn: pulumi.Output<string | undefined>;
+    declare public readonly schedulingConfiguration: pulumi.Output<outputs.deadline.QueueSchedulingConfiguration | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
@@ -116,6 +117,7 @@ export class Queue extends pulumi.CustomResource {
             resourceInputs["jobRunAsUser"] = args?.jobRunAsUser;
             resourceInputs["requiredFileSystemLocationNames"] = args?.requiredFileSystemLocationNames;
             resourceInputs["roleArn"] = args?.roleArn;
+            resourceInputs["schedulingConfiguration"] = args?.schedulingConfiguration;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["queueId"] = undefined /*out*/;
@@ -131,6 +133,7 @@ export class Queue extends pulumi.CustomResource {
             resourceInputs["queueId"] = undefined /*out*/;
             resourceInputs["requiredFileSystemLocationNames"] = undefined /*out*/;
             resourceInputs["roleArn"] = undefined /*out*/;
+            resourceInputs["schedulingConfiguration"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -184,6 +187,7 @@ export interface QueueArgs {
      * The Amazon Resource Name (ARN) of the IAM role that workers use when running jobs in this queue.
      */
     roleArn?: pulumi.Input<string>;
+    schedulingConfiguration?: pulumi.Input<inputs.deadline.QueueSchedulingConfigurationArgs>;
     /**
      * An array of key-value pairs to apply to this resource.
      */

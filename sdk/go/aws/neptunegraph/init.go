@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "aws-native:neptunegraph:Graph":
 		r = &Graph{}
+	case "aws-native:neptunegraph:GraphSnapshot":
+		r = &GraphSnapshot{}
 	case "aws-native:neptunegraph:PrivateGraphEndpoint":
 		r = &PrivateGraphEndpoint{}
 	default:

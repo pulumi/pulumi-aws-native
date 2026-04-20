@@ -12,25 +12,25 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource Type definition for AWS::Batch::QuotaShare
+// Creates an AWS Batch quota share. Each quota share operates as a virtual queue with a configured compute capacity, resource sharing strategy, and borrow limits.
 type QuotaShare struct {
 	pulumi.CustomResourceState
 
-	// The capacity limits for the quota share.
+	// A list that specifies the quantity and type of compute capacity allocated to the quota share.
 	CapacityLimits QuotaShareCapacityLimitArrayOutput `pulumi:"capacityLimits"`
-	// The Amazon Resource Name (ARN) or name of the job queue.
+	// The AWS Batch job queue associated with the quota share. This can be the job queue name or ARN. A job queue must be in the `VALID` state before you can associate it with a quota share.
 	JobQueue pulumi.StringOutput `pulumi:"jobQueue"`
-	// The preemption configuration for the quota share.
+	// Specifies the preemption behavior for jobs in a quota share.
 	PreemptionConfiguration QuotaSharePreemptionConfigurationOutput `pulumi:"preemptionConfiguration"`
 	// The Amazon Resource Name (ARN) of the quota share.
 	QuotaShareArn pulumi.StringOutput `pulumi:"quotaShareArn"`
-	// The name of the quota share.
+	// The name of the quota share. It can be up to 128 characters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
 	QuotaShareName pulumi.StringOutput `pulumi:"quotaShareName"`
-	// The resource sharing configuration for the quota share.
+	// Specifies whether a quota share reserves, lends, or both lends and borrows idle compute capacity.
 	ResourceSharingConfiguration QuotaShareResourceSharingConfigurationOutput `pulumi:"resourceSharingConfiguration"`
-	// The state of the quota share.
+	// The state of the quota share. If the quota share is `ENABLED`, it is able to accept jobs. If the quota share is `DISABLED`, new jobs won't be accepted but jobs already submitted can finish. The default state is `ENABLED`.
 	State QuotaShareStateEnumPtrOutput `pulumi:"state"`
-	// A key-value pair to associate with a resource.
+	// The tags that you apply to the quota share to help you categorize and organize your resources. Each tag consists of a key and an optional value.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
@@ -91,37 +91,37 @@ func (QuotaShareState) ElementType() reflect.Type {
 }
 
 type quotaShareArgs struct {
-	// The capacity limits for the quota share.
+	// A list that specifies the quantity and type of compute capacity allocated to the quota share.
 	CapacityLimits []QuotaShareCapacityLimit `pulumi:"capacityLimits"`
-	// The Amazon Resource Name (ARN) or name of the job queue.
+	// The AWS Batch job queue associated with the quota share. This can be the job queue name or ARN. A job queue must be in the `VALID` state before you can associate it with a quota share.
 	JobQueue string `pulumi:"jobQueue"`
-	// The preemption configuration for the quota share.
+	// Specifies the preemption behavior for jobs in a quota share.
 	PreemptionConfiguration QuotaSharePreemptionConfiguration `pulumi:"preemptionConfiguration"`
-	// The name of the quota share.
+	// The name of the quota share. It can be up to 128 characters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
 	QuotaShareName *string `pulumi:"quotaShareName"`
-	// The resource sharing configuration for the quota share.
+	// Specifies whether a quota share reserves, lends, or both lends and borrows idle compute capacity.
 	ResourceSharingConfiguration QuotaShareResourceSharingConfiguration `pulumi:"resourceSharingConfiguration"`
-	// The state of the quota share.
+	// The state of the quota share. If the quota share is `ENABLED`, it is able to accept jobs. If the quota share is `DISABLED`, new jobs won't be accepted but jobs already submitted can finish. The default state is `ENABLED`.
 	State *QuotaShareStateEnum `pulumi:"state"`
-	// A key-value pair to associate with a resource.
+	// The tags that you apply to the quota share to help you categorize and organize your resources. Each tag consists of a key and an optional value.
 	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a QuotaShare resource.
 type QuotaShareArgs struct {
-	// The capacity limits for the quota share.
+	// A list that specifies the quantity and type of compute capacity allocated to the quota share.
 	CapacityLimits QuotaShareCapacityLimitArrayInput
-	// The Amazon Resource Name (ARN) or name of the job queue.
+	// The AWS Batch job queue associated with the quota share. This can be the job queue name or ARN. A job queue must be in the `VALID` state before you can associate it with a quota share.
 	JobQueue pulumi.StringInput
-	// The preemption configuration for the quota share.
+	// Specifies the preemption behavior for jobs in a quota share.
 	PreemptionConfiguration QuotaSharePreemptionConfigurationInput
-	// The name of the quota share.
+	// The name of the quota share. It can be up to 128 characters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
 	QuotaShareName pulumi.StringPtrInput
-	// The resource sharing configuration for the quota share.
+	// Specifies whether a quota share reserves, lends, or both lends and borrows idle compute capacity.
 	ResourceSharingConfiguration QuotaShareResourceSharingConfigurationInput
-	// The state of the quota share.
+	// The state of the quota share. If the quota share is `ENABLED`, it is able to accept jobs. If the quota share is `DISABLED`, new jobs won't be accepted but jobs already submitted can finish. The default state is `ENABLED`.
 	State QuotaShareStateEnumPtrInput
-	// A key-value pair to associate with a resource.
+	// The tags that you apply to the quota share to help you categorize and organize your resources. Each tag consists of a key and an optional value.
 	Tags pulumi.StringMapInput
 }
 
@@ -162,17 +162,17 @@ func (o QuotaShareOutput) ToQuotaShareOutputWithContext(ctx context.Context) Quo
 	return o
 }
 
-// The capacity limits for the quota share.
+// A list that specifies the quantity and type of compute capacity allocated to the quota share.
 func (o QuotaShareOutput) CapacityLimits() QuotaShareCapacityLimitArrayOutput {
 	return o.ApplyT(func(v *QuotaShare) QuotaShareCapacityLimitArrayOutput { return v.CapacityLimits }).(QuotaShareCapacityLimitArrayOutput)
 }
 
-// The Amazon Resource Name (ARN) or name of the job queue.
+// The AWS Batch job queue associated with the quota share. This can be the job queue name or ARN. A job queue must be in the `VALID` state before you can associate it with a quota share.
 func (o QuotaShareOutput) JobQueue() pulumi.StringOutput {
 	return o.ApplyT(func(v *QuotaShare) pulumi.StringOutput { return v.JobQueue }).(pulumi.StringOutput)
 }
 
-// The preemption configuration for the quota share.
+// Specifies the preemption behavior for jobs in a quota share.
 func (o QuotaShareOutput) PreemptionConfiguration() QuotaSharePreemptionConfigurationOutput {
 	return o.ApplyT(func(v *QuotaShare) QuotaSharePreemptionConfigurationOutput { return v.PreemptionConfiguration }).(QuotaSharePreemptionConfigurationOutput)
 }
@@ -182,24 +182,24 @@ func (o QuotaShareOutput) QuotaShareArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *QuotaShare) pulumi.StringOutput { return v.QuotaShareArn }).(pulumi.StringOutput)
 }
 
-// The name of the quota share.
+// The name of the quota share. It can be up to 128 characters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
 func (o QuotaShareOutput) QuotaShareName() pulumi.StringOutput {
 	return o.ApplyT(func(v *QuotaShare) pulumi.StringOutput { return v.QuotaShareName }).(pulumi.StringOutput)
 }
 
-// The resource sharing configuration for the quota share.
+// Specifies whether a quota share reserves, lends, or both lends and borrows idle compute capacity.
 func (o QuotaShareOutput) ResourceSharingConfiguration() QuotaShareResourceSharingConfigurationOutput {
 	return o.ApplyT(func(v *QuotaShare) QuotaShareResourceSharingConfigurationOutput {
 		return v.ResourceSharingConfiguration
 	}).(QuotaShareResourceSharingConfigurationOutput)
 }
 
-// The state of the quota share.
+// The state of the quota share. If the quota share is `ENABLED`, it is able to accept jobs. If the quota share is `DISABLED`, new jobs won't be accepted but jobs already submitted can finish. The default state is `ENABLED`.
 func (o QuotaShareOutput) State() QuotaShareStateEnumPtrOutput {
 	return o.ApplyT(func(v *QuotaShare) QuotaShareStateEnumPtrOutput { return v.State }).(QuotaShareStateEnumPtrOutput)
 }
 
-// A key-value pair to associate with a resource.
+// The tags that you apply to the quota share to help you categorize and organize your resources. Each tag consists of a key and an optional value.
 func (o QuotaShareOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *QuotaShare) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

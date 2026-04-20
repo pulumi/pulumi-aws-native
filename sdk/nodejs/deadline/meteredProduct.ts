@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Definition of AWS::Deadline::MeteredProduct Resource Type
+ * Resource Type definition for AWS::Deadline::MeteredProduct
  */
 export class MeteredProduct extends pulumi.CustomResource {
     /**

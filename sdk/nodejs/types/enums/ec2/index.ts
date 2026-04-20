@@ -313,6 +313,7 @@ export type Ec2FleetTagSpecificationResourceType = (typeof Ec2FleetTagSpecificat
 export const Ec2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityType = {
     OnDemand: "on-demand",
     Spot: "spot",
+    CapacityBlock: "capacity-block",
     ReservedCapacity: "reserved-capacity",
 } as const;
 

@@ -2532,14 +2532,29 @@ class ClusterSettingsArgs:
 
 
 class DaemonAlarmConfigurationArgsDict(TypedDict):
+    """
+    The CloudWatch alarm configuration for a daemon. When enabled, CloudWatch alarms determine whether a daemon deployment has failed.
+    """
     alarm_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The CloudWatch alarm names to monitor during a daemon deployment.
+    """
     enable: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Determines whether to use the CloudWatch alarm option in the daemon deployment process. The default value is ``false``.
+    """
 
 @pulumi.input_type
 class DaemonAlarmConfigurationArgs:
     def __init__(__self__, *,
                  alarm_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  enable: Optional[pulumi.Input[_builtins.bool]] = None):
+        """
+        The CloudWatch alarm configuration for a daemon. When enabled, CloudWatch alarms determine whether a daemon deployment has failed.
+
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] alarm_names: The CloudWatch alarm names to monitor during a daemon deployment.
+        :param pulumi.Input[_builtins.bool] enable: Determines whether to use the CloudWatch alarm option in the daemon deployment process. The default value is ``false``.
+        """
         if alarm_names is not None:
             pulumi.set(__self__, "alarm_names", alarm_names)
         if enable is not None:
@@ -2548,6 +2563,9 @@ class DaemonAlarmConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="alarmNames")
     def alarm_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        The CloudWatch alarm names to monitor during a daemon deployment.
+        """
         return pulumi.get(self, "alarm_names")
 
     @alarm_names.setter
@@ -2557,6 +2575,9 @@ class DaemonAlarmConfigurationArgs:
     @_builtins.property
     @pulumi.getter
     def enable(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Determines whether to use the CloudWatch alarm option in the daemon deployment process. The default value is ``false``.
+        """
         return pulumi.get(self, "enable")
 
     @enable.setter
@@ -2565,9 +2586,21 @@ class DaemonAlarmConfigurationArgs:
 
 
 class DaemonDeploymentConfigurationArgsDict(TypedDict):
+    """
+    Optional deployment parameters that control how a daemon rolls out updates across container instances.
+    """
     alarms: NotRequired[pulumi.Input['DaemonAlarmConfigurationArgsDict']]
+    """
+    The CloudWatch alarm configuration for the daemon deployment. When alarms are triggered during a deployment, the deployment can be automatically rolled back.
+    """
     bake_time_in_minutes: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The amount of time (in minutes) to wait after a successful deployment step before proceeding. This allows time to monitor for issues before continuing. The default value is 0.
+    """
     drain_percent: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    The percentage of container instances to drain simultaneously during a daemon deployment. Valid values are between 0.0 and 100.0.
+    """
 
 @pulumi.input_type
 class DaemonDeploymentConfigurationArgs:
@@ -2575,6 +2608,13 @@ class DaemonDeploymentConfigurationArgs:
                  alarms: Optional[pulumi.Input['DaemonAlarmConfigurationArgs']] = None,
                  bake_time_in_minutes: Optional[pulumi.Input[_builtins.int]] = None,
                  drain_percent: Optional[pulumi.Input[_builtins.float]] = None):
+        """
+        Optional deployment parameters that control how a daemon rolls out updates across container instances.
+
+        :param pulumi.Input['DaemonAlarmConfigurationArgs'] alarms: The CloudWatch alarm configuration for the daemon deployment. When alarms are triggered during a deployment, the deployment can be automatically rolled back.
+        :param pulumi.Input[_builtins.int] bake_time_in_minutes: The amount of time (in minutes) to wait after a successful deployment step before proceeding. This allows time to monitor for issues before continuing. The default value is 0.
+        :param pulumi.Input[_builtins.float] drain_percent: The percentage of container instances to drain simultaneously during a daemon deployment. Valid values are between 0.0 and 100.0.
+        """
         if alarms is not None:
             pulumi.set(__self__, "alarms", alarms)
         if bake_time_in_minutes is not None:
@@ -2585,6 +2625,9 @@ class DaemonDeploymentConfigurationArgs:
     @_builtins.property
     @pulumi.getter
     def alarms(self) -> Optional[pulumi.Input['DaemonAlarmConfigurationArgs']]:
+        """
+        The CloudWatch alarm configuration for the daemon deployment. When alarms are triggered during a deployment, the deployment can be automatically rolled back.
+        """
         return pulumi.get(self, "alarms")
 
     @alarms.setter
@@ -2594,6 +2637,9 @@ class DaemonDeploymentConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="bakeTimeInMinutes")
     def bake_time_in_minutes(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        The amount of time (in minutes) to wait after a successful deployment step before proceeding. This allows time to monitor for issues before continuing. The default value is 0.
+        """
         return pulumi.get(self, "bake_time_in_minutes")
 
     @bake_time_in_minutes.setter
@@ -2603,6 +2649,9 @@ class DaemonDeploymentConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="drainPercent")
     def drain_percent(self) -> Optional[pulumi.Input[_builtins.float]]:
+        """
+        The percentage of container instances to drain simultaneously during a daemon deployment. Valid values are between 0.0 and 100.0.
+        """
         return pulumi.get(self, "drain_percent")
 
     @drain_percent.setter
@@ -2611,14 +2660,49 @@ class DaemonDeploymentConfigurationArgs:
 
 
 class DaemonTaskDefinitionContainerDependencyArgsDict(TypedDict):
+    """
+    The dependencies defined for container startup and shutdown. A container can contain multiple dependencies. When a dependency is defined for container startup, for container shutdown it is reversed.
+     Your Amazon ECS container instances require at least version 1.26.0 of the container agent to use container dependencies. However, we recommend using the latest container agent version. For information about checking your agent version and updating to the latest version, see [Updating the Amazon ECS Container Agent](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-update.html) in the *Amazon Elastic Container Service Developer Guide*. If you're using an Amazon ECS-optimized Linux AMI, your instance needs at least version 1.26.0-1 of the ``ecs-init`` package. If your container instances are launched from version ``20190301`` or later, then they contain the required versions of the container agent and ``ecs-init``. For more information, see [Amazon ECS-optimized Linux AMI](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html) in the *Amazon Elastic Container Service Developer Guide*.
+      For tasks that use the Fargate launch type, the task or service requires the following platforms:
+      +  Linux platform version ``1.3.0`` or later.
+      +  Windows platform version ``1.0.0`` or later.
+      
+      For more information about how to create a container dependency, see [Container dependency](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/example_task_definitions.html#example_task_definition-containerdependency) in the *Amazon Elastic Container Service Developer Guide*.
+    """
     condition: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The dependency condition of the container. The following are the available conditions and their behavior:
+      +  ``START`` - This condition emulates the behavior of links and volumes today. It validates that a dependent container is started before permitting other containers to start.
+      +  ``COMPLETE`` - This condition validates that a dependent container runs to completion (exits) before permitting other containers to start. This can be useful for nonessential containers that run a script and then exit. This condition can't be set on an essential container.
+      +  ``SUCCESS`` - This condition is the same as ``COMPLETE``, but it also requires that the container exits with a ``zero`` status. This condition can't be set on an essential container.
+      +  ``HEALTHY`` - This condition validates that the dependent container passes its Docker health check before permitting other containers to start. This requires that the dependent container has health checks configured. This condition is confirmed only at task startup.
+    """
     container_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of a container.
+    """
 
 @pulumi.input_type
 class DaemonTaskDefinitionContainerDependencyArgs:
     def __init__(__self__, *,
                  condition: Optional[pulumi.Input[_builtins.str]] = None,
                  container_name: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        The dependencies defined for container startup and shutdown. A container can contain multiple dependencies. When a dependency is defined for container startup, for container shutdown it is reversed.
+         Your Amazon ECS container instances require at least version 1.26.0 of the container agent to use container dependencies. However, we recommend using the latest container agent version. For information about checking your agent version and updating to the latest version, see [Updating the Amazon ECS Container Agent](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-update.html) in the *Amazon Elastic Container Service Developer Guide*. If you're using an Amazon ECS-optimized Linux AMI, your instance needs at least version 1.26.0-1 of the ``ecs-init`` package. If your container instances are launched from version ``20190301`` or later, then they contain the required versions of the container agent and ``ecs-init``. For more information, see [Amazon ECS-optimized Linux AMI](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html) in the *Amazon Elastic Container Service Developer Guide*.
+          For tasks that use the Fargate launch type, the task or service requires the following platforms:
+          +  Linux platform version ``1.3.0`` or later.
+          +  Windows platform version ``1.0.0`` or later.
+          
+          For more information about how to create a container dependency, see [Container dependency](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/example_task_definitions.html#example_task_definition-containerdependency) in the *Amazon Elastic Container Service Developer Guide*.
+
+        :param pulumi.Input[_builtins.str] condition: The dependency condition of the container. The following are the available conditions and their behavior:
+                 +  ``START`` - This condition emulates the behavior of links and volumes today. It validates that a dependent container is started before permitting other containers to start.
+                 +  ``COMPLETE`` - This condition validates that a dependent container runs to completion (exits) before permitting other containers to start. This can be useful for nonessential containers that run a script and then exit. This condition can't be set on an essential container.
+                 +  ``SUCCESS`` - This condition is the same as ``COMPLETE``, but it also requires that the container exits with a ``zero`` status. This condition can't be set on an essential container.
+                 +  ``HEALTHY`` - This condition validates that the dependent container passes its Docker health check before permitting other containers to start. This requires that the dependent container has health checks configured. This condition is confirmed only at task startup.
+        :param pulumi.Input[_builtins.str] container_name: The name of a container.
+        """
         if condition is not None:
             pulumi.set(__self__, "condition", condition)
         if container_name is not None:
@@ -2627,6 +2711,13 @@ class DaemonTaskDefinitionContainerDependencyArgs:
     @_builtins.property
     @pulumi.getter
     def condition(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The dependency condition of the container. The following are the available conditions and their behavior:
+          +  ``START`` - This condition emulates the behavior of links and volumes today. It validates that a dependent container is started before permitting other containers to start.
+          +  ``COMPLETE`` - This condition validates that a dependent container runs to completion (exits) before permitting other containers to start. This can be useful for nonessential containers that run a script and then exit. This condition can't be set on an essential container.
+          +  ``SUCCESS`` - This condition is the same as ``COMPLETE``, but it also requires that the container exits with a ``zero`` status. This condition can't be set on an essential container.
+          +  ``HEALTHY`` - This condition validates that the dependent container passes its Docker health check before permitting other containers to start. This requires that the dependent container has health checks configured. This condition is confirmed only at task startup.
+        """
         return pulumi.get(self, "condition")
 
     @condition.setter
@@ -2636,6 +2727,9 @@ class DaemonTaskDefinitionContainerDependencyArgs:
     @_builtins.property
     @pulumi.getter(name="containerName")
     def container_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The name of a container.
+        """
         return pulumi.get(self, "container_name")
 
     @container_name.setter
@@ -2645,37 +2739,124 @@ class DaemonTaskDefinitionContainerDependencyArgs:
 
 class DaemonTaskDefinitionDaemonContainerDefinitionArgsDict(TypedDict):
     """
-    Container definition for daemon task definition
+    A container definition for a daemon task. Daemon container definitions describe the containers that run as part of a daemon task on container instances managed by capacity providers.
     """
     image: pulumi.Input[_builtins.str]
+    """
+    The image used to start the container. This string is passed directly to the Docker daemon. Images in the Docker Hub registry are available by default. Other repositories are specified with either ``repository-url/image:tag`` or ``repository-url/image@digest``.
+    """
     name: pulumi.Input[_builtins.str]
+    """
+    The name of the container. Up to 255 letters (uppercase and lowercase), numbers, underscores, and hyphens are allowed.
+    """
     command: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The command that's passed to the container.
+    """
     cpu: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The number of ``cpu`` units reserved for the container.
+    """
     depends_on: NotRequired[pulumi.Input[Sequence[pulumi.Input['DaemonTaskDefinitionContainerDependencyArgsDict']]]]
+    """
+    The dependencies defined for container startup and shutdown. A container can contain multiple dependencies on other containers in a task definition.
+    """
     entry_point: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The entry point that's passed to the container.
+    """
     environment: NotRequired[pulumi.Input[Sequence[pulumi.Input['DaemonTaskDefinitionKeyValuePairArgsDict']]]]
+    """
+    The environment variables to pass to a container.
+    """
     environment_files: NotRequired[pulumi.Input[Sequence[pulumi.Input['DaemonTaskDefinitionEnvironmentFileArgsDict']]]]
+    """
+    A list of files containing the environment variables to pass to a container.
+    """
     essential: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    If the ``essential`` parameter of a container is marked as ``true``, and that container fails or stops for any reason, all other containers that are part of the task are stopped.
+    """
     firelens_configuration: NotRequired[pulumi.Input['DaemonTaskDefinitionFirelensConfigurationArgsDict']]
+    """
+    The FireLens configuration for the container. This is used to specify and configure a log router for container logs.
+    """
     health_check: NotRequired[pulumi.Input['DaemonTaskDefinitionHealthCheckArgsDict']]
+    """
+    The container health check command and associated configuration parameters for the container.
+    """
     interactive: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    When this parameter is ``true``, you can deploy containerized applications that require ``stdin`` or a ``tty`` to be allocated.
+    """
     linux_parameters: NotRequired[pulumi.Input['DaemonTaskDefinitionLinuxParametersArgsDict']]
+    """
+    Linux-specific modifications that are applied to the container configuration, such as Linux kernel capabilities.
+    """
     log_configuration: NotRequired[pulumi.Input['DaemonTaskDefinitionLogConfigurationArgsDict']]
+    """
+    The log configuration specification for the container.
+    """
     memory: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The amount (in MiB) of memory to present to the container. If the container attempts to exceed the memory specified here, the container is killed.
+    """
     memory_reservation: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The soft limit (in MiB) of memory to reserve for the container.
+    """
     mount_points: NotRequired[pulumi.Input[Sequence[pulumi.Input['DaemonTaskDefinitionMountPointArgsDict']]]]
+    """
+    The mount points for data volumes in your container.
+    """
     privileged: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    When this parameter is true, the container is given elevated privileges on the host container instance (similar to the ``root`` user).
+    """
     pseudo_terminal: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    When this parameter is ``true``, a TTY is allocated.
+    """
     readonly_root_filesystem: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    When this parameter is true, the container is given read-only access to its root file system.
+    """
     repository_credentials: NotRequired[pulumi.Input['DaemonTaskDefinitionRepositoryCredentialsArgsDict']]
+    """
+    The private repository authentication credentials to use.
+    """
     restart_policy: NotRequired[pulumi.Input['DaemonTaskDefinitionRestartPolicyArgsDict']]
+    """
+    The restart policy for the container. When you set up a restart policy, Amazon ECS can restart the container without needing to replace the task.
+    """
     secrets: NotRequired[pulumi.Input[Sequence[pulumi.Input['DaemonTaskDefinitionSecretArgsDict']]]]
+    """
+    The secrets to pass to the container.
+    """
     start_timeout: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Time duration (in seconds) to wait before giving up on resolving dependencies for a container.
+    """
     stop_timeout: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Time duration (in seconds) to wait before the container is forcefully killed if it doesn't exit normally on its own.
+    """
     system_controls: NotRequired[pulumi.Input[Sequence[pulumi.Input['DaemonTaskDefinitionSystemControlArgsDict']]]]
+    """
+    A list of namespaced kernel parameters to set in the container.
+    """
     ulimits: NotRequired[pulumi.Input[Sequence[pulumi.Input['DaemonTaskDefinitionUlimitArgsDict']]]]
+    """
+    A list of ``ulimits`` to set in the container.
+    """
     user: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The user to use inside the container.
+    """
     working_directory: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The working directory to run commands inside the container in.
+    """
 
 @pulumi.input_type
 class DaemonTaskDefinitionDaemonContainerDefinitionArgs:
@@ -2710,7 +2891,37 @@ class DaemonTaskDefinitionDaemonContainerDefinitionArgs:
                  user: Optional[pulumi.Input[_builtins.str]] = None,
                  working_directory: Optional[pulumi.Input[_builtins.str]] = None):
         """
-        Container definition for daemon task definition
+        A container definition for a daemon task. Daemon container definitions describe the containers that run as part of a daemon task on container instances managed by capacity providers.
+
+        :param pulumi.Input[_builtins.str] image: The image used to start the container. This string is passed directly to the Docker daemon. Images in the Docker Hub registry are available by default. Other repositories are specified with either ``repository-url/image:tag`` or ``repository-url/image@digest``.
+        :param pulumi.Input[_builtins.str] name: The name of the container. Up to 255 letters (uppercase and lowercase), numbers, underscores, and hyphens are allowed.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] command: The command that's passed to the container.
+        :param pulumi.Input[_builtins.int] cpu: The number of ``cpu`` units reserved for the container.
+        :param pulumi.Input[Sequence[pulumi.Input['DaemonTaskDefinitionContainerDependencyArgs']]] depends_on: The dependencies defined for container startup and shutdown. A container can contain multiple dependencies on other containers in a task definition.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] entry_point: The entry point that's passed to the container.
+        :param pulumi.Input[Sequence[pulumi.Input['DaemonTaskDefinitionKeyValuePairArgs']]] environment: The environment variables to pass to a container.
+        :param pulumi.Input[Sequence[pulumi.Input['DaemonTaskDefinitionEnvironmentFileArgs']]] environment_files: A list of files containing the environment variables to pass to a container.
+        :param pulumi.Input[_builtins.bool] essential: If the ``essential`` parameter of a container is marked as ``true``, and that container fails or stops for any reason, all other containers that are part of the task are stopped.
+        :param pulumi.Input['DaemonTaskDefinitionFirelensConfigurationArgs'] firelens_configuration: The FireLens configuration for the container. This is used to specify and configure a log router for container logs.
+        :param pulumi.Input['DaemonTaskDefinitionHealthCheckArgs'] health_check: The container health check command and associated configuration parameters for the container.
+        :param pulumi.Input[_builtins.bool] interactive: When this parameter is ``true``, you can deploy containerized applications that require ``stdin`` or a ``tty`` to be allocated.
+        :param pulumi.Input['DaemonTaskDefinitionLinuxParametersArgs'] linux_parameters: Linux-specific modifications that are applied to the container configuration, such as Linux kernel capabilities.
+        :param pulumi.Input['DaemonTaskDefinitionLogConfigurationArgs'] log_configuration: The log configuration specification for the container.
+        :param pulumi.Input[_builtins.int] memory: The amount (in MiB) of memory to present to the container. If the container attempts to exceed the memory specified here, the container is killed.
+        :param pulumi.Input[_builtins.int] memory_reservation: The soft limit (in MiB) of memory to reserve for the container.
+        :param pulumi.Input[Sequence[pulumi.Input['DaemonTaskDefinitionMountPointArgs']]] mount_points: The mount points for data volumes in your container.
+        :param pulumi.Input[_builtins.bool] privileged: When this parameter is true, the container is given elevated privileges on the host container instance (similar to the ``root`` user).
+        :param pulumi.Input[_builtins.bool] pseudo_terminal: When this parameter is ``true``, a TTY is allocated.
+        :param pulumi.Input[_builtins.bool] readonly_root_filesystem: When this parameter is true, the container is given read-only access to its root file system.
+        :param pulumi.Input['DaemonTaskDefinitionRepositoryCredentialsArgs'] repository_credentials: The private repository authentication credentials to use.
+        :param pulumi.Input['DaemonTaskDefinitionRestartPolicyArgs'] restart_policy: The restart policy for the container. When you set up a restart policy, Amazon ECS can restart the container without needing to replace the task.
+        :param pulumi.Input[Sequence[pulumi.Input['DaemonTaskDefinitionSecretArgs']]] secrets: The secrets to pass to the container.
+        :param pulumi.Input[_builtins.int] start_timeout: Time duration (in seconds) to wait before giving up on resolving dependencies for a container.
+        :param pulumi.Input[_builtins.int] stop_timeout: Time duration (in seconds) to wait before the container is forcefully killed if it doesn't exit normally on its own.
+        :param pulumi.Input[Sequence[pulumi.Input['DaemonTaskDefinitionSystemControlArgs']]] system_controls: A list of namespaced kernel parameters to set in the container.
+        :param pulumi.Input[Sequence[pulumi.Input['DaemonTaskDefinitionUlimitArgs']]] ulimits: A list of ``ulimits`` to set in the container.
+        :param pulumi.Input[_builtins.str] user: The user to use inside the container.
+        :param pulumi.Input[_builtins.str] working_directory: The working directory to run commands inside the container in.
         """
         pulumi.set(__self__, "image", image)
         pulumi.set(__self__, "name", name)
@@ -2772,6 +2983,9 @@ class DaemonTaskDefinitionDaemonContainerDefinitionArgs:
     @_builtins.property
     @pulumi.getter
     def image(self) -> pulumi.Input[_builtins.str]:
+        """
+        The image used to start the container. This string is passed directly to the Docker daemon. Images in the Docker Hub registry are available by default. Other repositories are specified with either ``repository-url/image:tag`` or ``repository-url/image@digest``.
+        """
         return pulumi.get(self, "image")
 
     @image.setter
@@ -2781,6 +2995,9 @@ class DaemonTaskDefinitionDaemonContainerDefinitionArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the container. Up to 255 letters (uppercase and lowercase), numbers, underscores, and hyphens are allowed.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -2790,6 +3007,9 @@ class DaemonTaskDefinitionDaemonContainerDefinitionArgs:
     @_builtins.property
     @pulumi.getter
     def command(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        The command that's passed to the container.
+        """
         return pulumi.get(self, "command")
 
     @command.setter
@@ -2799,6 +3019,9 @@ class DaemonTaskDefinitionDaemonContainerDefinitionArgs:
     @_builtins.property
     @pulumi.getter
     def cpu(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        The number of ``cpu`` units reserved for the container.
+        """
         return pulumi.get(self, "cpu")
 
     @cpu.setter
@@ -2808,6 +3031,9 @@ class DaemonTaskDefinitionDaemonContainerDefinitionArgs:
     @_builtins.property
     @pulumi.getter(name="dependsOn")
     def depends_on(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DaemonTaskDefinitionContainerDependencyArgs']]]]:
+        """
+        The dependencies defined for container startup and shutdown. A container can contain multiple dependencies on other containers in a task definition.
+        """
         return pulumi.get(self, "depends_on")
 
     @depends_on.setter
@@ -2817,6 +3043,9 @@ class DaemonTaskDefinitionDaemonContainerDefinitionArgs:
     @_builtins.property
     @pulumi.getter(name="entryPoint")
     def entry_point(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        The entry point that's passed to the container.
+        """
         return pulumi.get(self, "entry_point")
 
     @entry_point.setter
@@ -2826,6 +3055,9 @@ class DaemonTaskDefinitionDaemonContainerDefinitionArgs:
     @_builtins.property
     @pulumi.getter
     def environment(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DaemonTaskDefinitionKeyValuePairArgs']]]]:
+        """
+        The environment variables to pass to a container.
+        """
         return pulumi.get(self, "environment")
 
     @environment.setter
@@ -2835,6 +3067,9 @@ class DaemonTaskDefinitionDaemonContainerDefinitionArgs:
     @_builtins.property
     @pulumi.getter(name="environmentFiles")
     def environment_files(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DaemonTaskDefinitionEnvironmentFileArgs']]]]:
+        """
+        A list of files containing the environment variables to pass to a container.
+        """
         return pulumi.get(self, "environment_files")
 
     @environment_files.setter
@@ -2844,6 +3079,9 @@ class DaemonTaskDefinitionDaemonContainerDefinitionArgs:
     @_builtins.property
     @pulumi.getter
     def essential(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        If the ``essential`` parameter of a container is marked as ``true``, and that container fails or stops for any reason, all other containers that are part of the task are stopped.
+        """
         return pulumi.get(self, "essential")
 
     @essential.setter
@@ -2853,6 +3091,9 @@ class DaemonTaskDefinitionDaemonContainerDefinitionArgs:
     @_builtins.property
     @pulumi.getter(name="firelensConfiguration")
     def firelens_configuration(self) -> Optional[pulumi.Input['DaemonTaskDefinitionFirelensConfigurationArgs']]:
+        """
+        The FireLens configuration for the container. This is used to specify and configure a log router for container logs.
+        """
         return pulumi.get(self, "firelens_configuration")
 
     @firelens_configuration.setter
@@ -2862,6 +3103,9 @@ class DaemonTaskDefinitionDaemonContainerDefinitionArgs:
     @_builtins.property
     @pulumi.getter(name="healthCheck")
     def health_check(self) -> Optional[pulumi.Input['DaemonTaskDefinitionHealthCheckArgs']]:
+        """
+        The container health check command and associated configuration parameters for the container.
+        """
         return pulumi.get(self, "health_check")
 
     @health_check.setter
@@ -2871,6 +3115,9 @@ class DaemonTaskDefinitionDaemonContainerDefinitionArgs:
     @_builtins.property
     @pulumi.getter
     def interactive(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        When this parameter is ``true``, you can deploy containerized applications that require ``stdin`` or a ``tty`` to be allocated.
+        """
         return pulumi.get(self, "interactive")
 
     @interactive.setter
@@ -2880,6 +3127,9 @@ class DaemonTaskDefinitionDaemonContainerDefinitionArgs:
     @_builtins.property
     @pulumi.getter(name="linuxParameters")
     def linux_parameters(self) -> Optional[pulumi.Input['DaemonTaskDefinitionLinuxParametersArgs']]:
+        """
+        Linux-specific modifications that are applied to the container configuration, such as Linux kernel capabilities.
+        """
         return pulumi.get(self, "linux_parameters")
 
     @linux_parameters.setter
@@ -2889,6 +3139,9 @@ class DaemonTaskDefinitionDaemonContainerDefinitionArgs:
     @_builtins.property
     @pulumi.getter(name="logConfiguration")
     def log_configuration(self) -> Optional[pulumi.Input['DaemonTaskDefinitionLogConfigurationArgs']]:
+        """
+        The log configuration specification for the container.
+        """
         return pulumi.get(self, "log_configuration")
 
     @log_configuration.setter
@@ -2898,6 +3151,9 @@ class DaemonTaskDefinitionDaemonContainerDefinitionArgs:
     @_builtins.property
     @pulumi.getter
     def memory(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        The amount (in MiB) of memory to present to the container. If the container attempts to exceed the memory specified here, the container is killed.
+        """
         return pulumi.get(self, "memory")
 
     @memory.setter
@@ -2907,6 +3163,9 @@ class DaemonTaskDefinitionDaemonContainerDefinitionArgs:
     @_builtins.property
     @pulumi.getter(name="memoryReservation")
     def memory_reservation(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        The soft limit (in MiB) of memory to reserve for the container.
+        """
         return pulumi.get(self, "memory_reservation")
 
     @memory_reservation.setter
@@ -2916,6 +3175,9 @@ class DaemonTaskDefinitionDaemonContainerDefinitionArgs:
     @_builtins.property
     @pulumi.getter(name="mountPoints")
     def mount_points(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DaemonTaskDefinitionMountPointArgs']]]]:
+        """
+        The mount points for data volumes in your container.
+        """
         return pulumi.get(self, "mount_points")
 
     @mount_points.setter
@@ -2925,6 +3187,9 @@ class DaemonTaskDefinitionDaemonContainerDefinitionArgs:
     @_builtins.property
     @pulumi.getter
     def privileged(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        When this parameter is true, the container is given elevated privileges on the host container instance (similar to the ``root`` user).
+        """
         return pulumi.get(self, "privileged")
 
     @privileged.setter
@@ -2934,6 +3199,9 @@ class DaemonTaskDefinitionDaemonContainerDefinitionArgs:
     @_builtins.property
     @pulumi.getter(name="pseudoTerminal")
     def pseudo_terminal(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        When this parameter is ``true``, a TTY is allocated.
+        """
         return pulumi.get(self, "pseudo_terminal")
 
     @pseudo_terminal.setter
@@ -2943,6 +3211,9 @@ class DaemonTaskDefinitionDaemonContainerDefinitionArgs:
     @_builtins.property
     @pulumi.getter(name="readonlyRootFilesystem")
     def readonly_root_filesystem(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        When this parameter is true, the container is given read-only access to its root file system.
+        """
         return pulumi.get(self, "readonly_root_filesystem")
 
     @readonly_root_filesystem.setter
@@ -2952,6 +3223,9 @@ class DaemonTaskDefinitionDaemonContainerDefinitionArgs:
     @_builtins.property
     @pulumi.getter(name="repositoryCredentials")
     def repository_credentials(self) -> Optional[pulumi.Input['DaemonTaskDefinitionRepositoryCredentialsArgs']]:
+        """
+        The private repository authentication credentials to use.
+        """
         return pulumi.get(self, "repository_credentials")
 
     @repository_credentials.setter
@@ -2961,6 +3235,9 @@ class DaemonTaskDefinitionDaemonContainerDefinitionArgs:
     @_builtins.property
     @pulumi.getter(name="restartPolicy")
     def restart_policy(self) -> Optional[pulumi.Input['DaemonTaskDefinitionRestartPolicyArgs']]:
+        """
+        The restart policy for the container. When you set up a restart policy, Amazon ECS can restart the container without needing to replace the task.
+        """
         return pulumi.get(self, "restart_policy")
 
     @restart_policy.setter
@@ -2970,6 +3247,9 @@ class DaemonTaskDefinitionDaemonContainerDefinitionArgs:
     @_builtins.property
     @pulumi.getter
     def secrets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DaemonTaskDefinitionSecretArgs']]]]:
+        """
+        The secrets to pass to the container.
+        """
         return pulumi.get(self, "secrets")
 
     @secrets.setter
@@ -2979,6 +3259,9 @@ class DaemonTaskDefinitionDaemonContainerDefinitionArgs:
     @_builtins.property
     @pulumi.getter(name="startTimeout")
     def start_timeout(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        Time duration (in seconds) to wait before giving up on resolving dependencies for a container.
+        """
         return pulumi.get(self, "start_timeout")
 
     @start_timeout.setter
@@ -2988,6 +3271,9 @@ class DaemonTaskDefinitionDaemonContainerDefinitionArgs:
     @_builtins.property
     @pulumi.getter(name="stopTimeout")
     def stop_timeout(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        Time duration (in seconds) to wait before the container is forcefully killed if it doesn't exit normally on its own.
+        """
         return pulumi.get(self, "stop_timeout")
 
     @stop_timeout.setter
@@ -2997,6 +3283,9 @@ class DaemonTaskDefinitionDaemonContainerDefinitionArgs:
     @_builtins.property
     @pulumi.getter(name="systemControls")
     def system_controls(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DaemonTaskDefinitionSystemControlArgs']]]]:
+        """
+        A list of namespaced kernel parameters to set in the container.
+        """
         return pulumi.get(self, "system_controls")
 
     @system_controls.setter
@@ -3006,6 +3295,9 @@ class DaemonTaskDefinitionDaemonContainerDefinitionArgs:
     @_builtins.property
     @pulumi.getter
     def ulimits(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DaemonTaskDefinitionUlimitArgs']]]]:
+        """
+        A list of ``ulimits`` to set in the container.
+        """
         return pulumi.get(self, "ulimits")
 
     @ulimits.setter
@@ -3015,6 +3307,9 @@ class DaemonTaskDefinitionDaemonContainerDefinitionArgs:
     @_builtins.property
     @pulumi.getter
     def user(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The user to use inside the container.
+        """
         return pulumi.get(self, "user")
 
     @user.setter
@@ -3024,6 +3319,9 @@ class DaemonTaskDefinitionDaemonContainerDefinitionArgs:
     @_builtins.property
     @pulumi.getter(name="workingDirectory")
     def working_directory(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The working directory to run commands inside the container in.
+        """
         return pulumi.get(self, "working_directory")
 
     @working_directory.setter
@@ -3032,9 +3330,21 @@ class DaemonTaskDefinitionDaemonContainerDefinitionArgs:
 
 
 class DaemonTaskDefinitionDeviceArgsDict(TypedDict):
+    """
+    An object representing a container instance host device.
+    """
     container_path: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The path inside the container at which to expose the host device.
+    """
     host_path: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The path for the device on the host container instance.
+    """
     permissions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The explicit permissions to provide to the container for the device. By default, the container has permissions for ``read``, ``write``, and ``mknod`` for the device.
+    """
 
 @pulumi.input_type
 class DaemonTaskDefinitionDeviceArgs:
@@ -3042,6 +3352,13 @@ class DaemonTaskDefinitionDeviceArgs:
                  container_path: Optional[pulumi.Input[_builtins.str]] = None,
                  host_path: Optional[pulumi.Input[_builtins.str]] = None,
                  permissions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        An object representing a container instance host device.
+
+        :param pulumi.Input[_builtins.str] container_path: The path inside the container at which to expose the host device.
+        :param pulumi.Input[_builtins.str] host_path: The path for the device on the host container instance.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] permissions: The explicit permissions to provide to the container for the device. By default, the container has permissions for ``read``, ``write``, and ``mknod`` for the device.
+        """
         if container_path is not None:
             pulumi.set(__self__, "container_path", container_path)
         if host_path is not None:
@@ -3052,6 +3369,9 @@ class DaemonTaskDefinitionDeviceArgs:
     @_builtins.property
     @pulumi.getter(name="containerPath")
     def container_path(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The path inside the container at which to expose the host device.
+        """
         return pulumi.get(self, "container_path")
 
     @container_path.setter
@@ -3061,6 +3381,9 @@ class DaemonTaskDefinitionDeviceArgs:
     @_builtins.property
     @pulumi.getter(name="hostPath")
     def host_path(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The path for the device on the host container instance.
+        """
         return pulumi.get(self, "host_path")
 
     @host_path.setter
@@ -3070,6 +3393,9 @@ class DaemonTaskDefinitionDeviceArgs:
     @_builtins.property
     @pulumi.getter
     def permissions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        The explicit permissions to provide to the container for the device. By default, the container has permissions for ``read``, ``write``, and ``mknod`` for the device.
+        """
         return pulumi.get(self, "permissions")
 
     @permissions.setter
@@ -3078,14 +3404,49 @@ class DaemonTaskDefinitionDeviceArgs:
 
 
 class DaemonTaskDefinitionEnvironmentFileArgsDict(TypedDict):
+    """
+    A list of files containing the environment variables to pass to a container. You can specify up to ten environment files. The file must have a ``.env`` file extension. Each line in an environment file should contain an environment variable in ``VARIABLE=VALUE`` format. Lines beginning with ``#`` are treated as comments and are ignored.
+     If there are environment variables specified using the ``environment`` parameter in a container definition, they take precedence over the variables contained within an environment file. If multiple environment files are specified that contain the same variable, they're processed from the top down. We recommend that you use unique variable names. For more information, see [Use a file to pass environment variables to a container](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/use-environment-file.html) in the *Amazon Elastic Container Service Developer Guide*.
+     Environment variable files are objects in Amazon S3 and all Amazon S3 security considerations apply. 
+     You must use the following platforms for the Fargate launch type:
+      +  Linux platform version ``1.4.0`` or later.
+      +  Windows platform version ``1.0.0`` or later.
+      
+     Consider the following when using the Fargate launch type:
+      +  The file is handled like a native Docker env-file.
+      +  There is no support for shell escape handling.
+      +  The container entry point interperts the ``VARIABLE`` values.
+    """
     type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The file type to use. Environment files are objects in Amazon S3. The only supported value is ``s3``.
+    """
     value: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Amazon Resource Name (ARN) of the Amazon S3 object containing the environment variable file.
+    """
 
 @pulumi.input_type
 class DaemonTaskDefinitionEnvironmentFileArgs:
     def __init__(__self__, *,
                  type: Optional[pulumi.Input[_builtins.str]] = None,
                  value: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        A list of files containing the environment variables to pass to a container. You can specify up to ten environment files. The file must have a ``.env`` file extension. Each line in an environment file should contain an environment variable in ``VARIABLE=VALUE`` format. Lines beginning with ``#`` are treated as comments and are ignored.
+         If there are environment variables specified using the ``environment`` parameter in a container definition, they take precedence over the variables contained within an environment file. If multiple environment files are specified that contain the same variable, they're processed from the top down. We recommend that you use unique variable names. For more information, see [Use a file to pass environment variables to a container](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/use-environment-file.html) in the *Amazon Elastic Container Service Developer Guide*.
+         Environment variable files are objects in Amazon S3 and all Amazon S3 security considerations apply. 
+         You must use the following platforms for the Fargate launch type:
+          +  Linux platform version ``1.4.0`` or later.
+          +  Windows platform version ``1.0.0`` or later.
+          
+         Consider the following when using the Fargate launch type:
+          +  The file is handled like a native Docker env-file.
+          +  There is no support for shell escape handling.
+          +  The container entry point interperts the ``VARIABLE`` values.
+
+        :param pulumi.Input[_builtins.str] type: The file type to use. Environment files are objects in Amazon S3. The only supported value is ``s3``.
+        :param pulumi.Input[_builtins.str] value: The Amazon Resource Name (ARN) of the Amazon S3 object containing the environment variable file.
+        """
         if type is not None:
             pulumi.set(__self__, "type", type)
         if value is not None:
@@ -3094,6 +3455,9 @@ class DaemonTaskDefinitionEnvironmentFileArgs:
     @_builtins.property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The file type to use. Environment files are objects in Amazon S3. The only supported value is ``s3``.
+        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -3103,6 +3467,9 @@ class DaemonTaskDefinitionEnvironmentFileArgs:
     @_builtins.property
     @pulumi.getter
     def value(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The Amazon Resource Name (ARN) of the Amazon S3 object containing the environment variable file.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -3111,14 +3478,31 @@ class DaemonTaskDefinitionEnvironmentFileArgs:
 
 
 class DaemonTaskDefinitionFirelensConfigurationArgsDict(TypedDict):
+    """
+    The FireLens configuration for the container. This is used to specify and configure a log router for container logs. For more information, see [Custom log routing](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_firelens.html) in the *Amazon Elastic Container Service Developer Guide*.
+    """
     options: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    The options to use when configuring the log router. This field is optional and can be used to specify a custom configuration file or to add additional metadata, such as the task, task definition, cluster, and container instance details to the log event. If specified, the syntax to use is ``"options":{"enable-ecs-log-metadata":"true|false","config-file-type:"s3|file","config-file-value":"arn:aws:s3:::mybucket/fluent.conf|filepath"}``. For more information, see [Creating a task definition that uses a FireLens configuration](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_firelens.html#firelens-taskdef) in the *Amazon Elastic Container Service Developer Guide*.
+      Tasks hosted on FARGATElong only support the ``file`` configuration file type.
+    """
     type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The log router to use. The valid values are ``fluentd`` or ``fluentbit``.
+    """
 
 @pulumi.input_type
 class DaemonTaskDefinitionFirelensConfigurationArgs:
     def __init__(__self__, *,
                  options: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  type: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        The FireLens configuration for the container. This is used to specify and configure a log router for container logs. For more information, see [Custom log routing](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_firelens.html) in the *Amazon Elastic Container Service Developer Guide*.
+
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] options: The options to use when configuring the log router. This field is optional and can be used to specify a custom configuration file or to add additional metadata, such as the task, task definition, cluster, and container instance details to the log event. If specified, the syntax to use is ``"options":{"enable-ecs-log-metadata":"true|false","config-file-type:"s3|file","config-file-value":"arn:aws:s3:::mybucket/fluent.conf|filepath"}``. For more information, see [Creating a task definition that uses a FireLens configuration](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_firelens.html#firelens-taskdef) in the *Amazon Elastic Container Service Developer Guide*.
+                 Tasks hosted on FARGATElong only support the ``file`` configuration file type.
+        :param pulumi.Input[_builtins.str] type: The log router to use. The valid values are ``fluentd`` or ``fluentbit``.
+        """
         if options is not None:
             pulumi.set(__self__, "options", options)
         if type is not None:
@@ -3127,6 +3511,10 @@ class DaemonTaskDefinitionFirelensConfigurationArgs:
     @_builtins.property
     @pulumi.getter
     def options(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+        """
+        The options to use when configuring the log router. This field is optional and can be used to specify a custom configuration file or to add additional metadata, such as the task, task definition, cluster, and container instance details to the log event. If specified, the syntax to use is ``"options":{"enable-ecs-log-metadata":"true|false","config-file-type:"s3|file","config-file-value":"arn:aws:s3:::mybucket/fluent.conf|filepath"}``. For more information, see [Creating a task definition that uses a FireLens configuration](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_firelens.html#firelens-taskdef) in the *Amazon Elastic Container Service Developer Guide*.
+          Tasks hosted on FARGATElong only support the ``file`` configuration file type.
+        """
         return pulumi.get(self, "options")
 
     @options.setter
@@ -3136,6 +3524,9 @@ class DaemonTaskDefinitionFirelensConfigurationArgs:
     @_builtins.property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The log router to use. The valid values are ``fluentd`` or ``fluentbit``.
+        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -3144,11 +3535,87 @@ class DaemonTaskDefinitionFirelensConfigurationArgs:
 
 
 class DaemonTaskDefinitionHealthCheckArgsDict(TypedDict):
+    """
+    An object representing a container health check. Health check parameters that are specified in a container definition override any Docker health checks that exist in the container image (such as those specified in a parent image or from the image's Dockerfile). This configuration maps to the ``HEALTHCHECK`` parameter of docker run.
+      The Amazon ECS container agent only monitors and reports on the health checks specified in the task definition. Amazon ECS does not monitor Docker health checks that are embedded in a container image and not specified in the container definition. Health check parameters that are specified in a container definition override any Docker health checks that exist in the container image.
+      You can view the health status of both individual containers and a task with the DescribeTasks API operation or when viewing the task details in the console.
+     The health check is designed to make sure that your containers survive agent restarts, upgrades, or temporary unavailability.
+     Amazon ECS performs health checks on containers with the default that launched the container instance or the task.
+     The following describes the possible ``healthStatus`` values for a container:
+      +  ``HEALTHY``-The container health check has passed successfully.
+      +  ``UNHEALTHY``-The container health check has failed.
+      +  ``UNKNOWN``-The container health check is being evaluated, there's no container health check defined, or Amazon ECS doesn't have the health status of the container.
+      
+     The following describes the possible ``healthStatus`` values based on the container health checker status of essential containers in the task with the following priority order (high to low):
+      +  ``UNHEALTHY``-One or more essential containers have failed their health check.
+      +  ``UNKNOWN``-Any essential container running within the task is in an ``UNKNOWN`` state and no other essential containers have an ``UNHEALTHY`` state.
+      +  ``HEALTHY``-All essential containers within the task have passed their health checks.
+      
+     Consider the following task health example with 2 containers.
+      +  If Container1 is ``UNHEALTHY`` and Container2 is ``UNKNOWN``, the task health is ``UNHEALTHY``.
+      +  If Container1 is ``UNHEALTHY`` and Container2 is ``HEALTHY``, the task health is ``UNHEALTHY``.
+      +  If Container1 is ``HEALTHY`` and Container2 is ``UNKNOWN``, the task health is ``UNKNOWN``.
+      +  If Container1 is ``HEALTHY`` and Container2 is ``HEALTHY``, the task health is ``HEALTHY``.
+      
+     Consider the following task health example with 3 containers.
+      +  If Container1 is ``UNHEALTHY`` and Container2 is ``UNKNOWN``, and Container3 is ``UNKNOWN``, the task health is ``UNHEALTHY``.
+      +  If Container1 is ``UNHEALTHY`` and Container2 is ``UNKNOWN``, and Container3 is ``HEALTHY``, the task health is ``UNHEALTHY``.
+      +  If Container1 is ``UNHEALTHY`` and Container2 is ``HEALTHY``, and Container3 is ``HEALTHY``, the task health is ``UNHEALTHY``.
+      +  If Container1 is ``HEALTHY`` and Container2 is ``UNKNOWN``, and Container3 is ``HEALTHY``, the task health is ``UNKNOWN``.
+      +  If Container1 is ``HEALTHY`` and Container2 is ``UNKNOWN``, and Container3 is ``UNKNOWN``, the task health is ``UNKNOWN``.
+      +  If Container1 is ``HEALTHY`` and Container2 is ``HEALTHY``, and Container3 is ``HEALTHY``, the task health is ``HEALTHY``.
+      
+     If a task is run manually, and not as part of a service, the task will continue its lifecycle regardless of its health status. For tasks that are part of a service, if the task reports as unhealthy then the task will be stopped and the service scheduler will replace it.
+     When a container health check fails for a task that is part of a service, the following process occurs:
+      1.  The task is marked as ``UNHEALTHY``.
+      1.  The unhealthy task will be stopped, and during the stopping process, it will go through the following states:
+      +  ``DEACTIVATING`` - In this state, Amazon ECS performs additional steps before stopping the task. For example, for tasks that are part of services configured to use Elastic Load Balancing target groups, target groups will be deregistered in this state.
+      +  ``STOPPING`` - The task is in the process of being stopped.
+      +  ``DEPROVISIONING`` - Resources associated with the task are being cleaned up.
+      +  ``STOPPED`` - The task has been completely stopped.
+      
+      1.  After the old task stops, a new task will be launched to ensure service operation, and the new task will go through the following lifecycle:
+      +  ``PROVISIONING`` - Resources required for the task are being provisioned.
+      +  ``PENDING`` - The task is waiting to be placed on a container instance.
+      +  ``ACTIVATING`` - In this state, Amazon ECS pulls container images, creates containers, configures task networking, registers load balancer target groups, and configures service discovery status.
+      +  ``RUNNING`` - The task is running and performing its work.
+      
+      
+     For more detailed information about task lifecycle states, see [Task lifecycle](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-lifecycle-explanation.html) in the *Amazon Elastic Container Service Developer Guide*.
+     The following are notes about container health check support:
+      +  If the Amazon ECS container agent becomes disconnected from the Amazon ECS service, this won't cause a container to transition to an ``UNHEALTHY`` status. This is by design, to ensure that containers remain running during agent restarts or temporary unavailability. The health check status is the "last heard from" response from the Amazon ECS agent, so if the container was considered ``HEALTHY`` prior to the disconnect, that status will remain until the agent reconnects and another health check occurs. There are no assumptions made about the status of the container health checks.
+      +  Container health checks require version ``1.17.0`` or greater of the Amazon ECS container agent. For more information, see [Updating the Amazon ECS container agent](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-update.html).
+      +  Container health checks are supported for Fargate tasks if you're using platform version ``1.1.0`` or greater. For more information, see [platform versions](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
+      +  Container health checks aren't supported for tasks that are part of a service that's configured to use a Classic Load Balancer.
+      
+     For an example of how to specify a task definition with multiple containers where container dependency is specified, see [Container dependency](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/example_task_definitions.html#example_task_definition-containerdependency) in the *Amazon Elastic Container Service Developer Guide*.
+    """
     command: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A string array representing the command that the container runs to determine if it is healthy. The string array must start with ``CMD`` to run the command arguments directly, or ``CMD-SHELL`` to run the command with the container's default shell. 
+      When you use the AWS Management Console JSON panel, the CLIlong, or the APIs, enclose the list of commands in double quotes and brackets.
+      ``[ "CMD-SHELL", "curl -f http://localhost/ || exit 1" ]`` 
+     You don't include the double quotes and brackets when you use the AWS Management Console.
+      ``CMD-SHELL, curl -f http://localhost/ || exit 1`` 
+     An exit code of 0 indicates success, and non-zero exit code indicates failure. For more information, see ``HealthCheck`` in the docker container create command.
+    """
     interval: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The time period in seconds between each health check execution. You may specify between 5 and 300 seconds. The default value is 30 seconds. This value applies only when you specify a ``command``.
+    """
     retries: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The number of times to retry a failed health check before the container is considered unhealthy. You may specify between 1 and 10 retries. The default value is 3. This value applies only when you specify a ``command``.
+    """
     start_period: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The optional grace period to provide containers time to bootstrap before failed health checks count towards the maximum number of retries. You can specify between 0 and 300 seconds. By default, the ``startPeriod`` is off. This value applies only when you specify a ``command``. 
+      If a health check succeeds within the ``startPeriod``, then the container is considered healthy and any subsequent failures count toward the maximum number of retries.
+    """
     timeout: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The time period in seconds to wait for a health check to succeed before it is considered a failure. You may specify between 2 and 60 seconds. The default value is 5. This value applies only when you specify a ``command``.
+    """
 
 @pulumi.input_type
 class DaemonTaskDefinitionHealthCheckArgs:
@@ -3158,6 +3625,73 @@ class DaemonTaskDefinitionHealthCheckArgs:
                  retries: Optional[pulumi.Input[_builtins.int]] = None,
                  start_period: Optional[pulumi.Input[_builtins.int]] = None,
                  timeout: Optional[pulumi.Input[_builtins.int]] = None):
+        """
+        An object representing a container health check. Health check parameters that are specified in a container definition override any Docker health checks that exist in the container image (such as those specified in a parent image or from the image's Dockerfile). This configuration maps to the ``HEALTHCHECK`` parameter of docker run.
+          The Amazon ECS container agent only monitors and reports on the health checks specified in the task definition. Amazon ECS does not monitor Docker health checks that are embedded in a container image and not specified in the container definition. Health check parameters that are specified in a container definition override any Docker health checks that exist in the container image.
+          You can view the health status of both individual containers and a task with the DescribeTasks API operation or when viewing the task details in the console.
+         The health check is designed to make sure that your containers survive agent restarts, upgrades, or temporary unavailability.
+         Amazon ECS performs health checks on containers with the default that launched the container instance or the task.
+         The following describes the possible ``healthStatus`` values for a container:
+          +  ``HEALTHY``-The container health check has passed successfully.
+          +  ``UNHEALTHY``-The container health check has failed.
+          +  ``UNKNOWN``-The container health check is being evaluated, there's no container health check defined, or Amazon ECS doesn't have the health status of the container.
+          
+         The following describes the possible ``healthStatus`` values based on the container health checker status of essential containers in the task with the following priority order (high to low):
+          +  ``UNHEALTHY``-One or more essential containers have failed their health check.
+          +  ``UNKNOWN``-Any essential container running within the task is in an ``UNKNOWN`` state and no other essential containers have an ``UNHEALTHY`` state.
+          +  ``HEALTHY``-All essential containers within the task have passed their health checks.
+          
+         Consider the following task health example with 2 containers.
+          +  If Container1 is ``UNHEALTHY`` and Container2 is ``UNKNOWN``, the task health is ``UNHEALTHY``.
+          +  If Container1 is ``UNHEALTHY`` and Container2 is ``HEALTHY``, the task health is ``UNHEALTHY``.
+          +  If Container1 is ``HEALTHY`` and Container2 is ``UNKNOWN``, the task health is ``UNKNOWN``.
+          +  If Container1 is ``HEALTHY`` and Container2 is ``HEALTHY``, the task health is ``HEALTHY``.
+          
+         Consider the following task health example with 3 containers.
+          +  If Container1 is ``UNHEALTHY`` and Container2 is ``UNKNOWN``, and Container3 is ``UNKNOWN``, the task health is ``UNHEALTHY``.
+          +  If Container1 is ``UNHEALTHY`` and Container2 is ``UNKNOWN``, and Container3 is ``HEALTHY``, the task health is ``UNHEALTHY``.
+          +  If Container1 is ``UNHEALTHY`` and Container2 is ``HEALTHY``, and Container3 is ``HEALTHY``, the task health is ``UNHEALTHY``.
+          +  If Container1 is ``HEALTHY`` and Container2 is ``UNKNOWN``, and Container3 is ``HEALTHY``, the task health is ``UNKNOWN``.
+          +  If Container1 is ``HEALTHY`` and Container2 is ``UNKNOWN``, and Container3 is ``UNKNOWN``, the task health is ``UNKNOWN``.
+          +  If Container1 is ``HEALTHY`` and Container2 is ``HEALTHY``, and Container3 is ``HEALTHY``, the task health is ``HEALTHY``.
+          
+         If a task is run manually, and not as part of a service, the task will continue its lifecycle regardless of its health status. For tasks that are part of a service, if the task reports as unhealthy then the task will be stopped and the service scheduler will replace it.
+         When a container health check fails for a task that is part of a service, the following process occurs:
+          1.  The task is marked as ``UNHEALTHY``.
+          1.  The unhealthy task will be stopped, and during the stopping process, it will go through the following states:
+          +  ``DEACTIVATING`` - In this state, Amazon ECS performs additional steps before stopping the task. For example, for tasks that are part of services configured to use Elastic Load Balancing target groups, target groups will be deregistered in this state.
+          +  ``STOPPING`` - The task is in the process of being stopped.
+          +  ``DEPROVISIONING`` - Resources associated with the task are being cleaned up.
+          +  ``STOPPED`` - The task has been completely stopped.
+          
+          1.  After the old task stops, a new task will be launched to ensure service operation, and the new task will go through the following lifecycle:
+          +  ``PROVISIONING`` - Resources required for the task are being provisioned.
+          +  ``PENDING`` - The task is waiting to be placed on a container instance.
+          +  ``ACTIVATING`` - In this state, Amazon ECS pulls container images, creates containers, configures task networking, registers load balancer target groups, and configures service discovery status.
+          +  ``RUNNING`` - The task is running and performing its work.
+          
+          
+         For more detailed information about task lifecycle states, see [Task lifecycle](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-lifecycle-explanation.html) in the *Amazon Elastic Container Service Developer Guide*.
+         The following are notes about container health check support:
+          +  If the Amazon ECS container agent becomes disconnected from the Amazon ECS service, this won't cause a container to transition to an ``UNHEALTHY`` status. This is by design, to ensure that containers remain running during agent restarts or temporary unavailability. The health check status is the "last heard from" response from the Amazon ECS agent, so if the container was considered ``HEALTHY`` prior to the disconnect, that status will remain until the agent reconnects and another health check occurs. There are no assumptions made about the status of the container health checks.
+          +  Container health checks require version ``1.17.0`` or greater of the Amazon ECS container agent. For more information, see [Updating the Amazon ECS container agent](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-update.html).
+          +  Container health checks are supported for Fargate tasks if you're using platform version ``1.1.0`` or greater. For more information, see [platform versions](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
+          +  Container health checks aren't supported for tasks that are part of a service that's configured to use a Classic Load Balancer.
+          
+         For an example of how to specify a task definition with multiple containers where container dependency is specified, see [Container dependency](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/example_task_definitions.html#example_task_definition-containerdependency) in the *Amazon Elastic Container Service Developer Guide*.
+
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] command: A string array representing the command that the container runs to determine if it is healthy. The string array must start with ``CMD`` to run the command arguments directly, or ``CMD-SHELL`` to run the command with the container's default shell. 
+                 When you use the AWS Management Console JSON panel, the CLIlong, or the APIs, enclose the list of commands in double quotes and brackets.
+                 ``[ "CMD-SHELL", "curl -f http://localhost/ || exit 1" ]`` 
+                You don't include the double quotes and brackets when you use the AWS Management Console.
+                 ``CMD-SHELL, curl -f http://localhost/ || exit 1`` 
+                An exit code of 0 indicates success, and non-zero exit code indicates failure. For more information, see ``HealthCheck`` in the docker container create command.
+        :param pulumi.Input[_builtins.int] interval: The time period in seconds between each health check execution. You may specify between 5 and 300 seconds. The default value is 30 seconds. This value applies only when you specify a ``command``.
+        :param pulumi.Input[_builtins.int] retries: The number of times to retry a failed health check before the container is considered unhealthy. You may specify between 1 and 10 retries. The default value is 3. This value applies only when you specify a ``command``.
+        :param pulumi.Input[_builtins.int] start_period: The optional grace period to provide containers time to bootstrap before failed health checks count towards the maximum number of retries. You can specify between 0 and 300 seconds. By default, the ``startPeriod`` is off. This value applies only when you specify a ``command``. 
+                 If a health check succeeds within the ``startPeriod``, then the container is considered healthy and any subsequent failures count toward the maximum number of retries.
+        :param pulumi.Input[_builtins.int] timeout: The time period in seconds to wait for a health check to succeed before it is considered a failure. You may specify between 2 and 60 seconds. The default value is 5. This value applies only when you specify a ``command``.
+        """
         if command is not None:
             pulumi.set(__self__, "command", command)
         if interval is not None:
@@ -3172,6 +3706,14 @@ class DaemonTaskDefinitionHealthCheckArgs:
     @_builtins.property
     @pulumi.getter
     def command(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        A string array representing the command that the container runs to determine if it is healthy. The string array must start with ``CMD`` to run the command arguments directly, or ``CMD-SHELL`` to run the command with the container's default shell. 
+          When you use the AWS Management Console JSON panel, the CLIlong, or the APIs, enclose the list of commands in double quotes and brackets.
+          ``[ "CMD-SHELL", "curl -f http://localhost/ || exit 1" ]`` 
+         You don't include the double quotes and brackets when you use the AWS Management Console.
+          ``CMD-SHELL, curl -f http://localhost/ || exit 1`` 
+         An exit code of 0 indicates success, and non-zero exit code indicates failure. For more information, see ``HealthCheck`` in the docker container create command.
+        """
         return pulumi.get(self, "command")
 
     @command.setter
@@ -3181,6 +3723,9 @@ class DaemonTaskDefinitionHealthCheckArgs:
     @_builtins.property
     @pulumi.getter
     def interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        The time period in seconds between each health check execution. You may specify between 5 and 300 seconds. The default value is 30 seconds. This value applies only when you specify a ``command``.
+        """
         return pulumi.get(self, "interval")
 
     @interval.setter
@@ -3190,6 +3735,9 @@ class DaemonTaskDefinitionHealthCheckArgs:
     @_builtins.property
     @pulumi.getter
     def retries(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        The number of times to retry a failed health check before the container is considered unhealthy. You may specify between 1 and 10 retries. The default value is 3. This value applies only when you specify a ``command``.
+        """
         return pulumi.get(self, "retries")
 
     @retries.setter
@@ -3199,6 +3747,10 @@ class DaemonTaskDefinitionHealthCheckArgs:
     @_builtins.property
     @pulumi.getter(name="startPeriod")
     def start_period(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        The optional grace period to provide containers time to bootstrap before failed health checks count towards the maximum number of retries. You can specify between 0 and 300 seconds. By default, the ``startPeriod`` is off. This value applies only when you specify a ``command``. 
+          If a health check succeeds within the ``startPeriod``, then the container is considered healthy and any subsequent failures count toward the maximum number of retries.
+        """
         return pulumi.get(self, "start_period")
 
     @start_period.setter
@@ -3208,6 +3760,9 @@ class DaemonTaskDefinitionHealthCheckArgs:
     @_builtins.property
     @pulumi.getter
     def timeout(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        The time period in seconds to wait for a health check to succeed before it is considered a failure. You may specify between 2 and 60 seconds. The default value is 5. This value applies only when you specify a ``command``.
+        """
         return pulumi.get(self, "timeout")
 
     @timeout.setter
@@ -3216,18 +3771,35 @@ class DaemonTaskDefinitionHealthCheckArgs:
 
 
 class DaemonTaskDefinitionHostVolumePropertiesArgsDict(TypedDict):
+    """
+    Details on a container instance bind mount host volume.
+    """
     source_path: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    When the ``host`` parameter is used, specify a ``sourcePath`` to declare the path on the host container instance that's presented to the container. If this parameter is empty, then the Docker daemon has assigned a host path for you. If the ``host`` parameter contains a ``sourcePath`` file location, then the data volume persists at the specified location on the host container instance until you delete it manually. If the ``sourcePath`` value doesn't exist on the host container instance, the Docker daemon creates it. If the location does exist, the contents of the source path folder are exported.
+     If you're using the Fargate launch type, the ``sourcePath`` parameter is not supported.
+    """
 
 @pulumi.input_type
 class DaemonTaskDefinitionHostVolumePropertiesArgs:
     def __init__(__self__, *,
                  source_path: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        Details on a container instance bind mount host volume.
+
+        :param pulumi.Input[_builtins.str] source_path: When the ``host`` parameter is used, specify a ``sourcePath`` to declare the path on the host container instance that's presented to the container. If this parameter is empty, then the Docker daemon has assigned a host path for you. If the ``host`` parameter contains a ``sourcePath`` file location, then the data volume persists at the specified location on the host container instance until you delete it manually. If the ``sourcePath`` value doesn't exist on the host container instance, the Docker daemon creates it. If the location does exist, the contents of the source path folder are exported.
+                If you're using the Fargate launch type, the ``sourcePath`` parameter is not supported.
+        """
         if source_path is not None:
             pulumi.set(__self__, "source_path", source_path)
 
     @_builtins.property
     @pulumi.getter(name="sourcePath")
     def source_path(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        When the ``host`` parameter is used, specify a ``sourcePath`` to declare the path on the host container instance that's presented to the container. If this parameter is empty, then the Docker daemon has assigned a host path for you. If the ``host`` parameter contains a ``sourcePath`` file location, then the data volume persists at the specified location on the host container instance until you delete it manually. If the ``sourcePath`` value doesn't exist on the host container instance, the Docker daemon creates it. If the location does exist, the contents of the source path folder are exported.
+         If you're using the Fargate launch type, the ``sourcePath`` parameter is not supported.
+        """
         return pulumi.get(self, "source_path")
 
     @source_path.setter
@@ -3236,14 +3808,47 @@ class DaemonTaskDefinitionHostVolumePropertiesArgs:
 
 
 class DaemonTaskDefinitionKernelCapabilitiesArgsDict(TypedDict):
+    """
+    The Linux capabilities to add or remove from the default Docker configuration for a container defined in the task definition. For more detailed information about these Linux capabilities, see the [capabilities(7)](https://docs.aws.amazon.com/http://man7.org/linux/man-pages/man7/capabilities.7.html) Linux manual page.
+     The following describes how Docker processes the Linux capabilities specified in the ``add`` and ``drop`` request parameters. For information about the latest behavior, see [Docker Compose: order of cap_drop and cap_add](https://docs.aws.amazon.com/https://forums.docker.com/t/docker-compose-order-of-cap-drop-and-cap-add/97136/1) in the Docker Community Forum.
+      +  When the container is a privleged container, the container capabilities are all of the default Docker capabilities. The capabilities specified in the ``add`` request parameter, and the ``drop`` request parameter are ignored.
+      +  When the ``add`` request parameter is set to ALL, the container capabilities are all of the default Docker capabilities, excluding those specified in the ``drop`` request parameter.
+      +  When the ``drop`` request parameter is set to ALL, the container capabilities are the capabilities specified in the ``add`` request parameter.
+      +  When the ``add`` request parameter and the ``drop`` request parameter are both empty, the capabilities the container capabilities are all of the default Docker capabilities.
+      +  The default is to first drop the capabilities specified in the ``drop`` request parameter, and then add the capabilities specified in the ``add`` request parameter.
+    """
     add: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The Linux capabilities for the container that have been added to the default configuration provided by Docker. This parameter maps to ``CapAdd`` in the docker container create command and the ``--cap-add`` option to docker run.
+      Tasks launched on FARGATElong only support adding the ``SYS_PTRACE`` kernel capability.
+      Valid values: ``"ALL" | "AUDIT_CONTROL" | "AUDIT_WRITE" | "BLOCK_SUSPEND" | "CHOWN" | "DAC_OVERRIDE" | "DAC_READ_SEARCH" | "FOWNER" | "FSETID" | "IPC_LOCK" | "IPC_OWNER" | "KILL" | "LEASE" | "LINUX_IMMUTABLE" | "MAC_ADMIN" | "MAC_OVERRIDE" | "MKNOD" | "NET_ADMIN" | "NET_BIND_SERVICE" | "NET_BROADCAST" | "NET_RAW" | "SETFCAP" | "SETGID" | "SETPCAP" | "SETUID" | "SYS_ADMIN" | "SYS_BOOT" | "SYS_CHROOT" | "SYS_MODULE" | "SYS_NICE" | "SYS_PACCT" | "SYS_PTRACE" | "SYS_RAWIO" | "SYS_RESOURCE" | "SYS_TIME" | "SYS_TTY_CONFIG" | "SYSLOG" | "WAKE_ALARM"``
+    """
     drop: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The Linux capabilities for the container that have been removed from the default configuration provided by Docker. This parameter maps to ``CapDrop`` in the docker container create command and the ``--cap-drop`` option to docker run.
+     Valid values: ``"ALL" | "AUDIT_CONTROL" | "AUDIT_WRITE" | "BLOCK_SUSPEND" | "CHOWN" | "DAC_OVERRIDE" | "DAC_READ_SEARCH" | "FOWNER" | "FSETID" | "IPC_LOCK" | "IPC_OWNER" | "KILL" | "LEASE" | "LINUX_IMMUTABLE" | "MAC_ADMIN" | "MAC_OVERRIDE" | "MKNOD" | "NET_ADMIN" | "NET_BIND_SERVICE" | "NET_BROADCAST" | "NET_RAW" | "SETFCAP" | "SETGID" | "SETPCAP" | "SETUID" | "SYS_ADMIN" | "SYS_BOOT" | "SYS_CHROOT" | "SYS_MODULE" | "SYS_NICE" | "SYS_PACCT" | "SYS_PTRACE" | "SYS_RAWIO" | "SYS_RESOURCE" | "SYS_TIME" | "SYS_TTY_CONFIG" | "SYSLOG" | "WAKE_ALARM"``
+    """
 
 @pulumi.input_type
 class DaemonTaskDefinitionKernelCapabilitiesArgs:
     def __init__(__self__, *,
                  add: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  drop: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        The Linux capabilities to add or remove from the default Docker configuration for a container defined in the task definition. For more detailed information about these Linux capabilities, see the [capabilities(7)](https://docs.aws.amazon.com/http://man7.org/linux/man-pages/man7/capabilities.7.html) Linux manual page.
+         The following describes how Docker processes the Linux capabilities specified in the ``add`` and ``drop`` request parameters. For information about the latest behavior, see [Docker Compose: order of cap_drop and cap_add](https://docs.aws.amazon.com/https://forums.docker.com/t/docker-compose-order-of-cap-drop-and-cap-add/97136/1) in the Docker Community Forum.
+          +  When the container is a privleged container, the container capabilities are all of the default Docker capabilities. The capabilities specified in the ``add`` request parameter, and the ``drop`` request parameter are ignored.
+          +  When the ``add`` request parameter is set to ALL, the container capabilities are all of the default Docker capabilities, excluding those specified in the ``drop`` request parameter.
+          +  When the ``drop`` request parameter is set to ALL, the container capabilities are the capabilities specified in the ``add`` request parameter.
+          +  When the ``add`` request parameter and the ``drop`` request parameter are both empty, the capabilities the container capabilities are all of the default Docker capabilities.
+          +  The default is to first drop the capabilities specified in the ``drop`` request parameter, and then add the capabilities specified in the ``add`` request parameter.
+
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] add: The Linux capabilities for the container that have been added to the default configuration provided by Docker. This parameter maps to ``CapAdd`` in the docker container create command and the ``--cap-add`` option to docker run.
+                 Tasks launched on FARGATElong only support adding the ``SYS_PTRACE`` kernel capability.
+                 Valid values: ``"ALL" | "AUDIT_CONTROL" | "AUDIT_WRITE" | "BLOCK_SUSPEND" | "CHOWN" | "DAC_OVERRIDE" | "DAC_READ_SEARCH" | "FOWNER" | "FSETID" | "IPC_LOCK" | "IPC_OWNER" | "KILL" | "LEASE" | "LINUX_IMMUTABLE" | "MAC_ADMIN" | "MAC_OVERRIDE" | "MKNOD" | "NET_ADMIN" | "NET_BIND_SERVICE" | "NET_BROADCAST" | "NET_RAW" | "SETFCAP" | "SETGID" | "SETPCAP" | "SETUID" | "SYS_ADMIN" | "SYS_BOOT" | "SYS_CHROOT" | "SYS_MODULE" | "SYS_NICE" | "SYS_PACCT" | "SYS_PTRACE" | "SYS_RAWIO" | "SYS_RESOURCE" | "SYS_TIME" | "SYS_TTY_CONFIG" | "SYSLOG" | "WAKE_ALARM"``
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] drop: The Linux capabilities for the container that have been removed from the default configuration provided by Docker. This parameter maps to ``CapDrop`` in the docker container create command and the ``--cap-drop`` option to docker run.
+                Valid values: ``"ALL" | "AUDIT_CONTROL" | "AUDIT_WRITE" | "BLOCK_SUSPEND" | "CHOWN" | "DAC_OVERRIDE" | "DAC_READ_SEARCH" | "FOWNER" | "FSETID" | "IPC_LOCK" | "IPC_OWNER" | "KILL" | "LEASE" | "LINUX_IMMUTABLE" | "MAC_ADMIN" | "MAC_OVERRIDE" | "MKNOD" | "NET_ADMIN" | "NET_BIND_SERVICE" | "NET_BROADCAST" | "NET_RAW" | "SETFCAP" | "SETGID" | "SETPCAP" | "SETUID" | "SYS_ADMIN" | "SYS_BOOT" | "SYS_CHROOT" | "SYS_MODULE" | "SYS_NICE" | "SYS_PACCT" | "SYS_PTRACE" | "SYS_RAWIO" | "SYS_RESOURCE" | "SYS_TIME" | "SYS_TTY_CONFIG" | "SYSLOG" | "WAKE_ALARM"``
+        """
         if add is not None:
             pulumi.set(__self__, "add", add)
         if drop is not None:
@@ -3252,6 +3857,11 @@ class DaemonTaskDefinitionKernelCapabilitiesArgs:
     @_builtins.property
     @pulumi.getter
     def add(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        The Linux capabilities for the container that have been added to the default configuration provided by Docker. This parameter maps to ``CapAdd`` in the docker container create command and the ``--cap-add`` option to docker run.
+          Tasks launched on FARGATElong only support adding the ``SYS_PTRACE`` kernel capability.
+          Valid values: ``"ALL" | "AUDIT_CONTROL" | "AUDIT_WRITE" | "BLOCK_SUSPEND" | "CHOWN" | "DAC_OVERRIDE" | "DAC_READ_SEARCH" | "FOWNER" | "FSETID" | "IPC_LOCK" | "IPC_OWNER" | "KILL" | "LEASE" | "LINUX_IMMUTABLE" | "MAC_ADMIN" | "MAC_OVERRIDE" | "MKNOD" | "NET_ADMIN" | "NET_BIND_SERVICE" | "NET_BROADCAST" | "NET_RAW" | "SETFCAP" | "SETGID" | "SETPCAP" | "SETUID" | "SYS_ADMIN" | "SYS_BOOT" | "SYS_CHROOT" | "SYS_MODULE" | "SYS_NICE" | "SYS_PACCT" | "SYS_PTRACE" | "SYS_RAWIO" | "SYS_RESOURCE" | "SYS_TIME" | "SYS_TTY_CONFIG" | "SYSLOG" | "WAKE_ALARM"``
+        """
         return pulumi.get(self, "add")
 
     @add.setter
@@ -3261,6 +3871,10 @@ class DaemonTaskDefinitionKernelCapabilitiesArgs:
     @_builtins.property
     @pulumi.getter
     def drop(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        The Linux capabilities for the container that have been removed from the default configuration provided by Docker. This parameter maps to ``CapDrop`` in the docker container create command and the ``--cap-drop`` option to docker run.
+         Valid values: ``"ALL" | "AUDIT_CONTROL" | "AUDIT_WRITE" | "BLOCK_SUSPEND" | "CHOWN" | "DAC_OVERRIDE" | "DAC_READ_SEARCH" | "FOWNER" | "FSETID" | "IPC_LOCK" | "IPC_OWNER" | "KILL" | "LEASE" | "LINUX_IMMUTABLE" | "MAC_ADMIN" | "MAC_OVERRIDE" | "MKNOD" | "NET_ADMIN" | "NET_BIND_SERVICE" | "NET_BROADCAST" | "NET_RAW" | "SETFCAP" | "SETGID" | "SETPCAP" | "SETUID" | "SYS_ADMIN" | "SYS_BOOT" | "SYS_CHROOT" | "SYS_MODULE" | "SYS_NICE" | "SYS_PACCT" | "SYS_PTRACE" | "SYS_RAWIO" | "SYS_RESOURCE" | "SYS_TIME" | "SYS_TTY_CONFIG" | "SYSLOG" | "WAKE_ALARM"``
+        """
         return pulumi.get(self, "drop")
 
     @drop.setter
@@ -3269,14 +3883,29 @@ class DaemonTaskDefinitionKernelCapabilitiesArgs:
 
 
 class DaemonTaskDefinitionKeyValuePairArgsDict(TypedDict):
+    """
+    A key-value pair object.
+    """
     name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the key-value pair. For environment variables, this is the name of the environment variable.
+    """
     value: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The value of the key-value pair. For environment variables, this is the value of the environment variable.
+    """
 
 @pulumi.input_type
 class DaemonTaskDefinitionKeyValuePairArgs:
     def __init__(__self__, *,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  value: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        A key-value pair object.
+
+        :param pulumi.Input[_builtins.str] name: The name of the key-value pair. For environment variables, this is the name of the environment variable.
+        :param pulumi.Input[_builtins.str] value: The value of the key-value pair. For environment variables, this is the value of the environment variable.
+        """
         if name is not None:
             pulumi.set(__self__, "name", name)
         if value is not None:
@@ -3285,6 +3914,9 @@ class DaemonTaskDefinitionKeyValuePairArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The name of the key-value pair. For environment variables, this is the name of the environment variable.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -3294,6 +3926,9 @@ class DaemonTaskDefinitionKeyValuePairArgs:
     @_builtins.property
     @pulumi.getter
     def value(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The value of the key-value pair. For environment variables, this is the value of the environment variable.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -3302,10 +3937,28 @@ class DaemonTaskDefinitionKeyValuePairArgs:
 
 
 class DaemonTaskDefinitionLinuxParametersArgsDict(TypedDict):
+    """
+    The Linux-specific options that are applied to the container, such as Linux [KernelCapabilities](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_KernelCapabilities.html).
+    """
     capabilities: NotRequired[pulumi.Input['DaemonTaskDefinitionKernelCapabilitiesArgsDict']]
+    """
+    The Linux capabilities for the container that are added to or dropped from the default configuration provided by Docker.
+      For tasks that use the Fargate launch type, ``capabilities`` is supported for all platform versions but the ``add`` parameter is only supported if using platform version 1.4.0 or later.
+    """
     devices: NotRequired[pulumi.Input[Sequence[pulumi.Input['DaemonTaskDefinitionDeviceArgsDict']]]]
+    """
+    Any host devices to expose to the container. This parameter maps to ``Devices`` in the docker container create command and the ``--device`` option to docker run.
+      If you're using tasks that use the Fargate launch type, the ``devices`` parameter isn't supported.
+    """
     init_process_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Run an ``init`` process inside the container that forwards signals and reaps processes. This parameter maps to the ``--init`` option to docker run. This parameter requires version 1.25 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log in to your container instance and run the following command: ``sudo docker version --format '{{.Server.APIVersion}}'``
+    """
     tmpfs: NotRequired[pulumi.Input[Sequence[pulumi.Input['DaemonTaskDefinitionTmpfsArgsDict']]]]
+    """
+    The container path, mount options, and size (in MiB) of the tmpfs mount. This parameter maps to the ``--tmpfs`` option to docker run.
+      If you're using tasks that use the Fargate launch type, the ``tmpfs`` parameter isn't supported.
+    """
 
 @pulumi.input_type
 class DaemonTaskDefinitionLinuxParametersArgs:
@@ -3314,6 +3967,17 @@ class DaemonTaskDefinitionLinuxParametersArgs:
                  devices: Optional[pulumi.Input[Sequence[pulumi.Input['DaemonTaskDefinitionDeviceArgs']]]] = None,
                  init_process_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  tmpfs: Optional[pulumi.Input[Sequence[pulumi.Input['DaemonTaskDefinitionTmpfsArgs']]]] = None):
+        """
+        The Linux-specific options that are applied to the container, such as Linux [KernelCapabilities](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_KernelCapabilities.html).
+
+        :param pulumi.Input['DaemonTaskDefinitionKernelCapabilitiesArgs'] capabilities: The Linux capabilities for the container that are added to or dropped from the default configuration provided by Docker.
+                 For tasks that use the Fargate launch type, ``capabilities`` is supported for all platform versions but the ``add`` parameter is only supported if using platform version 1.4.0 or later.
+        :param pulumi.Input[Sequence[pulumi.Input['DaemonTaskDefinitionDeviceArgs']]] devices: Any host devices to expose to the container. This parameter maps to ``Devices`` in the docker container create command and the ``--device`` option to docker run.
+                 If you're using tasks that use the Fargate launch type, the ``devices`` parameter isn't supported.
+        :param pulumi.Input[_builtins.bool] init_process_enabled: Run an ``init`` process inside the container that forwards signals and reaps processes. This parameter maps to the ``--init`` option to docker run. This parameter requires version 1.25 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log in to your container instance and run the following command: ``sudo docker version --format '{{.Server.APIVersion}}'``
+        :param pulumi.Input[Sequence[pulumi.Input['DaemonTaskDefinitionTmpfsArgs']]] tmpfs: The container path, mount options, and size (in MiB) of the tmpfs mount. This parameter maps to the ``--tmpfs`` option to docker run.
+                 If you're using tasks that use the Fargate launch type, the ``tmpfs`` parameter isn't supported.
+        """
         if capabilities is not None:
             pulumi.set(__self__, "capabilities", capabilities)
         if devices is not None:
@@ -3326,6 +3990,10 @@ class DaemonTaskDefinitionLinuxParametersArgs:
     @_builtins.property
     @pulumi.getter
     def capabilities(self) -> Optional[pulumi.Input['DaemonTaskDefinitionKernelCapabilitiesArgs']]:
+        """
+        The Linux capabilities for the container that are added to or dropped from the default configuration provided by Docker.
+          For tasks that use the Fargate launch type, ``capabilities`` is supported for all platform versions but the ``add`` parameter is only supported if using platform version 1.4.0 or later.
+        """
         return pulumi.get(self, "capabilities")
 
     @capabilities.setter
@@ -3335,6 +4003,10 @@ class DaemonTaskDefinitionLinuxParametersArgs:
     @_builtins.property
     @pulumi.getter
     def devices(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DaemonTaskDefinitionDeviceArgs']]]]:
+        """
+        Any host devices to expose to the container. This parameter maps to ``Devices`` in the docker container create command and the ``--device`` option to docker run.
+          If you're using tasks that use the Fargate launch type, the ``devices`` parameter isn't supported.
+        """
         return pulumi.get(self, "devices")
 
     @devices.setter
@@ -3344,6 +4016,9 @@ class DaemonTaskDefinitionLinuxParametersArgs:
     @_builtins.property
     @pulumi.getter(name="initProcessEnabled")
     def init_process_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Run an ``init`` process inside the container that forwards signals and reaps processes. This parameter maps to the ``--init`` option to docker run. This parameter requires version 1.25 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log in to your container instance and run the following command: ``sudo docker version --format '{{.Server.APIVersion}}'``
+        """
         return pulumi.get(self, "init_process_enabled")
 
     @init_process_enabled.setter
@@ -3353,6 +4028,10 @@ class DaemonTaskDefinitionLinuxParametersArgs:
     @_builtins.property
     @pulumi.getter
     def tmpfs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DaemonTaskDefinitionTmpfsArgs']]]]:
+        """
+        The container path, mount options, and size (in MiB) of the tmpfs mount. This parameter maps to the ``--tmpfs`` option to docker run.
+          If you're using tasks that use the Fargate launch type, the ``tmpfs`` parameter isn't supported.
+        """
         return pulumi.get(self, "tmpfs")
 
     @tmpfs.setter
@@ -3361,9 +4040,45 @@ class DaemonTaskDefinitionLinuxParametersArgs:
 
 
 class DaemonTaskDefinitionLogConfigurationArgsDict(TypedDict):
+    """
+    The log configuration for the container. This parameter maps to ``LogConfig`` in the docker container create command and the ``--log-driver`` option to docker run.
+     By default, containers use the same logging driver that the Docker daemon uses. However, the container might use a different logging driver than the Docker daemon by specifying a log driver configuration in the container definition.
+     Understand the following when specifying a log configuration for your containers.
+      +  Amazon ECS currently supports a subset of the logging drivers available to the Docker daemon. Additional log drivers may be available in future releases of the Amazon ECS container agent.
+     For tasks on FARGATElong, the supported log drivers are ``awslogs``, ``splunk``, and ``awsfirelens``.
+     For tasks hosted on Amazon EC2 instances, the supported log drivers are ``awslogs``, ``fluentd``, ``gelf``, ``json-file``, ``journald``,``syslog``, ``splunk``, and ``awsfirelens``.
+      +  This parameter requires version 1.18 of the Docker Remote API or greater on your container instance.
+      +  For tasks that are hosted on Amazon EC2 instances, the Amazon ECS container agent must register the available logging drivers with the ``ECS_AVAILABLE_LOGGING_DRIVERS`` environment variable before containers placed on that instance can use these log configuration options. For more information, see [Amazon ECS container agent configuration](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-config.html) in the *Amazon Elastic Container Service Developer Guide*.
+      +  For tasks that are on FARGATElong, because you don't have access to the underlying infrastructure your tasks are hosted on, any additional software needed must be installed outside of the task. For example, the Fluentd output aggregators or a remote host running Logstash to send Gelf logs to.
+    """
     log_driver: pulumi.Input[_builtins.str]
+    """
+    The log driver to use for the container.
+     For tasks on FARGATElong, the supported log drivers are ``awslogs``, ``splunk``, and ``awsfirelens``.
+     For tasks hosted on Amazon EC2 instances, the supported log drivers are ``awslogs``, ``fluentd``, ``gelf``, ``json-file``, ``journald``, ``syslog``, ``splunk``, and ``awsfirelens``.
+     For more information about using the ``awslogs`` log driver, see [Send Amazon ECS logs to CloudWatch](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_awslogs.html) in the *Amazon Elastic Container Service Developer Guide*.
+     For more information about using the ``awsfirelens`` log driver, see [Send Amazon ECS logs to an service or Partner](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_firelens.html).
+      If you have a custom driver that isn't listed, you can fork the Amazon ECS container agent project that's [available on GitHub](https://docs.aws.amazon.com/https://github.com/aws/amazon-ecs-agent) and customize it to work with that driver. We encourage you to submit pull requests for changes that you would like to have included. However, we don't currently provide support for running modified copies of this software.
+    """
     options: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    The configuration options to send to the log driver.
+     The options you can specify depend on the log driver. Some of the options you can specify when you use the ``awslogs`` log driver to route logs to Amazon CloudWatch include the following:
+      + awslogs-create-group Required: No Specify whether you want the log group to be created automatically. If this option isn't specified, it defaults to false. Your IAM policy must include the logs:CreateLogGroup permission before you attempt to use awslogs-create-group. + awslogs-region Required: Yes Specify the Region that the awslogs log driver is to send your Docker logs to. You can choose to send all of your logs from clusters in different Regions to a single region in CloudWatch Logs. This is so that they're all visible in one location. Otherwise, you can separate them by Region for more granularity. Make sure that the specified log group exists in the Region that you specify with this option. + awslogs-group Required: Yes Make sure to specify a log group that the awslogs log driver sends its log streams to. + awslogs-stream-prefix Required: Yes, when using Fargate.Optional when using EC2. Use the awslogs-stream-prefix option to associate a log stream with the specified prefix, the container name, and the ID of the Amazon ECS task that the container belongs to. If you specify a prefix with this option, then the log stream takes the format prefix-name/container-name/ecs-task-id. If you don't specify a prefix with this option, then the log stream is named after the container ID that's assigned by the Docker daemon on the container instance. Because it's difficult to trace logs back to the container that sent them with just the Docker container ID (which is only available on the container instance), we recommend that you specify a prefix with this option. For Amazon ECS services, you can use the service name as the prefix. Doing so, you can trace log streams to the service that the container belongs to, the name of the container that sent them, and the ID of the task that the container belongs to. You must specify a stream-prefix for your logs to have your logs appear in the Log pane when using the Amazon ECS console. + awslogs-datetime-format Required: No This option defines a multiline start pattern in Python strftime format. A log message consists of a line that matches the pattern and any following lines that don’t match the pattern. The matched line is the delimiter between log messages. One example of a use case for using this format is for parsing output such as a stack dump, which might otherwise be logged in multiple entries. The correct pattern allows it to be captured in a single entry. For more information, see awslogs-datetime-format. You cannot configure both the awslogs-datetime-format and awslogs-multiline-pattern options. Multiline logging performs regular expression parsing and matching of all log messages. This might have a negative impact on logging performance. + awslogs-multiline-pattern Required: No This option defines a multiline start pattern that uses a regular expression. A log message consists of a line that matches the pattern and any following lines that don’t match the pattern. The matched line is the delimiter between log messages. For more information, see awslogs-multiline-pattern. This option is ignored if awslogs-datetime-format is also configured. You cannot configure both the awslogs-datetime-format and awslogs-multiline-pattern options. Multiline logging performs regular expression parsing and matching of all log messages. This might have a negative impact on logging performance. 
+     The following options apply to all supported log drivers.
+      + mode Required: No Valid values: non-blocking | blocking This option defines the delivery mode of log messages from the container to the log driver specified using logDriver. The delivery mode you choose affects application availability when the flow of logs from container is interrupted. If you use the blocking mode and the flow of logs is interrupted, calls from container code to write to the stdout and stderr streams will block. The logging thread of the application will block as a result. This may cause the application to become unresponsive and lead to container healthcheck failure. If you use the non-blocking mode, the container's logs are instead stored in an in-memory intermediate buffer configured with the max-buffer-size option. This prevents the application from becoming unresponsive when logs cannot be sent. We recommend using this mode if you want to ensure service availability and are okay with some log loss. For more information, see Preventing log loss with non-blocking mode in the awslogs container log driver. You can set a default mode for all containers in a specific Region by using the defaultLogDriverMode account setting. If you don't specify the mode option or configure the account setting, Amazon ECS will default to the non-blocking mode. For more information about the account setting, see Default log driver mode in the Amazon Elastic Container Service Developer Guide. On June 25, 2025, Amazon ECS changed the default log driver mode from blocking to non-blocking to prioritize task availability over logging. To continue using the blocking mode after this change, do one of the following: Set the mode option in your container definition's logConfiguration as blocking. Set the defaultLogDriverMode account setting to blocking. + max-buffer-size Required: No Default value: 10m When non-blocking mode is used, the max-buffer-size log option controls the size of the buffer that's used for intermediate message storage. Make sure to specify an adequate buffer size based on your application. When the buffer fills up, further logs cannot be stored. Logs that cannot be stored are lost. 
+     To route logs using the ``splunk`` log router, you need to specify a ``splunk-token`` and a ``splunk-url``.
+     When you use the ``awsfirelens`` log router to route logs to an AWS Service or AWS Partner Network destination for log storage and analytics, you can set the ``log-driver-buffer-limit`` option to limit the number of events that are buffered in memory, before being sent to the log router container. It can help to resolve potential log loss issue because high throughput might result in memory running out for the buffer inside of Docker.
+     Other options you can specify when using ``awsfirelens`` to route logs depend on the destination. When you export logs to Amazon Data Firehose, you can specify the AWS Region with ``region`` and a name for the log stream with ``delivery_stream``.
+     When you export logs to Amazon Kinesis Data Streams, you can specify an AWS Region with ``region`` and a data stream name with ``stream``.
+      When you export logs to Amazon OpenSearch Service, you can specify options like ``Name``, ``Host`` (OpenSearch Service endpoint without protocol), ``Port``, ``Index``, ``Type``, ``Aws_auth``, ``Aws_region``, ``Suppress_Type_Name``, and ``tls``. For more information, see [Under the hood: FireLens for Amazon ECS Tasks](https://docs.aws.amazon.com/containers/under-the-hood-firelens-for-amazon-ecs-tasks/).
+     When you export logs to Amazon S3, you can specify the bucket using the ``bucket`` option. You can also specify ``region``, ``total_file_size``, ``upload_timeout``, and ``use_put_object`` as options.
+     This parameter requires version 1.19 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log in to your container instance and run the following command: ``sudo docker version --format '{{.Server.APIVersion}}'``
+    """
     secret_options: NotRequired[pulumi.Input[Sequence[pulumi.Input['DaemonTaskDefinitionSecretArgsDict']]]]
+    """
+    The secrets to pass to the log configuration. For more information, see [Specifying sensitive data](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/specifying-sensitive-data.html) in the *Amazon Elastic Container Service Developer Guide*.
+    """
 
 @pulumi.input_type
 class DaemonTaskDefinitionLogConfigurationArgs:
@@ -3371,6 +4086,37 @@ class DaemonTaskDefinitionLogConfigurationArgs:
                  log_driver: pulumi.Input[_builtins.str],
                  options: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  secret_options: Optional[pulumi.Input[Sequence[pulumi.Input['DaemonTaskDefinitionSecretArgs']]]] = None):
+        """
+        The log configuration for the container. This parameter maps to ``LogConfig`` in the docker container create command and the ``--log-driver`` option to docker run.
+         By default, containers use the same logging driver that the Docker daemon uses. However, the container might use a different logging driver than the Docker daemon by specifying a log driver configuration in the container definition.
+         Understand the following when specifying a log configuration for your containers.
+          +  Amazon ECS currently supports a subset of the logging drivers available to the Docker daemon. Additional log drivers may be available in future releases of the Amazon ECS container agent.
+         For tasks on FARGATElong, the supported log drivers are ``awslogs``, ``splunk``, and ``awsfirelens``.
+         For tasks hosted on Amazon EC2 instances, the supported log drivers are ``awslogs``, ``fluentd``, ``gelf``, ``json-file``, ``journald``,``syslog``, ``splunk``, and ``awsfirelens``.
+          +  This parameter requires version 1.18 of the Docker Remote API or greater on your container instance.
+          +  For tasks that are hosted on Amazon EC2 instances, the Amazon ECS container agent must register the available logging drivers with the ``ECS_AVAILABLE_LOGGING_DRIVERS`` environment variable before containers placed on that instance can use these log configuration options. For more information, see [Amazon ECS container agent configuration](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-config.html) in the *Amazon Elastic Container Service Developer Guide*.
+          +  For tasks that are on FARGATElong, because you don't have access to the underlying infrastructure your tasks are hosted on, any additional software needed must be installed outside of the task. For example, the Fluentd output aggregators or a remote host running Logstash to send Gelf logs to.
+
+        :param pulumi.Input[_builtins.str] log_driver: The log driver to use for the container.
+                For tasks on FARGATElong, the supported log drivers are ``awslogs``, ``splunk``, and ``awsfirelens``.
+                For tasks hosted on Amazon EC2 instances, the supported log drivers are ``awslogs``, ``fluentd``, ``gelf``, ``json-file``, ``journald``, ``syslog``, ``splunk``, and ``awsfirelens``.
+                For more information about using the ``awslogs`` log driver, see [Send Amazon ECS logs to CloudWatch](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_awslogs.html) in the *Amazon Elastic Container Service Developer Guide*.
+                For more information about using the ``awsfirelens`` log driver, see [Send Amazon ECS logs to an service or Partner](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_firelens.html).
+                 If you have a custom driver that isn't listed, you can fork the Amazon ECS container agent project that's [available on GitHub](https://docs.aws.amazon.com/https://github.com/aws/amazon-ecs-agent) and customize it to work with that driver. We encourage you to submit pull requests for changes that you would like to have included. However, we don't currently provide support for running modified copies of this software.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] options: The configuration options to send to the log driver.
+                The options you can specify depend on the log driver. Some of the options you can specify when you use the ``awslogs`` log driver to route logs to Amazon CloudWatch include the following:
+                 + awslogs-create-group Required: No Specify whether you want the log group to be created automatically. If this option isn't specified, it defaults to false. Your IAM policy must include the logs:CreateLogGroup permission before you attempt to use awslogs-create-group. + awslogs-region Required: Yes Specify the Region that the awslogs log driver is to send your Docker logs to. You can choose to send all of your logs from clusters in different Regions to a single region in CloudWatch Logs. This is so that they're all visible in one location. Otherwise, you can separate them by Region for more granularity. Make sure that the specified log group exists in the Region that you specify with this option. + awslogs-group Required: Yes Make sure to specify a log group that the awslogs log driver sends its log streams to. + awslogs-stream-prefix Required: Yes, when using Fargate.Optional when using EC2. Use the awslogs-stream-prefix option to associate a log stream with the specified prefix, the container name, and the ID of the Amazon ECS task that the container belongs to. If you specify a prefix with this option, then the log stream takes the format prefix-name/container-name/ecs-task-id. If you don't specify a prefix with this option, then the log stream is named after the container ID that's assigned by the Docker daemon on the container instance. Because it's difficult to trace logs back to the container that sent them with just the Docker container ID (which is only available on the container instance), we recommend that you specify a prefix with this option. For Amazon ECS services, you can use the service name as the prefix. Doing so, you can trace log streams to the service that the container belongs to, the name of the container that sent them, and the ID of the task that the container belongs to. You must specify a stream-prefix for your logs to have your logs appear in the Log pane when using the Amazon ECS console. + awslogs-datetime-format Required: No This option defines a multiline start pattern in Python strftime format. A log message consists of a line that matches the pattern and any following lines that don’t match the pattern. The matched line is the delimiter between log messages. One example of a use case for using this format is for parsing output such as a stack dump, which might otherwise be logged in multiple entries. The correct pattern allows it to be captured in a single entry. For more information, see awslogs-datetime-format. You cannot configure both the awslogs-datetime-format and awslogs-multiline-pattern options. Multiline logging performs regular expression parsing and matching of all log messages. This might have a negative impact on logging performance. + awslogs-multiline-pattern Required: No This option defines a multiline start pattern that uses a regular expression. A log message consists of a line that matches the pattern and any following lines that don’t match the pattern. The matched line is the delimiter between log messages. For more information, see awslogs-multiline-pattern. This option is ignored if awslogs-datetime-format is also configured. You cannot configure both the awslogs-datetime-format and awslogs-multiline-pattern options. Multiline logging performs regular expression parsing and matching of all log messages. This might have a negative impact on logging performance. 
+                The following options apply to all supported log drivers.
+                 + mode Required: No Valid values: non-blocking | blocking This option defines the delivery mode of log messages from the container to the log driver specified using logDriver. The delivery mode you choose affects application availability when the flow of logs from container is interrupted. If you use the blocking mode and the flow of logs is interrupted, calls from container code to write to the stdout and stderr streams will block. The logging thread of the application will block as a result. This may cause the application to become unresponsive and lead to container healthcheck failure. If you use the non-blocking mode, the container's logs are instead stored in an in-memory intermediate buffer configured with the max-buffer-size option. This prevents the application from becoming unresponsive when logs cannot be sent. We recommend using this mode if you want to ensure service availability and are okay with some log loss. For more information, see Preventing log loss with non-blocking mode in the awslogs container log driver. You can set a default mode for all containers in a specific Region by using the defaultLogDriverMode account setting. If you don't specify the mode option or configure the account setting, Amazon ECS will default to the non-blocking mode. For more information about the account setting, see Default log driver mode in the Amazon Elastic Container Service Developer Guide. On June 25, 2025, Amazon ECS changed the default log driver mode from blocking to non-blocking to prioritize task availability over logging. To continue using the blocking mode after this change, do one of the following: Set the mode option in your container definition's logConfiguration as blocking. Set the defaultLogDriverMode account setting to blocking. + max-buffer-size Required: No Default value: 10m When non-blocking mode is used, the max-buffer-size log option controls the size of the buffer that's used for intermediate message storage. Make sure to specify an adequate buffer size based on your application. When the buffer fills up, further logs cannot be stored. Logs that cannot be stored are lost. 
+                To route logs using the ``splunk`` log router, you need to specify a ``splunk-token`` and a ``splunk-url``.
+                When you use the ``awsfirelens`` log router to route logs to an AWS Service or AWS Partner Network destination for log storage and analytics, you can set the ``log-driver-buffer-limit`` option to limit the number of events that are buffered in memory, before being sent to the log router container. It can help to resolve potential log loss issue because high throughput might result in memory running out for the buffer inside of Docker.
+                Other options you can specify when using ``awsfirelens`` to route logs depend on the destination. When you export logs to Amazon Data Firehose, you can specify the AWS Region with ``region`` and a name for the log stream with ``delivery_stream``.
+                When you export logs to Amazon Kinesis Data Streams, you can specify an AWS Region with ``region`` and a data stream name with ``stream``.
+                 When you export logs to Amazon OpenSearch Service, you can specify options like ``Name``, ``Host`` (OpenSearch Service endpoint without protocol), ``Port``, ``Index``, ``Type``, ``Aws_auth``, ``Aws_region``, ``Suppress_Type_Name``, and ``tls``. For more information, see [Under the hood: FireLens for Amazon ECS Tasks](https://docs.aws.amazon.com/containers/under-the-hood-firelens-for-amazon-ecs-tasks/).
+                When you export logs to Amazon S3, you can specify the bucket using the ``bucket`` option. You can also specify ``region``, ``total_file_size``, ``upload_timeout``, and ``use_put_object`` as options.
+                This parameter requires version 1.19 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log in to your container instance and run the following command: ``sudo docker version --format '{{.Server.APIVersion}}'``
+        :param pulumi.Input[Sequence[pulumi.Input['DaemonTaskDefinitionSecretArgs']]] secret_options: The secrets to pass to the log configuration. For more information, see [Specifying sensitive data](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/specifying-sensitive-data.html) in the *Amazon Elastic Container Service Developer Guide*.
+        """
         pulumi.set(__self__, "log_driver", log_driver)
         if options is not None:
             pulumi.set(__self__, "options", options)
@@ -3380,6 +4126,14 @@ class DaemonTaskDefinitionLogConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="logDriver")
     def log_driver(self) -> pulumi.Input[_builtins.str]:
+        """
+        The log driver to use for the container.
+         For tasks on FARGATElong, the supported log drivers are ``awslogs``, ``splunk``, and ``awsfirelens``.
+         For tasks hosted on Amazon EC2 instances, the supported log drivers are ``awslogs``, ``fluentd``, ``gelf``, ``json-file``, ``journald``, ``syslog``, ``splunk``, and ``awsfirelens``.
+         For more information about using the ``awslogs`` log driver, see [Send Amazon ECS logs to CloudWatch](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_awslogs.html) in the *Amazon Elastic Container Service Developer Guide*.
+         For more information about using the ``awsfirelens`` log driver, see [Send Amazon ECS logs to an service or Partner](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_firelens.html).
+          If you have a custom driver that isn't listed, you can fork the Amazon ECS container agent project that's [available on GitHub](https://docs.aws.amazon.com/https://github.com/aws/amazon-ecs-agent) and customize it to work with that driver. We encourage you to submit pull requests for changes that you would like to have included. However, we don't currently provide support for running modified copies of this software.
+        """
         return pulumi.get(self, "log_driver")
 
     @log_driver.setter
@@ -3389,6 +4143,20 @@ class DaemonTaskDefinitionLogConfigurationArgs:
     @_builtins.property
     @pulumi.getter
     def options(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+        """
+        The configuration options to send to the log driver.
+         The options you can specify depend on the log driver. Some of the options you can specify when you use the ``awslogs`` log driver to route logs to Amazon CloudWatch include the following:
+          + awslogs-create-group Required: No Specify whether you want the log group to be created automatically. If this option isn't specified, it defaults to false. Your IAM policy must include the logs:CreateLogGroup permission before you attempt to use awslogs-create-group. + awslogs-region Required: Yes Specify the Region that the awslogs log driver is to send your Docker logs to. You can choose to send all of your logs from clusters in different Regions to a single region in CloudWatch Logs. This is so that they're all visible in one location. Otherwise, you can separate them by Region for more granularity. Make sure that the specified log group exists in the Region that you specify with this option. + awslogs-group Required: Yes Make sure to specify a log group that the awslogs log driver sends its log streams to. + awslogs-stream-prefix Required: Yes, when using Fargate.Optional when using EC2. Use the awslogs-stream-prefix option to associate a log stream with the specified prefix, the container name, and the ID of the Amazon ECS task that the container belongs to. If you specify a prefix with this option, then the log stream takes the format prefix-name/container-name/ecs-task-id. If you don't specify a prefix with this option, then the log stream is named after the container ID that's assigned by the Docker daemon on the container instance. Because it's difficult to trace logs back to the container that sent them with just the Docker container ID (which is only available on the container instance), we recommend that you specify a prefix with this option. For Amazon ECS services, you can use the service name as the prefix. Doing so, you can trace log streams to the service that the container belongs to, the name of the container that sent them, and the ID of the task that the container belongs to. You must specify a stream-prefix for your logs to have your logs appear in the Log pane when using the Amazon ECS console. + awslogs-datetime-format Required: No This option defines a multiline start pattern in Python strftime format. A log message consists of a line that matches the pattern and any following lines that don’t match the pattern. The matched line is the delimiter between log messages. One example of a use case for using this format is for parsing output such as a stack dump, which might otherwise be logged in multiple entries. The correct pattern allows it to be captured in a single entry. For more information, see awslogs-datetime-format. You cannot configure both the awslogs-datetime-format and awslogs-multiline-pattern options. Multiline logging performs regular expression parsing and matching of all log messages. This might have a negative impact on logging performance. + awslogs-multiline-pattern Required: No This option defines a multiline start pattern that uses a regular expression. A log message consists of a line that matches the pattern and any following lines that don’t match the pattern. The matched line is the delimiter between log messages. For more information, see awslogs-multiline-pattern. This option is ignored if awslogs-datetime-format is also configured. You cannot configure both the awslogs-datetime-format and awslogs-multiline-pattern options. Multiline logging performs regular expression parsing and matching of all log messages. This might have a negative impact on logging performance. 
+         The following options apply to all supported log drivers.
+          + mode Required: No Valid values: non-blocking | blocking This option defines the delivery mode of log messages from the container to the log driver specified using logDriver. The delivery mode you choose affects application availability when the flow of logs from container is interrupted. If you use the blocking mode and the flow of logs is interrupted, calls from container code to write to the stdout and stderr streams will block. The logging thread of the application will block as a result. This may cause the application to become unresponsive and lead to container healthcheck failure. If you use the non-blocking mode, the container's logs are instead stored in an in-memory intermediate buffer configured with the max-buffer-size option. This prevents the application from becoming unresponsive when logs cannot be sent. We recommend using this mode if you want to ensure service availability and are okay with some log loss. For more information, see Preventing log loss with non-blocking mode in the awslogs container log driver. You can set a default mode for all containers in a specific Region by using the defaultLogDriverMode account setting. If you don't specify the mode option or configure the account setting, Amazon ECS will default to the non-blocking mode. For more information about the account setting, see Default log driver mode in the Amazon Elastic Container Service Developer Guide. On June 25, 2025, Amazon ECS changed the default log driver mode from blocking to non-blocking to prioritize task availability over logging. To continue using the blocking mode after this change, do one of the following: Set the mode option in your container definition's logConfiguration as blocking. Set the defaultLogDriverMode account setting to blocking. + max-buffer-size Required: No Default value: 10m When non-blocking mode is used, the max-buffer-size log option controls the size of the buffer that's used for intermediate message storage. Make sure to specify an adequate buffer size based on your application. When the buffer fills up, further logs cannot be stored. Logs that cannot be stored are lost. 
+         To route logs using the ``splunk`` log router, you need to specify a ``splunk-token`` and a ``splunk-url``.
+         When you use the ``awsfirelens`` log router to route logs to an AWS Service or AWS Partner Network destination for log storage and analytics, you can set the ``log-driver-buffer-limit`` option to limit the number of events that are buffered in memory, before being sent to the log router container. It can help to resolve potential log loss issue because high throughput might result in memory running out for the buffer inside of Docker.
+         Other options you can specify when using ``awsfirelens`` to route logs depend on the destination. When you export logs to Amazon Data Firehose, you can specify the AWS Region with ``region`` and a name for the log stream with ``delivery_stream``.
+         When you export logs to Amazon Kinesis Data Streams, you can specify an AWS Region with ``region`` and a data stream name with ``stream``.
+          When you export logs to Amazon OpenSearch Service, you can specify options like ``Name``, ``Host`` (OpenSearch Service endpoint without protocol), ``Port``, ``Index``, ``Type``, ``Aws_auth``, ``Aws_region``, ``Suppress_Type_Name``, and ``tls``. For more information, see [Under the hood: FireLens for Amazon ECS Tasks](https://docs.aws.amazon.com/containers/under-the-hood-firelens-for-amazon-ecs-tasks/).
+         When you export logs to Amazon S3, you can specify the bucket using the ``bucket`` option. You can also specify ``region``, ``total_file_size``, ``upload_timeout``, and ``use_put_object`` as options.
+         This parameter requires version 1.19 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log in to your container instance and run the following command: ``sudo docker version --format '{{.Server.APIVersion}}'``
+        """
         return pulumi.get(self, "options")
 
     @options.setter
@@ -3398,6 +4166,9 @@ class DaemonTaskDefinitionLogConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="secretOptions")
     def secret_options(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DaemonTaskDefinitionSecretArgs']]]]:
+        """
+        The secrets to pass to the log configuration. For more information, see [Specifying sensitive data](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/specifying-sensitive-data.html) in the *Amazon Elastic Container Service Developer Guide*.
+        """
         return pulumi.get(self, "secret_options")
 
     @secret_options.setter
@@ -3406,9 +4177,21 @@ class DaemonTaskDefinitionLogConfigurationArgs:
 
 
 class DaemonTaskDefinitionMountPointArgsDict(TypedDict):
+    """
+    The details for a volume mount point that's used in a container definition.
+    """
     container_path: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The path on the container to mount the host volume at.
+    """
     read_only: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    If this value is ``true``, the container has read-only access to the volume. If this value is ``false``, then the container can write to the volume. The default value is ``false``.
+    """
     source_volume: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the volume to mount. Must be a volume name referenced in the ``name`` parameter of task definition ``volume``.
+    """
 
 @pulumi.input_type
 class DaemonTaskDefinitionMountPointArgs:
@@ -3416,6 +4199,13 @@ class DaemonTaskDefinitionMountPointArgs:
                  container_path: Optional[pulumi.Input[_builtins.str]] = None,
                  read_only: Optional[pulumi.Input[_builtins.bool]] = None,
                  source_volume: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        The details for a volume mount point that's used in a container definition.
+
+        :param pulumi.Input[_builtins.str] container_path: The path on the container to mount the host volume at.
+        :param pulumi.Input[_builtins.bool] read_only: If this value is ``true``, the container has read-only access to the volume. If this value is ``false``, then the container can write to the volume. The default value is ``false``.
+        :param pulumi.Input[_builtins.str] source_volume: The name of the volume to mount. Must be a volume name referenced in the ``name`` parameter of task definition ``volume``.
+        """
         if container_path is not None:
             pulumi.set(__self__, "container_path", container_path)
         if read_only is not None:
@@ -3426,6 +4216,9 @@ class DaemonTaskDefinitionMountPointArgs:
     @_builtins.property
     @pulumi.getter(name="containerPath")
     def container_path(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The path on the container to mount the host volume at.
+        """
         return pulumi.get(self, "container_path")
 
     @container_path.setter
@@ -3435,6 +4228,9 @@ class DaemonTaskDefinitionMountPointArgs:
     @_builtins.property
     @pulumi.getter(name="readOnly")
     def read_only(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        If this value is ``true``, the container has read-only access to the volume. If this value is ``false``, then the container can write to the volume. The default value is ``false``.
+        """
         return pulumi.get(self, "read_only")
 
     @read_only.setter
@@ -3444,6 +4240,9 @@ class DaemonTaskDefinitionMountPointArgs:
     @_builtins.property
     @pulumi.getter(name="sourceVolume")
     def source_volume(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The name of the volume to mount. Must be a volume name referenced in the ``name`` parameter of task definition ``volume``.
+        """
         return pulumi.get(self, "source_volume")
 
     @source_volume.setter
@@ -3452,18 +4251,35 @@ class DaemonTaskDefinitionMountPointArgs:
 
 
 class DaemonTaskDefinitionRepositoryCredentialsArgsDict(TypedDict):
+    """
+    The repository credentials for private registry authentication.
+    """
     credentials_parameter: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Amazon Resource Name (ARN) of the secret containing the private repository credentials.
+      When you use the Amazon ECS API, CLI, or AWS SDK, if the secret exists in the same Region as the task that you're launching then you can use either the full ARN or the name of the secret. When you use the AWS Management Console, you must specify the full ARN of the secret.
+    """
 
 @pulumi.input_type
 class DaemonTaskDefinitionRepositoryCredentialsArgs:
     def __init__(__self__, *,
                  credentials_parameter: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        The repository credentials for private registry authentication.
+
+        :param pulumi.Input[_builtins.str] credentials_parameter: The Amazon Resource Name (ARN) of the secret containing the private repository credentials.
+                 When you use the Amazon ECS API, CLI, or AWS SDK, if the secret exists in the same Region as the task that you're launching then you can use either the full ARN or the name of the secret. When you use the AWS Management Console, you must specify the full ARN of the secret.
+        """
         if credentials_parameter is not None:
             pulumi.set(__self__, "credentials_parameter", credentials_parameter)
 
     @_builtins.property
     @pulumi.getter(name="credentialsParameter")
     def credentials_parameter(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The Amazon Resource Name (ARN) of the secret containing the private repository credentials.
+          When you use the Amazon ECS API, CLI, or AWS SDK, if the secret exists in the same Region as the task that you're launching then you can use either the full ARN or the name of the secret. When you use the AWS Management Console, you must specify the full ARN of the secret.
+        """
         return pulumi.get(self, "credentials_parameter")
 
     @credentials_parameter.setter
@@ -3518,20 +4334,50 @@ class DaemonTaskDefinitionRestartPolicyArgs:
 
 
 class DaemonTaskDefinitionSecretArgsDict(TypedDict):
+    """
+    An object representing the secret to expose to your container. Secrets can be exposed to a container in the following ways:
+      +  To inject sensitive data into your containers as environment variables, use the ``secrets`` container definition parameter.
+      +  To reference sensitive information in the log configuration of a container, use the ``secretOptions`` container definition parameter.
+      
+     For more information, see [Specifying sensitive data](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/specifying-sensitive-data.html) in the *Amazon Elastic Container Service Developer Guide*.
+    """
     name: pulumi.Input[_builtins.str]
+    """
+    The name of the secret.
+    """
     value_from: pulumi.Input[_builtins.str]
+    """
+    The secret to expose to the container. The supported values are either the full ARN of the ASMlong secret or the full ARN of the parameter in the SSM Parameter Store.
+     For information about the require IAMlong permissions, see [Required IAM permissions for Amazon ECS secrets](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/specifying-sensitive-data-secrets.html#secrets-iam) (for Secrets Manager) or [Required IAM permissions for Amazon ECS secrets](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/specifying-sensitive-data-parameters.html) (for Systems Manager Parameter store) in the *Amazon Elastic Container Service Developer Guide*.
+      If the SSM Parameter Store parameter exists in the same Region as the task you're launching, then you can use either the full ARN or name of the parameter. If the parameter exists in a different Region, then the full ARN must be specified.
+    """
 
 @pulumi.input_type
 class DaemonTaskDefinitionSecretArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
                  value_from: pulumi.Input[_builtins.str]):
+        """
+        An object representing the secret to expose to your container. Secrets can be exposed to a container in the following ways:
+          +  To inject sensitive data into your containers as environment variables, use the ``secrets`` container definition parameter.
+          +  To reference sensitive information in the log configuration of a container, use the ``secretOptions`` container definition parameter.
+          
+         For more information, see [Specifying sensitive data](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/specifying-sensitive-data.html) in the *Amazon Elastic Container Service Developer Guide*.
+
+        :param pulumi.Input[_builtins.str] name: The name of the secret.
+        :param pulumi.Input[_builtins.str] value_from: The secret to expose to the container. The supported values are either the full ARN of the ASMlong secret or the full ARN of the parameter in the SSM Parameter Store.
+                For information about the require IAMlong permissions, see [Required IAM permissions for Amazon ECS secrets](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/specifying-sensitive-data-secrets.html#secrets-iam) (for Secrets Manager) or [Required IAM permissions for Amazon ECS secrets](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/specifying-sensitive-data-parameters.html) (for Systems Manager Parameter store) in the *Amazon Elastic Container Service Developer Guide*.
+                 If the SSM Parameter Store parameter exists in the same Region as the task you're launching, then you can use either the full ARN or name of the parameter. If the parameter exists in a different Region, then the full ARN must be specified.
+        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "value_from", value_from)
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the secret.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -3541,6 +4387,11 @@ class DaemonTaskDefinitionSecretArgs:
     @_builtins.property
     @pulumi.getter(name="valueFrom")
     def value_from(self) -> pulumi.Input[_builtins.str]:
+        """
+        The secret to expose to the container. The supported values are either the full ARN of the ASMlong secret or the full ARN of the parameter in the SSM Parameter Store.
+         For information about the require IAMlong permissions, see [Required IAM permissions for Amazon ECS secrets](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/specifying-sensitive-data-secrets.html#secrets-iam) (for Secrets Manager) or [Required IAM permissions for Amazon ECS secrets](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/specifying-sensitive-data-parameters.html) (for Systems Manager Parameter store) in the *Amazon Elastic Container Service Developer Guide*.
+          If the SSM Parameter Store parameter exists in the same Region as the task you're launching, then you can use either the full ARN or name of the parameter. If the parameter exists in a different Region, then the full ARN must be specified.
+        """
         return pulumi.get(self, "value_from")
 
     @value_from.setter
@@ -3549,14 +4400,55 @@ class DaemonTaskDefinitionSecretArgs:
 
 
 class DaemonTaskDefinitionSystemControlArgsDict(TypedDict):
+    """
+    A list of namespaced kernel parameters to set in the container. This parameter maps to ``Sysctls`` in the docker container create command and the ``--sysctl`` option to docker run. For example, you can configure ``net.ipv4.tcp_keepalive_time`` setting to maintain longer lived connections.
+     We don't recommend that you specify network-related ``systemControls`` parameters for multiple containers in a single task that also uses either the ``awsvpc`` or ``host`` network mode. Doing this has the following disadvantages:
+      +  For tasks that use the ``awsvpc`` network mode including Fargate, if you set ``systemControls`` for any container, it applies to all containers in the task. If you set different ``systemControls`` for multiple containers in a single task, the container that's started last determines which ``systemControls`` take effect.
+      +  For tasks that use the ``host`` network mode, the network namespace ``systemControls`` aren't supported.
+      
+     If you're setting an IPC resource namespace to use for the containers in the task, the following conditions apply to your system controls. For more information, see [IPC mode](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html#task_definition_ipcmode).
+      +  For tasks that use the ``host`` IPC mode, IPC namespace ``systemControls`` aren't supported.
+      +  For tasks that use the ``task`` IPC mode, IPC namespace ``systemControls`` values apply to all containers within a task.
+      
+      This parameter is not supported for Windows containers.
+       This parameter is only supported for tasks that are hosted on FARGATElong if the tasks are using platform version ``1.4.0`` or later (Linux). This isn't supported for Windows containers on Fargate.
+    """
     namespace: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The namespaced kernel parameter to set a ``value`` for.
+    """
     value: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The namespaced kernel parameter to set a ``value`` for.
+     Valid IPC namespace values: ``"kernel.msgmax" | "kernel.msgmnb" | "kernel.msgmni" | "kernel.sem" | "kernel.shmall" | "kernel.shmmax" | "kernel.shmmni" | "kernel.shm_rmid_forced"``, and ``Sysctls`` that start with ``"fs.mqueue.*"``
+     Valid network namespace values: ``Sysctls`` that start with ``"net.*"``. Only namespaced ``Sysctls`` that exist within the container starting with "net.* are accepted.
+     All of these values are supported by Fargate.
+    """
 
 @pulumi.input_type
 class DaemonTaskDefinitionSystemControlArgs:
     def __init__(__self__, *,
                  namespace: Optional[pulumi.Input[_builtins.str]] = None,
                  value: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        A list of namespaced kernel parameters to set in the container. This parameter maps to ``Sysctls`` in the docker container create command and the ``--sysctl`` option to docker run. For example, you can configure ``net.ipv4.tcp_keepalive_time`` setting to maintain longer lived connections.
+         We don't recommend that you specify network-related ``systemControls`` parameters for multiple containers in a single task that also uses either the ``awsvpc`` or ``host`` network mode. Doing this has the following disadvantages:
+          +  For tasks that use the ``awsvpc`` network mode including Fargate, if you set ``systemControls`` for any container, it applies to all containers in the task. If you set different ``systemControls`` for multiple containers in a single task, the container that's started last determines which ``systemControls`` take effect.
+          +  For tasks that use the ``host`` network mode, the network namespace ``systemControls`` aren't supported.
+          
+         If you're setting an IPC resource namespace to use for the containers in the task, the following conditions apply to your system controls. For more information, see [IPC mode](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html#task_definition_ipcmode).
+          +  For tasks that use the ``host`` IPC mode, IPC namespace ``systemControls`` aren't supported.
+          +  For tasks that use the ``task`` IPC mode, IPC namespace ``systemControls`` values apply to all containers within a task.
+          
+          This parameter is not supported for Windows containers.
+           This parameter is only supported for tasks that are hosted on FARGATElong if the tasks are using platform version ``1.4.0`` or later (Linux). This isn't supported for Windows containers on Fargate.
+
+        :param pulumi.Input[_builtins.str] namespace: The namespaced kernel parameter to set a ``value`` for.
+        :param pulumi.Input[_builtins.str] value: The namespaced kernel parameter to set a ``value`` for.
+                Valid IPC namespace values: ``"kernel.msgmax" | "kernel.msgmnb" | "kernel.msgmni" | "kernel.sem" | "kernel.shmall" | "kernel.shmmax" | "kernel.shmmni" | "kernel.shm_rmid_forced"``, and ``Sysctls`` that start with ``"fs.mqueue.*"``
+                Valid network namespace values: ``Sysctls`` that start with ``"net.*"``. Only namespaced ``Sysctls`` that exist within the container starting with "net.* are accepted.
+                All of these values are supported by Fargate.
+        """
         if namespace is not None:
             pulumi.set(__self__, "namespace", namespace)
         if value is not None:
@@ -3565,6 +4457,9 @@ class DaemonTaskDefinitionSystemControlArgs:
     @_builtins.property
     @pulumi.getter
     def namespace(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The namespaced kernel parameter to set a ``value`` for.
+        """
         return pulumi.get(self, "namespace")
 
     @namespace.setter
@@ -3574,6 +4469,12 @@ class DaemonTaskDefinitionSystemControlArgs:
     @_builtins.property
     @pulumi.getter
     def value(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The namespaced kernel parameter to set a ``value`` for.
+         Valid IPC namespace values: ``"kernel.msgmax" | "kernel.msgmnb" | "kernel.msgmni" | "kernel.sem" | "kernel.shmall" | "kernel.shmmax" | "kernel.shmmni" | "kernel.shm_rmid_forced"``, and ``Sysctls`` that start with ``"fs.mqueue.*"``
+         Valid network namespace values: ``Sysctls`` that start with ``"net.*"``. Only namespaced ``Sysctls`` that exist within the container starting with "net.* are accepted.
+         All of these values are supported by Fargate.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -3582,9 +4483,22 @@ class DaemonTaskDefinitionSystemControlArgs:
 
 
 class DaemonTaskDefinitionTmpfsArgsDict(TypedDict):
+    """
+    The container path, mount options, and size of the tmpfs mount.
+    """
     size: pulumi.Input[_builtins.int]
+    """
+    The maximum size (in MiB) of the tmpfs volume.
+    """
     container_path: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The absolute file path where the tmpfs volume is to be mounted.
+    """
     mount_options: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The list of tmpfs volume mount options.
+     Valid values: ``"defaults" | "ro" | "rw" | "suid" | "nosuid" | "dev" | "nodev" | "exec" | "noexec" | "sync" | "async" | "dirsync" | "remount" | "mand" | "nomand" | "atime" | "noatime" | "diratime" | "nodiratime" | "bind" | "rbind" | "unbindable" | "runbindable" | "private" | "rprivate" | "shared" | "rshared" | "slave" | "rslave" | "relatime" | "norelatime" | "strictatime" | "nostrictatime" | "mode" | "uid" | "gid" | "nr_inodes" | "nr_blocks" | "mpol"``
+    """
 
 @pulumi.input_type
 class DaemonTaskDefinitionTmpfsArgs:
@@ -3592,6 +4506,14 @@ class DaemonTaskDefinitionTmpfsArgs:
                  size: pulumi.Input[_builtins.int],
                  container_path: Optional[pulumi.Input[_builtins.str]] = None,
                  mount_options: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        The container path, mount options, and size of the tmpfs mount.
+
+        :param pulumi.Input[_builtins.int] size: The maximum size (in MiB) of the tmpfs volume.
+        :param pulumi.Input[_builtins.str] container_path: The absolute file path where the tmpfs volume is to be mounted.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] mount_options: The list of tmpfs volume mount options.
+                Valid values: ``"defaults" | "ro" | "rw" | "suid" | "nosuid" | "dev" | "nodev" | "exec" | "noexec" | "sync" | "async" | "dirsync" | "remount" | "mand" | "nomand" | "atime" | "noatime" | "diratime" | "nodiratime" | "bind" | "rbind" | "unbindable" | "runbindable" | "private" | "rprivate" | "shared" | "rshared" | "slave" | "rslave" | "relatime" | "norelatime" | "strictatime" | "nostrictatime" | "mode" | "uid" | "gid" | "nr_inodes" | "nr_blocks" | "mpol"``
+        """
         pulumi.set(__self__, "size", size)
         if container_path is not None:
             pulumi.set(__self__, "container_path", container_path)
@@ -3601,6 +4523,9 @@ class DaemonTaskDefinitionTmpfsArgs:
     @_builtins.property
     @pulumi.getter
     def size(self) -> pulumi.Input[_builtins.int]:
+        """
+        The maximum size (in MiB) of the tmpfs volume.
+        """
         return pulumi.get(self, "size")
 
     @size.setter
@@ -3610,6 +4535,9 @@ class DaemonTaskDefinitionTmpfsArgs:
     @_builtins.property
     @pulumi.getter(name="containerPath")
     def container_path(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The absolute file path where the tmpfs volume is to be mounted.
+        """
         return pulumi.get(self, "container_path")
 
     @container_path.setter
@@ -3619,6 +4547,10 @@ class DaemonTaskDefinitionTmpfsArgs:
     @_builtins.property
     @pulumi.getter(name="mountOptions")
     def mount_options(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        The list of tmpfs volume mount options.
+         Valid values: ``"defaults" | "ro" | "rw" | "suid" | "nosuid" | "dev" | "nodev" | "exec" | "noexec" | "sync" | "async" | "dirsync" | "remount" | "mand" | "nomand" | "atime" | "noatime" | "diratime" | "nodiratime" | "bind" | "rbind" | "unbindable" | "runbindable" | "private" | "rprivate" | "shared" | "rshared" | "slave" | "rslave" | "relatime" | "norelatime" | "strictatime" | "nostrictatime" | "mode" | "uid" | "gid" | "nr_inodes" | "nr_blocks" | "mpol"``
+        """
         return pulumi.get(self, "mount_options")
 
     @mount_options.setter
@@ -3627,9 +4559,23 @@ class DaemonTaskDefinitionTmpfsArgs:
 
 
 class DaemonTaskDefinitionUlimitArgsDict(TypedDict):
+    """
+    The ``ulimit`` settings to pass to the container.
+     Amazon ECS tasks hosted on FARGATElong use the default resource limit values set by the operating system with the exception of the ``nofile`` resource limit parameter which FARGATElong overrides. The ``nofile`` resource limit sets a restriction on the number of open files that a container can use. The default ``nofile`` soft limit is ``65535`` and the default hard limit is ``65535``.
+     You can specify the ``ulimit`` settings for a container in a task definition.
+    """
     hard_limit: pulumi.Input[_builtins.int]
+    """
+    The hard limit for the ``ulimit`` type. The value can be specified in bytes, seconds, or as a count, depending on the ``type`` of the ``ulimit``.
+    """
     name: pulumi.Input[_builtins.str]
+    """
+    The ``type`` of the ``ulimit``.
+    """
     soft_limit: pulumi.Input[_builtins.int]
+    """
+    The soft limit for the ``ulimit`` type. The value can be specified in bytes, seconds, or as a count, depending on the ``type`` of the ``ulimit``.
+    """
 
 @pulumi.input_type
 class DaemonTaskDefinitionUlimitArgs:
@@ -3637,6 +4583,15 @@ class DaemonTaskDefinitionUlimitArgs:
                  hard_limit: pulumi.Input[_builtins.int],
                  name: pulumi.Input[_builtins.str],
                  soft_limit: pulumi.Input[_builtins.int]):
+        """
+        The ``ulimit`` settings to pass to the container.
+         Amazon ECS tasks hosted on FARGATElong use the default resource limit values set by the operating system with the exception of the ``nofile`` resource limit parameter which FARGATElong overrides. The ``nofile`` resource limit sets a restriction on the number of open files that a container can use. The default ``nofile`` soft limit is ``65535`` and the default hard limit is ``65535``.
+         You can specify the ``ulimit`` settings for a container in a task definition.
+
+        :param pulumi.Input[_builtins.int] hard_limit: The hard limit for the ``ulimit`` type. The value can be specified in bytes, seconds, or as a count, depending on the ``type`` of the ``ulimit``.
+        :param pulumi.Input[_builtins.str] name: The ``type`` of the ``ulimit``.
+        :param pulumi.Input[_builtins.int] soft_limit: The soft limit for the ``ulimit`` type. The value can be specified in bytes, seconds, or as a count, depending on the ``type`` of the ``ulimit``.
+        """
         pulumi.set(__self__, "hard_limit", hard_limit)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "soft_limit", soft_limit)
@@ -3644,6 +4599,9 @@ class DaemonTaskDefinitionUlimitArgs:
     @_builtins.property
     @pulumi.getter(name="hardLimit")
     def hard_limit(self) -> pulumi.Input[_builtins.int]:
+        """
+        The hard limit for the ``ulimit`` type. The value can be specified in bytes, seconds, or as a count, depending on the ``type`` of the ``ulimit``.
+        """
         return pulumi.get(self, "hard_limit")
 
     @hard_limit.setter
@@ -3653,6 +4611,9 @@ class DaemonTaskDefinitionUlimitArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The ``type`` of the ``ulimit``.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -3662,6 +4623,9 @@ class DaemonTaskDefinitionUlimitArgs:
     @_builtins.property
     @pulumi.getter(name="softLimit")
     def soft_limit(self) -> pulumi.Input[_builtins.int]:
+        """
+        The soft limit for the ``ulimit`` type. The value can be specified in bytes, seconds, or as a count, depending on the ``type`` of the ``ulimit``.
+        """
         return pulumi.get(self, "soft_limit")
 
     @soft_limit.setter
@@ -3670,14 +4634,37 @@ class DaemonTaskDefinitionUlimitArgs:
 
 
 class DaemonTaskDefinitionVolumeArgsDict(TypedDict):
+    """
+    The data volume configuration for tasks launched using this task definition. Specifying a volume configuration in a task definition is optional. The volume configuration may contain multiple volumes but only one volume configured at launch is supported. Each volume defined in the volume configuration may only specify a ``name`` and one of either ``configuredAtLaunch``, ``dockerVolumeConfiguration``, ``efsVolumeConfiguration``, ``fsxWindowsFileServerVolumeConfiguration``, or ``host``. If an empty volume configuration is specified, by default Amazon ECS uses a host volume. For more information, see [Using data volumes in tasks](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_data_volumes.html).
+    """
     host: NotRequired[pulumi.Input['DaemonTaskDefinitionHostVolumePropertiesArgsDict']]
+    """
+    This parameter is specified when you use bind mount host volumes. The contents of the ``host`` parameter determine whether your bind mount host volume persists on the host container instance and where it's stored. If the ``host`` parameter is empty, then the Docker daemon assigns a host path for your data volume. However, the data isn't guaranteed to persist after the containers that are associated with it stop running.
+     Windows containers can mount whole directories on the same drive as ``$env:ProgramData``. Windows containers can't mount directories on a different drive, and mount point can't be across drives. For example, you can mount ``C:\\my\\path:C:\\my\\path`` and ``D:\\:D:\\``, but not ``D:\\my\\path:C:\\my\\path`` or ``D:\\:C:\\my\\path``.
+    """
     name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the volume. Up to 255 letters (uppercase and lowercase), numbers, underscores, and hyphens are allowed.
+     When using a volume configured at launch, the ``name`` is required and must also be specified as the volume name in the ``ServiceVolumeConfiguration`` or ``TaskVolumeConfiguration`` parameter when creating your service or standalone task.
+     For all other types of volumes, this name is referenced in the ``sourceVolume`` parameter of the ``mountPoints`` object in the container definition.
+     When a volume is using the ``efsVolumeConfiguration``, the name is required.
+    """
 
 @pulumi.input_type
 class DaemonTaskDefinitionVolumeArgs:
     def __init__(__self__, *,
                  host: Optional[pulumi.Input['DaemonTaskDefinitionHostVolumePropertiesArgs']] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        The data volume configuration for tasks launched using this task definition. Specifying a volume configuration in a task definition is optional. The volume configuration may contain multiple volumes but only one volume configured at launch is supported. Each volume defined in the volume configuration may only specify a ``name`` and one of either ``configuredAtLaunch``, ``dockerVolumeConfiguration``, ``efsVolumeConfiguration``, ``fsxWindowsFileServerVolumeConfiguration``, or ``host``. If an empty volume configuration is specified, by default Amazon ECS uses a host volume. For more information, see [Using data volumes in tasks](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_data_volumes.html).
+
+        :param pulumi.Input['DaemonTaskDefinitionHostVolumePropertiesArgs'] host: This parameter is specified when you use bind mount host volumes. The contents of the ``host`` parameter determine whether your bind mount host volume persists on the host container instance and where it's stored. If the ``host`` parameter is empty, then the Docker daemon assigns a host path for your data volume. However, the data isn't guaranteed to persist after the containers that are associated with it stop running.
+                Windows containers can mount whole directories on the same drive as ``$env:ProgramData``. Windows containers can't mount directories on a different drive, and mount point can't be across drives. For example, you can mount ``C:\\my\\path:C:\\my\\path`` and ``D:\\:D:\\``, but not ``D:\\my\\path:C:\\my\\path`` or ``D:\\:C:\\my\\path``.
+        :param pulumi.Input[_builtins.str] name: The name of the volume. Up to 255 letters (uppercase and lowercase), numbers, underscores, and hyphens are allowed.
+                When using a volume configured at launch, the ``name`` is required and must also be specified as the volume name in the ``ServiceVolumeConfiguration`` or ``TaskVolumeConfiguration`` parameter when creating your service or standalone task.
+                For all other types of volumes, this name is referenced in the ``sourceVolume`` parameter of the ``mountPoints`` object in the container definition.
+                When a volume is using the ``efsVolumeConfiguration``, the name is required.
+        """
         if host is not None:
             pulumi.set(__self__, "host", host)
         if name is not None:
@@ -3686,6 +4673,10 @@ class DaemonTaskDefinitionVolumeArgs:
     @_builtins.property
     @pulumi.getter
     def host(self) -> Optional[pulumi.Input['DaemonTaskDefinitionHostVolumePropertiesArgs']]:
+        """
+        This parameter is specified when you use bind mount host volumes. The contents of the ``host`` parameter determine whether your bind mount host volume persists on the host container instance and where it's stored. If the ``host`` parameter is empty, then the Docker daemon assigns a host path for your data volume. However, the data isn't guaranteed to persist after the containers that are associated with it stop running.
+         Windows containers can mount whole directories on the same drive as ``$env:ProgramData``. Windows containers can't mount directories on a different drive, and mount point can't be across drives. For example, you can mount ``C:\\my\\path:C:\\my\\path`` and ``D:\\:D:\\``, but not ``D:\\my\\path:C:\\my\\path`` or ``D:\\:C:\\my\\path``.
+        """
         return pulumi.get(self, "host")
 
     @host.setter
@@ -3695,6 +4686,12 @@ class DaemonTaskDefinitionVolumeArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The name of the volume. Up to 255 letters (uppercase and lowercase), numbers, underscores, and hyphens are allowed.
+         When using a volume configured at launch, the ``name`` is required and must also be specified as the volume name in the ``ServiceVolumeConfiguration`` or ``TaskVolumeConfiguration`` parameter when creating your service or standalone task.
+         For all other types of volumes, this name is referenced in the ``sourceVolume`` parameter of the ``mountPoints`` object in the container definition.
+         When a volume is using the ``efsVolumeConfiguration``, the name is required.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -5924,10 +6921,7 @@ class ServiceEbsTagSpecificationArgsDict(TypedDict):
     """
     propagate_tags: NotRequired[pulumi.Input['ServiceEbsTagSpecificationPropagateTags']]
     """
-    Determines whether to propagate the tags from the task definition to 
-    the Amazon EBS volume. Tags can only propagate to a ``SERVICE`` specified in 
-    ``ServiceVolumeConfiguration``. If no value is specified, the tags aren't 
-    propagated.
+    Determines whether to propagate the tags from the task definition to the Amazon EBS volume. Tags can only propagate to a ``SERVICE`` specified in ``ServiceVolumeConfiguration``. If no value is specified, the tags aren't propagated.
     """
     tags: NotRequired[pulumi.Input[Sequence[pulumi.Input['ServiceTagArgsDict']]]]
     """
@@ -5944,10 +6938,7 @@ class ServiceEbsTagSpecificationArgs:
         The tag specifications of an Amazon EBS volume.
 
         :param pulumi.Input[_builtins.str] resource_type: The type of volume resource.
-        :param pulumi.Input['ServiceEbsTagSpecificationPropagateTags'] propagate_tags: Determines whether to propagate the tags from the task definition to 
-               the Amazon EBS volume. Tags can only propagate to a ``SERVICE`` specified in 
-               ``ServiceVolumeConfiguration``. If no value is specified, the tags aren't 
-               propagated.
+        :param pulumi.Input['ServiceEbsTagSpecificationPropagateTags'] propagate_tags: Determines whether to propagate the tags from the task definition to the Amazon EBS volume. Tags can only propagate to a ``SERVICE`` specified in ``ServiceVolumeConfiguration``. If no value is specified, the tags aren't propagated.
         :param pulumi.Input[Sequence[pulumi.Input['ServiceTagArgs']]] tags: The tags applied to this Amazon EBS volume. ``AmazonECSCreated`` and ``AmazonECSManaged`` are reserved tags that can't be used.
         """
         pulumi.set(__self__, "resource_type", resource_type)
@@ -5972,10 +6963,7 @@ class ServiceEbsTagSpecificationArgs:
     @pulumi.getter(name="propagateTags")
     def propagate_tags(self) -> Optional[pulumi.Input['ServiceEbsTagSpecificationPropagateTags']]:
         """
-        Determines whether to propagate the tags from the task definition to 
-        the Amazon EBS volume. Tags can only propagate to a ``SERVICE`` specified in 
-        ``ServiceVolumeConfiguration``. If no value is specified, the tags aren't 
-        propagated.
+        Determines whether to propagate the tags from the task definition to the Amazon EBS volume. Tags can only propagate to a ``SERVICE`` specified in ``ServiceVolumeConfiguration``. If no value is specified, the tags aren't propagated.
         """
         return pulumi.get(self, "propagate_tags")
 
@@ -6409,8 +7397,7 @@ class ServiceManagedEbsVolumeConfigurationArgsDict(TypedDict):
     filesystem_type: NotRequired[pulumi.Input[_builtins.str]]
     """
     The filesystem type for the volume. For volumes created from a snapshot, you must specify the same filesystem type that the volume was using when the snapshot was created. If there is a filesystem type mismatch, the tasks will fail to start.
-     The available Linux filesystem types are
-     ``ext3``, ``ext4``, and ``xfs``. If no value is specified, the ``xfs`` filesystem type is used by default.
+     The available Linux filesystem types are ``ext3``, ``ext4``, and ``xfs``. If no value is specified, the ``xfs`` filesystem type is used by default.
      The available Windows filesystem types are ``NTFS``.
     """
     iops: NotRequired[pulumi.Input[_builtins.int]]
@@ -6488,8 +7475,7 @@ class ServiceManagedEbsVolumeConfigurationArgs:
         :param pulumi.Input[_builtins.str] role_arn: The ARN of the IAM role to associate with this volume. This is the Amazon ECS infrastructure IAM role that is used to manage your AWS infrastructure. We recommend using the Amazon ECS-managed ``AmazonECSInfrastructureRolePolicyForVolumes`` IAM policy with this role. For more information, see [Amazon ECS infrastructure IAM role](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/infrastructure_IAM_role.html) in the *Amazon ECS Developer Guide*.
         :param pulumi.Input[_builtins.bool] encrypted: Indicates whether the volume should be encrypted. If you turn on Region-level Amazon EBS encryption by default but set this value as ``false``, the setting is overridden and the volume is encrypted with the KMS key specified for Amazon EBS encryption by default. This parameter maps 1:1 with the ``Encrypted`` parameter of the [CreateVolume API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVolume.html) in the *Amazon EC2 API Reference*.
         :param pulumi.Input[_builtins.str] filesystem_type: The filesystem type for the volume. For volumes created from a snapshot, you must specify the same filesystem type that the volume was using when the snapshot was created. If there is a filesystem type mismatch, the tasks will fail to start.
-                The available Linux filesystem types are
-                ``ext3``, ``ext4``, and ``xfs``. If no value is specified, the ``xfs`` filesystem type is used by default.
+                The available Linux filesystem types are ``ext3``, ``ext4``, and ``xfs``. If no value is specified, the ``xfs`` filesystem type is used by default.
                 The available Windows filesystem types are ``NTFS``.
         :param pulumi.Input[_builtins.int] iops: The number of I/O operations per second (IOPS). For ``gp3``, ``io1``, and ``io2`` volumes, this represents the number of IOPS that are provisioned for the volume. For ``gp2`` volumes, this represents the baseline performance of the volume and the rate at which the volume accumulates I/O credits for bursting.
                 The following are the supported values for each volume type.
@@ -6572,8 +7558,7 @@ class ServiceManagedEbsVolumeConfigurationArgs:
     def filesystem_type(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The filesystem type for the volume. For volumes created from a snapshot, you must specify the same filesystem type that the volume was using when the snapshot was created. If there is a filesystem type mismatch, the tasks will fail to start.
-         The available Linux filesystem types are
-         ``ext3``, ``ext4``, and ``xfs``. If no value is specified, the ``xfs`` filesystem type is used by default.
+         The available Linux filesystem types are ``ext3``, ``ext4``, and ``xfs``. If no value is specified, the ``xfs`` filesystem type is used by default.
          The available Windows filesystem types are ``NTFS``.
         """
         return pulumi.get(self, "filesystem_type")
@@ -7218,8 +8203,7 @@ class ServiceVpcLatticeConfigurationArgsDict(TypedDict):
     """
     role_arn: pulumi.Input[_builtins.str]
     """
-    The ARN of the IAM role to associate with this VPC Lattice configuration. This is the Amazon ECS
-     infrastructure IAM role that is used to manage your VPC Lattice infrastructure.
+    The ARN of the IAM role to associate with this VPC Lattice configuration. This is the Amazon ECS infrastructure IAM role that is used to manage your VPC Lattice infrastructure.
     """
     target_group_arn: pulumi.Input[_builtins.str]
     """
@@ -7236,8 +8220,7 @@ class ServiceVpcLatticeConfigurationArgs:
         The VPC Lattice configuration for your service that holds the information for the target group(s) Amazon ECS tasks will be registered to.
 
         :param pulumi.Input[_builtins.str] port_name: The name of the port mapping to register in the VPC Lattice target group. This is the name of the ``portMapping`` you defined in your task definition.
-        :param pulumi.Input[_builtins.str] role_arn: The ARN of the IAM role to associate with this VPC Lattice configuration. This is the Amazon ECS
-                infrastructure IAM role that is used to manage your VPC Lattice infrastructure.
+        :param pulumi.Input[_builtins.str] role_arn: The ARN of the IAM role to associate with this VPC Lattice configuration. This is the Amazon ECS infrastructure IAM role that is used to manage your VPC Lattice infrastructure.
         :param pulumi.Input[_builtins.str] target_group_arn: The full Amazon Resource Name (ARN) of the target group or groups associated with the VPC Lattice configuration that the Amazon ECS tasks will be registered to.
         """
         pulumi.set(__self__, "port_name", port_name)
@@ -7260,8 +8243,7 @@ class ServiceVpcLatticeConfigurationArgs:
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Input[_builtins.str]:
         """
-        The ARN of the IAM role to associate with this VPC Lattice configuration. This is the Amazon ECS
-         infrastructure IAM role that is used to manage your VPC Lattice infrastructure.
+        The ARN of the IAM role to associate with this VPC Lattice configuration. This is the Amazon ECS infrastructure IAM role that is used to manage your VPC Lattice infrastructure.
         """
         return pulumi.get(self, "role_arn")
 

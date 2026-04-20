@@ -13,13 +13,13 @@ namespace Pulumi.AwsNative.Batch.Inputs
     public sealed class QuotaShareCapacityLimitArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The unit of compute capacity for the capacityLimit.
+        /// The unit of compute capacity for the capacityLimit. For example, `ml.m5.large`.
         /// </summary>
         [Input("capacityUnit", required: true)]
         public Input<string> CapacityUnit { get; set; } = null!;
 
         /// <summary>
-        /// The maximum capacity available for the quota share. This value represents the maximum amount of resources that can be allocated to jobs in the quota share without borrowing
+        /// The maximum capacity available for the quota share. This value represents the maximum quantity of a resource that can be allocated to jobs in the quota share without borrowing.
         /// </summary>
         [Input("maxCapacity", required: true)]
         public Input<int> MaxCapacity { get; set; } = null!;

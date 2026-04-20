@@ -140,7 +140,7 @@ namespace Pulumi.AwsNative.OpenSearchServerless
         /// Unique to your account and AWS Region
         /// Starts with a lowercase letter
         /// Contains only lowercase letters a-z, the numbers 0-9 and the hyphen (-)
-        /// Contains between 3 and 32 characters
+        /// Contains between 3 and 64 characters
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -243,7 +243,7 @@ namespace Pulumi.AwsNative.OpenSearchServerless
         /// Unique to your account and AWS Region
         /// Starts with a lowercase letter
         /// Contains only lowercase letters a-z, the numbers 0-9 and the hyphen (-)
-        /// Contains between 3 and 32 characters
+        /// Contains between 3 and 64 characters
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

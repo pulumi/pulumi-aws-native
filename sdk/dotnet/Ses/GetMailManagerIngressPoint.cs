@@ -95,6 +95,7 @@ namespace Pulumi.AwsNative.Ses
         /// The tags used to organize, track, or control access for the resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
+        public readonly Pulumi.AwsNative.Ses.MailManagerIngressPointTlsPolicy? TlsPolicy;
         /// <summary>
         /// The identifier of an existing traffic policy that you attach to an ingress endpoint resource.
         /// </summary>
@@ -118,6 +119,8 @@ namespace Pulumi.AwsNative.Ses
 
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
+            Pulumi.AwsNative.Ses.MailManagerIngressPointTlsPolicy? tlsPolicy,
+
             string? trafficPolicyId)
         {
             ARecord = aRecord;
@@ -128,6 +131,7 @@ namespace Pulumi.AwsNative.Ses
             Status = status;
             StatusToUpdate = statusToUpdate;
             Tags = tags;
+            TlsPolicy = tlsPolicy;
             TrafficPolicyId = trafficPolicyId;
         }
     }

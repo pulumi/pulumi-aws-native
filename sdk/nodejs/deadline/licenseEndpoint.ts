@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Definition of AWS::Deadline::LicenseEndpoint Resource Type
+ * Resource Type definition for AWS::Deadline::LicenseEndpoint
  */
 export class LicenseEndpoint extends pulumi.CustomResource {
     /**

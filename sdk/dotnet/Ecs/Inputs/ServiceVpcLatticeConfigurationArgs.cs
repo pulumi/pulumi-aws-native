@@ -22,8 +22,7 @@ namespace Pulumi.AwsNative.Ecs.Inputs
         public Input<string> PortName { get; set; } = null!;
 
         /// <summary>
-        /// The ARN of the IAM role to associate with this VPC Lattice configuration. This is the Amazon ECS
-        ///  infrastructure IAM role that is used to manage your VPC Lattice infrastructure.
+        /// The ARN of the IAM role to associate with this VPC Lattice configuration. This is the Amazon ECS infrastructure IAM role that is used to manage your VPC Lattice infrastructure.
         /// </summary>
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;

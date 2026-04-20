@@ -10,25 +10,25 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Batch
 {
     /// <summary>
-    /// Resource Type definition for AWS::Batch::QuotaShare
+    /// Creates an AWS Batch quota share. Each quota share operates as a virtual queue with a configured compute capacity, resource sharing strategy, and borrow limits.
     /// </summary>
     [AwsNativeResourceType("aws-native:batch:QuotaShare")]
     public partial class QuotaShare : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The capacity limits for the quota share.
+        /// A list that specifies the quantity and type of compute capacity allocated to the quota share.
         /// </summary>
         [Output("capacityLimits")]
         public Output<ImmutableArray<Outputs.QuotaShareCapacityLimit>> CapacityLimits { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) or name of the job queue.
+        /// The AWS Batch job queue associated with the quota share. This can be the job queue name or ARN. A job queue must be in the `VALID` state before you can associate it with a quota share.
         /// </summary>
         [Output("jobQueue")]
         public Output<string> JobQueue { get; private set; } = null!;
 
         /// <summary>
-        /// The preemption configuration for the quota share.
+        /// Specifies the preemption behavior for jobs in a quota share.
         /// </summary>
         [Output("preemptionConfiguration")]
         public Output<Outputs.QuotaSharePreemptionConfiguration> PreemptionConfiguration { get; private set; } = null!;
@@ -40,25 +40,25 @@ namespace Pulumi.AwsNative.Batch
         public Output<string> QuotaShareArn { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the quota share.
+        /// The name of the quota share. It can be up to 128 characters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
         /// </summary>
         [Output("quotaShareName")]
         public Output<string> QuotaShareName { get; private set; } = null!;
 
         /// <summary>
-        /// The resource sharing configuration for the quota share.
+        /// Specifies whether a quota share reserves, lends, or both lends and borrows idle compute capacity.
         /// </summary>
         [Output("resourceSharingConfiguration")]
         public Output<Outputs.QuotaShareResourceSharingConfiguration> ResourceSharingConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// The state of the quota share.
+        /// The state of the quota share. If the quota share is `ENABLED`, it is able to accept jobs. If the quota share is `DISABLED`, new jobs won't be accepted but jobs already submitted can finish. The default state is `ENABLED`.
         /// </summary>
         [Output("state")]
         public Output<Pulumi.AwsNative.Batch.QuotaShareState?> State { get; private set; } = null!;
 
         /// <summary>
-        /// A key-value pair to associate with a resource.
+        /// The tags that you apply to the quota share to help you categorize and organize your resources. Each tag consists of a key and an optional value.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -117,7 +117,7 @@ namespace Pulumi.AwsNative.Batch
         private InputList<Inputs.QuotaShareCapacityLimitArgs>? _capacityLimits;
 
         /// <summary>
-        /// The capacity limits for the quota share.
+        /// A list that specifies the quantity and type of compute capacity allocated to the quota share.
         /// </summary>
         public InputList<Inputs.QuotaShareCapacityLimitArgs> CapacityLimits
         {
@@ -126,31 +126,31 @@ namespace Pulumi.AwsNative.Batch
         }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) or name of the job queue.
+        /// The AWS Batch job queue associated with the quota share. This can be the job queue name or ARN. A job queue must be in the `VALID` state before you can associate it with a quota share.
         /// </summary>
         [Input("jobQueue", required: true)]
         public Input<string> JobQueue { get; set; } = null!;
 
         /// <summary>
-        /// The preemption configuration for the quota share.
+        /// Specifies the preemption behavior for jobs in a quota share.
         /// </summary>
         [Input("preemptionConfiguration", required: true)]
         public Input<Inputs.QuotaSharePreemptionConfigurationArgs> PreemptionConfiguration { get; set; } = null!;
 
         /// <summary>
-        /// The name of the quota share.
+        /// The name of the quota share. It can be up to 128 characters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
         /// </summary>
         [Input("quotaShareName")]
         public Input<string>? QuotaShareName { get; set; }
 
         /// <summary>
-        /// The resource sharing configuration for the quota share.
+        /// Specifies whether a quota share reserves, lends, or both lends and borrows idle compute capacity.
         /// </summary>
         [Input("resourceSharingConfiguration", required: true)]
         public Input<Inputs.QuotaShareResourceSharingConfigurationArgs> ResourceSharingConfiguration { get; set; } = null!;
 
         /// <summary>
-        /// The state of the quota share.
+        /// The state of the quota share. If the quota share is `ENABLED`, it is able to accept jobs. If the quota share is `DISABLED`, new jobs won't be accepted but jobs already submitted can finish. The default state is `ENABLED`.
         /// </summary>
         [Input("state")]
         public Input<Pulumi.AwsNative.Batch.QuotaShareState>? State { get; set; }
@@ -159,7 +159,7 @@ namespace Pulumi.AwsNative.Batch
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A key-value pair to associate with a resource.
+        /// The tags that you apply to the quota share to help you categorize and organize your resources. Each tag consists of a key and an optional value.
         /// </summary>
         public InputMap<string> Tags
         {

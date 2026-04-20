@@ -20,6 +20,7 @@ __all__ = [
     'ConnectorAs2ConfigPropertiesPreserveContentType',
     'ConnectorAs2ConfigPropertiesSigningAlgorithm',
     'ConnectorEgressType',
+    'ConnectorIpAddressType',
     'ConnectorStatus',
     'ProfileType',
     'ServerAs2Transport',
@@ -168,6 +169,15 @@ class ConnectorAs2ConfigPropertiesSigningAlgorithm(_builtins.str, Enum):
 class ConnectorEgressType(_builtins.str, Enum):
     SERVICE_MANAGED = "SERVICE_MANAGED"
     VPC_LATTICE = "VPC_LATTICE"
+
+
+@pulumi.type_token("aws-native:transfer:ConnectorIpAddressType")
+class ConnectorIpAddressType(_builtins.str, Enum):
+    """
+    IP address type for Connector
+    """
+    IPV4 = "IPV4"
+    DUALSTACK = "DUALSTACK"
 
 
 @pulumi.type_token("aws-native:transfer:ConnectorStatus")

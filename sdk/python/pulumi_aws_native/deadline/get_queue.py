@@ -26,7 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetQueueResult:
-    def __init__(__self__, allowed_storage_profile_ids=None, arn=None, default_budget_action=None, description=None, display_name=None, job_attachment_settings=None, job_run_as_user=None, queue_id=None, required_file_system_location_names=None, role_arn=None, tags=None):
+    def __init__(__self__, allowed_storage_profile_ids=None, arn=None, default_budget_action=None, description=None, display_name=None, job_attachment_settings=None, job_run_as_user=None, queue_id=None, required_file_system_location_names=None, role_arn=None, scheduling_configuration=None, tags=None):
         if allowed_storage_profile_ids and not isinstance(allowed_storage_profile_ids, list):
             raise TypeError("Expected argument 'allowed_storage_profile_ids' to be a list")
         pulumi.set(__self__, "allowed_storage_profile_ids", allowed_storage_profile_ids)
@@ -57,6 +57,9 @@ class GetQueueResult:
         if role_arn and not isinstance(role_arn, str):
             raise TypeError("Expected argument 'role_arn' to be a str")
         pulumi.set(__self__, "role_arn", role_arn)
+        if scheduling_configuration and not isinstance(scheduling_configuration, dict):
+            raise TypeError("Expected argument 'scheduling_configuration' to be a dict")
+        pulumi.set(__self__, "scheduling_configuration", scheduling_configuration)
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
@@ -146,6 +149,11 @@ class GetQueueResult:
         return pulumi.get(self, "role_arn")
 
     @_builtins.property
+    @pulumi.getter(name="schedulingConfiguration")
+    def scheduling_configuration(self) -> Optional['outputs.QueueSchedulingConfiguration']:
+        return pulumi.get(self, "scheduling_configuration")
+
+    @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
         """
@@ -170,13 +178,14 @@ class AwaitableGetQueueResult(GetQueueResult):
             queue_id=self.queue_id,
             required_file_system_location_names=self.required_file_system_location_names,
             role_arn=self.role_arn,
+            scheduling_configuration=self.scheduling_configuration,
             tags=self.tags)
 
 
 def get_queue(arn: Optional[_builtins.str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetQueueResult:
     """
-    Definition of AWS::Deadline::Queue Resource Type
+    Resource Type definition for AWS::Deadline::Queue
 
 
     :param _builtins.str arn: The Amazon Resource Name (ARN) of the queue.
@@ -197,11 +206,12 @@ def get_queue(arn: Optional[_builtins.str] = None,
         queue_id=pulumi.get(__ret__, 'queue_id'),
         required_file_system_location_names=pulumi.get(__ret__, 'required_file_system_location_names'),
         role_arn=pulumi.get(__ret__, 'role_arn'),
+        scheduling_configuration=pulumi.get(__ret__, 'scheduling_configuration'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_queue_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetQueueResult]:
     """
-    Definition of AWS::Deadline::Queue Resource Type
+    Resource Type definition for AWS::Deadline::Queue
 
 
     :param _builtins.str arn: The Amazon Resource Name (ARN) of the queue.
@@ -221,4 +231,5 @@ def get_queue_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
         queue_id=pulumi.get(__response__, 'queue_id'),
         required_file_system_location_names=pulumi.get(__response__, 'required_file_system_location_names'),
         role_arn=pulumi.get(__response__, 'role_arn'),
+        scheduling_configuration=pulumi.get(__response__, 'scheduling_configuration'),
         tags=pulumi.get(__response__, 'tags')))

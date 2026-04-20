@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource schema for AWS ECS Daemon
+// Information about a daemon resource.
 func LookupDaemon(ctx *pulumi.Context, args *LookupDaemonArgs, opts ...pulumi.InvokeOption) (*LookupDaemonResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupDaemonResult

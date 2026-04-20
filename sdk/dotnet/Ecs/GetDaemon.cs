@@ -12,19 +12,19 @@ namespace Pulumi.AwsNative.Ecs
     public static class GetDaemon
     {
         /// <summary>
-        /// Resource schema for AWS ECS Daemon
+        /// Information about a daemon resource.
         /// </summary>
         public static Task<GetDaemonResult> InvokeAsync(GetDaemonArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDaemonResult>("aws-native:ecs:getDaemon", args ?? new GetDaemonArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Resource schema for AWS ECS Daemon
+        /// Information about a daemon resource.
         /// </summary>
         public static Output<GetDaemonResult> Invoke(GetDaemonInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDaemonResult>("aws-native:ecs:getDaemon", args ?? new GetDaemonInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Resource schema for AWS ECS Daemon
+        /// Information about a daemon resource.
         /// </summary>
         public static Output<GetDaemonResult> Invoke(GetDaemonInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetDaemonResult>("aws-native:ecs:getDaemon", args ?? new GetDaemonInvokeArgs(), options.WithDefaults());

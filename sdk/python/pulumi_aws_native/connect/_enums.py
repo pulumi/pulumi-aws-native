@@ -219,6 +219,9 @@ class EvaluationFormLanguageConfigurationFormLanguage(_builtins.str, Enum):
     FR_FR = "fr-FR"
     IT_IT = "it-IT"
     PT_BR = "pt-BR"
+    JA_JP = "ja-JP"
+    KO_KR = "ko-KR"
+    ZH_CN = "zh-CN"
 
 
 @pulumi.type_token("aws-native:connect:EvaluationFormMultiSelectQuestionPropertiesDisplayAs")
@@ -339,6 +342,7 @@ class EvaluationFormTargetConfigurationContactInteractionType(_builtins.str, Enu
     """
     AGENT = "AGENT"
     AUTOMATED = "AUTOMATED"
+    CUSTOMER = "CUSTOMER"
 
 
 @pulumi.type_token("aws-native:connect:HoursOfOperationConfigDay")

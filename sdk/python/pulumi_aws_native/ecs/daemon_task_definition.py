@@ -33,6 +33,14 @@ class DaemonTaskDefinitionArgs:
                  volumes: Optional[pulumi.Input[Sequence[pulumi.Input['DaemonTaskDefinitionVolumeArgs']]]] = None):
         """
         The set of arguments for constructing a DaemonTaskDefinition resource.
+
+        :param pulumi.Input[Sequence[pulumi.Input['DaemonTaskDefinitionDaemonContainerDefinitionArgs']]] container_definitions: A list of container definitions in JSON format that describe the containers that make up the daemon task.
+        :param pulumi.Input[_builtins.str] cpu: The number of CPU units used by the daemon task.
+        :param pulumi.Input[_builtins.str] execution_role_arn: The Amazon Resource Name (ARN) of the task execution role that grants the Amazon ECS container agent permission to make Amazon Web Services API calls on your behalf.
+        :param pulumi.Input[_builtins.str] family: The name of a family that this daemon task definition is registered to.
+        :param pulumi.Input[_builtins.str] memory: The amount of memory (in MiB) used by the daemon task.
+        :param pulumi.Input[_builtins.str] task_role_arn: The short name or full Amazon Resource Name (ARN) of the IAM role that grants containers in the daemon task permission to call Amazon Web Services APIs on your behalf.
+        :param pulumi.Input[Sequence[pulumi.Input['DaemonTaskDefinitionVolumeArgs']]] volumes: The list of data volume definitions for the daemon task.
         """
         if container_definitions is not None:
             pulumi.set(__self__, "container_definitions", container_definitions)
@@ -54,6 +62,9 @@ class DaemonTaskDefinitionArgs:
     @_builtins.property
     @pulumi.getter(name="containerDefinitions")
     def container_definitions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DaemonTaskDefinitionDaemonContainerDefinitionArgs']]]]:
+        """
+        A list of container definitions in JSON format that describe the containers that make up the daemon task.
+        """
         return pulumi.get(self, "container_definitions")
 
     @container_definitions.setter
@@ -63,6 +74,9 @@ class DaemonTaskDefinitionArgs:
     @_builtins.property
     @pulumi.getter
     def cpu(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The number of CPU units used by the daemon task.
+        """
         return pulumi.get(self, "cpu")
 
     @cpu.setter
@@ -72,6 +86,9 @@ class DaemonTaskDefinitionArgs:
     @_builtins.property
     @pulumi.getter(name="executionRoleArn")
     def execution_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The Amazon Resource Name (ARN) of the task execution role that grants the Amazon ECS container agent permission to make Amazon Web Services API calls on your behalf.
+        """
         return pulumi.get(self, "execution_role_arn")
 
     @execution_role_arn.setter
@@ -81,6 +98,9 @@ class DaemonTaskDefinitionArgs:
     @_builtins.property
     @pulumi.getter
     def family(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The name of a family that this daemon task definition is registered to.
+        """
         return pulumi.get(self, "family")
 
     @family.setter
@@ -90,6 +110,9 @@ class DaemonTaskDefinitionArgs:
     @_builtins.property
     @pulumi.getter
     def memory(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The amount of memory (in MiB) used by the daemon task.
+        """
         return pulumi.get(self, "memory")
 
     @memory.setter
@@ -108,6 +131,9 @@ class DaemonTaskDefinitionArgs:
     @_builtins.property
     @pulumi.getter(name="taskRoleArn")
     def task_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The short name or full Amazon Resource Name (ARN) of the IAM role that grants containers in the daemon task permission to call Amazon Web Services APIs on your behalf.
+        """
         return pulumi.get(self, "task_role_arn")
 
     @task_role_arn.setter
@@ -117,6 +143,9 @@ class DaemonTaskDefinitionArgs:
     @_builtins.property
     @pulumi.getter
     def volumes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DaemonTaskDefinitionVolumeArgs']]]]:
+        """
+        The list of data volume definitions for the daemon task.
+        """
         return pulumi.get(self, "volumes")
 
     @volumes.setter
@@ -140,11 +169,18 @@ class DaemonTaskDefinition(pulumi.CustomResource):
                  volumes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DaemonTaskDefinitionVolumeArgs', 'DaemonTaskDefinitionVolumeArgsDict']]]]] = None,
                  __props__=None):
         """
-        Resource Schema describing various properties for ECS DaemonTaskDefinition
+        The details of a daemon task definition. A daemon task definition is a template that describes the containers that form a daemon. Daemons deploy cross-cutting software agents independently across your Amazon ECS infrastructure.
 
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DaemonTaskDefinitionDaemonContainerDefinitionArgs', 'DaemonTaskDefinitionDaemonContainerDefinitionArgsDict']]]] container_definitions: A list of container definitions in JSON format that describe the containers that make up the daemon task.
+        :param pulumi.Input[_builtins.str] cpu: The number of CPU units used by the daemon task.
+        :param pulumi.Input[_builtins.str] execution_role_arn: The Amazon Resource Name (ARN) of the task execution role that grants the Amazon ECS container agent permission to make Amazon Web Services API calls on your behalf.
+        :param pulumi.Input[_builtins.str] family: The name of a family that this daemon task definition is registered to.
+        :param pulumi.Input[_builtins.str] memory: The amount of memory (in MiB) used by the daemon task.
+        :param pulumi.Input[_builtins.str] task_role_arn: The short name or full Amazon Resource Name (ARN) of the IAM role that grants containers in the daemon task permission to call Amazon Web Services APIs on your behalf.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DaemonTaskDefinitionVolumeArgs', 'DaemonTaskDefinitionVolumeArgsDict']]]] volumes: The list of data volume definitions for the daemon task.
         """
         ...
     @overload
@@ -153,7 +189,7 @@ class DaemonTaskDefinition(pulumi.CustomResource):
                  args: Optional[DaemonTaskDefinitionArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource Schema describing various properties for ECS DaemonTaskDefinition
+        The details of a daemon task definition. A daemon task definition is a template that describes the containers that form a daemon. Daemons deploy cross-cutting software agents independently across your Amazon ECS infrastructure.
 
 
         :param str resource_name: The name of the resource.
@@ -235,34 +271,46 @@ class DaemonTaskDefinition(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="containerDefinitions")
     def container_definitions(self) -> pulumi.Output[Optional[Sequence['outputs.DaemonTaskDefinitionDaemonContainerDefinition']]]:
+        """
+        A list of container definitions in JSON format that describe the containers that make up the daemon task.
+        """
         return pulumi.get(self, "container_definitions")
 
     @_builtins.property
     @pulumi.getter
     def cpu(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The number of CPU units used by the daemon task.
+        """
         return pulumi.get(self, "cpu")
 
     @_builtins.property
     @pulumi.getter(name="daemonTaskDefinitionArn")
     def daemon_task_definition_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        The Amazon Resource Name (ARN) of the Amazon ECS daemon task definition
-        """
         return pulumi.get(self, "daemon_task_definition_arn")
 
     @_builtins.property
     @pulumi.getter(name="executionRoleArn")
     def execution_role_arn(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The Amazon Resource Name (ARN) of the task execution role that grants the Amazon ECS container agent permission to make Amazon Web Services API calls on your behalf.
+        """
         return pulumi.get(self, "execution_role_arn")
 
     @_builtins.property
     @pulumi.getter
     def family(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The name of a family that this daemon task definition is registered to.
+        """
         return pulumi.get(self, "family")
 
     @_builtins.property
     @pulumi.getter
     def memory(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The amount of memory (in MiB) used by the daemon task.
+        """
         return pulumi.get(self, "memory")
 
     @_builtins.property
@@ -273,10 +321,16 @@ class DaemonTaskDefinition(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="taskRoleArn")
     def task_role_arn(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The short name or full Amazon Resource Name (ARN) of the IAM role that grants containers in the daemon task permission to call Amazon Web Services APIs on your behalf.
+        """
         return pulumi.get(self, "task_role_arn")
 
     @_builtins.property
     @pulumi.getter
     def volumes(self) -> pulumi.Output[Optional[Sequence['outputs.DaemonTaskDefinitionVolume']]]:
+        """
+        The list of data volume definitions for the daemon task.
+        """
         return pulumi.get(self, "volumes")
 

@@ -67,7 +67,7 @@ class MeteredProduct(pulumi.CustomResource):
                  product_id: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Definition of AWS::Deadline::MeteredProduct Resource Type
+        Resource Type definition for AWS::Deadline::MeteredProduct
 
 
         :param str resource_name: The name of the resource.
@@ -82,7 +82,7 @@ class MeteredProduct(pulumi.CustomResource):
                  args: Optional[MeteredProductArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Definition of AWS::Deadline::MeteredProduct Resource Type
+        Resource Type definition for AWS::Deadline::MeteredProduct
 
 
         :param str resource_name: The name of the resource.

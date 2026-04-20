@@ -35,9 +35,6 @@ class GetDaemonTaskDefinitionResult:
     @_builtins.property
     @pulumi.getter(name="daemonTaskDefinitionArn")
     def daemon_task_definition_arn(self) -> Optional[_builtins.str]:
-        """
-        The Amazon Resource Name (ARN) of the Amazon ECS daemon task definition
-        """
         return pulumi.get(self, "daemon_task_definition_arn")
 
     @_builtins.property
@@ -59,10 +56,7 @@ class AwaitableGetDaemonTaskDefinitionResult(GetDaemonTaskDefinitionResult):
 def get_daemon_task_definition(daemon_task_definition_arn: Optional[_builtins.str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDaemonTaskDefinitionResult:
     """
-    Resource Schema describing various properties for ECS DaemonTaskDefinition
-
-
-    :param _builtins.str daemon_task_definition_arn: The Amazon Resource Name (ARN) of the Amazon ECS daemon task definition
+    The details of a daemon task definition. A daemon task definition is a template that describes the containers that form a daemon. Daemons deploy cross-cutting software agents independently across your Amazon ECS infrastructure.
     """
     __args__ = dict()
     __args__['daemonTaskDefinitionArn'] = daemon_task_definition_arn
@@ -75,10 +69,7 @@ def get_daemon_task_definition(daemon_task_definition_arn: Optional[_builtins.st
 def get_daemon_task_definition_output(daemon_task_definition_arn: Optional[pulumi.Input[_builtins.str]] = None,
                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDaemonTaskDefinitionResult]:
     """
-    Resource Schema describing various properties for ECS DaemonTaskDefinition
-
-
-    :param _builtins.str daemon_task_definition_arn: The Amazon Resource Name (ARN) of the Amazon ECS daemon task definition
+    The details of a daemon task definition. A daemon task definition is a template that describes the containers that form a daemon. Daemons deploy cross-cutting software agents independently across your Amazon ECS infrastructure.
     """
     __args__ = dict()
     __args__['daemonTaskDefinitionArn'] = daemon_task_definition_arn

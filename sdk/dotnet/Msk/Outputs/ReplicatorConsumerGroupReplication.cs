@@ -17,6 +17,10 @@ namespace Pulumi.AwsNative.Msk.Outputs
     public sealed class ReplicatorConsumerGroupReplication
     {
         /// <summary>
+        /// The consumer group offset synchronization mode.
+        /// </summary>
+        public readonly Pulumi.AwsNative.Msk.ReplicatorConsumerGroupOffsetSyncMode? ConsumerGroupOffsetSyncMode;
+        /// <summary>
         /// List of regular expression patterns indicating the consumer groups that should not be replicated.
         /// </summary>
         public readonly ImmutableArray<string> ConsumerGroupsToExclude;
@@ -35,6 +39,8 @@ namespace Pulumi.AwsNative.Msk.Outputs
 
         [OutputConstructor]
         private ReplicatorConsumerGroupReplication(
+            Pulumi.AwsNative.Msk.ReplicatorConsumerGroupOffsetSyncMode? consumerGroupOffsetSyncMode,
+
             ImmutableArray<string> consumerGroupsToExclude,
 
             ImmutableArray<string> consumerGroupsToReplicate,
@@ -43,6 +49,7 @@ namespace Pulumi.AwsNative.Msk.Outputs
 
             bool? synchroniseConsumerGroupOffsets)
         {
+            ConsumerGroupOffsetSyncMode = consumerGroupOffsetSyncMode;
             ConsumerGroupsToExclude = consumerGroupsToExclude;
             ConsumerGroupsToReplicate = consumerGroupsToReplicate;
             DetectAndCopyNewConsumerGroups = detectAndCopyNewConsumerGroups;

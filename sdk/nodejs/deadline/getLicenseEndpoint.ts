@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Definition of AWS::Deadline::LicenseEndpoint Resource Type
+ * Resource Type definition for AWS::Deadline::LicenseEndpoint
  */
 export function getLicenseEndpoint(args: GetLicenseEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetLicenseEndpointResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -51,7 +51,7 @@ export interface GetLicenseEndpointResult {
     readonly tags?: outputs.Tag[];
 }
 /**
- * Definition of AWS::Deadline::LicenseEndpoint Resource Type
+ * Resource Type definition for AWS::Deadline::LicenseEndpoint
  */
 export function getLicenseEndpointOutput(args: GetLicenseEndpointOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLicenseEndpointResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

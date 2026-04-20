@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Definition of AWS::Deadline::Farm Resource Type
+ * Resource Type definition for AWS::Deadline::Farm
  */
 export function getFarm(args: GetFarmArgs, opts?: pulumi.InvokeOptions): Promise<GetFarmResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -52,7 +52,7 @@ export interface GetFarmResult {
     readonly tags?: outputs.Tag[];
 }
 /**
- * Definition of AWS::Deadline::Farm Resource Type
+ * Resource Type definition for AWS::Deadline::Farm
  */
 export function getFarmOutput(args: GetFarmOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFarmResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

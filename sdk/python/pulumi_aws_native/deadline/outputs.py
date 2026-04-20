@@ -41,6 +41,7 @@ __all__ = [
     'QueueJobAttachmentSettings',
     'QueueJobRunAsUser',
     'QueuePosixUser',
+    'QueueSchedulingConfiguration',
     'QueueWindowsUser',
     'StorageProfileFileSystemLocation',
 ]
@@ -1069,6 +1070,12 @@ class QueuePosixUser(dict):
         The name of the POSIX user.
         """
         return pulumi.get(self, "user")
+
+
+@pulumi.output_type
+class QueueSchedulingConfiguration(dict):
+    def __init__(__self__):
+        pass
 
 
 @pulumi.output_type

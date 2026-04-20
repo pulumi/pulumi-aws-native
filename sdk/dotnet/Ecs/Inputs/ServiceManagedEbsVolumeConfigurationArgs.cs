@@ -24,8 +24,7 @@ namespace Pulumi.AwsNative.Ecs.Inputs
 
         /// <summary>
         /// The filesystem type for the volume. For volumes created from a snapshot, you must specify the same filesystem type that the volume was using when the snapshot was created. If there is a filesystem type mismatch, the tasks will fail to start.
-        ///  The available Linux filesystem types are
-        ///  ``ext3``, ``ext4``, and ``xfs``. If no value is specified, the ``xfs`` filesystem type is used by default.
+        ///  The available Linux filesystem types are ``ext3``, ``ext4``, and ``xfs``. If no value is specified, the ``xfs`` filesystem type is used by default.
         ///  The available Windows filesystem types are ``NTFS``.
         /// </summary>
         [Input("filesystemType")]

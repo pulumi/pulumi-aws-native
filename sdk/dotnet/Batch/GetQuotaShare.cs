@@ -12,19 +12,19 @@ namespace Pulumi.AwsNative.Batch
     public static class GetQuotaShare
     {
         /// <summary>
-        /// Resource Type definition for AWS::Batch::QuotaShare
+        /// Creates an AWS Batch quota share. Each quota share operates as a virtual queue with a configured compute capacity, resource sharing strategy, and borrow limits.
         /// </summary>
         public static Task<GetQuotaShareResult> InvokeAsync(GetQuotaShareArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetQuotaShareResult>("aws-native:batch:getQuotaShare", args ?? new GetQuotaShareArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Resource Type definition for AWS::Batch::QuotaShare
+        /// Creates an AWS Batch quota share. Each quota share operates as a virtual queue with a configured compute capacity, resource sharing strategy, and borrow limits.
         /// </summary>
         public static Output<GetQuotaShareResult> Invoke(GetQuotaShareInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetQuotaShareResult>("aws-native:batch:getQuotaShare", args ?? new GetQuotaShareInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Resource Type definition for AWS::Batch::QuotaShare
+        /// Creates an AWS Batch quota share. Each quota share operates as a virtual queue with a configured compute capacity, resource sharing strategy, and borrow limits.
         /// </summary>
         public static Output<GetQuotaShareResult> Invoke(GetQuotaShareInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetQuotaShareResult>("aws-native:batch:getQuotaShare", args ?? new GetQuotaShareInvokeArgs(), options.WithDefaults());
@@ -64,11 +64,11 @@ namespace Pulumi.AwsNative.Batch
     public sealed class GetQuotaShareResult
     {
         /// <summary>
-        /// The capacity limits for the quota share.
+        /// A list that specifies the quantity and type of compute capacity allocated to the quota share.
         /// </summary>
         public readonly ImmutableArray<Outputs.QuotaShareCapacityLimit> CapacityLimits;
         /// <summary>
-        /// The preemption configuration for the quota share.
+        /// Specifies the preemption behavior for jobs in a quota share.
         /// </summary>
         public readonly Outputs.QuotaSharePreemptionConfiguration? PreemptionConfiguration;
         /// <summary>
@@ -76,15 +76,15 @@ namespace Pulumi.AwsNative.Batch
         /// </summary>
         public readonly string? QuotaShareArn;
         /// <summary>
-        /// The resource sharing configuration for the quota share.
+        /// Specifies whether a quota share reserves, lends, or both lends and borrows idle compute capacity.
         /// </summary>
         public readonly Outputs.QuotaShareResourceSharingConfiguration? ResourceSharingConfiguration;
         /// <summary>
-        /// The state of the quota share.
+        /// The state of the quota share. If the quota share is `ENABLED`, it is able to accept jobs. If the quota share is `DISABLED`, new jobs won't be accepted but jobs already submitted can finish. The default state is `ENABLED`.
         /// </summary>
         public readonly Pulumi.AwsNative.Batch.QuotaShareState? State;
         /// <summary>
-        /// A key-value pair to associate with a resource.
+        /// The tags that you apply to the quota share to help you categorize and organize your resources. Each tag consists of a key and an optional value.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
 

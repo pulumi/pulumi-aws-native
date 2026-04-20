@@ -473,6 +473,9 @@ namespace Pulumi.AwsNative.Connect
         public static EvaluationFormLanguageConfigurationFormLanguage FrFr { get; } = new EvaluationFormLanguageConfigurationFormLanguage("fr-FR");
         public static EvaluationFormLanguageConfigurationFormLanguage ItIt { get; } = new EvaluationFormLanguageConfigurationFormLanguage("it-IT");
         public static EvaluationFormLanguageConfigurationFormLanguage PtBr { get; } = new EvaluationFormLanguageConfigurationFormLanguage("pt-BR");
+        public static EvaluationFormLanguageConfigurationFormLanguage JaJp { get; } = new EvaluationFormLanguageConfigurationFormLanguage("ja-JP");
+        public static EvaluationFormLanguageConfigurationFormLanguage KoKr { get; } = new EvaluationFormLanguageConfigurationFormLanguage("ko-KR");
+        public static EvaluationFormLanguageConfigurationFormLanguage ZhCn { get; } = new EvaluationFormLanguageConfigurationFormLanguage("zh-CN");
 
         public static bool operator ==(EvaluationFormLanguageConfigurationFormLanguage left, EvaluationFormLanguageConfigurationFormLanguage right) => left.Equals(right);
         public static bool operator !=(EvaluationFormLanguageConfigurationFormLanguage left, EvaluationFormLanguageConfigurationFormLanguage right) => !left.Equals(right);
@@ -835,6 +838,7 @@ namespace Pulumi.AwsNative.Connect
 
         public static EvaluationFormTargetConfigurationContactInteractionType Agent { get; } = new EvaluationFormTargetConfigurationContactInteractionType("AGENT");
         public static EvaluationFormTargetConfigurationContactInteractionType Automated { get; } = new EvaluationFormTargetConfigurationContactInteractionType("AUTOMATED");
+        public static EvaluationFormTargetConfigurationContactInteractionType Customer { get; } = new EvaluationFormTargetConfigurationContactInteractionType("CUSTOMER");
 
         public static bool operator ==(EvaluationFormTargetConfigurationContactInteractionType left, EvaluationFormTargetConfigurationContactInteractionType right) => left.Equals(right);
         public static bool operator !=(EvaluationFormTargetConfigurationContactInteractionType left, EvaluationFormTargetConfigurationContactInteractionType right) => !left.Equals(right);

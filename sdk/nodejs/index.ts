@@ -263,6 +263,7 @@ import * as rekognition from "./rekognition";
 import * as resiliencehub from "./resiliencehub";
 import * as resourceexplorer2 from "./resourceexplorer2";
 import * as resourcegroups from "./resourcegroups";
+import * as robomaker from "./robomaker";
 import * as rolesanywhere from "./rolesanywhere";
 import * as route53 from "./route53";
 import * as route53globalresolver from "./route53globalresolver";
@@ -518,6 +519,7 @@ export {
     resiliencehub,
     resourceexplorer2,
     resourcegroups,
+    robomaker,
     rolesanywhere,
     route53,
     route53globalresolver,

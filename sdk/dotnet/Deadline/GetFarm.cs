@@ -12,19 +12,19 @@ namespace Pulumi.AwsNative.Deadline
     public static class GetFarm
     {
         /// <summary>
-        /// Definition of AWS::Deadline::Farm Resource Type
+        /// Resource Type definition for AWS::Deadline::Farm
         /// </summary>
         public static Task<GetFarmResult> InvokeAsync(GetFarmArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFarmResult>("aws-native:deadline:getFarm", args ?? new GetFarmArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Definition of AWS::Deadline::Farm Resource Type
+        /// Resource Type definition for AWS::Deadline::Farm
         /// </summary>
         public static Output<GetFarmResult> Invoke(GetFarmInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFarmResult>("aws-native:deadline:getFarm", args ?? new GetFarmInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Definition of AWS::Deadline::Farm Resource Type
+        /// Resource Type definition for AWS::Deadline::Farm
         /// </summary>
         public static Output<GetFarmResult> Invoke(GetFarmInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetFarmResult>("aws-native:deadline:getFarm", args ?? new GetFarmInvokeArgs(), options.WithDefaults());

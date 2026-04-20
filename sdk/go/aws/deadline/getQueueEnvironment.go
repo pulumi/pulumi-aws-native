@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Definition of AWS::Deadline::QueueEnvironment Resource Type
+// Resource Type definition for AWS::Deadline::QueueEnvironment
 func LookupQueueEnvironment(ctx *pulumi.Context, args *LookupQueueEnvironmentArgs, opts ...pulumi.InvokeOption) (*LookupQueueEnvironmentResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupQueueEnvironmentResult

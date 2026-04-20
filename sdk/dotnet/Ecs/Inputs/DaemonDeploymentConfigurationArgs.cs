@@ -10,14 +10,26 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Ecs.Inputs
 {
 
+    /// <summary>
+    /// Optional deployment parameters that control how a daemon rolls out updates across container instances.
+    /// </summary>
     public sealed class DaemonDeploymentConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The CloudWatch alarm configuration for the daemon deployment. When alarms are triggered during a deployment, the deployment can be automatically rolled back.
+        /// </summary>
         [Input("alarms")]
         public Input<Inputs.DaemonAlarmConfigurationArgs>? Alarms { get; set; }
 
+        /// <summary>
+        /// The amount of time (in minutes) to wait after a successful deployment step before proceeding. This allows time to monitor for issues before continuing. The default value is 0.
+        /// </summary>
         [Input("bakeTimeInMinutes")]
         public Input<int>? BakeTimeInMinutes { get; set; }
 
+        /// <summary>
+        /// The percentage of container instances to drain simultaneously during a daemon deployment. Valid values are between 0.0 and 100.0.
+        /// </summary>
         [Input("drainPercent")]
         public Input<double>? DrainPercent { get; set; }
 

@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Definition of AWS::Deadline::Limit Resource Type
+// Resource Type definition for AWS::Deadline::Limit
 func LookupLimit(ctx *pulumi.Context, args *LookupLimitArgs, opts ...pulumi.InvokeOption) (*LookupLimitResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupLimitResult

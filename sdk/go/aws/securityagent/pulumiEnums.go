@@ -10,6 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Type of authentication provider
 type PentestAuthenticationProviderType string
 
 const (
@@ -179,6 +180,7 @@ func (in *pentestAuthenticationProviderTypePtr) ToPentestAuthenticationProviderT
 	return pulumi.ToOutputWithContext(ctx, in).(PentestAuthenticationProviderTypePtrOutput)
 }
 
+// Strategy for remediating code vulnerabilities discovered during the pentest
 type PentestCodeRemediationStrategy string
 
 const (
@@ -344,6 +346,7 @@ func (in *pentestCodeRemediationStrategyPtr) ToPentestCodeRemediationStrategyPtr
 	return pulumi.ToOutputWithContext(ctx, in).(PentestCodeRemediationStrategyPtrOutput)
 }
 
+// Whether to allow or deny traffic matching this rule
 type PentestNetworkTrafficRuleEffect string
 
 const (
@@ -509,6 +512,7 @@ func (in *pentestNetworkTrafficRuleEffectPtr) ToPentestNetworkTrafficRuleEffectP
 	return pulumi.ToOutputWithContext(ctx, in).(PentestNetworkTrafficRuleEffectPtrOutput)
 }
 
+// Type of pattern matching for this rule
 type PentestNetworkTrafficRuleNetworkTrafficRuleType string
 
 const (
@@ -672,6 +676,7 @@ func (in *pentestNetworkTrafficRuleNetworkTrafficRuleTypePtr) ToPentestNetworkTr
 	return pulumi.ToOutputWithContext(ctx, in).(PentestNetworkTrafficRuleNetworkTrafficRuleTypePtrOutput)
 }
 
+// Type of security risk to test for
 type PentestRiskType string
 
 const (

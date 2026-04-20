@@ -249,18 +249,18 @@ class OptionsProperties(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 input_params: Optional['outputs.GuardHookS3Location'] = None):
+                 input_params: Optional[Any] = None):
         """
         Specifies the S3 location of your input parameters.
 
-        :param 'GuardHookS3Location' input_params: Specifies the S3 location where your input parameters are located.
+        :param Union['GuardHookS3Location', Sequence['GuardHookS3Location']] input_params: Specifies the S3 location where your input parameters are located.
         """
         if input_params is not None:
             pulumi.set(__self__, "input_params", input_params)
 
     @_builtins.property
     @pulumi.getter(name="inputParams")
-    def input_params(self) -> Optional['outputs.GuardHookS3Location']:
+    def input_params(self) -> Optional[Any]:
         """
         Specifies the S3 location where your input parameters are located.
         """

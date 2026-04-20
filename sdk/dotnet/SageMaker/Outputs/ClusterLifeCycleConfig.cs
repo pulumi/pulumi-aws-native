@@ -11,27 +11,34 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
 {
 
     /// <summary>
-    /// The lifecycle configuration for a SageMaker HyperPod cluster.
+    /// The lifecycle configuration for a SageMaker HyperPod cluster. When omitted, the instance group uses Bootstrap mode. When provided with SourceS3Uri and OnCreate, uses Customer Managed mode. When provided with SourceS3Uri and OnInitComplete, uses Extended mode.
     /// </summary>
     [OutputType]
     public sealed class ClusterLifeCycleConfig
     {
         /// <summary>
-        /// The file name of the entrypoint script of lifecycle scripts under SourceS3Uri. This entrypoint script runs during cluster creation.
+        /// The file name of the entrypoint script of lifecycle scripts under SourceS3Uri. This entrypoint script runs during cluster creation. Mutually exclusive with OnInitComplete.
         /// </summary>
-        public readonly string OnCreate;
+        public readonly string? OnCreate;
+        /// <summary>
+        /// The file name of the extension script under SourceS3Uri. This script runs after HyperPod configures the default software on the instance. Mutually exclusive with OnCreate.
+        /// </summary>
+        public readonly string? OnInitComplete;
         /// <summary>
         /// An Amazon S3 bucket path where your lifecycle scripts are stored.
         /// </summary>
-        public readonly string SourceS3Uri;
+        public readonly string? SourceS3Uri;
 
         [OutputConstructor]
         private ClusterLifeCycleConfig(
-            string onCreate,
+            string? onCreate,
 
-            string sourceS3Uri)
+            string? onInitComplete,
+
+            string? sourceS3Uri)
         {
             OnCreate = onCreate;
+            OnInitComplete = onInitComplete;
             SourceS3Uri = sourceS3Uri;
         }
     }

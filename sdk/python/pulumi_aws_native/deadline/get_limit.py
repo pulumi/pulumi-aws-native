@@ -104,7 +104,7 @@ def get_limit(farm_id: Optional[_builtins.str] = None,
               limit_id: Optional[_builtins.str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLimitResult:
     """
-    Definition of AWS::Deadline::Limit Resource Type
+    Resource Type definition for AWS::Deadline::Limit
 
 
     :param _builtins.str farm_id: The unique identifier of the farm that contains the limit.
@@ -126,7 +126,7 @@ def get_limit_output(farm_id: Optional[pulumi.Input[_builtins.str]] = None,
                      limit_id: Optional[pulumi.Input[_builtins.str]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLimitResult]:
     """
-    Definition of AWS::Deadline::Limit Resource Type
+    Resource Type definition for AWS::Deadline::Limit
 
 
     :param _builtins.str farm_id: The unique identifier of the farm that contains the limit.

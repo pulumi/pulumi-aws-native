@@ -111,7 +111,7 @@ class AwaitableGetLicenseEndpointResult(GetLicenseEndpointResult):
 def get_license_endpoint(arn: Optional[_builtins.str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLicenseEndpointResult:
     """
-    Definition of AWS::Deadline::LicenseEndpoint Resource Type
+    Resource Type definition for AWS::Deadline::LicenseEndpoint
 
 
     :param _builtins.str arn: The Amazon Resource Name (ARN) of the license endpoint.
@@ -131,7 +131,7 @@ def get_license_endpoint(arn: Optional[_builtins.str] = None,
 def get_license_endpoint_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLicenseEndpointResult]:
     """
-    Definition of AWS::Deadline::LicenseEndpoint Resource Type
+    Resource Type definition for AWS::Deadline::LicenseEndpoint
 
 
     :param _builtins.str arn: The Amazon Resource Name (ARN) of the license endpoint.

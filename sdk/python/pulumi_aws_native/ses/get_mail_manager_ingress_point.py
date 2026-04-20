@@ -25,7 +25,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetMailManagerIngressPointResult:
-    def __init__(__self__, a_record=None, ingress_point_arn=None, ingress_point_id=None, ingress_point_name=None, rule_set_id=None, status=None, status_to_update=None, tags=None, traffic_policy_id=None):
+    def __init__(__self__, a_record=None, ingress_point_arn=None, ingress_point_id=None, ingress_point_name=None, rule_set_id=None, status=None, status_to_update=None, tags=None, tls_policy=None, traffic_policy_id=None):
         if a_record and not isinstance(a_record, str):
             raise TypeError("Expected argument 'a_record' to be a str")
         pulumi.set(__self__, "a_record", a_record)
@@ -50,6 +50,9 @@ class GetMailManagerIngressPointResult:
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
+        if tls_policy and not isinstance(tls_policy, str):
+            raise TypeError("Expected argument 'tls_policy' to be a str")
+        pulumi.set(__self__, "tls_policy", tls_policy)
         if traffic_policy_id and not isinstance(traffic_policy_id, str):
             raise TypeError("Expected argument 'traffic_policy_id' to be a str")
         pulumi.set(__self__, "traffic_policy_id", traffic_policy_id)
@@ -119,6 +122,11 @@ class GetMailManagerIngressPointResult:
         return pulumi.get(self, "tags")
 
     @_builtins.property
+    @pulumi.getter(name="tlsPolicy")
+    def tls_policy(self) -> Optional['MailManagerIngressPointTlsPolicy']:
+        return pulumi.get(self, "tls_policy")
+
+    @_builtins.property
     @pulumi.getter(name="trafficPolicyId")
     def traffic_policy_id(self) -> Optional[_builtins.str]:
         """
@@ -141,6 +149,7 @@ class AwaitableGetMailManagerIngressPointResult(GetMailManagerIngressPointResult
             status=self.status,
             status_to_update=self.status_to_update,
             tags=self.tags,
+            tls_policy=self.tls_policy,
             traffic_policy_id=self.traffic_policy_id)
 
 
@@ -166,6 +175,7 @@ def get_mail_manager_ingress_point(ingress_point_id: Optional[_builtins.str] = N
         status=pulumi.get(__ret__, 'status'),
         status_to_update=pulumi.get(__ret__, 'status_to_update'),
         tags=pulumi.get(__ret__, 'tags'),
+        tls_policy=pulumi.get(__ret__, 'tls_policy'),
         traffic_policy_id=pulumi.get(__ret__, 'traffic_policy_id'))
 def get_mail_manager_ingress_point_output(ingress_point_id: Optional[pulumi.Input[_builtins.str]] = None,
                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMailManagerIngressPointResult]:
@@ -188,4 +198,5 @@ def get_mail_manager_ingress_point_output(ingress_point_id: Optional[pulumi.Inpu
         status=pulumi.get(__response__, 'status'),
         status_to_update=pulumi.get(__response__, 'status_to_update'),
         tags=pulumi.get(__response__, 'tags'),
+        tls_policy=pulumi.get(__response__, 'tls_policy'),
         traffic_policy_id=pulumi.get(__response__, 'traffic_policy_id')))

@@ -50,6 +50,10 @@ export class Replicator extends pulumi.CustomResource {
      */
     declare public readonly kafkaClusters: pulumi.Output<outputs.msk.ReplicatorKafkaCluster[]>;
     /**
+     * Configuration for log delivery for the replicator.
+     */
+    declare public readonly logDelivery: pulumi.Output<outputs.msk.LogDelivery | undefined>;
+    /**
      * A list of replication configurations, where each configuration targets a given source cluster to target cluster replication flow.
      */
     declare public readonly replicationInfoList: pulumi.Output<outputs.msk.ReplicatorReplicationInfo[]>;
@@ -92,6 +96,7 @@ export class Replicator extends pulumi.CustomResource {
             }
             resourceInputs["description"] = args?.description;
             resourceInputs["kafkaClusters"] = args?.kafkaClusters;
+            resourceInputs["logDelivery"] = args?.logDelivery;
             resourceInputs["replicationInfoList"] = args?.replicationInfoList;
             resourceInputs["replicatorName"] = args?.replicatorName;
             resourceInputs["serviceExecutionRoleArn"] = args?.serviceExecutionRoleArn;
@@ -102,6 +107,7 @@ export class Replicator extends pulumi.CustomResource {
             resourceInputs["currentVersion"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["kafkaClusters"] = undefined /*out*/;
+            resourceInputs["logDelivery"] = undefined /*out*/;
             resourceInputs["replicationInfoList"] = undefined /*out*/;
             resourceInputs["replicatorArn"] = undefined /*out*/;
             resourceInputs["replicatorName"] = undefined /*out*/;
@@ -109,7 +115,7 @@ export class Replicator extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["description", "kafkaClusters[*]", "replicationInfoList[*].sourceKafkaClusterArn", "replicationInfoList[*].targetCompressionType", "replicationInfoList[*].targetKafkaClusterArn", "replicationInfoList[*].topicReplication.startingPosition", "replicationInfoList[*].topicReplication.topicNameConfiguration", "replicatorName", "serviceExecutionRoleArn"] };
+        const replaceOnChanges = { replaceOnChanges: ["description", "kafkaClusters[*]", "replicationInfoList[*].consumerGroupReplication.consumerGroupOffsetSyncMode", "replicationInfoList[*].sourceKafkaClusterArn", "replicationInfoList[*].sourceKafkaClusterId", "replicationInfoList[*].targetCompressionType", "replicationInfoList[*].targetKafkaClusterArn", "replicationInfoList[*].targetKafkaClusterId", "replicationInfoList[*].topicReplication.startingPosition", "replicationInfoList[*].topicReplication.topicNameConfiguration", "replicatorName", "serviceExecutionRoleArn"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Replicator.__pulumiType, name, resourceInputs, opts);
     }
@@ -127,6 +133,10 @@ export interface ReplicatorArgs {
      * Specifies a list of Kafka clusters which are targets of the replicator.
      */
     kafkaClusters: pulumi.Input<pulumi.Input<inputs.msk.ReplicatorKafkaClusterArgs>[]>;
+    /**
+     * Configuration for log delivery for the replicator.
+     */
+    logDelivery?: pulumi.Input<inputs.msk.LogDeliveryArgs>;
     /**
      * A list of replication configurations, where each configuration targets a given source cluster to target cluster replication flow.
      */

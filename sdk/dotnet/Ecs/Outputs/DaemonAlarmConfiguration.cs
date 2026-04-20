@@ -10,10 +10,19 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Ecs.Outputs
 {
 
+    /// <summary>
+    /// The CloudWatch alarm configuration for a daemon. When enabled, CloudWatch alarms determine whether a daemon deployment has failed.
+    /// </summary>
     [OutputType]
     public sealed class DaemonAlarmConfiguration
     {
+        /// <summary>
+        /// The CloudWatch alarm names to monitor during a daemon deployment.
+        /// </summary>
         public readonly ImmutableArray<string> AlarmNames;
+        /// <summary>
+        /// Determines whether to use the CloudWatch alarm option in the daemon deployment process. The default value is ``false``.
+        /// </summary>
         public readonly bool? Enable;
 
         [OutputConstructor]

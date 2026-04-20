@@ -74,6 +74,10 @@ export class OdbNetwork extends pulumi.CustomResource {
      */
     declare public readonly displayName: pulumi.Output<string | undefined>;
     /**
+     * The list of EC2 placement group IDs associated with your ODB network.
+     */
+    declare public /*out*/ readonly ec2PlacementGroupIds: pulumi.Output<string[]>;
+    /**
      * The AWS Key Management Service (KMS) access configuration for the ODB network.
      */
     declare public readonly kmsAccess: pulumi.Output<enums.odb.OdbNetworkKmsAccess | undefined>;
@@ -155,6 +159,7 @@ export class OdbNetwork extends pulumi.CustomResource {
             resourceInputs["stsPolicyDocument"] = args?.stsPolicyDocument;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["zeroEtlAccess"] = args?.zeroEtlAccess;
+            resourceInputs["ec2PlacementGroupIds"] = undefined /*out*/;
             resourceInputs["managedServices"] = undefined /*out*/;
             resourceInputs["ociNetworkAnchorId"] = undefined /*out*/;
             resourceInputs["ociResourceAnchorName"] = undefined /*out*/;
@@ -171,6 +176,7 @@ export class OdbNetwork extends pulumi.CustomResource {
             resourceInputs["defaultDnsPrefix"] = undefined /*out*/;
             resourceInputs["deleteAssociatedResources"] = undefined /*out*/;
             resourceInputs["displayName"] = undefined /*out*/;
+            resourceInputs["ec2PlacementGroupIds"] = undefined /*out*/;
             resourceInputs["kmsAccess"] = undefined /*out*/;
             resourceInputs["kmsPolicyDocument"] = undefined /*out*/;
             resourceInputs["managedServices"] = undefined /*out*/;

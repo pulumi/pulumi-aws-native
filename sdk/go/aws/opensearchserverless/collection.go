@@ -116,7 +116,7 @@ type Collection struct {
 	// Unique to your account and AWS Region
 	// Starts with a lowercase letter
 	// Contains only lowercase letters a-z, the numbers 0-9 and the hyphen (-)
-	// Contains between 3 and 32 characters
+	// Contains between 3 and 64 characters
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Indicates whether to use standby replicas for the collection. You can't update this property after the collection is already created. If you attempt to modify this property, the collection continues to use the original value.
 	StandbyReplicas CollectionStandbyReplicasPtrOutput `pulumi:"standbyReplicas"`
@@ -188,7 +188,7 @@ type collectionArgs struct {
 	// Unique to your account and AWS Region
 	// Starts with a lowercase letter
 	// Contains only lowercase letters a-z, the numbers 0-9 and the hyphen (-)
-	// Contains between 3 and 32 characters
+	// Contains between 3 and 64 characters
 	Name *string `pulumi:"name"`
 	// Indicates whether to use standby replicas for the collection. You can't update this property after the collection is already created. If you attempt to modify this property, the collection continues to use the original value.
 	StandbyReplicas *CollectionStandbyReplicas `pulumi:"standbyReplicas"`
@@ -212,7 +212,7 @@ type CollectionArgs struct {
 	// Unique to your account and AWS Region
 	// Starts with a lowercase letter
 	// Contains only lowercase letters a-z, the numbers 0-9 and the hyphen (-)
-	// Contains between 3 and 32 characters
+	// Contains between 3 and 64 characters
 	Name pulumi.StringPtrInput
 	// Indicates whether to use standby replicas for the collection. You can't update this property after the collection is already created. If you attempt to modify this property, the collection continues to use the original value.
 	StandbyReplicas CollectionStandbyReplicasPtrInput
@@ -309,7 +309,7 @@ func (o CollectionOutput) KmsKeyArn() pulumi.StringOutput {
 // Unique to your account and AWS Region
 // Starts with a lowercase letter
 // Contains only lowercase letters a-z, the numbers 0-9 and the hyphen (-)
-// Contains between 3 and 32 characters
+// Contains between 3 and 64 characters
 func (o CollectionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Collection) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

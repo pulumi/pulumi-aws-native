@@ -126,7 +126,7 @@ class Limit(pulumi.CustomResource):
                  max_count: Optional[pulumi.Input[_builtins.int]] = None,
                  __props__=None):
         """
-        Definition of AWS::Deadline::Limit Resource Type
+        Resource Type definition for AWS::Deadline::Limit
 
 
         :param str resource_name: The name of the resource.
@@ -150,7 +150,7 @@ class Limit(pulumi.CustomResource):
                  args: LimitArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Definition of AWS::Deadline::Limit Resource Type
+        Resource Type definition for AWS::Deadline::Limit
 
 
         :param str resource_name: The name of the resource.

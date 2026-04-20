@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Definition of AWS::Deadline::Farm Resource Type
+// Resource Type definition for AWS::Deadline::Farm
 func LookupFarm(ctx *pulumi.Context, args *LookupFarmArgs, opts ...pulumi.InvokeOption) (*LookupFarmResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupFarmResult

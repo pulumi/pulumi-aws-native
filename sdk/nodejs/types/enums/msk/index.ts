@@ -55,6 +55,35 @@ export const ClusterStorageMode = {
  */
 export type ClusterStorageMode = (typeof ClusterStorageMode)[keyof typeof ClusterStorageMode];
 
+export const ReplicatorConsumerGroupOffsetSyncMode = {
+    Legacy: "LEGACY",
+    Enhanced: "ENHANCED",
+} as const;
+
+/**
+ * The consumer group offset synchronization mode.
+ */
+export type ReplicatorConsumerGroupOffsetSyncMode = (typeof ReplicatorConsumerGroupOffsetSyncMode)[keyof typeof ReplicatorConsumerGroupOffsetSyncMode];
+
+export const ReplicatorKafkaClusterEncryptionInTransitType = {
+    Tls: "TLS",
+} as const;
+
+/**
+ * The type of encryption in transit to the Apache Kafka cluster.
+ */
+export type ReplicatorKafkaClusterEncryptionInTransitType = (typeof ReplicatorKafkaClusterEncryptionInTransitType)[keyof typeof ReplicatorKafkaClusterEncryptionInTransitType];
+
+export const ReplicatorKafkaClusterSaslScramMechanism = {
+    Sha256: "SHA256",
+    Sha512: "SHA512",
+} as const;
+
+/**
+ * The SASL/SCRAM authentication mechanism.
+ */
+export type ReplicatorKafkaClusterSaslScramMechanism = (typeof ReplicatorKafkaClusterSaslScramMechanism)[keyof typeof ReplicatorKafkaClusterSaslScramMechanism];
+
 export const ReplicatorReplicationInfoTargetCompressionType = {
     None: "NONE",
     Gzip: "GZIP",

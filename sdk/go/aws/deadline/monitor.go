@@ -13,7 +13,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Definition of AWS::Deadline::Monitor Resource Type
+// Resource Type definition for AWS::Deadline::Monitor
 type Monitor struct {
 	pulumi.CustomResourceState
 
@@ -27,6 +27,8 @@ type Monitor struct {
 	IdentityCenterApplicationArn pulumi.StringOutput `pulumi:"identityCenterApplicationArn"`
 	// The Amazon Resource Name of the IAM Identity Center instance responsible for authenticating monitor users.
 	IdentityCenterInstanceArn pulumi.StringOutput `pulumi:"identityCenterInstanceArn"`
+	// The AWS region where IAM Identity Center is enabled. Required when Identity Center is in a different region than the monitor.
+	IdentityCenterRegion pulumi.StringPtrOutput `pulumi:"identityCenterRegion"`
 	// The unique identifier for the monitor.
 	MonitorId pulumi.StringOutput `pulumi:"monitorId"`
 	// The Amazon Resource Name of the IAM role for the monitor. Users of the monitor use this role to access Deadline Cloud resources.
@@ -60,6 +62,7 @@ func NewMonitor(ctx *pulumi.Context,
 	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"identityCenterInstanceArn",
+		"identityCenterRegion",
 	})
 	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
@@ -101,6 +104,8 @@ type monitorArgs struct {
 	DisplayName string `pulumi:"displayName"`
 	// The Amazon Resource Name of the IAM Identity Center instance responsible for authenticating monitor users.
 	IdentityCenterInstanceArn string `pulumi:"identityCenterInstanceArn"`
+	// The AWS region where IAM Identity Center is enabled. Required when Identity Center is in a different region than the monitor.
+	IdentityCenterRegion *string `pulumi:"identityCenterRegion"`
 	// The Amazon Resource Name of the IAM role for the monitor. Users of the monitor use this role to access Deadline Cloud resources.
 	RoleArn string `pulumi:"roleArn"`
 	// The subdomain used for the monitor URL. The full URL of the monitor is subdomain.Region.deadlinecloud.amazonaws.com.
@@ -117,6 +122,8 @@ type MonitorArgs struct {
 	DisplayName pulumi.StringInput
 	// The Amazon Resource Name of the IAM Identity Center instance responsible for authenticating monitor users.
 	IdentityCenterInstanceArn pulumi.StringInput
+	// The AWS region where IAM Identity Center is enabled. Required when Identity Center is in a different region than the monitor.
+	IdentityCenterRegion pulumi.StringPtrInput
 	// The Amazon Resource Name of the IAM role for the monitor. Users of the monitor use this role to access Deadline Cloud resources.
 	RoleArn pulumi.StringInput
 	// The subdomain used for the monitor URL. The full URL of the monitor is subdomain.Region.deadlinecloud.amazonaws.com.
@@ -182,6 +189,11 @@ func (o MonitorOutput) IdentityCenterApplicationArn() pulumi.StringOutput {
 // The Amazon Resource Name of the IAM Identity Center instance responsible for authenticating monitor users.
 func (o MonitorOutput) IdentityCenterInstanceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Monitor) pulumi.StringOutput { return v.IdentityCenterInstanceArn }).(pulumi.StringOutput)
+}
+
+// The AWS region where IAM Identity Center is enabled. Required when Identity Center is in a different region than the monitor.
+func (o MonitorOutput) IdentityCenterRegion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Monitor) pulumi.StringPtrOutput { return v.IdentityCenterRegion }).(pulumi.StringPtrOutput)
 }
 
 // The unique identifier for the monitor.

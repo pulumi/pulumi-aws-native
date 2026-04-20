@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource Type definition for AWS::Batch::QuotaShare
+ * Creates an AWS Batch quota share. Each quota share operates as a virtual queue with a configured compute capacity, resource sharing strategy, and borrow limits.
  */
 export function getQuotaShare(args: GetQuotaShareArgs, opts?: pulumi.InvokeOptions): Promise<GetQuotaShareResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -26,11 +26,11 @@ export interface GetQuotaShareArgs {
 
 export interface GetQuotaShareResult {
     /**
-     * The capacity limits for the quota share.
+     * A list that specifies the quantity and type of compute capacity allocated to the quota share.
      */
     readonly capacityLimits?: outputs.batch.QuotaShareCapacityLimit[];
     /**
-     * The preemption configuration for the quota share.
+     * Specifies the preemption behavior for jobs in a quota share.
      */
     readonly preemptionConfiguration?: outputs.batch.QuotaSharePreemptionConfiguration;
     /**
@@ -38,20 +38,20 @@ export interface GetQuotaShareResult {
      */
     readonly quotaShareArn?: string;
     /**
-     * The resource sharing configuration for the quota share.
+     * Specifies whether a quota share reserves, lends, or both lends and borrows idle compute capacity.
      */
     readonly resourceSharingConfiguration?: outputs.batch.QuotaShareResourceSharingConfiguration;
     /**
-     * The state of the quota share.
+     * The state of the quota share. If the quota share is `ENABLED`, it is able to accept jobs. If the quota share is `DISABLED`, new jobs won't be accepted but jobs already submitted can finish. The default state is `ENABLED`.
      */
     readonly state?: enums.batch.QuotaShareState;
     /**
-     * A key-value pair to associate with a resource.
+     * The tags that you apply to the quota share to help you categorize and organize your resources. Each tag consists of a key and an optional value.
      */
     readonly tags?: {[key: string]: string};
 }
 /**
- * Resource Type definition for AWS::Batch::QuotaShare
+ * Creates an AWS Batch quota share. Each quota share operates as a virtual queue with a configured compute capacity, resource sharing strategy, and borrow limits.
  */
 export function getQuotaShareOutput(args: GetQuotaShareOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetQuotaShareResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

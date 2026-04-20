@@ -81,7 +81,7 @@ class QueueLimitAssociation(pulumi.CustomResource):
                  queue_id: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Definition of AWS::Deadline::QueueLimitAssociation Resource Type
+        Resource Type definition for AWS::Deadline::QueueLimitAssociation
 
 
         :param str resource_name: The name of the resource.
@@ -97,7 +97,7 @@ class QueueLimitAssociation(pulumi.CustomResource):
                  args: QueueLimitAssociationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Definition of AWS::Deadline::QueueLimitAssociation Resource Type
+        Resource Type definition for AWS::Deadline::QueueLimitAssociation
 
 
         :param str resource_name: The name of the resource.

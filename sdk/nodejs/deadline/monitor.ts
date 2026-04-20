@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Definition of AWS::Deadline::Monitor Resource Type
+ * Resource Type definition for AWS::Deadline::Monitor
  */
 export class Monitor extends pulumi.CustomResource {
     /**
@@ -56,6 +56,10 @@ export class Monitor extends pulumi.CustomResource {
      */
     declare public readonly identityCenterInstanceArn: pulumi.Output<string>;
     /**
+     * The AWS region where IAM Identity Center is enabled. Required when Identity Center is in a different region than the monitor.
+     */
+    declare public readonly identityCenterRegion: pulumi.Output<string | undefined>;
+    /**
      * The unique identifier for the monitor.
      */
     declare public /*out*/ readonly monitorId: pulumi.Output<string>;
@@ -101,6 +105,7 @@ export class Monitor extends pulumi.CustomResource {
             }
             resourceInputs["displayName"] = args?.displayName;
             resourceInputs["identityCenterInstanceArn"] = args?.identityCenterInstanceArn;
+            resourceInputs["identityCenterRegion"] = args?.identityCenterRegion;
             resourceInputs["roleArn"] = args?.roleArn;
             resourceInputs["subdomain"] = args?.subdomain;
             resourceInputs["tags"] = args?.tags;
@@ -113,6 +118,7 @@ export class Monitor extends pulumi.CustomResource {
             resourceInputs["displayName"] = undefined /*out*/;
             resourceInputs["identityCenterApplicationArn"] = undefined /*out*/;
             resourceInputs["identityCenterInstanceArn"] = undefined /*out*/;
+            resourceInputs["identityCenterRegion"] = undefined /*out*/;
             resourceInputs["monitorId"] = undefined /*out*/;
             resourceInputs["roleArn"] = undefined /*out*/;
             resourceInputs["subdomain"] = undefined /*out*/;
@@ -120,7 +126,7 @@ export class Monitor extends pulumi.CustomResource {
             resourceInputs["url"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["identityCenterInstanceArn"] };
+        const replaceOnChanges = { replaceOnChanges: ["identityCenterInstanceArn", "identityCenterRegion"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Monitor.__pulumiType, name, resourceInputs, opts);
     }
@@ -140,6 +146,10 @@ export interface MonitorArgs {
      * The Amazon Resource Name of the IAM Identity Center instance responsible for authenticating monitor users.
      */
     identityCenterInstanceArn: pulumi.Input<string>;
+    /**
+     * The AWS region where IAM Identity Center is enabled. Required when Identity Center is in a different region than the monitor.
+     */
+    identityCenterRegion?: pulumi.Input<string>;
     /**
      * The Amazon Resource Name of the IAM role for the monitor. Users of the monitor use this role to access Deadline Cloud resources.
      */

@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Batch.Inputs
     public sealed class QuotaSharePreemptionConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Whether preemption is enabled within the quota share.
+        /// Specifies whether jobs within a quota share can be preempted by another, higher priority job in the same quota share.
         /// </summary>
         [Input("inSharePreemption", required: true)]
         public Input<Pulumi.AwsNative.Batch.QuotaSharePreemptionConfigurationInSharePreemption> InSharePreemption { get; set; } = null!;

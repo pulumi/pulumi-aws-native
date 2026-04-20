@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Deadline
 {
     /// <summary>
-    /// Definition of AWS::Deadline::QueueEnvironment Resource Type
+    /// Resource Type definition for AWS::Deadline::QueueEnvironment
     /// </summary>
     [AwsNativeResourceType("aws-native:deadline:QueueEnvironment")]
     public partial class QueueEnvironment : global::Pulumi.CustomResource

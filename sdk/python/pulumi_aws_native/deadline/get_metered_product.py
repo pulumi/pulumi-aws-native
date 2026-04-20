@@ -85,7 +85,7 @@ class AwaitableGetMeteredProductResult(GetMeteredProductResult):
 def get_metered_product(arn: Optional[_builtins.str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMeteredProductResult:
     """
-    Definition of AWS::Deadline::MeteredProduct Resource Type
+    Resource Type definition for AWS::Deadline::MeteredProduct
 
 
     :param _builtins.str arn: The Amazon Resource Name (ARN) of the metered product.
@@ -103,7 +103,7 @@ def get_metered_product(arn: Optional[_builtins.str] = None,
 def get_metered_product_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMeteredProductResult]:
     """
-    Definition of AWS::Deadline::MeteredProduct Resource Type
+    Resource Type definition for AWS::Deadline::MeteredProduct
 
 
     :param _builtins.str arn: The Amazon Resource Name (ARN) of the metered product.

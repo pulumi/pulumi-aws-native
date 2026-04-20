@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Deadline
 {
     /// <summary>
-    /// Definition of AWS::Deadline::Limit Resource Type
+    /// Resource Type definition for AWS::Deadline::Limit
     /// </summary>
     [AwsNativeResourceType("aws-native:deadline:Limit")]
     public partial class Limit : global::Pulumi.CustomResource

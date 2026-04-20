@@ -2199,7 +2199,7 @@ type ClusterInstanceGroup struct {
 	InstanceStorageConfigs []ClusterInstanceStorageConfig `pulumi:"instanceStorageConfigs"`
 	InstanceType           string                         `pulumi:"instanceType"`
 	KubernetesConfig       *ClusterKubernetesConfig       `pulumi:"kubernetesConfig"`
-	LifeCycleConfig        ClusterLifeCycleConfig         `pulumi:"lifeCycleConfig"`
+	LifeCycleConfig        *ClusterLifeCycleConfig        `pulumi:"lifeCycleConfig"`
 	// The minimum number of instances required for the instance group to be InService. MinInstanceCount must be less than or equal to InstanceCount.
 	MinInstanceCount        *int                          `pulumi:"minInstanceCount"`
 	OnStartDeepHealthChecks []ClusterDeepHealthCheckType  `pulumi:"onStartDeepHealthChecks"`
@@ -2236,7 +2236,7 @@ type ClusterInstanceGroupArgs struct {
 	InstanceStorageConfigs ClusterInstanceStorageConfigArrayInput `pulumi:"instanceStorageConfigs"`
 	InstanceType           pulumi.StringInput                     `pulumi:"instanceType"`
 	KubernetesConfig       ClusterKubernetesConfigPtrInput        `pulumi:"kubernetesConfig"`
-	LifeCycleConfig        ClusterLifeCycleConfigInput            `pulumi:"lifeCycleConfig"`
+	LifeCycleConfig        ClusterLifeCycleConfigPtrInput         `pulumi:"lifeCycleConfig"`
 	// The minimum number of instances required for the instance group to be InService. MinInstanceCount must be less than or equal to InstanceCount.
 	MinInstanceCount        pulumi.IntPtrInput                   `pulumi:"minInstanceCount"`
 	OnStartDeepHealthChecks ClusterDeepHealthCheckTypeArrayInput `pulumi:"onStartDeepHealthChecks"`
@@ -2339,8 +2339,8 @@ func (o ClusterInstanceGroupOutput) KubernetesConfig() ClusterKubernetesConfigPt
 	return o.ApplyT(func(v ClusterInstanceGroup) *ClusterKubernetesConfig { return v.KubernetesConfig }).(ClusterKubernetesConfigPtrOutput)
 }
 
-func (o ClusterInstanceGroupOutput) LifeCycleConfig() ClusterLifeCycleConfigOutput {
-	return o.ApplyT(func(v ClusterInstanceGroup) ClusterLifeCycleConfig { return v.LifeCycleConfig }).(ClusterLifeCycleConfigOutput)
+func (o ClusterInstanceGroupOutput) LifeCycleConfig() ClusterLifeCycleConfigPtrOutput {
+	return o.ApplyT(func(v ClusterInstanceGroup) *ClusterLifeCycleConfig { return v.LifeCycleConfig }).(ClusterLifeCycleConfigPtrOutput)
 }
 
 // The minimum number of instances required for the instance group to be InService. MinInstanceCount must be less than or equal to InstanceCount.
@@ -2754,12 +2754,14 @@ func (o ClusterKubernetesTaintArrayOutput) Index(i pulumi.IntInput) ClusterKuber
 	}).(ClusterKubernetesTaintOutput)
 }
 
-// The lifecycle configuration for a SageMaker HyperPod cluster.
+// The lifecycle configuration for a SageMaker HyperPod cluster. When omitted, the instance group uses Bootstrap mode. When provided with SourceS3Uri and OnCreate, uses Customer Managed mode. When provided with SourceS3Uri and OnInitComplete, uses Extended mode.
 type ClusterLifeCycleConfig struct {
-	// The file name of the entrypoint script of lifecycle scripts under SourceS3Uri. This entrypoint script runs during cluster creation.
-	OnCreate string `pulumi:"onCreate"`
+	// The file name of the entrypoint script of lifecycle scripts under SourceS3Uri. This entrypoint script runs during cluster creation. Mutually exclusive with OnInitComplete.
+	OnCreate *string `pulumi:"onCreate"`
+	// The file name of the extension script under SourceS3Uri. This script runs after HyperPod configures the default software on the instance. Mutually exclusive with OnCreate.
+	OnInitComplete *string `pulumi:"onInitComplete"`
 	// An Amazon S3 bucket path where your lifecycle scripts are stored.
-	SourceS3Uri string `pulumi:"sourceS3Uri"`
+	SourceS3Uri *string `pulumi:"sourceS3Uri"`
 }
 
 // ClusterLifeCycleConfigInput is an input type that accepts ClusterLifeCycleConfigArgs and ClusterLifeCycleConfigOutput values.
@@ -2773,12 +2775,14 @@ type ClusterLifeCycleConfigInput interface {
 	ToClusterLifeCycleConfigOutputWithContext(context.Context) ClusterLifeCycleConfigOutput
 }
 
-// The lifecycle configuration for a SageMaker HyperPod cluster.
+// The lifecycle configuration for a SageMaker HyperPod cluster. When omitted, the instance group uses Bootstrap mode. When provided with SourceS3Uri and OnCreate, uses Customer Managed mode. When provided with SourceS3Uri and OnInitComplete, uses Extended mode.
 type ClusterLifeCycleConfigArgs struct {
-	// The file name of the entrypoint script of lifecycle scripts under SourceS3Uri. This entrypoint script runs during cluster creation.
-	OnCreate pulumi.StringInput `pulumi:"onCreate"`
+	// The file name of the entrypoint script of lifecycle scripts under SourceS3Uri. This entrypoint script runs during cluster creation. Mutually exclusive with OnInitComplete.
+	OnCreate pulumi.StringPtrInput `pulumi:"onCreate"`
+	// The file name of the extension script under SourceS3Uri. This script runs after HyperPod configures the default software on the instance. Mutually exclusive with OnCreate.
+	OnInitComplete pulumi.StringPtrInput `pulumi:"onInitComplete"`
 	// An Amazon S3 bucket path where your lifecycle scripts are stored.
-	SourceS3Uri pulumi.StringInput `pulumi:"sourceS3Uri"`
+	SourceS3Uri pulumi.StringPtrInput `pulumi:"sourceS3Uri"`
 }
 
 func (ClusterLifeCycleConfigArgs) ElementType() reflect.Type {
@@ -2793,7 +2797,48 @@ func (i ClusterLifeCycleConfigArgs) ToClusterLifeCycleConfigOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterLifeCycleConfigOutput)
 }
 
-// The lifecycle configuration for a SageMaker HyperPod cluster.
+func (i ClusterLifeCycleConfigArgs) ToClusterLifeCycleConfigPtrOutput() ClusterLifeCycleConfigPtrOutput {
+	return i.ToClusterLifeCycleConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ClusterLifeCycleConfigArgs) ToClusterLifeCycleConfigPtrOutputWithContext(ctx context.Context) ClusterLifeCycleConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterLifeCycleConfigOutput).ToClusterLifeCycleConfigPtrOutputWithContext(ctx)
+}
+
+// ClusterLifeCycleConfigPtrInput is an input type that accepts ClusterLifeCycleConfigArgs, ClusterLifeCycleConfigPtr and ClusterLifeCycleConfigPtrOutput values.
+// You can construct a concrete instance of `ClusterLifeCycleConfigPtrInput` via:
+//
+//	        ClusterLifeCycleConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type ClusterLifeCycleConfigPtrInput interface {
+	pulumi.Input
+
+	ToClusterLifeCycleConfigPtrOutput() ClusterLifeCycleConfigPtrOutput
+	ToClusterLifeCycleConfigPtrOutputWithContext(context.Context) ClusterLifeCycleConfigPtrOutput
+}
+
+type clusterLifeCycleConfigPtrType ClusterLifeCycleConfigArgs
+
+func ClusterLifeCycleConfigPtr(v *ClusterLifeCycleConfigArgs) ClusterLifeCycleConfigPtrInput {
+	return (*clusterLifeCycleConfigPtrType)(v)
+}
+
+func (*clusterLifeCycleConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterLifeCycleConfig)(nil)).Elem()
+}
+
+func (i *clusterLifeCycleConfigPtrType) ToClusterLifeCycleConfigPtrOutput() ClusterLifeCycleConfigPtrOutput {
+	return i.ToClusterLifeCycleConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterLifeCycleConfigPtrType) ToClusterLifeCycleConfigPtrOutputWithContext(ctx context.Context) ClusterLifeCycleConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterLifeCycleConfigPtrOutput)
+}
+
+// The lifecycle configuration for a SageMaker HyperPod cluster. When omitted, the instance group uses Bootstrap mode. When provided with SourceS3Uri and OnCreate, uses Customer Managed mode. When provided with SourceS3Uri and OnInitComplete, uses Extended mode.
 type ClusterLifeCycleConfigOutput struct{ *pulumi.OutputState }
 
 func (ClusterLifeCycleConfigOutput) ElementType() reflect.Type {
@@ -2808,14 +2853,83 @@ func (o ClusterLifeCycleConfigOutput) ToClusterLifeCycleConfigOutputWithContext(
 	return o
 }
 
-// The file name of the entrypoint script of lifecycle scripts under SourceS3Uri. This entrypoint script runs during cluster creation.
-func (o ClusterLifeCycleConfigOutput) OnCreate() pulumi.StringOutput {
-	return o.ApplyT(func(v ClusterLifeCycleConfig) string { return v.OnCreate }).(pulumi.StringOutput)
+func (o ClusterLifeCycleConfigOutput) ToClusterLifeCycleConfigPtrOutput() ClusterLifeCycleConfigPtrOutput {
+	return o.ToClusterLifeCycleConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterLifeCycleConfigOutput) ToClusterLifeCycleConfigPtrOutputWithContext(ctx context.Context) ClusterLifeCycleConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterLifeCycleConfig) *ClusterLifeCycleConfig {
+		return &v
+	}).(ClusterLifeCycleConfigPtrOutput)
+}
+
+// The file name of the entrypoint script of lifecycle scripts under SourceS3Uri. This entrypoint script runs during cluster creation. Mutually exclusive with OnInitComplete.
+func (o ClusterLifeCycleConfigOutput) OnCreate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterLifeCycleConfig) *string { return v.OnCreate }).(pulumi.StringPtrOutput)
+}
+
+// The file name of the extension script under SourceS3Uri. This script runs after HyperPod configures the default software on the instance. Mutually exclusive with OnCreate.
+func (o ClusterLifeCycleConfigOutput) OnInitComplete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterLifeCycleConfig) *string { return v.OnInitComplete }).(pulumi.StringPtrOutput)
 }
 
 // An Amazon S3 bucket path where your lifecycle scripts are stored.
-func (o ClusterLifeCycleConfigOutput) SourceS3Uri() pulumi.StringOutput {
-	return o.ApplyT(func(v ClusterLifeCycleConfig) string { return v.SourceS3Uri }).(pulumi.StringOutput)
+func (o ClusterLifeCycleConfigOutput) SourceS3Uri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterLifeCycleConfig) *string { return v.SourceS3Uri }).(pulumi.StringPtrOutput)
+}
+
+type ClusterLifeCycleConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterLifeCycleConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterLifeCycleConfig)(nil)).Elem()
+}
+
+func (o ClusterLifeCycleConfigPtrOutput) ToClusterLifeCycleConfigPtrOutput() ClusterLifeCycleConfigPtrOutput {
+	return o
+}
+
+func (o ClusterLifeCycleConfigPtrOutput) ToClusterLifeCycleConfigPtrOutputWithContext(ctx context.Context) ClusterLifeCycleConfigPtrOutput {
+	return o
+}
+
+func (o ClusterLifeCycleConfigPtrOutput) Elem() ClusterLifeCycleConfigOutput {
+	return o.ApplyT(func(v *ClusterLifeCycleConfig) ClusterLifeCycleConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterLifeCycleConfig
+		return ret
+	}).(ClusterLifeCycleConfigOutput)
+}
+
+// The file name of the entrypoint script of lifecycle scripts under SourceS3Uri. This entrypoint script runs during cluster creation. Mutually exclusive with OnInitComplete.
+func (o ClusterLifeCycleConfigPtrOutput) OnCreate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterLifeCycleConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.OnCreate
+	}).(pulumi.StringPtrOutput)
+}
+
+// The file name of the extension script under SourceS3Uri. This script runs after HyperPod configures the default software on the instance. Mutually exclusive with OnCreate.
+func (o ClusterLifeCycleConfigPtrOutput) OnInitComplete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterLifeCycleConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.OnInitComplete
+	}).(pulumi.StringPtrOutput)
+}
+
+// An Amazon S3 bucket path where your lifecycle scripts are stored.
+func (o ClusterLifeCycleConfigPtrOutput) SourceS3Uri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterLifeCycleConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SourceS3Uri
+	}).(pulumi.StringPtrOutput)
 }
 
 // Options for OnDemand capacity
@@ -50472,6 +50586,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterKubernetesTaintInput)(nil)).Elem(), ClusterKubernetesTaintArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterKubernetesTaintArrayInput)(nil)).Elem(), ClusterKubernetesTaintArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterLifeCycleConfigInput)(nil)).Elem(), ClusterLifeCycleConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterLifeCycleConfigPtrInput)(nil)).Elem(), ClusterLifeCycleConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterOnDemandOptionsInput)(nil)).Elem(), ClusterOnDemandOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterOnDemandOptionsPtrInput)(nil)).Elem(), ClusterOnDemandOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterOrchestratorInput)(nil)).Elem(), ClusterOrchestratorArgs{})
@@ -51073,6 +51188,7 @@ func init() {
 	pulumi.RegisterOutputType(ClusterKubernetesTaintOutput{})
 	pulumi.RegisterOutputType(ClusterKubernetesTaintArrayOutput{})
 	pulumi.RegisterOutputType(ClusterLifeCycleConfigOutput{})
+	pulumi.RegisterOutputType(ClusterLifeCycleConfigPtrOutput{})
 	pulumi.RegisterOutputType(ClusterOnDemandOptionsOutput{})
 	pulumi.RegisterOutputType(ClusterOnDemandOptionsPtrOutput{})
 	pulumi.RegisterOutputType(ClusterOrchestratorOutput{})

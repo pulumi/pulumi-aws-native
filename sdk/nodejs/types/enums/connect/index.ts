@@ -162,6 +162,9 @@ export const EvaluationFormLanguageConfigurationFormLanguage = {
     FrFr: "fr-FR",
     ItIt: "it-IT",
     PtBr: "pt-BR",
+    JaJp: "ja-JP",
+    KoKr: "ko-KR",
+    ZhCn: "zh-CN",
 } as const;
 
 /**
@@ -293,6 +296,7 @@ export type EvaluationFormStatus = (typeof EvaluationFormStatus)[keyof typeof Ev
 export const EvaluationFormTargetConfigurationContactInteractionType = {
     Agent: "AGENT",
     Automated: "AUTOMATED",
+    Customer: "CUSTOMER",
 } as const;
 
 /**

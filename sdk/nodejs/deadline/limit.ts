@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Definition of AWS::Deadline::Limit Resource Type
+ * Resource Type definition for AWS::Deadline::Limit
  */
 export class Limit extends pulumi.CustomResource {
     /**

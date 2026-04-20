@@ -44,7 +44,8 @@ type LookupMailManagerIngressPointResult struct {
 	// The update status of an ingress endpoint.
 	StatusToUpdate *MailManagerIngressPointIngressPointStatusToUpdate `pulumi:"statusToUpdate"`
 	// The tags used to organize, track, or control access for the resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.
-	Tags []aws.Tag `pulumi:"tags"`
+	Tags      []aws.Tag                         `pulumi:"tags"`
+	TlsPolicy *MailManagerIngressPointTlsPolicy `pulumi:"tlsPolicy"`
 	// The identifier of an existing traffic policy that you attach to an ingress endpoint resource.
 	TrafficPolicyId *string `pulumi:"trafficPolicyId"`
 }
@@ -123,6 +124,10 @@ func (o LookupMailManagerIngressPointResultOutput) StatusToUpdate() MailManagerI
 // The tags used to organize, track, or control access for the resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.
 func (o LookupMailManagerIngressPointResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupMailManagerIngressPointResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
+}
+
+func (o LookupMailManagerIngressPointResultOutput) TlsPolicy() MailManagerIngressPointTlsPolicyPtrOutput {
+	return o.ApplyT(func(v LookupMailManagerIngressPointResult) *MailManagerIngressPointTlsPolicy { return v.TlsPolicy }).(MailManagerIngressPointTlsPolicyPtrOutput)
 }
 
 // The identifier of an existing traffic policy that you attach to an ingress endpoint resource.

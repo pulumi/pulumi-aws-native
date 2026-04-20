@@ -1219,11 +1219,16 @@ type ApplicationTag struct {
 	Value string `pulumi:"value"`
 }
 
+// An authenticated actor to be used during pentest execution
 type PentestActor struct {
+	// Authentication credentials for this actor
 	Authentication *PentestAuthentication `pulumi:"authentication"`
-	Description    *string                `pulumi:"description"`
-	Identifier     *string                `pulumi:"identifier"`
-	Uris           []string               `pulumi:"uris"`
+	// Description of the actor
+	Description *string `pulumi:"description"`
+	// Identifier for the actor
+	Identifier *string `pulumi:"identifier"`
+	// List of URIs this actor is authorized to access
+	Uris []string `pulumi:"uris"`
 }
 
 // PentestActorInput is an input type that accepts PentestActorArgs and PentestActorOutput values.
@@ -1237,11 +1242,16 @@ type PentestActorInput interface {
 	ToPentestActorOutputWithContext(context.Context) PentestActorOutput
 }
 
+// An authenticated actor to be used during pentest execution
 type PentestActorArgs struct {
+	// Authentication credentials for this actor
 	Authentication PentestAuthenticationPtrInput `pulumi:"authentication"`
-	Description    pulumi.StringPtrInput         `pulumi:"description"`
-	Identifier     pulumi.StringPtrInput         `pulumi:"identifier"`
-	Uris           pulumi.StringArrayInput       `pulumi:"uris"`
+	// Description of the actor
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// Identifier for the actor
+	Identifier pulumi.StringPtrInput `pulumi:"identifier"`
+	// List of URIs this actor is authorized to access
+	Uris pulumi.StringArrayInput `pulumi:"uris"`
 }
 
 func (PentestActorArgs) ElementType() reflect.Type {
@@ -1281,6 +1291,7 @@ func (i PentestActorArray) ToPentestActorArrayOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(PentestActorArrayOutput)
 }
 
+// An authenticated actor to be used during pentest execution
 type PentestActorOutput struct{ *pulumi.OutputState }
 
 func (PentestActorOutput) ElementType() reflect.Type {
@@ -1295,18 +1306,22 @@ func (o PentestActorOutput) ToPentestActorOutputWithContext(ctx context.Context)
 	return o
 }
 
+// Authentication credentials for this actor
 func (o PentestActorOutput) Authentication() PentestAuthenticationPtrOutput {
 	return o.ApplyT(func(v PentestActor) *PentestAuthentication { return v.Authentication }).(PentestAuthenticationPtrOutput)
 }
 
+// Description of the actor
 func (o PentestActorOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PentestActor) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// Identifier for the actor
 func (o PentestActorOutput) Identifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PentestActor) *string { return v.Identifier }).(pulumi.StringPtrOutput)
 }
 
+// List of URIs this actor is authorized to access
 func (o PentestActorOutput) Uris() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PentestActor) []string { return v.Uris }).(pulumi.StringArrayOutput)
 }
@@ -1331,12 +1346,18 @@ func (o PentestActorArrayOutput) Index(i pulumi.IntInput) PentestActorOutput {
 	}).(PentestActorOutput)
 }
 
+// Collection of assets to be tested during the pentest
 type PentestAssets struct {
-	Actors                 []PentestActor                `pulumi:"actors"`
-	Documents              []PentestDocumentInfo         `pulumi:"documents"`
-	Endpoints              []PentestEndpoint             `pulumi:"endpoints"`
+	// List of actors used during testing
+	Actors []PentestActor `pulumi:"actors"`
+	// List of documents providing additional context for the pentest
+	Documents []PentestDocumentInfo `pulumi:"documents"`
+	// List of endpoints to test
+	Endpoints []PentestEndpoint `pulumi:"endpoints"`
+	// List of repositories connected via provider integrations
 	IntegratedRepositories []PentestIntegratedRepository `pulumi:"integratedRepositories"`
-	SourceCode             []PentestSourceCodeRepository `pulumi:"sourceCode"`
+	// List of source code repositories to analyze
+	SourceCode []PentestSourceCodeRepository `pulumi:"sourceCode"`
 }
 
 // PentestAssetsInput is an input type that accepts PentestAssetsArgs and PentestAssetsOutput values.
@@ -1350,12 +1371,18 @@ type PentestAssetsInput interface {
 	ToPentestAssetsOutputWithContext(context.Context) PentestAssetsOutput
 }
 
+// Collection of assets to be tested during the pentest
 type PentestAssetsArgs struct {
-	Actors                 PentestActorArrayInput                `pulumi:"actors"`
-	Documents              PentestDocumentInfoArrayInput         `pulumi:"documents"`
-	Endpoints              PentestEndpointArrayInput             `pulumi:"endpoints"`
+	// List of actors used during testing
+	Actors PentestActorArrayInput `pulumi:"actors"`
+	// List of documents providing additional context for the pentest
+	Documents PentestDocumentInfoArrayInput `pulumi:"documents"`
+	// List of endpoints to test
+	Endpoints PentestEndpointArrayInput `pulumi:"endpoints"`
+	// List of repositories connected via provider integrations
 	IntegratedRepositories PentestIntegratedRepositoryArrayInput `pulumi:"integratedRepositories"`
-	SourceCode             PentestSourceCodeRepositoryArrayInput `pulumi:"sourceCode"`
+	// List of source code repositories to analyze
+	SourceCode PentestSourceCodeRepositoryArrayInput `pulumi:"sourceCode"`
 }
 
 func (PentestAssetsArgs) ElementType() reflect.Type {
@@ -1370,6 +1397,7 @@ func (i PentestAssetsArgs) ToPentestAssetsOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(PentestAssetsOutput)
 }
 
+// Collection of assets to be tested during the pentest
 type PentestAssetsOutput struct{ *pulumi.OutputState }
 
 func (PentestAssetsOutput) ElementType() reflect.Type {
@@ -1384,22 +1412,27 @@ func (o PentestAssetsOutput) ToPentestAssetsOutputWithContext(ctx context.Contex
 	return o
 }
 
+// List of actors used during testing
 func (o PentestAssetsOutput) Actors() PentestActorArrayOutput {
 	return o.ApplyT(func(v PentestAssets) []PentestActor { return v.Actors }).(PentestActorArrayOutput)
 }
 
+// List of documents providing additional context for the pentest
 func (o PentestAssetsOutput) Documents() PentestDocumentInfoArrayOutput {
 	return o.ApplyT(func(v PentestAssets) []PentestDocumentInfo { return v.Documents }).(PentestDocumentInfoArrayOutput)
 }
 
+// List of endpoints to test
 func (o PentestAssetsOutput) Endpoints() PentestEndpointArrayOutput {
 	return o.ApplyT(func(v PentestAssets) []PentestEndpoint { return v.Endpoints }).(PentestEndpointArrayOutput)
 }
 
+// List of repositories connected via provider integrations
 func (o PentestAssetsOutput) IntegratedRepositories() PentestIntegratedRepositoryArrayOutput {
 	return o.ApplyT(func(v PentestAssets) []PentestIntegratedRepository { return v.IntegratedRepositories }).(PentestIntegratedRepositoryArrayOutput)
 }
 
+// List of source code repositories to analyze
 func (o PentestAssetsOutput) SourceCode() PentestSourceCodeRepositoryArrayOutput {
 	return o.ApplyT(func(v PentestAssets) []PentestSourceCodeRepository { return v.SourceCode }).(PentestSourceCodeRepositoryArrayOutput)
 }
@@ -1428,6 +1461,7 @@ func (o PentestAssetsPtrOutput) Elem() PentestAssetsOutput {
 	}).(PentestAssetsOutput)
 }
 
+// List of actors used during testing
 func (o PentestAssetsPtrOutput) Actors() PentestActorArrayOutput {
 	return o.ApplyT(func(v *PentestAssets) []PentestActor {
 		if v == nil {
@@ -1437,6 +1471,7 @@ func (o PentestAssetsPtrOutput) Actors() PentestActorArrayOutput {
 	}).(PentestActorArrayOutput)
 }
 
+// List of documents providing additional context for the pentest
 func (o PentestAssetsPtrOutput) Documents() PentestDocumentInfoArrayOutput {
 	return o.ApplyT(func(v *PentestAssets) []PentestDocumentInfo {
 		if v == nil {
@@ -1446,6 +1481,7 @@ func (o PentestAssetsPtrOutput) Documents() PentestDocumentInfoArrayOutput {
 	}).(PentestDocumentInfoArrayOutput)
 }
 
+// List of endpoints to test
 func (o PentestAssetsPtrOutput) Endpoints() PentestEndpointArrayOutput {
 	return o.ApplyT(func(v *PentestAssets) []PentestEndpoint {
 		if v == nil {
@@ -1455,6 +1491,7 @@ func (o PentestAssetsPtrOutput) Endpoints() PentestEndpointArrayOutput {
 	}).(PentestEndpointArrayOutput)
 }
 
+// List of repositories connected via provider integrations
 func (o PentestAssetsPtrOutput) IntegratedRepositories() PentestIntegratedRepositoryArrayOutput {
 	return o.ApplyT(func(v *PentestAssets) []PentestIntegratedRepository {
 		if v == nil {
@@ -1464,6 +1501,7 @@ func (o PentestAssetsPtrOutput) IntegratedRepositories() PentestIntegratedReposi
 	}).(PentestIntegratedRepositoryArrayOutput)
 }
 
+// List of source code repositories to analyze
 func (o PentestAssetsPtrOutput) SourceCode() PentestSourceCodeRepositoryArrayOutput {
 	return o.ApplyT(func(v *PentestAssets) []PentestSourceCodeRepository {
 		if v == nil {
@@ -1473,9 +1511,12 @@ func (o PentestAssetsPtrOutput) SourceCode() PentestSourceCodeRepositoryArrayOut
 	}).(PentestSourceCodeRepositoryArrayOutput)
 }
 
+// Authentication configuration for a pentest actor
 type PentestAuthentication struct {
+	// Type of authentication provider
 	ProviderType *PentestAuthenticationProviderType `pulumi:"providerType"`
-	Value        *string                            `pulumi:"value"`
+	// Reference value for the authentication provider, such as a secret ARN or Lambda ARN
+	Value *string `pulumi:"value"`
 }
 
 // PentestAuthenticationInput is an input type that accepts PentestAuthenticationArgs and PentestAuthenticationOutput values.
@@ -1489,9 +1530,12 @@ type PentestAuthenticationInput interface {
 	ToPentestAuthenticationOutputWithContext(context.Context) PentestAuthenticationOutput
 }
 
+// Authentication configuration for a pentest actor
 type PentestAuthenticationArgs struct {
+	// Type of authentication provider
 	ProviderType PentestAuthenticationProviderTypePtrInput `pulumi:"providerType"`
-	Value        pulumi.StringPtrInput                     `pulumi:"value"`
+	// Reference value for the authentication provider, such as a secret ARN or Lambda ARN
+	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
 func (PentestAuthenticationArgs) ElementType() reflect.Type {
@@ -1547,6 +1591,7 @@ func (i *pentestAuthenticationPtrType) ToPentestAuthenticationPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(PentestAuthenticationPtrOutput)
 }
 
+// Authentication configuration for a pentest actor
 type PentestAuthenticationOutput struct{ *pulumi.OutputState }
 
 func (PentestAuthenticationOutput) ElementType() reflect.Type {
@@ -1571,10 +1616,12 @@ func (o PentestAuthenticationOutput) ToPentestAuthenticationPtrOutputWithContext
 	}).(PentestAuthenticationPtrOutput)
 }
 
+// Type of authentication provider
 func (o PentestAuthenticationOutput) ProviderType() PentestAuthenticationProviderTypePtrOutput {
 	return o.ApplyT(func(v PentestAuthentication) *PentestAuthenticationProviderType { return v.ProviderType }).(PentestAuthenticationProviderTypePtrOutput)
 }
 
+// Reference value for the authentication provider, such as a secret ARN or Lambda ARN
 func (o PentestAuthenticationOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PentestAuthentication) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -1603,6 +1650,7 @@ func (o PentestAuthenticationPtrOutput) Elem() PentestAuthenticationOutput {
 	}).(PentestAuthenticationOutput)
 }
 
+// Type of authentication provider
 func (o PentestAuthenticationPtrOutput) ProviderType() PentestAuthenticationProviderTypePtrOutput {
 	return o.ApplyT(func(v *PentestAuthentication) *PentestAuthenticationProviderType {
 		if v == nil {
@@ -1612,6 +1660,7 @@ func (o PentestAuthenticationPtrOutput) ProviderType() PentestAuthenticationProv
 	}).(PentestAuthenticationProviderTypePtrOutput)
 }
 
+// Reference value for the authentication provider, such as a secret ARN or Lambda ARN
 func (o PentestAuthenticationPtrOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PentestAuthentication) *string {
 		if v == nil {
@@ -1621,8 +1670,11 @@ func (o PentestAuthenticationPtrOutput) Value() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// CloudWatch Logs configuration for pentest output
 type PentestCloudWatchLog struct {
-	LogGroup  *string `pulumi:"logGroup"`
+	// CloudWatch log group
+	LogGroup *string `pulumi:"logGroup"`
+	// CloudWatch log stream
 	LogStream *string `pulumi:"logStream"`
 }
 
@@ -1637,8 +1689,11 @@ type PentestCloudWatchLogInput interface {
 	ToPentestCloudWatchLogOutputWithContext(context.Context) PentestCloudWatchLogOutput
 }
 
+// CloudWatch Logs configuration for pentest output
 type PentestCloudWatchLogArgs struct {
-	LogGroup  pulumi.StringPtrInput `pulumi:"logGroup"`
+	// CloudWatch log group
+	LogGroup pulumi.StringPtrInput `pulumi:"logGroup"`
+	// CloudWatch log stream
 	LogStream pulumi.StringPtrInput `pulumi:"logStream"`
 }
 
@@ -1695,6 +1750,7 @@ func (i *pentestCloudWatchLogPtrType) ToPentestCloudWatchLogPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(PentestCloudWatchLogPtrOutput)
 }
 
+// CloudWatch Logs configuration for pentest output
 type PentestCloudWatchLogOutput struct{ *pulumi.OutputState }
 
 func (PentestCloudWatchLogOutput) ElementType() reflect.Type {
@@ -1719,10 +1775,12 @@ func (o PentestCloudWatchLogOutput) ToPentestCloudWatchLogPtrOutputWithContext(c
 	}).(PentestCloudWatchLogPtrOutput)
 }
 
+// CloudWatch log group
 func (o PentestCloudWatchLogOutput) LogGroup() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PentestCloudWatchLog) *string { return v.LogGroup }).(pulumi.StringPtrOutput)
 }
 
+// CloudWatch log stream
 func (o PentestCloudWatchLogOutput) LogStream() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PentestCloudWatchLog) *string { return v.LogStream }).(pulumi.StringPtrOutput)
 }
@@ -1751,6 +1809,7 @@ func (o PentestCloudWatchLogPtrOutput) Elem() PentestCloudWatchLogOutput {
 	}).(PentestCloudWatchLogOutput)
 }
 
+// CloudWatch log group
 func (o PentestCloudWatchLogPtrOutput) LogGroup() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PentestCloudWatchLog) *string {
 		if v == nil {
@@ -1760,6 +1819,7 @@ func (o PentestCloudWatchLogPtrOutput) LogGroup() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// CloudWatch log stream
 func (o PentestCloudWatchLogPtrOutput) LogStream() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PentestCloudWatchLog) *string {
 		if v == nil {
@@ -1769,8 +1829,11 @@ func (o PentestCloudWatchLogPtrOutput) LogStream() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// A custom header to include in outbound requests
 type PentestCustomHeader struct {
-	Name  *string `pulumi:"name"`
+	// Name of the header
+	Name *string `pulumi:"name"`
+	// Value of the header
 	Value *string `pulumi:"value"`
 }
 
@@ -1785,8 +1848,11 @@ type PentestCustomHeaderInput interface {
 	ToPentestCustomHeaderOutputWithContext(context.Context) PentestCustomHeaderOutput
 }
 
+// A custom header to include in outbound requests
 type PentestCustomHeaderArgs struct {
-	Name  pulumi.StringPtrInput `pulumi:"name"`
+	// Name of the header
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Value of the header
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
@@ -1827,6 +1893,7 @@ func (i PentestCustomHeaderArray) ToPentestCustomHeaderArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(PentestCustomHeaderArrayOutput)
 }
 
+// A custom header to include in outbound requests
 type PentestCustomHeaderOutput struct{ *pulumi.OutputState }
 
 func (PentestCustomHeaderOutput) ElementType() reflect.Type {
@@ -1841,10 +1908,12 @@ func (o PentestCustomHeaderOutput) ToPentestCustomHeaderOutputWithContext(ctx co
 	return o
 }
 
+// Name of the header
 func (o PentestCustomHeaderOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PentestCustomHeader) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// Value of the header
 func (o PentestCustomHeaderOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PentestCustomHeader) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -1869,8 +1938,11 @@ func (o PentestCustomHeaderArrayOutput) Index(i pulumi.IntInput) PentestCustomHe
 	}).(PentestCustomHeaderOutput)
 }
 
+// A document stored in S3 that provides context for the pentest
 type PentestDocumentInfo struct {
+	// Artifact identifier
 	ArtifactId *string `pulumi:"artifactId"`
+	// S3 document location
 	S3Location *string `pulumi:"s3Location"`
 }
 
@@ -1885,8 +1957,11 @@ type PentestDocumentInfoInput interface {
 	ToPentestDocumentInfoOutputWithContext(context.Context) PentestDocumentInfoOutput
 }
 
+// A document stored in S3 that provides context for the pentest
 type PentestDocumentInfoArgs struct {
+	// Artifact identifier
 	ArtifactId pulumi.StringPtrInput `pulumi:"artifactId"`
+	// S3 document location
 	S3Location pulumi.StringPtrInput `pulumi:"s3Location"`
 }
 
@@ -1927,6 +2002,7 @@ func (i PentestDocumentInfoArray) ToPentestDocumentInfoArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(PentestDocumentInfoArrayOutput)
 }
 
+// A document stored in S3 that provides context for the pentest
 type PentestDocumentInfoOutput struct{ *pulumi.OutputState }
 
 func (PentestDocumentInfoOutput) ElementType() reflect.Type {
@@ -1941,10 +2017,12 @@ func (o PentestDocumentInfoOutput) ToPentestDocumentInfoOutputWithContext(ctx co
 	return o
 }
 
+// Artifact identifier
 func (o PentestDocumentInfoOutput) ArtifactId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PentestDocumentInfo) *string { return v.ArtifactId }).(pulumi.StringPtrOutput)
 }
 
+// S3 document location
 func (o PentestDocumentInfoOutput) S3Location() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PentestDocumentInfo) *string { return v.S3Location }).(pulumi.StringPtrOutput)
 }
@@ -1969,7 +2047,9 @@ func (o PentestDocumentInfoArrayOutput) Index(i pulumi.IntInput) PentestDocument
 	}).(PentestDocumentInfoOutput)
 }
 
+// An endpoint to be tested during the pentest
 type PentestEndpoint struct {
+	// URI of the endpoint to test
 	Uri *string `pulumi:"uri"`
 }
 
@@ -1984,7 +2064,9 @@ type PentestEndpointInput interface {
 	ToPentestEndpointOutputWithContext(context.Context) PentestEndpointOutput
 }
 
+// An endpoint to be tested during the pentest
 type PentestEndpointArgs struct {
+	// URI of the endpoint to test
 	Uri pulumi.StringPtrInput `pulumi:"uri"`
 }
 
@@ -2025,6 +2107,7 @@ func (i PentestEndpointArray) ToPentestEndpointArrayOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(PentestEndpointArrayOutput)
 }
 
+// An endpoint to be tested during the pentest
 type PentestEndpointOutput struct{ *pulumi.OutputState }
 
 func (PentestEndpointOutput) ElementType() reflect.Type {
@@ -2039,6 +2122,7 @@ func (o PentestEndpointOutput) ToPentestEndpointOutputWithContext(ctx context.Co
 	return o
 }
 
+// URI of the endpoint to test
 func (o PentestEndpointOutput) Uri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PentestEndpoint) *string { return v.Uri }).(pulumi.StringPtrOutput)
 }
@@ -2063,8 +2147,11 @@ func (o PentestEndpointArrayOutput) Index(i pulumi.IntInput) PentestEndpointOutp
 	}).(PentestEndpointOutput)
 }
 
+// A repository connected via a provider integration
 type PentestIntegratedRepository struct {
-	IntegrationId      string `pulumi:"integrationId"`
+	// Unique identifier of the provider integration
+	IntegrationId string `pulumi:"integrationId"`
+	// Identifier of the resource within the provider integration
 	ProviderResourceId string `pulumi:"providerResourceId"`
 }
 
@@ -2079,8 +2166,11 @@ type PentestIntegratedRepositoryInput interface {
 	ToPentestIntegratedRepositoryOutputWithContext(context.Context) PentestIntegratedRepositoryOutput
 }
 
+// A repository connected via a provider integration
 type PentestIntegratedRepositoryArgs struct {
-	IntegrationId      pulumi.StringInput `pulumi:"integrationId"`
+	// Unique identifier of the provider integration
+	IntegrationId pulumi.StringInput `pulumi:"integrationId"`
+	// Identifier of the resource within the provider integration
 	ProviderResourceId pulumi.StringInput `pulumi:"providerResourceId"`
 }
 
@@ -2121,6 +2211,7 @@ func (i PentestIntegratedRepositoryArray) ToPentestIntegratedRepositoryArrayOutp
 	return pulumi.ToOutputWithContext(ctx, i).(PentestIntegratedRepositoryArrayOutput)
 }
 
+// A repository connected via a provider integration
 type PentestIntegratedRepositoryOutput struct{ *pulumi.OutputState }
 
 func (PentestIntegratedRepositoryOutput) ElementType() reflect.Type {
@@ -2135,10 +2226,12 @@ func (o PentestIntegratedRepositoryOutput) ToPentestIntegratedRepositoryOutputWi
 	return o
 }
 
+// Unique identifier of the provider integration
 func (o PentestIntegratedRepositoryOutput) IntegrationId() pulumi.StringOutput {
 	return o.ApplyT(func(v PentestIntegratedRepository) string { return v.IntegrationId }).(pulumi.StringOutput)
 }
 
+// Identifier of the resource within the provider integration
 func (o PentestIntegratedRepositoryOutput) ProviderResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v PentestIntegratedRepository) string { return v.ProviderResourceId }).(pulumi.StringOutput)
 }
@@ -2163,9 +2256,12 @@ func (o PentestIntegratedRepositoryArrayOutput) Index(i pulumi.IntInput) Pentest
 	}).(PentestIntegratedRepositoryOutput)
 }
 
+// Network traffic configuration for the pentest
 type PentestNetworkTrafficConfig struct {
-	CustomHeaders []PentestCustomHeader       `pulumi:"customHeaders"`
-	Rules         []PentestNetworkTrafficRule `pulumi:"rules"`
+	// Custom headers to include in outbound requests
+	CustomHeaders []PentestCustomHeader `pulumi:"customHeaders"`
+	// Ordered list of network traffic rules
+	Rules []PentestNetworkTrafficRule `pulumi:"rules"`
 }
 
 // PentestNetworkTrafficConfigInput is an input type that accepts PentestNetworkTrafficConfigArgs and PentestNetworkTrafficConfigOutput values.
@@ -2179,9 +2275,12 @@ type PentestNetworkTrafficConfigInput interface {
 	ToPentestNetworkTrafficConfigOutputWithContext(context.Context) PentestNetworkTrafficConfigOutput
 }
 
+// Network traffic configuration for the pentest
 type PentestNetworkTrafficConfigArgs struct {
-	CustomHeaders PentestCustomHeaderArrayInput       `pulumi:"customHeaders"`
-	Rules         PentestNetworkTrafficRuleArrayInput `pulumi:"rules"`
+	// Custom headers to include in outbound requests
+	CustomHeaders PentestCustomHeaderArrayInput `pulumi:"customHeaders"`
+	// Ordered list of network traffic rules
+	Rules PentestNetworkTrafficRuleArrayInput `pulumi:"rules"`
 }
 
 func (PentestNetworkTrafficConfigArgs) ElementType() reflect.Type {
@@ -2237,6 +2336,7 @@ func (i *pentestNetworkTrafficConfigPtrType) ToPentestNetworkTrafficConfigPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(PentestNetworkTrafficConfigPtrOutput)
 }
 
+// Network traffic configuration for the pentest
 type PentestNetworkTrafficConfigOutput struct{ *pulumi.OutputState }
 
 func (PentestNetworkTrafficConfigOutput) ElementType() reflect.Type {
@@ -2261,10 +2361,12 @@ func (o PentestNetworkTrafficConfigOutput) ToPentestNetworkTrafficConfigPtrOutpu
 	}).(PentestNetworkTrafficConfigPtrOutput)
 }
 
+// Custom headers to include in outbound requests
 func (o PentestNetworkTrafficConfigOutput) CustomHeaders() PentestCustomHeaderArrayOutput {
 	return o.ApplyT(func(v PentestNetworkTrafficConfig) []PentestCustomHeader { return v.CustomHeaders }).(PentestCustomHeaderArrayOutput)
 }
 
+// Ordered list of network traffic rules
 func (o PentestNetworkTrafficConfigOutput) Rules() PentestNetworkTrafficRuleArrayOutput {
 	return o.ApplyT(func(v PentestNetworkTrafficConfig) []PentestNetworkTrafficRule { return v.Rules }).(PentestNetworkTrafficRuleArrayOutput)
 }
@@ -2293,6 +2395,7 @@ func (o PentestNetworkTrafficConfigPtrOutput) Elem() PentestNetworkTrafficConfig
 	}).(PentestNetworkTrafficConfigOutput)
 }
 
+// Custom headers to include in outbound requests
 func (o PentestNetworkTrafficConfigPtrOutput) CustomHeaders() PentestCustomHeaderArrayOutput {
 	return o.ApplyT(func(v *PentestNetworkTrafficConfig) []PentestCustomHeader {
 		if v == nil {
@@ -2302,6 +2405,7 @@ func (o PentestNetworkTrafficConfigPtrOutput) CustomHeaders() PentestCustomHeade
 	}).(PentestCustomHeaderArrayOutput)
 }
 
+// Ordered list of network traffic rules
 func (o PentestNetworkTrafficConfigPtrOutput) Rules() PentestNetworkTrafficRuleArrayOutput {
 	return o.ApplyT(func(v *PentestNetworkTrafficConfig) []PentestNetworkTrafficRule {
 		if v == nil {
@@ -2311,10 +2415,14 @@ func (o PentestNetworkTrafficConfigPtrOutput) Rules() PentestNetworkTrafficRuleA
 	}).(PentestNetworkTrafficRuleArrayOutput)
 }
 
+// Network traffic rule
 type PentestNetworkTrafficRule struct {
-	Effect                 *PentestNetworkTrafficRuleEffect                 `pulumi:"effect"`
+	// Whether to allow or deny traffic matching this rule
+	Effect *PentestNetworkTrafficRuleEffect `pulumi:"effect"`
+	// Type of pattern matching for this rule
 	NetworkTrafficRuleType *PentestNetworkTrafficRuleNetworkTrafficRuleType `pulumi:"networkTrafficRuleType"`
-	Pattern                *string                                          `pulumi:"pattern"`
+	// URL pattern this rule applies to
+	Pattern *string `pulumi:"pattern"`
 }
 
 // PentestNetworkTrafficRuleInput is an input type that accepts PentestNetworkTrafficRuleArgs and PentestNetworkTrafficRuleOutput values.
@@ -2328,10 +2436,14 @@ type PentestNetworkTrafficRuleInput interface {
 	ToPentestNetworkTrafficRuleOutputWithContext(context.Context) PentestNetworkTrafficRuleOutput
 }
 
+// Network traffic rule
 type PentestNetworkTrafficRuleArgs struct {
-	Effect                 PentestNetworkTrafficRuleEffectPtrInput                 `pulumi:"effect"`
+	// Whether to allow or deny traffic matching this rule
+	Effect PentestNetworkTrafficRuleEffectPtrInput `pulumi:"effect"`
+	// Type of pattern matching for this rule
 	NetworkTrafficRuleType PentestNetworkTrafficRuleNetworkTrafficRuleTypePtrInput `pulumi:"networkTrafficRuleType"`
-	Pattern                pulumi.StringPtrInput                                   `pulumi:"pattern"`
+	// URL pattern this rule applies to
+	Pattern pulumi.StringPtrInput `pulumi:"pattern"`
 }
 
 func (PentestNetworkTrafficRuleArgs) ElementType() reflect.Type {
@@ -2371,6 +2483,7 @@ func (i PentestNetworkTrafficRuleArray) ToPentestNetworkTrafficRuleArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(PentestNetworkTrafficRuleArrayOutput)
 }
 
+// Network traffic rule
 type PentestNetworkTrafficRuleOutput struct{ *pulumi.OutputState }
 
 func (PentestNetworkTrafficRuleOutput) ElementType() reflect.Type {
@@ -2385,16 +2498,19 @@ func (o PentestNetworkTrafficRuleOutput) ToPentestNetworkTrafficRuleOutputWithCo
 	return o
 }
 
+// Whether to allow or deny traffic matching this rule
 func (o PentestNetworkTrafficRuleOutput) Effect() PentestNetworkTrafficRuleEffectPtrOutput {
 	return o.ApplyT(func(v PentestNetworkTrafficRule) *PentestNetworkTrafficRuleEffect { return v.Effect }).(PentestNetworkTrafficRuleEffectPtrOutput)
 }
 
+// Type of pattern matching for this rule
 func (o PentestNetworkTrafficRuleOutput) NetworkTrafficRuleType() PentestNetworkTrafficRuleNetworkTrafficRuleTypePtrOutput {
 	return o.ApplyT(func(v PentestNetworkTrafficRule) *PentestNetworkTrafficRuleNetworkTrafficRuleType {
 		return v.NetworkTrafficRuleType
 	}).(PentestNetworkTrafficRuleNetworkTrafficRuleTypePtrOutput)
 }
 
+// URL pattern this rule applies to
 func (o PentestNetworkTrafficRuleOutput) Pattern() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PentestNetworkTrafficRule) *string { return v.Pattern }).(pulumi.StringPtrOutput)
 }
@@ -2419,7 +2535,9 @@ func (o PentestNetworkTrafficRuleArrayOutput) Index(i pulumi.IntInput) PentestNe
 	}).(PentestNetworkTrafficRuleOutput)
 }
 
+// A source code archive stored in S3 for analysis during the pentest
 type PentestSourceCodeRepository struct {
+	// S3 source code location
 	S3Location *string `pulumi:"s3Location"`
 }
 
@@ -2434,7 +2552,9 @@ type PentestSourceCodeRepositoryInput interface {
 	ToPentestSourceCodeRepositoryOutputWithContext(context.Context) PentestSourceCodeRepositoryOutput
 }
 
+// A source code archive stored in S3 for analysis during the pentest
 type PentestSourceCodeRepositoryArgs struct {
+	// S3 source code location
 	S3Location pulumi.StringPtrInput `pulumi:"s3Location"`
 }
 
@@ -2475,6 +2595,7 @@ func (i PentestSourceCodeRepositoryArray) ToPentestSourceCodeRepositoryArrayOutp
 	return pulumi.ToOutputWithContext(ctx, i).(PentestSourceCodeRepositoryArrayOutput)
 }
 
+// A source code archive stored in S3 for analysis during the pentest
 type PentestSourceCodeRepositoryOutput struct{ *pulumi.OutputState }
 
 func (PentestSourceCodeRepositoryOutput) ElementType() reflect.Type {
@@ -2489,6 +2610,7 @@ func (o PentestSourceCodeRepositoryOutput) ToPentestSourceCodeRepositoryOutputWi
 	return o
 }
 
+// S3 source code location
 func (o PentestSourceCodeRepositoryOutput) S3Location() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PentestSourceCodeRepository) *string { return v.S3Location }).(pulumi.StringPtrOutput)
 }
@@ -2513,10 +2635,13 @@ func (o PentestSourceCodeRepositoryArrayOutput) Index(i pulumi.IntInput) Pentest
 	}).(PentestSourceCodeRepositoryOutput)
 }
 
+// VPC configuration that the pentest agent accesses
 type PentestVpcConfig struct {
+	// List of security groups in the VPC
 	SecurityGroupArns []string `pulumi:"securityGroupArns"`
-	SubnetArns        []string `pulumi:"subnetArns"`
-	VpcArn            *string  `pulumi:"vpcArn"`
+	// List of subnets in the VPC
+	SubnetArns []string `pulumi:"subnetArns"`
+	VpcArn     *string  `pulumi:"vpcArn"`
 }
 
 // PentestVpcConfigInput is an input type that accepts PentestVpcConfigArgs and PentestVpcConfigOutput values.
@@ -2530,10 +2655,13 @@ type PentestVpcConfigInput interface {
 	ToPentestVpcConfigOutputWithContext(context.Context) PentestVpcConfigOutput
 }
 
+// VPC configuration that the pentest agent accesses
 type PentestVpcConfigArgs struct {
+	// List of security groups in the VPC
 	SecurityGroupArns pulumi.StringArrayInput `pulumi:"securityGroupArns"`
-	SubnetArns        pulumi.StringArrayInput `pulumi:"subnetArns"`
-	VpcArn            pulumi.StringPtrInput   `pulumi:"vpcArn"`
+	// List of subnets in the VPC
+	SubnetArns pulumi.StringArrayInput `pulumi:"subnetArns"`
+	VpcArn     pulumi.StringPtrInput   `pulumi:"vpcArn"`
 }
 
 func (PentestVpcConfigArgs) ElementType() reflect.Type {
@@ -2589,6 +2717,7 @@ func (i *pentestVpcConfigPtrType) ToPentestVpcConfigPtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(PentestVpcConfigPtrOutput)
 }
 
+// VPC configuration that the pentest agent accesses
 type PentestVpcConfigOutput struct{ *pulumi.OutputState }
 
 func (PentestVpcConfigOutput) ElementType() reflect.Type {
@@ -2613,10 +2742,12 @@ func (o PentestVpcConfigOutput) ToPentestVpcConfigPtrOutputWithContext(ctx conte
 	}).(PentestVpcConfigPtrOutput)
 }
 
+// List of security groups in the VPC
 func (o PentestVpcConfigOutput) SecurityGroupArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PentestVpcConfig) []string { return v.SecurityGroupArns }).(pulumi.StringArrayOutput)
 }
 
+// List of subnets in the VPC
 func (o PentestVpcConfigOutput) SubnetArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PentestVpcConfig) []string { return v.SubnetArns }).(pulumi.StringArrayOutput)
 }
@@ -2649,6 +2780,7 @@ func (o PentestVpcConfigPtrOutput) Elem() PentestVpcConfigOutput {
 	}).(PentestVpcConfigOutput)
 }
 
+// List of security groups in the VPC
 func (o PentestVpcConfigPtrOutput) SecurityGroupArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *PentestVpcConfig) []string {
 		if v == nil {
@@ -2658,6 +2790,7 @@ func (o PentestVpcConfigPtrOutput) SecurityGroupArns() pulumi.StringArrayOutput 
 	}).(pulumi.StringArrayOutput)
 }
 
+// List of subnets in the VPC
 func (o PentestVpcConfigPtrOutput) SubnetArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *PentestVpcConfig) []string {
 		if v == nil {

@@ -14,11 +14,11 @@ namespace Pulumi.AwsNative.Batch.Outputs
     public sealed class QuotaShareResourceSharingConfiguration
     {
         /// <summary>
-        /// The maximum amount of compute capacity that can be borrowed. Use -1 for unlimited borrowing.
+        /// The maximum percentage of additional capacity that the quota share can borrow from other shares. `BorrowLimit` can only be applied to quota shares with a strategy of `LEND_AND_BORROW`. This value is expressed as a percentage of the quota share's configured CapacityLimits. The `BorrowLimit` is applied uniformly across all capacity units. For example, if the `BorrowLimit` is 200, the quota share can borrow up to 200% of its configured `maxCapacity` for each capacity unit. The default `BorrowLimit` is -1, which indicates unlimited borrowing.
         /// </summary>
         public readonly int? BorrowLimit;
         /// <summary>
-        /// The resource sharing strategy.
+        /// The resource sharing strategy for the quota share. The `RESERVE` strategy allows a quota share to reserve idle capacity for itself. `LEND` configures the share to lend its idle capacity to another share in need of capacity. The `LEND_AND_BORROW` strategy configures the share to borrow idle capacity from an underutilized share, as well as lend to another share.
         /// </summary>
         public readonly Pulumi.AwsNative.Batch.QuotaShareResourceSharingConfigurationStrategy Strategy;
 

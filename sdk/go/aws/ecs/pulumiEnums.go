@@ -3159,6 +3159,7 @@ const (
 	ClusterCapacityProviderAssociationsCapacityProvider0FargateSpot = ClusterCapacityProviderAssociationsCapacityProvider0("FARGATE_SPOT")
 )
 
+// Specifies whether tags are propagated from the daemon to the daemon tasks.
 type DaemonPropagateTags string
 
 const (
@@ -5032,10 +5033,7 @@ func (o ServiceDeploymentLifecycleHookLifecycleStagesItemArrayOutput) Index(i pu
 	}).(ServiceDeploymentLifecycleHookLifecycleStagesItemOutput)
 }
 
-// Determines whether to propagate the tags from the task definition to
-// the Amazon EBS volume. Tags can only propagate to a “SERVICE“ specified in
-// “ServiceVolumeConfiguration“. If no value is specified, the tags aren't
-// propagated.
+// Determines whether to propagate the tags from the task definition to the Amazon EBS volume. Tags can only propagate to a “SERVICE“ specified in “ServiceVolumeConfiguration“. If no value is specified, the tags aren't propagated.
 type ServiceEbsTagSpecificationPropagateTags string
 
 const (

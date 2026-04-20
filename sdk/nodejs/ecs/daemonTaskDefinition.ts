@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource Schema describing various properties for ECS DaemonTaskDefinition
+ * The details of a daemon task definition. A daemon task definition is a template that describes the containers that form a daemon. Daemons deploy cross-cutting software agents independently across your Amazon ECS infrastructure.
  */
 export class DaemonTaskDefinition extends pulumi.CustomResource {
     /**
@@ -37,17 +37,35 @@ export class DaemonTaskDefinition extends pulumi.CustomResource {
         return obj['__pulumiType'] === DaemonTaskDefinition.__pulumiType;
     }
 
-    declare public readonly containerDefinitions: pulumi.Output<outputs.ecs.DaemonTaskDefinitionDaemonContainerDefinition[] | undefined>;
-    declare public readonly cpu: pulumi.Output<string | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of the Amazon ECS daemon task definition
+     * A list of container definitions in JSON format that describe the containers that make up the daemon task.
      */
+    declare public readonly containerDefinitions: pulumi.Output<outputs.ecs.DaemonTaskDefinitionDaemonContainerDefinition[] | undefined>;
+    /**
+     * The number of CPU units used by the daemon task.
+     */
+    declare public readonly cpu: pulumi.Output<string | undefined>;
     declare public /*out*/ readonly daemonTaskDefinitionArn: pulumi.Output<string>;
+    /**
+     * The Amazon Resource Name (ARN) of the task execution role that grants the Amazon ECS container agent permission to make Amazon Web Services API calls on your behalf.
+     */
     declare public readonly executionRoleArn: pulumi.Output<string | undefined>;
+    /**
+     * The name of a family that this daemon task definition is registered to.
+     */
     declare public readonly family: pulumi.Output<string | undefined>;
+    /**
+     * The amount of memory (in MiB) used by the daemon task.
+     */
     declare public readonly memory: pulumi.Output<string | undefined>;
     declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
+    /**
+     * The short name or full Amazon Resource Name (ARN) of the IAM role that grants containers in the daemon task permission to call Amazon Web Services APIs on your behalf.
+     */
     declare public readonly taskRoleArn: pulumi.Output<string | undefined>;
+    /**
+     * The list of data volume definitions for the daemon task.
+     */
     declare public readonly volumes: pulumi.Output<outputs.ecs.DaemonTaskDefinitionVolume[] | undefined>;
 
     /**
@@ -92,12 +110,33 @@ export class DaemonTaskDefinition extends pulumi.CustomResource {
  * The set of arguments for constructing a DaemonTaskDefinition resource.
  */
 export interface DaemonTaskDefinitionArgs {
+    /**
+     * A list of container definitions in JSON format that describe the containers that make up the daemon task.
+     */
     containerDefinitions?: pulumi.Input<pulumi.Input<inputs.ecs.DaemonTaskDefinitionDaemonContainerDefinitionArgs>[]>;
+    /**
+     * The number of CPU units used by the daemon task.
+     */
     cpu?: pulumi.Input<string>;
+    /**
+     * The Amazon Resource Name (ARN) of the task execution role that grants the Amazon ECS container agent permission to make Amazon Web Services API calls on your behalf.
+     */
     executionRoleArn?: pulumi.Input<string>;
+    /**
+     * The name of a family that this daemon task definition is registered to.
+     */
     family?: pulumi.Input<string>;
+    /**
+     * The amount of memory (in MiB) used by the daemon task.
+     */
     memory?: pulumi.Input<string>;
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    /**
+     * The short name or full Amazon Resource Name (ARN) of the IAM role that grants containers in the daemon task permission to call Amazon Web Services APIs on your behalf.
+     */
     taskRoleArn?: pulumi.Input<string>;
+    /**
+     * The list of data volume definitions for the daemon task.
+     */
     volumes?: pulumi.Input<pulumi.Input<inputs.ecs.DaemonTaskDefinitionVolumeArgs>[]>;
 }

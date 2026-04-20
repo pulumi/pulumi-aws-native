@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource Schema describing various properties for ECS DaemonTaskDefinition
+// The details of a daemon task definition. A daemon task definition is a template that describes the containers that form a daemon. Daemons deploy cross-cutting software agents independently across your Amazon ECS infrastructure.
 func LookupDaemonTaskDefinition(ctx *pulumi.Context, args *LookupDaemonTaskDefinitionArgs, opts ...pulumi.InvokeOption) (*LookupDaemonTaskDefinitionResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupDaemonTaskDefinitionResult
@@ -24,12 +24,10 @@ func LookupDaemonTaskDefinition(ctx *pulumi.Context, args *LookupDaemonTaskDefin
 }
 
 type LookupDaemonTaskDefinitionArgs struct {
-	// The Amazon Resource Name (ARN) of the Amazon ECS daemon task definition
 	DaemonTaskDefinitionArn string `pulumi:"daemonTaskDefinitionArn"`
 }
 
 type LookupDaemonTaskDefinitionResult struct {
-	// The Amazon Resource Name (ARN) of the Amazon ECS daemon task definition
 	DaemonTaskDefinitionArn *string   `pulumi:"daemonTaskDefinitionArn"`
 	Tags                    []aws.Tag `pulumi:"tags"`
 }
@@ -44,7 +42,6 @@ func LookupDaemonTaskDefinitionOutput(ctx *pulumi.Context, args LookupDaemonTask
 }
 
 type LookupDaemonTaskDefinitionOutputArgs struct {
-	// The Amazon Resource Name (ARN) of the Amazon ECS daemon task definition
 	DaemonTaskDefinitionArn pulumi.StringInput `pulumi:"daemonTaskDefinitionArn"`
 }
 
@@ -66,7 +63,6 @@ func (o LookupDaemonTaskDefinitionResultOutput) ToLookupDaemonTaskDefinitionResu
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the Amazon ECS daemon task definition
 func (o LookupDaemonTaskDefinitionResultOutput) DaemonTaskDefinitionArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDaemonTaskDefinitionResult) *string { return v.DaemonTaskDefinitionArn }).(pulumi.StringPtrOutput)
 }

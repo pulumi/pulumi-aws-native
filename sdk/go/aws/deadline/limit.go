@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Definition of AWS::Deadline::Limit Resource Type
+// Resource Type definition for AWS::Deadline::Limit
 type Limit struct {
 	pulumi.CustomResourceState
 

@@ -238,6 +238,8 @@ class ExportS3Destination(dict):
             suggest = "s3_prefix"
         elif key == "s3Region":
             suggest = "s3_region"
+        elif key == "s3BucketOwner":
+            suggest = "s3_bucket_owner"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in ExportS3Destination. Access the value via the '{suggest}' property getter instead.")
@@ -254,7 +256,8 @@ class ExportS3Destination(dict):
                  s3_bucket: _builtins.str,
                  s3_output_configurations: 'outputs.ExportS3OutputConfigurations',
                  s3_prefix: _builtins.str,
-                 s3_region: _builtins.str):
+                 s3_region: _builtins.str,
+                 s3_bucket_owner: Optional[_builtins.str] = None):
         """
         :param _builtins.str s3_bucket: The name of the Amazon S3 bucket used as the destination of a data export file.
         :param 'ExportS3OutputConfigurations' s3_output_configurations: The output configuration for the data export.
@@ -265,6 +268,8 @@ class ExportS3Destination(dict):
         pulumi.set(__self__, "s3_output_configurations", s3_output_configurations)
         pulumi.set(__self__, "s3_prefix", s3_prefix)
         pulumi.set(__self__, "s3_region", s3_region)
+        if s3_bucket_owner is not None:
+            pulumi.set(__self__, "s3_bucket_owner", s3_bucket_owner)
 
     @_builtins.property
     @pulumi.getter(name="s3Bucket")
@@ -297,6 +302,11 @@ class ExportS3Destination(dict):
         The S3 bucket Region.
         """
         return pulumi.get(self, "s3_region")
+
+    @_builtins.property
+    @pulumi.getter(name="s3BucketOwner")
+    def s3_bucket_owner(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "s3_bucket_owner")
 
 
 @pulumi.output_type

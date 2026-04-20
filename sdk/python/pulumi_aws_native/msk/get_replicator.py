@@ -26,10 +26,13 @@ __all__ = [
 
 @pulumi.output_type
 class GetReplicatorResult:
-    def __init__(__self__, current_version=None, replication_info_list=None, replicator_arn=None, tags=None):
+    def __init__(__self__, current_version=None, log_delivery=None, replication_info_list=None, replicator_arn=None, tags=None):
         if current_version and not isinstance(current_version, str):
             raise TypeError("Expected argument 'current_version' to be a str")
         pulumi.set(__self__, "current_version", current_version)
+        if log_delivery and not isinstance(log_delivery, dict):
+            raise TypeError("Expected argument 'log_delivery' to be a dict")
+        pulumi.set(__self__, "log_delivery", log_delivery)
         if replication_info_list and not isinstance(replication_info_list, list):
             raise TypeError("Expected argument 'replication_info_list' to be a list")
         pulumi.set(__self__, "replication_info_list", replication_info_list)
@@ -47,6 +50,14 @@ class GetReplicatorResult:
         The current version of the MSK replicator.
         """
         return pulumi.get(self, "current_version")
+
+    @_builtins.property
+    @pulumi.getter(name="logDelivery")
+    def log_delivery(self) -> Optional['outputs.LogDelivery']:
+        """
+        Configuration for log delivery for the replicator.
+        """
+        return pulumi.get(self, "log_delivery")
 
     @_builtins.property
     @pulumi.getter(name="replicationInfoList")
@@ -80,6 +91,7 @@ class AwaitableGetReplicatorResult(GetReplicatorResult):
             yield self
         return GetReplicatorResult(
             current_version=self.current_version,
+            log_delivery=self.log_delivery,
             replication_info_list=self.replication_info_list,
             replicator_arn=self.replicator_arn,
             tags=self.tags)
@@ -100,6 +112,7 @@ def get_replicator(replicator_arn: Optional[_builtins.str] = None,
 
     return AwaitableGetReplicatorResult(
         current_version=pulumi.get(__ret__, 'current_version'),
+        log_delivery=pulumi.get(__ret__, 'log_delivery'),
         replication_info_list=pulumi.get(__ret__, 'replication_info_list'),
         replicator_arn=pulumi.get(__ret__, 'replicator_arn'),
         tags=pulumi.get(__ret__, 'tags'))
@@ -117,6 +130,7 @@ def get_replicator_output(replicator_arn: Optional[pulumi.Input[_builtins.str]] 
     __ret__ = pulumi.runtime.invoke_output('aws-native:msk:getReplicator', __args__, opts=opts, typ=GetReplicatorResult)
     return __ret__.apply(lambda __response__: GetReplicatorResult(
         current_version=pulumi.get(__response__, 'current_version'),
+        log_delivery=pulumi.get(__response__, 'log_delivery'),
         replication_info_list=pulumi.get(__response__, 'replication_info_list'),
         replicator_arn=pulumi.get(__response__, 'replicator_arn'),
         tags=pulumi.get(__response__, 'tags')))

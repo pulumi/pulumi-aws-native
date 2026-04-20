@@ -53,6 +53,7 @@ export interface GetConnectorResult {
      * Detailed error message when Connector in ERRORED status
      */
     readonly errorMessage?: string;
+    readonly ipAddressType?: enums.transfer.ConnectorIpAddressType;
     /**
      * Specifies the logging role for the connector.
      */

@@ -850,6 +850,502 @@ func (in *clusterStorageModePtr) ToClusterStorageModePtrOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, in).(ClusterStorageModePtrOutput)
 }
 
+// The consumer group offset synchronization mode.
+type ReplicatorConsumerGroupOffsetSyncMode string
+
+const (
+	ReplicatorConsumerGroupOffsetSyncModeLegacy   = ReplicatorConsumerGroupOffsetSyncMode("LEGACY")
+	ReplicatorConsumerGroupOffsetSyncModeEnhanced = ReplicatorConsumerGroupOffsetSyncMode("ENHANCED")
+)
+
+func (ReplicatorConsumerGroupOffsetSyncMode) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicatorConsumerGroupOffsetSyncMode)(nil)).Elem()
+}
+
+func (e ReplicatorConsumerGroupOffsetSyncMode) ToReplicatorConsumerGroupOffsetSyncModeOutput() ReplicatorConsumerGroupOffsetSyncModeOutput {
+	return pulumi.ToOutput(e).(ReplicatorConsumerGroupOffsetSyncModeOutput)
+}
+
+func (e ReplicatorConsumerGroupOffsetSyncMode) ToReplicatorConsumerGroupOffsetSyncModeOutputWithContext(ctx context.Context) ReplicatorConsumerGroupOffsetSyncModeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ReplicatorConsumerGroupOffsetSyncModeOutput)
+}
+
+func (e ReplicatorConsumerGroupOffsetSyncMode) ToReplicatorConsumerGroupOffsetSyncModePtrOutput() ReplicatorConsumerGroupOffsetSyncModePtrOutput {
+	return e.ToReplicatorConsumerGroupOffsetSyncModePtrOutputWithContext(context.Background())
+}
+
+func (e ReplicatorConsumerGroupOffsetSyncMode) ToReplicatorConsumerGroupOffsetSyncModePtrOutputWithContext(ctx context.Context) ReplicatorConsumerGroupOffsetSyncModePtrOutput {
+	return ReplicatorConsumerGroupOffsetSyncMode(e).ToReplicatorConsumerGroupOffsetSyncModeOutputWithContext(ctx).ToReplicatorConsumerGroupOffsetSyncModePtrOutputWithContext(ctx)
+}
+
+func (e ReplicatorConsumerGroupOffsetSyncMode) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ReplicatorConsumerGroupOffsetSyncMode) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ReplicatorConsumerGroupOffsetSyncMode) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ReplicatorConsumerGroupOffsetSyncMode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ReplicatorConsumerGroupOffsetSyncModeOutput struct{ *pulumi.OutputState }
+
+func (ReplicatorConsumerGroupOffsetSyncModeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicatorConsumerGroupOffsetSyncMode)(nil)).Elem()
+}
+
+func (o ReplicatorConsumerGroupOffsetSyncModeOutput) ToReplicatorConsumerGroupOffsetSyncModeOutput() ReplicatorConsumerGroupOffsetSyncModeOutput {
+	return o
+}
+
+func (o ReplicatorConsumerGroupOffsetSyncModeOutput) ToReplicatorConsumerGroupOffsetSyncModeOutputWithContext(ctx context.Context) ReplicatorConsumerGroupOffsetSyncModeOutput {
+	return o
+}
+
+func (o ReplicatorConsumerGroupOffsetSyncModeOutput) ToReplicatorConsumerGroupOffsetSyncModePtrOutput() ReplicatorConsumerGroupOffsetSyncModePtrOutput {
+	return o.ToReplicatorConsumerGroupOffsetSyncModePtrOutputWithContext(context.Background())
+}
+
+func (o ReplicatorConsumerGroupOffsetSyncModeOutput) ToReplicatorConsumerGroupOffsetSyncModePtrOutputWithContext(ctx context.Context) ReplicatorConsumerGroupOffsetSyncModePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReplicatorConsumerGroupOffsetSyncMode) *ReplicatorConsumerGroupOffsetSyncMode {
+		return &v
+	}).(ReplicatorConsumerGroupOffsetSyncModePtrOutput)
+}
+
+func (o ReplicatorConsumerGroupOffsetSyncModeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ReplicatorConsumerGroupOffsetSyncModeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ReplicatorConsumerGroupOffsetSyncMode) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ReplicatorConsumerGroupOffsetSyncModeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ReplicatorConsumerGroupOffsetSyncModeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ReplicatorConsumerGroupOffsetSyncMode) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ReplicatorConsumerGroupOffsetSyncModePtrOutput struct{ *pulumi.OutputState }
+
+func (ReplicatorConsumerGroupOffsetSyncModePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReplicatorConsumerGroupOffsetSyncMode)(nil)).Elem()
+}
+
+func (o ReplicatorConsumerGroupOffsetSyncModePtrOutput) ToReplicatorConsumerGroupOffsetSyncModePtrOutput() ReplicatorConsumerGroupOffsetSyncModePtrOutput {
+	return o
+}
+
+func (o ReplicatorConsumerGroupOffsetSyncModePtrOutput) ToReplicatorConsumerGroupOffsetSyncModePtrOutputWithContext(ctx context.Context) ReplicatorConsumerGroupOffsetSyncModePtrOutput {
+	return o
+}
+
+func (o ReplicatorConsumerGroupOffsetSyncModePtrOutput) Elem() ReplicatorConsumerGroupOffsetSyncModeOutput {
+	return o.ApplyT(func(v *ReplicatorConsumerGroupOffsetSyncMode) ReplicatorConsumerGroupOffsetSyncMode {
+		if v != nil {
+			return *v
+		}
+		var ret ReplicatorConsumerGroupOffsetSyncMode
+		return ret
+	}).(ReplicatorConsumerGroupOffsetSyncModeOutput)
+}
+
+func (o ReplicatorConsumerGroupOffsetSyncModePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ReplicatorConsumerGroupOffsetSyncModePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ReplicatorConsumerGroupOffsetSyncMode) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ReplicatorConsumerGroupOffsetSyncModeInput is an input type that accepts values of the ReplicatorConsumerGroupOffsetSyncMode enum
+// A concrete instance of `ReplicatorConsumerGroupOffsetSyncModeInput` can be one of the following:
+//
+//	ReplicatorConsumerGroupOffsetSyncModeLegacy
+//	ReplicatorConsumerGroupOffsetSyncModeEnhanced
+type ReplicatorConsumerGroupOffsetSyncModeInput interface {
+	pulumi.Input
+
+	ToReplicatorConsumerGroupOffsetSyncModeOutput() ReplicatorConsumerGroupOffsetSyncModeOutput
+	ToReplicatorConsumerGroupOffsetSyncModeOutputWithContext(context.Context) ReplicatorConsumerGroupOffsetSyncModeOutput
+}
+
+var replicatorConsumerGroupOffsetSyncModePtrType = reflect.TypeOf((**ReplicatorConsumerGroupOffsetSyncMode)(nil)).Elem()
+
+type ReplicatorConsumerGroupOffsetSyncModePtrInput interface {
+	pulumi.Input
+
+	ToReplicatorConsumerGroupOffsetSyncModePtrOutput() ReplicatorConsumerGroupOffsetSyncModePtrOutput
+	ToReplicatorConsumerGroupOffsetSyncModePtrOutputWithContext(context.Context) ReplicatorConsumerGroupOffsetSyncModePtrOutput
+}
+
+type replicatorConsumerGroupOffsetSyncModePtr string
+
+func ReplicatorConsumerGroupOffsetSyncModePtr(v string) ReplicatorConsumerGroupOffsetSyncModePtrInput {
+	return (*replicatorConsumerGroupOffsetSyncModePtr)(&v)
+}
+
+func (*replicatorConsumerGroupOffsetSyncModePtr) ElementType() reflect.Type {
+	return replicatorConsumerGroupOffsetSyncModePtrType
+}
+
+func (in *replicatorConsumerGroupOffsetSyncModePtr) ToReplicatorConsumerGroupOffsetSyncModePtrOutput() ReplicatorConsumerGroupOffsetSyncModePtrOutput {
+	return pulumi.ToOutput(in).(ReplicatorConsumerGroupOffsetSyncModePtrOutput)
+}
+
+func (in *replicatorConsumerGroupOffsetSyncModePtr) ToReplicatorConsumerGroupOffsetSyncModePtrOutputWithContext(ctx context.Context) ReplicatorConsumerGroupOffsetSyncModePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ReplicatorConsumerGroupOffsetSyncModePtrOutput)
+}
+
+// The type of encryption in transit to the Apache Kafka cluster.
+type ReplicatorKafkaClusterEncryptionInTransitType string
+
+const (
+	ReplicatorKafkaClusterEncryptionInTransitTypeTls = ReplicatorKafkaClusterEncryptionInTransitType("TLS")
+)
+
+func (ReplicatorKafkaClusterEncryptionInTransitType) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicatorKafkaClusterEncryptionInTransitType)(nil)).Elem()
+}
+
+func (e ReplicatorKafkaClusterEncryptionInTransitType) ToReplicatorKafkaClusterEncryptionInTransitTypeOutput() ReplicatorKafkaClusterEncryptionInTransitTypeOutput {
+	return pulumi.ToOutput(e).(ReplicatorKafkaClusterEncryptionInTransitTypeOutput)
+}
+
+func (e ReplicatorKafkaClusterEncryptionInTransitType) ToReplicatorKafkaClusterEncryptionInTransitTypeOutputWithContext(ctx context.Context) ReplicatorKafkaClusterEncryptionInTransitTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ReplicatorKafkaClusterEncryptionInTransitTypeOutput)
+}
+
+func (e ReplicatorKafkaClusterEncryptionInTransitType) ToReplicatorKafkaClusterEncryptionInTransitTypePtrOutput() ReplicatorKafkaClusterEncryptionInTransitTypePtrOutput {
+	return e.ToReplicatorKafkaClusterEncryptionInTransitTypePtrOutputWithContext(context.Background())
+}
+
+func (e ReplicatorKafkaClusterEncryptionInTransitType) ToReplicatorKafkaClusterEncryptionInTransitTypePtrOutputWithContext(ctx context.Context) ReplicatorKafkaClusterEncryptionInTransitTypePtrOutput {
+	return ReplicatorKafkaClusterEncryptionInTransitType(e).ToReplicatorKafkaClusterEncryptionInTransitTypeOutputWithContext(ctx).ToReplicatorKafkaClusterEncryptionInTransitTypePtrOutputWithContext(ctx)
+}
+
+func (e ReplicatorKafkaClusterEncryptionInTransitType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ReplicatorKafkaClusterEncryptionInTransitType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ReplicatorKafkaClusterEncryptionInTransitType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ReplicatorKafkaClusterEncryptionInTransitType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ReplicatorKafkaClusterEncryptionInTransitTypeOutput struct{ *pulumi.OutputState }
+
+func (ReplicatorKafkaClusterEncryptionInTransitTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicatorKafkaClusterEncryptionInTransitType)(nil)).Elem()
+}
+
+func (o ReplicatorKafkaClusterEncryptionInTransitTypeOutput) ToReplicatorKafkaClusterEncryptionInTransitTypeOutput() ReplicatorKafkaClusterEncryptionInTransitTypeOutput {
+	return o
+}
+
+func (o ReplicatorKafkaClusterEncryptionInTransitTypeOutput) ToReplicatorKafkaClusterEncryptionInTransitTypeOutputWithContext(ctx context.Context) ReplicatorKafkaClusterEncryptionInTransitTypeOutput {
+	return o
+}
+
+func (o ReplicatorKafkaClusterEncryptionInTransitTypeOutput) ToReplicatorKafkaClusterEncryptionInTransitTypePtrOutput() ReplicatorKafkaClusterEncryptionInTransitTypePtrOutput {
+	return o.ToReplicatorKafkaClusterEncryptionInTransitTypePtrOutputWithContext(context.Background())
+}
+
+func (o ReplicatorKafkaClusterEncryptionInTransitTypeOutput) ToReplicatorKafkaClusterEncryptionInTransitTypePtrOutputWithContext(ctx context.Context) ReplicatorKafkaClusterEncryptionInTransitTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReplicatorKafkaClusterEncryptionInTransitType) *ReplicatorKafkaClusterEncryptionInTransitType {
+		return &v
+	}).(ReplicatorKafkaClusterEncryptionInTransitTypePtrOutput)
+}
+
+func (o ReplicatorKafkaClusterEncryptionInTransitTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ReplicatorKafkaClusterEncryptionInTransitTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ReplicatorKafkaClusterEncryptionInTransitType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ReplicatorKafkaClusterEncryptionInTransitTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ReplicatorKafkaClusterEncryptionInTransitTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ReplicatorKafkaClusterEncryptionInTransitType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ReplicatorKafkaClusterEncryptionInTransitTypePtrOutput struct{ *pulumi.OutputState }
+
+func (ReplicatorKafkaClusterEncryptionInTransitTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReplicatorKafkaClusterEncryptionInTransitType)(nil)).Elem()
+}
+
+func (o ReplicatorKafkaClusterEncryptionInTransitTypePtrOutput) ToReplicatorKafkaClusterEncryptionInTransitTypePtrOutput() ReplicatorKafkaClusterEncryptionInTransitTypePtrOutput {
+	return o
+}
+
+func (o ReplicatorKafkaClusterEncryptionInTransitTypePtrOutput) ToReplicatorKafkaClusterEncryptionInTransitTypePtrOutputWithContext(ctx context.Context) ReplicatorKafkaClusterEncryptionInTransitTypePtrOutput {
+	return o
+}
+
+func (o ReplicatorKafkaClusterEncryptionInTransitTypePtrOutput) Elem() ReplicatorKafkaClusterEncryptionInTransitTypeOutput {
+	return o.ApplyT(func(v *ReplicatorKafkaClusterEncryptionInTransitType) ReplicatorKafkaClusterEncryptionInTransitType {
+		if v != nil {
+			return *v
+		}
+		var ret ReplicatorKafkaClusterEncryptionInTransitType
+		return ret
+	}).(ReplicatorKafkaClusterEncryptionInTransitTypeOutput)
+}
+
+func (o ReplicatorKafkaClusterEncryptionInTransitTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ReplicatorKafkaClusterEncryptionInTransitTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ReplicatorKafkaClusterEncryptionInTransitType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ReplicatorKafkaClusterEncryptionInTransitTypeInput is an input type that accepts values of the ReplicatorKafkaClusterEncryptionInTransitType enum
+// A concrete instance of `ReplicatorKafkaClusterEncryptionInTransitTypeInput` can be one of the following:
+//
+//	ReplicatorKafkaClusterEncryptionInTransitTypeTls
+type ReplicatorKafkaClusterEncryptionInTransitTypeInput interface {
+	pulumi.Input
+
+	ToReplicatorKafkaClusterEncryptionInTransitTypeOutput() ReplicatorKafkaClusterEncryptionInTransitTypeOutput
+	ToReplicatorKafkaClusterEncryptionInTransitTypeOutputWithContext(context.Context) ReplicatorKafkaClusterEncryptionInTransitTypeOutput
+}
+
+var replicatorKafkaClusterEncryptionInTransitTypePtrType = reflect.TypeOf((**ReplicatorKafkaClusterEncryptionInTransitType)(nil)).Elem()
+
+type ReplicatorKafkaClusterEncryptionInTransitTypePtrInput interface {
+	pulumi.Input
+
+	ToReplicatorKafkaClusterEncryptionInTransitTypePtrOutput() ReplicatorKafkaClusterEncryptionInTransitTypePtrOutput
+	ToReplicatorKafkaClusterEncryptionInTransitTypePtrOutputWithContext(context.Context) ReplicatorKafkaClusterEncryptionInTransitTypePtrOutput
+}
+
+type replicatorKafkaClusterEncryptionInTransitTypePtr string
+
+func ReplicatorKafkaClusterEncryptionInTransitTypePtr(v string) ReplicatorKafkaClusterEncryptionInTransitTypePtrInput {
+	return (*replicatorKafkaClusterEncryptionInTransitTypePtr)(&v)
+}
+
+func (*replicatorKafkaClusterEncryptionInTransitTypePtr) ElementType() reflect.Type {
+	return replicatorKafkaClusterEncryptionInTransitTypePtrType
+}
+
+func (in *replicatorKafkaClusterEncryptionInTransitTypePtr) ToReplicatorKafkaClusterEncryptionInTransitTypePtrOutput() ReplicatorKafkaClusterEncryptionInTransitTypePtrOutput {
+	return pulumi.ToOutput(in).(ReplicatorKafkaClusterEncryptionInTransitTypePtrOutput)
+}
+
+func (in *replicatorKafkaClusterEncryptionInTransitTypePtr) ToReplicatorKafkaClusterEncryptionInTransitTypePtrOutputWithContext(ctx context.Context) ReplicatorKafkaClusterEncryptionInTransitTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ReplicatorKafkaClusterEncryptionInTransitTypePtrOutput)
+}
+
+// The SASL/SCRAM authentication mechanism.
+type ReplicatorKafkaClusterSaslScramMechanism string
+
+const (
+	ReplicatorKafkaClusterSaslScramMechanismSha256 = ReplicatorKafkaClusterSaslScramMechanism("SHA256")
+	ReplicatorKafkaClusterSaslScramMechanismSha512 = ReplicatorKafkaClusterSaslScramMechanism("SHA512")
+)
+
+func (ReplicatorKafkaClusterSaslScramMechanism) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicatorKafkaClusterSaslScramMechanism)(nil)).Elem()
+}
+
+func (e ReplicatorKafkaClusterSaslScramMechanism) ToReplicatorKafkaClusterSaslScramMechanismOutput() ReplicatorKafkaClusterSaslScramMechanismOutput {
+	return pulumi.ToOutput(e).(ReplicatorKafkaClusterSaslScramMechanismOutput)
+}
+
+func (e ReplicatorKafkaClusterSaslScramMechanism) ToReplicatorKafkaClusterSaslScramMechanismOutputWithContext(ctx context.Context) ReplicatorKafkaClusterSaslScramMechanismOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ReplicatorKafkaClusterSaslScramMechanismOutput)
+}
+
+func (e ReplicatorKafkaClusterSaslScramMechanism) ToReplicatorKafkaClusterSaslScramMechanismPtrOutput() ReplicatorKafkaClusterSaslScramMechanismPtrOutput {
+	return e.ToReplicatorKafkaClusterSaslScramMechanismPtrOutputWithContext(context.Background())
+}
+
+func (e ReplicatorKafkaClusterSaslScramMechanism) ToReplicatorKafkaClusterSaslScramMechanismPtrOutputWithContext(ctx context.Context) ReplicatorKafkaClusterSaslScramMechanismPtrOutput {
+	return ReplicatorKafkaClusterSaslScramMechanism(e).ToReplicatorKafkaClusterSaslScramMechanismOutputWithContext(ctx).ToReplicatorKafkaClusterSaslScramMechanismPtrOutputWithContext(ctx)
+}
+
+func (e ReplicatorKafkaClusterSaslScramMechanism) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ReplicatorKafkaClusterSaslScramMechanism) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ReplicatorKafkaClusterSaslScramMechanism) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ReplicatorKafkaClusterSaslScramMechanism) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ReplicatorKafkaClusterSaslScramMechanismOutput struct{ *pulumi.OutputState }
+
+func (ReplicatorKafkaClusterSaslScramMechanismOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicatorKafkaClusterSaslScramMechanism)(nil)).Elem()
+}
+
+func (o ReplicatorKafkaClusterSaslScramMechanismOutput) ToReplicatorKafkaClusterSaslScramMechanismOutput() ReplicatorKafkaClusterSaslScramMechanismOutput {
+	return o
+}
+
+func (o ReplicatorKafkaClusterSaslScramMechanismOutput) ToReplicatorKafkaClusterSaslScramMechanismOutputWithContext(ctx context.Context) ReplicatorKafkaClusterSaslScramMechanismOutput {
+	return o
+}
+
+func (o ReplicatorKafkaClusterSaslScramMechanismOutput) ToReplicatorKafkaClusterSaslScramMechanismPtrOutput() ReplicatorKafkaClusterSaslScramMechanismPtrOutput {
+	return o.ToReplicatorKafkaClusterSaslScramMechanismPtrOutputWithContext(context.Background())
+}
+
+func (o ReplicatorKafkaClusterSaslScramMechanismOutput) ToReplicatorKafkaClusterSaslScramMechanismPtrOutputWithContext(ctx context.Context) ReplicatorKafkaClusterSaslScramMechanismPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReplicatorKafkaClusterSaslScramMechanism) *ReplicatorKafkaClusterSaslScramMechanism {
+		return &v
+	}).(ReplicatorKafkaClusterSaslScramMechanismPtrOutput)
+}
+
+func (o ReplicatorKafkaClusterSaslScramMechanismOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ReplicatorKafkaClusterSaslScramMechanismOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ReplicatorKafkaClusterSaslScramMechanism) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ReplicatorKafkaClusterSaslScramMechanismOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ReplicatorKafkaClusterSaslScramMechanismOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ReplicatorKafkaClusterSaslScramMechanism) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ReplicatorKafkaClusterSaslScramMechanismPtrOutput struct{ *pulumi.OutputState }
+
+func (ReplicatorKafkaClusterSaslScramMechanismPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReplicatorKafkaClusterSaslScramMechanism)(nil)).Elem()
+}
+
+func (o ReplicatorKafkaClusterSaslScramMechanismPtrOutput) ToReplicatorKafkaClusterSaslScramMechanismPtrOutput() ReplicatorKafkaClusterSaslScramMechanismPtrOutput {
+	return o
+}
+
+func (o ReplicatorKafkaClusterSaslScramMechanismPtrOutput) ToReplicatorKafkaClusterSaslScramMechanismPtrOutputWithContext(ctx context.Context) ReplicatorKafkaClusterSaslScramMechanismPtrOutput {
+	return o
+}
+
+func (o ReplicatorKafkaClusterSaslScramMechanismPtrOutput) Elem() ReplicatorKafkaClusterSaslScramMechanismOutput {
+	return o.ApplyT(func(v *ReplicatorKafkaClusterSaslScramMechanism) ReplicatorKafkaClusterSaslScramMechanism {
+		if v != nil {
+			return *v
+		}
+		var ret ReplicatorKafkaClusterSaslScramMechanism
+		return ret
+	}).(ReplicatorKafkaClusterSaslScramMechanismOutput)
+}
+
+func (o ReplicatorKafkaClusterSaslScramMechanismPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ReplicatorKafkaClusterSaslScramMechanismPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ReplicatorKafkaClusterSaslScramMechanism) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ReplicatorKafkaClusterSaslScramMechanismInput is an input type that accepts values of the ReplicatorKafkaClusterSaslScramMechanism enum
+// A concrete instance of `ReplicatorKafkaClusterSaslScramMechanismInput` can be one of the following:
+//
+//	ReplicatorKafkaClusterSaslScramMechanismSha256
+//	ReplicatorKafkaClusterSaslScramMechanismSha512
+type ReplicatorKafkaClusterSaslScramMechanismInput interface {
+	pulumi.Input
+
+	ToReplicatorKafkaClusterSaslScramMechanismOutput() ReplicatorKafkaClusterSaslScramMechanismOutput
+	ToReplicatorKafkaClusterSaslScramMechanismOutputWithContext(context.Context) ReplicatorKafkaClusterSaslScramMechanismOutput
+}
+
+var replicatorKafkaClusterSaslScramMechanismPtrType = reflect.TypeOf((**ReplicatorKafkaClusterSaslScramMechanism)(nil)).Elem()
+
+type ReplicatorKafkaClusterSaslScramMechanismPtrInput interface {
+	pulumi.Input
+
+	ToReplicatorKafkaClusterSaslScramMechanismPtrOutput() ReplicatorKafkaClusterSaslScramMechanismPtrOutput
+	ToReplicatorKafkaClusterSaslScramMechanismPtrOutputWithContext(context.Context) ReplicatorKafkaClusterSaslScramMechanismPtrOutput
+}
+
+type replicatorKafkaClusterSaslScramMechanismPtr string
+
+func ReplicatorKafkaClusterSaslScramMechanismPtr(v string) ReplicatorKafkaClusterSaslScramMechanismPtrInput {
+	return (*replicatorKafkaClusterSaslScramMechanismPtr)(&v)
+}
+
+func (*replicatorKafkaClusterSaslScramMechanismPtr) ElementType() reflect.Type {
+	return replicatorKafkaClusterSaslScramMechanismPtrType
+}
+
+func (in *replicatorKafkaClusterSaslScramMechanismPtr) ToReplicatorKafkaClusterSaslScramMechanismPtrOutput() ReplicatorKafkaClusterSaslScramMechanismPtrOutput {
+	return pulumi.ToOutput(in).(ReplicatorKafkaClusterSaslScramMechanismPtrOutput)
+}
+
+func (in *replicatorKafkaClusterSaslScramMechanismPtr) ToReplicatorKafkaClusterSaslScramMechanismPtrOutputWithContext(ctx context.Context) ReplicatorKafkaClusterSaslScramMechanismPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ReplicatorKafkaClusterSaslScramMechanismPtrOutput)
+}
+
 // The type of compression to use writing records to target Kafka cluster.
 type ReplicatorReplicationInfoTargetCompressionType string
 
@@ -1533,6 +2029,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterRebalancingStatusPtrInput)(nil)).Elem(), ClusterRebalancingStatus("PAUSED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterStorageModeInput)(nil)).Elem(), ClusterStorageMode("LOCAL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterStorageModePtrInput)(nil)).Elem(), ClusterStorageMode("LOCAL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatorConsumerGroupOffsetSyncModeInput)(nil)).Elem(), ReplicatorConsumerGroupOffsetSyncMode("LEGACY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatorConsumerGroupOffsetSyncModePtrInput)(nil)).Elem(), ReplicatorConsumerGroupOffsetSyncMode("LEGACY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatorKafkaClusterEncryptionInTransitTypeInput)(nil)).Elem(), ReplicatorKafkaClusterEncryptionInTransitType("TLS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatorKafkaClusterEncryptionInTransitTypePtrInput)(nil)).Elem(), ReplicatorKafkaClusterEncryptionInTransitType("TLS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatorKafkaClusterSaslScramMechanismInput)(nil)).Elem(), ReplicatorKafkaClusterSaslScramMechanism("SHA256"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatorKafkaClusterSaslScramMechanismPtrInput)(nil)).Elem(), ReplicatorKafkaClusterSaslScramMechanism("SHA256"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatorReplicationInfoTargetCompressionTypeInput)(nil)).Elem(), ReplicatorReplicationInfoTargetCompressionType("NONE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatorReplicationInfoTargetCompressionTypePtrInput)(nil)).Elem(), ReplicatorReplicationInfoTargetCompressionType("NONE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatorReplicationStartingPositionTypeInput)(nil)).Elem(), ReplicatorReplicationStartingPositionType("LATEST"))
@@ -1551,6 +2053,12 @@ func init() {
 	pulumi.RegisterOutputType(ClusterRebalancingStatusPtrOutput{})
 	pulumi.RegisterOutputType(ClusterStorageModeOutput{})
 	pulumi.RegisterOutputType(ClusterStorageModePtrOutput{})
+	pulumi.RegisterOutputType(ReplicatorConsumerGroupOffsetSyncModeOutput{})
+	pulumi.RegisterOutputType(ReplicatorConsumerGroupOffsetSyncModePtrOutput{})
+	pulumi.RegisterOutputType(ReplicatorKafkaClusterEncryptionInTransitTypeOutput{})
+	pulumi.RegisterOutputType(ReplicatorKafkaClusterEncryptionInTransitTypePtrOutput{})
+	pulumi.RegisterOutputType(ReplicatorKafkaClusterSaslScramMechanismOutput{})
+	pulumi.RegisterOutputType(ReplicatorKafkaClusterSaslScramMechanismPtrOutput{})
 	pulumi.RegisterOutputType(ReplicatorReplicationInfoTargetCompressionTypeOutput{})
 	pulumi.RegisterOutputType(ReplicatorReplicationInfoTargetCompressionTypePtrOutput{})
 	pulumi.RegisterOutputType(ReplicatorReplicationStartingPositionTypeOutput{})

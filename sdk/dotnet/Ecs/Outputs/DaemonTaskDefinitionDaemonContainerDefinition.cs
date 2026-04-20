@@ -11,39 +11,126 @@ namespace Pulumi.AwsNative.Ecs.Outputs
 {
 
     /// <summary>
-    /// Container definition for daemon task definition
+    /// A container definition for a daemon task. Daemon container definitions describe the containers that run as part of a daemon task on container instances managed by capacity providers.
     /// </summary>
     [OutputType]
     public sealed class DaemonTaskDefinitionDaemonContainerDefinition
     {
+        /// <summary>
+        /// The command that's passed to the container.
+        /// </summary>
         public readonly ImmutableArray<string> Command;
+        /// <summary>
+        /// The number of ``cpu`` units reserved for the container.
+        /// </summary>
         public readonly int? Cpu;
+        /// <summary>
+        /// The dependencies defined for container startup and shutdown. A container can contain multiple dependencies on other containers in a task definition.
+        /// </summary>
         public readonly ImmutableArray<Outputs.DaemonTaskDefinitionContainerDependency> DependsOn;
+        /// <summary>
+        /// The entry point that's passed to the container.
+        /// </summary>
         public readonly ImmutableArray<string> EntryPoint;
+        /// <summary>
+        /// The environment variables to pass to a container.
+        /// </summary>
         public readonly ImmutableArray<Outputs.DaemonTaskDefinitionKeyValuePair> Environment;
+        /// <summary>
+        /// A list of files containing the environment variables to pass to a container.
+        /// </summary>
         public readonly ImmutableArray<Outputs.DaemonTaskDefinitionEnvironmentFile> EnvironmentFiles;
+        /// <summary>
+        /// If the ``essential`` parameter of a container is marked as ``true``, and that container fails or stops for any reason, all other containers that are part of the task are stopped.
+        /// </summary>
         public readonly bool? Essential;
+        /// <summary>
+        /// The FireLens configuration for the container. This is used to specify and configure a log router for container logs.
+        /// </summary>
         public readonly Outputs.DaemonTaskDefinitionFirelensConfiguration? FirelensConfiguration;
+        /// <summary>
+        /// The container health check command and associated configuration parameters for the container.
+        /// </summary>
         public readonly Outputs.DaemonTaskDefinitionHealthCheck? HealthCheck;
+        /// <summary>
+        /// The image used to start the container. This string is passed directly to the Docker daemon. Images in the Docker Hub registry are available by default. Other repositories are specified with either ``repository-url/image:tag`` or ``repository-url/image@digest``.
+        /// </summary>
         public readonly string Image;
+        /// <summary>
+        /// When this parameter is ``true``, you can deploy containerized applications that require ``stdin`` or a ``tty`` to be allocated.
+        /// </summary>
         public readonly bool? Interactive;
+        /// <summary>
+        /// Linux-specific modifications that are applied to the container configuration, such as Linux kernel capabilities.
+        /// </summary>
         public readonly Outputs.DaemonTaskDefinitionLinuxParameters? LinuxParameters;
+        /// <summary>
+        /// The log configuration specification for the container.
+        /// </summary>
         public readonly Outputs.DaemonTaskDefinitionLogConfiguration? LogConfiguration;
+        /// <summary>
+        /// The amount (in MiB) of memory to present to the container. If the container attempts to exceed the memory specified here, the container is killed.
+        /// </summary>
         public readonly int? Memory;
+        /// <summary>
+        /// The soft limit (in MiB) of memory to reserve for the container.
+        /// </summary>
         public readonly int? MemoryReservation;
+        /// <summary>
+        /// The mount points for data volumes in your container.
+        /// </summary>
         public readonly ImmutableArray<Outputs.DaemonTaskDefinitionMountPoint> MountPoints;
+        /// <summary>
+        /// The name of the container. Up to 255 letters (uppercase and lowercase), numbers, underscores, and hyphens are allowed.
+        /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// When this parameter is true, the container is given elevated privileges on the host container instance (similar to the ``root`` user).
+        /// </summary>
         public readonly bool? Privileged;
+        /// <summary>
+        /// When this parameter is ``true``, a TTY is allocated.
+        /// </summary>
         public readonly bool? PseudoTerminal;
+        /// <summary>
+        /// When this parameter is true, the container is given read-only access to its root file system.
+        /// </summary>
         public readonly bool? ReadonlyRootFilesystem;
+        /// <summary>
+        /// The private repository authentication credentials to use.
+        /// </summary>
         public readonly Outputs.DaemonTaskDefinitionRepositoryCredentials? RepositoryCredentials;
+        /// <summary>
+        /// The restart policy for the container. When you set up a restart policy, Amazon ECS can restart the container without needing to replace the task.
+        /// </summary>
         public readonly Outputs.DaemonTaskDefinitionRestartPolicy? RestartPolicy;
+        /// <summary>
+        /// The secrets to pass to the container.
+        /// </summary>
         public readonly ImmutableArray<Outputs.DaemonTaskDefinitionSecret> Secrets;
+        /// <summary>
+        /// Time duration (in seconds) to wait before giving up on resolving dependencies for a container.
+        /// </summary>
         public readonly int? StartTimeout;
+        /// <summary>
+        /// Time duration (in seconds) to wait before the container is forcefully killed if it doesn't exit normally on its own.
+        /// </summary>
         public readonly int? StopTimeout;
+        /// <summary>
+        /// A list of namespaced kernel parameters to set in the container.
+        /// </summary>
         public readonly ImmutableArray<Outputs.DaemonTaskDefinitionSystemControl> SystemControls;
+        /// <summary>
+        /// A list of ``ulimits`` to set in the container.
+        /// </summary>
         public readonly ImmutableArray<Outputs.DaemonTaskDefinitionUlimit> Ulimits;
+        /// <summary>
+        /// The user to use inside the container.
+        /// </summary>
         public readonly string? User;
+        /// <summary>
+        /// The working directory to run commands inside the container in.
+        /// </summary>
         public readonly string? WorkingDirectory;
 
         [OutputConstructor]

@@ -82,20 +82,38 @@ __all__ = [
     'ClusterVpcConnectivityArgsDict',
     'ConfigurationLatestRevisionArgs',
     'ConfigurationLatestRevisionArgsDict',
+    'LogDeliveryArgs',
+    'LogDeliveryArgsDict',
     'ReplicatorAmazonMskClusterArgs',
     'ReplicatorAmazonMskClusterArgsDict',
+    'ReplicatorApacheKafkaClusterArgs',
+    'ReplicatorApacheKafkaClusterArgsDict',
+    'ReplicatorCloudWatchLogsArgs',
+    'ReplicatorCloudWatchLogsArgsDict',
     'ReplicatorConsumerGroupReplicationArgs',
     'ReplicatorConsumerGroupReplicationArgsDict',
+    'ReplicatorFirehoseArgs',
+    'ReplicatorFirehoseArgsDict',
+    'ReplicatorKafkaClusterClientAuthenticationArgs',
+    'ReplicatorKafkaClusterClientAuthenticationArgsDict',
     'ReplicatorKafkaClusterClientVpcConfigArgs',
     'ReplicatorKafkaClusterClientVpcConfigArgsDict',
+    'ReplicatorKafkaClusterEncryptionInTransitArgs',
+    'ReplicatorKafkaClusterEncryptionInTransitArgsDict',
+    'ReplicatorKafkaClusterSaslScramAuthenticationArgs',
+    'ReplicatorKafkaClusterSaslScramAuthenticationArgsDict',
     'ReplicatorKafkaClusterArgs',
     'ReplicatorKafkaClusterArgsDict',
+    'ReplicatorLogDeliveryArgs',
+    'ReplicatorLogDeliveryArgsDict',
     'ReplicatorReplicationInfoArgs',
     'ReplicatorReplicationInfoArgsDict',
     'ReplicatorReplicationStartingPositionArgs',
     'ReplicatorReplicationStartingPositionArgsDict',
     'ReplicatorReplicationTopicNameConfigurationArgs',
     'ReplicatorReplicationTopicNameConfigurationArgsDict',
+    'ReplicatorS3Args',
+    'ReplicatorS3ArgsDict',
     'ReplicatorTopicReplicationArgs',
     'ReplicatorTopicReplicationArgsDict',
     'ServerlessClusterClientAuthenticationArgs',
@@ -1641,6 +1659,40 @@ class ConfigurationLatestRevisionArgs:
         pulumi.set(self, "revision", value)
 
 
+class LogDeliveryArgsDict(TypedDict):
+    """
+    Configuration for log delivery for the replicator.
+    """
+    replicator_log_delivery: NotRequired[pulumi.Input['ReplicatorLogDeliveryArgsDict']]
+    """
+    The replicator logs configuration.
+    """
+
+@pulumi.input_type
+class LogDeliveryArgs:
+    def __init__(__self__, *,
+                 replicator_log_delivery: Optional[pulumi.Input['ReplicatorLogDeliveryArgs']] = None):
+        """
+        Configuration for log delivery for the replicator.
+
+        :param pulumi.Input['ReplicatorLogDeliveryArgs'] replicator_log_delivery: The replicator logs configuration.
+        """
+        if replicator_log_delivery is not None:
+            pulumi.set(__self__, "replicator_log_delivery", replicator_log_delivery)
+
+    @_builtins.property
+    @pulumi.getter(name="replicatorLogDelivery")
+    def replicator_log_delivery(self) -> Optional[pulumi.Input['ReplicatorLogDeliveryArgs']]:
+        """
+        The replicator logs configuration.
+        """
+        return pulumi.get(self, "replicator_log_delivery")
+
+    @replicator_log_delivery.setter
+    def replicator_log_delivery(self, value: Optional[pulumi.Input['ReplicatorLogDeliveryArgs']]):
+        pulumi.set(self, "replicator_log_delivery", value)
+
+
 class ReplicatorAmazonMskClusterArgsDict(TypedDict):
     """
     Details of an Amazon MSK cluster.
@@ -1674,6 +1726,111 @@ class ReplicatorAmazonMskClusterArgs:
         pulumi.set(self, "msk_cluster_arn", value)
 
 
+class ReplicatorApacheKafkaClusterArgsDict(TypedDict):
+    """
+    Details of an Apache Kafka cluster.
+    """
+    apache_kafka_cluster_id: pulumi.Input[_builtins.str]
+    """
+    The ID of the Apache Kafka cluster.
+    """
+    bootstrap_broker_string: pulumi.Input[_builtins.str]
+    """
+    The bootstrap broker string of the Apache Kafka cluster.
+    """
+
+@pulumi.input_type
+class ReplicatorApacheKafkaClusterArgs:
+    def __init__(__self__, *,
+                 apache_kafka_cluster_id: pulumi.Input[_builtins.str],
+                 bootstrap_broker_string: pulumi.Input[_builtins.str]):
+        """
+        Details of an Apache Kafka cluster.
+
+        :param pulumi.Input[_builtins.str] apache_kafka_cluster_id: The ID of the Apache Kafka cluster.
+        :param pulumi.Input[_builtins.str] bootstrap_broker_string: The bootstrap broker string of the Apache Kafka cluster.
+        """
+        pulumi.set(__self__, "apache_kafka_cluster_id", apache_kafka_cluster_id)
+        pulumi.set(__self__, "bootstrap_broker_string", bootstrap_broker_string)
+
+    @_builtins.property
+    @pulumi.getter(name="apacheKafkaClusterId")
+    def apache_kafka_cluster_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        The ID of the Apache Kafka cluster.
+        """
+        return pulumi.get(self, "apache_kafka_cluster_id")
+
+    @apache_kafka_cluster_id.setter
+    def apache_kafka_cluster_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "apache_kafka_cluster_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="bootstrapBrokerString")
+    def bootstrap_broker_string(self) -> pulumi.Input[_builtins.str]:
+        """
+        The bootstrap broker string of the Apache Kafka cluster.
+        """
+        return pulumi.get(self, "bootstrap_broker_string")
+
+    @bootstrap_broker_string.setter
+    def bootstrap_broker_string(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "bootstrap_broker_string", value)
+
+
+class ReplicatorCloudWatchLogsArgsDict(TypedDict):
+    """
+    Details about delivering logs to CloudWatch Logs.
+    """
+    enabled: pulumi.Input[_builtins.bool]
+    """
+    Whether log delivery to CloudWatch Logs is enabled.
+    """
+    log_group: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The CloudWatch log group that is the destination for log delivery.
+    """
+
+@pulumi.input_type
+class ReplicatorCloudWatchLogsArgs:
+    def __init__(__self__, *,
+                 enabled: pulumi.Input[_builtins.bool],
+                 log_group: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        Details about delivering logs to CloudWatch Logs.
+
+        :param pulumi.Input[_builtins.bool] enabled: Whether log delivery to CloudWatch Logs is enabled.
+        :param pulumi.Input[_builtins.str] log_group: The CloudWatch log group that is the destination for log delivery.
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        if log_group is not None:
+            pulumi.set(__self__, "log_group", log_group)
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> pulumi.Input[_builtins.bool]:
+        """
+        Whether log delivery to CloudWatch Logs is enabled.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: pulumi.Input[_builtins.bool]):
+        pulumi.set(self, "enabled", value)
+
+    @_builtins.property
+    @pulumi.getter(name="logGroup")
+    def log_group(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The CloudWatch log group that is the destination for log delivery.
+        """
+        return pulumi.get(self, "log_group")
+
+    @log_group.setter
+    def log_group(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "log_group", value)
+
+
 class ReplicatorConsumerGroupReplicationArgsDict(TypedDict):
     """
     Configuration relating to consumer group replication.
@@ -1681,6 +1838,10 @@ class ReplicatorConsumerGroupReplicationArgsDict(TypedDict):
     consumer_groups_to_replicate: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
     """
     List of regular expression patterns indicating the consumer groups to copy.
+    """
+    consumer_group_offset_sync_mode: NotRequired[pulumi.Input['ReplicatorConsumerGroupOffsetSyncMode']]
+    """
+    The consumer group offset synchronization mode.
     """
     consumer_groups_to_exclude: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
     """
@@ -1699,6 +1860,7 @@ class ReplicatorConsumerGroupReplicationArgsDict(TypedDict):
 class ReplicatorConsumerGroupReplicationArgs:
     def __init__(__self__, *,
                  consumer_groups_to_replicate: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
+                 consumer_group_offset_sync_mode: Optional[pulumi.Input['ReplicatorConsumerGroupOffsetSyncMode']] = None,
                  consumer_groups_to_exclude: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  detect_and_copy_new_consumer_groups: Optional[pulumi.Input[_builtins.bool]] = None,
                  synchronise_consumer_group_offsets: Optional[pulumi.Input[_builtins.bool]] = None):
@@ -1706,11 +1868,14 @@ class ReplicatorConsumerGroupReplicationArgs:
         Configuration relating to consumer group replication.
 
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] consumer_groups_to_replicate: List of regular expression patterns indicating the consumer groups to copy.
+        :param pulumi.Input['ReplicatorConsumerGroupOffsetSyncMode'] consumer_group_offset_sync_mode: The consumer group offset synchronization mode.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] consumer_groups_to_exclude: List of regular expression patterns indicating the consumer groups that should not be replicated.
         :param pulumi.Input[_builtins.bool] detect_and_copy_new_consumer_groups: Whether to periodically check for new consumer groups.
         :param pulumi.Input[_builtins.bool] synchronise_consumer_group_offsets: Whether to periodically write the translated offsets to __consumer_offsets topic in target cluster.
         """
         pulumi.set(__self__, "consumer_groups_to_replicate", consumer_groups_to_replicate)
+        if consumer_group_offset_sync_mode is not None:
+            pulumi.set(__self__, "consumer_group_offset_sync_mode", consumer_group_offset_sync_mode)
         if consumer_groups_to_exclude is not None:
             pulumi.set(__self__, "consumer_groups_to_exclude", consumer_groups_to_exclude)
         if detect_and_copy_new_consumer_groups is not None:
@@ -1729,6 +1894,18 @@ class ReplicatorConsumerGroupReplicationArgs:
     @consumer_groups_to_replicate.setter
     def consumer_groups_to_replicate(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
         pulumi.set(self, "consumer_groups_to_replicate", value)
+
+    @_builtins.property
+    @pulumi.getter(name="consumerGroupOffsetSyncMode")
+    def consumer_group_offset_sync_mode(self) -> Optional[pulumi.Input['ReplicatorConsumerGroupOffsetSyncMode']]:
+        """
+        The consumer group offset synchronization mode.
+        """
+        return pulumi.get(self, "consumer_group_offset_sync_mode")
+
+    @consumer_group_offset_sync_mode.setter
+    def consumer_group_offset_sync_mode(self, value: Optional[pulumi.Input['ReplicatorConsumerGroupOffsetSyncMode']]):
+        pulumi.set(self, "consumer_group_offset_sync_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="consumerGroupsToExclude")
@@ -1765,6 +1942,92 @@ class ReplicatorConsumerGroupReplicationArgs:
     @synchronise_consumer_group_offsets.setter
     def synchronise_consumer_group_offsets(self, value: Optional[pulumi.Input[_builtins.bool]]):
         pulumi.set(self, "synchronise_consumer_group_offsets", value)
+
+
+class ReplicatorFirehoseArgsDict(TypedDict):
+    """
+    Details about delivering logs to Firehose.
+    """
+    enabled: pulumi.Input[_builtins.bool]
+    """
+    Whether log delivery to Firehose is enabled.
+    """
+    delivery_stream: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Firehose delivery stream that is the destination for log delivery.
+    """
+
+@pulumi.input_type
+class ReplicatorFirehoseArgs:
+    def __init__(__self__, *,
+                 enabled: pulumi.Input[_builtins.bool],
+                 delivery_stream: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        Details about delivering logs to Firehose.
+
+        :param pulumi.Input[_builtins.bool] enabled: Whether log delivery to Firehose is enabled.
+        :param pulumi.Input[_builtins.str] delivery_stream: The Firehose delivery stream that is the destination for log delivery.
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        if delivery_stream is not None:
+            pulumi.set(__self__, "delivery_stream", delivery_stream)
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> pulumi.Input[_builtins.bool]:
+        """
+        Whether log delivery to Firehose is enabled.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: pulumi.Input[_builtins.bool]):
+        pulumi.set(self, "enabled", value)
+
+    @_builtins.property
+    @pulumi.getter(name="deliveryStream")
+    def delivery_stream(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The Firehose delivery stream that is the destination for log delivery.
+        """
+        return pulumi.get(self, "delivery_stream")
+
+    @delivery_stream.setter
+    def delivery_stream(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "delivery_stream", value)
+
+
+class ReplicatorKafkaClusterClientAuthenticationArgsDict(TypedDict):
+    """
+    Details of the client authentication used by the Apache Kafka cluster.
+    """
+    sasl_scram: pulumi.Input['ReplicatorKafkaClusterSaslScramAuthenticationArgsDict']
+    """
+    Details for SASL/SCRAM client authentication.
+    """
+
+@pulumi.input_type
+class ReplicatorKafkaClusterClientAuthenticationArgs:
+    def __init__(__self__, *,
+                 sasl_scram: pulumi.Input['ReplicatorKafkaClusterSaslScramAuthenticationArgs']):
+        """
+        Details of the client authentication used by the Apache Kafka cluster.
+
+        :param pulumi.Input['ReplicatorKafkaClusterSaslScramAuthenticationArgs'] sasl_scram: Details for SASL/SCRAM client authentication.
+        """
+        pulumi.set(__self__, "sasl_scram", sasl_scram)
+
+    @_builtins.property
+    @pulumi.getter(name="saslScram")
+    def sasl_scram(self) -> pulumi.Input['ReplicatorKafkaClusterSaslScramAuthenticationArgs']:
+        """
+        Details for SASL/SCRAM client authentication.
+        """
+        return pulumi.get(self, "sasl_scram")
+
+    @sasl_scram.setter
+    def sasl_scram(self, value: pulumi.Input['ReplicatorKafkaClusterSaslScramAuthenticationArgs']):
+        pulumi.set(self, "sasl_scram", value)
 
 
 class ReplicatorKafkaClusterClientVpcConfigArgsDict(TypedDict):
@@ -1820,15 +2083,132 @@ class ReplicatorKafkaClusterClientVpcConfigArgs:
         pulumi.set(self, "security_group_ids", value)
 
 
+class ReplicatorKafkaClusterEncryptionInTransitArgsDict(TypedDict):
+    """
+    Details of encryption in transit to the Apache Kafka cluster.
+    """
+    encryption_type: pulumi.Input['ReplicatorKafkaClusterEncryptionInTransitType']
+    """
+    The type of encryption in transit to the Apache Kafka cluster.
+    """
+    root_ca_certificate: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The root CA certificate.
+    """
+
+@pulumi.input_type
+class ReplicatorKafkaClusterEncryptionInTransitArgs:
+    def __init__(__self__, *,
+                 encryption_type: pulumi.Input['ReplicatorKafkaClusterEncryptionInTransitType'],
+                 root_ca_certificate: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        Details of encryption in transit to the Apache Kafka cluster.
+
+        :param pulumi.Input['ReplicatorKafkaClusterEncryptionInTransitType'] encryption_type: The type of encryption in transit to the Apache Kafka cluster.
+        :param pulumi.Input[_builtins.str] root_ca_certificate: The root CA certificate.
+        """
+        pulumi.set(__self__, "encryption_type", encryption_type)
+        if root_ca_certificate is not None:
+            pulumi.set(__self__, "root_ca_certificate", root_ca_certificate)
+
+    @_builtins.property
+    @pulumi.getter(name="encryptionType")
+    def encryption_type(self) -> pulumi.Input['ReplicatorKafkaClusterEncryptionInTransitType']:
+        """
+        The type of encryption in transit to the Apache Kafka cluster.
+        """
+        return pulumi.get(self, "encryption_type")
+
+    @encryption_type.setter
+    def encryption_type(self, value: pulumi.Input['ReplicatorKafkaClusterEncryptionInTransitType']):
+        pulumi.set(self, "encryption_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="rootCaCertificate")
+    def root_ca_certificate(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The root CA certificate.
+        """
+        return pulumi.get(self, "root_ca_certificate")
+
+    @root_ca_certificate.setter
+    def root_ca_certificate(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "root_ca_certificate", value)
+
+
+class ReplicatorKafkaClusterSaslScramAuthenticationArgsDict(TypedDict):
+    """
+    Details for SASL/SCRAM client authentication.
+    """
+    mechanism: pulumi.Input['ReplicatorKafkaClusterSaslScramMechanism']
+    """
+    The SASL/SCRAM authentication mechanism.
+    """
+    secret_arn: pulumi.Input[_builtins.str]
+    """
+    The Amazon Resource Name (ARN) of the Secrets Manager secret.
+    """
+
+@pulumi.input_type
+class ReplicatorKafkaClusterSaslScramAuthenticationArgs:
+    def __init__(__self__, *,
+                 mechanism: pulumi.Input['ReplicatorKafkaClusterSaslScramMechanism'],
+                 secret_arn: pulumi.Input[_builtins.str]):
+        """
+        Details for SASL/SCRAM client authentication.
+
+        :param pulumi.Input['ReplicatorKafkaClusterSaslScramMechanism'] mechanism: The SASL/SCRAM authentication mechanism.
+        :param pulumi.Input[_builtins.str] secret_arn: The Amazon Resource Name (ARN) of the Secrets Manager secret.
+        """
+        pulumi.set(__self__, "mechanism", mechanism)
+        pulumi.set(__self__, "secret_arn", secret_arn)
+
+    @_builtins.property
+    @pulumi.getter
+    def mechanism(self) -> pulumi.Input['ReplicatorKafkaClusterSaslScramMechanism']:
+        """
+        The SASL/SCRAM authentication mechanism.
+        """
+        return pulumi.get(self, "mechanism")
+
+    @mechanism.setter
+    def mechanism(self, value: pulumi.Input['ReplicatorKafkaClusterSaslScramMechanism']):
+        pulumi.set(self, "mechanism", value)
+
+    @_builtins.property
+    @pulumi.getter(name="secretArn")
+    def secret_arn(self) -> pulumi.Input[_builtins.str]:
+        """
+        The Amazon Resource Name (ARN) of the Secrets Manager secret.
+        """
+        return pulumi.get(self, "secret_arn")
+
+    @secret_arn.setter
+    def secret_arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "secret_arn", value)
+
+
 class ReplicatorKafkaClusterArgsDict(TypedDict):
     """
     Details of a Kafka cluster for replication.
     """
-    amazon_msk_cluster: pulumi.Input['ReplicatorAmazonMskClusterArgsDict']
+    amazon_msk_cluster: NotRequired[pulumi.Input['ReplicatorAmazonMskClusterArgsDict']]
     """
-    Details of an Amazon MSK cluster. Exactly one of AmazonMskCluster is required.
+    Details of an Amazon MSK cluster.
     """
-    vpc_config: pulumi.Input['ReplicatorKafkaClusterClientVpcConfigArgsDict']
+    apache_kafka_cluster: NotRequired[pulumi.Input['ReplicatorApacheKafkaClusterArgsDict']]
+    """
+    Details of an Apache Kafka cluster.
+    """
+    client_authentication: NotRequired[pulumi.Input['ReplicatorKafkaClusterClientAuthenticationArgsDict']]
+    """
+    Details of the client authentication used by the Apache Kafka cluster.
+    """
+    encryption_in_transit: NotRequired[pulumi.Input['ReplicatorKafkaClusterEncryptionInTransitArgsDict']]
+    """
+    Details of encryption in transit to the Apache Kafka cluster.
+    """
+    vpc_config: NotRequired[pulumi.Input['ReplicatorKafkaClusterClientVpcConfigArgsDict']]
     """
     Details of an Amazon VPC which has network connectivity to the Apache Kafka cluster.
     """
@@ -1836,40 +2216,164 @@ class ReplicatorKafkaClusterArgsDict(TypedDict):
 @pulumi.input_type
 class ReplicatorKafkaClusterArgs:
     def __init__(__self__, *,
-                 amazon_msk_cluster: pulumi.Input['ReplicatorAmazonMskClusterArgs'],
-                 vpc_config: pulumi.Input['ReplicatorKafkaClusterClientVpcConfigArgs']):
+                 amazon_msk_cluster: Optional[pulumi.Input['ReplicatorAmazonMskClusterArgs']] = None,
+                 apache_kafka_cluster: Optional[pulumi.Input['ReplicatorApacheKafkaClusterArgs']] = None,
+                 client_authentication: Optional[pulumi.Input['ReplicatorKafkaClusterClientAuthenticationArgs']] = None,
+                 encryption_in_transit: Optional[pulumi.Input['ReplicatorKafkaClusterEncryptionInTransitArgs']] = None,
+                 vpc_config: Optional[pulumi.Input['ReplicatorKafkaClusterClientVpcConfigArgs']] = None):
         """
         Details of a Kafka cluster for replication.
 
-        :param pulumi.Input['ReplicatorAmazonMskClusterArgs'] amazon_msk_cluster: Details of an Amazon MSK cluster. Exactly one of AmazonMskCluster is required.
+        :param pulumi.Input['ReplicatorAmazonMskClusterArgs'] amazon_msk_cluster: Details of an Amazon MSK cluster.
+        :param pulumi.Input['ReplicatorApacheKafkaClusterArgs'] apache_kafka_cluster: Details of an Apache Kafka cluster.
+        :param pulumi.Input['ReplicatorKafkaClusterClientAuthenticationArgs'] client_authentication: Details of the client authentication used by the Apache Kafka cluster.
+        :param pulumi.Input['ReplicatorKafkaClusterEncryptionInTransitArgs'] encryption_in_transit: Details of encryption in transit to the Apache Kafka cluster.
         :param pulumi.Input['ReplicatorKafkaClusterClientVpcConfigArgs'] vpc_config: Details of an Amazon VPC which has network connectivity to the Apache Kafka cluster.
         """
-        pulumi.set(__self__, "amazon_msk_cluster", amazon_msk_cluster)
-        pulumi.set(__self__, "vpc_config", vpc_config)
+        if amazon_msk_cluster is not None:
+            pulumi.set(__self__, "amazon_msk_cluster", amazon_msk_cluster)
+        if apache_kafka_cluster is not None:
+            pulumi.set(__self__, "apache_kafka_cluster", apache_kafka_cluster)
+        if client_authentication is not None:
+            pulumi.set(__self__, "client_authentication", client_authentication)
+        if encryption_in_transit is not None:
+            pulumi.set(__self__, "encryption_in_transit", encryption_in_transit)
+        if vpc_config is not None:
+            pulumi.set(__self__, "vpc_config", vpc_config)
 
     @_builtins.property
     @pulumi.getter(name="amazonMskCluster")
-    def amazon_msk_cluster(self) -> pulumi.Input['ReplicatorAmazonMskClusterArgs']:
+    def amazon_msk_cluster(self) -> Optional[pulumi.Input['ReplicatorAmazonMskClusterArgs']]:
         """
-        Details of an Amazon MSK cluster. Exactly one of AmazonMskCluster is required.
+        Details of an Amazon MSK cluster.
         """
         return pulumi.get(self, "amazon_msk_cluster")
 
     @amazon_msk_cluster.setter
-    def amazon_msk_cluster(self, value: pulumi.Input['ReplicatorAmazonMskClusterArgs']):
+    def amazon_msk_cluster(self, value: Optional[pulumi.Input['ReplicatorAmazonMskClusterArgs']]):
         pulumi.set(self, "amazon_msk_cluster", value)
 
     @_builtins.property
+    @pulumi.getter(name="apacheKafkaCluster")
+    def apache_kafka_cluster(self) -> Optional[pulumi.Input['ReplicatorApacheKafkaClusterArgs']]:
+        """
+        Details of an Apache Kafka cluster.
+        """
+        return pulumi.get(self, "apache_kafka_cluster")
+
+    @apache_kafka_cluster.setter
+    def apache_kafka_cluster(self, value: Optional[pulumi.Input['ReplicatorApacheKafkaClusterArgs']]):
+        pulumi.set(self, "apache_kafka_cluster", value)
+
+    @_builtins.property
+    @pulumi.getter(name="clientAuthentication")
+    def client_authentication(self) -> Optional[pulumi.Input['ReplicatorKafkaClusterClientAuthenticationArgs']]:
+        """
+        Details of the client authentication used by the Apache Kafka cluster.
+        """
+        return pulumi.get(self, "client_authentication")
+
+    @client_authentication.setter
+    def client_authentication(self, value: Optional[pulumi.Input['ReplicatorKafkaClusterClientAuthenticationArgs']]):
+        pulumi.set(self, "client_authentication", value)
+
+    @_builtins.property
+    @pulumi.getter(name="encryptionInTransit")
+    def encryption_in_transit(self) -> Optional[pulumi.Input['ReplicatorKafkaClusterEncryptionInTransitArgs']]:
+        """
+        Details of encryption in transit to the Apache Kafka cluster.
+        """
+        return pulumi.get(self, "encryption_in_transit")
+
+    @encryption_in_transit.setter
+    def encryption_in_transit(self, value: Optional[pulumi.Input['ReplicatorKafkaClusterEncryptionInTransitArgs']]):
+        pulumi.set(self, "encryption_in_transit", value)
+
+    @_builtins.property
     @pulumi.getter(name="vpcConfig")
-    def vpc_config(self) -> pulumi.Input['ReplicatorKafkaClusterClientVpcConfigArgs']:
+    def vpc_config(self) -> Optional[pulumi.Input['ReplicatorKafkaClusterClientVpcConfigArgs']]:
         """
         Details of an Amazon VPC which has network connectivity to the Apache Kafka cluster.
         """
         return pulumi.get(self, "vpc_config")
 
     @vpc_config.setter
-    def vpc_config(self, value: pulumi.Input['ReplicatorKafkaClusterClientVpcConfigArgs']):
+    def vpc_config(self, value: Optional[pulumi.Input['ReplicatorKafkaClusterClientVpcConfigArgs']]):
         pulumi.set(self, "vpc_config", value)
+
+
+class ReplicatorLogDeliveryArgsDict(TypedDict):
+    """
+    Details of the log delivery for the replicator.
+    """
+    cloud_watch_logs: NotRequired[pulumi.Input['ReplicatorCloudWatchLogsArgsDict']]
+    """
+    Details of the CloudWatch Logs destination for replicator logs.
+    """
+    firehose: NotRequired[pulumi.Input['ReplicatorFirehoseArgsDict']]
+    """
+    Details of the Kinesis Data Firehose delivery stream that is the destination for replicator logs.
+    """
+    s3: NotRequired[pulumi.Input['ReplicatorS3ArgsDict']]
+    """
+    Details of the Amazon S3 destination for replicator logs.
+    """
+
+@pulumi.input_type
+class ReplicatorLogDeliveryArgs:
+    def __init__(__self__, *,
+                 cloud_watch_logs: Optional[pulumi.Input['ReplicatorCloudWatchLogsArgs']] = None,
+                 firehose: Optional[pulumi.Input['ReplicatorFirehoseArgs']] = None,
+                 s3: Optional[pulumi.Input['ReplicatorS3Args']] = None):
+        """
+        Details of the log delivery for the replicator.
+
+        :param pulumi.Input['ReplicatorCloudWatchLogsArgs'] cloud_watch_logs: Details of the CloudWatch Logs destination for replicator logs.
+        :param pulumi.Input['ReplicatorFirehoseArgs'] firehose: Details of the Kinesis Data Firehose delivery stream that is the destination for replicator logs.
+        :param pulumi.Input['ReplicatorS3Args'] s3: Details of the Amazon S3 destination for replicator logs.
+        """
+        if cloud_watch_logs is not None:
+            pulumi.set(__self__, "cloud_watch_logs", cloud_watch_logs)
+        if firehose is not None:
+            pulumi.set(__self__, "firehose", firehose)
+        if s3 is not None:
+            pulumi.set(__self__, "s3", s3)
+
+    @_builtins.property
+    @pulumi.getter(name="cloudWatchLogs")
+    def cloud_watch_logs(self) -> Optional[pulumi.Input['ReplicatorCloudWatchLogsArgs']]:
+        """
+        Details of the CloudWatch Logs destination for replicator logs.
+        """
+        return pulumi.get(self, "cloud_watch_logs")
+
+    @cloud_watch_logs.setter
+    def cloud_watch_logs(self, value: Optional[pulumi.Input['ReplicatorCloudWatchLogsArgs']]):
+        pulumi.set(self, "cloud_watch_logs", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def firehose(self) -> Optional[pulumi.Input['ReplicatorFirehoseArgs']]:
+        """
+        Details of the Kinesis Data Firehose delivery stream that is the destination for replicator logs.
+        """
+        return pulumi.get(self, "firehose")
+
+    @firehose.setter
+    def firehose(self, value: Optional[pulumi.Input['ReplicatorFirehoseArgs']]):
+        pulumi.set(self, "firehose", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def s3(self) -> Optional[pulumi.Input['ReplicatorS3Args']]:
+        """
+        Details of the Amazon S3 destination for replicator logs.
+        """
+        return pulumi.get(self, "s3")
+
+    @s3.setter
+    def s3(self, value: Optional[pulumi.Input['ReplicatorS3Args']]):
+        pulumi.set(self, "s3", value)
 
 
 class ReplicatorReplicationInfoArgsDict(TypedDict):
@@ -1880,45 +2384,63 @@ class ReplicatorReplicationInfoArgsDict(TypedDict):
     """
     Configuration relating to consumer group replication.
     """
-    source_kafka_cluster_arn: pulumi.Input[_builtins.str]
-    """
-    Amazon Resource Name of the source Kafka cluster.
-    """
     target_compression_type: pulumi.Input['ReplicatorReplicationInfoTargetCompressionType']
     """
     The type of compression to use writing records to target Kafka cluster.
     """
-    target_kafka_cluster_arn: pulumi.Input[_builtins.str]
-    """
-    Amazon Resource Name of the target Kafka cluster.
-    """
     topic_replication: pulumi.Input['ReplicatorTopicReplicationArgsDict']
     """
     Configuration relating to topic replication.
+    """
+    source_kafka_cluster_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Amazon Resource Name of the source Kafka cluster.
+    """
+    source_kafka_cluster_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the source Kafka cluster.
+    """
+    target_kafka_cluster_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Amazon Resource Name of the target Kafka cluster.
+    """
+    target_kafka_cluster_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the target Kafka cluster.
     """
 
 @pulumi.input_type
 class ReplicatorReplicationInfoArgs:
     def __init__(__self__, *,
                  consumer_group_replication: pulumi.Input['ReplicatorConsumerGroupReplicationArgs'],
-                 source_kafka_cluster_arn: pulumi.Input[_builtins.str],
                  target_compression_type: pulumi.Input['ReplicatorReplicationInfoTargetCompressionType'],
-                 target_kafka_cluster_arn: pulumi.Input[_builtins.str],
-                 topic_replication: pulumi.Input['ReplicatorTopicReplicationArgs']):
+                 topic_replication: pulumi.Input['ReplicatorTopicReplicationArgs'],
+                 source_kafka_cluster_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 source_kafka_cluster_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 target_kafka_cluster_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 target_kafka_cluster_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Specifies configuration for replication between a source and target Kafka cluster.
 
         :param pulumi.Input['ReplicatorConsumerGroupReplicationArgs'] consumer_group_replication: Configuration relating to consumer group replication.
-        :param pulumi.Input[_builtins.str] source_kafka_cluster_arn: Amazon Resource Name of the source Kafka cluster.
         :param pulumi.Input['ReplicatorReplicationInfoTargetCompressionType'] target_compression_type: The type of compression to use writing records to target Kafka cluster.
-        :param pulumi.Input[_builtins.str] target_kafka_cluster_arn: Amazon Resource Name of the target Kafka cluster.
         :param pulumi.Input['ReplicatorTopicReplicationArgs'] topic_replication: Configuration relating to topic replication.
+        :param pulumi.Input[_builtins.str] source_kafka_cluster_arn: Amazon Resource Name of the source Kafka cluster.
+        :param pulumi.Input[_builtins.str] source_kafka_cluster_id: The ID of the source Kafka cluster.
+        :param pulumi.Input[_builtins.str] target_kafka_cluster_arn: Amazon Resource Name of the target Kafka cluster.
+        :param pulumi.Input[_builtins.str] target_kafka_cluster_id: The ID of the target Kafka cluster.
         """
         pulumi.set(__self__, "consumer_group_replication", consumer_group_replication)
-        pulumi.set(__self__, "source_kafka_cluster_arn", source_kafka_cluster_arn)
         pulumi.set(__self__, "target_compression_type", target_compression_type)
-        pulumi.set(__self__, "target_kafka_cluster_arn", target_kafka_cluster_arn)
         pulumi.set(__self__, "topic_replication", topic_replication)
+        if source_kafka_cluster_arn is not None:
+            pulumi.set(__self__, "source_kafka_cluster_arn", source_kafka_cluster_arn)
+        if source_kafka_cluster_id is not None:
+            pulumi.set(__self__, "source_kafka_cluster_id", source_kafka_cluster_id)
+        if target_kafka_cluster_arn is not None:
+            pulumi.set(__self__, "target_kafka_cluster_arn", target_kafka_cluster_arn)
+        if target_kafka_cluster_id is not None:
+            pulumi.set(__self__, "target_kafka_cluster_id", target_kafka_cluster_id)
 
     @_builtins.property
     @pulumi.getter(name="consumerGroupReplication")
@@ -1933,18 +2455,6 @@ class ReplicatorReplicationInfoArgs:
         pulumi.set(self, "consumer_group_replication", value)
 
     @_builtins.property
-    @pulumi.getter(name="sourceKafkaClusterArn")
-    def source_kafka_cluster_arn(self) -> pulumi.Input[_builtins.str]:
-        """
-        Amazon Resource Name of the source Kafka cluster.
-        """
-        return pulumi.get(self, "source_kafka_cluster_arn")
-
-    @source_kafka_cluster_arn.setter
-    def source_kafka_cluster_arn(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "source_kafka_cluster_arn", value)
-
-    @_builtins.property
     @pulumi.getter(name="targetCompressionType")
     def target_compression_type(self) -> pulumi.Input['ReplicatorReplicationInfoTargetCompressionType']:
         """
@@ -1957,18 +2467,6 @@ class ReplicatorReplicationInfoArgs:
         pulumi.set(self, "target_compression_type", value)
 
     @_builtins.property
-    @pulumi.getter(name="targetKafkaClusterArn")
-    def target_kafka_cluster_arn(self) -> pulumi.Input[_builtins.str]:
-        """
-        Amazon Resource Name of the target Kafka cluster.
-        """
-        return pulumi.get(self, "target_kafka_cluster_arn")
-
-    @target_kafka_cluster_arn.setter
-    def target_kafka_cluster_arn(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "target_kafka_cluster_arn", value)
-
-    @_builtins.property
     @pulumi.getter(name="topicReplication")
     def topic_replication(self) -> pulumi.Input['ReplicatorTopicReplicationArgs']:
         """
@@ -1979,6 +2477,54 @@ class ReplicatorReplicationInfoArgs:
     @topic_replication.setter
     def topic_replication(self, value: pulumi.Input['ReplicatorTopicReplicationArgs']):
         pulumi.set(self, "topic_replication", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sourceKafkaClusterArn")
+    def source_kafka_cluster_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Amazon Resource Name of the source Kafka cluster.
+        """
+        return pulumi.get(self, "source_kafka_cluster_arn")
+
+    @source_kafka_cluster_arn.setter
+    def source_kafka_cluster_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "source_kafka_cluster_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sourceKafkaClusterId")
+    def source_kafka_cluster_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The ID of the source Kafka cluster.
+        """
+        return pulumi.get(self, "source_kafka_cluster_id")
+
+    @source_kafka_cluster_id.setter
+    def source_kafka_cluster_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "source_kafka_cluster_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="targetKafkaClusterArn")
+    def target_kafka_cluster_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Amazon Resource Name of the target Kafka cluster.
+        """
+        return pulumi.get(self, "target_kafka_cluster_arn")
+
+    @target_kafka_cluster_arn.setter
+    def target_kafka_cluster_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "target_kafka_cluster_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="targetKafkaClusterId")
+    def target_kafka_cluster_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The ID of the target Kafka cluster.
+        """
+        return pulumi.get(self, "target_kafka_cluster_id")
+
+    @target_kafka_cluster_id.setter
+    def target_kafka_cluster_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "target_kafka_cluster_id", value)
 
 
 class ReplicatorReplicationStartingPositionArgsDict(TypedDict):
@@ -2047,6 +2593,79 @@ class ReplicatorReplicationTopicNameConfigurationArgs:
     @type.setter
     def type(self, value: Optional[pulumi.Input['ReplicatorReplicationTopicNameConfigurationType']]):
         pulumi.set(self, "type", value)
+
+
+class ReplicatorS3ArgsDict(TypedDict):
+    """
+    Details about delivering logs to S3.
+    """
+    enabled: pulumi.Input[_builtins.bool]
+    """
+    Whether log delivery to S3 is enabled.
+    """
+    bucket: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The S3 bucket that is the destination for log delivery.
+    """
+    prefix: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The S3 prefix that is the destination for log delivery.
+    """
+
+@pulumi.input_type
+class ReplicatorS3Args:
+    def __init__(__self__, *,
+                 enabled: pulumi.Input[_builtins.bool],
+                 bucket: Optional[pulumi.Input[_builtins.str]] = None,
+                 prefix: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        Details about delivering logs to S3.
+
+        :param pulumi.Input[_builtins.bool] enabled: Whether log delivery to S3 is enabled.
+        :param pulumi.Input[_builtins.str] bucket: The S3 bucket that is the destination for log delivery.
+        :param pulumi.Input[_builtins.str] prefix: The S3 prefix that is the destination for log delivery.
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        if bucket is not None:
+            pulumi.set(__self__, "bucket", bucket)
+        if prefix is not None:
+            pulumi.set(__self__, "prefix", prefix)
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> pulumi.Input[_builtins.bool]:
+        """
+        Whether log delivery to S3 is enabled.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: pulumi.Input[_builtins.bool]):
+        pulumi.set(self, "enabled", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def bucket(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The S3 bucket that is the destination for log delivery.
+        """
+        return pulumi.get(self, "bucket")
+
+    @bucket.setter
+    def bucket(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "bucket", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The S3 prefix that is the destination for log delivery.
+        """
+        return pulumi.get(self, "prefix")
+
+    @prefix.setter
+    def prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "prefix", value)
 
 
 class ReplicatorTopicReplicationArgsDict(TypedDict):

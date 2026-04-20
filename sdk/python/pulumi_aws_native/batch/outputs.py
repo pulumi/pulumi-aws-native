@@ -5302,8 +5302,8 @@ class QuotaShareCapacityLimit(dict):
                  capacity_unit: _builtins.str,
                  max_capacity: _builtins.int):
         """
-        :param _builtins.str capacity_unit: The unit of compute capacity for the capacityLimit.
-        :param _builtins.int max_capacity: The maximum capacity available for the quota share. This value represents the maximum amount of resources that can be allocated to jobs in the quota share without borrowing
+        :param _builtins.str capacity_unit: The unit of compute capacity for the capacityLimit. For example, `ml.m5.large`.
+        :param _builtins.int max_capacity: The maximum capacity available for the quota share. This value represents the maximum quantity of a resource that can be allocated to jobs in the quota share without borrowing.
         """
         pulumi.set(__self__, "capacity_unit", capacity_unit)
         pulumi.set(__self__, "max_capacity", max_capacity)
@@ -5312,7 +5312,7 @@ class QuotaShareCapacityLimit(dict):
     @pulumi.getter(name="capacityUnit")
     def capacity_unit(self) -> _builtins.str:
         """
-        The unit of compute capacity for the capacityLimit.
+        The unit of compute capacity for the capacityLimit. For example, `ml.m5.large`.
         """
         return pulumi.get(self, "capacity_unit")
 
@@ -5320,7 +5320,7 @@ class QuotaShareCapacityLimit(dict):
     @pulumi.getter(name="maxCapacity")
     def max_capacity(self) -> _builtins.int:
         """
-        The maximum capacity available for the quota share. This value represents the maximum amount of resources that can be allocated to jobs in the quota share without borrowing
+        The maximum capacity available for the quota share. This value represents the maximum quantity of a resource that can be allocated to jobs in the quota share without borrowing.
         """
         return pulumi.get(self, "max_capacity")
 
@@ -5347,7 +5347,7 @@ class QuotaSharePreemptionConfiguration(dict):
     def __init__(__self__, *,
                  in_share_preemption: 'QuotaSharePreemptionConfigurationInSharePreemption'):
         """
-        :param 'QuotaSharePreemptionConfigurationInSharePreemption' in_share_preemption: Whether preemption is enabled within the quota share.
+        :param 'QuotaSharePreemptionConfigurationInSharePreemption' in_share_preemption: Specifies whether jobs within a quota share can be preempted by another, higher priority job in the same quota share.
         """
         pulumi.set(__self__, "in_share_preemption", in_share_preemption)
 
@@ -5355,7 +5355,7 @@ class QuotaSharePreemptionConfiguration(dict):
     @pulumi.getter(name="inSharePreemption")
     def in_share_preemption(self) -> 'QuotaSharePreemptionConfigurationInSharePreemption':
         """
-        Whether preemption is enabled within the quota share.
+        Specifies whether jobs within a quota share can be preempted by another, higher priority job in the same quota share.
         """
         return pulumi.get(self, "in_share_preemption")
 
@@ -5383,8 +5383,8 @@ class QuotaShareResourceSharingConfiguration(dict):
                  strategy: 'QuotaShareResourceSharingConfigurationStrategy',
                  borrow_limit: Optional[_builtins.int] = None):
         """
-        :param 'QuotaShareResourceSharingConfigurationStrategy' strategy: The resource sharing strategy.
-        :param _builtins.int borrow_limit: The maximum amount of compute capacity that can be borrowed. Use -1 for unlimited borrowing.
+        :param 'QuotaShareResourceSharingConfigurationStrategy' strategy: The resource sharing strategy for the quota share. The `RESERVE` strategy allows a quota share to reserve idle capacity for itself. `LEND` configures the share to lend its idle capacity to another share in need of capacity. The `LEND_AND_BORROW` strategy configures the share to borrow idle capacity from an underutilized share, as well as lend to another share.
+        :param _builtins.int borrow_limit: The maximum percentage of additional capacity that the quota share can borrow from other shares. `BorrowLimit` can only be applied to quota shares with a strategy of `LEND_AND_BORROW`. This value is expressed as a percentage of the quota share's configured CapacityLimits. The `BorrowLimit` is applied uniformly across all capacity units. For example, if the `BorrowLimit` is 200, the quota share can borrow up to 200% of its configured `maxCapacity` for each capacity unit. The default `BorrowLimit` is -1, which indicates unlimited borrowing.
         """
         pulumi.set(__self__, "strategy", strategy)
         if borrow_limit is not None:
@@ -5394,7 +5394,7 @@ class QuotaShareResourceSharingConfiguration(dict):
     @pulumi.getter
     def strategy(self) -> 'QuotaShareResourceSharingConfigurationStrategy':
         """
-        The resource sharing strategy.
+        The resource sharing strategy for the quota share. The `RESERVE` strategy allows a quota share to reserve idle capacity for itself. `LEND` configures the share to lend its idle capacity to another share in need of capacity. The `LEND_AND_BORROW` strategy configures the share to borrow idle capacity from an underutilized share, as well as lend to another share.
         """
         return pulumi.get(self, "strategy")
 
@@ -5402,7 +5402,7 @@ class QuotaShareResourceSharingConfiguration(dict):
     @pulumi.getter(name="borrowLimit")
     def borrow_limit(self) -> Optional[_builtins.int]:
         """
-        The maximum amount of compute capacity that can be borrowed. Use -1 for unlimited borrowing.
+        The maximum percentage of additional capacity that the quota share can borrow from other shares. `BorrowLimit` can only be applied to quota shares with a strategy of `LEND_AND_BORROW`. This value is expressed as a percentage of the quota share's configured CapacityLimits. The `BorrowLimit` is applied uniformly across all capacity units. For example, if the `BorrowLimit` is 200, the quota share can borrow up to 200% of its configured `maxCapacity` for each capacity unit. The default `BorrowLimit` is -1, which indicates unlimited borrowing.
         """
         return pulumi.get(self, "borrow_limit")
 

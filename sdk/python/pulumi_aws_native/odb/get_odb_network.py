@@ -26,10 +26,13 @@ __all__ = [
 
 @pulumi.output_type
 class GetOdbNetworkResult:
-    def __init__(__self__, display_name=None, managed_services=None, oci_network_anchor_id=None, oci_resource_anchor_name=None, oci_vcn_url=None, odb_network_arn=None, odb_network_id=None, tags=None):
+    def __init__(__self__, display_name=None, ec2_placement_group_ids=None, managed_services=None, oci_network_anchor_id=None, oci_resource_anchor_name=None, oci_vcn_url=None, odb_network_arn=None, odb_network_id=None, tags=None):
         if display_name and not isinstance(display_name, str):
             raise TypeError("Expected argument 'display_name' to be a str")
         pulumi.set(__self__, "display_name", display_name)
+        if ec2_placement_group_ids and not isinstance(ec2_placement_group_ids, list):
+            raise TypeError("Expected argument 'ec2_placement_group_ids' to be a list")
+        pulumi.set(__self__, "ec2_placement_group_ids", ec2_placement_group_ids)
         if managed_services and not isinstance(managed_services, dict):
             raise TypeError("Expected argument 'managed_services' to be a dict")
         pulumi.set(__self__, "managed_services", managed_services)
@@ -59,6 +62,14 @@ class GetOdbNetworkResult:
         The user-friendly name of the ODB network.
         """
         return pulumi.get(self, "display_name")
+
+    @_builtins.property
+    @pulumi.getter(name="ec2PlacementGroupIds")
+    def ec2_placement_group_ids(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        The list of EC2 placement group IDs associated with your ODB network.
+        """
+        return pulumi.get(self, "ec2_placement_group_ids")
 
     @_builtins.property
     @pulumi.getter(name="managedServices")
@@ -121,6 +132,7 @@ class AwaitableGetOdbNetworkResult(GetOdbNetworkResult):
             yield self
         return GetOdbNetworkResult(
             display_name=self.display_name,
+            ec2_placement_group_ids=self.ec2_placement_group_ids,
             managed_services=self.managed_services,
             oci_network_anchor_id=self.oci_network_anchor_id,
             oci_resource_anchor_name=self.oci_resource_anchor_name,
@@ -145,6 +157,7 @@ def get_odb_network(odb_network_arn: Optional[_builtins.str] = None,
 
     return AwaitableGetOdbNetworkResult(
         display_name=pulumi.get(__ret__, 'display_name'),
+        ec2_placement_group_ids=pulumi.get(__ret__, 'ec2_placement_group_ids'),
         managed_services=pulumi.get(__ret__, 'managed_services'),
         oci_network_anchor_id=pulumi.get(__ret__, 'oci_network_anchor_id'),
         oci_resource_anchor_name=pulumi.get(__ret__, 'oci_resource_anchor_name'),
@@ -166,6 +179,7 @@ def get_odb_network_output(odb_network_arn: Optional[pulumi.Input[_builtins.str]
     __ret__ = pulumi.runtime.invoke_output('aws-native:odb:getOdbNetwork', __args__, opts=opts, typ=GetOdbNetworkResult)
     return __ret__.apply(lambda __response__: GetOdbNetworkResult(
         display_name=pulumi.get(__response__, 'display_name'),
+        ec2_placement_group_ids=pulumi.get(__response__, 'ec2_placement_group_ids'),
         managed_services=pulumi.get(__response__, 'managed_services'),
         oci_network_anchor_id=pulumi.get(__response__, 'oci_network_anchor_id'),
         oci_resource_anchor_name=pulumi.get(__response__, 'oci_resource_anchor_name'),

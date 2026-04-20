@@ -10,10 +10,20 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Ecs.Outputs
 {
 
+    /// <summary>
+    /// The FireLens configuration for the container. This is used to specify and configure a log router for container logs. For more information, see [Custom log routing](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_firelens.html) in the *Amazon Elastic Container Service Developer Guide*.
+    /// </summary>
     [OutputType]
     public sealed class DaemonTaskDefinitionFirelensConfiguration
     {
+        /// <summary>
+        /// The options to use when configuring the log router. This field is optional and can be used to specify a custom configuration file or to add additional metadata, such as the task, task definition, cluster, and container instance details to the log event. If specified, the syntax to use is ``"options":{"enable-ecs-log-metadata":"true|false","config-file-type:"s3|file","config-file-value":"arn:aws:s3:::mybucket/fluent.conf|filepath"}``. For more information, see [Creating a task definition that uses a FireLens configuration](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_firelens.html#firelens-taskdef) in the *Amazon Elastic Container Service Developer Guide*.
+        ///   Tasks hosted on FARGATElong only support the ``file`` configuration file type.
+        /// </summary>
         public readonly ImmutableDictionary<string, string>? Options;
+        /// <summary>
+        /// The log router to use. The valid values are ``fluentd`` or ``fluentbit``.
+        /// </summary>
         public readonly string? Type;
 
         [OutputConstructor]

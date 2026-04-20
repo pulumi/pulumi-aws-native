@@ -24,8 +24,14 @@ namespace Pulumi.AwsNative.Msk.Inputs
         /// <summary>
         /// Amazon Resource Name of the source Kafka cluster.
         /// </summary>
-        [Input("sourceKafkaClusterArn", required: true)]
-        public Input<string> SourceKafkaClusterArn { get; set; } = null!;
+        [Input("sourceKafkaClusterArn")]
+        public Input<string>? SourceKafkaClusterArn { get; set; }
+
+        /// <summary>
+        /// The ID of the source Kafka cluster.
+        /// </summary>
+        [Input("sourceKafkaClusterId")]
+        public Input<string>? SourceKafkaClusterId { get; set; }
 
         /// <summary>
         /// The type of compression to use writing records to target Kafka cluster.
@@ -36,8 +42,14 @@ namespace Pulumi.AwsNative.Msk.Inputs
         /// <summary>
         /// Amazon Resource Name of the target Kafka cluster.
         /// </summary>
-        [Input("targetKafkaClusterArn", required: true)]
-        public Input<string> TargetKafkaClusterArn { get; set; } = null!;
+        [Input("targetKafkaClusterArn")]
+        public Input<string>? TargetKafkaClusterArn { get; set; }
+
+        /// <summary>
+        /// The ID of the target Kafka cluster.
+        /// </summary>
+        [Input("targetKafkaClusterId")]
+        public Input<string>? TargetKafkaClusterId { get; set; }
 
         /// <summary>
         /// Configuration relating to topic replication.
